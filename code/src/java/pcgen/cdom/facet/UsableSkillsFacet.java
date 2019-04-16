@@ -30,7 +30,6 @@ import pcgen.core.Skill;
  * UsableSkillsFacet is a Facet that tracks Non-Exclusive Use-Untrained skills
  * for a PC (CLASS or CROSSCLASS for any PCClass)
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UsableSkillsFacet extends AbstractSourcedListFacet<CharID, Skill>
 		implements SubScopeFacetChangeListener<Skill, SkillCost, PCClass>
@@ -38,8 +37,7 @@ public class UsableSkillsFacet extends AbstractSourcedListFacet<CharID, Skill>
 	private SkillCostFacet skillCostFacet;
 
 	@Override
-	public void dataAdded(
-		SubScopeFacetChangeEvent<Skill, SkillCost, PCClass> dfce)
+	public void dataAdded(SubScopeFacetChangeEvent<Skill, SkillCost, PCClass> dfce)
 	{
 		Skill sk = dfce.getScope1();
 		if (sk.getSafe(ObjectKey.USE_UNTRAINED).booleanValue())
@@ -49,13 +47,11 @@ public class UsableSkillsFacet extends AbstractSourcedListFacet<CharID, Skill>
 	}
 
 	@Override
-	public void dataRemoved(
-		SubScopeFacetChangeEvent<Skill, SkillCost, PCClass> dfce)
+	public void dataRemoved(SubScopeFacetChangeEvent<Skill, SkillCost, PCClass> dfce)
 	{
 		CharID id = dfce.getCharID();
 		Skill sk = dfce.getScope1();
-		if (sk.getSafe(ObjectKey.USE_UNTRAINED).booleanValue()
-			&& !skillCostFacet.containsFor(id, sk))
+		if (sk.getSafe(ObjectKey.USE_UNTRAINED).booleanValue() && !skillCostFacet.containsFor(id, sk))
 		{
 			remove(id, sk, dfce.getSource());
 		}

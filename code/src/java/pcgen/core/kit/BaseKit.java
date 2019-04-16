@@ -1,5 +1,4 @@
 /*
- * BaseKit.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  * Copyright 2003 (C) Jonas Karlson <jujutsunerd@sf.net>
  *
@@ -16,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 28, 2002, 11:50 PM
- *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -39,7 +34,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * Common code for the kits.
  * 
- * @author Jonas Karlson &lt;jujutsunerd@sf.net&gt;
  */
 public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 {
@@ -89,7 +83,7 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 	{
 		return bounds != null;
 	}
-	
+
 	/**
 	 * Evaluate the EVAL expression
 	 * 
@@ -143,7 +137,7 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 			}
 			evalStr = evalStr.substring(5, endInd);
 			int val = aPC.getVariableValue(evalStr, "").intValue();
-			String evalVal = "" + val;
+			String evalVal = String.valueOf(val);
 			modString.append(evalVal);
 			modString.append(aValue.substring(endInd + 5));
 			ret = modString.toString();
@@ -165,8 +159,7 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 	 *            A list of warnings generated while attempting to apply the kit
 	 * @return true if OK
 	 */
-	public abstract boolean testApply(Kit aKit, PlayerCharacter aPC,
-			List<String> warnings);
+	public abstract boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings);
 
 	/**
 	 * Apply Kit
@@ -188,49 +181,43 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 		return bounds == null ? null : Collections.unmodifiableList(bounds);
 	}
 
-    @Override
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
-    @Override
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
-    @Override
+	@Override
 	public String getDisplayName()
 	{
 		return null;
 	}
 
-    @Override
+	@Override
 	public void setName(String name)
 	{
 		//TODO illegal?
 	}
 
-    @Override
+	@Override
 	public String getKeyName()
 	{
 		return null;
 	}
 
-    @Override
-	public String getLSTformat()
-	{
-		return null;
-	}
-
-    @Override
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
-    @Override
+	@Override
 	public boolean isType(String type)
 	{
 		return false;

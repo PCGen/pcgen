@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.race;
 
-import org.junit.Test;
-
 import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
@@ -28,12 +26,14 @@ import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.race.MonsterclassToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.jupiter.api.Test;
 public class MonsterClassIntegrationTest extends
 		AbstractIntegrationTestCase<Race>
 {
 
-	static MonsterclassToken token = new MonsterclassToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static MonsterclassToken token = new MonsterclassToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

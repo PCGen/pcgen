@@ -1,5 +1,4 @@
 /*
- * AbilitySelection.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.cdom.content;
 
@@ -27,14 +25,15 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Reducible;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.SettingsHandler;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 
-public class AbilitySelection extends Selection<Ability, String> implements
-		Comparable<AbilitySelection>, Reducible
+public class AbilitySelection extends Selection<Ability, String> implements Comparable<AbilitySelection>, Reducible
 {
 
 	public AbilitySelection(Ability obj, String sel)
@@ -56,40 +55,32 @@ public class AbilitySelection extends Selection<Ability, String> implements
 	 * 
 	 * @return An AbilitySelection that was encoded in the given String.
 	 */
-	public static AbilitySelection getAbilitySelectionFromPersistentFormat(
-		LoadContext context, String persistentFormat)
+	public static AbilitySelection getAbilitySelectionFromPersistentFormat(LoadContext context, String persistentFormat)
 	{
-		if (persistentFormat.indexOf(Constants.PIPE) < 0)
+		if (!persistentFormat.contains(Constants.PIPE))
 		{
 			return decodeFeatSelectionChoice(context, persistentFormat);
 		}
-		StringTokenizer st =
-				new StringTokenizer(persistentFormat, Constants.PIPE);
+		StringTokenizer st = new StringTokenizer(persistentFormat, Constants.PIPE);
 		String catString = st.nextToken();
 		if (!catString.startsWith("CATEGORY="))
 		{
-			throw new IllegalArgumentException(
-				"String in getAbilitySelectionFromPersistentFormat "
-					+ "must start with CATEGORY=, found: " + persistentFormat);
+			throw new IllegalArgumentException("String in getAbilitySelectionFromPersistentFormat "
+				+ "must start with CATEGORY=, found: " + persistentFormat);
 		}
 		String cat = catString.substring(9);
 		AbilityCategory ac = SettingsHandler.getGame().getAbilityCategory(cat);
 		if (ac == null)
 		{
 			throw new IllegalArgumentException(
-				"Category in getAbilitySelectionFromPersistentFormat "
-					+ "must exist found: " + cat);
+				"Category in getAbilitySelectionFromPersistentFormat " + "must exist found: " + cat);
 		}
 		String ab = st.nextToken();
-		Ability a =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					Ability.class, ac, ab);
+		Ability a = context.getReferenceContext().getManufacturerId(ac).getActiveObject(ab);
 		if (a == null)
 		{
-			throw new IllegalArgumentException(
-				"Second argument in String in getAbilitySelectionFromPersistentFormat "
-					+ "must be an Ability, but it was not found: "
-					+ persistentFormat);
+			throw new IllegalArgumentException("Second argument in String in getAbilitySelectionFromPersistentFormat "
+				+ "must be an Ability, but it was not found: " + persistentFormat);
 		}
 		String sel = null;
 		if (st.hasMoreTokens())
@@ -107,14 +98,11 @@ public class AbilitySelection extends Selection<Ability, String> implements
 		}
 		if (st.hasMoreTokens())
 		{
-			throw new IllegalArgumentException(
-				"String in getAbilitySelectionFromPersistentFormat "
-					+ "must have 2 or 3 arguments, but found more: "
-					+ persistentFormat);
+			throw new IllegalArgumentException("String in getAbilitySelectionFromPersistentFormat "
+				+ "must have 2 or 3 arguments, but found more: " + persistentFormat);
 		}
 		return new AbilitySelection(a, sel);
 	}
-
 
 	/**
 	 * Decode a legacy feat selection format. This may come from a character 
@@ -129,29 +117,22 @@ public class AbilitySelection extends Selection<Ability, String> implements
 	 * 
 	 * @return An AbilitySelection that was encoded in the given String.
 	 */
-	private static AbilitySelection decodeFeatSelectionChoice(
-		LoadContext context, String persistentFormat)
+	private static AbilitySelection decodeFeatSelectionChoice(LoadContext context, String persistentFormat)
 	{
-		Ability ability =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					Ability.class, AbilityCategory.FEAT, persistentFormat);
+		AbstractReferenceContext referenceContext = context.getReferenceContext();
+		AbilityCategory featCategory = referenceContext.get(AbilityCategory.class, "FEAT");
+		ReferenceManufacturer<Ability> featManufacturer = referenceContext.getManufacturerId(featCategory);
+		Ability ability = featManufacturer.getActiveObject(persistentFormat);
 
 		if (ability == null)
 		{
 			List<String> choices = new ArrayList<>();
-			String baseKey =
-					AbilityUtilities.getUndecoratedName(persistentFormat,
-						choices);
-			ability =
-					context.getReferenceContext()
-						.silentlyGetConstructedCDOMObject(Ability.class,
-							AbilityCategory.FEAT, baseKey);
+			String baseKey = AbilityUtilities.getUndecoratedName(persistentFormat, choices);
+			ability = featManufacturer.getActiveObject(baseKey);
 			if (ability == null)
 			{
-				throw new IllegalArgumentException("String in decodeChoice "
-					+ "must be a Feat Key "
-					+ "(or Feat Key with Selection if appropriate), was: "
-					+ persistentFormat);
+				throw new IllegalArgumentException("String in decodeChoice " + "must be a Feat Key "
+					+ "(or Feat Key with Selection if appropriate), was: " + persistentFormat);
 			}
 			return new AbilitySelection(ability, choices.get(0));
 		}
@@ -205,19 +186,13 @@ public class AbilitySelection extends Selection<Ability, String> implements
 		return getObject().getKeyName();
 	}
 
-	public boolean containsAssociation(String a)
-	{
-		String assoc = getSelection();
-		return (a == assoc) || ((a != null) && a.equalsIgnoreCase(assoc));
-	}
-	
 	@Override
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder(50);
 		sb.append(getAbilityKey());
 		String selection = getSelection();
-		if ((selection != null) && (selection.length() > 0))
+		if ((selection != null) && (!selection.isEmpty()))
 		{
 			sb.append(" (");
 			sb.append(selection);
@@ -247,9 +222,6 @@ public class AbilitySelection extends Selection<Ability, String> implements
 		return selection.compareTo(oselection);
 	}
 
-	/**
-	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
-	 */
 	@Override
 	public CDOMObject getCDOMObject()
 	{

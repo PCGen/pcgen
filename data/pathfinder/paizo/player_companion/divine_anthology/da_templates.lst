@@ -1,0 +1,5 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+#SOURCELONG:Divine Anthology	SOURCESHORT:DA	SOURCEWEB:http://paizo.com/products/btpy9nvh	SOURCEDATE:2016-10
+
+# Template Name					Visible	Ability
+Masterpiece Activation Divine Anthology	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Exhilarating Prayer of Grace|PREMULT:1,[PRESPELL:1,Masterpiece (Exhilarating Prayer of Grace)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Exhilarating Prayer of Grace)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Hymn of Restorative Harmonics|PREMULT:1,[PRESPELL:1,Masterpiece (Hymn of Restorative Harmonics)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Hymn of Restorative Harmonics)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Stirring Discourse of the Mind|PREMULT:1,[PRESPELL:1,Masterpiece (Stirring Discourse of the Mind)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Stirring Discourse of the Mind)]

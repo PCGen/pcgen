@@ -28,7 +28,7 @@ public class SettingTokenTest extends AbstractStringTokenTestCase<Campaign>
 {
 
 	static SettingToken token = new SettingToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()

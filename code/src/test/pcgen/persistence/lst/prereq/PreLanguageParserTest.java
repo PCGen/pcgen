@@ -1,5 +1,4 @@
 /*
- * PreLanguageParserTest.java
  *
  * Copyright 2004 (C) Frugal <frugal@purplewombat.co.uk>
  *
@@ -16,30 +15,29 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.persistence.lst.prereq;
 
 import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreLanguageParser;
+
+import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("nls")
 public class PreLanguageParserTest extends EnUsLocaleDependentTestCase
 {
+	
 	/**
-	 * @throws Exception
+	 * Test 1 language of 2.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void test1LanguageOf2() throws Exception
+	public void test1LanguageOf2() throws PersistenceLayerException
 	{
 		PreLanguageParser parser = new PreLanguageParser();
 		Prerequisite prereq =
@@ -54,11 +52,14 @@ public class PreLanguageParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test not 1 language of 2.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNot1LanguageOf2() throws Exception
+	public void testNot1LanguageOf2() throws PersistenceLayerException
 	{
 		PreLanguageParser parser = new PreLanguageParser();
 		Prerequisite prereq =
@@ -73,11 +74,14 @@ public class PreLanguageParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test 2 language of any.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void test2LanguageOfAny() throws Exception
+	public void test2LanguageOfAny() throws PersistenceLayerException
 	{
 		PreLanguageParser parser = new PreLanguageParser();
 		Prerequisite prereq = parser.parse("LANG", "2,ANY", false, false);
@@ -89,10 +93,12 @@ public class PreLanguageParserTest extends EnUsLocaleDependentTestCase
 	}
 
 	/**
-	 * @throws Exception
+	 * Test not 2 language of any.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNot2LanguageOfAny() throws Exception
+	public void testNot2LanguageOfAny() throws PersistenceLayerException
 	{
 		PreLanguageParser parser = new PreLanguageParser();
 		Prerequisite prereq = parser.parse("LANG", "2,ANY", true, false);

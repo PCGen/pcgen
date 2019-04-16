@@ -17,12 +17,16 @@
  */
 package pcgen.cdom.facet.fact;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 {
@@ -30,11 +34,21 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 	private HeightFacet facet = new HeightFacet();
 
 	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
+	}
+
+	@Override
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		facet = null;
+		super.tearDown();
 	}
 
 	@Test
@@ -46,14 +60,14 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testHeightSetZeroValid()
 	{
-		facet.setHeight(id, 0);
+		facet.set(id, 0);
 		assertEquals(0, facet.getHeight(id));
 	}
 
 	@Test
 	public void testHeightSetNegative()
 	{
-		facet.setHeight(id, -250);
+		facet.set(id, -250);
 		/*
 		 * TODO Some form of error here?
 		 */
@@ -62,9 +76,9 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testRemoveHeight()
 	{
-		facet.setHeight(id, 25);
+		facet.set(id, 25);
 		assertEquals(25, facet.getHeight(id));
-		facet.removeHeight(id);
+		facet.remove(id);
 		assertEquals(0, facet.getHeight(id));
 	}
 

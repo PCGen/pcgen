@@ -25,26 +25,19 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-
-import org.junit.Test;
 import plugin.lsttokens.domain.CskillToken;
+
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class CskillTokenTest extends AbstractSelectionActorTest<Skill>
 {
 
-	private static final ChooseSelectionActor cra = new CskillToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
+	private static final ChooseSelectionActor CRA = new CskillToken();
 
 	@Override
 	public ChooseSelectionActor<Skill> getActor()
 	{
-		return cra;
+		return CRA;
 	}
 
 	@Override

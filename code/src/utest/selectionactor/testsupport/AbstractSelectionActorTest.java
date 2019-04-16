@@ -17,7 +17,8 @@
  */
 package selectionactor.testsupport;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.base.test.InequalityTester;
 import pcgen.cdom.base.CDOMObject;
@@ -27,10 +28,10 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.testsupport.AbstractCharacterUsingTestCase;
 
 import compare.InequalityTesterInst;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends AbstractCharacterUsingTestCase
 {
@@ -42,7 +43,7 @@ public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends A
 	public abstract boolean isGranted();
 
 	@Test
-	public void testAddRemoveSimple() throws PersistenceLayerException
+	public void testAddRemoveSimple()
 	{
 		setUpPC();
 		finishLoad(Globals.getContext());
@@ -83,18 +84,13 @@ public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends A
 	{
 	}
 
-	protected String getPersistentFormat(T cdo)
-	{
-		return cdo.getKeyName();
-	}
-
 	protected ChooseDriver getOwner()
 	{
 		return new Domain();
 	}
 
 	@Test
-	public void testAddRemoveHasChild() throws PersistenceLayerException
+	public void testAddRemoveHasChild()
 	{
 		if (isGranted())
 		{

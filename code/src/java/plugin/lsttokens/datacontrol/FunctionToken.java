@@ -23,8 +23,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class FunctionToken extends AbstractNonEmptyToken<UserFunction>
-		implements CDOMPrimaryToken<UserFunction>
+public class FunctionToken extends AbstractNonEmptyToken<UserFunction> implements CDOMPrimaryToken<UserFunction>
 {
 
 	@Override
@@ -34,8 +33,7 @@ public class FunctionToken extends AbstractNonEmptyToken<UserFunction>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		UserFunction ftn, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, UserFunction ftn, String value)
 	{
 		//Name is set by Loader, so nothing to do here
 		return ParseResult.SUCCESS;

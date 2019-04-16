@@ -1,0 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Inner Sea Intrigue	SOURCESHORT:ISI	SOURCEWEB:http://paizo.com/products/btpy9l37?Pathfinder-Campaign-Setting-Inner-Sea-Intrigue	SOURCEDATE:2016-06
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 December 2017
+
+# Race of familiar					Type			Ability
+MASTERBONUSRACE:Familiar (Clockwork Familiar)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Clockwork Familiar)

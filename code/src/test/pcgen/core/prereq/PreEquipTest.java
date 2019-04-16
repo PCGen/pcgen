@@ -1,5 +1,4 @@
 /*
- * PreEquipTest.java
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 22-Nov-2004
  */
 package pcgen.core.prereq;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -32,17 +31,20 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.character.WieldCategory;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
-/**
- */
+import org.junit.jupiter.api.Test;
+
+
 public class PreEquipTest extends AbstractCharacterTestCase
 {
 
 	/*
 	 * Class under test for int passes(Prerequisite, PlayerCharacter)
 	 */
+	@Test
 	public void testPassesPrerequisitePlayerCharacter()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -75,10 +77,12 @@ public class PreEquipTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test equipment type tests
-	 * @throws Exception
+	 * Test equipment type tests.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testType() throws Exception
+	@Test
+	public void testType() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -127,10 +131,10 @@ public class PreEquipTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test wield category tests
-	 * @throws Exception
+	 * Test wield category tests.
 	 */
-	public void testWield() throws Exception
+	@Test
+	public void testWield()
 	{
 		final PlayerCharacter character = getCharacter();
 

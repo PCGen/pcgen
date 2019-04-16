@@ -28,8 +28,8 @@ public class ReachIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Race>
 {
 
-	static ReachToken token = new ReachToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static ReachToken token = new ReachToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

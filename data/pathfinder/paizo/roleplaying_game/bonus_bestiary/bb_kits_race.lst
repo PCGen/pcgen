@@ -45,7 +45,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 RACE:Caryatid Column	!PRERACE:1,%
 NAME:Caryatid Column
 ALIGN:TN
-GEAR:Longsword	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Longsword	SIZE:PC	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Dragon (Faerie) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Faerie)]	SOURCEPAGE:p.9
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10

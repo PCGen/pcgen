@@ -17,57 +17,58 @@
  */
 package actor.choose;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.cdom.base.CategorizedChooser;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
-import pcgen.core.SettingsHandler;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-
-import org.junit.Before;
-import org.junit.Test;
 import plugin.lsttokens.choose.AbilityToken;
-import static org.junit.Assert.*;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code AbilityTokenTest} verifies the AbilityToken
  * class is working correctly.
- *
- * <br/>
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class AbilityTokenTest
 {
-	/** */
-	private static final AbilityCategory CATEGORY = AbilityCategory.FEAT;
-	private static final CategorizedChooser<Ability> pca = new AbilityToken();
+
+	private static final CategorizedChooser<Ability> PCA = new AbilityToken();
 	private static final String ITEM_NAME = "ItemName";
 
 	private LoadContext context;
 
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	@BeforeEach
+	public void setUp()
 	{
-		SettingsHandler.getGame().clearLoadContext();
+		Globals.emptyLists();
 		context = Globals.getContext();
-		context.getReferenceContext().importObject(CATEGORY);
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		Globals.emptyLists();
+		context = null;
 	}
 
 	private Ability getObject()
 	{
-		Ability obj = context.getReferenceContext().constructCDOMObject(Ability.class, ITEM_NAME);
-		context.getReferenceContext().reassociateCategory(CATEGORY, obj);
-		return obj;
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(ITEM_NAME);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 
 	@Test
 	public void testEncodeChoice()
 	{
-		assertEquals(getExpected(), pca.encodeChoice(getObject()));
+		assertEquals(getExpected(), PCA.encodeChoice(getObject()));
 	}
 
 	protected String getExpected()
@@ -78,13 +79,15 @@ public class AbilityTokenTest
 	@Test
 	public void testDecodeChoice()
 	{
-		assertEquals(getObject(), pca.decodeChoice(context, getExpected(), CATEGORY));
+		assertEquals(getObject(),
+			PCA.decodeChoice(context, getExpected(), BuildUtilities.getFeatCat()));
 	}
 
 	@Test
 	public void testLegacyDecodeChoice()
 	{
-		assertEquals(getObject(), pca.decodeChoice(context, "CATEGORY=FEAT|" +ITEM_NAME, CATEGORY));
+		assertEquals(getObject(), PCA.decodeChoice(context, "CATEGORY=FEAT|" + ITEM_NAME,
+			BuildUtilities.getFeatCat()));
 	}
 
 }

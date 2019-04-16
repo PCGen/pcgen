@@ -17,7 +17,11 @@
  */
 package plugin.lsttokens.pcclass;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -29,12 +33,14 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static HdToken token = new HdToken();
 	static CDOMTokenLoader<PCClass> loader =
-			new CDOMTokenLoader<PCClass>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -55,20 +61,14 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
-	@Test
-	public void testInvalidInputUnset() throws PersistenceLayerException
+	public void testInvalidInputUnset()
 	{
 		testInvalidInputs(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSet() throws PersistenceLayerException
+	public void testInvalidInputSet()
 	{
 		Integer con = 3;
 		assertTrue(parse(con.toString()));
@@ -79,7 +79,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		assertNoSideEffects();
 	}
 
-	public void testInvalidInputs(HitDie val) throws PersistenceLayerException
+	public void testInvalidInputs(HitDie val)
 	{
 		// Always ensure get is unchanged
 		// since no invalid item should set or reset the value
@@ -112,7 +112,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("5"));
 		assertEquals(new HitDie(5), primaryProf.get(ObjectKey.LEVEL_HITDIE));
@@ -121,12 +121,12 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 		assertTrue(parse("5"));
 		assertTrue(parse("1"));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "1", unparsed[0]);
+		assertEquals("1", unparsed[0]);
 	}
 
 	@Test
@@ -160,14 +160,14 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.LEVEL_HITDIE, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(ObjectKey.LEVEL_HITDIE, new HitDie(1));
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "1");
@@ -175,7 +175,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.LEVEL_HITDIE;
 		primaryProf.put(objectKey, new Object());
@@ -191,7 +191,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNegativeLevel() throws PersistenceLayerException
+	public void testUnparseNegativeLevel()
 	{
 		try
 		{
@@ -205,7 +205,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseZero() throws PersistenceLayerException
+	public void testUnparseZero()
 	{
 		try
 		{

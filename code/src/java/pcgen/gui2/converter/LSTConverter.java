@@ -79,22 +79,21 @@ public class LSTConverter extends Observable
 	private final GenericLoader<PCStat> statLoader = new GenericLoader<>(PCStat.class);
 	private final CDOMControlLoader dataControlLoader = new CDOMControlLoader();
 	private final EditorLoadContext context;
-	private List<Loader> loaders;
-	private Set<URI> written = new HashSet<>();
+	private final List<Loader> loaders;
+	private final Set<URI> written = new HashSet<>();
 	private final String outDir;
 	private final File rootDir;
 	private final DoubleKeyMapToList<Loader, URI, CDOMObject> injected = new DoubleKeyMapToList<>();
 	private final ConversionDecider decider;
-	private Writer changeLogWriter;
-	
-	public LSTConverter(EditorLoadContext lc, File root, String outputDir,
-			ConversionDecider cd, Writer changeLogWriter) 
+	private final Writer changeLogWriter;
+
+	public LSTConverter(EditorLoadContext lc, File root, String outputDir, ConversionDecider cd, Writer changeLogWriter)
 	{
 		context = lc;
 		rootDir = root;
 		outDir = outputDir;
 		decider = cd;
-		
+
 		this.changeLogWriter = changeLogWriter;
 		loaders = setupLoaders(context, changeLogWriter);
 	}
@@ -107,7 +106,7 @@ public class LSTConverter extends Observable
 	public int getNumFilesInCampaign(Campaign campaign)
 	{
 		int numFiles = 0;
-	
+
 		for (final Loader loader : loaders)
 		{
 			List<CampaignSourceEntry> files = loader.getFiles(campaign);
@@ -115,7 +114,7 @@ public class LSTConverter extends Observable
 		}
 		return numFiles;
 	}
-	
+
 	/**
 	 * Initialise the list of campaigns. This will load the ability 
 	 * categories in advance of the conversion.
@@ -130,30 +129,22 @@ public class LSTConverter extends Observable
 			// mode
 			try
 			{
-				catLoader.loadLstFiles(context, campaign
-						.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
-				sizeLoader.loadLstFiles(context,
-					campaign.getSafeListFor(ListKey.FILE_SIZE));
-				statLoader.loadLstFiles(context,
-					campaign.getSafeListFor(ListKey.FILE_STAT));
-				savesLoader.loadLstFiles(context,
-					campaign.getSafeListFor(ListKey.FILE_SAVE));
-				alignmentLoader.loadLstFiles(context,
-					campaign.getSafeListFor(ListKey.FILE_ALIGNMENT));
-				alignmentLoader.loadLstFiles(Globals.getContext(),
-					campaign.getSafeListFor(ListKey.FILE_ALIGNMENT));
-				
+				catLoader.loadLstFiles(context, campaign.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
+				sizeLoader.loadLstFiles(context, campaign.getSafeListFor(ListKey.FILE_SIZE));
+				statLoader.loadLstFiles(context, campaign.getSafeListFor(ListKey.FILE_STAT));
+				savesLoader.loadLstFiles(context, campaign.getSafeListFor(ListKey.FILE_SAVE));
+				alignmentLoader.loadLstFiles(context, campaign.getSafeListFor(ListKey.FILE_ALIGNMENT));
+				alignmentLoader.loadLstFiles(Globals.getContext(), campaign.getSafeListFor(ListKey.FILE_ALIGNMENT));
+
 			}
 			catch (PersistenceLayerException e)
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			dataDefFileList.addAll(campaign
-				.getSafeListFor(ListKey.FILE_DATACTRL));
+			dataDefFileList.addAll(campaign.getSafeListFor(ListKey.FILE_DATACTRL));
 
 		}
-		
 
 		// Load using the new LstFileLoaders
 		try
@@ -167,9 +158,9 @@ public class LSTConverter extends Observable
 			// TODO Auto-generated catch block
 			Logging.errorPrint("LSTConverter.initCampaigns failed", e);
 		}
-		
+
 	}
-	
+
 	public void processCampaign(Campaign campaign)
 	{
 		startItem(campaign);
@@ -187,8 +178,7 @@ public class LSTConverter extends Observable
 				notifyObservers(uri);
 				if (!"file".equalsIgnoreCase(uri.getScheme()))
 				{
-					Logging.log(Logging.WARNING, "Skipping campaign " + uri
-						+ " from " + campaign.getSourceURI()
+					Logging.log(Logging.WARNING, "Skipping campaign " + uri + " from " + campaign.getSourceURI()
 						+ " as it is not a local file.");
 					continue;
 				}
@@ -201,12 +191,8 @@ public class LSTConverter extends Observable
 				}
 				catch (IOException e1)
 				{
-					Logging.log(
-						Logging.WARNING,
-						"Skipping campaign " + uri + " from "
-							+ campaign.getSourceURI()
-							+ " as it could not be made canonical. "
-							+ e1.getMessage());
+					Logging.log(Logging.WARNING, "Skipping campaign " + uri + " from " + campaign.getSourceURI()
+						+ " as it could not be made canonical. " + e1.getMessage());
 					continue;
 				}
 				if (written.contains(canonicalUri))
@@ -217,19 +203,15 @@ public class LSTConverter extends Observable
 				File base = findSubRoot(rootDir, in);
 				if (base == null)
 				{
-					Logging.log(Logging.WARNING, "Skipping campaign " + uri
-						+ " from " + campaign.getSourceURI()
+					Logging.log(Logging.WARNING, "Skipping campaign " + uri + " from " + campaign.getSourceURI()
 						+ " as it is not in the selected source directory.");
 					continue;
 				}
-				String relative = in.toString().substring(
-						base.toString().length() + 1);
+				String relative = in.toString().substring(base.toString().length() + 1);
 				if (!in.exists())
 				{
-					Logging.log(Logging.WARNING, "Skipping campaign " + uri
-						+ " from " + campaign.getSourceURI()
-						+ " as it does not exist. Campaign is "
-						+ cse.getCampaign().getSourceURI());
+					Logging.log(Logging.WARNING, "Skipping campaign " + uri + " from " + campaign.getSourceURI()
+						+ " as it does not exist. Campaign is " + cse.getCampaign().getSourceURI());
 					continue;
 				}
 				File outFile = new File(outDir, File.separator + relative);
@@ -245,9 +227,7 @@ public class LSTConverter extends Observable
 					String result = load(uri, loader);
 					if (result != null)
 					{
-						Writer out =
-								new BufferedWriter(new OutputStreamWriter(
-									new FileOutputStream(outFile), "UTF-8"));
+						Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
 						out.write(result);
 						out.close();
 					}
@@ -264,36 +244,21 @@ public class LSTConverter extends Observable
 	private List<Loader> setupLoaders(EditorLoadContext context, Writer changeLogWriter)
 	{
 		List<Loader> loaderList = new ArrayList<>();
-		loaderList.add(new BasicLoader<>(context, WeaponProf.class,
-                ListKey.FILE_WEAPON_PROF, changeLogWriter));
-		loaderList.add(new BasicLoader<>(context, ArmorProf.class,
-                ListKey.FILE_ARMOR_PROF, changeLogWriter));
-		loaderList.add(new BasicLoader<>(context, ShieldProf.class,
-                ListKey.FILE_SHIELD_PROF, changeLogWriter));
-		loaderList.add(new BasicLoader<>(context, Skill.class,
-                ListKey.FILE_SKILL, changeLogWriter));
-		loaderList.add(new BasicLoader<>(context, Language.class,
-                ListKey.FILE_LANGUAGE, changeLogWriter));
-		loaderList.add(new BasicLoader<>(context, Ability.class,
-                ListKey.FILE_FEAT, changeLogWriter));
-		loaderList.add(new AbilityLoader(context, Ability.class,
-				ListKey.FILE_ABILITY, changeLogWriter));
-		loaderList.add(new BasicLoader<>(context, Race.class,
-                ListKey.FILE_RACE, changeLogWriter));
-		loaderList.add(new BasicLoader<>(context, Domain.class,
-                ListKey.FILE_DOMAIN, changeLogWriter));
-		loaderList.add(new BasicLoader<>(context, Spell.class,
-                ListKey.FILE_SPELL, changeLogWriter));
-		loaderList.add(new BasicLoader<>(context, Deity.class,
-                ListKey.FILE_DEITY, changeLogWriter));
-		loaderList.add(new BasicLoader<>(context, PCTemplate.class,
-                ListKey.FILE_TEMPLATE, changeLogWriter));
-		loaderList.add(new EquipmentLoader(context, ListKey.FILE_EQUIP,
-			changeLogWriter));
-		loaderList.add(new BasicLoader<>(context,
-                EquipmentModifier.class, ListKey.FILE_EQUIP_MOD, changeLogWriter));
-		loaderList.add(new BasicLoader<>(context, CompanionMod.class,
-                ListKey.FILE_COMPANION_MOD, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, WeaponProf.class, ListKey.FILE_WEAPON_PROF, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, ArmorProf.class, ListKey.FILE_ARMOR_PROF, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, ShieldProf.class, ListKey.FILE_SHIELD_PROF, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, Skill.class, ListKey.FILE_SKILL, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, Language.class, ListKey.FILE_LANGUAGE, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, Ability.class, ListKey.FILE_FEAT, changeLogWriter));
+		loaderList.add(new AbilityLoader(context, Ability.class, ListKey.FILE_ABILITY, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, Race.class, ListKey.FILE_RACE, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, Domain.class, ListKey.FILE_DOMAIN, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, Spell.class, ListKey.FILE_SPELL, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, Deity.class, ListKey.FILE_DEITY, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, PCTemplate.class, ListKey.FILE_TEMPLATE, changeLogWriter));
+		loaderList.add(new EquipmentLoader(context, ListKey.FILE_EQUIP, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, EquipmentModifier.class, ListKey.FILE_EQUIP_MOD, changeLogWriter));
+		loaderList.add(new BasicLoader<>(context, CompanionMod.class, ListKey.FILE_COMPANION_MOD, changeLogWriter));
 		loaderList.add(new ClassLoader(context, changeLogWriter));
 		loaderList.add(new CopyLoader(ListKey.FILE_ABILITY_CATEGORY));
 		loaderList.add(new CopyLoader(ListKey.LICENSE_FILE));
@@ -332,8 +297,7 @@ public class LSTConverter extends Observable
 		return findSubRoot(root, parent);
 	}
 
-	private String load(URI uri, Loader loader) throws InterruptedException,
-			PersistenceLayerException
+	private String load(URI uri, Loader loader) throws InterruptedException, PersistenceLayerException
 	{
 		StringBuilder dataBuffer;
 		context.setSourceURI(uri);
@@ -344,9 +308,8 @@ public class LSTConverter extends Observable
 		}
 		catch (PersistenceLayerException ple)
 		{
-			String message = LanguageBundle.getFormattedString(
-					"Errors.LstFileLoader.LoadError", //$NON-NLS-1$
-					uri, ple.getMessage());
+			String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.LoadError", //$NON-NLS-1$
+				uri, ple.getMessage());
 			Logging.errorPrint(message);
 			return null;
 		}
@@ -358,16 +321,14 @@ public class LSTConverter extends Observable
 		for (int line = 0; line < fileLines.length; line++)
 		{
 			String lineString = fileLines[line];
-			if ((lineString.length() == 0)
-					|| (lineString.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR)
-					|| lineString.startsWith("SOURCE"))
+			if ((lineString.isEmpty()) || (lineString.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR)
+				|| lineString.startsWith("SOURCE"))
 			{
 				resultBuffer.append(lineString);
 			}
 			else
 			{
-				List<CDOMObject> newObj = loader.process(resultBuffer, line,
-						lineString, decider);
+				List<CDOMObject> newObj = loader.process(resultBuffer, line, lineString, decider);
 				if (newObj != null)
 				{
 					for (CDOMObject cdo : newObj)

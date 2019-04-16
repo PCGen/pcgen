@@ -17,23 +17,25 @@
  */
 package plugin.modifier.string;
 
-import pcgen.base.format.StringManager;
-import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ManagerFactory;
-import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.solver.Modifier;
-import pcgen.base.util.FormatManager;
-import pcgen.rules.persistence.token.ModifierFactory;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Test;
+import pcgen.base.calculation.FormulaModifier;
+import pcgen.base.format.StringManager;
+import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.modifier.testsupport.EvalManagerUtilities;
-import static org.junit.Assert.*;
+
+import org.junit.jupiter.api.Test;
 
 public class SetStringModifierTest
 {
 
-	private LegalScope varScope = new SimpleLegalScope(null, "Global");
-	FormatManager<String> stringManager = new StringManager();
+	private final PCGenScope varScope = new GlobalScope();
+	private FormatManager<String> stringManager = new StringManager();
 
 	@Test
 	public void testInvalidConstruction()
@@ -41,7 +43,7 @@ public class SetStringModifierTest
 		try
 		{
 			SetModifierFactory m = new SetModifierFactory();
-			m.getModifier(100, null, new ManagerFactory(){}, null, null, null);
+			m.getModifier(null, new ManagerFactory(){}, null, null, null);
 			fail("Expected SetModifier with null set value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -54,10 +56,11 @@ public class SetStringModifierTest
 	public void testGetModifier()
 	{
 		ModifierFactory<String> factory = new SetModifierFactory();
-		Modifier<String> modifier =
-				factory.getModifier(5, "MyString", new ManagerFactory(){}, null, varScope, stringManager);
-		assertEquals(5l<<32, modifier.getPriority());
-		assertEquals(String.class, modifier.getVariableFormat());
+		FormulaModifier<String> modifier =
+				factory.getModifier("MyString", new ManagerFactory(){}, null, varScope, stringManager);
+		modifier.addAssociation("PRIORITY=5");
+		assertEquals(5L <<32, modifier.getPriority());
+		assertEquals(stringManager, modifier.getVariableFormat());
 		assertEquals("MyString", modifier.process(EvalManagerUtilities.getInputEM("Wrong Answer")));
 	}
 

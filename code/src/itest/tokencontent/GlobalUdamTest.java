@@ -17,18 +17,21 @@
  */
 package tokencontent;
 
-import java.util.Collections;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Test;
+import java.util.Collections;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.UnarmedDamageFacet;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.UdamLst;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalUdamTest extends AbstractContentTokenTest
 {
@@ -36,8 +39,9 @@ public class GlobalUdamTest extends AbstractContentTokenTest
 	private static UdamLst token = new UdamLst();
 	private UnarmedDamageFacet unarmedDamageFacet;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		unarmedDamageFacet = FacetLibrary.getFacet(UnarmedDamageFacet.class);
@@ -49,7 +53,7 @@ public class GlobalUdamTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "7");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -81,14 +85,14 @@ public class GlobalUdamTest extends AbstractContentTokenTest
 
 	@Override
 	@Test
-	public void testFromClass() throws PersistenceLayerException
+	public void testFromClass()
 	{
 		//Unarmed Damage in Class is "special" (different behavior)
 	}
 
 	@Override
 	@Test
-	public void testFromClassLevel() throws PersistenceLayerException
+	public void testFromClassLevel()
 	{
 		//Unarmed Damage in Class Level is "special" (different behavior)
 	}

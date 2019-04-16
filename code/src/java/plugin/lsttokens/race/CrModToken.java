@@ -34,8 +34,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with CR Token
  */
-public class CrModToken extends AbstractNonEmptyToken<Race> implements
-		CDOMPrimaryToken<Race>
+public class CrModToken extends AbstractNonEmptyToken<Race> implements CDOMPrimaryToken<Race>
 {
 
 	/**
@@ -53,27 +52,27 @@ public class CrModToken extends AbstractNonEmptyToken<Race> implements
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName() + " expecting '|', format is: "
-					+ "ClassTypes|CRMod was: " + value, context);
+			return new ParseResult.Fail(
+				getTokenName() + " expecting '|', format is: " + "ClassTypes|CRMod was: " + value);
 		}
 		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
-			return new ParseResult.Fail(getTokenName() + " expecting only one '|', "
-					+ "format is: ClassTypes|CRMod was: " + value, context);
+			return new ParseResult.Fail(
+				getTokenName() + " expecting only one '|', " + "format is: ClassTypes|CRMod was: " + value);
 		}
 		String keys = value.substring(0, pipeLoc);
-		if (keys.length() == 0)
+		if (keys.isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName() + " expecting non-empty class type, "
-					+ "format is: ClassTypes|CRMod was: " + value, context);
+			return new ParseResult.Fail(
+				getTokenName() + " expecting non-empty class type, " + "format is: ClassTypes|CRMod was: " + value);
 		}
 		String val = value.substring(pipeLoc + 1);
-		if (val.length() == 0)
+		if (val.isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName() + " expecting non-empty CR mod, "
-					+ "format is: ClassTypes|CRMod was: " + value, context);
+			return new ParseResult.Fail(
+				getTokenName() + " expecting non-empty CR mod, " + "format is: ClassTypes|CRMod was: " + value);
 		}
-		try 
+		try
 		{
 			StringTokenizer aTok = new StringTokenizer(keys, Constants.DOT, false);
 			while (aTok.hasMoreTokens())
@@ -83,10 +82,10 @@ public class CrModToken extends AbstractNonEmptyToken<Race> implements
 		}
 		catch (NumberFormatException e)
 		{
-			return new ParseResult.Fail(getTokenName() + " expecting number CR mod, "
-					+ "format is: ClassTypes|CRMod was: " + value, context);
+			return new ParseResult.Fail(
+				getTokenName() + " expecting number CR mod, " + "format is: ClassTypes|CRMod was: " + value);
 		}
-		
+
 		return ParseResult.SUCCESS;
 	}
 
@@ -100,8 +99,7 @@ public class CrModToken extends AbstractNonEmptyToken<Race> implements
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		MapChanges<String, Integer> changes = context.getObjectContext()
-				.getMapChanges(race, MapKey.CRMOD);
+		MapChanges<String, Integer> changes = context.getObjectContext().getMapChanges(race, MapKey.CRMOD);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -110,8 +108,7 @@ public class CrModToken extends AbstractNonEmptyToken<Race> implements
 		Map<String, Integer> added = changes.getAdded();
 		for (Map.Entry<String, Integer> me : added.entrySet())
 		{
-			set.add(new StringBuilder().append(me.getKey()).append(
-					Constants.PIPE).append(me.getValue()).toString());
+			set.add(new StringBuilder().append(me.getKey()).append(Constants.PIPE).append(me.getValue()).toString());
 		}
 		return set.toArray(new String[set.size()]);
 	}

@@ -64,7 +64,7 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 	 * semantically can't change. There is also the assumption that the global
 	 * list of objects cannot change.
 	 */
-	private transient List<T> cache;
+	private List<T> cache;
 
 	/**
 	 * Constructs a new FactGroup from the given context, FactInfo and value.
@@ -90,15 +90,11 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 		toMatch = def.getFormatManager().convertIndirect(value);
 		if (toMatch == null)
 		{
-			throw new IllegalArgumentException("Failed to convert " + value
-				+ " as a "
-				+ def.getFormatManager().getManagedClass().getSimpleName());
+			throw new IllegalArgumentException(
+				"Failed to convert " + value + " as a " + def.getFormatManager().getManagedClass().getSimpleName());
 		}
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getContainedObjects()
-	 */
 	@Override
 	public Collection<T> getContainedObjects()
 	{
@@ -117,19 +113,12 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 		return Collections.unmodifiableCollection(cache);
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getLSTformat(boolean)
-	 */
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return def.getFactName() + "="
-			+ def.getFormatManager().unconvert(toMatch.get());
+		return def.getFactName() + "=" + def.getFormatManager().unconvert(toMatch.get());
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#contains(java.lang.Object)
-	 */
 	@Override
 	public boolean contains(T obj)
 	{
@@ -137,9 +126,6 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 		return fact != null && fact.get().equals(toMatch.get());
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getReferenceClass()
-	 */
 	@Override
 	public Class<T> getReferenceClass()
 	{

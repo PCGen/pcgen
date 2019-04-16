@@ -1,5 +1,4 @@
 /*
- * ColorsPanel.java
  * Copyright 2010 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,26 +14,22 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 16/11/2010 08:15:00
- *
- * $Id$
  */
 package pcgen.gui2.prefs;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import pcgen.core.Globals;
@@ -43,64 +38,51 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>ColorsPanel</code> is responsible for 
+ * The Class {@code ColorsPanel} is responsible for
  * displaying color related preferences and allowing the 
  * preferences to be edited by the user.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class ColorsPanel extends PCGenPrefsPanel
 {
-	private static String in_color = LanguageBundle.getString("in_Prefs_color");
-	private static String in_colorPrereqQualify =
-			LanguageBundle.getString("in_Prefs_colorPrereqQualify");
-	private static String in_colorPrereqFail =
-			LanguageBundle.getString("in_Prefs_colorPrereqFail");
-	private static String in_colorAutoFeat =
-			LanguageBundle.getString("in_Prefs_colorAutoFeat");
-	private static String in_colorVirtFeat =
-			LanguageBundle.getString("in_Prefs_colorVirtFeat");
+	private static final String IN_COLOR = LanguageBundle.getString("in_Prefs_color");
+	private static final String IN_COLOR_PREREQ_QUALIFY = LanguageBundle.getString("in_Prefs_colorPrereqQualify");
+	private static final String IN_COLOR_PREREQ_FAIL = LanguageBundle.getString("in_Prefs_colorPrereqFail");
+	private static final String IN_COLOR_AUTO_FEAT = LanguageBundle.getString("in_Prefs_colorAutoFeat");
+	private static final String IN_COLOR_VIRT_FEAT = LanguageBundle.getString("in_Prefs_colorVirtFeat");
 
-	private static String in_colorSourceRelease =
-			LanguageBundle.getString("in_Prefs_colorStatusRelease");
-	private static String in_colorSourceAlpha =
-			LanguageBundle.getString("in_Prefs_colorStatusAlpha");
-	private static String in_colorSourceBeta =
-			LanguageBundle.getString("in_Prefs_colorStatusBeta");
-	private static String in_colorSourceTest =
-			LanguageBundle.getString("in_Prefs_colorStatusTest");
+	private static final String IN_COLOR_SOURCE_RELEASE = LanguageBundle.getString("in_Prefs_colorStatusRelease");
+	private static final String IN_COLOR_SOURCE_ALPHA = LanguageBundle.getString("in_Prefs_colorStatusAlpha");
+	private static final String IN_COLOR_SOURCE_BETA = LanguageBundle.getString("in_Prefs_colorStatusBeta");
+	private static final String IN_COLOR_SOURCE_TEST = LanguageBundle.getString("in_Prefs_colorStatusTest");
 
-	private JButton featAutoColor;
-	private JButton featVirtualColor;
-	private JButton prereqFailColor;
-	private JButton prereqQualifyColor;
+	private final JButton featAutoColor;
+	private final JButton featVirtualColor;
+	private final JButton prereqFailColor;
+	private final JButton prereqQualifyColor;
 
-	private JButton sourceStatusRelease;
-	private JButton sourceStatusAlpha;
-	private JButton sourceStatusBeta;
-	private JButton sourceStatusTest;
+	private final JButton sourceStatusRelease;
+	private final JButton sourceStatusAlpha;
+	private final JButton sourceStatusBeta;
+	private final JButton sourceStatusTest;
 
-	private PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
+	private final ActionListener prefsButtonHandler = new PrefsButtonListener();
 
 	/**
 	 * Instantiates a new colors panel.
 	 */
 	public ColorsPanel()
 	{
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
-		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_color);
+		TitledBorder title1 = BorderFactory.createTitledBorder(null, IN_COLOR);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
-		gridbag = new GridBagLayout();
+		GridBagLayout gridbag = new GridBagLayout();
 		this.setLayout(gridbag);
-		c = new GridBagConstraints();
+		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.anchor = GridBagConstraints.WEST;
 		c.insets = new Insets(2, 2, 2, 2);
@@ -108,32 +90,16 @@ public class ColorsPanel extends PCGenPrefsPanel
 		int col = 0;
 
 		// NB - not alphabetized!
-		col =
-				addColorsOption(col, c, gridbag, this, prereqQualifyColor =
-						new JButton(in_colorPrereqQualify));
-		col =
-				addColorsOption(col, c, gridbag, this, prereqFailColor =
-						new JButton(in_colorPrereqFail));
-		col =
-				addColorsOption(col, c, gridbag, this, featAutoColor =
-						new JButton(in_colorAutoFeat));
-		col =
-				addColorsOption(col, c, gridbag, this, featVirtualColor =
-						new JButton(in_colorVirtFeat));
+		col = addColorsOption(col, c, gridbag, this, prereqQualifyColor = new JButton(IN_COLOR_PREREQ_QUALIFY));
+		col = addColorsOption(col, c, gridbag, this, prereqFailColor = new JButton(IN_COLOR_PREREQ_FAIL));
+		col = addColorsOption(col, c, gridbag, this, featAutoColor = new JButton(IN_COLOR_AUTO_FEAT));
+		col = addColorsOption(col, c, gridbag, this, featVirtualColor = new JButton(IN_COLOR_VIRT_FEAT));
 
-		col =
-				addColorsOption(col, c, gridbag, this, sourceStatusRelease =
-						new JButton(in_colorSourceRelease));
-		col =
-				addColorsOption(col, c, gridbag, this, sourceStatusAlpha =
-						new JButton(in_colorSourceAlpha));
-		col =
-				addColorsOption(col, c, gridbag, this, sourceStatusBeta =
-						new JButton(in_colorSourceBeta));
-		col =
-				addColorsOption(col, c, gridbag, this, sourceStatusTest =
-						new JButton(in_colorSourceTest));
-		
+		col = addColorsOption(col, c, gridbag, this, sourceStatusRelease = new JButton(IN_COLOR_SOURCE_RELEASE));
+		col = addColorsOption(col, c, gridbag, this, sourceStatusAlpha = new JButton(IN_COLOR_SOURCE_ALPHA));
+		col = addColorsOption(col, c, gridbag, this, sourceStatusBeta = new JButton(IN_COLOR_SOURCE_BETA));
+		col = addColorsOption(col, c, gridbag, this, sourceStatusTest = new JButton(IN_COLOR_SOURCE_TEST));
+
 		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
 		label = new JLabel(" ");
@@ -141,9 +107,8 @@ public class ColorsPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	private int addColorsOption(int col, final GridBagConstraints c,
-		final GridBagLayout gridbag, final JPanel colorsPanel,
-		final JButton button)
+	private int addColorsOption(int col, final GridBagConstraints c, final GridBagLayout gridbag,
+		final Container colorsPanel, final AbstractButton button)
 	{
 		Utility.buildConstraints(c, 0, col++, 1, 1, 0, 0);
 		gridbag.setConstraints(button, c);
@@ -153,18 +118,12 @@ public class ColorsPanel extends PCGenPrefsPanel
 		return col;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
-	 */
 	@Override
 	public String getTitle()
 	{
-		return in_color;
+		return IN_COLOR;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
-	 */
 	@Override
 	public void setOptionsBasedOnControls()
 	{
@@ -179,9 +138,6 @@ public class ColorsPanel extends PCGenPrefsPanel
 		UIPropertyContext.setSourceStatusTestColor(sourceStatusTest.getForeground());
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
-	 */
 	@Override
 	public void applyOptionValuesToControls()
 	{
@@ -201,43 +157,22 @@ public class ColorsPanel extends PCGenPrefsPanel
 		@Override
 		public void actionPerformed(ActionEvent actionEvent)
 		{
-			JButton source = (JButton) actionEvent.getSource();
+			AbstractButton source = (AbstractButton) actionEvent.getSource();
 
 			if (source == null)
 			{
 				// Do nothing
 			}
-			else if ((source == prereqQualifyColor)
-				|| (source == prereqFailColor) || (source == featAutoColor)
+			else if ((source == prereqQualifyColor) || (source == prereqFailColor) || (source == featAutoColor)
 				|| (source == featVirtualColor))
 			{
-				final Color newColor =
-						JColorChooser.showDialog(Globals.getRootFrame(),
-							LanguageBundle.getString("in_Prefs_colorSelect")
-								+ source.getText().toLowerCase(), source
-								.getForeground());
+				final Color newColor = JColorChooser.showDialog(Globals.getRootFrame(),
+					LanguageBundle.getString("in_Prefs_colorSelect") + source.getText().toLowerCase(),
+					source.getForeground());
 
 				if (newColor != null)
 				{
 					source.setForeground(newColor);
-//
-//					if (source == prereqQualifyColor)
-//					{
-//						SettingsHandler
-//							.setPrereqQualifyColor(newColor.getRGB());
-//					}
-//					else if (source == prereqFailColor)
-//					{
-//						SettingsHandler.setPrereqFailColor(newColor.getRGB());
-//					}
-//					else if (source == featAutoColor)
-//					{
-//						SettingsHandler.setFeatAutoColor(newColor.getRGB());
-//					}
-//					else if (source == featVirtualColor)
-//					{
-//						SettingsHandler.setFeatVirtualColor(newColor.getRGB());
-//					}
 				}
 			}
 		}

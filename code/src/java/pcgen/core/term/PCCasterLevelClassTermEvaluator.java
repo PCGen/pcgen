@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCClassCasterLevelTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 04-Aug-2008 02:27:58
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -32,13 +28,12 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 
-public class PCCasterLevelClassTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator {
+public class PCCasterLevelClassTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
+{
 
 	private final String source;
 
-	public PCCasterLevelClassTermEvaluator(
-			String originalText, String source)
+	public PCCasterLevelClassTermEvaluator(String originalText, String source)
 	{
 		this.originalText = originalText;
 		this.source = source;
@@ -52,19 +47,20 @@ public class PCCasterLevelClassTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
+	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell)
+	{
 
 		// check if this is a domain spell
-		Domain domain = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Domain.class, source);
+		Domain domain =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Domain.class, source);
 		final ClassSource cs = pc.getDomainSource(domain);
-		
+
 		// If source is a domain, get the Domain source (e.g, "Cleric"),
 		// otherwise just go with the original varSource
 		final String varSource = (cs != null) ? cs.getPcclass().getKeyName() : source;
 
-		final PCClass spClass = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(PCClass.class, varSource);
+		final PCClass spClass =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, varSource);
 
 		String spellType = Constants.NONE;
 		if ((spClass != null) && (!spClass.getSpellType().equals(Constants.NONE)))
@@ -73,7 +69,7 @@ public class PCCasterLevelClassTermEvaluator
 		}
 
 		final Double d1 = pc.getTotalBonusTo("PCLEVEL", varSource);
-		final int pcBonus = (d1 == null) ? 0 : d1.intValue(); 
+		final int pcBonus = (d1 == null) ? 0 : d1.intValue();
 
 		// does the class have a Casterlevel?
 		final Double d2 = pc.getTotalBonusTo("CASTERLEVEL", varSource);
@@ -81,11 +77,10 @@ public class PCCasterLevelClassTermEvaluator
 
 		// If no CASTERLEVEL has been defined for this class then
 		// use total class level instead
-		final int iClass =
-				(spClass != null && castBonus == 0) ? pc.getDisplay().getLevel(spClass) : 0;
+		final int iClass = (spClass != null && castBonus == 0) ? pc.getDisplay().getLevel(spClass) : 0;
 
-		return (float) pc.getTotalCasterLevelWithSpellBonus(
-				aSpell, aSpell.getSpell(), spellType, varSource, iClass + pcBonus);
+		return (float) pc.getTotalCasterLevelWithSpellBonus(aSpell, aSpell.getSpell(), spellType, varSource,
+			iClass + pcBonus);
 	}
 
 	@Override

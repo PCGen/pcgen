@@ -1,0 +1,55 @@
+CAMPAIGN:Divine Favor: The Cleric
+GAMEMODE:Pathfinder
+TYPE:Kobold Press.Supplement
+RANK:6
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Generic
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:3,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Magic
+PUBNAMELONG:Kobold Press
+PUBNAMESHORT:Kobold Press
+PUBNAMEWEB:http://http://www.koboldpress.com
+SOURCELONG:Divine Favor: The Cleric
+SOURCESHORT:DFC
+SOURCEWEB:http://www.koboldquarterly.com/kqstore/index.php?main_page=product_info&cPath=6&products_id=146
+SOURCEDATE:2011-10
+ISOGL:YES
+
+COVER:divine_favor_cleric.jpg
+URL:WEBSITE|http://www.koboldquarterly.com|Visit Open Design!
+URL:Kobold Press|http://www.koboldquarterly.com/kqstore/index.php?main_page=product_info&cPath=6&products_id=146|Buy this publication from Kobold Press!
+DESC:The cleric has a vital yet complex role within a party: healer, wizard, fighter, and bane of the undead. Divine Favor: the Cleric is an invaluable resource to anyone wanting to play one of the oldest character classes in fantasy roleplaying.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:Advanced Player’s Guide. Copyright 2011 Paizo Publishing, LLC; Author: Jason Bulmahn.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder RPG Core Rulebook. Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Lucky Break, Lucky Totem, and Fortune’s Frown from the Book of Roguish Luck copyright 2005 by Wolfgang Baur. All rights reserved.
+COPYRIGHT:Divine Favor: the Cleric. Author: Stefen Styrsky Copyright 2011, Open Design LLC, www.kobold-quarterly.com.
+COPYRIGHT:PCGen dataset conversion for "Divine Favor: the Cleric" Copyright 2011, PCGen Data team (including, but not limited to Stefan Radermacher, Gwen T., Paul Grosse, and Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data files
+ABILITY:dfc_abilties.lst
+ABILITYCATEGORY:dfc_abiltycategories.lst
+DOMAIN:dfc_domains.lst
+ABILITY:dfc_feats.lst
+SPELL:dfc_spells.lst
+TEMPLATE:dfc_templates.lst
+
+# ENTRY DATE: 2015-01
+# LST MONKEY: Stefan Radermacher, Gwen T.
+# LICENSE MONKEY: Paul Grosse
+# DATA REVIEW MONKEY:
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE: 
+# Built for PCGen Version: 
+# Updated to work with version: -
+# MINVER:
+# MINDEVVER:
+# COMMENTS:

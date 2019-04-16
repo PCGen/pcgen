@@ -1,5 +1,4 @@
 /*
- * AbstractRadioListMenu.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 6, 2010, 1:34:30 PM
  */
 package pcgen.gui2.util;
 
@@ -31,18 +29,15 @@ import javax.swing.JRadioButtonMenuItem;
 
 import pcgen.facade.util.event.ListEvent;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> implements ItemListener
 {
 
 	private final ButtonGroup group = new ButtonGroup();
-	private Map<E, RadioMenuItem> menuMap = new HashMap<>();
+	private final Map<E, RadioMenuItem> menuMap = new HashMap<>();
+	@SuppressWarnings("FieldHasSetterButNoGetter")
 	private E selectedItem = null;
 
-	public AbstractRadioListMenu(Action action)
+	protected AbstractRadioListMenu(Action action)
 	{
 		super(action);
 	}
@@ -50,7 +45,7 @@ public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> imple
 	@Override
 	protected JMenuItem createMenuItem(E item, int index)
 	{
-		RadioMenuItem menuItem = new RadioMenuItem(item, item == selectedItem, this);
+		RadioMenuItem<E> menuItem = new RadioMenuItem<>(item, item == selectedItem, this);
 		group.add(menuItem);
 		menuMap.put(item, menuItem);
 		return menuItem;
@@ -71,22 +66,24 @@ public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> imple
 		{
 			menuItem.setSelected(true);
 		}
+		selectedItem = item;
 	}
 
 	/**
 	 * Update the menu so that no entries are selected. 
 	 */
-	public void clearSelection()
+	protected void clearSelection()
 	{
 		group.clearSelection();
+		selectedItem = null;
 	}
-	
-	private static class RadioMenuItem extends JRadioButtonMenuItem
+
+	private static final class RadioMenuItem<E> extends JRadioButtonMenuItem
 	{
 
-		private final Object item;
+		private final E item;
 
-		public RadioMenuItem(Object item, boolean selected, ItemListener listener)
+		private RadioMenuItem(E item, boolean selected, ItemListener listener)
 		{
 			super(item.toString(), selected);
 			this.item = item;
@@ -96,10 +93,7 @@ public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> imple
 		@Override
 		public Object[] getSelectedObjects()
 		{
-			return new Object[]
-					{
-						item
-					};
+			return new Object[]{item};
 		}
 
 	}

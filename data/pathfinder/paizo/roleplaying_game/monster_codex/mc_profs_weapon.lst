@@ -1,0 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Monster Codex	SOURCESHORT:MC	SOURCEWEB:http://paizo.com/products/btpy9926?Pathfinder-Roleplaying-Game-Monster-Codex	SOURCEDATE:2014-11
+
+# Weapon Name			Type
+Slaver's Crossbow (Heavy)	TYPE:Exotic.Ranged.Bludgeoning.RangedPiercing.Crossbow.Archery.Weapon Group Crossbows
+Slaver's Crossbow (Light)	TYPE:Exotic.Ranged.Bludgeoning.RangedPiercing.Crossbow.Archery.Weapon Group Crossbows
+Flindbar				TYPE:Exotic.OneHanded.Melee.Bludgeoning.Piercing.MeleeBludgeoning.Flail.Weapon Group Flails.Gnoll

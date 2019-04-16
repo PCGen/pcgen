@@ -1,5 +1,4 @@
 /*
- * EquipCustomizerDialog.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 2013-09-19
- *
- * $Id$
  */
 package pcgen.gui2.dialog;
 
@@ -33,6 +28,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentBuilderFacade;
@@ -41,23 +37,20 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>EquipCustomizerDialog</code> provides a pop-up dialog that allows 
+ * The Class {@code EquipCustomizerDialog} provides a pop-up dialog that allows
  * the user to build up custom equipment items by adding equipment modifiers and
  * setting the name, cost etc.  
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
-public class EquipCustomizerDialog extends JDialog
-		implements ActionListener
+public class EquipCustomizerDialog extends JDialog implements ActionListener
 {
-	private EquipCustomPanel equipCustomPanel;
-	private JPanel buttonPanel;
-	private JButton buyButton;
-	private JButton okButton;
-	private JButton cancelButton;
+	private final EquipCustomPanel equipCustomPanel;
+	private final JPanel buttonPanel;
+	private final JButton buyButton;
+	private final JButton okButton;
+	private final JButton cancelButton;
 	private boolean purchase;
 	private boolean cancelled;
 
@@ -79,7 +72,7 @@ public class EquipCustomizerDialog extends JDialog
 		this.cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
 
 		this.equipCustomPanel = new EquipCustomPanel(character, builder);
-		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		initComponents();
 		pack();
 		Utility.resizeComponentToScreen(this);
@@ -91,7 +84,7 @@ public class EquipCustomizerDialog extends JDialog
 		pane.setLayout(new BorderLayout());
 
 		pane.add(equipCustomPanel, BorderLayout.CENTER);
-		
+
 		buyButton.addActionListener(this);
 		okButton.addActionListener(this);
 		cancelButton.addActionListener(this);
@@ -106,7 +99,7 @@ public class EquipCustomizerDialog extends JDialog
 		buttons.add(cancelButton);
 		buttons.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		pane.add(buttons, BorderLayout.SOUTH);
-		
+
 		Utility.installEscapeCloseOperation(this);
 	}
 
@@ -120,13 +113,16 @@ public class EquipCustomizerDialog extends JDialog
 	}
 
 	/**
-	 * @return
+	 * @return boolean
 	 */
 	public boolean isPurchase()
 	{
 		return purchase;
 	}
 
+	/**
+	 * @return boolean
+	 */
 	public boolean isCancelled()
 	{
 		return cancelled;

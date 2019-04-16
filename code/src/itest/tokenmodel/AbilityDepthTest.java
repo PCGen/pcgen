@@ -17,11 +17,14 @@
  */
 package tokenmodel;
 
-import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Collection;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Identified;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
@@ -29,30 +32,31 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.AbilityLst;
 import plugin.lsttokens.add.AbilityToken;
 import plugin.lsttokens.deprecated.VFeatLst;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import tokenmodel.testsupport.AssocCheck;
 import tokenmodel.testsupport.NoAssociations;
+import util.TestURI;
 
-public class AbilityDepthTest extends AbstractTokenModelTest
+public final class AbilityDepthTest extends AbstractTokenModelTest
 {
 
-	private static final GrantedAbilityFacet grantedAbilityFacet = FacetLibrary
+	private static final GrantedAbilityFacet GRANTED_ABILITY_FACET = FacetLibrary
 		.getFacet(GrantedAbilityFacet.class);
 
 	//Registration by super.setUpContext()
-	private static final VFeatLst VFEAT_TOKEN = new VFeatLst();
+	private static final CDOMToken<CDOMObject> VFEAT_TOKEN = new VFeatLst();
 
 	//Registration required locally
-	private static final AbilityLst ABILITY_LST = new AbilityLst();
-	private static final AbilityToken ADD_ABILITY_TOKEN = new AbilityToken();
+	private static final CDOMToken<CDOMObject> ABILITY_LST = new AbilityLst();
+	private static final CDOMToken<CDOMObject> ADD_ABILITY_TOKEN = new AbilityToken();
 
 	private final CDOMToken<? super Ability> firstToken;
 	private final String firstPrefix;
@@ -61,11 +65,10 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 
 	private AssocCheck assocCheck;
 
-	public AbilityDepthTest(String name, CDOMToken<? super Ability> firstToken,
-		String firstPrefix, CDOMToken<? super Ability> secondToken,
-		String secondPrefix)
+	private AbilityDepthTest(String name, CDOMToken<? super Ability> firstToken,
+	                         String firstPrefix, CDOMToken<? super Ability> secondToken,
+	                         String secondPrefix)
 	{
-		super("Test_" + name);
 		this.firstToken = firstToken;
 		this.firstPrefix = firstPrefix;
 		this.secondToken = secondToken;
@@ -73,7 +76,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 	}
 
 	@Override
-	protected void setUpContext() throws PersistenceLayerException
+	protected void setUpContext()
 	{
 		super.setUpContext();
 		TokenRegistration.register(ABILITY_LST);
@@ -81,35 +84,14 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 
 	private Ability createAbility(String key)
 	{
-		Ability a = context.getReferenceContext().constructCDOMObject(Ability.class, key);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(key);
+		context.getReferenceContext().importObject(a);
 		return a;
 	}
 
-	public static Test suite()
-	{
-		TestSuite suite = new TestSuite();
-		for (int i = 0; i < tokens.length; i++)
-		{
-			CDOMToken<? super Ability> ft = tokens[i];
-			String fp = prefix[i];
-			for (int j = 0; j < tokens.length; j++)
-			{
-				CDOMToken<? super Ability> st = tokens[j];
-				String sp = prefix[j];
-				if (!Arrays.asList(targetProhibited).contains(st))
-				{
-					suite.addTest(new AbilityDepthTest(ft.getClass()
-						.getSimpleName() + "_" + st.getClass().getSimpleName(),
-						ft, fp, st, sp));
-				}
-			}
-		}
-		return suite;
-	}
 
-	@Override
-	protected void runTest() throws Throwable
+	protected void runTest()
 	{
 		Ability top = createAbility("TopAbility");
 		Ability mid = createAbility("MidAbility");
@@ -119,7 +101,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 					firstPrefix + mid.getKeyName());
 		if (!result.passed())
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail();
 		}
 		result =
@@ -127,7 +109,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 					secondPrefix + target.getKeyName());
 		if (!result.passed())
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail();
 		}
 
@@ -136,7 +118,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 
 		CNAbilitySelection cas =
 				new CNAbilitySelection(CNAbilityFactory.getCNAbility(
-					AbilityCategory.FEAT, Nature.AUTOMATIC, top));
+					BuildUtilities.getFeatCat(), Nature.AUTOMATIC, top));
 
 		assertEquals(0, getCount());
 		pc.addAbility(cas, "This", "That");
@@ -149,10 +131,10 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 		assertEquals(0, getCount());
 	}
 
-	protected boolean containsExpected(Ability granted)
+	private boolean containsExpected(Identified granted)
 	{
 		Collection<CNAbility> abilities =
-				grantedAbilityFacet.getPoolAbilities(id, AbilityCategory.FEAT);
+				GRANTED_ABILITY_FACET.getPoolAbilities(id, BuildUtilities.getFeatCat());
 		if (abilities.isEmpty())
 		{
 			System.err.println("No Abilities");
@@ -175,17 +157,17 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 		return false;
 	}
 
-	protected int getCount()
+	private int getCount()
 	{
-		return grantedAbilityFacet.getPoolAbilities(id, AbilityCategory.FEAT)
+		return GRANTED_ABILITY_FACET.getPoolAbilities(id, BuildUtilities.getFeatCat())
 			.size();
 	}
 
-	static CDOMToken[] tokens = {ABILITY_LST,
+	private static final CDOMToken[] tokens = {ABILITY_LST,
 		ADD_ABILITY_TOKEN, ADD_ABILITY_TOKEN};
-	static String[] prefix = {"FEAT|VIRTUAL|",
+	private static final String[] prefix = {"FEAT|VIRTUAL|",
 		"FEAT|NORMAL|STACKS,", "FEAT|VIRTUAL|STACKS,"};
-	static CDOMToken[] targetProhibited = {ADD_ABILITY_TOKEN};
+	private static final CDOMToken[] targetProhibited = {ADD_ABILITY_TOKEN};
 
 	@Override
 	public CDOMToken<?> getToken()

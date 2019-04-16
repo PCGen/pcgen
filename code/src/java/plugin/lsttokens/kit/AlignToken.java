@@ -1,5 +1,4 @@
 /*
- * AlignToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 3, 2006
- *
- * Current Ver: $Revision$
  */
 
 package plugin.lsttokens.kit;
@@ -40,8 +35,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * Handles the ALIGN tag for a Kit. Also will handle any Common tags on the
  * ALIGN line.
  */
-public class AlignToken extends AbstractTokenWithSeparator<KitAlignment>
-		implements CDOMPrimaryToken<KitAlignment>
+public class AlignToken extends AbstractTokenWithSeparator<KitAlignment> implements CDOMPrimaryToken<KitAlignment>
 {
 	private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
 
@@ -69,17 +63,14 @@ public class AlignToken extends AbstractTokenWithSeparator<KitAlignment>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		KitAlignment kitAlignment, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, KitAlignment kitAlignment, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			CDOMSingleRef<PCAlignment> ref =
-					context.getReferenceContext().getCDOMReference(
-						ALIGNMENT_CLASS, tokText);
+			CDOMSingleRef<PCAlignment> ref = context.getReferenceContext().getCDOMReference(ALIGNMENT_CLASS, tokText);
 			kitAlignment.addAlignment(ref);
 		}
 		return ParseResult.SUCCESS;
@@ -93,7 +84,6 @@ public class AlignToken extends AbstractTokenWithSeparator<KitAlignment>
 		{
 			return null;
 		}
-		return new String[]{ReferenceUtilities.joinLstFormat(alignments,
-			Constants.PIPE)};
+		return new String[]{ReferenceUtilities.joinLstFormat(alignments, Constants.PIPE)};
 	}
 }

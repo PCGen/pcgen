@@ -31,13 +31,15 @@ import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class WieldTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Equipment>
 {
 
 	static ChooseLst token = new ChooseLst();
 	static EquipmentToken subtoken = new EquipmentToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	private static final WieldCategoryToken WIELD_PRIMITIVE = new WieldCategoryToken();
 
@@ -46,6 +48,7 @@ public class WieldTokenTest extends
 		super("WIELD", "Light");
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -84,12 +87,11 @@ public class WieldTokenTest extends
 	}
 
 	public void testPrimitiveIllegalSpelledOut()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("OneHanded");
 	}
 
-	public void testPrimitiveIllegalMultiple() throws PersistenceLayerException
+	public void testPrimitiveIllegalMultiple()
 	{
 		doPrimitiveIllegalTarget("Light.1 Handed");
 	}

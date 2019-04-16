@@ -1,0 +1,9 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+# Name	SORTKEY	Save bonus
+Fortitude	SORTKEY:1	BONUS:SAVE|Fortitude|CON
+Reflex	SORTKEY:2	BONUS:SAVE|Reflex|DEX
+Will		SORTKEY:3	BONUS:SAVE|Will|WIS
+#Fortitude	KEY:Fortitude	SORTKEY:1	MODIFY:Save_StatBonus|SET|CON|PRIORITY=5
+#Reflex	KEY:Reflex		SORTKEY:2	MODIFY:Save_StatBonus|SET|DEX|PRIORITY=5
+#Will		KEY:Will		SORTKEY:3	MODIFY:Save_StatBonus|SET|WIS|PRIORITY=5

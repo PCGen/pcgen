@@ -1,5 +1,4 @@
 /*
- * NewCategoryTokenTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,39 +14,33 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 01/06/2013
- *
- * $Id$
  */
 package plugin.lsttokens.gamemode.migrate;
 
-import static org.junit.Assert.*;
-
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * NewCategoryTokenTest verifies that NewCategoryToken is operating correctly.
- * 
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class NewCategoryTokenTest
+class NewCategoryTokenTest
 {
 
 	private MigrationRule migrationRule;
 	private NewCategoryToken token;
 	private String gameModeName;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
-	public void setUp() throws Exception
+	
+	@BeforeEach
+	void setUp()
 	{
 		migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");
 		token = new NewCategoryToken();
@@ -55,16 +48,16 @@ public class NewCategoryTokenTest
 	}
 
 	/**
-	 * Test method for {@link plugin.lsttokens.gamemode.migrate.NewCategoryToken#parse(pcgen.core.system.MigrationRule, java.lang.String, java.lang.String)}.
+	 * Test method for {@link NewCategoryToken#parse(MigrationRule, String, String)}.
 	 */
 	@Test
 	public void testParseValidCat()
 	{
-		assertTrue("Parse should have been successful", token.parse(migrationRule, "ValidCat", gameModeName));
-		assertEquals("New category", "ValidCat", migrationRule.getNewCategory());
+		assertTrue(token.parse(migrationRule, "ValidCat", gameModeName), "Parse should have been successful");
+		assertEquals("ValidCat", migrationRule.getNewCategory(), "New category");
 
-		assertTrue("Parse should have been successful", token.parse(migrationRule, "v 123", gameModeName));
-		assertEquals("New category", "v 123", migrationRule.getNewCategory());
+		assertTrue(token.parse(migrationRule, "v 123", gameModeName), "Parse should have been successful");
+		assertEquals("v 123", migrationRule.getNewCategory(), "New category");
 	}
 	
 	/**
@@ -76,27 +69,27 @@ public class NewCategoryTokenTest
 		String invalidChars = ",|\\:;.%*=[]";
 		for (char invalid : invalidChars.toCharArray())
 		{
-			assertFalse("Cat containing " + invalid
-				+ " should have been rejected.", token.parse(migrationRule,
-				"InvalidKey" + invalid, gameModeName));
-			assertNull("New category", migrationRule.getNewCategory());
+			assertFalse(token.parse(migrationRule,
+				"InvalidKey" + invalid, gameModeName), "Cat containing " + invalid
+					+ " should have been rejected.");
+			assertNull(migrationRule.getNewCategory(), "New category");
 		}
 
 		for (char invalid : invalidChars.toCharArray())
 		{
-			assertFalse("Cat containing " + invalid
-				+ " should have been rejected.", token.parse(migrationRule,
-				invalid+"InvalidKey", gameModeName));
-			assertNull("New category", migrationRule.getNewCategory());
+			assertFalse(token.parse(migrationRule,
+				invalid+"InvalidKey", gameModeName), "Cat containing " + invalid
+					+ " should have been rejected.");
+			assertNull(migrationRule.getNewCategory(), "New category");
 		}
 
 
 		for (char invalid : invalidChars.toCharArray())
 		{
-			assertFalse("Cat containing " + invalid
-				+ " should have been rejected.", token.parse(migrationRule,
-				"Invalid"+invalid+"Cat", gameModeName));
-			assertNull("New category", migrationRule.getNewCategory());
+			assertFalse(token.parse(migrationRule,
+				"Invalid"+invalid+"Cat", gameModeName), "Cat containing " + invalid
+					+ " should have been rejected.");
+			assertNull(migrationRule.getNewCategory(), "New category");
 		}
 		
 	}

@@ -45,8 +45,7 @@ public class TypeToken implements PrimitiveToken<WeaponProf>
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc,
-		Converter<WeaponProf, R> c)
+	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
 	{
 		List<WeaponProf> profs = pc.getWeaponProfsInTarget(typeRef);
 		List<R> returnList = new ArrayList<>(profs.size() + 10);
@@ -76,8 +75,7 @@ public class TypeToken implements PrimitiveToken<WeaponProf>
 	}
 
 	@Override
-	public boolean initialize(LoadContext context, Class<WeaponProf> cl,
-		String value, String args)
+	public boolean initialize(LoadContext context, Class<WeaponProf> cl, String value, String args)
 	{
 		if (args != null)
 		{

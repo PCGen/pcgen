@@ -1,0 +1,22 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Blood of Shadows	SOURCESHORT:BOS	SOURCEWEB:http://paizo.com/products/btpy9j6s	SOURCEDATE:2016-02
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 April 2016
+
+# ==============================
+# Shields
+# ==============================
+
+# Equipment Name			Required Weapon Proficiency	Required Shield Proficiency	Type														Cost		Weight	Crit Mult	Crit Range	Damage	Modifier																						Wield Category	Range		Size		Source Page		Weapon prop. bonus					Special Property
+Brilliant Bulwark								PROFICIENCY:SHIELD|Buckler	TYPE:Shield.Buckler.Magic.Specific									COST:9655	WT:4								EQMOD:Special Ability ~ Blinding ~ Shield.Special Ability ~ +1 ~ Shield																			SOURCEPAGE:p.21									SPROP:Glows as a torch on command. Wielder can expend minutes of daylight duration to increase the save DC of the blinding ability by 1 for every 2 minutes expended.
+
+
+# ==============================
+# Weapons
+# ==============================
+
+Feast of Rats			PROFICIENCY:WEAPON|Dagger						TYPE:Weapon.Resizable.Melee.Light.Finesseable.Magic.Simple.ShadowStuff.Specific	COST:0	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:Special Ability ~ Enhancement Cost|14625.Special Ability ~ +1 ~ Weapon.Material ~ Shadowcraft.Special Ability ~ Stalking ~ Weapon	WIELD:Light				SIZE:M	SOURCEPAGE:p.23									SPROP:Damage and crit as by specific weapon form used. Can be thrown on ground to create a damaging fog cloud.
+Torment of the Midnight Lord	PROFICIENCY:WEAPON|Spear						TYPE:Weapon.Resizable.Melee.TwoHanded.Finesseable.Magic.Simple.ShadowStuff.Specific	COST:0	WT:6		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Ability ~ Enhancement Cost|43500.Special Ability ~ +1 ~ Weapon.Material ~ Shadowcraft.Special Ability ~ Vicious ~ Melee	WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.23									SPROP:Damage and crit as by specific weapon form used. Damage dealt resists all healing.
+
+Gloom					PROFICIENCY:WEAPON|Gloom						TYPE:Weapon.Exotic.Ranged.Standard.Thrown.Splash.Cold.NoAttackPenalty							CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6																											RANGE:20						BONUS:WEAPON|TOHIT|4|!PREWEAPONPROF:1,Gloom	SPROP:%d% bonus damage|AlchemistGloomAdditionalDice|AlchemistGloomDiceSize|PREVARGT:AlchemistGloomAdditionalDice,0

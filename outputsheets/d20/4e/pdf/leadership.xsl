@@ -205,7 +205,7 @@
 						<xsl:when test="$count &gt;= 10">
 							<xsl:value-of select="ceiling($count div 10)"/>
 						</xsl:when>
-						<xsl:otherwise></xsl:otherwise>
+                        <xsl:otherwise/>
 					</xsl:choose>
 				</xsl:variable>
 				<follower>
@@ -309,15 +309,15 @@
 		we are using a big lookup table instead.
 	-->
 	<Leadership:leadership>
-		<score value="1" cohort="0"></score>
-		<score value="2" cohort="1"></score>
-		<score value="3" cohort="2"></score>
-		<score value="4" cohort="3"></score>
-		<score value="5" cohort="3"></score>
-		<score value="6" cohort="4"></score>
-		<score value="7" cohort="5"></score>
-		<score value="8" cohort="5"></score>
-		<score value="9" cohort="6"></score>
+        <score value="1" cohort="0"/>
+        <score value="2" cohort="1"/>
+        <score value="3" cohort="2"/>
+        <score value="4" cohort="3"/>
+        <score value="5" cohort="3"/>
+        <score value="6" cohort="4"/>
+        <score value="7" cohort="5"/>
+        <score value="8" cohort="5"/>
+        <score value="9" cohort="6"/>
 		<score value="10" cohort="7">
 			<followers level="1" number="5"/>
 		</score>

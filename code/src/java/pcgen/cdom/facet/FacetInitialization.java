@@ -21,9 +21,10 @@ import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.input.ClassSkillListFacet;
 import pcgen.cdom.facet.input.DynamicFacet;
+import pcgen.cdom.facet.input.DynamicWatchingFacet;
 import pcgen.cdom.facet.input.MasterUsableSkillFacet;
+import pcgen.cdom.facet.model.ActiveEqHeadFacet;
 import pcgen.cdom.facet.model.ActiveEqModFacet;
-import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;
@@ -46,13 +47,13 @@ import pcgen.output.publish.OutputDB;
 public final class FacetInitialization
 {
 
+	private static boolean isInitialized = false;
+
 	private FacetInitialization()
 	{
 		//Do not instantiate
 	}
 
-	private static boolean isInitialized = false;
-	
 	public static synchronized void initialize()
 	{
 		if (!isInitialized)
@@ -61,11 +62,13 @@ public final class FacetInitialization
 			isInitialized = true;
 		}
 	}
-	
+
 	private static void doInitialization()
 	{
 		doOtherInitialization();
 		doBridges();
+		ScopedDistributionFacet scopedDistributionFacet = FacetLibrary.getFacet(ScopedDistributionFacet.class);
+		GrantedVarFacet grantedVarFacet = FacetLibrary.getFacet(GrantedVarFacet.class);
 		TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
 		ConditionalTemplateFacet conditionalTemplateFacet = FacetLibrary.getFacet(ConditionalTemplateFacet.class);
 		RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
@@ -76,14 +79,15 @@ public final class FacetInitialization
 		EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
 		NaturalEquipmentFacet naturalEquipmentFacet = FacetLibrary.getFacet(NaturalEquipmentFacet.class);
 		SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);
+		ActiveEqHeadFacet activeEqHeadFacet = FacetLibrary.getFacet(ActiveEqHeadFacet.class);
 		ActiveEqModFacet activeEqModFacet = FacetLibrary.getFacet(ActiveEqModFacet.class);
 
 		GlobalModifierFacet globalModifierFacet = FacetLibrary.getFacet(GlobalModifierFacet.class);
-		AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 		BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
 		BioSetTrackingFacet bioSetTrackingFacet = FacetLibrary.getFacet(BioSetTrackingFacet.class);
 		CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 
+		DynamicWatchingFacet dynamicWatchingFacet = FacetLibrary.getFacet(DynamicWatchingFacet.class);
 		DynamicFacet dynamicFacet = FacetLibrary.getFacet(DynamicFacet.class);
 		DynamicConsolidationFacet dynamicConsolidationFacet = FacetLibrary.getFacet(DynamicConsolidationFacet.class);
 		VarScopedFacet varScopedFacet = FacetLibrary.getFacet(VarScopedFacet.class);
@@ -114,15 +118,18 @@ public final class FacetInitialization
 		DirectAbilityInputFacet directAbilityInputFacet = FacetLibrary.getFacet(DirectAbilityInputFacet.class);
 		ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary.getFacet(ConditionallyGrantedAbilityFacet.class);
 		SimpleAbilityFacet simpleAbilityFacet = FacetLibrary.getFacet(SimpleAbilityFacet.class);
-		AbilitySelectionApplication abilitySelectionApplication = FacetLibrary.getFacet(AbilitySelectionApplication.class);
+		AbilitySelectionApplication abilitySelectionApplication =
+				FacetLibrary.getFacet(AbilitySelectionApplication.class);
 
 		equipmentFacet.addDataFacetChangeListener(naturalEquipmentFacet);
 		equippedFacet.addDataFacetChangeListener(activeEquipmentFacet);
 		naturalEquipmentFacet.addDataFacetChangeListener(activeEquipmentFacet);
-		activeEquipmentFacet.addDataFacetChangeListener(activeEqModFacet);
+		activeEquipmentFacet.addDataFacetChangeListener(activeEqHeadFacet);
+		activeEqHeadFacet.addDataFacetChangeListener(activeEqModFacet);
 
 		nwpFacet.addDataFacetChangeListener(weaponProfFacet);
 
+		dynamicWatchingFacet.addDataFacetChangeListener(dynamicFacet);
 		dynamicFacet.addScopeFacetChangeListener(dynamicConsolidationFacet);
 
 		charObjectFacet.addDataFacetChangeListener(naturalWeaponFacet);
@@ -144,9 +151,10 @@ public final class FacetInitialization
 
 		bonusChangeFacet.addBonusChangeListener(sizeFacet, "SIZEMOD", "NUMBER");
 
+		grantedVarFacet.addDataFacetChangeListener(scopedDistributionFacet); //model done
+
 		expandedCampaignFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		globalModifierFacet.addDataFacetChangeListener(charObjectFacet); //model done
-		alignmentFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		bioSetFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		checkFacet.addDataFacetChangeListener(charObjectFacet); //model done
 		classFacet.addDataFacetChangeListener(charObjectFacet); //model done
@@ -165,6 +173,7 @@ public final class FacetInitialization
 		companionModFacet.addDataFacetChangeListener(charObjectFacet); //model done
 
 		activeEquipmentFacet.addDataFacetChangeListener(eqObjectFacet);
+		activeEqHeadFacet.addDataFacetChangeListener(eqObjectFacet);
 		activeEqModFacet.addDataFacetChangeListener(eqObjectFacet);
 
 		eqObjectFacet.addDataFacetChangeListener(cdomObjectFacet);
@@ -172,8 +181,9 @@ public final class FacetInitialization
 
 		cdomObjectFacet.addDataFacetChangeListener(nwpFacet);
 		cdomSourceFacet.addDataFacetChangeListener(autoLangFacet);
+		cdomSourceFacet.addDataFacetChangeListener(dynamicWatchingFacet);
 
-		charObjectFacet.addDataFacetChangeListener(varScopedFacet);
+		cdomObjectFacet.addDataFacetChangeListener(varScopedFacet);
 		dynamicConsolidationFacet.addDataFacetChangeListener(varScopedFacet); //model done
 	}
 
@@ -196,9 +206,7 @@ public final class FacetInitialization
 		FacetLibrary.getFacet(ObjectWrapperFacet.class);
 		FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
 		FacetLibrary.getFacet(HiddenTypeFacet.class);
-		FacetLibrary.getFacet(VariableLibraryFacet.class);
-		FacetLibrary.getFacet(SolverFactoryFacet.class);
-		FacetLibrary.getFacet(FormulaSetupFacet.class);
+		FacetLibrary.getFacet(LoadContextFacet.class);
 		/*
 		 * TODO These are required because they are "bridges" - meaning they
 		 * refer to others, but no one refers to them. Need to consider if these
@@ -211,7 +219,6 @@ public final class FacetInitialization
 		FacetLibrary.getFacet(ArmorProfFacet.class);
 		FacetLibrary.getFacet(MonsterClassFacet.class);
 		FacetLibrary.getFacet(KitChoiceFacet.class);
-		FacetLibrary.getFacet(RegionChoiceFacet.class);
 		FacetLibrary.getFacet(AddFacet.class);
 		FacetLibrary.getFacet(RemoveFacet.class);
 		FacetLibrary.getFacet(ModifierFacet.class);

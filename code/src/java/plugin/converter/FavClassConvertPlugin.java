@@ -23,11 +23,9 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.SubClassCategory;
-import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
@@ -36,14 +34,14 @@ import pcgen.gui2.converter.event.TokenProcessEvent;
 import pcgen.gui2.converter.event.TokenProcessorPlugin;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.ParseResult;
 
-public class FavClassConvertPlugin extends AbstractToken implements
-		TokenProcessorPlugin
+public class FavClassConvertPlugin extends AbstractToken implements TokenProcessorPlugin
 {
 	public static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
 	public static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 
-    @Override
+	@Override
 	public String process(TokenProcessEvent tpe)
 	{
 		String value = tpe.getValue();
@@ -54,9 +52,15 @@ public class FavClassConvertPlugin extends AbstractToken implements
 		}
 
 		String choices = value.substring(7);
-		if (isEmpty(choices) || hasIllegalSeparator('|', choices))
+		ParseResult pr = checkNonEmpty(choices);
+		if (!pr.passed())
 		{
-			return "Empty Token";
+			return "Empty";
+		}
+		pr = checkForIllegalSeparator('|', choices);
+		if (!pr.passed())
+		{
+			return "Illegal Separator";
 		}
 		boolean foundAny = false;
 		boolean foundOther = false;
@@ -69,8 +73,7 @@ public class FavClassConvertPlugin extends AbstractToken implements
 		{
 			CDOMReference<? extends PCClass> ref;
 			String token = tok.nextToken();
-			if (Constants.LST_ALL.equalsIgnoreCase(token)
-					|| Constants.LST_ANY.equalsIgnoreCase(token))
+			if (Constants.LST_ALL.equalsIgnoreCase(token) || Constants.LST_ANY.equalsIgnoreCase(token))
 			{
 				foundAny = true;
 				ref = context.getReferenceContext().getCDOMAllReference(PCCLASS_CLASS);
@@ -90,16 +93,14 @@ public class FavClassConvertPlugin extends AbstractToken implements
 					String parent = token.substring(0, dotLoc);
 					String subclass = token.substring(dotLoc + 1);
 					SubClassCategory scc = SubClassCategory.getConstant(parent);
-					ref = context.getReferenceContext().getCDOMReference(SUBCLASS_CLASS, scc,
-							subclass);
+					ref = context.getReferenceContext().getManufacturerId(scc).getReference(subclass);
 				}
 			}
 			refList.add(ref);
 		}
 		if (foundAny && foundOther)
 		{
-			return "Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value;
+			return "Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value;
 		}
 
 		String name = tpe.getPrimary().get(StringKey.CONVERT_NAME);
@@ -119,13 +120,11 @@ public class FavClassConvertPlugin extends AbstractToken implements
 				chooseValue.append(Constants.COMMA);
 			}
 			first = false;
-			Class<? extends PCClass> refClass = ref.getReferenceClass();
-			if (SUBCLASS_CLASS.equals(refClass))
+			String prefix = ref.getPersistentFormat();
+			if (prefix.startsWith("SUBCLASS="))
 			{
-				Category<SubClass> parent = ((CategorizedCDOMReference<SubClass>) ref)
-						.getCDOMCategory();
-				chooseValue.append(parent.toString());
-				chooseValue.append(".");
+				chooseValue.append(prefix.substring(9));
+				chooseValue.append('.');
 			}
 			chooseValue.append(ref.getLSTformat(false));
 		}
@@ -137,13 +136,13 @@ public class FavClassConvertPlugin extends AbstractToken implements
 		return null;
 	}
 
-    @Override
+	@Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return Race.class;
 	}
 
-    @Override
+	@Override
 	public String getProcessedToken()
 	{
 		return "FAVCLASS";

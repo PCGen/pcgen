@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with ABB Token for pc alignment
  */
-public class AbbToken extends AbstractNonEmptyToken<PCAlignment> implements
-		CDOMPrimaryToken<PCAlignment>
+public class AbbToken extends AbstractNonEmptyToken<PCAlignment> implements CDOMPrimaryToken<PCAlignment>
 {
 
 	/**
@@ -44,19 +43,18 @@ public class AbbToken extends AbstractNonEmptyToken<PCAlignment> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		PCAlignment al, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCAlignment al, String value)
 	{
 		try
 		{
 			if (!context.processToken(al, "KEY", value))
 			{
-				return new ParseResult.Fail("Internal Error", context);
+				return new ParseResult.Fail("Internal Error");
 			}
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail(e.getLocalizedMessage(), context);
+			return new ParseResult.Fail(e.getLocalizedMessage());
 		}
 		context.getObjectContext().put(al, StringKey.ABB_KR, value);
 		return ParseResult.SUCCESS;
@@ -70,7 +68,7 @@ public class AbbToken extends AbstractNonEmptyToken<PCAlignment> implements
 		{
 			return null;
 		}
-		return new String[] { abb };
+		return new String[]{abb};
 	}
 
 	@Override

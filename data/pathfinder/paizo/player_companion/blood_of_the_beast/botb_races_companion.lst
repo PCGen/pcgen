@@ -1,0 +1,8 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Blood of the Beast	SOURCESHORT:BOTB	SOURCEWEB:http://paizo.com/products/btpy9oo8?Pathfinder-Player-Companion-Blood-of-the-Beast	SOURCEDATE:2016-12
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 March 2017
+
+# Race Name						SORTKEY			Output Name				Size		Move					Reach		Var. Min. Value		Bonus Ability Pool										Stat bonus																		Modify VAR						Ability																																			Nb Legs	Monster Class Name and Starting Level	Main Race Type		Type						Source Page		Apply Kit				Bonus					FACT
+Companion (Snake (Riding Constrictor))	SORTKEY:z_Companion	OUTPUTNAME:Companion [NAME]	SIZE:L	MOVE:Walk,40,Climb,20,Swim,20	REACH:5	PREVARGTEQ:NotAllowed,1	BONUS:ABILITYPOOL|Companion Level Increase Choice|1|PREVARGTEQ:MasterLevel,4	BONUS:STAT|STR|8	BONUS:STAT|DEX|6	BONUS:STAT|CON|2	BONUS:STAT|INT|-10	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-8	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Scent	ABILITY:Internal|AUTOMATIC|Bite	ABILITY:Special Ability|AUTOMATIC|Companion Advancement ~ Snake (Constrictor)|PREABILITY:1,CATEGORY=Special Ability,Companion Advancement	LEGS:4	MONSTERCLASS:Companion:2			RACETYPE:Companion	TYPE:Companion.AnimalCompanion	SOURCEPAGE:p.18	KIT:1|Riding Constrictor	BONUS:LOADMULT|TYPE=SIZE|1.5	FACT:BaseSize|L

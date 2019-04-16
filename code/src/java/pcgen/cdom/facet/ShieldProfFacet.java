@@ -31,7 +31,6 @@ import pcgen.cdom.helper.ShieldProfProvider;
  * ShieldProfFacet is a Facet that tracks the ShieldProfs that have been granted
  * to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ShieldProfFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
@@ -52,15 +51,12 @@ public class ShieldProfFacet implements DataFacetChangeListener<CharID, CDOMObje
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		List<ShieldProfProvider> shieldProfs = cdo
-				.getListFor(ListKey.AUTO_SHIELDPROF);
+		List<ShieldProfProvider> shieldProfs = cdo.getListFor(ListKey.AUTO_SHIELDPROF);
 		if (shieldProfs != null)
 		{
 			shieldProfProviderFacet.addAll(dfce.getCharID(), shieldProfs, cdo);
@@ -79,8 +75,6 @@ public class ShieldProfFacet implements DataFacetChangeListener<CharID, CDOMObje
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -88,8 +82,7 @@ public class ShieldProfFacet implements DataFacetChangeListener<CharID, CDOMObje
 		shieldProfProviderFacet.removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
-	public void setShieldProfProviderFacet(
-		ShieldProfProviderFacet shieldProfProviderFacet)
+	public void setShieldProfProviderFacet(ShieldProfProviderFacet shieldProfProviderFacet)
 	{
 		this.shieldProfProviderFacet = shieldProfProviderFacet;
 	}

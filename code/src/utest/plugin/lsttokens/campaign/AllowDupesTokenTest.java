@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.campaign;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
@@ -27,11 +27,13 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class AllowDupesTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static CDOMPrimaryToken<Campaign> token = new AllowDupesToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<Campaign> getLoader()
@@ -52,14 +54,14 @@ public class AllowDupesTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidType() throws PersistenceLayerException
+	public void testInvalidType()
 	{
 		assertFalse(parse("SKILL"));
 		assertNoSideEffects();

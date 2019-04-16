@@ -38,7 +38,6 @@ import pcgen.core.PlayerCharacter;
  * AddedTemplateFacet is a Facet that tracks the Templates that have been added
  * to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTemplate>
 		implements DataFacetChangeListener<CharID, CDOMObject>
@@ -46,8 +45,8 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 
 	private PrerequisiteFacet prerequisiteFacet;
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
@@ -73,8 +72,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		if (!pc.isImporting())
 		{
-			for (CDOMReference<PCTemplate> ref : po
-					.getSafeListFor(ListKey.TEMPLATE))
+			for (CDOMReference<PCTemplate> ref : po.getSafeListFor(ListKey.TEMPLATE))
 			{
 				for (PCTemplate pct : ref.getContainedObjects())
 				{
@@ -83,13 +81,11 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 				}
 			}
 			List<PCTemplate> added = new ArrayList<>();
-			for (CDOMReference<PCTemplate> ref : po
-					.getSafeListFor(ListKey.TEMPLATE_ADDCHOICE))
+			for (CDOMReference<PCTemplate> ref : po.getSafeListFor(ListKey.TEMPLATE_ADDCHOICE))
 			{
 				added.addAll(ref.getContainedObjects());
 			}
-			for (CDOMReference<PCTemplate> ref : po
-					.getSafeListFor(ListKey.TEMPLATE_CHOOSE))
+			for (CDOMReference<PCTemplate> ref : po.getSafeListFor(ListKey.TEMPLATE_CHOOSE))
 			{
 				List<PCTemplate> chooseList = new ArrayList<>(added);
 				chooseList.addAll(ref.getContainedObjects());
@@ -123,8 +119,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		if (!pc.isImporting())
 		{
-			for (CDOMReference<PCTemplate> ref : po
-					.getSafeListFor(ListKey.REMOVE_TEMPLATES))
+			for (CDOMReference<PCTemplate> ref : po.getSafeListFor(ListKey.REMOVE_TEMPLATES))
 			{
 				for (PCTemplate pct : ref.getContainedObjects())
 				{
@@ -149,8 +144,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 	 *            The CharID for which the PCTempalte selection is being made.
 	 * @return The PCTemplate selected
 	 */
-	public PCTemplate chooseTemplate(CDOMObject anOwner, List<PCTemplate> list,
-			boolean forceChoice, CharID id)
+	public PCTemplate chooseTemplate(CDOMObject anOwner, List<PCTemplate> list, boolean forceChoice, CharID id)
 	{
 		final List<PCTemplate> availableList = new ArrayList<>();
 		for (PCTemplate pct : list)
@@ -165,7 +159,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 			return availableList.get(0);
 		}
 		// If we are left without a choice, don't show the chooser.
-		if (availableList.size() < 1)
+		if (availableList.isEmpty())
 		{
 			return null;
 		}
@@ -175,8 +169,8 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 		{
 			title += " (" + anOwner.getDisplayName() + ")";
 		}
-		selectedList = Globals.getChoiceFromList(title, availableList, selectedList, 1,
-				forceChoice, false, trackingFacet.getPC(id));
+		selectedList = Globals.getChoiceFromList(title, availableList, selectedList, 1, forceChoice, false,
+			trackingFacet.getPC(id));
 		if (selectedList.size() == 1)
 		{
 			return selectedList.get(0);
@@ -229,8 +223,6 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -275,8 +267,6 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -294,8 +284,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 		}
 		removeAll(id, cdo);
 
-		Collection<CDOMReference<PCTemplate>> refList =
-				cdo.getListFor(ListKey.TEMPLATE);
+		Collection<CDOMReference<PCTemplate>> refList = cdo.getListFor(ListKey.TEMPLATE);
 		if (refList != null)
 		{
 			for (CDOMReference<PCTemplate> pctr : refList)

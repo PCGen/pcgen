@@ -17,10 +17,10 @@
  */
 package plugin.lsttokens.bonus;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
@@ -33,14 +33,16 @@ import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 public class SpellCastTest extends AbstractGlobalTokenTestCase
 {
 	static BonusLst token = new BonusLst();
 	static CDOMTokenLoader<PCTemplate> loader =
-			new CDOMTokenLoader<PCTemplate>();
+			new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -60,34 +62,40 @@ public class SpellCastTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}
 
 	@Test
-	public void testInvalidInputOnlyType() throws PersistenceLayerException
+	public void testInvalidInputOnlyType()
 	{
 		assertFalse(parse("SpellCast"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlyTypeBar() throws PersistenceLayerException
+	public void testInvalidInputOnlyTypeBar()
 	{
 		assertFalse(parse("SpellCast|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoValue() throws PersistenceLayerException
+	public void testInvalidInputNoValue()
 	{
 		assertFalse(parse("SpellCast|CLASS.Wizard;LEVEL.1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputMissingValue() throws PersistenceLayerException
+	public void testInvalidInputMissingValue()
 	{
 		try
 		{
@@ -101,21 +109,21 @@ public class SpellCastTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidNoTarget() throws PersistenceLayerException
+	public void testInvalidNoTarget()
 	{
 		assertFalse(parse("SpellCast||2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoubleFirstPipe() throws PersistenceLayerException
+	public void testInvalidDoubleFirstPipe()
 	{
 		assertFalse(parse("SpellCast||CLASS.Wizard;LEVEL.1|1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoubleSecondPipe() throws PersistenceLayerException
+	public void testInvalidDoubleSecondPipe()
 	{
 		try
 		{
@@ -129,7 +137,7 @@ public class SpellCastTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse(getLegalValue()));
 		assertCleanConstruction();

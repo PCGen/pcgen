@@ -16,13 +16,17 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package pcgen.core;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.Test;
+
 public class SizeAdjustmentTest extends AbstractCharacterTestCase
 {
 
+	@Test
 	public void testSizeMod() throws Exception
 	{
 		Race race = new Race();
@@ -41,14 +45,14 @@ public class SizeAdjustmentTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 
 		PlayerCharacter pc = getCharacter();
-		assertEquals("M", pc.getDisplay().getSize());
+		assertEquals("M", pc.getSizeAdjustment().getKeyName());
 		pc.setRace(race);
-		assertEquals("S", pc.getDisplay().getSize());
+		assertEquals("S", pc.getSizeAdjustment().getKeyName());
 		pc.addTemplate(template);
-		assertEquals("D", pc.getDisplay().getSize());
+		assertEquals("D", pc.getSizeAdjustment().getKeyName());
 		pc.setDeity(deity);
 		pc.calcActiveBonuses();
-		assertEquals("T", pc.getDisplay().getSize());
+		assertEquals("T", pc.getSizeAdjustment().getKeyName());
 	}
 
 }

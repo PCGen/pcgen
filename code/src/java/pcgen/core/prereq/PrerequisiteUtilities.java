@@ -17,20 +17,18 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Refactored out of PObject July 22, 2005
- *
- * Current Ver: $Revision$
  */
 package pcgen.core.prereq;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
@@ -52,7 +50,6 @@ import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 
 /**
- * @author Tom Parker &lt;thpr@sourceforge.net&gt;
  *
  * This is a utility class related to PreReq objects.
  */
@@ -75,11 +72,8 @@ public final class PrerequisiteUtilities
 	 * @param includeHeader Whether to wrap the generated string in html tags.
 	 * @return An HTML representation of whether a set of PreRequisites passed for a given PC and Source.
 	 */
-	public static String preReqHTMLStringsForList(
-		final PlayerCharacter aPC,
-		final CDOMObject aObj,
-		final Collection<Prerequisite> aList,
-		final boolean includeHeader)
+	public static String preReqHTMLStringsForList(final PlayerCharacter aPC, final CDOMObject aObj,
+		final Collection<Prerequisite> aList, final boolean includeHeader)
 	{
 		if ((aList == null) || aList.isEmpty())
 		{
@@ -186,21 +180,17 @@ public final class PrerequisiteUtilities
 	 * @param categoryName The name of the required category, null if any category will be matched.
 	 * @return The number of matches made, 0 if not enough matches were made.
 	 */
-	public static int passesAbilityTest(
-		final Prerequisite prereq,
-		final PlayerCharacter character,
-		final int numMatches,
-		String categoryName)
+	public static int passesAbilityTest(final Prerequisite prereq, final PlayerCharacter character,
+		final int numMatches, String categoryName)
 	{
 
 		final boolean countMults = prereq.isCountMultiples();
 
-		final boolean keyIsAny  = prereq.getKey().equalsIgnoreCase(Constants.LST_ANY);
+		final boolean keyIsAny = prereq.getKey().equalsIgnoreCase(Constants.LST_ANY);
 		final boolean keyIsType = isTypeTest(prereq.getKey());
 
-		final String strippedKey = keyIsType
-			? prereq.getKey().substring(Constants.SUBSTRING_LENGTH_FIVE)
-			: prereq.getKey();
+		final String strippedKey =
+				keyIsType ? prereq.getKey().substring(Constants.SUBSTRING_LENGTH_FIVE) : prereq.getKey();
 
 		int runningTotal = 0;
 
@@ -212,19 +202,14 @@ public final class PrerequisiteUtilities
 			{
 				final String abilityKey = ability.getKeyName();
 
-				if (keyIsAny
-					|| (!keyIsType && abilityKey.equalsIgnoreCase(strippedKey))
+				if (keyIsAny || (!keyIsType && abilityKey.equalsIgnoreCase(strippedKey))
 					|| (keyIsType && ability.isType(strippedKey)))
 				{
 					// either this feat has matched on the name, or the type
 
 					if (prereq.getSubKey() != null)
 					{
-						runningTotal += dealWithSubKey(
-							prereq,
-							character,
-							strippedKey,
-							ability);
+						runningTotal += dealWithSubKey(prereq, character, strippedKey, ability);
 					}
 					else
 					{
@@ -241,13 +226,8 @@ public final class PrerequisiteUtilities
 							 * instance is a SERVESAS, but that is a high cost corner case.
 							 */
 
-
-							List<String> assocs =
-									character
-										.getConsolidatedAssociationList(ability);
-							int select =
-									ability.getSafe(FormulaKey.SELECT)
-										.resolve(character, "").intValue();
+							List<String> assocs = character.getConsolidatedAssociationList(ability);
+							int select = ability.getSafe(FormulaKey.SELECT).resolve(character, "").intValue();
 							int num = (assocs.size() / select) - 1;
 							if (num > 0)
 							{
@@ -264,14 +244,11 @@ public final class PrerequisiteUtilities
 						final int len = Constants.SUBSTRING_LENGTH_FIVE;
 
 						final boolean subKeyIsType = isTypeTest(prereq.getSubKey());
-						final String subKey = subKeyIsType
-							? prereq.getSubKey().substring(len)
-							: prereq.getSubKey();
+						final String subKey = subKeyIsType ? prereq.getSubKey().substring(len) : prereq.getSubKey();
 
 						final String s1 = strippedKey + " (" + subKey + ")";
 						final String s2 = strippedKey + "(" + subKey + ")";
-						if (abilityKey.equalsIgnoreCase(s1)
-							|| ability.getKeyName().equalsIgnoreCase(s2))
+						if (abilityKey.equalsIgnoreCase(s1) || ability.getKeyName().equalsIgnoreCase(s2))
 						{
 							runningTotal++;
 							if (!countMults)
@@ -288,13 +265,10 @@ public final class PrerequisiteUtilities
 		return runningTotal;
 	}
 
-
-
-
 	/**
 	 * This operation deals with matching subKeys against abilities where the main key
 	 * has already matched.
-
+	
 	 * The subKey may be prefixed with TYPE(=|.) in which case the Choice string from the
 	 * ability will be used to check for the type of chooser.  Possibilities are SKILL,
 	 * WEAPONPROFICIENCY, DOMAIN, or SPELL.  A list of keys will be retrieved from the ability's
@@ -306,7 +280,7 @@ public final class PrerequisiteUtilities
 	 * with the character via the subkey, then a count of the number of instances is returned.
 	 *
 	 * Finally,the subkey may specify a wildcard.  If it does, the list of associations
-	 * between the ability object and the PC are checked. A count is returned of teh number
+	 * between the ability object and the PC are checked. A count is returned of the number
 	 * that begin with the wildcard string.
 	 *
 	 * @param prereq The prerequisite to be checked.
@@ -315,16 +289,12 @@ public final class PrerequisiteUtilities
 	 * @param ability The ability being checked for a match.
 	 * @return A count which respects countMults.
 	 */
-	private static int dealWithSubKey(
-		Prerequisite prereq,
-		PlayerCharacter character,
-		String key,
-		Ability ability)
+	private static int dealWithSubKey(Prerequisite prereq, PlayerCharacter character, String key, Ability ability)
 	{
 		final boolean countMults = prereq.isCountMultiples();
 		int runningTotal = 0;
 
-		final String  subKey = prereq.getSubKey();
+		final String subKey = prereq.getSubKey();
 		final boolean subKeyIsType = isTypeTest(subKey);
 		final int wildCardPos = subKey.indexOf('%');
 
@@ -336,8 +306,7 @@ public final class PrerequisiteUtilities
 			runningTotal = countSubKeyType(character, ability, type, countMults);
 		}
 
-		else if (ability.getKeyName().equalsIgnoreCase(key)
-			&& hasAssoc(assocs, subKey))
+		else if (ability.getKeyName().equalsIgnoreCase(key) && hasAssoc(assocs, subKey))
 		{
 
 			if (countMults && ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
@@ -354,14 +323,9 @@ public final class PrerequisiteUtilities
 
 		else if (wildCardPos > -1)
 		{
-			String preWildcard = (wildCardPos == 0)
-				? Constants.EMPTY_STRING
-				: subKey.substring(0, wildCardPos).toUpperCase();
-			runningTotal = countSubKeyWildcardMatch(
-				character,
-				countMults,
-				preWildcard,
-				ability);
+			String preWildcard =
+					(wildCardPos == 0) ? Constants.EMPTY_STRING : subKey.substring(0, wildCardPos).toUpperCase();
+			runningTotal = countSubKeyWildcardMatch(character, countMults, preWildcard, ability);
 		}
 
 		return runningTotal;
@@ -372,7 +336,7 @@ public final class PrerequisiteUtilities
 		int numMatches = 0;
 		for (String s : assocs)
 		{
-			if (subKey.equalsIgnoreCase(s))
+			if (subKey.equalsIgnoreCase(s) || s.endsWith("|" + subKey))
 			{
 				numMatches++;
 			}
@@ -384,7 +348,7 @@ public final class PrerequisiteUtilities
 	{
 		for (String s : assocs)
 		{
-			if (subKey.equalsIgnoreCase(s))
+			if (subKey.equalsIgnoreCase(s) || s.endsWith("|" + subKey))
 			{
 				return true;
 			}
@@ -417,11 +381,8 @@ public final class PrerequisiteUtilities
 	 *              The ability being checked for a match.
 	 * @return The number of matches made
 	 */
-	private static int countSubKeyWildcardMatch(
-		final PlayerCharacter character,
-		final boolean countMults,
-		String preWilcard,
-		Ability ability)
+	private static int countSubKeyWildcardMatch(final PlayerCharacter character, final boolean countMults,
+		String preWilcard, Ability ability)
 	{
 
 		int runningTotal = 0;
@@ -430,7 +391,7 @@ public final class PrerequisiteUtilities
 		{
 			final String fString = assoc.toUpperCase();
 
-			if (preWilcard.length() == 0 || fString.startsWith(preWilcard))
+			if (preWilcard.isEmpty() || fString.startsWith(preWilcard))
 			{
 				runningTotal++;
 				if (!countMults)
@@ -442,15 +403,13 @@ public final class PrerequisiteUtilities
 		return runningTotal;
 	}
 
-	private static int countSubKeyType(
-		PlayerCharacter aPC,
-		Ability ability, String type, boolean countMults)
+	private static int countSubKeyType(PlayerCharacter aPC, Ability ability, String type, boolean countMults)
 	{
 		final List<String> selectedList = aPC.getConsolidatedAssociationList(ability);
 
 		ChooseInformation<?> chooseInformation = ability.getSafe(ObjectKey.CHOOSE_INFO);
 		final String aChoiceString = chooseInformation.getName();
-		
+
 		if (aChoiceString.startsWith("SKILL")) //$NON-NLS-1$
 		{
 			return subKeySkill(countMults, type, selectedList);
@@ -478,15 +437,13 @@ public final class PrerequisiteUtilities
 	 * @param categoryName The name of the required category, null if any category will be matched.
 	 * @return A list of categories matching.
 	 */
-	private static Set<Ability> buildAbilityList(
-		final PlayerCharacter character,
-		String categoryName)
+	private static Set<Ability> buildAbilityList(final PlayerCharacter character, String categoryName)
 	{
-		final Set<Ability> abilityList = new WrappedMapSet<>(IdentityHashMap.class);
+		final Set<Ability> abilityList = Collections.newSetFromMap(new IdentityHashMap<>());
 		if (character != null)
 		{
 			AbilityCategory cat = SettingsHandler.getGame().getAbilityCategory(categoryName);
-			if (cat ==  null)
+			if (cat == null)
 			{
 				Logging.errorPrint("Invalid category " + categoryName + " in PREABILITY");
 				return abilityList;
@@ -500,19 +457,17 @@ public final class PrerequisiteUtilities
 				abilityList.add(cna.getAbility());
 			}
 
-			Collection<AbilityCategory> allCats =
-					SettingsHandler.getGame().getAllAbilityCategories();
+			Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
 			// Now scan for relevant SERVESAS occurrences
 			for (AbilityCategory aCat : allCats)
 			{
 				for (CNAbility cna : character.getPoolAbilities(aCat))
 				{
-					for(CDOMReference<Ability> ref
-						: cna.getAbility().getSafeListFor(ListKey.SERVES_AS_ABILITY))
+					for (CDOMReference<Ability> ref : cna.getAbility().getSafeListFor(ListKey.SERVES_AS_ABILITY))
 					{
 						for (Ability ab : ref.getContainedObjects())
 						{
-								abilityList.add(ab);
+							abilityList.add(ab);
 						}
 					}
 				}
@@ -529,17 +484,14 @@ public final class PrerequisiteUtilities
 	 * @param selectedList The list of spells associated with the ability being tested.
 	 * @return int
 	 */
-	private static int subKeySpell(
-		final boolean countMults,
-		final String cType,
-		final List<String> selectedList)
+	private static int subKeySpell(final boolean countMults, final String cType, final List<String> selectedList)
 	{
 		int returnTotal = 0;
 		for (String spell : selectedList)
 		{
 			//TODO Case sensitivity?
-			final Spell sp = Globals.getContext().getReferenceContext()
-					.silentlyGetConstructedCDOMObject(Spell.class, spell);
+			final Spell sp =
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Spell.class, spell);
 
 			if (sp == null)
 			{
@@ -566,10 +518,7 @@ public final class PrerequisiteUtilities
 	 * @param selectedList The list of domains associated with the ability being tested.
 	 * @return int
 	 */
-	private static int subKeyDomain(
-		final boolean countMults,
-		final String cType,
-		final List<String> selectedList)
+	private static int subKeyDomain(final boolean countMults, final String cType, final List<String> selectedList)
 	{
 		int returnTotal = 0;
 
@@ -602,17 +551,14 @@ public final class PrerequisiteUtilities
 	 * @param selectedList The list of weaponprofs associated with the ability being tested.
 	 * @return int
 	 */
-	private static int subKeyWeaponProf(
-		final boolean countMults,
-		final String cType,
-		final List<String> selectedList)
+	private static int subKeyWeaponProf(final boolean countMults, final String cType, final List<String> selectedList)
 	{
 		int returnTotal = 0;
 
 		for (String weaponprof : selectedList)
 		{
-			final WeaponProf wp = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				WeaponProf.class, weaponprof);
+			final WeaponProf wp = Globals.getContext().getReferenceContext()
+				.silentlyGetConstructedCDOMObject(WeaponProf.class, weaponprof);
 
 			if (wp == null)
 			{
@@ -629,8 +575,8 @@ public final class PrerequisiteUtilities
 				continue;
 			}
 
-			final Equipment eq = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				Equipment.class, wp.getKeyName());
+			final Equipment eq = Globals.getContext().getReferenceContext()
+				.silentlyGetConstructedCDOMObject(Equipment.class, wp.getKeyName());
 
 			if (eq == null)
 			{
@@ -658,10 +604,7 @@ public final class PrerequisiteUtilities
 	 * @param selectedList The list of skills associated with the ability being tested.
 	 * @return int
 	 */
-	private static int subKeySkill(
-		final boolean countMults,
-		final String cType,
-		final List<String> selectedList)
+	private static int subKeySkill(final boolean countMults, final String cType, final List<String> selectedList)
 	{
 		int returnTotal = 0;
 
@@ -700,12 +643,11 @@ public final class PrerequisiteUtilities
 			return false;
 		}
 
-		if (matchKind == prereq.getKind()
-				|| matchKind.equalsIgnoreCase(prereq.getKind()))
+		if (matchKind == prereq.getKind() || matchKind.equalsIgnoreCase(prereq.getKind()))
 		{
 			return true;
 		}
-		
+
 		for (Prerequisite childPrereq : prereq.getPrerequisites())
 		{
 			if (hasPreReqKindOf(childPrereq, matchKind))
@@ -713,7 +655,7 @@ public final class PrerequisiteUtilities
 				return true;
 			}
 		}
-	
+
 		return false;
 	}
 
@@ -732,17 +674,16 @@ public final class PrerequisiteUtilities
 			return matchingPrereqs;
 		}
 
-		if (matchKind == prereq.getKind()
-				|| matchKind.equalsIgnoreCase(prereq.getKind()))
+		if (matchKind == prereq.getKind() || matchKind.equalsIgnoreCase(prereq.getKind()))
 		{
 			matchingPrereqs.add(prereq);
 		}
-		
+
 		for (Prerequisite childPrereq : prereq.getPrerequisites())
 		{
 			matchingPrereqs.addAll(getPreReqsOfKind(childPrereq, matchKind));
 		}
-	
+
 		return matchingPrereqs;
 	}
 
@@ -756,26 +697,21 @@ public final class PrerequisiteUtilities
 	 * @param matchKey The name of an ability object.
 	 * @return true if we got a match
 	 */
-	public static boolean hasPreReqMatching(
-		final Prerequisite prereq,
-		String matchKind,
-		String matchKey)
+	public static boolean hasPreReqMatching(final Prerequisite prereq, String matchKind, String matchKey)
 	{
 		if (prereq == null)
 		{
 			return false;
 		}
 
-		if ((matchKind == prereq.getKind())
-			|| (matchKind.equalsIgnoreCase(prereq.getKind())))
+		if ((matchKind == prereq.getKind()) || (matchKind.equalsIgnoreCase(prereq.getKind())))
 		{
-			if ((matchKey == prereq.getKey())
-				|| (matchKey.equalsIgnoreCase(prereq.getKey())))
+			if ((matchKey == prereq.getKey()) || (matchKey.equalsIgnoreCase(prereq.getKey())))
 			{
 				return true;
 			}
 		}
-		
+
 		for (Prerequisite childPrereq : prereq.getPrerequisites())
 		{
 			if (hasPreReqMatching(childPrereq, matchKind, matchKey))
@@ -783,8 +719,8 @@ public final class PrerequisiteUtilities
 				return true;
 			}
 		}
-	
+
 		return false;
 	}
-	
+
 }

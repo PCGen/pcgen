@@ -17,11 +17,17 @@
  */
 package pcgen.rules.persistence;
 
-import pcgen.base.calculation.PCGenModifier;
+import java.util.Optional;
+
+import pcgen.base.calculation.FormulaModifier;
+import pcgen.base.calculation.IgnoreVariables;
+import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.ManagerKey;
+import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.cdom.helper.ReferenceDependency;
 import pcgen.rules.persistence.token.ModifierFactory;
 
 /**
@@ -52,39 +58,46 @@ public class MasterModifierFactory
 	}
 
 	/**
-	 * Returns a Modifier representing the information given in the parameters.
+	 * Returns a FormulaModifier representing the information given in the
+	 * parameters.
 	 * 
 	 * @param modIdentifier
 	 *            The Identifier of the Modifier (indicating the general
 	 *            function being performed, e.g. ADD)
 	 * @param modInstructions
 	 *            The Instructions of the Modifier (indicating the actual value
-	 *            the Modifier will use)
+	 *            the FormulaModifier will use)
 	 * @param managerFactory
 	 *            The ManagerFactory to be used to support analyzing the
 	 *            instructions
-	 * @param priorityNumber
-	 *            The user priority of the Modifier to be produced
 	 * @param varScope
-	 *            The VariableScope for the Modifier to be returned
+	 *            The PCGenScope for the FormulaModifier to be returned
 	 * @param formatManager
-	 *            The FormatManager for the Modifier to be returned
-	 * @return a Modifier representing the information given in the parameters
+	 *            The FormatManager for the FormulaModifier to be returned
+	 * @return a FormulaModifier representing the information given in the
+	 *         parameters
 	 */
-	public <T> PCGenModifier<T> getModifier(String modIdentifier, String modInstructions,
-		ManagerFactory managerFactory, int priorityNumber, LegalScope varScope,
-		FormatManager<T> formatManager)
+	public <T> FormulaModifier<T> getModifier(String modIdentifier, String modInstructions,
+		ManagerFactory managerFactory, PCGenScope varScope, FormatManager<T> formatManager)
 	{
 		Class<T> varClass = formatManager.getManagedClass();
-		ModifierFactory<T> factory =
-				TokenLibrary.getModifier(varClass, modIdentifier);
+		ModifierFactory<T> factory = TokenLibrary.getModifier(varClass, modIdentifier);
 		if (factory == null)
 		{
 			throw new IllegalArgumentException(
-				"Requested unknown ModifierType: " + varClass.getSimpleName()
-					+ " " + modIdentifier);
+				"Requested unknown ModifierType: " + varClass.getSimpleName() + " " + modIdentifier);
 		}
-		return factory.getModifier(priorityNumber, modInstructions, managerFactory,
-			formulaManager, varScope, formatManager);
+		FormulaModifier<T> modifier =
+				factory.getModifier(modInstructions, managerFactory, formulaManager, varScope, formatManager);
+		/*
+		 * getDependencies needs to be called during LST load, so that object references are captured
+		 */
+		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager, null);
+		fdm = fdm.getWith(DependencyManager.SCOPE, Optional.of(varScope));
+		fdm = fdm.getWith(DependencyManager.VARSTRATEGY, Optional.of(new IgnoreVariables()));
+		fdm = fdm.getWith(ManagerKey.REFERENCES, new ReferenceDependency());
+		modifier.getDependencies(fdm);
+		modifier.addReferences(fdm.get(ManagerKey.REFERENCES).getReferences());
+		return modifier;
 	}
 }

@@ -1,5 +1,4 @@
 /*
- * AttackType.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 
 package pcgen.util.enumeration;
@@ -43,7 +41,7 @@ public enum AttackType
 		return identifier;
 	}
 
-	public static AttackType getInstance(String ident)
+	public static AttackType getAttackInstance(String ident)
 	{
 		for (AttackType at : AttackType.values())
 		{
@@ -52,7 +50,6 @@ public enum AttackType
 				return at;
 			}
 		}
-		throw new IllegalArgumentException("Illegal AttackType identifier: "
-			+ ident);
+		throw new IllegalArgumentException("Illegal AttackType identifier: " + ident);
 	}
 }

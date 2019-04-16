@@ -20,10 +20,12 @@ package pcgen.cdom.reference;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Set;
+import java.util.StringJoiner;
 import java.util.TreeSet;
 
-import pcgen.base.util.ObjectContainer;
+import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.primitive.PrimitiveUtilities;
@@ -33,37 +35,23 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 
 	private final Set<CDOMSingleRef<? super T>> filterSet = new HashSet<>();
 
-	private final ObjectContainer<T> baseSet;
+	private final CDOMGroupRef<T> baseSet;
 
-	public FilteredReference(Class<T> objClass, ObjectContainer<T> allRef)
+	public FilteredReference(CDOMGroupRef<T> allRef)
 	{
-		super(objClass, "Filtered Reference");
-		if (objClass == null)
-		{
-			throw new IllegalArgumentException(
-					"Class for FilteredReference cannot be null");
-		}
-		if (allRef == null)
-		{
-			throw new IllegalArgumentException(
-					"Base Set for FilteredReference cannot be null");
-		}
+		super("Filtered Reference");
+		Objects.requireNonNull(allRef, "Base Set for FilteredReference cannot be null");
 		baseSet = allRef;
 	}
 
 	public void addProhibitedItem(CDOMSingleRef<? super T> prohibitedRef)
 	{
-		if (prohibitedRef == null)
-		{
-			throw new IllegalArgumentException(
-					"CDOMSingleRef to be added cannot be null");
-		}
+		Objects.requireNonNull(prohibitedRef, "CDOMSingleRef to be added cannot be null");
 		Class<?> refClass = prohibitedRef.getReferenceClass();
 		if (!baseSet.getReferenceClass().isAssignableFrom(refClass))
 		{
-			throw new IllegalArgumentException("CDOMSingleRef to be added "
-					+ refClass + " is a different class type than "
-					+ baseSet.getReferenceClass().getSimpleName());
+			throw new IllegalArgumentException("CDOMSingleRef to be added " + refClass
+				+ " is a different class type than " + baseSet.getReferenceClass().getSimpleName());
 		}
 		filterSet.add(prohibitedRef);
 	}
@@ -85,8 +73,7 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 		if (obj instanceof FilteredReference)
 		{
 			FilteredReference<?> other = (FilteredReference<?>) obj;
-			return baseSet.equals(other.baseSet)
-					&& filterSet.equals(other.filterSet);
+			return baseSet.equals(other.baseSet) && filterSet.equals(other.filterSet);
 		}
 		return false;
 	}
@@ -99,8 +86,7 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 		{
 			state = pcf.getGroupingState().add(state);
 		}
-		return (filterSet.size() == 1) ? state : state
-				.compound(GroupingState.ALLOWS_UNION);
+		return (filterSet.size() == 1) ? state : state.compound(GroupingState.ALLOWS_UNION);
 	}
 
 	@Override
@@ -112,8 +98,7 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 	@Override
 	public void addResolution(T item)
 	{
-		throw new IllegalStateException(
-				"CompoundReference cannot be given a resolution");
+		throw new IllegalStateException("CompoundReference cannot be given a resolution");
 	}
 
 	@Override
@@ -139,8 +124,7 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		Set<PrimitiveCollection<? super T>> sortSet = new TreeSet<>(
-                PrimitiveUtilities.COLLECTION_SORTER);
+		Set<PrimitiveCollection<? super T>> sortSet = new TreeSet<>(PrimitiveUtilities.COLLECTION_SORTER);
 		sortSet.addAll(filterSet);
 		return "ALL|!" + PrimitiveUtilities.joinLstFormat(sortSet, "|!", useAny);
 	}
@@ -155,5 +139,25 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 	public String getChoice()
 	{
 		return null;
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return baseSet.getReferenceClass();
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		StringJoiner joiner = new StringJoiner(", ", baseSet.getReferenceDescription() + " except: [", "]");
+		filterSet.stream().map(CDOMReference::getReferenceDescription).forEach(joiner::add);
+		return joiner.toString();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return baseSet.getPersistentFormat();
 	}
 }

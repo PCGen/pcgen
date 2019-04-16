@@ -1,5 +1,4 @@
 /*
- * RankToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 6, 2006
- *
- * Current Ver: $Revision$
  */
 
 package plugin.lsttokens.kit.skill;
@@ -34,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * RANK token
  */
-public class RankToken extends AbstractNonEmptyToken<KitSkill> implements
-		CDOMPrimaryToken<KitSkill>
+public class RankToken extends AbstractNonEmptyToken<KitSkill> implements CDOMPrimaryToken<KitSkill>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -55,23 +49,21 @@ public class RankToken extends AbstractNonEmptyToken<KitSkill> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitSkill kitSkill,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitSkill kitSkill, String value)
 	{
 		try
 		{
 			BigDecimal rank = new BigDecimal(value);
 			if (rank.compareTo(BigDecimal.ZERO) < 0)
 			{
-				return new ParseResult.Fail(getTokenName()
-					+ " must be a positive number: " + value, context);
+				return new ParseResult.Fail(getTokenName() + " must be a positive number: " + value);
 			}
 			kitSkill.setRank(rank);
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException e)
 		{
-			return new ParseResult.Fail(getTokenName() + " expected a number: " + value, context);
+			return new ParseResult.Fail(getTokenName() + " expected a number: " + value);
 		}
 	}
 

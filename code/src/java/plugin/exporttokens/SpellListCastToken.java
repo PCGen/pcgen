@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Jul 15, 2004
- *
- * $Id$
- *
  */
 package plugin.exporttokens;
 
@@ -31,11 +26,8 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
 
 /**
- * <code>SpellListCastToken</code> outputs the number of spells
+ * {@code SpellListCastToken} outputs the number of spells
  * that can cast for the specified class and level.
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 ///SPELLLISTCAST0.0 KNOWN0.0 BOOK0.0 TYPE0
 public class SpellListCastToken extends SpellListToken
@@ -44,27 +36,18 @@ public class SpellListCastToken extends SpellListToken
 	/** Token name */
 	public static final String TOKENNAME = "SPELLLISTCAST";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		StringBuilder retValue = new StringBuilder();
 
-		SpellListTokenParams params =
-				new SpellListTokenParams(tokenSource,
-					SpellListToken.SPELLTAG_CAST);
+		SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_CAST);
 
 		final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
@@ -93,11 +76,9 @@ public class SpellListCastToken extends SpellListToken
 		{
 			PCClass aClass = (PCClass) aObject;
 			//			castNum = String.valueOf(aClass.getCastForLevel(level, Globals.getDefaultSpellBook(), pc))
-			castNum =
-					String.valueOf(pc.getSpellSupport(aClass).getCastForLevel(level, Globals
-					.getDefaultSpellBook(), true, false, pc))
-						+ pc.getSpellSupport(aClass).getBonusCastForLevelString(level, Globals
-						.getDefaultSpellBook(), pc);
+			castNum = String.valueOf(
+				pc.getSpellSupport(aClass).getCastForLevel(level, Globals.getDefaultSpellBook(), true, false, pc))
+				+ pc.getSpellSupport(aClass).getBonusCastForLevelString(level, Globals.getDefaultSpellBook(), pc);
 		}
 
 		return castNum;

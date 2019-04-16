@@ -1,5 +1,4 @@
 /*
- * PreBaseSize.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,53 +15,35 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Globals;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.SizeAdjustment;
-import pcgen.core.display.CharacterDisplay;
-import pcgen.core.prereq.AbstractDisplayPrereqTest;
+import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.rules.context.AbstractReferenceContext;
 
-/**
- * @author wardc
- *
- */
-public class PreBaseSizeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreBaseSizeTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source)
 		throws PrerequisiteException
 	{
 		int runningTotal = 0;
 
-		if ((display.getRace() != null)
-			&& !display.getRace().equals(Globals.s_EMPTYRACE))
+		if ((pc.getRace() != null) && !pc.getRace().isUnselected())
 		{
-			AbstractReferenceContext ref =
-					Globals.getContext().getReferenceContext();
-			SizeAdjustment sa =
-					ref.silentlyGetConstructedCDOMObject(SizeAdjustment.class,
-						prereq.getOperand());
+			AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+			SizeAdjustment sa = ref.silentlyGetConstructedCDOMObject(SizeAdjustment.class, prereq.getOperand());
 			int targetSize = sa.get(IntegerKey.SIZEORDER);
-			runningTotal =
-					prereq.getOperator().compare(display.racialSizeInt(),
-						targetSize);
+			runningTotal = prereq.getOperator().compare(pc.racialSizeInt(), targetSize);
 		}
 
 		return countedTotal(prereq, runningTotal);
@@ -72,7 +53,7 @@ public class PreBaseSizeTester extends AbstractDisplayPrereqTest implements Prer
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "BASESIZE"; //$NON-NLS-1$

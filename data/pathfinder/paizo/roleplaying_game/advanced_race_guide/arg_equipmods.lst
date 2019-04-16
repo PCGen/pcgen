@@ -1,40 +1,61 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 ###Block: Elven Special Materials
-# Modifier Name		Unique Key			Type										Cost				Visible		Type granted	Keys to replace		Source Page		Required Type			Bonus Equip Mods		Bonus Armor Mods													Special Property
-Darkleaf Cloth		KEY:DLEAF_CLOTH		TYPE:BaseMaterial.MasterworkQuality.Cloth.Clothing		COST:500			VISIBLE:QUALIFY	ITYPE:Darkleaf	REPLACES:MWORKA,MWORKW	SOURCEPAGE:p.27						BONUS:EQM|WEIGHTDIV|2
-Darkleaf Cloth		KEY:DLEAF_ARMR_LGT	TYPE:BaseMaterial.MasterworkQuality.Armor				COST:750			VISIBLE:QUALIFY	ITYPE:Darkleaf	REPLACES:MWORKA		SOURCEPAGE:p.27	PRETYPE:1,EQMOD=LEATHER		BONUS:EQM|WEIGHTDIV|2	BONUS:EQMARMOR|MAXDEX|2	BONUS:EQMARMOR|SPELLFAILURE|-10	BONUS:EQMARMOR|ACCHECK|3
-Darkleaf Cloth		KEY:DLEAF_ARMR_MED	TYPE:BaseMaterial.MasterworkQuality.Armor				COST:1500			VISIBLE:QUALIFY	ITYPE:Darkleaf	REPLACES:MWORKA		SOURCEPAGE:p.27	PRETYPE:2,Medium,Nonmetal	BONUS:EQM|WEIGHTDIV|2	BONUS:EQMARMOR|MAXDEX|2	BONUS:EQMARMOR|SPELLFAILURE|-10	BONUS:EQMARMOR|ACCHECK|3
-Darkleaf Cloth		KEY:DLEAF_ITEM		TYPE:BaseMaterial.MasterworkQuality.Instruments.Tools.Goods	COST:WT*375			VISIBLE:QUALIFY	ITYPE:Darkleaf	REPLACES:MWORKA,MWORKW	SOURCEPAGE:p.27						BONUS:EQM|WEIGHTDIV|2
+# Modifier Name		Unique Key							Naming Option		Type										Cost		Visible		Type granted	Keys to replace												Source Page		Required Type									Bonus Equip Mods		Bonus Armor Mods													Special Property
+Darkleaf Cloth		KEY:Material ~ Darkleaf Cloth ~ Clothing						TYPE:BaseMaterial.MasterworkQuality.Cloth.Clothing		COST:500	VISIBLE:QUALIFY	ITYPE:Darkleaf	REPLACES:Special Quality ~ Masterwork ~ Armor,Special Quality ~ Masterwork ~ Weapon	SOURCEPAGE:p.27												BONUS:EQM|WEIGHTDIV|2
+Darkleaf Cloth		KEY:Material ~ Darkleaf Cloth ~ Armor / Light					TYPE:BaseMaterial.MasterworkQuality.Armor				COST:750	VISIBLE:QUALIFY	ITYPE:Darkleaf	REPLACES:Special Quality ~ Masterwork ~ Armor							SOURCEPAGE:p.27	PRETYPE:1,Light	PRETYPE:1,EQMOD=Material ~ Leather,Nonmetal	BONUS:EQM|WEIGHTDIV|2	BONUS:EQMARMOR|MAXDEX|2	BONUS:EQMARMOR|SPELLFAILURE|-10	BONUS:EQMARMOR|ACCHECK|3
+Darkleaf Cloth		KEY:Material ~ Darkleaf Cloth ~ Armor / Medium					TYPE:BaseMaterial.MasterworkQuality.Armor				COST:1500	VISIBLE:QUALIFY	ITYPE:Darkleaf	REPLACES:Special Quality ~ Masterwork ~ Armor							SOURCEPAGE:p.27	PRETYPE:1,Medium	PRETYPE:1,EQMOD=Material ~ Leather,Nonmetal	BONUS:EQM|WEIGHTDIV|2	BONUS:EQMARMOR|MAXDEX|2	BONUS:EQMARMOR|SPELLFAILURE|-10	BONUS:EQMARMOR|ACCHECK|3
+Darkleaf Cloth		KEY:Material ~ Darkleaf Cloth ~ Item						TYPE:BaseMaterial.MasterworkQuality.Instruments.Tools.Goods	COST:WT*375	VISIBLE:QUALIFY	ITYPE:Darkleaf	REPLACES:Special Quality ~ Masterwork ~ Armor,Special Quality ~ Masterwork ~ Weapon	SOURCEPAGE:p.27												BONUS:EQM|WEIGHTDIV|2
 
-Wyroot(1 Life Point)	KEY:WROOT_1			TYPE:BaseMaterial.Weapon						COST:BASECOST+1000	VISIBLE:QUALIFY	ITYPE:Wyroot	REPLACES:MWORKW		SOURCEPAGE:p.27	PRETYPE:1,EQMOD=WOOD																					SPROP:On confirmed critical, creature hit is unharmed and weapon gains 1 life point which can be absorbed by its wielder as 1 arcane or ki pool point with a swift action. This weapon can hold up to 1 life point.  Unspent life points dissipate at dusk.
-Wyroot(2 Life Points)	KEY:WROOT_2			TYPE:BaseMaterial.Weapon						COST:BASECOST+2000	VISIBLE:QUALIFY	ITYPE:Wyroot	REPLACES:MWORKW		SOURCEPAGE:p.27	PRETYPE:1,EQMOD=WOOD																					SPROP:On confirmed critical, creature hit is unharmed and weapon gains 1 life point which can be absorbed by its wielder as 1 arcane or ki pool point with a swift action. This weapon can hold up to 2 life points.  Unspent life points dissipate at dusk.
-Wyroot(3 Life Points)	KEY:WROOT_3			TYPE:BaseMaterial.Weapon						COST:BASECOST+4000	VISIBLE:QUALIFY	ITYPE:Wyroot	REPLACES:MWORKW		SOURCEPAGE:p.27	PRETYPE:1,EQMOD=WOOD																					SPROP:On confirmed critical, creature hit is unharmed and weapon gains 1 life point which can be absorbed by its wielder as 1 arcane or ki pool point with a swift action. This weapon can hold up to 3 life points.  Unspent life points dissipate at dusk.
+Wyroot(1 Life Point)	KEY:Material ~ Wyroot / 1 Life Point		NAMEOPT:TEXT=Wyroot	TYPE:BaseMaterial.Weapon						COST:1000	VISIBLE:QUALIFY	ITYPE:Wyroot															SOURCEPAGE:p.27	PRETYPE:2,Wooden,Melee																											SPROP:On confirmed critical, creature hit is unharmed and weapon gains 1 life point which can be absorbed by its wielder as 1 arcane or ki pool point with a swift action. This weapon can hold up to 1 life point.  Unspent life points dissipate at dusk.
+Wyroot(2 Life Points)	KEY:Material ~ Wyroot / 2 Life Points		NAMEOPT:TEXT=Wyroot	TYPE:BaseMaterial.Weapon						COST:2000	VISIBLE:QUALIFY	ITYPE:Wyroot															SOURCEPAGE:p.27	PRETYPE:2,Wooden,Melee																											SPROP:On confirmed critical, creature hit is unharmed and weapon gains 1 life point which can be absorbed by its wielder as 1 arcane or ki pool point with a swift action. This weapon can hold up to 2 life points.  Unspent life points dissipate at dusk.
+Wyroot(3 Life Points)	KEY:Material ~ Wyroot / 3 Life Points		NAMEOPT:TEXT=Wyroot	TYPE:BaseMaterial.Weapon						COST:4000	VISIBLE:QUALIFY	ITYPE:Wyroot															SOURCEPAGE:p.27	PRETYPE:2,Wooden,Melee																											SPROP:On confirmed critical, creature hit is unharmed and weapon gains 1 life point which can be absorbed by its wielder as 1 arcane or ki pool point with a swift action. This weapon can hold up to 3 life points.  Unspent life points dissipate at dusk.
 
 ###Block: Aasimar Purifier Archetype Celestial Armor
-# Modifier Name		Unique Key				Type		Cost		Visible		Type granted			Source Page		Required Ability								Bonus Equip Mods													Special Property
-Purifier Celestial	KEY:AAPURIFIER_CELESTIAL	TYPE:Armor	COST:0	VISIBLE:QUALIFY	ITYPE:Purifier Celestial	SOURCEPAGE:p.86	PREABILITY:1,CATEGORY=Archetype,Oracle Archetype ~ Purifier	BONUS:EQM|WEIGHTDIV|2|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier	SPROP:No benefit.	SPROP:The purifier's armor takes on a golden or silvery sheen and becomes light as a feather.|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier
+# Modifier Name		Unique Key									Type		Cost		Visible		Type granted			Source Page		Required Ability								Bonus Equip Mods													Special Property
+Purifier Celestial	KEY:Special Quality ~ Purifier Celestial Armor ~ Archetype	TYPE:Armor	COST:0	VISIBLE:QUALIFY	ITYPE:Purifier Celestial	SOURCEPAGE:p.86	PREABILITY:1,CATEGORY=Archetype,Oracle Archetype ~ Purifier	BONUS:EQM|WEIGHTDIV|2|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier	SPROP:No benefit.|!PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier	SPROP:The purifier's armor takes on a golden or silvery sheen and becomes light as a feather.|PREABILITY:1,CATEGORY=Special Ability,Celestial Armor ~ Purifier
 
 ###Block: Hobgoblin weapon abilities
-# Modifier Name	Unique Key	Type				Plus		Visible		Source Page		Special Property
-Cruel			KEY:CRUEL	TYPE:Weapon.Ammunition	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.124	SPROP:When the wielder strikes a creature that is frightened, shaken, or panicked, that creature becomes sickened for 1 round. When the wielder uses the weapon to knock unconscious or kill a creature, he gains 5 temporary hit points that last for 10 minutes.
-#Deadly		KEY:DEADLY	TYPE:Weapon.Ammunition	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.124	PRETYPE:1,EQMOD=NONLETHAL	SPROP:This special ability can only be placed on weapons that normally deal nonlethal damage, such as whips and saps. All damage a deadly weapon deals is lethal damage. A whip (or similar weapon that cannot damage creatures with armor or natural armor bonuses) with this special ability deals damage even to creatures with armor or natural armor. On command, the weapon suppresses this ability until told to resume it.
+# Modifier Name	Unique Key						Type				Plus		Visible		Source Page		Required Type						Special Property
+Cruel			KEY:Special Ability ~ Cruel ~ Weapon	TYPE:Weapon.Ammunition	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.124	PRETYPE:1,Enhancement					SPROP:When the wielder strikes a creature that is frightened, shaken, or panicked, that creature becomes sickened for 1 round. When the wielder uses the weapon to knock unconscious or kill a creature, he gains 5 temporary hit points that last for 10 minutes.
+Deadly		KEY:Special Ability ~ Deadly ~ Weapon	TYPE:Weapon.Ammunition	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.124	PRETYPE:1,Enhancement	PRETYPE:1,Nonlethal	SPROP:This special ability can only be placed on weapons that normally deal nonlethal damage, such as whips and saps. All damage a deadly weapon deals is lethal damage. A whip (or similar weapon that cannot damage creatures with armor or natural armor bonuses) with this special ability deals damage even to creatures with armor or natural armor. On command, the weapon suppresses this ability until told to resume it.
 
 ###Block: Oread shield abilities
-# Modifier Name		Unique Key	Type		Plus		Source Page		Special Property
-Guarding			KEY:GUARD	TYPE:Shield	PLUS:1	SOURCEPAGE:p.148	SPROP:Allows the wearer to transfer some or all of the shield's enhancement bonus to an adjacent creature's AC
-Guarding (Greater)	KEY:GGUARD	TYPE:Shield	PLUS:2	SOURCEPAGE:p.148	SPROP:Allows the wearer to transfer some or all of the shield's enhancement bonus to any number of adjacent allies.  All selected allies receive the same bonus. If a shielded target is ever more than 5 feet from the wearer, the effect ends for that target but not for any other targets.
+# Modifier Name		Unique Key								Type		Plus		Source Page		Special Property
+Guarding			KEY:Special Ability ~ Guarding ~ Shield			TYPE:Shield	PLUS:1	SOURCEPAGE:p.148	SPROP:Allows the wearer to transfer some or all of the shield's enhancement bonus to an adjacent creature's AC
+Guarding (Greater)	KEY:Special Ability ~ Guarding / Greater ~ Shield	TYPE:Shield	PLUS:2	SOURCEPAGE:p.148	SPROP:Allows the wearer to transfer some or all of the shield's enhancement bonus to any number of adjacent allies.  All selected allies receive the same bonus. If a shielded target is ever more than 5 feet from the wearer, the effect ends for that target but not for any other targets.
 
 ###Block: Sylph armor abilities
-# Modifier Name	Unique Key	Type		Source Page		Modify the item cost			Special Property
-Cloudburst		KEY:CLOUDB	TYPE:Armor	SOURCEPAGE:p.160	BONUS:ITEMCOST|TYPE.Armor|5000	SPROP:If an attack strikes the wearer and deals at least 10 points of electricity damage, as a swift action on the wearer's next turn that does not provoke an attack of opportunity, she may use shocking grasp as a spell-like ability, dealing 1d6 points of electricity damage for every 10 points of damage dealt to the wearer since last turn.
+# Modifier Name	Unique Key						Type		Cost		Source Page		Special Property
+Cloudburst		KEY:Special Ability ~ Cloudburst ~ Armor	TYPE:Armor	COST:5000	SOURCEPAGE:p.160	SPROP:If an attack strikes the wearer and deals at least 10 points of electricity damage, as a swift action on the wearer's next turn that does not provoke an attack of opportunity, she may use shocking grasp as a spell-like ability, dealing 1d6 points of electricity damage for every 10 points of damage dealt to the wearer since last turn.
 
 ###Block: Undine Weaponshaft
-# Modifier Name		Unique Key	Type		Source Page		Required Type			Modify the item cost			Special Property
-Undine Weaponshaft	KEY:UNDWEAP	TYPE:Weapon	SOURCEPAGE:p.177	PRETYPE:1,Reach,Spear,Polearm	BONUS:ITEMCOST|TYPE.Weapon|300	SPROP:As a full-round action, an undine can make a single melee attack with the weapon and use her hydraulic push spell-like ability against the target of that melee attack.
+# Modifier Name		Unique Key								Type		Cost		Source Page		Required Type			Special Property
+Undine Weaponshaft	KEY:Special Quality ~ Undine Weaponshaft ~ Weapon	TYPE:Weapon	COST:300	SOURCEPAGE:p.177	PRETYPE:1,Reach,Spear,Polearm	SPROP:As a full-round action, an undine can make a single melee attack with the weapon and use her hydraulic push spell-like ability against the target of that melee attack.
 
 ###Block: Vanara Equipment
-# Modifier Name	Unique Key	Type									Cost			Visible		Type granted				Keys to replace		Source Page		Required Type	Modify VAR			Special Property
-Whipwood		KEY:WWOOD	TYPE:BaseMaterial.MasterworkQuality.Weapon.Shield	COST:BASECOST+500	VISIBLE:QUALIFY	ITYPE:Wooden.Whipwood.Masterwork	REPLACES:MWORKA,MWORKW	SOURCEPAGE:p.207	PRETYPE:1,Wooden	BONUS:VAR|CMD_Sunder|2	SPROP:+5 Weapon's HP
+# Modifier Name	Unique Key			Type					Cost		Visible		Type granted	Source Page		Required Type	Modify VAR			Special Property
+Whipwood		KEY:Material ~ Whipwood	TYPE:BaseMaterial.Weapon	COST:500	VISIBLE:QUALIFY	ITYPE:Whipwood	SOURCEPAGE:p.207	PRETYPE:1,Wooden	BONUS:VAR|CMD_Sunder|2	SPROP:+5 Weapon's HP
 
 ###Block: Copied from Ultimate Combat
-#Fragile			KEY:FRAGILE				NAMEOPT:NOTHING	TYPE:SpecialWeaponQualities					COST:0	VISIBLE:NO	ITYPE:Fragile	SOURCEPAGE:146	SPROP:Fragile weapons and armor cannot take the beating that sturdier weapons can. A fragile weapon gains the broken condition if the wielder rolls a natural 1 on an attack roll with the weapon. If a fragile weapon is already broken, the roll of a natural 1 destroys it instead. Armor with the fragile quality falls apart when hit with heavy blows. If an attacker hits a creature wearing fragile armor with an attack roll of a natural 20 and confirms the critical hit (even if the creature is immune to critical hits), the armor gains the broken condition. If already broken, the armor is destroyed instead. Fragile armor is not broken or destroyed by critical threats that are not generated by natural 20s, so if a creature wielding a weapon with a 19-20 or 18-20 critical range scores a critical hit on the wearer of this armor with a roll of less than a natural 20, that critical hit has no chance to break or destroy the armor. Masterwork and magical fragile weapons and armor lack these flaws unless otherwise noted in the item description or the special material description
+#Fragile			KEY:Special Quality ~ Fragile				NAMEOPT:NOTHING	TYPE:SpecialWeaponQualities					COST:0	VISIBLE:NO	ITYPE:Fragile	SOURCEPAGE:146	SPROP:Fragile weapons and armor cannot take the beating that sturdier weapons can. A fragile weapon gains the broken condition if the wielder rolls a natural 1 on an attack roll with the weapon. If a fragile weapon is already broken, the roll of a natural 1 destroys it instead. Armor with the fragile quality falls apart when hit with heavy blows. If an attacker hits a creature wearing fragile armor with an attack roll of a natural 20 and confirms the critical hit (even if the creature is immune to critical hits), the armor gains the broken condition. If already broken, the armor is destroyed instead. Fragile armor is not broken or destroyed by critical threats that are not generated by natural 20s, so if a creature wielding a weapon with a 19-20 or 18-20 critical range scores a critical hit on the wearer of this armor with a roll of less than a natural 20, that critical hit has no chance to break or destroy the armor. Masterwork and magical fragile weapons and armor lack these flaws unless otherwise noted in the item description or the special material description
+
+
+
+
+#Old KEYs
+# Modifier Name												Visible
+Material ~ Darkleaf Cloth ~ Clothing.COPY=DLEAF_CLOTH						VISIBLE:NO
+Material ~ Darkleaf Cloth ~ Armor / Light.COPY=DLEAF_ARMR_LGT				VISIBLE:NO
+Material ~ Darkleaf Cloth ~ Armor / Medium.COPY=DLEAF_ARMR_MED				VISIBLE:NO
+Material ~ Darkleaf Cloth ~ Item.COPY=DLEAF_ITEM						VISIBLE:NO
+Material ~ Wyroot / 1 Life Point.COPY=WROOT_1							VISIBLE:NO
+Material ~ Wyroot / 2 Life Points.COPY=WROOT_2							VISIBLE:NO
+Material ~ Wyroot / 3 Life Points.COPY=WROOT_3							VISIBLE:NO
+Special Quality ~ Purifier Celestial Armor ~ Archetype.COPY=AAPURIFIER_CELESTIAL	VISIBLE:NO
+Special Ability ~ Cruel ~ Weapon.COPY=CRUEL							VISIBLE:NO
+Special Ability ~ Guarding ~ Shield.COPY=GUARD							VISIBLE:NO
+Special Ability ~ Guarding / Greater ~ Shield.COPY=GGUARD					VISIBLE:NO
+Special Ability ~ Cloudburst ~ Armor.COPY=CLOUDB						VISIBLE:NO
+Special Quality ~ Undine Weaponshaft ~ Weapon.COPY=UNDWEAP					VISIBLE:NO
+Material ~ Whipwood.COPY=WWOOD									VISIBLE:NO

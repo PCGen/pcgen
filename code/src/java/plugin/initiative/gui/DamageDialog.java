@@ -1,5 +1,4 @@
 /*
- *  Initiative - A role playing utility to track turns
  *  Copyright (C) 2002 Devon D Jones
  *
  *  This library is free software; you can redistribute it and/or
@@ -15,21 +14,13 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * DamageDialog.java
- *
- * Created on July 20, 2003, 10:30 AM
  */
 package plugin.initiative.gui;
 
-/**
- *
- * @author  soulcatcher
- */
 public class DamageDialog extends javax.swing.JDialog
 {
 	/** OK_VALUE = 0 */
-	public static final int OK_VALUE = 0;
+	static final int OK_VALUE = 0;
 	/** CANCEL_VALUE = 1 */
 	public static final int CANCEL_VALUE = 1;
 
@@ -46,19 +37,11 @@ public class DamageDialog extends javax.swing.JDialog
 	 * @param parent
 	 * @param modal
 	 */
-	public DamageDialog(java.awt.Frame parent, boolean modal)
+	DamageDialog(java.awt.Frame parent, boolean modal)
 	{
 		super(parent, modal);
 		initComponents();
 		setLocation(parent.getX() + 100, parent.getY() + 100);
-	}
-
-	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(String[] args)
-	{
-		new DamageDialog(new javax.swing.JFrame(), true).setVisible(true);
 	}
 
 	/**
@@ -92,7 +75,7 @@ public class DamageDialog extends javax.swing.JDialog
 	 * Check damage field
 	 * @throws NumberFormatException
 	 */
-	public void checkDamageField() throws NumberFormatException
+	private void checkDamageField() throws NumberFormatException
 	{
 		try
 		{
@@ -109,7 +92,7 @@ public class DamageDialog extends javax.swing.JDialog
 	/**
 	 * submit
 	 */
-	public void submit()
+	private void submit()
 	{
 		try
 		{
@@ -192,7 +175,7 @@ public class DamageDialog extends javax.swing.JDialog
 
 		addWindowListener(new java.awt.event.WindowAdapter()
 		{
-            @Override
+			@Override
 			public void windowClosing(java.awt.event.WindowEvent evt)
 			{
 				closeDialog(evt);
@@ -207,7 +190,7 @@ public class DamageDialog extends javax.swing.JDialog
 		damageField.addActionListener(this::damageFieldActionPerformed);
 		damageField.addKeyListener(new java.awt.event.KeyAdapter()
 		{
-            @Override
+			@Override
 			public void keyReleased(java.awt.event.KeyEvent evt)
 			{
 				damageFieldKeyTyped(evt);

@@ -1,5 +1,4 @@
 /**
- * PreSizeTest.java
  * Copyright 2006 (C) Andrew Wilson <nuance@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -24,8 +23,10 @@
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
@@ -35,6 +36,9 @@ import pcgen.core.Race;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class PreSizeTest extends AbstractCharacterTestCase
 {
 	Race race = new Race();
@@ -42,6 +46,7 @@ public class PreSizeTest extends AbstractCharacterTestCase
 	Equipment eq2;
 	Equipment eq3;
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{
@@ -59,28 +64,21 @@ public class PreSizeTest extends AbstractCharacterTestCase
 		eq3 = EquipmentList.getEquipmentFromName("Item Three", character);
 	}
 
-	/*
-	 * @see AbstractCharacterTestCase#tearDown()
-	 */
-    @Override
-	protected void tearDown() throws Exception
-	{
-		super.tearDown();
-	}
-
-	public static Test suite()
-	{
-		return new TestSuite(PreSizeTest.class);
-	}
-
+	@Test
 	public void testEquipmentPreSize() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
 		Globals.getContext().getReferenceContext().resolveReferences(null);
 
-		is(eq1.sizeInt(), eq(3), "Item one is expected size");
-		is(eq2.sizeInt(), eq(4), "Item two is expected size");
-		is(eq3.sizeInt(), eq(5), "Item three is expected size");
+		assertEquals("Item one is expected size",
+			3,
+			eq1.sizeInt());
+		assertEquals("Item two is expected size",
+			4,
+			eq2.sizeInt());
+		assertEquals("Item three is expected size",
+			5,
+			eq3.sizeInt());
 
 		Prerequisite prereq;
 
@@ -88,20 +86,14 @@ public class PreSizeTest extends AbstractCharacterTestCase
 
 		prereq = factory.parse("PRESIZEEQ:L");
 
-		is(PrereqHandler.passes(prereq, eq1, character), eq(false),
-			"Item one is not Large");
-		is(PrereqHandler.passes(prereq, eq2, character), eq(false),
-			"Item two is not Large");
-		is(PrereqHandler.passes(prereq, eq3, character), eq(true),
-			"Item three Large");
+		assertFalse("Item one is not Large", PrereqHandler.passes(prereq, eq1, character));
+		assertFalse("Item two is not Large", PrereqHandler.passes(prereq, eq2, character));
+		assertTrue("Item three Large", PrereqHandler.passes(prereq, eq3, character));
 
 		prereq = factory.parse("PRESIZEGT:S");
 
-		is(PrereqHandler.passes(prereq, eq1, character), eq(false),
-			"Item one is not larger than Small");
-		is(PrereqHandler.passes(prereq, eq2, character), eq(true),
-			"Item two is larger than Small");
-		is(PrereqHandler.passes(prereq, eq3, character), eq(true),
-			"Item three larger than Small");
+		assertFalse("Item one is not larger than Small", PrereqHandler.passes(prereq, eq1, character));
+		assertTrue("Item two is larger than Small", PrereqHandler.passes(prereq, eq2, character));
+		assertTrue("Item three larger than Small", PrereqHandler.passes(prereq, eq3, character));
 	}
 }

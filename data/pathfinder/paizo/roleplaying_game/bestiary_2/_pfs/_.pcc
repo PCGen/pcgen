@@ -8,7 +8,7 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Bestiary
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
 !PRECAMPAIGN:1,INCLUDES=Bonus Bestiary
 
 PUBNAMELONG:Paizo Inc.

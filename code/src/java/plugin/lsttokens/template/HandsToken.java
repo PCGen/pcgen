@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with HANDS Token
  */
-public class HandsToken extends AbstractIntToken<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>
+public class HandsToken extends AbstractIntToken<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override
@@ -58,14 +57,11 @@ public class HandsToken extends AbstractIntToken<PCTemplate> implements
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, PCTemplate obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, PCTemplate obj, String value)
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.CREATUREHANDS))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when CREATUREHANDS control is used: " + value,
-				context);
+			return new ParseResult.Fail(getTokenName() + " is disabled when CREATUREHANDS control is used: " + value);
 		}
 		return super.parseToken(context, obj, value);
 	}

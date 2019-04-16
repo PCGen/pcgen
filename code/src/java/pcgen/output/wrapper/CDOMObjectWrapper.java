@@ -25,6 +25,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.output.base.OutputActor;
 import pcgen.output.base.PCGenObjectWrapper;
 import pcgen.output.model.CDOMObjectModel;
+
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModelException;
 
@@ -35,8 +36,7 @@ import freemarker.template.TemplateModelException;
 public final class CDOMObjectWrapper implements PCGenObjectWrapper
 {
 
-	private static final CDOMWrapperInfoFacet WRAPPER_FACET = FacetLibrary
-		.getFacet(CDOMWrapperInfoFacet.class);
+	private static final CDOMWrapperInfoFacet WRAPPER_FACET = FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
 
 	/**
 	 * Loads a new OutputActor into the CDOMObjectWrapperInfo for the given
@@ -56,19 +56,14 @@ public final class CDOMObjectWrapper implements PCGenObjectWrapper
 	 * @return true if the given name and OutputActor were successfully loaded;
 	 *         false otherwise
 	 */
-	public static <T extends CDOMObject> boolean load(DataSetID id,
-		Class<T> cl, String name, OutputActor<CDOMObject> oa)
+	public static <T extends CDOMObject> boolean load(DataSetID id, Class<T> cl, String name,
+		OutputActor<CDOMObject> oa)
 	{
 		return WRAPPER_FACET.set(id, cl, name, oa);
 	}
 
-	/**
-	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
-	public TemplateHashModel wrap(CharID id, Object o)
-		throws TemplateModelException
+	public TemplateHashModel wrap(CharID id, Object o) throws TemplateModelException
 	{
 		if (o instanceof CDOMObject)
 		{

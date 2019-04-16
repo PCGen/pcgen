@@ -1,5 +1,4 @@
 /*
- * EquipmentSetFacade.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,27 +15,24 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 18, 2008, 2:00:52 PM
  */
 package pcgen.facade.core;
-
-import pcgen.facade.util.ReferenceFacade;
 
 import java.util.EventListener;
 import java.util.EventObject;
 
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.gui2.facade.EquipNode;
 
 /**
- * <code>EquipmentSetFacade</code>defines the interface layer between the UI 
+ * {@code EquipmentSetFacade}defines the interface layer between the UI
  * and the pcgen core for managing how equipment is worn or placed (t.e. 
  * equipped). There can be multiple instance of this facade per character,
  * each representing a configuration of equipped gear (e.g. dungeon, boat, 
  * camp).
  *
- * <br>
  *  
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface EquipmentSetFacade
 {
@@ -65,8 +61,7 @@ public interface EquipmentSetFacade
 	 * @param beforeNode The node above which the equipment should be inserted.
 	 * @return The item of equipment that was actually added. 
 	 */
-	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment,
-		int quantity, EquipNode beforeNode);
+	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment, int quantity, EquipNode beforeNode);
 
 	public EquipmentFacade removeEquipment(EquipNode node, int quantity);
 
@@ -101,7 +96,7 @@ public interface EquipmentSetFacade
 	 * @return true if the equipment can be placed in the location.
 	 */
 	public boolean canEquip(EquipNode node, EquipmentFacade equipment);
-	
+
 	public ReferenceFacade<String> getNameRef();
 
 	public void setName(String name);
@@ -138,7 +133,7 @@ public interface EquipmentSetFacade
 	public static class EquipmentTreeEvent extends EventObject
 	{
 
-		private EquipNode node;
+		private final EquipNode node;
 
 		public EquipmentTreeEvent(Object source, EquipNode node)
 		{
@@ -150,35 +145,6 @@ public interface EquipmentSetFacade
 		{
 			return node;
 		}
-
-	}
-
-	public static interface EquipNode extends Comparable<EquipNode>
-	{
-
-		public enum NodeType
-		{
-			/** This is a body location which can contain other slots rather 
-			 * than equipment. */
-			BODY_SLOT, 
-			
-			/** This is a node which shows an empty slot that takes a specific 
-			 * equipment type (e.g. Ring). It is removed from the tree when the 
-			 * slot it represents is full and added back in when there is space 
-			 * in the slot. */
-			PHANTOM_SLOT, 
-
-			/** This is a node representing an equipped item of equipment. */
-			EQUIPMENT;
-		}
-
-		public NodeType getNodeType();
-
-		public EquipNode getParent();
-
-		public EquipmentFacade getEquipment();
-
-		public BodyStructureFacade getBodyStructure();
 
 	}
 
@@ -199,5 +165,7 @@ public interface EquipmentSetFacade
 	 * @return true if the sort was successful, false if it could not be done.
 	 */
 	public boolean sortEquipment(EquipNode parentNode);
+
+	public boolean isRoot();
 
 }

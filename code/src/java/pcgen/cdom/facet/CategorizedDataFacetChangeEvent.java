@@ -15,9 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on 14/01/2012 3:12:43 PM
  * 
- * $Id$
  */
 package pcgen.cdom.facet;
 
@@ -27,19 +25,16 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 
 /**
- * The Class <code>CategorizedDataFacetChangeEvent</code> indicates that a facet
+ * The Class {@code CategorizedDataFacetChangeEvent} indicates that a facet
  * with a category has changed. This is usually used for Ability add/remove
  * events to allow the listener to determine the category and nature to which
  * the ability is being applied.
  * 
- * <br>
  * (Mon, 14 Jan 2013) $
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
-public class CategorizedDataFacetChangeEvent<IDT extends PCGenIdentifier, T>
-		extends DataFacetChangeEvent<IDT, T>
+public class CategorizedDataFacetChangeEvent<IDT extends PCGenIdentifier, T> extends DataFacetChangeEvent<IDT, T>
 {
 
 	private final Category category;
@@ -65,8 +60,7 @@ public class CategorizedDataFacetChangeEvent<IDT extends PCGenIdentifier, T>
 	 * @param nature
 	 *            The nature of the ability being manipulated.
 	 */
-	public CategorizedDataFacetChangeEvent(IDT id, T cdo, Object source,
-		int type, Category cat, Nature nature)
+	public CategorizedDataFacetChangeEvent(IDT id, T cdo, Object source, int type, Category cat, Nature nature)
 	{
 		super(id, cdo, source, type);
 		this.category = cat;

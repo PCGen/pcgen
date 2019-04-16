@@ -17,26 +17,32 @@
  */
 package plugin.lsttokens.campaign;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.net.URI;
+import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+import util.TestURI;
+
 public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static LicenseToken token = new LicenseToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()
@@ -56,28 +62,13 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 		return token;
 	}
 
-	public ListKey<?> getListKey()
+	public static ListKey<?> getListKey()
 	{
 		return ListKey.LICENSE;
 	}
 
-	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		URI uri = new URI("http://www.sourceforge.net");
-		primaryContext.setSourceURI(uri);
-		secondaryContext.setSourceURI(uri);
-	}
-
 	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
-	@Test
-	public void testValidInputSimple() throws PersistenceLayerException
+	public void testValidInputSimple()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -92,7 +83,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputNonEnglish() throws PersistenceLayerException
+	public void testValidInputNonEnglish()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -107,7 +98,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputSpace() throws PersistenceLayerException
+	public void testValidInputSpace()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -122,7 +113,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputHyphen() throws PersistenceLayerException
+	public void testValidInputHyphen()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -137,7 +128,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputY() throws PersistenceLayerException
+	public void testValidInputY()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -152,7 +143,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputList() throws PersistenceLayerException
+	public void testValidInputList()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -169,7 +160,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputMultList() throws PersistenceLayerException
+	public void testValidInputMultList()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -190,7 +181,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidListEmpty() throws PersistenceLayerException
+	public void testInvalidListEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -198,7 +189,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -248,7 +239,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidListFileEmpty() throws PersistenceLayerException
+	public void testInvalidListFileEmpty()
 	{
 		assertFalse(parse("FILE="));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -256,7 +247,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidFileEmpty() throws PersistenceLayerException
+	public void testInvalidFileEmpty()
 	{
 		assertFalse(parse("FILE="));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -264,7 +255,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidNotACSE() throws PersistenceLayerException
+	public void testInvalidNotACSE()
 	{
 		assertFalse(parse("FILE=Not|aCSE"));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -332,5 +323,13 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.SEPARATE;
+	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		URI uri = TestURI.getURI();
+		context.setSourceURI(uri);
 	}
 }

@@ -1,0 +1,18 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+#SOURCELONG:Familiar Folio	SOURCESHORT:FF	SOURCEWEB:http://paizo.com/products/btpy9au2?Pathfinder-Player-Companion-Familiar-Folio	SOURCEDATE:2014-12
+
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI		Display Location
+ABILITYCATEGORY:Familiar Archetype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype		TYPE:FamiliarArchetype				PLURAL:Familiar Archetypes		DISPLAYLOCATION:Archetype
+
+ABILITYCATEGORY:School Familiar Cantrip			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SchoolFamiliarCantrip									DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Patron Familiar Elemental Touch Type	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PatronFamiliarElementalTouchType							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:School Familiar Elemental Boost Type	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SchoolFamiliarElementalBoostType							DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Leshy Warden Domain Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DruidDomainSelection									DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Leshy Tender Choice 1			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:LeshyTenderChoice1										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Leshy Tender Choice 2			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:LeshyTenderChoice2										DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Leshy Tender Choice 3			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:LeshyTenderChoice3										DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Familiar Bond Feat Options		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:FamiliarBondFeatOptions									DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Witch Familiar Feat Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Familiar					PLURAL:Witch Familiar Feat Choices	DISPLAYLOCATION:Feats

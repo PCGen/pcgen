@@ -1,0 +1,26 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Monster Codex	SOURCESHORT:MC	SOURCEWEB:http://paizo.com/products/btpy9926?Pathfinder-Roleplaying-Game-Monster-Codex	SOURCEDATE:2014-11
+
+# Equipment Name			Type						Cost		Weight	Source Page		Ability						Innate Spells											Bonus to Situation											Bonus to skill					Special Property
+Ambush Cauldron			TYPE:Magic.Wondrous			COST:28000			SOURCEPAGE:164
+Banner of the Rushing Horde	TYPE:Magic.Wondrous			COST:60000			SOURCEPAGE:165																																										SPROP:Allies within 60 feet of the banner gain the benefits of the Improved Bull Rush and Improved Overrun feats.
+Cap of Enervation			TYPE:Magic.Wondrous.Headgear		COST:3500	WT:5		SOURCEPAGE:9																																										SPROP:Tongue attacks can drain enemy strength.
+Caver's Bolt			TYPE:Magic.Wondrous			COST:2500	WT:0.5	SOURCEPAGE:33
+Cloak of the Troll King		TYPE:Magic.Wondrous.Cloak		COST:9000			SOURCEPAGE:224								SPELLS:Cloak of the Troll King|TIMES=3|CASTERLEVEL=5|Burning Hands,11+CHA															BONUS:SKILL|Intimidate|5|TYPE=Competence
+Crashing Boots			TYPE:Magic.Wondrous.Boot		COST:8800			SOURCEPAGE:165																																										SPROP:+2 bonus on attack rolls when charging; once per day wearer can send struck foe flying 10 feet.
+Elixir of Oppression		TYPE:Magic.Wondrous.Consumable	COST:600			SOURCEPAGE:21																																										SPROP:Allows creatures with the scent ability to smell fear, instills bloodlust when facing a fearful creature.
+Extractor's Gloves		TYPE:Magic.Wondrous.Glove		COST:5000			SOURCEPAGE:33																																										SPROP:After disarm attempt against magical weapon, gloves "steal" weapon's special abilities and apply them to unarmed strikes for 1d4 rounds.
+Fog-Cutting Lenses		TYPE:Magic.Wondrous.Eyegear		COST:8000	WT:1		SOURCEPAGE:69																																										SPROP:Allows wearer to see through magical and normal fogs, mists, and similar obscurement.
+Gauntlets of Rending		TYPE:Magic.Wondrous.Glove		COST:8000			SOURCEPAGE:224
+Gorthek Masks			TYPE:Magic.Wondrous			COST:5800			SOURCEPAGE:165
+Headband of Vermin Control	TYPE:Magic.Wondrous.Headgear		COST:1000	WT:1		SOURCEPAGE:45
+Horror Dust				TYPE:Magic.Wondrous.Consumable	COST:600			SOURCEPAGE:21
+Hunter's Nose Ring		TYPE:Magic.Wondrous.Headgear		COST:10000			SOURCEPAGE:93	ABILITY:Special Ability|AUTOMATIC|Scent														BONUS:SITUATION|Survival=Track by scent,Perception=Scent-based|4|TYPE=Competence
+Hyena Shawl				TYPE:Magic.Wondrous.Headgear		COST:11000			SOURCEPAGE:93
+Irongrip Gauntlets		TYPE:Magic.Wondrous.Glove		COST:4000			SOURCEPAGE:69
+Pugwampi Braid			TYPE:Magic.Wondrous			COST:9000			SOURCEPAGE:93
+Serpentine Choker			TYPE:Magic.Wondrous.Amulet		COST:16000			SOURCEPAGE:201
+Spikebones				TYPE:Magic.Wondrous			COST:22000			SOURCEPAGE:165
+Venomsweat Salve			TYPE:Magic.Wondrous.Consumable	COST:2500			SOURCEPAGE:9																																										SPROP:Wearer sweats poison [Venomsweat] Contact or injury; save Fort DC 16; frequency 1/round for 6 rounds; effect 1d3 Dexterity damage; cure 1 save.
+Winter Wolf Runetooth		TYPE:Magic.Wondrous.Consumable	COST:2500			SOURCEPAGE:69																																										SPROP:Summons a winter wolf for 1 minute
+War Drums of Savagery		TYPE:Magic.Wondrous			COST:35000			SOURCEPAGE:165

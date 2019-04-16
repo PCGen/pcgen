@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.processor;
 
+import java.util.Objects;
+
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.content.Processor;
@@ -63,16 +65,8 @@ public class ContextProcessor<T, R extends PrereqObject> implements Processor<T>
 	 */
 	public ContextProcessor(Processor<T> mod, CDOMReference<R> contextRef)
 	{
-		if (mod == null)
-		{
-			throw new IllegalArgumentException(
-					"Processor in ContextProcessor cannot be null");
-		}
-		if (contextRef == null)
-		{
-			throw new IllegalArgumentException(
-					"Context in ContextProcessor cannot be null");
-		}
+		Objects.requireNonNull(mod, "Processor in ContextProcessor cannot be null");
+		Objects.requireNonNull(contextRef, "Context in ContextProcessor cannot be null");
 		processor = mod;
 		contextItems = contextRef;
 	}
@@ -124,8 +118,7 @@ public class ContextProcessor<T, R extends PrereqObject> implements Processor<T>
 		String contextString = contextItems.getLSTformat(false);
 		StringBuilder sb = new StringBuilder();
 		sb.append(processor.getLSTformat()).append('|');
-		sb.append(StringPClassUtil.getStringFor(contextItems
-				.getReferenceClass()));
+		sb.append(StringPClassUtil.getStringFor(contextItems.getReferenceClass()));
 		sb.append(contextString.indexOf('=') == -1 ? '=' : '.');
 		sb.append(contextString);
 		return sb.toString();
@@ -143,30 +136,17 @@ public class ContextProcessor<T, R extends PrereqObject> implements Processor<T>
 		return processor.getModifiedClass();
 	}
 
-	/**
-	 * Returns true if this ContextProcessor is equal to the given Object.
-	 * Equality is defined as being another ContextProcessor object underlying
-	 * Processor and context items
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
 		if (obj instanceof ContextProcessor)
 		{
 			ContextProcessor<?, ?> other = (ContextProcessor<?, ?>) obj;
-			return processor.equals(other.processor)
-					&& contextItems.equals(other.contextItems);
+			return processor.equals(other.processor) && contextItems.equals(other.contextItems);
 		}
 		return false;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this ContextProcessor
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

@@ -18,7 +18,9 @@
 package plugin.lsttokens.subclass;
 
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.SubClass;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractIntegerTokenTestCase;
@@ -28,7 +30,7 @@ public class CostTokenTest extends AbstractIntegerTokenTestCase<SubClass>
 {
 
 	static CostToken token = new CostToken();
-	static CDOMTokenLoader<SubClass> loader = new CDOMTokenLoader<SubClass>();
+	static CDOMTokenLoader<SubClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<SubClass> getCDOMClass()
@@ -70,5 +72,15 @@ public class CostTokenTest extends AbstractIntegerTokenTestCase<SubClass>
 	public boolean isPositiveAllowed()
 	{
 		return true;
+	}
+
+	@Override
+	protected SubClass get(LoadContext context, String name)
+	{
+		SubClassCategory scc = SubClassCategory.getConstant("SCC");
+		SubClass sc = scc.newInstance();
+		sc.setName(name);
+		context.getReferenceContext().importObject(sc);
+		return sc;
 	}
 }

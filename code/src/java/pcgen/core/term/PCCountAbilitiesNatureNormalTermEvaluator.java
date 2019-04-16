@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountAbilitiesNatureNormalTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 16:02:49
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -31,19 +27,16 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 
-public class PCCountAbilitiesNatureNormalTermEvaluator 
-		extends BasePCCountAbilitiesNatureTermEvaluator implements TermEvaluator
+public class PCCountAbilitiesNatureNormalTermEvaluator extends BasePCCountAbilitiesNatureTermEvaluator
+		implements TermEvaluator
 {
-	public PCCountAbilitiesNatureNormalTermEvaluator(
-			String originalText,
-			AbilityCategory abCat,
-			boolean visible,
-			boolean hidden)
+	public PCCountAbilitiesNatureNormalTermEvaluator(String originalText, AbilityCategory abCat, boolean visible,
+		boolean hidden)
 	{
-		this.originalText = originalText;		
-		this.abCat   = abCat;
+		this.originalText = originalText;
+		this.abCat = abCat;
 		this.visible = visible;
-		this.hidden  = hidden;
+		this.hidden = hidden;
 	}
 
 	@Override

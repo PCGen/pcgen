@@ -1,5 +1,4 @@
 /*
- * FollowerToken.java
  * Copyright 2006 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Jun 17, 2006
  *
- * $Id: InfoKnownSpells.java 1030 2006-05-26 08:25:10Z jdempsey $
  *
  */
 package pcgen.io.exporttoken;
@@ -41,28 +38,20 @@ import pcgen.util.Logging;
  * Deal with FOLLOWER Token
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class FollowerToken extends Token
 {
 	/** Token Name */
 	public static final String TOKENNAME = "FOLLOWER";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		/* FOLLOWER%.subtag stuff handled in here*/
 
@@ -77,12 +66,9 @@ public class FollowerToken extends Token
 		}
 		else
 		{
-			Logging
-				.errorPrint("Old syntax FOLLOWERx will be replaced for FOLLOWER.x");
+			Logging.errorPrint("Old syntax FOLLOWERx will be replaced for FOLLOWER.x");
 
-			i =
-					Integer.parseInt(tokenSource.substring(8, tokenSource
-						.indexOf('.')));
+			i = Integer.parseInt(tokenSource.substring(8, tokenSource.indexOf('.')));
 		}
 
 		StringBuilder restString = new StringBuilder();
@@ -99,9 +85,7 @@ public class FollowerToken extends Token
 		final List<Follower> followers = new ArrayList<>(pc.getDisplay().getFollowerList());
 		if (i < followers.size())
 		{
-			result =
-					FollowerToken.getFollowerOutput(eh, restString
-						.toString(), followers.get(i));
+			result = FollowerToken.getFollowerOutput(eh, restString.toString(), followers.get(i));
 		}
 
 		return result;
@@ -115,13 +99,12 @@ public class FollowerToken extends Token
 	 * @param follower The follower to be reported upon.
 	 * @return The follower's token output
 	 */
-	public static String getFollowerOutput(ExportHandler eh,
-		String followerToken, final Follower follower)
+	public static String getFollowerOutput(ExportHandler eh, String followerToken, final Follower follower)
 	{
 		StringWriter writer = new StringWriter();
 		BufferedWriter bw = new BufferedWriter(writer);
 
-		String token = "".equals(followerToken) ? "NAME" : followerToken;
+		String token = followerToken != null && followerToken.isEmpty() ? "NAME" : followerToken;
 
 		for (PlayerCharacter eachPC : Globals.getPCList())
 		{
@@ -139,10 +122,7 @@ public class FollowerToken extends Token
 		}
 		catch (IOException e)
 		{
-			Logging
-				.errorPrint(
-					"Ignoring error while processing FOLLOWER or FOLLOWERTYPE token",
-					e);
+			Logging.errorPrint("Ignoring error while processing FOLLOWER or FOLLOWERTYPE token", e);
 		}
 		return writer.toString();
 	}

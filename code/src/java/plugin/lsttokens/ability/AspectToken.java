@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 16/08/2008 18:13:11
- *
- * $Id: $
  */
 package plugin.lsttokens.ability;
 
@@ -45,26 +41,21 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>AspectToken</code> parses a generic detail field for
+ * The Class {@code AspectToken} parses a generic detail field for
  * abilities. It is a name/value characteristic allowing substitution of values.
  * 
  * <p>
  * Variable substitution is performed by replacing a placeholder indicated by %#
  * with the #th variable in the variable list. For example, the string <br>
- * <code>&quot;This is %1 variable %3 %2&quot;</code> <br>
+ * {@code "This is %1 variable %3 %2"} <br>
  * would be replaced with the string &quot;This is a variable substitution
  * string&quot; if the variable list was &quot;a&quot;,&quot;string&quot;,
  * &quot;substitution&quot;.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class AspectToken extends AbstractNonEmptyToken<Ability> implements
-		CDOMPrimaryToken<Ability>
+public class AspectToken extends AbstractNonEmptyToken<Ability> implements CDOMPrimaryToken<Ability>
 {
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -72,42 +63,33 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expecting '|', format is: "
-					+ "AspectName|Aspect value|Variable|... was: " + value, context);
+			return new ParseResult.Fail(
+				getTokenName() + " expecting '|', format is: " + "AspectName|Aspect value|Variable|... was: " + value);
 		}
 		String key = value.substring(0, pipeLoc);
-		if (key.length() == 0)
+		if (key.isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expecting non-empty type, "
-					+ "format is: AspectName|Aspect value|Variable|... was: "
-					+ value, context);
+			return new ParseResult.Fail(getTokenName() + " expecting non-empty type, "
+				+ "format is: AspectName|Aspect value|Variable|... was: " + value);
 		}
 		String val = value.substring(pipeLoc + 1);
-		if (val.length() == 0)
+		if (val.isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expecting non-empty value, "
-					+ "format is: AspectName|Aspect value|Variable|... was: "
-					+ value, context);
+			return new ParseResult.Fail(getTokenName() + " expecting non-empty value, "
+				+ "format is: AspectName|Aspect value|Variable|... was: " + value);
 		}
 		if (val.startsWith(Constants.PIPE))
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expecting non-empty value, "
-					+ "format is: AspectName|Aspect value|Variable|... was: "
-					+ value, context);
+			return new ParseResult.Fail(getTokenName() + " expecting non-empty value, "
+				+ "format is: AspectName|Aspect value|Variable|... was: " + value);
 		}
 		Aspect a = parseAspect(key, val);
-		MapChanges<AspectName, List<Aspect>> mc =
-				context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
+		MapChanges<AspectName, List<Aspect>> mc = context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
 		Map<AspectName, List<Aspect>> fullMap = mc.getAdded();
 		List<Aspect> aspects = fullMap.get(a.getKey());
 		if (aspects == null)
@@ -128,8 +110,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 	 */
 	public Aspect parseAspect(final String name, final String aspectDef)
 	{
-		final StringTokenizer tok = new StringTokenizer(aspectDef,
-				Constants.PIPE);
+		final StringTokenizer tok = new StringTokenizer(aspectDef, Constants.PIPE);
 
 		String firstToken = tok.nextToken();
 		/*if (PreParserFactory.isPreReqString(firstToken))
@@ -149,8 +130,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 				Prerequisite prereq = getPrerequisite(token);
 				if (prereq == null)
 				{
-					Logging.errorPrint(getTokenName()
-							+ " had invalid prerequisite : " + token);
+					Logging.errorPrint(getTokenName() + " had invalid prerequisite : " + token);
 					return null;
 				}
 				aspect.addPrerequisite(prereq);
@@ -160,10 +140,8 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 			{
 				if (isPre)
 				{
-					Logging.errorPrint("Invalid " + getTokenName() + ": "
-							+ name);
-					Logging
-							.errorPrint("  PRExxx must be at the END of the Token");
+					Logging.errorPrint("Invalid " + getTokenName() + ": " + name);
+					Logging.errorPrint("  PRExxx must be at the END of the Token");
 					return null;
 				}
 				aspect.addVariable(token);
@@ -173,17 +151,10 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		return aspect;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.rules.persistence.token.CDOMPrimaryParserToken#unparse(pcgen.rules.context.LoadContext,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
-		MapChanges<AspectName, List<Aspect>> changes =
-				context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
+		MapChanges<AspectName, List<Aspect>> changes = context.getObjectContext().getMapChanges(ability, MapKey.ASPECT);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -193,21 +164,16 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		for (AspectName an : keys)
 		{
 			List<Aspect> aspects = changes.getAdded().get(an);
-			for(int i = 0; i < aspects.size(); i++)
+			for (int i = 0; i < aspects.size(); i++)
 			{
 				Aspect q = aspects.get(i);
-				set.add(new StringBuilder().append(q.getName()).append(Constants.PIPE)
-					.append(q.getPCCText()).toString());
+				set.add(
+					new StringBuilder().append(q.getName()).append(Constants.PIPE).append(q.getPCCText()).toString());
 			}
 		}
 		return set.toArray(new String[set.size()]);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.rules.persistence.token.CDOMToken#getTokenClass()
-	 */
 	@Override
 	public Class<Ability> getTokenClass()
 	{

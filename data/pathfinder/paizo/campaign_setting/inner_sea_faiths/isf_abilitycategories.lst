@@ -1,0 +1,5 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+#SOURCELONG:Inner Sea Faiths	SOURCESHORT:ISF	SOURCEDATE:2016-03
+
+# Ability Category					Visible		Editable?		Change Pool?	Category of Object		Type of Object				Display Location
+ABILITYCATEGORY:Ghlaunder Spellcasting Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:GhlaunderSpellcastingChoice	DISPLAYLOCATION:Class Features

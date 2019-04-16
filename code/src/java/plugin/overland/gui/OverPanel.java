@@ -14,10 +14,8 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
- package plugin.overland.gui;
+package plugin.overland.gui;
 
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
@@ -47,7 +45,6 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 import pcgen.system.LanguageBundle;
-
 import plugin.overland.model.RoomBoard;
 import plugin.overland.model.RoomBoardFactory;
 import plugin.overland.model.TravelMethod;
@@ -55,11 +52,6 @@ import plugin.overland.model.TravelMethodFactory;
 import plugin.overland.model.TravelMethodListener;
 import plugin.overland.model.TravelSpeedEvent;
 
-/**
- *
- * @author  Juliean Galak
- * @author Vincent Lhote
- */
 public class OverPanel extends javax.swing.JPanel
 {
 	// ### Constants ###
@@ -67,8 +59,11 @@ public class OverPanel extends javax.swing.JPanel
 	/** Value property used in {@link JFormattedTextField#addPropertyChangeListener(String, PropertyChangeListener)} */
 	private static final String VALUE_PROPERTY = "value"; //$NON-NLS-1$
 
-	protected static enum TravelMethodTextField { IMPERIAL_DISTANCE, METRIC_DISTANCE, TIME };
-	
+	protected static enum TravelMethodTextField
+	{
+		IMPERIAL_DISTANCE, METRIC_DISTANCE, TIME
+	};
+
 	// ### Fields ###
 
 	private TravelMethodTextField lastEdited = null;
@@ -125,14 +120,14 @@ public class OverPanel extends javax.swing.JPanel
 	private JLabel txtWeekTotal;
 	private JTextArea ruleComment;
 	private JLabel metricSpeedLabel;
-	 
+
 	private JComboBox terrain;
 	private JComboBox route;
 	private JLabel percent;
 	private JComboBox method;
 	private JComboBox pace;
 	private JComboBox choice;
-	
+
 	private DefaultComboBoxModel aModel;
 	private TravelMethod selectedTM;
 	private NumberFormat gp = NumberFormat.getNumberInstance();
@@ -158,7 +153,9 @@ public class OverPanel extends javax.swing.JPanel
 	private void butToDistActionPerformed()
 	{
 		if (selectedTM == null)
+		{
 			return;
+		}
 		lastEdited = TravelMethodTextField.TIME;
 		Object o = txtTime.getValue();
 		if (o != null && o instanceof Number)
@@ -170,11 +167,12 @@ public class OverPanel extends javax.swing.JPanel
 		}
 	}
 
-
 	private void butImperialToTimeActionPerformed()
 	{
 		if (selectedTM == null)
+		{
 			return;
+		}
 		lastEdited = TravelMethodTextField.IMPERIAL_DISTANCE;
 		Object o = txtDist.getValue();
 		if (o != null && o instanceof Number)
@@ -188,7 +186,9 @@ public class OverPanel extends javax.swing.JPanel
 	private void butMetricToTimeActionPerformed()
 	{
 		if (selectedTM == null)
+		{
 			return;
+		}
 		lastEdited = TravelMethodTextField.METRIC_DISTANCE;
 		Object o = txtDistMetric.getValue();
 		if (o != null && o instanceof Number)
@@ -285,7 +285,9 @@ public class OverPanel extends javax.swing.JPanel
 
 		panelScaleConv.setLayout(new java.awt.GridBagLayout());
 
-		panelScaleConv.setBorder(BorderFactory.createTitledBorder(LanguageBundle.getString("in_plugin_overland_scaleConverter"))); //$NON-NLS-1$
+		panelScaleConv.setBorder(
+			BorderFactory.createTitledBorder(
+				LanguageBundle.getString("in_plugin_overland_scaleConverter"))); //$NON-NLS-1$
 
 		jLabel2.setText(LanguageBundle.getString("in_plugin_overland_realUnits")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -371,13 +373,15 @@ public class OverPanel extends javax.swing.JPanel
 
 		panelTravelTime.setLayout(new java.awt.GridBagLayout());
 
-		panelTravelTime.setBorder(BorderFactory.createTitledBorder(LanguageBundle.getString("in_plugin_overland_travelTime"))); //$NON-NLS-1$
+		panelTravelTime.setBorder(
+			BorderFactory.createTitledBorder(
+				LanguageBundle.getString("in_plugin_overland_travelTime"))); //$NON-NLS-1$
 
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 0;
 		gridBagConstraints.gridwidth = GridBagConstraints.REMAINDER;
-		gridBagConstraints.insets = new Insets(0, 2*gap, 2*gap, 2*gap);
+		gridBagConstraints.insets = new Insets(0, 2 * gap, 2 * gap, 2 * gap);
 		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		panelTravelTime.add(cmbFile, gridBagConstraints);
 
@@ -388,9 +392,9 @@ public class OverPanel extends javax.swing.JPanel
 		gridBagConstraints.insets = stdInsets;
 		gridBagConstraints.gridwidth = 2;
 		panelTravelTime.add(method, gridBagConstraints);
-		
+
 		JPanel terrainRoute = new JPanel(new GridBagLayout());
-		
+
 		terrain = new JComboBox();
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.insets = stdInsets;
@@ -419,7 +423,7 @@ public class OverPanel extends javax.swing.JPanel
 		paceChoice.add(pace, gridBagConstraints);
 		choice = new JComboBox();
 		paceChoice.add(choice, gridBagConstraints);
-		
+
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 2;
@@ -446,7 +450,8 @@ public class OverPanel extends javax.swing.JPanel
 		ruleComment.setEditable(false);
 		ruleComment.setFocusable(false);
 		ruleComment.setLineWrap(true);
-		// TODO i18n this. this is not correct in non spaced language like Japanese, unless it is done correctly by Java?
+		// TODO i18n this. this is not correct in non spaced language like Japanese,
+		// unless it is done correctly by Java?
 		ruleComment.setWrapStyleWord(true);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -476,7 +481,7 @@ public class OverPanel extends javax.swing.JPanel
 		panelTravelTime.add(metricSpeed, gridBagConstraints);
 
 		JPanel conversion = new JPanel(new GridBagLayout());
-		
+
 		txtDist.addKeyListener(new KeyListenerImplementation(butToTime));
 		txtDist.setHorizontalAlignment(SwingConstants.CENTER);
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -497,7 +502,7 @@ public class OverPanel extends javax.swing.JPanel
 		butToTime.setEnabled(false);
 		butToTime.addActionListener(new java.awt.event.ActionListener()
 		{
-            @Override
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				butImperialToTimeActionPerformed();
@@ -531,7 +536,7 @@ public class OverPanel extends javax.swing.JPanel
 		butToTime2.setEnabled(false);
 		butToTime.addActionListener(new java.awt.event.ActionListener()
 		{
-            @Override
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				butMetricToTimeActionPerformed();
@@ -563,7 +568,7 @@ public class OverPanel extends javax.swing.JPanel
 		butToDist.setText(LanguageBundle.getString("in_plugin_overland_leftArrow")); //$NON-NLS-1$
 		butToDist.addActionListener(new java.awt.event.ActionListener()
 		{
-            @Override
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				butToDistActionPerformed();
@@ -575,7 +580,7 @@ public class OverPanel extends javax.swing.JPanel
 		gridBagConstraints.gridy = 0;
 		gridBagConstraints.gridheight = 2;
 		conversion.add(butToDist, gridBagConstraints);
-		
+
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 8;
@@ -594,7 +599,9 @@ public class OverPanel extends javax.swing.JPanel
 
 		panelRoomBoard.setLayout(new java.awt.GridBagLayout());
 
-		panelRoomBoard.setBorder(BorderFactory.createTitledBorder(LanguageBundle.getString("in_plugin_overland_roomAndBoard"))); //$NON-NLS-1$
+		panelRoomBoard.setBorder(
+			BorderFactory.createTitledBorder(
+				LanguageBundle.getString("in_plugin_overland_roomAndBoard"))); //$NON-NLS-1$
 
 		jLabel15.setText(LanguageBundle.getString("in_plugin_overland_perDay")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -667,7 +674,7 @@ public class OverPanel extends javax.swing.JPanel
 		txtDayFood.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDayFood.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
 		{
-			
+
 			@Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
@@ -685,7 +692,7 @@ public class OverPanel extends javax.swing.JPanel
 		txtDayInn.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDayInn.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
 		{
-			
+
 			@Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
@@ -703,7 +710,7 @@ public class OverPanel extends javax.swing.JPanel
 		txtDayAnimal.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDayAnimal.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
 		{
-			
+
 			@Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
@@ -742,7 +749,7 @@ public class OverPanel extends javax.swing.JPanel
 		txtDays.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDays.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
 		{
-			
+
 			@Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
@@ -767,7 +774,7 @@ public class OverPanel extends javax.swing.JPanel
 
 		cmbFood.addActionListener(new java.awt.event.ActionListener()
 		{
-            @Override
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				txtPeopActionPerformed();
@@ -783,7 +790,7 @@ public class OverPanel extends javax.swing.JPanel
 
 		cmbInn.addActionListener(new java.awt.event.ActionListener()
 		{
-            @Override
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				txtPeopActionPerformed();
@@ -799,7 +806,7 @@ public class OverPanel extends javax.swing.JPanel
 
 		cmbAnimal.addActionListener(new java.awt.event.ActionListener()
 		{
-            @Override
+			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt)
 			{
 				txtPeopActionPerformed();
@@ -840,7 +847,7 @@ public class OverPanel extends javax.swing.JPanel
 		txtPeop.setColumns(3);
 		txtPeop.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
 		{
-			
+
 			@Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
@@ -860,7 +867,7 @@ public class OverPanel extends javax.swing.JPanel
 		txtAnim.setColumns(3);
 		txtAnim.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
 		{
-			
+
 			@Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
@@ -879,7 +886,7 @@ public class OverPanel extends javax.swing.JPanel
 		txtDayTotal.setHorizontalAlignment(SwingConstants.CENTER);
 		txtDayTotal.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
 		{
-			
+
 			@Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
@@ -935,7 +942,9 @@ public class OverPanel extends javax.swing.JPanel
 			public void itemStateChanged(ItemEvent e)
 			{
 				if (e.getStateChange() == ItemEvent.DESELECTED)
+				{
 					return;
+				}
 				changedTM();
 			}
 		});
@@ -971,11 +980,15 @@ public class OverPanel extends javax.swing.JPanel
 	{
 		// remove previous listener
 		if (selectedTM != null)
+		{
 			selectedTM.removeTravelMethodListener(listener);
+		}
 		selectedTM = (TravelMethod) aModel.getSelectedItem();
 		// XXX correct?
 		if (selectedTM == null)
+		{
 			return;
+		}
 
 		method.setModel(selectedTM.getMethodsModel());
 		method.setSelectedIndex(0);
@@ -990,19 +1003,21 @@ public class OverPanel extends javax.swing.JPanel
 		terrain.setSelectedIndex(0);
 		route.setSelectedIndex(0);
 	}
-	
-	private TravelMethodListener listener =  new TravelMethodListener()
+
+	private TravelMethodListener listener = new TravelMethodListener()
 	{
 		private static final String NEWLINE = "\n"; //$NON-NLS-1$
-		
+
 		@Override
 		public void multUpdated(TravelSpeedEvent e)
 		{
 			String changed = e.getChanged();
 			// HTMLize the string
-			if(changed!=null && changed.contains(NEWLINE))
+			if (changed != null && changed.contains(NEWLINE))
 			{
-				changed = "<html>"+changed.replaceAll(NEWLINE, "<br>")+"</html>";  //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				changed = "<html>" //$NON-NLS-1$ 
+						+ changed.replaceAll(NEWLINE, "<br>")//$NON-NLS-1$ 
+						+ "</html>"; //$NON-NLS-1$
 			}
 			percent.setText(changed);
 		}
@@ -1026,6 +1041,7 @@ public class OverPanel extends javax.swing.JPanel
 			butToDist.setEnabled(imperialSpeedString != null && metricSpeedString != null);
 			// Updates other text fields based on the last edited one
 			if (lastEdited != null)
+			{
 				switch (lastEdited)
 				{
 					case IMPERIAL_DISTANCE:
@@ -1037,7 +1053,11 @@ public class OverPanel extends javax.swing.JPanel
 					case TIME:
 						butToDistActionPerformed();
 						break;
+					default:
+						//Case not caught, should this cause an error?
+						break;
 				}
+			}
 		}
 
 		@Override
@@ -1057,7 +1077,7 @@ public class OverPanel extends javax.swing.JPanel
 	{
 		//Populate Travel Methods
 		tms = TravelMethodFactory.load(aDataDir);
-		
+
 		//Populate Room and Board
 		rb = RoomBoardFactory.load(aDataDir);
 	}
@@ -1079,7 +1099,6 @@ public class OverPanel extends javax.swing.JPanel
 
 	/** This method updates the Bottom portions of the UI based on changes in the total cost
 	 *  and number of days.  It sets the value into the total box
-	 *
 	 */
 	private void updateBottomUI()
 	{
@@ -1100,7 +1119,6 @@ public class OverPanel extends javax.swing.JPanel
 
 	/** This method updates the middle portions of the UI based on changes in the daily costs
 	 *  It sets the value into the daily total boxes
-	 *
 	 */
 	private void updateMidUI()
 	{
@@ -1121,7 +1139,6 @@ public class OverPanel extends javax.swing.JPanel
 
 	/** This method updates the top portions of the UI based on changes in number of people or animals
 	 *  or changes in quality of RB.  It sets the values into the daily and weekly cost boxes
-	 *
 	 */
 	private void updateTopUI()
 	{
@@ -1145,7 +1162,7 @@ public class OverPanel extends javax.swing.JPanel
 		Number people = (Number) txtPeop.getValue();
 		Number value = (Number) txtAnim.getValue();
 		//now set them all
-		if (people != null && people instanceof Number)
+		if (people != null)
 		{
 			int numPeople = people.intValue();
 
@@ -1159,7 +1176,7 @@ public class OverPanel extends javax.swing.JPanel
 			result *= 7;
 			txtWeekInn.setText(gp.format(result)); //but here we use gp
 		}
-		if (value != null && value instanceof Number)
+		if (value != null)
 		{
 			int numAnimal = value.intValue();
 

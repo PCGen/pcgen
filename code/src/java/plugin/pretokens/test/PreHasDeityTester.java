@@ -1,5 +1,4 @@
 /*
- * PreHasDeity.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -17,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 19-Dec-2003
  *
- * Current Ver: $Revision$
  *
  *
  *
@@ -33,12 +30,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 
-/**
- * @author wardc
- *
- */
-public class PreHasDeityTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreHasDeityTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	@Override
@@ -49,16 +41,16 @@ public class PreHasDeityTester extends AbstractDisplayPrereqTest implements
 
 		final String ucOp = prereq.getKey().toUpperCase();
 		final boolean flag =
-				(ucOp.startsWith("Y") && charHasDeity)
-					|| (ucOp.startsWith("N") && !charHasDeity); //$NON-NLS-1$ //$NON-NLS-2$
+				(ucOp.startsWith("Y") && charHasDeity) //$NON-NLS-1$
+				|| (ucOp.startsWith("N") && !charHasDeity); //$NON-NLS-1$
 		if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
 			|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 		{
-			runningTotal = flag == true ? 1 : 0;
+			runningTotal = flag ? 1 : 0;
 		}
 		else
 		{
-			runningTotal = flag == false ? 1 : 0;
+			runningTotal = flag ? 0 : 1;
 		}
 
 		return countedTotal(prereq, runningTotal);
@@ -68,7 +60,7 @@ public class PreHasDeityTester extends AbstractDisplayPrereqTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "HAS.DEITY"; //$NON-NLS-1$

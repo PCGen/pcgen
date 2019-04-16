@@ -14,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on June 18, 2005.
- *
- * Current Ver: $Revision: 513 $
  */
 package pcgen.cdom.enumeration;
 
@@ -30,7 +26,6 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FixedStringList;
 
 /**
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  * 
  * This is a Typesafe enumeration of legal Characteristics of an Association. It
  * is designed to act as an index to a specific Objects within an item that
@@ -77,13 +72,18 @@ public final class AssociationListKey<T>
 		// Only allow instantiation here
 	}
 
+	/**
+	 * Casts an object with the Generics on this AssociationListKey.
+	 * 
+	 * @return An object cast to the Generics on this AssociationListKey
+	 */
+	@SuppressWarnings("unchecked")
 	public T cast(Object obj)
 	{
 		return (T) obj;
 	}
 
-	public static <OT> AssociationListKey<OT> getKeyFor(Class<OT> keyClass,
-			String keyName)
+	public static <OT> AssociationListKey<OT> getKeyFor(Class<OT> keyClass, String keyName)
 	{
 		if (map == null)
 		{
@@ -115,16 +115,14 @@ public final class AssociationListKey<T>
 		{
 			int mod = fields[i].getModifiers();
 
-			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
-					&& Modifier.isPublic(mod))
+			if (Modifier.isStatic(mod) && Modifier.isFinal(mod) && Modifier.isPublic(mod))
 			{
 				try
 				{
 					Object obj = fields[i].get(null);
 					if (obj instanceof AssociationListKey)
 					{
-						map.put(fields[i].getName(),
-								(AssociationListKey<?>) obj);
+						map.put(fields[i].getName(), (AssociationListKey<?>) obj);
 					}
 				}
 				catch (IllegalArgumentException | IllegalAccessException e)

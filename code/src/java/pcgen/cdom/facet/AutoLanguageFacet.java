@@ -39,10 +39,8 @@ import pcgen.core.QualifiedObject;
  * AutoLanguageFacet is a Facet that tracks the Languages that have been granted
  * to a Player Character through the AUTO:LANG and LANGAUTO tokens
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class AutoLanguageFacet extends
-		AbstractQualifiedListFacet<QualifiedObject<CDOMReference<Language>>>
+public class AutoLanguageFacet extends AbstractQualifiedListFacet<QualifiedObject<CDOMReference<Language>>>
 		implements DataFacetChangeListener<CharID, CDOMObject>, PerspectiveLocation
 {
 
@@ -60,8 +58,6 @@ public class AutoLanguageFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -69,8 +65,7 @@ public class AutoLanguageFacet extends
 		CDOMObject cdo = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
 		// LANGAUTO
-		List<QualifiedObject<CDOMReference<Language>>> list =
-				cdo.getSafeListFor(ListKey.AUTO_LANGUAGES);
+		List<QualifiedObject<CDOMReference<Language>>> list = cdo.getSafeListFor(ListKey.AUTO_LANGUAGES);
 		if (list != null)
 		{
 			separateAll(id, list, cdo);
@@ -83,8 +78,7 @@ public class AutoLanguageFacet extends
 		}
 	}
 
-	private void separateAll(CharID id,
-		List<QualifiedObject<CDOMReference<Language>>> list, CDOMObject cdo)
+	private void separateAll(CharID id, List<QualifiedObject<CDOMReference<Language>>> list, CDOMObject cdo)
 	{
 		for (QualifiedObject<CDOMReference<Language>> qRef : list)
 		{
@@ -94,8 +88,7 @@ public class AutoLanguageFacet extends
 			}
 			else
 			{
-				autoLanguageUnconditionalFacet.addAll(id, qRef.getRawObject()
-					.getContainedObjects(), cdo);
+				autoLanguageUnconditionalFacet.addAll(id, qRef.getRawObject().getContainedObjects(), cdo);
 			}
 		}
 	}
@@ -113,8 +106,6 @@ public class AutoLanguageFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -150,8 +141,7 @@ public class AutoLanguageFacet extends
 		List<Language> list = new ArrayList<>();
 		for (QualifiedObject<CDOMReference<Language>> qo : getQualifiedSet(id))
 		{
-			Collection<Language> langList =
-					qo.getRawObject().getContainedObjects();
+			Collection<Language> langList = qo.getRawObject().getContainedObjects();
 			for (Language l : langList)
 			{
 				list.add(l);
@@ -160,8 +150,7 @@ public class AutoLanguageFacet extends
 		return list;
 	}
 
-	public void setAutoLanguageUnconditionalFacet(
-		AutoLanguageUnconditionalFacet autoLanguageUnconditionalFacet)
+	public void setAutoLanguageUnconditionalFacet(AutoLanguageUnconditionalFacet autoLanguageUnconditionalFacet)
 	{
 		this.autoLanguageUnconditionalFacet = autoLanguageUnconditionalFacet;
 	}

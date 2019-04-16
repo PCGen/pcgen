@@ -1,5 +1,4 @@
 /*
- * InteractivePlugin.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -16,39 +15,35 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 15/02/2014 2:45:53 pm
  *
- * $Id$
  */
 package pcgen.pluginmgr;
 
 import java.io.File;
 
 /**
- * <code>InteractivePlugin</code> defines the interface that must be provided by 
+ * {@code InteractivePlugin} defines the interface that must be provided by
  * any user interactive plugin to PCGen. These plugins are most often defined by 
  * the GMGen module, thus allowing it to be extended.   
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface InteractivePlugin extends PCGenMessageHandler
 {
-	public final static int NORMAL_PRIORITY = 10;
-	
+	public static final int NORMAL_PRIORITY = 10;
+
 	/**
 	 * Retrieve the priority of the plugin. This is used to sort which items are 
 	 * loaded first, lower priority is first.
 	 * @return The priority of the plugin.
 	 */
 	public int getPriority();
-	
+
 	/**
 	 * @return The displayable name of the plugin.
 	 */
 	public String getPluginName();
-	
+
 	/**
 	 * Advises the plugin that it has been started. The plugin may do any 
 	 * required startup and allocation in response.
@@ -61,7 +56,7 @@ public interface InteractivePlugin extends PCGenMessageHandler
 	 * of any resources.
 	 */
 	public void stop();
-	
+
 	/**
 	 * Retrieves the folder in which configuration data for the plugin should be 
 	 * stored.

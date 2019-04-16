@@ -1,5 +1,4 @@
 /*
- * PreEquipPrimaryTest.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,9 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.prereq;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.EquipmentLocation;
@@ -34,12 +35,11 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.character.WieldCategory;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreEquipPrimaryTest</code> tests that the PREEQUIPPRIMARY tag is
+ * {@code PreEquipPrimaryTest} tests that the PREEQUIPPRIMARY tag is
  * working correctly.
- *
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
 public class PreEquipPrimaryTest extends AbstractCharacterTestCase
 {
@@ -47,6 +47,7 @@ public class PreEquipPrimaryTest extends AbstractCharacterTestCase
 	/*
 	 * Class under test for int passes(Prerequisite, PlayerCharacter)
 	 */
+	@Test
 	public void testPassesPrerequisitePlayerCharacter()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -80,10 +81,10 @@ public class PreEquipPrimaryTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test equipment type tests
-	 * @throws Exception
+	 * Test equipment type tests.
 	 */
-	public void testType() throws Exception
+	@Test
+	public void testType()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -116,10 +117,10 @@ public class PreEquipPrimaryTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test wield category tests
-	 * @throws Exception
+	 * Test wield category tests.
 	 */
-	public void testWield() throws Exception
+	@Test
+	public void testWield()
 	{
 		final PlayerCharacter character = getCharacter();
 

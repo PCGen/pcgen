@@ -33,8 +33,7 @@ public class VisibleToken extends AbstractNonEmptyToken<ContentDefinition>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		ContentDefinition factDef, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, ContentDefinition factDef, String value)
 	{
 		Visibility vis;
 		if (value.equals("YES"))
@@ -55,8 +54,7 @@ public class VisibleToken extends AbstractNonEmptyToken<ContentDefinition>
 		}
 		else
 		{
-			return new ParseResult.Fail("Unable to understand "
-				+ getTokenName() + " tag: " + value, context);
+			return new ParseResult.Fail("Unable to understand " + getTokenName() + " tag: " + value);
 		}
 		factDef.setVisibility(vis);
 		return ParseResult.SUCCESS;
@@ -89,8 +87,7 @@ public class VisibleToken extends AbstractNonEmptyToken<ContentDefinition>
 		}
 		else
 		{
-			context.addWriteMessage("Visibility " + vis
-				+ " is not a valid Visibility for a Fact Definition");
+			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for a Fact Definition");
 			return null;
 		}
 		return new String[]{visString};

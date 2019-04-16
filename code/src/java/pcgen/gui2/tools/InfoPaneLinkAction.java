@@ -1,5 +1,4 @@
 /*
- * InfoPaneLinkAction.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 26/10/2013
  *
- * $Id$
  */
 package pcgen.gui2.tools;
 
@@ -34,13 +31,11 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>InfoPaneLinkAction</code> acts on the user clicking on hyperlinks 
+ * The Class {@code InfoPaneLinkAction} acts on the user clicking on hyperlinks
  * in an info pane such as the source info pane.
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class InfoPaneLinkAction
-		implements HyperlinkListener
+public class InfoPaneLinkAction implements HyperlinkListener
 {
 
 	private InfoPane infoPane;
@@ -77,16 +72,15 @@ public class InfoPaneLinkAction
 		{
 			try
 			{
-				Utility.viewInBrowser(e.getURL());
+				DesktopBrowserLauncher.viewInBrowser(e.getURL());
 			}
 			catch (IOException e1)
 			{
 				Logging.errorPrint("Failed to open URL " //$NON-NLS-1$
 					+ e.getURL() + " due to ", e1); //$NON-NLS-1$
-				ShowMessageDelegate.showMessageDialog(LanguageBundle
-					.getFormattedString("in_Src_browser", e //$NON-NLS-1$
-						.getURL().toString()), Constants.APPLICATION_NAME,
-					MessageType.ERROR);
+				ShowMessageDelegate.showMessageDialog(
+					LanguageBundle.getFormattedString("in_Src_browser", e //$NON-NLS-1$
+					.getURL().toString()), Constants.APPLICATION_NAME, MessageType.ERROR);
 			}
 		}
 	}

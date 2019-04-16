@@ -1,0 +1,14 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Inner Sea Intrigue	SOURCESHORT:ISI	SOURCEWEB:http://paizo.com/products/btpy9l37?Pathfinder-Campaign-Setting-Inner-Sea-Intrigue	SOURCEDATE:2016-06
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 December 2017
+
+# Template Name					Visible	Template												Required Vision			Prohibited Vision			Modify VAR						Ability
+Lantern Bearer Darkvision			VISIBLE:NO	TEMPLATE:CHOOSE:Lantern Bearer New Darkvision|Lantern Bearer Bonus Darkvision
+Lantern Bearer New Darkvision			VISIBLE:NO																			!PREVISION:1,Darkvision=ANY	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Lantern Bearer Bonus Darkvision		VISIBLE:NO														PREVISION:1,Darkvision=ANY						BONUS:VAR|DarkvisionRange|30
+
+Clockwork Familiar Potion Installation	VISIBLE:NO																															ABILITY:Special Ability|AUTOMATIC|Clockwork Familiar ~ Potion Installation
+Clockwork Familiar Scroll Installation	VISIBLE:NO																															ABILITY:Special Ability|AUTOMATIC|Clockwork Familiar ~ Scroll Installation
+Clockwork Familiar Wand Installation	VISIBLE:NO																															ABILITY:Special Ability|AUTOMATIC|Clockwork Familiar ~ Wand Installation

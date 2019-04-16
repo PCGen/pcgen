@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.EvaluatorFactoryEQVar.java
  * Copyright 2008 Andrew Wilson
  * <nuance@users.sourceforge.net>.
  *
@@ -18,14 +17,12 @@
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03 Oct 2008
- *
- * Current Ver: $Revision:$
  */
 
 package pcgen.core.term;
 
 /**
- * <code>EvaluatorFactoryEQVar</code> 
+ * {@code EvaluatorFactoryEQVar}
  *
  * This individual enumerations in this class are each responsible for making
  * and returning an object that implements the TermEvaluator interface.  Each
@@ -40,135 +37,108 @@ package pcgen.core.term;
 public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 {
 
-	COMPLETE_EQ_ALTPLUSTOTAL
-		("ALTPLUSTOTAL",
-		 new String[] { "ALTPLUSTOTAL" },
-	 	 true ) { 
+	COMPLETE_EQ_ALTPLUSTOTAL("ALTPLUSTOTAL", new String[]{"ALTPLUSTOTAL"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new EQAltPlusTotalTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_EQ_BASECOST
-		("BASECOST",
-		 new String[] { "BASECOST" },
-	 	 true ) { 
+	COMPLETE_EQ_BASECOST("BASECOST", new String[]{"BASECOST"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new EQBaseCostTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_EQ_CRITMULT
-		("CRITMULT",
-		 new String[] { "CRITMULT" },
-	 	 true ) { 
+	COMPLETE_EQ_CRITMULT("CRITMULT", new String[]{"CRITMULT"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new EQCritMultTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_EQ_DMGDICE
-		("DMGDICE",
-		 new String[] { "DMGDICE" }, 
-		 true ) { 
+	COMPLETE_EQ_DMGDICE("DMGDICE", new String[]{"DMGDICE"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new EQDamageDiceTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_EQ_DMGDIE
-		("DMGDIE",
-		 new String[] { "DMGDIE" }, 
-		 true ) { 
+	COMPLETE_EQ_DMGDIE("DMGDIE", new String[]{"DMGDIE"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new EQDamageDieTermEvaluator(expressionString);
 		}
 	},
-	COMPLETE_EQ_EQACCHECK
-		("EQACCHECK",
-		 new String[] { "EQACCHECK" },
-	 	 true ) { 
+	COMPLETE_EQ_EQACCHECK("EQACCHECK", new String[]{"EQACCHECK"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new EQACCheckTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_EQ_EQHANDS
-		("EQHANDS",
-		 new String[] { "EQHANDS" },
-	 	 true ) { 
+	COMPLETE_EQ_EQHANDS("EQHANDS", new String[]{"EQHANDS"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new EQHandsTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_EQ_EQSPELLFAIL
-		("EQSPELLFAIL",
-		 new String[] { "EQSPELLFAIL" },
-	 	 true ) { 
+	COMPLETE_EQ_EQSPELLFAIL("EQSPELLFAIL", new String[]{"EQSPELLFAIL"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new EQSpellFailureTermEvaluator(expressionString);
 		}
 	},
-	
-	COMPLETE_EQ_EQUIP_SIZE_INT
-		("EQUIP\\.SIZE(?:\\.INT)?",
-		 new String[] { "EQUIP.SIZE.INT", "EQUIP.SIZE" },
-		 true ) { 
+
+	COMPLETE_EQ_EQUIP_SIZE_INT("EQUIP\\.SIZE(?:\\.INT)?", new String[]{"EQUIP.SIZE.INT", "EQUIP.SIZE"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			if (matchedSection.length() == 14)
 			{
@@ -176,70 +146,58 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 			}
 			else
 			{
-				return new EQEquipSizeTermEvaluator(expressionString);				
+				return new EQEquipSizeTermEvaluator(expressionString);
 			}
 		}
 	},
 
-	COMPLETE_EQ_HEADPLUSTOTAL
-		("HEADPLUSTOTAL",
-		 new String[] { "HEADPLUSTOTAL" },
-	 	 true ) { 
+	COMPLETE_EQ_HEADPLUSTOTAL("HEADPLUSTOTAL", new String[]{"HEADPLUSTOTAL"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new EQHeadPlusTotalTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_EQ_PLUSTOTAL
-		("PLUSTOTAL",
-		 new String[] { "PLUSTOTAL" },
-	 	 true ) { 
+	COMPLETE_EQ_PLUSTOTAL("PLUSTOTAL", new String[]{"PLUSTOTAL"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new EQPlusTotalTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_EQ_RANGE
-		("RANGE",
-		 new String[] { "RANGE" },
-	 	 true ) { 
+	COMPLETE_EQ_RANGE("RANGE", new String[]{"RANGE"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new EQRangeTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_EQ_REACHMULT
-		("(?:RACEREACH|REACHMULT|REACH)",
-		 new String[] { "RACEREACH" ,"REACHMULT", "REACH" },
-	 	 true ) { 
+	COMPLETE_EQ_REACHMULT("(?:RACEREACH|REACHMULT|REACH)", new String[]{"RACEREACH", "REACHMULT", "REACH"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			if ("RACEREACH".equals(expressionString))
 			{
-				return new EQRaceReachTermEvaluator(expressionString, src);				
+				return new EQRaceReachTermEvaluator(expressionString, src);
 			}
 			else if ("REACHMULT".equals(expressionString))
 			{
@@ -253,47 +211,38 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		}
 	},
 
-	COMPLETE_EQ_SIZE
-		("SIZE",
-		 new String[] { "SIZE" },
-	 	 true ) { 
+	COMPLETE_EQ_SIZE("SIZE", new String[]{"SIZE"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new EQSizeTermEvaluator(expressionString);
 		}
 	},
-	
-	COMPLETE_EQ_WT
-		("WT",
-		 new String[] { "WT" },
-	 	 true ) { 
+
+	COMPLETE_EQ_WT("WT", new String[]{"WT"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new EQWeightTermEvaluator(expressionString);
 		}
 	};
 
-	private final String   termConstructorPattern;
+	private final String termConstructorPattern;
 	private final String[] termConstructorKeys;
-	private final boolean  patternMatchesEntireTerm;
+	private final boolean patternMatchesEntireTerm;
 
-	TermEvaluatorBuilderEQVar(
-			String pattern,
-			String[] keys,
-			boolean matchEntireTerm)
+	TermEvaluatorBuilderEQVar(String pattern, String[] keys, boolean matchEntireTerm)
 	{
-		termConstructorPattern   = pattern;
-		termConstructorKeys      = keys;
+		termConstructorPattern = pattern;
+		termConstructorKeys = keys;
 		patternMatchesEntireTerm = matchEntireTerm;
 	}
 
@@ -315,4 +264,3 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		return patternMatchesEntireTerm;
 	}
 }
-

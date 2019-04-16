@@ -17,9 +17,13 @@
  */
 package plugin.lsttokens.template;
 
-import java.util.Locale;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Test;
+import java.util.Locale;
 
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.enumeration.Gender;
@@ -32,11 +36,13 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
 
 	static GenderlockToken token = new GenderlockToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -57,14 +63,14 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputStringSet() throws PersistenceLayerException
+	public void testInvalidInputStringSet()
 	{
 		assertTrue(parse("Male"));
 		assertTrue(parseSecondary("Male"));
@@ -74,7 +80,6 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	public void internalTestInvalidInputString(Object val)
-		throws PersistenceLayerException
 	{
 		assertEquals(val, primaryProf.get(ObjectKey.GENDER_LOCK));
 		assertFalse(parse("Always"));
@@ -92,7 +97,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("Male"));
 		assertEquals(Gender.Male, primaryProf.get(ObjectKey.GENDER_LOCK));
@@ -164,14 +169,14 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.GENDER_LOCK, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(ObjectKey.GENDER_LOCK, Gender.Male);
 		LocaleDependentTestCase.before(Locale.US);
@@ -184,7 +189,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.GENDER_LOCK;
 		primaryProf.put(objectKey, new Object());

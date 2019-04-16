@@ -1,0 +1,14 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Divine Anthology	SOURCESHORT:DA	SOURCEWEB:http://paizo.com/products/btpy9nvh	SOURCEDATE:2016-10
+
+# Deity Name	Domains																				Modify VAR
+Asmodeus.MOD	DOMAINS:Rites Subdomain|PREVAREQ:AllowApocryphalSubdomain,1												BONUS:VAR|InquisitorSubdomainRites,DruidRitesSubdomainAllowed|1|PREVAREQ:AllowApocryphalSubdomain,1
+Calistria.MOD	DOMAINS:Captivation Subdomain|PREVAREQ:AllowApocryphalSubdomain,1											BONUS:VAR|InquisitorSubdomainCaptivation,DruidCaptivationSubdomainAllowed|1|PREVAREQ:AllowApocryphalSubdomain,1
+Gozreh.MOD		DOMAINS:Lightning Subdomain,Monsoon Subdomain|PREVAREQ:AllowApocryphalSubdomain,1								BONUS:VAR|InquisitorSubdomainLightning,DruidLightningSubdomainAllowed,InquisitorSubdomainMonsoon,DruidMonsoonSubdomainAllowed|1|PREVAREQ:AllowApocryphalSubdomain,1
+Irori.MOD		DOMAINS:Self-Realization Subdomain (Liberation),Self-Realization Subdomain (Strength)|PREVAREQ:AllowApocryphalSubdomain,1	BONUS:VAR|InquisitorSubdomainSelfRealizationLiberation,DruidSelfRealizationLiberationSubdomainAllowed,InquisitorSubdomainSelfRealizationStrength,DruidSelfRealizationStrengthSubdomainAllowed|1|PREVAREQ:AllowApocryphalSubdomain,1
+Lamashtu.MOD	DOMAINS:Truth Subdomain|PREVAREQ:AllowApocryphalSubdomain,1												BONUS:VAR|InquisitorSubdomainTruth,DruidTruthSubdomainAllowed|1|PREVAREQ:AllowApocryphalSubdomain,1
+Nethys.MOD		DOMAINS:Rites Subdomain|PREVAREQ:AllowApocryphalSubdomain,1												BONUS:VAR|InquisitorSubdomainRites,DruidRitesSubdomainAllowed|1|PREVAREQ:AllowApocryphalSubdomain,1
+Norgorber.MOD	DOMAINS:Alchemy Subdomain (Artifice),Captivation Subdomain|PREVAREQ:AllowApocryphalSubdomain,1						BONUS:VAR|InquisitorSubdomainAlchemyArtifice,DruidAlchemyArtificeSubdomainAllowed,InquisitorSubdomainCaptivation,DruidCaptivationSubdomainAllowed|1|PREVAREQ:AllowApocryphalSubdomain,1
+Sarenrae.MOD	DOMAINS:Thirst Subdomain|PREVAREQ:AllowApocryphalSubdomain,1											BONUS:VAR|InquisitorSubdomainThirst,DruidThirstSubdomainAllowed|1|PREVAREQ:AllowApocryphalSubdomain,1
+Shelyn.MOD		DOMAINS:Captivation Subdomain|PREVAREQ:AllowApocryphalSubdomain,1											BONUS:VAR|InquisitorSubdomainCaptivation,DruidCaptivationSubdomainAllowed|1|PREVAREQ:AllowApocryphalSubdomain,1
+Urgathoa.MOD	DOMAINS:Self-Realization Subdomain (Liberation),Self-Realization Subdomain (Strength)|PREVAREQ:AllowApocryphalSubdomain,1	BONUS:VAR|InquisitorSubdomainSelfRealizationLiberation,DruidSelfRealizationLiberationSubdomainAllowed,InquisitorSubdomainSelfRealizationStrength,DruidSelfRealizationStrengthSubdomainAllowed|1|PREVAREQ:AllowApocryphalSubdomain,1

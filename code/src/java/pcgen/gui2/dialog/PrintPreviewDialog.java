@@ -1,5 +1,4 @@
 /*
- * PrintPreviewDialog.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Nov 7, 2011, 9:17:28 PM
  */
 package pcgen.gui2.dialog;
 
@@ -61,15 +59,6 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.FileFilterUtils;
-import org.apache.commons.io.filefilter.IOFileFilter;
-import org.apache.commons.io.filefilter.SuffixFileFilter;
-import org.apache.commons.io.filefilter.TrueFileFilter;
-import org.apache.fop.apps.FOUserAgent;
-import org.apache.fop.render.awt.AWTRenderer;
-import org.apache.fop.render.awt.viewer.PreviewPanel;
-
 import pcgen.cdom.base.Constants;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
@@ -80,10 +69,18 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 import pcgen.util.fop.FopTask;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.FileFilterUtils;
+import org.apache.commons.io.filefilter.IOFileFilter;
+import org.apache.commons.io.filefilter.SuffixFileFilter;
+import org.apache.commons.io.filefilter.TrueFileFilter;
+import org.apache.fop.apps.FOUserAgent;
+import org.apache.fop.render.awt.AWTRenderer;
+import org.apache.fop.render.awt.viewer.PreviewPanel;
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Dialog to allow the preview of character export.
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public final class PrintPreviewDialog extends JDialog implements ActionListener
@@ -105,9 +102,9 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 	private static final String CANCEL_COMMAND = "cancel";
 	private static final double ZOOM_MULTIPLIER = Math.pow(2, 0.125);
 	private final CharacterFacade character;
-	private final JComboBox sheetBox;
-	private final JComboBox pageBox;
-	private final JComboBox zoomBox;
+	private final JComboBox<Object> sheetBox;
+	private final JComboBox<String> pageBox;
+	private final JComboBox<Double> zoomBox;
 	private final JButton zoomInButton;
 	private final JButton zoomOutButton;
 	private final JButton printButton;
@@ -124,10 +121,10 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		this.frame = frame;
 		this.character = frame.getSelectedCharacterRef().get();
 		this.previewPanelParent = new JPanel(new GridLayout(1, 1));
-		this.sheetBox = new JComboBox();
+		this.sheetBox = new JComboBox<>();
 		this.progressBar = new JProgressBar();
-		this.pageBox = new JComboBox();
-		this.zoomBox = new JComboBox();
+		this.pageBox = new JComboBox<>();
+		this.zoomBox = new JComboBox<>();
 		this.zoomInButton = new JButton();
 		this.zoomOutButton = new JButton();
 		this.printButton = new JButton();
@@ -138,14 +135,15 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		new SheetLoader().execute();
 	}
 
-	private void initComponents()
+	private <E> void initComponents()
 	{
 		setTitle("Print Preview");
 		sheetBox.setRenderer(new DefaultListCellRenderer()
 		{
 
 			@Override
-			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+			public Component getListCellRendererComponent(JList<? extends Object> list, Object value, int index,
+				boolean isSelected, boolean cellHasFocus)
 			{
 				super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 				if (value != null)
@@ -171,11 +169,12 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		{
 
 			@Override
-			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+			public Component getListCellRendererComponent(JList<? extends Object> list, Object value, int index,
+				boolean isSelected, boolean cellHasFocus)
 			{
 				NumberFormat format = NumberFormat.getPercentInstance();
-				value = format.format(value);
-				return super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+				String formattedValue = format.format(value);
+				return super.getListCellRendererComponent(list, formattedValue, index, isSelected, cellHasFocus);
 			}
 
 		});
@@ -316,10 +315,13 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		}
 	}
 
+	/**
+	 * A JFormattedTextField that edits percentages.
+	 */
 	private static class PercentEditor extends JFormattedTextField implements ComboBoxEditor, PropertyChangeListener
 	{
 
-		public PercentEditor(JComboBox comboBox)
+		public PercentEditor(JComboBox<Double> comboBox)
 		{
 			super(NumberFormat.getPercentInstance());
 			addPropertyChangeListener("value", this);
@@ -358,7 +360,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 	private class PreviewLoader extends SwingWorker<AWTRenderer, Object>
 	{
 
-		private URI uri;
+		private final URI uri;
 
 		public PreviewLoader(URI uri)
 		{
@@ -373,7 +375,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		{
 			URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
 			File xsltFile = new File(osPath.resolve(uri));
-			
+
 			FOUserAgent userAgent = FopTask.getFactory().newFOUserAgent();
 			AWTRenderer renderer = new AWTRenderer(userAgent, null, false, false);
 			PipedOutputStream out = new PipedOutputStream();
@@ -382,9 +384,12 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 			thread.setDaemon(true);
 			thread.start();
 			BatchExporter.exportCharacter(character, out);
-			try{
+			try
+			{
 				thread.join();
-			}catch(InterruptedException ex){
+			}
+			catch (InterruptedException ex)
+			{
 				//pass on the interrupt and hope it stops
 				thread.interrupt();
 			}
@@ -416,21 +421,21 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 
 	}
 
-	private static ComboBoxModel createPagesModel(int pages)
+	private static ComboBoxModel<String> createPagesModel(int pages)
 	{
 		String[] pageNumbers = new String[pages];
 		for (int i = 0; i < pages; i++)
 		{
 			pageNumbers[i] = (i + 1) + " of " + pages;
 		}
-		return new DefaultComboBoxModel(pageNumbers);
+		return new DefaultComboBoxModel<>(pageNumbers);
 	}
 
 	private class SheetLoader extends SwingWorker<Object[], Object> implements FilenameFilter
 	{
 
 		@Override
-		public boolean accept(File dir, String name)
+		public boolean accept(@NotNull File dir, @NotNull String name)
 		{
 			return dir.getName().equalsIgnoreCase("pdf");
 		}
@@ -443,17 +448,11 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 			IOFileFilter sheetFilter = FileFilterUtils.prefixFileFilter(Constants.CHARACTER_TEMPLATE_PREFIX);
 			IOFileFilter fileFilter = FileFilterUtils.and(pdfFilter, suffixFilter, sheetFilter);
 
-			IOFileFilter dirFilter = FileFilterUtils.makeSVNAware(TrueFileFilter.INSTANCE);
+			IOFileFilter dirFilter = TrueFileFilter.INSTANCE;
 			File dir = new File(ConfigurationSettings.getOutputSheetsDir());
 			Collection<File> files = FileUtils.listFiles(dir, fileFilter, dirFilter);
 			URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
-			Object[] uriList = new Object[files.size()];
-			int i = 0;
-			for (File file : files)
-			{
-				uriList[i] = osPath.relativize(file.toURI());
-				i++;
-			}
+			Object[] uriList = files.stream().map(v -> osPath.relativize(v.toURI())).toArray();
 			return uriList;
 		}
 
@@ -462,7 +461,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		{
 			try
 			{
-				DefaultComboBoxModel model = new DefaultComboBoxModel(get());
+				ComboBoxModel<Object> model = new DefaultComboBoxModel<>(get());
 				model.setSelectedItem(null);
 				sheetBox.setModel(model);
 			}

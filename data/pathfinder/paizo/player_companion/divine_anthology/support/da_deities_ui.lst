@@ -1,0 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Divine Anthology	SOURCESHORT:DA	SOURCEWEB:http://paizo.com/products/btpy9nvh	SOURCEDATE:2016-10
+
+# Deity Name	Domains																Modify VAR
+Abadar.MOD		DOMAINS:Portal Subdomain|PREVAREQ:AllowApocryphalSubdomain,1							BONUS:VAR|InquisitorSubdomainPortal,DruidPortalSubdomainAllowed|1|PREVAREQ:AllowApocryphalSubdomain,1
+Iomedae.MOD		DOMAINS:Hubris Subdomain (Glory),Hubris Subdomain (Nobility)|PREVAREQ:AllowApocryphalSubdomain,1	BONUS:VAR|InquisitorSubdomainHubrisGlory,DruidHubrisGlorySubdomainAllowed,InquisitorSubdomainHubrisNobility,DruidHubrisNobilitySubdomainAllowed|1|PREVAREQ:AllowApocryphalSubdomain,1

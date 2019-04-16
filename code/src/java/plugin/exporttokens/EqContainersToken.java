@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens;
 
@@ -77,21 +72,14 @@ public class EqContainersToken extends Token
 	/** Indent, a Tab Character */
 	public static final String INDENT = "\t";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
@@ -148,9 +136,7 @@ public class EqContainersToken extends Token
 			}
 			else if (property.equals("CONTENTWEIGHT"))
 			{
-				retString =
-						BigDecimalHelper.trimZeros(Float
-							.toString(getContentWeightToken(pc, eq)));
+				retString = BigDecimalHelper.trimZeros(Float.toString(getContentWeightToken(pc, eq)));
 			}
 			else if (property.equals("COST"))
 			{
@@ -178,9 +164,7 @@ public class EqContainersToken extends Token
 			}
 			else if (property.equals("ITEMWEIGHT"))
 			{
-				retString =
-						BigDecimalHelper.trimZeros(Float
-							.toString(getItemWeightToken(pc, eq)));
+				retString = BigDecimalHelper.trimZeros(Float.toString(getItemWeightToken(pc, eq)));
 			}
 			else if (property.equals("LOCATION"))
 			{
@@ -208,9 +192,7 @@ public class EqContainersToken extends Token
 			}
 			else if (property.equals("QTY"))
 			{
-				retString =
-						BigDecimalHelper.trimZeros(Double
-							.toString((getQuantityToken(eq))));
+				retString = BigDecimalHelper.trimZeros(Double.toString((getQuantityToken(eq))));
 			}
 			else if (property.equals("RANGE"))
 			{
@@ -230,9 +212,7 @@ public class EqContainersToken extends Token
 			}
 			else if (property.equals("TOTALWEIGHT") || property.equals("WT"))
 			{
-				retString =
-						BigDecimalHelper.trimZeros(Float
-							.toString(getTotalWeightToken(pc, eq)));
+				retString = BigDecimalHelper.trimZeros(Float.toString(getTotalWeightToken(pc, eq)));
 			}
 			else if (property.equals("TYPE"))
 			{
@@ -371,8 +351,9 @@ public class EqContainersToken extends Token
 
 		if ((pc != null) && (eq.isNatural()))
 		{
-			retString = Globals.adjustDamage(retString, pc.getDisplay().getRace().getSafe(
-					FormulaKey.SIZE).resolve(pc, "").intValue(), pc.getDisplay().sizeInt());
+			retString = Globals.adjustDamage(retString,
+				pc.getDisplay().getRace().getSafe(FormulaKey.SIZE).resolve(pc, "").intValue(),
+				pc.sizeInt());
 		}
 
 		return retString;

@@ -1,5 +1,4 @@
 /*
- * PreCSkill.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2005 (C) Thomas Clegg <TN_Clegg@lycos.com>
  *
@@ -16,13 +15,13 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- */package plugin.pretokens.test;
+ */
+package plugin.pretokens.test;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
@@ -34,25 +33,17 @@ import pcgen.core.Skill;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-/**
- * @author arknight
- *
- */
-public class PreCSkillTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreCSkillTester extends AbstractPrerequisiteTest
 {
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
 		final int reqnumber = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
-		HashMap<Skill,HashSet<Skill>> serveAsSkills = new HashMap<>();
-		Set<Skill> imitators = new HashSet<>();
+		Map<Skill, Set<Skill>> serveAsSkills = new HashMap<>();
+		Collection<Skill> imitators = new HashSet<>();
 		PreCSkillTester.getImitators(serveAsSkills, imitators);
 
 		// Compute the skill name from the Prerequisite
@@ -60,11 +51,12 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 
 		if (prereq.getSubKey() != null)
 		{
-			requiredSkillKey += " (" + prereq.getSubKey().toUpperCase() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+			requiredSkillKey += " (" + prereq.getSubKey().toUpperCase() + ')'; //$NON-NLS-1$ 
 		}
 
-		final boolean isType =
-				(requiredSkillKey.startsWith("TYPE.") || requiredSkillKey.startsWith("TYPE=")); //$NON-NLS-1$ //$NON-NLS-2$
+		final boolean isType = (
+				requiredSkillKey.startsWith("TYPE.") //$NON-NLS-1$
+				|| requiredSkillKey.startsWith("TYPE=")); //$NON-NLS-1$
 		if (isType)
 		{
 			requiredSkillKey = requiredSkillKey.substring(5);
@@ -84,49 +76,38 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 					skillMatches.add(skill);
 					runningTotal++;
 				}
-				
+
 			}
-			if (runningTotal < reqnumber ) 
+			if (runningTotal < reqnumber)
 			{
-BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
+				if (serveAsSkills.entrySet()
+				                 .stream()
+				                 .filter(entry -> character.isClassSkill(entry.getKey()))
+				                 .flatMap(entry -> entry.getValue().stream())
+				                 // We already counted this skill in the above
+				                 // calculation.  We DONT want to match it
+				                 // a second time
+				                 .takeWhile(mock -> !skillMatches.contains(mock))
+				                 .anyMatch(mock -> mock.isType(skillKey)))
 				{
-					if (character.isClassSkill(fake))
-					{
-						for(Skill mock: serveAsSkills.get(fake))
-						{
-							if (skillMatches.contains(mock))
-							{
-								// We already counted this skill in the above 
-								// calculation.  We DONT want to match it 
-								// a second time
-								break BREAKOUT; 
-							}
-							if (mock.isType(skillKey))
-							{
-								runningTotal++;
-								break BREAKOUT;
-							}
-						}
-					}
+					runningTotal++;
 				}
 			}
 		}
 		else
 		{
-			Skill skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, skillKey);
-			if (skill != null && character.isClassSkill(skill))
+			Skill skill =
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, skillKey);
+			if ((skill != null) && character.isClassSkill(skill))
 			{
 				runningTotal++;
 			}
-			else 
+			else
 			{
-				for(Skill mock: imitators)
+				if (imitators.stream()
+				             .anyMatch(mock -> character.isClassSkill(mock) && serveAsSkills.get(mock).contains(skill)))
 				{
-					if (character.isClassSkill(mock) && serveAsSkills.get(mock).contains(skill))
-					{
-						runningTotal++;
-						break;
-					}
+					runningTotal++;
 				}
 			}
 		}
@@ -138,62 +119,56 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 	/**
 	 * @param serveAsSkills
 	 * @param imitators
-	 * @param character
 	 */
-	private static void getImitators(
-			HashMap<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators)
+	private static void getImitators(Map<? super Skill, ? super Set<Skill>> serveAsSkills, Collection<? super Skill> imitators)
 	{
-		for(Skill aSkill: Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
+		for (Skill aSkill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
 		{
-			Set<Skill> servesAs = new HashSet<>();
-			for(CDOMReference<Skill> ref: aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL))
-			{
-				servesAs.addAll(ref.getContainedObjects());
-			}
-			
-			if(servesAs.size() > 0)
+			HashSet<Skill> servesAs = new HashSet<>();
+			aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL)
+			      .stream()
+			      .map(CDOMReference::getContainedObjects)
+			      .forEach(servesAs::addAll);
+
+			if (!servesAs.isEmpty())
 			{
 				imitators.add(aSkill);
-				serveAsSkills.put(aSkill, (HashSet<Skill>) servesAs);
+				serveAsSkills.put(aSkill, servesAs);
 			}
-		}		
+		}
 	}
 
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "CSKILL"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
-	 */
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		String skillName = prereq.getKey();
-		if (prereq.getSubKey() != null && !prereq.getSubKey().equals("")) //$NON-NLS-1$
+		if ((prereq.getSubKey() != null) && !prereq.getSubKey().isEmpty()) //$NON-NLS-1$
 		{
-			skillName += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+			skillName += " (" + prereq.getSubKey() + ')'; //$NON-NLS-1$
 
 		}
 
-		String foo = "";
-		if (prereq.getOperand().equals("1") && prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
+		String htmlString;
+		if (prereq.getOperand().equals("1") && prereq.getOperator() == PrerequisiteOperator.GTEQ)
 		{
-			foo = LanguageBundle.getFormattedString("PreCSkill.single.toHtml", //$NON-NLS-1$
-					skillName);
+			htmlString = LanguageBundle.getFormattedString("PreCSkill.single.toHtml", //$NON-NLS-1$
+				skillName);
 		}
 		else
 		{
-			foo = LanguageBundle.getFormattedString("PreCSkill.toHtml", //$NON-NLS-1$
-					prereq.getOperator().toDisplayString(),
-					prereq.getOperand(), skillName);
+			htmlString = LanguageBundle.getFormattedString("PreCSkill.toHtml", //$NON-NLS-1$
+				prereq.getOperator().toDisplayString(), prereq.getOperand(), skillName);
 		}
-		return foo;
+		return htmlString;
 	}
 }

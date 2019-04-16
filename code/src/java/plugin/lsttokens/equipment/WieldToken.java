@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with WIELD token
  */
-public class WieldToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class WieldToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	/**
@@ -44,16 +43,13 @@ public class WieldToken extends AbstractNonEmptyToken<Equipment> implements
 	}
 
 	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context, Equipment eq,
-			String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		// TODO Need to convert this to a reference??
-		WieldCategory wc = context.getReferenceContext().silentlyGetConstructedCDOMObject(
-				WieldCategory.class, value);
+		WieldCategory wc = context.getReferenceContext().silentlyGetConstructedCDOMObject(WieldCategory.class, value);
 		if (wc == null)
 		{
-			return new ParseResult.Fail("In " + getTokenName()
-					+ " unable to find WieldCategory for " + value, context);
+			return new ParseResult.Fail("In " + getTokenName() + " unable to find WieldCategory for " + value);
 		}
 		context.getObjectContext().put(eq, ObjectKey.WIELD, wc);
 		return ParseResult.SUCCESS;
@@ -62,13 +58,12 @@ public class WieldToken extends AbstractNonEmptyToken<Equipment> implements
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		WieldCategory w = context.getObjectContext().getObject(eq,
-				ObjectKey.WIELD);
+		WieldCategory w = context.getObjectContext().getObject(eq, ObjectKey.WIELD);
 		if (w == null)
 		{
 			return null;
 		}
-		return new String[] { w.getKeyName() };
+		return new String[]{w.getKeyName()};
 	}
 
 	@Override

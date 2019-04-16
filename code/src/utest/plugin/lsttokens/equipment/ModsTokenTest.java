@@ -17,7 +17,9 @@
  */
 package plugin.lsttokens.equipment;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.enumeration.EqModControl;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -29,10 +31,12 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class ModsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
 	static ModsToken token = new ModsToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()
@@ -53,7 +57,7 @@ public class ModsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testBadInputNegative() throws PersistenceLayerException
+	public void testBadInputNegative()
 	{
 		try
 		{
@@ -67,7 +71,7 @@ public class ModsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testBadInputEmpty() throws PersistenceLayerException
+	public void testBadInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
@@ -110,19 +114,19 @@ public class ModsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<EqModControl> getObjectKey()
+	private static ObjectKey<EqModControl> getObjectKey()
 	{
 		return ObjectKey.MOD_CONTROL;
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), EqModControl.REQUIRED);
 		expectSingle(getToken().unparse(primaryContext, primaryProf),
@@ -131,7 +135,7 @@ public class ModsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

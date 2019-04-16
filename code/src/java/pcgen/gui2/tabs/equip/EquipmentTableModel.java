@@ -1,5 +1,4 @@
 /*
- * EquipmentTableModel.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,18 +14,19 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Jan 25, 2011, 1:52:17 PM
  */
 package pcgen.gui2.tabs.equip;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentListFacade;
-import pcgen.facade.core.EquipmentSetFacade;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListEvent;
 import pcgen.facade.core.EquipmentListFacade.EquipmentListListener;
+import pcgen.facade.core.EquipmentSetFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 
 /**
@@ -34,11 +34,11 @@ import pcgen.gui2.filter.FilteredListFacadeTableModel;
  * is either equipped, unequipped or of all gear owned. Each instance relates to 
  * one type of view.
  * 
- * <br>
  * 
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentFacade> implements EquipmentListListener
+public class EquipmentTableModel
+		extends FilteredListFacadeTableModel<EquipmentFacade>
+		implements EquipmentListListener, ReferenceListener<EquipmentSetFacade>
 {
 
 	protected EquipmentListFacade equipmentList = null;
@@ -47,6 +47,17 @@ public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentF
 	public EquipmentTableModel(CharacterFacade character)
 	{
 		super(character);
+		ReferenceFacade<EquipmentSetFacade> ref = character.getEquipmentSetRef();
+		ref.addReferenceListener(this);
+		setEquipmentList(ref.get().getEquippedItems());
+		setEquipmentSet(ref.get());
+	}
+
+	@Override
+	public void referenceChanged(ReferenceEvent<EquipmentSetFacade> e)
+	{
+		setEquipmentList(e.getNewReference().getEquippedItems());
+		setEquipmentSet(e.getNewReference());
 	}
 
 	protected void setEquipmentList(EquipmentListFacade equipmentList)
@@ -68,7 +79,7 @@ public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentF
 	{
 		this.equipmentSet = equipmentSet;
 	}
-	
+
 	@Override
 	public int getColumnCount()
 	{

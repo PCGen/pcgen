@@ -1,5 +1,12 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 
 
-# Modifier Name	Unique Key			Type		Modify the item cost
-Combat-Trained	KEY:COMBAT_TRAINED	TYPE:Animal	BONUS:ITEMCOST|TYPE.Animal|(BASECOST/2)
+# Modifier Name									Unique Key							Type		Visible	Source Page		Modify the item cost
+Combat-Trained									KEY:Special Quality ~ Combat-Trained ~ Animal	TYPE:Animal			SOURCEPAGE:p.14	BONUS:ITEMCOST|TYPE.Animal|(BASECOST/2)
+
+
+
+
+#Old KEYs
+Special Quality ~ Combat-Trained ~ Animal.COPY=COMBAT_TRAINED											VISIBLE:NO

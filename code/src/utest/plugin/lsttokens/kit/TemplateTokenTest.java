@@ -17,14 +17,14 @@
  */
 package plugin.lsttokens.kit;
 
-import org.junit.Test;
-
 import pcgen.core.PCTemplate;
 import pcgen.core.kit.KitTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import org.junit.jupiter.api.Test;
 
 public class TemplateTokenTest extends AbstractKitTokenTestCase<KitTemplate>
 {

@@ -33,12 +33,13 @@ import javax.swing.text.NumberFormatter;
  * <p>
  * A utility class for building some GUI elements
  * </p>
- *
- * @author Ross M. Lodge
- *
  */
-public class Utils
+public final class Utils
 {
+
+	private Utils()
+	{
+	}
 
 	/**
 	 * <p>Builds a formatted text field with specified min and max</p>
@@ -49,36 +50,31 @@ public class Utils
 	 */
 	public static JFormattedTextField buildIntegerField(int min, int max)
 	{
-		java.text.NumberFormat numberFormat =
-				java.text.NumberFormat.getIntegerInstance();
+		java.text.NumberFormat numberFormat = java.text.NumberFormat.getIntegerInstance();
 		NumberFormatter formatter = new NumberFormatter(numberFormat);
 		formatter.setMinimum(min);
 		formatter.setMaximum(max);
-		final JFormattedTextField returnValue =
-				new JFormattedTextField(formatter);
+		final JFormattedTextField returnValue = new JFormattedTextField(formatter);
 		returnValue.setColumns(3);
 		returnValue.addPropertyChangeListener(new PropertyChangeListener()
 		{
 
 			Border m_originalBorder = returnValue.getBorder();
 
-            @Override
+			@Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
-				if (evt.getPropertyName() != null
-					&& evt.getPropertyName().equals("editValid"))
+				if (evt.getPropertyName() != null && evt.getPropertyName().equals("editValid"))
 				{
-					if (evt.getNewValue() != null
-						&& evt.getNewValue() instanceof Boolean)
+					if (evt.getNewValue() != null && evt.getNewValue() instanceof Boolean)
 					{
-						if (((Boolean) evt.getNewValue()).booleanValue())
+						if ((Boolean) evt.getNewValue())
 						{
 							returnValue.setBorder(m_originalBorder);
 						}
 						else
 						{
-							returnValue.setBorder(BorderFactory
-								.createLineBorder(Color.red));
+							returnValue.setBorder(BorderFactory.createLineBorder(Color.red));
 						}
 					}
 				}
@@ -96,8 +92,7 @@ public class Utils
 	 */
 	public static JFormattedTextField buildFloatField(float min, float max)
 	{
-		java.text.NumberFormat numberFormat =
-				java.text.NumberFormat.getNumberInstance();
+		java.text.NumberFormat numberFormat = java.text.NumberFormat.getNumberInstance();
 
 		// numberFormat.setParseIntegerOnly(false);
 
@@ -105,22 +100,19 @@ public class Utils
 		//formatter.getCommitsOnValidEdit();
 		formatter.setMinimum(min);
 		formatter.setMaximum(max);
-		final JFormattedTextField returnValue =
-				new JFormattedTextField(formatter);
+		final JFormattedTextField returnValue = new JFormattedTextField(formatter);
 		returnValue.setColumns(4);
 		returnValue.addPropertyChangeListener(new PropertyChangeListener()
 		{
 
 			Border m_originalBorder = returnValue.getBorder();
 
-            @Override
+			@Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
-				if (evt.getPropertyName() != null
-					&& evt.getPropertyName().equals("editValid"))
+				if (evt.getPropertyName() != null && evt.getPropertyName().equals("editValid"))
 				{
-					if (evt.getNewValue() != null
-						&& evt.getNewValue() instanceof Boolean)
+					if (evt.getNewValue() != null && evt.getNewValue() instanceof Boolean)
 					{
 						if (((Boolean) evt.getNewValue()).booleanValue())
 						{
@@ -128,8 +120,7 @@ public class Utils
 						}
 						else
 						{
-							returnValue.setBorder(BorderFactory
-								.createLineBorder(Color.red));
+							returnValue.setBorder(BorderFactory.createLineBorder(Color.red));
 						}
 					}
 				}
@@ -149,16 +140,14 @@ public class Utils
 	 * @param matchingSlider
 	 * @return JFormattedTextField
 	 */
-	public static JFormattedTextField buildIntegerFieldWithSlider(
-		final JSlider matchingSlider)
+	public static JFormattedTextField buildIntegerFieldWithSlider(final JSlider matchingSlider)
 	{
 		final JFormattedTextField returnValue =
-				buildIntegerField(matchingSlider.getMinimum(), matchingSlider
-					.getMaximum());
+				buildIntegerField(matchingSlider.getMinimum(), matchingSlider.getMaximum());
 		returnValue.addPropertyChangeListener(new PropertyChangeListener()
 		{
 
-            @Override
+			@Override
 			public void propertyChange(PropertyChangeEvent evt)
 			{
 				if ("value".equals(evt.getPropertyName()))
@@ -173,7 +162,7 @@ public class Utils
 		});
 		matchingSlider.addChangeListener(new ChangeListener()
 		{
-            @Override
+			@Override
 			public void stateChanged(ChangeEvent e)
 			{
 				JSlider source = (JSlider) e.getSource();
@@ -212,8 +201,7 @@ public class Utils
 	 * @param majorTick
 	 * @return JSlider
 	 */
-	public static JSlider buildSlider(int min, int max, int minorTick,
-		int majorTick)
+	public static JSlider buildSlider(int min, int max, int minorTick, int majorTick)
 	{
 		JSlider slider = new JSlider();
 		slider.setMinimum(min);

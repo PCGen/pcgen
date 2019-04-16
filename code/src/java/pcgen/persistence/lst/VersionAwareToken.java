@@ -1,5 +1,4 @@
 /*
- * VersionAwareToken.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 01/06/2013
  *
- * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -27,7 +24,6 @@ import pcgen.util.Logging;
 /**
  * VersionAwareToken is a token class that needs to verify a version.
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public abstract class VersionAwareToken
 {
@@ -43,16 +39,14 @@ public abstract class VersionAwareToken
 	{
 		// extract the tokens from the version line
 		String[] tokens = version.split(" |\\.|\\-", 4); //$NON-NLS-1$
-	
+
 		if (tokens.length < 3)
 		{
-			Logging
-				.log(Logging.LST_ERROR, "Invalid version in " + getTokenName()
-					+ ":" + version + " must have 3 number parts e.g. "
-					+ getTokenName() + ":6.0.2");
+			Logging.log(Logging.LST_ERROR, "Invalid version in " + getTokenName() + ':' + version
+				+ " must have 3 number parts e.g. " + getTokenName() + ":6.0.2");
 			return false;
 		}
-		
+
 		for (int idx = 0; idx < 3 && idx < tokens.length; idx++)
 		{
 			try
@@ -67,10 +61,8 @@ public abstract class VersionAwareToken
 				}
 				else
 				{
-					Logging.log(Logging.LST_ERROR, "Invalid version in "
-						+ getTokenName() + ":" + version
-						+ " must have 3 number parts e.g. " + getTokenName()
-						+ ":6.0.2");
+					Logging.log(Logging.LST_ERROR, "Invalid version in " + getTokenName() + ':' + version
+						+ " must have 3 number parts e.g. " + getTokenName() + ":6.0.2");
 					return false;
 				}
 			}

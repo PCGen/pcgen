@@ -17,8 +17,11 @@
  */
 package plugin.lsttokens.race;
 
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -26,20 +29,18 @@ import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
-import pcgen.core.SubClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class FavoredClassTokenTest extends
-		AbstractListTokenTestCase<Race, PCClass>
+public class FavoredClassTokenTest extends AbstractListInputTokenTestCase<Race, PCClass>
 {
 
 	static FavclassToken token = new FavclassToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -96,19 +97,13 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
-	@Test
 	public void testRoundRobinList() throws PersistenceLayerException
 	{
 		runRoundRobin("%LIST");
 	}
 
 	@Test
-	public void testInvalidInputList() throws PersistenceLayerException
+	public void testInvalidInputList()
 	{
 		assertFalse(parse(Constants.HIGHEST_LEVEL_CLASS + getJoinCharacter() + "%LIST"));
 		assertNoSideEffects();
@@ -116,7 +111,6 @@ public class FavoredClassTokenTest extends
 
 	@Test
 	public void testInvalidInputSubClassNoSub()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1."));
@@ -125,7 +119,6 @@ public class FavoredClassTokenTest extends
 
 	@Test
 	public void testInvalidInputSubClassNoClass()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(".TestWP1"));
 		assertNoSideEffects();
@@ -133,7 +126,6 @@ public class FavoredClassTokenTest extends
 
 	@Test
 	public void testInvalidInputSubDoubleSeparator()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1..Two"));
@@ -141,29 +133,24 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Test
-	public void testCategorizationFail() throws PersistenceLayerException
+	public void testCategorizationFail()
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1.Two"));
-		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
-				"Two");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
+		constructCategorized(primaryContext, cat, "Two");
 		assertConstructionError();
 	}
 
 	@Test
-	public void testCategorizationPass() throws PersistenceLayerException
+	public void testCategorizationPass()
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("TestWP1.Two"));
-		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
-				"Two");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
-		obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Two");
+		constructCategorized(primaryContext, cat, "Two");
 		cat = SubClassCategory.getConstant("TestWP1");
-		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
+		constructCategorized(primaryContext, cat, "Two");
 		assertCleanConstruction();
 	}
 
@@ -176,18 +163,15 @@ public class FavoredClassTokenTest extends
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP3");
-		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
-				"Sub");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
-		primaryContext.getReferenceContext().reassociateCategory(cat, obj);
-		obj = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Sub");
-		secondaryContext.getReferenceContext().reassociateCategory(cat, obj);
+		constructCategorized(primaryContext, cat, "Sub");
+		constructCategorized(secondaryContext, cat, "Sub");
 		runRoundRobin("TestWP1" + getJoinCharacter() + "TestWP2.Sub"
 				+ getJoinCharacter() + "TestWP3");
 	}
 
 	@Test
-	public void testInvalidInputAnyItem() throws PersistenceLayerException
+	public void testInvalidInputAnyItem()
 	{
 		if (isAllLegal())
 		{
@@ -198,7 +182,7 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputItemAny() throws PersistenceLayerException
+	public void testInvalidInputItemAny()
 	{
 		if (isAllLegal())
 		{
@@ -246,7 +230,7 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Test
-	public void testOverwriteHighest() throws PersistenceLayerException
+	public void testOverwriteHighest()
 	{
 		parse(Constants.HIGHEST_LEVEL_CLASS);
 		validateUnparsed(primaryContext, primaryProf, Constants.HIGHEST_LEVEL_CLASS);
@@ -256,7 +240,7 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Test
-	public void testOverwriteWithHighest() throws PersistenceLayerException
+	public void testOverwriteWithHighest()
 	{
 		parse("TestWP1");
 		validateUnparsed(primaryContext, primaryProf, "TestWP1");
@@ -267,7 +251,7 @@ public class FavoredClassTokenTest extends
 
 
 	@Test
-	public void testUnparseHighest() throws PersistenceLayerException
+	public void testUnparseHighest()
 	{
 		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, true);
 		expectSingle(getToken().unparse(primaryContext, primaryProf),
@@ -275,14 +259,14 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Test
-	public void testUnparseHighestUnset() throws PersistenceLayerException
+	public void testUnparseHighestUnset()
 	{
 		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, false);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseHighestNull() throws PersistenceLayerException
+	public void testUnparseHighestNull()
 	{
 		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -291,7 +275,6 @@ public class FavoredClassTokenTest extends
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testUnparseGenericsFailHighest()
-			throws PersistenceLayerException
 	{
 		ObjectKey objectKey = ObjectKey.ANY_FAVORED_CLASS;
 		primaryProf.put(objectKey, new Object());
@@ -307,14 +290,14 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.removeListFor(ListKey.FAVORED_CLASS);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		PCClass wp1 = construct(primaryContext, "TestWP1");
 		primaryProf.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef
@@ -324,7 +307,7 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		primaryProf.addToListFor(ListKey.FAVORED_CLASS, null);
 		try
@@ -339,7 +322,7 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		PCClass wp1 = construct(primaryContext, getLegalValue());
 		primaryProf.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef
@@ -353,7 +336,7 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Test
-	public void testUnparseMultipleHighest() throws PersistenceLayerException
+	public void testUnparseMultipleHighest()
 	{
 		PCClass wp1 = construct(primaryContext, getLegalValue());
 		primaryProf.addToListFor(ListKey.FAVORED_CLASS, CDOMDirectSingleRef
@@ -389,14 +372,14 @@ public class FavoredClassTokenTest extends
 	// }
 
 	@Test
-	public void testUnparseNullCA() throws PersistenceLayerException
+	public void testUnparseNullCA()
 	{
 		primaryProf.removeListFor(ListKey.NEW_CHOOSE_ACTOR);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseCA() throws PersistenceLayerException
+	public void testUnparseCA()
 	{
 		primaryProf.addToListFor(ListKey.NEW_CHOOSE_ACTOR, token);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -404,7 +387,7 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNullInCAList() throws PersistenceLayerException
+	public void testUnparseNullInCAList()
 	{
 		primaryProf.addToListFor(ListKey.NEW_CHOOSE_ACTOR, null);
 		try
@@ -419,7 +402,7 @@ public class FavoredClassTokenTest extends
 	}
 
 	@Test
-	public void testUnparseMultipleAll() throws PersistenceLayerException
+	public void testUnparseMultipleAll()
 	{
 		primaryProf.addToListFor(ListKey.NEW_CHOOSE_ACTOR, token);
 		PCClass wp1 = construct(primaryContext, getLegalValue());

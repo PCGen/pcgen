@@ -1,5 +1,4 @@
 /*
- * JDynamicTable.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 25, 2011, 12:39:13 PM
  */
 package pcgen.gui2.util;
 
@@ -38,10 +36,6 @@ import pcgen.gui2.util.event.DynamicTableColumnModelListener;
 import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class JDynamicTable extends JTableEx
 {
 

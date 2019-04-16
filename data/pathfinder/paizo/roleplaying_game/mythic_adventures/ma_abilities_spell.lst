@@ -1,0 +1,277 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+###Block: Mythic Spells
+# Mythic Spells - This Book
+# Ability Name			Category of Ability	Type				Req. Known Spell
+Ascension				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Ascension
+Deathless				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Deathless
+# Mythic Spells - Other Sources (Listed this book)
+Ablative Barrier			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Ablative Barrier
+Animal Aspect			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Animal Aspect
+Animate Dead			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Animate Dead
+Animate Objects			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Animate Objects
+Animate Plants			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Animate Plants
+Anticipate Peril			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Anticipate Peril
+Antimagic Field			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Antimagic Field
+Arboreal Hammer			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Arboreal Hammer
+Arcane Cannon			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Arcane Cannon
+Baleful Polymorph			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Baleful Polymorph
+Bane					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Bane
+Barkskin				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Barkskin
+Battle Trance			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Battle Trance
+Battlemind Link			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Battlemind Link
+Beast Shape I			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Beast Shape I
+Beast Shape II			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Beast Shape II
+Beast Shape III			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Beast Shape III
+Beast Shape IV			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Beast Shape IV
+Black Mark				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Black Mark
+Black Tentacles			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Black Tentacles
+Blade Barrier			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Blade Barrier
+Blasphemy				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Blasphemy
+Bless					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Bless
+Blessing of Fervor		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Blessing of Fervor
+Blinding Ray			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Blinding Ray
+Blindness/Deafness		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Blindness/Deafness
+Blink					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Blink
+Blistering Invective		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Blistering Invective
+Blood Crow Strike			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Blood Crow Strike
+Boiling Blood			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Boiling Blood
+Break					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Break
+Break Enchantment			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Break Enchantment
+Breath of Life			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Breath of Life
+Burning Gaze			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Burning Gaze
+Burning Hands			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Burning Hands
+Burrow				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Burrow
+Call Animal				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Call Animal
+Call Lightning			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Call Lightning
+Cape of Wasps			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Cape of Wasps
+Chain Lightning			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Chain Lightning
+Changestaff				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Changestaff
+Chaos Hammer			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Chaos Hammer
+Chill Metal				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Chill Metal
+Chord of Shards			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Chord of Shards
+Circle of Death			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Circle of Death
+Cloudkill				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Cloudkill
+Color Spray				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Color Spray
+Command				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Command
+Companion Mind Link		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Companion Mind Link
+Cone of Cold			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Cone of Cold
+Confusion				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Confusion
+Conjure Black Pudding		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Conjure Black Pudding
+Consecrate				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Consecrate
+Contagion				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Contagion
+Contingency				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Contingency
+Control Weather			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Control Weather
+Cup of Dust				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Cup of Dust
+Cure Critical Wounds		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Cure Critical Wounds
+Cure Light Wounds			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Cure Light Wounds
+Cure Moderate Wounds		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Cure Moderate Wounds
+Cure Serious Wounds		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Cure Serious Wounds
+Damnation Stride			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Damnation Stride
+Darkness				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Darkness
+Daybreak Arrow			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Daybreak Arrow
+Daylight				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Daylight
+Death Knell				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Death Knell
+Deep Slumber			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Deep Slumber
+Defile Armor			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Defile Armor
+Desecrate				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Desecrate
+Detect Scrying			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Detect Scrying
+Devolution				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Devolution
+Dictum				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Dictum
+Dimension Door			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Dimension Door
+Dimensional Lock			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Dimensional Lock
+Discordant Blast			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Discordant Blast
+Disfiguring Touch			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Disfiguring Touch
+Disintegrate			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Disintegrate
+Dispel Magic			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Dispel Magic
+Divine Favor			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Divine Favor
+Divine Pursuit			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Divine Pursuit
+Dominate Person			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Dominate Person
+Draconic Reservoir		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Draconic Reservoir
+Dragon's Breath			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Dragon's Breath
+Dream					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Dream
+Dust of Twilight			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Dust of Twilight
+Ear-Piercing Scream		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Ear-Piercing Scream
+Earthquake				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Earthquake
+Elemental Body I			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Elemental Body I
+Elemental Body II			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Elemental Body II
+Elemental Body III		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Elemental Body III
+Elemental Body IV			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Elemental Body IV
+Endure Elements			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Endure Elements
+Enemy Hammer			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Enemy Hammer
+Enervation				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Enervation
+Enlarge Person			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Enlarge Person
+Entangle				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Entangle
+Entropic Shield			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Entropic Shield
+Expeditious Retreat		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Expeditious Retreat
+Faerie Fire				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Faerie Fire
+False Life				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,False Life
+Feast of Ashes			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Feast of Ashes
+Feather Fall			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Feather Fall
+Finger of Death			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Finger of Death
+Fire Seeds				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Fire Seeds
+Fire Shield				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Fire Shield
+Fire Snake				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Fire Snake
+Fire Storm				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Fire Storm
+Fireball				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Fireball
+Firestream				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Firestream
+Flame Blade				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Flame Blade
+Flame Strike			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Flame Strike
+Flames of the Faithful		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Flames of the Faithful
+Flesh To Stone			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Flesh To Stone
+Floating Disk			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Floating Disk
+Fly					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Fly
+Fog Cloud				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Fog Cloud
+Force Punch				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Force Punch
+Foresight				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Foresight
+Form of the Dragon I		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Form of the Dragon I
+Form of the Dragon II		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Form of the Dragon II
+Form of the Dragon III		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Form of the Dragon III
+Form of the Dragon IV		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Form of the Dragon IV
+Gaseous Form			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Gaseous Form
+Giant Vermin			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Giant Vermin
+Globe of Invulnerability	CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Globe of Invulnerability
+Glyph of Warding			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Glyph of Warding
+Goodberry				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Goodberry
+Grease				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Grease
+Guards And Wards			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Guards And Wards
+Gust of Wind			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Gust of Wind
+Harm					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Harm
+Haste					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Haste
+Heal					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Heal
+Healing Thief			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Healing Thief
+Heat Metal				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Heat Metal
+Heroism				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Heroism
+Hex Ward				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Hex Ward
+Hideous Laughter			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Hideous Laughter
+Hold Portal				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Hold Portal
+Holy Smite				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Holy Smite
+Holy Word				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Holy Word
+Hydraulic Push			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Hydraulic Push
+Hydraulic Torrent			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Hydraulic Torrent
+Ice Storm				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Ice Storm
+Ill Omen				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Ill Omen
+Inflict Critical Wounds		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Inflict Critical Wounds
+Inflict Light Wounds		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Inflict Light Wounds
+Inflict Moderate Wounds		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Inflict Moderate Wounds
+Inflict Serious Wounds		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Inflict Serious Wounds
+Invisibility			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Invisibility
+Irresistible Dance		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Irresistible Dance
+Jitterbugs				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Jitterbugs
+Knock					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Knock
+Know the Enemy			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Know the Enemy
+Levitate				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Levitate
+Lightning Arc			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Lightning Arc
+Lightning Bolt			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Lightning Bolt
+Limited Wish			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Limited Wish
+Mage Armor				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Mage Armor
+Mage's Disjunction		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Mage's Disjunction
+Magic Fang				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Magic Fang
+Magic Fang (Greater)		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Magic Fang (Greater)
+Magic Missile			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Magic Missile
+Magic Vestment			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Magic Vestment
+Magic Weapon (Greater)		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Magic Weapon (Greater)
+Make Whole				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Make Whole
+Maze					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Maze
+Memory Lapse			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Memory Lapse
+Meteor Swarm			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Meteor Swarm
+Mighty Fist of the Earth	CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Mighty Fist of the Earth
+Mirror Image			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Mirror Image
+Mislead				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Mislead
+Modify Memory			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Modify Memory
+Monstrous Physique I		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Monstrous Physique I
+Monstrous Physique II		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Monstrous Physique II
+Monstrous Physique III		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Monstrous Physique III
+Monstrous Physique IV		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Monstrous Physique IV
+Move Earth				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Move Earth
+Murderous Command			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Murderous Command
+Named Bullet			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Named Bullet
+Nightmare				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Nightmare
+Oath of Peace			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Oath of Peace
+Obscuring Mist			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Obscuring Mist
+Orb of The Void			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Orb of The Void
+Order's Wrath			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Order's Wrath
+Pernicious Poison			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Pernicious Poison
+Phantasmal Killer			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Phantasmal Killer
+Phantom Steed			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Phantom Steed
+Pillar of Life			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Pillar of Life
+Plane Shift				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Plane Shift
+Polar Ray				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Polar Ray
+Power Word Blind			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Power Word Blind
+Power Word Kill			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Power Word Kill
+Power Word Stun			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Power Word Stun
+Pox Pustules			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Pox Pustules
+Prayer				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Prayer
+Prismatic Sphere			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Prismatic Sphere
+Prismatic Spray			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Prismatic Spray
+Protection from Arrows		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Protection from Arrows
+Protection from Chaos		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Protection from Chaos
+Protection from Evil		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Protection from Evil
+Protection from Good		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Protection from Good
+Protection from Law		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Protection from Law
+Ray of Enfeeblement		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Ray of Enfeeblement
+Reduce Person			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Reduce Person
+Regenerate				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Regenerate
+Repel Wood				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Repel Wood
+Resist Energy			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Resist Energy
+Resonating Word			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Resonating Word
+Reverse Gravity			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Reverse Gravity
+Ricochet Shot			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Ricochet Shot
+Sacred Bond				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Sacred Bond
+Sanctify Armor			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Sanctify Armor
+Sanctuary				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Sanctuary
+Sands of Time			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Sands of Time
+Saving Finale			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Saving Finale
+Scorching Ash Form		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Scorching Ash Form
+Scorching Ray			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Scorching Ray
+Scouring Winds			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Scouring Winds
+Searing Light			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Searing Light
+Sending				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Sending
+Shadow Anchor			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Shadow Anchor
+Shadow Weapon			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Shadow Weapon
+Shatter				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Shatter
+Shield of Faith			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Shield of Faith
+Shield Other			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Shield Other
+Shocking Grasp			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Shocking Grasp
+Shout					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Shout
+Silence				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Silence
+Silent Image			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Silent Image
+Sleep					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Sleep
+Slow					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Slow
+Solid Fog				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Solid Fog
+Spider Climb			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Spider Climb
+Spike Stones			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Spike Stones
+Spiritual Weapon			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Spiritual Weapon
+Stinking Cloud			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Stinking Cloud
+Stone Shape				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Stone Shape
+Stoneskin				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Stoneskin
+Storm of Vengeance		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Storm of Vengeance
+Strangling Hair			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Strangling Hair
+Suggestion				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Suggestion
+Summon Swarm			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Summon Swarm
+Sun Metal				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Sun Metal
+Sunbeam				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Sunbeam
+Surmount Affliction		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Surmount Affliction
+Telekinesis				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Telekinesis
+Theft Ward				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Theft Ward
+Time Stop				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Time Stop
+Touch Injection			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Touch Injection
+Transformation			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Transformation
+True Form				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,True Form
+True Strike				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,True Strike
+Tsunami				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Tsunami
+Unholy Blight			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Unholy Blight
+Unshakable Chill			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Unshakable Chill
+Vampiric Touch			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Vampiric Touch
+Vomit Twin				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Vomit Twin
+Walk Through Space		CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Walk Through Space
+Wall of Fire			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Wall of Fire
+Wall of Force			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Wall of Force
+Wall of Ice				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Wall of Ice
+Wall of Iron			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Wall of Iron
+Wall of Stone			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Wall of Stone
+Wall of Thorns			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Wall of Thorns
+Web					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Web
+Whirlwind				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Whirlwind
+Wish					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Wish
+Word of Chaos			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Word of Chaos

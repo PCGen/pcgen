@@ -1,5 +1,4 @@
 /*
- * BiographyField.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,54 +14,33 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 02/01/2012 11:16:59 AM
- *
- * $Id$
  */
 package pcgen.cdom.enumeration;
 
 /**
  * {@code BiographyField} lists the possible biographical fields which may
  * be edited or suppressed from export.
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("nls")
 public enum BiographyField
 {
-	NAME("in_nameLabel", PCAttribute.NAME),
-	PLAYERNAME("in_player", PCAttribute.PLAYERSNAME),
-	GENDER("in_gender", null),
-	HANDED("in_handString", null),
-	ALIGNMENT("in_alignString", null),
-	DEITY("in_deity", null),
-	AGE("in_age", null),
-	SKIN_TONE("in_appSkintoneColor", PCAttribute.SKINCOLOR),
-	HAIR_COLOR("in_appHairColor", PCAttribute.HAIRCOLOR),
-	HAIR_STYLE("in_style", PCAttribute.HAIRSTYLE),
-	EYE_COLOR("in_appEyeColor", PCAttribute.EYECOLOR),
-	HEIGHT("in_height", null),
-	WEIGHT("in_weight", null),
-	SPEECH_PATTERN("in_speech", PCAttribute.SPEECHTENDENCY),
-	BIRTHDAY("in_birthday", PCAttribute.BIRTHDAY),
-	LOCATION("in_location", PCAttribute.LOCATION),
-	CITY("in_home", null),
-	REGION("in_region", null),
-	BIRTHPLACE("in_birthplace", PCAttribute.BIRTHPLACE),
-	PERSONALITY_TRAIT_1("in_personality1", PCAttribute.PERSONALITY1),
-	PERSONALITY_TRAIT_2("in_personality2", PCAttribute.PERSONALITY2),
-	PHOBIAS("in_phobias", PCAttribute.PHOBIAS),
-	INTERESTS("in_interest", PCAttribute.INTERESTS),
-	CATCH_PHRASE("in_phrase", PCAttribute.CATCHPHRASE);
+	NAME("in_nameLabel"), PLAYERNAME("in_player"),
+	GENDER("in_gender"), HANDED("in_handString"), ALIGNMENT("in_alignString"),
+	DEITY("in_deity"), AGE("in_age"), SKIN_TONE("in_appSkintoneColor"),
+	HAIR_COLOR("in_appHairColor"), HAIR_STYLE("in_style"),
+	EYE_COLOR("in_appEyeColor"), HEIGHT("in_height"), WEIGHT("in_weight"),
+	SPEECH_PATTERN("in_speech"), BIRTHDAY("in_birthday"),
+	LOCATION("in_location"), CITY("in_home"), REGION("in_region"),
+	BIRTHPLACE("in_birthplace"),
+	PERSONALITY_TRAIT_1("in_personality1"),
+	PERSONALITY_TRAIT_2("in_personality2"), PHOBIAS("in_phobias"),
+	INTERESTS("in_interest"), CATCH_PHRASE("in_phrase");
 
 	private final String il8nKey;
-	private final PCAttribute pcattr;
 
-	BiographyField(final String key, final PCAttribute pcattr)
+	BiographyField(final String key)
 	{
 		il8nKey = key;
-		this.pcattr = pcattr;
 	}
 
 	/**
@@ -71,10 +49,5 @@ public enum BiographyField
 	public String getIl8nKey()
 	{
 		return il8nKey;
-	}
-
-	public PCAttribute getPcattr()
-	{
-		return pcattr;
 	}
 }

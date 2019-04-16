@@ -1,5 +1,4 @@
 /*
- * AbilityTokenTest.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,18 +14,14 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17/08/2008 14:04:19
- *
- * $Id: $
  */
 package pcgen.io.exporttoken;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.ListKey;
@@ -35,7 +30,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
@@ -45,39 +39,27 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.io.ExportHandler;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
- * <code>AbilityTokenTest</code> tests the functioning of the ABILITY 
+ * {@code AbilityTokenTest} tests the functioning of the ABILITY
  * token processing code. 
- *
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class AbilityTokenTest extends AbstractCharacterTestCase
 {
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(AbilityTokenTest.class);
-	}
-
-	private Ability skillFocus;
-
-	/*
-	 * @see TestCase#setUp()
-	 */
-    @Override
+	@BeforeEach
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 		PlayerCharacter character = getCharacter();
 
 		// Make some ability categories and add them to the game mode
-		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", AbilityCategory.FEAT, "General.Fighter");
+		Ability ab1 = TestHelper.makeAbility("Perform (Dance)",
+			BuildUtilities.getFeatCat(), "General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
 		List<Aspect> colourList = new ArrayList<>();
@@ -102,15 +84,14 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		List<Aspect> ageList = new ArrayList<>();
 		ageList.add(new Aspect("Age In Years", "2000"));
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Age In Years"), ageList);
-		addAbility(AbilityCategory.FEAT, ab1);
+		addAbility(BuildUtilities.getFeatCat(), ab1);
 
 		TestHelper.makeSkill("Bluff", "Charisma", cha, true,
 			SkillArmorCheck.NONE);
 		TestHelper.makeSkill("Listen", "Wisdom", wis, true,
 			SkillArmorCheck.NONE);
 
-		skillFocus =
-				TestHelper.makeAbility("Skill Focus", AbilityCategory.FEAT, "General");
+		Ability skillFocus = TestHelper.makeAbility("Skill Focus", BuildUtilities.getFeatCat(), "General");
 		BonusObj aBonus = Bonus.newBonus(Globals.getContext(), "SKILL|LIST|3");
 		if (aBonus != null)
 		{
@@ -118,14 +99,17 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		}
 		skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
 		Globals.getContext().unconditionallyProcess(skillFocus, "CHOOSE", "SKILL|ALL");
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, skillFocus, "KEY_Bluff");
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, skillFocus, "KEY_Listen");
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(),
+				skillFocus, "KEY_Bluff");
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(),
+				skillFocus, "KEY_Listen");
 		character.calcActiveBonuses();
 	}
 
 	/**
 	 * Tests the aspect subtoken of ABILITY without a specific aspect.
 	 */
+	@Test
 	public void testAspect()
 	{
 		AbilityToken tok = new AbilityToken();
@@ -140,6 +124,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the ASPECTCOUNT subtoken of ABILITY.
 	 */
+	@Test
 	public void testAspectCount()
 	{
 		AbilityToken tok = new AbilityToken();
@@ -153,6 +138,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the ASPECT subtoken of ABILITY with an aspect specified.
 	 */
+	@Test
 	public void testSingleAspect()
 	{
 		AbilityToken tok = new AbilityToken();
@@ -177,6 +163,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the ASPECT subtoken of ABILITY with an invalid aspect specified.
 	 */
+	@Test
 	public void testNonExistantSingleAspect()
 	{
 		AbilityToken tok = new AbilityToken();
@@ -197,6 +184,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the HASASPECT subtoken of ABILITY.
 	 */
+	@Test
 	public void testHasAspect()
 	{
 		AbilityToken tok = new AbilityToken();
@@ -218,6 +206,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the name subtoken of ABILITY.
 	 */
+	@Test
 	public void testName()
 	{
 		AbilityToken tok = new AbilityToken();
@@ -235,6 +224,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the key subtoken of ABILITY.
 	 */
+	@Test
 	public void testKey()
 	{
 		AbilityToken tok = new AbilityToken();
@@ -253,6 +243,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the associated subtoken of ABILITY.
 	 */
+	@Test
 	public void testAssociated()
 	{
 		AbilityToken tok = new AbilityToken();
@@ -272,6 +263,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the ASSOCIATEDCOUNT subtoken of ABILITY.
 	 */
+	@Test
 	public void testAssociatedCount()
 	{
 		AbilityToken tok = new AbilityToken();

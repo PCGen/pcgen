@@ -1,0 +1,8 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Spymaster's Handbook	SOURCESHORT:SMH	SOURCEWEB:http://paizo.com/products/btpy9l2w	SOURCEDATE:2016-07
+
+# Skill Name		Situational Skill
+Diplomacy.MOD		SITUATION:Influence criminals
+Diplomacy.MOD		SITUATION:Influence law-abiding citizens
+Intimidate.MOD		SITUATION:Influence law-abiding citizens
+Use Magic Device.MOD	SITUATION:Activate scrolls

@@ -31,12 +31,14 @@ import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class SpellbookTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Spell>
 {
 	static ChooseLst token = new ChooseLst();
 	static SpellsToken subtoken = new SpellsToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	private static final SpellBookToken SPELLBOOK_TOKEN = new SpellBookToken();
 
@@ -45,6 +47,7 @@ public class SpellbookTokenTest extends
 		super("SPELLBOOK", "SampleBook");
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

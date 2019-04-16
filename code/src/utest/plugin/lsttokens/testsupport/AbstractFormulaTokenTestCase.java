@@ -16,8 +16,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package plugin.lsttokens.testsupport;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
@@ -25,12 +27,14 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.persistence.PersistenceLayerException;
 
+import org.junit.jupiter.api.Test;
+
 public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
 		extends AbstractCDOMTokenTestCase<T>
 {
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("Variable1"));
 		assertEquals("Variable1", getFormula().toString());
@@ -50,7 +54,7 @@ public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
 	public abstract FormulaKey getFormulaKey();
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		try
 		{
@@ -94,19 +98,19 @@ public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testUnparseNumber() throws PersistenceLayerException
+	public void testUnparseNumber()
 	{
 		setAndUnparseMatch(FormulaFactory.getFormulaFor(1));
 	}
 
 	@Test
-	public void testUnparseFormula() throws PersistenceLayerException
+	public void testUnparseFormula()
 	{
 		setAndUnparseMatch(FormulaFactory.getFormulaFor("Formula"));
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getFormulaKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));

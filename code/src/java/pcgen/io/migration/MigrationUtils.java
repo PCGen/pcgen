@@ -1,5 +1,4 @@
 /*
- * MigrationUtils.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 02/06/2013
  *
- * $Id$
  */
 package pcgen.io.migration;
 
@@ -33,10 +30,13 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * MigrationUtils provides common helper functions for migration classes.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class MigrationUtils
 {
+
+	private MigrationUtils()
+	{
+	}
 
 	/**
 	 * Retrieve a list of migration rules which should be applied based on the supplied filters.  
@@ -45,17 +45,13 @@ public final class MigrationUtils
 	 * @param objectType The type of object being migrated.
 	 * @return A list of migration rules.
 	 */
-	protected static List<MigrationRule> getChangeList(int[] pcgVer,
-	                                                   String gameModeName, ObjectType objectType)
+	protected static List<MigrationRule> getChangeList(int[] pcgVer, String gameModeName, ObjectType objectType)
 	{
 		List<MigrationRule> sourceChangeList = new ArrayList<>();
-		List<MigrationRule> migrationRuleList =
-				SystemCollections
-					.getUnmodifiableMigrationRuleList(gameModeName);
+		List<MigrationRule> migrationRuleList = SystemCollections.getUnmodifiableMigrationRuleList(gameModeName);
 		for (MigrationRule migrationRule : migrationRuleList)
 		{
-			if (migrationRule.getObjectType() == objectType
-				&& migrationRule.changeAppliesToVer(pcgVer))
+			if (migrationRule.getObjectType() == objectType && migrationRule.changeAppliesToVer(pcgVer))
 			{
 				sourceChangeList.add(migrationRule);
 			}

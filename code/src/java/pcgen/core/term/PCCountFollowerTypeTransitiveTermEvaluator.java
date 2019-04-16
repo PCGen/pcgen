@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountFollowerTypeTransitiveTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 07-Aug-2008 00:47:38
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -28,28 +24,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.character.Follower;
 import pcgen.core.display.CharacterDisplay;
 
-public class PCCountFollowerTypeTransitiveTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCCountFollowerTypeTransitiveTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 
 	private final String type;
 	private final int index;
 	private final String newCount;
 
-	public PCCountFollowerTypeTransitiveTermEvaluator(
-			String originalText,
-			String type,
-			int index,
-			String newCount)
+	public PCCountFollowerTypeTransitiveTermEvaluator(String originalText, String type, int index, String newCount)
 	{
 		this.originalText = originalText;
-		this.type         = type;
-		this.index        = index;
-		this.newCount     = newCount;
+		this.type = type;
+		this.index = index;
+		this.newCount = newCount;
 	}
 
 	@Override
@@ -59,7 +49,7 @@ public class PCCountFollowerTypeTransitiveTermEvaluator
 		{
 			final List<Follower> aList = new ArrayList<>();
 
-			for ( Follower follower : display.getFollowerList() )
+			for (Follower follower : display.getFollowerList())
 			{
 				if (follower.getType().getKeyName().equalsIgnoreCase(type))
 				{
@@ -71,14 +61,10 @@ public class PCCountFollowerTypeTransitiveTermEvaluator
 			{
 				final Follower follower = aList.get(index);
 
-				for ( PlayerCharacter pc : Globals.getPCList() )
-				{
-					if (follower.getFileName().equals(pc.getFileName())
-							&& follower.getName().equals(pc.getName()))
-					{
-						return pc.getVariableValue(newCount, "");
-					}
-				}
+				return Globals.getPCList().stream()
+					.filter(pc -> follower.getFileName().equals(pc.getFileName())
+						&& follower.getName().equals(pc.getName()))
+					.findFirst().map(pc -> pc.getVariableValue(newCount, "")).orElse(0.0f);
 			}
 		}
 

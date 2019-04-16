@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountSpellsInbookTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 07-Aug-2008 21:45:43
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -27,8 +23,7 @@ package pcgen.core.term;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 
-public class PCCountSpellsInbookTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCountSpellsInbookTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String book;
 
@@ -41,8 +36,7 @@ public class PCCountSpellsInbookTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return SettingsHandler.getPrintSpellsWithPC() ?
-			   (float) pc.countSpellsInBook(book) : 0.0f;
+		return SettingsHandler.getPrintSpellsWithPC() ? (float) pc.countSpellsInBook(book) : 0.0f;
 	}
 
 	@Override

@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Kobolds of Golarion	SOURCESHORT:KOG	SOURCEWEB:http://paizo.com/products/btpy8yw0?Pathfinder-Player-Companion-Kobolds-of-Golarion	SOURCEDATE:2013-06
+SOURCELONG:Pathfinder Player Companion: Kobolds of Golarion	SOURCESHORT:KOG	SOURCEWEB:http://paizo.com/products/btpy8yw0	SOURCEDATE:2013-06
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 9 May 2016
 
@@ -7,7 +8,8 @@ SOURCELONG:Kobolds of Golarion	SOURCESHORT:KOG	SOURCEWEB:http://paizo.com/produc
 # New Magic Weapons
 # ==============================
 
-Dwindling Bullet												TYPE:Magic.Ammunition.Resizable.Specific.Bullet																COST:126		WT:5										BASEQTY:1		EQMOD:PLUS1W.STEEL																		SOURCEPAGE:p.30
+# Equipment Name	Required Weapon Proficiency			Type																	Cost		Weight	Base Quantity	Crit Mult	Crit Range	Damage	Modifier																			Wield Category	Reach Multiplier	Size		Source Page
+Dwindling Bullet								TYPE:Magic.Ammunition.Resizable.Specific.Bullet										COST:126	WT:5		BASEQTY:1								EQMOD:Special Ability ~ +1 ~ Weapon.Material ~ Steel																				SOURCEPAGE:p.30
 
-Bloatstrike Tail				PROFICIENCY:WEAPON|Kobold Tail Attachment		TYPE:Magic.Weapon.Resizable.Melee.Light.KoboldTailAttachment.Specific.Bludgeoning.Finesseable								COST:1		WT:4		CRITMULT:x2		CRITRANGE:1		DAMAGE:1d8				EQMOD:MAGIC_COST|3600.PLUS1W.STEEL					WIELD:Light							SIZE:M		SOURCEPAGE:p.30
-Irradiating Tail				PROFICIENCY:WEAPON|Kobold Tail Attachment		TYPE:Magic.Weapon.Resizable.Melee.Light.KoboldTailAttachment.Specific.Slashing.Reach.Finesseable							COST:15		WT:1		CRITMULT:x2		CRITRANGE:1		DAMAGE:1d6				EQMOD:MAGIC_COST|1800.PLUS1W.VIRI_STR_WEAP			WIELD:Light				REACHMULT:2		SIZE:M		SOURCEPAGE:p.30
+Bloatstrike Tail	PROFICIENCY:WEAPON|Kobold Tail Attachment	TYPE:Magic.Weapon.Resizable.Melee.Light.KoboldTailAttachment.Specific.Bludgeoning.Finesseable		COST:1	WT:4					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Ability ~ Enhancement Cost|3600.Special Ability ~ +1 ~ Weapon.Material ~ Steel					WIELD:Light					SIZE:M	SOURCEPAGE:p.30
+Irradiating Tail	PROFICIENCY:WEAPON|Kobold Tail Attachment	TYPE:Magic.Weapon.Resizable.Melee.Light.KoboldTailAttachment.Specific.Slashing.Reach.Finesseable	COST:15	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:Special Ability ~ Enhancement Cost|1800.Special Ability ~ +1 ~ Weapon.Material ~ Viridium / Strengthened ~ Weapon	WIELD:Light		REACHMULT:2		SIZE:M	SOURCEPAGE:p.30

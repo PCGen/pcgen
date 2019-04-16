@@ -1,6 +1,5 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from EquipmentModifier.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -33,19 +32,24 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.SignedInteger;
 import pcgen.util.chooser.ChooserFactory;
 
-public class EquipmentChoiceDriver
+public final class EquipmentChoiceDriver
 {
+	private EquipmentChoiceDriver()
+	{
+	}
+
 	/**
 	 * @param pool
 	 * @param parent
 	 * @param bAdd being added
 	 * @return an integer where apparently (from how it's used) only 0 is significant
 	 */
-	public static boolean getChoice(final int pool, final Equipment parent, EquipmentModifier eqMod, final boolean bAdd, PlayerCharacter pc)
+	public static boolean getChoice(final int pool, final Equipment parent, EquipmentModifier eqMod, final boolean bAdd,
+		PlayerCharacter pc)
 	{
 		String choiceString = eqMod.getSafe(StringKey.CHOICE_STRING);
 
-		if (choiceString.length() == 0)
+		if (choiceString.isEmpty())
 		{
 			return true;
 		}
@@ -59,14 +63,8 @@ public class EquipmentChoiceDriver
 
 		List<Object> selectedList = new ArrayList<>(parent.getAssociationList(eqMod));
 
-		final EquipmentChoice equipChoice = buildEquipmentChoice(
-				pool,
-				parent,
-				eqMod,
-				bAdd,
-				forEqBuilder,
-				selectedList.size(),
-				pc);
+		final EquipmentChoice equipChoice =
+				buildEquipmentChoice(pool, parent, eqMod, bAdd, forEqBuilder, selectedList.size(), pc);
 
 		int effectiveChoices;
 		if (equipChoice.isBAdd())
@@ -78,32 +76,31 @@ public class EquipmentChoiceDriver
 			effectiveChoices = selectedList.size();
 		}
 
-		String title =
-				LanguageBundle.getFormattedString("in_equipChoiceMod", //$NON-NLS-1$
-					equipChoice.getTitle(), eqMod.getDisplayName(), "|");
+		String title = LanguageBundle.getFormattedString("in_equipChoiceMod", //$NON-NLS-1$
+			equipChoice.getTitle(), eqMod.getDisplayName(), "|");
 		CDOMChooserFacadeImpl<Object> chooserFacade =
-                new CDOMChooserFacadeImpl<>(
-                        title, equipChoice.getAvailableList(),
-                        selectedList, effectiveChoices);
+				new CDOMChooserFacadeImpl<>(title, equipChoice.getAvailableList(), selectedList, effectiveChoices);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		chooserFacade.setAllowsDups(equipChoice.isAllowDuplicates());
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
-		
-		selectedList =  chooserFacade.getFinalSelected();
+
+		selectedList = chooserFacade.getFinalSelected();
 
 		setChoice(parent, eqMod, selectedList, equipChoice);
 
 		return parent.hasAssociations(eqMod);
 	}
 
-	public static void setChoice(Equipment parent, EquipmentModifier eqMod, final String choice, final EquipmentChoice equipChoice)
+	public static void setChoice(Equipment parent, EquipmentModifier eqMod, final String choice,
+		final EquipmentChoice equipChoice)
 	{
 		final List<Object> tempList = new ArrayList<>();
 		tempList.add(choice);
 		setChoice(parent, eqMod, tempList, equipChoice);
 	}
 
-	private static void setChoice(Equipment parent, EquipmentModifier eqMod, final List<Object> selectedList, final EquipmentChoice equipChoice)
+	private static void setChoice(Equipment parent, EquipmentModifier eqMod, final List<Object> selectedList,
+		final EquipmentChoice equipChoice)
 	{
 		parent.removeAllAssociations(eqMod);
 
@@ -119,10 +116,8 @@ public class EquipmentChoiceDriver
 				{
 					final List<SignedInteger> secondaryChoice = new ArrayList<>();
 
-					for (
-						int j = equipChoice.getMinValue();
-						j <= equipChoice.getMaxValue();
-						j += equipChoice.getIncValue())
+					for (int j = equipChoice.getMinValue(); j <= equipChoice.getMaxValue(); j +=
+							equipChoice.getIncValue())
 					{
 						if (j != 0)
 						{
@@ -130,20 +125,16 @@ public class EquipmentChoiceDriver
 						}
 					}
 
-					String title =
-							LanguageBundle.getFormattedString(
-								"in_equipChoiceSelectMod", aString); //$NON-NLS-1$
+					String title = LanguageBundle.getFormattedString("in_equipChoiceSelectMod", aString); //$NON-NLS-1$
 					CDOMChooserFacadeImpl<SignedInteger> chooserFacade =
-                            new CDOMChooserFacadeImpl<>(title,
-                                    secondaryChoice,
-                                    new ArrayList<>(), 1);
+							new CDOMChooserFacadeImpl<>(title, secondaryChoice, new ArrayList<>(), 1);
 					chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 					chooserFacade.setAllowsDups(equipChoice.isAllowDuplicates());
 					ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
-					
-					List<SignedInteger> chosenList =  chooserFacade.getFinalSelected();
 
-					if (chosenList.size() == 0)
+					List<SignedInteger> chosenList = chooserFacade.getFinalSelected();
+
+					if (chosenList.isEmpty())
 					{
 						continue;
 					}
@@ -170,33 +161,20 @@ public class EquipmentChoiceDriver
 	 *
 	 * @return  A populated EquipmentChoice object
 	 */
-	public static EquipmentChoice buildEquipmentChoice(
-		final int       pool,
-		final Equipment parent,
-		EquipmentModifier eqMod,
-		final boolean   bAdd,
-		final boolean   forEqBuilder,
-		final int       numSelected,
-		PlayerCharacter pc)
+	public static EquipmentChoice buildEquipmentChoice(final int pool, final Equipment parent, EquipmentModifier eqMod,
+		final boolean bAdd, final boolean forEqBuilder, final int numSelected, PlayerCharacter pc)
 	{
-		final EquipmentChoice equipChoice  = new EquipmentChoice(bAdd, pool);
-		String                choiceString = eqMod.getSafe(StringKey.CHOICE_STRING);
+		final EquipmentChoice equipChoice = new EquipmentChoice(bAdd, pool);
+		String choiceString = eqMod.getSafe(StringKey.CHOICE_STRING);
 
-		if (choiceString.length() == 0)
+		if (choiceString.isEmpty())
 		{
 			return equipChoice;
 		}
 
-		equipChoice.constructFromChoiceString(
-			choiceString,
-			parent,
-			pool,
-			numSelected,
-			forEqBuilder,
-			pc);
+		equipChoice.constructFromChoiceString(choiceString, parent, pool, numSelected, forEqBuilder, pc);
 
 		return equipChoice;
 	}
-
 
 }

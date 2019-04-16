@@ -1,0 +1,59 @@
+CAMPAIGN:The Harrow Handbook
+KEY:PFS ~ Harrow Handbook
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:5,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Equipment
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Player Companion: The Harrow Handbook
+SOURCESHORT:HH
+SOURCEWEB:http://paizo.com/products/btpy95zm
+SOURCEDATE:2014-07
+ISOGL:YES
+
+#COVER:harrow_handbook.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy95zm|Buy this publication from Paizo Publishing!
+DESC:It’s in the Cards! Pierce the veil of mystery surrounding the occult symbolism of the harrow! Steeped in ancient tradition, harrow decks have been used for centuries to foretell the future, perform magical feats, send coded messages and warnings, and manipulate fate. Divine your fortune, learn games of skill and chance, summon allies, curse enemies, or even build a character based on harrow archetypes as you delve into the lore and secrets of the cards.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: The Harrow Handbook Copyright 2014, Paizo Inc.; Authors: Authors: Crystal Frasier, Will McCardell, and David Schwartz.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: The Harrow Handbook" Copyright 2018, PCgen Data team (including but not limited to Gwen T. (evilpixie87))
+
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+
+#Additional Resources
+#Last Updated Tuesday, September 18, 2018
+#Note: The Harrow deck, and any use of it with archetypes, bloodlines, orders, equipment, feats, hexes, masterpieces, mysteries, spells, or traits, may be used if it is an actual Harrow deck. Any alternative means to simulate the Harrow deck usage, such as a normal deck of cards or dice, is not legal for play.
+#Archetypes: the archetypes on page 7, 13, 15, 22, and 24-25 are legal for play.
+#The Harrrow vexed spellblight is not legal for play;
+#Bloodline: the bloodline on pages 28-29 is legal for play;
+#Cavalier Order: the order on page 18 is legal for play;
+#Equipment: all equipment on pages 30-31 is legal for play except snakebite dagger;
+#Feats: all feats on pages 14-15 and 19 are legal for play;
+#Hexes: all hexes on page 15 are legal for play;
+#Masterpieces: all masterpieces on page 21 are legal for play;
+#Mystery: the mystery on pages 26-27 is legal for play;
+#Spells: all spells on pages 9 are legal for play;
+#Talents: all talents on page 20-21 are legal for play except grig jig.
+
+ABILITY:pfs_hh_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=The Harrow Handbook
+EQUIPMENT:pfs_hh_equip_arms_armor.lst|PRECAMPAIGN:1,INCLUDES=The Harrow Handbook
+
+#
+# End
+#

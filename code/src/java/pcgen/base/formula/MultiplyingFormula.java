@@ -18,7 +18,6 @@
 package pcgen.base.formula;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
  * 
  * A MultiplyingFormula represents a 'deferred calculation' of sorts, designed
  * to be stored and capable of multiplying a predetermined value with a given
@@ -64,52 +63,33 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 	 *             if more than one Number is provided as an argument
 	 * @throws NullPointerException
 	 *             if the Number provided is null
-	 * @see pcgen.base.formula.ReferenceFormula#resolve(Number...)
 	 */
 	@Override
 	public Integer resolve(Number... numbers)
 	{
-		if (numbers == null || numbers.length != 1)
+		if ((numbers == null) || (numbers.length != 1))
 		{
-			throw new IllegalArgumentException(
-					"MultiplyingFormula only has one backreference");
+			throw new IllegalArgumentException("MultiplyingFormula only has one backreference");
 		}
 		//Must calculate before rounding, consider 1.4 * 3
-		double d = numbers[0].doubleValue() * multiplier;
-		return (int) d;
+		return (int) (numbers[0].doubleValue() * multiplier);
 	}
 
-	/**
-	 * Returns a String representation of this MultiplyingFormula
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
 		return "*" + multiplier;
 	}
 
-	/**
-	 * Consistent-with-equals hashCode method
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return multiplier;
 	}
 
-	/**
-	 * Returns true if this MultiplyingFormula is equal to the given Object.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof MultiplyingFormula
-				&& ((MultiplyingFormula) obj).multiplier == multiplier;
+		return obj instanceof MultiplyingFormula && ((MultiplyingFormula) obj).multiplier == multiplier;
 	}
 }

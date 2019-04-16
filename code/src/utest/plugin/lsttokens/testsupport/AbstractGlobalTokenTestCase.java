@@ -18,78 +18,84 @@
 package plugin.lsttokens.testsupport;
 
 
-import java.net.URI;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.net.URISyntaxException;
+import java.util.Arrays;
 import java.util.Locale;
-
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ConcretePrereqObject;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.TokenLibrary;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMToken;
+import pcgen.rules.persistence.token.CDOMWriteToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public abstract class AbstractGlobalTokenTestCase extends TestCase
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import util.FormatSupport;
+import util.TestURI;
+
+public abstract class AbstractGlobalTokenTestCase
 {
 	protected LoadContext primaryContext;
 	protected LoadContext secondaryContext;
 	protected CDOMObject primaryProf;
 	protected CDOMObject secondaryProf;
 
-	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 
-	@BeforeClass
-	public static final void classSetUp() throws URISyntaxException
+	@BeforeAll
+	static void classSetUp()
 	{
 		Locale.setDefault(Locale.US);
-		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
-				"file:/Test%20Case"));
-		classSetUpFired = true;
+		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
-	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
-		TokenRegistration.register(getToken());
-		primaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
-		secondaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
+		TokenRegistration.clearTokens();
+		TokenRegistration.register(getReadToken());
+		TokenRegistration.register(getWriteToken());
+		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		secondaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
 		primaryProf = primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"TestObj");
 		secondaryProf = secondaryContext.getReferenceContext().constructCDOMObject(
 				getCDOMClass(), "TestObj");
-		primaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
-		secondaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
+		additionalSetup(primaryContext);
+		additionalSetup(secondaryContext);
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		TokenRegistration.clearTokens();
 	}
 
 	public abstract <T extends CDOMObject> Class<T> getCDOMClass();
-
-	public static void addToken(LstToken tok)
-	{
-		TokenLibrary.addToTokenMap(tok);
-	}
 
 	public static void addBonus(Class<? extends BonusObj> clazz)
 	{
@@ -97,11 +103,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		{
 			TokenLibrary.addBonusClass(clazz);
 		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			e.printStackTrace();
 		}
@@ -110,35 +112,23 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	public void runRoundRobin(String... str) throws PersistenceLayerException
 	{
 		// Default is not to write out anything
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 
 		// Set value
 		for (String s : str)
 		{
-			assertTrue("Should be able to parse " + s, parse(s));
+			assertTrue(parse(s), () -> "Should be able to parse " + s);
 		}
 		// Get back the appropriate token:
-		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-
-		assertNotNull(str);
-		assertNotNull(unparsed);
-		assertEquals(str.length, unparsed.length);
-
-		for (int i = 0; i < str.length; i++)
-		{
-			assertEquals("Expected " + i + "th unparsed item to be equal",
-				str[i], unparsed[i]);
-		}
+		String[] unparsed = getWriteToken().unparse(primaryContext, primaryProf);
+		assertArrayEquals(str, unparsed);
 
 		// Do round Robin
-		StringBuilder unparsedBuilt = new StringBuilder();
-		for (String s : unparsed)
-		{
-			unparsedBuilt.append(getToken().getTokenName()).append(':').append(
-					s).append('\t');
-		}
+		String unparsedBuilt = Arrays.stream(unparsed)
+		                             .map(s -> getReadToken().getTokenName() + ':' + s + '\t')
+		                             .collect(Collectors.joining());
 		getLoader().parseLine(secondaryContext, secondaryProf,
-				unparsedBuilt.toString(), testCampaign.getURI());
+				unparsedBuilt, testCampaign.getURI());
 
 		// Ensure the objects are the same
 		assertEquals(primaryProf, secondaryProf);
@@ -159,26 +149,22 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	 * @param target The expected new token format.
 	 * @throws PersistenceLayerException If the parsing 
 	 */
-	public void runMigrationRoundRobin(String deprecated, String target) 
+	protected void runMigrationRoundRobin(String deprecated, String target)
 			throws PersistenceLayerException
 	{
 		// Default is not to write out anything
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 
 		parse(deprecated);
 		primaryProf.setSourceURI(testCampaign.getURI());
 		String[] unparsed = validateUnparsed(primaryContext, primaryProf, target);
 
-
 		// Do round Robin
-		StringBuilder unparsedBuilt = new StringBuilder();
-		for (String s : unparsed)
-		{
-			unparsedBuilt.append(getToken().getTokenName()).append(':').append(
-					s).append('\t');
-		}
+		String unparsedBuilt = Arrays.stream(unparsed)
+		                             .map(s -> getReadToken().getTokenName() + ':' + s + '\t')
+		                             .collect(Collectors.joining());
 		getLoader().parseLine(secondaryContext, secondaryProf,
-				unparsedBuilt.toString(), testCampaign.getURI());
+				unparsedBuilt, testCampaign.getURI());
 		// Ensure the objects are the same
 		isCDOMEqual(primaryProf, secondaryProf);
 		validateUnparsed(secondaryContext, secondaryProf, unparsed);
@@ -187,20 +173,14 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	private String[] validateUnparsed(LoadContext sc, CDOMObject sp,
 			String... unparsed)
 	{
-		String[] sUnparsed = getToken().unparse(sc, sp);
+		String[] sUnparsed = getWriteToken().unparse(sc, sp);
 		if (unparsed == null)
 		{
 			assertNull(sUnparsed);
 		}
 		else
 		{
-			for (int i = 0; i < unparsed.length && i < sUnparsed.length; i++)
-			{
-				assertEquals("Expected " + i + "th unparsed item to be equal",
-					unparsed[i], sUnparsed[i]);
-			}
-			assertEquals("Mismatched number of unparsed values",
-				unparsed.length, sUnparsed.length);
+			assertArrayEquals(sUnparsed, unparsed);
 		}
 
 		return sUnparsed;
@@ -211,7 +191,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		ParseResult pr;
 		try
 		{
-			pr = getToken().parseToken(primaryContext, primaryProf, str);
+			pr = getReadToken().parseToken(primaryContext, primaryProf, str);
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -228,7 +208,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		}
 		else
 		{
-			pr.addMessagesToLog();
+			pr.addMessagesToLog(TestURI.getURI());
 			primaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();
@@ -238,7 +218,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	public boolean parseSecondary(String str)
 	{
-		boolean b = getToken().parseToken(secondaryContext, secondaryProf, str).passed();
+		boolean b = getReadToken().parseToken(secondaryContext, secondaryProf, str).passed();
 		if (b)
 		{
 			secondaryContext.commit();
@@ -254,10 +234,10 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	protected String getTokenName()
 	{
-		return getToken().getTokenName();
+		return getReadToken().getTokenName();
 	}
 
-	public void isCDOMEqual(CDOMObject cdo1, CDOMObject cdo2)
+	private static void isCDOMEqual(CDOMObject cdo1, CDOMObject cdo2)
 	{
 		assertTrue(cdo1.isCDOMEqual(cdo2));
 	}
@@ -268,12 +248,14 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		assertFalse(primaryContext.getListContext().hasMasterLists());
 	}
 
-	public abstract <T extends ConcretePrereqObject> CDOMPrimaryToken<T> getToken();
+	public abstract <T extends ConcretePrereqObject> CDOMToken<T> getReadToken();
+
+	public abstract <T extends ConcretePrereqObject> CDOMWriteToken<T> getWriteToken();
 
 	public abstract <T extends CDOMObject> CDOMLoader<T> getLoader();
 
 	@Test
-	public void testOverwrite() throws PersistenceLayerException
+	public void testOverwrite()
 	{
 		parse(getLegalValue());
 		validateUnparsed(primaryContext, primaryProf, getLegalValue());
@@ -288,16 +270,16 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	protected abstract ConsolidationRule getConsolidationRule();
 
-	protected void expectSingle(String[] unparsed, String expected)
+	protected static void expectSingle(String[] unparsed, String expected)
 	{
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", expected, unparsed[0]);
+		assertEquals(expected, unparsed[0]);
 	}
 
 	protected void assertBadUnparse()
 	{
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 		assertTrue(primaryContext.getWriteMessageCount() > 0);
 	}
 
@@ -312,6 +294,37 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	{
 		assertTrue(primaryContext.getReferenceContext().validate(null));
 		assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
+	}
+
+	@Test
+	public void testCleanup()
+	{
+		String s = getLegalValue();
+		assertTrue(parse(s));
+	}
+
+	@Test
+	public void testAvoidContext()
+	{
+		RuntimeLoadContext context = new RuntimeLoadContext(
+			RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		additionalSetup(context);
+		CDOMObject item = context.getReferenceContext()
+				.constructCDOMObject(getCDOMClass(), "TestObj");
+		ParseResult pr = getReadToken().parseToken(context, item, getLegalValue());
+		if (!pr.passed())
+		{
+			fail();
+		}
+		context.commit();
+		assertTrue(pr.passed());
+	}
+
+	protected void additionalSetup(LoadContext context)
+	{
+		FormatSupport.addBasicDefaults(context);
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}
 
 }

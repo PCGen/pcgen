@@ -15,29 +15,22 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Oct 16, 2004
- *
- * $Id$
- *
  */
 package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>MonNonSkillHD</code> defines the MonNonSkillHD tag which
+ * {@code MonNonSkillHD} defines the MonNonSkillHD tag which
  * allows the LST code to specify how many of a monster's hit dice
  * do not gain skills.
  *
  *
- * @author	James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 
 public final class MonNonSkillHD extends MultiTagBonusObj
 {
-	private static final String[] bonusTags = {"NUMBER", "LOCKNUMBER"};
+	private static final String[] BONUS_TAGS = {"NUMBER", "LOCKNUMBER"};
 
 	/**
 	 * Return the bonus tag handled by this class.
@@ -52,23 +45,21 @@ public final class MonNonSkillHD extends MultiTagBonusObj
 	/**
 	 * Get by index, an monster non-skill hit die attribute that may be bonused.
 	 * @param tagNumber the index of the monster non-skill hit die attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The monster non-skill hit die attribute.
 	 */
 	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
-		return bonusTags[tagNumber];
+		return BONUS_TAGS[tagNumber];
 	}
 
 	/**
 	 * Get the number of monster non-skill hit die attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of monster non-skill hit die attributes.
 	 */
 	@Override
 	protected int getBonusTagLength()
 	{
-		return bonusTags.length;
+		return BONUS_TAGS.length;
 	}
 }

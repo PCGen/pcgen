@@ -1,5 +1,4 @@
 /*
- * PreTemplateParserTest.java
  *
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -17,37 +16,31 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 12-Jul-2004
  *
- * Current Ver: $Revision$
  * 
  * 
- *
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreTemplateParser;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests PRETEMPLATE parsing
  */
-@SuppressWarnings("nls")
-public class PreTemplateParserTest extends EnUsLocaleDependentTestCase
+class PreTemplateParserTest extends EnUsLocaleDependentTestCase
 {
 
-	/**
-	 * @throws Exception
-	 */
 	@Test
-	public void test990007_1() throws Exception
+	void testPositive() throws PersistenceLayerException
 	{
-		PreTemplateParser parser = new PreTemplateParser();
+		PrerequisiteParserInterface parser = new PreTemplateParser();
 
 		Prerequisite prereq =
 				parser.parse("TEMPLATE", "1,Half-Dragon", false, false);
@@ -57,13 +50,16 @@ public class PreTemplateParserTest extends EnUsLocaleDependentTestCase
 			prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test 990007 2.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void test990007_2() throws Exception
+	void testInvertResult() throws PersistenceLayerException
 	{
-		PreTemplateParser parser = new PreTemplateParser();
+		PrerequisiteParserInterface parser = new PreTemplateParser();
 
 		Prerequisite prereq =
 				parser.parse("TEMPLATE", "1,Half-Dragon", true, false);

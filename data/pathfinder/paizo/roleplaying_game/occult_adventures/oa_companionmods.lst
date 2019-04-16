@@ -1,19 +1,23 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 
 ###Block: Master Values
-FOLLOWER:PhantomMasterLVL=1	TYPE:Phantom		DEFINE:PhantomMasterLevel|0	BONUS:VAR|PhantomMasterLevel|mastervar("PhantomMasterLVL")
+# Class of the Master		Type			Define				Modify VAR
+FOLLOWER:PhantomMasterLVL=1	TYPE:Phantom	DEFINE:PhantomMasterLevel|0	BONUS:VAR|PhantomMasterLevel|mastervar("PhantomMasterLVL")
 
 ###Block: Ability Progression
-FOLLOWER:PhantomMasterLVL=1	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Darkvision			
-FOLLOWER:PhantomMasterLVL=1	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Link				
-FOLLOWER:PhantomMasterLVL=1	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Share Spells		
-FOLLOWER:PhantomMasterLVL=3	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Deliver Touch Spells	
-FOLLOWER:PhantomMasterLVL=4	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Magic Attacks		
-FOLLOWER:PhantomMasterLVL=5	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Ability Score Increase	
-FOLLOWER:PhantomMasterLVL=6	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Devotion			
-FOLLOWER:PhantomMasterLVL=9	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Incorporeal Flight	
-FOLLOWER:PhantomMasterLVL=1	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Progression			
+# Class of the Master		Type			Ability
+FOLLOWER:PhantomMasterLVL=1	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Darkvision
+FOLLOWER:PhantomMasterLVL=1	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Link
+FOLLOWER:PhantomMasterLVL=1	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Share Spells
+FOLLOWER:PhantomMasterLVL=3	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Deliver Touch Spells
+FOLLOWER:PhantomMasterLVL=4	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Magic Attacks
+FOLLOWER:PhantomMasterLVL=5	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Ability Score Increase
+FOLLOWER:PhantomMasterLVL=6	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Devotion
+FOLLOWER:PhantomMasterLVL=9	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Incorporeal Flight
+FOLLOWER:PhantomMasterLVL=1	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Progression
 
 ###Block: HD Progression - Starts at 1, Caps at 15
+# Class of the Master		Type			Hit Dice
 FOLLOWER:PhantomMasterLVL=2	TYPE:Phantom	HD:1
 FOLLOWER:PhantomMasterLVL=3	TYPE:Phantom	HD:1
 FOLLOWER:PhantomMasterLVL=5	TYPE:Phantom	HD:1
@@ -27,3 +31,57 @@ FOLLOWER:PhantomMasterLVL=14	TYPE:Phantom	HD:1
 FOLLOWER:PhantomMasterLVL=15	TYPE:Phantom	HD:1
 FOLLOWER:PhantomMasterLVL=17	TYPE:Phantom	HD:1
 FOLLOWER:PhantomMasterLVL=19	TYPE:Phantom	HD:1
+
+###Block: Emotional Focus Grantor
+# Class of the Master					Type			Ability
+FOLLOWER:PhantomEmotionalFocus_Anger=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Anger
+FOLLOWER:PhantomEmotionalFocus_Dedication=1	TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Dedication
+FOLLOWER:PhantomEmotionalFocus_Despair=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Despair
+FOLLOWER:PhantomEmotionalFocus_Fear=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Fear
+FOLLOWER:PhantomEmotionalFocus_Hatred=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Hatred
+FOLLOWER:PhantomEmotionalFocus_Jealousy=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Jealousy
+FOLLOWER:PhantomEmotionalFocus_Zeal=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Zeal
+
+###Block: Homunculus Companion
+FOLLOWER:HomunculusMasterLVL=2		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=3		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=5		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=6		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=7		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=9		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=10		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=11		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=13		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=14		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=15		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=17		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=18		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=19		TYPE:Homunculus Companion	HD:1
+
+FOLLOWER:HomunculusMasterLVL=1		TYPE:Homunculus Companion	BONUS:VAR|Maneuverability|2
+FOLLOWER:HomunculusMasterLVL=1		TYPE:Homunculus Companion	BONUS:VAR|HasLowlightVision|1|TYPE=Base
+FOLLOWER:HomunculusMasterLVL=1		TYPE:Homunculus Companion	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+FOLLOWER:HomunculusMasterLVL=3		TYPE:Homunculus Companion	BONUS:STAT|STR,DEX|1
+FOLLOWER:HomunculusMasterLVL=4		TYPE:Homunculus Companion	BONUS:SIZEMOD|NUMBER|1
+FOLLOWER:HomunculusMasterLVL=4		TYPE:Homunculus Companion	BONUS:MOVEADD|TYPE.Walk|10
+FOLLOWER:HomunculusMasterLVL=4		TYPE:Homunculus Companion	BONUS:MOVEADD|TYPE.Fly|10
+FOLLOWER:HomunculusMasterLVL=4		TYPE:Homunculus Companion	BONUS:VAR|Maneuverability|1
+FOLLOWER:HomunculusMasterLVL=4		TYPE:Homunculus Companion	BONUS:VAR|ClawSize|1
+FOLLOWER:HomunculusMasterLVL=6		TYPE:Homunculus Companion	BONUS:STAT|STR,DEX|1
+FOLLOWER:HomunculusMasterLVL=9		TYPE:Homunculus Companion	BONUS:STAT|STR,DEX|1	SR:11+mastervar("AlchemistLVL")
+FOLLOWER:HomunculusMasterLVL=12		TYPE:Homunculus Companion	BONUS:STAT|STR,DEX|1
+FOLLOWER:HomunculusMasterLVL=15		TYPE:Homunculus Companion	BONUS:STAT|STR,DEX|1
+FOLLOWER:HomunculusMasterLVL=18		TYPE:Homunculus Companion	BONUS:STAT|STR,DEX|1
+
+FOLLOWER:HomunculusMasterLVL=1		TYPE:Homunculus Companion	AUTO:WEAPONPROF|TYPE=Simple
+FOLLOWER:HomunculusMasterLVL=1		TYPE:Homunculus Companion	BONUS:ABILITYPOOL|Homunculus Companion Custom Skills|2
+FOLLOWER:HomunculusMasterLVL=1		TYPE:Homunculus Companion	AUTO:LANG|Common (cannot speak)|PREVARLT:mastervar("AlchemistLVL"),6
+FOLLOWER:HomunculusMasterLVL=3		TYPE:Homunculus Companion	ABILITY:Special Ability|AUTOMATIC|Evasion
+FOLLOWER:HomunculusMasterLVL=4		TYPE:Homunculus Companion	ABILITY:Internal|AUTOMATIC|Claw
+FOLLOWER:HomunculusMasterLVL=4		TYPE:Homunculus Companion	ABILITY:Special Ability|AUTOMATIC|Homunculus Companion ~ Poison
+FOLLOWER:HomunculusMasterLVL=5		TYPE:Homunculus Companion	BONUS:ABILITYPOOL|Homunculus Companion Ability Increase|1
+FOLLOWER:HomunculusMasterLVL=6		TYPE:Homunculus Companion	AUTO:LANG|Common
+FOLLOWER:HomunculusMasterLVL=10		TYPE:Homunculus Companion	BONUS:ABILITYPOOL|Homunculus Companion Ability Increase|1
+FOLLOWER:HomunculusMasterLVL=15		TYPE:Homunculus Companion	BONUS:ABILITYPOOL|Homunculus Companion Ability Increase|1
+FOLLOWER:HomunculusMasterLVL=15		TYPE:Homunculus Companion	ABILITY:Special Ability|AUTOMATIC|Improved Evasion
+FOLLOWER:HomunculusMasterLVL=20		TYPE:Homunculus Companion	BONUS:ABILITYPOOL|Homunculus Companion Ability Increase|1

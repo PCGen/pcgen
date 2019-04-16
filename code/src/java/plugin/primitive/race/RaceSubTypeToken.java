@@ -41,8 +41,7 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<R
 	private CDOMReference<Race> allRaces;
 
 	@Override
-	public boolean initialize(LoadContext context, Class<Race> cl,
-			String value, String args)
+	public boolean initialize(LoadContext context, Class<Race> cl, String value, String args)
 	{
 		if (args != null)
 		{
@@ -68,7 +67,7 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<R
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + racetype.toString();
+		return getTokenName() + '=' + racetype.toString();
 	}
 
 	@Override

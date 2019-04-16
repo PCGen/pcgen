@@ -19,19 +19,18 @@ package pcgen.cdom.enumeration;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant. It is designed to hold DisplayLocations
  * in a type-safe fashion, so that they can be quickly compared and use less
  * memory when identical DisplayLocations exist.
  */
-public final class DisplayLocation implements TypeSafeConstant,
-		Comparable<DisplayLocation>
+public final class DisplayLocation implements TypeSafeConstant, Comparable<DisplayLocation>
 {
 	/**
 	 * This Map contains the mappings from Strings to the Type Safe Constant
@@ -51,14 +50,11 @@ public final class DisplayLocation implements TypeSafeConstant,
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private DisplayLocation(String name)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Name for Type cannot be null");
-		}
+		Objects.requireNonNull(name, "Name for Type cannot be null");
 		ordinal = ordinalCount++;
 		fieldName = name;
 	}
@@ -131,8 +127,7 @@ public final class DisplayLocation implements TypeSafeConstant,
 		DisplayLocation type = typeMap.get(name);
 		if (type == null)
 		{
-			throw new IllegalArgumentException(name
-					+ " is not a previously defined Type");
+			throw new IllegalArgumentException(name + " is not a previously defined Type");
 		}
 		return type;
 	}
@@ -166,11 +161,6 @@ public final class DisplayLocation implements TypeSafeConstant,
 		typeMap.clear();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
 	@Override
 	public int compareTo(DisplayLocation type)
 	{

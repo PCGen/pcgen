@@ -41,7 +41,6 @@ import pcgen.core.character.SpellInfo;
  * ActiveSpellsFacet is a Facet that tracks the active SPELLS for the
  * PlayerCharacter
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, CharacterSpell>
 		implements DataFacetChangeListener<CharID, CDOMObject>
@@ -52,8 +51,8 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 
 	private TemplateFacet templateFacet;
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private FormulaResolvingFacet formulaResolvingFacet;
 
@@ -72,8 +71,6 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 	 * getConstructingCacheMap(CharID) in order to implicitly call this method.
 	 * 
 	 * @return A new (empty) Map for use in this ActiveSpellsFacet.
-	 * 
-	 * @see pcgen.cdom.facet.base.AbstractSourcedListFacet#getComponentMap()
 	 */
 	@Override
 	protected Map<CharacterSpell, Set<Object>> getComponentMap()
@@ -92,8 +89,6 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -125,9 +120,7 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 		for (SpellLikeAbility sla : spellsFacet.getQualifiedSet(id))
 		{
 			Formula times = sla.getCastTimes();
-			int resolvedTimes =
-					formulaResolvingFacet.resolve(id, times,
-						sla.getQualifiedKey()).intValue();
+			int resolvedTimes = formulaResolvingFacet.resolve(id, times, sla.getQualifiedKey()).intValue();
 			String book = sla.getSpellBook();
 
 			final CharacterSpell cs = new CharacterSpell(race, sla.getSpell());
@@ -152,8 +145,6 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -171,8 +162,7 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 		this.deityFacet = deityFacet;
 	}
 
-	public void setFormulaResolvingFacet(
-		FormulaResolvingFacet formulaResolvingFacet)
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
 	{
 		this.formulaResolvingFacet = formulaResolvingFacet;
 	}

@@ -1,5 +1,4 @@
 /**
- * TodoFacadeImpl.java
  * Copyright 2010 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 14/06/2010 5:15:14 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -26,13 +21,12 @@ import pcgen.facade.core.TodoFacade;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>TodoFacadeImpl</code> represents a task
+ * The Class {@code TodoFacadeImpl} represents a task
  * to be done for a character.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
+@SuppressWarnings("TodoComment")
 public class TodoFacadeImpl implements TodoFacade
 {
 
@@ -41,21 +35,21 @@ public class TodoFacadeImpl implements TodoFacade
 	private final String messageKey;
 	private final int order;
 	private String subTabName;
-	
+
 	/**
 	 * Create a new todo task.
 	 * @param tab The tab on which the task exists
 	 * @param fieldName The field on which the task exists
 	 * @param messageKey The il8n property key of the task details.
 	 */
-	public TodoFacadeImpl(Tab tab, String fieldName, String messageKey, int order)
+	TodoFacadeImpl(Tab tab, String fieldName, String messageKey, int order)
 	{
 		this.tab = tab;
 		this.fieldName = fieldName;
 		this.messageKey = messageKey;
 		this.order = order;
 	}
-	
+
 	/**
 	 * Create a new todo task.
 	 * @param tab The tab on which the task exists
@@ -64,7 +58,7 @@ public class TodoFacadeImpl implements TodoFacade
 	 * @param subTabName The internal name of the sub tab where the task can be completed.
 	 * @param order The value for use when sorting the messages, low appears higher in the displayed list.
 	 */
-	public TodoFacadeImpl(Tab tab, String fieldName, String messageKey, String subTabName, int order)
+	TodoFacadeImpl(Tab tab, String fieldName, String messageKey, String subTabName, int order)
 	{
 		this.tab = tab;
 		this.fieldName = fieldName;
@@ -72,69 +66,57 @@ public class TodoFacadeImpl implements TodoFacade
 		this.subTabName = subTabName;
 		this.order = order;
 	}
-	
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.TodoFacade#getFieldName()
-	 */
+
 	@Override
 	public String getFieldName()
 	{
 		return fieldName;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.TodoFacade#getMessage()
-	 */
 	@Override
 	public String getMessageKey()
 	{
 		return messageKey;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.TodoFacade#getTabName()
-	 */
 	@Override
 	public Tab getTab()
 	{
 		return tab;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
 	@Override
 	public int compareTo(TodoFacade that)
 	{
-	    final int BEFORE = -1;
-	    final int EQUAL = 0;
-	    final int AFTER = 1;
+		final int BEFORE = -1;
+		final int EQUAL = 0;
+		final int AFTER = 1;
 
-	    // quick check for the same object
-	    if ( this == that )
-	    {
-	    	return EQUAL;
-	    }
+		// quick check for the same object
+		if (this == that)
+		{
+			return EQUAL;
+		}
 
-	    // Sort first by tab 
-	    if (this.tab != that.getTab())
-	    {
-	    	return this.tab.compareTo(that.getTab());
-	    }
-	    
-	    // Then sort by the order
-	    if (that instanceof TodoFacadeImpl)
-	    {
+		// Sort first by tab 
+		if (this.tab != that.getTab())
+		{
+			return this.tab.compareTo(that.getTab());
+		}
+
+		// Then sort by the order
+		if (that instanceof TodoFacadeImpl)
+		{
 			if (this.order > ((TodoFacadeImpl) that).order)
-		    {
-		    	return AFTER;
-		    }
+			{
+				return AFTER;
+			}
 			if (this.order < ((TodoFacadeImpl) that).order)
-		    {
-		    	return BEFORE;
-		    }
+			{
+				return BEFORE;
+			}
 			return this.fieldName.compareTo(((TodoFacadeImpl) that).fieldName);
-	    }
+		}
 
 		return EQUAL;
 	}
@@ -144,5 +126,5 @@ public class TodoFacadeImpl implements TodoFacade
 	{
 		return subTabName;
 	}
-	
+
 }

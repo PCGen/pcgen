@@ -1,5 +1,4 @@
 /*
- * PortraitPane.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 8, 2011, 5:17:22 PM
  */
 package pcgen.gui2.tabs.bio;
 
@@ -30,11 +28,6 @@ import java.awt.image.BufferedImage;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 
-
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 class PortraitPane extends JComponent
 {
 
@@ -82,14 +75,12 @@ class PortraitPane extends JComponent
 		{
 			if (scale < 1)
 			{
-				g.drawRect(((int) (cropRect.x * scale)) + insets.left,
-						   ((int) (cropRect.y * scale)) + insets.top,
-						   (int) (cropRect.width * scale), (int) (cropRect.height * scale));
+				g.drawRect(((int) (cropRect.x * scale)) + insets.left, ((int) (cropRect.y * scale)) + insets.top,
+					(int) (cropRect.width * scale), (int) (cropRect.height * scale));
 			}
 			else
 			{
-				g.drawRect(cropRect.x + insets.left, cropRect.y + insets.top,
-						   cropRect.width, cropRect.height);
+				g.drawRect(cropRect.x + insets.left, cropRect.y + insets.top, cropRect.width, cropRect.height);
 			}
 		}
 	}

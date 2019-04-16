@@ -1,0 +1,9 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Heroes of the Streets	SOURCESHORT:HOTS	SOURCEWEB:http://paizo.com/products/btpy9ghc	SOURCEDATE:2015-10
+# Original Entry By: Gwen T. (evilpixie87)
+
+# Ability Name								Type			!PRECHARACTERTYPE		Clear Description	Description
+CATEGORY=Special Ability|Domain Power ~ Prohibition.MOD								DESC:.CLEAR		DESC:As a standard action, you can command a creature within 30 feet to refrain from committing a particular action (limited to those actions referenced in the spell forbid action). If the creature performs the named action before the beginning of your next turn, it takes 1d6+%1 points of damage and the effect ends. This is a language-dependent effect. You can use this ability %2 times per day.|DomainLVL/2|3+WIS	DESC: You can attach a spell effect to the prohibition as if it were the spell rune domain ability; the spell takes effect if the creature performs the named action. This spell must be of at least 1 level lower than the highest-level cleric spell you can cast, and it must target one or more creatures. Regardless of the number of targets the spell can normally affect, it affects only the creature that triggers the rune. Attaching a spell in this way extends the duration of the prohibition by a number of rounds equal to the spell's level, or until it is discharged.|PREVARGTEQ:DomainLVL,8|PREDOMAIN:1,Legislation Subdomain (Rune)
+
+CATEGORY=Special Ability|Trait ~ Wiscrani Ear.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

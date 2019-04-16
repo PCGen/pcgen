@@ -1,5 +1,4 @@
 /*
- * ArrowIcon.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,25 +15,23 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Oct 2, 2011, 6:45:07 PM
  */
 package pcgen.gui2.util;
 
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
+
 import javax.swing.Icon;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
 
 /**
  * This class contains a lot of code taken from
  * javax.swing.plaf.basic.BasicArrowButton. As such this icon draws the arrow
  * that you find on arrow buttons.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class ArrowIcon implements Icon, SwingConstants
+public class ArrowIcon implements Icon
 {
 
 	private Color shadow;
@@ -43,10 +40,8 @@ public class ArrowIcon implements Icon, SwingConstants
 	private int direction;
 	private int size;
 
-	public ArrowIcon(int direction, int size, Color shadow,
-			Color darkShadow, Color highlight)
+	ArrowIcon(int direction, int size, Color shadow, Color darkShadow, Color highlight)
 	{
-		super();
 		this.shadow = shadow;
 		this.darkShadow = darkShadow;
 		this.highlight = highlight;
@@ -54,16 +49,10 @@ public class ArrowIcon implements Icon, SwingConstants
 		this.size = size;
 	}
 
-	public ArrowIcon(int direction, int size)
-	{
-		this(direction, size, UIManager.getColor("controlShadow"),
-				UIManager.getColor("controlDkShadow"), UIManager.getColor("controlLtHighlight"));
-	}
-
 	@Override
 	public void paintIcon(Component c, Graphics g, int x, int y)
 	{
-		boolean enabled = (c != null) ? c.isEnabled() : true;
+		boolean enabled = (c == null) || c.isEnabled();
 		paintTriangle(g, x, y, size, direction, enabled);
 	}
 
@@ -92,8 +81,7 @@ public class ArrowIcon implements Icon, SwingConstants
 	 * @param isEnabled whether or not the arrow is drawn enabled
 	 * @see javax.swing.plaf.basic.BasicArrowButton
 	 */
-	private void paintTriangle(Graphics g, int x, int y, int triangleSize,
-			int triangleDir, boolean isEnabled)
+	private void paintTriangle(Graphics g, int x, int y, int triangleSize, int triangleDir, boolean isEnabled)
 	{
 		Color oldColor = g.getColor();
 		int mid, i, j;
@@ -177,6 +165,9 @@ public class ArrowIcon implements Icon, SwingConstants
 					g.drawLine(j, mid - i, j, mid + i);
 					j++;
 				}
+				break;
+			default:
+				//Case not caught, should this cause an error?
 				break;
 		}
 		g.translate(-x, -y);

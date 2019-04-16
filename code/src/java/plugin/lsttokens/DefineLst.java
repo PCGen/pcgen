@@ -33,10 +33,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-/**
- * @author djones4
- * 
- */
 public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 {
 
@@ -49,14 +45,12 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-			String value)
+	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -64,64 +58,59 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName() + " may not be empty", context);
+			return new ParseResult.Fail(getTokenName() + " may not be empty");
 		}
 		String firstItem = sep.next();
 
 		if (firstItem.startsWith("UNLOCK."))
 		{
-			return new ParseResult.Fail("DEFINE:UNLOCK. has been deprecated, "
-				+ "please use DEFINESTAT:STAT| or DEFINESTAT:UNLOCK|", context);
+			return new ParseResult.Fail(
+				"DEFINE:UNLOCK. has been deprecated, " + "please use DEFINESTAT:STAT| or DEFINESTAT:UNLOCK|");
 		}
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName() + " varName|varFormula"
-					+ "or LOCK.<stat>|value syntax requires an argument", context);
+			return new ParseResult.Fail(
+				getTokenName() + " varName|varFormula" + "or LOCK.<stat>|value syntax requires an argument");
 		}
 		String var = firstItem;
-		if (var.length() == 0)
+		if (var.isEmpty())
 		{
-			return new ParseResult.Fail("Empty Variable Name found in "
-					+ getTokenName() + ": " + value, context);
+			return new ParseResult.Fail("Empty Variable Name found in " + getTokenName() + ": " + value);
 		}
 		try
 		{
 			Formula f = FormulaFactory.getFormulaFor(sep.next());
 			if (!f.isValid())
 			{
-				return new ParseResult.Fail("Formula in " + getTokenName()
-						+ " was not valid: " + f.toString(), context);
+				return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + f.toString());
 			}
 			if ((!f.isStatic() || f.resolveStatic().intValue() != 0) && !(var.startsWith("MAXLEVELSTAT=")))
 			{
-				Logging
-					.deprecationPrint(
-						"DEFINE with a non zero value has been deprecated, "
-							+ "please use a DEFINE of 0 and an appropriate bonus. Tag was DEFINE:"
-							+ value + " in " + obj, context);
+				Logging.deprecationPrint(
+					"DEFINE with a non zero value has been deprecated, "
+						+ "please use a DEFINE of 0 and an appropriate bonus. Tag was DEFINE:" + value + " in " + obj,
+					context);
 			}
 			if (sep.hasNext())
 			{
-				return new ParseResult.Fail(getTokenName() + " " + firstItem
-						+ " syntax requires only one argument: " + value, context);
+				return new ParseResult.Fail(
+					getTokenName() + ' ' + firstItem + " syntax requires only one argument: " + value);
 			}
 			if (value.startsWith("LOCK."))
 			{
-				return new ParseResult.Fail("DEFINE:LOCK. has been deprecated, "
-						+ "please use DEFINESTAT:LOCL| or DEFINESTAT:NONSTAT|", context);
+				return new ParseResult.Fail(
+					"DEFINE:LOCK. has been deprecated, " + "please use DEFINESTAT:LOCL| or DEFINESTAT:NONSTAT|");
 			}
 			else
 			{
-				context.getObjectContext().put(obj,
-						VariableKey.getConstant(var), f);
+				context.getObjectContext().put(obj, VariableKey.getConstant(var), f);
 			}
 			return ParseResult.SUCCESS;
 		}
 		catch (IllegalArgumentException e)
 		{
-			return new ParseResult.Fail("Illegal Formula found in "
-					+ getTokenName() + ": " + value + " "
-					+ e.getLocalizedMessage(), context);
+			return new ParseResult.Fail(
+				"Illegal Formula found in " + getTokenName() + ": " + value + ' ' + e.getLocalizedMessage());
 		}
 	}
 
@@ -134,8 +123,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			for (VariableKey key : keys)
 			{
-				set.add(key.toString() + Constants.PIPE
-						+ context.getObjectContext().getVariable(obj, key));
+				set.add(key.toString() + Constants.PIPE + context.getObjectContext().getVariable(obj, key));
 			}
 		}
 		if (set.isEmpty())

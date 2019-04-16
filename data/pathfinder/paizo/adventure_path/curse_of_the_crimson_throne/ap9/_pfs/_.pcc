@@ -4,11 +4,13 @@ KEY:PFS ~ Curse of the Crimson Throne - Chapter 3 - Escape from Old Korvosa (Con
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Adventure Path.Curse of the Crimson Throne
 RANK:3
-STATUS:ALPHA
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play,PFS ~ Curse of the Crimson Throne Player's Guide (Conversion)
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,PFS ~ Curse of the Crimson Throne Player's Guide (Conversion)
+
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

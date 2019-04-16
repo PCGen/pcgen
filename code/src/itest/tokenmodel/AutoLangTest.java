@@ -17,12 +17,16 @@
  */
 package tokenmodel;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.core.Language;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
+import util.TestURI;
 
 public class AutoLangTest extends AbstractGrantedListTokenTest<Language>
 {
@@ -33,7 +37,7 @@ public class AutoLangTest extends AbstractGrantedListTokenTest<Language>
 		ParseResult result = AUTO_LANG_TOKEN.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

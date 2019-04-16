@@ -1,28 +1,33 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 ###Block: Hit Die Tracker
+# Class of the Master	Type				Hit Dice
 FOLLOWER:TL=2		TYPE:Animal Companion	HD:1
 FOLLOWER:TL=4		TYPE:Animal Companion	HD:1
 FOLLOWER:TL=6		TYPE:Animal Companion	HD:1
 FOLLOWER:TL=8		TYPE:Animal Companion	HD:1
-###Block: 
+###Block:
+# Class of the Master	Type				Ability
 FOLLOWER:TL=2		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Link
 FOLLOWER:TL=4		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Evasion
 FOLLOWER:TL=6		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Share Vision
 FOLLOWER:TL=8		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Share Mind
-###Block: 
+###Block:
+# Class of the Master	Type				Combat bonus
 FOLLOWER:TL=4		TYPE:Animal Companion	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
 FOLLOWER:TL=6		TYPE:Animal Companion	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
 FOLLOWER:TL=8		TYPE:Animal Companion	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
 ###Block:
-FOLLOWER:TL=3		TYPE:Animal Companion	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
-FOLLOWER:TL=6		TYPE:Animal Companion	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+# Class of the Master		Type				Define			Stat bonus					Modify VAR
+FOLLOWER:TL=3			TYPE:Animal Companion					BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:TL=6			TYPE:Animal Companion					BONUS:STAT|STR|1	BONUS:STAT|DEX|1
 
 
 
 # Base Eidolon
-FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	DEFINE:MasterLevel|0		BONUS:VAR|MasterLevel|mastervar("AnimalCompanionLVL")
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	DEFINE:MasterLevel|0							BONUS:VAR|MasterLevel|mastervar("AnimalCompanionLVL")
 
 ###Block - HD Progression
-# Class of the Master			Type			Hit Dice
+# Class of the Master			Type				Hit Dice
 FOLLOWER:AnimalCompanionBonusHD=1	TYPE:Animal Companion	HD:1
 FOLLOWER:AnimalCompanionBonusHD=2	TYPE:Animal Companion	HD:1
 FOLLOWER:AnimalCompanionBonusHD=3	TYPE:Animal Companion	HD:1
@@ -43,4 +48,3 @@ FOLLOWER:AnimalCompanionBonusHD=17	TYPE:Animal Companion	HD:1
 FOLLOWER:AnimalCompanionBonusHD=18	TYPE:Animal Companion	HD:1
 FOLLOWER:AnimalCompanionBonusHD=19	TYPE:Animal Companion	HD:1
 FOLLOWER:AnimalCompanionBonusHD=20	TYPE:Animal Companion	HD:1
-

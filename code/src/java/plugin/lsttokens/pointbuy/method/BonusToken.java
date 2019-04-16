@@ -1,5 +1,4 @@
 /*
- * BonusToken.java
  * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2006 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
@@ -16,9 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.lsttokens.pointbuy.method;
 
@@ -35,12 +31,10 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>BonusToken</code>
+ * {@code BonusToken}
  * 
- * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
-public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements
-		CDOMPrimaryToken<PointBuyMethod>
+public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements CDOMPrimaryToken<PointBuyMethod>
 {
 
 	@Override
@@ -50,14 +44,12 @@ public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			PointBuyMethod pbm, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PointBuyMethod pbm, String value)
 	{
 		BonusObj bon = Bonus.newBonus(context, value);
 		if (bon == null)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " was given invalid bonus: " + value, context);
+			return new ParseResult.Fail(getTokenName() + " was given invalid bonus: " + value);
 		}
 		bon.setTokenSource(getTokenName());
 		pbm.addBonus(bon);

@@ -1,5 +1,4 @@
 /*
- * AspectName.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,16 +14,13 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 20/08/2008 20:04:21
- *
- * $Id: $
  */
 
 package pcgen.cdom.enumeration;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -35,10 +31,8 @@ import pcgen.base.util.CaseInsensitiveMap;
  * less memory when identical Aspect names exist in two CDOMObjects.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public final class AspectName implements TypeSafeConstant,
-		Comparable<AspectName>
+public final class AspectName implements TypeSafeConstant, Comparable<AspectName>
 {
 
 	/** This Map contains the mappings from Strings to the Type Safe Constant. */
@@ -51,7 +45,7 @@ public final class AspectName implements TypeSafeConstant,
 	private final String fieldName;
 
 	/** The ordinal of this Constant. */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	/**
 	 * Instantiates a new ability aspect.
@@ -61,11 +55,7 @@ public final class AspectName implements TypeSafeConstant,
 	 */
 	private AspectName(String name)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException(
-					"Name for AspectName cannot be null");
-		}
+		Objects.requireNonNull(name, "Name for AspectName cannot be null");
 		ordinal = ordinalCount++;
 		fieldName = name;
 	}
@@ -144,8 +134,7 @@ public final class AspectName implements TypeSafeConstant,
 		AspectName aspect = nameMap.get(name);
 		if (aspect == null)
 		{
-			throw new IllegalArgumentException(name
-					+ " is not a previously defined AspectName");
+			throw new IllegalArgumentException(name + " is not a previously defined AspectName");
 		}
 		return aspect;
 	}
@@ -186,11 +175,6 @@ public final class AspectName implements TypeSafeConstant,
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
 	@Override
 	public int compareTo(AspectName aspectName)
 	{
@@ -200,8 +184,7 @@ public final class AspectName implements TypeSafeConstant,
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj == this || obj instanceof AspectName
-				&& ((AspectName) obj).ordinal == ordinal;
+		return obj == this || obj instanceof AspectName && ((AspectName) obj).ordinal == ordinal;
 	}
 
 	@Override

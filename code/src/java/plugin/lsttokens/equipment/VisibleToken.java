@@ -30,10 +30,8 @@ import pcgen.util.enumeration.Visibility;
  * VisibleToken handles the processing of the VISIBLE tag in the
  * definition of an Equipment object.
  * 
- * @author Stefan Radermacher
  */
-public class VisibleToken extends AbstractNonEmptyToken<Equipment>
-	implements CDOMPrimaryToken<Equipment>
+public class VisibleToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 	@Override
 	public String getTokenName()
@@ -64,10 +62,8 @@ public class VisibleToken extends AbstractNonEmptyToken<Equipment>
 		else
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage("Unexpected value used in " + getTokenName()
-					+ " in Equipment");
-			cpr.addErrorMessage(" " + value + " is not a valid value for "
-					+ getTokenName());
+			cpr.addErrorMessage("Unexpected value used in " + getTokenName() + " in Equipment");
+			cpr.addErrorMessage(' ' + value + " is not a valid value for " + getTokenName());
 			cpr.addErrorMessage(" Valid values in Equipment are YES, NO, DISPLAY, EXPORT");
 			return cpr;
 		}
@@ -78,8 +74,7 @@ public class VisibleToken extends AbstractNonEmptyToken<Equipment>
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		Visibility vis = context.getObjectContext().getObject(eq,
-				ObjectKey.VISIBILITY);
+		Visibility vis = context.getObjectContext().getObject(eq, ObjectKey.VISIBILITY);
 		if (vis == null)
 		{
 			return null;
@@ -103,11 +98,10 @@ public class VisibleToken extends AbstractNonEmptyToken<Equipment>
 		}
 		else
 		{
-			context.addWriteMessage("Visibility " + vis
-					+ " is not a valid Visibility for an Equipment");
+			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for an Equipment");
 			return null;
 		}
-		return new String[] { visString };
+		return new String[]{visString};
 	}
 
 	@Override

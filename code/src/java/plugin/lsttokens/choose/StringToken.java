@@ -40,8 +40,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * New chooser plugin, handles Strings.
  */
-public class StringToken implements CDOMSecondaryToken<CDOMObject>,
-		Chooser<String>
+public class StringToken implements CDOMSecondaryToken<CDOMObject>, Chooser<String>
 {
 
 	@Override
@@ -57,38 +56,31 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
 	{
-		if (value == null || value.length() == 0)
+		if (value == null || value.isEmpty())
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " must have arguments", context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " must have arguments");
 		}
 		if (value.indexOf(',') != -1)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments may not contain , : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not contain , : " + value);
 		}
 		if (value.indexOf('[') != -1)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments may not contain [] : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not contain [] : " + value);
 		}
 		if (value.charAt(0) == '|')
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments may not start with | : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not start with | : " + value);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments may not end with | : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not end with | : " + value);
 		}
 		if (value.indexOf("||") != -1)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " arguments uses double separator || : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments uses double separator || : " + value);
 		}
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
@@ -98,10 +90,8 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 			String tokString = tok.nextToken();
 			set.add(tokString);
 		}
-		SimpleChoiceSet<String> scs =
-				new SimpleChoiceSet<>(set, Constants.PIPE);
-		BasicChooseInformation<String> tc =
-				new BasicChooseInformation<>(getTokenName(), scs);
+		SimpleChoiceSet<String> scs = new SimpleChoiceSet<>(set, Constants.PIPE);
+		BasicChooseInformation<String> tc = new BasicChooseInformation<>(getTokenName(), scs, "STRING");
 		tc.setTitle("Choose an Item");
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -111,9 +101,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		ChooseInformation<?> tc =
-				context.getObjectContext()
-					.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> tc = context.getObjectContext().getObject(cdo, ObjectKey.CHOOSE_INFO);
 		if (tc == null)
 		{
 			return null;
@@ -168,8 +156,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		String choice)
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -194,15 +181,13 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 		restoreChoice(pc, owner, choice);
 	}
 
-	private void applyChoice(ChooseDriver owner, String st, PlayerCharacter pc,
-		ChooseSelectionActor<String> ca)
+	private void applyChoice(ChooseDriver owner, String st, PlayerCharacter pc, ChooseSelectionActor<String> ca)
 	{
 		ca.applyChoice(owner, st, pc);
 	}
 
 	@Override
-	public List<String> getCurrentlySelected(ChooseDriver owner,
-		PlayerCharacter pc)
+	public List<String> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}

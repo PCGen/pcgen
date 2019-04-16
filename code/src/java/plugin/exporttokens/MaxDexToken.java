@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens;
 
@@ -40,30 +35,23 @@ public class MaxDexToken extends Token
 	/** Token name */
 	public static final String TOKENNAME = "MAXDEX";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
 		int mod = process(pc);
-		
+
 		if (mod != Constants.MAX_MAXDEX)
 		{
 			retString = Delta.toString(mod);
 		}
-		
+
 		return retString;
 	}
 
@@ -88,9 +76,7 @@ public class MaxDexToken extends Token
 
 	private static int process(PlayerCharacter pc)
 	{
-		String maxDexVar =
-				ControlUtilities.getControlToken(Globals.getContext(),
-					CControl.PCMAXDEX);
+		String maxDexVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.PCMAXDEX);
 		if (maxDexVar == null)
 		{
 			return pc.processOldMaxDex();

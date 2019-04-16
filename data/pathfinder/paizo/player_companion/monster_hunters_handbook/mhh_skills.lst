@@ -1,0 +1,10 @@
+SOURCELONG:Monster Hunter's Handbook		SOURCESHORT:MHH	SOURCEWEB:http://paizo.com/products/btpy9s7z	SOURCEDATE:2017-04
+
+Bluff.MOD				SITUATION:Interacting with Fey
+Diplomacy.MOD			SITUATION:Interacting with Fey
+Intimidate.MOD			SITUATION:Interacting with Fey
+Knowledge (nature).MOD		SITUATION:Interacting with Fey
+Perception.MOD			SITUATION:Interacting with Fey
+Perception.MOD			SITUATION:Oppose Stealth Checks
+Sense Motive.MOD			SITUATION:Interacting with Fey
+Survival.MOD			SITUATION:Interacting with Fey

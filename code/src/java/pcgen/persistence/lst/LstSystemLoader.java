@@ -1,5 +1,4 @@
 /*
- * LstSystemLoader.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 22, 2002, 10:29 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.persistence.lst;
@@ -37,20 +34,17 @@ import pcgen.persistence.SystemLoader;
 /**
  * ???
  * @deprecated
- * @author David Rice &lt;david-pcgen@jcuz.com&gt;
  */
+@Deprecated
 public final class LstSystemLoader implements SystemLoader
 {
 
-	private final Map<String, List<URI>> chosenCampaignSourcefiles =
-			new HashMap<>();
+	private final Map<String, List<URI>> chosenCampaignSourcefiles = new HashMap<>();
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.SystemLoader#setChosenCampaignSourcefiles(java.util.List, pcgen.core.GameMode)
-	 * 
+	/**
 	 * CODE-1889 to remove use of this method
 	 */
-    @Override
+	@Override
 	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
 	{
 		List<URI> files = chosenCampaignSourcefiles.get(game.getName());
@@ -61,17 +55,14 @@ public final class LstSystemLoader implements SystemLoader
 		}
 		files.clear();
 		files.addAll(l);
-		SettingsHandler.getOptions().setProperty(
-			"pcgen.files.chosenCampaignSourcefiles." + game.getName(),
+		SettingsHandler.getOptions().setProperty("pcgen.files.chosenCampaignSourcefiles." + game.getName(),
 			StringUtil.join(files, ", "));
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.SystemLoader#getChosenCampaignSourcefiles(pcgen.core.GameMode)
-	 * 
+	/**
 	 * CODE-1889 to remove use of this method
 	 */
-    @Override
+	@Override
 	public List<URI> getChosenCampaignSourcefiles(GameMode game)
 	{
 		List<URI> files = chosenCampaignSourcefiles.get(game.getName());

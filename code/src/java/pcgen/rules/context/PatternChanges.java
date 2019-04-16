@@ -20,7 +20,7 @@ package pcgen.rules.context;
 import java.util.Collection;
 
 /**
- * The Class <code>PatternChanges</code> is responsible for tracking changes
+ * The Class {@code PatternChanges} is responsible for tracking changes
  * to a map so that the changes can be committed or rolled back at a later
  * stage. Items can be added to the map, removed from the map or the map can be
  * cleared.
@@ -31,8 +31,7 @@ public class PatternChanges<T>
 	private final Collection<String> negative;
 	private final boolean clear;
 
-	public PatternChanges(Collection<T> added, Collection<String> removed,
-			boolean globallyCleared)
+	public PatternChanges(Collection<T> added, Collection<String> removed, boolean globallyCleared)
 	{
 		positive = added;
 		negative = removed;

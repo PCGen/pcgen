@@ -1,5 +1,4 @@
 /*
- * HtmlInfoBuilder.java
  * Copyright 2007 (C) Koen Van Daele
  *
  * This library is free software; you can redistribute it and/or
@@ -16,34 +15,31 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 4-feb-07
  *
- * $Id: HtmlInfoBuilder.java 14600 2011-02-24 23:41:00Z jdempsey $
  */
 package pcgen.gui2.util;
 
 import pcgen.system.LanguageBundle;
 
 /**
- * <code>HtmlInfoBuilder</code> is a helper class for the various
+ * {@code HtmlInfoBuilder} is a helper class for the various
  * setInfoLabelText methods in the gui tabs.
  *
  *
- * @author Koen Van Daele &lt;vandaelek@users.sourceforge.net&gt;
  */
-public class HtmlInfoBuilder 
+public class HtmlInfoBuilder
 {
 	/** Constant for 3 spaces in HTML */
 	public static final String THREE_SPACES = " &nbsp; "; //$NON-NLS-1$
 
 	private final StringBuilder buffer = new StringBuilder(300);
-	private final boolean fullDocument;  
-	
+	private final boolean fullDocument;
+
 	public HtmlInfoBuilder()
 	{
 		this(null, true);
 	}
-	
+
 	/**
 	 * @param title Element that will be added as the start of the string and emphasized.
 	 */
@@ -51,7 +47,7 @@ public class HtmlInfoBuilder
 	{
 		this(title, true);
 	}
-	
+
 	/**
 	 * @param title Element that will be added as the start of the string and emphasized.
 	 * @param fullDocument Should html tags be added to make this a full html document
@@ -68,7 +64,7 @@ public class HtmlInfoBuilder
 			appendTitleElement(title);
 		}
 	}
-	
+
 	/**
 	 * Adds a string to the LabelText.
 	 * @param string String to add
@@ -79,7 +75,7 @@ public class HtmlInfoBuilder
 		buffer.append(string);
 		return this;
 	}
-	
+
 	/**
 	 * Adds a localised string to the LabelText.
 	 * @param key Key to the localised string to add
@@ -90,7 +86,7 @@ public class HtmlInfoBuilder
 		buffer.append(LanguageBundle.getString(key));
 		return this;
 	}
-	
+
 	/**
 	 * Adds a character to the LabelText.
 	 * @param ch Char to add
@@ -101,7 +97,7 @@ public class HtmlInfoBuilder
 		buffer.append(ch);
 		return this;
 	}
-	
+
 	/**
 	 * Adds a line break to the LabelText.
 	 * @return HtmlInfoBuilder
@@ -111,7 +107,7 @@ public class HtmlInfoBuilder
 		buffer.append("<br>");
 		return this;
 	}
-	
+
 	/**
 	 * Adds a spacer to the LabelText.
 	 * @return HtmlInfoBuilder
@@ -121,7 +117,7 @@ public class HtmlInfoBuilder
 		buffer.append(THREE_SPACES);
 		return this;
 	}
-	
+
 	/**
 	 * Append a title element with a regular sized font.
 	 * 
@@ -131,7 +127,7 @@ public class HtmlInfoBuilder
 	{
 		buffer.append("<b>").append(title).append("</b>");
 	}
-	
+
 	/**
 	 * Append a title element with a larger sized font.
 	 * 
@@ -141,7 +137,7 @@ public class HtmlInfoBuilder
 	{
 		buffer.append("<b><font size=+1>").append(title).append("</font></b>");
 	}
-	
+
 	/**
 	 * Adds an element to the labelText. The key will be put in bold-face.
 	 * @param key The string that will be used as the key in the LabelText, e.g. SOURCE. 
@@ -153,10 +149,10 @@ public class HtmlInfoBuilder
 		buffer.append("<b>").append(key).append(":</b>&nbsp;").append(value);
 		return this;
 	}
-	
+
 	/**
 	 * Used for internationalisation. Looks up the property through the 
-	 * <code>ProperyFactory</code> and uses that as the key.
+	 * {@code ProperyFactory} and uses that as the key.
 	 * @param propertyKey The name of a property in the LanguageProperties file.
 	 * @param value The value that belongs to the key.
 	 * @return HtmlInfoBuilder
@@ -165,10 +161,10 @@ public class HtmlInfoBuilder
 	{
 		return appendElement(LanguageBundle.getString(propertyKey), value);
 	}
-	
+
 	/**
 	 * Used for internationalisation. Looks up the property through the 
-	 * <code>ProperyFactory</code> and uses that as the key.
+	 * {@code ProperyFactory} and uses that as the key.
 	 * @param propertyKey The name of a property in the LanguageProperties file.
 	 * @param value The values that should be added as parameters to the property.
 	 * @return HtmlInfoBuilder
@@ -178,7 +174,7 @@ public class HtmlInfoBuilder
 		buffer.append(LanguageBundle.getFormattedString(propertyKey, (Object[]) value));
 		return this;
 	}
-	
+
 	/**
 	 * Append an image to the label text.
 	 * 
@@ -188,10 +184,7 @@ public class HtmlInfoBuilder
 	{
 		buffer.append("<img src=\"").append(iconPath).append("\" >&nbsp;");
 	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+
 	@Override
 	public String toString()
 	{

@@ -17,10 +17,15 @@
  */
 package pcgen.output.model;
 
+import java.util.Objects;
+
+import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
+import pcgen.core.Ability;
+
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -31,8 +36,7 @@ import freemarker.template.TemplateModelException;
  */
 public class CNAbilitySelectionModel implements TemplateHashModel
 {
-	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
-		.getFacet(ObjectWrapperFacet.class);
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary.getFacet(ObjectWrapperFacet.class);
 
 	/**
 	 * The underlying CNAbilitySelection for this CNAbilitySelectionModel
@@ -51,15 +55,8 @@ public class CNAbilitySelectionModel implements TemplateHashModel
 	 */
 	public CNAbilitySelectionModel(CharID id, CNAbilitySelection cnas)
 	{
-		if (id == null)
-		{
-			throw new IllegalArgumentException("CharID cannot be null");
-		}
-		if (cnas == null)
-		{
-			throw new IllegalArgumentException(
-				"CNAbilitySelection cannot be null");
-		}
+		Objects.requireNonNull(id, "CharID cannot be null");
+		Objects.requireNonNull(cnas, "CNAbilitySelection cannot be null");
 		this.id = id;
 		this.cnas = cnas;
 	}
@@ -68,16 +65,20 @@ public class CNAbilitySelectionModel implements TemplateHashModel
 	 * Acts as a hash for producing the contents of this model.
 	 * 
 	 * Four items are supported: category, nature, ability and selection.
-	 * 
-	 * @see freemarker.template.TemplateHashModel#get(java.lang.String)
 	 */
 	@Override
 	public TemplateModel get(String key) throws TemplateModelException
 	{
 		Object towrap;
-		if ("category".equals(key))
+		if ("pool".equals(key))
 		{
 			towrap = cnas.getCNAbility().getAbilityCategory();
+		}
+		else if ("category".equals(key))
+		{
+			Category<Ability> cat = cnas.getCNAbility().getAbilityCategory();
+			Category<Ability> parent = cat.getParentCategory();
+			towrap = (parent == null) ? cat : parent;
 		}
 		else if ("nature".equals(key))
 		{
@@ -93,15 +94,11 @@ public class CNAbilitySelectionModel implements TemplateHashModel
 		}
 		else
 		{
-			throw new TemplateModelException(
-				"CNAbilitySelection did not have output of type " + key);
+			throw new TemplateModelException("CNAbilitySelection did not have output of type " + key);
 		}
 		return WRAPPER_FACET.wrap(id, towrap);
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty() throws TemplateModelException
 	{

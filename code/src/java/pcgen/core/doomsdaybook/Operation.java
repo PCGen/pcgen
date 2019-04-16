@@ -15,18 +15,13 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 1, 2002, 2:15 PM
  */
 package pcgen.core.doomsdaybook;
 
 /**
- * <code>Operation</code> encapsulates an action that can be performed 
+ * {@code Operation} encapsulates an action that can be performed
  * on a variable. These are actions such as setting, adding or 
  * multiplying the variable's current value.
- *
- *
- * @author Devon D Jones
  */
 public class Operation implements Comparable
 {
@@ -91,10 +86,7 @@ public class Operation implements Comparable
 		return value;
 	}
 
-	/**
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
-    @Override
+	@Override
 	public int compareTo(Object obj)
 	{
 		String title = this.toString();
@@ -103,9 +95,6 @@ public class Operation implements Comparable
 		return title.compareTo(compared);
 	}
 
-	/**
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{

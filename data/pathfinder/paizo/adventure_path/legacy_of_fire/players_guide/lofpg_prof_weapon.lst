@@ -1,18 +1,19 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Legacy of Fire Player's Guide	SOURCESHORT:LOFPG	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb	SOURCEDATE:2009-02
 
 # One-Handed Melee Weapons
-# Weapon Name		Type
-Battle Poi			TYPE:Exotic.Melee.Standard.Fire
-Madu (Shield Bash)	TYPE:Weapon.Exotic.Melee.Standard.Piercing
-Rope Gauntlets		TYPE:Exotic.Melee.Standard.Bludgeoning
-Scorpion Whip		TYPE:Exotic.Melee.Standard.Slashing
+# Weapon Name	Unique Key			Type
+Battle Poi						TYPE:Exotic.Melee.Standard.Fire
+Madu			KEY:Madu (Shield Bash)	TYPE:Weapon.Exotic.Melee.Standard.Piercing
+Rope Gauntlets					TYPE:Exotic.Melee.Standard.Bludgeoning
+Scorpion Whip					TYPE:Exotic.Melee.Standard.Slashing
 
 # Two-Handed Melee Weapons
-Meteor Hammer		TYPE:Exotic.Melee.Standard.Bludgeoning
+Meteor Hammer					TYPE:Exotic.Melee.Standard.Bludgeoning
 
 # Ranged Weapons
-Sling Glove			TYPE:Exotic.Ranged.Standard.Bludgeoning
+Sling Glove						TYPE:Exotic.Ranged.Standard.Bludgeoning
 
 # DEITYWEAP
-Scarf (Bladed)		TYPE:Exotic
+Bladed Scarf	KEY:Scarf (Bladed)	TYPE:Exotic

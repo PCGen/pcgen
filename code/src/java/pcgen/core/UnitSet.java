@@ -1,5 +1,4 @@
 /*
- * UnitSet.java
  * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
@@ -17,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 25, 2002, 10:15 PM
  *
- * $Id$
  */
 package pcgen.core;
 
@@ -29,11 +26,9 @@ import java.text.DecimalFormat;
 
 import pcgen.cdom.base.Loadable;
 
-
 /**
- * <code>UnitSet</code>.
+ * {@code UnitSet}.
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class UnitSet implements Loadable
 {
@@ -135,7 +130,7 @@ public final class UnitSet implements Loadable
 	 * 
 	 * @param n name.
 	 */
-    @Override
+	@Override
 	public void setName(final String n)
 	{
 		name = n;
@@ -146,7 +141,7 @@ public final class UnitSet implements Loadable
 	 * 
 	 * @return String name.
 	 */
-    @Override
+	@Override
 	public String getDisplayName()
 	{
 		return name;
@@ -204,7 +199,7 @@ public final class UnitSet implements Loadable
 		}
 		else
 		{
-			return " " + unitString;
+			return ' ' + unitString;
 		}
 	}
 
@@ -313,37 +308,31 @@ public final class UnitSet implements Loadable
 		return weightDisplayPattern.format(convertWeightToUnitSet(weightInPounds));
 	}
 
-    @Override
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
-    @Override
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
-    @Override
+	@Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
-    @Override
-	public String getLSTformat()
-	{
-		return getDisplayName();
-	}
-
-    @Override
+	@Override
 	public boolean isInternal()
 	{
 		return isInternal;
 	}
 
-    @Override
+	@Override
 	public boolean isType(String type)
 	{
 		return false;
@@ -398,6 +387,5 @@ public final class UnitSet implements Loadable
 	{
 		return weightFactor;
 	}
-
 
 }

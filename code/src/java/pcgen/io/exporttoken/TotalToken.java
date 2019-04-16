@@ -1,5 +1,4 @@
 /*
- * TotalToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.io.exporttoken;
@@ -46,21 +43,14 @@ public class TotalToken extends Token
 	/** Token name */
 	public static final String TOKENNAME = "TOTAL";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
 
@@ -91,8 +81,7 @@ public class TotalToken extends Token
 	 */
 	public static String getCapacityToken(CharacterDisplay display)
 	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			display.getMaxLoad().doubleValue());
+		return Globals.getGameModeUnitSet().displayWeightInUnitSet(display.getMaxLoad().doubleValue());
 	}
 
 	/**
@@ -110,20 +99,17 @@ public class TotalToken extends Token
 				return CoreUtility.capitalizeFirstLetter(Load.LIGHT.toString());
 
 			case MEDIUM:
-				return CoreUtility
-					.capitalizeFirstLetter(Load.MEDIUM.toString());
+				return CoreUtility.capitalizeFirstLetter(Load.MEDIUM.toString());
 
 			case HEAVY:
 				return CoreUtility.capitalizeFirstLetter(Load.HEAVY.toString());
 
 			case OVERLOAD:
-				return CoreUtility.capitalizeFirstLetter(Load.OVERLOAD
-					.toString());
+				return CoreUtility.capitalizeFirstLetter(Load.OVERLOAD.toString());
 
 			default:
-				Logging
-					.errorPrint("Unknown load constant detected in TokenTotal.getLoadToken, the constant was "
-						+ load + ".");
+				Logging.errorPrint(
+					"Unknown load constant detected in TokenTotal.getLoadToken, the constant was " + load + '.');
 
 				return "Unknown";
 		}
@@ -136,8 +122,7 @@ public class TotalToken extends Token
 	 */
 	public static String getValueToken(PlayerCharacter pc)
 	{
-		return BigDecimalHelper.trimZeros(pc.totalValue()) + " "
-			+ SettingsHandler.getGame().getCurrencyDisplay();
+		return BigDecimalHelper.trimZeros(pc.totalValue()) + ' ' + SettingsHandler.getGame().getCurrencyDisplay();
 	}
 
 	/**
@@ -147,8 +132,7 @@ public class TotalToken extends Token
 	 */
 	public static String getWeightToken(CharacterDisplay display)
 	{
-		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
-			display.totalWeight().doubleValue())
+		return Globals.getGameModeUnitSet().displayWeightInUnitSet(display.totalWeight().doubleValue())
 			+ Globals.getGameModeUnitSet().getWeightUnit();
 	}
 }

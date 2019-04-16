@@ -17,16 +17,16 @@
  */
 package plugin.lsttokens.editcontext.equipment;
 
-import org.junit.Test;
-
 import pcgen.core.Equipment;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.equipment.AlteqmodToken;
 
+import org.junit.jupiter.api.Test;
+
 public class AltEqModIntegrationTest extends AbstractEqModIntegrationTestCase
 {
 
-	static AlteqmodToken token = new AlteqmodToken();
+	private static AlteqmodToken token = new AlteqmodToken();
 
 	@Override
 	public CDOMPrimaryToken<Equipment> getToken()

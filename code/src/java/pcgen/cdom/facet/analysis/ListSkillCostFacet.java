@@ -1,5 +1,4 @@
 /*
- * ListSkillCost.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.cdom.facet.analysis;
 
@@ -40,11 +38,9 @@ import pcgen.core.Skill;
  * ListSkillCostFacet processes SkillCosts associated with the MONCSKILL and
  * MONCCSKILL tokens.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ListSkillCostFacet extends
-		AbstractSubScopeFacet<ClassSkillList, SkillCost, Skill> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class ListSkillCostFacet extends AbstractSubScopeFacet<ClassSkillList, SkillCost, Skill>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private RaceFacet raceFacet;
 
@@ -59,8 +55,6 @@ public class ListSkillCostFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -82,10 +76,10 @@ public class ListSkillCostFacet extends
 				Collection<CDOMReference<Skill>> mods = cdo.getListMods(ref);
 				for (CDOMReference<Skill> skRef : mods)
 				{
-					for (AssociatedPrereqObject apo : (Iterable<AssociatedPrereqObject>) cdo.getListAssociations(ref, skRef))
+					for (AssociatedPrereqObject apo : (Iterable<AssociatedPrereqObject>) cdo.getListAssociations(ref,
+						skRef))
 					{
-						SkillCost sc =
-								apo.getAssociation(AssociationKey.SKILL_COST);
+						SkillCost sc = apo.getAssociation(AssociationKey.SKILL_COST);
 						for (ClassSkillList csl : useList)
 						{
 							for (Skill skill : skRef.getContainedObjects())
@@ -111,8 +105,6 @@ public class ListSkillCostFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)

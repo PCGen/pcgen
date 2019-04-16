@@ -1,0 +1,10 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
+
+# Support for OA archetype familiar
+# Ability Name				Unique Key						Category of Ability		Type										Description																																																																																Ability										Modify VAR									Source Page
+Racial Traits ~ Kami (Shikigami)								CATEGORY:Internal																																																																																														ABILITY:Special Ability|AUTOMATIC|TYPE=ShikigamiRacialAbility	BONUS:VAR|TelepathyRange|200	BONUS:VAR|FastHealingRate|2
+
+# Shikigami 163
+Improvised Weapon Mastery		KEY:Shikigami ~ Improvised Weapon Mastery	CATEGORY:Special Ability	TYPE:ShikigamiRacialAbility.SpecialQuality.Extraordinary	DESC:A shikigami gains Catch Off-Guard and Throw Anything as bonus feats, and adds its Charisma modifier instead of its Strength modifier to damage done with any improvised weapon, as attacks it makes with such weapons seem supernaturally lucky in landing damaging blows. Although a shikigami is Tiny, it never provokes attacks of opportunity when it attacks an adjacent foe with a melee weapon. If a shikigami critically hits an opponent with an improvised weapon, it deals ?3 damage.																						SOURCEPAGE:p.163
+Spell-Like Abilities			KEY:Shikigami ~ Spell-Like Abilities	CATEGORY:Special Ability	TYPE:ShikigamiRacialAbility.SpecialQuality.SpellLike		DESC:(CL 6th; concentration +8) At will-invisibility (self only), statue (self only) 3/day-hide from animals, purify food and drink 1/week-commune with nature (CL 12th)

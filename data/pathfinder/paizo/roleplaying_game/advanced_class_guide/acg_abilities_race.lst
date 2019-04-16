@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Sun May 10 19:16:56 2015 -- reformated by PCGen PrettyLST v6.04.01
 ###Block:
 # Dwarf
@@ -79,7 +80,7 @@ CATEGORY=Special Ability|Slayer ~ Stalker.MOD																																			
 
 # Elf Swashbuckler Panache
 Bonus Panache									KEY:Elf ~ Favored Class Bonus ~ Panache			CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSwashbuckler	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Swashbuckler	PRECLASS:1,Swashbuckler=1	PRERACE:1,Elf%,RACESUBTYPE=Elf	DEFINE:ElfSwashbucklerFavClassBonus|0	DESC:Increase the total number of points in the swashbuckler's panache pool by 1/4.																																											STACK:YES	MULT:YES	CHOOSE:NOCHOICE																														BONUS:VAR|ElfSwashbucklerFavClassBonus|1
-CATEGORY=Special Ability|Swashbuckler ~ Panache.MOD																																																																																																																																																						BONUS:VAR|PanachePointsFavoredBonus|ElfSwashbucklerFavClassBonus
+CATEGORY=Internal|Panache Tracker.MOD																																																																																																																																																								BONUS:VAR|PanachePointsFavoredBonus|ElfSwashbucklerFavClassBonus
 
 # Elf Warpriest Blessings
 Bonus Blessings									KEY:Elf ~ Favored Class Bonus ~ Blessings			CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWarpriest		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Warpriest		PRECLASS:1,Warpriest=1		PRERACE:1,Elf%,RACESUBTYPE=Elf	DEFINE:ElfWarpriestFavClassBonus|0		DESC:Add 1/2 to the number of times per day the warpriest can use blessings, but he can use these additional blessings on only those from the Air, Animal, Charm, Magic, Plant, or Sun domains																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE	ABILITY:Special Ability|AUTOMATIC|Warpriest ~ Favored Class Blessings|PREVARGTEQ:ElfWarpriestFavClassBonus,2											BONUS:VAR|ElfWarpriestFavClassBonus|1
@@ -96,7 +97,7 @@ CATEGORY=Special Ability|Arcanist ~ Arcane Reservoir.MOD																								
 
 # Gnome Bloodrager Bloodline Class Level
 Bonus Bloodline Class Level						KEY:Gnome ~ Favored Class Bonus ~ Bloodline Class Level	CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBloodrager	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Bloodrager	PRECLASS:1,Bloodrager=1		PRERACE:1,Gnome%,RACESUBTYPE=Gnome	DEFINE:GnomeBloodragerFavClassBonus|0	DESC:Add 1/4 to the bloodrager's effective class level when determining the power of her bloodrager bloodline powers.																					STACK:YES	MULT:YES	CHOOSE:NOCHOICE																	BONUS:VAR|GnomeBloodragerFavClassBonus|1
-CATEGORY=Special Ability|Bloodrager ~ Bloodline.MOD																																																																																																																									BONUS:VAR|BloodlineLVL|GnomeBloodragerFavClassBonus/4
+CATEGORY=Special Ability|Bloodrager ~ Standard Bloodline.MOD																																																																																																																							BONUS:VAR|BloodragerBloodlineLVL|GnomeBloodragerFavClassBonus/4
 
 # Gnome Brawler Martial Flexibility
 Bonus Martial Flexibility						KEY:Gnome ~ Favored Class Bonus ~ Martial Flexibility		CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassBrawler		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Brawler		PRECLASS:1,Brawler=1		PRERACE:1,Gnome%,RACESUBTYPE=Gnome	DEFINE:GnomeBrawlerFavClassBonus|0		DESC:Increase the number of times per day the brawler can use martial flexibility by 1/4.																										STACK:YES	MULT:YES	CHOOSE:NOCHOICE																	BONUS:VAR|GnomeBrawlerFavClassBonus|1
@@ -280,7 +281,7 @@ CATEGORY=Special Ability|Slayer ~ Slayer Talents.MOD																												
 
 # Human Swashbuckler Panache
 Bonus Panache							KEY:Human ~ Favored Class Bonus ~ Panache					CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassSwashbuckler	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Swashbuckler	PRECLASS:1,Swashbuckler=1	PRERACE:1,Human%,RACESUBTYPE=Human	DEFINE:HumanSwashbucklerFavClassBonus|0	DESC:Increase the total number of points in the swashbuckler's panache pool by 1/4.																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|HumanSwashbucklerFavClassBonus|1
-CATEGORY=Special Ability|Swashbuckler ~ Panache.MOD																																																																																																																BONUS:VAR|PanachePointsFavoredBonus|HumanSwashbucklerFavClassBonus
+CATEGORY=Internal|Panache Tracker.MOD																																																																																																																		BONUS:VAR|PanachePointsFavoredBonus|HumanSwashbucklerFavClassBonus
 
 # Human Warpriest Combat Feat
 Bonus Combat Feat							KEY:Human ~ Favored Class Bonus ~ Combat Feat				CATEGORY:Special Ability	TYPE:SpecialQuality.FavoredClassBonus.FavoredClassWarpriest		VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Warpriest		PRECLASS:1,Warpriest=1		PRERACE:1,Human%,RACESUBTYPE=Human	DEFINE:HumanWarpriestFavClassBonus|0	DESC:Gain 1/6 of a new bonus combat feat.																													STACK:YES	MULT:YES	CHOOSE:NOCHOICE													BONUS:VAR|HumanWarpriestFavClassBonus|1
@@ -305,11 +306,11 @@ Skald Spell Level 8	CATEGORY:Special Ability	TYPE:BonusSpellKnownSkald	PREVARGTE
 
 #########################################
 ###Block: Supplementary abilities (Internal i.e. not visible)
-# Ability Name		Unique Key								Category of Ability	Type							Visible	Bonus to Situation																				Modify VAR								Bonus
-Bluff and Diplomacy	KEY:Half-elf ~ Slayer ~ Bluff and Diplomacy		CATEGORY:Internal		TYPE:FavoredClassSupplementaryAbility	VISIBLE:NO	BONUS:SITUATION|Bluff=feint|HalfelfSlayerFavClassBonus/4	BONUS:SITUATION|Diplomacy=gather information|HalfelfSlayerFavClassBonus/4
-Concentration		KEY:Gnome ~ Skald ~ Concentration				CATEGORY:Internal		TYPE:FavoredClassSupplementaryAbility	VISIBLE:NO																																	BONUS:CONCENTRATION|Skald|GnomeSkaldFavClassBonus/6
-Perception Underground	KEY:Dwarf ~ Investigator ~ Perception Underground	CATEGORY:Internal		TYPE:FavoredClassSupplementaryAbility	VISIBLE:NO	BONUS:SITUATION|Perception=Underground|DwarfInvestigatorFavClassBonus/4
-Talent			KEY:Gnome ~ Slayer ~ Talent					CATEGORY:Internal		TYPE:FavoredClassSupplementaryAbility	VISIBLE:NO																								BONUS:VAR|SlayerTalentLVL|GnomeSlayerFavClassBonus/6
+# Ability Name		Unique Key								Category of Ability	Type							Visible	Concentration bonus						Bonus to Situation																				Modify VAR
+Bluff and Diplomacy	KEY:Half-elf ~ Slayer ~ Bluff and Diplomacy		CATEGORY:Internal		TYPE:FavoredClassSupplementaryAbility	VISIBLE:NO										BONUS:SITUATION|Bluff=feint|HalfelfSlayerFavClassBonus/4	BONUS:SITUATION|Diplomacy=gather information|HalfelfSlayerFavClassBonus/4
+Concentration		KEY:Gnome ~ Skald ~ Concentration				CATEGORY:Internal		TYPE:FavoredClassSupplementaryAbility	VISIBLE:NO	BONUS:CONCENTRATION|Skald|GnomeSkaldFavClassBonus/6
+Perception Underground	KEY:Dwarf ~ Investigator ~ Perception Underground	CATEGORY:Internal		TYPE:FavoredClassSupplementaryAbility	VISIBLE:NO										BONUS:SITUATION|Perception=Underground|DwarfInvestigatorFavClassBonus/4
+Talent			KEY:Gnome ~ Slayer ~ Talent					CATEGORY:Internal		TYPE:FavoredClassSupplementaryAbility	VISIBLE:NO																																	BONUS:VAR|SlayerTalentLVL|GnomeSlayerFavClassBonus/6
 ###Block: Supplementary abilities (InciwSpecial Abilityternal i.e. visible)
 # Ability Name				Unique Key										Category of Ability		Type						Description																																					Combat bonus									Add to base move								Aspects
 Animal Companion Hit Points		KEY:Half-orc ~ Hunter ~ Animal Companion Hit Points			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Your animal companion has +%1 extra hit points.|HalfOrcHunterFavClassBonus

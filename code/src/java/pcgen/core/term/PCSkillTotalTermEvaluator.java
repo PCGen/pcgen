@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCSkillTotalTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 13:29:52
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -30,22 +26,20 @@ import pcgen.core.Skill;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 
-public class PCSkillTotalTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCSkillTotalTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String total;
 
 	public PCSkillTotalTermEvaluator(String originalText, String total)
 	{
 		this.originalText = originalText;
-		this.total        = total;
+		this.total = total;
 	}
 
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		Skill aSkill = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Skill.class, total);
+		Skill aSkill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, total);
 
 		Float totalRank = SkillRankControl.getTotalRank(pc, aSkill);
 		totalRank += SkillModifier.modifier(aSkill, pc);

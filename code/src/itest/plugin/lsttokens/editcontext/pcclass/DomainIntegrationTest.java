@@ -19,8 +19,6 @@ package plugin.lsttokens.editcontext.pcclass;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
@@ -30,12 +28,14 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.pcclass.DomainToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class DomainIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, Domain>
 {
 
-	static DomainToken token = new DomainToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static DomainToken token = new DomainToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

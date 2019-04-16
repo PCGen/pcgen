@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountFollowerTypeTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 07-Aug-2008 00:18:31
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -27,8 +23,7 @@ package pcgen.core.term;
 import pcgen.core.character.Follower;
 import pcgen.core.display.CharacterDisplay;
 
-public class PCCountFollowerTypeTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCCountFollowerTypeTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 
 	private final String type;
@@ -44,7 +39,7 @@ public class PCCountFollowerTypeTermEvaluator
 	{
 		Float countFollower = 0.0f;
 
-		for ( Follower follower : display.getFollowerList() )
+		for (Follower follower : display.getFollowerList())
 		{
 			if (follower.getType().getKeyName().equalsIgnoreCase(type))
 			{

@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
@@ -36,16 +37,14 @@ import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 
 /**
- * The Class <code>MasterSkillFacet</code> caches a copy of all class skill
+ * The Class {@code MasterSkillFacet} caches a copy of all class skill
  * lists. This allows faster checking of whether skills are class skills for a
  * character class. Note this is a "global" facet in that it does not have
  * method that depend on CharID (they are not character specific).
  * 
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  */
-public class MasterAvailableSpellFacet extends
-		AbstractListFacet<DataSetID, AvailableSpell> implements
-		DataSetInitializedFacet
+public class MasterAvailableSpellFacet extends AbstractListFacet<DataSetID, AvailableSpell>
+		implements DataSetInitializedFacet
 {
 	private DataSetInitializationFacet datasetInitializationFacet;
 
@@ -58,15 +57,13 @@ public class MasterAvailableSpellFacet extends
 	{
 		DataSetID dsID = lc.getDataSetID();
 		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
-		List<CDOMReference<CDOMList<Spell>>> useLists =
-                new ArrayList<>();
+		List<CDOMReference<CDOMList<Spell>>> useLists = new ArrayList<>();
 		for (CDOMReference ref : masterLists.getActiveLists())
 		{
 			Collection<CDOMList<Spell>> lists = ref.getContainedObjects();
 			for (CDOMList<Spell> list : lists)
 			{
-				if ((list instanceof ClassSpellList)
-					|| (list instanceof DomainSpellList))
+				if ((list instanceof ClassSpellList) || (list instanceof DomainSpellList))
 				{
 					useLists.add(ref);
 					break;
@@ -77,8 +74,7 @@ public class MasterAvailableSpellFacet extends
 		{
 			for (Spell spell : masterLists.getObjects(ref))
 			{
-				Collection<AssociatedPrereqObject> assoc =
-						masterLists.getAssociations(ref, spell);
+				Collection<AssociatedPrereqObject> assoc = masterLists.getAssociations(ref, spell);
 				for (AssociatedPrereqObject apo : assoc)
 				{
 					int lvl = apo.getAssociation(AssociationKey.SPELL_LEVEL);
@@ -95,7 +91,7 @@ public class MasterAvailableSpellFacet extends
 			}
 		}
 	}
-	
+
 	/**
 	 * Retrieve a list of all spells for a particular spell list. 
 	 * @param spellList The list to be queried
@@ -116,7 +112,7 @@ public class MasterAvailableSpellFacet extends
 
 		return spellsInList;
 	}
-	
+
 	/**
 	 * Retrieve a list of any occurrence of a specific spell in the particular spell list. 
 	 * @param spellList The list to be queried
@@ -124,15 +120,13 @@ public class MasterAvailableSpellFacet extends
 	 * @param spell The spell to be found.
 	 * @return The list of available spells.
 	 */
-	public List<AvailableSpell> getMatchingSpellsInList(
-		CDOMList<Spell> spellList, DataSetID dsID, Spell spell)
+	public List<AvailableSpell> getMatchingSpellsInList(CDOMList<Spell> spellList, DataSetID dsID, Spell spell)
 	{
 		List<AvailableSpell> spellsInList = new ArrayList<>();
 		Collection<AvailableSpell> spells = getSet(dsID);
 		for (AvailableSpell as : spells)
 		{
-			if (as.getSpelllist().equals(spellList)
-				&& as.getSpell().equals(spell))
+			if (as.getSpelllist().equals(spellList) && as.getSpell().equals(spell))
 			{
 				spellsInList.add(as);
 			}
@@ -141,8 +135,7 @@ public class MasterAvailableSpellFacet extends
 		return spellsInList;
 	}
 
-	public void setDataSetInitializationFacet(
-		DataSetInitializationFacet datasetInitializationFacet)
+	public void setDataSetInitializationFacet(DataSetInitializationFacet datasetInitializationFacet)
 	{
 		this.datasetInitializationFacet = datasetInitializationFacet;
 	}

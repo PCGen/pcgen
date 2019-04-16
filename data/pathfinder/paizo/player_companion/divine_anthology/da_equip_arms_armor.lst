@@ -1,0 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Divine Anthology	SOURCESHORT:DA	SOURCEWEB:http://paizo.com/products/btpy9nvh	SOURCEDATE:2016-10
+
+# Equipment Name						Modifier												Source Page		Special Property																							Visible
+Heavy Steel Shield (Base).COPY=Icon of Order	EQMOD:Material ~ Steel																																						VISIBLE:YES
+
+Icon of Order.MOD						EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Enhancement Cost|22000	SOURCEPAGE:p.6	SPROP:+2 bonus on saves against spells and effects with the chaotic descriptor; 1/day, the wielder can cast protection from chaos as a swift action.

@@ -1,5 +1,4 @@
 /*
- * DataTest.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -15,14 +14,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 07/04/2013 9:02:42 AM
- *
- * $Id$
  */
 package pcgen.persistence.lst;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,15 +29,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.SystemUtils;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
@@ -57,15 +47,16 @@ import pcgen.system.PropertyContextFactory;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 
-/**
- * The Class <code>DataTest</code> checks the data files for known issues.
- *
- * <br/>
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- */
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.SystemUtils;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-public class DataTest
+/**
+ * The Class {@code DataTest} checks the data files for known issues.
+ */
+class DataTest
 {
 	/** The name of our dummy config file. */
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
@@ -73,8 +64,8 @@ public class DataTest
 	/**
 	 * Initialise the plugins and load the game mode and campaign files.
 	 */
-	@BeforeClass
-	public static void onceOnly()
+	@BeforeAll
+	static void onceOnly()
 	{
 		loadGameModes();
 	}
@@ -82,8 +73,8 @@ public class DataTest
 	/**
 	 * Tidy up the config file we created. 
 	 */
-	@AfterClass
-	public static void afterClass()
+	@AfterAll
+	static void afterClass()
 	{
 		new File(TEST_CONFIG_FILE).delete();		
 	}
@@ -99,12 +90,12 @@ public class DataTest
 		String dataPath = ConfigurationSettings.getPccFilesDir();
 		System.out.println("Got datapath of " + new File(dataPath).getAbsolutePath());
 		
-		Set<String> allowedNames =
+		Collection<String> allowedNames =
 				new HashSet<>(Arrays.asList(
 						"cotct_pg_abilities_pfrpg.lst",
 						"fortress_of_the_stone_giants_pfrpg.pcc",
 						"rise_of_the_runelords_players_guide_pfrpg.pcc"));
-		List<File> newLongPaths = new ArrayList<>();
+		Collection<File> newLongPaths = new ArrayList<>();
 		
 		int dataPathLen = new File(dataPath).getAbsolutePath().length();
 		List<String> longPaths = new ArrayList<>();
@@ -130,22 +121,17 @@ public class DataTest
 		
 		// Output the list
 		Collections.sort(longPaths);
-		for (String msg : longPaths)
-		{
-			System.out.println(msg);
-		}
+		longPaths.forEach(System.out::println);
 				
 		// Flag any change for the worse.
 		assertEquals(
-			"New data file(s) with name longer than 150 characters detected.",
-			"[]", newLongPaths.toString());
+				"[]", newLongPaths.toString(), "New data file(s) with name longer than 150 characters detected.");
 	}
 
 	/**
 	 * Produce the variable report in html and csv formats.
 	 * @throws Exception if the report fails.
 	 */
-	@Test
 	public void produceVariableReport() throws Exception
 	{
 		Map<ReportFormat, String> reportNameMap =
@@ -154,13 +140,10 @@ public class DataTest
 		reportNameMap.put(ReportFormat.CSV, "variable_report.csv");
 		VariableReport vReport = new VariableReport();
 		vReport.runReport(reportNameMap);
-		
-		for (Entry<ReportFormat, String> repType : reportNameMap.entrySet())
-		{
-			System.out.println("Variable report in " + repType.getKey()
+
+		reportNameMap.entrySet().stream().map(repType -> "Variable report in " + repType.getKey()
 				+ " format output to "
-				+ new File(repType.getValue()).getAbsolutePath());
-		}
+				+ new File(repType.getValue()).getAbsolutePath()).forEach(System.out::println);
 	}
 	
 	/**
@@ -173,50 +156,46 @@ public class DataTest
 		File dataFolder = new File(ConfigurationSettings.getPccFilesDir());
 		int dataPathLen = dataFolder.getCanonicalPath().length();
 
-		List<Object[]> missingLstFiles = new ArrayList<>();
+		Collection<Object[]> missingLstFiles = new ArrayList<>();
 
 		for (Campaign campaign : Globals.getCampaignList())
 		{
 			List<CampaignSourceEntry> cseList =
 					getLstFilesForCampaign(campaign);
-			for (CampaignSourceEntry cse : cseList)
-			{
-				File lstFile = new File(cse.getURI());
-				if (!lstFile.exists())
-				{
-					missingLstFiles.add(new Object[]{campaign, lstFile});
-				}
-			}
+			cseList.stream()
+			       .map(cse -> new File(cse.getURI()))
+			       .filter(lstFile -> !lstFile.exists())
+			       .map(lstFile -> new Object[]{campaign, lstFile})
+			       .forEach(missingLstFiles::add);
 		}
 
-		StringBuilder report = new StringBuilder();
-		for (Object[] missing : missingLstFiles)
-		{
-			report.append("Missing file ");
-			report.append(((File)missing[1]).getPath().substring(dataPathLen+1));
-			report.append(" used by ");
-			report.append((new File(((Campaign) missing[0]).getSourceURI())).getPath().substring(dataPathLen+1));
-			report.append("<br>\r\n");
-		}
-		
+		String report = missingLstFiles.stream()
+		                               .map(missing -> "Missing file " + ((File) missing[1]).getPath()
+		                                                                                    .substring(dataPathLen + 1)
+				                               + " used by "
+				                               + (new File(((Campaign) missing[0]).getSourceURI())).getPath()
+				                                                                                   .substring(
+						                                                                                   dataPathLen
+								                                                                                   + 1)
+				                               + "<br>\r\n")
+		                               .collect(Collectors.joining());
+
 		// Flag any missing files
 		assertEquals(
-			"Some data files are missing.",
-			"", report.toString());
+				"", report, "Some data files are missing.");
 	}
 	
 	/**
 	 * Scan for any data files that are not referred to by any campaign.
-	 * This test should be activated once DATA-1039 has been actioned. 
 	 * @throws IOException If a file path cannot be converted.
 	 */
 	@Test
-	public void orphanFilesTest() throws IOException
+	void orphanFilesTest() throws IOException
 	{
 		File dataFolder = new File(ConfigurationSettings.getPccFilesDir());
 		Collection<File> listFiles =
 				FileUtils.listFiles(dataFolder, new String[]{"lst"}, true);
-		List<String> fileNames = new ArrayList<>(listFiles.size());
+		Collection<String> fileNames = new ArrayList<>(listFiles.size());
 		for (File file : listFiles)
 		{
 			fileNames.add(file.getCanonicalPath());
@@ -234,35 +213,27 @@ public class DataTest
 			}
 		}
 
-		StringBuilder report = new StringBuilder();
-		for (String orphan : fileNames)
-		{
-			String srcRelPath = orphan.substring(dataPathLen+1);
-			if (!srcRelPath.startsWith("customsources"))
-			{
-				report.append(srcRelPath);
-				report.append("\r\n");
-			}
-		}
-		
+		String report = fileNames.stream()
+		                         .map(orphan -> orphan.substring(dataPathLen + 1))
+		                         .filter(srcRelPath -> !srcRelPath.startsWith("customsources"))
+		                         .map(srcRelPath -> srcRelPath + "\r\n")
+		                         .collect(Collectors.joining());
+
 		// Flag any missing files
 		assertEquals(
-			"Some data files are orphaned.",
-			"", report.toString());
+				"", report, "Some data files are orphaned.");
 	}
 
-	private List<CampaignSourceEntry> getLstFilesForCampaign(Campaign campaign)
+	private static List<CampaignSourceEntry> getLstFilesForCampaign(CDOMObject campaign)
 	{
 		List<CampaignSourceEntry> cseList =
 				new ArrayList<>();
-		for (ListKey<CampaignSourceEntry> lk : CampaignLoader.OBJECT_FILE_LISTKEY)
-		{
-			cseList.addAll(campaign.getSafeListFor(lk));
-		}
-		for (ListKey<CampaignSourceEntry> lk : CampaignLoader.OTHER_FILE_LISTKEY)
-		{
-			cseList.addAll(campaign.getSafeListFor(lk));
-		}
+		Arrays.stream(CampaignLoader.OBJECT_FILE_LISTKEY)
+		      .map((Function<ListKey, List>) campaign::getSafeListFor)
+		      .forEach(cseList::addAll);
+		Arrays.stream(CampaignLoader.OTHER_FILE_LISTKEY)
+		      .map((Function<ListKey, List>) campaign::getSafeListFor)
+		      .forEach(cseList::addAll);
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_PCC));
 		return cseList;
 	}
@@ -270,11 +241,11 @@ public class DataTest
 	
 	private static void loadGameModes()
 	{
-		String configFolder = "testsuite";
 		String pccLoc = TestHelper.findDataFolder();
 		System.out.println("Got data folder of " + pccLoc);
 		try
 		{
+			String configFolder = "testsuite";
 			TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
 				pccLoc);
 		}
@@ -288,9 +259,9 @@ public class DataTest
 		Main.loadProperties(false);
 		PCGenTask loadPluginTask = Main.createLoadPluginTask();
 		loadPluginTask.execute();
-		GameModeFileLoader gameModeFileLoader = new GameModeFileLoader();
+		PCGenTask gameModeFileLoader = new GameModeFileLoader();
 		gameModeFileLoader.execute();
-		CampaignFileLoader campaignFileLoader = new CampaignFileLoader();
+		PCGenTask campaignFileLoader = new CampaignFileLoader();
 		campaignFileLoader.execute();
 	}
 }

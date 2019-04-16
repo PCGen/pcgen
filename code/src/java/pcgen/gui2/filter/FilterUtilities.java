@@ -1,5 +1,4 @@
 /*
- * FilterUtilities.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,26 +15,19 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 15, 2010, 4:31:36 PM
  */
 package pcgen.gui2.filter;
 
 import java.awt.BorderLayout;
+
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
-public class FilterUtilities
+public final class FilterUtilities
 {
 
-	public static FilterBar<Object, Object> createDefaultFilterBar()
+	private FilterUtilities()
 	{
-		FilterBar<Object, Object> bar = new FilterBar<>();
-		bar.addDisplayableFilter(new SearchFilterPanel());
-		return bar;
 	}
 
 	/**
@@ -50,7 +42,7 @@ public class FilterUtilities
 	 * @return a JPanel containing the table and filterbar
 	 */
 	public static <C, E> JPanel configureFilteredTreeViewPane(FilteredTreeViewTable<C, E> table,
-															  FilterBar<C, E> filterBar)
+		FilterBar<C, E> filterBar)
 	{
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.add(filterBar, BorderLayout.NORTH);

@@ -17,22 +17,24 @@
  */
 package plugin.modifier.number;
 
-import pcgen.base.calculation.BasicCalculation;
-import pcgen.base.format.NumberManager;
-import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ManagerFactory;
-import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.solver.Modifier;
-import pcgen.base.util.FormatManager;
-import pcgen.rules.persistence.token.ModifierFactory;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import junit.framework.TestCase;
-import org.junit.Test;
+import pcgen.base.calculation.BasicCalculation;
+import pcgen.base.calculation.FormulaModifier;
+import pcgen.base.format.NumberManager;
+import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
-public class MaxNumberModifierTest extends TestCase
+import org.junit.jupiter.api.Test;
+
+public class MaxNumberModifierTest
 {
-	private final LegalScope varScope = new SimpleLegalScope(null, "Global");
+	private final PCGenScope varScope = new GlobalScope();
 	private final FormatManager<Number> numManager = new NumberManager();
 
 	@Test
@@ -41,7 +43,7 @@ public class MaxNumberModifierTest extends TestCase
 		try
 		{
 			ModifierFactory m = new MaxModifierFactory();
-			m.getModifier(100, null, null, null, null, null);
+			m.getModifier(null, null, null, null, null);
 			fail("Expected MaxModifier with null compare value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -103,21 +105,21 @@ public class MaxNumberModifierTest extends TestCase
 	public void testProcessZero4()
 	{
 		BasicCalculation modifier = new MaxModifierFactory();
-		assertEquals(0, modifier.process(-4,0));
+		assertEquals(0, modifier.process(-4, 0));
 	}
 
 	@Test
 	public void testProcessMixed1()
 	{
 		BasicCalculation modifier = new MaxModifierFactory();
-		assertEquals(5, modifier.process(5,-7));
+		assertEquals(5, modifier.process(5, -7));
 	}
 
 	@Test
 	public void testProcessMixed2()
 	{
 		BasicCalculation modifier = new MaxModifierFactory();
-		assertEquals(3, modifier.process(-4,3));
+		assertEquals(3, modifier.process(-4, 3));
 	}
 
 	@Test
@@ -180,24 +182,25 @@ public class MaxNumberModifierTest extends TestCase
 	public void testProcessDoubleMixed1()
 	{
 		BasicCalculation modifier = new MaxModifierFactory();
-		assertEquals(5.3, modifier.process(5.3,-7.2));
+		assertEquals(5.3, modifier.process(5.3, -7.2));
 	}
 
 	@Test
 	public void testProcessDoubleMixed2()
 	{
 		BasicCalculation modifier = new MaxModifierFactory();
-		assertEquals(3.1, modifier.process(-4.2,3.1));
+		assertEquals(3.1, modifier.process(-4.2, 3.1));
 	}
 
 	@Test
 	public void testGetModifier()
 	{
 		MaxModifierFactory factory = new MaxModifierFactory();
-		Modifier<Number> modifier =
-				factory.getModifier(35, "6.5", new ManagerFactory(){}, null, varScope, numManager);
-		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
-		assertEquals(Number.class, modifier.getVariableFormat());
+		FormulaModifier<Number> modifier =
+				factory.getModifier("6.5", new ManagerFactory(){}, null, varScope, numManager);
+		modifier.addAssociation("PRIORITY=35");
+		assertEquals((35L << 32) + factory.getInherentPriority(), modifier.getPriority());
+		assertEquals(numManager, modifier.getVariableFormat());
 		assertEquals(6.5, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
 		assertEquals(9.3, modifier.process(EvalManagerUtilities.getInputEM(9.3)));
 	}

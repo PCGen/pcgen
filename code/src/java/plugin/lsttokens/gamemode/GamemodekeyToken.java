@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on February 7, 2007
- *
- * Current Ver: $Revision$
- *
  */package plugin.lsttokens.gamemode;
 
 import java.net.URI;
@@ -28,27 +23,18 @@ import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
 /**
- * <code>GamemodekeyToken</code> parses the GAMEMODEKEY token.
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ * {@code GamemodekeyToken} parses the GAMEMODEKEY token.
  */
 public class GamemodekeyToken implements GameModeLstToken
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "GAMEMODEKEY";
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.GameModeLstToken#parse(pcgen.core.GameMode, java.lang.String, java.net.URI)
-	 */
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setName(value.replace('|', ' '));

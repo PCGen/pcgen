@@ -1,6 +1,4 @@
 /*
- * RuleCheck.java
- *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -14,11 +12,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Novmeber 06, 2003, 11:59 PM PST
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core;
 
@@ -27,42 +20,36 @@ import java.net.URI;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CDOMSingleRef;
 
-/**
- * <code>RuleCheck</code> describes checks that can be turned on or off in the
- * GUI by the users
- * 
- * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
- */
 public final class RuleCheck implements Loadable
 {
 	private String ruleName;
 	private String ruleKey;
 	private String ruleDescription = "";
- 	private String parm = "";
- 	private String var = "";
+	private String parm = "";
+	private String var = "";
 	private CDOMSingleRef<RuleCheck> excludeKey;
 	private boolean isEnabledByDefault = false;
 	private URI sourceURI;
 
-    @Override
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
-    @Override
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
-    @Override
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
-    @Override
+	@Override
 	public boolean isType(String type)
 	{
 		return false;
@@ -108,16 +95,10 @@ public final class RuleCheck implements Loadable
 	 * 
 	 * @return key
 	 */
-    @Override
+	@Override
 	public String getKeyName()
 	{
 		return ruleKey;
-	}
-
-    @Override
-	public String getLSTformat()
-	{
-		return getKeyName();
 	}
 
 	/**
@@ -126,7 +107,7 @@ public final class RuleCheck implements Loadable
 	 * @param name
 	 *            set name to
 	 */
-    @Override
+	@Override
 	public void setName(String name)
 	{
 		ruleName = name;
@@ -137,7 +118,7 @@ public final class RuleCheck implements Loadable
 		}
 	}
 
-    @Override
+	@Override
 	public String getDisplayName()
 	{
 		return ruleName;

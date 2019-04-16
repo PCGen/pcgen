@@ -1,5 +1,4 @@
 /*
- * SpellCastMult.java
  * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 13, 2002, 9:19 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.bonustokens;
 
@@ -28,8 +22,6 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.util.SpellCastInfo;
 import pcgen.rules.context.LoadContext;
 
-/**
- */
 public final class SpellCastMult extends BonusObj
 {
 	/*
@@ -39,11 +31,6 @@ public final class SpellCastMult extends BonusObj
 	 * @return
 	 */
 
-	/**
-	 * Parse the bonus token.
-	 * @see pcgen.core.bonus.BonusObj#parseToken(LoadContext, java.lang.String)
-	 * @return True if successfully parsed.
-	 */
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
@@ -66,12 +53,6 @@ public final class SpellCastMult extends BonusObj
 		return true;
 	}
 
-	/**
-	 * Unparse the bonus token.
-	 * @see pcgen.core.bonus.BonusObj#unparseToken(java.lang.Object)
-	 * @param obj The object to unparse
-	 * @return The unparsed string.
-	 */
 	@Override
 	protected String unparseToken(final Object obj)
 	{

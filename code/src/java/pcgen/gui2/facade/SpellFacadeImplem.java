@@ -1,5 +1,4 @@
 /**
- * SpellFacadeImplem.java
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 15/10/2011 4:04:57 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -32,17 +27,15 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
-import pcgen.facade.core.SpellFacade;
 import pcgen.core.spell.Spell;
+import pcgen.facade.core.SpellFacade;
 import pcgen.util.SortKeyAware;
 
 /**
- * The Class <code>SpellFacadeImplem</code> is a proxy for a spell used for 
+ * The Class {@code SpellFacadeImplem} is a proxy for a spell used for
  * displaying the spell on the UI. 
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 {
@@ -57,91 +50,62 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		this.spell = spell;
 		this.charSpell = charSpell;
 		this.spellInfo = spellInfo;
-		
+
 	}
-	
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.InfoFacade#getSource()
-	 */
+
 	@Override
 	public String getSource()
 	{
-		return SourceFormat.getFormattedString(spell,
-			Globals.getSourceDisplay(), true);
+		return SourceFormat.getFormattedString(spell, Globals.getSourceDisplay(), true);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.InfoFacade#getSourceForNodeDisplay()
-	 */
-    @Override
+	@Override
 	public String getSourceForNodeDisplay()
 	{
-		return SourceFormat.getFormattedString(spell,
-				SourceFormat.LONG, true);
+		return SourceFormat.getFormattedString(spell, SourceFormat.LONG, true);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.InfoFacade#getKeyName()
-	 */
 	@Override
 	public String getKeyName()
 	{
 		return spell.getKeyName();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.SpellFacade#getSchool()
-	 */
 	@Override
 	public String getSchool()
 	{
 		return spell.getListAsString(ListKey.SPELL_SCHOOL);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.SpellFacade#getSubschool()
-	 */
 	@Override
 	public String getSubschool()
 	{
-        return spell.getListAsString(ListKey.SPELL_SUBSCHOOL);
+		return spell.getListAsString(ListKey.SPELL_SUBSCHOOL);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.SpellFacade#getDescriptors()
-	 */
 	@Override
 	public String[] getDescriptors()
 	{
-        List<String> descriptors = spell.getListFor(ListKey.SPELL_DESCRIPTOR);
-        if (descriptors== null)
-        {
-        	return new String[]{};
-        }
+		List<String> descriptors = spell.getListFor(ListKey.SPELL_DESCRIPTOR);
+		if (descriptors == null)
+		{
+			return new String[]{};
+		}
 		return descriptors.toArray(new String[descriptors.size()]);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.SpellFacade#getComponents()
-	 */
 	@Override
 	public String getComponents()
 	{
 		return spell.getListAsString(ListKey.COMPONENTS);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.SpellFacade#getRange()
-	 */
 	@Override
 	public String getRange()
 	{
-        return pc.getSpellRange(charSpell, spellInfo);
+		return pc.getSpellRange(charSpell, spellInfo);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.SpellFacade#getDuration()
-	 */
 	@Override
 	public String getDuration()
 	{
@@ -153,7 +117,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	{
 		return spell.getListAsString(ListKey.CASTTIME);
 	}
-	
+
 	/**
 	 * @return the spell
 	 */
@@ -178,9 +142,6 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		return spellInfo;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -204,28 +165,18 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		return buff.toString();
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		final int prime = 31;
 		int result = 1;
-		result =
-				prime * result
-					+ ((charSpell == null) ? 0 : charSpell.hashCode());
+		result = prime * result + ((charSpell == null) ? 0 : charSpell.hashCode());
 		result = prime * result + ((pc == null) ? 0 : pc.hashCode());
 		result = prime * result + ((spell == null) ? 0 : spell.hashCode());
-		result =
-				prime * result
-					+ ((spellInfo == null) ? 0 : spellInfo.hashCode());
+		result = prime * result + ((spellInfo == null) ? 0 : spellInfo.hashCode());
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -300,7 +251,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	{
 		return spell.getType();
 	}
-	
+
 	@Override
 	public String getSortKey()
 	{

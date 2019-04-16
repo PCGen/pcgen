@@ -15,15 +15,13 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  SystemAttribute.java
  */
 package gmgen.plugin;
 
 public class SystemAttribute
 {
-	private String description;
-	private String name;
+	private final String description;
+	private final String name;
 	private SystemDie die;
 	private int value;
 
@@ -37,7 +35,7 @@ public class SystemAttribute
 
 	public SystemAttribute(String name, int value)
 	{
-		this(name, value, "", new SystemDie());
+		this(name, value, "", new SystemDie(0));
 	}
 
 	public String getDescription()

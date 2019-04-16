@@ -1,0 +1,16 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Armor Master's Handbook	SOURCESHORT:AMH	SOURCEWEB:http://paizo.com/products/btpy9jbh?Pathfinder-Player-Companion-Armor-Masters-Handbook	SOURCEDATE:2016-05
+
+# ==============================
+# Combat Tricks
+# ==============================
+
+# Ability Name						Unique Key						Category of Ability		Type						Description																																																									Ability																		Source Page
+Combat Trick / Covering Shield			KEY:Combat Trick ~ Covering Shield		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 3 stamina points to also gain the enhancement bonus of your shield on your Reflex save against one attack or hazard.																																																							SOURCEPAGE:p.20
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																																													ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Covering Shield|PREABILITY:1,CATEGORY=FEAT,Covering Shield
+Combat Trick / Porcupine Defense			KEY:Combat Trick ~ Porcupine Defense	CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 5 stamina points to make an attack of opportunity against an opponent at least one size category larger than you if that opponent attempts a combat maneuver check against you. You can perform this attack of opportunity even if your opponent can attempt such combat maneuvers without normally provoking attacks of opportunity.																				SOURCEPAGE:p.21
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																																													ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Porcupine Defense|PREABILITY:1,CATEGORY=FEAT,Porcupine Defense
+Combat Trick / Reach Defense				KEY:Combat Trick ~ Reach Defense		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 5 stamina points to grant the benefit of this feat to any adjacent allies for 1 round.																																																												SOURCEPAGE:p.21
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																																													ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Reach Defense|PREABILITY:1,CATEGORY=FEAT,Reach Defense
+Combat Trick / Tandem Evasion				KEY:Combat Trick ~ Tandem Evasion		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 5 stamina points to benefit from this feat even if there are no adjacent allies who also have this feat. However, if you fail your save, you are knocked prone.																																																SOURCEPAGE:p.21
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																																													ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Tandem Evasion|PREABILITY:1,CATEGORY=FEAT,Tandem Evasion

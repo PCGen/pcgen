@@ -1,5 +1,4 @@
 /*
- * pcGenGUISWizSamTest.java
  * Copyright 2015 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,58 +14,25 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created/Reinstated on 2015-11-24
- *
- * $Id$
  */
 package pcgen.inttest.game_3e;
 
-import pcgen.inttest.pcGenGUITestCase;
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import java.io.IOException;
+
+import pcgen.inttest.PcgenFtlTestCase;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests a 3e 1st level Halfling Wizard(Transmuter).
  * 
  * See PCG file for details.
  */
-@SuppressWarnings("nls")
-public class pcGenGUISWizSamTest extends pcGenGUITestCase
+
+public class pcGenGUISWizSamTest extends PcgenFtlTestCase
 {
-	/**
-	 * Run the tests.
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		junit.textui.TestRunner.run(pcGenGUISWizSamTest.class);
-	}
-
-	/** 
-	 * Standard JUnit style constructor
-	 * 
-	 * @param name
-	 */
-	public pcGenGUISWizSamTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Return test
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(pcGenGUISWizSamTest.class);
-	}
-
-	/**
-	 * Run test
-	 * @throws Exception
-	 */
-	public void testSWizSam() throws Exception
+	@Test
+	public void testSWizSam() throws IOException
 	{
 		runTest("3e_SWizSam", "3e");
 	}

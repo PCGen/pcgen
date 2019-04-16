@@ -8,13 +8,15 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:4,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Equipment
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:3,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Equipment
+
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SOURCELONG:Dungeoneer's Handbook
+SOURCELONG:Pathfinder Player Companion: Dungeoneer's Handbook
 SOURCESHORT:DH
-SOURCEWEB:http://paizo.com/products/btpy8wfn?Pathfinder-Player-Companion-Dungeoneers-Handbook
+SOURCEWEB:http://paizo.com/products/btpy8wfn
 SOURCEDATE:2013-03
 ISOGL:YES
 
@@ -22,7 +24,7 @@ ISOGL:YES
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/products/btpy8dmf?Pathfinder-Player-Companion-Dungeoneers-Handbook|Buy this publication from Paizo Publishing!
+URL:Paizo Publishing|http://paizo.com/products/btpy8wfn|Buy this publication from Paizo Publishing!
 DESC:Perhaps no environment is more iconic, more varied, and more fearsome than the dungeon, and when you delve into the perilous, monster-infested ruins of ages lost, you need all the help you can get! Intrepid explorers in search of the ultimate tomb raider's boon need look no further than Player Companion: Dungeoneer's Handbook! Packed with useful tips, handy tricks, and new rules and options, this volume is a must-have for any adventurer looking to brave the world's most infamous dungeons.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.

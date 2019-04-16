@@ -1,5 +1,4 @@
 /*
- * EquipmentTreeTableModel.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,13 +15,11 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 29, 2011, 1:57:14 PM
  */
 package pcgen.gui2.tabs.equip;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
@@ -33,12 +30,12 @@ import javax.swing.tree.TreePath;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentSetFacade;
-import pcgen.facade.core.EquipmentSetFacade.EquipNode;
 import pcgen.facade.core.EquipmentSetFacade.EquipmentTreeEvent;
 import pcgen.facade.core.EquipmentSetFacade.EquipmentTreeListener;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
+import pcgen.gui2.facade.EquipNode;
 import pcgen.gui2.util.treetable.TreeTableModel;
 import pcgen.gui2.util.treetable.TreeTableNode;
 import pcgen.util.CollectionMaps;
@@ -49,20 +46,16 @@ import pcgen.util.ListMap;
  * tree structure showing the equipment by its equipped location for a 
  * particular character and equipment set.
  * 
- * <br>
  *  
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class EquipmentTreeTableModel implements TreeTableModel, ListListener<EquipNode>, EquipmentTreeListener
 {
-
-	private EventListenerList listenerList = new EventListenerList();
-	private CharacterFacade character;
-	private EquipmentSetFacade equipSet;
-	private Object root = new Object();
-	private ListMap<EquipNode, EquipNode, List<EquipNode>> pathMap;
-	private List<EquipNode> bodySlotNodes;
-	private Comparator<EquipNode> pathComparator = new NodeComparator();
+	private final EventListenerList listenerList = new EventListenerList();
+	private final CharacterFacade character;
+	private final EquipmentSetFacade equipSet;
+	private final Object root = new Object();
+	private final ListMap<EquipNode, EquipNode, List<EquipNode>> pathMap;
+	private final List<EquipNode> bodySlotNodes;
 
 	public EquipmentTreeTableModel(CharacterFacade character, EquipmentSetFacade equipSet)
 	{
@@ -159,6 +152,9 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 						return "Qty";
 					case 4:
 						return "Wgt";
+					default:
+						//Case not caught, should this cause an error?
+						break;
 				}
 			case PHANTOM_SLOT:
 				switch (column)
@@ -179,6 +175,9 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 						return equipSet.getQuantity(pathNode);
 					case 4:
 						return character.getInfoFactory().getWeight(pathNode.getEquipment());
+					default:
+						//Case not caught, should this cause an error?
+						break;
 				}
 			default:
 				return null;
@@ -261,7 +260,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 
 	private void addBodyNode(EquipNode bodyNode)
 	{
-		int insertion_index = Collections.binarySearch(bodySlotNodes, bodyNode, pathComparator);
+		int insertion_index = Collections.binarySearch(bodySlotNodes, bodyNode);
 		bodySlotNodes.add(-(insertion_index + 1), bodyNode);
 	}
 
@@ -272,7 +271,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 		{
 			children = Collections.emptyList();
 		}
-		int insertion_index = 1 + Collections.binarySearch(children, child, pathComparator);
+		int insertion_index = 1 + Collections.binarySearch(children, child);
 		if (insertion_index < 0)
 		{
 			// The item wasn't already in the list so the search gave us a negative index of where to add the item. 
@@ -289,13 +288,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 		EquipNode parent = child.getParent();
 
 		int index = addNode(parent, child);
-		fireTreeNodesInserted(this, getPathToRoot(parent), new int[]
-				{
-					index
-				}, new Object[]
-				{
-					child
-				});
+		fireTreeNodesInserted(this, getPathToRoot(parent), new int[]{index}, new Object[]{child});
 	}
 
 	@Override
@@ -309,13 +302,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 		int index = children.indexOf(child);
 
 		pathMap.remove(parent, index);
-		fireTreeNodesRemoved(this, getPathToRoot(parent), new int[]
-				{
-					index
-				}, new Object[]
-				{
-					child
-				});
+		fireTreeNodesRemoved(this, getPathToRoot(parent), new int[]{index}, new Object[]{child});
 
 	}
 
@@ -324,10 +311,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	{
 		pathMap.clear();
 		initPathMap();
-		fireTreeStructureChanged(this, new Object[]
-				{
-					root
-				}, null, null);
+		fireTreeStructureChanged(this, new Object[]{root}, null, null);
 	}
 
 	@Override
@@ -342,14 +326,8 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 		EquipNode parent = child.getParent();
 		List<EquipNode> children = pathMap.get(parent);
 
-		int index = Collections.binarySearch(children, child, pathComparator);
-		fireTreeNodesChanged(this, getPathToRoot(parent), new int[]
-				{
-					index
-				}, new Object[]
-				{
-					child
-				});
+		int index = Collections.binarySearch(children, child);
+		fireTreeNodesChanged(this, getPathToRoot(parent), new int[]{index}, new Object[]{child});
 	}
 
 	private Object[] getPathToRoot(EquipNode node)
@@ -409,11 +387,8 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	 * @param path the path to the root node
 	 * @param childIndices the indices of the changed elements
 	 * @param children the changed elements
-	 * @see EventListenerList
 	 */
-	protected void fireTreeNodesChanged(Object source, Object[] path,
-										int[] childIndices,
-										Object[] children)
+	private void fireTreeNodesChanged(Object source, Object[] path, int[] childIndices, Object[] children)
 	{
 		// Guaranteed to return a non-null array
 		Object[] listeners = listenerList.getListenerList();
@@ -427,8 +402,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 				// Lazily create the event:
 				if (e == null)
 				{
-					e = new TreeModelEvent(source, path,
-										   childIndices, children);
+					e = new TreeModelEvent(source, path, childIndices, children);
 				}
 				((TreeModelListener) listeners[i + 1]).treeNodesChanged(e);
 			}
@@ -445,11 +419,8 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	 * @param path the path to the root node
 	 * @param childIndices the indices of the new elements
 	 * @param children the new elements
-	 * @see EventListenerList
 	 */
-	protected void fireTreeNodesInserted(Object source, Object[] path,
-										 int[] childIndices,
-										 Object[] children)
+	protected void fireTreeNodesInserted(Object source, Object[] path, int[] childIndices, Object[] children)
 	{
 		// Guaranteed to return a non-null array
 		Object[] listeners = listenerList.getListenerList();
@@ -463,8 +434,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 				// Lazily create the event:
 				if (e == null)
 				{
-					e = new TreeModelEvent(source, path,
-										   childIndices, children);
+					e = new TreeModelEvent(source, path, childIndices, children);
 				}
 				((TreeModelListener) listeners[i + 1]).treeNodesInserted(e);
 			}
@@ -481,11 +451,8 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	 * @param path the path to the root node
 	 * @param childIndices the indices of the removed elements
 	 * @param children the removed elements
-	 * @see EventListenerList
 	 */
-	protected void fireTreeNodesRemoved(Object source, Object[] path,
-										int[] childIndices,
-										Object[] children)
+	private void fireTreeNodesRemoved(Object source, Object[] path, int[] childIndices, Object[] children)
 	{
 		// Guaranteed to return a non-null array
 		Object[] listeners = listenerList.getListenerList();
@@ -499,8 +466,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 				// Lazily create the event:
 				if (e == null)
 				{
-					e = new TreeModelEvent(source, path,
-										   childIndices, children);
+					e = new TreeModelEvent(source, path, childIndices, children);
 				}
 				((TreeModelListener) listeners[i + 1]).treeNodesRemoved(e);
 			}
@@ -517,11 +483,8 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 	 * @param path the path to the root node
 	 * @param childIndices the indices of the affected elements
 	 * @param children the affected elements
-	 * @see EventListenerList
 	 */
-	protected void fireTreeStructureChanged(Object source, Object[] path,
-											int[] childIndices,
-											Object[] children)
+	private void fireTreeStructureChanged(Object source, Object[] path, int[] childIndices, Object[] children)
 	{
 		// Guaranteed to return a non-null array
 		Object[] listeners = listenerList.getListenerList();
@@ -535,23 +498,11 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 				// Lazily create the event:
 				if (e == null)
 				{
-					e = new TreeModelEvent(source, path,
-										   childIndices, children);
+					e = new TreeModelEvent(source, path, childIndices, children);
 				}
 				((TreeModelListener) listeners[i + 1]).treeStructureChanged(e);
 			}
 		}
-	}
-
-	private static class NodeComparator implements Comparator<EquipNode>
-	{
-
-		@Override
-		public int compare(EquipNode o1, EquipNode o2)
-		{
-			return o1.compareTo(o2);
-		}
-
 	}
 
 }

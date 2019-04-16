@@ -17,6 +17,11 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Collection;
 
 import pcgen.cdom.base.CDOMObject;
@@ -30,46 +35,43 @@ import pcgen.cdom.facet.KnownSpellFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PCTemplate;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.SpellknownLst;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreVariableParser;
 import plugin.pretokens.test.PreVariableTester;
+
+import org.junit.jupiter.api.BeforeAll;
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalSpellKnownTest extends AbstractContentTokenTest
 {
 
-	private static SpellknownLst token = new SpellknownLst();
+	private static final CDOMToken<CDOMObject> token = new SpellknownLst();
 	private KnownSpellFacet knownSpellFacet;
 	private ClassSpellList wizardSpellList;
 	private Spell fb;
 
-	private static boolean hasPreSetup = false;
-
-	public void classSetUp()
+	@BeforeAll
+	static void classSetUp()
 	{
-		if (!hasPreSetup)
-		{
-			PrerequisiteTestFactory.register(new PreVariableTester());
-			hasPreSetup = true;
-		}
+		PrerequisiteTestFactory.getInstance().register(new PreVariableTester());
 	}
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		knownSpellFacet = FacetLibrary.getFacet(KnownSpellFacet.class);
 		wizardSpellList = context.getReferenceContext().constructNowIfNecessary(ClassSpellList.class, "Wizard");
 		fb = context.getReferenceContext().constructNowIfNecessary(Spell.class, "Fireball");
 		TokenRegistration.register(new PreVariableParser());
-		classSetUp();
 	}
 
 	@Override
@@ -78,7 +80,7 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "CLASS|Wizard=2|Fireball");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -130,19 +132,18 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 	
 	public void testConditional()
 	{
-		Ability source = create(Ability.class, "Source");
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
+		Ability source = BuildUtilities.buildFeat(context, "Source");
 		ParseResult result =
 				token.parseToken(context, source, "CLASS|Wizard=2|Fireball|PREVARLTEQ:3,MyCasterLevel");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
 		assertEquals(baseCount(), targetFacetCount());
-		CNAbilitySelection cas =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source));
+		CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source));
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertFalse(containsExpected());
 		PCTemplate varsource = create(PCTemplate.class, "VarSource");

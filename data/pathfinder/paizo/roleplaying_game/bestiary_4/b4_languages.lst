@@ -1,0 +1,28 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
+
+# Language				Product Identity?	Type
+Brethedan				NAMEISPI:YES	TYPE:Spoken.Written.Read
+Elder Thing							TYPE:Spoken.Written.Read
+Kasatha				NAMEISPI:YES	TYPE:Spoken.Written.Read
+Mi-Go					NAMEISPI:YES	TYPE:Spoken
+Xenophobic							TYPE:Spoken.Written.Read
+
+Abyssal (cannot speak)					TYPE:Understand
+Aklo (cannot speak)					TYPE:Understand
+Aquan (cannot speak)					TYPE:Understand
+Auran (cannot speak)					TYPE:Understand
+Common (cannot speak)					TYPE:Understand
+Dark Folk (cannot speak)				TYPE:Understand
+Draconic (cannot speak)					TYPE:Understand
+Druidic (cannot speak)					TYPE:Understand
+Dwarven (cannot speak)					TYPE:Understand
+Elven (cannot speak)					TYPE:Understand
+Goblin (cannot speak)					TYPE:Understand
+Infernal (cannot speak)					TYPE:Understand
+Orc (cannot speak)					TYPE:Understand
+Sylvan (cannot speak)					TYPE:Understand
+Terran (cannot speak)					TYPE:Understand
+Undercommon (cannot speak)				TYPE:Understand
+Vegepygmy (cannot speak)				TYPE:Understand

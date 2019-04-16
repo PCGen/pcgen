@@ -22,24 +22,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pcgen.cdom.helper.SpringHelper;
+import pcgen.util.Logging;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
- * 
  * FacetLibrary is a container for the Facets that process information about
  * PlayerCharacters
  */
 public final class FacetLibrary
 {
-	
+
 	private FacetLibrary()
 	{
 		//Do not instantiate
 	}
 
-	private static Map<Class<?>, Object> facets = new HashMap<>();
+	private static final Map<Class<?>, Object> facets = new HashMap<>();
 
-	public static <T extends Object> T getFacet(Class<T> cl)
+	public static <T> T getFacet(Class<T> cl)
 	{
 		T facet = (T) facets.get(cl);
 		if (facet == null)
@@ -49,24 +48,15 @@ public final class FacetLibrary
 			if (facet == null)
 			{
 				// Fall back to the old hardcoded system
-				//System.err.println("Using Legacy Load for Facet: " + cl.getName());
+				Logging.errorPrint("Using Legacy Load for Facet: " + cl.getName(),
+						(Object) Thread.currentThread().getStackTrace());
 				try
 				{
-					facet = cl.getConstructor()
-							.newInstance();
+					facet = cl.getConstructor().newInstance();
 				}
-				catch (InstantiationException | IllegalAccessException e)
+				catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e)
 				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				catch (NoSuchMethodException e)
-				{
-					e.printStackTrace();
-				}
-				catch (InvocationTargetException e)
-				{
-					e.printStackTrace();
+					Logging.errorPrint("unable to construct old style Facet", e);
 				}
 			}
 			facets.put(cl, facet);

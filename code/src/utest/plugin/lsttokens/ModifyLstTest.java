@@ -17,41 +17,40 @@
  */
 package plugin.lsttokens;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.base.CDOMObject;
-import pcgen.core.Campaign;
+import pcgen.cdom.base.VarContainer;
+import pcgen.cdom.base.VarHolder;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.CDOMToken;
+import pcgen.rules.persistence.token.CDOMWriteToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class ModifyLstTest extends AbstractGlobalTokenTestCase
 {
-	static CDOMPrimaryToken<CDOMObject> token = new ModifyLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	private static ModifyLst token = new ModifyLst();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
 		TokenRegistration.register(new plugin.modifier.number.AddModifierFactory());
 		TokenRegistration.register(new plugin.modifier.number.MultiplyModifierFactory());
-		FormatManager<?> formatManager = primaryContext.getReferenceContext().getFormatManager("NUMBER");
-		LegalScope pscope = primaryContext.getActiveScope().getLegalScope();
-		LegalScope sscope = primaryContext.getActiveScope().getLegalScope();
-		primaryContext.getVariableContext().assertLegalVariableID(pscope, formatManager, "MyVar");
-		secondaryContext.getVariableContext().assertLegalVariableID(sscope, formatManager, "MyVar");
-		primaryContext.getVariableContext().assertLegalVariableID(pscope, formatManager, "OtherVar");
-		secondaryContext.getVariableContext().assertLegalVariableID(sscope, formatManager, "OtherVar");
 	}
 
 	@Override
@@ -67,132 +66,131 @@ public class ModifyLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMToken<VarHolder> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMWriteToken<VarContainer> getWriteToken()
 	{
 		return token;
 	}
 
 	@Test
-	public void testInvalidObject() throws PersistenceLayerException
-	{
-		assertFalse(token.parseToken(primaryContext, new Campaign(),
-				"MyVar|ADD|3").passed());
-	}
-
-	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOneItem() throws PersistenceLayerException
+	public void testInvalidInputOneItem()
 	{
 		assertFalse(parse("MyVar"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoArgs() throws PersistenceLayerException
+	public void testInvalidInputTwoArgs()
 	{
 		assertFalse(parse("MyVar|ADD"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe() throws PersistenceLayerException
+	public void testInvalidInputDoublePipe()
 	{
 		assertFalse(parse("MyVar||ADD|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoValue() throws PersistenceLayerException
+	public void testInvalidInputNoValue()
 	{
 		assertFalse(parse("MyVar|ADD|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoVar() throws PersistenceLayerException
+	public void testInvalidInputNoVar()
 	{
 		assertFalse(parse("ADD|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoModifier() throws PersistenceLayerException
+	public void testInvalidInputNoModifier()
 	{
 		assertFalse(parse("MyVar||3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidVarName() throws PersistenceLayerException
+	public void testInvalidInputInvalidVarName()
 	{
 		assertFalse(parse("IllegalVar|ADD|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidMod() throws PersistenceLayerException
+	public void testInvalidInputInvalidMod()
 	{
 		assertFalse(parse("MyVar|TRUFFLE|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidNoPriority() throws PersistenceLayerException
+	public void testInvalidInputInvalidNoPriority()
 	{
 		assertFalse(parse("MyVar|ADD|3|PRIORITY="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidNegativePriority() throws PersistenceLayerException
+	public void testInvalidInputInvalidNegativePriority()
 	{
 		assertFalse(parse("MyVar|ADD|3|PRIORITY=-1000"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidNonNumberPriority() throws PersistenceLayerException
+	public void testInvalidInputInvalidNonNumberPriority()
 	{
 		assertFalse(parse("MyVar|ADD|3|PRIORITY=String"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidTooManyArgs() throws PersistenceLayerException
+	public void testInvalidInputInvalidTooManyArgs()
 	{
 		assertFalse(parse("MyVar|ADD|3|PRIORITY=3|Yes"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidIllegalSourceVar() throws PersistenceLayerException
+	public void testInvalidInputInvalidIllegalSourceVar()
 	{
 		assertFalse(parse("MyVar|ADD|IllegalVar"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidNotPriority1() throws PersistenceLayerException
+	public void testInvalidInputInvalidNotPriority1()
 	{
 		assertFalse(parse("MyVar|ADD|3|OTHER=3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputInvalidNotPriority2() throws PersistenceLayerException
+	public void testInvalidInputInvalidNotPriority2()
 	{
 		assertFalse(parse("MyVar|ADD|3|OTHERSTRING=3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputBadVar() throws PersistenceLayerException
+	public void testInvalidInputBadVar()
 	{
 		assertFalse(parse("4|ADD|3"));
 		assertNoSideEffects();
@@ -216,6 +214,14 @@ public class ModifyLstTest extends AbstractGlobalTokenTestCase
 		runRoundRobin("MyVar|ADD|3|PRIORITY=1090");
 	}
 
+	//TODO Ignore for now; reactivate later, see CODE-3299
+//	@Test
+//	public void testInvalidObject()
+//	{
+//		assertFalse(token.parseToken(primaryContext, new Campaign(),
+//				"MyVar|ADD|3").passed());
+//	}
+
 	@Override
 	protected String getLegalValue()
 	{
@@ -233,4 +239,15 @@ public class ModifyLstTest extends AbstractGlobalTokenTestCase
 	{
 		return ConsolidationRule.SEPARATE;
 	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		FormatManager<?> formatManager = context.getReferenceContext().getFormatManager("NUMBER");
+		LegalScope scope = context.getActiveScope();
+		context.getVariableContext().assertLegalVariableID("MyVar", scope, formatManager);
+		context.getVariableContext().assertLegalVariableID("OtherVar", scope, formatManager);
+	}
+
 }

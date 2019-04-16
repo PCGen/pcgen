@@ -26,6 +26,7 @@ package pcgen.cdom.base;
  * @param <T>
  *            The Type of object stored (per identifier) in the ItemFacet
  */
+@FunctionalInterface
 public interface ItemFacet<IDT, T>
 {
 	/**

@@ -26,7 +26,7 @@ import pcgen.gui2.converter.event.TokenProcessorPlugin;
 public class PreDRConvertPlugin implements TokenProcessorPlugin
 {
 
-    @Override
+	@Override
 	public String process(TokenProcessEvent tpe)
 	{
 		tpe.append(tpe.getKey());
@@ -36,13 +36,11 @@ public class PreDRConvertPlugin implements TokenProcessorPlugin
 		int commaLoc = formula.indexOf(',');
 		if (commaLoc == -1)
 		{
-			return "Prerequisite " + tpe.getKey() + " must have a count: "
-					+ formula;
+			return "Prerequisite " + tpe.getKey() + " must have a count: " + formula;
 		}
 		if (commaLoc == formula.length() - 1)
 		{
-			return "Prerequisite " + tpe.getKey()
-					+ " can not have only a count: " + formula;
+			return "Prerequisite " + tpe.getKey() + " can not have only a count: " + formula;
 		}
 		String num = formula.substring(0, commaLoc);
 		String rest = formula.substring(commaLoc + 1);
@@ -53,8 +51,7 @@ public class PreDRConvertPlugin implements TokenProcessorPlugin
 		}
 		catch (NumberFormatException nfe)
 		{
-			return "'" + num + "' in " + tpe.getKey()
-					+ " is not a valid integer";
+			return '\'' + num + "' in " + tpe.getKey() + " is not a valid integer";
 		}
 
 		tpe.append(num);
@@ -77,13 +74,13 @@ public class PreDRConvertPlugin implements TokenProcessorPlugin
 		return null;
 	}
 
-    @Override
+	@Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return CDOMObject.class;
 	}
 
-    @Override
+	@Override
 	public String getProcessedToken()
 	{
 		return "PREDR";

@@ -1,5 +1,4 @@
 /*
- * LstLineFileLoader.java
  * Copyright 2003 (C) David Hibbs <sage_sam@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 17, 2003, 12:00 PM
  *
- * Current Ver: $Revision$ <br>
  */
 package pcgen.persistence.lst;
 
@@ -41,9 +38,7 @@ import pcgen.rules.context.LoadContext;
  * to directly create characters.
  *
  * <p>
- * Current Ver: $Revision$ <br>
  *
- * @author sage_sam
  */
 public abstract class LstLineFileLoader extends Observable
 {
@@ -55,18 +50,12 @@ public abstract class LstLineFileLoader extends Observable
 	protected String gameMode = "*"; //$NON-NLS-1$
 
 	/**
-	 * Constructor
-	 */
-	public LstLineFileLoader()
-	{
-		super();
-	}
-
-	/**
 	 * This method loads a single LST formatted file.
+	 *
+	 * @param context the context
 	 * @param uri String containing the absolute file path
 	 * or the URL from which to read LST formatted data.
-	 * @throws PersistenceLayerException
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	public void loadLstFile(LoadContext context, URI uri) throws PersistenceLayerException
 	{
@@ -81,25 +70,24 @@ public abstract class LstLineFileLoader extends Observable
 
 	/**
 	 * This method loads a single LST formatted file.
+	 *
+	 * @param context the context
 	 * @param uri String containing the absolute file path
 	 * or the URL from which the LST formatted data was read.
 	 * @param aString The LST formatted data
-	 * @throws PersistenceLayerException
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void loadLstString(LoadContext context, URI uri, final String aString)
-		throws PersistenceLayerException
+	public void loadLstString(LoadContext context, URI uri, final String aString) throws PersistenceLayerException
 	{
 		final String newlinedelim = "\r\n";
-		final StringTokenizer fileLines =
-				new StringTokenizer(aString, newlinedelim);
+		final StringTokenizer fileLines = new StringTokenizer(aString, newlinedelim);
 
 		while (fileLines.hasMoreTokens())
 		{
 			String line = fileLines.nextToken().trim();
 
 			// check for comments and blank lines
-			if ((line.length() == 0)
-				|| (line.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR))
+			if ((line.isEmpty()) || (line.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR))
 			{
 				continue;
 			}
@@ -110,12 +98,13 @@ public abstract class LstLineFileLoader extends Observable
 
 	/**
 	 * This method loads a single LST formatted file in a game mode file.
+	 *
+	 * @param context the context
 	 * @param fileName String containing the absolute file path
 	 * @param game the game mode
-	 * @throws PersistenceLayerException
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void loadLstFile(LoadContext context, URI fileName, String game)
-		throws PersistenceLayerException
+	public void loadLstFile(LoadContext context, URI fileName, String game) throws PersistenceLayerException
 	{
 		gameMode = game;
 		loadLstFile(context, fileName);
@@ -158,8 +147,7 @@ public abstract class LstLineFileLoader extends Observable
 	 *         purposes
 	 * @throws PersistenceLayerException if there is a problem with the LST syntax
 	 */
-	public abstract void parseLine(LoadContext context, String lstLine, URI sourceURI)
-		throws PersistenceLayerException;
+	public abstract void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException;
 
 	/**
 	 * @return Returns the gameMode.

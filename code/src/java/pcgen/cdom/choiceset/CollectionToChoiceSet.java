@@ -18,6 +18,7 @@
 package pcgen.cdom.choiceset;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.base.PrimitiveCollection;
@@ -31,11 +32,7 @@ public class CollectionToChoiceSet<T> implements PrimitiveChoiceSet<T>
 
 	public CollectionToChoiceSet(PrimitiveCollection<T> prim)
 	{
-		if (prim == null)
-		{
-			throw new IllegalArgumentException(
-					"PrimitiveCollection cannot be null");
-		}
+		Objects.requireNonNull(prim, "PrimitiveCollection cannot be null");
 		primitive = prim;
 	}
 
@@ -63,29 +60,15 @@ public class CollectionToChoiceSet<T> implements PrimitiveChoiceSet<T>
 		return primitive.getCollection(pc, new DereferencingConverter<>(pc));
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this
-	 * CollectionToChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return primitive.hashCode();
 	}
 
-	/**
-	 * Returns true if this CollectionToChoiceSet is equal to the given Object.
-	 * Equality is defined as being another CollectionToChoiceSet object with
-	 * equal underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
-		return (obj instanceof CollectionToChoiceSet)
-				&& ((CollectionToChoiceSet<?>) obj).primitive.equals(primitive);
+		return (obj instanceof CollectionToChoiceSet) && ((CollectionToChoiceSet<?>) obj).primitive.equals(primitive);
 	}
 }

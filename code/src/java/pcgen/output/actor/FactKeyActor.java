@@ -17,6 +17,8 @@
  */
 package pcgen.output.actor;
 
+import java.util.Objects;
+
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -25,6 +27,7 @@ import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.output.base.OutputActor;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -42,8 +45,7 @@ import freemarker.template.TemplateModelException;
  */
 public class FactKeyActor<T> implements OutputActor<CDOMObject>
 {
-	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
-		.getFacet(ObjectWrapperFacet.class);
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary.getFacet(ObjectWrapperFacet.class);
 
 	/**
 	 * The FactKey underlying this FactKeyActor (for which the contents will be
@@ -59,20 +61,12 @@ public class FactKeyActor<T> implements OutputActor<CDOMObject>
 	 */
 	public FactKeyActor(FactKey<T> fk)
 	{
-		if (fk == null)
-		{
-			throw new IllegalArgumentException("FactKey may not be null");
-		}
+		Objects.requireNonNull(fk, "FactKey may not be null");
 		this.fk = fk;
 	}
 
-	/**
-	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
-	public TemplateModel process(CharID id, CDOMObject d)
-		throws TemplateModelException
+	public TemplateModel process(CharID id, CDOMObject d) throws TemplateModelException
 	{
 		Indirect<?> ind = d.get(fk);
 		Object object;

@@ -21,8 +21,9 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.PCGenIdentifier;
 
 public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S1, S2, A>
@@ -31,16 +32,8 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 
 	public A get(IDT id, S1 obj1, S2 obj2)
 	{
-		if (obj1 == null)
-		{
-			throw new IllegalArgumentException(
-				"Object for getting association may not be null");
-		}
-		if (obj2 == null)
-		{
-			throw new IllegalArgumentException(
-				"Object for getting association may not be null");
-		}
+		Objects.requireNonNull(obj1, "Object for getting association may not be null");
+		Objects.requireNonNull(obj2, "Object for getting association may not be null");
 		Map<S1, Map<S2, A>> map = getCachedMap(id);
 		if (map == null)
 		{
@@ -56,18 +49,9 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 
 	public boolean set(IDT id, S1 obj1, S2 obj2, A association)
 	{
-		if (obj1 == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
-		if (obj2 == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
-		if (association == null)
-		{
-			throw new IllegalArgumentException("Association may not be null");
-		}
+		Objects.requireNonNull(obj1, "Object to add may not be null");
+		Objects.requireNonNull(obj2, "Object to add may not be null");
+		Objects.requireNonNull(association, "Association may not be null");
 		Map<S2, A> map = getConstructingCachedMap(id, obj1);
 		A old = map.put(obj2, association);
 		return old == null;
@@ -81,7 +65,7 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 			Map<S2, A> subMap = map.get(obj1);
 			if (subMap != null)
 			{
-				map.remove(obj2);
+				subMap.remove(obj2);
 				if (subMap.isEmpty())
 				{
 					map.remove(obj1);
@@ -92,8 +76,8 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 
 	public Map<S1, Map<S2, A>> removeAll(IDT id)
 	{
-		Map<S1, Map<S2, A>> componentMap =
-				(Map<S1, Map<S2, A>>) removeCache(id);
+		@SuppressWarnings("unchecked")
+		Map<S1, Map<S2, A>> componentMap = (Map<S1, Map<S2, A>>) removeCache(id);
 		if (componentMap == null)
 		{
 			return Collections.emptyMap();
@@ -107,6 +91,7 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 		return map == null || map.isEmpty();
 	}
 
+	@SuppressWarnings("unchecked")
 	protected Map<S1, Map<S2, A>> getCachedMap(IDT id)
 	{
 		return (Map<S1, Map<S2, A>>) getCache(id);
@@ -120,21 +105,16 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 			map = getComponentMap();
 			setCache(id, map);
 		}
-		Map<S2, A> subMap = map.get(obj1);
-		if (subMap == null)
-		{
-			subMap = getSubComponentMap();
-			map.put(obj1, subMap);
-		}
+		Map<S2, A> subMap = map.computeIfAbsent(obj1, k -> getSubComponentMap());
 		return subMap;
 	}
 
-	protected Map<S1, Map<S2, A>> getComponentMap()
+	protected <MV> Map<S1, MV> getComponentMap()
 	{
 		return new IdentityHashMap<>();
 	}
 
-	protected Map<S2, A> getSubComponentMap()
+	protected <MV> Map<S2, MV> getSubComponentMap()
 	{
 		return new IdentityHashMap<>();
 	}
@@ -147,12 +127,11 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 		{
 			for (Map.Entry<S1, Map<S2, A>> me : sourceMap.entrySet())
 			{
-				getConstructingCachedMap(destination, me.getKey()).putAll(
-					me.getValue());
+				getConstructingCachedMap(destination, me.getKey()).putAll(me.getValue());
 			}
 		}
 	}
-	
+
 	public Collection<S1> getObjects(IDT id)
 	{
 		Map<S1, Map<S2, A>> map = getCachedMap(id);
@@ -160,8 +139,7 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 		{
 			return Collections.emptyList();
 		}
-		WrappedMapSet<S1> set =
-                new WrappedMapSet<>(getComponentMap().getClass());
+		Set<S1> set = Collections.newSetFromMap(getComponentMap());
 		set.addAll(map.keySet());
 		return set;
 	}
@@ -178,8 +156,7 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 		{
 			return Collections.emptyList();
 		}
-		WrappedMapSet<S2> set =
-                new WrappedMapSet<>(getSubComponentMap().getClass());
+		Set<S2> set = Collections.newSetFromMap(getSubComponentMap());
 		set.addAll(subMap.keySet());
 		return set;
 	}

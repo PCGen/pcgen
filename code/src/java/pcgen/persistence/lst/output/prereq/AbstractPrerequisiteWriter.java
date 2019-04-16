@@ -1,5 +1,4 @@
 /*
- * PrerequisiteWriterInterface.java
  *
  * Copyright 2004 (C) Frugal <frugal@purplewombat.co.uk>
  *
@@ -17,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18-Dec-2003
  *
- * Current Ver: $Revision$
  *
  *
  *
@@ -40,8 +37,8 @@ import pcgen.persistence.PersistenceLayerException;
 public class AbstractPrerequisiteWriter
 {
 
-	protected void checkValidOperator(Prerequisite prereq,
-		PrerequisiteOperator[] comparators) throws PersistenceLayerException
+	protected void checkValidOperator(Prerequisite prereq, PrerequisiteOperator[] comparators)
+		throws PersistenceLayerException
 	{
 		StringBuilder comparatorString = new StringBuilder(25);
 		for (int i = 0; i < comparators.length; i++)
@@ -63,14 +60,11 @@ public class AbstractPrerequisiteWriter
 		{
 			kind = "<NULL>";
 		}
-		throw new PersistenceLayerException(
-			"Cannot write token: LST syntax only supports "
-				+ comparatorString.toString() + " operators for PRE"
-				+ kind.toUpperCase() + ": " + prereq.toString());
+		throw new PersistenceLayerException("Cannot write token: LST syntax only supports "
+			+ comparatorString.toString() + " operators for PRE" + kind.toUpperCase() + ": " + prereq.toString());
 	}
 
-	protected boolean checkForPremultOfKind(final Prerequisite prereq,
-		final String kind, final boolean multiplesOnly)
+	protected boolean checkForPremultOfKind(final Prerequisite prereq, final String kind, final boolean multiplesOnly)
 	{
 		//
 		// PREMULT ?
@@ -103,10 +97,9 @@ public class AbstractPrerequisiteWriter
 	 * @param writer
 	 * @param prereq
 	 * @return false if not over ridden
-	 * @throws IOException
+	 * @throws IOException  if IO errors occur
 	 */
-	public boolean specialCase(Writer writer, Prerequisite prereq)
-		throws IOException
+	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
 	{
 		try
 		{
@@ -117,9 +110,8 @@ public class AbstractPrerequisiteWriter
 			throw new IOException();
 		}
 	}
-	
-	protected PrerequisiteOperator getConsolidateMethod(String handled,
-			Prerequisite prereq, boolean ranked)
+
+	protected PrerequisiteOperator getConsolidateMethod(String handled, Prerequisite prereq, boolean ranked)
 	{
 		// If this is NOT a PREMULT... fail
 		if (prereq.getKind() != null)

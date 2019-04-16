@@ -31,8 +31,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with SIZE Token
  */
-public class SizeToken extends AbstractNonEmptyToken<Race> implements
-		CDOMPrimaryToken<Race>
+public class SizeToken extends AbstractNonEmptyToken<Race> implements CDOMPrimaryToken<Race>
 {
 
 	@Override
@@ -45,8 +44,7 @@ public class SizeToken extends AbstractNonEmptyToken<Race> implements
 	public ParseResult parseNonEmptyToken(LoadContext context, Race race, String value)
 	{
 		CDOMSingleRef<SizeAdjustment> size =
-				context.getReferenceContext().getCDOMReference(
-					SizeAdjustment.class, value);
+				context.getReferenceContext().getCDOMReference(SizeAdjustment.class, value);
 		Formula sizeFormula = new FixedSizeFormula(size);
 		context.getObjectContext().put(race, FormulaKey.SIZE, sizeFormula);
 		return ParseResult.SUCCESS;
@@ -55,13 +53,12 @@ public class SizeToken extends AbstractNonEmptyToken<Race> implements
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		Formula res = context.getObjectContext().getFormula(race,
-				FormulaKey.SIZE);
+		Formula res = context.getObjectContext().getFormula(race, FormulaKey.SIZE);
 		if (res == null)
 		{
 			return null;
 		}
-		return new String[] { res.toString() };
+		return new String[]{res.toString()};
 	}
 
 	@Override

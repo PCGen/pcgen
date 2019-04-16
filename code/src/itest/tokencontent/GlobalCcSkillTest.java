@@ -17,7 +17,10 @@
  */
 package tokencontent;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.SkillCost;
@@ -27,13 +30,16 @@ import pcgen.cdom.facet.input.GlobalAddedSkillCostFacet;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Skill;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.CcskillLst;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.skill.ExclusiveToken;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalCcSkillTest extends AbstractContentTokenTest
 {
@@ -44,6 +50,7 @@ public class GlobalCcSkillTest extends AbstractContentTokenTest
 	private GlobalSkillCostFacet globalSkillCostFacet;
 	private Skill granted;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -61,26 +68,26 @@ public class GlobalCcSkillTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
 	}
 
 	@Test
-	public void testList() throws PersistenceLayerException
+	public void testList()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		ParseResult result = token.parseToken(context, source, "LIST");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_SKILL_TOKEN.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		PCClass wizard = create(PCClass.class, "Wizard");

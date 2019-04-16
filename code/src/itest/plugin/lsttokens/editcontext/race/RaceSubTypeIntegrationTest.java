@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.race;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Race;
 import pcgen.rules.persistence.CDOMLoader;
@@ -27,12 +25,14 @@ import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationT
 import plugin.lsttokens.race.RacesubtypeToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class RaceSubTypeIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Race>
 {
 
-	static RacesubtypeToken token = new RacesubtypeToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static RacesubtypeToken token = new RacesubtypeToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

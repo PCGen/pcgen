@@ -1,5 +1,4 @@
 /*
- * EquipCustomizerDialog.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 2013-09-19
- *
- * $Id$
  */
 package pcgen.gui2.dialog;
 
@@ -33,6 +28,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 import pcgen.facade.core.SpellBuilderFacade;
 import pcgen.gui2.equip.SpellChoicePanel;
@@ -40,25 +36,21 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>SpellChoiceDialog</code> provides a pop-up dialog that allows 
+ * The Class {@code SpellChoiceDialog} provides a pop-up dialog that allows
  * the user to select a spell for inclusion in things like custom equipment 
  * items.  
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
-public class SpellChoiceDialog extends JDialog
-		implements ActionListener
+public class SpellChoiceDialog extends JDialog implements ActionListener
 {
-	private SpellChoicePanel spellChoicePanel;
-	private JPanel buttonPanel;
-	private JButton okButton;
-	private JButton cancelButton;
+	private final SpellChoicePanel spellChoicePanel;
+	private final JPanel buttonPanel;
+	private final JButton okButton;
+	private final JButton cancelButton;
 	private boolean cancelled;
 
-	
 	/**
 	 * Create a new instance of SpellChoiceDialog
 	 * @param frame The parent frame we are displaying over.
@@ -74,7 +66,7 @@ public class SpellChoiceDialog extends JDialog
 		this.cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
 
 		this.spellChoicePanel = new SpellChoicePanel(builder);
-		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		initComponents();
 		pack();
 		Utility.resizeComponentToScreen(this);
@@ -86,7 +78,7 @@ public class SpellChoiceDialog extends JDialog
 		pane.setLayout(new BorderLayout());
 
 		pane.add(spellChoicePanel, BorderLayout.CENTER);
-		
+
 		okButton.addActionListener(this);
 		cancelButton.addActionListener(this);
 
@@ -98,7 +90,7 @@ public class SpellChoiceDialog extends JDialog
 		buttons.add(cancelButton);
 		buttons.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		pane.add(buttons, BorderLayout.SOUTH);
-		
+
 		Utility.installEscapeCloseOperation(this);
 	}
 

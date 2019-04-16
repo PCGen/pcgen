@@ -1,5 +1,4 @@
 /*
- * CompanionFacadeDelegate.java
  * Copyright 2012 (C) Connor Petty <cpmeister@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,37 +14,34 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Mar 18, 2012, 11:49:23 PM
  */
 package pcgen.gui2.facade;
 
 import java.io.File;
 
+import pcgen.core.Race;
 import pcgen.facade.core.CompanionFacade;
 import pcgen.facade.util.DefaultReferenceFacade;
-import pcgen.facade.core.RaceFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 
 /**
- * The <code>CompanionFacadeDelegate</code> is a <code>CompanionFacade</code>
+ * The {@code CompanionFacadeDelegate} is a {@code CompanionFacade}
  * implementation that delegates to another CompanionFacade.
  * All internal reference facades are themselves delegates to the underlying
  * CompanionFacade.
  * This class is used to help aid implementation of the
- * <code>CompanionSupportFacadeImpl</code>
+ * {@code CompanionSupportFacadeImpl}
  * @see pcgen.gui2.facade.CompanionSupportFacadeImpl
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CompanionFacadeDelegate implements CompanionFacade
 {
 
 	private CompanionFacade delegate;
-	private DelegateReferenceFacade<String> nameDelegate;
-	private DelegateReferenceFacade<File> fileDelegate;
-	private DelegateReferenceFacade<RaceFacade> raceDelegate;
+	private final DelegateReferenceFacade<String> nameDelegate;
+	private final DelegateReferenceFacade<File> fileDelegate;
+	private final DelegateReferenceFacade<Race> raceDelegate;
 
 	public CompanionFacadeDelegate()
 	{
@@ -69,7 +65,7 @@ public class CompanionFacadeDelegate implements CompanionFacade
 	{
 		return delegate;
 	}
-	
+
 	@Override
 	public ReferenceFacade<String> getNameRef()
 	{
@@ -83,7 +79,7 @@ public class CompanionFacadeDelegate implements CompanionFacade
 	}
 
 	@Override
-	public ReferenceFacade<RaceFacade> getRaceRef()
+	public ReferenceFacade<Race> getRaceRef()
 	{
 		return raceDelegate;
 	}
@@ -98,8 +94,7 @@ public class CompanionFacadeDelegate implements CompanionFacade
 		return delegate.getCompanionType();
 	}
 
-	private static class DelegateReferenceFacade<T> extends DefaultReferenceFacade<T>
-		implements ReferenceListener<T>
+	private static class DelegateReferenceFacade<T> extends DefaultReferenceFacade<T> implements ReferenceListener<T>
 	{
 
 		private ReferenceFacade<T> delegate;

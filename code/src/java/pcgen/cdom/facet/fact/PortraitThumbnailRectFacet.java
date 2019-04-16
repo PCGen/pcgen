@@ -1,5 +1,4 @@
 /*
- * PortraitThumbnailRectFacet.java
  * Copyright (c) James Dempsey 2011.
  * 
  * This program is free software; you can redistribute it and/or modify it under
@@ -28,7 +27,6 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * the character's portrait.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PortraitThumbnailRectFacet extends AbstractItemFacet<CharID, Rectangle>
 {

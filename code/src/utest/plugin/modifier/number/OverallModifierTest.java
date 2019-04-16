@@ -17,16 +17,18 @@
  */
 package plugin.modifier.number;
 
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.base.calculation.CalculationInfo;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
-public class OverallModifierTest
+class OverallModifierTest
 {
 
 	@Test
-	public void OverallModifierTest()
+	void testOverallModifier()
 	{
 		CalculationInfo<Number> add = new AddModifierFactory();
 		CalculationInfo<Number> mult = new MultiplyModifierFactory();

@@ -27,11 +27,9 @@ import pcgen.util.enumeration.Visibility;
 /**
  * Handles the VISIBLE token on an ABILITYCATEGORY line.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  */
-public class VisibleToken extends AbstractNonEmptyToken<AbilityCategory>
-		implements CDOMPrimaryToken<AbilityCategory>
+public class VisibleToken extends AbstractNonEmptyToken<AbilityCategory> implements CDOMPrimaryToken<AbilityCategory>
 {
 	@Override
 	public String getTokenName()
@@ -40,8 +38,7 @@ public class VisibleToken extends AbstractNonEmptyToken<AbilityCategory>
 	}
 
 	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context,
-			AbilityCategory ac, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, AbilityCategory ac, String value)
 	{
 		Visibility vis;
 		if (value.equals("YES"))
@@ -58,8 +55,7 @@ public class VisibleToken extends AbstractNonEmptyToken<AbilityCategory>
 		}
 		else
 		{
-			return new ParseResult.Fail("Unable to understand "
-					+ getTokenName() + " tag: " + value, context);
+			return new ParseResult.Fail("Unable to understand " + getTokenName() + " tag: " + value);
 		}
 		ac.setVisible(vis);
 		return ParseResult.SUCCESS;
@@ -84,12 +80,11 @@ public class VisibleToken extends AbstractNonEmptyToken<AbilityCategory>
 		}
 		else
 		{
-			context.addWriteMessage("Visibility " + vis
-					+ " is not a valid Visibility for "
-					+ ac.getClass().getSimpleName() + " " + ac.getKeyName());
+			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for "
+				+ ac.getClass().getSimpleName() + ' ' + ac.getKeyName());
 			return null;
 		}
-		return new String[] { visString };
+		return new String[]{visString};
 	}
 
 	@Override

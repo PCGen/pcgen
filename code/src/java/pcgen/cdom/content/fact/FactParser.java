@@ -19,6 +19,7 @@ package pcgen.cdom.content.fact;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
@@ -33,12 +34,11 @@ import pcgen.rules.persistence.token.ParseResult;
  * A FactParser is a dynamically built subtoken created when a FACT: is defined
  * 
  * @param <T>
- *            The type of of object upon which the FactParser can be used
+ *            The type of object upon which the FactParser can be used
  * @param <F>
- *            The format of the data stored in the Factt
+ *            The format of the data stored in the Fact
  */
-public class FactParser<T extends CDOMObject, F> extends
-		AbstractNonEmptyToken<T> implements CDOMSecondaryToken<T>
+public class FactParser<T extends CDOMObject, F> extends AbstractNonEmptyToken<T> implements CDOMSecondaryToken<T>
 {
 
 	/**
@@ -57,20 +57,12 @@ public class FactParser<T extends CDOMObject, F> extends
 	 */
 	public FactParser(FactInfo<T, F> fi)
 	{
-		if (fi == null)
-		{
-			throw new IllegalArgumentException("Fact Info cannot be null");
-		}
+		Objects.requireNonNull(fi, "Fact Info cannot be null");
 		def = fi;
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.AbstractNonEmptyToken#parseNonEmptyToken(pcgen.rules.context.LoadContext,
-	 *      java.lang.Object, java.lang.String)
-	 */
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, T obj,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, T obj, String value)
 	{
 		FactKey<F> fk = def.getFactKey();
 		if (Constants.LST_DOT_CLEAR.equals(value))
@@ -79,44 +71,30 @@ public class FactParser<T extends CDOMObject, F> extends
 		}
 		else
 		{
-			Indirect<F> indirect =
-					def.getFormatManager().convertIndirect(value);
+			Indirect<F> indirect = def.getFormatManager().convertIndirect(value);
 			context.getObjectContext().put(obj, fk, indirect);
 		}
 		return ParseResult.SUCCESS;
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.CDOMToken#getTokenClass()
-	 */
 	@Override
 	public Class<T> getTokenClass()
 	{
 		return def.getUsableLocation();
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.AbstractToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return def.getFactName();
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.CDOMSubToken#getParentToken()
-	 */
 	@Override
 	public String getParentToken()
 	{
 		return "FACT";
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.CDOMSecondaryToken#unparse(pcgen.rules.context.LoadContext,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public String[] unparse(LoadContext context, T obj)
 	{

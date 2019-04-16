@@ -14,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 29/09/2010 7:16:42 PM
- *
- * $Id: CharacterSheetInfoTab.java 14593 2011-02-23 06:16:07Z cpmeister $
  */
 package pcgen.gui2.tabs;
 
@@ -39,15 +35,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.event.ListDataEvent;
 
+import pcgen.core.GameMode;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentSetFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.TempBonusFacade;
+import pcgen.facade.util.ListFacades;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.facade.util.ListFacades;
 import pcgen.gui2.csheet.CharacterSheetPanel;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
@@ -61,22 +57,11 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>CharacterSheetInfoTab</code> is a placeholder for the
+ * The Class {@code CharacterSheetInfoTab} is a placeholder for the
  * character sheet tab.
- *
- * <br>
- * -0800 (Tue, 22 Feb 2011) $
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CharacterSheetInfoTab extends FlippingSplitPane implements CharacterInfoTab, DisplayAwareTab
 {
-
-	/**
-	 * Version for serialisation.
-	 */
-	private static final long serialVersionUID = -4957524684640929994L;
-
 	private final TabTitle tabTitle = new TabTitle(Tab.CHARACTERSHEET);
 	private final CharacterSheetPanel csheet;
 	private final JComboBox sheetBox;
@@ -93,7 +78,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 	{
 		super("CharSheet");
 		this.csheet = new CharacterSheetPanel();
-		this.sheetBox = new JComboBox();
+		this.sheetBox = new JComboBox<>();
 		this.equipSetTable = TableUtils.createDefaultTable();
 		this.equipSetRowTable = TableUtils.createDefaultTable();
 		this.tempBonusTable = TableUtils.createDefaultTable();
@@ -107,7 +92,8 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		{
 
 			@Override
-			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,
+				boolean cellHasFocus)
 			{
 				if (value instanceof File)
 				{
@@ -187,24 +173,23 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		/**
 		 * Prefs key for the character sheet for a game mode.
 		 */
-		private CharacterFacade character;
-		private ComboBoxModel model;
+		private final CharacterFacade character;
+		private final ComboBoxModel model;
 
 		public BoxHandler(CharacterFacade character)
 		{
 			this.character = character;
-			GameModeFacade game = character.getDataSet().getGameMode();
+			GameMode game = character.getDataSet().getGameMode();
 			String previewDir = ConfigurationSettings.getPreviewDir();
 			File sheetDir = new File(previewDir, game.getCharSheetDir());
 			if (sheetDir.exists() && sheetDir.isDirectory())
 			{
 				File[] files = sheetDir.listFiles(pathname -> pathname.isFile() && !pathname.isHidden());
-				Arrays.sort(files, (f1, f2) ->
-				{
+				Arrays.sort(files, (f1, f2) -> {
 					// TODO I18N Use a Collator
 					return f1.toString().compareToIgnoreCase(f2.toString());
 				});
-				model = new DefaultComboBoxModel(files);
+				model = new DefaultComboBoxModel<>(files);
 
 				File file = null;
 				String previewSheet = character.getPreviewSheetRef().toString();
@@ -228,7 +213,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			}
 			else
 			{
-				model = new DefaultComboBoxModel();
+				model = new DefaultComboBoxModel<>();
 			}
 			model.addListDataListener(this);
 		}
@@ -256,8 +241,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 	private class CSheetHandler implements ListListener<Object>, ReferenceListener<Object>
 	{
 
-		private CharacterFacade character;
-		private String sheetDir;
+		private final CharacterFacade character;
 
 		public CSheetHandler(CharacterFacade character)
 		{
@@ -267,49 +251,10 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		public void install()
 		{
 			csheet.setCharacter(character);
-
-//			character.getAgeCategoryRef().addReferenceListener(this);
-//			character.getAgeRef().addReferenceListener(this);
-//			character.getAlignmentRef().addReferenceListener(this);
-//			character.getCarriedWeightRef().addReferenceListener(this);
-//			character.getDeityRef().addReferenceListener(this);
-//			character.getGenderRef().addReferenceListener(this);
-//			character.getHandedRef().addReferenceListener(this);
-//			character.getLoadRef().addReferenceListener(this);
-//			character.getNameRef().addReferenceListener(this);
-//			character.getPlayersNameRef().addReferenceListener(this);
-//			character.getRaceRef().addReferenceListener(this);
-//			character.getStatTotalTextRef().addReferenceListener(this);
-//			character.getTotalHPRef().addReferenceListener(this);
-//			character.getXPRef().addReferenceListener(this);
-//
-//			character.getDomains().addListListener(this);
-//			character.getLanguages().addListListener(this);
-//			character.getTempBonuses().addListListener(this);
-//			character.getTemplates().addListListener(this);
 		}
 
 		public void uninstall()
 		{
-//			character.getAgeCategoryRef().removeReferenceListener(this);
-//			character.getAgeRef().removeReferenceListener(this);
-//			character.getAlignmentRef().removeReferenceListener(this);
-//			character.getCarriedWeightRef().removeReferenceListener(this);
-//			character.getDeityRef().removeReferenceListener(this);
-//			character.getGenderRef().removeReferenceListener(this);
-//			character.getHandedRef().removeReferenceListener(this);
-//			character.getLoadRef().removeReferenceListener(this);
-//			character.getNameRef().removeReferenceListener(this);
-//			character.getPlayersNameRef().removeReferenceListener(this);
-//			character.getRaceRef().removeReferenceListener(this);
-//			character.getStatTotalTextRef().removeReferenceListener(this);
-//			character.getTotalHPRef().removeReferenceListener(this);
-//			character.getXPRef().removeReferenceListener(this);
-//
-//			character.getDomains().removeListListener(this);
-//			character.getLanguages().removeListListener(this);
-//			character.getTempBonuses().removeListListener(this);
-//			character.getTemplates().removeListListener(this);
 		}
 
 		@Override
@@ -353,7 +298,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		 */
 		private static final long serialVersionUID = -2157540968522498242L;
 
-		private ListListener<TempBonusFacade> listener = new ListListener<TempBonusFacade>()
+		private final ListListener<TempBonusFacade> listener = new ListListener<TempBonusFacade>()
 		{
 
 			@Override

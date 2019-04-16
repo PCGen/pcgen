@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Feb 22, 2006
- *
- * $Id$
- *
  */
 package plugin.lsttokens.equipment;
 
@@ -33,19 +28,14 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>PageUsageToken</code> deals with PAGEUSAGE token
+ * {@code PageUsageToken} deals with PAGEUSAGE token
  * 
  * (Tue, 14 Mar 2006) $
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -53,14 +43,12 @@ public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		Equipment eq, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		context.getObjectContext().put(eq, FormulaKey.PAGE_USAGE, formula);
 		return ParseResult.SUCCESS;
@@ -69,13 +57,12 @@ public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		Formula f = context.getObjectContext().getFormula(eq,
-				FormulaKey.PAGE_USAGE);
+		Formula f = context.getObjectContext().getFormula(eq, FormulaKey.PAGE_USAGE);
 		if (f == null)
 		{
 			return null;
 		}
-		return new String[] { f.toString() };
+		return new String[]{f.toString()};
 	}
 
 	@Override

@@ -1,5 +1,4 @@
 /*
- * AddMenuItemToGMGenToolsMenuMessage.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 16/02/2014 10:16:37 pm
- *
- * $Id$
  */
 package gmgen.pluginmgr.messages;
 
@@ -30,9 +25,7 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class {@code AddMenuItemToGMGenToolsMenuMessage} encapsulates a
  * request for a menu item to be shown in the GMGen tools menu.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class AddMenuItemToGMGenToolsMenuMessage extends PCGenMessage
@@ -44,8 +37,7 @@ public class AddMenuItemToGMGenToolsMenuMessage extends PCGenMessage
 	 * @param source The object requesting the addition.
 	 * @param menuItem  The menu item to be added.
 	 */
-	public AddMenuItemToGMGenToolsMenuMessage(Object source,
-		JMenuItem menuItem)
+	public AddMenuItemToGMGenToolsMenuMessage(Object source, JMenuItem menuItem)
 	{
 		super(source);
 		this.menuItem = menuItem;

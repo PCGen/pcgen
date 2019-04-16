@@ -1,6 +1,5 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PObject.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -22,13 +21,16 @@ package pcgen.core.display;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PObject;
 
-
-public class DescriptionFormatting
+public final class DescriptionFormatting
 {
+
+	private DescriptionFormatting()
+	{
+	}
 
 	public static String piWrapDesc(PObject cdo, String desc, boolean useHeader)
 	{
-		if (cdo.getSafe(ObjectKey.DESC_PI) && desc.length() > 0)
+		if (cdo.getSafe(ObjectKey.DESC_PI) && !desc.isEmpty())
 		{
 			final StringBuilder sb = new StringBuilder(desc.length() + 30);
 

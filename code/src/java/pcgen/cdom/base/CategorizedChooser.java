@@ -1,6 +1,5 @@
 /*
  * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
- * derived from CategorizedPersistentChoiceActor.java
  * Copyright James Dempsey, 2012
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -42,7 +41,6 @@ public interface CategorizedChooser<T> extends Chooser<T>
 	 * @return A choice object of the appropriate type that was encoded in the
 	 *         given String.
 	 */
-	public T decodeChoice(LoadContext context, String persistentFormat,
-		Category<?> category);
+	public T decodeChoice(LoadContext context, String persistentFormat, Category<?> category);
 
 }

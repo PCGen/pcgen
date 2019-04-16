@@ -17,13 +17,18 @@
  */
 package pcgen.cdom.testsupport;
 
-import java.util.Set;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.util.Set;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
+
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractExtractingFacetTest<S, T> extends
 		AbstractSourcedListFacetTest<T>

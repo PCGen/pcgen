@@ -1,5 +1,4 @@
 /*
- * PreEquipTest.java
  *
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -17,22 +16,19 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 12-Jul-2004
  *
- * Current Ver: $Revision$
  * 
  * 
- *
  */
 package pcgen.persistence.lst.prereq;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
-
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreEquipParser;
+
+import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("nls")
 public class PreEquipTest extends EnUsLocaleDependentTestCase
@@ -49,9 +45,11 @@ public class PreEquipTest extends EnUsLocaleDependentTestCase
 
 		assertEquals(
 			"<prereq operator=\"LT\" operand=\"1\" >\n"
-				+ "<prereq kind=\"equip\" count-multiples=\"true\" key=\"TYPE=Armor.Medium\" operator=\"GTEQ\" operand=\"1\" >\n"
+				+ "<prereq kind=\"equip\" count-multiples=\"true\" "
+					+ "key=\"TYPE=Armor.Medium\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"equip\" count-multiples=\"true\" key=\"TYPE=Armor.Heavy\" operator=\"GTEQ\" operand=\"1\" >\n"
+				+ "<prereq kind=\"equip\" count-multiples=\"true\" "
+					+ "key=\"TYPE=Armor.Heavy\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 

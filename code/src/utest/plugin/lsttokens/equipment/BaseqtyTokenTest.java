@@ -28,7 +28,7 @@ public class BaseqtyTokenTest extends AbstractIntegerTokenTestCase<Equipment>
 {
 
 	static BaseqtyToken token = new BaseqtyToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

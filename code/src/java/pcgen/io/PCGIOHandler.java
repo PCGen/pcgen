@@ -1,5 +1,4 @@
 /*
- * PCGIOHandler.java
  * Copyright 2002 (C) Thomas Behr <ravenlock@gmx.de>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on March 11, 2002, 8:30 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.io;
@@ -34,12 +31,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
@@ -47,13 +44,12 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.AbilityCategory;
+import pcgen.core.Campaign;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SpecialAbility;
 import pcgen.core.character.EquipSet;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
@@ -62,14 +58,13 @@ import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.Nullable;
 
 /**
  * {@code PCGIOHandler}<br>
  * Reading and Writing PlayerCharacters in PCGen's own format (PCG).
  *
- * @author Thomas Behr 11-03-02
  */
 public final class PCGIOHandler extends IOHandler
 {
@@ -118,85 +113,6 @@ public final class PCGIOHandler extends IOHandler
 		return warnings;
 	}
 
-	public static void buildSALIST(String aChoice, List<String> aAvailable,
-								   List<String> aBonus, final PlayerCharacter currentPC)
-	{
-		// SALIST:Smite|VAR|%|1
-		// SALIST:Turn ,Rebuke|VAR|%|1
-		String aString;
-		String aPost = "";
-		int iOffs = aChoice.indexOf('|', 7);
-
-		if (iOffs < 0)
-		{
-			aString = aChoice;
-		}
-		else
-		{
-			aString = aChoice.substring(7, iOffs);
-			aPost = aChoice.substring(iOffs + 1);
-		}
-
-		final List<String> saNames = new ArrayList<>();
-		final StringTokenizer aTok = new StringTokenizer(aString, ",");
-
-		while (aTok.hasMoreTokens())
-		{
-			saNames.add(aTok.nextToken());
-		}
-
-		final List<SpecialAbility> aSAList = currentPC.getSpecialAbilityList();
-
-		for (String name : saNames)
-		{
-			for (SpecialAbility sa : aSAList)
-			{
-				String aSA = sa.getKeyName();
-
-				if (aSA.startsWith(aString))
-				{
-					String aVar = "";
-
-					//
-					// Trim off variable portion of SA, and save variable name
-					// (eg. "Smite Evil %/day|SmiteEvil" --> aSA = "Smite Evil", aVar = "SmiteEvil")
-					//
-					iOffs = aSA.indexOf('|');
-
-					if (iOffs >= 0)
-					{
-						aVar = aSA.substring(iOffs + 1);
-						iOffs = aSA.indexOf('%');
-
-						if (iOffs >= 0)
-						{
-							aSA = aSA.substring(0, iOffs).trim();
-						}
-					}
-
-					if (!aAvailable.contains(aSA))
-					{
-						aAvailable.add(aSA);
-
-						//
-						// Check for variable substitution
-						//
-						iOffs = aPost.indexOf('%');
-
-						if (iOffs >= 0)
-						{
-							aVar =
-									aPost.substring(0, iOffs) + aVar
-									+ aPost.substring(iOffs + 1);
-						}
-
-						aBonus.add(aSA + "|" + aVar);
-					}
-				}
-			}
-		}
-	}
-
 	/**
 	 * Reads the contents of the given PlayerCharacter from a stream
 	 * <p>
@@ -206,9 +122,8 @@ public final class PCGIOHandler extends IOHandler
 	 * @param in         the stream to be read from
 	 * @param validate
 	 */
-    @Override
-	public void read(PlayerCharacter pcToBeRead, InputStream in,
-					 final boolean validate)
+	@Override
+	public void read(PlayerCharacter pcToBeRead, InputStream in, final boolean validate)
 	{
 		warnings.clear();
 
@@ -228,11 +143,9 @@ public final class PCGIOHandler extends IOHandler
 			}
 			catch (PCGParseException pcgex)
 			{
-				Logging.errorPrint("Error loading character: "
-					+ pcgex.getMessage() + "\n Method " + pcgex.getMethod()
+				Logging.errorPrint("Error loading character: " + pcgex.getMessage() + "\n Method " + pcgex.getMethod()
 					+ " was unable to parse line " + pcgex.getLine());
-				errors.add(LanguageBundle.getFormattedString(
-					"in_pcgIoErrorReport", pcgex.getMessage())); //$NON-NLS-1$
+				errors.add(LanguageBundle.getFormattedString("in_pcgIoErrorReport", pcgex.getMessage())); //$NON-NLS-1$
 			}
 
 			warnings.addAll(parser.getWarnings());
@@ -247,8 +160,7 @@ public final class PCGIOHandler extends IOHandler
 			}
 			catch (NumberFormatException ex)
 			{
-				errors.add(ex.getMessage() + Constants.LINE_SEPARATOR
-						+ "Method: sanityChecks");
+				errors.add(ex.getMessage() + Constants.LINE_SEPARATOR + "Method: sanityChecks");
 			}
 
 			pcToBeRead.setDirty(false);
@@ -273,7 +185,7 @@ public final class PCGIOHandler extends IOHandler
 
 	/**
 	 * @param in
-	 * @return
+	 * @return String lines
 	 */
 	private List<String> readPcgLines(InputStream in)
 	{
@@ -284,7 +196,7 @@ public final class PCGIOHandler extends IOHandler
 
 		try
 		{
-			br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+			br = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8));
 
 			String aLine;
 
@@ -302,14 +214,14 @@ public final class PCGIOHandler extends IOHandler
 		{
 			try
 			{
-				if (br != null) {
+				if (br != null)
+				{
 					br.close();
 				}
 			}
 			catch (IOException e)
 			{
-				Logging.errorPrint("Couldn't close file in PCGIOHandler.read",
-								   e);
+				Logging.errorPrint("Couldn't close file in PCGIOHandler.read", e);
 			}
 		}
 		return lines;
@@ -325,8 +237,9 @@ public final class PCGIOHandler extends IOHandler
 	 * @param pcToBeWritten the PlayerCharacter to write
 	 * @param out           the stream to be written to
 	 */
-    @Override
-	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<CampaignFacade> campaigns, OutputStream out)
+	@Deprecated
+	@Override
+	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<Campaign> campaigns, OutputStream out)
 	{
 		final String pcgString;
 		pcgString = (new PCGVer2Creator(pcToBeWritten, mode, campaigns)).createPCGString();
@@ -335,58 +248,7 @@ public final class PCGIOHandler extends IOHandler
 
 		try
 		{
-			bw = new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
-			bw.write(pcgString);
-			bw.flush();
-
-			pcToBeWritten.setDirty(false);
-		}
-		catch (IOException ioe)
-		{
-			Logging.errorPrint("Exception in PCGIOHandler::write", ioe);
-		}
-		finally
-		{
-			try
-			{
-				if (bw != null) {
-					bw.close();
-				}
-			}
-			catch (IOException e)
-			{
-				Logging.errorPrint("Couldn't close file in PCGIOHandler.write",
-								   e);
-			}
-		}
-	}
-
-	/**
-	 * Writes the contents of the given PlayerCharacter to a file. This method also includes
-	 * safely backing up the original character file, but only once we know we have 
-	 * successfully exported the character to a string ready for writing. This means that if 
-	 * the save fails, the file system is untouched.
-	 * 
-	 * @param pcToBeWritten the PlayerCharacter to write
-	 * @param mode          The character's game mode.
-	 * @param campaigns     The character's sources.
-	 * @param outFile       The file to write the character to.
-	 */
-	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<CampaignFacade> campaigns, File outFile)
-	{
-		final String pcgString;
-		pcgString = (new PCGVer2Creator(pcToBeWritten, mode, campaigns)).createPCGString();
-
-		// Do backup now that we have the character ready to save
-		createBackupForFile(outFile);
-		
-		// Now save the character
-		BufferedWriter bw = null;
-
-		try
-		{
-			FileOutputStream out = new FileOutputStream(outFile);
-			bw = new BufferedWriter(new OutputStreamWriter(out, "UTF-8"));
+			bw = new BufferedWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8));
 			bw.write(pcgString);
 			bw.flush();
 
@@ -407,8 +269,58 @@ public final class PCGIOHandler extends IOHandler
 			}
 			catch (IOException e)
 			{
-				Logging.errorPrint("Couldn't close file in PCGIOHandler.write",
-								   e);
+				Logging.errorPrint("Couldn't close file in PCGIOHandler.write", e);
+			}
+		}
+	}
+
+	/**
+	 * Writes the contents of the given PlayerCharacter to a file. This method also includes
+	 * safely backing up the original character file, but only once we know we have 
+	 * successfully exported the character to a string ready for writing. This means that if 
+	 * the save fails, the file system is untouched.
+	 * 
+	 * @param pcToBeWritten the PlayerCharacter to write
+	 * @param mode          The character's game mode.
+	 * @param campaigns     The character's sources.
+	 * @param outFile       The file to write the character to.
+	 */
+	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<Campaign> campaigns, File outFile)
+	{
+		final String pcgString;
+		pcgString = (new PCGVer2Creator(pcToBeWritten, mode, campaigns)).createPCGString();
+
+		// Do backup now that we have the character ready to save
+		createBackupForFile(outFile);
+
+		// Now save the character
+		BufferedWriter bw = null;
+
+		try
+		{
+			FileOutputStream out = new FileOutputStream(outFile);
+			bw = new BufferedWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8));
+			bw.write(pcgString);
+			bw.flush();
+
+			pcToBeWritten.setDirty(false);
+		}
+		catch (IOException ioe)
+		{
+			Logging.errorPrint("Exception in PCGIOHandler::write", ioe);
+		}
+		finally
+		{
+			try
+			{
+				if (bw != null)
+				{
+					bw.close();
+				}
+			}
+			catch (IOException e)
+			{
+				Logging.errorPrint("Couldn't close file in PCGIOHandler.write", e);
 			}
 		}
 	}
@@ -424,7 +336,7 @@ public final class PCGIOHandler extends IOHandler
 		boolean fixMade = false;
 
 		resolveDuplicateEquipmentSets(currentPC);
-		
+
 		// First make sure the "working" equipment list
 		// is in effect for all the bonuses it may add
 		currentPC.setCalcEquipmentList();
@@ -435,8 +347,6 @@ public final class PCGIOHandler extends IOHandler
 		// pre-calculate all the bonuses
 		currentPC.calcActiveBonuses();
 
-		int iSides;
-		int iRoll;
 		final int oldHp = currentPC.hitPoints();
 
 		// Recalc the feat pool if required
@@ -452,8 +362,8 @@ public final class PCGIOHandler extends IOHandler
 		{
 			if (aFeat.getAbility().getSafe(ObjectKey.MULTIPLE_ALLOWED) && !currentPC.hasAssociations(aFeat))
 			{
-				warnings.add("Multiple selection feat found with no selections ("
-						+ aFeat.getAbility().getDisplayName() + "). Correct on Feat tab.");
+				warnings.add("Multiple selection feat found with no selections (" + aFeat.getAbility().getDisplayName()
+					+ "). Correct on Feat tab.");
 			}
 		}
 
@@ -479,11 +389,8 @@ public final class PCGIOHandler extends IOHandler
 					//TODO i-1 is strange see CODE-1925
 					PCClassLevel pcl = currentPC.getActiveClassLevel(pcClass, i - 1);
 					Integer hp = currentPC.getHP(pcl);
-					iRoll = hp == null ? 0 : hp;
-					iSides =
-							baseSides
-							+ (int) pcClass.getBonusTo("HD", "MAX", i,
-													   currentPC);
+					int iRoll = hp == null ? 0 : hp;
+					int iSides = baseSides + (int) pcClass.getBonusTo("HD", "MAX", i, currentPC);
 
 					if (iRoll > iSides)
 					{
@@ -496,10 +403,8 @@ public final class PCGIOHandler extends IOHandler
 
 		if (fixMade)
 		{
-			final String message =
-					"Fixed illegal value in hit points. "
-					+ "Current character hit points: " + currentPC.hitPoints()
-					+ " not " + oldHp;
+			final String message = "Fixed illegal value in hit points. " + "Current character hit points: "
+				+ currentPC.hitPoints() + " not " + oldHp;
 			warnings.add(message);
 		}
 
@@ -537,8 +442,7 @@ public final class PCGIOHandler extends IOHandler
 	private void resolveDuplicateEquipmentSets(PlayerCharacter currentPC)
 	{
 		boolean anyMoved = false;
-		Iterable<EquipSet> equipSetList =
-				new ArrayList<>(currentPC.getDisplay().getEquipSet());
+		Iterable<EquipSet> equipSetList = new ArrayList<>(currentPC.getDisplay().getEquipSet());
 		Map<String, EquipSet> idMap = new HashMap<>();
 		for (final EquipSet es : equipSetList)
 		{
@@ -549,10 +453,9 @@ public final class PCGIOHandler extends IOHandler
 				EquipSet esToBeMoved = chooseItemToBeMoved(existingEs, es);
 				if (esToBeMoved == null)
 				{
-					warnings.add(String.format(
-						"Found two equipment items equipped to the "
-							+ "path %s. Items were %s and %s.", idPath,
-						es.getItem(), existingEs.getItem()));
+					warnings.add(
+						String.format("Found two equipment items equipped to the " + "path %s. Items were %s and %s.",
+							idPath, es.getItem(), existingEs.getItem()));
 					continue;
 				}
 
@@ -562,35 +465,30 @@ public final class PCGIOHandler extends IOHandler
 
 				// As we always move the non container, move any items it 
 				// erroneously held to the item remaining in place
-				for (int j =
-						esToBeMoved.getItem().getContainedEquipmentCount() - 1; j >= 0; j--)
+				for (int j = esToBeMoved.getItem().getContainedEquipmentCount() - 1; j >= 0; j--)
 				{
-					Equipment containedItem =
-							esToBeMoved.getItem().getContainedEquipment(j);
+					Equipment containedItem = esToBeMoved.getItem().getContainedEquipment(j);
 					esToBeMoved.getItem().removeChild(currentPC, containedItem);
 					esStaying.getItem().insertChild(currentPC, containedItem);
 				}
 
-				Logging.log(Logging.WARNING, String.format(
-					"Moved item %s from path %s to %s as it "
-						+ "clashed with %s", esToBeMoved.getItem(), idPath,
-					esToBeMoved.getIdPath(),
-					esToBeMoved == es ? existingEs.getItem() : es.getItem()));
+				Logging.log(Logging.WARNING,
+					String.format("Moved item %s from path %s to %s as it " + "clashed with %s", esToBeMoved.getItem(),
+						idPath, esToBeMoved.getIdPath(), esToBeMoved == es ? existingEs.getItem() : es.getItem()));
 				idMap.put(es.getIdPath(), es);
 				idMap.put(existingEs.getIdPath(), existingEs);
 				anyMoved = true;
-					
+
 			}
 			else
 			{
 				idMap.put(idPath, es);
 			}
 		}
-		
+
 		if (anyMoved)
 		{
-			warnings.add("Some equipment was moved as it was incorrectly stored."
-				+ " Please see the log for details.");
+			warnings.add("Some equipment was moved as it was incorrectly stored." + " Please see the log for details.");
 		}
 	}
 
@@ -675,10 +573,7 @@ public final class PCGIOHandler extends IOHandler
 	{
 		String versionLine = "VERSION:" + PCGenPropBundle.getVersionNumber();
 		String[] files = new String[characterFiles.size()];
-		for (int i = 0; i < files.length; i++)
-		{
-			files[i] = FileHelper.findRelativePath(partyFile, characterFiles.get(i));
-		}
+		Arrays.setAll(files, i -> FileHelper.findRelativePath(partyFile, characterFiles.get(i)));
 		String filesLine = StringUtils.join(files, ',');
 		try
 		{
@@ -722,8 +617,7 @@ public final class PCGIOHandler extends IOHandler
 				}
 				catch (NullPointerException e)
 				{
-					Logging.errorPrint(
-							"Could not create file inputStream IOHandler::readSources", e);
+					Logging.errorPrint("Could not create file inputStream IOHandler::readSources", e);
 				}
 			}
 		}
@@ -752,8 +646,8 @@ public final class PCGIOHandler extends IOHandler
 			}
 			catch (PCGParseException pcgex)
 			{
-				errors.add(pcgex.getMessage() + Constants.LINE_SEPARATOR + "Method: "
-						+ pcgex.getMethod() + '\n' + "Line: " + pcgex.getLine());
+				errors.add(pcgex.getMessage() + Constants.LINE_SEPARATOR + "Method: " + pcgex.getMethod() + '\n'
+					+ "Line: " + pcgex.getLine());
 			}
 
 			warnings.addAll(parser.getWarnings());

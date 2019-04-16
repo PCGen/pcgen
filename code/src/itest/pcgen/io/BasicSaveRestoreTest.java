@@ -19,8 +19,6 @@ package pcgen.io;
 
 import java.util.Arrays;
 
-import org.junit.Test;
-
 import pcgen.core.Deity;
 import pcgen.core.GameMode;
 import pcgen.core.NoteItem;
@@ -29,7 +27,11 @@ import pcgen.core.PCTemplate;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.io.testsupport.AbstractSaveRestoreTest;
+import pcgen.output.channel.compat.AlignmentCompat;
 import plugin.lsttokens.pcclass.HdToken;
+
+import org.junit.jupiter.api.Test;
+
 
 public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 {
@@ -66,7 +68,7 @@ public class BasicSaveRestoreTest extends AbstractSaveRestoreTest
 	public void testAlignment()
 	{
 		finishLoad();
-		pc.setAlignment(le);
+		AlignmentCompat.setCurrentAlignment(pc.getCharID(), le);
 		runRoundRobin(null);
 	}
 

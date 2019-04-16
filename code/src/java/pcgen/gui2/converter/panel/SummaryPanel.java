@@ -1,5 +1,4 @@
 /*
- * SummaryPanel.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18/01/2009 9:35:28 AM
- *
- * $Id$
  */
 
 package pcgen.gui2.converter.panel;
@@ -44,27 +39,20 @@ import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FontManipulation;
 
 /**
- * The Class <code>SummaryPanel</code> presents a summary of the user's 
+ * The Class {@code SummaryPanel} presents a summary of the user's
  * choices for confirmation before running a conversion process.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SummaryPanel extends ConvertSubPanel
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#autoAdvance(pcgen.cdom.base.CDOMObject)
-	 */
 	@Override
 	public boolean autoAdvance(CDOMObject pc)
 	{
 		return false;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#performAnalysis(pcgen.cdom.base.CDOMObject)
-	 */
 	@Override
 	public boolean performAnalysis(CDOMObject pc)
 	{
@@ -72,9 +60,6 @@ public class SummaryPanel extends ConvertSubPanel
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#setupDisplay(javax.swing.JPanel, pcgen.cdom.base.CDOMObject)
-	 */
 	@Override
 	public void setupDisplay(JPanel panel, CDOMObject pc)
 	{
@@ -82,28 +67,24 @@ public class SummaryPanel extends ConvertSubPanel
 
 		JLabel introLabel = new JLabel("Ready to convert.");
 		GridBagConstraints gbc = new GridBagConstraints();
-		Utility
-			.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
-				1.0, 0, GridBagConstraints.HORIZONTAL,
-				GridBagConstraints.NORTHWEST);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0, GridBagConstraints.HORIZONTAL,
+			GridBagConstraints.NORTHWEST);
 		gbc.insets = new Insets(50, 25, 10, 25);
 		panel.add(introLabel, gbc);
 
 		JLabel instructLabel = new JLabel("Press Next to begin converting using the following settings:");
-		Utility
-			.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
-				1.0, 0, GridBagConstraints.HORIZONTAL,
-				GridBagConstraints.NORTHWEST);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0, GridBagConstraints.HORIZONTAL,
+			GridBagConstraints.NORTHWEST);
 		gbc.insets = new Insets(10, 25, 20, 25);
 		panel.add(instructLabel, gbc);
 
-		JLabel labels[] = new JLabel[4];
-		JComponent values[] = new JComponent[4];
+		JLabel[] labels = new JLabel[4];
+		JComponent[] values = new JComponent[4];
 		labels[0] = new JLabel("Source Folder:");
 		labels[1] = new JLabel("Destination Folder:");
 		labels[2] = new JLabel("Game mode:");
 		labels[3] = new JLabel("Sources:");
-		
+
 		values[0] = new JLabel(pc.get(ObjectKey.DIRECTORY).getAbsolutePath());
 		values[1] = new JLabel(pc.get(ObjectKey.WRITE_DIRECTORY).getAbsolutePath());
 		values[2] = new JLabel(pc.get(ObjectKey.GAME_MODE).getDisplayName());
@@ -116,11 +97,11 @@ public class SummaryPanel extends ConvertSubPanel
 		}
 		JTextArea campText = new JTextArea(campDisplay.toString());
 		campText.setEditable(false);
-		JScrollPane scrollPane = new JScrollPane(campText); 
+		JScrollPane scrollPane = new JScrollPane(campText);
 		values[3] = scrollPane;
 
 		// Place the labels on the page and lay them out
-		Font plainFont = FontManipulation.plain(panel.getFont()); 
+		Font plainFont = FontManipulation.plain(panel.getFont());
 		for (int i = 0; i < labels.length; i++)
 		{
 			Utility.buildRelativeConstraints(gbc, 1, 1, 0, 0, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST);
@@ -128,18 +109,13 @@ public class SummaryPanel extends ConvertSubPanel
 			panel.add(labels[i], gbc);
 			if (i < labels.length - 1)
 			{
-				Utility
-					.buildRelativeConstraints(gbc,
-						GridBagConstraints.REMAINDER, 1, 1.0, 0,
-						GridBagConstraints.HORIZONTAL,
-						GridBagConstraints.NORTHWEST);
+				Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0,
+					GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST);
 			}
 			else
 			{
-				Utility.buildRelativeConstraints(gbc,
-					GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER,
-					1.0, 1.0, GridBagConstraints.BOTH,
-					GridBagConstraints.NORTHWEST);
+				Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER, 1.0,
+					1.0, GridBagConstraints.BOTH, GridBagConstraints.NORTHWEST);
 			}
 			gbc.insets = new Insets(10, 10, 10, 25);
 			panel.add(values[i], gbc);

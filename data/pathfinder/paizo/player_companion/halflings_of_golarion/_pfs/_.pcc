@@ -8,13 +8,15 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SOURCELONG:Halflings of Golarion
+SOURCELONG:Pathfinder Player Companion: Halflings of Golarion
 SOURCESHORT:HAOG
-SOURCEWEB:http://paizo.com/products/btpy8i8p?Pathfinder-Player-Companion-Halflings-of-Golarion
+SOURCELONG:Pathfinder Player Companion: Halflings of Golarion
 SOURCEDATE:2010-12
 ISOGL:YES
 
@@ -22,7 +24,7 @@ ISOGL:YES
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/products/btpy8i8p?Pathfinder-Player-Companion-Halflings-of-Golarion|Buy this publication from Paizo Publishing!
+URL:Paizo Publishing|http://paizo.com/products/btpy8i8p|Buy this publication from Paizo Publishing!
 DESC:Since the birth of modern fantasy fiction, halflings have been the incongruous, pint-sized adventurers at the center of it all, constantly overlooked and dismissed by their enemies, only to end up overcoming all odds. Nowhere is this more true than in the Player Companion, where plucky and courageous halflings do their best to integrate into the societies of larger races, where they're frequently preyed upon by slavers and malicious employers. Yet despite such adversity, halflings maintain a notoriously positive outlook and an uncanny knack for being in the right place at the right time. Those who disregard halflings based on their size do so at their peril, for you never know when that smiling servant might slip your coins into his pocket-or his knife into your back. Put some hair on your toes with this new Player Companion.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.

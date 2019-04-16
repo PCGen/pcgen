@@ -17,9 +17,12 @@
  */
 package pcgen.output.model;
 
+import java.util.Objects;
+import java.util.function.Supplier;
+
 import pcgen.base.math.OrderedPair;
-import pcgen.base.util.Reference;
 import pcgen.output.base.SimpleWrapperLibrary;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateScalarModel;
@@ -29,8 +32,7 @@ import freemarker.template.TemplateSequenceModel;
  * A OrderedPairModel wraps a OrderedPair object into a TemplateScalarModel and
  * TemplateSequenceModel (of length 2).
  */
-public class OrderedPairModel implements TemplateScalarModel,
-		TemplateSequenceModel, Reference<OrderedPair>
+public class OrderedPairModel implements TemplateScalarModel, TemplateSequenceModel, Supplier<OrderedPair>
 {
 
 	/**
@@ -45,10 +47,7 @@ public class OrderedPairModel implements TemplateScalarModel,
 	 */
 	public OrderedPairModel(OrderedPair point)
 	{
-		if (point == null)
-		{
-			throw new IllegalArgumentException("OrderedPair cannot be null");
-		}
+		Objects.requireNonNull(point, "OrderedPair cannot be null");
 		this.point = point;
 	}
 

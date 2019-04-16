@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens.deprecated;
 
@@ -46,21 +41,14 @@ public class DomainToken extends Token
 	/** Token Name */
 	public static final String TOKENNAME = "DOMAIN";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -72,8 +60,7 @@ public class DomainToken extends Token
 
 			try
 			{
-				domainIndex =
-						Math.max(0, Integer.parseInt(aTok.nextToken()) - 1);
+				domainIndex = Math.max(0, Integer.parseInt(aTok.nextToken()) - 1);
 			}
 			catch (Exception e)
 			{
@@ -107,9 +94,8 @@ public class DomainToken extends Token
 	{
 		try
 		{
-			Domain domain =
-					new ArrayList<>(display.getSortedDomainSet()).get(domainIndex);
-	
+			Domain domain = new ArrayList<>(display.getSortedDomainSet()).get(domainIndex);
+
 			return OutputNameFormatting.getOutputName(domain);
 		}
 		catch (Exception e)
@@ -128,8 +114,7 @@ public class DomainToken extends Token
 	{
 		try
 		{
-			Domain domain =
-					new ArrayList<>(pc.getDisplay().getSortedDomainSet()).get(domainIndex);
+			Domain domain = new ArrayList<>(pc.getDisplay().getSortedDomainSet()).get(domainIndex);
 
 			return DescriptionFormatting.piWrapDesc(domain, pc.getDescription(domain), true);
 		}

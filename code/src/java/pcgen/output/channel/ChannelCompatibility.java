@@ -24,6 +24,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.output.channel.compat.StatAdapter;
+import pcgen.rules.context.LoadContext;
 
 /**
  * ChannelCompatibility is a class used to get the appropriate WriteableReferenceFacade
@@ -49,19 +50,17 @@ public final class ChannelCompatibility
 	 * @return The acting WriteableReferenceFacade based on whether the STATINPUT code
 	 *         control has been used
 	 */
-	public static WriteableReferenceFacade<Number> getStatScore(CharID id,
-		PCStat stat)
+	public static WriteableReferenceFacade<Number> getStatScore(CharID id, PCStat stat)
 	{
-		String channelName = ControlUtilities
-			.getControlToken(Globals.getContext(), CControl.STATINPUT);
+		LoadContext context = Globals.getContext();
+		String channelName = ControlUtilities.getControlToken(context, CControl.STATINPUT);
 		if (channelName == null)
 		{
 			return StatAdapter.generate(id, stat);
 		}
 		else
 		{
-			return (WriteableReferenceFacade<Number>) ChannelUtilities
-				.getChannel(id, stat, channelName);
+			return (WriteableReferenceFacade<Number>) context.getVariableContext().getChannel(id, stat, channelName);
 		}
 	}
 }

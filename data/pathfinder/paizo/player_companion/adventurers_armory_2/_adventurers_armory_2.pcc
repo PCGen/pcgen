@@ -1,0 +1,69 @@
+CAMPAIGN:Adventurer's Armory 2
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Campaign Setting
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Pathfinder Player Companion: Adventurer's Armory 2
+SOURCESHORT:AA2
+SOURCEWEB:http://paizo.com/products/btpy9tom
+SOURCEDATE:2017-06
+ISOGL:YES
+
+COVER:adventurers_armory_2.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9tom|Buy this publication from Paizo Publishing!
+DESC:Armed for Adventure! Following in the tradition of the most popular Pathfinder Player Companion of all time, Adventurer's Armory 2 is a comprehensive guide to equipment of all sorts. Containing a wide array of new adventuring gear, alchemical items, armor, clothing options, magic items,poisons, tools, traps, and weapons to outfit any character, this guide is a welcome addition to any armory. Whether you're looking to gain the edge in combat or fit in to a social situation, Pathfinder Player Companion: Adventurer's Armory 2 has you covered!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Rot Grub from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Player Companion: Adventurer's Armory 2 Copyright 2017, Paizo Inc.; Authors: Jenny Jarzabski, Mikko Kallio, Isabelle Lee, Luis Loza, Joe Pasini, David N. Ross, and Linda Zayas-Palmer.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Adventurer's Armory 2" Copyright 2017, PCGen Data team (Including, but not limited to Gwen T.)
+
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITYCATEGORY:aa2_abilitycategories.lst
+ABILITY:aa2_abilities.lst
+ABILITY:aa2_abilities_race.lst
+EQUIPMENT:aa2_equip_arms_armor.lst
+EQUIPMENT:aa2_equip_general.lst
+EQUIPMENT:aa2_equip_magic_items.lst
+EQUIPMOD:aa2_equipmods.lst
+ABILITY:aa2_feats.lst
+KIT:aa2_kits.lst
+KIT:aa2_kits_race.lst
+SPELL:aa2_spells.lst
+RACE:aa2_races.lst
+TEMPLATE:aa2_templates.lst
+
+ARMORPROF:aa2_profs_armor.lst
+WEAPONPROF:aa2_profs_weapon.lst
+
+INFOTEXT:Supports 6.07.01
+# ENTRY DATE: 2017-06
+# LST MONKEY: Gwen T. (evilpixie87)
+# RELEASE REVIEW #
+# LICENSE: Paul Grosse
+# BETA: Andrew Maitland (LegacyKing)
+# RELEASE:
+# Built for PCGen Version: 6.07.03
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.1
+# COMMENTS:
+
+#
+# End
+#

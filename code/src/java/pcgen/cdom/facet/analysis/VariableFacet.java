@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.analysis;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Iterator;
@@ -24,7 +25,6 @@ import java.util.Map;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.VariableKey;
@@ -38,10 +38,8 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * VariableFacet is a Facet that tracks the Variables that are contained in a
  * Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class VariableFacet extends AbstractStorageFacet<CharID> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class VariableFacet extends AbstractStorageFacet<CharID> implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private FormulaResolvingFacet formulaResolvingFacet;
 
@@ -58,8 +56,6 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -84,8 +80,6 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -96,16 +90,11 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 	private void add(CharID id, VariableKey vk, Formula formula, CDOMObject cdo)
 	{
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> map = getConstructingCachedMap(id);
-		Map<Formula, Set<CDOMObject>> subMap = map.get(vk);
-		if (subMap == null)
-		{
-			subMap = new HashMap<>();
-			map.put(vk, subMap);
-		}
-		Set<CDOMObject> sources = subMap.get(formula);
+        Map<Formula, Set<CDOMObject>> subMap = map.computeIfAbsent(vk, k -> new HashMap<>());
+        Set<CDOMObject> sources = subMap.get(formula);
 		if (sources == null)
 		{
-			sources = new WrappedMapSet<>(IdentityHashMap.class);
+			sources = Collections.newSetFromMap(new IdentityHashMap<>());
 			subMap.put(formula, sources);
 		}
 		sources.add(cdo);
@@ -126,8 +115,8 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 	 *         null if no information has been set in this VariableFacet for the
 	 *         Player Character
 	 */
-	private Map<VariableKey, Map<Formula, Set<CDOMObject>>> getCachedMap(
-			CharID id)
+	@SuppressWarnings("unchecked")
+	private Map<VariableKey, Map<Formula, Set<CDOMObject>>> getCachedMap(CharID id)
 	{
 		return (Map<VariableKey, Map<Formula, Set<CDOMObject>>>) getCache(id);
 	}
@@ -145,8 +134,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 	 *            The CharID for which the Map should be returned
 	 * @return The Map for the Player Character represented by the given CharID
 	 */
-	private Map<VariableKey, Map<Formula, Set<CDOMObject>>> getConstructingCachedMap(
-			CharID id)
+	private Map<VariableKey, Map<Formula, Set<CDOMObject>>> getConstructingCachedMap(CharID id)
 	{
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> componentMap = getCachedMap(id);
 		if (componentMap == null)
@@ -174,19 +162,10 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> vkMap = getCachedMap(id);
 		if (vkMap != null)
 		{
-			for (Iterator<Map<Formula, Set<CDOMObject>>> mit = vkMap.values()
-					.iterator(); mit.hasNext();)
+			for (Iterator<Map<Formula, Set<CDOMObject>>> mit = vkMap.values().iterator(); mit.hasNext();)
 			{
 				Map<Formula, Set<CDOMObject>> fMap = mit.next();
-				for (Iterator<Set<CDOMObject>> sit = fMap.values().iterator(); sit
-						.hasNext();)
-				{
-					Set<CDOMObject> set = sit.next();
-					if (set.remove(source) && set.isEmpty())
-					{
-						sit.remove();
-					}
-				}
+				fMap.values().removeIf(set -> set.remove(source) && set.isEmpty());
 				if (fMap.isEmpty())
 				{
 					mit.remove();
@@ -206,7 +185,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 	 *            The CharID identifying the Player Character for which the
 	 *            numeric variable value is to be returned
 	 * @param key
-	 *            The VariableKey identifying the variable which which the value
+	 *            The VariableKey identifying the variable which the value
 	 *            is to be returned
 	 * @param isMax
 	 *            Used to determine if this method returns the maximum (true) or
@@ -235,8 +214,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 			Set<CDOMObject> sources = me.getValue();
 			for (CDOMObject source : sources)
 			{
-				double newVal = formulaResolvingFacet.resolve(id, f,
-						source.getQualifiedKey()).doubleValue();
+				double newVal = formulaResolvingFacet.resolve(id, f, source.getQualifiedKey()).doubleValue();
 				if (returnValue == null)
 				{
 					returnValue = newVal;
@@ -269,7 +247,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> vkMap = getCachedMap(id);
 		return (vkMap != null) && vkMap.containsKey(vk);
 	}
-	
+
 	public int getVariableCount(CharID id)
 	{
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> vkMap = getCachedMap(id);
@@ -326,19 +304,11 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> cm = getCachedMap(source);
 		if (cm != null)
 		{
-			for (Map.Entry<VariableKey, Map<Formula, Set<CDOMObject>>> me : cm
-				.entrySet())
+			for (Map.Entry<VariableKey, Map<Formula, Set<CDOMObject>>> me : cm.entrySet())
 			{
-				VariableKey vk = me.getKey();
-				for (Map.Entry<Formula, Set<CDOMObject>> fme : me.getValue()
-					.entrySet())
-				{
-					Formula f = fme.getKey();
-					for (CDOMObject cdo : fme.getValue())
-					{
-						add(copy, vk, f, cdo);
-					}
-				}
+				VariableKey variableKey = me.getKey();
+				me.getValue()
+						.forEach((f, value) -> value.forEach(cdo -> add(copy, variableKey, f, cdo)));
 			}
 		}
 	}

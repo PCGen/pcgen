@@ -17,24 +17,25 @@
  */
 package plugin.lsttokens.deity;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.WeaponProf;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class DeityWeapTokenTest extends
-		AbstractListTokenTestCase<Deity, WeaponProf>
+import org.junit.jupiter.api.Test;
+
+public class DeityWeapTokenTest extends AbstractListInputTokenTestCase<Deity, WeaponProf>
 {
 	static DeityweapToken token = new DeityweapToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>();
+	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public char getJoinCharacter()
@@ -96,12 +97,6 @@ public class DeityWeapTokenTest extends
 		return loadContext.getReferenceContext().constructCDOMObject(WeaponProf.class, one);
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public boolean allowDups()
 	{
@@ -115,14 +110,14 @@ public class DeityWeapTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.removeListFor(ListKey.DEITYWEAPON);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		WeaponProf wp1 = construct(primaryContext, "TestWP1");
 		primaryProf.addToListFor(ListKey.DEITYWEAPON, CDOMDirectSingleRef
@@ -132,7 +127,7 @@ public class DeityWeapTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		primaryProf.addToListFor(ListKey.DEITYWEAPON, null);
 		try
@@ -147,7 +142,7 @@ public class DeityWeapTokenTest extends
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		WeaponProf wp1 = construct(primaryContext, getLegalValue());
 		primaryProf.addToListFor(ListKey.DEITYWEAPON, CDOMDirectSingleRef
@@ -162,7 +157,7 @@ public class DeityWeapTokenTest extends
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ListKey objectKey = ListKey.DEITYWEAPON;
 		primaryProf.addToListFor(objectKey, new Object());

@@ -1,5 +1,4 @@
 /*
- * CoreUtilityTest.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,176 +14,149 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * @author Pat Ludwig <havoc@boldo.com>
- * Created on May 20th, 2002
- *
- * Current Ver: $Revision$
  */
 package pcgen.core.utils;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.system.PCGenPropBundle;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.junit.jupiter.api.Test;
 
 /**
- * <code>CoreUtilityTest</code>.
- *
  * Tests the CoreUtility class.
- *
- * @author Bryan McRoberts <merton_monk@yahoo.com>
- * @see pcgen.core.utils.CoreUtility
  */
-@SuppressWarnings("nls")
-public class CoreUtilityTest extends TestCase
+public class CoreUtilityTest
 {
-	/**
-	 * Constructs a new <code>CoreUtilityTest</code>.
-	 *
-	 * @see PCGenTestCase#PCGenTestCase()
-	 */
-	public CoreUtilityTest()
+	@Test
+	public void testisNetURL() throws MalformedURLException
 	{
-		// Do Nothing
-	}
-
-	/**
-	 * Constructs a new <code>CoreUtilityTest</code> with the given <var>name</var>.
-	 *
-	 * @param name the test case name
-	 *
-	 * @see PCGenTestCase#PCGenTestCase(String)
-	 */
-	public CoreUtilityTest(final String name)
-	{
-		super(name);
+		URL https = new URL("https://127.0.0.1");
+		URL http = new URL("http://127.0.0.1");
+		URL ftp = new URL("ftp://127.0.0.1");
+		assertTrue(CoreUtility.isNetURL(https));
+		assertTrue(CoreUtility.isNetURL(http));
+		assertTrue(CoreUtility.isNetURL(ftp));
 	}
 
 	/**
 	 * Test unsplit string (join method).
 	 */
+	@Test
 	public void testJoin()
 	{
 		final String sep = "|";
-		final List<String> list = constructList();
+		final List<String> list = List.of("one", "two", "three", "four");
 		final String result = StringUtil.join(list, sep);
 		final String trueResult = "one|two|three|four";
-		assertTrue("join returned bad String: got '" + result
-			+ "' should be '" + trueResult + "'", trueResult.equals(result));
+		assertEquals(trueResult, result, "join returned bad String");
 	}
 
+	@Test
 	public void testCompareVersions()
 	{
 		int[] firstVer = {5, 13, 6};
 		int[] secondVer = {5, 13, 6};
 		
-		assertEquals("Check for equal values", 0, CoreUtility.compareVersions(firstVer, secondVer));
+		assertEquals(0, CoreUtility.compareVersions(firstVer, secondVer), "Check for equal values");
 		secondVer[2] = 4;
-		assertEquals("Check for first later", 1, CoreUtility.compareVersions(firstVer, secondVer));
+		assertEquals(1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first later");
 		secondVer[2] = 7;
-		assertEquals("Check for first earlier", -1, CoreUtility.compareVersions(firstVer, secondVer));
+		assertEquals(-1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first earlier");
 		secondVer[2] = 6;
 		secondVer[1] = 12;
-		assertEquals("Check for first later", 1, CoreUtility.compareVersions(firstVer, secondVer));
+		assertEquals(1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first later");
 		secondVer[1] = 14;
-		assertEquals("Check for first earlier", -1, CoreUtility.compareVersions(firstVer, secondVer));
+		assertEquals(-1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first earlier");
 		secondVer[1] = 13;
 		secondVer[0] = 4;
-		assertEquals("Check for first later", 1, CoreUtility.compareVersions(firstVer, secondVer));
+		assertEquals(1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first later");
 		secondVer[0] = 6;
-		assertEquals("Check for first earlier", -1, CoreUtility.compareVersions(firstVer, secondVer));
+		assertEquals(-1, CoreUtility.compareVersions(firstVer, secondVer), "Check for first earlier");
 	}
 
+	@Test
 	public void testCompareVersionsString()
 	{
 		String firstVer = "5.13.6";
 		
-		assertEquals("Check for equal values", 0, CoreUtility.compareVersions(firstVer, firstVer));
-		assertEquals("Check for first later", 1, CoreUtility.compareVersions(firstVer, "5.13.4"));
+		assertEquals(0, CoreUtility.compareVersions(firstVer, firstVer), "Check for equal values");
+		assertEquals(1, CoreUtility.compareVersions(firstVer, "5.13.4"), "Check for first later");
 	}
 	
+	@Test
 	public void testConvertVersionToNumber()
 	{
-		int[] result = CoreUtility.convertVersionToNumber("5.13.6");
-		assertEquals("Number of fields", 3, result.length);
-		assertEquals("Major verison ", 5, result[0]);
-		assertEquals("Minor verison ", 13, result[1]);
-		assertEquals("Release number", 6, result[2]);
-		result = CoreUtility.convertVersionToNumber("5.13.6 RC1");
-		assertEquals("Number of fields", 3, result.length);
-		assertEquals("Major verison ", 5, result[0]);
-		assertEquals("Minor verison ", 13, result[1]);
-		assertEquals("Release number", 6, result[2]);
+		int[] norc = CoreUtility.convertVersionToNumber("5.13.6");
+		assertArrayEquals(new int[]{5, 13, 6}, norc, "pcgen version");
+		int[] rc = CoreUtility.convertVersionToNumber("5.13.6 RC1");
+		assertArrayEquals(new int[]{5, 13, 6}, rc, "pcgen version");
 	}
 
+	@Test
 	public void testIsCurrMinorVer()
 	{
 		String currVerStr = PCGenPropBundle.getVersionNumber();
-		assertEquals("Check for same verison", true, CoreUtility
-			.isCurrMinorVer(currVerStr));
+		assertTrue(CoreUtility
+				.isCurrMinorVer(currVerStr), "Check for same verison");
 		int[] currVer = CoreUtility.convertVersionToNumber(currVerStr);
 		currVer[2] = 99;
 		String verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertEquals("Check for differing release", true, CoreUtility
-			.isCurrMinorVer(verStr));
+		assertTrue(CoreUtility
+				.isCurrMinorVer(verStr), "Check for differing release");
 		int oldMinor = currVer[1];
 		currVer[1] = 99;
 		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertEquals("Check for differing minor", false, CoreUtility
-			.isCurrMinorVer(verStr));
+		assertFalse(CoreUtility
+				.isCurrMinorVer(verStr), "Check for differing minor");
 		currVer[1] = oldMinor;
 		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertEquals("Check for returned minor", true, CoreUtility
-			.isCurrMinorVer(verStr));
+		assertTrue(CoreUtility
+				.isCurrMinorVer(verStr), "Check for returned minor");
 		currVer[0] = 2;
 		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertEquals("Check for differing major", false, CoreUtility
-			.isCurrMinorVer(verStr));
+		assertFalse(CoreUtility
+				.isCurrMinorVer(verStr), "Check for differing major");
 	}
 
+	@Test
 	public void testIsPriorToCurrent()
 	{
 		String currVerStr = PCGenPropBundle.getVersionNumber();
-		assertEquals("Check for same verison", true, CoreUtility
-			.isPriorToCurrent(currVerStr));
+		assertTrue(CoreUtility
+				.isPriorToCurrent(currVerStr), "Check for same verison");
 		int[] currVer = CoreUtility.convertVersionToNumber(currVerStr);
 		currVer[2] = 99;
 		String verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertEquals("Check for differing release", false, CoreUtility
-			.isPriorToCurrent(verStr));
+		assertFalse(CoreUtility
+				.isPriorToCurrent(verStr), "Check for differing release");
 		currVer[2] = 0;
 		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertEquals("Check for earlier release", true, CoreUtility
-			.isPriorToCurrent(verStr));
+		assertTrue(CoreUtility
+				.isPriorToCurrent(verStr), "Check for earlier release");
 		currVer[1] = 99;
 		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertEquals("Check for differing minor", false, CoreUtility
-			.isPriorToCurrent(verStr));
+		assertFalse(CoreUtility
+				.isPriorToCurrent(verStr), "Check for differing minor");
 		currVer[1] = 0;
 		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertEquals("Check for earlier minor", true, CoreUtility
-			.isPriorToCurrent(verStr));
+		assertTrue(CoreUtility
+				.isPriorToCurrent(verStr), "Check for earlier minor");
 		currVer[0] = 99;
 		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertEquals("Check for differing major", false, CoreUtility
-			.isPriorToCurrent(verStr));
+		assertFalse(CoreUtility
+				.isPriorToCurrent(verStr), "Check for differing major");
 		currVer[0] = 0;
 		verStr = currVer[0] + "." + currVer[1] + "." + currVer[2];
-		assertEquals("Check for earlier major", true, CoreUtility
-			.isPriorToCurrent(verStr));
-	}
-	
-	private List<String> constructList()
-	{
-		final List<String> list = new ArrayList<>();
-		list.add("one");
-		list.add("two");
-		list.add("three");
-		list.add("four");
-
-		return list;
+		assertTrue(CoreUtility
+				.isPriorToCurrent(verStr), "Check for earlier major");
 	}
 }

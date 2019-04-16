@@ -30,7 +30,6 @@ import pcgen.core.bonus.BonusObj;
 /**
  * AppliedBonusFacet tracks the active BonusObj objects on a Player Character.
  * 
- * @author Tom Parker (thpr [at] yahoo.com)
  */
 public class AppliedBonusFacet extends AbstractListFacet<CharID, BonusObj>
 		implements DataFacetChangeListener<CharID, CDOMObject>
@@ -54,8 +53,6 @@ public class AppliedBonusFacet extends AbstractListFacet<CharID, BonusObj>
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -67,8 +64,7 @@ public class AppliedBonusFacet extends AbstractListFacet<CharID, BonusObj>
 		processAdd(id, cdo, saveableBonusFacet.getSet(id, cdo));
 	}
 
-	private void processAdd(CharID id, CDOMObject cdo,
-			List<? extends BonusObj> bonusList)
+	private void processAdd(CharID id, CDOMObject cdo, List<? extends BonusObj> bonusList)
 	{
 		for (BonusObj bonus : bonusList)
 		{

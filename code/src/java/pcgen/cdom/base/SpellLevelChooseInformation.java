@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.lang.StringUtil;
@@ -32,6 +33,8 @@ import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
  * provided as convenience to hold a set of choices and the number of choices
@@ -41,12 +44,8 @@ import pcgen.rules.context.LoadContext;
  * file when saved. Thus, encoding and decoding (to a 'persistent' string)
  * methods are provided.
  */
-public class SpellLevelChooseInformation implements
-		ChooseInformation<SpellLevel>
+public class SpellLevelChooseInformation implements ChooseInformation<SpellLevel>
 {
-
-	private static final ClassIdentity<SpellLevel> SPELLLEVEL_INFO =
-			BasicClassIdentity.getIdentity(SpellLevel.class);
 
 	private final List<SpellLevelInfo> info;
 
@@ -80,21 +79,13 @@ public class SpellLevelChooseInformation implements
 	 */
 	public SpellLevelChooseInformation(String name, List<SpellLevelInfo> choice)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Name cannot be null");
-		}
-		if (choice == null)
-		{
-			throw new IllegalArgumentException(
-				"PrimitiveChoiceSet cannot be null");
-		}
+		Objects.requireNonNull(name, "Name cannot be null");
+		Objects.requireNonNull(choice, "PrimitiveChoiceSet cannot be null");
 		// Need to populate info first to avoid thread issues
 		info = new ArrayList<>(choice);
 		if (info.isEmpty())
 		{
-			throw new IllegalArgumentException(
-				"PrimitiveChoiceSet cannot be null");
+			throw new IllegalArgumentException("PrimitiveChoiceSet cannot be null");
 		}
 		setName = name;
 	}
@@ -164,19 +155,12 @@ public class SpellLevelChooseInformation implements
 		return choiceActor;
 	}
 
-	/**
-	 * Returns true if the given Object is a TransitionChoice and has identical
-	 * underlying choices and choiceCount
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
 		if (obj instanceof SpellLevelChooseInformation)
 		{
-			SpellLevelChooseInformation other =
-					(SpellLevelChooseInformation) obj;
+			SpellLevelChooseInformation other = (SpellLevelChooseInformation) obj;
 			if (title == null)
 			{
 				if (other.title != null)
@@ -193,11 +177,6 @@ public class SpellLevelChooseInformation implements
 		return false;
 	}
 
-	/**
-	 * Returns a consistent-with-equals hashCode for this TransitionChoice.
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -220,9 +199,9 @@ public class SpellLevelChooseInformation implements
 	 * @return the Class contained within this ChoiceSet
 	 */
 	@Override
-	public ClassIdentity<SpellLevel> getClassIdentity()
+	public Class<SpellLevel> getReferenceClass()
 	{
-		return SPELLLEVEL_INFO;
+		return SpellLevel.class;
 	}
 
 	/**
@@ -294,8 +273,7 @@ public class SpellLevelChooseInformation implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		SpellLevel choice)
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, SpellLevel choice)
 	{
 		choiceActor.restoreChoice(pc, owner, choice);
 	}
@@ -307,15 +285,20 @@ public class SpellLevelChooseInformation implements
 	}
 
 	@Override
-	public CharSequence composeDisplay(Collection<? extends SpellLevel> collection)
+	public CharSequence composeDisplay(@NotNull Collection<? extends SpellLevel> collection)
 	{
-		return ChooseInformationUtilities.buildEncodedString(this, collection);
+		return ChooseInformationUtilities.buildEncodedString(collection);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner,
-		SpellLevel item)
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, SpellLevel item)
 	{
 		choiceActor.removeChoice(pc, owner, item);
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return "INVALID*NOT*PERSISTENT*";
 	}
 }

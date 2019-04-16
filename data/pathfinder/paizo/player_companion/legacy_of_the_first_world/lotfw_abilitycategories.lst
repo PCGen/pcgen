@@ -1,0 +1,8 @@
+#SOURCELONG:Pathfinder Player Companion: Legacy of the First World	SOURCESHORT:LOTFW	SOURCEWEB:https://paizo.com/products/btpy9t1t	SOURCEDATE:2015-06
+
+ABILITYCATEGORY:Voices of Solid Things				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:VoicesOfSolidThings															DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Feykiller Animal Focus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FeykillerAnimalFocusAbility				PLURAL:Feykiller Animal Foci						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Seducer Witch Patron				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SeducerWitchPatron						PLURAL:Seducer Witch Patrons						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Whimsy Mystery Revelation				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WhimsyRevelation.GeneralRevelation			PLURAL:Whimsy Mystery Revelations					DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Unchained Evolution Skilled Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnchainedEvolutionSkilledChoice			PLURAL:Unchained Evolution Skilled Choices			DISPLAYLOCATION:Misc

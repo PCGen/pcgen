@@ -17,12 +17,9 @@
  */
 package plugin.lsttokens.template;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubRegion;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeTokenTestCase;
@@ -33,7 +30,7 @@ public class SubregionTokenTest extends
 {
 
 	static SubregionToken token = new SubregionToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -71,88 +68,9 @@ public class SubregionTokenTest extends
 		return false;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public boolean isClearLegal()
 	{
 		return false;
 	}
-
-	@Test
-	public void testRoundRobinYes() throws PersistenceLayerException
-	{
-		runRoundRobin("YES");
-	}
-
-	@Test
-	public void testReplacementYes() throws PersistenceLayerException
-	{
-		String[] unparsed;
-		assertTrue(parse("YES"));
-		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "YES", unparsed[0]);
-		assertTrue(parse("TestWP1"));
-		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "TestWP1", unparsed[0]);
-		assertTrue(parse("YES"));
-		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "YES", unparsed[0]);
-	}
-
-	@Test
-	public void testOverwriteYes() throws PersistenceLayerException
-	{
-		parse("YES");
-		validateUnparsed(primaryContext, primaryProf, "YES");
-		parse("TestWP1");
-		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
-				.getAnswer("TestWP1"));
-	}
-
-	@Test
-	public void testOverwriteWithYes() throws PersistenceLayerException
-	{
-		parse("TestWP1");
-		validateUnparsed(primaryContext, primaryProf, "TestWP1");
-		parse("YES");
-		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
-				.getAnswer("YES"));
-	}
-
-	@Test
-	public void testUnparseYes() throws PersistenceLayerException
-	{
-		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, true);
-		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
-	}
-
-	@Test
-	public void testUnparseIllegal() throws PersistenceLayerException
-	{
-		assertEquals(primaryContext.getWriteMessageCount(), 0);
-		SubRegion o = getConstant(getLegalValue());
-		primaryProf.put(getObjectKey(), o);
-		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, true);
-		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
-		assertTrue(primaryContext.getWriteMessageCount() > 0);
-	}
-
-	@Test
-	public void testUnparseLegalWithFalse() throws PersistenceLayerException
-	{
-		assertEquals(primaryContext.getWriteMessageCount(), 0);
-		SubRegion o = getConstant(getLegalValue());
-		primaryProf.put(getObjectKey(), o);
-		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, false);
-		expectSingle(getToken().unparse(primaryContext, primaryProf), getLegalValue());
-	}
-
 }

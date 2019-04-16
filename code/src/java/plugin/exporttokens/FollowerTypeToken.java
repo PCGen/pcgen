@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Jun 17, 2006
- *
- * $Id: InfoKnownSpells.java 1030 2006-05-26 08:25:10Z jdempsey $
- *
  */
 package plugin.exporttokens;
 
@@ -38,30 +33,20 @@ import pcgen.util.Logging;
 /**
  * Deal with FOLLOWERTYPE Token
  * 
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class FollowerTypeToken extends Token
 {
 	/** Token Name */
 	public static final String TOKENNAME = "FOLLOWERTYPE";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		// Handle FOLLOWERTYPE.<type>x.subtag stuff
 		// New token syntax FOLLOWERTYPE.<type>.x instead of FOLLOWERTYPE.<type>x
@@ -86,8 +71,7 @@ public class FollowerTypeToken extends Token
 				// Error, not debug.  We want users to report
 				// use of the deprecated syntax so we can fix
 				// them as they are found.
-				Logging
-					.errorPrint("Old syntax FOLLOWERTYPEx will be replaced for FOLLOWERTYPE.x");
+				Logging.errorPrint("Old syntax FOLLOWERTYPEx will be replaced for FOLLOWERTYPE.x");
 
 				restString.append(startString);
 
@@ -95,11 +79,9 @@ public class FollowerTypeToken extends Token
 
 				for (int i = typeString.length() - 1; i > 0; i--)
 				{
-					if ((typeString.charAt(i) >= '0')
-						&& (typeString.charAt(i) <= '9'))
+					if ((typeString.charAt(i) >= '0') && (typeString.charAt(i) <= '9'))
 					{
-						followerIndex =
-								Integer.parseInt(typeString.substring(i));
+						followerIndex = Integer.parseInt(typeString.substring(i));
 						numCharToRemove++;
 					}
 					else
@@ -110,15 +92,13 @@ public class FollowerTypeToken extends Token
 
 				if (numCharToRemove > 0)
 				{
-					typeString =
-							typeString.substring(0, typeString.length()
-								- numCharToRemove);
+					typeString = typeString.substring(0, typeString.length() - numCharToRemove);
 				}
 			}
 
 			while (aTok.hasMoreTokens())
 			{
-				restString.append(".").append(aTok.nextToken());
+				restString.append('.').append(aTok.nextToken());
 			}
 
 			if (restString.indexOf(".") == 0)
@@ -131,9 +111,7 @@ public class FollowerTypeToken extends Token
 		List<Follower> aList = getFollowersOfType(pc.getDisplay(), typeString);
 		if (followerIndex > -1 && followerIndex < aList.size())
 		{
-			result =
-					FollowerToken.getFollowerOutput(eh, restString
-						.toString(), aList.get(followerIndex));
+			result = FollowerToken.getFollowerOutput(eh, restString.toString(), aList.get(followerIndex));
 		}
 
 		return result;
@@ -142,12 +120,11 @@ public class FollowerTypeToken extends Token
 	/**
 	 * Retrieve a list of followers of the desired type.
 	 * 
-	 * @param pc The display for the target character 
+	 * @param display The display for the target character 
 	 * @param typeString The follower type being looked for
 	 * @return The list of qualifying followers.
 	 */
-	private List<Follower> getFollowersOfType(CharacterDisplay display,
-		String typeString)
+	private List<Follower> getFollowersOfType(CharacterDisplay display, String typeString)
 	{
 		List<Follower> aList = new ArrayList<>();
 		for (Follower fol : display.getFollowerList())

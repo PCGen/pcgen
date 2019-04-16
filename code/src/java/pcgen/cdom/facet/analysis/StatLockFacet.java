@@ -17,11 +17,10 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
@@ -38,10 +37,9 @@ import pcgen.core.PCStat;
  * StatLockFacet is a Facet that tracks the Stats that have been locked on a
  * Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class StatLockFacet extends AbstractSourcedListFacet<CharID, StatLock> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class StatLockFacet extends AbstractSourcedListFacet<CharID, StatLock>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private FormulaResolvingFacet formulaResolvingFacet;
 
@@ -58,8 +56,6 @@ public class StatLockFacet extends AbstractSourcedListFacet<CharID, StatLock> im
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -83,8 +79,6 @@ public class StatLockFacet extends AbstractSourcedListFacet<CharID, StatLock> im
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -115,10 +109,8 @@ public class StatLockFacet extends AbstractSourcedListFacet<CharID, StatLock> im
 		Map<StatLock, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<StatLock, Set<Object>>> it = componentMap
-					.entrySet().iterator(); it.hasNext();)
+			for (Entry<StatLock, Set<Object>> me : componentMap.entrySet())
 			{
-				Entry<StatLock, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
 				StatLock lock = me.getKey();
 				if (lock.getLockedStat().equals(stat))
@@ -126,10 +118,8 @@ public class StatLockFacet extends AbstractSourcedListFacet<CharID, StatLock> im
 					for (Object source : set)
 					{
 						String sourceString =
-								(source instanceof CDOMObject) ? ((CDOMObject) source)
-									.getQualifiedKey() : "";
-						Number val = formulaResolvingFacet.resolve(id, lock
-								.getLockValue(), sourceString);
+								(source instanceof CDOMObject) ? ((CDOMObject) source).getQualifiedKey() : "";
+						Number val = formulaResolvingFacet.resolve(id, lock.getLockValue(), sourceString);
 						if (val.doubleValue() > max.doubleValue())
 						{
 							hit = true;

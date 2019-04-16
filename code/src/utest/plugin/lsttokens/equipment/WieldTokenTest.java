@@ -17,15 +17,16 @@
  */
 package plugin.lsttokens.equipment;
 
-import java.net.URISyntaxException;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.character.WieldCategory;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
@@ -35,19 +36,26 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreVariableParser;
 import plugin.pretokens.writer.PreVariableWriter;
 
+import org.junit.jupiter.api.Test;
+
 public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
 	static WieldToken token = new WieldToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	protected void resetContext()
 	{
-		super.setUp();
-		TokenRegistration.register(new PreVariableParser());
-		TokenRegistration.register(new PreVariableWriter());
-		GameModeFileLoader.addDefaultWieldCategories(primaryContext);
-		GameModeFileLoader.addDefaultWieldCategories(secondaryContext);
+		try
+		{
+			TokenRegistration.register(new PreVariableParser());
+			TokenRegistration.register(new PreVariableWriter());
+		}
+		catch (PersistenceLayerException e)
+		{
+			fail(e.getLocalizedMessage());
+		}
+		super.resetContext();
 	}
 
 	@Override
@@ -69,7 +77,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testBadInput() throws PersistenceLayerException
+	public void testBadInput()
 	{
 		try
 		{
@@ -83,7 +91,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testBadInputEmpty() throws PersistenceLayerException
+	public void testBadInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
@@ -126,19 +134,19 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<WieldCategory> getObjectKey()
+	private static ObjectKey<WieldCategory> getObjectKey()
 	{
 		return ObjectKey.WIELD;
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), primaryContext.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(WieldCategory.class,
@@ -149,7 +157,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());
@@ -161,6 +169,20 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		catch (ClassCastException e)
 		{
 			// Yep!
+		}
+	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		try
+		{
+			GameModeFileLoader.addDefaultWieldCategories(context);
+		}
+		catch (PersistenceLayerException e)
+		{
+			fail(e.getLocalizedMessage());
 		}
 	}
 }

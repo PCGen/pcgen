@@ -37,14 +37,14 @@ import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.ClassType;
 import pcgen.core.PCClass;
-import pcgen.core.PCTemplate;
 import pcgen.core.SettingsHandler;
+
+import org.jetbrains.annotations.Nullable;
 
 /**
  * ChallengeRatingFacet is a Facet that calculates the Challenge Rating of a
  * Player Character
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ChallengeRatingFacet
 {
@@ -65,6 +65,7 @@ public class ChallengeRatingFacet
 	 * @return The Challenge Rating of the Player Character represented by the
 	 *         given CharID
 	 */
+	@Nullable
 	public Integer getCR(CharID id)
 	{
 		int cr = 0;
@@ -94,7 +95,7 @@ public class ChallengeRatingFacet
 			}
 			cr += classRaceCR;
 		}
-		
+
 		// calculate and add CR bonus from templates
 		cr += getTemplateCR(id);
 
@@ -116,8 +117,7 @@ public class ChallengeRatingFacet
 	public Integer calcRaceCR(CharID id)
 	{
 		// Calculate and add the CR from race
-		ChallengeRating cr = raceFacet.get(id).getSafe(
-				ObjectKey.CHALLENGE_RATING);
+		ChallengeRating cr = raceFacet.get(id).getSafe(ObjectKey.CHALLENGE_RATING);
 		return cr.toInteger();
 	}
 
@@ -132,8 +132,7 @@ public class ChallengeRatingFacet
 	 */
 	public int getBaseHD(CharID id)
 	{
-		final LevelCommandFactory lcf = raceFacet.get(id).getSafe(
-				ObjectKey.MONSTER_CLASS);
+		final LevelCommandFactory lcf = raceFacet.get(id).getSafe(ObjectKey.MONSTER_CLASS);
 		/*
 		 * BUG This converts a formula to a String?  What if it's a formula, NFE?
 		 */
@@ -151,14 +150,14 @@ public class ChallengeRatingFacet
 	 */
 	private int getTemplateCR(CharID id)
 	{
-		int cr = 0;
-
 		// Calculate and add the CR from the templates
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			cr += template.getCR(levelFacet.getTotalLevels(id), levelFacet.getMonsterLevelCount(id));
-		}
-		return cr;
+		return templateFacet.getSet(id)
+		                    .stream()
+		                    .mapToInt(template -> template.getCR(
+				                      levelFacet.getTotalLevels(id),
+				                      levelFacet.getMonsterLevelCount(id)
+		                      ))
+		                    .sum();
 	}
 
 	/**
@@ -175,7 +174,7 @@ public class ChallengeRatingFacet
 		int cr = 0;
 		int crMod = 0;
 		int crModPriority = 0;
-		
+
 		for (PCClass pcClass : classFacet.getSet(id))
 		{
 			cr += calcClassCR(id, pcClass);
@@ -195,7 +194,7 @@ public class ChallengeRatingFacet
 			}
 		}
 		cr += crMod;
-		
+
 		return cr;
 	}
 
@@ -208,11 +207,11 @@ public class ChallengeRatingFacet
 		int threshold = 0;
 
 		List<String> raceRoleList = raceFacet.get(id).getListFor(ListKey.MONSTER_ROLES);
-		if (raceRoleList == null || raceRoleList.isEmpty())
+		if ((raceRoleList == null) || raceRoleList.isEmpty())
 		{
 			raceRoleList = SettingsHandler.getGame().getMonsterRoleDefaultList();
 		}
-		
+
 		// Calculate and add the CR from the PC Classes
 		for (PCClass pcClass : classFacet.getSet(id))
 		{
@@ -221,45 +220,36 @@ public class ChallengeRatingFacet
 			{
 				return null;
 			}
-			
+
 			List<String> classRoleList = pcClass.getListFor(ListKey.MONSTER_ROLES);
-			if (classRoleList != null) 
+			if (classRoleList != null)
 			{
 				classRoleList.retainAll(raceRoleList);
-				if (classRoleList.size() > 0)
+				if (classRoleList.isEmpty())
 				{
-					levelsKey += levels;
+					levelsNonKey += levels;
 				}
 				else
 				{
-					levelsNonKey += levels;
+					levelsKey += levels;
 				}
 			}
 			else
 			{
-				if (raceRoleList != null)
-				{
-					levelsNonKey += levels;
-				}
-				else
-				{
-					levelsKey += levels;
-				}
+				levelsNonKey += levels;
 			}
-			
+
 		}
 		String sThreshold = SettingsHandler.getGame().getCRThreshold();
 		if (sThreshold != null)
 		{
-			threshold = formulaResolvingFacet.resolve(id, 
-					FormulaFactory.getFormulaFor(sThreshold), "").intValue();
+			threshold = formulaResolvingFacet.resolve(id, FormulaFactory.getFormulaFor(sThreshold), "").intValue();
 		}
-			
 
 		while (levelsNonKey > 1)
 		{
 			cr++;
-			// TODO: maybe the divisor 2 should be be made configurable, 
+			// TODO: maybe the divisor 2 should be made configurable, 
 			// or the whole calculation put into a formula
 			levelsNonKey -= 2;
 			levelsConverted += 2;
@@ -273,14 +263,14 @@ public class ChallengeRatingFacet
 			cr += levelsNonKey;
 		}
 		cr += levelsKey;
-	
+
 		return cr;
 	}
 
 	private Integer getClassRaceCRMod(CharID id, PCClass cl)
 	{
 		String classType = cl.getClassType();
-		
+
 		if (classType != null)
 		{
 			if (SettingsHandler.getGame().getClassTypeByName(classType) != null)
@@ -311,7 +301,7 @@ public class ChallengeRatingFacet
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Returns the ChallengeRating provided solely by the given Class of the
 	 * Player Character identified by the given CharID.
@@ -329,8 +319,7 @@ public class ChallengeRatingFacet
 		Formula cr = cl.get(FormulaKey.CR);
 		if (cr == null)
 		{
-			ClassType aClassType = SettingsHandler.getGame()
-						.getClassTypeByName(cl.getClassType());
+			ClassType aClassType = SettingsHandler.getGame().getClassTypeByName(cl.getClassType());
 			if (aClassType != null)
 			{
 				String crf = aClassType.getCRFormula();
@@ -349,8 +338,7 @@ public class ChallengeRatingFacet
 				// use old method to determine the class type from TYPE. 
 				for (Type type : cl.getTrueTypeList(false))
 				{
-					aClassType = SettingsHandler.getGame()
-							.getClassTypeByName(type.toString());
+					aClassType = SettingsHandler.getGame().getClassTypeByName(type.toString());
 					if (aClassType != null)
 					{
 						String crf = aClassType.getCRFormula();
@@ -367,22 +355,19 @@ public class ChallengeRatingFacet
 			}
 		}
 
-		return cr == null ? 0 : formulaResolvingFacet.resolve(id, cr,
-				cl.getQualifiedKey()).intValue();
+		return cr == null ? 0 : formulaResolvingFacet.resolve(id, cr, cl.getQualifiedKey()).intValue();
 	}
 
 	private int getClassCRMod(CharID id, PCClass cl)
 	{
 		int crMod = 0;
 
-		ClassType aClassType = SettingsHandler.getGame()
-				.getClassTypeByName(cl.getClassType());
+		ClassType aClassType = SettingsHandler.getGame().getClassTypeByName(cl.getClassType());
 		if (aClassType != null)
 		{
 			String crmf = aClassType.getCRMod();
 			Formula crm = FormulaFactory.getFormulaFor(crmf);
-			crMod = Math.min(crMod, formulaResolvingFacet.resolve(id, crm,
-					cl.getQualifiedKey()).intValue());
+			crMod = Math.min(crMod, formulaResolvingFacet.resolve(id, crm, cl.getQualifiedKey()).intValue());
 		}
 		else
 		{
@@ -390,14 +375,12 @@ public class ChallengeRatingFacet
 			// use old method to determine the class type from TYPE. 
 			for (Type type : cl.getTrueTypeList(false))
 			{
-				aClassType = SettingsHandler.getGame()
-						.getClassTypeByName(type.toString());
+				aClassType = SettingsHandler.getGame().getClassTypeByName(type.toString());
 				if (aClassType != null)
 				{
 					String crmf = aClassType.getCRMod();
 					Formula crm = FormulaFactory.getFormulaFor(crmf);
-					crMod = Math.min(crMod, formulaResolvingFacet.resolve(id, crm,
-							cl.getQualifiedKey()).intValue());
+					crMod = Math.min(crMod, formulaResolvingFacet.resolve(id, crm, cl.getQualifiedKey()).intValue());
 				}
 			}
 		}
@@ -405,12 +388,11 @@ public class ChallengeRatingFacet
 		return crMod;
 	}
 
-	private int getClassCRModPriority(PCClass cl)
+	private static int getClassCRModPriority(PCClass cl)
 	{
 		int crModPriority = 0;
-		
-		ClassType aClassType = SettingsHandler.getGame()
-				.getClassTypeByName(cl.getClassType());
+
+		ClassType aClassType = SettingsHandler.getGame().getClassTypeByName(cl.getClassType());
 		if (aClassType != null)
 		{
 			int crmp = aClassType.getCRModPriority();
@@ -425,8 +407,7 @@ public class ChallengeRatingFacet
 			// use old method to determine the class type from TYPE. 
 			for (Type type : cl.getTrueTypeList(false))
 			{
-				aClassType = SettingsHandler.getGame()
-						.getClassTypeByName(type.toString());
+				aClassType = SettingsHandler.getGame().getClassTypeByName(type.toString());
 				if (aClassType != null)
 				{
 					int crmp = aClassType.getCRModPriority();
@@ -445,7 +426,7 @@ public class ChallengeRatingFacet
 	{
 		Map<Integer, Integer> xpAwardsMap = SettingsHandler.getGame().getXPAwards();
 
-		if (xpAwardsMap.size() > 0)
+		if (!xpAwardsMap.isEmpty())
 		{
 			Integer cr = getCR(id);
 			if (cr == null)

@@ -1,0 +1,21 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEDATE:2016-04
+
+# Class of the Master				Type				Define Stat				Bonus Ability Pool					Modify VAR
+FOLLOWER:CourtlyCompanionLvL=1		TYPE:Animal Companion	DEFINESTAT:MINVALUE|INT|6									BONUS:VAR|BonusTricks|-1
+FOLLOWER:CourtlyCompanionLvL=3		TYPE:Animal Companion	DEFINESTAT:MINVALUE|INT|7									BONUS:VAR|BonusTricks|-1
+FOLLOWER:CourtlyCompanionLvL=5		TYPE:Animal Companion	DEFINESTAT:MINVALUE|INT|8
+FOLLOWER:CourtlyCompanionLvL=6		TYPE:Animal Companion														BONUS:VAR|BonusTricks|-1
+FOLLOWER:CourtlyCompanionLvL=7		TYPE:Animal Companion	DEFINESTAT:MINVALUE|INT|9
+FOLLOWER:CourtlyCompanionLvL=9		TYPE:Animal Companion	DEFINESTAT:MINVALUE|INT|10									BONUS:VAR|BonusTricks|-1
+FOLLOWER:CourtlyCompanionLvL=11		TYPE:Animal Companion	DEFINESTAT:MINVALUE|INT|11
+FOLLOWER:CourtlyCompanionLvL=12		TYPE:Animal Companion														BONUS:VAR|BonusTricks|-1
+FOLLOWER:CourtlyCompanionLvL=13		TYPE:Animal Companion	DEFINESTAT:MINVALUE|INT|12
+FOLLOWER:CourtlyCompanionLvL=15		TYPE:Animal Companion	DEFINESTAT:MINVALUE|INT|13									BONUS:VAR|BonusTricks|-1
+FOLLOWER:CourtlyCompanionLvL=17		TYPE:Animal Companion	DEFINESTAT:MINVALUE|INT|14
+FOLLOWER:CourtlyCompanionLvL=18		TYPE:Animal Companion														BONUS:VAR|BonusTricks|-1
+FOLLOWER:CourtlyCompanionLvL=19		TYPE:Animal Companion	DEFINESTAT:MINVALUE|INT|15
+
+FOLLOWER:CourtlyHunterFocusAnimalACPool=1	TYPE:Animal Companion						BONUS:ABILITYPOOL|Courtly Hunter Animal Focus|1
+FOLLOWER:CourtlyHunterFocusAnimalACPool=2	TYPE:Animal Companion						BONUS:ABILITYPOOL|Courtly Hunter Animal Focus|1

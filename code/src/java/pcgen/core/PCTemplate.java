@@ -1,5 +1,4 @@
 /*
- * PCTemplate.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core;
 
@@ -30,20 +24,18 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.LimitedVarHolder;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.bonus.BonusObj;
-import pcgen.facade.core.TemplateFacade;
 import pcgen.util.enumeration.View;
 
 /**
- * <code>PCTemplate</code>.
- * 
- * @author Mark Hulsman &lt;hulsmanm@purdue.edu&gt;
+ * The CDOMObject for Templates.
  */
-public final class PCTemplate extends PObject implements TemplateFacade, ChooseDriver
+public final class PCTemplate extends PObject implements ChooseDriver, LimitedVarHolder
 {
 	/**
 	 * Get the total adjustment to Challenge rating of a character at a given
@@ -59,12 +51,10 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 	 */
 	public Integer getCR(final int level, final int hitdice)
 	{
-		Integer localCR = getSafe(ObjectKey.CR_MODIFIER).intValue();
-		for (PCTemplate pct : getConditionalTemplates(level, hitdice))
-		{
-			localCR += pct.getSafe(ObjectKey.CR_MODIFIER).intValue();
-		}
-		return localCR;
+		return getSafe(ObjectKey.CR_MODIFIER).intValue()
+				+ getConditionalTemplates(level, hitdice).stream()
+	              .mapToInt(pct -> pct.getSafe(ObjectKey.CR_MODIFIER).intValue())
+	              .sum();
 	}
 
 	/**
@@ -85,8 +75,7 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 		return result;
 	}
 
-	public List<PCTemplate> getConditionalTemplates(int totalLevels,
-			int totalHitDice)
+	public List<PCTemplate> getConditionalTemplates(int totalLevels, int totalHitDice)
 	{
 		List<PCTemplate> returnList = new ArrayList<>();
 
@@ -111,8 +100,7 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 
 		for (PCTemplate lt : getSafeListFor(ListKey.HD_TEMPLATES))
 		{
-			if (lt.get(IntegerKey.HD_MAX) >= totalHitDice
-					&& lt.get(IntegerKey.HD_MIN) <= totalHitDice)
+			if (lt.get(IntegerKey.HD_MAX) >= totalHitDice && lt.get(IntegerKey.HD_MIN) <= totalHitDice)
 			{
 				returnList.add(lt);
 			}
@@ -180,5 +168,11 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 	public Formula getNumChoices()
 	{
 		return getSafe(FormulaKey.NUMCHOICES);
+	}
+
+	@Override
+	public String getIdentifier()
+	{
+		return "TEMPLATE";
 	}
 }

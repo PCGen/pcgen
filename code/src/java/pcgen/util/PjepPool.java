@@ -1,5 +1,4 @@
 /*
- * PjepPool.java
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on June 29th 2004
  */
 package pcgen.util;
 
@@ -54,7 +51,7 @@ public final class PjepPool
 	{
 		//System.out.println("aquireJep()");
 		PJEP jep;
-		if (freeStack.size() > 0)
+		if (!freeStack.isEmpty())
 		{
 			jep = freeStack.pop();
 		}
@@ -80,8 +77,7 @@ public final class PjepPool
 		}
 		else
 		{
-			System.err
-				.println("Tried to release a PJEP instance that we did not aquire...");
+			System.err.println("Tried to release a PJEP instance that we did not aquire...");
 		}
 		interp.setParent(null);
 		freeStack.push(interp);

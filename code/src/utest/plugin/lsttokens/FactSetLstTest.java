@@ -17,9 +17,11 @@
  */
 package plugin.lsttokens;
 
-import java.net.URISyntaxException;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.net.URISyntaxException;
 
 import pcgen.base.format.StringManager;
 import pcgen.cdom.base.CDOMObject;
@@ -37,26 +39,20 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class FactSetLstTest extends AbstractGlobalTokenTestCase
 {
 	private static FactSetLst token = new FactSetLst();
-	private static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<Domain>();
+	private static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		TokenRegistration.clearTokens();
 		super.setUp();
-		FactSetDefinition fd = new FactSetDefinition();
-		fd.setName("DEITY.Possibility");
-		fd.setFactSetName("Possibility");
-		fd.setUsableLocation(Domain.class);
-		fd.setFormatManager(new StringManager());
-		fd.setVisibility(Visibility.HIDDEN);
-		primaryContext.getReferenceContext().importObject(fd);
-		secondaryContext.getReferenceContext().importObject(fd);
-		SourceFileLoader.processFactDefinitions(primaryContext);
-		SourceFileLoader.processFactDefinitions(secondaryContext);
 	}
 
 	@Override
@@ -72,20 +68,26 @@ public class FactSetLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}
 
 	@Test
-	public void testInvalidInputOnlyNumber() throws PersistenceLayerException
+	public void testInvalidInputOnlyNumber()
 	{
 		assertFalse(parse("Possibility"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNotAFact() throws PersistenceLayerException
+	public void testInvalidInputNotAFact()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("NaN|TestWP1"));
@@ -93,14 +95,14 @@ public class FactSetLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidNoTarget() throws PersistenceLayerException
+	public void testInvalidNoTarget()
 	{
 		assertFalse(parse("Possibility|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoFact() throws PersistenceLayerException
+	public void testInvalidNoFact()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("|TestWP1"));
@@ -108,7 +110,7 @@ public class FactSetLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidDoublePipe() throws PersistenceLayerException
+	public void testInvalidDoublePipe()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("Possibility||TestWP1"));
@@ -116,7 +118,7 @@ public class FactSetLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputStrange() throws PersistenceLayerException
+	public void testInvalidInputStrange()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -125,7 +127,7 @@ public class FactSetLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidEnd() throws PersistenceLayerException
+	public void testInvalidEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("Possibility|TestWP1|"));
@@ -133,7 +135,7 @@ public class FactSetLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidDoubleJoin() throws PersistenceLayerException
+	public void testInvalidDoubleJoin()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("Possibility||TestWP1"));
@@ -141,7 +143,7 @@ public class FactSetLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -179,14 +181,22 @@ public class FactSetLstTest extends AbstractGlobalTokenTestCase
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return new ConsolidationRule()
-		{
-
-            @Override
-			public String[] getAnswer(String... strings)
-			{
-				return new String[] { "Possibility|TestWP1|TestWP2" };
-			}
-		};
+		return strings -> new String[]{"Possibility|TestWP1|TestWP2"};
 	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		FactSetDefinition fd = new FactSetDefinition();
+		fd.setName("DEITY.Possibility");
+		fd.setFactSetName("Possibility");
+		fd.setUsableLocation(Domain.class);
+		fd.setFormatManager(new StringManager());
+		fd.setVisibility(Visibility.HIDDEN);
+		context.getReferenceContext().importObject(fd);
+		SourceFileLoader.processFactDefinitions(context);
+	}
+	
+	
 }

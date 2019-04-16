@@ -1,5 +1,4 @@
 /*
- * PartyFacadeImpl.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Nov 6, 2011, 7:51:52 PM
  */
 package pcgen.gui2.facade;
 
@@ -28,21 +26,17 @@ import java.util.List;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.core.PartyFacade;
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class PartyFacadeImpl extends DefaultListFacade<CharacterFacade> implements PartyFacade
 {
 
-	private DefaultReferenceFacade<File> fileRef = new DefaultReferenceFacade<>();
+	private final DefaultReferenceFacade<File> fileRef = new DefaultReferenceFacade<>();
 
 	@Override
 	public void export(ExportHandler theHandler, BufferedWriter buf)

@@ -15,20 +15,13 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 13, 2002, 9:19 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>HD</code>
- *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
+ * {@code HD}
  */
 public final class HD extends MultiTagBonusObj
 {
@@ -47,7 +40,6 @@ public final class HD extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual hit die attribute that may be bonused.
 	 * @param tagNumber the index of the hit die attribute .
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The hit die attribute .
 	 */
 	@Override
@@ -58,7 +50,6 @@ public final class HD extends MultiTagBonusObj
 
 	/**
 	 * Get the number of hit die attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of hit die attributes.
 	 */
 	@Override

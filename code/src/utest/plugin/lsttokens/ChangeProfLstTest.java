@@ -17,7 +17,8 @@
  */
 package plugin.lsttokens;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
@@ -31,11 +32,13 @@ import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new ChangeprofLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()
@@ -50,27 +53,33 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSourceOnly() throws PersistenceLayerException
+	public void testInvalidSourceOnly()
 	{
 		assertFalse(parse("Hammer"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSourceEqualOnly() throws PersistenceLayerException
+	public void testInvalidSourceEqualOnly()
 	{
 		assertFalse(parse("Hammer="));
 		assertNoSideEffects();
@@ -78,70 +87,69 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidSourceEqualOnlyTypeTwo()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Hammer=Martial|Pipe="));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptySource() throws PersistenceLayerException
+	public void testInvalidEmptySource()
 	{
 		assertFalse(parse("=Martial"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoEquals() throws PersistenceLayerException
+	public void testInvalidTwoEquals()
 	{
 		assertFalse(parse("Hammer==Martial"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoEqualsTypeTwo() throws PersistenceLayerException
+	public void testInvalidTwoEqualsTypeTwo()
 	{
 		assertFalse(parse("Hammer=TYPE.Heavy=Martial"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBarEnding() throws PersistenceLayerException
+	public void testInvalidBarEnding()
 	{
 		assertFalse(parse("Hammer=Martial|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBarStarting() throws PersistenceLayerException
+	public void testInvalidBarStarting()
 	{
 		assertFalse(parse("|Hammer=Martial"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoublePipe() throws PersistenceLayerException
+	public void testInvalidDoublePipe()
 	{
 		assertFalse(parse("Hammer=Martial||Pipe=Exotic"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReversed() throws PersistenceLayerException
+	public void testInvalidReversed()
 	{
 		assertTrue(parse("Martial=Hammer"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidResultPrimitive() throws PersistenceLayerException
+	public void testInvalidResultPrimitive()
 	{
 		assertTrue(parse("Hammer=Pipe"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidResultType() throws PersistenceLayerException
+	public void testInvalidResultType()
 	{
 		try
 		{
@@ -251,7 +259,7 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	{
 		// TODO What happens in consolidation of ChangeProf if Wand is reused?
 		// What "wins"?
-		return "Pipe=Martial";// |Wand=Exotic";
+		return "Pipe=Martial"; // |Wand=Exotic";
 	}
 
 	@Override
@@ -263,13 +271,7 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return new ConsolidationRule()
-		{
-            @Override
-			public String[] getAnswer(String... strings)
-			{
-				return new String[] { "Hammer,Pipe,Wand,TYPE.Heavy,TYPE.Medium=Martial|Nail,TYPE.Crazy,TYPE.Disposable=Exotic" };
-			}
-		};
+		return strings -> new String[]{
+			"Hammer,Pipe,Wand,TYPE.Heavy,TYPE.Medium=Martial|Nail,TYPE.Crazy,TYPE.Disposable=Exotic"};
 	}
 }

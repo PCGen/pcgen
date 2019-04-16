@@ -1,0 +1,15 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# Ability Name																		Unique Key						Category of Ability		Type					Visible	Required Ability								Description																																																																																																																				Multiple?	Choose										Ability									Cost		Source, Long Desc.	Aspects
+
+SOURCELONG:Pathfinder Society Chronicle Sheets Season 9	SOURCESHORT:PFSCS9	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2016-08
+
+# Ability Name																		Unique Key						Category of Ability		Type					Visible	Required Ability								Description																																																																																																																				Multiple?	Choose										Ability									Cost		Source, Long Desc.	Aspects
+Pathfinder Society Scenario #9-12: Shrine of the Sacred Tempest										KEY:Chronicle ~ S09-12				CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES																																																																																																																																MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-5		ABILITY:Chronicle_S09-12|AUTOMATIC|Chronicle_S09-12_Enable	COST:0	SOURCELONG:.
+Chronicle_S09-12_Enable																								CATEGORY:Special Ability	TYPE:Chronicle_S09-12		VISIBLE:NO
+
+Corvid Crusader (Silver Crusade)															KEY:PFS Scenario 9-12 ~ Corvid Crusader	CATEGORY:Special Ability	TYPE:Chronicle_S09-12.PFSBoon	VISIBLE:YES	PREABILITY:1,CATEGORY=Background,Silver Crusade Faction	DESC:[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 9-12 ~ Corvid Crusader (0-Checked)	DESC:[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 9-12 ~ Corvid Crusader (1-Checked)	DESC:You have pleased the avian archon Zepha and recruited the tengu oracle Mitoko to the Silver Crusade's cause. You gain a +2 bonus on Diplomacy checks against good or neutral tengus and other good or neutral birdlike creatures. Additionally, you can check the box before this boon to channel a spark of Hei Feng's power to add 1d6 points of electricity damage to a successful weapon attack. You can use this effect without checking a box on your first successful attack against an evil birdlike creature.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-1CheckBoxes											COST:0					ASPECT:SkillBonus|+2 bonus on Diplomacy checks against good or neutral tengus and other good or neutral birdlike creatures (PFS#9-12, Corvid Crusader).
+Zepha's Blessing																		KEY:PFS Scenario 9-12 ~ Zepha's Blessing	CATEGORY:Special Ability	TYPE:Chronicle_S09-12.PFSBoon	VISIBLE:YES											DESC:The purification ritual that you helped perform impressed the archon Zepha, and he has given you his blessing. You can cross this boon off your Chronicle sheet to grant an ally that you can see a +2 sacred bonus on any d20 roll before she rolls it.																																																																																																		COST:0
+
+#
+# DONE
+#

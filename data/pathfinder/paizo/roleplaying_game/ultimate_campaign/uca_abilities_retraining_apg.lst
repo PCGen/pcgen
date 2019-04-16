@@ -1,0 +1,18 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 20472 $ $Author: mjmeans $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Campaign	SOURCESHORT:UCA	SOURCEWEB:http://paizo.com/products/btpy8x64?Pathfinder-Roleplaying-Game-Ultimate-Campaign	SOURCEDATE:2013-05
+
+# Ability Name			Unique Key						Category of Ability		Type						Multiple Requirements																											Description																																																																																				Combat bonus					Bonus to skill								Class Skill				Source Page		Aspects
+
+# Retraining Class Feature Choices
+# Ability Name			Unique Key										Category of Ability		Type					Description
+Alchemist Discovery		KEY:Retraining ~ Class Feature ~ Alchemist Discovery			CATEGORY:Special Ability	TYPE:RetrainingClassFeature	DESC:You retrained an alchemist discovery.
+Antipaladin Cruelty		KEY:Retraining ~ Class Feature ~ Antipaladin Cruelty			CATEGORY:Special Ability	TYPE:RetrainingClassFeature	DESC:You retrained an antipaladin cruelty.
+Antipaladin Fiendish Bond	KEY:Retraining ~ Class Feature ~ Antipaladin Fiendish Bond		CATEGORY:Special Ability	TYPE:RetrainingClassFeature	DESC:You retrained an antipaladin fiendish bond, replacing your bonded weapon with a fiendish servant or vice versa.
+Cavalier Order			KEY:Retraining ~ Class Feature ~ Cavalier Order				CATEGORY:Special Ability	TYPE:RetrainingClassFeature	DESC:You retrained your cavalier order.
+Inquisitor Domain			KEY:Retraining ~ Class Feature ~ Inquisitor Domain			CATEGORY:Special Ability	TYPE:RetrainingClassFeature	DESC:You retrained an inquisitor domain.
+Oracle Revalation			KEY:Retraining ~ Class Feature ~ Oracle Revalation			CATEGORY:Special Ability	TYPE:RetrainingClassFeature	DESC:You retrained an oracle revalation.
+Oracle Spell Choice		KEY:Retraining ~ Class Feature ~ Oracle Spell Choice			CATEGORY:Special Ability	TYPE:RetrainingClassFeature	DESC:You retrained your oracle spell choice concerning cure and inflict spells.
+Summoner Eidolor Revolution	KEY:Retraining ~ Class Feature ~ Summoner Eidolor Revolution	CATEGORY:Special Ability	TYPE:RetrainingClassFeature	DESC:You retrained an eidolon evolution.
+Summoner Eidolon Base Form	KEY:Retraining ~ Class Feature ~ Summoner Base Form			CATEGORY:Special Ability	TYPE:RetrainingClassFeature	DESC:You retrained your eidolon's base form.
+Witch Hex				KEY:Retraining ~ Class Feature ~ Witch Hex				CATEGORY:Special Ability	TYPE:RetrainingClassFeature	DESC:You retrained a witch hex, major hex, or grand hex.

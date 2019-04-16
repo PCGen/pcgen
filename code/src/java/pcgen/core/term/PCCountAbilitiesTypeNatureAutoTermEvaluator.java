@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountAbilitiesTypeNatureAutoTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 06-Aug-2008 19:43:26
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -31,21 +27,17 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 
-public class PCCountAbilitiesTypeNatureAutoTermEvaluator
-		extends BasePCCountAbilitiesTypeTermEvaluator implements TermEvaluator
+public class PCCountAbilitiesTypeNatureAutoTermEvaluator extends BasePCCountAbilitiesTypeTermEvaluator
+		implements TermEvaluator
 {
-	public PCCountAbilitiesTypeNatureAutoTermEvaluator(
-			String originalText,
-			AbilityCategory abCat,
-			String[] types, 
-			boolean visible,
-			boolean hidden)
+	public PCCountAbilitiesTypeNatureAutoTermEvaluator(String originalText, AbilityCategory abCat, String[] types,
+		boolean visible, boolean hidden)
 	{
 		this.originalText = originalText;
-		this.abCat        = abCat;
-		this.types        = types;
-		this.visible      = visible;
-		this.hidden       = hidden;
+		this.abCat = abCat;
+		this.types = types;
+		this.visible = visible;
+		this.hidden = hidden;
 	}
 
 	@Override

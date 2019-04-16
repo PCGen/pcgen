@@ -1,5 +1,4 @@
 /*
- * RandomNameDialog.java
  * Copyright James Dempsey, 2010
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 20/06/2010 12:10:46 PM
- *
- * $Id$
  */
 package pcgen.gui2.dialog;
 
@@ -34,25 +29,23 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.doomsdaybook.NameGenPanel;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
- * The Class <code>RandomNameDialog</code> is a dialog in which the user can 
+ * The Class {@code RandomNameDialog} is a dialog in which the user can
  * generate a random name for their character.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class RandomNameDialog extends JDialog
 {
-	private NameGenPanel nameGenPanel;
+	private final NameGenPanel nameGenPanel;
 	private boolean cancelled;
 
 	/**
@@ -73,7 +66,7 @@ public class RandomNameDialog extends JDialog
 			Utility.setComponentRelativeLocation(frame, this);
 		}
 		cancelled = false;
-		
+
 		Utility.installEscapeCloseOperation(this);
 	}
 
@@ -99,8 +92,7 @@ public class RandomNameDialog extends JDialog
 			}
 		});
 
-		JButton cancelButton =
-				new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
+		JButton cancelButton = new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
 		cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
 		controlPanel.add(cancelButton);
 		cancelButton.addActionListener(new ActionListener()
@@ -124,7 +116,7 @@ public class RandomNameDialog extends JDialog
 		cancelled = true;
 		setVisible(false);
 	}
-	
+
 	/**
 	 * @return The directory where the random name data is held
 	 */
@@ -134,7 +126,7 @@ public class RandomNameDialog extends JDialog
 
 		return pluginDirectory + File.separator + "Random Names";
 	}
-	
+
 	/**
 	 * @return The name the user generated.
 	 */

@@ -17,9 +17,10 @@
  */
 package plugin.lsttokens.testsupport;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
@@ -28,6 +29,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.qualifier.pobject.QualifiedToken;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC extends Loadable>
 		extends AbstractCDOMTokenTestCase<T>
@@ -45,7 +49,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	{
 		prim = primitive;
 		target = tgt;
-		good = target == null ? prim : prim + "=" + target;
+		good = (target == null) ? prim : (prim + "=" + target);
 	}
 
 	public String getSubTokenName()
@@ -55,6 +59,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 
 	public abstract Class<TC> getTargetClass();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -87,42 +92,42 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testPrimitiveEquals() throws PersistenceLayerException
+	public void testPrimitiveEquals()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + prim + "=]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testPrimitivePipe() throws PersistenceLayerException
+	public void testPrimitivePipe()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good + "|]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testPrimitiveComma() throws PersistenceLayerException
+	public void testPrimitiveComma()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good + ",]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testPipePrimitive() throws PersistenceLayerException
+	public void testPipePrimitive()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[|" + good + "]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testCommaPrimitive() throws PersistenceLayerException
+	public void testCommaPrimitive()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[," + good + "]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testPrimitiveDoublePipe() throws PersistenceLayerException
+	public void testPrimitiveDoublePipe()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TestWP2||"
 				+ good + "]]"));
@@ -130,7 +135,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testPrimitiveDoubleComma() throws PersistenceLayerException
+	public void testPrimitiveDoubleComma()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TYPE=Foo,,"
 				+ good + "]"));
@@ -138,7 +143,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testPrimitiveAll1() throws PersistenceLayerException
+	public void testPrimitiveAll1()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[ALL|" + good
 				+ "]"));
@@ -146,7 +151,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testPrimitiveAll2() throws PersistenceLayerException
+	public void testPrimitiveAll2()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good
 				+ "|ALL]"));
@@ -154,7 +159,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testTypePrimitiveBadSyntax() throws PersistenceLayerException
+	public void testTypePrimitiveBadSyntax()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TYPE=Foo]"
 				+ good));
@@ -162,7 +167,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testPrimitiveTypeBadSyntax() throws PersistenceLayerException
+	public void testPrimitiveTypeBadSyntax()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good
 				+ "]TYPE=Foo"));
@@ -171,7 +176,6 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testPrimitiveTypePipeBadSyntax()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good
 				+ "]TYPE=Foo|TYPE=Bar"));
@@ -180,7 +184,6 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testPrimitiveTypeCommaBadSyntax()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TYPE=Foo]"
 				+ good + ",TYPE=Bar"));
@@ -188,14 +191,14 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testPrimitiveUsedAsQualifier() throws PersistenceLayerException
+	public void testPrimitiveUsedAsQualifier()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + good + "[" + good + "]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testDotPrimitive() throws PersistenceLayerException
+	public void testDotPrimitive()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -212,7 +215,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testGoodBadNoSideEffect() throws PersistenceLayerException
+	public void testGoodBadNoSideEffect()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -229,7 +232,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testAllNoSideEffect() throws PersistenceLayerException
+	public void testAllNoSideEffect()
 	{
 		// Test with All
 		construct(primaryContext, "TestWP1");
@@ -266,9 +269,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 		runRoundRobin(getSubTokenName() + '|' + "QUALIFIED[" + good + "]");
 	}
 
-	@Test
-	public void doPrimitiveIllegalTarget(String illegal)
-			throws PersistenceLayerException
+	protected void doPrimitiveIllegalTarget(String illegal)
 	{
 		String primitive = prim;
 		if (illegal != null)

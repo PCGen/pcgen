@@ -1,5 +1,4 @@
 /*
- * Cache.java
  * Copyright 2002 (C) Thomas Behr <ravenlock@gmx.de>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 08, 2002, 12:15 AM
  */
 package pcgen.io;
 
@@ -30,7 +28,6 @@ import java.util.Map;
  * Convenience wrapper class for a HashMap containing
  * only List intances filled with String instances.
  *
- * @author Thomas Behr 08-00-02
  */
 final class Cache
 {
@@ -38,7 +35,8 @@ final class Cache
 
 	Cache()
 	{
-		//should define some default or make the default constructor private making users of the cache to define its initial size
+		//should define some default
+		//or make the default constructor private making users of the cache to define its initial size
 		map = new HashMap<>();
 	}
 

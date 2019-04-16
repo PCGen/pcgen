@@ -18,7 +18,6 @@
 
 package gmgen.plugin.dice;
 
-
 import java.text.MessageFormat;
 import java.util.Random;
 import java.util.stream.IntStream;
@@ -29,8 +28,10 @@ public class SystemDieConfig implements DiceConfig
 	private final int sides;
 	private final int bias;
 
-	private static int systemExplode(final int i) {
-		switch (i) {
+	private static int systemExplode(final int i)
+	{
+		switch (i)
+		{
 			case 1:
 				return -9;
 			case 20:
@@ -40,7 +41,8 @@ public class SystemDieConfig implements DiceConfig
 		}
 	}
 
-	public SystemDieConfig(final int n, final int sides, final int bias, final Random random) {
+	public SystemDieConfig(final int n, final int sides, final int bias, final Random random)
+	{
 		this.n = n;
 		this.sides = sides;
 		this.bias = bias;
@@ -49,11 +51,8 @@ public class SystemDieConfig implements DiceConfig
 	@Override
 	public int roll()
 	{
-		return IntStream.generate(() -> Die.rand.nextInt(sides) + 1)
-				.map(SystemDieConfig::systemExplode)
-				.map(v -> v + bias)
-				.limit(n)
-				.sum();
+		return IntStream.generate(() -> Die.RAND.nextInt(sides) + 1).map(SystemDieConfig::systemExplode)
+			.map(v -> v + bias).limit(n).sum();
 	}
 
 	@Override

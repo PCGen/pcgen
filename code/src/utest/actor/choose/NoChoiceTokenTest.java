@@ -17,10 +17,9 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import plugin.lsttokens.choose.NoChoiceToken;
+
 import actor.testsupport.AbstractPersistentChoiceActorTestCase;
 
 public class NoChoiceTokenTest extends
@@ -28,12 +27,6 @@ public class NoChoiceTokenTest extends
 {
 
 	static NoChoiceToken pca = new NoChoiceToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 
 	@Override
 	public Chooser<String> getActor()

@@ -17,9 +17,6 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassLevelMaxParser;
 import plugin.pretokens.parser.PreClassParser;
@@ -27,18 +24,7 @@ import plugin.pretokens.writer.PreClassWriter;
 
 public class PreClassLevelMaxRobin extends AbstractPreRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreClassLevelMaxRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreClassLevelMaxRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

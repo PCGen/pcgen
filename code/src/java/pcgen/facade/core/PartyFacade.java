@@ -1,5 +1,4 @@
 /*
- * PartyFacade.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,29 +15,23 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Nov 6, 2011, 7:39:26 PM
  */
 package pcgen.facade.core;
-
-import pcgen.facade.util.ReferenceFacade;
 
 import java.io.BufferedWriter;
 import java.io.File;
 
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.io.ExportHandler;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public interface PartyFacade extends ListFacade<CharacterFacade>
 {
 
 	public ReferenceFacade<File> getFileRef();
-	
+
 	public void setFile(File file);
-	
+
 	public void export(ExportHandler theHandler, BufferedWriter buf);
 
 }

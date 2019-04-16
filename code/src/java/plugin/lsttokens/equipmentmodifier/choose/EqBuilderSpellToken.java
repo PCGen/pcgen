@@ -26,8 +26,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class EqBuilderSpellToken implements
-		CDOMSecondaryToken<EquipmentModifier>
+public class EqBuilderSpellToken implements CDOMSecondaryToken<EquipmentModifier>
 {
 
 	@Override
@@ -43,8 +42,7 @@ public class EqBuilderSpellToken implements
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, EquipmentModifier obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, EquipmentModifier obj, String value)
 	{
 		if (value == null)
 		{
@@ -53,29 +51,24 @@ public class EqBuilderSpellToken implements
 		}
 		if (value.indexOf('[') != -1)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not contain [] : " + value);
 		}
 		if (value.charAt(0) == '|')
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not start with | : " + value);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not end with | : " + value);
 		}
 		if (value.indexOf("||") != -1)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments uses double separator || : " + value);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		if (tok.countTokens() != 3)
 		{
-			return new ParseResult.Fail("COUNT:" + getTokenName()
-					+ " requires three arguments: " + value, context);
+			return new ParseResult.Fail("COUNT:" + getTokenName() + " requires three arguments: " + value);
 		}
 		tok.nextToken();
 		if (tok.hasMoreTokens())
@@ -87,8 +80,8 @@ public class EqBuilderSpellToken implements
 			}
 			catch (NumberFormatException nfe)
 			{
-				return new ParseResult.Fail("CHOOSE:" + getTokenName()
-						+ " second argument must be an Integer : " + value, context);
+				return new ParseResult.Fail(
+					"CHOOSE:" + getTokenName() + " second argument must be an Integer : " + value);
 			}
 		}
 		if (tok.hasMoreTokens())
@@ -102,16 +95,15 @@ public class EqBuilderSpellToken implements
 				}
 				catch (NumberFormatException nfe)
 				{
-					return new ParseResult.Fail("CHOOSE:" + getTokenName()
-						+ " third argument must be an Integer or 'MAXLEVEL': " + value,
-						context);
+					return new ParseResult.Fail(
+						"CHOOSE:" + getTokenName() + " third argument must be an Integer or 'MAXLEVEL': " + value);
 				}
 			}
 		}
 		if (tok.hasMoreTokens())
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " must have 1 to 3 | delimited arguments: " + value, context);
+			return new ParseResult.Fail(
+				"CHOOSE:" + getTokenName() + " must have 1 to 3 | delimited arguments: " + value);
 		}
 		StringBuilder sb = new StringBuilder(value.length() + 20);
 		sb.append(getTokenName()).append('|').append(value);
@@ -122,8 +114,7 @@ public class EqBuilderSpellToken implements
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier eqMod)
 	{
-		String chooseString = context.getObjectContext().getString(eqMod,
-				StringKey.CHOICE_STRING);
+		String chooseString = context.getObjectContext().getString(eqMod, StringKey.CHOICE_STRING);
 		if (chooseString == null)
 		{
 			return null;
@@ -141,7 +132,7 @@ public class EqBuilderSpellToken implements
 			}
 			returnString = chooseString.substring(getTokenName().length() + 1);
 		}
-		return new String[] { returnString };
+		return new String[]{returnString};
 	}
 
 	@Override

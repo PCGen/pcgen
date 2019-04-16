@@ -1,0 +1,4 @@
+SOURCELONG:Pathfinder Player Companion: Legacy of the First World	SOURCESHORT:LOTFW	SOURCEWEB:https://paizo.com/products/btpy9t1t	SOURCEDATE:2015-06
+
+Chroma Grenade					TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Splash	COST:75	WT:2		SOURCEPAGE:p.7		RANGE:10	SIZE:M	SPROP:Lighting the fuse is a move action; 1d3 rounds later, the grenade explodes, spewing sparks and gases that fill a 10-foot-radius area. Creatures in the area are dazzled and take a -2 penalty on saving throws against illusion (pattern) spells for 3 rounds (DC 15 Will negates).
+Vine Tube						TYPE:Goods.Alchemical.Consumable						COST:40			SOURCEPAGE:p.7

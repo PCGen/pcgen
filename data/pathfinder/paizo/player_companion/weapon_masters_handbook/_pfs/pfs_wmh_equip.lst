@@ -1,0 +1,17 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Weapon Master's Handbook	SOURCESHORT:WMH	SOURCEWEB:http://paizo.com/products/btpy9hdy	SOURCEDATE:2015-12
+
+# Equipment Name	Required Weapon Proficiency		Type											Cost		Weight	Crit Mult	Crit Range	Damage	Source Page		Quality and value
+Gnome Flick-Mace.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+Khakkhara.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+War Flute.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+###Block: Specific Magic Weapons
+# Equipment Name							Product Identity?	Cost		Modifier																					Source Page		Visible
+Cailean Fighting Tankard.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+Crusader's Longsword.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+Shieldmarshal's Pistol.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+Valorous Blade.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+Windreader's Bow.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+Spear of the Honored Ancestors.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal

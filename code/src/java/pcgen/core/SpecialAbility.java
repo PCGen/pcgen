@@ -1,5 +1,4 @@
 /*
- * SpecialAbility.java
  * Copyright 2004 (C) Devon Jones
  *
  * This library is free software; you can redistribute it and/or
@@ -16,15 +15,12 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  */
 package pcgen.core;
 
-
 /**
- * <code>SpecialAbility</code>.
+ * {@code SpecialAbility}.
  * 
- * @author Devon Jones
  */
 public final class SpecialAbility extends TextProperty
 {
@@ -55,8 +51,7 @@ public final class SpecialAbility extends TextProperty
 	 *            NEEDDOC
 	 * 
 	 */
-	public SpecialAbility(final String name, 
-		final String propDesc)
+	public SpecialAbility(final String name, final String propDesc)
 	{
 		super(name);
 		this.propDesc = propDesc;
@@ -82,18 +77,12 @@ public final class SpecialAbility extends TextProperty
 		return getPropDesc();
 	}
 
-	/**
-	 * @see pcgen.core.TextProperty#compareTo(java.lang.Object)
-	 */
 	@Override
 	public int compareTo(final Object obj)
 	{
 		return getKeyName().compareToIgnoreCase(obj.toString());
 	}
 
-	/**
-	 * @see pcgen.core.TextProperty#toString()
-	 */
 	@Override
 	public String toString()
 	{

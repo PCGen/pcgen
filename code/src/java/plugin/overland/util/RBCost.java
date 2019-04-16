@@ -14,15 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
- package plugin.overland.util;
+package plugin.overland.util;
 
 /** 
  * Class that holds a single travel method and its speed.  Note: This is a wrapper for the Pair class
- *
- * @author  Juliean Galak
  */
 public class RBCost extends Pair<String, Float>
 {
@@ -34,22 +30,17 @@ public class RBCost extends Pair<String, Float>
 	public RBCost(String name, float cost)
 	{
 		super.setLeft(name);
-		super.setRight(new Float(cost));
-	}
-
-	public RBCost()
-	{
-		this("", 0);
+		super.setRight(cost);
 	}
 
 	public void setCost(float cost)
 	{
-		super.setRight(new Float(cost));
+		super.setRight(cost);
 	}
 
 	public float getCost()
 	{
-		return super.getRight().floatValue();
+		return super.getRight();
 	}
 
 	public void setName(String name)

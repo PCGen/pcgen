@@ -1,0 +1,172 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Andoran, Birthplace of Freedom	SOURCESHORT:ABOF	SOURCEDATE:2015-05
+# ORIGINAL ENTRY: James Parker, with Gwen T. (evilpixie87)
+
+STARTPACK:Agathion (Cervapral) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Agathion (Cervapral)],[!PRERACE:1,%]	SOURCEPAGE:p.50
+ALIGN:NG
+RACE:Agathion (Cervapral)	!PRERACE:1,%
+NAME:Agathion (Cervapral)
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
+SKILL:Acrobatics		RANK:3
+SKILL:Bluff			RANK:6
+SKILL:Disguise		RANK:6
+SKILL:Escape Artist	RANK:6
+SKILL:Perception		RANK:6
+SKILL:Sense Motive	RANK:6
+SKILL:Stealth		RANK:6
+SKILL:Survival		RANK:6
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus (gore)
+GEAR:Rapier	QTY:1	SIZE:M	LOCATION:Carried	EQMOD:MWORKW
+
+
+STARTPACK:Bee-Man of Bellis	TYPE:Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Bee-Man of Bellis],[!PRERACE:1,%]	SOURCEPAGE:p.51
+ALIGN:NE
+RACE:Bee-Man of Bellis	!PRERACE:1,%
+NAME:Bee-Man of Bellis
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Acrobatics	RANK:10
+SKILL:Fly		RANK:10
+SKILL:Intimidate	RANK:13
+SKILL:Perception	RANK:13
+SKILL:Stealth	RANK:13
+SKILL:Survival	RANK:6
+ABILITY:CATEGORY=FEAT|Ability Focus (poison)
+ABILITY:CATEGORY=FEAT|Acrobatic
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Step Up
+ABILITY:CATEGORY=FEAT|Wind Stance
+
+
+STARTPACK:Candlestone Courtier Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Candlestone Courtier],[!PRERACE:1,%]	SOURCEPAGE:p.52
+ALIGN:NE
+RACE:Candlestone Courtier	!PRERACE:1,%
+NAME:Candlestone Courtier
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics				RANK:18
+SKILL:Bluff					RANK:18
+SKILL:Diplomacy				RANK:6
+SKILL:Disguise				RANK:11
+SKILL:Escape Artist			RANK:8
+SKILL:Knowledge (dungeoneering)	RANK:7
+SKILL:Knowledge (history)		RANK:7
+SKILL:Knowledge (local)			RANK:4
+SKILL:Knowledge (nature)		RANK:4
+SKILL:Knowledge (nobility)		RANK:7
+SKILL:Knowledge (planes)		RANK:7
+SKILL:Perception				RANK:19
+SKILL:Perform (dance)			RANK:6
+SKILL:Sense Motive			RANK:9
+SKILL:Sleight of Hand			RANK:3
+SKILL:Stealth				RANK:18
+SKILL:Use Magic Device			RANK:19
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Greater Trip
+ABILITY:CATEGORY=FEAT|Improved Trip
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus (Rapier)
+ABILITY:CATEGORY=FEAT|Whirlwind Attack
+GEAR:Rapier		QTY:1	SIZE:M	LOCATION:Primary Hand	EQMOD:PLUS1W.Keen
+GEAR:Buckler	QTY:1	SIZE:M	LOCATION:Equipped		EQMOD:PLUS1S
+
+
+
+STARTPACK:Fellsig Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Fellsig],[!PRERACE:1,%]	SOURCEPAGE:p.55
+ALIGN:NE
+RACE:Fellsig	!PRERACE:1,%
+NAME:Fellsig
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Craft (Alchemy)|Craft (Armor)|Craft (Baskets)|Craft (Blacksmithing)|Craft (Books)|Craft (Bows)|Craft (Calligraphy)|Craft (Carpentry)|Craft (Cloth)|Craft (Clothing)|Craft (Gemcutting)|Craft (Glass)|Craft (Jewelry)|Craft (Leather)|Craft (Locks)|Craft (Paintings)|Craft (Pottery)|Craft (Sculptures)|Craft (Ships)|Craft (Shoes)|Craft (Stonemasonry)|Craft (Traps)|Craft (Weapons)	RANK:5	COUNT:1
+SKILL:Intimidate																																																														RANK:5
+SKILL:Perception																																																														RANK:5
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Power Attack
+
+
+STARTPACK:Gremlin (Erinat) Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Gremlin (Erinat)],[!PRERACE:1,%]	SOURCEPAGE:p.56
+ALIGN:CE
+RACE:Gremlin (Erinat)	!PRERACE:1,%
+NAME:Gremlin (Erinat)
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics		RANK:3
+SKILL:Bluff			RANK:3
+SKILL:Perception		RANK:3
+SKILL:Sleight of Hand	RANK:3
+SKILL:Stealth		RANK:3
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+#ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+GEAR:Chain (Spiked)	QTY:1	SIZE:T	LOCATION:Carried
+
+
+STARTPACK:Ragewight Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ragewight],[!PRERACE:1,%]	SOURCEPAGE:p.58
+ALIGN:CE
+RACE:Ragewight	!PRERACE:1,%
+NAME:Ragewight
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Climb				RANK:11
+SKILL:Intimidate			RANK:10
+SKILL:Knowledge (religion)	RANK:1
+SKILL:Perception			RANK:11
+SKILL:Stealth			RANK:7
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Furious Focus
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Critical (greatsword)
+ABILITY:CATEGORY=FEAT|Lunge
+ABILITY:CATEGORY=FEAT|Power Attack
+GEAR:Greatsword	LOCATION:Both Hands
+GEAR:Javelin	LOCATION:Carried
+
+
+STARTPACK:Sawdust Slough Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Sawdust Slough],[!PRERACE:1,%]	SOURCEPAGE:p.59
+ALIGN:TN
+RACE:Sawdust Slough	!PRERACE:1,%
+NAME:Sawdust Slough
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=11
+
+
+STARTPACK:Talmandor	TYPE:Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Talmandor],[!PRERACE:1,%]	SOURCEPAGE:p.62
+ALIGN:NG
+RACE:Talmandor	!PRERACE:1,%
+NAME:Talmandor
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
+SKILL:Acrobatics			RANK:27
+SKILL:Bluff				RANK:10
+SKILL:Diplomacy			RANK:13
+SKILL:Fly				RANK:27
+SKILL:Handle Animal		RANK:23
+SKILL:Intimidate			RANK:23
+SKILL:Knowledge (history)	RANK:6
+SKILL:Knowledge (local)		RANK:6
+SKILL:Knowledge (nobility)	RANK:6
+SKILL:Knowledge (planes)	RANK:3
+SKILL:Perception			RANK:27
+SKILL:Perform (oratory)		RANK:3
+SKILL:Sense Motive		RANK:27
+SKILL:Spellcraft			RANK:6
+SKILL:Stealth			RANK:26
+SKILL:Use Magic Device		RANK:27
+ABILITY:CATEGORY=FEAT|Bleeding Critical
+ABILITY:CATEGORY=FEAT|Dimensional Agility
+ABILITY:CATEGORY=FEAT|Dimensional Assault
+ABILITY:CATEGORY=FEAT|Dimensional Dervish
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Empower Spell-Like Ability ~ Spell (chain lightning)
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (chain lightning)
+ABILITY:CATEGORY=FEAT|Staggering Critical
+ABILITY:CATEGORY=FEAT|Stunning Critical
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Weapon Focus (claws)

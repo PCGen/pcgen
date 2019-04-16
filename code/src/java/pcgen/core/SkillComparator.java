@@ -1,5 +1,4 @@
 /*
- * SkillComparator.java
  * Copyright 2003 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 25, 2003, 5:00 PM
- *
- * $Id$
  */
 package pcgen.core;
 
@@ -26,11 +21,8 @@ import java.util.Comparator;
 
 import pcgen.core.analysis.SkillRankControl;
 
-
 /**
- * <code>SkillComparator</code> is a comparator interface for sorting skills.
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ * {@code SkillComparator} is a comparator interface for sorting skills.
  */
 public final class SkillComparator implements Comparator<Skill>
 {
@@ -41,7 +33,7 @@ public final class SkillComparator implements Comparator<Skill>
 	private boolean sortOrder = RESORT_ASCENDING;
 	private int sort = RESORT_NAME;
 	private final PlayerCharacter pc;
-	
+
 	public SkillComparator(PlayerCharacter aPC, final int sort, final boolean sortOrder)
 	{
 		this.sort = sort;
@@ -50,7 +42,7 @@ public final class SkillComparator implements Comparator<Skill>
 	}
 
 	// Comparator will be specific to Skill objects
-    @Override
+	@Override
 	public int compare(final Skill obj1, final Skill obj2)
 	{
 		final Skill s1;
@@ -69,10 +61,10 @@ public final class SkillComparator implements Comparator<Skill>
 
 		switch (sort)
 		{
-			case RESORT_TRAINED:
+			case RESORT_TRAINED: {
 
-				float r1 = SkillRankControl.getTotalRank(pc, s1).floatValue();
-				float r2 = SkillRankControl.getTotalRank(pc, s2).floatValue();
+				float r1 = SkillRankControl.getTotalRank(pc, s1);
+				float r2 = SkillRankControl.getTotalRank(pc, s2);
 				if ((r1 > 0.0f) && (r2 <= 0.0f))
 				{
 					return ((sortOrder == RESORT_ASCENDING) ? (-1) : 1);
@@ -85,8 +77,9 @@ public final class SkillComparator implements Comparator<Skill>
 				{
 					return s1.getOutputName().compareToIgnoreCase(s2.getOutputName());
 				}
-
-			case RESORT_NAME:default:
+			}
+			case RESORT_NAME:
+			default:
 				return s1.getOutputName().compareToIgnoreCase(s2.getOutputName());
 		}
 	}

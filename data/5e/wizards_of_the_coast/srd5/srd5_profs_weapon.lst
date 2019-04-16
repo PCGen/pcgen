@@ -1,46 +1,46 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
+SOURCELONG:System Reference Document	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
 # Original Entry: See contributors listed in PCC file.
 
 
-# Weapon Name		Type
-Club				TYPE:Weapon.Simple.Monk
-Dagger			TYPE:Weapon.Simple.Monk
-Greatclub			TYPE:Weapon.Simple
-Handaxe			TYPE:Weapon.Simple.Monk
-Javelin			TYPE:Weapon.Simple.Monk
-Light Hammer		TYPE:Weapon.Simple.Monk
-Mace				TYPE:Weapon.Simple.Monk
-Quarterstaff		TYPE:Weapon.Simple.Monk
-Sickle			TYPE:Weapon.Simple.Monk
-Spear				TYPE:Weapon.Simple.Monk
-Unarmed Strike		TYPE:Weapon.Simple
-Unarmed Strike (Monk)	TYPE:Weapon.Monk
-Crossbow (Light)		TYPE:Weapon.Simple
-Dart				TYPE:Weapon.Simple
-Shortbow			TYPE:Weapon.Simple
-Sling				TYPE:Weapon.Simple
+# Weapon Name	Type
+Club			TYPE:Weapon.Simple.Monk
+Dagger		TYPE:Weapon.Simple.Monk
+Greatclub		TYPE:Weapon.Simple
+Handaxe		TYPE:Weapon.Simple.Monk
+Javelin		TYPE:Weapon.Simple.Monk
+Light Hammer	TYPE:Weapon.Simple.Monk
+Mace			TYPE:Weapon.Simple.Monk
+Quarterstaff	TYPE:Weapon.Simple.Monk
+Sickle		TYPE:Weapon.Simple.Monk
+Spear			TYPE:Weapon.Simple.Monk
+Unarmed Strike	TYPE:Weapon.Simple.Monk
+Crossbow (Light)	TYPE:Weapon.Simple
+Dart			TYPE:Weapon.Simple
+Shortbow		TYPE:Weapon.Simple
+Sling			TYPE:Weapon.Simple
 
-Battleaxe			TYPE:Weapon.Martial
-Flail				TYPE:Weapon.Martial
-Glaive			TYPE:Weapon.Martial
-Greataxe			TYPE:Weapon.Martial
-Greatsword			TYPE:Weapon.Martial
-Halberd			TYPE:Weapon.Martial
-Lance				TYPE:Weapon.Martial
-Longsword			TYPE:Weapon.Martial
-Maul				TYPE:Weapon.Martial
-Morningstar			TYPE:Weapon.Martial
-Pike				TYPE:Weapon.Martial
-Rapier			TYPE:Weapon.Martial
-Scimitar			TYPE:Weapon.Martial
-Shortsword			TYPE:Weapon.Martial.Monk
-Trident			TYPE:Weapon.Martial
-War Pick			TYPE:Weapon.Martial
-Warhammer			TYPE:Weapon.Martial
-Whip				TYPE:Weapon.Martial
-Blowgun			TYPE:Weapon.Martial
-Crossbow (Hand)		TYPE:Weapon.Martial
-Crossbow (Heavy)		TYPE:Weapon.Martial
-Longbow			TYPE:Weapon.Martial
-Net				TYPE:Weapon.Martial
+Battleaxe		TYPE:Weapon.Martial
+Flail			TYPE:Weapon.Martial
+Glaive		TYPE:Weapon.Martial
+Greataxe		TYPE:Weapon.Martial
+Greatsword		TYPE:Weapon.Martial
+Halberd		TYPE:Weapon.Martial
+Lance			TYPE:Weapon.Martial
+Longsword		TYPE:Weapon.Martial
+Maul			TYPE:Weapon.Martial
+Morningstar		TYPE:Weapon.Martial
+Pike			TYPE:Weapon.Martial
+Rapier		TYPE:Weapon.Martial
+Scimitar		TYPE:Weapon.Martial
+Shortsword		TYPE:Weapon.Martial
+Trident		TYPE:Weapon.Martial
+War Pick		TYPE:Weapon.Martial
+Warhammer		TYPE:Weapon.Martial
+Whip			TYPE:Weapon.Martial
+Blowgun		TYPE:Weapon.Martial
+Crossbow (Hand)	TYPE:Weapon.Martial
+Crossbow (Heavy)	TYPE:Weapon.Martial
+Longbow		TYPE:Weapon.Martial
+Net			TYPE:Weapon.Martial

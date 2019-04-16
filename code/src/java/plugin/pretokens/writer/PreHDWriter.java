@@ -1,5 +1,4 @@
 /*
- * PrerequisiteHDWriter.java
  *
  * Copyright 2004 (C) Frugal <frugal@purplewombat.co.uk>
  *
@@ -16,15 +15,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package plugin.pretokens.writer;
+
+import java.io.IOException;
+import java.io.Writer;
+import java.util.List;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -32,39 +28,24 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
-import java.io.IOException;
-import java.io.Writer;
-import java.util.List;
-
-public class PreHDWriter extends AbstractPrerequisiteWriter implements
-		PrerequisiteWriterInterface
+public class PreHDWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
-	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "HD";
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
-	 */
-    @Override
+	@Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
-				PrerequisiteOperator.LT, PrerequisiteOperator.LTEQ,PrerequisiteOperator.GT};
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT, PrerequisiteOperator.LTEQ,
+			PrerequisiteOperator.GT};
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
-	 */
-    @Override
-	public void write(Writer writer, Prerequisite prereq)
-		throws PersistenceLayerException
+	@Override
+	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 
@@ -73,38 +54,35 @@ public class PreHDWriter extends AbstractPrerequisiteWriter implements
 			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
 			{
 				writer.write('!');
-				writer.write("PREHD:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MIN=");
+				writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MIN=");
 				writer.write(prereq.getOperand());
 			}
-			else if(prereq.getOperator().equals(PrerequisiteOperator.GT))
+			else if (prereq.getOperator().equals(PrerequisiteOperator.GT))
 			{
 				writer.write('!');
-				writer.write("PREHD:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MAX=");
-				writer.write(prereq.getOperand());	
+				writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MAX=");
+				writer.write(prereq.getOperand());
 			}
 			else if (prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 			{
-				writer.write("PREHD:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MIN=");
+				writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MIN=");
 				writer.write(prereq.getOperand());
 			}
-			else if(prereq.getOperator().equals(PrerequisiteOperator.LTEQ))
+			else if (prereq.getOperator().equals(PrerequisiteOperator.LTEQ))
 			{
-				writer.write("PREHD:"  + (prereq.isOverrideQualify() ? "Q:":"") + "MAX=");
+				writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:" : "") + "MAX=");
 				writer.write(prereq.getOperand());
 			}
 
 		}
 		catch (IOException e)
 		{
-			throw new PersistenceLayerException(e.getMessage());
+			throw new PersistenceLayerException(e);
 		}
 	}
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter#specialCase(java.io.Writer writer, pcgen.core.prereq.Prerequisite prereq)
-	 */
+
 	@Override
-	public boolean specialCase(Writer writer, Prerequisite prereq)
-		throws IOException
+	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
 	{
 		//
 		// If this is a PREMULT...
@@ -123,17 +101,15 @@ public class PreHDWriter extends AbstractPrerequisiteWriter implements
 				final Prerequisite elementGTEQ = prereqList.get(0);
 				final Prerequisite elementLTEQ = prereqList.get(1);
 				if ("hd".equalsIgnoreCase(elementGTEQ.getKind())
-					&& elementGTEQ.getOperator().equals(
-						PrerequisiteOperator.GTEQ)
+					&& elementGTEQ.getOperator().equals(PrerequisiteOperator.GTEQ)
 					&& "hd".equalsIgnoreCase(elementLTEQ.getKind())
-					&& elementLTEQ.getOperator().equals(
-						PrerequisiteOperator.LTEQ))
+					&& elementLTEQ.getOperator().equals(PrerequisiteOperator.LTEQ))
 				{
 					if (prereq.getOperator().equals(PrerequisiteOperator.LT))
 					{
 						writer.write('!');
 					}
-					writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:":""));
+					writer.write("PREHD:" + (prereq.isOverrideQualify() ? "Q:" : ""));
 					writer.write("MIN=");
 					writer.write(elementGTEQ.getOperand());
 					writer.write(",MAX=");

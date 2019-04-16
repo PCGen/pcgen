@@ -1,5 +1,4 @@
 /*
- * QtyToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 6, 2006
- *
- * Current Ver: $Revision$
  */
 
 package plugin.lsttokens.kit.funds;
@@ -34,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * QTY Token
  */
-public class QtyToken extends AbstractNonEmptyToken<KitFunds> implements
-		CDOMPrimaryToken<KitFunds>
+public class QtyToken extends AbstractNonEmptyToken<KitFunds> implements CDOMPrimaryToken<KitFunds>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -55,14 +49,12 @@ public class QtyToken extends AbstractNonEmptyToken<KitFunds> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitFunds kitFunds,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitFunds kitFunds, String value)
 	{
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		kitFunds.setQuantity(formula);
 		return ParseResult.SUCCESS;

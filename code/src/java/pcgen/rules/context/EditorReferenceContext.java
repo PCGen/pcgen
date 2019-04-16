@@ -23,12 +23,16 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
 
-class EditorReferenceContext extends RuntimeReferenceContext
+final class EditorReferenceContext extends RuntimeReferenceContext
 {
 
 	private final HashMapToList<CDOMObject, CDOMObject> copyMap = new HashMapToList<>();
 	private final HashMapToList<CDOMObject, CDOMObject> modMap = new HashMapToList<>();
 	private final HashMapToList<URI, Loadable> forgetMap = new HashMapToList<>();
+
+	private EditorReferenceContext()
+	{
+	}
 
 	@Override
 	<T extends CDOMObject> T performCopy(T object, String copyName)
@@ -40,15 +44,13 @@ class EditorReferenceContext extends RuntimeReferenceContext
 		}
 		catch (InstantiationException e)
 		{
-			throw new IllegalArgumentException("Class "
-					+ object.getClass().getName()
-					+ " must possess a zero-argument constructor", e);
+			throw new IllegalArgumentException(
+				"Class " + object.getClass().getName() + " must possess a zero-argument constructor", e);
 		}
 		catch (IllegalAccessException e)
 		{
-			throw new IllegalArgumentException("Class "
-					+ object.getClass().getName()
-					+ " must possess a public zero-argument constructor", e);
+			throw new IllegalArgumentException(
+				"Class " + object.getClass().getName() + " must possess a public zero-argument constructor", e);
 		}
 		return null;
 	}
@@ -63,15 +65,13 @@ class EditorReferenceContext extends RuntimeReferenceContext
 		}
 		catch (InstantiationException e)
 		{
-			throw new IllegalArgumentException("Class "
-					+ object.getClass().getName()
-					+ " must possess a zero-argument constructor", e);
+			throw new IllegalArgumentException(
+				"Class " + object.getClass().getName() + " must possess a zero-argument constructor", e);
 		}
 		catch (IllegalAccessException e)
 		{
-			throw new IllegalArgumentException("Class "
-					+ object.getClass().getName()
-					+ " must possess a public zero-argument constructor", e);
+			throw new IllegalArgumentException(
+				"Class " + object.getClass().getName() + " must possess a public zero-argument constructor", e);
 		}
 		return null;
 	}
@@ -93,4 +93,16 @@ class EditorReferenceContext extends RuntimeReferenceContext
 		super.forget(cdo);
 	}
 
+	/**
+	 * Return a new EditorReferenceContext. This ReferenceContext is initialized as per
+	 * the rules of AbstractReferenceContext.
+	 * 
+	 * @return A new EditorReferenceContext
+	 */
+	public static EditorReferenceContext createEditorReferenceContext()
+	{
+		EditorReferenceContext context = new EditorReferenceContext();
+		context.initialize();
+		return context;
+	}
 }

@@ -1,0 +1,12 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Starfinder Alien Archive	SOURCESHORT:SAA	SOURCEDATE:2017-10
+# Original Entry by: Brad Grinstead
+
+# Default Properties of Weapons
+# Modifier Name	Unique Key			Type		Visible	Source Page		Special Property
+Underwater								VISIBLE:NO				SPROP:A weapon with this special property that is used underwater ignores the -2 penalty to attack rolls and deals full damage.
+
+
+# Weapon Fusion
+# MODIFY:Price|SET|lookup("Item Level",ItemLevel,"Price")
+NANITE		KEY:Weapon (NANITE)	TYPE:Weapon			SOURCEPAGE:p.67	SPROP:The nanite fusion gives a weapon the nanite burst critical effect. When this critical effect is triggered, a cloud of nanites detaches from the blade and begins devouring the target, swarming over it and dismantling it at the molecular level. In this situation, the weapon deals double damage as normal, but all of the damage is treated as acid damage, and the target must succeed at a Fortitude saving throw (see page 181 of the Starfinder Core Rulebook for how to calculate the DC) or be nauseated for 1 round. When you score a critical hit with a weapon that has multiple critical hit effects, you can apply only one of those critical hit effects of your choice. Only melee weapons can have this fusion.

@@ -1,9 +1,9 @@
+
+# Last Editor: $Author$
+# Last Edited: $Date$
 #
-# Current Ver: $Revision: 25484 $
-# Last Editor: $Author: amaitland $
-# Last Edited: $Date: 2014-11-17 16:43:46 -0800 (Mon, 17 Nov 2014) $
+# Stat definitions for Pathfinder mode
 #
-# Stat definitions for Pathfinder PFS mode
 
 BONUSSPELLLEVEL:1		BASESTATSCORE:12	STATRANGE:8
 BONUSSPELLLEVEL:2		BASESTATSCORE:14	STATRANGE:8

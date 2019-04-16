@@ -17,23 +17,25 @@
  */
 package plugin.lsttokens.editcontext.ability;
 
-import org.junit.Test;
-
 import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.ability.VisibleToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.jupiter.api.Test;
 
 public class VisibleIntegrationTest extends
 		AbstractIntegrationTestCase<Ability>
 {
 
-	static VisibleToken token = new VisibleToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
+	private static VisibleToken token = new VisibleToken();
+	private static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()
@@ -81,5 +83,14 @@ public class VisibleIntegrationTest extends
 		commit(testCampaign, tc, "YES");
 		emptyCommit(modCampaign, tc);
 		completeRoundRobin(tc);
+	}
+
+	@Override
+	protected Ability construct(LoadContext context, String name)
+	{
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 }

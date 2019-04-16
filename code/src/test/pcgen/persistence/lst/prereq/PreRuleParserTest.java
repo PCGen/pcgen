@@ -1,5 +1,4 @@
 /*
- * PreRuleParserTest.java
  * Copyright 2007 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,38 +14,23 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on February 6, 2007
- *
- * Current Ver: $Revision: 1777 $
- *
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreRuleParser;
 
-/**
- * <code>PreRuleParserTest</code> is ...
- *
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- */
-@SuppressWarnings("nls")
-public class PreRuleParserTest extends EnUsLocaleDependentTestCase
-{
+import org.junit.jupiter.api.Test;
 
-	/**
-	 * @throws Exception
-	 */
+class PreRuleParserTest extends EnUsLocaleDependentTestCase
+{
 	@Test
-	public void testPositive() throws Exception
+	public void testPositive() throws PersistenceLayerException
 	{
 		PreRuleParser parser = new PreRuleParser();
 		Prerequisite prereq = parser.parse("RULE", "1,DISPLAYTYPETRAITS", false, false);
@@ -54,14 +38,12 @@ public class PreRuleParserTest extends EnUsLocaleDependentTestCase
 		assertEquals(
 			"<prereq kind=\"rule\" key=\"DISPLAYTYPETRAITS\" operator=\"GTEQ\" operand=\"1\" >\n</prereq>\n",
 			prereq.toString());
-		assertFalse("Prerule should nto need a character", prereq.isCharacterRequired());
+		assertFalse(prereq.isCharacterRequired(), "Prerule should nto need a character");
 	}
 
-	/**
-	 * @throws Exception
-	 */
+
 	@Test
-	public void testNegative() throws Exception
+	public void testNegative() throws PersistenceLayerException
 	{
 		PreRuleParser parser = new PreRuleParser();
 		Prerequisite prereq = parser.parse("RULE", "1,DISPLAYTYPETRAITS", true, false);
@@ -69,7 +51,7 @@ public class PreRuleParserTest extends EnUsLocaleDependentTestCase
 		assertEquals(
 			"<prereq kind=\"rule\" key=\"DISPLAYTYPETRAITS\" operator=\"LT\" operand=\"1\" >\n</prereq>\n",
 			prereq.toString());
-		assertFalse("Prerule should nto need a character", prereq.isCharacterRequired());
+		assertFalse(prereq.isCharacterRequired(), "Prerule should nto need a character");
 	}
 
 }

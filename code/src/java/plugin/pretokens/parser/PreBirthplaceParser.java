@@ -1,5 +1,4 @@
 /*
- * PreBirthplaceParser.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package plugin.pretokens.parser;
 
@@ -33,7 +25,6 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteParser;
 
 /**
  * A prerequisite parser class that handles the parsing of pre birthplace tokens.
- *
  */
 public class PreBirthplaceParser extends AbstractPrerequisiteParser
 {
@@ -41,7 +32,7 @@ public class PreBirthplaceParser extends AbstractPrerequisiteParser
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"BIRTHPLACE"};
@@ -60,10 +51,8 @@ public class PreBirthplaceParser extends AbstractPrerequisiteParser
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKey(formula);

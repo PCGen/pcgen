@@ -22,6 +22,8 @@ COPYRIGHT:PCGen dataset conversion for the System Reference Document Copyright 2
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
+RACE:*/_universal/races.lst
+
 
 
 # Basics

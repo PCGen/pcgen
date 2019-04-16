@@ -20,6 +20,7 @@ package pcgen.cdom.reference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -40,8 +41,7 @@ import pcgen.cdom.enumeration.ObjectKey;
  *            The class of object stored by the Object Key used by this
  *            ObjectMatchingReference.
  */
-public class ObjectMatchingReference<T extends CDOMObject, V> extends
-		CDOMReference<T>
+public class ObjectMatchingReference<T extends CDOMObject, V> extends CDOMReference<T>
 {
 
 	/**
@@ -66,7 +66,7 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	/**
 	 * Constructs a new ObjectMatchingReference
 	 * 
-	 * @param objClass
+	 * @param unparse
 	 *            The Class of the underlying objects contained by this
 	 *            reference.
 	 * @param startingGroup
@@ -76,21 +76,12 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	 *             if the starting group is null or the provided pattern does
 	 *             not end with the PCGen pattern characters
 	 */
-	public ObjectMatchingReference(String unparse, Class<T> objClass,
-			CDOMGroupRef<T> startingGroup, ObjectKey<V> targetKey,
-			V expectedValue)
+	public ObjectMatchingReference(String unparse, CDOMGroupRef<T> startingGroup, ObjectKey<V> targetKey,
+		V expectedValue)
 	{
-		super(objClass, unparse);
-		if (startingGroup == null)
-		{
-			throw new IllegalArgumentException(
-					"Starting Group cannot be null in ObjectMatchingReference");
-		}
-		if (targetKey == null)
-		{
-			throw new IllegalArgumentException(
-					"Target Key cannot be null in ObjectMatchingReference");
-		}
+		super(unparse);
+		Objects.requireNonNull(startingGroup, "Starting Group cannot be null in ObjectMatchingReference");
+		Objects.requireNonNull(targetKey, "Target Key cannot be null in ObjectMatchingReference");
 		all = startingGroup;
 		key = targetKey;
 		value = expectedValue;
@@ -110,8 +101,7 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	@Override
 	public void addResolution(T item)
 	{
-		throw new IllegalStateException(
-				"Cannot add resolution to ObjectMatchingReference");
+		throw new IllegalStateException("Cannot add resolution to ObjectMatchingReference");
 	}
 
 	/**
@@ -165,8 +155,7 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 		for (T obj : all.getContainedObjects())
 		{
 			V actual = obj.get(key);
-			if (actual == null && (value == null || allowNull) || value != null
-					&& value.equals(actual))
+			if (actual == null && (value == null || allowNull) || value != null && value.equals(actual))
 			{
 				list.add(obj);
 			}
@@ -183,7 +172,6 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	 * 
 	 * @return A representation of this ObjectMatchingReference, suitable for
 	 *         storing in an LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -208,8 +196,7 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 		for (T obj : all.getContainedObjects())
 		{
 			V actual = obj.get(key);
-			if (value == null && actual == null || value != null
-					&& value.equals(actual))
+			if (value == null && actual == null || value != null && value.equals(actual))
 			{
 				count++;
 			}
@@ -222,25 +209,13 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 		allowNull = includesNulls;
 	}
 
-	/**
-	 * Returns true if this ObjectMatchingReference is equal to the given
-	 * Object. Equality is defined as being another ObjectMatchingReference
-	 * object with equal Class represented by the reference, an equal staring
-	 * CDOMGroupRef and an equal pattern. This may or may not be a deep .equals,
-	 * depending on the behavior of the underlying CDOMGroupRef. You should
-	 * check the documentation for the .equals(Object) method of that class to
-	 * establish the actual behavior of this method.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
 		if (obj instanceof ObjectMatchingReference)
 		{
 			ObjectMatchingReference<?, ?> other = (ObjectMatchingReference<?, ?>) obj;
-			if (getReferenceClass().equals(other.getReferenceClass())
-					&& all.equals(other.all) && key.equals(other.key))
+			if (getReferenceClass().equals(other.getReferenceClass()) && all.equals(other.all) && key.equals(other.key))
 			{
 				if (value == null)
 				{
@@ -252,17 +227,10 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 		return false;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this
-	 * ObjectMatchingReference
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
-		return getReferenceClass().hashCode() ^ key.hashCode()
-				+ (value == null ? -1 : value.hashCode());
+		return getReferenceClass().hashCode() ^ key.hashCode() + (value == null ? -1 : value.hashCode());
 	}
 
 	/**
@@ -282,5 +250,23 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	public String getChoice()
 	{
 		return null;
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return all.getReferenceClass();
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return all.getReferenceDescription() + " (Object " + key + " = " + value + ")";
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return all.getPersistentFormat();
 	}
 }

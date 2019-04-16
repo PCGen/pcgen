@@ -1,5 +1,4 @@
 /*
- * PreDamageReductionParserTest.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,59 +15,45 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreDamageReductionParser;
 
-/**
- * @author wardc
- *
- */
+import org.junit.jupiter.api.Test;
+
+
 @SuppressWarnings("nls")
 public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 {
-	/**
-	 * @throws Exception
-	 */
+	
 	@Test
-	public void testMultipleFails() throws Exception
+	public void testMultipleFails()
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
 
-		try
-		{
+		PersistenceLayerException ple = assertThrows(PersistenceLayerException.class, () -> {
 			parser.parse("DR", "Evil=5,Magic.10", false, false);
 			fail("should have thrown a PersistenceLayerException!");
-		}
-		catch (PersistenceLayerException ple)
-		{
-			assertEquals(
-				"Badly formed passesPreDR/number of DRs attribute: Evil=5", ple
-					.getMessage());
-		}
+		});
+		assertEquals(
+				"Badly formed passesPreDR/number of DRs attribute: Evil=5", ple.getMessage());
 	}
-
+	
 	/**
-	 * @throws Exception
+	 * Test multiple passes.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testMultiplePasses() throws Exception
+	public void testMultiplePasses() throws PersistenceLayerException
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
 
@@ -76,15 +61,20 @@ public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 				parser.parse("DR", "1,Evil=5,Magic.10", false, false);
 
 		assertEquals(
-			"<prereq operator=\"GTEQ\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" operator=\"GTEQ\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" operator=\"GTEQ\" operand=\"10\" >\n</prereq>\n</prereq>\n",
+			"<prereq operator=\"GTEQ\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" "
+			+ "operator=\"GTEQ\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" "
+			+ "operator=\"GTEQ\" operand=\"10\" >\n</prereq>\n</prereq>\n",
 			prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test no value.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNoValue() throws Exception
+	public void testNoValue() throws PersistenceLayerException
 	{
 		PreDamageReductionParser parser = new PreDamageReductionParser();
 
@@ -92,7 +82,9 @@ public class PreDamageReductionParserTest extends EnUsLocaleDependentTestCase
 				parser.parse("DR", "1,Evil=5,Magic", false, false);
 
 		assertEquals(
-			"<prereq operator=\"GTEQ\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" operator=\"GTEQ\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" operator=\"GTEQ\" operand=\"0\" >\n</prereq>\n</prereq>\n",
+			"<prereq operator=\"GTEQ\" operand=\"1\" >\n<prereq kind=\"dr\" key=\"Evil\" "
+					+ "operator=\"GTEQ\" operand=\"5\" >\n</prereq>\n<prereq kind=\"dr\" key=\"Magic\" "
+					+ "operator=\"GTEQ\" operand=\"0\" >\n</prereq>\n</prereq>\n",
 			prereq.toString());
 	}
 }

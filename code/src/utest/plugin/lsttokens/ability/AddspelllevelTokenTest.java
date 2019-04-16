@@ -17,20 +17,20 @@
  */
 package plugin.lsttokens.ability;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.Ability;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractIntegerTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class AddspelllevelTokenTest extends AbstractIntegerTokenTestCase<Ability>
 {
 
 	static AddspelllevelToken token = new AddspelllevelToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()
@@ -74,9 +74,12 @@ public class AddspelllevelTokenTest extends AbstractIntegerTokenTestCase<Ability
 		return true;
 	}
 
-	@Test
-	public void dummyTest()
+	@Override
+	protected Ability get(LoadContext context, String name)
 	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 }

@@ -1,0 +1,72 @@
+CAMPAIGN:Legacy of Dragons
+GAMEMODE:Pathfinder|Pathfinder_PFS
+RANK:3
+TYPE:Paizo Publishing.Pathfinder Player Companion
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+STATUS:BETA
+PRECAMPAIGN:6,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Advanced Class Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+#PUBNAMEWEB:http://www.paizo.com
+SOURCELONG:Pathfinder Player Companion: Legacy of Dragons
+SOURCESHORT:LoD
+SOURCEWEB:http://paizo.com/products/btpy9nfl?Pathfinder-Player-Companion-Legacy-of-Dragons
+SOURCEDATE:2016-08
+ISOGL:YES
+
+COVER:legacy_of_dragons.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9nfl?Pathfinder-Player-Companion-Legacy-of-Dragons|Buy this publication from Paizo Publishing!
+DESC:The Power of Dragons Is Yours! Few creatures inspire greater awe than dragons, and Pathfinder Player Companion: Legacy of Dragons dives into the ripples left in these mighty creatures' wake. Whether they help or harm, dragons make a lasting impression, from the legends and philosophies they inspire to the bloodlines they foster.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Dragon, Faerie from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Brian Jaeger and Gary Gygax.
+COPYRIGHT:Pathfinder Player Companion: Legacy of Dragons Copyright 2016, Paizo Inc.; Authors: Alexander Augunas, Robert Brookes, Thurston Hillman, Michelle Jones, Mikko Kallio, and Mark Seifter.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Legacy of Dragons" Copyright 2017, PCgen Data team (including but not limited to Gwen T. (evilpixie87), Paul Grosse [License], and Andrew Maitland (LegacyKind) [Data Review])
+
+
+ABILITY:lod_abilities.lst
+ABILITY:lod_abilities_builder.lst
+ABILITY:lod_abilities_class.lst
+ABILITY:lod_abilities_companion.lst
+ABILITY:lod_abilities_race.lst
+ABILITYCATEGORY:lod_abilitycategories.lst
+CLASS:lod_classes_companion.lst
+COMPANIONMOD:lod_companionmods.lst
+ABILITY:lod_feats.lst
+KIT:lod_kits_companion.lst
+RACE:lod_races_companion.lst
+SKILL:lod_skills.lst
+SPELL:lod_spells.lst
+
+ABILITY:support/lod_abilities_class_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+ABILITY:support/lod_abilities_class_mm.lst|PRECAMPAIGN:1,INCLUDES=Magical Marketplace
+ABILITY:support/lod_abilities_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
+ABILITY:support/lod_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+ABILITY:support/lod_abilities_class_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
+ABILITY:support/lod_abilities_race_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
+
+
+FORWARDREF:CLASSSPELLLIST|Medium,Mesmerist,Occultist,Psychic,Spiritualist
+
+INFOTEXT:Supports 6.07.01
+# ENTRY DATE: 2015-01 (Unknown)
+# LST MONKEY: Gwen T. (evilpixie87)
+# RELEASE REVIEW #
+# LICENSE: Paul Grosse
+# BETA: Andrew Maitland (LegacyKing) - Cleared 2017-07-16
+# RELEASE:
+# Built for PCGen Version: 6.07.03
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.1
+# COMMENTS:
+
+
+
+#end

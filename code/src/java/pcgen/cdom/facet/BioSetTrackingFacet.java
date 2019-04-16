@@ -31,13 +31,11 @@ import pcgen.core.PlayerCharacter;
  * the BioSet are changed and forces changes upon the PlayerCharacter (age,
  * height, weight)
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class BioSetTrackingFacet extends AbstractItemFacet<CharID, BioSet>
 		implements DataFacetChangeListener<CharID, CDOMObject>
 {
-	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private BioSetFacet bioSetFacet;
 
@@ -53,8 +51,6 @@ public class BioSetTrackingFacet extends AbstractItemFacet<CharID, BioSet>
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -77,8 +73,6 @@ public class BioSetTrackingFacet extends AbstractItemFacet<CharID, BioSet>
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)

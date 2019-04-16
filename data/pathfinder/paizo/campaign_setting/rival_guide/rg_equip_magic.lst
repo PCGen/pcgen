@@ -1,0 +1,20 @@
+SOURCELONG:Rival Guide	SOURCESHORT:RG	SOURCEWEB:https://paizo.com/products/btpy8kc	SOURCEDATE:2011-05
+
+Aegis of Recovery					TYPE:Magic.Wondrous.Neck		COST:1500			SOURCEPAGE:p.5		SPROP:+2 on all saves made to recover from an effect. This does not help against preliminary saves against such effects. If wearer drops below 0 hp, it cures 2d8+3 points of damage then crumbles, becoming useless.
+Bivouac Banners					TYPE:Magic.Wondrous			COST:3200	WT:15		SOURCEPAGE:p.5
+Cockatrice Grit					TYPE:Magic.Wondrous.Consumable	COST:2000			SOURCEPAGE:p.17
+Desiccating Dust					TYPE:Magic.Wondrous.Consumable	COST:1500			SOURCEPAGE:p.17
+Firefoot Powder					TYPE:Magic.Wondrous.Consumable	COST:1000			SOURCEPAGE:p.17
+Marionette Crux					TYPE:Magic.Wondrous			COST:36000	WT:5		SOURCEPAGE:p.17
+Metamagic Gem (empowering topaz)		TYPE:Magic.Wondrous.Consumable	COST:2000			SOURCEPAGE:p.11
+Metamagic Gem (enlarging amethyst)		TYPE:Magic.Wondrous.Consumable	COST:1000			SOURCEPAGE:p.11
+Metamagic Gem (extending garnet)		TYPE:Magic.Wondrous.Consumable	COST:1000			SOURCEPAGE:p.11
+Metamagic Gem (maximizing sapphire)		TYPE:Magic.Wondrous.Consumable	COST:4000			SOURCEPAGE:p.11
+Metamagic Gem (quickening diamond)		TYPE:Magic.Wondrous.Consumable	COST:8000			SOURCEPAGE:p.11
+Metamagic Gem (silent spinel)			TYPE:Magic.Wondrous.Consumable	COST:1000			SOURCEPAGE:p.11
+Metamagic Gem (still amber)			TYPE:Magic.Wondrous.Consumable	COST:1000			SOURCEPAGE:p.11
+Metamagic Gem (widening emerald)		TYPE:Magic.Wondrous.Consumable	COST:4000			SOURCEPAGE:p.11
+Pendant of the Blood Scarab			TYPE:Magic.Wondrous.Neck.Scarab	COST:1000			SOURCEPAGE:p.41		SPROP:1/day, as an immediate action, when the wearer threatens a critical hit, he may automatically confirm the critical hit. When the user activates this ability, the pendant deals 1d6 points of damage to wearer.
+Soulbound Eye					TYPE:Magic.Wondrous.Headband		COST:30000			SOURCEPAGE:p.41
+
+Chomper						TYPE:Artifact.Minor					WT:15		SOURCEPAGE:p.41		SPROP:Intelligent Bag of Devouring; CE; 13 (17 against any non-demon); Int 10, Wis 14, Cha 13; Senses 30 ft, blindsense; Speech - Abyssal; Has a bite attack and can curse non-demons who attempt to carry it.

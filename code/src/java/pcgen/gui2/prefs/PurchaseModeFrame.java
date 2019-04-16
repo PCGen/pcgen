@@ -1,5 +1,4 @@
 /*
- * PurchaseModeFrame.java
  * Copyright 2002 (C) Chris Ryan
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.gui2.prefs;
 
@@ -31,6 +29,7 @@ import java.awt.event.FocusEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 import javax.swing.AbstractButton;
@@ -67,7 +66,6 @@ import pcgen.system.LanguageBundle;
  * the character stats purchase mode (aka point buy) configuration dialog.  
  * 
  * 
- * @author Chris Ryan
  */
 public final class PurchaseModeFrame extends JDialog
 {
@@ -84,7 +82,7 @@ public final class PurchaseModeFrame extends JDialog
 	private JTextField purchaseScoreMaxEdit;
 	private JTextField purchaseScoreMinEdit;
 	private PurchaseModel purchaseModel = null;
-	
+
 	private int statMin = PurchaseModeFrame.STANDARD_MIN_PURCHASE_SCORE;
 	private int statMax = PurchaseModeFrame.STANDARD_MAX_PURCHASE_SCORE;
 
@@ -104,14 +102,6 @@ public final class PurchaseModeFrame extends JDialog
 		initComponents();
 	}
 
-	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(String[] args)
-	{
-		new PurchaseModeFrame().setVisible(true);
-	}
-
 	//
 	// Pop up a window to get information about a new purchase method
 	//
@@ -124,8 +114,8 @@ public final class PurchaseModeFrame extends JDialog
 		{
 			final String methodName = npmd.getEnteredName();
 
-			if (SettingsHandler.getGame().getModeContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-					PointBuyMethod.class, methodName) == null)
+			if (SettingsHandler.getGame().getModeContext().getReferenceContext()
+				.silentlyGetConstructedCDOMObject(PointBuyMethod.class, methodName) == null)
 			{
 				PointBuyMethod pbm = new PointBuyMethod();
 				pbm.setName(methodName);
@@ -135,8 +125,7 @@ public final class PurchaseModeFrame extends JDialog
 			}
 			else
 			{
-				ShowMessageDelegate.showMessageDialog(
-					LanguageBundle.getString("in_Prefs_cannotAdd"), //$NON-NLS-1$
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_Prefs_cannotAdd"), //$NON-NLS-1$
 					Constants.APPLICATION_NAME, MessageType.ERROR);
 			}
 		}
@@ -195,7 +184,7 @@ public final class PurchaseModeFrame extends JDialog
 		purchaseScoreMinEdit = new JTextField(3);
 		purchaseScoreMaxEdit = new JTextField(3);
 		statusBar = new JLabel();
-		currentPurchaseMethods = new JComboBoxEx();
+		currentPurchaseMethods = new JComboBoxEx<>();
 		currentPurchaseMethods.setAutoSort(true);
 		purchaseMethodPointsEdit = new JTextField(4);
 		removeMethodButton = new JButton();
@@ -210,13 +199,13 @@ public final class PurchaseModeFrame extends JDialog
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		setTitle(PurchaseModeFrame.TITLE);
 		addWindowListener(new WindowAdapter()
+		{
+			@Override
+			public void windowClosing(WindowEvent evt)
 			{
-				@Override
-				public void windowClosing(WindowEvent evt)
-				{
-					exitForm();
-				}
-			});
+				exitForm();
+			}
+		});
 
 		Container jPanel1 = new JPanel();
 		jPanel1.setLayout(new FlowLayout(FlowLayout.LEFT, 2, 5));
@@ -236,7 +225,7 @@ public final class PurchaseModeFrame extends JDialog
 			{
 				purchaseScoreMinValueActionPerformed();
 			}
-			
+
 		});
 		jPanel1.add(purchaseScoreMinEdit);
 
@@ -280,7 +269,7 @@ public final class PurchaseModeFrame extends JDialog
 			{
 				purchaseScoreMaxValueActionPerformed();
 			}
-			
+
 		});
 		jPanel2.add(purchaseScoreMaxEdit);
 
@@ -308,9 +297,9 @@ public final class PurchaseModeFrame extends JDialog
 
 		JComponent purchaseMethodPanel = new JPanel();
 		purchaseMethodPanel.setLayout(new GridBagLayout());
-		purchaseMethodPanel.setBorder(BorderFactory.createTitledBorder(
-			LanguageBundle.getString("in_Prefs_allowPoints"))); //$NON-NLS-1$
-
+		purchaseMethodPanel
+			.setBorder(
+				BorderFactory.createTitledBorder(LanguageBundle.getString("in_Prefs_allowPoints"))); //$NON-NLS-1$
 		bagConstraints = new GridBagConstraints();
 		bagConstraints.gridx = 0;
 		bagConstraints.gridy = 3;
@@ -355,7 +344,7 @@ public final class PurchaseModeFrame extends JDialog
 		bagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		bagConstraints.weightx = 1.0;
 
-//		getContentPane().add(purchaseMethodPointsPanel, gridBagConstraints);
+		//		getContentPane().add(purchaseMethodPointsPanel, gridBagConstraints);
 		purchaseMethodPanel.add(purchaseMethodPointsPanel, bagConstraints);
 
 		currentPurchaseMethods.setPreferredSize(new Dimension(140, 21));
@@ -413,7 +402,7 @@ public final class PurchaseModeFrame extends JDialog
 
 		jPanel3.add(cancelButton);
 
-/////////////////////////////////////////////////
+		/////////////////////////////////////////////////
 		bagConstraints = new GridBagConstraints();
 		bagConstraints.gridx = 0;
 		bagConstraints.gridy = 5;
@@ -447,12 +436,11 @@ public final class PurchaseModeFrame extends JDialog
 		//
 		// Set up the current methods combo's contents
 		//
-		Collection<PointBuyMethod> methods = SettingsHandler.getGame()
-				.getModeContext().getReferenceContext()
-				.getConstructedCDOMObjects(PointBuyMethod.class);
+		Collection<PointBuyMethod> methods = SettingsHandler.getGame().getModeContext().getReferenceContext()
+			.getConstructedCDOMObjects(PointBuyMethod.class);
 		if (!methods.isEmpty())
 		{
-			currentPurchaseMethods.setModel(new DefaultComboBoxModel(methods.toArray()));
+			currentPurchaseMethods.setModel(new DefaultComboBoxModel<>(methods.toArray()));
 		}
 		currentPurchaseMethodsActionPerformed(); // Get into correct state
 	}
@@ -472,7 +460,7 @@ public final class PurchaseModeFrame extends JDialog
 
 		// convert it to an integer
 		int value = PurchaseModeFrame.convertStringToInt(valueString);
-		if (!validateNewMaxValue(value-1))
+		if (!validateNewMaxValue(value - 1))
 		{
 			return;
 		}
@@ -498,7 +486,7 @@ public final class PurchaseModeFrame extends JDialog
 
 		// convert it to an integer
 		int value = PurchaseModeFrame.convertStringToInt(valueString);
-		if (!validateNewMaxValue(value+1))
+		if (!validateNewMaxValue(value + 1))
 		{
 			return;
 		}
@@ -512,8 +500,7 @@ public final class PurchaseModeFrame extends JDialog
 
 		if (updateOk)
 		{
-			purchaseModel.setValueAt(purchaseModel.predictNextPurchaseCostMax(),
-			    purchaseModel.getRowCount() - 1, 1);
+			purchaseModel.setValueAt(purchaseModel.predictNextPurchaseCostMax(), purchaseModel.getRowCount() - 1, 1);
 		}
 	}
 
@@ -540,8 +527,7 @@ public final class PurchaseModeFrame extends JDialog
 
 		if (updateOk)
 		{
-			purchaseModel.setValueAt(purchaseModel.predictNextPurchaseCostMax(),
-			    purchaseModel.getRowCount() - 1, 1);
+			purchaseModel.setValueAt(purchaseModel.predictNextPurchaseCostMax(), purchaseModel.getRowCount() - 1, 1);
 		}
 	}
 
@@ -551,9 +537,8 @@ public final class PurchaseModeFrame extends JDialog
 		{
 			if (value > statMax)
 			{
-				statusBar.setText(
-					LanguageBundle.getFormattedString("in_Prefs_mayNotInc", //$NON-NLS-1$
-						statMax));
+				statusBar.setText(LanguageBundle.getFormattedString("in_Prefs_mayNotInc", //$NON-NLS-1$
+					statMax));
 
 				return false;
 			}
@@ -561,7 +546,6 @@ public final class PurchaseModeFrame extends JDialog
 		return true;
 	}
 
-	
 	private void purchaseScoreMinDecreaseButtonActionPerformed()
 	{
 		int oldValue = purchaseModel.getPurchaseScoreMin();
@@ -571,7 +555,7 @@ public final class PurchaseModeFrame extends JDialog
 
 		// convert it to an integer
 		int value = PurchaseModeFrame.convertStringToInt(valueString);
-		if (!validateNewMinValue(value-1))
+		if (!validateNewMinValue(value - 1))
 		{
 			return;
 		}
@@ -596,7 +580,7 @@ public final class PurchaseModeFrame extends JDialog
 			purchaseModel.setValueAt(purchaseModel.predictNextPurchaseCostMin(), 0, 1);
 		}
 	}
-	
+
 	private void purchaseScoreMinIncreaseButtonActionPerformed()
 	{
 		int oldValue = purchaseModel.getPurchaseScoreMin();
@@ -606,7 +590,7 @@ public final class PurchaseModeFrame extends JDialog
 
 		// convert it to an integer
 		int value = PurchaseModeFrame.convertStringToInt(valueString);
-		if (!validateNewMinValue(value+1))
+		if (!validateNewMinValue(value + 1))
 		{
 			return;
 		}
@@ -652,15 +636,14 @@ public final class PurchaseModeFrame extends JDialog
 
 	private boolean validateNewMinValue(int value)
 	{
-		int unconditionalMin = Math.min(0,  statMin);
+		int unconditionalMin = Math.min(0, statMin);
 
 		if (!Globals.checkRule(RuleConstants.ABILRANGE))
 		{
 			if (value < statMin)
 			{
-				statusBar.setText(
-					LanguageBundle.getFormattedString("in_Prefs_mayNotDec", //$NON-NLS-1$
-						statMin));
+				statusBar.setText(LanguageBundle.getFormattedString("in_Prefs_mayNotDec", //$NON-NLS-1$
+					statMin));
 
 				return false;
 			}
@@ -671,13 +654,12 @@ public final class PurchaseModeFrame extends JDialog
 		{
 			// set a status message
 			statusBar.setText(LanguageBundle.getFormattedString("in_Prefs_mayNotDec", //$NON-NLS-1$
-				unconditionalMin)); //$NON-NLS-1$
+				unconditionalMin));
 			return false;
 		}
 		return true;
 	}
 
-	
 	/**
 	 * Remove the current selection from the list of purchase methods.
 	 */
@@ -995,33 +977,22 @@ public final class PurchaseModeFrame extends JDialog
 		{
 			final int nrEntries = (currentPurchaseScoreMax - currentPurchaseScoreMin) + 1;
 
-			Object[][] newValues = new Object[nrEntries][2];
+			final int preLength = currentValues.length;
+			Object[][] newValues = Arrays.copyOf(currentValues, nrEntries);
 
-			if (nrRows < 0)
+			// Only happens if adding rows
+			for (int i = 0; i < nrRows; ++i)
 			{
-				// removing rows
-				System.arraycopy(currentValues, 0, newValues, 0, nrEntries);
-			}
-			else
-			{
-				// adding rows
-				System.arraycopy(currentValues, 0, newValues, 0, currentValues.length);
+				final int score = ((i + currentPurchaseScoreMax) - nrRows) + 1;
+				newValues[i + preLength][0] = score;
 
-				final int preLength = currentValues.length;
-
-				for (int i = 0; i < nrRows; ++i)
+				int preVal = -1;
+				if ((i + preLength) != 0)
 				{
-					final int score = ((i + currentPurchaseScoreMax) - nrRows) + 1;
-					newValues[i + preLength][0] = score;
-
-					int preVal = -1;
-					if ((i + preLength) != 0)
-					{
-						preVal = (Integer) newValues[(i + preLength) - 1][1];
-					}
-
-					newValues[i + preLength][1] = preVal + 1;
+					preVal = (Integer) newValues[(i + preLength) - 1][1];
 				}
+
+				newValues[i + preLength][1] = preVal + 1;
 			}
 
 			currentValues = newValues;
@@ -1041,14 +1012,11 @@ public final class PurchaseModeFrame extends JDialog
 			}
 
 			AbstractReferenceContext ref = SettingsHandler.getGame().getModeContext().getReferenceContext();
-			Collection<PointBuyMethod> methods = new ArrayList<>(ref
-                    .getConstructedCDOMObjects(PointBuyMethod.class));
+			Collection<PointBuyMethod> methods = new ArrayList<>(ref.getConstructedCDOMObjects(PointBuyMethod.class));
 			for (int i = 0, x = currentPurchaseMethods.getItemCount(); i < x; ++i)
 			{
 				final PointBuyMethod pbm = (PointBuyMethod) currentPurchaseMethods.getItemAt(i);
-				PointBuyMethod masterPBM = ref
-						.silentlyGetConstructedCDOMObject(PointBuyMethod.class,
-								pbm.getKeyName());
+				PointBuyMethod masterPBM = ref.silentlyGetConstructedCDOMObject(PointBuyMethod.class, pbm.getKeyName());
 				if (masterPBM == null)
 				{
 					ref.importObject(pbm);
@@ -1082,19 +1050,15 @@ public final class PurchaseModeFrame extends JDialog
 				nrRows = Math.abs(nrRows);
 				System.arraycopy(currentValues, 0, newValues, nrRows, currentValues.length);
 
-				//final int tblStart = ((Integer) currentValues[0][1]).intValue();
 				for (int i = 0; i < nrRows; ++i)
 				{
 					final int score = i + currentPurchaseScoreMin;
 					newValues[i][0] = score;
-
-//					newValues[i][1] = Integer.valueOf(tblStart - nrRows + i);
 				}
 			}
 
 			currentValues = newValues;
 		}
-
 
 		/**
 		 * Reset the cost of all rows, starting from 0 for the lowest.

@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Bastards of Golarion	SOURCESHORT:BOG	SOURCEWEB:http://paizo.com/products/btpy93na?Pathfinder-Player-Companion-Bastards-of-Golarion	SOURCEDATE:2014-02
+SOURCELONG:Pathfinder Player Companion: Bastards of Golarion	SOURCESHORT:BOG	SOURCEWEB:http://paizo.com/products/btpy93na	SOURCEDATE:2014-02
 # ORIGINAL ENTRY: Andrew Wilson (nuance)
 # ORIGINAL ENTRY DATE: 12 February 2014
 # UPDATED ENTRY: Gwen T. (evilpixie87)
@@ -20,11 +21,11 @@ SOURCELONG:Bastards of Golarion	SOURCESHORT:BOG	SOURCEWEB:http://paizo.com/produ
 
 # Template Name				Unique Key				Product Identity?	Visible	Source Page		Ability																															Auto Language	Bonus Languages					Region		Subrace
 Half-Elf					KEY:Half-Elf ~ Default					VISIBLE:NO
-Aquatic Half-Elf				KEY:Half-Elf ~ Aquatic					VISIBLE:NO																																																	SUBRACE:Shoreborn
-Half-Drow					KEY:Half-Elf ~ Half-Drow				VISIBLE:NO																																																	SUBRACE:DarkBorn
-Ekuaje Half-Elf				KEY:Half-Elf ~ Ekuaje		NAMEISPI:YES	VISIBLE:NO																																																	SUBRACE:Wildborn
+Aquatic Half-Elf				KEY:Half-Elf ~ Aquatic					VISIBLE:NO																																							LANGBONUS:Aquan								SUBRACE:Shoreborn
+Half-Drow					KEY:Half-Elf ~ Half-Drow				VISIBLE:NO																																							LANGBONUS:Undercommon							SUBRACE:DarkBorn
+Ekuaje Half-Elf				KEY:Half-Elf ~ Ekuaje		NAMEISPI:YES	VISIBLE:NO																																							LANGBONUS:Kelish,Osiriani,Polyglot					SUBRACE:Wildborn
 Mordant Spire Half-Elf			KEY:Half-Elf ~ Mordant Spire	NAMEISPI:YES	VISIBLE:NO																																				AUTO:LANG|Azlanti											SUBRACE:Spireborn
-Snowcaster Half-Elf			KEY:Half-Elf ~ Snowcaster				VISIBLE:NO																																																	SUBRACE:Snowborn
+Snowcaster Half-Elf			KEY:Half-Elf ~ Snowcaster				VISIBLE:NO																																							LANGBONUS:Erutaki,Hallit,Skald,Varki				SUBRACE:Snowborn
 
 # ==============================
 # Half-Orc Subraces
@@ -35,7 +36,7 @@ Darklands Half-Orc			KEY:Half-Orc ~ Darklands	NAMEISPI:YES	VISIBLE:NO											
 Desert Half-Orc				KEY:Half-Orc ~ Desert					VISIBLE:NO																																							LANGBONUS:Kelish,Osiriani,Polyglot					SUBRACE:Sandkin
 Jungle Half-Orc				KEY:Half-Orc ~ Jungle					VISIBLE:NO																																							LANGBONUS:Polyglot							SUBRACE:Rainkin
 Mountain Half-Orc				KEY:Half-Orc ~ Mountain					VISIBLE:NO																																							LANGBONUS:Hallit,Shoanti,Skald,Varisian				SUBRACE:Cragkin
-Winter Half-Orc				KEY:Half-Orc ~ Winter					VISIBLE:NO																																							LANGBONUS:Erutaki,Skald							SUBRACE:Frostkin
+Winter Half-Orc				KEY:Half-Orc ~ Winter					VISIBLE:NO																																							LANGBONUS:Erutaki,Skald,Varki						SUBRACE:Frostkin
 
 # ==============================
 # New Regional Affinity

@@ -15,11 +15,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
  */
 package plugin.exporttokens;
+
+import java.util.StringTokenizer;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
@@ -27,38 +26,26 @@ import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 
-import java.util.StringTokenizer;
-
 /**
- * <code>VarToken</code> produces the output for the output token VAR.
+ * {@code VarToken} produces the output for the output token VAR.
  * Possible tag formats are:<pre>
  * VAR.x
  * VAR.x.INTVAL|.MINVAL|.NOSIGN
  * </pre>
- *
- *
- * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class VarToken extends Token
 {
 	/** The name of the token handled by this class. */
 	public static final String TOKENNAME = "VAR";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		boolean isMin = tokenSource.lastIndexOf(".MINVAL") >= 0;
 		boolean isInt = tokenSource.lastIndexOf(".INTVAL") >= 0;
@@ -66,10 +53,8 @@ public class VarToken extends Token
 		if (tokenSource.lastIndexOf(".NOSIGN") >= 0)
 		{
 			isSign = false;
-			Logging
-				.errorPrint(".NOSIGN in output token " + tokenSource
-					+ " is deprecated. "
-					+ "The default output format is unsigned.");
+			Logging.errorPrint(".NOSIGN in output token " + tokenSource + " is deprecated. "
+				+ "The default output format is unsigned.");
 		}
 
 		String workingSource = tokenSource;
@@ -96,7 +81,7 @@ public class VarToken extends Token
 		}
 		while (aTok.hasMoreElements())
 		{
-			varName.append(".").append(aTok.nextToken());
+			varName.append('.').append(aTok.nextToken());
 		}
 
 		if (isInt)
@@ -105,12 +90,12 @@ public class VarToken extends Token
 			{
 				return Delta.toString(pc.getVariable(varName.toString(), !isMin).intValue());
 			}
-			return pc.getVariable(varName.toString(), !isMin).intValue() + "";
+			return String.valueOf(pc.getVariable(varName.toString(), !isMin).intValue());
 		}
 		if (isSign)
 		{
 			return Delta.toString((float) pc.getVariable(varName.toString(), !isMin));
 		}
-		return pc.getVariable(varName.toString(), !isMin) + "";
+		return String.valueOf(pc.getVariable(varName.toString(), !isMin));
 	}
 }

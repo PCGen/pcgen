@@ -1,5 +1,4 @@
 /*
- * InfoPane.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,13 +15,13 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jun 26, 2008, 9:32:04 PM
  */
 package pcgen.gui2.tools;
 
 import java.awt.Dimension;
 import java.io.IOException;
 import java.io.StringReader;
+
 import javax.swing.BorderFactory;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
@@ -32,13 +31,10 @@ import javax.swing.event.HyperlinkListener;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import javax.swing.text.EditorKit;
+
 import pcgen.base.lang.UnreachableError;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class InfoPane extends JScrollPane
 {
 
@@ -52,16 +48,14 @@ public class InfoPane extends JScrollPane
 
 	public InfoPane(String title)
 	{
-		super(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
-			  ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		super(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		String name = title;
 		if (title.startsWith("in_")) //$NON-NLS-1$
 		{
 			name = LanguageBundle.getString(title);
 		}
-		this.titledBorder = BorderFactory.createTitledBorder(null, name,
-															 TitledBorder.CENTER,
-															 TitledBorder.DEFAULT_POSITION);
+		this.titledBorder =
+				BorderFactory.createTitledBorder(null, name, TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION);
 		this.textPane = new JTextPane();
 		initComponents();
 	}

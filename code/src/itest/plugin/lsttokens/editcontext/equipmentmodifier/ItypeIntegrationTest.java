@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.equipmentmodifier;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.persistence.CDOMLoader;
@@ -27,12 +25,14 @@ import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationT
 import plugin.lsttokens.equipmentmodifier.ItypeToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class ItypeIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<EquipmentModifier>
 {
 
-	static ItypeToken token = new ItypeToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
+	private static ItypeToken token = new ItypeToken();
+	private static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

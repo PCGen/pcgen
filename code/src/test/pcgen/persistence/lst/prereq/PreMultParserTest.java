@@ -1,5 +1,4 @@
 /*
- * PreMultParserTest.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,38 +15,29 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /*** Test
 	 * [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
- * @author wardc
- *
  */
 @SuppressWarnings("nls")
-public class PreMultParserTest extends EnUsLocaleDependentTestCase
+class PreMultParserTest extends EnUsLocaleDependentTestCase
 {
 
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
 		TestHelper.loadPlugins();
 	}
@@ -68,7 +58,8 @@ public class PreMultParserTest extends EnUsLocaleDependentTestCase
 			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "<prereq kind=\"profwitharmor\" key=\"TYPE.Medium\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"ability\" category=\"FEAT\" key=\"Armor Proficiency\" sub-key=\"Medium\" operator=\"GTEQ\" operand=\"1\" >\n"
+				+ "<prereq kind=\"ability\" category=\"FEAT\" key=\"Armor Proficiency\" sub-key=\"Medium\" "
+				+ "operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
@@ -79,12 +70,9 @@ public class PreMultParserTest extends EnUsLocaleDependentTestCase
 
 		try
 		{
-			Prerequisite prereq =
-					parser
-						.parse(
-							"mult",
-							"1,[PREPROFWITHARMOR:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)",
-							false, false);
+			parser.parse("mult",
+				"1,[PREPROFWITHARMOR:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)",
+				false, false);
 			fail("Expected unbalanced bracket to be detected.");
 		}
 		catch (PersistenceLayerException e)

@@ -42,40 +42,33 @@ public class NumberToken implements CDOMSecondaryToken<EquipmentModifier>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, EquipmentModifier obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, EquipmentModifier obj, String value)
 	{
 		if (value == null)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " requires additional arguments", context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " requires additional arguments");
 		}
 		if (value.indexOf('[') != -1)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not contain [] : " + value);
 		}
 		if (value.charAt(0) == '|')
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not start with | : " + value);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not end with | : " + value);
 		}
 		if (value.indexOf("||") != -1)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments uses double separator || : " + value);
 		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-							+ " must have two or more | delimited arguments : "
-							+ value, context);
+			return new ParseResult.Fail(
+				"CHOOSE:" + getTokenName() + " must have two or more | delimited arguments : " + value);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		Integer min = null;
@@ -123,21 +116,18 @@ public class NumberToken implements CDOMSecondaryToken<EquipmentModifier>
 		{
 			if (min != null)
 			{
-				return new ParseResult.Fail("Cannot have MIN=n without MAX=m in CHOOSE:NUMBER: "
-								+ value, context);
+				return new ParseResult.Fail("Cannot have MIN=n without MAX=m in CHOOSE:NUMBER: " + value);
 			}
 		}
 		else
 		{
 			if (min == null)
 			{
-				return new ParseResult.Fail("Cannot have MAX=n without MIN=m in CHOOSE:NUMBER: "
-								+ value, context);
+				return new ParseResult.Fail("Cannot have MAX=n without MIN=m in CHOOSE:NUMBER: " + value);
 			}
 			if (max < min)
 			{
-				return new ParseResult.Fail("Cannot have MAX= less than MIN= in CHOOSE:NUMBER: "
-								+ value, context);
+				return new ParseResult.Fail("Cannot have MAX= less than MIN= in CHOOSE:NUMBER: " + value);
 			}
 		}
 		StringBuilder sb = new StringBuilder(value.length() + 20);
@@ -149,15 +139,12 @@ public class NumberToken implements CDOMSecondaryToken<EquipmentModifier>
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier eqMod)
 	{
-		String chooseString = context.getObjectContext().getString(eqMod,
-				StringKey.CHOICE_STRING);
-		if (chooseString == null
-				|| chooseString.indexOf(getTokenName() + '|') == -1)
+		String chooseString = context.getObjectContext().getString(eqMod, StringKey.CHOICE_STRING);
+		if (chooseString == null || chooseString.indexOf(getTokenName() + '|') == -1)
 		{
 			return null;
 		}
-		return new String[] { chooseString
-				.substring(getTokenName().length() + 1) };
+		return new String[]{chooseString.substring(getTokenName().length() + 1)};
 	}
 
 	@Override

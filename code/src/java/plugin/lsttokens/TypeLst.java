@@ -32,12 +32,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- *
- */
-public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -47,8 +42,7 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject cdo, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject cdo, String value)
 	{
 		if (value.startsWith(Constants.LST_DOT_CLEAR))
 		{
@@ -60,18 +54,17 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 			else if (value.charAt(6) == '.')
 			{
 				value = value.substring(7);
-				if (isEmpty(value))
+				ParseResult pr = checkNonEmpty(value);
+				if (!pr.passed())
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ "started with .CLEAR. but expected to have a Type after .: "
-							+ value, context);
+					return new ParseResult.Fail(
+						getTokenName() + "started with .CLEAR. but expected to have a Type after .: " + value);
 				}
 			}
 			else
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ "started with .CLEAR but expected next character to be .: "
-						+ value, context);
+				return new ParseResult.Fail(
+					getTokenName() + "started with .CLEAR but expected next character to be .: " + value);
 			}
 		}
 		ParseResult pr = checkForIllegalSeparator('.', value);
@@ -91,9 +84,7 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				if (bRemove)
 				{
-					return new ParseResult.Fail(
-							"Non-sensical use of .REMOVE.ADD. in "
-									+ getTokenName() + ": " + value, context);
+					return new ParseResult.Fail("Non-sensical use of .REMOVE.ADD. in " + getTokenName() + ": " + value);
 				}
 				bRemove = false;
 				bAdd = true;
@@ -102,30 +93,25 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 			{
 				if (bAdd)
 				{
-					return new ParseResult.Fail(
-							"Non-sensical use of .ADD.REMOVE. in "
-									+ getTokenName() + ": " + value, context);
+					return new ParseResult.Fail("Non-sensical use of .ADD.REMOVE. in " + getTokenName() + ": " + value);
 				}
 				bRemove = true;
 			}
 			else if ("CLEAR".equals(aType))
 			{
-				return new ParseResult.Fail("Non-sensical use of .CLEAR in "
-						+ getTokenName() + ": " + value, context);
+				return new ParseResult.Fail("Non-sensical use of .CLEAR in " + getTokenName() + ": " + value);
 			}
 			else if (bRemove)
 			{
 				Type type = Type.getConstant(aType);
-				context.getObjectContext().removeFromList(cdo, ListKey.TYPE,
-						type);
+				context.getObjectContext().removeFromList(cdo, ListKey.TYPE, type);
 				bRemove = false;
 			}
 			else
 			{
 				Type type = Type.getConstant(aType);
 				// We want to exclude any duplicates from the type list
-				Changes<Type> listChanges =
-						context.getObjectContext().getListChanges(cdo, ListKey.TYPE);
+				Changes<Type> listChanges = context.getObjectContext().getListChanges(cdo, ListKey.TYPE);
 				if (listChanges.getAdded() == null || !listChanges.getAdded().contains(type))
 				{
 					context.getObjectContext().addToList(cdo, ListKey.TYPE, type);
@@ -135,15 +121,12 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		if (bRemove)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ "ended with REMOVE, so didn't have any Type to remove: "
-					+ value, context);
+			return new ParseResult.Fail(
+				getTokenName() + "ended with REMOVE, so didn't have any Type to remove: " + value);
 		}
 		if (bAdd)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ "ended with ADD, so didn't have any Type to add: "
-					+ value, context);
+			return new ParseResult.Fail(getTokenName() + "ended with ADD, so didn't have any Type to add: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -156,8 +139,7 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 			// TYPEs for companionmods are processed by plugin.lsttokens.companionmod.TypeToken
 			return null;
 		}
-		Changes<Type> changes =
-				context.getObjectContext().getListChanges(cdo, ListKey.TYPE);
+		Changes<Type> changes = context.getObjectContext().getListChanges(cdo, ListKey.TYPE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -189,9 +171,8 @@ public class TypeLst extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		if (sb.length() == 0)
 		{
-			context.addWriteMessage(getTokenName()
-				+ " was expecting non-empty changes to include "
-				+ "added items or global clear");
+			context.addWriteMessage(
+				getTokenName() + " was expecting non-empty changes to include " + "added items or global clear");
 			return null;
 		}
 		return new String[]{sb.toString()};

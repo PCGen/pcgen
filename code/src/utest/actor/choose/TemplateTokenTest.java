@@ -17,11 +17,10 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.PCTemplate;
 import plugin.lsttokens.choose.TemplateToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
 
 public class TemplateTokenTest extends
@@ -29,12 +28,6 @@ public class TemplateTokenTest extends
 {
 
 	static TemplateToken pca = new TemplateToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 
 	@Override
 	public Chooser<PCTemplate> getActor()

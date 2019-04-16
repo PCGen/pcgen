@@ -1,5 +1,4 @@
 /*
- * MigrationLoader.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.equipforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on October 13, 2003, 11:50 AM
  */
 
 package pcgen.persistence.lst;
@@ -24,8 +22,6 @@ package pcgen.persistence.lst;
 import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
-
-import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.SystemCollections;
@@ -37,27 +33,23 @@ import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * MigrationLoader is a LstFileLoader that processes the migration.lst file
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MigrationLoader extends LstLineFileLoader
 {
 	private String invalidKeyPattern = ".*[,|\\||\\\\|:|;|%|\\*|=|\\[|\\]].*";
 	private String invalidSourceKeyPattern = ".*[\\||\\\\|;|%|\\*|=|\\[|\\]].*";
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(pcgen.rules.context.LoadContext, java.lang.String, java.net.URI)
-	 */
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-		throws PersistenceLayerException
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
 	{
 
-		final StringTokenizer colToken =
-				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
 		String firstToken = colToken.nextToken().trim();
 		final MigrationRule migrationRule = parseFirstToken(firstToken, lstLine, sourceURI);
@@ -65,9 +57,8 @@ public class MigrationLoader extends LstLineFileLoader
 		{
 			return;
 		}
-		
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(MigrationLstToken.class);
+
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(MigrationLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -87,20 +78,18 @@ public class MigrationLoader extends LstLineFileLoader
 			if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, migrationRule.getOldKey(),
-						sourceURI, value);
+				LstUtils.deprecationCheck(token, migrationRule.getOldKey(), sourceURI, value);
 				if (!token.parse(migrationRule, value, getGameMode()))
 				{
-					Logging.errorPrint("Error parsing migration rule "
-						+ migrationRule.getOldKey() + ':' + sourceURI + ':'
-						+ colString + "\"");
+					Logging.errorPrint("Error parsing migration rule " + migrationRule.getOldKey() + ':' + sourceURI
+						+ ':' + colString + "\"");
 					return;
 				}
 			}
 			else
 			{
-				Logging.errorPrint("Unknown token " + key + " in migration rule '" + lstLine + "' in "
-					+ sourceURI.toString());
+				Logging.errorPrint(
+					"Unknown token " + key + " in migration rule '" + lstLine + "' in " + sourceURI.toString());
 				return;
 			}
 		}
@@ -109,42 +98,34 @@ public class MigrationLoader extends LstLineFileLoader
 		boolean errorFound = false;
 		if (migrationRule.getMaxVer() == null)
 		{
-			Logging.errorPrint("Missing required token MAXVER in migration rule '" + lstLine + "' in "
-					+ sourceURI.toString());
+			Logging.errorPrint(
+				"Missing required token MAXVER in migration rule '" + lstLine + "' in " + sourceURI.toString());
 			errorFound = true;
 		}
 		if (migrationRule.getNewKey() == null)
 		{
-			Logging.errorPrint("Missing required token NEWKEY in migration rule '" + lstLine + "' in "
-					+ sourceURI.toString());
+			Logging.errorPrint(
+				"Missing required token NEWKEY in migration rule '" + lstLine + "' in " + sourceURI.toString());
 			errorFound = true;
 		}
-		if (migrationRule.getMinVer() == null
-			&& migrationRule.getMinDevVer() != null)
+		if (migrationRule.getMinVer() == null && migrationRule.getMinDevVer() != null)
 		{
-			Logging
-				.errorPrint("MINVER is required when MINDEVVER is used. Migration rule was '"
-					+ lstLine + "' in " + sourceURI.toString());
+			Logging.errorPrint("MINVER is required when MINDEVVER is used. Migration rule was '" + lstLine + "' in "
+				+ sourceURI.toString());
 			errorFound = true;
 		}
-		if (migrationRule.getMaxVer() != null
-			&& migrationRule.getMaxDevVer() != null
-			&& CoreUtility.compareVersions(migrationRule.getMaxVer(),
-				migrationRule.getMaxDevVer()) >= 0)
+		if (migrationRule.getMaxVer() != null && migrationRule.getMaxDevVer() != null
+			&& CoreUtility.compareVersions(migrationRule.getMaxVer(), migrationRule.getMaxDevVer()) >= 0)
 		{
-			Logging
-				.errorPrint("MAXVER must be before MAXDEVVER. Migration rule was '"
-					+ lstLine + "' in " + sourceURI.toString());
+			Logging.errorPrint(
+				"MAXVER must be before MAXDEVVER. Migration rule was '" + lstLine + "' in " + sourceURI.toString());
 			errorFound = true;
 		}
-		if (migrationRule.getMinVer() != null
-			&& migrationRule.getMinDevVer() != null
-			&& CoreUtility.compareVersions(migrationRule.getMinVer(),
-				migrationRule.getMinDevVer()) >= 0)
+		if (migrationRule.getMinVer() != null && migrationRule.getMinDevVer() != null
+			&& CoreUtility.compareVersions(migrationRule.getMinVer(), migrationRule.getMinDevVer()) >= 0)
 		{
-			Logging
-				.errorPrint("MINVER must be before MINDEVVER. Migration rule was '"
-					+ lstLine + "' in " + sourceURI.toString());
+			Logging.errorPrint(
+				"MINVER must be before MINDEVVER. Migration rule was '" + lstLine + "' in " + sourceURI.toString());
 			errorFound = true;
 		}
 		if (errorFound)
@@ -152,7 +133,7 @@ public class MigrationLoader extends LstLineFileLoader
 			// Abandon this rule.
 			return;
 		}
-		
+
 		SystemCollections.addToMigrationRulesList(migrationRule, gameMode);
 	}
 
@@ -167,14 +148,13 @@ public class MigrationLoader extends LstLineFileLoader
 	MigrationRule parseFirstToken(String firstToken, String lstLine, URI sourceURI)
 	{
 		final int idxColon = firstToken.indexOf(':');
-		if (idxColon <= 0 || idxColon == firstToken.length()-1)
+		if (idxColon <= 0 || idxColon == firstToken.length() - 1)
 		{
 			// Missing colon or missing key or value
-			Logging.errorPrint("Illegal migration rule '" + lstLine + "' in "
-					+ sourceURI.toString());
+			Logging.errorPrint("Illegal migration rule '" + lstLine + "' in " + sourceURI.toString());
 			return null;
 		}
-			
+
 		String objTypeKey = "";
 		try
 		{
@@ -184,7 +164,7 @@ public class MigrationLoader extends LstLineFileLoader
 		{
 			throw new UnreachableError(e);
 		}
-		
+
 		MigrationRule.ObjectType objType;
 		try
 		{
@@ -192,29 +172,28 @@ public class MigrationLoader extends LstLineFileLoader
 		}
 		catch (IllegalArgumentException e)
 		{
-			Logging.errorPrint("Unknown object type for migration rule '" + lstLine + "' in "
-					+ sourceURI.toString());
+			Logging.errorPrint("Unknown object type for migration rule '" + lstLine + "' in " + sourceURI.toString());
 			return null;
 		}
 
 		String key = "";
 		try
 		{
-			key = firstToken.substring(idxColon+1);
+			key = firstToken.substring(idxColon + 1);
 		}
 		catch (StringIndexOutOfBoundsException e)
 		{
 			throw new UnreachableError(e);
 		}
-		
+
 		MigrationRule rule;
 		if (objType.isCategorized())
 		{
 			if (key.endsWith("|"))
 			{
 				// Extra |
-				Logging.errorPrint("Invalid category|key of '" + firstToken + "' of migration rule '" + lstLine + "' in "
-						+ sourceURI.toString());
+				Logging.errorPrint("Invalid category|key of '" + firstToken + "' of migration rule '" + lstLine
+					+ "' in " + sourceURI.toString());
 				return null;
 			}
 			String[] keyParts = key.split("\\|");
@@ -222,43 +201,38 @@ public class MigrationLoader extends LstLineFileLoader
 			{
 				// No | so missing a category
 				Logging.errorPrint("Missing category in '" + firstToken + "' of migration rule '" + lstLine + "' in "
-						+ sourceURI.toString());
+					+ sourceURI.toString());
 				return null;
 			}
 			if (keyParts.length > 2)
 			{
 				// Extra |
-				Logging.errorPrint("Invalid category|key of '" + firstToken + "' of migration rule '" + lstLine + "' in "
-						+ sourceURI.toString());
+				Logging.errorPrint("Invalid category|key of '" + firstToken + "' of migration rule '" + lstLine
+					+ "' in " + sourceURI.toString());
 				return null;
 			}
 			if (StringUtils.isBlank(keyParts[0]) || keyParts[0].matches(invalidKeyPattern))
 			{
-				Logging.errorPrint("Invalid category of '" + keyParts[0]
-					+ "' of migration rule '" + lstLine + "' in "
+				Logging.errorPrint("Invalid category of '" + keyParts[0] + "' of migration rule '" + lstLine + "' in "
 					+ sourceURI.toString());
 				return null;
 			}
 			if (StringUtils.isBlank(keyParts[1]) || keyParts[1].matches(invalidKeyPattern))
 			{
-				Logging.errorPrint("Invalid key of '" + keyParts[1]
-					+ "' of migration rule '" + lstLine + "' in "
+				Logging.errorPrint("Invalid key of '" + keyParts[1] + "' of migration rule '" + lstLine + "' in "
 					+ sourceURI.toString());
 				return null;
 			}
-			
+
 			rule = new MigrationRule(objType, keyParts[0], keyParts[1]);
 		}
 		else
 		{
-			String invalidKeyPat =
-					objType == ObjectType.SOURCE ? invalidSourceKeyPattern
-						: invalidKeyPattern;
+			String invalidKeyPat = objType == ObjectType.SOURCE ? invalidSourceKeyPattern : invalidKeyPattern;
 			if (StringUtils.isBlank(key) || key.matches(invalidKeyPat))
 			{
-				Logging.errorPrint("Invalid key of '" + key
-					+ "' of migration rule '" + lstLine + "' in "
-					+ sourceURI.toString());
+				Logging.errorPrint(
+					"Invalid key of '" + key + "' of migration rule '" + lstLine + "' in " + sourceURI.toString());
 				return null;
 			}
 			rule = new MigrationRule(objType, key);

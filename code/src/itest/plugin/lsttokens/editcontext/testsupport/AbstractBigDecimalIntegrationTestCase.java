@@ -17,10 +17,12 @@
  */
 package plugin.lsttokens.editcontext.testsupport;
 
-import org.junit.Test;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractBigDecimalIntegrationTestCase<T extends CDOMObject>
 		extends AbstractIntegrationTestCase<T>
@@ -33,7 +35,7 @@ public abstract class AbstractBigDecimalIntegrationTestCase<T extends CDOMObject
 	public abstract boolean isPositiveAllowed();
 
 	@Test
-	public void testArchitectire() throws PersistenceLayerException
+	public void testArchitectire()
 	{
 		assertTrue(isPositiveAllowed() || isNegativeAllowed());
 	}

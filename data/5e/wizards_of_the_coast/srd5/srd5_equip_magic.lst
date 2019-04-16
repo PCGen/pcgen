@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:System Reference Document 5.0	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
+SOURCELONG:System Reference Document	SOURCESHORT:SRD5	SOURCEWEB:http://dnd.wizards.com/articles/features/systems-reference-document-srd	SOURCEDATE:2016-01
 # Original Entry: See contributors listed in PCC file.
 
 ###Block: New Item copied from Base item to prevent item mistake.
@@ -81,7 +82,7 @@ Dust Of Disappearance					TYPE:Wondrous Item.Uncommon																											
 Dust Of Dryness						TYPE:Wondrous Item.Uncommon																														SOURCEPAGE:srd5	SOURCELINK:http://www.5esrd.com/gamemastering/magic-items/
 Dust Of Sneezing And Choking				TYPE:Wondrous Item.Uncommon																														SOURCEPAGE:srd5	SOURCELINK:http://www.5esrd.com/gamemastering/magic-items/
 Dwarven Plate.MOD						TYPE:Very Rare																																SOURCEPAGE:srd5	SOURCELINK:http://www.5esrd.com/gamemastering/magic-items/
-Efficient Quiver						TYPE:Wondrous Item.Uncommon																														SOURCEPAGE:srd5	SOURCELINK:http://www.5esrd.com/gamemastering/magic-items/
+Efficient Quiver						TYPE:Wondrous Item.Uncommon.Container																												SOURCEPAGE:srd5	SOURCELINK:http://www.5esrd.com/gamemastering/magic-items/													CONTAINS:UNLIM|TOTAL=84|Any=84
 Efreeti Bottle						TYPE:Wondrous Item.Very Rare																														SOURCEPAGE:srd5	SOURCELINK:http://www.5esrd.com/gamemastering/magic-items/
 Elemental Gem (Blue Sapphire)				TYPE:Wondrous Item.Uncommon																														SOURCEPAGE:srd5	SOURCELINK:http://www.5esrd.com/gamemastering/magic-items/
 Elemental Gem (Yellow Diamond)			TYPE:Wondrous Item.Uncommon																														SOURCEPAGE:srd5	SOURCELINK:http://www.5esrd.com/gamemastering/magic-items/

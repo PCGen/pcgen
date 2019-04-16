@@ -1,6 +1,5 @@
 /*
  * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PObject.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or modify it under
@@ -20,7 +19,6 @@
 package pcgen.core.display;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
@@ -54,10 +52,9 @@ public final class SkillDisplay
 	 * 
 	 * @return An ArrayList of the skill objects in output order.
 	 */
-	public static List<Skill> getSkillListInOutputOrder(final PlayerCharacter pc,
-		final List<Skill> skills)
+	public static List<Skill> getSkillListInOutputOrder(final PlayerCharacter pc, final List<Skill> skills)
 	{
-		Collections.sort(skills, new Comparator<Skill>()
+		skills.sort(new Comparator<>()
 		{
 			/**
 			 * Comparator will be specific to Skill objects
@@ -67,18 +64,18 @@ public final class SkillDisplay
 			{
 				Integer obj1Index = pc.getSkillOrder(skill1);
 				Integer obj2Index = pc.getSkillOrder(skill2);
-	
+
 				// Force unset items (index of 0) to appear at the end
 				if (obj1Index == null || obj1Index == 0)
 				{
 					obj1Index = Constants.ARBITRARY_END_SKILL_INDEX;
 				}
-	
+
 				if (obj2Index == null || obj2Index == 0)
 				{
 					obj2Index = Constants.ARBITRARY_END_SKILL_INDEX;
 				}
-	
+
 				if (obj1Index > obj2Index)
 				{
 					return 1;
@@ -93,22 +90,21 @@ public final class SkillDisplay
 				}
 			}
 		});
-	
+
 		// Remove the hidden skills from the list
 		for (Iterator<Skill> i = skills.iterator(); i.hasNext();)
 		{
 			final Skill bSkill = i.next();
-	
+
 			Visibility skVis = bSkill.getSafe(ObjectKey.VISIBILITY);
 			Integer outputIndex = pc.getSkillOrder(bSkill);
-			if ((outputIndex != null && outputIndex == -1)
-					|| skVis.isVisibleTo(View.HIDDEN_EXPORT)
-					|| !bSkill.qualifies(pc, null))
+			if ((outputIndex != null && outputIndex == -1) || skVis.isVisibleTo(View.HIDDEN_EXPORT)
+				|| !bSkill.qualifies(pc, null))
 			{
 				i.remove();
 			}
 		}
-	
+
 		return skills;
 	}
 
@@ -131,8 +127,8 @@ public final class SkillDisplay
 		// we need to sort the PC's skill list now that the
 		// new skill has been added, this won't get called
 		// when adding a rank to an existing skill
-//		Collections.sort(theCharacter.getSkillList(),
-//			new StringIgnoreCaseComparator());
+		//		Collections.sort(theCharacter.getSkillList(),
+		//			new StringIgnoreCaseComparator());
 
 		// Now re calc the output order
 		if (pc.getSkillsOutputOrder() == SkillsOutputOrder.MANUAL)
@@ -161,7 +157,7 @@ public final class SkillDisplay
 			return;
 		}
 		List<Skill> skillList = new ArrayList<>(pc.getSkillSet());
-		Collections.sort(skillList, comparator);
+		skillList.sort(comparator);
 
 		int nextOutputIndex = 1;
 		for (final Skill aSkill : skillList)
@@ -194,4 +190,4 @@ public final class SkillDisplay
 
 		return maxOutputIndex;
 	}
-	}
+}

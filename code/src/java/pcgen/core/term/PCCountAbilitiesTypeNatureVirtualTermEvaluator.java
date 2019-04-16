@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountAbilitiesTypeNatureVirtualTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 06-Aug-2008 23:46:28
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -31,27 +27,23 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 
-public class PCCountAbilitiesTypeNatureVirtualTermEvaluator
-		extends BasePCCountAbilitiesTypeTermEvaluator implements TermEvaluator
+public class PCCountAbilitiesTypeNatureVirtualTermEvaluator extends BasePCCountAbilitiesTypeTermEvaluator
+		implements TermEvaluator
 {
-	public PCCountAbilitiesTypeNatureVirtualTermEvaluator(
-			String originalText,
-			AbilityCategory abCat,
-			String[] types,
-			boolean visible,
-			boolean hidden)
+	public PCCountAbilitiesTypeNatureVirtualTermEvaluator(String originalText, AbilityCategory abCat, String[] types,
+		boolean visible, boolean hidden)
 	{
 		this.originalText = originalText;
-		this.abCat        = abCat;
-		this.types        = types;
-		this.visible      = visible;
-		this.hidden       = hidden;		
+		this.abCat = abCat;
+		this.types = types;
+		this.visible = visible;
+		this.hidden = hidden;
 	}
 
 	@Override
 	Collection<CNAbility> getAbilities(PlayerCharacter pc)
 	{
-		return pc.getPoolAbilities(AbilityCategory.FEAT, Nature.VIRTUAL);
+		return pc.getPoolAbilities(abCat, Nature.VIRTUAL);
 	}
 
 	@Override

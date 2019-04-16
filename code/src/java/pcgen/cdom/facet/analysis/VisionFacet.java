@@ -47,11 +47,9 @@ import pcgen.util.enumeration.VisionType;
  * VisionFacet is a Facet that tracks the Vision objects that are contained in a
  * Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class VisionFacet extends
-		AbstractSourcedListFacet<CharID, QualifiedObject<Vision>> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class VisionFacet extends AbstractSourcedListFacet<CharID, QualifiedObject<Vision>>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private FormulaResolvingFacet formulaResolvingFacet;
@@ -73,22 +71,18 @@ public class VisionFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		Collection<CDOMReference<Vision>> mods = cdo
-				.getListMods(Vision.VISIONLIST);
+		Collection<CDOMReference<Vision>> mods = cdo.getListMods(Vision.VISIONLIST);
 		if (mods != null)
 		{
 			CharID id = dfce.getCharID();
 			for (CDOMReference<Vision> ref : mods)
 			{
-				Collection<AssociatedPrereqObject> assoc = cdo
-						.getListAssociations(Vision.VISIONLIST, ref);
+				Collection<AssociatedPrereqObject> assoc = cdo.getListAssociations(Vision.VISIONLIST, ref);
 				for (AssociatedPrereqObject apo : assoc)
 				{
 					List<Prerequisite> prereqs = apo.getPrerequisiteList();
@@ -112,8 +106,6 @@ public class VisionFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -148,21 +140,17 @@ public class VisionFacet extends
 			return Collections.emptyList();
 		}
 		Map<VisionType, Integer> map = new HashMap<>();
-		for (Map.Entry<QualifiedObject<Vision>, Set<Object>> me : componentMap
-				.entrySet())
+		for (Map.Entry<QualifiedObject<Vision>, Set<Object>> me : componentMap.entrySet())
 		{
 			QualifiedObject<Vision> qo = me.getKey();
 			for (Object source : me.getValue())
 			{
 				if (prerequisiteFacet.qualifies(id, qo, source))
 				{
-					String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source)
-							.getQualifiedKey()
-							: "";
+					String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source).getQualifiedKey() : "";
 					Vision v = qo.getRawObject();
 					Formula distance = v.getDistance();
-					int a = formulaResolvingFacet.resolve(id, distance, sourceString)
-							.intValue();
+					int a = formulaResolvingFacet.resolve(id, distance, sourceString).intValue();
 					VisionType visType = v.getType();
 					Integer current = map.get(visType);
 					if (current == null || current < a)
@@ -180,8 +168,7 @@ public class VisionFacet extends
 		 */
 		for (VisionType vType : VisionType.getAllVisionTypes())
 		{
-			int aVal = (int) bonusCheckingFacet
-					.getBonus(id, "VISION", vType.toString());
+			int aVal = (int) bonusCheckingFacet.getBonus(id, "VISION", vType.toString());
 
 			if (aVal > 0)
 			{
@@ -192,8 +179,7 @@ public class VisionFacet extends
 		TreeSet<Vision> returnSet = new TreeSet<>();
 		for (Map.Entry<VisionType, Integer> me : map.entrySet())
 		{
-			returnSet.add(new Vision(me.getKey(), FormulaFactory
-					.getFormulaFor(me.getValue().intValue())));
+			returnSet.add(new Vision(me.getKey(), FormulaFactory.getFormulaFor(me.getValue())));
 		}
 		return returnSet;
 	}
@@ -225,8 +211,7 @@ public class VisionFacet extends
 			return null;
 		}
 		Integer i = null;
-		for (Map.Entry<QualifiedObject<Vision>, Set<Object>> me : componentMap
-				.entrySet())
+		for (Map.Entry<QualifiedObject<Vision>, Set<Object>> me : componentMap.entrySet())
 		{
 			QualifiedObject<Vision> qo = me.getKey();
 			Vision v = qo.getRawObject();
@@ -238,11 +223,9 @@ public class VisionFacet extends
 					if (prerequisiteFacet.qualifies(id, qo, source))
 					{
 						String sourceString =
-								(source instanceof CDOMObject) ? ((CDOMObject) source)
-									.getQualifiedKey() : "";
+								(source instanceof CDOMObject) ? ((CDOMObject) source).getQualifiedKey() : "";
 						Formula distance = v.getDistance();
-						int a = formulaResolvingFacet
-								.resolve(id, distance, sourceString).intValue();
+						int a = formulaResolvingFacet.resolve(id, distance, sourceString).intValue();
 						if (i == null || i < a)
 						{
 							i = a;
@@ -270,7 +253,7 @@ public class VisionFacet extends
 		{
 			return null;
 		}
-		return new Vision(type, FormulaFactory.getFormulaFor(i.intValue()));
+		return new Vision(type, FormulaFactory.getFormulaFor(i));
 	}
 
 	/**
@@ -301,8 +284,6 @@ public class VisionFacet extends
 	 * getConstructingCacheMap(CharID) in order to implicitly call this method.
 	 * 
 	 * @return A new (empty) Map for use in this VisionFacet.
-	 * 
-	 * @see pcgen.cdom.facet.base.AbstractSourcedListFacet#getComponentMap()
 	 */
 	@Override
 	protected Map<QualifiedObject<Vision>, Set<Object>> getComponentMap()
@@ -310,8 +291,7 @@ public class VisionFacet extends
 		return new HashMap<>();
 	}
 
-	public void setFormulaResolvingFacet(
-		FormulaResolvingFacet formulaResolvingFacet)
+	public void setFormulaResolvingFacet(FormulaResolvingFacet formulaResolvingFacet)
 	{
 		this.formulaResolvingFacet = formulaResolvingFacet;
 	}

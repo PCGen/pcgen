@@ -1,5 +1,4 @@
 /*
- * PreLanguage.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.pretokens.test;
 
@@ -34,17 +28,9 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-/**
- * @author wardc
- *
- */
-public class PreLanguageTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreLanguageTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 		throws PrerequisiteException
@@ -53,12 +39,14 @@ public class PreLanguageTester extends AbstractDisplayPrereqTest implements
 		final int requiredNumber = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
 
-		if (prereq.getKey().equalsIgnoreCase("ANY")) { //$NON-NLS-1$
+		if (prereq.getKey().equalsIgnoreCase("ANY")) //$NON-NLS-1$
+		{
 			runningTotal = display.getLanguageCount();
 		}
 		else
 		{
-			final Language aLang = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Language.class, requiredLang);
+			final Language aLang = Globals.getContext().getReferenceContext()
+				.silentlyGetConstructedCDOMObject(Language.class, requiredLang);
 			if (aLang != null)
 			{
 				if (display.hasLanguage(aLang))
@@ -68,14 +56,13 @@ public class PreLanguageTester extends AbstractDisplayPrereqTest implements
 			}
 			else if (!requiredLang.equals("ANY")) //$NON-NLS-1$
 			{
-				throw new PrerequisiteException(LanguageBundle
-					.getFormattedString(
+				throw new PrerequisiteException(
+					LanguageBundle.getFormattedString(
 						"PreLanguage.error.no_such_language", requiredLang)); //$NON-NLS-1$
 			}
 		}
 
-		runningTotal =
-				prereq.getOperator().compare(runningTotal, requiredNumber);
+		runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
 		return countedTotal(prereq, runningTotal);
 	}
 
@@ -83,7 +70,7 @@ public class PreLanguageTester extends AbstractDisplayPrereqTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "LANG"; //$NON-NLS-1$

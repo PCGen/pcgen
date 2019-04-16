@@ -1,5 +1,4 @@
 /*
- * EquipmentModel.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 7, 2010, 3:18:39 PM
  */
 package pcgen.gui2.tabs.equip;
 
@@ -42,14 +40,13 @@ import javax.swing.table.TableColumn;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.EquipmentSetFacade;
-import pcgen.facade.core.EquipmentSetFacade.EquipNode;
-import pcgen.facade.core.EquipmentSetFacade.EquipNode.NodeType;
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.facade.util.ListFacade;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.gui2.facade.EquipNode;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JTreeTable;
@@ -57,11 +54,9 @@ import pcgen.gui2.util.JTreeTable;
 /**
  * The parent model for the selected panel. Maps the various equipment sets for
  * a character.
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class EquipmentModel implements ListListener<EquipmentSetFacade>, ReferenceListener<EquipmentSetFacade>,
-		TableModelListener
+public class EquipmentModel
+		implements ListListener<EquipmentSetFacade>, ReferenceListener<EquipmentSetFacade>, TableModelListener
 {
 
 	private static Font normFont;
@@ -142,7 +137,8 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 	{
 
 		@Override
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
 		{
 			super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 			EquipNode node = (EquipNode) table.getValueAt(row, 0);
@@ -252,17 +248,15 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 	private static class TreeRenderer extends CharacterTreeCellRenderer
 	{
 
-		private Map<String, ImageIcon> iconCache = new HashMap<>();
+		private final Map<String, ImageIcon> iconCache = new HashMap<>();
 
 		@Override
-		public Component getTreeCellRendererComponent(final JTree tree,
-				Object value, boolean sel, boolean expanded, boolean leaf,
-				final int row, boolean focus)
+		public Component getTreeCellRendererComponent(final JTree tree, Object value, boolean sel, boolean expanded,
+			boolean leaf, final int row, boolean focus)
 		{
 			String text = String.valueOf(value);
 			boolean isEquipNode = value instanceof EquipNode;
-			boolean isPhantomSlot = isEquipNode && ((EquipNode) value).getNodeType()
-					== NodeType.PHANTOM_SLOT;
+			boolean isPhantomSlot = isEquipNode && ((EquipNode) value).getNodeType() == EquipNode.NodeType.PHANTOM_SLOT;
 			if (isPhantomSlot)
 			{
 				text = "Empty slot";
@@ -288,7 +282,7 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 				{
 					setForeground(UIPropertyContext.getQualifiedColor());
 				}
-				if (isEquipNode && ((EquipNode) value).getNodeType() == NodeType.EQUIPMENT)
+				if (isEquipNode && ((EquipNode) value).getNodeType() == EquipNode.NodeType.EQUIPMENT)
 				{
 					equip = ((EquipNode) value).getEquipment();
 

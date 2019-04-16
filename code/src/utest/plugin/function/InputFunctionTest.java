@@ -17,60 +17,47 @@
  */
 package plugin.function;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.base.formula.base.ScopeInstance;
-import pcgen.base.formula.base.VariableLibrary;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
-import pcgen.base.solver.AggressiveSolverManager;
-import pcgen.base.solver.SolverFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.FormulaSetupFacet;
 import pcgen.cdom.facet.ScopeFacet;
-import pcgen.cdom.facet.SolverFactoryFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
-import pcgen.cdom.facet.VariableLibraryFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
-import pcgen.cdom.formula.MonitorableVariableStore;
 import pcgen.cdom.formula.VariableChannel;
+import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.output.channel.ChannelUtilities;
 import plugin.function.testsupport.AbstractFormulaTestCase;
 import plugin.function.testsupport.TestUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class InputFunctionTest extends AbstractFormulaTestCase
 {
 
-	private FormulaSetupFacet formulaSetupFacet =
-			FacetLibrary.getFacet(FormulaSetupFacet.class);
 	private ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
-	private VariableLibraryFacet variableLibraryFacet =
-			FacetLibrary.getFacet(VariableLibraryFacet.class);
 	private VariableStoreFacet variableStoreFacet =
 			FacetLibrary.getFacet(VariableStoreFacet.class);
 	private SolverManagerFacet solverManagerFacet =
 			FacetLibrary.getFacet(SolverManagerFacet.class);
-	private SolverFactoryFacet solverFactoryFacet =
-			FacetLibrary.getFacet(SolverFactoryFacet.class);
 	private CharID id;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		getFunctionLibrary().addFunction(new InputFunction());
-		formulaSetupFacet.initialize(context);
-		solverFactoryFacet.initialize(context);
-		FacetLibrary.getFacet(VariableLibraryFacet.class).initialize(context);
 		id = CharID.getID(context.getDataSetID());
-		scopeFacet.set(id, getInstanceFactory());
-		variableStoreFacet.set(id,
-			(MonitorableVariableStore) getVariableStore());
-		SolverFactory solverFactory = solverFactoryFacet.get(id.getDatasetID());
-		solverManagerFacet.set(id, new AggressiveSolverManager(
-			getFormulaManager(), getManagerFactory(), solverFactory, getVariableStore()));
+		scopeFacet.set(id, getFormulaManager().getScopeInstanceFactory());
+		variableStoreFacet.set(id, getVariableStore());
+		solverManagerFacet.set(id,
+			context.getVariableContext().generateSolverManager(getVariableStore()));
 	}
 
 	@Test
@@ -78,10 +65,10 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "input()";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 		formula = "if(\"a\", \"b\")";
 		node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -89,7 +76,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "input(2)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -97,7 +84,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "input(ab)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -105,29 +92,29 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "input(\"notvalid\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
 	public void testGlobalChannelStrength()
 	{
-		VariableLibrary varLib = variableLibraryFacet.get(id.getDatasetID());
 		ScopeInstanceFactory instFactory = scopeFacet.get(id);
-		ScopeInstance globalInstance = instFactory.getGlobalInstance("Global");
-		varLib.assertLegalVariableID(ChannelUtilities.createVarName("STR"),
+		ScopeInstance globalInstance =
+				instFactory.getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
+		context.getVariableContext().assertLegalVariableID(ChannelUtilities.createVarName("STR"),
 			globalInstance.getLegalScope(), numberManager);
-		VariableChannel<Number> strChannel =
-				(VariableChannel<Number>) ChannelUtilities.getGlobalChannel(id, "STR");
+		VariableChannel<Number> strChannel = (VariableChannel<Number>) context
+			.getVariableContext().getGlobalChannel(id, "STR");
 		String formula = "input(\"STR\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isValid(formula, node, numberManager, null);
+		isValid(node, numberManager, null);
 		isStatic(formula, node, false);
 		evaluatesTo(formula, node, 0);
 		strChannel.set(2);
 		evaluatesTo(formula, node, 2);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
-		assertEquals(rv.toString(), formula);
+		assertEquals(formula, rv.toString());
 	}
 
 }

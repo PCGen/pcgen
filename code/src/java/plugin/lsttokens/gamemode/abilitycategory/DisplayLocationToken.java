@@ -1,5 +1,4 @@
 /*
- * DisplayLocationToken.java
  * Copyright 2007 (C) James Dempsey <jdemspey@users.sourceforge.net>
  * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * 
@@ -27,9 +26,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.system.LanguageBundle;
 
-public class DisplayLocationToken extends
-		AbstractNonEmptyToken<AbilityCategory> implements
-		CDOMPrimaryToken<AbilityCategory>
+public class DisplayLocationToken extends AbstractNonEmptyToken<AbilityCategory>
+		implements CDOMPrimaryToken<AbilityCategory>
 {
 
 	@Override
@@ -39,8 +37,7 @@ public class DisplayLocationToken extends
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			AbilityCategory ac, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, AbilityCategory ac, String value)
 	{
 		/*
 		 * TODO This i18n is a bit challenging - in that it can create
@@ -74,7 +71,7 @@ public class DisplayLocationToken extends
 		{
 			return null;
 		}
-		return new String[] { location.toString() };
+		return new String[]{location.toString()};
 	}
 
 	@Override

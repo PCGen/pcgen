@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <fop version="1.0">
 
-  <base>.</base>
+  <base>./</base>
   <font-base>fonts</font-base>
 
   <strict-configuration>true</strict-configuration>
@@ -13,6 +13,13 @@
   <!-- Default page-height and page-width, in case value is specified as auto -->
   <default-page-settings height="11.00in" width="8.50in"/>
   
+  <image-loading>
+    <penalty value="10000"
+      class="org.apache.xmlgraphics.image.loader.impl.ImageLoaderRawCCITTFax"/>
+    <penalty value="INFINITE"
+      class="org.apache.xmlgraphics.image.loader.impl.ImageLoaderInternalTIFF"/>
+  </image-loading>
+
   <renderers>
     <renderer mime="application/pdf">
       <filterList>

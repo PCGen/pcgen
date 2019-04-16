@@ -31,9 +31,8 @@ public class SelfCopyLoader implements Loader
 {
 
 	@Override
-	public List<CDOMObject> process(StringBuilder sb, int line,
-			String lineString, ConversionDecider decider)
-			throws PersistenceLayerException, InterruptedException
+	public List<CDOMObject> process(StringBuilder sb, int line, String lineString, ConversionDecider decider)
+		throws PersistenceLayerException, InterruptedException
 	{
 		sb.append(lineString);
 		return null;
@@ -42,13 +41,7 @@ public class SelfCopyLoader implements Loader
 	@Override
 	public List<CampaignSourceEntry> getFiles(Campaign c)
 	{
-		return Collections.singletonList(new CampaignSourceEntry(c, c
-				.getSourceURI()));
-	}
-
-	public String getLoadName()
-	{
-		return "Self";
+		return Collections.singletonList(new CampaignSourceEntry(c, c.getSourceURI()));
 	}
 
 }

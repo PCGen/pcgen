@@ -8,18 +8,18 @@ CAMPAIGN:Blood of the Moon (PFS)
 #GAMEMODE:Pathfinder
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
 RANK:3
-STATUS:ALPHA
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Campaign Setting
-PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
-SOURCELONG:Blood of the Moon
+SOURCELONG:Pathfinder Player Companion: Blood of the Moon
 SOURCESHORT:BotM
-SOURCEWEB:http://paizo.com/products/btpy91dq?Pathfinder-Player-Companion-Blood-of-the-Moon
+SOURCEWEB:http://paizo.com/products/btpy91dq
 SOURCEDATE:2013-04
 ISOGL:YES
 
@@ -27,8 +27,8 @@ ISOGL:YES
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/products/btpy91dq?Pathfinder-Player-Companion-Blood-of-the-Moon|Buy this publication from Paizo Publishing!
-DESC:Channel the power of the moon and turn the curse of lycanthropy into a potent blessing with Pathfinder Player Companion: Blood of the Moon!
+URL:Paizo Publishing|http://paizo.com/products/btpy91dq|Buy this publication from Paizo Publishing!
+DESC:Channel the power of the moon and turn the curse of lycanthropy into a potent blessing with Pathfinder Player Companion: Blood of the Moon! Whether you were born with traces of bestial blood from a lycanthropic ancestor or you were bitten by a werewolf and have transformed into one completely, this volume contains everything you need to embrace the beast within and become a fearsome weapon against your enemies. Become a protector of the natural world as a scion of a werebear, revel in bloodshed with the wolf fighting style created by your ancestors, or find your calling in the witch practices of your werecrocodile forerunners. Even if you do not take directly after these bestial horrors of the night, there is much to learn from associating with them--as either ally or hunter. The choice is yours with Pathfinder Player Companion: Blood of the Moon!
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000,Wizards of the Coast, Inc.

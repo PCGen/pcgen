@@ -17,10 +17,9 @@
  */
 package plugin.lsttokens.template;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
@@ -36,13 +35,16 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreLevelWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class RepeatLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
 	static RepeatlevelToken token = new RepeatlevelToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public final void setUp() throws PersistenceLayerException,
 		URISyntaxException
 	{
@@ -74,63 +76,63 @@ public class RepeatLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testInvalidNoSubcommand() throws PersistenceLayerException
+	public void testInvalidNoSubcommand()
 	{
 		assertFalse(parse("1|2|20:5:"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNumberOnly() throws PersistenceLayerException
+	public void testInvalidNumberOnly()
 	{
 		assertFalse(parse("1|2|20"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOneColon() throws PersistenceLayerException
+	public void testInvalidOneColon()
 	{
 		assertFalse(parse("1|2|20:5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoColon() throws PersistenceLayerException
+	public void testInvalidTwoColon()
 	{
 		assertFalse(parse("1|2|20:5:SAB"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyStartLevel() throws PersistenceLayerException
+	public void testInvalidEmptyStartLevel()
 	{
 		assertFalse(parse("1|2|20::SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadStartLevel() throws PersistenceLayerException
+	public void testInvalidBadStartLevel()
 	{
 		assertFalse(parse("1|2|20:StartLevel:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadIncrementLevel() throws PersistenceLayerException
+	public void testInvalidBadIncrementLevel()
 	{
 		assertFalse(parse("IncrLevel|2|20:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadSkipLevel() throws PersistenceLayerException
+	public void testInvalidBadSkipLevel()
 	{
 		assertFalse(parse("1|SkipLevel|20:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadMaxLevel() throws PersistenceLayerException
+	public void testInvalidBadMaxLevel()
 	{
 		assertFalse(parse("1|2|MaxLevel:5:SAB:Stuff"));
 		assertNoSideEffects();
@@ -138,7 +140,6 @@ public class RepeatLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidNegativeStartLevel()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("1|2|20:-4:SAB:Stuff"));
 		assertNoSideEffects();
@@ -146,84 +147,83 @@ public class RepeatLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidNegativeIncrementLevel()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("-1|2|20:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNegativeSkipLevel() throws PersistenceLayerException
+	public void testInvalidNegativeSkipLevel()
 	{
 		assertFalse(parse("1|-2|20:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyMaxLevel() throws PersistenceLayerException
+	public void testInvalidEmptyMaxLevel()
 	{
 		assertFalse(parse("1|2|:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyCommand() throws PersistenceLayerException
+	public void testInvalidEmptyCommand()
 	{
 		assertFalse(parse("1|2|30:5::Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNegativeMaxLevel() throws PersistenceLayerException
+	public void testInvalidNegativeMaxLevel()
 	{
 		assertFalse(parse("1|2|-5:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTooManyColons() throws PersistenceLayerException
+	public void testInvalidTooManyColons()
 	{
 		assertFalse(parse("1|2|20:4:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTooManyBars() throws PersistenceLayerException
+	public void testInvalidTooManyBars()
 	{
 		assertFalse(parse("1|2|20|40:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoMaxLevel() throws PersistenceLayerException
+	public void testInvalidNoMaxLevel()
 	{
 		assertFalse(parse("1|2:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoFirstToken() throws PersistenceLayerException
+	public void testInvalidNoFirstToken()
 	{
 		assertFalse(parse(":5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoSkipLevel() throws PersistenceLayerException
+	public void testInvalidNoSkipLevel()
 	{
 		assertFalse(parse("1||20:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoIncrementLevel() throws PersistenceLayerException
+	public void testInvalidNoIncrementLevel()
 	{
 		assertFalse(parse("|3|20:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoSubcommandArgs() throws PersistenceLayerException
+	public void testInvalidNoSubcommandArgs()
 	{
 		assertFalse(parse("1|2|20:5:SAB:"));
 		assertNoSideEffects();
@@ -231,28 +231,27 @@ public class RepeatLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidStartGreaterThanEnd()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("1|2|20:50:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoIncrement() throws PersistenceLayerException
+	public void testInvalidNoIncrement()
 	{
 		assertFalse(parse("10|2|20:15:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoSkipUse() throws PersistenceLayerException
+	public void testInvalidNoSkipUse()
 	{
 		assertFalse(parse("5|4|20:5:SAB:Stuff"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadTemplateToken() throws PersistenceLayerException
+	public void testInvalidBadTemplateToken()
 	{
 		assertFalse(parse("5|0|10:5:CR:x"));
 		assertNoSideEffects();

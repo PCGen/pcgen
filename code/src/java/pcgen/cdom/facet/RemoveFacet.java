@@ -36,12 +36,11 @@ import pcgen.core.PlayerCharacter;
 /**
  * RemoveFacet is a Facet that triggers when an object has a REMOVE token
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class RemoveFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private RaceFacet raceFacet;
 
@@ -63,8 +62,6 @@ public class RemoveFacet implements DataFacetChangeListener<CharID, CDOMObject>
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -74,8 +71,7 @@ public class RemoveFacet implements DataFacetChangeListener<CharID, CDOMObject>
 		if (!aPC.isImporting())
 		{
 			CDOMObject cdo = dfce.getCDOMObject();
-			List<PersistentTransitionChoice<?>> removeList = cdo
-					.getListFor(ListKey.REMOVE);
+			List<PersistentTransitionChoice<?>> removeList = cdo.getListFor(ListKey.REMOVE);
 			if (removeList != null)
 			{
 				for (PersistentTransitionChoice<?> tc : removeList)
@@ -86,8 +82,7 @@ public class RemoveFacet implements DataFacetChangeListener<CharID, CDOMObject>
 		}
 	}
 
-	private static <T> void driveChoice(CDOMObject cdo, TransitionChoice<T> tc,
-		final PlayerCharacter pc)
+	private static <T> void driveChoice(CDOMObject cdo, TransitionChoice<T> tc, final PlayerCharacter pc)
 	{
 		tc.act(tc.driveChoice(pc), cdo, pc);
 	}

@@ -30,14 +30,13 @@ import pcgen.core.Language;
  * AutoLanguageFacet is a Facet that tracks the Languages that have been granted
  * to a Player Character through the AUTO:LANG and LANGAUTO tokens
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class AutoLanguageUnconditionalFacet extends
-		AbstractSourcedListFacet<CharID, Language> implements PerspectiveLocation
+public class AutoLanguageUnconditionalFacet extends AbstractSourcedListFacet<CharID, Language>
+		implements PerspectiveLocation
 {
 
 	private LanguageFacet languageFacet;
-	
+
 	public void setLanguageFacet(LanguageFacet languageFacet)
 	{
 		this.languageFacet = languageFacet;

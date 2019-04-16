@@ -1,6 +1,4 @@
 /*
- * Created on 02-Dec-2003
- *
  * To change the template for this generated file go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
@@ -9,11 +7,12 @@ package plugin.pretokens.test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
-import pcgen.core.display.CharacterDisplay;
-import pcgen.core.prereq.AbstractDisplayPrereqTest;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
@@ -22,14 +21,11 @@ import pcgen.util.Logging;
 /**
  * Prerequisite test that the character has a deity with the correct alignment.
  */
-public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreDeityAlignTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source)
 	{
 
 		//
@@ -37,14 +33,14 @@ public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements Pr
 		//
 		int runningTotal = 0;
 
-		if (Globals.getGameModeAlignmentText().length() == 0)
+		if (!pc.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
 			runningTotal = 1;
 		}
 		else
 		{
-			CDOMSingleRef<PCAlignment> deityAlign = null; //$NON-NLS-1$
-			Deity deity = display.getDeity();
+			CDOMSingleRef<PCAlignment> deityAlign = null;
+			Deity deity = pc.getDeity();
 			if (deity != null)
 			{
 				deityAlign = deity.get(ObjectKey.ALIGNMENT);
@@ -66,16 +62,11 @@ public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements Pr
 
 	private static PCAlignment getPCAlignment(String desiredAlignIdentifier)
 	{
-		PCAlignment desiredAlign =
-				Globals
-					.getContext()
-					.getReferenceContext()
-					.silentlyGetConstructedCDOMObject(PCAlignment.class,
-						desiredAlignIdentifier);
+		PCAlignment desiredAlign = Globals.getContext().getReferenceContext()
+			.silentlyGetConstructedCDOMObject(PCAlignment.class, desiredAlignIdentifier);
 		if (desiredAlign == null)
 		{
-			Logging.errorPrint("Unable to find alignment that matches: "
-				+ desiredAlignIdentifier);
+			Logging.errorPrint("Unable to find alignment that matches: " + desiredAlignIdentifier);
 		}
 		return desiredAlign;
 	}
@@ -84,21 +75,18 @@ public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements Pr
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "DEITYALIGN"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
-	 */
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return LanguageBundle
-			.getFormattedString(
-				"PreDeityAlign.toHtml", prereq.getOperator().toDisplayString(), getPCAlignment(prereq.getOperand()).getKeyName()); //$NON-NLS-1$
+		return LanguageBundle.getFormattedString(
+			"PreDeityAlign.toHtml", prereq.getOperator().toDisplayString(), //$NON-NLS-1$
+			getPCAlignment(prereq.getOperand()).getKeyName());
 	}
 
 }

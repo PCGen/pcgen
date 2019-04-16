@@ -17,13 +17,17 @@
  */
 package plugin.lsttokens.kit.ability;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.core.kit.KitAbilities;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import org.junit.jupiter.api.Test;
 
 public class FreeTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 {
@@ -51,13 +55,13 @@ public class FreeTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 	}
 
 	@Test
-	public void testInvalidInputStringSet() throws PersistenceLayerException
+	public void testInvalidInputStringSet()
 	{
 		assertTrue(parse("YES"));
 		assertTrue(parseSecondary("YES"));
@@ -66,7 +70,6 @@ public class FreeTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	}
 
 	public void internalTestInvalidInputString(Object val)
-			throws PersistenceLayerException
 	{
 		assertEquals(val, getValue());
 		assertFalse(parse("String"));
@@ -84,7 +87,7 @@ public class FreeTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("YES"));
 		assertEquals(Boolean.TRUE, getValue());

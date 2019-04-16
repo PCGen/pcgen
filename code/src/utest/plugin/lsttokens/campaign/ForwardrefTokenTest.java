@@ -17,16 +17,18 @@
  */
 package plugin.lsttokens.campaign;
 
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
@@ -34,7 +36,7 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static CDOMPrimaryToken<Campaign> token = new ForwardRefToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<Campaign> getLoader()
@@ -55,77 +57,77 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeOnly() throws PersistenceLayerException
+	public void testInvalidTypeOnly()
 	{
 		assertFalse(parse("SPELL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeBarOnly() throws PersistenceLayerException
+	public void testInvalidTypeBarOnly()
 	{
 		assertFalse(parse("SPELL|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyType() throws PersistenceLayerException
+	public void testInvalidEmptyType()
 	{
 		assertFalse(parse("|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadType() throws PersistenceLayerException
+	public void testInvalidBadType()
 	{
 		assertFalse(parse("CAMPAIGN|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadLeadingComma() throws PersistenceLayerException
+	public void testInvalidBadLeadingComma()
 	{
 		assertFalse(parse("SPELL|,Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadTrailingComma() throws PersistenceLayerException
+	public void testInvalidBadTrailingComma()
 	{
 		assertFalse(parse("SPELL|Fireball,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadDoubleComma() throws PersistenceLayerException
+	public void testInvalidBadDoubleComma()
 	{
 		assertFalse(parse("SPELL|Fireball,,LightningBolt"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCatTypeNoEqual() throws PersistenceLayerException
+	public void testInvalidCatTypeNoEqual()
 	{
 		assertFalse(parse("ABILITY|Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNonCatTypeEquals() throws PersistenceLayerException
+	public void testInvalidNonCatTypeEquals()
 	{
 		assertFalse(parse("SPELL=Arcane|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoubleEquals() throws PersistenceLayerException
+	public void testInvalidDoubleEquals()
 	{
 		assertFalse(parse("ABILITY=FEAT=Mutation|Fireball"));
 		assertNoSideEffects();
@@ -133,14 +135,13 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 
 	@Test
 	public void testInvalidSpellbookAndSpellBarOnly()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("SPELL|Fireball|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellBarStarting() throws PersistenceLayerException
+	public void testInvalidSpellBarStarting()
 	{
 		assertFalse(parse("SPELL||Fireball"));
 		assertNoSideEffects();
@@ -157,12 +158,12 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	@Test
 	public void testRoundRobinJustAbility() throws PersistenceLayerException
 	{
-		AbilityCategory newCatp = primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
-		AbilityCategory newCats = secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
-		Ability a = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.getReferenceContext().reassociateCategory(newCatp, a);
-		Ability b = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
-		secondaryContext.getReferenceContext().reassociateCategory(newCats, b);
+		AbilityCategory newCatp =
+				primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		AbilityCategory newCats =
+				secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		constructAbility(primaryContext, newCatp, "Abil3");
+		constructAbility(secondaryContext, newCats, "Abil3");
 		runRoundRobin("ABILITY=NEWCAT|Abil3");
 	}
 
@@ -177,17 +178,16 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testRoundRobinAbilitySpell()
-			throws PersistenceLayerException
+	public void testRoundRobinAbilitySpell() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
-		AbilityCategory newCatp = primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
-		AbilityCategory newCats = secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
-		Ability a = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.getReferenceContext().reassociateCategory(newCatp, a);
-		Ability b = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
-		secondaryContext.getReferenceContext().reassociateCategory(newCats, b);
+		AbilityCategory newCatp =
+				primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		AbilityCategory newCats =
+				secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class, "NEWCAT");
+		constructAbility(primaryContext, newCatp, "Abil3");
+		constructAbility(secondaryContext, newCats, "Abil3");
 		runRoundRobin("ABILITY=NEWCAT|Abil3", "SPELL|Lightning Bolt");
 	}
 
@@ -197,11 +197,9 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Lightning Bolt");
-		Ability a = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "My Feat");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
-		Ability b = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "My Feat");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, b);
-		runRoundRobin("FEAT|My Feat", "SPELL|Lightning Bolt");
+		constructAbility(primaryContext, BuildUtilities.getFeatCat(), "My Feat");
+		constructAbility(secondaryContext, BuildUtilities.getFeatCat(), "My Feat");
+		runRoundRobin("ABILITY=FEAT|My Feat", "SPELL|Lightning Bolt");
 	}
 
 	@Override
@@ -213,12 +211,30 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	@Override
 	protected String getLegalValue()
 	{
-		return "FEAT|My Feat";
+		return "ABILITY=FEAT|My Feat";
 	}
 
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.SEPARATE;
+	}
+
+	private void constructAbility(LoadContext context, AbilityCategory newCatp,
+		String name)
+	{
+		Ability a = newCatp.newInstance();
+		a.setDisplayName(name);
+		context.getReferenceContext().importObject(a);
+	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		//Dummy items to ensure Category is initialized
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName("Dummy");
+		context.getReferenceContext().importObject(a);
 	}
 }

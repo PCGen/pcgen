@@ -17,27 +17,23 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  PreferencesTrackingPanel.java
- *
- *  Created on August 29, 2002, 2:41 PM
  */
 package plugin.initiative.gui;
 
 import javax.swing.SwingConstants;
+
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
 
 /**
  *  Panel that tracks the misc preferences
- *
- *@author     devon
  */
 public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 {
 	private static final String OPTION_NAME_MAXNUM = InitiativePlugin.LOG_NAME + ".dbMaxNum"; //$NON-NLS-1$
 	private static final String OPTION_NAME_DBMAXHP = InitiativePlugin.LOG_NAME + ".dbMaxHP"; //$NON-NLS-1$
-	
-	
+
 	private Initiative initiative;
 	private javax.swing.JLabel jLabel2;
 	private javax.swing.JLabel jLabel3;
@@ -97,18 +93,16 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 		return Integer.parseInt(tbNumber.getText());
 	}
 
-    @Override
+	@Override
 	public void applyPreferences()
 	{
-		SettingsHandler.setGMGenOption(OPTION_NAME_DBMAXHP,
-			getMaxHP());
-		SettingsHandler.setGMGenOption(OPTION_NAME_MAXNUM,
-			getNumber());
+		SettingsHandler.setGMGenOption(OPTION_NAME_DBMAXHP, getMaxHP());
+		SettingsHandler.setGMGenOption(OPTION_NAME_MAXNUM, getNumber());
 		initiative.applyPrefs();
 		initiative.refreshTable();
 	}
 
-    @Override
+	@Override
 	public void initPreferences()
 	{
 		setMaxHP(SettingsHandler.getGMGenOption(OPTION_NAME_DBMAXHP, 100));

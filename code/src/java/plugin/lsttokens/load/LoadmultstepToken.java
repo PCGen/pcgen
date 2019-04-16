@@ -1,5 +1,4 @@
 /*
- * LoadmultstepToken.java
  * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 14, 2007
- *
- * Current Ver: $Revision: 1777 $
- *
  */
 package plugin.lsttokens.load;
 
@@ -29,8 +23,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class LoadmultstepToken extends AbstractNonEmptyToken<LoadInfo>
-		implements CDOMPrimaryToken<LoadInfo>
+public class LoadmultstepToken extends AbstractNonEmptyToken<LoadInfo> implements CDOMPrimaryToken<LoadInfo>
 {
 
 	@Override
@@ -40,36 +33,33 @@ public class LoadmultstepToken extends AbstractNonEmptyToken<LoadInfo>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			LoadInfo info, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, LoadInfo info, String value)
 	{
 		try
 		{
 			int step = Integer.valueOf(value);
 			if (step <= 0)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " expected a positive integer, found : " + value, context);
+				return new ParseResult.Fail(getTokenName() + " expected a positive integer, found : " + value);
 			}
 			info.setLoadMultStep(Integer.parseInt(value));
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>", context);
+			return new ParseResult.Fail(
+				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
 		}
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, LoadInfo info)
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-    @Override
+	@Override
 	public Class<LoadInfo> getTokenClass()
 	{
 		return LoadInfo.class;

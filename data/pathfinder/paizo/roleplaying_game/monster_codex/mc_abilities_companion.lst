@@ -1,0 +1,14 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Monster Codex	SOURCESHORT:MC	SOURCEWEB:http://paizo.com/products/btpy9926?Pathfinder-Roleplaying-Game-Monster-Codex	SOURCEDATE:2014-11
+
+# Ability Name							Unique Key							Category of Ability		Type						Visible		Required Race					Description																																								Ability											Adjust PC Size		Stat bonus					Modify VAR
+Companion Advancement (Cave Salamander)			KEY:Companion Advancement ~ Cave Salamander	CATEGORY:Special Ability	TYPE:CompanionAdvancement		VISIBLE:DISPLAY	PRERACE:1,Companion (Cave Salamander)																																										ABILITY:Special Ability|AUTOMATIC|Animal Training ~ Combat Training					BONUS:STAT|STR,CON|2|TYPE=Racial
+Companion Advancement (Gorthek)				KEY:Companion Advancement ~ Gorthek			CATEGORY:Special Ability	TYPE:CompanionAdvancement		VISIBLE:DISPLAY	PRERACE:1,Companion (Gorthek)																																												ABILITY:Special Ability|AUTOMATIC|Powerful Charge				BONUS:SIZEMOD|NUMBER|1							BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.REPLACE	BONUS:VAR|PowerfulChargeDamageDice|4	BONUS:VAR|PowerfulChargeDamageDieSize|6	BONUS:VAR|PowerfulChargeBonusDamage|STR*2
+Companion Advancement (Python (Riding))			KEY:Companion Advancement ~ Python (Riding)	CATEGORY:Special Ability	TYPE:CompanionAdvancement		VISIBLE:DISPLAY	PRERACE:1,Companion (Python (Riding))																																										ABILITY:Special Ability|AUTOMATIC|Animal Training ~ Combat Training					BONUS:STAT|STR,CON|2|TYPE=Racial
+Companion Advancement (Yzobu)					KEY:Companion Advancement ~ Yzobu			CATEGORY:Special Ability	TYPE:CompanionAdvancement		VISIBLE:DISPLAY	PRERACE:1,Companion (Yzobu)																																												ABILITY:Special Ability|AUTOMATIC|Yzobu ~ Stampede|Stench|Trample		BONUS:SIZEMOD|NUMBER|1							BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.REPLACE	BONUS:VAR|StenchDuration|10	BONUS:VAR|TrampleDamageDieSize|6
+Companion Advancement (Rat (Riding))			KEY:Companion Advancement ~ Rat (Riding)		CATEGORY:Special Ability	TYPE:CompanionAdvancement		VISIBLE:DISPLAY	PRERACE:1,Companion (Rat (Riding))																																											ABILITY:FEAT|AUTOMATIC|Endurance											BONUS:STAT|STR,DEX|2|TYPE=Racial	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.REPLACE
+
+Stampede								KEY:Yzobu ~ Stampede					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary											DESC:A stampede occurs if three or more creatures with stampede make a trample attack while remaining adjacent to each other. While stampeding, the creatures can trample foes of their size or smaller, and the trample's save DC increases by +2.
+
+#Copied from B3
+7th-Level Advancement ~ Companion (Giant Vulture)	KEY:Companion Advancement ~ Giant Vulture		CATEGORY:Special Ability	TYPE:CompanionAdvancement					PRERACE:1,Companion (Giant Vulture)																																																							BONUS:SIZEMOD|NUMBER|1

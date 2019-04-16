@@ -1,0 +1,16 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# Ability Name																		Unique Key								Category of Ability		Type					Visible	Description																																																																																									Multiple?	Choose									Ability									Cost		Source, Long Desc.	Aspects
+
+SOURCELONG:Pathfinder Society Chronicle Sheets Season 9	SOURCESHORT:PFSCS9	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2016-08
+
+# Ability Name																		Unique Key								Category of Ability		Type					Visible	Description																																																																																									Multiple?	Choose									Ability									Cost		Source, Long Desc.	Aspects
+Pathfinder Society Scenario #9-01: The Cost of Enlightenment										KEY:Chronicle ~ S09-01						CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES																																																																																											MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-5	ABILITY:Chronicle_S09-01|AUTOMATIC|Chronicle_S09-01_Enable	COST:0	SOURCELONG:.
+Chronicle_S09-01_Enable																										CATEGORY:Special Ability	TYPE:Chronicle_S09-01		VISIBLE:NO
+
+High Priestess's Patronage																KEY:PFS Scenario 9-01 ~ High Priestess's Patronage	CATEGORY:Special Ability	TYPE:Chronicle_S09-01.PFSBoon	VISIBLE:YES	DESC:You possess a signet ring from Amal al-Sahba, a member of the Peerless advisors to the satrap of Qadira and an influential priestess in the faith of Sarenrae. This ring announces al-Sahba as your patron, and grants you a +2 circumstance bonus on Diplomacy checks in Qadira and Diplomacy checks against worshippers of Sarenrae. If you purchased an item for a 10%% discount during the adventure, write the item in the space below this boon. If you did not make a discounted purchase, you may do so when you receive this Chronicle sheet.																							COST:0					ASPECT:SkillBonus|+2 circumstance bonus on Diplomacy checks in Qadira and Diplomacy checks against worshippers of Sarenrae (PFS #9-01, High Priestess's Patronage).
+Roidiran Phantom																		KEY:PFS Scenario 9-01 ~ Roidiran Phantom			CATEGORY:Special Ability	TYPE:Chronicle_S09-01.PFSBoon	VISIBLE:YES	DESC:You chose to replace your existing phantom with the tormented spirit of Zarisha al-Sakawi. Zarisha is a despair phantom (Pathfinder RPG Occult Adventures 81) with the following modifications: her starting Intelligence score is 11, and her emotional focus skills are Intimidate and Knowledge (religion) instead of Intimidate and Stealth.	DESC:&nl;[Ed: Zarisha is not currently implemented in PCGen]																																													COST:0
+Visions of the Void																	KEY:PFS Scenario 9-01 ~ Visions of the Void		CATEGORY:Special Ability	TYPE:Chronicle_S09-01.PFSBoon	VISIBLE:YES	DESC:You witnessed one of Roidira's mystifying visions. This vision may provide inspiration, or it may hamper you. Before rolling a skill check, you can cross off this boon to add 1d6-2 to your result.																																																																															COST:0
+
+#
+# DONE
+#

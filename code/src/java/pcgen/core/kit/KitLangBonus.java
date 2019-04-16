@@ -1,5 +1,4 @@
 /*
- * KitLangBonus.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 2/10/2008 16:50:38
- *
- * $Id: $
  */
 package pcgen.core.kit;
 
@@ -40,7 +35,6 @@ import pcgen.core.chooser.ChooserUtilities;
  * Deals with applying a bonus language via a Kit
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class KitLangBonus extends BaseKit
 {
@@ -49,7 +43,7 @@ public class KitLangBonus extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient List<Language> theLanguages = new ArrayList<>();
+	private List<Language> theLanguages = new ArrayList<>();
 
 	/**
 	 * Actually applies the bonus languages to this PC.
@@ -62,8 +56,8 @@ public class KitLangBonus extends BaseKit
 		CNAbility cna = aPC.getBonusLanguageAbility();
 		for (Language l : theLanguages)
 		{
-			aPC.addAbility(new CNAbilitySelection(cna, l.getKeyName()),
-				UserSelection.getInstance(), UserSelection.getInstance());
+			aPC.addAbility(new CNAbilitySelection(cna, l.getKeyName()), UserSelection.getInstance(),
+				UserSelection.getInstance());
 		}
 	}
 
@@ -77,8 +71,7 @@ public class KitLangBonus extends BaseKit
 	 * @return true, if the languages could be added
 	 */
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-			List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		theLanguages = new ArrayList<>();
 
@@ -91,16 +84,14 @@ public class KitLangBonus extends BaseKit
 		 * conditionallyApply in the controller is reasonable (there is no need
 		 * to actually try to apply the langbonus ability in this case)
 		 */
-		ChoiceManagerList<Language> controller = ChooserUtilities
-				.getConfiguredController(cna, aPC, AbilityCategory.LANGBONUS,
-						reservedList);
+		ChoiceManagerList<Language> controller =
+				ChooserUtilities.getConfiguredController(cna, aPC, AbilityCategory.LANGBONUS, reservedList);
 		if (controller == null)
 		{
 			return false;
 		}
 
-		int allowedCount = aPC
-				.getAvailableAbilityPool(AbilityCategory.LANGBONUS).intValue();
+		int allowedCount = aPC.getAvailableAbilityPool(AbilityCategory.LANGBONUS).intValue();
 		int remaining = allowedCount;
 		for (CDOMSingleRef<Language> ref : langList)
 		{
@@ -112,36 +103,25 @@ public class KitLangBonus extends BaseKit
 			}
 			else
 			{
-				warnings.add("LANGUAGE: Could not add bonus language \""
-						+ lang.getKeyName() + "\"");
+				warnings.add("LANGUAGE: Could not add bonus language \"" + lang.getKeyName() + "\"");
 			}
 		}
 
 		if (langList.size() > allowedCount)
 		{
-			warnings.add("LANGUAGE: Too many bonus languages specified. "
-					+ (langList.size() - allowedCount) + " had to be ignored.");
+			warnings.add("LANGUAGE: Too many bonus languages specified. " + (langList.size() - allowedCount)
+				+ " had to be ignored.");
 		}
 
-		if (theLanguages.size() > 0)
-		{
-			return true;
-		}
-		return false;
+		return !theLanguages.isEmpty();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.kit.BaseKit#getObjectName()
-	 */
 	@Override
 	public String getObjectName()
 	{
 		return "Languages";
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{

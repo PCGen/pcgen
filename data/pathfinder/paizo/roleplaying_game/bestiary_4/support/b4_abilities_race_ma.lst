@@ -1,0 +1,37 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
+
+# Ability Name									Category of Ability	Type				Req. Known Spell					Innate Spells						Ability
+CATEGORY=Internal|Racial Traits ~ Apocalypse Locust.MOD																										ABILITY:Mythic Feat|AUTOMATIC|Power Attack	ABILITY:Mythic Feat|AUTOMATIC|Weapon Focus (Pincer)
+CATEGORY=Internal|Racial Traits ~ Argus.MOD																												ABILITY:Special Ability|AUTOMATIC|Mistsight	ABILITY:Mythic Feat|AUTOMATIC|Alertness	ABILITY:Mythic Feat|AUTOMATIC|Combat Reflexes	ABILITY:Mythic Feat|AUTOMATIC|Improved Initiative
+CATEGORY=Internal|Racial Traits ~ Chaneque.MOD																											ABILITY:Mythic Feat|AUTOMATIC|Weapon Finesse
+CATEGORY=Internal|Racial Traits ~ Colossus (Flesh).MOD																										ABILITY:Mythic Feat|AUTOMATIC|Cleave	ABILITY:Mythic Feat|AUTOMATIC|Improved Critical (slam)	ABILITY:Mythic Feat|AUTOMATIC|Power Attack
+CATEGORY=Internal|Racial Traits ~ Colossus (Iron).MOD																										ABILITY:Mythic Feat|AUTOMATIC|Cleave	ABILITY:Mythic Feat|AUTOMATIC|Improved Critical (ballista (heavy))	ABILITY:Mythic Feat|AUTOMATIC|Improved Sunder	ABILITY:Mythic Feat|AUTOMATIC|Vital Strike
+CATEGORY=Internal|Racial Traits ~ Colossus (Stone).MOD																										ABILITY:Mythic Feat|AUTOMATIC|Deadly Aim	ABILITY:Mythic Feat|AUTOMATIC|Improved Initiative	ABILITY:Mythic Feat|AUTOMATIC|Improved Sunder	ABILITY:Mythic Feat|AUTOMATIC|Point-Blank Shot
+CATEGORY=Internal|Racial Traits ~ Demon Lord (Dagon).MOD																									ABILITY:Mythic Spell|AUTOMATIC|Blasphemy|Control Weather|Desecrate|Storm of Vengeance|Telekinesis|Time Stop|Tsunami|Unholy Blight|PRETEMPLATE:1,Demon Lord in Home Realm
+CATEGORY=Internal|Racial Traits ~ Demon Lord (Kostchtchie).MOD																								ABILITY:Mythic Spell|AUTOMATIC|Blasphemy|Cone of Cold|Desecrate|Enlarge Person|Telekinesis|Unholy Blight|Polar Ray|Power Word Stun|Time Stop|PRETEMPLATE:1,Demon Lord in Home Realm
+CATEGORY=Internal|Racial Traits ~ Demon Lord (Pazuzu).MOD																									ABILITY:Mythic Spell|AUTOMATIC|Blasphemy|Cone of Cold|Desecrate|Dominate Person|Telekinesis|Unholy Blight|Quickened Dominate Person|Whirlwind|Time Stop|Wish|PRETEMPLATE:1,Demon Lord in Home Realm
+CATEGORY=Internal|Racial Traits ~ Drakainia.MOD																											ABILITY:Mythic Spell|AUTOMATIC|Regenerate	ABILITY:Mythic Feat|AUTOMATIC|Combat Reflexes	ABILITY:Mythic Feat|AUTOMATIC|Great Fortitude	ABILITY:Mythic Feat|AUTOMATIC|Iron Will	ABILITY:Mythic Feat|AUTOMATIC|Lightning Reflexes	ABILITY:Mythic Feat|AUTOMATIC|Weapon Focus (claw)
+CATEGORY=Internal|Racial Traits ~ Elohim.MOD																			SPELLS:Innate|TIMES=5|CASTERLEVEL=23|Terraform	ABILITY:Special Ability|AUTOMATIC|Mythic Path Ability ~ Plantbringer|Mythic Magic|Dual Initiative	ABILITY:Mythic Feat|AUTOMATIC|Great Fortitude	ABILITY:Mythic Feat|AUTOMATIC|Improved Initiative	ABILITY:Mythic Feat|AUTOMATIC|Iron Will
+CATEGORY=Internal|Racial Traits ~ Empyreal Lord (Cernunnos).MOD																								ABILITY:Mythic Spell|AUTOMATIC|Dimensional Lock|Power Word Stun|Haste|True Strike|Break Enchantment|Breath of Life|Mage's Disjunction|Time Stop|PRETEMPLATE:1,Empyreal Lord in Home Realm
+CATEGORY=Internal|Racial Traits ~ Empyreal Lord (Korada).MOD																									ABILITY:Mythic Spell|AUTOMATIC|Dimensional Lock|Power Word Stun|Foresight|Sanctuary|Bless|Cure Serious Wounds|Mirror Image|Quickened Mirror Image|Wall of Force|PRETEMPLATE:1,Empyreal Lord in Home Realm
+CATEGORY=Internal|Racial Traits ~ Empyreal Lord (Vildeis).MOD																									ABILITY:Mythic Spell|AUTOMATIC|Dimensional Lock|Power Word Stun|Command|Haste|Holy Word|Searing Light|PRETEMPLATE:1,Empyreal Lord in Home Realm
+CATEGORY=Internal|Racial Traits ~ Graeae.MOD																											ABILITY:Mythic Feat|AUTOMATIC|Iron Will
+CATEGORY=Internal|Racial Traits ~ Great Old One (Bokrug).MOD																									ABILITY:Mythic Spell|AUTOMATIC|Cloudkill|Control Weather|Dimension Door|Dream|Nightmare|Plane Shift|Tsunami
+CATEGORY=Internal|Racial Traits ~ Great Old One (Cthulhu).MOD																									ABILITY:Mythic Spell|AUTOMATIC|Control Weather|Dream|Nightmare|Sending|Wish
+CATEGORY=Internal|Racial Traits ~ Great Old One (Hastur).MOD																									ABILITY:Mythic Spell|AUTOMATIC|Dimension Door|Dream|Enervation|Nightmare|Sending|Wish
+CATEGORY=Internal|Racial Traits ~ Grendel.MOD																											ABILITY:Special Ability|AUTOMATIC|Mythic Ability ~ Unstoppable|Mythic Path Ability ~ Display of Strength	ABILITY:Mythic Feat|AUTOMATIC|Great Fortitude	ABILITY:Mythic Feat|AUTOMATIC|Iron Will	ABILITY:Mythic Feat|AUTOMATIC|Power Attack	ABILITY:Mythic Feat|AUTOMATIC|Skill Focus (Stealth)
+CATEGORY=Internal|Racial Traits ~ Guardian Dragon.MOD																										ABILITY:Special Ability|AUTOMATIC|Mistsight|Poisonous Blood	ABILITY:Special Ability|AUTOMATIC|Mythic Ability ~ Immortal|Mythic Ability ~ Recuperation|Mythic Ability ~ Unstoppable	ABILITY:Mythic Feat|AUTOMATIC|Cleave	ABILITY:Mythic Feat|AUTOMATIC|Critical Focus	ABILITY:Mythic Feat|AUTOMATIC|Improved Initiative	ABILITY:Mythic Feat|AUTOMATIC|Iron Will	ABILITY:Mythic Feat|AUTOMATIC|Power Attack
+CATEGORY=Internal|Racial Traits ~ Irminsul.MOD																											ABILITY:Mythic Feat|AUTOMATIC|Toughness	ABILITY:Mythic Feat|AUTOMATIC|Alertness	ABILITY:Mythic Feat|AUTOMATIC|Great Fortitude	ABILITY:Mythic Feat|AUTOMATIC|Iron Will
+CATEGORY=Internal|Racial Traits ~ Julunggali.MOD																											ABILITY:Special Ability|AUTOMATIC|Mythic Ability ~ Amazing Initiative|Mythic Ability ~ Mythic Saving Throws	ABILITY:Mythic Spell|AUTOMATIC|Baleful Polymorph|Bless|Control Weather (rain only)|Haste|Heal|Move Earth|Prayer|Slow	ABILITY:Mythic Feat|AUTOMATIC|Combat Reflexes	ABILITY:Mythic Feat|AUTOMATIC|Improved Initiative	ABILITY:Mythic Feat|AUTOMATIC|Lightning Reflexes	ABILITY:Mythic Feat|AUTOMATIC|Power Attack
+CATEGORY=Internal|Racial Traits ~ Leanan Sidhe.MOD																										ABILITY:Mythic Feat|AUTOMATIC|Improved Initiative	ABILITY:Mythic Feat|AUTOMATIC|Persuasive
+CATEGORY=Internal|Racial Traits ~ Myrmecoleon.MOD																											ABILITY:Mythic Feat|AUTOMATIC|Weapon Focus (mandibles)	ABILITY:Mythic Feat|AUTOMATIC|Power Attack
+CATEGORY=Internal|Racial Traits ~ Titan (Fomorian).MOD																										ABILITY:Mythic Feat|AUTOMATIC|Improved Critical (mace (heavy))	ABILITY:Mythic Feat|AUTOMATIC|Iron Will	ABILITY:Mythic Feat|AUTOMATIC|Power Attack	ABILITY:Mythic Feat|AUTOMATIC|Vital Strike
+CATEGORY=Internal|Racial Traits ~ Tyrant Jelly.MOD																										ABILITY:Mythic Feat|AUTOMATIC|Weapon Focus (Slam)	ABILITY:Mythic Feat|AUTOMATIC|Improved Initiative
+CATEGORY=Internal|Racial Traits ~ Udaeus.MOD																											ABILITY:Mythic Feat|AUTOMATIC|Weapon Focus (Spear)
+
+
+Control Weather (rain only)							CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Control Weather (rain only)
+Quickened Dominate Person							CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Quickened Dominate Person
+Quickened Mirror Image								CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Quickened Mirror Image

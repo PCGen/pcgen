@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 (C) Thomas Parker <thpr@users.sourceforge.net>
+ * Copyright 2008-19 (C) Thomas Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -21,50 +21,28 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Movement;
+import pcgen.cdom.enumeration.MovementType;
+import pcgen.core.SimpleMovement;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- *
- */
-public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class MoveLst extends AbstractTokenWithSeparator<CDOMObject>
+		implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
 	public String getTokenName()
 	{
 		return "MOVE";
-	}
-
-	private ParseResult validateMove(String value, String mod)
-	{
-		try
-		{
-			if (Integer.parseInt(mod) < 0)
-			{
-				return new ParseResult.Fail(
-						"Invalid movement (cannot be negative): " + mod
-								+ " in MOVE: " + value);
-			}
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(
-					"Invalid movement (must be an integer >= 0): " + mod
-							+ " in MOVE: " + value);
-		}
-		return ParseResult.SUCCESS;
 	}
 
 	@Override
@@ -74,83 +52,61 @@ public class MoveLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		StringTokenizer moves = new StringTokenizer(value, Constants.COMMA);
-		Movement cm;
 
-		if (moves.countTokens() == 1)
+		while (moves.countTokens() > 1)
 		{
-			cm = new Movement(1);
+			MovementType type = MovementType.getConstant(moves.nextToken());
 			String mod = moves.nextToken();
-			ParseResult pr = validateMove(value, mod);
-			if (!pr.passed())
+			try
 			{
-				return pr;
+				SimpleMovement cm =
+						new SimpleMovement(type, Integer.parseInt(mod));
+				context.getObjectContext().addToList(obj,
+					ListKey.SIMPLEMOVEMENT, cm);
 			}
-			cm.assignMovement(0, "Walk", mod);
-		}
-		else
-		{
-			cm = new Movement(moves.countTokens() / 2);
-
-			int x = 0;
-			while (moves.countTokens() > 1)
-			{
-				String type = moves.nextToken();
-				String mod = moves.nextToken();
-				ParseResult pr = validateMove(value, mod);
-				if (!pr.passed())
-				{
-					return pr;
-				}
-				cm.assignMovement(x++, type, mod);
-			}
-			if (moves.countTokens() != 0)
+			catch (NumberFormatException e)
 			{
 				return new ParseResult.Fail(
-						"Badly formed MOVE token "
-								+ "(extra value at end of list): " + value, context);
+					"Movement must be a number, found: " + mod);
 			}
 		}
-		cm.setMoveRatesFlag(0);
-		context.getObjectContext().addToList(obj, ListKey.MOVEMENT, cm);
+		if (moves.countTokens() != 0)
+		{
+			return new ParseResult.Fail("Badly formed MOVE token " + "(extra value at end of list): " + value);
+		}
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<Movement> changes = context.getObjectContext().getListChanges(
-				obj, ListKey.MOVEMENT);
-		Collection<Movement> added = changes.getAdded();
+		Changes<SimpleMovement> changes = context.getObjectContext()
+			.getListChanges(obj, ListKey.SIMPLEMOVEMENT);
+		Collection<SimpleMovement> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{
 			// Zero indicates no Token
 			return null;
 		}
 		Set<String> set = new TreeSet<>();
-		for (Movement m : added)
+		for (SimpleMovement movement : added)
 		{
-			if (m.getMoveRatesFlag() == 0)
-			{
-				StringBuilder sb = new StringBuilder();
-				m.addTokenContents(sb);
-				set.add(sb.toString());
-			}
+			set.add(movement.getMovementType() + Constants.COMMA + movement.getMovement());
 		}
 		if (set.isEmpty())
 		{
 			return null;
 		}
-		return set.toArray(new String[set.size()]);
+		return new String[]{
+			set.stream().collect(Collectors.joining(Constants.COMMA))};
 	}
 
 	@Override

@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.event;
 
 import java.util.EventObject;
+import java.util.Objects;
 
 import pcgen.cdom.enumeration.CharID;
 
@@ -95,30 +96,14 @@ public class SubScopeFacetChangeEvent<S1, S2, T> extends EventObject
 	 *            An integer identifying whether the given CDOMObject was added
 	 *            or removed from the PlayerCharacter
 	 */
-	public SubScopeFacetChangeEvent(CharID id, S1 scope1, S2 scope2, T cdo,
-		Object source, int type)
+	public SubScopeFacetChangeEvent(CharID id, S1 scope1, S2 scope2, T cdo, Object source, int type)
 	{
 		super(source);
-		if (source == null)
-		{
-			throw new IllegalArgumentException("Source Object cannot be null");
-		}
-		if (id == null)
-		{
-			throw new IllegalArgumentException("CharID cannot be null");
-		}
-		if (scope1 == null)
-		{
-			throw new IllegalArgumentException("Scope 1 cannot be null");
-		}
-		if (scope2 == null)
-		{
-			throw new IllegalArgumentException("Scope 2 cannot be null");
-		}
-		if (cdo == null)
-		{
-			throw new IllegalArgumentException("CDOMObject cannot be null");
-		}
+		Objects.requireNonNull(source, "Source Object cannot be null");
+		Objects.requireNonNull(id, "CharID cannot be null");
+		Objects.requireNonNull(scope1, "Scope 1 cannot be null");
+		Objects.requireNonNull(scope2, "Scope 2 cannot be null");
+		Objects.requireNonNull(cdo, "CDOMObject cannot be null");
 		this.scope1 = scope1;
 		this.scope2 = scope2;
 		charID = id;

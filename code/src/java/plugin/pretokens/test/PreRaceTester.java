@@ -1,5 +1,4 @@
 /*
- * PreRace.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  * Copyright 2005 (C) Greg Bingleman <byngl@hotmail.com>
@@ -17,11 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.pretokens.test;
 
@@ -31,7 +25,6 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceSubType;
@@ -42,17 +35,9 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-/**
- * @author	wardc
- * @author	byngl &lt;byngl@hotmail.com&gt;
- *
- */
 public class PreRaceTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
@@ -61,18 +46,17 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 		int runningTotal = 0;
 		final Race pcRace = display.getRace();
 		Set<Race> racesImitated = getRacesImitatedBy(pcRace);
-		
+
 		if (requiredRace.startsWith("TYPE=") || requiredRace.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
-			
-			StringTokenizer tok =
-					new StringTokenizer(requiredRace.substring(5), ".");
-			
+
+			StringTokenizer tok = new StringTokenizer(requiredRace.substring(5), ".");
+
 			String type;
 			boolean match = false;
 			int count = 0;
 			int matchCount = 0;
-			
+
 			while (tok.hasMoreTokens())
 			{
 				count++;
@@ -81,14 +65,14 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 				if (pcRace.isType(type))
 				{
 					matchCount++;
-					match= true;
+					match = true;
 					continue;
 				}
 				if (!match)
-				{					
-					for(Race mock : racesImitated)
+				{
+					for (Race mock : racesImitated)
 					{
-						if(mock.isType(type))
+						if (mock.isType(type))
 						{
 							matchCount++;
 							match = true;
@@ -100,34 +84,32 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 			if (count == matchCount)
 			{
 				++runningTotal;
-			} 
-			
+			}
+
 		}
-		else if (requiredRace.startsWith("RACETYPE=") || requiredRace.startsWith("RACETYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
+		else if (requiredRace.startsWith("RACETYPE=") //$NON-NLS-1$
+				|| requiredRace.startsWith("RACETYPE.")) //$NON-NLS-1$
 		{
 			String raceToMatch = requiredRace.substring(9);
 			String raceType = display.getRaceType();
-			boolean isMatchingRaceType = raceType.equalsIgnoreCase(
-				requiredRace.substring(9)) ? true : false;
-			if (isMatchingRaceType) 
+			boolean isMatchingRaceType = raceType.equalsIgnoreCase(requiredRace.substring(9)) ? true : false;
+			if (isMatchingRaceType)
 			{
 				++runningTotal;
 			}
 			else
 			{
-				for(Race mock : racesImitated)
+				for (Race mock : racesImitated)
 				{
 					RaceType mockRaceType = mock.get(ObjectKey.RACETYPE);
-					if (mockRaceType != null && mockRaceType.toString()
-						.equalsIgnoreCase(raceToMatch))
+					if (mockRaceType != null && mockRaceType.toString().equalsIgnoreCase(raceToMatch))
 					{
 						++runningTotal;
 					}
 				}
 			}
 		}
-		else if (requiredRace.startsWith("RACESUBTYPE=")
-			|| requiredRace.startsWith("RACESUBTYPE."))
+		else if (requiredRace.startsWith("RACESUBTYPE=") || requiredRace.startsWith("RACESUBTYPE."))
 		{
 			final String reqType = requiredRace.substring(12);
 			RaceSubType st = RaceSubType.getConstant(reqType);
@@ -135,9 +117,9 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 			{
 				++runningTotal;
 			}
-			if(runningTotal == 0)
+			if (runningTotal == 0)
 			{
-				for (Race mock: racesImitated)
+				for (Race mock : racesImitated)
 				{
 					if (mock.containsInList(ListKey.RACESUBTYPE, st))
 					{
@@ -149,21 +131,18 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 		}
 		else
 		{
-			final String characterRace = pcRace == null ? Constants.NONESELECTED : pcRace.getKeyName();
+			boolean isUnselected = (pcRace == null) || pcRace.isUnselected();
 			final int wild = requiredRace.indexOf('%');
 			if (wild == 0)
 			{
-				//
-				// Matches as long as race is not <none selected>
-				//
-				if (!characterRace.equalsIgnoreCase(Constants.NONESELECTED))
+				if (!isUnselected)
 				{
 					++runningTotal;
 				}
 			}
 			else if (wild > 0)
 			{
-				if (characterRace.regionMatches(true, 0, requiredRace, 0, wild))
+				if (!isUnselected && pcRace.getKeyName().regionMatches(true, 0, requiredRace, 0, wild))
 				{
 					++runningTotal;
 				}
@@ -174,16 +153,15 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 			}
 			else
 			{
-				if (characterRace.equalsIgnoreCase(requiredRace))
+				if (!isUnselected && pcRace.getKeyName().equalsIgnoreCase(requiredRace))
 				{
 					++runningTotal;
 				}
-				else 
+				else
 				{
 					for (Race mock : racesImitated)
 					{
-						if (mock.getDisplayName()
-							.equalsIgnoreCase(requiredRace))
+						if (mock.getDisplayName().equalsIgnoreCase(requiredRace))
 						{
 							++runningTotal;
 							break;
@@ -191,8 +169,8 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 					}
 				}
 			}
-		}		
-		
+		}
+
 		if (runningTotal > reqnumber)
 		{
 			runningTotal = reqnumber;
@@ -201,27 +179,25 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 		runningTotal = prereq.getOperator().compare(runningTotal, reqnumber);
 		return countedTotal(prereq, runningTotal);
 	}
-	
-	private int checkForServesAsRaceWildcard(String requiredRace, int wild,
-		Set<Race> imitatedRaces)
+
+	private int checkForServesAsRaceWildcard(String requiredRace, int wild, Set<Race> imitatedRaces)
 	{
 		for (Race mock : imitatedRaces)
 		{
-			if (mock.getDisplayName().regionMatches(true, 0, requiredRace, 0,
-				wild))
+			if (mock.getDisplayName().regionMatches(true, 0, requiredRace, 0, wild))
 			{
 				return 1;
 			}
 		}
 		return 0;
 	}
-	
+
 	private Set<Race> getRacesImitatedBy(Race pcRace)
 	{
 		Set<Race> servesAs = new HashSet<>();
 		if (pcRace != null)
 		{
-			for(CDOMReference<Race> ref: pcRace.getSafeListFor(ListKey.SERVES_AS_RACE))
+			for (CDOMReference<Race> ref : pcRace.getSafeListFor(ListKey.SERVES_AS_RACE))
 			{
 				servesAs.addAll(ref.getContainedObjects());
 			}
@@ -233,7 +209,7 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "RACE"; //$NON-NLS-1$

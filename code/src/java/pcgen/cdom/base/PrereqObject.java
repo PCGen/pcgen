@@ -16,7 +16,6 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * $Date$
  * 
  */
 package pcgen.cdom.base;
@@ -24,6 +23,7 @@ package pcgen.cdom.base;
 import java.util.Collection;
 import java.util.List;
 
+import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.Prerequisite;
 
 /**
@@ -83,4 +83,28 @@ public interface PrereqObject
 	 * @return the number of Prerequisites contained in the PrereqObject.
 	 */
 	public int getPrerequisiteCount();
+
+	/**
+	 * Indicates of the current object is Available for selection. This is controlled by
+	 * "new formula" Prerequisites.
+	 * 
+	 * @param aPC
+	 *            The PlayerCharaceter on which to check whether the calling object is
+	 *            available for selection.
+	 * @return true if this object is available for selection for the given
+	 *         PlayerCharacter; false otherwise
+	 */
+	public boolean isAvailable(PlayerCharacter aPC);
+
+	/**
+	 * Indicates of the current object is allowed to be active on the PlayerCharacter.
+	 * This is controlled by "new formula" Requirements.
+	 * 
+	 * @param aPC
+	 *            The PlayerCharaceter on which to check whether the calling object is
+	 *            allowed to be active.
+	 * @return true if this object is allowed to be active for the given PlayerCharacter;
+	 *         false otherwise
+	 */
+	public boolean isActive(PlayerCharacter aPC);
 }

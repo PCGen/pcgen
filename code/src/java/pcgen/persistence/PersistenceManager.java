@@ -1,5 +1,4 @@
 /*
- * PersistenceManager.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 22, 2002, 10:29 PM
  *
- * $Id$
  */
 package pcgen.persistence;
 
@@ -29,18 +26,16 @@ import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.LstSystemLoader;
 
-/** <code>PersistenceManager</code> is a factory class that hides
+/** {@code PersistenceManager} is a factory class that hides
  * the implementation details of the actual loader.  The initialize method
  * creates an instance of the underlying loader and calls methods to
  * do the loading of system files.
  *
- * @author  David Rice &lt;david-pcgen@jcuz.com&gt;
  */
 public final class PersistenceManager
 {
-	private static final SystemLoader instance = new LstSystemLoader();
-	private static final PersistenceManager managerInstance =
-			new PersistenceManager();
+	private static final SystemLoader INSTANCE = new LstSystemLoader();
+	private static final PersistenceManager MANAGER_INSTANCE = new PersistenceManager();
 
 	private PersistenceManager()
 	{
@@ -52,7 +47,7 @@ public final class PersistenceManager
 	 */
 	public static PersistenceManager getInstance()
 	{
-		return managerInstance;
+		return MANAGER_INSTANCE;
 	}
 
 	/**
@@ -63,7 +58,7 @@ public final class PersistenceManager
 	 */
 	public void setChosenCampaignSourcefiles(List<URI> l)
 	{
-		instance.setChosenCampaignSourcefiles(l, SettingsHandler.getGame());
+		INSTANCE.setChosenCampaignSourcefiles(l, SettingsHandler.getGame());
 	}
 
 	/**
@@ -75,7 +70,7 @@ public final class PersistenceManager
 	 */
 	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
 	{
-		instance.setChosenCampaignSourcefiles(l, game);
+		INSTANCE.setChosenCampaignSourcefiles(l, game);
 	}
 
 	/**
@@ -86,7 +81,7 @@ public final class PersistenceManager
 	 */
 	public List<URI> getChosenCampaignSourcefiles()
 	{
-		return instance.getChosenCampaignSourcefiles(SettingsHandler.getGame());
+		return INSTANCE.getChosenCampaignSourcefiles(SettingsHandler.getGame());
 	}
 
 }

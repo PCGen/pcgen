@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  OpposedSkillAvailableModel.java
- *
- *  Created on May 4, 2004, 2:56:35 PM
  */
 
 package plugin.initiative;
@@ -27,19 +25,17 @@ import java.util.List;
 
 /**
  * <p>
- * Overrides <code>OpposedSkillBasicModel</code> to provide a column displaying
+ * Overrides {@code OpposedSkillBasicModel} to provide a column displaying
  * combatant type.
  * </p>
  * 
  * <p>
- * Current Ver: $Revision$
  * </p>
  * <p>
  * </p>
  * <p>
  * </p>
  * 
- * @author LodgeR
  */
 public class OpposedSkillTypeModel extends OpposedSkillBasicModel
 {
@@ -68,10 +64,7 @@ public class OpposedSkillTypeModel extends OpposedSkillBasicModel
 		columns.addColumn("TYPE", String.class, null, false, "Type");
 	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.table.TableModel#getValueAt(int, int)
-	 */
-    @Override
+	@Override
 	public Object getValueAt(int rowIndex, int columnIndex)
 	{
 		Object returnValue = null;

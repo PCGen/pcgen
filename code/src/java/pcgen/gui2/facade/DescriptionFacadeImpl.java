@@ -1,5 +1,4 @@
 /**
- * DescriptionFacadeImpl.java
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -15,29 +14,23 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 06/10/2011 7:59:35 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
 import java.util.EnumMap;
-import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
-import org.apache.commons.lang.StringUtils;
+
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.NoteItem;
-import pcgen.cdom.enumeration.NotePCAttribute;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.facade.core.ChronicleEntryFacade;
 import pcgen.facade.core.DescriptionFacade;
-import pcgen.facade.core.NoteFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
@@ -50,38 +43,28 @@ import pcgen.system.LanguageBundle;
  * the DescriptionFacade interface for the new user interface. It is 
  * intended to provide a full implementation of the new ui/core 
  * interaction layer.
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 class DescriptionFacadeImpl implements DescriptionFacade
 {
 	/** Name of the Biography node. */
-	private static final String NOTE_NAME_BIO = LanguageBundle
-		.getString("in_bio"); //$NON-NLS-1$
+	private static final String NOTE_NAME_BIO = LanguageBundle.getString("in_bio"); //$NON-NLS-1$
 	/** Name of the Description node. */
-	private static final String NOTE_NAME_DESCRIP = LanguageBundle
-		.getString("in_descrip"); //$NON-NLS-1$
+	private static final String NOTE_NAME_DESCRIP = LanguageBundle.getString("in_descrip"); //$NON-NLS-1$
 	/** Name of the Companions notes node. */
-	private static final String NOTE_NAME_COMPANION = LanguageBundle
-		.getString("in_companions"); //$NON-NLS-1$
+	private static final String NOTE_NAME_COMPANION = LanguageBundle.getString("in_companions"); //$NON-NLS-1$
 	/** Name of the Other Assets notes node. */
-	private static final String NOTE_NAME_OTHER_ASSETS = LanguageBundle
-		.getString("in_otherAssets"); //$NON-NLS-1$
+	private static final String NOTE_NAME_OTHER_ASSETS = LanguageBundle.getString("in_otherAssets"); //$NON-NLS-1$
 	/** Name of the Magic Item notes node. */
-	private static final String NOTE_NAME_MAGIC_ITEMS = LanguageBundle
-		.getString("in_magicItems"); //$NON-NLS-1$
+	private static final String NOTE_NAME_MAGIC_ITEMS = LanguageBundle.getString("in_magicItems"); //$NON-NLS-1$
 	/** Name of the DM Notes node. */
-	private static final String NOTE_NAME_GM_NOTES = LanguageBundle
-		.getString("in_gmNotes"); //$NON-NLS-1$
+	private static final String NOTE_NAME_GM_NOTES = LanguageBundle.getString("in_gmNotes"); //$NON-NLS-1$
 
 	private final PlayerCharacter theCharacter;
 	private final CharacterDisplay charDisplay;
-	private final DefaultListFacade<ChronicleEntryFacade> chronicleEntries;
-	private DefaultListFacade<NoteFacade> notes;
+	private final DefaultListFacade<ChronicleEntry> chronicleEntries;
+	private final DefaultListFacade<NoteItem> notes;
 
-	private Map<BiographyField, WriteableReferenceFacade<String>> bioData = new EnumMap<>(BiographyField.class);
-
-	private final DefaultListFacade<BiographyField> customBiographyFields;
+	private final Map<BiographyField, WriteableReferenceFacade<String>> bioData = new EnumMap<>(BiographyField.class);
 
 	private static DefaultReferenceFacade<String> newDefaultBioFieldFor(final PlayerCharacter pc, final PCStringKey key)
 	{
@@ -102,70 +85,54 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		notes = new DefaultListFacade<>();
 		addDefaultNotes();
 
-		charDisplay.getNotesList().forEach(item ->
-				notes.addElement(item));
+		charDisplay.getNotesList().forEach(item -> notes.addElement(item));
 
 		bioData.put(BiographyField.BIRTHDAY, DescriptionFacadeImpl.newDefaultBioFieldFor(pc, PCStringKey.BIRTHDAY));
-		bioData.put(BiographyField.BIRTHPLACE, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.BIRTHPLACE)));
-		bioData.put(BiographyField.LOCATION, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.LOCATION)));
-		bioData.put(BiographyField.CITY, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.RESIDENCE)));
+		bioData.put(BiographyField.BIRTHPLACE,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.BIRTHPLACE)));
+		bioData.put(BiographyField.LOCATION,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.LOCATION)));
+		bioData.put(BiographyField.CITY,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.RESIDENCE)));
 		bioData.put(BiographyField.REGION, new DefaultReferenceFacade<>(charDisplay.getRegionString()));
-		bioData.put(BiographyField.PERSONALITY_TRAIT_1, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY1)));
-		bioData.put(BiographyField.PERSONALITY_TRAIT_2, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY2)));
-		bioData.put(BiographyField.PHOBIAS, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PHOBIAS)));
-		bioData.put(BiographyField.INTERESTS, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.INTERESTS)));
-		bioData.put(BiographyField.CATCH_PHRASE, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.CATCHPHRASE)));
-		bioData.put(BiographyField.HAIR_STYLE, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.HAIRSTYLE)));
-		bioData.put(BiographyField.SPEECH_PATTERN, new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.SPEECHTENDENCY)));
-		customBiographyFields = new DefaultListFacade<>();
-		addCharacterCustomFields();
+		bioData.put(BiographyField.PERSONALITY_TRAIT_1,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY1)));
+		bioData.put(BiographyField.PERSONALITY_TRAIT_2,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY2)));
+		bioData.put(BiographyField.PHOBIAS,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PHOBIAS)));
+		bioData.put(BiographyField.INTERESTS,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.INTERESTS)));
+		bioData.put(BiographyField.CATCH_PHRASE,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.CATCHPHRASE)));
+		bioData.put(BiographyField.HAIR_STYLE,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.HAIRSTYLE)));
+		bioData.put(BiographyField.SPEECH_PATTERN,
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.SPEECHTENDENCY)));
 	}
 
 	private void addDefaultNotes()
 	{
-		notes.addElement(createDefaultNote(NOTE_NAME_BIO, charDisplay.getBio()));
-		notes.addElement(createDefaultNote(NOTE_NAME_DESCRIP, charDisplay.getSafeStringFor(PCStringKey.DESCRIPTION)));
-		notes.addElement(createDefaultNote(NOTE_NAME_COMPANION,
-			charDisplay.getSafeStringFor(PCStringKey.COMPANIONS)));
-		notes.addElement(createDefaultNote(NOTE_NAME_OTHER_ASSETS,
-			charDisplay.getSafeStringFor(PCStringKey.ASSETS)));
-		notes.addElement(createDefaultNote(NOTE_NAME_MAGIC_ITEMS,
-			charDisplay.getSafeStringFor(PCStringKey.MAGIC)));
-		notes.addElement(createDefaultNote(NOTE_NAME_GM_NOTES,
-			charDisplay.getSafeStringFor(PCStringKey.GMNOTES)));
+		notes.addElement(createDefaultNote(NOTE_NAME_BIO, PCStringKey.BIO));
+		notes.addElement(createDefaultNote(NOTE_NAME_DESCRIP, PCStringKey.DESCRIPTION));
+		notes.addElement(createDefaultNote(NOTE_NAME_COMPANION, PCStringKey.COMPANIONS));
+		notes.addElement(createDefaultNote(NOTE_NAME_OTHER_ASSETS, PCStringKey.ASSETS));
+		notes.addElement(createDefaultNote(NOTE_NAME_MAGIC_ITEMS, PCStringKey.MAGIC));
+		notes.addElement(createDefaultNote(NOTE_NAME_GM_NOTES, PCStringKey.GMNOTES));
 	}
 
 	/**
 	 * @param noteName
 	 * @param value
-	 * @return
+	 * @return note
 	 */
-	private NoteFacade createDefaultNote(String noteName, String value)
+	private NoteItem createDefaultNote(String noteName, PCStringKey key)
 	{
-		NoteItem note = new NoteItem(0, -1, noteName, value);
-		note.setRequired(true);
-		return note;
+		return new NoteItem(key, 0, -1, noteName, charDisplay.getSafeStringFor(key));
 	}
 
-	/**
-	 * Add any custom biography fields already registered for the character.  
-	 */
-	private void addCharacterCustomFields()
-	{
-		for (BiographyField field : EnumSet.range(BiographyField.SPEECH_PATTERN, BiographyField.CATCH_PHRASE))
-		{
-			if (StringUtils.isNotEmpty(getBiographyField(field).get()))
-			{
-				customBiographyFields.addElement(field);
-			}
-		}
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.DescriptionFacade#createChronicleEntry()
-	 */
 	@Override
-	public ChronicleEntryFacade createChronicleEntry()
+	public ChronicleEntry createChronicleEntry()
 	{
 		ChronicleEntry chronicleEntry = new ChronicleEntry();
 		theCharacter.addChronicleEntry(chronicleEntry);
@@ -173,74 +140,54 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		return chronicleEntry;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.DescriptionFacade#removeChronicleEntry(pcgen.core.ChronicleEntry)
-	 */
 	@Override
-	public void removeChronicleEntry(ChronicleEntryFacade chronicleEntry)
+	public void removeChronicleEntry(ChronicleEntry chronicleEntry)
 	{
-		if (chronicleEntry instanceof ChronicleEntry)
-		{
-			theCharacter.removeChronicleEntry((ChronicleEntry) chronicleEntry);
-		}
+		theCharacter.removeChronicleEntry(chronicleEntry);
 		chronicleEntries.removeElement(chronicleEntry);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.DescriptionFacade#getChronicleEntries()
-	 */
 	@Override
-	public ListFacade<ChronicleEntryFacade> getChronicleEntries()
+	public ListFacade<ChronicleEntry> getChronicleEntries()
 	{
 		return chronicleEntries;
 	}
 
 	@Override
-	public ListFacade<NoteFacade> getNotes()
+	public ListFacade<NoteItem> getNotes()
 	{
 		return notes;
 	}
 
 	@Override
-	public void setNote(NoteFacade note, String text)
+	public void setNote(NoteItem noteItem, String text)
 	{
-		if (!(note instanceof NoteItem))
-		{
-			return;
-		}
-
-		NoteItem noteItem = (NoteItem) note;
 		noteItem.setValue(text);
-		if (noteItem.isRequired())
-		{
-			String noteName = noteItem.getName();
-			NotePCAttribute whichAttr = NotePCAttribute.getByNoteName(noteName);
-			theCharacter.setPCAttribute(whichAttr, text);
-		}
+		Optional<PCStringKey> stringKey = noteItem.getPCStringKey();
+		stringKey.ifPresent(key -> theCharacter.setPCAttribute(key, text));
 	}
 
 	@Override
-	public void renameNote(NoteFacade note, String newName)
+	public void renameNote(NoteItem noteItem, String newName)
 	{
-		if (!(note instanceof NoteItem) || note.isRequired())
+		if (noteItem.getPCStringKey().isPresent())
 		{
 			return;
 		}
 
-		NoteItem noteItem = (NoteItem) note;
 		noteItem.setName(newName);
 		notes.modifyElement(noteItem);
 	}
 
 	@Override
-	public void deleteNote(NoteFacade note)
+	public void deleteNote(NoteItem note)
 	{
-		if (!(note instanceof NoteItem) || note.isRequired())
+		if (note.getPCStringKey().isPresent())
 		{
 			return;
 		}
 
-		theCharacter.removeNote((NoteItem) note);
+		theCharacter.removeNote(note);
 		notes.removeElement(note);
 	}
 
@@ -261,7 +208,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		++newNodeId;
 
 		Set<String> names = new HashSet<>();
-		for (NoteFacade note : notes)
+		for (NoteItem note : notes)
 		{
 			names.add(note.getName());
 		}
@@ -274,9 +221,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 			num++;
 			name = baseName + " " + num; //$NON-NLS-1$
 		}
-		NoteItem note =
-				new NoteItem(newNodeId, parentId, name, LanguageBundle
-					.getString("in_newValue")); //$NON-NLS-1$
+		NoteItem note = new NoteItem(newNodeId, parentId, name, LanguageBundle.getString("in_newValue")); //$NON-NLS-1$
 		theCharacter.addNotesItem(note);
 		notes.addElement(note);
 	}
@@ -289,59 +234,13 @@ class DescriptionFacadeImpl implements DescriptionFacade
 			return bioData.get(field);
 		}
 		throw new UnsupportedOperationException("The field " + field //$NON-NLS-1$
-				+ " must use a dedicated getter."); //$NON-NLS-1$
+			+ " must use a dedicated getter."); //$NON-NLS-1$
 	}
 
 	@Override
-	public void setBiographyField(final BiographyField field, final String newValue)
+	public void setBiographyField(PCStringKey attribute, final String newValue)
 	{
-		// TODO: generify this
-		Set<BiographyField> canBeDirectlySet = EnumSet.of(
-				BiographyField.LOCATION,
-				BiographyField.SPEECH_PATTERN,
-				BiographyField.INTERESTS,
-				BiographyField.BIRTHPLACE,
-				BiographyField.PERSONALITY_TRAIT_1,
-				BiographyField.PERSONALITY_TRAIT_2,
-				BiographyField.CITY,
-				BiographyField.PHOBIAS,
-				BiographyField.CATCH_PHRASE,
-				BiographyField.HAIR_STYLE,
-				BiographyField.BIRTHDAY
-		);
-
-		if (canBeDirectlySet.contains(field))
-		{
-			bioData.get(field).set(newValue);
-			theCharacter.setPCAttribute(field.getPcattr(), newValue);
-		}
-		else if (field == BiographyField.REGION)
-		{
-			throw new UnsupportedOperationException("The field " + field //$NON-NLS-1$
-					+ " cannot be set from the UI."); //$NON-NLS-1$
-		}
-		else
-		{
-			throw new UnsupportedOperationException("The field " + field //$NON-NLS-1$
-					+ " must use a dedicated setter."); //$NON-NLS-1$
-		}
-	}
-
-	@Override
-	public ListFacade<BiographyField> getCustomBiographyFields()
-	{
-		return customBiographyFields;
-	}
-
-	@Override
-	public void addCustomBiographyField(BiographyField field)
-	{
-		customBiographyFields.addElement(field);
-	}
-
-	@Override
-	public void removeCustomBiographyField(BiographyField field)
-	{
-		customBiographyFields.removeElement(field);
+		Objects.requireNonNull(attribute);
+		theCharacter.setPCAttribute(attribute, newValue);
 	}
 }

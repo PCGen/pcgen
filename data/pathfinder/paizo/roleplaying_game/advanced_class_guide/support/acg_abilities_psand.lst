@@ -1,0 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+# Ability Name	Category of Ability				Type					Ability																					Modify VAR
+Div Bloodline	CATEGORY:Arcanist Bloodline Development	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|TYPE=Div Bloodline ~ Power LVL 01	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Div	BONUS:VAR|Sorcerer_Div_BloodlineLVL|1

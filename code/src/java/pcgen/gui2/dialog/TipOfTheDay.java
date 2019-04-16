@@ -1,5 +1,4 @@
 /*
- * TipOfTheDay.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 17, 2001, 12:43 PM
- *
- * $Id: TipOfTheDay.java 1256 2006-08-05 14:08:16Z karianna $
  */
 package pcgen.gui2.dialog;
 
@@ -54,19 +49,15 @@ import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JLabelPane;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
- */
 public final class TipOfTheDay extends JDialog implements ActionListener
 {
 
 	private static final long serialVersionUID = 6109389084434712217L;
-	private static final UIPropertyContext propertyContext = UIPropertyContext.createContext("TipOfTheDay");
+	private static final UIPropertyContext PROPERTY_CONTEXT = UIPropertyContext.createContext("TipOfTheDay");
 	private static final String NEXT = "next";
 	private static final String PREV = "prev";
-	private static final String HTML_START = "<html><body style=\"margin-left: 5px;margin-right: 5px;margin-top: 5px\">";
+	private static final String HTML_START =
+			"<html><body style=\"margin-left: 5px;margin-right: 5px;margin-top: 5px\">";
 	private static final String HTML_END = "</body></html>";
 	private JCheckBox chkShowTips;
 	// the pane to display the text
@@ -77,7 +68,6 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	public TipOfTheDay(PCGenFrame frame)
 	{
 		super(frame, true);
-		//IconUtilitities.maybeSetIcon(this, "TipOfTheDay16.gif");
 
 		setTitle(LanguageBundle.getString("in_tod_title")); //$NON-NLS-1$
 
@@ -96,7 +86,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 
 	public static boolean showTipOfTheDay()
 	{
-		return propertyContext.getBoolean("showTipOfTheDay", true);
+		return PROPERTY_CONTEXT.getBoolean("showTipOfTheDay", true);
 	}
 
 	@Override
@@ -157,7 +147,8 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 
 		panel.add(content, BorderLayout.CENTER);
 
-		chkShowTips = new JCheckBox(LanguageBundle.getString("in_tod_showTips"), propertyContext.initBoolean("showTipOfTheDay", true));
+		chkShowTips = new JCheckBox(LanguageBundle.getString("in_tod_showTips"),
+			PROPERTY_CONTEXT.initBoolean("showTipOfTheDay", true));
 
 		final JButton btnClose = new JButton(LanguageBundle.getString("in_close"));
 		btnClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close"));
@@ -176,7 +167,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 
 		final JPanel actions = new JPanel(new GridBagLayout());
 		final GridBagConstraints c = new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.WEST,
-				GridBagConstraints.NONE, new Insets(1, 1, 1, 1), 0, 0);
+			GridBagConstraints.NONE, new Insets(1, 1, 1, 1), 0, 0);
 		actions.add(chkShowTips, c);
 
 		final JPanel buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -223,7 +214,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	{
 		setVisible(false);
 
-		propertyContext.setBoolean("showTipOfTheDay", chkShowTips.isSelected());
+		PROPERTY_CONTEXT.setBoolean("showTipOfTheDay", chkShowTips.isSelected());
 
 		dispose();
 	}
@@ -248,9 +239,8 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	{
 		try
 		{
-			tipText.setText(HTML_START
-				+ LanguageBundle.getFormattedString("in_tod_tipDisplay", //$NON-NLS-1$
-					Integer.toString(tipHandler.getLastNumber() + 1), tip) + HTML_END);
+			tipText.setText(HTML_START + LanguageBundle.getFormattedString("in_tod_tipDisplay", //$NON-NLS-1$
+				Integer.toString(tipHandler.getLastNumber() + 1), tip) + HTML_END);
 			repaint();
 		}
 		catch (Exception exc)

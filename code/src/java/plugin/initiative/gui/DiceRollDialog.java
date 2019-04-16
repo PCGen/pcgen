@@ -17,13 +17,13 @@
  */
 package plugin.initiative.gui;
 
-import gmgen.GMGenSystem;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Collection;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -31,6 +31,8 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import gmgen.GMGenSystem;
 import pcgen.core.RollingMethods;
 import plugin.initiative.DiceRollModel;
 
@@ -38,8 +40,6 @@ import plugin.initiative.DiceRollModel;
  * <p>
  * This dialog class manages a skill roll.
  * </p>
- *
- * @author Ross M. Lodge
  */
 class DiceRollDialog extends JDialog
 {
@@ -88,7 +88,6 @@ class DiceRollDialog extends JDialog
 	 * <p>
 	 * Exits the dialog.
 	 * </p>
-	 *
 	 */
 	private void handleOk()
 	{
@@ -99,7 +98,6 @@ class DiceRollDialog extends JDialog
 	 * <p>
 	 * Rolls the skill roll.
 	 * </p>
-	 *
 	 */
 	private void handleRoll()
 	{
@@ -146,10 +144,8 @@ class DiceRollDialog extends JDialog
 	private void initResult(String labelText)
 	{
 		m_result = new JLabel("<html><body><b>-</b></body></html>");
-		m_result.setMinimumSize(new Dimension(100, (int) m_result
-			.getMinimumSize().getWidth()));
-		m_result.setPreferredSize(new Dimension(100, (int) m_result
-			.getPreferredSize().getWidth()));
+		m_result.setMinimumSize(new Dimension(100, (int) m_result.getMinimumSize().getWidth()));
+		m_result.setPreferredSize(new Dimension(100, (int) m_result.getPreferredSize().getWidth()));
 		JLabel label = new JLabel(labelText);
 		label.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		addComponent(m_result, label);
@@ -158,7 +154,6 @@ class DiceRollDialog extends JDialog
 	/**
 	 *
 	 * <p>Builds the main panels for the dialog.  Does NOT initialize the buttons panel.</p>
-	 *
 	 */
 	private void initPanels()
 	{
@@ -201,7 +196,6 @@ class DiceRollDialog extends JDialog
 	/**
 	 *
 	 * <p>Initializes the buttons and their panel</p>
-	 *
 	 */
 	private void initButtons()
 	{
@@ -220,7 +214,6 @@ class DiceRollDialog extends JDialog
 	/**
 	 *
 	 * <p>Initializes the button listeners</p>
-	 *
 	 */
 	protected void initListeners()
 	{
@@ -234,7 +227,6 @@ class DiceRollDialog extends JDialog
 	 * <p>Adds the specified component and label to the dialog's component lists.</p>
 	 * @param field
 	 * @param label
-	 *
 	 */
 	void addComponent(Component field, Component label)
 	{

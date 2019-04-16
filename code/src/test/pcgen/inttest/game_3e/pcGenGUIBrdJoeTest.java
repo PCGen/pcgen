@@ -1,5 +1,4 @@
 /*
- * pcGenGUIBrdJoeTest.java
  * Copyright 2015 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -17,47 +16,19 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created/Reinstated on 2015-11-24
- *
- * $Id$
  */
 package pcgen.inttest.game_3e;
 
-import pcgen.inttest.pcGenGUITestCase;
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import pcgen.inttest.PcgenFtlTestCase;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Test a 3e 1st lvl Half-Elf Bard 
  */
-@SuppressWarnings("nls")
-public class pcGenGUIBrdJoeTest extends pcGenGUITestCase
+public class pcGenGUIBrdJoeTest extends PcgenFtlTestCase
 {
-
-	/**
-	 * standard JUnit style constructor
-	 *  
-	 * @param name No idea
-	 */
-	public pcGenGUIBrdJoeTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Returns the test suite containing all the tests in this class.
-	 * 
-	 * @return A <tt>TestSuite</tt> 
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(pcGenGUIBrdJoeTest.class);
-	}
-
-	/**
-	 * Runs the test.
-	 * 
-	 * @throws Exception If an error occurs.
-	 */
+	@Test
 	public void testBrdJoe() throws Exception
 	{
 		runTest("3e_BrdJoe", "3e");

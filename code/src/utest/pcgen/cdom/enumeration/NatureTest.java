@@ -1,5 +1,4 @@
 /*
- * NatureTest.java
  * Copyright 2010 (C) Thomas Parker
  *
  * This library is free software; you can redistribute it and/or
@@ -18,10 +17,12 @@
  */
 package pcgen.cdom.enumeration;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-public class NatureTest
+import org.junit.jupiter.api.Test;
+
+class NatureTest
 {
 	@Test
 	public void testGetBest()

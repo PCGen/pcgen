@@ -28,8 +28,8 @@ public class FumbleRangeIntegrationTest extends
 		AbstractStringIntegrationTestCase<EquipmentModifier>
 {
 
-	static FumblerangeToken token = new FumblerangeToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
+	private static FumblerangeToken token = new FumblerangeToken();
+	private static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

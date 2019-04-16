@@ -17,17 +17,17 @@
  */
 package plugin.lsttokens.pcclass;
 
-import org.junit.Test;
-
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class CSkillTokenTest extends AbstractListTokenTestCase<PCClass, Skill>
+import org.junit.jupiter.api.Test;
+
+public class CSkillTokenTest extends AbstractListInputTokenTestCase<PCClass, Skill>
 {
 
 	@Override
@@ -68,7 +68,7 @@ public class CSkillTokenTest extends AbstractListTokenTestCase<PCClass, Skill>
 
 	static CDOMPrimaryToken<PCClass> token = new CskillToken();
 	static CDOMTokenLoader<PCClass> loader =
-			new CDOMTokenLoader<PCClass>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCClass> getLoader()
@@ -89,7 +89,7 @@ public class CSkillTokenTest extends AbstractListTokenTestCase<PCClass, Skill>
 	}
 
 	@Test
-	public void testRoundRobinList() throws PersistenceLayerException
+	public void testRoundRobinList()
 	{
 		boolean result = parse("LIST");
 		if (result)

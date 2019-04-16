@@ -1,0 +1,9 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Orcs of Golarion	SOURCESHORT:OOG	SOURCEWEB:http://paizo.com/pathfinder/v5748btpy8fvz	SOURCEDATE:2010-12
+
+
+###Block: Arcanist Bloodline Development Exploit -- Goes in ACG or ACG support _abilities_class.lst
+
+# Ability Name	Category of Ability				Type					Ability																					Modify VAR
+Orc Bloodline	CATEGORY:Arcanist Bloodline Development	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|TYPE=Orc Bloodline ~ Power LVL 01	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Orc	BONUS:VAR|Sorcerer_Orc_BloodlineLVL|1|!PREABILITY:1,CATEGORY=Sorcerer Bloodline,Orc Bloodline|!PREABILITY:1,CATEGORY=Crossblooded Bloodline,Orc Bloodline	BONUS:VAR|Sorcerer_Orc_BloodlineLVL|ArcanistLVL|PREMULT:1,[PREABILITY:1,CATEGORY=Sorcerer Bloodline,Orc Bloodline],[PREABILITY:1,CATEGORY=Crossblooded Bloodline,Orc Bloodline]	BONUS:VAR|Sorcerer_Orc_BloodlinePower1LVL|1|!PREABILITY:1,CATEGORY=Sorcerer Bloodline,Orc Bloodline|!PREABILITY:1,CATEGORY=Crossblooded Bloodline,Orc Bloodline
+Orc Bloodline	CATEGORY:Blood Arcanist Bloodline		TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Orc													BONUS:VAR|Sorcerer_Orc_BloodlineLVL|BloodlineLVL	BONUS:VAR|Sorcerer_Orc_BloodlineProgressionLVL|BloodlineProgressionLVL	BONUS:VAR|Sorcerer_Orc_BloodlineArcana1|1	BONUS:VAR|Sorcerer_Orc_BloodlinePowers|1	BONUS:VAR|Sorcerer_Orc_BloodlinePower1|1	BONUS:VAR|Sorcerer_Orc_BloodlinePower3|if(Sorcerer_Orc_BloodlineProgressionLVL>=3,1,0)	BONUS:VAR|Sorcerer_Orc_BloodlinePower9|if(Sorcerer_Orc_BloodlineProgressionLVL>=9,1,0)	BONUS:VAR|Sorcerer_Orc_BloodlinePower15|if(Sorcerer_Orc_BloodlineProgressionLVL>=15,1,0)	BONUS:VAR|Sorcerer_Orc_BloodlinePower20|if(Sorcerer_Orc_BloodlineProgressionLVL>=20,1,0)	BONUS:VAR|Sorcerer_Orc_BloodlinePower1Times|BloodlinePowerTimes+BloodlinePower1TimesBonus|TYPE=Base

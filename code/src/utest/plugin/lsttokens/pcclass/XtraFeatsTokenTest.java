@@ -29,7 +29,7 @@ public class XtraFeatsTokenTest extends AbstractIntegerTokenTestCase<PCClass>
 {
 
 	static XtrafeatsToken token = new XtrafeatsToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -74,7 +74,7 @@ public class XtraFeatsTokenTest extends AbstractIntegerTokenTestCase<PCClass>
 	}
 
 	@Override
-	public void testOutputZero() throws PersistenceLayerException
+	public void testOutputZero()
 	{
 		//Consume due to deprecation
 	}
@@ -86,7 +86,7 @@ public class XtraFeatsTokenTest extends AbstractIntegerTokenTestCase<PCClass>
 	}
 
 	@Override
-	public void testUnparseZero() throws PersistenceLayerException
+	public void testUnparseZero()
 	{
 		//Consume due to deprecation
 	}

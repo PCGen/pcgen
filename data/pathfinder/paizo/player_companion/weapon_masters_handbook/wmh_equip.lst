@@ -1,23 +1,25 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Weapon Master's Handbook	SOURCESHORT:WMH	SOURCEWEB:http://paizo.com/products/btpy9hdy	SOURCEDATE:2015-12
 
-# Equipment Name	Required Weapon Proficiency		Type											Cost		Weight	Crit Mult	Crit Range	Damage	Quality and value
-Gnome Flick-Mace	PROFICIENCY:WEAPON|Gnome Flick-Mace	TYPE:Weapon.Melee.Specialized.TwoHanded.TwoHandedMelee.Polearm	COST:54	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d12	QUALITY:SPROP|QUALITIES additional DP (3), improved damage (5), spring-loaded (2), traditional (gnome) (1), weapon feature (reach) (1)
-Khakkhara		PROFICIENCY:WEAPON|Khakkhara		TYPE:Weapon.Melee.Specialized.TwoHanded.TwoHandedMelee.Monk		COST:7	WT:10		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	QUALITY:SPROP|QUALITIES improved critical multiplier (3), improved damage (3), weapon feature (monk) (1)
-War Flute		PROFICIENCY:WEAPON|War Flute		TYPE:Weapon.Melee.Specialized.OneHanded.OneHandedMelee.Hammer	COST:16	WT:7		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	QUALITY:SPROP|QUALITIES improved damage (3), tool (musical instrument) (0), weapon feature (distracting, performance) (4)
+# Equipment Name	Required Weapon Proficiency		Type											Cost		Weight	Crit Mult	Crit Range	Damage	Source Page		Quality and value
+Gnome Flick-Mace	PROFICIENCY:WEAPON|Gnome Flick-Mace	TYPE:Weapon.Melee.Specialized.TwoHanded.TwoHandedMelee.Polearm	COST:54	WT:12		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d12	SOURCEPAGE:p.29	QUALITY:SPROP|QUALITIES additional DP (3), improved damage (5), spring-loaded (2), traditional (gnome) (1), weapon feature (reach) (1)
+Khakkhara		PROFICIENCY:WEAPON|Khakkhara		TYPE:Weapon.Melee.Specialized.TwoHanded.TwoHandedMelee.Monk		COST:7	WT:10		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	SOURCEPAGE:p.29	QUALITY:SPROP|QUALITIES improved critical multiplier (3), improved damage (3), weapon feature (monk) (1)
+War Flute		PROFICIENCY:WEAPON|War Flute		TYPE:Weapon.Melee.Specialized.OneHanded.OneHandedMelee.Hammer	COST:16	WT:7		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	SOURCEPAGE:p.29	QUALITY:SPROP|QUALITIES improved damage (3), tool (musical instrument) (0), weapon feature (distracting, performance) (4)
 
 ###Block: Specific Magic Weapons
-# Equipment Name							Product Identity?	Cost		Modifier
-Hammer (Light).COPY=Cailean Fighting Tankard
-Longsword.COPY=Crusader's Longsword
+# Equipment Name							Product Identity?	Cost		Modifier																					Source Page		Visible
+Light Hammer (Base).COPY=Cailean Fighting Tankard						EQMOD:Material ~ Steel																						VISIBLE:YES
+Longsword (Base).COPY=Crusader's Longsword							EQMOD:Material ~ Steel																						VISIBLE:YES
 Pistol (Double-Barreled).COPY=Shieldmarshal's Pistol
-Scimitar.COPY=Valorous Blade
-Longbow (Composite).COPY=Windreader's Bow
-Spear.COPY=Spear of the Honored Ancestors
+Scimitar (Base).COPY=Valorous Blade									EQMOD:Material ~ Steel																						VISIBLE:YES
+Composite Longbow (Base).COPY=Windreader's Bow							EQMOD:Material ~ Wood																						VISIBLE:YES
+Spear (Base).COPY=Spear of the Honored Ancestors						EQMOD:Material ~ Steel.Material ~ Wood																			VISIBLE:YES
 
 
-Cailean Fighting Tankard.MOD					NAMEISPI:YES	COST:10301	EQMOD:PLUS1W
-Crusader's Longsword.MOD								COST:47315	EQMOD:Bane|Demon.C_Iron.Holy.PLUS1W
-Shieldmarshal's Pistol.MOD								COST:20050	EQMOD:PLUS1W
-Spear of the Honored Ancestors.MOD							COST:15302	EQMOD:GHOST.PLUS1W
-Valorous Blade.MOD									COST:20315	EQMOD:PLUS1W.Valiant
-Windreader's Bow.MOD									COST:54400	EQMOD:Adaptive.PLUS1W.SEEK
+Cailean Fighting Tankard.MOD					NAMEISPI:YES	COST:10301	EQMOD:Special Ability ~ +1 ~ Weapon																	SOURCEPAGE:p.30
+Crusader's Longsword.MOD								COST:47315	EQMOD:Special Ability ~ Bane ~ Weapon|Demon Bane.Material ~ Cold Iron.Special Ability ~ Holy ~ Weapon.Special Ability ~ +1 ~ Weapon	SOURCEPAGE:p.31
+Shieldmarshal's Pistol.MOD								COST:20050	EQMOD:Special Ability ~ +1 ~ Weapon																	SOURCEPAGE:p.31
+Spear of the Honored Ancestors.MOD							COST:15302	EQMOD:Special Ability ~ Ghost Touch ~ Weapon.Special Ability ~ +1 ~ Weapon										SOURCEPAGE:p.31
+Valorous Blade.MOD									COST:20315	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Valiant ~ Melee											SOURCEPAGE:p.31
+Windreader's Bow.MOD									COST:54400	EQMOD:Special Ability ~ Adaptive ~ Ranged.Special Ability ~ +1 ~ Weapon.Special Ability ~ Seeking ~ Ranged					SOURCEPAGE:p.31

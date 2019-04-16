@@ -18,12 +18,15 @@
 package pcgen.cdom.base;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -62,6 +65,11 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	private Chooser<T> choiceActor;
 
 	/**
+	 * The persistent Format of the objects chosen in this BasicChooseInformation.
+	 */
+	private final String persistentFormat;
+
+	/**
 	 * Constructs a new TransitionChoice with the given ChoiceSet (of possible
 	 * choices) and Formula (indicating the number of choices that may be taken)
 	 * 
@@ -70,22 +78,17 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	 * @param choice
 	 *            The PrimitiveChoiceSet indicating the Collection of objects
 	 *            for this ChoiceSet
+	 * @param persistentFormat
+	 *            The persistent format of the objects chosen in this
+	 *            BasicChooseInformation
 	 * @throws IllegalArgumentException
 	 *             if the given name or PrimitiveChoiceSet is null
 	 */
-	public BasicChooseInformation(String name, PrimitiveChoiceSet<T> choice)
+	public BasicChooseInformation(String name, PrimitiveChoiceSet<T> choice, String persistentFormat)
 	{
-		if (choice == null)
-		{
-			throw new IllegalArgumentException(
-				"PrimitiveChoiceSet cannot be null");
-		}
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Name cannot be null");
-		}
-		pcs = choice;
-		setName = name;
+		pcs = Objects.requireNonNull(choice);
+		setName = Objects.requireNonNull(name);
+		this.persistentFormat = Objects.requireNonNull(persistentFormat);
 	}
 
 	/**
@@ -153,12 +156,6 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 		return choiceActor;
 	}
 
-	/**
-	 * Returns true if the given Object is a TransitionChoice and has identical
-	 * underlying choices and choiceCount
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -181,11 +178,6 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 		return false;
 	}
 
-	/**
-	 * Returns a consistent-with-equals hashCode for this TransitionChoice.
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -208,9 +200,9 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	 * @return the Class contained within this ChoiceSet
 	 */
 	@Override
-	public ClassIdentity<? super T> getClassIdentity()
+	public Class<? super T> getReferenceClass()
 	{
-		return BasicClassIdentity.getIdentity(pcs.getChoiceClass());
+		return pcs.getChoiceClass();
 	}
 
 	/**
@@ -289,14 +281,20 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	}
 
 	@Override
-	public CharSequence composeDisplay(Collection<? extends T> collection)
+	public CharSequence composeDisplay(@NotNull Collection<? extends T> collection)
 	{
-		return ChooseInformationUtilities.buildEncodedString(this, collection);
+		return ChooseInformationUtilities.buildEncodedString(collection);
 	}
 
 	@Override
 	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item)
 	{
 		choiceActor.removeChoice(pc, owner, item);
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return persistentFormat;
 	}
 }

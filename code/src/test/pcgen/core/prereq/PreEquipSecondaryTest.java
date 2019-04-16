@@ -1,5 +1,4 @@
 /*
- * PreEquipSecondaryTest.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,9 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.prereq;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.EquipmentLocation;
@@ -32,15 +33,15 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.character.WieldCategory;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreEquipSecondaryTest</code> tests that the PREEQUIPSECONDARY tag is
+ * {@code PreEquipSecondaryTest} tests that the PREEQUIPSECONDARY tag is
  * working correctly.
- *
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
 public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 {
@@ -48,6 +49,7 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 	/*
 	 * Class under test for int passes(Prerequisite, PlayerCharacter)
 	 */
+	@Test
 	public void testPassesPrerequisitePlayerCharacter()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -81,10 +83,10 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test equipment type tests
-	 * @throws Exception
+	 * Test equipment type tests.
 	 */
-	public void testType() throws Exception
+	@Test
+	public void testType()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -117,10 +119,10 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test wield category tests
-	 * @throws Exception
+	 * Test wield category tests.
 	 */
-	public void testWield() throws Exception
+	@Test
+	public void testWield()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -179,8 +181,11 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 
 	/**
 	 * Verify that negated PREEQUIPSECONDARY tests work.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testNotEquipped() throws Exception
+	@Test
+	public void testNotEquipped() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 

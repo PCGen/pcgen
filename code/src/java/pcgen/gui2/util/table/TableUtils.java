@@ -1,5 +1,4 @@
 /*
- * TableUtils.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 10, 2011, 1:10:02 PM
  */
 package pcgen.gui2.util.table;
 
@@ -29,10 +27,6 @@ import javax.swing.JTable;
 import javax.swing.JToggleButton;
 import javax.swing.table.TableColumn;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class TableUtils
 {
 
@@ -61,7 +55,8 @@ public class TableUtils
 		return createToggleButtonSelectionPane(table, rowheaderTable, new JRadioButton());
 	}
 
-	private static JScrollPane createToggleButtonSelectionPane(JTable table, JTable rowheaderTable, JToggleButton button)
+	private static JScrollPane createToggleButtonSelectionPane(JTable table, JTable rowheaderTable,
+		JToggleButton button)
 	{
 		rowheaderTable.setAutoCreateColumnsFromModel(false);
 		// force the tables to share models

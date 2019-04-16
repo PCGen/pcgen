@@ -1,0 +1,20 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21684 $ $Author: spraynpray $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Roleplaying Guild Guide v8		SOURCESHORT:RGG8	SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play	SOURCEDATE:2011-08
+# Original Entry by: Jeff Baril
+# Updated by: Andrew Wilson
+
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object		Plural description for UI			Display Location
+ABILITYCATEGORY:Spell Focus Replacement	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:FocusReplacement	PLURAL:Organized Play Alternate Feats	DISPLAYLOCATION:Feats
+
+
+###Block: Background Ability Categories
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Base Pool number			Category of Object		Type of Object															Plural description for UI	Display where?				Display Location
+ABILITYCATEGORY:Society Faction	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Background		TYPE:Society Faction														PLURAL:Society Factions		DISPLAYNAME:Faction Ability Access	DISPLAYLOCATION:Background
+ABILITYCATEGORY:Society Faction New	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:Society_Faction_Pool	CATEGORY:Background		TYPE:Faction Selection														PLURAL:Society Factions		DISPLAYNAME:Society Faction		DISPLAYLOCATION:Background
+
+ABILITYCATEGORY:Society ID		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:PFS_Character_ID		CATEGORY:Internal			TYPE:Society ID															PLURAL:Society Factions								DISPLAYLOCATION:Background
+
+ABILITYCATEGORY:Prestige Awards	VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:Faction Prestige Award.Generic Prestige Awards.Vanity Prestige Award.Prestige Award Display	PLURAL:Prestige Awards								DISPLAYLOCATION:Background
+
+ABILITYCATEGORY:Boon			VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:Boon.Tales Boon.Scenario Boon.Con Boon										PLURAL:Boons									DISPLAYLOCATION:Background

@@ -19,26 +19,19 @@ package selectionactor.auto;
 
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.ArmorProf;
-
-import org.junit.Test;
 import plugin.lsttokens.auto.ArmorProfToken;
+
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class ArmorProfTokenTest extends AbstractSelectionActorTest<ArmorProf>
 {
 
-	private static final ChooseSelectionActor<ArmorProf> cra = new ArmorProfToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
+	private static final ChooseSelectionActor<ArmorProf> CRA = new ArmorProfToken();
 
 	@Override
 	public ChooseSelectionActor<ArmorProf> getActor()
 	{
-		return cra;
+		return CRA;
 	}
 
 	@Override

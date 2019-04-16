@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with LEVELADJUSTMENT Token
  */
-public class LeveladjustmentToken extends AbstractNonEmptyToken<PCTemplate>
-		implements CDOMPrimaryToken<PCTemplate>
+public class LeveladjustmentToken extends AbstractNonEmptyToken<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override
@@ -45,24 +44,21 @@ public class LeveladjustmentToken extends AbstractNonEmptyToken<PCTemplate>
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
-		context.getObjectContext().put(template, FormulaKey.LEVEL_ADJUSTMENT,
-				formula);
+		context.getObjectContext().put(template, FormulaKey.LEVEL_ADJUSTMENT, formula);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		Formula f = context.getObjectContext().getFormula(pct,
-				FormulaKey.LEVEL_ADJUSTMENT);
+		Formula f = context.getObjectContext().getFormula(pct, FormulaKey.LEVEL_ADJUSTMENT);
 		if (f == null)
 		{
 			return null;
 		}
-		return new String[] { f.toString() };
+		return new String[]{f.toString()};
 	}
 
 	@Override

@@ -16,29 +16,20 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  DefeatedCombatant.java
- *
- *  Created on January 24, 2002, 11:15 AM
  */
 package plugin.experience;
+
+import java.util.List;
 
 import gmgen.plugin.Combatant;
 import gmgen.plugin.SystemHP;
 import gmgen.plugin.SystemInitiative;
-import org.jdom2.Element;
-
 import pcgen.system.LanguageBundle;
 
-import java.util.List;
+import org.jdom2.Element;
 
-/**
- *@author     devon
- */
 public class DefeatedCombatant extends Combatant
 {
-	/*
-	 *  History:
-	 *  March 20, 2003: Cleanup for Version 1.0
-	 */
 	protected String name;
 	protected float cr;
 	protected int xp;
@@ -57,61 +48,61 @@ public class DefeatedCombatant extends Combatant
 		kill();
 	}
 
-    @Override
+	@Override
 	public void setCR(float cr)
 	{
 		this.cr = cr;
 	}
 
-    @Override
+	@Override
 	public float getCR()
 	{
 		return cr;
 	}
 
-    @Override
+	@Override
 	public void setName(String name)
 	{
 		this.name = name;
 	}
 
-    @Override
+	@Override
 	public String getName()
 	{
 		return name;
 	}
 
-    @Override
+	@Override
 	public String getPlayer()
 	{
 		return LanguageBundle.getString("in_gm"); //$NON-NLS-1$
 	}
 
-    @Override
+	@Override
 	public Element getSaveElement()
 	{
 		return new Element("DefeatedCombatant");
 	}
 
-    @Override
+	@Override
 	public void setXP(int xp)
 	{
 		this.xp = xp;
 	}
 
-    @Override
+	@Override
 	public int getXP()
 	{
 		return xp;
 	}
 
-    @Override
+	@Override
 	public void editRow(List<String> columnOrder, int colNumber, Object data)
 	{
 		// TODO:  Method doesn't do anything?
 	}
 
-    @Override
+	@Override
 	public String toHtmlString()
 	{
 		return LanguageBundle.getFormattedString("in_plugin_xp_defeated", getName(), getPlayer()); //$NON-NLS-1$

@@ -1,5 +1,4 @@
 /*
- * JTableCornerButton.java
  * Copyright 2016 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 29, 2016, 11:48:12 PM
  */
 package pcgen.gui2.util;
 
@@ -25,6 +23,7 @@ import java.awt.Container;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -40,7 +39,6 @@ import javax.swing.table.TableColumn;
  * round corners which look ill suited in the square corner. We use a
  * JTableHeader so that the button looks like an additional table column.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class JTableMenuButton extends JTableHeader
 {
@@ -103,18 +101,12 @@ public class JTableMenuButton extends JTableHeader
 			g.fillRect(0, 0, width - 1, height - 1);
 			g.setColor(darkShadow);
 			g.drawRect(0, 0, width - 1, height - 1);
-			icon = new ArrowIcon(SwingConstants.SOUTH, size,
-					darkShadow,
-					Color.BLACK,
-					shadow);
+			icon = new ArrowIcon(SwingConstants.SOUTH, size, darkShadow, Color.BLACK, shadow);
 		}
 		else
 		{
 			super.paint(g);
-			icon = new ArrowIcon(SwingConstants.SOUTH, size,
-					shadow,
-					darkShadow,
-					highlight);
+			icon = new ArrowIcon(SwingConstants.SOUTH, size, shadow, darkShadow, highlight);
 		}
 
 		icon.paintIcon(this, g, x, y);

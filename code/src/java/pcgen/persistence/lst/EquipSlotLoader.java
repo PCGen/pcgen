@@ -1,5 +1,4 @@
 /*
- * EquipSlotLoader.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 24, 2003, 10:29 AM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.persistence.lst;
@@ -33,25 +30,17 @@ import pcgen.persistence.SystemLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-/**
- * @author  Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
- **/
 public final class EquipSlotLoader extends LstLineFileLoader
 {
 
-	/**
-	 * @see LstLineFileLoader#parseLine(LoadContext, String, URI)
-	 */
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{
 		final EquipSlot eqSlot = new EquipSlot();
 
-		final StringTokenizer colToken =
-				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(EquipSlotLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(EquipSlotLstToken.class);
 		while (colToken.hasMoreTokens())
 		{
 			final String colString = colToken.nextToken().trim();
@@ -72,32 +61,27 @@ public final class EquipSlotLoader extends LstLineFileLoader
 			if (token != null && key.equals("NUMSLOTS"))
 			{
 				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, eqSlot.getSlotName(),
-						sourceURI, value);
+				LstUtils.deprecationCheck(token, eqSlot.getSlotName(), sourceURI, value);
 				if (!token.parse(eqSlot, lstLine, getGameMode()))
 				{
-					Logging.errorPrint("Error parsing equip slots "
-						+ eqSlot.getSlotName() + ':' + sourceURI + ':'
-						+ colString + "\"");
+					Logging.errorPrint(
+						"Error parsing equip slots " + eqSlot.getSlotName() + ':' + sourceURI + ':' + colString + "\"");
 				}
 				break;
 			}
 			else if (token != null)
 			{
 				final String value = colString.substring(idxColon + 1);
-				LstUtils.deprecationCheck(token, eqSlot.getSlotName(),
-						sourceURI, value);
+				LstUtils.deprecationCheck(token, eqSlot.getSlotName(), sourceURI, value);
 				if (!token.parse(eqSlot, value, getGameMode()))
 				{
-					Logging.errorPrint("Error parsing equip slots "
-						+ eqSlot.getSlotName() + ':' + sourceURI + ':'
-						+ colString + "\"");
+					Logging.errorPrint(
+						"Error parsing equip slots " + eqSlot.getSlotName() + ':' + sourceURI + ':' + colString + "\"");
 				}
 			}
 			else
 			{
-				Logging.errorPrint("Illegal slot info '" + lstLine + "' in "
-					+ sourceURI.toString());
+				Logging.errorPrint("Illegal slot info '" + lstLine + "' in " + sourceURI.toString());
 			}
 		}
 

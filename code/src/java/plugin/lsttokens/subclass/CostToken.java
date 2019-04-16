@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with COST Token
  */
-public class CostToken extends AbstractIntToken<SubClass> implements
-		CDOMPrimaryToken<SubClass>
+public class CostToken extends AbstractIntToken<SubClass> implements CDOMPrimaryToken<SubClass>
 {
 
 	@Override

@@ -18,13 +18,15 @@
 package plugin.function;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.VariableLibrary;
+import pcgen.base.formula.exception.SemanticsFailureException;
 import pcgen.base.formula.parse.ASTQuotString;
 import pcgen.base.formula.parse.FormulaParserTreeConstants;
 import pcgen.base.formula.parse.Node;
@@ -40,7 +42,7 @@ import pcgen.output.channel.ChannelUtilities;
  * InputFunction is a function designed to allow pulling information from a channel (as
  * defined by the argument to the input function).
  */
-public class InputFunction implements Function
+public class InputFunction implements FormulaFunction
 {
 
 	/**
@@ -54,51 +56,39 @@ public class InputFunction implements Function
 	}
 
 	@Override
-	public final FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
-		FormulaSemantics semantics)
+	public final FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args, FormulaSemantics semantics)
 	{
 		int argCount = args.length;
 		if (argCount != 1)
 		{
-			semantics.setInvalid("Function " + getFunctionName()
-				+ " received incorrect # of arguments, expected: 1 got "
-				+ args.length + " " + Arrays.asList(args));
-			return null;
+			throw new SemanticsFailureException("Function " + getFunctionName()
+				+ " received incorrect # of arguments, expected: 1 got " + args.length + ' ' + Arrays.asList(args));
 		}
 		//String node (name)
 		Node inputNode = args[0];
 		if (inputNode.getId() != FormulaParserTreeConstants.JJTQUOTSTRING)
 		{
-			semantics.setInvalid("Parse Error: Invalid Value: "
-				+ ((SimpleNode) inputNode).getText() + " found in "
-				+ inputNode.getClass().getName()
-				+ " found in location requiring a literal"
+			throw new SemanticsFailureException("Parse Error: Invalid Value: " + ((SimpleNode) inputNode).getText()
+				+ " found in " + inputNode.getClass().getName() + " found in location requiring a literal"
 				+ " String (cannot be evaluated)");
-			return null;
 		}
 		String inputName = ((SimpleNode) inputNode).getText();
 		String varName = ChannelUtilities.createVarName(inputName);
-		VariableLibrary varLib =
-				semantics.get(FormulaSemantics.FMANAGER).getFactory();
+		VariableLibrary varLib = semantics.get(FormulaSemantics.FMANAGER).getFactory();
 		LegalScope scope = semantics.get(FormulaSemantics.SCOPE);
-		FormatManager<?> formatManager =
-				varLib.getVariableFormat(scope, varName);
+		FormatManager<?> formatManager = varLib.getVariableFormat(scope, varName);
 		if (formatManager == null)
 		{
-			semantics
-				.setInvalid("Input Channel: " + varName + " was not found");
-			return null;
+			throw new SemanticsFailureException("Input Channel: " + varName + " was not found");
 		}
 		return formatManager;
 	}
 
 	@Override
-	public Object evaluate(EvaluateVisitor visitor, Node[] args,
-		EvaluationManager manager)
+	public Object evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager manager)
 	{
-		String s = (String) args[0].jjtAccept(visitor, null);
-		return visitor
-			.visitVariable(ChannelUtilities.createVarName(s), manager);
+		String s = (String) args[0].jjtAccept(visitor, manager);
+		return visitor.visitVariable(ChannelUtilities.createVarName(s), manager);
 	}
 
 	@Override
@@ -109,11 +99,10 @@ public class InputFunction implements Function
 	}
 
 	@Override
-	public void getDependencies(DependencyVisitor visitor,
-		DependencyManager fdm, Node[] args)
+	public Optional<FormatManager<?>> getDependencies(DependencyVisitor visitor, DependencyManager fdm, Node[] args)
 	{
 		ASTQuotString inputName = (ASTQuotString) args[0];
 		String varName = inputName.getText();
-		visitor.visitVariable(ChannelUtilities.createVarName(varName), fdm);
+		return visitor.visitVariable(ChannelUtilities.createVarName(varName), fdm);
 	}
 }

@@ -28,14 +28,12 @@ import pcgen.core.Campaign;
  * This list must be expanded if any of the Campaigns includes another Campaign
  * (PCC file).
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class CampaignFacet extends AbstractListFacet<CharID, Campaign>
 {
 	private ExpandedCampaignFacet expandedCampaignFacet;
 
-	public void setExpandedCampaignFacet(
-		ExpandedCampaignFacet expandedCampaignFacet)
+	public void setExpandedCampaignFacet(ExpandedCampaignFacet expandedCampaignFacet)
 	{
 		this.expandedCampaignFacet = expandedCampaignFacet;
 	}

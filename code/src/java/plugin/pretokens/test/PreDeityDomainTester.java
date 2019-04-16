@@ -1,5 +1,4 @@
 /*
- * PreDeityDomain.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.pretokens.test;
 
@@ -34,16 +28,9 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-/**
- * @author wardc
- *
- */
 public class PreDeityDomainTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
@@ -52,7 +39,8 @@ public class PreDeityDomainTester extends AbstractDisplayPrereqTest implements P
 		Deity deity = display.getDeity();
 		if (deity != null)
 		{
-			if (deity.hasObjectOnList(Deity.DOMAINLIST, Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Domain.class, prereq.getKey())))
+			if (deity.hasObjectOnList(Deity.DOMAINLIST, Globals.getContext().getReferenceContext()
+				.silentlyGetConstructedCDOMObject(Domain.class, prereq.getKey())))
 			{
 				runningTotal++;
 			}
@@ -64,21 +52,18 @@ public class PreDeityDomainTester extends AbstractDisplayPrereqTest implements P
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "DEITYDOMAIN"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
-	 */
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return LanguageBundle
-			.getFormattedString(
-				"PreDeityDomain.toHtml", prereq.getOperator().toDisplayString(), prereq.getKey()); //$NON-NLS-1$
+		return LanguageBundle.getFormattedString(
+			"PreDeityDomain.toHtml", prereq.getOperator().toDisplayString(), //$NON-NLS-1$
+			prereq.getKey());
 	}
 
 }

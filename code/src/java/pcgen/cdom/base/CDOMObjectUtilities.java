@@ -17,12 +17,12 @@
  */
 package pcgen.cdom.base;
 
-import java.util.Collection;
-import java.util.Comparator;
 import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PlayerCharacter;
+
+import org.apache.commons.collections4.ListUtils;
 
 /**
  * CDOMObjectUtilities is a utility class designed to provide utility methods
@@ -31,60 +31,9 @@ import pcgen.core.PlayerCharacter;
 public final class CDOMObjectUtilities
 {
 
-	/**
-	 * Provides a Comparator that is capable of sorting CDOMObjects. This
-	 * sorting is performed based on the Key name of the CDOMObjects.
-	 */
-	public static final Comparator<Loadable> CDOM_SORTER = CDOMObjectUtilities::compareKeys;
-
 	private CDOMObjectUtilities()
 	{
 		// Utility class should not be constructed
-	}
-
-	/**
-	 * Concatenates the Key Name given Collection of CDOMObjects into a String
-	 * using the separator as the delimiter.
-	 * 
-	 * The LST format for each CDOMObject is determined by calling the
-	 * getLSTformat() method on the CDOMObject.
-	 * 
-	 * The items will be joined in the order determined by the ordering of the
-	 * given Collection.
-	 * 
-	 * This method is value-semantic. CDOMObjetUtilities will not maintain a
-	 * reference to or modify the given Collection.
-	 * 
-	 * @param cdoCollection
-	 *            An Collection of CDOMObjects
-	 * @param separator
-	 *            The separating string
-	 * @return A 'separator' separated String containing the Key Name of the
-	 *         given Collection of CDOMObject objects
-	 */
-	public static String joinKeyName(Collection<? extends CDOMObject> cdoCollection,
-			String separator)
-	{
-		if (cdoCollection == null)
-		{
-			return "";
-		}
-
-		final StringBuilder result = new StringBuilder(cdoCollection.size() * 10);
-
-		boolean needjoin = false;
-
-		for (CDOMObject obj : cdoCollection)
-		{
-			if (needjoin)
-			{
-				result.append(separator);
-			}
-			needjoin = true;
-			result.append(obj.getLSTformat());
-		}
-
-		return result.toString();
 	}
 
 	/**
@@ -108,25 +57,11 @@ public final class CDOMObjectUtilities
 		String base = cdo1.getKeyName();
 		if (base == null)
 		{
-			if (cdo2.getKeyName() == null)
-			{
-				return 0;
-			}
-			else
-			{
-				return -1;
-			}
+			return (cdo2.getKeyName() == null) ? 0 : -1;
 		}
 		else
 		{
-			if (cdo2.getKeyName() == null)
-			{
-				return 1;
-			}
-			else
-			{
-				return base.compareTo(cdo2.getKeyName());
-			}
+			return (cdo2.getKeyName() == null) ? 1 : base.compareTo(cdo2.getKeyName());
 		}
 	}
 
@@ -136,15 +71,8 @@ public final class CDOMObjectUtilities
 		{
 			return;
 		}
-		List<PersistentTransitionChoice<?>> addList = cdo
-				.getListFor(ListKey.ADD);
-		if (addList != null)
-		{
-			for (PersistentTransitionChoice<?> tc : addList)
-			{
-				driveChoice(cdo, tc, pc);
-			}
-		}
+		List<PersistentTransitionChoice<?>> addList = ListUtils.emptyIfNull(cdo.getListFor(ListKey.ADD));
+		addList.forEach(tc -> driveChoice(cdo, tc, pc));
 	}
 
 	public static void removeAdds(CDOMObject cdo, PlayerCharacter pc)
@@ -153,15 +81,8 @@ public final class CDOMObjectUtilities
 		{
 			return;
 		}
-		List<PersistentTransitionChoice<?>> addList = cdo
-				.getListFor(ListKey.ADD);
-		if (addList != null)
-		{
-			for (PersistentTransitionChoice<?> tc : addList)
-			{
-				tc.remove(cdo, pc);
-			}
-		}
+		List<PersistentTransitionChoice<?>> addList = ListUtils.emptyIfNull(cdo.getListFor(ListKey.ADD));
+		addList.forEach(tc -> tc.remove(cdo, pc));
 	}
 
 	public static void checkRemovals(CDOMObject cdo, PlayerCharacter pc)
@@ -170,15 +91,8 @@ public final class CDOMObjectUtilities
 		{
 			return;
 		}
-		List<PersistentTransitionChoice<?>> removeList = cdo
-				.getListFor(ListKey.REMOVE);
-		if (removeList != null)
-		{
-			for (PersistentTransitionChoice<?> tc : removeList)
-			{
-				driveChoice(cdo, tc, pc);
-			}
-		}
+		List<PersistentTransitionChoice<?>> removeList = ListUtils.emptyIfNull(cdo.getListFor(ListKey.REMOVE));
+		removeList.forEach(tc -> driveChoice(cdo, tc, pc));
 	}
 
 	public static void restoreRemovals(CDOMObject cdo, PlayerCharacter pc)
@@ -187,19 +101,11 @@ public final class CDOMObjectUtilities
 		{
 			return;
 		}
-		List<PersistentTransitionChoice<?>> removeList = cdo
-				.getListFor(ListKey.REMOVE);
-		if (removeList != null)
-		{
-			for (PersistentTransitionChoice<?> tc : removeList)
-			{
-				tc.remove(cdo, pc);
-			}
-		}
+		List<PersistentTransitionChoice<?>> removeList = ListUtils.emptyIfNull(cdo.getListFor(ListKey.REMOVE));
+		removeList.forEach(tc -> tc.remove(cdo, pc));
 	}
 
-	private static <T> void driveChoice(CDOMObject cdo, TransitionChoice<T> tc,
-			final PlayerCharacter pc)
+	private static <T> void driveChoice(CDOMObject cdo, TransitionChoice<T> tc, final PlayerCharacter pc)
 	{
 		tc.act(tc.driveChoice(pc), cdo, pc);
 	}

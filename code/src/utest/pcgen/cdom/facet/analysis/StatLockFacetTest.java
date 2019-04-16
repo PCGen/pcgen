@@ -17,7 +17,8 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
@@ -33,6 +34,9 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+
 public class StatLockFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, StatLock>
 {
@@ -41,6 +45,7 @@ public class StatLockFacetTest extends
 	private StatLock[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -101,7 +106,6 @@ public class StatLockFacetTest extends
 	public void testGetLock()
 	{
 		Object source1 = new Object();
-		Object source2 = new Object();
 		PCStat stat = new PCStat();
 		stat.setName("Stat" + n++);
 		StatLock t1 = new StatLock(CDOMDirectSingleRef.getRef(stat), FormulaFactory.getFormulaFor(1));

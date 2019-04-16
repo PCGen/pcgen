@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.skill;
 
-import org.junit.Test;
-
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -28,11 +26,13 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.skill.AcheckToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class ACheckIntegrationTest extends AbstractIntegrationTestCase<Skill>
 {
 
-	static AcheckToken token = new AcheckToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
+	private static AcheckToken token = new AcheckToken();
+	private static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Skill> getCDOMClass()

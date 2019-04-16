@@ -19,12 +19,12 @@ package pcgen.cdom.enumeration;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant. It is designed to act as an index to a
  * specific variable (set by DEFINE: in LST terms) within a CDOMObject.
@@ -50,15 +50,11 @@ public final class VariableKey implements TypeSafeConstant
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private VariableKey(String name)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException(
-					"Name for VariableKey cannot be null");
-		}
+		Objects.requireNonNull(name, "Name for VariableKey cannot be null");
 		ordinal = ordinalCount++;
 		fieldName = name;
 	}
@@ -132,8 +128,7 @@ public final class VariableKey implements TypeSafeConstant
 		VariableKey key = typeMap.get(name);
 		if (key == null)
 		{
-			throw new IllegalArgumentException(name
-					+ " is not a previously defined VariableKey");
+			throw new IllegalArgumentException(name + " is not a previously defined VariableKey");
 		}
 		return key;
 	}

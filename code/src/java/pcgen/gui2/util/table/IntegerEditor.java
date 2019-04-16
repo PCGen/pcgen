@@ -30,9 +30,14 @@
  */
 package pcgen.gui2.util.table;
 
-/*
- * IntegerEditor is used by TableFTFEditDemo.java.
- */
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.text.NumberFormat;
+import java.text.ParseException;
+
 import javax.swing.AbstractAction;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JFormattedTextField;
@@ -41,15 +46,12 @@ import javax.swing.JTable;
 import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Toolkit;
-import java.text.NumberFormat;
-import java.text.ParseException;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.NumberFormatter;
+
+/*
+ * IntegerEditor is used by TableFTFEditDemo.java.
+ */
 
 /**
  * Implements a cell editor that uses a formatted text field
@@ -67,8 +69,8 @@ public class IntegerEditor extends DefaultCellEditor
 	{
 		super(new JFormattedTextField());
 		ftf = (JFormattedTextField) getComponent();
-		minimum = new Integer(min);
-		maximum = new Integer(max);
+		minimum = Integer.valueOf(min);
+		maximum = Integer.valueOf(max);
 
 		//Set up the editor for the integer cells.
 		integerFormat = NumberFormat.getIntegerInstance();
@@ -77,8 +79,7 @@ public class IntegerEditor extends DefaultCellEditor
 		intFormatter.setMinimum(minimum);
 		intFormatter.setMaximum(maximum);
 
-		ftf.setFormatterFactory(
-				new DefaultFormatterFactory(intFormatter));
+		ftf.setFormatterFactory(new DefaultFormatterFactory(intFormatter));
 		ftf.setValue(minimum);
 		ftf.setHorizontalAlignment(SwingConstants.TRAILING);
 		ftf.setFocusLostBehavior(JFormattedTextField.PERSIST);
@@ -86,9 +87,7 @@ public class IntegerEditor extends DefaultCellEditor
 		//React when the user presses Enter while the editor is
 		//active.  (Tab is handled as specified by
 		//JFormattedTextField's focusLostBehavior property.)
-		ftf.getInputMap().put(KeyStroke.getKeyStroke(
-				KeyEvent.VK_ENTER, 0),
-							  "check");
+		ftf.getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "check");
 		ftf.getActionMap().put("check", new AbstractAction()
 		{
 
@@ -105,8 +104,8 @@ public class IntegerEditor extends DefaultCellEditor
 				else
 				{
 					try
-					{              //The text is valid,
-						ftf.commitEdit();     //so use it.
+					{ //The text is valid,
+						ftf.commitEdit(); //so use it.
 						ftf.postActionEvent(); //stop editing
 					}
 					catch (java.text.ParseException exc)
@@ -120,13 +119,10 @@ public class IntegerEditor extends DefaultCellEditor
 
 	//Override to invoke setValue on the formatted text field.
 	@Override
-	public Component getTableCellEditorComponent(JTable table,
-												 Object value, boolean isSelected,
-												 int row, int column)
+	public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
 	{
 		JFormattedTextField textField =
-				(JFormattedTextField) super.getTableCellEditorComponent(
-				table, value, isSelected, row, column);
+				(JFormattedTextField) super.getTableCellEditorComponent(table, value, isSelected, row, column);
 		textField.setValue(value);
 		return textField;
 	}
@@ -143,7 +139,7 @@ public class IntegerEditor extends DefaultCellEditor
 		}
 		else if (o instanceof Number)
 		{
-			return new Integer(((Number) o).intValue());
+			return Integer.valueOf(((Number) o).intValue());
 		}
 		else
 		{
@@ -203,21 +199,11 @@ public class IntegerEditor extends DefaultCellEditor
 	{
 		Toolkit.getDefaultToolkit().beep();
 		ftf.selectAll();
-		Object[] options =
-		{
-			"Edit",
-			"Revert"
-		};
-		int answer = JOptionPane.showOptionDialog(
-				SwingUtilities.getWindowAncestor(ftf),
-				"The value must be an integer between " + minimum + " and " + maximum + ".\n" +
-				"You can either continue editing " + "or revert to the last valid value.",
-				"Invalid Text Entered",
-				JOptionPane.YES_NO_OPTION,
-				JOptionPane.ERROR_MESSAGE,
-				null,
-				options,
-				options[1]);
+		Object[] options = {"Edit", "Revert"};
+		int answer = JOptionPane.showOptionDialog(SwingUtilities.getWindowAncestor(ftf),
+			"The value must be an integer between " + minimum + " and " + maximum + ".\n"
+				+ "You can either continue editing " + "or revert to the last valid value.",
+			"Invalid Text Entered", JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE, null, options, options[1]);
 
 		if (answer == 1)
 		{ //Revert!
@@ -237,7 +223,7 @@ public class IntegerEditor extends DefaultCellEditor
 		{
 			return comp.getPreferredSize();
 		}
-		
+
 		return new Dimension(40, 25);
 	}
 }

@@ -26,9 +26,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.QualifiedActor;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.CharID;
@@ -71,14 +71,11 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * null is a valid source but a valid item to be added to the list of objects
  * stored by AbstractQualifiedListFacet.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
-		extends AbstractDataFacet<CharID, T>
+public abstract class AbstractQualifiedListFacet<T extends QualifyingObject> extends AbstractDataFacet<CharID, T>
 {
 
-	private PrerequisiteFacet prereqFacet = FacetLibrary
-			.getFacet(PrerequisiteFacet.class);
+	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
 
 	/**
 	 * Add the given object with the given source to the list of objects stored
@@ -97,16 +94,13 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 */
 	public void add(CharID id, T obj, Object source)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
+		Objects.requireNonNull(obj, "Object to add may not be null");
 		Map<T, Set<Object>> map = getConstructingCachedMap(id);
 		Set<Object> set = map.get(obj);
 		boolean fireNew = (set == null);
 		if (fireNew)
 		{
-			set = new WrappedMapSet<>(IdentityHashMap.class);
+			set = Collections.newSetFromMap(new IdentityHashMap<>());
 			map.put(obj, set);
 		}
 		set.add(source);
@@ -362,7 +356,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		Set<Object> set = map.get(obj);
 		if (set == null)
 		{
-			set = new WrappedMapSet<>(IdentityHashMap.class);
+			set = Collections.newSetFromMap(new IdentityHashMap<>());
 			map.put(obj, set);
 		}
 		return set;
@@ -384,6 +378,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 *         null if no information has been set in this
 	 *         AbstractQualifiedListFacet for the Player Character.
 	 */
+	@SuppressWarnings("unchecked")
 	private Map<T, Set<Object>> getCachedMap(CharID id)
 	{
 		return (Map<T, Set<Object>>) getCache(id);
@@ -471,8 +466,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			{
 				T obj = me.getKey();
 				Set<Object> sourceSet = me.getValue();
-				Set<Object> targetSet = getConstructingCachedSetFor(
-						destination, obj);
+				Set<Object> targetSet = getConstructingCachedSetFor(destination, obj);
 				targetSet.addAll(sourceSet);
 			}
 		}
@@ -501,13 +495,9 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 *            The source for the given object to be removed from the list of
 	 *            sources for that object
 	 */
-	private void processRemoval(CharID id, Map<T, Set<Object>> componentMap,
-		T obj, Object source)
+	private void processRemoval(CharID id, Map<T, Set<Object>> componentMap, T obj, Object source)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object to remove may not be null");
-		}
+		Objects.requireNonNull(obj, "Object to remove may not be null");
 		Set<Object> set = componentMap.get(obj);
 		if (set != null)
 		{
@@ -515,8 +505,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			if (set.isEmpty())
 			{
 				componentMap.remove(obj);
-				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}
@@ -544,8 +533,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			 * concurrent modification exception on a recursive remove
 			 */
 			List<T> removedKeys = new ArrayList<>();
-			for (Iterator<Map.Entry<T, Set<Object>>> it =
-					componentMap.entrySet().iterator(); it.hasNext();)
+			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap.entrySet().iterator(); it.hasNext();)
 			{
 				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
@@ -562,8 +550,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			}
 			for (T obj : removedKeys)
 			{
-				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}
@@ -694,7 +681,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 */
 	public Collection<T> getQualifiedSet(CharID id, Object source)
 	{
-		Set<T> set = new WrappedMapSet<>(IdentityHashMap.class);
+		Set<T> set = Collections.newSetFromMap(new IdentityHashMap<>());
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{

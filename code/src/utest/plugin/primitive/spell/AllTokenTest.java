@@ -31,12 +31,15 @@ import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class AllTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Spell>
 {
 	static ChooseLst token = new ChooseLst();
 	static SpellsToken subtoken = new SpellsToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	private static final AllToken ALL_TOKEN = new AllToken();
 
@@ -45,6 +48,7 @@ public class AllTokenTest extends
 		super("ALL", null);
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -90,55 +94,56 @@ public class AllTokenTest extends
 //		doPrimitiveIllegalTarget("Foo");
 //	}
 
-	public void testPrimitiveIllegalBadArgs() throws PersistenceLayerException
+	@Test
+	public void testPrimitiveIllegalBadArgs()
 	{
 		doPrimitiveIllegalTarget("Foo[Hi]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadKnownEquals()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[KNOWN=]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadKnownEqualsBad()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[KNOWN=Bad]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMax()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMAX]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMaxEquals()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMAX=]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMaxEqualsBad()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMAX=3-]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMin()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMIN]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMinEquals()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMIN=]");
 	}
 
+	@Test
 	public void testPrimitiveIllegalBadLevelMinEqualsBad()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("Foo[LEVELMIN=3+]");
 	}

@@ -1,5 +1,4 @@
 /*
- * VisionType.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 
 package pcgen.util.enumeration;
@@ -29,12 +27,10 @@ import java.util.Map;
 
 import pcgen.base.lang.CaseInsensitiveString;
 
-public final class VisionType extends AbstractConstant
+public final class VisionType
 {
-
 	private VisionType()
 	{
-		//Private Constructor
 	}
 
 	private static Map<CaseInsensitiveString, VisionType> typeMap;
@@ -63,26 +59,22 @@ public final class VisionType extends AbstractConstant
 	{
 		typeMap = new HashMap<>();
 		Field[] fields = VisionType.class.getDeclaredFields();
-		for (int i = 0; i < fields.length; i++)
+		for (Field field : fields)
 		{
-			int mod = fields[i].getModifiers();
+			int mod = field.getModifiers();
 
-			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
-				&& Modifier.isPublic(mod))
+			if (Modifier.isStatic(mod) && Modifier.isFinal(mod) && Modifier.isPublic(mod))
 			{
 				try
 				{
-					Object o = fields[i].get(null);
+					Object o = field.get(null);
 					if (o instanceof VisionType)
 					{
-						typeMap.put(new CaseInsensitiveString(fields[i]
-							.getName()), (VisionType) o);
+						typeMap.put(new CaseInsensitiveString(field.getName()), (VisionType) o);
 					}
-				}
-				catch (IllegalArgumentException | IllegalAccessException e)
+				} catch (IllegalArgumentException | IllegalAccessException e)
 				{
-					//TODO Why throw an InternalError? Wouldn't an assert false be better? JK070115
-					throw new InternalError();
+					throw new AssertionError();
 				}
 			}
 		}
@@ -95,16 +87,12 @@ public final class VisionType extends AbstractConstant
 		{
 			return "";
 		}
-		for (Map.Entry<CaseInsensitiveString, VisionType> me : typeMap
-			.entrySet())
-		{
-			if (me.getValue().equals(this))
-			{
-				return me.getKey().toString();
-			}
-		}
-		// Error
-		return "";
+		return typeMap.entrySet()
+		              .stream()
+		              .filter(me -> me.getValue().equals(this))
+		              .findFirst()
+		              .map(me -> me.getKey().toString())
+		              .orElse("");
 	}
 
 	public static void clearConstants()

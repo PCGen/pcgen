@@ -35,10 +35,8 @@ import pcgen.core.QualifiedObject;
  * AutoEquipmentFacet is a Facet that tracks the Automatic Equipment objects
  * (those granted by AUTO:EQUIP) that are contained in a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class AutoEquipmentFacet extends
-		AbstractQualifiedListFacet<QualifiedObject<CDOMReference<Equipment>>>
+public class AutoEquipmentFacet extends AbstractQualifiedListFacet<QualifiedObject<CDOMReference<Equipment>>>
 		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
@@ -54,15 +52,12 @@ public class AutoEquipmentFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		List<QualifiedObject<CDOMReference<Equipment>>> list = cdo
-				.getSafeListFor(ListKey.EQUIPMENT);
+		List<QualifiedObject<CDOMReference<Equipment>>> list = cdo.getSafeListFor(ListKey.EQUIPMENT);
 		if (list != null)
 		{
 			addAll(dfce.getCharID(), list, cdo);
@@ -81,8 +76,6 @@ public class AutoEquipmentFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -127,8 +120,7 @@ public class AutoEquipmentFacet extends
 		return list;
 	}
 
-	public void setConsolidationFacet(
-		CDOMObjectConsolidationFacet consolidationFacet)
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
 	{
 		this.consolidationFacet = consolidationFacet;
 	}

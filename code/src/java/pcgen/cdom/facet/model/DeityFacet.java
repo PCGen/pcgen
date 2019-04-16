@@ -28,10 +28,8 @@ import pcgen.output.publish.OutputDB;
  * 
  * null is a legal value for this Facet
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class DeityFacet extends AbstractItemFacet<CharID, Deity> implements
-		ItemFacet<CharID, Deity>
+public class DeityFacet extends AbstractItemFacet<CharID, Deity> implements ItemFacet<CharID, Deity>
 {
 	public void init()
 	{

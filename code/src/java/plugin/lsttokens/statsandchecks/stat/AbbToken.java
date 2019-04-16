@@ -49,12 +49,12 @@ public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrima
 		{
 			if (!context.processToken(stat, "KEY", value))
 			{
-				return new ParseResult.Fail("Internal Error", context);
+				return new ParseResult.Fail("Internal Error");
 			}
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail(e.getLocalizedMessage(), context);
+			return new ParseResult.Fail(e.getLocalizedMessage());
 		}
 		context.getObjectContext().put(stat, StringKey.ABB_KR, value);
 		return ParseResult.SUCCESS;
@@ -68,7 +68,7 @@ public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrima
 		{
 			return null;
 		}
-		return new String[] { abb };
+		return new String[]{abb};
 	}
 
 	@Override

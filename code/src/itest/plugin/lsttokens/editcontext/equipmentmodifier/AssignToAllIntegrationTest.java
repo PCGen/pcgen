@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.equipmentmodifier;
 
-import org.junit.Test;
-
 import pcgen.core.EquipmentModifier;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -28,12 +26,14 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.equipmentmodifier.AssigntoallToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class AssignToAllIntegrationTest extends
 		AbstractIntegrationTestCase<EquipmentModifier>
 {
 
-	static AssigntoallToken token = new AssigntoallToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
+	private static AssigntoallToken token = new AssigntoallToken();
+	private static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

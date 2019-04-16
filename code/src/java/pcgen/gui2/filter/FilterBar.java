@@ -1,5 +1,4 @@
 /*
- * FilterBar.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 15, 2010, 5:41:26 PM
  */
 package pcgen.gui2.filter;
 
@@ -32,25 +30,26 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SizeRequirements;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
-import org.apache.commons.lang.ArrayUtils;
+
+import org.apache.commons.lang3.ArrayUtils;
 
 /**
  * This class represents the highest level DisplayableFilter in the filter hierarchy. A FilterBar
  * is a filter which contains a set of other DisplayableFilters. At the bottom of a FilterBar is a
  * region of space with an arrow at the center. When this is clicked all of the children filters will
  * be hidden from view.
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 {
 
-	private JPanel filterPanel = new JPanel(new FilterLayout());
-	private List<DisplayableFilter<? super C, ? super E>> filters = new ArrayList<>();
+	private final JPanel filterPanel = new JPanel(new FilterLayout());
+	private final List<DisplayableFilter<? super C, ? super E>> filters = new ArrayList<>();
 	private FilterHandler filterHandler;
 
 	public FilterBar()
@@ -64,19 +63,18 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 		add(filterPanel, BorderLayout.CENTER);
 
 		final ArrowButton arrowbutton = new ArrowButton();
-		arrowbutton.addMouseListener(
-				new MouseAdapter()
-				{
+		arrowbutton.addMouseListener(new MouseAdapter()
+		{
 
-					@Override
-					public void mousePressed(MouseEvent e)
-					{
-						boolean closed = !arrowbutton.isOpen();
-						arrowbutton.setOpen(closed);
-						filterPanel.setVisible(closed);
-					}
+			@Override
+			public void mousePressed(MouseEvent e)
+			{
+				boolean closed = !arrowbutton.isOpen();
+				arrowbutton.setOpen(closed);
+				filterPanel.setVisible(closed);
+			}
 
-				});
+		});
 		if (collapsable)
 		{
 			add(arrowbutton, BorderLayout.SOUTH);
@@ -139,25 +137,24 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 			setFocusPainted(false);
 			setBorderPainted(false);
 			setRequestFocusEnabled(false);
-			addMouseListener(
-					new MouseAdapter()
-					{
+			addMouseListener(new MouseAdapter()
+			{
 
-						@Override
-						public void mouseEntered(MouseEvent e)
-						{
-							entered = true;
-							repaint();
-						}
+				@Override
+				public void mouseEntered(MouseEvent e)
+				{
+					entered = true;
+					repaint();
+				}
 
-						@Override
-						public void mouseExited(MouseEvent e)
-						{
-							entered = false;
-							repaint();
-						}
+				@Override
+				public void mouseExited(MouseEvent e)
+				{
+					entered = false;
+					repaint();
+				}
 
-					});
+			});
 		}
 
 		@Override
@@ -165,18 +162,8 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 		{
 		}
 
-		private static final int[] yup =
-		{
-			1,
-			4,
-			4
-		};
-		private static final int[] ydown =
-		{
-			4,
-			1,
-			1
-		};
+		private static final int[] YUP = {1, 4, 4};
+		private static final int[] YDOWN = {4, 1, 1};
 
 		@Override
 		public void paint(Graphics g)
@@ -196,21 +183,16 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 			g.setColor(b);
 			g.fillRect(0, 0, getWidth(), getHeight());
 			int center = getWidth() / 2;
-			int[] xs =
-			{
-				center,
-				center - 3,
-				center + 3
-			};
+			int[] xs = {center, center - 3, center + 3};
 			int[] ys;
 			if (open)
 			{
-				ys = yup;
+				ys = YUP;
 
 			}
 			else
 			{
-				ys = ydown;
+				ys = YDOWN;
 			}
 			g.setColor(f);
 			g.drawPolygon(xs, ys, 3);
@@ -250,8 +232,10 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 				Insets insets = target.getInsets();
 				int maxwidth = target.getWidth() - (insets.left + insets.right + getHgap() * 2);
 				int nmembers = target.getComponentCount();
-				int x = 0, y = insets.top + getVgap();
-				int rowh = 0, start = 0;
+				int x = 0;
+				int y = insets.top + getVgap();
+				int rowh = 0;
+				int start = 0;
 
 				boolean ltr = target.getComponentOrientation().isLeftToRight();
 				SizeRequirements[] xChildren = new SizeRequirements[nmembers];
@@ -269,12 +253,8 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 						Dimension min = c.getMinimumSize();
 						Dimension typ = c.getPreferredSize();
 						Dimension max = c.getMaximumSize();
-						xChildren[i] = new SizeRequirements(min.width, typ.width,
-															max.width,
-															c.getAlignmentX());
-						yChildren[i] = new SizeRequirements(min.height, typ.height,
-															max.height,
-															c.getAlignmentY());
+						xChildren[i] = new SizeRequirements(min.width, typ.width, max.width, c.getAlignmentX());
+						yChildren[i] = new SizeRequirements(min.height, typ.height, max.height, c.getAlignmentY());
 
 						if ((x == 0) || ((x + typ.width) <= maxwidth))
 						{
@@ -287,8 +267,8 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 						}
 						else
 						{
-							layoutComponents(target, insets.left + getHgap(), y,
-											 maxwidth, rowh, xChildren, yChildren, start, i, ltr);
+							layoutComponents(target, insets.left + getHgap(), y, maxwidth, rowh, xChildren, yChildren,
+								start, i, ltr);
 
 							x = typ.width;
 							y += getVgap() + rowh;
@@ -297,33 +277,30 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 						}
 					}
 				}
-				layoutComponents(target, insets.left + getHgap(), y,
-								 maxwidth, rowh, xChildren, yChildren, start, nmembers, ltr);
+				layoutComponents(target, insets.left + getHgap(), y, maxwidth, rowh, xChildren, yChildren, start,
+					nmembers, ltr);
 			}
 		}
 
 		private void layoutComponents(Container target, int xOffset, int yOffset, int maxwidth, int rowheight,
-									  SizeRequirements[] xChildren, SizeRequirements[] yChildren,
-									  int start, int end, boolean ltr)
+			SizeRequirements[] xChildren, SizeRequirements[] yChildren, int start, int end, boolean ltr)
 		{
-			SizeRequirements[] children = (SizeRequirements[]) ArrayUtils.subarray(xChildren, start, end);
+			SizeRequirements[] children = ArrayUtils.subarray(xChildren, start, end);
 			int[] xOffsets = new int[children.length];
 			int[] xSpans = new int[children.length];
 			SizeRequirements.calculateTiledPositions(maxwidth, null, children, xOffsets, xSpans, ltr);
 
-			children = (SizeRequirements[]) ArrayUtils.subarray(yChildren, start, end);
+			children = ArrayUtils.subarray(yChildren, start, end);
 			int[] yOffsets = new int[children.length];
 			int[] ySpans = new int[children.length];
 			SizeRequirements total = new SizeRequirements(rowheight, rowheight, rowheight, 0.5f);
 			SizeRequirements.calculateAlignedPositions(rowheight, total, children, yOffsets, ySpans, ltr);
 
-			Insets in = target.getInsets();
 			for (int i = 0; i < children.length; i++)
 			{
 				Component c = target.getComponent(i + start);
 				c.setBounds((int) Math.min((long) xOffset + (long) xOffsets[i], Integer.MAX_VALUE),
-							(int) Math.min((long) yOffset + (long) yOffsets[i], Integer.MAX_VALUE),
-							xSpans[i], ySpans[i]);
+					(int) Math.min((long) yOffset + (long) yOffsets[i], Integer.MAX_VALUE), xSpans[i], ySpans[i]);
 			}
 		}
 
@@ -337,9 +314,8 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 
 				Insets insets = target.getInsets();
 				// Provide a default if the panel has not been displayed yet (i.e. in a dialog)
-				int targetWidth = target.getWidth() == 0? 400 : target.getWidth(); 
-				int maxwidth = targetWidth - (insets.left + insets.right +
-						getHgap() * 2);
+				int targetWidth = target.getWidth() == 0 ? 400 : target.getWidth();
+				int maxwidth = targetWidth - (insets.left + insets.right + getHgap() * 2);
 				int width = 0;
 				int height = 0;
 				int component = 0;
@@ -383,8 +359,7 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 				int nmembers = target.getComponentCount();
 
 				Insets insets = target.getInsets();
-				int maxwidth = target.getWidth() - (insets.left + insets.right +
-						getHgap() * 2);
+				int maxwidth = target.getWidth() - (insets.left + insets.right + getHgap() * 2);
 				int width = 0;
 				int height = 0;
 				int component = 0;
@@ -422,5 +397,3 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 	}
 
 }
-
-

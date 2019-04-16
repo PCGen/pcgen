@@ -1,5 +1,4 @@
 /*
- * LevelLstToken.java
  * Copyright 2006 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 2, 2002, 8:16 AM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.persistence.lst;
@@ -26,9 +23,8 @@ package pcgen.persistence.lst;
 import pcgen.core.LevelInfo;
 
 /**
- * <code>LevelLstToken</code>
+ * {@code LevelLstToken}
  *
- * @author  Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public interface LevelLstToken extends LstToken
 {

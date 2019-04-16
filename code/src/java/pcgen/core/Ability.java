@@ -13,16 +13,14 @@
  * library; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite
  * 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  *
- * $Id$
  */
 package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringJoiner;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
@@ -38,11 +36,9 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 /**
  * Definition and games rules for an Ability.
  *
- * @author   ???
  */
 @SuppressWarnings("serial")
-public final class Ability extends PObject implements Categorized<Ability>,
-		AbilityFacade
+public final class Ability extends PObject implements Categorized<Ability>, AbilityFacade, Cloneable
 {
 	/**
 	 * Get the category of this ability
@@ -68,8 +64,7 @@ public final class Ability extends PObject implements Categorized<Ability>,
 		}
 		catch (CloneNotSupportedException e)
 		{
-			ShowMessageDelegate.showMessageDialog(e.getMessage(),
-				Constants.APPLICATION_NAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(e.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);
 			return null;
 		}
 	}
@@ -83,24 +78,21 @@ public final class Ability extends PObject implements Categorized<Ability>,
 	@Override
 	public String getPCCText()
 	{
-		final StringBuilder txt = new StringBuilder(200);
-		txt.append(getDisplayName());
-		txt.append("\tCATEGORY:").append(getCategory());
-		txt.append("\t");
-		txt.append(StringUtil.joinToStringBuilder(Globals.getContext().unparse(
-				this), "\t"));
-		txt.append("\t");
-		txt.append(PrerequisiteWriter.prereqsToString(this));
+		StringJoiner txt = new StringJoiner("\t");
+		txt.add(getDisplayName());
+		txt.add("CATEGORY:" + getCategory());
+		Globals.getContext().unparse(this).forEach(item -> txt.add(item));
+		txt.add(PrerequisiteWriter.prereqsToString(this));
 		return txt.toString();
 	}
 
-    /**
-     * Compare an ability (category) to another one
-     * Returns the compare value from String.compareToIgnoreCase
-     * 
-     * @param obj the object that we're comparing against
-     * @return compare value
-     */
+	/**
+	 * Compare an ability (category) to another one
+	 * Returns the compare value from String.compareToIgnoreCase
+	 * 
+	 * @param obj the object that we're comparing against
+	 * @return compare value
+	 */
 	@Override
 	public int compareTo(final Object obj)
 	{
@@ -111,11 +103,11 @@ public final class Ability extends PObject implements Categorized<Ability>,
 				final Ability ab = (Ability) obj;
 				Category<Ability> cat = getCDOMCategory();
 				Category<Ability> othercat = ab.getCDOMCategory();
-				if (cat == null && othercat != null)
+				if ((cat == null) && (othercat != null))
 				{
 					return -1;
 				}
-				else if (cat != null && othercat == null)
+				else if ((cat != null) && (othercat == null))
 				{
 					return 1;
 				}
@@ -143,78 +135,72 @@ public final class Ability extends PObject implements Categorized<Ability>,
 	}
 
 	/**
-     * Equals function, uses compareTo to do the work
-     * 
+	 * Equals function, uses compareTo to do the work
+	 * 
 	 * @param other Ability to compare to
 	 * @return true if they are equal
 	 */
-    @Override
+	@Override
 	public boolean equals(final Object other)
 	{
-		return other instanceof Ability && this.compareTo(other) == 0;
+		return (other instanceof Ability) && (this.compareTo(other) == 0);
 	}
-    
-    /**
-     * Must be consistent with equals
-     */
-    @Override
-	public int hashCode() {
-    	//Can't be more complicated because the weird nature of compareTo
-    	return getKeyName().hashCode();
-    }
 
-    @Override
+	/**
+	 * Must be consistent with equals
+	 */
+	@Override
+	public int hashCode()
+	{
+		//Can't be more complicated because the weird nature of compareTo
+		return getKeyName().hashCode();
+	}
+
+	@Override
 	public Category<Ability> getCDOMCategory()
 	{
 		return get(ObjectKey.ABILITY_CAT);
 	}
 
-    @Override
+	@Override
 	public void setCDOMCategory(Category<Ability> cat)
 	{
 		put(ObjectKey.ABILITY_CAT, cat);
 	}
-	
+
 	@Override
 	public ListKey<Description> getDescriptionKey()
 	{
 		return ListKey.DESCRIPTION;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.AbilityFacade#getTypes()
-	 */
-    @Override
+	@Override
 	public List<String> getTypes()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
 		List<String> typeNames = new ArrayList<>();
-		for (Type type : trueTypeList) {
+		for (Type type : trueTypeList)
+		{
 			typeNames.add(type.toString());
 		}
 		return typeNames;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.AbilityFacade#isMult()
-	 */
-    @Override
+	@Override
 	public boolean isMult()
 	{
 		return getSafe(ObjectKey.MULTIPLE_ALLOWED);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.AbilityFacade#isStackable()
-	 */
-    @Override
+	@Override
 	public boolean isStackable()
 	{
 		return getSafe(ObjectKey.STACKS);
 	}
 
 	@Override
-	public double getCost() {
+	public double getCost()
+	{
 		return getSafe(ObjectKey.SELECTION_COST).doubleValue();
 	}
 }

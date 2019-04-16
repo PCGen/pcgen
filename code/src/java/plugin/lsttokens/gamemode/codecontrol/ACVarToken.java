@@ -22,11 +22,11 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.CodeControl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
-import pcgen.rules.persistence.token.CDOMToken;
+import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class ACVarToken extends AbstractNonEmptyToken<CodeControl> implements
-		CDOMToken<CodeControl>
+public class ACVarToken extends AbstractNonEmptyToken<CodeControl>
+		implements CDOMPrimaryToken<CodeControl>
 {
 	@Override
 	public String getTokenName()
@@ -35,20 +35,16 @@ public class ACVarToken extends AbstractNonEmptyToken<CodeControl> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CodeControl cdo, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CodeControl cdo, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(
-				getTokenName() + " requires a SubToken", context);
+			return new ParseResult.Fail(getTokenName() + " requires a SubToken");
 		}
 		String acType = value.substring(0, pipeLoc);
 		String varName = value.substring(pipeLoc + 1);
-		context.getObjectContext().put(cdo,
-			ObjectKey.getKeyFor(String.class, "*" + getTokenName() + acType),
-			varName);
+		context.getObjectContext().put(cdo, ObjectKey.getKeyFor(String.class, '*' + getTokenName() + acType), varName);
 		return ParseResult.SUCCESS;
 	}
 
@@ -56,5 +52,12 @@ public class ACVarToken extends AbstractNonEmptyToken<CodeControl> implements
 	public Class<CodeControl> getTokenClass()
 	{
 		return CodeControl.class;
+	}
+
+	@Override
+	public String[] unparse(LoadContext context, CodeControl obj)
+	{
+		//Dynamic build of ObjectKey prevents this
+		throw new UnsupportedOperationException("Cannot unparse ACVAR code control");
 	}
 }

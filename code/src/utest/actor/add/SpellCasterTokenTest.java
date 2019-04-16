@@ -19,27 +19,20 @@ package actor.add;
 
 import pcgen.cdom.base.Persistent;
 import pcgen.core.PCClass;
+import plugin.lsttokens.add.SpellCasterToken;
 
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
-import org.junit.Test;
-import plugin.lsttokens.add.SpellCasterToken;
 
 public class SpellCasterTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<PCClass>
 {
 
-	private static final Persistent<PCClass> pca = new SpellCasterToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
+	private static final Persistent<PCClass> PCA = new SpellCasterToken();
 
 	@Override
 	public Persistent<PCClass> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

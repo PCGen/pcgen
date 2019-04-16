@@ -53,7 +53,7 @@ public class ClassSkillList extends CDOMListObject<Skill>
 	@Override
 	public boolean isType(String type)
 	{
-		if ((type.length() == 0) || (types == null))
+		if ((type.isEmpty()) || (types == null))
 		{
 			return false;
 		}

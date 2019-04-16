@@ -15,22 +15,17 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 1, 2002, 1:22 PM
  */
 package pcgen.core.doomsdaybook;
 
 /**
- * <code>variableException</code> is an exception raised when a problem 
+ * {@code variableException} is an exception raised when a problem
  * occurs when processing a variable.
- *
- *
- * @author Devon D Jones
  */
 public class variableException extends Exception
 {
 	/**
-	 * Creates a new instance of <code>variableException</code> without detail message.
+	 * Creates a new instance of {@code variableException} without detail message.
 	 */
 	public variableException()
 	{
@@ -38,7 +33,7 @@ public class variableException extends Exception
 	}
 
 	/**
-	 * Constructs an instance of <code>variableException</code> with the specified detail message.
+	 * Constructs an instance of {@code variableException} with the specified detail message.
 	 * @param msg the detail message.
 	 */
 	public variableException(String msg)

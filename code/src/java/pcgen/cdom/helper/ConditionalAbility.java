@@ -28,8 +28,7 @@ public class ConditionalAbility
 	private final AssociatedPrereqObject assoc;
 	private final CDOMObject parent;
 
-	public ConditionalAbility(Ability abil, AssociatedPrereqObject apo,
-			CDOMObject cdo)
+	public ConditionalAbility(Ability abil, AssociatedPrereqObject apo, CDOMObject cdo)
 	{
 		ability = abil;
 		assoc = apo;

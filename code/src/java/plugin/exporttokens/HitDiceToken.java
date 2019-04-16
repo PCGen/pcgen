@@ -15,17 +15,16 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -42,26 +41,18 @@ public class HitDiceToken extends Token
 	/** Token Name */
 	public static final String TOKENNAME = "HITDICE";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
 
-		if ("HITDICE".equals(tokenSource) ||
-			"HITDICE.LONG".equals(tokenSource))
+		if ("HITDICE".equals(tokenSource) || "HITDICE.LONG".equals(tokenSource))
 		{
 			retString = getHitDiceToken(pc);
 		}
@@ -90,34 +81,22 @@ public class HitDiceToken extends Token
 		CharacterDisplay display = pc.getDisplay();
 		for (PCClass pcClass : display.getClassSet())
 		{
-			HashMap<Integer, Integer> hdMap =
-					new LinkedHashMap<>();
+			HashMap<Integer, Integer> hdMap = new LinkedHashMap<>();
 
-			for (int i = 0; i < display.getLevel(pcClass); i++)
-			{
-				int hitDie = display.getLevelHitDie(pcClass, i + 1).getDie();
-				if (hitDie != 0)
-				{
-					Integer num = hdMap.get(hitDie);
-					if (num == null)
-					{
-						hdMap.put(hitDie, 1);
-					}
-					else
-					{
-						hdMap.put(hitDie, num.intValue() + 1);
-					}
-				}
-			}
+			IntStream.range(0, display.getLevel(pcClass))
+					.map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
+					.filter(hitDie -> hitDie != 0).forEach(hitDie ->
+						hdMap.merge(hitDie, 1, (a, b) -> a + b)
+			);
 
 			Set<Integer> keys = hdMap.keySet();
 			for (int key : keys)
 			{
 				Integer value = hdMap.get(key);
 				ret.append(del);
-				ret.append("(");
-				ret.append(value).append("d").append(key);
-				ret.append(")");
+				ret.append('(');
+				ret.append(value).append('d').append(key);
+				ret.append(')');
 				del = "+";
 			}
 		}
@@ -147,29 +126,14 @@ public class HitDiceToken extends Token
 		String del = "";
 		Integer total = 0;
 
-		HashMap<Integer, Integer> hdMap =
-				new LinkedHashMap<>();
+		HashMap<Integer, Integer> hdMap = new LinkedHashMap<>();
 
 		CharacterDisplay display = pc.getDisplay();
-		for (PCClass pcClass : display.getClassSet())
-		{
-			for (int i = 0; i < display.getLevel(pcClass); i++)
-			{
-				int hitDie = display.getLevelHitDie(pcClass, i + 1).getDie();
-				if (hitDie != 0)
-				{
-					Integer num = hdMap.get(hitDie);
-					if (num == null)
-					{
-						hdMap.put(hitDie, 1);
-					}
-					else
-					{
-						hdMap.put(hitDie, num.intValue() + 1);
-					}
-				}
-			}
-		}
+		display.getClassSet().forEach(pcClass ->
+				IntStream.range(0, display.getLevel(pcClass))
+						.map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
+						.filter(hitDie -> hitDie != 0)
+						.forEach(hitDie -> hdMap.merge(hitDie, 1, (a, b) -> a + b)));
 		Set<Integer> keys = hdMap.keySet();
 
 		if (keys.size() > 1)
@@ -181,11 +145,11 @@ public class HitDiceToken extends Token
 		{
 			Integer value = hdMap.get(key);
 			ret.append(del);
-			ret.append(value).append("d").append(key);
+			ret.append(value).append('d').append(key);
 			total += value;
 			del = "+";
 		}
-	
+
 		// Get CON bonus contribution to hitpoint total
 		int temp = (int) display.getStatBonusTo("HP", "BONUS") * display.getTotalLevels();
 
@@ -207,35 +171,17 @@ public class HitDiceToken extends Token
 	 */
 	public static String getShortToken(CharacterDisplay display)
 	{
-		int dice;
-
-		dice = 0;
-
-		for (PCClass pcClass : display.getClassSet())
-		{
-			HashMap<Integer, Integer> hdMap =
-					new LinkedHashMap<>();
-
-			for (int i = 0; i < display.getLevel(pcClass); i++)
-			{
-				int hitDie = display.getLevelHitDie(pcClass, i + 1).getDie();
-				Integer num = hdMap.get(hitDie);
-				if (num == null)
-				{
-					hdMap.put(hitDie, 1);
-				}
-				else
-				{
-					hdMap.put(hitDie, num.intValue() + 1);
-				}
-			}
-
-			Set<Integer> keys = hdMap.keySet();
-			for (int hdSize : keys)
-			{
-				dice += hdMap.get(hdSize);
-			}
-		}
+		int dice = display.getClassSet().stream()
+				.map(pcClass ->
+						IntStream.range(0, display.getLevel(pcClass))
+								.map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
+								.boxed()
+								.collect(Collectors.toMap(Function.identity(),
+										hitDie -> 1,
+										(a, b) -> a + b,
+										LinkedHashMap::new)))
+				.mapToInt(hdMap -> hdMap.entrySet().stream().mapToInt(Map.Entry::getValue).sum())
+				.sum();
 
 		return String.valueOf(dice);
 	}

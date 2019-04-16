@@ -40,10 +40,8 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * @see pcgen.cdom.facet.CDOMObjectSourceFacet
  * @see pcgen.cdom.facet.CDOMObjectBridge
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class CDOMObjectConsolidationFacet implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class CDOMObjectConsolidationFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private CDOMObjectBridge bridgeFacet;
 
@@ -109,8 +107,7 @@ public class CDOMObjectConsolidationFacet implements
 	 *            The DataFacetChangeListener to receive DataFacetChangeEvents
 	 *            from this CDOMObjectConsolidationFacet
 	 */
-	public void addDataFacetChangeListener(
-		DataFacetChangeListener<CharID, ? super CDOMObject> listener)
+	public void addDataFacetChangeListener(DataFacetChangeListener<CharID, ? super CDOMObject> listener)
 	{
 		bridgeFacet.addDataFacetChangeListener(listener);
 	}
@@ -128,8 +125,6 @@ public class CDOMObjectConsolidationFacet implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -151,8 +146,6 @@ public class CDOMObjectConsolidationFacet implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -175,6 +168,5 @@ public class CDOMObjectConsolidationFacet implements
 	{
 		return bridgeFacet.getSet(id);
 	}
-	
-	
+
 }

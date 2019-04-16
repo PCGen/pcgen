@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Mar 23, 2006
- *
- * $Id: $
- *
  */
 package plugin.exporttokens;
 
@@ -31,29 +26,19 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * <code>SpellBookToken</code> gives the requested details of a spellbook. 
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ * {@code SpellBookToken} gives the requested details of a spellbook.
  */
 public class SpellBookToken extends AbstractExportToken
 {
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "SPELLBOOK";
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		String retString = "";
 

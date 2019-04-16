@@ -25,9 +25,7 @@ import pcgen.core.PCClass;
  * DomainSpellCountFacet stores the number of Domain spells available to a given
  * PCClass for a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class DomainSpellCountFacet extends
-		AbstractAssociationFacet<CharID, PCClass, Integer>
+public class DomainSpellCountFacet extends AbstractAssociationFacet<CharID, PCClass, Integer>
 {
 }

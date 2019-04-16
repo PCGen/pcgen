@@ -1,5 +1,4 @@
 /*
- * KitRace.java
  * Copyright 2005 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on October 15, 2005, 10:00 PM
- *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -49,12 +44,7 @@ public class KitRace extends BaseKit
 		// We want to level up as quietly as possible for kits.
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
-		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
-		SettingsHandler.setShowFeatDialogAtLevelUp(false);
-		
 		aPC.setRace(theRace.get());
-		
-		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 	}
 

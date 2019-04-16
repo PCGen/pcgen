@@ -14,36 +14,31 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
- package plugin.encounter;
+package plugin.encounter;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
+
+import javax.swing.DefaultComboBoxModel;
 
 import gmgen.io.ReadXML;
 import gmgen.io.VectorTable;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-import javax.swing.DefaultComboBoxModel;
-import java.io.File;
-import java.util.NoSuchElementException;
-import java.util.Vector;
-
-/**
- * @author Jerril
- *
- */
-public class EnvironmentModel extends DefaultComboBoxModel
+public class EnvironmentModel extends DefaultComboBoxModel<Object>
 {
-	private String dir;
+	private final String dir;
 
 	/**
 	 * Constructor
 	 * @param parentDir
 	 */
-	public EnvironmentModel(String parentDir)
+	EnvironmentModel(String parentDir)
 	{
-		super();
 		dir = parentDir;
 	}
 
@@ -62,7 +57,7 @@ public class EnvironmentModel extends DefaultComboBoxModel
 		{
 			// TODO Make it so that the view also indicate that the file is missing.
 			Logging.errorPrintLocalised("in_plugin_encounter_error_missing", f); //$NON-NLS-1$
-			
+
 			return;
 		}
 
@@ -71,11 +66,12 @@ public class EnvironmentModel extends DefaultComboBoxModel
 
 		this.addElement(LanguageBundle.getString("in_plugin_encounter_generic")); //$NON-NLS-1$
 
-		for (int x = 1; x < table.sizeY(); x++)
+		for (int x = 1; x < table.size(); x++)
 		{
 			try
 			{
-				this.addElement(((Vector) table.elementAt(x)).firstElement());
+				List<String> row = (ArrayList<String>) table.get(x);
+				this.addElement(row.get(0));
 			}
 			catch (NoSuchElementException e)
 			{

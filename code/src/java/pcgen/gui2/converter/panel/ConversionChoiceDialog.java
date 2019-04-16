@@ -1,5 +1,4 @@
 /*
- * ConversionChoiceDialog.java
  * Copyright 2009 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 27/01/2009 10:56:36 PM
- *
- * $Id$
  */
 package pcgen.gui2.converter.panel;
 
@@ -43,27 +38,25 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>ConversionChoiceDialog</code> is responsible for 
+ * The Class {@code ConversionChoiceDialog} is responsible for
  * displaying choices the user needs to make as part of the conversion 
  * of some data items. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
-public class ConversionChoiceDialog extends JDialog implements
-	ActionListener
+public class ConversionChoiceDialog extends JDialog implements ActionListener
 {
-	
-	private List<String> choices;
-	private String introText;
-	
+
+	private final List<String> choices;
+	private final String introText;
+
 	/** The result selected by the user. */
 	private int result = -1;
 
-	private JComboBox choiceCombo;
-	private int defaultChoice;
-	
+	private JComboBox<String> choiceCombo;
+	private final int defaultChoice;
+
 	/**
 	 * Instantiates a new decision dialog for the data converter.
 	 * 
@@ -79,11 +72,11 @@ public class ConversionChoiceDialog extends JDialog implements
 		this.introText = introText;
 		this.choices = choices;
 		this.defaultChoice = defaultChoice;
-		
+
 		initComponents();
-		setLocationRelativeTo(parent); 
+		setLocationRelativeTo(parent);
 	}
-	
+
 	/**
 	 * @return the result
 	 */
@@ -104,37 +97,33 @@ public class ConversionChoiceDialog extends JDialog implements
 		introLabel.setWrapStyleWord(true);
 		introLabel.setLineWrap(true);
 		GridBagConstraints gbc = new GridBagConstraints();
-		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
-			1.0, 1.0);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 1.0);
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.insets = new Insets(10, 10, 5, 10);
 		add(introLabel, gbc);
 
-		choiceCombo = new JComboBox();
+		choiceCombo = new JComboBox<>();
 		for (String choice : choices)
 		{
 			choiceCombo.addItem(choice);
 		}
-		if (defaultChoice >=0 && defaultChoice < choices.size())
+		if (defaultChoice >= 0 && defaultChoice < choices.size())
 		{
 			choiceCombo.setSelectedIndex(defaultChoice);
 		}
-		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0, 
-			GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0, GridBagConstraints.HORIZONTAL,
+			GridBagConstraints.WEST);
 		gbc.insets = new Insets(5, 10, 5, 10);
 		add(choiceCombo, gbc);
 
 		JLabel dummy = new JLabel(" ");
-		Utility.buildRelativeConstraints(gbc, 1, 1, 1.0, 0.0,
-			GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
+		Utility.buildRelativeConstraints(gbc, 1, 1, 1.0, 0.0, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
 		add(dummy, gbc);
 
-		JButton okButton =
-				new JButton(LanguageBundle.getString("in_ok"));
+		JButton okButton = new JButton(LanguageBundle.getString("in_ok"));
 		okButton.addActionListener(this);
 		getRootPane().setDefaultButton(okButton);
-		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER,
-			GridBagConstraints.REMAINDER, 0, 0,
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER, 0, 0,
 			GridBagConstraints.NONE, GridBagConstraints.EAST);
 		gbc.insets = new Insets(5, 5, 10, 10);
 		add(okButton, gbc);
@@ -151,12 +140,9 @@ public class ConversionChoiceDialog extends JDialog implements
 				logChoice();
 			}
 		});
-		
+
 	}
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -167,9 +153,7 @@ public class ConversionChoiceDialog extends JDialog implements
 
 	private void logChoice()
 	{
-		Logging
-			.log(Logging.INFO,
-				"Decision required: " + introText + "\nChoices: " + choices
-					+ "\nChoice made: " + choices.get(result));
+		Logging.log(Logging.INFO,
+			"Decision required: " + introText + "\nChoices: " + choices + "\nChoice made: " + choices.get(result));
 	}
 }

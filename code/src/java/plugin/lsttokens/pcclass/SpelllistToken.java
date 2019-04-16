@@ -44,8 +44,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with SPELLLIST Token
  */
-public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
-		implements CDOMPrimaryToken<PCClass>
+public class SpelllistToken extends AbstractTokenWithSeparator<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	private static final Class<ClassSpellList> SPELLLIST_CLASS = ClassSpellList.class;
@@ -70,21 +69,18 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
 		Formula count = FormulaFactory.getFormulaFor(tok.nextToken());
 		if (!count.isValid())
 		{
-			return new ParseResult.Fail("Count in " + getTokenName()
-					+ " was not valid: " + count.toString(), context);
+			return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
 		}
 		if (!count.isStatic() || count.resolveStatic().intValue() <= 0)
 		{
-			return new ParseResult.Fail("Count in " + getTokenName() + " must be > 0", context);
+			return new ParseResult.Fail("Count in " + getTokenName() + " must be > 0");
 		}
 		if (!tok.hasMoreTokens())
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " must have a | separating "
-					+ "count from the list of possible values: " + value, context);
+			return new ParseResult.Fail(
+				getTokenName() + " must have a | separating " + "count from the list of possible values: " + value);
 		}
-		List<CDOMReference<? extends CDOMListObject<Spell>>> refs =
-				new ArrayList<>();
+		List<CDOMReference<? extends CDOMListObject<Spell>>> refs = new ArrayList<>();
 
 		while (tok.hasMoreTokens())
 		{
@@ -96,8 +92,7 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
 			}
 			else if (token.startsWith("DOMAIN."))
 			{
-				ref = context.getReferenceContext().getCDOMReference(DOMAINSPELLLIST_CLASS, token
-						.substring(7));
+				ref = context.getReferenceContext().getCDOMReference(DOMAINSPELLLIST_CLASS, token.substring(7));
 			}
 			else
 			{
@@ -106,20 +101,16 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
 			refs.add(ref);
 		}
 
-		PrimitiveChoiceSet<CDOMListObject<Spell>> rcs = new SpellReferenceChoiceSet(
-				refs);
+		PrimitiveChoiceSet<CDOMListObject<Spell>> rcs = new SpellReferenceChoiceSet(refs);
 		if (!rcs.getGroupingState().isValid())
 		{
-			return new ParseResult.Fail("Non-sensical "
-					+ getTokenName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+			return new ParseResult.Fail(
+				"Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value);
 		}
 
-		ChoiceSet<? extends CDOMListObject<Spell>> cs = new ChoiceSet<>(
-				getTokenName(), rcs);
+		ChoiceSet<? extends CDOMListObject<Spell>> cs = new ChoiceSet<>(getTokenName(), rcs);
 		cs.setTitle("Select class whose list of spells this class will use");
-		TransitionChoice<CDOMListObject<Spell>> tc = new ConcreteTransitionChoice<>(
-				cs, count);
+		TransitionChoice<CDOMListObject<Spell>> tc = new ConcreteTransitionChoice<>(cs, count);
 		context.getObjectContext().put(pcc, ObjectKey.SPELLLIST_CHOICE, tc);
 		tc.setRequired(false);
 		return ParseResult.SUCCESS;
@@ -128,8 +119,8 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		TransitionChoice<CDOMListObject<Spell>> grantChanges = context
-				.getObjectContext().getObject(pcc, ObjectKey.SPELLLIST_CHOICE);
+		TransitionChoice<CDOMListObject<Spell>> grantChanges =
+				context.getObjectContext().getObject(pcc, ObjectKey.SPELLLIST_CHOICE);
 		if (grantChanges == null)
 		{
 			// Zero indicates no Token
@@ -139,15 +130,13 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
 		Formula count = grantChanges.getCount();
 		if (count == null)
 		{
-			context.addWriteMessage("Unable to find " + getTokenName()
-					+ " Count");
+			context.addWriteMessage("Unable to find " + getTokenName() + " Count");
 			return null;
 		}
 		sb.append(count);
 		sb.append(Constants.PIPE);
-		sb.append(grantChanges.getChoices().getLSTformat().replaceAll(
-				Constants.COMMA, Constants.PIPE));
-		return new String[] { sb.toString() };
+		sb.append(grantChanges.getChoices().getLSTformat().replaceAll(Constants.COMMA, Constants.PIPE));
+		return new String[]{sb.toString()};
 	}
 
 	@Override

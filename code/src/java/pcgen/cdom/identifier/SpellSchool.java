@@ -40,12 +40,6 @@ public class SpellSchool implements Loadable, Comparable<SpellSchool>
 	}
 
 	@Override
-	public String getLSTformat()
-	{
-		return name;
-	}
-
-	@Override
 	public boolean isInternal()
 	{
 		return false;
@@ -72,8 +66,7 @@ public class SpellSchool implements Loadable, Comparable<SpellSchool>
 	@Override
 	public boolean equals(Object other)
 	{
-		return other instanceof SpellSchool
-			&& name.equals(((SpellSchool) other).name);
+		return other instanceof SpellSchool && name.equals(((SpellSchool) other).name);
 	}
 
 	@Override

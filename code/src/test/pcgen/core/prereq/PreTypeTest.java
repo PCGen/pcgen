@@ -1,6 +1,4 @@
 /*
- * PreTypeTest.java
- *
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,19 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 12-Jul-2004
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.core.prereq;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
@@ -36,25 +27,15 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import plugin.pretokens.test.PreTypeTester;
 
+import org.junit.jupiter.api.Test;
+
 public class PreTypeTest extends AbstractCharacterTestCase
 {
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreTypeTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreTypeTest.class);
-	}
-
 	/**
 	 * Ensure a character with a template correctly passes
 	 * PRETEMPLATE
 	 */
+	@Test
 	public void test996803_1()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -78,6 +59,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 	 * Ensure a character with a template correctly passes
 	 * PRETEMPLATE
 	 */
+	@Test
 	public void test996803_2()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -97,6 +79,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
+	@Test
 	public void test996803_3()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -111,6 +94,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
+	@Test
 	public void test996803_4()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -130,6 +114,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
+	@Test
 	public void testKindHandled()
 	{
 		final PreTypeTester preType = new PreTypeTester();

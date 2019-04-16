@@ -1,5 +1,4 @@
 /*
- * PObjectTest.java
  * Copyright 2005 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,21 +14,17 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Apr 9, 2005
- *
- * $Id$
- *
  */
 package pcgen.core;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
 import java.util.Iterator;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.format.StringManager;
@@ -45,6 +40,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.AbilityList;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -55,61 +51,21 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Test the PObject class.
- * @author jdempsey
  */
 @SuppressWarnings("nls")
 public class PObjectTest extends AbstractCharacterTestCase
 {
-
 	/**
-	 * Constructs a new <code>PObjectTest</code>.
-	 *
-	 * @see PCGenTestCase#PCGenTestCase()
+	 * Test DR.
 	 */
-	public PObjectTest()
-	{
-		// Do Nothing
-	}
-
-	/**
-	 * Constructs a new <code>PObjectTest</code> with the given <var>name</var>.
-	 *
-	 * @param name the test case name
-	 *
-	 * @see PCGenTestCase#PCGenTestCase(String)
-	 */
-	public PObjectTest(final String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Run the tests
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(PObjectTest.class);
-	}
-
-	/**
-	 * Returns all the test methods in this class.
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		// quick method, adds all methods beginning with "test"
-		return new TestSuite(PObjectTest.class);
-	}
-
-	/**
-	 * Test DR
-	 * @throws Exception
-	 */
-	public void testDR() throws Exception
+	@Test
+	public void testDR()
 	{
 		Race race = new Race();
 		LoadContext context = Globals.getContext();
@@ -146,16 +102,17 @@ public class PObjectTest extends AbstractCharacterTestCase
 	/**
 	 * Test the processing of getPCCText to ensure that it correctly produces
 	 * an LST representation of an object and that the LST can then be reloaded
-	 * to recrete the object.
+	 * to recreate the object.
 	 *
-	 * @throws PersistenceLayerException
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testGetPCCText() throws PersistenceLayerException
 	{
 		OrderedPairManager opManager = new OrderedPairManager();
 		LoadContext context = Globals.getContext();
 		context.getVariableContext().assertLegalVariableID(
-			context.getActiveScope().getLegalScope(), opManager, "Face");
+			CControl.FACE.getDefaultValue(), context.getActiveScope(), opManager);
 		Race race = new Race();
 		race.setName("TestRace");
 		race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating(FormulaFactory.getFormulaFor(5)));
@@ -204,32 +161,34 @@ public class PObjectTest extends AbstractCharacterTestCase
 	/**
 	 * Test the function of adding a bonus each time an associated value is chosen.
 	 */
+	@Test
 	public void testAssociatedBonus()
 	{
 		Ability pObj = new Ability();
-		pObj.setCDOMCategory(AbilityCategory.FEAT);
+		pObj.setCDOMCategory(BuildUtilities.getFeatCat());
 		pObj.setName("My PObject");
-		pObj.setCDOMCategory(AbilityCategory.FEAT);
+		pObj.setCDOMCategory(BuildUtilities.getFeatCat());
 		Globals.getContext().unconditionallyProcess(pObj, "CHOOSE", "LANG|ALL");
 		Globals.getContext().unconditionallyProcess(pObj, "MULT", "YES");
 		Globals.getContext().unconditionallyProcess(pObj, "STACK", "YES");
 		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "TestPsion 1");
 
 		PlayerCharacter aPC = getCharacter();
-		CNAbility cna = AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "TestPsion 1");
+		CNAbility cna = AbstractCharacterTestCase.applyAbility(aPC,
+			BuildUtilities.getFeatCat(), pObj, "TestPsion 1");
 		pObj = cna.getAbility();
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, pObj);
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 1 bonus known spells", 1, (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
-		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "TestPsion 1");
+		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "TestPsion 1");
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, pObj);
 		aPC.calcActiveBonuses();
 		assertEquals("Should get 4 bonus known spells", (2 * 2), (int) aPC
 			.getTotalBonusTo("SPELLKNOWN", "CLASS.TestPsion;LEVEL.1"));
-		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "TestPsion 1");
+		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "TestPsion 1");
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
 			aPC, pObj);
 		aPC.calcActiveBonuses();
@@ -242,6 +201,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 * no choices and adds a static bonus.
 	 * @throws Exception 
 	 */
+	@Test
 	public void testNoChoiceBonus() throws Exception
 	{
 		CampaignSourceEntry source;
@@ -259,19 +219,19 @@ public class PObjectTest extends AbstractCharacterTestCase
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
+				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	"
+				+ "MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
 
 		Ability pObj = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Ability.class,
-						AbilityCategory.FEAT, "Toughness");
+			.getManufacturerId(BuildUtilities.getFeatCat()).getActiveObject("Toughness");
 		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Foo");
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
-		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "");
+		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "");
 		aPC.calcActiveBonuses();
 		assertEquals("Should have added 3 HPs", baseHP + 3, aPC.hitPoints());
 
-		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "");
+		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "");
 		aPC.calcActiveBonuses();
 		assertEquals("2 instances should have added 6 HPs", baseHP + 6, aPC
 			.hitPoints());
@@ -283,6 +243,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 * a single choice and adds a static bonus.
 	 * @throws Exception 
 	 */
+	@Test
 	public void testNoSubsChoiceBonus() throws Exception
 	{
 		CampaignSourceEntry source;
@@ -300,17 +261,17 @@ public class PObjectTest extends AbstractCharacterTestCase
 			.parseLine(
 				Globals.getContext(),
 				null,
-				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
+				"Toughness	CATEGORY:FEAT	TYPE:General	STACK:YES	"
+				+ "MULT:YES	CHOOSE:NOCHOICE	BONUS:HP|CURRENTMAX|3", source);
 		Ability pObj = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Ability.class,
-						AbilityCategory.FEAT, "Toughness");
+			.getManufacturerId(BuildUtilities.getFeatCat()).getActiveObject("Toughness");
 		PlayerCharacter aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
-		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "");
+		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "");
 		aPC.calcActiveBonuses();
 		assertEquals("Should have added 3 HPs", baseHP + 3, aPC.hitPoints());
 
-		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "");
+		AbstractCharacterTestCase.applyAbility(aPC, BuildUtilities.getFeatCat(), pObj, "");
 		aPC.calcActiveBonuses();
 		assertEquals("2 instances should have added 6 HPs", baseHP + 6, aPC
 			.hitPoints());
@@ -320,6 +281,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	/**
 	 * Tests description handling
 	 */
+	@Test
 	public void testDescription()
 	{
 		final Description desc1 = new Description("Description 1.");
@@ -353,6 +315,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 	 * Test the definition and application of abilities. 
 	 * @throws PersistenceLayerException 
 	 */
+	@Test
 	public void testAddAbility() throws PersistenceLayerException
 	{
 		// Create some abilities to be added
@@ -415,21 +378,4 @@ public class PObjectTest extends AbstractCharacterTestCase
 			Nature.AUTOMATIC, ab2));
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-	}
-
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
-	@Override
-	protected void tearDown() throws Exception
-	{
-		super.tearDown();
-	}
 }

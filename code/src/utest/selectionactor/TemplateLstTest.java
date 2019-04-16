@@ -19,26 +19,19 @@ package selectionactor;
 
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.PCTemplate;
-
-import org.junit.Test;
 import plugin.lsttokens.TemplateLst;
+
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class TemplateLstTest extends AbstractSelectionActorTest<PCTemplate>
 {
 
-	private static final ChooseSelectionActor<PCTemplate> csa = new TemplateLst();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
+	private static final ChooseSelectionActor<PCTemplate> CSA = new TemplateLst();
 
 	@Override
 	public ChooseSelectionActor<PCTemplate> getActor()
 	{
-		return csa;
+		return CSA;
 	}
 
 	@Override

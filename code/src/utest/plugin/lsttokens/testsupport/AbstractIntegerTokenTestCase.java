@@ -17,11 +17,16 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 		extends AbstractCDOMTokenTestCase<T>
@@ -36,24 +41,17 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	public abstract boolean isPositiveAllowed();
 
 	@Test
-	public void testInvalidInputUnset() throws PersistenceLayerException
+	public void testInvalidInputUnset()
 	{
 		testInvalidInputs(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSet() throws PersistenceLayerException
+	public void testInvalidInputSet()
 	{
 		Integer con;
-		if (isPositiveAllowed())
-		{
-			con = 3;
-		}
-		else
-		{
-			con = -3;
-		}
+		con = isPositiveAllowed() ? 3 : -3;
 		assertTrue(parse(con.toString()));
 		assertTrue(parseSecondary(con.toString()));
 		assertEquals(con, primaryProf.get(getIntegerKey()));
@@ -61,7 +59,7 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 		assertNoSideEffects();
 	}
 
-	public void testInvalidInputs(Integer val) throws PersistenceLayerException
+	public void testInvalidInputs(Integer val)
 	{
 		// Always ensure get is unchanged
 		// since no invalid item should set or reset the value
@@ -105,7 +103,7 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		if (isPositiveAllowed())
 		{
@@ -127,9 +125,9 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testOutputOne() throws PersistenceLayerException
+	public void testOutputOne()
 	{
-		assertTrue(0 == primaryContext.getWriteMessageCount());
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(getIntegerKey(), 1);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		if (isPositiveAllowed())
@@ -145,9 +143,9 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testOutputZero() throws PersistenceLayerException
+	public void testOutputZero()
 	{
-		assertTrue(0 == primaryContext.getWriteMessageCount());
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(getIntegerKey(), 0);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		if (isZeroAllowed())
@@ -163,9 +161,9 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testOutputMinusTwo() throws PersistenceLayerException
+	public void testOutputMinusTwo()
 	{
-		assertTrue(0 == primaryContext.getWriteMessageCount());
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(getIntegerKey(), -2);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		if (isNegativeAllowed())
@@ -181,21 +179,21 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 		if (isPositiveAllowed())
 		{
 			assertTrue(parse("5"));
 			assertTrue(parse("1"));
 			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertEquals("Expected item to be equal", "1", unparsed[0]);
+			assertEquals("1", unparsed[0]);
 		}
 		else
 		{
 			assertTrue(parse("-2"));
 			assertTrue(parse("-4"));
 			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertEquals("Expected item to be equal", "-4", unparsed[0]);
+			assertEquals("-4", unparsed[0]);
 		}
 	}
 
@@ -238,27 +236,13 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	@Override
 	protected String getLegalValue()
 	{
-		if (isPositiveAllowed())
-		{
-			return "1";
-		}
-		else
-		{
-			return "-1";
-		}
+		return isPositiveAllowed() ? "1" : "-1";
 	}
 
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		if (isPositiveAllowed())
-		{
-			return "2";
-		}
-		else
-		{
-			return "-2";
-		}
+		return isPositiveAllowed() ? "2" : "-2";
 	}
 
 	@Test
@@ -268,7 +252,7 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testUnparseOne() throws PersistenceLayerException
+	public void testUnparseOne()
 	{
 		if (isPositiveAllowed())
 		{
@@ -282,7 +266,7 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testUnparseZero() throws PersistenceLayerException
+	public void testUnparseZero()
 	{
 		if (isZeroAllowed())
 		{
@@ -296,7 +280,7 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testUnparseNegative() throws PersistenceLayerException
+	public void testUnparseNegative()
 	{
 		if (isNegativeAllowed())
 		{
@@ -310,7 +294,7 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getIntegerKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));

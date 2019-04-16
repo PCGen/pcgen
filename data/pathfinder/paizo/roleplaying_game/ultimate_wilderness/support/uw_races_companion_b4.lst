@@ -1,0 +1,21 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
+
+#Companion Support
+# Race Name						Ability
+Companion (Dinosaur (Dimorphodon)).MOD	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Avian
+Companion (Dinosaur (Diplodocus)).MOD	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Other)
+Companion (Dinosaur (Styracosaurus)).MOD	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Hooves)
+Companion (Giraffe).MOD				ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Hooves)
+Companion (Stag).MOD				ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Hooves)
+Companion (Seahorse).MOD			ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Piscine
+Companion (Trumpeter Swan).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Avian
+Companion (Tortoise).MOD			ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Short Legs)
+Companion (Weasel (Giant)).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Claws)
+Companion (Walrus).MOD				ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Piscine
+
+#Familiar Support
+Familiar (Archaeopteryx).MOD			ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Avian
+Familiar (Sloth).MOD				ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Claws)
+Familiar (Tuatara).MOD				ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Short Legs)
+Familiar (Giant Flea).MOD			ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Unusual (Plant and Vermin)

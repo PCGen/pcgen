@@ -15,57 +15,25 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  * 
- * Created on Apr 9, 2006
  */
 package pcgen.gui2.converter.event;
+
+import java.util.stream.IntStream;
 
 import javax.swing.event.EventListenerList;
 
 public final class TaskStrategyMessage
 {
-
 	private TaskStrategyMessage()
 	{
-		super();
-	}
-
-	public static void sendMessage(Object owner, String string)
-	{
-		Object[] listeners = LISTENER_LIST.getListenerList();
-		for (int i = listeners.length - 2; i >= 0; i -= 2)
-		{
-			if (listeners[i] == TaskStrategyListener.class)
-			{
-				((TaskStrategyListener) listeners[i + 1]).processMessage(owner,
-						string);
-			}
-		}
 	}
 
 	public static void sendStatus(Object source, String string)
 	{
 		Object[] listeners = LISTENER_LIST.getListenerList();
-		for (int i = listeners.length - 2; i >= 0; i -= 2)
-		{
-			if (listeners[i] == TaskStrategyListener.class)
-			{
-				((TaskStrategyListener) listeners[i + 1]).processStatus(source,
-						string);
-			}
-		}
-	}
-
-	public static void sendActiveItem(Object source, String string)
-	{
-		Object[] listeners = LISTENER_LIST.getListenerList();
-		for (int i = listeners.length - 2; i >= 0; i -= 2)
-		{
-			if (listeners[i] == TaskStrategyListener.class)
-			{
-				((TaskStrategyListener) listeners[i + 1]).processActiveItem(
-						source, string);
-			}
-		}
+		IntStream.iterate(listeners.length - 2, i -> i >= 0, i -> i - 2)
+		         .filter(i -> listeners[i] == TaskStrategyListener.class)
+		         .forEach(i -> ((TaskStrategyListener) listeners[i + 1]).processStatus(source, string));
 	}
 
 	private static final EventListenerList LISTENER_LIST = new EventListenerList();
@@ -74,15 +42,4 @@ public final class TaskStrategyMessage
 	{
 		LISTENER_LIST.add(TaskStrategyListener.class, listener);
 	}
-
-	public static synchronized TaskStrategyListener[] getTaskStrategyListeners()
-	{
-		return LISTENER_LIST.getListeners(TaskStrategyListener.class);
-	}
-
-	public static void removeTaskStrategyListener(TaskStrategyListener listener)
-	{
-		LISTENER_LIST.remove(TaskStrategyListener.class, listener);
-	}
-
 }

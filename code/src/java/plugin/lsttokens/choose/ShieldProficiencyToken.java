@@ -27,8 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * New chooser plugin, handles shield proficiency.
  */
-public class ShieldProficiencyToken extends
-		AbstractQualifiedChooseToken<ShieldProf>
+public class ShieldProficiencyToken extends AbstractQualifiedChooseToken<ShieldProf>
 {
 
 	private static final Class<ShieldProf> SHIELDPROF_CLASS = ShieldProf.class;
@@ -48,8 +47,7 @@ public class ShieldProficiencyToken extends
 	@Override
 	public ShieldProf decodeChoice(LoadContext context, String s)
 	{
-		return context.getReferenceContext()
-			.silentlyGetConstructedCDOMObject(SHIELDPROF_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(SHIELDPROF_CLASS, s);
 	}
 
 	@Override
@@ -65,10 +63,15 @@ public class ShieldProficiencyToken extends
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext()
-				.getManufacturer(SHIELDPROF_CLASS), obj, value);
+		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(SHIELDPROF_CLASS),
+			obj, value);
+	}
+
+	@Override
+	protected String getPersistentFormat()
+	{
+		return "SHIELDPROF";
 	}
 }

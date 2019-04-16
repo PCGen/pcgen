@@ -1,6 +1,4 @@
 /*
- * PreRule.java
- *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 19-Dec-2003
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.pretokens.test;
 
@@ -34,10 +27,6 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 
-/**
- * @author wardc
- *
- */
 public class PreRuleTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
@@ -45,18 +34,15 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "RULE"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
-	 */
 	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment,
-		PlayerCharacter aPC) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC)
+		throws PrerequisiteException
 	{
 		int runningTotal = 0;
 		int targetNumber;
@@ -78,21 +64,16 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 
 		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			final PrerequisiteTestFactory factory =
-					PrerequisiteTestFactory.getInstance();
+			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 			final PrerequisiteTest test = factory.getTest(element.getKind());
 			if (test != null)
 			{
 				runningTotal += test.passes(element, equipment, aPC);
 			}
 		}
-		return countedTotal(prereq, prereq.getOperator().compare(runningTotal,
-			targetNumber));
+		return countedTotal(prereq, prereq.getOperator().compare(runningTotal, targetNumber));
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 		throws PrerequisiteException
@@ -115,8 +96,7 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 			runningTotal = 1;
 		}
 
-		final PrerequisiteTestFactory factory =
-				PrerequisiteTestFactory.getInstance();
+		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 		for (Prerequisite element : prereq.getPrerequisites())
 		{
 			final PrerequisiteTest test = factory.getTest(element.getKind());
@@ -125,8 +105,7 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 				runningTotal += test.passes(element, character, source);
 			}
 		}
-		return countedTotal(prereq, prereq.getOperator().compare(runningTotal,
-			targetNumber));
+		return countedTotal(prereq, prereq.getOperator().compare(runningTotal, targetNumber));
 	}
 
 }

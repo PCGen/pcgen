@@ -1,5 +1,4 @@
 /*
- * EquipSlotLoader.java
  * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
@@ -17,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 24, 2003, 10:29 AM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.persistence.lst;
@@ -30,9 +27,6 @@ import pcgen.core.system.LoadInfo;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 
-/**
- * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
- **/
 public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 {
 
@@ -43,12 +37,18 @@ public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 	}
 
 	@Override
-	protected LoadInfo getLoadable(LoadContext context, String firstToken,
-			URI sourceURI) throws PersistenceLayerException
+	protected LoadInfo getLoadable(LoadContext context, String firstToken, URI sourceURI)
 	{
-		LoadInfo loadable = context.getReferenceContext().constructNowIfNecessary(LoadInfo.class,
-				getGameMode());
-		LstUtils.processToken(context, loadable, sourceURI, firstToken);
+		LoadInfo loadable = context.getReferenceContext().constructNowIfNecessary(LoadInfo.class, getGameMode());
+		try
+		{
+			LstUtils.processToken(context, loadable, sourceURI, firstToken);
+		}
+		catch (PersistenceLayerException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return loadable;
 	}
 }

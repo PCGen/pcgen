@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCasterLevelTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 04-Aug-2008 01:18:35
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -28,8 +24,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 
-public class PCCasterLevelRaceTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCasterLevelRaceTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String source;
 
@@ -47,13 +42,10 @@ public class PCCasterLevelRaceTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
+	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell)
+	{
 
-		final float lev =
-				pc.getTotalCasterLevelWithSpellBonus(aSpell, aSpell.getSpell(),
-													 Constants.NONE,
-													 source,
-													 0);
+		final float lev = pc.getTotalCasterLevelWithSpellBonus(aSpell, aSpell.getSpell(), Constants.NONE, source, 0);
 		return lev > 0.0f ? lev : 0.0f;
 	}
 

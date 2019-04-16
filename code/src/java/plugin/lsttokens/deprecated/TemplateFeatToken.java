@@ -58,12 +58,9 @@ import pcgen.util.enumeration.Visibility;
 /**
  * Class deals with FEAT Token
  */
-public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>, PersistentChoiceActor<CNAbilitySelection>,
-		DeferredToken<PCTemplate>, DeprecatedToken
+public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> implements CDOMPrimaryToken<PCTemplate>,
+		PersistentChoiceActor<CNAbilitySelection>, DeferredToken<PCTemplate>, DeprecatedToken
 {
-	private static final Class<Ability> ABILITY_CLASS = Ability.class;
-
 	@Override
 	public String getTokenName()
 	{
@@ -85,8 +82,7 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 
 		boolean first = true;
 
-		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, AbilityCategory.FEAT);
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT);
 		while (tok.hasMoreTokens())
 		{
 			String token = tok.nextToken();
@@ -94,8 +90,8 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 			{
 				if (!first)
 				{
-					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item: " + value, context);
+					return new ParseResult.Fail(
+						"  Non-sensical " + getTokenName() + ": .CLEAR was not the first list item: " + value);
 				}
 			}
 			else
@@ -105,8 +101,7 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 				{
 					return ParseResult.INTERNAL_ERROR;
 				}
-				context.getObjectContext().addToList(pct,
-						ListKey.FEAT_TOKEN_LIST, ability);
+				context.getObjectContext().addToList(pct, ListKey.FEAT_TOKEN_LIST, ability);
 			}
 			first = false;
 		}
@@ -116,8 +111,8 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		Changes<CDOMReference<Ability>> changes = context.getObjectContext()
-				.getListChanges(pct, ListKey.FEAT_TOKEN_LIST);
+		Changes<CDOMReference<Ability>> changes =
+				context.getObjectContext().getListChanges(pct, ListKey.FEAT_TOKEN_LIST);
 		Collection<CDOMReference<Ability>> added = changes.getAdded();
 		Collection<CDOMReference<Ability>> removedItems = changes.getRemoved();
 		String returnVal = null;
@@ -125,17 +120,15 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 		{
 			if (removedItems != null && !removedItems.isEmpty())
 			{
-				context.addWriteMessage("Non-sensical relationship in "
-						+ getTokenName()
-						+ ": global .CLEAR and local .CLEAR. performed");
+				context.addWriteMessage(
+					"Non-sensical relationship in " + getTokenName() + ": global .CLEAR and local .CLEAR. performed");
 				return null;
 			}
 			returnVal = Constants.LST_DOT_CLEAR;
 		}
 		else if (removedItems != null && !removedItems.isEmpty())
 		{
-			context.addWriteMessage(getTokenName() + " does not support "
-					+ Constants.LST_DOT_CLEAR_DOT);
+			context.addWriteMessage(getTokenName() + " does not support " + Constants.LST_DOT_CLEAR_DOT);
 			return null;
 		}
 		if (added != null && !added.isEmpty())
@@ -146,7 +139,7 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 		{
 			return null;
 		}
-		return new String[] { returnVal };
+		return new String[]{returnVal};
 	}
 
 	@Override
@@ -156,13 +149,11 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, CNAbilitySelection choice,
-			PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, CNAbilitySelection choice, PlayerCharacter pc)
 	{
 		if (!pc.isImporting())
 		{
-			double cost = choice.getCNAbility().getAbility().getSafe(ObjectKey.SELECTION_COST)
-					.doubleValue();
+			double cost = choice.getCNAbility().getAbility().getSafe(ObjectKey.SELECTION_COST).doubleValue();
 			if (cost > 0.0001)
 			{
 				pc.adjustAbilities(AbilityCategory.FEAT, new BigDecimal(cost));
@@ -173,8 +164,7 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 	}
 
 	@Override
-	public boolean allow(CNAbilitySelection choice, PlayerCharacter pc,
-			boolean allowStack)
+	public boolean allow(CNAbilitySelection choice, PlayerCharacter pc, boolean allowStack)
 	{
 		Ability ability = choice.getCNAbility().getAbility();
 		if (!ability.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT))
@@ -193,7 +183,7 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 	@Override
 	public CNAbilitySelection decodeChoice(LoadContext context, String s)
 	{
-		return CNAbilitySelection.getAbilitySelectionFromPersistentFormat(s);
+		return CNAbilitySelection.getAbilitySelectionFromPersistentFormat(context, s);
 	}
 
 	@Override
@@ -203,8 +193,7 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		CNAbilitySelection choice)
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, CNAbilitySelection choice)
 	{
 		// No action required
 	}
@@ -216,17 +205,16 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		CNAbilitySelection choice)
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, CNAbilitySelection choice)
 	{
 		if (!pc.isImporting())
 		{
 			pc.getSpellList();
 		}
-		
+
 		// See if our choice is not auto or virtual
-		Ability anAbility = pc.getMatchingAbility(AbilityCategory.FEAT, choice.getCNAbility()
-				.getAbility(), Nature.NORMAL);
+		Ability anAbility =
+				pc.getMatchingAbility(AbilityCategory.FEAT, choice.getCNAbility().getAbility(), Nature.NORMAL);
 		if (anAbility != null)
 		{
 			pc.removeAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());
@@ -239,18 +227,15 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 	@Override
 	public boolean process(LoadContext context, PCTemplate pct)
 	{
-		List<CDOMReference<Ability>> list = pct
-				.getListFor(ListKey.FEAT_TOKEN_LIST);
+		List<CDOMReference<Ability>> list = pct.getListFor(ListKey.FEAT_TOKEN_LIST);
 		if (list != null && !list.isEmpty())
 		{
-			AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(
-				CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), list, Nature.NORMAL);
-			ChoiceSet<CNAbilitySelection> cs = new ChoiceSet<>(
-					getTokenName(), rcs);
+			AbilityRefChoiceSet rcs =
+					new AbilityRefChoiceSet(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), list, Nature.NORMAL);
+			ChoiceSet<CNAbilitySelection> cs = new ChoiceSet<>(getTokenName(), rcs);
 			cs.setTitle("Feat Choice");
 			PersistentTransitionChoice<CNAbilitySelection> tc =
-					new ConcretePersistentTransitionChoice<>(
-							cs, FormulaFactory.ONE);
+					new ConcretePersistentTransitionChoice<>(cs, FormulaFactory.ONE);
 			context.getObjectContext().put(pct, ObjectKey.TEMPLATE_FEAT, tc);
 			tc.setChoiceActor(this);
 		}

@@ -1,5 +1,4 @@
 /*
- * PCGenAction.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 14, 2008, 3:51:27 PM
  */
 package pcgen.gui2.tools;
 
@@ -30,106 +28,97 @@ import javax.swing.KeyStroke;
 
 public class PCGenAction extends AbstractAction
 {
-    public PCGenAction(String prop)
-    {
-        this(prop, null, null, null);
-    }
+	public PCGenAction(String prop)
+	{
+		this(prop, null, null, null);
+	}
 
-    public PCGenAction(String prop, Icons icon)
-    {
-        this(prop, null, null, icon);
-    }
+	public PCGenAction(String prop, Icons icon)
+	{
+		this(prop, null, null, icon);
+	}
 
-    public PCGenAction(String prop, String command)
-    {
-        this(prop, command, null, null);
-    }
+	public PCGenAction(String prop, String command)
+	{
+		this(prop, command, null, null);
+	}
 
-    public PCGenAction(String prop, String command, Icons icon)
-    {
-        this(prop, command, null, icon);
-    }
+	public PCGenAction(String prop, String command, Icons icon)
+	{
+		this(prop, command, null, icon);
+	}
 
-    public PCGenAction(String prop, String command, String accelerator)
-    {
-        this(prop, command, accelerator, null);
-    }
+	public PCGenAction(String prop, String command, String accelerator)
+	{
+		this(prop, command, accelerator, null);
+	}
 
-    public PCGenAction(String prop, String command, String accelerator,
-                        Icons icon, Object... substitutes)
-    {
-    	CommonMenuText.name(this, prop, substitutes);
-    	
-        if (command != null)
-        {
-            putValue(ACTION_COMMAND_KEY, command);
-        }
-        if (accelerator != null)
-        {
-            // accelerator has three possible forms:
-            // 1) shortcut +
-            // 2) shortcut-alt +
-            // 3) F1
-            // (error checking is for the weak!)
-            int iShortCut = InputEvent.CTRL_MASK;
-            int menuShortcutKeyMask = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
-            StringTokenizer aTok = new StringTokenizer(accelerator);
+	public PCGenAction(String prop, String command, String accelerator, Icons icon, Object... substitutes)
+	{
+		CommonMenuText.name(this, prop, substitutes);
 
-            // get the first argument
-            String aString = aTok.nextToken();
+		if (command != null)
+		{
+			putValue(ACTION_COMMAND_KEY, command);
+		}
+		if (accelerator != null)
+		{
+			// accelerator has three possible forms:
+			// 1) shortcut +
+			// 2) shortcut-alt +
+			// 3) F1
+			// (error checking is for the weak!)
+			int iShortCut = InputEvent.CTRL_DOWN_MASK;
+			int menuShortcutKeyMask = Toolkit.getDefaultToolkit().getMenuShortcutKeyMaskEx();
+			StringTokenizer aTok = new StringTokenizer(accelerator);
 
-            if (aString.equalsIgnoreCase("shortcut"))
-            {
-                iShortCut = menuShortcutKeyMask;
-            }
-            else if (aString.equalsIgnoreCase("alt"))
-            {
-                if (System.getProperty("mrj.version") != null)
-                {
-                    iShortCut = menuShortcutKeyMask | InputEvent.ALT_MASK;
-                }
-                else
-                {
-                    iShortCut = InputEvent.ALT_MASK;
-                }
-            }
-            else if (aString.equalsIgnoreCase("shift-shortcut"))
-            {
-                iShortCut = menuShortcutKeyMask | InputEvent.SHIFT_MASK;
-            }
-            else if (aString.matches("F[0-9]+"))
-            {
-            	iShortCut = 0;
-            }
-            
-            if (aTok.hasMoreTokens())
-            {
-                // get the second argument
-                aString = aTok.nextToken();
-            }
+			// get the first argument
+			String aString = aTok.nextToken();
 
-            KeyStroke aKey = KeyStroke.getKeyStroke(aString);
+			if (aString.equalsIgnoreCase("shortcut"))
+			{
+				iShortCut = menuShortcutKeyMask;
+			}
+			else if (aString.equalsIgnoreCase("alt"))
+			{
+				iShortCut = InputEvent.ALT_DOWN_MASK;
+			}
+			else if (aString.equalsIgnoreCase("shift-shortcut"))
+			{
+				iShortCut = menuShortcutKeyMask | InputEvent.SHIFT_DOWN_MASK;
+			}
+			else if (aString.matches("F[0-9]+"))
+			{
+				iShortCut = 0;
+			}
 
-            if (aKey != null)
-            {
-                int iKeyCode = aKey.getKeyCode();
-                putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(iKeyCode,
-                                                                 iShortCut));
-            }
-        }
-        if (icon != null)
-        {
-            putValue(SMALL_ICON, icon.getImageIcon());
-        }
-    }
+			if (aTok.hasMoreTokens())
+			{
+				// get the second argument
+				aString = aTok.nextToken();
+			}
 
-    /**
-     * Does nothing.
-     */
+			KeyStroke aKey = KeyStroke.getKeyStroke(aString);
+
+			if (aKey != null)
+			{
+				int iKeyCode = aKey.getKeyCode();
+				putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(iKeyCode, iShortCut));
+			}
+		}
+		if (icon != null)
+		{
+			putValue(SMALL_ICON, icon.getImageIcon());
+		}
+	}
+
+	/**
+	 * Does nothing.
+	 */
 	@Override
-    public void actionPerformed(ActionEvent e)
-    {
+	public void actionPerformed(ActionEvent e)
+	{
 
-    }
+	}
 
 }

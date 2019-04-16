@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with CAST Token
  */
-public class CastToken extends AbstractTokenWithSeparator<PCClassLevel> implements
-		CDOMPrimaryToken<PCClassLevel>
+public class CastToken extends AbstractTokenWithSeparator<PCClassLevel> implements CDOMPrimaryToken<PCClassLevel>
 {
 
 	@Override
@@ -50,8 +49,7 @@ public class CastToken extends AbstractTokenWithSeparator<PCClassLevel> implemen
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCClassLevel level, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClassLevel level, String value)
 	{
 		context.getObjectContext().removeList(level, ListKey.CAST);
 
@@ -65,8 +63,7 @@ public class CastToken extends AbstractTokenWithSeparator<PCClassLevel> implemen
 			{
 				if (Integer.parseInt(tok) < 0)
 				{
-					return new ParseResult.Fail("Invalid Spell Count: " + tok
-							+ " is less than zero", context);
+					return new ParseResult.Fail("Invalid Spell Count: " + tok + " is less than zero");
 				}
 			}
 			catch (NumberFormatException e)
@@ -76,8 +73,7 @@ public class CastToken extends AbstractTokenWithSeparator<PCClassLevel> implemen
 			Formula formula = FormulaFactory.getFormulaFor(tok);
 			if (!formula.isValid())
 			{
-				return new ParseResult.Fail("Formula in " + getTokenName()
-						+ " was not valid: " + formula.toString(), context);
+				return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 			}
 			context.getObjectContext().addToList(level, ListKey.CAST, formula);
 		}
@@ -87,14 +83,12 @@ public class CastToken extends AbstractTokenWithSeparator<PCClassLevel> implemen
 	@Override
 	public String[] unparse(LoadContext context, PCClassLevel level)
 	{
-		Changes<Formula> changes = context.getObjectContext()
-				.getListChanges(level, ListKey.CAST);
+		Changes<Formula> changes = context.getObjectContext().getListChanges(level, ListKey.CAST);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
-		return new String[] { StringUtil.join(changes.getAdded(),
-				Constants.COMMA) };
+		return new String[]{StringUtil.join(changes.getAdded(), Constants.COMMA)};
 	}
 
 	@Override

@@ -1,0 +1,21 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Kitsune Compendium	SOURCESHORT:EGKC	SOURCEWEB:http://www.everymangaming.com/	SOURCEDATE:2014-04
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 22 July 2017
+
+###Block: Bardic Masterpiece activation
+
+# Class Name
+CLASS:Bard.MOD
+1	TEMPLATE:Masterpiece Activation Kitsune
+
+# Class Name
+CLASS:Skald.MOD
+1	TEMPLATE:Masterpiece Activation Kitsune
+
+###Block: Subdomains
+
+# Class Name
+CLASS:Druid.MOD
+1	DOMAIN:Agriculture Subdomain|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Agriculture Subdomain
+1	DOMAIN:Kami Subdomain|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Kami Subdomain Subdomain

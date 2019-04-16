@@ -1,5 +1,4 @@
 /*
- * CachedVariable.java
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 14-Mar-2004
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core.character;
 
@@ -27,12 +21,12 @@ package pcgen.core.character;
  * @param <T>
  * Todo This doesn't belong in this package.  It should probably be an inner
  * class in VariableProcessor.
- *
  */
 public final class CachedVariable<T>
 {
 	private int serial;
 	private T value;
+
 	/**
 	 * @return Returns the serial.
 	 */

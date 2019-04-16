@@ -15,8 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  SystemInitiative.java
  */
 package gmgen.plugin;
 
@@ -48,18 +46,9 @@ public class SystemInitiative
 
 	/**
 	 * Constructor
-	 * @param attribute
-	 */
-	public SystemInitiative(SystemAttribute attribute)
-	{
-		this(attribute, 0);
-	}
-
-	/**
-	 * Constructor
 	 * @param bonus
 	 */
-	public SystemInitiative(int bonus)
+	SystemInitiative(int bonus)
 	{
 		this(new SystemAttribute("Attribute", 10), bonus);
 	}
@@ -149,15 +138,6 @@ public class SystemInitiative
 
 	/**
 	 * Set the new curent initiative and return it
-	 * @return the new curent initiative
-	 */
-	public int check()
-	{
-		return check(0);
-	}
-
-	/**
-	 * Set the new curent initiative and return it
 	 * @param modifier
 	 * @return the new curent initiative
 	 */
@@ -171,20 +151,20 @@ public class SystemInitiative
 	}
 
 	/**
-	 * Set the new curent initiative and return it
+	 * Set the new current initiative and return it
 	 * @param aRoll
-	 * @return the new curent initiative
+	 * 
 	 */
-	int checkExtRoll(int aRoll)
+	void checkExtRoll(int aRoll)
 	{
-		return checkExtRoll(aRoll, 0);
+		checkExtRoll(aRoll, 0);
 	}
 
 	/**
-	 * Set the new curent initiative and return it
+	 * Set the new current initiative and return it
 	 * @param aRoll
 	 * @param modifier
-	 * @return the new curent initiative
+	 * @return the new current initiative
 	 */
 	private int checkExtRoll(int aRoll, int modifier)
 	{

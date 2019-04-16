@@ -15,57 +15,54 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation,
  * Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- *
  */
 package pcgen.core.prereq;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import pcgen.system.LanguageBundle;
 import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
-import pcgen.system.LanguageBundle;
 
-/**
- * @author wardc
- *
- */
-public final class PrerequisiteTestFactory implements PluginLoader{
+public final class PrerequisiteTestFactory implements PluginLoader
+{
 	private static PrerequisiteTestFactory instance = null;
-	private static Map<String, PrerequisiteTest> testLookup = new HashMap<>();
+	private final Map<String, PrerequisiteTest> TEST_LOOKUP = new HashMap<>();
 
 	/**
 	 * @return Returns the instance.
 	 */
-	public static PrerequisiteTestFactory getInstance() {
+	public static PrerequisiteTestFactory getInstance()
+	{
 		if (instance == null)
+		{
 			instance = new PrerequisiteTestFactory();
+		}
 		return instance;
 	}
 
 	/** Private default constructor */
-    private PrerequisiteTestFactory() {
-        // Do Nothing
+	private PrerequisiteTestFactory()
+	{
+		// Do Nothing
 	}
 
 	/**
 	 * Registers this PrerequisiteTest as handling a kind of prereq
 	 * @param testClass PrerequisiteTest to register.
 	 */
-	public static void register(final PrerequisiteTest testClass) {
+	public void register(final PrerequisiteTest testClass)
+	{
 		final String kindHandled = testClass.kindHandled();
-			final PrerequisiteTest test = testLookup.get(kindHandled);
-			if (test != null) {
-				Logging.errorPrint(
-					LanguageBundle.getFormattedString("PrerequisiteTestFactory.error.already_registered", //$NON-NLS-1$
-						testClass.getClass().getName(),
-						kindHandled,
-						test.getClass().getName() ));
-			}
-			testLookup.put(kindHandled.toUpperCase(), testClass);
+		final PrerequisiteTest test = TEST_LOOKUP.get(kindHandled);
+		if (test != null)
+		{
+			Logging.errorPrint(
+				LanguageBundle.getFormattedString("PrerequisiteTestFactory.error.already_registered", //$NON-NLS-1$
+				testClass.getClass().getName(), kindHandled, test.getClass().getName()));
+		}
+		TEST_LOOKUP.put(kindHandled.toUpperCase(), testClass);
 	}
 
 	/**
@@ -74,7 +71,8 @@ public final class PrerequisiteTestFactory implements PluginLoader{
 	 * @param kind The kind of prereq this is (e.g. CLASS)
 	 * @return PrerequisiteTest for this kind
 	 */
-	public PrerequisiteTest getTest(final String kind) {
+	public PrerequisiteTest getTest(final String kind)
+	{
 		PrerequisiteTest test;
 		if (kind == null)
 		{
@@ -82,23 +80,32 @@ public final class PrerequisiteTestFactory implements PluginLoader{
 		}
 		else
 		{
-			test = testLookup.get(kind.toUpperCase());
-			if (test==null) {
+			test = TEST_LOOKUP.get(kind.toUpperCase());
+			if (test == null)
+			{
 				Logging.errorPrintLocalised("PrerequisiteTestFactory.error.cannot_find_test", kind); //$NON-NLS-1$
 			}
 		}
 		return test;
 	}
 
-    @Override
+	@Override
 	public void loadPlugin(Class<?> clazz) throws Exception
 	{
 		register((PrerequisiteTest) clazz.newInstance());
-}
+	}
 
-    @Override
+	@Override
 	public Class<?>[] getPluginClasses()
 	{
 		return new Class[]{PrerequisiteTest.class};
+	}
+
+	public static void clear()
+	{
+		if (instance != null)
+		{
+			instance.TEST_LOOKUP.clear();
+		}
 	}
 }

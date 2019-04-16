@@ -1,0 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Divine Anthology	SOURCESHORT:DA	SOURCEWEB:http://paizo.com/products/btpy9nvh	SOURCEDATE:2016-10
+
+# Deity Name	Domains										Modify VAR
+Irori.MOD		DOMAINS:Medicine Subdomain|PREVAREQ:AllowApocryphalSubdomain,1	BONUS:VAR|InquisitorSubdomainMedicine,DruidMedicineSubdomainAllowed|1|PREVAREQ:AllowApocryphalSubdomain,1
+Sarenrae.MOD	DOMAINS:Medicine Subdomain|PREVAREQ:AllowApocryphalSubdomain,1	BONUS:VAR|InquisitorSubdomainMedicine,DruidMedicineSubdomainAllowed|1|PREVAREQ:AllowApocryphalSubdomain,1

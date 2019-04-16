@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 31/12/2008 12:35:22 PM
- *
- * $Id: $
  */
 
 package plugin.lsttokens;
@@ -46,27 +42,19 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractSpellListToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 
 /**
- * The Class <code>SpellknownLst</code> is responsible for parsing and
+ * The Class {@code SpellknownLst} is responsible for parsing and
  * unparsing the SPELLKNOWN tag. This class is heavily based on the
  * SpelllevelLst class. <p>
  * Syntax is:
  * <pre>
  * SPELLKNOWN:CLASS|Name1,Name2=Level1|Spell1,Spell2,Spell3|Name3=Level2|Spell4,Spell5|PRExxx|PRExxx
  * </pre>
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class SpellknownLst extends AbstractSpellListToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class SpellknownLst extends AbstractSpellListToken implements CDOMPrimaryToken<CDOMObject>
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.rules.persistence.token.AbstractToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -74,14 +62,12 @@ public class SpellknownLst extends AbstractSpellListToken implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		String workingValue = value;
 		List<Prerequisite> prereqs = new ArrayList<>();
@@ -90,8 +76,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 			int lastPipeLoc = workingValue.lastIndexOf('|');
 			if (lastPipeLoc == -1)
 			{
-				return new ParseResult.Fail("Invalid " + getTokenName()
-						+ " not enough tokens: " + value, context);
+				return new ParseResult.Fail("Invalid " + getTokenName() + " not enough tokens: " + value);
 			}
 			String lastToken = workingValue.substring(lastPipeLoc + 1);
 			if (looksLikeAPrerequisite(lastToken))
@@ -100,9 +85,8 @@ public class SpellknownLst extends AbstractSpellListToken implements
 				Prerequisite prerequisite = getPrerequisite(lastToken);
 				if (prerequisite == null)
 				{
-					return new ParseResult.Fail("Invalid prerequisite "
-						+ lastToken + " in " + getTokenName() + " tag: "
-						+ value, context);
+					return new ParseResult.Fail(
+						"Invalid prerequisite " + lastToken + " in " + getTokenName() + " tag: " + value);
 				}
 				prereqs.add(prerequisite);
 			}
@@ -116,8 +100,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 
 		if (tok.countTokens() < 3)
 		{
-			return new ParseResult.Fail("Insufficient values in SPELLKNOWN tag: "
-					+ value, context);
+			return new ParseResult.Fail("Insufficient values in SPELLKNOWN tag: " + value);
 		}
 
 		String tagType = tok.nextToken(); // CLASS only
@@ -129,18 +112,16 @@ public class SpellknownLst extends AbstractSpellListToken implements
 
 			if (tagType.equalsIgnoreCase("CLASS"))
 			{
-				if (!subParse(context, obj, ClassSpellList.class, tokString,
-						spellString, prereqs))
+				ParseResult pr = subParse(context, obj, ClassSpellList.class, tokString, spellString, prereqs);
+				if (!pr.passed())
 				{
-					return ParseResult.INTERNAL_ERROR;
-					//return new ParseResult.Fail("  " + getTokenName()
-					//		+ " error - entire token was " + value, context);
+					return new ParseResult.Fail(
+						getTokenName() + " failed due to " + pr + ".  Entire token was: " + value);
 				}
 			}
 			else
 			{
-				return new ParseResult.Fail("First token of " + getTokenName()
-						+ " must be CLASS: " + value, context);
+				return new ParseResult.Fail("First token of " + getTokenName() + " must be CLASS: " + value);
 			}
 		}
 
@@ -159,16 +140,13 @@ public class SpellknownLst extends AbstractSpellListToken implements
 	 *
 	 * @return true, if successful
 	 */
-	private <CL extends Loadable & CDOMList<Spell>> boolean subParse(
-			LoadContext context, CDOMObject obj, Class<CL> tagType,
-			String tokString, String spellString, List<Prerequisite> prereqs)
+	private <CL extends Loadable & CDOMList<Spell>> ParseResult subParse(LoadContext context, CDOMObject obj,
+		Class<CL> tagType, String tokString, String spellString, List<Prerequisite> prereqs)
 	{
 		int equalLoc = tokString.indexOf(Constants.EQUALS);
 		if (equalLoc == -1)
 		{
-			Logging.errorPrint("Expected an = in SPELLKNOWN " + "definition: "
-					+ tokString);
-			return false;
+			return new ParseResult.Fail("Expected an = in SPELLKNOWN " + "definition: " + tokString);
 		}
 
 		String casterString = tokString.substring(0, equalLoc);
@@ -180,20 +158,17 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Expected a number for SPELLKNOWN, found: "
-					+ spellLevel);
-			return false;
+			return new ParseResult.Fail("Expected a number for SPELLKNOWN, found: " + spellLevel);
 		}
 
-		if (isEmpty(casterString) || hasIllegalSeparator(',', casterString))
+		ParseResult pr = checkSeparatorsAndNonEmpty(',', casterString);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
-		StringTokenizer clTok = new StringTokenizer(casterString,
-				Constants.COMMA);
-		List<CDOMReference<? extends CDOMList<Spell>>> slList =
-				new ArrayList<>();
+		StringTokenizer clTok = new StringTokenizer(casterString, Constants.COMMA);
+		List<CDOMReference<? extends CDOMList<Spell>>> slList = new ArrayList<>();
 		while (clTok.hasMoreTokens())
 		{
 			String classString = clTok.nextToken();
@@ -203,8 +178,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 				/*
 				 * This is actually a TYPE
 				 */
-				ref = context.getReferenceContext().getCDOMTypeReference(tagType, classString
-						.substring(12));
+				ref = context.getReferenceContext().getCDOMTypeReference(tagType, classString.substring(12));
 			}
 			else
 			{
@@ -213,9 +187,10 @@ public class SpellknownLst extends AbstractSpellListToken implements
 			slList.add(ref);
 		}
 
-		if (hasIllegalSeparator(',', spellString))
+		pr = checkForIllegalSeparator(',', spellString);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
 		StringTokenizer spTok = new StringTokenizer(spellString, ",");
@@ -223,30 +198,25 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		while (spTok.hasMoreTokens())
 		{
 			String spellName = spTok.nextToken();
-			CDOMReference<Spell> sp = context.getReferenceContext().getCDOMReference(Spell.class,
-					spellName);
+			CDOMReference<Spell> sp = context.getReferenceContext().getCDOMReference(Spell.class, spellName);
 			for (CDOMReference<? extends CDOMList<Spell>> sl : slList)
 			{
-				AssociatedPrereqObject tpr = context.getListContext()
-						.addToList(getTokenName(), obj, sl, sp);
+				AssociatedPrereqObject tpr = context.getListContext().addToList(getTokenName(), obj, sl, sp);
 				tpr.setAssociation(AssociationKey.SPELL_LEVEL, splLevel);
 				tpr.setAssociation(AssociationKey.KNOWN, Boolean.TRUE);
 				tpr.addAllPrerequisites(prereqs);
 			}
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.rules.persistence.token.CDOMPrimaryToken#unparse(pcgen.rules.context.LoadContext, java.lang.Object)
-	 */
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Set<String> set = new TreeSet<>();
 
-		Collection<CDOMReference<? extends CDOMList<?>>> changedClassLists = context
-				.getListContext().getChangedLists(obj, ClassSpellList.class);
+		Collection<CDOMReference<? extends CDOMList<?>>> changedClassLists =
+				context.getListContext().getChangedLists(obj, ClassSpellList.class);
 		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> classMap =
 				getMap(context, obj, changedClassLists, true);
 		for (String prereqs : classMap.getKeySet())
@@ -261,9 +231,6 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		return set.toArray(new String[set.size()]);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.rules.persistence.token.CDOMToken#getTokenClass()
-	 */
 	@Override
 	public Class<CDOMObject> getTokenClass()
 	{

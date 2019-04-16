@@ -1,5 +1,4 @@
 /*
- * PrereqObject.java
  * Copyright 2006 Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,9 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Version: $Revision: 5686 $
- *
  */
 package pcgen.cdom.base;
 
@@ -65,13 +61,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		{
 			return Collections.emptyList();
 		}
-		/*
-		 * TODO This is an ugly facade, but required for easy compatibility with
-		 * 5.14 - to be changed once 5.14 code is gone and this can be changed
-		 * to return Collection or Set (or perhaps ListSet?)
-		 */
-		return Collections.unmodifiableList(new ArrayList<>(
-                thePrereqs));
+		return List.copyOf(thePrereqs);
 	}
 
 	/**
@@ -109,8 +99,6 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	 * List of Prerequisites is cloned (to allow Prerequisites to be
 	 * added/removed without altering the original or the clone), but the
 	 * Prerequisites contained within the ConcretePrereqObject are not cloned.
-	 * 
-	 * @see java.lang.Object#clone()
 	 */
 	@Override
 	public ConcretePrereqObject clone() throws CloneNotSupportedException
@@ -248,8 +236,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		{
 			return false;
 		}
-		List<Prerequisite> removed = new ArrayList<>(
-                thePrereqs);
+		List<Prerequisite> removed = new ArrayList<>(thePrereqs);
 		removed.removeAll(otherPRL);
 		return removed.isEmpty();
 	}
@@ -264,7 +251,18 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	 */
 	public boolean qualifies(final PlayerCharacter aPC, Object owner)
 	{
-		return !hasPrerequisites()
-				|| PrereqHandler.passesAll(getPrerequisiteList(), aPC, owner);
+		return !hasPrerequisites() || PrereqHandler.passesAll(this, aPC, owner);
+	}
+
+	@Override
+	public boolean isAvailable(PlayerCharacter aPC)
+	{
+		return true;
+	}
+
+	@Override
+	public boolean isActive(PlayerCharacter aPC)
+	{
+		return true;
 	}
 }

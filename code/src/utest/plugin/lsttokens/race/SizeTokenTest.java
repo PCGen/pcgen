@@ -17,11 +17,10 @@
  */
 package plugin.lsttokens.race;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.formula.FixedSizeFormula;
@@ -36,11 +35,14 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class SizeTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
 	static SizeToken token = new SizeToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 	private SizeAdjustment ps;
 
 	@Override
@@ -62,7 +64,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -74,13 +76,6 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Race>
 		secondaryContext.getReferenceContext().importObject(ss);
 		SizeAdjustment sm = BuildUtilities.createSize("M", 1);
 		secondaryContext.getReferenceContext().importObject(sm);
-	}
-
-	@Override
-	@After
-	public void tearDown() throws Exception
-	{
-		super.tearDown();
 	}
 
 	@Test
@@ -127,14 +122,14 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(FormulaKey.SIZE, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		FixedSizeFormula fsf = new FixedSizeFormula(CDOMDirectSingleRef.getRef(ps));
 		primaryProf.put(FormulaKey.SIZE, fsf);

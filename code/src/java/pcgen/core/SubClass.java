@@ -1,5 +1,4 @@
 /*
- * SubClass.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 19, 2002, 10:29 PM
  *
- * $Id$
  */
 package pcgen.core;
 
@@ -28,9 +25,8 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 
 /**
- * <code>SubClass</code>.
+ * {@code SubClass}.
  *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class SubClass extends PCClass implements Categorized<SubClass>
 {
@@ -66,13 +62,13 @@ public final class SubClass extends PCClass implements Categorized<SubClass>
 		return getSafe(IntegerKey.COST);
 	}
 
-    @Override
+	@Override
 	public Category<SubClass> getCDOMCategory()
 	{
 		return get(ObjectKey.SUBCLASS_CATEGORY);
 	}
 
-    @Override
+	@Override
 	public void setCDOMCategory(Category<SubClass> cat)
 	{
 		put(ObjectKey.SUBCLASS_CATEGORY, cat);
@@ -83,6 +79,5 @@ public final class SubClass extends PCClass implements Categorized<SubClass>
 	{
 		return getCDOMCategory() + "." + super.getFullKey();
 	}
-	
-	
+
 }

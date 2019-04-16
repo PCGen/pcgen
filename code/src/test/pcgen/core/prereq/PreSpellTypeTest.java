@@ -1,6 +1,4 @@
 /*
- * PreSpellTest.java
- *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,19 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 12-Jan-2004
- *
- * Current Ver: $Revision: 8541 $
- *
- *
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -38,38 +29,20 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class PreSpellTypeTest extends AbstractCharacterTestCase
 {
 
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreSpellTypeTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSpellTypeTest.class);
-	}
-
-	Spell burning = null;
-	Spell Arcaneball = null;
-	Spell lightning = null;
-	Spell heal = null;
-	Spell cure = null;
 	private PCClass wiz;
 	private PCClass cle;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see junit.framework.TestCase#setUp()
-	 */
+	@BeforeEach
 	@Override
-	protected void additionalSetUp() throws Exception
+	public void setUp() throws Exception
 	{
+		super.setUp();
 		LoadContext context = Globals.getContext();
 		wiz = context.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
 		BuildUtilities.setFact(wiz, "SpellType", "Arcane");
@@ -82,37 +55,40 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(cle.getOriginalClassLevel(1), "CAST", "1,1");
 		context.unconditionallyProcess(cle.getOriginalClassLevel(2), "CAST", "1,1,1");
 
-		Arcaneball = new Spell();
-		Arcaneball.setName("Arcaneball");
-		context.getReferenceContext().importObject(Arcaneball);
-		context.unconditionallyProcess(Arcaneball, "CLASSES", "Wizard=2");
-		context.unconditionallyProcess(Arcaneball, "TYPE", "Arcane");
+		Spell arcaneball = new Spell();
+		arcaneball.setName("Arcaneball");
+		context.getReferenceContext().importObject(arcaneball);
+		context.unconditionallyProcess(arcaneball, "CLASSES", "Wizard=2");
+		context.unconditionallyProcess(arcaneball, "TYPE", "Arcane");
 
-		lightning = new Spell();
+		Spell lightning = new Spell();
 		lightning.setName("Lightning Bolt");
 		context.getReferenceContext().importObject(lightning);
 		context.unconditionallyProcess(lightning, "CLASSES", "Wizard=2");
 		context.unconditionallyProcess(lightning, "TYPE", "Arcane");
 
-		burning = new Spell();
+		Spell burning = new Spell();
 		burning.setName("Burning Hands");
 		context.getReferenceContext().importObject(burning);
 		context.unconditionallyProcess(burning, "CLASSES", "Wizard=1");
 		context.unconditionallyProcess(burning, "TYPE", "Arcane");
 
-		heal = new Spell();
+		Spell heal = new Spell();
 		heal.setName("Heal");
 		context.getReferenceContext().importObject(heal);
 		context.unconditionallyProcess(heal, "CLASSES", "Cleric=2");
 		context.unconditionallyProcess(heal, "TYPE", "Divine");
 
-		cure = new Spell();
+		Spell cure = new Spell();
 		cure.setName("Cure Light Wounds");
 		context.getReferenceContext().importObject(cure);
 		context.unconditionallyProcess(cure, "CLASSES", "Cleric=1");
 		context.unconditionallyProcess(cure, "TYPE", "Divine");
+
+		finishLoad();
 	}
 
+	@Test
 	public void testSimpleType() throws Exception
 	{
 		final Prerequisite prereq = new Prerequisite();
@@ -132,6 +108,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
+	@Test
 	public void testTwoType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -147,6 +124,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
+	@Test
 	public void testTwoClassType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -169,6 +147,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
+	@Test
 	public void testNotSimpleType() throws Exception
 	{
 		final Prerequisite prereq = new Prerequisite();
@@ -188,6 +167,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
+	@Test
 	public void testNotTwoType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -203,6 +183,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
+	@Test
 	public void testNotTwoClassType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -223,5 +204,11 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, cle);
 		passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse(passes);
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }

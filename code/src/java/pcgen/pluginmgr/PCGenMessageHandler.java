@@ -1,5 +1,4 @@
 /*
- * PCGenMessageHandler.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -16,21 +15,17 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 15/02/2014 2:36:38 pm
  *
- * $Id$
  */
 package pcgen.pluginmgr;
 
 import java.util.EventListener;
 
 /**
- * The template <code>PCGenMessageHandler</code> defines an object 
+ * The template {@code PCGenMessageHandler} defines an object
  * that can act on a PCGenMessage. 
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @FunctionalInterface
 public interface PCGenMessageHandler extends EventListener

@@ -1,5 +1,4 @@
 /*
- * Created on 22-Dec-2003
  * 
  * To change the template for this generated file go to Window - Preferences - Java - Code Generation - Code and
  * Comments
@@ -8,14 +7,14 @@ package pcgen.persistence.lst.prereq;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
-
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreMoveParser;
 
+import org.junit.jupiter.api.Test;
+
 /**
- * @author Valued Customer
  * 
  * To change the template for this generated type comment go to Window - Preferences - Java - Code Generation - Code
  * and Comments
@@ -23,11 +22,14 @@ import plugin.pretokens.parser.PreMoveParser;
 @SuppressWarnings("nls")
 public class PreMoveParserTest extends EnUsLocaleDependentTestCase
 {
+	
 	/**
-	 * @throws Exception
+	 * Test fly 1.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testFly1() throws Exception
+	public void testFly1() throws PersistenceLayerException
 	{
 		PreMoveParser parser = new PreMoveParser();
 		Prerequisite prereq = parser.parse("MOVE", "1,Fly=1", false, false);
@@ -37,11 +39,14 @@ public class PreMoveParserTest extends EnUsLocaleDependentTestCase
 			prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test fly and walk.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testFlyAndWalk() throws Exception
+	public void testFlyAndWalk() throws PersistenceLayerException
 	{
 		PreMoveParser parser = new PreMoveParser();
 		Prerequisite prereq =
@@ -55,11 +60,14 @@ public class PreMoveParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test not fly 1.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNotFly1() throws Exception
+	public void testNotFly1() throws PersistenceLayerException
 	{
 		PreMoveParser parser = new PreMoveParser();
 		Prerequisite prereq = parser.parse("MOVE", "1,Fly=1", true, false);
@@ -69,11 +77,14 @@ public class PreMoveParserTest extends EnUsLocaleDependentTestCase
 			prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test not fly and walk.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNotFlyAndWalk() throws Exception
+	public void testNotFlyAndWalk() throws PersistenceLayerException
 	{
 		PreMoveParser parser = new PreMoveParser();
 		Prerequisite prereq =

@@ -17,7 +17,8 @@
  */
 package plugin.lsttokens;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
@@ -26,6 +27,8 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalListTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.jupiter.api.Test;
 
 public class TemplateLstTest extends
 		AbstractGlobalListTokenTestCase<PCTemplate>
@@ -68,7 +71,7 @@ public class TemplateLstTest extends
 	}
 
 	static CDOMPrimaryToken<CDOMObject> token = new TemplateLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()
@@ -83,20 +86,26 @@ public class TemplateLstTest extends
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}
 
 	@Test
-	public void testChooseInvalidInputString() throws PersistenceLayerException
+	public void testChooseInvalidInputString()
 	{
 		assertTrue(parse("CHOOSE:String"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testChooseInvalidInputType() throws PersistenceLayerException
+	public void testChooseInvalidInputType()
 	{
 		assertTrue(parse("CHOOSE:TestType"));
 		assertConstructionError();
@@ -104,7 +113,6 @@ public class TemplateLstTest extends
 
 	@Test
 	public void testChooseInvalidInputJoinedComma()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -114,7 +122,6 @@ public class TemplateLstTest extends
 
 	@Test
 	public void testChooseInvalidInputJoinedDot()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -123,7 +130,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidListEnd() throws PersistenceLayerException
+	public void testChooseInvalidListEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("CHOOSE:TestWP1" + getJoinCharacter()));
@@ -131,7 +138,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidChooseRemove() throws PersistenceLayerException
+	public void testChooseInvalidChooseRemove()
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("CHOOSE:" + "TestWP1.REMOVE"));
@@ -139,7 +146,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidAddChoiceRemove() throws PersistenceLayerException
+	public void testChooseInvalidAddChoiceRemove()
 	{
 		construct(primaryContext, "TestWP1");
 		assertTrue(parse("ADDCHOICE:" + "TestWP1.REMOVE"));
@@ -147,7 +154,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidListStart() throws PersistenceLayerException
+	public void testChooseInvalidListStart()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("CHOOSE:" + getJoinCharacter() + "TestWP1"));
@@ -156,7 +163,6 @@ public class TemplateLstTest extends
 
 	@Test
 	public void testChooseInvalidListDoubleJoin()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -167,7 +173,6 @@ public class TemplateLstTest extends
 
 	@Test
 	public void testChooseInvalidInputCheckMult()
-			throws PersistenceLayerException
 	{
 		// Explicitly do NOT build testChooseWP2
 		construct(primaryContext, "TestWP1");
@@ -176,7 +181,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseValidInputs() throws PersistenceLayerException
+	public void testChooseValidInputs()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -196,7 +201,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testParseStuffList() throws PersistenceLayerException
+	public void testParseStuffList()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -227,7 +232,6 @@ public class TemplateLstTest extends
 
 	@Test
 	public void testChooseInvalidInputAddString()
-			throws PersistenceLayerException
 	{
 		assertTrue(parse("ADDCHOICE:String"));
 		assertConstructionError();
@@ -235,7 +239,6 @@ public class TemplateLstTest extends
 
 	@Test
 	public void testChooseInvalidInputAddType()
-			throws PersistenceLayerException
 	{
 		assertTrue(parse("ADDCHOICE:TestType"));
 		assertConstructionError();
@@ -243,7 +246,6 @@ public class TemplateLstTest extends
 
 	@Test
 	public void testChooseInvalidInputAddJoinedComma()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -253,7 +255,6 @@ public class TemplateLstTest extends
 
 	@Test
 	public void testChooseInvalidInputAddJoinedDot()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -262,7 +263,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testChooseInvalidAddListEnd() throws PersistenceLayerException
+	public void testChooseInvalidAddListEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("ADDCHOICE:TestWP1" + getJoinCharacter()));
@@ -271,7 +272,6 @@ public class TemplateLstTest extends
 
 	@Test
 	public void testChooseInvalidAddListStart()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("ADDCHOICE:" + getJoinCharacter() + "TestWP1"));
@@ -280,7 +280,6 @@ public class TemplateLstTest extends
 
 	@Test
 	public void testChooseInvalidAddListDoubleJoin()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -291,7 +290,6 @@ public class TemplateLstTest extends
 
 	@Test
 	public void testChooseInvalidAddInputCheckMult()
-			throws PersistenceLayerException
 	{
 		// Explicitly do NOT build testChooseWP2
 		construct(primaryContext, "TestWP1");
@@ -328,7 +326,7 @@ public class TemplateLstTest extends
 	//
 
 	@Test
-	public void testRemoveInvalidInputString() throws PersistenceLayerException
+	public void testRemoveInvalidInputString()
 	{
 		assertTrue(parse("String.REMOVE"));
 		assertConstructionError();
@@ -336,7 +334,6 @@ public class TemplateLstTest extends
 
 	@Test
 	public void testRemoveInvalidInputJoinedComma()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -346,7 +343,6 @@ public class TemplateLstTest extends
 
 	@Test
 	public void testRemoveInvalidInputJoinedDot()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -355,7 +351,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testRemoveInvalidListEnd() throws PersistenceLayerException
+	public void testRemoveInvalidListEnd()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1.REMOVE" + getJoinCharacter()));
@@ -363,7 +359,7 @@ public class TemplateLstTest extends
 	}
 
 	@Test
-	public void testRemoveInvalidListStart() throws PersistenceLayerException
+	public void testRemoveInvalidListStart()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse(getJoinCharacter() + "TestWP1.REMOVE"));
@@ -372,7 +368,6 @@ public class TemplateLstTest extends
 
 	@Test
 	public void testRemoveInvalidListDoubleJoin()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -383,7 +378,6 @@ public class TemplateLstTest extends
 
 	@Test
 	public void testRemoveInvalidInputCheckMult()
-			throws PersistenceLayerException
 	{
 		// Explicitly do NOT build testChooseWP2
 		construct(primaryContext, "TestWP1");

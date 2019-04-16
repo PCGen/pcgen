@@ -1,5 +1,4 @@
 /*
- * CampaignSourceEntry.java
  * Copyright 2003 (C) David Hibbs <sage_sam@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 17, 2003, 12:29 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.persistence.lst;
@@ -80,7 +77,7 @@ public class CampaignSourceEntry implements SourceEntry
 	 * file. (I.e. the reason it was loaded)
 	 * @return Campaign that requested the file be loaded
 	 */
-    @Override
+	@Override
 	public Campaign getCampaign()
 	{
 		return campaign;
@@ -92,7 +89,7 @@ public class CampaignSourceEntry implements SourceEntry
 	 * in the file are to be included.
 	 * @return List of String names of objects to exclude
 	 */
-    @Override
+	@Override
 	public List<String> getExcludeItems()
 	{
 		return excludeItems;
@@ -102,7 +99,7 @@ public class CampaignSourceEntry implements SourceEntry
 	 * This method gets the file/path of the LST file.
 	 * @return String url-formatted path to the LST file
 	 */
-    @Override
+	@Override
 	public URI getURI()
 	{
 		return uri.getURI();
@@ -114,17 +111,12 @@ public class CampaignSourceEntry implements SourceEntry
 	 * in the file are to be excluded.
 	 * @return List of String names of objects to include
 	 */
-    @Override
+	@Override
 	public List<String> getIncludeItems()
 	{
 		return includeItems;
 	}
 
-	/**
-	 * @param arg0 
-	 * @return true if equals
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object arg0)
 	{
@@ -141,18 +133,12 @@ public class CampaignSourceEntry implements SourceEntry
 			&& includeItems.equals(other.includeItems);
 	}
 
-	/**
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return this.uri.getLSTformat().hashCode();
 	}
 
-	/**
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -164,19 +150,16 @@ public class CampaignSourceEntry implements SourceEntry
 		return sBuff.toString();
 	}
 
-	public static CampaignSourceEntry getNewCSE(Campaign campaign2,
-		URI sourceUri, String value)
+	public static CampaignSourceEntry getNewCSE(Campaign campaign2, URI sourceUri, String value)
 	{
 		if (value == null || value.isEmpty())
 		{
-			Logging
-				.errorPrint("Cannot build CampaignSourceEntry for empty value in "
-					+ sourceUri);
+			Logging.errorPrint("Cannot build CampaignSourceEntry for empty value in " + sourceUri);
 			return null;
 		}
-		
+
 		// Check if include/exclude items were present
-		int pipePos = value.indexOf("|");
+		int pipePos = value.indexOf('|');
 
 		CampaignSourceEntry cse;
 
@@ -187,33 +170,26 @@ public class CampaignSourceEntry implements SourceEntry
 				Logging.errorPrint("Invalid Campaign File, cannot start with (:" + value);
 				return null;
 			}
-			URIEntry uri =
-					URIEntry.getURIEntry(campaign2.getDisplayName(), sourceUri,
-						value);
+			URIEntry uri = URIEntry.getURIEntry(campaign2.getDisplayName(), sourceUri, value);
 			cse = new CampaignSourceEntry(campaign2, uri);
 		}
 		else
 		{
-			URIEntry uri =
-					URIEntry.getURIEntry(campaign2.getDisplayName(), sourceUri,
-						value.substring(0, pipePos));
+			URIEntry uri = URIEntry.getURIEntry(campaign2.getDisplayName(), sourceUri, value.substring(0, pipePos));
 			cse = new CampaignSourceEntry(campaign2, uri);
 
 			// Get the include/exclude item string
 			String inExString = value.substring(pipePos + 1);
-			
-			
+
 			List<String> tagList = parseSuffix(inExString, sourceUri, value);
 			for (String tagString : tagList)
 			{
 				// Check for surrounding parens
 				if (tagString.startsWith("(("))
 				{
-					Logging
-							.errorPrint("Found Suffix in Campaign Source with multiple parenthesis: "
-									+ "Single set of parens required around INCLUDE/EXCLUDE");
-					Logging.errorPrint("Found: '" + tagString
-							+ "' in " + value);
+					Logging.errorPrint("Found Suffix in Campaign Source with multiple parenthesis: "
+						+ "Single set of parens required around INCLUDE/EXCLUDE");
+					Logging.errorPrint("Found: '" + tagString + "' in " + value);
 					return null;
 				}
 
@@ -251,25 +227,22 @@ public class CampaignSourceEntry implements SourceEntry
 					}
 					catch (PersistenceLayerException e)
 					{
-						Logging.errorPrint(
-							"Error Initializing PreParserFactory.", e);
+						Logging.errorPrint("Error Initializing PreParserFactory.", e);
 						return null;
 					}
 					if (prereq == null)
 					{
-						Logging
-							.errorPrint("Found invalid prerequisite in Campaign Source: '"
-								+ tagString + "' in " + value);
+						Logging.errorPrint(
+							"Found invalid prerequisite in Campaign Source: '" + tagString + "' in " + value);
 						return null;
 					}
 					cse.prerequisites.add(prereq);
 				}
 				else
 				{
-					Logging.errorPrint("Invalid Suffix (must have "
-						+ "'(INCLUDE' '(EXCLUDE' or a PRExxx immediately "
-						+ "following the pipe (no spaces).  Found: '" + inExString
-						+ "' on Campaign Source: '" + value + "' in " + sourceUri);
+					Logging.errorPrint("Invalid Suffix (must have " + "'(INCLUDE' '(EXCLUDE' or a PRExxx immediately "
+						+ "following the pipe (no spaces).  Found: '" + inExString + "' on Campaign Source: '" + value
+						+ "' in " + sourceUri);
 					return null;
 				}
 			}
@@ -289,15 +262,13 @@ public class CampaignSourceEntry implements SourceEntry
 	 * @return A list of the discrete tags that were specified, null if there 
 	 * was an error reported to the log. 
 	 */
-	static List<String> parseSuffix(String suffix, URI sourceUri,
-		String value)
+	static List<String> parseSuffix(String suffix, URI sourceUri, String value)
 	{
 		List<String> tagList = new ArrayList<>();
 		String currentTag = "";
 		int bracketLevel = 0;
 
-		StringTokenizer tokenizer =
-				new StringTokenizer(suffix, "|()", true);
+		StringTokenizer tokenizer = new StringTokenizer(suffix, "|()", true);
 		while (tokenizer.hasMoreTokens())
 		{
 			String token = tokenizer.nextToken();
@@ -321,7 +292,7 @@ public class CampaignSourceEntry implements SourceEntry
 				{
 					currentTag += token;
 				}
-				else if (currentTag.length() > 0)
+				else if (!currentTag.isEmpty())
 				{
 					tagList.add(currentTag);
 					currentTag = "";
@@ -332,22 +303,16 @@ public class CampaignSourceEntry implements SourceEntry
 				currentTag += token;
 			}
 		}
-		if (currentTag.length() > 0)
+		if (!currentTag.isEmpty())
 		{
 			tagList.add(currentTag);
 		}
 
-
 		// Check for a bracket mismatch
 		if (bracketLevel > 0)
 		{
-			Logging
-				.errorPrint("Suffix in Campaign Source with missing closing parenthesis, Found: '"
-					+ suffix
-					+ "' on Campaign Source: '"
-					+ value
-					+ "' in "
-					+ sourceUri);
+			Logging.errorPrint("Suffix in Campaign Source with missing closing parenthesis, Found: '" + suffix
+				+ "' on Campaign Source: '" + value + "' in " + sourceUri);
 			return null;
 		}
 		return tagList;
@@ -367,21 +332,18 @@ public class CampaignSourceEntry implements SourceEntry
 		{
 			return;
 		}
-		
+
 		for (Prerequisite prereq : prereqList)
 		{
 			if (prereq.isCharacterRequired())
 			{
-				final PrerequisiteWriter prereqWriter =
-						new PrerequisiteWriter();
+				final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 				ArrayList<Prerequisite> displayList = new ArrayList<>();
 				displayList.add(prereq);
-				String lstString =
-						prereqWriter.getPrerequisiteString(displayList,
-							Constants.TAB);
-				Logging.log(Logging.LST_ERROR, "Prereq '" + prereq.getKind()
-					+ "' is not supported in PCC files. Prereq was '" + lstString
-					+ "' in " + sourceUri + ". Prereq will be ignored.");
+				String lstString = prereqWriter.getPrerequisiteString(displayList, Constants.TAB);
+				Logging.log(Logging.LST_ERROR,
+					"Prereq '" + prereq.getKind() + "' is not supported in PCC files. Prereq was '" + lstString
+						+ "' in " + sourceUri + ". Prereq will be ignored.");
 			}
 			else
 			{
@@ -402,7 +364,7 @@ public class CampaignSourceEntry implements SourceEntry
 		boolean hasKeyOnly = false;
 		List<String> catKeyList = new ArrayList<>();
 		String target = inExString.substring(8);
-		if (target == null || target.length() == 0)
+		if (target == null || target.isEmpty())
 		{
 			Logging.errorPrint("Must Specify Items after :");
 			return null;
@@ -413,8 +375,7 @@ public class CampaignSourceEntry implements SourceEntry
 			if (key.startsWith("CATEGORY="))
 			{
 				hasCategory = true;
-				List<String> abilityKeyList =
-						CoreUtility.split(key.substring(9), ',');
+				List<String> abilityKeyList = CoreUtility.split(key.substring(9), ',');
 				String category = abilityKeyList.get(0);
 				abilityKeyList.remove(0);
 				for (String string : abilityKeyList)
@@ -430,14 +391,10 @@ public class CampaignSourceEntry implements SourceEntry
 		}
 		if (hasKeyOnly && hasCategory)
 		{
-			Logging.log(Logging.LST_ERROR, "Invalid "
-				+ inExString.substring(0, 7) + " value on " + uri.getLSTformat() + " in "
-				+ campaign.getDisplayName()
-				+ ". Abilities must always have categories (e.g. "
-				+ inExString.substring(0, 8)
-				+ "CATEGORY=cat1,key1,key2|CATEGORY=cat2,key1 ) and "
-				+ "other file types should never have categories (e.g. "
-				+ inExString.substring(0, 8) + "key1|key2 ).");
+			Logging.log(Logging.LST_ERROR, "Invalid " + inExString.substring(0, 7) + " value on " + uri.getLSTformat()
+				+ " in " + campaign.getDisplayName() + ". Abilities must always have categories (e.g. "
+				+ inExString.substring(0, 8) + "CATEGORY=cat1,key1,key2|CATEGORY=cat2,key1 ) and "
+				+ "other file types should never have categories (e.g. " + inExString.substring(0, 8) + "key1|key2 ).");
 			return null;
 		}
 
@@ -465,7 +422,7 @@ public class CampaignSourceEntry implements SourceEntry
 		return sb.toString();
 	}
 
-	private StringBuilder joinIncExcList(List<String> list)
+	private String joinIncExcList(List<String> list)
 	{
 		MapToList<String, String> map = new HashMapToList<>();
 		for (String s : list)
@@ -473,12 +430,11 @@ public class CampaignSourceEntry implements SourceEntry
 			int commaLoc = s.indexOf(',');
 			if (commaLoc == -1)
 			{
-				return StringUtil.joinToStringBuilder(list, Constants.PIPE);
+				return StringUtil.join(list, Constants.PIPE);
 			}
 			else
 			{
-				map.addToListFor(s.substring(0, commaLoc), s
-					.substring(commaLoc + 1));
+				map.addToListFor(s.substring(0, commaLoc), s.substring(commaLoc + 1));
 			}
 		}
 		StringBuilder sb = new StringBuilder(200);
@@ -493,10 +449,9 @@ public class CampaignSourceEntry implements SourceEntry
 			sb.append("CATEGORY=");
 			sb.append(category);
 			sb.append(Constants.COMMA);
-			sb.append(StringUtil.joinToStringBuilder(map.getListFor(category),
-				Constants.COMMA));
+			sb.append(StringUtil.join(map.getListFor(category), Constants.COMMA));
 		}
-		return sb;
+		return sb.toString();
 	}
 
 	public CampaignSourceEntry getRelatedTarget(String fileName)

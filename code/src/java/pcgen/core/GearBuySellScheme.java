@@ -1,5 +1,4 @@
 /*
- * GearBuySellScheme.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 11/02/2012 7:14:29 PM
- *
- * $Id$
  */
 package pcgen.core;
 
@@ -28,21 +23,17 @@ import java.text.NumberFormat;
 import pcgen.facade.core.GearBuySellFacade;
 
 /**
- * The Class <code>GearBuySellScheme</code> defines a named set of rates for 
+ * The Class {@code GearBuySellScheme} defines a named set of rates for
  * buying and selling gear.
- *
- * <br>
- * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class GearBuySellScheme implements GearBuySellFacade
 {
 
 	private String name;
-	private BigDecimal buyRate;
-	private BigDecimal sellRate;
-	private BigDecimal cashSellRate;
-	
+	private final BigDecimal buyRate;
+	private final BigDecimal sellRate;
+	private final BigDecimal cashSellRate;
+
 	/**
 	 * Create a new named instance of GearBuySellScheme
 	 * @param name The name of the scheme.
@@ -57,7 +48,7 @@ public class GearBuySellScheme implements GearBuySellFacade
 		this.sellRate = sellRate;
 		this.cashSellRate = cashSellRate;
 	}
-	
+
 	@Override
 	public String getName()
 	{
@@ -73,27 +64,11 @@ public class GearBuySellScheme implements GearBuySellFacade
 	}
 
 	/**
-	 * @param buyRate the buyRate to set
-	 */
-	public void setBuyRate(BigDecimal buyRate)
-	{
-		this.buyRate = buyRate;
-	}
-
-	/**
 	 * @return the sellRate
 	 */
 	public BigDecimal getSellRate()
 	{
 		return sellRate;
-	}
-
-	/**
-	 * @param sellRate the sellRate to set
-	 */
-	public void setSellRate(BigDecimal sellRate)
-	{
-		this.sellRate = sellRate;
 	}
 
 	/**
@@ -104,35 +79,12 @@ public class GearBuySellScheme implements GearBuySellFacade
 		return cashSellRate;
 	}
 
-	/**
-	 * @param cashSellRate the cashSellRate to set
-	 */
-	public void setCashSellRate(BigDecimal cashSellRate)
-	{
-		this.cashSellRate = cashSellRate;
-	}
-
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name)
-	{
-		this.name = name;
-	}
-
 	@Override
 	public String toString()
 	{
 		NumberFormat numFmt = NumberFormat.getNumberInstance();
-		
-		StringBuilder sb = new StringBuilder(name);
-		sb.append(" - Buy ");
-		sb.append(numFmt.format(buyRate));
-		sb.append(" Sell ");
-		sb.append(numFmt.format(sellRate));
 
-		return sb.toString();
+		return name + " - Buy " + numFmt.format(buyRate) + " Sell " + numFmt.format(sellRate);
 	}
 
-	
 }

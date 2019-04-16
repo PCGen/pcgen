@@ -24,7 +24,7 @@ import plugin.lsttokens.pcclass.level.KnownToken;
 public class KnownIntegrationTest extends AbstractSpellCastingTokenTestCase
 {
 
-	static KnownToken token = new KnownToken();
+	private static final CDOMPrimaryToken<PCClassLevel> token = new KnownToken();
 
 	@Override
 	public CDOMPrimaryToken<PCClassLevel> getToken()

@@ -17,10 +17,9 @@
  */
 package plugin.lsttokens.testsupport;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseSelectionActor;
@@ -35,17 +34,20 @@ import plugin.lsttokens.AutoLst;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 		AbstractSelectionTokenTestCase<CDOMObject, TC>
 {
 	static AutoLst token = new AutoLst();
 	static CDOMTokenLoader<CDOMObject> loader =
-			new CDOMTokenLoader<CDOMObject>();
+			new CDOMTokenLoader<>();
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -106,7 +108,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	protected abstract boolean allowsPrerequisite();
 
 	@Test
-	public void testInvalidEmptyPre() throws PersistenceLayerException
+	public void testInvalidEmptyPre()
 	{
 		construct(primaryContext, "TestWP1");
 		boolean parse = parse(getSubTokenName() + '|' + "TestWP1[]");
@@ -121,7 +123,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	}
 
 	@Test
-	public void testInvalidEmptyPre2() throws PersistenceLayerException
+	public void testInvalidEmptyPre2()
 	{
 		construct(primaryContext, "TestWP1");
 		boolean parse = parse(getSubTokenName() + '|' + "TestWP1[");
@@ -136,7 +138,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	}
 
 	@Test
-	public void testInvalidEmptyPre3() throws PersistenceLayerException
+	public void testInvalidEmptyPre3()
 	{
 		construct(primaryContext, "TestWP1");
 		boolean parse = parse(getSubTokenName() + '|' + "TestWP1]");
@@ -151,7 +153,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	}
 
 	@Test
-	public void testInvalidMismatchedBracket() throws PersistenceLayerException
+	public void testInvalidMismatchedBracket()
 	{
 		construct(primaryContext, "TestWP1");
 		boolean parse =
@@ -168,7 +170,6 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 
 	@Test
 	public void testInvalidTrailingAfterBracket()
-		throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		boolean parse =
@@ -224,7 +225,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	}
 
 	@Test
-	public void testRoundRobinAllIndivPrereq() throws PersistenceLayerException
+	public void testRoundRobinAllIndivPrereq()
 	{
 		if (allowsPrerequisite())
 		{
@@ -251,7 +252,6 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 
 	@Test
 	public void testInvalidAllPlusAllPrereqIllegal()
-		throws PersistenceLayerException
 	{
 		if (allowsPrerequisite())
 		{
@@ -262,7 +262,6 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 
 	@Test
 	public void testInvalidAllPlusListIllegal()
-		throws PersistenceLayerException
 	{
 		if (isAllLegal())
 		{
@@ -273,7 +272,6 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 
 	@Test
 	public void testInvalidInputBadPrerequisite()
-		throws PersistenceLayerException
 	{
 		if (allowsPrerequisite())
 		{
@@ -292,7 +290,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		TC wp1 = construct(primaryContext, "TestWP1");
 		CDOMSingleRef<TC> ref = CDOMDirectSingleRef.getRef(wp1);
@@ -302,7 +300,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	}
 
 	@Test
-	public void testUnparseType() throws PersistenceLayerException
+	public void testUnparseType()
 	{
 		loadTypeProf("Foo", "Bar");
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -311,7 +309,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	}
 
 	@Test
-	public void testUnparseSingleAll() throws PersistenceLayerException
+	public void testUnparseSingleAll()
 	{
 		if (isAllLegal())
 		{
@@ -324,7 +322,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	}
 
 	@Test
-	public void testUnparseAll() throws PersistenceLayerException
+	public void testUnparseAll()
 	{
 		if (isAllLegal())
 		{
@@ -350,7 +348,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	}
 
 	@Test
-	public void testUnparseListAll() throws PersistenceLayerException
+	public void testUnparseListAll()
 	{
 		if (isAllLegal())
 		{
@@ -361,7 +359,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	}
 
 	@Test
-	public void testUnparseTypeAll() throws PersistenceLayerException
+	public void testUnparseTypeAll()
 	{
 		if (isAllLegal())
 		{
@@ -372,7 +370,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	}
 
 	@Test
-	public void testUnparseList() throws PersistenceLayerException
+	public void testUnparseList()
 	{
 		primaryProf.addToListFor(ListKey.NEW_CHOOSE_ACTOR, getActor());
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);

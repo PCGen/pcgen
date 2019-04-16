@@ -17,7 +17,10 @@
  */
 package tokencontent;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillCost;
@@ -31,7 +34,6 @@ import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.gui2.facade.MockUIDelegate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
@@ -40,7 +42,11 @@ import plugin.lsttokens.pcclass.HdToken;
 import plugin.lsttokens.pcclass.IsmonsterToken;
 import plugin.lsttokens.race.MoncskillToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class RaceMonCSkillTest extends AbstractTokenModelTest
 {
@@ -55,6 +61,7 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 	private Skill sk;
 	private PCClass dragon;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -71,13 +78,13 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect() throws PersistenceLayerException
+	public void testDirect()
 	{
 		Race source = create(Race.class, "Source");
 		ParseResult result = token.parseToken(context, source, "MySkill");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -94,19 +101,19 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testList() throws PersistenceLayerException
+	public void testList()
 	{
 		Race source = create(Race.class, "Source");
 		ParseResult result = token.parseToken(context, source, "LIST");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_SKILL_TOKEN.parseToken(context, source, "MySkill");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

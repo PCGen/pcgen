@@ -23,8 +23,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class ValueToken extends AbstractNonEmptyToken<UserFunction> implements
-		CDOMPrimaryToken<UserFunction>
+public class ValueToken extends AbstractNonEmptyToken<UserFunction> implements CDOMPrimaryToken<UserFunction>
 {
 
 	@Override
@@ -34,17 +33,15 @@ public class ValueToken extends AbstractNonEmptyToken<UserFunction> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		UserFunction ftn, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, UserFunction ftn, String value)
 	{
-		String existing = ftn.getLSTformat();
+		String existing = ftn.getOriginalExpression();
 		if (existing != null)
 		{
 			if (!existing.equalsIgnoreCase(value))
 			{
-				return new ParseResult.Fail("Parse of Function: "
-					+ ftn.getKeyName() + " with value: " + value
-					+ " attempted to reassign from: " + existing, context);
+				return new ParseResult.Fail("Parse of Function: " + ftn.getKeyName() + " with value: " + value
+					+ " attempted to reassign from: " + existing);
 			}
 			return ParseResult.SUCCESS;
 		}
@@ -54,9 +51,8 @@ public class ValueToken extends AbstractNonEmptyToken<UserFunction> implements
 		}
 		catch (IllegalArgumentException e)
 		{
-			return new ParseResult.Fail("Parse of Function: "
-				+ ftn.getKeyName() + " with value: " + value
-				+ " failed due to: " + e.getMessage(), context);
+			return new ParseResult.Fail("Parse of Function: " + ftn.getKeyName() + " with value: " + value
+				+ " failed due to: " + e.getMessage());
 		}
 		context.getVariableContext().addFunction(ftn.getFunction());
 		return ParseResult.SUCCESS;
@@ -65,7 +61,7 @@ public class ValueToken extends AbstractNonEmptyToken<UserFunction> implements
 	@Override
 	public String[] unparse(LoadContext context, UserFunction ftn)
 	{
-		return new String[]{ftn.getLSTformat()};
+		return new String[]{ftn.getOriginalExpression()};
 	}
 
 	@Override

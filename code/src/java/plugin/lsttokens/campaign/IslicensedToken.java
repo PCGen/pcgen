@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with ISLICENSED Token
  */
-public class IslicensedToken extends AbstractYesNoToken<Campaign> implements
-		CDOMPrimaryToken<Campaign>
+public class IslicensedToken extends AbstractYesNoToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override
@@ -41,7 +40,7 @@ public class IslicensedToken extends AbstractYesNoToken<Campaign> implements
 		return ObjectKey.IS_LICENSED;
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

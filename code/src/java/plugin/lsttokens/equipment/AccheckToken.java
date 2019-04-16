@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with ACCHECK token
  */
-public class AccheckToken extends AbstractIntToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class AccheckToken extends AbstractIntToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 	@Override
 	public String getTokenName()
@@ -57,16 +56,13 @@ public class AccheckToken extends AbstractIntToken<Equipment> implements
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, Equipment obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, Equipment obj, String value)
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.EQACCHECK))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when EQACCHECK control is used: " + value,
-				context);
+			return new ParseResult.Fail(getTokenName() + " is disabled when EQACCHECK control is used: " + value);
 		}
 		return super.parseToken(context, obj, value);
 	}
-	
+
 }

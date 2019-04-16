@@ -44,25 +44,22 @@ public class HdToken implements CDOMPrimaryToken<PCClass>
 			Integer in = Integer.valueOf(value);
 			if (in.intValue() <= 0)
 			{
-				return new ParseResult.Fail(getTokenName() + " must be an integer > 0", context);
+				return new ParseResult.Fail(getTokenName() + " must be an integer > 0");
 			}
-			context.getObjectContext().put(pcc, ObjectKey.LEVEL_HITDIE,
-					new HitDie(in));
+			context.getObjectContext().put(pcc, ObjectKey.LEVEL_HITDIE, new HitDie(in));
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>", context);
+			return new ParseResult.Fail(
+				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
 		}
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		HitDie lpf = context.getObjectContext().getObject(pcc,
-				ObjectKey.LEVEL_HITDIE);
+		HitDie lpf = context.getObjectContext().getObject(pcc, ObjectKey.LEVEL_HITDIE);
 		if (lpf == null)
 		{
 			return null;
@@ -72,7 +69,7 @@ public class HdToken implements CDOMPrimaryToken<PCClass>
 			context.addWriteMessage(getTokenName() + " must be an integer > 0");
 			return null;
 		}
-		return new String[] { Integer.toString(lpf.getDie()) };
+		return new String[]{Integer.toString(lpf.getDie())};
 	}
 
 	@Override

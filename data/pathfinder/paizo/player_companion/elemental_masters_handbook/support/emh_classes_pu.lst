@@ -1,0 +1,25 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Elemental Master's Handbook	SOURCESHORT:EMH	SOURCEWEB:http://paizo.com/products/btpy9uf8?Pathfinder-Player-Companion-Elemental-Masters-Handbook	SOURCEDATE:2017-08
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+
+# ==============================
+# Genie Binder Prestige Class
+# ==============================
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																						Modify VAR																																																																	FACT
+CLASS:Genie Binder	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.26	DEFINE:GenieBinderLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|GenieBinderLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|GeB
+# Class Name		Required Ability									Required AL				Required Skill										Req. Known Spell
+CLASS:Genie Binder	PREABILITY:2,CATEGORY=FEAT,Persuasive,Spell Focus (conjuration)	PREALIGN:LE,NE,CE,LN,TN,CN	PRESKILL:3,Diplomacy=4,Knowledge (nobility)=4,Knowledge (planes)=11	PRESPELL:1,Planar Ally,Planar Binding,Summon Monster VI
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Genie Binder	STARTSKILLPTS:2	CSKILL:Bluff|Diplomacy|Intimidate|Knowledge (arcana)|Knowledge (nobility)|Knowledge (planes)|Sense Motive|Spellcraft
+###Block: Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Genie Binder ~ Binding Pool
+1	ABILITY:Special Ability|AUTOMATIC|Genie Binder ~ Elemental Seal
+1	ABILITY:Special Ability|AUTOMATIC|Genie Binder ~ Genie Mastery
+2	ABILITY:Special Ability|AUTOMATIC|Genie Binder ~ Genie Summoner
+3	ABILITY:Special Ability|AUTOMATIC|Genie Binder ~ Extra Seal
+5	ABILITY:Special Ability|AUTOMATIC|Genie Binder ~ Unstoppable Seal
+###Block: Spell Improvement
+2	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY

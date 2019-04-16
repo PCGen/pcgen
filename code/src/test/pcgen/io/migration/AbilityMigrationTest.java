@@ -1,5 +1,4 @@
 /*
- * AbilityMigrationTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,35 +14,32 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 02/06/2013
- *
- * $Id$
  */
 package pcgen.io.migration;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
 import pcgen.io.migration.AbilityMigration.CategorisedKey;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * AbilityMigrationTest checks the function of AbilityMigration.
- * 
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class AbilityMigrationTest extends TestCase
+public class AbilityMigrationTest
 {
 	
 	private String gameMode;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		gameMode = SettingsHandler.getGame().getName();
 		MigrationRule abilityRule = new MigrationRule(ObjectType.ABILITY, "OldCat", "OldKey1");
 		abilityRule.setMaxVer("6.0.1");
@@ -66,22 +62,23 @@ public class AbilityMigrationTest extends TestCase
 		SystemCollections.addToMigrationRulesList(abilityRuleDiffGame, "modern");
 	}
 
-	@Override
+	@AfterEach
 	public void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();
-		super.tearDown();
+		gameMode = null;
 	}
 
 	/**
 	 * Test that rules for max version only are applied correctly.  
 	 */
+	@Test
 	public void testMaxVer()
 	{
-		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey1", new int[]{6,0,0}, gameMode);
+		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey1", new int[]{6, 0, 0}, gameMode);
 		assertEquals("OldCat", catKey.getCategory());
 		assertEquals("NewKey1", catKey.getKey());
-		catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey1", new int[]{6,0,2}, gameMode);
+		catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey1", new int[]{6, 0, 2}, gameMode);
 		assertEquals("OldCat", catKey.getCategory());
 		assertEquals("OldKey1", catKey.getKey());
 	}
@@ -89,9 +86,10 @@ public class AbilityMigrationTest extends TestCase
 	/**
 	 * Test that rules for category changes are applied correctly.  
 	 */
+	@Test
 	public void testCatChange()
 	{
-		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey2", new int[]{5,17,5}, gameMode);
+		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey2", new int[]{5, 17, 5}, gameMode);
 		assertEquals("EarlyNewCat", catKey.getCategory());
 		assertEquals("EarlyNewKey", catKey.getKey());
 	}
@@ -99,12 +97,13 @@ public class AbilityMigrationTest extends TestCase
 	/**
 	 * Test that matches are case insensitive.  
 	 */
+	@Test
 	public void testCaseInsensitive()
 	{
-		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCAT", "OldKey1", new int[]{6,0,0}, gameMode);
+		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCAT", "OldKey1", new int[]{6, 0, 0}, gameMode);
 		assertEquals("OldCAT", catKey.getCategory());
 		assertEquals("NewKey1", catKey.getKey());
-		catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKEY1", new int[]{6,0,0}, gameMode);
+		catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKEY1", new int[]{6, 0, 0}, gameMode);
 		assertEquals("OldCat", catKey.getCategory());
 		assertEquals("NewKey1", catKey.getKey());
 	}

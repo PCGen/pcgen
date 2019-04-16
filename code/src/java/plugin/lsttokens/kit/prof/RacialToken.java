@@ -1,5 +1,4 @@
 /*
- * RacialToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 6, 2006
- *
- * Current Ver: $Revision$
  */
 
 package plugin.lsttokens.kit.prof;
@@ -29,8 +24,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class RacialToken extends AbstractNonEmptyToken<KitProf> implements
-		CDOMPrimaryToken<KitProf>
+public class RacialToken extends AbstractNonEmptyToken<KitProf> implements CDOMPrimaryToken<KitProf>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -50,8 +44,7 @@ public class RacialToken extends AbstractNonEmptyToken<KitProf> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitProf obj,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitProf obj, String value)
 	{
 		Boolean set;
 		char firstChar = value.charAt(0);
@@ -59,8 +52,7 @@ public class RacialToken extends AbstractNonEmptyToken<KitProf> implements
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				return new ParseResult.Fail("You should use 'YES' as the "
-					+ getTokenName() + ": " + value, context);
+				return new ParseResult.Fail("You should use 'YES' as the " + getTokenName() + ": " + value);
 			}
 			set = Boolean.TRUE;
 		}
@@ -68,13 +60,11 @@ public class RacialToken extends AbstractNonEmptyToken<KitProf> implements
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				return new ParseResult.Fail("You should use 'YES' or 'NO' as the "
-						+ getTokenName() + ": " + value, context);
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 			}
 			set = Boolean.FALSE;
 		}

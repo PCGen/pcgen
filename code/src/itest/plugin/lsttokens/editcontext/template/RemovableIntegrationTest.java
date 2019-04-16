@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.template;
 
-import org.junit.Test;
-
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -28,12 +26,14 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.template.RemovableToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class RemovableIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
 {
 
-	static RemovableToken token = new RemovableToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+	private static RemovableToken token = new RemovableToken();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

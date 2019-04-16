@@ -32,10 +32,8 @@ import pcgen.core.ShieldProf;
  * granted to a Player Character by AUTO:SHIELDPROF|%LIST and converts them to
  * ProfProvider objects.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class AutoListShieldProfFacet extends
-		AbstractItemConvertingFacet<ShieldProf, ProfProvider<ShieldProf>>
+public class AutoListShieldProfFacet extends AbstractItemConvertingFacet<ShieldProf, ProfProvider<ShieldProf>>
 		implements PerspectiveLocation
 {
 
@@ -63,9 +61,6 @@ public class AutoListShieldProfFacet extends
 	 *            The ShieldProf that was granted to a Player Character
 	 * @return A new ProfProvider that wraps the given ShieldProf into a
 	 *         ProfProvider
-	 * 
-	 *         (non-Javadoc)
-	 * @see pcgen.cdom.facet.base.AbstractItemConvertingFacet#convert(java.lang.Object)
 	 */
 	@Override
 	protected ProfProvider<ShieldProf> convert(ShieldProf ap)

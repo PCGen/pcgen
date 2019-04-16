@@ -46,8 +46,8 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Equipment>
+public class EquipToken extends AbstractNonEmptyToken<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<Equipment>
 {
 
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
@@ -70,8 +70,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -88,20 +87,17 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 			count = FormulaFactory.getFormulaFor(activeValue);
 			if (!count.isValid())
 			{
-				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString(), context);
+				return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
 			}
 			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{
-				return new ParseResult.Fail("Count in " + getFullName()
-								+ " must be > 0", context);
+				return new ParseResult.Fail("Count in " + getFullName() + " must be > 0");
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
-			return new ParseResult.Fail(getFullName()
-					+ " had too many pipe separated items: " + value, context);
+			return new ParseResult.Fail(getFullName() + " had too many pipe separated items: " + value);
 		}
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);
 		if (!pr.passed())
@@ -114,24 +110,19 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			CDOMReference<Equipment> lang = TokenUtilities.getTypeOrPrimitive(
-					context, EQUIPMENT_CLASS, tokText);
+			CDOMReference<Equipment> lang = TokenUtilities.getTypeOrPrimitive(context, EQUIPMENT_CLASS, tokText);
 			if (lang == null)
 			{
-				return new ParseResult.Fail("  Error was encountered while parsing "
-						+ getFullName() + ": " + value
-						+ " had an invalid reference: " + tokText, context);
+				return new ParseResult.Fail("  Error was encountered while parsing " + getFullName() + ": " + value
+					+ " had an invalid reference: " + tokText);
 			}
 			refs.add(lang);
 		}
 
-		ReferenceChoiceSet<Equipment> rcs = new ReferenceChoiceSet<>(
-				refs);
-		ChoiceSet<Equipment> cs = new ChoiceSet<>(getTokenName(),
-				new QualifiedDecorator<>(rcs));
+		ReferenceChoiceSet<Equipment> rcs = new ReferenceChoiceSet<>(refs);
+		ChoiceSet<Equipment> cs = new ChoiceSet<>(getTokenName(), new QualifiedDecorator<>(rcs));
 		cs.setTitle("Equipment Choice");
-		PersistentTransitionChoice<Equipment> tc = new ConcretePersistentTransitionChoice<>(
-				cs, count);
+		PersistentTransitionChoice<Equipment> tc = new ConcretePersistentTransitionChoice<>(cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
 		return ParseResult.SUCCESS;
@@ -140,10 +131,9 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<PersistentTransitionChoice<?>> grantChanges = context
-				.getObjectContext().getListChanges(obj, ListKey.ADD);
-		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges
-				.getAdded();
+		Changes<PersistentTransitionChoice<?>> grantChanges =
+				context.getObjectContext().getListChanges(obj, ListKey.ADD);
+		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges.getAdded();
 		if (addedItems == null || addedItems.isEmpty())
 		{
 			// Zero indicates no Token
@@ -158,14 +148,12 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 				Formula f = container.getCount();
 				if (f == null)
 				{
-					context.addWriteMessage("Unable to find " + getFullName()
-							+ " Count");
+					context.addWriteMessage("Unable to find " + getFullName() + " Count");
 					return null;
 				}
 				if (f.isStatic() && f.resolveStatic().doubleValue() <= 0)
 				{
-					context.addWriteMessage("Count in " + getFullName()
-							+ " must be > 0");
+					context.addWriteMessage("Count in " + getFullName() + " must be > 0");
 					return null;
 				}
 				StringBuilder sb = new StringBuilder();
@@ -189,8 +177,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, Equipment choice,
-			PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, Equipment choice, PlayerCharacter pc)
 	{
 		Equipment bEquipment = choice.clone();
 		bEquipment.setQty(1);
@@ -198,8 +185,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public boolean allow(Equipment choice, PlayerCharacter pc,
-			boolean allowStack)
+	public boolean allow(Equipment choice, PlayerCharacter pc, boolean allowStack)
 	{
 		return true;
 	}
@@ -217,15 +203,13 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			Equipment choice)
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, Equipment choice)
 	{
 		// No action required
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-			Equipment choice)
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, Equipment choice)
 	{
 		pc.removeEquipment(choice);
 	}

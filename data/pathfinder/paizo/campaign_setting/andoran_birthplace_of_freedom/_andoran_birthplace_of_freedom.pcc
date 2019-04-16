@@ -1,0 +1,75 @@
+# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+CAMPAIGN:Andoran, Birthplace of Freedom
+KEY:Andoran - Birthplace of Freedom
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Campaign Setting
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Pathfinder Campaign Setting
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
+PRECAMPAIGN:1,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Andoran, Birthplace of Freedom
+SOURCESHORT:ABOF
+SOURCEDATE:2015-05
+ISOGL:YES
+
+COVER:andoran_birthplace_of_freedom.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Inc.|http://paizo.com/products/btpy9dz4?Pathfinder-Campaign-Setting-Andoran-Birthplace-of-Freedom|Buy this publication from Paizo Publishing!
+
+DESC:Wedged between the crumbling empire of Taldor and the devil-worshipers of Cheliax, the self-made nation of Andoran shines proudly on the coast of the Inner Sea. Ruled by a Supreme Elect chosen by the people, Andoran is surrounded by aristocratic enemies who believe the republic is an experiment doomed to failure, but who also fear its growing power. Within its own borders, Andoran must face the threat of the greedy Lumber Consortium, warbands of hobgoblins, tribes of werewolves, and increasingly violent creatures of the wilds who are enraged at seeing their forests destroyed for profit.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Atomie from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Forlarren from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian Livingstone.
+COPYRIGHT:Giant, Wood from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors: Scott Greene, based on original material by Wizards of the Coast.
+COPYRIGHT:Mite from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian Livingstone and Mark Barnes.
+COPYRIGHT:Mongrelman from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Nereid from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pech from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Campaign Setting: Andoran, Birthplace of Freedom Copyright 2015, Paizo Inc.; Authors: Tim Hitchcock and Jason Nelson.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Andoran, Birthplace of Freedom" Copyright 2015, PCGen Data team (Including, but not limited to James Parker, Gwen T. (evilpixie87))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+
+# Data files
+ABILITY:abof_abilities_race.lst
+ABILITY:abof_feats.lst
+KIT:abof_kits.lst
+KIT:abof_kits_race.lst
+RACE:abof_races.lst
+SPELL:abof_spells.lst
+TEMPLATE:abof_templates.lst
+
+# ENTRY DATE:
+# LST MONKEY: James Parker, with Gwen T. (evilpixie87)
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland (LegacyKing)
+# RELEASE:
+# Built for PCGen Version: 6.07.07
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.7
+# COMMENTS:
+
+
+#
+# End
+#

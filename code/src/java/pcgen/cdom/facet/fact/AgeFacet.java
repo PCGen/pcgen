@@ -25,10 +25,8 @@ import pcgen.output.publish.OutputDB;
 /**
  * AgeFacet stores the age of the Player Character.
  * 
- * @author Tom Parker (thpr [at] yahoo.com)
  */
-public class AgeFacet extends AbstractItemFacet<CharID, Integer> implements
-		ItemFacet<CharID, Integer>
+public class AgeFacet extends AbstractItemFacet<CharID, Integer> implements ItemFacet<CharID, Integer>
 {
 
 	/**

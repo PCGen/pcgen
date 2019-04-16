@@ -1,5 +1,4 @@
 /*
- * LookAndFeelPanel.java
  * Copyright 2010(C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17/11/2010 19:50:00
- *
- * $Id$
  */
 package pcgen.gui2.prefs;
 
@@ -42,8 +37,6 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileFilter;
 
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -52,72 +45,59 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
- * The Class <code>LookAndFeelPanel</code> is responsible for 
+ * The Class {@code LookAndFeelPanel} is responsible for
  * displaying look and feel related preferences and allowing the 
  * preferences to be edited by the user.
- * 
- * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class LookAndFeelPanel extends PCGenPrefsPanel
 {
-	private static String in_lookAndFeel =
-		LanguageBundle.getString("in_Prefs_lookAndFeel");
+	private static final String IN_LOOK_AND_FEEL = LanguageBundle.getString("in_Prefs_lookAndFeel");
 
-	private static String in_skinnedLAF =
-		LanguageBundle.getString("in_Prefs_skinnedLAF");
-	private static String in_choose = "...";
+	private static final String IN_SKINNED_LAF = LanguageBundle.getString("in_Prefs_skinnedLAF");
+	private static final String IN_CHOOSE = "...";
 
-	private JRadioButton[] laf;
-	private JRadioButton skinnedLookFeel = new JRadioButton();
-	private JButton themepack;
-	private JTextField themepackLabel;
-	private Dialog parent;
-	private PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
+	private final JRadioButton[] laf;
+	private final JRadioButton skinnedLookFeel = new JRadioButton();
+	private final JButton themepack;
+	private final JTextField themepackLabel;
+	private final PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
 	private String oldLAF;
 	private String oldThemePack;
+
 	/**
 	 * Instantiates a new look and feel panel.
 	 */
 	public LookAndFeelPanel(Dialog parent)
 	{
-		this.parent = parent;
-		
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
+
 		JLabel label;
 		ButtonGroup exclusiveGroup;
 		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_lookAndFeel);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_LOOK_AND_FEEL);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
-		gridbag = new GridBagLayout();
+		GridBagLayout gridbag = new GridBagLayout();
 		this.setLayout(gridbag);
-		c = new GridBagConstraints();
+		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.anchor = GridBagConstraints.WEST;
 		c.insets = new Insets(2, 2, 2, 2);
 
 		exclusiveGroup = new ButtonGroup();
 		Action[] actions = LookAndFeelManager.getActions();
-		laf = new JRadioButton[actions.length-1];
+		laf = new JRadioButton[actions.length - 1];
 
 		for (int i = 0; i < laf.length; ++i)
 		{
 			laf[i] = new JRadioButton(actions[i]);
 
-			if (laf[i].getText().charAt(0) != 'C')
-			{
-				laf[i].setMnemonic(laf[i].getText().charAt(0));
-			}
-			else
-			{
-				laf[i].setMnemonic(laf[i].getText().charAt(1));
-			}
+			int whichChar = (laf[i].getText().charAt(0) == 'C') ? 1 : 0;
+			laf[i].setMnemonic(laf[i].getText().charAt(whichChar));
 
 			Utility.buildConstraints(c, 0, i, 3, 1, 0, 0);
 			gridbag.setConstraints(laf[i], c);
@@ -125,12 +105,10 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 			exclusiveGroup.add(laf[i]);
 		}
 
-		skinnedLookFeel.addActionListener(actions[actions.length-1]);
-		skinnedLookFeel.setText(in_skinnedLAF + ": ");
-		skinnedLookFeel.setToolTipText(LanguageBundle
-			.getString("in_Prefs_skinnedLAFTooltip"));
-		skinnedLookFeel.setMnemonic(LanguageBundle
-			.getMnemonic("in_mn_Prefs_skinnedLAF"));
+		skinnedLookFeel.addActionListener(actions[actions.length - 1]);
+		skinnedLookFeel.setText(IN_SKINNED_LAF + ": ");
+		skinnedLookFeel.setToolTipText(LanguageBundle.getString("in_Prefs_skinnedLAFTooltip"));
+		skinnedLookFeel.setMnemonic(LanguageBundle.getMnemonic("in_mn_Prefs_skinnedLAF"));
 		Utility.buildConstraints(c, 0, laf.length, 3, 1, 0, 0);
 		gridbag.setConstraints(skinnedLookFeel, c);
 		this.add(skinnedLookFeel);
@@ -142,19 +120,18 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(themepackLabel, c);
 		this.add(themepackLabel);
 		Utility.buildConstraints(c, 4, laf.length, 1, 1, 0, 0);
-		themepack = new JButton(in_choose);
-		themepack.setToolTipText(LanguageBundle
-			.getString("in_Prefs_chooseSkinTooltip"));
+		themepack = new JButton(IN_CHOOSE);
+		themepack.setToolTipText(LanguageBundle.getString("in_Prefs_chooseSkinTooltip"));
 		gridbag.setConstraints(themepack, c);
 		this.add(themepack);
 		themepack.addActionListener(prefsButtonHandler);
 
-		Utility.buildConstraints(c, 0, laf.length+1, 5, 1, 0, 0);
+		Utility.buildConstraints(c, 0, laf.length + 1, 5, 1, 0, 0);
 		label = new JLabel("");
 		gridbag.setConstraints(label, c);
 		this.add(label);
 
-		Utility.buildConstraints(c, 0, laf.length+2, 5, 1, 0, 0);
+		Utility.buildConstraints(c, 0, laf.length + 2, 5, 1, 0, 0);
 		label = new JLabel(LanguageBundle.getString("in_Prefs_restartInfo"));
 		gridbag.setConstraints(label, c);
 		this.add(label);
@@ -168,10 +145,8 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 
 	private void selectThemePack()
 	{
-		JFileChooser fc =
-				new JFileChooser(ConfigurationSettings.getThemePackDir());
-		fc.setDialogTitle(LanguageBundle
-			.getString("in_Prefs_chooseSkinDialogTitle"));
+		JFileChooser fc = new JFileChooser(ConfigurationSettings.getThemePackDir());
+		fc.setDialogTitle(LanguageBundle.getString("in_Prefs_chooseSkinDialogTitle"));
 
 		String theme = LookAndFeelManager.getCurrentThemePack();
 
@@ -187,11 +162,9 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		{
 			File newTheme = fc.getSelectedFile();
 
-			if (newTheme.isDirectory()
-				|| (!newTheme.getName().endsWith("themepack.zip")))
+			if (newTheme.isDirectory() || (!newTheme.getName().endsWith("themepack.zip")))
 			{
-				ShowMessageDelegate.showMessageDialog(
-					LanguageBundle.getString("in_Prefs_notAThemeErrorItem"),
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_Prefs_notAThemeErrorItem"),
 					Constants.APPLICATION_NAME, MessageType.ERROR);
 			}
 			else
@@ -228,18 +201,12 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
-	 */
 	@Override
 	public String getTitle()
 	{
-		return in_lookAndFeel;
+		return IN_LOOK_AND_FEEL;
 	}
-	
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
-	 */
+
 	@Override
 	public void setOptionsBasedOnControls()
 	{
@@ -259,13 +226,10 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		boolean needsRestart = false;
 		needsRestart |= (oldLAF != LookAndFeelManager.getCurrentLAF());
 		needsRestart |= (oldThemePack != LookAndFeelManager.getCurrentThemePack());
-		
+
 		return needsRestart;
 	}
-	
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
-	 */
+
 	@Override
 	public void applyOptionValuesToControls()
 	{
@@ -276,27 +240,6 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 			laf[i].setSelected(oldLAF.equals(laf[i].getText()));
 		}
 		skinnedLookFeel.setSelected(oldLAF.equals("Skinned"));
-//		int crossIndex = UIFactory.indexOfCrossPlatformLookAndFeel();
-//
-//		if (SettingsHandler.getLookAndFeel() < laf.length)
-//		{
-//			laf[SettingsHandler.getLookAndFeel()].setSelected(true);
-//		}
-//		else if (SettingsHandler.getLookAndFeel() == laf.length)
-//		{
-//			if ((SkinLFResourceChecker.getMissingResourceCount() == 0))
-//			{
-//				skinnedLookFeel.setSelected(true);
-//			}
-//			else
-//			{
-//				laf[crossIndex].setSelected(true);
-//			}
-//		}
-//		else
-//		{
-//			laf[crossIndex].setSelected(true);
-//		}
 	}
 
 	private final class PrefsButtonListener implements ActionListener

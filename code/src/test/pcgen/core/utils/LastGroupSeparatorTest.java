@@ -1,12 +1,14 @@
 package pcgen.core.utils;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.core.utils.LastGroupSeparator.GroupingMismatchException;
 
-public class LastGroupSeparatorTest extends TestCase
+import org.junit.jupiter.api.Test;
+
+public class LastGroupSeparatorTest
 {
 
 	@Test
@@ -17,7 +19,7 @@ public class LastGroupSeparatorTest extends TestCase
 			new LastGroupSeparator(null);
 			fail();
 		}
-		catch (IllegalArgumentException iae)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			// OK
 		}

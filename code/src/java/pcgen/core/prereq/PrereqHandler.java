@@ -1,5 +1,4 @@
 /*
- * PrereqHandler.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,20 +15,16 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision$
- *
  */
 
 package pcgen.core.prereq;
 
-
 import java.util.Collection;
+import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.PrereqObject;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Equipment;
@@ -63,11 +58,46 @@ public final class PrereqHandler
 	 * @param caller The object that we are testing qualification for.
 	 * @return True if the character passes all prereqs.
 	 */
-	public static boolean passesAll(
-		final Collection<Prerequisite> prereqList,
-		final PlayerCharacter aPC,
+	public static boolean passesAll(final Collection<Prerequisite> prereqList, final PlayerCharacter aPC,
 		final Object caller)
 	{
+		if (prereqList == null || prereqList.isEmpty())
+		{
+			return true;
+		}
+
+		if ((caller instanceof Ability) && (AbilityUtilities.isFeat(caller))
+			&& Globals.checkRule(RuleConstants.FEATPRE))
+		{
+			return true;
+		}
+
+		if (caller instanceof CDOMObject && aPC != null)
+		{
+			// Check for QUALIFY:
+			if (aPC.checkQualifyList((CDOMObject) caller))
+			{
+				return true;
+			}
+		}
+
+		for (Prerequisite prereq : prereqList)
+		{
+			if (!passes(prereq, aPC, caller))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static boolean passesAll(PrereqObject prereqObject, PlayerCharacter aPC, Object caller)
+	{
+		if (!prereqObject.isAvailable(aPC) || !prereqObject.isActive(aPC))
+		{
+			return false;
+		}
+		Collection<Prerequisite> prereqList = prereqObject.getPrerequisiteList();
 		if (prereqList == null || prereqList.isEmpty())
 		{
 			return true;
@@ -105,11 +135,26 @@ public final class PrereqHandler
 	 * @param aPC The character to be checked.
 	 * @return true if all of the prerequisites pss.
 	 */
-	public static boolean passesAll(
-		final Collection<Prerequisite> prereqList,
-		final Equipment equip,
+	public static boolean passesAll(final Collection<Prerequisite> prereqList, final Equipment equip,
 		PlayerCharacter aPC)
 	{
+		if (prereqList == null)
+		{
+			return true;
+		}
+		for (Prerequisite prereq : prereqList)
+		{
+			if (!passes(prereq, equip, aPC))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static boolean passesAll(PrereqObject prereqObject, Equipment equip, PlayerCharacter aPC)
+	{
+		List<Prerequisite> prereqList = prereqObject.getPrerequisiteList();
 		if (prereqList == null)
 		{
 			return true;
@@ -131,10 +176,7 @@ public final class PrereqHandler
 	 * @param caller The CDOMObject that is calling this method
 	 * @return true if the character passes the prereq
 	 */
-	public static boolean passes(
-		final Prerequisite prereq,
-		final PlayerCharacter aPC,
-		final Object caller)
+	public static boolean passes(final Prerequisite prereq, final PlayerCharacter aPC, final Object caller)
 	{
 		if (aPC == null && prereq.isCharacterRequired())
 		{
@@ -145,8 +187,7 @@ public final class PrereqHandler
 
 		if (test == null)
 		{
-			Logging.errorPrintLocalised(
-				"PrereqHandler.Unable_to_find_implementation", prereq.toString()); //$NON-NLS-1$
+			Logging.errorPrintLocalised("PrereqHandler.Unable_to_find_implementation", prereq.toString()); //$NON-NLS-1$
 			return false;
 		}
 
@@ -154,9 +195,7 @@ public final class PrereqHandler
 		boolean autoQualifies = false;
 		int total = 0;
 
-		if (caller instanceof CDOMObject
-			&& aPC != null
-			&& aPC.checkQualifyList((CDOMObject) caller)
+		if (caller instanceof CDOMObject && aPC != null && aPC.checkQualifyList((CDOMObject) caller)
 			&& (!overrideQualify))
 		{
 			autoQualifies = true;
@@ -176,15 +215,10 @@ public final class PrereqHandler
 		}
 		catch (Exception e)
 		{
-			final String callerString = (caller != null)
-				? " for " + String.valueOf(caller)
-				: Constants.EMPTY_STRING;
+			final String callerString = (caller != null) ? " for " + String.valueOf(caller) : Constants.EMPTY_STRING;
 
-			Logging.errorPrint(
-				"Problem encountered when testing PREREQ "
-					+ String.valueOf(prereq)
-					+ callerString
-					+ ". See following trace for details.", e);
+			Logging.errorPrint("Problem encountered when testing PREREQ " + String.valueOf(prereq) + callerString
+				+ ". See following trace for details.", e);
 		}
 		return total > 0;
 	}
@@ -196,10 +230,7 @@ public final class PrereqHandler
 	 * @param aPC The character to be checked.
 	 * @return Whether the prerequisite passes.
 	 */
-	public static boolean passes(
-		final Prerequisite preReq,
-		final Equipment equip,
-		PlayerCharacter aPC)
+	public static boolean passes(final Prerequisite preReq, final Equipment equip, PlayerCharacter aPC)
 	{
 		if (equip == null)
 		{
@@ -222,9 +253,9 @@ public final class PrereqHandler
 		catch (PrerequisiteException pe)
 		{
 			final String message = "PrereqHandler.Exception_in_test"; //$NON-NLS-1$
-			Logging.errorPrintLocalised(message , pe);
+			Logging.errorPrintLocalised(message, pe);
 		}
-		return total>0;
+		return total > 0;
 	}
 
 	/**
@@ -234,7 +265,7 @@ public final class PrereqHandler
 	 */
 	public static String toHtmlString(final Collection<Prerequisite> anArrayList)
 	{
-		if (anArrayList==null || anArrayList.isEmpty())
+		if (anArrayList == null || anArrayList.isEmpty())
 		{
 			return Constants.EMPTY_STRING;
 		}
@@ -266,6 +297,5 @@ public final class PrereqHandler
 
 		return pString.toString();
 	}
-
 
 }

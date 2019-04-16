@@ -15,16 +15,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
@@ -52,24 +48,17 @@ import pcgen.util.enumeration.Load;
  */
 public class BaseMovementToken extends AbstractExportToken
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "BASEMOVEMENT";
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		String retString = "";
-		if ((display.getRace() != null) && !display.getRace().equals(Globals.s_EMPTYRACE))
+		if ((display.getRace() != null) && !display.getRace().isUnselected())
 		{
 			StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
 			aTok.nextToken(); //clear BASEMOVEMENT Token
@@ -113,7 +102,7 @@ public class BaseMovementToken extends AbstractExportToken
 			{
 				flag = "TRUE".equalsIgnoreCase(aTok.nextToken());
 			}
-			retString = getBaseMovementToken(display, moveType, load, flag);
+			retString = getBaseMovementToken(display, MovementType.getConstant(moveType), load, flag);
 		}
 		return retString;
 	}
@@ -126,8 +115,7 @@ public class BaseMovementToken extends AbstractExportToken
 	 * @param displayFlag
 	 * @return The base movement token
 	 */
-	public static String getBaseMovementToken(CharacterDisplay display,
-		String moveType, Load load, boolean displayFlag)
+	public static String getBaseMovementToken(CharacterDisplay display, MovementType moveType, Load load, boolean displayFlag)
 	{
 		if (!display.hasMovement(moveType))
 		{
@@ -136,13 +124,9 @@ public class BaseMovementToken extends AbstractExportToken
 		int baseMovement = display.getBaseMovement(moveType, load);
 		if (displayFlag)
 		{
-			return moveType
-				+ " "
-				+ Globals.getGameModeUnitSet()
-					.displayDistanceInUnitSet(baseMovement)
+			return moveType.toString() + ' ' + Globals.getGameModeUnitSet().displayDistanceInUnitSet(baseMovement)
 				+ Globals.getGameModeUnitSet().getDistanceUnit();
 		}
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-				baseMovement);
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(baseMovement);
 	}
 }

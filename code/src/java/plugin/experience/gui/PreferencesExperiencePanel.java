@@ -14,35 +14,30 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * PreferencesExperiencePanel.java
- *
- * Created on July 11, 2003, 4:34 PM
  */
 package plugin.experience.gui;
+
+import java.awt.BorderLayout;
+
+import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.border.TitledBorder;
 
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
 import plugin.experience.ExperienceAdjusterPlugin;
 
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
-import java.awt.BorderLayout;
-
-/**
- *
- * @author soulcatcher
- */
-public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
+public final class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 {
 	public static final int EXPERIENCE_3 = 1;
 	public static final int EXPERIENCE_35 = 2;
 
-	private static final String OPTION_NAME_EXP_TYPE = ExperienceAdjusterPlugin.LOG_NAME + ".ExperienceType"; //$NON-NLS-1$
+	private static final String OPTION_NAME_EXP_TYPE =
+			ExperienceAdjusterPlugin.LOG_NAME + ".ExperienceType"; //$NON-NLS-1$
 
-	private JPanel mainPanel;
-	private JPanel expPanel;
-	private ButtonGroup experienceGroup;
 	private JRadioButton experienceRB1;
 	private JRadioButton experienceRB2;
 
@@ -67,32 +62,28 @@ public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 
 	public int getExperience()
 	{
-		int returnVal = 0;
-
 		if (experienceRB1.isSelected())
 		{
-			returnVal = EXPERIENCE_3;
+			return EXPERIENCE_3;
 		}
 		else if (experienceRB2.isSelected())
 		{
-			returnVal = EXPERIENCE_35;
+			return EXPERIENCE_35;
 		}
 
-		return returnVal;
+		return 0;
 	}
 
-    @Override
+	@Override
 	public void applyPreferences()
 	{
 		SettingsHandler.setGMGenOption(OPTION_NAME_EXP_TYPE, getExperience());
 	}
 
-    @Override
+	@Override
 	public void initPreferences()
 	{
-		setExperience(SettingsHandler.getGMGenOption(
-			OPTION_NAME_EXP_TYPE,
-			EXPERIENCE_35));
+		setExperience(SettingsHandler.getGMGenOption(OPTION_NAME_EXP_TYPE, EXPERIENCE_35));
 	}
 
 	@Override
@@ -108,10 +99,10 @@ public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 	 */
 	private void initComponents()
 	{ //GEN-BEGIN:initComponents
-		mainPanel = new JPanel();
+		JPanel mainPanel = new JPanel();
 
-		expPanel = new JPanel();
-		experienceGroup = new ButtonGroup();
+		JPanel expPanel = new JPanel();
+		ButtonGroup experienceGroup = new ButtonGroup();
 		experienceRB1 = new JRadioButton();
 		experienceRB2 = new JRadioButton();
 
@@ -121,17 +112,16 @@ public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 
 		expPanel.setLayout(new BoxLayout(expPanel, BoxLayout.Y_AXIS));
 
-		expPanel.setBorder(new TitledBorder(null,
-			LanguageBundle.getString("in_plugin_xp_calc"), TitledBorder.DEFAULT_JUSTIFICATION, //$NON-NLS-1$
-			TitledBorder.DEFAULT_POSITION));
+		expPanel.setBorder(
+			new TitledBorder(
+				null, LanguageBundle.getString("in_plugin_xp_calc"), TitledBorder.DEFAULT_JUSTIFICATION, //$NON-NLS-1$
+				TitledBorder.DEFAULT_POSITION));
 		experienceRB1.setSelected(true);
-		experienceRB1
-			.setText(LanguageBundle.getString("in_plugin_xp_byParty")); //$NON-NLS-1$
+		experienceRB1.setText(LanguageBundle.getString("in_plugin_xp_byParty")); //$NON-NLS-1$
 		experienceGroup.add(experienceRB1);
 		expPanel.add(experienceRB1);
 
-		experienceRB2
-			.setText(LanguageBundle.getString("in_plugin_xp_byPC")); //$NON-NLS-1$
+		experienceRB2.setText(LanguageBundle.getString("in_plugin_xp_byPC")); //$NON-NLS-1$
 		experienceGroup.add(experienceRB2);
 		expPanel.add(experienceRB2);
 

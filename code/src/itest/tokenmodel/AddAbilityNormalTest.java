@@ -17,9 +17,11 @@
  */
 package tokenmodel;
 
-import java.util.Collection;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Test;
+import java.util.Collection;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.CNAbility;
@@ -28,19 +30,21 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.add.AbilityToken;
 import plugin.lsttokens.choose.NoChoiceToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractAddListTokenTest;
 import tokenmodel.testsupport.AssocCheck;
 import tokenmodel.testsupport.NoAssociations;
+import util.TestURI;
 
 public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 {
@@ -63,7 +67,7 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 		ParseResult result = runToken(source);
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -95,7 +99,7 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 	@Override
 	protected int getCount()
 	{
-		return getTargetFacet().getPoolAbilities(id, AbilityCategory.FEAT, Nature.NORMAL)
+		return getTargetFacet().getPoolAbilities(id, BuildUtilities.getFeatCat(), Nature.NORMAL)
 			.size();
 	}
 
@@ -103,7 +107,7 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 	protected boolean containsExpected(Ability granted)
 	{
 		Collection<CNAbility> abilities =
-				getTargetFacet().getPoolAbilities(id, AbilityCategory.FEAT, Nature.NORMAL);
+				getTargetFacet().getPoolAbilities(id, BuildUtilities.getFeatCat(), Nature.NORMAL);
 		if (abilities.isEmpty())
 		{
 			System.err.println("No Abilities");
@@ -111,9 +115,8 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 		}
 		for (CNAbility a : abilities)
 		{
-			boolean abilityExpected =
-					a.getAbility().equals(context.getReferenceContext().silentlyGetConstructedCDOMObject(
-						Ability.class, AbilityCategory.FEAT, "Granted"));
+			boolean abilityExpected = a.getAbility().equals(context.getReferenceContext()
+				.getManufacturerId(BuildUtilities.getFeatCat()).getActiveObject("Granted"));
 			if (abilityExpected)
 			{
 				boolean c = assocCheck.check(a);
@@ -131,28 +134,26 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 	@Override
 	protected Ability createGrantedObject()
 	{
-		Ability a = super.createGrantedObject();
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
-		return a;
+		return BuildUtilities.buildFeat(context, "Granted");
 	}
 
 	//TODO CODE-2016/CODE-1921 (needs to be consistent with other methods of ADD:)
 	@Override
-	public void testFromAbility() throws PersistenceLayerException
+	public void testFromAbility()
 	{
 		//Not supported equivalent to other methods
 	}
 
 	//TODO CODE-2016 (needs to be consistent with other methods of ADD:)
 	@Override
-	public void testFromClass() throws PersistenceLayerException
+	public void testFromClass()
 	{
 		//Not supported equivalent to other methods
 	}
 
 	//TODO this appears to be a bug - is only applied once?
 	@Test
-	public void testMult() throws PersistenceLayerException
+	public void testMult()
 	{
 		TokenRegistration.register(new NoChoiceToken());
 		TokenRegistration.register(new StackToken());
@@ -164,22 +165,16 @@ public class AddAbilityNormalTest extends AbstractAddListTokenTest<Ability>
 		context.unconditionallyProcess(a, "CHOOSE", "NOCHOICE");
 		runToken(source);
 		processToken(source);
-		assocCheck = new AssocCheck()
-		{
-			
-			public boolean check(CNAbility g)
+		assocCheck = g -> {
+			if (pc.getDetailedAssociationCount(g) == 2)
 			{
-				if (pc.getDetailedAssociationCount(g) == 2)
-				{
-					return true;
-				}
-				else
-				{
-					System.err.println("Incorrect Association Count");
-					return false;
-				}
+				return true;
 			}
-			
+			else
+			{
+				System.err.println("Incorrect Association Count");
+				return false;
+			}
 		};
 		assertEquals(0, getCount());
 		ClassSource classSource = new ClassSource(pcc);

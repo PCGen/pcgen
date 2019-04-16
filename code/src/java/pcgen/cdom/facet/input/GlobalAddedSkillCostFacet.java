@@ -26,9 +26,7 @@ import pcgen.core.Skill;
  * Stores the Global SkillCost values as applied by CSKILL:%LIST and
  * CCSKILL:%LIST
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class GlobalAddedSkillCostFacet extends
-		AbstractScopeFacet<CharID, SkillCost, Skill>
+public class GlobalAddedSkillCostFacet extends AbstractScopeFacet<CharID, SkillCost, Skill>
 {
 }

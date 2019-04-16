@@ -1,7 +1,6 @@
 <#ftl encoding="UTF-8" strip_whitespace=true >
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	$Id: base.xml 24177 2014-06-16 22:41:07Z jdempsey $
 -->
 <character>
 	<export>
@@ -45,11 +44,11 @@
 	  ====================================-->
 	<basics>
 		<rules>
-			<pfs>
-				<os>${pcstring('VAR.PFS_System.INTVAL')}</os>
-				<id_number>${pcstring('ABILITYALL.ANY.0.ASPECT=PFS_ID.ASPECT.PFS_ID')}</id_number>
+			<society>
+				<os>${pcstring('VAR.Society_System.INTVAL')}</os>
+				<id_number>${pcstring('ABILITYALL.ANY.0.ASPECT=Society_ID.ASPECT.Society_ID')}</id_number>
 				<faction>${pcstring('ABILITYALL.ANY.0.TYPE=Society Faction.NAME')}</faction>
-			</pfs>
+			</society>
 		</rules>
 		<bonuses>${pcstring('BONUSLIST.STAT.STR')}</bonuses>
 		<bonuses>${pcstring('BONUSLIST.STAT.STR.TOTAL')}</bonuses>
@@ -178,8 +177,8 @@
 			<trait>${pcstring('PERSONALITY2')}</trait>
 		</personality>
 		<portrait>
-			<portrait>${pcstring('PORTRAIT')}</portrait>
-			<portrait_thumb>${pcstring('PORTRAIT.THUMB')}</portrait_thumb>
+			<portrait>${pcstring('PORTRAIT')?url_path('utf-8')}</portrait>
+			<portrait_thumb>${pcstring('PORTRAIT.THUMB')?url_path('utf-8')}</portrait_thumb>
 		</portrait>
 		<phobias>${pcstring('PHOBIAS')}</phobias>
 		<#if (pcstring("ABILITYALL.ANY.0.TYPE=RaceName.HASASPECT.RaceName") = "Y")>
@@ -349,6 +348,11 @@
 		<profane>${pcstring('AC.Profane')}</profane>
 		<miss_chance/>
 		<max_dex>${pcstring('MAXDEX')}</max_dex>
+		<#if (gamemodename = "Pathfinder" || gamemodename = "Pathfinder_RPG") >
+			<spell_failure>${pcstring('VAR.SPELLFAILURE_Total.INTVAL')}</spell_failure>
+		<#else>
+			<spell_failure>${pcstring('SPELLFAILURE')}</spell_failure>
+		</#if>
 		<spell_failure>${pcstring('SPELLFAILURE')}</spell_failure>
 		<check_penalty>${pcstring('ACCHECK')}</check_penalty>
 		<spell_resistance>${pcstring('SR')}</spell_resistance>
@@ -571,6 +575,12 @@
 				<sunder_attack>${pcstring('VAR.CMB_Sunder.INTVAL.SIGN')}</sunder_attack>
 				<bullrush_attack>${pcstring('VAR.CMB_BullRush.INTVAL.SIGN')}</bullrush_attack>
 				<overrun_attack>${pcstring('VAR.CMB_Overrun.INTVAL.SIGN')}</overrun_attack>
+
+
+
+
+
+
 				<!-- Defense values -->
 				<defense>${pcstring('VAR.CMD.INTVAL')}</defense>
 				<grapple_defense>${pcstring('VAR.CMD_Grapple.INTVAL')}</grapple_defense>
@@ -585,6 +595,7 @@
 				<sunder_defense>${pcstring('VAR.CMD_Sunder.INTVAL')}</sunder_defense>
 				<bullrush_defense>${pcstring('VAR.CMD_BullRush.INTVAL')}</bullrush_defense>
 				<overrun_defense>${pcstring('VAR.CMD_Overrun.INTVAL')}</overrun_defense>
+
 
 				<#else>
 				<!-- Pathfinder Beta version -->
@@ -605,6 +616,17 @@
 				<overrun_defense>${pcstring('VAR.CMB_Overrun_DEF.INTVAL')}</overrun_defense>
 				</#if>
 			</cmb>
+			<cmb2>
+				<dirtytrick_attack>${pcstring('VAR.CMB_dirtytrick.INTVAL.SIGN')}</dirtytrick_attack>
+				<drag_attack>${pcstring('VAR.CMB_Drag.INTVAL.SIGN')}</drag_attack>
+				<reposition_attack>${pcstring('VAR.CMB_Reposition.INTVAL.SIGN')}</reposition_attack>
+				<steal_attack>${pcstring('VAR.CMB_Steal.INTVAL.SIGN')}</steal_attack>
+				<dirtytrick_defense>${pcstring('VAR.CMD_dirtytrick.INTVAL')}</dirtytrick_defense>
+				<drag_defense>${pcstring('VAR.CMD_Drag.INTVAL')}</drag_defense>
+				<reposition_defense>${pcstring('VAR.CMD_Reposition.INTVAL')}</reposition_defense>
+				<steal_defense>${pcstring('VAR.CMD_Steal.INTVAL')}</steal_defense>
+			</cmb2>
+
 			<#else>
 			<grapple>
 				<total>${pcstring('ATTACK.GRAPPLE.TOTAL')}</total>
@@ -760,9 +782,11 @@
 			<critical>${pcstring('WEAPONH.CRIT')}/x${pcstring('WEAPONH.MULT')}</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 			<reach>${pcstring('REACH')}</reach>
-			<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; NaturalAttack , NaturalAttack_has_next>
-			<special_property>${pcstring('ABILITYALL.Special Ability.${NaturalAttack}.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes')}</special_property>
+			<special_property>
+			<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; ability , ability_has_next>
+			${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes')}
 			</@loop>
+			</special_property>
 		</martialarts>
 		<#else>
 		<unarmed>
@@ -784,9 +808,11 @@
 			<critical>${pcstring('WEAPONH.CRIT')}/x${pcstring('WEAPONH.MULT')}</critical>
 			<!-- Should be changed to a variable due to improved crit -->
 			<reach>${pcstring('REACH')}</reach>
-			<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; NaturalAttack , NaturalAttack_has_next>
-			<special_property>${pcstring('ABILITYALL.Special Ability.${NaturalAttack}.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes')}</special_property>
+			<special_property>
+			<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=UnarmedDisplay")-1') ; ability , ability_has_next>
+			${pcstring('ABILITYALL.Special Ability.${ability}.TYPE=UnarmedDisplay.ASPECT.UnarmedNotes')}
 			</@loop>
+			</special_property>
 						<!-- Commenting this out (will need a test as well)
 			3.0 uses "Subdual", 3.5 uses "nonlethal".  We'll need a separate node for both.	-->
 			<#if (gamemodename = "3e")>
@@ -1120,7 +1146,7 @@
 		<#if (pcboolean('ABILITYALL.Special Ability.0.TYPE=RageDescription.HASASPECT.RageDescription')) >
 		<description>${pcstring('ABILITYALL.Special Ability.0.TYPE=RageDescription.ASPECT.RageDescription')}</description>
 		<#else>
-		<description>The Barbarian gains +${pcstring('VAR.RageStrBonus.INTVAL')} to Strength, +${pcstring('VAR.RageConBonus.INTVAL')} to Constitution, and a +${pcstring('VAR.RageMorale.INTVAL')} morale bonus on Will saves, but suffers a -${pcstring('VAR.RageACPenalty.INTVAL')} penalty to AC for ${pcvar('VAR.RageConBonus.INTVAL+3')} rounds. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter. The barbarian can only rage once per encounter. Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
+		<description>The Barbarian gains +${pcstring('VAR.RageStrBonus.INTVAL')} to Strength, +${pcstring('VAR.RageConBonus.INTVAL')} to Constitution, and a +${pcstring('VAR.RageMorale.INTVAL')} morale bonus on Will saves, but suffers a -${pcstring('VAR.RageACPenalty.INTVAL')} penalty to AC for ${pcvar('VAR.RageConBonus.INTVAL')} rounds. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter. The barbarian can only rage once per encounter. Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
 		</#if>
 	</rage>
 	<!-- this stuff needs a bit of work to display correct info for both 3e and 3.5e properly. - Tir Gwaith -->
@@ -1734,6 +1760,36 @@
 	<animal_tricks>
 	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="AnimalTrick" nodeName="animal_trick" />
 	</animal_tricks>
+
+		<!--
+	  ====================================
+	  ====================================
+			Racial Trait
+	  ====================================
+	  ====================================-->
+	<racial_traits>
+	<@abilityBlock category="Racial Trait" nature="ALL" hidden=false typeName="Racial Trait" nodeName="racial_trait" />
+	</racial_traits>
+
+		<!--
+	  ====================================
+	  ====================================
+			Class Feature
+	  ====================================
+	  ====================================-->
+	<class_features>
+	<@abilityBlock category="Class Feature" nature="ALL" hidden=false typeName="Class Feature" nodeName="class_feature" />
+	</class_features>
+
+		<!--
+	  ====================================
+	  ====================================
+			Words of Power
+	  ====================================
+	  ====================================-->
+	<words_of_powers>
+	<@abilityBlock category="Words of Power" nature="ALL" hidden=false typeName="WordsOfPowerOutput" nodeName="words_of_power" />
+	</words_of_powers>
 
 	<!--
 	  ====================================
@@ -2679,6 +2735,15 @@
 	<pfs_chronicles>
 	<@abilityBlock category="PFS Chronicle" nature="ALL" hidden=false typeName="PFSChronicle" nodeName="pfs_chronicle" />
 	</pfs_chronicles>
+	<!--
+	  ====================================
+	  ====================================
+			PFS Boons
+	  ====================================
+	  ====================================-->
+	<pfs_boons>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="PFSBoon" nodeName="pfs_boon" />
+	</pfs_boons>
 	<!--
 	====================================
 	  ====================================

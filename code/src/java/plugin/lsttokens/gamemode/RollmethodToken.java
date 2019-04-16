@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 2, 2005, 8:39 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.lsttokens.gamemode;
 
@@ -32,20 +27,18 @@ import pcgen.persistence.lst.SimpleLoader;
 import pcgen.util.Logging;
 
 /**
- * <code>RollmethodToken</code>
- *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
+ * {@code RollmethodToken}
  */
 public class RollmethodToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "ROLLMETHOD";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try

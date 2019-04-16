@@ -17,11 +17,14 @@
  */
 package pcgen.output.model;
 
+import java.util.Objects;
+
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.facet.fact.FactFacet;
+
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -33,8 +36,7 @@ import freemarker.template.TemplateModelException;
 public class FactFacetModel implements TemplateHashModel
 {
 
-	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
-			.getFacet(ObjectWrapperFacet.class);
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary.getFacet(ObjectWrapperFacet.class);
 
 	/**
 	 * The underlying CharID used to get the PlayerCharacter's item from the
@@ -60,21 +62,12 @@ public class FactFacetModel implements TemplateHashModel
 	 */
 	public FactFacetModel(CharID id, FactFacet facet)
 	{
-		if (id == null)
-		{
-			throw new IllegalArgumentException("CharID may not be null");
-		}
-		if (facet == null)
-		{
-			throw new IllegalArgumentException("FactFacet may not be null");
-		}
+		Objects.requireNonNull(id, "CharID may not be null");
+		Objects.requireNonNull(facet, "FactFacet may not be null");
 		this.id = id;
 		this.facet = facet;
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#get(java.lang.String)
-	 */
 	@Override
 	public TemplateModel get(String arg0) throws TemplateModelException
 	{
@@ -82,9 +75,6 @@ public class FactFacetModel implements TemplateHashModel
 		return WRAPPER_FACET.wrap(id, facet.get(id, key));
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty() throws TemplateModelException
 	{

@@ -17,10 +17,15 @@
  */
 package pcgen.base.formula;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.fail;
 
-public class AddingFormulaTest
+import org.junit.jupiter.api.Test;
+
+class AddingFormulaTest
 {
 
 	@Test
@@ -49,14 +54,14 @@ public class AddingFormulaTest
 		AddingFormula f2 = new AddingFormula(1);
 		AddingFormula f3 = new AddingFormula(2);
 		AddingFormula f4 = new AddingFormula(-1);
-		assertTrue(f1 != f2);
+		assertNotSame(f1, f2);
 		assertEquals(f1.hashCode(), f2.hashCode());
 		assertEquals(f1, f2);
-		assertFalse(f1.equals(null));
-		assertFalse(f1.hashCode() == f3.hashCode());
-		assertFalse(f1.equals(f3));
-		assertFalse(f1.hashCode() == f4.hashCode());
-		assertFalse(f1.equals(f4));
+		assertNotNull(f1);
+		assertNotEquals(f1.hashCode(), f3.hashCode());
+		assertNotEquals(f1, f3);
+		assertNotEquals(f1.hashCode(), f4.hashCode());
+		assertNotEquals(f1, f4);
 	}
 
 	@Test

@@ -1,5 +1,4 @@
 /*
- * CharacterSheetPanel.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 19, 2008, 3:06:38 PM
  */
 package pcgen.gui2.csheet;
 
@@ -24,6 +22,7 @@ import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -31,18 +30,8 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
-import java.util.concurrent.ThreadFactory;
 
 import javax.swing.SwingUtilities;
-
-import org.lobobrowser.html.HtmlRendererContext;
-import org.lobobrowser.html.gui.HtmlPanel;
-import org.lobobrowser.html.parser.DocumentBuilderImpl;
-import org.lobobrowser.html.parser.InputSourceImpl;
-import org.lobobrowser.html.test.SimpleHtmlRendererContext;
-import org.lobobrowser.html.test.SimpleUserAgentContext;
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
 
 import pcgen.core.Globals;
 import pcgen.facade.core.CharacterFacade;
@@ -54,32 +43,34 @@ import pcgen.io.ExportHandler;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
+import org.lobobrowser.html.HtmlRendererContext;
+import org.lobobrowser.html.gui.HtmlPanel;
+import org.lobobrowser.html.parser.DocumentBuilderImpl;
+import org.lobobrowser.html.parser.InputSourceImpl;
+import org.lobobrowser.html.test.SimpleHtmlRendererContext;
+import org.lobobrowser.html.test.SimpleUserAgentContext;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
 public class CharacterSheetPanel extends HtmlPanel implements CharacterSelectionListener
 {
 	private enum CssColor
 	{
-		BLUE("preview_color_blue.css"),
-		LIGHTBLUE("preview_color_light_blue.css"),
-		GREEN("preview_color_green.css"),
-		LIGHTGREEN("preview_color_light_green.css"),
-		RED("preview_color_red.css"),
-		LIGHTRED("preview_color_light_red.css"),
-		YELLOW("preview_color_yellow.css"),
-		LIGHTYELLOW("preview_color_light_yellow.css"),
-		GREY("preview_color_grey.css"),
-		LIGHTGREY("preview_color_light_grey.css");
+		BLUE("preview_color_blue.css"), LIGHTBLUE("preview_color_light_blue.css"), GREEN(
+				"preview_color_green.css"), LIGHTGREEN("preview_color_light_green.css"), RED(
+						"preview_color_red.css"), LIGHTRED("preview_color_light_red.css"), YELLOW(
+								"preview_color_yellow.css"), LIGHTYELLOW("preview_color_light_yellow.css"), GREY(
+										"preview_color_grey.css"), LIGHTGREY("preview_color_light_grey.css");
 
 		private final String cssfile;
 
-		CssColor(String cssfile) {
+		CssColor(String cssfile)
+		{
 			this.cssfile = cssfile;
 		}
 
-		public String getCssfile() {
+		public String getCssfile()
+		{
 			return this.cssfile;
 		}
 	}
@@ -93,26 +84,18 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 	private CharacterFacade character;
 	private FutureTask<Document> refreshTask;
 
-
-
 	public CharacterSheetPanel()
 	{
 		theRendererContext = new SimpleHtmlRendererContext(this, new SimpleUserAgentContext());
-		theDocBuilder = new DocumentBuilderImpl(theRendererContext.getUserAgentContext(),
-			theRendererContext);
+		theDocBuilder = new DocumentBuilderImpl(theRendererContext.getUserAgentContext(), theRendererContext);
 
 		// KAW TODO rewrite to use StatusWorker and PCGenTask for better progress display
 
-		refreshService = Executors.newSingleThreadExecutor(new ThreadFactory()
-		{
-			@Override
-			public Thread newThread(Runnable r)
-			{
-				Thread thread = new Thread(r, "Character-Sheet-Refresher-Thread");
-				thread.setDaemon(true);
-				thread.setPriority(Thread.NORM_PRIORITY);
-				return thread;
-			}
+		refreshService = Executors.newSingleThreadExecutor(r -> {
+			Thread thread = new Thread(r, "Character-Sheet-Refresher-Thread");
+			thread.setDaemon(true);
+			thread.setPriority(Thread.NORM_PRIORITY);
+			return thread;
 		});
 	}
 
@@ -124,12 +107,9 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 
 	public void setCharacterSheet(File sheet)
 	{
-		handler = sheet == null ? null : new ExportHandler(sheet);
+		handler = (sheet == null) ? null : new ExportHandler(sheet);
 	}
 
-	/**
-	 * 
-	 */
 	public void refresh()
 	{
 		if (handler == null || character == null)
@@ -150,9 +130,6 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 		refreshService.execute(refreshTask);
 	}
 
-	/**
-	 *
-	 */
 	// KAW TODO maybe rewrite to use PCGenTask instead?
 	private class RefreshTask extends FutureTask<Document>
 	{
@@ -166,35 +143,34 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 		{
 			if (!isCancelled())
 			{
-				SwingUtilities.invokeLater(new Runnable()
-				{
-					@Override
-					public void run()
+				SwingUtilities.invokeLater(() -> {
+					Document doc = null;
+					try
 					{
-						Document doc = null;
-						try
-						{
-							doc = get();
-						}
-						catch (Throwable e)
-						{
-							final String errorMsg = String.format("<html><body>Unable to process sheet<br>%s</body></html>", e);
-							try (ByteArrayInputStream instream = new ByteArrayInputStream(errorMsg.getBytes())) {
-								doc = theDocBuilder.parse(instream);
-							} catch (IOException | SAXException e1) {
-								e1.printStackTrace();
-							}
-							Logging.errorPrint("Unable to process sheet: ", e);
-						}
-						if (doc != null)
-						{
-							setDocument(doc, theRendererContext);
-						}
-
-						// Re-set status bar and end progress bar display
-						final PCGenStatusBar statusBar = ((PCGenFrame) Globals.getRootFrame()).getStatusBar();
-						statusBar.endShowingProgress();
+						doc = get();
 					}
+					catch (Throwable e)
+					{
+						final String errorMsg =
+								String.format("<html><body>Unable to process sheet<br>%s</body></html>", e);
+						try (InputStream instream = new ByteArrayInputStream(errorMsg.getBytes()))
+						{
+							doc = theDocBuilder.parse(instream);
+						}
+						catch (IOException | SAXException e1)
+						{
+							e1.printStackTrace();
+						}
+						Logging.errorPrint("Unable to process sheet: ", e);
+					}
+					if (doc != null)
+					{
+						setDocument(doc, theRendererContext);
+					}
+
+					// Re-set status bar and end progress bar display
+					final PCGenStatusBar statusBar = ((PCGenFrame) Globals.getRootFrame()).getStatusBar();
+					statusBar.endShowingProgress();
 				});
 			}
 		}
@@ -203,7 +179,8 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 	private class DocumentConstructor implements Callable<Document>
 	{
 		@Override
-		public Document call() throws URISyntaxException, IOException, ExportException, SAXException {
+		public Document call() throws URISyntaxException, IOException, ExportException, SAXException
+		{
 			StringWriter out = new StringWriter();
 			BufferedWriter buf = new BufferedWriter(out);
 			character.export(handler, buf);

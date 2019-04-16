@@ -44,7 +44,6 @@ import pcgen.core.analysis.SizeUtilities;
  * UnarmedDamageFacet is a Facet that tracks the Unarmed Damage info that have
  * been added to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UnarmedDamageFacet extends AbstractSourcedListFacet<CharID, List<String>>
 		implements DataFacetChangeListener<CharID, CDOMObject>
@@ -66,8 +65,6 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<CharID, List<St
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -95,8 +92,6 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<CharID, List<St
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -116,13 +111,10 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<CharID, List<St
 	public String getUDamForRace(CharID id)
 	{
 		Race race = raceFacet.get(id);
-		int iSize = formulaResolvingFacet.resolve(id, race.getSafe(FormulaKey.SIZE),
-				race.getQualifiedKey()).intValue();
+		int iSize = formulaResolvingFacet.resolve(id, race.getSafe(FormulaKey.SIZE), race.getQualifiedKey()).intValue();
 		SizeAdjustment defAdj = SizeUtilities.getDefaultSizeAdjustment();
-		SizeAdjustment sizAdj =
-				Globals.getContext().getReferenceContext()
-					.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER)
-					.get(iSize);
+		SizeAdjustment sizAdj = Globals.getContext().getReferenceContext()
+			.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER).get(iSize);
 		if (sizAdj != null)
 		{
 			return Globals.adjustDamage("1d3", defAdj, sizAdj);
@@ -142,8 +134,6 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<CharID, List<St
 	 * getConstructingCacheMap(CharID) in order to implicitly call this method.
 	 * 
 	 * @return A new (empty) Map for use in this UnarmedDamageFacet.
-	 * 
-	 * @see pcgen.cdom.facet.base.AbstractSourcedListFacet#getComponentMap()
 	 */
 	@Override
 	protected Map<List<String>, Set<Object>> getComponentMap()

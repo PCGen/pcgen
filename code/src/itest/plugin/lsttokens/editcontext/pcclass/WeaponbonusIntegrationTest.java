@@ -19,9 +19,6 @@ package plugin.lsttokens.editcontext.pcclass;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.core.PCClass;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
@@ -31,15 +28,18 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.pcclass.WeaponbonusToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class WeaponbonusIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, WeaponProf>
 {
 
-	static WeaponbonusToken token = new WeaponbonusToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static WeaponbonusToken token = new WeaponbonusToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

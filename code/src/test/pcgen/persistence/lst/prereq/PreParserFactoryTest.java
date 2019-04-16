@@ -1,5 +1,4 @@
 /*
- * PreParserFactoryTest.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,55 +15,35 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.persistence.lst.prereq;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Locale;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 
-/**
- * @author wardc
- *
- */
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+
 @SuppressWarnings("nls")
 public class PreParserFactoryTest extends AbstractCharacterTestCase
 {
-	public static void main(String[] args)
-	{
-		TestRunner.run(PreParserFactoryTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreParserFactoryTest.class);
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 		LocaleDependentTestCase.before(Locale.US);
 	}
-	
+
+	@AfterEach
 	@Override
 	protected void tearDown() throws Exception
 	{
@@ -72,10 +51,14 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 		LocaleDependentTestCase.after();
 	}
 	
+	
 	/**
-	 * @throws Exception
+	 * Test not equal.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testNotEqual() throws Exception
+	@Test
+	public void testNotEqual() throws PersistenceLayerException
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
 
@@ -86,20 +69,25 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 			prereq.toString());
 	}
 
+
 	/**
-	 * @throws Exception
+	 * Test override qualifies.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testOverrideQualifies() throws Exception
+	@Test
+	public void testOverrideQualifies() throws PersistenceLayerException
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
 
 		Prerequisite prereq = factory.parse("PREVARNEQ:Q:Enraged,1");
 
 		assertEquals(
-			"<prereq kind=\"var\" key=\"Enraged\" operator=\"NEQ\" operand=\"1\" override-qualify=\"true\" >\n</prereq>\n",
-			prereq.toString());
+		"<prereq kind=\"var\" key=\"Enraged\" operator=\"NEQ\" operand=\"1\" override-qualify=\"true\" >\n</prereq>\n",
+		prereq.toString());
 	}
 
+	@Test
 	public void testSkillTypeKnowledge() throws Exception
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();
@@ -108,11 +96,12 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 
 		assertEquals(
 			"<prereq operator=\"GTEQ\" operand=\"20\" >\n"
-				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
+			+ "<prereq kind=\"skill\" total-values=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"1\" >\n"
+			+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 
 	}
 
+	@Test
 	public void testInvertResult() throws Exception
 	{
 		PreParserFactory factory = PreParserFactory.getInstance();

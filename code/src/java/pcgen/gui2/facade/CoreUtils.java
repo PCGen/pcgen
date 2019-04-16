@@ -25,33 +25,36 @@ import java.util.Map;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Identified;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.helper.AllowUtilities;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.cdom.meta.CorePerspectiveDB;
 import pcgen.cdom.meta.CoreViewNodeBase;
 import pcgen.cdom.meta.FacetView;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.QualifiedObject;
-import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.core.prereq.PrerequisiteUtilities;
+import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.util.Logging;
 
-public class CoreUtils
+final class CoreUtils
 {
-	public static <T> List<CoreViewNodeFacade> buildCoreDebugList(PlayerCharacter pc,
-		CorePerspective pers)
+	private CoreUtils()
+	{
+	}
+
+	static <T> List<CoreViewNodeFacade> buildCoreDebugList(PlayerCharacter pc, CorePerspective pers)
 	{
 		CharID id = pc.getCharID();
 		List<CoreViewNodeFacade> coreViewList = new ArrayList<>();
 		Collection<Object> locations = CorePerspectiveDB.getLocations(pers);
-		HashMapToList<Object, FacetView<T>> sources =
-                new HashMapToList<>();
-		Map<FacetView<T>, CoreViewNodeBase> facetToNode =
-                new HashMap<>();
+		MapToList<Object, FacetView<T>> sources = new HashMapToList<>();
+		Map<FacetView<T>, CoreViewNodeBase> facetToNode = new HashMap<>();
 
 		/*
 		 * Create the nodes that are part of this perspective.
@@ -60,8 +63,7 @@ public class CoreUtils
 		{
 			//Create (w/ identifier)
 			FacetView<T> view = CorePerspectiveDB.getView(pers, location);
-			LocationCoreViewNode<T> node =
-                    new LocationCoreViewNode<>(location);
+			CoreViewNodeBase node = new LocationCoreViewNode<>(location);
 			facetToNode.put(view, node);
 			coreViewList.add(node);
 			//Store what facets listen to my content (for use later)
@@ -79,8 +81,7 @@ public class CoreUtils
 					FacetView<T> parentView = CorePerspectiveDB.getViewOfFacet(parent);
 					if (parentView == null)
 					{
-						Logging.errorPrint("Expected " + parent
-							+ " to be a registered Facet in Perspective " + pers);
+						Logging.errorPrint("Expected " + parent + " to be a registered Facet in Perspective " + pers);
 					}
 					sources.addToListFor(view, parentView);
 				}
@@ -110,26 +111,22 @@ public class CoreUtils
 					}
 					else
 					{
-						FacetView<Object> srcView =
-								CorePerspectiveDB.getViewOfFacet(src);
+						FacetView<Object> srcView = CorePerspectiveDB.getViewOfFacet(src);
 						if (srcView == null)
 						{
 							//Not a recognized view
-							sourceDesc.add("Orphaned ["
-								+ src.getClass().getSimpleName() + "]");
+							sourceDesc.add("Orphaned [" + src.getClass().getSimpleName() + "]");
 						}
 						else if (facetToNode.get(srcView) == null)
 						{
 							//A View, but not part of this perspective
-							sourceDesc.add("Other Perspective ["
-								+ CorePerspectiveDB.getPerspectiveOfFacet(src)
-								+ ": " + srcView.getDescription() + "]");
+							sourceDesc.add("Other Perspective [" + CorePerspectiveDB.getPerspectiveOfFacet(src) + ": "
+								+ srcView.getDescription() + "]");
 						}
 					}
 				}
 				//Insert the contents of the facet as children of this node
-				ObjectCoreViewNode<T> sourceNode =
-                        new ObjectCoreViewNode<>(pc, obj, sourceDesc);
+				ObjectCoreViewNode<T> sourceNode = new ObjectCoreViewNode<>(pc, obj, sourceDesc);
 				sourceNode.addGrantedByNode(node);
 				coreViewList.add(sourceNode);
 			}
@@ -174,8 +171,7 @@ public class CoreUtils
 		else if (obj instanceof CDOMReference)
 		{
 			CDOMReference<?> ref = (CDOMReference<?>) obj;
-			return ref.getReferenceClass().getSimpleName() + " Primitive: "
-				+ ref.getLSTformat(false);
+			return ref.getReferenceClass().getSimpleName() + " Primitive: " + ref.getLSTformat(false);
 		}
 		else
 		{
@@ -192,8 +188,12 @@ public class CoreUtils
 			{
 				source = ((CDOMObject) object);
 			}
-			return PrerequisiteUtilities.preReqHTMLStringsForList(pc, source,
-				((PrereqObject) object).getPrerequisiteList(), true);
+			StringBuilder sb = new StringBuilder();
+			sb.append("<html>");
+			sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(pc, source, source.getPrerequisiteList(), false));
+			sb.append(AllowUtilities.getAllowInfo(pc, source));
+			sb.append("</html>");
+			return sb.toString();
 		}
 		return "";
 	}
@@ -210,7 +210,7 @@ public class CoreUtils
 		{
 			this.object = object;
 		}
-		
+
 		@Override
 		public String getNodeType()
 		{
@@ -240,10 +240,10 @@ public class CoreUtils
 		{
 			return getLoadID(object);
 		}
-		
+
 	}
 
-	private static class ObjectCoreViewNode<T> extends CoreViewNodeBase
+	private static final class ObjectCoreViewNode<T> extends CoreViewNodeBase
 	{
 
 		private final T object;
@@ -253,13 +253,13 @@ public class CoreUtils
 		/**
 		 * Create a new instance of CoreUtils.LocationCoreViewNode
 		 */
-		public ObjectCoreViewNode(PlayerCharacter pc, T object, List<String> sourceDesc)
+		private ObjectCoreViewNode(PlayerCharacter pc, T object, List<String> sourceDesc)
 		{
 			this.pc = pc;
 			this.object = object;
 			this.sourceDesc = sourceDesc;
 		}
-		
+
 		@Override
 		public String getNodeType()
 		{

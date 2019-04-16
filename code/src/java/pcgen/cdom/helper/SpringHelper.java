@@ -1,5 +1,4 @@
 /*
- * SpringHelper.java
  * Copyright 2009 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,54 +14,43 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 16/10/2009 2:38:00 PM
- *
- * $Id$
  */
 
 package pcgen.cdom.helper;
 
 import java.util.Collection;
 
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.ClassPathResource;
-
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 
+import org.jetbrains.annotations.Nullable;
+import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.beans.factory.support.BeanDefinitionReader;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+
 /**
- * The Class <code>SpringHelper</code> is a simple helper for 
+ * The Class {@code SpringHelper} is a simple helper for
  * integrating the Spring framework into PCGen.
- *
- * <br>
- * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class SpringHelper
 {
-	
 	private SpringHelper()
 	{
-		//Do not instantiate Utility Class
 	}
 
-	private static XmlBeanFactory beanFactory = null;
+	private static final ListableBeanFactory BEAN_FACTORY;
 
-	/**
-	 * Initialise the Spring resources. May be called multiple times but 
-	 * only the first call will have any effect.
-	 */
-	private static synchronized void initSpring()
+	static
 	{
-		if (beanFactory != null)
-		{
-			return;
-		}
-		
-		ClassPathResource res = new ClassPathResource("applicationContext.xml");
-		beanFactory = new XmlBeanFactory(res);
+		Resource appClassRes = new ClassPathResource("applicationContext.xml");
+		DefaultListableBeanFactory xbf = new DefaultListableBeanFactory();
+		BeanDefinitionReader beanReader = new XmlBeanDefinitionReader(xbf);
+		beanReader.loadBeanDefinitions(appClassRes);
+		BEAN_FACTORY = xbf;
 	}
-	
+
 	/**
 	 * Retrieve a Spring bean based on the class that it implements. Where multiple 
 	 * beans implement a class, the first will be returned. 
@@ -70,28 +58,18 @@ public final class SpringHelper
 	 * @param cl The type of bean to be retrieved.
 	 * @return The bean, or null if none exists.
 	 */
-	public static <T extends Object> T getBean(Class<T> cl)
+	public static @Nullable <T> T getBean(Class<T> cl)
 	{
-		if (beanFactory == null)
-		{
-			initSpring();
-		}
-
-		String[] beanNamesForType = beanFactory.getBeanNamesForType(cl);
-		if (beanNamesForType.length ==0) 
+		String[] beanNamesForType = BEAN_FACTORY.getBeanNamesForType(cl);
+		if (beanNamesForType.length == 0)
 		{
 			return null;
 		}
-		return beanFactory.getBean(beanNamesForType[0], cl);
+		return BEAN_FACTORY.getBean(beanNamesForType[0], cl);
 	}
-	
+
 	public static Collection<AbstractStorageFacet> getStorageBeans()
 	{
-		if (beanFactory == null)
-		{
-			initSpring();
-		}
-
-		return beanFactory.getBeansOfType(AbstractStorageFacet.class).values();
+		return BEAN_FACTORY.getBeansOfType(AbstractStorageFacet.class).values();
 	}
 }

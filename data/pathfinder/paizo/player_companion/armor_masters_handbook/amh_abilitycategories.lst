@@ -1,0 +1,12 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+#SOURCELONG:Pathfinder Player Companion: Armor Master's Handbook	SOURCESHORT:AMH	SOURCEWEB:http://paizo.com/products/btpy9jbh?Pathfinder-Player-Companion-Armor-Masters-Handbook	SOURCEDATE:2016-05
+
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Iron Tyrant Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat.ArmorMastery		PLURAL:Iron Tyrant Bonus Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Molthuni Defender Maneuver Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MolthuniDefenderManeuverChoice	PLURAL:Molthuni Defender Maneuver Choices	DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Advanced Armor Training Option		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AdvancedArmorTrainingOption	PLURAL:Advanced Armor Training Options	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Adaptable Training Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:AdaptableTrainingChoice		PLURAL:Adaptable Training Choices		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Armor Specialization Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:ArmorSpecializationChoice	PLURAL:Armor Specialization Choices		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Armored Master Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ArmorMastery.ShieldMastery	PLURAL:Armored Master Bonus Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Unmoving Armor Training Type		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnmovingArmorTrainingType	PLURAL:Unmoving Armor Training Types	DISPLAYLOCATION:Class Features

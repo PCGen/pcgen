@@ -34,8 +34,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with HITDICEADVANCEMENT Token
  */
-public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race>
-		implements CDOMPrimaryToken<Race>
+public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race> implements CDOMPrimaryToken<Race>
 {
 
 	@Override
@@ -51,14 +50,11 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Race race, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Race race, String value)
 	{
-		final StringTokenizer commaTok = new StringTokenizer(value,
-				Constants.COMMA);
+		final StringTokenizer commaTok = new StringTokenizer(value, Constants.COMMA);
 
-		context.getObjectContext()
-				.removeList(race, ListKey.HITDICE_ADVANCEMENT);
+		context.getObjectContext().removeList(race, ListKey.HITDICE_ADVANCEMENT);
 		int last = 0;
 		while (commaTok.hasMoreTokens())
 		{
@@ -68,8 +64,7 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race>
 			{
 				if (commaTok.hasMoreTokens())
 				{
-					return new ParseResult.Fail("Found * in " + getTokenName()
-							+ " but was not at end of list", context);
+					return new ParseResult.Fail("Found * in " + getTokenName() + " but was not at end of list");
 				}
 
 				hd = Integer.MAX_VALUE;
@@ -81,20 +76,17 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race>
 					hd = Integer.parseInt(tok);
 					if (hd < last)
 					{
-						return new ParseResult.Fail("Found " + hd + " in "
-										+ getTokenName() + " but was < 1 "
-										+ "or the previous value in the list: "
-										+ value, context);
+						return new ParseResult.Fail("Found " + hd + " in " + getTokenName() + " but was < 1 "
+							+ "or the previous value in the list: " + value);
 					}
 					last = hd;
 				}
 				catch (NumberFormatException nfe)
 				{
-					return new ParseResult.Fail(nfe.getMessage(), context);
+					return new ParseResult.Fail(nfe.getMessage());
 				}
 			}
-			context.getObjectContext().addToList(race,
-					ListKey.HITDICE_ADVANCEMENT, hd);
+			context.getObjectContext().addToList(race, ListKey.HITDICE_ADVANCEMENT, hd);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -102,8 +94,7 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race>
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		Changes<Integer> changes = context.getObjectContext().getListChanges(
-				race, ListKey.HITDICE_ADVANCEMENT);
+		Changes<Integer> changes = context.getObjectContext().getListChanges(race, ListKey.HITDICE_ADVANCEMENT);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -124,9 +115,8 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race>
 			{
 				if (it.hasNext())
 				{
-					context.addWriteMessage("Integer MAX_VALUE found in "
-							+ getTokenName()
-							+ " was not at the end of the array.");
+					context.addWriteMessage(
+						"Integer MAX_VALUE found in " + getTokenName() + " was not at the end of the array.");
 					return null;
 				}
 				sb.append('*');
@@ -135,16 +125,15 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race>
 			{
 				if (hd.intValue() < last)
 				{
-					Logging.errorPrint("Found " + hd + " in " + getTokenName()
-							+ " but was <= zero "
-							+ "or the previous value in the list: " + list);
+					Logging.errorPrint("Found " + hd + " in " + getTokenName() + " but was <= zero "
+						+ "or the previous value in the list: " + list);
 					return null;
 				}
 				last = hd.intValue();
 				sb.append(hd);
 			}
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	@Override

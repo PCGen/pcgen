@@ -17,17 +17,21 @@
  */
 package tokenmodel;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.analysis.DomainApplication;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.pcclass.level.DomainToken;
+
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class PCClassLevelDomainTest extends AbstractTokenModelTest
 {
@@ -35,7 +39,7 @@ public class PCClassLevelDomainTest extends AbstractTokenModelTest
 	private static DomainToken token = new DomainToken();
 
 	@Test
-	public void testSimple() throws PersistenceLayerException
+	public void testSimple()
 	{
 		PCClass source = create(PCClass.class, "Source");
 		PCClassLevel pcl = source.getOriginalClassLevel(2);
@@ -43,7 +47,7 @@ public class PCClassLevelDomainTest extends AbstractTokenModelTest
 		ParseResult result = token.parseToken(context, pcl, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

@@ -1,5 +1,4 @@
 /*
- * PreVisionParserTest.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,34 +15,22 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreVisionParser;
 
-/**
- * @author wardc
- *
- */
-@SuppressWarnings("nls")
-public class PreVisionParserTest extends EnUsLocaleDependentTestCase
+import org.junit.jupiter.api.Test;
+
+class PreVisionParserTest extends EnUsLocaleDependentTestCase
 {
-	/**
-	 * @throws Exception
-	 */
 	@Test
-	public void testMultiplePasses() throws Exception
+	public void testMultiplePasses() throws PersistenceLayerException
 	{
 		PreVisionParser parser = new PreVisionParser();
 
@@ -53,9 +40,9 @@ public class PreVisionParserTest extends EnUsLocaleDependentTestCase
 
 		assertEquals(
 			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Blindsight\" operator=\"GTEQ\" operand=\"30\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Darkvision\" operator=\"GTEQ\" operand=\"30\" >\n"
-				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
+			+ "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Blindsight\" operator=\"GTEQ\" operand=\"30\" >\n"
+			+ "</prereq>\n"
+			+ "<prereq kind=\"vision\" count-multiples=\"true\" key=\"Darkvision\" operator=\"GTEQ\" operand=\"30\" >\n"
+			+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 }

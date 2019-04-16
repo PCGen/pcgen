@@ -1,5 +1,4 @@
 /*
- * InfoLabelTextBuilderTest.java
  * Copyright 2007 (C) Koen Van Daele
  *
  * This library is free software; you can redistribute it and/or
@@ -15,72 +14,54 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 4-feb-07
- *
- * $Id$
  */
 package pcgen.gui2.util;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Locale;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+
+import org.junit.jupiter.api.Test;
 
 
 /**
- * <code>InfoLabelTextBuilderTest</code> tests the HtmlInfoBuilder.
- *
- *
- * @author Koen Van Daele <vandaelek@users.sourceforge.net>
+ * {@code InfoLabelTextBuilderTest} tests the HtmlInfoBuilder.
  */
-@SuppressWarnings("nls")
-public class HtmlInfoBuilderTest extends TestCase
+public class HtmlInfoBuilderTest
 {
-	public static void main(String[] args)
-	{
-		TestRunner.run(HtmlInfoBuilderTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(HtmlInfoBuilderTest.class);
-	}
-	
 	/**
 	 * Test adding a string.
 	 */
+	@Test
 	public void testAppendString()
 	{
 		HtmlInfoBuilder b = new HtmlInfoBuilder();
 		
 		b.append("Test");
 		
-		assertEquals("<html>Test</html>" , b.toString());
+		assertEquals("<html>Test</html>", b.toString());
 	}
 	
 	/**
 	 * Test adding a simple element with a key and a value.
 	 */
+	@Test
 	public void testAppendElement()
 	{
 		HtmlInfoBuilder b = new HtmlInfoBuilder();
 		
-		b.appendElement("HP" , "25");
+		b.appendElement("HP", "25");
 		
-		assertEquals("<html><b>HP:</b>&nbsp;25</html>" , b.toString());
+		assertEquals("<html><b>HP:</b>&nbsp;25</html>", b.toString());
 	}
 	
 	/**
 	 * Test adding an element that gets its key from the language properties.
 	 */
+	@Test
 	public void testAppendI18nElement()
 	{
 		HtmlInfoBuilder b = new HtmlInfoBuilder();
@@ -93,15 +74,16 @@ public class HtmlInfoBuilderTest extends TestCase
 	/**
 	 * Test building a string with some different options.
 	 */
+	@Test
 	public void testAppendComplex()
 	{
 		HtmlInfoBuilder b = new HtmlInfoBuilder("Character");
 		
 		LocaleDependentTestCase.before(Locale.US);
-		b.appendLineBreak().appendI18nElement("in_player" , "Koen");
+		b.appendLineBreak().appendI18nElement("in_player", "Koen");
 		EnUsLocaleDependentTestCase.after();
-		assertEquals("<html><b><font size=+1>Character</font></b>"+
-				"<br><b>Player:</b>&nbsp;Koen</html>" , b.toString());
+		assertEquals("<html><b><font size=+1>Character</font></b>"
+				+ "<br><b>Player:</b>&nbsp;Koen</html>", b.toString());
 	}
 	
 }

@@ -28,8 +28,8 @@ public class CtIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Spell>
 {
 
-	static CtToken token = new CtToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static CtToken token = new CtToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

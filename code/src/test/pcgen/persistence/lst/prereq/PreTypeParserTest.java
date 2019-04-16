@@ -1,5 +1,4 @@
 /*
- * PreText.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,30 +15,28 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 01-Jan-2004
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreTypeParser;
 
-@SuppressWarnings("nls")
+import org.junit.jupiter.api.Test;
+
 public class PreTypeParserTest extends EnUsLocaleDependentTestCase
 {
+	
 	/**
-	 * @throws Exception
+	 * Test new style.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNewStyle() throws Exception
+	public void testNewStyle() throws PersistenceLayerException
 	{
 		PreTypeParser producer = new PreTypeParser();
 
@@ -47,7 +44,6 @@ public class PreTypeParserTest extends EnUsLocaleDependentTestCase
 				producer.parse("TYPE", "1,Mithral,Adamantine,Darkwood", false,
 					false);
 
-		System.out.println(prereq.toString());
 		assertEquals(
 			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "<prereq kind=\"type\" key=\"Mithral\" operator=\"EQ\" operand=\"1\" >\n"
@@ -58,23 +54,26 @@ public class PreTypeParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test new style 2.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testNewStyle2() throws Exception
+	public void testNewStyle2() throws PersistenceLayerException
 	{
 		PreTypeParser producer = new PreTypeParser();
 
 		Prerequisite prereq = producer.parse("TYPE", "1,Animal", true, false);
 
-		System.out.println(prereq.toString());
-		/*		assertEquals("<prereq operator=\"lt\" operand=\"1\" >\n" + 
+		/*		assertEquals("<prereq operator=\"lt\" operand=\"1\" >\n" +
 		 "<prereq kind=\"type\" key=\"Animal\" operator=\"eq\" operand=\"1\" >\n" + 
 		 "</prereq>\n" + 
 		 "</prereq>\n",
 		 prereq.toString());
-		 */assertEquals(
+		 */
+		assertEquals(
 			"<prereq kind=\"TYPE\" key=\"Animal\" operator=\"NEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n", prereq.toString());
 	}

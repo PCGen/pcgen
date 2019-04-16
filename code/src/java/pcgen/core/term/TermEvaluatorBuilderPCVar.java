@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.EvaluatorFactoryPCVar.java
  * Copyright 2008 Andrew Wilson
  * <nuance@users.sourceforge.net>.
  *
@@ -18,8 +17,6 @@
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03 August 2008
- *
- * Current Ver: $Revision:$
  */
 
 package pcgen.core.term;
@@ -33,7 +30,7 @@ import pcgen.util.Logging;
 import pcgen.util.TermUtilities;
 
 /**
- * <code>EvaluatorFactoryPCVar</code> 
+ * {@code EvaluatorFactoryPCVar}
  *
  * This individual enumerations in this class are each responsible for making
  * and returning an object that implements the TermEvaluator interface.
@@ -47,91 +44,73 @@ import pcgen.util.TermUtilities;
 
 public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 {
-	COMPLETE_PC_ACCHECK
-			("AC{1,2}HECK",
-			 new String[] { "ACCHECK" , "ACHECK"},
-			 true) {
+	COMPLETE_PC_ACCHECK("AC{1,2}HECK", new String[]{"ACCHECK", "ACHECK"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCACcheckTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_ARMORACCHECK
-			("ARMORAC{1,2}HECK",
-			 new String[] { "ARMORACCHECK", "ARMORACHECK"  },
-			 true) {
+	COMPLETE_PC_ARMORACCHECK("ARMORAC{1,2}HECK", new String[]{"ARMORACCHECK", "ARMORACHECK"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCArmourACcheckTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_BAB
-			("BAB",
-			 new String[] { "BAB" },
-			 true) {
+	COMPLETE_PC_BAB("BAB", new String[]{"BAB"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCBABTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_BASECR
-			("BASECR",
-			new String[] { "BASECR" },
-			true) {
+	COMPLETE_PC_BASECR("BASECR", new String[]{"BASECR"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCBaseCRTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_BASEHD
-			("BASEHD",
-			new String[] { "BASEHD" },
-			true) {
+	COMPLETE_PC_BASEHD("BASEHD", new String[]{"BASEHD"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCBaseHDTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_BASESPELLSTAT
-			("BASESPELLSTAT",
-			 new String[] { "BASESPELLSTAT" },
-			 true) {
+	COMPLETE_PC_BASESPELLSTAT("BASESPELLSTAT", new String[]{"BASESPELLSTAT"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			String source = (src.startsWith("CLASS:")) ? src.substring(6) : "";
 
@@ -139,30 +118,24 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		}
 	},
 
-	COMPLETE_PC_CASTERLEVEL
-			("(?:CASTERLEVEL\\.TOTAL|CASTERLEVEL)",
-			 new String[] { "CASTERLEVEL", "CASTERLEVEL.TOTAL" },
-			 true) {
+	COMPLETE_PC_CASTERLEVEL("(?:CASTERLEVEL\\.TOTAL|CASTERLEVEL)", new String[]{"CASTERLEVEL", "CASTERLEVEL.TOTAL"},
+			true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			if ("CASTERLEVEL".equals(matchedSection))
 			{
 				if (src.startsWith("RACE:"))
 				{
-					return new PCCasterLevelRaceTermEvaluator(
-							expressionString,
-							src.substring(5));
+					return new PCCasterLevelRaceTermEvaluator(expressionString, src.substring(5));
 				}
 				else if (src.startsWith("CLASS:"))
 				{
-					return new PCCasterLevelClassTermEvaluator(
-							expressionString,
-							src.substring(6));
+					return new PCCasterLevelClassTermEvaluator(expressionString, src.substring(6));
 				}
 				else
 				{
@@ -173,349 +146,260 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		}
 	},
 
-	COMPLETE_PC_COUNT_ATTACKS
-			("COUNT\\[ATTACKS\\]",
-			 new String[] { "COUNT[ATTACKS]" },
-			 true) {
+	COMPLETE_PC_COUNT_ATTACKS("COUNT\\[ATTACKS\\]", new String[]{"COUNT[ATTACKS]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountAttacksTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_CHECKS
-			("COUNT\\[CHECKS\\]",
-			 new String[] { "COUNT[CHECKS]" },
-			 true) {
+	COMPLETE_PC_COUNT_CHECKS("COUNT\\[CHECKS\\]", new String[]{"COUNT[CHECKS]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
-
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 			return new PCCountChecksTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_CLASSES
-			("COUNT\\[CLASSES\\]",
-			 new String[] { "COUNT[CLASSES]" },
-			 true) {
+	COMPLETE_PC_COUNT_CLASSES("COUNT\\[CLASSES\\]", new String[]{"COUNT[CLASSES]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountClassesTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_CONTAINERS
-			("COUNT\\[CONTAINERS\\]",
-			 new String[] { "COUNT[CONTAINERS]" },
-			 true) {
+	COMPLETE_PC_COUNT_CONTAINERS("COUNT\\[CONTAINERS\\]", new String[]{"COUNT[CONTAINERS]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountContainersTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_DOMAINS
-			("COUNT\\[DOMAINS\\]",
-			 new String[] { "COUNT[DOMAINS]" },
-			 true) {
+	COMPLETE_PC_COUNT_DOMAINS("COUNT\\[DOMAINS\\]", new String[]{"COUNT[DOMAINS]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountDomainsTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_FEATSNATUREALL
-			("COUNT\\[FEATSALL(?:\\.ALL|\\.HIDDEN|\\.VISIBLE)?\\]",
-			 new String[] { "COUNT[FEATSALL]",
-							"COUNT[FEATSALL.ALL]",
-			 				"COUNT[FEATSALL.HIDDEN]",
-					 		"COUNT[FEATSALL.VISIBLE]"},
-			 true) {
+	COMPLETE_PC_COUNT_FEATSNATUREALL("COUNT\\[FEATSALL(?:\\.ALL|\\.HIDDEN|\\.VISIBLE)?\\]",
+			new String[]{"COUNT[FEATSALL]", "COUNT[FEATSALL.ALL]", "COUNT[FEATSALL.HIDDEN]", "COUNT[FEATSALL.VISIBLE]"},
+			true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			boolean visible = !(expressionString.endsWith("HIDDEN]"));
 
-			boolean hidden  = (expressionString.endsWith("HIDDEN]") ||
-			                   expressionString.endsWith(".ALL]"));
+			boolean hidden = (expressionString.endsWith("HIDDEN]") || expressionString.endsWith(".ALL]"));
 
 			AbilityCategory abCat = AbilityCategory.FEAT;
-			
-			return new PCCountAbilitiesNatureAllTermEvaluator(
-					expressionString,
-					abCat,
-					visible,
-					hidden);
+
+			return new PCCountAbilitiesNatureAllTermEvaluator(expressionString, abCat, visible, hidden);
 		}
 	},
 
-	COMPLETE_PC_COUNT_FEATSNATUREAUTO
-			("COUNT\\[FEATSAUTO(?:\\.ALL|\\.HIDDEN|\\.VISIBLE)?\\]",
-			 new String[] { "COUNT[FEATSAUTO]",
-							"COUNT[FEATSAUTO.ALL]",
-			 				"COUNT[FEATSAUTO.HIDDEN]",
-					 		"COUNT[FEATSAUTO.VISIBLE]"},
-			 true) {
+	COMPLETE_PC_COUNT_FEATSNATUREAUTO("COUNT\\[FEATSAUTO(?:\\.ALL|\\.HIDDEN|\\.VISIBLE)?\\]", new String[]{
+		"COUNT[FEATSAUTO]", "COUNT[FEATSAUTO.ALL]", "COUNT[FEATSAUTO.HIDDEN]", "COUNT[FEATSAUTO.VISIBLE]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			boolean visible = !(expressionString.endsWith("HIDDEN]"));
 
-			boolean hidden  = (expressionString.endsWith("HIDDEN]") ||
-			                   expressionString.endsWith("ALL]"));
+			boolean hidden = (expressionString.endsWith("HIDDEN]") || expressionString.endsWith("ALL]"));
 
 			AbilityCategory abCat = AbilityCategory.FEAT;
-			
-			return new PCCountAbilitiesNatureAutoTermEvaluator(
-					expressionString,
-					abCat,
-					visible,
-					hidden);
+
+			return new PCCountAbilitiesNatureAutoTermEvaluator(expressionString, abCat, visible, hidden);
 		}
 	},
 
-	
-	COMPLETE_PC_COUNT_FEATSNATURENORMAL
-			("COUNT\\[FEATS(?:\\.ALL|\\.HIDDEN|\\.VISIBLE)?\\]",
-			 new String[] { "COUNT[FEATS]",
-							"COUNT[FEATS.ALL]",
-			 				"COUNT[FEATS.HIDDEN]",
-					 		"COUNT[FEATS.VISIBLE]"},
-			 true) {
+	COMPLETE_PC_COUNT_FEATSNATURENORMAL("COUNT\\[FEATS(?:\\.ALL|\\.HIDDEN|\\.VISIBLE)?\\]",
+			new String[]{"COUNT[FEATS]", "COUNT[FEATS.ALL]", "COUNT[FEATS.HIDDEN]", "COUNT[FEATS.VISIBLE]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			boolean visible = !(expressionString.endsWith("HIDDEN]"));
 
-			boolean hidden  = (expressionString.endsWith("HIDDEN]") ||
-			                   expressionString.endsWith("ALL]"));
+			boolean hidden = (expressionString.endsWith("HIDDEN]") || expressionString.endsWith("ALL]"));
 
 			AbilityCategory abCat = AbilityCategory.FEAT;
 
-			return new PCCountAbilitiesNatureNormalTermEvaluator(
-					expressionString,
-					abCat,
-					visible,
-					hidden);
+			return new PCCountAbilitiesNatureNormalTermEvaluator(expressionString, abCat, visible, hidden);
 		}
 	},
 
-
-	COMPLETE_PC_COUNT_FEATSNATUREVIRTUAL
-			("COUNT\\[VFEATS(?:\\.ALL|\\.HIDDEN|\\.VISIBLE)?\\]",
-			 new String[] { "COUNT[VFEATS]",
-							"COUNT[VFEATS.ALL]",
-			 				"COUNT[VFEATS.HIDDEN]",
-					 		"COUNT[VFEATS.VISIBLE]"},
-			 true) {
+	COMPLETE_PC_COUNT_FEATSNATUREVIRTUAL("COUNT\\[VFEATS(?:\\.ALL|\\.HIDDEN|\\.VISIBLE)?\\]",
+			new String[]{"COUNT[VFEATS]", "COUNT[VFEATS.ALL]", "COUNT[VFEATS.HIDDEN]", "COUNT[VFEATS.VISIBLE]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			boolean visible = !(expressionString.endsWith("HIDDEN]"));
 
-			boolean hidden  = (expressionString.endsWith("HIDDEN]") ||
-			                   expressionString.endsWith("ALL]"));
+			boolean hidden = (expressionString.endsWith("HIDDEN]") || expressionString.endsWith("ALL]"));
 
 			AbilityCategory abCat = AbilityCategory.FEAT;
-			
-			return new PCCountAbilitiesNatureVirtualTermEvaluator(
-					expressionString,
-					abCat,
-					visible,
-					hidden);
+
+			return new PCCountAbilitiesNatureVirtualTermEvaluator(expressionString, abCat, visible, hidden);
 		}
 	},
-	
-	COMPLETE_PC_COUNT_FOLLOWERS
-			("COUNT\\[FOLLOWERS\\]",
-			 new String[] { "COUNT[FOLLOWERS]" },
-			 true) {
+
+	COMPLETE_PC_COUNT_FOLLOWERS("COUNT\\[FOLLOWERS\\]", new String[]{"COUNT[FOLLOWERS]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountFollowersTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_LANGUAGES
-			("COUNT\\[LANGUAGES\\]",
-			 new String[] { "COUNT[LANGUAGES]" },
-			 true) {
+	COMPLETE_PC_COUNT_LANGUAGES("COUNT\\[LANGUAGES\\]", new String[]{"COUNT[LANGUAGES]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountLanguagesTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_MISC_COMPANIONS
-			("COUNT\\[MISC\\.COMPANIONS\\]",
-			 new String[] { "COUNT[MISC.COMPANIONS]" },
-			 true) {
+	COMPLETE_PC_COUNT_MISC_COMPANIONS("COUNT\\[MISC\\.COMPANIONS\\]", new String[]{"COUNT[MISC.COMPANIONS]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountMiscCompanionsTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_MISC_FUNDS
-			("COUNT\\[MISC\\.FUNDS\\]",
-			 new String[] { "COUNT[MISC.FUNDS]" },
-			 true) {
+	COMPLETE_PC_COUNT_MISC_FUNDS("COUNT\\[MISC\\.FUNDS\\]", new String[]{"COUNT[MISC.FUNDS]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountMiscFundsTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_MISC_MAGIC
-			("COUNT\\[MISC\\.MAGIC\\]",
-			 new String[] { "COUNT[MISC.MAGIC]" },
-			 true) {
+	COMPLETE_PC_COUNT_MISC_MAGIC("COUNT\\[MISC\\.MAGIC\\]", new String[]{"COUNT[MISC.MAGIC]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountMiscMagicTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_MOVE
-			("COUNT\\[MOVE\\]",
-			 new String[] { "COUNT[MOVE]" },
-			 true) {
+	COMPLETE_PC_COUNT_MOVE("COUNT\\[MOVE\\]", new String[]{"COUNT[MOVE]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountMoveTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_NOTES
-			("COUNT\\[NOTES\\]",
-			 new String[] { "COUNT[NOTES]" },
-			 true) {
+	COMPLETE_PC_COUNT_NOTES("COUNT\\[NOTES\\]", new String[]{"COUNT[NOTES]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountNotesTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_RACESUBTYPES
-			("COUNT\\[RACESUBTYPES\\]",
-			 new String[] { "COUNT[RACESUBTYPES]" },
-			 true) {
+	COMPLETE_PC_COUNT_RACESUBTYPES("COUNT\\[RACESUBTYPES\\]", new String[]{"COUNT[RACESUBTYPES]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountRaceSubTypesTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_SA
-			("COUNT\\[SA\\]",
-			 new String[] { "COUNT[SA]" },
-			 true) {
+	COMPLETE_PC_COUNT_SA("COUNT\\[SA\\]", new String[]{"COUNT[SA]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountSABTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_SKILLS
-			("COUNT\\[SKILLS(?:\\.SELECTED|\\.RANKS|\\.NONDEFAULT|\\.USABLE|\\.ALL)?\\]",
-			 new String[] { "COUNT[SKILLS]",
-							"COUNT[SKILLS.SELECTED]",
-							"COUNT[SKILLS.RANKS]",
-							"COUNT[SKILLS.NONDEFAULT]",
-							"COUNT[SKILLS.USABLE]",
-			 				"COUNT[SKILLS.ALL]"},
-			 true) {
+	COMPLETE_PC_COUNT_SKILLS("COUNT\\[SKILLS(?:\\.SELECTED|\\.RANKS|\\.NONDEFAULT|\\.USABLE|\\.ALL)?\\]",
+			new String[]{"COUNT[SKILLS]", "COUNT[SKILLS.SELECTED]", "COUNT[SKILLS.RANKS]", "COUNT[SKILLS.NONDEFAULT]",
+				"COUNT[SKILLS.USABLE]", "COUNT[SKILLS.ALL]"},
+			true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			String filterToken = null;
 			int start = expressionString.indexOf('.');
@@ -525,196 +409,154 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 				filterToken = expressionString.substring(start + 1, end);
 			}
 
-			return new PCCountSkillsTermEvaluator(expressionString,
-					filterToken);
+			return new PCCountSkillsTermEvaluator(expressionString, filterToken);
 		}
 	},
 
-	COMPLETE_PC_COUNT_SPELLCLASSES
-			("COUNT\\[SPELLCLASSES\\]",
-			 new String[] { "COUNT[SPELLCLASSES]" },
-			 true) {
+	COMPLETE_PC_COUNT_SPELLCLASSES("COUNT\\[SPELLCLASSES\\]", new String[]{"COUNT[SPELLCLASSES]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountSpellClassesTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_SPELLRACE
-			("COUNT\\[SPELLRACE\\]",
-			 new String[] { "COUNT[SPELLRACE]" },
-			 true) {
+	COMPLETE_PC_COUNT_SPELLRACE("COUNT\\[SPELLRACE\\]", new String[]{"COUNT[SPELLRACE]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountSpellRaceTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_STATS
-			("COUNT\\[STATS\\]",
-			 new String[] { "COUNT[STATS]" },
-			 true) {
+	COMPLETE_PC_COUNT_STATS("COUNT\\[STATS\\]", new String[]{"COUNT[STATS]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountStatsTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_TEMPBONUSNAMES
-			("COUNT\\[TEMPBONUSNAMES\\]",
-			 new String[] { "COUNT[TEMPBONUSNAMES]" },
-			 true) {
+	COMPLETE_PC_COUNT_TEMPBONUSNAMES("COUNT\\[TEMPBONUSNAMES\\]", new String[]{"COUNT[TEMPBONUSNAMES]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountTempBonusNamesTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_TEMPLATES
-			("COUNT\\[TEMPLATES\\]",
-			 new String[] { "COUNT[TEMPLATES]" },
-			 true) {
+	COMPLETE_PC_COUNT_TEMPLATES("COUNT\\[TEMPLATES\\]", new String[]{"COUNT[TEMPLATES]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountTemplatesTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_VISIBLETEMPLATES
-			("COUNT\\[VISIBLETEMPLATES\\]",
-			 new String[] { "COUNT[VISIBLETEMPLATES]" },
-			 true) {
+	COMPLETE_PC_COUNT_VISIBLETEMPLATES("COUNT\\[VISIBLETEMPLATES\\]", new String[]{"COUNT[VISIBLETEMPLATES]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountVisibleTemplatesTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_COUNT_VISION
-			("COUNT\\[VISION\\]",
-			 new String[] { "COUNT[VISION]" },
-			 true) {
+	COMPLETE_PC_COUNT_VISION("COUNT\\[VISION\\]", new String[]{"COUNT[VISION]"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCCountVisionTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_ENCUMBERANCE
-			("ENCUMBERANCE",
-			 new String[] { "ENCUMBERANCE" },
-			 true) {
+	COMPLETE_PC_ENCUMBERANCE("ENCUMBERANCE", new String[]{"ENCUMBERANCE"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCEncumberanceTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_HD
-			("HD",
-			 new String[] { "HD" },
-			 true) {
+	COMPLETE_PC_HD("HD", new String[]{"HD"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCHDTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_HP
-			("HP",
-			 new String[] { "HP" },
-			 true) {
+	COMPLETE_PC_HP("HP", new String[]{"HP"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCHPTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_MAXCASTABLE
-			("MAXCASTABLE",
-			 new String[] { "MAXCASTABLE" },
-			 true) {
+	COMPLETE_PC_MAXCASTABLE("MAXCASTABLE", new String[]{"MAXCASTABLE"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 			if (src.startsWith("CLASS:"))
 			{
-				return new PCMaxCastableClassTermEvaluator(
-						expressionString,
-						src.substring(6));
+				return new PCMaxCastableClassTermEvaluator(expressionString, src.substring(6));
 			}
 			else if (src.startsWith("DOMAIN:"))
 			{
-				return new PCMaxCastableDomainTermEvaluator(
-						expressionString,
-						src.substring(7));
+				return new PCMaxCastableDomainTermEvaluator(expressionString, src.substring(7));
 			}
 			else if (src.startsWith("SPELLTYPE:"))
 			{
-				return new PCMaxCastableSpellTypeTermEvaluator(
-						expressionString,
-						src.substring(10));
+				return new PCMaxCastableSpellTypeTermEvaluator(expressionString, src.substring(10));
 			}
 			else if ("ANY".equals(src))
 			{
-				return new PCMaxCastableAnyTermEvaluator(
-						expressionString);
+				return new PCMaxCastableAnyTermEvaluator(expressionString);
 			}
-			
+
 			StringBuilder sB = new StringBuilder();
 			sB.append("MAXCASTABLE is not usable in ");
 			sB.append(src);
@@ -722,110 +564,87 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		}
 	},
 
-	COMPLETE_PC_MOVEBASE
-			("MOVEBASE",
-			 new String[] { "MOVEBASE" },
-			 true) {
+	COMPLETE_PC_MOVEBASE("MOVEBASE", new String[]{"MOVEBASE"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCMoveBaseTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_PC_HEIGHT
-			("PC\\.HEIGHT",
-			 new String[] { "PC.HEIGHT" },
-			 false) {
+	COMPLETE_PC_PC_HEIGHT("PC\\.HEIGHT", new String[]{"PC.HEIGHT"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCHeightTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_PC_WEIGHT
-			("PC\\.WEIGHT",
-			 new String[] { "PC.WEIGHT" },
-			 false) {
+	COMPLETE_PC_PC_WEIGHT("PC\\.WEIGHT", new String[]{"PC.WEIGHT"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCWeightTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_PROFACCHECK
-			("PROFACCHECK",
-			 new String[] { "PROFACCHECK" },
-			 true) {
+	COMPLETE_PC_PROFACCHECK("PROFACCHECK", new String[]{"PROFACCHECK"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			String source = (src.startsWith("EQ:")) ? src.substring(3) : "";
 
-			return new PCProfACCheckTermEvaluator(
-					expressionString, 
-					source);
+			return new PCProfACCheckTermEvaluator(expressionString, source);
 		}
 	},
 
-	COMPLETE_PC_RACESIZE
-			("RACESIZE",
-			 new String[] { "RACESIZE" },
-			 true) {
+	COMPLETE_PC_RACESIZE("RACESIZE", new String[]{"RACESIZE"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCRaceSizeTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_RACIALHDSIZE
-			("RACIALHDSIZE",
-			new String[] { "RACIALHDSIZE" },
-			true) {	
+	COMPLETE_PC_RACIALHDSIZE("RACIALHDSIZE", new String[]{"RACIALHDSIZE"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCRacialHDSizeTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_SCORE
-			("SCORE",
-			 new String[] { "SCORE" },
-			 true) {
+	COMPLETE_PC_SCORE("SCORE", new String[]{"SCORE"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			try
 			{
@@ -837,58 +656,50 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 				//OK
 			}
 			String source = (src.startsWith("STAT:")) ? src.substring(5) : "";
-			
+
 			return new PCScoreTermEvaluator(expressionString, source);
 		}
 	},
 
-	COMPLETE_PC_SHIELDACCHECK
-			("SHIELDAC{1,2}HECK",
-			 new String[] { "SHIELDACCHECK", "SHIELDACHECK" },
-			 true) {
+	COMPLETE_PC_SHIELDACCHECK("SHIELDAC{1,2}HECK", new String[]{"SHIELDACCHECK", "SHIELDACHECK"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCShieldACcheckTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_SIZEMOD
-			("SIZEMOD|SIZE",
-			 new String[] { "SIZEMOD", "SIZE" },
-			 true) {
+	COMPLETE_PC_SIZEMOD("SIZEMOD|SIZE", new String[]{"SIZEMOD", "SIZE"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			if ("SIZEMOD".equals(matchedSection))
 			{
-				return new PCSizeModEvaluatorTermEvaluator(expressionString);				
+				return new PCSizeModEvaluatorTermEvaluator(expressionString);
 			}
 			else
 			{
-				return new PCSizeTermEvaluator(expressionString);	
+				return new PCSizeTermEvaluator(expressionString);
 			}
 		}
 	},
 
-	COMPLETE_PC_SPELLBASESTAT
-			("SPELLBASESTATSCORE|SPELLBASESTAT",
-			 new String[] { "SPELLBASESTAT", "SPELLBASESTATSCORE" },
-			 true) {
+	COMPLETE_PC_SPELLBASESTAT("SPELLBASESTATSCORE|SPELLBASESTAT", new String[]{"SPELLBASESTAT", "SPELLBASESTATSCORE"},
+			true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			String source = (src.startsWith("CLASS:")) ? src.substring(6) : "";
 
@@ -900,73 +711,59 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		}
 	},
 
-	COMPLETE_PC_SPELLLEVEL
-			("SPELLLEVEL",
-			 new String[] { "SPELLLEVEL" },
-			 true) {
+	COMPLETE_PC_SPELLLEVEL("SPELLLEVEL", new String[]{"SPELLLEVEL"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCSpellLevelTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_TL
-			("TL",
-			 new String[] { "TL" },
-			 true) {
+	COMPLETE_PC_TL("TL", new String[]{"TL"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCTLTermEvaluator(expressionString);
 		}
 	},
 
-	COMPLETE_PC_FAVCLASSLEVEL
-		("FAVCLASSLEVEL", 
-			new String[]{"FAVCLASSLEVEL"},
-			true) {
+	COMPLETE_PC_FAVCLASSLEVEL("FAVCLASSLEVEL", new String[]{"FAVCLASSLEVEL"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(final String expressionString,
-			final String src, final String matchedSection)
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
 		{
 
 			return new PCFavClassLevelTermEvaluator(expressionString);
 		}
 	},
 
-	PC_CAST_ATWILL
-		("ATWILL", 
-			new String[]{"ATWILL"}, 
-			true) {
+	PC_CAST_ATWILL("ATWILL", new String[]{"ATWILL"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(final String expressionString,
-			final String src, final String matchedSection)
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
 		{
 			return new PCCastTimesAtWillTermEvaluator(expressionString);
 		}
 	},
 
-	START_PC_BL
-			("BL[.=]?",
-			 new String[] { "BL.", "BL=", "BL" },
-			 false) {
+	START_PC_BL("BL[.=]?", new String[]{"BL.", "BL=", "BL"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
 			String classString;
@@ -975,38 +772,33 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			{
 				classString = (src.startsWith("CLASS:")) ? src.substring(6) : "";
 			}
-			else 
+			else
 			{
 				classString = expressionString.substring(matchedSection.length());
 			}
-			
-			return new PCBLTermEvaluator(
-					expressionString,
-					classString);
+
+			return new PCBLTermEvaluator(expressionString, classString);
 		}
 	},
 
-	START_PC_CL_BEFORELEVEL
-			("CL;BEFORELEVEL[.=]",
-			 new String[] { "CL;BEFORELEVEL.", "CL;BEFORELEVEL=" },
-			 false) {
+	START_PC_CL_BEFORELEVEL("CL;BEFORELEVEL[.=]", new String[]{"CL;BEFORELEVEL.", "CL;BEFORELEVEL="}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
-			if (!src.startsWith("CLASS:")) {
+			if (!src.startsWith("CLASS:"))
+			{
 				StringBuilder sB = new StringBuilder();
 				sB.append(matchedSection);
 				sB.append(" may only be used in a Class");
-				throw new TermEvaulatorException(sB.toString());				
+				throw new TermEvaulatorException(sB.toString());
 			}
 
 			int i;
-			
+
 			try
 			{
 				i = Integer.parseInt(expressionString.substring(15));
@@ -1023,76 +815,58 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 				throw new TermEvaulatorException(sB.toString());
 			}
 
-			return new PCCLBeforeLevelTermEvaluator(
-					expressionString,
-					src.substring(6),
-					i);
+			return new PCCLBeforeLevelTermEvaluator(expressionString, src.substring(6), i);
 		}
 	},
 
-	START_PC_CLASSLEVEL
-			("CLASSLEVEL[.=]",
-			 new String[] { "CLASSLEVEL.", "CLASSLEVEL=" },
-			 false) {
+	START_PC_CLASSLEVEL("CLASSLEVEL[.=]", new String[]{"CLASSLEVEL.", "CLASSLEVEL="}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
 			String exp = expressionString.replace('{', '(').replace('}', ')');
 
 			String classString = exp.substring(11);
 
-			return new PCCLTermEvaluator(
-					expressionString,
-					classString);
+			return new PCCLTermEvaluator(expressionString, classString);
 		}
 	},
 
-	START_PC_CLASS
-			("CLASS[.=]",
-			 new String[] { "CLASS.", "CLASS=" },
-			 false) {
+	START_PC_CLASS("CLASS[.=]", new String[]{"CLASS.", "CLASS="}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
-			return new PCHasClassTermEvaluator(
-					expressionString,
-					expressionString.substring(6));
+			return new PCHasClassTermEvaluator(expressionString, expressionString.substring(6));
 		}
 	},
 
-	START_PC_CL
-			("CL[.=]?",
-			 new String[] { "CL.", "CL=", "CL" },
-			 false) {
+	START_PC_CL("CL[.=]?", new String[]{"CL.", "CL=", "CL"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
 			String classString;
 
-			if (2 == expressionString.length())
+			if (expressionString.length() == 2)
 			{
-				if (!src.startsWith("CLASS:")) {
+				if (!src.startsWith("CLASS:"))
+				{
 					StringBuilder sB = new StringBuilder();
 					sB.append(matchedSection);
 					sB.append(" may only be used in a Class");
-					throw new TermEvaulatorException(sB.toString());				
+					throw new TermEvaulatorException(sB.toString());
 				}
-				
+
 				classString = (src.startsWith("CLASS:")) ? src.substring(6) : "";
 			}
 			else
@@ -1100,132 +874,102 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 				classString = expressionString.substring(3);
 			}
 
-			return new PCCLTermEvaluator(
-					expressionString,
-					classString);
+			return new PCCLTermEvaluator(expressionString, classString);
 		}
 	},
 
-	START_PC_COUNT_EQTYPE
-			("COUNT\\[EQTYPE\\.?",
-			 new String[] { "COUNT[EQTYPE", "COUNT[EQTYPE." },
-			 false) {
+	START_PC_COUNT_EQTYPE("COUNT\\[EQTYPE\\.?", new String[]{"COUNT[EQTYPE", "COUNT[EQTYPE."}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
 			// The types string inside the brackets
-			String typesString = 
-					TermUtilities.extractContentsOfBrackets(
-							expressionString,
-							src,
-							matchedSection.length());
-			
+			String typesString =
+					TermUtilities.extractContentsOfBrackets(expressionString, src, matchedSection.length());
+
 			// In the case of the empty string, the split will give us a one
 			// element array containing only the empty string (which is the
 			// desired result)
 			String[] fullTypes = typesString.split("\\.", -1);
 
-			int merge = "MERGENONE".equals(fullTypes[0]) ? Constants.MERGE_NONE :
-						"MERGELOC".equals(fullTypes[0])  ? Constants.MERGE_LOCATION :
-						Constants.MERGE_ALL;
+			int merge = "MERGENONE".equals(fullTypes[0]) ? Constants.MERGE_NONE
+				: "MERGELOC".equals(fullTypes[0]) ? Constants.MERGE_LOCATION : Constants.MERGE_ALL;
 
-			int first = (Constants.MERGE_ALL == merge) ? 0 : 1;
+			int first = (merge == Constants.MERGE_ALL) ? 0 : 1;
 
 			String[] types;
-			if (fullTypes.length > first) {
-				TermUtilities.checkEqTypeTypesArray(
-						expressionString,
-						fullTypes,
-						first);
+			if (fullTypes.length > first)
+			{
+				TermUtilities.checkEqTypeTypesArray(expressionString, fullTypes, first);
 
 				int len = fullTypes.length - first;
-				types   = new String[len];
+				types = new String[len];
 				System.arraycopy(fullTypes, first, types, 0, len);
 			}
 			else
 			{
-				types = new String[] {""};
+				types = new String[]{""};
 			}
 
-			return new PCCountEqTypeTermEvaluator(
-					expressionString,
-					types,
-					merge);
+			return new PCCountEqTypeTermEvaluator(expressionString, types, merge);
 		}
 	},
-	
-	START_PC_COUNT_EQUIPMENT
-			("COUNT\\[EQUIPMENT\\.?",
-			 new String[] { "COUNT[EQUIPMENT.", "COUNT[EQUIPMENT" },
-			 false) {
+
+	START_PC_COUNT_EQUIPMENT("COUNT\\[EQUIPMENT\\.?", new String[]{"COUNT[EQUIPMENT.", "COUNT[EQUIPMENT"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
 			// The types string inside the brackets
-			String typesString = 
-					TermUtilities.extractContentsOfBrackets(
-							expressionString,
-							src,
-							matchedSection.length());
-			
+			String typesString =
+					TermUtilities.extractContentsOfBrackets(expressionString, src, matchedSection.length());
+
 			// In the case of the empty string, the split will give us a one
 			// element array containing only the empty string (which is the
 			// desired result)
 			String[] fullTypes = typesString.split("\\.");
 
-			int merge = "MERGENONE".equals(fullTypes[0]) ? Constants.MERGE_NONE :
-						"MERGELOC".equals(fullTypes[0])  ? Constants.MERGE_LOCATION :
-						Constants.MERGE_ALL;
+			int merge = "MERGENONE".equals(fullTypes[0]) ? Constants.MERGE_NONE
+				: "MERGELOC".equals(fullTypes[0]) ? Constants.MERGE_LOCATION : Constants.MERGE_ALL;
 
-			int first = (Constants.MERGE_ALL == merge) ? 0 : 1;
+			int first = (merge == Constants.MERGE_ALL) ? 0 : 1;
 
 			String[] types;
-			if (fullTypes.length > first) {
-				TermUtilities.checkEquipmentTypesArray(
-						expressionString,
-						fullTypes,
-						first);
+			if (fullTypes.length > first)
+			{
+				TermUtilities.checkEquipmentTypesArray(expressionString, fullTypes, first);
 
 				int len = fullTypes.length - first;
-				types   = new String[len];
+				types = new String[len];
 				System.arraycopy(fullTypes, first, types, 0, len);
-			} else {
-				types = new String[] {""};
 			}
-			
-			return new PCCountEquipmentTermEvaluator(
-					expressionString,
-					types,
-					merge);
+			else
+			{
+				types = new String[]{""};
+			}
+
+			return new PCCountEquipmentTermEvaluator(expressionString, types, merge);
 		}
 	},
 
-	START_PC_COUNT_FEATTYPE
-			("COUNT\\[(?:FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)[.=]",
-			 new String[] { "COUNT[FEATAUTOTYPE.", "COUNT[FEATAUTOTYPE=",
-							"COUNT[FEATNAME.", "COUNT[FEATNAME=",
-							"COUNT[FEATTYPE.", "COUNT[FEATTYPE=", 
-			 				"COUNT[VFEATTYPE.", "COUNT[VFEATTYPE=" },
-			 false) {
+	START_PC_COUNT_FEATTYPE("COUNT\\[(?:FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)[.=]",
+			new String[]{"COUNT[FEATAUTOTYPE.", "COUNT[FEATAUTOTYPE=", "COUNT[FEATNAME.", "COUNT[FEATNAME=",
+				"COUNT[FEATTYPE.", "COUNT[FEATTYPE=", "COUNT[VFEATTYPE.", "COUNT[VFEATTYPE="},
+			false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
-			Matcher subtokenMat = subtokenPat.matcher(expressionString);
+			Matcher subtokenMat = SUBTOKEN_PAT.matcher(expressionString);
 
 			if (!subtokenMat.find())
 			{
@@ -1234,16 +978,15 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 				sB.append(expressionString);
 				sB.append("\" in ");
 				sB.append(src);
-				throw new TermEvaulatorException(sB.toString());				
+				throw new TermEvaulatorException(sB.toString());
 			}
 
-			int start = expressionString.startsWith("COUNT[FEATA") ? 19 :
-						expressionString.startsWith("COUNT[V")     ? 16 : 15;
-			
+			int start =
+					expressionString.startsWith("COUNT[FEATA") ? 19 : expressionString.startsWith("COUNT[V") ? 16 : 15;
+
 			// The types string inside the brackets
-			String typesString = 
-					TermUtilities.extractContentsOfBrackets(expressionString, src, start); 
-			
+			String typesString = TermUtilities.extractContentsOfBrackets(expressionString, src, start);
+
 			// In the case of the empty string, the split will give us a one
 			// element array containing only the empty string (which is the
 			// desired result)
@@ -1251,12 +994,10 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 			boolean visible = !(expressionString.endsWith("HIDDEN]"));
 
-			boolean hidden  = (expressionString.endsWith("HIDDEN]") ||
-			                   expressionString.endsWith("ALL]"));
+			boolean hidden = (expressionString.endsWith("HIDDEN]") || expressionString.endsWith("ALL]"));
 
-			if ("ALL".equals(types[types.length - 1])    ||
-				"HIDDEN".equals(types[types.length - 1]) ||
-				"VISIBLE".equals(types[types.length - 1]))
+			if ("ALL".equals(types[types.length - 1]) || "HIDDEN".equals(types[types.length - 1])
+				|| "VISIBLE".equals(types[types.length - 1]))
 			{
 				if (types.length > 1)
 				{
@@ -1267,7 +1008,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 				}
 				else
 				{
-					types = new String[] {""};
+					types = new String[]{""};
 				}
 			}
 
@@ -1275,67 +1016,41 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 
 			if ("FEATAUTOTYPE".equals(subtokenMat.group()))
 			{
-				return new PCCountAbilitiesTypeNatureAutoTermEvaluator(
-						expressionString,
-						abCat,
-						types,
-						visible,
-						hidden);
+				return new PCCountAbilitiesTypeNatureAutoTermEvaluator(expressionString, abCat, types, visible, hidden);
 			}
 			else if ("FEATNAME".equals(subtokenMat.group()))
 			{
-				return new PCCountAbilityNameTermEvaluator(
-						expressionString,
-						abCat,
-						types[0],
-						visible,
-						hidden);
+				return new PCCountAbilityNameTermEvaluator(expressionString, abCat, types[0], visible, hidden);
 			}
 			else if ("FEATTYPE".equals(subtokenMat.group()))
 			{
-				return new PCCountAbilitiesTypeNatureAllTermEvaluator(
-						expressionString,
-						abCat,
-						types, 
-						visible,
-						hidden);
+				return new PCCountAbilitiesTypeNatureAllTermEvaluator(expressionString, abCat, types, visible, hidden);
 			}
 			else
 			{
-				return new PCCountAbilitiesTypeNatureVirtualTermEvaluator(
-						expressionString,
-						abCat,
-						types, 
-						visible,
-						hidden);
+				return new PCCountAbilitiesTypeNatureVirtualTermEvaluator(expressionString, abCat, types, visible,
+					hidden);
 			}
 		}
 	},
 
-	START_PC_COUNT_FOLLOWERTYPE
-			("COUNT\\[FOLLOWERTYPE\\.",
-			 new String[] { "COUNT[FOLLOWERTYPE." },
-			 false) {
+	START_PC_COUNT_FOLLOWERTYPE("COUNT\\[FOLLOWERTYPE\\.", new String[]{"COUNT[FOLLOWERTYPE."}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
 			// The types string inside the brackets
-			String typesString = 
-					TermUtilities.extractContentsOfBrackets(expressionString, src, 19); 
-			
+			String typesString = TermUtilities.extractContentsOfBrackets(expressionString, src, 19);
+
 			String[] types = typesString.split("\\.", 3);
 
 			if (types.length == 1)
 			{
 				// This covers COUNT[FOLLOWERTYPE.Animal Companions] syntax
-				return new PCCountFollowerTypeTermEvaluator(
-						expressionString,
-						types[0]);
+				return new PCCountFollowerTypeTermEvaluator(expressionString, types[0]);
 			}
 			else if (types.length == 2)
 			{
@@ -1348,7 +1063,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			}
 			else
 			{
-				Matcher numMat = numPat.matcher(types[1]);
+				Matcher numMat = NUM_PAT.matcher(types[1]);
 
 				if (!numMat.find())
 				{
@@ -1359,108 +1074,80 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 					sB.append(src);
 					throw new TermEvaulatorException(sB.toString());
 				}
-			
+
 				String newCount = "COUNT[" + types[2] + "]";
 
 				// This will do COUNT[FOLLOWERTYPE.Animal Companions.0.xxx],
 				// returning the same as COUNT[xxx] if applied to the right follower
-				return new PCCountFollowerTypeTransitiveTermEvaluator(
-						expressionString,
-						types[0],
-						Integer.valueOf(numMat.group()),
-						newCount);
+				return new PCCountFollowerTypeTransitiveTermEvaluator(expressionString, types[0],
+					Integer.valueOf(numMat.group()), newCount);
 			}
 		}
 	},
 
-	START_PC_COUNT_SKILLTYPE
-			("COUNT\\[SKILLTYPE[.=]",
-			 new String[] { "COUNT[SKILLTYPE.", "COUNT[SKILLTYPE=" },
-			 false) {
+	START_PC_COUNT_SKILLTYPE("COUNT\\[SKILLTYPE[.=]", new String[]{"COUNT[SKILLTYPE.", "COUNT[SKILLTYPE="}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
-			String type = TermUtilities.extractContentsOfBrackets(expressionString, src, 16); 
+			String type = TermUtilities.extractContentsOfBrackets(expressionString, src, 16);
 
-			return new PCSkillTypeTermEvaluator(
-					expressionString,
-					type);
+			return new PCSkillTypeTermEvaluator(expressionString, type);
 		}
 	},
 
-	START_PC_COUNT_SPELLBOOKS
-			("COUNT\\[SPELLBOOKS",
-			 new String[] { "COUNT[SPELLBOOKS" },
-			 false) {
+	START_PC_COUNT_SPELLBOOKS("COUNT\\[SPELLBOOKS", new String[]{"COUNT[SPELLBOOKS"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
 			TermUtilities.extractContentsOfBrackets(expressionString, src, 16);
 
-			return new PCCountSpellbookTermEvaluator(
-					expressionString);
+			return new PCCountSpellbookTermEvaluator(expressionString);
 		}
 	},
 
-	START_PC_COUNT_SPELLSINBOOK
-			("COUNT\\[SPELLSINBOOK",
-			 new String[] { "COUNT[SPELLSINBOOK" },
-			 false) {
+	START_PC_COUNT_SPELLSINBOOK("COUNT\\[SPELLSINBOOK", new String[]{"COUNT[SPELLSINBOOK"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
-			return new PCCountSpellsInbookTermEvaluator(
-					expressionString,
-					TermUtilities.extractContentsOfBrackets(expressionString, src, 19));
+			return new PCCountSpellsInbookTermEvaluator(expressionString,
+				TermUtilities.extractContentsOfBrackets(expressionString, src, 19));
 		}
 	},
 
-	START_PC_COUNT_SPELLSKNOWN
-			("COUNT\\[SPELLSKNOWN",
-			 new String[] { "COUNT[SPELLSKNOWN" },
-			 false) {
+	START_PC_COUNT_SPELLSKNOWN("COUNT\\[SPELLSKNOWN", new String[]{"COUNT[SPELLSKNOWN"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
 			// The spells string inside the brackets
-			String spellsString = 
-					TermUtilities.extractContentsOfBrackets(expressionString, src, 17);
+			String spellsString = TermUtilities.extractContentsOfBrackets(expressionString, src, 17);
 
 			// make an array with one element in case we need it in the
 			// catch block.  The string could legitimatey be empty in which
 			// case a numberFormatException will be thrown
-			int[] nums = { -1 };
+			int[] nums = {-1};
 
 			if (spellsString.length() > 1 && spellsString.startsWith("."))
 			{
 				String s = spellsString.substring(1);
 				try
 				{
-					nums = TermUtilities.convertToIntegers(
-							expressionString,
-							s,
-							matchedSection.length(),
-							2);
+					nums = TermUtilities.convertToIntegers(expressionString, s, matchedSection.length(), 2);
 				}
 				catch (NumberFormatException e)
 				{
@@ -1470,42 +1157,28 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 				}
 			}
 
-			return new PCCountSpellsKnownTermEvaluator(
-					expressionString,
-					nums);
+			return new PCCountSpellsKnownTermEvaluator(expressionString, nums);
 		}
 	},
 
-	START_PC_COUNT_SPELLSLEVELSINBOOK
-			("COUNT\\[SPELLSLEVELSINBOOK",
-			 new String[] { "COUNT[SPELLSLEVELSINBOOK" },
-			 false) {
+	START_PC_COUNT_SPELLSLEVELSINBOOK("COUNT\\[SPELLSLEVELSINBOOK", new String[]{"COUNT[SPELLSLEVELSINBOOK"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
-			String intString = 
-					TermUtilities.extractContentsOfBrackets(
-							expressionString,
-							src,
-							24);
+			String intString = TermUtilities.extractContentsOfBrackets(expressionString, src, 24);
 
-			int[] nums = new int[] {-1};
+			int[] nums = new int[]{-1};
 
 			if (intString.length() > 1 && intString.startsWith("."))
 			{
 				String s = intString.substring(1);
 				try
 				{
-					nums = TermUtilities.convertToIntegers(
-							expressionString,
-							s,
-							matchedSection.length(),
-							2);
+					nums = TermUtilities.convertToIntegers(expressionString, s, matchedSection.length(), 2);
 				}
 				catch (NumberFormatException e)
 				{
@@ -1526,38 +1199,28 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 				throw new TermEvaulatorException(sB.toString());
 			}
 
-			return new PCCountSpellsLevelsInBookTermEvaluator(
-					expressionString, nums);
+			return new PCCountSpellsLevelsInBookTermEvaluator(expressionString, nums);
 		}
 	},
 
-	START_PC_COUNT_SPELLTIMES
-			("COUNT\\[SPELLTIMES",
-			 new String[] { "COUNT[SPELLTIMES" },
-			 false) {
+	START_PC_COUNT_SPELLTIMES("COUNT\\[SPELLTIMES", new String[]{"COUNT[SPELLTIMES"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
-			String intString = 
-					TermUtilities.extractContentsOfBrackets(expressionString, src, 16);
+			String intString = TermUtilities.extractContentsOfBrackets(expressionString, src, 16);
 
-			int[] nums = new int[] {-1};
+			int[] nums = new int[]{-1};
 
 			if (intString.length() > 1 && intString.startsWith("."))
 			{
 				String s = intString.substring(1);
 				try
 				{
-					nums = TermUtilities.convertToIntegers(
-							expressionString,
-							s,
-							matchedSection.length(),
-							4);
+					nums = TermUtilities.convertToIntegers(expressionString, s, matchedSection.length(), 4);
 				}
 				catch (NumberFormatException e)
 				{
@@ -1577,70 +1240,53 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 				sB.append("integers separated by dots");
 				throw new TermEvaulatorException(sB.toString());
 			}
-			
-			return new PCCountSpellTimesTermEvaluator(
-					expressionString,
-					nums);
+
+			return new PCCountSpellTimesTermEvaluator(expressionString, nums);
 		}
 	},
 
-	START_PC_EQTYPE
-			("EQTYPE",
-			 new String[] { "EQTYPE" },
-			 false) {
+	START_PC_EQTYPE("EQTYPE", new String[]{"EQTYPE"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
 			return new PCEqTypeTermEvaluator(expressionString);
 		}
 	},
 
-	START_PC_HASDEITY
-			("HASDEITY:",
-			 new String[] { "HASDEITY:" },
-			 false) {
+	START_PC_HASDEITY("HASDEITY:", new String[]{"HASDEITY:"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
-			return new PCHasDeityTermEvaluator(
-					expressionString,
-					expressionString.substring(9));
+			return new PCHasDeityTermEvaluator(expressionString, expressionString.substring(9));
 		}
 	},
 
-	START_PC_HASFEAT
-			("HASFEAT:",
-			 new String[] { "HASFEAT:" },
-			 false) {
+	START_PC_HASFEAT("HASFEAT:", new String[]{"HASFEAT:"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
-			return new PCHasFeatTermEvaluator(
-					expressionString,
-					expressionString.substring(8));
+			return new PCHasFeatTermEvaluator(expressionString, expressionString.substring(8));
 		}
 	},
 
-	START_PC_MAXLEVEL("MAXLEVEL", new String[]{"MAXLEVEL"}, true) {
+	START_PC_MAXLEVEL("MAXLEVEL", new String[]{"MAXLEVEL"}, true)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(final String expressionString,
-			final String src, final String matchedSection)
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
 		{
 
 			if (src.startsWith("CLASS:") || src.startsWith("CLASS|"))
@@ -1655,60 +1301,44 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		}
 	},
 
-	START_PC_MODEQUIP
-			("MODEQUIP",
-			 new String[] { "MODEQUIP" },
-			 false) {
+	START_PC_MODEQUIP("MODEQUIP", new String[]{"MODEQUIP"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
-			return new PCModEquipTermEvaluator(
-					expressionString, 
-					expressionString.substring(8));
+			return new PCModEquipTermEvaluator(expressionString, expressionString.substring(8));
 		}
 	},
 
-	START_PC_MOVE
-			("MOVE\\[",
-			 new String[] { "MOVE[" },
-			 false) {
+	START_PC_MOVE("MOVE\\[", new String[]{"MOVE["}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
-			return new PCMovementTermEvaluator(
-					expressionString, 
-					TermUtilities.extractContentsOfBrackets(expressionString, src, 5));			
+			return new PCMovementTermEvaluator(expressionString,
+				TermUtilities.extractContentsOfBrackets(expressionString, src, 5));
 		}
 	},
 
-	START_PC_PC_SIZE
-			("PC\\.SIZE(?:\\.INT)?",
-			 new String[] { "PC.SIZE.INT", "PC.SIZE" },
-			 false) {
+	START_PC_PC_SIZE("PC\\.SIZE(?:\\.INT)?", new String[]{"PC.SIZE.INT", "PC.SIZE"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			if (matchedSection.length() == 11)
 			{
 				if (src.startsWith("EQ:"))
 				{
-					return new PCSizeIntEQTermEvaluator(
-							expressionString,
-							src.substring(3));
+					return new PCSizeIntEQTermEvaluator(expressionString, src.substring(3));
 				}
 				else
 				{
@@ -1722,80 +1352,54 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		}
 	},
 
-	START_PC_SKILLRANK
-			("SKILLRANK[.=]",
-			 new String[] { "SKILLRANK.", "SKILLRANK=" },
-			 false) {
+	START_PC_SKILLRANK("SKILLRANK[.=]", new String[]{"SKILLRANK.", "SKILLRANK="}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
-			String skillString = 
-					expressionString.substring(10)
-							.replace('{', '(').replace('}', ')');
-			
-			return new PCSkillRankTermEvaluator(
-					expressionString,
-					skillString);
+			String skillString = expressionString.substring(10).replace('{', '(').replace('}', ')');
+
+			return new PCSkillRankTermEvaluator(expressionString, skillString);
 		}
 	},
 
-	START_PC_SKILLTOTAL
-			("SKILLTOTAL[.=]",
-			 new String[] { "SKILLTOTAL.", "SKILLTOTAL=" },
-			 false) {
+	START_PC_SKILLTOTAL("SKILLTOTAL[.=]", new String[]{"SKILLTOTAL.", "SKILLTOTAL="}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
-			String skillString = 
-					expressionString.substring(11)
-							.replace('{', '(').replace('}', ')');
-			
-			return new PCSkillTotalTermEvaluator(
-					expressionString,
-					skillString);
+			String skillString = expressionString.substring(11).replace('{', '(').replace('}', ')');
+
+			return new PCSkillTotalTermEvaluator(expressionString, skillString);
 		}
 	},
 
-	START_PC_VARDEFINED
-			("VARDEFINED:",
-			 new String[] { "VARDEFINED:" },
-			 false) {
+	START_PC_VARDEFINED("VARDEFINED:", new String[]{"VARDEFINED:"}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString, 
-				final String src, 
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
 			String varString = expressionString.substring(11);
 
-			return new PCVarDefinedTermEvaluator(
-					expressionString,
-					varString);
+			return new PCVarDefinedTermEvaluator(expressionString, varString);
 		}
 	},
 
-	START_PC_WEIGHT
-			("WEIGHT\\.",
-			 new String[] { "WEIGHT." },
-			 false) {
+	START_PC_WEIGHT("WEIGHT\\.", new String[]{"WEIGHT."}, false)
+	{
 
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src,
-				final String matchedSection) throws TermEvaulatorException
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection) throws TermEvaulatorException
 		{
 
 			// The type of weight we want the value for
@@ -1808,7 +1412,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			else if ("EQUIPPED".equals(valString))
 			{
 				// TODO: not carried, equipped!
-				return new PCCarriedWeightTermEvaluator (expressionString);
+				return new PCCarriedWeightTermEvaluator(expressionString);
 			}
 			else if ("PC".equals(valString))
 			{
@@ -1828,59 +1432,53 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		}
 	},
 
-	COMPLETE_PC_BONUSLANG("BONUSLANG", new String[] { "BONUSLANG" }, true)
+	COMPLETE_PC_BONUSLANG("BONUSLANG", new String[]{"BONUSLANG"}, true)
 	{
-
 		@Override
-		public TermEvaluator getTermEvaluator(final String expressionString,
-				final String src, final String matchedSection)
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
 		{
 			return new PCBonusLangTermEvaluator(expressionString);
 		}
 	},
-	
-	COMPLETE_PC_HANDS("HANDS", new String[] { "HANDS" }, true)
+
+	COMPLETE_PC_HANDS("HANDS", new String[]{"HANDS"}, true)
 	{
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCHandsTermEvaluator(expressionString);
 		}
-	
+
 	},
-	
-	COMPLETE_PC_LEGS("LEGS", new String[] { "LEGS" }, true)
+
+	COMPLETE_PC_LEGS("LEGS", new String[]{"LEGS"}, true)
 	{
 		@Override
-		public TermEvaluator getTermEvaluator(
-				final String expressionString,
-				final String src, 
-				final String matchedSection) {
+		public TermEvaluator getTermEvaluator(final String expressionString, final String src,
+			final String matchedSection)
+		{
 
 			return new PCLegsTermEvaluator(expressionString);
 		}
-	
+
 	};
 
-	static final String subtokenString = "(FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)";
-	static final Pattern subtokenPat = Pattern.compile(subtokenString);
+	static final String SUBTOKEN_STRING = "(FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)";
+	static final Pattern SUBTOKEN_PAT = Pattern.compile(SUBTOKEN_STRING);
 
-	static final Pattern numPat = Pattern.compile("\\d+");
+	static final Pattern NUM_PAT = Pattern.compile("\\d+");
 
-	private final String   termConstructorPattern;
+	private final String termConstructorPattern;
 	private final String[] termConstructorKeys;
-	private final boolean  patternMatchesEntireTerm;
+	private final boolean patternMatchesEntireTerm;
 
-	TermEvaluatorBuilderPCVar(
-			String pattern,
-			String[] keys,
-			boolean matchEntireTerm)
+	TermEvaluatorBuilderPCVar(String pattern, String[] keys, boolean matchEntireTerm)
 	{
-		termConstructorPattern   = pattern;
-		termConstructorKeys      = keys;
+		termConstructorPattern = pattern;
+		termConstructorKeys = keys;
 		patternMatchesEntireTerm = matchEntireTerm;
 	}
 

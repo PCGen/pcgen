@@ -14,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 29/09/2010 7:16:42 PM
- *
- * $Id: RaceInfoTab.java 14578 2011-02-16 20:20:14Z cpmeister $
  */
 package pcgen.gui2.tabs;
 
@@ -40,11 +36,16 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.RaceSubType;
+import pcgen.cdom.enumeration.RaceType;
+import pcgen.core.Race;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.InfoFactory;
-import pcgen.facade.core.RaceFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.gui2.facade.DelegatingSingleton;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilterButton;
@@ -66,24 +67,21 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>RaceInfoTab</code> is the component used in the Race tab.
- * <br>
+ * The Class {@code RaceInfoTab} is the component used in the Race tab.
  * -0800 (Wed, 16 Feb 2011) $
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
-	private static final TabTitle title = new TabTitle(Tab.RACE);
-	private final FilteredTreeViewTable<Object, RaceFacade> raceTable;
-	private final FilteredTreeViewTable<Object, RaceFacade> selectedTable;
+	private static final TabTitle TITLE = new TabTitle(Tab.RACE);
+	private final FilteredTreeViewTable<Object, Race> raceTable;
+	private final FilteredTreeViewTable<Object, Race> selectedTable;
 	private final InfoPane infoPane;
 	private final JButton selectRaceButton;
 	private final JButton removeButton;
-	private final FilterButton<Object, RaceFacade> qFilterButton;
-	private final FilterButton<Object, RaceFacade> noRacialHdFilterButton;
+	private final FilterButton<Object, Race> qFilterButton;
+	private final FilterButton<Object, Race> noRacialHdFilterButton;
 	private final QualifiedTreeCellRenderer qualifiedRenderer;
 
 	public RaceInfoTab()
@@ -107,7 +105,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		setOrientation(VERTICAL_SPLIT);
 
 		JPanel availPanel = new JPanel(new BorderLayout());
-		FilterBar<Object, RaceFacade> bar = new FilterBar<>();
+		FilterBar<Object, Race> bar = new FilterBar<>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		noRacialHdFilterButton.setText(LanguageBundle.getString("in_irNoRacialHd")); //$NON-NLS-1$
 		noRacialHdFilterButton.setToolTipText(LanguageBundle.getString("in_irNoRacialHdTip")); //$NON-NLS-1$
@@ -133,7 +131,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		topPane.setLeftComponent(availPanel);
 
 		JPanel selPanel = new JPanel(new BorderLayout());
-		FilterBar<Object, RaceFacade> filterBar = new FilterBar<>();
+		FilterBar<Object, Race> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		selectedTable.setDisplayableFilter(filterBar);
@@ -173,6 +171,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	@Override
 	public void restoreModels(ModelMap models)
 	{
+		raceTable.clearSelection();
 		models.get(QualifiedFilterHandler.class).install();
 		models.get(NoRacialHdFilterHandler.class).install();
 		models.get(Handler.class).install();
@@ -185,7 +184,6 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	@Override
 	public void storeModels(ModelMap models)
 	{
-		models.get(TreeViewModelHandler.class).uninstall();
 		models.get(InfoHandler.class).uninstall();
 		models.get(SelectRaceAction.class).uninstall();
 		models.get(RemoveRaceAction.class).uninstall();
@@ -195,7 +193,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	@Override
 	public TabTitle getTabTitle()
 	{
-		return title;
+		return TITLE;
 	}
 
 	private class InfoHandler implements ListSelectionListener
@@ -245,9 +243,14 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 						obj = selectedTable.getModel().getValueAt(selectedRow, 0);
 					}
 				}
-				if (obj instanceof RaceFacade)
+				if (obj instanceof Race)
 				{
-					text = character.getInfoFactory().getHTMLInfo((RaceFacade) obj);
+					text = character.getInfoFactory().getHTMLInfo((Race) obj);
+					infoPane.setText(text);
+				}
+				else
+				{
+					text = "";
 					infoPane.setText(text);
 				}
 			}
@@ -271,9 +274,9 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		public void actionPerformed(ActionEvent e)
 		{
 			Object obj = raceTable.getSelectedObject();
-			if (obj instanceof RaceFacade)
+			if (obj instanceof Race)
 			{
-				character.setRace((RaceFacade) obj);
+				character.setRace((Race) obj);
 			}
 		}
 
@@ -322,10 +325,10 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	}
 
 	/**
-	 * The Class <code>NoRacialHdFilterHandler</code> provides the filter
+	 * The Class {@code NoRacialHdFilterHandler} provides the filter
 	 * backing the No Racial HD filter button.
 	 */
-	private class NoRacialHdFilterHandler implements Filter<Object, RaceFacade>
+	private class NoRacialHdFilterHandler implements Filter<Object, Race>
 	{
 
 		private final InfoFactory infoFactory;
@@ -341,7 +344,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		}
 
 		@Override
-		public boolean accept(Object context, RaceFacade element)
+		public boolean accept(Object context, Race element)
 		{
 			return infoFactory.getNumMonsterClassLevels(element) == 0;
 		}
@@ -349,10 +352,10 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	}
 
 	/**
-	 * The Class <code>QualifiedFilterHandler</code> provides the filter backing
+	 * The Class {@code QualifiedFilterHandler} provides the filter backing
 	 * the Qualified filter button.
 	 */
-	private class QualifiedFilterHandler implements Filter<Object, RaceFacade>
+	private class QualifiedFilterHandler implements Filter<Object, Race>
 	{
 
 		private final CharacterFacade character;
@@ -368,7 +371,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		}
 
 		@Override
-		public boolean accept(Object context, RaceFacade element)
+		public boolean accept(Object context, Race element)
 		{
 			return character.isQualifiedFor(element);
 		}
@@ -396,13 +399,9 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			raceTable.setTreeViewModel(availableModel);
 			selectedTable.setTreeViewModel(selectedModel);
 		}
-
-		public void uninstall()
-		{
-		}
 	}
 
-	private class RaceDataView extends CachedDataView<RaceFacade>
+	private class RaceDataView extends CachedDataView<Race>
 	{
 
 		private final List<DefaultDataViewColumn> columns;
@@ -416,26 +415,26 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			if (isAvailModel)
 			{
 				columns = Arrays.asList(new DefaultDataViewColumn("in_irTableStat", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_preReqs", String.class), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_size", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_movement", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_vision", String.class), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_favoredClass", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_lvlAdj", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+					new DefaultDataViewColumn("in_preReqs", String.class), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_size", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_movement", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_vision", String.class), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_favoredClass", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_lvlAdj", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 			else
 			{
 				columns = Arrays.asList(new DefaultDataViewColumn("in_irTableStat", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_preReqs", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_size", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_movement", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_vision", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_favoredClass", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_lvlAdj", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+					new DefaultDataViewColumn("in_preReqs", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_size", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_movement", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_vision", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_favoredClass", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_lvlAdj", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 		}
 
@@ -448,19 +447,20 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		@Override
 		public String getPrefsKey()
 		{
-			return isAvailModel ? "RaceTreeAvail" : "RaceTreeSelected";  //$NON-NLS-1$//$NON-NLS-2$
+			return isAvailModel ? "RaceTreeAvail" : "RaceTreeSelected"; //$NON-NLS-1$//$NON-NLS-2$
 		}
 
 		@Override
-		public Object getDataInternal(RaceFacade obj, int column)
+		public Object getDataInternal(Race obj, int column)
 		{
-			switch(column){
+			switch (column)
+			{
 				case 0:
 					return infoFactory.getStatAdjustments(obj);
 				case 1:
 					return infoFactory.getPreReqHTML(obj);
 				case 2:
-					return obj.getSize();
+					return infoFactory.getSize(obj);
 				case 3:
 					return infoFactory.getMovement(obj);
 				case 4:
@@ -479,35 +479,22 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		}
 
 		@Override
-		public void setData(Object value, RaceFacade element, int column)
+		public void setData(Object value, Race element, int column)
 		{
 		}
 
-//		@Override
-//		protected void refreshTableData()
-//		{
-//			if (isAvailModel)
-//			{
-//				raceTable.refreshModelData();
-//			}
-//			else
-//			{
-//				selectedTable.refreshModelData();
-//			}
-//		}
-
 	}
 
-	private static class RaceTreeViewModel implements TreeViewModel<RaceFacade>
+	private static class RaceTreeViewModel implements TreeViewModel<Race>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<RaceFacade>> treeViews
-				= new DefaultListFacade<TreeView<RaceFacade>>(Arrays.asList(RaceTreeView.values()));
+		private static final DefaultListFacade<? extends TreeView<Race>> TREE_VIEWS =
+				new DefaultListFacade<TreeView<Race>>(Arrays.asList(RaceTreeView.values()));
 		private final CharacterFacade character;
 		private final boolean isAvailModel;
-		private final DataView<RaceFacade> dataView;
+		private final DataView<Race> dataView;
 
-		public RaceTreeViewModel(CharacterFacade character, boolean isAvailModel, DataView<RaceFacade> dataView)
+		public RaceTreeViewModel(CharacterFacade character, boolean isAvailModel, DataView<Race> dataView)
 		{
 			this.character = character;
 			this.isAvailModel = isAvailModel;
@@ -515,9 +502,9 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		}
 
 		@Override
-		public ListFacade<? extends TreeView<RaceFacade>> getTreeViews()
+		public ListFacade<? extends TreeView<Race>> getTreeViews()
 		{
-			return treeViews;
+			return TREE_VIEWS;
 		}
 
 		@Override
@@ -527,13 +514,13 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		}
 
 		@Override
-		public DataView<RaceFacade> getDataView()
+		public DataView<Race> getDataView()
 		{
 			return dataView;
 		}
 
 		@Override
-		public ListFacade<RaceFacade> getDataModel()
+		public ListFacade<Race> getDataModel()
 		{
 			if (isAvailModel)
 			{
@@ -541,20 +528,19 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			}
 			else
 			{
-				return character.getRaceAsList();
+				return new DelegatingSingleton<>(character.getRaceRef());
 			}
 		}
 
 	}
 
-	private enum RaceTreeView implements TreeView<RaceFacade>
+	private enum RaceTreeView implements TreeView<Race>
 	{
 
 		NAME(LanguageBundle.getString("in_nameLabel")), //$NON-NLS-1$
 		TYPE_NAME(LanguageBundle.getString("in_typeName")), //$NON-NLS-1$
 		RACETYPE_NAME(LanguageBundle.getString("in_racetypeName")), //$NON-NLS-1$
-		RACETYPE_RACE_SUBTYPE_NAME(
-				LanguageBundle.getString("in_racetypeSubtypeName")), //$NON-NLS-1$
+		RACETYPE_RACE_SUBTYPE_NAME(LanguageBundle.getString("in_racetypeSubtypeName")), //$NON-NLS-1$
 		SOURCE_NAME(LanguageBundle.getString("in_sourceName")); //$NON-NLS-1$
 		private final String name;
 
@@ -570,41 +556,55 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		}
 
 		@Override
-		public List<TreeViewPath<RaceFacade>> getPaths(RaceFacade pobj)
+		public List<TreeViewPath<Race>> getPaths(Race pobj)
 		{
 			switch (this)
 			{
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case TYPE_NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj,
-                            pobj.getType()));
+					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getType()));
 				case RACETYPE_RACE_SUBTYPE_NAME:
-					List<String> subtypes = pobj.getRaceSubTypes();
+					List<String> subtypes = getRaceSubTypes(pobj);
 					if (!subtypes.isEmpty())
 					{
-						List<TreeViewPath<RaceFacade>> paths
-								= new ArrayList<>();
-						String raceType = pobj.getRaceType();
+						List<TreeViewPath<Race>> paths = new ArrayList<>();
+						String raceType = getRaceType(pobj);
 						for (String subtype : subtypes)
 						{
-							paths.add(new TreeViewPath<>(pobj,
-                                    raceType, subtype));
+							paths.add(new TreeViewPath<>(pobj, raceType, subtype));
 						}
 						return paths;
 					}
 					// No subtypes, fall through to treat it as a type tree.
-					return Collections.singletonList(new TreeViewPath<>(pobj,
-                            pobj.getRaceType()));
+					return Collections.singletonList(new TreeViewPath<>(pobj, getRaceType(pobj)));
 				case RACETYPE_NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj,
-                            pobj.getRaceType()));
+					return Collections.singletonList(new TreeViewPath<>(pobj, getRaceType(pobj)));
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj,
-                            pobj.getSourceForNodeDisplay()));
+					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}
+		}
+
+		private List<String> getRaceSubTypes(Race pobj)
+		{
+			List<String> subTypeNames = new ArrayList<>();
+			List<RaceSubType> rst = pobj.getListFor(ListKey.RACESUBTYPE);
+			if (rst != null)
+			{
+				for (RaceSubType subtype : rst)
+				{
+					subTypeNames.add(subtype.toString());
+				}
+			}
+			return subTypeNames;
+		}
+
+		private String getRaceType(Race race)
+		{
+			RaceType rt = race.getSafe(ObjectKey.RACETYPE);
+			return rt == null ? "" : rt.toString();
 		}
 
 	}

@@ -19,12 +19,12 @@ package pcgen.cdom.enumeration;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant. It is designed to hold SubRegions in a
  * type-safe fashion, so that they can be quickly compared and use less memory
@@ -51,15 +51,11 @@ public final class SubRegion implements TypeSafeConstant
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private SubRegion(String name)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException(
-					"Name for SubRegion cannot be null");
-		}
+		Objects.requireNonNull(name, "Name for SubRegion cannot be null");
 		ordinal = ordinalCount++;
 		fieldName = name;
 	}
@@ -133,8 +129,7 @@ public final class SubRegion implements TypeSafeConstant
 		SubRegion subRegion = typeMap.get(name);
 		if (subRegion == null)
 		{
-			throw new IllegalArgumentException(name
-					+ " is not a previously defined SubRegion");
+			throw new IllegalArgumentException(name + " is not a previously defined SubRegion");
 		}
 		return subRegion;
 	}

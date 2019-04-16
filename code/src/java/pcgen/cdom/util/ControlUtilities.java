@@ -17,10 +17,16 @@
  */
 package pcgen.cdom.util;
 
+import java.util.Objects;
+import java.util.Optional;
+
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.CodeControl;
 import pcgen.rules.context.LoadContext;
 
+/**
+ * ControlUtilities provides convenience methods around Code Controls
+ */
 public final class ControlUtilities
 {
 
@@ -29,29 +35,108 @@ public final class ControlUtilities
 		//Do not instantiate Utility class
 	}
 
+	/**
+	 * Returns the value of a code control in the given LoadContext.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the code control is being evaluated
+	 * @param command
+	 *            The code control for which the value should be returned
+	 * @return The value of a code control in the given LoadContext
+	 */
 	public static String getControlToken(LoadContext context, String command)
 	{
 		CodeControl controller =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					CodeControl.class, "Controller");
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(CodeControl.class, "Controller");
 		if (controller != null)
 		{
-			return controller.get(ObjectKey.getKeyFor(String.class, "*"
-				+ command));
+			return controller.get(ObjectKey.getKeyFor(String.class, "*" + Objects.requireNonNull(command)));
 		}
 		return null;
 	}
 
-	public static boolean hasControlToken(LoadContext context, String command)
+	/**
+	 * Returns true if a feature code control in the given LoadContext is enabled.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the code control is being evaluated
+	 * @param feature
+	 *            The feature code control for which the value should be returned
+	 * @return true if a feature code control in the given LoadContext is enabled; false
+	 *         otherwise
+	 */
+	public static boolean isFeatureEnabled(LoadContext context, String feature)
 	{
-		CodeControl controller =
-				context.getReferenceContext().silentlyGetConstructedCDOMObject(
-					CodeControl.class, "Controller");
+		CodeControl controller = context.getReferenceContext()
+			.silentlyGetConstructedCDOMObject(CodeControl.class, "Controller");
 		if (controller != null)
 		{
-			return controller.get(ObjectKey.getKeyFor(String.class, "*"
-				+ command)) != null;
+			Boolean object = controller.get(ObjectKey.getKeyFor(Boolean.class,
+				"*" + Objects.requireNonNull(feature)));
+			return (object != null) && object;
 		}
 		return false;
 	}
+
+	/**
+	 * Returns the value of a code control in the given LoadContext. If the given CControl
+	 * is not present in the data, the default value of the given CControl will be
+	 * returned.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the code control is being evaluated
+	 * @param control
+	 *            The code control for which the value should be returned
+	 * @return The value of a code control in the given LoadContext
+	 */
+	public static String getControlToken(LoadContext context, CControl control)
+	{
+		CodeControl controller =
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(CodeControl.class, "Controller");
+		if (controller != null)
+		{
+			ObjectKey<String> ok = ObjectKey.getKeyFor(String.class,
+				"*" + Objects.requireNonNull(control.getName()));
+			return Optional.ofNullable(controller.get(ok))
+				.orElse(control.getDefaultValue());
+		}
+		return control.getDefaultValue();
+	}
+
+	/**
+	 * Returns true if the code control has a value in the given LoadContext.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the code control is being evaluated
+	 * @param command
+	 *            The code control which should be checked to determine if it exists
+	 * @return true if the code control has a value in the given LoadContext; false
+	 *         otherwise
+	 */
+	public static boolean hasControlToken(LoadContext context, String command)
+	{
+		CodeControl controller =
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(CodeControl.class, "Controller");
+		if (controller != null)
+		{
+			return controller.get(ObjectKey.getKeyFor(String.class, "*" + Objects.requireNonNull(command))) != null;
+		}
+		return false;
+	}
+
+	/**
+	 * Returns true if the code control has a value in the given LoadContext.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the code control is being evaluated
+	 * @param command
+	 *            The code control which should be checked to determine if it exists
+	 * @return true if the code control has a value in the given LoadContext; false
+	 *         otherwise
+	 */
+	public static boolean hasControlToken(LoadContext context, CControl command)
+	{
+		return hasControlToken(context, command.getName());
+	}
+
 }

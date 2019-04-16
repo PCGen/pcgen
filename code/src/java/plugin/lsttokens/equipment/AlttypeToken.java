@@ -35,8 +35,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with ALTTYPE token
  */
-public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -46,8 +45,7 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		Equipment eq, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		EquipmentHead head = eq.getEquipmentHead(2);
 		if (value.startsWith(Constants.LST_DOT_CLEAR))
@@ -60,19 +58,17 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 			else if (value.charAt(6) == '.')
 			{
 				value = value.substring(7);
-				if (isEmpty(value))
+				ParseResult pr = checkNonEmpty(value);
+				if (!pr.passed())
 				{
-					return new ParseResult.Fail(getTokenName()
-						+ "started with .CLEAR. but expected to have a Type after .: "
-						+ value, context);
+					return new ParseResult.Fail(
+						getTokenName() + "started with .CLEAR. but expected to have a Type after .: " + value);
 				}
 			}
 			else
 			{
 				return new ParseResult.Fail(
-					getTokenName()
-						+ "started with .CLEAR but expected next character to be .: "
-						+ value, context);
+					getTokenName() + "started with .CLEAR but expected next character to be .: " + value);
 			}
 		}
 		ParseResult pr = checkForIllegalSeparator('.', value);
@@ -92,8 +88,7 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 			{
 				if (bRemove)
 				{
-					return new ParseResult.Fail("Non-sensical use of .REMOVE.ADD. in "
-									+ getTokenName() + ": " + value, context);
+					return new ParseResult.Fail("Non-sensical use of .REMOVE.ADD. in " + getTokenName() + ": " + value);
 				}
 				bRemove = false;
 				bAdd = true;
@@ -102,21 +97,18 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 			{
 				if (bAdd)
 				{
-					return new ParseResult.Fail("Non-sensical use of .ADD.REMOVE. in "
-									+ getTokenName() + ": " + value, context);
+					return new ParseResult.Fail("Non-sensical use of .ADD.REMOVE. in " + getTokenName() + ": " + value);
 				}
 				bRemove = true;
 			}
 			else if ("CLEAR".equals(aType))
 			{
-				return new ParseResult.Fail("Non-sensical use of .CLEAR in "
-						+ getTokenName() + ": " + value, context);
+				return new ParseResult.Fail("Non-sensical use of .CLEAR in " + getTokenName() + ": " + value);
 			}
 			else if (bRemove)
 			{
 				Type type = Type.getConstant(aType);
-				context.getObjectContext().removeFromList(head, ListKey.TYPE,
-						type);
+				context.getObjectContext().removeFromList(head, ListKey.TYPE, type);
 				bRemove = false;
 			}
 			else
@@ -128,15 +120,12 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 		}
 		if (bRemove)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ "ended with REMOVE, so didn't have any Type to remove: "
-					+ value, context);
+			return new ParseResult.Fail(
+				getTokenName() + "ended with REMOVE, so didn't have any Type to remove: " + value);
 		}
 		if (bAdd)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ "ended with ADD, so didn't have any Type to add: "
-					+ value, context);
+			return new ParseResult.Fail(getTokenName() + "ended with ADD, so didn't have any Type to add: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -145,8 +134,7 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
 		EquipmentHead head = eq.getEquipmentHead(2);
-		Changes<Type> changes = context.getObjectContext().getListChanges(head,
-				ListKey.TYPE);
+		Changes<Type> changes = context.getObjectContext().getListChanges(head, ListKey.TYPE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -178,12 +166,11 @@ public class AlttypeToken extends AbstractNonEmptyToken<Equipment> implements
 		}
 		if (sb.length() == 0)
 		{
-			context.addWriteMessage(getTokenName()
-					+ " was expecting non-empty changes to include "
-					+ "added items or global clear");
+			context.addWriteMessage(
+				getTokenName() + " was expecting non-empty changes to include " + "added items or global clear");
 			return null;
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	@Override

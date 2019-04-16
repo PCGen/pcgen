@@ -1,0 +1,15 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
+
+# Weapon Name		Type
+Seedpod			TYPE:Exotic.Ranged.Splash.Weapon Group Thrown
+
+Axe (Throwing).MOD	TYPE:Tribal Weapon Group
+Club.MOD			TYPE:Tribal Weapon Group
+Dagger.MOD			TYPE:Tribal Weapon Group
+Greatclub.MOD		TYPE:Tribal Weapon Group
+Handaxe.MOD			TYPE:Tribal Weapon Group
+Shieldbash.MOD		TYPE:Tribal Weapon Group
+Shortspear.MOD		TYPE:Tribal Weapon Group
+Spear.MOD			TYPE:Tribal Weapon Group
+Unarmed Strike.MOD	TYPE:Tribal Weapon Group

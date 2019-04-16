@@ -1,6 +1,5 @@
 /*
  * derived from
- * CampaignSourceEntry.java
  * Copyright 2003 (C) David Hibbs <sage_sam@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -22,7 +21,6 @@ package pcgen.persistence.lst;
 import java.net.URI;
 import java.util.Objects;
 
-import pcgen.base.lang.ObjectUtil;
 import pcgen.util.Logging;
 
 /**
@@ -102,9 +100,6 @@ public class URIEntry
 		return uri;
 	}
 
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object arg0)
 	{
@@ -115,24 +110,17 @@ public class URIEntry
 		if (arg0 instanceof URIEntry)
 		{
 			URIEntry other = (URIEntry) arg0;
-			return ObjectUtil.compareWithNull(uriFac, other.uriFac)
-				&& getURI().equals(other.getURI());
+			return Objects.equals(uriFac, other.uriFac) && getURI().equals(other.getURI());
 		}
 		return false;
 	}
 
-	/**
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return this.getLSTformat().hashCode();
 	}
 
-	/**
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -179,8 +167,7 @@ public class URIEntry
 	 */
 	public URIEntry getRelatedTarget(String fileName)
 	{
-		return new URIEntry(campaignName, new URIFactory(Objects.requireNonNull(uriFac).getRootURI(),
-			fileName));
+		return new URIEntry(campaignName, new URIFactory(Objects.requireNonNull(uriFac).getRootURI(), fileName));
 	}
 
 	/**
@@ -196,13 +183,11 @@ public class URIEntry
 	 *            The offset from the root URI for the URIEntry
 	 * @return A new URIEntry from the given Campaign name, rootURI and offset
 	 */
-	public static URIEntry getURIEntry(String campaignName, URI rootURI,
-		String offset)
+	public static URIEntry getURIEntry(String campaignName, URI rootURI, String offset)
 	{
 		if (offset == null || offset.isEmpty())
 		{
-			Logging.errorPrint("Cannot build URIEntry for empty value in "
-				+ rootURI);
+			Logging.errorPrint("Cannot build URIEntry for empty value in " + rootURI);
 			return null;
 		}
 

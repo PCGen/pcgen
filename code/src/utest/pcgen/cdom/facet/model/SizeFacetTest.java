@@ -17,18 +17,17 @@
  */
 package pcgen.cdom.facet.model;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
-
-import junit.framework.TestCase;
-
-import org.junit.Test;
 
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.BonusCheckingFacet;
@@ -42,7 +41,11 @@ import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.AbstractReferenceContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-public class SizeFacetTest extends TestCase
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class SizeFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -54,17 +57,15 @@ public class SizeFacetTest extends TestCase
 	private CharID id;
 	private CharID altid;
 	private SizeFacet facet;
-	private RaceFacet rfacet = new RaceFacet();
-	private TemplateFacet tfacet = new TemplateFacet();
+	private final RaceFacet rfacet = new RaceFacet();
+	private final TemplateFacet tfacet = new TemplateFacet();
 	private int fakeLevels = 0;
 	private Map<CharID, Double> bonusInfo;
-	private static boolean staticDone = false;
 	private static SizeAdjustment t, s, m, l, h;
 
-	@Override
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -73,34 +74,30 @@ public class SizeFacetTest extends TestCase
 		facet.setTemplateFacet(tfacet);
 		facet.setFormulaResolvingFacet(new FormulaResolvingFacet());
 		bonusInfo = new HashMap<>();
-		staticSetUp();
 	}
 
-	private static synchronized void staticSetUp()
+	@BeforeAll
+	static void staticSetUp()
 	{
-		if (!staticDone)
-		{
-			SettingsHandler.getGame().clearLoadContext();
-			AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-			t = BuildUtilities.createSize("Tiny", 0);
-			ref.importObject(t);
-			s = BuildUtilities.createSize("Small", 1);
-			ref.importObject(s);
-			m = BuildUtilities.createSize("Medium", 2);
-			m.put(ObjectKey.IS_DEFAULT_SIZE, true);
-			ref.importObject(m);
-			l = BuildUtilities.createSize("Large", 3);
-			ref.importObject(l);
-			h = BuildUtilities.createSize("Huge", 4);
-			ref.importObject(h);
-			staticDone = true;
-		}
+		SettingsHandler.getGame().clearLoadContext();
+		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+		t = BuildUtilities.createSize("Tiny", 0);
+		ref.importObject(t);
+		s = BuildUtilities.createSize("Small", 1);
+		ref.importObject(s);
+		m = BuildUtilities.createSize("Medium", 2);
+		m.put(ObjectKey.IS_DEFAULT_SIZE, true);
+		ref.importObject(m);
+		l = BuildUtilities.createSize("Large", 3);
+		ref.importObject(l);
+		h = BuildUtilities.createSize("Huge", 4);
+		ref.importObject(h);
 	}
 
 	@Test
 	public void testReachUnsetDefault()
 	{
-		assertEquals(2, facet.sizeInt(id));
+		assertEquals(2, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		assertEquals(2, facet.racialSizeInt(id));
 	}
 
@@ -109,11 +106,11 @@ public class SizeFacetTest extends TestCase
 	{
 		rfacet.set(id, new Race());
 		facet.update(id);
-		assertEquals(2, facet.sizeInt(id));
+		assertEquals(2, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		assertEquals(2, facet.racialSizeInt(id));
 		rfacet.remove(id);
 		facet.update(id);
-		assertEquals(2, facet.sizeInt(id));
+		assertEquals(2, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		assertEquals(2, facet.racialSizeInt(id));
 	}
 
@@ -124,7 +121,7 @@ public class SizeFacetTest extends TestCase
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
 		rfacet.set(id, r);
 		facet.update(id);
-		assertEquals(2, facet.sizeInt(altid));
+		assertEquals(2, facet.get(altid).get(IntegerKey.SIZEORDER).intValue());
 		assertEquals(2, facet.racialSizeInt(altid));
 	}
 
@@ -135,7 +132,7 @@ public class SizeFacetTest extends TestCase
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
 		rfacet.set(id, r);
 		facet.update(id);
-		assertEquals(3, facet.sizeInt(id));
+		assertEquals(3, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 	}
 
 	@Test
@@ -146,10 +143,10 @@ public class SizeFacetTest extends TestCase
 		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
 		tfacet.add(id, t1, this);
 		facet.update(id);
-		assertEquals(1, facet.sizeInt(id));
+		assertEquals(1, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		tfacet.remove(id, t1, this);
 		facet.update(id);
-		assertEquals(2, facet.sizeInt(id));
+		assertEquals(2, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 	}
 
 	@Test
@@ -160,10 +157,10 @@ public class SizeFacetTest extends TestCase
 		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
 		tfacet.add(id, t1, this);
 		facet.update(id);
-		assertEquals(3, facet.sizeInt(id));
+		assertEquals(3, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		tfacet.remove(id, t1, this);
 		facet.update(id);
-		assertEquals(2, facet.sizeInt(id));
+		assertEquals(2, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 	}
 
 	@Test
@@ -176,10 +173,10 @@ public class SizeFacetTest extends TestCase
 		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
 		tfacet.add(id, t1, this);
 		facet.update(id);
-		assertEquals(1, facet.sizeInt(id));
+		assertEquals(1, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		tfacet.remove(id, t1, this);
 		facet.update(id);
-		assertEquals(3, facet.sizeInt(id));
+		assertEquals(3, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 	}
 
 	@Test
@@ -192,10 +189,10 @@ public class SizeFacetTest extends TestCase
 		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(4));
 		tfacet.add(id, t1, this);
 		facet.update(id);
-		assertEquals(4, facet.sizeInt(id));
+		assertEquals(4, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		tfacet.remove(id, t1, this);
 		facet.update(id);
-		assertEquals(3, facet.sizeInt(id));
+		assertEquals(3, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 	}
 
 	@Test
@@ -213,13 +210,13 @@ public class SizeFacetTest extends TestCase
 		t2.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(4));
 		tfacet.add(id, t2, this);
 		facet.update(id);
-		assertEquals(4, facet.sizeInt(id));
+		assertEquals(4, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		tfacet.remove(id, t2, this);
 		facet.update(id);
-		assertEquals(3, facet.sizeInt(id));
+		assertEquals(3, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		tfacet.remove(id, t1, this);
 		facet.update(id);
-		assertEquals(1, facet.sizeInt(id));
+		assertEquals(1, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 	}
 
 	@Test
@@ -229,32 +226,32 @@ public class SizeFacetTest extends TestCase
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
 		rfacet.set(id, r);
 		facet.update(id);
-		assertEquals(1, facet.sizeInt(id));
+		assertEquals(1, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		bonusInfo.put(altid, 2.0);
 		// No pollution
 		facet.update(id);
-		assertEquals(1, facet.sizeInt(id));
+		assertEquals(1, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		bonusInfo.put(id, 2.0);
 		facet.update(id);
-		assertEquals(3, facet.sizeInt(id));
+		assertEquals(3, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		PCTemplate t1 = new PCTemplate();
 		t1.setName("PCT");
 		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(0));
 		tfacet.add(id, t1, this);
 		facet.update(id);
-		assertEquals(2, facet.sizeInt(id));
+		assertEquals(2, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		PCTemplate t2 = new PCTemplate();
 		t2.setName("Other");
 		t2.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
 		tfacet.add(id, t2, this);
 		facet.update(id);
-		assertEquals(4, facet.sizeInt(id));
+		assertEquals(4, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		tfacet.remove(id, t2, this);
 		facet.update(id);
-		assertEquals(2, facet.sizeInt(id));
+		assertEquals(2, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		bonusInfo.clear();
 		facet.update(id);
-		assertEquals(0, facet.sizeInt(id));
+		assertEquals(0, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 	}
 
 	@Test
@@ -264,40 +261,40 @@ public class SizeFacetTest extends TestCase
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
 		rfacet.set(id, r);
 		facet.update(id);
-		assertEquals(1, facet.sizeInt(id));
+		assertEquals(1, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		fakeLevels = 6;
 		facet.update(id);
-		assertEquals(1, facet.sizeInt(id));
+		assertEquals(1, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		r.addToListFor(ListKey.HITDICE_ADVANCEMENT, 2);
 		facet.update(id);
-		assertEquals(1, facet.sizeInt(id));
+		assertEquals(1, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		r.addToListFor(ListKey.HITDICE_ADVANCEMENT, Integer.MAX_VALUE);
 		facet.update(id);
-		assertEquals(2, facet.sizeInt(id));
+		assertEquals(2, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		r.removeListFor(ListKey.HITDICE_ADVANCEMENT);
 		r.addToListFor(ListKey.HITDICE_ADVANCEMENT, 2);
 		r.addToListFor(ListKey.HITDICE_ADVANCEMENT, 5);
 		r.addToListFor(ListKey.HITDICE_ADVANCEMENT, 6);
 		facet.update(id);
-		assertEquals(3, facet.sizeInt(id));
+		assertEquals(3, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		PCTemplate t1 = new PCTemplate();
 		t1.setName("PCT");
 		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(0));
 		tfacet.add(id, t1, this);
 		facet.update(id);
-		assertEquals(2, facet.sizeInt(id));
+		assertEquals(2, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		PCTemplate t2 = new PCTemplate();
 		t2.setName("Other");
 		t2.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
 		tfacet.add(id, t2, this);
 		facet.update(id);
-		assertEquals(4, facet.sizeInt(id));
+		assertEquals(4, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		tfacet.remove(id, t2, this);
 		facet.update(id);
-		assertEquals(2, facet.sizeInt(id));
+		assertEquals(2, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		r.removeListFor(ListKey.HITDICE_ADVANCEMENT);
 		facet.update(id);
-		assertEquals(0, facet.sizeInt(id));
+		assertEquals(0, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 	}
 
 	@Test
@@ -487,76 +484,75 @@ public class SizeFacetTest extends TestCase
 	@Test
 	public void testGetWithNegativeBonus()
 	{
-		assertEquals(2, facet.sizeInt(id));
+		assertEquals(2, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		assertEquals(2, facet.racialSizeInt(id));
 		Race r = new Race();
 		r.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(3));
 		rfacet.set(id, r);
 		facet.update(id);
-		assertEquals(3, facet.sizeInt(id));
+		assertEquals(3, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		assertEquals(3, facet.racialSizeInt(id));
 		bonusInfo.put(altid, -2.0);
 		// No pollution
 		facet.update(id);
-		assertEquals(3, facet.sizeInt(id));
+		assertEquals(3, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		assertEquals(3, facet.racialSizeInt(id));
 		bonusInfo.put(id, -2.0);
 		facet.update(id);
-		assertEquals(1, facet.sizeInt(id));
+		assertEquals(1, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		assertEquals(3, facet.racialSizeInt(id));
 		PCTemplate t1 = new PCTemplate();
 		t1.setName("PCT");
 		t1.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(1));
 		tfacet.add(id, t1, this);
 		facet.update(id);
-		assertEquals(0, facet.sizeInt(id));
+		assertEquals(0, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		assertEquals(1, facet.racialSizeInt(id));
 		PCTemplate t2 = new PCTemplate();
 		t2.setName("Other");
 		t2.put(FormulaKey.SIZE, FormulaFactory.getFormulaFor(4));
 		tfacet.add(id, t2, this);
 		facet.update(id);
-		assertEquals(2, facet.sizeInt(id));
+		assertEquals(2, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		assertEquals(4, facet.racialSizeInt(id));
 		tfacet.remove(id, t2, this);
 		facet.update(id);
-		assertEquals(0, facet.sizeInt(id));
+		assertEquals(0, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		assertEquals(1, facet.racialSizeInt(id));
 		bonusInfo.clear();
 		facet.update(id);
-		assertEquals(1, facet.sizeInt(id));
+		assertEquals(1, facet.get(id).get(IntegerKey.SIZEORDER).intValue());
 		assertEquals(1, facet.racialSizeInt(id));
 	}
 	
 	/**
 	 * Verify the function of the sizesAdvanced method.
 	 */
+	@Test
 	public void testSizesAdvanced()
 	{
 		Race race = new Race();
 		race.setName("Test Race");
 		
 		// Validate that there are no size changes if no advancement is specified
-		assertEquals("Size increase where none specified wrong", 0, facet.sizesToAdvance(race, 1));
-		assertEquals("Size increase where none specified wrong", 0, facet.sizesToAdvance(race, 2));
-		assertEquals("Size increase where none specified wrong", 0, facet.sizesToAdvance(race, 3));
-		assertEquals("Size increase where none specified wrong", 0, facet.sizesToAdvance(race, 4));
-		assertEquals("Size increase where none specified wrong", 0, facet.sizesToAdvance(race, 5));
+		assertEquals(0, facet.sizesToAdvance(race, 1), "Size increase where none specified wrong");
+		assertEquals(0, facet.sizesToAdvance(race, 2), "Size increase where none specified wrong");
+		assertEquals(0, facet.sizesToAdvance(race, 3), "Size increase where none specified wrong");
+		assertEquals(0, facet.sizesToAdvance(race, 4), "Size increase where none specified wrong");
+		assertEquals(0, facet.sizesToAdvance(race, 5), "Size increase where none specified wrong");
 
 		// Validate that size changes occur when needed and no extra happen if advancement is specified
 		race.addToListFor(ListKey.HITDICE_ADVANCEMENT, 2);
 		race.addToListFor(ListKey.HITDICE_ADVANCEMENT, 4);
-		assertEquals("Size increase pre first change wrong", 0, facet.sizesToAdvance(race, 1));
-		assertEquals("Size increase pre first change wrong", 0, facet.sizesToAdvance(race, 2));
-		assertEquals("Size increase pre last change wrong", 1, facet.sizesToAdvance(race, 3));
-		assertEquals("Size increase pre last change wrong", 1, facet.sizesToAdvance(race, 4));
-		assertEquals("Size increase post last change wrong", 1, facet.sizesToAdvance(race, 5));
-		assertEquals("Size increase post last change wrong", 1, facet.sizesToAdvance(race, 6));
+		assertEquals(0, facet.sizesToAdvance(race, 1), "Size increase pre first change wrong");
+		assertEquals(0, facet.sizesToAdvance(race, 2), "Size increase pre first change wrong");
+		assertEquals(1, facet.sizesToAdvance(race, 3), "Size increase pre last change wrong");
+		assertEquals(1, facet.sizesToAdvance(race, 4), "Size increase pre last change wrong");
+		assertEquals(1, facet.sizesToAdvance(race, 5), "Size increase post last change wrong");
+		assertEquals(1, facet.sizesToAdvance(race, 6), "Size increase post last change wrong");
 	}
 
-	public SizeFacet getMockFacet() throws SecurityException,
-			NoSuchFieldException, IllegalArgumentException,
-			IllegalAccessException
+	SizeFacet getMockFacet() throws NoSuchFieldException, IllegalAccessException
 	{
 		SizeFacet f = new SizeFacet();
 		Field field = SizeFacet.class.getDeclaredField("bonusCheckingFacet");
@@ -582,7 +578,6 @@ public class SizeFacetTest extends TestCase
 		field.setAccessible(true);
 		LevelFacet fakeLevelFacet = new LevelFacet()
 		{
-
 			@Override
 			public int getMonsterLevelCount(CharID cid)
 			{

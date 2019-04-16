@@ -1,5 +1,4 @@
 /*
- * CDOMChoiceManager.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,14 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.chooser;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ChooseDriver;
@@ -35,6 +31,8 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 {
 
@@ -44,11 +42,9 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	protected ChooseController<T> controller = new ChooseController<>();
 	protected final ChooseInformation<T> info;
 
-	private transient int preChooserChoices;
+	private int preChooserChoices;
 
-	public CDOMChoiceManager(ChooseDriver cdo,
-		ChooseInformation<T> chooseType, Integer numChoices,
-			int cost)
+	public CDOMChoiceManager(ChooseDriver cdo, ChooseInformation<T> chooseType, Integer numChoices, int cost)
 	{
 		numberOfChoices = numChoices;
 		owner = cdo;
@@ -56,24 +52,16 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		choicesPerUnitCost = cost;
 	}
 
-    @Override
-	public void getChoices(PlayerCharacter pc, List<T> availableList,
-			List<T> selectedList)
+	@Override
+	public void getChoices(PlayerCharacter pc, List<T> availableList, List<T> selectedList)
 	{
 		availableList.addAll(info.getSet(pc));
-		List<? extends T> selected = info.getChoiceActor()
-				.getCurrentlySelected(owner, pc);
+		List<? extends T> selected = info.getChoiceActor().getCurrentlySelected(owner, pc);
 		if (selected != null)
 		{
 			selectedList.addAll(selected);
 		}
 		preChooserChoices = selectedList.size();
-	}
-
-    @Override
-	public String typeHandled()
-	{
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -82,11 +70,10 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @param pc
 	 * @param item
 	 */
-    @Override
+	@Override
 	public boolean conditionallyApply(PlayerCharacter pc, T item)
 	{
-		List<? extends T> oldSelections = info.getChoiceActor().getCurrentlySelected(
-				owner, pc);
+		List<? extends T> oldSelections = info.getChoiceActor().getCurrentlySelected(owner, pc);
 		boolean applied = false;
 		if (oldSelections == null || !oldSelections.contains(item))
 		{
@@ -106,11 +93,10 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @param pc
 	 * @param selected
 	 */
-    @Override
+	@Override
 	public boolean applyChoices(PlayerCharacter pc, List<T> selected)
 	{
-		List<? extends T> oldSelections = info.getChoiceActor().getCurrentlySelected(
-				owner, pc);
+		List<? extends T> oldSelections = info.getChoiceActor().getCurrentlySelected(owner, pc);
 		List<T> toAdd = new ArrayList<>();
 		for (T obj : selected)
 		{
@@ -144,14 +130,14 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @param selectedList The list of existing selections.
 	 * @return list The list of the new selections made by the user (unchanged if the dialog was cancelled)
 	 */
-    @Override
-	public List<T> doChooser(PlayerCharacter aPc, final List<T> availableList,
-			final List<T> selectedList, final List<String> reservedList)
+	@Override
+	public List<T> doChooser(PlayerCharacter aPc, final List<T> availableList, final List<T> selectedList,
+		final List<String> reservedList)
 	{
 		int effectiveChoices = getNumEffectiveChoices(selectedList, reservedList, aPc);
 
 		boolean dupsAllowed = controller.isMultYes() && controller.isStackYes();
-		
+
 		/*
 		 * TODO This is temporarily commented out until the correct behavior of
 		 * the "available" list is established. This is done to make
@@ -160,27 +146,26 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		 */
 		if (!dupsAllowed)
 		{
-		// availableList.removeAll(reservedList);
+			// availableList.removeAll(reservedList);
 			availableList.removeAll(selectedList);
 		}
 
 		Globals.sortChooserLists(availableList, selectedList);
-		
+
 		String title = StringUtils.isBlank(info.getTitle()) ? "in_chooser" //$NON-NLS-1$
 			: info.getTitle();
 		if (title.startsWith("in_")) //$NON-NLS-1$
 		{
 			title = LanguageBundle.getString(title);
 		}
-		
+
 		CDOMChooserFacadeImpl<T> chooserFacade =
-                new CDOMChooserFacadeImpl<>(title, availableList,
-                        selectedList, effectiveChoices);
+				new CDOMChooserFacadeImpl<>(title, availableList, selectedList, effectiveChoices);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		chooserFacade.setAllowsDups(dupsAllowed);
 		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPc));
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
-		
+
 		return chooserFacade.getFinalSelected();
 	}
 
@@ -192,14 +177,12 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @param aPc The character the choice applies to.
 	 * @return The number of choices that may be made 
 	 */
-    @Override
-	public int getNumEffectiveChoices(final List<? extends T> selectedList,
-		final List<String> reservedList, PlayerCharacter aPc)
+	@Override
+	public int getNumEffectiveChoices(final List<? extends T> selectedList, final List<String> reservedList,
+		PlayerCharacter aPc)
 	{
-		int selectedPoolValue = (selectedList.size() + (choicesPerUnitCost - 1))
-				/ choicesPerUnitCost;
-		int reservedPoolValue = (reservedList.size() + (choicesPerUnitCost - 1))
-				/ choicesPerUnitCost;
+		int selectedPoolValue = (selectedList.size() + (choicesPerUnitCost - 1)) / choicesPerUnitCost;
+		int reservedPoolValue = (reservedList.size() + (choicesPerUnitCost - 1)) / choicesPerUnitCost;
 		int effectiveTotalChoices;
 		if (numberOfChoices == null)
 		{
@@ -209,9 +192,8 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		{
 			effectiveTotalChoices = (numberOfChoices - reservedPoolValue + selectedPoolValue);
 		}
-		int effectiveChoices = Math
-				.min(controller.getPool() + selectedPoolValue,
-						effectiveTotalChoices / choicesPerUnitCost);
+		int effectiveChoices =
+				Math.min(controller.getPool() + selectedPoolValue, effectiveTotalChoices / choicesPerUnitCost);
 		effectiveChoices *= choicesPerUnitCost;
 		Formula formula = owner.getNumChoices();
 		if (formula != null)
@@ -222,7 +204,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 				effectiveChoices = Math.min(effectiveChoices, numChoices);
 			}
 		}
-		effectiveChoices -=  selectedList.size();
+		effectiveChoices -= selectedList.size();
 		return effectiveChoices;
 	}
 
@@ -232,9 +214,9 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @param availableList
 	 * @param selectedList
 	 */
-    @Override
-	public List<T> doChooserRemove(PlayerCharacter pc, List<T> availableList,
-			List<T> selectedList, List<String> reservedList)
+	@Override
+	public List<T> doChooserRemove(PlayerCharacter pc, List<T> availableList, List<T> selectedList,
+		List<String> reservedList)
 	{
 		return doChooser(pc, availableList, selectedList, reservedList);
 	}
@@ -244,35 +226,34 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		controller.adjustPool(selected);
 	}
 
-    @Override
+	@Override
 	public void setController(ChooseController<T> cc)
 	{
 		controller = cc;
 	}
 
-    @Override
+	@Override
 	public int getChoicesPerUnitCost()
 	{
 		return choicesPerUnitCost;
 	}
 
-    @Override
+	@Override
 	public int getPreChooserChoices()
 	{
 		return preChooserChoices;
 	}
 
-    @Override
+	@Override
 	public void restoreChoice(PlayerCharacter pc, ChooseDriver target, String choice)
 	{
-		if (choice.length() > 0)
+		if (!choice.isEmpty())
 		{
 			T ch = info.decodeChoice(Globals.getContext(), choice);
 			if (ch == null)
 			{
-				Logging.errorPrint("Error finding "
-					+ info.getClassIdentity().getName() + " " + choice
-					+ ": Not Found");
+				Logging.errorPrint(
+					"Error finding " + info.getReferenceClass().getSimpleName() + " " + choice + ": Not Found");
 			}
 			else
 			{
@@ -283,8 +264,8 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 
 	protected String getTitle()
 	{
-		return new StringBuilder(50).append(info.getTitle()).append(" (")
-				.append(owner.getDisplayName()).append(')').toString();
+		return new StringBuilder(50).append(info.getTitle()).append(" (").append(owner.getDisplayName()).append(')')
+			.toString();
 	}
 
 	@Override
@@ -305,6 +286,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		info.getChoiceActor().applyChoice(cdo, selection, pc);
 	}
 
+	@Override
 	public String encodeChoice(T obj)
 	{
 		return info.encodeChoice(obj);

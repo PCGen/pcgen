@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 21 Nov 2006
- *
- * $$Id: $$
  */
 
 package plugin.exporttokens;
@@ -38,45 +34,30 @@ import pcgen.io.exporttoken.AbilityToken;
 import pcgen.util.enumeration.View;
 
 /**
- * <code>AbilityAllToken</code> deals with the ABILITYALL output 
+ * {@code AbilityAllToken} deals with the ABILITYALL output
  * token.
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class AbilityAllToken extends AbilityToken
 {
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "ABILITYALL";
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		setView(View.ALL);
 		return super.getToken(tokenSource, pc, eh);
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.AbilityToken#getAbilityList(pcgen.core.PlayerCharacter, pcgen.core.AbilityCategory)
-	 */
 	@Override
-	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
-		final AbilityCategory aCategory)
+	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc, final AbilityCategory aCategory)
 	{
 		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
-		Collection<AbilityCategory> allCats =
-				SettingsHandler.getGame().getAllAbilityCategories();
+		Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
 		for (AbilityCategory aCat : allCats)
 		{
 			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))

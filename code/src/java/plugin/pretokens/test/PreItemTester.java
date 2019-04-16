@@ -1,5 +1,4 @@
 /*
- * PreItem.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.pretokens.test;
 
@@ -39,15 +33,10 @@ import pcgen.system.LanguageBundle;
 
 /**
  * Sets requirements for items a character must possess.
- *
  */
-public class PreItemTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreItemTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	// TODO Refactor this with all the equipment tests.
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
@@ -60,8 +49,8 @@ public class PreItemTester extends AbstractDisplayPrereqTest implements
 		}
 		catch (NumberFormatException e)
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
-				"PreItem.error.bad_operand", prereq.toString())); //$NON-NLS-1$
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString("PreItem.error.bad_operand", prereq.toString())); //$NON-NLS-1$
 		}
 
 		int runningTotal = 0;
@@ -71,8 +60,7 @@ public class PreItemTester extends AbstractDisplayPrereqTest implements
 			// Work out exactlywhat we are going to test.
 			final String aString = prereq.getKey();
 			List<String> typeList = null;
-			if (aString.startsWith(Constants.LST_TYPE_EQUAL)
-				|| aString.startsWith(Constants.LST_TYPE_DOT))
+			if (aString.startsWith(Constants.LST_TYPE_EQUAL) || aString.startsWith(Constants.LST_TYPE_DOT))
 			{
 				String stripped = aString.substring(Constants.SUBSTRING_LENGTH_FIVE);
 				typeList = CoreUtility.split(stripped, '.');
@@ -107,8 +95,7 @@ public class PreItemTester extends AbstractDisplayPrereqTest implements
 						//handle wildcards (always assume
 						// they end the line)
 						final int percentPos = aString.indexOf('%');
-						final String substring =
-								aString.substring(0, percentPos).toUpperCase();
+						final String substring = aString.substring(0, percentPos).toUpperCase();
 						if ((eqName.startsWith(substring)))
 						{
 							++runningTotal;
@@ -133,7 +120,7 @@ public class PreItemTester extends AbstractDisplayPrereqTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "ITEM"; //$NON-NLS-1$

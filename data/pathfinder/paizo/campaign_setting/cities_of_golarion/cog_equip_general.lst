@@ -1,0 +1,12 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Chronicles: Cities of Golarion	SOURCESHORT:CoG	SOURCEWEB:http://paizo.com/products/btpy8b9l?Pathfinder-Chronicles-Cities-of-Golarion	SOURCEDATE:2009-11
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 29 April 2017
+
+# ==============================
+# New Poison
+# ==============================
+
+# Equipment Name		Type					Cost		Source Page		Special Property
+Poison (Heathensnuff)	TYPE:Goods.Drug.Consumable	COST:10	SOURCEPAGE:p.42	SPROP:Ingested; Fort DC 13; Freq 1 hour (4); Effect Endure Pain feat for 1 hour;Secondary Effect 1 Con damage; Cure 1 save. Must make a DC 10 save or become addicted. Withdrawal after 5 days: save or 1d4 Dex and 1d4 Wis damage. Save DC increases by +5 for every 5 days since last dose. Two consecutive saves removes addiction.

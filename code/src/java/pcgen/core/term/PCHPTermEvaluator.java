@@ -1,5 +1,4 @@
 /*
- * PCHPTermEvaluator.java
  * Copyright 2009 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,27 +14,21 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 07/02/2009 1:52:35 PM
- *
- * $Id$
  */
 package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
 
 /**
- * The Class <code>PCHPTermEvaluator</code> is responsible for
+ * The Class {@code PCHPTermEvaluator} is responsible for
  * providing the internal variable HP, which has the value of
  * the character's maximum total hit points. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class PCHPTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCHPTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
-	
+
 	/**
 	 * Instantiates a new pCHP term evaluator.
 	 * 
@@ -46,27 +39,18 @@ public class PCHPTermEvaluator
 		this.originalText = originalText;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.term.BasePCTermEvaluator#resolve(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return (float) pc.hitPoints();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.term.TermEvaluator#isSourceDependant()
-	 */
 	@Override
 	public boolean isSourceDependant()
 	{
 		return false;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.term.TermEvaluator#isStatic()
-	 */
 	public boolean isStatic()
 	{
 		return false;

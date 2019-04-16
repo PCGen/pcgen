@@ -1,6 +1,5 @@
 /*
  * Copyright 2009 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PObject.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -23,13 +22,15 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.Region;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 
-public class AddObjectActions
+public final class AddObjectActions
 {
+
+	private AddObjectActions()
+	{
+	}
 
 	public static void doBaseChecks(CDOMObject po, final PlayerCharacter aPC)
 	{
@@ -37,11 +38,6 @@ public class AddObjectActions
 		for (TransitionChoice<Kit> kit : po.getSafeListFor(ListKey.KIT_CHOICE))
 		{
 			kit.act(kit.driveChoice(aPC), po, aPC);
-		}
-		TransitionChoice<Region> region = po.get(ObjectKey.REGION_CHOICE);
-		if (region != null)
-		{
-			region.act(region.driveChoice(aPC), po, aPC);
 		}
 	}
 

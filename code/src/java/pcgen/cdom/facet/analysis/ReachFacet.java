@@ -30,7 +30,6 @@ import pcgen.output.publish.OutputDB;
 /**
  * ReachFacet is a Facet that calculates the Reach for a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ReachFacet implements ItemFacet<CharID, Integer>
 {
@@ -98,7 +97,7 @@ public class ReachFacet implements ItemFacet<CharID, Integer>
 	{
 		this.bonusCheckingFacet = bonusCheckingFacet;
 	}
-	
+
 	public void init()
 	{
 		OutputDB.register("reach", this);

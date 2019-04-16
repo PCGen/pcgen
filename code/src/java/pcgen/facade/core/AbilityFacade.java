@@ -1,5 +1,4 @@
 /*
- * AbilityFacade.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,25 +15,20 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jun 30, 2008, 12:16:54 AM
  */
 package pcgen.facade.core;
 
 import java.util.List;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public interface AbilityFacade extends InfoFacade
 {
 
-    public List<String> getTypes();
+	public List<String> getTypes();
 
-    public boolean isMult();
+	public boolean isMult();
 
-    public boolean isStackable();
-    
-    public double getCost();
+	public boolean isStackable();
+
+	public double getCost();
 
 }

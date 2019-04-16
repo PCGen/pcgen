@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.equipmentmodifier;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.persistence.CDOMLoader;
@@ -31,7 +29,7 @@ public class CostdoubleTokenTest extends
 {
 
 	static CostdoubleToken token = new CostdoubleToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()
@@ -57,9 +55,4 @@ public class CostdoubleTokenTest extends
 		return ObjectKey.COST_DOUBLE;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

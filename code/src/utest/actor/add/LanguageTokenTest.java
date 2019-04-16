@@ -19,27 +19,20 @@ package actor.add;
 
 import pcgen.cdom.base.Persistent;
 import pcgen.core.Language;
+import plugin.lsttokens.add.LanguageToken;
 
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
-import org.junit.Test;
-import plugin.lsttokens.add.LanguageToken;
 
 public class LanguageTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Language>
 {
 
-	private static final Persistent<Language> pca = new LanguageToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
+	private static final Persistent<Language> PCA = new LanguageToken();
 
 	@Override
 	public Persistent<Language> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

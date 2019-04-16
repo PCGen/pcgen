@@ -19,19 +19,13 @@ package pcgen.cdom.facet.input;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
-import pcgen.cdom.facet.input.AutoLanguageListFacet;
 import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
 import pcgen.core.Language;
 
-public class AutoLanguageListFacetTest extends AbstractSourcedListFacetTest<Language> {
+public class AutoLanguageListFacetTest extends AbstractSourcedListFacetTest<Language>
+{
 
 	private AutoLanguageListFacet facet = new AutoLanguageListFacet();
-
-	@Override
-	public void setUp() throws Exception
-	{
-		super.setUp();
-	}
 
 	@Override
 	protected AbstractSourcedListFacet<CharID, Language> getFacet()

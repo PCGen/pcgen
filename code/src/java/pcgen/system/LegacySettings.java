@@ -1,5 +1,4 @@
 /*
- * LegacySettings.java
  * Copyright 2010(C) James Dempsey <jdempsey@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on 19/11/2010, 20:19:00
  *
- * $Id: LegacySettings.java 13875 2010-11-19 22:05:26Z jdempsey $
  */
 package pcgen.system;
 
@@ -29,15 +26,12 @@ import pcgen.core.SettingsHandler;
  * original SettingsHandler class. It is expected that most settings will be 
  * migrated away to other PropertyContexts as part of the CDOM UI project. 
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 final class LegacySettings extends PropertyContext
 {
 	/** Our singleton instance */
-	private static final LegacySettings instance = new LegacySettings();
-
+	private static final LegacySettings INSTANCE = new LegacySettings();
 
 	/**
 	 * Create a new LegacySettings instance. Private to avoid multiples.
@@ -52,12 +46,9 @@ final class LegacySettings extends PropertyContext
 	 */
 	public static LegacySettings getInstance()
 	{
-		return instance;
+		return INSTANCE;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.system.PropertyContext#afterPropertiesLoaded()
-	 */
 	@Override
 	protected void afterPropertiesLoaded()
 	{
@@ -66,9 +57,6 @@ final class LegacySettings extends PropertyContext
 		super.afterPropertiesLoaded();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.system.PropertyContext#beforePropertiesSaved()
-	 */
 	@Override
 	protected void beforePropertiesSaved()
 	{

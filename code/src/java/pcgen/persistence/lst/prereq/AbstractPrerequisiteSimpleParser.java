@@ -1,5 +1,4 @@
 /*
- * AbstractPrerequisiteSimpleParser.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -17,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18-Dec-2003
  *
- * Current Ver: $Revision$
  *
  *
  *
@@ -30,12 +27,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 
-/**
- * @author wardc
- *
- */
-public abstract class AbstractPrerequisiteSimpleParser extends
-		AbstractPrerequisiteParser
+public abstract class AbstractPrerequisiteSimpleParser extends AbstractPrerequisiteParser
 {
 	/**
 	 * Parse PreReq 
@@ -48,12 +40,10 @@ public abstract class AbstractPrerequisiteSimpleParser extends
 	 * @throws PersistenceLayerException 
 	 */
 	@Override
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq =
-				super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKey(formula);
 		prereq.setOperator(PrerequisiteOperator.EQ);
 

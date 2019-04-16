@@ -61,8 +61,7 @@ public class TabInfo implements Loadable
 	{
 		if (!Tab.exists(name))
 		{
-			throw new IllegalArgumentException(name
-					+ " is not a valid Tab name");
+			throw new IllegalArgumentException(name + " is not a valid Tab name");
 		}
 		tabID = Tab.getTab(name);
 	}
@@ -99,12 +98,6 @@ public class TabInfo implements Loadable
 		}
 
 		return temp;
-	}
-
-	@Override
-	public String getLSTformat()
-	{
-		return getKeyName();
 	}
 
 	@Override

@@ -1,0 +1,21 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Blood of the Beast	SOURCESHORT:BOTB	SOURCEWEB:http://paizo.com/products/btpy9oo8?Pathfinder-Player-Companion-Blood-of-the-Beast	SOURCEDATE:2016-12
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 March 2017
+
+# ==============================
+# Unchained Monk Ki Powers
+# ==============================
+
+# Ability Name			Unique Key								Category of Ability		Type											Required Ability										Var. Min. Value		Description																																																																						Source Page
+Branch Runner			KEY:Unchained Ki Power ~ Branch Runner			CATEGORY:Special Ability	TYPE:Unchained Ki Power.SpecialQuality.Extraordinary.Supernatural	PREABILITY:1,CATEGORY=Special Ability,Unchained Ki Power ~ Sudden Speed					DESC:A monk with this ability adds +%1 to his racial climb speed. In addition, when he uses the sudden speed ki power, he adds the base speed bonus from that ki power to his racial climb speed for 1 round. The monk must have the sudden speed ki power before selecting branch runner.|MonkFastMovementBonus/2																				SOURCEPAGE:p.30
+Freedom of Movement		KEY:Unchained Ki Power ~ Freedom of Movement		CATEGORY:Special Ability	TYPE:Unchained Ki Power.SpecialQuality.Supernatural															PREVARGTEQ:KiPowerLVL,8	DESC:A monk with this ability can spend 1 ki point as a swift action to gain the effects of freedom of movement for 1 round. The monk must be at least 8th level before selecting this ki power.																																							SOURCEPAGE:p.31
+Improvised Weapon Affinity	KEY:Unchained Ki Power ~ Improvised Weapon Affinity	CATEGORY:Special Ability	TYPE:Unchained Ki Power.SpecialQuality.Extraordinary.Supernatural																	DESC:A monk with this ability does not take a penalty on attack rolls for using an improvised weapon. By spending 1 ki point, the monk can fight with a broken weapon without taking any penalties on attack rolls or damage rolls for 1 round.																																SOURCEPAGE:p.31
+
+# ==============================
+# Unchained Monk Style Strikes
+# ==============================
+
+Dirty Strike			KEY:Unchained Style Strike ~ Dirty Strike			CATEGORY:Special Ability	TYPE:Unchained Style Strike.SpecialQuality																				DESC:The monk fights dirty with his style strike, attempting to strike in places where his attack will negatively impact his foes' performance in combat. If the attack hits, the monk can perform a free dirty trick combat maneuver against the target of this strike (using the base attack bonus of the attack used to hit the foe) with a -5 penalty. This dirty trick combat maneuver does not provoke an attack of opportunity.	SOURCEPAGE:p.31
+Overbearing Assault		KEY:Unchained Style Strike ~ Overbearing Assault	CATEGORY:Special Ability	TYPE:Unchained Style Strike.SpecialQuality																				DESC:The monk attacks relentlessly, backing his foe into a corner. If the attack hits, the monk can perform a free reposition combat maneuver against the target of the strike (using the base attack bonus of the attack used to hit the foe) with a -5 penalty. This reposition attempt does not provoke an attack of opportunity.																	SOURCEPAGE:p.31

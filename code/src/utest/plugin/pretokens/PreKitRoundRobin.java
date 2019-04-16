@@ -1,5 +1,4 @@
 /*
- * PreKitRoundRobin.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,40 +14,22 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 27/10/2013
- *
- * $Id$
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreKitParser;
 import plugin.pretokens.writer.PreKitWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+
 /**
  * PreKitRoundRobin test the parsing and unparsing of PREKIT tags.
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreKitRoundRobin extends AbstractBasicRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreKitRoundRobin.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreKitRoundRobin.class);
-	}
-
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

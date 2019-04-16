@@ -25,12 +25,10 @@ public abstract class AbstractExportToken extends Token
 {
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		return getToken(tokenSource, pc.getDisplay(), eh);
 	}
 
-	public abstract String getToken(String tokenSource,
-		CharacterDisplay display, ExportHandler eh);
+	public abstract String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh);
 }

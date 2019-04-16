@@ -1,0 +1,16 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2016-08
+
+
+###Block: Other Deities
+# Deity Name	Product Identity?	Domains								Description of Deity/Title		FACTSET					Deity Weapon	Align		Source Page
+Ranginori		NAMEISPI:YES	DOMAINS:Air,Good,Travel,Weather|PREALIGN:NG,LG,CG,TN	DESC:(See PFS Chronicle #8-25)	FACTSET:Pantheon|Pathfinder Society	DEITYWEAP:Whip	ALIGN:NG	SOURCEPAGE:.
+
+###Block: Subdomain Inclusion -  http://paizo.com/paizo/blog/v5748dyo5lbwn?Golarion-Day-Subdomains-for-Everyone
+# Deity Name	Domains
+Ranginori.MOD	DOMAINS:Cloud Subdomain,Exploration Subdomain,Storms Subdomain,Wind Subdomain|PREALIGN:NG,LG,CG,TN
+
+###Block: Inquisitor Support
+# Deity Name	Modify VAR
+Ranginori.MOD	BONUS:VAR|InquisitorDomainAir,InquisitorDomainGood,InquisitorDomainTravel,InquisitorDomainWeather|1|PREALIGN:NG,LG,CG,TN

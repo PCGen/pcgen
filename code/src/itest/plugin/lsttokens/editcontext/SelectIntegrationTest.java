@@ -29,8 +29,8 @@ public class SelectIntegrationTest extends
 		AbstractFormulaIntegrationTestCase<CDOMObject>
 {
 
-	static SelectLst token = new SelectLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static SelectLst token = new SelectLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

@@ -1,5 +1,4 @@
 /*
- * SourceLoader.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -31,14 +30,16 @@ import pcgen.util.Logging;
 /**
  * Loads SOURCE
  */
-public class SourceLoader
+public final class SourceLoader
 {
 
-	public static void parseLine(LoadContext context, String lstLine,
-			URI sourceFile)
+	private SourceLoader()
 	{
-		final StringTokenizer colToken = new StringTokenizer(lstLine,
-				SystemLoader.TAB_DELIM);
+	}
+
+	public static void parseLine(LoadContext context, String lstLine, URI sourceFile)
+	{
+		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		while (colToken.hasMoreTokens())
 		{
 			String colString = colToken.nextToken().trim();
@@ -57,8 +58,7 @@ public class SourceLoader
 			}
 			catch (PersistenceLayerException e)
 			{
-				Logging.errorPrint("Error parsing source: " + colString
-						+ " in: " + sourceFile);
+				Logging.errorPrint("Error parsing source: " + colString + " in: " + sourceFile);
 			}
 		}
 	}

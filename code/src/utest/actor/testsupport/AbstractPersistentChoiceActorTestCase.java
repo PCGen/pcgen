@@ -17,32 +17,36 @@
  */
 package actor.testsupport;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import pcgen.cdom.base.Persistent;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
-import pcgen.core.SettingsHandler;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractPersistentChoiceActorTestCase<T>
 {
 	protected static final String ITEM_NAME = "ItemName";
 	protected LoadContext context;
 
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	@BeforeEach
+	void setUp()
 	{
-		SettingsHandler.getGame().clearLoadContext();
+		Globals.emptyLists();
 		context = Globals.getContext();
-		context.getReferenceContext().importObject(AbilityCategory.FEAT);
-//				new RuntimeLoadContext(new RuntimeReferenceContext(),
-//					new ConsolidatedListCommitStrategy());
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+	}
+
+	@AfterEach
+	void tearDown()
+	{
+		Globals.emptyLists();
+		context = null;
 	}
 
 	public abstract Persistent<T> getActor();

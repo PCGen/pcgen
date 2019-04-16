@@ -1,13 +1,14 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 ###Block: Items
-# Equipment Name					Product Identity?	Type							Cost		Weight	Source Page		Quality and value												Special Property
-Costume Bureau								TYPE:Slot_none.Magic				COST:7000	WT:500	SOURCEPAGE:p.26	QUALITY:Aura|moderate conjuration and transmutation	QUALITY:CasterLevel|9th
-Gossip Glass								TYPE:Slot_eyes.Magic.Eyewear.Goggles	COST:3600	WT:1		SOURCEPAGE:p.26	QUALITY:Aura|faint divination	QUALITY:CasterLevel|1st
-Missive Stone								TYPE:Slot_neck.Magic.Necklace.Amulet	COST:10000	WT:0		SOURCEPAGE:p.26	QUALITY:Aura|faint transmutation	QUALITY:CasterLevel|3rd
-The Pendulate Divan of Emperor Fortigr�	NAMEISPI:YES	TYPE:Slot_none.Magic				COST:66000	WT:100	SOURCEPAGE:p.26	QUALITY:Aura|moderate conjuration and transmutation	QUALITY:CasterLevel|11th
-Philanderous Compact							TYPE:Slot_none.Magic				COST:1500	WT:0		SOURCEPAGE:p.27	QUALITY:Aura|faint illusion	QUALITY:CasterLevel|1st
-Raucous Canard								TYPE:Slot_none.Magic				COST:100	WT:0		SOURCEPAGE:p.27	QUALITY:Aura|moderate transmutation	QUALITY:CasterLevel|1st
-Ring of the Sublime							TYPE:Slot_ring.Magic.Ring			COST:2000	WT:0		SOURCEPAGE:p.27	QUALITY:Aura|faint abjuration	QUALITY:CasterLevel|1st						SPROP:the ring of the sublime protects its wearer from fear effects as if constantly under the effects of remove fear.
-Soaring Cathedra								TYPE:Slot_none.Magic				COST:5000	WT:250	SOURCEPAGE:p.27	QUALITY:Aura|faint transmutation	QUALITY:CasterLevel|3rd
-Talisman of the Summoned Steed					TYPE:Slot_none.Magic				COST:3600	WT:0		SOURCEPAGE:p.27	QUALITY:Aura|faint conjuration	QUALITY:CasterLevel|1st					SPROP:When the command word is spoken, it transforms into a saddled and thoroughbred light horse that serves you willingly. The command word also returns it to talisman form. If slain, the horse reverts to talisman form and cannot be activated again for 24 hours.
+# Equipment Name					Type								Cost		Weight	Source Page		Quality and value												Special Property
+Costume Bureau					TYPE:Slot_none.Magic.Wondrous				COST:7000	WT:500	SOURCEPAGE:p.26	QUALITY:Aura|moderate conjuration and transmutation	QUALITY:CasterLevel|9th
+Gossip Glass					TYPE:Slot_eyes.Magic.Eyewear.Goggles.Wondrous	COST:3600	WT:1		SOURCEPAGE:p.26	QUALITY:Aura|faint divination	QUALITY:CasterLevel|1st
+Missive Stone					TYPE:Slot_neck.Magic.Necklace.Amulet.Wondrous	COST:10000	WT:0		SOURCEPAGE:p.26	QUALITY:Aura|faint transmutation	QUALITY:CasterLevel|3rd
+The Pendulate Divan of Emperor Fortigre	TYPE:Slot_none.Magic.Wondrous				COST:66000	WT:100	SOURCEPAGE:p.26	QUALITY:Aura|moderate conjuration and transmutation	QUALITY:CasterLevel|11th
+Philanderous Compact				TYPE:Slot_none.Magic.Wondrous				COST:1500	WT:0		SOURCEPAGE:p.27	QUALITY:Aura|faint illusion	QUALITY:CasterLevel|1st
+Raucous Canard					TYPE:Slot_none.Magic.Wondrous				COST:100	WT:0		SOURCEPAGE:p.27	QUALITY:Aura|moderate transmutation	QUALITY:CasterLevel|1st
+Ring of the Sublime				TYPE:Slot_ring.Magic.Ring				COST:2000	WT:0		SOURCEPAGE:p.27	QUALITY:Aura|faint abjuration	QUALITY:CasterLevel|1st						SPROP:the ring of the sublime protects its wearer from fear effects as if constantly under the effects of remove fear.
+Soaring Cathedra					TYPE:Slot_none.Magic.Wondrous				COST:5000	WT:250	SOURCEPAGE:p.27	QUALITY:Aura|faint transmutation	QUALITY:CasterLevel|3rd
+Talisman of the Summoned Steed		TYPE:Slot_none.Magic.Wondrous				COST:3600	WT:0		SOURCEPAGE:p.27	QUALITY:Aura|faint conjuration	QUALITY:CasterLevel|1st					SPROP:When the command word is spoken, it transforms into a saddled and thoroughbred light horse that serves you willingly. The command word also returns it to talisman form. If slain, the horse reverts to talisman form and cannot be activated again for 24 hours.

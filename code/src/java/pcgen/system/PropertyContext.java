@@ -1,5 +1,4 @@
 /*
- * PropertyContext.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Sep 4, 2009, 8:21:08 PM
  */
 package pcgen.system;
 
@@ -25,9 +23,10 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.List;
 import java.util.Properties;
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.math.NumberUtils;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 
 /**
  * This class acts similarly to the Properties class but behaves defferntly
@@ -39,7 +38,6 @@ import org.apache.commons.lang.math.NumberUtils;
  * that share its ancestors are visible but only that child's namespace is editable.
  * It is considered bad practice to look at the other siblings properties from within
  * a child.
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class PropertyContext implements PropertyChangeListener
 {
@@ -110,7 +108,7 @@ public class PropertyContext implements PropertyChangeListener
 	{
 		if (parent != null)
 		{
-			return parent.getProperty(name + "." + key);
+			return parent.getProperty(name + '.' + key);
 		}
 		return properties.getProperty(key);
 	}
@@ -147,7 +145,7 @@ public class PropertyContext implements PropertyChangeListener
 	{
 		if (parent != null)
 		{
-			return parent.getProperty(name + "." + key, defaultValue);
+			return parent.getProperty(name + '.' + key, defaultValue);
 		}
 		return properties.getProperty(key, defaultValue);
 	}
@@ -161,7 +159,7 @@ public class PropertyContext implements PropertyChangeListener
 		Object oldValue;
 		if (parent != null)
 		{
-			oldValue = parent.setProperty(name + "." + key, value);
+			oldValue = parent.setProperty(name + '.' + key, value);
 		}
 		else
 		{
@@ -176,7 +174,7 @@ public class PropertyContext implements PropertyChangeListener
 		Object oldValue;
 		if (parent != null)
 		{
-			oldValue = parent.removeProperty(name + "." + key);
+			oldValue = parent.removeProperty(name + '.' + key);
 		}
 		else
 		{
@@ -269,7 +267,7 @@ public class PropertyContext implements PropertyChangeListener
 		return Boolean.valueOf(initProperty(key, Boolean.toString(defaultValue)));
 	}
 
-    @Override
+	@Override
 	public void propertyChange(PropertyChangeEvent evt)
 	{
 		support.firePropertyChange(evt);

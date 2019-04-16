@@ -29,7 +29,6 @@ import pcgen.core.Equipment;
  * This serves as a consolidation point for Equipment that is active on a Player
  * Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SourcedEquipmentFacet extends AbstractSourcedListFacet<CharID, Equipment>
 		implements DataFacetChangeListener<CharID, Equipment>
@@ -44,8 +43,6 @@ public class SourcedEquipmentFacet extends AbstractSourcedListFacet<CharID, Equi
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, Equipment> dfce)
@@ -63,8 +60,6 @@ public class SourcedEquipmentFacet extends AbstractSourcedListFacet<CharID, Equi
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, Equipment> dfce)

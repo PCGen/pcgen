@@ -23,8 +23,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class FinessableToken extends AbstractNonEmptyToken<WieldCategory>
-		implements CDOMPrimaryToken<WieldCategory>
+public class FinessableToken extends AbstractNonEmptyToken<WieldCategory> implements CDOMPrimaryToken<WieldCategory>
 {
 
 	@Override
@@ -34,8 +33,7 @@ public class FinessableToken extends AbstractNonEmptyToken<WieldCategory>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			WieldCategory wc, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, WieldCategory wc, String value)
 	{
 		Boolean set;
 		char firstChar = value.charAt(0);
@@ -43,8 +41,7 @@ public class FinessableToken extends AbstractNonEmptyToken<WieldCategory>
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value, context);
+				return new ParseResult.Fail("You should use 'YES' as the " + getTokenName() + ": " + value);
 			}
 			set = Boolean.TRUE;
 		}
@@ -52,15 +49,11 @@ public class FinessableToken extends AbstractNonEmptyToken<WieldCategory>
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				return new ParseResult.Fail(
-						"You should use 'YES' or 'NO' as the " + getTokenName()
-								+ ": " + value, context);
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				return new ParseResult.Fail(
-						"You should use 'YES' or 'NO' as the " + getTokenName()
-								+ ": " + value, context);
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 			}
 			set = Boolean.FALSE;
 		}

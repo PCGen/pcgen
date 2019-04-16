@@ -1,5 +1,4 @@
 /*
- * InfoFacade.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,33 +15,28 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 26, 2008, 4:32:09 PM
  */
 package pcgen.facade.core;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public interface InfoFacade
 {
 
-    public String getSource();
+	public String getSource();
 
-    public String getSourceForNodeDisplay();
+	public String getSourceForNodeDisplay();
 
-    @Override
-    public String toString();
-    
-    public String getKeyName();
+	@Override
+	public String toString();
 
-    /**
-     * @return true if the name of this item is Product Identity (i.e owned by the publisher)
-     */
-    public boolean isNamePI();
-    
-    /**
-     * @return The types for this object as a single string separated by .
-     */
-    public String getType();
+	public String getKeyName();
+
+	/**
+	 * @return true if the name of this item is Product Identity (i.e owned by the publisher)
+	 */
+	public boolean isNamePI();
+
+	/**
+	 * @return The types for this object as a single string separated by .
+	 */
+	public String getType();
 }

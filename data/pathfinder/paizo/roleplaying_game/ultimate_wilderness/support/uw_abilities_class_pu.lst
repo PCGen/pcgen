@@ -1,0 +1,9 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
+
+# ==============================
+# Summoner Archetype
+# ==============================
+
+# Ability Name	Unique Key							Category of Ability	Type						Required Ability								Required Class		Multiple Requirements																												Description																Ability																														Cost		Source Page		FACT
+Leshy Caller	KEY:Unchained Summoner Archetype ~ Leshy Caller	CATEGORY:Archetype	TYPE:Archetype.SummonerArchetype	PREABILITY:1,CATEGORY=Class,Summoner ~ Unchained Class	PRECLASS:1,Summoner=1	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Unchained Summoner Archetype ~ Leshy Caller],[!PREFACT:1,ABILITIES,Summoner_Archetype_Eidolon=True,Summoner_Archetype_SummonMonster=True]	DESC:A leshy caller summons creatures from the First World and forges a bond with a leshy eidolon.	ABILITY:Special Ability|AUTOMATIC|Leshy Caller ~ Leshy Eidolon|PRECLASS:1,Summoner=1	ABILITY:Special Ability|AUTOMATIC|Leshy Caller ~ Summon Nature's Ally|PRECLASS:1,Summoner=1	COST:0	SOURCEPAGE:p.94	FACT:Summoner_Archetype_Eidolon|true	FACT:Summoner_Archetype_SummonMonster|true	FACT:Summoner_CF_EidolonSubtype_Agathion|true	FACT:Summoner_CF_EidolonSubtype_Angel|true	FACT:Summoner_CF_EidolonSubtype_Archon|true	FACT:Summoner_CF_EidolonSubtype_Azata|true	FACT:Summoner_CF_EidolonSubtype_Daemon|true	FACT:Summoner_CF_EidolonSubtype_Demon|true	FACT:Summoner_CF_EidolonSubtype_Devil|true	FACT:Summoner_CF_EidolonSubtype_Div|true	FACT:Summoner_CF_EidolonSubtype_Elemental|true	FACT:Summoner_CF_EidolonSubtype_Inevitable|true	FACT:Summoner_CF_EidolonSubtype_Protean|true	FACT:Summoner_CF_EidolonSubtype_Psychopomp|true

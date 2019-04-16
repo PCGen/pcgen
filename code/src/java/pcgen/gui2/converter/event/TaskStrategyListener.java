@@ -15,19 +15,13 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  * 
- * Created on Apr 9, 2006
  */
 package pcgen.gui2.converter.event;
 
 import java.util.EventListener;
 
+@FunctionalInterface
 public interface TaskStrategyListener extends EventListener
 {
-
-	void processMessage(Object owner, String string);
-
 	void processStatus(Object source, String string);
-
-	void processActiveItem(Object source, String string);
-
 }

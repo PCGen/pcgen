@@ -1,5 +1,4 @@
 /*
- * UIPropertyContext.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 1, 2010, 4:26:54 PM
  */
 package pcgen.gui2;
 
@@ -27,11 +25,11 @@ import pcgen.cdom.base.Constants;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.system.PropertyContext;
 
+import org.jetbrains.annotations.Nullable;
+
 /**
  * This is a property context which holds UI related user preferences such as
  * screen position and colors.
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("nls")
 public final class UIPropertyContext extends PropertyContext
@@ -59,7 +57,6 @@ public final class UIPropertyContext extends PropertyContext
 	public static final String SOURCE_USE_BASIC_KEY = "SourceSelectionDialog.useBasic"; //$NON-NLS-1$
 	/** What should the chooser do with a single choice? */
 	private static final String SINGLE_CHOICE_ACTION = "singleChoiceAction"; //$NON-NLS-1$
-	
 
 	/**
 	 * The character property for the initial tab to open
@@ -114,18 +111,12 @@ public final class UIPropertyContext extends PropertyContext
 		return new Color(Integer.parseInt(prop, 16));
 	}
 
-	public Color getColor(String key, Color defaultValue)
-	{
-		String prop = getProperty(key, Integer.toString(defaultValue.getRGB(), 16));
-		return new Color(Integer.parseInt(prop, 16));
-	}
-
 	public void setColor(String key, Color color)
 	{
 		setProperty(key, Integer.toString(color.getRGB(), 16));
 	}
 
-	public Color initColor(String key, Color defaultValue)
+	private Color initColor(String key, Color defaultValue)
 	{
 		String prop = initProperty(key, Integer.toString(defaultValue.getRGB(), 16));
 		return new Color(Integer.parseInt(prop, 16));
@@ -134,11 +125,6 @@ public final class UIPropertyContext extends PropertyContext
 	public static Color getCustomItemColor()
 	{
 		return getInstance().getColor(CUSTOM_ITEM_COLOR);
-	}
-
-	public static void setCustomItemColor(Color color)
-	{
-		getInstance().setColor(CUSTOM_ITEM_COLOR, color);
 	}
 
 	public static void setQualifiedColor(Color color)
@@ -223,21 +209,19 @@ public final class UIPropertyContext extends PropertyContext
 
 	public static int getSingleChoiceAction()
 	{
-		return getInstance().initInt(SINGLE_CHOICE_ACTION,
-			Constants.CHOOSER_SINGLE_CHOICE_METHOD_NONE);
+		return getInstance().initInt(SINGLE_CHOICE_ACTION, Constants.CHOOSER_SINGLE_CHOICE_METHOD_NONE);
 	}
-	
+
 	public static void setSingleChoiceAction(int action)
 	{
 		getInstance().setInt(SINGLE_CHOICE_ACTION, action);
 	}
-	
+
 	/**
 	 * Attempts to create the property key for this character for the given property.
 	 * This allows for character specific properties such that the key created with this method
 	 * can be used as the key for any of the other PropertyContext methods.
 	 * The following is a typical example of its usage:
-	 * <br>
 	 * <code>
 	 * String charKey = UIPropertyContext.createCharacterPropertyKey(aCharacter, "allowNegativeMoney");<br>
 	 * if(charKey != null){<br>
@@ -253,6 +237,7 @@ public final class UIPropertyContext extends PropertyContext
 		return createFilePropertyKey(character.getFileRef().get(), key);
 	}
 
+	@Nullable
 	static String createFilePropertyKey(File file, String key)
 	{
 		if (file == null)
@@ -260,7 +245,7 @@ public final class UIPropertyContext extends PropertyContext
 			return null;
 		}
 		String path = file.getAbsolutePath();
-		return path + "." + key;
+		return path + '.' + key;
 	}
 
 }

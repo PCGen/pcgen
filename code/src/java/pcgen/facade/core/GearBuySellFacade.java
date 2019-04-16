@@ -1,5 +1,4 @@
 /*
- * GearBuySellFacade.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,21 +14,14 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 11/02/2012 7:08:41 PM
- *
- * $Id$
  */
 package pcgen.facade.core;
 
-
 /**
- * <code>GearBuySellFacade</code> defines the interface required for a buy / sell 
+ * {@code GearBuySellFacade} defines the interface required for a buy / sell
  * rate scheme that can be used by the user interface.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface GearBuySellFacade
 {

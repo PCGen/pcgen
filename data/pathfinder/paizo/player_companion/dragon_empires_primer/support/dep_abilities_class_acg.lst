@@ -1,0 +1,9 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Dragon Empires Primer	SOURCESHORT:DEP	SOURCEWEB:http://paizo.com/products/btpy8pg0?Pathfinder-Player-Companion-Dragon-Empires-Primer	SOURCEDATE:2012-01
+
+
+###Block: Arcanist Bloodline Development Exploit -- Goes in ACG or ACG support _abilities_class.lst
+
+# Ability Name	Category of Ability				Type					Ability																					Modify VAR
+Oni Bloodline	CATEGORY:Arcanist Bloodline Development	TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|TYPE=Oni Bloodline ~ Power LVL 01	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Oni	BONUS:VAR|Sorcerer_Oni_BloodlineLVL|1|!PREABILITY:1,CATEGORY=Sorcerer Bloodline,Oni Bloodline|!PREABILITY:1,CATEGORY=Crossblooded Bloodline,Oni Bloodline	BONUS:VAR|Sorcerer_Oni_BloodlineLVL|ArcanistLVL|PREMULT:1,[PREABILITY:1,CATEGORY=Sorcerer Bloodline,Oni Bloodline],[PREABILITY:1,CATEGORY=Crossblooded Bloodline,Oni Bloodline]	BONUS:VAR|Sorcerer_Oni_BloodlinePower1LVL|1|!PREABILITY:1,CATEGORY=Sorcerer Bloodline,Oni Bloodline|!PREABILITY:1,CATEGORY=Crossblooded Bloodline,Oni Bloodline
+Oni Bloodline	CATEGORY:Blood Arcanist Bloodline		TYPE:SorcererBloodlineChoice	ABILITY:Special Ability|AUTOMATIC|Sorcerer Bloodline ~ Oni													BONUS:VAR|Sorcerer_Oni_BloodlineLVL|BloodlineLVL	BONUS:VAR|Sorcerer_Oni_BloodlineProgressionLVL|BloodlineProgressionLVL	BONUS:VAR|Sorcerer_Oni_BloodlineArcana1|1	BONUS:VAR|Sorcerer_Oni_BloodlinePowers|1	BONUS:VAR|Sorcerer_Oni_BloodlinePower1|1	BONUS:VAR|Sorcerer_Oni_BloodlinePower3|if(Sorcerer_Oni_BloodlineProgressionLVL>=3,1,0)	BONUS:VAR|Sorcerer_Oni_BloodlinePower9|if(Sorcerer_Oni_BloodlineProgressionLVL>=9,1,0)	BONUS:VAR|Sorcerer_Oni_BloodlinePower15|if(Sorcerer_Oni_BloodlineProgressionLVL>=15,1,0)	BONUS:VAR|Sorcerer_Oni_BloodlinePower20|if(Sorcerer_Oni_BloodlineProgressionLVL>=20,1,0)	BONUS:VAR|Sorcerer_Oni_BloodlinePower1Times|BloodlinePowerTimes+BloodlinePower1TimesBonus|TYPE=Base

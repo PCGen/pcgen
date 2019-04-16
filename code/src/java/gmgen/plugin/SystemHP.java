@@ -15,8 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  SystemHP.java
  */
 package gmgen.plugin;
 
@@ -30,7 +28,7 @@ import pcgen.core.SettingsHandler;
  */
 public class SystemHP
 {
-	
+
 	private State state = State.Nothing;
 	private SystemAttribute attribute;
 	private boolean firstround;
@@ -96,7 +94,7 @@ public class SystemHP
 	public void setCurrent(int current)
 	{
 		int currentHP = current;
-		
+
 		if (currentHP > max)
 		{
 			currentHP = max;
@@ -137,8 +135,8 @@ public class SystemHP
 			PcgCombatant pcgcbt = (PcgCombatant) cbt;
 			PlayerCharacter pc = pcgcbt.getPC();
 
-			PCStat stat = Globals.getContext().getReferenceContext()
-					.silentlyGetConstructedCDOMObject(PCStat.class, "CON");
+			PCStat stat =
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, "CON");
 			if (damage > pc.getTotalStatFor(stat))
 			{
 				return true;
@@ -174,7 +172,7 @@ public class SystemHP
 			{
 				PcgCombatant pcgcbt = (PcgCombatant) cbt;
 				PlayerCharacter pc = pcgcbt.getPC();
-				String size = pc.getDisplay().getSize();
+				String size = pc.getSizeAdjustment().getKeyName();
 
 				//FIX: This needs to be moved to pcgen's sizeAdjustment.lst
 				if (size.equals("Fine"))
@@ -336,17 +334,14 @@ public class SystemHP
 		//TODO: Make it so that we can use static finals from somewhere here
 		//      and not "1" or "2"
 		//		Should we also set up static constants for "Initiative.Damage.Death" . . .
-		int disabledType =
-			SettingsHandler.getGMGenOption(
-				"Initiative.Damage.Disabled",
-				1);
-		
+		int disabledType = SettingsHandler.getGMGenOption("Initiative.Damage.Disabled", 1);
+
 		int disabledLowRange = 0;
 		if (disabledType == 2)
 		{
-			disabledLowRange = -1 * Math.max(0,attribute.getModifier());
+			disabledLowRange = -1 * Math.max(0, attribute.getModifier());
 		}
-		
+
 		if (current <= 0 && current >= disabledLowRange)
 		{
 			state = State.Disabled;
@@ -359,10 +354,7 @@ public class SystemHP
 		//TODO: Make it so that we can use static finals from somewhere here
 		//      and not "1" or "2"
 		//		Should we also set up static constants for "Initiative.Damage.Death" . . .
-		int deathType =
-			SettingsHandler.getGMGenOption(
-				"Initiative.Damage.Death",
-				1);
+		int deathType = SettingsHandler.getGMGenOption("Initiative.Damage.Death", 1);
 
 		if (deathType == 1)
 		{
@@ -390,7 +382,7 @@ public class SystemHP
 	 * End status that has a duration, e.g. Dazed
 	 * @return state
 	 */
-	public State endDurationedStatus()
+	State endDurationedStatus()
 	{
 		if (state == State.Unconsious || state == State.Dazed)
 		{
@@ -403,7 +395,7 @@ public class SystemHP
 	/**
 	 * End the round
 	 */
-	public void endRound()
+	void endRound()
 	{
 		firstround = false;
 	}
@@ -413,7 +405,7 @@ public class SystemHP
 	 * @param heal
 	 * @return the state
 	 */
-	public State heal(int heal)
+	State heal(int heal)
 	{
 		if (state != State.Dead)
 		{
@@ -450,7 +442,7 @@ public class SystemHP
 	 * Kill the PC
 	 * @return the state
 	 */
-	public State kill()
+	State kill()
 	{
 		state = State.Dead;
 		current = 0;
@@ -463,18 +455,11 @@ public class SystemHP
 	 * @param type
 	 * @return the state
 	 */
-	public State nonLethalDamage(boolean type)
+	State nonLethalDamage(boolean type)
 	{
 		if (state == State.Nothing)
 		{
-			if (type)
-			{
-				state = State.Unconsious;
-			}
-			else
-			{
-				state = State.Dazed;
-			}
+			state = type ? State.Unconsious : State.Dazed;
 		}
 
 		return state;
@@ -484,7 +469,7 @@ public class SystemHP
 	 * Raise the PC from the dead
 	 * @return the state
 	 */
-	public State raise()
+	State raise()
 	{
 		if (state == State.Dead)
 		{
@@ -499,7 +484,7 @@ public class SystemHP
 	 * Stabilize a bleeding PC
 	 * @return the state
 	 */
-	public State stabilize()
+	State stabilize()
 	{
 		if (state == State.Bleeding)
 		{
@@ -514,7 +499,7 @@ public class SystemHP
 	 * @param damage
 	 * @return the state
 	 */
-	public State subdualDamage(int damage)
+	State subdualDamage(int damage)
 	{
 		subdual += damage;
 
@@ -526,17 +511,14 @@ public class SystemHP
 		//TODO: Make it so that we can use static finals from somewhere here
 		//      and not "1" or "2"
 		//		Should we also set up static constants for "Initiative.Damage.Death" . . .
-		int disabledType =
-			SettingsHandler.getGMGenOption(
-				"Initiative.Damage.Disabled",
-				1);
-		
+		int disabledType = SettingsHandler.getGMGenOption("Initiative.Damage.Disabled", 1);
+
 		int disabledBonus = 0;
 		if (disabledType == 2)
 		{
-			disabledBonus = Math.max(0,attribute.getModifier());
+			disabledBonus = Math.max(0, attribute.getModifier());
 		}
-		
+
 		if ((state == State.Nothing || state == State.Staggered || state == State.Unconsious) && (subdual > 0))
 		{
 			if (subdual >= current && subdual <= (current + disabledBonus))

@@ -1,0 +1,108 @@
+# Sun Jan 21 13:38:15 2018 -- reformated by PCGen PrettyLST v6.06.00
+# Original Entry by: AinvarG, June 19, 2010
+# Revised by: LearnTribe, 03 August, 2017
+SOURCELONG:Book of Arcane Magic	SOURCESHORT:boam	SOURCEWEB:http://www.4windsfantasygaming.com	SOURCEDATE:2009-01
+SOURCESHORT:boam
+SOURCEWEB:http://www.4windsfantasygaming.com
+
+###Block: Mods
+# Feat Name						Type
+#Bestial Bloodline Bonus Feats:
+# Ability Name					Type
+CATEGORY=FEAT|Acrobatic.MOD			TYPE:BestialBloodline
+CATEGORY=FEAT|Alertness.MOD			TYPE:BestialBloodline
+CATEGORY=FEAT|Arcane Strike.MOD		TYPE:BestialBloodline
+CATEGORY=FEAT|Blind-Fight.MOD			TYPE:BestialBloodline
+CATEGORY=FEAT|Dodge.MOD				TYPE:BestialBloodline
+CATEGORY=FEAT|Great Fortitude.MOD		TYPE:BestialBloodline
+CATEGORY=FEAT|Improved Unarmed Strike.MOD	TYPE:BestialBloodline
+CATEGORY=FEAT|Toughness.MOD			TYPE:BestialBloodline
+
+#Divine Bloodline Bonus Feats:
+CATEGORY=FEAT|Arcane Strike.MOD		TYPE:DivineBloodline
+CATEGORY=FEAT|Augment Summoning.MOD		TYPE:DivineBloodline
+CATEGORY=FEAT|Empower Spell.MOD		TYPE:DivineBloodline
+CATEGORY=FEAT|Endurance.MOD			TYPE:DivineBloodline
+CATEGORY=FEAT|Magical Aptitude.MOD		TYPE:DivineBloodline
+CATEGORY=FEAT|Maximize Spell.MOD		TYPE:DivineBloodline
+CATEGORY=FEAT|Persuasive.MOD			TYPE:DivineBloodline
+CATEGORY=FEAT|Spell Focus.MOD			TYPE:DivineBloodline
+
+#Feline Bloodline Bonus Feats:
+CATEGORY=FEAT|Acrobatic.MOD			TYPE:FelineBloodline
+CATEGORY=FEAT|Agile Maneuvers.MOD		TYPE:FelineBloodline
+CATEGORY=FEAT|Animal Affinity.MOD		TYPE:FelineBloodline
+CATEGORY=FEAT|Combat Reflexes.MOD		TYPE:FelineBloodline
+CATEGORY=FEAT|Dodge.MOD				TYPE:FelineBloodline
+CATEGORY=FEAT|Lightning Reflexes.MOD	TYPE:FelineBloodline
+CATEGORY=FEAT|Persuasive.MOD			TYPE:FelineBloodline
+CATEGORY=FEAT|Stealthy.MOD			TYPE:FelineBloodline
+
+#Fiendish Bloodline Bonus Feats:
+CATEGORY=FEAT|Alertness.MOD			TYPE:FiendishBloodline
+CATEGORY=FEAT|Deceitful.MOD			TYPE:FiendishBloodline
+CATEGORY=FEAT|Improved Initiative.MOD	TYPE:FiendishBloodline
+CATEGORY=FEAT|Iron Will.MOD			TYPE:FiendishBloodline
+CATEGORY=FEAT|Persuasive.MOD			TYPE:FiendishBloodline
+CATEGORY=FEAT|Silent Spell.MOD		TYPE:FiendishBloodline
+CATEGORY=FEAT|Stealthy.MOD			TYPE:FiendishBloodline
+
+#Genie Bloodline Bonus Feats:
+CATEGORY=FEAT|Arcane Strike.MOD		TYPE:GenieBloodline
+CATEGORY=FEAT|Combat Casting.MOD		TYPE:GenieBloodline
+CATEGORY=FEAT|Combat Reflexes.MOD		TYPE:GenieBloodline
+CATEGORY=FEAT|Dodge.MOD				TYPE:GenieBloodline
+CATEGORY=FEAT|Improved Initiative.MOD	TYPE:GenieBloodline
+CATEGORY=FEAT|Mobility.MOD			TYPE:GenieBloodline
+CATEGORY=FEAT|Quicken Spell.MOD		TYPE:GenieBloodline
+CATEGORY=FEAT|Wind Stance.MOD			TYPE:GenieBloodline
+
+#Lycanthropic Bloodline Bonus Feats:
+CATEGORY=FEAT|Alertness.MOD			TYPE:LycanthropicBloodline
+CATEGORY=FEAT|Dodge.MOD				TYPE:LycanthropicBloodline
+CATEGORY=FEAT|Endurance.MOD			TYPE:LycanthropicBloodline
+CATEGORY=FEAT|Improved Initiative.MOD	TYPE:LycanthropicBloodline
+CATEGORY=FEAT|Iron Will.MOD			TYPE:LycanthropicBloodline
+CATEGORY=FEAT|Run.MOD				TYPE:LycanthropicBloodline
+CATEGORY=FEAT|Toughness.MOD			TYPE:LycanthropicBloodline
+#CATEGORY=FEAT|Track.MOD						TYPE:LycanthropicBloodline
+
+#Mixed Bloodline Bonus Feats:
+CATEGORY=FEAT|Blind-Fight.MOD			TYPE:MixedBloodline
+CATEGORY=FEAT|Combat Casting.MOD		TYPE:MixedBloodline
+CATEGORY=FEAT|Diehard.MOD			TYPE:MixedBloodline
+CATEGORY=FEAT|Dodge.MOD				TYPE:MixedBloodline
+CATEGORY=FEAT|Empower Spell.MOD		TYPE:MixedBloodline
+CATEGORY=FEAT|Iron Will.MOD			TYPE:MixedBloodline
+CATEGORY=FEAT|Lightning Reflexes.MOD	TYPE:MixedBloodline
+CATEGORY=FEAT|Power Attack.MOD		TYPE:MixedBloodline
+
+#Monstrous Bloodline Bonus Feats:
+CATEGORY=FEAT|Alertness.MOD			TYPE:MonstrousBloodline
+CATEGORY=FEAT|Blind-Fight.MOD			TYPE:MonstrousBloodline
+CATEGORY=FEAT|Combat Reflexes.MOD		TYPE:MonstrousBloodline
+CATEGORY=FEAT|Dodge.MOD				TYPE:MonstrousBloodline
+CATEGORY=FEAT|Endurance.MOD			TYPE:MonstrousBloodline
+CATEGORY=FEAT|Great Fortitude.MOD		TYPE:MonstrousBloodline
+CATEGORY=FEAT|Improved Unarmed Strike.MOD	TYPE:MonstrousBloodline
+CATEGORY=FEAT|Intimidating Prowess.MOD	TYPE:MonstrousBloodline
+
+#Nightmarish Bloodline Bonus Feats:
+CATEGORY=FEAT|Alertness.MOD			TYPE:NightmarishBloodline
+CATEGORY=FEAT|Blind-Fight.MOD			TYPE:NightmarishBloodline
+CATEGORY=FEAT|Deceitful.MOD			TYPE:NightmarishBloodline
+CATEGORY=FEAT|Enlarge Spell.MOD		TYPE:NightmarishBloodline
+CATEGORY=FEAT|Extend Spell.MOD		TYPE:NightmarishBloodline
+CATEGORY=FEAT|Iron Will.MOD			TYPE:NightmarishBloodline
+CATEGORY=FEAT|Maximize Spell.MOD		TYPE:NightmarishBloodline
+CATEGORY=FEAT|Silent Spell.MOD		TYPE:NightmarishBloodline
+
+#Scaly Bloodline Bonus Feats:
+CATEGORY=FEAT|Acrobatic.MOD			TYPE:ScalyBloodline
+CATEGORY=FEAT|Agile Maneuvers.MOD		TYPE:ScalyBloodline
+CATEGORY=FEAT|Alertness.MOD			TYPE:ScalyBloodline
+CATEGORY=FEAT|Blind-Fight.MOD			TYPE:ScalyBloodline
+CATEGORY=FEAT|Combat Reflexes.MOD		TYPE:ScalyBloodline
+CATEGORY=FEAT|Deadly Aim.MOD			TYPE:ScalyBloodline
+CATEGORY=FEAT|Quicken Spell.MOD		TYPE:ScalyBloodline
+CATEGORY=FEAT|Silent Spell.MOD		TYPE:ScalyBloodline

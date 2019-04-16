@@ -34,7 +34,6 @@ import pcgen.core.bonus.BonusUtilities;
  * StatBonusFacet is a Facet that calculates the bonus provided by PCStat objects on
  * a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class StatBonusFacet
 {
@@ -58,15 +57,13 @@ public class StatBonusFacet
 	 *         given Bonus name, mapped to the PCStat objects which granted the
 	 *         Bonus
 	 */
-	public Map<BonusObj, PCStat> getBonusListOfType(CharID id,
-			final String aType, final String aName)
+	public Map<BonusObj, PCStat> getBonusListOfType(CharID id, final String aType, final String aName)
 	{
 		final Map<BonusObj, PCStat> aList = new IdentityHashMap<>();
 
 		for (PCStat stat : statFacet.getSet(id))
 		{
-			List<BonusObj> bonuses = BonusUtilities.getBonusFromList(stat
-					.getSafeListFor(ListKey.BONUS), aType, aName);
+			List<BonusObj> bonuses = BonusUtilities.getBonusFromList(stat.getSafeListFor(ListKey.BONUS), aType, aName);
 			for (BonusObj bonus : bonuses)
 			{
 				aList.put(bonus, stat);
@@ -96,10 +93,8 @@ public class StatBonusFacet
 	 */
 	public double getStatBonusTo(CharID id, String type, String name)
 	{
-		final Map<BonusObj, PCStat> map = getBonusListOfType(id, type
-				.toUpperCase(), name.toUpperCase());
-		for (Iterator<Map.Entry<BonusObj, PCStat>> it = map.entrySet()
-				.iterator(); it.hasNext();)
+		final Map<BonusObj, PCStat> map = getBonusListOfType(id, type.toUpperCase(), name.toUpperCase());
+		for (Iterator<Map.Entry<BonusObj, PCStat>> it = map.entrySet().iterator(); it.hasNext();)
 		{
 			Entry<BonusObj, PCStat> me = it.next();
 			BonusObj bo = me.getKey();

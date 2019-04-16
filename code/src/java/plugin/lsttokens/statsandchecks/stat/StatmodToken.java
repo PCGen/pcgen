@@ -40,15 +40,14 @@ public class StatmodToken implements CDOMPrimaryToken<PCStat>
 	@Override
 	public ParseResult parseToken(LoadContext context, PCStat stat, String value)
 	{
-		if (value == null || value.length() == 0)
+		if (value == null || value.isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName() + " arguments may not be empty", context);
+			return new ParseResult.Fail(getTokenName() + " arguments may not be empty");
 		}
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		context.getObjectContext().put(stat, FormulaKey.STAT_MOD, formula);
 		return ParseResult.SUCCESS;
@@ -57,13 +56,12 @@ public class StatmodToken implements CDOMPrimaryToken<PCStat>
 	@Override
 	public String[] unparse(LoadContext context, PCStat stat)
 	{
-		Formula target = context.getObjectContext().getFormula(stat,
-			FormulaKey.STAT_MOD);
+		Formula target = context.getObjectContext().getFormula(stat, FormulaKey.STAT_MOD);
 		if (target == null)
 		{
 			return null;
 		}
-		return new String[] { target.toString() };
+		return new String[]{target.toString()};
 	}
 
 	@Override

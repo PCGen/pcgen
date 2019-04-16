@@ -17,10 +17,12 @@
  */
 package plugin.lsttokens.pcclass.level;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
@@ -32,25 +34,29 @@ import pcgen.core.QualifiedObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
-public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Domain>
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+
+public class DomainTokenTest extends AbstractListInputTokenTestCase<PCClassLevel, Domain>
 {
 
 	static DomainToken token = new DomainToken();
-	static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<PCClassLevel>();
+	static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -58,19 +64,12 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 		TokenRegistration.register(preracewriter);
 	}
 
-	private final PCClass primClass = new PCClass();
-	private final PCClass secClass = new PCClass();
-	
 	@Override
-	protected PCClassLevel getPrimary(String name)
+	protected PCClassLevel get(LoadContext context, String name)
 	{
-		return primClass.getOriginalClassLevel(1);
-	}
-
-	@Override
-	protected PCClassLevel getSecondary(String name)
-	{
-		return secClass.getOriginalClassLevel(1);
+		PCClass pcc = context.getReferenceContext().constructNowIfNecessary(PCClass.class,
+			"Cl");
+		return pcc.getOriginalClassLevel(1);
 	}
 
 	@Override
@@ -134,7 +133,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 	}
 
 	@Test
-	public void testInvalidEmptyPre() throws PersistenceLayerException
+	public void testInvalidEmptyPre()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1|"));
@@ -143,7 +142,6 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 
 	@Test
 	public void testInvalidTrailingAfterPre()
-		throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -174,7 +172,6 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 
 	@Test
 	public void testInvalidInputBadPrerequisite()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -183,14 +180,14 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.removeListFor(ListKey.DOMAIN);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		Domain wp1 = construct(primaryContext, "TestWP1");
 		primaryProf.addToListFor(ListKey.DOMAIN, buildQO(wp1));
@@ -199,7 +196,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 	}
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		primaryProf.addToListFor(ListKey.DOMAIN, null);
 		try
@@ -214,7 +211,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		Domain wp1 = construct(primaryContext, getLegalValue());
 		primaryProf.addToListFor(ListKey.DOMAIN, buildQO(wp1));
@@ -227,7 +224,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ListKey objectKey = ListKey.DOMAIN;
 		primaryProf.addToListFor(objectKey, new Object());
@@ -257,7 +254,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 		expectSingle(unparsed, getLegalValue() + "|PRERACE:1,Dwarf");
 	}
 
-	private QualifiedObject<CDOMSingleRef<Domain>> buildQO(Domain wp1)
+	private static QualifiedObject<CDOMSingleRef<Domain>> buildQO(Domain wp1)
 	{
 		return new QualifiedObject<>(CDOMDirectSingleRef
 				.getRef(wp1));

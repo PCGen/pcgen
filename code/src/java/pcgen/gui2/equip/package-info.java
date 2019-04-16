@@ -1,5 +1,4 @@
 /*
- * package-info.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,16 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 22/09/2013
- *
- * $Id$
  */
 /**
  * The pcgen.gui2.equip package contains the classes used to populate the equipment 
  * customizer dialog. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 package pcgen.gui2.equip;

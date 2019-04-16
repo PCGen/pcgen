@@ -1,6 +1,5 @@
 /*
  * Copyright 2009 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PCClass.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -37,8 +36,12 @@ import pcgen.gui2.util.PrettyIntegerFormat;
 import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 
-public class StatApplication
+public final class StatApplication
 {
+
+	private StatApplication()
+	{
+	}
 
 	//
 	// Ask user to select a stat to increment. This can happen before skill
@@ -46,8 +49,7 @@ public class StatApplication
 	// are calculated, so an increase to the appropriate stat can give more
 	// skill points
 	//
-	public static int askForStatIncrease(final PlayerCharacter aPC,
-	                                     final int statsToChoose, final boolean isPre)
+	public static int askForStatIncrease(final PlayerCharacter aPC, final int statsToChoose, final boolean isPre)
 	{
 		//
 		// If 1st time here (checks for preincrement), then will only ask if
@@ -67,13 +69,13 @@ public class StatApplication
 				return statsToChoose;
 			}
 		}
-	
+
 		String titleKey = "in_statTitle";
 		if (isPre && !Globals.checkRule(RuleConstants.RETROSKILL))
 		{
 			titleKey = "in_statTitleWithSkill";
 		}
-	
+
 		int iCount = 0;
 		Set<PCStat> statsAlreadyBonused = new HashSet<>();
 		boolean allowStacks = SettingsHandler.getGame().isBonusStatAllowsStack();
@@ -82,25 +84,21 @@ public class StatApplication
 		for (int ix = 0; ix < statsToChoose; ++ix)
 		{
 			final List<String> selectableStats = new ArrayList<>();
-	
+
 			for (PCStat aStat : aPC.getDisplay().getStatSet())
 			{
 				final StringBuilder sStats = new StringBuilder(100);
-				final int iAdjStat =
-						aPC.getTotalStatFor(aStat);
-				final int iCurStat =
-						aPC.getBaseStatFor(aStat);
+				final int iAdjStat = aPC.getTotalStatFor(aStat);
+				final int iCurStat = aPC.getBaseStatFor(aStat);
 				sStats.append(aStat.getDisplayName()).append(":  ").append(iCurStat);
-	
+
 				if (iCurStat != iAdjStat)
 				{
 					sStats.append(" adjusted: ").append(iAdjStat);
 				}
-	
-				sStats.append(" (").append(formatter.format(
-					aPC.getStatModFor(aStat))).append(
-					")");
-	
+
+				sStats.append(" (").append(formatter.format(aPC.getStatModFor(aStat))).append(")");
+
 				if (allowStacks || !statsAlreadyBonused.contains(aStat))
 				{
 					selectableStats.add(sStats.toString());
@@ -111,18 +109,16 @@ public class StatApplication
 					selectableStats.add(sStats.toString());
 				}
 			}
-	
-			CDOMChooserFacadeImpl<String> chooserFacade =
-                    new CDOMChooserFacadeImpl<>(
-                            LanguageBundle.getString(titleKey), selectableStats, //$NON-NLS-1$
-                            new ArrayList<>(), 1);
+
+			CDOMChooserFacadeImpl<String> chooserFacade = new CDOMChooserFacadeImpl<>(
+				LanguageBundle.getString(titleKey), selectableStats, new ArrayList<>(), 1);
 			chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 			chooserFacade.setPreferRadioSelection(true);
 			chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));
 			ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 			final List<String> selectedValues = chooserFacade.getFinalSelected();
 			final String selectedValue = selectedValues.isEmpty() ? null : selectedValues.get(0);
-			
+
 			if (selectedValue != null)
 			{
 				for (PCStat aStat : aPC.getStatSet())
@@ -134,13 +130,13 @@ public class StatApplication
 						aPC.setPoolAmount(aPC.getPoolAmount() - 1);
 						statsAlreadyBonused.add(aStat);
 						++iCount;
-	
+
 						break;
 					}
 				}
 			}
 		}
-	
+
 		return statsToChoose - iCount;
 	}
 

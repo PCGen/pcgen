@@ -17,6 +17,8 @@
  */
 package tokenmodel;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Collection;
 
 import pcgen.cdom.base.CDOMObject;
@@ -27,7 +29,9 @@ import pcgen.core.ShieldProf;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.auto.ShieldProfToken;
+
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
+import util.TestURI;
 
 public class AutoShieldProfTest extends
 		AbstractGrantedListTokenTest<ShieldProf>
@@ -45,7 +49,7 @@ public class AutoShieldProfTest extends
 				AUTO_SHIELDPROF_TOKEN.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

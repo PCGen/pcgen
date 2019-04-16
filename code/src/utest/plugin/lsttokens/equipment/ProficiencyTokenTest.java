@@ -17,7 +17,10 @@
  */
 package plugin.lsttokens.equipment;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -25,7 +28,6 @@ import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
 import pcgen.core.ShieldProf;
 import pcgen.core.WeaponProf;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -33,10 +35,12 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
 	static ProficiencyToken token = new ProficiencyToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()
@@ -57,7 +61,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertNull(token.unparse(primaryContext, primaryProf));
 		assertFalse(parse(""));
@@ -68,7 +72,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		assertFalse(parse("String"));
 		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
@@ -78,7 +82,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputJoinedComma() throws PersistenceLayerException
+	public void testInvalidInputJoinedComma()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -90,7 +94,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputJoinedPipe() throws PersistenceLayerException
+	public void testInvalidInputJoinedPipe()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -102,7 +106,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputJoinedDot() throws PersistenceLayerException
+	public void testInvalidInputJoinedDot()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -114,7 +118,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputEmptyWeapon() throws PersistenceLayerException
+	public void testInvalidInputEmptyWeapon()
 	{
 		assertFalse(parse("WEAPON|"));
 		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
@@ -124,7 +128,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputWeaponString() throws PersistenceLayerException
+	public void testInvalidInputWeaponString()
 	{
 		assertTrue(parse("WEAPON|String"));
 		assertConstructionError();
@@ -140,7 +144,6 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@Test
 	public void testInvalidInputWeaponJoinedComma()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -160,7 +163,6 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@Test
 	public void testInvalidInputWeaponJoinedPipe()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -180,7 +182,6 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@Test
 	public void testInvalidInputWeaponJoinedDot()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -224,7 +225,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	//
 
 	@Test
-	public void testReplacementInputsWeapon() throws PersistenceLayerException
+	public void testReplacementInputsWeapon()
 	{
 		String[] unparsed;
 		construct(primaryContext, "TestWP1");
@@ -233,22 +234,22 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 		assertTrue(parse("WEAPON|TestWP1"));
 		assertTrue(parse("WEAPON|TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "WEAPON|TestWP2", unparsed[0]);
+		assertEquals("WEAPON|TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 	}
 
 	@Test
-	public void testInvalidInputEmptyArmor() throws PersistenceLayerException
+	public void testInvalidInputEmptyArmor()
 	{
 		assertFalse(parse("ARMOR|"));
 		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
@@ -258,7 +259,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputArmorString() throws PersistenceLayerException
+	public void testInvalidInputArmorString()
 	{
 		assertTrue(parse("ARMOR|String"));
 		assertConstructionError();
@@ -274,7 +275,6 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@Test
 	public void testInvalidInputArmorJoinedComma()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -294,7 +294,6 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@Test
 	public void testInvalidInputArmorJoinedPipe()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -314,7 +313,6 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@Test
 	public void testInvalidInputArmorJoinedDot()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -358,7 +356,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	//
 
 	@Test
-	public void testReplacementInputsArmor() throws PersistenceLayerException
+	public void testReplacementInputsArmor()
 	{
 		String[] unparsed;
 		construct(primaryContext, "TestWP1");
@@ -367,22 +365,22 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 		assertTrue(parse("ARMOR|TestWP1"));
 		assertTrue(parse("ARMOR|TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "ARMOR|TestWP2", unparsed[0]);
+		assertEquals("ARMOR|TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 	}
 
 	@Test
-	public void testInvalidInputEmptyShield() throws PersistenceLayerException
+	public void testInvalidInputEmptyShield()
 	{
 		assertFalse(parse("SHIELD|"));
 		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
@@ -392,7 +390,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidInputShieldString() throws PersistenceLayerException
+	public void testInvalidInputShieldString()
 	{
 		assertTrue(parse("SHIELD|String"));
 		assertConstructionError();
@@ -408,7 +406,6 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@Test
 	public void testInvalidInputShieldJoinedComma()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -428,7 +425,6 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@Test
 	public void testInvalidInputShieldJoinedPipe()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -448,7 +444,6 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 
 	@Test
 	public void testInvalidInputShieldJoinedDot()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
@@ -492,7 +487,7 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	//
 
 	@Test
-	public void testReplacementInputsShield() throws PersistenceLayerException
+	public void testReplacementInputsShield()
 	{
 		String[] unparsed;
 		construct(primaryContext, "TestWP1");
@@ -501,28 +496,28 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 		assertTrue(parse("SHIELD|TestWP1"));
 		assertTrue(parse("SHIELD|TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "SHIELD|TestWP2", unparsed[0]);
+		assertEquals("SHIELD|TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 	}
 
-	protected void construct(LoadContext loadContext, String one)
+	protected static void construct(LoadContext loadContext, String one)
 	{
 		loadContext.getReferenceContext().constructCDOMObject(WeaponProf.class, one);
 		loadContext.getReferenceContext().constructCDOMObject(ShieldProf.class, one);
 		loadContext.getReferenceContext().constructCDOMObject(ArmorProf.class, one);
 	}
 
-	private boolean isClearLegal()
+	private static boolean isClearLegal()
 	{
 		return false;
 	}

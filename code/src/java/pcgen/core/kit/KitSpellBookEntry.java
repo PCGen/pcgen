@@ -1,5 +1,4 @@
 /*
- * KitSpellBook.java
  * Copyright 2005 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 26, 2005
- *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -50,12 +45,12 @@ public class KitSpellBookEntry
 	 * @param modifiers
 	 * @param copies
 	 */
-	public KitSpellBookEntry(final String aBookName,
-							 final Spell sp, final List<CDOMSingleRef<Ability>> modifiers, int copies)
+	public KitSpellBookEntry(final String aBookName, final Spell sp, final List<CDOMSingleRef<Ability>> modifiers,
+		int copies)
 	{
 		bookName = aBookName;
 		spell = sp;
-		if (modifiers != null && modifiers.size() > 0)
+		if (modifiers != null && !modifiers.isEmpty())
 		{
 			theModifierList = new ArrayList<>();
 			theModifierList.addAll(modifiers);

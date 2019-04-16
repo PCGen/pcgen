@@ -18,7 +18,6 @@
 package pcgen.base.formula;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
  * 
  * A DividingFormula represents a 'deferred calculation' of sorts, designed to
  * be stored and capable of dividing a given input number by a predetermined
@@ -48,9 +47,8 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	{
 		if (denom == 0)
 		{
-			throw new IllegalArgumentException(
-					"Cannot build a DividingFormula that divides by Zero - "
-							+ "will always cause an ArithmeticException when resolved");
+			throw new IllegalArgumentException("Cannot build a DividingFormula that divides by Zero - "
+				+ "will always cause an ArithmeticException when resolved");
 		}
 		denominator = denom;
 	}
@@ -72,15 +70,13 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	 *             if more than one Number is provided as an argument
 	 * @throws NullPointerException
 	 *             if the Number provided is null
-	 * @see pcgen.base.formula.ReferenceFormula#resolve(Number...)
 	 */
 	@Override
 	public Integer resolve(Number... numbers)
 	{
 		if (numbers == null || numbers.length != 1)
 		{
-			throw new IllegalArgumentException(
-					"DividingFormula only has one back-reference");
+			throw new IllegalArgumentException("DividingFormula only has one back-reference");
 		}
 		/*
 		 * Note that there is NOT an order of operations issue here with
@@ -90,37 +86,21 @@ public class DividingFormula implements ReferenceFormula<Integer>
 		return numbers[0].intValue() / denominator;
 	}
 
-	/**
-	 * Returns a String representation of this DividingFormula
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
 		return "/" + denominator;
 	}
 
-	/**
-	 * Consistent-with-equals hashCode method
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return denominator;
 	}
 
-	/**
-	 * Returns true if this DividingFormula is equal to the given Object.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof DividingFormula
-				&& ((DividingFormula) obj).denominator == denominator;
+		return obj instanceof DividingFormula && ((DividingFormula) obj).denominator == denominator;
 	}
 }

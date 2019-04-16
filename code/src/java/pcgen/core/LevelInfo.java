@@ -1,5 +1,4 @@
 /*
- * LevelInfo.java
  * Copyright 2002 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,37 +14,22 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on August 16, 2002, 10:00 PM AEST (+10:00)
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core;
 
-import pcgen.util.Logging;
-
 import java.math.BigDecimal;
 
+import pcgen.util.Logging;
+
 /**
- * <code>LevelInfo</code> describes the data associated with a level
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ * {@code LevelInfo} describes the data associated with a level
  */
 public final class LevelInfo
 {
 	private String maxClassSkillString = "0";
-	private String maxCrossClassSkillString= "0";
+	private String maxCrossClassSkillString = "0";
 	private String levelString = "0";
 	private String minXPString = "0";
-
-	/**
-	 * Default constructor for LevelInfo. Initialises everything to zero.
-	 */
-	public LevelInfo()
-	{
-	    // Empty Constructor
-	}
 
 	/**
 	 * Sets the levelString that this LevelInfo object describes.
@@ -112,7 +96,7 @@ public final class LevelInfo
 	public String toString()
 	{
 		return "Level: " + levelString + " MinXP: " + minXPString + " MaxClassSkill: " + maxClassSkillString
-		+ " MaxCrossClassSkill: " + maxCrossClassSkillString + ".";
+			+ " MaxCrossClassSkill: " + maxCrossClassSkillString + ".";
 	}
 
 	/**
@@ -165,12 +149,14 @@ public final class LevelInfo
 	private BigDecimal getMaxSkillRank(final int levelArg, final PlayerCharacter calcPC, final String maxSkillString)
 	{
 		double ranks;
-		if (calcPC == null) {
+		if (calcPC == null)
+		{
 			return BigDecimal.ZERO;
 		}
 		try
 		{
-			ranks = calcPC.getVariableValue(maxSkillString.replaceAll(levelString,String.valueOf(levelArg)), "").doubleValue();
+			ranks = calcPC.getVariableValue(maxSkillString.replaceAll(levelString, String.valueOf(levelArg)), "")
+				.doubleValue();
 		}
 		catch (Exception e)
 		{
@@ -178,7 +164,7 @@ public final class LevelInfo
 			Logging.errorPrint("Exception while getting max rank for " + levelString, e);
 			//final String rankString = maxSkillString.replaceAll(levelString, String.valueOf(levelArg));
 			//ranks = calcPC.getVariableValue(rankString, "").doubleValue();
-			ranks =0.0d;
+			ranks = 0.0d;
 		}
 
 		return new BigDecimal(ranks);

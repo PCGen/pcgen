@@ -36,7 +36,7 @@
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
       <title>
-         FindBugs (<xsl:value-of select="/BugCollection/@version" />) 
+         SpotBugs (<xsl:value-of select="/BugCollection/@version" />) 
          Analysis for 
          <xsl:choose>
             <xsl:when test='string-length(/BugCollection/Project/@projectName)>0'><xsl:value-of select="/BugCollection/Project/@projectName" /></xsl:when>
@@ -1055,7 +1055,7 @@
             Computing data...
          </div>
          <div id='filterWrapper' style='display:none;'>
-            <form name='findbugsForm'>
+            <form name='spotbugsForm'>
                <div id='filterContainer' >
                   <select name='versions' onchange='filter()'>
                      <option value="loading">Loading filter...</option>
@@ -1067,7 +1067,7 @@
             </form>
          </div>
          <div id='historyControlWrapper' style='display:none;'>
-           <form name="findbugsHistoryControlForm">
+           <form name="spotbugsHistoryControlForm">
              <div id='historyControlContainer'>
                <input type='checkbox' name='includeFixedIntroducedBugs'
                       value='checked' alt='Include fixed introduced bugs.'
@@ -1092,17 +1092,17 @@
                <tr>
                   <td class='summary-name'>
                      Overall
-                     (<xsl:value-of select="/BugCollection/FindBugsSummary/@num_packages" /> packages),
-                     (<xsl:value-of select="/BugCollection/FindBugsSummary/@total_classes" /> classes)
+                     (<xsl:value-of select="/BugCollection/SpotBugsSummary/@num_packages" /> packages),
+                     (<xsl:value-of select="/BugCollection/SpotBugsSummary/@total_classes" /> classes)
                   </td>
-                  <td class='summary-size'><xsl:value-of select="/BugCollection/FindBugsSummary/@total_size" /></td>
-                  <td class='summary-priority-all'><xsl:value-of select="/BugCollection/FindBugsSummary/@total_bugs" /></td>
-                  <td class='summary-priority-1'><xsl:value-of select="/BugCollection/FindBugsSummary/@priority_1" /></td>
-                  <td class='summary-priority-2'><xsl:value-of select="/BugCollection/FindBugsSummary/@priority_2" /></td>
-                  <td class='summary-priority-3'><xsl:value-of select="/BugCollection/FindBugsSummary/@priority_3" /></td>
-                  <td class='summary-priority-4'><xsl:value-of select="/BugCollection/FindBugsSummary/@priority_4" /></td>
+                  <td class='summary-size'><xsl:value-of select="/BugCollection/SpotBugsSummary/@total_size" /></td>
+                  <td class='summary-priority-all'><xsl:value-of select="/BugCollection/SpotBugsSummary/@total_bugs" /></td>
+                  <td class='summary-priority-1'><xsl:value-of select="/BugCollection/SpotBugsSummary/@priority_1" /></td>
+                  <td class='summary-priority-2'><xsl:value-of select="/BugCollection/SpotBugsSummary/@priority_2" /></td>
+                  <td class='summary-priority-3'><xsl:value-of select="/BugCollection/SpotBugsSummary/@priority_3" /></td>
+                  <td class='summary-priority-4'><xsl:value-of select="/BugCollection/SpotBugsSummary/@priority_4" /></td>
                </tr>
-               <xsl:for-each select="/BugCollection/FindBugsSummary/PackageStats">
+               <xsl:for-each select="/BugCollection/SpotBugsSummary/PackageStats">
                   <xsl:sort select="@package" order="ascending" />
                   <xsl:if test="@total_bugs!='0'" >
                      <tr>

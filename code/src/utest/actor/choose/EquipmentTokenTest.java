@@ -17,11 +17,10 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.Equipment;
 import plugin.lsttokens.choose.EquipmentToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
 
 public class EquipmentTokenTest extends
@@ -29,12 +28,6 @@ public class EquipmentTokenTest extends
 {
 
 	static EquipmentToken pca = new EquipmentToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 
 	@Override
 	public Chooser<Equipment> getActor()

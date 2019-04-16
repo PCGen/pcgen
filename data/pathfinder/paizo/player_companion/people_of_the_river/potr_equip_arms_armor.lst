@@ -1,0 +1,18 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Sun Sep  4 16:33:31 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: People of the River	SOURCESHORT:PotR	SOURCEWEB:http://paizo.com/products/btpy978r	SOURCEDATE:2014-08
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 27 April 2017
+
+# ==============================
+# Magical Shield
+# ==============================
+
+# Equipment Name		Required Weapon Proficiency	Required Shield Proficiency		Type															Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier															Wield Category	Size		Source Page		% of Spell Failure	Combat bonus								Modify VAR				Weapon prop. bonus					Special Property
+Shield of Hags							PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Magic.Light.Specific.Close.Weapon.Resizable.Melee.ShieldBash			COST:3	WT:5		ACCHECK:-1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:Special Ability ~ Enhancement Cost|19120.Special Ability ~ +1 ~ Shield.Material ~ Wood	WIELD:Light		SIZE:M	SOURCEPAGE:p.28	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0	BONUS:VAR|ArmorCheckPenalty|1	BONUS:WEAPON|TOHIT|4|PREWEAPONPROF:1,Shieldbash	SPROP:On command 3/day, emits either terrified screams (30 ft. fear effect) or tortured voice calling for help.
+
+# ==============================
+# Magical Weapon
+# ==============================
+
+Black Eagle's Blade	PROFICIENCY:WEAPON|Greatsword							TYPE:Weapon.Magic.Resizable.Melee.TwoHanded.Martial.Specific.Slashing.Sword.BladeHeavy	COST:50	WT:8					CRITMULT:x2	CRITRANGE:2	DAMAGE:2d6	EQMOD:Special Ability ~ Enhancement Cost|12000.Special Ability ~ +1 ~ Weapon.Material ~ Steel	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.29																												SPROP:1/day, after slaying a creature, can become +2 bane against same creature type as that just slain. Lasts 8 rounds or until it slays another creature.

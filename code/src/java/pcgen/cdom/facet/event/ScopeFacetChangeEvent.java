@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.event;
 
 import java.util.EventObject;
+import java.util.Objects;
 
 import pcgen.cdom.base.PCGenIdentifier;
 
@@ -42,8 +43,7 @@ import pcgen.cdom.base.PCGenIdentifier;
  * @param <T>
  *            The Type object of changed in the ScopeFacetChangeEvent
  */
-public class ScopeFacetChangeEvent<IDT extends PCGenIdentifier, S, T> extends
-		EventObject
+public class ScopeFacetChangeEvent<IDT extends PCGenIdentifier, S, T> extends EventObject
 {
 	/**
 	 * The constant ID used by an ScopeFacetChangeEvent to indicate that a
@@ -96,22 +96,10 @@ public class ScopeFacetChangeEvent<IDT extends PCGenIdentifier, S, T> extends
 	public ScopeFacetChangeEvent(IDT id, S scope, T cdo, Object source, int type)
 	{
 		super(source);
-		if (source == null)
-		{
-			throw new IllegalArgumentException("Source Object cannot be null");
-		}
-		if (id == null)
-		{
-			throw new IllegalArgumentException("PCGenIdentifier cannot be null");
-		}
-		if (scope == null)
-		{
-			throw new IllegalArgumentException("Scope cannot be null");
-		}
-		if (cdo == null)
-		{
-			throw new IllegalArgumentException("CDOMObject cannot be null");
-		}
+		Objects.requireNonNull(source, "Source Object cannot be null");
+		Objects.requireNonNull(id, "PCGenIdentifier cannot be null");
+		Objects.requireNonNull(scope, "Scope cannot be null");
+		Objects.requireNonNull(cdo, "CDOMObject cannot be null");
 		this.scope = scope;
 		charID = id;
 		node = cdo;

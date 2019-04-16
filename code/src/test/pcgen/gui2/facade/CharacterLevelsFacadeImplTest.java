@@ -1,5 +1,4 @@
 /*
- * CharacterLevelsFacadeImplTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,17 +14,18 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 26/11/2013
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URI;
 
-import pcgen.AbstractJunit4CharacterTestCase;
+import pcgen.AbstractJunit5CharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.core.Campaign;
@@ -38,23 +38,22 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.XPTable;
 import pcgen.core.pclevelinfo.PCLevelInfo;
+import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * CharacterLevelsFacadeImplTest checks that CharacterLevelsFacadeImpl is working ok.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCase
+public class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCase
 {
 	private UIDelegate delegate;
 	private TodoManager todoManager;
@@ -67,7 +66,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 	private static PCClass wizardClass;
 	
 
-	@Before
+	@BeforeEach
 	public void before() throws Exception
 	{
 		delegate = new MockUIDelegate();
@@ -76,6 +75,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		dataSetFacade = new MockDataSetFacade(gameMode);
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -113,9 +113,11 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 	}
 
 	/**
-	 * Test method for {@link pcgen.gui2.facade.CharacterLevelsFacadeImpl#findNextLevelForSkill(pcgen.core.facade.SkillFacade, pcgen.core.facade.CharacterLevelFacade, float)}
-	 * to check level selection where class and cross-class skills cost the 
-	 * same for all classes.
+	 * Test method for
+	 * {@link CharacterLevelsFacadeImpl#findNextLevelForSkill(SkillFacade, CharacterLevelFacade, float)}
+	 * 
+	 * to check level selection where class and cross-class skills cost the same for
+	 * all classes.
 	 */
 	@Test
 	public void testFindNextLevelForSkillAllSameCost()
@@ -131,12 +133,13 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		pc.incrementClassLevel(3, fighterClass);
 		pc.incrementClassLevel(3, wizardClass);
 		
-		assertTrue("Climb should be class for fighter", pc.isClassSkill(fighterClass, climbSkill));
-		assertFalse("Spellcraft should not be class for fighter", pc.isClassSkill(fighterClass, spellcraftSkill));
-		assertTrue("UMD should be class for fighter", pc.isClassSkill(fighterClass, umdSkill));
-		assertFalse("Climb should not be class for wizard", pc.isClassSkill(wizardClass, climbSkill));
-		assertTrue("Spellcraft should be class for wizard", pc.isClassSkill(wizardClass, spellcraftSkill));
-		assertFalse("UMD should be class for fighter", pc.isClassSkill(wizardClass, umdSkill));
+		assertTrue(pc.isClassSkill(fighterClass, climbSkill), "Climb should be class for fighter");
+		assertFalse(pc.isClassSkill(fighterClass, spellcraftSkill),
+				"Spellcraft should not be class for fighter");
+		assertTrue(pc.isClassSkill(fighterClass, umdSkill), "UMD should be class for fighter");
+		assertFalse(pc.isClassSkill(wizardClass, climbSkill), "Climb should not be class for wizard");
+		assertTrue(pc.isClassSkill(wizardClass, spellcraftSkill), "Spellcraft should be class for wizard");
+		assertFalse(pc.isClassSkill(wizardClass, umdSkill), "UMD should be class for fighter");
 
 		CharacterLevelsFacadeImpl charLvlsFI =
 				new CharacterLevelsFacadeImpl(pc, delegate,
@@ -146,51 +149,51 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 
 		// 1. Selected level, if points available and not exceeding max ranks.
 		assertEquals(
-			"Level for spellcraft",
-			charLvlsFI.getElementAt(2),
+				charLvlsFI.getElementAt(2),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(2), 1.0f));
+				charLvlsFI.getElementAt(2), 1.0f), "Level for spellcraft"
+		);
 		assertEquals(
-			"Level for spellcraft",
-			charLvlsFI.getElementAt(2),
+				charLvlsFI.getElementAt(2),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(2), 2.0f));
+				charLvlsFI.getElementAt(2), 2.0f), "Level for spellcraft"
+		);
 		assertEquals(
-			"Level for spellcraft",
-			charLvlsFI.getElementAt(2),
+				charLvlsFI.getElementAt(2),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(2), 3.0f));
+				charLvlsFI.getElementAt(2), 3.0f), "Level for spellcraft"
+		);
 		assertEquals(
-			"Level for climb",
-			charLvlsFI.getElementAt(2),
+				charLvlsFI.getElementAt(2),
 			charLvlsFI.findNextLevelForSkill(climbSkill,
-				charLvlsFI.getElementAt(2), 3.0f));
+				charLvlsFI.getElementAt(2), 3.0f), "Level for climb"
+		);
 		
 		// 2. Scan forward from selected level for first level with points spare 
 		// where the rank is not above max rank for the level and the cost is 
 		// equal to class cost
 		assertEquals(
-			"Level for spellcraft - scan forward",
-			charLvlsFI.getElementAt(3),
+				charLvlsFI.getElementAt(3),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(2), 4.0f));
+				charLvlsFI.getElementAt(2), 4.0f), "Level for spellcraft - scan forward"
+		);
 		assertEquals(
-			"Level for rank 20 spellcraft - scan forward",
-			charLvlsFI.getElementAt(19),
+				charLvlsFI.getElementAt(19),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(2), 20.0f));
+				charLvlsFI.getElementAt(2), 20.0f), "Level for rank 20 spellcraft - scan forward"
+		);
 		assertEquals(
-			"Level for rank 20 climb - scan forward",
-			charLvlsFI.getElementAt(19),
+				charLvlsFI.getElementAt(19),
 			charLvlsFI.findNextLevelForSkill(climbSkill,
-				charLvlsFI.getElementAt(2), 20.0f));
+				charLvlsFI.getElementAt(2), 20.0f), "Level for rank 20 climb - scan forward"
+		);
 		charLvlsFI.getLevelInfo(charLvlsFI.getElementAt(3)).setSkillPointsRemaining(0);
 		charLvlsFI.getLevelInfo(charLvlsFI.getElementAt(4)).setSkillPointsRemaining(0);
 		assertEquals(
-			"Level for rank 4 spellcraft - scan forward past spent levels",
-			charLvlsFI.getElementAt(5),
+				charLvlsFI.getElementAt(5),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(2), 4.0f));
+				charLvlsFI.getElementAt(2), 4.0f), "Level for rank 4 spellcraft - scan forward past spent levels"
+		);
 
 		// 3. Scan from level 1 for first level with points spare where the rank 
 		// is not above max rank for the level and the cost is equal to class cost
@@ -199,10 +202,11 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 			charLvlsFI.getLevelInfo(charLvlsFI.getElementAt(i)).setSkillPointsRemaining(0);
 		}
 		assertEquals(
-			"Level for rank 2 spellcraft - scan from lvl 1 after selected or higher all spent",
-			charLvlsFI.getElementAt(1),
+				charLvlsFI.getElementAt(1),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(3), 2.0f));
+				charLvlsFI.getElementAt(3), 2.0f),
+				"Level for rank 2 spellcraft - scan from lvl 1 after selected or higher all spent"
+		);
 		// 4. Scan forward from selected level for first level with points spare 
 		// where the rank is not above max rank for the level and the skill is 
 		// not prohibited
@@ -211,24 +215,27 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 			charLvlsFI.getLevelInfo(charLvlsFI.getElementAt(i)).setSkillPointsRemaining(4);
 		}
 		assertEquals(
-			"Level for 1 rank umd - scan forward from lvl 5 for non prohibited class",
-			charLvlsFI.getElementAt(8),
+				charLvlsFI.getElementAt(8),
 			charLvlsFI.findNextLevelForSkill(umdSkill,
-				charLvlsFI.getElementAt(5), 1.0f));
+				charLvlsFI.getElementAt(5), 1.0f),
+				"Level for 1 rank umd - scan forward from lvl 5 for non prohibited class"
+		);
 		// 5. Scan from level 1 for first level with points spare where the rank 
 		// is not above max rank for the level and the skill is not prohibited
 		assertEquals(
-			"Level for 1 rank umd - scan from lvl 1 as higher all spent for non prohibited class",
-			charLvlsFI.getElementAt(0),
-			charLvlsFI.findNextLevelForSkill(CharacterLevelsFacadeImplTest.umdSkill, charLvlsFI.getElementAt(17), 1.0f));
+				charLvlsFI.getElementAt(0),
+			charLvlsFI.findNextLevelForSkill(CharacterLevelsFacadeImplTest.umdSkill, charLvlsFI.getElementAt(17),
+				1.0f), "Level for 1 rank umd - scan from lvl 1 as higher all spent for non prohibited class"
+		);
 		// 6. Advise that the skill cannot be advanced.
-		assertNull("Level for rank 21 spellcraft - cannot be advanced",
+		assertNull(
 				charLvlsFI.findNextLevelForSkill(CharacterLevelsFacadeImplTest.spellcraftSkill,
-						charLvlsFI.getElementAt(2), 21.0f));
+						charLvlsFI.getElementAt(2), 21.0f), "Level for rank 21 spellcraft - cannot be advanced");
 	}
 
 	/**
-	 * Test method for {@link pcgen.gui2.facade.CharacterLevelsFacadeImpl#findNextLevelForSkill(pcgen.core.facade.SkillFacade, pcgen.core.facade.CharacterLevelFacade, float)}
+	 * Test method for 
+	 * {@link CharacterLevelsFacadeImpl#findNextLevelForSkill(SkillFacade, CharacterLevelFacade, float)}
 	 * to check level selection where cross-class skills cost 2 points and class 
 	 * skills cost only 1. 
 	 */
@@ -246,12 +253,13 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		pc.incrementClassLevel(3, fighterClass);
 		pc.incrementClassLevel(3, wizardClass);
 		
-		assertTrue("Climb should be class for fighter", pc.isClassSkill(fighterClass, climbSkill));
-		assertFalse("Spellcraft should not be class for fighter", pc.isClassSkill(fighterClass, spellcraftSkill));
-		assertTrue("UMD should be class for fighter", pc.isClassSkill(fighterClass, umdSkill));
-		assertFalse("Climb should not be class for wizard", pc.isClassSkill(wizardClass, climbSkill));
-		assertTrue("Spellcraft should be class for wizard", pc.isClassSkill(wizardClass, spellcraftSkill));
-		assertFalse("UMD should be class for wizard", pc.isClassSkill(wizardClass, umdSkill));
+		assertTrue(pc.isClassSkill(fighterClass, climbSkill), "Climb should be class for fighter");
+		assertFalse(pc.isClassSkill(fighterClass, spellcraftSkill),
+				"Spellcraft should not be class for fighter");
+		assertTrue(pc.isClassSkill(fighterClass, umdSkill), "UMD should be class for fighter");
+		assertFalse(pc.isClassSkill(wizardClass, climbSkill), "Climb should not be class for wizard");
+		assertTrue(pc.isClassSkill(wizardClass, spellcraftSkill), "Spellcraft should be class for wizard");
+		assertFalse(pc.isClassSkill(wizardClass, umdSkill), "UMD should be class for wizard");
 
 		CharacterLevelsFacadeImpl charLvlsFI =
 				new CharacterLevelsFacadeImpl(pc, delegate,
@@ -261,34 +269,34 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 
 		// 1. Selected level, if points available and not exceeding max ranks.
 		assertEquals(
-			"Level for 1 rank spellcraft",
-			charLvlsFI.getElementAt(2),
+				charLvlsFI.getElementAt(2),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(2), 1.0f));
+				charLvlsFI.getElementAt(2), 1.0f), "Level for 1 rank spellcraft"
+		);
 		assertEquals(
-			"Level for 7 ranks climb",
-			charLvlsFI.getElementAt(3),
+				charLvlsFI.getElementAt(3),
 			charLvlsFI.findNextLevelForSkill(climbSkill,
-				charLvlsFI.getElementAt(3), 7.0f));
+				charLvlsFI.getElementAt(3), 7.0f), "Level for 7 ranks climb"
+		);
 		assertEquals(
-			"Level for 7.5 ranks climb",
-			charLvlsFI.getElementAt(4),
+				charLvlsFI.getElementAt(4),
 			charLvlsFI.findNextLevelForSkill(climbSkill,
-				charLvlsFI.getElementAt(4), 7.5f));
+				charLvlsFI.getElementAt(4), 7.5f), "Level for 7.5 ranks climb"
+		);
 		
 		// 2. Scan forward from selected level for first level with points spare 
 		// where the rank is not above max rank for the level and the cost is 
 		// equal to class cost
 		assertEquals(
-			"Level for 3 ranks spellcraft",
-			charLvlsFI.getElementAt(4),
+				charLvlsFI.getElementAt(4),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(1), 3.0f));
+				charLvlsFI.getElementAt(1), 3.0f), "Level for 3 ranks spellcraft"
+		);
 		assertEquals(
-			"Level for 9 ranks spellcraft",
-			charLvlsFI.getElementAt(5),
+				charLvlsFI.getElementAt(5),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(1), 9.0f));
+				charLvlsFI.getElementAt(1), 9.0f), "Level for 9 ranks spellcraft"
+		);
 
 		// 3. Scan from level 1 for first level with points spare where the rank 
 		// is not above max rank for the level and the cost is equal to class cost
@@ -312,32 +320,33 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 			}
 		}
 		assertEquals(
-			"Level for 5 ranks spellcraft",
-			charLvlsFI.getElementAt(8),
+				charLvlsFI.getElementAt(8),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(5), 5.0f));
+				charLvlsFI.getElementAt(5), 5.0f), "Level for 5 ranks spellcraft"
+		);
 
 
 		// 5. Scan from level 1 for first level with points spare where the rank 
 		// is not above max rank for the level and the skill is not prohibited
 		assertEquals(
-			"Level for 3 ranks spellcraft",
-			charLvlsFI.getElementAt(2),
+				charLvlsFI.getElementAt(2),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(19), 3.0f));
+				charLvlsFI.getElementAt(19), 3.0f), "Level for 3 ranks spellcraft"
+		);
 
 		// 6. Advise that the skill cannot be advanced.
 		charLvlsFI.getLevelInfo(charLvlsFI.getElementAt(18)).setSkillPointsRemaining(4);
 		charLvlsFI.getLevelInfo(charLvlsFI.getElementAt(19)).setSkillPointsRemaining(4);
-		assertNull("Level for rank 23.5 climb - cannot be advanced", charLvlsFI.findNextLevelForSkill(climbSkill,
-				charLvlsFI.getElementAt(2), 23.5f));
+		assertNull(charLvlsFI.findNextLevelForSkill(climbSkill,
+				charLvlsFI.getElementAt(2), 23.5f), "Level for rank 23.5 climb - cannot be advanced");
 		
 	}
 
 	/**
-	 * Test method for {@link pcgen.gui2.facade.CharacterLevelsFacadeImpl#findNextLevelForSkill(pcgen.core.facade.SkillFacade, pcgen.core.facade.CharacterLevelFacade, float)}
-	 * to check level selection where cross-class skills cost 2 points and class 
-	 * skills cost only 1. 
+	 * Test method for
+	 * {@link CharacterLevelsFacadeImpl#findNextLevelForSkill(SkillFacade, CharacterLevelFacade, float)}
+	 * to check level selection where cross-class skills cost 2 points and class
+	 * skills cost only 1.
 	 */
 	@Test
 	public void testFindNextLevelForSkill35eMultiClass()
@@ -349,37 +358,39 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		pc.incrementClassLevel(1, wizardClass);
 		pc.incrementClassLevel(1, fighterClass);
 		
-		assertTrue("Climb should be class for fighter", pc.isClassSkill(fighterClass, climbSkill));
-		assertFalse("Spellcraft should not be class for fighter", pc.isClassSkill(fighterClass, spellcraftSkill));
-		assertFalse("Climb should not be class for wizard", pc.isClassSkill(wizardClass, climbSkill));
-		assertTrue("Spellcraft should be class for wizard", pc.isClassSkill(wizardClass, spellcraftSkill));
+		assertTrue(pc.isClassSkill(fighterClass, climbSkill), "Climb should be class for fighter");
+		assertFalse(pc.isClassSkill(fighterClass, spellcraftSkill),
+				"Spellcraft should not be class for fighter");
+		assertFalse(pc.isClassSkill(wizardClass, climbSkill), "Climb should not be class for wizard");
+		assertTrue(pc.isClassSkill(wizardClass, spellcraftSkill), "Spellcraft should be class for wizard");
 
 		CharacterLevelsFacadeImpl charLvlsFI =
 				new CharacterLevelsFacadeImpl(pc, delegate,
 					todoManager, dataSetFacade, null);
 
 		assertEquals(
-			"Level for 1 ranks spellcraft",
-			charLvlsFI.getElementAt(0),
+				charLvlsFI.getElementAt(0),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(0), 1.0f));
+				charLvlsFI.getElementAt(0), 1.0f), "Level for 1 ranks spellcraft"
+		);
 		assertEquals(
-			"Level for 4 ranks spellcraft",
-			charLvlsFI.getElementAt(0),
+				charLvlsFI.getElementAt(0),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(0), 4.0f));
+				charLvlsFI.getElementAt(0), 4.0f), "Level for 4 ranks spellcraft"
+		);
 		assertEquals(
-			"Level for 5 ranks spellcraft",
-			charLvlsFI.getElementAt(1),
+				charLvlsFI.getElementAt(1),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(0), 5.0f));
+				charLvlsFI.getElementAt(0), 5.0f), "Level for 5 ranks spellcraft"
+		);
 		
 	}
 
 	/**
-	 * Test method for {@link pcgen.gui2.facade.CharacterLevelsFacadeImpl#findNextLevelForSkill(pcgen.core.facade.SkillFacade, pcgen.core.facade.CharacterLevelFacade, float)}
-	 * to check level selection for removing a skill rank where class and cross-class skills cost the 
-	 * same for all classes.
+	 * Test method for
+	 * {@link CharacterLevelsFacadeImpl#findNextLevelForSkill(SkillFacade, CharacterLevelFacade, float)}
+	 * to check level selection for removing a skill rank where class and
+	 * cross-class skills cost the same for all classes.
 	 */
 	@Test
 	public void testFindNextLevelForSkillAllSameCostRemove()
@@ -395,12 +406,13 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		pc.incrementClassLevel(3, fighterClass);
 		pc.incrementClassLevel(3, wizardClass);
 		
-		assertTrue("Climb should be class for fighter", pc.isClassSkill(fighterClass, climbSkill));
-		assertFalse("Spellcraft should not be class for fighter", pc.isClassSkill(fighterClass, spellcraftSkill));
-		assertTrue("UMD should be class for fighter", pc.isClassSkill(fighterClass, umdSkill));
-		assertFalse("Climb should not be class for wizard", pc.isClassSkill(wizardClass, climbSkill));
-		assertTrue("Spellcraft should be class for wizard", pc.isClassSkill(wizardClass, spellcraftSkill));
-		assertFalse("UMD should be class for fighter", pc.isClassSkill(wizardClass, umdSkill));
+		assertTrue(pc.isClassSkill(fighterClass, climbSkill), "Climb should be class for fighter");
+		assertFalse(pc.isClassSkill(fighterClass, spellcraftSkill),
+				"Spellcraft should not be class for fighter");
+		assertTrue(pc.isClassSkill(fighterClass, umdSkill), "UMD should be class for fighter");
+		assertFalse(pc.isClassSkill(wizardClass, climbSkill), "Climb should not be class for wizard");
+		assertTrue(pc.isClassSkill(wizardClass, spellcraftSkill), "Spellcraft should be class for wizard");
+		assertFalse(pc.isClassSkill(wizardClass, umdSkill), "UMD should be class for fighter");
 
 		CharacterLevelsFacadeImpl charLvlsFI =
 				new CharacterLevelsFacadeImpl(pc, delegate,
@@ -421,46 +433,46 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		// 1. Selected level (if class had purchased a rank, level has spent 
 		// points and current rank is not above maxranks)
 		assertEquals(
-			"Selected level for removing rank of spellcraft",
-			charLvlsFI.getElementAt(4),
+				charLvlsFI.getElementAt(4),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(4), 0.0f));
+				charLvlsFI.getElementAt(4), 0.0f), "Selected level for removing rank of spellcraft"
+		);
 		assertEquals(
-			"Selected level for removing rank of climb",
-			charLvlsFI.getElementAt(0),
+				charLvlsFI.getElementAt(0),
 			charLvlsFI.findNextLevelForSkill(climbSkill,
-				charLvlsFI.getElementAt(0), 0.0f));
+				charLvlsFI.getElementAt(0), 0.0f), "Selected level for removing rank of climb"
+		);
 		
 		// 2. Scan from level 1 for first level of the same class as currently 
 		// selected level in which the rank to be removed is below max ranks and 
 		// is a class that has bought ranks in the class
 		assertEquals(
-			"Wizard level for removing rank of spellcraft",
-			charLvlsFI.getElementAt(4),
+				charLvlsFI.getElementAt(4),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(5), 0.0f));
+				charLvlsFI.getElementAt(5), 0.0f), "Wizard level for removing rank of spellcraft"
+		);
 		assertEquals(
-			"Fighter level for removing rank of climb",
-			charLvlsFI.getElementAt(0),
+				charLvlsFI.getElementAt(0),
 			charLvlsFI.findNextLevelForSkill(climbSkill,
-				charLvlsFI.getElementAt(16), 0.0f));
+				charLvlsFI.getElementAt(16), 0.0f), "Fighter level for removing rank of climb"
+		);
 		assertEquals(
-			"Fighter level for removing ranks 9, 10 of UMD",
-			charLvlsFI.getElementAt(9),
+				charLvlsFI.getElementAt(9),
 			charLvlsFI.findNextLevelForSkill(umdSkill,
-				charLvlsFI.getElementAt(16), 8.0f));
+				charLvlsFI.getElementAt(16), 8.0f), "Fighter level for removing ranks 9, 10 of UMD"
+		);
 		
 		// 3. Scan from level 1 for first level of any class in which the rank 
 		// to be removed is below max ranks and is a class that has bought 
 		// ranks in the class
 		assertEquals(
-			"Any level for removing rank of spellcraft",
-			charLvlsFI.getElementAt(4),
+				charLvlsFI.getElementAt(4),
 			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(16), 0.0f));
+				charLvlsFI.getElementAt(16), 0.0f), "Any level for removing rank of spellcraft"
+		);
 	}
 
-	private void setGameSkillRankData(boolean crossClassCostTwo)
+	private static void setGameSkillRankData(boolean crossClassCostTwo)
 	{
 		GameMode game = SettingsHandler.getGame();
 		final XPTable xpTable = game.getLevelInfo(game.getDefaultXPTableName());

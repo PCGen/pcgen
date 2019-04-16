@@ -21,7 +21,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.ChangeProf;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.facet.analysis.ChangeProfFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
@@ -33,6 +32,8 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class ChangeProfFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, ChangeProf>
 {
@@ -43,12 +44,13 @@ public class ChangeProfFacetTest extends
 	private ChangeProf[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();
 		context =
-			new RuntimeLoadContext(new RuntimeReferenceContext(),
+			new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
 		CDOMObject cdo1 = new PCTemplate();
 		cdo1.setName("Template1");

@@ -1,5 +1,4 @@
 /*
- * PCLevelCastingInfo.java
  * Copyright 2006 (C) Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -18,15 +17,14 @@
  *
  * Created: November 8, 2006
  *
- * $Id: PCClass.java 1605 2006-11-08 02:14:21Z thpr $
  */
 package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
 import pcgen.base.formula.Formula;
 
@@ -34,9 +32,9 @@ import pcgen.base.formula.Formula;
  * SpellProgressionInfo contains information about Spell Progression in support
  * of a PCClass.
  * 
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  */
-public class SpellProgressionCache implements Cloneable {
+public class SpellProgressionCache implements Cloneable
+{
 
 	/*
 	 * FUTURETYPESAFETY Currently can't do better than String in knownMap,
@@ -76,8 +74,10 @@ public class SpellProgressionCache implements Cloneable {
 	 * @return The previously set KNOWN spell progression for the given class
 	 *         level; null if no KNOWN spell progression was previously set.
 	 */
-	public List<Formula> setKnown(int iLevel, List<Formula> aList) {
-		if (knownProgression == null) {
+	public List<Formula> setKnown(int iLevel, List<Formula> aList)
+	{
+		if (knownProgression == null)
+		{
 			knownProgression = new Progression();
 		}
 		return knownProgression.setProgression(iLevel, aList);
@@ -92,7 +92,8 @@ public class SpellProgressionCache implements Cloneable {
 	 * @return True if this SpellProgression contains a known spell progression;
 	 *         false otherwise.
 	 */
-	public boolean hasKnownProgression() {
+	public boolean hasKnownProgression()
+	{
 		return knownProgression != null && knownProgression.hasProgression();
 	}
 
@@ -110,9 +111,9 @@ public class SpellProgressionCache implements Cloneable {
 	 * 
 	 * @return The known spell progression for this SpellProgression object.
 	 */
-	public Map<Integer, List<Formula>> getKnownProgression() {
-		return knownProgression == null ? null : knownProgression
-				.getProgression();
+	public Map<Integer, List<Formula>> getKnownProgression()
+	{
+		return knownProgression == null ? null : knownProgression.getProgression();
 	}
 
 	/**
@@ -131,9 +132,9 @@ public class SpellProgressionCache implements Cloneable {
 	 * @return The known spell progression for the given class level, or null if
 	 *         there is no known spell progression for the given class level.
 	 */
-	public List<Formula> getKnownForLevel(int aLevel) {
-		return knownProgression == null ? null : knownProgression
-				.getProgressionForLevel(aLevel);
+	public List<Formula> getKnownForLevel(int aLevel)
+	{
+		return knownProgression == null ? null : knownProgression.getProgressionForLevel(aLevel);
 	}
 
 	/**
@@ -153,9 +154,9 @@ public class SpellProgressionCache implements Cloneable {
 	 * 
 	 * @return The highest possible known spell level.
 	 */
-	public int getHighestKnownSpellLevel() {
-		return knownProgression == null ? 0 : knownProgression
-				.getHighestSpellLevel();
+	public int getHighestKnownSpellLevel()
+	{
+		return knownProgression == null ? 0 : knownProgression.getHighestSpellLevel();
 	}
 
 	/**
@@ -177,8 +178,10 @@ public class SpellProgressionCache implements Cloneable {
 	 *         given class level; null if no KNOWN SPECIALTY spell progression
 	 *         was previously set.
 	 */
-	public List<Formula> setSpecialtyKnown(int aLevel, List<Formula> aList) {
-		if (specialtyKnownProgression == null) {
+	public List<Formula> setSpecialtyKnown(int aLevel, List<Formula> aList)
+	{
+		if (specialtyKnownProgression == null)
+		{
 			specialtyKnownProgression = new Progression();
 		}
 		return specialtyKnownProgression.setProgression(aLevel, aList);
@@ -192,9 +195,9 @@ public class SpellProgressionCache implements Cloneable {
 	 * @return True if this SpellProgression contains a known specialty spell
 	 *         progression; false otherwise.
 	 */
-	public boolean hasSpecialtyKnownProgression() {
-		return specialtyKnownProgression != null
-				&& specialtyKnownProgression.hasProgression();
+	public boolean hasSpecialtyKnownProgression()
+	{
+		return specialtyKnownProgression != null && specialtyKnownProgression.hasProgression();
 	}
 
 	/**
@@ -212,9 +215,9 @@ public class SpellProgressionCache implements Cloneable {
 	 * @return The known specialty spell progression for this SpellProgression
 	 *         object.
 	 */
-	public Map<Integer, List<Formula>> getSpecialtyKnownMap() {
-		return specialtyKnownProgression == null ? null
-				: specialtyKnownProgression.getProgression();
+	public Map<Integer, List<Formula>> getSpecialtyKnownMap()
+	{
+		return specialtyKnownProgression == null ? null : specialtyKnownProgression.getProgression();
 	}
 
 	/**
@@ -234,9 +237,9 @@ public class SpellProgressionCache implements Cloneable {
 	 *         or null if there is no known specialty spell progression for the
 	 *         given class level.
 	 */
-	public List<Formula> getSpecialtyKnownForLevel(int aLevel) {
-		return specialtyKnownProgression == null ? null
-				: specialtyKnownProgression.getProgressionForLevel(aLevel);
+	public List<Formula> getSpecialtyKnownForLevel(int aLevel)
+	{
+		return specialtyKnownProgression == null ? null : specialtyKnownProgression.getProgressionForLevel(aLevel);
 	}
 
 	/**
@@ -255,8 +258,10 @@ public class SpellProgressionCache implements Cloneable {
 	 * @return The previously set CAST spell progression for the given class
 	 *         level; null if no CAST spell progression was previously set.
 	 */
-	public List<Formula> setCast(int aLevel, List<Formula> aList) {
-		if (castProgression == null) {
+	public List<Formula> setCast(int aLevel, List<Formula> aList)
+	{
+		if (castProgression == null)
+		{
 			castProgression = new Progression();
 		}
 		return castProgression.setProgression(aLevel, aList);
@@ -269,7 +274,8 @@ public class SpellProgressionCache implements Cloneable {
 	 * @return True if this SpellProgression contains a CAST spell progression;
 	 *         false otherwise.
 	 */
-	public boolean hasCastProgression() {
+	public boolean hasCastProgression()
+	{
 		return castProgression != null && castProgression.hasProgression();
 	}
 
@@ -287,9 +293,9 @@ public class SpellProgressionCache implements Cloneable {
 	 * 
 	 * @return The CAST spell progression for this SpellProgression object.
 	 */
-	public Map<Integer, List<Formula>> getCastProgression() {
-		return castProgression == null ? null : castProgression
-				.getProgression();
+	public Map<Integer, List<Formula>> getCastProgression()
+	{
+		return castProgression == null ? null : castProgression.getProgression();
 	}
 
 	/**
@@ -308,9 +314,9 @@ public class SpellProgressionCache implements Cloneable {
 	 * @return The CAST spell progression for the given class level, or null if
 	 *         there is no CAST spell progression for the given class level.
 	 */
-	public List<Formula> getCastForLevel(int aLevel) {
-		return castProgression == null ? null : castProgression
-				.getProgressionForLevel(aLevel);
+	public List<Formula> getCastForLevel(int aLevel)
+	{
+		return castProgression == null ? null : castProgression.getProgressionForLevel(aLevel);
 	}
 
 	/**
@@ -330,9 +336,9 @@ public class SpellProgressionCache implements Cloneable {
 	 * 
 	 * @return The highest possible CAST spell level.
 	 */
-	public int getHighestCastSpellLevel() {
-		return castProgression == null ? 0 : castProgression
-				.getHighestSpellLevel();
+	public int getHighestCastSpellLevel()
+	{
+		return castProgression == null ? 0 : castProgression.getHighestSpellLevel();
 	}
 
 	/**
@@ -346,7 +352,7 @@ public class SpellProgressionCache implements Cloneable {
 	 * could provide that spell level). This DOES NOT return a class level where
 	 * a spell count is "-" (or spells are not available at all).
 	 * 
-	 * If allowBonus is false, this this will return a class level where the
+	 * If allowBonus is false, this will return a class level where the
 	 * CAST or KNOWN spell count is greater than zero (since no bonuses would be
 	 * applied to make the spell count a non-zero value)
 	 * 
@@ -363,11 +369,13 @@ public class SpellProgressionCache implements Cloneable {
 	 * @return The minimum class level required to acquire a spell of the given
 	 *         spell level (and potential application of bonuses)
 	 */
-	public int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus) {
-		if (castProgression != null) {
-			int lvl = castProgression.getMinLevelForSpellLevel(spellLevel,
-					allowBonus);
-			if (lvl != -1) {
+	public int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus)
+	{
+		if (castProgression != null)
+		{
+			int lvl = castProgression.getMinLevelForSpellLevel(spellLevel, allowBonus);
+			if (lvl != -1)
+			{
 				return lvl;
 			}
 		}
@@ -376,10 +384,11 @@ public class SpellProgressionCache implements Cloneable {
 		 * I know that it probably returns the intended result, but it needs to
 		 * be explained better in the comments. - thpr 11/9/06
 		 */
-		if (knownProgression != null) {
-			int lvl = knownProgression.getMinLevelForSpellLevel(spellLevel,
-					allowBonus);
-			if (lvl != -1) {
+		if (knownProgression != null)
+		{
+			int lvl = knownProgression.getMinLevelForSpellLevel(spellLevel, allowBonus);
+			if (lvl != -1)
+			{
 				return lvl;
 			}
 		}
@@ -405,24 +414,27 @@ public class SpellProgressionCache implements Cloneable {
 	 *         if this SpellProgressionInfo does not contain any KNOWN or CAST
 	 *         spell progressions for the given class level.
 	 */
-	public int getMaxSpellLevelForClassLevel(int classLevel) {
+	public int getMaxSpellLevelForClassLevel(int classLevel)
+	{
 		/*
 		 * Delegation to get*ForLevel is required because it is possible that
 		 * the given class level itself does not have a CAST or KNOWN
 		 * progression, but that a lower level does. Those methods account for
 		 * that situation.
 		 */
-		if (castProgression != null) {
-			List<Formula> knownList = castProgression
-					.getProgressionForLevel(classLevel);
-			if (knownList != null) {
+		if (castProgression != null)
+		{
+			List<Formula> knownList = castProgression.getProgressionForLevel(classLevel);
+			if (knownList != null)
+			{
 				return knownList.size() - 1;
 			}
 		}
-		if (knownProgression != null) {
-			List<Formula> knownList = knownProgression
-					.getProgressionForLevel(classLevel);
-			if (knownList != null) {
+		if (knownProgression != null)
+		{
+			List<Formula> knownList = knownProgression.getProgressionForLevel(classLevel);
+			if (knownList != null)
+			{
 				return knownList.size() - 1;
 			}
 		}
@@ -447,7 +459,8 @@ public class SpellProgressionCache implements Cloneable {
 	 * @throws CloneNotSupportedException
 	 */
 	@Override
-	public SpellProgressionCache clone() throws CloneNotSupportedException {
+	public SpellProgressionCache clone() throws CloneNotSupportedException
+	{
 		SpellProgressionCache spi = (SpellProgressionCache) super.clone();
 		/*
 		 * Each of knownMap, specialtyKnownMap, and castMap need one level deep
@@ -457,13 +470,16 @@ public class SpellProgressionCache implements Cloneable {
 		 * level deep clone is required in case there is a PCClass.COPY or
 		 * something that then mods a KNOWN or CAST.
 		 */
-		if (knownProgression != null) {
+		if (knownProgression != null)
+		{
 			spi.knownProgression = knownProgression.clone();
 		}
-		if (specialtyKnownProgression != null) {
+		if (specialtyKnownProgression != null)
+		{
 			spi.specialtyKnownProgression = specialtyKnownProgression.clone();
 		}
-		if (castProgression != null) {
+		if (castProgression != null)
+		{
 			spi.castProgression = castProgression.clone();
 		}
 		return spi;
@@ -479,7 +495,8 @@ public class SpellProgressionCache implements Cloneable {
 	 * out as a separate class in order to maintain consistent behavior and
 	 * avoid a ton of redundant code within SpellProgressionInfo.
 	 */
-	private static class Progression implements Cloneable {
+	private static class Progression implements Cloneable
+	{
 		/**
 		 * This is a Map of spells. The Integer key is the Class level, the
 		 * value is a List of constants or Formula for each SpellLevel.
@@ -504,36 +521,39 @@ public class SpellProgressionCache implements Cloneable {
 		 * @return The previously set spell progression for the given class
 		 *         level; null if no spell progression was previously set.
 		 */
-		public List<Formula> setProgression(int iLevel, List<Formula> aList) {
-			if (iLevel < 1) {
-				throw new IllegalArgumentException(
-						"Level must be >= 1 in spell progression");
+		public List<Formula> setProgression(int iLevel, List<Formula> aList)
+		{
+			if (iLevel < 1)
+			{
+				throw new IllegalArgumentException("Level must be >= 1 in spell progression");
 			}
-			if (aList == null) {
-				throw new IllegalArgumentException(
-						"Cannot add null spell progression list to level "
-								+ iLevel);
+			if (aList == null)
+			{
+				throw new IllegalArgumentException("Cannot add null spell progression list to level " + iLevel);
 			}
-			if (aList.isEmpty()) {
-				throw new IllegalArgumentException(
-						"Cannot add empty spell progression list to level "
-								+ iLevel);
+			if (aList.isEmpty())
+			{
+				throw new IllegalArgumentException("Cannot add empty spell progression list to level " + iLevel);
 			}
-			if (aList.contains(null)) {
+			if (aList.contains(null))
+			{
 				throw new IllegalArgumentException(
-						"Cannot have null value in spell progrssion list in level "
-								+ iLevel);
+					"Cannot have null value in spell progrssion list in level " + iLevel);
 			}
-			if (progressionMap == null) {
+			if (progressionMap == null)
+			{
 				progressionMap = new TreeMap<>();
 			}
 			return progressionMap.put(iLevel, new ArrayList<>(aList));
 		}
 
-		public int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus) {
-			for (Entry<Integer, List<Formula>> me : progressionMap.entrySet()) {
+		public int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus)
+		{
+			for (Entry<Integer, List<Formula>> me : progressionMap.entrySet())
+			{
 				List<Formula> progressionList = me.getValue();
-				for (int lvl = spellLevel; lvl < progressionList.size(); lvl++) {
+				for (int lvl = spellLevel; lvl < progressionList.size(); lvl++)
+				{
 					/*
 					 * This for loop is to protect against a (admittedly
 					 * strange) class that grants N + 1 level spells, but not N
@@ -543,8 +563,8 @@ public class SpellProgressionCache implements Cloneable {
 					 * FIXME This will break if there are spell formulae - thpr
 					 * 11/9/06
 					 */
-					if (allowBonus
-							|| Integer.parseInt(progressionList.get(lvl).toString()) != 0) {
+					if (allowBonus || Integer.parseInt(progressionList.get(lvl).toString()) != 0)
+					{
 						return me.getKey();
 					}
 				}
@@ -558,7 +578,8 @@ public class SpellProgressionCache implements Cloneable {
 		 * @return True if this Progression contains a spell progression; false
 		 *         otherwise.
 		 */
-		public boolean hasProgression() {
+		public boolean hasProgression()
+		{
 			return progressionMap != null;
 		}
 
@@ -576,8 +597,10 @@ public class SpellProgressionCache implements Cloneable {
 		 * 
 		 * @return The spell progression for this Progression object.
 		 */
-		public Map<Integer, List<Formula>> getProgression() {
-			if (progressionMap == null) {
+		public Map<Integer, List<Formula>> getProgression()
+		{
+			if (progressionMap == null)
+			{
 				return null;
 			}
 			return progressionMap;
@@ -599,27 +622,34 @@ public class SpellProgressionCache implements Cloneable {
 		 * @return The spell progression for the given class level, or null if
 		 *         there is no spell progression for the given class level.
 		 */
-		public List<Formula> getProgressionForLevel(int classLevel) {
+		public List<Formula> getProgressionForLevel(int classLevel)
+		{
 			List<Formula> spellProgression = null;
 			boolean found = false;
-			if(progressionMap != null) {
+			if (progressionMap != null)
+			{
 				Integer key = classLevel;
-				if (!progressionMap.containsKey(key)) {
+				if (!progressionMap.containsKey(key))
+				{
 					//No spellcasting at level key, check previous levels
-					if (progressionMap.firstKey() < classLevel) {
+					if (progressionMap.firstKey() < classLevel)
+					{
 						key = progressionMap.headMap(key).lastKey();
 						found = true;
 					}
-				} else {
+				}
+				else
+				{
 					found = true;
 				}
-				if(found) {
+				if (found)
+				{
 					List<Formula> list = progressionMap.get(key);
 					spellProgression = new ArrayList<>(list);
 				}
 			}
 			return spellProgression;
-			
+
 		}
 
 		/**
@@ -639,10 +669,13 @@ public class SpellProgressionCache implements Cloneable {
 		 * 
 		 * @return The highest possible spell level in this Progression.
 		 */
-		public int getHighestSpellLevel() {
-			if (progressionMap != null) {
+		public int getHighestSpellLevel()
+		{
+			if (progressionMap != null)
+			{
 				int highest = -1;
-				for (List<Formula> list : progressionMap.values()) {
+				for (List<Formula> list : progressionMap.values())
+				{
 					highest = Math.max(highest, list.size() - 1);
 				}
 				return highest;
@@ -667,11 +700,12 @@ public class SpellProgressionCache implements Cloneable {
 		 * @throws CloneNotSupportedException
 		 */
 		@Override
-		public Progression clone() throws CloneNotSupportedException {
+		public Progression clone() throws CloneNotSupportedException
+		{
 			Progression p = (Progression) super.clone();
-			if (progressionMap != null) {
-				p.progressionMap = new TreeMap<>(
-                        progressionMap);
+			if (progressionMap != null)
+			{
+				p.progressionMap = new TreeMap<>(progressionMap);
 			}
 			return p;
 		}
@@ -679,7 +713,6 @@ public class SpellProgressionCache implements Cloneable {
 
 	public boolean isEmpty()
 	{
-		return knownProgression == null && castProgression == null
-				&& specialtyKnownProgression == null;
+		return knownProgression == null && castProgression == null && specialtyKnownProgression == null;
 	}
 }

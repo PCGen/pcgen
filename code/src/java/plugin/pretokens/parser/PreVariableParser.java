@@ -1,6 +1,4 @@
 /*
- * PreVariableParser.java
- *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 19-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package plugin.pretokens.parser;
 
@@ -35,20 +26,17 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre variable tokens.
- *
  */
-public class PreVariableParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreVariableParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
-		return new String[]{"VAR", "VAREQ", "VARLTEQ", "VARLT", "VARNEQ",
-			"VARGT", "VARGTEQ"};
+		return new String[]{"VAR", "VAREQ", "VARLTEQ", "VARLT", "VARNEQ", "VARGT", "VARGTEQ"};
 	}
 
 	/**
@@ -64,17 +52,15 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		prereq.setKind("var");
 
 		// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
 		String compType = kind.substring(3);
-		if (compType.length() == 0)
+		if (compType.isEmpty())
 		{
 			compType = "gteq";
 		}
@@ -91,9 +77,8 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 				String first = ps.next();
 				if (!ps.hasNext())
 				{
-					throw new PersistenceLayerException(
-							"Unable to parse prerequisite 'PRE" + kind + ":" + formula
-								+ "'. Incorrect parameter count (must be even)");
+					throw new PersistenceLayerException("Unable to parse prerequisite 'PRE" + kind + ':' + formula
+						+ "'. Incorrect parameter count (must be even)");
 				}
 				String second = ps.next();
 				Prerequisite subreq;
@@ -121,8 +106,7 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse prerequisite 'PRE" + kind + ":" + formula
-					+ "'. " + pe.getLocalizedMessage());
+				"Unable to parse prerequisite 'PRE" + kind + ':' + formula + "'. " + pe.getLocalizedMessage());
 		}
 
 		if (invertResult)

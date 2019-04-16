@@ -17,28 +17,15 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreItemParser;
 import plugin.pretokens.writer.PreItemWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class PreItemRoundRobin extends AbstractBasicRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreItemRoundRobin.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreItemRoundRobin.class);
-	}
-
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

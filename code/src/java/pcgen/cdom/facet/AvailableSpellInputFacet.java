@@ -34,8 +34,7 @@ import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 
-public class AvailableSpellInputFacet implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class AvailableSpellInputFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private ConditionallyAvailableSpellFacet conditionallyAvailableSpellFacet;
@@ -52,15 +51,12 @@ public class AvailableSpellInputFacet implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		Collection<CDOMReference<? extends CDOMList<?>>> listrefs =
-				cdo.getModifiedLists();
+		Collection<CDOMReference<? extends CDOMList<?>>> listrefs = cdo.getModifiedLists();
 		CharID id = dfce.getCharID();
 		for (CDOMReference<? extends CDOMList<?>> ref : listrefs)
 		{
@@ -68,14 +64,11 @@ public class AvailableSpellInputFacet implements
 		}
 	}
 
-	private void processListRef(CharID id, CDOMObject cdo,
-		CDOMReference<? extends CDOMList<?>> listref)
+	private void processListRef(CharID id, CDOMObject cdo, CDOMReference<? extends CDOMList<?>> listref)
 	{
-		for (CDOMList<?> list : listref
-			.getContainedObjects())
+		for (CDOMList<?> list : listref.getContainedObjects())
 		{
-			if (!(list instanceof ClassSpellList)
-				&& !(list instanceof DomainSpellList))
+			if (!(list instanceof ClassSpellList) && !(list instanceof DomainSpellList))
 			{
 				continue;
 			}
@@ -84,14 +77,12 @@ public class AvailableSpellInputFacet implements
 		}
 	}
 
-	private void processList(CharID id, CDOMList<Spell> spelllist,
-		CDOMReference<? extends CDOMList<?>> listref, CDOMObject cdo)
+	private void processList(CharID id, CDOMList<Spell> spelllist, CDOMReference<? extends CDOMList<?>> listref,
+		CDOMObject cdo)
 	{
-		for (CDOMReference<Spell> objref : cdo
-			.getListMods((CDOMReference<? extends CDOMList<Spell>>) listref))
+		for (CDOMReference<Spell> objref : cdo.getListMods((CDOMReference<? extends CDOMList<Spell>>) listref))
 		{
-			for (AssociatedPrereqObject apo : cdo.getListAssociations(listref,
-				objref))
+			for (AssociatedPrereqObject apo : cdo.getListAssociations(listref, objref))
 			{
 				Collection<Spell> spells = objref.getContainedObjects();
 				Integer lvl = apo.getAssociation(AssociationKey.SPELL_LEVEL);
@@ -100,8 +91,7 @@ public class AvailableSpellInputFacet implements
 					List<Prerequisite> prereqs = apo.getPrerequisiteList();
 					for (Spell spell : spells)
 					{
-						AvailableSpell as =
-								new AvailableSpell(spelllist, spell, lvl);
+						AvailableSpell as = new AvailableSpell(spelllist, spell, lvl);
 						as.addAllPrerequisites(prereqs);
 						conditionallyAvailableSpellFacet.add(id, as, cdo);
 					}
@@ -125,8 +115,6 @@ public class AvailableSpellInputFacet implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -148,14 +136,12 @@ public class AvailableSpellInputFacet implements
 		consolidationFacet.addDataFacetChangeListener(this);
 	}
 
-	public void setConsolidationFacet(
-		CDOMObjectConsolidationFacet consolidationFacet)
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
 	{
 		this.consolidationFacet = consolidationFacet;
 	}
 
-	public void setConditionallyAvailableSpellFacet(
-		ConditionallyAvailableSpellFacet conditionallyAvailableSpellFacet)
+	public void setConditionallyAvailableSpellFacet(ConditionallyAvailableSpellFacet conditionallyAvailableSpellFacet)
 	{
 		this.conditionallyAvailableSpellFacet = conditionallyAvailableSpellFacet;
 	}

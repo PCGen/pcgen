@@ -1,5 +1,4 @@
 /*
- * HtmlSheetSupport.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Mar 10, 2011, 1:35:43 PM
  */
 package pcgen.gui2.tabs.models;
 
@@ -46,21 +44,17 @@ import javax.swing.SwingUtilities;
 import javax.swing.text.EditorKit;
 import javax.swing.text.html.HTMLDocument;
 
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.base.lang.UnreachableError;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
+import org.apache.commons.lang3.StringUtils;
+
 public class HtmlSheetSupport
 {
 
-	private static final ThreadFactory threadFactory = new ThreadFactory()
+	private static final ThreadFactory THREAD_FACTORY = new ThreadFactory()
 	{
 
 		@Override
@@ -73,7 +67,7 @@ public class HtmlSheetSupport
 		}
 
 	};
-	private ExecutorService executor = Executors.newSingleThreadExecutor(threadFactory);
+	private ExecutorService executor = Executors.newSingleThreadExecutor(THREAD_FACTORY);
 
 	private WeakReference<CharacterFacade> characterRef;
 	private final File templateFile;
@@ -212,58 +206,6 @@ public class HtmlSheetSupport
 
 	}
 
-//	private class DocumentBuilder implements Callable<HTMLDocument>, Runnable
-//	{
-//
-//		private PipedWriter writer = new PipedWriter();
-//
-//		public HTMLDocument call() throws Exception
-//		{
-//			PipedReader reader = new PipedReader(writer);
-//			createWriterThread().start();
-//
-//			EditorKit kit = htmlPane.getEditorKit();
-//			HTMLDocument doc = new HTMLDocument();
-//			doc.setBase(templateFile.getParentFile().toURL());
-//			// XXX - This is a hack specific to Sun's JDK 5.0 and in no
-//			// way should be trusted to work in future java releases
-//			// (though it still might) - Connor Petty
-//			doc.putProperty("imageCache", cache);
-//			kit.read(reader, doc, 0);
-//			reader.close();
-//			return doc;
-//		}
-//
-//		private Thread createWriterThread()
-//		{
-//			Thread thread = new Thread(this);
-//			thread.setName("html-sheet-thread-2");
-//			thread.setDaemon(true);
-//			thread.setPriority(Thread.NORM_PRIORITY);
-//			return thread;
-//		}
-//
-//		public void run()
-//		{
-//			BufferedWriter bw = new BufferedWriter(writer, 1);
-//			try
-//			{
-//				character.export(new ExportHandler(templateFile), bw);
-//			}
-//			finally
-//			{
-//				try
-//				{
-//					bw.close();
-//				}
-//				catch (IOException ex)
-//				{
-//					Logging.errorPrint("Unable to close PipedWriter", ex);
-//				}
-//			}
-//		}
-//
-//	}
 	/**
 	 * A cache for images loaded onto the info pane.
 	 */

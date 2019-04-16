@@ -1,0 +1,9 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
+
+
+# Race Name					Ability
+Companion (Carnivorous Flower).MOD	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Unusual (Plant and Vermin)
+Companion (Crawling Vine).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Unusual (Plant and Vermin)
+Companion (Puffball).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Unusual (Plant and Vermin)
+Companion (Sapling Treant).MOD	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Biped (Hands)

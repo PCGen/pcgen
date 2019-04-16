@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountTemplatesNamesTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 20:34:40
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -29,8 +25,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.util.enumeration.View;
 
-public class PCCountTemplatesTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCCountTemplatesTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountTemplatesTermEvaluator(String originalText)
 	{
@@ -40,7 +35,7 @@ public class PCCountTemplatesTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		Float count = new Float(0);
+		Float count = (float) 0;
 		for (PCTemplate template : display.getTemplateSet())
 		{
 			//TODO This is a bug, it assumes export

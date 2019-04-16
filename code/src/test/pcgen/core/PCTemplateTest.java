@@ -1,5 +1,4 @@
 /*
- * PCTemplateTest.java
  * Copyright 2007 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Jan 3, 2007
- *
- * $Id: PCTemplateTest.java 1855 2007-01-02 06:42:02Z jdempsey $
- *
  */
 package pcgen.core;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -30,8 +28,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMReference;
@@ -45,64 +41,25 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.rules.context.LoadContext;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
- * <code>PCTemplateTest</code> tests the fucntion of the PCTemplate class.
- *
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * {@code PCTemplateTest} tests the fucntion of the PCTemplate class.
  */
 public class PCTemplateTest extends AbstractCharacterTestCase
 {
 	private PCClass testClass;
 	private GenericLoader<PCTemplate> loader = new GenericLoader<>(PCTemplate.class);
-	
-	/**
-	 * Constructs a new <code>PCTemplateTest</code>.
-	 *
-	 * @see PCGenTestCase#PCGenTestCase()
-	 */
-	public PCTemplateTest()
-	{
-		// Do Nothing
-	}
-
-	/**
-	 * Constructs a new <code>PCTemplateTest</code> with the given <var>name</var>.
-	 *
-	 * @param name the test case name
-	 *
-	 * @see PCGenTestCase#PCGenTestCase(String)
-	 */
-	public PCTemplateTest(final String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Run the tests
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(PCTemplateTest.class);
-	}
-
-	/**
-	 * Returns all the test methasVFeatshods in this class.
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		// quick method, adds all methods beginning with "test"
-		return new TestSuite(PCTemplateTest.class);
-	}
 
 	/**
 	 * Test the definition and application of abilities. 
 	 * @throws PersistenceLayerException 
 	 * @throws MalformedURLException 
 	 */
+	@Test
 	public void testAddAbility() throws PersistenceLayerException, MalformedURLException
 	{
 		LoadContext context = Globals.getContext();
@@ -133,7 +90,8 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 				context,
 				null,
 				"Template1	ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
-		PCTemplate template = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+		PCTemplate template =
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.getReferenceContext().importObject(ab1);
 		context.getReferenceContext().importObject(ab2);
 		CDOMSingleRef<AbilityCategory> acRef =
@@ -167,17 +125,18 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException 
 	 * @throws MalformedURLException 
 	 */
+	@Test
 	public void testAddFeatAbility() throws PersistenceLayerException, MalformedURLException
 	{
 		LoadContext context = Globals.getContext();
 		// Create some abilities to be added
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
-		ab1.setCDOMCategory(AbilityCategory.FEAT);
+		ab1.setCDOMCategory(BuildUtilities.getFeatCat());
 		context.getReferenceContext().importObject(ab1);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
-		ab2.setCDOMCategory(AbilityCategory.FEAT);
+		ab2.setCDOMCategory(BuildUtilities.getFeatCat());
 		context.getReferenceContext().importObject(ab2);
 
 		CampaignSourceEntry source;
@@ -195,7 +154,8 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 					context,
 					null,
 				"Template1	ABILITY:FEAT|AUTOMATIC|Ability1	ABILITY:FEAT|AUTOMATIC|Ability2", source);
-		PCTemplate template = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+		PCTemplate template =
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.getReferenceContext().importObject(ab1);
 		context.getReferenceContext().importObject(ab2);
 		CDOMSingleRef<AbilityCategory> acRef =
@@ -219,10 +179,10 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(template);
 		// Need to do this to populate the ability list
-		//pc.getAutomaticAbilityList(AbilityCategory.FEAT);
-		assertTrue("Character should have ability1.", hasAbility(pc, AbilityCategory.FEAT,
+		//pc.getAutomaticAbilityList(BuildUtilities.getFeatCat());
+		assertTrue("Character should have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
 			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, AbilityCategory.FEAT,
+		assertTrue("Character should have ability2.", hasAbility(pc, BuildUtilities.getFeatCat(),
 			Nature.AUTOMATIC, ab2));
 	}
 
@@ -231,6 +191,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException 
 	 * @throws MalformedURLException 
 	 */
+	@Test
 	public void testAddLevelAbility() throws PersistenceLayerException, MalformedURLException
 	{
 		LoadContext context = Globals.getContext();
@@ -262,7 +223,8 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 					context,
 					null,
 				"Template1	LEVEL:2:ABILITY:TestCat|AUTOMATIC|Ability1	ABILITY:TestCat|AUTOMATIC|Ability2", source);
-		PCTemplate template = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+		PCTemplate template =
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.getReferenceContext().importObject(ab1);
 		context.getReferenceContext().importObject(ab2);
 		CDOMSingleRef<AbilityCategory> acRef =
@@ -317,17 +279,18 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 	 * @throws PersistenceLayerException 
 	 * @throws MalformedURLException 
 	 */
+	@Test
 	public void testAddLevelFeatAbility() throws PersistenceLayerException, MalformedURLException
 	{
 		// Create some abilities to be added
 		LoadContext context = Globals.getContext();
 		Ability ab1 = new Ability();
 		ab1.setName("Ability1");
-		ab1.setCDOMCategory(AbilityCategory.FEAT);
+		ab1.setCDOMCategory(BuildUtilities.getFeatCat());
 		context.getReferenceContext().importObject(ab1);
 		Ability ab2 = new Ability();
 		ab2.setName("Ability2");
-		ab2.setCDOMCategory(AbilityCategory.FEAT);
+		ab2.setCDOMCategory(BuildUtilities.getFeatCat());
 		context.getReferenceContext().importObject(ab2);
 
 		CampaignSourceEntry source;
@@ -345,7 +308,8 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 					context,
 				null,
 				"Template1	LEVEL:2:ABILITY:Feat|AUTOMATIC|Ability1	ABILITY:Feat|AUTOMATIC|Ability2", source);
-		PCTemplate template = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
+		PCTemplate template =
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class, "Template1");
 		context.getReferenceContext().importObject(ab1);
 		context.getReferenceContext().importObject(ab2);
 		CDOMSingleRef<AbilityCategory> acRef =
@@ -377,27 +341,25 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(template);
-		assertFalse("Character should not have ability1.", hasAbility(pc, AbilityCategory.FEAT,
+		assertFalse("Character should not have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
 			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, AbilityCategory.FEAT,
+		assertTrue("Character should have ability2.", hasAbility(pc, BuildUtilities.getFeatCat(),
 			Nature.AUTOMATIC, ab2));
 		
 		// Level the character up, testing for when the level tag kicks in
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
-		assertFalse("Character should not have ability1.", hasAbility(pc, AbilityCategory.FEAT,
+		assertFalse("Character should not have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
 			Nature.AUTOMATIC, ab1));
 
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
-		assertTrue("Character should have ability1.", hasAbility(pc, AbilityCategory.FEAT,
+		assertTrue("Character should have ability1.", hasAbility(pc, BuildUtilities.getFeatCat(),
 			Nature.AUTOMATIC, ab1));
 		
 	}
-	
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
+
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -411,12 +373,4 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
-	@Override
-	protected void tearDown() throws Exception
-	{
-		super.tearDown();
-	}
 }

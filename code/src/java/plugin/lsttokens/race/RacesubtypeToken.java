@@ -36,8 +36,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with RACESUBTYPE Token
  */
-public class RacesubtypeToken extends AbstractTokenWithSeparator<Race>
-		implements CDOMPrimaryToken<Race>
+public class RacesubtypeToken extends AbstractTokenWithSeparator<Race> implements CDOMPrimaryToken<Race>
 {
 
 	@Override
@@ -53,8 +52,7 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<Race>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Race race, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Race race, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		boolean first = true;
@@ -66,22 +64,20 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<Race>
 			{
 				if (!first)
 				{
-					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item: " + value, context);
+					return new ParseResult.Fail(
+						"  Non-sensical " + getTokenName() + ": .CLEAR was not the first list item: " + value);
 				}
 				context.getObjectContext().removeList(race, ListKey.RACESUBTYPE);
 			}
 			else if (tokString.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
 				String clearText = tokString.substring(7);
-				context.getObjectContext()
-						.removeFromList(race, ListKey.RACESUBTYPE,
-								RaceSubType.getConstant(clearText));
+				context.getObjectContext().removeFromList(race, ListKey.RACESUBTYPE,
+					RaceSubType.getConstant(clearText));
 			}
 			else
 			{
-				context.getObjectContext().addToList(race, ListKey.RACESUBTYPE,
-						RaceSubType.getConstant(tokString));
+				context.getObjectContext().addToList(race, ListKey.RACESUBTYPE, RaceSubType.getConstant(tokString));
 			}
 			first = false;
 		}
@@ -91,8 +87,7 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<Race>
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		Changes<RaceSubType> changes = context.getObjectContext()
-				.getListChanges(race, ListKey.RACESUBTYPE);
+		Changes<RaceSubType> changes = context.getObjectContext().getListChanges(race, ListKey.RACESUBTYPE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -103,17 +98,15 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<Race>
 		{
 			if (removedItems != null && !removedItems.isEmpty())
 			{
-				context.addWriteMessage("Non-sensical relationship in "
-						+ getTokenName()
-						+ ": global .CLEAR and local .CLEAR. performed");
+				context.addWriteMessage(
+					"Non-sensical relationship in " + getTokenName() + ": global .CLEAR and local .CLEAR. performed");
 				return null;
 			}
 			list.add(Constants.LST_DOT_CLEAR);
 		}
 		else if (removedItems != null && !removedItems.isEmpty())
 		{
-			list.add(Constants.LST_DOT_CLEAR_DOT
-					+ StringUtil.join(removedItems, "|.CLEAR."));
+			list.add(Constants.LST_DOT_CLEAR_DOT + StringUtil.join(removedItems, "|.CLEAR."));
 		}
 		Collection<RaceSubType> added = changes.getAdded();
 		if (added != null && !added.isEmpty())

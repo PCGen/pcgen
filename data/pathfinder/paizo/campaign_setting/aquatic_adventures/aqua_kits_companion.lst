@@ -1,0 +1,16 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Aquatic Adventures	SOURCESHORT:AquA	SOURCEWEB:http://paizo.com/products/btpy9toq?Pathfinder-Campaign-Setting-Aquatic-Adventures	SOURCEDATE:2017-06
+# ORIGINAL ENTRY: Gary Davies
+# ORIGINAL ENTRY DATE: 2017-07
+
+STARTPACK:Companion ~ Dolphin (Oceanrider Orca)	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+
+STARTPACK:Companion ~ Seahorse	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
+
+STARTPACK:Companion ~ Hippocampus	TYPE:Companion	VISIBLE:NO
+ALIGN:TN
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11

@@ -1,5 +1,4 @@
 /*
- * MigrationRule.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,23 +14,16 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 2013-06-01 10:15:00 AM
- *
- * $Id$
  */
 package pcgen.core.system;
 
 import pcgen.core.utils.CoreUtility;
 
-
 /**
- * The Class <code>MigrationRule</code> defines a key change that needs to 
+ * The Class {@code MigrationRule} defines a key change that needs to
  * be made to a character when it is loaded. 
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MigrationRule
 {
@@ -41,14 +33,10 @@ public class MigrationRule
 	 */
 	public enum ObjectType
 	{
-		ABILITY(true), 
-		EQUIPMENT(false), 
-		RACE(false), 
-		SOURCE(false),
-		SPELL(false);
-		
+		ABILITY(true), EQUIPMENT(false), RACE(false), SOURCE(false), SPELL(false);
+
 		private final boolean categorized;
-		
+
 		private ObjectType(boolean categorized)
 		{
 			this.categorized = categorized;
@@ -62,7 +50,7 @@ public class MigrationRule
 			return categorized;
 		}
 	}
-	
+
 	private ObjectType objectType;
 	private String oldKey;
 	private String newKey;
@@ -72,8 +60,7 @@ public class MigrationRule
 	private String maxDevVer;
 	private String minVer;
 	private String minDevVer;
-	
-	
+
 	/**
 	 * Create a new MigrationRule for a categorized object.
 	 * 
@@ -91,7 +78,7 @@ public class MigrationRule
 		this.oldCategory = oldCategory;
 		this.oldKey = oldKey;
 	}
-	
+
 	/**
 	 * Create a new MigrationRule for a non-categorized object.
 	 * 
@@ -107,75 +94,92 @@ public class MigrationRule
 		this.objectType = objectType;
 		this.oldKey = oldKey;
 	}
-	
+
 	public ObjectType getObjectType()
 	{
 		return objectType;
 	}
+
 	public void setObjectType(ObjectType objectType)
 	{
 		this.objectType = objectType;
 	}
+
 	public String getOldKey()
 	{
 		return oldKey;
 	}
+
 	public void setOldKey(String oldKey)
 	{
 		this.oldKey = oldKey;
 	}
+
 	public String getNewKey()
 	{
 		return newKey;
 	}
+
 	public void setNewKey(String newKey)
 	{
 		this.newKey = newKey;
 	}
+
 	public String getOldCategory()
 	{
 		return oldCategory;
 	}
+
 	public void setOldCategory(String oldCategory)
 	{
 		this.oldCategory = oldCategory;
 	}
+
 	public String getNewCategory()
 	{
 		return newCategory;
 	}
+
 	public void setNewCategory(String newCategory)
 	{
 		this.newCategory = newCategory;
 	}
+
 	public String getMaxVer()
 	{
 		return maxVer;
 	}
+
 	public void setMaxVer(String maxVer)
 	{
 		this.maxVer = maxVer;
 	}
+
 	public String getMaxDevVer()
 	{
 		return maxDevVer;
 	}
+
 	public void setMaxDevVer(String maxDevVer)
 	{
 		this.maxDevVer = maxDevVer;
 	}
+
 	public String getMinVer()
 	{
 		return minVer;
 	}
+
 	public void setMinVer(String minVer)
 	{
 		this.minVer = minVer;
 	}
+
 	public String getMinDevVer()
 	{
 		return minDevVer;
 	}
+
 	public void setMinDevVer(String minDevVer)
 	{
 		this.minDevVer = minDevVer;
@@ -192,7 +196,7 @@ public class MigrationRule
 		//   (before or equal MAXDEVVER (and same major.minor ver))
 		// PC ver must be after or equal MINVER, and
 		// PC ver must be after or equal MINDEVVER (and same major.minor ver)
-		
+
 		// e.g. 5.12.1 - 5.16.4/5.17.10
 		int[] maxVerInt = CoreUtility.convertVersionToNumber(maxVer);
 		if (CoreUtility.compareVersions(pcgVer, maxVerInt) > 0)
@@ -203,8 +207,8 @@ public class MigrationRule
 				return false;
 			}
 			int[] maxDevVerInt = CoreUtility.convertVersionToNumber(maxDevVer);
-			if (CoreUtility.compareVersions(pcgVer, maxDevVerInt) > 0 ||
-					!CoreUtility.sameMajorMinorVer(pcgVer, maxDevVerInt))
+			if (CoreUtility.compareVersions(pcgVer, maxDevVerInt) > 0
+				|| !CoreUtility.sameMajorMinorVer(pcgVer, maxDevVerInt))
 			{
 				return false;
 			}
@@ -220,8 +224,8 @@ public class MigrationRule
 			if (minDevVer != null)
 			{
 				int[] minDevVerInt = CoreUtility.convertVersionToNumber(minDevVer);
-				if (CoreUtility.compareVersions(pcgVer, minDevVerInt) < 0 &&
-						CoreUtility.sameMajorMinorVer(pcgVer, minDevVerInt))
+				if (CoreUtility.compareVersions(pcgVer, minDevVerInt) < 0
+					&& CoreUtility.sameMajorMinorVer(pcgVer, minDevVerInt))
 				{
 					return false;
 				}
@@ -234,7 +238,6 @@ public class MigrationRule
 	@Override
 	public String toString()
 	{
-		return "MigrationRule [objectType=" + objectType + ", oldKey=" + oldKey
-			+ ", maxVer=" + maxVer + "]";
+		return "MigrationRule [objectType=" + objectType + ", oldKey=" + oldKey + ", maxVer=" + maxVer + "]";
 	}
 }

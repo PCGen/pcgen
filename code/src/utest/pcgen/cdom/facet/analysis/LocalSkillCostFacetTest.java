@@ -17,9 +17,9 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -34,7 +34,11 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
-public class LocalSkillCostFacetTest extends TestCase
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class LocalSkillCostFacetTest
 {
 	protected CharID id;
 	protected CharID altid;
@@ -43,10 +47,9 @@ public class LocalSkillCostFacetTest extends TestCase
 	private PCClass class1;
 	private PCClass class2;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -54,6 +57,16 @@ public class LocalSkillCostFacetTest extends TestCase
 		class1.setName("Cl1");
 		class2 = new PCClass();
 		class2.setName("Cl2");
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		facet = null;
+		class1 = null;
+		class2  = null;
 	}
 
 	@Test
@@ -64,12 +77,13 @@ public class LocalSkillCostFacetTest extends TestCase
 			addCost(null, class1, getObject(), SkillCost.CLASS);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
 	}
 
+	@Test
 	public void testAddNullClass()
 	{
 		try
@@ -77,7 +91,7 @@ public class LocalSkillCostFacetTest extends TestCase
 			addCost(id, null, getObject(), SkillCost.CLASS);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -91,13 +105,9 @@ public class LocalSkillCostFacetTest extends TestCase
 			addCost(id, class1, null, SkillCost.CLASS);
 			fail();
 		}
-		catch (IllegalArgumentException e)
-		{
-			// Yep!
-		}
 		catch (NullPointerException e)
 		{
-			// Just as Good!
+			// Yep!
 		}
 	}
 
@@ -109,13 +119,9 @@ public class LocalSkillCostFacetTest extends TestCase
 			addCost(id, class1, getObject(), null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
-		{
-			// Yep!
-		}
 		catch (NullPointerException e)
 		{
-			// Just as Good!
+			// Yep!
 		}
 	}
 
@@ -131,7 +137,8 @@ public class LocalSkillCostFacetTest extends TestCase
 		assertFalse(getFacet().contains(altid, class1, SkillCost.CLASS, t1));
 		assertFalse(getFacet().contains(id, class2, SkillCost.CLASS, t1));
 		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS,
-			getObject()));
+				getObject()
+		));
 	}
 
 	@Test
@@ -214,7 +221,8 @@ public class LocalSkillCostFacetTest extends TestCase
 		assertFalse(getFacet().contains(id, class1, SkillCost.CLASS, t2));
 		//No cross pollution
 		assertFalse(getFacet().contains(altid, class1, SkillCost.CROSS_CLASS,
-			t2));
+				t2
+		));
 	}
 
 	@Test
@@ -225,7 +233,7 @@ public class LocalSkillCostFacetTest extends TestCase
 			removeCosts(null, class1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -246,7 +254,7 @@ public class LocalSkillCostFacetTest extends TestCase
 			getFacet().dataAdded(dfce);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -260,7 +268,7 @@ public class LocalSkillCostFacetTest extends TestCase
 			removeCosts(id, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}

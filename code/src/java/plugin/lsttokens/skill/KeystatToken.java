@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with KEYSTAT Token
  */
-public class KeystatToken extends AbstractNonEmptyToken<Skill> implements
-		CDOMPrimaryToken<Skill>
+public class KeystatToken extends AbstractNonEmptyToken<Skill> implements CDOMPrimaryToken<Skill>
 {
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
@@ -44,13 +43,10 @@ public class KeystatToken extends AbstractNonEmptyToken<Skill> implements
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, Skill skill, String value)
 	{
-		CDOMSingleRef<PCStat> pcs =
-				context.getReferenceContext().getCDOMReference(PCSTAT_CLASS,
-					value);
+		CDOMSingleRef<PCStat> pcs = context.getReferenceContext().getCDOMReference(PCSTAT_CLASS, value);
 		if (pcs == null)
 		{
-			return new ParseResult.Fail("Invalid Stat Abbreviation in Token "
-					+ getTokenName() + ": " + value, context);
+			return new ParseResult.Fail("Invalid Stat Abbreviation in Token " + getTokenName() + ": " + value);
 		}
 		context.getObjectContext().put(skill, ObjectKey.KEY_STAT, pcs);
 		return ParseResult.SUCCESS;
@@ -59,8 +55,7 @@ public class KeystatToken extends AbstractNonEmptyToken<Skill> implements
 	@Override
 	public String[] unparse(LoadContext context, Skill skill)
 	{
-		CDOMSingleRef<PCStat> pcs =
-				context.getObjectContext().getObject(skill, ObjectKey.KEY_STAT);
+		CDOMSingleRef<PCStat> pcs = context.getObjectContext().getObject(skill, ObjectKey.KEY_STAT);
 		if (pcs == null)
 		{
 			return null;

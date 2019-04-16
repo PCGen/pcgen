@@ -26,16 +26,15 @@ import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.core.Movement;
+import pcgen.core.SimpleMovement;
 
 /**
  * BaseMovementFacet is a Facet that tracks the Movement objects that are
  * contained in a Player Character and *which can grant a character the ability
  * to move*
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class BaseMovementFacet extends AbstractSourcedListFacet<CharID, Movement>
+public class BaseMovementFacet extends AbstractSourcedListFacet<CharID, SimpleMovement>
 		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
@@ -52,14 +51,12 @@ public class BaseMovementFacet extends AbstractSourcedListFacet<CharID, Movement
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		List<Movement> ml = cdo.getListFor(ListKey.BASE_MOVEMENT);
+		List<SimpleMovement> ml = cdo.getListFor(ListKey.BASE_MOVEMENT);
 		if (ml != null)
 		{
 			addAll(dfce.getCharID(), ml, cdo);
@@ -77,8 +74,6 @@ public class BaseMovementFacet extends AbstractSourcedListFacet<CharID, Movement
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -86,8 +81,7 @@ public class BaseMovementFacet extends AbstractSourcedListFacet<CharID, Movement
 		removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
-	public void setConsolidationFacet(
-		CDOMObjectConsolidationFacet consolidationFacet)
+	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
 	{
 		this.consolidationFacet = consolidationFacet;
 	}

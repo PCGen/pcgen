@@ -1,5 +1,4 @@
 /*
- * QualifiedObject.java
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -32,7 +31,6 @@ import pcgen.core.prereq.Prerequisite;
  * This class stores an association between an object and a set of prereqs.
  * Refactored from ChoiceInfo originally written by
  * Andrew Wilson &lt;nuance@sourceforge.net&gt;
- * @author Aaron Divinsky &lt;boomer70@yahoo.com&gt;
  * @param <T> 
  */
 public class QualifiedObject<T> extends ConcretePrereqObject implements QualifyingObject
@@ -40,46 +38,46 @@ public class QualifiedObject<T> extends ConcretePrereqObject implements Qualifyi
 
 	private T theObject = null;
 
-    /**
-     * Constructor
-     * @param anObj
-     */
+	/**
+	 * Constructor
+	 * @param anObj
+	 */
 	public QualifiedObject(final T anObj)
 	{
 		theObject = anObj;
 	}
 
 	/**
-     * Constructor 
-     * @param anObj
-     * @param aPrereqList
+	 * Constructor 
+	 * @param anObj
+	 * @param aPrereqList
 	 */
-    public QualifiedObject( final T anObj, final List<Prerequisite> aPrereqList )
+	public QualifiedObject(final T anObj, final List<Prerequisite> aPrereqList)
 	{
 		theObject = anObj;
 		addAllPrerequisites(aPrereqList);
 	}
 
 	/**
-     * Constructor 
-     * @param anObj
-     * @param prereq
+	 * Constructor 
+	 * @param anObj
+	 * @param prereq
 	 */
-    public QualifiedObject( final T anObj, Prerequisite prereq)
+	public QualifiedObject(final T anObj, Prerequisite prereq)
 	{
 		theObject = anObj;
 		addPrerequisite(prereq);
 	}
 
 	/**
-     * Get the qualifiying object. Will always return the object 
-     * if no character is passed in.
-     * 
-     * @param aPC Character to be checked or null
+	 * Get the qualifiying object. Will always return the object 
+	 * if no character is passed in.
+	 * 
+	 * @param aPC Character to be checked or null
 	 * @param owner TODO
-     * @return qualifying object
+	 * @return qualifying object
 	 */
-    public T getObject( final PlayerCharacter aPC, CDOMObject owner )
+	public T getObject(final PlayerCharacter aPC, CDOMObject owner)
 	{
 		if (aPC == null || qualifies(aPC, owner))
 		{
@@ -89,27 +87,24 @@ public class QualifiedObject<T> extends ConcretePrereqObject implements Qualifyi
 	}
 
 	/**
-     * Get the qualifiying object. Will always return the object
-     * 
-     * @return qualifying object
+	 * Get the qualifiying object. Will always return the object
+	 * 
+	 * @return qualifying object
 	 */
-    public T getRawObject( )
+	public T getRawObject()
 	{
 		return theObject;
 	}
 
 	/**
-     * Set qualifying object 
-     * @param anObject
+	 * Set qualifying object 
+	 * @param anObject
 	 */
-    public void setObject( final T anObject )
+	public void setObject(final T anObject)
 	{
 		theObject = anObject;
 	}
 
-    /* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -144,9 +139,7 @@ public class QualifiedObject<T> extends ConcretePrereqObject implements Qualifyi
 	@Override
 	public int hashCode()
 	{
-		return getPrerequisiteCount() * 23
-				+ (theObject == null ? -1 : theObject.hashCode());
+		return getPrerequisiteCount() * 23 + (theObject == null ? -1 : theObject.hashCode());
 	}
-    
-    
+
 }

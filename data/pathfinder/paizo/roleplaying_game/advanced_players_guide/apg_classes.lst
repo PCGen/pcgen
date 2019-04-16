@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21528 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
 # Original Entry by: Stefan Radermacher, Andrew Maitland, Eric Smith (Maredudd) and James Dempsey
@@ -6,9 +7,9 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 ## Block: Base Classes
 ##
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Define																							Combat bonus																	Save bonus																																		Modify VAR																																																																																																																							FACT
-CLASS:Alchemist	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:AlchemistLVL|0	DEFINE:CasterLevelBLAlchemist|0	DEFINE:Caster_Level_Alchemist|0	DEFINE:Caster_Level_BL_Stripped_Alchemist|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|AlchemistLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Alchemist|Caster_Level_Alchemist-CasterLevelBLAlchemist	BONUS:VAR|Caster_Level_Alchemist|CL+Caster_Level_Bonus+CasterLevelBLAlchemist	BONUS:VAR|CasterLevelBL_x_Alchemist|charbonusto("PCLEVEL","Alchemist")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Alchemist|TYPE=Base	FACT:ClassType|PC	FACT:Abb|Alc	FACT:SpellType|Arcane
-# Class Name	Skill Pts/Lvl	Class Skill
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																		Modify VAR																																																																																																																																	FACT
+CLASS:Alchemist	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:AlchemistLVL|0	DEFINE:Caster_Level_Alchemist|0	DEFINE:CasterLevelBLAlchemist|0	DEFINE:Caster_Level_BL_Stripped_Alchemist|0	DEFINE:CasterLevelBL_x_Alchemist|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|AlchemistLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Alchemist|Caster_Level_Alchemist-CasterLevelBLAlchemist	BONUS:VAR|Caster_Level_Alchemist|CL+Caster_Level_Bonus+CasterLevelBLAlchemist	BONUS:VAR|CasterLevelBL_x_Alchemist|charbonusto("PCLEVEL","Alchemist")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Alchemist|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Alchemist	FACT:ClassType|PC	FACT:Abb|Alc	FACT:SpellType|Arcane
+# Class Name	Skill Pts/Lvl
 CLASS:Alchemist	STARTSKILLPTS:4
 # Class Name	Spell Stat		Memorize		Spellbook		Caster level
 CLASS:Alchemist	SPELLSTAT:INT	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Alchemist|Caster_Level_BL_Stripped_Alchemist
@@ -55,8 +56,8 @@ CLASS:Alchemist	SPELLSTAT:INT	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Alche
 
 # Class Name	Hit Dice	Type				Max Level	Base class as subclass?	Source Page		Define			Combat bonus																Save bonus																																		Modify VAR																																																																	FACT
 CLASS:Cavalier	HD:10		TYPE:Base.PC.Cavalier	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:p.32	DEFINE:CavalierLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|CavalierLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Cav
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
+# Class Name	Skill Pts/Lvl
+CLASS:Cavalier	STARTSKILLPTS:4
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Cavalier
 ###Block: Level progression
@@ -80,8 +81,8 @@ CLASS:Cavalier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle An
 CLASS:Inquisitor	HD:8		TYPE:Base.PC.SpontaneousDivine.Spontaneous	MAXLEVEL:20	EXCLASS:Ex-Inquisitor	SOURCEPAGE:p.38	DEFINE:ExInquisitor|0	DEFINE:InquisitorLVL|0	DEFINE:CasterLevelBLInquisitor|0	DEFINE:Caster_Level_Inquisitor|0	DEFINE:Caster_Level_BL_Stripped_Inquisitor|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|InquisitorLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Inquisitor|Caster_Level_Inquisitor-CasterLevelBLInquisitor	BONUS:VAR|Caster_Level_Inquisitor|CL+Caster_Level_Bonus+CasterLevelBLInquisitor	BONUS:VAR|CasterLevelBL_x_Inquisitor|charbonusto("PCLEVEL","Inquisitor")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Inquisitor|TYPE=Base	FACT:ClassType|PC	FACT:Abb|Inq	FACT:SpellType|Divine
 # Class Name	Var. Must Be Lower
 CLASS:Inquisitor	PREVARLT:ExInquisitor,1
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Inquisitor	STARTSKILLPTS:6	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Nature)|Knowledge (Planes)|Knowledge (Religion)|Perception|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth|Survival|Swim
+# Class Name	Skill Pts/Lvl
+CLASS:Inquisitor	STARTSKILLPTS:6
 # Class Name	Spell Stat		Memorize	Caster level
 CLASS:Inquisitor	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Inquisitor|Caster_Level_BL_Stripped_Inquisitor
 #COMMENT: Unable to enact properly for the Domain, Inquisitor does not get a domain slot, or bonus spells from it
@@ -188,8 +189,8 @@ CLASS:Oracle	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Oracle|Caster_Level_BL_
 
 # COMMENT: Updated to support the UNCHAINED version
 
-# Class Name	Hit Dice	Type								Max Level	Source Page		Define																							Combat bonus														Save bonus																																		Modify VAR																																																																																																																						FACT
-CLASS:Summoner	HD:8		TYPE:Base.PC.SpontaneousArcane.Spontaneous	MAXLEVEL:20	SOURCEPAGE:p.54	DEFINE:SummonerLVL|0	DEFINE:CasterLevelBLSummoner|0	DEFINE:Caster_Level_Summoner|0	DEFINE:Caster_Level_BL_Stripped_Summoner|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:DisableBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SummonerLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Summoner|Caster_Level_Summoner-CasterLevelBLSummoner	BONUS:VAR|Caster_Level_Summoner|CL+Caster_Level_Bonus+CasterLevelBLSummoner	BONUS:VAR|CasterLevelBL_x_Summoner|charbonusto("PCLEVEL","Summoner")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Summoner|TYPE=Base	FACT:ClassType|PC	FACT:Abb|Sum	FACT:SpellType|Arcane
+# Class Name	Hit Dice	Type								Max Level	Source Page		Define																							Combat bonus														Save bonus																																		Modify VAR																																																																																																																																FACT
+CLASS:Summoner	HD:8		TYPE:Base.PC.SpontaneousArcane.Spontaneous	MAXLEVEL:20	SOURCEPAGE:p.54	DEFINE:SummonerLVL|0	DEFINE:CasterLevelBLSummoner|0	DEFINE:Caster_Level_Summoner|0	DEFINE:Caster_Level_BL_Stripped_Summoner|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:DisableBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SummonerLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Summoner|Caster_Level_Summoner-CasterLevelBLSummoner	BONUS:VAR|Caster_Level_Summoner|CL+Caster_Level_Bonus+CasterLevelBLSummoner	BONUS:VAR|CasterLevelBL_x_Summoner|charbonusto("PCLEVEL","Summoner")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Summoner|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Summoner	FACT:ClassType|PC	FACT:Abb|Sum	FACT:SpellType|Arcane
 # Class Name	Required Var. value
 CLASS:Summoner	PREVAREQ:CLASS_SummonerAllowed,1
 # Class Name	Skill Pts/Lvl
@@ -221,10 +222,10 @@ CLASS:Summoner	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Summoner|Caster_Level
 20	CAST:0,5,5,5,5,5,5	KNOWN:6,6,6,6,6,5,5
 
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Define																			Combat bonus																	Save bonus																																		Modify VAR																																																																																																																	FACT
-CLASS:Witch		HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.65	DEFINE:WitchLVL|0	DEFINE:CasterLevelBLWitch|0	DEFINE:Caster_Level_Witch|0	DEFINE:Caster_Level_BL_Stripped_Witch|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|WitchLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Witch|Caster_Level_Witch-CasterLevelBLWitch	BONUS:VAR|Caster_Level_Witch|CL+Caster_Level_Bonus+CasterLevelBLWitch	BONUS:VAR|CasterLevelBL_x_Witch|charbonusto("PCLEVEL","Witch")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Witch|TYPE=Base	FACT:ClassType|PC	FACT:Abb|Wit	FACT:SpellType|Arcane
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Witch		STARTSKILLPTS:2	CSKILL:TYPE=Craft|Fly|Heal|Intimidate|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nature)|Knowledge (Planes)|TYPE=Profession|Spellcraft|Use Magic Device
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define																			Combat bonus																	Save bonus																																		Modify VAR																																																																																																																											FACT
+CLASS:Witch		HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.65	DEFINE:WitchLVL|0	DEFINE:CasterLevelBLWitch|0	DEFINE:Caster_Level_Witch|0	DEFINE:Caster_Level_BL_Stripped_Witch|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|WitchLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Witch|Caster_Level_Witch-CasterLevelBLWitch	BONUS:VAR|Caster_Level_Witch|CL+Caster_Level_Bonus+CasterLevelBLWitch	BONUS:VAR|CasterLevelBL_x_Witch|charbonusto("PCLEVEL","Witch")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Witch|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Witch	FACT:ClassType|PC	FACT:Abb|Wit	FACT:SpellType|Arcane
+# Class Name	Skill Pts/Lvl
+CLASS:Witch		STARTSKILLPTS:2
 # Class Name	Spell Stat		Automatically Known Spell Levels	Caster level
 CLASS:Witch		SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Witch|Caster_Level_BL_Stripped_Witch
 ###Block:Proficiencies
@@ -233,7 +234,7 @@ CLASS:Witch		SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Witch|Caster_
 1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Familiar|PREVAREQ:Witch_CF_Familiar,0
 1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Cantrips|PREVAREQ:Witch_CF_Cantrips,0
 1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Hex|PREVAREQ:Witch_CF_Hex,0
-1	ABILITY:Witch Class Feature|AUTOMATIC|Witch Patron
+1	ABILITY:Witch Class Feature|AUTOMATIC|Witch Patron|PREVAREQ:Witch_CF_PatronSpell,0
 3	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells|PREVAREQ:Witch_CF_FamiliarTouchSpells,0
 ###Block: Spell Progression
 1	CAST:3,1
@@ -263,21 +264,20 @@ CLASS:Witch		SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Witch|Caster_
 ##
 
 # Class Name	Output Name			Hit Dice	Type				Max Level	Source Page		Ability					Define																		Combat bonus																					Save bonus																																																																																																																																	Modify VAR																																																																																																																																																		FACT
-CLASS:Eidolon	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	MAXLEVEL:1	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	DEFINE:EidolonLVL|0	DEFINE:EidolonFortGood|0	DEFINE:EidolonReflexGood|0	DEFINE:EidolonWillGood|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:Eidolon_CF_BaseAB,0|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVARGTEQ:EidolonFortGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVARGTEQ:EidolonReflexGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVARGTEQ:EidolonWillGood,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVARLTEQ:EidolonFortGood,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVARLTEQ:EidolonReflexGood,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVARLTEQ:EidolonWillGood,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:Eidolon_CF_BaseAB,0|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|EidolonLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARGTEQ:EidolonFortGood,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARLTEQ:EidolonFortGood,0	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARGTEQ:EidolonReflexGood,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARLTEQ:EidolonReflexGood,0	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARGTEQ:EidolonWillGood,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARLTEQ:EidolonWillGood,0	FACT:ClassType|Companion
+CLASS:Eidolon	OUTPUTNAME:Eidolon	HD:10		TYPE:Monster.Companion	MAXLEVEL:20	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	DEFINE:EidolonLVL|0	DEFINE:EidolonFortGood|0	DEFINE:EidolonReflexGood|0	DEFINE:EidolonWillGood|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:Eidolon_CF_BaseAB,0|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVARGTEQ:EidolonFortGood,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVARGTEQ:EidolonReflexGood,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVARGTEQ:EidolonWillGood,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVARLTEQ:EidolonFortGood,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVARLTEQ:EidolonReflexGood,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVARLTEQ:EidolonWillGood,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:Eidolon_CF_BaseAB,0|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|EidolonLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARGTEQ:EidolonFortGood,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARLTEQ:EidolonFortGood,0	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARGTEQ:EidolonReflexGood,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARLTEQ:EidolonReflexGood,0	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARGTEQ:EidolonWillGood,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1|PREVARLTEQ:EidolonWillGood,0	FACT:ClassType|Companion
 # Class Name	Required Race
 CLASS:Eidolon	PRERACE:1,Eidolon
 # Class Name	Skill Pts/Lvl				Add INT to Skill Points?
 CLASS:Eidolon	STARTSKILLPTS:EidolonSkillPoints	MODTOSKILLS:NO
 
-
-
+2:REPEATLEVEL:1	PREVAREQ:EidolonBypassHDCap,1
 
 # Class Name	Hit Dice	Type			Max Level	Ex Class			Source Page		Define																							Combat bonus																Save bonus																																		Modify VAR																																																																																																																										FACT
 CLASS:Antipaladin	HD:10		TYPE:Base.PC	MAXLEVEL:20	EXCLASS:Ex-Antipaladin	SOURCEPAGE:p.118	DEFINE:AntipaladinLVL|0	DEFINE:CasterLevelBLAntipaladin|0	DEFINE:Caster_Level_Antipaladin|0	DEFINE:Caster_Level_BL_Stripped_Antipaladin|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|AntiPaladinLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Antipaladin|Caster_Level_Antipaladin-CasterLevelBLAntipaladin	BONUS:VAR|Caster_Level_Antipaladin|CL-3+Caster_Level_Bonus+CasterLevelBLAntipaladin	BONUS:VAR|CasterLevelBL_x_Antipaladin|charbonusto("PCLEVEL","Antipaladin")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Antipaladin|TYPE=Base	FACT:ClassType|PC	FACT:Abb|Apl	FACT:SpellType|Divine
 # Class Name	Multiple Requirements
 CLASS:Antipaladin	PREMULT:1,[PREALIGN:CE],[PREVAREQ:BypassClassAlignment_Antipaladin,1]
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Antipaladin	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Disguise|Handle Animal|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth
+# Class Name	Skill Pts/Lvl
+CLASS:Antipaladin	STARTSKILLPTS:2
 # Class Name	Spell Stat		Automatically Known Spell Levels			Craft Level Mult.	Caster level
 CLASS:Antipaladin	SPELLSTAT:CHA	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Antipaladin|Caster_Level_BL_Stripped_Antipaladin|PRECLASS:1,Antipaladin=4
 ###Block: Proficiencies
@@ -440,13 +440,13 @@ CLASS:Druid.MOD
 # Class Name
 CLASS:Wizard.MOD
 SUBCLASS:Air	CHOICE:SCHOOL|AirSchool		KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|AirSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Air School|Earth Opposition School
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	ABILITY:Wizard Class Feature|AUTOMATIC|Air School|Earth Opposition School
 SUBCLASS:Earth	CHOICE:SCHOOL|EarthSchool	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|EarthSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Air Opposition School|Earth School
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	ABILITY:Wizard Class Feature|AUTOMATIC|Air Opposition School|Earth School
 SUBCLASS:Fire	CHOICE:SCHOOL|FireSchool	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|FireSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Fire School|Water Opposition School
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	ABILITY:Wizard Class Feature|AUTOMATIC|Fire School|Water Opposition School
 SUBCLASS:Water	CHOICE:SCHOOL|WaterSchool	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|WaterSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Fire Opposition School|Water School
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	ABILITY:Wizard Class Feature|AUTOMATIC|Fire Opposition School|Water School
 
 ### Block: Prestige Classes
 ###Block: Battle Herald --------------------------------------------------------------------------------------------------------------------------------------------
@@ -507,16 +507,16 @@ CLASS:Horizon Walker	STARTSKILLPTS:6	CSKILL:Climb|Diplomacy|Handle Animal|Knowle
 
 ###Block: Master Chymist --------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Define									Combat bonus																Save bonus																						Modify VAR																																																																											FACT
-CLASS:Master Chymist	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.267	DEFINE:MasterChymistLVL|0	DEFINE:MasterChymistLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|MasterChymistLVL|CL	BONUS:VAR|MasterChymistLVL|CL	BONUS:VAR|MasterChymistLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|MC
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																Save bonus																						Modify VAR																																																																	FACT
+CLASS:Master Chymist	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.267	DEFINE:MasterChymistLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|MasterChymistLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|MC
 # Class Name		Multiple Requirements																									Req. Spell Type
 CLASS:Master Chymist	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Alchemist ~ Mutagen],[PREABILITY:1,CATEGORY=Special Ability,Discovery ~ Feral Mutagen,Discovery ~ Infuse Mutagen]	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Chymist	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Sense Motive|Stealth|Swim
 ##Block: Normal Level Progression
-1					ABILITY:Special Ability|AUTOMATIC|Master Chymist ~ Bomb-Thrower|Master Chymist ~ Mutagenic Form|Master Chymist ~ Mutate
-2	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Master Chymist ~ Advanced Mutagen
-3	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Master Chymist ~ Brutality
+1					ABILITY:Master Chymist Class Feature|AUTOMATIC|Master Chymist ~ Weapon and Armor Proficiency|Master Chymist ~ Bomb-Thrower|Master Chymist ~ Mutagenic Form|Master Chymist ~ Mutate
+2	ADD:SPELLCASTER|Arcane	ABILITY:Master Chymist Class Feature|AUTOMATIC|Master Chymist ~ Advanced Mutagen
+3	ADD:SPELLCASTER|Arcane	ABILITY:Master Chymist Class Feature|AUTOMATIC|Master Chymist ~ Brutality
 5	ADD:SPELLCASTER|Arcane
 6	ADD:SPELLCASTER|Arcane
 7	ADD:SPELLCASTER|Arcane

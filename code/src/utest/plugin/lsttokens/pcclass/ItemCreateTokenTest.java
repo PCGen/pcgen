@@ -28,7 +28,7 @@ public class ItemCreateTokenTest extends AbstractStringTokenTestCase<PCClass>
 {
 
 	static ItemcreateToken token = new ItemcreateToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

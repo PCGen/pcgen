@@ -29,52 +29,11 @@ import pcgen.output.publish.OutputDB;
 /**
  * GenderFacet is a Facet that tracks the Gender of a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class GenderFacet extends AbstractItemFacet<CharID, Gender> implements
-		ItemFacet<CharID, Gender>
+public class GenderFacet extends AbstractItemFacet<CharID, Gender> implements ItemFacet<CharID, Gender>
 {
 
 	private TemplateFacet templateFacet;
-
-	/**
-	 * Sets the Gender of the Player Character represented by the given CharID.
-	 * 
-	 * If the Gender of the Player Character has been locked by a Gender Lock
-	 * from a PCTemplate, this method will not generate an error, but will have
-	 * no immediate effect on the Player Character. However, the Gender set by
-	 * this method is remembered and will be the acting Gender for the Player
-	 * Character if the Gender Lock is removed.
-	 * 
-	 * @param id
-	 *            The CharID representing the Player Character on which the
-	 *            Gender should be set
-	 * @param obj
-	 *            The Gender to set on the Player Character represented by the
-	 *            given CharID
-	 */
-	public void setGender(CharID id, Gender obj)
-	{
-		set(id, obj);
-	}
-
-	/**
-	 * Removes the Gender of the Player Character represented by the given
-	 * CharID
-	 * 
-	 * @param id
-	 *            The CharID representing the Player Character for which the
-	 *            Gender should be removed
-	 */
-	public void removeGender(CharID id)
-	{
-		/*
-		 * TODO Need to consider if this makes any sense - should this be like
-		 * Race that doesn't allow a null value? - if so, that needs to be
-		 * documented and this method removed.
-		 */
-		remove(id);
-	}
 
 	/**
 	 * Returns the Gender for the Player Character represented by the given

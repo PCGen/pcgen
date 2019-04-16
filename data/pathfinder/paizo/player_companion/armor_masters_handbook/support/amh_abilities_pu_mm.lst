@@ -1,0 +1,14 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Armor Master's Handbook	SOURCESHORT:AMH	SOURCEWEB:http://paizo.com/products/btpy9jbh?Pathfinder-Player-Companion-Armor-Masters-Handbook	SOURCEDATE:2016-05
+
+# ==============================
+# Combat Tricks
+# ==============================
+
+# Ability Name						Unique Key						Category of Ability		Type						Description																																							Ability																			Source Page
+Combat Trick / Extend the Bulwark			KEY:Combat Trick ~ Extend the Bulwark	CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 5 stamina points either to use this feat without losing your own armor bonus to AC, or to use this feat to grant the bonus to an ally.																																			SOURCEPAGE:p.20
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																											ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Extend the Bulwark|PREABILITY:1,CATEGORY=FEAT,Extend the Bulwark
+Combat Trick / Quillbreaker Defense			KEY:Combat Trick ~ Quillbreaker Defense	CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:If you choose to spend 5 stamina points when using this feat, there is a 50%% chance that your armor spikes do not gain the broken condition. This combat trick has no effect if your armor spikes already have the broken condition.																					SOURCEPAGE:p.21
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																											ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Quillbreaker Defense|PREABILITY:1,CATEGORY=FEAT,Quillbreaker Defense
+Combat Trick / Shield Snag				KEY:Combat Trick ~ Shield Snag		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 5 stamina points to use this feat in the same round as a bull rush combat maneuver performed with the Shield Slam feat.																																					SOURCEPAGE:p.21
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																											ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Shield Snag|PREABILITY:1,CATEGORY=FEAT,Shield Snag

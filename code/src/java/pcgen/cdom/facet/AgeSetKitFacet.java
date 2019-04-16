@@ -37,18 +37,16 @@ import pcgen.core.PlayerCharacter;
 /**
  * AgeSetKitFacet stores
  * 
- * @author Tom Parker (thpr [at] yahoo.com)
  */
-public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements
-		DataFacetChangeListener<CharID, Integer>
+public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements DataFacetChangeListener<CharID, Integer>
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private AgeFacet ageFacet;
 
 	private AgeSetFacet ageSetFacet;
-	
+
 	private BioSetFacet bioSetFacet;
 
 	/**
@@ -62,8 +60,6 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, Integer> dfce)
@@ -114,8 +110,6 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, Integer> dfce)
@@ -177,7 +171,6 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements
 	 * AgeSetKitFacet. This class should not be exposed outside of
 	 * AgeSetKitFacet.
 	 * 
-	 * @author thpr (thpr [at] yahoo.com)
 	 */
 	private static class CacheInfo
 	{

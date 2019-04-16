@@ -14,10 +14,8 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
- package plugin.pcgtracker;
+package plugin.pcgtracker;
 
 import java.awt.Component;
 import java.awt.Cursor;
@@ -30,11 +28,12 @@ import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
 import gmgen.gui.ImagePreview;
-import gmgen.io.SimpleFileFilter;
 import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
 import gmgen.pluginmgr.messages.FileMenuOpenMessage;
 import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
@@ -58,15 +57,11 @@ import pcgen.util.Logging;
 import plugin.pcgtracker.gui.PCGTrackerView;
 
 /**
- * The <code>ExperienceAdjusterController</code> handles the functionality of
- * the Adjusting of experience.  This class is called by the <code>GMGenSystem
- * </code> and will have it's own model and view.<br>
- * Created on February 26, 2003<br>
- * Updated on February 26, 2003
- * @author  Expires 2003
+ * The {@code ExperienceAdjusterController} handles the functionality of
+ * the Adjusting of experience.  This class is called by the {@code GMGenSystem}
+ * and will have it's own model and view.
  */
-public class PCGTrackerPlugin implements InteractivePlugin,
-		java.awt.event.ActionListener
+public class PCGTrackerPlugin implements InteractivePlugin, java.awt.event.ActionListener
 {
 	public static final String LOG_NAME = "PCG_Tracker"; //$NON-NLS-1$
 
@@ -86,26 +81,15 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	/** Key of plugin tab. */
 	private static final String IN_NAME = "in_plugin_pcgtracker_name"; //$NON-NLS-1$
 
-	/** The version number of the plugin. */
-	private static final String version = "01.00.99.01.00"; //$NON-NLS-1$
-
 	private PCGenMessageHandler messageHandler;
 
 	/**
-	 * Creates a new instance of PCGTrackerPlugin
+	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
-	public PCGTrackerPlugin()
-	{
-		// Do Nothing
-	}
-
-	/**
-	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
-	 */
-    @Override
+	@Override
 	public void start(PCGenMessageHandler mh)
 	{
-    	messageHandler = mh;
+		messageHandler = mh;
 		theView = new PCGTrackerView();
 		theView.getLoadedList().setModel(model);
 		initListeners();
@@ -119,7 +103,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		messageHandler = null;
 	}
 
-    @Override
+	@Override
 	public int getPriority()
 	{
 		return SettingsHandler.getGMGenOption(OPTION_NAME_LOADORDER, 1000);
@@ -129,12 +113,12 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	 * Accessor for name
 	 * @return name
 	 */
-    @Override
+	@Override
 	public String getPluginName()
 	{
 		return NAME;
 	}
-	
+
 	private String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
@@ -149,7 +133,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		return theView;
 	}
 
-    @Override
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == theView.getRemoveButton())
@@ -191,7 +175,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		 * methods have side effects (that is good), but that means this method
 		 * does nothing. - thpr 10/26/06
 		 */
-		if (model.size() > 0)
+		if (!model.isEmpty())
 		{
 			GMGenSystemView.getTabPane().setSelectedComponent(theView);
 		}
@@ -206,7 +190,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	 * listens to messages from the GMGen system, and handles them as needed
 	 * @param message the source of the event from the system
 	 */
-    @Override
+	@Override
 	public void handleMessage(PCGenMessage message)
 	{
 		if (message instanceof FileMenuOpenMessage)
@@ -226,7 +210,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 			if (isActive())
 			{
 				charToolsItem.setEnabled(false);
-				
+
 				try
 				{
 					GMGenSystem.inst.openFileItem.setEnabled(true);
@@ -273,8 +257,10 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		JFileChooser chooser = new JFileChooser();
 		chooser.setCurrentDirectory(defaultFile);
 
-		String[] pcgs = new String[]{FILENAME_PCG, FILENAME_PCP};
-		SimpleFileFilter ff = new SimpleFileFilter(pcgs, LanguageBundle.getString("in_pcgen_file")); //$NON-NLS-1$
+		String[] pcgs = {FILENAME_PCG, FILENAME_PCP};
+		FileFilter ff = new FileNameExtensionFilter(LanguageBundle.getString("in_pcgen_file"),
+
+			pcgs);
 		chooser.addChoosableFileFilter(ff);
 		chooser.setFileFilter(ff);
 		chooser.setMultiSelectionEnabled(true);
@@ -290,8 +276,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 			{
 				if (PCGFile.isPCGenCharacterOrPartyFile(selectedFile))
 				{
-					messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(this, selectedFile,
-						false));
+					messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(this, selectedFile, false));
 				}
 			}
 		}
@@ -306,7 +291,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	/**
 	 * Registers all the listeners for any actions.
 	 */
-	public void initListeners()
+	private void initListeners()
 	{
 		theView.getRemoveButton().addActionListener(this);
 		theView.getSaveButton().addActionListener(this);
@@ -314,7 +299,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		theView.getLoadButton().addActionListener(this);
 	}
 
-	public void removeSelected()
+	private void removeSelected()
 	{
 		for (Object obj : theView.getLoadedList().getSelectedValuesList())
 		{
@@ -326,15 +311,15 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 
 	/**
 	 * Checks whether a character can be saved, and if so, calls
-	 * it's <code>save</code> method.
+	 * it's {@code save} method.
 	 *
 	 * @param aPC The PlayerCharacter to save
-	 * @param saveas boolean if <code>true</code>, ask for file name
+	 * @param saveas boolean if {@code true}, ask for file name
 	 *
-	 * @return <code>true</code> if saved; <code>false</code> if save as cancelled
+	 * @return {@code true} if saved; {@code false} if save as cancelled
 	 */
 	// TODO use pcgen save methods rather than implementing it again
-	public boolean savePC(PlayerCharacter aPC, boolean saveas)
+	private boolean savePC(PlayerCharacter aPC, boolean saveas)
 	{
 		boolean newPC = false;
 		File prevFile;
@@ -343,9 +328,8 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 
 		if (aPCFileName.isEmpty())
 		{
-			prevFile =
-					new File(PCGenSettings.getPcgDir(), aPC.getDisplay().getDisplayName()
-						+ Constants.EXTENSION_CHARACTER_FILE);
+			prevFile = new File(PCGenSettings.getPcgDir(),
+				aPC.getDisplay().getDisplayName() + Constants.EXTENSION_CHARACTER_FILE);
 			aPCFileName = prevFile.getAbsolutePath();
 			newPC = true;
 		}
@@ -356,15 +340,13 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 
 		if (saveas || newPC)
 		{
-			JFileChooser fc =
-					ImagePreview.decorateWithImagePreview(new JFileChooser());
-			String[] pcgs = new String[]{FILENAME_PCG};
-			SimpleFileFilter ff = new SimpleFileFilter(pcgs, LanguageBundle.getString("in_pcgen_file_char")); //$NON-NLS-1$
+			JFileChooser fc = ImagePreview.decorateWithImagePreview(new JFileChooser());
+			String[] pcgs = {FILENAME_PCG};
+			FileFilter ff = new FileNameExtensionFilter(LanguageBundle.getString("in_pcgen_file_char"), pcgs);
 			fc.setFileFilter(ff);
 			fc.setSelectedFile(prevFile);
 
-			FilenameChangeListener listener =
-					new FilenameChangeListener(aPCFileName, fc);
+			PropertyChangeListener listener = new FilenameChangeListener(aPCFileName, fc);
 
 			fc.addPropertyChangeListener(listener);
 
@@ -377,31 +359,24 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 
 				if (!PCGFile.isPCGenCharacterFile(file))
 				{
-					file =
-							new File(file.getParent(), file.getName()
-								+ Constants.EXTENSION_CHARACTER_FILE);
+					file = new File(file.getParent(), file.getName() + Constants.EXTENSION_CHARACTER_FILE);
 				}
 
 				if (file.isDirectory())
 				{
-					JOptionPane.showMessageDialog(null,
-						LanguageBundle.getString("in_savePcDirOverwrite"), //$NON-NLS-1$
+					JOptionPane.showMessageDialog(null, LanguageBundle.getString("in_savePcDirOverwrite"), //$NON-NLS-1$
 						Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
 
 					return false;
 				}
 
-				if (file.exists()
-					&& (newPC || !file.getName().equals(prevFile.getName())))
+				if (file.exists() && (newPC || !file.getName().equals(prevFile.getName())))
 				{
-					int reallyClose =
-							JOptionPane
-								.showConfirmDialog(
-									GMGenSystem.inst,
-									LanguageBundle.getFormattedString("in_savePcConfirmOverMsg", //$NON-NLS-1$
-										file.getName()),
-										LanguageBundle.getFormattedString("in_savePcConfirmOverTitle", file.getName()), //$NON-NLS-1$
-									JOptionPane.YES_NO_OPTION);
+					int reallyClose = JOptionPane.showConfirmDialog(GMGenSystem.inst,
+						LanguageBundle.getFormattedString("in_savePcConfirmOverMsg", //$NON-NLS-1$
+							file.getName()),
+						LanguageBundle.getFormattedString("in_savePcConfirmOverTitle", file.getName()), //$NON-NLS-1$
+						JOptionPane.YES_NO_OPTION);
 
 					if (reallyClose != JOptionPane.YES_OPTION)
 					{
@@ -429,9 +404,11 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		}
 		catch (Exception ex)
 		{
-			String formattedString = LanguageBundle.getFormattedString("in_saveFailMsg", aPC.getDisplay().getDisplayName()); //$NON-NLS-1$
-			JOptionPane.showMessageDialog(null, formattedString, Constants.APPLICATION_NAME,
-				JOptionPane.ERROR_MESSAGE);
+			String formattedString =
+					LanguageBundle.getFormattedString(
+						"in_saveFailMsg", aPC.getDisplay().getDisplayName()); //$NON-NLS-1$
+			JOptionPane.showMessageDialog(
+				null, formattedString, Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
 			Logging.errorPrint(formattedString);
 			Logging.errorPrint(ex.getMessage(), ex);
 
@@ -441,7 +418,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		return true;
 	}
 
-	public void toolMenuItem(ActionEvent evt)
+	private static void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -458,7 +435,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	{
 		charToolsItem.setMnemonic(LanguageBundle.getMnemonic("in_mn_plugin_pcgtracker_name")); //$NON-NLS-1$
 		charToolsItem.setText(LanguageBundle.getString("in_plugin_pcgtracker_name")); //$NON-NLS-1$
-		charToolsItem.addActionListener(this::toolMenuItem);
+		charToolsItem.addActionListener(PCGTrackerPlugin::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, charToolsItem));
 	}
 
@@ -480,7 +457,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 			fileChooser = aFileChooser;
 		}
 
-        @Override
+		@Override
 		public void propertyChange(PropertyChangeEvent evt)
 		{
 			String propName = evt.getPropertyName();
@@ -497,8 +474,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 
 		private void onDirectoryChange()
 		{
-			fileChooser.setSelectedFile(new File(fileChooser
-				.getCurrentDirectory(), lastSelName));
+			fileChooser.setSelectedFile(new File(fileChooser.getCurrentDirectory(), lastSelName));
 		}
 
 		private void onSelectedFileChange(PropertyChangeEvent evt)
@@ -517,11 +493,10 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	 *
 	 *@return    The data directory name
 	 */
+	@Override
 	public File getDataDirectory()
 	{
-		File dataDir =
-				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
-		return dataDir;
+		return new File(SettingsHandler.getGmgenPluginDir(), NAME);
 	}
 
 }

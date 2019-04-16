@@ -20,23 +20,26 @@ package pcgen.cdom.facet.analysis;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.facet.analysis.MovementFacet;
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
-import pcgen.core.Movement;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+import pcgen.core.SimpleMovement;
+
+import org.junit.jupiter.api.BeforeEach;
 
 public class MovementFacetTest extends
-		AbstractExtractingFacetTest<CDOMObject, Movement>
+		AbstractExtractingFacetTest<CDOMObject, SimpleMovement>
 {
 
 	private MovementFacet facet = new MovementFacet();
-	private Movement[] target;
+	private SimpleMovement[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -49,24 +52,24 @@ public class MovementFacetTest extends
 		pcs1.setName("Stat1");
 		PCStat pcs2 = new PCStat();
 		pcs2.setName("Stat2");
-		Movement st1 = new Movement(1);
-		Movement st2 = new Movement(1);
-		cdo1.addToListFor(ListKey.MOVEMENT, st1);
-		cdo2.addToListFor(ListKey.MOVEMENT, st2);
+		SimpleMovement st1 = new SimpleMovement(MovementType.getConstant("Walk"), 10);
+		SimpleMovement st2 = new SimpleMovement(MovementType.getConstant("Swim"), 20);
+		cdo1.addToListFor(ListKey.SIMPLEMOVEMENT, st1);
+		cdo2.addToListFor(ListKey.SIMPLEMOVEMENT, st2);
 		source = new CDOMObject[]{cdo1, cdo2};
-		target = new Movement[]{st1, st2};
+		target = new SimpleMovement[]{st1, st2};
 	}
 
 	@Override
-	protected AbstractSourcedListFacet<CharID, Movement> getFacet()
+	protected AbstractSourcedListFacet<CharID, SimpleMovement> getFacet()
 	{
 		return facet;
 	}
 
 	@Override
-	protected Movement getObject()
+	protected SimpleMovement getObject()
 	{
-		return new Movement(1);
+		return new SimpleMovement(MovementType.getConstant("Walk"), 20);
 	}
 
 	@Override
@@ -82,7 +85,7 @@ public class MovementFacetTest extends
 	}
 
 	@Override
-	protected Movement getTargetObject(int i)
+	protected SimpleMovement getTargetObject(int i)
 	{
 		return target[i];
 	}

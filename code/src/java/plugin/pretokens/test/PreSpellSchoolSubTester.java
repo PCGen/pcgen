@@ -1,5 +1,4 @@
 /*
- * PreSpellSchoolSub.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,13 +15,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.pretokens.test;
+
+import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PlayerCharacter;
@@ -32,19 +28,9 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.spell.Spell;
 import pcgen.system.LanguageBundle;
 
-import java.util.List;
-
-/**
- * @author wardc
- *
- */
-public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
@@ -52,12 +38,10 @@ public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements
 		final int requiredLevel = Integer.parseInt(prereq.getOperand());
 
 		final List<Spell> aArrayList =
-				character
-					.aggregateSpellList(
-						"No-Match", subSchool, "No-Match", requiredLevel, 20); //$NON-NLS-1$ //$NON-NLS-2$
+				character.aggregateSpellList(
+					"No-Match", subSchool, "No-Match", requiredLevel, 20); //$NON-NLS-1$ //$NON-NLS-2$
 
-		final int runningTotal =
-				prereq.getOperator().compare(aArrayList.size(), 1);
+		final int runningTotal = prereq.getOperator().compare(aArrayList.size(), 1);
 		return countedTotal(prereq, runningTotal);
 	}
 
@@ -65,21 +49,16 @@ public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "SPELLSCHOOLSUB"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
-	 */
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		return LanguageBundle.getFormattedString(
-			"PreSpellSchoolSub.toHtml_spell_sub_school", //$NON-NLS-1$
-				prereq.getOperator().toDisplayString(),
-				prereq.getOperand(), prereq.getKey());
+		return LanguageBundle.getFormattedString("PreSpellSchoolSub.toHtml_spell_sub_school", //$NON-NLS-1$
+			prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey());
 	}
 }

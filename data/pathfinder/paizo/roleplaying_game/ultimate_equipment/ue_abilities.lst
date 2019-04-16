@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21591 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # Abilities granted by Magic Items
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
@@ -30,49 +31,57 @@ Demon Prince Armor Languages	CATEGORY:Special Ability	AUTO:LANG|Abyssal|Celestia
 
 ###Block: Unarmed Special Properties for Amulet of Might Fist
 # Added by Swiftbrook, September 11, 2014
-# Ability Name				Category of Ability		Type				Aspects
-Unarmed Benevolent			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Benevolent)
-Unarmed Conductive			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Conductive)
-Unarmed Corrosive				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 acid damage
-Unarmed Corrosive Burst			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 acid damage, on a critical hit deals 1d10 additional acid damage
-Unarmed Cruel				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Cruel)
-Unarmed Cunning				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Cunning)
-Unarmed Dispelling			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|can store a single dispel magic spell with a casting time of 1 standard action
-Unarmed Dispelling Burst		CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|can store a single dispel magic spell with a casting time of 1 standard action
-Unarmed Furious				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Furious)
-Unarmed Furyborn				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Furyborn)
-Unarmed Glorious				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Glorious)
-Unarmed Grounding				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Grounding)
-Unarmed Grayflame				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|+1 to enhancement bonus, +1d6 holy/unholy damage, counts as good/silver or evil/cold iron, when infused with channeled energy
-Unarmed Guardian				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Guardian)
-Unarmed Heartseeker			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|Ignores the miss chance for concealment against most living targets
-Unarmed Huntsman				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 damage to creatures tracked with Survival
-Unarmed Igniting				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 fire damage, on a critical hit target catches fire
+# Ability Name							Category of Ability		Type				Aspects																														Temporary Bonus				TEMPVALUE
+Unarmed Benevolent						CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Benevolent)
+Unarmed Conductive						CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Conductive)
+Unarmed Corrosive							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 acid damage
+Unarmed Corrosive Burst						CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 acid damage, on a critical hit deals 1d10 additional acid damage
+Unarmed Cruel							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Cruel)
+Unarmed Cunning							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Cunning)
+Unarmed Dispelling						CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|can store a single dispel magic spell with a casting time of 1 standard action
+Unarmed Dispelling Burst					CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|can store a single dispel magic spell with a casting time of 1 standard action
+Unarmed Furious							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Furious)
+Unarmed Furyborn							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Furyborn)
+Unarmed Glorious							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Glorious)
+Unarmed Grounding							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Grounding)
+Unarmed Grayflame							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|+1 to enhancement bonus, +1d6 holy/unholy damage, counts as good/silver or evil/cold iron, when infused with channeled energy
+Unarmed Guardian							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Guardian)
+Unarmed Heartseeker						CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|Ignores the miss chance for concealment against most living targets
+Unarmed Huntsman							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 damage to creatures tracked with Survival
+Unarmed Igniting							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|unarmed and natural attacks do +1d6 fire damage, on a critical hit target catches fire
 # More code needed for Impact (if possible)
-Unarmed Impact				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|An impact weapon deals damage as if the weapon were one size category larger.
-Unarmed Invigorating			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Invigorating)
-Unarmed Jurist				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Jurist)
-Unarmed Ki Intensifying			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|After a successful strike with a ki intensifying unarmed strike, the wielder can spend 1 ki point as a swift action to perform a combat maneuver.
-Unarmed Lifesurge				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Lifesurge)
-Unarmed Limning				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|On a successful strike against a creature affected by a means of magical concealment, the weapon outlines the creature in faerie fire (as the spell) for 1 round.
-Unarmed Menacing				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|+2 to flanking bonus for allies while wielder is adjacent to flanked creature
-Unarmed Mimetic				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Mimetic)
-Unarmed Negating				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|Briefly nullifies some forms of damage reduction when it damages a creature.
-Unarmed Neutralizing			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|Deals an extra 1d6 points of damage to creatures with the earth subtype.
-Unarmed Nullifying			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|A creature that takes damage from the weapon, has its spell resistance reduced by 1 for 1 minute.
-Unarmed Ominous				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Ominous)
-Unarmed Phase locking			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|A creature damaged by a phase locking weapon is affected as though by the dimensional anchor spell for 1 round.
-Unarmed Planar				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|Ignores 5 points of DR vs. outsiders
-Unarmed Quenching				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|Deals an extra 1d6 points of damage to creatures with the fire subtype.
-Unarmed Repositioning			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Repositioning
-Unarmed Seaborne				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Seaborne)
-Unarmed Spellstealing			CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Spellstealing)
-Unarmed Stalking				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Stalking)
-Unarmed Thawing				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|Deals an extra 1d6 points of damage to creatures with the cold subtype.
-Unarmed Valiant				CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Valiant)
+Unarmed Impact							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|An impact weapon deals damage as if the weapon were one size category larger.
+Unarmed Invigorating						CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Invigorating)
+Unarmed Jurist							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Jurist)
+Unarmed Ki Intensifying						CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|After a successful strike with a ki intensifying unarmed strike, the wielder can spend 1 ki point as a swift action to perform a combat maneuver.
+Unarmed Lifesurge							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Lifesurge)
+Unarmed Limning							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|On a successful strike against a creature affected by a means of magical concealment, the weapon outlines the creature in faerie fire (as the spell) for 1 round.
+Unarmed Menacing							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|+2 to flanking bonus for allies while wielder is adjacent to flanked creature
+Unarmed Mimetic							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Mimetic)
+Unarmed Negating							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|Briefly nullifies some forms of damage reduction when it damages a creature.
+Unarmed Neutralizing						CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|Deals an extra 1d6 points of damage to creatures with the earth subtype.
+Unarmed Nullifying						CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|A creature that takes damage from the weapon, has its spell resistance reduced by 1 for 1 minute.
+Unarmed Ominous							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Ominous)
+Unarmed Phase locking						CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|A creature damaged by a phase locking weapon is affected as though by the dimensional anchor spell for 1 round.
+Unarmed Planar							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|Ignores 5 points of DR vs. outsiders
+Unarmed Quenching							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|Deals an extra 1d6 points of damage to creatures with the fire subtype.
+Unarmed Repositioning						CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Repositioning
+Unarmed Seaborne							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Seaborne)
+Unarmed Spellstealing						CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Spellstealing)
+Unarmed Stalking							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Stalking)
+Unarmed Thawing							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|Deals an extra 1d6 points of damage to creatures with the cold subtype.
+Unarmed Valiant							CATEGORY:Special Ability	TYPE:UnarmedDisplay	ASPECT:UnarmedNotes|see item description (Valiant)
 
-Equipment ~ Deliquescent Gloves	CATEGORY:Internal							ASPECT:CombatBonus|Melee attacks deal 1d6 points of acid damage
-Equipment ~ Perform Bonus		CATEGORY:Internal							ASPECT:SkillBonus|+2 circumstance to Perform Checks.
+Equipment ~ Deliquescent Gloves				CATEGORY:Internal							ASPECT:CombatBonus|Melee attacks deal 1d6 points of acid damage
+Equipment ~ Perform Bonus					CATEGORY:Equipment						ASPECT:SkillBonus|+2 circumstance to Perform Checks.
+
+
+Equipment ~ Blood Reservoir of Physical Prowess (STR)	CATEGORY:Internal																																						TEMPBONUS:ANYPC|STAT|STR|%CHOICE*2	TEMPVALUE:MIN=1|MAX=4|TITLE=Choose Charges to use
+Equipment ~ Blood Reservoir of Physical Prowess (DEX)	CATEGORY:Internal																																						TEMPBONUS:ANYPC|STAT|DEX|%CHOICE*2	TEMPVALUE:MIN=1|MAX=4|TITLE=Choose Charges to use
+Equipment ~ Blood Reservoir of Physical Prowess (CON)	CATEGORY:Internal																																						TEMPBONUS:ANYPC|STAT|CON|%CHOICE*2	TEMPVALUE:MIN=1|MAX=4|TITLE=Choose Charges to use
+
++2 Circumstance Bonus	CATEGORY:Internal	TYPE:Circumstance Bonus from Masterwork Tool	CHOOSE:SKILL|TYPE=Base	MULT:YES	STACK:NO	TEMPBONUS:PC|SKILL|%LIST|2|TYPE=Circumstance	
+
 
 #
 # EOF

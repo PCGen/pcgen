@@ -1,0 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Apr 22 14:27:09 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Alchemy Manual	SOURCESHORT:AM	SOURCEWEB:http://paizo.com/products/btpy90bj	SOURCEDATE:2014-04
+
+# Ability Name			Type			!PRECHARACTERTYPE
+CATEGORY=FEAT|Craft Ooze.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

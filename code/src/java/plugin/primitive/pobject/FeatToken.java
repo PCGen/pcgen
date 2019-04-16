@@ -48,17 +48,14 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	private Class<T> refClass;
 
 	@Override
-	public boolean initialize(LoadContext context, Class<T> cl, String value,
-			String args)
+	public boolean initialize(LoadContext context, Class<T> cl, String value, String args)
 	{
-		Logging.deprecationPrint("FEAT=x is deprecated in CHOOSE, "
-			+ "please use ABILITY=FEAT[x]");
+		Logging.deprecationPrint("FEAT=x is deprecated in CHOOSE, " + "please use ABILITY=FEAT[x]");
 		if (args != null)
 		{
 			return false;
 		}
-		ref = context.getReferenceContext().getCDOMReference(Ability.class, AbilityCategory.FEAT,
-				value);
+		ref = context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT).getReference(value);
 		refClass = cl;
 		return true;
 	}
@@ -85,7 +82,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return "ABILITY=FEAT[" + ref.getLSTformat(useAny) + "]";
+		return "ABILITY=FEAT[" + ref.getLSTformat(useAny) + ']';
 	}
 
 	private <R> List<R> getList(PlayerCharacter pc, Ability a)
@@ -96,8 +93,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		for (CNAbility ability : theFeats)
 		{
 			@SuppressWarnings("unchecked")
-			List<? extends R> list =
-					(List<? extends R>) pc.getDetailedAssociations(ability);
+			List<? extends R> list = (List<? extends R>) pc.getDetailedAssociations(ability);
 			if (list != null)
 			{
 				availableList.addAll(list);
@@ -124,8 +120,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 			FeatToken<?> other = (FeatToken<?>) obj;
 			if (ref == null)
 			{
-				return (other.ref == null) && (refClass == null)
-					&& (other.refClass == null);
+				return (other.ref == null) && (refClass == null) && (other.refClass == null);
 			}
 			return refClass.equals(other.refClass) && ref.equals(other.ref);
 		}

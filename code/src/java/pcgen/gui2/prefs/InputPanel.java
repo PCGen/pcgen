@@ -1,5 +1,4 @@
 /*
- * InputPanel.java
  * Copyright 2010(C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17/11/2010 19:50:00
- *
- * $Id$
  */
 package pcgen.gui2.prefs;
 
@@ -37,27 +32,23 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>InputPanel</code> is responsible for 
+ * The Class {@code InputPanel} is responsible for
  * displaying input related preferences and allowing the 
  * preferences to be edited by the user.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class InputPanel extends PCGenPrefsPanel
 {
-	private static String in_input =
-		LanguageBundle.getString("in_Prefs_input");
+	private static final String IN_INPUT = LanguageBundle.getString("in_Prefs_input");
 
-	private static String in_printDeprecation = LanguageBundle
-		.getString("in_Prefs_printDeprecation");
-	private static String in_printUnconstructed = LanguageBundle
-		.getString("in_Prefs_printUnconstructed");
+	private static final String IN_PRINT_DEPRECATION = LanguageBundle.getString("in_Prefs_printDeprecation");
+	private static final String IN_PRINT_UNCONSTRUCTED = LanguageBundle.getString("in_Prefs_printUnconstructed");
 
 	private JCheckBox printDeprecationMessages = new JCheckBox();
 	private JCheckBox printUnconstructedDetail = new JCheckBox();
-	
+
 	/**
 	 * Instantiates a new input panel.
 	 */
@@ -66,8 +57,7 @@ public class InputPanel extends PCGenPrefsPanel
 		GridBagLayout gridbag = new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
 		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_input);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_INPUT);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -79,16 +69,12 @@ public class InputPanel extends PCGenPrefsPanel
 		c.insets = new Insets(2, 2, 2, 2);
 
 		Utility.buildConstraints(c, 0, 0, 3, 1, 0, 0);
-		printDeprecationMessages =
-				new JCheckBox(in_printDeprecation, SettingsHandler
-					.outputDeprecationMessages());
+		printDeprecationMessages = new JCheckBox(IN_PRINT_DEPRECATION, SettingsHandler.outputDeprecationMessages());
 		gridbag.setConstraints(printDeprecationMessages, c);
 		this.add(printDeprecationMessages);
-		
+
 		Utility.buildConstraints(c, 0, 1, 3, 1, 0, 0);
-		printUnconstructedDetail =
-				new JCheckBox(in_printUnconstructed, SettingsHandler
-					.inputUnconstructedMessages());
+		printUnconstructedDetail = new JCheckBox(IN_PRINT_UNCONSTRUCTED, SettingsHandler.inputUnconstructedMessages());
 		gridbag.setConstraints(printUnconstructedDetail, c);
 		this.add(printUnconstructedDetail);
 
@@ -99,37 +85,24 @@ public class InputPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
-	 */
 	@Override
 	public String getTitle()
 	{
-		return in_input;
+		return IN_INPUT;
 	}
-	
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
-	 */
+
 	@Override
 	public void setOptionsBasedOnControls()
 	{
-		SettingsHandler.setOutputDeprecationMessages(printDeprecationMessages
-			.isSelected());
-		SettingsHandler.setInputUnconstructedMessages(printUnconstructedDetail
-			.isSelected());
+		SettingsHandler.setOutputDeprecationMessages(printDeprecationMessages.isSelected());
+		SettingsHandler.setInputUnconstructedMessages(printUnconstructedDetail.isSelected());
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
-	 */
 	@Override
 	public void applyOptionValuesToControls()
 	{
-		printDeprecationMessages.setSelected(SettingsHandler
-			.outputDeprecationMessages());
-		printUnconstructedDetail.setSelected(SettingsHandler
-			.inputUnconstructedMessages());
+		printDeprecationMessages.setSelected(SettingsHandler.outputDeprecationMessages());
+		printUnconstructedDetail.setSelected(SettingsHandler.inputUnconstructedMessages());
 	}
 
 }

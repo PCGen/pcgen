@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with GENDERLOCK Token
  */
-public class GenderlockToken extends AbstractNonEmptyToken<PCTemplate>
-		implements CDOMPrimaryToken<PCTemplate>
+public class GenderlockToken extends AbstractNonEmptyToken<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override
@@ -39,32 +38,28 @@ public class GenderlockToken extends AbstractNonEmptyToken<PCTemplate>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		PCTemplate template, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCTemplate template, String value)
 	{
 		try
 		{
-			context.getObjectContext().put(template, ObjectKey.GENDER_LOCK,
-					Gender.valueOf(value));
+			context.getObjectContext().put(template, ObjectKey.GENDER_LOCK, Gender.valueOf(value));
 			return ParseResult.SUCCESS;
 		}
 		catch (IllegalArgumentException iae)
 		{
-			return new ParseResult.Fail("Invalid Gender provided in " + getTokenName()
-					+ ": " + value, context);
+			return new ParseResult.Fail("Invalid Gender provided in " + getTokenName() + ": " + value);
 		}
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		Gender g = context.getObjectContext().getObject(pct,
-				ObjectKey.GENDER_LOCK);
+		Gender g = context.getObjectContext().getObject(pct, ObjectKey.GENDER_LOCK);
 		if (g == null)
 		{
 			return null;
 		}
-		return new String[] { g.name() };
+		return new String[]{g.name()};
 	}
 
 	@Override

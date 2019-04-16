@@ -17,21 +17,29 @@
  */
 package pcgen.cdom.content;
 
-import pcgen.base.calculation.PCGenModifier;
+import java.util.Objects;
+
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
 
 /**
  * A VarModifier is a container for all the information necessary to modify a
- * variable. This includes the scope, the variable name, and the PCGenModifier
+ * variable. This includes the scope, the variable name, and the FormulaModifier
  * to be applied. This allows that grouping of information to be passed as a
  * single unit of information.
  * 
  * @param <T>
- *            The format of the variable modified by the PCGenModifier in this
+ *            The format of the variable modified by the FormulaModifier in this
  *            VarModifier
  */
 public class VarModifier<T>
 {
+	/**
+	 * This is an empty array of VarModifier objects, available for use by a
+	 * VarContainer.
+	 */
+	public static final VarModifier<?>[] EMPTY_VARMODIFIER = new VarModifier[0];
 
 	/**
 	 * The name of the Variable to be modified when this VarModifier is applied.
@@ -39,16 +47,16 @@ public class VarModifier<T>
 	private final String varName;
 
 	/**
-	 * The Scope of the variable to be modified when this VarModifier is
+	 * The PCGenScope of the variable to be modified when this VarModifier is
 	 * applied.
 	 */
-	private final LegalScope legalScope;
+	private final PCGenScope legalScope;
 
 	/**
-	 * The PCGenModifier to be applied to the Variable when this VarModifier is
+	 * The FormulaModifier to be applied to the Variable when this VarModifier is
 	 * applied.
 	 */
-	private final PCGenModifier<T> modifier;
+	private final FormulaModifier<T> modifier;
 
 	/**
 	 * Constructs a new VarModifier containing all the information necessary to
@@ -58,28 +66,18 @@ public class VarModifier<T>
 	 *            The name of the Variable to be modified when this VarModifier
 	 *            is applied
 	 * @param legalScope
-	 *            the LegalScope in which the Modifier is applied
+	 *            the PCGenScope in which the Modifier is applied
 	 * @param modifier
-	 *            The PCGenModifier to be applied to the Variable when this
+	 *            The FormulaModifier to be applied to the Variable when this
 	 *            VarModifier is applied
 	 * @throws IllegalArgumentException
 	 *             if any of the parameters are null
 	 */
-	public VarModifier(String varName, LegalScope legalScope,
-		PCGenModifier<T> modifier)
+	public VarModifier(String varName, PCGenScope legalScope, FormulaModifier<T> modifier)
 	{
-		if (varName == null)
-		{
-			throw new IllegalArgumentException("Var Name cannot be null");
-		}
-		if (legalScope == null)
-		{
-			throw new IllegalArgumentException("LegalScope cannot be null");
-		}
-		if (modifier == null)
-		{
-			throw new IllegalArgumentException("Modifier cannot be null");
-		}
+		Objects.requireNonNull(varName, "Var Name cannot be null");
+		Objects.requireNonNull(legalScope, "PCGenScope cannot be null");
+		Objects.requireNonNull(modifier, "Modifier cannot be null");
 		this.varName = varName;
 		this.legalScope = legalScope;
 		this.modifier = modifier;
@@ -96,21 +94,21 @@ public class VarModifier<T>
 	}
 
 	/**
-	 * Retrieves the LegalScope for this VarModifier.
+	 * Retrieves the PCGenScope for this VarModifier.
 	 * 
-	 * @return the LegalScope for this VarModifier
+	 * @return the PCGenScope for this VarModifier
 	 */
-	public LegalScope getLegalScope()
+	public PCGenScope getLegalScope()
 	{
 		return legalScope;
 	}
 
 	/**
-	 * Retrieves the PCGenModifier for this VarModifier.
+	 * Retrieves the FormulaModifier for this VarModifier.
 	 * 
-	 * @return the PCGenModifier for this VarModifier
+	 * @return the FormulaModifier for this VarModifier
 	 */
-	public PCGenModifier<T> getModifier()
+	public FormulaModifier<T> getModifier()
 	{
 		return modifier;
 	}
@@ -127,10 +125,29 @@ public class VarModifier<T>
 		if (o instanceof VarModifier)
 		{
 			VarModifier<?> other = (VarModifier<?>) o;
-			return other.varName.equals(varName)
-				&& other.legalScope.equals(legalScope)
+			return other.varName.equals(varName) && other.legalScope.equals(legalScope)
 				&& other.modifier.equals(modifier);
 		}
 		return false;
+	}
+
+	/**
+	 * Returns the fully qualified Legal Scope Name for the LegalScope in this
+	 * VarModifier.
+	 * 
+	 * (e.g. The LegalScope might be "SKILL" and the fully qualified name "PC.SKILL")
+	 * 
+	 * @return The fully qualified Legal Scope Name for the LegalScope in this VarModifier
+	 */
+	public String getFullLegalScopeName()
+	{
+		return LegalScope.getFullName(getLegalScope());
+	}
+	
+	@Override
+	public String toString()
+	{
+		return getClass().getSimpleName() + ": " + varName + " ("
+			+ legalScope.getName() + ") " + modifier;
 	}
 }

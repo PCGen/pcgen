@@ -1,0 +1,107 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
+
+# ==============================
+# Adventuring Gear
+# ==============================
+
+# Equipment Name								Output Name							Type								Contains			Cost		Weight	Source Page		Special Property
+Animal-Repellant Sack															TYPE:Goods.General.Container				CONTAINS:UNLIM|Any	COST:1	WT:0.5	SOURCEPAGE:p.242
+Backpack (Carrier)							OUTPUTNAME:Backpack, Carrier				TYPE:Goods.General.Container				CONTAINS:UNLIM|Any	COST:25	WT:5		SOURCEPAGE:p.242
+Backpack (Hydration)							OUTPUTNAME:Backpack, Hydration			TYPE:Goods.General.Container				CONTAINS:UNLIM|Any	COST:40	WT:4		SOURCEPAGE:p.242
+Backpack (Weaponrack)							OUTPUTNAME:Backpack, Weaponrack			TYPE:Goods.General.Container				CONTAINS:UNLIM|Any	COST:25	WT:5		SOURCEPAGE:p.242
+Camouflaged Canvas															TYPE:Goods.General									COST:1	WT:1		SOURCEPAGE:p.242
+Companion Cold-Weather Outfit														TYPE:Goods.Clothing.Resizable								COST:15	WT:6		SOURCEPAGE:p.242
+Cooler Chest																TYPE:Goods.General.Container				CONTAINS:UNLIM|Any	COST:25	WT:60		SOURCEPAGE:p.243
+Cushioned Inserts																TYPE:Goods.General									COST:0.5			SOURCEPAGE:p.243
+Duo Saw																	TYPE:Goods.Tools										COST:100	WT:20		SOURCEPAGE:p.243
+Efficient Tent																TYPE:TYPE:Goods.General.Resizable							COST:150	WT:15		SOURCEPAGE:p.243
+Field Survival Guide															TYPE:Goods.Tools.Book									COST:20	WT:1		SOURCEPAGE:p.243
+Filter Scarf																TYPE:Goods.Clothing.Resizable								COST:5			SOURCEPAGE:p.243
+Flame-Retardant Outfit															TYPE:Goods.Clothing.Resizable								COST:50	WT:10		SOURCEPAGE:p.243
+Goblin Fishing Lure															TYPE:Goods.Tools										COST:5			SOURCEPAGE:p.243
+Hunter's Stand																TYPE:Goods.General									COST:25	WT:15		SOURCEPAGE:p.243
+Inside Pocket																TYPE:Goods.General									COST:4			SOURCEPAGE:p.243
+Insulated Flask																TYPE:Goods.General.Container				CONTAINS:1|Liquid`	COST:0.2	WT:1		SOURCEPAGE:p.243
+Nature Climbing Harness															TYPE:Goods.Tools										COST:60	WT:4		SOURCEPAGE:p.244
+Privacy Shelter																TYPE:Goods.General									COST:5	WT:10		SOURCEPAGE:p.244
+Silent Piton																TYPE:Goods.Tools										COST:0.5	WT:0.5	SOURCEPAGE:p.244
+Snakebite Kit																TYPE:Goods.General									COST:20	WT:0.5	SOURCEPAGE:p.244
+Speed Sheath																TYPE:Goods.General									COST:10	WT:1		SOURCEPAGE:p.244
+Stretch Cords																TYPE:Goods.General									COST:0.5	WT:0.5	SOURCEPAGE:p.244
+Tanner's Kit																TYPE:Goods.Tools										COST:10	WT:5		SOURCEPAGE:p.244
+Tent Cover																	TYPE:Goods.General									COST:15	WT:15		SOURCEPAGE:p.244
+Trekking Pole																TYPE:Goods.General									COST:15	WT:2		SOURCEPAGE:p.244
+Wading Boots																TYPE:Goods.General									COST:50	WT:2		SOURCEPAGE:p.245
+Waist Pouch																	TYPE:Goods.General.Container				CONTAINS:UNLIM|Any	COST:0.5	WT:0.5	SOURCEPAGE:p.245
+Windup Music Box																TYPE:Goods.General									COST:25	WT:0.5	SOURCEPAGE:p.245
+Wing Hooks																	TYPE:Goods.General.Racial.Gathlain							COST:150	WT:2		SOURCEPAGE:p.13
+
+Hunter's Stand.COPY=Hunter's Stand (Camouflage Blind)		OUTPUTNAME:Hunter's Stand, Camouflage Blind													COST:30
+Hunter's Stand.COPY=Hunter's Stand (All-Weather Cover)	OUTPUTNAME:Hunter's Stand, All-Weather Cover													COST:35
+
+# ==============================
+# Alchemical Tools
+# ==============================
+
+Adhesive Strip																TYPE:Goods.Alchemical.Consumable							COST:5	WT:0.5	SOURCEPAGE:p.245
+Alchemical Pheromones (Aggression)													TYPE:Goods.Alchemical.Consumable							COST:150			SOURCEPAGE:p.245
+Alchemical Pheromones (Arousal)													TYPE:Goods.Alchemical.Consumable							COST:300			SOURCEPAGE:p.245
+Alchemical Pheromones (Simple)													TYPE:Goods.Alchemical.Consumable							COST:1			SOURCEPAGE:p.245
+Alchemical Pheromones (Susceptibility)												TYPE:Goods.Alchemical.Consumable							COST:300			SOURCEPAGE:p.245
+Alchemical Resin																TYPE:Goods.Alchemical.Consumable							COST:100			SOURCEPAGE:p.246
+Animal Repellent																TYPE:Goods.Alchemical.Consumable.Racial.Leshy					COST:15			SOURCEPAGE:p.24
+Fortifying Fertilizer															TYPE:Goods.Alchemical.Consumable.Racial.Leshy					COST:120	WT:2		SOURCEPAGE:p.24
+Liniment																	TYPE:Goods.Alchemical.Consumable							COST:15			SOURCEPAGE:p.246
+Red Flame Torch																TYPE:Goods.Alchemical.Consumable							COST:20	WT:1		SOURCEPAGE:p.246
+
+# ==============================
+# Herbalism Ingredients
+# ==============================
+
+Angelstep																	TYPE:Goods.Herbalism.Consumable							COST:25	WT:0.1	SOURCEPAGE:p.152	SPROP:Profession (Herbalist) DC 18; Yield 1 dose; Terrain - temperate or warm deserts
+Black Amaranth																TYPE:Goods.Herbalism.Consumable							COST:100	WT:0.1	SOURCEPAGE:p.152	SPROP:Profession (Herbalist) DC 18; Yield 1 dose; Terrain - temperate or warm forests or plains
+Bloody Mandrake																TYPE:Goods.Herbalism.Consumable							COST:15	WT:0.1	SOURCEPAGE:p.153	SPROP:Profession (Herbalist) DC 20; Yield 1d4 dose; Terrain - any plains or swamps
+Bone Reed																	TYPE:Goods.Herbalism.Consumable							COST:75	WT:0.1	SOURCEPAGE:p.153	SPROP:Profession (Herbalist) DC 24; Yield 1 dose; Terrain - any swamps
+Cloud Puff																	TYPE:Goods.Herbalism.Consumable							COST:100	WT:0.1	SOURCEPAGE:p.153	SPROP:Profession (Herbalist) DC 18; Yield 1 dose; Terrain - any mountains
+Dragon Rose																	TYPE:Goods.Herbalism.Consumable							COST:25	WT:0.1	SOURCEPAGE:p.153	SPROP:Profession (Herbalist) DC 18; Yield 1 dose; Terrain - any forests or mountains
+Dream Lichen																TYPE:Goods.Herbalism.Consumable							COST:2000	WT:0.1	SOURCEPAGE:p.153	SPROP:Profession (Herbalist) DC 30; Yield 1 dose; Terrain - anywhere the boundaries between the Material Plane and the Dimension of Dreams grow thin
+Fairy Cap																	TYPE:Goods.Herbalism.Consumable							COST:250	WT:0.1	SOURCEPAGE:p.153	SPROP:Profession (Herbalist) DC 20; Yield 1 dose; Terrain - any near ley lines
+Goblinvine																	TYPE:Goods.Herbalism.Consumable							COST:30	WT:1		SOURCEPAGE:p.154	SPROP:Profession (Herbalist) DC 16; Yield 1 dose; Terrain - any forests, mountains, plains, or swamps
+Leechwort																	TYPE:Goods.Herbalism.Consumable							COST:3	WT:0.1	SOURCEPAGE:p.154	SPROP:Profession (Herbalist) DC 16; Yield 1d4 dose; Terrain - warm forests or swamps
+Love-in-Idleness																TYPE:Goods.Herbalism.Consumable							COST:150	WT:0.1	SOURCEPAGE:p.154	SPROP:Profession (Herbalist) DC 20; Yield 1 dose; Terrain - any forests
+Merfolk's Comb																TYPE:Goods.Herbalism.Consumable							COST:750	WT:0.1	SOURCEPAGE:p.154	SPROP:Profession (Herbalist) DC 25; Yield 1 dose; Terrain - any underwater
+Mimameith																	TYPE:Goods.Herbalism.Consumable							COST:600	WT:5		SOURCEPAGE:p.154	SPROP:Profession (Herbalist) DC 25; Yield 1d4 dose; Terrain - any forests or mountains
+Moly																		TYPE:Goods.Herbalism.Consumable							COST:1200	WT:0.1	SOURCEPAGE:p.155	SPROP:Profession (Herbalist) DC 25; Yield 1 dose; Terrain - any forests or plains
+Nepenthe																	TYPE:Goods.Herbalism.Consumable							COST:400	WT:0.1	SOURCEPAGE:p.155	SPROP:Profession (Herbalist) DC 20; Yield 1 dose; Terrain - warm forests or swamps
+Nightsage																	TYPE:Goods.Herbalism.Consumable							COST:100	WT:0.1	SOURCEPAGE:p.155	SPROP:Profession (Herbalist) DC 14; Yield 1 dose; Terrain - any jungles
+Seeing Slime																TYPE:Goods.Herbalism.Consumable							COST:160	WT:0.1	SOURCEPAGE:p.155	SPROP:Profession (Herbalist) DC 19; Yield 1 dose; Terrain - any underground
+Winterbite																	TYPE:Goods.Herbalism.Consumable							COST:20	WT:0.1	SOURCEPAGE:p.155	SPROP:Profession (Herbalist) DC 11; Yield 1d4 dose; Terrain - any cold
+
+# ==============================
+# Mounts
+# ==============================
+
+Riding Bee (Queen)															TYPE:Mount.Goods.Transportation.Container		CONTAINS:*1050|Any	COST:300	WT:60		SOURCEPAGE:12
+Riding Bee (Queen/Combat-Trained)													TYPE:Mount.Goods.Transportation.Container		CONTAINS:*1050|Any	COST:450	WT:60		SOURCEPAGE:12
+Riding Bee (Worker)															TYPE:Mount.Goods.Transportation.Container		CONTAINS:*172|Any		COST:8000	WT:140	SOURCEPAGE:12
+Riding Bee (Worker/Combat-Trained)													TYPE:Mount.Goods.Transportation.Container		CONTAINS:*172|Any		COST:12000	WT:140	SOURCEPAGE:12
+
+# ==============================
+# Poisons
+# ==============================
+
+Poison (Blistercap Spore)						OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:1125	WT:0		SOURCEPAGE:p.143	SPROP:Contact; Fort DC 20; Freq 1 rnd (6); Effect 1d2 Dex drain and 1 Con drain/Sickened 1 min; Cure 2 saves
+Poison (Blue Star)							OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:500	WT:0		SOURCEPAGE:p.143	SPROP:Ingested; Fort DC 15; Onset 10 min; Freq 1 min (6); Effect 1d2 Con dmg, -2 penalty on saves vs. poison for 1 week; Cure 2 saves
+Poison (Cloudthorn Venom)						OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:400	WT:0		SOURCEPAGE:p.144	SPROP:Injury; Fort DC 14; Onset 1d4 rnds; Freq 1 hr (3); Effect 1d3 Str and Dex dmg, unable to feel pain for 1 hour (see text); Cure 1 save
+Poison (Crone's Curse)							OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:600	WT:0		SOURCEPAGE:p.144	SPROP:Inhaled; Fort DC 16; Onset 1d4 hrs; Frequency 1 day (6); Effect 1 Dex and Wis dmg, -4 on saves to resist effects of extreme temps; vulnerable to cold and fire dmg; Cure 2 saves
+Poison (Draughtcap Fungus)						OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:150	WT:0		SOURCEPAGE:p.144	SPROP:Ingested; Fort DC 16; Onset 4d6 hrs; Freq 1 hr (8); Effect 1d2 Str dmg, dehydration (see text); Cure 2 saves
+Poison (Goblin's Eye)							OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:75	WT:0		SOURCEPAGE:p.144	SPROP:Ingested; Fort DC 13; Onset 1 min; Freq 1 min (6); Effect 1 Con dmg, nauseated 1 min; Cure 1 save
+Poison (Jackalroot Essence)						OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:600	WT:0		SOURCEPAGE:p.144	SPROP:Injury; Fort DC 18; Freq 1 rnd (1d6); Effect uncontrollable laughter (as per hideous laughter); Cure 2 saves
+Poison (Nymph's Lure)							OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:250	WT:0		SOURCEPAGE:p.144	SPROP:Ingested; Fort DC 15; Onset 1d4 hrs; Freq 1 hr (8); Effect 1d2 Str and Wis dmg, pheremone release (see text); Cure 1 save
+Poison (Red Bedlam)							OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:1200	WT:0		SOURCEPAGE:p.145	SPROP:Ingested; Fort DC 15; Onset 10 min; Freq 1 min (10); Effect confusion; Cure 2 saves
+Poison (Starving Nettle)						OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:300	WT:0		SOURCEPAGE:p.145	SPROP:Injury; Fort DC 15; Freq 1 day (8); Effect 1d3 Dex and Con dmg, unable to eat (see text); Cure 2 saves
+Poison (Styx Sap)								OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:2600	WT:0		SOURCEPAGE:p.145	SPROP:Contact; Fort DC 18; Onset 1d4 min; Freq 10 min (6); Effect 1d4 Wis dmg, loses memories from past 10 minutes; Cure 1 save
+Poison (Third Eye)							OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:900	WT:0		SOURCEPAGE:p.145	SPROP:Contact; Fort DC 17; Onset 1 min; Freq 1 rnd (6); Effect 1d3 Wis dmg, possible confusion; Cure 2 saves
+Poison (Violet Venom)							OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:800	WT:0		SOURCEPAGE:p.145	SPROP:Contact; Fort DC 13; Freq 1 min (6); Effect 1d2 Str and Con dmg; Cure 1 save
+Poison (Witch-Hunter's Sword)						OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:850	WT:0		SOURCEPAGE:p.145	SPROP:Ingested; Fort DC 19; Onset 10 min; Freq 1 hr (8); Effect 1 Int, Wis, and Cha dmg, -5 on concentration, concentration to cast spells or use spell-like abilities (see text); Cure 2 saves

@@ -1,0 +1,18 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: People of the Sands	SOURCESHORT:PSand	SOURCEWEB:http://paizo.com/products/btpy92lx	SOURCEDATE:2014-02
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 11 March 2017
+
+# ==============================
+# New Equipment Modification
+# ==============================
+
+# Modifier Name							Unique Key						Type		Cost		Visible		Source Page		Required Type			Bonus Equip Mods		Special Property
+Armor Vents								KEY:Special Quality ~ Armor Vents ~ Armor	TYPE:Armor	COST:100	VISIBLE:QUALIFY	SOURCEPAGE:p.28	PRETYPE:2,Armor,Medium,Heavy	BONUS:EQM|WEIGHTADD|-5	SPROP:Armor with armor vents imposes only a -2 penalty (instead of -4) on Fortitude saves to avoid taking nonlethal damage from heat exposure, but also has 10 fewer hit points than normal because of its more intricate construction.
+
+
+
+
+#Old KEYs
+Special Quality ~ Armor Vents ~ Armor.COPY=VENTS_A												VISIBLE:NO

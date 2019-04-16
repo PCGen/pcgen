@@ -21,7 +21,6 @@ import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
  * 
  * A Formula is a mathematical formula which requires a context to resolve.
  */
@@ -80,8 +79,7 @@ public interface Formula
 	 * @return The Number indicating the result of the Formula when resolved in
 	 *         the given context.
 	 */
-	public Number resolve(Equipment equipment, boolean primary,
-			PlayerCharacter pc, String source);
+	public Number resolve(Equipment equipment, boolean primary, PlayerCharacter pc, String source);
 
 	/**
 	 * Returns true if the underlying Formula is known to be static.

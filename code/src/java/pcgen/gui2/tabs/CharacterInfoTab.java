@@ -1,5 +1,4 @@
 /*
- * CharacterInfoTab.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 13, 2010, 3:18:09 PM
  */
 package pcgen.gui2.tabs;
 
@@ -27,7 +25,6 @@ import pcgen.facade.core.CharacterFacade;
 /**
  * This interface must be implemented by all tabs that display character
  * information: summary tab, classes tab, abilities tab, inventory tab, etc....
- * <br>
  * The goal of this class is to create a separation of UI models and the UI
  * components that use them. By doing this, knowledge of the CharacterFacade can
  * be isolated from the tab itself and stored solely within the models that use
@@ -45,19 +42,17 @@ import pcgen.facade.core.CharacterFacade;
  * </code> These methods are used by the character tab handler to allow each tab
  * to independently store and manage its own UI models within a hashtable of its
  * own creation. Each of these methods are used in a defined order. When a new
- * character is created the <code>createModels</code> is called by the tab
+ * character is created the {@code createModels} is called by the tab
  * handler to create the models for this tab. Whenever characters selection
- * occurs, the tab handler calls <code>storeModels</code> with the old selected
- * character's state hashtable followed by a call to <code>restoreModels</code>
+ * occurs, the tab handler calls {@code storeModels} with the old selected
+ * character's state hashtable followed by a call to {@code restoreModels}
  * with the new selected character's state hashtable. It is guaranteed that any
- * call to <code>restoreModels</code> will be preceded by a call to
- * <code>storeModels</code> if a character is currently displayed on this tab.
+ * call to {@code restoreModels} will be preceded by a call to
+ * {@code storeModels} if a character is currently displayed on this tab.
  * <p>
- * Note: The states crated by the a tab's <code>createModels</code> are
+ * Note: The states crated by the a tab's {@code createModels} are
  * guaranteed to not be modified in anyway by the tab handler. The only changes
- * that would occur to any state would be in a call to <code>storeModels</code>.
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * that would occur to any state would be in a call to {@code storeModels}.
  */
 public interface CharacterInfoTab
 {
@@ -81,7 +76,7 @@ public interface CharacterInfoTab
 	/**
 	 * This restores this character tab to a state that contains the models for
 	 * some given character. The models in question were created during the call
-	 * to <code>createModels(CharacterFacade)</code> When this is called the tab
+	 * to {@code createModels(CharacterFacade)} When this is called the tab
 	 * should attach the models contained within this state to the UI components
 	 * of this tab.
 	 *
@@ -91,7 +86,7 @@ public interface CharacterInfoTab
 
 	/**
 	 * This is called to save any character specific info that might have
-	 * changed since <code>restoreModels</code> was called. Implementors might
+	 * changed since {@code restoreModels} was called. Implementors might
 	 * also use this method to detach non swappable models from the UI
 	 * components, i.e. listeners.
 	 *

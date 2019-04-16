@@ -36,7 +36,7 @@ public abstract class AbstractIntToken<T extends CDOMObject>
 	{
 		return Integer.MAX_VALUE;
 	}
-	
+
 	/**
 	 * Override this to set a minimum value.
 	 */
@@ -44,7 +44,7 @@ public abstract class AbstractIntToken<T extends CDOMObject>
 	{
 		return Integer.MIN_VALUE;
 	}
-	
+
 	/**
 	 * Checks that the value is in the correct range.
 	 * @param value The value to check.
@@ -70,15 +70,14 @@ public abstract class AbstractIntToken<T extends CDOMObject>
 		}
 		else
 		{
-			if (value.intValue() > max || value.intValue() < min)
+			if ((value.intValue() > max) || (value.intValue() < min))
 			{
-				return new ParseResult.Fail(getTokenName()
-					+ " must be an integer betwen " + min + " and " + max);
+				return new ParseResult.Fail(getTokenName() + " must be an integer betwen " + min + " and " + max);
 			}
 		}
 		return ParseResult.SUCCESS;
 	}
-	
+
 	protected abstract String getTokenName();
 
 	/**
@@ -102,16 +101,14 @@ public abstract class AbstractIntToken<T extends CDOMObject>
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>");
+			return new ParseResult.Fail(
+				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
 		}
 	}
 
- 	public String[] unparse(LoadContext context, T obj)
+	public String[] unparse(LoadContext context, T obj)
 	{
-		Integer value = context.getObjectContext()
-				.getInteger(obj, integerKey());
+		Integer value = context.getObjectContext().getInteger(obj, integerKey());
 		if (value == null)
 		{
 			return null;
@@ -122,6 +119,6 @@ public abstract class AbstractIntToken<T extends CDOMObject>
 			context.addWriteMessage(checkValue.toString());
 			return null;
 		}
-		return new String[] { value.toString() };
+		return new String[]{value.toString()};
 	}
 }

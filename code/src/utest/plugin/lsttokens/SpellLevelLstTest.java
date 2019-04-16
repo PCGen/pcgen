@@ -17,10 +17,9 @@
  */
 package plugin.lsttokens;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.Type;
@@ -40,10 +39,13 @@ import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class SpellLevelLstTest extends AbstractGlobalTokenTestCase
 {
 	static CDOMPrimaryToken<CDOMObject> token = new SpelllevelLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()
@@ -58,7 +60,13 @@ public class SpellLevelLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}
@@ -69,7 +77,7 @@ public class SpellLevelLstTest extends AbstractGlobalTokenTestCase
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -91,112 +99,112 @@ public class SpellLevelLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidDoublePipe() throws PersistenceLayerException
+	public void testInvalidDoublePipe()
 	{
 		assertFalse(parse("CLASS||Cleric=1|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoSpell() throws PersistenceLayerException
+	public void testInvalidNoSpell()
 	{
 		assertFalse(parse("CLASS|Cleric=1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoLevel() throws PersistenceLayerException
+	public void testInvalidNoLevel()
 	{
 		assertFalse(parse("CLASS|Cleric=|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClassOnly() throws PersistenceLayerException
+	public void testInvalidClassOnly()
 	{
 		assertFalse(parse("DOMAIN|Cleric|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidPrefix() throws PersistenceLayerException
+	public void testInvalidPrefix()
 	{
 		assertFalse(parse("SKILL|Cleric=2|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoPrefix() throws PersistenceLayerException
+	public void testInvalidNoPrefix()
 	{
 		assertFalse(parse("|Cleric=2|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoClass() throws PersistenceLayerException
+	public void testInvalidNoClass()
 	{
 		assertFalse(parse("CLASS|=2|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPre1() throws PersistenceLayerException
+	public void testInvalidOnlyPre1()
 	{
 		assertFalse(parse("PRECLASS:1,Fighter"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPre2() throws PersistenceLayerException
+	public void testInvalidOnlyPre2()
 	{
 		assertFalse(parse("CLASS|PRECLASS:1,Fighter"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPre3() throws PersistenceLayerException
+	public void testInvalidOnlyPre3()
 	{
 		assertFalse(parse("CLASS|Cleric=2|PRECLASS:1,Fighter"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadCasterComma1() throws PersistenceLayerException
+	public void testInvalidBadCasterComma1()
 	{
 		assertFalse(parse("CLASS|,Cleric=2|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadCasterComma2() throws PersistenceLayerException
+	public void testInvalidBadCasterComma2()
 	{
 		assertFalse(parse("CLASS|Cleric,=2|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadCasterComma3() throws PersistenceLayerException
+	public void testInvalidBadCasterComma3()
 	{
 		assertFalse(parse("CLASS|Cleric,,Druid=2|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadComma1() throws PersistenceLayerException
+	public void testInvalidBadComma1()
 	{
 		assertFalse(parse("CLASS|Cleric=2|,Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadComma2() throws PersistenceLayerException
+	public void testInvalidBadComma2()
 	{
 		assertFalse(parse("CLASS|Cleric=2|Fireball,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadComma3() throws PersistenceLayerException
+	public void testInvalidBadComma3()
 	{
 		assertFalse(parse("CLASS|Cleric=2|Fireball,,Lightning Bolt"));
 		assertNoSideEffects();

@@ -16,18 +16,17 @@
  * 3. gradle pcgenRelease
  *   a.	Build
  *   b.	Assemble distributables
- *   c.	Tag
- *   d.	Update version - increment version and add snapshot
- *   e.	Commit new version
- *
- * Author: James Dempsey
+ *   c.	Update version - increment version and add snapshot
+ *   d.	Commit new version
  */
 
 apply from: "code/gradle/releaseUtils.groovy"
 apply plugin: 'java'
 
-ext {
+import org.apache.tools.ant.filters.FixCrLfFilter
+import org.apache.tools.ant.filters.ReplaceTokens
 
+ext {
     // Work out the path to the release notes for our current version.
     plainVerNum = version.replaceAll('-SNAPSHOT', '')
     shortVerNum = plainVerNum.replaceAll(/\./, '')
@@ -40,10 +39,8 @@ ext {
     baseLibs = copySpec {
         from("${buildDir}/libs") {
             exclude 'pcgen-*.jar'
-            exclude 'kunststoff*.jar'
             exclude 'skinlf*.jar'
             exclude 'fop*.jar'
-            exclude 'xerces*.jar'
             exclude 'batik*.jar'
         }
         into ('/libs')
@@ -52,7 +49,6 @@ ext {
     pdfLibs = copySpec {
         from("${buildDir}/libs") {
             include 'fop*.jar'
-            include 'xerces*.jar'
             include 'batik*.jar'
         }
         into ('/plugin/pdf/libs')
@@ -60,7 +56,6 @@ ext {
 
     skinLibs = copySpec {
         from("${buildDir}/libs") {
-            include 'kunststoff*.jar'
             include 'skinlf*.jar'
         }
         into ('/plugin/skin/libs')
@@ -102,7 +97,6 @@ ext {
         from("${projectDir}/data") {
             include 'customsources/**'
             include 'homebrew/**'
-            include 'publisher_logos/**'
         }
         into ('/data')
     }
@@ -111,18 +105,21 @@ ext {
         from("${projectDir}/data") {
             exclude 'customsources/**'
             exclude 'homebrew/**'
-            exclude 'publisher_logos/**'
         }
         into ('/data')
     }
+
+	List result = plainVerNum.replaceAll('-DEV', '').tokenize('.')
+	installerVerNum = result.get(0).toInteger() + "." + result.get(1).toInteger() + "." +  result.get(2).toInteger() + ".0"
 }
 
-task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
+task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs, 
+        jar, converterJar]) {
     description="Assemble the required files for all PCGen installations"
-    doFirst {
-        // Release notes are required!
-        assert file(releaseNotes).exists()
-    }
+    //doFirst {
+    // Release notes are required! Causes Autobuild Problem
+    //assert file(releaseNotes).exists()
+    //}
 
     into nsisBaseFolder
     from ("${projectDir}/installers/win-installer/Local") {
@@ -132,16 +129,31 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
         into "/docs/acknowledgments/"
         include "PCGenLicense.txt"
     }
+    from ("${buildDir}/libs") {
+        into "./libs/"
+        exclude "pcgen-${version}.jar"
+        exclude "pcgen-${version}-batch-convert.jar"
+    }
+    from ("${buildDir}/libs") {
+        include "pcgen-${version}.jar"
+        include "pcgen-${version}-batch-convert.jar"
+        rename "(.+)-$version(.+)", '$1$2'
+    }
     from ("${projectDir}") {
-        include '*.jar'
         include 'logging.properties'
         include 'system/**' // Later we want to split out the game modes to optional
         include 'docs/**'
         include 'preview/**'
         include 'characters/*.pcg'
     }
-    from ("${buildDir}/release") {
+    from ("${buildDir}/launch4j") {
         include 'pcgen.exe'
+    }
+    from ("${projectDir}/code") {
+        include 'pcgen.bat'
+        include 'pcgen.sh'
+        filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
+        fileMode 0755
     }
 
     with baseLibs
@@ -154,68 +166,108 @@ task layoutNsisBase(type: Copy, dependsOn: copyToRoot) {
 launch4j {
     mainClassName = 'pcgen.system.Main'
     icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
-    outfile = "../release/pcgen.exe"
     jdkPreference = 'preferJre'
-    initialHeapSize = 128
-    maxHeapSize = 512
+    maxHeapPercent = 80
     stayAlive = false
-    bundledJre64Bit = true
     dontWrapJar = true
     bundledJrePath = 'jre'
     jar = "pcgen.jar"
+    jreRuntimeBits = "64/32"
     splashFileName = "${projectDir}/installers/win-installer/Local/splash.bmp"
     splashWaitForWindows = true
     splashTimeout = 60
     splashTimeoutError = true
     //Can't be longer than 150 characters
     copyright = "PCGen's source-code is distributed under the GNU Lesser General Public License (LGPL)"
+    version = "${shortVerNum}"
+    jvmOptions = ["-Dsun.java2d.dpiaware=false"]
+    downloadUrl = "https://jdk.java.net/"
 }
 
-task downloadJRE << {
-    def m = System.properties['java.runtime.version'] =~ /(\d+)\.(\d+)\.(\d+)_(\d+)\-b(\d+)/
-    def major = Integer.parseInt(m[0][1], 10)
-    def minor = Integer.parseInt(m[0][2], 10)
-    def micro = Integer.parseInt(m[0][3], 10)
-    def update = Integer.parseInt(m[0][4], 10)
-    def build = m[0][5]
-    def extension = 'tar.gz'
-    def jre64Dir = new File("${projectDir}/jre/jre_64")
-    if(!jre64Dir.exists()){
-        println("Downloading Java ${minor}u${update} JRE missing tar files...")
-        //Only download Windows libraries. Need to add more OS if we go multi=OS at any time.
-        def jre64URL = "http://download.oracle.com/otn-pub/java/jdk/${minor}u${update}-b${build}/jre-${minor}u${update}-windows-x64.${extension}"
-        def oracleCookie = 'gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
-        if(!jre64Dir.exists()){
-            download {
-                src jre64URL
-                dest new File("${projectDir}/jre/", "jre_64.${extension}")
-                header 'Cookie', oracleCookie
-                overwrite false
-            }
+task downloadJRE doLast {
+    def major = 11
+    def archs = ['x64','x32']
+    def osList = ['windows', 'mac']
+    def extension = 'zip'
+    osList.each{
+        def os = "${it}"
+        if(os != "windows") {
+            extension = 'tar.gz'
         }
-        //Now untar them
-        fileTree(dir: "${projectDir}/jre/").include("*.${extension}").each { simLib ->
-            copy {
-                println "Untar $simLib.name"
-                def name = simLib.name - '.tar.gz'
-                from tarTree("${projectDir}/jre/${simLib.name}")
-                into "${projectDir}/jre/$name"
+        archs.each {
+            def arch = "${it}"
+            if(os == "mac" && arch == "x32"){
+                return
             }
-            new File("${projectDir}/jre/${simLib.name}").delete()
-        }
-        def jre64 = new File("${projectDir}/jre/jre_64/jre${major}.${minor}.${micro}_${update}")
-        //Removing the folder with specific version so it's easier to handle in NSIS script.
-        if(jre64.exists()){
-            copy {
-                from jre64
-                into "${projectDir}/jre/jre_64"
+            def url = "https://api.adoptopenjdk.net/v2/binary/nightly/openjdk${major}?openjdk_impl=hotspot&os=${os}&arch=${arch}&release=latest&type=jre"
+            def jreDir = new File("${projectDir}/jre/${os}/jre_${arch}")
+            if(!jreDir.exists()){
+                //Only download Windows libraries. Need to add more OS if we go multi OS at any time.
+                println("Downloading Java ${major} ${arch} for ${os} from ${url}")
+                if(!jreDir.exists()){
+                    download {
+                        src url
+                        dest new File("${projectDir}/jre/${os}/", "jre_${arch}.${extension}")
+                        overwrite false
+                    }
+                    //Now untar them
+                    if(extension == "zip"){
+                        fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
+                            copy {
+                                println "Unzip $simLib.name"
+                                def name = simLib.name - '.$extension'
+                                def zipFile = file("${projectDir}/jre/${os}/${simLib.name}")
+                                def outputDir = "${projectDir}/jre/${os}/jre_${arch}/"
+                                
+                                from zipTree(zipFile)
+                                into outputDir
+                                eachFile { fcd ->
+                                    def relPath = fcd.relativePath
+                                    if(relPath.lastName.startsWith("jdk-")  && fcd.isDirectory()) {
+                                        fcd.exclude()
+                                    } else {
+                                        def segments = relPath.segments
+                                        fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[]  )
+                                    }
+                                }
+                            }
+                            new File("${projectDir}/jre/${os}/${simLib.name}").delete()
+                        }
+                    } else {
+                        fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
+                            copy {
+                                println "Unzip $simLib.name"
+                                def name = simLib.name - '.$extension'
+                                def zipFile = file("${projectDir}/jre/${os}/${simLib.name}")
+                                def outputDir = "${projectDir}/jre/${os}/jre_${arch}/"
+                                
+                                from tarTree(zipFile)
+                                into outputDir
+                                eachFile { fcd ->
+                                    def relPath = fcd.relativePath
+                                    if(relPath.lastName.startsWith("jdk-")  && fcd.isDirectory()) {
+                                        fcd.exclude()
+                                    } else {
+                                        def segments = relPath.segments
+                                        fcd.relativePath = new RelativePath( !fcd.isDirectory() ,(segments[1..-1]) as String[]  )
+                                    }
+                                }
+                            }
+                            new File("${projectDir}/jre/${os}/${simLib.name}").delete()
+                        }
+                    }
+                    file("${projectDir}/jre/${os}/jre_${arch}").list().each { f->
+                        if(f.startsWith("jdk")) {
+                            file("${projectDir}/jre/${os}/jre_${arch}/"+f).deleteDir()
+                        }
+                    }
+                }
             }
-            jre64.deleteDir()
         }
     }
 }
 
-task layoutNsisOptional(type: Copy, dependsOn: copyToRoot) {
+task layoutNsisOptional(type: Copy, dependsOn: copyToOutput) {
     description="Assemble the optional files for PCGen installations"
     into nsisOptionFolder
 
@@ -226,22 +278,164 @@ task layoutNsisOptional(type: Copy, dependsOn: copyToRoot) {
     with optionalData
 }
 
-
 // Generate the publisher/data list for the Windows installer script
-task genDataList << {
-    new ByteArrayOutputStream().withStream { os ->
-        def result = exec {
-            workingDir = "${projectDir}/installers/win-installer"
-            executable = 'perl'
-            args = ['gendatalist.pl']
-            standardOutput = os
+task genDataList doLast {
+    //TODO: find a way to move it to ext section.
+    // The list of publishers - add an entry here to correct a reported missing publisher
+    Map<String,String> publisherMap  = new TreeMap<String,String>();
+    publisherMap.put("12_to_midnight","12 to Midnight");
+    publisherMap.put("4_winds_fantasy_gaming","4 Winds Fantasy Gaming");
+    publisherMap.put("alderac_entertainment_group","Alderac Entertainment Group");
+    publisherMap.put("alderac_ent_group","Alderac Entertainment Group");
+    publisherMap.put("alea_publishing_group","Alea Publishing Group");
+    publisherMap.put("alluria_publishing","Alluria Publishing");
+    publisherMap.put("ascension_games","Ascension Games");
+    publisherMap.put("atlas_games","Atlas Games");
+    publisherMap.put("auran_d20","Auran d20");
+    publisherMap.put("avalanche_press","Avalanche Press");
+    publisherMap.put("badaxe_games","Bad Axe Games");
+    publisherMap.put("bards_and_sages","Bards and Sages");
+    publisherMap.put("bastion_press","Bastion Press");
+    publisherMap.put("battlefield_press","Battlefield Press");
+    publisherMap.put("behemoth3","Behemoth3");
+    publisherMap.put("big_finger_games","Big Finger Games");
+    publisherMap.put("bloodstone_press","Bloodstone Press");
+    publisherMap.put("blue_devil_games","Blue Devil Games");
+    publisherMap.put("broken_ruler_games","Broken Ruler Games");
+    publisherMap.put("crafty_games","Crafty Games");
+    publisherMap.put("creativemountaingames","Creative Mountain Games");
+    publisherMap.put("distant_horizons_games","Distant Horizons Games");
+    publisherMap.put("doghouse_rules","Dog House Rules");
+    publisherMap.put("dragonwing_games","DragonWing Games");
+    publisherMap.put("dreamscarred_press","Dreamscarred Press");
+    publisherMap.put("en_publishing","EN Publishing");
+    publisherMap.put("everyman_gaming","Everyman Gaming");
+    publisherMap.put("fantasy_community_council","Fantasy Community Council");
+    publisherMap.put("fantasy_flight_games","Fantasy Flight Games");
+    publisherMap.put("gallantry_productions","Gallantry Productions");
+    publisherMap.put("goodman_games","Goodman Games");
+    publisherMap.put("green_ronin","Green Ronin");
+    publisherMap.put("kobold_press","Kobold Press");
+    publisherMap.put("legendary_games","Legendary Games");
+    publisherMap.put("lions_den_press","Lions Den Press");
+    publisherMap.put("lone_wanderer_entertainment","Lone Wanderer Entertainment");
+    publisherMap.put("malhavoc_press","Malhavoc Press");
+    publisherMap.put("minotaur_games","Minotaur Games");
+    publisherMap.put("mongoose","Mongoose");
+    publisherMap.put("mongoose_publishing","Mongoose Publishing");
+    publisherMap.put("msrd","MSRD");
+    publisherMap.put("mythic_dream_studios","Mythic Dreams Studios");
+    publisherMap.put("necromancer_games","Necromancer Games");
+    publisherMap.put("nitehawk_interactive","Nitehawk Interactive Games");
+    publisherMap.put("pandahead","Pandahead");
+    publisherMap.put("paradigm_concepts","Paradigm Concepts Inc");
+    publisherMap.put("paizo","Paizo Publishing");
+    publisherMap.put("parents_basement_games","Parents Basement Games");
+    publisherMap.put("pcgen","PCGen OGL");
+    publisherMap.put("pfsrd_publishing","Open Game Network (d20pfsrd)");
+    publisherMap.put("pinnacle_entertainment","Pinnacle Entertainment");
+    publisherMap.put("reality_deviant","Reality Deviant Publications");
+    publisherMap.put("rite","Rite Publishing");
+    publisherMap.put("rite_publishing","Rite Publishing");
+    publisherMap.put("rpg_objects","RPG Objects");
+    publisherMap.put("sagaborn","Sagaborn");
+    publisherMap.put("secular_games","Secular Games");
+    publisherMap.put("silven_publishing","Silven Publishing");
+    publisherMap.put("silverthorne_games","Silverthorne Games");
+    publisherMap.put("skirmisher_publishing","Skirmisher Publishing LLC");
+    publisherMap.put("sovereign_press","Sovereign Press");
+    publisherMap.put("srd","SRD");
+    publisherMap.put("srd35","SRD35");
+    publisherMap.put("st_cooley_publishing","S T Cooley Publishing");
+    publisherMap.put("storm_bunny_studios","Storm Bunny Studios");
+    publisherMap.put("super_genius_games","Super Genius Games");
+    publisherMap.put("sword_and_sorcery_studios","Sword and Sorcery Studios");
+    publisherMap.put("swords_edge_publishing","Swords Edge Publishing");
+    publisherMap.put("the_game_mechanics","The Game Mechanics Inc");
+    publisherMap.put("vigilance_press","Vigilance Press");
+    publisherMap.put("wizards_of_the_coast","Wizards of the Coast");
+    publisherMap.put("lpj_design","Louis Porter Jr. Design");
+    publisherMap.put("total_party_kill_games","Total Party Kill Games");
+    publisherMap.put("starfinder","Starfinder");
+    File out =new File("$projectDir/installers/win-installer/includes/data.nsh")
+    out.delete()
+    //List of folder names to ignore.
+    List<String> ignoreList = new ArrayList<String>();
+    ignoreList.add("homebrew");
+    ignoreList.add("zen_test");
+    ignoreList.add("customsources");
+    ignoreList.add("_universal");
+    ignoreList.add("_images");
+    ignoreList.add("publisher_logos");
+    new File("${projectDir}/data").eachDir{ 
+        if (ignoreList.contains(it.name))
+        {
+            return
         }
-        println os.toString()
+        out.append("SubSection \"$it.name\"\n")
+        String dir = it.name
+        int subFolders=0
+        it.eachDir {
+            if (ignoreList.contains(it.name))
+            {
+                return
+            }
+            String pubname
+            if(publisherMap.get(it.name) != null){
+                pubname = publisherMap.get(it.name)
+            }else{
+                pubname = it.name
+            }
+            out.append("\tSection \"$pubname\"\n")
+            out.append("\tSectionIn 1 2")
+            if (it.name == 'msrd')
+            {
+                out.append(" 3 6");
+            }
+            if (it.name ==  'pcgen')
+            {
+                out.append(" 3 4 5");
+            }
+            if (it.name ==  'srd')
+            {
+                out.append(" 3 4");
+            }
+            if (it.name ==  'srd35' || it.name ==  'necromancergames')
+            {
+                out.append(" 3 5");
+            }
+            if (it.name ==  'paizo')
+            {
+                out.append(" 3");
+            }
+            out.append("\n");
+            out.append("\tSetOutPath \"\$INSTDIR\\\${APPDIR}\\data\\${dir}\\${it.name}\"\n");
+            out.append("\tFile /r \"\${SrcDir}\\PCGen_\${SIMPVER}_opt\\data\\${dir}\\${it.name}\\*.*\"\n");
+
+            out.append("\tSectionEnd\n\n");
+            subFolders++
+        }
+        if(subFolders == 0){
+            String pubname
+            if(publisherMap.get(it.name) != null){
+                pubname = publisherMap.get(it.name)
+            }else{
+                pubname = it.name
+            }
+            out.append("\tSection \"$pubname\"\n")
+            out.append("\tSectionIn 1 2")
+            out.append("\n");
+            out.append("\tSetOutPath \"\$INSTDIR\\\${APPDIR}\\data\\${dir}\"\n");
+            out.append("\tFile /r \"\${SrcDir}\\PCGen_\${SIMPVER}_opt\\data\\${dir}\\*.*\"\n");
+            out.append("\tSectionEnd\n\n");
+        }
+        out.append("SubSectionEnd\n\n");
     }
 }
 
+
 // Create the version specific config files for NSIS
-task genProjectNsis << {
+task genProjectNsis doLast {
     new File("${projectDir}/installers/win-installer/project.nsh").write("""
 ; Projects file generated by release.gradle
 !define PROJECT_BUILD_DIR "${buildDir}"
@@ -257,40 +451,39 @@ task genProjectNsis << {
 !define PROJECT_STARTMENU_FOLDER "\$SMPROGRAMS\\SourceForge\\PCGen ${plainVerNum}"
 !define PROJECT_URL "http://pcgen.sourceforge.net/"
 !define PROJECT_VERSION "${plainVerNum}"
+!define INSTALLER_VERSION "${installerVerNum}"
 """)
 
     new File("${projectDir}/installers/win-installer/includes/constants.nsh").write("""
 ; Constants file generated by release.gradle
 !define SIMPVER "${shortVerNum}"
 !define LONGVER "${plainVerNum}"
-!define OutDir "${buildDir}/release"
-!define SrcDir "${buildDir}/nsis"
+!define OutDir "${releaseDir}"
+!define SrcDir "${buildDir}\\nsis"
 """)
 
-    mkdir "${buildDir}/release"
+    mkdir releaseDir
 }
 
-// Call NSIS to generate windows installer
-task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional, genDataList,
-        genProjectNsis, downloadJRE, createExe])  << {
+// Call NSIS to generate windows installer - Removed "genDataList"
+task buildNsis(dependsOn: [layoutNsisBase, layoutNsisOptional,
+        genProjectNsis, downloadJRE , genDataList]) doLast {
     if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('windows')) {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
                 workingDir = "${buildDir}/nsis"
                 executable = 'C:/Program Files (x86)/NSIS/makensis.exe'
-                args = ["/V3", "${projectDir}/installers/win-installer/pcgen.nsis"]
+                args = ["/V3", "${projectDir}/installers/win-installer/pcgen.nsi"]
             }
         }
-    } else if (System.properties['os.name'].toLowerCase(Locale.ROOT).contains('linux')){
+    } else {
         new ByteArrayOutputStream().withStream { os ->
             def result = exec {
                 workingDir = "${buildDir}/nsis"
                 executable = 'makensis'
-                args = ["-V3", "${projectDir}/installers/win-installer/pcgen.nsis"]
+                args = ["-V3", "${projectDir}/installers/win-installer/pcgen.nsi"]
             }
         }
-    }else{
-        printf "Unhandled OS: " + System.properties['os.name']
     }
 }
 buildNsis.mustRunAfter createExe
@@ -309,7 +502,7 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 task assembleArtifacts(type: Copy, dependsOn: ['build', 'fullZip', 'sourcesJar',
      'buildNsis']) {
     description = "Create the release artifacts and get them into the release folder."
-    into "${buildDir}/release"
+    into releaseDir
     // buildNsis puts the exe into the release folder directly
     from ("${buildDir}/libs") {
         include 'pcgen*-sources.jar'
@@ -320,38 +513,90 @@ task assembleArtifacts(type: Copy, dependsOn: ['build', 'fullZip', 'sourcesJar',
 }
 
 // Produce SHA-256 checksums for each release artifact
-task checksum(dependsOn: assembleArtifacts) << {
+task checksum(dependsOn: assembleArtifacts) doLast {
     File checksumsFile = new File("${buildDir}/release/SHA256-digests-${version}.txt")
     checksumsFile.delete()
-    file("${buildDir}/release").listFiles().each {File file ->
+    file(releaseDir).listFiles().each {File file ->
         ant.checksum(file: file, property: "cs_$file.name", algorithm: "sha-256")
         def cs = ant.properties["cs_$file.name"]
         checksumsFile.append("SHA-256 digest for $file.name:\r\n$cs\r\n\r\n")
     }
 }
 
-task prepareRelease (dependsOn: ['clean', 'build', 'genDataList']) {
+
+// genDataList removed as it causes release errors, 'genDataList'
+task prepareRelease (dependsOn: ['clean', 'build']) {
     description="Prepare PCGen for release. This will update and commit the version, do a clean build including the unit tests and generate the data list for the installer."
 }
 
-task pcgenRelease (dependsOn: ['build', 'assembleArtifacts', 'checksum', 'tagRelease']) {
-    description="Release a new version of PCGen. This will build PCGen, produce the release artifacts, tag the release and then update and commit the version ready for new dev work."
+task pcgenRelease (dependsOn: ['prepareRelease', 'assembleArtifacts', 'checksum']) {
+    description="Release a new version of PCGen. This will build PCGen and produce the release artifacts."
+    //Installer is placed in outputDir
+}
+
+task pcgenReleaseOfficial (dependsOn: ['pcgenRelease', 'updateVersionRelease']) {
+    description="Release a new offical version of PCGen."
 }
 
 // Update the PCGen version to indicate a release, then commit the new version
-task updateVersionRelease << {
+task updateVersionRelease doLast {
     unSnapshotVersion()
     commitFile(new File("gradle.properties"), "Update version for release ${project.version}")
 }
 
 // Update the PCGen version for development of the next release, then commit the new version
-task updateVersionToNext << {
+task updateVersionToNext doLast {
     updateVersion()
     commitFile(new File("gradle.properties"), "Update version for dev work ${project.version}")
 }
 
-// Tag the current PCGen trunk
-task tagRelease << {
-    //def tagName = "release-${project.version}"
-    //tagRepository("Trunk/pcgen", tagName, "Tag release ${project.version}")
+macAppBundle {
+    mainClassName	= "pcgen.system.Main"
+    appName			= "PCGen"
+    appStyle		= "universalJavaApplicationStub"
+    icon 			= "installers/mac-installer/PCGenApp.icns"
+    bundleJRE 		= false
+    backgroundImage = "installers/mac-installer/PCGen_folder_background.png"
+    jvmVersion		= "+11.0"
+    appIconX		= "243"
+    appIconY		= "270"
+    appFolderX		= "370"
+    appFolderY		= "270"
+    javaProperties.put("apple.laf.useScreenMenuBar", "true")
+    bundleExtras.put("JVMVersion", "11.0")
 }
+
+task copyMacDataResources(type: Copy, dependsOn: copyToResourcesJava) {
+	from	"data"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/data"
+}
+
+task copyMacDocsResources(type: Copy, dependsOn: copyMacDataResources) {
+	from	"docs"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/docs"
+}
+
+task copyMacOutputsheetsResources(type: Copy, dependsOn: copyMacDocsResources) {
+	from	"outputsheets"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/outputsheets"
+}
+
+task copyMacPluginsResources(type: Copy, dependsOn: copyMacOutputsheetsResources) {
+	from	"plugins"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/plugins"
+}
+
+task copyMacPreviewResources(type: Copy, dependsOn: copyMacPluginsResources) {
+	from	"preview"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/preview"
+}
+
+task copyMacSystemResources(type: Copy, dependsOn: copyMacPreviewResources) {
+	from	"system"
+	into	"$buildDir/${macAppBundle.appOutputDir}/${macAppBundle.appName}.app/Contents/${macAppBundle.jarSubdir}/system"
+}
+
+createApp {
+	it.dependsOn 	"copyMacSystemResources"
+}
+

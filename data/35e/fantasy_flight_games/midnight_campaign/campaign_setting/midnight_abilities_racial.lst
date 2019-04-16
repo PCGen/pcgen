@@ -73,7 +73,7 @@ Weapon Familiarity														KEY:Sarcosan ~ Weapon Familiarity		SORTKEY:Racia
 ###Block: Racial Abilities: Sarcosan (Plains)
 # Ability Name	Unique Key						SORTKEY				Category of Ability		Type											Visible	Description																								Ability											Bonus to Situation											Source Page		Aspects															Temporary Bonus
 Favored Region	KEY:Plains Sarcosan ~ Favored Region	SORTKEY:Racial_PlainsSarcosan	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.SarcosanPlainsRacialAbilities		VISIBLE:NO																										ABILITY:Special Ability|AUTOMATIC|Favored Region ~ Southern Erenland
-Natural Horsemen	KEY:Plains Sarcosan ~ Natural Horsemen	SORTKEY:Racial_PlainsSarcosan	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SarcosanPlainsRacialAbilities	VISIBLE:YES	DESC:Many Sarcosans ride as soon as they learn to walk, and someone of another race that rides well is said to “take to a horse like a Sarcosan.													BONUS:SITUATION|Ride=Horse,Handle Animal=Horse,Concentration=Horse|4|TYPE=Racial	SOURCEPAGE:37	ASPECT:SkillBonus|+4 racial bonus to Ride and Handle Animal checks when working with horses.	TEMPBONUS:PC|COMBAT|DAMAGE.Melee|1|TYPE=Racial
+Natural Horsemen	KEY:Plains Sarcosan ~ Natural Horsemen	SORTKEY:Racial_PlainsSarcosan	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SarcosanPlainsRacialAbilities	VISIBLE:YES	DESC:Many Sarcosans ride as soon as they learn to walk, and someone of another race that rides well is said to "take to a horse like a Sarcosan.													BONUS:SITUATION|Ride=Horse,Handle Animal=Horse,Concentration=Horse|4|TYPE=Racial	SOURCEPAGE:37	ASPECT:SkillBonus|+4 racial bonus to Ride and Handle Animal checks when working with horses.	TEMPBONUS:PC|COMBAT|DAMAGE.Melee|1|TYPE=Racial
 
 ###Block: Racial Abilities: Sarcosan (Urban)
 # Ability Name								Unique Key					SORTKEY				Category of Ability		Type													Visible	Bonus to Situation							Bonus to skill								Source Page		Aspects
@@ -108,6 +108,8 @@ Spell Resistant													KEY:Dwarf Midnight ~ Spell Resistant											SORTK
 Darkvision														KEY:Dwarf Midnight ~ Darkvision												SORTKEY:Racial_DwarfMidnight	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.DwarfRacialAbilities.DwarfDarkVision	VISIBLE:NO																	ABILITY:Special Ability|AUTOMATIC|Darkvision																																										SOURCEPAGE:39
 Favored Region ~ Kaladrun Mountains										KEY:Dwarf Midnight ~ Favored Region												SORTKEY:Racial_DwarfMidnight	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.DwarfRacialAbilities				VISIBLE:NO																	ABILITY:Special Ability|AUTOMATIC|Favored Region ~ Kaladrun Mountains																																						SOURCEPAGE:39
 Weapon Familiarity												KEY:Dwarf Midnight ~ Weapon Familiarity											SORTKEY:Racial_DwarfMidnight	CATEGORY:Special Ability	TYPE:RacialTraits.Internal.DwarfRacialAbilities				VISIBLE:NO																																																									CHANGEPROF:Urgosh (Dwarven),Waraxe (Dwarven)=Martial	SOURCEPAGE:39
+
+Dwarven Clan Dialect		CATEGORY:Internal		TYPE:Internal.Languages		VISIBLE:DISPLAY		MULT:YES	STACK:NO	CHOOSE:LANG|Black Blood|Durgis|Fodrin|Gorand|Thedron		AUTO:LANG|%LIST
 
 ###Block: Racial Abilities: Dwarf Clan
 # Ability Name						Unique Key									Category of Ability		Type										Visible		Ability												Modify VAR																Source Page		Aspects

@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCMaxCastableAnyTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,18 +16,14 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 16-Sep-2008 00:47:07
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
 
-public class PCMaxCastableAnyTermEvaluator  
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCMaxCastableAnyTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	public PCMaxCastableAnyTermEvaluator(String originalText)
 	{

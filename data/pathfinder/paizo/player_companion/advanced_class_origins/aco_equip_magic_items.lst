@@ -1,0 +1,44 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 12957 $ $Author: jbaril $ -- Sun Jul  6 20:02:09 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Pathfinder Player Companion: Advanced Class Origins	SOURCESHORT:ACO	SOURCEWEB:http://paizo.com/products/btpy965z	SOURCEDATE:2014-10
+
+# ==============================
+# New Magic Items
+# ==============================
+
+# Equipment Name							Product Identity?	Type					Cost		Weight	Modifier								Source Page
+Beast Wrestler's Gauntlets (Aberrations)						TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Animals)						TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Constructs)						TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Dragons)						TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Fey)							TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Humanoids/Aquatic)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Humanoids/Dwarf)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Humanoids/Elf)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Humanoids/Giant)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Humanoids/Gnoll)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Humanoids/Gnome)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Humanoids/Goblinoid)				TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Humanoids/Halfling)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Humanoids/Human)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Humanoids/Reptilian)				TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Humanoids/Orc)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Magical Beasts)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Monstrous Humanoids)				TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Oozes)							TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Outsiders/Air)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Outsiders/Chaotic)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Outsiders/Earth)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Outsiders/Evil)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Outsiders/Fire)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Outsiders/Good)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Outsiders/Lawful)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Outsiders/Water)					TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Plants)							TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Undead)							TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Beast Wrestler's Gauntlets (Vermin)							TYPE:Magic.Wondrous.Glove	COST:7500	WT:1											SOURCEPAGE:p.28
+Fangwood Clasp							NAMEISPI:YES	TYPE:Magic.Wondrous.Amulet	COST:14000	WT:1											SOURCEPAGE:p.28
+Flame of Bakrakhan						NAMEISPI:YES	TYPE:Magic.Wondrous.Headgear	COST:10000	WT:1											SOURCEPAGE:p.29
+Lepidstadt Investigator's Hat					NAMEISPI:YES	TYPE:Magic.Wondrous.Headgear	COST:7000												SOURCEPAGE:p.29
+Shory Acolyte's Staff						NAMEISPI:YES	TYPE:Magic.Staff			COST:21600	WT:1		EQMOD:Special Ability ~ Staff Charges|CHARGES[10]	SOURCEPAGE:p.29
+Zenj Totem Staff							NAMEISPI:YES	TYPE:Magic.Staff			COST:24800	WT:2		EQMOD:Special Ability ~ Staff Charges|CHARGES[10]	SOURCEPAGE:p.29

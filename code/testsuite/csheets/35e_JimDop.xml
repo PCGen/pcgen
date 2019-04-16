@@ -939,7 +939,7 @@ BIO
 				</to_hit>
 				<feat></feat>
 				<hand>Carried</hand>
-				<num_attacks>3</num_attacks>
+				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
@@ -972,7 +972,7 @@ BIO
 				</to_hit>
 				<feat></feat>
 				<hand>Primary</hand>
-				<num_attacks>2</num_attacks>
+				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
@@ -1005,7 +1005,7 @@ BIO
 				</to_hit>
 				<feat></feat>
 				<hand>Off-hand</hand>
-				<num_attacks>2</num_attacks>
+				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
@@ -1038,7 +1038,7 @@ BIO
 				</to_hit>
 				<feat></feat>
 				<hand>Off-hand</hand>
-				<num_attacks>2</num_attacks>
+				<num_attacks>1</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
 				<special_properties></special_properties>
@@ -1072,7 +1072,10 @@ BIO
 	<!-- Bard -->
 
 
-	<!-- Character Rage -->
+	<!-- Pathfinder -->
+		<!-- Character Rage -->
+		<!-- Character Rage -->
+
 	<!-- Turning ability -->
 
 	<!-- 3.0 stunning fist -->

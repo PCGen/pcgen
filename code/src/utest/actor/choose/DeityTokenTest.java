@@ -17,11 +17,10 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.Deity;
 import plugin.lsttokens.choose.DeityToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
 
 public class DeityTokenTest extends
@@ -29,12 +28,6 @@ public class DeityTokenTest extends
 {
 
 	static DeityToken pca = new DeityToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 
 	@Override
 	public Chooser<Deity> getActor()

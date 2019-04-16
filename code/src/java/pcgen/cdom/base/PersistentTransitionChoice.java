@@ -30,8 +30,7 @@ import pcgen.core.PlayerCharacter;
  * 
  * @param <T>
  */
-public interface PersistentTransitionChoice<T> extends TransitionChoice<T>,
-		PersistentChoice<T>
+public interface PersistentTransitionChoice<T> extends TransitionChoice<T>, PersistentChoice<T>
 {
 
 	// Not sure where to put?
@@ -40,7 +39,7 @@ public interface PersistentTransitionChoice<T> extends TransitionChoice<T>,
 	void remove(CDOMObject owner, PlayerCharacter pc);
 
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item);
-	
+
 	public Class<?> getChoiceClass();
 
 }

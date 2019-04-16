@@ -1,0 +1,60 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Chronicles: Classic Treasures Revisited	SOURCESHORT:CTR	SOURCEWEB:http://paizo.com/products/btpy8dmn?Pathfinder-Chronicles-Classic-Treasures-Revisited	SOURCEDATE:2010-05
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 9 March 2017
+
+# ==============================
+# New Magic Items
+# ==============================
+
+# Equipment Name				Product Identity?	Type							Contains		Cost		Weight	Modifier										Source Page		Misc bonus		Special Property
+Aligned Horn of Valhalla					TYPE:Magic.Wondrous.Instrument					COST:45000	WT:2													SOURCEPAGE:p.37				SPROP:Once per week can summon 2d4+2 2nd level human barbarians to fight for the character who summoned them. Barbarians have same alignment as horn.
+Bag of Concealment (Type I)					TYPE:Magic.Wondrous.Container			CONTAINS:*250	COST:5000	WT:15													SOURCEPAGE:p.7
+Bag of Concealment (Type II)					TYPE:Magic.Wondrous.Container			CONTAINS:*500	COST:10000	WT:25													SOURCEPAGE:p.7
+Bag of Concealment (Type III)					TYPE:Magic.Wondrous.Container			CONTAINS:*1000	COST:14800	WT:35													SOURCEPAGE:p.7
+Bag of Concealment (Type IV)					TYPE:Magic.Wondrous.Container			CONTAINS:*1500	COST:20000	WT:60													SOURCEPAGE:p.7
+Bag of Holding (Minor)						TYPE:Magic.Wondrous.Container			CONTAINS:*50	COST:1000	WT:3													SOURCEPAGE:p.8
+Corpse-Ferrying Bag						TYPE:Magic.Wondrous.Container			CONTAINS:*300	COST:4000	WT:20													SOURCEPAGE:p.8
+Cube of Varied Force Walls					TYPE:Magic.Wondrous							COST:56000	WT:0.5												SOURCEPAGE:p.13
+Discriminating Cube						TYPE:Magic.Wondrous							COST:40000	WT:0.5												SOURCEPAGE:p.13
+Helm of Electric Radiance					TYPE:Magic.Wondrous.Headgear						COST:125000	WT:3													SOURCEPAGE:p.31
+Helm of Reclamation						TYPE:Magic.Wondrous.Headgear						COST:80000	WT:3													SOURCEPAGE:p.31
+Independent Cube of Force					TYPE:Magic.Wondrous							COST:70000	WT:0.5												SOURCEPAGE:p.13
+Lesser Helm of Brilliance					TYPE:Magic.Wondrous.Headgear						COST:36000	WT:3													SOURCEPAGE:p.31
+Rechargeable Cube of Force					TYPE:Magic.Wondrous							COST:70000	WT:0.5												SOURCEPAGE:p.13
+Remote Activation Cube						TYPE:Magic.Wondrous							COST:70000	WT:0.5												SOURCEPAGE:p.14
+Twinned Cubes of Force						TYPE:Magic.Wondrous							COST:66000	WT:0.5												SOURCEPAGE:p.14
+Liar's Well								TYPE:Magic.Wondrous							COST:84250	WT:0													SOURCEPAGE:p.60
+Shadow Well								TYPE:Magic.Wondrous							COST:82000	WT:0													SOURCEPAGE:p.61
+Well of Stars							TYPE:Magic.Wondrous							COST:60000	WT:0													SOURCEPAGE:p.61
+Well of the Welcome Respite					TYPE:Magic.Wondrous							COST:122000	WT:0													SOURCEPAGE:p.61
+
+# ==============================
+# New Minor Artifacts
+# ==============================
+
+
+Elder Decks								TYPE:Artifact.Minor							COST:0	WT:0													SOURCEPAGE:p.19
+Haykali's House of Cards		NAMEISPI:YES	TYPE:Artifact.Minor							COST:0	WT:0													SOURCEPAGE:p.19
+Magi Staff of the Deep Black					TYPE:Artifact.Minor							COST:0	WT:5		EQMOD:Special Ability ~ Charged Item / 50 Maximum|CHARGES[50]	SOURCEPAGE:p.49	BONUS:MISC|SR|23
+Magi Staff of the Mammoth					TYPE:Artifact.Minor							COST:0	WT:5		EQMOD:Special Ability ~ Charged Item / 50 Maximum|CHARGES[50]	SOURCEPAGE:p.49	BONUS:MISC|SR|23
+Magi Staff of the Necromancer					TYPE:Artifact.Minor							COST:0	WT:5		EQMOD:Special Ability ~ Charged Item / 50 Maximum|CHARGES[50]	SOURCEPAGE:p.49	BONUS:MISC|SR|23
+Magi Staff of the Scholar					TYPE:Artifact.Minor							COST:0	WT:5		EQMOD:Special Ability ~ Charged Item / 50 Maximum|CHARGES[50]	SOURCEPAGE:p.49	BONUS:MISC|SR|23
+Rift-Born Sphere							TYPE:Artifact.Minor							COST:0	WT:0													SOURCEPAGE:p.44
+Sphere of Bleeding Snowflakes					TYPE:Artifact.Minor							COST:0	WT:0													SOURCEPAGE:p.43
+Twin Spheres							TYPE:Artifact.Minor							COST:0	WT:0													SOURCEPAGE:p.43
+
+# ==============================
+# New Major Artifacts
+# ==============================
+
+Linnorm's Lament				NAMEISPI:YES	TYPE:Artifact.Major							COST:0	WT:2													SOURCEPAGE:p.38				SPROP:As horn of Valhalla, but may be blown more often than 1/week. When user blows for 3rd time, he is destined to die by next morning.
+Shelana the Mother Deck			NAMEISPI:YES	TYPE:Artifact.Major							COST:0	WT:0													SOURCEPAGE:p.21				SPROP:CN; speech, telepathy, senses (30 ft.) INT 19, WIS 10, CHA 20; Ego 21.
+Staff of Elemental Castigation				TYPE:Artifact.Major							COST:0	WT:5		EQMOD:Special Ability ~ Charged Item / 50 Maximum|CHARGES[50]	SOURCEPAGE:p.51
+
+# ==============================
+# New Cursed Items
+# ==============================
+
+Horn of Mayhem							TYPE:Magic.Wondrous.Instrument.Cursed				COST:0	WT:2													SOURCEPAGE:p.38				SPROP:When sounded, this horn emits an ear-splitting shriek that drives man and beast mad.

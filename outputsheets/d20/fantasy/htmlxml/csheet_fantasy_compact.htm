@@ -472,6 +472,18 @@ $Date$
 			</table>
 |ENDIF|
 <!-- STOP Traits Table -->
+<!-- START Drawbacks Table -->
+|IIF(count("ABILITIES";"CATEGORY=Special Ability";"TYPE=Drawback";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+			<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Drawbacks Table">
+				<tr>
+					<th colspan="1" bgcolor="black" align="center"><font style="font-size: 9pt" color="white">DRAWBACKS</font></th>
+				</tr>
+				<tr>
+					<td align="left" width="100%" class="border7">|ABILITYALLLIST.Special Ability.TYPE=Drawback|</td>
+				</tr>
+			</table>
+|ENDIF|
+<!-- STOP Drawbacks Table -->
 <!-- START Feats Table -->
 			<table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Feats Table">
 				<tr>

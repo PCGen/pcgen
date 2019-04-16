@@ -17,7 +17,8 @@
  */
 package plugin.lsttokens.equipment;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
@@ -28,11 +29,13 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public abstract class AbstractDamageTokenTestCase extends
 		AbstractCDOMTokenTestCase<Equipment>
 {
 
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()
@@ -47,7 +50,7 @@ public abstract class AbstractDamageTokenTestCase extends
 	}
 
 	@Test
-	public void testInvalidEmptyInput() throws PersistenceLayerException
+	public void testInvalidEmptyInput()
 	{
 		assertFalse(getToken().parseToken(primaryContext, primaryProf, "").passed());
 	}
@@ -89,13 +92,13 @@ public abstract class AbstractDamageTokenTestCase extends
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		expectSingle(setAndUnparse(getLegalValue()), getLegalValue());
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		getUnparseTarget().put(getStringKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -112,7 +115,7 @@ public abstract class AbstractDamageTokenTestCase extends
 	// assertBadUnparse();
 	// }
 
-	private StringKey getStringKey()
+	private static StringKey getStringKey()
 	{
 		return StringKey.DAMAGE;
 	}

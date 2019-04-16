@@ -1,0 +1,57 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Heroes of the Wild	SOURCESHORT:HOTW	SOURCEWEB:http://paizo.com/products/btpy9cro	SOURCEDATE:2015-04
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 April 2016
+
+# ==============================
+# New Adventuring Gear
+# ==============================
+
+# Equipment Name			Product Identity?	Required Weapon Proficiency		Type															Alt Type							Cost		Weight	Base Item for EQMOD	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier																		Alt EQModifier					Wield Category	Size		Source Page		Special Property
+Arctic Kit													TYPE:Kit																						COST:27	WT:30																																																				SOURCEPAGE:p.9	SPROP:This kit includes 10 candles, a candle lamp, cleats, a cold-weather outfit, a handaxe, a shovel, a signal whistle, a small iron pot, snowshoes, and five tindertwigs, all wrapped in a winter blanket.
+Blain Bane													TYPE:Goods.Alchemical.Consumable																		COST:10	WT:0																																																				SOURCEPAGE:p.9
+Desert Kit													TYPE:Kit																						COST:30	WT:20																																																				SOURCEPAGE:p.9	SPROP:This kit contains a 10-foot-by-10-foot piece of canvas, 3 doses of blain bane, a hot weather outfit, a signal whistle, a scarf, and four waterskins.
+Duskeye													TYPE:Goods.Alchemical.Consumable																		COST:50	WT:0																																																				SOURCEPAGE:p.9
+Forecast Station												TYPE:Goods.Tools																					COST:150	WT:2																																																				SOURCEPAGE:p.9
+Forest Kit													TYPE:Kit																						COST:25	WT:29																																																				SOURCEPAGE:p.9	SPROP:This kit contains a bear trap, camouflage netting, five fishhooks, a handaxe, 50 feet of hemp rope, and 100 feet of twine.
+Scent Blocker												TYPE:Goods.Alchemical.Consumable																		COST:80	WT:0.5																																																			SOURCEPAGE:p.9
+Track-Obscuring Soles											TYPE:Goods.Tools																					COST:8	WT:0.5																																																			SOURCEPAGE:p.9
+Tropical Kit												TYPE:Kit																						COST:120	WT:6																																																				SOURCEPAGE:p.9	SPROP:This kit includes 1 dose each of antiplague and antitoxin, five fishhooks, a hammock, a kukri, 1 dose of vermin repellent, and a water purification sponge
+
+# ==============================
+# Herbalism Ingredients
+# ==============================
+
+Desna's Star			NAMEISPI:YES							TYPE:Goods.Herbalism.Consumable																		COST:5	WT:0																																																				SOURCEPAGE:p.10	SPROP:Profession (Herbalist) DC 13; Terrain - forests or plains
+Goblinvine													TYPE:Goods.Herbalism.Consumable																		COST:30	WT:1																																																				SOURCEPAGE:p.10	SPROP:Profession (Herbalist) DC 16; Terrain - forests, jungles, mountains, plains, or swamps
+Leechwort													TYPE:Goods.Herbalism.Consumable																		COST:25	WT:1																																																				SOURCEPAGE:p.10	SPROP:Profession (Herbalist) DC 15; Terrain - jungles or swamps
+Nethys's Dagger			NAMEISPI:YES							TYPE:Goods.Herbalism.Consumable																		COST:50	WT:0																																																				SOURCEPAGE:p.10	SPROP:Profession (Herbalist) DC 18; Terrain - deserts
+Nightsage													TYPE:Goods.Herbalism.Consumable																		COST:10	WT:1																																																				SOURCEPAGE:p.10	SPROP:Profession (Herbalist) DC 14; Terrain - jungles
+Winterbite													TYPE:Goods.Herbalism.Consumable																		COST:1	WT:0																																																				SOURCEPAGE:p.10	SPROP:Profession (Herbalist) DC 11; Terrain - cold forests or mountains
+
+# ==============================
+# Magic Items
+# ==============================
+
+Bogstrider Boots												TYPE:Magic.Wondrous.Boot																			COST:10000	WT:1																																																				SOURCEPAGE:p.28
+Fan of Autumn												TYPE:Magic.Wondrous																				COST:6000	WT:1																																																				SOURCEPAGE:p.28
+Frostwild Bridle												TYPE:Magic.Wondrous.Headgear																			COST:48000	WT:2																																																				SOURCEPAGE:p.28
+Gauntlets of Twisting Vines										TYPE:Magic.Wondrous.Glove																			COST:5000	WT:2																																																				SOURCEPAGE:p.28
+Greensurge Bomb												TYPE:Magic.Wondrous.Consumable																		COST:750	WT:1																																																				SOURCEPAGE:p.28
+Moss Cloak													TYPE:Magic.Wondrous.Cloak																			COST:18700	WT:5																																																				SOURCEPAGE:p.29
+Storm Goggles												TYPE:Magic.Wondrous.Eyegear																			COST:6000	WT:0																																																				SOURCEPAGE:p.29
+Thunder Strap												TYPE:Magic.Wondrous																				COST:60000	WT:0																																																				SOURCEPAGE:p.29
+
+Oaken Staff							PROFICIENCY:WEAPON|Quarterstaff	TYPE:Magic.Staff.Weapon.Resizable.Simple.Melee.Bludgeoning.Specific.Double.Quarterstaff	ALTTYPE:Weapon.Resizable.Melee.Bludgeoning	COST:27800	WT:5		BASEITEM:Staff		CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6	EQMOD:Special Ability ~ Called ~ Weapon.Special Ability ~ Staff Charges|CHARGES[10].Special Ability ~ +1 ~ Weapon	ALTEQMOD:Special Ability ~ +2 ~ Weapon	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.28
+
+# ==============================
+# Poisons
+# ==============================
+
+Poison (Blistercap Spore)										TYPE:Goods.Poison.Consumable																			COST:1125	WT:1																																																				SOURCEPAGE:p.20	SPROP:Contact; Fort DC 20; Freq 1 rnd (6); Effect 1d2 Dex, 1 Con drain/sickened for 1 min; Cure 2 saves
+Poison (Brinestump Special)										TYPE:Goods.Poison.Consumable																			COST:400	WT:0																																																				SOURCEPAGE:p.20	SPROP:Ingested; Fort DC 15; Onset 1 rnd; Effect nauseated 5 rnd; Cure 1 save
+Poison (Goblinvine Oil)											TYPE:Goods.Poison.Consumable																			COST:125	WT:0																																																				SOURCEPAGE:p.20	SPROP:Contact; Fort DC 10; Onset 1 rnd; Effect sickened; Cure 2 saves or 1 min washing affected area
+Poison (Jackalroot Essence)										TYPE:Goods.Poison.Consumable																			COST:600	WT:0																																																				SOURCEPAGE:p.20	SPROP:Injury; Fort DC 18; Freq 1 rnd (1d6); Effect uncontrollable laughter (as hideous laughter); Cure 2 saves
+Poison (Red Bedlam)											TYPE:Goods.Poison.Consumable																			COST:1200	WT:1																																																				SOURCEPAGE:p.20	SPROP:Ingested; Fort DC 15; Onset 10 min; Freq 1 min (10); Effect confusion; Cure 2 saves
+Poison (Violet Venom)											TYPE:Goods.Poison.Consumable																			COST:800	WT:0																																																				SOURCEPAGE:p.20	SPROP:Contact; Fort DC 13; Freq 1 min (6); Effect 1d2 Con and 1d2 Str dmg; Cure 1 save

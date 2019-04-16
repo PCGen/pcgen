@@ -17,10 +17,11 @@
  */
 package plugin.lsttokens.skill;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -35,15 +36,18 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 {
 
 	static KeystatToken token = new KeystatToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 	private PCStat ps;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -76,7 +80,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidNotAStat() throws PersistenceLayerException
+	public void testInvalidNotAStat()
 	{
 		if (parse("NAN"))
 		{
@@ -89,7 +93,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidMultipleStatComma() throws PersistenceLayerException
+	public void testInvalidMultipleStatComma()
 	{
 		if (parse("STR,INT"))
 		{
@@ -102,7 +106,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidMultipleStatBar() throws PersistenceLayerException
+	public void testInvalidMultipleStatBar()
 	{
 		if (parse("STR|INT"))
 		{
@@ -115,7 +119,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidMultipleStatDot() throws PersistenceLayerException
+	public void testInvalidMultipleStatDot()
 	{
 		if (parse("STR.INT"))
 		{
@@ -146,19 +150,19 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<CDOMSingleRef<PCStat>> getObjectKey()
+	private static ObjectKey<CDOMSingleRef<PCStat>> getObjectKey()
 	{
 		return ObjectKey.KEY_STAT;
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), CDOMDirectSingleRef.getRef(ps));
 		expectSingle(getToken().unparse(primaryContext, primaryProf), ps.getKeyName());
@@ -166,7 +170,7 @@ public class KeystatTokenTest extends AbstractCDOMTokenTestCase<Skill>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

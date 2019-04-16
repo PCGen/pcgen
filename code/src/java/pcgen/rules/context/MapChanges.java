@@ -1,5 +1,4 @@
 /*
- * MapChanges.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -16,23 +15,19 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 19/09/2008 08:49:44
  *
- * $Id: $
  */
 package pcgen.rules.context;
 
 import java.util.Map;
 
-
 /**
- * The Class <code>MapChanges</code> is responsible for tracking changes to 
+ * The Class {@code MapChanges} is responsible for tracking changes to
  * a map so that the changes can be committed or rolled back at a later 
  * stage. Items can be added to the map, removed from the map or the map 
  * can be cleared.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MapChanges<K, V>
 {
@@ -47,8 +42,7 @@ public class MapChanges<K, V>
 	 * @param removed the map of items removed
 	 * @param globallyCleared has the map been cleared
 	 */
-	public MapChanges(Map<K, V> added, Map<K, V> removed,
-		boolean globallyCleared)
+	public MapChanges(Map<K, V> added, Map<K, V> removed, boolean globallyCleared)
 	{
 		positive = added;
 		negative = removed;

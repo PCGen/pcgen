@@ -1,5 +1,4 @@
 /*
- * PreArmorTypeTest.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,33 +14,36 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.prereq;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.Test;
 
 /**
- * <code>PreArmorTypeTest</code> tests that the PREARMORTYPE tag is
+ * {@code PreArmorTypeTest} tests that the PREARMORTYPE tag is
  * working correctly.
- *
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
 public class PreArmorTypeTest extends AbstractCharacterTestCase
 {
 	/*
 	 * Class under test for int passes(Prerequisite, PlayerCharacter)
 	 */
+	@Test
 	public void testPassesPrerequisitePlayerCharacter()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -84,10 +86,12 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test armor type tests
-	 * @throws Exception
+	 * Test armor type tests.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testType() throws Exception
+	@Test
+	public void testType() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -130,19 +134,19 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test LIST
-	 * @throws Exception
+	 * Test LIST.
 	 */
-	public void testList() throws Exception
+	@Test
+	public void testList()
 	{
 		final PlayerCharacter character = getCharacter();
 
 		final Ability mediumProf =
-				TestHelper.makeAbility("Armor Proficiency (Medium)", AbilityCategory.FEAT,
+				TestHelper.makeAbility("Armor Proficiency (Medium)", BuildUtilities.getFeatCat(),
 					"General");
 		Globals.getContext().unconditionallyProcess(mediumProf, "AUTO",
 				"ARMORPROF|ARMORTYPE.Medium");
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, mediumProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), mediumProf, null);
 
 		final Equipment chainmail = new Equipment();
 		chainmail.addToListFor(ListKey.TYPE, Type.getConstant("ARMOR"));

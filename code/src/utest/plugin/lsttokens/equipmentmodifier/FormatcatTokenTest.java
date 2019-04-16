@@ -17,7 +17,11 @@
  */
 package plugin.lsttokens.equipmentmodifier;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.enumeration.EqModFormatCat;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -29,12 +33,14 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class FormatcatTokenTest extends
 		AbstractCDOMTokenTestCase<EquipmentModifier>
 {
 
 	static FormatcatToken token = new FormatcatToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()
@@ -55,14 +61,14 @@ public class FormatcatTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputStringSet() throws PersistenceLayerException
+	public void testInvalidInputStringSet()
 	{
 		assertTrue(parse("FRONT"));
 		assertTrue(parseSecondary("FRONT"));
@@ -72,7 +78,6 @@ public class FormatcatTokenTest extends
 	}
 
 	public void internalTestInvalidInputString(Object val)
-			throws PersistenceLayerException
 	{
 		assertEquals(val, primaryProf.get(ObjectKey.FORMAT));
 		assertFalse(parse("Always"));
@@ -90,7 +95,7 @@ public class FormatcatTokenTest extends
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("FRONT"));
 		assertEquals(EqModFormatCat.FRONT, primaryProf.get(ObjectKey.FORMAT));
@@ -137,19 +142,19 @@ public class FormatcatTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<EqModFormatCat> getObjectKey()
+	private static ObjectKey<EqModFormatCat> getObjectKey()
 	{
 		return ObjectKey.FORMAT;
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), EqModFormatCat.FRONT);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), EqModFormatCat.FRONT.toString());
@@ -157,7 +162,7 @@ public class FormatcatTokenTest extends
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

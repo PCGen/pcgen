@@ -1,0 +1,14 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# Ability Name																		Unique Key							Category of Ability		Type					Visible	Description																																																																															Multiple?	Choose									Ability									Cost		Source, Long Desc.
+
+SOURCELONG:Pathfinder Society Chronicle Sheets Season 9	SOURCESHORT:PFSCS9	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2016-08
+
+# Ability Name																		Unique Key							Category of Ability		Type					Visible	Description																																																																															Multiple?	Choose									Ability									Cost		Source, Long Desc.
+Pathfinder Society Scenario #9-09: Beyond the Halflight Path										KEY:Chronicle ~ S09-09					CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES																																																																																	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 3-7	ABILITY:Chronicle_S09-09|AUTOMATIC|Chronicle_S09-09_Enable	COST:0	SOURCELONG:.
+Chronicle_S09-09_Enable																									CATEGORY:Special Ability	TYPE:Chronicle_S09-09		VISIBLE:NO
+
+Duskwarden's Favor																	KEY:PFS Scenario 9-09 ~ Duskwarden's Favor	CATEGORY:Special Ability	TYPE:Chronicle_S09-09.PFSBoon	VISIBLE:YES	DESC:Your actions below Kaer Maga have impressed the Duskwardens, and these guides teach you some of their tricks for safely navigating dangerous caverns. You can cross this boon off your Chronicle sheet to gain the ranger favored terrain ability (+2) in underground environments for the remainder of the scenario. If you already have favored terrain in underground environments, add 2 to the bonuses that you gain in underground environments for the remainder of the scenario.																							COST:0
+
+#
+# DONE
+#

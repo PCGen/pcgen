@@ -1,5 +1,4 @@
 /*
- * TextFieldHandler.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Oct 1, 2011, 4:48:35 PM
  */
 package pcgen.gui2.tabs.models;
 
@@ -27,23 +25,41 @@ import javax.swing.event.DocumentListener;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
+import pcgen.gui2.util.ManagedField;
 
 /**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
+ * Watches both the ReferenceFacade and a JTextField and updates both for any changes.
  */
-public abstract class TextFieldHandler implements DocumentListener, ReferenceListener<String>
+public abstract class TextFieldHandler implements DocumentListener, ReferenceListener<String>, ManagedField
 {
 
+	/**
+	 * The JTextField to be monitored for changes when this is installed.
+	 */
 	private JTextField textField;
-	private ReferenceFacade<String> ref;
+	
+	/**
+	 * The ReferenceFacade to be monitored for changes when this is installed.
+	 */
+	private ReferenceFacade<String> referenceFacade;
 
-	public TextFieldHandler(JTextField textField, ReferenceFacade<String> ref)
+	/**
+	 * Constructs a new TextFieldChannelHandler monitoring the given JTextField and
+	 * ReferenceFacade.
+	 * 
+	 * @param textField
+	 *            The JTextField to be monitored for changes when this is installed
+	 * @param referenceFacade
+	 *            The ReferenceFacade to be monitored for changes when this is
+	 *            installed
+	 */
+	public TextFieldHandler(JTextField textField, ReferenceFacade<String> referenceFacade)
 	{
 		this.textField = textField;
-		this.ref = ref;
+		this.referenceFacade = referenceFacade;
 	}
 
+	@Override
 	public JTextField getTextField()
 	{
 		return textField;
@@ -53,21 +69,23 @@ public abstract class TextFieldHandler implements DocumentListener, ReferenceLis
 	 * Attach the handler to the screen field. e.g. When the character is
 	 * made active.
 	 */
+	@Override
 	public void install()
 	{
-		textField.setText(ref.get());
+		textField.setText(referenceFacade.get());
 		textField.getDocument().addDocumentListener(this);
-		ref.addReferenceListener(this);
+		referenceFacade.addReferenceListener(this);
 	}
 
 	/**
 	 * Detach the handler from the on screen field. e.g. when the
 	 * character is no longer being displayed.
 	 */
+	@Override
 	public void uninstall()
 	{
 		textField.getDocument().removeDocumentListener(this);
-		ref.removeReferenceListener(this);
+		referenceFacade.removeReferenceListener(this);
 	}
 
 	@Override
@@ -104,4 +122,3 @@ public abstract class TextFieldHandler implements DocumentListener, ReferenceLis
 	}
 
 }
-

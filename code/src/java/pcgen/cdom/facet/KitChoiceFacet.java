@@ -35,12 +35,11 @@ import pcgen.core.PlayerCharacter;
  * KitChoiceFacet is a Facet that triggers when an object has a KIT token in
  * order to drive the selection and application of the Kit(s).
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class KitChoiceFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private RaceFacet raceFacet;
 
@@ -62,8 +61,6 @@ public class KitChoiceFacet implements DataFacetChangeListener<CharID, CDOMObjec
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -73,8 +70,7 @@ public class KitChoiceFacet implements DataFacetChangeListener<CharID, CDOMObjec
 		if (!aPC.isImporting())
 		{
 			CDOMObject cdo = dfce.getCDOMObject();
-			for (TransitionChoice<Kit> kit : cdo
-				.getSafeListFor(ListKey.KIT_CHOICE))
+			for (TransitionChoice<Kit> kit : cdo.getSafeListFor(ListKey.KIT_CHOICE))
 			{
 				kit.act(kit.driveChoice(aPC), cdo, aPC);
 			}
@@ -89,8 +85,6 @@ public class KitChoiceFacet implements DataFacetChangeListener<CharID, CDOMObjec
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)

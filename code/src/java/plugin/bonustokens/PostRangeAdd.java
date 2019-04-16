@@ -1,5 +1,4 @@
 /*
- * PostRangeAdd.java
  * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 13, 2002, 9:19 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.bonustokens;
 
@@ -49,7 +43,6 @@ public final class PostRangeAdd extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual range attribute that may be bonused.
 	 * @param tagNumber the index of the range attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The range attribute.
 	 */
 	@Override
@@ -60,7 +53,6 @@ public final class PostRangeAdd extends MultiTagBonusObj
 
 	/**
 	 * Get the number of range attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of range attributes.
 	 */
 	@Override
@@ -74,9 +66,7 @@ public final class PostRangeAdd extends MultiTagBonusObj
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.EQRANGE))
 		{
-			Logging.errorPrint(
-				"BONUS:POSTRANGEADD is disabled when EQRANGE control is used: "
-					+ token, context);
+			Logging.errorPrint("BONUS:POSTRANGEADD is disabled when EQRANGE control is used: " + token, context);
 			return false;
 		}
 		return super.parseToken(context, token);

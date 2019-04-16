@@ -22,15 +22,17 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.choose.AbilityToken;
 import plugin.lsttokens.testsupport.AbstractPCQualifierTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
+
+import org.junit.jupiter.api.BeforeEach;
 
 public class PCQualifierTokenTest extends
 		AbstractPCQualifierTokenTestCase<Ability>
@@ -41,6 +43,7 @@ public class PCQualifierTokenTest extends
 	private static final plugin.qualifier.ability.PCToken PC_TOKEN =
 			new plugin.qualifier.ability.PCToken();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -61,21 +64,9 @@ public class PCQualifierTokenTest extends
 	}
 
 	@Override
-	protected boolean allowsNotQualifier()
-	{
-		return true;
-	}
-
-	@Override
-	protected boolean typeAllowsMult()
-	{
-		return true;
-	}
-
-	@Override
 	protected void addToPCSet(TransparentPlayerCharacter pc, Ability item)
 	{
-		pc.abilitySet.add(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT,
+		pc.abilitySet.add(CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(),
 			Nature.NORMAL, item));
 	}
 
@@ -92,7 +83,7 @@ public class PCQualifierTokenTest extends
 	}
 
 	@Override
-	protected void setUpPC() throws PersistenceLayerException
+	protected void setUpPC()
 	{
 		super.setUpPC();
 		construct(primaryContext, "Goo");
@@ -102,20 +93,26 @@ public class PCQualifierTokenTest extends
 	@Override
 	protected CDOMObject construct(LoadContext loadContext, String one)
 	{
-		Ability a = (Ability) super.construct(loadContext, one);
-		loadContext.getReferenceContext().reassociateCategory(
-			AbilityCategory.FEAT, a);
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(one);
+		loadContext.getReferenceContext().importObject(a);
 		return a;
 	}
 
 	@Override
 	protected CDOMObject construct(LoadContext loadContext,
-		Class<? extends CDOMObject> cl, String one)
+		Class<? extends CDOMObject> cl, String name)
 	{
-		Ability a = (Ability) super.construct(loadContext, cl, one);
-		loadContext.getReferenceContext().reassociateCategory(
-			AbilityCategory.FEAT, a);
-		return a;
+		return construct(loadContext, name);
 	}
 
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		//Dummy to ensure initialization
+		construct(context, "Dummy");
+	}
+	
+	
 }

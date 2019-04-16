@@ -1,5 +1,4 @@
 /*
- * MessageHandlerManagerTest.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -15,30 +14,21 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 01/03/2014 10:09:59 pm
- *
- * $Id$
  */
 package pcgen.pluginmgr;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
- * The Class <code>MessageHandlerManagerTest</code> checks that MessageHandlerManager is
+ * The Class {@code MessageHandlerManagerTest} checks that MessageHandlerManager is
  * working correctly.
- *
- * <br/>
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-
-public class MessageHandlerManagerTest
+class MessageHandlerManagerTest
 {
 
 	/**
@@ -49,18 +39,18 @@ public class MessageHandlerManagerTest
 	{
 		MessageHandlerManager cor = new MessageHandlerManager();
 		MessageRecorder mr = new MessageRecorder();
-		assertEquals("No messages exepected before add", 0, mr.messageCount);
+		assertEquals(0, mr.messageCount, "No messages exepected before add");
 		cor.addMember(mr);
-		assertNotNull("MessageHandlerManager should have sent out message",  mr.lastMsg);
-		assertEquals("MessageHandlerManager should have sent out message", cor, mr.lastMsg.getSource());
-		assertEquals("One messages expected after add", 1, mr.messageCount);
+		assertNotNull(mr.lastMsg, "MessageHandlerManager should have sent out message");
+		assertEquals(cor, mr.lastMsg.getSource(), "MessageHandlerManager should have sent out message");
+		assertEquals(1, mr.messageCount, "One messages expected after add");
 
 		int prevCount = mr.messageCount;
 		mr.lastMsg = null;
 		PCGenMessage msg = new PCGenMessage(this);
 		cor.getPostbox().handleMessage(msg);
-		assertEquals("Expected message to be delivered", msg, mr.lastMsg);
-		assertEquals("Expected one further message", prevCount+1, mr.messageCount);
+		assertEquals(msg, mr.lastMsg, "Expected message to be delivered");
+		assertEquals(prevCount+1, mr.messageCount, "Expected one further message");
 	}
 
 	/**
@@ -71,19 +61,19 @@ public class MessageHandlerManagerTest
 	{
 		MessageHandlerManager cor = new MessageHandlerManager();
 		MessageRecorder mr = new MessageRecorder();
-		assertEquals("No messages exepected before add", 0, mr.messageCount);
+		assertEquals(0, mr.messageCount, "No messages exepected before add");
 		cor.addMember(mr);
 		int prevCount = mr.messageCount;
 		mr.lastMsg = null;
 		cor.removeMember(mr);
-		assertNotNull("MessageHandlerManager should have sent out message",  mr.lastMsg);
-		assertEquals("MessageHandlerManager should have sent out message", cor, mr.lastMsg.getSource());
-		assertEquals("One extra message expected after add", prevCount+1, mr.messageCount);
+		assertNotNull(mr.lastMsg, "MessageHandlerManager should have sent out message");
+		assertEquals(cor, mr.lastMsg.getSource(), "MessageHandlerManager should have sent out message");
+		assertEquals(prevCount+1, mr.messageCount, "One extra message expected after add");
 		
 		mr.lastMsg = null;
 		cor.getPostbox().handleMessage(new PCGenMessage(this));
-		assertNull("Expected no further messages to removed handler",  mr.lastMsg);
-		assertEquals("Expected no further messages to removed handler", prevCount+1, mr.messageCount);
+		assertNull(mr.lastMsg, "Expected no further messages to removed handler");
+		assertEquals(prevCount+1, mr.messageCount, "Expected no further messages to removed handler");
 	}
 
 	/**
@@ -93,7 +83,7 @@ public class MessageHandlerManagerTest
 	public void testPostboxMessageDistributionOrder()
 	{
 		MessageHandlerManager cor = new MessageHandlerManager();
-		assertNotNull("Postbox should be available", cor.getPostbox());
+		assertNotNull(cor.getPostbox(), "Postbox should be available");
 		
 		MessageRecorder firstMr = new MessageRecorder();
 		MessageConsumer consumer = new MessageConsumer();
@@ -108,15 +98,15 @@ public class MessageHandlerManagerTest
 		int prevSecondMrCount = secondMr.messageCount;
 		cor.getPostbox().handleMessage(
 			new PCGenMessage(this));
-		assertEquals("Single extra message expected by first handler",
-			prevFirstMrCount + 1, firstMr.messageCount);
-		assertEquals("Single extra message expected by consumer",
-			prevConsumerCount + 1, consumer.messageCount);
-		assertEquals("No extra message expected by second handler",
-			prevSecondMrCount, secondMr.messageCount);
+		assertEquals(
+				prevFirstMrCount + 1, firstMr.messageCount, "Single extra message expected by first handler");
+		assertEquals(
+				prevConsumerCount + 1, consumer.messageCount, "Single extra message expected by consumer");
+		assertEquals(
+				prevSecondMrCount, secondMr.messageCount, "No extra message expected by second handler");
 		assertTrue(
-			"First recorder should have received message before consumer (different source)",
-			firstMr.lastMessageOrder < consumer.lastMessageOrder);
+				firstMr.lastMessageOrder < consumer.lastMessageOrder,
+				"First recorder should have received message before consumer (different source)");
 
 		// Check source receives message last
 		prevFirstMrCount = firstMr.messageCount;
@@ -124,12 +114,12 @@ public class MessageHandlerManagerTest
 		prevSecondMrCount = secondMr.messageCount;
 		cor.getPostbox().handleMessage(
 			new PCGenMessage(firstMr));
-		assertEquals("Single extra message expected by consumer",
-			prevConsumerCount + 1, consumer.messageCount);
-		assertEquals("No extra message expected by second handler",
-			prevSecondMrCount, secondMr.messageCount);
-		assertEquals("No extra message expected by first handler",
-			prevFirstMrCount, firstMr.messageCount);
+		assertEquals(
+				prevConsumerCount + 1, consumer.messageCount, "Single extra message expected by consumer");
+		assertEquals(
+				prevSecondMrCount, secondMr.messageCount, "No extra message expected by second handler");
+		assertEquals(
+				prevFirstMrCount, firstMr.messageCount, "No extra message expected by first handler");
 	}
 
 	/**
@@ -139,7 +129,7 @@ public class MessageHandlerManagerTest
 	public void testPostboxMessageDistributionConsumption()
 	{
 		MessageHandlerManager cor = new MessageHandlerManager();
-		assertNotNull("Postbox should be available", cor.getPostbox());
+		assertNotNull(cor.getPostbox(), "Postbox should be available");
 		
 		MessageRecorder firstMr = new MessageRecorder();
 		MessageRecorder secondMr = new MessageRecorder();
@@ -151,30 +141,30 @@ public class MessageHandlerManagerTest
 		int prevSecondMrCount = secondMr.messageCount;
 		cor.getPostbox().handleMessage(
 			new PCGenMessage(this));
-		assertEquals("Single extra message expected by first handler",
-			prevFirstMrCount + 1, firstMr.messageCount);
-		assertEquals("Single extra message expected by second handler",
-			prevSecondMrCount + 1, secondMr.messageCount);
+		assertEquals(
+				prevFirstMrCount + 1, firstMr.messageCount, "Single extra message expected by first handler");
+		assertEquals(
+				prevSecondMrCount + 1, secondMr.messageCount, "Single extra message expected by second handler");
 		assertTrue(
-			"First recorder should have received message before second (different source)",
-			firstMr.lastMessageOrder < secondMr.lastMessageOrder);
+				firstMr.lastMessageOrder < secondMr.lastMessageOrder,
+				"First recorder should have received message before second (different source)");
 
 		// Check source receives message last
 		prevFirstMrCount = firstMr.messageCount;
 		prevSecondMrCount = secondMr.messageCount;
 		cor.getPostbox().handleMessage(
 			new PCGenMessage(firstMr));
-		assertEquals("Single extra message expected by first handler",
-			prevFirstMrCount + 1, firstMr.messageCount);
-		assertEquals("Single extra message expected by second handler",
-			prevSecondMrCount + 1, secondMr.messageCount);
+		assertEquals(
+				prevFirstMrCount + 1, firstMr.messageCount, "Single extra message expected by first handler");
+		assertEquals(
+				prevSecondMrCount + 1, secondMr.messageCount, "Single extra message expected by second handler");
 		assertTrue(
-			"Second recorder should have received message before first (source)",
-			firstMr.lastMessageOrder > secondMr.lastMessageOrder);
+				firstMr.lastMessageOrder > secondMr.lastMessageOrder,
+				"Second recorder should have received message before first (source)");
 	}
 
 	/**
-	 * The Class <code>MessageRecorder</code> is a message handler that
+	 * The Class {@code MessageRecorder} is a message handler that
 	 * simply tracks the messages is receives, allowing testing of message distribution.
 	 */
 	private static class MessageRecorder implements PCGenMessageHandler
@@ -185,9 +175,6 @@ public class MessageHandlerManagerTest
 		int lastMessageOrder = 0;
 		PCGenMessage lastMsg = null;
 		
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void handleMessage(PCGenMessage msg)
 		{
@@ -199,14 +186,11 @@ public class MessageHandlerManagerTest
 	}
 	
 	/**
-	 * The Class <code>MessageConsumer</code> will consume any message it receives.
+	 * The Class {@code MessageConsumer} will consume any message it receives.
 	 */
 	private static class MessageConsumer extends MessageRecorder
 	{
 		
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void handleMessage(PCGenMessage msg)
 		{

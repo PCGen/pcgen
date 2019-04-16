@@ -32,8 +32,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with CR Token
  */
-public class CrToken extends AbstractNonEmptyToken<Race> implements
-		CDOMPrimaryToken<Race>, DeferredToken<Race>
+public class CrToken extends AbstractNonEmptyToken<Race> implements CDOMPrimaryToken<Race>, DeferredToken<Race>
 {
 
 	/**
@@ -50,24 +49,20 @@ public class CrToken extends AbstractNonEmptyToken<Race> implements
 	{
 		try
 		{
-			int intRating = Integer.parseInt(value.startsWith("1/") ? value
-					.substring(2) : value);
+			int intRating = Integer.parseInt(value.startsWith("1/") ? value.substring(2) : value);
 			if (intRating < 0)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " Challenge Rating cannot be negative", context);
+				return new ParseResult.Fail(getTokenName() + " Challenge Rating cannot be negative");
 			}
 		}
 		catch (NumberFormatException e)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ "Challenge Rating must be a positive integer i or 1/i", context);
+			return new ParseResult.Fail(getTokenName() + "Challenge Rating must be a positive integer i or 1/i");
 		}
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		ChallengeRating cr = new ChallengeRating(formula);
 		context.getObjectContext().put(race, ObjectKey.CHALLENGE_RATING, cr);
@@ -84,9 +79,7 @@ public class CrToken extends AbstractNonEmptyToken<Race> implements
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		ChallengeRating cr =
-				context.getObjectContext().getObject(race,
-					ObjectKey.CHALLENGE_RATING);
+		ChallengeRating cr = context.getObjectContext().getObject(race, ObjectKey.CHALLENGE_RATING);
 		if (cr == null)
 		{
 			// indicates no Token present
@@ -115,8 +108,7 @@ public class CrToken extends AbstractNonEmptyToken<Race> implements
 			ChallengeRating cr = race.get(ObjectKey.CHALLENGE_RATING);
 			if ((la.floatValue() != 0) && cr == null)
 			{
-				race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating(
-						FormulaFactory.getFormulaFor(la.toString())));
+				race.put(ObjectKey.CHALLENGE_RATING, new ChallengeRating(FormulaFactory.getFormulaFor(la.toString())));
 			}
 		}
 		//else Nothing to do here, matches 5.14 behavior

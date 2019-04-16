@@ -14,17 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
- package pcgen.core.doomsdaybook;
+package pcgen.core.doomsdaybook;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author  devon
- */
 public class SpaceRule implements DataElement
 {
 	ArrayList<DataValue> retList = new ArrayList<>();
@@ -35,43 +29,43 @@ public class SpaceRule implements DataElement
 		retList.add(new DataValue(" "));
 	}
 
-    @Override
+	@Override
 	public ArrayList<DataValue> getData()
 	{
 		return retList;
 	}
 
-    @Override
+	@Override
 	public ArrayList<DataValue> getData(int choice)
 	{
 		return retList;
 	}
 
-    @Override
+	@Override
 	public String getId()
 	{
 		return " ";
 	}
 
-    @Override
+	@Override
 	public ArrayList<DataValue> getLastData()
 	{
 		return retList;
 	}
 
-    @Override
+	@Override
 	public String getTitle()
 	{
 		return null;
 	}
 
-    @Override
+	@Override
 	public int getWeight()
 	{
 		return 1;
 	}
 
-    @Override
+	@Override
 	public void trimToSize()
 	{
 		// TODO:  Method doesn't do anything?

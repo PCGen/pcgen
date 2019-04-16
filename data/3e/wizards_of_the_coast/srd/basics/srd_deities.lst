@@ -1,7 +1,8 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:System Reference Document	SOURCESHORT:SRD	SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/	SOURCEDATE:2000-01
 
 # Dieties removed... Not in the SRD.  - Tir Gwaith
 
-# Deity Name	Domains							Description of Deity/Title																																								FACT			Deity Weapon	Source URI																		Source Page
-None			DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE	DESC:Due to closed content PCGEN cannot provide a list of deities, sorry but you need to homebrew your own list; Please see the Documentation for how to do so - http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html	FACT:Symbol|None	DEITYWEAP:ANY	SOURCEWEB:http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html	SOURCEPAGE:srdbasiccharacterclassesi
+# Deity Name	Domains							Description of Deity/Title																																								FACT			Deity Weapon	Source URI																		Source Page						GROUP
+None			DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE	DESC:Due to closed content PCGEN cannot provide a list of deities, sorry but you need to homebrew your own list; Please see the Documentation for how to do so - http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html	FACT:Symbol|None	DEITYWEAP:ANY	SOURCEWEB:http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html	SOURCEPAGE:srdbasiccharacterclassesi	GROUP:UNSELECTED

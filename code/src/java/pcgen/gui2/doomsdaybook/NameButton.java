@@ -14,25 +14,19 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
- package pcgen.gui2.doomsdaybook;
+package pcgen.gui2.doomsdaybook;
 
 import pcgen.core.doomsdaybook.DataElement;
 
-/**
- *
- * @author  devon
- */
-public class NameButton extends javax.swing.JButton
+class NameButton extends javax.swing.JButton
 {
-	DataElement element;
+	private final DataElement element;
 
 	/** Creates a new instance of NameButton 
 	 * @param element
 	 */
-	public NameButton(DataElement element)
+	NameButton(DataElement element)
 	{
 		this.element = element;
 		super.setText(element.getTitle());
@@ -42,7 +36,7 @@ public class NameButton extends javax.swing.JButton
 	 * Get the data element for the name button
 	 * @return the data element for the name button
 	 */
-	public DataElement getDataElement()
+	DataElement getDataElement()
 	{
 		return element;
 	}

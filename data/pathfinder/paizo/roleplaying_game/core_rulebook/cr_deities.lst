@@ -1,8 +1,9 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 20121 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
-# Deity Name	Product Identity?	Domains													Description of Deity/Title					FACT			FACTSET						Deity Weapon				Align		Source Page
+# Deity Name	Product Identity?	Domains													Description of Deity/Title					FACT			FACTSET						Deity Weapon				Align		Source Page		GROUP
 Erastil		NAMEISPI:YES	DOMAINS:Animal,Community,Good,Law,Plant|PREALIGN:LG,LN,NG					DESC:God of farming, hunting, trade, family					FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Longbow				ALIGN:LG	SOURCEPAGE:p.45
 Iomedae		NAMEISPI:YES	DOMAINS:Glory,Good,Law,Sun,War|PREALIGN:LG,LN,NG						DESC:Goddess of valor, rulership, justice, honor				FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Longsword			ALIGN:LG	SOURCEPAGE:p.45
 Torag			NAMEISPI:YES	DOMAINS:Artifice,Earth,Good,Law,Protection|PREALIGN:LG,LN,NG				DESC:God of the forge, protection, strategy					FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Warhammer			ALIGN:LG	SOURCEPAGE:p.45
@@ -24,5 +25,5 @@ Norgorber		NAMEISPI:YES	DOMAINS:Charm,Death,Evil,Knowledge,Trickery|PREALIGN:TN,
 Lamashtu		NAMEISPI:YES	DOMAINS:Chaos,Evil,Madness,Strength,Trickery|PREALIGN:NE,CN,CE				DESC:Goddess of madness, monsters, nightmares					FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Falchion			ALIGN:CE	SOURCEPAGE:p.45
 Rovagug		NAMEISPI:YES	DOMAINS:Chaos,Destruction,Evil,War,Weather|PREALIGN:NE,CN,CE				DESC:God of wrath, disaster, destruction						FACTSET:Pantheon|Pathfinder Chronicles	DEITYWEAP:Greataxe			ALIGN:CE	SOURCEPAGE:p.45
 
-# Deity Name	Product Identity?	Domains													Description of Deity/Title					FACT			FACTSET						Deity Weapon				Align		Source Page
-None						DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE							DESC:None								FACT:Symbol|None								DEITYWEAP:ANY
+# Deity Name	Product Identity?	Domains													Description of Deity/Title					FACT			FACTSET						Deity Weapon				Align		Source Page		GROUP
+None						DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE							DESC:None								FACT:Symbol|None																			GROUP:UNSELECTED

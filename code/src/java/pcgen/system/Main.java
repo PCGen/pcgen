@@ -1,25 +1,24 @@
 /*
- * Main.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
- * 
+ * Copyright 2019 Timothy Reaves <treaves@silverfieldstech.com>
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
- * Created on Sep 1, 2009, 6:17:59 PM
  */
 package pcgen.system;
 
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
@@ -44,8 +43,8 @@ import pcgen.gui2.SplashScreen;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.converter.TokenConverter;
 import pcgen.gui2.dialog.OptionsPathDialog;
+import pcgen.gui2.dialog.RandomNameDialog;
 import pcgen.gui2.plaf.LookAndFeelManager;
-import pcgen.gui2.tools.Utility;
 import pcgen.io.ExportHandler;
 import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;
@@ -63,12 +62,8 @@ import net.sourceforge.argparse4j.impl.Arguments;
 import net.sourceforge.argparse4j.inf.ArgumentParser;
 import net.sourceforge.argparse4j.inf.MutuallyExclusiveGroup;
 import net.sourceforge.argparse4j.inf.Namespace;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.SystemUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.slf4j.Marker;
-import org.slf4j.MarkerFactory;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  * Main entry point for pcgen.
@@ -77,9 +72,11 @@ public final class Main
 {
 
 	private static PropertyContextFactory configFactory;
+
+	// TODO: move startup modes into an extensible class based system
 	private static boolean startGMGen;
 	private static boolean startNPCGen;
-	private static boolean ignoreJavaVer;
+	private static boolean startNameGen;
 	private static String settingsDir;
 	private static String campaignMode;
 	private static String characterSheet;
@@ -87,8 +84,6 @@ public final class Main
 	private static String partyFile;
 	private static String characterFile;
 	private static String outputFile;
-	private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
-
 
 	private Main()
 	{
@@ -129,9 +124,8 @@ public final class Main
 		// Manually output the property values to avoid them being cut off at 40 characters
 		Set<String> keys = props.stringPropertyNames();
 		//$NON-NLS-1$
-		keys.forEach(key ->
-		{
-			pwriter.println(key + "=" + props.getProperty(key)); //$NON-NLS-1$
+		keys.forEach(key -> {
+			pwriter.println(key + '=' + props.getProperty(key));
 		});
 		Logging.log(Level.CONFIG, writer.toString());
 	}
@@ -141,10 +135,8 @@ public final class Main
 	 */
 	public static void main(String[] args)
 	{
-		Marker versionMarker = MarkerFactory.getMarker("VERSION");
-		LOGGER.info(versionMarker, "Starting PCGen v {} {}",
-				PCGenPropBundle.getVersionNumber(),
-				PCGenPropBundle.getAutobuildString());
+		Logging.log(Level.INFO, "Starting PCGen v" + PCGenPropBundle.getVersionNumber() //$NON-NLS-1$
+			+ PCGenPropBundle.getAutobuildString());
 
 		Thread.setDefaultUncaughtExceptionHandler(new PCGenUncaughtExceptionHandler());
 		logSystemProps();
@@ -152,6 +144,13 @@ public final class Main
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
 
 		parseCommands(args);
+
+		if (startNameGen)
+		{
+			Component dialog = new RandomNameDialog(null, null);
+			dialog.setVisible(true);
+			System.exit(0);
+		}
 
 		if (exportSheet == null)
 		{
@@ -182,7 +181,8 @@ public final class Main
 		return SystemUtils.USER_DIR;
 	}
 
-	public static boolean loadCharacterAndExport(String characterFile, String exportSheet, String outputFile, String configFile)
+	public static boolean loadCharacterAndExport(String characterFile, String exportSheet, String outputFile,
+		String configFile)
 	{
 		Main.characterFile = characterFile;
 		Main.exportSheet = exportSheet;
@@ -198,7 +198,7 @@ public final class Main
 	 *
 	 * @param argv the command line arguments to be parsed
 	 */
-	private static void parseCommands(String[] argv)
+	private static Namespace parseCommands(String[] argv)
 	{
 		Namespace args = getParser().parseArgsOrFail(argv);
 
@@ -210,7 +210,6 @@ public final class Main
 
 		startGMGen = args.getBoolean("gmgen");
 		startNPCGen = args.getBoolean("npc");
-		ignoreJavaVer = args.getBoolean("J");
 		settingsDir = args.getString("settingsdir");
 		campaignMode = args.getString("campaignmode");
 		characterSheet = args.get("D");
@@ -218,6 +217,9 @@ public final class Main
 		partyFile = args.get("p");
 		characterFile = args.get("c");
 		outputFile = args.get("o");
+		startNameGen = args.get("name_generator");
+
+		return args;
 	}
 
 	private static void startupWithGUI()
@@ -229,7 +231,7 @@ public final class Main
 		initPrintPreviewFonts();
 
 		boolean showSplash = Boolean.parseBoolean(ConfigurationSettings.initSystemProperty("showSplash", "true"));
-		//TODO: allow commandline override of spash property
+		//TODO: allow commandline override of splash property
 		SplashScreen splash = null;
 		if (showSplash)
 		{
@@ -268,65 +270,17 @@ public final class Main
 		}
 		LanguageBundle.init();
 		LookAndFeelManager.initLookAndFeel();
-		Utility.setApplicationTitle(Constants.APPLICATION_NAME);
 	}
 
 	/**
 	 * Check that the runtime environment is suitable for PCGen to run.
-	 * e.g. correct Java version
 	 */
 	private static void validateEnvironment(boolean useGui)
 	{
-		String javaVerString = System.getProperty("java.version");
-		String[] javaVer = javaVerString.split("\\.");
-		int majorVar = Integer.parseInt(javaVer[0]);
-		int minorVar = Integer.parseInt(javaVer[1]);
-		if (!ignoreJavaVer)
-		{
-			if ((majorVar < 1) || ((majorVar == 1) && (minorVar < 6)))
-			{
-				String message =
-						"Java version "
-								+ javaVerString
-								+ " is too old. PCGen requires at least Java 1.6 to run.";
-				Logging.errorPrint(message);
-				if (useGui)
-				{
-					JOptionPane.showMessageDialog(null, message,
-							Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
-				}
-				System.exit(1);
-			}
-			if ((majorVar > 1) || ((majorVar == 1) && (minorVar > 8)))
-			{
-				String message =
-						"Java version "
-								+ javaVerString
-								+ " is newer than PCGen supports. The program may not\n"
-								+ "work correctly. Java versions up to 1.8 are supported.";
-				Logging.errorPrint(message);
-				if (useGui)
-				{
-					int result =
-							JOptionPane.showConfirmDialog(null, message
-											+ "\n\nDo you wish to continue?",
-									Constants.APPLICATION_NAME,
-									JOptionPane.OK_CANCEL_OPTION);
-					if (result != JOptionPane.OK_OPTION)
-					{
-						System.exit(1);
-					}
-				}
-			}
-		}
-
 		// Check our main folders are present
-		String[] neededDirs =
-				{ConfigurationSettings.getSystemsDir(),
-						ConfigurationSettings.getPccFilesDir(),
-						ConfigurationSettings.getPluginsDir(),
-						ConfigurationSettings.getPreviewDir(),
-						ConfigurationSettings.getOutputSheetsDir()};
+		String[] neededDirs = {ConfigurationSettings.getSystemsDir(), ConfigurationSettings.getPccFilesDir(),
+			ConfigurationSettings.getPluginsDir(), ConfigurationSettings.getPreviewDir(),
+			ConfigurationSettings.getOutputSheetsDir()};
 		StringBuilder missingDirs = new StringBuilder();
 		for (final String dirPath : neededDirs)
 		{
@@ -340,24 +294,20 @@ public final class Main
 				}
 				catch (IOException e)
 				{
-					Logging.errorPrint("Unable to find canonical path for "
-							+ dir);
+					Logging.errorPrint("Unable to find canonical path for " + dir);
 				}
-				missingDirs.append("  ").append(path).append("\n");
+				missingDirs.append("  ").append(path).append('\n');
 			}
 		}
 		if (missingDirs.length() > 0)
 		{
 			String message;
-			message =
-					"This installation of PCGen is missing the following required folders:\n"
-							+ missingDirs;
+			message = "This installation of PCGen is missing the following required folders:\n" + missingDirs;
 			Logging.errorPrint(message);
 			if (useGui)
 			{
-				JOptionPane.showMessageDialog(null, message
-								+ "\nPlease reinstall PCGen.", Constants.APPLICATION_NAME,
-						JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, message + "\nPlease reinstall PCGen.", Constants.APPLICATION_NAME,
+					JOptionPane.ERROR_MESSAGE);
 			}
 			System.exit(1);
 		}
@@ -365,9 +315,8 @@ public final class Main
 
 	public static void loadProperties(boolean useGui)
 	{
-		if ((settingsDir == null) && (
-				ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH) == null
-		))
+		if ((settingsDir == null)
+			&& (ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH) == null))
 		{
 			if (!useGui)
 			{
@@ -401,7 +350,8 @@ public final class Main
 		try
 		{
 			loader.addPluginLoader(PreParserFactory.getInstance());
-		} catch (PersistenceLayerException ex)
+		}
+		catch (PersistenceLayerException ex)
 		{
 			Logging.errorPrint("createLoadPluginTask failed", ex);
 		}
@@ -414,7 +364,6 @@ public final class Main
 		loader.addPluginLoader(PluginFunctionLibrary.getInstance());
 		return loader;
 	}
-
 
 	private static boolean startupWithoutGUI()
 	{
@@ -452,8 +401,7 @@ public final class Main
 		PropertyContextFactory.getDefaultFactory().savePropertyContexts();
 
 		// Need to (possibly) write customEquipment.lst
-		if (PCGenSettings.OPTIONS_CONTEXT
-				.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT))
+		if (PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT))
 		{
 			CustomData.writeCustomItems();
 		}
@@ -464,8 +412,8 @@ public final class Main
 	private static void initPrintPreviewFonts()
 	{
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		String fontDir = ConfigurationSettings.getOutputSheetsDir() + File.separator
-				+ "fonts" + File.separator + "NotoSans" + File.separator;
+		String fontDir = ConfigurationSettings.getOutputSheetsDir() + File.separator + "fonts" + File.separator
+			+ "NotoSans" + File.separator;
 		try
 		{
 			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Regular.ttf")));
@@ -480,91 +428,44 @@ public final class Main
 	}
 
 	/**
-	 * @return an ArgumentParser used to peform argument parsing
+	 * @return an ArgumentParser used to perform argument parsing
 	 */
 	private static ArgumentParser getParser()
 	{
-		ArgumentParser parser = ArgumentParsers
-				.newArgumentParser(Constants.APPLICATION_NAME)
-				.defaultHelp(false)
-				.description("RPG Character Generator")
-				.version(PCGenPropBundle.getVersionNumber());
+		ArgumentParser parser = ArgumentParsers.newFor(Constants.APPLICATION_NAME).build().defaultHelp(false)
+			.description("RPG Character Generator").version(PCGenPropBundle.getVersionNumber());
 
-		parser.addArgument("-v", "--verbose")
-				.help("verbose logging")
-				.type(Boolean.class)
-				.action(Arguments.count());
+		parser.addArgument("-v", "--verbose").help("verbose logging").type(Boolean.class).action(Arguments.count());
 
-		parser.addArgument("-V", "--version")
-				.action(Arguments.version());
+		parser.addArgument("-V", "--version").action(Arguments.version());
 
-		parser.addArgument("-J")
-				.help("ignore java version checks")
-				.action(Arguments.storeTrue());
+		MutuallyExclusiveGroup startupMode =
+				parser.addMutuallyExclusiveGroup().description("start up on a specific mode");
 
-		MutuallyExclusiveGroup startupMode = parser
-				.addMutuallyExclusiveGroup()
-				.description("start up on a specific mode");
+		startupMode.addArgument("-G", "--gmgen").help("GMGen mode").type(Boolean.class).action(Arguments.storeTrue());
 
-		startupMode.addArgument("-G", "--gmgen")
-				.help("GMGen mode")
-				.type(Boolean.class)
-				.action(Arguments.storeTrue());
+		startupMode.addArgument("-N", "--npc").help("NPC generation mode").type(Boolean.class)
+			.action(Arguments.storeTrue());
 
-		startupMode.addArgument("-N", "--npc")
-				.help("NPC generation mode")
-				.type(Boolean.class)
-				.action(Arguments.storeTrue());
+		startupMode.addArgument("--name-generator").help("run the name generator").type(Boolean.class)
+			.action(Arguments.storeTrue());
 
 		startupMode.addArgument("-D", "--tab").nargs(1);
 
-		parser.addArgument("-s", "--settingsdir")
-				.nargs(1)
-				.type(
-						Arguments.fileType()
-								.verifyIsDirectory()
-								.verifyCanRead()
-								.verifyExists()
-				);
-		parser.addArgument("-m", "--campaignmode")
-				.nargs(1)
-				.type(String.class)
-		;
-		parser.addArgument("-E", "--exportsheet")
-				.nargs(1)
-				.type(
-						Arguments.fileType()
-								.verifyCanRead()
-								.verifyExists()
-								.verifyIsFile()
-				);
+		parser.addArgument("-s", "--settingsdir").nargs(1)
+			.type(Arguments.fileType().verifyIsDirectory().verifyCanRead().verifyExists());
+		parser.addArgument("-m", "--campaignmode").nargs(1).type(String.class);
+		parser.addArgument("-E", "--exportsheet").nargs(1)
+			.type(Arguments.fileType().verifyCanRead().verifyExists().verifyIsFile());
 
-		parser.addArgument("-o", "--outputfile")
-				.nargs(1)
-				.type(
-						Arguments.fileType()
-								.verifyCanCreate()
-								.verifyCanWrite()
-								.verifyNotExists()
-				);
+		parser.addArgument("-o", "--outputfile").nargs(1)
+			.type(Arguments.fileType().verifyCanCreate().verifyCanWrite().verifyNotExists());
 
-		parser.addArgument("-c", "--character")
-				.nargs(1)
-				.type(
-						Arguments.fileType()
-								.verifyCanRead()
-								.verifyExists()
-								.verifyIsFile()
-				);
+		parser.addArgument("-c", "--character").nargs(1)
+			.type(Arguments.fileType().verifyCanRead().verifyExists().verifyIsFile());
 
-		parser.addArgument("-p", "--party")
-				.nargs(1)
-				.type(
-						Arguments.fileType()
-								.verifyCanRead()
-								.verifyExists()
-								.verifyIsFile()
-				);
+		parser.addArgument("-p", "--party").nargs(1)
+			.type(Arguments.fileType().verifyCanRead().verifyExists().verifyIsFile());
 
 		return parser;
 	}
@@ -578,7 +479,7 @@ public final class Main
 		@Override
 		public void uncaughtException(Thread t, Throwable e)
 		{
-			Logging.errorPrint("Uncaught error - ignoring", e);
+			Logging.errorPrint("Uncaught error on thread  " + t + " - ignoring", e);
 		}
 	}
 }

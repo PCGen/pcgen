@@ -37,8 +37,7 @@ import pcgen.rules.context.LoadContext;
  * @param <F>
  *            The Type of the FactSet being checked in this FactSetGroup
  */
-public class FactSetGroup<T extends CDOMObject, F> implements
-		ObjectContainer<T>
+public class FactSetGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 {
 
 	/**
@@ -92,15 +91,11 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 		toMatch = def.getFormatManager().convertIndirect(value);
 		if (toMatch == null)
 		{
-			throw new IllegalArgumentException("Failed to convert " + value
-				+ " as a "
-				+ def.getFormatManager().getManagedClass().getSimpleName());
+			throw new IllegalArgumentException(
+				"Failed to convert " + value + " as a " + def.getFormatManager().getManagedClass().getSimpleName());
 		}
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getContainedObjects()
-	 */
 	@Override
 	public Collection<T> getContainedObjects()
 	{
@@ -119,19 +114,12 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 		return Collections.unmodifiableCollection(cache);
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getLSTformat(boolean)
-	 */
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return def.getFactSetName() + "="
-			+ def.getFormatManager().unconvert(toMatch.get());
+		return def.getFactSetName() + "=" + def.getFormatManager().unconvert(toMatch.get());
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#contains(java.lang.Object)
-	 */
 	@Override
 	public boolean contains(T obj)
 	{
@@ -150,9 +138,6 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 		return false;
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getReferenceClass()
-	 */
 	@Override
 	public Class<T> getReferenceClass()
 	{

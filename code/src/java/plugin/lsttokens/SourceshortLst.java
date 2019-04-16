@@ -1,7 +1,4 @@
-/*
- * Created on Sep 2, 2005
- *
- */
+
 package plugin.lsttokens;
 
 import java.net.URI;
@@ -13,12 +10,8 @@ import pcgen.persistence.lst.InstallLstToken;
 import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
-/**
- * @author djones4
- *
- */
-public class SourceshortLst extends AbstractStringToken<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>, InstallLstToken
+public class SourceshortLst extends AbstractStringToken<CDOMObject>
+		implements CDOMPrimaryToken<CDOMObject>, InstallLstToken
 {
 
 	@Override

@@ -1,5 +1,4 @@
 /*
- * InstallLoader.java
  * Copyright 2007 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 26/12/2007
  *
- * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -31,20 +28,16 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- * <code>InstallLoader</code> handles parsing the Install.lst file which 
+ * {@code InstallLoader} handles parsing the Install.lst file which
  * defines how a data set should be installed into an existing PCGen 
  * installation.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class InstallLoader extends LstLineFileLoader
 {
 	private InstallableCampaign campaign = null;
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstString(LoadContext, URI, String)
-	 */
 	@Override
 	public void loadLstString(LoadContext context, URI fileName, String lstData) throws PersistenceLayerException
 	{
@@ -53,24 +46,18 @@ public class InstallLoader extends LstLineFileLoader
 		super.loadLstString(context, fileName, lstData);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(java.lang.String, java.net.URI)
-	 */
 	@Override
-	public void parseLine(LoadContext context, String inputLine, URI sourceURI)
-		throws PersistenceLayerException
+	public void parseLine(LoadContext context, String inputLine, URI sourceURI) throws PersistenceLayerException
 	{
 		final int idxColon = inputLine.indexOf(':');
 		if (idxColon < 0)
 		{
-			Logging.errorPrint("Unparsed line: " + inputLine + " in "
-				+ sourceURI.toString());
+			Logging.errorPrint("Unparsed line: " + inputLine + " in " + sourceURI.toString());
 			return;
 		}
 		final String key = inputLine.substring(0, idxColon);
 		final String value = inputLine.substring(idxColon + 1);
-		Map<String, LstToken> tokenMap =
-				TokenStore.inst().getTokenMap(InstallLstToken.class);
+		Map<String, LstToken> tokenMap = TokenStore.inst().getTokenMap(InstallLstToken.class);
 		InstallLstToken token = (InstallLstToken) tokenMap.get(key);
 
 		if (token != null)
@@ -78,14 +65,12 @@ public class InstallLoader extends LstLineFileLoader
 			LstUtils.deprecationCheck(token, campaign, value);
 			if (!token.parse(campaign, new String(value), sourceURI))
 			{
-				Logging.errorPrint("Error parsing install "
-					+ campaign.getDisplayName() + ':' + inputLine);
+				Logging.errorPrint("Error parsing install " + campaign.getDisplayName() + ':' + inputLine);
 			}
 		}
 		else
 		{
-			Logging.errorPrint("Unparsed line: " + inputLine + " in "
-				+ sourceURI.toString());
+			Logging.errorPrint("Unparsed line: " + inputLine + " in " + sourceURI.toString());
 		}
 	}
 

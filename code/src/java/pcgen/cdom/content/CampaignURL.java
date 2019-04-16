@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 28/01/2008
- *
- * $Id$
  */
 
 package pcgen.cdom.content;
@@ -26,12 +22,11 @@ package pcgen.cdom.content;
 import java.net.URI;
 
 /**
- * <code>CampaignURL</code> encapsulates a typed and labelled URL for a
+ * {@code CampaignURL} encapsulates a typed and labelled URL for a
  * campaign.
  * 
  * (Tue, 23 Dec 2008) $
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CampaignURL implements Comparable<CampaignURL>
 {
@@ -107,11 +102,6 @@ public class CampaignURL implements Comparable<CampaignURL>
 		return urlDesc;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
 	@Override
 	public int compareTo(final CampaignURL that)
 	{
@@ -154,10 +144,8 @@ public class CampaignURL implements Comparable<CampaignURL>
 		if (obj instanceof CampaignURL)
 		{
 			CampaignURL that = (CampaignURL) obj;
-			return that.getUrlKind().equals(urlKind)
-					&& that.getUrlName().equals(urlName)
-					&& that.getUri().equals(uri)
-					&& urlDesc.equals(that.getUrlDesc());
+			return that.getUrlKind() == urlKind && that.getUrlName().equals(urlName) && that.getUri().equals(uri)
+				&& urlDesc.equals(that.getUrlDesc());
 		}
 		return false;
 	}

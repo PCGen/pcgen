@@ -30,12 +30,11 @@ import pcgen.core.RuleConstants;
  * Equipment carried by a Player Character (does not include the body weight of
  * the Player Character).
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class TotalWeightFacet
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private EquipmentFacet equipmentFacet;
 
@@ -54,34 +53,29 @@ public class TotalWeightFacet
 		float totalWeight = 0;
 		final Float floatZero = 0.0f;
 		boolean firstClothing = !Globals.checkRule(RuleConstants.CLOTHINGENCUMBRANCE);
-		
+
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		for (Equipment eq : equipmentFacet.getSet(id))
 		{
 			// Loop through the list of top
-			if ((eq.getCarried().compareTo(floatZero) > 0)
-					&& (eq.getParent() == null))
+			if ((eq.getCarried().compareTo(floatZero) > 0) && (eq.getParent() == null))
 			{
 				if (eq.getChildCount() > 0)
 				{
-					totalWeight += (eq.getWeightAsDouble(pc) + eq
-							.getContainedWeight(pc).floatValue());
+					totalWeight += (eq.getWeightAsDouble(pc) + eq.getContainedWeight(pc));
 				}
 				else
 				{
-					if (firstClothing && eq.isEquipped()
-							&& eq.isType("CLOTHING"))
+					if (firstClothing && eq.isEquipped() && eq.isType("CLOTHING"))
 					{
 						// The first equipped set of clothing should have a
 						// weight of 0. Feature #437410
 						firstClothing = false;
-						totalWeight += (eq.getWeightAsDouble(pc) * Math.max(eq
-								.getCarried().floatValue() - 1, 0));
+						totalWeight += (eq.getWeightAsDouble(pc) * Math.max(eq.getCarried() - 1, 0));
 					}
 					else
 					{
-						totalWeight += (eq.getWeightAsDouble(pc) * eq
-								.getCarried().floatValue());
+						totalWeight += (eq.getWeightAsDouble(pc) * eq.getCarried());
 					}
 				}
 			}

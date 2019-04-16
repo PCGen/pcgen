@@ -1,0 +1,12 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets Season 9	SOURCESHORT:PFSCS9	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2016-08
+
+# Equipment Name							Type						Cost		Weight	Slot Needed	Required Ability								Source, Long Desc.								Source, Short Desc.	Save bonus					Bonus to skill				Quality and value											Description																																																											Source Pub. Date
+Gloves of Swimming						TYPE:Magic.Wondrous.Hands.Glove.PFS	COST:2500	WT:0		SLOTS:2	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-10																						BONUS:SKILL|Swim|5|TYPE=Competence	QUALITY:Aura|faint transmutation	QUALITY:Caster Level|5th			DESC:These gloves grant their wearer a +5 competence bonus on Swim checks. Both gloves must be worn for the magic to function. A PC can pay 3,750 gp to upgrade these gloves to gloves of swimming and climbing (Pathfinder RPG Ultimate Equipment 237).
+Muleback Cords.COPY=Muleback Cords of Resistance +1							COST:2500					PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-10	SOURCELONG:Pathfinder Society Scenario #9-10: Signs in Senghor	SOURCESHORT:PFS#9-10	BONUS:SAVE|ALL|1|TYPE=Resistance							QUALITY:Aura|faint abjuration and transmutation	QUALITY:Caster Level|5th	DESC:These sturdy leather straps combine the benefits of muleback cords (Ultimate Equipment 267) with the benefits of a cloak of resistance +1 or cloak of resistance +2, respectively. A PC who buys the +1 version of the cords can later upgrade into the +2 version by paying 3,000 gp, and a PC who finds the +2 version can purchase the +1 version instead.	SOURCEDATE:2017-11
+Muleback Cords.COPY=Muleback Cords of Resistance +2							COST:2500					PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-10	SOURCELONG:Pathfinder Society Scenario #9-10: Signs in Senghor	SOURCESHORT:PFS#9-10	BONUS:SAVE|ALL|2|TYPE=Resistance							QUALITY:Aura|faint abjuration and transmutation	QUALITY:Caster Level|5th	DESC:These sturdy leather straps combine the benefits of muleback cords (Ultimate Equipment 267) with the benefits of a cloak of resistance +1 or cloak of resistance +2, respectively. A PC who buys the +1 version of the cords can later upgrade into the +2 version by paying 3,000 gp, and a PC who finds the +2 version can purchase the +1 version instead.	SOURCEDATE:2017-11
+
+#
+# DONE
+#

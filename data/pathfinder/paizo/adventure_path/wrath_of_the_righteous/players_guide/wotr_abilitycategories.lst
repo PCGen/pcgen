@@ -1,0 +1,4 @@
+# Original Entry by: Jason D (ding50@yahoo.com)
+# Ability Category													Visible				Editable?			Change Pool?		Fractional values?														Category of Object				Type of Object					Plural description for UI			Display Location
+ABILITYCATEGORY:Touched by Divinity Domain Choice				VISIBLE:QUALIFY		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Touched_by_Divinity				CATEGORY:Special Ability	TYPE:TouchedByDivinity									DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Purity Subdomain Spell Choice			VISIBLE:QUALIFY		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_TbD_Purity						CATEGORY:Special Ability	TYPE:TbdPuritySubdomain									DISPLAYLOCATION:Traits

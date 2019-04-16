@@ -1,0 +1,24 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Elemental Master's Handbook	SOURCESHORT:EMH	SOURCEWEB:http://paizo.com/products/btpy9uf8?Pathfinder-Player-Companion-Elemental-Masters-Handbook	SOURCEDATE:2017-08
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+
+# Equipment Name						Output Name							Type						Cost		Weight	Source Page
+Esoteric Diadem (Lesser/Void)												TYPE:Magic.Wondrous.Headgear		COST:18000			SOURCEPAGE:p.9
+Esoteric Diadem (Lesser/Wood)												TYPE:Magic.Wondrous.Headgear		COST:18000			SOURCEPAGE:p.9
+Esoteric Diadem (Void)													TYPE:Magic.Wondrous.Headgear		COST:50000			SOURCEPAGE:p.9
+Esoteric Diadem (Wood)													TYPE:Magic.Wondrous.Headgear		COST:50000			SOURCEPAGE:p.9
+Esoteric Diadem (Greater/Void)											TYPE:Magic.Wondrous.Headgear		COST:98000			SOURCEPAGE:p.9
+Esoteric Diadem (Greater/Wood)											TYPE:Magic.Wondrous.Headgear		COST:98000			SOURCEPAGE:p.9
+Figurine of Wondrous Power (Hematite Cougar)	OUTPUTNAME:Figurine of Wondrous Power, [NAME]	TYPE:Magic.Wondrous			COST:10000	WT:2		SOURCEPAGE:p.10
+Gemcarver's Tools														TYPE:Magic.Wondrous			COST:9000	WT:5		SOURCEPAGE:p.10
+Rod (Fossilizing)						OUTPUTNAME:Rod of [NAME]				TYPE:Magic.Rod				COST:26400	WT:4		SOURCEPAGE:p.10
+
+
+#Elemental Augmentations
+Blazing Eyes														TYPE:Magic.ElementalAugmentation	COST:42000			SOURCEPAGE:p.24
+Blazing Hand														TYPE:Magic.ElementalAugmentation	COST:16000			SOURCEPAGE:p.24
+Hoarfrost Bones														TYPE:Magic.ElementalAugmentation	COST:85000			SOURCEPAGE:p.25
+Quicksilver Blood														TYPE:Magic.ElementalAugmentation	COST:62000			SOURCEPAGE:p.25
+Smoldering Blood														TYPE:Magic.ElementalAugmentation	COST:8000			SOURCEPAGE:p.25
+Vaporous Lungs														TYPE:Magic.ElementalAugmentation	COST:10800			SOURCEPAGE:p.25
+Whirlpool Maw														TYPE:Magic.ElementalAugmentation	COST:19000			SOURCEPAGE:p.25

@@ -1,0 +1,118 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Starfinder Alien Archive	SOURCESHORT:SAA	SOURCEDATE:2017-10
+# Original Entry by: Brad Grinstead
+
+# TYPE:Coin required for OS
+# Equipment Name	Type			Cost
+Cred Stick		TYPE:Credit.Coin	COST:1
+Credit		TYPE:Credit.Coin	COST:1
+
+###Block:BASIC MELEE WEAPONS
+
+# One-Handed Weapons
+# Equipment Name		Unique Key				Required Weapon Proficiency			Type																															Cost		Weight	Damage	Wield Category	Modify VAR			Quality and value											Special Property						MODIFY
+Bone Cestus, austere	KEY:Bone Cestus (austere)	PROFICIENCY:WEAPON|Bone Cestus (austere)	TYPE:RESIZABLE.B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.ToHit_UseStr.Damage_UseStr											COST:600	WT:0.1	DAMAGE:1d6	WIELD:OneHanded	BONUS:VAR|BulkLight|1	QUALITY:Level|2	QUALITY:Critical|Bleed 1d4	QUALITY:Bulk|L			SPROP:Analog						MODIFY:ItemLevel|SET|2
+Bone Cestus, measured	KEY:Bone Cestus (measured)	PROFICIENCY:WEAPON|Bone Cestus (measured)	TYPE:RESIZABLE.B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.ToHit_UseStr.Damage_UseStr											COST:5500	WT:0.1	DAMAGE:2d6	WIELD:OneHanded	BONUS:VAR|BulkLight|1	QUALITY:Level|7	QUALITY:Critical|Bleed 1d6	QUALITY:Bulk|L			SPROP:Analog						MODIFY:ItemLevel|SET|7
+Bone Cestus, imposing	KEY:Bone Cestus (imposing)	PROFICIENCY:WEAPON|Bone Cestus (imposing)	TYPE:RESIZABLE.B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.ToHit_UseStr.Damage_UseStr											COST:32000	WT:0.1	DAMAGE:3d6	WIELD:OneHanded	BONUS:VAR|BulkLight|1	QUALITY:Level|12	QUALITY:Critical|Bleed 2d6	QUALITY:Bulk|L			SPROP:Analog						MODIFY:ItemLevel|SET|12
+Bone Cestus, severe	KEY:Bone Cestus (severe)	PROFICIENCY:WEAPON|Bone Cestus (severe)	TYPE:RESIZABLE.B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.ToHit_UseStr.Damage_UseStr											COST:230000	WT:0.1	DAMAGE:8d6	WIELD:OneHanded	BONUS:VAR|BulkLight|1	QUALITY:Level|17	QUALITY:Critical|Bleed 5d6	QUALITY:Bulk|L			SPROP:Analog						MODIFY:ItemLevel|SET|17
+
+# Operative sub group
+
+# Two-Handed Weapons
+Shadowstaff			KEY:Shadowstaff			PROFICIENCY:WEAPON|Shadowstaff		TYPE:RESIZABLE.Weapon.Melee.Prof Group Basic Melee.ToHit_UseStr.Damage_UseStr.Two-Handed Weapon	TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized	COST:10000	WT:1		DAMAGE:2d6	WIELD:TwoHanded	BONUS:VAR|Bulk|1		QUALITY:Level|8	QUALITY:Critical|-	QUALITY:Bulk|1				SPROP:60' range, 2 charges, 2d6 cold damage	MODIFY:ItemLevel|SET|8
+Shadowstaff, Lesser	KEY:Shadowstaff (lesser)	PROFICIENCY:WEAPON|Shadowstaff (lesser)	TYPE:RESIZABLE.Weapon.Melee.Prof Group Basic Melee.ToHit_UseStr.Damage_UseStr.Two-Handed Weapon	TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized	COST:500	WT:1		DAMAGE:1d4	WIELD:TwoHanded	BONUS:VAR|Bulk|1		QUALITY:Level|2	QUALITY:Critical|-	QUALITY:Bulk|1				SPROP:30' range, 2 charges, 1d4 cold damage	MODIFY:ItemLevel|SET|2
+Eoxian Wrackstaff		KEY:Eoxian Wrackstaff		PROFICIENCY:WEAPON|Eoxian Wrackstaff	TYPE:RESIZABLE.Weapon.Melee.Prof Group Basic Melee.ToHit_UseStr.Damage_UseStr.Two-Handed Weapon	TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized	COST:48500	WT:1		DAMAGE:6d4	WIELD:TwoHanded	BONUS:VAR|Bulk|1		QUALITY:Level|13	QUALITY:Critical|inflict pain (CL13)	QUALITY:Bulk|1	SPROP:block							MODIFY:ItemLevel|SET|13
+
+
+###Block:ADVANCED MELEE WEAPONS
+
+# One-Handed Weapons
+# Equipment Name				Unique Key						Required Weapon Proficiency					Type																		Cost		Weight	Damage	Wield Category				Range		Modify VAR			Quality and value																		Special Property						MODIFY
+Electrovore glove, static		KEY:Electrovore glove (static)		PROFICIENCY:WEAPON|Electrovore glove (static)		TYPE:RESIZABLE.Weapon.Melee.Prof Group Advanced Melee.Advanced Melee.ToHit_UseStr.Damage_UseStr	TYPE:P & E	COST:750	WT:0.1	DAMAGE:1d6	WIELD:OneHanded						BONUS:VAR|BulkLight|1	QUALITY:Level|2	QUALITY:Critical|Recharge 2	QUALITY:Bulk|L										SPROP:Powered (capacity 20, usage 1)		MODIFY:ItemLevel|SET|2
+Electrovore glove, aurora		KEY:Electrovore glove (aurora)		PROFICIENCY:WEAPON|Electrovore glove (aurora)		TYPE:RESIZABLE.Weapon.Melee.Prof Group Advanced Melee.Advanced Melee.ToHit_UseStr.Damage_UseStr	TYPE:P & E	COST:6250	WT:0.1	DAMAGE:2d6	WIELD:OneHanded						BONUS:VAR|BulkLight|1	QUALITY:Level|7	QUALITY:Critical|Recharge 2	QUALITY:Bulk|L										SPROP:Powered (capacity 20, usage 1)		MODIFY:ItemLevel|SET|7
+Electrovore glove, storm		KEY:Electrovore glove (storm)			PROFICIENCY:WEAPON|Electrovore glove (storm)		TYPE:RESIZABLE.Weapon.Melee.Prof Group Advanced Melee.Advanced Melee.ToHit_UseStr.Damage_UseStr	TYPE:P & E	COST:49000	WT:0.1	DAMAGE:6d6	WIELD:OneHanded						BONUS:VAR|BulkLight|1	QUALITY:Level|13	QUALITY:Critical|Recharge 4	QUALITY:Bulk|L										SPROP:Powered (capacity 40, usage 2)		MODIFY:ItemLevel|SET|13
+Electrovore glove, tempest		KEY:Electrovore glove (tempest)		PROFICIENCY:WEAPON|Electrovore glove (tempest)		TYPE:RESIZABLE.Weapon.Melee.Prof Group Advanced Melee.Advanced Melee.ToHit_UseStr.Damage_UseStr	TYPE:P & E	COST:375000	WT:0.1	DAMAGE:12d6	WIELD:OneHanded						BONUS:VAR|BulkLight|1	QUALITY:Level|18	QUALITY:Critical|Recharge 4	QUALITY:Bulk|L										SPROP:Powered (capacity 40, usage 2)		MODIFY:ItemLevel|SET|18
+
+
+
+# UNCATEGORIZED
+
+#TWO-HANDED WEAPONS LEVEL PRICE DAMAGE CRITICAL BULK SPECIAL
+Dragonglaive, basic			KEY:Dragonglaive (basic)			PROFICIENCY:WEAPON|Dragonglaive (basic)			TYPE:RESIZABLE.Weapon.Melee.Advanced Melee.Prof Group Advanced Melee.ToHit_UseStr.Damage_UseStr	TYPE:S & E	COST:2000	WT:2		DAMAGE:1d8	WIELD:TwoHanded						BONUS:VAR|Bulk|2		QUALITY:Level|4	QUALITY:Critical|-	QUALITY:Bulk|2											SPROP:Powered (capacity 20, usage 1), reach	MODIFY:ItemLevel|SET|4
+Dragonglaive, thunderhead		KEY:Dragonglaive (thunderhead)		PROFICIENCY:WEAPON|Dragonglaive (thunderhead)		TYPE:RESIZABLE.Weapon.Melee.Advanced Melee.Prof Group Advanced Melee.ToHit_UseStr.Damage_UseStr	TYPE:S & E	COST:9000	WT:2		DAMAGE:2d8	WIELD:TwoHanded						BONUS:VAR|Bulk|2		QUALITY:Level|8	QUALITY:Critical|-	QUALITY:Bulk|2											SPROP:Powered (capacity 20, usage 1), reach	MODIFY:ItemLevel|SET|8
+Dragonglaive, stormstrike		KEY:Dragonglaive (stormstrike)		PROFICIENCY:WEAPON|Dragonglaive (stormstrike)		TYPE:RESIZABLE.Weapon.Melee.Advanced Melee.Prof Group Advanced Melee.ToHit_UseStr.Damage_UseStr	TYPE:S & E	COST:34000	WT:2		DAMAGE:3d8	WIELD:TwoHanded						BONUS:VAR|Bulk|2		QUALITY:Level|12	QUALITY:Critical|-	QUALITY:Bulk|2											SPROP:Powered (capacity 20, usage 1), reach	MODIFY:ItemLevel|SET|12
+Dragonglaive, skyshatter		KEY:Dragonglaive (skyshatter)			PROFICIENCY:WEAPON|Dragonglaive (skyshatter)		TYPE:RESIZABLE.Weapon.Melee.Advanced Melee.Prof Group Advanced Melee.ToHit_UseStr.Damage_UseStr	TYPE:S & E	COST:160000	WT:2		DAMAGE:8d8	WIELD:TwoHanded						BONUS:VAR|Bulk|2		QUALITY:Level|16	QUALITY:Critical|-	QUALITY:Bulk|2											SPROP:Powered (capacity 20, usage 1), reach	MODIFY:ItemLevel|SET|16
+Dragonglaive, wyrmlord			KEY:Dragonglaive (wyrmlord)			PROFICIENCY:WEAPON|Dragonglaive (wyrmlord)		TYPE:RESIZABLE.Weapon.Melee.Advanced Melee.Prof Group Advanced Melee.ToHit_UseStr.Damage_UseStr	TYPE:S & E	COST:525000	WT:2		DAMAGE:13d8	WIELD:TwoHanded						BONUS:VAR|Bulk|2		QUALITY:Level|19	QUALITY:Critical|-	QUALITY:Bulk|2											SPROP:Powered (capacity 20, usage 1), reach	MODIFY:ItemLevel|SET|19
+
+
+
+
+###SMALL ARMS
+# ONE-HANDED WEAPONS LEVEL PRICE DAMAGE RANGE CRITICAL CAPACITY USAGE BULK SPECIAL
+
+###Longarms
+# TWO-HANDED WEAPONS LEVEL PRICE DAMAGE RANGE CRITICAL CAPACITY USAGE BULK SPECIAL
+AG Assault Rifle				KEY:AG Assault Rifle				PROFICIENCY:WEAPON|AG Assault Rifle				TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Longarms	TYPE:PROJECTILE.P					COST:1400	WT:1		DAMAGE:1d8	WIELD:TwoHanded				RANGE:80	BONUS:VAR|Bulk|1		QUALITY:Level|3	QUALITY:Critical|-	QUALITY:Capacity|12 rounds	QUALITY:Usage|1	QUALITY:Bulk|1			SPROP:Automatic						MODIFY:ItemLevel|SET|3
+AG Accelerator Rifle			KEY:AG Accelerator Rifle			PROFICIENCY:WEAPON|AG Accelerator Rifle			TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Longarms	TYPE:PROJECTILE.P					COST:7500	WT:2		DAMAGE:3d4	WIELD:TwoHanded				RANGE:60	BONUS:VAR|Bulk|2		QUALITY:Level|7	QUALITY:Critical|-	QUALITY:Capacity|16 rounds	QUALITY:Usage|1	QUALITY:Bulk|2			SPROP:Automatic						MODIFY:ItemLevel|SET|7
+AG RPPR					KEY:AG RPPR						PROFICIENCY:WEAPON|AG RPPR					TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Longarms	TYPE:PROJECTILE.B					COST:21000	WT:2		DAMAGE:2d12	WIELD:TwoHanded				RANGE:100	BONUS:VAR|Bulk|2		QUALITY:Level|10	QUALITY:Critical|Knockdown	QUALITY:Capacity|12 mini-rockets	QUALITY:Usage|1	QUALITY:Bulk|2									MODIFY:ItemLevel|SET|10
+
+
+
+###HEAVY WEAPONS
+# TWO-HANDED WEAPONS LEVEL PRICE DAMAGE RANGE CRITICAL CAPACITY USAGE BULK SPECIAL
+Acid lancer, corroder-class		KEY:Acid lancer (corroder-class)		PROFICIENCY:WEAPON|Acid lancer (corroder-class)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Heavy	TYPE:PROJECTILE.A						COST:2000	WT:2		DAMAGE:2d4	WIELD:TwoHanded				RANGE:30	BONUS:VAR|Bulk|2		QUALITY:Level|4	QUALITY:Critical|Corrode 1d4	QUALITY:Capacity|20 caustrol	QUALITY:Usage|4	QUALITY:Bulk|2		SPROP:Analog, boost 1d4, line, unwieldy		MODIFY:ItemLevel|SET|4
+Acid lancer, melter-class		KEY:Acid lancer (melter-class)		PROFICIENCY:WEAPON|Acid lancer (melter-class)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Heavy	TYPE:PROJECTILE.A						COST:13000	WT:2		DAMAGE:3d4	WIELD:TwoHanded				RANGE:30	BONUS:VAR|Bulk|2		QUALITY:Level|9	QUALITY:Critical|Corrode 2d4	QUALITY:Capacity|20 caustrol	QUALITY:Usage|5	QUALITY:Bulk|2		SPROP:Analog, boost 1d6, line, unwieldy		MODIFY:ItemLevel|SET|9
+Acid lancer, liquefier-class		KEY:Acid lancer (liquefier-class)		PROFICIENCY:WEAPON|Acid lancer (liquefier-class)	TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Heavy	TYPE:PROJECTILE.A						COST:75000	WT:2		DAMAGE:8d4	WIELD:TwoHanded				RANGE:50	BONUS:VAR|Bulk|2		QUALITY:Level|14	QUALITY:Critical|Corrode 4d4	QUALITY:Capacity|40 caustrol	QUALITY:Usage|8	QUALITY:Bulk|2		SPROP:Analog, boost 1d8, line, unwieldy		MODIFY:ItemLevel|SET|14
+Acid lancer, disintegrator-class	KEY:Acid lancer (disintegrator-class)	PROFICIENCY:WEAPON|Acid lancer (disintegrator-class)	TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Heavy	TYPE:PROJECTILE.A						COST:550000	WT:2		DAMAGE:8d8	WIELD:TwoHanded				RANGE:50	BONUS:VAR|Bulk|2		QUALITY:Level|19	QUALITY:Critical|Corrode 6d4	QUALITY:Capacity|40 caustrol	QUALITY:Usage|10	QUALITY:Bulk|2		SPROP:Analog, boost 1d10, line, unwieldy		MODIFY:ItemLevel|SET|19
+
+
+
+###Sniper Weapons
+# TWO-HANDED WEAPONS LEVEL PRICE DAMAGE RANGE CRITICAL CAPACITY USAGE BULK SPECIAL
+Diasporan rifle, tactical		KEY:Diasporan rifle (tactical)		PROFICIENCY:WEAPON|Diasporan rifle (tactical)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Sniper	TYPE:F							COST:350	WT:1		DAMAGE:1d8	WIELD:TwoHanded	WIELD:TwoHanded	RANGE:70	BONUS:VAR|Bulk|1		QUALITY:Level|1	QUALITY:Critical|-	QUALITY:Capacity|10 charges	QUALITY:Usage|1	QUALITY:Bulk|1			SPROP:Sniper (250 ft.), unwieldy			MODIFY:ItemLevel|SET|1
+Diasporan rifle, advanced		KEY:Diasporan rifle (advanced)		PROFICIENCY:WEAPON|Diasporan rifle (advanced)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Sniper	TYPE:F							COST:3750	WT:2		DAMAGE:2d8	WIELD:TwoHanded	WIELD:TwoHanded	RANGE:70	BONUS:VAR|Bulk|2		QUALITY:Level|5	QUALITY:Critical|-	QUALITY:Capacity|20 charges	QUALITY:Usage|1	QUALITY:Bulk|2			SPROP:Sniper (500 ft.), unwieldy			MODIFY:ItemLevel|SET|5
+Diasporan rifle, elite			KEY:Diasporan rifle (elite)			PROFICIENCY:WEAPON|Diasporan rifle (elite)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Sniper	TYPE:F							COST:17000	WT:2		DAMAGE:4d8	WIELD:TwoHanded	WIELD:TwoHanded	RANGE:80	BONUS:VAR|Bulk|2		QUALITY:Level|10	QUALITY:Critical|-	QUALITY:Capacity|20 charges	QUALITY:Usage|1	QUALITY:Bulk|2			SPROP:Sniper (750 ft.), unwieldy			MODIFY:ItemLevel|SET|10
+Diasporan rifle, ultra			KEY:Diasporan rifle (ultra)			PROFICIENCY:WEAPON|Diasporan rifle (ultra)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Sniper	TYPE:F							COST:110000	WT:2		DAMAGE:6d8	WIELD:TwoHanded	WIELD:TwoHanded	RANGE:80	BONUS:VAR|Bulk|2		QUALITY:Level|15	QUALITY:Critical|-	QUALITY:Capacity|30 charges	QUALITY:Usage|1	QUALITY:Bulk|2			SPROP:Sniper (1000 ft.), unwieldy			MODIFY:ItemLevel|SET|15
+Diasporan rifle, imperial		KEY:Diasporan rifle (imperial)		PROFICIENCY:WEAPON|Diasporan rifle (imperial)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Sniper	TYPE:F							COST:725000	WT:2		DAMAGE:10d8	WIELD:TwoHanded	WIELD:TwoHanded	RANGE:80	BONUS:VAR|Bulk|2		QUALITY:Level|20	QUALITY:Critical|-	QUALITY:Capacity|30 charges	QUALITY:Usage|1	QUALITY:Bulk|2			SPROP:Sniper (1000 ft.), unwieldy			MODIFY:ItemLevel|SET|20
+
+###GRENADES
+# GRENADES LEVEL PRICE RANGE CAPACITY BULK SPECIAL
+
+#SPECIAL WEAPONS
+
+###AMMUNITION
+#STANDARD AMMUNITION LEVEL PRICE CHARGES/CARTRIDGES BULK SPECIAL
+
+# SPECIAL AMMUNITION
+
+
+###Block: Armor
+
+# Light Armor
+# Equipment Name		Unique Key				Required Armor Proficiency			Type				Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Source Page		Combat bonus										Quality and value				Special Property				MODIFY									MODIFYOTHER
+AG SpecOps Armor		KEY:AG SpecOps Armor		PROFICIENCY:ARMOR|AG SpecOps Armor		TYPE:ARMOR.Light_Armor	COST:7500	WT:0.1	ACCHECK:-1		MAXDEX:5					BONUS:COMBAT|AC|7|TYPE=EAC_Armor	BONUS:COMBAT|AC|8|TYPE=KAC_Armor	QUALITY:Level|7	QUALITY:BULK|L	SPROP:EAC = 7	SPROP:KAC = 8	MODIFY:UpgradeSlot|SET|3	MODIFY:AeonUpgradeSlots|SET|2	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-0
+
+
+# Heavy Armor
+AG Trooper Battle Dress	KEY:AG Trooper Battle Dress	PROFICIENCY:ARMOR|AG Trooper Battle Dress	TYPE:ARMOR.Heavy_Armor	COST:1650	WT:3		ACCHECK:-3		MAXDEX:2					BONUS:COMBAT|AC|5|TYPE=EAC_Armor	BONUS:COMBAT|AC|7|TYPE=KAC_Armor	QUALITY:Level|3	QUALITY:BULK|3	SPROP:EAC = 5	SPROP:KAC = 7	MODIFY:UpgradeSlot|SET|1	MODIFY:AeonUpgradeSlots|SET|1	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-10
+AG Command Battle Dress	KEY:AG Command Battle Dress	PROFICIENCY:ARMOR|AG Command Battle Dress	TYPE:ARMOR.Heavy_Armor	COST:18750	WT:3		ACCHECK:-3		MAXDEX:3					BONUS:COMBAT|AC|15|TYPE=EAC_Armor	BONUS:COMBAT|AC|17|TYPE=KAC_Armor	QUALITY:Level|10	QUALITY:BULK|3	SPROP:EAC = 15	SPROP:KAC = 17	MODIFY:UpgradeSlot|SET|2	MODIFY:AeonUpgradeSlots|SET|3	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-10
+Kyokor Plating I		KEY:AG Kyokor Plating I		PROFICIENCY:ARMOR|Kyokor Plating I		TYPE:ARMOR.Heavy_Armor	COST:800	WT:1		ACCHECK:-1		MAXDEX:3					BONUS:COMBAT|AC|2|TYPE=EAC_Armor	BONUS:COMBAT|AC|4|TYPE=KAC_Armor	QUALITY:Level|2	QUALITY:BULK|1	SPROP:EAC = 2	SPROP:KAC = 4	MODIFY:UpgradeSlot|SET|1						MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-5
+Kyokor Plating II		KEY:AG Kyokor Plating II	PROFICIENCY:ARMOR|Kyokor Plating II		TYPE:ARMOR.Heavy_Armor	COST:4820	WT:1		ACCHECK:-1		MAXDEX:4					BONUS:COMBAT|AC|8|TYPE=EAC_Armor	BONUS:COMBAT|AC|10|TYPE=KAC_Armor	QUALITY:Level|6	QUALITY:BULK|1	SPROP:EAC = 8	SPROP:KAC = 10	MODIFY:UpgradeSlot|SET|3						MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-5
+Kyokor Plating III	KEY:AG Kyokor Plating III	PROFICIENCY:ARMOR|Kyokor Plating III	TYPE:ARMOR.Heavy_Armor	COST:17100	WT:1		ACCHECK:-2		MAXDEX:4					BONUS:COMBAT|AC|13|TYPE=EAC_Armor	BONUS:COMBAT|AC|16|TYPE=KAC_Armor	QUALITY:Level|10	QUALITY:BULK|1	SPROP:EAC = 13	SPROP:KAC = 16	MODIFY:UpgradeSlot|SET|3						MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-5
+Kyokor Plating IV		KEY:AG Kyokor Plating IV	PROFICIENCY:ARMOR|Kyokor Plating IV		TYPE:ARMOR.Heavy_Armor	COST:76000	WT:1		ACCHECK:-2		MAXDEX:5					BONUS:COMBAT|AC|17|TYPE=EAC_Armor	BONUS:COMBAT|AC|19|TYPE=KAC_Armor	QUALITY:Level|14	QUALITY:BULK|1	SPROP:EAC = 17	SPROP:KAC = 19	MODIFY:UpgradeSlot|SET|4						MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-5
+Kyokor Plating V		KEY:AG Kyokor Plating V		PROFICIENCY:ARMOR|Kyokor Plating V		TYPE:ARMOR.Heavy_Armor	COST:371000	WT:1		ACCHECK:-2		MAXDEX:5					BONUS:COMBAT|AC|23|TYPE=EAC_Armor	BONUS:COMBAT|AC|24|TYPE=KAC_Armor	QUALITY:Level|18	QUALITY:BULK|1	SPROP:EAC = 23	SPROP:KAC = 24	MODIFY:UpgradeSlot|SET|6						MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-5
+
+# Powered Armor
+
+# Bio-tech
+Ocucloak Processor	KEY:Ocucloak Processor									TYPE:Bio-Tech.Brain	COST:2200									SOURCEPAGE:p.103													QUALITY:ItemLevel|4
+
+
+
+
+###Block: Cybernetics
+# Equipment Name				Unique Key					Type						Cost		Source Page		Quality and value
+Antitoxin Membrane			KEY:Antitoxin Membrane			TYPE:Cybernetic.ItemLevel_5.Skin	COST:3000	SOURCEPAGE:p.11	QUALITY:ItemLevel|5
+Shortwave Receiver-Transmitter	KEY:Shortwave Receiver-Transmitter	TYPE:Cybernetic.ItemLevel_7.Brain	COST:6500	SOURCEPAGE:p.11	QUALITY:ItemLevel|7
+Antitoxin Membrane			KEY:Antitoxin Membrane			TYPE:Cybernetic.ItemLevel_5.Skin	COST:3000				QUALITY:ItemLevel|5
+Voice Amplifier				KEY:Voice Amplifier			TYPE:Cybernetic.ItemLevel_1.Throat	COST:125	SOURCEPAGE:p.11	QUALITY:ItemLevel|1

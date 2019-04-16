@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 
+@SuppressWarnings({"ALL", "PMD.MissingStaticMethodInNonInstantiatableClass"})
 public final class NoPublicZeroArgConstructorMap<K, V> implements Map<K, V>
 {
 
@@ -29,7 +30,7 @@ public final class NoPublicZeroArgConstructorMap<K, V> implements Map<K, V>
 		// Just need to avoid a public zero argument constructor
 	}
 
-    @Override
+	@Override
 	public void clear()
 	{
 		throw new UnsupportedOperationException();

@@ -1,5 +1,4 @@
 /*
- * LoadmultToken.java
  * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2006 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
@@ -16,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 2, 2002, 8:02 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.lsttokens.load;
 
@@ -33,12 +27,10 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>LoadmultToken</code>
+ * {@code LoadmultToken}
  * 
- * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
-public class LoadmultToken extends AbstractNonEmptyToken<LoadInfo> implements
-		CDOMPrimaryToken<LoadInfo>
+public class LoadmultToken extends AbstractNonEmptyToken<LoadInfo> implements CDOMPrimaryToken<LoadInfo>
 {
 
 	@Override
@@ -48,28 +40,25 @@ public class LoadmultToken extends AbstractNonEmptyToken<LoadInfo> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			LoadInfo info, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, LoadInfo info, String value)
 	{
 		try
 		{
 			BigDecimal mult = new BigDecimal(value);
 			if (mult.compareTo(BigDecimal.ZERO) <= 0)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " requires a positive load multiplier, found : "
-						+ value, context);
+				return new ParseResult.Fail(getTokenName() + " requires a positive load multiplier, found : " + value);
 			}
 			info.setLoadScoreMultiplier(mult);
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail("Misunderstood Double in Tag: " + value, context);
+			return new ParseResult.Fail("Misunderstood Double in Tag: " + value);
 		}
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, LoadInfo info)
 	{
 		BigDecimal mod = info.getLoadScoreMultiplier();
@@ -77,10 +66,10 @@ public class LoadmultToken extends AbstractNonEmptyToken<LoadInfo> implements
 		{
 			return null;
 		}
-		return new String[] { mod.toString() };
+		return new String[]{mod.toString()};
 	}
 
-    @Override
+	@Override
 	public Class<LoadInfo> getTokenClass()
 	{
 		return LoadInfo.class;

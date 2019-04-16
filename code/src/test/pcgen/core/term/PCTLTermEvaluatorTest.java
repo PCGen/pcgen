@@ -1,5 +1,4 @@
 /*
- * PCTLTermEvaluatorTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 13/12/2013
- *
- * $Id$
  */
 package pcgen.core.term;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.net.URI;
 
@@ -42,17 +39,20 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * PCTLTermEvaluatorTest checks the fucntion of the TL variable.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 {
-	Race bugbearRace;
-	PCClass humanoidClass;
+	private Race bugbearRace;
+	private PCClass humanoidClass;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -90,25 +90,26 @@ public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 	/**
 	 * Check that TL works with a monster style class. 
 	 */
+	@Test
 	public void testResolveTlMonster()
 	{
 		PCTLTermEvaluator tlEval = new PCTLTermEvaluator("TL");
 		
 		PlayerCharacter pc = getCharacter();
 		
-		assertEquals("Before adding levels, shold be 0th level", 0, tlEval.resolve(pc.getDisplay()), 0.001);
+		assertEquals(0, tlEval.resolve(pc.getDisplay()), 0.001, "Before adding levels, shold be 0th level");
 		
 		pc.setRace(bugbearRace);
-		assertEquals("With monster race shold be 0th level", 0, tlEval.resolve(pc.getDisplay()), 0.001);
+		assertEquals(0, tlEval.resolve(pc.getDisplay()), 0.001, "With monster race shold be 0th level");
 		
 		pc.incrementClassLevel(1, humanoidClass);
-		assertEquals("Incorrect level", 1, tlEval.resolve(pc.getDisplay()), 0.001);
+		assertEquals(1, tlEval.resolve(pc.getDisplay()), 0.001, "Incorrect level");
 		
 		pc.incrementClassLevel(5, humanoidClass);
-		assertEquals("Incorrect level", 6, tlEval.resolve(pc.getDisplay()), 0.001);
+		assertEquals(6, tlEval.resolve(pc.getDisplay()), 0.001, "Incorrect level");
 		
 		pc.incrementClassLevel(-2, humanoidClass);
-		assertEquals("Incorrect level", 4, tlEval.resolve(pc.getDisplay()), 0.001);
+		assertEquals(4, tlEval.resolve(pc.getDisplay()), 0.001, "Incorrect level");
 
 	}
 }

@@ -17,14 +17,15 @@
  */
 package plugin.lsttokens.datacontrol;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
-
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 import pcgen.cdom.content.factset.FactSetDefinition;
 import pcgen.core.Campaign;
@@ -38,44 +39,57 @@ import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class FactSetDefTokenTest extends TestCase
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import util.TestURI;
+
+public class FactSetDefTokenTest
 {
 
-	static FactSetDefToken token = new FactSetDefToken();
-	FactSetDefinition fd;
+	private static FactSetDefToken token = new FactSetDefToken();
+	private static CampaignSourceEntry testCampaign;
 
-	protected LoadContext context;
+	private FactSetDefinition fd;
+	private LoadContext context;
 
-	private static boolean classSetUpFired = false;
-	protected static CampaignSourceEntry testCampaign;
-
-	@BeforeClass
-	public static final void classSetUp() throws URISyntaxException
+	@BeforeAll
+	public static void classSetUp()
 	{
 		testCampaign =
-				new CampaignSourceEntry(new Campaign(), new URI(
-					"file:/Test%20Case"));
-		classSetUpFired = true;
+				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
-	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
 		resetContext();
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		TokenRegistration.clearTokens();
+		context = null;
+		fd = null;
+	}
+
+	@AfterAll
+	public static void classTearDown()
+	{
+		token = null;
+		testCampaign = null;
 	}
 
 	protected void resetContext()
 	{
 		URI testURI = testCampaign.getURI();
 		context =
-				new RuntimeLoadContext(new RuntimeReferenceContext(),
+				new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 					new ConsolidatedListCommitStrategy());
 		context.setSourceURI(testURI);
 		context.setExtractURI(testURI);
@@ -83,49 +97,49 @@ public class FactSetDefTokenTest extends TestCase
 	}
 
 	@Test
-	public void testInvalidInputNullString() throws PersistenceLayerException
+	public void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(context, fd, null).passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString() throws PersistenceLayerException
+	public void testInvalidInputEmptyString()
 	{
 		assertFalse(token.parseToken(context, fd, "").passed());
 	}
 
 	@Test
-	public void testInvalidInputNoPipe() throws PersistenceLayerException
+	public void testInvalidInputNoPipe()
 	{
 		assertFalse(token.parseToken(context, fd, "SKILL").passed());
 	}
 
 	@Test
-	public void testInvalidInputTrailingPipe() throws PersistenceLayerException
+	public void testInvalidInputTrailingPipe()
 	{
 		assertFalse(token.parseToken(context, fd, "SKILL|").passed());
 	}
 
 	@Test
-	public void testInvalidInputLeadingPipe() throws PersistenceLayerException
+	public void testInvalidInputLeadingPipe()
 	{
 		assertFalse(token.parseToken(context, fd, "|Possibility").passed());
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe() throws PersistenceLayerException
+	public void testInvalidInputDoublePipe()
 	{
 		assertFalse(token.parseToken(context, fd, "SKILL||Possibility").passed());
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe2() throws PersistenceLayerException
+	public void testInvalidInputDoublePipe2()
 	{
 		assertFalse(token.parseToken(context, fd, "SKILL|Possibility|Exception").passed());
 	}
 
 	@Test
-	public void testValidStringString() throws PersistenceLayerException
+	public void testValidStringString()
 	{
 		assertNull(fd.getFactSetName());
 		assertNull(fd.getUsableLocation());
@@ -133,7 +147,7 @@ public class FactSetDefTokenTest extends TestCase
 		assertNotNull(fd.getFactSetName());
 		assertNotNull(fd.getUsableLocation());
 		assertEquals("Possibility", fd.getFactSetName());
-		assertEquals(Skill.class, fd.getUsableLocation());
+		assertSame(Skill.class, fd.getUsableLocation());
 		String[] unparsed = token.unparse(context, fd);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);
@@ -141,7 +155,7 @@ public class FactSetDefTokenTest extends TestCase
 	}
 
 	@Test
-	public void testValidStringNo() throws PersistenceLayerException
+	public void testValidStringNo()
 	{
 		assertNull(fd.getFactSetName());
 		assertNull(fd.getUsableLocation());
@@ -149,7 +163,7 @@ public class FactSetDefTokenTest extends TestCase
 		assertNotNull(fd.getFactSetName());
 		assertNotNull(fd.getUsableLocation());
 		assertEquals("Caster", fd.getFactSetName());
-		assertEquals(Domain.class, fd.getUsableLocation());
+		assertSame(Domain.class, fd.getUsableLocation());
 		String[] unparsed = token.unparse(context, fd);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);

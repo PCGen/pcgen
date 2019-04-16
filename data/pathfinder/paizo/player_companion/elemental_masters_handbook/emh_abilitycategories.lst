@@ -1,0 +1,15 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# SOURCELONG:Elemental Master's Handbook	SOURCESHORT:EMH	SOURCEWEB:http://paizo.com/products/btpy9uf8?Pathfinder-Player-Companion-Elemental-Masters-Handbook	SOURCEDATE:2017-08
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object						Specific choices list								Plural description for UI				Display Location
+ABILITYCATEGORY:Elemental Opposition School		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElementalOppositionSchool														PLURAL:Arcane Opposition Schools			DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Genie Binder Mastery Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:GenieMasteryChoice																								DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Genie Eidolon Energy Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GenieEidolonEnergyResistance																						DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Genie Eidolon Movement			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GenieEidolonMovement																							DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Genie Eidolon Elemental Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GenieEidolonElementalPower																						DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Elemental Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElementalRevelation.GeneralRevelation												PLURAL:Elemental Mystery Revelations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Elemental Aegis Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Elemental Aegis Type																							DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Elemental Mystery Channeling Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Elemental Mystery Channeling Type																					DISPLAYLOCATION:Class Features

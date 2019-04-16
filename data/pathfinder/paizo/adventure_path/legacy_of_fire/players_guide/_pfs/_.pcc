@@ -4,11 +4,13 @@ KEY:PFS ~ Legacy of Fire Player's Guide (Conversion)
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Adventure Path.Legacy of Fire
 RANK:3
-STATUS:ALPHA
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

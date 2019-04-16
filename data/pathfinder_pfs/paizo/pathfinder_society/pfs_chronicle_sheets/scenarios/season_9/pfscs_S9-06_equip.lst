@@ -1,0 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets Season 9	SOURCESHORT:PFSCS9	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2016-08
+
+# Equipment Name							Required Shield Proficiency		Type									Cost		Weight	Required Ability								AC Penalty Check	Modifier														Source, Long Desc.									Source, Short Desc.	% of Spell Failure	Combat bonus								Quality and value			Description																																																													Source Pub. Date
+Elixir of Fire Breath.COPY=Elixir of Sacred Breath							TYPE:PFS										WT:0		PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-06																			SOURCELONG:Pathfinder Society Scenario #9-06: The Shores of Heaven	SOURCESHORT:PFS#9-06															QUALITY:Caster Level|5th	DESC:This golden elixir functions as an elixir of fire breath, except that half of the damage it deals results directly from divine power and is therefore not subject to being reduced by resistance to fire-based attacks.																										SOURCEDATE:2017-10
+Lesser Celestial Shield						PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Magic.Specific.GreaterMedium.Light.PFS	COST:4020	WT:7		PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-06	ACCHECK:-1		EQMOD:Special Ability ~ Blinding ~ Shield.Special Ability ~ +1 ~ Shield.Material ~ Steel																	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield|PREVAREQ:DisableShieldBonus,0	QUALITY:Caster Level|7th	DESC:This gold-edged +1 blinding shield has all the properties of a celestial shield (Pathfinder RPG Ultimate Equipment 131), except that its synergy with celestial armor boosts the caster level of the armor's granted fly spell to 7th instead of replacing it with overland flight. It can be upgraded into a standard celestial shield by paying the difference in price.
+
+#
+# DONE
+#

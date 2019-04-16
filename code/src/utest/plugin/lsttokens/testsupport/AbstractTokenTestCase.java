@@ -18,22 +18,24 @@
 package plugin.lsttokens.testsupport;
 
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
+import pcgen.cdom.base.Categorized;
+import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
@@ -44,82 +46,73 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-@SuppressWarnings("nls")
-public abstract class AbstractTokenTestCase<T extends Loadable> extends
-		TestCase
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import util.FormatSupport;
+import util.TestURI;
+
+public abstract class AbstractTokenTestCase<T extends Loadable>
 {
 	protected LoadContext primaryContext;
 	protected LoadContext secondaryContext;
 	protected T primaryProf;
 	protected T secondaryProf;
-	protected int expectedPrimaryMessageCount = 0;
+	private int expectedPrimaryMessageCount = 0;
 
-	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 
-	@BeforeClass
-	public static final void classSetUp() throws URISyntaxException
+	@BeforeAll
+	static void classSetUp()
 	{
-		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
-				"file:/Test%20Case"));
-		classSetUpFired = true;
+		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
-	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(getToken());
 		resetContext();
 		expectedPrimaryMessageCount = 0;
 	}
 
+	@AfterEach
+	void tearDown() throws Exception
+	{
+		primaryContext = null;
+		secondaryContext = null;
+		primaryProf = null;
+		secondaryProf = null;
+	}
+
 	protected void resetContext()
 	{
-		URI testURI = testCampaign.getURI();
 		primaryContext = getPrimaryContext();
 		secondaryContext =
-				new RuntimeLoadContext(new RuntimeReferenceContext(),
+				new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 					new ConsolidatedListCommitStrategy());
-		primaryContext.setSourceURI(testURI);
-		primaryContext.setExtractURI(testURI);
-		secondaryContext.setSourceURI(testURI);
-		secondaryContext.setExtractURI(testURI);
-		primaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
-		secondaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
-		primaryProf = getPrimary("TestObj");
+		additionalSetup(primaryContext);
+		additionalSetup(secondaryContext);
+		primaryProf = get(primaryContext, "TestObj");
 		primaryProf.setSourceURI(testCampaign.getURI());
-		secondaryProf = getSecondary("TestObj");
+		secondaryProf = get(secondaryContext, "TestObj");
 		secondaryProf.setSourceURI(testCampaign.getURI());
 	}
 
 	protected LoadContext getPrimaryContext()
 	{
-		return new RuntimeLoadContext(new RuntimeReferenceContext(),
+		return new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
 	}
 
-	protected T getSecondary(String name)
+	protected T get(LoadContext context, String name)
 	{
-		return secondaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), name);
-	}
-
-	protected T getPrimary(String name)
-	{
-		return primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), name);
+		return context.getReferenceContext().constructCDOMObject(getCDOMClass(), name);
 	}
 
 	public abstract Class<? extends T> getCDOMClass();
-
-	public static void addToken(LstToken tok)
-	{
-		TokenLibrary.addToTokenMap(tok);
-	}
 
 	public static void addBonus(Class<? extends BonusObj> clazz)
 	{
@@ -127,11 +120,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		{
 			TokenLibrary.addBonusClass(clazz);
 		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			e.printStackTrace();
 		}
@@ -157,7 +146,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	 * @param target The expected new token format.
 	 * @throws PersistenceLayerException If the parsing 
 	 */
-	public void runMigrationRoundRobin(String deprecated, String target) 
+	protected void runMigrationRoundRobin(String deprecated, String target)
 			throws PersistenceLayerException
 	{
 		// Default is not to write out anything
@@ -173,18 +162,12 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		
 	}
 
-	protected void validateUnparse(String... unparsed)
+	void validateUnparse(String... unparsed)
 	{
 		// And that it comes back out the same again
 		String[] sUnparsed = getToken()
 				.unparse(secondaryContext, secondaryProf);
-		assertEquals(unparsed.length, sUnparsed.length);
-
-		for (int i = 0; i < unparsed.length; i++)
-		{
-			assertEquals("Expected " + i + " item to be equal", unparsed[i],
-					sUnparsed[i]);
-		}
+		assertArrayEquals(sUnparsed, unparsed);
 		assertCleanConstruction();
 		assertTrue(secondaryContext.getReferenceContext().validate(null));
 		assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
@@ -208,28 +191,20 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 				unparsedBuilt.toString(), testCampaign.getURI());
 	}
 
-	private void parse(String... str) throws PersistenceLayerException
+	private void parse(String... str)
 	{
 		// Set value
 		for (String s : str)
 		{
-			assertTrue("Failed to parse " + s, parse(s));
+			assertTrue(parse(s), () -> "Failed to parse " + s);
 		}
 	}
 
 	protected String[] validateUnparsed(LoadContext pc, T pp, String... str)
 	{
 		String[] unparsed = getToken().unparse(pc, pp);
+		assertArrayEquals(str, unparsed);
 
-		assertNotNull(str);
-		assertNotNull(unparsed);
-		assertEquals(str.length, unparsed.length);
-
-		for (int i = 0; i < str.length; i++)
-		{
-			assertEquals("Expected " + i + "th uparsed item to be equal",
-				str[i], unparsed[i]);
-		}
 		return unparsed;
 	}
 
@@ -263,7 +238,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		}
 		else
 		{
-			pr.addMessagesToLog();
+			pr.addMessagesToLog(TestURI.getURI());
 			primaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();
@@ -281,7 +256,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		}
 		else
 		{
-			pr.addMessagesToLog();
+			pr.addMessagesToLog(TestURI.getURI());
 			secondaryContext.rollback();
 			Logging.rewindParseMessages();
 			Logging.replayParsedMessages();
@@ -294,7 +269,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	public abstract CDOMPrimaryToken<T> getToken();
 
 	@Test
-	public void testNoStackTrace()
+	void testNoStackTrace()
 	{
 		try
 		{
@@ -308,7 +283,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	}
 
 	@Test
-	public void testOverwrite() throws PersistenceLayerException
+	public void testOverwrite()
 	{
 		assertTrue(parse(getLegalValue()));
 		validateUnparsed(primaryContext, primaryProf, getLegalValue());
@@ -323,11 +298,9 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 
 	protected abstract ConsolidationRule getConsolidationRule();
 
-	protected void expectSingle(String[] unparsed, String expected)
+	protected static void expectSingle(String[] unparsed, String expected)
 	{
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", expected, unparsed[0]);
+		assertArrayEquals(new String[]{expected}, unparsed);
 	}
 
 	protected void assertBadUnparse()
@@ -339,14 +312,33 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	protected void assertConstructionError()
 	{
 		assertFalse(
-			"Expected one of validate or resolve references to be false.",
-			primaryContext.getReferenceContext().validate(null)
-				&& primaryContext.getReferenceContext().resolveReferences(null));
+				primaryContext.getReferenceContext().validate(null)
+						&& primaryContext.getReferenceContext().resolveReferences(null),
+				"Expected one of validate or resolve references to be false."
+		);
 	}
 
 	protected void assertCleanConstruction()
 	{
 		assertTrue(primaryContext.getReferenceContext().validate(null));
 		assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
+	}
+
+	protected <C extends Categorized<C>> void constructCategorized(LoadContext context,
+	                                                               Category<C> cat, String name)
+	{
+		C obj = cat.newInstance();
+		obj.setName(name);
+		context.getReferenceContext().importObject(obj);
+	}
+
+	protected void additionalSetup(LoadContext context)
+	{
+		URI testURI = testCampaign.getURI();
+		context.setSourceURI(testURI);
+		context.setExtractURI(testURI);
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+		FormatSupport.addBasicDefaults(context);
+		SourceFileLoader.defineBuiltinVariables(context);
 	}
 }

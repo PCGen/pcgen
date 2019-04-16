@@ -1,0 +1,85 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 17893 $ $Author: mjmeans $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2014-08
+
+
+# Ability Name											Unique Key				Category of Ability		Type					Visible	Multiple?	Choose									Ability											Cost
+Pathfinder Module The Emerald Spire Superdungeon The Tower Ruins			KEY:Chronicle ~ PZO9545-01	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-2													COST:0
+Pathfinder Module The Emerald Spire Superdungeon The Cellars			KEY:Chronicle ~ PZO9545-02	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 1-3													COST:0
+Pathfinder Module The Emerald Spire Superdungeon Splinterden			KEY:Chronicle ~ PZO9545-03	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 2-4													COST:0
+Pathfinder Module The Emerald Spire Superdungeon Godhome				KEY:Chronicle ~ PZO9545-04	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 3-5													COST:0
+Pathfinder Module The Emerald Spire Superdungeon The Drowned Level		KEY:Chronicle ~ PZO9545-05	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 3-5													COST:0
+Pathfinder Module The Emerald Spire Superdungeon The Clockwork Maze		KEY:Chronicle ~ PZO9545-06	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 4-6													COST:0
+Pathfinder Module The Emerald Spire Superdungeon Shrine of the Awakener		KEY:Chronicle ~ PZO9545-07	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 5-7													COST:0
+Pathfinder Module The Emerald Spire Superdungeon The Circle of Vissk-Thar	KEY:Chronicle ~ PZO9545-08	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 6-8													COST:0
+Pathfinder Module The Emerald Spire Superdungeon The Spire Axis			KEY:Chronicle ~ PZO9545-09	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 7-9													COST:0
+Pathfinder Module The Emerald Spire Superdungeon The Magma Vault			KEY:Chronicle ~ PZO9545-10	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 8-10													COST:0
+Pathfinder Module The Emerald Spire Superdungeon The Tomb of Yarrix		KEY:Chronicle ~ PZO9545-11	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 8-10													COST:0
+Pathfinder Module The Emerald Spire Superdungeon The Automaton Forge		KEY:Chronicle ~ PZO9545-12	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 9-11													COST:0
+Pathfinder Module The Emerald Spire Superdungeon The Pleasure Gardens		KEY:Chronicle ~ PZO9545-13	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 9-11													COST:0
+Pathfinder Module The Emerald Spire Superdungeon The Throne of Azlant		KEY:Chronicle ~ PZO9545-14	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 10-12													COST:0
+Pathfinder Module The Emerald Spire Superdungeon Order and Chaos			KEY:Chronicle ~ PZO9545-15	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 10-12													COST:0
+Pathfinder Module The Emerald Spire Superdungeon The Emerald Root			KEY:Chronicle ~ PZO9545-16	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 11-13													COST:0
+Pathfinder Module The Emerald Spire Superdungeon Land Rush				KEY:Chronicle ~ PZO9545-17	CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES																									COST:0
+
+# Items
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-01.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-02.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-03.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-04.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-05.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-06.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-07.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-08.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-09.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-10.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-11.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-12.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-13.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-14.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-15.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-16.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+#CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-17.MOD		DESC:You may purchase the following items: |PRERULE:1,DisplayFullAbillity
+
+# Ability Pool Display
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-01.MOD																																		ABILITY:Chronicle_PZO9545-01|AUTOMATIC|Chronicle_PZO9545-01_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-02.MOD																																		ABILITY:Chronicle_PZO9545-02|AUTOMATIC|Chronicle_PZO9545-02_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-03.MOD																																		ABILITY:Chronicle_PZO9545-03|AUTOMATIC|Chronicle_PZO9545-03_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-04.MOD																																		ABILITY:Chronicle_PZO9545-04|AUTOMATIC|Chronicle_PZO9545-04_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-05.MOD																																		ABILITY:Chronicle_PZO9545-05|AUTOMATIC|Chronicle_PZO9545-05_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-06.MOD																																		ABILITY:Chronicle_PZO9545-06|AUTOMATIC|Chronicle_PZO9545-06_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-07.MOD																																		ABILITY:Chronicle_PZO9545-07|AUTOMATIC|Chronicle_PZO9545-07_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-08.MOD																																		ABILITY:Chronicle_PZO9545-08|AUTOMATIC|Chronicle_PZO9545-08_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-09.MOD																																		ABILITY:Chronicle_PZO9545-09|AUTOMATIC|Chronicle_PZO9545-09_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-10.MOD																																		ABILITY:Chronicle_PZO9545-10|AUTOMATIC|Chronicle_PZO9545-10_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-11.MOD																																		ABILITY:Chronicle_PZO9545-11|AUTOMATIC|Chronicle_PZO9545-11_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-12.MOD																																		ABILITY:Chronicle_PZO9545-12|AUTOMATIC|Chronicle_PZO9545-12_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-13.MOD																																		ABILITY:Chronicle_PZO9545-13|AUTOMATIC|Chronicle_PZO9545-13_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-14.MOD																																		ABILITY:Chronicle_PZO9545-14|AUTOMATIC|Chronicle_PZO9545-14_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-15.MOD																																		ABILITY:Chronicle_PZO9545-15|AUTOMATIC|Chronicle_PZO9545-15_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-16.MOD																																		ABILITY:Chronicle_PZO9545-16|AUTOMATIC|Chronicle_PZO9545-16_Enable
+CATEGORY=PFS Chronicle|Chronicle ~ PZO9545-17.MOD																																		ABILITY:Chronicle_PZO9545-17|AUTOMATIC|Chronicle_PZO9545-17_Enable
+Chronicle_PZO9545-01_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-01	VISIBLE:NO
+Chronicle_PZO9545-02_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-02	VISIBLE:NO
+Chronicle_PZO9545-03_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-03	VISIBLE:NO
+Chronicle_PZO9545-04_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-04	VISIBLE:NO
+Chronicle_PZO9545-05_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-05	VISIBLE:NO
+Chronicle_PZO9545-06_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-06	VISIBLE:NO
+Chronicle_PZO9545-07_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-07	VISIBLE:NO
+Chronicle_PZO9545-08_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-08	VISIBLE:NO
+Chronicle_PZO9545-09_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-09	VISIBLE:NO
+Chronicle_PZO9545-10_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-10	VISIBLE:NO
+Chronicle_PZO9545-11_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-11	VISIBLE:NO
+Chronicle_PZO9545-12_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-12	VISIBLE:NO
+Chronicle_PZO9545-13_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-13	VISIBLE:NO
+Chronicle_PZO9545-14_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-14	VISIBLE:NO
+Chronicle_PZO9545-15_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-15	VISIBLE:NO
+Chronicle_PZO9545-16_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-16	VISIBLE:NO
+Chronicle_PZO9545-17_Enable														CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-17	VISIBLE:NO
+
+# Boons
+#You Be Goblin												KEY:PFS Module PZO9500-5 ~ You Be Goblin																					CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-5.SpecialQuality						VISIBLE:YES																					DESC:You have special insight into the distractible and sadistic mind of a goblin. You gain a +2 bonus on all Bluff, Diplomacy, Intimidate, and Sense Motive checks made against goblins.																																																																																																																																																																																																																																																																																																																																																																																																									COST:0	SOURCELONG:PFS Module You Be Goblin												ASPECT:SkillBonus|+2 bonus on all Bluff, Diplomacy, Intimidate, and Sense Motive checks made against goblins (You Be Goblin).
+
+#
+# DONE
+#

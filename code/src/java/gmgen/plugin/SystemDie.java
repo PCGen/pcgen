@@ -16,10 +16,8 @@
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- *  SystemDie.java
  */
 package gmgen.plugin;
-
 
 import gmgen.plugin.dice.Die;
 import gmgen.plugin.dice.SystemDieConfig;
@@ -32,14 +30,8 @@ class SystemDie extends Die
 	/** Constructor for the SystemDie object
 	 * @param modifier Modifier to each roll
 	 */
-	private SystemDie(final int modifier)
+	SystemDie(final int modifier)
 	{
-		super(new SystemDieConfig(1, 20, modifier, Die.rand));
-	}
-
-	/**  Constructor for the SystemDie object */
-	SystemDie()
-	{
-		this(0);
+		super(new SystemDieConfig(1, 20, modifier, Die.RAND));
 	}
 }

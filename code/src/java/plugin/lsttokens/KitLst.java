@@ -46,12 +46,8 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- *
- */
-public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>, ChoiceActor<Kit>
+public class KitLst extends AbstractTokenWithSeparator<CDOMObject>
+		implements CDOMPrimaryToken<CDOMObject>, ChoiceActor<Kit>
 {
 
 	private static final Class<Kit> KIT_CLASS = Kit.class;
@@ -69,43 +65,36 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		if (obj instanceof NonInteractive)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Non-Interactive object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail("Cannot use " + getTokenName() + " on an Non-Interactive object type: "
+				+ obj.getClass().getSimpleName());
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		Formula count = FormulaFactory.getFormulaFor(tok.nextToken());
 		if (!count.isValid())
 		{
-			return new ParseResult.Fail("Count in " + getTokenName()
-					+ " was not valid: " + count.toString(), context);
+			return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
 		}
 		if (!count.isStatic())
 		{
-			return new ParseResult.Fail("Count in "
-					+ getTokenName() + " must be a number", context);
+			return new ParseResult.Fail("Count in " + getTokenName() + " must be a number");
 		}
 		if (count.resolveStatic().intValue() <= 0)
 		{
-			return new ParseResult.Fail("Count in "
-					+ getTokenName() + " must be > 0", context);
+			return new ParseResult.Fail("Count in " + getTokenName() + " must be > 0");
 		}
 		if (!tok.hasMoreTokens())
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " must have a | separating "
-					+ "count from the list of possible values: " + value, context);
+			return new ParseResult.Fail(
+				getTokenName() + " must have a | separating " + "count from the list of possible values: " + value);
 		}
 		List<CDOMReference<Kit>> refs = new ArrayList<>();
 
@@ -127,12 +116,10 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		ReferenceChoiceSet<Kit> rcs = new ReferenceChoiceSet<>(refs);
 		if (!rcs.getGroupingState().isValid())
 		{
-			return new ParseResult.Fail("Non-sensical "
-					+ getTokenName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+			return new ParseResult.Fail(
+				"Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value);
 		}
-		ChoiceSet<Kit> cs = new ChoiceSet<>(getTokenName(),
-				new QualifiedDecorator<>(rcs));
+		ChoiceSet<Kit> cs = new ChoiceSet<>(getTokenName(), new QualifiedDecorator<>(rcs));
 		cs.setTitle("Kit Selection");
 		TransitionChoice<Kit> tc = new ConcreteTransitionChoice<>(cs, count);
 		context.getObjectContext().addToList(obj, ListKey.KIT_CHOICE, tc);
@@ -144,8 +131,7 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject pcc)
 	{
-		Changes<TransitionChoice<Kit>> changes = context.getObjectContext()
-				.getListChanges(pcc, ListKey.KIT_CHOICE);
+		Changes<TransitionChoice<Kit>> changes = context.getObjectContext().getListChanges(pcc, ListKey.KIT_CHOICE);
 		if (changes == null || changes.isEmpty())
 		{
 			// Zero indicates no Token
@@ -158,8 +144,7 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			StringBuilder sb = new StringBuilder();
 			sb.append(tc.getCount());
 			sb.append(Constants.PIPE);
-			sb.append(tc.getChoices().getLSTformat().replaceAll(
-					Constants.COMMA, Constants.PIPE));
+			sb.append(tc.getChoices().getLSTformat().replaceAll(Constants.COMMA, Constants.PIPE));
 			set.add(sb.toString());
 		}
 		return set.toArray(new String[set.size()]);

@@ -1,5 +1,4 @@
 /*
- * AbilityTreeViews.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,15 +15,12 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 9, 2011, 6:12:39 PM
  */
 package pcgen.gui2.tabs.ability;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import org.apache.commons.lang.StringUtils;
 
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.CharacterFacade;
@@ -34,10 +30,8 @@ import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
+import org.apache.commons.lang3.StringUtils;
+
 public class AbilityTreeViews
 {
 
@@ -110,8 +104,7 @@ public class AbilityTreeViews
 		@Override
 		public List<TreeViewPath<AbilityFacade>> getPaths(AbilityFacade pobj)
 		{
-			return Collections.singletonList(new TreeViewPath<>(
-                    pobj, pobj.getSourceForNodeDisplay()));
+			return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getSourceForNodeDisplay()));
 		}
 
 	}
@@ -119,7 +112,7 @@ public class AbilityTreeViews
 	private static class PreReqTreeView implements TreeView<AbilityFacade>
 	{
 
-		private DataSetFacade dataset;
+		private final DataSetFacade dataset;
 
 		public PreReqTreeView(DataSetFacade dataset)
 		{
@@ -136,8 +129,7 @@ public class AbilityTreeViews
 		public List<TreeViewPath<AbilityFacade>> getPaths(AbilityFacade pobj)
 		{
 			List<List<AbilityFacade>> abilityPaths = new ArrayList<>();
-			addPaths(abilityPaths, dataset.getPrereqAbilities(pobj),
-                    new ArrayList<>());
+			addPaths(abilityPaths, dataset.getPrereqAbilities(pobj), new ArrayList<>());
 			if (abilityPaths.isEmpty())
 			{
 				return Collections.singletonList(new TreeViewPath<>(pobj));
@@ -152,16 +144,14 @@ public class AbilityTreeViews
 			return paths;
 		}
 
-		private void addPaths(List<List<AbilityFacade>> abilityPaths,
-							  List<AbilityFacade> preAbilities,
-							  ArrayList<AbilityFacade> path)
+		private void addPaths(List<List<AbilityFacade>> abilityPaths, List<AbilityFacade> preAbilities,
+			ArrayList<AbilityFacade> path)
 		{
 			if (path.size() > 20)
 			{
-				
-				Logging.errorPrint("Found probable ability prereq cycle ["
-					+ StringUtils.join(path, ",") + "] with prereqs ["
-					+ StringUtils.join(preAbilities, ",") + "]. Skipping.");
+
+				Logging.errorPrint("Found probable ability prereq cycle [" + StringUtils.join(path, ",")
+					+ "] with prereqs [" + StringUtils.join(preAbilities, ",") + "]. Skipping.");
 				return;
 			}
 			for (AbilityFacade preAbility : preAbilities)

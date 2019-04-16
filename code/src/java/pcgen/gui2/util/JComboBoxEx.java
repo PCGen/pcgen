@@ -1,5 +1,4 @@
 /*
- * JComboBoxEx.java
  * Copyright 2003 (C) B. K. Oxley (binkley) <binkley@alumni.rice.edu>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,31 +15,32 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on July 30, 2003, 8:34 AM
  */
 package pcgen.gui2.util;
 
-import pcgen.util.StringIgnoreCaseComparator;
-
-import javax.swing.ComboBoxModel;
-import javax.swing.JComboBox;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Vector;
 
+import javax.swing.ComboBoxModel;
+import javax.swing.JComboBox;
+
 /**
- * Sorted <code>JComboBox</code>.
+ * Sorted {@code JComboBox}.
  *
- * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
+ * @param <E> The type of the elements in this JComboBoxEx
  */
-public class JComboBoxEx extends JComboBox
+public class JComboBoxEx<E> extends JComboBox<E>
 {
 	/**
-	 * The <code>Comparator</code>.  The default is
-	 * <code>StringIgnoreCaseComparator</code> (since combo boxes
+	 * The {@code Comparator}.  The default is
+	 * {@code StringIgnoreCaseComparator} (since combo boxes
 	 * display string items to the user).
 	 */
-	private Comparator<Object> comparator = new StringIgnoreCaseComparator();
+	private Comparator<Object> comparator = (o1, o2) -> {
+		// Treat null as the empty string.
+		return ((o1 == null) ? "" : o1.toString()).compareToIgnoreCase((o2 == null) ? "" : o2.toString());
+	};
 
 	/**
 	 * Should we sort anytime the items are changed?
@@ -48,7 +48,7 @@ public class JComboBoxEx extends JComboBox
 	private boolean autoSort = false;
 
 	/**
-	 * Creates a <code>JComboBoxEx</code> with a default data
+	 * Creates a {@code JComboBoxEx} with a default data
 	 * model.
 	 */
 	public JComboBoxEx()
@@ -57,19 +57,19 @@ public class JComboBoxEx extends JComboBox
 	}
 
 	/**
-	 * Creates a <code>JComboBoxEx</code> that takes it's items
-	 * from an existing <code>ComboBoxModel</code>.
+	 * Creates a {@code JComboBoxEx} that takes it's items
+	 * from an existing {@code ComboBoxModel}.
 	 *
-	 * @param aModel the <code>ComboBoxModel</code> that provides
+	 * @param aModel the {@code ComboBoxModel} that provides
 	 * the displayed list of items
 	 */
-	public JComboBoxEx(ComboBoxModel aModel)
+	public JComboBoxEx(ComboBoxModel<E> aModel)
 	{
 		super(aModel);
 	}
 
 	/**
-	 * Creates a <code>JComboBoxEx</code> that contains the
+	 * Creates a {@code JComboBoxEx} that contains the
 	 * elements in the specified array. By default the first item
 	 * in the array (and therefore the data model) becomes
 	 * selected.
@@ -77,21 +77,21 @@ public class JComboBoxEx extends JComboBox
 	 * @param items an array of objects to insert into the combo
 	 * box
 	 */
-	public JComboBoxEx(Object[] items)
+	public JComboBoxEx(E[] items)
 	{
 		super(items);
 	}
 
 	/**
-	 * Creates a <code>JComboBoxEx</code> that contains the
-	 * elements in the specified <code>Vector</code>. By default
+	 * Creates a {@code JComboBoxEx} that contains the
+	 * elements in the specified {@code Vector}. By default
 	 * the first item in the vector and therefore the data model)
 	 * becomes selected.
 	 *
 	 * @param items an array of vectors to insert into the combo
 	 * box
 	 */
-	public JComboBoxEx(Vector<?> items)
+	public JComboBoxEx(Vector<E> items)
 	{
 		super(items);
 	}
@@ -102,9 +102,10 @@ public class JComboBoxEx extends JComboBox
 	 * @param items an array of objects to insert into the combo
 	 * box
 	 */
-	public void setAllItems(Object[] items)
+	public void setAllItems(E[] items)
 	{
-		// setModel(getModel().getClass().getDeclaredConstructor(new Class[] {Object[].class}).newInstance(new Object[] {items}));
+		// setModel(getModel().getClass().getDeclaredConstructor(new Class[] {Object[].class})
+		// .newInstance(new Object[] {items}));
 		removeAllItems();
 
 		for (int i = 0; i < items.length; ++i)
@@ -118,10 +119,11 @@ public class JComboBoxEx extends JComboBox
 	 *
 	 * @return an array of objects in the combo box
 	 */
-	public Object[] getAllItems()
+	public E[] getAllItems()
 	{
 		int count = getItemCount();
-		Object[] items = new Object[count];
+		@SuppressWarnings("unchecked")
+		E[] items = (E[]) new Object[count];
 
 		for (int i = 0; i < count; ++i)
 		{
@@ -132,16 +134,16 @@ public class JComboBoxEx extends JComboBox
 	}
 
 	/**
-	 * Set <code>true</code> if the combo box automatically should
-	 * sort when items change.  If <code>false</code>, then
+	 * Set {@code true} if the combo box automatically should
+	 * sort when items change.  If {@code false}, then
 	 * require a call to {@link #sortItems()} to sort items.  This
 	 * is an optimization choice.  The default is
-	 * <code>false</code>.
+	 * {@code false}.
 	 *
 	 * <strong>This only affects combo box methods.</strong> If
-	 * you modify what an item returns for <code>toString()</code>
+	 * you modify what an item returns for {@code toString()}
 	 * by manipulating the item, you need to call
-	 * <code>sortItems()</code> manually.
+	 * {@code sortItems()} manually.
 	 *
 	 * @param autoSort automatically sort when items change?
 	 */
@@ -151,17 +153,17 @@ public class JComboBoxEx extends JComboBox
 	}
 
 	/**
-	 * Returns <code>true</code> if the combo box automatically
-	 * sorts when items change.  If <code>false</code>, then call
+	 * Returns {@code true} if the combo box automatically
+	 * sorts when items change.  If {@code false}, then call
 	 * {@link #sortItems()} to sort items.  This is an
-	 * optimization choice.  The default is <code>false</code>.
+	 * optimization choice.  The default is {@code false}.
 	 *
 	 * <strong>This only affects combo box methods.</strong> If
-	 * you modify what an item returns for <code>toString()</code>
+	 * you modify what an item returns for {@code toString()}
 	 * by manipulating the item, you need to call
-	 * <code>sortItems()</code> manually.
+	 * {@code sortItems()} manually.
 	 *
-	 * @return <code>true</code> if the combo box automatically
+	 * @return {@code true} if the combo box automatically
 	 * sorts when items change.
 	 */
 	public boolean getAutoSort()
@@ -170,11 +172,11 @@ public class JComboBoxEx extends JComboBox
 	}
 
 	/**
-	 * Sets the <code>Comparator</code> used to sort items.  The
-	 * default is <code>StringIgnoreCaseComparator</code> (since
+	 * Sets the {@code Comparator} used to sort items.  The
+	 * default is {@code StringIgnoreCaseComparator} (since
 	 * combo boxes display string items to the user).
 	 *
-	 * @param comparator the <code>Comparator</code> used to sort
+	 * @param comparator the {@code Comparator} used to sort
 	 * items
 	 */
 	public void setComparator(Comparator<Object> comparator)
@@ -183,11 +185,11 @@ public class JComboBoxEx extends JComboBox
 	}
 
 	/**
-	 * Returns the <code>Comparator</code> used to sort items.
-	 * The default is <code>StringIgnoreCaseComparator</code>
+	 * Returns the {@code Comparator} used to sort items.
+	 * The default is {@code StringIgnoreCaseComparator}
 	 * (since combo boxes display string items to the user).
 	 *
-	 * @return the <code>Comparator</code> used to sort items
+	 * @return the {@code Comparator} used to sort items
 	 */
 	public Comparator<Object> getComparator()
 	{
@@ -195,7 +197,7 @@ public class JComboBoxEx extends JComboBox
 	}
 
 	@Override
-	public void addItem(Object item)
+	public void addItem(E item)
 	{
 		super.addItem(item);
 
@@ -219,14 +221,14 @@ public class JComboBoxEx extends JComboBox
 	/**
 	 * Sorts the combo box items using <var>comparator</var>.
 	 *
-	 * @param aComparator the <code>Comparator</code> used to sort
+	 * @param aComparator the {@code Comparator} used to sort
 	 * items
 	 */
 	public void sortItems(Comparator<Object> aComparator)
 	{
 		// Keep the same item selected after sorting
 		Object selected = getSelectedItem();
-		Object[] items = getAllItems();
+		E[] items = getAllItems();
 
 		Arrays.sort(items, aComparator);
 		setAllItems(items);

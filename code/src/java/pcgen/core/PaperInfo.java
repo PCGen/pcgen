@@ -1,5 +1,4 @@
 /*
- * PaperInfo.java
  * Copyright 2010 (C) Thomas Parker <thpr@users.sourceforge.net>
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
@@ -16,29 +15,36 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on February 25, 2002, 10:15 PM
- *
- * $Id$
  */
 package pcgen.core;
 
 import java.net.URI;
-
-import org.apache.commons.lang.StringUtils;
+import java.util.Objects;
 
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.base.SortKeyRequired;
 import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Paper information for output sheets
- *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
-public final class PaperInfo implements Loadable
+public final class PaperInfo implements Loadable, SortKeyRequired
 {
+	/**
+	 * The source URI of this PaperInfo.
+	 */
 	private URI sourceURI;
+
+	/**
+	 * The name of this PaperInfo
+	 */
 	private String infoName;
+
+	/**
+	 * The sort key of this PaperInfo, to indicate which items should appear first.
+	 */
 	private String sortKey;
 
 	/** Array of 6 paper information variables to keep hold of */
@@ -110,50 +116,44 @@ public final class PaperInfo implements Loadable
 		return true;
 	}
 
-    @Override
+	@Override
 	public URI getSourceURI()
 	{
 		return sourceURI;
 	}
 
-    @Override
+	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
-    @Override
+	@Override
 	public void setName(String name)
 	{
 		infoName = name;
 		paperInfo[0] = name;
 	}
 
-    @Override
+	@Override
 	public String getDisplayName()
 	{
 		return infoName;
 	}
 
-    @Override
+	@Override
 	public String getKeyName()
 	{
 		return getDisplayName();
 	}
 
-    @Override
-	public String getLSTformat()
-	{
-		return getDisplayName();
-	}
-
-    @Override
+	@Override
 	public boolean isInternal()
 	{
 		return false;
 	}
 
-    @Override
+	@Override
 	public boolean isType(String type)
 	{
 		return false;
@@ -161,13 +161,11 @@ public final class PaperInfo implements Loadable
 
 	public void setSortKey(String value)
 	{
-		if (value == null)
-		{
-			throw new IllegalArgumentException("SortKey cannot be null");
-		}
+		Objects.requireNonNull(value, "SortKey cannot be null");
 		sortKey = value;
 	}
 
+	@Override
 	public String getSortKey()
 	{
 		return sortKey;

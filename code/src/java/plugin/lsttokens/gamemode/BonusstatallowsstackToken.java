@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 21/07/2008 22:49:45
- *
- * $Id: $
  */
 package plugin.lsttokens.gamemode;
 
@@ -29,31 +25,24 @@ import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>BonusstatallowsstackToken</code> deals
+ * The Class {@code BonusstatallowsstackToken} deals
  * with the BONUSSTATALLOWSSTACK tag. This tag is a boolean 
  * tag that specifies if the user may select the same stat
  * multiple times when offered multiple stat boosts at the same 
  * level.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class BonusstatallowsstackToken implements GameModeLstToken
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "BONUSSTATALLOWSSTACK";
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.GameModeLstToken#parse(pcgen.core.GameMode, java.lang.String, java.net.URI)
-	 */
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		Boolean set;
@@ -62,9 +51,8 @@ public class BonusstatallowsstackToken implements GameModeLstToken
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				Logging.log(Logging.LST_ERROR,
-					"You should use 'YES' or 'NO' as the " + getTokenName()
-						+ ": " + value + " in " + source.toString());
+				Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value
+					+ " in " + source.toString());
 				return false;
 			}
 			set = Boolean.TRUE;
@@ -73,16 +61,14 @@ public class BonusstatallowsstackToken implements GameModeLstToken
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				Logging.log(Logging.LST_ERROR,
-					"You should use 'YES' or 'NO' as the " + getTokenName()
-						+ ": " + value + " in " + source.toString());
+				Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value
+					+ " in " + source.toString());
 				return false;
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				Logging.log(Logging.LST_ERROR,
-					"You should use 'YES' or 'NO' as the " + getTokenName()
-						+ ": " + value + " in " + source.toString());
+				Logging.log(Logging.LST_ERROR, "You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value
+					+ " in " + source.toString());
 				return false;
 			}
 			set = Boolean.FALSE;

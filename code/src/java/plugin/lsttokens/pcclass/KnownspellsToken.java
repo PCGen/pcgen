@@ -42,8 +42,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with KNOWNSPELLS Token
  */
-public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
-		implements CDOMPrimaryToken<PCClass>
+public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	private static final Class<Spell> SPELL_CLASS = Spell.class;
@@ -61,8 +60,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCClass pcc, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass pcc, String value)
 	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 		boolean firstToken = true;
@@ -74,22 +72,19 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 			{
 				if (!firstToken)
 				{
-					return new ParseResult.Fail("Non-sensical situation was "
-						+ "encountered while parsing " + getTokenName()
-						+ ": When used, .CLEARALL must be the first argument", context);
+					return new ParseResult.Fail("Non-sensical situation was " + "encountered while parsing "
+						+ getTokenName() + ": When used, .CLEARALL must be the first argument");
 				}
-				context.getObjectContext()
-						.removeList(pcc, ListKey.KNOWN_SPELLS);
+				context.getObjectContext().removeList(pcc, ListKey.KNOWN_SPELLS);
 				continue;
 			}
-			ParseResult pr = checkForIllegalSeparator(',', totalFilter); 
+			ParseResult pr = checkForIllegalSeparator(',', totalFilter);
 			if (!pr.passed())
 			{
 				return pr;
 			}
 
-			StringTokenizer commaTok = new StringTokenizer(totalFilter,
-					Constants.COMMA);
+			StringTokenizer commaTok = new StringTokenizer(totalFilter, Constants.COMMA);
 
 			/*
 			 * This is a rather interesting situation - this takes items that
@@ -113,8 +108,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 					if (levelLim != null)
 					{
 						return new ParseResult.Fail(
-							"Cannot have more than one Level limit in " + getTokenName()
-								+ ": " + value, context);
+							"Cannot have more than one Level limit in " + getTokenName() + ": " + value);
 					}
 					// if the argument starts with LEVEL=, compare the level to
 					// the desired spellLevel
@@ -124,8 +118,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 						if (levelLim < 0)
 						{
 							ComplexParseResult cpr = new ComplexParseResult();
-							cpr.addErrorMessage("Invalid Number in "
-									+ getTokenName() + ": " + value);
+							cpr.addErrorMessage("Invalid Number in " + getTokenName() + ": " + value);
 							cpr.addErrorMessage("  Level must be >= 0");
 							return cpr;
 						}
@@ -133,10 +126,8 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 					catch (NumberFormatException e)
 					{
 						ComplexParseResult cpr = new ComplexParseResult();
-						cpr.addErrorMessage("Invalid Number in "
-								+ getTokenName() + ": " + value);
-						cpr.addErrorMessage("  Level must be "
-								+ "a non-negative integer");
+						cpr.addErrorMessage("Invalid Number in " + getTokenName() + ": " + value);
+						cpr.addErrorMessage("  Level must be " + "a non-negative integer");
 						return cpr;
 					}
 				}
@@ -145,15 +136,12 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 					if (sp != null)
 					{
 						return new ParseResult.Fail(
-							"Cannot have more than one Type/Spell limit in "
-								+ getTokenName() + ": " + value, context);
+							"Cannot have more than one Type/Spell limit in " + getTokenName() + ": " + value);
 					}
-					sp = TokenUtilities.getTypeOrPrimitive(context,
-							SPELL_CLASS, filterString);
+					sp = TokenUtilities.getTypeOrPrimitive(context, SPELL_CLASS, filterString);
 					if (sp == null)
 					{
-						return new ParseResult.Fail("  encountered Invalid limit in "
-								+ getTokenName() + ": " + value, context);
+						return new ParseResult.Fail("  encountered Invalid limit in " + getTokenName() + ": " + value);
 					}
 				}
 				firstToken = false;
@@ -168,8 +156,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 				sp = context.getReferenceContext().getCDOMAllReference(SPELL_CLASS);
 			}
 			KnownSpellIdentifier ksi = new KnownSpellIdentifier(sp, levelLim);
-			context.getObjectContext()
-					.addToList(pcc, ListKey.KNOWN_SPELLS, ksi);
+			context.getObjectContext().addToList(pcc, ListKey.KNOWN_SPELLS, ksi);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -177,8 +164,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		Changes<KnownSpellIdentifier> changes = context.getObjectContext()
-				.getListChanges(pcc, ListKey.KNOWN_SPELLS);
+		Changes<KnownSpellIdentifier> changes = context.getObjectContext().getListChanges(pcc, ListKey.KNOWN_SPELLS);
 		List<String> list = new ArrayList<>();
 		if (changes.includesGlobalClear())
 		{
@@ -187,15 +173,13 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 		Collection<KnownSpellIdentifier> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
 		{
-			context.addWriteMessage(getTokenName()
-					+ " does not support .CLEAR.");
+			context.addWriteMessage(getTokenName() + " does not support .CLEAR.");
 			return null;
 		}
 		Collection<KnownSpellIdentifier> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
-			TreeMapToList<CDOMReference<?>, Integer> map = new TreeMapToList<>(
-					ReferenceUtilities.REFERENCE_SORTER);
+			TreeMapToList<CDOMReference<?>, Integer> map = new TreeMapToList<>(ReferenceUtilities.REFERENCE_SORTER);
 			for (KnownSpellIdentifier ksi : added)
 			{
 				CDOMReference<Spell> ref = ksi.getSpellReference();
@@ -230,7 +214,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 		{
 			return null;
 		}
-		return new String[] { StringUtil.join(list, Constants.PIPE) };
+		return new String[]{StringUtil.join(list, Constants.PIPE)};
 	}
 
 	@Override

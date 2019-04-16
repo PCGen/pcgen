@@ -1,0 +1,132 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 13827 $ $Author: evilpixie87 $ -- Mon Jul 03 04:10:09 2017 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Pathfinder Player Companion: Adventurer's Armory 2	SOURCESHORT:AA2	SOURCEWEB:http://paizo.com/products/btpy9tom	SOURCEDATE:2017-06
+#Original Entry: Gwen. T (evilpixie87)
+
+# ==============================
+# Adventuring Kits
+# ==============================
+
+# Equipment Name						Product Identity?	Output Name						Required Weapon Proficiency		Type										Contains								Cost		Weight	Source Page		Special Property																																																																													Apply Kit
+Arcane Adept Package																					TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.4	SPROP:Price 997 gp. Weight approx 45 lbs. (28-3/4 lbs. for a Small character).																																																																		KIT:1|Arcane Adept Package
+Daring Bravo Package																					TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.4	SPROP:Price 995 gp. Weight approx 76-1/2 lbs. (40-1/2 lbs. for a Small character).																																																																		KIT:1|Daring Bravo Package
+Elemental Explorer's Kit (Divine)																			TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.17	SPROP:Price 2,700 gp. Weight 8 lbs. This waterproof and flame-resistant case contains durable guides to each of the four Elemental Planes. Each grants a +2 bonus on Knowledge (planes) checks and Survival checks for its plane. This kit also contains 3 scrolls of comprehend languages, 2 scrolls of planar adaptation, and a scroll of plane shift attuned to the Material Plane so the kit's owner can return home.											KIT:1|Elemental Explorer's Kit (Divine)
+Elemental Explorer's Kit (Arcane)																			TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.17	SPROP:Price 2,700 gp. Weight 8 lbs. This waterproof and flame-resistant case contains durable guides to each of the four Elemental Planes. Each grants a +2 bonus on Knowledge (planes) checks and Survival checks for its plane. This kit also contains 3 scrolls of comprehend languages, 2 scrolls of planar adaptation, and a scroll of plane shift attuned to the Material Plane so the kit's owner can return home.											KIT:1|Elemental Explorer's Kit (Arcane)
+Emergency Interrogation Kit																				TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.17	SPROP:Price 1,665 gp. Weight 3 lbs. This wooden box contains masterwork manacles with an average lock, a vial of gravelly tonic, 2 elixirs of truth, a scroll of detect thoughts, and a scroll of speak with dead.																																												KIT:1|Emergency Interrogation Kit
+Fiendslayer's Kit																						TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.17	SPROP:Price 1100 gp. Weight 9 lbs. The kit contains a celestial censer, a silver holy symbol, 2 cold iron weapon blanches, 2 vials of holy water, 10 sticks of incense, an oil of align weapon (good), a vial of silversheen, and a scroll of magic circle against evil.																																			KIT:1|Fiendslayer's Kit
+Holy Warrior Package																					TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.4	SPROP:Price 993 gp. Weight approx 102 lbs. (57-1/4 lbs. for a Small character).																																																																		KIT:1|Holy Warrior Package
+Invisible Enemies Kit																					TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.17	SPROP:Price 900 gp. Weight 4 lbs. This small, waterproof satchel contains 2 scrolls of glitterdust, 6 1/2-pound packages of powder such as flour, and one packet of dust of appearance.																																																	KIT:1|Invisible Enemies Kit
+Lore Seeker Package																					TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.5	SPROP:Price 992 gp. Weight approx 44 lbs. (27-3/4 lbs. for a Small character).																																																																		KIT:1|Lore Seeker Package
+Mystic Guide Package																					TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.5	SPROP:Price 999.6 gp. Weight approx 67 lbs. (39-1/4 lbs. for a Small character).																																																																		KIT:1|Mystic Guide Package
+Questing Knight Package																					TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.5	SPROP:Price 992 gp. Weight approx 127-1/2 lbs. (73-3/4 lbs. for a Small character).																																																																		KIT:1|Questing Knight Package
+Shadowy Stalker Package																					TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.5	SPROP:Price 999 gp. Weight approx 63 lbs. (33-1/4 lbs. for a Small character).																																																																		KIT:1|Shadowy Stalker Package
+Undead Survivor's Kit																					TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.17	SPROP:Price 900 gp. Weight 3 lbs. This sturdy leather bandolier contains 4 potions of hide from undead, a potion of lesser restoration, 2 flasks of holy water, 2 doses of holy weapon balm, a vial of soul stimulant, and 2 vials of twitch tonic.																																							KIT:1|Undead Survivor's Kit
+Underground Survival Kit																				TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.17	SPROP:Price 664 gp. Weight 30 lbs. This backpack contains chalk, a climber's kit, a compass UE , a grappling hook, a hammer, 5 pitons, 100 feet of silk rope, an everburning torch, a potion of darkvision, 2 alkali flasks, a dose of bladeguard, and a guidebook with helpful information about underground flora and fauna, granting a +2 circumstance bonus on Knowledge (dungeoneering) checks to identify the abilities and weaknesses of creatures encountered in that terrain.	KIT:1|Underground Survival Kit
+Wilderness Wanderer Package (Melee Focus)																		TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.5	SPROP:Price 999.8 gp. Weight approx 108-1/2 lbs. (63-1/4 lbs. for a Small character).																																																																	KIT:1|Wilderness Wanderer Package (Melee Focus)
+Wilderness Wanderer Package (Ranged Focus)																	TYPE:Kit																		COST:0	WT:0		SOURCEPAGE:p.5	SPROP:Price 999.8 gp. Weight approx 108-1/2 lbs. (63-1/4 lbs. for a Small character).																																																																	KIT:1|Wilderness Wanderer Package (Ranged Focus)
+
+# ==============================
+# Adventuring Gear
+# ==============================
+
+Adventurer's Sash									OUTPUTNAME:Sash, Adventurer's									TYPE:Goods.General.Container.Resizable				CONTAINS:UNLIM|ANY						COST:20	WT:3		SOURCEPAGE:p.12
+Bear Trap (Offset)								OUTPUTNAME:Bear Trap, Offset									TYPE:Goods.Tools																	COST:3	WT:10		SOURCEPAGE:p.16
+Bear Trap (Sawtooth)								OUTPUTNAME:Bear Trap, Sawtooth								TYPE:Goods.Tools																	COST:1800	WT:20		SOURCEPAGE:p.16
+Boline																							TYPE:Goods.Tools																	COST:10	WT:2		SOURCEPAGE:p.16
+Cane (Simple)									OUTPUTNAME:Cane, Simple										TYPE:Goods.General.Resizable															COST:2	WT:3		SOURCEPAGE:p.12
+Cane (Common)									OUTPUTNAME:Cane, Common										TYPE:Goods.General.Resizable															COST:0.1	WT:3		SOURCEPAGE:p.12
+Cane (Elegant)									OUTPUTNAME:Cane, Elegant									TYPE:Goods.General.Resizable															COST:25	WT:4		SOURCEPAGE:p.12
+Cane (Simple/Hollow)								OUTPUTNAME:Cane, Hollow, Simple								TYPE:Goods.General.Container.Resizable				CONTAINS:UNLIM|Total=1|Potions=1|Vial=1|Flask=1		COST:3	WT:3		SOURCEPAGE:p.12
+Cane (Common/Hollow)								OUTPUTNAME:Cane, Hollow, Common								TYPE:Goods.General.Container.Resizable				CONTAINS:UNLIM|Total=1|Potions=1|Vial=1|Flask=1		COST:1.1	WT:3		SOURCEPAGE:p.12
+Cane (Elegant/Hollow)								OUTPUTNAME:Cane, Hollow, Elegant								TYPE:Goods.General.Container.Resizable				CONTAINS:UNLIM|Total=1|Potions=1|Vial=1|Flask=1		COST:26	WT:4		SOURCEPAGE:p.12
+Charcoal (1 stick)																					TYPE:Goods.General																COST:0.5			SOURCEPAGE:p.12
+Chest (Small Treasure)								OUTPUTNAME:Chest, Small Treasure								TYPE:Goods.Container.General						CONTAINS:UNLIM|Any						COST:3	WT:25		SOURCEPAGE:p.12
+Chest (Medium Treasure)								OUTPUTNAME:Chest, Medium Treasure								TYPE:Goods.Container.General						CONTAINS:UNLIM|Any						COST:7	WT:50		SOURCEPAGE:p.12
+Chest (Large Treasure)								OUTPUTNAME:Chest, Large Treasure								TYPE:Goods.Container.General						CONTAINS:UNLIM|Any						COST:15	WT:100	SOURCEPAGE:p.12
+Chest (Huge Treasure)								OUTPUTNAME:Chest, Huge Treasure								TYPE:Goods.Container.General						CONTAINS:UNLIM|Any						COST:37	WT:250	SOURCEPAGE:p.12
+Climber's Planks																						TYPE:Goods.General																COST:20	WT:4		SOURCEPAGE:p.12
+Conversation Tube																						TYPE:Goods.General																COST:10	WT:3		SOURCEPAGE:p.12
+Crutch																							TYPE:Goods.General.Resizable															COST:0.5	WT:2		SOURCEPAGE:p.12
+Dissipating Fan																						TYPE:Goods.Training																COST:150	WT:6		SOURCEPAGE:p.16
+Drowner's Helm																						TYPE:Goods.Training																COST:35	WT:10		SOURCEPAGE:p.14
+Dusk Lantern																						TYPE:Goods.General																COST:35	WT:4		SOURCEPAGE:p.12
+False Teeth (Clockwork)								OUTPUTNAME:False Teeth, Clockwork								TYPE:Goods.General																COST:100	WT:0.5	SOURCEPAGE:p.13
+False Teeth (Common)								OUTPUTNAME:False Teeth, Common								TYPE:Goods.General.Resizable															COST:5			SOURCEPAGE:p.13
+False Teeth (Masterwork)							OUTPUTNAME:False Teeth, Masterwork								TYPE:Goods.General.Resizable															COST:50			SOURCEPAGE:p.13
+Gauntlet Magnet																						TYPE:Goods.General.Resizable															COST:75	WT:0.5	SOURCEPAGE:p.13	SPROP:Provides +2 bonus to CMD against disarm attempts while holding a magnetic metal weapon, shield, or item (such as one made from steel or iron); +1 bonus on disarm attempts made with the gauntlet against magnetic objects.
+Guidebook (Regional)								OUTPUTNAME:Guidebook, Regional								TYPE:Goods.Tools.Book																COST:0	WT:1					SPROP:Provides details on an environment or a region. Price varies.
+Hanging Board																						TYPE:Goods.Training																COST:75	WT:7		SOURCEPAGE:p.14
+Imperial Conquest																						TYPE:Goods.Training																COST:250	WT:4		SOURCEPAGE:p.29
+Linguist's Codex (Standard)							OUTPUTNAME:Linguist's Codex, Standard							TYPE:Goods.Tools.Book																COST:50	WT:3		SOURCEPAGE:p.16
+Linguist's Codex (Expanded)							OUTPUTNAME:Linguist's Codex, Expanded							TYPE:Goods.Tools.Book																COST:200	WT:5		SOURCEPAGE:p.16
+Mirror Ball																							TYPE:Goods.General																COST:100	WT:1		SOURCEPAGE:p.13
+Nautical Chart																						TYPE:Goods.Tools																	COST:25			SOURCEPAGE:p.13	SPROP:Grants a +4 circumstance bonus on Profession (sailor) checks to navigate in the area detailed by the chart.
+Pantograph																							TYPE:Goods.General																COST:50	WT:2		SOURCEPAGE:p.13
+Portable Terrarium																					TYPE:Goods.Pets																	COST:100	WT:4		SOURCEPAGE:p.16
+Practice Straitjacket																					TYPE:Goods.Training																COST:100	WT:2		SOURCEPAGE:p.14
+Rope Recaller																						TYPE:Goods.Tools																	COST:250	WT:30		SOURCEPAGE:p.13
+Scroll Case (Spring Loaded)							OUTPUTNAME:Scroll Case, Spring Loaded							TYPE:Goods.Container.General						CONTAINS:UNLIM|Total=1|Paper=1|Documents=1|Scroll=1	COST:5	WT:1		SOURCEPAGE:p.13
+Shears (Small)									OUTPUTNAME:Shears, Small									TYPE:Goods.Tools																	COST:0.5	WT:0.5	SOURCEPAGE:p.16
+Shears (Lopping)									OUTPUTNAME:Shears, Lopping									TYPE:Goods.Tools																	COST:3	WT:8		SOURCEPAGE:p.16
+Shears (Adamantine)								OUTPUTNAME:Shears, Adamantine									TYPE:Goods.Tools																	COST:3003	WT:8		SOURCEPAGE:p.16	SPROP:On any item the shears can fit around (such as a chain or iron bar, but not an iron door), they provide a +10 bonus on Strength checks to break or burst it.
+Thief Trainer																						TYPE:Goods.Training																COST:200	WT:4		SOURCEPAGE:p.14
+Wheelchair																							TYPE:Goods.General.Resizable															COST:20	WT:25		SOURCEPAGE:p.13
+Wing Sheaths																						TYPE:Goods.General.Resizable															COST:10	WT:10		SOURCEPAGE:p.13
+
+# ==============================
+# Alchemical Wares
+# ==============================
+
+Anesthetic Wine																						TYPE:Goods.Alchemical.Consumable														COST:50	WT:1		SOURCEPAGE:p.29	SPROP:For 1 hour after drinking, gain a +5 bonus on saves vs. pain effects, reduce the amount of any nonlethal damage taken by 1.
+Beast-Scent																							TYPE:Goods.Alchemical.Consumable														COST:75	WT:0.5	SOURCEPAGE:p.24	SPROP:+2 bonus on Handle Animal and wild empathy checks and a -5 penalty on attempts to track the wearer by his original scent. If tracking the smell of beast-scent itself, +10 bonus instead.
+Crystal-Sweet Concoction																				TYPE:Goods.Alchemical.Consumable.Concoction												COST:50			SOURCEPAGE:p.26	SPROP:Grants +2 bonus on Diplomacy checks, -4 penalty on Sense Motive checks. Unstable if mixed with other concoctions!
+Curative Myrrh																						TYPE:Goods.Alchemical.Consumable														COST:50			SOURCEPAGE:p.29
+Darkflare																							TYPE:Goods.Alchemical.Consumable														COST:1			SOURCEPAGE:p.25
+Darting-Eye Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:50			SOURCEPAGE:p.27	SPROP:Grants +2 bonus on Perception checks, -1 penalty on Will saves. Unstable if mixed with other concoctions!
+Fear-Killer Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:50			SOURCEPAGE:p.27	SPROP:Grants +2 bonus on saves against fear effects, healing effects heal 2 fewer hit points (to a minimum of 1 point of healing per effect). Unstable if mixed with other concoctions!
+Ghost Ink																							TYPE:Goods.Alchemical.Consumable														COST:25			SOURCEPAGE:p.24
+Gloomstick																							TYPE:Goods.Alchemical.Consumable														COST:25	WT:1		SOURCEPAGE:p.24
+Liquid Breeze																						TYPE:Goods.Alchemical.Consumable														COST:30			SOURCEPAGE:p.29	SPROP:Grants the benefits of endure elements for 8 hours, but only against hot environments. This effect is nonmagical and can't be dispelled.
+Kitumu's Ire						NAMEISPI:YES								PROFICIENCY:WEAPON|Splash Weapon	TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Splash										COST:75			SOURCEPAGE:p.25
+Minkaian Ceremonial Tea					NAMEISPI:YES														TYPE:Goods.Alchemical.Consumable														COST:900			SOURCEPAGE:p.28
+Quick-Step Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:75			SOURCEPAGE:p.27	SPROP:Grants +2 bonus on Acrobatics checks and CMD against trip attempts, -2 penalty on Perception checks. Unstable if mixed with other concoctions!
+Slow-Heart Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:50			SOURCEPAGE:p.27	SPROP:Reduces any bleed damage by 2 and automatically stabilize when dying, -1 penalty on your Reflex saves. Unstable if mixed with other concoctions!
+Snake-Tongue Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:50			SOURCEPAGE:p.27	SPROP:Once during duration, as a swift action, lick or spit on a held weapon to apply a dose of black adder venom. Vishkanya apply their racial poison instead; this does not count against that trait's uses per day. Imparts a -1 penalty on Fort saves. Unstable if mixed with other concoctions!
+Sphere-Song Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:50			SOURCEPAGE:p.27	SPROP:Grants +1 bonus on Will saves, -2 penalty on initiative checks. Unstable if mixed with other concoctions!
+Spirit-Vision Ink																						TYPE:Goods.Alchemical.Consumable														COST:25			SOURCEPAGE:p.28
+Surgical Jelly																						TYPE:Goods.Alchemical.Consumable														COST:5	WT:2		SOURCEPAGE:p.24	SPROP:Immediately ends any infestations, implanted eggs, or other non-disease effects that can be cured by remove disease that do not require a caster level check.
+Tress Tincture																PROFICIENCY:WEAPON|Splash Weapon	TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Splash										COST:50			SOURCEPAGE:p.25
+Troll Styptic																						TYPE:Goods.Alchemical.Consumable														COST:100			SOURCEPAGE:p.24	SPROP:Grants fast healing 2 for 2d4 rounds, closes any open wounds, negating bleed effects. Must succeed at a DC 15 Fort save or be sickened for duration.
+Wild-Blood Concoction																					TYPE:Goods.Alchemical.Consumable.Concoction												COST:100			SOURCEPAGE:p.27	SPROP:Grants +2 bonus on melee damage rolls with natural and manufactured weapons, -2 penalty to AC. Unstable if mixed with other concoctions!
+
+# ==============================
+# Clothing
+# ==============================
+
+Chausses																							TYPE:Goods.Clothing.Resizable															COST:1	WT:3		SOURCEPAGE:p.20
+Corset (Common)																						TYPE:Goods.Clothing.Resizable															COST:0.1	WT:3		SOURCEPAGE:p.20
+Dancer's Garb																						TYPE:Goods.Clothing.Resizable															COST:100	WT:5		SOURCEPAGE:p.29	SPROP:+2 on Perform (Dance) checks.
+Dancer's Garb (Silver)																					TYPE:Goods.Clothing.Resizable															COST:200	WT:5		SOURCEPAGE:p.29	SPROP:+2 on Perform (Dance) checks. Considered a silver instrument for silver balladeer bards.
+Dancer's Garb (Sunsilver)																				TYPE:Goods.Clothing.Resizable															COST:3200	WT:5		SOURCEPAGE:p.29	SPROP:+2 on Perform (Dance) checks. Considered a silver instrument for silver balladeer bards. Grants the same benefits as armor made of sunsilver.
+Gambeson																							TYPE:Goods.Clothing.Resizable															COST:1	WT:4		SOURCEPAGE:p.20
+Headscarf (Common)																					TYPE:Goods.Clothing.Resizable															COST:0.1			SOURCEPAGE:p.20
+Outfit (Burglar's)																					TYPE:Goods.Clothing.Resizable.Starting													COST:5	WT:5		SOURCEPAGE:p.20
+Outfit (Courtesan's)																					TYPE:Goods.Clothing.Resizable.Starting													COST:8	WT:4		SOURCEPAGE:p.20
+Outfit (Executioner's)																					TYPE:Goods.Clothing.Resizable.Starting													COST:5	WT:8		SOURCEPAGE:p.20
+Outfit (Squire's)																						TYPE:Goods.Clothing.Resizable.Starting													COST:5	WT:8		SOURCEPAGE:p.20
+Shinobi Shozoku																						TYPE:Goods.Clothing.Resizable															COST:50	WT:2		SOURCEPAGE:p.28	SPROP:+2 on Stealth checks unless also wearing armor with a base armor bonus higher than +1, heavy clothing or carrying heavy equipment.
+Silk Kimono																							TYPE:Goods.Clothing.Resizable															COST:200	WT:5		SOURCEPAGE:p.28
+Sparring Gear																						TYPE:Goods.Clothing.Resizable															COST:3.5	WT:15		SOURCEPAGE:p.20	SPROP:Grants DR 2/- against nonlethal damage.
+Stiletto Boots																						TYPE:Goods.Clothing.Resizable															COST:10	WT:1		SOURCEPAGE:p.20
+
+# ==============================
+# Poisons
+# ==============================
+
+Poison (Grinding Joint Paste)																				TYPE:Goods.Poison.Consumable															COST:2100			SOURCEPAGE:p.18	SPROP:Ingested; Fort DC 16; Onset 10 min; Freq 1 min (6); Effect 1d4 Dex dmg; Cure 1 save. While still suffering from Dex damage, 2-handed attacks or movement more than 10 ft./round deals 2d6 damage.
+Poison (Halo Mushroom Toxin)																				TYPE:Goods.Poison.Consumable															COST:500			SOURCEPAGE:p.18	SPROP:Ingested; Fort DC 18; Onset 10 min; Freq 1 min (6); Initial Effect distraction; Secondary Effect 1d4 Wis dmg; Cure 2 consecutive saves. Distraction - Treats all targets as if they had concealment, suffering a 20% miss chance on all attack rolls.
+Poison (Leng's Tears)																					TYPE:Goods.Poison.Consumable															COST:1500			SOURCEPAGE:p.18	SPROP:Contact; Fort DC 18; Onset 1 round; Freq 10 min (60); Effect 1d2 Wis dmg, terrifying hallucinations, and paralyzed for 10 minutes; Cure 1 save
+Poison (Night's-Eye Dust)																				TYPE:Goods.Poison.Consumable															COST:900			SOURCEPAGE:p.18	SPROP:Inhaled; Fort DC 14; Freq 1 rnd (6); Initial Effect shaken; Secondary Effect blinded for 6 rnds; Cure 2 consecutive saves. Creatures immune to fear are not shaken, get +4 on save against secondary effect.
+Poison (Rainbow Scarab Shell)																				TYPE:Goods.Poison.Consumable															COST:150			SOURCEPAGE:p.18	SPROP:Injury; Fort DC 14; Onset 1 round; Freq 1 rnd (4); Effect 1d4 Str damage and suffocation; Cure 1 save. Suffocation - Breathing creatures reduced to 0 Strength asphyxiate and immediately begin suffocating.
+Poison (Skinsap Extract)																				TYPE:Goods.Poison.Consumable															COST:1400			SOURCEPAGE:p.18	SPROP:Injury; Fort DC 16; Freq 1 rnd (6); Initial Effect staggered and confused; Secondary Effect 1d2 Dex damage; Cure 1 save. Confused - A creature that fails two consecutive saving throws against this effect is confused.
+Poison (Sweetdream)																					TYPE:Goods.Poison.Consumable															COST:900			SOURCEPAGE:p.18	SPROP:Inhaled; Fort DC 19; Onset 1 round; Freq 1 min (2); Initial Effect sleep for 1 min and forget events of 1d4 rnds prior to exposure; Secondary Effect sleep for 1d4 hours; Cure 1 save

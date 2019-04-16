@@ -4,10 +4,11 @@ KEY:PF - Hell's Rebels Player's Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Hell's Rebels
 RANK:1
-STATUS:ALPHA
+STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -35,6 +36,7 @@ COPYRIGHT:PCGen dataset conversion for "Hell's Rebels Player's Guide" Copyright 
 
 # Data files
 ABILITY:hrpg_abilities.lst
+ABILITY:hrpg_feats.lst
 
 # ENTRY DATE: 2016-04
 # LST MONKEY: Pieter Lexis, Andrew Maitland

@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with LICENSE Token
  */
-public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements
-		CDOMPrimaryToken<Campaign>
+public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override
@@ -44,16 +43,14 @@ public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign, String value)
 	{
 		if (value.startsWith("FILE="))
 		{
 			String fileURI = value.substring(5);
-			if (fileURI.length() == 0)
+			if (fileURI.isEmpty())
 			{
-				return new ParseResult.Fail("Cannot have empty FILE in "
-						+ getTokenName(), context);
+				return new ParseResult.Fail("Cannot have empty FILE in " + getTokenName());
 			}
 			CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, fileURI);
 			if (cse == null)
@@ -69,14 +66,12 @@ public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		Changes<String> changes =
-				context.getObjectContext().getListChanges(campaign, ListKey.LICENSE);
+		Changes<String> changes = context.getObjectContext().getListChanges(campaign, ListKey.LICENSE);
 		Changes<CampaignSourceEntry> filechanges =
-				context.getObjectContext().getListChanges(campaign,
-					ListKey.LICENSE_FILE);
+				context.getObjectContext().getListChanges(campaign, ListKey.LICENSE_FILE);
 		List<String> set = new ArrayList<>();
 		Collection<String> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
@@ -99,7 +94,7 @@ public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements
 		return set.toArray(new String[set.size()]);
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

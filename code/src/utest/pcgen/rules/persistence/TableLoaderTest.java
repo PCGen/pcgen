@@ -1,5 +1,10 @@
 package pcgen.rules.persistence;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.net.URI;
 
 import pcgen.base.format.NumberManager;
@@ -11,22 +16,24 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import util.TestURI;
 
-public class TableLoaderTest
+class TableLoaderTest
 {
+
+	private static final DataTable.LookupType EQ = DataTable.LookupType.EXACT;
 
 	private LoadContext context;
 	private URI uri;
 	private TableLoader loader;
 
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
-		uri = new URI("file:/Test%20Case");
-		context = new RuntimeLoadContext(new RuntimeReferenceContext(),
+		uri = TestURI.getURI();
+		context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 		loader = new TableLoader();
 	}
@@ -308,7 +315,7 @@ public class TableLoaderTest
 				"STARTTABLE:A\nName,Value\nSTRING,NIMBLER\nFoo,1\nENDTABLE:A\n");
 			fail("Expected Failure");
 		}
-		catch (PersistenceLayerException | IllegalArgumentException e)
+		catch (NullPointerException | PersistenceLayerException | IllegalArgumentException e)
 		{
 			//Yes
 		}
@@ -353,13 +360,13 @@ public class TableLoaderTest
 			assertEquals(2, a.getColumnCount());
 			assertEquals(new StringManager(), a.getFormat(0));
 			assertEquals(new NumberManager(), a.getFormat(1));
-			assertEquals("This", a.get("Name", 0));
-			assertEquals("That", a.get("Name", 1));
-			assertEquals("The \"Other\"", a.get("Name", 2));
-			assertEquals(1, a.get("Value", 0));
-			assertEquals(2, a.get("Value", 1));
-			assertEquals(3, a.get("Value", 2));
-			assertEquals(2, a.lookupExact("That", "Value"));
+			assertTrue(a.hasRow(EQ, "This"));
+			assertTrue(a.hasRow(EQ, "That"));
+			assertTrue(a.hasRow(EQ, "The \"Other\""));
+			assertEquals(1, a.lookup(EQ, "This", 1));
+			assertEquals(2, a.lookup(EQ, "That", 1));
+			assertEquals(3, a.lookup(EQ, "The \"Other\"", 1));
+			assertEquals(2, a.lookup(EQ, "That", "Value"));
 		}
 		catch (PersistenceLayerException e)
 		{
@@ -387,12 +394,15 @@ public class TableLoaderTest
 			assertEquals(2, a.getColumnCount());
 			assertEquals(new StringManager(), a.getFormat(0));
 			assertEquals(new NumberManager(), a.getFormat(1));
-			assertEquals("This", a.get("Name", 0));
-			assertEquals("That", a.get("Name", 1));
-			assertEquals("The \"Other\"", b.get("Name", 0));
-			assertEquals(1, a.get("Value", 0));
-			assertEquals(2, a.get("Value", 1));
-			assertEquals(3, b.get("Value", 0));
+			assertTrue(a.hasRow(EQ, "This"));
+			assertTrue(a.hasRow(EQ, "That"));
+			assertTrue(b.hasRow(EQ, "The \"Other\""));
+			assertFalse(b.hasRow(EQ, "This"));
+			assertFalse(b.hasRow(EQ, "That"));
+			assertFalse(a.hasRow(EQ, "The \"Other\""));
+			assertEquals(1, a.lookup(EQ, "This", 1));
+			assertEquals(2, a.lookup(EQ, "That", 1));
+			assertEquals(3, b.lookup(EQ, "The \"Other\"", 1));
 		}
 		catch (PersistenceLayerException e)
 		{
@@ -418,15 +428,21 @@ public class TableLoaderTest
 			assertEquals(2, a.getColumnCount());
 			assertEquals(new StringManager(), a.getFormat(0));
 			assertEquals(new NumberManager(), a.getFormat(1));
-			assertEquals("This", a.get("Name", 0));
-			assertEquals("That", a.get("Name", 1));
-			assertEquals(1, a.get("Value", 0));
-			assertEquals(2, a.get("Value", 1));
+			assertEquals("This", a.lookup(EQ, "This", 0));
+			assertEquals("That", a.lookup(EQ, "That", 0));
+			assertEquals(1, a.lookup(EQ, "This", 1));
+			assertEquals(2, a.lookup(EQ, "That", 1));
+			assertFalse(a.hasRow(EQ, "The \"Other\""));
+			assertTrue(a.hasRow(EQ, "This"));
+			assertTrue(a.hasRow(EQ, "That"));
 			context.getReferenceContext().forget(a);
 			DataTable b = context.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(DataTable.class, "A");
-			assertEquals("The \"Other\"", b.get("Name", 0));
-			assertEquals(3, b.get("Value", 0));
+			assertEquals("The \"Other\"", b.lookup(EQ, "The \"Other\"", 0));
+			assertEquals(3, b.lookup(EQ, "The \"Other\"", 1));
+			assertFalse(b.hasRow(EQ, "This"));
+			assertFalse(b.hasRow(EQ, "That"));
+			assertTrue(b.hasRow(EQ, "The \"Other\""));
 		}
 		catch (PersistenceLayerException e)
 		{

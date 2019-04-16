@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCasterLevelTotalTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 04-Aug-2008 02:25:32
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -29,12 +25,10 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 
-public class PCCasterLevelTotalTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCasterLevelTotalTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
-	public PCCasterLevelTotalTermEvaluator(
-			String originalText)
+	public PCCasterLevelTotalTermEvaluator(String originalText)
 	{
 		this.originalText = originalText;
 	}
@@ -47,27 +41,25 @@ public class PCCasterLevelTotalTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
+	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell)
+	{
 
 		int iLev = 0;
 
-		for ( PCClass pcClass : pc.getDisplay().getClassSet() )
+		for (PCClass pcClass : pc.getDisplay().getClassSet())
 		{
 			if (!pcClass.getSpellType().equals(Constants.NONE))
 			{
 				final String classKey = pcClass.getKeyName();
-				
-				final int pcBonus   = (int) pc.getTotalBonusTo("PCLEVEL", classKey);
+
+				final int pcBonus = (int) pc.getTotalBonusTo("PCLEVEL", classKey);
 				final int castBonus = (int) pc.getTotalBonusTo("CASTERLEVEL", classKey);
-				final int iClass    = (castBonus == 0) ? pc.getDisplay().getLevel(pcClass) : 0;
+				final int iClass = (castBonus == 0) ? pc.getDisplay().getLevel(pcClass) : 0;
 
 				String spellType = pcClass.getSpellType();
 
-				iLev += pc.getTotalCasterLevelWithSpellBonus(
-						    aSpell, aSpell == null ? null : aSpell.getSpell(),
-							spellType,
-							classKey,
-							iClass + pcBonus);
+				iLev += pc.getTotalCasterLevelWithSpellBonus(aSpell, (aSpell == null) ? null : aSpell.getSpell(),
+					spellType, classKey, iClass + pcBonus);
 			}
 		}
 

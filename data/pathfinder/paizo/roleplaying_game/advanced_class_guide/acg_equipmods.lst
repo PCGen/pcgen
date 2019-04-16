@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 # Original Entry by: Douglas Limmer
 # Original Entry Date: 28 January 2015
@@ -5,73 +6,127 @@
 ###Block: Armor Special Abilities
 # COMMENT: Either none or all can be shield modifiers; it's unclear to me
 # CHECK: Can EQMOD= and normal types be mixed?
-# Modifier Name	Unique Key		Type		Plus		Cost		Visible		Source Page		Required Type													Bonus to skill						Modify VAR						Special Property
-Amorphous		KEY:Amorphous	TYPE:Armor			COST:4500	VISIBLE:QUALIFY	SOURCEPAGE:p.209	PRETYPE:2,Enhancement,Armor	PRETYPE:1,EQMOD=CLOTH,EQMOD=LEATHER,EQMOD=ROPE,HideArmor	BONUS:SKILL|Escape Artist|5|TYPE=Competence	BONUS:VAR|CMD_Grapple|5|TYPE=Competence	SPROP:1/day take form of viscous liquid
+# Modifier Name	Unique Key							Type		Plus		Cost		Visible		Source Page		Required Type																		Bonus to skill						Modify VAR						Special Property																						Bonus
+Amorphous		KEY:Special Ability ~ Amorphous ~ Armor		TYPE:Armor			COST:4500	VISIBLE:QUALIFY	SOURCEPAGE:p.209	PRETYPE:2,Enhancement,Armor	PRETYPE:1,EQMOD=Material ~ Cloth,EQMOD=Material ~ Leather,EQMOD=Material ~ Rope,HideArmor	BONUS:SKILL|Escape Artist|5|TYPE=Competence	BONUS:VAR|CMD_Grapple|5|TYPE=Competence	SPROP:1/day take form of viscous liquid
 # COMMENT: Can this be bonified?
-Burdenless		KEY:Burdenless	TYPE:Armor			COST:4000	VISIBLE:QUALIFY	SOURCEPAGE:p.209	PRETYPE:2,Enhancement,Armor																										SPROP:Carrying capacity increased by 50%
-Calming		KEY:Calming		TYPE:Armor	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.209	PRETYPE:2,Enhancement,Armor																										SPROP:10 rounds/day create 5' aura that supresses rage or emotion effects (DC 15 Will negates)
-Jarring		KEY:Jarring		TYPE:Armor	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor																										SPROP:3/day daze attacker for 1 round (DC 16 Fortitude negates)
-Restful		KEY:Restful		TYPE:Armor			COST:4500	VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor																										SPROP:Only need 2 hours of uninterrupted sleep, and heals as in comfortable bed; not fatigued by sleeping in this armor
-Sensing		KEY:Sensing		TYPE:Armor	PLUS:3			VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor																										SPROP:Gain 5-foot blindsight and 60-foot darksense when wearer can't see
-Spell Dodging	KEY:Spell_Dodging	TYPE:Armor	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor																										SPROP:+4 dodge AC against attack rolls from spells, spell-like abilities, and attacks of summoned creatures
-Spiteful		KEY:Spiteful	TYPE:Armor			COST:7000	VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor																										SPROP:If wearer has panache class feature, can spend 1 panache point to make melee attack aginst creature that reduced wearer to below 0 hp
-Trackless		KEY:Trackless	TYPE:Armor			COST:7500	VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor	PRETYPE:1,LeatherArmor,HideArmor													BONUS:VAR|Stealth|5|TYPE=Competence		SPROP:+5 on Stealth; Survival checks to track wearer take -5 penalty
-Vouchsafing		KEY:Vouchsafing	TYPE:Armor	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor																										SPROP:Gain stacking DR 5/- when unconscious, nauseated, stunned, or pinned
+
+Burdenless		KEY:Special Ability ~ Burdenless ~ Armor		TYPE:Armor			COST:4000	VISIBLE:QUALIFY	SOURCEPAGE:p.209	PRETYPE:2,Enhancement,Armor																															SPROP:Carrying capacity increased by 50%																		BONUS:LOADMULT|TYPE=SIZE|0.50
+Calming		KEY:Special Ability ~ Calming ~ Armor		TYPE:Armor	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.209	PRETYPE:2,Enhancement,Armor																															SPROP:10 rounds/day create 5' aura that supresses rage or emotion effects (DC 15 Will negates)
+Jarring		KEY:Special Ability ~ Jarring ~ Armor		TYPE:Armor	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor																															SPROP:3/day daze attacker for 1 round (DC 16 Fortitude negates)
+Restful		KEY:Special Ability ~ Restful ~ Armor		TYPE:Armor			COST:4500	VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor																															SPROP:Only need 2 hours of uninterrupted sleep, and heals as in comfortable bed; not fatigued by sleeping in this armor
+Sensing		KEY:Special Ability ~ Sensing ~ Armor		TYPE:Armor	PLUS:3			VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor																															SPROP:Gain 5-foot blindsight and 60-foot darksense when wearer can't see
+Spell Dodging	KEY:Special Ability ~ Spell Dodging ~ Armor	TYPE:Armor	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor																															SPROP:+4 dodge AC against attack rolls from spells, spell-like abilities, and attacks of summoned creatures
+Spiteful		KEY:Special Ability ~ Spiteful ~ Armor		TYPE:Armor			COST:7000	VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor																															SPROP:If wearer has panache class feature, can spend 1 panache point to make melee attack aginst creature that reduced wearer to below 0 hp
+Trackless		KEY:Special Ability ~ Trackless ~ Armor		TYPE:Armor			COST:7500	VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor	PRETYPE:1,LeatherArmor,HideArmor																		BONUS:VAR|Stealth|5|TYPE=Competence		SPROP:+5 on Stealth; Survival checks to track wearer take -5 penalty
+Vouchsafing		KEY:Special Ability ~ Vouchsafing ~ Armor		TYPE:Armor	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.210	PRETYPE:2,Enhancement,Armor																															SPROP:Gain stacking DR 5/- when unconscious, nauseated, stunned, or pinned
 
 
 ###Block: Weapons
 ###Block: Weapon Special Abilities
-# Modifier Name		Unique Key			Type								Plus		Cost		Visible		Source Page		Multiple Requirements																		Required Type											Prohibited Type			Special Property																																							Choose						Selections
-Answering			KEY:Answering		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212																						PRETYPE:3,Enhancement,Weapon,Melee													SPROP:Enhancement bonus increases by 4 (to a max of 5) for the purpose of the opportune parry and riposte deed
+# Modifier Name		Unique Key								Type								Plus		Cost		Visible		Source Page		Multiple Requirements																		Required Type											Prohibited Type			Special Property																																							Choose																	Selections
+Answering			KEY:Special Ability ~ Answering ~ Weapon			TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212																						PRETYPE:3,Enhancement,Weapon,Melee													SPROP:Enhancement bonus increases by 4 (to a max of 5) for the purpose of the opportune parry and riposte deed
 # COMMENT: CHOOSE window not showing up
-Blood-hunting		KEY:BloodHunting		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212																						PRETYPE:2,Enhancement,Weapon														SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE bloodline																														CHOOSE:USERINPUT|TITLE=Designated Foe	SELECT:1
-Bloodsong			KEY:Bloodsong		TYPE:Weapon.Melee.Piercing.Slashing			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PREMULT:3,[PRETYPE:1,Enhancement],[PRETYPE:1,Weapon],[PRETYPE:1,Piercing,Slashing]																										SPROP:weapon gains keen ability when wielder benefits from raging song; gain 1d10 temporary hit points if wearer confirms critical while under raging song (2d10 if crit multiplier is x3, 3d10 if crit multiplier is x4)
+Blood-Hunting		KEY:Special Ability ~ Blood-Hunting ~ Weapon		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212																						PRETYPE:2,Enhancement,Weapon														SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE bloodline																														CHOOSE:ABILITY|Special Ability|TYPE=Sorcerer Bloodline|TYPE=Bloodrager Bloodlines|TITLE=Designated Foe	SELECT:1
+Bloodsong			KEY:Special Ability ~ Bloodsong ~ Weapon			TYPE:Weapon.Melee.Piercing.Slashing			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PREMULT:3,[PRETYPE:1,Enhancement],[PRETYPE:1,Weapon],[PRETYPE:1,Piercing,Slashing]																										SPROP:weapon gains keen ability when wielder benefits from raging song; gain 1d10 temporary hit points if wearer confirms critical while under raging song (2d10 if crit multiplier is x3, 3d10 if crit multiplier is x4)
 # COMMENT: Can CMB be bonused based on the plus of the weapon?
-Brawling			KEY:Brawling		TYPE:Weapon.Bludgeoning.Light				PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PREMULT:3,[PRETYPE:1,Enhancement],[PRETYPE:1,Weapon],[PREMULT:1,[PRETYPE:2,Light,Bludgeoning],[PRETYPE:1,BrawlingAbilityOK]]																			SPROP:wielder gains enhancement bonus on combat maneuver checks equal to the enhancement bonus of the weapon
-Confounding			KEY:Confounding		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212																						PRETYPE:2,Enhancement,Weapon														SPROP:wielder can spend 1 panache point when confirming critical to attempt disarm, reposition, sunder, or trip, as an immediate action with no attack of opportunity provoked, with a enhancement bonus equal to the weapon's enhancement bonus
-Distracting			KEY:Distracting		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.213																						PRETYPE:2,Enhancement,Weapon														SPROP:increase target's concentration DC by 5 for 1 minute; can't be affected again for 24 hours
-Distracting (Greater)	KEY:Distracting_Greater	TYPE:Weapon							PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.213																						PRETYPE:2,Enhancement,Weapon														SPROP:increase target's concentration DC by 10 for 1 minute; can't be affected again for 24 hours
-Exclusionary		KEY:Exclusionary		TYPE:Weapon									COST:3750	VISIBLE:QUALIFY	SOURCEPAGE:p.213																						PRETYPE:2,Enhancement,Weapon														SPROP:can choose not to include target in channel ability for next minute; maximum of Wisdom bonus plus enhancement bonus exclusions
-Exhausting			KEY:Exhausting		TYPE:Weapon.Melee						PLUS:3			VISIBLE:QUALIFY	SOURCEPAGE:p.213																						PRETYPE:3,Enhancement,Weapon,Melee													SPROP:on critical hit, wielder can forgo additional damage to cause exhaustion
-Fate-stealing		KEY:FateStealing		TYPE:Weapon.Melee						PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214																						PRETYPE:3,Enhancement,Weapon,Melee													SPROP:steal 1 grit or panache point from target as swift action
-Flamboyant			KEY:Flamboyant		TYPE:Weapon.Melee.Piercing.Light.OneHanded	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214																						PRETYPE:4,Enhancement,Weapon,Melee,Piercing	PRETYPE:1,Light,OneHanded	!PRETYPE:1,EQMOD=FLAMB_GTR	SPROP:has 1 panache point
-Flamboyant (Greater)	KEY:Flamboyant_Greater	TYPE:Weapon.Melee.Piercing.Light.OneHanded	PLUS:3			VISIBLE:QUALIFY	SOURCEPAGE:p.214																						PRETYPE:4,Enhancement,Weapon,Melee,Piercing	PRETYPE:1,Light,OneHanded	!PRETYPE:1,EQMOD=FLAMB		SPROP:has 3 panache points
-Flying			KEY:Flying			TYPE:Weapon.Melee						PLUS:5			VISIBLE:QUALIFY	SOURCEPAGE:p.214																						PRETYPE:3,Enhancement,Weapon,Melee													SPROP:as dancing but 30 ft. away; weapon returns to wielder as swift action (500 ft./rd), attempts sunder to return if needed
-Fortuitous			KEY:Fortuitous		TYPE:Weapon.Melee						PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214																						PRETYPE:3,Enhancement,Weapon,Melee													SPROP:if first attack of opportunity hits, can make second at -5 penalty
-Inspired			KEY:Inspired		TYPE:Weapon.Simple					PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214																						PRETYPE:2,Enhancement,Weapon	PRETYPE:1,Simple,InspiredOK									SPROP:investigator need only spend one use of inspiration to augment attack rolls; add twice result to damage with combat inspiration talent
-Phantom Ammunition	KEY:Phantom_Ammunition	TYPE:Weapon.Ammunition							COST:2000	VISIBLE:QUALIFY	SOURCEPAGE:p.215																						PRETYPE:2,Enhancement,Ammunition													SPROP:ammunition dissolves and wound closes 1 round after fired
-Prehensile			KEY:Prehensile		TYPE:Weapon.Melee								COST:2500	VISIBLE:QUALIFY	SOURCEPAGE:p.215																						PRETYPE:2,Enhancement,PrehensileOK													SPROP:as swift action, whip can be used as grappling hook; spend 1 panache to increase reach to 20 ft. for 1 attack, and can use the whip with precise strike
-Sacred			KEY:Sacred			TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.215																						PRETYPE:2,Enhancement,Weapon														SPROP:acts as holy symbol; if wielder has blessings class feature, when channeling energy can choose one ally or ally's weapon within the area to get one of his minor blessings at a cost of one use of that blessing
-Sneaky			KEY:Sneaky			TYPE:Weapon.Melee								COST:5000	VISIBLE:QUALIFY	SOURCEPAGE:p.215																						PRETYPE:3,Enhancement,Weapon,Melee													SPROP:1/day designate foe as prey: get sneak attack damage on next attack; use 2/day if user is rogue or slayer with hunter's surprise talent
+Brawling			KEY:Special Ability ~ Brawling ~ Weapon			TYPE:Weapon.Bludgeoning.Light				PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PREMULT:3,[PRETYPE:1,Enhancement],[PRETYPE:1,Weapon],[PREMULT:1,[PRETYPE:2,Light,Bludgeoning],[PRETYPE:1,BrawlingAbilityOK]]																			SPROP:wielder gains enhancement bonus on combat maneuver checks equal to the enhancement bonus of the weapon
+Confounding			KEY:Special Ability ~ Confounding ~ Weapon		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212																						PRETYPE:2,Enhancement,Weapon														SPROP:wielder can spend 1 panache point when confirming critical to attempt disarm, reposition, sunder, or trip, as an immediate action with no attack of opportunity provoked, with a enhancement bonus equal to the weapon's enhancement bonus
+Distracting			KEY:Special Ability ~ Distracting ~ Weapon		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.213																						PRETYPE:2,Enhancement,Weapon														SPROP:increase target's concentration DC by 5 for 1 minute; can't be affected again for 24 hours
+Distracting (Greater)	KEY:Special Ability ~ Distracting / Greater ~ Weapon	TYPE:Weapon							PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.213																						PRETYPE:2,Enhancement,Weapon														SPROP:increase target's concentration DC by 10 for 1 minute; can't be affected again for 24 hours
+Exclusionary		KEY:Special Ability ~ Exclusionary ~ Weapon		TYPE:Weapon									COST:3750	VISIBLE:QUALIFY	SOURCEPAGE:p.213																						PRETYPE:2,Enhancement,Weapon														SPROP:can choose not to include target in channel ability for next minute; maximum of Wisdom bonus plus enhancement bonus exclusions
+Exhausting			KEY:Special Ability ~ Exhausting ~ Melee			TYPE:Weapon.Melee						PLUS:3			VISIBLE:QUALIFY	SOURCEPAGE:p.213																						PRETYPE:3,Enhancement,Weapon,Melee													SPROP:on critical hit, wielder can forgo additional damage to cause exhaustion
+Fate-Stealing		KEY:Special Ability ~ Fate-Stealing ~ Melee		TYPE:Weapon.Melee						PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214																						PRETYPE:3,Enhancement,Weapon,Melee													SPROP:steal 1 grit or panache point from target as swift action
+Flamboyant			KEY:Special Ability ~ Flamboyant ~ Melee			TYPE:Weapon.Melee.Piercing.Light.OneHanded	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214																						PRETYPE:4,Enhancement,Weapon,Melee,Piercing	PRETYPE:1,Light,OneHanded	!PRETYPE:1,EQMOD=FLAMB_GTR	SPROP:has 1 panache point
+Flamboyant (Greater)	KEY:Special Ability ~ Flamboyant / Greater ~ Melee	TYPE:Weapon.Melee.Piercing.Light.OneHanded	PLUS:3			VISIBLE:QUALIFY	SOURCEPAGE:p.214																						PRETYPE:4,Enhancement,Weapon,Melee,Piercing	PRETYPE:1,Light,OneHanded	!PRETYPE:1,EQMOD=FLAMB		SPROP:has 3 panache points
+Flying			KEY:Special Ability ~ Flying ~ Melee			TYPE:Weapon.Melee						PLUS:5			VISIBLE:QUALIFY	SOURCEPAGE:p.214																						PRETYPE:3,Enhancement,Weapon,Melee													SPROP:as dancing but 30 ft. away; weapon returns to wielder as swift action (500 ft./rd), attempts sunder to return if needed
+Fortuitous			KEY:Special Ability ~ Fortuitous ~ Melee			TYPE:Weapon.Melee						PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214																						PRETYPE:3,Enhancement,Weapon,Melee													SPROP:if first attack of opportunity hits, can make second at -5 penalty
+Inspired			KEY:Special Ability ~ Inspired ~ Weapon			TYPE:Weapon.Simple					PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214																						PRETYPE:2,Enhancement,Weapon	PRETYPE:1,Simple,InspiredOK									SPROP:investigator need only spend one use of inspiration to augment attack rolls; add twice result to damage with combat inspiration talent
+Phantom Ammunition	KEY:Special Ability ~ Phantom Ammunition ~ Ammunition	TYPE:Weapon.Ammunition							COST:2000	VISIBLE:QUALIFY	SOURCEPAGE:p.215																						PRETYPE:2,Enhancement,Ammunition													SPROP:ammunition dissolves and wound closes 1 round after fired
+Prehensile			KEY:Special Ability ~ Prehensile ~ Melee			TYPE:Weapon.Melee								COST:2500	VISIBLE:QUALIFY	SOURCEPAGE:p.215																						PRETYPE:2,Enhancement,PrehensileOK													SPROP:as swift action, whip can be used as grappling hook; spend 1 panache to increase reach to 20 ft. for 1 attack, and can use the whip with precise strike
+Sacred			KEY:Special Ability ~ Sacred ~ Weapon			TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.215																						PRETYPE:2,Enhancement,Weapon														SPROP:acts as holy symbol; if wielder has blessings class feature, when channeling energy can choose one ally or ally's weapon within the area to get one of his minor blessings at a cost of one use of that blessing
+Sneaky			KEY:Special Ability ~ Sneaky ~ Melee			TYPE:Weapon.Melee								COST:5000	VISIBLE:QUALIFY	SOURCEPAGE:p.215																						PRETYPE:3,Enhancement,Weapon,Melee													SPROP:1/day designate foe as prey: get sneak attack damage on next attack; use 2/day if user is rogue or slayer with hunter's surprise talent
 # COMMENT: CHOOSE window not showing up
-Spirit-hunting		KEY:SpiritHunting		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.215																						PRETYPE:2,Enhancement,Weapon														SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE mystery or spirit																													CHOOSE:USERINPUT|TITLE=Designated Foe	SELECT:1
+Spirit-Hunting		KEY:Special Ability ~ Spirit-Hunting ~ Weapon		TYPE:Weapon							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.215																						PRETYPE:2,Enhancement,Weapon														SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE mystery or spirit																													CHOOSE:ABILITY|Special Ability|TYPE=Oracle Mysteries|TYPE=ShamanSpirit|TITLE=Designated Foe			SELECT:1
 
 
 ###Block: Amulet of Mighty Fists
-# Modifier Name		Unique Key				Type					Plus		Cost		Visible		Source Page		Required Type									Prohibited Type			Special Property																																					Choose						Selections
-Answering			KEY:Answering_AMF			TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:2,Enhancement,Weapon												SPROP:Enhancement bonus increases by 4 (to a max of 5) when wielder is using the opportune parry and riposte deed
+# Modifier Name														Unique Key											Type					Plus		Cost		Visible		Source Page		Required Type														Prohibited Type			Special Property																																					Choose																	Selections
+Answering															KEY:Special Ability ~ Answering ~ Amulet of Mighty Fists			TYPE:Amulet of Mighty Fists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:2,Enhancement,Weapon																	SPROP:Enhancement bonus increases by 4 (to a max of 5) when wielder is using the opportune parry and riposte deed
 # COMMENT: CHOOSE window not showing up
-Blood-hunting		KEY:BloodHunting_AMF		TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE bloodline																												CHOOSE:USERINPUT|TITLE=Designated Foe	SELECT:1
-Bloodsong			KEY:Bloodsong_AMF			TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:weapon gains keen ability when wielder benefits from raging song; gain 1d10 temporary hit points if wearer confirms critical while under raging song (2d10 if crit multiplier is x3, 3d10 if crit multiplier is x4)
+Blood-Hunting														KEY:Special Ability ~ Blood-Hunting ~ Amulet of Mighty Fists		TYPE:Amulet of Mighty Fists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base											SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE bloodline																												CHOOSE:ABILITY|Special Ability|TYPE=Sorcerer Bloodline|TYPE=Bloodrager Bloodlines|TITLE=Designated Foe	SELECT:1
+Bloodsong															KEY:Special Ability ~ Bloodsong ~ Amulet of Mighty Fists			TYPE:Amulet of Mighty Fists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base											SPROP:weapon gains keen ability when wielder benefits from raging song; gain 1d10 temporary hit points if wearer confirms critical while under raging song (2d10 if crit multiplier is x3, 3d10 if crit multiplier is x4)
 # COMMENT: Can CMB be bonused based on the plus of the weapon?
-Brawling			KEY:Brawling_AMF			TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:wielder gains enhancement bonus on combat maneuver checks equal to the enhancement bonus of the weapon
-Confounding			KEY:Confounding_AMF		TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:wielder can spend 1 panache point when confirming critical to attempt disarm, reposition, sunder, or trip, as an immediate action with no attack of opportunity provoked, with a bonus equal to the weapon's enhancement bonus
-Distracting			KEY:Distracting_AMF		TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.213	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:increase target's concentration DC by 5 for 1 minute; can't be affected again for 24 hours
-Distracting (Greater)	KEY:Distracting_Greater_AMF	TYPE:AmuletOfMightyFists	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.213	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:increase target's concentration DC by 10 for 1 minute; can't be affected again for 24 hours
-Exclusionary		KEY:Exclusionary_AMF		TYPE:AmuletOfMightyFists			COST:3750	VISIBLE:QUALIFY	SOURCEPAGE:p.213	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:can choose not to include target in channel ability for next minute; maximum of Wisdom bonus plus enhancement bonus exclusions
-Exhausting			KEY:Exhausting_AMF		TYPE:AmuletOfMightyFists	PLUS:3			VISIBLE:QUALIFY	SOURCEPAGE:p.213	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:on critical hit, wielder can forgo additional damage to cause exhaustion
-Fate-stealing		KEY:FateStealing_AMF		TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:steal 1 grit or panache point from target as swift action
-Flamboyant			KEY:Flamboyant_AMF		TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214	PRETYPE:1,EQMOD=MightyFist_AMF						!PRETYPE:1,EQMOD=FLAMB_GTR	SPROP:has 1 panache point
-Flamboyant (Greater)	KEY:Flamboyant_Greater_AMF	TYPE:AmuletOfMightyFists	PLUS:3			VISIBLE:QUALIFY	SOURCEPAGE:p.214	PRETYPE:1,EQMOD=MightyFist_AMF	PRETYPE:1,Light,OneHanded	!PRETYPE:1,EQMOD=FLAMB		SPROP:has 3 panache points
-Flying			KEY:Flying_AMF			TYPE:AmuletOfMightyFists	PLUS:5			VISIBLE:QUALIFY	SOURCEPAGE:p.214	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:as dancing but 30 ft. away; weapon returns to wielder as swift action (500 ft./rd), attempts sunder to return if needed
-Fortuitous			KEY:Fortuitous_AMF		TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:if first attack of opportunity hits, can make second at -5 penalty
-Inspired			KEY:Inspired_AMF			TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:investigator need only spend one use of inspiration to augment attack rolls; add twice result to damage with combat inspiration talent
-Sacred			KEY:Sacred_AMF			TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.215	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:acts as holy symbol; if wielder has blessings class feature, when channeling energy can choose one ally or ally's weapon within the area to get one of his minor blessings at a cost of one use of that blessing
-Sneaky			KEY:Sneaky_AMF			TYPE:AmuletOfMightyFists			COST:5000	VISIBLE:QUALIFY	SOURCEPAGE:p.215	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:1/day designate foe as prey: get sneak attack damage on next attack; use 2/day if user is rogue or slayer with hunter's surprise talent
+Brawling															KEY:Special Ability ~ Brawling ~ Amulet of Mighty Fists			TYPE:Amulet of Mighty Fists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base											SPROP:wielder gains enhancement bonus on combat maneuver checks equal to the enhancement bonus of the weapon
+Confounding															KEY:Special Ability ~ Confounding ~ Amulet of Mighty Fists			TYPE:Amulet of Mighty Fists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.212	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base											SPROP:wielder can spend 1 panache point when confirming critical to attempt disarm, reposition, sunder, or trip, as an immediate action with no attack of opportunity provoked, with a bonus equal to the weapon's enhancement bonus
+Distracting															KEY:Special Ability ~ Distracting ~ Amulet of Mighty Fists			TYPE:Amulet of Mighty Fists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.213	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base											SPROP:increase target's concentration DC by 5 for 1 minute; can't be affected again for 24 hours
+Distracting (Greater)													KEY:Special Ability ~ Distracting / Greater ~ Amulet of Mighty Fists	TYPE:Amulet of Mighty Fists	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.213	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base											SPROP:increase target's concentration DC by 10 for 1 minute; can't be affected again for 24 hours
+Exclusionary														KEY:Special Ability ~ Exclusionary ~ Amulet of Mighty Fists			TYPE:Amulet of Mighty Fists			COST:3750	VISIBLE:QUALIFY	SOURCEPAGE:p.213	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base											SPROP:can choose not to include target in channel ability for next minute; maximum of Wisdom bonus plus enhancement bonus exclusions
+Exhausting															KEY:Special Ability ~ Exhausting ~ Amulet of Mighty Fists			TYPE:Amulet of Mighty Fists	PLUS:3			VISIBLE:QUALIFY	SOURCEPAGE:p.213	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base											SPROP:on critical hit, wielder can forgo additional damage to cause exhaustion
+Fate-Stealing														KEY:Special Ability ~ Fate-Stealing ~ Amulet of Mighty Fists		TYPE:Amulet of Mighty Fists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base											SPROP:steal 1 grit or panache point from target as swift action
+Flamboyant															KEY:Special Ability ~ Flamboyant ~ Amulet of Mighty Fists			TYPE:Amulet of Mighty Fists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base						!PRETYPE:1,EQMOD=FLAMB_GTR	SPROP:has 1 panache point
+Flamboyant (Greater)													KEY:Special Ability ~ Flamboyant / Greater ~ Amulet of Mighty Fists	TYPE:Amulet of Mighty Fists	PLUS:3			VISIBLE:QUALIFY	SOURCEPAGE:p.214	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base	PRETYPE:1,Light,OneHanded	!PRETYPE:1,EQMOD=FLAMB		SPROP:has 3 panache points
+Flying															KEY:Special Ability ~ Flying ~ Amulet of Mighty Fists				TYPE:Amulet of Mighty Fists	PLUS:5			VISIBLE:QUALIFY	SOURCEPAGE:p.214	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base											SPROP:as dancing but 30 ft. away; weapon returns to wielder as swift action (500 ft./rd), attempts sunder to return if needed
+Fortuitous															KEY:Special Ability ~ Fortuitous ~ Amulet of Mighty Fists			TYPE:Amulet of Mighty Fists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base											SPROP:if first attack of opportunity hits, can make second at -5 penalty
+Inspired															KEY:Special Ability ~ Inspired ~ Amulet of Mighty Fists			TYPE:Amulet of Mighty Fists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.214	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base											SPROP:investigator need only spend one use of inspiration to augment attack rolls; add twice result to damage with combat inspiration talent
+Sacred															KEY:Special Ability ~ Sacred ~ Amulet of Mighty Fists				TYPE:Amulet of Mighty Fists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.215	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base											SPROP:acts as holy symbol; if wielder has blessings class feature, when channeling energy can choose one ally or ally's weapon within the area to get one of his minor blessings at a cost of one use of that blessing
+Sneaky															KEY:Special Ability ~ Sneaky ~ Amulet of Mighty Fists				TYPE:Amulet of Mighty Fists			COST:5000	VISIBLE:QUALIFY	SOURCEPAGE:p.215	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base											SPROP:1/day designate foe as prey: get sneak attack damage on next attack; use 2/day if user is rogue or slayer with hunter's surprise talent
 # COMMENT: CHOOSE window not showing up
-Spirit-hunting		KEY:SpiritHunting_AMF		TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.215	PRETYPE:1,EQMOD=MightyFist_AMF											SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE mystery or spirit																											CHOOSE:USERINPUT|TITLE=Designated Foe	SELECT:1
+Spirit-Hunting														KEY:Special Ability ~ Spirit-Hunting ~ Amulet of Mighty Fists		TYPE:Amulet of Mighty Fists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.215	PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base											SPROP:+2 enhancement, +2d6 damage against foe with %CHOICE mystery or spirit																											CHOOSE:ABILITY|Special Ability|TYPE=Oracle Mysteries|TYPE=ShamanSpirit|TITLE=Designated Foe			SELECT:1
 
 
 #
 # End
 #
+
+
+
+
+#Old KEYs
+Special Ability ~ Amorphous ~ Armor.COPY=Amorphous																													VISIBLE:NO
+Special Ability ~ Burdenless ~ Armor.COPY=Burdenless																													VISIBLE:NO
+Special Ability ~ Calming ~ Armor.COPY=Calming																														VISIBLE:NO
+Special Ability ~ Jarring ~ Armor.COPY=Jarring																														VISIBLE:NO
+Special Ability ~ Restful ~ Armor.COPY=Restful																														VISIBLE:NO
+Special Ability ~ Sensing ~ Armor.COPY=Sensing																														VISIBLE:NO
+Special Ability ~ Spell Dodging ~ Armor.COPY=Spell_Dodging																												VISIBLE:NO
+Special Ability ~ Spiteful ~ Armor.COPY=Spiteful																													VISIBLE:NO
+Special Ability ~ Trackless ~ Armor.COPY=Trackless																													VISIBLE:NO
+Special Ability ~ Vouchsafing ~ Armor.COPY=Vouchsafing																												VISIBLE:NO
+Special Ability ~ Answering ~ Weapon.COPY=Answering																													VISIBLE:NO
+Special Ability ~ Blood-Hunting ~ Weapon.COPY=BloodHunting																												VISIBLE:NO
+Special Ability ~ Bloodsong ~ Weapon.COPY=Bloodsong																													VISIBLE:NO
+Special Ability ~ Brawling ~ Weapon.COPY=Brawling																													VISIBLE:NO
+Special Ability ~ Confounding ~ Weapon.COPY=Confounding																												VISIBLE:NO
+Special Ability ~ Distracting ~ Weapon.COPY=Distracting																												VISIBLE:NO
+Special Ability ~ Distracting / Greater ~ Weapon.COPY=Distracting_Greater																									VISIBLE:NO
+Special Ability ~ Exclusionary ~ Weapon.COPY=Exclusionary																												VISIBLE:NO
+Special Ability ~ Exhausting ~ Melee.COPY=Exhausting																													VISIBLE:NO
+Special Ability ~ Fate-Stealing ~ Melee.COPY=FateStealing																												VISIBLE:NO
+Special Ability ~ Flamboyant ~ Melee.COPY=Flamboyant																													VISIBLE:NO
+Special Ability ~ Flamboyant / Greater ~ Melee.COPY=Flamboyant_Greater																										VISIBLE:NO
+Special Ability ~ Flying ~ Melee.COPY=Flying																														VISIBLE:NO
+Special Ability ~ Fortuitous ~ Melee.COPY=Fortuitous																													VISIBLE:NO
+Special Ability ~ Inspired ~ Weapon.COPY=Inspired																													VISIBLE:NO
+Special Ability ~ Phantom Ammunition ~ Ammunition.COPY=Phantom_Ammunition																									VISIBLE:NO
+Special Ability ~ Prehensile ~ Melee.COPY=Prehensile																													VISIBLE:NO
+Special Ability ~ Sacred ~ Weapon.COPY=Sacred																														VISIBLE:NO
+Special Ability ~ Sneaky ~ Melee.COPY=Sneaky																														VISIBLE:NO
+Special Ability ~ Spirit-Hunting ~ Weapon.COPY=SpiritHunting																											VISIBLE:NO
+Special Ability ~ Answering ~ Amulet of Mighty Fists.COPY=Answering_AMF																										VISIBLE:NO
+Special Ability ~ Blood-Hunting ~ Amulet of Mighty Fists.COPY=BloodHunting_AMF																								VISIBLE:NO
+Special Ability ~ Bloodsong ~ Amulet of Mighty Fists.COPY=Bloodsong_AMF																										VISIBLE:NO
+Special Ability ~ Brawling ~ Amulet of Mighty Fists.COPY=Brawling_AMF																										VISIBLE:NO
+Special Ability ~ Confounding ~ Amulet of Mighty Fists.COPY=Confounding_AMF																									VISIBLE:NO
+Special Ability ~ Distracting ~ Amulet of Mighty Fists.COPY=Distracting_AMF																									VISIBLE:NO
+Special Ability ~ Distracting / Greater ~ Amulet of Mighty Fists.COPY=Distracting_Greater_AMF																						VISIBLE:NO
+Special Ability ~ Exclusionary ~ Amulet of Mighty Fists.COPY=Exclusionary_AMF																									VISIBLE:NO
+Special Ability ~ Exhausting ~ Amulet of Mighty Fists.COPY=Exhausting_AMF																									VISIBLE:NO
+Special Ability ~ Fate-Stealing ~ Amulet of Mighty Fists.COPY=FateStealing_AMF																								VISIBLE:NO
+Special Ability ~ Flamboyant ~ Amulet of Mighty Fists.COPY=Flamboyant_AMF																									VISIBLE:NO
+Special Ability ~ Flamboyant / Greater ~ Amulet of Mighty Fists.COPY=Flamboyant_Greater_AMF																						VISIBLE:NO
+Special Ability ~ Flying ~ Amulet of Mighty Fists.COPY=Flying_AMF																											VISIBLE:NO
+Special Ability ~ Fortuitous ~ Amulet of Mighty Fists.COPY=Fortuitous_AMF																									VISIBLE:NO
+Special Ability ~ Inspired ~ Amulet of Mighty Fists.COPY=Inspired_AMF																										VISIBLE:NO
+Special Ability ~ Sacred ~ Amulet of Mighty Fists.COPY=Sacred_AMF																											VISIBLE:NO
+Special Ability ~ Sneaky ~ Amulet of Mighty Fists.COPY=Sneaky_AMF																											VISIBLE:NO
+Special Ability ~ Spirit-Hunting ~ Amulet of Mighty Fists.COPY=SpiritHunting_AMF																								VISIBLE:NO

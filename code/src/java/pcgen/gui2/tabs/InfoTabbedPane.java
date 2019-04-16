@@ -1,5 +1,4 @@
 /*
- * InfoTabbedPane.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 29, 2009, 1:00:39 PM
  */
 package pcgen.gui2.tabs;
 
@@ -48,8 +46,9 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import pcgen.base.util.DoubleKeyMap;
+import pcgen.cdom.util.CControl;
+import pcgen.core.GameMode;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.TodoFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tabs.CharacterInfoTab.ModelMap;
@@ -62,12 +61,9 @@ import pcgen.util.enumeration.Tab;
 /**
  * This class is the tabbed pane that contains all of the CharacterInfoTabs and
  * manages the models for those tabs.
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
-public final class InfoTabbedPane extends JTabbedPane
-		implements CharacterSelectionListener, ChangeListener
+public final class InfoTabbedPane extends JTabbedPane implements CharacterSelectionListener, ChangeListener
 {
 
 	public static final int SUMMARY_TAB = 0;
@@ -85,6 +81,8 @@ public final class InfoTabbedPane extends JTabbedPane
 	private final Map<CharacterFacade, Integer> tabSelectionMap;
 	private final TabModelService modelService;
 	private final List<CharacterInfoTab> fullTabList = new ArrayList<>();
+	private final DomainInfoTab domainInfoTab;
+	private int domainTabLocation;
 	private CharacterFacade currentCharacter = null;
 
 	public InfoTabbedPane()
@@ -92,6 +90,7 @@ public final class InfoTabbedPane extends JTabbedPane
 		this.stateMap = new DoubleKeyMap<>();
 		this.tabSelectionMap = new WeakHashMap<>();
 		this.modelService = new TabModelService();
+		this.domainInfoTab = new DomainInfoTab();
 		initComponent();
 	}
 
@@ -123,7 +122,8 @@ public final class InfoTabbedPane extends JTabbedPane
 		addTab(new ClassInfoTab());
 		addTab(new SkillInfoTab());
 		addTab(new AbilitiesInfoTab());
-		addTab(new DomainInfoTab());
+		domainTabLocation = getTabCount();
+		addTab(domainInfoTab);
 		addTab(new SpellsInfoTab());
 		addTab(new InventoryInfoTab());
 		addTab(new DescriptionInfoTab());
@@ -186,7 +186,7 @@ public final class InfoTabbedPane extends JTabbedPane
 	 */
 	private void updateTabsForCharacter(CharacterFacade character)
 	{
-		GameModeFacade gameMode = character.getDataSet().getGameMode();
+		GameMode gameMode = character.getDataSet().getGameMode();
 		int tabIndex = 0;
 		for (CharacterInfoTab charInfoTab : fullTabList)
 		{
@@ -216,6 +216,18 @@ public final class InfoTabbedPane extends JTabbedPane
 				}
 
 			}
+		}
+		if (character.isFeatureEnabled(CControl.DOMAINFEATURE))
+		{
+			TabTitle tabTitle = domainInfoTab.getTabTitle();
+			String title = (String) tabTitle.getValue(TabTitle.TITLE);
+			String tooltip = (String) tabTitle.getValue(TabTitle.TOOLTIP);
+			Icon icon = (Icon) tabTitle.getValue(TabTitle.ICON);
+			insertTab(title, icon, domainInfoTab, tooltip, domainTabLocation);
+		}
+		else
+		{
+			remove(domainInfoTab);
 		}
 	}
 
@@ -257,7 +269,6 @@ public final class InfoTabbedPane extends JTabbedPane
 				if (dest[2].equals(tabPane.getTitleAt(i)))
 				{
 					tabPane.setSelectedIndex(i);
-					//selTab = tab.getComponent(i);
 					break;
 				}
 			}
@@ -270,9 +281,8 @@ public final class InfoTabbedPane extends JTabbedPane
 		else
 		{
 			String message = LanguageBundle.getFormattedString("in_todoUseField", dest[1]); //$NON-NLS-1$
-			JOptionPane.showMessageDialog(selTab, message,
-					LanguageBundle.getString("in_tipsString"), //$NON-NLS-1$
-					JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(selTab, message, LanguageBundle.getString("in_tipsString"), //$NON-NLS-1$
+				JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 
@@ -301,7 +311,7 @@ public final class InfoTabbedPane extends JTabbedPane
 	 * This class handles the concurrent processing of storing and restoring tab
 	 * models. Conceptually this process consists of two separate processing
 	 * queues. One queue is the orderly execution of restoring tab models which
-	 * takes place in a a semi-concurrent manner. Each tab has its models
+	 * takes place in a semi-concurrent manner. Each tab has its models
 	 * restored as a separate task on the EventDispatchThread which allows for
 	 * the UI to remain responsive to other events. If the user selects a
 	 * different character while tab models are being restored then the model
@@ -355,15 +365,7 @@ public final class InfoTabbedPane extends JTabbedPane
 		{
 			if (timingMap.containsKey(o1) && timingMap.containsKey(o2))
 			{
-				long dif = timingMap.get(o1) - timingMap.get(o2);
-				if (dif < 0)
-				{
-					return -1;
-				}
-				if (dif > 0)
-				{
-					return 1;
-				}
+				return Long.compare(timingMap.get(o1), timingMap.get(o2));
 			}
 			else if (timingMap.containsKey(o1))
 			{
@@ -478,7 +480,7 @@ public final class InfoTabbedPane extends JTabbedPane
 	private class TabActionListener implements PropertyChangeListener
 	{
 
-		private Component component;
+		private final Component component;
 
 		public TabActionListener(Component component)
 		{

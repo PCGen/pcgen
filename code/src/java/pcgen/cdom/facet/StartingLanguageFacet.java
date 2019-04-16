@@ -34,7 +34,6 @@ import pcgen.core.Language;
  * StartingLanguageFacet is a Facet that tracks the Languages that are available
  * to a Player Character from the LANGBONUS token.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class StartingLanguageFacet extends AbstractSourcedListFacet<CharID, Language>
 		implements DataFacetChangeListener<CharID, CDOMObject>
@@ -57,15 +56,12 @@ public class StartingLanguageFacet extends AbstractSourcedListFacet<CharID, Lang
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		Collection<CDOMReference<Language>> list = cdo
-				.getListMods(Language.STARTING_LIST);
+		Collection<CDOMReference<Language>> list = cdo.getListMods(Language.STARTING_LIST);
 		if (list != null)
 		{
 			CharID id = dfce.getCharID();
@@ -88,8 +84,6 @@ public class StartingLanguageFacet extends AbstractSourcedListFacet<CharID, Lang
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)

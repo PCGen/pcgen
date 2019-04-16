@@ -1,9 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Thu May 12 14:50:48 2016 -- reformated by PCGen PrettyLST v6.06.00
-# Deity Name		Product Identity?	Domains													Source Page
-Dahak.MOD			NAMEISPI:YES	DOMAINS:Corruption Subdomain,Greed Subdomain,Hatred Subdomain|PREALIGN:NE,CN,CE	SOURCEPAGE:p.18,19
-Fumeiyoshi.MOD		NAMEISPI:YES	DOMAINS:Hatred Subdomain|PREALIGN:TN,NE,CE,LE							SOURCEPAGE:p.18,19
-General Susumu.MOD	NAMEISPI:YES	DOMAINS:Corruption Subdomain|PREALIGN:LN,LE,NE							SOURCEPAGE:p.18,19
-Gyronna.MOD			NAMEISPI:YES	DOMAINS:Corruption Subdomain,Hatred Subdomain|PREALIGN:NE,CN,CE				SOURCEPAGE:p.18,19
-Lady Nanbyo.MOD		NAMEISPI:YES	DOMAINS:Hatred Subdomain|PREALIGN:CN,CE,NE							SOURCEPAGE:p.18,19
-Lao Shu Po.MOD		NAMEISPI:YES	DOMAINS:Greed Subdomain|PREALIGN:TN,NE,LE,CE							SOURCEPAGE:p.18,19
-Yaezhing.MOD		NAMEISPI:YES	DOMAINS:Demodand Subdomain (Evil),Demodand Subdomain (Chaos)|PREALIGN:LE,LN,NE	SOURCEPAGE:p.18,19
+# Deity Name	Product Identity?	Domains													Source Page
+Dahak.MOD		NAMEISPI:YES	DOMAINS:Corruption Subdomain,Greed Subdomain,Hatred Subdomain|PREALIGN:NE,CN,CE	SOURCEPAGE:p.18,19

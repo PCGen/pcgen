@@ -1,19 +1,21 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Weapon Master's Handbook	SOURCESHORT:WMH	SOURCEWEB:http://paizo.com/products/btpy9hdy	SOURCEDATE:2015-12
 
-# Modifier Name	Type		Plus		Cost		Visible		Source Page		Required Type
-Driving		TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Ranged	PRETYPE:1,Enhancement
-Heart-Piercing	TYPE:Weapon	PLUS:5			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Ranged,Piercing	PRETYPE:1,Enhancement
-Leveraging		TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
-Liberating		TYPE:Weapon			COST:7000	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Quaking		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Melee,Bludgeoning	PRETYPE:1,Enhancement
-Sharding		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee,Thrown	PRETYPE:1,Enhancement
-Vampiric		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
+# Modifier Name	Unique Key							Type		Plus		Cost		Visible		Source Page		Required Type
+Driving		KEY:Special Ability ~ Driving ~ Weapon		TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Ranged	PRETYPE:1,Enhancement
+Heart-Piercing	KEY:Special Ability ~ Heart-Piercing ~ Weapon	TYPE:Weapon	PLUS:5			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Ranged,Piercing	PRETYPE:1,Enhancement
+Leveraging		KEY:Special Ability ~ Leveraging ~ Weapon		TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
+Liberating		KEY:Special Ability ~ Liberating ~ Weapon		TYPE:Weapon			COST:7000	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Quaking		KEY:Special Ability ~ Quaking ~ Weapon		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Melee,Bludgeoning	PRETYPE:1,Enhancement
+Sharding		KEY:Special Ability ~ Sharding ~ Weapon		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee,Thrown	PRETYPE:1,Enhancement
+Vampiric		KEY:Special Ability ~ Vampiric ~ Weapon		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
 
 
 
 ###Block: Optional Rule for custom items
 #Additional Design Points (0 DP): Increase the weapon's available Design Points by 1 and its gp price by 15. This quality can be selected twice for one-handed weapons and ranged weapons, or three times for twohanded weapons.
-#Additional Damage Type (Varies): Select an additional type of damage (B, P, or S). The weapon deals the selected type of damage either separately from its original damage type (such as �P or S�) or simultaneously (such as �P and S�) . This quality costs 1 DP if the types apply separately and 3 DP if they apply simultaneously.
+#Additional Damage Type (Varies): Select an additional type of damage (B, P, or S). The weapon deals the selected type of damage either separately from its original damage type (such as P or S) or simultaneously (such as P and S) . This quality costs 1 DP if the types apply separately and 3 DP if they apply simultaneously.
 #Aerodynamic (1 DP): The weapon has a 10-foot range and can be thrown up to 5 range increments. Only melee weapons can have this quality.
 #Attached (1 DP): The weapon is attached to the wielder's arm and cannot be disarmed. The wielder can wield or carry items in the hand to which this weapon is attached, but she takes a -2 penalty on all precision-based tasks involving that hand (such as opening locks). This penalty can be removed by increasing this quality's cost to 3 DP.
 #Concealed (1 DP): The weapon is easy to hide, granting the wielder a +2 bonus on Sleight of Hand checks to conceal it. Only light and one-handed melee weapons and ranged weapons that need one hand to fire can have this quality.
@@ -28,3 +30,16 @@ Vampiric		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	P
 #Shield (1 DP): The weapon counts as a light shield made of wood or metal and can have armor spikes (your choice). Add the gp price of the shield and any armor spikes that the weapon gains from this quality to the weapon's gp price. This quality can be added only to one-handed melee weapons.
 #Spring-Loaded (2 DP): The weapon's wielder can activate or suspend its reach as a swift action. This quality can be added only to one-handed or two-handed melee weapons with the reach special feature.
 #Strong (1 DP): The weapon's wielder gains a +2 bonus to her Combat Maneuver Defense to resist sunder combat maneuvers attempted against the weapon.
+
+
+
+
+#Old KEYs
+# Modifier Name									Visible
+Special Ability ~ Driving ~ Weapon.COPY=Driving				VISIBLE:NO
+Special Ability ~ Heart-Piercing ~ Weapon.COPY=Heart-Piercing	VISIBLE:NO
+Special Ability ~ Leveraging ~ Weapon.COPY=Leveraging			VISIBLE:NO
+Special Ability ~ Liberating ~ Weapon.COPY=Liberating			VISIBLE:NO
+Special Ability ~ Quaking ~ Weapon.COPY=Quaking				VISIBLE:NO
+Special Ability ~ Sharding ~ Weapon.COPY=Sharding			VISIBLE:NO
+Special Ability ~ Vampiric ~ Weapon.COPY=Vampiric			VISIBLE:NO

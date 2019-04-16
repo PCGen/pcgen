@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.UnencumberedArmorFacet;
@@ -24,7 +26,10 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Load;
 import plugin.lsttokens.UnencumberedmoveLst;
+
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalUnencumberedMoveArmorTest extends AbstractContentTokenTest
 {
@@ -32,8 +37,9 @@ public class GlobalUnencumberedMoveArmorTest extends AbstractContentTokenTest
 	private static UnencumberedmoveLst token = new UnencumberedmoveLst();
 	private UnencumberedArmorFacet unencArmorFacet;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		unencArmorFacet = FacetLibrary.getFacet(UnencumberedArmorFacet.class);
@@ -45,7 +51,7 @@ public class GlobalUnencumberedMoveArmorTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "LightArmor");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

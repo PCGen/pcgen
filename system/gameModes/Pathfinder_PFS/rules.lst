@@ -1,7 +1,6 @@
 #
-# Current Ver: $Revision: 24835 $
-# Last Editor: $Author: amaitland $
-# Last Edited: $Date: 2014-08-09 02:20:03 -0700 (Sat, 09 Aug 2014) $
+# Last Editor: $Author$
+# Last Edited: $Date$
 #
 #
 # This file contains Rule Checks that the user can turn on/off in the GUI
@@ -32,7 +31,7 @@ NAME:HitPointDamage			VAR:DAMAGE_HP			DEFAULT:Yes	EXCLUDE:DAMAGE_VW		DESC:Use Hi
 NAME:VitalityDamage			VAR:DAMAGE_VW			DEFAULT:No	EXCLUDE:DAMAGE_HP		DESC:Use Vitality and Wound Points
 NAME:UseFullSpellDescriptions		VAR:DisplayFullSpell		DEFAULT:No					DESC:Use Full Spell Descriptions
 NAME:UseFullEquipmentDescriptions	VAR:DisplayFullEquip		DEFAULT:No					DESC:Use Full Equipment Descriptions (Homebrew Support)
-NAME:UseFullAbilityDescriptions	VAR:DisplayFullAbility		DEFAULT:No					DESC:Use Full Ability Descriptions (Homebrew Support)
+NAME:UseFullAbilityDescriptions	VAR:DisplayFullAbility		DEFAULT:Yes					DESC:Use Full Ability Descriptions (Homebrew Support)
 
 #
 # The following are all hardcoded in the java code

@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens;
 
@@ -38,21 +33,14 @@ import pcgen.io.exporttoken.MovementToken;
 //MOVE.x.RATE produce the appropriate parts.
 public class MoveToken extends AbstractExportToken
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "MOVE";
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -98,13 +86,12 @@ public class MoveToken extends AbstractExportToken
 	public static String getMoveXToken(CharacterDisplay display, int moveIndex)
 	{
 		NamedValue move = display.getMovementValues().get(moveIndex);
-		return move.getName() + " "
-				+ MovementToken.getRateToken(move.getWeight());
+		return move.getName() + ' ' + MovementToken.getRateToken(move.getWeight());
 	}
 
 	public static String getSquaresToken(CharacterDisplay display, int moveIndex)
 	{
-		return Integer.toString((int) (display.getMovementValues().get(moveIndex)
-				.getWeight() / SettingsHandler.getGame().getSquareSize()));
+		return Integer.toString(
+			(int) (display.getMovementValues().get(moveIndex).getWeight() / SettingsHandler.getGame().getSquareSize()));
 	}
 }

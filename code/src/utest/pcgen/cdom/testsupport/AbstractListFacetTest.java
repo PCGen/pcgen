@@ -17,13 +17,15 @@
  */
 package pcgen.cdom.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import junit.framework.TestCase;
-
-import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -33,8 +35,11 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public abstract class AbstractListFacetTest<T>
-		extends TestCase
 {
 	protected CharID id;
 	protected CharID altid;
@@ -44,8 +49,8 @@ public abstract class AbstractListFacetTest<T>
 	private class Listener implements DataFacetChangeListener<CharID, T>
 	{
 
-		public int addEventCount;
-		public int removeEventCount;
+		private int addEventCount;
+		private int removeEventCount;
 
         @Override
 		public void dataAdded(DataFacetChangeEvent<CharID, T> dfce)
@@ -61,14 +66,21 @@ public abstract class AbstractListFacetTest<T>
 
 	}
 
-	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
 		getFacet().addDataFacetChangeListener(listener);
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		listener = null;
 	}
 
 	protected void assertEventCount(int a, int r)
@@ -106,7 +118,7 @@ public abstract class AbstractListFacetTest<T>
 			getFacet().add(null, getObject());
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -124,7 +136,7 @@ public abstract class AbstractListFacetTest<T>
 			getFacet().add(id, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -292,7 +304,7 @@ public abstract class AbstractListFacetTest<T>
 			getFacet().addAll(id, pct);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -319,7 +331,7 @@ public abstract class AbstractListFacetTest<T>
 			getFacet().remove(id, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Expected
 		}
@@ -512,7 +524,7 @@ public abstract class AbstractListFacetTest<T>
 			getFacet().removeAll(id, pct);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Expected
 		}
@@ -719,11 +731,7 @@ public abstract class AbstractListFacetTest<T>
 		{
 			TokenLibrary.addBonusClass(clazz);
 		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			e.printStackTrace();
 		}

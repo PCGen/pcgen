@@ -1,5 +1,4 @@
 /**
- * DataSetTest.java
  * Copyright James Dempsey, 2010
  *
  * This library is free software; you can redistribute it and/or
@@ -15,37 +14,36 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17/01/2011 9:05:16 PM
- *
- * $Id$
  */
 package pcgen.core;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 
-import junit.framework.TestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.core.prereq.Prerequisite;
 import pcgen.facade.core.AbilityFacade;
-import pcgen.facade.core.BodyStructureFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
-import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreAbilityParser;
 
+import org.junit.jupiter.api.Test;
+
+
 /**
- * The Class <code>DataSetTest</code> check that the Dataset class is functioning 
+ * The Class {@code DataSetTest} check that the Dataset class is functioning
  * correctly.
- *
- * <br/>
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-@SuppressWarnings("nls")
-public class DataSetTest extends TestCase
+class DataSetTest
 {
 
+	@Test
 	public final void testGetEquipmentLocationsAll()
 	{
 		// if getEquipmentLocations is done first, the defaultonly test fails.
@@ -57,55 +55,67 @@ public class DataSetTest extends TestCase
 	 * Test method for {@link pcgen.core.DataSet#getEquipmentLocations()}. Validate 
 	 * that the default locations are added.
 	 */
-	public final void getEquipmentLocationsDefaultOnly()
+	public static void getEquipmentLocationsDefaultOnly()
 	{
 		DataSet dataset = new DataSet(Globals.getContext(), SettingsHandler.getGame(), new DefaultListFacade<>());
-		ListFacade<BodyStructureFacade> locations = dataset.getEquipmentLocations();
-		assertNotNull("Body Structure should not be null", locations);
-		assertTrue("Expected to find Equipped", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_EQUIPPED));
-		assertTrue("Expected to find Carried", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_CARRIED));
-		assertTrue("Expected to find Not Carried", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_NOTCARRIED));
-		assertEquals("Incorrect size of body structures list", 3, locations.getSize());
+		ListFacade<BodyStructure> locations = dataset.getEquipmentLocations();
+		assertNotNull(locations, "Body Structure should not be null");
+		assertTrue(
+				checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_EQUIPPED),
+				"Expected to find Equipped"
+		);
+		assertTrue(
+				checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_CARRIED),
+				"Expected to find Carried"
+		);
+		assertTrue(
+				checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_NOTCARRIED),
+				"Expected to find Not Carried"
+		);
+		assertEquals(3, locations.getSize(), "Incorrect size of body structures list");
 	}
 
 	/**
 	 * Test method for {@link pcgen.core.DataSet#getEquipmentLocations()}. Validate 
 	 * that known body structures get added.
 	 */
-	public final void getEquipmentLocations()
+	public static void getEquipmentLocations()
 	{
 		final String structName = "TestStruct";
 		SystemCollections.addToBodyStructureList(structName, SettingsHandler.getGame().getName());
 		DataSet dataset =
 				new DataSet(Globals.getContext(), SettingsHandler.getGame(),
 						new DefaultListFacade<>());
-		ListFacade<BodyStructureFacade> locations =
+		ListFacade<BodyStructure> locations =
 				dataset.getEquipmentLocations();
-		assertNotNull("Body Structure should not be null", locations);
+		assertNotNull(locations, "Body Structure should not be null");
 		// TODO i18n this. It should be the same value as structname, not the localized value.
 		assertTrue(
-			"Expected to find added body structure '" + structName + "'",
-			checkBodyStructurePresent(locations, "Teststruct"));
-		assertTrue("Expected to find Equipped", checkBodyStructurePresent(
-			locations, Constants.EQUIP_LOCATION_EQUIPPED));
-		assertTrue("Expected to find Carried", checkBodyStructurePresent(
-			locations, Constants.EQUIP_LOCATION_CARRIED));
-		assertTrue("Expected to find Not Carried", checkBodyStructurePresent(
-			locations, Constants.EQUIP_LOCATION_NOTCARRIED));
-		assertEquals("Incorrect size of body structures list", 4, locations
-			.getSize());
+				checkBodyStructurePresent(locations, "Teststruct"),
+				"Expected to find added body structure '" + structName + "'"
+		);
+		assertTrue(checkBodyStructurePresent(
+				locations, Constants.EQUIP_LOCATION_EQUIPPED), "Expected to find Equipped");
+		assertTrue(checkBodyStructurePresent(
+				locations, Constants.EQUIP_LOCATION_CARRIED), "Expected to find Carried");
+		assertTrue(checkBodyStructurePresent(
+				locations, Constants.EQUIP_LOCATION_NOTCARRIED), "Expected to find Not Carried");
+		assertEquals(4, locations
+				.getSize(), "Incorrect size of body structures list");
 	}
 
 	/**
 	 * Verify the getPrereqAbilities method is functioning correctly.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testGetPrereqAbilities() throws Exception
+	@Test
+	public void testGetPrereqAbilities() throws PersistenceLayerException
 	{
-		Ability acrobatics = TestHelper.makeAbility("Acrobatics", AbilityCategory.FEAT, "general");
-		Ability dodge = TestHelper.makeAbility("Dodge", AbilityCategory.FEAT, "general");
-		Ability mobility = TestHelper.makeAbility("Mobility", AbilityCategory.FEAT, "general");
-		Ability springAttack = TestHelper.makeAbility("Spring Attack", AbilityCategory.FEAT, "general");
+		Ability acrobatics = TestHelper.makeAbility("Acrobatics", BuildUtilities.getFeatCat(), "general");
+		Ability dodge = TestHelper.makeAbility("Dodge", BuildUtilities.getFeatCat(), "general");
+		Ability mobility = TestHelper.makeAbility("Mobility", BuildUtilities.getFeatCat(), "general");
+		Ability springAttack = TestHelper.makeAbility("Spring Attack", BuildUtilities.getFeatCat(), "general");
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq =
 				parser.parse("ability", "1,CATEGORY=FEAT,KEY_Dodge",
@@ -120,27 +130,27 @@ public class DataSetTest extends TestCase
 			new DataSet(Globals.getContext(), SettingsHandler.getGame(),
 					new DefaultListFacade<>());
 		List<AbilityFacade> abilities = dataset.getPrereqAbilities(acrobatics);
-		assertEquals("Acrobatics prereq should be empty", 0, abilities.size());
+		assertEquals(0, abilities.size(), "Acrobatics prereq should be empty");
 		abilities = dataset.getPrereqAbilities(dodge);
-		assertEquals("Dodge prereq should be empty", 0, abilities.size());
+		assertEquals(0, abilities.size(), "Dodge prereq should be empty");
 		abilities = dataset.getPrereqAbilities(mobility);
-		assertEquals("Mobility prereq should not be empty", 1, abilities.size());
-		assertEquals("Mobility prereq should be dodge", dodge, abilities.get(0));
+		assertEquals(1, abilities.size(), "Mobility prereq should not be empty");
+		assertEquals(dodge, abilities.get(0), "Mobility prereq should be dodge");
 		abilities = dataset.getPrereqAbilities(springAttack);
-		assertEquals("Spring Attack prereq should not be empty", 2, abilities.size());
-		assertEquals("Spring Attack prereq should be dodge", dodge, abilities.get(0));
-		assertEquals("Spring Attack prereq should be mobility", mobility, abilities.get(1));
+		assertEquals(2, abilities.size(), "Spring Attack prereq should not be empty");
+		assertEquals(dodge, abilities.get(0), "Spring Attack prereq should be dodge");
+		assertEquals(mobility, abilities.get(1), "Spring Attack prereq should be mobility");
 	}
 	
 	/**
 	 * @param locations
 	 * @param name 
 	 */
-	private boolean checkBodyStructurePresent(
-		ListFacade<BodyStructureFacade> locations, String name)
+	private static boolean checkBodyStructurePresent(
+			ListFacade<BodyStructure> locations, String name)
 	{
 		boolean foundRec = false;
-		for (BodyStructureFacade equipmentLocFacade : locations)
+		for (BodyStructure equipmentLocFacade : locations)
 		{
 			if (equipmentLocFacade.toString().equals(name))
 			{

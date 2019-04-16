@@ -17,33 +17,24 @@
  */
 package plugin.lsttokens;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
 public class PreTokenTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<ConcretePrereqObject> token = new PreLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
-
-	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-	}
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()
@@ -58,27 +49,33 @@ public class PreTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<ConcretePrereqObject> getToken()
+	public CDOMPrimaryToken<ConcretePrereqObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<ConcretePrereqObject> getWriteToken()
 	{
 		return token;
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOther() throws PersistenceLayerException
+	public void testInvalidOther()
 	{
 		assertFalse(parse("SPELL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidTypeBarOnly() throws PersistenceLayerException
+	public void testValidTypeBarOnly()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR));
 	}
@@ -101,11 +98,11 @@ public class PreTokenTest extends AbstractGlobalTokenTestCase
 	protected String getLegalValue()
 	{
 		//Not worth it, nothing ever unparses
-		return null;
+		return Constants.LST_DOT_CLEAR;
 	}
 
 	@Override
-	public void testOverwrite() throws PersistenceLayerException
+	public void testOverwrite()
 	{
 		//Can't be done, nothing ever unparses
 	}

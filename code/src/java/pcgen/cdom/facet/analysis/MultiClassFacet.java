@@ -16,9 +16,9 @@
  */
 package pcgen.cdom.facet.analysis;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 import pcgen.cdom.base.CDOMObjectUtilities;
@@ -31,7 +31,6 @@ import pcgen.core.PCClass;
  * Performs calculations related to multi-class characters (e.g. XP penalty
  * multiplier)
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class MultiClassFacet
 {
@@ -53,16 +52,13 @@ public class MultiClassFacet
 	public double getMultiClassXPMultiplier(CharID id)
 	{
 		Set<PCClass> unfavoredClasses = new HashSet<>();
-		SortedSet<PCClass> favored = new TreeSet<>(
-                CDOMObjectUtilities.CDOM_SORTER);
+		Collection<PCClass> favored = new TreeSet<>(CDOMObjectUtilities::compareKeys);
 		favored.addAll(favoredClassFacet.getSet(id));
-		SortedSet<PCClass> aList = favored;
 		boolean hasAny = hasAnyFavoredClassFacet.contains(id, Boolean.TRUE);
 		PCClass maxClass = null;
 		PCClass secondClass = null;
 		int maxClassLevel = 0;
 		int secondClassLevel = 0;
-		int xpPenalty = 0;
 		double xpMultiplier = 1.0;
 
 		for (PCClass pcClass : classFacet.getSet(id))
@@ -77,7 +73,7 @@ public class MultiClassFacet
 			{
 				evalClass = pcClass.getSubClassKeyed(subClassKey);
 			}
-			if (!aList.contains(evalClass))
+			if (!favored.contains(evalClass))
 			{
 				unfavoredClasses.add(pcClass);
 
@@ -112,6 +108,7 @@ public class MultiClassFacet
 		{
 			unfavoredClasses.remove(maxClass);
 
+			int xpPenalty = 0;
 			for (PCClass aClass : unfavoredClasses)
 			{
 				if ((maxClassLevel - (classFacet.getLevel(id, aClass))) > 1)
@@ -136,8 +133,7 @@ public class MultiClassFacet
 		this.favoredClassFacet = favoredClassFacet;
 	}
 
-	public void setHasAnyFavoredClassFacet(
-		HasAnyFavoredClassFacet hasAnyFavoredClassFacet)
+	public void setHasAnyFavoredClassFacet(HasAnyFavoredClassFacet hasAnyFavoredClassFacet)
 	{
 		this.hasAnyFavoredClassFacet = hasAnyFavoredClassFacet;
 	}

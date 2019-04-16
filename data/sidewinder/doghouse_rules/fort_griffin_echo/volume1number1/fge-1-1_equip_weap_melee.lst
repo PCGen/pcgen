@@ -1,8 +1,8 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Fort Griffin Echo Vol. 1 No. 1	SOURCESHORT:FGE1-1	SOURCEWEB:http://www.doghouserules.net/echo/index.html	SOURCEDATE:2002-01
 # Original Entry by: Lone Jedi
 
-# Weapon Name				Type												Cost		Weight	Critical Hit Multiplier	Critical Hit Range	Damage	Alternate Damage		Modifier	Range		Size		Source Page
 #Archaic Weapons ------------------------------------------------------------------------------------------------
-# Equipment Name	Type									Cost		Weight	Crit Mult	Crit Range	Damage	Size		Source Page
-Lance			TYPE:Weapon.Archaic.Melee.Standard.Piercing.Wooden	COST:2	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	SIZE:L	SOURCEPAGE:p.10
+# Equipment Name	Required Weapon Proficiency	Type									Cost		Weight	Crit Mult	Crit Range	Damage	Size		Source Page
+Lance			PROFICIENCY:WEAPON|Lance	TYPE:Weapon.Archaic.Melee.Standard.Piercing.Wooden	COST:2	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	SIZE:L	SOURCEPAGE:p.10

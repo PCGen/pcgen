@@ -28,8 +28,7 @@ import pcgen.util.Delta;
 /**
  * Class deals with ADDSPELLLEVEL Token
  */
-public class AddspelllevelToken extends AbstractNonEmptyToken<Ability>
-		implements CDOMPrimaryToken<Ability>
+public class AddspelllevelToken extends AbstractNonEmptyToken<Ability> implements CDOMPrimaryToken<Ability>
 {
 
 	@Override
@@ -39,33 +38,29 @@ public class AddspelllevelToken extends AbstractNonEmptyToken<Ability>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
 	{
 		try
 		{
-			context.getObjectContext().put(ability, IntegerKey.ADD_SPELL_LEVEL,
-					Delta.parseInt(value));
+			context.getObjectContext().put(ability, IntegerKey.ADD_SPELL_LEVEL, Delta.parseInt(value));
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>", context);
+			return new ParseResult.Fail(
+				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
 		}
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
-		Integer lvl = context.getObjectContext().getInteger(ability,
-				IntegerKey.ADD_SPELL_LEVEL);
+		Integer lvl = context.getObjectContext().getInteger(ability, IntegerKey.ADD_SPELL_LEVEL);
 		if (lvl == null)
 		{
 			return null;
 		}
-		return new String[] { lvl.toString() };
+		return new String[]{lvl.toString()};
 	}
 
 	@Override

@@ -1,130 +1,141 @@
-Sample Legacy Item	TYPE:Legacy
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+
+
+# Sample Legacy Item	TYPE:Legacy
 
 
 
 
-Unarmed	PROFICIENCY:WEAPON|Unarmed	CRITRANGE:1	CRITMULT:x2	DAMAGE:1d3	TYPE:Weapon.Melee.Unarmed.Subdual
+
+
+
+
+
+
+
+# Equipment Name		Unique Key				SORTKEY		Required Weapon Proficiency			Required Armor Proficiency		Required Shield Proficiency	Type													Contains					Cost		Weight	Base Quantity	Crit Mult	Crit Range	Damage	Maximum DEX Bonus	Requires Modification?	Range		Size		Combat bonus			Weapon prop. bonus
+Unarmed											PROFICIENCY:WEAPON|Unarmed														TYPE:Weapon.Melee.Unarmed.Subdual																					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3
+Unarmed Strike										PROFICIENCY:WEAPON|Unarmed Strike													TYPE:Weapon.Natural.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning							COST:0	WT:0					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3				MODS:NO					SIZE:M
 
 
 # Light Weapons
-Dagger	PROFICIENCY:WEAPON|Dagger	CRITRANGE:1	CRITMULT:x2	DAMAGE:1d4	WT:1	COST:2	TYPE:Weapon.Melee.Light Weapon.Ranged.Thrown.Piercing	RANGE:20
-Stiletto	PROFICIENCY:WEAPON|Stiletto	CRITRANGE:1	CRITMULT:x2	DAMAGE:1d4	WT:1	COST:4	TYPE:Weapon.Melee.Light Weapon.Piercing
-Whip		PROFICIENCY:WEAPON|Whip		CRITRANGE:1	CRITMULT:x2	DAMAGE:1d4	WT:2	COST:2	TYPE:Weapon.Melee.Light Weapon.Slashing
+Dagger											PROFICIENCY:WEAPON|Dagger														TYPE:Weapon.Melee.Light Weapon.Ranged.Thrown.Piercing											COST:2	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4								RANGE:20
+Stiletto											PROFICIENCY:WEAPON|Stiletto														TYPE:Weapon.Melee.Light Weapon.Piercing													COST:4	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4
+Whip												PROFICIENCY:WEAPON|Whip															TYPE:Weapon.Melee.Light Weapon.Slashing													COST:2	WT:2					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4
 
 # Medium Weapons
-Handaxe		PROFICIENCY:WEAPON|Handaxe		CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6	WT:3	COST:6	TYPE:Weapon.Melee.Medium Weapon.Slashing
-Mace			PROFICIENCY:WEAPON|Mace			CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6	WT:5	COST:9	TYPE:Weapon.Melee.Medium Weapon.Bludgeoning
-Quarterstaff	PROFICIENCY:WEAPON|Quarterstaff	CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6	WT:4			TYPE:Weapon.Melee.Medium Weapon.Bludgeoning.TwoHanded
-Rapier		PROFICIENCY:WEAPON|Rapier		CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6	WT:2	COST:20	TYPE:Weapon.Melee.Medium Weapon.Piercing
-Scimitar		PROFICIENCY:WEAPON|Scimitar		CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6	WT:4	COST:15	TYPE:Weapon.Melee.Medium Weapon.Slashing
-Short Spear		PROFICIENCY:WEAPON|Short Spear	CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6	WT:3	COST:1	TYPE:Weapon.Melee.Medium Weapon.Piercing	RANGE:40
-Short Sword		PROFICIENCY:WEAPON|Short Sword	CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6	WT:2	COST:10	TYPE:Weapon.Melee.Medium Weapon.Piercing
+Handaxe											PROFICIENCY:WEAPON|Handaxe														TYPE:Weapon.Melee.Medium Weapon.Slashing													COST:6	WT:3					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6
+Mace												PROFICIENCY:WEAPON|Mace															TYPE:Weapon.Melee.Medium Weapon.Bludgeoning												COST:9	WT:5					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6
+Quarterstaff										PROFICIENCY:WEAPON|Quarterstaff													TYPE:Weapon.Melee.Medium Weapon.Bludgeoning.TwoHanded													WT:4					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6
+Rapier											PROFICIENCY:WEAPON|Rapier														TYPE:Weapon.Melee.Medium Weapon.Piercing													COST:20	WT:2					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6
+Scimitar											PROFICIENCY:WEAPON|Scimitar														TYPE:Weapon.Melee.Medium Weapon.Slashing													COST:15	WT:4					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6
+Short Spear											PROFICIENCY:WEAPON|Short Spear													TYPE:Weapon.Melee.Medium Weapon.Piercing													COST:1	WT:3					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6								RANGE:40
+Short Sword											PROFICIENCY:WEAPON|Short Sword													TYPE:Weapon.Melee.Medium Weapon.Piercing													COST:10	WT:2					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6
 
 # Large Weapons
-Battle Axe	PROFICIENCY:WEAPON|Battle Axe		CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8	WT:6	COST:10	TYPE:Weapon.Melee.Large Weapon.Slashing
-Longsword	PROFICIENCY:WEAPON|Longsword		CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8	WT:4	COST:15	TYPE:Weapon.Melee.Large Weapon.Slashing
-Falchion	PROFICIENCY:WEAPON|Falchion		CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8	WT:8	COST:20	TYPE:Weapon.Melee.Large Weapon.Slashing.TwoHanded
-Morningstar	PROFICIENCY:WEAPON|Morningstar	CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8	WT:6	COST:8	TYPE:Weapon.Melee.Large Weapon.Bludgeoning.Piercing
-Spear		PROFICIENCY:WEAPON|Spear		CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8	WT:9	COST:5	TYPE:Weapon.Melee.Large Weapon.Piercing.TwoHanded
-Trident	PROFICIENCY:WEAPON|Trident		CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8	WT:4	COST:15	TYPE:Weapon.Melee.Large Weapon.Piercing
-Warhammer	PROFICIENCY:WEAPON|Warhammer		CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8	WT:5	COST:12	TYPE:Weapon.Melee.Large Weapon.Bludgeoning
+Battle Axe											PROFICIENCY:WEAPON|Battle Axe														TYPE:Weapon.Melee.Large Weapon.Slashing													COST:10	WT:6					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8
+Longsword											PROFICIENCY:WEAPON|Longsword														TYPE:Weapon.Melee.Large Weapon.Slashing													COST:15	WT:4					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8
+Falchion											PROFICIENCY:WEAPON|Falchion														TYPE:Weapon.Melee.Large Weapon.Slashing.TwoHanded											COST:20	WT:8					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8
+Morningstar											PROFICIENCY:WEAPON|Morningstar													TYPE:Weapon.Melee.Large Weapon.Bludgeoning.Piercing											COST:8	WT:6					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8
+Spear												PROFICIENCY:WEAPON|Spear														TYPE:Weapon.Melee.Large Weapon.Piercing.TwoHanded											COST:5	WT:9					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8
+Trident											PROFICIENCY:WEAPON|Trident														TYPE:Weapon.Melee.Large Weapon.Piercing													COST:15	WT:4					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8
+Warhammer											PROFICIENCY:WEAPON|Warhammer														TYPE:Weapon.Melee.Large Weapon.Bludgeoning												COST:12	WT:5					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8
 
 # Extra Large Weapons
-Great Axe	PROFICIENCY:WEAPON|Great Axe		CRITRANGE:1	CRITMULT:x2	DAMAGE:2d6	WT:12	COST:20	TYPE:Weapon.Melee.Slashing.Extra Large Weapon.TwoHanded
-Great Sword	PROFICIENCY:WEAPON|Great Sword	CRITRANGE:1	CRITMULT:x2	DAMAGE:2d6	WT:8	COST:5	TYPE:Weapon.Melee.Slashing.Extra Large Weapon.TwoHanded
-Halberd	PROFICIENCY:WEAPON|Halberd		CRITRANGE:1	CRITMULT:x2	DAMAGE:2d6	WT:12	COST:10	TYPE:Weapon.Melee.Piercing.Extra Large Weapon.Slashing
+Great Axe											PROFICIENCY:WEAPON|Great Axe														TYPE:Weapon.Melee.Slashing.Extra Large Weapon.TwoHanded										COST:20	WT:12					CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6
+Great Sword											PROFICIENCY:WEAPON|Great Sword													TYPE:Weapon.Melee.Slashing.Extra Large Weapon.TwoHanded										COST:5	WT:8					CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6
+Halberd											PROFICIENCY:WEAPON|Halberd														TYPE:Weapon.Melee.Piercing.Extra Large Weapon.Slashing										COST:10	WT:12					CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6
 
 # Ranged Weapons
-Bolas				PROFICIENCY:WEAPON|Bolas			CRITRANGE:1	CRITMULT:x2	DAMAGE:1d3	WT:2	COST:5	TYPE:Weapon.Ranged.Thrown.Bludgeoning			RANGE:60
-Crossbow			PROFICIENCY:WEAPON|Crossbow			CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8	WT:8	COST:45	TYPE:Weapon.Ranged.Projectile.Piercing.Container	RANGE:100							CONTAINS:UNLIM|Crossbow Ammo=1
-Shortbow			PROFICIENCY:WEAPON|Shortbow			CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6	WT:2	COST:30	TYPE:Weapon.Ranged.Projectile.Piercing.Container	RANGE:60							CONTAINS:UNLIM|Bow Ammo=1
-Longbow			PROFICIENCY:WEAPON|Longbow			CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8	WT:3	COST:75	TYPE:Weapon.Ranged.Projectile.Piercing.Container	RANGE:100							CONTAINS:UNLIM|Bow Ammo=1
-Composite Shortbow	PROFICIENCY:WEAPON|Composite Shortbow	CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6	WT:2	COST:130	TYPE:Weapon.Ranged.Projectile.Piercing.Container	RANGE:80		BONUS:WEAPON|DAMAGE|STR		CONTAINS:UNLIM|Bow Ammo=1
-Composite Longbow		PROFICIENCY:WEAPON|Composite Longbow	CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8	WT:3	COST:175	TYPE:Weapon.Ranged.Projectile.Piercing.Container	RANGE:120		BONUS:WEAPON|DAMAGE|STR		CONTAINS:UNLIM|Bow Ammo=1
-Sling				PROFICIENCY:WEAPON|Sling			CRITRANGE:1	CRITMULT:x2	DAMAGE:1d4	WT:1	COST:0	TYPE:Weapon.Ranged.Projectile.Piercing.Container	RANGE:40							CONTAINS:UNLIM|Sling Ammo=1
+Bolas												PROFICIENCY:WEAPON|Bolas														TYPE:Weapon.Ranged.Thrown.Bludgeoning													COST:5	WT:2					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3								RANGE:60
+Crossbow											PROFICIENCY:WEAPON|Crossbow														TYPE:Weapon.Ranged.Projectile.Piercing.Container					CONTAINS:UNLIM|Crossbow Ammo=1	COST:45	WT:8					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8								RANGE:100
+Shortbow											PROFICIENCY:WEAPON|Shortbow														TYPE:Weapon.Ranged.Projectile.Piercing.Container					CONTAINS:UNLIM|Bow Ammo=1		COST:30	WT:2					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6								RANGE:60
+Longbow											PROFICIENCY:WEAPON|Longbow														TYPE:Weapon.Ranged.Projectile.Piercing.Container					CONTAINS:UNLIM|Bow Ammo=1		COST:75	WT:3					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8								RANGE:100
+Composite Shortbow									PROFICIENCY:WEAPON|Composite Shortbow												TYPE:Weapon.Ranged.Projectile.Piercing.Container					CONTAINS:UNLIM|Bow Ammo=1		COST:130	WT:2					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6								RANGE:80								BONUS:WEAPON|DAMAGE|STR
+Composite Longbow										PROFICIENCY:WEAPON|Composite Longbow												TYPE:Weapon.Ranged.Projectile.Piercing.Container					CONTAINS:UNLIM|Bow Ammo=1		COST:175	WT:3					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8								RANGE:120								BONUS:WEAPON|DAMAGE|STR
+Sling												PROFICIENCY:WEAPON|Sling														TYPE:Weapon.Ranged.Projectile.Piercing.Container					CONTAINS:UNLIM|Sling Ammo=1		COST:0	WT:1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4								RANGE:40
 
 # Ammo
-Arrow (20)		COST:1	TYPE:Ammo.Bow Ammo.Piercing		BASEQTY:20
-Bolt (10)		COST:1	TYPE:Ammo.Crossbow Ammo.Piercing	BASEQTY:10
-Sling Bullet (10)	COST:.1	TYPE:Ammo.Sling Ammo.Bludgeoning	BASEQTY:10
+Arrow (20)																													TYPE:Ammo.Bow Ammo.Piercing															COST:1			BASEQTY:20
+Bolt (10)																													TYPE:Ammo.Crossbow Ammo.Piercing														COST:1			BASEQTY:10
+Sling Bullet (10)																												TYPE:Ammo.Sling Ammo.Bludgeoning														COST:.1			BASEQTY:10
 
 
 # Exotic Weapons
-Bastard Sword	PROFICIENCY:WEAPON|Bastard Sword		CRITRANGE:1	CRITMULT:x2	DAMAGE:1d10	WT:6	COST:35	TYPE:Weapon.Melee.Slashing.Exotic
-Dwarven Battleaxe	PROFICIENCY:WEAPON|Dwarven Battleaxe	CRITRANGE:1	CRITMULT:x2	DAMAGE:1d10	WT:12	COST:50	TYPE:Weapon.Melee.Slashing.Exotic
-Iron Chain Whip	PROFICIENCY:WEAPON|Iron Chain Whip		CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6	WT:3	COST:15	TYPE:Weapon.Melee.Slashing.Exotic
+Bastard Sword										PROFICIENCY:WEAPON|Bastard Sword													TYPE:Weapon.Melee.Slashing.Exotic														COST:35	WT:6					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d10
+Dwarven Battleaxe										PROFICIENCY:WEAPON|Dwarven Battleaxe												TYPE:Weapon.Melee.Slashing.Exotic														COST:50	WT:12					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d10
+Iron Chain Whip										PROFICIENCY:WEAPON|Iron Chain Whip													TYPE:Weapon.Melee.Slashing.Exotic														COST:15	WT:3					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6
 
 
 # Light Armor
-Padded		TYPE:Armor.Light Armor	KEY:Armor ~ Padded		PROFICIENCY:ARMOR|Padded		COST:5	BONUS:COMBAT|AC|1|TYPE=Armor	MAXDEX:8	WT:10
-Leather		TYPE:Armor.Light Armor	KEY:Armor ~ Leather		PROFICIENCY:ARMOR|Leather		COST:10	BONUS:COMBAT|AC|2|TYPE=Armor	MAXDEX:6	WT:15
-Studded Leather	TYPE:Armor.Light Armor	KEY:Armor ~ Studded Leather	PROFICIENCY:ARMOR|Studded Leather	COST:25	BONUS:COMBAT|AC|3|TYPE=Armor	MAXDEX:5	WT:20
-Chain shirt		TYPE:Armor.Light Armor	KEY:Armor ~ Chain shirt		PROFICIENCY:ARMOR|Chain shirt		COST:100	BONUS:COMBAT|AC|4|TYPE=Armor	MAXDEX:4	WT:25
+Padded			KEY:Armor ~ Padded												PROFICIENCY:ARMOR|Padded							TYPE:Armor.Light Armor																COST:5	WT:10											MAXDEX:8										BONUS:COMBAT|AC|1|TYPE=Armor
+Leather			KEY:Armor ~ Leather												PROFICIENCY:ARMOR|Leather							TYPE:Armor.Light Armor																COST:10	WT:15											MAXDEX:6										BONUS:COMBAT|AC|2|TYPE=Armor
+Studded Leather		KEY:Armor ~ Studded Leather											PROFICIENCY:ARMOR|Studded Leather						TYPE:Armor.Light Armor																COST:25	WT:20											MAXDEX:5										BONUS:COMBAT|AC|3|TYPE=Armor
+Chain shirt			KEY:Armor ~ Chain shirt												PROFICIENCY:ARMOR|Chain shirt							TYPE:Armor.Light Armor																COST:100	WT:25											MAXDEX:4										BONUS:COMBAT|AC|4|TYPE=Armor
 # Medium Armor
-Hide			TYPE:Armor.Medium Armor	KEY:Armor ~ Hide			PROFICIENCY:ARMOR|Hide			COST:15	BONUS:COMBAT|AC|3|TYPE=Armor	MAXDEX:4	WT:25
-Scale mail		TYPE:Armor.Medium Armor	KEY:Armor ~ Scale mail		PROFICIENCY:ARMOR|Scale mail		COST:50	BONUS:COMBAT|AC|4|TYPE=Armor	MAXDEX:3	WT:30
-Chainmail		TYPE:Armor.Medium Armor	KEY:Armor ~ Chainmail		PROFICIENCY:ARMOR|Chainmail		COST:150	BONUS:COMBAT|AC|5|TYPE=Armor	MAXDEX:2	WT:40
-Breastplate		TYPE:Armor.Medium Armor	KEY:Armor ~ Breastplate		PROFICIENCY:ARMOR|Breastplate		COST:200	BONUS:COMBAT|AC|5|TYPE=Armor	MAXDEX:3	WT:30
+Hide				KEY:Armor ~ Hide													PROFICIENCY:ARMOR|Hide								TYPE:Armor.Medium Armor																COST:15	WT:25											MAXDEX:4										BONUS:COMBAT|AC|3|TYPE=Armor
+Scale mail			KEY:Armor ~ Scale mail												PROFICIENCY:ARMOR|Scale mail							TYPE:Armor.Medium Armor																COST:50	WT:30											MAXDEX:3										BONUS:COMBAT|AC|4|TYPE=Armor
+Chainmail			KEY:Armor ~ Chainmail												PROFICIENCY:ARMOR|Chainmail							TYPE:Armor.Medium Armor																COST:150	WT:40											MAXDEX:2										BONUS:COMBAT|AC|5|TYPE=Armor
+Breastplate			KEY:Armor ~ Breastplate												PROFICIENCY:ARMOR|Breastplate							TYPE:Armor.Medium Armor																COST:200	WT:30											MAXDEX:3										BONUS:COMBAT|AC|5|TYPE=Armor
 # Heavy Armor
-Splint mail		TYPE:Armor.Heavy Armor	KEY:Armor ~ Splint mail		PROFICIENCY:ARMOR|Splint mail		COST:200	BONUS:COMBAT|AC|6|TYPE=Armor	MAXDEX:0	WT:45
-Banded mail		TYPE:Armor.Heavy Armor	KEY:Armor ~ Banded mail		PROFICIENCY:ARMOR|Banded mail		COST:250	BONUS:COMBAT|AC|6|TYPE=Armor	MAXDEX:1	WT:35
-Half-plate		TYPE:Armor.Heavy Armor	KEY:Armor ~ Half-plate		PROFICIENCY:ARMOR|Half-plate		COST:600	BONUS:COMBAT|AC|7|TYPE=Armor	MAXDEX:0	WT:50
-Full plate		TYPE:Armor.Heavy Armor	KEY:Armor ~ Full plate		PROFICIENCY:ARMOR|Full plate		COST:1500	BONUS:COMBAT|AC|8|TYPE=Armor	MAXDEX:1	WT:50
+Splint mail			KEY:Armor ~ Splint mail												PROFICIENCY:ARMOR|Splint mail							TYPE:Armor.Heavy Armor																COST:200	WT:45											MAXDEX:0										BONUS:COMBAT|AC|6|TYPE=Armor
+Banded mail			KEY:Armor ~ Banded mail												PROFICIENCY:ARMOR|Banded mail							TYPE:Armor.Heavy Armor																COST:250	WT:35											MAXDEX:1										BONUS:COMBAT|AC|6|TYPE=Armor
+Half-plate			KEY:Armor ~ Half-plate												PROFICIENCY:ARMOR|Half-plate							TYPE:Armor.Heavy Armor																COST:600	WT:50											MAXDEX:0										BONUS:COMBAT|AC|7|TYPE=Armor
+Full plate			KEY:Armor ~ Full plate												PROFICIENCY:ARMOR|Full plate							TYPE:Armor.Heavy Armor																COST:1500	WT:50											MAXDEX:1										BONUS:COMBAT|AC|8|TYPE=Armor
 # Shields
-Buckler			TYPE:Shield	KEY:Shield ~ Buckler		SORTKEY:Shield	PROFICIENCY:SHIELD|Buckler	COST:1	BONUS:COMBAT|AC|1|TYPE=Shield			WT:2
-Light wooden Shield	TYPE:Shield	KEY:Shield ~ Light Wooden	SORTKEY:Shield	PROFICIENCY:SHIELD|Shield	COST:3	BONUS:COMBAT|AC|1|TYPE=Shield			WT:5
-Light steel Shield	TYPE:Shield	KEY:Shield ~ Light Steel	SORTKEY:Shield	PROFICIENCY:SHIELD|Shield	COST:9	BONUS:COMBAT|AC|1|TYPE=Shield			WT:6
-Heavy wooden Shield	TYPE:Shield	KEY:Shield ~ Heavy Wooden	SORTKEY:Shield	PROFICIENCY:SHIELD|Shield	COST:7	BONUS:COMBAT|AC|2|TYPE=Shield			WT:10
-Heavy steel Shield	TYPE:Shield	KEY:Shield ~ Heavy Steel	SORTKEY:Shield	PROFICIENCY:SHIELD|Shield	COST:20	BONUS:COMBAT|AC|2|TYPE=Shield			WT:15
-Tower Shield		TYPE:Shield	KEY:Shield ~ Tower		SORTKEY:Shield	PROFICIENCY:SHIELD|Tower	COST:45	BONUS:COMBAT|AC|4|TYPE=Shield	MAXDEX:2	WT:45
+Buckler			KEY:Shield ~ Buckler		SORTKEY:Shield														PROFICIENCY:SHIELD|Buckler	TYPE:Shield																		COST:1	WT:2																						BONUS:COMBAT|AC|1|TYPE=Shield
+Light wooden Shield	KEY:Shield ~ Light Wooden	SORTKEY:Shield														PROFICIENCY:SHIELD|Shield	TYPE:Shield																		COST:3	WT:5																						BONUS:COMBAT|AC|1|TYPE=Shield
+Light steel Shield	KEY:Shield ~ Light Steel	SORTKEY:Shield														PROFICIENCY:SHIELD|Shield	TYPE:Shield																		COST:9	WT:6																						BONUS:COMBAT|AC|1|TYPE=Shield
+Heavy wooden Shield	KEY:Shield ~ Heavy Wooden	SORTKEY:Shield														PROFICIENCY:SHIELD|Shield	TYPE:Shield																		COST:7	WT:10																						BONUS:COMBAT|AC|2|TYPE=Shield
+Heavy steel Shield	KEY:Shield ~ Heavy Steel	SORTKEY:Shield														PROFICIENCY:SHIELD|Shield	TYPE:Shield																		COST:20	WT:15																						BONUS:COMBAT|AC|2|TYPE=Shield
+Tower Shield		KEY:Shield ~ Tower		SORTKEY:Shield														PROFICIENCY:SHIELD|Tower	TYPE:Shield																		COST:45	WT:45											MAXDEX:2										BONUS:COMBAT|AC|4|TYPE=Shield
 
 ###Block: Goods
-Backpack		TYPE:Goods	COST:2	WT:2
-Lock (amazing)		TYPE:Goods	COST:150	WT:1
-Bedroll		TYPE:Goods	COST:.1	WT:5
-Manacles		TYPE:Goods	COST:15	WT:2
-Blanket, winter	KEY:Blanket (Winter)		TYPE:Goods	COST:.5	WT:3
-Mirror, small steel	KEY:Mirror (Small Steel)		TYPE:Goods	COST:10	WT:.5
-Oil (1 pint)		TYPE:Goods	COST:.5	WT:1
-Caltrops		TYPE:Goods	COST:1	WT:2
-Pouch, belt		KEY:Pouch (Belt)	TYPE:Container	CONTAINS:UNLIM|Goods=10		TYPE:Goods	COST:1	WT:.5
-Candle		TYPE:Goods	COST:.01
-Rations, trail	KEY:Rations (Trail)	TYPE:Goods	COST:.5	WT:1
-Case, map or scroll	KEY:Case		TYPE:Goods.Container	CONTAINS:UNLIM|Scroll=1|Map=1	COST:1	WT:.5
-Rope, hemp (50’)	KEY:Rope (Hemp/50')		TYPE:Goods	COST:1	WT:10
-Chain (10’)		KEY:Chain (10')		TYPE:Goods	COST:30	WT:2
-Rope, silk (50’)	KEY:Rope (Silk/50')		TYPE:Goods	COST:10	WT:5
-Chalk		TYPE:Goods	COST:.01
-Sack		KEY:Sack		TYPE:Goods	COST:.1	WT:1
-Flint and steel		TYPE:Goods	COST:1
-Signet ring		TYPE:Goods	COST:5
-Grappling hook		TYPE:Goods	COST:1	WT:4
-Shovel		TYPE:Goods	COST:2	WT:8
-Hammer		TYPE:Goods	COST:.5	WT:2
-Soap (per lb.)		TYPE:Goods	COST:.5	WT:1
-Lamp		TYPE:Goods	COST:.5	WT:1
-Sledge		TYPE:Goods	COST:1	WT:10
-Lantern, bullseye	KEY:Latern (Bullseye)		TYPE:Goods	COST:12	WT:3
-Spyglass		TYPE:Goods	COST:1000	WT:1
-Lantern, hooded	KEY:Latern (Hooded)	COST:7		TYPE:Goods	WT:2
-Tent		TYPE:Goods	COST:10	WT:20
-Lock (very simple)		TYPE:Goods	COST:20	WT:1
-Torch		TYPE:Goods	COST:.01	WT:1
-Lock (average)		TYPE:Goods	COST:40	WT:1
-Waterskin		TYPE:Goods	COST:1	WT:4
-Lock (good)		TYPE:Goods	COST:80	WT:1
-Whetstone		TYPE:Goods	COST:.02	WT:1
+# Equipment Name						Unique Key				Type					Contains				Cost		Weight	Modifier
+Backpack												TYPE:Goods									COST:2	WT:2
+Lock (amazing)											TYPE:Goods									COST:150	WT:1
+Bedroll												TYPE:Goods									COST:.1	WT:5
+Manacles												TYPE:Goods									COST:15	WT:2
+Blanket, winter						KEY:Blanket (Winter)		TYPE:Goods									COST:.5	WT:3
+Mirror, small steel					KEY:Mirror (Small Steel)	TYPE:Goods									COST:10	WT:.5
+Oil (1 pint)											TYPE:Goods									COST:.5	WT:1
+Caltrops												TYPE:Goods									COST:1	WT:2
+Pouch, belt							KEY:Pouch (Belt)			TYPE:Container	TYPE:Goods	CONTAINS:UNLIM|Goods=10		COST:1	WT:.5
+Candle												TYPE:Goods									COST:.01
+Rations, trail						KEY:Rations (Trail)		TYPE:Goods									COST:.5	WT:1
+Case, map or scroll					KEY:Case				TYPE:Goods.Container		CONTAINS:UNLIM|Scroll=1|Map=1	COST:1	WT:.5
+Rope, hemp (50')						KEY:Rope (Hemp/50')		TYPE:Goods									COST:1	WT:10
+Chain (10')							KEY:Chain (10')			TYPE:Goods									COST:30	WT:2
+Rope, silk (50')						KEY:Rope (Silk/50')		TYPE:Goods									COST:10	WT:5
+Chalk													TYPE:Goods									COST:.01
+Sack								KEY:Sack				TYPE:Goods									COST:.1	WT:1
+Flint and steel											TYPE:Goods									COST:1
+Signet ring												TYPE:Goods									COST:5
+Grappling hook											TYPE:Goods									COST:1	WT:4
+Shovel												TYPE:Goods									COST:2	WT:8
+Hammer												TYPE:Goods									COST:.5	WT:2
+Soap (per lb.)											TYPE:Goods									COST:.5	WT:1
+Lamp													TYPE:Goods									COST:.5	WT:1
+Sledge												TYPE:Goods									COST:1	WT:10
+Lantern, bullseye						KEY:Latern (Bullseye)		TYPE:Goods									COST:12	WT:3
+Spyglass												TYPE:Goods									COST:1000	WT:1
+Lantern, hooded						KEY:Latern (Hooded)		TYPE:Goods									COST:7	WT:2
+Tent													TYPE:Goods									COST:10	WT:20
+Lock (very simple)										TYPE:Goods									COST:20	WT:1
+Torch													TYPE:Goods									COST:.01	WT:1
+Lock (average)											TYPE:Goods									COST:40	WT:1
+Waterskin												TYPE:Goods									COST:1	WT:4
+Lock (good)												TYPE:Goods									COST:80	WT:1
+Whetstone												TYPE:Goods									COST:.02	WT:1
 
 # Tools and Kits
-Alchemist's lab	TYPE:Tools	COST:240	WT:40
-Climber’s kit	TYPE:Tools	COST:80	WT:5
-Healer’s kit	TYPE:Tools	COST:50	WT:1
-Magnifying glass	TYPE:Tools	COST:100
-Musical instrument (common)	TYPE:Tools	COST:5
-Musical instrument (masterwork)	TYPE:Tools	COST:100
-Thieves' tools	TYPE:Tools.Thief	COST:30	WT:1
+Alchemist's lab											TYPE:Tools									COST:240	WT:40
+Climber's kit											TYPE:Tools									COST:80	WT:5
+Healer's kit											TYPE:Tools									COST:50	WT:1
+Magnifying glass											TYPE:Tools									COST:100
+Musical instrument (common)									TYPE:Tools									COST:5
+Musical instrument (masterwork)								TYPE:Tools									COST:100
+Thieves' tools											TYPE:Tools.Thief								COST:30	WT:1
 Thieves' tools.COPY=Thieves' tools (masterwork)
-Thieves' tools (masterwork).MOD	EQMOD:Masterwork	WT:2
-
-
-
+Thieves' tools (masterwork).MOD																				WT:2		EQMOD:Masterwork

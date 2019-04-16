@@ -17,10 +17,9 @@
  */
 package plugin.lsttokens.pcclass;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
@@ -35,19 +34,22 @@ import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class ProhibitedTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
-	static ProhibitedToken token = new ProhibitedToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	private static final ProhibitedToken token = new ProhibitedToken();
+	private static final CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
-	PreClassParser preclass = new PreClassParser();
-	PreClassWriter preclasswriter = new PreClassWriter();
-	PreRaceParser prerace = new PreRaceParser();
-	PreRaceWriter preracewriter = new PreRaceWriter();
+	private final PreClassParser preclass = new PreClassParser();
+	private final PreClassWriter preclasswriter = new PreClassWriter();
+	private final PreRaceParser prerace = new PreRaceParser();
+	private final PreRaceWriter preracewriter = new PreRaceWriter();
 
+	@BeforeEach
 	@Override
-	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -76,14 +78,14 @@ public class ProhibitedTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLeadingComma() throws PersistenceLayerException
+	public void testInvalidInputLeadingComma()
 	{
 		assertFalse(parse(",Good"));
 		assertNoSideEffects();
@@ -91,7 +93,6 @@ public class ProhibitedTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputTrailingComma()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Fireball,"));
 		assertNoSideEffects();
@@ -99,7 +100,6 @@ public class ProhibitedTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@Test
 	public void testInvalidInputDoubleCommaSeparator()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Fireball,,Lightning Bolt"));
 		assertNoSideEffects();

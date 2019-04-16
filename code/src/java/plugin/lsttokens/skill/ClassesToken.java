@@ -36,8 +36,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with CLASSES Token
  */
-public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
-		CDOMPrimaryToken<Skill>
+public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements CDOMPrimaryToken<Skill>
 {
 
 	private static final Class<ClassSkillList> SKILLLIST_CLASS = ClassSkillList.class;
@@ -55,8 +54,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			Skill skill, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Skill skill, String value)
 	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 		boolean added = false;
@@ -69,18 +67,15 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 			{
 				if (added)
 				{
-					return new ParseResult.Fail("Non-sensical Skill "
-							+ getTokenName()
-							+ ": Contains ALL after a specific reference: "
-							+ value, context);
+					return new ParseResult.Fail(
+						"Non-sensical Skill " + getTokenName() + ": Contains ALL after a specific reference: " + value);
 				}
 				break;
 			}
 			if (className.startsWith("!"))
 			{
-				return new ParseResult.Fail("Non-sensical Skill "
-						+ getTokenName()
-						+ ": Contains ! without (or before) ALL: " + value, context);
+				return new ParseResult.Fail(
+					"Non-sensical Skill " + getTokenName() + ": Contains ! without (or before) ALL: " + value);
 			}
 			allow.add(context.getReferenceContext().getCDOMReference(SKILLLIST_CLASS, className));
 			added = true;
@@ -88,41 +83,35 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 		if (pipeTok.hasMoreTokens())
 		{
 			// allow is not used (empty or an error)
-			FilteredReference<ClassSkillList> filtered = new FilteredReference<>(
-					SKILLLIST_CLASS, context.getReferenceContext()
-					.getCDOMAllReference(SKILLLIST_CLASS));
+			FilteredReference<ClassSkillList> filtered =
+					new FilteredReference<>(context.getReferenceContext().getCDOMAllReference(SKILLLIST_CLASS));
 			while (pipeTok.hasMoreTokens())
 			{
 				String className = pipeTok.nextToken();
 				if (className.startsWith("!"))
 				{
 					String clString = className.substring(1);
-					if (Constants.LST_ALL.equals(clString)
-							|| Constants.LST_ANY.equals(clString))
+					if (Constants.LST_ALL.equals(clString) || Constants.LST_ANY.equals(clString))
 					{
-						return new ParseResult.Fail("Invalid " + getTokenName()
-								+ " cannot use !ALL", context);
+						return new ParseResult.Fail("Invalid " + getTokenName() + " cannot use !ALL");
 					}
-					CDOMSingleRef<ClassSkillList> ref = context.getReferenceContext()
-							.getCDOMReference(SKILLLIST_CLASS, clString);
+					CDOMSingleRef<ClassSkillList> ref =
+							context.getReferenceContext().getCDOMReference(SKILLLIST_CLASS, clString);
 					filtered.addProhibitedItem(ref);
 				}
 				else
 				{
-					return new ParseResult.Fail("Non-sensical Skill "
-							+ getTokenName()
-							+ ": Contains ALL and a specific reference: "
-							+ value, context);
+					return new ParseResult.Fail(
+						"Non-sensical Skill " + getTokenName() + ": Contains ALL and a specific reference: " + value);
 				}
 			}
-			context.getListContext()
-					.addToMasterList(getTokenName(), skill, filtered, skill);
+			context.getListContext().addToMasterList(getTokenName(), skill, filtered, skill);
 		}
 		else if (allow.isEmpty())
 		{
 			// unqualified ALL
-			context.getListContext().addToMasterList(getTokenName(), skill, context.getReferenceContext()
-					.getCDOMAllReference(SKILLLIST_CLASS), skill);
+			context.getListContext().addToMasterList(getTokenName(), skill,
+				context.getReferenceContext().getCDOMAllReference(SKILLLIST_CLASS), skill);
 		}
 		else
 		{
@@ -138,19 +127,16 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 	@Override
 	public String[] unparse(LoadContext context, Skill skill)
 	{
-		Changes<CDOMReference<ClassSkillList>> masterChanges = context.getListContext()
-				.getMasterListChanges(getTokenName(), skill, SKILLLIST_CLASS);
+		Changes<CDOMReference<ClassSkillList>> masterChanges =
+				context.getListContext().getMasterListChanges(getTokenName(), skill, SKILLLIST_CLASS);
 		if (masterChanges.includesGlobalClear())
 		{
-			context
-					.addWriteMessage(getTokenName()
-							+ " does not support .CLEAR");
+			context.addWriteMessage(getTokenName() + " does not support .CLEAR");
 			return null;
 		}
 		if (masterChanges.hasRemovedItems())
 		{
-			context.addWriteMessage(getTokenName()
-					+ " does not support .CLEAR.");
+			context.addWriteMessage(getTokenName() + " does not support .CLEAR.");
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
@@ -169,7 +155,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Skill> implements
 			sb.append(ref.getLSTformat(false));
 			needBar = true;
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	@Override

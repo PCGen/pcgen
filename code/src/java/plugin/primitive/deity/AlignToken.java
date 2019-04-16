@@ -43,8 +43,7 @@ public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 	private CDOMReference<Deity> allDeities;
 
 	@Override
-	public boolean initialize(LoadContext context, Class<Deity> cl,
-			String value, String args)
+	public boolean initialize(LoadContext context, Class<Deity> cl, String value, String args)
 	{
 		if (args != null)
 		{
@@ -70,7 +69,7 @@ public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + alignment.getLSTformat(false);
+		return getTokenName() + '=' + alignment.getLSTformat(false);
 	}
 
 	@Override

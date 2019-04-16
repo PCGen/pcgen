@@ -39,11 +39,9 @@ import pcgen.core.Equipment;
  * CHOOSE). This facet consolidates those two sources into the complete list of
  * ArmorProf ProfProviders for a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ArmorProfProviderFacet extends
-		AbstractQualifiedListFacet<ProfProvider<ArmorProf>> implements
-		DataFacetChangeListener<CharID, ProfProvider<ArmorProf>>, PerspectiveLocation
+public class ArmorProfProviderFacet extends AbstractQualifiedListFacet<ProfProvider<ArmorProf>>
+		implements DataFacetChangeListener<CharID, ProfProvider<ArmorProf>>, PerspectiveLocation
 {
 
 	/**
@@ -57,8 +55,6 @@ public class ArmorProfProviderFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, ProfProvider<ArmorProf>> dfce)
@@ -77,8 +73,6 @@ public class ArmorProfProviderFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, ProfProvider<ArmorProf>> dfce)
@@ -115,7 +109,7 @@ public class ArmorProfProviderFacet extends
 		}
 		return false;
 	}
-	
+
 	public void init()
 	{
 		CorePerspectiveDB.register(CorePerspective.ARMORPROF, FacetBehavior.MODEL, this);

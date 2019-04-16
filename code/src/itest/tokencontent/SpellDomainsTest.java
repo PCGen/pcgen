@@ -17,7 +17,9 @@
  */
 package tokencontent;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
@@ -32,12 +34,14 @@ import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.spell.Spell;
 import pcgen.gui2.facade.MockUIDelegate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.spell.DomainsToken;
+
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class SpellDomainsTest extends AbstractTokenModelTest
 {
@@ -52,7 +56,7 @@ public class SpellDomainsTest extends AbstractTokenModelTest
 	private Domain domain;
 
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		sp = context.getReferenceContext().constructCDOMObject(Spell.class, "MySpell");
@@ -63,12 +67,12 @@ public class SpellDomainsTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect() throws PersistenceLayerException
+	public void testDirect()
 	{
 		ParseResult result = token.parseToken(context, sp, "Source=1");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

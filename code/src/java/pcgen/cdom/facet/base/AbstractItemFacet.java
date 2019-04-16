@@ -33,8 +33,7 @@ import pcgen.util.Logging;
  * @param <T>
  *            The Type of object stored in this AbstractItemFacet
  */
-public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
-		AbstractDataFacet<IDT, T>
+public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends AbstractDataFacet<IDT, T>
 {
 	/**
 	 * Sets the item for this AbstractItemFacet and the Player Character
@@ -70,8 +69,7 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 		{
 			if (old != null)
 			{
-				fireDataFacetChangeEvent(id, old,
-				                         DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
 			}
 			setCache(id, obj);
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
@@ -91,6 +89,7 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	 */
 	public T remove(IDT id)
 	{
+		@SuppressWarnings("unchecked")
 		T old = (T) removeCache(id);
 		if (old != null)
 		{
@@ -110,6 +109,7 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	 * @return the item value for this AbstractItemFacet and the Player
 	 *         Character represented by the given PCGenIdentifier.
 	 */
+	@SuppressWarnings("unchecked")
 	public T get(IDT id)
 	{
 		return (T) getCache(id);
@@ -136,8 +136,7 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	public boolean matches(IDT id, T obj)
 	{
 		T current = get(id);
-		return (obj == null && current == null)
-			|| (obj != null && obj.equals(current));
+		return ((obj == null) && (current == null)) || ((obj != null) && obj.equals(current));
 	}
 
 	/**

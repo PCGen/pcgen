@@ -33,13 +33,11 @@ import pcgen.core.PlayerCharacter;
  * BonusActiviationFacet is a Facet that triggers to activate BonusObj objects
  * on CDOMObjects which are added to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class BonusActiviationFacet implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class BonusActiviationFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private RaceFacet raceFacet;
 
@@ -64,8 +62,6 @@ public class BonusActiviationFacet implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -87,8 +83,6 @@ public class BonusActiviationFacet implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)

@@ -1,6 +1,5 @@
 /*
  * Copyright 2009 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PCClass.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -32,16 +31,20 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
-import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.gui2.facade.Gui2InfoFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
-public class SubClassApplication
+public final class SubClassApplication
 {
+
+	private SubClassApplication()
+	{
+	}
 
 	public static void checkForSubClass(PlayerCharacter aPC, PCClass cl)
 	{
@@ -50,54 +53,49 @@ public class SubClassApplication
 		{
 			return;
 		}
-	
+
 		List<PCClass> availableList = new ArrayList<>();
 		String subClassKey = aPC.getSubClassName(cl);
-		boolean subClassSelected = subClassKey != null
-				&& !subClassKey.equals(Constants.NONE)
-				&& !subClassKey.equals("");
-	
+		boolean subClassSelected =
+				subClassKey != null && !subClassKey.equals(Constants.NONE) && !subClassKey.equals("");
+
 		for (SubClass sc : subClassList)
 		{
-			if (!PrereqHandler.passesAll(sc.getPrerequisiteList(), aPC, cl))
+			if (!PrereqHandler.passesAll(sc, aPC, cl))
 			{
 				continue;
 			}
-				
+
 			// If a subclass has already been selected, only add that one
-			if (!subClassSelected
-					|| sc.getKeyName().equals(
-							aPC.getSubClassName(cl)))
+			if (!subClassSelected || sc.getKeyName().equals(aPC.getSubClassName(cl)))
 			{
 				availableList.add(sc);
 			}
 		}
-	
+
 		// add base class to the chooser
 		if (cl.getSafe(ObjectKey.ALLOWBASECLASS)
-				&& (!subClassSelected || cl.getKeyName().equals(
-						aPC.getSubClassName(cl))))
+			&& (!subClassSelected || cl.getKeyName().equals(aPC.getSubClassName(cl))))
 		{
 			availableList.add(0, cl);
 		}
-	
+
 		/*
 		 * REFACTOR This makes an assumption that SubClasses are ONLY Schools, which may
 		 * not be a fabulous assumption
 		 */
 		List<PCClass> selectedSubClasses;
 		CDOMChooserFacadeImpl<PCClass> chooserFacade =
-                new CDOMChooserFacadeImpl<>(
-                        LanguageBundle.getString("in_schoolSpecChoice"), availableList, //$NON-NLS-1$
-                        new ArrayList<>(), 1);
+			new CDOMChooserFacadeImpl<>(LanguageBundle.getString("in_schoolSpecChoice"), availableList, //$NON-NLS-1$
+				new ArrayList<>(), 1);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));
-		
+
 		if (availableList.size() == 1)
 		{
 			selectedSubClasses = availableList;
 		}
-		else if (availableList.size() == 0)
+		else if (availableList.isEmpty())
 		{
 			if (Logging.isLoggable(Logging.WARNING))
 			{
@@ -110,23 +108,23 @@ public class SubClassApplication
 			ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 			selectedSubClasses = chooserFacade.getFinalSelected();
 		}
-	
+
 		if (!cl.getSafe(ObjectKey.ALLOWBASECLASS))
 		{
-			while (selectedSubClasses.size() == 0)
+			while (selectedSubClasses.isEmpty())
 			{
 				ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 				selectedSubClasses = chooserFacade.getFinalSelected();
 			}
 		}
-	
-		if (selectedSubClasses.size() == 0)
+
+		if (selectedSubClasses.isEmpty())
 		{
 			return;
 		}
-	
+
 		PCClass subselected = selectedSubClasses.get(0);
-	
+
 		if (subselected instanceof SubClass)
 		{
 			aPC.removeProhibitedSchools(cl);
@@ -134,9 +132,9 @@ public class SubClassApplication
 			 * CONSIDER What happens to this reset during PCClass/PCClassLevel split
 			 */
 			aPC.removeAssoc(cl, AssociationKey.SPECIALTY);
-	
+
 			SubClass sc = (SubClass) subselected;
-	
+
 			availableList.clear();
 
 			for (SubClass sub : subClassList)
@@ -146,34 +144,32 @@ public class SubClassApplication
 					//Skip the selected specialist school
 					continue;
 				}
-				if (!PrereqHandler.passesAll(sub.getPrerequisiteList(), aPC, cl))
+				if (!PrereqHandler.passesAll(sub, aPC, cl))
 				{
 					continue;
 				}
-	
+
 				int displayedCost = sub.getProhibitCost();
 				if (displayedCost == 0)
 				{
 					continue;
 				}
-	
+
 				availableList.add(sub);
 			}
-	
+
 			setSubClassKey(aPC, cl, sc.getKeyName());
-	
+
 			if (sc.get(ObjectKey.CHOICE) != null)
 			{
 				aPC.setAssoc(cl, AssociationKey.SPECIALTY, sc.getChoice());
 			}
-	
+
 			if (sc.getSafe(IntegerKey.COST) != 0)
 			{
 				chooserFacade =
-                        new CDOMChooserFacadeImpl<>(
-                                LanguageBundle.getString("in_schoolProhibitChoice"), //$NON-NLS-1$
-                                availableList, new ArrayList<>(), sc
-                                .getSafe(IntegerKey.COST));
+						new CDOMChooserFacadeImpl<>(LanguageBundle.getString("in_schoolProhibitChoice"), //$NON-NLS-1$
+								availableList, new ArrayList<>(), sc.getSafe(IntegerKey.COST));
 				chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 				chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));
 				chooserFacade.setRequireCompleteSelection(true);
@@ -202,13 +198,13 @@ public class SubClassApplication
 		{
 			return;
 		}
-		
+
 		pc.setSubClassName(cl, aKey);
-	
+
 		if (!aKey.equals(cl.getKeyName()))
 		{
 			final SubClass a = cl.getSubClassKeyed(aKey);
-	
+
 			if (a != null)
 			{
 				cl.inheritAttributesFrom(a);

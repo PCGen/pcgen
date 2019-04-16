@@ -17,25 +17,30 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractGlobalStringTokenTestCase extends
 		AbstractGlobalTokenTestCase
 {
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
-		assertEquals(null, primaryProf.get(getStringKey()));
+		assertNull(primaryProf.get(getStringKey()));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("Niederösterreich"));
 		assertEquals("Niederösterreich", primaryProf.get(getStringKey()));
@@ -94,16 +99,16 @@ public abstract class AbstractGlobalStringTokenTestCase extends
 	}
 
 	@Test
-	public void testUnparseNo() throws PersistenceLayerException
+	public void testUnparseNo()
 	{
 		expectSingle(setAndUnparse(getLegalValue()), getLegalValue());
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getStringKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	/*
@@ -120,7 +125,7 @@ public abstract class AbstractGlobalStringTokenTestCase extends
 	protected String[] setAndUnparse(String val)
 	{
 		primaryProf.put(getStringKey(), val);
-		return getToken().unparse(primaryContext, primaryProf);
+		return getWriteToken().unparse(primaryContext, primaryProf);
 	}
 
 	@Override

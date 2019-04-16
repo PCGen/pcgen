@@ -1,5 +1,4 @@
 /*
- * PCTLTermEvaluatorTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 13/12/2013
- *
- * $Id: PCTLTermEvaluatorTest.java 22604 2013-12-13 12:27:49Z jdempsey $
  */
 package pcgen.core.term;
+
+import static org.junit.Assert.assertEquals;
 
 import java.net.URI;
 
@@ -44,11 +41,13 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * PCRacialHDSizeTermEvaluatorTest checks the function of the RACIALHDSIZE variable.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 {
@@ -58,8 +57,9 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	Race humanRace = new Race();
 	PCRacialHDSizeTermEvaluator eval = new PCRacialHDSizeTermEvaluator("RACIALHDSIZE");
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 
@@ -104,6 +104,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	/**
 	 * Check for creature with racial HD but no class levels
 	 */
+	@Test
 	public void testBugbearWithNoClassLevels()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -114,6 +115,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	/**
 	 * Check for creature with racial HD and class levels
 	 */
+	@Test
 	public void testBugbearWithClassLevels()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -125,6 +127,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	/**
 	 * Check for creature with no racial HD
 	 */
+	@Test
 	public void testHuman()
 	{
 		PlayerCharacter pc = getCharacter();

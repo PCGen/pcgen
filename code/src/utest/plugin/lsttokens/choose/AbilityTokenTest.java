@@ -17,9 +17,7 @@
  */
 package plugin.lsttokens.choose;
 
-import java.net.URISyntaxException;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
@@ -27,7 +25,6 @@ import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -35,8 +32,11 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.qualifier.ability.PCToken;
+
+import org.junit.jupiter.api.Test;
 
 public class AbilityTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, Ability>
@@ -44,17 +44,7 @@ public class AbilityTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static AbilityToken subtoken = new AbilityToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
-
-	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-		primaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class,
-				"Special Ability");
-		secondaryContext.getReferenceContext().constructCDOMObject(AbilityCategory.class,
-				"Special Ability");
-	}
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()
@@ -86,12 +76,6 @@ public class AbilityTokenTest extends
 		return Ability.class;
 	}
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	protected boolean allowsQualifier()
 	{
@@ -111,14 +95,12 @@ public class AbilityTokenTest extends
 	}
 
 	@Override
-	protected Loadable construct(LoadContext loadContext, String one)
+	protected Loadable construct(LoadContext loadContext, String name)
 	{
-		Ability obj = loadContext.getReferenceContext().constructCDOMObject(Ability.class, one);
-		Category<Ability> cat = loadContext.getReferenceContext()
+		AbilityCategory cat = loadContext.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(AbilityCategory.class,
 						"Special Ability");
-		loadContext.getReferenceContext().reassociateCategory(cat, obj);
-		return obj;
+		return BuildUtilities.buildAbility(loadContext, cat, name);
 	}
 
 	@Override
@@ -127,7 +109,7 @@ public class AbilityTokenTest extends
 		Category<Ability> cat = primaryContext.getReferenceContext()
 				.silentlyGetConstructedCDOMObject(AbilityCategory.class,
 						"Special Ability");
-		return primaryContext.getReferenceContext().getManufacturer(getTargetClass(), cat);
+		return primaryContext.getReferenceContext().getManufacturerId(cat);
 	}
 
 	@Override
@@ -149,16 +131,35 @@ public class AbilityTokenTest extends
 	}
 
 	@Override
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		//Hard to get correct - doesn't assume Category :(
 	}
 
 	@Test
-	public void testInvalidBadCategory() throws PersistenceLayerException
+	public void testInvalidBadCategory()
 	{
 		assertFalse(parse("ABILITY|BadCat|TYPE=Foo"));
 		assertNoSideEffects();
+	}
+
+	@Override
+	protected Ability get(LoadContext context, String name)
+	{
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
+	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		context.getReferenceContext().constructCDOMObject(AbilityCategory.class,
+			"Special Ability");
+		//Build dummy objects so the ReferenceContext is properly initialized
+		construct(context, "Dummy");
 	}
 }
 

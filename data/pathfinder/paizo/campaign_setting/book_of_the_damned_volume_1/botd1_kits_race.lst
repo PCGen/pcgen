@@ -42,7 +42,7 @@ ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)		FREE:YES
 #GEAR:Shield (Heavy/Metal)	SIZE:PC	LOCATION:Equipped
 #GEAR:Waraxe (Dwarven)		SIZE:PC	LOCATION:Primary Hand
 #GEAR:Shortbow			SIZE:PC	LOCATION:Carried
-GEAR:Full Plate	SIZE:PC	LOCATION:Equipped	EQMOD:PLUS5A.SHDW
+GEAR:Full Plate	SIZE:PC	LOCATION:Equipped	EQMOD:Special Ability ~ +5 ~ Armor.Special Ability ~ Shadow ~ Armor
 #Treasure double (+5 shadow full plate, other treasure)
 
 
@@ -96,7 +96,7 @@ SKILL:Fly			RANK:2
 SKILL:Perception		RANK:4
 SKILL:Stealth		RANK:4	FREE:YES
 #
-GEAR:Spear	LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Spear	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Devil (Host Greater) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Greater Host)]
@@ -116,7 +116,7 @@ SKILL:Fly			RANK:7
 SKILL:Intimidate		RANK:7
 SKILL:Perception		RANK:7
 SKILL:Stealth		RANK:7
-GEAR:Ranseur	LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Ranseur	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 #Languages Celestial, Draconic, Infernal; telepathy 100 ft.
 
 
@@ -144,7 +144,7 @@ SKILL:Knowledge (engineering)		RANK:7
 SKILL:Knowledge (planes)		RANK:7
 SKILL:Perception				RANK:8
 SKILL:Stealth				RANK:8
-GEAR:Trident			LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Trident			LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Net		SIZE:PC	LOCATION:Equipped
 
 #Languages Celestial, Draconic, Infernal; telepathy 100 ft.

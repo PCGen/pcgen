@@ -34,7 +34,7 @@ SKILL:Use Magic Device		RANK:1
 ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=FEAT|Skill Focus(Use Magic Device)
 GEAR:Dagger					LOCATION:Primary Hand
-GEAR:Wand					LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Acid Splash]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[28]
+GEAR:Wand					LOCATION:Carried		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Acid Splash]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[0]CASTERLEVEL[1]CHARGES[28]
 GEAR:Thunderstone				LOCATION:Carried
 GEAR:Tanglefoot Bag		QTY:3	LOCATION:Carried
 GEAR:Acid (Flask)			QTY:3	LOCATION:Carried
@@ -156,8 +156,8 @@ ABILITY:CATEGORY=FEAT|Combat Expertise
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Skill Focus(Bluff)
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Dagger				LOCATION:Carried		EQMOD:MWORKW
-GEAR:Crossbow (Hand)		LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Dagger				LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Crossbow (Hand)		LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Bolts (Crossbow/10)	LOCATION:Carried
 
 
@@ -203,12 +203,12 @@ ABILITY:CATEGORY=FEAT|Quick Draw
 ABILITY:CATEGORY=FEAT|Weapon Focus(Longbow)
 ABILITY:CATEGORY=Fighter Bonus Feat|Point-Blank Shot
 ABILITY:CATEGORY=Fighter Bonus Feat|Precise Shot
-GEAR:Chainmail						LOCATION:Equipped			EQMOD:MWORKA
-GEAR:Spear							LOCATION:Carried			EQMOD:MWORKW
-GEAR:Longbow (Composite)				LOCATION:Both Hands		EQMOD:BOWSTR|+2.MWORKW
+GEAR:Chainmail						LOCATION:Equipped			EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Spear							LOCATION:Carried			EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Longbow (Composite)				LOCATION:Both Hands		EQMOD:Special Quality ~ Composite Bow Strength Rating|+2.Special Quality ~ Masterwork ~ Weapon
 GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
-GEAR:Arrow							LOCATION:Longbow (Composite)	EQMOD:PLUS2W
-GEAR:Arrow					QTY:19	LOCATION:Carried			EQMOD:PLUS2W
+GEAR:Arrow							LOCATION:Longbow (Composite)	EQMOD:Special Ability ~ +2 ~ Weapon
+GEAR:Arrow					QTY:19	LOCATION:Carried			EQMOD:Special Ability ~ +2 ~ Weapon
 
 
 STARTPACK:NPC (Devargo Barvasi)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.38	NAMEISPI:YES
@@ -242,7 +242,7 @@ GEAR:Potion of Invisibility				LOCATION:Carried
 GEAR:Poison (Medium spider venom)			LOCATION:Carried
 GEAR:Leather						LOCATION:Equipped
 GEAR:Gauntlet (Spiked)			QTY:2		LOCATION:Equipped
-GEAR:Crossbow (Hand)					LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Crossbow (Hand)					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Bolt (Crossbow)			QTY:20	LOCATION:Carried
 
 
@@ -273,9 +273,9 @@ ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Potion of Cat's Grace		LOCATION:Carried
 GEAR:Potion of Jump			LOCATION:Carried
 GEAR:Potion of Shield of Faith +3	LOCATION:Carried
-GEAR:Wand					LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Daze Monster]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[10]
-GEAR:Mithral Shirt			LOCATION:Equipped		EQMOD:PLUS1A.MITHRAL_ARMR_LT
-GEAR:Dagger					LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Wand					LOCATION:Carried		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Daze Monster]CASTER[Wizard]SPELLTYPE[Arcane]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[10]
+GEAR:Mithral Shirt			LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor.Material ~ Mithril ~ Armor / Light
+GEAR:Dagger					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Daze|Light|Mage Hand|Mending|Message|Prestidigitation|Charm Person|Cure Light Wounds|Feather Fall|Hideous Laughter|Invisibility|Minor Image
 
 
@@ -296,7 +296,7 @@ ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Weapon Focus(Unarmed Strike)
 ABILITY:CATEGORY=Fighter Bonus Feat|Improved Initiative
 ABILITY:CATEGORY=Fighter Bonus Feat|Improved Unarmed Strike
-GEAR:Studded Leather			LOCATION:Equipped	EQMOD:PLUS1A
+GEAR:Studded Leather			LOCATION:Equipped	EQMOD:Special Ability ~ +1 ~ Armor
 GEAR:Unarmed Strike	SIZE:L	LOCATION:Equipped
 
 
@@ -328,8 +328,8 @@ ABILITY:CATEGORY=FEAT|Spell Focus(Necromancy)
 ABILITY:CATEGORY=Wizard Bonus Feat|Extend Spell
 GEAR:Ring of Protection +1				LOCATION:Equipped
 GEAR:Robe of Bones					LOCATION:Equipped
-GEAR:Dagger					SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW
-GEAR:Wand							LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Ghoul Touch]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[44]
+GEAR:Dagger					SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Wand							LOCATION:Carried		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Ghoul Touch]SPELLLEVEL[2]CASTERLEVEL[3]CHARGES[44]
 GEAR:Poison (Blue whinnis)	QTY:5			LOCATION:Carried
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Detect Magic|Mage Hand|Mending|Ray of Frost|Touch of Fatigue|Vampiric Touch|Fly|False Life|Blindness/Deafness|Shield|Scorching Ray|Spectral Hand|Cause Fear|Chill Touch|Magic Missile|Ray of Enfeeblement|Sleep
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Vampiric Touch|Fly|False Life[Extend Spell]|Detect Magic|Mage Hand|Mending|Ray of Frost|Touch of Fatigue|Blindness/Deafness|Shield[Extend Spell]|Scorching Ray|Spectral Hand|Cause Fear|Chill Touch|Magic Missile|Ray of Enfeeblement|Sleep

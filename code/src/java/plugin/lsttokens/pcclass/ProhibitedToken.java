@@ -37,8 +37,7 @@ import pcgen.util.enumeration.ProhibitedSpellType;
 /**
  * Class deals with PROHIBITED Token
  */
-public class ProhibitedToken extends AbstractTokenWithSeparator<PCClass>
-		implements CDOMPrimaryToken<PCClass>
+public class ProhibitedToken extends AbstractTokenWithSeparator<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override
@@ -54,8 +53,7 @@ public class ProhibitedToken extends AbstractTokenWithSeparator<PCClass>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCClass pcc, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass pcc, String value)
 	{
 		StringTokenizer elements = new StringTokenizer(value, Constants.COMMA);
 		while (elements.hasMoreTokens())
@@ -66,13 +64,11 @@ public class ProhibitedToken extends AbstractTokenWithSeparator<PCClass>
 				SpellProhibitor prohibSchool = new SpellProhibitor();
 				prohibSchool.setType(ProhibitedSpellType.SCHOOL);
 				prohibSchool.addValue(aValue);
-				context.getObjectContext().addToList(pcc,
-					ListKey.PROHIBITED_SPELLS, prohibSchool);
+				context.getObjectContext().addToList(pcc, ListKey.PROHIBITED_SPELLS, prohibSchool);
 				SpellProhibitor prohibSubSchool = new SpellProhibitor();
 				prohibSubSchool.setType(ProhibitedSpellType.SUBSCHOOL);
 				prohibSubSchool.addValue(aValue);
-				context.getObjectContext().addToList(pcc,
-					ListKey.PROHIBITED_SPELLS, prohibSubSchool);
+				context.getObjectContext().addToList(pcc, ListKey.PROHIBITED_SPELLS, prohibSubSchool);
 			}
 		}
 		return ParseResult.SUCCESS;
@@ -81,9 +77,7 @@ public class ProhibitedToken extends AbstractTokenWithSeparator<PCClass>
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		Changes<SpellProhibitor> changes =
-				context.getObjectContext().getListChanges(pcc,
-					ListKey.PROHIBITED_SPELLS);
+		Changes<SpellProhibitor> changes = context.getObjectContext().getListChanges(pcc, ListKey.PROHIBITED_SPELLS);
 		Collection<SpellProhibitor> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{

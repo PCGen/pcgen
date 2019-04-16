@@ -1,5 +1,4 @@
 /*
- * SelectionToken.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 4/10/2008 15:58:41
- *
- * $Id: $
  */
 
 package plugin.lsttokens.kit.skill;
@@ -40,10 +35,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * SELECTION token for KitSkill
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class SelectionToken extends AbstractTokenWithSeparator<KitSkill>
-		implements CDOMPrimaryToken<KitSkill>
+public class SelectionToken extends AbstractTokenWithSeparator<KitSkill> implements CDOMPrimaryToken<KitSkill>
 {
 
 	private static final Class<Language> LANGUAGE_CLASS = Language.class;
@@ -78,8 +71,7 @@ public class SelectionToken extends AbstractTokenWithSeparator<KitSkill>
 
 		while (tok.hasMoreTokens())
 		{
-			kitSkill.addSelection(context.getReferenceContext().getCDOMReference(LANGUAGE_CLASS,
-				tok.nextToken()));
+			kitSkill.addSelection(context.getReferenceContext().getCDOMReference(LANGUAGE_CLASS, tok.nextToken()));
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -92,8 +84,7 @@ public class SelectionToken extends AbstractTokenWithSeparator<KitSkill>
 		{
 			return null;
 		}
-		return new String[]{ReferenceUtilities.joinLstFormat(ref,
-			Constants.COMMA)};
+		return new String[]{ReferenceUtilities.joinLstFormat(ref, Constants.COMMA)};
 	}
 
 	//TODO DeferredToken - check this?

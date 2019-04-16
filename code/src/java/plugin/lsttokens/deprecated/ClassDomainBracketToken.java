@@ -56,8 +56,7 @@ public class ClassDomainBracketToken extends AbstractTokenWithSeparator<PCClass>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCClass pcc, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass pcc, String value)
 	{
 		Logging.deprecationPrint(getMessage(pcc, value));
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
@@ -70,8 +69,8 @@ public class ClassDomainBracketToken extends AbstractTokenWithSeparator<PCClass>
 			{
 				if (!first)
 				{
-					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item", context);
+					return new ParseResult.Fail(
+						"  Non-sensical " + getTokenName() + ": .CLEAR was not the first list item");
 				}
 				context.getObjectContext().removeList(pcc, ListKey.DOMAIN);
 				continue;
@@ -85,8 +84,8 @@ public class ClassDomainBracketToken extends AbstractTokenWithSeparator<PCClass>
 			{
 				if (tok.indexOf(']') != -1)
 				{
-					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ " must have '[' if it contains a PREREQ tag", context);
+					return new ParseResult.Fail(
+						"Invalid " + getTokenName() + " must have '[' if it contains a PREREQ tag");
 				}
 				domainKey = tok;
 			}
@@ -94,29 +93,24 @@ public class ClassDomainBracketToken extends AbstractTokenWithSeparator<PCClass>
 			{
 				if (tok.lastIndexOf(']') != tok.length() - 1)
 				{
-					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ " must end with ']' if it contains a PREREQ tag", context);
+					return new ParseResult.Fail(
+						"Invalid " + getTokenName() + " must end with ']' if it contains a PREREQ tag");
 				}
 				domainKey = tok.substring(0, openBracketLoc);
-				String prereqString = tok.substring(openBracketLoc + 1, tok
-						.length() - 1);
-				if (prereqString.length() == 0)
+				String prereqString = tok.substring(openBracketLoc + 1, tok.length() - 1);
+				if (prereqString.isEmpty())
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " cannot have empty prerequisite : " + value, context);
+					return new ParseResult.Fail(getTokenName() + " cannot have empty prerequisite : " + value);
 				}
 				prereq = getPrerequisite(prereqString);
 				if (prereq == null)
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " had invalid prerequisite : " + prereqString, context);
+					return new ParseResult.Fail(getTokenName() + " had invalid prerequisite : " + prereqString);
 				}
 			}
-			CDOMSingleRef<Domain> domain = context.getReferenceContext().getCDOMReference(
-					DOMAIN_CLASS, domainKey);
+			CDOMSingleRef<Domain> domain = context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, domainKey);
 
-			QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<>(
-					domain);
+			QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<>(domain);
 			if (prereq != null)
 			{
 				qo.addPrerequisite(prereq);
@@ -154,8 +148,7 @@ public class ClassDomainBracketToken extends AbstractTokenWithSeparator<PCClass>
 	@Override
 	public String getMessage(CDOMObject obj, String value)
 	{
-		return "Found deprecated DOMAIN: token on "
-			+ obj.getClass().getSimpleName() + ": " + obj.getKeyName() + " -- "
+		return "Found deprecated DOMAIN: token on " + obj.getClass().getSimpleName() + ": " + obj.getKeyName() + " -- "
 			+ value;
 	}
 }

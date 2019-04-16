@@ -1,5 +1,4 @@
 /*
- * TemplateInfoTab.java
  * Copyright 2010 (C) Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Sep 13, 2010, 6:22:26 PM
  */
 package pcgen.gui2.tabs;
 
@@ -36,13 +34,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import pcgen.core.PCTemplate;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.InfoFactory;
-import pcgen.facade.core.TemplateFacade;
-import pcgen.facade.util.event.ListEvent;
-import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilterButton;
@@ -66,19 +64,17 @@ import pcgen.util.enumeration.Tab;
 
 /**
  * This component allows the user to manage a character's templates.
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
 	private final TabTitle tabTitle = new TabTitle(Tab.TEMPLATES);
-	private final FilteredTreeViewTable<CharacterFacade, TemplateFacade> availableTable;
-	private final FilteredTreeViewTable<CharacterFacade, TemplateFacade> selectedTable;
+	private final FilteredTreeViewTable<CharacterFacade, PCTemplate> availableTable;
+	private final FilteredTreeViewTable<CharacterFacade, PCTemplate> selectedTable;
 	private final JButton addButton;
 	private final JButton removeButton;
 	private final InfoPane infoPane;
-	private final FilterButton<CharacterFacade, TemplateFacade> qFilterButton;
+	private final FilterButton<CharacterFacade, PCTemplate> qFilterButton;
 	private final QualifiedTreeCellRenderer qualifiedRenderer;
 
 	public TemplateInfoTab()
@@ -101,7 +97,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		setOrientation(VERTICAL_SPLIT);
 
 		JPanel availPanel = new JPanel(new BorderLayout());
-		FilterBar<CharacterFacade, TemplateFacade> bar = new FilterBar<>();
+		FilterBar<CharacterFacade, PCTemplate> bar = new FilterBar<>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		bar.addDisplayableFilter(qFilterButton);
@@ -122,7 +118,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		topPane.setLeftComponent(availPanel);
 
 		JPanel selPanel = new JPanel(new BorderLayout());
-		FilterBar<CharacterFacade, TemplateFacade> filterBar = new FilterBar<>();
+		FilterBar<CharacterFacade, PCTemplate> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 
 		selectedTable.setDisplayableFilter(filterBar);
@@ -184,7 +180,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class InfoHandler implements ListSelectionListener
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 		private String text;
 
 		public InfoHandler(CharacterFacade character)
@@ -228,9 +224,9 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 						obj = selectedTable.getModel().getValueAt(selectedRow, 0);
 					}
 				}
-				if (obj instanceof TemplateFacade)
+				if (obj instanceof PCTemplate)
 				{
-					text = character.getInfoFactory().getHTMLInfo((TemplateFacade) obj);
+					text = character.getInfoFactory().getHTMLInfo((PCTemplate) obj);
 					infoPane.setText(text);
 				}
 			}
@@ -241,7 +237,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class AddAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public AddAction(CharacterFacade character)
 		{
@@ -256,9 +252,9 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			List<Object> data = availableTable.getSelectedData();
 			for (Object object : data)
 			{
-				if (object instanceof TemplateFacade)
+				if (object instanceof PCTemplate)
 				{
-					character.addTemplate((TemplateFacade) object);
+					character.addTemplate((PCTemplate) object);
 					return;
 				}
 			}
@@ -280,7 +276,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class RemoveAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public RemoveAction(CharacterFacade character)
 		{
@@ -295,9 +291,9 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			List<Object> data = selectedTable.getSelectedData();
 			for (Object object : data)
 			{
-				if (object instanceof TemplateFacade)
+				if (object instanceof PCTemplate)
 				{
-					character.removeTemplate((TemplateFacade) object);
+					character.removeTemplate((PCTemplate) object);
 					return;
 				}
 			}
@@ -319,10 +315,10 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class QualifiedFilterHandler
 	{
 
-		private final Filter<CharacterFacade, TemplateFacade> qFilter = new Filter<CharacterFacade, TemplateFacade>()
+		private final Filter<CharacterFacade, PCTemplate> qFilter = new Filter<CharacterFacade, PCTemplate>()
 		{
 			@Override
-			public boolean accept(CharacterFacade context, TemplateFacade element)
+			public boolean accept(CharacterFacade context, PCTemplate element)
 			{
 				return character.isQualifiedFor(element);
 			}
@@ -369,7 +365,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 	}
 
-	private class TemplateDataView extends CachedDataView<TemplateFacade>
+	private class TemplateDataView extends CachedDataView<PCTemplate>
 	{
 
 		private final List<DefaultDataViewColumn> columns;
@@ -383,18 +379,18 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			if (isAvailModel)
 			{
 				columns = Arrays.asList(new DefaultDataViewColumn("in_lvlAdj", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_modifier", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_preReqs", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+					new DefaultDataViewColumn("in_modifier", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_preReqs", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 			else
 			{
 				columns = Arrays.asList(new DefaultDataViewColumn("in_lvlAdj", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_modifier", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_preReqs", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+					new DefaultDataViewColumn("in_modifier", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_preReqs", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 		}
 
@@ -407,26 +403,14 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public String getPrefsKey()
 		{
-			return isAvailModel ? "TemplateTreeAvail" : "TemplateTreeSelected";  //$NON-NLS-1$//$NON-NLS-2$
+			return isAvailModel ? "TemplateTreeAvail" : "TemplateTreeSelected"; //$NON-NLS-1$//$NON-NLS-2$
 		}
 
-//		@Override
-//		protected void refreshTableData()
-//		{
-//			if (isAvailModel)
-//			{
-//				availableTable.refreshModelData();
-//			}
-//			else
-//			{
-//				selectedTable.refreshModelData();
-//			}
-//		}
-
 		@Override
-		public Object getDataInternal(TemplateFacade obj, int column)
+		public Object getDataInternal(PCTemplate obj, int column)
 		{
-			switch(column){
+			switch (column)
+			{
 				case 0:
 					return infoFactory.getLevelAdjustment(obj);
 				case 1:
@@ -444,16 +428,16 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	}
 
-	private static class TemplateTreeViewModel
-			implements TreeViewModel<TemplateFacade>, Filter<CharacterFacade, TemplateFacade>, ListListener<TemplateFacade>
+	private static class TemplateTreeViewModel implements TreeViewModel<PCTemplate>,
+			Filter<CharacterFacade, PCTemplate>, ListListener<PCTemplate>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<TemplateFacade>> treeViews
-				= new DefaultListFacade<TreeView<TemplateFacade>>(Arrays.asList(TemplateTreeView.values()));
+		private static final DefaultListFacade<? extends TreeView<PCTemplate>> TREE_VIEWS =
+				new DefaultListFacade<TreeView<PCTemplate>>(Arrays.asList(TemplateTreeView.values()));
 		private final CharacterFacade character;
 		private final boolean isAvailModel;
 		private final TemplateDataView dataView;
-		private FilteredListFacade<CharacterFacade, TemplateFacade> templates;
+		private final FilteredListFacade<CharacterFacade, PCTemplate> templates;
 
 		public TemplateTreeViewModel(CharacterFacade character, boolean isAvailModel, TemplateDataView dataView)
 		{
@@ -475,9 +459,9 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 
 		@Override
-		public ListFacade<? extends TreeView<TemplateFacade>> getTreeViews()
+		public ListFacade<? extends TreeView<PCTemplate>> getTreeViews()
 		{
-			return treeViews;
+			return TREE_VIEWS;
 		}
 
 		@Override
@@ -487,13 +471,13 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 
 		@Override
-		public DataView<TemplateFacade> getDataView()
+		public DataView<PCTemplate> getDataView()
 		{
 			return dataView;
 		}
 
 		@Override
-		public ListFacade<TemplateFacade> getDataModel()
+		public ListFacade<PCTemplate> getDataModel()
 		{
 			if (isAvailModel)
 			{
@@ -506,38 +490,38 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 
 		@Override
-		public void elementAdded(ListEvent<TemplateFacade> e)
+		public void elementAdded(ListEvent<PCTemplate> e)
 		{
 			templates.refilter();
 		}
 
 		@Override
-		public void elementRemoved(ListEvent<TemplateFacade> e)
+		public void elementRemoved(ListEvent<PCTemplate> e)
 		{
 			templates.refilter();
 		}
 
 		@Override
-		public void elementsChanged(ListEvent<TemplateFacade> e)
+		public void elementsChanged(ListEvent<PCTemplate> e)
 		{
 			templates.refilter();
 		}
 
 		@Override
-		public void elementModified(ListEvent<TemplateFacade> e)
+		public void elementModified(ListEvent<PCTemplate> e)
 		{
 			templates.refilter();
 		}
 
 		@Override
-		public boolean accept(CharacterFacade context, TemplateFacade element)
+		public boolean accept(CharacterFacade context, PCTemplate element)
 		{
 			return !context.getTemplates().containsElement(element);
 		}
 
 	}
 
-	private enum TemplateTreeView implements TreeView<TemplateFacade>
+	private enum TemplateTreeView implements TreeView<PCTemplate>
 	{
 
 		NAME("in_nameLabel"), //$NON-NLS-1$
@@ -557,18 +541,16 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		}
 
 		@Override
-		public List<TreeViewPath<TemplateFacade>> getPaths(TemplateFacade pobj)
+		public List<TreeViewPath<PCTemplate>> getPaths(PCTemplate pobj)
 		{
 			switch (this)
 			{
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case TYPE_NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj,
-                            pobj.getType()));
+					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getType()));
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<>(pobj,
-                            pobj.getSourceForNodeDisplay()));
+					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}

@@ -38,14 +38,12 @@ public class BonusToken implements CDOMPrimaryToken<EqSizePenalty>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, EqSizePenalty esp,
-			String value)
+	public ParseResult parseToken(LoadContext context, EqSizePenalty esp, String value)
 	{
 		BonusObj bon = Bonus.newBonus(context, value);
 		if (bon == null)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " was given invalid bonus: " + value, context);
+			return new ParseResult.Fail(getTokenName() + " was given invalid bonus: " + value);
 		}
 		bon.setTokenSource(getTokenName());
 		esp.addBonus(bon);

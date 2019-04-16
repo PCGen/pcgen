@@ -1,4 +1,4 @@
-/**
+/*
  *  Initiative - A role playing utility to track turns
  *  Copyright (C) 2013 Vincent Lhote
  *
@@ -15,81 +15,99 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  State.java
- *
- *  Created on July, 1st 2013
  */
 package gmgen.plugin;
+
+import java.util.Arrays;
 
 import pcgen.system.LanguageBundle;
 
 /**
  * The state of a combatant, or an event.
  * 
- * @author Vincent Lhote
  */
-public enum State {
+public enum State
+{
 	/* Used in Event */
-	Active {
+	Active
+	{
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return LanguageBundle.getString("in_plugin_state_active"); //$NON-NLS-1$
 		}
 	},
 	/* the rest */
-	Nothing {
+	Nothing
+	{
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return LanguageBundle.getString("in_plugin_state_nothing"); //$NON-NLS-1$
 		}
 	},
-	Bleeding {
+	Bleeding
+	{
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return LanguageBundle.getString("in_plugin_state_bleeding"); //$NON-NLS-1$
 		}
 	},
-	Staggered {
+	Staggered
+	{
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return LanguageBundle.getString("in_plugin_state_staggered"); //$NON-NLS-1$
 		}
 	},
-	Unconsious {
+	Unconsious
+	{
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return LanguageBundle.getString("in_plugin_state_unconsious"); //$NON-NLS-1$
 		}
 	},
-	Stable {
+	Stable
+	{
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return LanguageBundle.getString("in_plugin_state_stable"); //$NON-NLS-1$
 		}
 	},
-	Dead {
+	Dead
+	{
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return LanguageBundle.getString("in_plugin_state_dead"); //$NON-NLS-1$
 		}
 	},
-	Dazed {
+	Dazed
+	{
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return LanguageBundle.getString("in_plugin_state_dazed"); //$NON-NLS-1$
 		}
 	},
-	Disabled {
+	Disabled
+	{
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return LanguageBundle.getString("in_plugin_state_disabled"); //$NON-NLS-1$
 		}
 	},
 	/* XXX Seems to be checked for at one place but never put to that value... */
-	Defeated {
+	Defeated
+	{
 		@Override
-		public String toString() {
+		public String toString()
+		{
 			return LanguageBundle.getString("in_plugin_state_defeated"); //$NON-NLS-1$
 		}
 	};
@@ -101,21 +119,13 @@ public enum State {
 	 * @param value
 	 * @return {@link #Nothing} if no match (and not {@code null})
 	 */
-	public static State getState(String value) {
-		for (State s : State.values()) {
-			if (s.name().equals(value)) {
-				return s;
-			}
-		}
-		return Nothing;
+	public static State getState(String value)
+	{
+		return Arrays.stream(State.values()).filter(s -> s.name().equals(value)).findFirst().orElse(Nothing);
 	}
 
-	public static State getStateLocalised(String value) {
-		for (State s : State.values()) {
-			if (s.toString().equals(value)) {
-				return s;
-			}
-		}
-		return Nothing;
+	public static State getStateLocalised(String value)
+	{
+		return Arrays.stream(State.values()).filter(s -> s.toString().equals(value)).findFirst().orElse(Nothing);
 	}
 }

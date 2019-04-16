@@ -1,0 +1,8 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+# Class Name
+CLASS:Druid.MOD
+0	DOMAIN:Badlands|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Badlands
+0	DOMAIN:Crocodile|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Crocodile
+0	DOMAIN:Panther|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Panther
+0	DOMAIN:Vulture|PREABILITY:1,CATEGORY=Special Ability,Druid Domain ~ Vulture

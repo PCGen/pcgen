@@ -1,39 +1,16 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21393 $ $Author: evilmynex $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
 # ORIGINAL ENTRY: Stefan Radermacher and Eric Smith (Maredudd)
 # ORIGINAL ENTRY DATE: Unknown
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Define																								Combat bonus																	Save bonus																																		Modify VAR																																																																																																																																				Monster Role	FACT
-CLASS:Magus		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:MagusLVL|0	DEFINE:MagusHighestSpellLVL|0	DEFINE:CasterLevelBLMagus|0	DEFINE:Caster_Level_Magus|0	DEFINE:Caster_Level_BL_Stripped_Magus|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|MagusLVL|CL	BONUS:VAR|MagusHighestSpellLVL|1+(MagusLVL>=4)+(MagusLVL>=7)+(MagusLVL>=10)+(MagusLVL>=13)+(MagusLVL>=16)	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Magus|Caster_Level_Magus-CasterLevelBLMagus	BONUS:VAR|Caster_Level_Magus|CL+Caster_Level_Bonus+CasterLevelBLMagus	BONUS:VAR|CasterLevelBL_x_Magus|charbonusto("PCLEVEL","Magus")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Magus|TYPE=Base	ROLE:Combat		FACT:ClassType|PC	FACT:Abb|Mag	FACT:SpellType|Arcane
-# Class Name	Skill Pts/Lvl	Class Skill
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define																								Combat bonus																	Save bonus																																		Modify VAR																																																																																																																																														Monster Role	FACT
+CLASS:Magus		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:MagusLVL|0	DEFINE:MagusHighestSpellLVL|0	DEFINE:CasterLevelBLMagus|0	DEFINE:Caster_Level_Magus|0	DEFINE:Caster_Level_BL_Stripped_Magus|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|MagusLVL|CL	BONUS:VAR|MagusHighestSpellLVL|1+(MagusLVL>=4)+(MagusLVL>=7)+(MagusLVL>=10)+(MagusLVL>=13)+(MagusLVL>=16)	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Magus|Caster_Level_Magus-CasterLevelBLMagus	BONUS:VAR|Caster_Level_Magus|CL+Caster_Level_Bonus+CasterLevelBLMagus	BONUS:VAR|CasterLevelBL_x_Magus|charbonusto("PCLEVEL","Magus")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Magus|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Magus	ROLE:Combat		FACT:ClassType|PC	FACT:Abb|Mag	FACT:SpellType|Arcane
+# Class Name	Skill Pts/Lvl
 CLASS:Magus		STARTSKILLPTS:2
 # Class Name	Spell Stat		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Magus		SPELLSTAT:INT	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Magus|Caster_Level_BL_Stripped_Magus
 1	ABILITY:Class|AUTOMATIC|Magus
-###Block: Magus Spellbook
-1	ABILITY:Internal|AUTOMATIC|Magus Free Spellbook|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Magus=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Magus=1]]
-###Block: Class features
-1	BONUS:VAR|MagusArmorProficiencyLVL|MagusLVL
-1	BONUS:VAR|MagusArcanePoolLVL|MagusLVL
-3	BONUS:VAR|MagusArcanaLVL|MagusLVL
-10	BONUS:VAR|MagusFighterTrainingLVL|MagusLVL
-###Block:
-1	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Armor Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency
-1	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Arcane Pool|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcanePool
-1	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Spell Combat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellCombat
-1	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Cantrips|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCantrips
-2	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Spellstrike|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellstrike
-3	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Magus Arcana|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcana
-4	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Spell Recall|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellRecall
-5	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Bonus Feats
-7	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Knowledge Pool|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusKnowledgePool
-8	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Improved Spell Combat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellCombat
-10	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Fighter Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusFighterTraining
-11	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Improved Spell Recall|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellRecall
-14	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Greater Spell Combat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellCombat
-16	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Counterstrike|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCounterstrike
-19	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Greater Spell Access|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellAccess
-20	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ True Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusTrueMagus
 ###Block: Spell progression
 1	CAST:3,1
 2	CAST:4,2
@@ -56,7 +33,6 @@ CLASS:Magus		SPELLSTAT:INT	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONU
 19	CAST:5,5,5,5,5,5,4
 20	CAST:5,5,5,5,5,5,5
 
-# COMMENT: Modify Monk to allow monk vows.  Move this to Core?
 
 # Class Name	Ability
 CLASS:Monk.MOD	ABILITY:Internal|AUTOMATIC|Allow Vows
@@ -115,9 +91,9 @@ CLASS:Druid.MOD
 # Class Name
 CLASS:Wizard.MOD
 SUBCLASS:Metal	CHOICE:DESCRIPTOR|MetalSchool	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:VAR|MetalSchoolLVL|WizardSchoolLvl	ABILITY:Special Ability|AUTOMATIC|Metal School
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Metal School
 SUBCLASS:Wood	CHOICE:DESCRIPTOR|WoodSchool	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	BONUS:VAR|WoodSchoolLVL|WizardSchoolLvl	ABILITY:Special Ability|AUTOMATIC|Wood School
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Wood School
 
 ###Block: Cleric Domain Special
 

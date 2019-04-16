@@ -1,5 +1,4 @@
 /*
- * SpellListToken.java
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Jul 15, 2004
  *
- * $Id$
  *
  */
 package pcgen.io.exporttoken;
@@ -30,7 +27,6 @@ import java.util.StringTokenizer;
  * family of tokens.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public abstract class SpellListToken extends Token
 {
@@ -47,9 +43,8 @@ public abstract class SpellListToken extends Token
 	// ================== Inner class =======================
 	/**
 	 * {@code SpellListTokenParams} is ...
-	 *
 	 */
-	protected final static class SpellListTokenParams
+	protected static final class SpellListTokenParams
 	{
 		private int classNum = 0;
 		private int level = 0;
@@ -66,8 +61,7 @@ public abstract class SpellListToken extends Token
 
 			classNum = Integer.parseInt(aTok.nextToken());
 
-			if (aTok.hasMoreTokens() && (tagType != SPELLTAG_TYPE)
-				&& (tagType != SPELLTAG_CLASS)
+			if (aTok.hasMoreTokens() && (tagType != SPELLTAG_TYPE) && (tagType != SPELLTAG_CLASS)
 				&& (tagType != SPELLTAG_MEMORIZE))
 			{
 				level = Integer.parseInt(aTok.nextToken());

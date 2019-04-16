@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 (C) Thomas Parker <thpr@users.sourceforge.net>
+ * Copyright 2008-19 (C) Thomas Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -19,25 +19,22 @@ package plugin.lsttokens;
 
 import java.util.Collection;
 import java.util.StringTokenizer;
+import java.util.function.Function;
 
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Movement;
+import pcgen.cdom.enumeration.MovementType;
+import pcgen.core.MoveClone;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- * 
- */
-public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>
+public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -53,28 +50,25 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		StringTokenizer moves = new StringTokenizer(value, Constants.COMMA);
 
 		if (moves.countTokens() != 3)
 		{
-			return new ParseResult.Fail(
-					"Invalid Version of MOVECLONE detected: " + value
-							+ "\n  MOVECLONE has 3 arguments: "
-							+ "SourceMove,DestinationMove,Modifier", context);
+			return new ParseResult.Fail("Invalid Version of MOVECLONE detected: " + value
+				+ "\n  MOVECLONE has 3 arguments: " + "SourceMove,DestinationMove,Modifier");
 		}
 
-		String oldType = moves.nextToken();
-		String newType = moves.nextToken();
+		MovementType oldType = MovementType.getConstant(moves.nextToken());
+		MovementType newType = MovementType.getConstant(moves.nextToken());
 		String formulaString = moves.nextToken();
+		Function<Double, Double> conversion;
 
 		if (formulaString.startsWith("/"))
 		{
@@ -83,17 +77,17 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 				int denom = Integer.parseInt(formulaString.substring(1));
 				if (denom <= 0)
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " was expecting a Positive Integer "
-							+ "for dividing Movement, was : "
-							+ formulaString.substring(1), context);
+					return new ParseResult.Fail(getTokenName() + " was expecting a Positive Integer "
+						+ "for dividing Movement, was : " + formulaString.substring(1));
 				}
+				conversion = moveRate -> {
+					return (moveRate / denom);
+				};
 			}
 			catch (NumberFormatException e)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " was expecting an integer to follow /, was : "
-						+ formulaString, context);
+				return new ParseResult.Fail(
+					getTokenName() + " was expecting an integer to follow /, was : " + formulaString);
 			}
 		}
 		else if (formulaString.startsWith("*"))
@@ -103,17 +97,17 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 				float mult = Float.parseFloat(formulaString.substring(1));
 				if (mult < 0.0)
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " was expecting a "
-							+ "Float >= 0 for multiplying Movement, was : "
-							+ formulaString.substring(1), context);
+					return new ParseResult.Fail(getTokenName() + " was expecting a "
+						+ "Float >= 0 for multiplying Movement, was : " + formulaString.substring(1));
 				}
+				conversion = moveRate -> {
+					return (moveRate * mult);
+				};
 			}
 			catch (NumberFormatException e)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " was expecting an integer to follow *, was : "
-						+ formulaString, context);
+				return new ParseResult.Fail(
+					getTokenName() + " was expecting an integer to follow *, was : " + formulaString);
 			}
 		}
 		else if (formulaString.startsWith("+"))
@@ -123,61 +117,58 @@ public class MovecloneLst extends AbstractTokenWithSeparator<CDOMObject>
 				int add = Integer.parseInt(formulaString.substring(1));
 				if (add < 0)
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " was expecting a Non-Negative "
-							+ "Integer for adding Movement, was : "
-							+ formulaString.substring(1), context);
+					return new ParseResult.Fail(getTokenName() + " was expecting a Non-Negative "
+						+ "Integer for adding Movement, was : " + formulaString.substring(1));
 				}
+				conversion = moveRate -> {
+					return (moveRate + add);
+				};
 			}
 			catch (NumberFormatException e)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " was expecting an integer to follow +, was : "
-						+ formulaString, context);
+				return new ParseResult.Fail(
+					getTokenName() + " was expecting an integer to follow +, was : " + formulaString);
 			}
 		}
 		else
 		{
 			try
 			{
-				Integer.parseInt(formulaString);
+				int diff = Integer.parseInt(formulaString);
+				conversion = moveRate -> {
+					return (moveRate + diff);
+				};
 			}
 			catch (NumberFormatException e)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " was expecting a Formula as the final value, was : "
-						+ formulaString, context);
+				return new ParseResult.Fail(
+					getTokenName() + " was expecting a Formula as the final value, was : " + formulaString);
 			}
 		}
-		Movement cm = new Movement(2);
-		cm.assignMovement(0, oldType, "0");
-		cm.assignMovement(1, newType, formulaString);
-		cm.setMoveRatesFlag(2);
-		context.getObjectContext().addToList(obj, ListKey.MOVEMENT, cm);
+		MoveClone moveClone =
+				new MoveClone(oldType, newType, conversion, formulaString);
+		context.getObjectContext().addToList(obj, ListKey.MOVEMENTCLONE,
+			moveClone);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<Movement> changes = context.getObjectContext().getListChanges(
-				obj, ListKey.MOVEMENT);
-		Collection<Movement> added = changes.getAdded();
+		Changes<MoveClone> changes = context.getObjectContext()
+			.getListChanges(obj, ListKey.MOVEMENTCLONE);
+		Collection<MoveClone> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{
 			// Zero indicates no Token
 			return null;
 		}
-		WeightedCollection<String> set = new WeightedCollection<>(
-				String.CASE_INSENSITIVE_ORDER);
-		for (Movement m : added)
+		WeightedCollection<String> set =
+				new WeightedCollection<>(String.CASE_INSENSITIVE_ORDER);
+		for (MoveClone m : added)
 		{
-			if (m.getMoveRatesFlag() == 2)
-			{
-				StringBuilder sb = new StringBuilder();
-				m.addTokenContents(sb);
-				set.add(sb.toString());
-			}
+			set.add(m.getBaseType() + Constants.COMMA + m.getCloneType()
+				+ Constants.COMMA + m.getFormulaString());
 		}
 		if (set.isEmpty())
 		{

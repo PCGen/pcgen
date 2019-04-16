@@ -29,12 +29,7 @@ import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- *
- */
-public class UmultLst extends AbstractIntToken<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class UmultLst extends AbstractIntToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -60,9 +55,8 @@ public class UmultLst extends AbstractIntToken<CDOMObject> implements
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
@@ -78,10 +72,8 @@ public class UmultLst extends AbstractIntToken<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Integer mult = context.getObjectContext().getInteger(obj,
-				IntegerKey.UMULT);
-		boolean b = context.getObjectContext()
-				.wasRemoved(obj, IntegerKey.UMULT);
+		Integer mult = context.getObjectContext().getInteger(obj, IntegerKey.UMULT);
+		boolean b = context.getObjectContext().wasRemoved(obj, IntegerKey.UMULT);
 		List<String> list = new ArrayList<>();
 		if (b)
 		{
@@ -91,8 +83,7 @@ public class UmultLst extends AbstractIntToken<CDOMObject> implements
 		{
 			if (mult.intValue() <= 0)
 			{
-				context.addWriteMessage(getTokenName()
-					+ " must be an integer > 0");
+				context.addWriteMessage(getTokenName() + " must be an integer > 0");
 				return null;
 			}
 			list.add(mult.toString());

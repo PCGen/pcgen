@@ -1,0 +1,27 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
+
+#Companion Support
+# Race Name					Ability
+Companion (Antelope).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Hooves)
+Companion (Archelon).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Short Legs)
+Companion (Axe Beak).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Avian
+Companion (Baluchitherium).MOD	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Other)
+Companion (Basilosaurus).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Serpentine
+Companion (Dimetrodon).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Short Legs)
+Companion (Elk).MOD			ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Hooves)
+Companion (Giant Chameleon).MOD	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Short Legs)
+Companion (Giant Gecko).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Short Legs)
+Companion (Giant Vulture).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Avian
+Companion (Iguanodon).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Biped (Claws)
+Companion (Kangaroo).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Biped (Claws)
+Companion (Megalania).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Short Legs)
+Companion (Pachycephalosaurus).MOD	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Biped (Claws)
+Companion (Spinosaurus).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Biped (Claws)
+Companion (Thylacine).MOD		ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Claws)
+
+
+#Familiar Support
+Familiar (Flying Squirrel).MOD	ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Claws)
+Familiar (Otter).MOD			ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Claws)
+Familiar (Raccoon).MOD			ABILITY:Special Ability|AUTOMATIC|Companion Body Type ~ Quadruped (Claws)

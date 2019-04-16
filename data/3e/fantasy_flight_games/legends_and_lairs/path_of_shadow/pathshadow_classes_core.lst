@@ -3,7 +3,7 @@ SOURCELONG:Path of Shadow	SOURCESHORT:PathShadow	SOURCEWEB:http://www.fantasyfli
 # Original entry by: Blithwyn
 
 #
-# Issue: Spell selection: The Chameleon can only use spells from the the shools of Abjuration, Divination, Enchantment, Illusion.
+# Issue: Spell selection: The Chameleon can only use spells from the shools of Abjuration, Divination, Enchantment, Illusion.
 #   This is now enforced with the spelllist and prohibit tags which isn't the best solution. If another material has other shools these would be wrongly allowed.
 #   On the other hand .MODding the spells is even worse since this would restrict the Chameleon to SRD spells.
 #

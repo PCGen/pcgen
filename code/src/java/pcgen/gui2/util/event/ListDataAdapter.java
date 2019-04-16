@@ -1,5 +1,4 @@
 /*
- * ListDataAdapter.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 2, 2008, 4:26:58 PM
  */
 package pcgen.gui2.util.event;
 
@@ -25,29 +23,28 @@ import javax.swing.event.ListDataListener;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public abstract class ListDataAdapter implements ListDataListener
 {
 
-    public abstract void listDataChanged(ListDataEvent e);
+	public abstract void listDataChanged(ListDataEvent e);
 
 	@Override
-    public void intervalAdded(ListDataEvent e)
-    {
-        listDataChanged(e);
-    }
+	public void intervalAdded(ListDataEvent e)
+	{
+		listDataChanged(e);
+	}
 
 	@Override
-    public void intervalRemoved(ListDataEvent e)
-    {
-        listDataChanged(e);
-    }
+	public void intervalRemoved(ListDataEvent e)
+	{
+		listDataChanged(e);
+	}
 
 	@Override
-    public void contentsChanged(ListDataEvent e)
-    {
-        listDataChanged(e);
-    }
+	public void contentsChanged(ListDataEvent e)
+	{
+		listDataChanged(e);
+	}
 
 }

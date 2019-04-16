@@ -27,8 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with EXCLUDE Token
  */
-public class ExcludeToken extends AbstractNonEmptyToken<RuleCheck> implements
-		CDOMPrimaryToken<RuleCheck>
+public class ExcludeToken extends AbstractNonEmptyToken<RuleCheck> implements CDOMPrimaryToken<RuleCheck>
 {
 
 	@Override
@@ -38,16 +37,14 @@ public class ExcludeToken extends AbstractNonEmptyToken<RuleCheck> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			RuleCheck rule, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, RuleCheck rule, String value)
 	{
-		CDOMSingleRef<RuleCheck> excludeRef = context.getReferenceContext().getCDOMReference(
-				RuleCheck.class, value);
+		CDOMSingleRef<RuleCheck> excludeRef = context.getReferenceContext().getCDOMReference(RuleCheck.class, value);
 		rule.setExclude(excludeRef);
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, RuleCheck rule)
 	{
 		CDOMSingleRef<RuleCheck> exclude = rule.getExclude();
@@ -55,10 +52,10 @@ public class ExcludeToken extends AbstractNonEmptyToken<RuleCheck> implements
 		{
 			return null;
 		}
-		return new String[] { exclude.getLSTformat(false) };
+		return new String[]{exclude.getLSTformat(false)};
 	}
 
-    @Override
+	@Override
 	public Class<RuleCheck> getTokenClass()
 	{
 		return RuleCheck.class;

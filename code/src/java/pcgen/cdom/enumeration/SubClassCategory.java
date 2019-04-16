@@ -24,17 +24,13 @@ import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.inst.AbstractCategory;
-import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.core.SubClass;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant.
  */
-public final class SubClassCategory extends AbstractCategory<SubClass>
-		implements TypeSafeConstant, Category<SubClass>,
-		ManufacturableFactory<SubClass>
+public final class SubClassCategory extends AbstractCategory<SubClass> implements TypeSafeConstant, Category<SubClass>
 {
 
 	/**
@@ -50,7 +46,7 @@ public final class SubClassCategory extends AbstractCategory<SubClass>
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private SubClassCategory(String name)
 	{
@@ -86,10 +82,9 @@ public final class SubClassCategory extends AbstractCategory<SubClass>
 			/*
 			 * TODO FIXME Should .,| or other stuff be banned here? (probably)
 			 */
-			if (name.length() == 0)
+			if (name.isEmpty())
 			{
-				throw new IllegalArgumentException(
-						"Type Name cannot be zero length");
+				throw new IllegalArgumentException("Type Name cannot be zero length");
 			}
 			category = new SubClassCategory(lookup);
 			typeMap.put(lookup, category);
@@ -162,16 +157,9 @@ public final class SubClassCategory extends AbstractCategory<SubClass>
 	}
 
 	@Override
-	public Category<SubClass> getParentCategory()
-	{
-		return null;
-	}
-
-	@Override
 	public void setName(String name)
 	{
-		throw new UnsupportedOperationException(
-				"Cannot set name in SubClassCategory");
+		throw new UnsupportedOperationException("Cannot set name in SubClassCategory");
 	}
 
 	@Override
@@ -192,5 +180,11 @@ public final class SubClassCategory extends AbstractCategory<SubClass>
 	public String getReferenceDescription()
 	{
 		return "SubClass Category " + getKeyName();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return "SUBCLASS=" + getKeyName();
 	}
 }

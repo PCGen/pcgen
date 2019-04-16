@@ -1,0 +1,16 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+#SOURCELONG:Ironfang Invasion, Chapter 2 - Fangs of War	SOURCESHORT:AP116	SOURCEWEB:http://paizo.com/products/btpy9npk	SOURCEDATE:2017-03
+# ORIGINAL ENTRY: Gary Davies and Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 2017-06
+
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI			Display where?					Display Location
+ABILITYCATEGORY:Chernasardo_Warden Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Chernasardo Warden				PLURAL:Chernasardo Warden Bonus Feats	DISPLAYNAME:Chernasardo Warden Bonus Feat	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Chernasardo Warden Bonus Spell		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Chernasardo Warden Forest Magic	PLURAL:Chernasardo Warden Bonus Spells								DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Chernasardo Warden Aligned Class	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Chernasardo Warden Aligned Class															DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Chernasardo Warden Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Chernasardo Warden Class Feature															DISPLAYLOCATION:Class Features
+
+
+# select any previously held class
+#
+# End
+#

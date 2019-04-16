@@ -1,5 +1,4 @@
 /*
- * PCGenTaskEvent.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,17 +15,12 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 9, 2010, 5:16:46 PM
  */
 package pcgen.system;
 
 import java.util.EventObject;
 import java.util.logging.LogRecord;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class PCGenTaskEvent extends EventObject
 {
 

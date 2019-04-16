@@ -1,5 +1,4 @@
 /*
- * FollowerOption.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,14 +14,13 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
  */
 package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ConcretePrereqObject;
@@ -36,29 +34,17 @@ import pcgen.cdom.reference.ReferenceUtilities;
  * This class represents a possible choice for a follower. This is basically a
  * Race with a "FOLLOWERADJUSTMENT" that modifies the owner's effective level
  * when selecting a follower of this type. Prereqs can also be specified
- * 
- * @author boomer70
  */
-public class FollowerOption extends ConcretePrereqObject implements
-		Comparable<FollowerOption>, QualifyingObject
+public class FollowerOption extends ConcretePrereqObject implements Comparable<FollowerOption>, QualifyingObject
 {
 	private int theAdjustment = 0;
 	private final CDOMReference<Race> ref;
 	private final CDOMSingleRef<CompanionList> list;
 
-	public FollowerOption(CDOMReference<Race> race,
-			CDOMSingleRef<CompanionList> listref)
+	public FollowerOption(CDOMReference<Race> race, CDOMSingleRef<CompanionList> listref)
 	{
-		if (race == null)
-		{
-			throw new IllegalArgumentException(
-					"Cannot have FollowerOption with null race");
-		}
-		if (listref == null)
-		{
-			throw new IllegalArgumentException(
-					"Cannot have FollowerOption with null list reference");
-		}
+		Objects.requireNonNull(race, "Cannot have FollowerOption with null race");
+		Objects.requireNonNull(listref, "Cannot have FollowerOption with null list reference");
 		ref = race;
 		list = listref;
 	}
@@ -109,8 +95,6 @@ public class FollowerOption extends ConcretePrereqObject implements
 	 * for this follower. For example, if a follower has an adjustment of -3
 	 * then the master must have at least 4 levels to qualify for this follower
 	 * (4 - 3 &gt; 0)
-	 * 
-	 * @see pcgen.cdom.base.ConcretePrereqObject#qualifies(pcgen.core.PlayerCharacter, Object)
 	 */
 	@Override
 	public boolean qualifies(final PlayerCharacter aPC, Object source)
@@ -134,9 +118,8 @@ public class FollowerOption extends ConcretePrereqObject implements
 	 * @param anO
 	 *            The FollowerOption to compare to.
 	 * @return The comparison between the objects
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
-    @Override
+	@Override
 	public int compareTo(FollowerOption anO)
 	{
 		return ReferenceUtilities.compareRefs(ref, anO.ref);
@@ -152,13 +135,12 @@ public class FollowerOption extends ConcretePrereqObject implements
 		final List<FollowerOption> options = new ArrayList<>();
 		if (ref.getObjectCount() == 1)
 		{
-			options.add( this );
+			options.add(this);
 			return options;
 		}
 		for (Race r : ref.getContainedObjects())
 		{
-			final FollowerOption opt = new FollowerOption(CDOMDirectSingleRef
-					.getRef(r), list);
+			final FollowerOption opt = new FollowerOption(CDOMDirectSingleRef.getRef(r), list);
 			opt.setAdjustment(getAdjustment());
 			opt.addAllPrerequisites(getPrerequisiteList());
 			options.add(opt);

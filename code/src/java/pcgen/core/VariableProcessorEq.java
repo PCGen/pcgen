@@ -1,5 +1,4 @@
 /*
- * VariableProcessorEq.java
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 13-Dec-2004
  */
 package pcgen.core;
 
@@ -25,19 +22,18 @@ import pcgen.core.term.EvaluatorFactory;
 import pcgen.core.term.TermEvaluator;
 
 /**
- * <code>VariableProcessorEq</code> is a processor for variables
+ * {@code VariableProcessorEq} is a processor for variables
  * associated with a character's equipment. This class converts
  * formulas or variables into values and is used extensively
  * both in definitions of objects and for output to output sheets.
  *
  *
- * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
  */
 public class VariableProcessorEq extends VariableProcessor
 {
 
-	private Equipment eq;
-	private boolean primaryHead;
+	private final Equipment eq;
+	private final boolean primaryHead;
 
 	/**
 	 * Create a new VariableProcessorEq instance for an equipment item, and
@@ -51,10 +47,7 @@ public class VariableProcessorEq extends VariableProcessor
 	 * @param primaryHead
 	 *           Is this the primary head of a double weapon?
 	 */
-	public VariableProcessorEq(
-			Equipment eq,
-			PlayerCharacter pc,
-			boolean primaryHead)
+	public VariableProcessorEq(Equipment eq, PlayerCharacter pc, boolean primaryHead)
 	{
 		super(pc);
 		this.eq = eq;
@@ -77,16 +70,13 @@ public class VariableProcessorEq extends VariableProcessor
 	 */
 
 	@Override
-	Float getInternalVariable(
-			final CharacterSpell aSpell,
-			String valString,
-			final String src)
+	Float getInternalVariable(final CharacterSpell aSpell, String valString, final String src)
 	{
 		TermEvaluator evaluator = getTermEvaluator(valString, src);
 
 		return evaluator == null ? null : evaluator.resolve(eq, primaryHead, pc);
 	}
-	
+
 	TermEvaluator getTermEvaluator(String valString, String src)
 	{
 		TermEvaluator evaluator = EvaluatorFactory.EQ.getTermEvaluator(valString, src);
@@ -96,6 +86,6 @@ public class VariableProcessorEq extends VariableProcessor
 			return EvaluatorFactory.PC.getTermEvaluator(valString, src);
 		}
 
-        return evaluator;
-    }
+		return evaluator;
+	}
 }

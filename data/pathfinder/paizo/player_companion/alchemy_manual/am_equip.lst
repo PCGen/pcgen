@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Apr 22 14:27:09 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Alchemy Manual	SOURCESHORT:AM	SOURCEWEB:http://paizo.com/products/btpy90bj	SOURCEDATE:2014-04
+SOURCELONG:Pathfinder Player Companion: Alchemy Manual	SOURCESHORT:AM	SOURCEWEB:http://paizo.com/products/btpy90bj	SOURCEDATE:2014-04
 
 # ==============================
 # Alchemical Reagents
@@ -22,7 +23,7 @@ Phosphorus											TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.2	WT:
 Quicksilver											TYPE:Goods.Alchemical.Consumable.Reagent							COST:1	WT:0		SOURCEPAGE:p.33
 Realgar											TYPE:Goods.Alchemical.Consumable.Reagent							COST:3	WT:0		SOURCEPAGE:p.33
 Salt												TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.5	WT:0		SOURCEPAGE:p.33
-Salpeter											TYPE:Goods.Alchemical.Consumable.Reagent							COST:3	WT:0		SOURCEPAGE:p.33
+Saltpeter											TYPE:Goods.Alchemical.Consumable.Reagent							COST:3	WT:0		SOURCEPAGE:p.33
 Silver											TYPE:Goods.Alchemical.Consumable.Reagent							COST:1	WT:0		SOURCEPAGE:p.33
 Spirit of Wine										TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.5	WT:0		SOURCEPAGE:p.33
 Urea												TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.5	WT:0		SOURCEPAGE:p.33
@@ -34,6 +35,7 @@ Urea												TYPE:Goods.Alchemical.Consumable.Reagent							COST:0.5	WT:0		SO
 Brewer's Kit										TYPE:Goods.Tools											COST:20	WT:25		SOURCEPAGE:p.13
 Brewer's Kit (Masterwork)								TYPE:Goods.Tools.Masterwork									COST:20	WT:75		SOURCEPAGE:p.13
 Crucible											TYPE:Goods.Tools											COST:20	WT:30		SOURCEPAGE:p.5
+Crucible (Portable)									TYPE:Goods.Tools											COST:20	WT:3		SOURCEPAGE:p.5
 Filter											TYPE:Goods.Tools											COST:.5	WT:.5		SOURCEPAGE:p.5
 Oozing Vat (Small)									TYPE:Goods.Tools											COST:1	WT:2		SOURCEPAGE:p.23
 Oozing Vat (Medium)									TYPE:Goods.Tools											COST:10	WT:20		SOURCEPAGE:p.23
@@ -88,30 +90,60 @@ Artokus's Fire				NAMEISPI:YES				TYPE:Goods.Alchemical.Mythic.Consumable.Weapon
 Blanch Bomb (Adamantine)								TYPE:Goods.Alchemical.Mythic.Consumable.Weapon.Ranged.Thrown.Splash		COST:250	WT:.5		SOURCEPAGE:p.27
 Blanch Bomb (Cold Iron)									TYPE:Goods.Alchemical.Mythic.Consumable.Weapon.Ranged.Thrown.Splash		COST:150	WT:.5		SOURCEPAGE:p.27
 Blanch Bomb (Silver)									TYPE:Goods.Alchemical.Mythic.Consumable.Weapon.Ranged.Thrown.Splash		COST:100	WT:.5		SOURCEPAGE:p.27
-Bleeding Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition						COST:160			SOURCEPAGE:p.20
+Bleeding Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:160			SOURCEPAGE:p.20
+Bleeding Bolt										TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:160			SOURCEPAGE:p.20
+Bleeding Dart										TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:160			SOURCEPAGE:p.20
+Bleeding Shuriken										TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:160			SOURCEPAGE:p.20
 Bloating Solution										TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Acid.Splash			COST:25			SOURCEPAGE:p.23
 Congealer Spray										TYPE:Goods.Alchemical.Consumable.Weapon.Ranged						COST:15			SOURCEPAGE:p.23
 Dancing Peonies (Firework)								TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Fire				COST:50	WT:.5		SOURCEPAGE:p.29
 Desiccating Lubricant									TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Splash			COST:30			SOURCEPAGE:p.23
-Durable Arrow										TYPE:Goods.Alchemical.Ammunition								COST:1			SOURCEPAGE:p.20
-Dye Arrow											TYPE:Goods.Alchemical.Consumable.Ammunition						COST:60			SOURCEPAGE:p.21
+Durable Arrow										TYPE:Goods.Alchemical.Ammunition.Arrow.Individual					COST:1			SOURCEPAGE:p.20
+Durable Bolt										TYPE:Goods.Alchemical.Ammunition.Bolt.Individual					COST:1			SOURCEPAGE:p.20
+Durable Dart										TYPE:Goods.Alchemical.Ammunition.Dart.Individual					COST:1			SOURCEPAGE:p.20
+Durable Shuriken										TYPE:Goods.Alchemical.Ammunition.Shuriken.Individual					COST:1			SOURCEPAGE:p.20
+Dye Arrow											TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Dye Bolt											TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:60			SOURCEPAGE:p.21
+Dye Dart											TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:60			SOURCEPAGE:p.21
+Dye Shuriken										TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:60			SOURCEPAGE:p.21
 Firecracker											TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown					COST:10			SOURCEPAGE:p.29
 Firecracker (Spirit)									TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown					COST:30			SOURCEPAGE:p.29
 Jumping Jenny (Firework)								TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Fire				COST:15			SOURCEPAGE:p.29
-Lodestone Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition						COST:60			SOURCEPAGE:p.21
+Lodestone Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Lodestone Bolt										TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:60			SOURCEPAGE:p.21
+Lodestone Dart										TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:60			SOURCEPAGE:p.21
+Lodestone Shuriken									TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:60			SOURCEPAGE:p.21
 Lyddric Essence				NAMEISPI:YES				TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Acid.Splash			COST:20	WT:1		SOURCEPAGE:p.11
-Pheromone Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition						COST:60			SOURCEPAGE:p.21
-Raining Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition						COST:60			SOURCEPAGE:p.21
+Pheromone Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Pheromone Bolt										TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:60			SOURCEPAGE:p.21
+Pheromone Dart										TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:60			SOURCEPAGE:p.21
+Pheromone Shuriken									TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:60			SOURCEPAGE:p.21
+Raining Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Raining Bolt										TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:60			SOURCEPAGE:p.21
+Raining Dart										TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:60			SOURCEPAGE:p.21
+Raining Shuriken										TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:60			SOURCEPAGE:p.21
 Shriek Bomb											TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Sonic.Splash		COST:45	WT:1		SOURCEPAGE:p.7
 Skydragon Firework									TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Fire					COST:300	WT:10		SOURCEPAGE:p.29
 Slime Grenade										TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Acid.Splash			COST:100	WT:3		SOURCEPAGE:p.23
-Slow Burn Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition.Fire					COST:60			SOURCEPAGE:p.21
+Slow Burn Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition.Fire.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Slow Burn Bolt										TYPE:Goods.Alchemical.Consumable.Ammunition.Fire.Bolt.Individual			COST:60			SOURCEPAGE:p.21
+Slow Burn Dart										TYPE:Goods.Alchemical.Consumable.Ammunition.Fire.Dart.Individual			COST:60			SOURCEPAGE:p.21
+Slow Burn Shuriken									TYPE:Goods.Alchemical.Consumable.Ammunition.Fire					COST:60			SOURCEPAGE:p.21
 Sparking Pinwheel (Firework)								TYPE:Goods.Alchemical.Consumable.Weapon.Melee.Fire					COST:60	WT:1		SOURCEPAGE:p.29
-Splintercloud Arrow									TYPE:Goods.Alchemical.Consumable.Ammunition						COST:60			SOURCEPAGE:p.21
+Splintercloud Arrow									TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Splintercloud Bolt									TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:60			SOURCEPAGE:p.21
+Splintercloud Dart									TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:60			SOURCEPAGE:p.21
+Splintercloud Shuriken									TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:60			SOURCEPAGE:p.21
 Stormstone											TYPE:Goods.Alchemical.Mythic.Consumable.Weapon.Ranged.Thrown.Sonic.Splash	COST:150	WT:1		SOURCEPAGE:p.27
 Suffocating Powder									TYPE:Goods.Alchemical.Mythic.Consumable.Weapon.Ranged.Thrown.Splash		COST:45	WT:2		SOURCEPAGE:p.27
-Tangleshot Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition						COST:60			SOURCEPAGE:p.21
-Trip Arrow											TYPE:Goods.Alchemical.Consumable.Ammunition						COST:60			SOURCEPAGE:p.21
+Tangleshot Arrow										TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Tangleshot Bolt										TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:60			SOURCEPAGE:p.21
+Tangleshot Dart										TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:60			SOURCEPAGE:p.21
+Tangleshot Shuriken									TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:60			SOURCEPAGE:p.21
+Trip Arrow											TYPE:Goods.Alchemical.Consumable.Ammunition.Arrow.Individual			COST:60			SOURCEPAGE:p.21
+Trip Bolt											TYPE:Goods.Alchemical.Consumable.Ammunition.Bolt.Individual				COST:60			SOURCEPAGE:p.21
+Trip Dart											TYPE:Goods.Alchemical.Consumable.Ammunition.Dart.Individual				COST:60			SOURCEPAGE:p.21
+Trip Shuriken										TYPE:Goods.Alchemical.Consumable.Ammunition.Shuriken.Individual			COST:60			SOURCEPAGE:p.21
 
 # ==============================
 # Drugs and Alcohol

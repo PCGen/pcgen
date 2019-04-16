@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.formula;
 
+import java.util.Objects;
+
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -50,11 +52,7 @@ public class FixedSizeFormula implements Formula
 	 */
 	public FixedSizeFormula(CDOMSingleRef<SizeAdjustment> sAdj)
 	{
-		if (sAdj == null)
-		{
-			throw new IllegalArgumentException(
-					"Size Adjustment for FixedSizeFormula cannot be null");
-		}
+		Objects.requireNonNull(sAdj, "Size Adjustment for FixedSizeFormula cannot be null");
 		size = sAdj;
 	}
 
@@ -69,29 +67,16 @@ public class FixedSizeFormula implements Formula
 		return size.getLSTformat(false);
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this FixedSizeFormula
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return size.hashCode();
 	}
 
-	/**
-	 * Returns true if this FixedSizeFormula is equal to the given Object.
-	 * Equality is defined as being another FixedSizeFormula object with equal
-	 * underlying SizeAdjustment
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof FixedSizeFormula
-				&& size.equals(((FixedSizeFormula) obj).size);
+		return obj instanceof FixedSizeFormula && size.equals(((FixedSizeFormula) obj).size);
 	}
 
 	/**
@@ -136,8 +121,7 @@ public class FixedSizeFormula implements Formula
 	 *         represents.
 	 */
 	@Override
-	public Number resolve(Equipment equipment, boolean primary,
-			PlayerCharacter apc, String source)
+	public Number resolve(Equipment equipment, boolean primary, PlayerCharacter apc, String source)
 	{
 		return resolveStatic();
 	}

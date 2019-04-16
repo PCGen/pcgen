@@ -1,6 +1,4 @@
 /*
- * PreBirthplaceTest.java
- *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,49 +14,36 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
-import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreBirthplaceTest</code> tests that the PREBIRTHPLACE tag is
+ * {@code PreBirthplaceTest} tests that the PREBIRTHPLACE tag is
  * working correctly.
- *
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
-public class PreBirthplaceTest extends AbstractCharacterTestCase
+class PreBirthplaceTest extends AbstractCharacterTestCase
 {
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreBirthplaceTest.class);
-	}
-
 	/**
-	 * @return Test
+	 * Test the PREBIRTHPLACE code.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreBirthplaceTest.class);
-	}
-
-	/**
-	 * Test the PREBIRTHPLACE code
-	 * @throws Exception
-	 */
-	public void testAtt() throws Exception
+	@Test
+	public void testAtt() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setPCAttribute(PCAttribute.BIRTHPLACE, "Klamath");
+		character.setPCAttribute(PCStringKey.BIRTHPLACE, "Klamath");
 
 		Prerequisite prereq;
 

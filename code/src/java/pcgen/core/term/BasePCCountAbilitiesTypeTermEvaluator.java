@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountAbilitiesTypeBaseEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 19:37:53
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -39,12 +35,11 @@ public abstract class BasePCCountAbilitiesTypeTermEvaluator extends BasePCCountA
 		for (CNAbility anAbility : getAbilities(pc))
 		{
 			// for each feat, look to see if it has any of the required types.
-			for ( String type : types)
+			for (String type : types)
 			{
 				if (anAbility.getAbility().isType(type))
 				{
-					count += countVisibleAbility(
-							pc, anAbility, visible, hidden, false);
+					count += countVisibleAbility(pc, anAbility, visible, hidden, false);
 
 					break;
 				}

@@ -1,0 +1,822 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Blood of the Beast	SOURCESHORT:BOTB	SOURCEWEB:http://paizo.com/products/btpy9oo8?Pathfinder-Player-Companion-Blood-of-the-Beast	SOURCEDATE:2016-12
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 March 2017
+# PFS MODS: Mark Means, 2 Jan 2019
+
+# ==============================
+# Advanced Versatile Performance Options
+# ==============================
+
+# Ability Name											Unique Key											SORTKEY						Category of Ability		Type																													Visible	Required Ability													Restricted Ability																																														Restricted AL		Required Class			!PREFACT														Multiple Requirements																																																																																														Required Race					Must be Larger	Required Skill				Var. Min. Value		QUALIFY:ABILITY					Serves As													Define																																														Innate Spells																																																																																																																																																																																																																																																																																														Desc is PI?		Description																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																	Stackable?	Multiple?	Choose									Selections	Clone Movement		Auto Armor Prof					Auto Equip		Auto Language	Auto Weapon Prof			Ability																																																																																																																																																																																																																																																Bonus Ability Pool																										Combat bonus															Bonus DC				Add to base move			Save bonus							Bonus to Situation														Bonus to skill																								Bonus to skill rank																																				Modify VAR																																																																																					Weapon prof. bonus																								Allow Follower			Allowed Companions																									Class Skill									Damage Reduction				Cost		Source Page		Natural Attacks																	Aspects																																						Benefits																				Temporary effect description									List of Known Class Spells by Level																																																																																																																																																																																Temporary Bonus																													FACT
+CATEGORY=Special Ability|Expanded Versatility ~ Act.MOD						TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Comedy.MOD					TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Dance.MOD					TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Keyboard Instruments.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Oratory.MOD					TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Percussion Instruments.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Sing.MOD					TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ String Instruments.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Wind Instruments.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Expanded Versatility ~ Act ~ Diplomacy.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Act ~ Escape Artist.MOD		TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Act ~ Handle Animal.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Act ~ Intimidate.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Act ~ Sense Motive.MOD		TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Act ~ Use Magic Device.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Expanded Versatility ~ Comedy ~ Diplomacy.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Comedy ~ Disguise.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Comedy ~ Escape Artist.MOD			TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Comedy ~ Handle Animal.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Comedy ~ Sense Motive.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Comedy ~ Use Magic Device.MOD			TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Expanded Versatility ~ Dance ~ Bluff.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Dance ~ Diplomacy.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Dance ~ Disguise.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Dance ~ Escape Artist.MOD			TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Dance ~ Handle Animal.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Dance ~ Intimidate.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Dance ~ Sense Motive.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Dance ~ Use Magic Device.MOD			TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Expanded Versatility ~ Keyboard Instruments ~ Bluff.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Keyboard Instruments ~ Disguise.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Keyboard Instruments ~ Escape Artist.MOD			TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Keyboard Instruments ~ Handle Animal.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Keyboard Instruments ~ Sense Motive.MOD			TYPE:PFSLegal 	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Keyboard Instruments ~ Use Magic Device.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Expanded Versatility ~ Oratory ~ Bluff.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Oratory ~ Disguise.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Oratory ~ Escape Artist.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Oratory ~ Handle Animal.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Oratory ~ Intimidate.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Oratory ~ Use Magic Device.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Expanded Versatility ~ Percussion Instruments ~ Bluff.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Percussion Instruments ~ Diplomacy.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Percussion Instruments ~ Disguise.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Percussion Instruments ~ Escape Artist.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Percussion Instruments ~ Sense Motive.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Percussion Instruments ~ Use Magic Device.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Expanded Versatility ~ Sing ~ Diplomacy.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Sing ~ Disguise.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Sing ~ Escape Artist.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Sing ~ Handle Animal.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Sing ~ Intimidate.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Sing ~ Use Magic Device.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Expanded Versatility ~ String Instruments ~ Disguise.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ String Instruments ~ Escape Artist.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ String Instruments ~ Handle Animal.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ String Instruments ~ Intimidate.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ String Instruments ~ Sense Motive.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ String Instruments ~ Use Magic Device.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Expanded Versatility ~ Wind Instruments ~ Bluff.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Wind Instruments ~ Disguise.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Wind Instruments ~ Escape Artist.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Wind Instruments ~ Intimidate.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Wind Instruments ~ Sense Motive.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Expanded Versatility ~ Wind Instruments ~ Use Magic Device.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+###COMMENT:Proficiency evolving into Weapon Focus later not implemented!! User will have to adjust manually!
+CATEGORY=Special Ability|Martial Performance ~ Act.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Comedy.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Dance.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Keyboard Instruments.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Oratory.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Percussion Instruments.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Sing.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ String Instruments.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Wind Instruments.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Martial Performance ~ Act ~ Close ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Act ~ Close.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Act ~ Double ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Act ~ Double.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Martial Performance ~ Comedy ~ Flails ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Comedy ~ Flails ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Comedy ~ Thrown ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Comedy ~ Thrown ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Martial Performance ~ Dance ~ Monk ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Dance ~ Monk ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Dance ~ Spears ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Dance ~ Spears ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Martial Performance ~ Keyboard ~ Hammers ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Keyboard ~ Hammers ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Keyboard ~ Siege Engines ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Keyboard ~ Siege Engines ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Martial Performance ~ Oratory ~ Heavy Blades ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Oratory ~ Heavy Blades ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Oratory ~ Light Blades ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Oratory ~ Light Blades ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Martial Performance ~ Percussion ~ Close ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Percussion ~ Close ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Percussion ~ Hammers ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Percussion ~ Hammers ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Martial Performance ~ Sing ~ Close ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Sing ~ Close ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Sing ~ Natural ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Sing ~ Natural ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Martial Performance ~ String ~ Axes ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ String ~ Axes ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ String ~ Bows ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ String ~ Bows ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Martial Performance ~ Wind ~ Monk ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Wind ~ Monk ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Wind ~ Thrown ~ Proficiency.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Martial Performance ~ Wind ~ Thrown ~ Focus.MOD				TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+##PLACEHOLDER for Masterpiece
+##Unable to properly implement at this time
+##Skald masterpieces need activating
+##ALL masterpices need rewriting to accomodate skalds AND selection as own feat type.
+CATEGORY=Special Ability|Expanded Versatility ~ Versatile Masterpiece.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Advanced Weapon Training
+# ==============================
+##Did not include bows, crossbows, fire arms, natural, or pole arms, as none of these have any manufactured one-handed melee weapons in them.
+CATEGORY=Special Ability|Advanced Weapon Training ~ Effortless Dual-Wielding ~ Axes.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Effortless Dual-Wielding ~ Heavy Blades.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Effortless Dual-Wielding ~ Light Blades.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Effortless Dual-Wielding ~ Close.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Effortless Dual-Wielding ~ Double.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Effortless Dual-Wielding ~ Flails.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Effortless Dual-Wielding ~ Hammers.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Effortless Dual-Wielding ~ Monk.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Effortless Dual-Wielding ~ Spears.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Effortless Dual-Wielding ~ Thrown.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Advanced Weapon Training ~ Fighter's Stamina.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Fighter's Stamina ~ Combat Stamina.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Fighter's Stamina ~ Extra Stamina.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Axes.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Heavy Blades.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Light Blades.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Bows.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Close.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Crossbows.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Double.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Firearms.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Flails.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Hammers.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Monk.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Natural.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Pole Arms.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Spears.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Advanced Weapon Training ~ Knockout Training ~ Thrown.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Bloodrager Archetype - Prowler at World's End
+# ==============================
+CATEGORY=Archetype,Bloodrager Archetype ~ Prowler at World's End.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal		PRERACE:1,Catfolk
+####Shared Seance was included because it apperars to be a sub-ability tied to Spirit (mentioned in the main Spirit description in OA). Taboo was included because taboos were mentioned in Spirit description in BotB description. No errata or support available at this time to confirm or refute these assumptions.
+CATEGORY=Special Ability|Prowler at World's End ~ Spirit.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Spirit Surge.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Shared Seance.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Taboo.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Chosen of the Spirits.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Shapeshifted Spellcasting.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Prowler at World's End ~ Tiger Spirit.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Leopard Spirit.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Lion Spirit.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Cheetah Spirit.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# Tiger Spirit
+CATEGORY=Special Ability|Prowler at World's End ~ Tiger Spirit Bonus.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Tiger Seance Boon.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Tiger's Prowess.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Sudden Attack.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Fleet Charge.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# Leopard Spirit
+CATEGORY=Special Ability|Prowler at World's End ~ Leopard Spirit Bonus.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Leopard Seance Boon.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Leopard's Shield.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Absorb Blow.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Sudden Block.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# Lion Spirit
+CATEGORY=Special Ability|Prowler at World's End ~ Lion Spirit Bonus.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Lion Seance Boon.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Lion's Order.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Inspiring Call.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Decisive Strike.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# Cheetah Spirit
+CATEGORY=Special Ability|Prowler at World's End ~ Cheetah Spirit Bonus.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Cheetah Seance Boon.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Cheetah's Edge.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Surprise Strike.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Prowler at World's End ~ Transfer Magic.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Tiger Weapon Choice.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Cheetah Skill Choice.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Ravener Hunter ~ Holy Magic.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+##Added all appropriate spells from all sources available at time of writing.
+
+# ==============================
+# Bloodrager Bloodline - Naga
+# ==============================
+###Block: Naga Bloodrager Bloodline
+CATEGORY=Special Ability|Bloodrager Bloodline ~ Naga.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Bloodrager Bloodline|Naga Bloodline.MOD			TYPE:PFSLegal	PRETYPE:1,PFSLegal
+# Naga Bloodline Feat Tracker
+#CATEGORY=Internal|Naga Bloodrager Bloodline ~ Feat Tracker.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# Naga Bloodline Bonus Spells
+CATEGORY=Special Ability|Naga Bloodrager Bloodline ~ Bonus Spells.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+# Naga Bloodline Powers
+CATEGORY=Special Ability|Naga Bloodrager Bloodline ~ Bloodline Powers.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Naga Bloodrager Bloodline ~ Serpent Fangs.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Naga Bloodrager Bloodline ~ Serpentine Swim.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Naga Bloodrager Bloodline ~ Naga Defenses.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Naga Bloodrager Bloodline ~ Poison Fangs.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Naga Bloodrager Bloodline ~ Naga Form.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Naga Bloodrager Bloodline ~ Naga Thoughts.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+###Block: Bonus Feat Choices -- Remove parenthesis from PREVAR variable.
+#CATEGORY=Internal|Bloodrager ~ Bloodline Tracker.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+###Block: Crossblooded Bloodlines -- Goes in UM or UM support _abilities_class.lst
+CATEGORY=Crossblooded Rager Bloodline|Naga Bloodline.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Bloodrager ~ Bloodline Tracker.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+# Spells
+#CATEGORY=Internal|Bloodrager Bonus Spell L1 ~ Ray of Enfeeblement.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Bloodrager Bonus Spell L2 ~ Invisibility.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Bloodrager Bonus Spell L3 ~ Lightning Bolt.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Bloodrager Bonus Spell L4 ~ Poison.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+###Block: Raging Blood Feat Bloodlines
+CATEGORY=Raging Blood Feat Bloodline|Naga Bloodline.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+
+# ==============================
+# Cavalier Archetype - First Mother's Fang
+# ==============================
+
+CATEGORY=Archetype|Cavalier Archetype ~ First Mother's Fang.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Nagaji
+
+#CATEGORY=Internal|First Mother's Fang ~ Class Skills.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Weapon and Armor Proficiency.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Serpent Mount.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Honored Warrior.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|First Mother's Fang ~ Exotic Melee Weapon.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Exotic Ranged Weapon.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|First Mother's Fang ~ Social Talent ~ Celebrity Discount.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Talent ~ Celebrity Perks.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Talent ~ Great Renown.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Talent ~ Incredible Renown.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Talent ~ Instant Recognition.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Talent ~ Loyal Aid.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Talent ~ Renown.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Talent ~ Social Grace.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Talent ~ Triumphant Return.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Appraise.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Bluff.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Diplomacy.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Intimidate.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Knowledge ~ Geography.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Knowledge ~ History.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Knowledge ~ Local.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Knowledge ~ Nobility.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Perform ~ Act.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Perform ~ Comedy.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Perform ~ Dance.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Perform ~ Keyboard.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Perform ~ Oratory.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Perform ~ Percussion.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Perform ~ Sing.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Perform ~ String.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Perform ~ Wind.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Profession ~ Soldier.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|First Mother's Fang ~ Social Grace ~ Sense Motive.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Druid Archetype - Swarm Monger
+# ==============================
+
+CATEGORY=Archetype|Druid Archetype ~ Swarm Monger.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Swarm Monger ~ Fecund Familiar.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Swarm Monger ~ Low Friends.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Swarm Monger ~ Shadowy Opportunist.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Swarm Monger ~ Child of Pollution.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Swarm Monger ~ Swarm Shape.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Fighter Archetype - Opportunist
+# ==============================
+
+CATEGORY=Archetype|Fighter Archetype ~ Opportunist.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Opportunist ~ Duplicitous.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Opportunist ~ Underhanded.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Opportunist ~ Cunning Edge.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Opportunist ~ Alchemical Onslaught.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Opportunist ~ Edge ~ Alchemical Admixture.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Opportunist ~ Edge ~ Alchemical Refinement.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Opportunist ~ Edge ~ Bombs.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Opportunist ~ Edge ~ Clouded Shift.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Opportunist ~ Edge ~ Poison Use.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Opportunist ~ Edge ~ Rogue Talent.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+#CATEGORY=Internal|Opportunist ~ Bluff Skill Rank.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Opportunist ~ Sense Motive Skill Rank.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Opportunist ~ Sleight of Hand Skill Rank.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Opportunist ~ Stealth Skill Rank.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Rogue Talent ~ Deft Palm.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Rogue Talent ~ Fast Fingers.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Rogue Talent ~ Fast Stealth.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Rogue Talent ~ Honeyed Words.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Rogue Talent ~ Lasting Poison.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Rogue Talent ~ Minor Magic.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Rogue Talent ~ Quick Trapsmith.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Inquisitor Archetype - Ravener Hunter
+# ==============================
+
+CATEGORY=Archetype|Inquisitor Archetype ~ Ravener Hunter.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Ravener Hunter ~ Charged by Nature.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Holy Magic.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Demon Hunter.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Solo Tactics.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# Ravener Hunter Mystery: Ancestor
+CATEGORY=Special Ability|Ravener Hunter ~ Ancestor Mystery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Ravener Hunter Ancestor Mysteries Class Skills.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Ravener Hunter ~ Ancestor Mystery ~ Ancestral Weapon.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Ancestor Mystery ~ Blood of Heroes.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Ancestor Mystery ~ Phantom Touch.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Ancestor Mystery ~ Sacred Council.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Ancestor Mystery ~ Spirit of the Warrior.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Ancestor Mystery ~ Spirit Shield.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Ancestor Mystery ~ Spirit Walk.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Ancestor Mystery ~ Storm of Souls.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Ancestor Mystery ~ Voice of the Grave.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Ancestor Mystery ~ Wisdom of the Ancestors.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# Ravener Hunter Mystery: Battle
+CATEGORY=Special Ability|Ravener Hunter ~ Battle Mystery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Ravener Hunter Battle Mysteries Class Skills.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Ravener Hunter ~ Battle Mystery ~ Battlecry.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Battle Mystery ~ Battlefield Clarity.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Battle Mystery ~ Combat Healer.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Battle Mystery ~ Iron Skin.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Battle Mystery ~ Maneuver Mastery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Battle Mystery ~ Resiliency.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Battle Mystery ~ Skill at Arms.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Battle Mystery ~ Surprising Charge.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Battle Mystery ~ War Sight.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Battle Mystery ~ Weapon Mastery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+## Battle Mystery Weapon Mastery Abilities
+CATEGORY=Special Ability|Ravener Hunter ~ Maneuver Mastery ~ Bull Rush.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Maneuver Mastery ~ Dirty Trick.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Maneuver Mastery ~ Disarm.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Maneuver Mastery ~ Drag.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Maneuver Mastery ~ Grapple.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Maneuver Mastery ~ Overrun.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Maneuver Mastery ~ Reposition.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Maneuver Mastery ~ Steal.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Maneuver Mastery ~ Sunder.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Maneuver Mastery ~ Trip.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+## Battle Mystery Weapon Mastery Abilities
+#CATEGORY=FEAT|Weapon Focus.MOD																																TYPE:RavenerHunterWeaponMastery
+#CATEGORY=FEAT|Improved Critical.MOD																																TYPE:RavenerHunterWeaponMastery
+#CATEGORY=FEAT|Greater Weapon Focus.MOD																															TYPE:RavenerHunterWeaponMastery
+
+
+# Ravener Hunter Mystery: Flame
+CATEGORY=Special Ability|Ravener Hunter ~ Flame Mystery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Ravener Hunter Flame Mysteries Class Skills																									CATEGORY:Internal																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			CSKILL:Acrobatics|Climb|Intimidate|TYPE=Perform
+
+CATEGORY=Special Ability|Ravener Hunter ~ Flame Mystery ~ Burning Magic.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Flame Mystery ~ Cinder Dance.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Flame Mystery ~ Fire Breath.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Flame Mystery ~ Fire Storm.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Flame Mystery ~ Form of Flame.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Flame Mystery ~ Gaze of Flames.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Flame Mystery ~ Heat Aura.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Flame Mystery ~ Molten Skin.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Flame Mystery ~ Touch of Flame.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Flame Mystery ~ Wings of Fire.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+
+# Ravener Hunter Mystery: Heavens
+CATEGORY=Special Ability|Ravener Hunter ~ Heavens Mystery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Ravener Hunter Heavens Mysteries Class Skills																									CATEGORY:Internal																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			CSKILL:Fly|Knowledge (arcana)|Perception|Survival
+
+CATEGORY=Special Ability|Ravener Hunter ~ Heavens Mystery ~ Awesome Display.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Heavens Mystery ~ Coat of Many Stars.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Heavens Mystery ~ Dweller in Darkness.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Heavens Mystery ~ Guiding Star.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Heavens Mystery ~ Interstellar Void.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Heavens Mystery ~ Lure of the Heavens.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Heavens Mystery ~ Mantle of Moonlight.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Heavens Mystery ~ Moonlight Bridge.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Heavens Mystery ~ Spray of Shooting Stars.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Heavens Mystery ~ Star Chart.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+
+# Ravener Hunter Mystery: Life
+CATEGORY=Special Ability|Ravener Hunter ~ Life Mystery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Ravener Hunter Life Mysteries Class Skills																									CATEGORY:Internal																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			CSKILL:Handle Animal|Knowledge (nature)|Survival
+
+CATEGORY=Special Ability|Ravener Hunter ~ Life Mystery ~ Channel.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Life Mystery ~ Combat Healer.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Life Mystery ~ Delay Affliction.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Life Mystery ~ Energy Body.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Life Mystery ~ Enhanced Cures.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Life Mystery ~ Healing Hands.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Life Mystery ~ Life Link.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Life Mystery ~ Lifesense.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Life Mystery ~ Safe Curing.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Life Mystery ~ Spirit Boost.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+
+# Ravener Hunter Mystery: Lunar
+CATEGORY=Special Ability|Ravener Hunter ~ Lunar Mystery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Ravener Hunter Lunar Mysteries Class Skills																									CATEGORY:Internal																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			CSKILL:Acrobatics|Knowledge (nature)|Perception|Survival
+
+CATEGORY=Special Ability|Ravener Hunter ~ Lunar Mystery ~ Form of the Beast.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Lunar Mystery ~ Eye of the Moon.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Lunar Mystery ~ Gift of Claw and Horn.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Lunar Mystery ~ Mantle of Moonlight.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Lunar Mystery ~ Moonbeam.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Lunar Mystery ~ Moonlight Bridge.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Lunar Mystery ~ Moonlit Script.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Lunar Mystery ~ Primal Companion.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Lunar Mystery ~ Prophetic Armor.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Lunar Mystery ~ Touch of the Moon.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+
+# Ravener Hunter Mystery: Nature
+CATEGORY=Special Ability|Ravener Hunter ~ Nature Mystery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Ravener Hunter Nature Mysteries Class Skills																									CATEGORY:Internal																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			CSKILL:Climb|Fly|Knowledge (Nature)|Ride|Survival|Swim
+
+CATEGORY=Special Ability|Ravener Hunter ~ Nature Mystery ~ Bonded Mount.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Nature Mystery ~ Erosion Touch.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Nature Mystery ~ Friend to the Animals.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Nature Mystery ~ Life Leach.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Nature Mystery ~ Natural Divination.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Nature Mystery ~ Nature's Whispers.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Nature Mystery ~ Speak with Animals.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Nature Mystery ~ Spirit of Nature.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Nature Mystery ~ Transcendental Bond.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Nature Mystery ~ Undo Artifice.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+
+# Ravener Hunter Mystery: Solar
+CATEGORY=Special Ability|Ravener Hunter ~ Solar Mystery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Ravener Hunter Solar Mysteries Class Skills																									CATEGORY:Internal																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			CSKILL:Fly|Knowledge (geography)|Linguistics|Survival
+
+CATEGORY=Special Ability|Ravener Hunter ~ Solar Mystery ~ Astral Caravan.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Solar Mystery ~ Blistered Caress.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Solar Mystery ~ Luminous Form.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Solar Mystery ~ Many Roads.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Solar Mystery ~ Serpent in the Sun.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Solar Mystery ~ Solar Wind.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Solar Mystery ~ Starlight Agility.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Solar Mystery ~ Sun Stride.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Solar Mystery ~ Sungazer.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Solar Mystery ~ Torch Touch.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+
+# Ravener Hunter Mystery: Stone
+CATEGORY=Special Ability|Ravener Hunter ~ Stone Mystery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Ravener Hunter Stone Mysteries Class Skills																									CATEGORY:Internal																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			CSKILL:Appraise|Climb|Intimidate|Survival
+
+CATEGORY=Special Ability|Ravener Hunter ~ Stone Mystery ~ Acid Skin.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Stone Mystery ~ Clobbering Strike.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Stone Mystery ~ Crystal Sight.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Stone Mystery ~ Earth Glide.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Stone Mystery ~ Mighty Pebble.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Stone Mystery ~ Rock Throwing.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Stone Mystery ~ Shard Explosion.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Stone Mystery ~ Steelbreaker Skin.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Stone Mystery ~ Stone Stability.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Stone Mystery ~ Touch of Acid.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+
+# Ravener Hunter Mystery: Time
+CATEGORY=Special Ability|Ravener Hunter ~ Time Mystery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Ravener Hunter Time Mysteries Class Skills																									CATEGORY:Internal																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			CSKILL:Fly|Knowledge (Arcana)|Perception|Use Magic Device
+
+CATEGORY=Special Ability|Ravener Hunter ~ Time Mystery ~ Aging Touch.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Time Mystery ~ Erase from Time.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Time Mystery ~ Knowledge of the Ages.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Time Mystery ~ Momentary Glimpse.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Time Mystery ~ Rewind Time.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Time Mystery ~ Speed or Slow Time.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Time Mystery ~ Temporal Celerity.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Time Mystery ~ Time Flicker.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Time Mystery ~ Time Hop.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Time Mystery ~ Time Sight.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+
+# Ravener Hunter Mystery: Volcano
+CATEGORY=Special Ability|Ravener Hunter ~ Volcano Mystery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Ravener Hunter Volcano Mysteries Class Skills																									CATEGORY:Internal																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			CSKILL:Climb|Intimidate|Knowledge (geography)|Survival
+
+CATEGORY=Special Ability|Ravener Hunter ~ Volcano Mystery ~ Ash Cloud.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Volcano Mystery ~ Breath of Creation.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Volcano Mystery ~ Burning Magic.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Volcano Mystery ~ Cleansing Flames.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Volcano Mystery ~ Erupt.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Volcano Mystery ~ Fiery Conduit.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Volcano Mystery ~ Lava Walk.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Volcano Mystery ~ Magma Form.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Volcano Mystery ~ Pyroclastic Shove.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Volcano Mystery ~ Touch of Flame.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+
+# Ravener Hunter Mystery: Waves
+CATEGORY=Special Ability|Ravener Hunter ~ Waves Mystery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Ravener Hunter Waves Mysteries Class Skills																									CATEGORY:Internal																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			CSKILL:Acrobatics|Escape Artist|Knowledge (Nature)|Swim
+
+CATEGORY=Special Ability|Ravener Hunter ~ Waves Mystery ~ Blizzard.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Waves Mystery ~ Fluid Nature.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Waves Mystery ~ Fluid Travel.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Waves Mystery ~ Freezing Spell.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Waves Mystery ~ Ice Armor.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Waves Mystery ~ Icy Skin.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Waves Mystery ~ Punitive Transformation.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Waves Mystery ~ Water Form.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Waves Mystery ~ Water Sight.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Waves Mystery ~ Wintry Touch.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+
+# Ravener Hunter Mystery: Wind
+CATEGORY=Special Ability|Ravener Hunter ~ Winds Mystery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Ravener Hunter Wind Mysteries Class Skills																									CATEGORY:Internal																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			CSKILL:Acrobatics|Escape Artist|Fly|Stealth
+
+CATEGORY=Special Ability|Ravener Hunter ~ Wind Mystery ~ Air Barrier.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wind Mystery ~ Gaseous Form.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wind Mystery ~ Invisibility.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wind Mystery ~ Lightning Breath.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wind Mystery ~ Spark Skin.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wind Mastery ~ Thunderburst.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wind Mystery ~ Touch of Electricity.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wind Mystery ~ Wortex Spells.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wind Mystery ~ Wind Sight.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wind Mystery ~ Wings of Air.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+
+# Ravener Hunter Mystery: Wood
+CATEGORY=Special Ability|Ravener Hunter ~ Wood Mystery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+#CATEGORY=Internal|Ravener Hunter Wood Mysteries Class Skills																									CATEGORY:Internal																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			CSKILL:Climb|Knowledge (Nature)|Stealth|Survival
+
+CATEGORY=Special Ability|Ravener Hunter ~ Wood Mystery ~ Bend the Grain.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wood Mystery ~ Lignification.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wood Mystery ~ Speak with Wood.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wood Mystery ~ Thorn Burst.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wood Mystery ~ Tree Form.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wood Mystery ~ Wood Armor.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wood Mystery ~ Wood Bond.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wood Mystery ~ Wood Sight.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wood Mystery ~ Wooden Weapon.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Ravener Hunter ~ Wood Mystery ~ Woodland Stride.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Investigator Archetype - Scavenger
+# ==============================
+
+CATEGORY=Archetype|Investigator Archetype ~ Scavenger.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Scavenger ~ Gadgetry.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Scavenger ~ Mechanical Inspiration.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Scavenger ~ Jury-Rig.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Scavenger ~ Construct Mastery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Medium Archetype - Fiend Keeper
+# ==============================
+
+CATEGORY=Archetype|Medium Archetype ~ Fiend Keeper.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Grippli
+
+CATEGORY=Special Ability|Fiend Keeper ~ Evil SpiritFiend Keeper.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Fiend Keeper ~ Dark CommunionFiend Keeper.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Fiend Keeper ~ Dark Communion ~ Dark Power.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Fiend Keeper ~ Dark Communion ~ Fiendish Form.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Fiend Keeper ~ Dark Communion ~ Natural Attacks.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Fiend Keeper ~ Dark Communion ~ Spirit Power.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Fiend Keeper ~ Dark Communion ~ Unholy Resilience.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Mesmerist Tricks
+# ==============================
+
+CATEGORY=Special Ability|Mesmerist Trick ~ Break Stupor.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Mesmerist Trick ~ Enchanting Words.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Mesmerist Trick ~ Life Review.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Psychic Discipline - Warp
+# ==============================
+
+CATEGORY=Special Ability|Psychic Discipline ~ Warp.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Psychic Discipline Warp ~ Bonus Spells.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Psychic Discipline Warp ~ Planar Scent.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Psychic Discipline Warp ~ Rift Reach.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Psychic Discipline Warp ~ Sidestep.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Psychic Discipline Warp ~ Turn Aside.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Ranger Archetype - Fortune Finder
+# ==============================
+
+CATEGORY=Archetype|Ranger Archetype ~ Fortune Finder.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Fortune Finder ~ Hinterlander.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Fortune Finder ~ Adaptable Study.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Fortune Finder ~ Trailblazer.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Fortune Finder ~ Fast Study.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Fortune Finder ~ Master Explorer.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Ranger Archetype - Poison Darter
+# ==============================
+
+CATEGORY=Archetype|Ranger Archetype ~ Poison Darter.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Poison Darter ~ Debilitating Venom.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Poison Darter ~ Poison Use.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Poison Darter ~ Poison Style.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Poison Darter ~ Precise Dart.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Poison Darter ~ Combat Style Feat.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Poison Darter ~ Sneak Attack Talent.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Poison Darter ~ Poison Discovery.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Poison Darter Discovery ~ Concentrate Poison.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Poison Darter Discovery ~ Sticky Poison.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Poison Darter Discovery ~ Poison Conversion.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Discovery ~ Celestial Poisons.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Discovery ~ Malignant Poison.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Shaman Archetype - Serendipity Shaman
+# ==============================
+
+CATEGORY=Archetype|Shaman Archetype ~ Serendipity Shaman.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Serendipity Shaman ~ Luck Magic.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Serendipity Shaman ~ Luck Hexes.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+###Modified Shaman Spirits
+CATEGORY=Special Ability|Serendipity Shaman Spirit ~ Battle.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Serendipity Shaman Spirit ~ Bones.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Serendipity Shaman Spirit ~ Flame.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Serendipity Shaman Spirit ~ Heavens.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Serendipity Shaman Spirit ~ Life.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Serendipity Shaman Spirit ~ Lore.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Serendipity Shaman Spirit ~ Nature.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Serendipity Shaman Spirit ~ Stone.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Serendipity Shaman Spirit ~ Waves.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Serendipity Shaman Spirit ~ Wind.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+###Luck Hexes - Ambiguous wording implies that borrowed powers have same uses per day as original power.
+CATEGORY=Special Ability|Serendipity Shaman Luck Hex ~ Channel Luck.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Serendipity Shaman Luck Hex ~ Fortune.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Serendipity Shaman Luck Hex ~ Misfortune.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Serendipity Shaman Luck Hex ~ Spirit Magic.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Serendipity Shaman Luck Hex ~ Tweak the Odds.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+
+
+# ==============================
+# Skald Archetype - Red Tongue
+# ==============================
+
+CATEGORY=Archetype|Skald Archetype ~ Red Tongue.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Red Tongue ~ Great Orator.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Red Tongue ~ Seed of Discord.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Red Tongue ~ Rile.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Red Tongue ~ Rogue Talents.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Red Tongue ~ Duplicitous Rhetoric.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Skald Archetype - War Painter
+# ==============================
+
+CATEGORY=Archetype|Skald Archetype ~ War Painter.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|War Painter ~ Furious Paint.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|War Painter ~ Thousand Totems.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|War Painter ~ Arcane Flourish.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Sorcerer Archetype - Nine-Tailed Heir
+# ==============================
+
+CATEGORY=Archetype|Sorcerer Archetype ~ Nine-Tailed Heir.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Kitsune
+
+CATEGORY=Special Ability|Nine-Tailed Heir ~ Magical Tail.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Nine-Tailed Heir ~ First Tail.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Nine-Tailed Heir ~ Second Tail.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Nine-Tailed Heir ~ Third Tail.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Nine-Tailed Heir ~ Fourth Tail.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Nine-Tailed Heir ~ Fifth Tail.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Nine-Tailed Heir ~ Extra Tail Tracker.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Sorcerer Bloodline - Naga
+# ==============================
+
+CATEGORY=Special Ability|Sorcerer Bloodline ~ Naga.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Naga Bloodline ~ Bonus Spells.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Naga Bloodline ~ Bloodline Arcana.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Naga Bloodline ~ Bloodline Powers.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Naga Bloodline ~ Vanishing.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Naga Bloodline ~ Naga Resistances.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Naga Bloodline ~ Ensnaring Eyes.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Naga Bloodline ~ Cast without Hands.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Naga Bloodline ~ Power of the Naga.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Swashbuckler Archetype - Courser
+# ==============================
+
+CATEGORY=Archetype|Swashbuckler Archetype ~ Courser.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Courser ~ Swift Target.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Courser ~ Nimble Toes.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Courser ~ Confounding Target.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Courser ~ Wall Run.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Courser ~ Impossible Leap.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Courser ~ Swift Strikes.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+
+# ==============================
+# Vigilante Talents
+# ==============================
+
+CATEGORY=Special Ability|Social Talent ~ Obscurity.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Social Talent ~ Seamless Shapechanger.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Social Talent ~ Transformation Sequence.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Vigilante Talent ~ Brutal Maneuver.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Vigilante Talent ~ Deceitful Trick.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Vigilante Talent ~ Racial Paragon.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Kitsune
+
+# ==============================
+# Vigilante Wildsoul Natural Course - Feline
+# ==============================
+
+CATEGORY=Special Ability|Wildsoul ~ Feline Natural Course.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+CATEGORY=Special Ability|Feline Natural Course ~ Feline Attributes.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Feline Natural Course ~ Feline Grace.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Feline Natural Course ~ Feline Pounce.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Feline Natural Course ~ Nine Lives.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+# ==============================
+# Witch Archetype - Jinx Witch
+# ==============================
+
+CATEGORY=Archetype|Witch Archetype ~ Jinx Witch.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal	PRERACE:1,Tengu
+
+CATEGORY=Special Ability|Jinx Witch ~ Class Skills.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Jinx Witch ~ Spell Awareness.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Jinx Witch ~ Jinx-Eating.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Jinx Witch ~ Jinx-Gorging.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Jinx Witch ~ Jinx-Feast.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+###################################################################
+#Support for Graceful Athelete feat. Book states :Special: Investigators, rogues (including unchained rogues), and slayers can select this feat in place of an investigator talent, a rogue talent, or a slayer talent, respectively, if they meet the prerequisites.
+CATEGORY=Special Ability|Multiclass Talent ~ Graceful Athlete.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal

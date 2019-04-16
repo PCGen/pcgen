@@ -1,0 +1,24 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Armor Master's Handbook	SOURCESHORT:AMH	SOURCEWEB:http://paizo.com/products/btpy9jbh?Pathfinder-Player-Companion-Armor-Masters-Handbook	SOURCEDATE:2016-05
+
+# ==============================
+# Combat Tricks
+# ==============================
+
+# Ability Name						Unique Key						Category of Ability		Type						Description																																															Ability																		Source Page
+Combat Trick / Armored Athlete			KEY:Combat Trick ~ Armored Athlete		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 3 stamina points to take 10 on a Dexterity- or Strength-based skill that is associated with this feat even when doing so would not normally allowed because of the strenuous circumstances.																																	SOURCEPAGE:p.20
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																																			ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Armored Athlete|PREABILITY:1,CATEGORY=FEAT,Armored Athlete
+Combat Trick / Artful Dodge				KEY:Combat Trick ~ Artful Dodge		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 5 stamina points to gain a +1 dodge bonus for each opponent that you threaten that no other ally threatens.																																														SOURCEPAGE:p.20
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																																			ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Artful Dodge|PREABILITY:1,CATEGORY=FEAT,Artful Dodge
+Combat Trick / Got Your Back				KEY:Combat Trick ~ Got Your Back		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:If you spend 3 stamina points when you use this feat, your ally benefits from the AC bonus until the beginning of your next turn.																																													SOURCEPAGE:p.20
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																																			ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Got Your Back|PREABILITY:1,CATEGORY=FEAT,Got Your Back
+Combat Trick / Harrying Partners			KEY:Combat Trick ~ Harrying Partners	CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:When using the aid another action to help an ally who also has this feat, you can spend 5 stamina points to grant a +4 bonus instead of the normal +2. Alternatively, you can grant your ally a +2 bonus both on her next attack roll and to her AC against the next attack against her.																				SOURCEPAGE:p.20
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																																			ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Harrying Partners|PREABILITY:1,CATEGORY=FEAT,Harrying Partners
+Combat Trick / Just Out of Reach			KEY:Combat Trick ~ Just Out of Reach	CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 5 stamina points to gain the benefits of this feat against any one melee attack.																																																			SOURCEPAGE:p.21
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																																			ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Just Out of Reach|PREABILITY:1,CATEGORY=FEAT,Just Out of Reach
+Combat Trick / Leaping Evasion			KEY:Combat Trick ~ Leaping Evasion		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 5 stamina points to ignore the staggered condition normally imparted by this feat.																																																		SOURCEPAGE:p.21
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																																			ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Leaping Evasion|PREABILITY:1,CATEGORY=FEAT,Leaping Evasion
+Combat Trick / Mirror Move				KEY:Combat Trick ~ Mirror Move		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend up to 5 stamina points to extend the duration that you benefit from a mirrored feat by 1 round per stamina point spent.																																												SOURCEPAGE:p.21
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																																			ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Mirror Move|PREABILITY:1,CATEGORY=FEAT,Mirror Move
+Combat Trick / Redirect Attack			KEY:Combat Trick ~ Redirect Attack		CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend up to 5 stamina points to grant yourself a bonus on the combat maneuver check equal to the number of stamina points you spent.																																											SOURCEPAGE:p.21
+CATEGORY=Internal|Combat Trick Tracker.MOD																																																																			ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Redirect Attack|PREABILITY:1,CATEGORY=FEAT,Redirect Attack

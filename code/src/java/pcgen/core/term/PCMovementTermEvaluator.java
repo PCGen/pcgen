@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCMovementTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,41 +16,38 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 13:07:38
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.spell.Spell;
 
-public class PCMovementTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCMovementTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
-	private final String movement;
+	private final MovementType movement;
 
 	public PCMovementTermEvaluator(String originalText, String movement)
 	{
 		this.originalText = originalText;
-		this.movement     = movement;
+		this.movement = MovementType.getConstant(movement);
 	}
 
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		return convertToFloat(originalText, evaluate(display));
+		return TermUtil.convertToFloat(originalText, evaluate(display));
 	}
 
 	@Override
-	public String evaluate (CharacterDisplay display)
+	public String evaluate(CharacterDisplay display)
 	{
 		return String.valueOf(display.movementOfType(movement));
 	}
 
 	@Override
-	public String evaluate (CharacterDisplay display, Spell aSpell)
+	public String evaluate(CharacterDisplay display, Spell aSpell)
 	{
 		return String.valueOf(display.movementOfType(movement));
 	}

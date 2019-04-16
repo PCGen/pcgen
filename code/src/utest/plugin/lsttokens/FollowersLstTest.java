@@ -17,7 +17,8 @@
  */
 package plugin.lsttokens;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.list.CompanionList;
@@ -29,11 +30,12 @@ import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
 public class FollowersLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new FollowersLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()
@@ -48,69 +50,75 @@ public class FollowersLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeOnly() throws PersistenceLayerException
+	public void testInvalidTypeOnly()
 	{
 		assertFalse(parse("Follower"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeBarOnly() throws PersistenceLayerException
+	public void testInvalidTypeBarOnly()
 	{
 		assertFalse(parse("Follower|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyType() throws PersistenceLayerException
+	public void testInvalidEmptyType()
 	{
 		assertFalse(parse("|4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoPipe() throws PersistenceLayerException
+	public void testInvalidTwoPipe()
 	{
 		assertFalse(parse("Follower||4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoPipeTypeTwo() throws PersistenceLayerException
+	public void testInvalidTwoPipeTypeTwo()
 	{
 		assertFalse(parse("Follower|Pet|4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBarEnding() throws PersistenceLayerException
+	public void testInvalidBarEnding()
 	{
 		assertFalse(parse("Follower|4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBarStarting() throws PersistenceLayerException
+	public void testInvalidBarStarting()
 	{
 		assertFalse(parse("|Follower|4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidReversed() throws PersistenceLayerException
+	public void testInvalidReversed()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Follower");
 		assertTrue(parse("Formula|Follower"));

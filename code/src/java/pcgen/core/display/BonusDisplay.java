@@ -2,7 +2,6 @@
  * Copyright 2014 (c) Tom Parker <thpr@users.sourceforge.net>
  * derived from BonusManager
  * Copyright 2009 (c) Tom Parker <thpr@users.sourceforge.net>
- * derived from PlayerCharacter.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -25,8 +24,12 @@ import pcgen.core.BonusManager;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
-public class BonusDisplay
+public final class BonusDisplay
 {
+
+	private BonusDisplay()
+	{
+	}
 
 	/**
 	 * Returns a String which can be used to display in the GUI
@@ -35,13 +38,27 @@ public class BonusDisplay
 	 */
 	public static String getBonusDisplayName(BonusManager.TempBonusInfo ti)
 	{
+		return getBonusDisplayName(ti.source, ti.target);
+	}
+
+	/**
+	 * Returns a Display name for a Bonus based on a source object and target for a
+	 * temporary bonus.
+	 * 
+	 * @param sourceObj
+	 *            The source object that contained the temporary bonus
+	 * @param targetObj
+	 *            The target object of the temporary bonus
+	 * @return a Display name for a Bonus based on the given objects
+	 */
+	public static String getBonusDisplayName(Object sourceObj, Object targetObj)
+	{
 		final StringBuilder buffer = new StringBuilder(50);
-	
-		buffer.append(ti.source.toString());
+
+		buffer.append(sourceObj);
 		buffer.append(" [");
-	
-		Object targetObj = ti.target;
-	
+
+
 		if (targetObj instanceof PlayerCharacter)
 		{
 			buffer.append("PC");
@@ -54,9 +71,9 @@ public class BonusDisplay
 		{
 			buffer.append("NONE");
 		}
-	
+
 		buffer.append(']');
-	
+
 		return buffer.toString();
 	}
 

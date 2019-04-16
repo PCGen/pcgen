@@ -17,11 +17,17 @@
  */
 package pcgen.base.formula;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
 
 
-public class SubtractingFormulaTest
+class SubtractingFormulaTest
 {
 
 	@Test
@@ -50,14 +56,14 @@ public class SubtractingFormulaTest
 		SubtractingFormula f2 = new SubtractingFormula(1);
 		SubtractingFormula f3 = new SubtractingFormula(2);
 		SubtractingFormula f4 = new SubtractingFormula(-1);
-		assertTrue(f1 != f2);
+		assertNotSame(f1, f2);
 		assertEquals(f1.hashCode(), f2.hashCode());
 		assertEquals(f1, f2);
-		assertFalse(f1.equals(null));
-		assertFalse(f1.hashCode() == f3.hashCode());
-		assertFalse(f1.equals(f3));
-		assertFalse(f1.hashCode() == f4.hashCode());
-		assertFalse(f1.equals(f4));
+		assertNotNull(f1);
+		assertNotEquals(f1.hashCode(), f3.hashCode());
+		assertNotEquals(f1, f3);
+		assertNotEquals(f1.hashCode(), f4.hashCode());
+		assertNotEquals(f1, f4);
 	}
 
 	@Test
@@ -89,42 +95,18 @@ public class SubtractingFormulaTest
 
 	private static void brokenCalls(SubtractingFormula f)
 	{
-		try
-		{
+		assertThrows(IllegalArgumentException.class, () -> {
 			f.resolve((Number[]) null);
-			fail("null should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
+		});
+		assertThrows(IllegalArgumentException.class, () -> {
 			f.resolve();
-			fail("empty array should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
+		});
+		assertThrows(IllegalArgumentException.class, () -> {
 			f.resolve(4, 2.5);
-			fail("two arguments in array should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
+		});
+		assertThrows(IllegalArgumentException.class, () -> {
 			f.resolve(4, 2.5);
-			fail("two arguments should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
+		});
 	}
 
 }

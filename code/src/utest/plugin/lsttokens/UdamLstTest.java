@@ -17,9 +17,10 @@
  */
 package plugin.lsttokens;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -33,10 +34,13 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class UdamLstTest extends AbstractGlobalTokenTestCase
 {
 	static UdamLst token = new UdamLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	protected SizeAdjustment colossal;
 	protected SizeAdjustment gargantuan;
@@ -48,6 +52,7 @@ public class UdamLstTest extends AbstractGlobalTokenTestCase
 	protected SizeAdjustment diminutive;
 	protected SizeAdjustment fine;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -103,83 +108,89 @@ public class UdamLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}
 
 	@Test
-	public void testInvalidNotEnoughValues() throws PersistenceLayerException
+	public void testInvalidNotEnoughValues()
 	{
 		assertTrue(parse("1,2,3,4,5,6,7,8"));
 		assertFalse(token.process(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testInvalidTooManyValues() throws PersistenceLayerException
+	public void testInvalidTooManyValues()
 	{
 		assertTrue(parse("1,2,3,4,5,6,7,8,9,0"));
 		assertFalse(token.process(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testInvalidEmptyValue1() throws PersistenceLayerException
+	public void testInvalidEmptyValue1()
 	{
 		assertFalse(parse(",2,3,4,5,6,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue2() throws PersistenceLayerException
+	public void testInvalidEmptyValue2()
 	{
 		assertFalse(parse("1,,3,4,5,6,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue3() throws PersistenceLayerException
+	public void testInvalidEmptyValue3()
 	{
 		assertFalse(parse("1,2,,4,5,6,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue4() throws PersistenceLayerException
+	public void testInvalidEmptyValue4()
 	{
 		assertFalse(parse("1,2,3,,5,6,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue5() throws PersistenceLayerException
+	public void testInvalidEmptyValue5()
 	{
 		assertFalse(parse("1,2,3,4,,6,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue6() throws PersistenceLayerException
+	public void testInvalidEmptyValue6()
 	{
 		assertFalse(parse("1,2,3,4,5,,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue7() throws PersistenceLayerException
+	public void testInvalidEmptyValue7()
 	{
 		assertFalse(parse("1,2,3,4,5,6,,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue8() throws PersistenceLayerException
+	public void testInvalidEmptyValue8()
 	{
 		assertFalse(parse("1,2,3,4,5,6,7,,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue9() throws PersistenceLayerException
+	public void testInvalidEmptyValue9()
 	{
 		assertFalse(parse("1,2,3,4,5,6,7,8,"));
 		assertNoSideEffects();

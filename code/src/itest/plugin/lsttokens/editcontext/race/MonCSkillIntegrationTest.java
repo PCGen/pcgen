@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.race;
 
-import org.junit.Test;
-
 import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
@@ -29,12 +27,14 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.race.MoncskillToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class MonCSkillIntegrationTest extends
 		AbstractListIntegrationTestCase<Race, Skill>
 {
 
-	static MoncskillToken token = new MoncskillToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static MoncskillToken token = new MoncskillToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

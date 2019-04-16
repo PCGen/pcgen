@@ -31,11 +31,9 @@ import pcgen.output.publish.OutputDB;
  * or owned. Therefore, items granted or allowed by the Equipment in this facet
  * are not part of the Player Character (the equipment must be equipped first).
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class EquipmentFacet extends AbstractSourcedListFacet<CharID, Equipment>
-		implements DataFacetChangeListener<CharID, Equipment>,
-		SetFacet<CharID, Equipment>
+		implements DataFacetChangeListener<CharID, Equipment>, SetFacet<CharID, Equipment>
 {
 	/**
 	 * Adds all of the Equipment that is possessed by a Player Character.
@@ -47,8 +45,6 @@ public class EquipmentFacet extends AbstractSourcedListFacet<CharID, Equipment>
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, Equipment> dfce)
@@ -67,8 +63,6 @@ public class EquipmentFacet extends AbstractSourcedListFacet<CharID, Equipment>
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, Equipment> dfce)

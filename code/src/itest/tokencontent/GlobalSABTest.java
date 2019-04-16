@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
@@ -24,7 +26,10 @@ import pcgen.core.SpecialAbility;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.SabLst;
+
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalSABTest extends AbstractContentTokenTest
 {
@@ -32,6 +37,7 @@ public class GlobalSABTest extends AbstractContentTokenTest
 	private static SabLst token = new SabLst();
 	private SpecialAbilityFacet saFacet;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -45,7 +51,7 @@ public class GlobalSABTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "Special Ability Text");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

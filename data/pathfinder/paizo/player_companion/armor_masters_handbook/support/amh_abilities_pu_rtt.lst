@@ -1,0 +1,10 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Armor Master's Handbook	SOURCESHORT:AMH	SOURCEWEB:http://paizo.com/products/btpy9jbh?Pathfinder-Player-Companion-Armor-Masters-Handbook	SOURCEDATE:2016-05
+
+# ==============================
+# Combat Tricks
+# ==============================
+
+# Ability Name						Unique Key					Category of Ability		Type						Description															Ability																		Source Page
+Combat Trick / Ambush Awareness			KEY:Combat Trick ~ Ambush Awareness	CATEGORY:Special Ability	TYPE:SpecialQuality.Combat Trick	DESC:You can spend 3 stamina points to grant the benefit of this feat to an adjacent ally.																				SOURCEPAGE:p.20
+CATEGORY=Internal|Combat Trick Tracker.MOD																																		ABILITY:Special Ability|AUTOMATIC|Combat Trick ~ Ambush Awareness|PREABILITY:1,CATEGORY=FEAT,Ambush Awareness

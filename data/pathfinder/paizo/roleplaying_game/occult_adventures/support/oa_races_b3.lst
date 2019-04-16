@@ -1,0 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3	SOURCEDATE:2012-01
+
+# Support for OA archetype familiar
+# Race Name	SORTKEY		Unique Key			Starting Feats	Size		Move			Reach		Vision			Stat bonus																	Modify VAR						Racial HD Class Skills					Auto Language	Ability																		Damage Reduction	Monster Class Name and Starting Level	Main Race Type	Race Subtype		Type			Challenge Rating	Source Page		Apply Kit	FACT
+Shikigami	SORTKEY:Kami	KEY:Kami (Shikigami)	STARTFEATS:1	SIZE:T	MOVE:Walk,30	REACH:0	VISION:Darkvision (60')	BONUS:STAT|STR|-2	BONUS:STAT|DEX|2	BONUS:STAT|CON|2	BONUS:STAT|INT|0	BONUS:STAT|WIS|6	BONUS:STAT|CHA|4	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base	MONCSKILL:Heal|Knowledge (Nature)|Survival	AUTO:LANG|Common	ABILITY:FEAT|VIRTUAL|Catch Off-Guard|Throw Anything	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Kami (Shikigami)	DR:5/cold iron	MONSTERCLASS:Outsider (Fort/Will):3		RACETYPE:Outsider	RACESUBTYPE:Kami|Native	TYPE:Outsider	CR:2			SOURCEPAGE:p.163	KIT:1|LN	FACT:BaseSize|T

@@ -1,5 +1,4 @@
 /*
- * Misc.java
  * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 13, 2002, 9:19 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.bonustokens;
 
@@ -34,8 +28,7 @@ import pcgen.util.Logging;
  */
 public final class Misc extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS =
-			{"ACCHECK", "MAXDEX", "SPELLFAILURE", "SR", "CR"};
+	private static final String[] BONUS_TAGS = {"ACCHECK", "MAXDEX", "SPELLFAILURE", "SR", "CR"};
 
 	/**
 	 * Return the bonus tag handled by this class.
@@ -50,7 +43,6 @@ public final class Misc extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual miscellaneous attribute that may be bonused.
 	 * @param tagNumber the index of the miscellaneous attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The miscellaneous attribute.
 	 */
 	@Override
@@ -61,7 +53,6 @@ public final class Misc extends MultiTagBonusObj
 
 	/**
 	 * Get the number of miscellaneous attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of miscellaneous attributes.
 	 */
 	@Override
@@ -77,8 +68,8 @@ public final class Misc extends MultiTagBonusObj
 		{
 			if ("SPELLFAILURE".equals(token))
 			{
-				Logging.errorPrint("BONUS:MISC|SPELLFAILURE is disabled "
-					+ "when PCSPELLFAILURE control is used: " + token, context);
+				Logging.errorPrint(
+					"BONUS:MISC|SPELLFAILURE is disabled " + "when PCSPELLFAILURE control is used: " + token, context);
 				return false;
 			}
 		}
@@ -86,8 +77,8 @@ public final class Misc extends MultiTagBonusObj
 		{
 			if ("MAXDEX".equals(token))
 			{
-				Logging.errorPrint("BONUS:MISC|MAXDEX is disabled "
-					+ "when PCMAXDEX control is used: " + token, context);
+				Logging.errorPrint("BONUS:MISC|MAXDEX is disabled " + "when PCMAXDEX control is used: " + token,
+					context);
 				return false;
 			}
 		}
@@ -95,12 +86,12 @@ public final class Misc extends MultiTagBonusObj
 		{
 			if ("ACCHECK".equals(token))
 			{
-				Logging.errorPrint("BONUS:MISC|ACCHECK is disabled "
-					+ "when PCACCHECK control is used: " + token, context);
+				Logging.errorPrint("BONUS:MISC|ACCHECK is disabled " + "when PCACCHECK control is used: " + token,
+					context);
 				return false;
 			}
 		}
 		return super.parseToken(context, token);
 	}
-	
+
 }

@@ -1,5 +1,4 @@
 /*
- * PCGenTaskListener.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,21 +15,16 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 8, 2010, 1:25:33 PM
  */
 package pcgen.system;
 
 import java.util.EventListener;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public interface PCGenTaskListener extends EventListener
 {
 
 	public void progressChanged(PCGenTaskEvent event);
 
 	public void errorOccurred(PCGenTaskEvent event);
-	
+
 }

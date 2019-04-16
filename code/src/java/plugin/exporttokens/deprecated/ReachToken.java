@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens.deprecated;
 
@@ -37,9 +32,6 @@ import pcgen.io.exporttoken.Token;
 //REACH
 public class ReachToken extends Token
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -47,8 +39,7 @@ public class ReachToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
 
@@ -73,22 +64,19 @@ public class ReachToken extends Token
 		String pcReach = pc.getControl(CControl.PCREACH);
 		if (pcReach == null)
 		{
-			return FacetLibrary.getFacet(ReachFacet.class).getReach(
-				pc.getCharID());
+			return FacetLibrary.getFacet(ReachFacet.class).getReach(pc.getCharID());
 		}
 		return ((Number) pc.getGlobal(pcReach)).intValue();
 	}
 
 	public static String getToken(PlayerCharacter pc)
 	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			getReachToken(pc))
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(getReachToken(pc))
 			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 
 	public static String getSquaresToken(PlayerCharacter pc)
 	{
-		return new DecimalFormat("#.#").format(getReachToken(pc)
-			/ SettingsHandler.getGame().getSquareSize());
+		return new DecimalFormat("#.#").format(getReachToken(pc) / SettingsHandler.getGame().getSquareSize());
 	}
 }

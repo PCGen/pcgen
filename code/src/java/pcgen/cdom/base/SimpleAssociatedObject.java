@@ -25,8 +25,7 @@ import pcgen.cdom.enumeration.AssociationKey;
  * SimpleAssociatedObject is a minimal implementation of the
  * AssociatedPrereqObject interface.
  */
-public class SimpleAssociatedObject extends ConcretePrereqObject implements
-		AssociatedPrereqObject
+public class SimpleAssociatedObject extends ConcretePrereqObject implements AssociatedPrereqObject
 {
 
 	/**
@@ -113,25 +112,12 @@ public class SimpleAssociatedObject extends ConcretePrereqObject implements
 		assoc.setAssociation(name, value);
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this
-	 * SimpleAssociatedObject
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return assoc.hashCode();
 	}
 
-	/**
-	 * Returns true if this SimpleAssociatedObject is equal to the given Object.
-	 * Equality is defined as being another SimpleAssociatedObject object with
-	 * equal associations and Prerequisites.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

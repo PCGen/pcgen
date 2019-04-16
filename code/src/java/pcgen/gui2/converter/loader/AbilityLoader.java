@@ -1,5 +1,4 @@
 /*
- * AbilityLoader.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17/11/2013
- *
- * $Id$
  */
 package pcgen.gui2.converter.loader;
 
@@ -40,13 +35,12 @@ import pcgen.rules.context.EditorLoadContext;
  * properly process Ability files.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class AbilityLoader extends BasicLoader<Ability>
 {
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
-	private EditorLoadContext context;
+	private final EditorLoadContext context;
 
 	/**
 	 * Create a new AbilityLoader instance.
@@ -56,8 +50,8 @@ public class AbilityLoader extends BasicLoader<Ability>
 	 * @param lk The key under which the files to be processed are stored.
 	 * @param changeLogWriter The stream we will record any changes to.
 	 */
-	public AbilityLoader(EditorLoadContext lc, Class<Ability> cl,
-		ListKey<CampaignSourceEntry> lk, Writer changeLogWriter)
+	public AbilityLoader(EditorLoadContext lc, Class<Ability> cl, ListKey<CampaignSourceEntry> lk,
+		Writer changeLogWriter)
 	{
 		super(lc, cl, lk, changeLogWriter);
 
@@ -65,8 +59,7 @@ public class AbilityLoader extends BasicLoader<Ability>
 	}
 
 	@Override
-	public List<CDOMObject> process(StringBuilder sb, int line,
-		String lineString, ConversionDecider decider)
+	public List<CDOMObject> process(StringBuilder sb, int line, String lineString, ConversionDecider decider)
 		throws PersistenceLayerException, InterruptedException
 	{
 		// We do a scan for the category first and ensure the ability category is defined.
@@ -76,15 +69,13 @@ public class AbilityLoader extends BasicLoader<Ability>
 			if (tok.startsWith("CATEGORY:"))
 			{
 				String abilityCatName = tok.substring(9);
-				final Category<Ability> cat =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(
-							ABILITY_CATEGORY_CLASS, abilityCatName);
+				final Category<Ability> cat = context.getReferenceContext()
+					.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, abilityCatName);
 				if (cat == null)
 				{
-//					Logging.log(Logging.INFO, "Found new cat " + abilityCatName
-//						+ " at line " + line + ": " + lineString);
-					context.getReferenceContext().constructCDOMObject(
-						ABILITY_CATEGORY_CLASS, abilityCatName);
+					//					Logging.log(Logging.INFO, "Found new cat " + abilityCatName
+					//						+ " at line " + line + ": " + lineString);
+					context.getReferenceContext().constructCDOMObject(ABILITY_CATEGORY_CLASS, abilityCatName);
 				}
 
 			}

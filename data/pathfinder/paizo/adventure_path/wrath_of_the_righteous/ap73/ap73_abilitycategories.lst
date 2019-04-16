@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Sat May 26 02:28:48 2018 -- reformated by PCGen PrettyLST v6.06.00
+
+
+# Ability Category			Visible	Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Devotion		VISIBLE:NO	EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Devotion
+ABILITYCATEGORY:Devotion Reward	VISIBLE:YES	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Devotion		TYPE:Devotion Reward	PLURAL:Devotion Rewards		DISPLAYLOCATION:Adventure Path

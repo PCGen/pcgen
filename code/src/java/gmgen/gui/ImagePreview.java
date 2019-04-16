@@ -1,9 +1,9 @@
 package gmgen.gui;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.SystemColor;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -20,22 +20,21 @@ import pcgen.io.PCGFile;
 import pcgen.io.PCGIOHandler;
 import pcgen.system.LanguageBundle;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * A panel for previewing graphics in a file chooser.  This includes previewing
  * a character portrait referenced in a PCG file.
  *
  * TODO Support PCG portraits
  */
-public final class ImagePreview
-		extends JPanel
-		implements PropertyChangeListener
+public final class ImagePreview extends JPanel implements PropertyChangeListener
 {
 	private static final int SIZE = 200;
 
-	private static final String in_notAnImage
-			= LanguageBundle.getString("in_ImagePreview_notAnImage");
-	private static final String in_noCharacterPortrait
-			= LanguageBundle.getString("in_ImagePreview_noCharacterPortrait");
+	private static final String IN_NOT_AN_IMAGE = LanguageBundle.getString("in_ImagePreview_notAnImage");
+	private static final String IN_NO_CHARACTER_PORTRAIT =
+			LanguageBundle.getString("in_ImagePreview_noCharacterPortrait");
 
 	private final JFileChooser jfc;
 
@@ -70,7 +69,7 @@ public final class ImagePreview
 		return jfc;
 	}
 
-    @Override
+	@Override
 	public void propertyChange(final PropertyChangeEvent evt)
 	{
 		try
@@ -88,8 +87,7 @@ public final class ImagePreview
 	 * @param file
 	 * @throws IOException
 	 */
-	private void updateImage(final File file)
-			throws IOException
+	private void updateImage(final File file) throws IOException
 	{
 		if (file == null || !file.exists())
 		{
@@ -105,9 +103,7 @@ public final class ImagePreview
 
 			final String portraitPath = aPC.getDisplay().getPortraitPath();
 
-			image = ImagePreview.isNullOrEmpty(portraitPath)
-					? null
-					:  ImageIO.read(new File(portraitPath));
+			image = StringUtils.isEmpty(portraitPath) ? null : ImageIO.read(new File(portraitPath));
 		}
 		else
 		{
@@ -118,7 +114,7 @@ public final class ImagePreview
 		repaint();
 	}
 
-    @Override
+	@Override
 	protected void paintComponent(final Graphics g)
 	{
 		g.setColor(UIManager.getColor("Panel.background"));
@@ -134,33 +130,27 @@ public final class ImagePreview
 			final int side = Math.max(width, height);
 			final double scale = SIZE / (double) side;
 
-			g.drawImage(image, 0, 0, (int) (scale * width),
-					(int) (scale * height), null);
+			g.drawImage(image, 0, 0, (int) (scale * width), (int) (scale * height), null);
 
 			// Annotate with original dimensions.  Overlay black on white so
 			// the values are visible against most possible image backgrounds.
 			final String dim = width + " x " + height;
 
-			g.setColor(Color.black);
+			g.setColor(SystemColor.text);
 			g.drawString(dim, textX, textY);
-			g.setColor(Color.white);
+			g.setColor(SystemColor.textText);
 			g.drawString(dim, textX - 1, textX - 1);
 		}
 		else
 		{
 			g.setColor(UIManager.getColor("Panel.foreground"));
 			// TODO: I18N
-			g.drawString(aPC == null ? ImagePreview.in_notAnImage : ImagePreview.in_noCharacterPortrait,
-					textX, textY);
+			g.drawString(aPC == null ? ImagePreview.IN_NOT_AN_IMAGE : ImagePreview.IN_NO_CHARACTER_PORTRAIT, textX, textY);
 		}
 	}
 
-	private static boolean isNullOrEmpty(final String s)
+	private static int getFontHeightHint(final Graphics g)
 	{
-		return s == null || s.isEmpty();
-	}
-
-	private static int getFontHeightHint(final Graphics g) {
 		return g.getFontMetrics().getHeight();
 	}
 }

@@ -1,5 +1,4 @@
 /*
- * ConversionDecider.java
  * Copyright 2009 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,22 +14,17 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 27/01/2009 2:41:34 PM
- *
- * $Id$
  */
 package pcgen.gui2.converter;
 
 import java.util.List;
 
 /**
- * The Interface <code>ConversionDecider</code> defines a callback for 
+ * The Interface {@code ConversionDecider} defines a callback for
  * the LSTConverter to ask the user for a decision on ambiguous syntax 
  * that needs to be converted. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface ConversionDecider
 {
@@ -47,8 +41,8 @@ public interface ConversionDecider
 	 * @param defaultChoice The index of the initially selected option.
 	 * @return the conversion decision
 	 */
-	public String getConversionDecision(String overallDescription,
-		List<String> choiceDescriptions, List<String> choiceTokenResults, int defaultChoice);
+	public String getConversionDecision(String overallDescription, List<String> choiceDescriptions,
+		List<String> choiceTokenResults, int defaultChoice);
 
 	public String getConversionInput(String overallDescription);
 }

@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountAbilityNameTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 06-Aug-2008 22:52:36
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -30,20 +26,15 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 
-public class PCCountAbilityNameTermEvaluator
-		extends BasePCCountAbilitiesTermEvaluator implements TermEvaluator
+public class PCCountAbilityNameTermEvaluator extends BasePCCountAbilitiesTermEvaluator implements TermEvaluator
 {
 
 	private final String key;
 	private final boolean visible;
 	private final boolean hidden;
 
-	public PCCountAbilityNameTermEvaluator(
-			String originalText, 
-			AbilityCategory abCat,
-			String key, 
-			boolean visible,
-			boolean hidden)
+	public PCCountAbilityNameTermEvaluator(String originalText, AbilityCategory abCat, String key, boolean visible,
+		boolean hidden)
 	{
 		this.originalText = originalText;
 		this.abCat = abCat;
@@ -63,8 +54,7 @@ public class PCCountAbilityNameTermEvaluator
 		{
 			if (anAbility.getAbilityKey().equalsIgnoreCase(key))
 			{
-				count += countVisibleAbility(
-						pc, anAbility, visible, hidden, false);
+				count += countVisibleAbility(pc, anAbility, visible, hidden, false);
 
 				break;
 			}

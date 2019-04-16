@@ -32,11 +32,9 @@ import pcgen.core.WeaponProf;
  * NaturalWeaponProfFacet is a Facet that tracks the WeaponProfs that have been
  * implicitly granted to a Player Character via NATURALATTACKS
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class NaturalWeaponProfFacet extends
-		AbstractSourcedListFacet<CharID, WeaponProf> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class NaturalWeaponProfFacet extends AbstractSourcedListFacet<CharID, WeaponProf>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	/**
@@ -51,16 +49,13 @@ public class NaturalWeaponProfFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		// Natural Weapon Proficiencies
-		List<CDOMSingleRef<WeaponProf>> iwp = cdo
-				.getListFor(ListKey.IMPLIED_WEAPONPROF);
+		List<CDOMSingleRef<WeaponProf>> iwp = cdo.getListFor(ListKey.IMPLIED_WEAPONPROF);
 		if (iwp != null)
 		{
 			CharID id = dfce.getCharID();
@@ -83,8 +78,6 @@ public class NaturalWeaponProfFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)

@@ -1,0 +1,49 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Armor Master's Handbook	SOURCESHORT:AMH	SOURCEWEB:http://paizo.com/products/btpy9jbh?Pathfinder-Player-Companion-Armor-Masters-Handbook	SOURCEDATE:2016-05
+
+#Magical Armor
+# Equipment Name								Product Identity?	Required Armor Proficiency			Type										Cost		Weight	AC Penalty Check	Modifier																	Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus								Stat bonus						Modify VAR				Special Property																															Visible
+Armored Coat.COPY=Aldori Dueling Armor
+Banded Mail (Base).COPY=Legion Armor																															EQMOD:Material ~ Steel																																																																																VISIBLE:YES
+Scale Mail Barding (Base).COPY=Trained Barding																														EQMOD:Material ~ Steel																																																																																VISIBLE:YES
+Chainmail (Base).COPY=Elemental Bulwark (Acid)																														EQMOD:Material ~ Steel																																																																																VISIBLE:YES
+Chainmail (Base).COPY=Elemental Bulwark (Cold)																														EQMOD:Material ~ Steel																																																																																VISIBLE:YES
+Chainmail (Base).COPY=Elemental Bulwark (Electricity)																													EQMOD:Material ~ Steel																																																																																VISIBLE:YES
+Chainmail (Base).COPY=Elemental Bulwark (Fire)																														EQMOD:Material ~ Steel																																																																																VISIBLE:YES
+Half-Plate (Base).COPY=Raiment of the Shining Crusade																													EQMOD:Material ~ Steel																																																																																VISIBLE:YES
+Leather Armor (Base).COPY=Arachnid Harness																														EQMOD:Material ~ Leather																																																																															VISIBLE:YES
+Lamellar (Steel).COPY=Armor of the Pure Legion
+Lamellar Cuirass.COPY=Shifting Jerkin
+Stoneplate.COPY=Stone-Eater Armor
+
+Aldori Dueling Armor.MOD						NAMEISPI:YES																									EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Enhancement Cost|20000									SOURCEPAGE:p.27					BONUS:COMBAT|INITIATIVE|2|TYPE=Enhancement															SPROP:If using an Aldori dueling sword, +2 bonus on attacks of opportunity, 1/day chance to parry a meele attack
+Arachnid Harness.MOD																																		EQMOD:Special Ability ~ +1 ~ Armor.Special Ability ~ Enhancement Cost|5000									SOURCEPAGE:p.25																											SPROP:On command, sprouts spidery legs, wearer can climb at full speed, keeps DEX bonus to AC while climbing.
+Armor of the Pure Legion.MOD						NAMEISPI:YES																									EQMOD:Special Ability ~ +1 ~ Armor.Special Ability ~ Enhancement Cost|17000									SOURCEPAGE:p.27																											SPROP:Continuous heat protection as by endure elements, SR 5 + wearer's base attack bonusvs. divine casters, 1/day allows second save attempt against mind-effecting spells from divine casters.
+Elemental Bulwark (Acid).MOD																																	EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Enhancement Cost|8000									SOURCEPAGE:p.27																											SPROP:On command, create an effect identical to fire shield, but effects are acid based, usable 10 rnds/day.
+Elemental Bulwark (Cold).MOD																																	EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Enhancement Cost|8000									SOURCEPAGE:p.27																											SPROP:On command, create an effect identical to fire shield, but effects are cold based, usable 10 rnds/day.
+Elemental Bulwark (Electricity).MOD																																EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Enhancement Cost|8000									SOURCEPAGE:p.27																											SPROP:On command, create an effect identical to fire shield, but effects are electricity based, usable 10 rnds/day.
+Elemental Bulwark (Fire).MOD																																	EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Enhancement Cost|8000									SOURCEPAGE:p.27																											SPROP:On command, create an effect identical to fire shield, usable 10 rnds/day.
+Legion Armor.MOD																																			EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Enhancement Cost|9000									SOURCEPAGE:p.29																											SPROP:1/day cast spiritual ally, if wearer dismisses this spell, nearby evil creatures may become shaken.
+Raiment of the Shining Crusade.MOD																																EQMOD:Special Ability ~ +1 ~ Armor.Special Ability ~ Enhancement Cost|19000									SOURCEPAGE:p.29																											SPROP:+2 on saves vs. channeled negative energy and to resist negative levels. If wearer has smite evil class feature, armor glows like a torch, wearer can ward an adjacent creature.
+Shifting Jerkin.MOD																																		EQMOD:Special Ability ~ +1 ~ Armor.Special Ability ~ Enhancement Cost|4800									SOURCEPAGE:p.25																											SPROP:Wearer can change appearance at will as disguise self, wearers with "talents" can trade out a talent once a day.
+Stone-Eater Armor.MOD																																		EQMOD:Special Ability ~ +1 ~ Armor.Special Ability ~ Enhancement Cost|6000									SOURCEPAGE:p.29																											SPROP:Petrifying effects negated, causing armore enhancement to increase by one for 1 minute.
+Trained Barding.MOD																																		EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Enhancement Cost|4000									SOURCEPAGE:p.27																											SPROP:Grants the wearing animal two additional tricks or one general purpose, determined at the time the armor is created.
+
+Clockwork Armor											PROFICIENCY:ARMOR|Full Plate			TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard			COST:1200	WT:0		ACCHECK:-5		EQMOD:Material ~ Steel.Special Ability ~ +2 ~ Armor.Special Ability ~ Enhancement Cost|28000			MAXDEX:1		SOURCEPAGE:p.28	SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor|PREVAREQ:DisableArmorBonus,0	BONUS:STAT|STR,DEX|2|TYPE=Enhancement						SPROP:If woulnd, grants +4 bonus to Strength and Dexterity, weight does not count toward encumberance, can be modified to hold a projectile weapon.
+Djezet Skin												PROFICIENCY:ARMOR|Leather			TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Metal.Djezet	COST:10	WT:15					EQMOD:Special Ability ~ +1 ~ Armor.Special Ability ~ Enhancement Cost|2250						MAXDEX:6		SOURCEPAGE:p.25	SPELLFAILURE:0		BONUS:COMBAT|AC|2|TYPE=Armor|PREVAREQ:DisableArmorBonus,0								BONUS:VAR|ArmorCheckPenalty|0	SPROP:Liquid metal ball when not worn, +5 bonus on Diplomacy checks to make requests of creatures with an attitude of friendly or helpful.
+Gale Armor												PROFICIENCY:ARMOR|Silken Ceremonial Armor	TYPE:Armor.Light.ArmorProfLight.Suit.Standard			COST:30	WT:0					EQMOD:Material ~ Cloth.Special Ability ~ +3 ~ Armor.Special Ability ~ Enhancement Cost|6000						SOURCEPAGE:p.25	SPELLFAILURE:0		BONUS:COMBAT|AC|1|TYPE=Armor|PREVAREQ:DisableArmorBonus,0													SPROP:Wearer can use air walk up to 10 rounds/day, permanently under the effect of glide, if flying, increases maneuverability by one category.
+
+#Magical Shields
+Buckler (Base).COPY=Gunner's Buckler																																																																																																																		VISIBLE:YES
+Heavy Steel Shield (Base).COPY=Challenging Shield																													EQMOD:Material ~ Steel																																																																																VISIBLE:YES
+Heavy Steel Shield (Base).COPY=Lens of the Dark Tapestry																																																																																																															VISIBLE:YES
+Tower Shield (Base).COPY=Phalanx Shield																																																																																																																		VISIBLE:YES
+
+Challenging Shield.MOD																																		EQMOD:Special Ability ~ +1 ~ Shield.Special Ability ~ Enhancement Cost|4000									SOURCEPAGE:p.31																											SPROP:By spending one use of the challenge class feature as an immediate action, the wearer can apply her Charisma bonus to her shield bonus to AC against a target of her challenge for 1 minute.
+Gunner's Buckler.MOD																																		EQMOD:Material ~ Mithril ~ Shield.Special Ability ~ +1 ~ Shield.Special Ability ~ Enhancement Cost|8000				SOURCEPAGE:p.31																											SPROP:Using a firearm while threatened does not provoke attacks of opportunity, but imposes -4 to hit on all ranged attacks that round instead.
+Lens of the Dark Tapestry.MOD																																	EQMOD:Material ~ Voidglass ~ Shield.Special Ability ~ +1 ~ Shield.Special Ability ~ Enhancement Cost|25000				SOURCEPAGE:p.31																											SPROP:On command, the wearer can take 1 point of Wisdom drain to banish a single creature within 30 feet into the Dark Tapestry.
+Phalanx Shield.MOD																	TYPE:Metal.Adamantine.Masterwork												EQMOD:Special Ability ~ +2 ~ Shield.Special Ability ~ Enhancement Cost|6900									SOURCEPAGE:p.31																											SPROP:Conjures spiritual allies to form a shield wall.
+
+#Support
+Armored Coat.MOD																		TYPE:ArmoredCoat
+Full Plate.MOD																		TYPE:FullPlate

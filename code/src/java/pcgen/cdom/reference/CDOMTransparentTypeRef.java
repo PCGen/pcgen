@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -19,6 +19,7 @@ package pcgen.cdom.reference;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.GroupingState;
@@ -37,9 +38,14 @@ import pcgen.cdom.enumeration.GroupingState;
  *            The Class of the underlying object contained by this
  *            CDOMTransparentTypeRef
  */
-public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> implements
-		TransparentReference<T>
+public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> implements TransparentReference<T>
 {
+
+	/**
+	 * The Class that indicates the types of objects objects contained in this
+	 * CDOMTransparentTypeRef.
+	 */
+	private final Class<T> refClass;
 
 	/**
 	 * Holds the reference to which this CDOMTransparentTypeRef will delegate
@@ -53,9 +59,18 @@ public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> 
 	private final String[] types;
 
 	/**
+	 * The String representation of the Format of objects in this CDOMTransparentSingleRef (e.g.
+	 * "ABILITY=FEAT").
+	 */
+	private final String formatRepresentation;
+
+	/**
 	 * Constructs a new CDOMTransparentTypeRef for the given Class to be
 	 * represented by this CDOMTransparentTypeRef and the given types.
 	 * 
+	 * @param formatRepresentation
+	 *            the persistent representation of the ClassIdentity of the objects to be
+	 *            stored in this CDOMTransparentTypeRef
 	 * @param objClass
 	 *            The Class of the underlying objects contained by this
 	 *            CDOMTransparentTypeRef.
@@ -63,12 +78,12 @@ public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> 
 	 *            An array of the Types of objects this CDOMTransparentTypeRef
 	 *            contains.
 	 */
-	public CDOMTransparentTypeRef(Class<T> objClass, String[] typeArray)
+	public CDOMTransparentTypeRef(String formatRepresentation, Class<T> objClass, String[] typeArray)
 	{
-		super(objClass, objClass.getSimpleName() + " "
-				+ Arrays.deepToString(typeArray));
-		types = new String[typeArray.length];
-		System.arraycopy(typeArray, 0, types, 0, typeArray.length);
+		super(objClass.getSimpleName() + " " + Arrays.deepToString(typeArray));
+		this.formatRepresentation = Objects.requireNonNull(formatRepresentation);
+		types = Arrays.copyOf(typeArray, typeArray.length);
+		refClass = objClass;
 	}
 
 	/**
@@ -91,9 +106,8 @@ public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> 
 	{
 		if (subReference == null)
 		{
-			throw new IllegalStateException("Cannot ask for contains: "
-					+ getReferenceClass().getName() + " Reference " + getName()
-					+ " has not been resolved");
+			throw new IllegalStateException("Cannot ask for contains: " + getReferenceClass().getName() + " Reference "
+				+ getName() + " has not been resolved");
 		}
 		return subReference.contains(item);
 	}
@@ -107,7 +121,6 @@ public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> 
 	 * 
 	 * @return A representation of this CDOMTransparentTypeRef, suitable for
 	 *         storing in an LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -115,34 +128,17 @@ public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> 
 		return getName();
 	}
 
-	/**
-	 * Returns true if this CDOMTransparentTypeRef is equal to the given Object.
-	 * Equality is defined as being another CDOMTransparentTypeRef object with
-	 * equal Class represented by the reference and equal types of the
-	 * underlying reference. This is NOT a deep .equals, in that neither the
-	 * actual contents of this CDOMTransparentTypeRef nor the underlying
-	 * CDOMGroupRef are tested.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
 		if (obj instanceof CDOMTransparentTypeRef)
 		{
 			CDOMTransparentTypeRef<?> ref = (CDOMTransparentTypeRef<?>) obj;
-			return getReferenceClass().equals(ref.getReferenceClass())
-					&& getName().equals(ref.getName());
+			return getReferenceClass().equals(ref.getReferenceClass()) && getName().equals(ref.getName());
 		}
 		return false;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this
-	 * CDOMTransparentTypeRef
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -164,8 +160,7 @@ public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> 
 	@Override
 	public void addResolution(T item)
 	{
-		throw new IllegalStateException(
-				"Cannot resolve a Transparent Reference");
+		throw new IllegalStateException("Cannot resolve a Transparent Reference");
 	}
 
 	/**
@@ -195,9 +190,8 @@ public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> 
 		}
 		else
 		{
-			throw new IllegalArgumentException("Cannot resolve a "
-					+ getReferenceClass().getSimpleName() + " Reference to a "
-					+ rm.getReferenceClass().getSimpleName());
+			throw new IllegalArgumentException("Cannot resolve a " + getReferenceClass().getSimpleName()
+				+ " Reference to a " + rm.getReferenceClass().getSimpleName());
 		}
 	}
 
@@ -257,5 +251,25 @@ public class CDOMTransparentTypeRef<T extends Loadable> extends CDOMGroupRef<T> 
 	public String getChoice()
 	{
 		return subReference == null ? null : subReference.getChoice();
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return refClass;
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return (subReference == null) ? refClass.getSimpleName() + " of TYPE=" + Arrays.asList(types)
+			: subReference.getReferenceDescription();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		// TODO Auto-generated method stub
+		return formatRepresentation;
 	}
 }

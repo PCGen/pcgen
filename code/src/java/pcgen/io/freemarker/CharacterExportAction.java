@@ -1,5 +1,4 @@
 /*
- * CharacterExportAction.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 21/12/2013
  *
- * $Id$
  */
 package pcgen.io.freemarker;
 
@@ -35,7 +32,6 @@ import pcgen.util.Logging;
  * handle export tokens to produce a result.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface CharacterExportAction
 {
@@ -53,17 +49,16 @@ public interface CharacterExportAction
 		final BufferedWriter aWriter = new BufferedWriter(sWriter);
 		modelEh.replaceToken(exportToken, aWriter, pc);
 		sWriter.flush();
-	
+
 		try
 		{
 			aWriter.flush();
 		}
 		catch (IOException e)
 		{
-			Logging.errorPrint("Couldn't flush the StringWriter used in " +
-					"PCStringDirective.getExportVariable.", e);
+			Logging.errorPrint("Couldn't flush the StringWriter used in " + "PCStringDirective.getExportVariable.", e);
 		}
-	
+
 		final String bString = sWriter.toString();
 		return bString;
 	}

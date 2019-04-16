@@ -20,6 +20,7 @@ package pcgen.output.wrapper;
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.output.base.SimpleObjectWrapper;
 import pcgen.output.base.SimpleWrapperLibrary;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -29,10 +30,6 @@ import freemarker.template.TemplateModelException;
  */
 public class TypeSafeConstantWrapper implements SimpleObjectWrapper
 {
-	/**
-	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public TemplateModel wrap(Object o) throws TemplateModelException
 	{

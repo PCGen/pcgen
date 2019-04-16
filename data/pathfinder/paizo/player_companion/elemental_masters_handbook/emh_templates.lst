@@ -1,0 +1,8 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# SOURCELONG:Elemental Master's Handbook	SOURCESHORT:EMH	SOURCEWEB:http://paizo.com/products/btpy9uf8?Pathfinder-Player-Companion-Elemental-Masters-Handbook	SOURCEDATE:2017-08
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+
+# Template Name					Visible	Ability																																																																Bonus Languages
+Elemental Negotiator																																																																							LANGBONUS:Aquan,Auran,Ignan,Terran
+
+Masterpiece Activation Elemental Master	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Blazing Rondo|PREMULT:1,[PRESPELL:1,Masterpiece (Blazing Rondo)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Blazing Rondo)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Dance of Captivating Desire|PREMULT:1,[PRESPELL:1,Masterpiece (Dance of Captivating Desire)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Dance of Captivating Desire)]

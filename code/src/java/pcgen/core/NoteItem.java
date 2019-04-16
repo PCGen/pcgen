@@ -1,5 +1,4 @@
 /*
- * NoteItem.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,37 +14,44 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 17, 2002, 9:27 PM
- *
- * $Id$
  */
 package pcgen.core;
 
-import pcgen.facade.core.NoteFacade;
+import java.util.Optional;
+
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.io.FileAccess;
 import pcgen.util.Logging;
 
-
 /**
- * <code>NoteItem</code>.
+ * {@code NoteItem}.
  *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
-public final class NoteItem implements NoteFacade, Cloneable
+public final class NoteItem implements Cloneable
 {
 	private String name = "";
 	private String value = "";
 	private int id_parent = -1;
 	private int id_value = -1;
-	private boolean required;
+	private final Optional<PCStringKey> key;
 
-	public NoteItem(final int my_id, final int my_parent, final String aName, final String aValue)
+	public NoteItem(Optional<PCStringKey> key, final int my_id, final int my_parent, final String aName, final String aValue)
 	{
+		this.key = key;
 		id_value = my_id;
 		id_parent = my_parent;
 		name = aName;
 		value = aValue;
+	}
+
+	public NoteItem(PCStringKey key, final int my_id, final int my_parent, final String aName, final String aValue)
+	{
+		this(Optional.of(key), my_id, my_parent, aName, aValue);
+	}
+
+	public NoteItem(final int my_id, final int my_parent, final String aName, final String aValue)
+	{
+		this(Optional.empty(), my_id, my_parent, aName, aValue);
 	}
 
 	/**
@@ -59,9 +65,11 @@ public final class NoteItem implements NoteFacade, Cloneable
 	 * @param afterValue The markup to be included after the value.
 	 * @return The export string including markup, the name of the note and the note contents. 
 	 */
-	public String getExportString(final String beforeName, final String afterName, final String beforeValue, final String afterValue)
+	public String getExportString(final String beforeName, final String afterName, final String beforeValue,
+		final String afterValue)
 	{
-		return beforeName + FileAccess.filterString(name) + afterName + beforeValue + FileAccess.filterString(value) + afterValue;
+		return beforeName + FileAccess.filterString(name) + afterName + beforeValue + FileAccess.filterString(value)
+			+ afterValue;
 	}
 
 	public int getId()
@@ -79,7 +87,6 @@ public final class NoteItem implements NoteFacade, Cloneable
 		name = x;
 	}
 
-    @Override
 	public String getName()
 	{
 		return name;
@@ -95,31 +102,19 @@ public final class NoteItem implements NoteFacade, Cloneable
 		return id_parent;
 	}
 
-    @Override
 	public void setValue(final String x)
 	{
 		value = x;
 	}
 
-    @Override
 	public String getValue()
 	{
 		return value;
 	}
 
-	@Override
-	public boolean isRequired()
+	public Optional<PCStringKey> getPCStringKey()
 	{
-		return required;
-	}
-
-	/**
-	 * Update the flag identifying if this note can be renamed or removed.
-	 * @param required the new required flag
-	 */
-	public void setRequired(boolean required)
-	{
-		this.required = required;
+		return key;
 	}
 
 	@Override
@@ -129,7 +124,7 @@ public final class NoteItem implements NoteFacade, Cloneable
 	}
 
 	@Override
-	protected NoteItem clone()
+	public NoteItem clone()
 	{
 		try
 		{
@@ -154,9 +149,8 @@ public final class NoteItem implements NoteFacade, Cloneable
 		if (o instanceof NoteItem)
 		{
 			NoteItem other = (NoteItem) o;
-			return (id_parent == other.id_parent)
-				&& (id_value == other.id_value) && (name.equals(other.name))
-				&& (value.equals(other.value)) && (required == other.required);
+			return (id_parent == other.id_parent) && (id_value == other.id_value) && (name.equals(other.name))
+				&& (value.equals(other.value)) && (key.equals(other.key));
 		}
 		return false;
 	}

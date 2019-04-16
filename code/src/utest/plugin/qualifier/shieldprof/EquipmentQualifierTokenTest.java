@@ -16,10 +16,12 @@
  */
 package plugin.qualifier.shieldprof;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URISyntaxException;
 import java.util.Collection;
-
-import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
@@ -41,25 +43,27 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class EquipmentQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Equipment>
 {
 
 	static ChooseLst token = new ChooseLst();
 	static ShieldProficiencyToken subtoken = new ShieldProficiencyToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
-	private WeaponProf wp1;
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 	private ShieldProf sp1, sp2;
-	private ArmorProf ap1;
-	private Equipment eq1, eq2, eq3, eq4;
 
-	private static final plugin.qualifier.shieldprof.EquipmentToken EQUIPMENT_TOKEN = new plugin.qualifier.shieldprof.EquipmentToken();
+	private static final plugin.qualifier.shieldprof.EquipmentToken EQUIPMENT_TOKEN =
+			new plugin.qualifier.shieldprof.EquipmentToken();
 
 	public EquipmentQualifierTokenTest()
 	{
 		super("EQUIPMENT", null);
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -104,7 +108,7 @@ public class EquipmentQualifierTokenTest extends
 	}
 
 	@Test
-	public void testGetSet() throws PersistenceLayerException
+	public void testGetSet()
 	{
 		setUpPC();
 		initializeObjects();		
@@ -120,7 +124,7 @@ public class EquipmentQualifierTokenTest extends
 	}
 
 	@Test
-	public void testGetSetFiltered() throws PersistenceLayerException
+	public void testGetSetFiltered()
 	{
 		setUpPC();
 		initializeObjects();		
@@ -137,10 +141,10 @@ public class EquipmentQualifierTokenTest extends
 
 	private void initializeObjects()
 	{
-		wp1 = new WeaponProf();
+		WeaponProf wp1 = new WeaponProf();
 		wp1.setName("Eq1");
 		primaryContext.getReferenceContext().importObject(wp1);
-		eq1 = new Equipment();
+		Equipment eq1 = new Equipment();
 		eq1.setName("Eq1");
 		primaryContext.getReferenceContext().importObject(eq1);
 		primaryContext.unconditionallyProcess(eq1, "TYPE", "WEAPON");
@@ -149,16 +153,16 @@ public class EquipmentQualifierTokenTest extends
 		sp1 = new ShieldProf();
 		sp1.setName("Eq2");
 		primaryContext.getReferenceContext().importObject(sp1);
-		eq2 = new Equipment();
+		Equipment eq2 = new Equipment();
 		eq2.setName("Eq2");
 		primaryContext.getReferenceContext().importObject(eq2);
 		primaryContext.unconditionallyProcess(eq2, "TYPE", "SHIELD");
 		primaryContext.unconditionallyProcess(eq2, "PROFICIENCY", "SHIELD|Eq2");
 
-		ap1 = new ArmorProf();
+		ArmorProf ap1 = new ArmorProf();
 		ap1.setName("Eq3");
 		primaryContext.getReferenceContext().importObject(ap1);
-		eq3 = new Equipment();
+		Equipment eq3 = new Equipment();
 		eq3.setName("Eq3");
 		primaryContext.getReferenceContext().importObject(eq3);
 		primaryContext.unconditionallyProcess(eq3, "TYPE", "ARMOR.Masterful");
@@ -167,7 +171,7 @@ public class EquipmentQualifierTokenTest extends
 		sp2 = new ShieldProf();
 		sp2.setName("Wp2");
 		primaryContext.getReferenceContext().importObject(sp2);
-		eq4 = new Equipment();
+		Equipment eq4 = new Equipment();
 		eq4.setName("Eq4");
 		primaryContext.getReferenceContext().importObject(eq4);
 		primaryContext.unconditionallyProcess(eq4, "TYPE", "SHIELD.Masterful");

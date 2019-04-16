@@ -1,5 +1,4 @@
 /*
- * PreCampaignParser.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 12/07/2008 12:03:09
- *
- * $Id: $
  */
 package plugin.pretokens.parser;
 
@@ -29,16 +24,14 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre CAMPAIGN tokens.
- *
  */
-public class PreCampaignParser extends AbstractPrerequisiteListParser implements
-		PrerequisiteParserInterface
+public class PreCampaignParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"CAMPAIGN"};
@@ -57,10 +50,8 @@ public class PreCampaignParser extends AbstractPrerequisiteListParser implements
 	 * @throws PersistenceLayerException 
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
@@ -73,10 +64,9 @@ public class PreCampaignParser extends AbstractPrerequisiteListParser implements
 		{
 			negateCampaignChoice(prereq);
 		}
-		
+
 		return prereq;
 	}
-	
 
 	/**
 	 * Process prereq keys wrapped in []. If the key is wrapped in [], the
@@ -116,7 +106,7 @@ public class PreCampaignParser extends AbstractPrerequisiteListParser implements
 			}
 			catch (NumberFormatException nfe)
 			{
-				oper = "(" + oper + ")+" + Integer.toString(modified);
+				oper = '(' + oper + ")+" + Integer.toString(modified);
 			}
 			prereq.setOperand(oper);
 		}
@@ -127,5 +117,5 @@ public class PreCampaignParser extends AbstractPrerequisiteListParser implements
 	{
 		return true;
 	}
-	
+
 }

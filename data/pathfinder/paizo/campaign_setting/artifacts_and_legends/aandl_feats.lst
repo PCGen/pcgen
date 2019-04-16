@@ -1,0 +1,5 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Artifacts and Legends	SOURCESHORT:AandL	SOURCEWEB:http://paizo.com/products/btpy8u7k	SOURCEDATE:2012-10
+
+# Ability Name				Category of Ability	Type			Required Skill														Var. Min. Value			Description								Source Page
+Masterpiece (Song of Extinction)	CATEGORY:FEAT		TYPE:Masterpiece	PRESKILL:1,Perform (Sing)=15,Perform (String Instruments)=15,Perform (Wind Instruments)=15	PREVARGTEQ:MasterpieceLVL,1	DESC:You learn the masterpiece Song of Extinction.	SOURCEPAGE:p.49

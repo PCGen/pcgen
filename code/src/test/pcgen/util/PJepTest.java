@@ -1,5 +1,4 @@
 /*
- * PJepTest.java
  *
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,22 +15,13 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 12-Jul-2004
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+
 import java.util.Iterator;
-
-import junit.framework.Test;
-import junit.framework.TestSuite;
-
-import org.nfunk.jep.SymbolTable;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
@@ -39,44 +29,15 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 
+import org.junit.jupiter.api.Test;
+import org.nfunk.jep.SymbolTable;
+
 /**
  * Tests {@link PJEP}.
  */
 public class PJepTest extends AbstractCharacterTestCase
 {
-	/**
-	 * Constructs a new <code>PJepTest</code>.
-	 *
-	 * @see PCGenTestCase#PCGenTestCase()
-	 */
-	public PJepTest()
-	{
-		super();
-	}
-
-	/**
-	 * Constructs a new <code>PJepTest</code> with the given <var>name</var>.
-	 *
-	 * @param name the test case name
-	 *
-	 * @see PCGenTestCase#PCGenTestCase(String)
-	 */
-	public PJepTest(final String name)
-	{
-		super(name);
-	}
-
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(PJepTest.class);
-	}
-
-	public static Test suite()
-	{
-		// quick method, adds all methods beginning with "test"
-		return new TestSuite(PJepTest.class);
-	}
-
+	@Test
 	public void testMin()
 	{
 		final PJEP jep = new PJEP();
@@ -87,6 +48,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("min", 1.0, value, 0.001);
 	}
 
+	@Test
 	public void testMax1()
 	{
 		final PJEP jep = new PJEP();
@@ -97,16 +59,18 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("max", 8.0, value, 0.001);
 	}
 
+	@Test
 	public void testMax2()
 	{
 		final PJEP jep = new PJEP();
 
-		jep
-			.parseExpression("max(max(var(\"BL=Wizard\")+var(\"CL=Wizard\"),var(\"BL=Sorcerer\")+var(\"CL=Sorcerer\")),var(\"BL=Cleric\")+var(\"CL=Cleric\"))");
-
+		jep.parseExpression(
+			"max(max(var(\"BL=Wizard\")+var(\"CL=Wizard\"),var(\"BL=Sorcerer\")+var(\"CL=Sorcerer\")),"
+					+ "var(\"BL=Cleric\")+var(\"CL=Cleric\"))");
 		assertFalse(jep.hasError());
 	}
 
+	@Test
 	public void testFloor1()
 	{
 		final PJEP jep = new PJEP();
@@ -117,6 +81,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("floor", 5.0, value, 0.001);
 	}
 
+	@Test
 	public void testFloor2()
 	{
 		final PJEP jep = new PJEP();
@@ -127,6 +92,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("floor", -6.0, value, 0.001);
 	}
 
+	@Test
 	public void testCeil1()
 	{
 		final PJEP jep = new PJEP();
@@ -137,6 +103,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("ceil", 6.0, value, 0.001);
 	}
 
+	@Test
 	public void testCeil2()
 	{
 		final PJEP jep = new PJEP();
@@ -147,6 +114,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("ceil", -5.0, value, 0.001);
 	}
 
+	@Test
 	public void testIf()
 	{
 		final PJEP jep = new PJEP();
@@ -157,6 +125,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("if", 9.0, value, 0.001);
 	}
 
+	@Test
 	public void testIf2()
 	{
 		final PJEP jep = new PJEP();
@@ -167,6 +136,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("if", 7.0, value, 0.001);
 	}
 
+	@Test
 	public void testIf3()
 	{
 		final PJEP jep = new PJEP();
@@ -177,6 +147,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("if", 29.0, value, 0.001);
 	}
 
+	@Test
 	public void testIf4()
 	{
 		final PJEP jep = new PJEP();
@@ -187,6 +158,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("if", 1.0, value, 0.001);
 	}
 
+	@Test
 	public void testIf5()
 	{
 		final PJEP jep = new PJEP();
@@ -197,6 +169,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("if", 5, value, 0.001);
 	}
 
+	@Test
 	public void testIf6()
 	{
 		final PJEP jep = new PJEP();
@@ -207,6 +180,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("if", 5, value, 0.001);
 	}
 
+	@Test
 	public void testIf7()
 	{
 		final PJEP jep = new PJEP();
@@ -217,6 +191,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals("if", -5, value, 0.001);
 	}
 
+	@Test
 	public void testIf8()
 	{
 		final PJEP jep = new PJEP();
@@ -229,6 +204,7 @@ public class PJepTest extends AbstractCharacterTestCase
 
 	}
 
+	@Test
 	public void testIf9()
 	{
 		final PJEP jep = new PJEP();
@@ -247,6 +223,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals(-1, jep.getValue(), 0.1);
 	}
 
+	@Test
 	public void testIf10()
 	{
 		final PJEP jep = new PJEP();
@@ -258,6 +235,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals(-1, jep.getValue(), 0.1);
 	}
 
+	@Test
 	public void testIf11()
 	{
 		final PJEP jep = new PJEP();
@@ -269,6 +247,7 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertEquals(0, jep.getValue(), 0.1);
 	}
 
+	@Test
 	public void testIf12()
 	{
 		final PJEP jep = new PJEP();
@@ -282,8 +261,10 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertFalse(jep.hasError());
 
 		assertEquals(-2, jep.getValue(), 0.1);
+
 	}
 
+	@Test
 	public void testJepIf()
 	{
 		final PlayerCharacter character = new PlayerCharacter();

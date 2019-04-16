@@ -1,4 +1,3 @@
-<!-- $Id$ -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
@@ -921,7 +920,6 @@
 ====================================-->
 	<xsl:template name="features.right">
 		<xsl:param name="features"/>
-		<xsl:param name="RunningTotal" select="0"/>
 		<xsl:variable name="bardic_music">
 			<xsl:choose>
 				<xsl:when test="count($features/bardic_music) &gt; 0">18</xsl:when>
@@ -2665,7 +2663,6 @@
 <!-- END Attack table -->
 	</xsl:template>
 	<xsl:template name="to_hit.header">
-		<xsl:param name="dalign" select="'after'"/>
 		<fo:table-row>
 			<fo:table-cell/>
 			<xsl:call-template name="attack.header.entry"><xsl:with-param name="title" select="'TOTAL'"/><xsl:with-param name="font.size" select="'6pt'"/></xsl:call-template>
@@ -4435,8 +4432,6 @@
 	<xsl:template name="eclipse_channeling.info">
 		<xsl:param name="title"/>
 		<xsl:param name="info"/>
-		<xsl:param name="info2"/>
-		<xsl:param name="info3"/>
 		<fo:table-row>
 			<fo:table-cell padding-top="1pt" text-align="end">
 				<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning.title'"/></xsl:call-template>
@@ -4460,9 +4455,6 @@
 ====================================-->
 	<xsl:template match="eclipse_channeling">
 		<xsl:param name="column_width" select="0.45 * $pagePrintableWidth"/>
-		<xsl:variable name="channel_intensity">
-			<xsl:value-of select="/channel_intensity"/>
-		</xsl:variable>
 		<!-- BEGIN Channeling Table -->
 		<fo:table table-layout="fixed" space-before="1mm" keep-together="always"  border-collapse="collapse" padding="0.5pt">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'turning'"/></xsl:call-template>
@@ -4599,8 +4591,6 @@
 								<xsl:call-template name="eclipse_channeling.info">
 									<xsl:with-param name="title" select="'Magnitude'"/>
 									<xsl:with-param name="info" select="damage" />
-									<xsl:with-param name="info2" select="damage_bonus" />
-									<xsl:with-param name="info3" select="factor" />
 								</xsl:call-template>
 								<xsl:call-template name="eclipse_channeling.info">
 									<xsl:with-param name="title" select="'Range'"/>

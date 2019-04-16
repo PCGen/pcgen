@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # ORIGINAL ENTRY: Scott Meyer (guru_scott)
@@ -99,3 +100,9 @@ CATEGORY=Special Ability|Evolution ~ Basic Magic.MOD																								PREV
 CATEGORY=Special Ability|Evolution ~ Minor Magic.MOD																								PREVAREQ:IsWildCallerEidolon,0
 CATEGORY=Special Ability|Evolution ~ Major Magic.MOD																								PREVAREQ:IsWildCallerEidolon,0
 CATEGORY=Special Ability|Evolution ~ Ultimate Magic.MOD																							PREVAREQ:IsWildCallerEidolon,0
+
+
+# New Evolutions
+#2-Point Evolutions
+Shadow Blend	SOURCEPAGE:p.111	KEY:Evolution ~ Shadow Blend	CATEGORY:Special Ability	TYPE:SpecialQuality.EvolutionChoice.Supernatural	VISIBLE:YES	DESC:In any condition of illumination other than bright light, the eidolon disappears into the shadows, giving it concealment (20%% miss chance). If it has the shadow form evolution, it instead gains total concealment (50%% miss chance). The eidolon can suspend or resume this ability as a free action.	COST:2
+Shadow Form		SOURCEPAGE:p.111	KEY:Evolution ~ Shadow Form	CATEGORY:Special Ability	TYPE:SpecialQuality.EvolutionChoice.Supernatural	VISIBLE:YES	DESC:The eidolon's body becomes shadowy and more indistinct. This shadow form grants the eidolon constant concealment (20%% miss chance), and its melee attacks affect incorporeal creatures as if it had the ghost touch weapon property. The eidolon's melee attacks deal only half damage to corporeal creatures.	COST:2

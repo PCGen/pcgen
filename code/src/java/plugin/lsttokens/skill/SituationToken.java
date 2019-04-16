@@ -32,8 +32,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class SituationToken extends AbstractTokenWithSeparator<Skill> implements
-		CDOMPrimaryToken<Skill>
+public class SituationToken extends AbstractTokenWithSeparator<Skill> implements CDOMPrimaryToken<Skill>
 {
 
 	@Override
@@ -49,8 +48,7 @@ public class SituationToken extends AbstractTokenWithSeparator<Skill> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Skill skill, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Skill skill, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		boolean first = true;
@@ -62,17 +60,14 @@ public class SituationToken extends AbstractTokenWithSeparator<Skill> implements
 			{
 				if (!first)
 				{
-					return new ParseResult.Fail("  Non-sensical "
-						+ getTokenName()
-						+ ": .CLEARALL was not the first list item: " + value,
-						context);
+					return new ParseResult.Fail(
+						"  Non-sensical " + getTokenName() + ": .CLEARALL was not the first list item: " + value);
 				}
 				context.getObjectContext().removeList(skill, ListKey.SITUATION);
 			}
 			else
 			{
-				context.getObjectContext().addToList(skill, ListKey.SITUATION,
-					tokString);
+				context.getObjectContext().addToList(skill, ListKey.SITUATION, tokString);
 			}
 			first = false;
 		}
@@ -82,9 +77,7 @@ public class SituationToken extends AbstractTokenWithSeparator<Skill> implements
 	@Override
 	public String[] unparse(LoadContext context, Skill skill)
 	{
-		Changes<String> changes =
-				context.getObjectContext().getListChanges(skill,
-					ListKey.SITUATION);
+		Changes<String> changes = context.getObjectContext().getListChanges(skill, ListKey.SITUATION);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;

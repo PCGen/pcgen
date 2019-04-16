@@ -1,5 +1,4 @@
 /*
- * Utilities.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,24 +15,25 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 11, 2010, 2:01:06 PM
  */
 package pcgen.gui2.tabs;
 
 import java.awt.Insets;
+
 import javax.swing.JButton;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
+
 import pcgen.gui2.util.SignIcon;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
-public class Utilities
+public final class Utilities
 {
+
+	private Utilities()
+	{
+	}
 
 	public static JButton createSignButton(Sign sign)
 	{
@@ -43,18 +43,18 @@ public class Utilities
 		return button;
 	}
 
-	public static TableColumn createTableColumn(int index, String headerValue,
-			TableCellRenderer headerRenderer, boolean resizable)
+	public static TableColumn createTableColumn(int index, String headerValue, TableCellRenderer headerRenderer,
+		boolean resizable)
 	{
 		TableColumn column = new TableColumn(index);
-    	if (headerValue.startsWith("in_"))
-    	{
-    		column.setHeaderValue(LanguageBundle.getString(headerValue));
-    	}
-    	else
-    	{
-    		column.setHeaderValue(headerValue);
-    	}
+		if (headerValue.startsWith("in_"))
+		{
+			column.setHeaderValue(LanguageBundle.getString(headerValue));
+		}
+		else
+		{
+			column.setHeaderValue(headerValue);
+		}
 		column.setHeaderRenderer(headerRenderer);
 		if (!resizable)
 		{

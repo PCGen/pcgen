@@ -27,6 +27,8 @@ import plugin.lsttokens.testsupport.AbstractPCQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class PCQualifierTokenTest extends
 		AbstractPCQualifierTokenTestCase<Domain>
 {
@@ -36,6 +38,7 @@ public class PCQualifierTokenTest extends
 	private static final plugin.qualifier.domain.PCToken PC_TOKEN =
 			new plugin.qualifier.domain.PCToken();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -53,12 +56,6 @@ public class PCQualifierTokenTest extends
 	public Class<Domain> getTargetClass()
 	{
 		return Domain.class;
-	}
-
-	@Override
-	protected boolean allowsNotQualifier()
-	{
-		return true;
 	}
 
 	@Override

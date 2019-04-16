@@ -1,5 +1,4 @@
 /*
- * ClassType.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,25 +14,28 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * Current Ver: $Revision$
  */
 package pcgen.core;
 
+import java.net.URI;
+
 import pcgen.base.lang.UnreachableError;
-
-
+import pcgen.cdom.base.Loadable;
 
 /**
- * <code>Campaign</code>.
+ * {@code Campaign}.
  * A simple structure.
- *
- * @author Felipe Diniz &lt;fdiniz@users.sourceforge.net&gt;
  */
-public final class ClassType implements Cloneable
+public final class ClassType implements Cloneable, Loadable
 {
+	/**
+	 * The source URI of this RollMethod.
+	 */
+	private URI sourceURI;
+
+	/**
+	 * The name of this ClassType.
+	 */
 	private String theName = "";
 	private String crFormula = "";
 	private String crMod = "";
@@ -42,19 +44,20 @@ public final class ClassType implements Cloneable
 	private boolean isMonster = false;
 
 	/**
-     * Get the name of the class type.
-     * @return name of the class type
+	 * Get the name of the class type.
+	 * @return name of the class type
 	 */
-    public String getName()
+	public String getName()
 	{
 		return theName;
 	}
 
-    /**
-     * Set the name of the class type.
-     * @param aName
-     */
-	public void setName( final String aName )
+	/**
+	 * Set the name of the class type.
+	 * @param aName
+	 */
+	@Override
+	public void setName(final String aName)
 	{
 		theName = aName;
 	}
@@ -160,5 +163,41 @@ public final class ClassType implements Cloneable
 		{
 			throw new UnreachableError(e);
 		}
+	}
+
+	@Override
+	public URI getSourceURI()
+	{
+		return sourceURI;
+	}
+
+	@Override
+	public void setSourceURI(URI source)
+	{
+		sourceURI = source;
+	}
+
+	@Override
+	public String getDisplayName()
+	{
+		return theName;
+	}
+
+	@Override
+	public String getKeyName()
+	{
+		return getDisplayName();
+	}
+
+	@Override
+	public boolean isInternal()
+	{
+		return false;
+	}
+
+	@Override
+	public boolean isType(String type)
+	{
+		return false;
 	}
 }

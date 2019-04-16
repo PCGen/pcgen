@@ -41,8 +41,7 @@ import pcgen.persistence.PersistenceLayerException;
  * 
  * @param <T> The type of object that this AbilityTargetSelector can select
  */
-public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
-		QualifyingObject, ChooseSelectionActor<T>
+public class AbilityTargetSelector<T> extends ConcretePrereqObject implements QualifyingObject, ChooseSelectionActor<T>
 {
 
 	private final String source;
@@ -69,8 +68,8 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	 *            The Nature of the given Ability as it should be applied to a
 	 *            PlayerCharacter
 	 */
-	public AbilityTargetSelector(String token, CDOMSingleRef<AbilityCategory> cat,
-			CDOMSingleRef<Ability> abil, Nature nat)
+	public AbilityTargetSelector(String token, CDOMSingleRef<AbilityCategory> cat, CDOMSingleRef<Ability> abil,
+		Nature nat)
 	{
 		category = cat;
 		ability = abil;
@@ -170,13 +169,12 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 		ChooseInformation ci = ab.get(ObjectKey.CHOOSE_INFO);
 		detailedApply(obj, ci, choice, pc);
 	}
-	
-	private void detailedApply(ChooseDriver obj, ChooseInformation<T> ci,
-		T choice, PlayerCharacter pc)
+
+	private void detailedApply(ChooseDriver obj, ChooseInformation<T> ci, T choice, PlayerCharacter pc)
 	{
 		String string = ci.encodeChoice(choice);
-		CNAbilitySelection appliedSelection = new CNAbilitySelection(
-				CNAbilityFactory.getCNAbility(category.get(), nature, ability.get()), string);
+		CNAbilitySelection appliedSelection =
+				new CNAbilitySelection(CNAbilityFactory.getCNAbility(category.get(), nature, ability.get()), string);
 		appliedSelection.addAllPrerequisites(getPrerequisiteList());
 		pc.addAbility(appliedSelection, obj, this);
 	}
@@ -200,13 +198,12 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 		ChooseInformation ci = ab.get(ObjectKey.CHOOSE_INFO);
 		detailedRemove(obj, ci, choice, pc);
 	}
-	
-	private void detailedRemove(ChooseDriver obj, ChooseInformation<T> ci,
-		T choice, PlayerCharacter pc)
+
+	private void detailedRemove(ChooseDriver obj, ChooseInformation<T> ci, T choice, PlayerCharacter pc)
 	{
 		String string = ci.encodeChoice(choice);
-		CNAbilitySelection appliedSelection = new CNAbilitySelection(
-				CNAbilityFactory.getCNAbility(category.get(), nature, ability.get()), string);
+		CNAbilitySelection appliedSelection =
+				new CNAbilitySelection(CNAbilityFactory.getCNAbility(category.get(), nature, ability.get()), string);
 		pc.removeAbility(appliedSelection, obj, this);
 	}
 
@@ -215,17 +212,15 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	{
 		return ability.hashCode();
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
 		if (o instanceof AbilityTargetSelector)
 		{
 			AbilityTargetSelector<?> other = (AbilityTargetSelector<?>) o;
-			return source.equals(other.source)
-					&& category.equals(other.category)
-					&& ability.equals(other.ability)
-					&& nature.equals(other.nature);
+			return source.equals(other.source) && category.equals(other.category) && ability.equals(other.ability)
+				&& nature == other.nature;
 		}
 		return false;
 	}
@@ -233,7 +228,6 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	@Override
 	public Class<T> getChoiceClass()
 	{
-		return (Class<T>) ability.get().get(ObjectKey.CHOOSE_INFO)
-			.getClassIdentity().getChoiceClass();
+		return (Class<T>) ability.get().get(ObjectKey.CHOOSE_INFO).getReferenceClass();
 	}
 }

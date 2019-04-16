@@ -16,9 +16,6 @@
  */
 package gmgen.gui;
 
-import javax.swing.ImageIcon;
-import javax.swing.JComponent;
-import javax.swing.JFileChooser;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -26,12 +23,16 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JFileChooser;
+
 /** Class provides a preview window for the selected image file
  */
-class ImageFileChooserPreview extends JComponent implements PropertyChangeListener
+public class ImageFileChooserPreview extends JComponent implements PropertyChangeListener
 {
-	private static final int previewWidth = 100;
-	private static final int previewHeight = 100;
+	private static final int PREVIEW_WIDTH = 100;
+	private static final int PREVIEW_HEIGHT = 100;
 	private File imageFile = null;
 	private ImageIcon imageThumb = null;
 
@@ -39,9 +40,9 @@ class ImageFileChooserPreview extends JComponent implements PropertyChangeListen
 	 * be notified when a new file is selected in the browser.
 	 * @param parent that this preview window is used in.
 	 */
-	ImageFileChooserPreview(JFileChooser parent)
+	public ImageFileChooserPreview(JFileChooser parent)
 	{
-		setPreferredSize(new Dimension(previewWidth, previewHeight));
+		setPreferredSize(new Dimension(PREVIEW_WIDTH, PREVIEW_HEIGHT));
 		parent.addPropertyChangeListener(this);
 	}
 
@@ -59,13 +60,13 @@ class ImageFileChooserPreview extends JComponent implements PropertyChangeListen
 		imageThumb = new ImageIcon(imageFile.getPath());
 
 		// Check if thumb requires scaling
-		if ((imageThumb.getIconHeight() < previewHeight) && (imageThumb.getIconWidth() < previewWidth))
+		if ((imageThumb.getIconHeight() < PREVIEW_HEIGHT) && (imageThumb.getIconWidth() < PREVIEW_WIDTH))
 		{
 			return;
 		}
 
-		int w = previewWidth;
-		int h = previewHeight;
+		int w = PREVIEW_WIDTH;
+		int h = PREVIEW_HEIGHT;
 
 		if (imageThumb.getIconHeight() > imageThumb.getIconWidth())
 		{
@@ -82,7 +83,7 @@ class ImageFileChooserPreview extends JComponent implements PropertyChangeListen
 	/** Paints the icon of the current image, if one's present..
 	 * @param g object to use when painting the component.
 	 */
-    @Override
+	@Override
 	public void paintComponent(Graphics g)
 	{
 		if (imageThumb == null)
@@ -116,7 +117,7 @@ class ImageFileChooserPreview extends JComponent implements PropertyChangeListen
 	 * thumbnail to load.
 	 * @param evt
 	 */
-    @Override
+	@Override
 	public void propertyChange(final PropertyChangeEvent evt)
 	{
 		if (evt.getPropertyName().equals(JFileChooser.SELECTED_FILE_CHANGED_PROPERTY))

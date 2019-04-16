@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with ISOGL Token
  */
-public class IsoglToken extends AbstractYesNoToken<Campaign> implements
-		CDOMPrimaryToken<Campaign>
+public class IsoglToken extends AbstractYesNoToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override
@@ -41,7 +40,7 @@ public class IsoglToken extends AbstractYesNoToken<Campaign> implements
 		return ObjectKey.IS_OGL;
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

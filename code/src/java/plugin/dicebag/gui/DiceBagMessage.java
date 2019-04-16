@@ -30,8 +30,6 @@ package plugin.dicebag.gui;
  * <li>All Dice Bags Removed</li>
  * <li>Dice Bag Saved</li>
  * </ul>
- *
- * @author Ross Lodge
  */
 public class DiceBagMessage
 {

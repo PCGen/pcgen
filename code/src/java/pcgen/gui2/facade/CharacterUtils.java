@@ -1,5 +1,4 @@
 /*
- * CharacterUtils.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 
 package pcgen.gui2.facade;
@@ -34,93 +32,83 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-public class CharacterUtils
+final class CharacterUtils
 {
-	public static void selectClothes(final PlayerCharacter aPC)
+	private CharacterUtils()
 	{
-		if (Globals.checkRule(RuleConstants.FREECLOTHES)
-			&& ((aPC.getDisplay().totalNonMonsterLevels()) == 1)) //$NON-NLS-1$
+	}
+
+	private static boolean isFreeClothing(Equipment eq, PlayerCharacter aPC, SizeAdjustment pcSizeAdj)
+	{
+		return !eq.isType("Magic")
+				&& (CoreUtility.doublesEqual(eq.getCost(aPC).doubleValue(), 0.0))
+				&& pcSizeAdj.equals(eq.getSafe(ObjectKey.SIZE).get());
+	}
+
+	static void selectClothes(final PlayerCharacter aPC)
+	{
+		if (Globals.checkRule(RuleConstants.FREECLOTHES) && ((aPC.getDisplay().totalNonMonsterLevels()) == 1))
 		{
 			//
 			// See what the PC is already carrying
 			//
-			List<Equipment> clothes = aPC.getEquipmentOfType(
-						"Clothing.Resizable", 3); //$NON-NLS-1$ //$NON-NLS-2$
+			List<Equipment> clothes = aPC.getEquipmentOfType("Clothing.Resizable", 3); //$NON-NLS-1$ 
 
 			//
 			// Check to see if any of the clothing the PC
 			// is carrying will actually fit and
 			// has a zero price attached
 			//
-			boolean hasClothes = false;
-			SizeAdjustment pcSizeAdj = aPC.getDisplay().getSizeAdjustment();
+			SizeAdjustment pcSizeAdj = aPC.getSizeAdjustment();
 
-			if (clothes.size() != 0)
-			{
-				for (Equipment eq : clothes)
-				{
-					if (!eq.isType("Magic") && (CoreUtility.doublesEqual(
-						eq.getCost(aPC).doubleValue(), 0.0))
-						&& pcSizeAdj.equals(eq.getSafe(ObjectKey.SIZE)))
-					{
-						hasClothes = true;
+			boolean hasClothes = clothes.stream()
+			                            .anyMatch(eq -> isFreeClothing(eq, aPC, pcSizeAdj));
 
-						break;
-					}
-				}
-			}
 
-			//
 			// If the PC has no clothing items, or none that
 			// are sized to fit, then allow them to pick
 			// a free set
-			//
+
 			if (!hasClothes)
 			{
-				clothes =
-						EquipmentList.getEquipmentOfType(
-							"Clothing.Resizable.Starting",
-							"Magic.Custom.Auto_Gen");
+				clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable.Starting", "Magic.Custom.Auto_Gen");
 				if (clothes.isEmpty())
 				{
-					clothes =
-							EquipmentList.getEquipmentOfType(
-								"Clothing.Resizable", "Magic.Custom.Auto_Gen");
+					clothes = EquipmentList.getEquipmentOfType("Clothing.Resizable", "Magic.Custom.Auto_Gen");
 				}
 
 				List<Equipment> selectedClothes = new ArrayList<>();
-				selectedClothes = Globals.getChoiceFromList(
-					LanguageBundle.getString("in_sumSelectAFreeSetOfClothing"), //$NON-NLS-1$ 
+				selectedClothes =
+						Globals.getChoiceFromList(
+							LanguageBundle.getString("in_sumSelectAFreeSetOfClothing"), //$NON-NLS-1$ 
 					clothes, selectedClothes, 1, aPC);
 
-				if (selectedClothes.size() != 0)
+				if (!selectedClothes.isEmpty())
 				{
 					Equipment eq = selectedClothes.get(0);
 
 					if (eq != null)
 					{
 						eq = eq.clone();
-						eq.setQty(new Float(1));
+						eq.setQty(1.0);
 
 						//
 						// Need to resize to fit?
 						//
-						if (!pcSizeAdj.equals(eq.getSafe(ObjectKey.SIZE)))
+						if (!pcSizeAdj.equals(eq.getSafe(ObjectKey.SIZE).get()))
 						{
 							eq.resizeItem(aPC, pcSizeAdj);
 						}
 
 						eq.setCostMod('-' + eq.getCost(aPC).toString()); // make cost 0
 
-						if (aPC
-							.getEquipmentNamed(eq.nameItemFromModifiers(aPC)) == null)
+						if (aPC.getEquipmentNamed(eq.nameItemFromModifiers(aPC)) == null)
 						{
 							aPC.addEquipment(eq);
 						}
 						else
 						{
-							Logging
-								.errorPrint("Cannot add duplicate equipment to PC"); //$NON-NLS-1$
+							Logging.errorPrint("Cannot add duplicate equipment to PC"); //$NON-NLS-1$
 						}
 					}
 				}

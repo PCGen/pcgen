@@ -17,11 +17,14 @@
  */
 package pcgen.output.model;
 
+import java.util.Objects;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.CDOMWrapperInfoFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.output.base.OutputActor;
+
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -33,8 +36,7 @@ import freemarker.template.TemplateScalarModel;
  */
 public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 {
-	private static final CDOMWrapperInfoFacet WRAPPER_FACET = FacetLibrary
-		.getFacet(CDOMWrapperInfoFacet.class);
+	private static final CDOMWrapperInfoFacet WRAPPER_FACET = FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
 
 	/**
 	 * The underlying CDOMObject, from which information is retrieved
@@ -56,21 +58,12 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 	 */
 	public CDOMObjectModel(CharID id, CDOMObject cdo)
 	{
-		if (id == null)
-		{
-			throw new IllegalArgumentException("CharID may not be null");
-		}
-		if (cdo == null)
-		{
-			throw new IllegalArgumentException("CDOMObject may not be null");
-		}
+		Objects.requireNonNull(id, "CharID may not be null");
+		Objects.requireNonNull(cdo, "CDOMObject may not be null");
 		this.id = id;
 		this.cdo = cdo;
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#get(java.lang.String)
-	 */
 	@Override
 	public TemplateModel get(String key) throws TemplateModelException
 	{
@@ -79,29 +72,23 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 		return proc(cl, key);
 	}
 
-	private <T> TemplateModel proc(Class<T> cl, String key)
-		throws TemplateModelException
+	private <T> TemplateModel proc(Class<T> cl, String key) throws TemplateModelException
 	{
 		/*
 		 * What if it didn't previously exist (e.g. cl==SubClass.class)...
 		 * shouldn't be able to get here really (in that case)
 		 */
-		OutputActor<? super T> actor =
-				WRAPPER_FACET.getActor(id.getDatasetID(), cl, key);
+		OutputActor<? super T> actor = WRAPPER_FACET.getActor(id.getDatasetID(), cl, key);
 		if (actor == null)
 		{
-			throw new TemplateModelException("object of type "
-				+ cdo.getClass().getSimpleName()
-				+ " did not have output of type " + key);
+			throw new TemplateModelException(
+				"object of type " + cdo.getClass().getSimpleName() + " did not have output of type " + key);
 		}
 		@SuppressWarnings("unchecked")
 		T obj = (T) cdo;
 		return actor.process(id, obj);
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty() throws TemplateModelException
 	{
@@ -109,9 +96,6 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 		return false;
 	}
 
-	/**
-	 * @see freemarker.template.TemplateScalarModel#getAsString()
-	 */
 	@Override
 	public String getAsString() throws TemplateModelException
 	{

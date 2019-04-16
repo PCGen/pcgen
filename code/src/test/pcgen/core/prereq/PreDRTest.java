@@ -1,6 +1,4 @@
 /*
- * PreDRTest.java
- *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,52 +14,40 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.DamageReduction;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreDRTest</code> tests that the PREDR tag is
+ * {@code PreDRTest} tests that the PREDR tag is
  * working correctly.
- *
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
 public class PreDRTest extends AbstractCharacterTestCase
 {
 	private Race race = new Race();
 	private DamageReduction drPlus1;
 
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreDRTest.class);
-	}
-
 	/**
-	 * @return Test
+	 * Test basic functionality.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreDRTest.class);
-	}
-
-	/**
-	 * Test basic functionality
-	 * @throws Exception
-	 */
-	public void testDR() throws Exception
+	@Test
+	public void testDR() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setRace(race);
@@ -93,10 +79,12 @@ public class PreDRTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Make sure or case works
-	 * @throws Exception
+	 * Make sure or case works.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testMultiOr() throws Exception
+	@Test
+	public void testMultiOr() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setRace(race);
@@ -127,6 +115,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 			character, null));
 	}
 
+	@Test
 	public void testMultiAnd() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -165,6 +154,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 			prereq, character, null));
 	}
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{

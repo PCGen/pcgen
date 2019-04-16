@@ -1,7 +1,12 @@
 package plugin.lsttokens.datacontrol;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.Collection;
 
 import pcgen.base.format.StringManager;
@@ -13,7 +18,6 @@ import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Campaign;
 import pcgen.core.Domain;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
@@ -21,12 +25,12 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.util.enumeration.Visibility;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
-import static org.junit.Assert.*;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import util.TestURI;
 
 public class SelectableTokenIntegrationTest
 {
@@ -34,26 +38,25 @@ public class SelectableTokenIntegrationTest
 	private static final String PROP_1 = "Property";
 	private static final String PROP_2 = "Psychology";
 	private static final StringManager STRING_MGR = new StringManager();
-	private static final SelectableToken token = new SelectableToken();
+	private static final SelectableToken TOKEN = new SelectableToken();
 	FactDefinition cd;
 
 	protected LoadContext context;
 
 	protected static CampaignSourceEntry testCampaign;
 
-	@BeforeClass
-	public static void classSetUp() throws URISyntaxException
+	@BeforeAll
+	public static void classSetUp()
 	{
 		testCampaign =
-				new CampaignSourceEntry(new Campaign(), new URI(
-					"file:/Test%20Case"));
+				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	@BeforeEach
+	public void setUp()
 	{
 		TokenRegistration.clearTokens();
-		TokenRegistration.register(token);
+		TokenRegistration.register(TOKEN);
 		resetContext();
 	}
 
@@ -61,7 +64,7 @@ public class SelectableTokenIntegrationTest
 	{
 		URI testURI = testCampaign.getURI();
 		context =
-				new RuntimeLoadContext(new RuntimeReferenceContext(),
+				new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 					new ConsolidatedListCommitStrategy());
 		context.setSourceURI(testURI);
 		context.setExtractURI(testURI);
@@ -75,10 +78,10 @@ public class SelectableTokenIntegrationTest
 	}
 
 	@Test
-	public void testValidStringYes() throws PersistenceLayerException
+	public void testValidStringYes()
 	{
 		assertNull(cd.getSelectable());
-		assertTrue(token.parseToken(context, cd, "YES").passed());
+		assertTrue(TOKEN.parseToken(context, cd, "YES").passed());
 		assertNotNull(cd.getSelectable());
 		assertTrue(cd.getSelectable().booleanValue());
 		context.getReferenceContext().importObject(cd);

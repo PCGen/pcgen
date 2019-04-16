@@ -1,5 +1,4 @@
 /*
- * SkillsOutputOrder.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 19/10/2013
- *
- * $Id$
  */
 package pcgen.cdom.enumeration;
 
@@ -28,47 +23,47 @@ import pcgen.core.SkillComparator;
 /**
  * SkillsOutputOrder defines the possible orders of skill in output sheets. 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public enum SkillsOutputOrder
 {
-	NAME_ASC {
+	NAME_ASC
+	{
 		@Override
 		public SkillComparator getComparator(PlayerCharacter pc)
 		{
-			return new SkillComparator(pc, SkillComparator.RESORT_NAME,
-				SkillComparator.RESORT_ASCENDING);
+			return new SkillComparator(pc, SkillComparator.RESORT_NAME, SkillComparator.RESORT_ASCENDING);
 		}
 	},
 
-	NAME_DSC {
+	NAME_DSC
+	{
 		@Override
 		public SkillComparator getComparator(PlayerCharacter pc)
 		{
-			return new SkillComparator(pc, SkillComparator.RESORT_NAME,
-				SkillComparator.RESORT_DESCENDING);
+			return new SkillComparator(pc, SkillComparator.RESORT_NAME, SkillComparator.RESORT_DESCENDING);
 		}
 	},
 
-	TRAINED_ASC {
+	TRAINED_ASC
+	{
 		@Override
 		public SkillComparator getComparator(PlayerCharacter pc)
 		{
-			return new SkillComparator(pc, SkillComparator.RESORT_TRAINED,
-				SkillComparator.RESORT_ASCENDING);
+			return new SkillComparator(pc, SkillComparator.RESORT_TRAINED, SkillComparator.RESORT_ASCENDING);
 		}
 	},
 
-	TRAINED_DSC {
+	TRAINED_DSC
+	{
 		@Override
 		public SkillComparator getComparator(PlayerCharacter pc)
 		{
-			return new SkillComparator(pc, SkillComparator.RESORT_TRAINED,
-				SkillComparator.RESORT_DESCENDING);
+			return new SkillComparator(pc, SkillComparator.RESORT_TRAINED, SkillComparator.RESORT_DESCENDING);
 		}
 	},
 
-	MANUAL {
+	MANUAL
+	{
 		@Override
 		public SkillComparator getComparator(PlayerCharacter pc)
 		{

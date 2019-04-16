@@ -1,6 +1,4 @@
 /*
- * PreGenderTest.java
- *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,46 +14,33 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreGenderTest</code> tests that the PREGENDER tag is
+ * {@code PreGenderTest} tests that the PREGENDER tag is
  * working correctly.
- *
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
 public class PreGenderTest extends AbstractCharacterTestCase
 {
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreGenderTest.class);
-	}
-
 	/**
-	 * @return Test
+	 * Test the PREGENDER code.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreGenderTest.class);
-	}
-
-	/**
-	 * Test the PREGENDER code
-	 * @throws Exception
-	 */
-	public void testGender() throws Exception
+	@Test
+	public void testGender() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setGender(Gender.Male);

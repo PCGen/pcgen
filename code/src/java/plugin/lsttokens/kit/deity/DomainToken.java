@@ -1,5 +1,4 @@
 /*
- * DomainToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 3, 2006
- *
- * Current Ver: $Revision$
  */
 
 package plugin.lsttokens.kit.deity;
@@ -39,8 +34,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * DOMAIN Token for KitDeity
  */
-public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements
-		CDOMPrimaryToken<KitDeity>
+public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements CDOMPrimaryToken<KitDeity>
 {
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
@@ -69,15 +63,13 @@ public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		KitDeity kitDeity, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, KitDeity kitDeity, String value)
 	{
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 		while (pipeTok.hasMoreTokens())
 		{
 			String tokString = pipeTok.nextToken();
-			CDOMSingleRef<Domain> ref =
-					context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, tokString);
+			CDOMSingleRef<Domain> ref = context.getReferenceContext().getCDOMReference(DOMAIN_CLASS, tokString);
 			kitDeity.addDomain(ref);
 		}
 		return ParseResult.SUCCESS;
@@ -91,7 +83,6 @@ public class DomainToken extends AbstractTokenWithSeparator<KitDeity> implements
 		{
 			return null;
 		}
-		return new String[]{ReferenceUtilities.joinLstFormat(domains,
-			Constants.PIPE)};
+		return new String[]{ReferenceUtilities.joinLstFormat(domains, Constants.PIPE)};
 	}
 }

@@ -1,5 +1,4 @@
 #
-# Current Ver: $Revision$
 # Last Editor: $Author$
 # Last Edited: $Date$
 #
@@ -9,18 +8,11 @@
 #
 #
 #ALIGNMENTNAME:Alignment
-#HPNAME:Hit Points
-#HPABBREV:HP
-#ALTHPNAME:
-#ALTHPABBREV:
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
-# ACNAME: and ACABBREV: are required for proper usage.
 #ACNAME:Armor Class
-#ACABBREV:AC
 
 # Whether to allow AutoResizing of Equipment for nonmedium characters in this gamemode
-#ALLOWAUTORESIZE:Y
 
 # Stacking bonuses
 #BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
@@ -28,7 +20,6 @@
 #
 #misc. currency specific items
 #
-CURRENCYUNIT:Dollar
 CURRENCYUNITABBREV:$
 
 #
@@ -39,20 +30,10 @@ DEFAULTUNITSET:Imperial
 
 # The following determine whether some Class-related
 # variables are displayed on the Classes tab.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense
 #  value is displayed.
-# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
-# DISPLAYVARIABLExNAME: determines the variable displayed.
-#  This must match the DEFINE: variable in order to be displayed
-# Up to 3 variables can be displayed in this manner
+#
+#
 
-SHOWCLASSDEFENSE:No
-#DISPLAYVARIABLE1TEXT:
-#DISPLAYVARIABLE1NAME:
-#DISPLAYVARIABLE2TEXT:
-#DISPLAYVARIABLE2NAME:
-#DISPLAYVARIABLE3TEXT:
-#DISPLAYVARIABLE3NAME:
 
 #
 # Whether or not the game mode displays these tabs
@@ -66,7 +47,7 @@ TAB:PURCHASE	NAME:in_purchase			VISIBLE:YES	CONTEXT:tabpages\tabinventory.html
 TAB:EQUIPPING	NAME:in_InfoEquipping		VISIBLE:YES	CONTEXT:tabpages\tabinventory.html
 
 # Don't Display
-TAB:DOMAINS		NAME:in_domains			VISIBLE:NO	CONTEXT:tabpages\tabdomains.html
+TAB:DOMAINS		NAME:in_domains					CONTEXT:tabpages\tabdomains.html
 TAB:TEMPLATES						VISIBLE:NO
 TAB:SPELLS		NAME:in_spells			VISIBLE:NO	CONTEXT:tabpages\tabspells.html
 TAB:RACE		NAME:in_race			VISIBLE:NO	CONTEXT:tabpages\tabraces.html
@@ -79,7 +60,6 @@ TAB:TEMPMOD		NAME:in_InfoTempMod		VISIBLE:NO	CONTEXT:tabpages\tabtemporarybonuse
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Killshot
-MENUTOOLTIP:Use Killshot system
 DISPLAYORDER:1
 ALLOWEDMODES:Killshot
 

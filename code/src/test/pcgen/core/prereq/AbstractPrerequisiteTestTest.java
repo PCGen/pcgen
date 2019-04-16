@@ -1,6 +1,4 @@
 /*
- * AbstractPrerequisiteTestTest.java
- *
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,55 +14,25 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 13-Jan-2004
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.core.prereq;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Locale;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
-import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
 import plugin.pretokens.test.PreWieldTester;
 
-/**
- * @author wardc
- *
- */
-public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
+import org.junit.jupiter.api.Test;
+
+
+class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 {
-
-	/**
-	 * main
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(AbstractPrerequisiteTestTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(AbstractPrerequisiteTestTest.class);
-	}
-
-	/**
-	 * @throws Exception
-	 */
-	@SuppressWarnings("nls")
-	public void testVisionNotHandledFail() throws Exception
+	@Test
+	void testVisionNotHandledFail()
 	{
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("wield");
@@ -82,7 +50,7 @@ public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 				+ " does not support prerequisites for Characters.", pe
 				.getMessage());
 		}
-		EnUsLocaleDependentTestCase.after();
+		LocaleDependentTestCase.after();
 	}
 
 }

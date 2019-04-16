@@ -1,0 +1,16 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# Ability Name																		Unique Key							Category of Ability		Type					Visible	Required Ability								Description																																																																																							Multiple?	Choose										Ability									Cost		Source, Long Desc.
+
+SOURCELONG:Pathfinder Society Chronicle Sheets Season 9	SOURCESHORT:PFSCS9	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2016-08
+
+# Ability Name																		Unique Key							Category of Ability		Type					Visible	Required Ability								Description																																																																																							Multiple?	Choose										Ability									Cost		Source, Long Desc.
+Pathfinder Society Scenario #9-02: A Case of Missing Persons										KEY:Chronicle ~ S09-02					CATEGORY:PFS Chronicle		TYPE:PFSChronicle			VISIBLE:YES																																																																																																			MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=Tier 3-7		ABILITY:Chronicle_S09-02|AUTOMATIC|Chronicle_S09-02_Enable	COST:0	SOURCELONG:.
+Chronicle_S09-02_Enable																									CATEGORY:Special Ability	TYPE:Chronicle_S09-02		VISIBLE:NO
+
+Eliza's Insight																		KEY:PFS Scenario 9-02 ~ Eliza's Insight		CATEGORY:Special Ability	TYPE:Chronicle_S09-02.PFSBoon	VISIBLE:YES											DESC:In recognition of your thorough work on the investigation, Venture-Captain Petulengro teaches you a few tricks of her own. You may cross this boon off your Chronicle sheet to roll twice and take the higher result on a skill check to notice or decipher a clue as a part of an investigation.																																																														COST:0
+Ready to Act (Liberty's Edge Faction)														KEY:PFS Scenario 9-02 ~ Ready to Act		CATEGORY:Special Ability	TYPE:Chronicle_S09-02.PFSBoon	VISIBLE:YES	PREABILITY:1,CATEGORY=Background,Liberty's Edge Faction	DESC:[_]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 9-02 ~ Ready to Act (0-Checked)	DESC:[X]|PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 9-02 ~ Ready to Act (1-Checked)	DESC:You have uncovered Colson Maldris's plot, a desperate scheme that could have consequences for several nations. This discovery has left you eager to act. You may check the box before this boon before rolling an initiative check to gain a +3 bonus (+6 in Andoran or Galt). This boon may also have an impact in future scenarios.	MULT:YES	CHOOSE:NUMCHOICES=1|ABILITY|PFS Chronicle|TYPE=PFS-1CheckBoxes											COST:0
+The Real Lofton's Aid																	KEY:PFS Scenario 9-02 ~ The Real Lofton's Aid	CATEGORY:Special Ability	TYPE:Chronicle_S09-02.PFSBoon	VISIBLE:YES											DESC:Lofton is a champion of those in need of legal defense, and he is more than willing to put his skills to use to help you, free of charge. If your character is sent to jail or otherwise imprisoned, you may cross this boon off your Chronicle sheet to negate the typical cost in Prestige Points or gold of securing release from imprisonment.																																																						COST:0
+
+#
+# DONE
+#

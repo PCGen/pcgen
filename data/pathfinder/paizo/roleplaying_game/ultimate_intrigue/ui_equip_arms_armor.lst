@@ -1,0 +1,50 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEDATE:2016-04
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 29 March 2017
+
+# ==============================
+# New Weapons
+# ==============================
+
+### Ammunition
+# Equipment Name			Unique Key				Required Weapon Proficiency		Required Armor Proficiency	Required Shield Proficiency		Type																						Contains			Cost		Weight	AC Penalty Check	Base Quantity	Crit Mult	Crit Range	Damage	Modifier																						Wield Category		Maximum DEX Bonus	Requires Modification?	Range		Size		Source Page		% of Spell Failure	Combat bonus			Modify VAR				Weapon prop. bonus					Special Property
+Darts, Featherweight (10)	KEY:Darts (Featherweight/10)																		TYPE:Ammunition.Resizable.Standard.Dart																				COST:1						BASEQTY:10								EQMOD:Material ~ Steel																											MODS:YES							SOURCEPAGE:p.232																							SPROP:Used in blowguns and wrist launchers to deliver poison. Any DR, hardness, etc., negates poison delivery.
+
+####Block: Melee Weapons
+#NOTE:Since the only difference between spring blade and dagger was cost and special properties, the dagger proficiency made more sense than a seperate weapon proficiency.
+Spring Blade								PROFICIENCY:WEAPON|Dagger													TYPE:Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger.BladeLight								COST:70	WT:1								CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Material ~ Steel.Material ~ Wood																	WIELD:Light										RANGE:10	SIZE:M	SOURCEPAGE:p.232																							SPROP:Free action to release the blade, move action to reset. DC 20 Perception check to spot when closed, +4 Sleight of Hand to conceal.
+
+####Ranged Weapons
+#NOTE:Description of wrist launchers states that anyone proficient with hand crossbows is proficient with these as well. Using hand crossbow proficiency was most direct way to accomplish this.
+Wrist Launcher			KEY:Wrist Launcher		PROFICIENCY:WEAPON|Crossbow (Hand)												TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Piercing.Container.Projectile.Blowgun									CONTAINS:UNLIM|Dart=1	COST:200	WT:1														EQMOD:Material ~ Steel.Material ~ Leather																	WIELD:Light										RANGE:20	SIZE:M	SOURCEPAGE:p.232																							SPROP:Full-round action to reloaded, Sleight of Hand check to keep concealed after firing.
+Wrist Launcher, Heavy		KEY:Wrist Launcher (Heavy)	PROFICIENCY:WEAPON|Crossbow (Hand)												TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Piercing.Container.Projectile.Crossbow									CONTAINS:UNLIM|Bolt=1	COST:250	WT:2								CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:Material ~ Steel.Material ~ Leather																	WIELD:Light										RANGE:30	SIZE:M	SOURCEPAGE:p.232																							SPROP:Full-round action to reloaded, Sleight of Hand check to keep concealed after firing.
+
+# ==============================
+# New Magical Armor
+# ==============================
+
+Diviner's Blight														PROFICIENCY:ARMOR|Leather							TYPE:Armor.Magic.ArmorProfLight.Light.Suit.Specific.Nonmetal.GreaterMajor														COST:10	WT:15		ACCHECK:0											EQMOD:Special Ability ~ Enhancement Cost|15000.Special Ability ~ +4 ~ Armor.Material ~ Leather												MAXDEX:6										SOURCEPAGE:p.237	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor	BONUS:VAR|ArmorCheckPenalty|0
+Lockpick Shield																			PROFICIENCY:SHIELD|Shield (Light)	TYPE:Shield.Magic.Specific.LesserMedium.Light																			COST:9	WT:6		ACCHECK:-1					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:Special Ability ~ Enhancement Cost|3000.Special Ability ~ +2 ~ Shield.Material ~ Steel								WIELD:Light												SIZE:M	SOURCEPAGE:p.237	SPELLFAILURE:5		BONUS:COMBAT|AC|1|TYPE=Shield	BONUS:VAR|ArmorCheckPenalty|1	BONUS:WEAPON|TOHIT|4|PREWEAPONPROF:1,Shieldbash	SPROP:Shield can attempt Disable Device check with +10 total bonus.
+
+# ==============================
+# New Magical Weapons
+# ==============================
+
+Courtesan's Ire								PROFICIENCY:WEAPON|Fighting Fan												TYPE:Weapon.Magic.Resizable.Specific.EasternWeapon.Eastern.Melee.Light.Finesseable.Exotic.Piercing.Monk.LesserMedium							COST:5	WT:0.1							CRITMULT:x3	CRITRANGE:1	DAMAGE:1d4	EQMOD:Special Ability ~ Enhancement Cost|8000.Special Ability ~ +1 ~ Weapon.Material ~ Steel								WIELD:Light												SIZE:M	SOURCEPAGE:p.239																							SPROP:Can fire blades in a 15-ft. cone 3/day, deals 3d4 damage, Reflex DC 14 for half.
+Dart of Recovery																									TYPE:Ammunition.Magic.Resizable.Specific.Dart.Individual.LesserMinor															COST:206															EQMOD:Special Ability ~ +1 ~ Ammunition.Material ~ Steel																					MODS:NO							SOURCEPAGE:p.240																							SPROP:Featherweight dart that user can recall as a swift action after use.
+Launcher of Distraction							PROFICIENCY:WEAPON|Crossbow (Hand)												TYPE:Weapon.Magic.Resizable.Exotic.Ranged.Specific.Piercing.Container.Projectile.Crossbow.LesserMedium					CONTAINS:UNLIM|Bolt=1	COST:250	WT:2								CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:Special Ability ~ Enhancement Cost|8000.Special Ability ~ +1 ~ Weapon.Material ~ Steel.Material ~ Leather					WIELD:Light										RANGE:30	SIZE:M	SOURCEPAGE:p.240																							SPROP:Twice a day, the sound of this heavy wrist launcher can be made to appear to come from elsewhere.
+Mind's Eye Blade								PROFICIENCY:WEAPON|Dagger													TYPE:Weapon.Magic.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Simple.Specific.Piercing.Slashing.Dagger.BladeLight.GreaterMajor					COST:2	WT:1								CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:Special Ability ~ Enhancement Cost|28000.Special Ability ~ +2 ~ Weapon.Material ~ Steel								WIELD:Light										RANGE:10	SIZE:M	SOURCEPAGE:p.240																							SPROP:Wielder gains concealment from damaged targets for 1 round, 3/day may attempt to steal information during sneak attack or coup de grace.
+Prying Star									PROFICIENCY:WEAPON|Shuriken													TYPE:Weapon.Magic.Resizable.Exotic.Ranged.Specific.Piercing.Thrown.Consumable.Shuriken.Ammunition.LesserMinor								COST:646	WT:0.1							CRITMULT:x2	CRITRANGE:1			EQMOD:Special Ability ~ +1 ~ Ammunition.Special Quality ~ Monk.Material ~ Steel.Special Quality ~ Thrown Ammunition				WIELD:Light										RANGE:10	SIZE:M	SOURCEPAGE:p.240																							SPROP:Plants a magical sensor on the target that is active for 9 minutes.
+Serpent's Fang								PROFICIENCY:WEAPON|Dagger													TYPE:Weapon.Magic.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Simple.Specific.Piercing.Slashing.Dagger.BladeLight.LesserMedium					COST:2	WT:1								CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:Special Ability ~ Enhancement Cost|8000.Special Ability ~ +1 ~ Weapon.Material ~ Steel								WIELD:Light										RANGE:10	SIZE:M	SOURCEPAGE:p.240																							SPROP:Dagger holds up to 5 doses of poison in an extradimentional space, wielder can release one onto the blade as a swift action.
+Silent Sentry Crossbow							PROFICIENCY:WEAPON|Crossbow (Light)												TYPE:Weapon.Magic.Resizable.Simple.Ranged.Specific.Piercing.Container.Projectile.Crossbow.GreaterMajor					CONTAINS:UNLIM|Bolt	COST:35	WT:4								CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:Special Ability ~ Enhancement Cost|6000.Special Ability ~ Endless Ammunition ~ Ranged.Special Ability ~ +2 ~ Weapon.Material ~ Wood	WIELD:TwoHandsOnly								RANGE:80	SIZE:M	SOURCEPAGE:p.241																							SPROP:Reduces sniping penalty by 5, 3/day can set an invisible alarm line up to 180 ft long.
+
+# ==============================
+# Warlock Weapon
+# ==============================
+
+Mystic Bolts								PROFICIENCY:WEAPON|Mystic Bolts												TYPE:Weapon.Resizable.Melee.Light.Ranged.Thrown.OneHanded																	COST:0	WT:0								CRITMULT:x2	CRITRANGE:1	DAMAGE:0																								WIELD:Light						MODS:NO			RANGE:30	SIZE:M	SOURCEPAGE:p.60															BONUS:WEAPON|DAMAGE|min(-STR,0)			SPROP:Damage by level
+#FAQ (pre-errata)
+#Warlock Mystic Bolts: This ability says that it lets me count it as a light weapon, but is it manufactured? Do the bolts add my Strength bonus on damage rolls?
+#Warlock mystic bolts aren't manufactured weapons; they're magical effects (similar to scorching rays or the flames from produce flame), and you don't add your Strength bonus on damage rolls.

@@ -16,18 +16,19 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package plugin.lsttokens.domain;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.core.Domain;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class CSkillTokenTest extends AbstractListTokenTestCase<Domain, Skill>
+import org.junit.jupiter.api.Test;
+
+public class CSkillTokenTest extends AbstractListInputTokenTestCase<Domain, Skill>
 {
 
 	@Override
@@ -68,7 +69,7 @@ public class CSkillTokenTest extends AbstractListTokenTestCase<Domain, Skill>
 
 	static CDOMPrimaryToken<Domain> token = new CskillToken();
 	static CDOMTokenLoader<Domain> loader =
-			new CDOMTokenLoader<Domain>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<Domain> getLoader()
@@ -88,12 +89,14 @@ public class CSkillTokenTest extends AbstractListTokenTestCase<Domain, Skill>
 		return token;
 	}
 
+	@Test
 	public void testRoundRobinList() throws PersistenceLayerException
 	{
 		runRoundRobin("LIST");
 	}
 
-	public void testAllowClearList() throws PersistenceLayerException
+	@Test
+	public void testAllowClearList()
 	{
 		assertTrue(parse(".CLEAR.LIST"));
 	}

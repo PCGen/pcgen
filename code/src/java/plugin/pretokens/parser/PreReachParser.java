@@ -1,6 +1,4 @@
 /*
- * PreReachParser.java
- *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision: 1777 $
- *
- *
- *
  */
 package plugin.pretokens.parser;
 
@@ -37,20 +28,17 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre reach tokens.
- *
  */
-public class PreReachParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreReachParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
-		return new String[]{"REACH", "REACHEQ", "REACHGT", "REACHGTEQ",
-			"REACHLT", "REACHLTEQ", "REACHNEQ"};
+		return new String[]{"REACH", "REACHEQ", "REACHGT", "REACHGTEQ", "REACHLT", "REACHLTEQ", "REACHNEQ"};
 	}
 
 	/**
@@ -66,15 +54,12 @@ public class PreReachParser extends AbstractPrerequisiteParser implements
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		if (ControlUtilities.hasControlToken(Globals.getContext(), CControl.PCREACH))
 		{
-			throw new PersistenceLayerException(
-				"PREREACH is disabled when CREATEUREREACH control is used");
+			throw new PersistenceLayerException("PREREACH is disabled when CREATEUREREACH control is used");
 		}
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		try
@@ -83,7 +68,7 @@ public class PreReachParser extends AbstractPrerequisiteParser implements
 
 			// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
 			String compType = kind.substring(5);
-			if (compType.length() == 0)
+			if (compType.isEmpty())
 			{
 				compType = "gteq";
 			}
@@ -98,8 +83,7 @@ public class PreReachParser extends AbstractPrerequisiteParser implements
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse the prerequisite :'" + kind + ":" + formula
-					+ "'. " + pe.getLocalizedMessage());
+				"Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage());
 		}
 		return prereq;
 	}

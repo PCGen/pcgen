@@ -1,5 +1,4 @@
 /*
- * SpellInfo.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * @author Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
- * Created on July 10, 2002, 11:26 PM
- *
- * Current Ver: $Revision$
  */
 package pcgen.core.character;
 
@@ -30,19 +24,17 @@ import pcgen.core.Ability;
 import pcgen.core.Globals;
 
 /**
- * <code>SpellInfo</code>
+ * {@code SpellInfo}
  * this is a helper-class for CharacterSpell
  * meant to contain the book, whether or not this spell
  * is in the specialtySlot for characters which have them,
  * and the list of meta-magic feats which have been applied.
- *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class SpellInfo implements Comparable<SpellInfo>
 {
 	/** The special value for number of times per unit for 'At Will' spells. */
 	public static final int TIMES_AT_WILL = -1;
-	
+
 	private CharacterSpell owner;
 	private List<Ability> featList; // a List of Feat objects
 	private String book = Globals.getDefaultSpellBook(); // name of book
@@ -54,8 +46,8 @@ public final class SpellInfo implements Comparable<SpellInfo>
 	private int numPages = 0;
 	private String fixedDC = null;
 
-	SpellInfo(final CharacterSpell owner, final int originalLevel, final int actualLevel,
-			final int times, final String book)
+	SpellInfo(final CharacterSpell owner, final int originalLevel, final int actualLevel, final int times,
+		final String book)
 	{
 		this.owner = owner;
 		this.actualLevel = actualLevel;
@@ -160,11 +152,11 @@ public final class SpellInfo implements Comparable<SpellInfo>
 			return "";
 		}
 
-		final StringBuilder aBuf = new StringBuilder(" [" + featList.get(0).toString());
+		final StringBuilder aBuf = new StringBuilder(" [" + featList.get(0));
 
 		for (int i = 1; i < featList.size(); i++)
 		{
-			aBuf.append(", ").append(featList.get(i).toString());
+			aBuf.append(", ").append(featList.get(i));
 		}
 
 		aBuf.append("] ");

@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.content.factset;
 
+import java.util.Objects;
+
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
@@ -37,8 +39,7 @@ import pcgen.rules.context.LoadContext;
  *            The Type of object this FactSetGroupDefinition contains (the
  *            content of the fact set)
  */
-public class FactSetGroupDefinition<T extends CDOMObject, F> implements
-		GroupDefinition<T>
+public class FactSetGroupDefinition<T extends CDOMObject, F> implements GroupDefinition<T>
 {
 
 	/**
@@ -57,53 +58,34 @@ public class FactSetGroupDefinition<T extends CDOMObject, F> implements
 	 */
 	public FactSetGroupDefinition(FactSetInfo<T, F> fsi)
 	{
-		if (fsi == null)
-		{
-			throw new IllegalArgumentException("Fact Definition cannot be null");
-		}
+		Objects.requireNonNull(fsi, "Fact Definition cannot be null");
 		def = fsi;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getPrimitiveName()
-	 */
 	@Override
 	public String getPrimitiveName()
 	{
 		return def.getFactSetName();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getGroupingState()
-	 */
 	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getReferenceClass()
-	 */
 	@Override
 	public Class<T> getReferenceClass()
 	{
 		return def.getUsableLocation();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getFormatManager()
-	 */
 	@Override
 	public FormatManager<F> getFormatManager()
 	{
 		return def.getFormatManager();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getPrimitive(pcgen.rules.context.LoadContext,
-	 *      java.lang.String)
-	 */
 	@Override
 	public ObjectContainer<T> getPrimitive(LoadContext context, String value)
 	{

@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 20121 $ $Author: zaister $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 # Original Entry by: Eric Smith (Maredudd), Stefan Radermacher
 
@@ -8,35 +9,35 @@
 #? +3 because Perform is a class skill
 #? Bonuses: any random bonuses to Perform, like Skill Focus
 
-# Skill Name							Key Stat	Untrained?		Classes	Type			Visible		Required Ability													Req. Rule (in options)		Source Page
-Bluff (Perform (Act))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
-Disguise (Perform (Act))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Act					PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.95
+# Skill Name							Key Stat	Untrained?		Classes	Type			Visible		Required Ability																					Req. Rule (in options)		Source Page
+Bluff (Perform (Act))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Act													PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
+Disguise (Perform (Act))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Act													PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.95
 #
-Bluff (Perform (Comedy))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Comedy				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
-Intimidate (Perform (Comedy))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Comedy				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.99
+Bluff (Perform (Comedy))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Comedy												PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
+Intimidate (Perform (Comedy))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Comedy												PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.99
 #
-Acrobatics (Perform (Dance))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.87
-Fly (Perform (Dance))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Dance				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.96
+Acrobatics (Perform (Dance))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Dance												PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.87
+Fly (Perform (Dance))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Dance												PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.96
 #
-Diplomacy (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
-Intimidate (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Keyboard Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
+Diplomacy (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Keyboard Instruments										PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Intimidate (Perform (Keyboard Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Keyboard Instruments										PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
 #
-Diplomacy (Perform (Oratory))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
-Sense Motive (Perform (Oratory))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Oratory				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
+Diplomacy (Perform (Oratory))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Oratory,Skald Versatile Performance ~ Oratory						PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Sense Motive (Perform (Oratory))				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Oratory,Skald Versatile Performance ~ Oratory						PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
 #
-Handle Animal (Perform (Percussion Instruments))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
-Intimidate (Perform (Percussion Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.99
+Handle Animal (Perform (Percussion Instruments))	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Percussion Instruments,Skald Versatile Performance ~ Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
+Intimidate (Perform (Percussion Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Percussion Instruments,Skald Versatile Performance ~ Percussion Instruments	PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.99
 #
-Bluff (Perform (Sing))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Sing				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
-Sense Motive (Perform (Sing))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Sing				PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
+Bluff (Perform (Sing))						KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Sing,Skald Versatile Performance ~ Sing							PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
+Sense Motive (Perform (Sing))					KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Sing,Skald Versatile Performance ~ Sing							PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.104
 #
-Bluff (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
-Diplomacy (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Bluff (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ String Instruments,Skald Versatile Performance ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.90
+Diplomacy (Perform (String Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ String Instruments,Skald Versatile Performance ~ String Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
 #
-Diplomacy (Perform (Wind Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
-Handle Animal (Perform (Wind Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Wind Instruments		PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
+Diplomacy (Perform (Wind Instruments))			KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Wind Instruments,Skald Versatile Performance ~ Wind Instruments			PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.93
+Handle Animal (Perform (Wind Instruments))		KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Versatile Performance ~ Wind Instruments,Skald Versatile Performance ~ Wind Instruments			PRERULE:1,DISPLAYSKILLUSE	SOURCEPAGE:p.97
 
-Samurai Mount							KEYSTAT:DEX						TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai							PRERULE:1,DISPLAYSKILLUSE
+Samurai Mount							KEYSTAT:DEX						TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai															PRERULE:1,DISPLAYSKILLUSE
 
 ###Block:
 
@@ -75,6 +76,7 @@ Craft (Clockwork)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Base	PR
 #Knowledge (Nature).MOD		SITUATION:Knowledge (Nature/Bird)
 #Knowledge (Nature).MOD		SITUATION:Small Cat
 # Skill Name			Situational Skill
+Acrobatics.MOD			SITUATION:When Jumping
 Acrobatics.MOD			SITUATION:Jump
 Acrobatics.MOD			SITUATION:Jump/Underground
 Acrobatics.MOD			SITUATION:Move Through
@@ -241,16 +243,45 @@ Appraise.MOD			SITUATION:Giant subtype
 Perception.MOD			SITUATION:sight-based
 
 
+Acrobatics.MOD			SITUATION:Maintain Balance
 Acrobatics.MOD			SITUATION:on the ground
-Intimidate.MOD			SITUATION:Demoralize
-Diplomacy.MOD			SITUATION:Dromites
-Use Magic Device.MOD		SITUATION:activate item
+Appraise.MOD			SITUATION:Gems
+Bluff.MOD				SITUATION:fool someone
+Bluff.MOD				SITUATION:Using voice
+Climb.MOD				SITUATION:With spider legs
+Climb.MOD				SITUATION:Without Rope
 Diplomacy.MOD			SITUATION:Aberrations
 Diplomacy.MOD			SITUATION:Demons
-Intimidate.MOD			SITUATION:Demons
-Spellcraft.MOD			SITUATION:Identity magic item
+Diplomacy.MOD			SITUATION:Dromites
 Diplomacy.MOD			SITUATION:Undead
+Diplomacy.MOD			SITUATION:Using voice
+Diplomacy.MOD			SITUATION:Wild Empathy
 Disable Device.MOD		SITUATION:Traps
+Disable Device.MOD		SITUATION:Unlock Door
+Disguise.MOD			SITUATION:As animal of different species
+Disguise.MOD			SITUATION:As specific animal of same species
+Handle Animal.MOD			SITUATION:Train Animal
+Intimidate.MOD			SITUATION:Demons
+Intimidate.MOD			SITUATION:Demoralize
+Perception.MOD			SITUATION:At night
+Perception.MOD			SITUATION:Avoid Surprise
+Perception.MOD			SITUATION:Find Secret Doors
+Perception.MOD			SITUATION:See Through Disguise
+Sleight of Hand.MOD		SITUATION:Pick pockets of stunned or disabled victims
+Spellcraft.MOD			SITUATION:Counterspell
+Spellcraft.MOD			SITUATION:Identity magic item
+Stealth.MOD				SITUATION:In jungles
+Stealth.MOD				SITUATION:On plains
+Stealth.MOD				SITUATION:In urban environments
+Stealth.MOD				SITUATION:While still
+Survival.MOD			SITUATION:Find Fresh Water
+Survival.MOD			SITUATION:In water
+Survival.MOD			SITUATION:Jungles
+Survival.MOD			SITUATION:Plains
+Survival.MOD			SITUATION:Swamps
+Survival.MOD			SITUATION:Undergrowth
+Swim.MOD				SITUATION:Completely Underwater
+Use Magic Device.MOD		SITUATION:activate item
 
 ###Block: Inner Sea World Guide
 # Skill Name		Situational Skill
@@ -266,11 +297,13 @@ Sense Motive.MOD		SITUATION:Resist feint
 Handle Animal.MOD		SITUATION:Horse
 Ride.MOD			SITUATION:Horse
 
+###Book of the Damned vol 2
+Disguise.MOD		SITUATION:Inhabiting a corpse
+Escape Artist.MOD		SITUATION:Not inhabiting a corpse
 
 
-
-
-
+# Advanced Race Guide
+Diplomacy.MOD		SITUATION:Influence evil outsiders
 
 
 

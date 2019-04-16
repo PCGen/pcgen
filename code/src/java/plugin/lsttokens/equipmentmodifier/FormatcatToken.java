@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 19/08/2006
- *
- * $Id:  $
- *
  */
 package plugin.lsttokens.equipmentmodifier;
 
@@ -40,9 +35,6 @@ public class FormatcatToken extends AbstractNonEmptyToken<EquipmentModifier>
 		implements CDOMPrimaryToken<EquipmentModifier>
 {
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -50,18 +42,15 @@ public class FormatcatToken extends AbstractNonEmptyToken<EquipmentModifier>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		EquipmentModifier mod, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier mod, String value)
 	{
 		try
 		{
-			context.getObjectContext().put(mod, ObjectKey.FORMAT,
-					EqModFormatCat.valueOf(value));
+			context.getObjectContext().put(mod, ObjectKey.FORMAT, EqModFormatCat.valueOf(value));
 		}
 		catch (IllegalArgumentException iae)
 		{
-			return new ParseResult.Fail("Invalid Format provided in " + getTokenName()
-					+ ": " + value, context);
+			return new ParseResult.Fail("Invalid Format provided in " + getTokenName() + ": " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -69,13 +58,12 @@ public class FormatcatToken extends AbstractNonEmptyToken<EquipmentModifier>
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
-		EqModFormatCat fc = context.getObjectContext().getObject(mod,
-				ObjectKey.FORMAT);
+		EqModFormatCat fc = context.getObjectContext().getObject(mod, ObjectKey.FORMAT);
 		if (fc == null)
 		{
 			return null;
 		}
-		return new String[] { fc.toString() };
+		return new String[]{fc.toString()};
 	}
 
 	@Override

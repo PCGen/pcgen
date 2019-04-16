@@ -35,8 +35,8 @@ import pcgen.util.Logging;
 
 public class SpellCasterToken implements QualifierToken<WeaponProf>, PrimitiveFilter<WeaponProf>
 {
-	private PrimitiveCollection<WeaponProf> pcs = null;
-	
+	private PrimitiveCollection<WeaponProf> pcs;
+
 	@Override
 	public String getTokenName()
 	{
@@ -53,38 +53,33 @@ public class SpellCasterToken implements QualifierToken<WeaponProf>, PrimitiveFi
 	public String getLSTformat(boolean useAny)
 	{
 		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('[').append(pcs.getLSTformat(useAny))
-				.append(']');
+		sb.append(getTokenName()).append('[').append(pcs.getLSTformat(useAny)).append(']');
 		return sb.toString();
 	}
 
 	@Override
-	public boolean initialize(LoadContext context,
-			SelectionCreator<WeaponProf> sc, String condition, String value,
-			boolean negate)
+	public boolean initialize(LoadContext context, SelectionCreator<WeaponProf> sc, String condition, String value,
+		boolean negate)
 	{
 		if (negate)
 		{
-			Logging.addParseMessage(Level.SEVERE, "Cannot make "
-					+ getTokenName() + " into a negated Qualifier, remove !");
+			Logging.addParseMessage(Level.SEVERE,
+				"Cannot make " + getTokenName() + " into a negated Qualifier, remove !");
 			return false;
 		}
 		if (condition != null)
 		{
-			Logging.addParseMessage(Level.SEVERE, "Cannot make "
-					+ getTokenName()
-					+ " into a conditional Qualifier, remove =");
+			Logging.addParseMessage(Level.SEVERE,
+				"Cannot make " + getTokenName() + " into a conditional Qualifier, remove =");
 			return false;
 		}
 		if (value == null)
 		{
-			Logging.addParseMessage(Level.SEVERE, "Cannot use "
-					+ getTokenName()
-					+ " as an unconditional Qualifier, requires brackets");
+			Logging.addParseMessage(Level.SEVERE,
+				"Cannot use " + getTokenName() + " as an unconditional Qualifier, requires brackets");
 			return false;
 		}
-		ReferenceManufacturer<WeaponProf> erm = context.getReferenceContext()
-				.getManufacturer(WeaponProf.class);
+		ReferenceManufacturer<WeaponProf> erm = context.getReferenceContext().getManufacturer(WeaponProf.class);
 		pcs = context.getPrimitiveChoiceFilter(erm, value);
 		return pcs != null;
 	}

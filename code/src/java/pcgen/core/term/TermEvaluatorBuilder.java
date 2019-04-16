@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.EvaluatorFactory.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 21-Sep-2008 01:22:27
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -39,8 +35,6 @@ public interface TermEvaluatorBuilder
 	 * @return a term evaluator
 	 * @throws TermEvaulatorException If the term does not parse properly, this error is thrown
 	 */
-	TermEvaluator getTermEvaluator(
-			String expressionString,
-			String src,
-			String matchedSection) throws TermEvaulatorException;
+	TermEvaluator getTermEvaluator(String expressionString, String src, String matchedSection)
+		throws TermEvaulatorException;
 }

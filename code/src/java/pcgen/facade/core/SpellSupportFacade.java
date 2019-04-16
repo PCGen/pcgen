@@ -1,5 +1,4 @@
 /*
- * SpellSupportFacade.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,17 +15,13 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Sep 22, 2011, 12:12:43 AM
  */
 package pcgen.facade.core;
 
+import pcgen.core.PCClass;
 import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public interface SpellSupportFacade
 {
 
@@ -46,8 +41,8 @@ public interface SpellSupportFacade
 	public ListFacade<? extends SuperNode> getBookSpellNodes();
 
 	/**
-	 * Adds the spell identified by the <code>SpellNode</code> to the list of known spells for
-	 * the character associated with this <code>SpellSupportFacade</code>. The nodes that are used
+	 * Adds the spell identified by the {@code SpellNode} to the list of known spells for
+	 * the character associated with this {@code SpellSupportFacade}. The nodes that are used
 	 * as a parameter will originate from the available spell nodes list and implementors should
 	 * not reuse this node in other lists. The node serves as an identifier for the spell not as a 
 	 * literal object to add to other lists. Thus, this method should make a copy or otherwise make
@@ -57,7 +52,7 @@ public interface SpellSupportFacade
 	public void addKnownSpell(SpellNode spell);
 
 	/**
-	 * Removes the spell identified by the <code>SpellNode</code> from the list of known spells/
+	 * Removes the spell identified by the {@code SpellNode} from the list of known spells/
 	 * all known spells.
 	 * @param spell the spell to remove
 	 */
@@ -95,7 +90,7 @@ public interface SpellSupportFacade
 	 * @param spellcaster a spell caster class
 	 * @return an HTML string
 	 */
-	public String getClassInfo(ClassFacade spellcaster);
+	public String getClassInfo(PCClass spellcaster);
 
 	/** 
 	 * Refresh the available and known spells list in response to an action 
@@ -115,7 +110,7 @@ public interface SpellSupportFacade
 	 * @param autoSpells The new value for auto known spells.
 	 */
 	public void setAutoSpells(boolean autoSpells);
-	
+
 	/**
 	 * Determine whether higher level known spell slots can be used for lower
 	 * level spells, or if known spells are restricted to their own level only.
@@ -124,7 +119,6 @@ public interface SpellSupportFacade
 	 */
 	public boolean isUseHigherKnownSlots();
 
-	
 	/**
 	 * Set whether higher level known spell slots can be used for lower
 	 * level spells, or if known spells are restricted to their own level only.
@@ -149,9 +143,8 @@ public interface SpellSupportFacade
 	 */
 	public void setUseHigherPreppedSlots(boolean useHigher);
 
-	
 	// -------------------------- Interfaces ----------------------------------------
-	
+
 	public static interface SuperNode
 	{
 	}
@@ -172,7 +165,7 @@ public interface SpellSupportFacade
 	public static interface SpellNode extends SuperNode
 	{
 
-		public ClassFacade getSpellcastingClass();
+		public PCClass getSpellcastingClass();
 
 		public String getSpellLevel();
 
@@ -186,12 +179,12 @@ public interface SpellSupportFacade
 		 * @return the root node string
 		 */
 		public RootNode getRootNode();
-		
+
 		/**
 		 * @return The number of occurrences of the spell that are held.
 		 */
 		public int getCount();
-		
+
 		/**
 		 * Adjust the number of occurrences held of the spell.
 		 * @param num The number of occurrences to add.

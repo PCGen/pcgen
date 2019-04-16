@@ -62,6 +62,57 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Racial Traits
+====================================
+====================================-->
+	<xsl:template match="racial_traits">
+		<xsl:if test="count(racial_trait) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'racial_traits'" />
+				<xsl:with-param name="title" select="'Racial Trait'" />
+				<xsl:with-param name="list" select="racial_trait"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - CLASS FEATURES
+====================================
+====================================-->
+	<xsl:template match="class_features">
+		<xsl:if test="count(class_feature) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'class_features'" />
+				<xsl:with-param name="title" select="'Class Features'" />
+				<xsl:with-param name="list" select="class_feature"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+		<!--
+====================================
+====================================
+	TEMPLATE - WORDS OF POWER
+====================================
+====================================-->
+	<xsl:template match="words_of_powers">
+		<xsl:if test="count(words_of_power) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'class_features'" />
+				<xsl:with-param name="title" select="'Words of Power'" />
+				<xsl:with-param name="list" select="words_of_power"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
 	<!--	
 ====================================
 ====================================
@@ -690,6 +741,23 @@
 				<xsl:with-param name="attribute" select="'pfs_chronicles'" />
 				<xsl:with-param name="title" select="'PFS Chronicles'" />
 				<xsl:with-param name="list" select="pfs_chronicle"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - PFS BOONS
+====================================
+====================================-->
+	<xsl:template match="pfs_boons">
+		<xsl:if test="count(pfs_boon) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'pfs_boons'" />
+				<xsl:with-param name="title" select="'PFS Boons'" />
+				<xsl:with-param name="list" select="pfs_boon"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
 				<xsl:with-param name="desc.tag" select="'description'"/>
 			</xsl:call-template>

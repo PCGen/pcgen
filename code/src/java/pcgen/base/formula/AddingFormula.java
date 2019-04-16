@@ -18,7 +18,6 @@
 package pcgen.base.formula;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
  * 
  * An AddingFormula represents a 'deferred calculation' of sorts, designed to be
  * stored and capable of adding a predetermined value to a given input number.
@@ -62,24 +61,17 @@ public class AddingFormula implements ReferenceFormula<Integer>
 	 *             if more than one Number is provided as an argument
 	 * @throws NullPointerException
 	 *             if the Number provided is null
-	 * @see pcgen.base.formula.ReferenceFormula#resolve(Number...)
 	 */
 	@Override
 	public Integer resolve(Number... numbers)
 	{
 		if (numbers == null || numbers.length != 1)
 		{
-			throw new IllegalArgumentException(
-					"AddingFormula only has one back-reference");
+			throw new IllegalArgumentException("AddingFormula only has one back-reference");
 		}
 		return numbers[0].intValue() + add;
 	}
 
-	/**
-	 * Returns a String representation of this AddingFormula
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -93,22 +85,12 @@ public class AddingFormula implements ReferenceFormula<Integer>
 		}
 	}
 
-	/**
-	 * Consistent-with-equals hashCode method
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return add;
 	}
 
-	/**
-	 * Returns true if this AddingFormula is equal to the given Object.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

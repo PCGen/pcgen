@@ -17,9 +17,11 @@
  */
 package tokenmodel;
 
-import java.util.Collection;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Test;
+import java.util.Collection;
 
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
@@ -29,18 +31,21 @@ import pcgen.cdom.facet.DirectAbilityFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.AbilityLst;
 import plugin.lsttokens.ability.MultToken;
 import plugin.lsttokens.choose.LangToken;
 import plugin.lsttokens.deprecated.AutoFeatToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 {
@@ -48,7 +53,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 	private static AbilityLst abLst = new AbilityLst();
 
 	@Test
-	public void testFromTemplate() throws PersistenceLayerException
+	public void testFromTemplate()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		Ability granted = createGrantedObject();
@@ -57,25 +62,25 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 				new MultToken().parseToken(context, granted, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = new LangToken().parseToken(context, granted, "ALL");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = new LangToken().parseToken(context, source, "ALL");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = token.parseToken(context, source, "FEAT|Granted (%LIST)");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -89,47 +94,46 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromAbility() throws PersistenceLayerException
+	public void testFromAbility()
 	{
-		Ability source = create(Ability.class, "Source");
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
+		Ability source = BuildUtilities.buildFeat(context, "Source");
 		Ability granted = createGrantedObject();
 		context.getReferenceContext().constructCDOMObject(Language.class, "English");
 		ParseResult result =
 				new MultToken().parseToken(context, granted, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = new MultToken().parseToken(context, source, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = new LangToken().parseToken(context, granted, "ALL");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = new LangToken().parseToken(context, source, "ALL");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = token.parseToken(context, source, "FEAT|Granted (%LIST)");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
 		assertEquals(0, directAbilityFacet.getCount(id));
-		CNAbilitySelection cas =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source), "English");
+		CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory.getCNAbility(
+			BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source), "English");
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected());
 		assertEquals(2, directAbilityFacet.getCount(id));
@@ -152,11 +156,10 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 		{
 			CNAbility cas = cnas.getCNAbility();
 			boolean featExpected =
-					cas.getAbilityCategory() == AbilityCategory.FEAT;
-			boolean abilityExpected =
-					cas.getAbility().equals(
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(
-							Ability.class, AbilityCategory.FEAT, "Granted"));
+					cas.getAbilityCategory() == BuildUtilities.getFeatCat();
+			boolean abilityExpected = cas.getAbility()
+				.equals(context.getReferenceContext()
+					.getManufacturerId(BuildUtilities.getFeatCat()).getActiveObject("Granted"));
 			boolean natureExpected = cas.getNature() == Nature.AUTOMATIC;
 			boolean selectionExpected = "English".equals(cnas.getSelection());
 			if (featExpected && abilityExpected && natureExpected
@@ -174,6 +177,7 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 		return token;
 	}
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -184,8 +188,9 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 
 	protected Ability createGrantedObject()
 	{
-		Ability a = create(Ability.class, "Granted");
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName("Granted");
+		context.getReferenceContext().importObject(a);
 		return a;
 	}
 }

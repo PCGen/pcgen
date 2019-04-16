@@ -15,9 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on October 29, 2006.
  * 
- * $Date: 2006-06-22 21:22:44 -0400 (Thu, 22 Jun 2006) $
  */
 package pcgen.cdom.choiceset;
 
@@ -45,8 +43,7 @@ import pcgen.core.PlayerCharacter;
  * will not vary by the PlayerCharacter used to resolve the
  * SpellCasterChoiceSet.
  */
-public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
-		PrimitiveChoiceSet<PCClass>
+public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements PrimitiveChoiceSet<PCClass>
 {
 
 	/**
@@ -145,9 +142,8 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	 *            objects contained within the SpellCasterChoiceSet that were
 	 *            referenced by key
 	 */
-	public SpellCasterChoiceSet(CDOMGroupRef<PCClass> allRef,
-			List<String> spelltype, PrimitiveChoiceSet<PCClass> typePCS,
-			PrimitiveChoiceSet<PCClass> primPCS)
+	public SpellCasterChoiceSet(CDOMGroupRef<PCClass> allRef, List<String> spelltype,
+		PrimitiveChoiceSet<PCClass> typePCS, PrimitiveChoiceSet<PCClass> primPCS)
 	{
 		super("SPELLCASTER", typePCS == null ? EMPTY_CHOICE_SET : typePCS);
 		types = typePCS;
@@ -245,8 +241,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		{
 			for (PCClass pcc : types.getSet(pc))
 			{
-				if ((pcc.get(fk) != null)
-					&& (pc.getClassKeyed(pcc.getKeyName()) != null))
+				if ((pcc.get(fk) != null) && (pc.getClassKeyed(pcc.getKeyName()) != null))
 				{
 					returnSet.add(pcc);
 				}
@@ -263,8 +258,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 				TYPE: for (String type : spelltypes)
 				{
 					String spelltype = pcc.getResolved(fk);
-					if (type.equalsIgnoreCase(spelltype)
-							&& pc.getClassKeyed(pcc.getKeyName()) != null)
+					if (type.equalsIgnoreCase(spelltype) && pc.getClassKeyed(pcc.getKeyName()) != null)
 					{
 						returnSet.add(pcc);
 						break TYPE;
@@ -275,25 +269,12 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		return returnSet;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this SpellCasterChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
-		return (types == null ? 0 : types.hashCode() * 29)
-				+ (primitives == null ? 0 : primitives.hashCode());
+		return (types == null ? 0 : types.hashCode() * 29) + (primitives == null ? 0 : primitives.hashCode());
 	}
 
-	/**
-	 * Returns true if this SpellCasterChoiceSet is equal to the given Object.
-	 * Equality is defined as being another SpellCasterChoiceSet object with
-	 * equal underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

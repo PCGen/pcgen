@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens;
 
@@ -36,9 +31,6 @@ import pcgen.util.Delta;
  */
 public class InitiativeModToken extends Token
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -47,25 +39,20 @@ public class InitiativeModToken extends Token
 
 	//TODO: Merge InitiativeBonusToken, InitiativeMiscToken and InitiativeModToken
 	//to become INITIATIVE.BONUS, INITAITIVE.MISC & INITIATIVE.MOD
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		return Delta.toString(getInitiativeModToken(pc));
 	}
 
 	/**
 	 * Get the token
-	 * @param display
-	 * @return the token
+	 * @param pc PlayerCharacter
+	 * @return int Initiative Modifier
 	 */
 	public static int getInitiativeModToken(PlayerCharacter pc)
 	{
-		String initiativeVar = ControlUtilities
-			.getControlToken(Globals.getContext(), CControl.INITIATIVE);
+		String initiativeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.INITIATIVE);
 		if (initiativeVar == null)
 		{
 			return pc.getDisplay().processOldInitiativeMod();

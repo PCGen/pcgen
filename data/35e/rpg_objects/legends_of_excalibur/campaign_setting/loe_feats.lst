@@ -18,7 +18,7 @@ Heritage of Nobility		CATEGORY:FEAT		TYPE:General																		PREPCLEVEL:MA
 Inheritance				CATEGORY:FEAT		TYPE:General																		PREPCLEVEL:MAX=1																																																																																		SOURCEPAGE:p52
 # need to figure out how to increase starting gold - +2d6 * nobility
 
-# not sure how to adjust a spell's spell point cost through metamagic.  these feats will be commented out until i figure it out.
+# not sure how to adjust a spell's spell point cost through metamagic.  these feats will be commented out until I figure it out.
 
 # Innate Spell	ADDSPELLPOINTS:-2	STACK:NO	MULT:YES	CHOOSE:SPELLLIST|1
 

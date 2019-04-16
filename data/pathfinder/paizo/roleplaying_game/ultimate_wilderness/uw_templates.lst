@@ -1,0 +1,36 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
+
+### Starting Gold
+# Template Name					Visible		Template															Required Movement Rate	Prohibited Movement Rate	Required Size	Add to base move			Modify VAR															Apply Kit					Bonus Languages				Clone Movement		Natural Attacks
+Starting Gold ~ UW				VISIBLE:NO		TEMPLATE:CHOOSE:Starting Gold UW ~ Random|Starting Gold UW ~ Maximum|Starting Gold UW ~ Average
+Starting Gold UW ~ Random			VISIBLE:NO																																																			KIT:1|Starting Gold UW ~ Random
+Starting Gold UW ~ Maximum			VISIBLE:NO																																																			KIT:1|Starting Gold UW ~ Maximum
+Starting Gold UW ~ Average			VISIBLE:NO																																																			KIT:1|Starting Gold UW ~ Average
+
+Shifter Bonus Languages				VISIBLE:NO																																																									LANGBONUS:Aklo,Sylvan
+Elementalist Shifter Bonus Languages	VISIBLE:NO																																																									LANGBONUS:Aquan,Auran,Ignan,Terran
+
+# Shifter Claw - 1 1d2 1d3 1d4 1d6 1d8 1d10 1d12 P/S Primary
+# x1
+Shifter Claw 1 (Diminutive)			VISIBLE:NO																											PRESIZEEQ:D							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*1,1
+Shifter Claw 1 (Tiny)				VISIBLE:NO																											PRESIZEEQ:T							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*1,1d2
+Shifter Claw 1 (Small)				VISIBLE:NO																											PRESIZEEQ:S							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*1,1d3
+Shifter Claw 1 (Medium)				VISIBLE:NO																											PRESIZEEQ:M							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*1,1d4
+Shifter Claw 1 (Large)				VISIBLE:NO																											PRESIZEEQ:L							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*1,1d6
+Shifter Claw 1 (Huge)				VISIBLE:NO																											PRESIZEEQ:H							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*1,1d8
+Shifter Claw 1 (Gargantuan)			VISIBLE:NO																											PRESIZEEQ:G							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|10|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*1,1d10
+Shifter Claw 1 (Colossal)			VISIBLE:NO																											PRESIZEEQ:C							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|12|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*1,1d12
+# x2 (Default)
+Shifter Claw 2 (Diminutive)			VISIBLE:NO																											PRESIZEEQ:D							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1
+Shifter Claw 2 (Tiny)				VISIBLE:NO																											PRESIZEEQ:T							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d2
+Shifter Claw 2 (Small)				VISIBLE:NO																											PRESIZEEQ:S							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+Shifter Claw 2 (Medium)				VISIBLE:NO																											PRESIZEEQ:M							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+Shifter Claw 2 (Large)				VISIBLE:NO																											PRESIZEEQ:L							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6
+Shifter Claw 2 (Huge)				VISIBLE:NO																											PRESIZEEQ:H							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8
+Shifter Claw 2 (Gargantuan)			VISIBLE:NO																											PRESIZEEQ:G							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|10|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d10
+Shifter Claw 2 (Colossal)			VISIBLE:NO																											PRESIZEEQ:C							BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|12|TYPE=Base																	NATURALATTACKS:Shifter Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d12
+
+Add Swim Speed					VISIBLE:DISPLAY																					!PREMOVE:1,Swim=1																																							MOVECLONE:Walk,Swim,*1
+Increase Swim Speed				VISIBLE:DISPLAY																	PREMOVE:1,Swim=1										BONUS:MOVEADD|TYPE.Swim|10

@@ -1,5 +1,4 @@
 /*
- * AbstractQualifiedChooseToken.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -37,9 +36,8 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 
-public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
-		extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, Chooser<T>
+public abstract class AbstractQualifiedChooseToken<T extends CDOMObject> extends AbstractTokenWithSeparator<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>, Chooser<T>
 {
 	@Override
 	public String getParentToken()
@@ -53,8 +51,8 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 		return '|';
 	}
 
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		ReferenceManufacturer<T> rm, CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, ReferenceManufacturer<T> rm, CDOMObject obj,
+		String value)
 	{
 		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
@@ -75,10 +73,10 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 					title = title.substring(1, title.length() - 1);
 				}
 				activeValue = value.substring(0, pipeLoc);
-				if (title == null || title.length() == 0)
+				if (title == null || title.isEmpty())
 				{
-					return new ParseResult.Fail(getParentToken() + ":"
-						+ getTokenName() + " had TITLE= but no title: " + value, context);
+					return new ParseResult.Fail(
+						getParentToken() + ":" + getTokenName() + " had TITLE= but no title: " + value);
 				}
 			}
 			else
@@ -96,14 +94,13 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 		if (!coll.getGroupingState().isValid())
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage("Invalid combination of objects was used in: "
-					+ activeValue);
+			cpr.addErrorMessage("Invalid combination of objects was used in: " + activeValue);
 			cpr.addErrorMessage("  Check that ALL is not combined");
 			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
 		}
 		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<>(coll);
-		BasicChooseInformation<T> tc = new BasicChooseInformation<>(getTokenName(), pcs);
+		BasicChooseInformation<T> tc = new BasicChooseInformation<>(getTokenName(), pcs, getPersistentFormat());
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -119,9 +116,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		ChooseInformation<?> tc =
-				context.getObjectContext()
-					.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> tc = context.getObjectContext().getObject(cdo, ObjectKey.CHOOSE_INFO);
 		if (tc == null)
 		{
 			return null;
@@ -139,8 +134,8 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 		}
 		if (!tc.getGroupingState().isValid())
 		{
-			context.addWriteMessage("Invalid combination of objects"
-				+ " was used in: " + getParentToken() + ":" + getTokenName());
+			context.addWriteMessage(
+				"Invalid combination of objects" + " was used in: " + getParentToken() + ":" + getTokenName());
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
@@ -204,6 +199,8 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 		 */
 		return true;
 	}
+
+	protected abstract String getPersistentFormat();
 
 	protected abstract String getDefaultTitle();
 

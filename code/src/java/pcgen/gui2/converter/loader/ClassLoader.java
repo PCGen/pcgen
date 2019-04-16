@@ -43,7 +43,6 @@ import pcgen.util.Logging;
 /**
  * ClassLoader is a loader dedicated to converting class and class level data.
  * 
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  */
 public class ClassLoader implements Loader
 {
@@ -58,9 +57,8 @@ public class ClassLoader implements Loader
 	}
 
 	@Override
-	public List<CDOMObject> process(StringBuilder sb, int line,
-			String lineString, ConversionDecider decider)
-			throws PersistenceLayerException, InterruptedException
+	public List<CDOMObject> process(StringBuilder sb, int line, String lineString, ConversionDecider decider)
+		throws PersistenceLayerException, InterruptedException
 	{
 		List<CDOMObject> list = new ArrayList<>();
 		String[] tokens = lineString.split(FIELD_SEPARATOR);
@@ -104,19 +102,17 @@ public class ClassLoader implements Loader
 		{
 			String token = tokens[tok];
 			sb.append(FIELD_SEPARATOR);
-			if (token.length() == 0)
+			if (token.isEmpty())
 			{
 				continue;
 			}
 
-			CDOMObject obj = context.getReferenceContext().constructCDOMObject(buildClass, line
-					+ "Test" + tok);
+			CDOMObject obj = context.getReferenceContext().constructCDOMObject(buildClass, line + "Test" + tok);
 			CDOMObject parent = null;
 			if (obj instanceof PCClassLevel)
 			{
 				obj.put(IntegerKey.LEVEL, 1);
-				parent = context.getReferenceContext().constructCDOMObject(buildParent, line
-						+ "Test" + tok);
+				parent = context.getReferenceContext().constructCDOMObject(buildParent, line + "Test" + tok);
 				try
 				{
 					// Ensure processing against the PCClassLevel cannot cause side effects on the parent class
@@ -127,8 +123,7 @@ public class ClassLoader implements Loader
 					Logging.errorPrint("Unable to preare a copy of " + parent);
 				}
 			}
-			List<CDOMObject> injected = processToken(sb, firstToken, obj, parent, token,
-					decider, line);
+			List<CDOMObject> injected = processToken(sb, firstToken, obj, parent, token, decider, line);
 			if (injected != null)
 			{
 				list.addAll(injected);
@@ -143,15 +138,13 @@ public class ClassLoader implements Loader
 		return list;
 	}
 
-	private List<CDOMObject> processToken(StringBuilder sb, String firstToken, CDOMObject obj,
-			CDOMObject alt, String token, ConversionDecider decider, int line)
-			throws PersistenceLayerException, InterruptedException
+	private List<CDOMObject> processToken(StringBuilder sb, String firstToken, CDOMObject obj, CDOMObject alt,
+		String token, ConversionDecider decider, int line)
 	{
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
 		{
-			Logging.errorPrint("Invalid Token - does not contain a colon: "
-					+ token);
+			Logging.errorPrint("Invalid Token - does not contain a colon: " + token);
 			return null;
 		}
 		else if (colonLoc == 0)
@@ -161,10 +154,8 @@ public class ClassLoader implements Loader
 		}
 
 		String key = token.substring(0, colonLoc);
-		String value = (colonLoc == token.length() - 1) ? null : token
-				.substring(colonLoc + 1);
-		TokenProcessEvent tpe = new TokenProcessEvent(context, decider, key,
-				value, firstToken, obj);
+		String value = (colonLoc == token.length() - 1) ? null : token.substring(colonLoc + 1);
+		TokenProcessEvent tpe = new TokenProcessEvent(context, decider, key, value, firstToken, obj);
 		String error = TokenConverter.process(tpe);
 		if (!tpe.isConsumed() && alt != null)
 		{
@@ -177,7 +168,8 @@ public class ClassLoader implements Loader
 			{
 				try
 				{
-					changeLogWriter.append("Line " + line + " converted '"+token+"' to '" + tpe.getResult() +"'.\n");
+					changeLogWriter
+						.append("Line " + line + " converted '" + token + "' to '" + tpe.getResult() + "'.\n");
 				}
 				catch (IOException e)
 				{
@@ -198,10 +190,4 @@ public class ClassLoader implements Loader
 	{
 		return c.getSafeListFor(ListKey.FILE_CLASS);
 	}
-
-	public String getLoadName()
-	{
-		return "Class";
-	}
-
 }

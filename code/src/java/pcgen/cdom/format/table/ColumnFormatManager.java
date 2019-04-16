@@ -18,10 +18,11 @@
 package pcgen.cdom.format.table;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.base.util.ObjectDatabase;
+import pcgen.base.util.ValueStore;
 
 /**
  * A ColumnFormatManager is a FormatManager that defines the format of a
@@ -35,9 +36,9 @@ public class ColumnFormatManager<T> implements FormatManager<TableColumn>
 {
 
 	/**
-	 * The ObjectDatabase used to construct or look up TableColumn objects.
+	 * The FormatManager used to construct or look up TableColumn objects.
 	 */
-	private final ObjectDatabase database;
+	private final FormatManager<TableColumn> columnFormat;
 
 	/**
 	 * The Format of any Column referred to by this ColumnFormatManager
@@ -46,74 +47,70 @@ public class ColumnFormatManager<T> implements FormatManager<TableColumn>
 
 	/**
 	 * Constructs a new ColumnFormatManager that will use the underlying
-	 * AbstractReferenceContext to construct and look up TableColumn objects of
+	 * FormatManager to construct and look up TableColumn objects of
 	 * the format of the given FormatManager.
 	 * 
-	 * @param objDatabase
-	 *            The ObjectDatabase used to construct or look up TableColumn
+	 * @param columnFormat
+	 *            The FormatManager used to construct or look up TableColumn
 	 *            objects
 	 * @param formatManager
 	 *            The Format of TableColumns referred to by this
 	 *            ColumnFormatManager
 	 */
-	public ColumnFormatManager(ObjectDatabase objDatabase,
-		FormatManager<T> formatManager)
+	public ColumnFormatManager(FormatManager<TableColumn> columnFormat, FormatManager<T> formatManager)
 	{
-		database = Objects.requireNonNull(objDatabase);
+		this.columnFormat = Objects.requireNonNull(columnFormat);
 		underlying = Objects.requireNonNull(formatManager);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public TableColumn convert(String inputStr)
 	{
-		return database.get(TableColumn.class, inputStr);
+		return columnFormat.convert(inputStr);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Indirect<TableColumn> convertIndirect(String inputStr)
 	{
-		return database.getIndirect(TableColumn.class, inputStr);
+		return columnFormat.convertIndirect(inputStr);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String unconvert(TableColumn table)
 	{
 		return table.getName();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Class<TableColumn> getManagedClass()
 	{
 		return TableColumn.class;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getIdentifierType()
 	{
-		return "COLUMN";
+		return "COLUMN[" + underlying.getIdentifierType() + "]";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public FormatManager<?> getComponentManager()
+	public Optional<FormatManager<?>> getComponentManager()
 	{
-		return underlying;
+		return Optional.of(underlying);
+	}
+
+	@Override
+	public boolean isDirect()
+	{
+		return false;
+	}
+
+	@Override
+	public TableColumn initializeFrom(ValueStore valueStore)
+	{
+		TableColumn empty = new TableColumn();
+		empty.setName("<undefined column>");
+		empty.setFormatManager(underlying);
+		return empty;
 	}
 }

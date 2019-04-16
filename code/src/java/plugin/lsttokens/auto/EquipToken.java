@@ -48,8 +48,8 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<Equipment>
+public class EquipToken extends AbstractNonEmptyToken<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>, ChooseSelectionActor<Equipment>
 {
 
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
@@ -72,8 +72,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		String equipItems;
 		Prerequisite prereq = null; // Do not initialize, null is significant!
@@ -83,7 +82,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		 * into AutoLst.java (since it's the same across AUTO SubTokens)
 		 */
 		boolean isPre = false;
-		if (value.indexOf("[") == -1)
+		if (value.indexOf('[') == -1)
 		{
 			// Supported version of PRExxx using |.  Needs to be at the front of the
 			// Parsing code because many objects expect the pre to have been determined
@@ -99,16 +98,14 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 					if (isPre)
 					{
 						String errorText =
-								"Invalid " + getTokenName() + ": " + value
-									+ "  PRExxx must be at the END of the Token";
+								"Invalid " + getTokenName() + ": " + value + "  PRExxx must be at the END of the Token";
 						Logging.errorPrint(errorText);
-						return new ParseResult.Fail(errorText, context);
+						return new ParseResult.Fail(errorText);
 					}
 					prereq = getPrerequisite(token);
 					if (prereq == null)
 					{
-						return new ParseResult.Fail("Error generating Prerequisite "
-								+ prereq + " in " + getFullName(), context);
+						return new ParseResult.Fail("Error generating Prerequisite " + prereq + " in " + getFullName());
 					}
 					int preStart = value.indexOf(token) - 1;
 					equipItems = value.substring(0, preStart);
@@ -118,8 +115,8 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		else
 		{
-			return new ParseResult.Fail("Use of [] for Prerequisites is no longer supported, "
-					+ "please use | based standard", context);
+			return new ParseResult.Fail(
+				"Use of [] for Prerequisites is no longer supported, " + "please use | based standard");
 		}
 
 		ParseResult pr = checkForIllegalSeparator('|', equipItems);
@@ -142,8 +139,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 				}
 				else
 				{
-					ConditionalSelectionActor<Equipment> cca =
-							new ConditionalSelectionActor<>(this);
+					ConditionalSelectionActor<Equipment> cca = new ConditionalSelectionActor<>(this);
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
@@ -151,15 +147,12 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 			}
 			else
 			{
-				CDOMReference<Equipment> ref = TokenUtilities
-						.getTypeOrPrimitive(context, EQUIPMENT_CLASS, aProf);
+				CDOMReference<Equipment> ref = TokenUtilities.getTypeOrPrimitive(context, EQUIPMENT_CLASS, aProf);
 				if (ref == null)
 				{
 					return ParseResult.INTERNAL_ERROR;
 				}
-				context.getObjectContext().addToList(obj, ListKey.EQUIPMENT,
-						new QualifiedObject<>(ref,
-								prereq));
+				context.getObjectContext().addToList(obj, ListKey.EQUIPMENT, new QualifiedObject<>(ref, prereq));
 			}
 		}
 
@@ -172,14 +165,12 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		List<String> list = new ArrayList<>();
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 
-		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
-				.getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
-		Changes<QualifiedObject<CDOMReference<Equipment>>> changes = context.getObjectContext()
-				.getListChanges(obj, ListKey.EQUIPMENT);
-		Collection<QualifiedObject<CDOMReference<Equipment>>> added = changes
-				.getAdded();
-		HashMapToList<List<Prerequisite>, CDOMReference<Equipment>> m =
-				new HashMapToList<>();
+		Changes<ChooseSelectionActor<?>> listChanges =
+				context.getObjectContext().getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
+		Changes<QualifiedObject<CDOMReference<Equipment>>> changes =
+				context.getObjectContext().getListChanges(obj, ListKey.EQUIPMENT);
+		Collection<QualifiedObject<CDOMReference<Equipment>>> added = changes.getAdded();
+		HashMapToList<List<Prerequisite>, CDOMReference<Equipment>> m = new HashMapToList<>();
 		if (added != null)
 		{
 			for (QualifiedObject<CDOMReference<Equipment>> qo : added)
@@ -200,8 +191,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 					}
 					catch (PersistenceLayerException e)
 					{
-						context.addWriteMessage("Error writing Prerequisite: "
-								+ e);
+						context.addWriteMessage("Error writing Prerequisite: " + e);
 						return null;
 					}
 				}
@@ -211,18 +201,15 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			List<CDOMReference<Equipment>> eq = m.getListFor(prereqs);
 			WeightedCollection<CDOMReference<Equipment>> refs =
-					new WeightedCollection<>(
-							ReferenceUtilities.REFERENCE_SORTER);
+					new WeightedCollection<>(ReferenceUtilities.REFERENCE_SORTER);
 			refs.addAll(eq);
 			String ab = ReferenceUtilities.joinLstFormat(refs, Constants.PIPE);
 			if (prereqs != null && !prereqs.isEmpty())
 			{
 				if (prereqs.size() > 1)
 				{
-					context.addWriteMessage("Error: "
-							+ obj.getClass().getSimpleName()
-							+ " had more than one Prerequisite for "
-							+ getFullName());
+					context.addWriteMessage("Error: " + obj.getClass().getSimpleName()
+						+ " had more than one Prerequisite for " + getFullName());
 					return null;
 				}
 				Prerequisite p = prereqs.get(0);

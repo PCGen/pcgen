@@ -1,0 +1,18 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 12957 $ $Author: jbaril $ -- Sun Jul  6 20:02:09 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Pathfinder Player Companion: Advanced Class Origins	SOURCESHORT:ACO	SOURCEWEB:http://paizo.com/products/btpy965z	SOURCEDATE:2014-10
+
+# Ability Name									Unique Key												Category of Ability		Type															!PRECHARACTERTYPE		Description																									Ability											Bonus Ability Pool
+CATEGORY=Archetype|Skald Archetype ~ Bekyar Demon Dancer.MOD																			TYPE:PFSNotLegal													!PRECHARACTERTYPE:1,PC
+CATEGORY=Archetype|Slayer Archetype ~ Sczarni Executioner.MOD																			TYPE:PFSNotLegal													!PRECHARACTERTYPE:1,PC
+
+CATEGORY=Archetype|Skald Archetype ~ Belkzen War Drummer.MOD																																																																ABILITY:Special Ability|AUTOMATIC|Belkzen War Drummer ~ Bonus Feat
+
+CATEGORY=Special Ability|Belkzen War Drummer ~ Weapon Master.MOD																			TYPE:PFSNotLegal													!PRECHARACTERTYPE:1,PC
+
+Bonus Feat										KEY:Belkzen War Drummer ~ Bonus Feat							CATEGORY:Special Ability	TYPE:Skald Class Features.BelkzenWarDrummerClassFeatures.SpecialQuality.Extraordinary					DESC:A war drummer receives their choice of Extra Performance, Skill Focus (Perform [percussion]), or Weapon Focus (club or greatclub) as a bonus feat.													BONUS:ABILITYPOOL|PFS Wardrummer Feat Choice|1
+
+Extra Performance									KEY:Belkzen War Drummer ~ Extra Performance						CATEGORY:Internal			TYPE:PFSWardrummerFeatChoice																																									ABILITY:FEAT|VIRTUAL|Extra Performance
+Skill Focus (Perform (Percussion Instruments))				KEY:Belkzen War Drummer ~ Skill Focus (Perform (Percussion Instruments))	CATEGORY:Internal			TYPE:PFSWardrummerFeatChoice																																									ABILITY:FEAT|VIRTUAL|Skill Focus (Perform (Percussion Instruments))
+Weapon Focus (Club)								KEY:Belkzen War Drummer ~ Weapon Focus (Club)						CATEGORY:Internal			TYPE:PFSWardrummerFeatChoice																																									ABILITY:FEAT|VIRTUAL|Weapon Focus (Club)
+Weapon Focus (Greatclub)							KEY:Belkzen War Drummer ~ Weapon Focus (Greatclub)					CATEGORY:Internal			TYPE:PFSWardrummerFeatChoice																																									ABILITY:FEAT|VIRTUAL|Weapon Focus (Greatclub)

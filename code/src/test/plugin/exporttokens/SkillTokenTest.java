@@ -1,5 +1,4 @@
 /*
- * SkillTokenTest.java
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,16 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Aug 6, 2004
- *
- * $Id$
- *
  */
 package plugin.exporttokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import static org.junit.Assert.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -48,12 +42,13 @@ import pcgen.io.exporttoken.SkillToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>SkillTokenTest</code> contains tests to verify that the
+ * {@code SkillTokenTest} contains tests to verify that the
  * SKILL token and its subtokens are working correctly.
- *
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 @SuppressWarnings("nls")
@@ -63,32 +58,11 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	private Skill[] knowledge = null;
 	private Skill tumble = null;
 
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(SkillTokenTest.class);
-	}
-
-	/**
-	 * Basic constructor, name only.
-	 * @param name The name of the test class.
-	 */
-	public SkillTokenTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		PlayerCharacter character = getCharacter();
 
 		final LevelInfo levelInfo = new LevelInfo();
 		levelInfo.setLevelString("LEVEL");
@@ -97,10 +71,6 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		GameMode gamemode = SettingsHandler.getGame();
 		gamemode.addLevelInfo("Default", levelInfo);
 
-		//Stats
-		setPCStat(character, dex, 16);
-		setPCStat(character, intel, 17);
-		
 		LoadContext context = Globals.getContext();
 		BonusObj aBonus = Bonus.newBonus(context, "MODSKILLPOINTS|NUMBER|INT");
 		
@@ -112,13 +82,13 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		// Race
 		Race testRace = new Race();
 		testRace.setName("TestRace");
-		character.setRace(testRace);
+		context.getReferenceContext().importObject(testRace);
 
 		// Class
 		PCClass myClass = new PCClass();
-		myClass.setName("My Class");
+		myClass.setName("MyClass");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		character.incrementClassLevel(5, myClass, true);
+		context.getReferenceContext().importObject(myClass);
 
 		//Skills
 		knowledge = new Skill[2];
@@ -129,7 +99,6 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		CDOMDirectSingleRef<PCStat> intelRef = CDOMDirectSingleRef.getRef(intel);
 		knowledge[0].put(ObjectKey.KEY_STAT, intelRef);
 		context.getReferenceContext().importObject(knowledge[0]);
-		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge[0]);
 
 		knowledge[1] = new Skill();
 		context.unconditionallyProcess(knowledge[1], "CLASSES", "MyClass");
@@ -137,7 +106,6 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		TestHelper.addType(knowledge[1], "KNOWLEDGE.INT");
 		knowledge[1].put(ObjectKey.KEY_STAT, intelRef);
 		context.getReferenceContext().importObject(knowledge[1]);
-		SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
 
 		tumble = new Skill();
 		context.unconditionallyProcess(tumble, "CLASSES", "MyClass");
@@ -146,7 +114,6 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		CDOMDirectSingleRef<PCStat> dexRef = CDOMDirectSingleRef.getRef(dex);
 		tumble.put(ObjectKey.KEY_STAT, dexRef);
 		context.getReferenceContext().importObject(tumble);
-		SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
 
 		balance = new Skill();
 		context.unconditionallyProcess(balance, "CLASSES", "MyClass");
@@ -160,17 +127,25 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 			balance.addToListFor(ListKey.BONUS, aBonus);
 		}
 		context.getReferenceContext().importObject(balance);
+		
+		finishLoad();
+		
+		PlayerCharacter character = getCharacter();
+		//Stats
+		setPCStat(character, dex, 16);
+		setPCStat(character, intel, 17);
+		
+		character.setRace(testRace);
+		character.incrementClassLevel(5, myClass, true);
 		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
-
-		context.getReferenceContext().buildDerivedObjects();
-		context.getReferenceContext().resolveReferences(null);
+		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge[0]);
+		SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
+		SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
 
 		character.calcActiveBonuses();
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
+	@AfterEach
 	@Override
 	protected void tearDown() throws Exception
 	{
@@ -185,6 +160,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SKILL token.
 	 */
+	@Test
 	public void testSkillToken()
 	{
 		PlayerCharacter character = getCharacter();
@@ -227,6 +203,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SKILLLEVEL token.
 	 */
+	@Test
 	public void testSkillLevelToken()
 	{
 		PlayerCharacter character = getCharacter();
@@ -241,6 +218,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SKILLSUBSET token.
 	 */
+	@Test
 	public void testSkillSubsetToken()
 	{
 		PlayerCharacter character = getCharacter();
@@ -257,6 +235,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SKILLTYPE token.
 	 */
+	@Test
 	public void testSkillTypeToken()
 	{
 		PlayerCharacter character = getCharacter();
@@ -269,4 +248,12 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		assertEquals("SkillTypeToken", "10", token.getToken(
 			"SKILLTYPE.1.DEX.TOTAL", character, null));
 	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Handle locally
+	}
+	
+	
 }

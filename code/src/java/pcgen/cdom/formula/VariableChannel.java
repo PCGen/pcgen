@@ -17,15 +17,17 @@
  */
 package pcgen.cdom.formula;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-
-import javax.swing.event.EventListenerList;
+import java.util.function.BiFunction;
 
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.solver.AggressiveSolverManager;
-import pcgen.facade.util.WriteableReferenceFacade;
-import pcgen.facade.util.event.ReferenceEvent;
-import pcgen.facade.util.event.ReferenceListener;
+import pcgen.base.solver.SolverManager;
+import pcgen.facade.util.AbstractReferenceFacade;
+import pcgen.facade.util.VetoableReferenceFacade;
+
+import org.apache.commons.collections4.CollectionUtils;
 
 /**
  * A VariableChannel provides a common mechanism for reading and writing to a
@@ -34,14 +36,14 @@ import pcgen.facade.util.event.ReferenceListener;
  * @param <T>
  *            The Format of the information contained in this VariableChannel
  */
-public final class VariableChannel<T> implements VariableListener<T>,
-		WriteableReferenceFacade<T>
+public final class VariableChannel<T> extends AbstractReferenceFacade<T>
+		implements VetoableReferenceFacade<T>
 {
 
 	/**
-	 * The underlying AggressiveSolverManager that solves the given VariableID
+	 * The underlying SolverManager that solves the given VariableID
 	 */
-	private final AggressiveSolverManager manager;
+	private final SolverManager manager;
 
 	/**
 	 * The VariableID indicating to which Variable this VariableChannel is
@@ -51,44 +53,42 @@ public final class VariableChannel<T> implements VariableListener<T>,
 
 	/**
 	 * The MonitorableVariableStore that the results of the calculations by the
-	 * AggressiveSolverManager are placed in.
+	 * SolverManager are placed in.
 	 */
 	private final MonitorableVariableStore varStore;
 
 	/**
-	 * The list of listeners that listen to this VariableChannel for
-	 * ReferenceEvents.
+	 * The private Listener, so that VariableChannel does not need to implement
+	 * VariableListener itself. (prevents exposure of internal behavior)
 	 */
-	private final EventListenerList listenerList = new EventListenerList();
+	private final Listener varListener = new Listener();
 
 	/**
-	 * Constructs a new VariableChannel with the given AggressiveSolverManager,
+	 * The list of functions allowed to veto changes to this variable channel.
+	 */
+	private List<BiFunction<T, T, Boolean>> vetoList = null;
+
+	/**
+	 * Constructs a new VariableChannel with the given SolverManager,
 	 * MonitorableVariableStore, and VariableID indicating the contents of the
 	 * Channel.
 	 * 
 	 * @param manager
-	 *            The underlying AggressiveSolverManager that solves the given
+	 *            The underlying SolverManager that solves the given
 	 *            VariableID
 	 * @param varStore
 	 *            The MonitorableVariableStore that the results of the
-	 *            calculations by the AggressiveSolverManager are placed in
+	 *            calculations by the SolverManager are placed in
 	 * @param varID
 	 *            The VariableID indicating to which Variable this
 	 *            VariableChannel is providing an interface
 	 */
-	private VariableChannel(AggressiveSolverManager manager,
-		MonitorableVariableStore varStore, VariableID<T> varID)
+	private VariableChannel(SolverManager manager, MonitorableVariableStore varStore,
+		VariableID<T> varID)
 	{
 		this.manager = Objects.requireNonNull(manager);
 		this.varStore = Objects.requireNonNull(varStore);
 		this.varID = Objects.requireNonNull(varID);
-	}
-
-	@Override
-	public void variableChanged(VariableChangeEvent<T> event)
-	{
-		fireReferenceChangedEvent(event.getSource(), event.getOldValue(),
-			event.getNewValue());
 	}
 
 	@Override
@@ -97,7 +97,7 @@ public final class VariableChannel<T> implements VariableListener<T>,
 		T value = varStore.get(varID);
 		if (value == null)
 		{
-			return manager.getDefaultValue(varID.getVariableFormat());
+			return manager.getDefaultValue(varID.getFormatManager());
 		}
 		return value;
 	}
@@ -105,8 +105,21 @@ public final class VariableChannel<T> implements VariableListener<T>,
 	@Override
 	public void set(T object)
 	{
-		varStore.put(varID, object);
-		manager.solveChildren(varID);
+		if (!checkForVeto(object))
+		{
+			varStore.put(varID, object);
+			manager.solveChildren(varID);
+		}
+	}
+
+	private boolean checkForVeto(T proposedValue)
+	{
+		T oldValue = varStore.get(varID);
+		return CollectionUtils.emptyIfNull(vetoList)
+			.stream()
+			.filter(f -> f.apply(oldValue, proposedValue))
+			.findAny()
+			.isPresent();
 	}
 
 	/**
@@ -121,40 +134,11 @@ public final class VariableChannel<T> implements VariableListener<T>,
 	 */
 	public void disconnect()
 	{
-		varStore.removeVariableListener(varID, this);
-	}
-
-	@Override
-	public void addReferenceListener(ReferenceListener<? super T> listener)
-	{
-		listenerList.add(ReferenceListener.class, listener);
-	}
-
-	@Override
-	public void removeReferenceListener(ReferenceListener<? super T> listener)
-	{
-		listenerList.remove(ReferenceListener.class, listener);
-	}
-
-	private void fireReferenceChangedEvent(Object source, T oldValue, T newValue)
-	{
-		ReferenceListener[] listeners =
-				listenerList.getListeners(ReferenceListener.class);
-		ReferenceEvent<T> e = null;
-		for (int i = listeners.length - 1; i >= 0; i--)
-		{
-			if (e == null)
-			{
-				e = new ReferenceEvent<>(source, oldValue, newValue);
-			}
-			listeners[i].referenceChanged(e);
-		}
+		varStore.removeVariableListener(varID, varListener);
 	}
 
 	/**
-	 * Constructs a new VariableChannel from the given parameters and links the
-	 * VariableChannel as a listener to the given MonitorableVariableStore (for
-	 * the given VariableID).
+	 * Returns the VariableID for this VariableChannel.
 	 * 
 	 * As a note on object cleanup: The returned VariableChannel is a listener
 	 * to the given MonitorableVariableStore. Should use of this VariableChannel
@@ -163,25 +147,52 @@ public final class VariableChannel<T> implements VariableListener<T>,
 	 * VariableChannel from the WriteableVariableStore.
 	 * 
 	 * @param manager
-	 *            The underlying AggressiveSolverManager that solves the given
+	 *            The underlying SolverManager that solves the given
 	 *            VariableID
 	 * @param varStore
 	 *            The MonitorableVariableStore that the results of the
-	 *            calculations by the AggressiveSolverManager are placed in
+	 *            calculations by the SolverManager are placed in
 	 * @param varID
 	 *            The VariableID indicating to which Variable this
 	 *            VariableChannel is providing an interface
 	 * @return A new VariableChannel linked as a listener to the given
 	 *         MonitorableVariableStore for the given VariableID
 	 */
-	public static <T> VariableChannel<T> construct(
-		AggressiveSolverManager manager, MonitorableVariableStore varStore,
-		VariableID<T> varID)
+	public static <T> VariableChannel<T> construct(SolverManager manager,
+		MonitorableVariableStore varStore, VariableID<T> varID)
 	{
 		VariableChannel<T> ref =
 				new VariableChannel<>(manager, varStore, varID);
-		varStore.addVariableListener(varID, ref);
+		varStore.addVariableListener(varID, ref.varListener);
 		return ref;
 	}
 
+	/**
+	 * Returns the VariableID for this VariableChannel.
+	 * 
+	 * @return The VariableID for this VariableChannel
+	 */
+	public VariableID<?> getVariableID()
+	{
+		return varID;
+	}
+
+	@Override
+	public void addVetoToChannel(BiFunction<T, T, Boolean> function)
+	{
+		if (vetoList == null)
+		{
+			vetoList = new ArrayList<>(2);
+		}
+		vetoList.add(Objects.requireNonNull(function));
+	}
+
+	private class Listener implements VariableListener<T>
+	{
+		@Override
+		public void variableChanged(VariableChangeEvent<T> event)
+		{
+			fireReferenceChangedEvent(event.getSource(), event.getOldValue(), event.getNewValue());
+		}
+	}
 }

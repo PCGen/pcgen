@@ -1,0 +1,14 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Chronicles: Classic Treasures Revisited	SOURCESHORT:CTR	SOURCEWEB:http://paizo.com/products/btpy8dmn?Pathfinder-Chronicles-Classic-Treasures-Revisited	SOURCEDATE:2010-05
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 9 March 2017
+
+# ==============================
+# New Magic Weapons
+# ==============================
+
+# Equipment Name		Required Weapon Proficiency	Type																Cost		Weight	Crit Mult	Crit Range	Damage	Modifier																																							Wield Category	Reach		Size		Source Page		Special Property
+Executioner's Hand	PROFICIENCY:WEAPON|Greatsword	TYPE:Weapon.Magic.Resizable.Melee.TwoHanded.Martial.Specific.Slashing.Sword.BladeHeavy		COST:50	WT:8		CRITMULT:x2	CRITRANGE:2	DAMAGE:2d6	EQMOD:Special Ability ~ Enhancement Cost|53950.Material ~ Adamantine ~ Weapon.Special Ability ~ +3 ~ Weapon																							WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.56	SPROP:Treated as a vorpal weapon during a coup de grace, confirms critical hits automatically in such a case
+Frostkiss Whip		PROFICIENCY:WEAPON|Whip		TYPE:Weapon.Magic.Resizable.Melee.OneHanded.Exotic.Specific.Reach.Finesseable.Slashing.Flail	COST:1	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Special Ability ~ Enhancement Cost|29999.Special Quality ~ Disarm.Material ~ Leather.Special Quality ~ Nonlethal.Special Quality ~ Trip.Special Ability ~ Vorpal ~ Melee.Special Ability ~ Frost ~ Weapon.Special Ability ~ +1 ~ Weapon	WIELD:OneHanded	REACH:15	SIZE:M	SOURCEPAGE:p.56	SPROP:Deals lethal damage, and it can deal damage even against creatures with armor bonuses greater than +1 or natural armor bonuses higher than +3.
+Jorngarl's Harm		PROFICIENCY:WEAPON|Greataxe	TYPE:Weapon.Magic.Melee.TwoHanded.Martial.Specific.Slashing.Axe						COST:20	WT:24		CRITMULT:x3	CRITRANGE:1	DAMAGE:3d6	EQMOD:Special Ability ~ Enhancement Cost|22000.Material ~ Adamantine ~ Weapon.Special Ability ~ Vorpal ~ Melee.Special Ability ~ Keen ~ Weapon.Special Ability ~ +2 ~ Weapon												WIELD:TwoHanded			SIZE:L	SOURCEPAGE:p.57	SPROP:Creatures killed by this blade have their souls trapped within and cannot be raised from the dead while so trapped.

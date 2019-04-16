@@ -1,5 +1,4 @@
 /*
- *  JIcon.java - 'icon' used for launching files from the notes plugin
  *  Copyright (C) 2003 Devon Jones
  *
  *  This library is free software; you can redistribute it and/or
@@ -15,69 +14,79 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  Created on May 24, 2003
  */
 package plugin.notes.gui;
 
-import gmgen.GMGenSystem;
-import pcgen.util.Logging;
-import plugin.notes.NotesPlugin;
-
-import javax.swing.*;
-import javax.swing.border.LineBorder;
-
-import org.apache.commons.lang.SystemUtils;
-
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Desktop;
 import java.awt.SystemColor;
-import java.awt.Color;
-import java.awt.BorderLayout;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
-import pcgen.gui2.tools.Icons;
+
+import javax.swing.Icon;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
+import javax.swing.filechooser.FileSystemView;
+
+import gmgen.GMGenSystem;
+import pcgen.io.PCGFile;
+import pcgen.util.Logging;
+import plugin.notes.NotesPlugin;
+
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  *  JIcon is a small form that uses an image, a button and some text to
  *  represent a file. You can launch files in supported operating systems from
  *  JIcon into their associated application.
- *
- *@author     soulcatcher
  */
-public class JIcon extends JPanel
+class JIcon extends JPanel
 {
-	private File launch;
-	NotesPlugin plugin;
+	private final File launch;
+	private final NotesPlugin plugin;
 
-	// Variables declaration - do not modify                     
+	// Variables declaration - do not modify
 	private JButton button;
 	private JLabel label;
-	private JMenuItem deleteMI;
 	private JPopupMenu contextMenu;
 
 	/**
-	 *  Creates new form JIcon
+	 * Creates new form JIcon
 	 *
-	 *@param  name  Name of the file to load (full path)
+	 * @param name file object for the JIcon
 	 * @param plugin
 	 */
-	public JIcon(File name, NotesPlugin plugin)
+	JIcon(File name, NotesPlugin plugin)
 	{
 		this.plugin = plugin;
 		initComponents();
 
 		if (name.getName().length() > 18)
 		{
-			label.setText(" " + name.getName().substring(0, 15) + "... ");
+			label.setText(' ' + name.getName().substring(0, 15) + "... ");
 		}
 		else
 		{
-			label.setText(" " + name.getName() + " ");
+			label.setText(' ' + name.getName() + ' ');
 		}
 
-		button.setIcon(getIconForType(name.getName()));
+		button.setIcon(getIconForType(name));
 		button.setToolTipText(name.getName());
 		this.launch = name;
 	}
@@ -85,69 +94,33 @@ public class JIcon extends JPanel
 	/**
 	 *  Gets the icon of the JIcon object
 	 *
-	 *@param  filename  File name that this represents
+	 *@param  file  File name that this represents
 	 *@return           The icon
 	 */
-	public ImageIcon getIconForType(String filename)
+	private Icon getIconForType(File file)
 	{
 		// TODO: this blows, it's hardcoded.  This needs to be in a properties file.
 		// XXX ideally this should be use mime type
-		String ext = filename.replaceFirst(".*\\.", "");
+		String ext = file.getName().replaceFirst(".*\\.", "");
+		String labelText = ' ' + file.getName() + ' ';
 
-		if (ext.equalsIgnoreCase("html") || ext.equalsIgnoreCase("htm"))
+		if (file.getName().length() > 18)
 		{
-			return Icons.createImageIcon("gnome-text-html.png");
+			labelText = ' ' + file.getName().substring(0, 15) + "... ";
 		}
-		else if (ext.equalsIgnoreCase("doc"))
-		{
-			return Icons.createImageIcon("win-word.png");
-		}
-		else if (ext.equalsIgnoreCase("pdf"))
-		{
-			return Icons.createImageIcon("win-acrobat.png");
-		}
-		else if (ext.equalsIgnoreCase("rtf"))
-		{
-			return Icons.createImageIcon("gnome-application-rtf.png");
-		}
-		else if (ext.equalsIgnoreCase("xls"))
-		{
-			return Icons.createImageIcon("win-excel.png");
-		}
-		else if (ext.equalsIgnoreCase("ppt"))
-		{
-			return Icons.createImageIcon("gnome-application-vnd.ms-powerpoint.png");
-		}
-		else if (ext.equalsIgnoreCase("txt"))
-		{
-			return Icons.createImageIcon("gnome-text-plain.png");
-		}
-		else if (ext.equalsIgnoreCase("fcw"))
-		{
-			return Icons.createImageIcon("win-cc2.png");
-		}
-		else if (ext.equalsIgnoreCase("zip"))
-		{
-			return Icons.createImageIcon("win-zip.png");
-		}
-		else if (ext.equalsIgnoreCase("jpg") || ext.equalsIgnoreCase("gif")
-			|| ext.equalsIgnoreCase("png"))
-		{
-			return Icons.createImageIcon("gnome-image-generic.png");
-		}
-		else
-		{
-			return Icons.createImageIcon("gnome-generic.png");
-		}
+		label.setText(labelText);
+
+		Icon ico = FileSystemView.getFileSystemView().getSystemIcon(file);
+		button.setIcon(ico);
+		button.setToolTipText(file.getName());
+		return ico;
 	}
 
 	/**  Delete the file from disk that this icon represents */
-	protected void deleteFile()
+	private void deleteFile()
 	{
-		int choice =
-				JOptionPane.showConfirmDialog(GMGenSystem.inst, "Delete file "
-					+ launch.getPath(), "Delete File?",
-					JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+		int choice = JOptionPane.showConfirmDialog(GMGenSystem.inst, "Delete file " + launch.getPath(), "Delete File?",
+			JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
 		if (choice == JOptionPane.YES_OPTION)
 		{
@@ -166,27 +139,24 @@ public class JIcon extends JPanel
 			}
 			catch (Exception e)
 			{
-				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
 		}
 	}
 
-	                                      
-
 	/**
 	 *  Launches a file into the appropriate program for the OS we are running on
 	 */
-	protected void launchFile()
+	private void launchFile()
 	{
-		if (plugin.isRecognizedFileType(launch))
+		if (PCGFile.isPCGenCharacterOrPartyFile(launch))
 		{
 			plugin.loadRecognizedFileType(launch);
 		}
 		else
 		{
 			boolean opened = false;
-			
+
 			// Use desktop if available
 			if (Desktop.isDesktopSupported())
 			{
@@ -208,25 +178,13 @@ public class JIcon extends JPanel
 
 			if (!opened)
 			{
-				// Unix
-				if (SystemUtils.IS_OS_UNIX )
+				if (SystemUtils.IS_OS_UNIX)
 				{
-					String openCmd;
-					if (SystemUtils.IS_OS_MAC_OSX)
-					{
-						// From the command line, the open command acts as if the argument was double clicked from the finder
-						// (see: man open)
-						openCmd = "/usr/bin/open";
-					}
-					else
-					{
-						// Tries freedesktop.org xdg-open. Quite often installed on Linux/BSD
-						openCmd = "xdg-open";
-					}
+					String openCmd = SystemUtils.IS_OS_MAC_OSX ? "/usr/bin/open" : "xdg-open";
 					String filePath = launch.getAbsolutePath();
 					String[] args = {openCmd, filePath};
 					Logging.debugPrintLocalised("Runtime.getRuntime().exec: [{0}] [{1}]", args[0], args[1]);
-	
+
 					try
 					{
 						Runtime.getRuntime().exec(args);
@@ -236,15 +194,11 @@ public class JIcon extends JPanel
 						Logging.errorPrint(e.getMessage(), e);
 					}
 				}
-	
-				//Windows
-				if(SystemUtils.IS_OS_WINDOWS)
+				else if (SystemUtils.IS_OS_WINDOWS)
 				{
 					try
 					{
-						String start =
-								(" rundll32 url.dll,FileProtocolHandler file://" + launch
-									.getAbsoluteFile());
+						String start = ("rundll32 url.dll,FileProtocolHandler file://" + launch.getAbsoluteFile());
 						Runtime.getRuntime().exec(start);
 					}
 					catch (Exception e)
@@ -256,33 +210,28 @@ public class JIcon extends JPanel
 		}
 	}
 
-	                                   
 	private void buttonActionPerformed(ActionEvent evt)
 	{
-		                                       
+
 	}
 
-	                                
 	private void buttonFocusGained(FocusEvent evt)
 	{
-		                                   
+
 		setBackground(SystemColor.textHighlight);
 		button.setBackground(SystemColor.textHighlight);
 	}
 
-	                                  
 	private void buttonFocusLost(FocusEvent evt)
 	{
-		                                 
+
 		setBackground((Color) UIManager.getDefaults().get("Panel.background"));
-		button.setBackground((Color) UIManager.getDefaults().get(
-			"Button.background"));
+		button.setBackground((Color) UIManager.getDefaults().get("Button.background"));
 	}
 
-	                                        
 	private void buttonKeyReleased(KeyEvent evt)
 	{
-		                                   
+
 		int key = evt.getKeyCode();
 
 		if (key == KeyEvent.VK_DELETE)
@@ -295,17 +244,15 @@ public class JIcon extends JPanel
 		}
 	}
 
-	                                  
 	private void buttonMouseClicked(MouseEvent evt)
 	{
-		                                    
+
 		if (evt.getClickCount() >= 2)
 		{
 			launchFile();
 		}
 	}
 
-	                        
 	private void buttonMouseReleased(MouseEvent evt)
 	{
 		//GEN-FIRST:event_buttonMouseReleased
@@ -318,7 +265,7 @@ public class JIcon extends JPanel
 	//GEN-LAST:event_buttonMouseReleased
 	private void deleteMIActionPerformed(ActionEvent evt)
 	{
-		                                         
+
 		deleteFile();
 	}
 
@@ -329,10 +276,10 @@ public class JIcon extends JPanel
 	 */
 	private void initComponents()
 	{
-		                          
+
 		contextMenu = new JPopupMenu();
 		JMenuItem launchMI = new JMenuItem();
-		deleteMI = new JMenuItem();
+		JMenuItem deleteMI = new JMenuItem();
 		button = new JButton();
 		label = new JLabel();
 
@@ -349,20 +296,19 @@ public class JIcon extends JPanel
 
 		setBackground((Color) UIManager.getDefaults().get("Panel.background"));
 		setBorder(new LineBorder(new Color(0, 0, 0)));
-		button.setBackground((Color) UIManager.getDefaults().get(
-			"Button.background"));
+		button.setBackground((Color) UIManager.getDefaults().get("Button.background"));
 		button.setBorder(null);
 		button.addActionListener(this::buttonActionPerformed);
 
 		button.addFocusListener(new FocusAdapter()
 		{
-            @Override
+			@Override
 			public void focusGained(FocusEvent evt)
 			{
 				buttonFocusGained(evt);
 			}
 
-            @Override
+			@Override
 			public void focusLost(FocusEvent evt)
 			{
 				buttonFocusLost(evt);
@@ -371,7 +317,7 @@ public class JIcon extends JPanel
 
 		button.addKeyListener(new KeyAdapter()
 		{
-            @Override
+			@Override
 			public void keyReleased(KeyEvent evt)
 			{
 				buttonKeyReleased(evt);
@@ -380,13 +326,13 @@ public class JIcon extends JPanel
 
 		button.addMouseListener(new MouseAdapter()
 		{
-            @Override
+			@Override
 			public void mouseClicked(MouseEvent evt)
 			{
 				buttonMouseClicked(evt);
 			}
 
-            @Override
+			@Override
 			public void mouseReleased(MouseEvent evt)
 			{
 				buttonMouseReleased(evt);
@@ -399,12 +345,9 @@ public class JIcon extends JPanel
 		add(label, BorderLayout.CENTER);
 	}
 
-	                                        
 	private void launchMIActionPerformed(ActionEvent evt)
 	{
-		                                         
+
 		launchFile();
 	}
-
-	// End of variables declaration                   
 }

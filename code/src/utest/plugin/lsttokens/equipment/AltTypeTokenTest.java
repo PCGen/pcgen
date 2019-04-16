@@ -17,24 +17,28 @@
  */
 package plugin.lsttokens.equipment;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Equipment;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Type>
 {
 
 	static AlttypeToken token = new AlttypeToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()
@@ -85,43 +89,42 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 	}
 
 	@Test
-	public void testReplacementRemove() throws PersistenceLayerException
+	public void testReplacementRemove()
 	{
 		String[] unparsed;
 		assertTrue(parse("REMOVE.TestWP1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNull("Expected item to be equal", unparsed);
+		assertNull(unparsed);
 
 		assertTrue(parse("TestWP1"));
 		assertTrue(parse("ADD.TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP1"
+		assertEquals("TestWP1"
 			+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be null", unparsed);
+			assertNull(unparsed);
 		}
 	}
 
 	@Test
-	public void testReplacementRemoveTwo() throws PersistenceLayerException
+	public void testReplacementRemoveTwo()
 	{
 		String[] unparsed;
 		assertTrue(parse("TestWP1"));
 		assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP1"
+		assertEquals("TestWP1"
 			+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		assertTrue(parse("REMOVE.TestWP1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
+		assertEquals("TestWP2", unparsed[0]);
 	}
 
 	@Test
 	public void testInputInvalidRemoveNoTrailing()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("TestWP1.REMOVE"));
 		assertNoSideEffects();
@@ -129,50 +132,50 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 
 	@Test
 	public void testInputInvalidAddNoTrailing()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("TestWP1.ADD"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidAddRemove() throws PersistenceLayerException
+	public void testInputInvalidAddRemove()
 	{
 		assertFalse(parse("TestWP1.ADD.REMOVE.TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidRemoveAdd() throws PersistenceLayerException
+	public void testInputInvalidRemoveAdd()
 	{
 		assertFalse(parse("TestWP1.REMOVE.ADD.TestWP2"));
 		assertNoSideEffects();
 	}
 
-	@Test
-    @Override
-	public void testInputInvalidClearDot() throws PersistenceLayerException
-	{
-		assertFalse(parse(".CLEAR."));
-		assertNoSideEffects();
-	}
+	//TODO: This is *weird*.  Types shouldn't require preconstruction, so this test shouldn't need to be overridden... but this test implies it DOES need preconstruction :/
+//	@Test
+//    @Override
+//	public void testInputInvalidClearDot()
+//	{
+//		assertFalse(parse(".CLEAR."));
+//		assertNoSideEffects();
+//	}
 
 	@Test
-	public void testInputInvalidEmbeddedClear() throws PersistenceLayerException
+	public void testInputInvalidEmbeddedClear()
 	{
 		assertFalse(parse("Type1.CLEAR"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidClearDirect() throws PersistenceLayerException
+	public void testInputInvalidClearDirect()
 	{
 		assertFalse(parse(".CLEARType1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidClearDot() throws PersistenceLayerException
+	public void testValidClearDot()
 	{
 		assertTrue(parse(".CLEAR.TestWP1"));
 		assertNoSideEffects();

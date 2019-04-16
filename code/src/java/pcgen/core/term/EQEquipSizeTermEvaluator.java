@@ -1,5 +1,4 @@
-/**
- * pcgen.core.term.EQEquipSizeTermEvaluator.java
+/*
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created 03-Oct-2008 02:45:23
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -35,22 +29,17 @@ public class EQEquipSizeTermEvaluator extends BaseEQTermEvaluator implements Ter
 	}
 
 	@Override
-	public Float resolve(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc)
+	public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(eq, primary, pc));
+		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	@Override
-	public String evaluate(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc) {
+	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
+	{
 		return eq.getSize();
 	}
-	
+
 	@Override
 	public boolean isSourceDependant()
 	{

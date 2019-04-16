@@ -17,12 +17,13 @@
  */
 package pcgen.cdom.enumeration;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class GroupingStateTest
+import org.junit.jupiter.api.Test;
+
+
+class GroupingStateTest
 {
-
 	@Test
 	public void testAddConsistent()
 	{

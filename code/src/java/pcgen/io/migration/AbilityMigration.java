@@ -1,5 +1,4 @@
 /*
- * AbilityMigration.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 02/06/2013
  *
- * $Id$
  */
 package pcgen.io.migration;
 
@@ -34,12 +31,15 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * used to allow clean loading of older characters which were saved with ability 
  * keys that have now been changed in the data.
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class AbilityMigration
 {
 
 	private static Map<int[], List<MigrationRule>> abilityChangesForVer = new HashMap<>();
+
+	private AbilityMigration()
+	{
+	}
 
 	/**
 	 * Find the new ability key to replace the provided one.
@@ -49,31 +49,24 @@ public final class AbilityMigration
 	 * @param pcgVer The version of PCGen in which the character was created.
 	 * @return The new ability key, or the passed in one if it has not changed.
 	 */
-	public static CategorisedKey getNewAbilityKey(String abilityCategory,
-	                                              String abilityKey, int[] pcgVer, String gameModeName)
+	public static CategorisedKey getNewAbilityKey(String abilityCategory, String abilityKey, int[] pcgVer,
+		String gameModeName)
 	{
-		List<MigrationRule> abilityChangeList =
-				abilityChangesForVer.get(pcgVer);
-		if (abilityChangeList == null)
-		{
-			abilityChangeList =
-					MigrationUtils.getChangeList(pcgVer, gameModeName,
-						ObjectType.ABILITY);
-			abilityChangesForVer.put(pcgVer, abilityChangeList);
-		}
+		List<MigrationRule> abilityChangeList = abilityChangesForVer.computeIfAbsent(pcgVer,
+			v -> MigrationUtils.getChangeList(v, gameModeName, ObjectType.ABILITY));
 
 		for (MigrationRule rule : abilityChangeList)
 		{
 			if (rule.getOldKey().equalsIgnoreCase(abilityKey)
 				&& rule.getOldCategory().equalsIgnoreCase(abilityCategory))
 			{
-				return new CategorisedKey(rule.getNewCategory() == null
-					? abilityCategory : rule.getNewCategory(), rule.getNewKey());
+				return new CategorisedKey((rule.getNewCategory() == null) ? abilityCategory : rule.getNewCategory(),
+					rule.getNewKey());
 			}
 		}
 		return new CategorisedKey(abilityCategory, abilityKey);
 	}
-	
+
 	/**
 	 * CategorisedKey is a container for a category and a key. 
 	 */
@@ -81,7 +74,7 @@ public final class AbilityMigration
 	{
 		private final String category;
 		private final String key;
-		
+
 		private CategorisedKey(String category, String key)
 		{
 			this.category = category;

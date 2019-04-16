@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21469 $ $Author: amaitland $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # ORIGINAL ENTRY: Andrew Maitland
@@ -23,36 +24,36 @@ CLASS:Gunslinger	STARTSKILLPTS:4
 ###Block: Ninja
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Define										Combat bonus																	Save bonus																																			Modify VAR																																																																									FACT						Serves As
-CLASS:Ninja		HD:8		TYPE:Base.PC.Rogue	MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLVL|0	DEFINE:RogueTalentLVL|0	DEFINE:KiPoolCha|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|NinjaLVL|CL	BONUS:VAR|KiPoolCha|1	BONUS:VAR|KiPool|1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Nin	SERVESAS:CLASS|Rogue
+CLASS:Ninja		HD:8		TYPE:Base.PC.Rogue	MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:NinjaLVL|0	DEFINE:RogueTalentLVL|0	DEFINE:KiPoolCha|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|NinjaLVL|CL	BONUS:VAR|KiPoolCha|1	BONUS:VAR|KiPool|1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Nin	SERVESAS:CLASS|Rogue	SERVESAS:CLASS|Rogue
 # Class Name	Multiple Requirements
 CLASS:Ninja		PREMULT:1,[PRECLASS:1,Ninja=1],[!PRECLASS:1,TYPE.Rogue=1]
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ninja		STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Local)|Knowledge (Nobility)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
+# Class Name	Skill Pts/Lvl
+CLASS:Ninja		STARTSKILLPTS:8
 1	ABILITY:Class|AUTOMATIC|Ninja
 ###Block: Vars
 4	BONUS:VAR|UncannyDodgeFlankingLevel|NinjaLVL|TYPE=EachClass.REPLACE
 4	BONUS:VAR|UncannyDodgeLVL|NinjaLVL/4
 8	BONUS:VAR|ImprovedUncannyDodgeFlankingLevel|NinjaLVL|TYPE=EachClass.REPLACE
 ###Block: Level progression
-1	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Poison Use|PREVAREQ:Ninja_CF_Poison,0
+1	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Poison Use|PREVAREQ:Ninja_CF_PoisonUse,0
 1	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Sneak Attack|PREVAREQ:Ninja_CF_SneakAttack,0
 2	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ninja Trick|PREVAREQ:Ninja_CF_Trick,0
 2	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ki Pool|PREVAREQ:Ninja_CF_KiPool,0
 3	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ No Trace|PREVAREQ:Ninja_CF_NoTrace,0
-4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREVAREQ:Ninja_CF_UncannyDodge,0
 6	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Light Steps|PREVAREQ:Ninja_CF_LightSteps,0
-8	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+8	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREVAREQ:Ninja_CF_ImprovedUncannyDodge,0
 20	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Hidden Master|PREVAREQ:Ninja_CF_HiddenMaster,0
 
 
 ###Block: Samurai
 
 # Class Name	Hit Dice	Type				Max Level	Source Page		Define									Combat bonus																Save bonus																																		Modify VAR																																																																							FACT						Serves As
-CLASS:Samurai	HD:10		TYPE:Base.PC.Cavalier	MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:FighterWeaponQualifyLVL|0	DEFINE:SamuraiLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|FighterWeaponQualifyLVL|CL	BONUS:VAR|SamuraiLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Sam	SERVESAS:CLASS|Cavalier
+CLASS:Samurai	HD:10		TYPE:Base.PC.Cavalier	MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:FighterWeaponQualifyLVL|0	DEFINE:SamuraiLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|FighterWeaponQualifyLVL|CL	BONUS:VAR|SamuraiLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Sam	SERVESAS:CLASS|Cavalier	SERVESAS:CLASS|Cavalier
 # Class Name	Multiple Requirements
 CLASS:Samurai	PREMULT:1,[PRECLASS:1,Samurai=1],[!PRECLASS:1,TYPE.Cavalier=1]
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
+# Class Name	Skill Pts/Lvl
+CLASS:Samurai	STARTSKILLPTS:4
 1	ABILITY:Class|AUTOMATIC|Samurai
 ###Block: Level progression
 1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Challenge|PREVAREQ:Samurai_CF_Challenge,0

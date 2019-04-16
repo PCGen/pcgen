@@ -1,9 +1,10 @@
 package plugin.jepcommands;
 
-import org.nfunk.jep.ParseException;
+import java.util.Stack;
+
 import pcgen.util.PCGenCommand;
 
-import java.util.Stack;
+import org.nfunk.jep.ParseException;
 
 /**
  * Deal with max() JEP command eg. {@literal max(12.6, 20) --> 20}
@@ -15,7 +16,6 @@ public class MaxCommand extends PCGenCommand
 	 * Initializes the number of parameters to = -1, indicating a variable
 	 * number of parameters.
 	 * </p>
-	 *
 	 */
 	public MaxCommand()
 	{
@@ -27,7 +27,7 @@ public class MaxCommand extends PCGenCommand
 	 * Gets the name of the function handled by this class.
 	 * @return The name of the function.
 	 */
-    @Override
+	@Override
 	public String getFunctionName()
 	{
 		return "MAX";
@@ -44,7 +44,7 @@ public class MaxCommand extends PCGenCommand
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-    @Override
+	@Override
 	public void run(final Stack stack) throws ParseException
 	{
 		// Check if stack is null
@@ -53,7 +53,7 @@ public class MaxCommand extends PCGenCommand
 			throw new ParseException("Stack argument null");
 		}
 
-        double result = 0;
+		double result = 0;
 		boolean first = true;
 		int i = 0;
 
@@ -61,8 +61,8 @@ public class MaxCommand extends PCGenCommand
 		while (i < curNumberOfParameters)
 		{
 			// get the parameter from the stack
-            final Object param = stack.pop();
-            if (param instanceof Number)
+			final Object param = stack.pop();
+			if (param instanceof Number)
 			{
 				// calculate the result
 				if (first || ((Number) param).doubleValue() > result)

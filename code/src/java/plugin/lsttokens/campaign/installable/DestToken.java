@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 27/12/2007
- *
- * $Id$
  */
 package plugin.lsttokens.campaign.installable;
 
@@ -32,37 +28,27 @@ import pcgen.persistence.lst.InstallLstToken;
 import pcgen.util.Logging;
 
 /**
- * <code>DestToken</code> parses DEST tokens in installable campaigns.
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ * {@code DestToken} parses DEST tokens in installable campaigns.
  */
 public class DestToken implements InstallLstToken
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "DEST";
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.InstallLstToken#parse(pcgen.core.Campaign, java.lang.String, java.net.URI)
-	 */
-    @Override
+	@Override
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		if (!(campaign instanceof InstallableCampaign))
 		{
-			Logging.log(Logging.ERROR, "Campaign " + campaign.getDisplayName()
-				+ " is not an installable campaign.");
+			Logging.log(Logging.ERROR, "Campaign " + campaign.getDisplayName() + " is not an installable campaign.");
 			return false;
 		}
 		InstallableCampaign ic = (InstallableCampaign) campaign;
-		
+
 		if (value.equals("DATA"))
 		{
 			ic.put(ObjectKey.DESTINATION, Destination.DATA);
@@ -73,11 +59,11 @@ public class DestToken implements InstallLstToken
 		}
 		else
 		{
-			Logging.log(Logging.LST_ERROR, "DEST value '" + value
-				+ "' not valid for campaign " + campaign.getDisplayName());
+			Logging.log(Logging.LST_ERROR,
+				"DEST value '" + value + "' not valid for campaign " + campaign.getDisplayName());
 			return false;
 		}
-		
+
 		return true;
 	}
 }

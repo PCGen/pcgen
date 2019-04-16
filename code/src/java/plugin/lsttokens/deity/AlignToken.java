@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with ALIGN Token
  */
-public class AlignToken extends AbstractNonEmptyToken<Deity> implements
-		CDOMPrimaryToken<Deity>
+public class AlignToken extends AbstractNonEmptyToken<Deity> implements CDOMPrimaryToken<Deity>
 {
 
 	@Override
@@ -42,9 +41,7 @@ public class AlignToken extends AbstractNonEmptyToken<Deity> implements
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, Deity deity, String value)
 	{
-		CDOMSingleRef<PCAlignment> al =
-				context.getReferenceContext().getCDOMReference(
-					PCAlignment.class, value);
+		CDOMSingleRef<PCAlignment> al = context.getReferenceContext().getCDOMReference(PCAlignment.class, value);
 		context.getObjectContext().put(deity, ObjectKey.ALIGNMENT, al);
 		return ParseResult.SUCCESS;
 	}
@@ -52,9 +49,7 @@ public class AlignToken extends AbstractNonEmptyToken<Deity> implements
 	@Override
 	public String[] unparse(LoadContext context, Deity deity)
 	{
-		CDOMSingleRef<PCAlignment> at =
-				context.getObjectContext()
-					.getObject(deity, ObjectKey.ALIGNMENT);
+		CDOMSingleRef<PCAlignment> at = context.getObjectContext().getObject(deity, ObjectKey.ALIGNMENT);
 		if (at == null)
 		{
 			return null;

@@ -43,7 +43,7 @@ BIO
 			<favoredweapon>Rapier</favoredweapon>
 			<holyitem></holyitem>
 			<pantheonlist>Pathfinder Chronicles</pantheonlist>
-			<source>Paizo Inc. - Advanced Player's Guide, p.91</source>
+			<source>Paizo Inc. - Advanced Player&#39;s Guide, p.91</source>
 			<special_abilities></special_abilities>
 			<appearance></appearance>
 			<title></title>
@@ -68,9 +68,9 @@ BIO
 		</skin>
 		<cr>11</cr>
 		<face>
-		<face>5 ft.</face>
+		<face>5 ft. by 5 ft.</face>
 			<short>5 ft.</short>
-			<squares>1</squares>
+			<squares>1 x 1</squares>
 		</face>
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
@@ -1132,6 +1132,61 @@ BIO
 		<weapon>
 			<common>
 				<name>
+					<short>Oil</short>
+					<long>Oil, 1 Pint Flask</long>
+				</name>
+				<category>Non-Standard-Ranged</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+14/+9</hit>
+					<magic_hit>-2</magic_hit>
+					<total_hit>+14/+9</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Not Carried</hand>
+				<num_attacks>2</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties>splash weapon, full-round action to prepare, 50% chance to ignite</special_properties>
+				<template></template>
+				<type>F</type>
+				<weight>1</weight>
+				<sequence>3</sequence>
+			</common>
+			<ranges>
+				<range>
+					<distance>10 ft.</distance>
+					<to_hit>+14/+9</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>20 ft.</distance>
+					<to_hit>+12/+7</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>30 ft.</distance>
+					<to_hit>+10/+5</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>40 ft.</distance>
+					<to_hit>+8/+3</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>50 ft.</distance>
+					<to_hit>+6/+1</to_hit>
+					<damage>1d6</damage>
+				</range>
+			</ranges>
+		</weapon>
+		<weapon>
+			<common>
+				<name>
 					<short>Sling (Small)</short>
 					<long>Sling (Small)</long>
 				</name>
@@ -1154,7 +1209,7 @@ BIO
 				<template></template>
 				<type>B</type>
 				<weight>0</weight>
-				<sequence>3</sequence>
+				<sequence>4</sequence>
 			</common>
 			<ranges>
 				<range>
@@ -1205,11 +1260,11 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
-				<special_properties>Deals nonlethal damage (pg. 145)</special_properties>
+				<special_properties>nonlethal</special_properties>
 				<template></template>
 				<type>B</type>
 				<weight>1</weight>
-				<sequence>4</sequence>
+				<sequence>5</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1269,7 +1324,7 @@ BIO
 				<template></template>
 				<type>PS</type>
 				<weight>0</weight>
-				<sequence>5</sequence>
+				<sequence>6</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1352,11 +1407,11 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
-				<special_properties>10 hp/inch, hardness 8</special_properties>
+				<special_properties>silver</special_properties>
 				<template></template>
 				<type>BP</type>
 				<weight>3</weight>
-				<sequence>7</sequence>
+				<sequence>8</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1412,11 +1467,11 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>S</size>
-				<special_properties>30 hp/inch, hardness 10</special_properties>
+				<special_properties>cold iron</special_properties>
 				<template></template>
 				<type>P</type>
 				<weight>1</weight>
-				<sequence>8</sequence>
+				<sequence>9</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1468,7 +1523,7 @@ BIO
 			<maxdex>+6</maxdex>
 			<move></move>
 			<spellfail>10</spellfail>
-			<special_properties>30 hp/inch, hardness 15</special_properties>
+			<special_properties>mithral</special_properties>
 			<totalac>+5</totalac>
 			<type>Light</type>
 			<wt>6.25</wt>
@@ -1485,7 +1540,7 @@ BIO
 			<special_properties></special_properties>
 			<totalac>+2</totalac>
 			<type></type>
-			<wt>0.02</wt>
+			<wt>0</wt>
 		</item>
 		<item>
 			<name>*Ring of Protection +2</name>
@@ -1512,7 +1567,10 @@ BIO
 	<!-- Bard -->
 
 
-	<!-- Character Rage -->
+	<!-- Pathfinder -->
+		<!-- Character Rage -->
+		<!-- Character Rage -->
+
 	<!-- Turning ability -->
 
 	<!-- 3.0 stunning fist -->
@@ -1558,8 +1616,8 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>MAGIC.WONDROUS.AMULET</type>
-			<weight>0.02</weight>
+			<type>MAGIC.WONDROUS.NECK.AMULET</type>
+			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
@@ -1610,7 +1668,7 @@ BIO
 				<short>S</short>
 			</size>
 			<special_properties></special_properties>
-			<type>MAGIC.WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.FINESSEABLE.RANGED.THROWN.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>0.5</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1636,7 +1694,7 @@ BIO
 				<short>S</short>
 			</size>
 			<special_properties></special_properties>
-			<type>MAGIC.WEAPON.RESIZABLE.MELEE.ONEHANDED.MARTIAL.FINESSEABLE.STANDARD.PIERCING.SWORD.BLADELIGHT.MELEEPIERCING.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.FINESSEABLE.PIERCING.MELEEPIERCING.SWORD.BLADELIGHT.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1739,8 +1797,8 @@ BIO
 				<long>Small</long>
 				<short>S</short>
 			</size>
-			<special_properties>30 hp/inch, hardness 15</special_properties>
-			<type>MAGIC.ARMOR.LIGHT.ARMORPROFLIGHT.SUIT.STANDARD.CUSTOM.METAL.MITHRAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<special_properties>mithral</special_properties>
+			<type>MAGIC.ARMOR.LIGHT.ARMORPROFLIGHT.SUIT.CUSTOM.METAL.MITHRAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>6.25</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1766,7 +1824,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>MAGIC.WONDROUS.CLOAK.CLOTH</type>
+			<type>MAGIC.WONDROUS.SHOULDERS.CLOAK.CLOTH</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1818,14 +1876,14 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>MAGIC.WONDROUS.BOOT</type>
+			<type>MAGIC.WONDROUS.FEET.BOOT</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
 			<longname>Bullets, Sling (10)</longname>
 			<id></id>
-			<name>Bullets, Sling (10)</name>
+			<name>10 Bullets</name>
 			<carried>2.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1844,7 +1902,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>AMMUNITION.RESIZABLE.STANDARD.BULLET.METAL</type>
+			<type>AMMUNITION.RESIZABLE.BULLET.STACK.METAL</type>
 			<weight>5</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1855,9 +1913,9 @@ BIO
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>9.5 lbs., 1 Case (Map or Scroll), 1 Flint and Steel, 2 Inkpen, 1 Lantern (Bullseye), 1 Oil (1 Pint Flask), 1 Potion of Cure Light Wounds, 1 Rations (Trail/Per Day), 1 Rope of Climbing, 1 Sealing Wax</contents>
-			<contents_num>9</contents_num>
-			<content_weight>9.5</content_weight>
+			<contents>9 lbs., 1 Flint and Steel, 2 Inkpen, 1 Bullseye Lantern, 1 Oil, 1 Potion of Cure Light Wounds, 1 Trail Ration, 1 Rope of Climbing, 1 Sealing Wax</contents>
+			<contents_num>8</contents_num>
+			<content_weight>9</content_weight>
 			<cost>50</cost>
 			<equipped>Y</equipped>
 			<location>Equipped</location>
@@ -1875,32 +1933,6 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Case (Map or Scroll)</longname>
-			<id></id>
-			<name>Case (Map or Scroll)</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents>0 lbs., 1 Map of Inner Daggermark, 4 Parchment (Sheet)</contents>
-			<contents_num>2</contents_num>
-			<content_weight>0</content_weight>
-			<cost>1</cost>
-			<equipped>N</equipped>
-			<location>Backpack (Masterwork) (Small)</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>GOODS.CONTAINER.GENERAL</type>
-			<weight>0.5</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
 			<longname>Map of Inner Daggermark</longname>
 			<id></id>
 			<name>Map of Inner Daggermark</name>
@@ -1912,7 +1944,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>0.2</cost>
 			<equipped>N</equipped>
-			<location>Case (Map or Scroll)</location>
+			<location>Carried</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -1929,7 +1961,7 @@ BIO
 		<item>
 			<longname>Parchment (Sheet)</longname>
 			<id></id>
-			<name>Parchment (Sheet)</name>
+			<name>Parchment</name>
 			<carried>4.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1938,7 +1970,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>0.2</cost>
 			<equipped>N</equipped>
-			<location>Case (Map or Scroll)</location>
+			<location>Carried</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>4</quantity>
@@ -2005,9 +2037,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Lantern (Bullseye)</longname>
+			<longname>Lantern, Bullseye</longname>
 			<id></id>
-			<name>Lantern (Bullseye)</name>
+			<name>Bullseye Lantern</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2025,15 +2057,15 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>Normal illumination (60&#39;), plus 1 step (120&#39;), 6 hr./pint</special_properties>
-			<type>GOODS.GENERAL.LIGHTSOURCE</type>
+			<special_properties></special_properties>
+			<type>GOODS.GENERAL.LIGHT SOURCE</type>
 			<weight>3</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Oil (1 Pint Flask)</longname>
+			<longname>Oil, 1 Pint Flask</longname>
 			<id></id>
-			<name>Oil (1 Pint Flask)</name>
+			<name>Oil</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2051,15 +2083,15 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties></special_properties>
-			<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
+			<special_properties>splash weapon, full-round action to prepare, 50% chance to ignite</special_properties>
+			<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.FIRE.SPLASH</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Oil (1 Pint Flask)</longname>
+			<longname>Oil, 1 Pint Flask</longname>
 			<id></id>
-			<name>Oil (1 Pint Flask)</name>
+			<name>Oil</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2077,8 +2109,8 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties></special_properties>
-			<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
+			<special_properties>splash weapon, full-round action to prepare, 50% chance to ignite</special_properties>
+			<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.FIRE.SPLASH</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2104,14 +2136,14 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties>Cures 1d8+1 points of damage</special_properties>
-			<type>MAGIC.POTION.CONSUMABLE</type>
+			<type>MAGIC.POTION.CONSUMABLE.COMBAT GEAR.ENHANCEMENT</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Rations (Trail/Per Day)</longname>
+			<longname>Rations, Trail</longname>
 			<id></id>
-			<name>Rations (Trail/Per Day)</name>
+			<name>Trail Ration</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2135,9 +2167,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Rations (Trail/Per Day)</longname>
+			<longname>Rations, Trail</longname>
 			<id></id>
-			<name>Rations (Trail/Per Day)</name>
+			<name>Trail Ration</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2239,13 +2271,13 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Pouch (Belt)</longname>
+			<longname>Pouch, Belt</longname>
 			<id></id>
-			<name>Pouch (Belt)</name>
+			<name>Belt Pouch</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>0.14 lbs., 1 Coin (Gold Piece), 6 Coin (Silver Piece)</contents>
+			<contents>0.14 lbs., 1 Gold Piece, 6 Silver Piece</contents>
 			<contents_num>2</contents_num>
 			<content_weight>0.14</content_weight>
 			<cost>1</cost>
@@ -2265,9 +2297,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Coin (Gold Piece)</longname>
+			<longname>Gold Piece</longname>
 			<id></id>
-			<name>Coin (Gold Piece)</name>
+			<name>Gold Piece</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2276,7 +2308,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>1</cost>
 			<equipped>N</equipped>
-			<location>Pouch (Belt)</location>
+			<location>Belt Pouch</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -2291,9 +2323,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Coin (Silver Piece)</longname>
+			<longname>Silver Piece</longname>
 			<id></id>
-			<name>Coin (Silver Piece)</name>
+			<name>Silver Piece</name>
 			<carried>6.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2302,7 +2334,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>0.1</cost>
 			<equipped>N</equipped>
-			<location>Pouch (Belt)</location>
+			<location>Belt Pouch</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>6</quantity>
@@ -2338,7 +2370,7 @@ BIO
 				<short>S</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.BLUDGEONING.CONTAINER.PROJECTILE.SLING.WEAPON GROUP THROWN.CUSTOM</type>
+			<type>WEAPON.RESIZABLE.RANGED.SIMPLE.CONTAINER.PROJECTILE.BLUDGEONING.SLING.WEAPON GROUP THROWN.CUSTOM</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2363,19 +2395,19 @@ BIO
 				<long>Small</long>
 				<short>S</short>
 			</size>
-			<special_properties>Deals nonlethal damage (pg. 145)</special_properties>
-			<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.MARTIAL.STANDARD.BLUDGEONING.SAP.CLOSE.WEAPON GROUP CLOSE.CUSTOM.NONLETHAL.MASTERWORK</type>
+			<special_properties>nonlethal</special_properties>
+			<type>WEAPON.RESIZABLE.MELEE.MARTIAL.LIGHT.FINESSEABLE.BLUDGEONING.SAP.CLOSE.WEAPON GROUP CLOSE.CUSTOM.NONLETHAL.MASTERWORK</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Dog (Riding)</longname>
+			<longname>Dog, Riding</longname>
 			<id></id>
-			<name>Dog (Riding)</name>
+			<name>Riding Dog</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>73.5 lbs., 1 Dagger (Small), 1 Bedroll, 1 Masterwork Morningstar (Small/Alchemical Silver), 1 Masterwork Rapier (Small/Cold Iron), 1 Saddle (Riding), 1 Saddlebags, 1 Waterskin</contents>
+			<contents>73.5 lbs., 1 Dagger (Small), 1 Bedroll, 1 Masterwork Morningstar (Small/Alchemical Silver), 1 Masterwork Rapier (Small/Cold Iron), 1 Riding Saddle, 1 Saddlebags, 1 Waterskin</contents>
 			<contents_num>7</contents_num>
 			<content_weight>73.5</content_weight>
 			<cost>150</cost>
@@ -2406,7 +2438,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>2</cost>
 			<equipped>N</equipped>
-			<location>Dog (Riding)</location>
+			<location>Riding Dog</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -2416,7 +2448,7 @@ BIO
 				<short>S</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL</type>
+			<type>WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.FINESSEABLE.RANGED.THROWN.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL</type>
 			<weight>0.5</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2432,7 +2464,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>0.1</cost>
 			<equipped>N</equipped>
-			<location>Dog (Riding)</location>
+			<location>Riding Dog</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -2458,7 +2490,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>398</cost>
 			<equipped>N</equipped>
-			<location>Dog (Riding)</location>
+			<location>Riding Dog</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -2467,8 +2499,8 @@ BIO
 				<long>Small</long>
 				<short>S</short>
 			</size>
-			<special_properties>10 hp/inch, hardness 8</special_properties>
-			<type>WEAPON.RESIZABLE.MELEE.ONEHANDED.SIMPLE.STANDARD.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.SILVER.MASTERWORK</type>
+			<special_properties>silver</special_properties>
+			<type>WEAPON.RESIZABLE.MELEE.SIMPLE.ONEHANDED.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.SILVER.MASTERWORK</type>
 			<weight>3</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2484,7 +2516,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>340</cost>
 			<equipped>N</equipped>
-			<location>Dog (Riding)</location>
+			<location>Riding Dog</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -2493,15 +2525,15 @@ BIO
 				<long>Small</long>
 				<short>S</short>
 			</size>
-			<special_properties>30 hp/inch, hardness 10</special_properties>
-			<type>WEAPON.RESIZABLE.MELEE.ONEHANDED.MARTIAL.FINESSEABLE.STANDARD.PIERCING.SWORD.BLADELIGHT.MELEEPIERCING.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.COLDIRON</type>
+			<special_properties>cold iron</special_properties>
+			<type>WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.FINESSEABLE.PIERCING.MELEEPIERCING.SWORD.BLADELIGHT.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.COLDIRON</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Saddle (Riding)</longname>
+			<longname>Saddle, Riding</longname>
 			<id></id>
-			<name>Saddle (Riding)</name>
+			<name>Riding Saddle</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2510,7 +2542,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>10</cost>
 			<equipped>N</equipped>
-			<location>Dog (Riding)</location>
+			<location>Riding Dog</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -2531,12 +2563,12 @@ BIO
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>31 lbs., 1 Oil (1 Pint Flask), 4 Rations (Trail/Per Day), 1 Grappling Hook, 1 Map Maker&#39;s Kit, 1 Tent</contents>
+			<contents>31 lbs., 1 Oil, 4 Trail Ration, 1 Grappling Hook, 1 Map Maker&#39;s Kit, 1 Small Tent</contents>
 			<contents_num>5</contents_num>
 			<content_weight>31</content_weight>
 			<cost>4</cost>
 			<equipped>N</equipped>
-			<location>Dog (Riding)</location>
+			<location>Riding Dog</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -2605,7 +2637,7 @@ BIO
 		<item>
 			<longname>Tent</longname>
 			<id></id>
-			<name>Tent</name>
+			<name>Small Tent</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2640,7 +2672,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>1</cost>
 			<equipped>N</equipped>
-			<location>Dog (Riding)</location>
+			<location>Riding Dog</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -2655,7 +2687,7 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<total>
-			<weight>36.91 lbs.</weight>
+			<weight>36.39 lbs.</weight>
 			<value>49170.8 gp</value>
 			<load>Light</load>
 			<capacity>112.5</capacity>
@@ -2679,8 +2711,8 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>MAGIC.WONDROUS.AMULET</type>
-				<weight>0.02</weight>
+				<type>MAGIC.WONDROUS.NECK.AMULET</type>
+				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
@@ -2721,7 +2753,7 @@ BIO
 					<short>S</short>
 				</size>
 				<special_properties></special_properties>
-				<type>MAGIC.WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.FINESSEABLE.RANGED.THROWN.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>0.5</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2742,7 +2774,7 @@ BIO
 					<short>S</short>
 				</size>
 				<special_properties></special_properties>
-				<type>MAGIC.WEAPON.RESIZABLE.MELEE.ONEHANDED.MARTIAL.FINESSEABLE.STANDARD.PIERCING.SWORD.BLADELIGHT.MELEEPIERCING.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.FINESSEABLE.PIERCING.MELEEPIERCING.SWORD.BLADELIGHT.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2825,8 +2857,8 @@ BIO
 					<long>Small</long>
 					<short>S</short>
 				</size>
-				<special_properties>30 hp/inch, hardness 15</special_properties>
-				<type>MAGIC.ARMOR.LIGHT.ARMORPROFLIGHT.SUIT.STANDARD.CUSTOM.METAL.MITHRAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<special_properties>mithral</special_properties>
+				<type>MAGIC.ARMOR.LIGHT.ARMORPROFLIGHT.SUIT.CUSTOM.METAL.MITHRAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>6.25</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2847,7 +2879,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>MAGIC.WONDROUS.CLOAK.CLOTH</type>
+				<type>MAGIC.WONDROUS.SHOULDERS.CLOAK.CLOTH</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2889,12 +2921,12 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>MAGIC.WONDROUS.BOOT</type>
+				<type>MAGIC.WONDROUS.FEET.BOOT</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Bullets, Sling (10)</name>
+				<name>10 Bullets</name>
 				<carried>2.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2910,7 +2942,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>AMMUNITION.RESIZABLE.STANDARD.BULLET.METAL</type>
+				<type>AMMUNITION.RESIZABLE.BULLET.STACK.METAL</type>
 				<weight>5</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2919,7 +2951,7 @@ BIO
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>9.5 lbs., 1 Case (Map or Scroll), 1 Flint and Steel, 2 Inkpen, 1 Lantern (Bullseye), 1 Oil (1 Pint Flask), 1 Potion of Cure Light Wounds, 1 Rations (Trail/Per Day), 1 Rope of Climbing, 1 Sealing Wax</contents>
+				<contents>9 lbs., 1 Flint and Steel, 2 Inkpen, 1 Bullseye Lantern, 1 Oil, 1 Potion of Cure Light Wounds, 1 Trail Ration, 1 Rope of Climbing, 1 Sealing Wax</contents>
 				<cost>50</cost>
 				<equipped>Y</equipped>
 				<location>Equipped</location>
@@ -2936,27 +2968,6 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Case (Map or Scroll)</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents>0 lbs., 1 Map of Inner Daggermark, 4 Parchment (Sheet)</contents>
-				<cost>1</cost>
-				<equipped>N</equipped>
-				<location>Backpack (Masterwork) (Small)</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties></special_properties>
-				<type>GOODS.CONTAINER.GENERAL</type>
-				<weight>0.5</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
 				<name>Map of Inner Daggermark</name>
 				<carried>1.0</carried>
 				<charges></charges>
@@ -2964,7 +2975,7 @@ BIO
 				<contents></contents>
 				<cost>0.2</cost>
 				<equipped>N</equipped>
-				<location>Case (Map or Scroll)</location>
+				<location>Carried</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -2978,14 +2989,14 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Parchment (Sheet)</name>
+				<name>Parchment</name>
 				<carried>4.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
 				<contents></contents>
 				<cost>0.2</cost>
 				<equipped>N</equipped>
-				<location>Case (Map or Scroll)</location>
+				<location>Carried</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>4</quantity>
@@ -3041,7 +3052,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Lantern (Bullseye)</name>
+				<name>Bullseye Lantern</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -3056,13 +3067,13 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties>Normal illumination (60&#39;), plus 1 step (120&#39;), 6 hr./pint</special_properties>
-				<type>GOODS.GENERAL.LIGHTSOURCE</type>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.LIGHT SOURCE</type>
 				<weight>3</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Oil (1 Pint Flask)</name>
+				<name>Oil</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -3077,13 +3088,13 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties></special_properties>
-				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
+				<special_properties>splash weapon, full-round action to prepare, 50% chance to ignite</special_properties>
+				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.FIRE.SPLASH</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Oil (1 Pint Flask)</name>
+				<name>Oil</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -3098,8 +3109,8 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties></special_properties>
-				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
+				<special_properties>splash weapon, full-round action to prepare, 50% chance to ignite</special_properties>
+				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.FIRE.SPLASH</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -3120,12 +3131,12 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties>Cures 1d8+1 points of damage</special_properties>
-				<type>MAGIC.POTION.CONSUMABLE</type>
+				<type>MAGIC.POTION.CONSUMABLE.COMBAT GEAR.ENHANCEMENT</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Rations (Trail/Per Day)</name>
+				<name>Trail Ration</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -3146,7 +3157,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Rations (Trail/Per Day)</name>
+				<name>Trail Ration</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -3230,11 +3241,11 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Pouch (Belt)</name>
+				<name>Belt Pouch</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>0.14 lbs., 1 Coin (Gold Piece), 6 Coin (Silver Piece)</contents>
+				<contents>0.14 lbs., 1 Gold Piece, 6 Silver Piece</contents>
 				<cost>1</cost>
 				<equipped>Y</equipped>
 				<location>Equipped</location>
@@ -3251,14 +3262,14 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Coin (Gold Piece)</name>
+				<name>Gold Piece</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
 				<contents></contents>
 				<cost>1</cost>
 				<equipped>N</equipped>
-				<location>Pouch (Belt)</location>
+				<location>Belt Pouch</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -3272,14 +3283,14 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Coin (Silver Piece)</name>
+				<name>Silver Piece</name>
 				<carried>6.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
 				<contents></contents>
 				<cost>0.1</cost>
 				<equipped>N</equipped>
-				<location>Pouch (Belt)</location>
+				<location>Belt Pouch</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>6</quantity>
@@ -3309,7 +3320,7 @@ BIO
 					<short>S</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.BLUDGEONING.CONTAINER.PROJECTILE.SLING.WEAPON GROUP THROWN.CUSTOM</type>
+				<type>WEAPON.RESIZABLE.RANGED.SIMPLE.CONTAINER.PROJECTILE.BLUDGEONING.SLING.WEAPON GROUP THROWN.CUSTOM</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -3329,17 +3340,17 @@ BIO
 					<long>Small</long>
 					<short>S</short>
 				</size>
-				<special_properties>Deals nonlethal damage (pg. 145)</special_properties>
-				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.MARTIAL.STANDARD.BLUDGEONING.SAP.CLOSE.WEAPON GROUP CLOSE.CUSTOM.NONLETHAL.MASTERWORK</type>
+				<special_properties>nonlethal</special_properties>
+				<type>WEAPON.RESIZABLE.MELEE.MARTIAL.LIGHT.FINESSEABLE.BLUDGEONING.SAP.CLOSE.WEAPON GROUP CLOSE.CUSTOM.NONLETHAL.MASTERWORK</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Dog (Riding)</name>
+				<name>Riding Dog</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>73.5 lbs., 1 Dagger (Small), 1 Bedroll, 1 Masterwork Morningstar (Small/Alchemical Silver), 1 Masterwork Rapier (Small/Cold Iron), 1 Saddle (Riding), 1 Saddlebags, 1 Waterskin</contents>
+				<contents>73.5 lbs., 1 Dagger (Small), 1 Bedroll, 1 Masterwork Morningstar (Small/Alchemical Silver), 1 Masterwork Rapier (Small/Cold Iron), 1 Riding Saddle, 1 Saddlebags, 1 Waterskin</contents>
 				<cost>150</cost>
 				<equipped>N</equipped>
 				<location></location>
@@ -3363,7 +3374,7 @@ BIO
 				<contents></contents>
 				<cost>2</cost>
 				<equipped>N</equipped>
-				<location>Dog (Riding)</location>
+				<location>Riding Dog</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -3372,7 +3383,7 @@ BIO
 					<short>S</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL</type>
+				<type>WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.FINESSEABLE.RANGED.THROWN.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.CUSTOM.METAL</type>
 				<weight>0.5</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -3384,7 +3395,7 @@ BIO
 				<contents></contents>
 				<cost>0.1</cost>
 				<equipped>N</equipped>
-				<location>Dog (Riding)</location>
+				<location>Riding Dog</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -3405,7 +3416,7 @@ BIO
 				<contents></contents>
 				<cost>398</cost>
 				<equipped>N</equipped>
-				<location>Dog (Riding)</location>
+				<location>Riding Dog</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -3413,8 +3424,8 @@ BIO
 					<long>Small</long>
 					<short>S</short>
 				</size>
-				<special_properties>10 hp/inch, hardness 8</special_properties>
-				<type>WEAPON.RESIZABLE.MELEE.ONEHANDED.SIMPLE.STANDARD.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.SILVER.MASTERWORK</type>
+				<special_properties>silver</special_properties>
+				<type>WEAPON.RESIZABLE.MELEE.SIMPLE.ONEHANDED.BLUDGEONING.PIERCING.MACE.FLAIL.WEAPON GROUP FLAILS.CUSTOM.METAL.SILVER.MASTERWORK</type>
 				<weight>3</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -3426,7 +3437,7 @@ BIO
 				<contents></contents>
 				<cost>340</cost>
 				<equipped>N</equipped>
-				<location>Dog (Riding)</location>
+				<location>Riding Dog</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -3434,20 +3445,20 @@ BIO
 					<long>Small</long>
 					<short>S</short>
 				</size>
-				<special_properties>30 hp/inch, hardness 10</special_properties>
-				<type>WEAPON.RESIZABLE.MELEE.ONEHANDED.MARTIAL.FINESSEABLE.STANDARD.PIERCING.SWORD.BLADELIGHT.MELEEPIERCING.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.COLDIRON</type>
+				<special_properties>cold iron</special_properties>
+				<type>WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.FINESSEABLE.PIERCING.MELEEPIERCING.SWORD.BLADELIGHT.WEAPON GROUP BLADES LIGHT.CUSTOM.METAL.MASTERWORK.COLDIRON</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Saddle (Riding)</name>
+				<name>Riding Saddle</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
 				<contents></contents>
 				<cost>10</cost>
 				<equipped>N</equipped>
-				<location>Dog (Riding)</location>
+				<location>Riding Dog</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -3465,10 +3476,10 @@ BIO
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>31 lbs., 1 Oil (1 Pint Flask), 4 Rations (Trail/Per Day), 1 Grappling Hook, 1 Map Maker&#39;s Kit, 1 Tent</contents>
+				<contents>31 lbs., 1 Oil, 4 Trail Ration, 1 Grappling Hook, 1 Map Maker&#39;s Kit, 1 Small Tent</contents>
 				<cost>4</cost>
 				<equipped>N</equipped>
-				<location>Dog (Riding)</location>
+				<location>Riding Dog</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -3524,7 +3535,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Tent</name>
+				<name>Small Tent</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -3552,7 +3563,7 @@ BIO
 				<contents>0 lbs.</contents>
 				<cost>1</cost>
 				<equipped>N</equipped>
-				<location>Dog (Riding)</location>
+				<location>Riding Dog</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -3601,7 +3612,7 @@ BIO
 		<feat>
 			<name>Combat Expertise</name>
 			<description>You can increase your defense at the expense of your accuracy.</description>
-			<type>COMBAT.ATTACKOPTION.MODIFYAC.INFERNALBLOODLINE.DREAMSPUNBLOODLINE.DRUIDSHAMANSERPENT</type>
+			<type>COMBAT.ATTACKOPTION.MODIFYAC.DREAMSPUNBLOODLINE.DRUIDSHAMANSERPENT.INFERNALBLOODLINE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -3611,7 +3622,7 @@ BIO
 		<feat>
 			<name>Dodge</name>
 			<description>Your training and reflexes allow you to react swiftly to avoid an opponent&#39;s attack.</description>
-			<type>COMBAT.CELESTIALBLOODLINE.ELEMENTALBLOODLINE.FEYBLOODLINE.AQUATICBLOODLINE.SHADOWBLOODLINE.STARSOULBLOODLINE.STORMBORNBLOODLINE.DRUIDSHAMANLION</type>
+			<type>COMBAT.AQUATICBLOODLINE.SHADOWBLOODLINE.STARSOULBLOODLINE.STORMBORNBLOODLINE.DRUIDSHAMANLION.CELESTIALBLOODLINE.ELEMENTALBLOODLINE.FEYBLOODLINE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -3661,7 +3672,7 @@ BIO
 		<feat>
 			<name>Weapon Finesse</name>
 			<description>You are trained in using your agility in melee combat, as opposed to brute strength.</description>
-			<type>COMBAT.CELESTIALBLOODLINE.ELEMENTALBLOODLINE.SHADOWBLOODLINE</type>
+			<type>COMBAT.SHADOWBLOODLINE.CELESTIALBLOODLINE.ELEMENTALBLOODLINE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -3833,6 +3844,17 @@ BIO
 			<name>Keen Senses</name>
 			<description>Halflings receive a +2 bonus on Perception skill checks.</description>
 			<type>RACIALTRAITS.SPECIALQUALITY.EXTRAORDINARY.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT.KEEN SENSES.KEENSENSES</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
+			<name>Language</name>
+			<description>Halflings begin play speaking Common and Halfling. Halflings with high Intelligence scores can choose from the following: Dwarven, Elven, Gnome, and Goblin.</description>
+			<type>RACIALTRAITS.HALFLINGRACIALTRAIT.HALFLINGRACIALDEFAULT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>T</auto>
@@ -4075,6 +4097,28 @@ BIO
 		</ability_object>
 		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
+			<name>Age</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Age ~ Adult</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
 			<name>Armor Prof ~ Light</name>
 			<description></description>
 			<type>ARMORPROFLIGHT.ARMORPROFMEDIUM.ARMORPROFHEAVY</type>
@@ -4130,7 +4174,7 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>Race Traits ~ Halfling</name>
+			<name>Racial Traits ~ Halfling</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
@@ -4219,17 +4263,6 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>FACE_5</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
 			<name>REACH_5</name>
 			<description></description>
 			<type></type>
@@ -4248,7 +4281,7 @@ BIO
 	  ====================================
 	  ====================================-->
 
-	<weapon_proficiencies>Bayonet, Blowgun, Cestus, Club, Crossbow (Hand), Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Gauntlet, Gauntlet (Spiked), Grapple, Javelin, Longspear, Mace (Heavy), Mace (Light), Mere Club, Morningstar, Quarterstaff, Rapier, Rock, Sap, Shortbow, Shortspear, Sickle, Sling, Spear, Spear (Boar), Spells (Ray), Spells (Touch), Splash Weapon, Stake, Sword (Short), Unarmed Strike</weapon_proficiencies>
+	<weapon_proficiencies>Bayonet, Blowgun, Cestus, Club, Hand Crossbow, Heavy Crossbow, Light Crossbow, Dagger, Punching Dagger, Dart, Gauntlet, Spiked Gauntlet, Grapple, Javelin, Longspear, Heavy Mace, Light Mace, Mere Club, Morningstar, Quarterstaff, Rapier, Rock, Sap, Shortbow, Shortspear, Sickle, Sling, Spear, Boar Spear, Ray Spells, Touch Spells, Splash Weapon, Stake, Short Sword, Unarmed Strike</weapon_proficiencies>
 	<languages>Aklo, Common, Elven, Giant, Halfling, Hallit, Skald, Sylvan, Varisian</languages>
 
 

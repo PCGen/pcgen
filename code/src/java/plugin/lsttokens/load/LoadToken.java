@@ -1,5 +1,4 @@
 /*
- * LoadToken.java
  * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2006 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
@@ -16,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 2, 2002, 8:02 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.lsttokens.load;
 
@@ -33,12 +27,10 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>LoadToken</code>
+ * {@code LoadToken}
  * 
- * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
-public class LoadToken extends AbstractTokenWithSeparator<LoadInfo> implements
-		CDOMPrimaryToken<LoadInfo>
+public class LoadToken extends AbstractTokenWithSeparator<LoadInfo> implements CDOMPrimaryToken<LoadInfo>
 {
 
 	@Override
@@ -48,19 +40,16 @@ public class LoadToken extends AbstractTokenWithSeparator<LoadInfo> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			LoadInfo info, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, LoadInfo info, String value)
 	{
 		int pipeLoc = value.indexOf('|');
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " requires a pipe, found : " + value, context);
+			return new ParseResult.Fail(getTokenName() + " requires a pipe, found : " + value);
 		}
 		if (pipeLoc != value.lastIndexOf('|'))
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " requires only one pipe, found : " + value, context);
+			return new ParseResult.Fail(getTokenName() + " requires only one pipe, found : " + value);
 		}
 		String strengthString = value.substring(0, pipeLoc);
 
@@ -71,9 +60,8 @@ public class LoadToken extends AbstractTokenWithSeparator<LoadInfo> implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an Integer strength value : " + strengthString
-					+ " in value: " + value, context);
+			return new ParseResult.Fail(
+				getTokenName() + " expected an Integer strength value : " + strengthString + " in value: " + value);
 		}
 		String loadString = value.substring(pipeLoc + 1);
 		try
@@ -81,17 +69,15 @@ public class LoadToken extends AbstractTokenWithSeparator<LoadInfo> implements
 			BigDecimal load = new BigDecimal(loadString);
 			if (load.compareTo(BigDecimal.ZERO) < 0)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " requires a non-negative load value, found : "
-						+ loadString, context);
+				return new ParseResult.Fail(
+					getTokenName() + " requires a non-negative load value, found : " + loadString);
 			}
 			info.addLoadScoreValue(strength, load);
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " misunderstood load value : " + loadString
-					+ " in value: " + value, context);
+			return new ParseResult.Fail(
+				getTokenName() + " misunderstood load value : " + loadString + " in value: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -102,14 +88,14 @@ public class LoadToken extends AbstractTokenWithSeparator<LoadInfo> implements
 		return '|';
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, LoadInfo info)
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-    @Override
+	@Override
 	public Class<LoadInfo> getTokenClass()
 	{
 		return LoadInfo.class;

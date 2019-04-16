@@ -33,8 +33,7 @@ public class FractionalPoolToken extends AbstractNonEmptyToken<AbilityCategory>
 	}
 
 	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context,
-			final AbilityCategory ac, final String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, final AbilityCategory ac, final String value)
 	{
 		Boolean set;
 		char firstChar = value.charAt(0);
@@ -42,8 +41,7 @@ public class FractionalPoolToken extends AbstractNonEmptyToken<AbilityCategory>
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value, context);
+				return new ParseResult.Fail("You should use 'YES' as the " + getTokenName() + ": " + value);
 			}
 			set = Boolean.TRUE;
 		}
@@ -51,15 +49,11 @@ public class FractionalPoolToken extends AbstractNonEmptyToken<AbilityCategory>
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				return new ParseResult.Fail(
-						"You should use 'YES' or 'NO' as the " + getTokenName()
-								+ ": " + value, context);
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				return new ParseResult.Fail(
-						"You should use 'YES' or 'NO' as the " + getTokenName()
-								+ ": " + value, context);
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 			}
 			set = Boolean.FALSE;
 		}
@@ -72,7 +66,7 @@ public class FractionalPoolToken extends AbstractNonEmptyToken<AbilityCategory>
 	{
 		if (ac.allowFractionalPool())
 		{
-			return new String[] { "YES" };
+			return new String[]{"YES"};
 		}
 		else
 		{

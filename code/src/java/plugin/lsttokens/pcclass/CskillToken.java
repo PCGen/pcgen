@@ -27,7 +27,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSkillList;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.PatternMatchingReference;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.PCClass;
@@ -40,12 +40,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 
-/**
- * @author djones4
- * 
- */
-public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
-		CDOMPrimaryToken<PCClass>, PostDeferredToken<PCClass>
+public class CskillToken extends AbstractTokenWithSeparator<PCClass>
+		implements CDOMPrimaryToken<PCClass>, PostDeferredToken<PCClass>
 {
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
 
@@ -62,8 +58,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			PCClass obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass obj, String value)
 	{
 		boolean first = true;
 		boolean foundAny = false;
@@ -77,9 +72,8 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
 			{
 				if (!first)
 				{
-					return new ParseResult.Fail("  Non-sensical "
-							+ getTokenName()
-							+ ": .CLEAR was not the first list item", context);
+					return new ParseResult.Fail(
+						"  Non-sensical " + getTokenName() + ": .CLEAR was not the first list item");
 				}
 				context.getObjectContext().removeList(obj, ListKey.CLASS_SKILL);
 			}
@@ -88,22 +82,17 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
 				String clearText = tokText.substring(7);
 				if (Constants.LST_ALL.equals(clearText))
 				{
-					context.getObjectContext().removeFromList(obj,
-							ListKey.CLASS_SKILL,
-							context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
+					context.getObjectContext().removeFromList(obj, ListKey.CLASS_SKILL,
+						context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
 				}
 				else
 				{
-					CDOMReference<Skill> ref = TokenUtilities
-							.getTypeOrPrimitive(context, SKILL_CLASS, clearText);
+					CDOMReference<Skill> ref = TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, clearText);
 					if (ref == null)
 					{
-						return new ParseResult.Fail(
-								"  Error was encountered while parsing "
-										+ getTokenName(), context);
+						return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
 					}
-					context.getObjectContext().removeFromList(obj,
-							ListKey.CLASS_SKILL, ref);
+					context.getObjectContext().removeFromList(obj, ListKey.CLASS_SKILL, ref);
 				}
 			}
 			else
@@ -117,69 +106,58 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
 				if (Constants.LST_ALL.equals(tokText))
 				{
 					foundAny = true;
-					context.getObjectContext().addToList(obj,
-							ListKey.CLASS_SKILL,
-							context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
+					context.getObjectContext().addToList(obj, ListKey.CLASS_SKILL,
+						context.getReferenceContext().getCDOMAllReference(SKILL_CLASS));
 				}
 				else
 				{
 					foundOther = true;
-					CDOMReference<Skill> ref = getSkillReference(context,
-							tokText);
+					CDOMReference<Skill> ref = getSkillReference(context, tokText);
 					if (ref == null)
 					{
-						return new ParseResult.Fail(
-								"  Error was encountered while parsing "
-										+ getTokenName(), context);
+						return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
 					}
-					context.getObjectContext().addToList(obj,
-							ListKey.CLASS_SKILL, ref);
+					context.getObjectContext().addToList(obj, ListKey.CLASS_SKILL, ref);
 				}
 			}
 			first = false;
 		}
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+			return new ParseResult.Fail(
+				"Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
 
-	private CDOMReference<Skill> getSkillReference(LoadContext context,
-			String tokText)
+	private CDOMReference<Skill> getSkillReference(LoadContext context, String tokText)
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{
-			return new PatternMatchingReference<>(Skill.class, context.getReferenceContext()
-					.getCDOMAllReference(SKILL_CLASS), tokText);
+			return new PatternMatchingReference<>(context.getReferenceContext().getCDOMAllReference(SKILL_CLASS),
+				tokText);
 		}
 		else
 		{
-			return TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS,
-					tokText);
+			return TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, tokText);
 		}
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
-		Changes<CDOMReference<Skill>> changes = context.getObjectContext()
-				.getListChanges(obj, ListKey.CLASS_SKILL);
+		Changes<CDOMReference<Skill>> changes = context.getObjectContext().getListChanges(obj, ListKey.CLASS_SKILL);
 		List<String> list = new ArrayList<>();
 		Collection<CDOMReference<Skill>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
 		{
 			if (changes.includesGlobalClear())
 			{
-				context.addWriteMessage("Non-sensical relationship in "
-						+ getTokenName()
-						+ ": global .CLEAR and local .CLEAR. performed");
+				context.addWriteMessage(
+					"Non-sensical relationship in " + getTokenName() + ": global .CLEAR and local .CLEAR. performed");
 				return null;
 			}
-			list.add(Constants.LST_DOT_CLEAR_DOT
-					+ ReferenceUtilities
-							.joinLstFormat(removedItems, "|.CLEAR."));
+			list.add(Constants.LST_DOT_CLEAR_DOT + ReferenceUtilities.joinLstFormat(removedItems, "|.CLEAR."));
 		}
 		if (changes.includesGlobalClear())
 		{
@@ -216,14 +194,12 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
 		if (list != null)
 		{
 			ClassSkillList csl = obj.get(ObjectKey.CLASS_SKILLLIST);
-			CDOMDirectSingleRef<ClassSkillList> listref = new CDOMDirectSingleRef<>(
-					csl);
+			CDOMSingleRef<ClassSkillList> listref = context.getReferenceContext().getCDOMDirectReference(csl);
 			for (CDOMReference<Skill> ref : list)
 			{
 				for (Skill sk : ref.getContainedObjects())
 				{
-					context.getListContext().addToMasterList(getTokenName(), obj, listref,
-							sk);
+					context.getListContext().addToMasterList(getTokenName(), obj, listref, sk);
 					context.commit();
 				}
 			}

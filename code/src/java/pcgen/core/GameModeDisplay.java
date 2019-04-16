@@ -1,5 +1,4 @@
 /*
- * GameMode.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,26 +14,18 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 22, 2002, 4:30 PM
- *
- * Current Ver: $Revision: 17100 $
- *
  */
 package pcgen.core;
 
 import pcgen.facade.core.GameModeDisplayFacade;
 
-
 /**
  * Handles game modes.
- *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class GameModeDisplay implements Comparable<Object>, GameModeDisplayFacade
 {
 	private GameMode gameMode;
-	
+
 	/**
 	 * Creates a new instance of GameModeMenuEntry.
 	 *
@@ -49,22 +40,23 @@ public final class GameModeDisplay implements Comparable<Object>, GameModeDispla
 	 * Get the game mode
 	 * @return gameMode
 	 */
-    @Override
+	@Override
 	public GameMode getGameMode()
 	{
 		return gameMode;
 	}
+
 	/**
 	 * Get the menu entry of the game mode
 	 * @return menuEntry
 	 */
-    @Override
+	@Override
 	public String toString()
 	{
 		return gameMode.getDisplayName();
 	}
 
-    @Override
+	@Override
 	public int compareTo(final Object obj)
 	{
 		if (obj != null)
@@ -85,7 +77,8 @@ public final class GameModeDisplay implements Comparable<Object>, GameModeDispla
 			//
 			// should throw a ClassCastException for non-PObjects,
 			// like the Comparable interface calls for
-			return gameMode.getDisplayName().compareToIgnoreCase(((GameModeDisplay) obj).getGameMode().getDisplayName());
+			return gameMode.getDisplayName()
+				.compareToIgnoreCase(((GameModeDisplay) obj).getGameMode().getDisplayName());
 		}
 		return 1;
 	}

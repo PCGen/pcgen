@@ -59,25 +59,23 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
 	private CDOMSingleRef<Ability> ref;
-	
+
 	private Category<Ability> category;
 
 	private Class<T> refClass;
 
 	@Override
-	public boolean initialize(LoadContext context, Class<T> cl, String value,
-			String args)
+	public boolean initialize(LoadContext context, Class<T> cl, String value, String args)
 	{
 		if (args == null)
 		{
 			Logging.errorPrint("Syntax for ABILITY primitive is ABILITY=category[key]");
 			return false;
 		}
-		Category<Ability> cat = context.getReferenceContext()
-				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, value);
+		Category<Ability> cat =
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, value);
 		category = cat;
-		ref = context.getReferenceContext().getCDOMReference(Ability.class, cat,
-				args);
+		ref = context.getReferenceContext().getManufacturerId(cat).getReference(args);
 		refClass = cl;
 		return true;
 	}
@@ -104,8 +102,7 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return "ABILITY=" + category.getLSTformat() + "["
-			+ ref.getLSTformat(useAny) + "]";
+		return "ABILITY=" + category.getKeyName() + '[' + ref.getLSTformat(useAny) + ']';
 	}
 
 	private <R> List<R> getList(PlayerCharacter pc, Ability a)
@@ -116,8 +113,7 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 		for (CNAbility ability : theFeats)
 		{
 			@SuppressWarnings("unchecked")
-			List<? extends R> list =
-					(List<? extends R>) pc.getDetailedAssociations(ability);
+			List<? extends R> list = (List<? extends R>) pc.getDetailedAssociations(ability);
 			if (list != null)
 			{
 				availableList.addAll(list);
@@ -144,8 +140,7 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 			AbilityToken<?> other = (AbilityToken<?>) obj;
 			if (ref == null)
 			{
-				return (other.ref == null) && (refClass == null)
-					&& (other.refClass == null);
+				return (other.ref == null) && (refClass == null) && (other.refClass == null);
 			}
 			return refClass.equals(other.refClass) && ref.equals(other.ref);
 		}
@@ -155,7 +150,7 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 	@Override
 	public int hashCode()
 	{
-		return ref == null ? -57 : ref.hashCode();
+		return (ref == null) ? -57 : ref.hashCode();
 	}
 
 	@Override

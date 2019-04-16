@@ -1,5 +1,4 @@
 /*
- * StringPClassUtil.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,22 +14,15 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 
 package pcgen.util;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -53,42 +45,50 @@ import pcgen.core.WeaponProf;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.spell.Spell;
 
-public class StringPClassUtil
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
+public final class StringPClassUtil
 {
 
-	private static Map<String, Class<? extends Loadable>> classMap;
-	private static Map<Class<? extends Loadable>, String> stringMap;
-	private static Map<String, Class<? extends Category<?>>> catClassMap;
+	private static final Map<String, Class<? extends Loadable>> baseMap;
+	private static final Map<String, Class<? extends Loadable>> classMap;
+	private static final Map<Class<? extends Loadable>, String> stringMap;
 
 	static
 	{
+		baseMap = new HashMap<>();
 		classMap = new HashMap<>();
 		stringMap = new HashMap<>();
-		catClassMap = new HashMap<>();
 
-		classMap.put("ABILITY", Ability.class);
-		classMap.put("ALIGNMENT", PCAlignment.class);
-		classMap.put("CHECK", PCCheck.class);
+		baseMap.put("ALIGNMENT", PCAlignment.class);
+		baseMap.put("CHECK", PCCheck.class);
+		baseMap.put("DEITY", Deity.class);
+		baseMap.put("DOMAIN", Domain.class);
+		baseMap.put("CLASS", PCClass.class);
+		baseMap.put("LANGUAGE", Language.class);
+		baseMap.put("RACE", Race.class);
+		baseMap.put("SPELL", Spell.class);
+		baseMap.put("SKILL", Skill.class);
+		baseMap.put("STAT", PCStat.class);
+		baseMap.put("SIZEADJUSTMENT", SizeAdjustment.class);
+		baseMap.put("TEMPLATE", PCTemplate.class);
+		baseMap.put("WEAPONPROF", WeaponProf.class);
+		baseMap.put("ARMORPROF", ArmorProf.class);
+		baseMap.put("SHIELDPROF", ShieldProf.class);
+		baseMap.put("CLASSSPELLLIST", ClassSpellList.class);
+		baseMap.put("CLASSSKILLLIST", ClassSkillList.class);
+		baseMap.put("DOMAINSPELLLIST", DomainSpellList.class);
+
+		classMap.putAll(baseMap);
 		classMap.put("COMPANIONMOD", CompanionMod.class);
-		classMap.put("DEITY", Deity.class);
-		classMap.put("DOMAIN", Domain.class);
 		classMap.put("EQUIPMENT", Equipment.class);
 		classMap.put("EQMOD", EquipmentModifier.class);
-		classMap.put("CLASS", PCClass.class);
 		classMap.put("KIT", Kit.class);
-		classMap.put("LANGUAGE", Language.class);
-		classMap.put("RACE", Race.class);
-		classMap.put("SPELL", Spell.class);
-		classMap.put("SKILL", Skill.class);
-		classMap.put("STAT", PCStat.class);
-		classMap.put("SIZEADJUSTMENT", SizeAdjustment.class);
-		classMap.put("TEMPLATE", PCTemplate.class);
-		classMap.put("WEAPONPROF", WeaponProf.class);
-		classMap.put("ARMORPROF", ArmorProf.class);
-		classMap.put("SHIELDPROF", ShieldProf.class);
-		classMap.put("CLASSSPELLLIST", ClassSpellList.class);
-		classMap.put("CLASSSKILLLIST", ClassSkillList.class);
-		classMap.put("DOMAINSPELLLIST", DomainSpellList.class);
+		classMap.put("ABILITY", Ability.class);
 
 		stringMap.put(PCAlignment.class, "ALIGNMENT");
 		stringMap.put(PCCheck.class, "CHECK");
@@ -117,8 +117,10 @@ public class StringPClassUtil
 		// Hacks for ServesAs
 		stringMap.put(SubClass.class, "CLASS");
 		stringMap.put(SubstitutionClass.class, "CLASS");
-		
-		catClassMap.put("ABILITY", AbilityCategory.class);
+	}
+
+	private StringPClassUtil()
+	{
 	}
 
 	public static Class<? extends Loadable> getClassFor(String key)
@@ -136,9 +138,16 @@ public class StringPClassUtil
 		return stringMap.get(cl);
 	}
 
-	public static Class<? extends Category<?>> getCategoryClassFor(
-			String className)
+	/**
+	 * Returns a Collection of the "Base" Classes in StringPClassUtil. These are the
+	 * "basic" CDOMObject classes that are simple to convert/unconvert and not
+	 * significantly dependent on other items (e.g. no Ability, no EquipmentModifier,
+	 * etc.)
+	 * 
+	 * @return A Collection of the "Base" Classes in StringPClassUtil.
+	 */
+	public static Collection<Class<? extends Loadable>> getBaseClasses()
 	{
-		return catClassMap.get(className);
+		return Collections.unmodifiableCollection(baseMap.values());
 	}
 }

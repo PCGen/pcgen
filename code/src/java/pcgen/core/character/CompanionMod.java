@@ -1,5 +1,4 @@
 /*
- * CompanionMod.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -18,10 +17,7 @@
  *
  *************************************************************************
  *
- * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
- * @Created on July 10th, 2002, 3:55 PM
  *
- * Current Ver: $Revision$
  *
  *************************************************************************/
 package pcgen.core.character;
@@ -40,12 +36,9 @@ import pcgen.core.PObject;
 import pcgen.core.Race;
 
 /**
- * <code>CompanionMod</code>.
- *
- * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
+ * {@code CompanionMod}.
  */
-public final class CompanionMod extends PObject implements
-		Categorized<CompanionMod>
+public final class CompanionMod extends PObject implements Categorized<CompanionMod>
 {
 	/**
 	 * Get Level
@@ -91,8 +84,7 @@ public final class CompanionMod extends PObject implements
 		Map<CDOMSingleRef<? extends PCClass>, Integer> ac = getMapFor(MapKey.APPLIED_CLASS);
 		if (ac != null)
 		{
-			for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : ac
-					.entrySet())
+			for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : ac.entrySet())
 			{
 				PCClass pcclass = me.getKey().get();
 				if (pcclass.getKeyName().equalsIgnoreCase(cl.getKeyName()))

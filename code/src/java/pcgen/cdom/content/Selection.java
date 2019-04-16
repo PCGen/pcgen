@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.content;
 
+import java.util.Objects;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.analysis.ChooseActivation;
 
@@ -28,27 +30,21 @@ public class Selection<BT extends CDOMObject, SEL>
 
 	public Selection(BT obj, SEL sel)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object cannot be null");
-		}
+		Objects.requireNonNull(obj, "Object cannot be null");
 		if (ChooseActivation.hasNewChooseToken(obj))
 		{
 			if (sel == null)
 			{
-				throw new IllegalArgumentException(
-					"Selection cannot be null in "
-						+ obj.getClass().getSimpleName() + " "
-						+ obj.getKeyName() + " with CHOOSE");
+				throw new IllegalArgumentException("Selection cannot be null in " + obj.getClass().getSimpleName() + " "
+					+ obj.getKeyName() + " with CHOOSE");
 			}
 		}
 		else
 		{
 			if (sel != null)
 			{
-				throw new IllegalArgumentException("Selection must be null in "
-					+ obj.getClass().getSimpleName() + " " + obj.getKeyName()
-					+ " without CHOOSE");
+				throw new IllegalArgumentException("Selection must be null in " + obj.getClass().getSimpleName() + " "
+					+ obj.getKeyName() + " without CHOOSE");
 			}
 		}
 		base = obj;
@@ -72,9 +68,7 @@ public class Selection<BT extends CDOMObject, SEL>
 		{
 			Selection<?, ?> other = (Selection<?, ?>) obj;
 			boolean selectionEqual =
-					(selection == other.selection)
-						|| (selection != null && selection
-							.equals(other.selection));
+					(selection == other.selection) || (selection != null && selection.equals(other.selection));
 			return selectionEqual && base.equals(other.base);
 		}
 		return false;

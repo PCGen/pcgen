@@ -1,0 +1,14 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+# Ability Category				Visible		Editable?		Category of Object		Type of Object			Display where?									Display Location
+ABILITYCATEGORY:Chronicle_PZOGWK0001-1	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZOGWK0001-1	DISPLAYNAME:Pathfinder Online: Thornkeep The Accursed Halls		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZOGWK0001-2	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZOGWK0001-2	DISPLAYNAME:Pathfinder Online: Thornkeep The Forgotten Laboratory	DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZOGWK0001-3	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZOGWK0001-3	DISPLAYNAME:Pathfinder Online: Thornkeep The Enigma Vaults		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZOGWK0001-4	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZOGWK0001-4	DISPLAYNAME:Pathfinder Online: Thornkeep The Dark Menagerie		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZOGWK0001-5	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZOGWK0001-5	DISPLAYNAME:Pathfinder Online: Thornkeep Sanctum of a Lost Age	DISPLAYLOCATION:Chronicles
+
+#
+# DONE
+#

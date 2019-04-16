@@ -1,11 +1,3 @@
-/**
- * This script converts a PCGen output sheet to FreeMarker. Note it is expected 
- * that manual tidy-up will be required afterwards.
- *
- * Usage: groovy convfreemarker.groovy sheetname [outputtemplatename]
- * 
- * Author: James Dempsey on 22 June 2014
- */
 /*
  * Copyright 2014 (C) James Dempsey
  *
@@ -22,25 +14,19 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 22/06/2014 10:55:00 AM
- *
- * $Id: aa $
  */
 
-import groovy.xml.StreamingMarkupBuilder
+/**
+ * This script converts a PCGen output sheet to FreeMarker. Note it is expected
+ * that manual tidy-up will be required afterwards.
+ *
+ * Usage: groovy convfreemarker.groovy sheetname [outputtemplatename]
+ */
 import java.util.regex.Matcher
-import groovy.xml.XmlUtil
-
 // Check parameters
 def usage = "Usage: groovy convfreemarker.groovy sheetname [outputtemplatename]"
-if (args.length == 0) {
-	println "Insufficient arguments."
-	println usage
-	System.exit(1)
-}
-if (args.length > 2) {
-	println "Too many arguments."
+if (args.length != 1) {
+	println "Provide exactly one argument"
 	println usage
 	System.exit(1)
 }

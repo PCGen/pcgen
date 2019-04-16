@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with SUBREGION Token
  */
-public class SubregionToken extends AbstractNonEmptyToken<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>
+public class SubregionToken extends AbstractNonEmptyToken<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override
@@ -39,22 +38,21 @@ public class SubregionToken extends AbstractNonEmptyToken<PCTemplate> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		PCTemplate template, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCTemplate template, String value)
 	{
 		if (value.equalsIgnoreCase("YES"))
 		{
-			context.getObjectContext().put(template, ObjectKey.USETEMPLATENAMEFORSUBREGION,
-					true);
-			context.getObjectContext().put(template, ObjectKey.SUBREGION,
-					null);
+			return new ParseResult.Fail(
+				"SUBREGION:YES is no longer supported.  "
+					+ "Please specify the exact SubRegion granted by this Template");
+		}
+		else if (value.equalsIgnoreCase("NONE"))
+		{
+			return ParseResult.SUCCESS;
 		}
 		else
 		{
-			context.getObjectContext().put(template, ObjectKey.USETEMPLATENAMEFORSUBREGION,
-					null);
-			context.getObjectContext().put(template, ObjectKey.SUBREGION,
-					SubRegion.getConstant(value));
+			context.getObjectContext().put(template, ObjectKey.SUBREGION, SubRegion.getConstant(value));
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -62,25 +60,13 @@ public class SubregionToken extends AbstractNonEmptyToken<PCTemplate> implements
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		Boolean useName = context.getObjectContext().getObject(pct,
-				ObjectKey.USETEMPLATENAMEFORSUBREGION);
-		SubRegion subregion = context.getObjectContext().getObject(pct,
-				ObjectKey.SUBREGION);
-		if (useName != null && useName)
-		{
-			if (subregion != null)
-			{
-				context.addWriteMessage("Cannot have Template with "
-						+ getTokenName() + " YES and specific value");
-			}
-			return new String[] { "YES" };
-		}
+		SubRegion subregion = context.getObjectContext().getObject(pct, ObjectKey.SUBREGION);
 		if (subregion == null)
 		{
 			// Okay, nothing set
 			return null;
 		}
-		return new String[] { subregion.toString() };
+		return new String[]{subregion.toString()};
 	}
 
 	@Override

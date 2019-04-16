@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with WT token
  */
-public class WtToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class WtToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	/**
@@ -52,35 +51,31 @@ public class WtToken extends AbstractNonEmptyToken<Equipment> implements
 			BigDecimal weight = new BigDecimal(value);
 			if (weight.compareTo(BigDecimal.ZERO) < 0)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " was expecting a decimal value >= 0 : " + value, context);
+				return new ParseResult.Fail(getTokenName() + " was expecting a decimal value >= 0 : " + value);
 			}
 			context.getObjectContext().put(eq, ObjectKey.WEIGHT, weight);
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail("Expected a Double for "
-					+ getTokenName() + ": " + value, context);
+			return new ParseResult.Fail("Expected a Double for " + getTokenName() + ": " + value);
 		}
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		BigDecimal weight = context.getObjectContext().getObject(eq,
-				ObjectKey.WEIGHT);
+		BigDecimal weight = context.getObjectContext().getObject(eq, ObjectKey.WEIGHT);
 		if (weight == null)
 		{
 			return null;
 		}
 		if (weight.compareTo(BigDecimal.ZERO) < 0)
 		{
-			context.addWriteMessage(getTokenName()
-					+ " was expecting a decimal value >= 0 : " + weight);
+			context.addWriteMessage(getTokenName() + " was expecting a decimal value >= 0 : " + weight);
 			return null;
 		}
-		return new String[] { weight.toString() };
+		return new String[]{weight.toString()};
 	}
 
 	@Override

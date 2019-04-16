@@ -1,6 +1,5 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PCTemplate.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -38,7 +37,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusCalc;
 
-public class TemplateModifier
+public final class TemplateModifier
 {
 
 	private static DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
@@ -71,8 +70,7 @@ public class TemplateModifier
 
 				if (statMod != 0)
 				{
-					mods.append(stat.getKeyName()).append(':').append(
-							statMod).append(' ');
+					mods.append(stat.getKeyName()).append(':').append(statMod).append(' ');
 				}
 			}
 		}
@@ -86,8 +84,7 @@ public class TemplateModifier
 		templList.addAll(pct.getConditionalTemplates(totalLevels, totalHitDice));
 		for (PCTemplate subt : templList)
 		{
-			List<DamageReduction> tList = subt
-					.getListFor(ListKey.DAMAGE_REDUCTION);
+			List<DamageReduction> tList = subt.getListFor(ListKey.DAMAGE_REDUCTION);
 			if (tList != null)
 			{
 				for (DamageReduction dr : tList)
@@ -102,7 +99,7 @@ public class TemplateModifier
 				}
 			}
 		}
-		if (drMap.size() != 0)
+		if (!drMap.isEmpty())
 		{
 			mods.append("DR:").append(drFacet.getDRString(id, drMap));
 		}
@@ -125,8 +122,7 @@ public class TemplateModifier
 
 		if (display.getTemplateSR(pct, totalLevels, totalHitDice) != 0)
 		{
-			mods.append("SR:").append(
-				display.getTemplateSR(pct, totalLevels, totalHitDice)).append(' ');
+			mods.append("SR:").append(display.getTemplateSR(pct, totalLevels, totalHitDice)).append(' ');
 		}
 
 		// if (!getDR(aPC.getTotalLevels(), aPC.totalHitDice()).equals(""))

@@ -1,5 +1,4 @@
 /*
- * EqmodItem.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.npcgen;
 
@@ -27,21 +25,21 @@ import pcgen.util.Logging;
 import pcgen.util.PJEP;
 import pcgen.util.PjepPool;
 
-public class EqmodItem 
+public class EqmodItem
 {
 	private String theEqmod = Constants.EMPTY_STRING;
 	private EqmodTable theLookupTable = null;
 	private String theRollString = null;
-	
+
 	public List<String> getEqMods()
 	{
-		if ( theLookupTable != null )
+		if (theLookupTable != null)
 		{
 			return theLookupTable.getEqMod();
 		}
 		final List<String> ret = new ArrayList<>();
 		String eqMod = theEqmod;
-		if ( theRollString != null )
+		if (theRollString != null)
 		{
 			final PJEP parser = PjepPool.getInstance().aquire(this, theRollString);
 			parser.parseExpression(theRollString);
@@ -50,24 +48,24 @@ public class EqmodItem
 				Logging.errorPrint("Not a JEP expression: " + theRollString);
 				return null;
 			}
-			eqMod = eqMod.replaceAll( "%ROLL", parser.getValueAsObject().toString());
+			eqMod = eqMod.replaceAll("%ROLL", parser.getValueAsObject().toString());
 			PjepPool.getInstance().release(parser);
 		}
 		ret.add(eqMod);
 		return ret;
 	}
-	
-	public void setEqmod( final String anEqmod )
+
+	public void setEqmod(final String anEqmod)
 	{
 		theEqmod = anEqmod;
 	}
-	
-	public void setLookup( final EqmodTable aTable )
+
+	public void setLookup(final EqmodTable aTable)
 	{
 		theLookupTable = aTable;
 	}
-	
-	public void setRollString( final String aRollString )
+
+	public void setRollString(final String aRollString)
 	{
 		theRollString = "roll(\"" + aRollString + "\")";
 	}

@@ -30,13 +30,15 @@ import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class RaceTypeTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Race>
 {
 
 	static ChooseLst token = new ChooseLst();
 	static RaceToken subtoken = new RaceToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	private static final RaceTypeToken RACETYPE_TOKEN = new RaceTypeToken();
 
@@ -45,6 +47,7 @@ public class RaceTypeTokenTest extends
 		super("RACETYPE", "SampleType");
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

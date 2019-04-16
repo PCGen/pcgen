@@ -8,13 +8,15 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SOURCELONG:Dwarves of Golarion
+SOURCELONG:Pathfinder Companion: Dwarves of Golarion
 SOURCESHORT:DOG
-SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8b9j
+SOURCEWEB:http://paizo.com/products/btpy8b9j
 SOURCEDATE:2009-12
 ISOGL:YES
 
@@ -22,7 +24,7 @@ ISOGL:YES
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy8b9j|Buy this publication from Paizo Publishing!
+URL:Paizo Publishing|http://paizo.com/products/btpy8b9j|Buy this publication from Paizo Publishing!
 DESC:Born ages ago in lightless caverns, the dwarves surged upward in pursuit of a divine prophecy, driving the feral orcs before them until they reached the surface world in the fabled Quest for Sky. Now established with their own lands and customs, the dwarves work their forges, sing songs of legendary heroes, brew signature beers, and wage war against evil humanoids and hideous monsters.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.

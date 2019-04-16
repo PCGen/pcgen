@@ -14,17 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on June 18, 2005.
- *
- * Current Ver: $Revision: 513 $
  */
 package pcgen.cdom.enumeration;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.List;
-import java.util.Map;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.UnreachableError;
@@ -34,7 +29,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.AbilityCategory;
 
 /**
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  * 
  * This is a Typesafe enumeration of legal Characteristics of an Association. It
  * is designed to act as an index to a specific Objects within an item that
@@ -65,7 +59,7 @@ public final class AssociationKey<T>
 	/*
 	 * End Load (Context) items
 	 */
-	
+
 	/*
 	 * These items are used by Tokens to store relationship information to specific items.
 	 */
@@ -119,13 +113,18 @@ public final class AssociationKey<T>
 		// Only allow instantiation here
 	}
 
+	/**
+	 * Casts an object with the Generics on this AssociationKey.
+	 * 
+	 * @return An object cast to the Generics on this AssociationKey
+	 */
+	@SuppressWarnings("unchecked")
 	public T cast(Object obj)
 	{
 		return (T) obj;
 	}
 
-	public static <OT> AssociationKey<OT> getKeyFor(Class<OT> assocClass,
-			String assocName)
+	public static <OT> AssociationKey<OT> getKeyFor(Class<OT> assocClass, String assocName)
 	{
 		if (map == null)
 		{
@@ -157,8 +156,7 @@ public final class AssociationKey<T>
 		{
 			int mod = fields[i].getModifiers();
 
-			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
-					&& Modifier.isPublic(mod))
+			if (Modifier.isStatic(mod) && Modifier.isFinal(mod) && Modifier.isPublic(mod))
 			{
 				try
 				{
@@ -187,14 +185,12 @@ public final class AssociationKey<T>
 		 * CONSIDER Should this find a way to do a Two-Way Map or something to
 		 * that effect?
 		 */
-		for (Map.Entry<?, AssociationKey<?>> me : map.entrySet())
-		{
-			if (me.getValue() == this)
-			{
-				return me.getKey().toString();
-			}
-		}
+		return map.entrySet()
+		          .stream()
+		          .filter(me -> me.getValue() == this)
+		          .findFirst()
+		          .map(me -> me.getKey().toString())
+		          .orElse("");
 		// Error
-		return "";
 	}
 }

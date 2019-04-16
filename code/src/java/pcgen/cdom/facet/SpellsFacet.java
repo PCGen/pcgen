@@ -35,7 +35,6 @@ import pcgen.core.spell.Spell;
  * SpellsFacet is a Facet that tracks the SpellLikeAbility objects that have
  * been granted to a Player Character through SPELLS
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 		implements DataFacetChangeListener<CharID, CDOMObject>
@@ -54,8 +53,6 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -71,30 +68,25 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 
 		for (CDOMReference<Spell> ref : mods)
 		{
-			Collection<AssociatedPrereqObject> assocs =
-					cdo.getListAssociations(Spell.SPELLS, ref);
+			Collection<AssociatedPrereqObject> assocs = cdo.getListAssociations(Spell.SPELLS, ref);
 			Collection<Spell> spells = ref.getContainedObjects();
 			for (AssociatedPrereqObject apo : assocs)
 			{
-				Formula times =
-						apo.getAssociation(AssociationKey.TIMES_PER_UNIT);
+				Formula times = apo.getAssociation(AssociationKey.TIMES_PER_UNIT);
 				String timeunit = apo.getAssociation(AssociationKey.TIME_UNIT);
 				// The timeunit needs to default to day as per the docs
 				if (timeunit == null)
 				{
 					timeunit = "Day";
 				}
-				String casterlevel =
-						apo.getAssociation(AssociationKey.CASTER_LEVEL);
-				String dcformula =
-						apo.getAssociation(AssociationKey.DC_FORMULA);
+				String casterlevel = apo.getAssociation(AssociationKey.CASTER_LEVEL);
+				String dcformula = apo.getAssociation(AssociationKey.DC_FORMULA);
 				String book = apo.getAssociation(AssociationKey.SPELLBOOK);
 				String ident = cdo.getQualifiedKey();
 				for (Spell sp : spells)
 				{
 					SpellLikeAbility sla =
-							new SpellLikeAbility(sp, times, timeunit, book,
-								casterlevel, dcformula, ident);
+							new SpellLikeAbility(sp, times, timeunit, book, casterlevel, dcformula, ident);
 					sla.addAllPrerequisites(apo.getPrerequisiteList());
 					add(id, sla, cdo);
 				}
@@ -113,8 +105,6 @@ public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)

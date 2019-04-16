@@ -1,5 +1,4 @@
 /*
- * UIDelegate.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 25, 2010, 3:10:39 PM
  */
 package pcgen.facade.core;
 
@@ -25,7 +23,6 @@ import pcgen.system.PropertyContext;
 /**
  * This class acts as delegate for UI functions that may
  * be called within the facade layer.
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface UIDelegate
 {
@@ -46,7 +43,8 @@ public interface UIDelegate
 	 * Boolean.FALSE if the user clicked No<br>
 	 * null if the dialog box was never displayed due to user disabling it
 	 */
-	Boolean maybeShowWarningConfirm(String title, String message, String checkBoxText, PropertyContext context, String contextProp);
+	Boolean maybeShowWarningConfirm(String title, String message, String checkBoxText, PropertyContext context,
+		String contextProp);
 
 	/**
 	 * Displays a yes/no dialog
@@ -57,20 +55,12 @@ public interface UIDelegate
 	boolean showWarningConfirm(String title, String message);
 
 	/**
-	 * Displays an ok/cancel dialog
-	 * @param title the title for the dialog box
-	 * @param message the message to display
-	 * @return true if user clicked Ok, false otherwise
-	 */
-	boolean showWarningPrompt(String title, String message);
-
-	/**
 	 * Displays an ok dialog with a message and warning icon.
 	 * @param title the title for the dialog box
 	 * @param message the message to display
 	 */
 	void showWarningMessage(String title, String message);
-	
+
 	/**
 	 * Displays an ok dialog with a message and error icon.
 	 * @param title the title for the dialog box
@@ -100,12 +90,12 @@ public interface UIDelegate
 	 * choices. The rules for what selections are available and how many 
 	 * selections can be made are contained in the chooserFacade. The selected 
 	 * list of the chooserFacade will contain any choices the user made.
-
+	
 	 * @param chooserFacade The choice rules.
 	 * @return false if the user cancelled the choice, true if it was final.
 	 */
 	boolean showGeneralChooser(ChooserFacade chooserFacade);
-	
+
 	/**
 	 * Display a modal dialog requesting a value from the user.
 	 * @param title the title for the dialog box
@@ -122,9 +112,8 @@ public interface UIDelegate
 	 * @param equipBuilder The EquipmentBuilderFacade instance to be used for creating the item.
 	 * @return The result of the dialog.
 	 */
-	public CustomEquipResult showCustomEquipDialog(CharacterFacade character,
-		EquipmentBuilderFacade equipBuilder);
-	
+	public CustomEquipResult showCustomEquipDialog(CharacterFacade character, EquipmentBuilderFacade equipBuilder);
+
 	/**
 	 * The result of creation of a custom equipment item.
 	 */

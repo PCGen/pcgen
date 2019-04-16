@@ -18,6 +18,7 @@
 package pcgen.cdom.content.factset;
 
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.FactSetKey;
@@ -34,13 +35,12 @@ import pcgen.util.Logging;
  * FACTSET present on the object.
  * 
  * @param <T>
- *            The type of of object upon which the FactSetDefinitionEnforcer
+ *            The type of object upon which the FactSetDefinitionEnforcer
  *            will be used
  * @param <F>
  *            The format of the data stored in the FactSet
  */
-public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements
-		DeferredToken<T>, LstToken
+public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements DeferredToken<T>, LstToken
 {
 
 	/**
@@ -59,17 +59,10 @@ public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements
 	 */
 	public FactSetDefinitionEnforcer(FactSetInfo<T, F> fsi)
 	{
-		if (fsi == null)
-		{
-			throw new IllegalArgumentException("FactSet Info cannot be null");
-		}
+		Objects.requireNonNull(fsi, "FactSet Info cannot be null");
 		def = fsi;
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.DeferredToken#process(pcgen.rules.context.LoadContext,
-	 *      pcgen.cdom.base.Loadable)
-	 */
 	@Override
 	public boolean process(LoadContext context, T obj)
 	{
@@ -83,24 +76,17 @@ public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements
 		{
 			return true;
 		}
-		Logging.errorPrint("FACTSET " + def.getFactSetName()
-			+ " was required but not set in " + obj.getClass().getSimpleName()
-			+ " " + obj.getKeyName());
+		Logging.errorPrint("FACTSET " + def.getFactSetName() + " was required but not set in "
+			+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
 		return false;
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.DeferredToken#getDeferredTokenClass()
-	 */
 	@Override
 	public Class<T> getDeferredTokenClass()
 	{
 		return def.getUsableLocation();
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{

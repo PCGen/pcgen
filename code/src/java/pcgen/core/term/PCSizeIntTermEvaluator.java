@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCSizeIntTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,17 +16,13 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 05-Oct-2008 20:49:34
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
-import pcgen.core.display.CharacterDisplay;
+import pcgen.core.PlayerCharacter;
 
-public class PCSizeIntTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCSizeIntTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	public PCSizeIntTermEvaluator(String expressionString)
 	{
@@ -35,9 +30,9 @@ public class PCSizeIntTermEvaluator
 	}
 
 	@Override
-	public Float resolve(CharacterDisplay display)
+	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) display.sizeInt();
+		return (float) pc.sizeInt();
 	}
 
 	@Override

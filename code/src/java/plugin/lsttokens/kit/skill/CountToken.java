@@ -1,5 +1,4 @@
 /*
- * CountToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 6, 2006
- *
- * Current Ver: $Revision$
  */
 
 package plugin.lsttokens.kit.skill;
@@ -32,8 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * COUNT Token for KitSkill
  */
-public class CountToken extends AbstractToken implements
-		CDOMPrimaryToken<KitSkill>
+public class CountToken extends AbstractToken implements CDOMPrimaryToken<KitSkill>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -53,24 +47,22 @@ public class CountToken extends AbstractToken implements
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, KitSkill kitSkill,
-		String value)
+	public ParseResult parseToken(LoadContext context, KitSkill kitSkill, String value)
 	{
 		try
 		{
 			Integer quan = Integer.valueOf(value);
 			if (quan.intValue() <= 0)
 			{
-				return new ParseResult.Fail(getTokenName() + " expected an integer > 0", context);
+				return new ParseResult.Fail(getTokenName() + " expected an integer > 0");
 			}
 			kitSkill.setCount(quan);
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " expected an integer.  Tag must be of the form: "
-				+ getTokenName() + ":<int>", context);
+			return new ParseResult.Fail(
+				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
 		}
 	}
 

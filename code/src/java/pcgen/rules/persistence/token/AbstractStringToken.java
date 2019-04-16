@@ -1,5 +1,4 @@
 /*
- * AbstractStringToken.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -39,8 +38,7 @@ public abstract class AbstractStringToken<T extends CDOMObject> extends Abstract
 	protected abstract StringKey stringKey();
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, T obj,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, T obj, String value)
 	{
 		context.getObjectContext().put(obj, stringKey(), value);
 		return ParseResult.SUCCESS;
@@ -53,6 +51,6 @@ public abstract class AbstractStringToken<T extends CDOMObject> extends Abstract
 		{
 			return null;
 		}
-		return new String[] { value };
+		return new String[]{value};
 	}
 }

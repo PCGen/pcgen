@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- $Id: fantasy_master_alt_condensed.xslt 23548 2014-03-28 06:52:47Z amaitland $ -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
@@ -36,9 +35,18 @@
 	<xsl:variable name="vAttribs_tree">
 		<myAttribs:myAttribs>
 			<xsl:copy-of select="$vAttribs/*"/>
-		</myAttribs:myAttribs>
+      <pfs_chronicles.title><subattrib centre="" inverse=""/></pfs_chronicles.title>
+      <pfs_chronicles.border><subattrib border="" normal=""/></pfs_chronicles.border>
+      <pfs_chronicles.lightline><subattrib light=""/></pfs_chronicles.lightline>
+      <pfs_chronicles.darkline><subattrib medium=""/></pfs_chronicles.darkline>
+      <pfs_boons.title><subattrib centre="" inverse=""/></pfs_boons.title>
+      <pfs_boons.border><subattrib border="" normal=""/></pfs_boons.border>
+      <pfs_boons.lightline><subattrib light=""/></pfs_boons.lightline>
+      <pfs_boons.darkline><subattrib medium=""/></pfs_boons.darkline>
+    </myAttribs:myAttribs>
 	</xsl:variable>
 	<xsl:variable name="vAttribs_all" select="xalan:nodeset($vAttribs_tree)"/>
+
 	<xsl:variable name="pageHeight">
 		<xsl:choose>
 			<xsl:when test="contains(/character/export/paperinfo/height, 'in')">
@@ -391,6 +399,8 @@
 						<xsl:apply-templates select="drawbacks"/>
 						<xsl:apply-templates select="afflictions"/>
 						<xsl:apply-templates select="racial_traits"/>
+						<xsl:apply-templates select="class_features"/>
+						<xsl:apply-templates select="words_of_powers"/>
 						<xsl:apply-templates select="special_attacks"/>
 						<xsl:apply-templates select="special_qualities"/>
 						<xsl:apply-templates select="prestige_awards"/>
@@ -429,9 +439,10 @@
 						<!-- End 4th Edition Style -->
 						<xsl:apply-templates select="salient_divine_abilities"/>
 						<xsl:apply-templates select="feats"/>
-						<xsl:apply-templates select="pfs_chronicles"/>	
+						<xsl:apply-templates select="pfs_chronicles"/>
+            <xsl:apply-templates select="pfs_boons"/>
 
-						<xsl:apply-templates select="domains"/>
+            <xsl:apply-templates select="domains"/>
 						<xsl:apply-templates select="weapon_proficiencies"/>
 <!-->						<xsl:apply-templates select="proficiency_specials"/>-->
 						<xsl:apply-templates select="templates"/>

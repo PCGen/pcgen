@@ -13,16 +13,29 @@ import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
+import pcgen.cdom.inst.CodeControl;
+import pcgen.core.Ability;
+import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
+import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
+import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 
-public class BuildUtilities
+public final class BuildUtilities
 {
 	private static final StringManager STR_MGR = new StringManager();
+
+	private BuildUtilities()
+	{
+	}
 
 	public static PCAlignment createAlignment(final String longName,
 		final String shortName)
@@ -30,6 +43,7 @@ public class BuildUtilities
 		final PCAlignment align = new PCAlignment();
 		align.setName(longName);
 		align.setKeyName(shortName);
+		align.put(StringKey.SORT_KEY, shortName);
 		return align;
 	}
 
@@ -47,11 +61,38 @@ public class BuildUtilities
 		return sa;
 	}
 
+	/**
+	 * Create a Stat for the test system with a Sortkey. This will be provided a default
+	 * sort key.
+	 * 
+	 * @param name
+	 *            The name of the stat to be created
+	 * @param abb
+	 *            The abbreviation of the stat to be created
+	 * @return The new PCStat
+	 */
 	public static PCStat createStat(String name, String abb)
+	{
+		return createStat(name, abb, "ZZ");
+	}
+
+	/**
+	 * Create a Stat for the test system with a Sortkey.
+	 * 
+	 * @param name
+	 *            The name of the stat to be created
+	 * @param abb
+	 *            The abbreviation of the stat to be created
+	 * @param sortKey
+	 *            The sort key of the stat to be created
+	 * @return The new PCStat
+	 */
+	public static PCStat createStat(String name, String abb, String sortKey)
 	{
 		PCStat stat = new PCStat();
 		stat.setName(name);
 		stat.setKeyName(abb);
+		stat.put(StringKey.SORT_KEY, sortKey);
 		stat.put(FormulaKey.STAT_MOD, FormulaFactory.getFormulaFor("floor(SCORE/2)-5"));
 		stat.put(VariableKey.getConstant("MAXLEVELSTAT=" + stat.getKeyName()),
 				FormulaFactory.getFormulaFor(stat.getKeyName() + "SCORE-10"));
@@ -84,7 +125,7 @@ public class BuildUtilities
 	{
 		FactDefinition<?, String> fd = new FactDefinition<>();
 		fd.setUsableLocation(cls);
-		fd.setName("*" + factname);
+		fd.setName("TS_" + factname);
 		fd.setFactName(factname);
 		fd.setFormatManager(new StringManager());
 		context.getReferenceContext().importObject(fd);
@@ -103,11 +144,73 @@ public class BuildUtilities
 	{
 		FactSetDefinition<?, String> fd = new FactSetDefinition<>();
 		fd.setUsableLocation(cls);
-		fd.setName("*" + factsetname);
+		fd.setName("TS_" + factsetname);
 		fd.setFactSetName(factsetname);
 		fd.setFormatManager(new StringManager());
 		context.getReferenceContext().importObject(fd);
 		return fd;
 	}
 
+	/**
+	 * Build a FEAT in the given LoadContext with the given name.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the FEAT should be built
+	 * @param name
+	 *            The name for the FEAT
+	 * @return The Ability (Feat)
+	 */
+	public static Ability buildFeat(LoadContext context, String name)
+	{
+		return buildAbility(context, BuildUtilities.getFeatCat(), name);
+	}
+
+	/**
+	 * Build an Ability in the given LoadContext with the given Category and name.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the Ability should be built
+	 * @param cat
+	 *            The Category for the Ability
+	 * @param name
+	 *            The name for the Ability
+	 * @return The Ability
+	 */
+	public static Ability buildAbility(LoadContext context, AbilityCategory cat, String name)
+	{
+		Ability a = cat.newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
+	}
+
+	/**
+	 * Build the unselected Race for unit tests.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the Race should be built
+	 */
+	public static void buildUnselectedRace(LoadContext context)
+	{
+		Race r = context.getReferenceContext().constructCDOMObject(Race.class, "Unselected");
+		r.addToListFor(ListKey.GROUP, "UNSELECTED");
+		r.addToListFor(ListKey.TYPE, Type.valueOf("Humanoid"));
+	}
+	
+	/**
+	 * Get the FEAT AbilityCategory
+	 */
+	public static AbilityCategory getFeatCat()
+	{
+		return AbilityCategory.FEAT;
+	}
+
+	public static void enableAlignmentFeature(AbstractReferenceContext ref)
+	{
+		CodeControl controller =
+				ref.constructNowIfNecessary(CodeControl.class, "Controller");
+		ObjectKey<Boolean> objectKey =
+				ObjectKey.getKeyFor(Boolean.class, "*ALIGNMENTFEATURE");
+		controller.put(objectKey, Boolean.TRUE);
+	}
 }

@@ -17,11 +17,10 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.Race;
 import plugin.lsttokens.choose.RaceToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
 
 public class RaceTokenTest extends
@@ -29,12 +28,6 @@ public class RaceTokenTest extends
 {
 
 	static RaceToken pca = new RaceToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 
 	@Override
 	public Chooser<Race> getActor()

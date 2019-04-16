@@ -1,5 +1,4 @@
 /*
- * SizeMod.java
  * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 13, 2002, 9:19 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.bonustokens;
 
@@ -30,7 +24,9 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class SizeMod extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS = {"NUMBER", };
+	private static final String[] BONUS_TAGS = {
+		"NUMBER"
+		};
 
 	/**
 	 * Return the bonus tag handled by this class.
@@ -45,7 +41,6 @@ public final class SizeMod extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual type of SizeMOD that may be bonused.
 	 * @param tagNumber the index of the SizeMOD type.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The type of SizeMOD.
 	 */
 	@Override
@@ -56,7 +51,6 @@ public final class SizeMod extends MultiTagBonusObj
 
 	/**
 	 * Get the number of types of SizeMod that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of SizeMOD types.
 	 */
 	@Override

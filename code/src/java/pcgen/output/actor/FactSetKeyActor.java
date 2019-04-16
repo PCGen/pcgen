@@ -26,6 +26,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.output.base.OutputActor;
 import pcgen.output.model.CollectionModel;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -60,13 +61,8 @@ public class FactSetKeyActor<T> implements OutputActor<CDOMObject>
 		this.fsk = fsk;
 	}
 
-	/**
-	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
-	public TemplateModel process(CharID id, CDOMObject d)
-		throws TemplateModelException
+	public TemplateModel process(CharID id, CDOMObject d) throws TemplateModelException
 	{
 		Collection<T> c = new ArrayList<>();
 		for (Indirect<T> indirect : d.getSafeSetFor(fsk))

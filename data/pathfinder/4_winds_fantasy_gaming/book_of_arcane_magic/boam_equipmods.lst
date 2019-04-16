@@ -1,0 +1,15 @@
+# Sun Jan 21 13:38:15 2018 -- reformated by PCGen PrettyLST v6.06.00
+# Original Entry by: AinvarG, December 30, 2010
+# Revised by: LearnTribe, 03 July, 2017
+SOURCELONG:Book of Arcane Magic	SOURCESHORT:boam	SOURCEWEB:http://www.4windsfantasygaming.com	SOURCEDATE:2009-01
+SOURCESHORT:boam
+SOURCEWEB:http://www.4windsfantasygaming.com
+
+###Block: Use per day items
+# Modifier Name	Unique Key			Visible	Choose		Nb of Charges
+### Need to check original source book to see what this was refering to
+# Modifier Name								Unique Key						Visible	Choose		Nb of Charges
+Uses per Day (4)								KEY:Special Ability ~ Uses per Day / 4	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:4|4
+
+#Old KEYs
+Special Ability ~ Uses per Day / 4.COPY=USES_PER_DAY_4								VISIBLE:NO

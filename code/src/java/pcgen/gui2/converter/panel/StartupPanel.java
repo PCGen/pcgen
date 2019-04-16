@@ -40,54 +40,47 @@ public class StartupPanel extends ConvertSubPanel
 	private final GameModeFileLoader gameModeFileLoader;
 	private final CampaignFileLoader campaignFileLoader;
 
-	
 	/**
 	 * Create a new instance of StartupPanel
 	 * @param gameModeFileLoader
 	 * @param campaignFileLoader
 	 */
-	public StartupPanel(GameModeFileLoader gameModeFileLoader,
-		CampaignFileLoader campaignFileLoader)
+	public StartupPanel(GameModeFileLoader gameModeFileLoader, CampaignFileLoader campaignFileLoader)
 	{
 		this.gameModeFileLoader = gameModeFileLoader;
 		this.campaignFileLoader = campaignFileLoader;
 		message = new JPanel();
 		message.setLayout(new UnstretchingGridLayout(0, 1));
-		message.add(new JLabel("Welcome to the PCGen "
-			+ PCGenPropBundle.getProdVersionSeries() + " Data Converter..."));
+		message
+			.add(new JLabel("Welcome to the PCGen " + PCGenPropBundle.getProdVersionSeries() + " Data Converter..."));
 		message.add(new JLabel(" "));
 		message.add(new JLabel("Loading Game Modes and Campaign Information."));
 		message.add(new JLabel(" "));
 
-        progressBar = new JProgressBar(0, 3);
-        progressBar.setValue(0);
-        progressBar.setStringPainted(true);
+		progressBar = new JProgressBar(0, 3);
+		progressBar.setValue(0);
+		progressBar.setStringPainted(true);
 
-        message.add(progressBar);
+		message.add(progressBar);
 		message.add(new JLabel(" "));
 	}
 
 	@Override
 	public boolean performAnalysis(CDOMObject pc)
 	{
-		new Thread(new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				PCGenTask loadPluginTask = Main.createLoadPluginTask();
-				loadPluginTask.execute();
-		        progressBar.setValue(1);
-		        gameModeFileLoader.execute();
-		        progressBar.setValue(2);
-		        campaignFileLoader.execute();
-		        progressBar.setValue(3);
-		        
-				message.add(new JLabel("Initialization complete, press next button to continue..."));
-				message.revalidate();
-		        
-				fireProgressEvent(ProgressEvent.AUTO_ADVANCE);
-			}
+		new Thread(() -> {
+			PCGenTask loadPluginTask = Main.createLoadPluginTask();
+			loadPluginTask.execute();
+			progressBar.setValue(1);
+			gameModeFileLoader.execute();
+			progressBar.setValue(2);
+			campaignFileLoader.execute();
+			progressBar.setValue(3);
+
+			message.add(new JLabel("Initialization complete, press next button to continue..."));
+			message.revalidate();
+
+			fireProgressEvent(ProgressEvent.AUTO_ADVANCE);
 		}).start();
 		return true;
 	}

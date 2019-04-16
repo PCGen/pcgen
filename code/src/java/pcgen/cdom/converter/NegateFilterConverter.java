@@ -18,6 +18,7 @@
 package pcgen.cdom.converter;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.Converter;
@@ -31,26 +32,23 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 
 	public NegateFilterConverter(Converter<B, R> conv)
 	{
-		if (conv == null)
-		{
-			throw new IllegalArgumentException("Converter cannot be null");
-		}
+		Objects.requireNonNull(conv, "Converter cannot be null");
 		converter = conv;
 	}
 
-	private static final PrimitiveFilter PREVENT = new PrimitiveFilter()
+	@SuppressWarnings("rawtypes")
+	private static final PrimitiveFilter PREVENT = (pc, obj) -> false;
+
+	@SuppressWarnings("unchecked")
+	private static final <T> PrimitiveFilter<T> getPrevent()
 	{
-		@Override
-		public boolean allow(PlayerCharacter pc, Object obj)
-		{
-			return false;
-		}
-	};
+		return PREVENT;
+	}
 
 	@Override
 	public Collection<? extends R> convert(ObjectContainer<B> orig)
 	{
-		return converter.convert(orig, PREVENT);
+		return converter.convert(orig, getPrevent());
 	}
 
 	@Override
@@ -64,13 +62,9 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 
 		private final PrimitiveFilter<T> filter;
 
-		public InvertingFilter(PrimitiveFilter<T> fil)
+		private InvertingFilter(PrimitiveFilter<T> fil)
 		{
-			if (fil == null)
-			{
-				throw new IllegalArgumentException(
-						"PrimitiveFilter cannot be null");
-			}
+			Objects.requireNonNull(fil, "PrimitiveFilter cannot be null");
 			filter = fil;
 		}
 
@@ -85,8 +79,6 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 	/**
 	 * Returns the consistent-with-equals hashCode for this
 	 * NegateFilterConverter
-	 * 
-	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode()
@@ -98,13 +90,11 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 	 * Returns true if this NegateFilterConverter is equal to the given Object.
 	 * Equality is defined as being another NegateFilterConverter object with
 	 * equal underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj)
 	{
 		return (obj instanceof NegateFilterConverter)
-				&& ((NegateFilterConverter<?, ?>) obj).converter.equals(converter);
+			&& ((NegateFilterConverter<?, ?>) obj).converter.equals(converter);
 	}
 }

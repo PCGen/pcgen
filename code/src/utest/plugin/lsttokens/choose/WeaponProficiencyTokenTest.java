@@ -18,8 +18,6 @@
 package plugin.lsttokens.choose;
 
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Race;
 import pcgen.core.WeaponProf;
@@ -38,7 +36,7 @@ public class WeaponProficiencyTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static WeaponProficiencyToken subtoken = new WeaponProficiencyToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -68,12 +66,6 @@ public class WeaponProficiencyTokenTest extends
 	public Class<WeaponProf> getTargetClass()
 	{
 		return WeaponProf.class;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

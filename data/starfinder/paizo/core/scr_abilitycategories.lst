@@ -1,0 +1,232 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+###Block: Parent Categories
+# Ability Category			Visible	Category of Object
+ABILITYCATEGORY:Race			VISIBLE:NO	CATEGORY:Race
+ABILITYCATEGORY:Racial Trait		VISIBLE:NO	CATEGORY:Racial Trait
+ABILITYCATEGORY:Class			VISIBLE:NO	CATEGORY:Class
+ABILITYCATEGORY:Class Feature		VISIBLE:NO	CATEGORY:Class Feature
+ABILITYCATEGORY:Internal		VISIBLE:NO	CATEGORY:Internal
+ABILITYCATEGORY:Proficiency		VISIBLE:NO	CATEGORY:PROFICIENCY
+ABILITYCATEGORY:Archetype		VISIBLE:NO	CATEGORY:Archetype
+ABILITYCATEGORY:Theme			VISIBLE:NO	CATEGORY:Theme
+ABILITYCATEGORY:Weapon			VISIBLE:NO	CATEGORY:Weapon
+
+
+#ABILITYCATEGORY:Feat			CATEGORY:Feat					DISPLAYLOCATION:Character
+
+
+
+
+
+ABILITYCATEGORY:Special Ability	VISIBLE:NO	CATEGORY:Special Ability
+
+# Special Ability is for displayed abilities
+# Race is a base ability to allow quick add-on to a race
+# Class is a base ability to allow quick add-on to a class
+# Internal is a catch-all for non-displayed internal items
+#
+
+
+###Block: Child Categories
+# Ability Category							Visible		Editable?		Change Pool?	Base Pool number		Category of Object					Type of Object										Specific choices list																																																																																Display Location
+ABILITYCATEGORY:PC Level 5 Stat Boost				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:PCStatBoostLVL_A	CATEGORY:Internal						TYPE:PC Level 5 Stat Boost																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:PC Level 10 Stat Boost				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:PCStatBoostLVL_B	CATEGORY:Internal						TYPE:PC Level 10 Stat Boost																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:PC Level 15 Stat Boost				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:PCStatBoostLVL_C	CATEGORY:Internal						TYPE:PC Level 15 Stat Boost																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:PC Level 20 Stat Boost				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		POOL:PCStatBoostLVL_D	CATEGORY:Internal						TYPE:PC Level 20 Stat Boost																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Soldier Key Ability Score				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Soldier Key Ability Score																																																																																										DISPLAYLOCATION:Character
+
+
+# Racial Traits
+ABILITYCATEGORY:Android Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Android Racial Trait																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Human Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Human Racial Trait																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Kasatha Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Kasatha Racial Trait																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Lashunta Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Lashunta Racial Trait																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Shirren Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Shirren Racial Trait																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Vesk Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Vesk Racial Trait																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Ysoki Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Ysoki Racial Trait																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Lashunta Subrace Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Lashunta Subrace Selection																																																																																										DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:+2 Racial Bonus to Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait																	ABILITYLIST:+2 Racial Bonus to Skill																																																																													DISPLAYLOCATION:Character
+ABILITYCATEGORY:+2 Racial Stat Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait																	ABILITYLIST:+2 Racial Stat Bonus																																																																														DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:Theme Selection					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:Theme Selection																																																																																												DISPLAYLOCATION:Character
+#ABILITYCATEGORY:Theme Benefit			CATEGORY:Theme	TYPE:Theme Benefit	VISIBLE:QUALIFY	DISPLAYLOCATION:Character	EDITABLE:YES	EDITPOOL:NO
+
+ABILITYCATEGORY:ACE PILOT Theme Benefit				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:ACE PILOT Theme Benefit																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:BOUNTY HUNTER Theme Benefit			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:BOUNTY HUNTER Theme Benefit																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:ICON Theme Benefit					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:ICON Theme Benefit																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:MERCENARY Theme Benefit				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:MERCENARY Theme Benefit																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:OUTLAW Theme Benefit				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:OUTLAW Theme Benefit																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:PRIEST Theme Benefit				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:PRIEST Theme Benefit																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:SCHOLAR Theme Benefit				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:SCHOLAR Theme Benefit																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:SPACEFARER Theme Benefit				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:SPACEFARER Theme Benefit																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:XENOSEEKER Theme Benefit				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:XENOSEEKER Theme Benefit																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:THEMELESS Theme Benefit				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:THEMELESS Theme Benefit																																																																																											DISPLAYLOCATION:Character
+
+# Class
+ABILITYCATEGORY:Envoy Class Feature					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Envoy Class Feature																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Mechanic Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Mechanic Class Feature																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Mystic Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Mystic Class Feature																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Operative Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Operative Class Feature																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Solarian Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Solarian Class Feature																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Soldier Class Feature				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Soldier Class Feature																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Technomancer Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Technomancer Class Feature																																																																																										DISPLAYLOCATION:Character
+
+# Archetype
+ABILITYCATEGORY:Envoy Archetype					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Archetype					TYPE:Envoy Archetype																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Mechanic Archetype					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Archetype					TYPE:Mechanic Archetype																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Mystic Archetype					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Archetype					TYPE:Mystic Archetype																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Operative Archetype					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Archetype					TYPE:Operative Archetype																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Solarian Archetype					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Archetype					TYPE:Solarian Archetype																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Soldier Archetype					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Archetype					TYPE:Soldier Archetype																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Technomancer Archetype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Archetype					TYPE:Technomancer Archetype																																																																																											DISPLAYLOCATION:Character
+
+# Class Specific Pools
+ABILITYCATEGORY:Skill Expertise					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Skill Expertise																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Envoy Inspiration					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Envoy Inspiration																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Mechanic Trick					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Mechanic Trick																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Connection Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Connection Selection																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Akashic Connection Power				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Akashic Connection Power																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Empath Connection Power				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Empath Connection Power																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Healer Connection Power				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Healer Connection Power																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Mindbreaker Connection Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Mindbreaker Connection Power																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Overlord Connection Power				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Overlord Connection Power																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Star Shaman Connection Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Star Shaman Connection Power																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Xenodruid Connection Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Xenodruid Connection Power																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Stellar Revelation					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Stellar Revelation																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Magic Hack						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Magic Hack																																																																																													DISPLAYLOCATION:Character
+ABILITYCATEGORY:Primary Fighting Style				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:PRIMARY FIGHTING STYLE																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Secondary Fighting Style				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:SECONDARY FIGHTING STYLE																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Arcane Assailant Fighting Style			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Arcane Assailant FIGHTING STYLE																																																																																									DISPLAYLOCATION:Character
+ABILITYCATEGORY:Armor Storm Fighting Style			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Armor Storm FIGHTING STYLE																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Blitz Fighting Style				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Blitz FIGHTING STYLE																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Bombard Fighting Style				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Bombard FIGHTING STYLE																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Guard Fighting Style				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Guard FIGHTING STYLE																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Hit-And-Run Fighting Style			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Hit-and-Run FIGHTING STYLE																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Sharpshoot Fighting Style				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Sharpshoot FIGHTING STYLE																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Gear Boost						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Gear Boost																																																																																													DISPLAYLOCATION:Character
+ABILITYCATEGORY:Operative Specialization				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:OPERATIVE SPECIALIZATION																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Operative Exploit					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:OPERATIVE EXPLOIT																																																																																												DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Drone Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Drone Feat																																																																																													DISPLAYLOCATION:Character
+ABILITYCATEGORY:Drone Mod						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Drone Mod																																																																																													DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Mechanic Control Net Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Mechanic Control Net Selection																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Mechanic AI Level Divestment			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Mechanic AI Level Divestment																																																																																										DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Mechanic AI Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Mechanic AI Selection																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Soldier Key Ability					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Soldier Key Ability																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Drone Chassis Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Drone Chassis Selection																																																																																											DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:Initial Drone Proficiency				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Initial Drone Proficiency																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Drone Weapon Proficiency				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature																	ABILITYLIST:Drone Mod ~ Weapon Proficiency																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Combat Drone Initial Mod				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature																	ABILITYLIST:Drone Mod ~ Weapon Mount|Drone Mod ~ Melee Weapon Arm																																																																									DISPLAYLOCATION:Character
+ABILITYCATEGORY:Drone Resistance					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Drone Resistance																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Drone Greater Resistance				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Drone Greater Resistance																																																																																											DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:DRONE Skill Unit					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal																		ABILITYLIST:DRONE Skill Unit ~ Acrobatics|DRONE Skill Unit ~ Athletics|DRONE Skill Unit ~ Computers|DRONE Skill Unit ~ Engineering|DRONE Skill Unit ~ Perception|DRONE Skill Unit ~ Stealth																																																				DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Combat Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:FEAT						TYPE:Combat																																																																																														DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:Understand Language					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability				TYPE:Understand Language																																																																																											DISPLAYLOCATION:Character
+
+
+
+# Legacy Support
+ABILITYCATEGORY:Dwarf Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Dwarf Racial Trait																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Elf Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Elf Racial Trait																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Gnome Racial Trait					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Gnome Racial Trait																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Half-Elf Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Half-Elf Racial Trait																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Half-Orc Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Half-Orc Racial Trait																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Halfling Racial Trait				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Halfling Racial Trait																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Gnome Subrace Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Gnome Subrace Selection																																																																																											DISPLAYLOCATION:Character
+
+
+###
+ABILITYCATEGORY:Skill Focus						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Feat																		ABILITYLIST:Skill Focus																																																																																DISPLAYLOCATION:Character
+ABILITYCATEGORY:Weapon Focus						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Feat																		ABILITYLIST:Weapon Focus																																																																															DISPLAYLOCATION:Character
+ABILITYCATEGORY:Weapon Specialization				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Feat																		ABILITYLIST:Weapon Specialization																																																																														DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Weapon Focus Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Proficiency					TYPE:Weapon Focus																																																																																													DISPLAYLOCATION:Character
+ABILITYCATEGORY:Weapon Specialization Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Proficiency					TYPE:Weapon Specialization																																																																																											DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:Personal Upgrade LVL 03				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Personal Upgrade LVL 03																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Personal Upgrade LVL 07				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Personal Upgrade LVL 07																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Personal Upgrade LVL 14				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Personal Upgrade LVL 14																																																																																											DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Themeless Class Skill				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Themeless Class Skill																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Themeless +1 Ability Score			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Themeless +1 Ability Score																																																																																										DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Scholar Theme Chosen Skill			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Scholar Theme Chosen Skill																																																																																										DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Life Science Specialty				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:Life Science Specialty																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Physical Science Specialty			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Theme						TYPE:Physical Science Specialty																																																																																										DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Skill Synergy						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Skill Synergy																																																																																												DISPLAYLOCATION:Character
+ABILITYCATEGORY:Enhanced Resistance Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Enhanced Resistance																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Improved Combat Maneuver Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Improved Combat Maneuver																																																																																											DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Solarian Skill Adept				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Solarian Skill Adept																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Solarian Solar Manifestation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Solarian Solar Manifestation																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Solarian Solar Manifestation Color		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Solarian Solar Manifestation Color																																																																																									DISPLAYLOCATION:Character
+ABILITYCATEGORY:Solarian Weapon Damage Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Solarian Weapon Damage Type																																																																																										DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Envoy Improvisation					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Envoy Improvisation																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Expertise Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Expertise Talent																																																																																												DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Operative Exploit					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Operative Exploit																																																																																												DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:Graviton Zenith Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Graviton Zenith Revelation																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Photon Zenith Revelation				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Photon Zenith Revelation																																																																																											DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Connection Inkling 0-Level Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Connection Inkling SLA-0																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Connection Inkling 1st Level Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Connection Inkling SLA-1																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Technomantic Dabbler 0-Level Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Technomantic Dabbler SLA-0																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Technomantic Dabbler 1st Level Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Technomantic Dabbler SLA-1																																																																																										DISPLAYLOCATION:Character
+ABILITYCATEGORY:Major Psychic Power Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Major Psychic Power SLA																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Minor Psychic Power Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Minor Psychic Power SLA																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Psychic Power Selection				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Psychic Power SLA																																																																																												DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Home Planet						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Home Planet																																																																																													DISPLAYLOCATION:Character
+ABILITYCATEGORY:Faction							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Faction																																																																																													DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Opening Volley Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Opening Volley Choice																																																																																											DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Exocortex Drone Mod					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature																	ABILITYLIST:Drone Mod ~ Armor Slot|Drone Mod ~ Cargo Rack|Drone Mod ~ Climbing Claws|Drone Mod ~ Enhanced Senses|Drone Mod ~ Hydrojets|Drone Mod ~ Jump Jets|Drone Mod ~ Resistance|Drone Mod ~ Smuggler's Compartment|Drone Mod ~ Speed|Drone Mod ~ Weapon Proficiency (Advanced Melee)|Drone Mod ~ Weapon Proficiency (Heavy Weapons)|Drone Mod ~ Echolocators|Drone Mod ~ Excavator|Drone Mod ~ Flight System|Drone Mod ~ Greater Resistance|Drone Mod ~ Invisibility Field|Drone Mod ~ Reactive Camouflage	DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Mystic LV 9 Archetype Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature	CATEGORY:Class Feature	TYPE:Mystic LV 9 Archetype Choice	TYPE:Mystic LV 9 Archetype Choice																																																																																				DISPLAYLOCATION:Character
+ABILITYCATEGORY:Technomancer LV 8 Archetype Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Technomancer LV 8 Archetype Choice																																																																																									DISPLAYLOCATION:Character
+ABILITYCATEGORY:Cache Capacitor Slot 1				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Cache Capacitor Slot 1																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Cache Capacitor Slot 2				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Cache Capacitor Slot 2																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Cache Capacitor Slot 3				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Cache Capacitor Slot 3																																																																																											DISPLAYLOCATION:Character
+
+
+###GM AWARD SECTION
+ABILITYCATEGORY:GM Award						VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:GM_Award																																																																																													DISPLAYLOCATION:Misc
+ABILITYCATEGORY:GM Bonus Spell Cast					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:GM Bonus Spell Cast																																																																																											DISPLAYLOCATION:Misc
+ABILITYCATEGORY:GM Bonus Spell Known				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:GM Bonus Spell Known																																																																																											DISPLAYLOCATION:Misc
+
+
+ABILITYCATEGORY:Rules							VISIBLE:YES		EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Rule																																																																																														DISPLAYLOCATION:Misc
+
+
+
+
+ABILITYCATEGORY:Icon Profession					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Class Feature					TYPE:Icon Profession																																																																																												DISPLAYLOCATION:Character
+
+ABILITYCATEGORY:Ring of Resistance +1				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Ring of Resistance +1																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Ring of Resistance +2				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Ring of Resistance +2																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Ring of Resistance +3				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Ring of Resistance +3																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Ring of Resistance +4				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Ring of Resistance +4																																																																																											DISPLAYLOCATION:Character
+ABILITYCATEGORY:Ring of Resistance +5				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal						TYPE:Ring of Resistance +5																																																																																											DISPLAYLOCATION:Character
+
+
+ABILITYCATEGORY:Android Upgrade Slot				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Racial Trait					TYPE:Android Upgrade Slot																																																																																											DISPLAYLOCATION:Character

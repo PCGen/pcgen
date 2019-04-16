@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Mon May  9 15:19:00 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Blood of the Elements	SOURCESHORT:BOTE	SOURCEWEB:http://paizo.com/products/btpy978p	SOURCEDATE:2014-06
+SOURCELONG:Pathfinder Player Companion: Blood of the Elements	SOURCESHORT:BOTE	SOURCEWEB:http://paizo.com/products/btpy978p	SOURCEDATE:2014-06
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 4 April 2016
 
@@ -12,7 +13,7 @@ Thunder Kettle			TYPE:Goods.Alchemical.Consumable		COST:275	WT:3		SOURCEPAGE:p.1
 
 Emissary's Sash			TYPE:Goods.Clothing.Resizable			COST:500	WT:3		SOURCEPAGE:p.27
 
-Drug (Fireskin Elixir)		TYPE:Goods.Drug.Consumable			COST:100			SOURCEPAGE:p.27	SPROP:Ingested; Addiction major, Fortitude DC 20; Effect 1 day; +10 alchemical bonus on Disguise checks to appear as an efreeti, –1 penalty on all saves; 1d2 Wis damage
+Drug (Fireskin Elixir)		TYPE:Goods.Drug.Consumable			COST:100			SOURCEPAGE:p.27	SPROP:Ingested; Addiction major, Fortitude DC 20; Effect 1 day; +10 alchemical bonus on Disguise checks to appear as an efreeti, -1 penalty on all saves; 1d2 Wis damage
 
 Phlogiston Vial			TYPE:Magic.Wondrous.Consumable		COST:1000			SOURCEPAGE:p.23
 Lamp of Fiery Visions		TYPE:Magic.Wondrous				COST:22200	WT:1		SOURCEPAGE:p.30

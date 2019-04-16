@@ -1,5 +1,4 @@
 /*
- * RollInfo.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,24 +15,21 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  *
- * $Id$
  */
 package pcgen.core;
 
-import pcgen.util.Logging;
-
 import java.util.StringTokenizer;
 
-import org.apache.commons.lang.StringUtils;
+import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
- * <code>RollInfo</code>.
+ * {@code RollInfo}.
  *
  * Structure representing dice rolls
  *
- * @author binkley 
  */
 public final class RollInfo
 {
@@ -54,7 +50,7 @@ public final class RollInfo
 	protected int times = 0;
 
 	/** Which specific rolls to keep after rolls have been sorted
-	 * in ascending order.  <code>null</code> means to keep all
+	 * in ascending order.  {@code null} means to keep all
 	 * rolls.  Example, [1,3] means to keep the first and third
 	 * lowest rolls, which would be {true, false true} for 3 dice.
 	 * keepTop and keepBottom are implemented as special kinds of
@@ -76,7 +72,6 @@ public final class RollInfo
 	/** Total result never less than this. */
 	private int totalFloor = Integer.MIN_VALUE;
 
-
 	/**
 	 * Check that the rollString is valid.
 	 * @param rollString The string to be checked
@@ -86,8 +81,8 @@ public final class RollInfo
 	{
 		return parseRollInfo(new RollInfo(), rollString);
 	}
-	
-	public static String parseRollInfo(RollInfo rollInfo, String rollString)
+
+	private static String parseRollInfo(RollInfo rollInfo, String rollString)
 	{
 		// To really do this right, we change the token string
 		// as we go along so that we maintain parser state by
@@ -96,10 +91,10 @@ public final class RollInfo
 		// of flex and friends for a "mini-language" whose
 		// statements evaluate to dice rolls.  Too much LISP
 		// on the brain.  --bko
-		final StringTokenizer st = new StringTokenizer(rollString, " ", true);
 
 		try
 		{
+			final StringTokenizer st = new StringTokenizer(rollString, " ", true);
 			String tok = st.nextToken("d");
 
 			if ("d".equals(tok))
@@ -116,8 +111,7 @@ public final class RollInfo
 
 					if (!"d".equals(tok))
 					{
-						return "Bad roll parsing in '" + rollString
-							+ "': missing 'd'";
+						return "Bad roll parsing in '" + rollString + "': missing 'd'";
 					}
 				}
 				else
@@ -133,8 +127,7 @@ public final class RollInfo
 
 			if (rollInfo.sides < 1)
 			{
-				return "Bad roll parsing in '" + rollString + "': sides < 1: "
-					+ rollInfo.sides;
+				return "Bad roll parsing in '" + rollString + "': sides < 1: " + rollInfo.sides;
 			}
 
 			while (st.hasMoreTokens())
@@ -146,13 +139,11 @@ public final class RollInfo
 					case '/':
 						parseChars = "mM+-tT";
 
-						final int keepTop =
-								Integer.parseInt(st.nextToken(parseChars));
+						final int keepTop = Integer.parseInt(st.nextToken(parseChars));
 
 						if (keepTop > rollInfo.times)
 						{
-							return "Bad keepTop in '" + rollString
-								+ "': times: " + rollInfo.times + "; keepTop: "
+							return "Bad keepTop in '" + rollString + "': times: " + rollInfo.times + "; keepTop: "
 								+ keepTop;
 						}
 
@@ -169,14 +160,12 @@ public final class RollInfo
 					case '\\':
 						parseChars = "mM+-tT";
 
-						final int keepBottom =
-								Integer.parseInt(st.nextToken(parseChars));
+						final int keepBottom = Integer.parseInt(st.nextToken(parseChars));
 
 						if (keepBottom > rollInfo.times)
 						{
-							return "Bad keepBottom in '" + rollString
-								+ "': times: " + rollInfo.times
-								+ "; keepBottom: " + keepBottom;
+							return "Bad keepBottom in '" + rollString + "': times: " + rollInfo.times + "; keepBottom: "
+								+ keepBottom;
 						}
 
 						rollInfo.keepList = new boolean[rollInfo.times];
@@ -194,28 +183,24 @@ public final class RollInfo
 						tok = st.nextToken(parseChars);
 						rollInfo.keepList = new boolean[rollInfo.times];
 
-						final StringTokenizer keepSt =
-								new StringTokenizer(tok, ",");
+						final StringTokenizer keepSt = new StringTokenizer(tok, ",");
 
 						while (keepSt.hasMoreTokens())
 						{
-							rollInfo.keepList[Integer.parseInt(keepSt
-								.nextToken(",")) - 1] = true;
+							rollInfo.keepList[Integer.parseInt(keepSt.nextToken(",")) - 1] = true;
 						}
 
 						break;
 
 					case 'm':
 						parseChars = "M+-tT";
-						rollInfo.rerollBelow =
-								Integer.parseInt(st.nextToken(parseChars));
+						rollInfo.rerollBelow = Integer.parseInt(st.nextToken(parseChars));
 
 						break;
 
 					case 'M':
 						parseChars = "m+-tT";
-						rollInfo.rerollAbove =
-								Integer.parseInt(st.nextToken(parseChars));
+						rollInfo.rerollAbove = Integer.parseInt(st.nextToken(parseChars));
 
 						break;
 
@@ -227,30 +212,25 @@ public final class RollInfo
 
 					case '-':
 						parseChars = "tT";
-						rollInfo.modifier =
-								-Integer.parseInt(st.nextToken(" "));
+						rollInfo.modifier = -Integer.parseInt(st.nextToken(" "));
 
 						break;
 
 					case 't':
 						parseChars = "T";
-						rollInfo.totalFloor =
-								Integer.parseInt(st.nextToken(" "));
+						rollInfo.totalFloor = Integer.parseInt(st.nextToken(" "));
 
 						break;
 
 					case 'T':
 						parseChars = "t";
-						rollInfo.totalCeiling =
-								Integer.parseInt(st.nextToken(" "));
+						rollInfo.totalCeiling = Integer.parseInt(st.nextToken(" "));
 
 						break;
 
 					default:
-						Logging.errorPrint("Bizarre dice parser error in '"
-							+ rollString + "': not a valid delimiter");
-						return "Bad roll parsing in '" + rollString
-							+ "': invalid delimiter '" + tok.charAt(0) + "'.";
+						Logging.errorPrint("Bizarre dice parser error in '" + rollString + "': not a valid delimiter");
+						return "Bad roll parsing in '" + rollString + "': invalid delimiter '" + tok.charAt(0) + "'.";
 				}
 			}
 		}
@@ -259,23 +239,22 @@ public final class RollInfo
 		{
 			if (Logging.isDebugMode())
 			{
-				Logging.debugPrint("Bad roll string in '" + rollString + "': "
-					+ ex, ex);
+				Logging.debugPrint("Bad roll string in '" + rollString + "': " + ex, ex);
 			}
 			return "Bad roll string in '" + rollString + "': " + ex;
 		}
 		return "";
 	}
-	
+
 	/**
 	 * Private constructor for use only when validating a roll string. 
 	 */
 	private RollInfo()
 	{
 	}
-	
+
 	/**
-	 * Construct a <code>RollInfo</code> from a string.  The
+	 * Construct a {@code RollInfo} from a string.  The
 	 * rules:<ol>
 	 *
 	 * <li>Optional positive integer, <var>times</var>.</li>
@@ -303,13 +282,12 @@ public final class RollInfo
 	 *
 	 * </ol> Unlike previous versions of this method, it is
 	 * <strong>case-sensitive</strong> with respect to the
-	 * alphabetic characters, e.g., only <code>d</code>
-	 * (lower-case) is now valid, not also <code>D</code>
+	 * alphabetic characters, e.g., only {@code d}
+	 * (lower-case) is now valid, not also {@code D}
 	 * (upper-case).  This is to accommodate the expanded ways to
 	 * roll.
 	 *
 	 * @param rollString String compact representation of dice rolls
-	 *
 	 */
 	public RollInfo(final String rollString)
 	{
@@ -317,22 +295,6 @@ public final class RollInfo
 		if (!StringUtils.isBlank(errMsg))
 		{
 			Logging.errorPrint(errMsg);
-		}
-	}
-
-	/**
-	 * Main method
-	 * Boy, does this need testing!
-	 * @param args 
-	 */
-	public static void main(final String[] args)
-	{
-		Logging.setDebugMode(true);
-
-		for (int i = 0; i < args.length; ++i)
-		{
-			final RollInfo ri = new RollInfo(args[i]);
-			Logging.debugPrint(ri + ": " + RollInfo.roll());
 		}
 	}
 
@@ -346,7 +308,7 @@ public final class RollInfo
 			buf.append(times);
 		}
 
-		buf.append("d").append(sides);
+		buf.append('d').append(sides);
 
 		while (keepList != null) // let break work
 		{
@@ -365,7 +327,7 @@ public final class RollInfo
 			{
 				Logging.errorPrint("Bad rolls: nothing to keep!");
 
-				return null;
+				return "";
 			}
 
 			// Note the ordering: by testing for bottom
@@ -398,7 +360,7 @@ public final class RollInfo
 
 			if ((p > 0) && (i == times))
 			{
-				buf.append("\\").append(p);
+				buf.append('\\').append(p);
 
 				break;
 			}
@@ -424,13 +386,13 @@ public final class RollInfo
 
 			if ((p > 0) && (i == times))
 			{
-				buf.append("/").append((times - p));
+				buf.append('/').append((times - p));
 
 				break;
 			}
 
 			// Finally, we have a list
-			buf.append("|");
+			buf.append('|');
 
 			boolean first = true;
 
@@ -447,7 +409,7 @@ public final class RollInfo
 				}
 				else
 				{
-					buf.append(",");
+					buf.append(',');
 				}
 
 				buf.append(i + 1);
@@ -456,45 +418,34 @@ public final class RollInfo
 
 		if (rerollBelow != Integer.MIN_VALUE)
 		{
-			buf.append("m").append(rerollBelow);
+			buf.append('m').append(rerollBelow);
 		}
 
 		if (rerollAbove != Integer.MAX_VALUE)
 		{
-			buf.append("M").append(rerollAbove);
+			buf.append('M').append(rerollAbove);
 		}
 
 		if (modifier > 0)
 		{
-			buf.append("+").append(modifier);
+			buf.append('+').append(modifier);
 		}
 		else if (modifier < 0)
 		{
-			buf.append("-").append(-modifier);
+			buf.append('-').append(-modifier);
 		}
 
 		if (totalFloor != Integer.MIN_VALUE)
 		{
-			buf.append("t").append(totalFloor);
+			buf.append('t').append(totalFloor);
 		}
 
 		if (totalCeiling != Integer.MAX_VALUE)
 		{
-			buf.append("T").append(totalCeiling);
+			buf.append('T').append(totalCeiling);
 		}
 
 		return buf.toString();
 	}
 
-	/**
-	 * Roll the dice.  UNIMPLEMENTED FOR NOW!
-	 *
-	 * @return int the results
-	 */
-	private static int roll()
-	{
-		final int result = 0;
-
-		return result;
-	}
 }

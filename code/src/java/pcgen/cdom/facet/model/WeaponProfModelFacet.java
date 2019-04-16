@@ -17,10 +17,10 @@
  */
 package pcgen.cdom.facet.model;
 
+import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Set;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -37,7 +37,6 @@ import pcgen.output.publish.OutputDB;
  * WeaponProfModelFacet is a Facet that tracks the WeaponProfs that have been
  * granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class WeaponProfModelFacet implements SetFacet<CharID, WeaponProf>
 {
@@ -74,8 +73,7 @@ public class WeaponProfModelFacet implements SetFacet<CharID, WeaponProf>
 	@Override
 	public Set<WeaponProf> getSet(CharID id)
 	{
-		final Set<WeaponProf> ret =
-                new WrappedMapSet<>(IdentityHashMap.class);
+		Set<WeaponProf> ret = Collections.newSetFromMap(new IdentityHashMap<>());
 		ret.addAll(weaponProfFacet.getSet(id));
 		ret.addAll(autoWeaponProfFacet.getWeaponProfs(id));
 		if (hasDeityWeaponProfFacet.hasDeityWeaponProf(id))
@@ -102,10 +100,8 @@ public class WeaponProfModelFacet implements SetFacet<CharID, WeaponProf>
 	 */
 	public boolean containsProf(CharID id, WeaponProf wp)
 	{
-		return weaponProfFacet.contains(id, wp)
-			|| autoWeaponProfFacet.containsProf(id, wp)
-			|| hasDeityWeaponProfFacet.hasDeityWeaponProf(id)
-			&& deityWeaponProfFacet.getSet(id).contains(wp);
+		return weaponProfFacet.contains(id, wp) || autoWeaponProfFacet.containsProf(id, wp)
+			|| hasDeityWeaponProfFacet.hasDeityWeaponProf(id) && deityWeaponProfFacet.getSet(id).contains(wp);
 	}
 
 	/**
@@ -153,14 +149,12 @@ public class WeaponProfModelFacet implements SetFacet<CharID, WeaponProf>
 		this.autoWeaponProfFacet = autoWeaponProfFacet;
 	}
 
-	public void setHasDeityWeaponProfFacet(
-		HasDeityWeaponProfFacet hasDeityWeaponProfFacet)
+	public void setHasDeityWeaponProfFacet(HasDeityWeaponProfFacet hasDeityWeaponProfFacet)
 	{
 		this.hasDeityWeaponProfFacet = hasDeityWeaponProfFacet;
 	}
 
-	public void setDeityWeaponProfFacet(
-		DeityWeaponProfFacet deityWeaponProfFacet)
+	public void setDeityWeaponProfFacet(DeityWeaponProfFacet deityWeaponProfFacet)
 	{
 		this.deityWeaponProfFacet = deityWeaponProfFacet;
 	}

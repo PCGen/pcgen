@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Level;
@@ -53,8 +54,7 @@ import pcgen.util.Logging;
  * correct for DomainSpellList references having a "DOMAIN." prefix in order to
  * distinguish them from ClassSpellList references/names
  */
-public class SpellReferenceChoiceSet implements
-		PrimitiveChoiceSet<CDOMListObject<Spell>>
+public class SpellReferenceChoiceSet implements PrimitiveChoiceSet<CDOMListObject<Spell>>
 {
 	/**
 	 * The underlying Set of CDOMReferences that contain the CDOMListObjects in
@@ -82,21 +82,14 @@ public class SpellReferenceChoiceSet implements
 	 * @throws IllegalArgumentException
 	 *             if the given Collection is null or empty.
 	 */
-	public SpellReferenceChoiceSet(
-			Collection<CDOMReference<? extends CDOMListObject<Spell>>> listRefCollection)
+	public SpellReferenceChoiceSet(Collection<CDOMReference<? extends CDOMListObject<Spell>>> listRefCollection)
 	{
-		if (listRefCollection == null)
-		{
-			throw new IllegalArgumentException(
-					"Choice Collection cannot be null");
-		}
+		Objects.requireNonNull(listRefCollection, "Choice Collection cannot be null");
 		if (listRefCollection.isEmpty())
 		{
-			throw new IllegalArgumentException(
-					"Choice Collection cannot be empty");
+			throw new IllegalArgumentException("Choice Collection cannot be empty");
 		}
-		set = new HashSet<>(
-                listRefCollection);
+		set = new HashSet<>(listRefCollection);
 		if (set.size() != listRefCollection.size())
 		{
 			if (Logging.isLoggable(Level.WARNING))
@@ -120,8 +113,7 @@ public class SpellReferenceChoiceSet implements
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		Set<CDOMReference<?>> sortedSet = new TreeSet<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+		Set<CDOMReference<?>> sortedSet = new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
 		sortedSet.addAll(set);
 		StringBuilder sb = new StringBuilder();
 		List<CDOMReference<?>> domainList = new ArrayList<>();
@@ -199,25 +191,12 @@ public class SpellReferenceChoiceSet implements
 		return returnSet;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this
-	 * SpellReferenceChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return set.size();
 	}
 
-	/**
-	 * Returns true if this SpellReferenceChoiceSet is equal to the given
-	 * Object. Equality is defined as being another SpellReferenceChoiceSet
-	 * object with equal underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

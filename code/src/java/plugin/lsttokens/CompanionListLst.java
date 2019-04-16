@@ -16,8 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
  */
 package plugin.lsttokens;
 
@@ -58,18 +56,18 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * This class implments the parsing for the COMPANIONLIST token.
  * <p>
- * <b>Tag Name</b>: <code>COMPANIONLIST</code>:x|y,y|z
+ * <b>Tag Name</b>: {@code COMPANIONLIST}:x|y,y|z
  * <p>
  * <b>Variables Used (x)</b>: <i>Text</i> (The type of companion list to add
  * to).<br>
  * <b>Variables Used (y)</b>: <i>Text</i> (A race of companion to allow to the
  * character).<br>
- * <b>Variables Used (y)</b>: <code>RACETYPE</code>=<i>Text</i> (all races
- * with the specified <code>RACETYPE</code> are available as this type of
+ * <b>Variables Used (y)</b>: {@code RACETYPE}=<i>Text</i> (all races
+ * with the specified {@code RACETYPE} are available as this type of
  * companion). <br>
- * <b>Variables Used (y)</b>: <code>ANY</code> (Any race can be a companion
+ * <b>Variables Used (y)</b>: {@code ANY} (Any race can be a companion
  * of this type).<br>
- * <b>Variables Used (z)</b>: <code>FOLLOWERADJUSTMENT</code>=<i>Number</i>
+ * <b>Variables Used (z)</b>: {@code FOLLOWERADJUSTMENT}=<i>Number</i>
  * (Adjustment to the follower level variable).
  * <p>
  * <b>What it does:</b>
@@ -84,38 +82,27 @@ import pcgen.rules.persistence.token.ParseResult;
  * </ul>
  * <p>
  * <b>Examples:</b><br>
- * <code>COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,
- * Snake (Tiny/Viper),Toad,Weasel</code><br>
+ * {@code COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,
+ * Snake (Tiny/Viper),Toad,Weasel}<br>
  * Would build the list of standard familiars available to a Sorcerer or Wizard.
  * <p>
- * <code>COMPANIONLIST:Pet|RACETYPE=Animal</code><br>
+ * {@code COMPANIONLIST:Pet|RACETYPE=Animal}<br>
  * Would build a list of all animals to available as a Pet.
  * <p>
- * <code>COMPANIONLIST:Familiar|Quasit|PREFEAT:1,Special Familiar|
- * PREALIGN:CE</code><br>
+ * {@code COMPANIONLIST:Familiar|Quasit|PREFEAT:1,Special Familiar|
+ * PREALIGN:CE}<br>
  * A Quasit can be chosen as a Familiar but only if the master is evil and has
  * the Special Familiar feat.
  * <p>
- * <code>COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3</code>
- * <br>
+ * {@code COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3}
  * An Ape companion to a 4th level Druid gains the benefits normally granted to
  * a companion of a 1st level Druid.
- *
- * @author divaa01
- *
  */
-public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>
+public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 	private static final String COMPANIONLIST = "COMPANIONLIST"; //$NON-NLS-1$
 	private static final String FOLLOWERADJUSTMENT = "FOLLOWERADJUSTMENT"; //$NON-NLS-1$
 
-	/**
-	 * Returns the name of the token this class can process.
-	 *
-	 * @return Token name
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -129,35 +116,26 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		StringTokenizer tok = new StringTokenizer(value, LstUtils.PIPE);
-
 		String companionType = tok.nextToken();
-
 		if (!tok.hasMoreTokens())
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " requires more than just a Type: " + value, context);
+			return new ParseResult.Fail(getTokenName() + " requires more than just a Type: " + value);
 		}
-
 		String list = tok.nextToken();
-
 		ParseResult pr = checkForIllegalSeparator(',', list);
 		if (!pr.passed())
 		{
 			return pr;
 		}
-
 		StringTokenizer subTok = new StringTokenizer(list, LstUtils.COMMA);
-
 		Set<CDOMReference<Race>> races = new HashSet<>();
 		boolean foundAny = false;
 		while (subTok.hasMoreTokens())
@@ -171,33 +149,29 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			else if (tokString.startsWith("RACETYPE="))
 			{
 				String raceType = tokString.substring(9);
-				if (raceType.length() == 0)
+				if (raceType.isEmpty())
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " Error: RaceType was not specified.", context);
+					return new ParseResult.Fail(getTokenName() + " Error: RaceType was not specified.");
 				}
 				races.add(new ObjectMatchingReference<>(tokString,
-						Race.class,
-						context.getReferenceContext().getCDOMAllReference(Race.class),
-						ObjectKey.RACETYPE, RaceType.getConstant(raceType)));
+					context.getReferenceContext().getCDOMAllReference(Race.class), ObjectKey.RACETYPE,
+					RaceType.getConstant(raceType)));
 			}
 			else if (tokString.startsWith("RACESUBTYPE="))
 			{
 				String raceSubType = tokString.substring(12);
-				if (raceSubType.length() == 0)
+				if (raceSubType.isEmpty())
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " Error: RaceSubType was not specified.", context);
+					return new ParseResult.Fail(getTokenName() + " Error: RaceSubType was not specified.");
 				}
 				races.add(new ListMatchingReference<>(tokString,
-						Race.class,
-						context.getReferenceContext().getCDOMAllReference(Race.class),
-						ListKey.RACESUBTYPE, RaceSubType.getConstant(raceSubType)));
+					context.getReferenceContext().getCDOMAllReference(Race.class), ListKey.RACESUBTYPE,
+					RaceSubType.getConstant(raceSubType)));
 			}
 			else if (looksLikeAPrerequisite(tokString))
 			{
-				return new ParseResult.Fail(getTokenName()
-					+ " Error: " + tokString + " found where companion race expected.", context);
+				return new ParseResult.Fail(
+					getTokenName() + " Error: " + tokString + " found where companion race expected.");
 			}
 			else
 			{
@@ -206,17 +180,14 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		if (foundAny && races.size() > 1)
 		{
-			return new ParseResult.Fail("Non-sensical Race List includes Any and specific races: "
-							+ value, context);
+			return new ParseResult.Fail("Non-sensical Race List includes Any and specific races: " + value);
 		}
-
 		if (!tok.hasMoreTokens())
 		{
 			// No other args, so we're done
 			finish(context, obj, companionType, races, null, null);
 			return ParseResult.SUCCESS;
 		}
-
 		// The remainder of the elements are optional.
 		Integer followerAdjustment = null;
 		String optArg = tok.nextToken();
@@ -226,18 +197,16 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				if (followerAdjustment != null)
 				{
-					return new ParseResult.Fail(getTokenName() + " Error: Multiple "
-							+ FOLLOWERADJUSTMENT + " tags specified.", context);
+					return new ParseResult.Fail(
+						getTokenName() + " Error: Multiple " + FOLLOWERADJUSTMENT + " tags specified.");
 				}
-
 				int faStringLength = FOLLOWERADJUSTMENT.length();
 				if (optArg.length() <= faStringLength + 1)
 				{
-					return new ParseResult.Fail("Empty FOLLOWERADJUSTMENT value in "
-							+ getTokenName() + " is prohibited", context);
+					return new ParseResult.Fail(
+						"Empty FOLLOWERADJUSTMENT value in " + getTokenName() + " is prohibited");
 				}
 				String adj = optArg.substring(faStringLength + 1);
-
 				try
 				{
 					followerAdjustment = Integer.valueOf(adj);
@@ -245,8 +214,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 				catch (NumberFormatException nfe)
 				{
 					ComplexParseResult cpr = new ComplexParseResult();
-					cpr.addErrorMessage("Expecting a number for FOLLOWERADJUSTMENT: "
-									+ adj);
+					cpr.addErrorMessage("Expecting a number for FOLLOWERADJUSTMENT: " + adj);
 					cpr.addErrorMessage("  was parsing Token " + getTokenName());
 					return cpr;
 				}
@@ -258,29 +226,24 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			else
 			{
 				return new ParseResult.Fail(
-					getTokenName()
-						+ ": Unknown argument (was expecting FOLLOWERADJUSTMENT: or PRExxx): "
-						+ optArg, context);
+					getTokenName() + ": Unknown argument (was expecting FOLLOWERADJUSTMENT: or PRExxx): " + optArg);
 			}
 			if (!tok.hasMoreTokens())
 			{
 				// No prereqs, so we're done
-				finish(context, obj, companionType, races, followerAdjustment,
-						null);
+				finish(context, obj, companionType, races, followerAdjustment, null);
 				return ParseResult.SUCCESS;
 			}
 			optArg = tok.nextToken();
 		}
-
 		List<Prerequisite> prereqs = new ArrayList<>();
-
 		while (true)
 		{
 			Prerequisite prereq = getPrerequisite(optArg);
 			if (prereq == null)
 			{
-				return new ParseResult.Fail("   (Did you put items after the "
-						+ "PRExxx tags in " + getTokenName() + ":?)", context);
+				return new ParseResult.Fail(
+					"   (Did you put items after the " + "PRExxx tags in " + getTokenName() + ":?)");
 			}
 			prereqs.add(prereq);
 			if (!tok.hasMoreTokens())
@@ -294,13 +257,12 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
-	private void finish(LoadContext context, CDOMObject obj,
-			String companionType, Set<CDOMReference<Race>> races,
-			Integer followerAdjustment, List<Prerequisite> prereqs)
+	private void finish(LoadContext context, CDOMObject obj, String companionType, Set<CDOMReference<Race>> races,
+		Integer followerAdjustment, List<Prerequisite> prereqs)
 	{
 		context.getReferenceContext().constructIfNecessary(CompanionList.class, companionType);
-		CDOMSingleRef<CompanionList> ref = context.getReferenceContext().getCDOMReference(
-				CompanionList.class, companionType);
+		CDOMSingleRef<CompanionList> ref =
+				context.getReferenceContext().getCDOMReference(CompanionList.class, companionType);
 
 		for (CDOMReference<Race> race : races)
 		{
@@ -320,15 +282,11 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<FollowerOption> changes = context.getObjectContext()
-				.getListChanges(obj, ListKey.COMPANIONLIST);
+		Changes<FollowerOption> changes = context.getObjectContext().getListChanges(obj, ListKey.COMPANIONLIST);
 		Collection<FollowerOption> removedItems = changes.getRemoved();
-		if (removedItems != null && !removedItems.isEmpty()
-				|| changes.includesGlobalClear())
+		if (removedItems != null && !removedItems.isEmpty() || changes.includesGlobalClear())
 		{
-			context
-					.addWriteMessage(getTokenName()
-							+ " does not support .CLEAR");
+			context.addWriteMessage(getTokenName() + " does not support .CLEAR");
 			return null;
 		}
 		Collection<FollowerOption> added = changes.getAdded();
@@ -341,8 +299,8 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 				new TripleKeyMapToList<>();
 		for (FollowerOption fo : added)
 		{
-			m.addToListFor(new HashSet<>(fo.getPrerequisiteList()),
-					fo.getListRef(), fo.getAdjustment(), fo.getRaceRef());
+			m.addToListFor(new HashSet<>(fo.getPrerequisiteList()), fo.getListRef(), fo.getAdjustment(),
+				fo.getRaceRef());
 		}
 		Set<String> set = new TreeSet<>();
 		StringBuilder sb = new StringBuilder();
@@ -354,19 +312,16 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 				prereqString = getPrerequisiteString(context, prereqs);
 			}
 
-			for (CDOMReference<? extends CDOMList<?>> cl : m
-					.getSecondaryKeySet(prereqs))
+			for (CDOMReference<? extends CDOMList<?>> cl : m.getSecondaryKeySet(prereqs))
 			{
 				for (Integer fa : m.getTertiaryKeySet(prereqs, cl))
 				{
 					sb.setLength(0);
 					sb.append(cl.getLSTformat(false));
 					sb.append(Constants.PIPE);
-					Set<CDOMReference<Race>> raceSet = new TreeSet<>(
-							ReferenceUtilities.REFERENCE_SORTER);
+					Set<CDOMReference<Race>> raceSet = new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
 					raceSet.addAll(m.getListFor(prereqs, cl, fa));
-					sb.append(ReferenceUtilities.joinLstFormat(raceSet,
-							Constants.COMMA, true));
+					sb.append(ReferenceUtilities.joinLstFormat(raceSet, Constants.COMMA, true));
 					if (fa != null && fa != 0)
 					{
 						sb.append(Constants.PIPE);

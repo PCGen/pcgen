@@ -1,0 +1,47 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEWEB:http://paizo.com/products/btpy9j6p?Pathfinder-Roleplaying-Game-Ultimate-Intrigue	SOURCEDATE:2016-04
+
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object								Plural description for UI						Display Location
+ABILITYCATEGORY:Vigilante Class Feature			VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Vigilante Class Feature						PLURAL:Vigilante Class Features.VigilanteClassFeatures	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Vigilante Archetype				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Archetype		TYPE:Vigilante Archetype.VigilanteArchetype			PLURAL:Vigilante Archetypes						DISPLAYLOCATION:Archetype
+
+ABILITYCATEGORY:Vigilante Social Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Social Talent							PLURAL:Vigilante Social Talents					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Vigilante Specialization			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VigilanteSpecialization																DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Vigilante Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Vigilante Talent							PLURAL:Vigilante Talents						DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Social Grace Skill Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:SocialGraceSkillChoice						PLURAL:Social Grace Skill Choices					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Environment Weapon Terrain		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:EnvironmentWeaponTerrain						PLURAL:Environment Weapon Terrains					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Vigilante Favored Maneuver		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:VigilanteFavoredManeuver						PLURAL:Vigilante Favored Maneuvers					DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Interrogator Serum Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InterrogatorSerum							PLURAL:Interrogator Serum Choices					DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Masked Performer Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MaskedPerformerTalent						PLURAL:Masked Performer Talents					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Advanced Masked Performer Talent	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MaskedPerformerTalent.AdvancedMaskedPerformerTalent	PLURAL:Advanced Masked Performer Talents				DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Daring General Cohort			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DaringGeneralCohort						PLURAL:Daring General Cohorts						DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Skinshaper Ability Enhancement I	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:SkinshaperEnhancementI																DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Skinshaper Ability Enhancement II	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:SkinshaperEnhancementII																DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Skinshaper Ability Enhancement III	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:SkinshaperEnhancementIII																DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Skinshaper Ability Enhancement IV	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:SkinshaperEnhancementIV																DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Cloaked Wolf Bonus Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Feat			TYPE:CloakedWolfBonusFeat						PLURAL:Cloaked Wolf Bonus Feats					DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Faith Hunter Sworn Enemy			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:FaithHunterSwornEnemy																DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Tactical Leader Teamwork Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Feat			TYPE:Teamwork								PLURAL:Tactical Leader Teamwork Feats				DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Majordomo Teamwork Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Feat			TYPE:Teamwork								PLURAL:Majordomo Teamwork Feats					DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Courtly Hunter Animal Focus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:CourtlyHunterAnimalFocusAbility				PLURAL:Courtly Hunter Animal Foci					DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Black Asp Forbidden Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Forbidden Ki Power							PLURAL:Black Asp Forbidden Powers					DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Intrigue Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:IntrigueRevelation.GeneralRevelation				PLURAL:Intrigue Mystery Revelations					DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Refined Education Skill Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Refined Education Selection					PLURAL:Refined Education Skill Choices				DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Combat Feat					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat																			DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Wildsoul Natural Course Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WildsoulNaturalCourse																DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Zealot Inquisition Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Inquisition																		DISPLAYLOCATION:Class Features

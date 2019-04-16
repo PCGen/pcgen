@@ -1,6 +1,4 @@
 /*
- * NewPurchaseMethodDialog.java
- *
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,28 +14,28 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on August 20, 2002, 1:57 PM
- *
- * $Id$
  */
 package pcgen.gui2.prefs;
+
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.tools.Utility;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
-/**
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
- */
 class NewPurchaseMethodDialog extends JDialog
 {
 	static final long serialVersionUID = -5321303573914291162L;
@@ -100,14 +98,6 @@ class NewPurchaseMethodDialog extends JDialog
 		return wasCancelled;
 	}
 
-	/**
-	 * @param args the command line arguments
-	 */
-	public static void main(String[] args)
-	{
-		new NewPurchaseMethodDialog(new JFrame(), true).setVisible(true);
-	}
-
 	private void cancelButtonActionPerformed()
 	{
 		wasCancelled = true;
@@ -143,13 +133,13 @@ class NewPurchaseMethodDialog extends JDialog
 
 		setTitle("Enter name and points for Purchase Method");
 		addWindowListener(new WindowAdapter()
+		{
+			@Override
+			public void windowClosing(WindowEvent evt)
 			{
-				@Override
-				public void windowClosing(WindowEvent evt)
-				{
-					closeDialog();
-				}
-			});
+				closeDialog();
+			}
+		});
 
 		jPanel1.setLayout(new FlowLayout(FlowLayout.LEFT));
 
@@ -190,26 +180,12 @@ class NewPurchaseMethodDialog extends JDialog
 		cancelButton.setMnemonic('C');
 		cancelButton.setText("Cancel");
 		buttonPanel.add(cancelButton);
-		cancelButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					cancelButtonActionPerformed();
-				}
-			});
+		cancelButton.addActionListener(evt -> cancelButtonActionPerformed());
 
 		okButton.setMnemonic('O');
 		okButton.setText("OK");
 		buttonPanel.add(okButton);
-		okButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					okButtonActionPerformed();
-				}
-			});
+		okButton.addActionListener(evt -> okButtonActionPerformed());
 
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -224,20 +200,18 @@ class NewPurchaseMethodDialog extends JDialog
 
 	private void okButtonActionPerformed()
 	{
-		if (getEnteredName().length() == 0)
+		if (getEnteredName().isEmpty())
 		{
-			ShowMessageDelegate.showMessageDialog(
-				"Please enter a name for this method.",
-				Constants.APPLICATION_NAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("Please enter a name for this method.", Constants.APPLICATION_NAME,
+				MessageType.ERROR);
 
 			return;
 		}
 
 		if (getEnteredPoints() <= 0)
 		{
-			ShowMessageDelegate.showMessageDialog(
-				"Invalid points value. Please try again.",
-				Constants.APPLICATION_NAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog("Invalid points value. Please try again.", Constants.APPLICATION_NAME,
+				MessageType.ERROR);
 
 			return;
 		}

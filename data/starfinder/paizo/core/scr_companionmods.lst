@@ -1,0 +1,13 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+# DroneLVL handles the BAB and Saves in the Class
+# DroneMasterLVL sets the Variable based upon what the Master DroneCompanionLVL is set too. This is crucial as higher levels the master can alter this.
+# DroneAbilityIncrease bonuses the Chasis Ability Increases
+
+# Class of the Master		Type			Ability												Define								Bonus Ability Pool																																Modify VAR
+FOLLOWER:SpyDrone=1		TYPE:SpyDrone	ABILITY:Internal|AUTOMATIC|DRONE Skill Unit ~ Stealth|Drone Chassis ~ Hover	DEFINE:DroneMasterLVL|0						BONUS:ABILITYPOOL|Understand Language|1																													BONUS:VAR|DroneMasterLVL|1
+FOLLOWER:NormalFollower=1	TYPE:Follower
+
+
+# Drone Companion
+FOLLOWER:DroneCompanionLVL=1	TYPE:Drone		ABILITY:Internal|AUTOMATIC|Drone Special Abilities					DEFINE:DroneMasterLVL|0	DEFINE:DroneMasterTotalLVL|0	BONUS:ABILITYPOOL|Drone Chassis Selection|1	BONUS:ABILITYPOOL|Drone Skill Unit|1	BONUS:ABILITYPOOL|Drone Feat|1+floor(DroneMasterLVL/3)	BONUS:ABILITYPOOL|Drone Mod|floor((DroneMasterLVL+1)/2)	BONUS:VAR|DroneMasterLVL|MASTERVAR("DroneCompanionLVL")	BONUS:VAR|DroneMasterTotalLVL|MASTERVAR("TL")	BONUS:VAR|DroneAbilityIncrease|floor((DroneMasterLVL-1)/3)	BONUS:VAR|DroneArmorClass|(DroneMasterLVL-1)-if(DroneMasterLVL>=11,1,0)	BONUS:VAR|DroneLVL|DroneMasterLVL

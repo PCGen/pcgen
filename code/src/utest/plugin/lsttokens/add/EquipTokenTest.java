@@ -17,13 +17,13 @@
  */
 package plugin.lsttokens.add;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
+
+import org.junit.jupiter.api.Test;
 
 public class EquipTokenTest extends
 		AbstractAddTokenTestCase<Equipment>
@@ -45,24 +45,6 @@ public class EquipTokenTest extends
 
 	@Override
 	public boolean isAllLegal()
-	{
-		return false;
-	}
-
-	@Override
-	public boolean isTypeLegal()
-	{
-		return true;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
-	@Override
-	public boolean allowsParenAsSub()
 	{
 		return false;
 	}

@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Sat May  7 19:25:18 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Magical Marketplace	SOURCESHORT:MM	SOURCEWEB:http://paizo.com/products/btpy92lv?Pathfinder-Player-Companion-Magical-Marketplace	SOURCEDATE:2013-12
+SOURCELONG:Pathfinder Player Companion: Magical Marketplace	SOURCESHORT:MM	SOURCEWEB:http://paizo.com/products/btpy92lv	SOURCEDATE:2013-12
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 20 April 2016
 
@@ -7,19 +8,33 @@ SOURCELONG:Magical Marketplace	SOURCESHORT:MM	SOURCEWEB:http://paizo.com/product
 # New Armor Special Abilities
 # ==============================
 
-# Modifier Name	Unique Key				Type						Plus		Cost		Visible		Source Page		Multiple Requirements							Required Type					Prohibited Type			Special Property
-Buoyant		KEY:Armor ~ Buoyant (Light)	TYPE:Armor.Shield						COST:1000	VISIBLE:QUALIFY	SOURCEPAGE:p.9	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]								!PRETYPE:2,Armor,Medium,Heavy	SPROP:Bestows no armor check penalty on Swim checks attempted by the wearer.
-Bouyant		KEY:Armor ~ Bouyant (Heavy)	TYPE:Armor							COST:2000	VISIBLE:QUALIFY	SOURCEPAGE:p.9											PRETYPE:2,Enhancement,Armor			!PRETYPE:2,Armor,Light		SPROP:Bestows no armor check penalty on Swim checks attempted by the wearer.
-Mind Buttressing	KEY:Armor ~ Mind Buttressing	TYPE:Armor					PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.7											PRETYPE:2,Enhancement,Armor			!PRETYPE:2,Armor,Light		SPROP:+2 resistance bonus on Will saves and renders her immune to possession and mental control.
-Poisoning		KEY:Armor ~ Poisoning		TYPE:Armor					PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.27											PRETYPE:2,Enhancement,Armor								SPROP:3 rounds after adding a vial of poison, the armor exposes any creature grappling (if injury poison) or biting (if ingested poison) the wearer to said poison.
-Rebounding		KEY:Armor ~ Rebounding		TYPE:Shield					PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.21											PRETYPE:2,Enhancement,Shield								SPROP:Provides an additional +2 bonus to AC against thrown weapons, and it adds its total bonus to touch AC against splash weapons. If targeted by a splash weapon that misses, the wielder may choose the misdirection of the splash weapon.
+# Modifier Name											Unique Key							Type						Plus		Cost		Visible		Source Page		Multiple Requirements							Required Type					Prohibited Type			Special Property
+Buoyant												KEY:Special Ability ~ Buoyant ~ Armor / Light	TYPE:Armor.Shield						COST:1000	VISIBLE:QUALIFY	SOURCEPAGE:p.9	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]								!PRETYPE:2,Armor,Medium,Heavy	SPROP:Bestows no armor check penalty on Swim checks attempted by the wearer.
+Bouyant												KEY:Special Ability ~ Buoyant ~ Armor / Heavy	TYPE:Armor							COST:2000	VISIBLE:QUALIFY	SOURCEPAGE:p.9											PRETYPE:2,Enhancement,Armor			!PRETYPE:2,Armor,Light		SPROP:Bestows no armor check penalty on Swim checks attempted by the wearer.
+Mind Buttressing											KEY:Special Ability ~ Mind Buttressing ~ Armor	TYPE:Armor					PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.7											PRETYPE:2,Enhancement,Armor			!PRETYPE:2,Armor,Light		SPROP:+2 resistance bonus on Will saves and renders her immune to possession and mental control.
+Poisoning												KEY:Special Ability ~ Poisoning ~ Armor		TYPE:Armor					PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.27											PRETYPE:2,Enhancement,Armor								SPROP:3 rounds after adding a vial of poison, the armor exposes any creature grappling (if injury poison) or biting (if ingested poison) the wearer to said poison.
+Rebounding												KEY:Special Ability ~ Rebounding ~ Shield		TYPE:Shield					PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.21											PRETYPE:2,Enhancement,Shield								SPROP:Provides an additional +2 bonus to AC against thrown weapons, and it adds its total bonus to touch AC against splash weapons. If targeted by a splash weapon that misses, the wielder may choose the misdirection of the splash weapon.
 
 # ==============================
 # New Weapon Special Abilityies
 # ==============================
 
-Legbreaker		KEY:Weapon ~ Legbreaker		TYPE:Weapon.Melee.Bludgeoning		PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.15											PRETYPE:3,Enhancement,Weapon,Bludgeoning						SPROP:Reduces the base land speed of a struck creature by 10 feet for 1d4 rounds.
-Penetrating		KEY:Weapon ~ Penetrating	TYPE:Ammunition				PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.23											PRETYPE:2,Enhancement,Ammunition							SPROP:If target fails DC 17 Fort save, ammunition travels through target. May hit second, in-line target at -4 to hit.
-Rusting		KEY:Weapon ~ Rusting		TYPE:Ammunition.Weapon.Melee.Ranged	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.15											PRETYPE:1,Enhancement									SPROP:On a critical hit, you may forgo any extra damage to instead deal normal damage to the target and affect the target or their armor with the rusting grasp spell.
+Legbreaker												KEY:Special Ability ~ Legbreaker ~ Melee		TYPE:Weapon.Melee.Bludgeoning		PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.15											PRETYPE:3,Enhancement,Weapon,Bludgeoning						SPROP:Reduces the base land speed of a struck creature by 10 feet for 1d4 rounds.
+Penetrating												KEY:Special Ability ~ Penetrating ~ Ammunition	TYPE:Ammunition				PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.23											PRETYPE:2,Enhancement,Ammunition							SPROP:If target fails DC 17 Fort save, ammunition travels through target. May hit second, in-line target at -4 to hit.
+Rusting												KEY:Special Ability ~ Rusting ~ Weapon		TYPE:Ammunition.Weapon.Melee.Ranged	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.15											PRETYPE:1,Enhancement									SPROP:On a critical hit, you may forgo any extra damage to instead deal normal damage to the target and affect the target or their armor with the rusting grasp spell.
 ###NOTE: "Range" is added to Sniping to denote the difference between this Sniping weapon ability and the Sniping ability in Ranged Tactics Toolobox, as is "MM" in the key
-Sniping (Range)	KEY:Weapon ~ Sniping		TYPE:Weapon.Ranged			PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.25											PRETYPE:3,Enhancement,Weapon,Ranged							SPROP:Maximum range for sneak attacks with this weapon is 45 ft., not 30 ft. Does not stack with other abilities that increase sneak attack range.
+Sniping (Range)											KEY:Special Ability ~ Sniping / Range ~ Ranged	TYPE:Weapon.Ranged			PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.25											PRETYPE:3,Enhancement,Weapon,Ranged							SPROP:Maximum range for sneak attacks with this weapon is 45 ft., not 30 ft. Does not stack with other abilities that increase sneak attack range.
+
+
+
+
+#Old KEYs
+Special Ability ~ Buoyant ~ Armor / Light.COPY=Armor ~ Buoyant (Light)																				VISIBLE:NO
+Special Ability ~ Buoyant ~ Armor / Heavy.COPY=Armor ~ Bouyant (Heavy)																				VISIBLE:NO
+Special Ability ~ Mind Buttressing ~ Armor.COPY=Armor ~ Mind Buttressing																			VISIBLE:NO
+Special Ability ~ Poisoning ~ Armor.COPY=Armor ~ Poisoning																						VISIBLE:NO
+Special Ability ~ Rebounding ~ Shield.COPY=Armor ~ Rebounding																					VISIBLE:NO
+Special Ability ~ Legbreaker ~ Melee.COPY=Weapon ~ Legbreaker																					VISIBLE:NO
+Special Ability ~ Penetrating ~ Ammunition.COPY=Weapon ~ Penetrating																				VISIBLE:NO
+Special Ability ~ Rusting ~ Weapon.COPY=Weapon ~ Rusting																						VISIBLE:NO
+Special Ability ~ Sniping / Range ~ Ranged.COPY=Weapon ~ Sniping																					VISIBLE:NO

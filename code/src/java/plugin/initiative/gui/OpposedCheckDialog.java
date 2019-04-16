@@ -17,8 +17,6 @@
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * OpposedCheckDialog.java
- *
- * Created on May 4, 2004, 1:32:24 PM
  */
 
 package plugin.initiative.gui;
@@ -59,7 +57,6 @@ import gmgen.plugin.PcgCombatant;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.Skill;
-
 import plugin.initiative.OpposedSkillBasicModel;
 import plugin.initiative.OpposedSkillModel;
 import plugin.initiative.OpposedSkillTypeModel;
@@ -93,217 +90,12 @@ import plugin.initiative.OpposedSkillTypeModel;
  *    <li>TODO: Add comparison/re-sorting support to models?</li>
  *    <li>TODO: Add logging support to the initiative tracker log</li>
  * </ul>
- *
- * @author LodgeR
  */
 class OpposedCheckDialog extends JDialog
 {
 
-	/**
-	 * <p>
-	 * A transfer handler to manage drag-and-drop between the tables.
-	 * It interprets all drags as moves and won't allow drops on the initiating
-	 * table.  It is designed to be shared by all the tables.
-	 * </p>
-	 */
-	private static final class CombatantTransferHandler extends TransferHandler
-	{
-
-		/**
-		 * <p>
-		 * A transferrable class that saves a list of combatants being transferred.
-		 * </p>
-		 */
-		private final class CombatantTransferable implements Transferable
-		{
-
-			/**
-			 * A list of combatants that are being transferred.
-			 */
-			private List<PcgCombatant> items = null;
-
-			/**
-			 * <p>
-			 * Constructor.  The JTable us used to get the selected rows and store
-			 * them in the {@code items} member.
-			 * </p>
-			 *
-			 * @param table The source JTable
-			 */
-			private CombatantTransferable(JTable table)
-			{
-				int[] rows = table.getSelectedRows();
-
-				if ((rows != null) && (rows.length > 0))
-				{
-					OpposedSkillBasicModel model =
-							(OpposedSkillBasicModel) table.getModel();
-					items = new ArrayList<>();
-					Arrays.stream(rows).forEach(model::getCombatant);
-				}
-
-			}
-
-			/* (non-Javadoc)
-			 * @see java.awt.datatransfer.Transferable#getTransferData(java.awt.datatransfer.DataFlavor)
-			 */
-            @Override
-			public Object getTransferData(DataFlavor flavor)
-				throws UnsupportedFlavorException
-			{
-				if (!isDataFlavorSupported(flavor))
-				{
-					throw new UnsupportedFlavorException(flavor);
-				}
-				return items;
-			}
-
-			/* (non-Javadoc)
-			 * @see java.awt.datatransfer.Transferable#getTransferDataFlavors()
-			 */
-            @Override
-			public DataFlavor[] getTransferDataFlavors()
-			{
-				return new DataFlavor[]{combatantFlavor};
-			}
-
-			/* (non-Javadoc)
-			 * @see java.awt.datatransfer.Transferable#isDataFlavorSupported(java.awt.datatransfer.DataFlavor)
-			 */
-            @Override
-			public boolean isDataFlavorSupported(DataFlavor flavor)
-			{
-				return combatantFlavor.equals(flavor);
-			}
-		}
-
-		/** A data flavor for use in the transfer */
-		private DataFlavor combatantFlavor = null;
-
-		/** The mime type used by the data flavor.  Not really accurate, since
-		 * the transferrable class really returns a List.
-		 */
-		private final String mimeType =
-				DataFlavor.javaJVMLocalObjectMimeType
-					+ ";class=gmgen.plugin.PcgCombatant";
-		/** The source data model for the transfer. */
-		private OpposedSkillBasicModel sourceModel = null;
-		/** The source table for the transfer. */
-		private JTable sourceTable = null;
-
-		/**
-		 * <p>
-		 * Default constructor -- initializes the data flavor.
-		 * </p>
-		 */
-		private CombatantTransferHandler()
-		{
-			try
-			{
-				combatantFlavor = new DataFlavor(mimeType);
-			}
-			catch (final ClassNotFoundException e)
-			{
-				//Intentionally left blank
-			}
-		}
-
-		/* (non-Javadoc)
-		 * @see javax.swing.TransferHandler#canImport(javax.swing.JComponent, java.awt.datatransfer.DataFlavor[])
-		 */
-        @Override
-		public boolean canImport(JComponent c, DataFlavor[] flavors)
-		{
-			if ((sourceTable == null) || (c == null)
-					|| sourceTable.getName()
-					.equals(c.getName()))
-			{
-				return false;
-			}
-			for (final DataFlavor flavor : flavors)
-			{
-				if (combatantFlavor.equals(flavor))
-				{
-					return true;
-				}
-			}
-			return false;
-		}
-
-		/* (non-Javadoc)
-		 * @see javax.swing.TransferHandler#createTransferable(javax.swing.JComponent)
-		 */
-        @Override
-		protected Transferable createTransferable(JComponent c)
-		{
-			if (c instanceof JTable)
-			{
-				sourceModel = (OpposedSkillBasicModel) ((JTable) c).getModel();
-				sourceTable = (JTable) c;
-				return new CombatantTransferable((JTable) c);
-			}
-			return null;
-		}
-
-		/* (non-Javadoc)
-		 * @see javax.swing.TransferHandler#exportDone(javax.swing.JComponent, java.awt.datatransfer.Transferable, int)
-		 */
-        @Override
-		protected void exportDone(JComponent c, Transferable data, int action)
-		{
-			if (action == TransferHandler.MOVE)
-			{
-				try
-				{
-					Iterable<PcgCombatant> items = (Iterable<PcgCombatant>) data.getTransferData(combatantFlavor);
-					items.forEach(item -> sourceModel.removeCombatant(item.getName()));
-				}
-				catch (final UnsupportedFlavorException | IOException e)
-				{
-					e.printStackTrace();
-				}
-			}
-			sourceModel = null;
-		}
-
-		/* (non-Javadoc)
-		 * @see javax.swing.TransferHandler#getSourceActions(javax.swing.JComponent)
-		 */
-        @Override
-		public int getSourceActions(JComponent c)
-		{
-			return TransferHandler.MOVE;
-		}
-
-		/* (non-Javadoc)
-		 * @see javax.swing.TransferHandler#importData(javax.swing.JComponent, java.awt.datatransfer.Transferable)
-		 */
-        @Override
-		public boolean importData(JComponent c, Transferable t)
-		{
-			if (canImport(c, t.getTransferDataFlavors()))
-			{
-				JTable table = (JTable) c;
-				OpposedSkillBasicModel model =
-						(OpposedSkillBasicModel) table.getModel();
-				try
-				{
-					Iterable<PcgCombatant> items = (Iterable<PcgCombatant>) t.getTransferData(combatantFlavor);
-					items.forEach(model::addCombatant);
-					return true;
-				}
-				catch (final UnsupportedFlavorException | IOException ufe)
-				{
-					//Nothing
-				}
-			}
-			return false;
-		}
-	}
-
 	/** The shared {@code TransferHandler} for all tables */
-	private final TransferHandler transferHandler =
-			new CombatantTransferHandler();
+	private final TransferHandler transferHandler = new CombatantTransferHandler();
 	/** Label for the available table */
 	private JLabel availableLabel = null; //
 	/** Scroll pane for the available table */
@@ -348,8 +140,8 @@ class OpposedCheckDialog extends JDialog
 	 * @param availableGroup A list comprising the other combatants
 	 * @throws HeadlessException if running without a gui
 	 */
-	OpposedCheckDialog(Frame owner, List<InitHolder> rollingGroup,
-	                   List<InitHolder> availableGroup) throws HeadlessException
+	OpposedCheckDialog(Frame owner, List<InitHolder> rollingGroup, List<InitHolder> availableGroup)
+		throws HeadlessException
 	{
 		super(owner);
 		initializeLists(rollingGroup, availableGroup);
@@ -368,12 +160,8 @@ class OpposedCheckDialog extends JDialog
 	 */
 	private void initializeLists(List<InitHolder> rollingGroup, List<InitHolder> availableGroup)
 	{
-		skillNames.addAll(Globals.getContext()
-				                  .getReferenceContext()
-				                  .getConstructedCDOMObjects(Skill.class)
-				                  .stream()
-				                  .map(PObject::toString)
-				                  .collect(Collectors.toList()));
+		skillNames.addAll(Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class).stream()
+			.map(PObject::toString).collect(Collectors.toList()));
 		ivjAvailableModel = new OpposedSkillTypeModel(availableGroup);
 		ivjRollingSkillModel = new OpposedSkillModel(rollingGroup);
 		ivjOpposedSkillModel = new OpposedSkillModel();
@@ -384,7 +172,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes availableLabel
 	 *
 	 * @return javax.swing.JLabel
-	 *
 	 */
 	private Component getAvailableLabel()
 	{
@@ -401,7 +188,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes availableScrollPane
 	 *
 	 * @return javax.swing.JScrollPane
-	 *
 	 */
 	private Component getAvailableScrollPane()
 	{
@@ -409,8 +195,7 @@ class OpposedCheckDialog extends JDialog
 		{
 			availableScrollPane = new JScrollPane();
 			availableScrollPane.setViewportView(getAvailableTable());
-			availableScrollPane.setPreferredSize(new Dimension(300,
-				100));
+			availableScrollPane.setPreferredSize(new Dimension(300, 100));
 		}
 		return availableScrollPane;
 	}
@@ -420,7 +205,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes availableTable
 	 *
 	 * @return javax.swing.JTable
-	 *
 	 */
 	private Component getAvailableTable()
 	{
@@ -440,7 +224,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes ivjAvailableModel
 	 *
 	 * @return OpposedSkillAvailableModel
-	 *
 	 */
 	private TableModel getIvjAvailableModel()
 	{
@@ -456,7 +239,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes ivjOpposedSkillModel
 	 *
 	 * @return OpposedSkillModel
-	 *
 	 */
 	private TableModel getIvjOpposedSkillModel()
 	{
@@ -472,7 +254,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes ivjRollingSkillModel
 	 *
 	 * @return OpposedSkillModel
-	 *
 	 */
 	private TableModel getIvjRollingSkillModel()
 	{
@@ -530,8 +311,7 @@ class OpposedCheckDialog extends JDialog
 			GridBagConstraints consOkButton = new GridBagConstraints();
 			consOkButton.gridx = 1;
 			consOkButton.gridy = 5;
-			jContentPane.setBorder(BorderFactory.createEmptyBorder(
-				5, 5, 5, 5));
+			jContentPane.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 			GridBagConstraints consRollingGroupLabel = new GridBagConstraints();
 			consRollingGroupLabel.gridx = 0;
 			consRollingGroupLabel.gridy = 2;
@@ -545,8 +325,7 @@ class OpposedCheckDialog extends JDialog
 			jContentPane.add(getAvailableScrollPane(), consAvailableTable);
 			jContentPane.add(getRollingGroupScrollPane(), consRollingGroupPane);
 			jContentPane.add(getOpposingComboBox(), consOpposingComboBox);
-			jContentPane.add(getOpposingGroupScrollPane(),
-				consOpposingGroupPane);
+			jContentPane.add(getOpposingGroupScrollPane(), consOpposingGroupPane);
 			jContentPane.add(getRollingComboBox(), consRollingComboBox);
 			jContentPane.add(getRollButton(), consRollButton);
 			jContentPane.add(getOkButton(), consOkButton);
@@ -562,7 +341,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes okButton
 	 *
 	 * @return javax.swing.JButton
-	 *
 	 */
 	private Component getOkButton()
 	{
@@ -581,7 +359,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes opposingComboBox
 	 *
 	 * @return javax.swing.JComboBox
-	 *
 	 */
 	private Component getOpposingComboBox()
 	{
@@ -589,8 +366,7 @@ class OpposedCheckDialog extends JDialog
 		{
 			opposingComboBox = new JComboBox<>(skillNames.toArray());
 			opposingComboBox.setSelectedIndex(-1);
-			opposingComboBox
-				.addActionListener(this::opposingComboBoxActionPerformed);
+			opposingComboBox.addActionListener(this::opposingComboBoxActionPerformed);
 
 		}
 		return opposingComboBox;
@@ -601,7 +377,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes opposingGroupLabel
 	 *
 	 * @return javax.swing.JLabel
-	 *
 	 */
 	private Component getOpposingGroupLabel()
 	{
@@ -618,7 +393,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes opposingGroupScrollPane
 	 *
 	 * @return javax.swing.JScrollPane
-	 *
 	 */
 	private Component getOpposingGroupScrollPane()
 	{
@@ -626,8 +400,7 @@ class OpposedCheckDialog extends JDialog
 		{
 			opposingGroupScrollPane = new JScrollPane();
 			opposingGroupScrollPane.setViewportView(getOpposingGroupTable());
-			opposingGroupScrollPane.setPreferredSize(new Dimension(
-				300, 100));
+			opposingGroupScrollPane.setPreferredSize(new Dimension(300, 100));
 		}
 		return opposingGroupScrollPane;
 	}
@@ -637,7 +410,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes opposingGroupTable
 	 *
 	 * @return javax.swing.JTable
-	 *
 	 */
 	private Component getOpposingGroupTable()
 	{
@@ -657,7 +429,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes rollButton
 	 *
 	 * @return javax.swing.JButton
-	 *
 	 */
 	private Component getRollButton()
 	{
@@ -676,7 +447,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes rollingComboBox
 	 *
 	 * @return javax.swing.JComboBox
-	 *
 	 */
 	private Component getRollingComboBox()
 	{
@@ -684,8 +454,7 @@ class OpposedCheckDialog extends JDialog
 		{
 			rollingComboBox = new JComboBox(skillNames.toArray());
 			rollingComboBox.setSelectedIndex(-1);
-			rollingComboBox
-				.addActionListener(this::rollingComboBoxActionPerformed);
+			rollingComboBox.addActionListener(this::rollingComboBoxActionPerformed);
 
 		}
 		return rollingComboBox;
@@ -696,7 +465,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes rollingGroupLabel
 	 *
 	 * @return javax.swing.JLabel
-	 *
 	 */
 	private Component getRollingGroupLabel()
 	{
@@ -713,7 +481,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes rollingGroupScrollPane
 	 *
 	 * @return javax.swing.JScrollPane
-	 *
 	 */
 	private Component getRollingGroupScrollPane()
 	{
@@ -731,7 +498,6 @@ class OpposedCheckDialog extends JDialog
 	 * This method initializes rollingGroupTable
 	 *
 	 * @return javax.swing.JTable
-	 *
 	 */
 	private Component getRollingGroupTable()
 	{
@@ -777,8 +543,7 @@ class OpposedCheckDialog extends JDialog
 	 */
 	private void opposingComboBoxActionPerformed(ActionEvent e)
 	{
-		ivjOpposedSkillModel.setSkill(opposingComboBox.getSelectedItem()
-			.toString());
+		ivjOpposedSkillModel.setSkill(opposingComboBox.getSelectedItem().toString());
 	}
 
 	/**
@@ -803,7 +568,177 @@ class OpposedCheckDialog extends JDialog
 	 */
 	private void rollingComboBoxActionPerformed(ActionEvent e)
 	{
-		ivjRollingSkillModel.setSkill(rollingComboBox.getSelectedItem()
-			.toString());
+		ivjRollingSkillModel.setSkill(rollingComboBox.getSelectedItem().toString());
+	}
+
+	/**
+	 * <p>
+	 * A transfer handler to manage drag-and-drop between the tables.
+	 * It interprets all drags as moves and won't allow drops on the initiating
+	 * table.  It is designed to be shared by all the tables.
+	 * </p>
+	 */
+	private static final class CombatantTransferHandler extends TransferHandler
+	{
+
+		/** A data flavor for use in the transfer */
+		private DataFlavor combatantFlavor = null;
+
+		/** The mime type used by the data flavor.  Not really accurate, since
+		 * the transferrable class really returns a List.
+		 */
+		private final String mimeType = DataFlavor.javaJVMLocalObjectMimeType + ";class=gmgen.plugin.PcgCombatant";
+		/** The source data model for the transfer. */
+		private OpposedSkillBasicModel sourceModel = null;
+		/** The source table for the transfer. */
+		private JTable sourceTable = null;
+
+		/**
+		 * <p>
+		 * Default constructor -- initializes the data flavor.
+		 * </p>
+		 */
+		private CombatantTransferHandler()
+		{
+			try
+			{
+				combatantFlavor = new DataFlavor(mimeType);
+			}
+			catch (final ClassNotFoundException e)
+			{
+				//Intentionally left blank
+			}
+		}
+
+		@Override
+		public boolean canImport(JComponent c, DataFlavor[] flavors)
+		{
+			if ((sourceTable == null) || (c == null) || sourceTable.getName().equals(c.getName()))
+			{
+				return false;
+			}
+			for (final DataFlavor flavor : flavors)
+			{
+				if (combatantFlavor.equals(flavor))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		@Override
+		protected Transferable createTransferable(JComponent c)
+		{
+			if (c instanceof JTable)
+			{
+				sourceModel = (OpposedSkillBasicModel) ((JTable) c).getModel();
+				sourceTable = (JTable) c;
+				return new CombatantTransferable((JTable) c);
+			}
+			return null;
+		}
+
+		@Override
+		protected void exportDone(JComponent c, Transferable data, int action)
+		{
+			if (action == TransferHandler.MOVE)
+			{
+				try
+				{
+					Iterable<PcgCombatant> items = (Iterable<PcgCombatant>) data.getTransferData(combatantFlavor);
+					items.forEach(item -> sourceModel.removeCombatant(item.getName()));
+				}
+				catch (final UnsupportedFlavorException | IOException e)
+				{
+					e.printStackTrace();
+				}
+			}
+			sourceModel = null;
+		}
+
+		@Override
+		public int getSourceActions(JComponent c)
+		{
+			return TransferHandler.MOVE;
+		}
+
+		@Override
+		public boolean importData(JComponent c, Transferable t)
+		{
+			if (canImport(c, t.getTransferDataFlavors()))
+			{
+				JTable table = (JTable) c;
+				OpposedSkillBasicModel model = (OpposedSkillBasicModel) table.getModel();
+				try
+				{
+					Iterable<PcgCombatant> items = (Iterable<PcgCombatant>) t.getTransferData(combatantFlavor);
+					items.forEach(model::addCombatant);
+					return true;
+				}
+				catch (final UnsupportedFlavorException | IOException ufe)
+				{
+					//Nothing
+				}
+			}
+			return false;
+		}
+
+		/**
+		 * <p>
+		 * A transferrable class that saves a list of combatants being transferred.
+		 * </p>
+		 */
+		private final class CombatantTransferable implements Transferable
+		{
+
+			/**
+			 * A list of combatants that are being transferred.
+			 */
+			private List<PcgCombatant> items = null;
+
+			/**
+			 * <p>
+			 * Constructor.  The JTable us used to get the selected rows and store
+			 * them in the {@code items} member.
+			 * </p>
+			 *
+			 * @param table The source JTable
+			 */
+			private CombatantTransferable(JTable table)
+			{
+				int[] rows = table.getSelectedRows();
+
+				if ((rows != null) && (rows.length > 0))
+				{
+					OpposedSkillBasicModel model = (OpposedSkillBasicModel) table.getModel();
+					items = new ArrayList<>();
+					Arrays.stream(rows).forEach(model::getCombatant);
+				}
+
+			}
+
+			@Override
+			public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException
+			{
+				if (!isDataFlavorSupported(flavor))
+				{
+					throw new UnsupportedFlavorException(flavor);
+				}
+				return items;
+			}
+
+			@Override
+			public DataFlavor[] getTransferDataFlavors()
+			{
+				return new DataFlavor[]{combatantFlavor};
+			}
+
+			@Override
+			public boolean isDataFlavorSupported(DataFlavor flavor)
+			{
+				return combatantFlavor.equals(flavor);
+			}
+		}
 	}
 }

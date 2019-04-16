@@ -1,0 +1,26 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEDATE:2016-04
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 29 March 2017
+
+STARTPACK:Vigilante's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:8
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Pouch (Belt)			QTY:1		SIZE:PC	LOCATION:Equipped
+GEAR:Blanket			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+### Starting Gold
+STARTPACK:Classes Starting Gold ~ UI	TYPE:Starting.Gold	VISIBLE:QUALIFY	APPLY:INSTANT	PREMULT:2,[PREPCLEVEL:MIN=1,MAX=1],[PRECLASS:1,Vigilante=1]
+TEMPLATE:Starting Gold ~ UI
+
+STARTPACK:Starting Gold UI ~ Random	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:10*roll("5d6")	PRECLASS:1,Vigilante=1
+
+STARTPACK:Starting Gold UI ~ Maximum	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:300	PRECLASS:1,Vigilante=1
+
+STARTPACK:Starting Gold UI ~ Average	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:175	PRECLASS:1,Vigilante=1

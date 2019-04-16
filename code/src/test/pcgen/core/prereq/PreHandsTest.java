@@ -1,6 +1,4 @@
 /*
- * PreHandsTest.java
- *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,47 +14,34 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreHandsTest</code> tests that the PREHANDS tag is
+ * {@code PreHandsTest} tests that the PREHANDS tag is
  * working correctly.
- *
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
 public class PreHandsTest extends AbstractCharacterTestCase
 {
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreHandsTest.class);
-	}
-
 	/**
-	 * @return Test
+	 * Test the PREHANDS code.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreHandsTest.class);
-	}
-
-	/**
-	 * Test the PREHANDS code
-	 * @throws Exception
-	 */
-	public void testHands() throws Exception
+	@Test
+	public void testHands() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		Race race = new Race();

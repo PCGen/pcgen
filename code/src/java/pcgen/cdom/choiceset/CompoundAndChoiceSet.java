@@ -15,9 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on October 29, 2006.
  * 
- * $Date: 2006-06-22 21:22:44 -0400 (Thu, 22 Jun 2006) $
  */
 package pcgen.cdom.choiceset;
 
@@ -49,8 +47,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * The list of underlying PrimitiveChoiceSets that this CompoundAndChoiceSet
 	 * contains
 	 */
-	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<>(
-            ChoiceSetUtilities.WRITEABLE_SORTER);
+	private final Set<PrimitiveChoiceSet<T>> pcsSet = new TreeSet<>(ChoiceSetUtilities::compareChoiceSets);
 
 	/**
 	 * Constructs a new CompoundAndChoiceSet which will contain objects
@@ -83,7 +80,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 			{
 				Logging.log(Level.WARNING, "Found duplicate item in " + pcsCollection);
 			}
-			pcsSet.add(PrimitiveChoiceSet.INVALID);
+			pcsSet.add(PrimitiveChoiceSet.getInvalid());
 		}
 	}
 
@@ -136,8 +133,7 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return ChoiceSetUtilities
-				.joinLstFormat(pcsSet, Constants.COMMA, useAny);
+		return ChoiceSetUtilities.joinLstFormat(pcsSet, Constants.COMMA, useAny);
 	}
 
 	/**
@@ -148,33 +144,19 @@ public class CompoundAndChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public Class<? super T> getChoiceClass()
 	{
-		return pcsSet == null ? null : pcsSet.iterator().next()
-				.getChoiceClass();
+		return pcsSet == null ? null : pcsSet.iterator().next().getChoiceClass();
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this CompoundAndChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return pcsSet.hashCode();
 	}
 
-	/**
-	 * Returns true if this CompoundAndChoiceSet is equal to the given Object.
-	 * Equality is defined as being another CompoundAndChoiceSet object with
-	 * equal underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
-		return (obj instanceof CompoundAndChoiceSet)
-				&& ((CompoundAndChoiceSet<?>) obj).pcsSet.equals(pcsSet);
+		return (obj instanceof CompoundAndChoiceSet) && ((CompoundAndChoiceSet<?>) obj).pcsSet.equals(pcsSet);
 	}
 
 	/**

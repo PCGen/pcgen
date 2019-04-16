@@ -27,8 +27,12 @@ import pcgen.cdom.inst.EquipmentHead;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 
-public class EqModAttachment
+public final class EqModAttachment
 {
+
+	private EqModAttachment()
+	{
+	}
 
 	public static void finishEquipment(Equipment eq)
 	{
@@ -39,16 +43,14 @@ public class EqModAttachment
 			{
 				continue;
 			}
-			List<EqModRef> modInfoList = head
-					.getListFor(ListKey.EQMOD_INFO);
+			List<EqModRef> modInfoList = head.getListFor(ListKey.EQMOD_INFO);
 			if (modInfoList == null)
 			{
 				continue;
 			}
 			for (EqModRef modRef : modInfoList)
 			{
-				List<EquipmentModifier> modlist = head
-						.getListFor(ListKey.EQMOD);
+				List<EquipmentModifier> modlist = head.getListFor(ListKey.EQMOD);
 				EquipmentModifier eqMod = modRef.getRef().get();
 				String eqModKey = eqMod.getKeyName();
 				EquipmentModifier curMod = null;
@@ -63,35 +65,32 @@ public class EqModAttachment
 						}
 					}
 				}
-	
+
 				// If not already attached, then add a new one
 				if (curMod == null)
 				{
 					// only make a copy if we need to
 					// add qualifiers to modifier
-					if (eqMod.getSafe(StringKey.CHOICE_STRING).length() != 0)
+					if (!eqMod.getSafe(StringKey.CHOICE_STRING).isEmpty())
 					{
 						eqMod = eqMod.clone();
 					}
-	
+
 					eq.addToEqModifierList(eqMod, i == 1);
 				}
 				else
 				{
 					eqMod = curMod;
 				}
-	
+
 				// Add the associated choices
-				if (eqMod.getSafe(StringKey.CHOICE_STRING).length() != 0)
+				if (!eqMod.getSafe(StringKey.CHOICE_STRING).isEmpty())
 				{
 					List<String> choices = modRef.getChoices();
 					for (String x : choices)
 					{
 						Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
-						if (min != null
-								&& min > 0
-								|| (eqMod.getSafe(StringKey.CHOICE_STRING)
-										.startsWith("EQBUILDER")))
+						if (min != null && min > 0 || (eqMod.getSafe(StringKey.CHOICE_STRING).startsWith("EQBUILDER")))
 						{
 							// We clear the associated info to avoid a
 							// buildup of info

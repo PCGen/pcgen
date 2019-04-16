@@ -1,0 +1,56 @@
+CAMPAIGN:Heroes of the Streets (PFS)
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+RANK:3
+TYPE:Paizo Publishing PFS.Pathfinder Player Companion
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+STATUS:BETA
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+#PUBNAMEWEB:http://www.paizo.com
+SOURCELONG:Pathfinder Player Companion: Heroes of the Streets
+SOURCESHORT:HOTS
+SOURCEWEB:http://paizo.com/products/btpy9ghc
+SOURCEDATE:2015-10
+ISOGL:YES
+
+#COVER:heroes_of_the_street.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9ghc|Buy this publication from Paizo Publishing!
+DESC:Not every adventure awaits within a sealed tomb or mad wizard's tower. In seemingly civilized cities, dangers lurk down every twisting alley, and backroom deals might spell the end for nosy investigators. Pathfinder Player Companion: Heroes of the Streets provides the resources to take your Pathfinder RPG character from a dungeon-delver to a witty and backstabbing urbanite.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Axe Beak from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Hippocampus from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors: Scott Greene and Erica Balsley, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Player Companion: Heroes of the Street Copyright 2015, Paizo Inc.; Authors: John Compton, Mikko Kallio, Nicolas Logue, Michael McCarthy, Mike Myler, and David N. Ross.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Heroes of the Street" Copyright 2017, PCgen Data team (including but not limited to Gwen T. (evilpixie87))
+
+
+#Campaign Clarifications
+#Last Updated Saturday, April 29, 2017
+#
+#Heroes of the Streets
+#NOTE:Changes for pages 8, 18, and 30 were applied universally, as they do not alter the listed abilities. Change for page 25 was applied only to PFS version.
+#Page 8—The inspire imitation alternate racial trait replaces a half-elf's Skill Focus feat.
+#Page 18—You can use the Competition subdomain's athletic exploit power a number of times per day equal to 3 + your Wisdom modifier.
+#Page 25—Remove the second paragraph in the Urban Hunter's altered animal companion class ability.
+#Page 30—The coin shot spell does not apply the caster's ability modifier (for most characters, Strength) to damage.
+#
+#ADDITIONAL RESOURCES
+#Last Updated Wednesday, March 22, 2017
+#
+#All archetypes, feats, traits alternate racial traits, equipment, magic items, spells, magus arcana, oracle mysteries, rogue talents, shaman spirits, and subdomains are legal for play with the following exceptions and clarificaitons.
+#Alternate Racial Traits: The Illustrious Urbanite alternate racial trait is not legal for play. Archetypes: The eldritch archer archetype is not legal for play; the Alley Witch archetype's crowd patron grants ventriloquism instead of ears of the city; ignore the second paragraph in the Urban Hunter's altered animal companion class ability; a bard with the busker archetype can use Acrobatics, Disguise, Sleight of Hand, and Stealth for Day Job checks. Equipment: The cat burglar's kit is not legal for play. Feats: The Cunning Caster, Guild Emissary, Subtle Devices, Throat Slicer, and Underworld Connections feats are not legal for play Magic Items: The diminishing sash is not legal for play. Rogue Talents: Eerie Disappearance and False Attacker are not legal for play. Spells: Cloak of secrets, ears of the city, illusory crowd, and secret coffer are not legal for play. As of 22 February 2016, coin shot is legal for play. Subdomains: To qualify for one of the subdomains on pages 18-19, a PC must select one of the listed deities as her patron. The Legislation subdomain's prohibition ability can only prohibit any actions referenced by the forbid action spell. Traits: The Wiscrani Ear trait is not legal for play.
+
+ABILITY:pfs_hots_abilities.lst|PRECAMPAIGN:1,INCLUDES=Heroes of the Streets
+ABILITY:pfs_hots_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Heroes of the Streets
+ABILITY:pfs_hots_abilities_race.lst|PRECAMPAIGN:1,INCLUDES=Heroes of the Streets
+ABILITY:pfs_hots_feats.lst|PRECAMPAIGN:1,INCLUDES=Heroes of the Streets
+EQUIPMENT:pfs_hots_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Heroes of the Streets
+EQUIPMENT:pfs_hots_equip_magic_items.lst|PRECAMPAIGN:1,INCLUDES=Heroes of the Streets
+SPELL:pfs_hots_spells.lst|PRECAMPAIGN:1,INCLUDES=Heroes of the Streets

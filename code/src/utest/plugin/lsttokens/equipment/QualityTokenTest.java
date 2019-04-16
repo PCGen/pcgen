@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.equipment;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
@@ -27,10 +27,12 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class QualityTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
 	static QualityToken token = new QualityToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()
@@ -51,49 +53,49 @@ public class QualityTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	}
 
 	@Test
-	public void testInvalidNoPipe() throws PersistenceLayerException
+	public void testInvalidNoPipe()
 	{
 		assertFalse(parse("NoPipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoPipe() throws PersistenceLayerException
+	public void testInvalidTwoPipe()
 	{
 		assertFalse(parse("One|Two|Three"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoublePipe() throws PersistenceLayerException
+	public void testInvalidDoublePipe()
 	{
 		assertFalse(parse("Two||Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPipe() throws PersistenceLayerException
+	public void testInvalidOnlyPipe()
 	{
 		assertFalse(parse("|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyKey() throws PersistenceLayerException
+	public void testInvalidEmptyKey()
 	{
 		assertFalse(parse("|Value"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue() throws PersistenceLayerException
+	public void testInvalidEmptyValue()
 	{
 		assertFalse(parse("Key|"));
 		assertNoSideEffects();

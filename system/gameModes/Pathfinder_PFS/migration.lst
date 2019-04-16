@@ -1,12 +1,248 @@
 #
-# Current Ver: $Revision: 25415 $
-# Last Editor: $Author: amaitland $
-# Last Edited: $Date: 2014-11-09 09:09:47 -0800 (Sun, 09 Nov 2014) $
+# Last Editor: $Author$
+# Last Edited: $Date$
 #
 # Rules for migrating characters from old data to new.
 #
 
+# Examples
+# SOURCE:JDTEST	MAXVER:6.4.00	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXDEVVER:6.1.1
+# EQUIPMENT:JDTEST	MAXVER:6.4.00	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXVER:6.4.00	MAXDEVVER:6.1.2
+# NEWCATEGORY:Spell-like Ability
+# RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race
 
+EQUIPMENT:Blazing Robes									MAXVER:6.07.08	NEWKEY:Blazing Robe
+EQUIPMENT:Mnemonic Vestments							MAXVER:6.07.08	NEWKEY:Mnemonic Vestment
+EQUIPMENT:Necklass of Ki Serenity          				MAXVER:6.07.08	NEWKEY:Necklace of Ki Serenity
+EQUIPMENT:Ring of Mechanical Devices					MAXVER:6.07.08	NEWKEY:Ring of Maniacal Devices
+EQUIPMENT:Stone of Weight (Lodestone)					MAXVER:6.07.08	NEWKEY:Stone of Weight (Loadstone)
+EQUIPMENT:Voidfrost Robes								MAXVER:6.07.08	NEWKEY:Voidfrost Robe
+EQUIPMENT:Wierd Queen's Magpie							MAXVER:6.07.08	NEWKEY:Weird Queen's Magpie
+
+ABILITY:Internal|Sorcerer ~ BS					MAXVER:6.07.06	NEWKEY:Sorcerer ~ Standard Bloodline Selection
+ABILITY:Internal|Sorcerer ~ Crossblooded BS			MAXVER:6.07.06	NEWKEY:Sorcerer ~ Crossblooded Bloodline Selection
+
+SOURCE:Adventurer's Armory (PFS)						MAXVER:6.07.05	NEWKEY:PFS ~ Adventurer's Armory
+SOURCE:PF - Demon Hunter's Handbook						MAXVER:6.07.05	NEWKEY:Demon Hunter's Handbook
+SOURCE:PF - Dirty Tactics Toolbox						MAXVER:6.07.05	NEWKEY:Dirty Tactics Toolbox
+SOURCE:People of the Stars (PFS)						MAXVER:6.07.05	NEWKEY:PFS ~ People of the Stars
+SOURCE:PF - Quests and Campaigns						MAXVER:6.07.05	NEWKEY:Quests and Campaigns
+SOURCE:PF - Weapon Master's Handbook					MAXVER:6.07.05	NEWKEY:Weapon Master's Handbook
+
+ABILITY:Special Ability|Mythic Path Ability ~ Relentless Healing	MAXVER:6.07.05	NEWKEY:Mythic Path Ability ~ Relentless Healing (Guardian)
+
+ABILITY:FEAT|Mythic Feat ~ Drink Is Life					MAXVER:6.07.05	NEWKEY:Drink Is Life			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Dual Path					MAXVER:6.07.05	NEWKEY:Dual Path				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Extra Mythic Power				MAXVER:6.07.05	NEWKEY:Extra Mythic Power		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Extra Path Ability				MAXVER:6.07.05	NEWKEY:Extra Path Ability		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Fabulous Figments				MAXVER:6.07.05	NEWKEY:Fabulous Figments		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Legendary Teamwork				MAXVER:6.07.05	NEWKEY:Legendary Teamwork		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Lucky Surge					MAXVER:6.07.05	NEWKEY:Lucky Surge			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Maximize Surge					MAXVER:6.07.05	NEWKEY:Maximize Surge			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Mythic Paragon					MAXVER:6.07.05	NEWKEY:Mythic Paragon			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Mythic Spell Lore				MAXVER:6.07.05	NEWKEY:Mythic Spell Lore		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Potent Surge					MAXVER:6.07.05	NEWKEY:Potent Surge			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Titan Strike					MAXVER:6.07.05	NEWKEY:Titan Strike			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Two-Fisted Drinker				MAXVER:6.07.05	NEWKEY:Two-Fisted Drinker		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Valiant Vault					MAXVER:6.07.05	NEWKEY:Valiant Vault			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Accursed Hex					MAXVER:6.07.05	NEWKEY:Accursed Hex			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Acrobatic					MAXVER:6.07.05	NEWKEY:Acrobatic				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Alertness					MAXVER:6.07.05	NEWKEY:Alertness				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Alignment Channel				MAXVER:6.07.05	NEWKEY:Alignment Channel		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Animal Affinity				MAXVER:6.07.05	NEWKEY:Animal Affinity			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Arcane Armor Training			MAXVER:6.07.05	NEWKEY:Arcane Armor Training		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Arcane Blast					MAXVER:6.07.05	NEWKEY:Arcane Blast			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Arcane Shield					MAXVER:6.07.05	NEWKEY:Arcane Shield			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Arcane Strike					MAXVER:6.07.05	NEWKEY:Arcane Strike			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Aspect of the Beast				MAXVER:6.07.05	NEWKEY:Aspect of the Beast		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Athletic						MAXVER:6.07.05	NEWKEY:Athletic				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Augment Summoning				MAXVER:6.07.05	NEWKEY:Augment Summoning		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Bleeding Critical				MAXVER:6.07.05	NEWKEY:Bleeding Critical		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Blind Fight					MAXVER:6.07.05	NEWKEY:Blind Fight			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Catch Off-Guard				MAXVER:6.07.05	NEWKEY:Catch Off-Guard			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Channel Smite					MAXVER:6.07.05	NEWKEY:Channel Smite			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Charge Through					MAXVER:6.07.05	NEWKEY:Charge Through			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Cleave						MAXVER:6.07.05	NEWKEY:Cleave				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Combat Expertise				MAXVER:6.07.05	NEWKEY:Combat Expertise			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Combat Reflexes				MAXVER:6.07.05	NEWKEY:Combat Reflexes			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Command Undead					MAXVER:6.07.05	NEWKEY:Command Undead			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Critical Focus					MAXVER:6.07.05	NEWKEY:Critical Focus			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Critical Mastery				MAXVER:6.07.05	NEWKEY:Critical Mastery			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Dastardly Finish				MAXVER:6.07.05	NEWKEY:Dastardly Finish			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Dazzling Display				MAXVER:6.07.05	NEWKEY:Dazzling Display			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Deadly Aim					MAXVER:6.07.05	NEWKEY:Deadly Aim				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Deadly Stroke					MAXVER:6.07.05	NEWKEY:Deadly Stroke			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Death from Above				MAXVER:6.07.05	NEWKEY:Death from Above			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Deceitful					MAXVER:6.07.05	NEWKEY:Deceitful				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Deepsight					MAXVER:6.07.05	NEWKEY:Deepsight				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Defensive Combat Training			MAXVER:6.07.05	NEWKEY:Defensive Combat Training	NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Deflect Arrows					MAXVER:6.07.05	NEWKEY:Deflect Arrows			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Deft Hand					MAXVER:6.07.05	NEWKEY:Deft Hand				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Detect Expertise				MAXVER:6.07.05	NEWKEY:Detect Expertise			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Disruptive					MAXVER:6.07.05	NEWKEY:Disruptive				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Distance Thrower				MAXVER:6.07.05	NEWKEY:Distance Thrower			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Divine Interference				MAXVER:6.07.05	NEWKEY:Divine Interference		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Dodge						MAXVER:6.07.05	NEWKEY:Dodge				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Dreadful Carnage				MAXVER:6.07.05	NEWKEY:Dreadful Carnage			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Eagle Eyes					MAXVER:6.07.05	NEWKEY:Eagle Eyes				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Eldritch Heritage				MAXVER:6.07.05	NEWKEY:Eldritch Heritage		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Elemental Channel				MAXVER:6.07.05	NEWKEY:Elemental Channel		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Elemental Fist					MAXVER:6.07.05	NEWKEY:Elemental Fist			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Elemental Focus				MAXVER:6.07.05	NEWKEY:Elemental Focus			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Elven Accuracy					MAXVER:6.07.05	NEWKEY:Elven Accuracy			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Endurance					MAXVER:6.07.05	NEWKEY:Endurance				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Eschew Materials				MAXVER:6.07.05	NEWKEY:Eschew Materials			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Far Shot						MAXVER:6.07.05	NEWKEY:Far Shot				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Fast Empathy					MAXVER:6.07.05	NEWKEY:Fast Empathy			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Fire Music					MAXVER:6.07.05	NEWKEY:Fire Music				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Fleet						MAXVER:6.07.05	NEWKEY:Fleet				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Furious Focus					MAXVER:6.07.05	NEWKEY:Furious Focus			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Gnome Trickster				MAXVER:6.07.05	NEWKEY:Gnome Trickster			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Gorgon's Fist					MAXVER:6.07.05	NEWKEY:Gorgon's Fist			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Great Fortitude				MAXVER:6.07.05	NEWKEY:Great Fortitude			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Guided Hand					MAXVER:6.07.05	NEWKEY:Guided Hand			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Heroic Defiance				MAXVER:6.07.05	NEWKEY:Heroic Defiance			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Heroic Recovery				MAXVER:6.07.05	NEWKEY:Heroic Recovery			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Bull Rush				MAXVER:6.07.05	NEWKEY:Improved Bull Rush		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Channel				MAXVER:6.07.05	NEWKEY:Improved Channel			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Counterspell			MAXVER:6.07.05	NEWKEY:Improved Counterspell		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Critical				MAXVER:6.07.05	NEWKEY:Improved Critical		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Dirty Trick				MAXVER:6.07.05	NEWKEY:Improved Dirty Trick		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Disarm				MAXVER:6.07.05	NEWKEY:Improved Disarm			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Drag					MAXVER:6.07.05	NEWKEY:Improved Drag			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Familiar				MAXVER:6.07.05	NEWKEY:Improved Familiar		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Grapple				MAXVER:6.07.05	NEWKEY:Improved Grapple			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Initiative				MAXVER:6.07.05	NEWKEY:Improved Initiative		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Overrun				MAXVER:6.07.05	NEWKEY:Improved Overrun			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Reposition				MAXVER:6.07.05	NEWKEY:Improved Reposition		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Steal					MAXVER:6.07.05	NEWKEY:Improved Steal			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Stonecunning			MAXVER:6.07.05	NEWKEY:Improved Stonecunning		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Sunder				MAXVER:6.07.05	NEWKEY:Improved Sunder			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Trip					MAXVER:6.07.05	NEWKEY:Improved Trip			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Improved Unarmed Strike			MAXVER:6.07.05	NEWKEY:Improved Unarmed Strike	NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Intimidating Prowess				MAXVER:6.07.05	NEWKEY:Intimidating Prowess		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Iron Will					MAXVER:6.07.05	NEWKEY:Iron Will				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Knockout Artist				MAXVER:6.07.05	NEWKEY:Knockout Artist			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Lightning Reflexes				MAXVER:6.07.05	NEWKEY:Lightning Reflexes		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Lucky Halfling					MAXVER:6.07.05	NEWKEY:Lucky Halfling			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Lunge						MAXVER:6.07.05	NEWKEY:Lunge				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Magical Aptitude				MAXVER:6.07.05	NEWKEY:Magical Aptitude			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Manyshot						MAXVER:6.07.05	NEWKEY:Manyshot				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Medusa's Wrath					MAXVER:6.07.05	NEWKEY:Medusa's Wrath			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Missile Shield					MAXVER:6.07.05	NEWKEY:Missile Shield			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Mobility						MAXVER:6.07.05	NEWKEY:Mobility				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Monastic Legacy				MAXVER:6.07.05	NEWKEY:Monastic Legacy			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Mounted Archery				MAXVER:6.07.05	NEWKEY:Mounted Archery			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Mounted Combat					MAXVER:6.07.05	NEWKEY:Mounted Combat			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Mythic Crafter					MAXVER:6.07.05	NEWKEY:Mythic Crafter			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Natural Spell					MAXVER:6.07.05	NEWKEY:Natural Spell			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Nimble Moves					MAXVER:6.07.05	NEWKEY:Nimble Moves			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Penetrating Strike				MAXVER:6.07.05	NEWKEY:Penetrating Strike		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Persuasive					MAXVER:6.07.05	NEWKEY:Persuasive				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Pinpoint Targeting				MAXVER:6.07.05	NEWKEY:Pinpoint Targeting		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Point-Blank Shot				MAXVER:6.07.05	NEWKEY:Point-Blank Shot			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Power Attack					MAXVER:6.07.05	NEWKEY:Power Attack			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Powerful Shape					MAXVER:6.07.05	NEWKEY:Powerful Shape			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Prophetic Visionary				MAXVER:6.07.05	NEWKEY:Prophetic Visionary		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Quick Draw					MAXVER:6.07.05	NEWKEY:Quick Draw				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Racial Heritage				MAXVER:6.07.05	NEWKEY:Racial Heritage			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Rapid Reload					MAXVER:6.07.05	NEWKEY:Rapid Reload			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Rapid Shot					MAXVER:6.07.05	NEWKEY:Rapid Shot				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Rhetorical Flourish				MAXVER:6.07.05	NEWKEY:Rhetorical Flourish		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Ride-By Attack					MAXVER:6.07.05	NEWKEY:Ride-By Attack			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Run						MAXVER:6.07.05	NEWKEY:Run					NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Saving Shield					MAXVER:6.07.05	NEWKEY:Saving Shield			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Scorpion Style					MAXVER:6.07.05	NEWKEY:Scorpion Style			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Selective Channeling				MAXVER:6.07.05	NEWKEY:Selective Channeling		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Self-Sufficient				MAXVER:6.07.05	NEWKEY:Self-Sufficient			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Shatter Defenses				MAXVER:6.07.05	NEWKEY:Shatter Defenses			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Shield Focus					MAXVER:6.07.05	NEWKEY:Shield Focus			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Shield Slam					MAXVER:6.07.05	NEWKEY:Shield Slam			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Shot on the Run				MAXVER:6.07.05	NEWKEY:Shot on the Run			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Skill Focus					MAXVER:6.07.05	NEWKEY:Skill Focus			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Snatch Arrows					MAXVER:6.07.05	NEWKEY:Snatch Arrows			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Sociable						MAXVER:6.07.05	NEWKEY:Sociable				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Spell Focus					MAXVER:6.07.05	NEWKEY:Spell Focus			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Spell Mastery					MAXVER:6.07.05	NEWKEY:Spell Mastery			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Spell Penetration				MAXVER:6.07.05	NEWKEY:Spell Penetration		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Spellbreaker					MAXVER:6.07.05	NEWKEY:Spellbreaker			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Spirited Charge				MAXVER:6.07.05	NEWKEY:Spirited Charge			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Spontaneous Metafocus			MAXVER:6.07.05	NEWKEY:Spontaneous Metafocus		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Spring Attack					MAXVER:6.07.05	NEWKEY:Spring Attack			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Stealthy						MAXVER:6.07.05	NEWKEY:Stealthy				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Strike Back					MAXVER:6.07.05	NEWKEY:Strike Back			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Strong Comeback				MAXVER:6.07.05	NEWKEY:Strong Comeback			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Stunning Fist					MAXVER:6.07.05	NEWKEY:Stunning Fist			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Throw Anything					MAXVER:6.07.05	NEWKEY:Throw Anything			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Toughness					MAXVER:6.07.05	NEWKEY:Toughness				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Trample						MAXVER:6.07.05	NEWKEY:Trample				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Tripping Staff					MAXVER:6.07.05	NEWKEY:Tripping Staff			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Turn Undead					MAXVER:6.07.05	NEWKEY:Turn Undead			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Two-Weapon Defense				MAXVER:6.07.05	NEWKEY:Two-Weapon Defense		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Two-Weapon Fighting				MAXVER:6.07.05	NEWKEY:Two-Weapon Fighting		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Two-Weapon Rend				MAXVER:6.07.05	NEWKEY:Two-Weapon Rend			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Undead Master					MAXVER:6.07.05	NEWKEY:Undead Master			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Unseat						MAXVER:6.07.05	NEWKEY:Unseat				NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Vital Strike					MAXVER:6.07.05	NEWKEY:Vital Strike			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Voice of the Sibyl				MAXVER:6.07.05	NEWKEY:Voice of the Sibyl		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Warrior Priest					MAXVER:6.07.05	NEWKEY:Warrior Priest			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Weapon Finesse					MAXVER:6.07.05	NEWKEY:Weapon Finesse			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Weapon Focus					MAXVER:6.07.05	NEWKEY:Weapon Focus			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Weapon Specialization			MAXVER:6.07.05	NEWKEY:Weapon Specialization		NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Witch Knife					MAXVER:6.07.05	NEWKEY:Witch Knife			NEWCATEGORY:Mythic Feat
+ABILITY:FEAT|Mythic Feat ~ Non-Mythic Feat				MAXVER:6.07.05	NEWKEY:Non-Mythic Feat			NEWCATEGORY:Mythic Feat
+
+EQUIPMENT:Spellbook (Wizard's/Blank)					MAXVER:6.07.05	NEWKEY:Spellbook
+EQUIPMENT:Spellbook (Arcanist's/Blank)					MAXVER:6.07.05	NEWKEY:Spellbook
+EQUIPMENT:Magus Spellbook							MAXVER:6.07.05	NEWKEY:Spellbook
+EQUIPMENT:Spellbook (Traveling/Blank)					MAXVER:6.07.05	NEWKEY:Traveling Spellbook
+EQUIPMENT:Traveling Spellbook (Blank)					MAXVER:6.07.05	NEWKEY:Traveling Spellbook
+EQUIPMENT:Spellbook (Compact)							MAXVER:6.07.05	NEWKEY:Compact Spellbook
+EQUIPMENT:Formula Book (Alchemist's/Blank)				MAXVER:6.07.05	NEWKEY:Formula Book
+
+ABILITY:Special Ability|Wayang ~ Dissolutions Child			MAXVER:6.07.01	NEWKEY:Wayang ~ Dissolution's Child
+
+ABILITY:Special Ability|Skirmisher ~ Aiding Attack			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Aiding Attack		
+ABILITY:Special Ability|Skirmisher ~ Bolster Companion		MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Bolster Companion		
+ABILITY:Special Ability|Skirmisher ~ Catfall				MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Catfall			
+ABILITY:Special Ability|Skirmisher ~ Chameleon Step			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Chameleon Step		
+ABILITY:Special Ability|Skirmisher ~ Cunning Pantomime		MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Cunning Pantomime		
+ABILITY:Special Ability|Skirmisher ~ Defensive Bow Stance		MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Defensive Bow Stance	
+ABILITY:Special Ability|Skirmisher ~ Deft Stand				MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Deft Stand			
+ABILITY:Special Ability|Skirmisher ~ Distracting Attack		MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Distracting Attack		
+ABILITY:Special Ability|Skirmisher ~ Hateful Attack			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Hateful Attack		
+ABILITY:Special Ability|Skirmisher ~ Heel					MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Heel				
+ABILITY:Special Ability|Skirmisher ~ Hobbling Attack			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Hobbling Attack		
+ABILITY:Special Ability|Skirmisher ~ Quick Climb			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Quick Climb			
+ABILITY:Special Ability|Skirmisher ~ Quick Healing			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Quick Healing		
+ABILITY:Special Ability|Skirmisher ~ Quick Swim				MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Quick Swim			
+ABILITY:Special Ability|Skirmisher ~ Ranger's Counsel			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Ranger's Counsel		
+ABILITY:Special Ability|Skirmisher ~ Rattling Strike			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Rattling Strike		
+ABILITY:Special Ability|Skirmisher ~ Second Chance Strike		MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Second Chance Strike	
+ABILITY:Special Ability|Skirmisher ~ Sic 'Em				MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Sic 'Em			
+ABILITY:Special Ability|Skirmisher ~ Skill Sage				MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Skill Sage			
+ABILITY:Special Ability|Skirmisher ~ Stag's Leap			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Stag's Leap			
+ABILITY:Special Ability|Skirmisher ~ Surprise Shift			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Surprise Shift		
+ABILITY:Special Ability|Skirmisher ~ Tangling Attack			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Tangling Attack		
+ABILITY:Special Ability|Skirmisher ~ Trick Shot				MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Trick Shot			
+ABILITY:Special Ability|Skirmisher ~ Uncanny Senses			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Uncanny Senses		
+ABILITY:Special Ability|Skirmisher ~ Upending Strike			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Upending Strike		
+ABILITY:Special Ability|Skirmisher ~ Vengeance Strike			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Vengeance Strike		
+
+
+
+ABILITY:Special Ability|Boon ~ Triumph of the Lantern Lodge	MAXVER:6.06.01	NEWKEY:PFS Scenario 4-21 ~ Triumph of the Lantern Lodge
+ABILITY:Special Ability|Boon ~ Pawn of the Grandmaster		MAXVER:6.06.01	NEWKEY:PFS Scenario 4-24 ~ Pawn of the Grandmaster
+
+
+
+ABILITY:Special Ability|Order of the Blue Rose ~ Cavalier Order				MAXVER:6.06.01	NEWKEY:Cavalier Order ~ Order of the Blue Rose
+ABILITY:Special Ability|Order of the Seal ~ Cavalier Order					MAXVER:6.06.01	NEWKEY:Cavalier Order ~ Order of the Seal
+ABILITY:Special Ability|Order of the Tome ~ Cavalier Order					MAXVER:6.06.01	NEWKEY:Cavalier Order ~ Order of the Tome
+
+
+
+SOURCE:Dark Markets - A Guide to Katapesh (Conversion)	MAXVER:6.6.00	NEWKEY:Dark Markets - A Guide to Katapesh - Conversion
 SOURCE:Princes of Darkness - Book of the Damned, Volume 1	MAXVER:6.6.00	NEWKEY:Princes of Darkness - Book of the Damned - Volume 1	
 SOURCE:Qadira, Gateway to the East					MAXVER:6.6.00	NEWKEY:Qadira - Gateway to the East					
 SOURCE:Cheliax, Empire of Devils					MAXVER:6.6.00	NEWKEY:Cheliax - Empire of Devils					
@@ -56,6 +292,8 @@ SOURCE:Sargava the Lost Colony (PFS)	MAXVER:6.6.00	NEWKEY:PFS ~ Sargava the Lost
 SOURCE:Core Rulebook (PFS)	MAXVER:6.6.00	NEWKEY:PFS ~ Core Rulebook
 
 
+
+
 ABILITY:Special Ability|Inquisitor Domain ~ Anger Inquisition				MAXVER:6.6.00	NEWKEY:Inquisition ~ Anger			
 ABILITY:Special Ability|Inquisitor Domain ~ Conversion Inquisition			MAXVER:6.6.00	NEWKEY:Inquisition ~ Conversion		
 ABILITY:Special Ability|Inquisitor Domain ~ Fate Inquisition				MAXVER:6.6.00	NEWKEY:Inquisition ~ Fate			
@@ -76,17 +314,28 @@ ABILITY:Special Ability|Inquisitor Domain ~ Zeal Inquisition				MAXVER:6.6.00	NE
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ###Block:6.4 Updates
 
 ABILITY:Special Ability|Chosen Weapon ~ Kensai			MAXVER:6.4.00	NEWKEY:Kensai ~ Chosen Weapon
 ABILITY:Special Ability|Weapon Proficiency ~ Kensai		MAXVER:6.4.00	NEWKEY:Kensai ~ Weapon Proficiency
 ABILITY:Special Ability|Weapon Focus Display ~ Kensai		MAXVER:6.4.00	NEWKEY:Kensai ~ Weapon Focus Display
 ABILITY:Special Ability|None ~ Region				MAXVER:6.4.00	NEWKEY:Region ~ None
-
-# Examples
-# SOURCE:JDTEST	MAXVER:6.4.00	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXDEVVER:6.1.1
-# EQUIPMENT:JDTEST	MAXVER:6.4.00	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXVER:6.4.00	MAXDEVVER:6.1.2
-
 
 
 ABILITY:Special Ability|Weapon and Armor Proficiency ~ Barbarian	MAXVER:6.4.00	NEWKEY:Barbarian ~ Weapon and Armor Proficiency
@@ -2674,19 +2923,385 @@ ABILITY:Special Ability|Black Motes ~ Eldritch Heritage							MAXVER:6.4.01	NEWK
 ABILITY:Special Ability|Warp Touch ~ Eldritch Heritage							MAXVER:6.4.01	NEWKEY:Eldritch Heritage Power ~ Warp Touch			
 
 
+# 6.05.03 Updates
+ABILITY:Special Ability|Link~Eidolon							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Eidolon ~ Link		
+ABILITY:Special Ability|Share Spells~Eidolon						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Eidolon ~ Share Spells	
+ABILITY:Special Ability|Skills~Eidolon							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Eidolon ~ Skills		
+ABILITY:Special Ability|Evolution_Small							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Small
+ABILITY:Special Ability|Evolution_Bite							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Bite							
+ABILITY:Special Ability|Evolution_Improved_Bite						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Bite						
+ABILITY:Special Ability|Evolution_Clawed_Hands						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Clawed Hands						
+ABILITY:Special Ability|Evolution_Clawed_Feet						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Clawed Feet						
+ABILITY:Special Ability|Evolution_Climb							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Climb							
+ABILITY:Special Ability|Evolution_Improved_Climb					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Climb					
+ABILITY:Special Ability|Evolution_Gills							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Gills							
+ABILITY:Special Ability|Evolution_Improved_Damage					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Damage					
+ABILITY:Special Ability|Evolution_Improved_Natural_Armor				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Natural Armor				
+ABILITY:Special Ability|Evolution_Magic_Attacks						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Magic Attacks						
+ABILITY:Special Ability|Evolution_Mount							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Mount							
+ABILITY:Special Ability|Evolution_Pincers							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Pincers							
+ABILITY:Special Ability|Evolution_Pounce							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Pounce							
+ABILITY:Special Ability|Evolution_Pull							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Pull							
+ABILITY:Special Ability|Evolution_Push							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Push							
+ABILITY:Special Ability|Evolution_Reach							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Reach							
+ABILITY:Special Ability|Evolution_Resist_Acid						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Resist Acid						
+ABILITY:Special Ability|Evolution_Resist_Cold						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Resist Cold						
+ABILITY:Special Ability|Evolution_Resist_Elect						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Resist Electricity					
+ABILITY:Special Ability|Evolution_Resist_Fire						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Resist Fire						
+ABILITY:Special Ability|Evolution_Resist_Sonic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Resist Sonic						
+ABILITY:Special Ability|Evolution_Scent							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Scent							
+ABILITY:Special Ability|Evolution_Skilled							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Skilled							
+ABILITY:Special Ability|Evolution_Slam							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Slam							
+ABILITY:Special Ability|Evolution_Sting							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Sting							
+ABILITY:Special Ability|Evolution_Swim							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Swim							
+ABILITY:Special Ability|Evolution_Improved_Swim						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Swim						
+ABILITY:Special Ability|Evolution_Tail							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Tail							
+ABILITY:Special Ability|Evolution_Tail_Slap						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Tail Slap						
+ABILITY:Special Ability|Evolution_Tentacle						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Tentacle						
+ABILITY:Special Ability|Evolution_Wing_Buffet						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Wing Buffet						
+ABILITY:Special Ability|Evolution_Aspect							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Aspect							
+ABILITY:Special Ability|Evolution_Aspect_Greater					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Aspect Greater					
+ABILITY:Special Ability|Evolution_Ability_Inc_Str_SM					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Str SM				
+ABILITY:Special Ability|Evolution_Ability_Inc_Str_LH					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Str LH				
+ABILITY:Special Ability|Evolution_Ability_Inc_Dex					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Dex				
+ABILITY:Special Ability|Evolution_Ability_Inc_Con_SM					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Con SM				
+ABILITY:Special Ability|Evolution_Ability_Inc_Con_LH					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Con LH				
+ABILITY:Special Ability|Evolution_Ability_Inc_Int					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Int				
+ABILITY:Special Ability|Evolution_Ability_Inc_Wis					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Wis				
+ABILITY:Special Ability|Evolution_Ability_Inc_Cha					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ability Increase Cha				
+ABILITY:Special Ability|Evolution_Constrict						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Constrict						
+ABILITY:Special Ability|Evolution_Energy_Attack_Acid					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Energy Attack Acid					
+ABILITY:Special Ability|Evolution_Energy_Attack_Cold					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Energy Attack Cold					
+ABILITY:Special Ability|Evolution_Energy_Attack_Fire					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Energy Attack Fire					
+ABILITY:Special Ability|Evolution_Energy_Attack_Electricity				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Energy Attack Electricity				
+ABILITY:Special Ability|Evolution_Flight_Winged						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Flight Winged						
+ABILITY:Special Ability|Evolution_Flight_Magic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Flight Magic						
+ABILITY:Special Ability|Evolution_Improved_Flight					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Flight					
+ABILITY:Special Ability|Evolution_Gore							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Gore							
+ABILITY:Special Ability|Evolution_Grab							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Grab							
+ABILITY:Special Ability|Evolution_Immune_Acid						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Immune Acid						
+ABILITY:Special Ability|Evolution_Immune_Cold						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Immune Cold						
+ABILITY:Special Ability|Evolution_Immune_Fire						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Immune Fire						
+ABILITY:Special Ability|Evolution_Immune_Elect						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Immune Electricity					
+ABILITY:Special Ability|Evolution_Immune_Sonic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Immune Sonic						
+ABILITY:Special Ability|Evolution_Imp_DR_Lawful						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved DR Lawful					
+ABILITY:Special Ability|Evolution_Imp_DR_Good						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved DR Good					
+ABILITY:Special Ability|Evolution_Imp_DR_Chaotic					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved DR Chaotic					
+ABILITY:Special Ability|Evolution_Imp_DR_Evil						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved DR Evil					
+ABILITY:Special Ability|Evolution_Arms							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Arms							
+ABILITY:Special Ability|Evolution_Legs							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Legs							
+ABILITY:Special Ability|Evolution_Poison_Str						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Poison Str						
+ABILITY:Special Ability|Evolution_Poison_Con						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Poison Con						
+ABILITY:Special Ability|Evolution_Rake							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Rake							
+ABILITY:Special Ability|Evolution_Rend							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Rend							
+ABILITY:Special Ability|Evolution_Trample							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Trample							
+ABILITY:Special Ability|Evolution_Tremorsense						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Tremorsense						
+ABILITY:Special Ability|Evolution_Trip							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Trip							
+ABILITY:Special Ability|Evolution_Weap_Simple						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Weapon Simple						
+ABILITY:Special Ability|Evolution_Weap_Martial						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Weapon Martial					
+ABILITY:Special Ability|Evolution_Blindsense						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Blindsense						
+ABILITY:Special Ability|Evolution_Burrow							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Burrow							
+ABILITY:Special Ability|Evolution_DR_Lawful						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ DR Lawful						
+ABILITY:Special Ability|Evolution_DR_Good							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ DR Good							
+ABILITY:Special Ability|Evolution_DR_Chaotic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ DR Chaotic						
+ABILITY:Special Ability|Evolution_DR_Evil							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ DR Evil							
+ABILITY:Special Ability|Evolution_Fright_Pres						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Frightful Presence					
+ABILITY:Special Ability|Evolution_Swallow_Whole						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Swallow Whole						
+ABILITY:Special Ability|Evolution_Web							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Web							
+ABILITY:Special Ability|Evolution_Blindsight						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Blindsight						
+ABILITY:Special Ability|Evolution_Fast_Healing						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Fast Healing						
+ABILITY:Special Ability|Evolution_Improved_Fast_Healing				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Fast Healing				
+ABILITY:Special Ability|Evolution_Large							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Large							
+ABILITY:Special Ability|Evolution_Huge							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Huge							
+ABILITY:Special Ability|Evolution_SR							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ SR							
+ABILITY:Special Ability|Evolution_Breath_Weap_Cone_Acid				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Cone of Acid)			
+ABILITY:Special Ability|Evolution_Extra_BW_Cone_Acid					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Cone Acid			
+ABILITY:Special Ability|Evolution_Breath_Weap_Cone_Cold				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Cone of Cold)			
+ABILITY:Special Ability|Evolution_Extra_BW_Cone_Cold					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Cone Cold			
+ABILITY:Special Ability|Evolution_Breath_Weap_Cone_Electricity			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Cone of Electricity)		
+ABILITY:Special Ability|Evolution_Extra_BW_Cone_Electricity				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Cone Electricity		
+ABILITY:Special Ability|Evolution_Breath_Weap_Cone_Fire				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Cone of Fire)			
+ABILITY:Special Ability|Evolution_Extra_BW_Cone_Fire					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Cone Fire			
+ABILITY:Special Ability|Evolution_Breath_Weap_Line_Acid				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Line of Acid)			
+ABILITY:Special Ability|Evolution_Extra_BW_Line_Acid					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Line Acid			
+ABILITY:Special Ability|Evolution_Breath_Weap_Line_Cold				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Line of Cold)			
+ABILITY:Special Ability|Evolution_Extra_BW_Line_Cold					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Line Cold			
+ABILITY:Special Ability|Evolution_Breath_Weap_Line_Fire				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Line of Fire)			
+ABILITY:Special Ability|Evolution_Extra_BW_Line_Fire					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Line Fire			
+ABILITY:Special Ability|Evolution_Breath_Weap_Line_Electricity			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Breath Weapon (Line of Electricity)		
+ABILITY:Special Ability|Evolution_Extra_BW_Line_Electricity				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Extra Breath Weapon Line Electricity		
 
 
 
+ABILITY:Special Ability|Evolution_Hooved_Hands						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Hooved Hands				
+ABILITY:Special Ability|Evolution_Hooved_Feet						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Hooved Feet				
+ABILITY:Special Ability|Evolution_Low-Light							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Low-Light				
+ABILITY:Special Ability|Evolution_Unnatural_Aura						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Unnatural Aura			
+ABILITY:Special Ability|Evolution_Channel_Resistance					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Channel Resistance			
+ABILITY:Special Ability|Evolution_Improved_Channel_Resistance				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Improved Channel Resistance	
+ABILITY:Special Ability|Evolution_Head							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Head					
+ABILITY:Special Ability|Evolution_Keen_Scent						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Keen Scent				
+ABILITY:Special Ability|Evolution_Undead_Appearance					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Undead Appearance			
+ABILITY:Special Ability|Evolution_See_in_Darkness						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ See in Darkness			
+ABILITY:Special Ability|Evolution_Dimension_Door						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Dimension Door			
+ABILITY:Special Ability|Evolution_Incorporeal_Form					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Incorporeal Form			
+ABILITY:Special Ability|Evolution_Lifesense							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Lifesense				
+ABILITY:Special Ability|Evolution_No_Breath							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ No Breath				
+ABILITY:Special Ability|Evolution_Basic_Magic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Basic Magic				
+ABILITY:Special Ability|Evolution_Minor_Magic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Magic				
+ABILITY:Special Ability|Evolution_Major_Magic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Magic				
+ABILITY:Special Ability|Evolution_Ultimate_Magic						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Magic			
+ABILITY:Special Ability|Evolution_Magic_Upgrade						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Magic Upgrade				
+ABILITY:Special Ability|Evolution_BM_Acid_Splash_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Acid Splash 1			
+ABILITY:Special Ability|Evolution_BM_Dancing_Lights_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Dancing Lights 1			
+ABILITY:Special Ability|Evolution_BM_Daze_1							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Daze 1				
+ABILITY:Special Ability|Evolution_BM_Detect_Magic_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Detect Magic 1			
+ABILITY:Special Ability|Evolution_BM_Flare_1						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Flare 1				
+ABILITY:Special Ability|Evolution_BM_Ghost_Sound_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Ghost Sound 1			
+ABILITY:Special Ability|Evolution_BM_Light_1						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Light 1				
+ABILITY:Special Ability|Evolution_BM_Mage Hand_1						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Mage Hand 1			
+ABILITY:Special Ability|Evolution_BM_Ray_of_Frost_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Ray of Frost 1			
+ABILITY:Special Ability|Evolution_BM_Stabilize_1						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Stabilize 1			
+ABILITY:Special Ability|Evolution_BM_Touch_of_Fatigue_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Touch of Fatigue 1		
+ABILITY:Special Ability|Evolution_BM_Acid_Splash_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Acid Splash 3			
+ABILITY:Special Ability|Evolution_BM_Dancing_Lights_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Dancing Lights 3			
+ABILITY:Special Ability|Evolution_BM_Daze_3							MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Daze 3				
+ABILITY:Special Ability|Evolution_BM_Detect_Magic_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Detect Magic 3			
+ABILITY:Special Ability|Evolution_BM_Flare_3						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Flare 3				
+ABILITY:Special Ability|Evolution_BM_Ghost_Sound_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Ghost Sound 3			
+ABILITY:Special Ability|Evolution_BM_Light_3						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Light 3				
+ABILITY:Special Ability|Evolution_BM_Mage Hand_3						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Mage Hand 3			
+ABILITY:Special Ability|Evolution_BM_Ray_of_Frost_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Ray of Frost 3			
+ABILITY:Special Ability|Evolution_BM_Stabilize_3						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Stabilize 3			
+ABILITY:Special Ability|Evolution_BM_Touch_of_Fatigue_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ BM Touch of Fatigue 3		
+ABILITY:Special Ability|Evolution_Minor_Burning_Hands_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Burning Hands 1		
+ABILITY:Special Ability|Evolution_Minor_Burning_Hands_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Burning Hands 3		
+ABILITY:Special Ability|Evolution_Minor_Comprehend_Languages_1			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Comprehend Languages 1	
+ABILITY:Special Ability|Evolution_Minor_Comprehend_Languages_3			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Comprehend Languages 3	
+ABILITY:Special Ability|Evolution_Minor_Cure_Light_Wounds_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Cure Light Wounds 1		
+ABILITY:Special Ability|Evolution_Minor_Cure_Light_Wounds_3				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Cure Light Wounds 3		
+ABILITY:Special Ability|Evolution_Minor_Detect_Chaos_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Chaos 1		
+ABILITY:Special Ability|Evolution_Minor_Detect_Chaos_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Chaos 3		
+ABILITY:Special Ability|Evolution_Minor_Detect_Evil_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Evil 1			
+ABILITY:Special Ability|Evolution_Minor_Detect_Evil_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Evil 3			
+ABILITY:Special Ability|Evolution_Minor_Detect_Good_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Good 1			
+ABILITY:Special Ability|Evolution_Minor_Detect_Good_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Good 3			
+ABILITY:Special Ability|Evolution_Minor_Detect_Law_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Law 1			
+ABILITY:Special Ability|Evolution_Minor_Detect_Law_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Detect Law 3			
+ABILITY:Special Ability|Evolution_Minor_Magic_Missile_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Magic Missile 1		
+ABILITY:Special Ability|Evolution_Minor_Magic_Missile_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Magic Missile 3		
+ABILITY:Special Ability|Evolution_Minor_Obscuring_Mist_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Obscuring Mist 1		
+ABILITY:Special Ability|Evolution_Minor_Obscuring_Mist_3				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Obscuring Mist 3		
+ABILITY:Special Ability|Evolution_Minor_Silent_Image_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Silent Image 1		
+ABILITY:Special Ability|Evolution_Minor_Silent_Image_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Silent Image 3		
+ABILITY:Special Ability|Evolution_Minor_Vanish_1						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Vanish 1			
+ABILITY:Special Ability|Evolution_Minor_Vanish_3						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Vanish 3			
+ABILITY:Special Ability|Evolution_Minor_Ventriloquism_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Ventriloquism 1		
+ABILITY:Special Ability|Evolution_Minor_Ventriloquism_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Minor Ventriloquism 3		
+ABILITY:Special Ability|Evolution_Major_Acid_Arrow_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Acid Arrow 1			
+ABILITY:Special Ability|Evolution_Major_Acid_Arrow_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Acid Arrow 3			
+ABILITY:Special Ability|Evolution_Major_Cure_Moderate_Wounds_1			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Cure Moderate Wounds 1	
+ABILITY:Special Ability|Evolution_Major_Cure_Moderate_Wounds_3			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Cure Moderate Wounds 3	
+ABILITY:Special Ability|Evolution_Major_Darkness_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Darkness 1			
+ABILITY:Special Ability|Evolution_Major_Darkness_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Darkness 3			
+ABILITY:Special Ability|Evolution_Major_Daze_Monster_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Daze Monster 1		
+ABILITY:Special Ability|Evolution_Major_Daze_Monster_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Daze Monster 3		
+ABILITY:Special Ability|Evolution_Major_Glide_1						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Glide 1				
+ABILITY:Special Ability|Evolution_Major_Glide_3						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Glide 3				
+ABILITY:Special Ability|Evolution_Major_Invisibility_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Invisibility 1		
+ABILITY:Special Ability|Evolution_Major_Invisibility_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Invisibility 3		
+ABILITY:Special Ability|Evolution_Major_Lesser_Restoration_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Lesser Restoration 1	
+ABILITY:Special Ability|Evolution_Major_Lesser_Restoration_3				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Lesser Restoration 3	
+ABILITY:Special Ability|Evolution_Major_Levitate_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Levitate 1			
+ABILITY:Special Ability|Evolution_Major_Levitate_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Levitate 3			
+ABILITY:Special Ability|Evolution_Major_Minor_Image_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Minor Image 1			
+ABILITY:Special Ability|Evolution_Major_Minor_Image_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Minor Image 3			
+ABILITY:Special Ability|Evolution_Major_Scorching_Ray_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Scorching Ray 1		
+ABILITY:Special Ability|Evolution_Major_Scorching_Ray_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Scorching Ray 3		
+ABILITY:Special Ability|Evolution_Major_See_Invisibility_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major See Invisibility 1		
+ABILITY:Special Ability|Evolution_Major_See_Invisibility_3				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major See Invisibility 3		
+ABILITY:Special Ability|Evolution_Major_Spider_Climb_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Spider Climb 1		
+ABILITY:Special Ability|Evolution_Major_Spider_Climb_3					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Major Spider Climb 3		
+ABILITY:Special Ability|Evolution_Ultimate_Arcane_Sight_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Arcane Sight 1		
+ABILITY:Special Ability|Evolution_Ultimate_Create_Food_and_Water_1			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Create Food and Water 1
+ABILITY:Special Ability|Evolution_Ultimate_Cure_Serious_Wounds_1			MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Cure Serious Wounds 1	
+ABILITY:Special Ability|Evolution_Ultimate_Daylight_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Daylight 1			
+ABILITY:Special Ability|Evolution_Ultimate_Fireball_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Fireball 1			
+ABILITY:Special Ability|Evolution_Ultimate_Fly_1						MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Fly 1			
+ABILITY:Special Ability|Evolution_Ultimate_Gaseous_Form_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Gaseous Form 1		
+ABILITY:Special Ability|Evolution_Ultimate_Lightning_Bolt_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Lightning Bolt 1		
+ABILITY:Special Ability|Evolution_Ultimate_Major_Image_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Major Image 1		
+ABILITY:Special Ability|Evolution_Ultimate_Stinking_Cloud_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Stinking Cloud 1		
+ABILITY:Special Ability|Evolution_Ultimate_Tongues_1					MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Tongues 1			
+ABILITY:Special Ability|Evolution_Ultimate_Water_Breathing_1				MAXVER:6.4.01	MAXDEVVER:6.05.02	NEWKEY:Evolution ~ Ultimate Water Breathing 1	
+
+
+###Block: 6.05.03 Changes - 
+ABILITY:Special Ability|Ranger ~ Combat Style							MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger ~ Combat Style Feat
+ABILITY:Special Ability|Ranger Bonus Feat ~ Far Shot						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Far Shot				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Point-Blank Shot					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Point-Blank Shot			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Precise Shot					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Precise Shot			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Rapid Shot						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Rapid Shot				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Precise Shot				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Precise Shot		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Manyshot						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Manyshot				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Pinpoint Targeting				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Pinpoint Targeting		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shot on the Run					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shot on the Run			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Double Slice					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Double Slice			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Shield Bash				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Shield Bash		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Quick Draw						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Quick Draw				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Weapon Fighting				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Weapon Fighting		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Two-Weapon Fighting			MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Two-Weapon Fighting	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Weapon Defense				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Weapon Defense		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Two-Weapon Fighting			MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Two-Weapon Fighting	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Weapon Rend					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Weapon Rend			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Monstrous Mount					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Monstrous Mount		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Monstrous Mount Mastery				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Monstrous Mount Mastery
+ABILITY:Special Ability|Ranger Bonus Feat ~ Agile Maneuvers					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Agile Maneuvers					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Bashing Finish					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Bashing Finish					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Bleeding Critical					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Bleeding Critical				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Blind-Fight						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Blind-Fight					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Bloody Assault					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Bloody Assault					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Bludgeoner						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Bludgeoner						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Bodyguard						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Bodyguard						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Catch Off-Guard					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Catch Off-Guard					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Charging Hurler					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Charging Hurler					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Cleave						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Cleave						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Cleaving Finish					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Cleaving Finish					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Close-Quarters Thrower				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Close-Quarters Thrower				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Clustered Shots					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Clustered Shots					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Combat Expertise					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Combat Expertise					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Combat Reflexes					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Combat Reflexes					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Critical Focus					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Critical Focus					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Deadly Aim						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Deadly Aim						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Deadly Finish					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Deadly Finish					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Death or Glory					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Death or Glory					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Disarming Strike					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Disarming Strike					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Disengaging Flourish				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Disengaging Flourish				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Disruptive						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Disruptive						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Distance Thrower					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Distance Thrower					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Double Slice					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Double Slice					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Dreadful Carnage					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Dreadful Carnage					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Exotic Weapon Proficiency sawtooth sabre	MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Exotic Weapon Proficiency sawtooth sabre	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Exotic Weapon Proficiency spiked chain	MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Exotic Weapon Proficiency spiked chain	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Exotic Weapon Proficiency Whip		MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Exotic Weapon Proficiency Whip		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Far Shot						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Far Shot						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Felling Smash					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Felling Smash					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Furious Focus					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Furious Focus					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Blind-Fight				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Blind-Fight				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Feint					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Feint					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Grapple					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Grapple					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Shield Focus				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Shield Focus				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Sunder					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Sunder					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Trip					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Trip					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Two-Weapon Fighting			MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Two-Weapon Fighting			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Whip Mastery				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Whip Mastery				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Impaling Critical (trident)			MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Impaling Critical (trident)			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Bull Rush				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Bull Rush				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Charging Hurler			MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Charging Hurler			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Critical (rapier)			MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Critical (rapier)			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Critical (short sword)		MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Critical (short sword)		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Dirty Trick				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Dirty Trick				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Disarm					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Disarm					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Feint					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Feint					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Grapple					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Grapple					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Initiative				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Initiative				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Shield Bash				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Shield Bash				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Snap Shot				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Snap Shot				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Sunder					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Sunder					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Trip					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Trip					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Two-Weapon Feint			MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Two-Weapon Feint			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Unarmed Strike				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Unarmed Strike			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Vital Strike				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Vital Strike				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Whip Mastery				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Whip Mastery				
+ABILITY:Special Ability|Ranger Bonus Feat ~ In Harm's Way					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ In Harm's Way					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Ki Throw						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Ki Throw						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Lightning Stance					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Lightning Stance					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Lunge							MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Lunge						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Mobility						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Mobility						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Monastic Legacy					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Monastic Legacy					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Nimble Moves					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Nimble Moves					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Opening Volley					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Opening Volley					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Pin Down						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Pin Down						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Pinning Knockout					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Pinning Knockout					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Pinpoint Targeting				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Pinpoint Targeting				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Point-Blank Shot					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Point-Blank Shot					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Power Attack					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Power Attack					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Precise Shot					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Precise Shot					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Pushing Assault					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Pushing Assault					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Quick Dirty Trick					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Quick Dirty Trick				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Quick Draw						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Quick Draw						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Rapid Shot						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Rapid Shot						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield Focus					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield Focus					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield Master					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield Master					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield of Swings					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield of Swings					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield Slam						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield Slam					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shot on the Run					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shot on the Run					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Sidestep						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Sidestep						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Snap Shot						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Snap Shot						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Spring Attack					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Spring Attack					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Step Up						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Step Up						
+ABILITY:Special Ability|Ranger Bonus Feat ~ Strike Back						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Strike Back					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Stunning Fist					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Stunning Fist					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Sundering Strike					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Sundering Strike					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Weapon Defense				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Weapon Defense				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Handed Thrower				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Handed Thrower				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Weapon Feint					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Weapon Feint					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Weapon Fighting				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Weapon Fighting				
+ABILITY:Special Ability|Ranger Bonus Feat ~ Two-Weapon Rend					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Two-Weapon Rend					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Vital Strike					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Vital Strike					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Wave Strike						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Wave Strike					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Weapon Finesse					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Weapon Finesse					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Whip Mastery					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Whip Mastery					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Whirlwind Attack					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Whirlwind Attack					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Wind Stance						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Wind Stance					
+ABILITY:Special Ability|Ranger Bonus Feat ~ Point Blank Master				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Point Blank Master	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Deadly Aim						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Deadly Aim			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Focused Shot					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Focused Shot		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Rapid Reload					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Rapid Reload		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Crossbow Mastery					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Crossbow Mastery		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Mounted Combat					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Mounted Combat		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Mounted Archery					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Mounted Archery		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Ride-By Attack					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Ride-By Attack		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Trick Riding					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Trick Riding		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Mounted Shield					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Mounted Shield		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Spirited Charge					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Spirited Charge		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Mounted Skirmisher				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Mounted Skirmisher	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Unseat						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Unseat			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Aspect of the Beast				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Aspect of the Beast	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Natural Attack				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Natural Attack
+ABILITY:Special Ability|Ranger Bonus Feat ~ Rending Claws					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Rending Claws		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Weapon Focus					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Weapon Focus		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Eldritch Claws					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Eldritch Claws		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Vital Strike					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Vital Strike		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Multiattack						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Multiattack		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Vital Strike				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Vital Strike	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Cleave						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Cleave			
+ABILITY:Special Ability|Ranger Bonus Feat ~ Power Attack					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Power Attack		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Pushing Assault					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Pushing Assault		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield of Swings					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield of Swings		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Furious Focus					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Furious Focus		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Great Cleave					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Great Cleave		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Dreadful Carnage					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Dreadful Carnage		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Improved Sunder					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Improved Sunder		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield Focus					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield Focus		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield Proficiency				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield Proficiency	
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield Slam						MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield Slam		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Saving Shield					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Saving Shield		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Shield Master					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Shield Master		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Bashing Finish					MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Bashing Finish		
+ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Shield Focus				MAXVER:6.4.01	MAXDEVVER:6.05.03	NEWKEY:Ranger Combat Style Feat ~ Greater Shield Focus	
+
+# Fix typo
+EQUIPMENT:Sunblade (Bastard)		NEWKEY:Sun Blade (Bastard)	MAXVER:6.4.01
+EQUIPMENT:Sunblade (Short)		NEWKEY:Sun Blade (Short)	MAXVER:6.4.01
+
+RACE:Eidolon (Biped)		MAXVER:6.6.01		NEWKEY:Eidolon
+RACE:Eidolon (Quadruped)	MAXVER:6.6.01		NEWKEY:Eidolon
+RACE:Eidolon (Serpentine)	MAXVER:6.6.01		NEWKEY:Eidolon
+RACE:Eidolon (Aquatic)		MAXVER:6.6.01		NEWKEY:Eidolon
 
 
 
-
-
-
-
-
-
-
-
-
-
+RACE:Unchained Eidolon (Biped)	MAXVER:6.6.01		NEWKEY:Eidolon
+RACE:Unchained Eidolon (Quadruped)	MAXVER:6.6.01		NEWKEY:Eidolon
+RACE:Unchained Eidolon (Serpentine)	MAXVER:6.6.01		NEWKEY:Eidolon

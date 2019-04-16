@@ -1,12 +1,13 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21336 $ $Author: maredudd800 $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Inner Sea Primer	SOURCESHORT:ISP	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih	SOURCEDATE:2010-11
+SOURCELONG:Pathfinder Player Companion: Inner Sea Primer	SOURCESHORT:ISP	SOURCEWEB:http://paizo.com/products/btpy8hih	SOURCEDATE:2010-11
 # Original Entry by:Stefan Radermacher
 
 ###Block: Buckler Shieldbash for Rondelero Duelist
-# Equipment Name		Required Weapon Proficiency	Type															Cost		Weight	Required Ability												Crit Mult	Crit Range	Damage	Modifier	Wield Category	Size		Weapon prop. bonus
-Buckler.MOD								TYPE:Shield.Buckler.Standard.Close.Weapon.Resizable.Melee.ShieldBash																						CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:STEEL	WIELD:Light		SIZE:M	BONUS:WEAPON|TOHIT|4|PREMULT:2,[PREWEAPONPROF:1,Shieldbash],[PREABILITY:1,CATEGORY=Special Ability,Fighter Rondelero Duelist ~ Buckler Bash]
+# Equipment Name		Required Weapon Proficiency	Type															Cost		Weight	Required Ability												Crit Mult	Crit Range	Damage	Modifier			Wield Category	Size		Weapon prop. bonus
+Buckler.MOD								TYPE:Shield.Buckler.Standard.Close.Weapon.Resizable.Melee.ShieldBash																						CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3	EQMOD:Material ~ Steel	WIELD:Light		SIZE:M	BONUS:WEAPON|TOHIT|4|PREMULT:2,[PREWEAPONPROF:1,Shieldbash],[PREABILITY:1,CATEGORY=Special Ability,Fighter Rondelero Duelist ~ Buckler Bash]
 #
-Shieldbash (Buckler)	PROFICIENCY:WEAPON|Shieldbash	TYPE:Weapon.Resizable.Melee.Light.Martial.Unarmed.Bludgeoning.Finesseable.Shieldbash	COST:0	WT:0		PREABILITY:1,CATEGORY=Special Ability,Fighter Rondelero Duelist ~ Buckler Bash	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3			WIELD:Light		SIZE:M
+Shieldbash (Buckler)	PROFICIENCY:WEAPON|Shieldbash	TYPE:Weapon.Resizable.Melee.Light.Martial.Unarmed.Bludgeoning.Finesseable.Shieldbash	COST:0	WT:0		PREABILITY:1,CATEGORY=Special Ability,Fighter Rondelero Duelist ~ Buckler Bash	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d3					WIELD:Light		SIZE:M
 
 #
 # End

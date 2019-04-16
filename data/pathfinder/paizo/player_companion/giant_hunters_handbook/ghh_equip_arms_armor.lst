@@ -1,0 +1,24 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Giant Hunter's Handbook	SOURCESHORT:GHH	SOURCEWEB:http://paizo.com/products/btpy8yw4	SOURCEDATE:2013-07
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 1 March 2017
+
+# ==============================
+# New Weapons
+# ==============================
+
+# Equipment Name	Required Weapon Proficiency			Type																		Contains				Cost		Weight	Crit Mult	Crit Range	Damage	Modifier																									Wield Category		Range		Size		Source Page		Weapon prop. bonus								Special Property
+Barbed Spear	PROFICIENCY:WEAPON|Barbed Spear		TYPE:Weapon.Resizable.Melee.Reach.TwoHanded.Exotic.Standard.Piercing.Spear.Weapon Group Spears.Fragile						COST:12	WT:10		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:Material ~ Steel.Material ~ Wood																				WIELD:TwoHanded				SIZE:M	SOURCEPAGE:p.24												SPROP:Fragile, Reach. When used to attack a prone, flying, or larger opponent, a melee attack at -4 breaks off barbed head in opponent's foot for 1 point of damage, acts as a caltrop, wounding the creature's foot and halving its speed.
+Dire Bolas		PROFICIENCY:WEAPON|Dire Bolas			TYPE:Weapon.Resizable.Ranged.Thrown.TwoHanded.Exotic.Standard.Bludgeoning.Weapon Group Thrown								COST:20	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:Material ~ Rope.Material ~ Steel.Special Quality ~ Nonlethal.Special Quality ~ Trip												WIELD:TwoHandsOnly	RANGE:10	SIZE:M	SOURCEPAGE:p.24												SPROP:Nonlethal, Trip.
+Flask Pike		PROFICIENCY:WEAPON|Flask Pike			TYPE:Weapon.Resizable.Melee.Reach.TwoHanded.Exotic.Standard.Piercing.Polearm.Weapon Group Polearms							COST:30	WT:9		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:Material ~ Steel.Material ~ Wood																				WIELD:TwoHanded				SIZE:M	SOURCEPAGE:p.24												SPROP:Reach. Tip holds one flask of an alchemical splash, spent on successful hit. -2 on attacks when filled.
+Sarissa		PROFICIENCY:WEAPON|Sarissa			TYPE:Weapon.Resizable.Melee.Reach.TwoHanded.Martial.Standard.Piercing.Spear.Weapon Group Spears								COST:12	WT:12		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Quality ~ Brace.Material ~ Steel.Material ~ Wood																WIELD:TwoHanded				SIZE:M	SOURCEPAGE:p.24												SPROP:3x Reach. Threatens spaces 10 to 15 feet away, but not adjacent squares or squares 5 to 10 feet away. Can be used to attack in only one direction each round. Only threatens foes within this cone and within its extended reach.
+
+# ==============================
+# New Magical Weapons
+# ==============================
+
+Axe of Felling	PROFICIENCY:WEAPON|Waraxe (Dwarven)		TYPE:Weapon.Resizable.Melee.OneHanded.Martial.Exotic.Specific.Dwarven.Slashing.Axe										COST:30	WT:8		CRITMULT:x3	CRITRANGE:1	DAMAGE:1d10	EQMOD:Special Ability ~ Bane ~ Weapon|Giant Bane.Special Ability ~ Enhancement Cost|300.Special Ability ~ +1 ~ Weapon.Material ~ Steel.Special Quality ~ Trip	WIELD:TwoHanded				SIZE:M	SOURCEPAGE:p.28	BONUS:WEAPON|WIELDCATEGORY|-1|PREVARGTEQ:DwarvenWaraxeExoticUse,1	SPROP:Trip. Can be used to trip opponents up to two size categories larger than its wielder.
+Grasping Bolas	PROFICIENCY:WEAPON|Bolas			TYPE:Weapon.Resizable.Exotic.Ranged.Specific.Bludgeoning.Thrown													COST:5	WT:2		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Special Ability ~ Enhancement Cost|1500.Special Ability ~ +1 ~ Weapon.Material ~ Leather.Special Quality ~ Nonlethal.Special Quality ~ Trip		WIELD:OneHandOnly		RANGE:10	SIZE:M	SOURCEPAGE:p.28												SPROP:Trip. 1/day, ignores size bonus to CMD, entangles if trip is successful.
+Shrivelblade	PROFICIENCY:WEAPON|Swordbreaker (Dagger)	TYPE:Weapon.Resizable.Melee.Light.Specific.Finesseable.Exotic.Slashing.BladeLight										COST:10	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Special Ability ~ Enhancement Cost|4500.Special Ability ~ +1 ~ Weapon.Material ~ Adamantine ~ Weapon									WIELD:Light					SIZE:M	SOURCEPAGE:p.29												SPROP:3/day, shrinks successfully sundered weapon by one size category.
+Smuggler's Sling	PROFICIENCY:WEAPON|Sling			TYPE:Weapon.Resizable.Simple.Ranged.Specific.Bludgeoning.Container.Projectile.Sling					CONTAINS:UNLIM|SlingStone	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Special Ability ~ Enhancement Cost|3000.Special Ability ~ +1 ~ Weapon.Material ~ Leather											WIELD:OneHandOnly		RANGE:50	SIZE:M	SOURCEPAGE:p.29	BONUS:WEAPON|DAMAGE|STR								SPROP:+5 Slight of Hand to conceal. 5/day load with a conjured, magical bullet.

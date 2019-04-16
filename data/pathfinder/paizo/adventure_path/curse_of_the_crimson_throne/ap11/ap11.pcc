@@ -49,6 +49,7 @@ EQUIPMENT:ap11_equip_arms_armor.lst
 EQUIPMENT:ap11_equip_magic_items.lst
 KIT:ap11_kits_race.lst
 RACE:ap11_races.lst
+TEMPLATE:ap11_templates.lst
 
 # Prevent unconstructed reference errors
-FORWARDREF:EQMOD|BANE_M
+#FORWARDREF:EQMOD|BANE_M

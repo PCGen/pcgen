@@ -1,0 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
+# Original Entry by: Stefan Radermacher, Andrew Maitland, Eric Smith (Maredudd) and James Dempsey
+
+# Class Name	Ability
+CLASS:Skald.MOD	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Extra Performance|PREVAREQ:Skald_CF_ScribeScroll,0

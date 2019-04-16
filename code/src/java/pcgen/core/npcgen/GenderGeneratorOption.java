@@ -1,5 +1,4 @@
 /*
- * GenderGeneratorOption.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,39 +14,36 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
  */
 package pcgen.core.npcgen;
 
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.output.channel.compat.GenderCompat;
 
 /**
  * This class represents a particular gender generator option.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  */
 public class GenderGeneratorOption extends GeneratorOption
 {
 	private WeightedCollection<Gender> theChoices = null;
-	
-	/**
-	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
-	 */
+
 	@Override
 	public void addChoice(final int aWeight, final String aValue)
 	{
-		if ( theChoices == null )
+		if (theChoices == null)
 		{
 			theChoices = new WeightedCollection<>();
 		}
+
+		Gender[] allGenders = GenderCompat.getAvailableGenders();
 		
-		if ( aValue.equals("*") ) //$NON-NLS-1$
+		if (aValue.equals("*")) //$NON-NLS-1$
 		{
-			for ( final Gender gender : Gender.values() )
+			for (final Gender gender : allGenders)
 			{
-				if ( ! theChoices.contains(gender) )
+				if (!theChoices.contains(gender))
 				{
 					theChoices.add(gender, aWeight);
 				}
@@ -55,7 +51,7 @@ public class GenderGeneratorOption extends GeneratorOption
 			return;
 		}
 
-		for ( final Gender gender : Gender.values() )
+		for (final Gender gender : allGenders)
 		{
 			if (gender.toString().equalsIgnoreCase(aValue))
 			{

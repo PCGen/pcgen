@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
 
 # Class Feature Blank
@@ -11,7 +10,7 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 # Race or Racial Trait Blank
 #	KEY:xxx ~
 #	CATEGORY:Special Ability
-#	TYPE:xxx Race Trait.Race Trait.SpecialQuality
+#	TYPE:xxx Racial Trait.Racial Trait.SpecialQuality
 #	SOURCEPAGE:p.
 #	DESC:
 
@@ -53,7 +52,7 @@ SOURCELONG:My Pathfinder Campaign	SOURCESHORT:MPC	SOURCEWEB:http://www.mywebsite
 #The TYPE tag is holding a . (period) delimited list of the types the ability/feat is.
 #
 #The DESC tag is used to hold the description of the Ability/Feat. In our files we usually keep the description brief, so the user
-#still need to own the book to make use of of the data, but for your personal files can get as elaborate as you want there.
+#still need to own the book to make use of the data, but for your personal files can get as elaborate as you want there.
 #
 #The MULT tag determines if a ability/feat can be taken multiple times. If the value is set to YES, then you MUST also use a CHOOSE
 #tag.

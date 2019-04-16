@@ -1,6 +1,4 @@
 /*
- * PreTemplateTest.java
- *
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,32 +14,27 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 12-Jul-2004
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.core.prereq;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PlayerCharacter;
 
+import org.junit.jupiter.api.Test;
+
 /**
- * The Class <code>PreStatTest</code> checks that PreStatTester is working correctly.
- *
- * <br/>
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * The Class {@code PreStatTest} checks that PreStatTester is working correctly.
  */
-public class PreStatTest extends AbstractCharacterTestCase
+class PreStatTest extends AbstractCharacterTestCase
 {
 
 	/**
 	 * Ensure a PRESTAT for a positive value works correctly.
 	 */
+	@Test
 	public void testPrePositive()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -65,6 +58,7 @@ public class PreStatTest extends AbstractCharacterTestCase
 	/**
 	 * Ensure a PRESTAT for zero works correctly.
 	 */
+	@Test
 	public void testPreZero()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -88,6 +82,7 @@ public class PreStatTest extends AbstractCharacterTestCase
 	/**
 	 * Ensure a PRESTAT for a negative value works correctly.
 	 */
+	@Test
 	public void testPreNegative()
 	{
 		final PlayerCharacter character = getCharacter();

@@ -1,0 +1,5 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEWEB:http://paizo.com/products/btpy9j6p?Pathfinder-Roleplaying-Game-Ultimate-Intrigue	SOURCEDATE:2016-04
+
+# Ability Name		Category of Ability	Ability														Class Skill
+Fey Eidolon ~ Skills	CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Fly Skill|PREMULT:1,[PREMOVE:1,Fly=1],[PREVARGTEQ:Speed_Fly,1]	CSKILL:Acrobatics|Diplomacy|Disguise|Escape Artist|Knowledge (nature)|TYPE=Perform|Sleight of Hand|Use Magic Device

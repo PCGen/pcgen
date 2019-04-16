@@ -5,7 +5,6 @@
 # Equation used to calculate XP:
 # xp = 500 * level * (level - 1)
 #
-# $Id$ 
 #
 LEVEL:LEVEL	MINXP:(LEVEL*LEVEL-LEVEL)*500		CSKILLMAX:LEVEL+ClassSkillMax+3	CCSKILLMAX:(LEVEL+CrossClassSkillMax+3)/2
 #

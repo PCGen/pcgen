@@ -42,36 +42,34 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
 
 /**
- * The Class <code>SourceSelectionPanel</code> gathers the source 
+ * The Class {@code SourceSelectionPanel} gathers the source
  * folder for the conversion process from the user.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SourceSelectionPanel extends ConvertSubPanel
 {
 
 	private File path = null;
 
-	private JRadioButton radioButtons[];
-	
+	private JRadioButton[] radioButtons;
+
 	private enum SourceFolder
 	{
-		DATA ("Data directory", ConfigurationSettings.getPccFilesDir()),
-		VENDORDATA ("Vendor data directory", PCGenSettings.getVendorDataDir()),
-		HOMEBREWDATA ("Homebrew data directory", PCGenSettings.getHomebrewDataDir()),
-		OTHER ("Other directory", ".");
-		
+		DATA("Data directory", ConfigurationSettings.getPccFilesDir()), VENDORDATA("Vendor data directory",
+				PCGenSettings.getVendorDataDir()), HOMEBREWDATA("Homebrew data directory",
+						PCGenSettings.getHomebrewDataDir()), OTHER("Other directory", ".");
+
 		private final String title;
 
 		private File file;
-		
+
 		SourceFolder(String title, String fileName)
 		{
 			this.title = title;
 			this.file = new File(fileName);
 		}
-		
+
 		/**
 		 * @return the file
 		 */
@@ -97,10 +95,6 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		}
 	}
 
-	public SourceSelectionPanel()
-	{
-	}
-
 	public String getPath()
 	{
 		return path.getAbsolutePath();
@@ -119,14 +113,12 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		return false;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#returnAllowed()
-	 */
 	@Override
 	public boolean returnAllowed()
 	{
 		return true;
 	}
+
 	@Override
 	public void setupDisplay(JPanel panel, final CDOMObject pc)
 	{
@@ -134,10 +126,8 @@ public class SourceSelectionPanel extends ConvertSubPanel
 
 		JLabel label = new JLabel("Please select the Source Directory to Convert: ");
 		GridBagConstraints gbc = new GridBagConstraints();
-		Utility
-			.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
-				1.0, 0, GridBagConstraints.HORIZONTAL,
-				GridBagConstraints.NORTHWEST);
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0, GridBagConstraints.HORIZONTAL,
+			GridBagConstraints.NORTHWEST);
 		gbc.insets = new Insets(50, 25, 10, 25);
 		panel.add(label, gbc);
 
@@ -164,16 +154,13 @@ public class SourceSelectionPanel extends ConvertSubPanel
 							SourceFolder.OTHER.setFile(fileToOpen);
 							pc.put(ObjectKey.DIRECTORY, path);
 							PCGenSettings context = PCGenSettings.getInstance();
-							context.setProperty(
-								PCGenSettings.CONVERT_INPUT_PATH,
-								path.getAbsolutePath());
+							context.setProperty(PCGenSettings.CONVERT_INPUT_PATH, path.getAbsolutePath());
 							JRadioButton button = radioButtons[SourceFolder.OTHER.ordinal()];
 							button.setSelected(true);
 							button.setText(buildFolderText(SourceFolder.OTHER, fileToOpen.getAbsolutePath()));
 							break;
 						}
-						JOptionPane.showMessageDialog(null,
-								"Selection must be a valid Directory");
+						JOptionPane.showMessageDialog(null, "Selection must be a valid Directory");
 						chooser.setSelectedFile(path);
 					}
 					else if (open == JFileChooser.CANCEL_OPTION)
@@ -183,7 +170,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 				}
 			}
 		});
-		
+
 		radioButtons = new JRadioButton[SourceFolder.values().length];
 		String selectedPath = null;
 		File selectedFile = pc.get(ObjectKey.DIRECTORY);
@@ -194,8 +181,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		else
 		{
 			PCGenSettings context = PCGenSettings.getInstance();
-			selectedPath =
-					context.getProperty(PCGenSettings.CONVERT_INPUT_PATH, null);
+			selectedPath = context.getProperty(PCGenSettings.CONVERT_INPUT_PATH, null);
 		}
 		ButtonGroup group = new ButtonGroup();
 		boolean haveSelected = false;
@@ -205,18 +191,18 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		{
 			JRadioButton pathButton = new JRadioButton();
 			final SourceFolder buttonFolder = folder;
-			pathButton.addActionListener(new ActionListener() {
+			pathButton.addActionListener(new ActionListener()
+			{
 
 				@Override
 				public void actionPerformed(ActionEvent e)
 				{
 					PCGenSettings context = PCGenSettings.getInstance();
-					context.setProperty(PCGenSettings.CONVERT_INPUT_PATH,
-						buttonFolder.getFile().getAbsolutePath());
+					context.setProperty(PCGenSettings.CONVERT_INPUT_PATH, buttonFolder.getFile().getAbsolutePath());
 					pc.put(ObjectKey.DIRECTORY, buttonFolder.getFile());
 				}
 			});
-			
+
 			String path;
 			if (folder.getFile() == null)
 			{
@@ -231,8 +217,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 					pathButton.setSelected(true);
 					haveSelected = true;
 					PCGenSettings context = PCGenSettings.getInstance();
-					context.setProperty(PCGenSettings.CONVERT_INPUT_PATH,
-						path);
+					context.setProperty(PCGenSettings.CONVERT_INPUT_PATH, path);
 					selectedFile = folder.getFile();
 				}
 			}
@@ -242,35 +227,29 @@ public class SourceSelectionPanel extends ConvertSubPanel
 			group.add(pathButton);
 			if (folder == SourceFolder.OTHER)
 			{
-				Utility.buildRelativeConstraints(gbc, 1,
-					GridBagConstraints.REMAINDER, 1.0, 0,
+				Utility.buildRelativeConstraints(gbc, 1, GridBagConstraints.REMAINDER, 1.0, 0,
 					GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST);
 			}
 			else
 			{
-				Utility
-					.buildRelativeConstraints(gbc,
-						GridBagConstraints.REMAINDER, 1, 1.0, 0,
-						GridBagConstraints.HORIZONTAL,
-						GridBagConstraints.NORTHWEST);
+				Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 0,
+					GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST);
 			}
 			gbc.insets = new Insets(10, 25, 10, 25);
 			panel.add(pathButton, gbc);
 
 			if (folder == SourceFolder.OTHER)
 			{
-				Utility.buildRelativeConstraints(gbc,
-					GridBagConstraints.REMAINDER, 1, 0, 0,
-					GridBagConstraints.NONE, GridBagConstraints.NORTHEAST);
+				Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 0, 0, GridBagConstraints.NONE,
+					GridBagConstraints.NORTHEAST);
 				gbc.insets = new Insets(10, 25, 10, 25);
 				panel.add(button, gbc);
 			}
 		}
-		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER,
-			GridBagConstraints.REMAINDER, 1.0, 1.0,
+		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, GridBagConstraints.REMAINDER, 1.0, 1.0,
 			GridBagConstraints.BOTH, GridBagConstraints.NORTHWEST);
 		panel.add(new JLabel(" "), gbc);
-		
+
 		if (!haveSelected)
 		{
 			if (selectedPath != null)
@@ -280,7 +259,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 				selectedFile = new File(selectedPath);
 				SourceFolder.OTHER.setFile(selectedFile);
 				path = selectedFile;
-				btn.setText(buildFolderText(SourceFolder.OTHER, selectedFile.getAbsolutePath()));				
+				btn.setText(buildFolderText(SourceFolder.OTHER, selectedFile.getAbsolutePath()));
 			}
 			else if (radioButtons[SourceFolder.VENDORDATA.ordinal()].isEnabled())
 			{
@@ -301,7 +280,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 				selectedFile = SourceFolder.DATA.getFile();
 			}
 		}
-		
+
 		pc.put(ObjectKey.DIRECTORY, selectedFile);
 	}
 

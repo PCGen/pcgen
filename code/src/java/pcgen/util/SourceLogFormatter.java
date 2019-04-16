@@ -1,5 +1,4 @@
 /*
- * SourceLogFormatter.java
  * Copyright 2007 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17/06/2007
- *
- * $Id$
  */
 package pcgen.util;
 
@@ -26,34 +21,29 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.*;
+import java.util.logging.Formatter;
+import java.util.logging.LogRecord;
 import java.util.regex.Pattern;
 
 /**
- * <code>SourceLogFormatter</code> is a log formater for the Java
- * Loggings API that ignores the call from the PCGen logging class.
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ * {@code SourceLogFormatter} is a log formatter for the Java
+ * Logging API that ignores the call from the PCGen logging class.
  */
 public final class SourceLogFormatter extends Formatter
 {
 	private static final char SEPERATOR = ' ';
 	private final SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss.S");
-	private final Date date = new Date(); 
-	private static final Pattern javaExtPattern = Pattern.compile("\\.java");
-	
-	/* (non-Javadoc)
-	 * @see java.util.logging.Formatter#format(java.util.logging.LogRecord)
-	 */
-    @Override
+	private final Date date = new Date();
+	private static final Pattern JAVA_EXT_PATTERN = Pattern.compile("\\.java");
+
+	@Override
 	public String format(LogRecord record)
 	{
 		StringBuilder sb = new StringBuilder();
-		
+
 		date.setTime(record.getMillis());
 		sb.append(df.format(date));
-		
+
 		sb.append(SEPERATOR);
 		sb.append(String.valueOf(record.getLevel()));
 		sb.append(SEPERATOR);
@@ -63,11 +53,11 @@ public final class SourceLogFormatter extends Formatter
 		// Pick out the caller from the stack trace, ignoring the 
 		// logging classes themselves 
 		StackTraceElement[] stack = new Throwable().getStackTrace();
-		StackTraceElement caller = null;		
-		
-		for (int i=1 ; i<stack.length ; i++) //1 to skip this method
+		StackTraceElement caller = null;
+
+		for (int i = 1; i < stack.length; i++) //1 to skip this method
 		{
-			if (!stack[i].getClassName().startsWith("pcgen.util.Logging") 
+			if (!stack[i].getClassName().startsWith("pcgen.util.Logging")
 				&& !stack[i].getClassName().startsWith("java.util.logging")
 				&& !stack[i].getClassName().startsWith("pcgen.system.LoggingRecorder"))
 			{
@@ -75,12 +65,12 @@ public final class SourceLogFormatter extends Formatter
 				break;
 			}
 		}
-		
-		if (caller!=null) 
+
+		if (caller != null)
 		{
-			if (caller.getLineNumber()>=0)
+			if (caller.getLineNumber() >= 0)
 			{
-				sb.append(javaExtPattern.matcher(caller.getFileName()).replaceFirst(""));
+				sb.append(JAVA_EXT_PATTERN.matcher(caller.getFileName()).replaceFirst(""));
 				sb.append(':');
 				sb.append(caller.getLineNumber());
 			}
@@ -93,10 +83,10 @@ public final class SourceLogFormatter extends Formatter
 		}
 
 		sb.append(SEPERATOR);
-		
+
 		sb.append(formatMessage(record));
-		
-		if (record.getThrown()!=null)
+
+		if (record.getThrown() != null)
 		{
 			sb.append('\n');
 			StringWriter sw = new StringWriter();
@@ -105,9 +95,9 @@ public final class SourceLogFormatter extends Formatter
 			pw.flush();
 			sb.append(sw);
 		}
-		
+
 		sb.append('\n');
-		
+
 		return sb.toString();
 	}
 }

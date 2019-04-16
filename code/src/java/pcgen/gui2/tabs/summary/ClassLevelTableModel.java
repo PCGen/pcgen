@@ -1,5 +1,4 @@
 /*
- * ClassLevelTableModel.java
  * Copyright 2010 (C) Connor Petty <cpmeister@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on May 11, 2010, 2:01:06 PM
  */
 package pcgen.gui2.tabs.summary;
 
@@ -46,21 +44,21 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumnModel;
 
+import pcgen.core.PCClass;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.facade.core.CharacterLevelsFacade.CharacterLevelEvent;
 import pcgen.facade.core.CharacterLevelsFacade.ClassListener;
 import pcgen.facade.core.CharacterLevelsFacade.HitPointListener;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.tabs.Utilities;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.table.TableCellUtilities;
 
-public class ClassLevelTableModel extends AbstractTableModel
-		implements ListListener<CharacterLevelFacade>, ItemListener, PropertyChangeListener, HitPointListener, ClassListener
+public class ClassLevelTableModel extends AbstractTableModel implements ListListener<CharacterLevelFacade>,
+		ItemListener, PropertyChangeListener, HitPointListener, ClassListener
 {
 
 	private CharacterLevelsFacade levels;
@@ -177,11 +175,11 @@ public class ClassLevelTableModel extends AbstractTableModel
 			case 1:
 				return levels.getHPGained(levels.getElementAt(rowIndex));
 			case 2:
-				ClassFacade c = levels.getClassTaken(levels.getElementAt(rowIndex));
+				PCClass c = levels.getClassTaken(levels.getElementAt(rowIndex));
 				String classKey = c.getKeyName();
 				if (finalLevelMap.get(classKey) == rowIndex)
 				{
-					return c.toString() + " (" + character.getClassLevel(c) + ")";
+					return c + " (" + character.getClassLevel(c) + ")";
 				}
 				return c.toString();
 			default:
@@ -258,8 +256,7 @@ public class ClassLevelTableModel extends AbstractTableModel
 		fireTableRowsUpdated(firstRow, lastRow);
 	}
 
-	private class Editor extends AbstractCellEditor
-			implements TableCellEditor, TableCellRenderer, ActionListener
+	private class Editor extends AbstractCellEditor implements TableCellEditor, TableCellRenderer, ActionListener
 	{
 
 		private JPanel cellPanel = new JPanel();
@@ -285,13 +282,15 @@ public class ClassLevelTableModel extends AbstractTableModel
 		}
 
 		@Override
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
 		{
 			return getTableCellEditorComponent(table, value, isSelected, row, column);
 		}
 
 		@Override
-		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
+		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
+			int column)
 		{
 			cellPanel.removeAll();
 			TableCellUtilities.setToRowBackground(cellPanel, table, row);
@@ -326,13 +325,10 @@ public class ClassLevelTableModel extends AbstractTableModel
 		{
 			if (e.getSource() == addLevelButton)
 			{
-				ClassFacade c = (ClassFacade) classComboBox.getSelectedItem();
+				PCClass c = (PCClass) classComboBox.getSelectedItem();
 				if (c != null)
 				{
-					character.addCharacterLevels(new ClassFacade[]
-							{
-								c
-							});
+					character.addCharacterLevels(new PCClass[]{c});
 				}
 			}
 			else

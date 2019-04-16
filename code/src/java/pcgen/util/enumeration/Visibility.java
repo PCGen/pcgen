@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
 package pcgen.util.enumeration;
 
@@ -27,7 +25,7 @@ public enum Visibility
 	OUTPUT_ONLY("Export"), // Shows up on the output sheet, but not in the GUI
 	DISPLAY_ONLY("Display"), //  Shows up in the GUI, but not on the output sheet
 	QUALIFY("Qualify"); //Shows up only if qualified
-	
+
 	private final String text;
 
 	Visibility(String s)
@@ -40,7 +38,7 @@ public enum Visibility
 	{
 		return text;
 	}
-	
+
 	public String getLSTFormat()
 	{
 		return text.toUpperCase();
@@ -67,7 +65,7 @@ public enum Visibility
 
 			case VISIBLE_EXPORT:
 				return (this == Visibility.DEFAULT || this == Visibility.OUTPUT_ONLY);
-				
+
 			case VISIBLE_DISPLAY:
 			default:
 				return (this == Visibility.DEFAULT || this == Visibility.DISPLAY_ONLY);
@@ -76,5 +74,5 @@ public enum Visibility
 		 * TODO Need to deal with QUALIFY
 		 */
 	}
-	
+
 }

@@ -17,14 +17,16 @@
  */
 package pcgen.output.model;
 
-import pcgen.base.util.Reference;
+import java.util.Objects;
+import java.util.function.Supplier;
+
 import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateNumberModel;
 
 /**
  * A NumberModel wraps a Number object into a TemplateScalarModel
  */
-public class NumberModel implements TemplateNumberModel, Reference<Number>
+public class NumberModel implements TemplateNumberModel, Supplier<Number>
 {
 	/**
 	 * The underlying Number object
@@ -39,10 +41,7 @@ public class NumberModel implements TemplateNumberModel, Reference<Number>
 	 */
 	public NumberModel(Number n)
 	{
-		if (n == null)
-		{
-			throw new IllegalArgumentException("Number cannot be null");
-		}
+		Objects.requireNonNull(n, "Number cannot be null");
 		this.number = n;
 	}
 

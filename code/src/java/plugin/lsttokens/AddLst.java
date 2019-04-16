@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens;
 
+import pcgen.base.util.ArrayUtilities;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.NonInteractive;
@@ -32,12 +33,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- *
- */
-public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 	/*
 	 * Template's LevelToken adjustment done in addAddsFromAllObjForLevel() in
@@ -51,20 +47,17 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		if (obj instanceof NonInteractive)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Non-Interactive object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail("Cannot use " + getTokenName() + " on an Non-Interactive object type: "
+				+ obj.getClass().getSimpleName());
 		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
@@ -74,10 +67,9 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 				if (obj instanceof PCClassLevel)
 				{
 					ComplexParseResult cpr = new ComplexParseResult();
-					cpr.addErrorMessage("Warning: You performed an invalid "
-						+ ".CLEAR in a ADD: Token");
-					cpr.addErrorMessage("  A non-level limited .CLEAR was "
-						+ "used in a Class Level line in " + obj.getKeyName());
+					cpr.addErrorMessage("Warning: You performed an invalid " + ".CLEAR in a ADD: Token");
+					cpr.addErrorMessage(
+						"  A non-level limited .CLEAR was " + "used in a Class Level line in " + obj.getKeyName());
 					return cpr;
 				}
 			}
@@ -87,10 +79,9 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 				{
 					ComplexParseResult cpr = new ComplexParseResult();
 					cpr.addErrorMessage("Warning: You performed an invalid .CLEAR in a ADD: Token");
-					cpr.addErrorMessage("  A level limited .CLEAR ( " + value
-							+ " ) was not used in a Class Level line in "
-							+ obj.getClass().getSimpleName() + " "
-							+ obj.getKeyName());
+					cpr.addErrorMessage(
+						"  A level limited .CLEAR ( " + value + " ) was not used in a Class Level line in "
+							+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName());
 					return cpr;
 				}
 				String levelString = value.substring(12);
@@ -100,59 +91,42 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 					if (level != obj.get(IntegerKey.LEVEL))
 					{
 						ComplexParseResult cpr = new ComplexParseResult();
-						cpr.addErrorMessage("Warning: You performed an invalid "
-							+ ".CLEAR in a ADD: Token");
-						cpr.addErrorMessage("  A level limited .CLEAR ( " + value
-							+ " ) was used in a Class Level line");
-						cpr.addErrorMessage("  But was asked to clear a "
-							+ "different Class Level ( " + level
-							+ " ) than the Class Level Line it appeared on: "
-							+ obj.getKeyName());
-					return cpr;
+						cpr.addErrorMessage("Warning: You performed an invalid " + ".CLEAR in a ADD: Token");
+						cpr.addErrorMessage(
+							"  A level limited .CLEAR ( " + value + " ) was used in a Class Level line");
+						cpr.addErrorMessage("  But was asked to clear a " + "different Class Level ( " + level
+							+ " ) than the Class Level Line it appeared on: " + obj.getKeyName());
+						return cpr;
 					}
 				}
 				catch (NumberFormatException e)
 				{
 					ComplexParseResult cpr = new ComplexParseResult();
 					cpr.addErrorMessage("Warning: You performed an invalid .CLEAR in a ADD: Token");
-					cpr.addErrorMessage("  A level limited .CLEAR ( " + value
-							+ " ) was used in a Class Level line");
-					cpr.addErrorMessage("  But the level ( " + levelString
-							+ " ) was not an integer in: " + obj.getKeyName());
+					cpr.addErrorMessage("  A level limited .CLEAR ( " + value + " ) was used in a Class Level line");
+					cpr.addErrorMessage(
+						"  But the level ( " + levelString + " ) was not an integer in: " + obj.getKeyName());
 					return cpr;
 				}
 			}
 			else
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " requires a SubToken and argument, found: " + value, context);
+				return new ParseResult.Fail(getTokenName() + " requires a SubToken and argument, found: " + value);
 			}
 			context.getObjectContext().removeList(obj, ListKey.ADD);
 			return ParseResult.SUCCESS;
 		}
 
-		return context.processSubToken(obj, getTokenName(), value.substring(0,
-				pipeLoc), value.substring(pipeLoc + 1));
+		return context.processSubToken(obj, getTokenName(), value.substring(0, pipeLoc), value.substring(pipeLoc + 1));
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		String[] unparsed = context.unparseSubtoken(obj, getTokenName());
-		Changes<PersistentTransitionChoice<?>> changes = context
-				.getObjectContext().getListChanges(obj, ListKey.ADD);
+		Changes<PersistentTransitionChoice<?>> changes = context.getObjectContext().getListChanges(obj, ListKey.ADD);
 		if (changes.includesGlobalClear())
 		{
-			String[] returnVal;
-			if (unparsed == null)
-			{
-				returnVal = new String[1];
-			}
-			else
-			{
-				returnVal = new String[unparsed.length + 1];
-				System.arraycopy(unparsed, 0, returnVal, 1, unparsed.length);
-			}
 			StringBuilder clearSB = new StringBuilder();
 			clearSB.append(Constants.LST_DOT_CLEAR);
 			if (obj instanceof PCClassLevel)
@@ -161,8 +135,7 @@ public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
 				Integer lvl = obj.get(IntegerKey.LEVEL);
 				clearSB.append(lvl);
 			}
-			returnVal[0] = clearSB.toString();
-			unparsed = returnVal;
+			unparsed = ArrayUtilities.prependOnCopy(clearSB.toString(), unparsed, String.class);
 		}
 		return unparsed;
 	}

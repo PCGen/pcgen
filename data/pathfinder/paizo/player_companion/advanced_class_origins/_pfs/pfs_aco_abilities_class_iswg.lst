@@ -1,0 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 12957 $ $Author: jbaril $ -- Sun Jul  6 20:02:09 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Pathfinder Player Companion: Advanced Class Origins	SOURCESHORT:ACO	SOURCEWEB:http://paizo.com/products/btpy965z	SOURCEDATE:2014-10
+
+# Ability Name				Type			!PRECHARACTERTYPE
+Arcanist Exploit ~ Third Eye.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

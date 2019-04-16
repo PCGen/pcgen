@@ -31,8 +31,8 @@ import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class TypeToken extends AbstractNonEmptyToken<AbilityCategory> implements
-		CDOMPrimaryToken<AbilityCategory>, DeferredToken<AbilityCategory>
+public class TypeToken extends AbstractNonEmptyToken<AbilityCategory>
+		implements CDOMPrimaryToken<AbilityCategory>, DeferredToken<AbilityCategory>
 {
 
 	@Override
@@ -42,8 +42,7 @@ public class TypeToken extends AbstractNonEmptyToken<AbilityCategory> implements
 	}
 
 	@Override
-	public ParseResult parseNonEmptyToken(LoadContext context,
-			AbilityCategory ac, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, AbilityCategory ac, String value)
 	{
 		if ("*".equals(value))
 		{
@@ -63,10 +62,8 @@ public class TypeToken extends AbstractNonEmptyToken<AbilityCategory> implements
 			String typeString = st.nextToken();
 			if ("*".equals(typeString))
 			{
-				return new ParseResult.Fail(
-						"Use of named types along with TYPE:* in category "
-								+ ac.getDisplayName() + " is invalid.  Found: "
-								+ value, context);
+				return new ParseResult.Fail("Use of named types along with TYPE:* in category " + ac.getDisplayName()
+					+ " is invalid.  Found: " + value);
 			}
 			else
 			{
@@ -81,14 +78,14 @@ public class TypeToken extends AbstractNonEmptyToken<AbilityCategory> implements
 	{
 		if (ac.isAllAbilityTypes())
 		{
-			return new String[] { "*" };
+			return new String[]{"*"};
 		}
 		Set<Type> types = ac.getTypes();
 		if (types.isEmpty())
 		{
 			return null;
 		}
-		return new String[] { StringUtil.join(types, Constants.DOT) };
+		return new String[]{StringUtil.join(types, Constants.DOT)};
 	}
 
 	@Override
@@ -111,15 +108,13 @@ public class TypeToken extends AbstractNonEmptyToken<AbilityCategory> implements
 			if (!ac.getTypes().isEmpty())
 			{
 				Logging.log(Logging.LST_ERROR,
-						"Use of named types along with TYPE:* in category "
-								+ ac.getDisplayName() + " is invalid.");
+					"Use of named types along with TYPE:* in category " + ac.getDisplayName() + " is invalid.");
 				return false;
 			}
 			if (ac.hasDirectReferences())
 			{
 				Logging.log(Logging.LST_ERROR,
-						"Use of ABILITYLIST along with TYPE:* in category "
-								+ ac.getDisplayName() + " is invalid.");
+					"Use of ABILITYLIST along with TYPE:* in category " + ac.getDisplayName() + " is invalid.");
 				return false;
 			}
 		}

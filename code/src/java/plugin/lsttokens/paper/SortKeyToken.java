@@ -17,9 +17,7 @@
  */
 package plugin.lsttokens.paper;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -38,8 +36,8 @@ import pcgen.util.Logging;
  * Note: While the intent is the same, this is necessary as a separate token
  * from the "Global" SortKey since PaperInfo does not extend CDOMObject.
  */
-public class SortKeyToken extends AbstractNonEmptyToken<PaperInfo> implements
-		CDOMPrimaryToken<PaperInfo>, PostValidationToken<PaperInfo>
+public class SortKeyToken extends AbstractNonEmptyToken<PaperInfo>
+		implements CDOMPrimaryToken<PaperInfo>, PostValidationToken<PaperInfo>
 {
 
 	@Override
@@ -49,14 +47,13 @@ public class SortKeyToken extends AbstractNonEmptyToken<PaperInfo> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PaperInfo pi,
-			String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PaperInfo pi, String value)
 	{
 		pi.setSortKey(value);
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, PaperInfo pi)
 	{
 		String info = pi.getSortKey();
@@ -65,50 +62,34 @@ public class SortKeyToken extends AbstractNonEmptyToken<PaperInfo> implements
 			// Probably an error
 			return null;
 		}
-		return new String[] { info };
+		return new String[]{info};
 	}
 
-    @Override
+	@Override
 	public Class<PaperInfo> getTokenClass()
 	{
 		return PaperInfo.class;
 	}
 
 	@Override
-	public boolean process(LoadContext context,
-		Collection<? extends PaperInfo> c)
+	public boolean process(LoadContext context, Collection<? extends PaperInfo> c)
 	{
 		boolean returnValue = true;
-		Map<String, PaperInfo> keys =
-				new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+		Map<String, PaperInfo> keys = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 		for (PaperInfo pi : c)
 		{
 			String keyName = pi.getKeyName();
 			if (keyName == null)
 			{
-				Logging.errorPrint("PaperInfo: " + pi.getDisplayName()
-					+ " requires a SortKey, but was null", context);
+				Logging.errorPrint("PaperInfo: " + pi.getDisplayName() + " requires a SortKey, but was null", context);
 				returnValue = false;
 			}
 			else if (keys.put(keyName, pi) != null)
 			{
-				Logging.errorPrint(
-					"Found more than one PaperInfo with (case insensitive) Sort Key: "
-						+ keyName, context);
+				Logging.errorPrint("Found more than one PaperInfo with (case insensitive) Sort Key: " + keyName,
+					context);
 				returnValue = false;
 			}
-		}
-		List<PaperInfo> coll = new ArrayList<>(keys.values());
-		List<PaperInfo> sorted =
-				context.getReferenceContext().getOrderSortedCDOMObjects(
-					PaperInfo.class);
-		//Remove this check after 6.6
-		if (!coll.equals(sorted))
-		{
-			Logging.errorPrint(
-				"SORTKEY sorting in PaperInfo did not match file order",
-				context);
-			returnValue = false;
 		}
 		return returnValue;
 	}

@@ -20,7 +20,6 @@ package plugin.lsttokens.ability;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -31,11 +30,9 @@ import pcgen.util.Logging;
 /**
  * Deal with CATEGORY token
  */
-public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
-		CDOMPrimaryToken<Ability>, PostDeferredToken<Ability>
+public class CategoryToken extends AbstractNonEmptyToken<Ability>
+		implements CDOMPrimaryToken<Ability>, PostDeferredToken<Ability>
 {
-	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
-
 	@Override
 	public String getTokenName()
 	{
@@ -45,27 +42,20 @@ public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
 	{
-		final Category<Ability> cat = context.getReferenceContext()
-				.silentlyGetConstructedCDOMObject(ABILITY_CATEGORY_CLASS, value);
-		if (cat == null)
-		{
-			return new ParseResult.Fail("Cannot find Ability Category: " + value, context);
-		}
-		context.getReferenceContext().reassociateCategory(cat, ability);
-		return ParseResult.SUCCESS;
+		return new ParseResult.Fail(
+			"Should not encounter CATEGORY: under normal operation, found on " + ability.getKeyName());
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
 		//TODO this is wrong! (different from logic in parse!)
-		Category<Ability> cat = context.getObjectContext().getObject(ability,
-				ObjectKey.ABILITY_CAT);
+		Category<Ability> cat = context.getObjectContext().getObject(ability, ObjectKey.ABILITY_CAT);
 		if (cat == null)
 		{
 			return null;
 		}
-		return new String[] { cat.getKeyName() };
+		return new String[]{cat.getKeyName()};
 	}
 
 	@Override
@@ -80,18 +70,15 @@ public class CategoryToken extends AbstractNonEmptyToken<Ability> implements
 		Category<Ability> cat = ability.get(ObjectKey.ABILITY_CAT);
 		if (cat == null)
 		{
-			Logging.log(Logging.LST_ERROR, "Ability " + ability.getKeyName()
-					+ " did not have a Category specified.  "
-					+ "A Category is required for an Ability. " 
-					+ "File was " + ability.getSourceURI());
+			Logging.log(Logging.LST_ERROR, "Ability " + ability.getKeyName() + " did not have a Category specified.  "
+				+ "A Category is required for an Ability. " + "File was " + ability.getSourceURI());
 			return false;
 		}
 		if (cat.getParentCategory() != cat)
 		{
-			Logging.log(Logging.LST_ERROR, "Ability " + ability.getKeyName()
-				+ " did not refer to a 'parent' Category, used: " + cat
-				+ ". A Parent Category is required for an Ability. "
-				+ "File was " + ability.getSourceURI());
+			Logging.log(Logging.LST_ERROR,
+				"Ability " + ability.getKeyName() + " did not refer to a 'parent' Category, used: " + cat
+					+ ". A Parent Category is required for an Ability. " + "File was " + ability.getSourceURI());
 			return false;
 		}
 		return true;

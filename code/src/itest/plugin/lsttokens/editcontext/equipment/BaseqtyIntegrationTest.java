@@ -28,8 +28,8 @@ public class BaseqtyIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Equipment>
 {
 
-	static BaseqtyToken token = new BaseqtyToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static BaseqtyToken token = new BaseqtyToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

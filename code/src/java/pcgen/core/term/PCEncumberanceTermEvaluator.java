@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCEncumberanceTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 20:47:03
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -28,8 +24,7 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.spell.Spell;
 import pcgen.util.enumeration.Load;
 
-public class PCEncumberanceTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCEncumberanceTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCEncumberanceTermEvaluator(String originalText)
 	{
@@ -39,22 +34,22 @@ public class PCEncumberanceTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		return convertToFloat(originalText, evaluate(display));
+		return TermUtil.convertToFloat(originalText, evaluate(display));
 	}
 
 	@Override
-	public String evaluate (CharacterDisplay display)
+	public String evaluate(CharacterDisplay display)
 	{
 		final Load l = display.getLoadType();
 		return ((Integer) l.ordinal()).toString();
 	}
 
 	@Override
-	public String evaluate (CharacterDisplay display, Spell aSpell)
+	public String evaluate(CharacterDisplay display, Spell aSpell)
 	{
 		return evaluate(display);
 	}
-	
+
 	@Override
 	public boolean isSourceDependant()
 	{

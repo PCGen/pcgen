@@ -1,5 +1,4 @@
 /**
- * OutputNameFormattingTest.java
  * Copyright James Dempsey, 2010
  *
  * This library is free software; you can redistribute it and/or
@@ -15,83 +14,100 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 28/10/2010 10:28:24 PM
- *
- * $Id$
  */
 package pcgen.core.analysis;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
-import junit.framework.TestCase;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Verify the function of the OutputNameFormatting class.
- *
- * <br/>
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class OutputNameFormattingTest extends TestCase
+public class OutputNameFormattingTest
 {
 	private static final String NAME = "Companion (Race (Subtype))";
 
 	private PObject testObj;
 
-	/* (non-Javadoc)
-	 * @see junit.framework.TestCase#setUp()
-	 */
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	public void setUp() throws Exception
 	{
 		testObj = new PObject();
 		testObj.setName(NAME);
-		super.setUp();
 	}
 
-	
+	@AfterEach
+	public void tearDown()
+	{
+		testObj = null;
+	}
+
 	/**
-	 * Test method for {@link pcgen.core.analysis.OutputNameFormatting#getOutputName(pcgen.core.PObject)}.
+	 * Test method for {@link pcgen.core.analysis.OutputNameFormatting#getOutputName(CDOMObject)}.
 	 * Check that a default output name will work correctly.
 	 */
+	@Test
 	public final void testGetOutputNameDisplay()
 	{
-		assertEquals("Expected unmodified name", NAME, OutputNameFormatting.getOutputName(testObj));
+		assertEquals(NAME, OutputNameFormatting.getOutputName(testObj), "Expected unmodified name");
 	}
 	
 	/**
-	 * Test method for {@link pcgen.core.analysis.OutputNameFormatting#getOutputName(pcgen.core.PObject)}.
+	 * Test method for {@link pcgen.core.analysis.OutputNameFormatting#getOutputName(CDOMObject)}.
 	 * Check that the [BASE] macro in output name will work correctly.
 	 */
+	@Test
 	public final void testGetOutputNameBase()
 	{
 		testObj.put(StringKey.OUTPUT_NAME, "[BASE]");
-		assertEquals("Expected just the name outside of brackets", "Companion",
-			OutputNameFormatting.getOutputName(testObj));
+		assertEquals(
+				"Companion",
+				OutputNameFormatting.getOutputName(testObj),
+				"Expected just the name outside of brackets"
+		);
 
 		testObj.put(StringKey.OUTPUT_NAME, "Prefix [BASE]");
-		assertEquals("Expected the BASE macro to be ignored", "Prefix [BASE]",
-			OutputNameFormatting.getOutputName(testObj));
+		assertEquals(
+				"Prefix [BASE]",
+				OutputNameFormatting.getOutputName(testObj),
+				"Expected the BASE macro to be ignored"
+		);
 	}
 	
 	/**
-	 * Test method for {@link pcgen.core.analysis.OutputNameFormatting#getOutputName(pcgen.core.PObject)}.
+	 * Test method for {@link pcgen.core.analysis.OutputNameFormatting#getOutputName(CDOMObject)}.
 	 * Check that the [NAME] macro in output name will work correctly.
 	 */
+	@Test
 	public final void testGetOutputNameName()
 	{
 		testObj.put(StringKey.OUTPUT_NAME, "[NAME]");
-		assertEquals("Incorrect [NAME] expansion", "Race (Subtype)",
-			OutputNameFormatting.getOutputName(testObj));
+		assertEquals(
+				"Race (Subtype)",
+				OutputNameFormatting.getOutputName(testObj),
+				"Incorrect [NAME] expansion"
+		);
 
 		testObj.put(StringKey.OUTPUT_NAME, "Prefix [NAME]");
-		assertEquals("Incorrect [NAME] expansion", "Prefix Race (Subtype)",
-			OutputNameFormatting.getOutputName(testObj));
+		assertEquals(
+				"Prefix Race (Subtype)",
+				OutputNameFormatting.getOutputName(testObj),
+				"Incorrect [NAME] expansion"
+		);
 
 		testObj.put(StringKey.OUTPUT_NAME, "Prefix [NAME]|[NAME]");
-		assertEquals("Incorrect double [NAME] expansion", "Prefix Race (Subtype)|Race (Subtype)",
-			OutputNameFormatting.getOutputName(testObj));
+		assertEquals(
+				"Prefix Race (Subtype)|Race (Subtype)",
+				OutputNameFormatting.getOutputName(testObj),
+				"Incorrect double [NAME] expansion"
+		);
 	}
 
 

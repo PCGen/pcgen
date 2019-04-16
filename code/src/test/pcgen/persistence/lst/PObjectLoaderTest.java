@@ -1,5 +1,4 @@
 /*
- * PObjectLoaderTest.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -17,18 +16,19 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 13-Jan-2004
  *
- * Current Ver: $Revision$
  * 
  * 
- *
  */
 package pcgen.persistence.lst;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 
-import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.VariableKey;
@@ -38,45 +38,27 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PObject;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
-
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-public class PObjectLoaderTest extends PCGenTestCase
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+class PObjectLoaderTest
 {
-	public PObjectLoaderTest(String name)
-	{
-		super(name);
-	}
-
-	public static void main(String[] args)
-	{
-		junit.textui.TestRunner.run(PObjectLoaderTest.class);
-	}
-
-	public static Test suite()
-	{
-		// quick method, adds all methods beginning with "test"
-		return new TestSuite(PObjectLoaderTest.class);
-	}
-
 	/**
 	 * Sets up the test case by loading the system plugins.
-	 * 
-	 * @see junit.framework.TestCase#setUp()
 	 */
-	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		TestHelper.loadPlugins();
 	}
 
+	@Test
 	public void testDefine() throws Exception
 	{
 		Ability feat = new Ability();
@@ -88,21 +70,15 @@ public class PObjectLoaderTest extends PCGenTestCase
 		assertEquals("0", feat.get(VariableKey.getConstant("Foo")).toString());
 	}
 
+	@Test
 	public void testBadDefine() throws Exception
 	{
 		Ability feat = new Ability();
-
-		try
-		{
-			is(Globals.getContext().processToken(feat, "DEFINE", "Foo"), eq(false),
-				"Parse fails for badly formed define");
-		}
-		catch (PersistenceLayerException ple)
-		{
-			fail("parseTag throws exception instead of passing back false");
-		}
+		assertFalse(
+				Globals.getContext().processToken(feat, "DEFINE", "Foo"), "Parse fails for badly formed define");
 	}
 
+	@Test
 	public void testUnlockDefineStat() throws Exception
 	{
 		LoadContext context = Globals.getContext();
@@ -113,8 +89,8 @@ public class PObjectLoaderTest extends PCGenTestCase
 
 		Ability feat = new Ability();
 
-		is(context.processToken(feat, "DEFINESTAT", "UNLOCK|INT"), eq(true),
-			"Parse fails for unlock");
+		assertTrue(
+				context.processToken(feat, "DEFINESTAT", "UNLOCK|INT"), "Parse fails for unlock");
 		context.commit();
 		assertTrue(context.getReferenceContext().resolveReferences(null));
 		Logging.clearParseMessages();
@@ -124,15 +100,16 @@ public class PObjectLoaderTest extends PCGenTestCase
 		assertEquals("INT", statList.get(0).get().getKeyName());
 	}
 
+	@Test
 	public void testBadUnlockDefine() throws Exception
 	{
 		Ability feat = new Ability();
-
-		is(Globals.getContext()
-			.processToken(feat, "DEFINESTAT", "UNLOCK|INT|0"), eq(false),
-			"Parse fails to catch bad unlock definestat");
+		assertFalse(
+				Globals.getContext()
+				       .processToken(feat, "DEFINESTAT", "UNLOCK|INT|0"), "Parse fails to catch bad unlock definestat");
 	}
 
+	@Test
 	public void testParsePreClear() throws Exception
 	{
 		PObject object = new PObject();
@@ -144,8 +121,9 @@ public class PObjectLoaderTest extends PCGenTestCase
 		assertEquals(2, list.size());
 
 		context.unconditionallyProcess(object, "PRE", Constants.LST_DOT_CLEAR);
-		list = object.getPrerequisiteList();
-		assertNotNull("Prereq list should never be null as it is used in foreach loops directly.", list);
-		assertTrue("Prereqlist should be empty after the clear", list.isEmpty());
+		List<Prerequisite> prerequisiteList = object.getPrerequisiteList();
+		assertNotNull(prerequisiteList,
+				"Prereq list should never be null as it is used in foreach loops directly.");
+		assertTrue(prerequisiteList.isEmpty(), "Prereqlist should be empty after the clear");
 	}
 }

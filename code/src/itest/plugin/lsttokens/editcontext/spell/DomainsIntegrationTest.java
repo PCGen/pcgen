@@ -19,9 +19,6 @@ package plugin.lsttokens.editcontext.spell;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.spell.Spell;
@@ -36,17 +33,20 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class DomainsIntegrationTest extends AbstractIntegrationTestCase<Spell>
 {
 
-	static DomainsToken token = new DomainsToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static DomainsToken token = new DomainsToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

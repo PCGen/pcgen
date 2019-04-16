@@ -17,27 +17,13 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreReachParser;
 import plugin.pretokens.writer.PreReachWriter;
 
 public class PreReachRoundRobin extends AbstractComparatorRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreReachRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreReachRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

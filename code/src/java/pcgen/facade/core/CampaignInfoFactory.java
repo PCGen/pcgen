@@ -1,5 +1,4 @@
 /*
- * CampaignInfoFactory.java
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -15,21 +14,17 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 08/03/2011 7:18:51 PM
- *
- * $Id$
  */
 package pcgen.facade.core;
 
 import java.util.List;
 
+import pcgen.core.Campaign;
+
 /**
- * The Class <code>CampaignInfoFactory</code> is ...
+ * The Class {@code CampaignInfoFactory} is ...
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface CampaignInfoFactory
 {
@@ -38,7 +33,7 @@ public interface CampaignInfoFactory
 	 * @param campaign The campaign to be described
 	 * @return The information on the campaign.
 	 */
-	public String getHTMLInfo(CampaignFacade campaign);
+	public String getHTMLInfo(Campaign campaign);
 
 	/**
 	 * Produce a html formatted information string for the supplied campaign using 
@@ -47,7 +42,7 @@ public interface CampaignInfoFactory
 	 * @param selectedCampaigns The previously selected campaigns to be checked against.
 	 * @return The information on the campaign.
 	 */
-	public String getHTMLInfo(CampaignFacade campaign, List<CampaignFacade> selectedCampaigns);
+	public String getHTMLInfo(Campaign campaign, List<Campaign> selectedCampaigns);
 
 	/**
 	 * Produce a html formatted information string for the supplied source selection.
@@ -63,6 +58,5 @@ public interface CampaignInfoFactory
 	 * @param selectedCampaigns The previously selected campaigns to be checked against.
 	 * @return The description of the prerequisites for the campaign.
 	 */
-	public String getRequirementsHTMLString(CampaignFacade campaign,
-		List<CampaignFacade> selectedCampaigns);
+	public String getRequirementsHTMLString(Campaign campaign, List<Campaign> selectedCampaigns);
 }

@@ -15,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on June 18, 2005.
  *
- * Current Ver: $Revision$
  */
 package pcgen.cdom.util;
 
@@ -29,7 +27,6 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.enumeration.ListKey;
 
 /**
- * @author Tom Parker &lt;thpr@sourceforge.net&gt;
  * 
  * This encapsulates a MapToList in a typesafe and value-semantic way.
  * 
@@ -346,32 +343,18 @@ public class ListKeyMapToList
 		return map.isEmpty();
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this ListKeyMapToList
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return map.hashCode();
 	}
 
-	/**
-	 * Returns true if this ListKeyMapToList is equal to the given Object.
-	 * 
-	 * Note that equality as defined by this method is both a class of
-	 * ListKeyMapToList and equality of contents of the ListKeyMapToList.
-	 * 
-	 * @see java.lang.Object#equals(Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof ListKeyMapToList
-				&& map.equals(((ListKeyMapToList) obj).map);
+		return obj instanceof ListKeyMapToList && map.equals(((ListKeyMapToList) obj).map);
 	}
-	
+
 	@Override
 	public String toString()
 	{

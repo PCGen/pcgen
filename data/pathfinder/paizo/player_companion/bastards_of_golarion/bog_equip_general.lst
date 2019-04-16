@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Bastards of Golarion	SOURCESHORT:BOG	SOURCEWEB:http://paizo.com/products/btpy93na?Pathfinder-Player-Companion-Bastards-of-Golarion	SOURCEDATE:2014-02
+SOURCELONG:Pathfinder Player Companion: Bastards of Golarion	SOURCESHORT:BOG	SOURCEWEB:http://paizo.com/products/btpy93na	SOURCEDATE:2014-02
 # ORIGINAL ENTRY: Andrew Wilson (nuance)
 # ORIGINAL ENTRY DATE: 12 February 2014
 # UPDATED ENTRY: Gwen T. (evilpixie87)
@@ -9,8 +10,8 @@ SOURCELONG:Bastards of Golarion	SOURCESHORT:BOG	SOURCEWEB:http://paizo.com/produ
 # Magic Items
 # ==============================
 
-# Equipment Name		Type					Cost		Source Page		Special Property
-Kin's Face Tattoo		TYPE:Magic.Wondrous		COST:1600	SOURCEPAGE:p.11
+# Equipment Name		Type						Cost		Source Page		Special Property
+Kin's Face Tattoo		TYPE:Magic.Wondrous.Tattoo Head	COST:1600	SOURCEPAGE:p.11
 
 
 
@@ -20,5 +21,5 @@ Kin's Face Tattoo		TYPE:Magic.Wondrous		COST:1600	SOURCEPAGE:p.11
 # Drugs
 # ==============================
 
-Drug (Felwil)		TYPE:Goods.Drug.Consumable	COST:20	SOURCEPAGE:p.21	SPROP:Inhaled; Addiction minor, Fortitude DC 13; Effect 1 hr; +1d2 to Charisma, -2 on saves against illusions; Effect 1 hour; 75%% chance to become sickened for 1d4 hours; 1d2 Wis damage
-Drug (Silvertongue)	TYPE:Goods.Drug.Consumable	COST:75	SOURCEPAGE:p.21	SPROP:Ingested; Addiction moderate, Fortitude DC 16; Effect 1 hr; +1d2 to Charisma; Effect 1d4 hours; +2 on saves against mind-affecting effects; 1d4 Con damage
+Drug (Felwil)		TYPE:Goods.Drug.Consumable		COST:20	SOURCEPAGE:p.21	SPROP:Inhaled; Addiction minor, Fortitude DC 13; Effect 1 hr; +1d2 to Charisma, -2 on saves against illusions; Effect 1 hour; 75%% chance to become sickened for 1d4 hours; 1d2 Wis damage
+Drug (Silvertongue)	TYPE:Goods.Drug.Consumable		COST:75	SOURCEPAGE:p.21	SPROP:Ingested; Addiction moderate, Fortitude DC 16; Effect 1 hr; +1d2 to Charisma; Effect 1d4 hours; +2 on saves against mind-affecting effects; 1d4 Con damage

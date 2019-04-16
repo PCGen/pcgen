@@ -1,5 +1,4 @@
 /*
- * TableEntry.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.npcgen;
 
@@ -25,24 +23,24 @@ import java.util.List;
 
 public class TableEntry
 {
-	private String theName;
-	private List<Object> theData = new ArrayList<>();
-	
-	public TableEntry( final String aName )
+	private final String theName;
+	private final List<Object> theData = new ArrayList<>();
+
+	public TableEntry(final String aName)
 	{
 		theName = aName;
 	}
 
-	public void addData( final Object anItem )
+	public void addData(final Object anItem)
 	{
-		theData.add( anItem );
+		theData.add(anItem);
 	}
-	
+
 	public List<Object> getData()
 	{
 		return Collections.unmodifiableList(theData);
 	}
-	
+
 	@Override
 	public String toString()
 	{

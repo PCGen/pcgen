@@ -1,0 +1,25 @@
+
+Name:       |NAME|
+Race:       |RACE|
+Player:     |PLAYERNAME| 
+
+------------------------ Description -----------------------
+Height: |HEIGHT||FOR.1,((18-STRLEN[HEIGHT])).INTVAL,18, ,NONE,NONE,1|Weight: |WEIGHT||FOR.1,((24-STRLEN[WEIGHT])).INTVAL,24, ,NONE,NONE,1|Gender: |GENDER.LONG|	
+Eyes:   |COLOR.EYE||FOR.1,((18-STRLEN[HEIGHT])).INTVAL,18, ,NONE,NONE,1|Hair: |COLOR.HAIR|,|LENGTH.HAIR||FOR.1,((24-STRLEN[COLOR.HAIR])-STRLEN[LENGTH.HAIR]).INTVAL,24, ,NONE,NONE,1|Skin: |COLOR.SKIN|
+Dominant Hand: |HANDED||FOR.1,((11-STRLEN[HEIGHT])).INTVAL,11, ,NONE,NONE,1|Quirks: |PERSONALITY1|, |PERSONALITY2|	
+Quotes: |CATCHPHRASE|
+
+Full Description
+|DESC|
+
+Background
+|BIO|
+
+Campaign Logs
+|FOR,%catcamp,0,COUNT("CAMPAIGNHISTORY","EXPORT=YES")-1,1,0|
+  |BR|=========================================================|BR|
+  Adventure #%catcamp: |CAMPAIGNHISTORY.VISIBLE.%catcamp.ADVENTURE|   Date: |CAMPAIGNHISTORY.VISIBLE.%catcamp.DATE|
+  Party Members: |CAMPAIGNHISTORY.VISIBLE.%catcamp.PARTY|
+  ---------------------------------------------------------
+  |CAMPAIGNHISTORY.VISIBLE.%catcamp.TEXT|
+|ENDFOR|

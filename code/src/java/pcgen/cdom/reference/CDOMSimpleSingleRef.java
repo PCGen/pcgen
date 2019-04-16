@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -20,6 +20,7 @@ package pcgen.cdom.reference;
 import java.util.Collection;
 import java.util.Collections;
 
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.enumeration.GroupingState;
 
 /**
@@ -35,11 +36,16 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 {
 
 	/**
+	 * The ClassIdentity that represents the objects contained in this CDOMSimpleSingleRef.
+	 */
+	private final ClassIdentity<T> identity;
+
+	/**
 	 * The object of the Class this CDOMSimpleSingleRef represents
 	 */
 	private T referencedObject = null;
 
- 	/**
+	/**
 	 * The specific choice (association) for the Ability this
 	 * CDOMSimpleSingleRef contains. May remain null if the given Ability does
 	 * not have a specific choice (or does not require a specific choice)
@@ -47,17 +53,18 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	private String choice = null;
 
 	/**
-	 * Constructs a new CDOMSimpleSingleRef for the given Class and name.
+	 * Constructs a new CDOMSimpleSingleRef for the given ClassIdentity and name.
 	 * 
-	 * @param objClass
-	 *            The Class of the underlying object contained by this
+	 * @param classIdentity
+	 *            The ClassIdentity of the underlying object contained by this
 	 *            CDOMSimpleSingleRef.
 	 * @param key
 	 *            An identifier of the object this CDOMSimpleSingleRef contains.
 	 */
-	public CDOMSimpleSingleRef(Class<T> objClass, String key)
+	public CDOMSimpleSingleRef(ClassIdentity<T> classIdentity, String key)
 	{
-		super(objClass, key);
+		super(key);
+		identity = classIdentity;
 	}
 
 	/**
@@ -80,9 +87,8 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	{
 		if (referencedObject == null)
 		{
-			throw new IllegalStateException("Cannot ask for contains: "
-					+ getReferenceClass().getName() + " Reference " + getName()
-					+ " has not been resolved");
+			throw new IllegalStateException("Cannot ask for contains: " + getReferenceClass().getName() + " Reference "
+				+ getName() + " has not been resolved");
 		}
 		return referencedObject.equals(item);
 	}
@@ -103,8 +109,7 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 		if (referencedObject == null)
 		{
 			throw new IllegalStateException(
-					"Cannot ask for resolution: Reference " + getName()
-							+ " has not been resolved");
+				"Cannot ask for resolution: Reference " + getName() + " has not been resolved");
 		}
 		return referencedObject;
 	}
@@ -118,7 +123,7 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	{
 		return referencedObject != null;
 	}
-	
+
 	/**
 	 * Returns a representation of this CDOMSimpleSingleRef, suitable for
 	 * storing in an LST file.
@@ -130,7 +135,6 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	 * 		   Use any LST format.  Ignored in this specific implementation.
 	 * @return A representation of this CDOMSimpleSingleRef, suitable for
 	 *         storing in an LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -138,32 +142,17 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 		return getName();
 	}
 
-	/**
-	 * Returns true if this CDOMSimpleSingleRef is equal to the given Object.
-	 * Equality is defined as being another CDOMSimpleSingleRef object with
-	 * equal Class represented by the reference and equal name of the underlying
-	 * reference. This is NOT a deep .equals, in that the actual contents of
-	 * this CDOMSimpleSingleRef are not tested.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
 		if (obj instanceof CDOMSimpleSingleRef)
 		{
 			CDOMSimpleSingleRef<?> ref = (CDOMSimpleSingleRef<?>) obj;
-			return getReferenceClass().equals(ref.getReferenceClass())
-					&& getName().equals(ref.getName());
+			return getReferenceClass().equals(ref.getReferenceClass()) && getName().equals(ref.getName());
 		}
 		return false;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this CDOMSimpleSingleRef
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -193,14 +182,12 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	{
 		if (referencedObject != null)
 		{
-			throw new IllegalStateException(
-					"Cannot resolve a Single Reference twice");
+			throw new IllegalStateException("Cannot resolve a Single Reference twice");
 		}
 		if (!item.getClass().equals(getReferenceClass()))
 		{
-			throw new IllegalArgumentException("Cannot resolve a "
-					+ getReferenceClass().getSimpleName() + " Reference to a "
-					+ item.getClass().getSimpleName());
+			throw new IllegalArgumentException("Cannot resolve a " + getReferenceClass().getSimpleName()
+				+ " Reference to a " + item.getClass().getSimpleName());
 		}
 		referencedObject = item;
 	}
@@ -231,9 +218,8 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	{
 		if (referencedObject == null)
 		{
-			throw new IllegalStateException("Cannot ask for contains: "
-					+ getReferenceClass().getName() + " Reference " + getName()
-					+ " has not been resolved");
+			throw new IllegalStateException("Cannot ask for contains: " + getReferenceClass().getName() + " Reference "
+				+ getName() + " has not been resolved");
 		}
 		return Collections.singleton(referencedObject);
 	}
@@ -252,14 +238,32 @@ public class CDOMSimpleSingleRef<T> extends CDOMSingleRef<T>
 	}
 
 	@Override
-	public void setChoice(String c)
+	public void setChoice(String choice)
 	{
-		choice = c;
+		this.choice = choice;
 	}
 
 	@Override
 	public String getChoice()
 	{
 		return choice;
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return identity.getReferenceClass();
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return identity.getReferenceDescription() + " " + getName();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return identity.getPersistentFormat();
 	}
 }

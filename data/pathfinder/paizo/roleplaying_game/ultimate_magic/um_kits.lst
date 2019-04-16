@@ -18,7 +18,7 @@ FUNDS:gp	QTY:140
 
 
 STARTPACK:Magus Spellbook	VISIBLE:NO	TOTALCOST:0
-GEAR:Magus Spellbook	LOCATION:Carried
+GEAR:Spellbook	LOCATION:Carried
 
 STARTPACK:Add Vow Placeholder	VISIBLE:NO	APPLY:PERMANENT
 ABILITY:CATEGORY=Vow|Vow Placeholder

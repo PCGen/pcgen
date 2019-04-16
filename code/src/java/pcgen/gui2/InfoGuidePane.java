@@ -1,5 +1,4 @@
 /*
- * InfoGuidePane.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Nov 7, 2011, 6:32:32 PM
  */
 package pcgen.gui2;
 
@@ -25,6 +23,7 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.util.Objects;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -36,7 +35,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.plaf.UIResource;
 
 import pcgen.cdom.base.Constants;
-import pcgen.facade.core.CampaignFacade;
+import pcgen.core.Campaign;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.util.event.ReferenceEvent;
@@ -49,22 +48,25 @@ import pcgen.system.LanguageBundle;
 /**
  * This class provides a guide for first time 
  * users on what to do next and what sources are loaded.
- * <br>
  * Note: this class extends UIResource so that the component can be added
  * as a child of a JTabbedPane without it becoming a tab
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class InfoGuidePane extends JComponent implements UIResource
+class InfoGuidePane extends JComponent implements UIResource
 {
 
+	/**
+	 * The context indicating what items are currently loaded/being processed in the UI
+	 */
+	private final UIContext uiContext;
 	private final PCGenFrame frame;
 	private final JEditorPane gameModeLabel;
 	private final JEditorPane campaignList;
 	private final JEditorPane tipPane;
 	private JPanel mainPanel;
 
-	public InfoGuidePane(PCGenFrame frame)
+	InfoGuidePane(PCGenFrame frame, UIContext uiContext)
 	{
+		this.uiContext = Objects.requireNonNull(uiContext);
 		this.frame = frame;
 		this.gameModeLabel = createHtmlPane();
 		this.campaignList = createHtmlPane();
@@ -73,7 +75,7 @@ public class InfoGuidePane extends JComponent implements UIResource
 		initComponents();
 		initListeners();
 	}
-	
+
 	private static JEditorPane createHtmlPane()
 	{
 		JEditorPane htmlPane = new JEditorPane();
@@ -87,12 +89,9 @@ public class InfoGuidePane extends JComponent implements UIResource
 	private void initComponents()
 	{
 		mainPanel = new JPanel();
-		mainPanel.setBorder(BorderFactory.createTitledBorder(null,
-			 "",
-			 TitledBorder.CENTER,
-			 TitledBorder.DEFAULT_POSITION,
-			 null));
-		
+		mainPanel.setBorder(
+			BorderFactory.createTitledBorder(null, "", TitledBorder.CENTER, TitledBorder.DEFAULT_POSITION, null));
+
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 		mainPanel.setPreferredSize(new Dimension(650, 450));
 		setOpaque(false);
@@ -110,24 +109,21 @@ public class InfoGuidePane extends JComponent implements UIResource
 		sourcesPanel.add(new JLabel(LanguageBundle.getString("in_si_sources")), gbc1);
 		sourcesPanel.add(campaignList, gbc2);
 
-
 		JEditorPane guidePane = createHtmlPane();
-		guidePane.setText(LanguageBundle.getFormattedString("in_si_whatnext",
-															Icons.New16.getImageIcon(),
-															Icons.Open16.getImageIcon()));
+		guidePane.setText(LanguageBundle.getFormattedString("in_si_whatnext", Icons.New16.getImageIcon(),
+			Icons.Open16.getImageIcon()));
 
 		mainPanel.add(sourcesPanel);
 		mainPanel.add(guidePane);
 		mainPanel.add(tipPane);
 		refreshDisplayedSources(null);
 
-        JPanel outerPanel = new JPanel(new FlowLayout());
-        outerPanel.add(mainPanel);
+		JPanel outerPanel = new JPanel(new FlowLayout());
+		outerPanel.add(mainPanel);
 		setLayout(new BorderLayout());
 		add(outerPanel, BorderLayout.CENTER);
 
-		tipPane.setText(LanguageBundle.getFormattedString("in_si_tip",
-			TipOfTheDayHandler.getInstance().getNextTip()));
+		tipPane.setText(LanguageBundle.getFormattedString("in_si_tip", TipOfTheDayHandler.getInstance().getNextTip()));
 	}
 
 	private void initListeners()
@@ -141,24 +137,24 @@ public class InfoGuidePane extends JComponent implements UIResource
 				boolean show = e.getNewReference() == null;
 				if (show)
 				{
-					tipPane.setText(LanguageBundle.getFormattedString("in_si_tip",
-						TipOfTheDayHandler.getInstance().getNextTip()));
+					tipPane.setText(
+						LanguageBundle.getFormattedString("in_si_tip", TipOfTheDayHandler.getInstance().getNextTip()));
 				}
 				setVisible(show);
 			}
 
 		});
-		frame.getCurrentSourceSelectionRef().addReferenceListener(
-				new ReferenceListener<SourceSelectionFacade>()
+		uiContext.getCurrentSourceSelectionRef()
+			.addReferenceListener(new ReferenceListener<SourceSelectionFacade>()
+			{
+
+				@Override
+				public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
 				{
+					refreshDisplayedSources(e.getNewReference());
+				}
 
-					@Override
-					public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
-					{
-						refreshDisplayedSources(e.getNewReference());
-					}
-
-				});
+			});
 	}
 
 	private void refreshDisplayedSources(SourceSelectionFacade sources)
@@ -178,9 +174,9 @@ public class InfoGuidePane extends JComponent implements UIResource
 		else
 		{
 			HtmlInfoBuilder builder = new HtmlInfoBuilder();
-			for (CampaignFacade campaign : sources.getCampaigns())
+			for (Campaign campaign : sources.getCampaigns())
 			{
-				builder.append(campaign.getName()).appendLineBreak();
+				builder.append(campaign.getKeyName()).appendLineBreak();
 			}
 			campaignList.setText(builder.toString());
 		}

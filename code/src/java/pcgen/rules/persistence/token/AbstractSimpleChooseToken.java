@@ -42,9 +42,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.ChoiceSetLoadUtilities;
 
-public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
-		AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, Chooser<T>
+public abstract class AbstractSimpleChooseToken<T extends Loadable> extends AbstractTokenWithSeparator<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>, Chooser<T>
 {
 	@Override
 	public String getParentToken()
@@ -59,8 +58,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
@@ -81,10 +79,10 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 					title = title.substring(1, title.length() - 1);
 				}
 				activeValue = value.substring(0, pipeLoc);
-				if (title == null || title.length() == 0)
+				if (title == null || title.isEmpty())
 				{
-					return new ParseResult.Fail(getParentToken() + ":"
-						+ getTokenName() + " had TITLE= but no title: " + value, context);
+					return new ParseResult.Fail(
+						getParentToken() + ':' + getTokenName() + " had TITLE= but no title: " + value);
 				}
 			}
 			else
@@ -93,8 +91,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 				title = getDefaultTitle();
 			}
 		}
-		CDOMGroupRef<T> allReference =
-				context.getReferenceContext().getCDOMAllReference(getChooseClass());
+		CDOMGroupRef<T> allReference = context.getReferenceContext().getCDOMAllReference(getChooseClass());
 		PrimitiveCollection<T> prim;
 		if (Constants.LST_ALL.equals(activeValue))
 		{
@@ -102,34 +99,30 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		}
 		else
 		{
-			if (hasIllegalSeparator('|', activeValue))
+			ParseResult pr = checkForIllegalSeparator('|', activeValue);
+			if (!pr.passed())
 			{
-				return ParseResult.INTERNAL_ERROR;
+				return pr;
 			}
-			Set<PrimitiveCollection<T>> set =
-                    new HashSet<>();
+			Set<PrimitiveCollection<T>> set = new HashSet<>();
 			StringTokenizer st = new StringTokenizer(activeValue, "|");
 			while (st.hasMoreTokens())
 			{
 				String tok = st.nextToken();
 				PrimitiveCollection<T> ref =
-						ChoiceSetLoadUtilities.getSimplePrimitive(context,
-							getManufacturer(context), tok);
+						ChoiceSetLoadUtilities.getSimplePrimitive(context, getManufacturer(context), tok);
 				if (ref == null)
 				{
-					return new ParseResult.Fail(
-						"Error: Count not get Reference for " + tok + " in "
-							+ getTokenName(), context);
+					return new ParseResult.Fail("Error: Count not get Reference for " + tok + " in " + getTokenName());
 				}
 				if (!set.add(ref))
 				{
-					return new ParseResult.Fail("Error, Found item: " + ref
-						+ " twice while parsing " + getTokenName(), context);
+					return new ParseResult.Fail("Error, Found item: " + ref + " twice while parsing " + getTokenName());
 				}
 			}
 			if (set.isEmpty())
 			{
-				return new ParseResult.Fail("No items in set.", context);
+				return new ParseResult.Fail("No items in set.");
 			}
 			prim = new CompoundOrPrimitive<>(set);
 		}
@@ -137,13 +130,12 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		if (!prim.getGroupingState().isValid())
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage("Invalid combination of objects was used in: "
-				+ activeValue);
+			cpr.addErrorMessage("Invalid combination of objects was used in: " + activeValue);
 			cpr.addErrorMessage("  Check that ALL is not combined with another item");
 			return cpr;
 		}
 		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<>(prim);
-		BasicChooseInformation<T> tc = new BasicChooseInformation<>(getTokenName(), pcs);
+		BasicChooseInformation<T> tc = new BasicChooseInformation<>(getTokenName(), pcs, getPersistentFormat());
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -164,9 +156,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		ChooseInformation<?> tc =
-				context.getObjectContext()
-					.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> tc = context.getObjectContext().getObject(cdo, ObjectKey.CHOOSE_INFO);
 		if (tc == null)
 		{
 			return null;
@@ -184,8 +174,8 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		}
 		if (!tc.getGroupingState().isValid())
 		{
-			context.addWriteMessage("Invalid combination of objects"
-				+ " was used in: " + getParentToken() + ":" + getTokenName());
+			context.addWriteMessage(
+				"Invalid combination of objects" + " was used in: " + getParentToken() + ':' + getTokenName());
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
@@ -205,8 +195,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		restoreChoice(pc, owner, st);
 	}
 
-	private void applyChoice(ChooseDriver owner, T st, PlayerCharacter pc,
-		ChooseSelectionActor<T> ca)
+	private void applyChoice(ChooseDriver owner, T st, PlayerCharacter pc, ChooseSelectionActor<T> ca)
 	{
 		ca.applyChoice(owner, st, pc);
 	}
@@ -259,8 +248,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	@Override
 	public T decodeChoice(LoadContext context, String s)
 	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(
-			getChooseClass(), s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(getChooseClass(), s);
 	}
 
 	@Override
@@ -270,6 +258,11 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	}
 
 	protected abstract Class<T> getChooseClass();
+
+	public final String getPersistentFormat()
+	{
+		return getChooseClass().getSimpleName().toUpperCase();
+	}
 
 	protected abstract String getDefaultTitle();
 

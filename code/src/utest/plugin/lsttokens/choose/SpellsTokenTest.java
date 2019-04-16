@@ -20,8 +20,6 @@ package plugin.lsttokens.choose;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.identifier.SpellSchool;
@@ -48,13 +46,11 @@ import plugin.primitive.spell.SpellBookToken;
 import plugin.primitive.spell.SpellTypeToken;
 import plugin.primitive.spell.SubSchoolToken;
 
+import org.junit.jupiter.api.BeforeEach;
+
 /**
- * The Class <code>SpellsTokenTest</code> verifies the parsing and 
+ * The Class {@code SpellsTokenTest} verifies the parsing and
  * unparsing of the CHOOSE:SPELLS subtoken.
- *
- * <br/>
- * 
- * @author Tom Parker
  */
 public class SpellsTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, Spell>
@@ -62,8 +58,9 @@ public class SpellsTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static SpellsToken subtoken = new SpellsToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -102,12 +99,6 @@ public class SpellsTokenTest extends
 	public Class<Spell> getTargetClass()
 	{
 		return Spell.class;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

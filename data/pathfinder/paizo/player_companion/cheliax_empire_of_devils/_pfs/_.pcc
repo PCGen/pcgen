@@ -8,13 +8,15 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
-SOURCELONG:Cheliax, Empire of Devils
+SOURCELONG:Pathfinder Companion: Cheliax, Empire of Devils
 SOURCESHORT:CEOD
-SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy89ca
+SOURCEWEB:http://paizo.com/products/btpy89ca
 SOURCEDATE:2009-08
 ISOGL:YES
 
@@ -22,7 +24,7 @@ ISOGL:YES
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy89ca|Buy this publication from Paizo Publishing!
+URL:Paizo Publishing|http://paizo.com/products/btpy89ca|Buy this publication from Paizo Publishing!
 DESC:Seventy years ago, the Thrice-Damned House of Thrune defeated its rivals in a bloody civil war following the death of the god of humanity, bringing order to the war-torn nation of Cheliax-but at a price.Now the imperial bureaucracy enforces devil-worship as the state religion, and the common people bow their heads in perpetual servitude to the dark lord of Hell. Fortunately, Cheliax still has heroes: crusaders and revolutionaries motivated by glory, honor, greed for the throne, or hatred of what their land has become under the infernal thumb of Asmodeus.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.

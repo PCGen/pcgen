@@ -17,12 +17,13 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.analysis.UnencumberedArmorFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -30,6 +31,9 @@ import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.util.enumeration.Load;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 public class UnencumberedArmorFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Load>
@@ -39,6 +43,7 @@ public class UnencumberedArmorFacetTest extends
 	private Load[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -118,22 +123,22 @@ public class UnencumberedArmorFacetTest extends
 	@Test
 	public void testIgnoreLoad()
 	{
-		assertEquals(true, facet.ignoreLoad(id, Load.LIGHT));
-		assertEquals(false, facet.ignoreLoad(id, Load.MEDIUM));
+		assertTrue(facet.ignoreLoad(id, Load.LIGHT));
+		assertFalse(facet.ignoreLoad(id, Load.MEDIUM));
 		Object source1 = new Object();
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
                 new DataFacetChangeEvent<>(id, source[1], source1,
                         DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
-		assertEquals(true, facet.ignoreLoad(id, Load.LIGHT));
-		assertEquals(true, facet.ignoreLoad(id, Load.MEDIUM));
-		assertEquals(false, facet.ignoreLoad(id, Load.HEAVY));
+		assertTrue(facet.ignoreLoad(id, Load.LIGHT));
+		assertTrue(facet.ignoreLoad(id, Load.MEDIUM));
+		assertFalse(facet.ignoreLoad(id, Load.HEAVY));
 		dfce =
                 new DataFacetChangeEvent<>(id, source[0], source1,
                         DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
-		assertEquals(true, facet.ignoreLoad(id, Load.LIGHT));
-		assertEquals(true, facet.ignoreLoad(id, Load.MEDIUM));
-		assertEquals(true, facet.ignoreLoad(id, Load.HEAVY));
+		assertTrue(facet.ignoreLoad(id, Load.LIGHT));
+		assertTrue(facet.ignoreLoad(id, Load.MEDIUM));
+		assertTrue(facet.ignoreLoad(id, Load.HEAVY));
 	}
 }

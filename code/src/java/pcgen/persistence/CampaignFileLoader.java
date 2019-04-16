@@ -1,5 +1,4 @@
 /*
- * CampaignFileLoader.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 15, 2010, 4:00:56 PM
  */
 package pcgen.persistence;
 
@@ -35,18 +33,15 @@ import pcgen.system.PCGenSettings;
 import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
-/**
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class CampaignFileLoader extends PCGenTask
 {
 	private File alternateSourceFolder = null;
 
-    /**
-     * A list of URIs for PCC files to load. Populated by {@link #findPCCFiles(java.io.File) findPCCFiles}.
-     */
+	/**
+	 * A list of URIs for PCC files to load. Populated by {@link #findPCCFiles(java.io.File) findPCCFiles}.
+	 */
 	private final LinkedList<URI> campaignFiles = new LinkedList<>();
 
 	@Override
@@ -82,14 +77,15 @@ public class CampaignFileLoader extends PCGenTask
 		CampaignFileLoader.initCampaigns();
 	}
 
-    /**
-     * Recursively looks inside a given directory for PCC files and adds them to the {@link #campaignFiles campaignFiles} list.
-     * @param aDirectory The directory to search.
-     */
+	/**
+	 * Recursively looks inside a given directory for PCC files
+	 * and adds them to the {@link #campaignFiles campaignFiles} list.
+	 * @param aDirectory The directory to search.
+	 */
 	private void findPCCFiles(final File aDirectory)
 	{
-		final FilenameFilter pccFileFilter = (parentDir, fileName) ->
-				StringUtils.endsWithIgnoreCase(fileName, ".pcc") || new File(parentDir, fileName).isDirectory();
+		final FilenameFilter pccFileFilter = (parentDir, fileName) -> StringUtils.endsWithIgnoreCase(fileName, ".pcc")
+			|| new File(parentDir, fileName).isDirectory();
 
 		if (!aDirectory.exists() || !aDirectory.isDirectory())
 		{
@@ -106,24 +102,26 @@ public class CampaignFileLoader extends PCGenTask
 		}
 	}
 
-    /**
-     * Passes the campaign PCC files referenced by {@link #campaignFiles campaignFiles} to a {@link pcgen.persistence.lst.CampaignLoader CampaignLoader},
-     * which will load the data within into the {@link pcgen.rules.context.LoadContext LoadContext} of the {@link pcgen.core.Campaign Campaign}.
-     */
+	/**
+	 * Passes the campaign PCC files referenced by
+	 * {@link #campaignFiles campaignFiles} to a {@link pcgen.persistence.lst.CampaignLoader CampaignLoader},
+	 * which will load the data within into the {@link pcgen.rules.context.LoadContext LoadContext}
+	 * of the {@link pcgen.core.Campaign Campaign}.
+	 */
 	private void loadCampaigns()
 	{
 		int progress = 0;
-        CampaignLoader campaignLoader = new CampaignLoader();
+		CampaignLoader campaignLoader = new CampaignLoader();
 		while (!campaignFiles.isEmpty())
 		{
-            // Pull the first URI from the list
+			// Pull the first URI from the list
 			URI uri = campaignFiles.poll();
-            // Do not load campaign if already loaded
+			// Do not load campaign if already loaded
 			if (Globals.getCampaignByURI(uri, false) == null)
 			{
 				try
 				{
-                    // Pass this URI to campaign loader
+					// Pass this URI to campaign loader
 					campaignLoader.loadCampaignLstFile(uri);
 				}
 				catch (PersistenceLayerException ex)
@@ -138,18 +136,17 @@ public class CampaignFileLoader extends PCGenTask
 		}
 	}
 
-    /**
-     * Goes through the campaigns in {@link #campaignFiles campaignFiles} and loads
-     * data associated with dependent campaigns.
-     */
+	/**
+	 * Goes through the campaigns in {@link #campaignFiles campaignFiles} and loads
+	 * data associated with dependent campaigns.
+	 */
 	private static void initCampaigns()
 	{
 		// This may modify the globals list; need a local copy so
 		// the iteration doesn't fail.
-		Iterable<Campaign> initialCampaigns =
-				new ArrayList<>(Globals.getCampaignList());
+		Iterable<Campaign> initialCampaigns = new ArrayList<>(Globals.getCampaignList());
 
-        CampaignLoader campaignLoader = new CampaignLoader();
+		CampaignLoader campaignLoader = new CampaignLoader();
 		for (final Campaign c : initialCampaigns)
 		{
 			campaignLoader.initRecursivePccFiles(c);

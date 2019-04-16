@@ -1,5 +1,4 @@
 /*
- * PreClassLevelMaxParser.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package plugin.pretokens.parser;
 
@@ -34,16 +26,14 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre class level max tokens.
- *
  */
-public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser
-		implements PrerequisiteParserInterface
+public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"CLASSLEVELMAX"};
@@ -62,20 +52,18 @@ public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
-	// ClassLevelMax is basically the inverse of class
-	//
-	// PRECLASSLEVELMAX:Barbarian=1			!PRECLASS:Barbarian=2
-	// !PRECLASSLEVELMAX:Barbarian=1		PRECLASS:Barbarian=2
-	// PRECLASSLEVELMAX:Fighter=1,SPELLCASTER=2	PREMULT:2,[!PRECLASS:Fighter=2],[!PRECLASS:SPELLCASTER=3]
-	// PRECLASSLEVELMAX:Fighter,SPELLCASTER=2	PREMULT:2,[!PRECLASS:Fighter=3],[!PRECLASS:SPELLCASTER=3]
-	//
+		// ClassLevelMax is basically the inverse of class
+		//
+		// PRECLASSLEVELMAX:Barbarian=1			!PRECLASS:Barbarian=2
+		// !PRECLASSLEVELMAX:Barbarian=1		PRECLASS:Barbarian=2
+		// PRECLASSLEVELMAX:Fighter=1,SPELLCASTER=2	PREMULT:2,[!PRECLASS:Fighter=2],[!PRECLASS:SPELLCASTER=3]
+		// PRECLASSLEVELMAX:Fighter,SPELLCASTER=2	PREMULT:2,[!PRECLASS:Fighter=3],[!PRECLASS:SPELLCASTER=3]
+		//
 
 		changeFromLevelMax(prereq);
 		if (invertResult)
@@ -132,7 +120,7 @@ public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser
 			}
 			catch (NumberFormatException nfe)
 			{
-				oper = "(" + oper + ")+1";
+				oper = '(' + oper + ")+1";
 			}
 			p.setOperand(oper);
 			p.setOperator(PrerequisiteOperator.LT);

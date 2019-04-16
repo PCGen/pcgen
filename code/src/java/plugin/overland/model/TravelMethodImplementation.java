@@ -33,8 +33,6 @@ import plugin.overland.util.Localized;
 
 /**
  * Stores travel methods and provides model for use in a GUI. Implementation. Visible only in same package.
- *
- * @author Vincent Lhote
  */
 class TravelMethodImplementation implements TravelMethod
 {
@@ -45,17 +43,17 @@ class TravelMethodImplementation implements TravelMethod
 	// ### Fields ###
 
 	/** Name of this method */
-	private Localized name;
-	private Map<String, Map<String, Combo>> multByRoadByTerrains;
-	private List<Method> methods;
-	private Map<String, Map<Localized, String>> terrainsId;
-	private Map<String, Map<Localized, String>> routesId;
+	private final Localized name;
+	private final Map<String, Map<String, Combo>> multByRoadByTerrains;
+	private final List<Method> methods;
+	private final Map<String, Map<Localized, String>> terrainsId;
+	private final Map<String, Map<Localized, String>> routesId;
 
-	private MethodModel methodModel = new MethodModel();
-	private ListByWayModel routesModel;
-	private ListByWayModel terrainsModel;
-	private PaceModel paceModel = new PaceModel();
-	private ChoiceModel choiceModel = new ChoiceModel();
+	private final MethodModel methodModel = new MethodModel();
+	private final ListByWayModel routesModel;
+	private final ListByWayModel terrainsModel;
+	private final PaceModel paceModel = new PaceModel();
+	private final ChoiceModel choiceModel = new ChoiceModel();
 
 	private Method selectedMethod;
 
@@ -140,10 +138,14 @@ class TravelMethodImplementation implements TravelMethod
 		}
 		String tId = map.get(terrainsModel.getSelectedItem());
 		if (!multByRoadByTerrains.containsKey(tId))
+		{
 			return null;
+		}
 		String rId = routesId.get(selectedMethod.getWay()).get(routesModel.getSelectedItem());
 		if (!multByRoadByTerrains.get(tId).containsKey(rId))
+		{
 			return null;
+		}
 		return multByRoadByTerrains.get(tId).get(rId);
 	}
 
@@ -152,16 +154,20 @@ class TravelMethodImplementation implements TravelMethod
 		Combo c = getSelectedCombo();
 		Number n2 = c.getMult();
 		if (n2 == null)
+		{
 			return null;
+		}
 		StringBuilder n = new StringBuilder();
 		n.append(LanguageBundle.getPrettyMultiplier(n2.doubleValue()));
 		if (c.getAddMph().doubleValue() != 0)
 		{
-			n.append("\n").append(MessageFormat.format(LanguageBundle.getString("in_plusMph"), c.getAddMph())); //$NON-NLS-1$ //$NON-NLS-2$
+			n.append('\n').append(MessageFormat.format(LanguageBundle.getString("in_plusMph"),
+				c.getAddMph())); //$NON-NLS-1$ 
 		}
 		if (c.getAddMph().doubleValue() != 0)
 		{
-			n.append("\n").append(MessageFormat.format(LanguageBundle.getString("in_plusKmh"), c.getAddKmh())); //$NON-NLS-1$ //$NON-NLS-2$
+			n.append('\n').append(MessageFormat.format(LanguageBundle.getString("in_plusKmh"),
+				c.getAddKmh())); //$NON-NLS-1$ 
 		}
 		return n.toString();
 	}
@@ -186,9 +192,8 @@ class TravelMethodImplementation implements TravelMethod
 			Pace selectedPace = paceModel.getSelected();
 			if (selectedPace != null)
 			{
-				String unit =
-						selectedPace.isUseDays()
-							? LanguageBundle.getString("in_mpd") : LanguageBundle.getString("in_mph"); //$NON-NLS-1$ //$NON-NLS-2$
+				String unit = selectedPace.isUseDays() ? LanguageBundle.getString("in_mpd") //$NON-NLS-1$
+					: LanguageBundle.getString("in_mph"); //$NON-NLS-1$
 				return MessageFormat.format(unit, imperialSpeed);
 			}
 			return null;
@@ -215,9 +220,8 @@ class TravelMethodImplementation implements TravelMethod
 			Pace selectedPace = paceModel.getSelected();
 			if (selectedPace != null)
 			{
-				String unit =
-						selectedPace.isUseDays()
-							? LanguageBundle.getString("in_kmd") : LanguageBundle.getString("in_kmh"); //$NON-NLS-1$ //$NON-NLS-2$
+				String unit = selectedPace.isUseDays() ? LanguageBundle.getString("in_kmd") //$NON-NLS-1$
+					: LanguageBundle.getString("in_kmh"); //$NON-NLS-1$
 				return MessageFormat.format(unit, metricSpeed);
 			}
 		}
@@ -232,7 +236,9 @@ class TravelMethodImplementation implements TravelMethod
 		{
 			double speed = selectedPace.getMult().doubleValue() * selectedChoice.getKmh().doubleValue();
 			if (selectedPace.isUseDays())
+			{
 				speed *= selectedChoice.getHoursInDay().doubleValue();
+			}
 			return speed;
 		}
 		return null;
@@ -246,7 +252,9 @@ class TravelMethodImplementation implements TravelMethod
 		{
 			double speed = selectedPace.getMult().doubleValue() * selectedChoice.getMph().doubleValue();
 			if (selectedPace.isUseDays())
+			{
 				speed *= selectedChoice.getHoursInDay().doubleValue();
+			}
 			return speed;
 		}
 		return null;
@@ -282,7 +290,9 @@ class TravelMethodImplementation implements TravelMethod
 		if (selectedChoice != null && selectedPace != null)
 		{
 			if (selectedPace.isUseDays())
+			{
 				return selectedChoice.getHoursInDay().doubleValue();
+			}
 		}
 		return 1.0;
 	}
@@ -292,17 +302,26 @@ class TravelMethodImplementation implements TravelMethod
 		Pace selectedPace = paceModel.getSelected();
 
 		if (selectedPace == null)
+		{
 			return LanguageBundle.getString("in_unitUnknown"); //$NON-NLS-1$
+		}
 		else if (selectedPace.isUseDays())
+		{
 			return LanguageBundle.getString("in_unitDays"); //$NON-NLS-1$
-		else return LanguageBundle.getString("in_unitHours"); //$NON-NLS-1$
+		}
+		else
+		{
+			return LanguageBundle.getString("in_unitHours"); //$NON-NLS-1$
+		}
 	}
 
 	private String getSelectedComment()
 	{
 		Pace selectedPace = paceModel.getSelected();
 		if (selectedPace == null)
+		{
 			return ""; //$NON-NLS-1$
+		}
 		return selectedPace.comment.toString();
 	}
 
@@ -382,7 +401,9 @@ class TravelMethodImplementation implements TravelMethod
 		}
 		String n2 = getMultString();
 		if (n2 == null)
+		{
 			return;
+		}
 
 		Object[] listeners = listenerList.getListenerList();
 		TravelSpeedEvent e = null;
@@ -427,7 +448,9 @@ class TravelMethodImplementation implements TravelMethod
 				((TravelMethodListener) listeners[i + 1]).unmodifiedSpeedUpdated(e);
 				// the modified speed also has changed if the mult has a value
 				if (hasMult)
+				{
 					((TravelMethodListener) listeners[i + 1]).speedUpdated(e);
+				}
 			}
 		}
 	}
@@ -483,9 +506,9 @@ class TravelMethodImplementation implements TravelMethod
 
 	static class Method extends Named
 	{
-		private List<Pace> paces;
-		private List<Choice> choices;
-		private String way;
+		private final List<Pace> paces;
+		private final List<Choice> choices;
+		private final String way;
 
 		public Method(Localized name, String way)
 		{
@@ -538,7 +561,7 @@ class TravelMethodImplementation implements TravelMethod
 
 		private boolean useDays = false;
 		private Number mult = 1;
-		private Localized comment;
+		private final Localized comment;
 
 		/**
 		 * @return the useDays
@@ -567,9 +590,9 @@ class TravelMethodImplementation implements TravelMethod
 
 	static class Choice extends Named
 	{
-		private Number hoursInDay;
-		private Number kmh;
-		private Number mph;
+		private final Number hoursInDay;
+		private final Number kmh;
+		private final Number mph;
 
 		/**
 		 * @param name
@@ -616,7 +639,7 @@ class TravelMethodImplementation implements TravelMethod
 	 */
 	static class Named
 	{
-		private Localized name;
+		private final Localized name;
 
 		public Named(Localized name)
 		{
@@ -717,7 +740,7 @@ class TravelMethodImplementation implements TravelMethod
 	{
 		private static final long serialVersionUID = -5596276376727073581L;
 
-		private Map<String, List<Localized>> listByWay;
+		private final Map<String, List<Localized>> listByWay;
 		private Localized selected;
 
 		public ListByWayModel(Map<String, List<Localized>> list)
@@ -728,7 +751,9 @@ class TravelMethodImplementation implements TravelMethod
 		private int getSize(Method m)
 		{
 			if (m == null || !listByWay.containsKey(m.getWay()))
+			{
 				return 0;
+			}
 			return listByWay.get(m.getWay()).size();
 		}
 
@@ -742,7 +767,9 @@ class TravelMethodImplementation implements TravelMethod
 		public Object getElementAt(int index)
 		{
 			if (selectedMethod == null || !listByWay.containsKey(selectedMethod.getWay()))
+			{
 				return null;
+			}
 			return listByWay.get(selectedMethod.getWay()).get(index);
 		}
 
@@ -774,7 +801,9 @@ class TravelMethodImplementation implements TravelMethod
 				String previousWay = previousMethod.getWay();
 				String selectedWay = selectedMethod.getWay();
 				if (previousWay.equals(selectedWay))
+				{
 					return;
+				}
 				// handle selection. keep same index if not too big, else selection becomes 0
 				List<Localized> previousList = listByWay.get(previousWay);
 				int previousIndex = previousList.indexOf(selected);
@@ -788,8 +817,13 @@ class TravelMethodImplementation implements TravelMethod
 				if (selectedMethod != null)
 				{
 					if (previousIndex < end && previousIndex >= 0)
+					{
 						selected = selectedList.get(previousIndex);
-					else selected = selectedList.get(0);
+					}
+					else
+					{
+						selected = selectedList.get(0);
+					}
 				}
 				// handle firing change event
 				int previousSize = getSize(previousMethod);
@@ -804,10 +838,14 @@ class TravelMethodImplementation implements TravelMethod
 				end = Math.min(end, previousSize);
 				// increment start for each identical element at the start of the paces lists
 				for (int i = 0; i < end && previousList.get(i).equals(selectedList.get(i)); i++, start++)
+				{
 					;
+				}
 				// decrement end for each identical element at the end of the paces lists
 				for (int i = end - 1; i > start && previousList.get(i).equals(selectedList.get(i)); i--, end--)
+				{
 					;
+				}
 				if (start != end)
 				{
 					fireContentsChanged(source, start, end - 1);
@@ -843,7 +881,9 @@ class TravelMethodImplementation implements TravelMethod
 		public int getSize()
 		{
 			if (selectedMethod == null)
+			{
 				return 0;
+			}
 			return getList(selectedMethod).size();
 		}
 
@@ -853,7 +893,9 @@ class TravelMethodImplementation implements TravelMethod
 		public Object getElementAt(int index)
 		{
 			if (selectedMethod == null || index < 0 || getList(selectedMethod).size() <= index)
+			{
 				return null;
+			}
 			return getList(selectedMethod).get(index);
 		}
 
@@ -877,7 +919,8 @@ class TravelMethodImplementation implements TravelMethod
 
 		/**
 		 * Method called when the selected method changes.
-		 * @param methodModel
+		 * @param source
+		 * @param previousMethod
 		 */
 		protected void fireMethodChanged(MethodModel source, Method previousMethod)
 		{
@@ -892,8 +935,13 @@ class TravelMethodImplementation implements TravelMethod
 				if (selectedMethod != null)
 				{
 					if (previousIndex < end && previousIndex >= 0)
+					{
 						selected = selectedList.get(previousIndex);
-					else selected = selectedList.get(0);
+					}
+					else
+					{
+						selected = selectedList.get(0);
+					}
 				}
 				// handle firing change event
 				int previousSize = previousList.size();
@@ -908,10 +956,14 @@ class TravelMethodImplementation implements TravelMethod
 				end = Math.min(end, previousSize);
 				// increment start for each identical element at the start of the paces lists
 				for (int i = 0; i < end && previousList.get(i).equals(selectedList.get(i)); i++, start++)
+				{
 					;
+				}
 				// decrement end for each identical element at the end of the paces lists
 				for (int i = end - 1; i > start && previousList.get(i).equals(selectedList.get(i)); i--, end--)
+				{
 					;
+				}
 				if (start != end)
 				{
 					fireContentsChanged(source, start, end - 1);

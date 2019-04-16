@@ -1,5 +1,4 @@
 /*
- * EqmWeapon.java
  * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 13, 2002, 9:19 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.bonustokens;
 
@@ -35,8 +29,7 @@ import pcgen.util.Logging;
 public final class EqmWeapon extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS =
-			{"CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGESIZE", "RANGEADD",
-				"RANGEMULT"};
+			{"CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGESIZE", "RANGEADD", "RANGEMULT"};
 
 	/**
 	 * Return the bonus tag handled by this class.
@@ -51,7 +44,6 @@ public final class EqmWeapon extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual weapon equipment attribute that may be bonused.
 	 * @param tagNumber the index of the equipment attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The equipment attribute.
 	 */
 	@Override
@@ -62,7 +54,6 @@ public final class EqmWeapon extends MultiTagBonusObj
 
 	/**
 	 * Get the number of weapon equipment attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of equipment attributes.
 	 */
 	@Override
@@ -78,16 +69,14 @@ public final class EqmWeapon extends MultiTagBonusObj
 		{
 			if ("CRITRANGEADD".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:EQMWEAPON|CRITRANGEADD is disabled when CRITRANGE control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:EQMWEAPON|CRITRANGEADD is disabled when CRITRANGE control is used: " + token,
+					context);
 				return false;
 			}
 			if ("CRITRANGEDOUBLE".equals(token))
 			{
 				Logging.errorPrint(
-					"BONUS:EQMWEAPON|CRITRANGEDOUBLE is disabled when CRITRANGE control is used: "
-						+ token, context);
+					"BONUS:EQMWEAPON|CRITRANGEDOUBLE is disabled when CRITRANGE control is used: " + token, context);
 				return false;
 			}
 		}
@@ -95,16 +84,14 @@ public final class EqmWeapon extends MultiTagBonusObj
 		{
 			if ("RANGEADD".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:EQMWEAPON|RANGEADD is disabled when EQRANGE control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:EQMWEAPON|RANGEADD is disabled when EQRANGE control is used: " + token,
+					context);
 				return false;
 			}
 			if ("RANGEMULT".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:EQMWEAPON|RANGEMULT is disabled when EQRANGE control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:EQMWEAPON|RANGEMULT is disabled when EQRANGE control is used: " + token,
+					context);
 				return false;
 			}
 		}

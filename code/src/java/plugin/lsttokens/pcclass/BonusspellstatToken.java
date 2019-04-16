@@ -30,8 +30,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with BONUSSPELLSTAT Token
  */
-public class BonusspellstatToken extends AbstractNonEmptyToken<PCClass>
-		implements CDOMPrimaryToken<PCClass>
+public class BonusspellstatToken extends AbstractNonEmptyToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
@@ -47,24 +46,19 @@ public class BonusspellstatToken extends AbstractNonEmptyToken<PCClass>
 	{
 		if (Constants.LST_NONE.equals(value))
 		{
-			context.getObjectContext().put(pcc, ObjectKey.HAS_BONUS_SPELL_STAT,
-					Boolean.FALSE);
+			context.getObjectContext().put(pcc, ObjectKey.HAS_BONUS_SPELL_STAT, Boolean.FALSE);
 			return ParseResult.SUCCESS;
 		}
-		context.getObjectContext().put(pcc, ObjectKey.HAS_BONUS_SPELL_STAT,
-				Boolean.TRUE);
+		context.getObjectContext().put(pcc, ObjectKey.HAS_BONUS_SPELL_STAT, Boolean.TRUE);
 		/*
 		 * TODO Does this consume DEFAULT in some way, so that it can set
 		 * HAS_BONUS_SPELL_STAT to true, but not trigger the creation of
 		 * BONUS_SPELL_STAT?
 		 */
-		CDOMSingleRef<PCStat> pcs =
-				context.getReferenceContext().getCDOMReference(PCSTAT_CLASS,
-					value);
+		CDOMSingleRef<PCStat> pcs = context.getReferenceContext().getCDOMReference(PCSTAT_CLASS, value);
 		if (pcs == null)
 		{
-			return new ParseResult.Fail("Invalid Stat Abbreviation in " + getTokenName()
-					+ ": " + value, context);
+			return new ParseResult.Fail("Invalid Stat Abbreviation in " + getTokenName() + ": " + value);
 		}
 		context.getObjectContext().put(pcc, ObjectKey.BONUS_SPELL_STAT, pcs);
 		return ParseResult.SUCCESS;
@@ -73,18 +67,14 @@ public class BonusspellstatToken extends AbstractNonEmptyToken<PCClass>
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		Boolean bss = context.getObjectContext().getObject(pcc,
-				ObjectKey.HAS_BONUS_SPELL_STAT);
-		CDOMSingleRef<PCStat> pcs =
-				context.getObjectContext().getObject(pcc,
-					ObjectKey.BONUS_SPELL_STAT);
+		Boolean bss = context.getObjectContext().getObject(pcc, ObjectKey.HAS_BONUS_SPELL_STAT);
+		CDOMSingleRef<PCStat> pcs = context.getObjectContext().getObject(pcc, ObjectKey.BONUS_SPELL_STAT);
 		if (bss == null)
 		{
 			if (pcs != null)
 			{
-				context.addWriteMessage(getTokenName()
-					+ " expected HAS_BONUS_SPELL_STAT to exist "
-					+ "if BONUS_SPELL_STAT was defined");
+				context.addWriteMessage(
+					getTokenName() + " expected HAS_BONUS_SPELL_STAT to exist " + "if BONUS_SPELL_STAT was defined");
 			}
 			return null;
 		}
@@ -92,16 +82,15 @@ public class BonusspellstatToken extends AbstractNonEmptyToken<PCClass>
 		{
 			if (pcs == null)
 			{
-				context.addWriteMessage(getTokenName()
-					+ " expected BONUS_SPELL_STAT to exist "
-					+ "since HAS_BONUS_SPELL_STAT was false");
+				context.addWriteMessage(
+					getTokenName() + " expected BONUS_SPELL_STAT to exist " + "since HAS_BONUS_SPELL_STAT was false");
 				return null;
 			}
 			return new String[]{pcs.getLSTformat(false)};
 		}
 		else
 		{
-			return new String[] { "NONE" };
+			return new String[]{"NONE"};
 		}
 	}
 

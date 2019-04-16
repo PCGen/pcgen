@@ -33,9 +33,9 @@ class ClassFacetInfoInequality implements
 		{
 			return location + "/Class counts not equal";
 		}
-		Class<ClassFacet.ClassInfo> cl = ClassFacet.ClassInfo.class;
 		try
 		{
+			Class<ClassFacet.ClassInfo> cl = ClassFacet.ClassInfo.class;
 			Field mapField = cl.getDeclaredField("map");
 			mapField.setAccessible(true);
 			Object m1 = mapField.get(t1);

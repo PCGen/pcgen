@@ -1,0 +1,38 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Pathfinder Society Season 8 Chronicle Sheets	SOURCESHORT:PFSCS8	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2016-08
+
+# Ability Category			Visible		Editable?		Category of Object		Type of Object		Display where?													Display Location
+ABILITYCATEGORY:Chronicle_S08-00	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-00	DISPLAYNAME:PFS Scenario #8-00: The Cosmic Captive							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-01	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-01	DISPLAYNAME:PFS Scenario #8-01: Portent's Peril								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-02	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-02	DISPLAYNAME:PFS Scenario #8-02: Ward Asunder								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-03	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-03	DISPLAYNAME:PFS Scenario #8-03: Captives of Toil							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-04	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-04	DISPLAYNAME:PFS Scenario #8-04: Wardens of Sulfer Gulch						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-05	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-05	DISPLAYNAME:PFS Scenario #8-05: Underground but Unbroken						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-06	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-06	DISPLAYNAME:PFS Scenario #8-06: Reaping What We Sow							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-07	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-07	DISPLAYNAME:PFS Scenario #8-07: From the Tome of Rightous Repose					DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-08	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-08	DISPLAYNAME:PFS Scenario #8-08: Tyranny of Winds, Part 1: The Sandstorm Prophecy		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-09	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-09	DISPLAYNAME:PFS Scenario #8-09: Forged in Flame, Part 1: The Cindersworn Pact			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-10	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-10	DISPLAYNAME:PFS Scenario #8-10: Tyranny of Winds, Part 2: Secrets of the Endless Sky	DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-11	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-11	DISPLAYNAME:PFS Scenario #8-11: Forged in Flame, Part 2: Cleansed With Fire			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-12	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-12	DISPLAYNAME:PFS Scenario #8-12: Tyranny of Winds, Part 3: Caught in the Eclipse		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-13	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-13	DISPLAYNAME:PFS Scenario #8-13: What Sleeps in Stone							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-14	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-14	DISPLAYNAME:PFS Scenario #8-14: To Seal the Shadow							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-15	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-15	DISPLAYNAME:PFS Scenario #8-15: Hrethnar's Throne							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-16	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-16	DISPLAYNAME:PFS Scenario #8-16: House of Harmonious Wisdom						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-17	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-17	DISPLAYNAME:PFS Scenario #8-17: Refugees of the Weary Sky						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-18	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-18	DISPLAYNAME:PFS Scenario #8-18: Champion's Chalice, Part 1: Blazing Dangerous Trails	DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-19	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-19	DISPLAYNAME:PFS Scenario #8-19: Treacherous Waves							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-20	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-20	DISPLAYNAME:PFS Scenario #8-20: Torrent's Last Will							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-21	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-21	DISPLAYNAME:PFS Scenario #8-21: Champion's Chalice, Part 2: Agents of the Eye			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-22	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-22	DISPLAYNAME:PFS Scenario #8-22: Wrath of the Fleshwarped Queen					DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-23	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-23	DISPLAYNAME:PFS Scenario #8-23: Graves of Crystalmaw Pass						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-24	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-24	DISPLAYNAME:PFS Scenario #8-24: Raid on the Cloudborne Keep						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-25	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-25	DISPLAYNAME:PFS Scenario #8-25: Unleashing the Untouchable						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-99A	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-99A	DISPLAYNAME:PFS Scenario #8-99A: The Solstice Scar, Version A					DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-99B	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-99B	DISPLAYNAME:PFS Scenario #8-99B: The Solstice Scar, Version B					DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S08-99C	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S08-99C	DISPLAYNAME:PFS Scenario #8-99C: The Solstice Scar, Version C					DISPLAYLOCATION:Chronicles
+
+#
+# DONE
+#

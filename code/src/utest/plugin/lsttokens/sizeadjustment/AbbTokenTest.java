@@ -17,9 +17,12 @@
  */
 package plugin.lsttokens.sizeadjustment;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.SizeAdjustment;
@@ -32,13 +35,17 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 {
 	static AbbToken token = new AbbToken();
 	static KeyLst keyToken = new KeyLst();
 
-	static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<SizeAdjustment>();
+	static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -65,14 +72,14 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("Niederösterreich"));
 		assertEquals("Niederösterreich", primaryProf.get(StringKey.ABB_KR));
@@ -87,13 +94,13 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 	}
 
 	@Test
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 		String[] unparsed;
 		assertTrue(parse("Start"));
 		assertTrue(parse("Mod"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "Mod", unparsed[0]);
+		assertEquals("Mod", unparsed[0]);
 	}
 
 	@Test
@@ -145,13 +152,13 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		expectSingle(setAndUnparse(getLegalValue()), getLegalValue());
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getStringKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -174,7 +181,7 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 		return getToken().unparse(primaryContext, primaryProf);
 	}
 
-	private StringKey getStringKey()
+	private static StringKey getStringKey()
 	{
 		return StringKey.ABB_KR;
 	}

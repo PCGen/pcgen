@@ -1,5 +1,4 @@
 /*
- * SkillToken.java
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Aug 5, 2004
  *
- * $Id$
  *
  */
 package pcgen.io.exporttoken;
@@ -27,8 +24,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
-
-import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
@@ -48,16 +43,17 @@ import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * {@code SkillToken} is the base class for the SKILL
  * family of tokens. It also handles the processing of the SKILL
  * token itself, which outputs select information about a
- * choosen skill. The format for this tag is SKILL.id.property
- * where id cna be either an index or a skill name and the
+ * Chosen skill. The format for this tag is SKILL.id.property
+ * where id can be either an index or a skill name and the
  * property is optional. eg SKILL.2.RANK or SKILL.BALANCE
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SkillToken extends Token
 {
@@ -81,29 +77,22 @@ public class SkillToken extends Token
 	public static final int SKILL_EXPLANATION = 13;
 	public static final int SKILL_TYPE = 14;
 	public static final int SKILL_COST = 15;
-	public static final int SKILL_SIZE= 16;
-	public static final int SKILL_CLASSES= 17;
+	public static final int SKILL_SIZE = 16;
+	public static final int SKILL_CLASSES = 17;
 
 	// Cache the skill list as it is expensive to build
 	private List<Skill> cachedSkillList = null;
 	private PlayerCharacter lastPC = null;
 	private int lastPCSerial;
-	
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
+
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		SkillDetails details = buildSkillDetails(tokenSource);
 
@@ -113,7 +102,7 @@ public class SkillToken extends Token
 	}
 
 	/**
-	 * Select the target skill based on the supplied critieria. Uses the
+	 * Select the target skill based on the supplied criteria. Uses the
 	 * id in the details object to either retrieve a skill by name or by
 	 * position in the skill list.
 	 *
@@ -122,8 +111,7 @@ public class SkillToken extends Token
 	 * @param eh The ExportHandler
 	 * @return The matching skill, or null if none match.
 	 */
-	private Skill getSkill(PlayerCharacter pc, SkillDetails details,
-		ExportHandler eh)
+	private Skill getSkill(PlayerCharacter pc, SkillDetails details, ExportHandler eh)
 	{
 		Skill skill = null;
 		try
@@ -136,20 +124,18 @@ public class SkillToken extends Token
 			{
 				filter = pc.getSkillFilter();
 			}
-			
+
 			Iterator<Skill> iter = pcSkills.iterator();
 			while (iter.hasNext())
 			{
 				Skill sk = iter.next();
-				if (!pc.includeSkill(sk, filter)
-						|| !sk.qualifies(pc, null))
+				if (!pc.includeSkill(sk, filter) || !sk.qualifies(pc, null))
 				{
 					iter.remove();
 				}
 			}
 
-			if ((i >= (pcSkills.size() - 1)) && eh != null
-				&& eh.getExistsOnly())
+			if ((i >= (pcSkills.size() - 1)) && eh != null && eh.getExistsOnly())
 			{
 				eh.setNoMoreItems(true);
 			}
@@ -162,8 +148,8 @@ public class SkillToken extends Token
 		catch (NumberFormatException exc)
 		{
 			//Allowing SKILL.Spot.<subtoken>
-			skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-					Skill.class, details.getSkillId());
+			skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class,
+				details.getSkillId());
 		}
 		return skill;
 	}
@@ -174,10 +160,9 @@ public class SkillToken extends Token
 		{
 			return cachedSkillList;
 		}
-		
+
 		final List<Skill> pcSkills =
-				SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay()
-					.getPartialSkillList(View.VISIBLE_EXPORT));
+				SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay().getPartialSkillList(View.VISIBLE_EXPORT));
 		cachedSkillList = pcSkills;
 		lastPC = pc;
 		lastPCSerial = pc.getSerial();
@@ -186,7 +171,7 @@ public class SkillToken extends Token
 
 	/**
 	 * Given the source of the token, split it up into its skill id and
-	 * properties. The token itself is ignopred as this has already been
+	 * properties. The token itself is ignored as this has already been
 	 * processed elsewhere. The expected format is token.skillid.property...
 	 *
 	 * @param tokenSource The source of the token.
@@ -243,8 +228,7 @@ public class SkillToken extends Token
 	 * @param pc The character to be reported.
 	 * @return The skill tag output value.
 	 */
-	protected String getSkillProperty(Skill aSkill, String property,
-		PlayerCharacter pc)
+	protected String getSkillProperty(Skill aSkill, String property, PlayerCharacter pc)
 	{
 		if (aSkill == null)
 		{
@@ -267,7 +251,7 @@ public class SkillToken extends Token
 
 		if ("NAME".equalsIgnoreCase(property))
 		{
-			propId= SKILL_NAME;
+			propId = SKILL_NAME;
 		}
 		else if ("TOTAL".equalsIgnoreCase(property))
 		{
@@ -275,67 +259,67 @@ public class SkillToken extends Token
 		}
 		else if ("RANK".equalsIgnoreCase(property))
 		{
-			propId= SKILL_RANK;
+			propId = SKILL_RANK;
 		}
 		else if ("MOD".equalsIgnoreCase(property))
 		{
-			propId= SKILL_MOD;
+			propId = SKILL_MOD;
 		}
 		else if ("ABILITY".equalsIgnoreCase(property))
 		{
-			propId= SKILL_ABILITY;
+			propId = SKILL_ABILITY;
 		}
 		else if ("ABMOD".equalsIgnoreCase(property))
 		{
-			propId= SKILL_ABMOD;
+			propId = SKILL_ABMOD;
 		}
 		else if ("MISC".equalsIgnoreCase(property))
 		{
-			propId= SKILL_MISC;
+			propId = SKILL_MISC;
 		}
 		else if ("COST".equalsIgnoreCase(property))
 		{
-			propId= SKILL_COST;
+			propId = SKILL_COST;
 		}
 		else if ("UNTRAINED".equalsIgnoreCase(property))
 		{
-			propId= SKILL_UNTRAINED;
+			propId = SKILL_UNTRAINED;
 		}
 		else if ("EXCLUSIVE".equalsIgnoreCase(property))
 		{
-			propId= SKILL_EXCLUSIVE;
+			propId = SKILL_EXCLUSIVE;
 		}
 		else if (property.regionMatches(true, 0, "UNTRAINED", 0, 9))
 		{
-			propId= SKILL_UNTRAINED_EXTENDED;
+			propId = SKILL_UNTRAINED_EXTENDED;
 		}
 		else if (property.regionMatches(true, 0, "ACP", 0, 3))
 		{
-			propId= SKILL_ACP;
+			propId = SKILL_ACP;
 		}
 		else if ("EXCLUSIVE_TOTAL".equalsIgnoreCase(property))
 		{
-			propId= SKILL_EXCLUSIVE_TOTAL;
+			propId = SKILL_EXCLUSIVE_TOTAL;
 		}
 		else if ("TRAINED_TOTAL".equalsIgnoreCase(property))
 		{
-			propId= SKILL_TRAINED_TOTAL;
+			propId = SKILL_TRAINED_TOTAL;
 		}
 		else if (property.regionMatches(true, 0, "EXPLAIN", 0, 7))
 		{
-			propId= SKILL_EXPLANATION;
+			propId = SKILL_EXPLANATION;
 		}
 		else if ("TYPE".equalsIgnoreCase(property))
 		{
-			propId= SKILL_TYPE;
+			propId = SKILL_TYPE;
 		}
 		else if ("SIZE".equalsIgnoreCase(property))
 		{
-			propId= SKILL_SIZE;
+			propId = SKILL_SIZE;
 		}
 		else if ("CLASSES".equalsIgnoreCase(property))
 		{
-			propId= SKILL_CLASSES;
+			propId = SKILL_CLASSES;
 		}
 		return propId;
 	}
@@ -352,13 +336,13 @@ public class SkillToken extends Token
 	 * @param pc The character to be reported upon.
 	 * @return The value of the property.
 	 */
-	private String getSkillPropValue(Skill aSkill, int property,
-		String propertyText, PlayerCharacter pc)
+	private String getSkillPropValue(Skill aSkill, int property, String propertyText, PlayerCharacter pc)
 	{
 		StringBuilder retValue = new StringBuilder();
 
-		if (((property == SKILL_ABMOD) || (property == SKILL_MISC))
-			&& false)//&& aSkill.get(ObjectKey.KEY_STAT) == null)
+		if (((property == SKILL_ABMOD)
+				|| (property == SKILL_MISC))
+				&& false) //&& aSkill.get(ObjectKey.KEY_STAT) == null)
 		{
 			retValue.append("n/a");
 		}
@@ -373,15 +357,13 @@ public class SkillToken extends Token
 				case SKILL_TOTAL:
 					if (SettingsHandler.getGame().hasSkillRankDisplayText())
 					{
-						retValue.append(SettingsHandler.getGame()
-							.getSkillRankDisplayText(
-								SkillRankControl.getTotalRank(pc, aSkill).intValue()
-									+ SkillModifier.modifier(aSkill, pc).intValue()));
+						retValue.append(SettingsHandler.getGame().getSkillRankDisplayText(
+							SkillRankControl.getTotalRank(pc, aSkill).intValue() + SkillModifier.modifier(aSkill, pc)));
 					}
 					else
 					{
-						retValue.append(Integer.toString(SkillRankControl.getTotalRank(pc, aSkill).intValue()
-							+ SkillModifier.modifier(aSkill, pc).intValue()));
+						retValue.append(Integer.toString(
+							SkillRankControl.getTotalRank(pc, aSkill).intValue() + SkillModifier.modifier(aSkill, pc)));
 					}
 					break;
 
@@ -389,17 +371,16 @@ public class SkillToken extends Token
 					if (SettingsHandler.getGame().hasSkillRankDisplayText())
 					{
 						retValue.append(SettingsHandler.getGame()
-							.getSkillRankDisplayText(
-								SkillRankControl.getTotalRank(pc, aSkill).intValue()));
+							.getSkillRankDisplayText(SkillRankControl.getTotalRank(pc, aSkill).intValue()));
 					}
 					else
 					{
-						retValue.append(SkillRankControl.getTotalRank(pc, aSkill).toString());
+						retValue.append(SkillRankControl.getTotalRank(pc, aSkill));
 					}
 					break;
 
 				case SKILL_MOD:
-					retValue.append(SkillModifier.modifier(aSkill, pc).toString());
+					retValue.append(SkillModifier.modifier(aSkill, pc));
 					break;
 
 				case SKILL_ABILITY:
@@ -411,9 +392,8 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_MISC:
-					retValue.append(Integer.toString(SkillModifier.modifier(aSkill, pc)
-						.intValue()
-						- SkillModifier.getStatMod(aSkill, pc)));
+					retValue.append(
+						Integer.toString(SkillModifier.modifier(aSkill, pc) - SkillModifier.getStatMod(aSkill, pc)));
 					break;
 
 				case SKILL_UNTRAINED:
@@ -443,40 +423,38 @@ public class SkillToken extends Token
 						else
 						{
 							SkillCost newCost = pc.getSkillCostForClass(aSkill, pcc);
-							if (SkillCost.CLASS.equals(newCost)
-								|| SkillCost.EXCLUSIVE.equals(cost))
+							if (SkillCost.CLASS == newCost || SkillCost.EXCLUSIVE == cost)
 							{
 								cost = newCost;
 							}
 						}
-						if (SkillCost.CLASS.equals(cost))
+						if (SkillCost.CLASS == cost)
 						{
 							break;
 						}
 					}
-					retValue.append(cost.toString());
+					retValue.append(cost);
 					break;
 
 				case SKILL_EXCLUSIVE_TOTAL:
-					retValue
-						.append(Integer
-							.toString(((aSkill.getSafe(ObjectKey.EXCLUSIVE) || !aSkill.getSafe(ObjectKey.USE_UNTRAINED)) && (SkillRankControl.getTotalRank(pc, aSkill)
-								.intValue() == 0)) ? 0
-								: (SkillRankControl.getTotalRank(pc, aSkill).intValue() + SkillModifier.modifier(aSkill, pc).intValue())));
+					retValue.append(Integer
+						.toString(((aSkill.getSafe(ObjectKey.EXCLUSIVE) || !aSkill.getSafe(ObjectKey.USE_UNTRAINED))
+							&& (SkillRankControl.getTotalRank(pc, aSkill).intValue() == 0)) ? 0
+								: (SkillRankControl.getTotalRank(pc, aSkill).intValue()
+									+ SkillModifier.modifier(aSkill, pc))));
 					break;
 
 				case SKILL_TRAINED_TOTAL:
-					retValue.append(Integer
-						.toString((!aSkill.getSafe(ObjectKey.USE_UNTRAINED) && (SkillRankControl.getTotalRank(pc, aSkill).intValue() == 0)) ? 0 : (SkillRankControl.getTotalRank(pc, aSkill).intValue() + SkillModifier.modifier(aSkill, pc)
-							.intValue())));
+					retValue.append(Integer.toString((!aSkill.getSafe(ObjectKey.USE_UNTRAINED)
+						&& (SkillRankControl.getTotalRank(pc, aSkill).intValue() == 0)) ? 0
+							: (SkillRankControl.getTotalRank(pc, aSkill).intValue()
+								+ SkillModifier.modifier(aSkill, pc))));
 					break;
 
 				case SKILL_EXPLANATION:
-					boolean shortFrom =
-							!("_LONG".equals(propertyText.substring(7)));
+					boolean shortFrom = !("_LONG".equals(propertyText.substring(7)));
 
-					String bonusDetails =
-							SkillCostDisplay.getModifierExplanation(aSkill, pc, shortFrom);
+					String bonusDetails = SkillCostDisplay.getModifierExplanation(aSkill, pc, shortFrom);
 					retValue.append(bonusDetails);
 					break;
 
@@ -484,9 +462,10 @@ public class SkillToken extends Token
 					String type = aSkill.getType();
 					retValue.append(type);
 					break;
-				
+
 				case SKILL_SIZE:
-					retValue.append(Integer.toString((int)(pc.getSizeAdjustmentBonusTo("SKILL", aSkill.getKeyName()))));
+					retValue
+						.append(Integer.toString((int) (pc.getSizeAdjustmentBonusTo("SKILL", aSkill.getKeyName()))));
 					break;
 
 				case SKILL_CLASSES:
@@ -500,12 +479,10 @@ public class SkillToken extends Token
 					}
 					retValue.append(StringUtils.join(classes, "."));
 					break;
-					
 
 				default:
-					Logging
-						.errorPrint("In ExportHandler._writeSkillProperty the propIdvalue "
-							+ property + " is not handled.");
+					Logging.errorPrint(
+						"In ExportHandler._writeSkillProperty the propIdvalue " + property + " is not handled.");
 
 					break;
 			}
@@ -575,13 +552,13 @@ public class SkillToken extends Token
 	 */
 	public static String getAcpOutput(Skill aSkill, String property)
 	{
-		final StringTokenizer aTok =
-				new StringTokenizer(property.substring(3), ",");
+		final StringTokenizer aTok = new StringTokenizer(property.substring(3), ",");
 		int numArgs = aTok.countTokens();
 		int acp = aSkill.getSafe(ObjectKey.ARMOR_CHECK).ordinal();
-		String acpText[] = new String[numArgs]; 
-				
-		for (int i = 0; aTok.hasMoreTokens(); i++) {
+		String[] acpText = new String[numArgs];
+
+		for (int i = 0; aTok.hasMoreTokens(); i++)
+		{
 			acpText[i] = aTok.nextToken();
 		}
 		return ((acp < numArgs) && (acp >= 0)) ? acpText[acp] : "";
@@ -592,15 +569,14 @@ public class SkillToken extends Token
 	 * {@code SkillDetails} holds the parsed details of a skill
 	 * token. Note that apart from updating the properties array contents,
 	 * instances of this class are immutable.
-	 *
 	 */
-	public final static class SkillDetails
+	public static final class SkillDetails
 	{
 		/** The id of the skill - normally an index or a skill name. */
 		private final String skillId;
 		/** The list of properties for the token. */
 		private final List<String> properties;
-		/** The skilll list filter */
+		/** The skill list filter */
 		private final SkillFilter filter;
 
 		/**
@@ -608,8 +584,9 @@ public class SkillToken extends Token
 		 * with the specified id and properties list.
 		 *
 		 * @param inSkillId The id of the skill - normally an index or skill name.
-		 * @param inProperties The loist of properties, can be types, prefixes
+		 * @param inProperties The list of properties, can be types, prefixes
 		 *         and properties to be displayed.
+		 * @param inFilter 
 		 */
 		SkillDetails(String inSkillId, List<String> inProperties, SkillFilter inFilter)
 		{
@@ -643,7 +620,7 @@ public class SkillToken extends Token
 		{
 			return skillId;
 		}
-		
+
 		/**
 		 * Get the skill filter
 		 * @return the skill filter

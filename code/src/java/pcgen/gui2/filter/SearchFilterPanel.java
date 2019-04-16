@@ -1,5 +1,4 @@
 /*
- * SearchFilterPanel.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 14, 2010, 2:08:09 PM
  */
 package pcgen.gui2.filter;
 
@@ -32,29 +30,29 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import org.apache.commons.lang.StringUtils;
-
-import pcgen.facade.core.CampaignFacade;
+import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.StringKey;
+import pcgen.core.Campaign;
 import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.tools.Icons;
 import pcgen.system.LanguageBundle;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * A text search filtering bar including the title, the text field and a clear 
  * button. When text is typed into the field the table contents will be 
  * filtered to only those matching the search text.
  *
- * <br>
  * 
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SearchFilterPanel extends JPanel
 		implements DisplayableFilter<Object, Object>, DocumentListener, ActionListener
 {
 
 	private FilterHandler filterHandler;
-	private JTextField searchField = new JTextField();
-	private JButton clearButton = new JButton(Icons.CloseX9.getImageIcon());
+	private final JTextField searchField = new JTextField();
+	private final JButton clearButton = new JButton(Icons.CloseX9.getImageIcon());
 
 	public SearchFilterPanel()
 	{
@@ -87,7 +85,7 @@ public class SearchFilterPanel extends JPanel
 	private void refreshFilter()
 	{
 		String text = searchField.getText();
-		filterHandler.setSearchEnabled(text != null && text.length() > 0);
+		filterHandler.setSearchEnabled(text != null && !text.isEmpty());
 		filterHandler.refilter();
 		filterHandler.scrollToTop();
 	}
@@ -101,10 +99,10 @@ public class SearchFilterPanel extends JPanel
 		{
 			typeStr = ((InfoFacade) element).getType();
 		}
-		else if (element instanceof CampaignFacade)
+		else if (element instanceof Campaign)
 		{
-			typeStr = ((CampaignFacade) element).getBookTypes();
-			abbStr = ((CampaignFacade) element).getSourceShort();
+			typeStr = ((Campaign) element).getListAsString(ListKey.BOOK_TYPE);
+			abbStr = ((Campaign) element).get(StringKey.SOURCE_SHORT);
 		}
 		final String searchText = searchField.getText();
 		return StringUtils.containsIgnoreCase(element.toString(), searchText)

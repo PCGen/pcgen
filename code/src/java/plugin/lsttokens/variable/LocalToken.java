@@ -17,20 +17,20 @@
  */
 package plugin.lsttokens.variable;
 
-import java.util.Set;
-
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DatasetVariable;
+import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.VariableContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
-		implements CDOMPrimaryToken<DatasetVariable>
+public class LocalToken extends AbstractNonEmptyToken<DatasetVariable> implements CDOMPrimaryToken<DatasetVariable>
 {
 
 	@Override
@@ -40,20 +40,17 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		DatasetVariable dv, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, DatasetVariable dv, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " expected 2 pipe delimited arguments, found no pipe: "
-				+ value);
+			return new ParseResult.Fail(
+				getTokenName() + " expected 2 pipe delimited arguments, found no pipe: " + value);
 		}
 		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " expected only 2 pipe delimited arguments, found: " + value);
+			return new ParseResult.Fail(getTokenName() + " expected only 2 pipe delimited arguments, found: " + value);
 		}
 		String fullscope = value.substring(0, pipeLoc);
 		String fvName = value.substring(pipeLoc + 1);
@@ -62,8 +59,7 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 		int equalLoc = fvName.indexOf('=');
 		if (equalLoc != fvName.lastIndexOf('='))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " expected only 2 equal delimited arguments, found: " + value);
+			return new ParseResult.Fail(getTokenName() + " expected only 2 equal delimited arguments, found: " + value);
 		}
 		if (equalLoc == -1)
 		{
@@ -78,62 +74,55 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 		}
 		if (dv.getDisplayName() != null)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " must be the first token on the line");
+			return new ParseResult.Fail(getTokenName() + " must be the first token on the line");
 		}
 
 		VariableContext varContext = context.getVariableContext();
 		FormatManager<?> formatManager;
 		try
 		{
-			formatManager =
-					context.getReferenceContext().getFormatManager(format);
+			formatManager = context.getReferenceContext().getFormatManager(format);
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " does not support format " + format + ", found in " + value
+			return new ParseResult.Fail(getTokenName() + " does not support format " + format + ", found in " + value
 				+ " due to " + e.getMessage());
 		}
-		LegalScope lvs = varContext.getScope(fullscope);
+		PCGenScope lvs = varContext.getScope(fullscope);
+		if (lvs == null)
+		{
+			return new ParseResult.Fail("Could not find scope: " + fullscope);
+		}
 
 		if (!DatasetVariable.isLegalName(varName))
 		{
-			return new ParseResult.Fail(varName
-				+ " is not a valid variable name");
+			return new ParseResult.Fail(varName + " is not a valid variable name");
 		}
-		boolean legal =
-				varContext.assertLegalVariableID(lvs, formatManager, varName);
-		if (!legal)
+		try
 		{
-			Set<LegalScope> known = varContext.getKnownLegalScopes(varName);
-			StringBuilder sb = new StringBuilder();
-			for (LegalScope v : known)
-			{
-				sb.append(v.getName());
-				sb.append(", ");
-			}
-			return new ParseResult.Fail(getTokenName()
-				+ " found a var defined in incompatible variable scopes: "
-				+ varName + " was requested in " + fullscope
-				+ " but was previously in " + sb.toString(), context);
+			varContext.assertLegalVariableID(varName, lvs, formatManager);
+		}
+		catch (LegalVariableException e)
+		{
+			return new ParseResult.Fail(
+				getTokenName() + " encountered an exception in varible definition : " + e.getMessage());
 		}
 		dv.setName(varName);
-		dv.setFormat(format);
-		dv.setScopeName(fullscope);
+		dv.setFormat(formatManager);
+		dv.setScope(lvs);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, DatasetVariable dv)
 	{
-		String scope = dv.getScopeName();
-		if (scope == null || scope.equals("Global Variables"))
+		PCGenScope scope = dv.getScope();
+		if (scope == null || scope.getName().equals(GlobalScope.GLOBAL_SCOPE_NAME))
 		{
 			//Global variable
 			return null;
 		}
-		String format = dv.getFormat();
+		FormatManager<?> format = dv.getFormat();
 		if (format == null)
 		{
 			//Not a valid object
@@ -146,11 +135,12 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		sb.append(scope);
+		sb.append(LegalScope.getFullName(scope));
 		sb.append(Constants.PIPE);
-		if (!format.equals("NUMBER"))
+		String identifier = format.getIdentifierType();
+		if (!"NUMBER".equals(identifier))
 		{
-			sb.append(format);
+			sb.append(format.getIdentifierType());
 			sb.append('=');
 		}
 		sb.append(varName);

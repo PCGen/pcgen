@@ -25,6 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.util.ListSet;
@@ -45,10 +46,8 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * 
  * null is NOT a valid source.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public abstract class AbstractSingleSourceListFacet<T, ST> extends
-		AbstractDataFacet<CharID, T>
+public abstract class AbstractSingleSourceListFacet<T, ST> extends AbstractDataFacet<CharID, T>
 {
 	/**
 	 * Add the given object with the given source to the list of objects stored
@@ -67,14 +66,8 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 */
 	public void add(CharID id, T obj, ST source)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
-		if (source == null)
-		{
-			throw new IllegalArgumentException("Source may not be null");
-		}
+		Objects.requireNonNull(obj, "Object to add may not be null");
+		Objects.requireNonNull(source, "Source may not be null");
 		Map<T, ST> map = getConstructingCachedMap(id);
 		Object oldsource = map.get(obj);
 		boolean fireNew = (oldsource == null);
@@ -331,6 +324,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 *         null if no information has been set in this
 	 *         AbstractSingleSourceListFacet for the Player Character.
 	 */
+	@SuppressWarnings("unchecked")
 	protected Map<T, ST> getCachedMap(CharID id)
 	{
 		return (Map<T, ST>) getCache(id);
@@ -442,8 +436,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 *            The source for the given object to be removed from the list of
 	 *            sources for that object
 	 */
-	private void processRemoval(CharID id, Map<T, ST> componentMap, T obj,
-			ST source)
+	private void processRemoval(CharID id, Map<T, ST> componentMap, T obj, ST source)
 	{
 		/*
 		 * TODO obj Null?
@@ -457,8 +450,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 			if (oldSource.equals(source))
 			{
 				componentMap.remove(obj);
-				fireDataFacetChangeEvent(id, obj,
-						DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}
@@ -486,8 +478,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 			 * concurrent modification exception on a recursive remove
 			 */
 			List<T> removedKeys = new ArrayList<>();
-			for (Iterator<Map.Entry<T, ST>> it = componentMap.entrySet()
-					.iterator(); it.hasNext();)
+			for (Iterator<Map.Entry<T, ST>> it = componentMap.entrySet().iterator(); it.hasNext();)
 			{
 				Entry<T, ST> me = it.next();
 				Object currentsource = me.getValue();
@@ -504,8 +495,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 			}
 			for (T obj : removedKeys)
 			{
-				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}
@@ -595,8 +585,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		{
 			if (map.remove(obj) != null)
 			{
-				fireDataFacetChangeEvent(id, obj,
-						DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}

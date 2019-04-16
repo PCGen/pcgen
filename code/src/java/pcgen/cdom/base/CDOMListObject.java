@@ -30,8 +30,7 @@ import java.net.URI;
  * @param <T>
  *            The type of object contained in the CDOMList
  */
-public abstract class CDOMListObject<T extends CDOMObject> extends
-		ConcretePrereqObject implements CDOMList<T>, Loadable
+public abstract class CDOMListObject<T extends CDOMObject> extends ConcretePrereqObject implements CDOMList<T>, Loadable
 {
 	private String name = null;
 	private String keyName = null;
@@ -85,11 +84,6 @@ public abstract class CDOMListObject<T extends CDOMObject> extends
 		name = n;
 	}
 
-	/**
-	 * Returns a String representation of this CDOMListObject
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{

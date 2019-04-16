@@ -1,5 +1,4 @@
 /*
- * pcGenGUIPfrpgRogueTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,58 +14,20 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 07/06/2013
- *
- * $Id$
  */
 package pcgen.inttest.game_pathfinder;
 
 import pcgen.inttest.PcgenFtlTestCase;
-import junit.framework.Test;
-import junit.framework.TestSuite;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests loading and exporting a pathfinder rogue.
  * See the PCG file for details
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-@SuppressWarnings("nls")
 public class pcGenGUIPfrpgRogueTest extends PcgenFtlTestCase
 {
-
-	/**
-	 * Create a new test instance.
-	 */
-	public pcGenGUIPfrpgRogueTest()
-	{
-		super("pf_rogue");
-	}
-
-	/**
-	 * standard JUnit style constructor
-	 * 
-	 * @param name
-	 */
-	public pcGenGUIPfrpgRogueTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(pcGenGUIPfrpgRogueTest.class);
-	}
-
-	/**
-	 * Loads and outputs the character.
-	 * 
-	 * @throws Exception If an error occurs.
-	 */
+	@Test
 	public void testCode() throws Exception
 	{
 		runTest("pf_Rogue", "Pathfinder_RPG");

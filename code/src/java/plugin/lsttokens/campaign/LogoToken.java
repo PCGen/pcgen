@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 30/01/2008
- *
- * $Id$
  */
 package plugin.lsttokens.campaign;
 
@@ -38,31 +34,25 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>LogoToken</code> parses the LOGO Token.
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ * {@code LogoToken} parses the LOGO Token.
  */
-public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
-		CDOMPrimaryToken<Campaign>, InstallLstToken
+public class LogoToken extends AbstractTokenWithSeparator<Campaign>
+		implements CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "LOGO";
 	}
 
-    @Override
+	@Override
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
-		campaign.addToListFor(ListKey.FILE_LOGO, CampaignSourceEntry.getNewCSE(campaign,
-				sourceUri, value));
+		campaign.addToListFor(ListKey.FILE_LOGO, CampaignSourceEntry.getNewCSE(campaign, sourceUri, value));
 		return true;
 	}
+
 	@Override
 	protected char separator()
 	{
@@ -70,8 +60,7 @@ public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Campaign campaign, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
 	{
 		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
 		if (cse == null)
@@ -81,19 +70,17 @@ public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
 		}
 		if (!cse.getIncludeItems().isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName() + " does not allow INCLUDE: "
-				+ value, context);
+			return new ParseResult.Fail(getTokenName() + " does not allow INCLUDE: " + value);
 		}
 		if (!cse.getExcludeItems().isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: "
-				+ value, context);
+			return new ParseResult.Fail(getTokenName() + " does not allow EXCLUDE: " + value);
 		}
 		context.getObjectContext().addToList(campaign, ListKey.FILE_LOGO, cse);
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
@@ -112,7 +99,7 @@ public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
 		return set.toArray(new String[set.size()]);
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

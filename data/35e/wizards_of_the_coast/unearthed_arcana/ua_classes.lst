@@ -1026,7 +1026,7 @@ CLASS:Half-Elf Paragon	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|H
 # Class Name		Output Name				Hit Dice	Type					Max Level	Source Page		Define				Combat bonus										Save bonus																						Modify VAR					FACT
 CLASS:Half-Orc Paragon	OUTPUTNAME:Half-Orc Paragon	HD:8		TYPE:PC.Prestige.Paragon	MAXLEVEL:3	SOURCEPAGE:p.40	DEFINE:HalfOrcParagonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|HalfOrcParagonLVL|CL	FACT:Abb|Par
 # Class Name		Required Race
-CLASS:Half-Orc Paragon	PRERACE:1,Halfling
+CLASS:Half-Orc Paragon	PRERACE:1,Half-Orc
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Half-Orc Paragon	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|TYPE=Profession|Ride|Survival|Swim
 ###Block: Proficiencies

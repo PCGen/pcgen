@@ -19,27 +19,20 @@ package actor.template;
 
 import pcgen.cdom.base.Persistent;
 import pcgen.core.WeaponProf;
+import plugin.lsttokens.template.WeaponbonusToken;
 
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
-import org.junit.Test;
-import plugin.lsttokens.template.WeaponbonusToken;
 
 public class WeaponBonusListActorTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<WeaponProf>
 {
 
-	private static final Persistent<WeaponProf> pca = new WeaponbonusToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
+	private static final Persistent<WeaponProf> PCA = new WeaponbonusToken();
 
 	@Override
 	public Persistent<WeaponProf> getActor()
 	{
-		return pca;
+		return PCA;
 	}
 
 	@Override

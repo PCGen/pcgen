@@ -1,5 +1,4 @@
 /*
- * IsgamemodeCommandTest.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,81 +14,58 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 8/09/2008 21:22:24
- *
- * $Id: $
  */
 package plugin.jepcommands;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.Stack;
 
-import pcgen.PCGenTestCase;
+import pcgen.core.GameMode;
+import pcgen.core.SettingsHandler;
+import pcgen.core.SystemCollections;
+import pcgen.persistence.GameModeFileLoader;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
 
 /**
- * The Class <code>IsgamemodeCommandTest</code> is responsible for checking 
+ * The Class {@code IsgamemodeCommandTest} is responsible for checking
  * that IsgamemodeCommand is working correctly. 
- * 
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class IsgamemodeCommandTest extends PCGenTestCase
+class IsgamemodeCommandTest
 {
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test".
-	 * 
-	 * @return The Test suite
-	 */
-	public static Test suite()
+	@BeforeEach
+	void setUp()
 	{
-		return new TestSuite(IsgamemodeCommandTest.class);
+		final GameMode gamemode = new GameMode("3.5");
+		GameModeFileLoader.addDefaultTabInfo(gamemode);
+		SystemCollections.addToGameModeList(gamemode);
+		SettingsHandler.setGame("3.5");
 	}
-
-	/*
-	 * @see TestCase#setUp()
-	 */
-	/* (non-Javadoc)
-	 * @see junit.framework.TestCase#setUp()
-	 */
-    @Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-
-    }
-
     /**
      * Run isgamemode.
      * 
      * @param stack the stack
-     * 
-     * @return true, if successful
      */
-    private static boolean runIsgamemode(final Stack stack)
+    private static void runIsgamemode(final Stack<Object> stack)
     {
-        final PostfixMathCommandI   pCommand = new IsgamemodeCommand();
-        boolean b;
-        try
+	    try
         {
-            pCommand.run(stack);
-            b = true;
+	        final PostfixMathCommandI pCommand = new IsgamemodeCommand();
+	        pCommand.run(stack);
         }
-        catch (ParseException e)
+        catch (ParseException ignored)
         {
-            b = false;
         }
-        return b;
     }
 
     /**
      * Test is game mode true.
      */
+    @Test
     public void testIsGameModeTrue()
     {
         final Stack<Object>         s = new Stack<>();
@@ -100,12 +76,13 @@ public class IsgamemodeCommandTest extends PCGenTestCase
 
         final Integer result = (Integer) s.pop();
 
-        is(result, eq(1), "isgamemode(\"3.5\") returns 1");
+        assertEquals(Integer.valueOf(1), result, "isgamemode(\"3.5\") returns 1");
     }
 
     /**
      * Test is game mode false.
      */
+    @Test
     public void testIsGameModeFalse()
     {
         final Stack<Object>         s = new Stack<>();
@@ -116,6 +93,6 @@ public class IsgamemodeCommandTest extends PCGenTestCase
 
         final Integer result = (Integer) s.pop();
 
-        is(result, eq(0), "isgamemode(\"3e\") returns 0");
+	    assertEquals(Integer.valueOf(0), result, "isgamemode(\"3e\") returns 0");
     }
 }

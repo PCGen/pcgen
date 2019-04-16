@@ -44,8 +44,7 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 	private final EditorLoadContext context;
 	private final Writer changeLogWriter;
 
-	public BasicLoader(EditorLoadContext lc, Class<T> cl,
-			ListKey<CampaignSourceEntry> lk, Writer changeLogWriter)
+	public BasicLoader(EditorLoadContext lc, Class<T> cl, ListKey<CampaignSourceEntry> lk, Writer changeLogWriter)
 	{
 		context = lc;
 		cdomClass = cl;
@@ -54,9 +53,8 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 	}
 
 	@Override
-	public List<CDOMObject> process(StringBuilder sb, int line,
-			String lineString, ConversionDecider decider)
-			throws PersistenceLayerException, InterruptedException
+	public List<CDOMObject> process(StringBuilder sb, int line, String lineString, ConversionDecider decider)
+		throws PersistenceLayerException, InterruptedException
 	{
 		String[] tokens = lineString.split(FIELD_SEPARATOR);
 		if (tokens.length == 0)
@@ -70,16 +68,14 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 		{
 			String token = tokens[tok];
 			sb.append(FIELD_SEPARATOR);
-			if (token.length() == 0)
+			if (token.isEmpty())
 			{
 				continue;
 			}
 
-			T obj = context.getReferenceContext().constructCDOMObject(cdomClass, line + "Test"
-					+ tok + " " + token);
+			T obj = context.getReferenceContext().constructCDOMObject(cdomClass, line + "Test" + tok + " " + token);
 			obj.put(StringKey.CONVERT_NAME, tokens[0]);
-			List<CDOMObject> injected = processToken(sb, objectName, obj,
-					token, decider, line);
+			List<CDOMObject> injected = processToken(sb, objectName, obj, token, decider, line);
 			if (injected != null)
 			{
 				list.addAll(injected);
@@ -90,15 +86,13 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 		return list;
 	}
 
-	private List<CDOMObject> processToken(StringBuilder sb, String objectName,
-			CDOMObject obj, String token, ConversionDecider decider, int line)
-			throws PersistenceLayerException, InterruptedException
+	private List<CDOMObject> processToken(StringBuilder sb, String objectName, CDOMObject obj, String token,
+		ConversionDecider decider, int line)
 	{
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
 		{
-			Logging.errorPrint("Invalid Token - does not contain a colon: "
-					+ token);
+			Logging.errorPrint("Invalid Token - does not contain a colon: " + token);
 			return null;
 		}
 		else if (colonLoc == 0)
@@ -108,10 +102,8 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 		}
 
 		String key = token.substring(0, colonLoc);
-		String value = (colonLoc == token.length() - 1) ? null : token
-				.substring(colonLoc + 1);
-		TokenProcessEvent tpe = new TokenProcessEvent(context, decider, key,
-				value, objectName, obj);
+		String value = (colonLoc == token.length() - 1) ? null : token.substring(colonLoc + 1);
+		TokenProcessEvent tpe = new TokenProcessEvent(context, decider, key, value, objectName, obj);
 		String error = TokenConverter.process(tpe);
 		if (tpe.isConsumed())
 		{
@@ -119,7 +111,8 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 			{
 				try
 				{
-					changeLogWriter.append("Line " + line + " converted '"+token+"' to '" + tpe.getResult() +"'.\n");
+					changeLogWriter
+						.append("Line " + line + " converted '" + token + "' to '" + tpe.getResult() + "'.\n");
 				}
 				catch (IOException e)
 				{
@@ -139,11 +132,6 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 	public List<CampaignSourceEntry> getFiles(Campaign c)
 	{
 		return c.getSafeListFor(listkey);
-	}
-
-	public String getLoadName()
-	{
-		return cdomClass.getSimpleName();
 	}
 
 }

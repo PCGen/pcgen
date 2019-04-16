@@ -32,8 +32,7 @@ import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
 public class AllToken extends AbstractRestrictedSpellPrimitive
 {
 	@Override
-	public boolean initialize(LoadContext context, Class<Spell> cl,
-			String value, String args)
+	public boolean initialize(LoadContext context, Class<Spell> cl, String value, String args)
 	{
 		if (value != null)
 		{
@@ -51,8 +50,7 @@ public class AllToken extends AbstractRestrictedSpellPrimitive
 	@Override
 	public boolean allow(PlayerCharacter pc, Spell spell)
 	{
-		HashMapToList<CDOMList<Spell>, Integer> levelInfo =
-				pc.getSpellLevelInfo(spell);
+		HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getSpellLevelInfo(spell);
 		for (CDOMList<Spell> spellList : levelInfo.getKeySet())
 		{
 			for (Integer level : levelInfo.getListFor(spellList))
@@ -69,8 +67,7 @@ public class AllToken extends AbstractRestrictedSpellPrimitive
 	@Override
 	public GroupingState getGroupingState()
 	{
-		return hasRestriction() ? GroupingState.ANY
-				: GroupingState.ALLOWS_NONE;
+		return hasRestriction() ? GroupingState.ANY : GroupingState.ALLOWS_NONE;
 	}
 
 	@Override

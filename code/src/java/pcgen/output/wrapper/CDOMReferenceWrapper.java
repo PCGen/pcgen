@@ -24,6 +24,7 @@ import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.output.base.PCGenObjectWrapper;
 import pcgen.output.base.SimpleWrapperLibrary;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -33,16 +34,10 @@ import freemarker.template.TemplateModelException;
  */
 public class CDOMReferenceWrapper implements PCGenObjectWrapper
 {
-	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary
-		.getFacet(ObjectWrapperFacet.class);
+	private static final ObjectWrapperFacet WRAPPER_FACET = FacetLibrary.getFacet(ObjectWrapperFacet.class);
 
-	/**
-	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
-	public TemplateModel wrap(CharID id, Object o)
-		throws TemplateModelException
+	public TemplateModel wrap(CharID id, Object o) throws TemplateModelException
 	{
 		if (o instanceof CDOMSingleRef)
 		{

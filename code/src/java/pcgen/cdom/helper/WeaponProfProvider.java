@@ -41,12 +41,10 @@ import pcgen.core.WeaponProf;
  * This is typically used for an AUTO:WEAPONPROF token to store the granted
  * proficiencies.
  */
-public class WeaponProfProvider extends ConcretePrereqObject implements
-		QualifyingObject
+public class WeaponProfProvider extends ConcretePrereqObject implements QualifyingObject
 {
 
-	private static ChangeProfFacet changeProfFacet = FacetLibrary
-			.getFacet(ChangeProfFacet.class);
+	private static final ChangeProfFacet CHANGE_PROF_FACET = FacetLibrary.getFacet(ChangeProfFacet.class);
 
 	/**
 	 * Contains the list of primitive WeaponProf objects that this
@@ -183,12 +181,6 @@ public class WeaponProfProvider extends ConcretePrereqObject implements
 		return sb.toString();
 	}
 
-	/**
-	 * Returns true if the given object is a WeaponProfProvider with identical
-	 * underlying WeaponProfs and WeaponProf TYPEs and Prerequisites.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -242,16 +234,10 @@ public class WeaponProfProvider extends ConcretePrereqObject implements
 		return false;
 	}
 
-	/**
-	 * Returns a consistent-with-equals hashCode for this WeaponProfProvider
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
-		return (direct == null ? 0 : direct.hashCode() * 29)
-				+ (type == null ? 0 : type.hashCode());
+		return (direct == null ? 0 : direct.hashCode() * 29) + (type == null ? 0 : type.hashCode());
 	}
 
 	/**
@@ -262,8 +248,7 @@ public class WeaponProfProvider extends ConcretePrereqObject implements
 	 */
 	public boolean isEmpty()
 	{
-		return all == null && (direct == null || direct.isEmpty())
-				&& (type == null || type.isEmpty());
+		return all == null && (direct == null || direct.isEmpty()) && (type == null || type.isEmpty());
 	}
 
 	public boolean isValid()
@@ -275,9 +260,8 @@ public class WeaponProfProvider extends ConcretePrereqObject implements
 		return hasAll ^ hasIndividual;
 	}
 
-	public List<WeaponProf> getWeaponProfsInTarget(CharID id,
-			CDOMGroupRef<WeaponProf> master)
+	public List<WeaponProf> getWeaponProfsInTarget(CharID id, CDOMGroupRef<WeaponProf> master)
 	{
-		return changeProfFacet.getWeaponProfsInTarget(id, master);
+		return CHANGE_PROF_FACET.getWeaponProfsInTarget(id, master);
 	}
 }

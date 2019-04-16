@@ -45,7 +45,7 @@ Icon ProStar 7			NAMEISPI:YES	TYPE:Gadget									COST:4	WT:0.5	SIZE:S	SOURCEPAG
 
 OmnID Card (Standard)		NAMEISPI:YES	TYPE:Gadget.IDCard							COST:1	WT:0		SIZE:S	SOURCEPAGE:p.206
 
-#### P a t c h e s
+#### Patches
 
 Patch (Adrenaline)		NAMEISPI:YES	TYPE:Gadget									COST:1	WT:0		SIZE:S	SOURCEPAGE:p.208
 Patch (Brainscanner)		NAMEISPI:YES	TYPE:Gadget									COST:0.33	WT:0		SIZE:S	SOURCEPAGE:p.209

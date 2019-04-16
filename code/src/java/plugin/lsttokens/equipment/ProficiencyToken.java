@@ -46,73 +46,66 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		Equipment eq, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail("Equipment Token PROFICIENCY syntax "
-				+ "without a Subtoken is invalid: PROFICIENCY:" + value, context);
+			return new ParseResult.Fail(
+				"Equipment Token PROFICIENCY syntax " + "without a Subtoken is invalid: PROFICIENCY:" + value);
 		}
 		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expecting only one '|', "
-					+ "format is: SubToken|ProfName value was: " + value, context);
+			return new ParseResult.Fail(
+				getTokenName() + " expecting only one '|', " + "format is: SubToken|ProfName value was: " + value);
 		}
 		String subtoken = value.substring(0, pipeLoc);
 		String prof = value.substring(pipeLoc + 1);
-		if (prof == null || prof.length() == 0)
+		if (prof == null || prof.isEmpty())
 		{
-			return new ParseResult.Fail("PROFICIENCY cannot have "
-				+ "empty second argument: " + value, context);
+			return new ParseResult.Fail("PROFICIENCY cannot have " + "empty second argument: " + value);
 		}
 		if (subtoken.equals("WEAPON"))
 		{
-// This can be reactivated if .CLEAR is implemented, to allow .MOD to override the proficiency			
-//			if (context.getObjectContext().getObject(eq, ObjectKey.WEAPON_PROF) != null)
-//			{
-//				return new ParseResult.Fail(
-//					"Only one PROFICIENCY:WEAPON is allowed per item. Token was PROFICIENCY:"
-//						+ value, context);
-//			}
-			CDOMSingleRef<WeaponProf> wp = context.getReferenceContext().getCDOMReference(
-					WeaponProf.class, prof);
+			// This can be reactivated if .CLEAR is implemented, to allow .MOD to override the proficiency			
+			//			if (context.getObjectContext().getObject(eq, ObjectKey.WEAPON_PROF) != null)
+			//			{
+			//				return new ParseResult.Fail(
+			//					"Only one PROFICIENCY:WEAPON is allowed per item. Token was PROFICIENCY:"
+			//						+ value, context);
+			//			}
+			CDOMSingleRef<WeaponProf> wp = context.getReferenceContext().getCDOMReference(WeaponProf.class, prof);
 			context.getObjectContext().put(eq, ObjectKey.WEAPON_PROF, wp);
 		}
 		else if (subtoken.equals("ARMOR"))
 		{
-//			if (context.getObjectContext().getObject(eq, ObjectKey.ARMOR_PROF) != null)
-//			{
-//				return new ParseResult.Fail(
-//					"Only one PROFICIENCY:ARMOR is allowed per item. Token was PROFICIENCY:"
-//						+ value, context);
-//			}
+			//			if (context.getObjectContext().getObject(eq, ObjectKey.ARMOR_PROF) != null)
+			//			{
+			//				return new ParseResult.Fail(
+			//					"Only one PROFICIENCY:ARMOR is allowed per item. Token was PROFICIENCY:"
+			//						+ value, context);
+			//			}
 
-			CDOMSingleRef<ArmorProf> wp = context.getReferenceContext().getCDOMReference(
-					ArmorProf.class, prof);
+			CDOMSingleRef<ArmorProf> wp = context.getReferenceContext().getCDOMReference(ArmorProf.class, prof);
 			context.getObjectContext().put(eq, ObjectKey.ARMOR_PROF, wp);
 		}
 		else if (subtoken.equals("SHIELD"))
 		{
-//			if (context.getObjectContext().getObject(eq, ObjectKey.SHIELD_PROF) != null)
-//			{
-//				return new ParseResult.Fail(
-//					"Only one PROFICIENCY:SHIELD is allowed per item. Token was PROFICIENCY:"
-//						+ value, context);
-//			}
+			//			if (context.getObjectContext().getObject(eq, ObjectKey.SHIELD_PROF) != null)
+			//			{
+			//				return new ParseResult.Fail(
+			//					"Only one PROFICIENCY:SHIELD is allowed per item. Token was PROFICIENCY:"
+			//						+ value, context);
+			//			}
 
-			CDOMSingleRef<ShieldProf> wp = context.getReferenceContext().getCDOMReference(
-					ShieldProf.class, prof);
+			CDOMSingleRef<ShieldProf> wp = context.getReferenceContext().getCDOMReference(ShieldProf.class, prof);
 			context.getObjectContext().put(eq, ObjectKey.SHIELD_PROF, wp);
 		}
 		else
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Unknown Subtoken for PROFICIENCY: " + subtoken);
-			cpr.addErrorMessage("  Subtoken must be "
-					+ "WEAPON, ARMOR or SHIELD");
+			cpr.addErrorMessage("  Subtoken must be " + "WEAPON, ARMOR or SHIELD");
 			return cpr;
 		}
 		return ParseResult.SUCCESS;
@@ -121,12 +114,9 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
-		CDOMSingleRef<WeaponProf> wp = context.getObjectContext().getObject(eq,
-				ObjectKey.WEAPON_PROF);
-		CDOMSingleRef<ShieldProf> sp = context.getObjectContext().getObject(eq,
-				ObjectKey.SHIELD_PROF);
-		CDOMSingleRef<ArmorProf> ap = context.getObjectContext().getObject(eq,
-				ObjectKey.ARMOR_PROF);
+		CDOMSingleRef<WeaponProf> wp = context.getObjectContext().getObject(eq, ObjectKey.WEAPON_PROF);
+		CDOMSingleRef<ShieldProf> sp = context.getObjectContext().getObject(eq, ObjectKey.SHIELD_PROF);
+		CDOMSingleRef<ArmorProf> ap = context.getObjectContext().getObject(eq, ObjectKey.ARMOR_PROF);
 		if (wp == null)
 		{
 			if (sp == null)
@@ -135,16 +125,15 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 				{
 					return null;
 				}
-				return new String[] { "ARMOR|" + ap.getLSTformat(false) };
+				return new String[]{"ARMOR|" + ap.getLSTformat(false)};
 			}
 			else
 			{
 				if (ap == null)
 				{
-					return new String[] { "SHIELD|" + sp.getLSTformat(false) };
+					return new String[]{"SHIELD|" + sp.getLSTformat(false)};
 				}
-				context.addWriteMessage("Equipment may not have both "
-						+ "ARMOR and SHIELD Proficiencies");
+				context.addWriteMessage("Equipment may not have both " + "ARMOR and SHIELD Proficiencies");
 				return null;
 			}
 		}
@@ -152,16 +141,14 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 		{
 			if (ap == null)
 			{
-				return new String[] { "WEAPON|" + wp.getLSTformat(false) };
+				return new String[]{"WEAPON|" + wp.getLSTformat(false)};
 			}
-			context.addWriteMessage("Equipment may not have both "
-					+ "ARMOR and WEAPON Proficiencies");
+			context.addWriteMessage("Equipment may not have both " + "ARMOR and WEAPON Proficiencies");
 			return null;
 		}
 		else
 		{
-			context.addWriteMessage("Equipment may not have both "
-					+ "WEAPON and SHIELD Proficiencies");
+			context.addWriteMessage("Equipment may not have both " + "WEAPON and SHIELD Proficiencies");
 			return null;
 		}
 	}
@@ -186,16 +173,14 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 		{
 			if (eq.get(ObjectKey.ARMOR_PROF) != null)
 			{
-				Logging.errorPrint("Equipment " + eq.getKeyName()
-						+ " may not have both "
-						+ "ARMOR and SHIELD Proficiencies");
+				Logging.errorPrint(
+					"Equipment " + eq.getKeyName() + " may not have both " + "ARMOR and SHIELD Proficiencies");
 				return false;
 			}
 			if (wp != null)
 			{
-				Logging.errorPrint("Equipment " + eq.getKeyName()
-						+ " may not have both "
-						+ "WEAPON and SHIELD Proficiencies");
+				Logging.errorPrint(
+					"Equipment " + eq.getKeyName() + " may not have both " + "WEAPON and SHIELD Proficiencies");
 				return false;
 			}
 		}
@@ -203,9 +188,8 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 		{
 			if (eq.get(ObjectKey.ARMOR_PROF) != null)
 			{
-				Logging.errorPrint("Equipment " + eq.getKeyName()
-						+ " may not have both "
-						+ "ARMOR and WEAPON Proficiencies");
+				Logging.errorPrint(
+					"Equipment " + eq.getKeyName() + " may not have both " + "ARMOR and WEAPON Proficiencies");
 				return false;
 			}
 		}

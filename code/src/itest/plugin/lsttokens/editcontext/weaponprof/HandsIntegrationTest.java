@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.weaponprof;
 
-import org.junit.Test;
-
 import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -28,12 +26,14 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.weaponprof.HandsToken;
 
+import org.junit.jupiter.api.Test;
+
 public class HandsIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<WeaponProf>
 {
 
-	static HandsToken token = new HandsToken();
-	static CDOMTokenLoader<WeaponProf> loader = new CDOMTokenLoader<>();
+	private static HandsToken token = new HandsToken();
+	private static CDOMTokenLoader<WeaponProf> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<WeaponProf> getCDOMClass()

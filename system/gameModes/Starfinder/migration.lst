@@ -1,0 +1,12 @@
+#
+# Last Editor: $Author$
+# Last Edited: $Date$
+#
+# Rules for migrating characters from old data to new.
+#
+
+# Examples
+# SOURCE:JDTEST	MAXVER:6.4.00	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXDEVVER:6.1.1
+# EQUIPMENT:JDTEST	MAXVER:6.4.00	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXVER:6.4.00	MAXDEVVER:6.1.2
+# NEWCATEGORY:Spell-like Ability
+# RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race

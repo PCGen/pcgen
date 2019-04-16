@@ -1,5 +1,4 @@
 /**
- * DomainFacadeImpl.java
  * Copyright James Dempsey, 2010
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 09/02/2011 11:12:26 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -29,84 +24,67 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.QualifiedObject;
-import pcgen.facade.core.DomainFacade;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.facade.core.DomainFacade;
 import pcgen.util.SortKeyAware;
 
 /**
- * The Class <code>DomainFacadeImpl</code> groups the prereqs for gaining access 
+ * The Class {@code DomainFacadeImpl} groups the prereqs for gaining access
  * to a domain with the domain. This allows these prereqs to be displayed and 
  * enforced by the UI.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class DomainFacadeImpl extends QualifiedObject<Domain> implements
-		DomainFacade, SortKeyAware
+public class DomainFacadeImpl extends QualifiedObject<Domain> implements DomainFacade, SortKeyAware
 {
 
-    /**
-     * Constructor
-     * @param domain
-     */
+	/**
+	 * Constructor
+	 * @param domain
+	 */
 	public DomainFacadeImpl(Domain domain)
 	{
 		super(domain);
 	}
 
 	/**
-     * Constructor 
-     * @param domain
-     * @param aPrereqList
+	 * Constructor 
+	 * @param domain
+	 * @param aPrereqList
 	 */
-    public DomainFacadeImpl( final Domain domain, final List<Prerequisite> aPrereqList )
+	public DomainFacadeImpl(final Domain domain, final List<Prerequisite> aPrereqList)
 	{
 		super(domain, aPrereqList);
 	}
 
 	/**
-     * Constructor 
-     * @param domain
-     * @param prereq
+	 * Constructor 
+	 * @param domain
+	 * @param prereq
 	 */
-    public DomainFacadeImpl( final Domain domain, Prerequisite prereq)
+	public DomainFacadeImpl(final Domain domain, Prerequisite prereq)
 	{
 		super(domain, prereq);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.InfoFacade#getKeyName()
-	 */
 	@Override
 	public String getKeyName()
 	{
 		return getRawObject().getKeyName();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.InfoFacade#getSource()
-	 */
 	@Override
 	public String getSource()
 	{
-		return SourceFormat.getFormattedString(getRawObject(),
-			Globals.getSourceDisplay(), true);
+		return SourceFormat.getFormattedString(getRawObject(), Globals.getSourceDisplay(), true);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.InfoFacade#getSourceForNodeDisplay()
-	 */
-    @Override
+	@Override
 	public String getSourceForNodeDisplay()
 	{
-		return SourceFormat.getFormattedString(getRawObject(),
-				SourceFormat.LONG, false);
+		return SourceFormat.getFormattedString(getRawObject(), SourceFormat.LONG, false);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.QualifiedObject#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -124,7 +102,7 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements
 	{
 		return getRawObject().getType();
 	}
-	
+
 	@Override
 	public String getSortKey()
 	{

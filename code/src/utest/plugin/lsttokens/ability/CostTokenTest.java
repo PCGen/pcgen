@@ -21,16 +21,18 @@ import java.math.BigDecimal;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractBigDecimalTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class CostTokenTest extends AbstractBigDecimalTokenTestCase<Ability>
 {
 
 	static CostToken token = new CostToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()
@@ -78,5 +80,14 @@ public class CostTokenTest extends AbstractBigDecimalTokenTestCase<Ability>
 	public boolean isClearLegal()
 	{
 		return false;
+	}
+
+	@Override
+	protected Ability get(LoadContext context, String name)
+	{
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 }

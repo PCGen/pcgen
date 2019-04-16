@@ -23,6 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.ListSet;
@@ -52,7 +53,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	public Set<CNAbility> abilitySet = new ListSet<>();
 	public Set<PCTemplate> templateSet = new ListSet<>();
 	public Map<Skill, Integer> skillSet = new HashMap<>();
-	public Race race = null;
+	public Race race;
 	public int spellcastinglevel = -1;
 	public Set<Race> qualifiedSet = new ListSet<>();
 	public DoubleKeyMap<Skill, PCClass, SkillCost> skillCostMap =
@@ -61,18 +62,17 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 
 	public TransparentPlayerCharacter()
 	{
-		super();
 		display = new TransparentCharacterDisplay(getCharID());
 	}
 
 	public class TransparentCharacterDisplay extends CharacterDisplay
 	{
-		public TransparentCharacterDisplay(CharID id)
+		TransparentCharacterDisplay(CharID id)
 		{
 			super(id);
 		}
 
-		public Deity deity = null;
+		public Deity deity;
 		public Set<Domain> domainSet = new ListSet<>();
 		public Set<Language> languageSet = new ListSet<>();
 
@@ -99,7 +99,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 		{
 			return classMap.keySet();
 		}
-		
+
 		@Override
 		public Race getRace()
 		{
@@ -233,23 +233,14 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	@Override
 	public Float getMaxRank(Skill sk, PCClass cl)
 	{
-		return new Float(classMap.get(cl) + 3);
+		return (float) (classMap.get(cl) + 3);
 	}
 
 	@Override
 	public List<CNAbility> getCNAbilities(Category<Ability> cat)
 	{
-		List<CNAbility> list = new ArrayList<>();
-		for (CNAbility cna : abilitySet)
-		{
-			if (cna.getAbilityCategory().equals(cat))
-			{
-				list.add(cna);
-			}
-		}
-		return list;
+		return abilitySet.stream()
+		                 .filter(cna -> cna.getAbilityCategory().equals(cat))
+		                 .collect(Collectors.toList());
 	}
-	
-	
-	
 }

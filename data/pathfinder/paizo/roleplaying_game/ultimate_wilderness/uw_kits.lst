@@ -1,0 +1,38 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
+
+### Starting Gold
+STARTPACK:Classes Starting Gold ~ UW	TYPE:Starting.Gold	VISIBLE:QUALIFY	APPLY:INSTANT	PREMULT:2,[PREPCLEVEL:MIN=1,MAX=1],[PRECLASS:1,Shifter=1]
+TEMPLATE:Starting Gold ~ UW
+
+STARTPACK:Starting Gold UW ~ Random	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:10*roll("3d6")	PRECLASS:1,Shifter=1
+
+STARTPACK:Starting Gold UW ~ Maximum	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:180	PRECLASS:1,Shifter=1
+
+STARTPACK:Starting Gold UW ~ Average	VISIBLE:NO	APPLY:INSTANT
+FUNDS:gp	QTY:105	PRECLASS:1,Shifter=1
+
+STARTPACK:Shifter's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:9
+GEAR:Backpack			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Blanket			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Flint and Steel		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Mess Kit			QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Rope (Hemp/50 ft)		QTY:1		SIZE:PC	LOCATION:Backpack
+GEAR:Torch				QTY:10	SIZE:PC	LOCATION:Backpack
+GEAR:Rations (Trail/Per Day)	QTY:5		SIZE:PC	LOCATION:Backpack
+GEAR:Waterskin			QTY:1		SIZE:PC	LOCATION:Backpack
+
+STARTPACK:Noble's Excursion Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:371
+GEAR:Banner (Complex)	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Bedroll		QTY:4		SIZE:PC	LOCATION:Carried
+GEAR:Blanket		QTY:4		SIZE:PC	LOCATION:Carried
+GEAR:Cot			QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Blanket (Winter)	QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Coffee (Cup)		QTY:10	SIZE:PC	LOCATION:Carried
+GEAR:Outfit (Royal)	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Tent (Large)		QTY:2		SIZE:PC	LOCATION:Carried
+GEAR:Tent (Pavilion)	QTY:1		SIZE:PC	LOCATION:Carried

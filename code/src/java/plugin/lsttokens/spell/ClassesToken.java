@@ -49,8 +49,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with CLASSES Token
  */
-public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
-		CDOMPrimaryToken<Spell>
+public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements CDOMPrimaryToken<Spell>
 {
 
 	private static final Class<ClassSpellList> SPELLLIST_CLASS = ClassSpellList.class;
@@ -79,8 +78,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Spell spell, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Spell spell, String value)
 	{
 		// Note: May contain PRExxx
 		String classKey;
@@ -95,28 +93,24 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 		{
 			if (value.lastIndexOf(']') != value.length() - 1)
 			{
-				return new ParseResult.Fail("Invalid " + getTokenName()
-						+ " must end with ']' if it contains a PREREQ tag", context);
+				return new ParseResult.Fail(
+					"Invalid " + getTokenName() + " must end with ']' if it contains a PREREQ tag");
 			}
 			if (value.lastIndexOf('|') > openBracketLoc)
 			{
-				return new ParseResult.Fail("Invalid " + getTokenName()
-					+ ": PRExxx must be at the END of the Token. Token was "
-					+ value, context);
+				return new ParseResult.Fail(
+					"Invalid " + getTokenName() + ": PRExxx must be at the END of the Token. Token was " + value);
 			}
 			classKey = value.substring(0, openBracketLoc);
-			String prereqString = value.substring(openBracketLoc + 1, value
-					.length() - 1);
-			if (prereqString.length() == 0)
+			String prereqString = value.substring(openBracketLoc + 1, value.length() - 1);
+			if (prereqString.isEmpty())
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " cannot have empty prerequisite : " + value, context);
+				return new ParseResult.Fail(getTokenName() + " cannot have empty prerequisite : " + value);
 			}
 			prereq = getPrerequisite(prereqString);
 			if (prereq == null)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " had invalid prerequisite : " + prereqString, context);
+				return new ParseResult.Fail(getTokenName() + " had invalid prerequisite : " + prereqString);
 			}
 		}
 
@@ -130,17 +124,15 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 			// could be name=x or name,name=x
 			String tokString = pipeTok.nextToken();
 
-			int startPos = tokString.startsWith("TYPE=") ? "TYPE=".length() : 0;  
+			int startPos = tokString.startsWith("TYPE=") ? "TYPE=".length() : 0;
 			int equalLoc = tokString.indexOf(Constants.EQUALS, startPos);
 			if (equalLoc == -1)
 			{
-				return new ParseResult.Fail("Malformed " + getTokenName()
-						+ " Token (expecting an =): " + tokString, context);
+				return new ParseResult.Fail("Malformed " + getTokenName() + " Token (expecting an =): " + tokString);
 			}
 			if (equalLoc != tokString.lastIndexOf(Constants.EQUALS))
 			{
-				return new ParseResult.Fail("Malformed " + getTokenName()
-						+ " Token (more than one =): " + tokString, context);
+				return new ParseResult.Fail("Malformed " + getTokenName() + " Token (more than one =): " + tokString);
 			}
 
 			String nameList = tokString.substring(0, equalLoc);
@@ -151,15 +143,13 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 				level = Integer.valueOf(levelString);
 				if (level.intValue() < -1)
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " may not use a negative level: " + value, context);
+					return new ParseResult.Fail(getTokenName() + " may not use a negative level: " + value);
 				}
 				else if (level.intValue() == -1)
 				{
 					if (prereq != null)
 					{
-						return new ParseResult.Fail(getTokenName()
-								+ " may not use -1 with a PREREQ: " + value, context);
+						return new ParseResult.Fail(getTokenName() + " may not use -1 with a PREREQ: " + value);
 					}
 					// Logging.deprecationPrint(getTokenName()
 					// + " should not use a negative level: " + value);
@@ -167,8 +157,8 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 			}
 			catch (NumberFormatException nfe)
 			{
-				return new ParseResult.Fail("Malformed Level in " + getTokenName()
-						+ " (expected an Integer): " + levelString, context);
+				return new ParseResult.Fail(
+					"Malformed Level in " + getTokenName() + " (expected an Integer): " + levelString);
 			}
 
 			ParseResult pr = checkForIllegalSeparator(',', nameList);
@@ -177,8 +167,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 				return pr;
 			}
 
-			StringTokenizer commaTok = new StringTokenizer(nameList,
-					Constants.COMMA);
+			StringTokenizer commaTok = new StringTokenizer(nameList, Constants.COMMA);
 
 			while (commaTok.hasMoreTokens())
 			{
@@ -192,38 +181,34 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 				else
 				{
 					foundOther = true;
-					ref = TokenUtilities.getTypeOrPrimitive(context,
-							SPELLLIST_CLASS, token);
+					ref = TokenUtilities.getTypeOrPrimitive(context, SPELLLIST_CLASS, token);
 					if (ref == null)
 					{
-						return new ParseResult.Fail("  error was in " + getTokenName(),
-							context);
+						return new ParseResult.Fail("  error was in " + getTokenName());
 					}
 				}
 				if (level == -1)
 				{
 					//No need to check for prereq here - done above
-					context.getListContext().removeFromMasterList(
-							getTokenName(), spell, ref, spell);
+					context.getListContext().removeFromMasterList(getTokenName(), spell, ref, spell);
 				}
 				else
 				{
-					AssociatedPrereqObject edge = context.getListContext()
-							.addToMasterList(getTokenName(), spell, ref, spell);
+					AssociatedPrereqObject edge =
+							context.getListContext().addToMasterList(getTokenName(), spell, ref, spell);
 					edge.setAssociation(AssociationKey.SPELL_LEVEL, level);
 					if (prereq != null)
 					{
 						edge.addPrerequisite(prereq);
 					}
-					context.getObjectContext().addToList(
-						spell, ListKey.SPELL_CLASSLEVEL, token + " " + level);
+					context.getObjectContext().addToList(spell, ListKey.SPELL_CLASSLEVEL, token + ' ' + level);
 				}
 			}
 		}
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+			return new ParseResult.Fail(
+				"Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -231,11 +216,10 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
-		DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<ClassSpellList>> dkmtl =
-				new DoubleKeyMapToList<>();
+		DoubleKeyMapToList<Prerequisite, Integer, CDOMReference<ClassSpellList>> dkmtl = new DoubleKeyMapToList<>();
 		List<String> list = new ArrayList<>();
-		Changes<CDOMReference<ClassSpellList>> masterChanges = context.getListContext()
-				.getMasterListChanges(getTokenName(), spell, SPELLLIST_CLASS);
+		Changes<CDOMReference<ClassSpellList>> masterChanges =
+				context.getListContext().getMasterListChanges(getTokenName(), spell, SPELLLIST_CLASS);
 		if (masterChanges.includesGlobalClear())
 		{
 			list.add(Constants.LST_DOT_CLEAR_ALL);
@@ -244,32 +228,26 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 		{
 			for (CDOMReference<ClassSpellList> swl : masterChanges.getRemoved())
 			{
-				AssociatedChanges<Spell> changes = context.getListContext()
-						.getChangesInMasterList(getTokenName(), spell, swl);
-				MapToList<Spell, AssociatedPrereqObject> map = changes
-						.getRemovedAssociations();
+				AssociatedChanges<Spell> changes =
+						context.getListContext().getChangesInMasterList(getTokenName(), spell, swl);
+				MapToList<Spell, AssociatedPrereqObject> map = changes.getRemovedAssociations();
 				if (map != null && !map.isEmpty())
 				{
 					for (Spell added : map.getKeySet())
 					{
-						if (!spell.getLSTformat().equals(added.getLSTformat()))
+						if (!spell.getKeyName().equals(added.getKeyName()))
 						{
-							context.addWriteMessage("Spell " + getTokenName()
-									+ " token cannot remove another Spell "
-									+ "(must only remove itself)");
+							context.addWriteMessage("Spell " + getTokenName() + " token cannot remove another Spell "
+								+ "(must only remove itself)");
 							return null;
 						}
-						for (AssociatedPrereqObject assoc : map
-								.getListFor(added))
+						for (AssociatedPrereqObject assoc : map.getListFor(added))
 						{
-							List<Prerequisite> prereqs = assoc
-									.getPrerequisiteList();
-							if (prereqs != null && prereqs.size() != 0)
+							List<Prerequisite> prereqs = assoc.getPrerequisiteList();
+							if (prereqs != null && !prereqs.isEmpty())
 							{
-								context.addWriteMessage("Incoming Remove "
-										+ "Edge to " + spell.getKeyName()
-										+ " had a " + "Prerequisite: "
-										+ prereqs.size());
+								context.addWriteMessage("Incoming Remove " + "Edge to " + spell.getKeyName() + " had a "
+									+ "Prerequisite: " + prereqs.size());
 								return null;
 							}
 							dkmtl.addToListFor(null, -1, swl);
@@ -280,35 +258,30 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 		}
 		for (CDOMReference<ClassSpellList> swl : masterChanges.getAdded())
 		{
-			AssociatedChanges<Spell> changes = context.getListContext()
-					.getChangesInMasterList(getTokenName(), spell, swl);
+			AssociatedChanges<Spell> changes =
+					context.getListContext().getChangesInMasterList(getTokenName(), spell, swl);
 			Collection<Spell> removedItems = changes.getRemoved();
-			if (removedItems != null && !removedItems.isEmpty()
-					|| changes.includesGlobalClear())
+			if (removedItems != null && !removedItems.isEmpty() || changes.includesGlobalClear())
 			{
-				context.addWriteMessage(getTokenName()
-						+ " does not support .CLEAR.");
+				context.addWriteMessage(getTokenName() + " does not support .CLEAR.");
 				return null;
 			}
-			MapToList<Spell, AssociatedPrereqObject> map = changes
-					.getAddedAssociations();
+			MapToList<Spell, AssociatedPrereqObject> map = changes.getAddedAssociations();
 			if (map != null && !map.isEmpty())
 			{
 				for (Spell added : map.getKeySet())
 				{
-					if (!spell.getLSTformat().equals(added.getLSTformat()))
+					if (!spell.getKeyName().equals(added.getKeyName()))
 					{
-						context.addWriteMessage("Spell " + getTokenName()
-								+ " token cannot allow another Spell "
-								+ "(must only allow itself)");
+						context.addWriteMessage("Spell " + getTokenName() + " token cannot allow another Spell "
+							+ "(must only allow itself)");
 						return null;
 					}
 					for (AssociatedPrereqObject assoc : map.getListFor(added))
 					{
-						List<Prerequisite> prereqs = assoc
-								.getPrerequisiteList();
+						List<Prerequisite> prereqs = assoc.getPrerequisiteList();
 						Prerequisite prereq;
-						if (prereqs == null || prereqs.size() == 0)
+						if (prereqs == null || prereqs.isEmpty())
 						{
 							prereq = null;
 						}
@@ -318,27 +291,21 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 						}
 						else
 						{
-							context.addWriteMessage("Incoming Edge to "
-									+ spell.getKeyName()
-									+ " had more than one " + "Prerequisite: "
-									+ prereqs.size());
+							context.addWriteMessage("Incoming Edge to " + spell.getKeyName() + " had more than one "
+								+ "Prerequisite: " + prereqs.size());
 							return null;
 						}
-						Integer level = assoc
-								.getAssociation(AssociationKey.SPELL_LEVEL);
+						Integer level = assoc.getAssociation(AssociationKey.SPELL_LEVEL);
 						if (level == null)
 						{
-							context.addWriteMessage("Incoming Allows Edge to "
-									+ spell.getKeyName()
-									+ " had no Spell Level defined");
+							context.addWriteMessage(
+								"Incoming Allows Edge to " + spell.getKeyName() + " had no Spell Level defined");
 							return null;
 						}
 						if (level.intValue() < 0)
 						{
-							context.addWriteMessage("Incoming Allows Edge to "
-									+ spell.getKeyName()
-									+ " had invalid Level: " + level
-									+ ". Must be >= 0.");
+							context.addWriteMessage("Incoming Allows Edge to " + spell.getKeyName()
+								+ " had invalid Level: " + level + ". Must be >= 0.");
 							return null;
 						}
 						dkmtl.addToListFor(prereq, level, swl);
@@ -350,8 +317,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 		{
 			if (list.isEmpty())
 			{
-				// Legal if no CLASSES was present in the Spell
-				return null;
+				return null; // Legal if no CLASSES was present in the Spell
 			}
 			else
 			{
@@ -359,8 +325,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 			}
 		}
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-		SortedSet<CDOMReference<ClassSpellList>> set = new TreeSet<>(
-				ReferenceUtilities.REFERENCE_SORTER);
+		SortedSet<CDOMReference<ClassSpellList>> set = new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
 		SortedSet<Integer> levelSet = new TreeSet<>();
 		for (Prerequisite prereq : dkmtl.getKeySet())
 		{
@@ -376,8 +341,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 				{
 					sb.append(Constants.PIPE);
 				}
-				sb.append(ReferenceUtilities
-						.joinLstFormat(set, Constants.COMMA));
+				sb.append(ReferenceUtilities.joinLstFormat(set, Constants.COMMA));
 				sb.append('=').append(i);
 				needPipe = true;
 			}

@@ -18,6 +18,7 @@
 package pcgen.cdom.converter;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.Converter;
@@ -32,16 +33,8 @@ public class AddFilterConverter<B, R> implements Converter<B, R>
 
 	public AddFilterConverter(Converter<B, R> conv, PrimitiveFilter<B> fil)
 	{
-		if (conv == null)
-		{
-			throw new IllegalArgumentException("Converter cannot be null");
-		}
-		if (fil == null)
-		{
-			throw new IllegalArgumentException("PrimitiveFilter cannot be null");
-		}
-		converter = conv;
-		filter = fil;
+		converter = Objects.requireNonNull(conv);
+		filter = Objects.requireNonNull(fil);
 	}
 
 	@Override
@@ -62,7 +55,7 @@ public class AddFilterConverter<B, R> implements Converter<B, R>
 		private final PrimitiveFilter<T> filter1;
 		private final PrimitiveFilter<T> filter2;
 
-		public CompoundFilter(PrimitiveFilter<T> fil1, PrimitiveFilter<T> fil2)
+		CompoundFilter(PrimitiveFilter<T> fil1, PrimitiveFilter<T> fil2)
 		{
 			filter1 = fil1;
 			filter2 = fil2;
@@ -78,8 +71,6 @@ public class AddFilterConverter<B, R> implements Converter<B, R>
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this AddFilterConverter
-	 * 
-	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode()
@@ -91,8 +82,6 @@ public class AddFilterConverter<B, R> implements Converter<B, R>
 	 * Returns true if this AddFilterConverter is equal to the given Object.
 	 * Equality is defined as being another AddFilterConverter object with equal
 	 * underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -104,8 +93,7 @@ public class AddFilterConverter<B, R> implements Converter<B, R>
 		if (obj instanceof AddFilterConverter)
 		{
 			AddFilterConverter<?, ?> other = (AddFilterConverter<?, ?>) obj;
-			return other.filter.equals(filter)
-					&& other.converter.equals(converter);
+			return other.filter.equals(filter) && other.converter.equals(converter);
 		}
 		return false;
 	}

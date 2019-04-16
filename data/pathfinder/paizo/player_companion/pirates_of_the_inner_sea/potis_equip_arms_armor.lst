@@ -1,24 +1,25 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Pirates of the Inner Sea	SOURCESHORT:POTIS	SOURCEWEB:http://paizo.com/products/btpy8qif?Pathfinder-Player-Companion-Pirates-of-the-Inner-Sea	SOURCEDATE:2012-04
+SOURCELONG:Pathfinder Player Companion: Pirates of the Inner Sea	SOURCESHORT:POTIS	SOURCEWEB:http://paizo.com/products/btpy8qif	SOURCEDATE:2012-04
 # Original Entry by: Stefan Radermacher
 
 ####Block: Melee Weapons
-# Equipment Name	Output Name				Required Weapon Proficiency			Type																			Alt Type						Cost		Weight	Slot Needed	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier					Alt EQModifier		Wield Category	Range		Reach Multiplier	Size		Source Page
-Brass Knife							PROFICIENCY:WEAPON|Brass Knife		TYPE:Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger.BladeLight								COST:2	WT:1				CRITMULT:x2	CRITRANGE:2							DAMAGE:1d4				EQMOD:STEEL									WIELD:Light		RANGE:10				SIZE:M	SOURCEPAGE:p.19
-Hook Hand							PROFICIENCY:WEAPON|Hook Hand			TYPE:Weapon.Resizable.Melee.Light.Finesseable.Simple.Standard.Slashing.Pirate														COST:10	WT:1				CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:DISARM.STEEL							WIELD:Light							SIZE:M	SOURCEPAGE:p.18
-Bayonet							PROFICIENCY:WEAPON|Bayonet			TYPE:Weapon.Resizable.Melee.TwoHanded.Simple.Standard.Piercing																COST:5	WT:1				CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6				EQMOD:STEEL									WIELD:TwoHanded						SIZE:M	SOURCEPAGE:p.18
-Boarding Pike						PROFICIENCY:WEAPON|Boarding Pike		TYPE:Weapon.Resizable.Melee.TwoHanded.Simple.Reach.Standard.Piercing															COST:8	WT:9				CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8				EQMOD:BRACE.STEEL								WIELD:TwoHanded			REACHMULT:2		SIZE:M	SOURCEPAGE:p.18
-Axe (Boarding)	OUTPUTNAME:Axe, Boarding	PROFICIENCY:WEAPON|Axe (Boarding)		TYPE:Weapon.Resizable.Melee.Light.Finesseable.Martial.Standard.Piercing.Slashing.Axe												COST:6	WT:3				CRITMULT:x3	CRITRANGE:1							DAMAGE:1d6				EQMOD:STEEL									WIELD:Light							SIZE:M	SOURCEPAGE:p.18
-Cat-O'-Nine-Tails						PROFICIENCY:WEAPON|Cat-O'-Nine-Tails	TYPE:Weapon.Resizable.Melee.Light.Finesseable.Martial.Standard.Slashing															COST:1	WT:2				CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:DISARM.LEATHER.NONLETHAL					WIELD:Light							SIZE:M	SOURCEPAGE:p.18
-Cutlass							PROFICIENCY:WEAPON|Cutlass			TYPE:Weapon.Resizable.Melee.OneHanded.Martial.Standard.Slashing.Sword.Pirate														COST:15	WT:4				CRITMULT:x2	CRITRANGE:3							DAMAGE:1d6				EQMOD:STEEL									WIELD:OneHanded						SIZE:M	SOURCEPAGE:p.18
-Boarding Gaff						PROFICIENCY:WEAPON|Boarding Gaff		TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Reach.Standard.Double.Slashing							ALTTYPE:Weapon.Resizable.Melee.Slashing	COST:8	WT:8		SLOTS:2	CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6	EQMOD:STEEL.TRIP				ALTEQMOD:STEEL.TRIP	WIELD:TwoHanded			REACHMULT:2		SIZE:M	SOURCEPAGE:p.18
-Harpoon							PROFICIENCY:WEAPON|Harpoon			TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Ranged.Standard.Slashing.Sword														COST:5	WT:16				CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8				EQMOD:STEEL									WIELD:TwoHanded	RANGE:10				SIZE:M	SOURCEPAGE:p.18
+# Equipment Name	Output Name				Required Weapon Proficiency			Type																			Alt Type						Cost		Weight	Slot Needed	Crit Mult	Crit Range	Alt Crit Mult	Alt Crit Range	Damage	Alt Damage		Modifier												Alt EQModifier							Wield Category	Range		Reach Multiplier	Size		Source Page
+Brass Knife							PROFICIENCY:WEAPON|Brass Knife		TYPE:Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger.BladeLight								COST:2	WT:1				CRITMULT:x2	CRITRANGE:2							DAMAGE:1d4				EQMOD:Material ~ Steel																			WIELD:Light		RANGE:10				SIZE:M	SOURCEPAGE:p.19
+Hook Hand							PROFICIENCY:WEAPON|Hook Hand			TYPE:Weapon.Resizable.Melee.Light.Finesseable.Simple.Standard.Slashing.Pirate														COST:10	WT:1				CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:Special Quality ~ Disarm.Material ~ Steel															WIELD:Light							SIZE:M	SOURCEPAGE:p.18
+Bayonet							PROFICIENCY:WEAPON|Bayonet			TYPE:Weapon.Resizable.Melee.TwoHanded.Simple.Standard.Piercing																COST:5	WT:1				CRITMULT:x2	CRITRANGE:1							DAMAGE:1d6				EQMOD:Material ~ Steel																			WIELD:TwoHanded						SIZE:M	SOURCEPAGE:p.18
+Boarding Pike						PROFICIENCY:WEAPON|Boarding Pike		TYPE:Weapon.Resizable.Melee.TwoHanded.Simple.Reach.Standard.Piercing															COST:8	WT:9				CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8				EQMOD:Special Quality ~ Brace.Material ~ Steel															WIELD:TwoHanded			REACHMULT:2		SIZE:M	SOURCEPAGE:p.18
+Axe (Boarding)	OUTPUTNAME:Axe, Boarding	PROFICIENCY:WEAPON|Axe (Boarding)		TYPE:Weapon.Resizable.Melee.Light.Finesseable.Martial.Standard.Piercing.Slashing.Axe												COST:6	WT:3				CRITMULT:x3	CRITRANGE:1							DAMAGE:1d6				EQMOD:Material ~ Steel																			WIELD:Light							SIZE:M	SOURCEPAGE:p.18
+Cat-O'-Nine-Tails						PROFICIENCY:WEAPON|Cat-O'-Nine-Tails	TYPE:Weapon.Resizable.Melee.Light.Finesseable.Martial.Standard.Slashing															COST:1	WT:2				CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:Special Quality ~ Disarm.Material ~ Leather.Special Quality ~ Nonlethal										WIELD:Light							SIZE:M	SOURCEPAGE:p.18
+Cutlass							PROFICIENCY:WEAPON|Cutlass			TYPE:Weapon.Resizable.Melee.OneHanded.Martial.Standard.Slashing.Sword.Pirate														COST:15	WT:4				CRITMULT:x2	CRITRANGE:3							DAMAGE:1d6				EQMOD:Material ~ Steel																			WIELD:OneHanded						SIZE:M	SOURCEPAGE:p.18
+Boarding Gaff						PROFICIENCY:WEAPON|Boarding Gaff		TYPE:Weapon.Resizable.Melee.TwoHanded.Exotic.Reach.Standard.Double.Slashing							ALTTYPE:Weapon.Resizable.Melee.Slashing	COST:8	WT:8		SLOTS:2	CRITMULT:x2	CRITRANGE:1	ALTCRITMULT:x2	ALTCRITRANGE:1	DAMAGE:1d6	ALTDAMAGE:1d6	EQMOD:Material ~ Steel.Special Quality ~ Trip						ALTEQMOD:Material ~ Steel.Special Quality ~ Trip	WIELD:TwoHanded			REACHMULT:2		SIZE:M	SOURCEPAGE:p.18
+Harpoon							PROFICIENCY:WEAPON|Harpoon			TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Ranged.Standard.Slashing.Sword														COST:5	WT:16				CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8				EQMOD:Material ~ Steel																			WIELD:TwoHanded	RANGE:10				SIZE:M	SOURCEPAGE:p.18
 Dagger.MOD														TYPE:Pirate
 Rapier.MOD														TYPE:Pirate
 Sword (Short).MOD													TYPE:Pirate
 
 ###Block: Ranged Weapons
-# Equipment Name		Unique Key				Required Weapon Proficiency		Type											Cost		Weight	Crit Mult	Crit Range	Damage	Modifier	Wield Category	Range		Size		Source Page
-Grappling Hook		KEY:Grappling Hook ~ Weapon	PROFICIENCY:WEAPON|Grappling Hook	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Piercing.Thrown	COST:6	WT:14		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:STEEL	WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.18
+# Equipment Name		Unique Key				Required Weapon Proficiency		Type											Cost		Weight	Crit Mult	Crit Range	Damage	Modifier			Wield Category	Range		Size		Source Page
+Grappling Hook		KEY:Grappling Hook ~ Weapon	PROFICIENCY:WEAPON|Grappling Hook	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Piercing.Thrown	COST:6	WT:14		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:Material ~ Steel	WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.18
 Crossbow (Light).MOD												TYPE:Pirate
 Crossbow (Heavy).MOD												TYPE:Pirate

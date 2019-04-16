@@ -25,7 +25,6 @@ import pcgen.core.Equipment;
  * AutoEquipmentListFacet is a Facet that tracks the Equipment that have been
  * granted to a Player Character through AUTO:EQUIP|%LIST
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoEquipmentListFacet extends AbstractSourcedListFacet<CharID, Equipment>
 {

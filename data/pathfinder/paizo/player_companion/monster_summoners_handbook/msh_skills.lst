@@ -1,0 +1,13 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Monster Summoner's Handbook	SOURCESHORT:MSH	SOURCEWEB:http://paizo.com/products/btpy9ela?Pathfinder-Player-Companion-Monster-Summoners-Handbook	SOURCEDATE:2015-07
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 2 May 2017
+
+# Skill Name		Situational Skill
+Bluff.MOD			SITUATION:Genies
+Diplomacy.MOD		SITUATION:Genies
+Diplomacy.MOD		SITUATION:Elementals
+Intimidate.MOD		SITUATION:Genies
+Knowledge (Planes).MOD	SITUATION:ID devils
+Knowledge (Planes).MOD	SITUATION:ID divs
+Sense Motive.MOD		SITUATION:Genies

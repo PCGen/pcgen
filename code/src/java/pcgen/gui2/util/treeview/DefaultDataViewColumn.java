@@ -1,5 +1,4 @@
 /*
- * DefaultDataViewColumn.java
  * Copyright 2008 (C) Connor Petty <mistercpp2000@gmail.com>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,16 +15,11 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 22, 2008, 2:45:05 PM
  */
 package pcgen.gui2.util.treeview;
 
 import pcgen.system.LanguageBundle;
 
-/**
- *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
- */
 public class DefaultDataViewColumn implements DataViewColumn
 {
 
@@ -40,21 +34,17 @@ public class DefaultDataViewColumn implements DataViewColumn
 		this(name, dataclass, false, false);
 	}
 
-	public DefaultDataViewColumn(String name, Class<?> dataclass,
-			boolean visible)
+	public DefaultDataViewColumn(String name, Class<?> dataclass, boolean visible)
 	{
 		this(name, dataclass, visible, false);
 	}
 
-	public DefaultDataViewColumn(String name, Class<?> dataclass,
-			boolean visible, boolean editable)
+	public DefaultDataViewColumn(String name, Class<?> dataclass, boolean visible, boolean editable)
 	{
 		this(name, dataclass, visible, editable, true);
 	}
 
-	public DefaultDataViewColumn(String name, Class<?> dataclass,
-			boolean visible, boolean editable,
-			boolean cache)
+	public DefaultDataViewColumn(String name, Class<?> dataclass, boolean visible, boolean editable, boolean cache)
 	{
 		if (name.startsWith("in_"))
 		{
@@ -99,12 +89,6 @@ public class DefaultDataViewColumn implements DataViewColumn
 	public boolean isEditable()
 	{
 		return editable;
-	}
-
-	@Override
-	public boolean shouldCache()
-	{
-		return cache;
 	}
 
 }

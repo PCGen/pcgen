@@ -1,5 +1,4 @@
 /*
- * VariableReport.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 12/04/2013 5:34:17 PM
  *
- * $Id$
  */
 package pcgen.persistence.lst.utils;
 
@@ -40,9 +37,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
@@ -51,17 +45,18 @@ import pcgen.core.SystemCollections;
 import pcgen.io.PCGFile;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.system.ConfigurationSettings;
+
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
- * The Class <code>VariableReport</code> produces a report on variable 
+ * The Class {@code VariableReport} produces a report on variable
  * definitions within the PCGen LST data.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class VariableReport
@@ -75,39 +70,32 @@ public class VariableReport
 	 * @throws IOException If the template cannot be accessed or the file cannot be written to.
 	 * @throws TemplateException If there is an error in processing the template.
 	 */
-	public void runReport(Map<ReportFormat, String> reportNameMap)
-		throws IOException, TemplateException
+	public void runReport(Map<ReportFormat, String> reportNameMap) throws IOException, TemplateException
 	{
 		List<GameMode> games = SystemCollections.getUnmodifiableGameModeList();
-		Map<String, List<VarDefine>> gameModeVarMap =
-                new TreeMap<>();
-		Map<String, Integer> gameModeVarCountMap =
-                new TreeMap<>();
+		Map<String, List<VarDefine>> gameModeVarMap = new TreeMap<>();
+		Map<String, Integer> gameModeVarCountMap = new TreeMap<>();
 		for (GameMode gameMode : games)
 		{
 			List<VarDefine> varList = new ArrayList<>();
 			Map<String, Integer> varCountMap = new HashMap<>();
 			Set<File> processedLstFiles = new HashSet<>();
-			List<Campaign> campaignsForGameMode =
-					getCampaignsForGameMode(gameMode);
+			List<Campaign> campaignsForGameMode = getCampaignsForGameMode(gameMode);
 			for (Campaign campaign : campaignsForGameMode)
 			{
-				processCampaign(campaign, varList, varCountMap,
-					processedLstFiles);
+				processCampaign(campaign, varList, varCountMap, processedLstFiles);
 			}
 			Collections.sort(varList);
 			gameModeVarMap.put(gameMode.getName(), varList);
 			gameModeVarCountMap.put(gameMode.getName(), varCountMap.size());
 		}
 
-		for (Entry<ReportFormat, String> reportRequest : reportNameMap
-			.entrySet())
+		for (Entry<ReportFormat, String> reportRequest : reportNameMap.entrySet())
 		{
 			Writer file = new FileWriter(new File(reportRequest.getValue()));
 			try
 			{
-				outputReport(gameModeVarMap, gameModeVarCountMap,
-					reportRequest.getKey(), file);
+				outputReport(gameModeVarMap, gameModeVarCountMap, reportRequest.getKey(), file);
 			}
 			finally
 			{
@@ -126,9 +114,8 @@ public class VariableReport
 	 * @throws IOException If the template cannot be accessed or the writer cannot be written to.
 	 * @throws TemplateException If there is an error in processing the template.
 	 */
-	public void outputReport(Map<String, List<VarDefine>> gameModeVarMap,
-		Map<String, Integer> gameModeVarCountMap, ReportFormat reportFormat,
-		Writer outputWriter) throws IOException, TemplateException
+	public void outputReport(Map<String, List<VarDefine>> gameModeVarMap, Map<String, Integer> gameModeVarCountMap,
+		ReportFormat reportFormat, Writer outputWriter) throws IOException, TemplateException
 	{
 		// Configuration
 		Writer file = null;
@@ -182,8 +169,7 @@ public class VariableReport
 			if (campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList))
 			{
 				gameModeCampaigns.add(campaign);
-				for (CampaignSourceEntry fName : campaign
-					.getSafeListFor(ListKey.FILE_PCC))
+				for (CampaignSourceEntry fName : campaign.getSafeListFor(ListKey.FILE_PCC))
 				{
 					URI uri = fName.getURI();
 					if (PCGFile.isPCGenCampaignFile(uri))
@@ -201,12 +187,10 @@ public class VariableReport
 		return new ArrayList<>(gameModeCampaigns);
 	}
 
-	private List<File> processCampaign(Campaign campaign,
-		List<VarDefine> varList, Map<String, Integer> varCountMap,
+	private List<File> processCampaign(Campaign campaign, List<VarDefine> varList, Map<String, Integer> varCountMap,
 		Set<File> processedLstFiles) throws FileNotFoundException, IOException
 	{
-		List<CampaignSourceEntry> cseList =
-                new ArrayList<>();
+		List<CampaignSourceEntry> cseList = new ArrayList<>();
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_LST_EXCLUDE));
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_RACE));
 		//TODO: Handle class with a special processor that tracks the class, sublass and level 
@@ -253,8 +237,7 @@ public class VariableReport
 		return missingLstFiles;
 	}
 
-	private void processLstFile(List<VarDefine> varList,
-		Map<String, Integer> varCountMap, File file)
+	private void processLstFile(List<VarDefine> varList, Map<String, Integer> varCountMap, File file)
 		throws FileNotFoundException, IOException
 	{
 		try (BufferedReader br = new BufferedReader(new FileReader(file)))
@@ -267,7 +250,7 @@ public class VariableReport
 				if (line.startsWith("###VAR:"))
 				{
 					// ###VAR:SomeVar<tab>USE:Explanation of usage of SomeVar
-					String varUse[] = line.trim().split("\t");
+					String[] varUse = line.trim().split("\t");
 					if (varUse.length >= 2 && varUse[1].startsWith("USE:"))
 					{
 						varUseMap.put(varUse[0].substring(7), varUse[1].substring(4));
@@ -275,20 +258,17 @@ public class VariableReport
 				}
 				else if (!line.startsWith("#") && StringUtils.isNotBlank(line))
 				{
-					String tokens[] = line.split("\t");
+					String[] tokens = line.split("\t");
 					String object = tokens[0];
 					for (String tok : tokens)
 					{
 						if (tok.startsWith("DEFINE:"))
 						{
-							String define[] = tok.split("[:|]");
+							String[] define = tok.split("[:|]");
 							String varName = define[1];
-							if (define.length > 1
-									&& !varName.startsWith("LOCK.")
-									&& !varName.startsWith("UNLOCK."))
+							if (define.length > 1 && !varName.startsWith("LOCK.") && !varName.startsWith("UNLOCK."))
 							{
-								varList.add(new VarDefine(varName, object,
-										file, varUseMap.get(varName)));
+								varList.add(new VarDefine(varName, object, file, varUseMap.get(varName)));
 								Integer count = varCountMap.get(varName);
 								if (count == null)
 								{
@@ -334,7 +314,7 @@ public class VariableReport
 	}
 
 	/**
-	 * The Class <code>VarDefine</code> contains a single definition of 
+	 * The Class {@code VarDefine} contains a single definition of
 	 * a variable.
 	 */
 	public static class VarDefine implements Comparable<VarDefine>
@@ -352,8 +332,7 @@ public class VariableReport
 		 * @param definingFile The file in which the variable is defined.
 		 * @param use The use as described by the author of the variable.
 		 */
-		public VarDefine(String varName, String definingObject,
-			File definingFile, String use)
+		public VarDefine(String varName, String definingObject, File definingFile, String use)
 		{
 			this.varName = varName;
 			this.definingObject = definingObject;
@@ -366,14 +345,8 @@ public class VariableReport
 		{
 			final int prime = 31;
 			int result = 1;
-			result =
-					prime * result
-						+ ((varName == null) ? 0 : varName.hashCode());
-			result =
-					prime
-						* result
-						+ ((definingObject == null) ? 0 : definingObject
-							.hashCode());
+			result = prime * result + ((varName == null) ? 0 : varName.hashCode());
+			result = prime * result + ((definingObject == null) ? 0 : definingObject.hashCode());
 			return result;
 		}
 
@@ -449,7 +422,7 @@ public class VariableReport
 			builder.append(definingFile);
 			builder.append(", use=");
 			builder.append(use);
-			builder.append("]");
+			builder.append(']');
 			return builder.toString();
 		}
 

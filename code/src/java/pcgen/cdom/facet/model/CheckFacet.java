@@ -27,10 +27,8 @@ import pcgen.output.publish.OutputDB;
  * CheckFacet is a Facet that tracks the PCCheck objects available to a Player
  * Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class CheckFacet extends AbstractListFacet<CharID, PCCheck> implements
-		SetFacet<CharID, PCCheck>
+public class CheckFacet extends AbstractListFacet<CharID, PCCheck> implements SetFacet<CharID, PCCheck>
 {
 	public void init()
 	{

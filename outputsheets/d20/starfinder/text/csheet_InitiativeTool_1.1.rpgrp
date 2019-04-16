@@ -1,0 +1,666 @@
+<group-set>
+      <game-name>d20 3.5</game-name>
+      <groups>
+            <group>
+                  <name>|NAME|</name>
+                  <combatants>
+                        <combatant>
+                              <name>|NAME|</name>
+                              <altname>|TABNAME|</altname>
+                              <itPlayer>|PLAYERNAME|</itPlayer>
+|FOR,%TokenTest,STRLEN[PORTRAIT],STRLEN[PORTRAIT],1,0|
+|IIF(%TokenTest:0)|
+                              <itToken></itToken>
+|ELSE|
+                              <itToken>URL:file:|PORTRAIT|</itToken>
+|ENDIF|
+|ENDFOR|
+                              <itCount>1</itCount>
+                              <itCategory>NPC</itCategory>
+                              <size>
+                                    <name>|SIZELONG|</name>
+                              </size>
+                              <type>|RACETYPE|</type>
+                              <descriptor>
+|FOR,%subtype,0,COUNT[RACESUBTYPES]-2,1,1|
+|RACESUBTYPE.%subtype|,|SPACE|
+|ENDFOR|
+|FOR,%subtype,COUNT[RACESUBTYPES]-1,COUNT[RACESUBTYPES]-1,1,1|
+|RACESUBTYPE.%subtype|
+|ENDFOR|
+					</descriptor>
+                              <race>|RACE|</race>
+                              <levels>
+|FOR,%class,0,COUNT[CLASSES]-2,1,1|
+|CLASS.%class| |CLASS.%class.LEVEL|, 
+|ENDFOR|
+|FOR,%class,COUNT[CLASSES]-1,COUNT[CLASSES]-1,1,1|
+|CLASS.%class| |CLASS.%class.LEVEL|
+|ENDFOR|
+                              </levels>
+                              <hitDice>
+                                    <value>|HITDICE| (|HP| hp)</value>
+                              </hitDice>
+                              <hp>
+                                    <base>|HP|</base>
+                              </hp>
+					<itInitiativeModifier>|INITIATIVEMISC|</itInitiativeModifier>
+                              <speed>
+|FOR,%movement,0,COUNT[MOVE]-1,1,1|
+|IIF(MOVE.0.NAME:Walk)|
+|IIF(MOVE.%movement.NAME:Walk)|
+ |MOVE.%movement.RATE|
+|ELSE|
+ |MOVE.%movement.NAME| |MOVE.%movement.RATE|
+|ENDIF|
+|ELSE|
+ |MOVE.%movement.NAME| |MOVE.%movement.RATE|
+|ENDIF|
+|IIF(MOVE.%movement.NAME:Fly)|
+ (|ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneuverability.ASPECT.Maneuverability|)
+|ENDIF|
+|ENDFOR|
+					</speed>
+                              <armorClass>
+                                    <armor>
+                                          <base>|VAR.AC.Armor+AC.Shield+AC.NaturalArmor.INTVAL|</base>
+                                    </armor>
+                                    <dexterity>
+                                          <base>|VAR.AC.Ability.INTVAL|</base>
+                                    </dexterity>
+                                    <other>
+                                    	<base>|VAR.AC.Deflection+AC.Dodge+AC.Insight+AC.Misc+AC.ClassDefense.INTVAL|</base>
+                                    </other>
+                                    <maxDexBonus>|MAXDEX|</maxDexBonus>
+                                    <value>|AC.Total|</value>
+                              </armorClass>
+                              <baseAttack>|ATTACK.MELEE.BASE|</baseAttack>
+                              <grapple>
+                              </grapple>
+                              <space>|FACE|</space>
+                              <reach>|REACH|</reach>
+                              <fortSave>
+                                    <base>|CHECK.FORTITUDE.TOTAL.NOSTAT|</base>
+                              </fortSave>
+                              <reflexSave>
+                                    <base>|CHECK.REFLEX.TOTAL.NOSTAT|</base>
+                              </reflexSave>
+                              <willSave>
+                                    <base>|CHECK.2.TOTAL.NOSTAT|</base>
+                              </willSave>
+                              <str>
+|IIF(STAT.0:*)|
+                                    <base>10</base>
+|ELSE|
+                                    <base>|STAT.0|</base>
+|ENDIF|
+                              </str>
+                              <dex>
+|IIF(STAT.1:*)|
+                                    <base>10</base>
+|ELSE|
+                                    <base>|STAT.1|</base>
+|ENDIF|
+                              </dex>
+                              <con>
+|IIF(STAT.2:*)|
+                                    <base>10</base>
+|ELSE|
+                                    <base>|STAT.2|</base>
+|ENDIF|
+                              </con>
+                              <int>
+|IIF(STAT.3:*)|
+                                    <base>10</base>
+|ELSE|
+                                    <base>|STAT.3|</base>
+|ENDIF|
+                              </int>
+                              <wis>
+|IIF(STAT.4:*)|
+                                    <base>10</base>
+|ELSE|
+                                    <base>|STAT.4|</base>
+|ENDIF|
+                              </wis>
+                              <cha>
+|IIF(STAT.5:*)|
+                                    <base>10</base>
+|ELSE|
+                                    <base>|STAT.5|</base>
+|ENDIF|
+                              </cha>
+                              <alignment>|ALIGNMENT|</alignment>
+                              <attack>|FOR.0,COUNT[EQTYPE.Weapon],1,\\WEAPON.%.NAME.NOSTAR\\ \\WEAPON.%.THHIT.0\\ (\\WEAPON.%.DAMAGE\\); ,,,|</attack>
+                              <fullAttack>
+|FOR,%weap,0,COUNT[EQTYPE.Weapon]-1,1,0|
+|IIF(WEAPON.%weap.BASEHIT:INVALIDTEXT.TOHIT)|
+|WEAPON.%weap.NAME.NOSTAR|: melee (two handed) |WEAPON.%weap.THHIT|, damage |WEAPON.%weap.THDAMAGE|, critical |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|
+|ELSE|
+|IIF(WEAPON.%weap.ISTYPE.Ranged)|
+|WEAPON.%weap.NAME.NOSTAR|: ranged |WEAPON.%weap.RANGELIST.0.BASEHIT|, damage |WEAPON.%weap.RANGELIST.0.DAMAGE|, critical |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|
+|ELSE|
+|WEAPON.%weap.NAME.NOSTAR|: melee |WEAPON.%weap.BASEHIT|, damage |WEAPON.%weap.DAMAGE|, critical |WEAPON.%weap.CRIT|/x|WEAPON.%weap.MULT|
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+                              </fullAttack>
+                              <specialAttacks>|ABILITYALLLIST.Special Ability.TYPE=SpecialAttack|</specialAttacks>
+                              <specialQualities>
+                              
+|FOR,%DRTest,STRLEN[DR],STRLEN[DR],1,0|
+|IIF(%DRTest:0)|
+|ELSE|
+Damage Reduction |TEXT.LOWER.DR|, 
+|ENDIF|
+|ENDFOR|
+
+|IIF(SR:0)|
+|ELSE|
+Spell Resistance |SR|, 
+|ENDIF|
+
+|ABILITYALLLIST.Special Ability.TYPE=SpecialQuality| 
+|SPECIALLIST|
+                              
+                              </specialQualities>
+                              <skills>|SKILLLISTMODS|</skills>
+                              <feats>|FEATALLLIST.!TYPE=Epic|</feats>
+                              <epicFeats>|FEATALLLIST.TYPE=Epic|</epicFeats>
+                              <environment>|LOCATION|</environment>
+                              <challengeRating>|CR|</challengeRating>
+                              <treasure>|MISC.FUNDS|</treasure>
+                              <levelAdjustment>|VAR.ECL-TL.INTVAL|</levelAdjustment>
+                              <height>|HEIGHT|</height>
+                              <family></family>
+                              <age>|AGE|</age>
+                              <meleeCombat>
+                                    <base>|ATTACK.MELEE.BASE|</base>
+                              </meleeCombat>
+                              <rangedCombat>
+                                    <base>|ATTACK.RANGED.BASE|</base>
+                              </rangedCombat>
+          				<itNotes>
+|DESC|
+|MISC.MAGIC|
+|MISC.COMPANIONS|
+|FOR,%note,0,COUNT[NOTES]-1,1,1|
+|NOTE.%note.NAME|: |NOTE.%note.VALUE|
+|ENDFOR|
+					</itNotes>
+                              <weight>|WEIGHT|</weight>
+                              <armorCheckPenalty>|ACCHECK|</armorCheckPenalty>
+                              <abilities>Str |STAT.0|, Dex |STAT.1|, Con |STAT.2|, Int |STAT.3|, Wis |STAT.4|, Cha |STAT.5|</abilities>
+                              <gender>|GENDER.LONG|</gender>
+					<appraise>
+						<base>|VAR.SKILL.Appraise.TOTAL-SKILL.Appraise.ABMOD.INTVAL|</base>
+					</appraise>
+					<autohypnosis>
+						<base>|VAR.SKILL.Autohypnosis.TOTAL-SKILL.Autohypnosis.ABMOD.INTVAL|</base>
+					</autohypnosis>
+					<balance>
+						<base>|VAR.SKILL.Balance.TOTAL-SKILL.Balance.ABMOD.INTVAL|</base>
+					</balance>
+					<bluff>
+						<base>|VAR.SKILL.Bluff.TOTAL-SKILL.Bluff.ABMOD.INTVAL|</base>
+					</bluff>
+					<climb>
+						<base>|VAR.SKILL.Climb.TOTAL-SKILL.Climb.ABMOD.INTVAL|</base>
+					</climb>
+					<concentration>
+						<base>|VAR.SKILL.Concentration.TOTAL-SKILL.Concentration.ABMOD.INTVAL|</base>
+					</concentration>
+					<craftAlchemy>
+						<base>|VAR.SKILL.Craft (Alchemy).TOTAL-SKILL.Craft (Alchemy).ABMOD.INTVAL|</base>
+					</craftAlchemy>
+					<craftArmorsmith>
+						<base>|VAR.SKILL.Craft (Armorsmithing).TOTAL-SKILL.Craft (Armorsmithing).ABMOD.INTVAL|</base>
+					</craftArmorsmith>
+					<craftBowmaking>
+						<base>|VAR.SKILL.Craft (Bowmaking).TOTAL-SKILL.Craft (Bowmaking).ABMOD.INTVAL|</base>
+					</craftBowmaking>
+					<craftOther>
+						<base>|VAR.SKILL.Craft (Untrained).TOTAL-SKILL.Craft (Untrained).ABMOD.INTVAL|</base>
+					</craftOther>
+					<craftPainting>
+						<base>|VAR.SKILL.Craft (Painting).TOTAL-SKILL.Craft (Painting).ABMOD.INTVAL|</base>
+					</craftPainting>
+					<craftStoneworking>
+						<base>|VAR.SKILL.Craft (Stonemasonry).TOTAL-SKILL.Craft (Stonemasonry).ABMOD.INTVAL|</base>
+					</craftStoneworking>
+					<craftTrapmaking>
+						<base>|VAR.SKILL.Craft (Trapmaking).TOTAL-SKILL.Craft (Trapmaking).ABMOD.INTVAL|</base>
+					</craftTrapmaking>
+					<craftWeaponsmith>
+						<base>|VAR.SKILL.Craft (Weaponsmithing).TOTAL-SKILL.Craft (Weaponsmithing).ABMOD.INTVAL|</base>
+					</craftWeaponsmith>
+					<diplomacy>
+						<base>|VAR.SKILL.Diplomacy.TOTAL-SKILL.Diplomacy.ABMOD.INTVAL|</base>
+					</diplomacy>
+					<disableDevice>
+						<base>|VAR.SKILL.Disable Device.TOTAL-SKILL.Disable Device.ABMOD.INTVAL|</base>
+					</disableDevice>
+					<disguise>
+						<base>|VAR.SKILL.Disguise.TOTAL-SKILL.Disguise.ABMOD.INTVAL|</base>
+					</disguise>
+					<escapeArtist>
+						<base>|VAR.SKILL.Escape Artist.TOTAL-SKILL.Escape Artist.ABMOD.INTVAL|</base>
+					</escapeArtist>
+					<forgery>
+						<base>|VAR.SKILL.Forgery.TOTAL-SKILL.Forgery.ABMOD.INTVAL|</base>
+					</forgery>
+					<gatherInformation>
+						<base>|VAR.SKILL.Gather Information.TOTAL-SKILL.Gather Information.ABMOD.INTVAL|</base>
+					</gatherInformation>
+					<handleAnimal>
+						<base>|VAR.SKILL.Handle Animal.TOTAL-SKILL.Handle Animal.ABMOD.INTVAL|</base>
+					</handleAnimal>
+					<heal>
+						<base>|VAR.SKILL.Heal.TOTAL-SKILL.Heal.ABMOD.INTVAL|</base>
+					</heal>
+					<hide>
+						<base>|VAR.SKILL.Hide.TOTAL-SKILL.Hide.ABMOD.INTVAL|</base>
+					</hide>
+					<intimidate>
+						<base>|VAR.SKILL.Intimidate.TOTAL-SKILL.Intimidate.ABMOD.INTVAL|</base>
+					</intimidate>
+					<jump>
+						<base>|VAR.SKILL.Jump.TOTAL-SKILL.Jump.ABMOD.INTVAL|</base>
+					</jump>
+					<knowledgeArcana>
+						<base>|VAR.SKILL.Knowledge (Arcana).TOTAL-SKILL.Knowledge (Arcana).ABMOD.INTVAL|</base>
+					</knowledgeArcana>
+					<knowledgeArchitecture>
+						<base>|VAR.SKILL.Knowledge (Architecture and Engineering).TOTAL-SKILL.Knowledge (Architecture and Engineering).ABMOD.INTVAL|</base>
+					</knowledgeArchitecture>
+					<knowledgeDngeoneering>
+						<base>|VAR.SKILL.Knowledge (Dungeoneering).TOTAL-SKILL.Knowledge (Dungeoneering).ABMOD.INTVAL|</base>
+					</knowledgeDngeoneering>
+					<knowledgeGeography>
+						<base>|VAR.SKILL.Knowledge (Geography).TOTAL-SKILL.Knowledge (Geography).ABMOD.INTVAL|</base>
+					</knowledgeGeography>
+					<knowledgeHistory>
+						<base>|VAR.SKILL.Knowledge (History).TOTAL-SKILL.Knowledge (History).ABMOD.INTVAL|</base>
+					</knowledgeHistory>
+					<knowledgeLocal>
+						<base>|VAR.SKILL.Knowledge (Local).TOTAL-SKILL.Knowledge (Local).ABMOD.INTVAL|</base>
+					</knowledgeLocal>
+					<knowledgeNature>
+						<base>|VAR.SKILL.Knowledge (Nature).TOTAL-SKILL.Knowledge (Nature).ABMOD.INTVAL|</base>
+					</knowledgeNature>
+					<knowledgeNobility>
+						<base>|VAR.SKILL.Knowledge (Nobility and Royalty).TOTAL-SKILL.Knowledge (Nobility and Royalty).ABMOD.INTVAL|</base>
+					</knowledgeNobility>
+					<knowledgePlanes>
+						<base>|VAR.SKILL.Knowledge (The Planes).TOTAL-SKILL.Knowledge (The Planes).ABMOD.INTVAL|</base>
+					</knowledgePlanes>
+					<knowledgePsionics>
+						<base>|VAR.SKILL.Knowledge (Psionics).TOTAL-SKILL.Knowledge (Psionics).ABMOD.INTVAL|</base>
+					</knowledgePsionics>
+					<knowledgeReligion>
+						<base>|VAR.SKILL.Knowledge (Religion).TOTAL-SKILL.Knowledge (Religion).ABMOD.INTVAL|</base>
+					</knowledgeReligion>
+					<listen>
+						<base>|VAR.SKILL.Listen.TOTAL-SKILL.Listen.ABMOD.INTVAL|</base>
+					</listen>
+					<moveSilently>
+						<base>|VAR.SKILL.Move Silently.TOTAL-SKILL.Move Silently.ABMOD.INTVAL|</base>
+					</moveSilently>
+					<openLock>
+						<base>|VAR.SKILL.Open Lock.TOTAL-SKILL.Open Lock.ABMOD.INTVAL|</base>
+					</openLock>
+					<performAct>
+						<base>|VAR.SKILL.Perform (Act).TOTAL-SKILL.Perform (Act).ABMOD.INTVAL|</base>
+					</performAct>
+					<performComedy>
+						<base>|VAR.SKILL.Perform (Comedy).TOTAL-SKILL.Perform (Comedy).ABMOD.INTVAL|</base>
+					</performComedy>
+					<performDance>
+						<base>|VAR.SKILL.Perform (Dance).TOTAL-SKILL.Perform (Dance).ABMOD.INTVAL|</base>
+					</performDance>
+					<performKeyboard>
+						<base>|VAR.SKILL.Perform (Keyboard Instruments).TOTAL-SKILL.Perform (Keyboard Instruments).ABMOD.INTVAL|</base>
+					</performKeyboard>
+					<performOratory>
+						<base>|VAR.SKILL.Perform (Oratory).TOTAL-SKILL.Perform (Oratory).ABMOD.INTVAL|</base>
+					</performOratory>
+					<performPercussion>
+						<base>|VAR.SKILL.Perform (Percussion Instruments).TOTAL-SKILL.Perform (Percussion Instruments).ABMOD.INTVAL|</base>
+					</performPercussion>
+					<performSing>
+						<base>|VAR.SKILL.Perform (Sing).TOTAL-SKILL.Perform (Sing).ABMOD.INTVAL|</base>
+					</performSing>
+					<performString>
+						<base>|VAR.SKILL.Perform (String Instruments).TOTAL-SKILL.Perform (String Instruments).ABMOD.INTVAL|</base>
+					</performString>
+					<performWind>
+						<base>|VAR.SKILL.Perform (Wind Instruments).TOTAL-SKILL.Perform (Wind Instruments).ABMOD.INTVAL|</base>
+					</performWind>
+					<professionMiner>
+						<base>|VAR.SKILL.Profession (Miner).TOTAL-SKILL.Profession (Miner).ABMOD.INTVAL|</base>
+					</professionMiner>
+					<psicraft>
+						<base>|VAR.SKILL.Psicraft.TOTAL-SKILL.Psicraft.ABMOD.INTVAL|</base>
+					</psicraft>
+					<ride>
+						<base>|VAR.SKILL.Ride.TOTAL-SKILL.Ride.ABMOD.INTVAL|</base>
+					</ride>
+					<search>
+						<base>|VAR.SKILL.Search.TOTAL-SKILL.Search.ABMOD.INTVAL|</base>
+					</search>
+					<senseMotive>
+						<base>|VAR.SKILL.Sense Motive.TOTAL-SKILL.Sense Motive.ABMOD.INTVAL|</base>
+					</senseMotive>
+					<sleightOfHand>
+						<base>|VAR.SKILL.Sleight of Hand.TOTAL-SKILL.Sleight of Hand.ABMOD.INTVAL|</base>
+					</sleightOfHand>
+					<spellcraft>
+						<base>|VAR.SKILL.Spellcraft.TOTAL-SKILL.Spellcraft.ABMOD.INTVAL|</base>
+					</spellcraft>
+					<spot>
+						<base>|VAR.SKILL.Spot.TOTAL-SKILL.Spot.ABMOD.INTVAL|</base>
+					</spot>
+					<survival>
+						<base>|VAR.SKILL.Survival.TOTAL-SKILL.Survival.ABMOD.INTVAL|</base>
+					</survival>
+					<swim>
+						<base>|VAR.SKILL.Swim.TOTAL-SKILL.Swim.ABMOD.INTVAL|</base>
+					</swim>
+					<tumble>
+						<base>|VAR.SKILL.Tumble.TOTAL-SKILL.Tumble.ABMOD.INTVAL|</base>
+					</tumble>
+					<useMagicDevice>
+						<base>|VAR.SKILL.Use Magic Device.TOTAL-SKILL.Use Magic Device.ABMOD.INTVAL|</base>
+					</useMagicDevice>
+					<usePsionicDevice>
+						<base>|VAR.SKILL.Use Psionic Device.TOTAL-SKILL.Use Psionic Device.ABMOD.INTVAL|</base>
+					</usePsionicDevice>
+                              <info>
+&lt;html&gt;
+&lt;body&gt;
+
+&lt;font face="Arial, Helvetica, sans-serif"&gt;
+
+
+&lt;font size="+1"&gt;|TEXT.UPPER.NAME|, &lt;/font&gt;&lt;/b&gt;
+|GENDER.LONG| |RACE| 
+|FOR,%class,0,COUNT[CLASSES]-1,1,1|
+|IIF(%class:0)|
+|ELSE|
+/
+|ENDIF|
+|CLASS.%class| |CLASS.%class.LEVEL|
+|ENDFOR|
+&lt;br&gt;
+
+&lt;b&gt;Senses&lt;/b&gt; 
+|FOR,%VisionTest,STRLEN[VISION],STRLEN[VISION],1,0|
+|IIF(%VisionTest:0)|
+|ELSE|
+|VISION|, 
+|ENDIF|
+|ENDFOR|
+|IIF(GAMEMODE:Pathfinder)|
+Perception |SKILL.Perception.TOTAL.SIGN|,
+|ELSE|
+Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
+|ENDIF|
+
+&lt;!-- Sense TYPE Abilities --&gt;
+|MANUALWHITESPACE|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Sense","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Sense.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Sense.ASPECT.Ability Bonus|&nbsp;
+|ENDIF|
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Sense|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Sense.HASASPECT.Ability Benefit:Y)|
+&nbsp;|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Sense.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+|MANUALWHITESPACE|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Sense","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense.ASPECT.Ability Bonus|&nbsp;
+|ENDIF|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense.HASASPECT.Ability Benefit:Y)|
+&nbsp;|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Sense.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|ENDMANUALWHITESPACE|
+&lt;br&gt;
+&lt;!-- End Sense TYPE Abilities --&gt;
+
+&lt;!-- Aura TYPE Abilities --&gt;
+|IIF(count("ABILITIES";"TYPE=Aura";"VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")>0)|
+
+&lt;b&gt;Aura &lt;/b&gt;
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Feat","TYPE=Aura","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura.ASPECT.Ability Bonus| 
+|ENDIF|
+|ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura|
+|IIF(ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura.HASASPECT.Ability Benefit:Y)|
+ |ABILITYALL.Feat.VISIBLE.%specialAbilities.TYPE=Aura.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+|FOR,%specialAbilities,0,count("ABILITIES","CATEGORY=Special Ability","TYPE=Aura","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura.HASASPECT.Ability Bonus:Y)|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura.ASPECT.Ability Bonus| 
+|ENDIF|
+|ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura.HASASPECT.Ability Benefit:Y)|
+ |ABILITYALL.Special Ability.VISIBLE.%specialAbilities.TYPE=Aura.ASPECT.Ability Benefit|
+|ENDIF|
+,|SPACE|
+|ENDFOR|
+
+&lt;br&gt;
+|ENDIF|
+&lt;!-- End Aura TYPE Abilities --&gt;
+
+&lt;b&gt;Languages&lt;/b&gt; |LANGUAGES|
+
+
+&lt;!-- Innate Spell-Like Abilities --&gt;
+|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.1.0]")>0;1;0):1)|
+&lt;hr align="center" noshade&gt;
+&lt;font face="Arial, Helvetica, sans-serif"  size="-1"&gt;
+&lt;br&gt;&lt;b&gt;Innate Spell-Like Abilities:&lt;/b&gt;
+|FOR,%spellbook,1,1,1,0|
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+&lt;i&gt;|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|&lt;/i&gt; (
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|, 
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+at will) 
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
+|ENDIF|
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDFOR|
+&lt;/font&gt;
+|ENDIF|
+&lt;!-- End Innate Spell-Like Abilities --&gt;
+
+&lt;!-- Other Spell-Like Abilities --&gt;
+&lt;font face="Arial, Helvetica, sans-serif"  size="-1"&gt;
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.TYPE:Innate Spell List)|
+|IIF(VAR.IF(VAR("COUNT[SPELLSINBOOK.0.%spellbook.0]")>0;1;0):1)|
+&lt;hr align="center" noshade&gt;
+&lt;br&gt;&lt;b&gt;|SPELLBOOK.%spellbook.NAME| Spell-Like Abilities:&lt;/b&gt;
+|FOR,%class,0,0,1,0|
+|FOR,%level,0,0,1,0|
+|%SPELLLISTBOOK.%class.%level.%spellbook|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+&lt;i&gt;|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|&lt;/i&gt; (
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|, 
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:At Will)|
+at will) 
+|ELSE|
+|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|/|SPELLMEM.%class.%spellbook.%level.%spell.TIMEUNIT|) 
+|ENDIF|
+|ENDFOR|
+|%|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+|ENDIF|
+|ENDFOR|
+&lt;/font&gt;
+&lt;!-- End Other Spell-Like Abilities --&gt;
+
+&lt;!-- Known Spells --&gt;
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
+|IIF(SPELLLISTMEMORIZE.%class:false)|
+&lt;hr align="center" noshade&gt;
+&lt;font face="Arial, Helvetica, sans-serif"  size="-1"&gt;
+&lt;br&gt;&lt;b&gt;Known |SPELLLISTCLASS.%class| Spells&lt;/b&gt; (CL |MANUALWHITESPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL||ENDMANUALWHITESPACE|): 
+|FOR,%level,9,0,-1,1|
+|FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.0.%level],COUNT[SPELLSINBOOK.%class.0.%level],1,0|
+|IIF(%spelllevelcount:0)|
+&lt;!-- no memorized spells for SPELLSINBOOK.%class 0 %level --&gt;
+|ELSE|
+&lt;br&gt;|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE|
+|IIF(%level:0.AND.GAMEMODE:Pathfinder)|
+(at will) -
+|ELSE|
+(|SPELLLISTCAST.%class.%level|/day) -
+|ENDIF|
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.0.%level]-2,1,0|
+&lt;i&gt;|TEXT.LOWER.SPELLMEM.%class.0.%level.%spell.NAME|&lt;/i&gt;
+|IIF(SPELLMEM.%class.0.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.0.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.0.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC |SPELLMEM.%class.0.%level.%spell.DC|)
+|ENDIF|
+, 
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK.%class.0.%level]-1,COUNT[SPELLSINBOOK.%class.0.%level]-1,1,0|
+|SPELLMEM.%class.0.%level.%spell.BONUSSPELL|&lt;i&gt;|TEXT.LOWER.SPELLMEM.%class.0.%level.%spell.NAME|&lt;/i&gt;
+|IIF(SPELLMEM.%class.0.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.0.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.0.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC |SPELLMEM.%class.0.%level.%spell.DC|)
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+&lt;/font&gt;
+|ENDIF|
+|ENDFOR|
+&lt;!-- End Known Spells --&gt;
+
+&lt;!-- Prepared Spells --&gt;
+|FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
+|IIF(SPELLBOOK.%spellbook.TYPE:Prepared Spell List)|
+&lt;hr align="center" noshade&gt;
+&lt;font face="Arial, Helvetica, sans-serif"  size="-1"&gt;
+&lt;br&gt;&lt;b&gt;|SPELLBOOKNAME.%spellbook| Prepared Spell List&lt;/b&gt;
+|FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,0|
+|IIF(SPELLLISTMEMORIZE.%class:true)|
+&lt;br&gt;|SPELLLISTCLASS.%class| (CL |MANUALWHITESPACE||SPELLLISTCLASS.%class.LEVEL||TEXT.NUMSUFFIX.SPELLLISTCLASS.%class.LEVEL||ENDMANUALWHITESPACE|): 
+|FOR,%level,9,0,-1,1|
+|FOR,%spelllevelcount,COUNT[SPELLSINBOOK.%class.%spellbook.%level],COUNT[SPELLSINBOOK.%class.%spellbook.%level],1,0|
+|IIF(%spelllevelcount:0)|
+|ELSE|
+&lt;br&gt;|MANUALWHITESPACE||%level||TEXT.NUMSUFFIX.%level||ENDMANUALWHITESPACE| -
+|FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-2,1,0|
+&lt;i&gt;|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|&lt;/i&gt;
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+, 
+|ENDFOR|
+|FOR,%spell,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
+|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL|&lt;i&gt;|TEXT.LOWER.SPELLMEM.%class.%spellbook.%level.%spell.NAME|&lt;/i&gt;
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.TIMES:1)|
+|ELSE|
+(|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)
+|ENDIF|
+|IIF(SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO:None)|
+|ELSE|
+(DC |SPELLMEM.%class.%spellbook.%level.%spell.DC|)
+|ENDIF|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ENDFOR|
+|ENDIF|
+|ENDFOR|
+|ELSE|
+&lt;/font&gt;
+|ENDIF|
+|ENDFOR|
+&lt;!-- End Prepared Spells --&gt;
+
+&lt;!-- Domain list --&gt;
+|%DOMAIN.1|
+&lt;br&gt;*domain spell 
+&lt;br&gt;&lt;b&gt;Deity&lt;/b&gt; |DEITY|; 
+&lt;b&gt;Domains&lt;/b&gt; 
+|FOR,%domain,1,COUNT[DOMAINS],1,0|
+|DOMAIN.%domain|, 
+|ENDFOR|
+|%|
+&lt;!-- End Domain list --&gt;
+
+&lt;hr align="center" noshade&gt;
+&lt;font face="Arial, Helvetica, sans-serif"  size="-1"&gt;
+&lt;p&gt;&lt;b&gt;SPECIAL ABILITIES&lt;/b&gt;&lt;/p&gt;
+
+|FOR,%allAbilities,0,count("ABILITIES","CATEGORY=Special Ability","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1,1,0| 
+&lt;p&gt;&lt;b&gt;|ABILITYALL.Special Ability.VISIBLE.%allAbilities|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:Extraordinary)|
+ (Ex)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:Supernatural)|
+ (Su)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:SpellLike)|
+ (Sp)
+|ENDIF|
+|IIF(ABILITYALL.Special Ability.VISIBLE.%allAbilities.TYPE:PsiLike)|
+ (Ps)
+|ENDIF|
+&lt;/b&gt; |ABILITYALL.Special Ability.VISIBLE.%allAbilities.DESC|&lt;/p&gt;
+|ENDFOR|
+&lt;/font&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+                             </info>
+                        </combatant>
+                  </combatants>
+            </group>
+      </groups>
+</group-set>

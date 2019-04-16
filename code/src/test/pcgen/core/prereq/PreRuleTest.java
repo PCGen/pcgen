@@ -1,5 +1,4 @@
 /*
- * PreRuleTest.java
  * Copyright 2007 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,45 +14,31 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on February 6, 2007
- *
- * Current Ver: $Revision: 1777 $
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.RuleCheck;
 import pcgen.core.SettingsHandler;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreRuleParser;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreRuleTest</code> checks the function of the rule 
+ * {@code PreRuleTest} checks the function of the rule
  * prereq tester.
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public class PreRuleTest extends AbstractCharacterTestCase
 {
-	/**
-	 * Runs the test.
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreRuleTest.class);
-	}
-
-	/* (non-Javadoc)
-	 * @see junit.framework.TestCase#setUp()
-	 */
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -66,26 +51,7 @@ public class PreRuleTest extends AbstractCharacterTestCase
 		gameMode.getModeContext().getReferenceContext().importObject(preRule);
 	}
 
-	/* (non-Javadoc)
-	 * @see junit.framework.TestCase#tearDown()
-	 */
-	@Override
-	protected void tearDown() throws Exception
-	{
-		// TODO Auto-generated method stub
-		super.tearDown();
-	}
-
-	/**
-	 * Returns a TestSuite consisting of all the tests in this class.
-	 * 
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreRuleTest.class);
-	}
-	
+	@Test
 	public void testRule() throws Exception
 	{
 		// if ruleEnabled is launch before disabled, the disabled assert are wrong.
@@ -95,10 +61,10 @@ public class PreRuleTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test to ensure that we return false when races don't match.
-	 * 
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void ruleDisabled() throws Exception
+	private void ruleDisabled() throws PersistenceLayerException
 	{
 		assertFalse("Our rule should start as false", Globals
 			.checkRule("PRERULE"));
@@ -116,10 +82,10 @@ public class PreRuleTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test to ensure that we return false when races don't match.
-	 * 
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void ruleEnabled() throws Exception
+	private void ruleEnabled() throws PersistenceLayerException
 	{
 		RuleCheck preRule = SettingsHandler.getGame().getModeContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(RuleCheck.class, "PRERULE");

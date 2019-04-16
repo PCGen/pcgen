@@ -1,5 +1,4 @@
 /*
- * SplashScreen.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Sep 1, 2009, 10:49:27 PM
  */
 package pcgen.gui2;
 
@@ -24,7 +22,11 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.GridLayout;
+
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -32,6 +34,7 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JWindow;
 import javax.swing.SwingUtilities;
+
 import pcgen.gui2.tools.Icons;
 import pcgen.system.PCGenTask;
 import pcgen.system.PCGenTaskEvent;
@@ -41,7 +44,6 @@ import pcgen.system.PCGenTaskListener;
  * PCGen's splash screen which is shown upon startup.
  *
  * @see pcgen.system.Main
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SplashScreen extends JWindow implements PCGenTaskListener
 {
@@ -63,6 +65,11 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 		Component splashLabel = new JLabel(Icons.SplashPcgen_Ennie.getImageIcon());
 		pane.add(splashLabel, BorderLayout.NORTH);
 		loadingLabel.setBorder(BorderFactory.createEmptyBorder(10, 7, 10, 10));
+
+		Font curFont = pane.getFont();
+		FontMetrics ftMetrics = pane.getFontMetrics(curFont);
+		int ftHeight = ftMetrics.getHeight();
+		loadingLabel.setPreferredSize(new Dimension(splashLabel.getWidth(), ftHeight));
 		pane.add(loadingLabel, BorderLayout.CENTER);
 
 		loadProgress.setStringPainted(true);
@@ -92,7 +99,7 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 	 * It is not assumed that this method will be called on the Event Dispatch
 	 * thread so UI updates are added to the Event Dispatch queue so that they
 	 * are handled appropriately. To make sure that update requests do not
-	 * overwhelm the UI thread a <code>dirty</code> flag is used to make sure
+	 * overwhelm the UI thread a {@code dirty} flag is used to make sure
 	 * that the multiple UI update requests are not queued at the same time.
 	 *
 	 * @param event a PCGenTaskEvent
@@ -103,8 +110,7 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 		if (!dirty)
 		{
 			dirty = true;
-			SwingUtilities.invokeLater(() ->
-			{
+			SwingUtilities.invokeLater(() -> {
 				PCGenTask task = event.getSource();
 				loadProgress.getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
 				loadingLabel.setText(task.getMessage());

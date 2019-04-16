@@ -17,7 +17,6 @@
 package pcgen.cdom.reference;
 
 import java.util.Collection;
-import java.util.List;
 
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMReference;
@@ -51,8 +50,7 @@ import pcgen.cdom.base.Loadable;
  * @param <T>
  *            The Class of object this ReferenceManufacturer can manufacture
  */
-public interface ReferenceManufacturer<T extends Loadable> extends
-		SelectionCreator<T>, FormatManager<T>
+public interface ReferenceManufacturer<T extends Loadable> extends SelectionCreator<T>, FormatManager<T>
 {
 	/**
 	 * Constructs a new CDOMObject of the Class or Class/Category represented by
@@ -105,7 +103,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends
 	 *         Class or Class/Category represented by this
 	 *         ReferenceManufacturer; false otherwise.
 	 */
-	public boolean containsObject(String key);
+	public boolean containsObjectKeyed(String key);
 
 	/**
 	 * Gets the object represented by the given identifier. Will return null if
@@ -154,18 +152,6 @@ public interface ReferenceManufacturer<T extends Loadable> extends
 	 *         ReferenceManufacturer
 	 */
 	public Collection<T> getAllObjects();
-
-	/**
-	 * Returns a List of all of the objects contained in this
-	 * ReferenceManufacturer sorted by the order they were added to the
-	 * ReferenceManufacturer. This will not return null, it will return an empty
-	 * list if no objects have been constructed by or imported into this
-	 * ReferenceManufacturer.
-	 * 
-	 * @return A List of all of the objects contained in this
-	 *         ReferenceManufacturer
-	 */
-	public List<T> getOrderSortedObjects();
 
 	/**
 	 * Changes the identifier for a given object, as stored in this
@@ -335,23 +321,78 @@ public interface ReferenceManufacturer<T extends Loadable> extends
 	 */
 	public int getConstructedObjectCount();
 
-	public T getItemInOrder(int index);
-
-	public String getReferenceDescription();
-
 	public T buildObject(String name);
 
+	/**
+	 * Fires an Unconstructed Event for this ReferenceManufacturer, based on the given
+	 * reference.
+	 * 
+	 * @param reference
+	 *            The reference to indicate that the underlying requested object was not
+	 *            constructed
+	 */
 	public void fireUnconstuctedEvent(CDOMReference<?> reference);
 
+	/**
+	 * Returns a Collection of the CDOMSingleRef objects that had references requested
+	 * from this ReferenceManufacturer.
+	 * 
+	 * @return A Collection of the CDOMSingleRef objects that had references requested
+	 *         from this ReferenceManufacturer
+	 */
 	public Collection<CDOMSingleRef<T>> getReferenced();
 
+	/**
+	 * Returns the ManufacturableFactory for this ReferenceManufacturer.
+	 * 
+	 * @return The ManufacturableFactory for this ReferenceManufacturer
+	 */
 	public ManufacturableFactory<T> getFactory();
 
+	/**
+	 * Returns a Collection of all of the references requested from this
+	 * ReferenceManufacturer.
+	 * 
+	 * @return A Collection of the references that have been requested from this
+	 *         ReferenceManufacturer
+	 */
 	public Collection<CDOMReference<T>> getAllReferences();
 
+	/**
+	 * Injects constructed items from this ReferenceManufacturer into the given
+	 * ReferenceManufacturer.
+	 * 
+	 * @param rm
+	 *            The ReferenceManufacturer into which objects already constructed in this
+	 *            ReferenceManufacturer should be injected
+	 */
 	public void injectConstructed(ReferenceManufacturer<T> rm);
-	
+
+	/**
+	 * Adds a derivative object for the given object to this ReferenceManufacturer.
+	 * Derivative objects are objects which are not named, but which represent sub-objects
+	 * within a given object. (This is used for certain parts of templates, for example).
+	 * These are tracked so that certain sets of validation that need to occur on tokens
+	 * (post load) will also occur on derivative objects.
+	 * 
+	 * @param obj
+	 *            The derivative object to be added to this ReferenceManufacturer
+	 */
 	public void addDerivativeObject(T obj);
 
+	/**
+	 * Returns a Collection of the derivative objects added to this ReferenceManufacturer.
+	 * 
+	 * @return A Collection of the derivative objects added to this ReferenceManufacturer
+	 */
 	public Collection<T> getDerivativeObjects();
+
+	/**
+	 * Returns the persistent format of the ClassIdentity returned by
+	 * getReferenceIdentity().
+	 * 
+	 * @return The persistent format of the ClassIdentity managed by this
+	 *         ReferenceManufacturer
+	 */
+	public String getPersistentFormat();
 }

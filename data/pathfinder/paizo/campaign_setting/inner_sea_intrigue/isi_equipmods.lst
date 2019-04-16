@@ -1,0 +1,14 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Inner Sea Intrigue	SOURCESHORT:ISI	SOURCEWEB:http://paizo.com/products/btpy9l37?Pathfinder-Campaign-Setting-Inner-Sea-Intrigue	SOURCEDATE:2016-06
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 December 2017
+
+# ==============================
+# Weapon Abilities
+# ==============================
+
+# Modifier Name			Unique Key									Type					Plus		Cost		Visible		Source Page		Required Type						Special Property																								Choose
+Obliviating				KEY:Special Ability ~ Obliviating ~ Melee				TYPE:Weapon.Melee.Bludgeoning	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.52	PRETYPE:4,Enhancement,Weapon,Melee,Bludgeoning	SPROP:Critical hit or sneak attack causes victim to lose all memory of previous 1d6 minutes and become flat-footed until its next turn (DC 16 Fort negates)
+Training				KEY:Special Ability ~ Training ~ Weapon				TYPE:Weapon				PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.52	PRETYPE:2,Enhancement,Weapon				SPROP:Grants one combat feat to the wielder while drawn; the feat is chosen when this ability is placed on the weapon and cannot be changed			CHOOSE:ABILITY|FEAT|TYPE=Combat
+Transformative (Greater)	KEY:Special Ability ~ Transformative / Greater ~ Melee	TYPE:Weapon						COST:15000	VISIBLE:QUALIFY	SOURCEPAGE:p.52	PRETYPE:2,Enhancement,Weapon				SPROP:SPROP:On command, alters its shape to become any other weapon (but not ammo)

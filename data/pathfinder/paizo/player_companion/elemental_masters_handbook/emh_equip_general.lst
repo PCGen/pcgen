@@ -1,0 +1,14 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Elemental Master's Handbook	SOURCESHORT:EMH	SOURCEWEB:http://paizo.com/products/btpy9uf8?Pathfinder-Player-Companion-Elemental-Masters-Handbook	SOURCEDATE:2017-08
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+
+# ==============================
+# New Alchemical Tools
+# ==============================
+
+# Equipment Name	Type						Cost		Weight	Source Page
+Aquemir		TYPE:Goods.Alchemical.Consumable	COST:150			SOURCEPAGE:p.31
+Light of Axtarr	TYPE:Goods.Alchemical.Consumable	COST:180	WT:.5		SOURCEPAGE:p.31
+Corrosenze		TYPE:Goods.Alchemical.Consumable	COST:90	WT:1		SOURCEPAGE:p.31
+Deadground Dust	TYPE:Goods.Alchemical.Consumable	COST:70	WT:1		SOURCEPAGE:p.31
+Somnigrip		TYPE:Goods.Alchemical.Consumable	COST:45	WT:3		SOURCEPAGE:p.31

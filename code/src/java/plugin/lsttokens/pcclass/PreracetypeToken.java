@@ -31,8 +31,8 @@ import pcgen.util.Logging;
 /**
  * Class deals with PRERACETYPE Token
  */
-public class PreracetypeToken extends AbstractNonEmptyToken<PCClass> implements
-		CDOMPrimaryToken<PCClass>, DeferredToken<PCClass>
+public class PreracetypeToken extends AbstractNonEmptyToken<PCClass>
+		implements CDOMPrimaryToken<PCClass>, DeferredToken<PCClass>
 {
 
 	@Override
@@ -42,8 +42,7 @@ public class PreracetypeToken extends AbstractNonEmptyToken<PCClass> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc, String value)
 	{
 		Prerequisite p = new Prerequisite();
 		p.setKind("RACETYPE");
@@ -62,7 +61,7 @@ public class PreracetypeToken extends AbstractNonEmptyToken<PCClass> implements
 		{
 			return null;
 		}
-		return new String[] { prereq.getKey() };
+		return new String[]{prereq.getKey()};
 	}
 
 	@Override
@@ -79,8 +78,7 @@ public class PreracetypeToken extends AbstractNonEmptyToken<PCClass> implements
 		{
 			if (!obj.isMonster())
 			{
-				Logging.errorPrint("PCClass " + obj.getKeyName()
-						+ " is not a Monster, but used PRERACETYPE");
+				Logging.errorPrint("PCClass " + obj.getKeyName() + " is not a Monster, but used PRERACETYPE");
 				return false;
 			}
 			obj.addPrerequisite(prereq);

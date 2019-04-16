@@ -27,12 +27,8 @@ import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
-/**
- * @author Thomas Parker (thpr [at] yahoo.com)
- */
-public class MonCSkillToSkillCostFacet extends
-		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements
-		DataFacetChangeListener<CharID, PCClass>
+public class MonCSkillToSkillCostFacet extends AbstractSubScopeFacet<PCClass, SkillCost, Skill>
+		implements DataFacetChangeListener<CharID, PCClass>
 {
 
 	private ClassFacet classFacet;

@@ -1,5 +1,4 @@
 /*
- * ArmorProf.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,28 +15,23 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  */
 package pcgen.core;
 
 import pcgen.cdom.base.Ungranted;
 
-
 /**
- * <code>ArmorProf</code>.
+ * {@code ArmorProf}.
  *
- * @author Thomas Clegg &lt;arknight@swbell.net&gt;
  * DO NOT DELETE (waiting for use)
  */
-public final class ArmorProf extends PObject implements Comparable<Object>,
-		Ungranted
+public final class ArmorProf extends PObject implements Comparable<Object>, Ungranted
 {
 	/**
 	 * Compares keyName only
 	 *
 	 * @param o1 Object
 	 * @return int
-	 * @see Comparable#compareTo(Object)
 	 */
 	@Override
 	public int compareTo(final Object o1)
@@ -54,8 +48,7 @@ public final class ArmorProf extends PObject implements Comparable<Object>,
 	@Override
 	public boolean equals(final Object obj)
 	{
-		return obj instanceof ArmorProf
-				&& getKeyName().equalsIgnoreCase(((ArmorProf) obj).getKeyName());
+		return obj instanceof ArmorProf && getKeyName().equalsIgnoreCase(((ArmorProf) obj).getKeyName());
 	}
 
 	/**

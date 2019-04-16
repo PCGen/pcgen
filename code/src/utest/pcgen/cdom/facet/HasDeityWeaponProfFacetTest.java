@@ -24,7 +24,7 @@ import pcgen.core.QualifiedObject;
 public class HasDeityWeaponProfFacetTest extends
 		AbstractQualifiedListFacetTest<QualifiedObject<Boolean>>
 {
-	private HasDeityWeaponProfFacet facet = new HasDeityWeaponProfFacet();
+	private final AbstractQualifiedListFacet<QualifiedObject<Boolean>> facet = new HasDeityWeaponProfFacet();
 
 	@Override
 	protected AbstractQualifiedListFacet<QualifiedObject<Boolean>> getFacet()

@@ -34,8 +34,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with MONNONSKILLHD Token
  */
-public class MonnonskillhdToken extends AbstractNonEmptyToken<PCClass>
-		implements CDOMPrimaryToken<PCClass>
+public class MonnonskillhdToken extends AbstractNonEmptyToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override
@@ -45,14 +44,12 @@ public class MonnonskillhdToken extends AbstractNonEmptyToken<PCClass>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc, String value)
 	{
 		BonusObj bon = Bonus.newBonus(context, "MONNONSKILLHD|NUMBER|" + value);
 		if (bon == null)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " was given invalid bonus value: " + value, context);
+			return new ParseResult.Fail(getTokenName() + " was given invalid bonus value: " + value);
 		}
 		bon.setTokenSource(getTokenName());
 		context.getObjectContext().addToList(pcc, ListKey.BONUS, bon);
@@ -62,8 +59,7 @@ public class MonnonskillhdToken extends AbstractNonEmptyToken<PCClass>
 	@Override
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
-		Changes<BonusObj> changes = context.getObjectContext().getListChanges(obj,
-				ListKey.BONUS);
+		Changes<BonusObj> changes = context.getObjectContext().getListChanges(obj, ListKey.BONUS);
 		if (changes == null || changes.isEmpty())
 		{
 			// Empty indicates no token present
@@ -82,8 +78,7 @@ public class MonnonskillhdToken extends AbstractNonEmptyToken<PCClass>
 				if (bonus.hasPrerequisites())
 				{
 					sb.append('|');
-					sb.append(getPrerequisiteString(context, bonus
-							.getPrerequisiteList()));
+					sb.append(getPrerequisiteString(context, bonus.getPrerequisiteList()));
 				}
 				bonusSet.add(sb.toString());
 			}

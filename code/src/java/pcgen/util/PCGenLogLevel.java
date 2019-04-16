@@ -1,5 +1,4 @@
 /*
- * PCGenLogLevel.java
  * Copyright 2007 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17/06/2007
- *
- * $Id$
  */
 
 package pcgen.util;
@@ -26,22 +21,16 @@ package pcgen.util;
 import java.util.logging.Level;
 
 /**
- * <code>PCGenLogLevel</code> defines PCGen's custom logging levels.
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ * {@code PCGenLogLevel} defines PCGen's custom logging levels.
  */
 public class PCGenLogLevel extends Level
 {
 	/** Logging level for LST errors such as syntax errors. */
-	public static final PCGenLogLevel LST_ERROR =
-			new PCGenLogLevel("LSTERROR", 950);
+	public static final PCGenLogLevel LST_ERROR = new PCGenLogLevel("LSTERROR", 950);
 	/** Logging level for LST warnings such as deprectaed syntax use. */
-	public static final PCGenLogLevel LST_WARNING =
-			new PCGenLogLevel("LSTWARN", 850);
+	public static final PCGenLogLevel LST_WARNING = new PCGenLogLevel("LSTWARN", 850);
 	/** Logging level for LST information such as references to missing items in PRE or CHOOSE tags. */
-	public static final PCGenLogLevel LST_INFO =
-			new PCGenLogLevel("LSTINFO", 750);
+	public static final PCGenLogLevel LST_INFO = new PCGenLogLevel("LSTINFO", 750);
 
 	protected PCGenLogLevel(String arg0, int arg1)
 	{

@@ -21,26 +21,19 @@ import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.Domain;
 import pcgen.core.Skill;
-
-import org.junit.Test;
 import plugin.lsttokens.CcskillLst;
+
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class CcskillLstTest extends AbstractSelectionActorTest<Skill>
 {
 
-	private static final ChooseSelectionActor<Skill> cra = new CcskillLst();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
+	private static final ChooseSelectionActor<Skill> CRA = new CcskillLst();
 
 	@Override
 	public ChooseSelectionActor<Skill> getActor()
 	{
-		return cra;
+		return CRA;
 	}
 
 	@Override

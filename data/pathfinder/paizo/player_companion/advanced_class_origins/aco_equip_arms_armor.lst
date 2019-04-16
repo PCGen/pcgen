@@ -1,0 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 12957 $ $Author: jbaril $ -- Sun Jul  6 20:02:09 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Pathfinder Player Companion: Advanced Class Origins	SOURCESHORT:ACO	SOURCEWEB:http://paizo.com/products/btpy965z	SOURCEDATE:2014-10
+
+# ==============================
+# New Magic Weapons
+# ==============================
+
+# Equipment Name	Product Identity?	Required Weapon Proficiency		Type																				Cost		Weight	Crit Mult	Crit Range	Damage	Modifier															Wield Category	Range		Size		Source Page
+Daggermark Blade	NAMEISPI:YES	PROFICIENCY:WEAPON|Dagger		TYPE:Magic.Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Simple.Specific.Piercing.Slashing.Dagger.BladeLight	COST:2	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:Special Ability ~ Enhancement Cost|6000.Special Ability ~ +1 ~ Weapon.Material ~ Steel	WIELD:Light		RANGE:10	SIZE:M	SOURCEPAGE:p.28
+Signifer's Fist				PROFICIENCY:WEAPON|Mace (Light)	TYPE:Magic.Weapon.Resizable.Melee.Light.Finesseable.Simple.Specific.Bludgeoning.Mace.Hammer					COST:5	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:Special Ability ~ Enhancement Cost|8000.Special Ability ~ +1 ~ Weapon.Material ~ Steel	WIELD:Light				SIZE:M	SOURCEPAGE:p.29

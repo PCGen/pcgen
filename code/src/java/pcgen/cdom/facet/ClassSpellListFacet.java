@@ -30,12 +30,11 @@ import pcgen.core.spell.Spell;
  * CDOMObject. This may be a static SpellList or a choice of a SpellLists
  * available to the Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ClassSpellListFacet
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private SpellListFacet spellListFacet;
 
@@ -60,8 +59,7 @@ public class ClassSpellListFacet
 	 */
 	public void process(CharID id, PCClass pcc)
 	{
-		TransitionChoice<CDOMListObject<Spell>> csc =
-				pcc.get(ObjectKey.SPELLLIST_CHOICE);
+		TransitionChoice<CDOMListObject<Spell>> csc = pcc.get(ObjectKey.SPELLLIST_CHOICE);
 		if (csc == null)
 		{
 			addDefaultSpellList(id, pcc);

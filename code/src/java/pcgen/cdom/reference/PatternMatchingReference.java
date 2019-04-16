@@ -20,6 +20,7 @@ package pcgen.cdom.reference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
@@ -37,8 +38,7 @@ import pcgen.cdom.enumeration.GroupingState;
  * @param <T>
  *            The class of object underlying this PatternMatchingReference.
  */
-public class PatternMatchingReference<T extends Loadable> extends
-		CDOMReference<T>
+public class PatternMatchingReference<T extends Loadable> extends CDOMReference<T>
 {
 
 	/**
@@ -63,9 +63,6 @@ public class PatternMatchingReference<T extends Loadable> extends
 	/**
 	 * Constructs a new PatternMatchingReference
 	 * 
-	 * @param objClass
-	 *            The Class of the underlying objects contained by this
-	 *            reference.
 	 * @param startingGroup
 	 *            The underlying list of objects from which this
 	 *            PatternMatchingReference will draw.
@@ -78,23 +75,16 @@ public class PatternMatchingReference<T extends Loadable> extends
 	 *             if the starting group is null or the provided pattern does
 	 *             not end with the PCGen pattern characters
 	 */
-	public PatternMatchingReference(Class<T> objClass,
-			CDOMGroupRef<T> startingGroup, String patternText)
+	public PatternMatchingReference(CDOMGroupRef<T> startingGroup, String patternText)
 	{
-		super(objClass, patternText);
-		if (startingGroup == null)
-		{
-			throw new IllegalArgumentException(
-					"Starting Group cannot be null in PatternMatchingReference");
-		}
+		super(patternText);
+		Objects.requireNonNull(startingGroup, "Starting Group cannot be null in PatternMatchingReference");
 		all = startingGroup;
 		String lstPattern = Constants.PERCENT;
 		int patternchar = patternText.length() - lstPattern.length();
 		if (patternText.indexOf(lstPattern) != patternchar)
 		{
-			throw new IllegalArgumentException(
-					"Pattern for PatternMatchingReference must end with "
-							+ lstPattern);
+			throw new IllegalArgumentException("Pattern for PatternMatchingReference must end with " + lstPattern);
 		}
 		pattern = patternText.substring(0, patternchar);
 	}
@@ -113,8 +103,7 @@ public class PatternMatchingReference<T extends Loadable> extends
 	@Override
 	public void addResolution(T item)
 	{
-		throw new IllegalStateException(
-				"Cannot add resolution to PatternMatchingReference");
+		throw new IllegalStateException("Cannot add resolution to PatternMatchingReference");
 	}
 
 	/**
@@ -175,7 +164,6 @@ public class PatternMatchingReference<T extends Loadable> extends
 	 * 
 	 * @return A representation of this PatternMatchingReference, suitable for
 	 *         storing in an LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -207,35 +195,18 @@ public class PatternMatchingReference<T extends Loadable> extends
 		return count;
 	}
 
-	/**
-	 * Returns true if this PatternMatchingReference is equal to the given
-	 * Object. Equality is defined as being another PatternMatchingReference
-	 * object with equal Class represented by the reference, an equal staring
-	 * CDOMGroupRef and an equal pattern. This may or may not be a deep .equals,
-	 * depending on the behavior of the underlying CDOMGroupRef. You should
-	 * check the documentation for the .equals(Object) method of that class to
-	 * establish the actual behavior of this method.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
 		if (obj instanceof PatternMatchingReference)
 		{
 			PatternMatchingReference<?> other = (PatternMatchingReference<?>) obj;
-			return getReferenceClass().equals(other.getReferenceClass())
-					&& all.equals(other.all) && pattern.equals(other.pattern);
+			return getReferenceClass().equals(other.getReferenceClass()) && all.equals(other.all)
+				&& pattern.equals(other.pattern);
 		}
 		return false;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this
-	 * PatternMatchingReference
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -259,5 +230,23 @@ public class PatternMatchingReference<T extends Loadable> extends
 	public String getChoice()
 	{
 		return null;
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return all.getReferenceClass();
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return all.getReferenceDescription() + " (Pattern " + pattern + ")";
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return all.getPersistentFormat();
 	}
 }

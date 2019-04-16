@@ -239,17 +239,14 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 		return new MapChanges<>(cdo.getMapFor(mk), null, false);
 	}
 
-	
 	@Override
 	public Changes<Prerequisite> getPrerequisiteChanges(ConcretePrereqObject obj)
 	{
-		return new CollectionChanges<>(obj.getPrerequisiteList(),
-                null, false);
+		return new CollectionChanges<>(obj.getPrerequisiteList(), null, false);
 	}
 
 	@Override
-	public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk,
-			String pattern)
+	public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk, String pattern)
 	{
 		List<T> list = cdo.getListFor(lk);
 		if (list == null || list.isEmpty())
@@ -273,8 +270,7 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 	}
 
 	@Override
-	public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo,
-			ListKey<T> lk)
+	public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo, ListKey<T> lk)
 	{
 		return new PatternChanges<>(cdo.getListFor(lk), null, false);
 	}
@@ -302,7 +298,7 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 	{
 		cdo.remove(sk);
 	}
-	
+
 	@Override
 	public boolean wasRemoved(CDOMObject cdo, StringKey sk)
 	{

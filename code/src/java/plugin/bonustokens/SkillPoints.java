@@ -1,5 +1,4 @@
 /*
- * SkillPoints.java
  * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 13, 2002, 9:19 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.bonustokens;
 
@@ -45,7 +39,6 @@ public final class SkillPoints extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual skill point attribute that may be bonused.
 	 * @param tagNumber the index of the skill point attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The skill point attribute.
 	 */
 	@Override
@@ -56,7 +49,6 @@ public final class SkillPoints extends MultiTagBonusObj
 
 	/**
 	 * Get the number of skill point attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of skill point attributes.
 	 */
 	@Override

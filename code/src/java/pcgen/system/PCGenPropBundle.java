@@ -1,5 +1,4 @@
 /*
- * PCGenPropBundle.java
  * Copyright 2001 (C) Tom Epperly <tomepperly@home.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on August 25, 2003, 12:00 PM
  */
 package pcgen.system;
 
@@ -24,22 +22,22 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.MissingResourceException;
+import java.util.Objects;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
+import pcgen.io.ExportUtilities;
 import pcgen.output.publish.OutputDB;
 import pcgen.util.Logging;
 
-import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * This class is used to manage the properties of the PCGen application
  * itself, such as its version, release date, etc.
  *
- * @author sage_sam
  */
 public final class PCGenPropBundle
 {
@@ -59,7 +57,7 @@ public final class PCGenPropBundle
 		{
 			d_properties = null;
 		}
-		
+
 		try
 		{
 			File autobuildProps = new File("autobuild.properties");
@@ -82,8 +80,7 @@ public final class PCGenPropBundle
 		//Safe as d_properties was constructed earlier in this block
 		try
 		{
-			TemplateModel wrappedVersion =
-					ObjectWrapper.DEFAULT_WRAPPER.wrap(getVersionNumber());
+			TemplateModel wrappedVersion = ExportUtilities.getObjectWrapper().wrap(getVersionNumber());
 			OutputDB.addGlobalModel("version", wrappedVersion);
 		}
 		catch (TemplateModelException e)
@@ -142,7 +139,7 @@ public final class PCGenPropBundle
 	 */
 	public static String getMailingList()
 	{
-		return getPropValue("MailingList", "http://groups.yahoo.com/group/pcgen");
+		return getPropValue("MailingList", "https://pcgen.groups.io/g/main");
 	}
 
 	/**
@@ -222,19 +219,12 @@ public final class PCGenPropBundle
 		// Set a missing string if the value is missing		
 		if (result == null)
 		{
-			if (fallback != null)
-			{
-				result = fallback;
-			}
-			else
-			{
-				result = "Missing property " + propName;
-			}
+			result = Objects.requireNonNullElseGet(fallback, () -> "Missing property " + propName);
 		}
 
 		return result;
 	}
-	
+
 	/**
 	 * Retrieve the build number of the autobuild in which this PCGen instance 
 	 * was built.
@@ -243,8 +233,7 @@ public final class PCGenPropBundle
 	public static String getAutobuildNumber()
 	{
 		final String buildNumKey = "BuildNumber";
-		if (autobuildProperties != null
-			&& autobuildProperties.containsKey(buildNumKey))
+		if (autobuildProperties != null && autobuildProperties.containsKey(buildNumKey))
 		{
 			return autobuildProperties.getString(buildNumKey);
 		}
@@ -259,8 +248,7 @@ public final class PCGenPropBundle
 	public static String getAutobuildDate()
 	{
 		final String buildTimeKey = "BuildTime";
-		if (autobuildProperties != null
-			&& autobuildProperties.containsKey(buildTimeKey))
+		if (autobuildProperties != null && autobuildProperties.containsKey(buildTimeKey))
 		{
 			return autobuildProperties.getString(buildTimeKey);
 		}
@@ -276,8 +264,7 @@ public final class PCGenPropBundle
 		String autobuildDate = getAutobuildDate();
 		if (StringUtils.isNotBlank(autobuildNumber))
 		{
-			return " autobuild #" + autobuildNumber + " built on "
-				+ autobuildDate;
+			return " autobuild #" + autobuildNumber + " built on " + autobuildDate;
 		}
 		return "";
 	}

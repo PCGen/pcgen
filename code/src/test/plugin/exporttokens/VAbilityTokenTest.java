@@ -1,5 +1,4 @@
 /*
- * VAbilityTokenTest.java
  * Copyright 2013 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,18 +14,14 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 26/12/2013 09:04:19
- *
- * $Id$
  */
 package plugin.exporttokens;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
@@ -40,7 +35,6 @@ import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.cdom.helper.Aspect;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
@@ -50,31 +44,20 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.io.ExportHandler;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
- * <code>VAbilityTokenTest</code> tests the functioning of the VABILITY 
+ * {@code VAbilityTokenTest} tests the functioning of the VABILITY
  * token processing code. 
- *
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class VAbilityTokenTest extends AbstractCharacterTestCase
 {
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(VAbilityTokenTest.class);
-	}
-
 	private Ability skillFocus;
 
-	/*
-	 * @see TestCase#setUp()
-	 */
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{
@@ -82,7 +65,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		// Make some ability categories and add them to the game mode
-		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", AbilityCategory.FEAT, "General.Fighter");
+		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", BuildUtilities.getFeatCat(), "General.Fighter");
 		ab1.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab1.put(ObjectKey.VISIBILITY, Visibility.DEFAULT);
 		List<Aspect> colourList = new ArrayList<>();
@@ -107,7 +90,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 		List<Aspect> ageList = new ArrayList<>();
 		ageList.add(new Aspect("Age In Years", "2000"));
 		ab1.addToMapFor(MapKey.ASPECT, AspectName.getConstant("Age In Years"), ageList);
-		CNAbility cna = CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, ab1);
+		CNAbility cna = CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.VIRTUAL, ab1);
 		character.addAbility(new CNAbilitySelection(cna),
 			UserSelection.getInstance(), UserSelection.getInstance());
 
@@ -117,7 +100,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 			SkillArmorCheck.NONE);
 
 		skillFocus =
-				TestHelper.makeAbility("Skill Focus", AbilityCategory.FEAT, "General");
+				TestHelper.makeAbility("Skill Focus", BuildUtilities.getFeatCat(), "General");
 		BonusObj aBonus = Bonus.newBonus(Globals.getContext(), "SKILL|LIST|3");
 		if (aBonus != null)
 		{
@@ -125,7 +108,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 		}
 		skillFocus.put(ObjectKey.MULTIPLE_ALLOWED, true);
 		Globals.getContext().unconditionallyProcess(skillFocus, "CHOOSE", "SKILL|ALL");
-		cna = CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, skillFocus);
+		cna = CNAbilityFactory.getCNAbility(BuildUtilities.getFeatCat(), Nature.VIRTUAL, skillFocus);
 		character.addAbility(new CNAbilitySelection(cna, "KEY_Bluff"),
 			UserSelection.getInstance(), UserSelection.getInstance());
 		character.addAbility(new CNAbilitySelection(cna, "KEY_Listen"),
@@ -136,6 +119,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the aspect subtoken of VABILITY without a specific aspect.
 	 */
+	@Test
 	public void testAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -150,6 +134,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the ASPECTCOUNT subtoken of VABILITY.
 	 */
+	@Test
 	public void testAspectCount()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -163,6 +148,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the ASPECT subtoken of VABILITY with an aspect specified.
 	 */
+	@Test
 	public void testSingleAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -187,6 +173,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the ASPECT subtoken of VABILITY with an invalid aspect specified.
 	 */
+	@Test
 	public void testNonExistantSingleAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -207,6 +194,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the HASASPECT subtoken of VABILITY.
 	 */
+	@Test
 	public void testHasAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -228,6 +216,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the name subtoken of VABILITY.
 	 */
+	@Test
 	public void testName()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -245,6 +234,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the key subtoken of VABILITY.
 	 */
+	@Test
 	public void testKey()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -263,6 +253,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the associated subtoken of VABILITY.
 	 */
+	@Test
 	public void testAssociated()
 	{
 		VAbilityToken tok = new VAbilityToken();
@@ -282,6 +273,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Tests the ASSOCIATEDCOUNT subtoken of VABILITY.
 	 */
+	@Test
 	public void testAssociatedCount()
 	{
 		VAbilityToken tok = new VAbilityToken();

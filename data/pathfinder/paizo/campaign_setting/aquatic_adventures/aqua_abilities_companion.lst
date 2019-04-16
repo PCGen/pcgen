@@ -1,0 +1,14 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Aquatic Adventures	SOURCESHORT:AquA	SOURCEWEB:http://paizo.com/products/btpy9toq?Pathfinder-Campaign-Setting-Aquatic-Adventures	SOURCEDATE:2017-06
+# ORIGINAL ENTRY: Gary Davies
+# ORIGINAL ENTRY DATE: 2017-07
+
+# Ability Name							Unique Key								Category of Ability		Type						Visible		Required Race						Description																																																									Ability										Stat bonus			Modify VAR			Vision
+Companion Advancement (Dolphin (Oceanrider Orca))	KEY:Companion Advancement ~ Dolphin (Oceanrider Orca)	CATEGORY:Special Ability	TYPE:CompanionAdvancement		VISIBLE:DISPLAY	PRERACE:1,Companion (Dolphin (Oceanrider Orca))																																																																														VISION:Blindsight (120')
+Companion Advancement (Seahorse)				KEY:Companion Advancement ~ Seahorse			CATEGORY:Special Ability	TYPE:CompanionAdvancement		VISIBLE:DISPLAY	PRERACE:1,Companion (Seahorse)																																																													ABILITY:Special Ability|AUTOMATIC|Companion (Seahorse) ~ Anchor	BONUS:STAT|STR,CON|2	BONUS:VAR|BiteSize|1
+
+#Hippocampus
+Water Dependency							KEY:Hippocampus ~ Water Dependency				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary												DESC:A hippocampus can survive out of the water for %1 minutes.  Beyond this limit, a hippocampus runs the risk of suffocation, as if it were drowning.|CONSCORE
+
+#Seahorse
+Anchor								KEY:Companion (Seahorse) ~ Anchor				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary												DESC:As a move action, a seahorse can wrap its tail around a stationary object. The seahorse remains anchored to the object until it releases its grip (a free action) or is forcibly moved. An anchored seahorse gains a +4 bonus to its combat maneuver defense and on checks and saving throws against effects that would move it against its will.

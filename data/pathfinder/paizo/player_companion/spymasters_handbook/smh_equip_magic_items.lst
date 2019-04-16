@@ -1,0 +1,19 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Spymaster's Handbook	SOURCESHORT:SMH	SOURCEWEB:http://paizo.com/products/btpy9l2w	SOURCEDATE:2016-07
+
+# ==============================
+# Weapons
+# ==============================
+
+# Equipment Name		Required Weapon Proficiency		Type																			Contains			Cost		Weight	Crit Mult	Crit Range	Damage	Modifier														Wield Category	Requires Modification?	Range		Size		Source Page		Special Property
+Biting Bracelet		PROFICIENCY:WEAPON|Crossbow (Hand)	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Piercing.Container.Projectile.Crossbow						CONTAINS:UNLIM|Bolt=1	COST:250	WT:2		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:Special Ability ~ +1 ~ Weapon.Material ~ Steel.Material ~ Leather				WIELD:Light						RANGE:30	SIZE:M	SOURCEPAGE:p.30	SPROP:Full-round action to reloaded, Sleight of Hand check to keep concealed after firing. Appears to be a lavish, gold bracelet. Functions like the glamered weapon special ability.
+Grafting Blade		PROFICIENCY:WEAPON|Dagger		TYPE:Weapon.Resizable.Melee.Light.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger.BladeLight					COST:70	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Special Ability ~ +1 ~ Weapon.Material ~ Steel.Material ~ Wood				WIELD:Light						RANGE:10	SIZE:M	SOURCEPAGE:p.30	SPROP:Free action to release the blade, move action to reset. DC 20 Perception check to spot when closed, +4 Sleight of Hand to conceal. Can magically merge into a larger wood handle, transforming the infused item into either a +1 shortspear, +1 spear, or +1 siangham (depending on the handle's size).
+Stirge Lancet								TYPE:Ammunition.Resizable.Standard.Dart																	COST:1									EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Returning ~ Thrown.Material ~ Steel				MODS:YES							SOURCEPAGE:p.31	SPROP:Used in blowguns and wrist launchers to deliver poison. Any DR, hardness, etc., negates poison delivery. Transforms into an insect-sized stirge when fired. If no poison is applied it instead draws 1 ounce of blood from the target.
+
+# ==============================
+# Wondrous Items
+# ==============================
+
+Mask of Anonymous Mien							TYPE:Magic.Wondrous.Headgear																			COST:25000	WT:1																																		SOURCEPAGE:p.31
+Torc of Innocuous Gems							TYPE:Magic.Wondrous.Amulet																			COST:1800																																			SOURCEPAGE:p.31
+Untouchable Jacket							TYPE:Magic.Wondrous.Robe																			COST:18000	WT:1																																		SOURCEPAGE:p.20

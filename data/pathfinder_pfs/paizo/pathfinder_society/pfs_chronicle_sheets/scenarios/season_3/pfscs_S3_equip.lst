@@ -1,0 +1,40 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2014-08
+
+# Equipment Name														Output Name				Type							Cost		Weight	Required Ability										Modifier									Requires Modification?	Source, Long Desc.						Source, Short Desc.	Source Page		Bonus Ability Pool				Combat bonus			Save bonus					Bonus to skill						Clear Special Property	Special Property
+
+# PFS #3-01
+# Equipment Name						Type						Cost		Weight	Required Ability								Modifier			Requires Modification?	Source, Long Desc.			Bonus to skill						Special Property																																																																																																																																													Visible
+Snowbloom (Average)					TYPE:Magic.Wondrous.PFS			COST:50	WT:0		PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S03-01									SOURCELONG:PFS Chronicle #03-01									SPROP:When given as a gift to a native of the Lands of the Linnorm Kings with a starting attitude of indifferent or better, this rare flower grants you a +2 circumstance bonus on one Bluff or Diplomacy check against that person. Alternatively, when shown to a native of Irrisen, the flower grants a +2 circumstance bonus on Intimidate checks made against that target.
+Snowbloom (Exquisite)					TYPE:Magic.Wondrous.PFS			COST:150	WT:0		PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S03-01									SOURCELONG:PFS Chronicle #03-01									SPROP:When given as a gift to a native of the Lands of the Linnorm Kings with a starting attitude of indifferent or better, this rare flower grants you a +5 circumstance bonus on one Bluff or Diplomacy check against that person. Alternatively, when shown to a native of Irrisen, the flower grants a +5 circumstance bonus on Intimidate checks made against that target.
+
+# PFS #3-02
+Amulet.COPY=Token Of Kobold
+Token Of Kobold.MOD					TYPE:Magic.Wondrous.PFS			COST:0			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S03-02					MODS:NO			SOURCELONG:PFS Chronicle #03-02									SPROP:When worn about your neck (occupying the neck magic item slot), the token grants you a +2 bonus on all Diplomacy checks with humanoids of the reptilian subtype.	SPROP:+2 bonus on all Diplomacy checks with humanoids of the reptilian subtype (PFS #3-02).
+
+# PFS #3-05
+Litheria blossom						TYPE:Magic.Wondrous.Consumable.PFS	COST:1400	WT:0		PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S03-05									SOURCELONG:PFS Chronicle #03-05									SPROP:A creature that inhales the pollen from this flower gains the benefit of the death ward and deathwatch spells for 10 minutes. A picked flower remains vibrant and alive until the pollen within the flower is inhaled, at which point the flower wilts and dies. The pollen remains potent only so long as it held within the flower or immediately thereafter. One round after the pollen is removed from the flower, both the pollen and the flower become nonmagical.
+
+# PFS #3-12
+Amulet.COPY=Canid Carcanet
+Canid Carcanet.MOD					TYPE:Magic.Wondrous.PFS			COST:15000			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S03-12					MODS:NO			SOURCELONG:PFS Chronicle #03-12									SPROP:This amulet grants its wearer a permanent speak with animals effect to communicate with dogs, hyenas, and doglike animals. Three times per day, the carcanet's wearer can take the shape of a Small or Medium canine [dog, fox, jackal, wolf, etc.] or a hyena as per the beast shape I spell [CL 5th].
+
+# PFS #3-13
+Amulet.COPY=Braid of a Hundred Masters
+Braid of a Hundred Masters.MOD			TYPE:Magic.Wondrous.PFS			COST:3600			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S03-13					MODS:NO			SOURCELONG:PFS Chronicle #03-13									SPROP:If the wearer of this necklace has levels in monk, his fast movement and unarmed damage are treated as a monk of 2 levels higher. If the character is not a monk, he gains the fast movement and unarmed damage of a 2nd-level monk. This fast movement functions just like the monk's fast movement class feature. These bonuses do not stack with those granted by other items or effects. In addition, as a swift action three times per day, a character with the flurry of blows class feature can use the Braid of a Hundred Masters to apply 1-1/2 times his Strength bonus on damage rolls for successful attacks made with flurry of blows. This ability must be activated before the damage from the attack is rolled, though it may be activated after the attack roll is made and before the damage roll. Once this ability is activated, its effect lasts for 1 round.
+
+# PFS #3-16
+Club (Base).COPY=Sword of Station (Normal)																					EQMOD:Material ~ Steel																																																																																																																																																																		VISIBLE:YES
+Sword of Station (Normal).MOD				TYPE:ImprovisedWeapon.PFS		COST:1600			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S03-16									SOURCELONG:PFS Chronicle #03-16	BONUS:SKILL|Sense Motive|2|TYPE.Competance	SPROP:This decorative sword and scabbard occupies the belt slot and grants a +2 competence bonus on Sense Motive checks. Three times per day, the wearer may draw the sword and deliver a single-word command, as per the spell [CL 1st]. The blunt and poorly balanced sword is treated as an improvised club when used as a weapon in combat.
+Club (Base).COPY=Sword of Station (Lesser)																					EQMOD:Material ~ Steel																																																																																																																																																																		VISIBLE:YES
+Sword of Station (Lesser).MOD				TYPE:ImprovisedWeapon.PFS		COST:1600			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S03-16									SOURCELONG:PFS Chronicle #03-16									SPROP:This decorative sword and scabbard occupies the belt slot and grants a +2 competence bonus on Sense Motive checks. Once per day, the wearer may draw the sword and deliver a single-word command, as per the spell [CL 1st]. The blunt and poorly balanced sword is treated as an improvised club when used as a weapon in combat.
+Club (Base).COPY=Sword of Station (Greater)																					EQMOD:Material ~ Steel																																																																																																																																																																		VISIBLE:YES
+Sword of Station (Greater).MOD			TYPE:ImprovisedWeapon.PFS		COST:1600			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S03-16									SOURCELONG:PFS Chronicle #03-16	BONUS:SKILL|Sense Motive|5|TYPE.Competance	SPROP:This decorative sword and scabbard occupies the belt slot and grants a +5 competence bonus on Sense Motive checks. Three times per day, the wearer may draw the sword and deliver a single-word command, as per the spell [CL 1st]. The blunt and poorly balanced sword is treated as an improvised club when used as a weapon in combat.
+
+# PFS #3-25
+Diamond of Demon Seeking				TYPE:Magic.Wondrous.PFS			COST:6000	WT:0.02	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S03-25									SOURCELONG:PFS Chronicle #3-25									SPROP:When any creature of the demon subtype comes within 30 feet of this flawless gem, it glows with a blood-red radiance as the light spell. The diamond does not reveal invisible or otherwise hidden demons, bot rather simply alerts the wisher to their presence. Spells or effects that protect a demon from divination or alter a demon's alignment prevent a diamond of demon seeking from detecting a demon under such and effect.
+
+#
+# DONE
+#

@@ -16,8 +16,11 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package plugin.lsttokens.skill;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Skill;
@@ -29,11 +32,13 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 {
 
 	static VisibleToken token = new VisibleToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Skill> getCDOMClass()
@@ -63,14 +68,14 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputStringSet() throws PersistenceLayerException
+	public void testInvalidInputStringSet()
 	{
 		assertTrue(parse("EXPORT"));
 		assertEquals(Visibility.OUTPUT_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
@@ -79,7 +84,6 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 
 	@Test
 	public void testInvalidInputStringSetDisplay()
-		throws PersistenceLayerException
 	{
 		assertTrue(parse("DISPLAY"));
 		assertEquals(Visibility.DISPLAY_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
@@ -87,7 +91,6 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	public void internalTestInvalidInputString(Object val)
-		throws PersistenceLayerException
 	{
 		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
 		assertFalse(parse("Always"));
@@ -115,7 +118,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("DISPLAY"));
 		assertEquals(Visibility.DISPLAY_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
@@ -169,26 +172,26 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<Visibility> getObjectKey()
+	private static ObjectKey<Visibility> getObjectKey()
 	{
 		return ObjectKey.VISIBILITY;
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(getObjectKey(), Visibility.DEFAULT);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), Visibility.DEFAULT.getLSTFormat());
 	}
 
 	@Test
-	public void testUnparseIllegal() throws PersistenceLayerException
+	public void testUnparseIllegal()
 	{
 		primaryProf.put(getObjectKey(), Visibility.HIDDEN);
 		assertBadUnparse();
@@ -196,7 +199,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

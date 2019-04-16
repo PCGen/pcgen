@@ -1,0 +1,32 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
+
+#Shifter
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus													Save bonus																			Modify VAR																																																			FACT
+CLASS:Shifter	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:ShifterLVL|0	BONUS:COMBAT|BASEAB|ShifterLVL|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|ShifterLVL/2+2	BONUS:SAVE|BASE.Reflex|ShifterLVL/2+2	BONUS:SAVE|BASE.Will|ShifterLVL/3	BONUS:VAR|ShifterLVL|CL	BONUS:VAR|ClassBABFull|ShifterLVL|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|ShifterLVL|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|ShifterLVL|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|ShifterLVL|PREVAREQ:UseFractionalSave,1	FACT:Abb|Shf	FACT:ClassType|PC
+# Class Name	Multiple Requirements
+CLASS:Shifter	PREMULT:1,[PREALIGN:NG,LN,TN,CN,NE],[PREVAREQ:BypassClassAlignment_Shifter,1]
+# Class Name	Skill Pts/Lvl
+CLASS:Shifter	STARTSKILLPTS:4
+###Block
+1	ABILITY:Class|AUTOMATIC|Shifter
+###Block
+1	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Class Skills|PREVAREQ:Shifter_CF_ClassSkills,0|PREVARGTEQ:Shifter_CFP_Level,1
+1	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Weapon and Armor Proficiencies|PREVARGTEQ:Shifter_CFP_Level,1
+1	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Bonus Languages|PREVAREQ:Shifter_CF_BonusLanguages,0|PREVARGTEQ:Shifter_CFP_Level,1
+1	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Shifter Aspect|PREVAREQ:Shifter_CF_ShifterAspect,0|PREVARGTEQ:Shifter_CFP_Level,1
+1	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Shifter Claws|PREVAREQ:Shifter_CF_ShifterClaws,0|PREVARGTEQ:Shifter_CFP_Level,1
+1	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Wild Empathy|PREVAREQ:Shifter_CF_WildEmpathy,0|PREVARGTEQ:Shifter_CFP_Level,1
+2	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Defensive Instinct|PREVAREQ:Shifter_CF_DefensiveInstinct,0|PREVARGTEQ:Shifter_CFP_Level,2
+2	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Track|PREVAREQ:Shifter_CF_Track,0|PREVARGTEQ:Shifter_CFP_Level,2
+3	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Woodland Stride|PREVAREQ:Shifter_CF_WoodlandStride,0|PREVARGTEQ:Shifter_CFP_Level,3
+4	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Wild Shape|PREVAREQ:Shifter_CF_WildShape,0|PREVARGTEQ:Shifter_CFP_Level,4
+5	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Trackless Step|PREVAREQ:Shifter_CF_TracklessStep,0|PREVARGTEQ:Shifter_CFP_Level,5
+6	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Shifter's Fury|PREVAREQ:Shifter_CF_ShiftersFury,0|PREVARGTEQ:Shifter_CFP_Level,6
+9	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Chimeric Aspect|PREVAREQ:Shifter_CF_ChimericAspect,0|PREVARGTEQ:Shifter_CFP_Level,9
+14	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Greater Chimeric Aspect|PREVAREQ:Shifter_CF_GreaterChimericAspect,0|PREVARGTEQ:Shifter_CFP_Level,14
+18	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ A Thousand Faces|PREVAREQ:Shifter_CF_ThousandFaces,0|PREVARGTEQ:Shifter_CFP_Level,18
+18	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Timeless Body|PREVAREQ:Shifter_CF_TimelessBody,0|PREVARGTEQ:Shifter_CFP_Level,18
+20	ABILITY:Shifter Class Feature|AUTOMATIC|Shifter ~ Final Aspect|PREVAREQ:Shifter_CF_FinalAspect,0|PREVARGTEQ:Shifter_CFP_Level,20

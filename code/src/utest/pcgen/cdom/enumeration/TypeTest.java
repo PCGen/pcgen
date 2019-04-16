@@ -1,5 +1,4 @@
 /*
- * TypeTest.java
  * Copyright 2008 (C) Jasper Spaans <jasperspaans@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -18,40 +17,32 @@
  */
 package pcgen.cdom.enumeration;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 import java.util.Collection;
 import java.util.HashSet;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
 
 
 /**
  * The Class {@code TypeTest} tests that the Type
  * class is functioning correctly.
- * 
- * @author Jasper Spaans <jasperspaans@users.sourceforge.net>
  */
-public class TypeTest
+class TypeTest
 {
-	
 	/**
 	 * Test whether type can be sorted, by adding it to a hashset.
 	 * Added to check fix on Bug with tracker nr. 2413116 
 	 */
 	@Test
-	public void testSortable()
+	void testSortable()
 	{
-		try
-		{
+		assertDoesNotThrow( () -> {
 			Collection<Type> typeset = new HashSet<>();
 			typeset.add(Type.getConstant("testitem 1"));
 			typeset.add(Type.getConstant("testitem 2"));
-		}
-		catch (ClassCastException cce)
-		{
-			fail("type can't be sorted by adding to hashset");
-		}
-
+		}, "type can't be sorted by adding to hashset") ;
 	}
 
 }

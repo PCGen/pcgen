@@ -28,8 +28,8 @@ public class NumPagesIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Equipment>
 {
 
-	static NumPagesToken token = new NumPagesToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static NumPagesToken token = new NumPagesToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

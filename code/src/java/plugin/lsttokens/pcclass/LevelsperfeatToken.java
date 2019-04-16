@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with LEVELSPERFEAT Token
  */
-public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass>
-		implements CDOMPrimaryToken<PCClass>
+public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override
@@ -46,8 +45,7 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCClass pcc, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass pcc, String value)
 	{
 		int pipeLoc = value.indexOf('|');
 		String numLevels;
@@ -60,38 +58,31 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass>
 			 * But this is required since this token overwrites previous
 			 * instances
 			 */
-			context.getObjectContext()
-					.put(pcc, StringKey.LEVEL_TYPE, null);
+			context.getObjectContext().put(pcc, StringKey.LEVEL_TYPE, null);
 		}
 		else
 		{
 			if (pipeLoc != value.lastIndexOf('|'))
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " must be of the form: " + getTokenName()
-						+ ":<int> or " + getTokenName()
-						+ ":<int>|LEVELTYPE=<string>" + " Got "
-						+ getTokenName() + Constants.COLON + value, context);
+				return new ParseResult.Fail(
+					getTokenName() + " must be of the form: " + getTokenName() + ":<int> or " + getTokenName()
+						+ ":<int>|LEVELTYPE=<string>" + " Got " + getTokenName() + Constants.COLON + value);
 			}
 			numLevels = value.substring(0, pipeLoc);
 			String levelTypeTag = value.substring(pipeLoc + 1);
 			if (!levelTypeTag.startsWith("LEVELTYPE="))
 			{
-				return new ParseResult.Fail("If " + getTokenName()
-						+ " has a | it must be of the form: " + getTokenName()
-						+ ":<int>|LEVELTYPE=<string>" + " Got "
-						+ getTokenName() + Constants.COLON + value, context);
+				return new ParseResult.Fail(
+					"If " + getTokenName() + " has a | it must be of the form: " + getTokenName()
+						+ ":<int>|LEVELTYPE=<string>" + " Got " + getTokenName() + Constants.COLON + value);
 			}
 			String levelType = levelTypeTag.substring(10);
-			if (levelType == null || levelType.length() == 0)
+			if (levelType == null || levelType.isEmpty())
 			{
-				return new ParseResult.Fail("If " + getTokenName()
-						+ " has a | it must be of the form: " + getTokenName()
-						+ ":<int>|LEVELTYPE=<string>"
-						+ " Got an empty leveltype", context);
+				return new ParseResult.Fail("If " + getTokenName() + " has a | it must be of the form: "
+					+ getTokenName() + ":<int>|LEVELTYPE=<string>" + " Got an empty leveltype");
 			}
-			context.getObjectContext()
-					.put(pcc, StringKey.LEVEL_TYPE, levelType);
+			context.getObjectContext().put(pcc, StringKey.LEVEL_TYPE, levelType);
 		}
 
 		try
@@ -99,59 +90,45 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass>
 			Integer in = Integer.valueOf(numLevels);
 			if (in.intValue() < 0)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " must be an integer >= 0", context);
+				return new ParseResult.Fail(getTokenName() + " must be an integer >= 0");
 			}
 			context.getObjectContext().put(pcc, IntegerKey.LEVELS_PER_FEAT, in);
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int> or " + getTokenName()
-					+ ":<int>|LEVELTYPE=<string>", context);
+			return new ParseResult.Fail(getTokenName() + " expected an integer.  Tag must be of the form: "
+				+ getTokenName() + ":<int> or " + getTokenName() + ":<int>|LEVELTYPE=<string>");
 		}
 
 		return ParseResult.SUCCESS;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.rules.persistence.token.CDOMPrimaryToken#unparse(pcgen.rules.context.LoadContext,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		Integer lpf = context.getObjectContext().getInteger(pcc,
-				IntegerKey.LEVELS_PER_FEAT);
-		String levelType = context.getObjectContext().getString(pcc,
-				StringKey.LEVEL_TYPE);
+		Integer lpf = context.getObjectContext().getInteger(pcc, IntegerKey.LEVELS_PER_FEAT);
+		String levelType = context.getObjectContext().getString(pcc, StringKey.LEVEL_TYPE);
 		if (lpf == null)
 		{
 			if (levelType != null)
 			{
-				context.addWriteMessage(getTokenName()
-						+ " found level type, but no levels per feat value");
+				context.addWriteMessage(getTokenName() + " found level type, but no levels per feat value");
 			}
 			return null;
 		}
 		if (lpf.intValue() < 0)
 		{
-			context
-					.addWriteMessage(getTokenName()
-							+ " must be an integer >= 0");
+			context.addWriteMessage(getTokenName() + " must be an integer >= 0");
 			return null;
 		}
 		StringBuilder result = new StringBuilder();
 		result.append(lpf);
-		if (levelType != null && levelType.length() > 0)
+		if (levelType != null && !levelType.isEmpty())
 		{
 			result.append("|LEVELTYPE=");
 			result.append(levelType);
 		}
-		return new String[] { result.toString() };
+		return new String[]{result.toString()};
 	}
 
 	@Override

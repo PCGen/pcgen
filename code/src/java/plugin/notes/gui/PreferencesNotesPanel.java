@@ -14,14 +14,8 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  PreferencesNotesPanel.java
- *
- *  Created on August 29, 2002, 2:41 PM
  */
 package plugin.notes.gui;
-
-import gmgen.util.LogUtilities;
 
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
@@ -38,20 +32,19 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
+import gmgen.util.LogUtilities;
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
 
 /**
  * Panel that tracks the misc preferences
- *
- * @author devon
  */
 public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 {
 
 	private static final String OPTION_NAME_NOTES_DATA = "Notes.DataDir"; //$NON-NLS-1$
 	private static final String OPTION_NAME_LOG = "Logging.On"; //$NON-NLS-1$
-	
+
 	private JPanel dirPanel;
 	private JPanel loggingPanel;
 	private JTextField dataDirField;
@@ -65,7 +58,7 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 		initPreferences();
 	}
 
-    @Override
+	@Override
 	public void applyPreferences()
 	{
 		SettingsHandler.setGMGenOption(OPTION_NAME_NOTES_DATA, getDataDir());
@@ -73,13 +66,12 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 		LogUtilities.inst().setLogging(isLogging());
 	}
 
-    @Override
+	@Override
 	public void initPreferences()
 	{
 		// XXX change to another default?
 		setDataDir(SettingsHandler.getGMGenOption(OPTION_NAME_NOTES_DATA,
-			SettingsHandler.getGmgenPluginDir().toString() + File.separator
-				+ "Notes")); //$NON-NLS-1$
+			SettingsHandler.getGmgenPluginDir().toString() + File.separator + "Notes")); //$NON-NLS-1$
 		setLogging(SettingsHandler.getGMGenOption(OPTION_NAME_LOG, false));
 	}
 
@@ -100,7 +92,6 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 	 * Gets the current data directory setting
 	 * </p>
 	 * @return data directory
-	 *
 	 */
 	private String getDataDir()
 	{

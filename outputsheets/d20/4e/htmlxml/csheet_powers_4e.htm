@@ -11,11 +11,6 @@ Modifications by: arcady
 Email: arcady0@yahoo.com
 Revisions: Barak  10/15/02
 Email: barak@voyager.net
-
-
-$Revision$
-$Author$
-$Date$
 -->
 
 <head>
@@ -239,21 +234,15 @@ $Date$
 
 		font-size: 10pt;
 
-		border-top-width: 1px;
+        border-top: 1px solid black;
 
-		border-top-style: solid;
-
-		border-top-color: black;
-
-	}
+    }
 
 	.topline {
 
-		border-top-width:1px; 
+        border-top: 1pt solid black;
 
-		border-top: 1pt solid black; 
-		
-		font-family: Arial, sans-serif; 
+        font-family: Arial, sans-serif;
 
 		font-size:6pt; 
 
@@ -403,19 +392,15 @@ $Date$
 
 	.borderbottom {
 
-		border-bottom-width:1px;
+        border-bottom: 1pt solid black;
 
-		border-bottom: 1pt solid black;
-
-	}
+    }
 
 	.borderbottom8 {
 
-		border-bottom-width:1px;
+        border-bottom: 1pt solid black;
 
-		border-bottom: 1pt solid black;
-
-		font-size:8pt;
+        font-size:8pt;
 
 	}
 	
@@ -528,7 +513,7 @@ $Date$
 <b>Effect:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.ASPECT.Effect|
 <br/>
 |ENDIF|
-<center><i>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.DESC|</i></center>
+<div style="text-align: center;"><i>|ABILITYALL.Power.VISIBLE.%classFeature.TYPE=Class Feature.DESC|</i></div>
 </td>
    </tr>
 |ENDFOR|
@@ -598,7 +583,7 @@ $Date$
 <b>Effect:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.ASPECT.Sustain|
 <br/>
 |ENDIF|
-<center><i>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.DESC|</i></center>
+<div style="text-align: center;"><i>|ABILITYALL.Power.VISIBLE.%atWill.TYPE=AtWill.DESC|</i></div>
 </td>
    </tr>
 |ENDFOR|
@@ -670,7 +655,7 @@ $Date$
 <b>Effect:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.ASPECT.Sustain|
 <br/>
 |ENDIF|
-<center><i>|ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.DESC|</i></center>
+<div style="text-align: center;"><i>|ABILITYALL.Power.VISIBLE.%encounter.TYPE=Encounter.DESC|</i></div>
 </td>
    </tr>
 |ENDFOR|
@@ -744,7 +729,7 @@ $Date$
 <b>Effect:</b>&nbsp;|ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.ASPECT.Sustain|
 <br/>
 |ENDIF|
-<center><i>|ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.DESC|</i></center>
+<div style="text-align: center;"><i>|ABILITYALL.Power.VISIBLE.%daily.TYPE=Daily.DESC|</i></div>
 </td>
    </tr>
 |ENDFOR|
@@ -764,9 +749,9 @@ $Date$
 |%|
 
 <br />
-		<center>
-			<font size="-1">Created using <a href="http://pcgen.org/">PCGen</a> |EXPORT.VERSION| on |EXPORT.DATE|</font>
-		</center>
+		<div style="text-align: center;">
+			<span style="font-size: smaller; ">Created using <a href="http://pcgen.org/">PCGen</a> |EXPORT.VERSION| on |EXPORT.DATE|</span>
+		</div>
 
 	</body>
 

@@ -17,7 +17,7 @@
  */
 package pcgen.base.calculation;
 
-import pcgen.base.formula.base.DependencyManager;
+import java.util.Objects;
 
 /**
  * An AbstractNEPCalculationis a basic template for creating a NEPCalculation.
@@ -47,29 +47,14 @@ public abstract class AbstractNEPCalculation<T> implements NEPCalculation<T>
 	 */
 	protected AbstractNEPCalculation(BasicCalculation<T> calc)
 	{
-		if (calc == null)
-		{
-			throw new IllegalArgumentException("BasicCalculation cannot be null");
-		}
+		Objects.requireNonNull(calc, "BasicCalculation cannot be null");
 		basicCalc = calc;
-	}
-
-	@Override
-	public Class<T> getVariableFormat()
-	{
-		return basicCalc.getVariableFormat();
 	}
 
 	@Override
 	public String getIdentification()
 	{
 		return basicCalc.getIdentification();
-	}
-
-	@Override
-	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
-	public void getDependencies(DependencyManager fdm)
-	{
 	}
 
 	@Override

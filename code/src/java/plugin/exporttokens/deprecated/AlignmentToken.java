@@ -15,66 +15,55 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens.deprecated;
 
 import pcgen.cdom.enumeration.BiographyField;
-import pcgen.core.Globals;
+import pcgen.cdom.util.CControl;
 import pcgen.core.PCAlignment;
-import pcgen.core.display.CharacterDisplay;
+import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.io.exporttoken.Token;
+import pcgen.output.channel.compat.AlignmentCompat;
 
 /**
  * Class deals with ALIGNMENT and ALIGNMENT.SHORT Token
  */
-public class AlignmentToken extends AbstractExportToken
+public class AlignmentToken extends Token
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "ALIGNMENT";
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
-		
-		if (!display.getSuppressBioField(BiographyField.ALIGNMENT))
+
+		if (!pc.getDisplay().getSuppressBioField(BiographyField.ALIGNMENT))
 		{
 			if ("ALIGNMENT".equals(tokenSource))
 			{
-				retString = getAlignmentDisplay(display);
+				retString = getAlignmentDisplay(pc);
 			}
 			else if ("ALIGNMENT.SHORT".equals(tokenSource))
 			{
-				retString = getShortToken(display);
+				retString = getShortToken(pc);
 			}
 		}
-		
+
 		return retString;
 	}
 
-	private String getAlignmentDisplay(CharacterDisplay display)
+	private String getAlignmentDisplay(PlayerCharacter pc)
 	{
-		if (Globals.getGameModeAlignmentText().length() == 0)
+		if (!pc.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
 			return "";
 		}
-		final PCAlignment alignment = display.getPCAlignment();
+		final PCAlignment alignment = AlignmentCompat.getCurrentAlignment(pc.getCharID());
 		return alignment == null ? "None" : alignment.getDisplayName();
 	}
 
@@ -83,14 +72,14 @@ public class AlignmentToken extends AbstractExportToken
 	 * @param display
 	 * @return Alignment Short Token
 	 */
-	public static String getShortToken(CharacterDisplay display)
+	public static String getShortToken(PlayerCharacter pc)
 	{
-		if (Globals.getGameModeAlignmentText().length() == 0)
+		if (!pc.isFeatureEnabled(CControl.ALIGNMENTFEATURE))
 		{
 			return "";
 		}
-		
-		final PCAlignment alignment = display.getPCAlignment();
-		return alignment==null?"None":alignment.getKeyName();
+
+		final PCAlignment alignment = AlignmentCompat.getCurrentAlignment(pc.getCharID());
+		return alignment == null ? "None" : alignment.getKeyName();
 	}
 }

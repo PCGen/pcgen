@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deal with COST Token
  */
-public class CostToken extends AbstractNonEmptyToken<Ability> implements
-		CDOMPrimaryToken<Ability>
+public class CostToken extends AbstractNonEmptyToken<Ability> implements CDOMPrimaryToken<Ability>
 {
 
 	@Override
@@ -40,31 +39,28 @@ public class CostToken extends AbstractNonEmptyToken<Ability> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability, String value)
 	{
 		try
 		{
-			context.getObjectContext().put(ability, ObjectKey.SELECTION_COST,
-					new BigDecimal(value));
+			context.getObjectContext().put(ability, ObjectKey.SELECTION_COST, new BigDecimal(value));
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException e)
 		{
-			return new ParseResult.Fail(getTokenName() + " expected a number: " + value, context);
+			return new ParseResult.Fail(getTokenName() + " expected a number: " + value);
 		}
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
-		BigDecimal bd = context.getObjectContext().getObject(ability,
-				ObjectKey.SELECTION_COST);
+		BigDecimal bd = context.getObjectContext().getObject(ability, ObjectKey.SELECTION_COST);
 		if (bd == null)
 		{
 			return null;
 		}
-		return new String[] { bd.toString() };
+		return new String[]{bd.toString()};
 	}
 
 	@Override

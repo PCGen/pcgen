@@ -34,8 +34,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with FEAT Token
  */
-public class CampaignFeatToken extends AbstractTokenWithSeparator<Campaign> implements
-		CDOMPrimaryToken<Campaign>
+public class CampaignFeatToken extends AbstractTokenWithSeparator<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override
@@ -51,11 +50,10 @@ public class CampaignFeatToken extends AbstractTokenWithSeparator<Campaign> impl
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Campaign campaign, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
 	{
-		Logging.deprecationPrint("FEAT has been deprecated, use ABILITY: "
-			+ "and put CATEGORY: entries in the LST file");
+		Logging
+			.deprecationPrint("FEAT has been deprecated, use ABILITY: " + "and put CATEGORY: entries in the LST file");
 		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
 		if (cse == null)
 		{
@@ -66,7 +64,7 @@ public class CampaignFeatToken extends AbstractTokenWithSeparator<Campaign> impl
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
 		Changes<CampaignSourceEntry> cseChanges =
@@ -85,7 +83,7 @@ public class CampaignFeatToken extends AbstractTokenWithSeparator<Campaign> impl
 		return set.toArray(new String[set.size()]);
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

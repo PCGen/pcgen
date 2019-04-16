@@ -18,13 +18,13 @@
 package pcgen.cdom.enumeration;
 
 import java.util.Map;
+import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant. It is designed to hold a unique Character
  * Identifier in a type-safe fashion
@@ -40,8 +40,8 @@ public final class CharID implements TypeSafeConstant, PCGenIdentifier
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
-	
+	private final int ordinal;
+
 	/**
 	 * The DataSet under which the Character was created
 	 */
@@ -58,10 +58,7 @@ public final class CharID implements TypeSafeConstant, PCGenIdentifier
 
 	private CharID(DataSetID dsid)
 	{
-		if (dsid == null)
-		{
-			throw new IllegalArgumentException("DataSetID cannot be null");
-		}
+		Objects.requireNonNull(dsid, "DataSetID cannot be null");
 		ordinal = ordinalCount++;
 		datasetID = dsid;
 	}

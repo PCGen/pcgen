@@ -1,5 +1,4 @@
 /*
- * PreMult.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,44 +15,37 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core.prereq;
-
-import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
-import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
-/**
- * @author frugal@purplewombat.co.uk
- *
- */
-public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTest {
+import org.apache.commons.lang3.StringUtils;
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
-    @Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source) throws PrerequisiteException {
-		int runningTotal=0;
-		final int targetNumber = Integer.parseInt( prereq.getOperand() );
+public class PreMult extends AbstractPrerequisiteTest implements PrerequisiteTest
+{
 
-		for ( Prerequisite element : prereq.getPrerequisites() )
+	@Override
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+		throws PrerequisiteException
+	{
+		int runningTotal = 0;
+		final int targetNumber = Integer.parseInt(prereq.getOperand());
+
+		for (Prerequisite element : prereq.getPrerequisites())
 		{
 			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 			final PrerequisiteTest test = factory.getTest(element.getKind());
-			if (test != null) {
+			if (test != null)
+			{
 				runningTotal += test.passes(element, character, source);
 			}
-			else {
+			else
+			{
 				Logging.errorPrintLocalised("PreMult.cannot_find_subtest", element.getKind()); //$NON-NLS-1$
 			}
 		}
@@ -63,25 +55,20 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 		return countedTotal(prereq, runningTotal);
 	}
 
-
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindsHandled()
-	 */
-    @Override
-	public String kindHandled() {
+	@Override
+	public String kindHandled()
+	{
 		return "MULT"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
-	 */
-    @Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC) throws PrerequisiteException {
-		int runningTotal=0;
-		final int targetNumber = Integer.parseInt( prereq.getOperand() );
+	@Override
+	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC)
+		throws PrerequisiteException
+	{
+		int runningTotal = 0;
+		final int targetNumber = Integer.parseInt(prereq.getOperand());
 
-		for ( Prerequisite element : prereq.getPrerequisites() )
+		for (Prerequisite element : prereq.getPrerequisites())
 		{
 			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 			final PrerequisiteTest test = factory.getTest(element.getKind());
@@ -92,24 +79,22 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 		return countedTotal(prereq, runningTotal);
 	}
 
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
-	 */
-    @Override
-	public String toHtmlString(final Prerequisite prereq) {
+	@Override
+	public String toHtmlString(final Prerequisite prereq)
+	{
 		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
 
 		StringBuilder str = new StringBuilder(250);
 		String delimiter = ""; //$NON-NLS-1$
-		for ( Prerequisite element : prereq.getPrerequisites() )
+		for (Prerequisite element : prereq.getPrerequisites())
 		{
 			final PrerequisiteTest test = factory.getTest(element.getKind());
-			if (test==null)
+			if (test == null)
 			{
-				Logging.errorPrintLocalised("PreMult.cannot_find_subformatter", element.getKind() ); //$NON-NLS-1$
+				Logging.errorPrintLocalised("PreMult.cannot_find_subformatter", element.getKind()); //$NON-NLS-1$
 			}
-			else {
+			else
+			{
 				str.append(delimiter);
 				if (test instanceof PreMult && !delimiter.equals(""))
 				{
@@ -126,32 +111,28 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 		{
 			numRequired = Integer.parseInt(prereq.getOperand());
 		}
-		if ((prereq.getOperator() == PrerequisiteOperator.GTEQ
-			|| prereq.getOperator() == PrerequisiteOperator.GT || prereq
-			.getOperator() == PrerequisiteOperator.EQ)
-			&& numRequired == prereq.getPrerequisites().size())
+		if ((prereq.getOperator() == PrerequisiteOperator.GTEQ || prereq.getOperator() == PrerequisiteOperator.GT
+			|| prereq.getOperator() == PrerequisiteOperator.EQ) && numRequired == prereq.getPrerequisites().size())
 		{
 			return LanguageBundle.getFormattedString("PreMult.toHtmlAllOf", //$NON-NLS-1$
 				str.toString());
 		}
-		if ((prereq.getOperator() == PrerequisiteOperator.GTEQ || prereq
-				.getOperator() == PrerequisiteOperator.EQ) && numRequired == 1)
+		if ((prereq.getOperator() == PrerequisiteOperator.GTEQ || prereq.getOperator() == PrerequisiteOperator.EQ)
+			&& numRequired == 1)
 		{
 			return LanguageBundle.getFormattedString("PreMult.toHtmlEither", //$NON-NLS-1$
 				str.toString());
 		}
 		if ((prereq.getOperator() == PrerequisiteOperator.LT && numRequired == 1)
-			|| ((prereq.getOperator() == PrerequisiteOperator.EQ || prereq
-				.getOperator() == PrerequisiteOperator.LTEQ) && numRequired == 0))
+			|| ((prereq.getOperator() == PrerequisiteOperator.EQ || prereq.getOperator() == PrerequisiteOperator.LTEQ)
+				&& numRequired == 0))
 		{
 			return LanguageBundle.getFormattedString("PreMult.toHtmlNone", //$NON-NLS-1$
 				str.toString());
 		}
-		
-		return LanguageBundle.getFormattedString("PreMult.toHtml",  //$NON-NLS-1$
-				prereq.getOperator().toDisplayString(),
-				prereq.getOperand(),
-				str.toString());
+
+		return LanguageBundle.getFormattedString("PreMult.toHtml", //$NON-NLS-1$
+			prereq.getOperator().toDisplayString(), prereq.getOperand(), str.toString());
 
 	}
 

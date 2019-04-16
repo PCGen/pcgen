@@ -27,8 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with PENALTYVAR Token
  */
-public class PenaltyvarToken implements CDOMCompatibilityToken<PCStat>,
-		DeprecatedToken
+public class PenaltyvarToken implements CDOMCompatibilityToken<PCStat>, DeprecatedToken
 {
 
 	@Override
@@ -40,7 +39,7 @@ public class PenaltyvarToken implements CDOMCompatibilityToken<PCStat>,
 	@Override
 	public ParseResult parseToken(LoadContext context, PCStat obj, String value)
 	{
-		return new ParseResult.Fail(getMessage(obj, value), context);
+		return new ParseResult.Fail(getMessage(obj, value));
 	}
 
 	@Override

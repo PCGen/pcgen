@@ -47,47 +47,40 @@ public class StatrangeToken implements CDOMPrimaryToken<PCStat>
 		{
 			try
 			{
-				context.getObjectContext().put(stat, IntegerKey.MIN_VALUE, Integer
-						.valueOf(aTok.nextToken()));
-				context.getObjectContext().put(stat, IntegerKey.MAX_VALUE, Integer
-						.valueOf(aTok.nextToken()));
+				context.getObjectContext().put(stat, IntegerKey.MIN_VALUE, Integer.valueOf(aTok.nextToken()));
+				context.getObjectContext().put(stat, IntegerKey.MAX_VALUE, Integer.valueOf(aTok.nextToken()));
 				return ParseResult.SUCCESS;
 			}
 			catch (NumberFormatException ignore)
 			{
-				return new ParseResult.Fail("Error in specified Stat range, "
-						+ "expected two comma separated integers, found: "
-						+ value, context);
+				return new ParseResult.Fail(
+					"Error in specified Stat range, " + "expected two comma separated integers, found: " + value);
 			}
 		}
 		else
 		{
 			return new ParseResult.Fail("Error in specified Stat range, "
-					+ "expected two comma separated integers, found "
-					+ aTok.countTokens() + " values in: " + value, context);
+				+ "expected two comma separated integers, found " + aTok.countTokens() + " values in: " + value);
 		}
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCStat stat)
 	{
-		Integer min = context.getObjectContext().getInteger(stat,
-				IntegerKey.MIN_VALUE);
-		Integer max = context.getObjectContext().getInteger(stat,
-				IntegerKey.MAX_VALUE);
+		Integer min = context.getObjectContext().getInteger(stat, IntegerKey.MIN_VALUE);
+		Integer max = context.getObjectContext().getInteger(stat, IntegerKey.MAX_VALUE);
 		if (min == null && max == null)
 		{
 			return null;
 		}
 		if (min == null || max == null)
 		{
-			context.addWriteMessage("Must have both min and max in "
-					+ getTokenName() + ": " + min + " " + max);
+			context.addWriteMessage("Must have both min and max in " + getTokenName() + ": " + min + ' ' + max);
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(min).append(',').append(max);
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	@Override

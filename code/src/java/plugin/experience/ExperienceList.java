@@ -14,19 +14,17 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
- package plugin.experience;
-
-import gmgen.plugin.Combatant;
+package plugin.experience;
 
 import javax.swing.DefaultListModel;
+
+import gmgen.plugin.Combatant;
 
 /**
  * ExperienceList. This class holds all the characters that are to be displayed in a JList.
  */
-class ExperienceList extends DefaultListModel
+class ExperienceList extends DefaultListModel<ExperienceListItem>
 {
 
 	/**
@@ -38,11 +36,9 @@ class ExperienceList extends DefaultListModel
 		float groupLevel = 0;
 		int num = 0;
 
-
-
 		for (int i = 0; i < size(); i++)
 		{
-			Combatant cbt = ((ExperienceListItem) get(i)).getCombatant();
+			Combatant cbt = get(i).getCombatant();
 			groupLevel += cbt.getCR();
 			num++;
 		}

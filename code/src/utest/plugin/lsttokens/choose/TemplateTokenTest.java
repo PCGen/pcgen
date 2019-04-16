@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
 import pcgen.rules.persistence.CDOMLoader;
@@ -36,7 +34,7 @@ public class TemplateTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static TemplateToken subtoken = new TemplateToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -66,12 +64,6 @@ public class TemplateTokenTest extends
 	public Class<PCTemplate> getTargetClass()
 	{
 		return PCTemplate.class;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

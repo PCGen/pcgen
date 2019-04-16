@@ -1,5 +1,4 @@
 /*
- * PreRace.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  * Copyright 2005 (C) Greg Bingleman <byngl@hotmail.com>
@@ -17,11 +16,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision: 7951 $
- *
  */
 package plugin.pretokens.test;
 
@@ -35,20 +29,9 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 
-/**
- * @author	wardc
- * @author	byngl &lt;byngl@hotmail.com&gt;
- *
- */
 public class PreRaceTypeTester extends AbstractDisplayPrereqTest
 {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
@@ -79,7 +62,7 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "RACETYPE"; //$NON-NLS-1$
@@ -89,32 +72,33 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest
 	 * Get ArrayList populated with creature types for this PC (defaults to humanoid).
 	 * @return the list of types
 	 */
-    @Deprecated
+	@Deprecated
 	public static List<String> getCritterTypes(CharacterDisplay display)
 	{
 		ArrayList<String> critterTypes = new ArrayList<>();
-	
+
 		// Not too sure about this if, but that's what the previous code
 		// implied...
 		Race race = display.getRace();
 		if (race != null)
 		{
 			critterTypes.add(race.getType());
-		} else
+		}
+		else
 		{
 			critterTypes.add("Humanoid");
 		}
-	
+
 		for (PCTemplate t : display.getTemplateSet())
 		{
 			final String aType = t.getType();
-	
+
 			if (aType != null && !aType.isEmpty())
 			{
 				critterTypes.add(aType);
 			}
 		}
-	
+
 		return critterTypes;
 	}
 

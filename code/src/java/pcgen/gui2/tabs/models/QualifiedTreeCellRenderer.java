@@ -1,5 +1,4 @@
 /*
- * QualifiedTreeCellRenderer.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 16, 2011, 12:00:54 PM
  */
 package pcgen.gui2.tabs.models;
 
@@ -30,17 +28,13 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 @SuppressWarnings("serial")
 public class QualifiedTreeCellRenderer extends CharacterTreeCellRenderer
 {
 
 	@Override
-	public Component getTreeCellRendererComponent(JTree tree, Object value,
-			boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
+	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf,
+		int row, boolean focus)
 	{
 		Object obj = ((DefaultMutableTreeNode) value).getUserObject();
 		if ("".equals(obj) || obj == null) //$NON-NLS-1$

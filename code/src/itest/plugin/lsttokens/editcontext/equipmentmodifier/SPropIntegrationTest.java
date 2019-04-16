@@ -27,10 +27,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class SPropIntegrationTest extends
 		AbstractTextPropertyIntegrationTestCase<EquipmentModifier>
 {
-	private static boolean classSetUpFired = false;
-
-	static SpropToken token = new SpropToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
+	private static SpropToken token = new SpropToken();
+	private static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()
@@ -54,18 +52,6 @@ public class SPropIntegrationTest extends
 	protected boolean isClearLegal()
 	{
 		return true;
-	}
-
-	@Override
-	protected boolean getClassSetUpFired()
-	{
-		return classSetUpFired;
-	}
-
-	@Override
-	protected void setClassSetUpFired(boolean b)
-	{
-		classSetUpFired = b;
 	}
 
 }

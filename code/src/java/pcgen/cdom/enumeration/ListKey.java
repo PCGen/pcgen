@@ -14,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on June 18, 2005.
- *
- * Current Ver: $Revision$
  */
 package pcgen.cdom.enumeration;
 
@@ -38,12 +34,11 @@ import pcgen.cdom.content.ChangeProf;
 import pcgen.cdom.content.DamageReduction;
 import pcgen.cdom.content.KnownSpellIdentifier;
 import pcgen.cdom.content.LevelCommandFactory;
-import pcgen.cdom.content.RemoteModifier;
-import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.helper.ArmorProfProvider;
 import pcgen.cdom.helper.Capacity;
 import pcgen.cdom.helper.EqModRef;
 import pcgen.cdom.helper.FollowerLimit;
+import pcgen.cdom.helper.InfoBoolean;
 import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.cdom.helper.StatLock;
 import pcgen.cdom.helper.WeaponProfProvider;
@@ -62,12 +57,13 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.FollowerOption;
 import pcgen.core.Kit;
 import pcgen.core.Language;
-import pcgen.core.Movement;
+import pcgen.core.MoveClone;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.QualifiedObject;
 import pcgen.core.Race;
+import pcgen.core.SimpleMovement;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.SpecialProperty;
@@ -84,7 +80,6 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.utils.DeferredLine;
 
 /**
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  * 
  * This is a Typesafe enumeration of legal List Characteristics of an object. It
  * is designed to act as an index to a specific Object items within a
@@ -210,8 +205,9 @@ public final class ListKey<T>
 	public static final ListKey<StatLock> STAT_MINVALUE = new ListKey<>();
 	public static final ListKey<StatLock> STAT_MAXVALUE = new ListKey<>();
 	public static final ListKey<TransitionChoice<Kit>> KIT_CHOICE = new ListKey<>();
-	public static final ListKey<Movement> MOVEMENT = new ListKey<>();
-	public static final ListKey<Movement> BASE_MOVEMENT = new ListKey<>();
+	public static final ListKey<SimpleMovement> SIMPLEMOVEMENT = new ListKey<>();
+	public static final ListKey<MoveClone> MOVEMENTCLONE = new ListKey<>();
+	public static final ListKey<SimpleMovement> BASE_MOVEMENT = new ListKey<>();
 	public static final ListKey<FollowerOption> COMPANIONLIST = new ListKey<>();
 	public static final ListKey<FollowerLimit> FOLLOWERS = new ListKey<>();
 	public static final ListKey<Description> DESCRIPTION = new ListKey<>();
@@ -275,19 +271,20 @@ public final class ListKey<T>
 	public static final ListKey<String> SITUATION = new ListKey<>();
 	public static final ListKey<FactKey<?>> REMOVED_FACTKEY = new ListKey<>();
 	public static final ListKey<FactSetKey<?>> REMOVED_FACTSETKEY = new ListKey<>();
-	public static final ListKey<VarModifier<?>> MODIFY = new ListKey<>();
 	public static final ListKey<CampaignSourceEntry> FILE_VARIABLE = new ListKey<>();
 	public static final ListKey<CampaignSourceEntry> FILE_DATACTRL = new ListKey<>();
 	public static final ListKey<CampaignSourceEntry> FILE_SAVE = new ListKey<>();
 	public static final ListKey<CampaignSourceEntry> FILE_STAT = new ListKey<>();
 	public static final ListKey<CampaignSourceEntry> FILE_SIZE = new ListKey<>();
 	public static final ListKey<CampaignSourceEntry> FILE_ALIGNMENT = new ListKey<>();
-	public static final ListKey<RemoteModifier<?>> REMOTE_MODIFIER = new ListKey<>();
 	public static final ListKey<String> GROUP = new ListKey<>();
 	public static final ListKey<CampaignSourceEntry> FILE_GLOBALMOD = new ListKey<>();
 	public static final ListKey<CampaignSourceEntry> FILE_DYNAMIC = new ListKey<>();
 	public static final ListKey<CDOMReference<Dynamic>> GRANTED = new ListKey<>();
 	public static final ListKey<CampaignSourceEntry> FILE_DATATABLE = new ListKey<>();
+	public static final ListKey<InfoBoolean> ENABLE = new ListKey<>();
+	public static final ListKey<InfoBoolean> ALLOW = new ListKey<>();
+	public static final ListKey<String> GRANTEDVARS = new ListKey<>();
 
 	private static CaseInsensitiveMap<ListKey<?>> map = null;
 
@@ -302,6 +299,7 @@ public final class ListKey<T>
 		//Only allow instantiation here
 	}
 
+	@SuppressWarnings("unchecked")
 	public T cast(Object obj)
 	{
 		return (T) obj;
@@ -336,7 +334,7 @@ public final class ListKey<T>
 			int mod = fields[i].getModifiers();
 
 			if (java.lang.reflect.Modifier.isStatic(mod) && java.lang.reflect.Modifier.isFinal(mod)
-					&& java.lang.reflect.Modifier.isPublic(mod))
+				&& java.lang.reflect.Modifier.isPublic(mod))
 			{
 				try
 				{

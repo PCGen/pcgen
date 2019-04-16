@@ -32,7 +32,6 @@ import pcgen.cdom.helper.ArmorProfProvider;
  * to a Player Character by looking for AUTO:ARMORPROF entries on CDOMObjects
  * added to/removed from the Player Character.
  * 
- * @author Tom Parker (thpr [at] yahoo.com)
  */
 public class ArmorProfFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
@@ -53,15 +52,12 @@ public class ArmorProfFacet implements DataFacetChangeListener<CharID, CDOMObjec
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		List<ArmorProfProvider> armorProfs = cdo
-				.getListFor(ListKey.AUTO_ARMORPROF);
+		List<ArmorProfProvider> armorProfs = cdo.getListFor(ListKey.AUTO_ARMORPROF);
 		if (armorProfs != null)
 		{
 			armorProfProviderFacet.addAll(dfce.getCharID(), armorProfs, cdo);
@@ -80,8 +76,6 @@ public class ArmorProfFacet implements DataFacetChangeListener<CharID, CDOMObjec
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -89,8 +83,7 @@ public class ArmorProfFacet implements DataFacetChangeListener<CharID, CDOMObjec
 		armorProfProviderFacet.removeAll(dfce.getCharID(), dfce.getCDOMObject());
 	}
 
-	public void setArmorProfProviderFacet(
-		ArmorProfProviderFacet armorProfProviderFacet)
+	public void setArmorProfProviderFacet(ArmorProfProviderFacet armorProfProviderFacet)
 	{
 		this.armorProfProviderFacet = armorProfProviderFacet;
 	}

@@ -1,0 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Divine Anthology	SOURCESHORT:DA	SOURCEWEB:http://paizo.com/products/btpy9nvh	SOURCEDATE:2016-10
+
+
+# Equipment Name	Product Identity?	Type			Cost		Weight	Modifier								Source Page		Innate Spells																																									Special Property
+Staff of Nethys	NAMEISPI:YES	TYPE:Magic.Staff	COST:131500	WT:5		EQMOD:Special Ability ~ Staff Charges|CHARGES[10]	SOURCEPAGE:p.4	SPELLS:Staff|TIMES=1|TIMEUNIT=Charge|CASTERLEVEL=13|Arcane Sight|Channel the Gift|Fractions of Heal and Harm|Spell Gauge	SPELLS:Staff|TIMES=2|TIMEUNIT=Charge|CASTERLEVEL=13|Prying Eyes	SPELLS:Staff|TIMES=3|TIMEUNIT=Charge|CASTERLEVEL=13|Spell Scourge	SPROP:Can store up to 5 levels of spells (as Ring of Spell Storing, castable without using a charge.

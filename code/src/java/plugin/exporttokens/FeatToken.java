@@ -8,7 +8,6 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbilityToken;
 
 /**
- * @author karianna
  *
  * Class deals with FEAT Token
  */
@@ -25,19 +24,13 @@ public class FeatToken extends AbilityToken
 		return "FEAT";
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String,
-	 *      pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		final String fString = aTok.nextToken();
 
-		return getTokenForCategory(tokenSource, pc, eh, aTok, fString,
-			AbilityCategory.FEAT);
+		return getTokenForCategory(tokenSource, pc, eh, aTok, fString, AbilityCategory.FEAT);
 	}
 }

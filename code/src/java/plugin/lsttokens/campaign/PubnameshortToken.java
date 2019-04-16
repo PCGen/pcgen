@@ -38,14 +38,14 @@ public class PubnameshortToken extends AbstractStringToken<Campaign>
 		return "PUBNAMESHORT";
 	}
 
-    @Override
+	@Override
 	public boolean parse(Campaign campaign, String value, URI sourceUri)
 	{
 		campaign.put(StringKey.PUB_NAME_SHORT, value);
 		return true;
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

@@ -1,5 +1,4 @@
 /*
- * TabLoader.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 01/10/2013
  *
- * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -34,13 +31,12 @@ import pcgen.util.enumeration.Tab;
  * TabLoader loads TAB lines from the miscinfo.lst file for a game mode.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class TabLoader extends SimpleLoader<TabInfo>
 {
 
-	private List<String> deprecatedTabNames = Arrays.asList("ABILITIES", "CAMPAIGNS", "RACE", "GEAR", "RESOURCES",
-			"NATURALWEAPONS", "SOURCEINFO");
+	private List<String> deprecatedTabNames =
+			Arrays.asList("ABILITIES", "CAMPAIGNS", "RACE", "GEAR", "RESOURCES", "NATURALWEAPONS", "SOURCEINFO");
 
 	public TabLoader()
 	{
@@ -54,8 +50,7 @@ public class TabLoader extends SimpleLoader<TabInfo>
 		{
 			if (deprecatedTabNames.contains(token.toUpperCase()))
 			{
-				Logging.deprecationPrint("TAB:" + token
-					+ " has been deprecated and is now ignored.", context);
+				Logging.deprecationPrint("TAB:" + token + " has been deprecated and is now ignored.", context);
 			}
 			else
 			{

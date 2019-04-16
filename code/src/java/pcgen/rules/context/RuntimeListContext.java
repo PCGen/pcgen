@@ -1,5 +1,4 @@
 /*
- * RuntimeListContext.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -20,6 +19,8 @@
 
 package pcgen.rules.context;
 
+import java.util.Objects;
+
 class RuntimeListContext extends AbstractListContext
 {
 
@@ -27,10 +28,7 @@ class RuntimeListContext extends AbstractListContext
 
 	protected RuntimeListContext(ListCommitStrategy commitStrategy)
 	{
-		if (commitStrategy == null)
-		{
-			throw new IllegalArgumentException("Commit Strategy cannot be null");
-		}
+		Objects.requireNonNull(commitStrategy, "Commit Strategy cannot be null");
 		commit = commitStrategy;
 	}
 

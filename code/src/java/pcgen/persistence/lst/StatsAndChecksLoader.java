@@ -1,5 +1,4 @@
 /*
- * StatsAndChecksLoader.java
  * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on October 13, 2003, 11:50 AM
  *
- * Current Ver: $Revision$ <br>
  */
 package pcgen.persistence.lst;
 
@@ -44,43 +41,36 @@ public class StatsAndChecksLoader extends SimpleLoader<Loadable>
 	}
 
 	@Override
-	protected Loadable getLoadable(LoadContext context, String token,
-			URI sourceURI)
+	protected Loadable getLoadable(LoadContext context, String token, URI sourceURI)
 	{
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
 		{
-			Logging.errorPrint("Invalid Token - does not contain a colon: '"
-					+ token + "' in " + sourceURI);
+			Logging.errorPrint("Invalid Token - does not contain a colon: '" + token + "' in " + sourceURI);
 			return null;
 		}
 		else if (colonLoc == 0)
 		{
-			Logging.errorPrint("Invalid Token - starts with a colon: '" + token
-					+ "' in " + sourceURI);
+			Logging.errorPrint("Invalid Token - starts with a colon: '" + token + "' in " + sourceURI);
 			return null;
 		}
 		else if (colonLoc == (token.length() - 1))
 		{
-			Logging.errorPrint("Invalid Token - "
-					+ "ends with a colon (no value): '" + token + "' in "
-					+ sourceURI);
+			Logging.errorPrint("Invalid Token - " + "ends with a colon (no value): '" + token + "' in " + sourceURI);
 			return null;
 		}
 		String key = token.substring(0, colonLoc);
 		Class<? extends Loadable> loadClass;
 		if ("STATNAME".equals(key))
 		{
-			Logging
-				.deprecationPrint("Loading Stats in Game Mode is deprecated, "
-					+ "please use the STAT: token in a PCC file");
+			Logging.deprecationPrint(
+				"Loading Stats in Game Mode is deprecated, " + "please use the STAT: token in a PCC file");
 			loadClass = PCStat.class;
 		}
 		else if ("CHECKNAME".equals(key))
 		{
-			Logging
-				.deprecationPrint("Loading Checks/Saves in Game Mode is deprecated, "
-					+ "please use the SAVE: token in a PCC file");
+			Logging.deprecationPrint(
+				"Loading Checks/Saves in Game Mode is deprecated, " + "please use the SAVE: token in a PCC file");
 			loadClass = PCCheck.class;
 		}
 		else if ("BONUSSPELLLEVEL".equals(key))
@@ -89,22 +79,19 @@ public class StatsAndChecksLoader extends SimpleLoader<Loadable>
 		}
 		else if ("ALIGNMENTNAME".equals(key))
 		{
-			Logging
-				.deprecationPrint("Loading Alignments in Game Mode is deprecated, "
-					+ "please use the ALIGNMENT: token in a PCC file");
+			Logging.deprecationPrint(
+				"Loading Alignments in Game Mode is deprecated, " + "please use the ALIGNMENT: token in a PCC file");
 			loadClass = PCAlignment.class;
 		}
 		else
 		{
-			Logging.errorPrint("Invalid Token '" + key
-					+ "' as the first key in " + sourceURI);
+			Logging.errorPrint("Invalid Token '" + key + "' as the first key in " + sourceURI);
 			return null;
 		}
 		String name = token.substring(colonLoc + 1);
-		if ((name == null) || (name.length() == 0))
+		if ((name == null) || (name.isEmpty()))
 		{
-			Logging.errorPrint("Invalid Token '" + key + "' had no value in "
-					+ sourceURI);
+			Logging.errorPrint("Invalid Token '" + key + "' had no value in " + sourceURI);
 			return null;
 		}
 		Loadable loadable = context.getReferenceContext().constructCDOMObject(loadClass, name.intern());

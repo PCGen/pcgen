@@ -15,8 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  Created on May 24, 2003
  */
 package plugin.initiative;
 
@@ -35,8 +33,6 @@ import pcgen.base.lang.StringUtil;
  * off-hand attacks (as in +10/+5;+10).  It splits damage into
  * primary and off-hand by a slash, and the same with crit multiples
  * and ranges.</p>
- *
- * @author Ross M. Lodge
  */
 public class AttackModel extends PObjectModel
 {
@@ -136,13 +132,13 @@ public class AttackModel extends PObjectModel
 	 * bonus) at index 0.  If the toHit field is not set, returns an array with a single element
 	 * with the bonuse of 0.</p>
 	 *
-	 * @return <code>int[]</code> containing the integer bonuses for a full attack action
+	 * @return {@code int[]} containing the integer bonuses for a full attack action
 	 */
 	public int[] getBonusList()
 	{
 		int[] returnValue = null;
 
-		if ((toHit != null) && (toHit.size() > 0))
+		if ((toHit != null) && (!toHit.isEmpty()))
 		{
 			returnValue = new int[toHit.size()];
 
@@ -167,7 +163,7 @@ public class AttackModel extends PObjectModel
 	 */
 	public void setCritMultiple(String string)
 	{
-		if ((string != null) && (string.length() > 0))
+		if ((string != null) && (!string.isEmpty()))
 		{
 			StringTokenizer tok = new StringTokenizer(string, "/");
 
@@ -235,7 +231,7 @@ public class AttackModel extends PObjectModel
 		{
 			returnValue = critMultiple.get(lookupAt);
 		}
-		else if ((critMultiple != null) && (critMultiple.size() > 0))
+		else if ((critMultiple != null) && (!critMultiple.isEmpty()))
 		{
 			returnValue = critMultiple.get(0);
 		}
@@ -255,7 +251,7 @@ public class AttackModel extends PObjectModel
 	 */
 	public void setCritRange(String string)
 	{
-		if ((string != null) && (string.length() > 0))
+		if ((string != null) && (!string.isEmpty()))
 		{
 			StringTokenizer tok = new StringTokenizer(string, "/");
 
@@ -323,7 +319,7 @@ public class AttackModel extends PObjectModel
 		{
 			returnValue = critRange.get(lookupAt);
 		}
-		else if ((critRange != null) && (critRange.size() > 0))
+		else if ((critRange != null) && (!critRange.isEmpty()))
 		{
 			returnValue = critRange.get(0);
 		}
@@ -343,8 +339,7 @@ public class AttackModel extends PObjectModel
 	public int getCritRangeMin(int index)
 	{
 		int returnValue;
-		String aRange =
-				new StringTokenizer(getCritRange(index), "-").nextToken();
+		String aRange = new StringTokenizer(getCritRange(index), "-").nextToken();
 		returnValue = getInt(aRange);
 
 		return returnValue;
@@ -362,7 +357,7 @@ public class AttackModel extends PObjectModel
 	 */
 	public void setDamage(String string)
 	{
-		if ((string != null) && (string.length() > 0))
+		if ((string != null) && (!string.isEmpty()))
 		{
 			StringTokenizer tok = new StringTokenizer(string, "/");
 
@@ -384,23 +379,18 @@ public class AttackModel extends PObjectModel
 			{
 				//If we've got a double weapon, pcgen is using AdB+C/+D, so
 				String damageDice = damage.get(0);
-				if (damageDice.lastIndexOf("+") > 0)
+				if (damageDice.lastIndexOf('+') > 0)
 				{
-					damageDice =
-							damageDice
-								.substring(0, damageDice.lastIndexOf("+"));
+					damageDice = damageDice.substring(0, damageDice.lastIndexOf('+'));
 				}
-				else if (damageDice.lastIndexOf("-") > 0)
+				else if (damageDice.lastIndexOf('-') > 0)
 				{
-					damageDice =
-							damageDice
-								.substring(0, damageDice.lastIndexOf("-"));
+					damageDice = damageDice.substring(0, damageDice.lastIndexOf('-'));
 				}
 				for (int i = 1; i < damage.size(); i++)
 				{
 					String secondaryDamage = damage.get(i);
-					if (secondaryDamage.startsWith("+")
-						|| secondaryDamage.startsWith("-"))
+					if (secondaryDamage.startsWith("+") || secondaryDamage.startsWith("-"))
 					{
 						damage.set(i, damageDice + secondaryDamage);
 					}
@@ -456,7 +446,7 @@ public class AttackModel extends PObjectModel
 		{
 			returnValue = damage.get(lookupAt);
 		}
-		else if ((damage != null) && (damage.size() > 0))
+		else if ((damage != null) && (!damage.isEmpty()))
 		{
 			returnValue = damage.get(0);
 		}
@@ -488,7 +478,7 @@ public class AttackModel extends PObjectModel
 	 */
 	public void setRange(String string)
 	{
-		if ((string == null) || (string.length() > 0))
+		if ((string == null) || (!string.isEmpty()))
 		{
 			range = string;
 		}
@@ -556,10 +546,9 @@ public class AttackModel extends PObjectModel
 	 * <p>
 	 * Sets the two hit value. This method drives much of the functionality of
 	 * the attack model. The string should be in the form <br>
-	 * <code>
+	 * {@code
 	 *    Bonus/Bonus/Bonus...;off hand bonus/off hand bonus...
-	 * </code>
-	 * <br>
+	 * }
 	 * The method splits the string into primary and off-hand bonus values, and
 	 * splits the separate strings into individual bonuses. The length of the
 	 * resulting list of bonuses drives the indices used to determine bonuses
@@ -614,7 +603,7 @@ public class AttackModel extends PObjectModel
 	{
 		StringBuilder sb = new StringBuilder();
 
-		if ((toHit != null) && (toHit.size() > 0))
+		if ((toHit != null) && (!toHit.isEmpty()))
 		{
 			for (int i = 0; i < toHit.size(); i++)
 			{
@@ -622,11 +611,11 @@ public class AttackModel extends PObjectModel
 				{
 					if (i == firstOffHandAttack)
 					{
-						sb.append(";");
+						sb.append(';');
 					}
 					else
 					{
-						sb.append("/");
+						sb.append('/');
 					}
 				}
 
@@ -656,7 +645,7 @@ public class AttackModel extends PObjectModel
 	}
 
 	/**
-	 * <p>Sets teh weapon type.</p>
+	 * <p>Sets the weapon type.</p>
 	 * @param string
 	 */
 	public void setType(String string)
@@ -673,22 +662,13 @@ public class AttackModel extends PObjectModel
 		return type;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 *
-	 * Gets a string representation of the object.
-	 */
 	@Override
 	public String toString()
 	{
 		String returnValue;
-		returnValue =
-				getName() + " " + getToHit() + " " + getRange() + "/"
-					+ getType() + " (" + getDamage() + " " + getCritRange()
-					+ "/x" + getCritMultiple() + " " + getHand() + " "
-					+ getSize()
-					+ ("".equals(getSpecialProp()) ? "" : getSpecialProp())
-					+ ")";
+		returnValue = getName() + ' ' + getToHit() + ' ' + getRange() + '/' + getType() + " (" + getDamage() + ' '
+			+ getCritRange() + "/x" + getCritMultiple() + ' ' + getHand() + ' ' + getSize()
+			+ ("".equals(getSpecialProp()) ? "" : getSpecialProp()) + ')';
 
 		return returnValue;
 	}

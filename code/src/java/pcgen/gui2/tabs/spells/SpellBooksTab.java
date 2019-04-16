@@ -1,5 +1,4 @@
 /*
- * SpellBooksTab.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Oct 1, 2011, 10:09:50 PM
  */
 package pcgen.gui2.tabs.spells;
 
@@ -34,10 +32,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import javax.swing.tree.TreePath;
 
-import org.apache.commons.lang.StringUtils;
-
+import pcgen.core.PCClass;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade;
 import pcgen.facade.core.SpellSupportFacade.RootNode;
@@ -63,10 +59,8 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
+import org.apache.commons.lang3.StringUtils;
+
 @SuppressWarnings("serial")
 public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 {
@@ -86,15 +80,16 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 		super("SpellBooks");
 		this.availableTable = new FilteredTreeViewTable<>();
-		this.selectedTable = new JTreeViewTable<SuperNode>(){
-			
+		this.selectedTable = new JTreeViewTable<SuperNode>()
+		{
+
 			@Override
 			public void setTreeViewModel(TreeViewModel<SuperNode> viewModel)
 			{
 				super.setTreeViewModel(viewModel);
 				sortModel();
 			}
-			
+
 		};
 		this.spellRenderer = new QualifiedSpellTreeCellRenderer();
 		this.addButton = new JButton();
@@ -110,8 +105,9 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 		availableTable.setTreeCellRenderer(spellRenderer);
 		selectedTable.setTreeCellRenderer(spellRenderer);
-		selectedTable.setRowSorter(new SortableTableRowSorter(){
-			
+		selectedTable.setRowSorter(new SortableTableRowSorter()
+		{
+
 			@Override
 			public SortableTableModel getModel()
 			{
@@ -180,10 +176,8 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		models.put(TreeViewModelHandler.class, new TreeViewModelHandler(character));
 		models.put(AddSpellAction.class, new AddSpellAction(character));
 		models.put(RemoveSpellAction.class, new RemoveSpellAction(character));
-		models.put(SpellInfoHandler.class, new SpellInfoHandler(character, availableTable,
-				selectedTable, spellsPane));
-		models.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable,
-				selectedTable, classPane));
+		models.put(SpellInfoHandler.class, new SpellInfoHandler(character, availableTable, selectedTable, spellsPane));
+		models.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable, selectedTable, classPane));
 		models.put(SpellBookModel.class, new SpellBookModel(character));
 		models.put(SpellFilterHandler.class, new SpellFilterHandler(character));
 		return models;
@@ -303,8 +297,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 			{
 				if (object instanceof SpellNode)
 				{
-					character.getSpellSupport().addToSpellBook(
-							(SpellNode) object, bookname);
+					character.getSpellSupport().addToSpellBook((SpellNode) object, bookname);
 				}
 			}
 		}
@@ -342,8 +335,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 				if (object instanceof SpellNode)
 				{
 					SpellNode node = (SpellNode) object;
-					character.getSpellSupport().removeFromSpellBook(node,
-							node.getRootNode().getName());
+					character.getSpellSupport().removeFromSpellBook(node, node.getRootNode().getName());
 				}
 			}
 		}
@@ -371,8 +363,10 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		public TreeViewModelHandler(CharacterFacade character)
 		{
 			this.character = character;
-			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(), false, "SpellBooksAva", character.getInfoFactory());
-			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getBookSpellNodes(), true, "SpellBooksSel", character.getInfoFactory());
+			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(), false,
+				"SpellBooksAva", character.getInfoFactory());
+			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getBookSpellNodes(), true,
+				"SpellBooksSel", character.getInfoFactory());
 		}
 
 		public void install()
@@ -403,6 +397,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		{
 			qFilterButton.setFilter(this);
 		}
+
 		@Override
 		public boolean accept(CharacterFacade context, SuperNode element)
 		{
@@ -410,7 +405,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 			{
 				SpellNode spellNode = (SpellNode) element;
 				SpellFacade spell = spellNode.getSpell();
-				ClassFacade pcClass = spellNode.getSpellcastingClass();
+				PCClass pcClass = spellNode.getSpellcastingClass();
 				return character.isQualifiedFor(spell, pcClass);
 			}
 			return true;

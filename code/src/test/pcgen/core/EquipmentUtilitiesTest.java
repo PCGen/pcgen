@@ -1,5 +1,4 @@
-/**
- * EquipmentUtilitiesTest.java
+/*
  * Copyright 2006 (C) Andrew Wilson <nuance@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,51 +14,66 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17 March 2005
- *
- * $Author: nuance $
- * $Date: 2006-03-22 00:25:03 +0000 (Wed, 22 Mar 2006) $
- * $Revision: 362 $
  */
 package pcgen.core;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.PCGenTestCase;
+import pcgen.ControlTestSupport;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.core.system.LoadInfo;
+import pcgen.persistence.GameModeFileLoader;
 import pcgen.util.TestHelper;
 
-/**
- * @author nuance
- *
- */
-public class EquipmentUtilitiesTest extends PCGenTestCase
-{
+import org.junit.jupiter.api.Test;
 
+class EquipmentUtilitiesTest
+{
 	/**
-	 * Run the test
-	 * @param args don't need args apparently
+	 * Sets up some basic stuff that must be present for tests to work.
 	 */
-	public static void main(final String[] args)
+	protected void setUp() throws Exception
 	{
-		junit.textui.TestRunner.run(EquipmentUtilitiesTest.class);
+		final GameMode gamemode = new GameMode("3.5");
+		gamemode.setBonusFeatLevels("3|3");
+		ControlTestSupport.enableFeature(gamemode.getModeContext(), CControl.ALIGNMENTFEATURE);
+		gamemode.addLevelInfo("Normal", new LevelInfo());
+		gamemode.addXPTableName("Normal");
+		gamemode.setDefaultXPTableName("Normal");
+		gamemode.clearLoadContext();
+		LoadInfo loadable =
+				gamemode.getModeContext().getReferenceContext().constructNowIfNecessary(
+						LoadInfo.class, gamemode.getName());
+		loadable.addLoadScoreValue(0, BigDecimal.ONE);
+		GameModeFileLoader.addDefaultTabInfo(gamemode);
+		SystemCollections.addToGameModeList(gamemode);
+		SettingsHandler.setGame("3.5");
 	}
 
 	/**
 	 * Test method for 'pcgen.core.EquipmentUtilities.appendToName(String, String)'
 	 */
+	@Test
 	public void testAppendToName()
 	{
 		final String bare = "Bare Thing";
 		final String decoration = "Mad cow";
 
-		is(EquipmentUtilities.appendToName(bare, decoration),
-			strEq("Bare Thing (Mad cow)"), "Choice appends to name correctly");
+		assertEquals(
+				"Bare Thing (Mad cow)",
+				EquipmentUtilities.appendToName(bare, decoration),
+				"Choice appends to name correctly"
+		);
 	}
 
+	@Test
 	public void testFindEquipmentByBaseKey()
 	{
 		TestHelper.makeSizeAdjustments();
@@ -78,11 +92,16 @@ public class EquipmentUtilitiesTest extends PCGenTestCase
 		List<Equipment> eqList = new ArrayList<>();
 		eqList.add(towel);
 		eqList.add(backpackSml);
-		assertEquals("Expected to find backpack", backpackSml,
-			EquipmentUtilities.findEquipmentByBaseKey(eqList, "backpack"));
-		assertEquals("Expected not to find torch", null,
-			EquipmentUtilities.findEquipmentByBaseKey(eqList, "torch"));
-		assertEquals("Expected to find towel", towel,
-			EquipmentUtilities.findEquipmentByBaseKey(eqList, "ToWeL"));
+		assertEquals(
+				backpackSml,
+				EquipmentUtilities.findEquipmentByBaseKey(eqList, "backpack"),
+				"Expected to find backpack"
+		);
+		assertNull(EquipmentUtilities.findEquipmentByBaseKey(eqList, "torch"), "Expected not to find torch");
+		assertEquals(
+				towel,
+				EquipmentUtilities.findEquipmentByBaseKey(eqList, "ToWeL"),
+				"Expected to find towel"
+		);
 	}
 }

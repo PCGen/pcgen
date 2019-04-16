@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.equipment;
 
-import org.junit.Test;
-
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
 import pcgen.core.ShieldProf;
@@ -31,11 +29,13 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.equipment.ProficiencyToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class ProficiencyIntegrationTest extends
 		AbstractIntegrationTestCase<Equipment>
 {
-	static ProficiencyToken token = new ProficiencyToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static ProficiencyToken token = new ProficiencyToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

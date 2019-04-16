@@ -28,6 +28,10 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.base.PrimitiveCollection;
+import pcgen.cdom.grouping.GroupingCollection;
+import pcgen.cdom.grouping.GroupingDefinition;
+import pcgen.cdom.grouping.GroupingInfo;
+import pcgen.cdom.grouping.GroupingScopeFilter;
 import pcgen.cdom.primitive.CompoundAndPrimitive;
 import pcgen.cdom.primitive.CompoundOrPrimitive;
 import pcgen.cdom.primitive.NegatingPrimitive;
@@ -43,7 +47,7 @@ import pcgen.util.Logging;
 
 public final class ChoiceSetLoadUtilities
 {
-	
+
 	private static final String FOUND_ERR_IN_QUAL_CHOICE = "Found error in Qualifier Choice: ";
 	private static final String FOUND_ERR_IN_PRIM_CHOICE = "Found error in Primitive Choice: ";
 
@@ -52,8 +56,8 @@ public final class ChoiceSetLoadUtilities
 		//Don't instantiate utility class
 	}
 
-	public static <T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(
-			LoadContext context, SelectionCreator<T> sc, String joinedOr)
+	public static <T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(LoadContext context,
+		SelectionCreator<T> sc, String joinedOr)
 	{
 		List<PrimitiveCollection<T>> orList = new ArrayList<>();
 		ParsingSeparator pipe = new ParsingSeparator(joinedOr, '|');
@@ -74,22 +78,18 @@ public final class ChoiceSetLoadUtilities
 			for (; comma.hasNext();)
 			{
 				String primitive = comma.next();
-				if (primitive == null || primitive.length() == 0)
+				if (primitive == null || primitive.isEmpty())
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
-							"Choice argument was null or empty: " + primitive);
+					Logging.addParseMessage(Logging.LST_ERROR, "Choice argument was null or empty: " + primitive);
 					return null;
 				}
-				QualifierToken<T> qual = getQualifier(context, sc,
-						primitive);
+				QualifierToken<T> qual = getQualifier(context, sc, primitive);
 				if (qual == null)
 				{
-					PrimitiveCollection<T> pcf = getSimplePrimitive(context,
-							sc, primitive);
+					PrimitiveCollection<T> pcf = getSimplePrimitive(context, sc, primitive);
 					if (pcf == null)
 					{
-						Logging.addParseMessage(Logging.LST_ERROR,
-								"Choice argument was not valid: " + primitive);
+						Logging.addParseMessage(Logging.LST_ERROR, "Choice argument was not valid: " + primitive);
 						return null;
 					}
 					else
@@ -133,31 +133,28 @@ public final class ChoiceSetLoadUtilities
 		if (value.charAt(0) == separator)
 		{
 			Logging.addParseMessage(Logging.LST_ERROR,
-					"Choice arguments may not start with " + separator + " : "
-							+ value);
+				"Choice arguments may not start with " + separator + " : " + value);
 			return true;
 		}
 		if (value.charAt(value.length() - 1) == separator)
 		{
 			Logging.addParseMessage(Logging.LST_ERROR,
-					"Choice arguments may not end with " + separator + " : "
-							+ value);
+				"Choice arguments may not end with " + separator + " : " + value);
 			return true;
 		}
-		if (value.indexOf(String.valueOf(new char[] { separator, separator })) != -1)
+		if (value.indexOf(String.valueOf(new char[]{separator, separator})) != -1)
 		{
 			Logging.addParseMessage(Logging.LST_ERROR,
-					"Choice arguments uses double separator " + separator
-							+ separator + " : " + value);
+				"Choice arguments uses double separator " + separator + separator + " : " + value);
 			return true;
 		}
 		return false;
 	}
 
-	public static <T extends CDOMObject> PrimitiveCollection<T> getPrimitive(
-			LoadContext context, SelectionCreator<T> sc, String joinedOr)
+	public static <T extends CDOMObject> PrimitiveCollection<T> getPrimitive(LoadContext context,
+		SelectionCreator<T> sc, String joinedOr)
 	{
-		if (joinedOr.length() == 0 || hasIllegalSeparator('|', joinedOr))
+		if (joinedOr.isEmpty() || hasIllegalSeparator('|', joinedOr))
 		{
 			return null;
 		}
@@ -168,7 +165,7 @@ public final class ChoiceSetLoadUtilities
 		for (; pipe.hasNext();)
 		{
 			String joinedAnd = pipe.next();
-			if (joinedAnd.length() == 0 || hasIllegalSeparator(',', joinedAnd))
+			if (joinedAnd.isEmpty() || hasIllegalSeparator(',', joinedAnd))
 			{
 				return null;
 			}
@@ -179,18 +176,15 @@ public final class ChoiceSetLoadUtilities
 			for (; comma.hasNext();)
 			{
 				String primitive = comma.next();
-				if (primitive == null || primitive.length() == 0)
+				if (primitive == null || primitive.isEmpty())
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
-							"Choice argument was null or empty: " + primitive);
+					Logging.addParseMessage(Logging.LST_ERROR, "Choice argument was null or empty: " + primitive);
 					return null;
 				}
-				PrimitiveCollection<T> pcf = getSimplePrimitive(context,
-						sc, primitive);
+				PrimitiveCollection<T> pcf = getSimplePrimitive(context, sc, primitive);
 				if (pcf == null)
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
-							"Choice argument was not valid: " + primitive);
+					Logging.addParseMessage(Logging.LST_ERROR, "Choice argument was not valid: " + primitive);
 					return null;
 				}
 				else
@@ -228,8 +222,7 @@ public final class ChoiceSetLoadUtilities
 		{
 			if (closeBracketLoc != -1)
 			{
-				Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key
-						+ " has a close bracket but no open bracket");
+				Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key + " has a close bracket but no open bracket");
 				return null;
 			}
 			if (equalLoc == -1)
@@ -241,10 +234,9 @@ public final class ChoiceSetLoadUtilities
 			{
 				pi.tokKey = key.substring(0, equalLoc);
 				pi.tokValue = key.substring(equalLoc + 1);
-				if (pi.tokValue.length() == 0)
+				if (pi.tokValue.isEmpty())
 				{
-					Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key
-							+ " has equals but no target value");
+					Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key + " has equals but no target value");
 					return null;
 				}
 			}
@@ -254,37 +246,33 @@ public final class ChoiceSetLoadUtilities
 		{
 			if (closeBracketLoc == -1)
 			{
-				Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key
-						+ " has an open bracket but no close bracket");
+				Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key + " has an open bracket but no close bracket");
 				return null;
 			}
 			if (closeBracketLoc != key.length() - 1)
 			{
-				Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key
-						+ " had close bracket, but had characters "
-						+ "following the close bracket");
+				Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key + " had close bracket, but had characters "
+					+ "following the close bracket");
 				return null;
 			}
 			if (equalLoc == -1 || equalLoc > openBracketLoc)
 			{
 				pi.tokKey = key.substring(0, openBracketLoc);
 				pi.tokValue = null;
-				pi.tokRestriction = key.substring(openBracketLoc + 1,
-						closeBracketLoc);
+				pi.tokRestriction = key.substring(openBracketLoc + 1, closeBracketLoc);
 			}
 			else
 			{
 				pi.tokKey = key.substring(0, equalLoc);
 				pi.tokValue = key.substring(equalLoc + 1, openBracketLoc);
-				pi.tokRestriction = key.substring(openBracketLoc + 1,
-						closeBracketLoc);
+				pi.tokRestriction = key.substring(openBracketLoc + 1, closeBracketLoc);
 			}
 		}
 		return pi;
 	}
 
-	public static <T extends Loadable> PrimitiveCollection<T> getSimplePrimitive(
-			LoadContext context, SelectionCreator<T> sc, String key)
+	public static <T extends Loadable> PrimitiveCollection<T> getSimplePrimitive(LoadContext context,
+		SelectionCreator<T> sc, String key)
 	{
 		PrimitiveInfo pi = getPrimitiveInfo(key);
 		if (pi == null)
@@ -304,8 +292,8 @@ public final class ChoiceSetLoadUtilities
 		return prim;
 	}
 
-	private static <T extends Loadable> PrimitiveCollection<T> getDynamicGroup(
-		LoadContext context, PrimitiveInfo pi, Class<T> refClass)
+	private static <T extends Loadable> PrimitiveCollection<T> getDynamicGroup(LoadContext context, PrimitiveInfo pi,
+		Class<T> refClass)
 	{
 		GroupDefinition<T> fgd = context.getGroup(refClass, pi.tokKey);
 		if (fgd == null)
@@ -315,27 +303,24 @@ public final class ChoiceSetLoadUtilities
 		ObjectContainer<T> p = fgd.getPrimitive(context, pi.tokValue);
 		return new ObjectContainerPrimitive<>(p);
 	}
-	
-	public static <T> PrimitiveCollection<T> getTokenPrimitive(
-			LoadContext context, Class<T> cl, PrimitiveInfo pi)
+
+	public static <T> PrimitiveCollection<T> getTokenPrimitive(LoadContext context, Class<T> cl, PrimitiveInfo pi)
 	{
 		PrimitiveToken<T> prim = TokenLibrary.getPrimitive(cl, pi.tokKey);
-		if ((prim != null)
-			&& !prim.initialize(context, cl, pi.tokValue, pi.tokRestriction))
+		if ((prim != null) && !prim.initialize(context, cl, pi.tokValue, pi.tokRestriction))
 		{
 			return null;
 		}
 		return prim;
 	}
 
-	public static <T extends Loadable> PrimitiveCollection<T> getTraditionalPrimitive(
-			SelectionCreator<T> sc, PrimitiveInfo pi)
+	public static <T extends Loadable> PrimitiveCollection<T> getTraditionalPrimitive(SelectionCreator<T> sc,
+		PrimitiveInfo pi)
 	{
 		String tokKey = pi.tokKey;
 		if (pi.tokRestriction != null)
 		{
-			Logging.errorPrint("Didn't expect tokRestriction on " + tokKey
-				+ " here: " + pi.tokRestriction);
+			Logging.errorPrint("Didn't expect tokRestriction on " + tokKey + " here: " + pi.tokRestriction);
 			return null;
 		}
 		String tokValue = pi.tokValue;
@@ -345,8 +330,7 @@ public final class ChoiceSetLoadUtilities
 		}
 		if ("!TYPE".equals(tokKey))
 		{
-			CDOMGroupRef<T> typeReference = TokenUtilities
-					.getTypeReference(sc, tokValue);
+			CDOMGroupRef<T> typeReference = TokenUtilities.getTypeReference(sc, tokValue);
 			if (typeReference == null)
 			{
 				return null;
@@ -355,8 +339,7 @@ public final class ChoiceSetLoadUtilities
 		}
 		if (tokValue != null)
 		{
-			Logging.errorPrint("Didn't expect Arguments here: " + tokValue
-					+ " was found in " + pi.key);
+			Logging.errorPrint("Didn't expect Arguments here: " + tokValue + " was found in " + pi.key);
 		}
 		if ("ALL".equals(tokKey))
 		{
@@ -365,13 +348,11 @@ public final class ChoiceSetLoadUtilities
 		String key = pi.key;
 		if (key.startsWith(Constants.LST_TYPE_DOT))
 		{
-			return TokenUtilities.getTypeReference(sc, key
-					.substring(5));
+			return TokenUtilities.getTypeReference(sc, key.substring(5));
 		}
 		if (key.startsWith(Constants.LST_NOT_TYPE_DOT))
 		{
-			return new NegatingPrimitive<>(TokenUtilities.getTypeReference(sc,
-                    key.substring(6)), sc.getAllReference());
+			return new NegatingPrimitive<>(TokenUtilities.getTypeReference(sc, key.substring(6)), sc.getAllReference());
 		}
 		if (key.indexOf('%') == -1)
 		{
@@ -379,11 +360,10 @@ public final class ChoiceSetLoadUtilities
 		}
 		else
 		{
-			return new PatternMatchingReference<>(sc.getReferenceClass(),
-                    sc.getAllReference(), key);
+			return new PatternMatchingReference<>(sc.getAllReference(), key);
 		}
 	}
-	
+
 	public static class PrimitiveInfo
 	{
 		public String key;
@@ -392,13 +372,12 @@ public final class ChoiceSetLoadUtilities
 		public String tokRestriction;
 	}
 
-	public static <T extends CDOMObject> QualifierToken<T> getQualifier(
-			LoadContext loadContext, SelectionCreator<T> sc, String key)
+	public static <T extends CDOMObject> QualifierToken<T> getQualifier(LoadContext loadContext, SelectionCreator<T> sc,
+		String key)
 	{
-		if (key == null || key.length() == 0)
+		if (key == null || key.isEmpty())
 		{
-			Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE
-					+ "item was null or empty");
+			Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + "item was null or empty");
 			return null;
 		}
 		int openBracketLoc = key.indexOf('[');
@@ -412,8 +391,7 @@ public final class ChoiceSetLoadUtilities
 		{
 			if (closeBracketLoc != -1)
 			{
-				Logging.errorPrint(FOUND_ERR_IN_QUAL_CHOICE + key
-						+ " has a close bracket but no open bracket");
+				Logging.errorPrint(FOUND_ERR_IN_QUAL_CHOICE + key + " has a close bracket but no open bracket");
 				return null;
 			}
 			if (equalLoc == -1)
@@ -432,22 +410,19 @@ public final class ChoiceSetLoadUtilities
 		{
 			if (closeBracketLoc == -1)
 			{
-				Logging.errorPrint(FOUND_ERR_IN_QUAL_CHOICE + key
-						+ " has an open bracket but no close bracket");
+				Logging.errorPrint(FOUND_ERR_IN_QUAL_CHOICE + key + " has an open bracket but no close bracket");
 				return null;
 			}
 			if (closeBracketLoc != key.length() - 1)
 			{
-				Logging.errorPrint(FOUND_ERR_IN_QUAL_CHOICE + key
-						+ " had close bracket, but had characters "
-						+ "following the close bracket");
+				Logging.errorPrint(FOUND_ERR_IN_QUAL_CHOICE + key + " had close bracket, but had characters "
+					+ "following the close bracket");
 				return null;
 			}
 			if (closeBracketLoc - openBracketLoc == 1)
 			{
-				Logging.errorPrint(FOUND_ERR_IN_QUAL_CHOICE + key
-						+ " has an open bracket "
-						+ "immediately followed by close bracket");
+				Logging.errorPrint(
+					FOUND_ERR_IN_QUAL_CHOICE + key + " has an open bracket " + "immediately followed by close bracket");
 				return null;
 			}
 			if (equalLoc == -1 || equalLoc > openBracketLoc)
@@ -466,19 +441,48 @@ public final class ChoiceSetLoadUtilities
 		{
 			tokKey = tokKey.substring(1);
 		}
-		for (Iterator<QualifierToken<T>> it = new QualifierTokenIterator<>(
-                sc.getReferenceClass(), tokKey); it.hasNext();)
+		for (Iterator<QualifierToken<T>> it = new QualifierTokenIterator<>(sc.getReferenceClass(), tokKey); it
+			.hasNext();)
 		{
 			QualifierToken<T> token = it.next();
-			if (token.initialize(loadContext, sc, tokValue, tokRestriction,
-					startsNot))
+			if (token.initialize(loadContext, sc, tokValue, tokRestriction, startsNot))
 			{
 				return token;
 			}
-			Logging.addParseMessage(Logging.LST_ERROR,
-					"Failed in parsing typeStr: " + key);
+			Logging.addParseMessage(Logging.LST_ERROR, "Failed in parsing typeStr: " + key);
 		}
 		return null;
+	}
+
+	/**
+	 * Returns a GroupingCollection based on the given GroupingInfo interpreted within the
+	 * given LoadContext.
+	 * 
+	 * @param context
+	 *            The LoadContext in which the given GroupingInfo will be interpreted
+	 * @param info
+	 *            The GroupingInfo that contains the instructions for what the returned
+	 *            GroupingCollection should contain
+	 * @return A GroupingCollection based on the given GroupingInfo interpreted within the
+	 *         given LoadContext
+	 */
+	public static <T, G> GroupingCollection<G> getDynamicGroup(LoadContext context,
+		GroupingInfo<G> info)
+	{
+		Class<G> groupingClass = info.getManagedClass(context);
+		GroupingDefinition<G> groupingDefinition =
+				TokenLibrary.getGrouping(groupingClass, info.getCharacteristic());
+		if (groupingDefinition == null)
+		{
+			/*
+			 * If the given information was not a known GroupingDefintion, we suspect it
+			 * is a key, since object names should be usable directly. Therefore, try
+			 * processing it as a Key.
+			 */
+			groupingDefinition = TokenLibrary.getGrouping(groupingClass, "KEY");
+		}
+		GroupingCollection<G> collection = groupingDefinition.process(context, info);
+		return new GroupingScopeFilter<>(info.getScope(), collection);
 	}
 
 }

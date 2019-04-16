@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Mon May  9 15:11:37 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Blood of the Night	SOURCESHORT:BOTN	SOURCEWEB:http://paizo.com/products/btpy8v33?Pathfinder-Player-Companion-Blood-of-the-Night	SOURCEDATE:2012-02
+SOURCELONG:Pathfinder Player Companion: Blood of the Night	SOURCESHORT:BOTN	SOURCEWEB:http://paizo.com/products/btpy8v33	SOURCEDATE:2012-02
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 13 April 2016
 
@@ -7,12 +8,12 @@ SOURCELONG:Blood of the Night	SOURCESHORT:BOTN	SOURCEWEB:http://paizo.com/produc
 # Subrace
 # ==============================
 
-# Template Name		Unique Key				Visible	Bonus Ability Pool					Bonus Languages	Subrace			Race Subtype
+# Template Name		Unique Key				Visible	Bonus Ability Pool					Bonus Languages	Subrace
 Default-Dhampir		KEY:Dhampir ~ Default-Dhampir	VISIBLE:NO
-Jiang-shi-Born		KEY:Dhampir Jiang-shi-Born	VISIBLE:NO												SUBRACE:Jiang-shi-Born	RACESUBTYPE:Jiang-shi-Born
-Moroi-Born			KEY:Dhampir Moroi-Born		VISIBLE:NO												SUBRACE:Moroi-Born	RACESUBTYPE:Moroi-Born
-Nosferatu-Born		KEY:Dhampir Nosferatu-Born	VISIBLE:NO												SUBRACE:Nosferatu-Born	RACESUBTYPE:Nosferatu-Born
-Vetala-Born			KEY:Dhampir Vetala-Born		VISIBLE:NO												SUBRACE:Vetala-Born	RACESUBTYPE:Vetala-Born
+Jiang-shi-Born		KEY:Dhampir Jiang-shi-Born	VISIBLE:NO												SUBRACE:Jiang-shi-Born
+Moroi-Born			KEY:Dhampir Moroi-Born		VISIBLE:NO												SUBRACE:Moroi-Born
+Nosferatu-Born		KEY:Dhampir Nosferatu-Born	VISIBLE:NO												SUBRACE:Nosferatu-Born
+Vetala-Born			KEY:Dhampir Vetala-Born		VISIBLE:NO												SUBRACE:Vetala-Born
 
 # ==============================
 # Trait Support

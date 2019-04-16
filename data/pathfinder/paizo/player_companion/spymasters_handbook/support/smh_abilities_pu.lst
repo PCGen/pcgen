@@ -1,0 +1,9 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Spymaster's Handbook	SOURCESHORT:SMH	SOURCEWEB:http://paizo.com/products/btpy9l2w	SOURCEDATE:2016-07
+
+# ==============================
+# Vigilante Talent
+# ==============================
+
+# Ability Name	Unique Key					Category of Ability		Type									Required Ability									Restricted Ability									Define			Description																						Modify VAR												Source Page
+Ki Power		KEY:Vigilante Talent ~ Ki Power	CATEGORY:Special Ability	TYPE:Vigilante Talent.SpecialQuality.Supernatural	PREABILITY:1,CATEGORY=Archetype,Vigilante Archetype ~ Teisatsu	!PREABILITY:1,CATEGORY=Special Ability,Vigilante Talent ~ Ki Power	DEFINE:KiPowerLVL|0	DESC:The teisatsu gains a single ki power of his choice from the list available to the unchained monk class (Pathfinder Unchained p.14).	BONUS:VAR|KiPowerLVL|VigilanteTalentLVL	BONUS:VAR|Unchained Monk Ki Power|1	SOURCEPAGE:p.26

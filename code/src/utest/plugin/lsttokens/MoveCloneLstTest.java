@@ -17,7 +17,9 @@
  */
 package plugin.lsttokens;
 
-import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
@@ -28,10 +30,12 @@ import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 {
 	static CDOMPrimaryToken<CDOMObject> token = new MovecloneLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()
@@ -46,20 +50,26 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOneItem() throws PersistenceLayerException
+	public void testInvalidInputOneItem()
 	{
 		assertFalse(parse("Walk"));
 		assertNoSideEffects();
@@ -67,21 +77,20 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputNoSecondValue()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("Walk,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoValue() throws PersistenceLayerException
+	public void testInvalidInputNoValue()
 	{
 		assertFalse(parse("Walk,Fly,"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOnlyValue() throws PersistenceLayerException
+	public void testInvalidInputOnlyValue()
 	{
 		assertFalse(parse(",30"));
 		assertNoSideEffects();
@@ -89,28 +98,27 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputMissingSecondValue()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("Walk,,*2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputThreeComma() throws PersistenceLayerException
+	public void testInvalidInputThreeComma()
 	{
 		assertFalse(parse("Walk,0,Fly,30"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoBase() throws PersistenceLayerException
+	public void testInvalidInputNoBase()
 	{
 		assertFalse(parse(",Fly,30"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputOutOfOrder() throws PersistenceLayerException
+	public void testInvalidInputOutOfOrder()
 	{
 		try
 		{
@@ -125,7 +133,6 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputNegativeMultiply()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("Walk,Fly,*-3"));
 		assertNoSideEffects();
@@ -133,35 +140,34 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputNegativeDivide()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("Walk,Fly,/-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputZeroDivide() throws PersistenceLayerException
+	public void testInvalidInputZeroDivide()
 	{
 		assertFalse(parse("Walk,Fly,/0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputMixedSigns() throws PersistenceLayerException
+	public void testInvalidInputMixedSigns()
 	{
 		assertFalse(parse("Walk,Fly,+-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMultiple() throws PersistenceLayerException
+	public void testInvalidMultiple()
 	{
 		assertFalse(parse("Walk,Fly,*3,Walk,Crawl,/2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNaNMovement() throws PersistenceLayerException
+	public void testInvalidInputNaNMovement()
 	{
 		try
 		{
@@ -175,19 +181,19 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidPositive() throws PersistenceLayerException
+	public void testValidPositive()
 	{
 		assertTrue(parse("Walk,Fly,30"));
 	}
 
 	@Test
-	public void testValidZero() throws PersistenceLayerException
+	public void testValidZero()
 	{
 		assertTrue(parse("Walk,Fly,0"));
 	}
 
 	@Test
-	public void testValidPlusZero() throws PersistenceLayerException
+	public void testValidPlusZero()
 	{
 		assertTrue(parse("Walk,Fly,+0"));
 	}

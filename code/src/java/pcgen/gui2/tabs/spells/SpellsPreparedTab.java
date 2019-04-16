@@ -1,5 +1,4 @@
 /*
- * SpellsPreparedTab.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Oct 1, 2011, 10:09:27 PM
  */
 package pcgen.gui2.tabs.spells;
 
@@ -36,10 +34,8 @@ import javax.swing.JTree;
 import javax.swing.SwingConstants;
 import javax.swing.tree.TreePath;
 
-import org.apache.commons.lang.StringUtils;
-
+import pcgen.core.PCClass;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.SpellFacade;
 import pcgen.facade.core.SpellSupportFacade.SpellNode;
 import pcgen.facade.core.SpellSupportFacade.SuperNode;
@@ -62,10 +58,8 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
+import org.apache.commons.lang3.StringUtils;
+
 @SuppressWarnings("serial")
 public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInfoTab
 {
@@ -89,15 +83,16 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 	{
 		super("SpellsPrepared");
 		this.availableTable = new FilteredTreeViewTable<>();
-		this.selectedTable = new JTreeViewTable<SuperNode>(){
-			
+		this.selectedTable = new JTreeViewTable<SuperNode>()
+		{
+
 			@Override
 			public void setTreeViewModel(TreeViewModel<SuperNode> viewModel)
 			{
 				super.setTreeViewModel(viewModel);
 				sortModel();
 			}
-			
+
 		};
 		this.spellRenderer = new QualifiedSpellTreeCellRenderer();
 		this.addMMSpellButton = new JButton();
@@ -117,8 +112,9 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 	{
 		availableTable.setTreeCellRenderer(spellRenderer);
 		selectedTable.setTreeCellRenderer(spellRenderer);
-		selectedTable.setRowSorter(new SortableTableRowSorter(){
-			
+		selectedTable.setRowSorter(new SortableTableRowSorter()
+		{
+
 			@Override
 			public SortableTableModel getModel()
 			{
@@ -198,10 +194,8 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		models.put(AddSpellListAction.class, new AddSpellListAction(character));
 		models.put(RemoveSpellListAction.class, new RemoveSpellListAction(character));
 		models.put(UseHigherSlotsAction.class, new UseHigherSlotsAction(character));
-		models.put(SpellInfoHandler.class, new SpellInfoHandler(character, availableTable,
-				selectedTable, spellsPane));
-		models.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable,
-				selectedTable, classPane));
+		models.put(SpellInfoHandler.class, new SpellInfoHandler(character, availableTable, selectedTable, spellsPane));
+		models.put(ClassInfoHandler.class, new ClassInfoHandler(character, availableTable, selectedTable, classPane));
 		models.put(SpellFilterHandler.class, new SpellFilterHandler(character));
 		return models;
 	}
@@ -252,9 +246,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		{
 			if (selectedObject instanceof SpellNode)
 			{
-				spellList
-						= ((SpellNode) selectedObject).getRootNode()
-						.toString();
+				spellList = ((SpellNode) selectedObject).getRootNode().toString();
 			}
 			else
 			{
@@ -300,14 +292,10 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		public AddMMSpellAction(CharacterFacade character)
 		{
 			this.character = character;
-			String label
-					= character.getDataSet().getGameMode()
-					.getAddWithMetamagicMessage();
+			String label = character.getDataSet().getGameMode().getAddWithMetamagicMessage();
 			if (StringUtils.isEmpty(label))
 			{
-				label
-						= LanguageBundle
-						.getString("InfoSpells.add.with.metamagic");
+				label = LanguageBundle.getString("InfoSpells.add.with.metamagic");
 			}
 			putValue(NAME, label);
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
@@ -322,8 +310,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 				if (object instanceof SpellNode)
 				{
 					String spellList = getCurrentSpellListName(character);
-					character.getSpellSupport().addPreparedSpell(
-							(SpellNode) object, spellList, true);
+					character.getSpellSupport().addPreparedSpell((SpellNode) object, spellList, true);
 				}
 			}
 		}
@@ -350,8 +337,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 			{
 				if (object instanceof SpellNode)
 				{
-					character.getSpellSupport().addPreparedSpell(
-							(SpellNode) object, spellList, false);
+					character.getSpellSupport().addPreparedSpell((SpellNode) object, spellList, false);
 				}
 			}
 		}
@@ -389,8 +375,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 				if (object instanceof SpellNode)
 				{
 					SpellNode spellNode = (SpellNode) object;
-					character.getSpellSupport().removePreparedSpell(spellNode,
-							spellNode.getRootNode().toString());
+					character.getSpellSupport().removePreparedSpell(spellNode, spellNode.getRootNode().toString());
 				}
 			}
 		}
@@ -481,10 +466,10 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		public TreeViewModelHandler(CharacterFacade character)
 		{
 			this.character = character;
-			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(),
-					false, "SpellsPrepAva", character.getInfoFactory());
-			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getPreparedSpellNodes(),
-					true, "SpellsPrepSel", character.getInfoFactory());
+			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(), false,
+				"SpellsPrepAva", character.getInfoFactory());
+			selectedModel = new SpellTreeViewModel(character.getSpellSupport().getPreparedSpellNodes(), true,
+				"SpellsPrepSel", character.getInfoFactory());
 		}
 
 		public void install()
@@ -515,6 +500,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		{
 			qFilterButton.setFilter(this);
 		}
+
 		@Override
 		public boolean accept(CharacterFacade context, SuperNode element)
 		{
@@ -522,7 +508,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 			{
 				SpellNode spellNode = (SpellNode) element;
 				SpellFacade spell = spellNode.getSpell();
-				ClassFacade pcClass = spellNode.getSpellcastingClass();
+				PCClass pcClass = spellNode.getSpellcastingClass();
 				return character.isQualifiedFor(spell, pcClass);
 			}
 			return true;

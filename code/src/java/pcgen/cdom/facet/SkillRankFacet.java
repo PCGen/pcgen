@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 
 import javax.swing.event.EventListenerList;
 
@@ -37,7 +38,6 @@ import pcgen.core.Skill;
  * SkillRankFacet stores the number of Skill Ranks for a specific Skill for a
  * Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SkillRankFacet extends AbstractStorageFacet<CharID>
 {
@@ -90,10 +90,7 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 
 	public void set(CharID id, Skill skill, PCClass pcc, double value)
 	{
-		if (skill == null)
-		{
-			throw new IllegalArgumentException("Skill cannot be null in add");
-		}
+		Objects.requireNonNull(skill, "Skill cannot be null in add");
 		Float oldRank = getRank(id, skill);
 		Map<Skill, Map<PCClass, Double>> map = getConstructingInfo(id);
 		Map<PCClass, Double> clMap = map.get(skill);
@@ -104,7 +101,6 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		}
 		clMap.put(pcc, value);
 
-		
 		Float newRank = getRank(id, skill);
 		support.fireSkillRankChangeEvent(id, skill, oldRank, newRank);
 	}
@@ -181,10 +177,7 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 
 	public void remove(CharID id, Skill sk, PCClass pcc)
 	{
-		if (sk == null)
-		{
-			throw new IllegalArgumentException("Skill cannot be null in remove");
-		}
+		Objects.requireNonNull(sk, "Skill cannot be null in remove");
 		Map<Skill, Map<PCClass, Double>> map = getInfo(id);
 		if (map != null)
 		{
@@ -238,18 +231,11 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		private final float oldRnk;
 		private final float newRnk;
 
-		public SkillRankChangeEvent(CharID source, Skill sk, float oldRank,
-			float newRank)
+		public SkillRankChangeEvent(CharID source, Skill sk, float oldRank, float newRank)
 		{
 			super(source);
-			if (source == null)
-			{
-				throw new IllegalArgumentException("CharID cannot be null");
-			}
-			if (sk == null)
-			{
-				throw new IllegalArgumentException("PCClass cannot be null");
-			}
+			Objects.requireNonNull(source, "CharID cannot be null");
+			Objects.requireNonNull(sk, "PCClass cannot be null");
 			charID = source;
 			skill = sk;
 			oldRnk = oldRank;
@@ -350,16 +336,14 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		 * @param newRank
 		 *            The character's new rank for the given skill.
 		 */
-		protected void fireSkillRankChangeEvent(CharID id, Skill sk,
-			float oldRank, float newRank)
+		protected void fireSkillRankChangeEvent(CharID id, Skill sk, float oldRank, float newRank)
 		{
 			if (oldRank == newRank)
 			{
 				// Nothing to do
 				return;
 			}
-			SkillRankChangeListener[] listeners =
-					listenerList.getListeners(SkillRankChangeListener.class);
+			SkillRankChangeListener[] listeners = listenerList.getListeners(SkillRankChangeListener.class);
 			/*
 			 * This list is decremented from the end of the list to the
 			 * beginning in order to maintain consistent operation with how Java
@@ -372,8 +356,7 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 				// Lazily create event
 				if (ccEvent == null)
 				{
-					ccEvent =
-							new SkillRankChangeEvent(id, sk, oldRank, newRank);
+					ccEvent = new SkillRankChangeEvent(id, sk, oldRank, newRank);
 				}
 				listeners[i].rankChanged(ccEvent);
 			}

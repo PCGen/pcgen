@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with STAT Token
  */
-public class StatToken extends AbstractNonEmptyToken<Spell> implements
-		CDOMPrimaryToken<Spell>
+public class StatToken extends AbstractNonEmptyToken<Spell> implements CDOMPrimaryToken<Spell>
 {
 
 	private static final Class<PCStat> PCSTAT_CLASS = PCStat.class;
@@ -44,13 +43,10 @@ public class StatToken extends AbstractNonEmptyToken<Spell> implements
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, Spell spell, String value)
 	{
-		CDOMSingleRef<PCStat> pcs =
-				context.getReferenceContext().getCDOMReference(PCSTAT_CLASS,
-					value);
+		CDOMSingleRef<PCStat> pcs = context.getReferenceContext().getCDOMReference(PCSTAT_CLASS, value);
 		if (pcs == null)
 		{
-			return new ParseResult.Fail("Invalid Stat Abbreviation in Token "
-					+ getTokenName() + ": " + value, context);
+			return new ParseResult.Fail("Invalid Stat Abbreviation in Token " + getTokenName() + ": " + value);
 		}
 		context.getObjectContext().put(spell, ObjectKey.SPELL_STAT, pcs);
 		return ParseResult.SUCCESS;
@@ -59,9 +55,7 @@ public class StatToken extends AbstractNonEmptyToken<Spell> implements
 	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
-		CDOMSingleRef<PCStat> pcs =
-				context.getObjectContext().getObject(spell,
-					ObjectKey.SPELL_STAT);
+		CDOMSingleRef<PCStat> pcs = context.getObjectContext().getObject(spell, ObjectKey.SPELL_STAT);
 		if (pcs == null)
 		{
 			return null;

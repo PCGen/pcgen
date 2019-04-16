@@ -1,5 +1,4 @@
 /*
- * SpellMigration.java
  * Copyright 2016 (C) Andrew Maitland <drew0500@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 04/24/2016
  *
- * $Id$
  */
 package pcgen.io.migration;
 
@@ -34,11 +31,14 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * used to allow clean loading of older characters which were saved with spell 
  * keys that have now been changed in the data.
  * 
- * @author Andrew Maitland <drew0500@yahoo.com>
  */
 public final class SpellMigration
 {
 	private static Map<int[], List<MigrationRule>> spellChangesForVer = new HashMap<>();
+
+	private SpellMigration()
+	{
+	}
 
 	/**
 	 * Find the new spell key to replace the provided one.
@@ -49,14 +49,8 @@ public final class SpellMigration
 	 */
 	public static String getNewSpellKey(String spellKey, int[] pcgVer, String gameModeName)
 	{
-		List<MigrationRule> spellChangeList = spellChangesForVer.get(pcgVer);
-		if (spellChangeList == null)
-		{
-			spellChangeList =
-					MigrationUtils.getChangeList(pcgVer, gameModeName,
-						ObjectType.SPELL);
-			spellChangesForVer.put(pcgVer, spellChangeList);
-		}
+		List<MigrationRule> spellChangeList = spellChangesForVer.computeIfAbsent(pcgVer,
+			v -> MigrationUtils.getChangeList(v, gameModeName, ObjectType.SPELL));
 
 		for (MigrationRule rule : spellChangeList)
 		{
@@ -67,6 +61,5 @@ public final class SpellMigration
 		}
 		return spellKey;
 	}
-	
 
 }

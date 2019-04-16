@@ -32,8 +32,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with OPTION Token
  */
-public class OptionToken extends AbstractNonEmptyToken<Campaign> implements
-		CDOMPrimaryToken<Campaign>
+public class OptionToken extends AbstractNonEmptyToken<Campaign> implements CDOMPrimaryToken<Campaign>
 {
 
 	@Override
@@ -43,15 +42,13 @@ public class OptionToken extends AbstractNonEmptyToken<Campaign> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Campaign campaign, String value)
 	{
 		final int equalsPos = value.indexOf(Constants.EQUALS);
 
 		if (equalsPos < 0)
 		{
-			return new ParseResult.Fail("Invalid option line in campaign "
-					+ campaign.getKeyName() + " : " + value, context);
+			return new ParseResult.Fail("Invalid option line in campaign " + campaign.getKeyName() + " : " + value);
 		}
 		String optName = value.substring(0, equalsPos);
 
@@ -65,11 +62,10 @@ public class OptionToken extends AbstractNonEmptyToken<Campaign> implements
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		MapChanges<String, String> changes = context.getObjectContext()
-				.getMapChanges(campaign, MapKey.PROPERTY);
+		MapChanges<String, String> changes = context.getObjectContext().getMapChanges(campaign, MapKey.PROPERTY);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -78,13 +74,12 @@ public class OptionToken extends AbstractNonEmptyToken<Campaign> implements
 		for (String property : changes.getAdded().keySet())
 		{
 			String value = changes.getAdded().get(property);
-			set.add(new StringBuilder().append(property).append(
-					Constants.EQUALS).append(value).toString());
+			set.add(new StringBuilder().append(property).append(Constants.EQUALS).append(value).toString());
 		}
 		return set.toArray(new String[set.size()]);
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

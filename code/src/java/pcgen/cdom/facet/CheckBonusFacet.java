@@ -30,7 +30,6 @@ import pcgen.core.bonus.BonusUtilities;
  * CheckFacet is a Facet that tracks the PCCheck objects available to a Player
  * Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class CheckBonusFacet
 {
@@ -55,6 +54,7 @@ public class CheckBonusFacet
 	 *         CharID
 	 * @deprecated by STATMODSAVE Code Control
 	 */
+	@Deprecated
 	public double getCheckBonusTo(CharID id, String type, String name)
 	{
 		double bonus = 0;
@@ -63,12 +63,11 @@ public class CheckBonusFacet
 
 		for (PCCheck check : checkFacet.getSet(id))
 		{
-			List<BonusObj> tempList = BonusUtilities.getBonusFromList(check
-					.getListFor(ListKey.BONUS), upperType, upperName);
+			List<BonusObj> tempList =
+					BonusUtilities.getBonusFromList(check.getListFor(ListKey.BONUS), upperType, upperName);
 			if (!tempList.isEmpty())
 			{
-				bonus += bonusCheckingFacet.getAllBonusValues(id, tempList, check
-						.getQualifiedKey());
+				bonus += bonusCheckingFacet.getAllBonusValues(id, tempList, check.getQualifiedKey());
 			}
 		}
 

@@ -27,7 +27,6 @@ import pcgen.core.Equipment;
  * NaturalEquipmentFacet is a Facet that tracks the Equipment that is
  * TYPE=Natural that has been granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class NaturalEquipmentFacet extends AbstractSourcedListFacet<CharID, Equipment>
 		implements DataFacetChangeListener<CharID, Equipment>
@@ -44,8 +43,6 @@ public class NaturalEquipmentFacet extends AbstractSourcedListFacet<CharID, Equi
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, Equipment> dfce)
@@ -68,8 +65,6 @@ public class NaturalEquipmentFacet extends AbstractSourcedListFacet<CharID, Equi
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, Equipment> dfce)

@@ -14,31 +14,28 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
- package pcgen.core.doomsdaybook;
+package pcgen.core.doomsdaybook;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author  devon
- */
 public interface DataElement
 {
+	
 	/**
-	 * Get Data
+	 * Get Data.
+	 *
 	 * @return ArrayList
-	 * @throws Exception
+	 * @throws Exception the exception
 	 */
 	public ArrayList<DataValue> getData() throws Exception;
 
 	/**
-	 * Get data
-	 * @param choice
+	 * Get data.
+	 *
+	 * @param choice the choice
 	 * @return ArrayList
-	 * @throws Exception
+	 * @throws Exception the exception
 	 */
 	public ArrayList<DataValue> getData(int choice) throws Exception;
 
@@ -49,9 +46,10 @@ public interface DataElement
 	public String getId();
 
 	/**
-	 * Get last data
+	 * Get last data.
+	 *
 	 * @return last data
-	 * @throws Exception
+	 * @throws Exception the exception
 	 */
 	public ArrayList<DataValue> getLastData() throws Exception;
 

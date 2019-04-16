@@ -22,10 +22,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.enumeration.ListKey;
@@ -42,16 +44,13 @@ import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- *
- */
-public class TemplateLst extends AbstractToken implements
-		CDOMPrimaryToken<CDOMObject>, ChooseSelectionActor<PCTemplate>
+public class TemplateLst extends AbstractToken implements CDOMPrimaryToken<CDOMObject>, ChooseSelectionActor<PCTemplate>
 {
 
 	private static final String ADDCHOICE_COLON = "ADDCHOICE:";
 	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
+	private static final ClassIdentity<PCTemplate> PCTEMPLATE_IDENTITY =
+			BasicClassIdentity.getIdentity(PCTEMPLATE_CLASS);
 
 	@Override
 	public String getTokenName()
@@ -60,14 +59,12 @@ public class TemplateLst extends AbstractToken implements
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject cdo,
-		String value)
+	public ParseResult parseToken(LoadContext context, CDOMObject cdo, String value)
 	{
 		if (cdo instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ cdo.getClass().getSimpleName(), context);
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + cdo.getClass().getSimpleName());
 		}
 		ListKey<CDOMReference<PCTemplate>> lk;
 		String remaining;
@@ -90,9 +87,10 @@ public class TemplateLst extends AbstractToken implements
 			remaining = value;
 			specialLegal = true;
 		}
-		if (isEmpty(remaining) || hasIllegalSeparator('|', remaining))
+		ParseResult pr = checkSeparatorsAndNonEmpty('|', remaining);
+		if (!pr.passed())
 		{
-			return ParseResult.INTERNAL_ERROR;
+			return pr;
 		}
 
 		StringTokenizer tok = new StringTokenizer(remaining, Constants.PIPE);
@@ -105,20 +103,16 @@ public class TemplateLst extends AbstractToken implements
 			if (specialLegal && templKey.endsWith(".REMOVE"))
 			{
 				removelist.add(context.getReferenceContext().getCDOMReference(PCTEMPLATE_CLASS,
-						templKey.substring(0, templKey.length() - 7)));
+					templKey.substring(0, templKey.length() - 7)));
 			}
 			else if (specialLegal && templKey.equals(Constants.LST_PERCENT_LIST))
 			{
-				context.getObjectContext().addToList(cdo,
-						ListKey.NEW_CHOOSE_ACTOR, this);
+				context.getObjectContext().addToList(cdo, ListKey.NEW_CHOOSE_ACTOR, this);
 			}
 			else
 			{
-				ReferenceManufacturer<PCTemplate> rm =
-						context.getReferenceContext().getManufacturer(
-							PCTEMPLATE_CLASS);
-				CDOMReference<PCTemplate> ref =
-						TokenUtilities.getTypeOrPrimitive(rm, templKey);
+				ReferenceManufacturer<PCTemplate> rm = context.getReferenceContext().getManufacturer(PCTEMPLATE_CLASS);
+				CDOMReference<PCTemplate> ref = TokenUtilities.getTypeOrPrimitive(rm, templKey);
 				if (ref == null)
 				{
 					return ParseResult.INTERNAL_ERROR;
@@ -129,8 +123,8 @@ public class TemplateLst extends AbstractToken implements
 
 		if (consolidate)
 		{
-			CDOMCompoundOrReference<PCTemplate> ref = new CDOMCompoundOrReference<>(
-					PCTEMPLATE_CLASS, Constants.LST_CHOOSE_COLON);
+			CDOMCompoundOrReference<PCTemplate> ref =
+					new CDOMCompoundOrReference<>(PCTEMPLATE_IDENTITY, Constants.LST_CHOOSE_COLON);
 			for (CDOMReference<PCTemplate> r : list)
 			{
 				ref.addReference(r);
@@ -147,8 +141,7 @@ public class TemplateLst extends AbstractToken implements
 		{
 			for (CDOMReference<PCTemplate> ref : removelist)
 			{
-				context.getObjectContext().addToList(cdo,
-						ListKey.REMOVE_TEMPLATES, ref);
+				context.getObjectContext().addToList(cdo, ListKey.REMOVE_TEMPLATES, ref);
 			}
 		}
 		return ParseResult.SUCCESS;
@@ -157,14 +150,11 @@ public class TemplateLst extends AbstractToken implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		Changes<CDOMReference<PCTemplate>> changes = context.getObjectContext()
-				.getListChanges(cdo, ListKey.TEMPLATE);
-		Changes<CDOMReference<PCTemplate>> removechanges = context
-				.getObjectContext().getListChanges(cdo,
-						ListKey.REMOVE_TEMPLATES);
-		Changes<ChooseSelectionActor<?>> listChanges = context
-				.getObjectContext().getListChanges(cdo,
-						ListKey.NEW_CHOOSE_ACTOR);
+		Changes<CDOMReference<PCTemplate>> changes = context.getObjectContext().getListChanges(cdo, ListKey.TEMPLATE);
+		Changes<CDOMReference<PCTemplate>> removechanges =
+				context.getObjectContext().getListChanges(cdo, ListKey.REMOVE_TEMPLATES);
+		Changes<ChooseSelectionActor<?>> listChanges =
+				context.getObjectContext().getListChanges(cdo, ListKey.NEW_CHOOSE_ACTOR);
 
 		List<String> list = new ArrayList<>();
 
@@ -186,30 +176,23 @@ public class TemplateLst extends AbstractToken implements
 			}
 		}
 
-		Changes<CDOMReference<PCTemplate>> choosechanges = context
-				.getObjectContext()
-				.getListChanges(cdo, ListKey.TEMPLATE_CHOOSE);
-		Collection<CDOMReference<PCTemplate>> chadded = choosechanges
-				.getAdded();
+		Changes<CDOMReference<PCTemplate>> choosechanges =
+				context.getObjectContext().getListChanges(cdo, ListKey.TEMPLATE_CHOOSE);
+		Collection<CDOMReference<PCTemplate>> chadded = choosechanges.getAdded();
 		if (chadded != null && !chadded.isEmpty())
 		{
 			for (CDOMReference<PCTemplate> ref : chadded)
 			{
-				list.add(Constants.LST_CHOOSE_COLON
-						+ ref.getLSTformat(false).replaceAll(",", "\\|"));
+				list.add(Constants.LST_CHOOSE_COLON + ref.getLSTformat(false).replaceAll(",", "\\|"));
 			}
 		}
 
-		Changes<CDOMReference<PCTemplate>> addchanges = context
-				.getObjectContext().getListChanges(cdo,
-						ListKey.TEMPLATE_ADDCHOICE);
-		Collection<CDOMReference<PCTemplate>> addedItems = addchanges
-				.getAdded();
+		Changes<CDOMReference<PCTemplate>> addchanges =
+				context.getObjectContext().getListChanges(cdo, ListKey.TEMPLATE_ADDCHOICE);
+		Collection<CDOMReference<PCTemplate>> addedItems = addchanges.getAdded();
 		if (addedItems != null && !addedItems.isEmpty())
 		{
-			list.add(ADDCHOICE_COLON
-					+ ReferenceUtilities.joinLstFormat(addedItems,
-							Constants.PIPE));
+			list.add(ADDCHOICE_COLON + ReferenceUtilities.joinLstFormat(addedItems, Constants.PIPE));
 		}
 
 		Collection<CDOMReference<PCTemplate>> radd = removechanges.getAdded();
@@ -244,15 +227,13 @@ public class TemplateLst extends AbstractToken implements
 	}
 
 	@Override
-	public void removeChoice(ChooseDriver owner, PCTemplate choice,
-			PlayerCharacter pc)
+	public void removeChoice(ChooseDriver owner, PCTemplate choice, PlayerCharacter pc)
 	{
 		pc.removeTemplate(choice);
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver owner, PCTemplate choice,
-			PlayerCharacter pc)
+	public void applyChoice(ChooseDriver owner, PCTemplate choice, PlayerCharacter pc)
 	{
 		pc.addTemplate(choice);
 	}

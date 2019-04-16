@@ -1,6 +1,4 @@
 /*
- * EquipSet.java
- *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -14,12 +12,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
- * Created on April 29th, 2002, 11:26 PM
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core.character;
 
@@ -29,12 +21,16 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.EquipmentLocation;
+import pcgen.core.BodyStructure;
 import pcgen.core.BonusManager;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.facade.core.EquipmentFacade;
+import pcgen.facade.util.DefaultListFacade;
+import pcgen.gui2.facade.EquipNode;
 import pcgen.util.Logging;
 
 /**
@@ -59,7 +55,6 @@ import pcgen.util.Logging;
  * 0 == root
  * 1 == my parent
  * 3 == my Id
- *
  */
 
 /*
@@ -73,20 +68,18 @@ import pcgen.util.Logging;
  * value = Name of the Equipment stored in this item
  * item = Equipment item stored (optional)
  * qty = number of items this equipset contains (all same item)
- *
  */
 
 /**
- * <code>EquipSet.java</code>
- * @author Jayme Cox &lt;jaymecox@excite.com&gt;
+ * {@code EquipSet.java}
  */
 public final class EquipSet implements Comparable<EquipSet>, Cloneable
 {
 	/** The root path of the default equipment set. */
-	public static String DEFAULT_SET_PATH = "0.1";
-	
+	public static final String DEFAULT_SET_PATH = "0.1";
+
 	private Equipment eq_item;
-	private Float qty = new Float(1);
+	private Float qty = 1.0f;
 	private Map<BonusObj, BonusManager.TempBonusInfo> tempBonusBySource = new IdentityHashMap<>();
 
 	private String id_path = Constants.EMPTY_STRING;
@@ -94,6 +87,13 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	private String note = Constants.EMPTY_STRING;
 	private String value = Constants.EMPTY_STRING;
 	private boolean useTempBonuses = true;
+
+	/** This list of equipment nodes to be displayed on the equipped tree. */
+	private DefaultListFacade<EquipNode> nodeList;
+
+	private Map<EquipSlot, EquipNode> equipSlotNodeMap;
+
+	private Map<String, EquipNode> naturalWeaponNodes;
 
 	/**
 	 * Retrieve the id from a path, that is the last number in the sequence.
@@ -107,9 +107,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 
 		try
 		{
-			final StringTokenizer aTok =
-					new StringTokenizer(path,
-						Constants.EQUIP_SET_PATH_SEPARATOR, false);
+			final StringTokenizer aTok = new StringTokenizer(path, Constants.EQUIP_SET_PATH_SEPARATOR, false);
 
 			while (aTok.hasMoreTokens())
 			{
@@ -138,7 +136,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		{
 			return "";
 		}
-		
+
 		return path.substring(0, idx);
 	}
 
@@ -152,9 +150,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	{
 		try
 		{
-			final StringTokenizer aTok =
-					new StringTokenizer(path,
-						Constants.EQUIP_SET_PATH_SEPARATOR, false);
+			final StringTokenizer aTok = new StringTokenizer(path, Constants.EQUIP_SET_PATH_SEPARATOR, false);
 			return aTok.countTokens();
 		}
 		catch (NullPointerException e)
@@ -419,7 +415,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 * @return A new equip set, identical to this one.
 	 */
 	@Override
-	public Object clone()
+	public EquipSet clone()
 	{
 		EquipSet eqSet = null;
 
@@ -434,13 +430,12 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 
 			if (qty != null)
 			{
-				eqSet.qty = new Float(qty.floatValue());
+				eqSet.qty = qty.floatValue();
 			}
 		}
 		catch (CloneNotSupportedException exc)
 		{
-			ShowMessageDelegate.showMessageDialog(
-				exc.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(exc.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
 
 		return eqSet;
@@ -453,20 +448,13 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 *  
 	 * @return a negative integer, zero, or a positive integer as this EquipSet 
 	 * is less than, equal to, or greater than the specified EquipSet.
-	 * 
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
-    @Override
+	@Override
 	public int compareTo(final EquipSet obj)
 	{
 		return id_path.compareToIgnoreCase(obj.id_path);
 	}
 
-	/**
-	 * Returns the EquipSet name.
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -495,7 +483,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		if (aTok.countTokens() > Constants.ID_PATH_LENGTH_FOR_NON_CONTAINED)
 		{
 			// Get back to carried/equipped/not carried to determine correct location
-			StringBuilder rootPath = new StringBuilder(40); 
+			StringBuilder rootPath = new StringBuilder(40);
 			for (int i = 0; i < Constants.ID_PATH_LENGTH_FOR_NON_CONTAINED; i++)
 			{
 				if (i > 0)
@@ -532,8 +520,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 		}
 		else if (eq_item.isWeapon())
 		{
-			if (name.equals(Constants.EQUIP_LOCATION_PRIMARY)
-				|| name.equals(Constants.EQUIP_LOCATION_NATURAL_PRIMARY))
+			if (name.equals(Constants.EQUIP_LOCATION_PRIMARY) || name.equals(Constants.EQUIP_LOCATION_NATURAL_PRIMARY))
 			{
 				eq_item.addWeaponToLocation(qty, EquipmentLocation.EQUIPPED_PRIMARY, aPC);
 			}
@@ -579,7 +566,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	{
 		final String aNote = getNote();
 
-		if ((aNote != null) && (aNote.length() > 0))
+		if ((aNote != null) && (!aNote.isEmpty()))
 		{
 			getItem().setNote(aNote);
 		}
@@ -603,4 +590,163 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 
 		return abParentId.startsWith(abCalcId);
 	}
+
+	public DefaultListFacade<EquipNode> getNodeList()
+	{
+		return nodeList;
+	}
+
+	public void setNodeList(DefaultListFacade<EquipNode> nodeList)
+	{
+		this.nodeList = nodeList;
+	}
+
+	public Map<EquipSlot, EquipNode> getEquipSlotNodeMap()
+	{
+		return equipSlotNodeMap;
+	}
+
+	public void setEquipSlotNodeMap(Map<EquipSlot, EquipNode> equipSlotNodeMap)
+	{
+		this.equipSlotNodeMap = equipSlotNodeMap;
+	}
+
+	public Map<String, EquipNode> getNaturalWeaponNodes()
+	{
+		return naturalWeaponNodes;
+	}
+
+	public void setNaturalWeaponNodes(Map<String, EquipNode> naturalWeaponNodes)
+	{
+		this.naturalWeaponNodes = naturalWeaponNodes;
+	}
+
+	/**
+	 * Retrieve the preferred location for a natural weapon. Will return null
+	 * for non natural weapon equipment items.
+	 *
+	 * @param equipment The equipment item to be checked.
+	 * @return The preferred natural equip node, or null if not applicable.
+	 */
+	public EquipNode getNatWeaponLoc(PlayerCharacter pc, Equipment item)
+	{
+		String locName = pc.getNaturalWeaponLocation(item);
+		if (locName != null)
+		{
+			return naturalWeaponNodes.get(locName);
+		}
+		return null;
+	}
+
+	/**
+	 * Check if the node is a valid location for the natural weapon to be equipped to.
+	 * This allows primary natural weapons to be equipped to primary or secondary
+	 * slots, but secondary weapons only too the secondary slot.
+	 *
+	 * @param node The node to be tested.
+	 * @param equipment The natural weapon
+	 * @param naturalLoc The natural weapon;s preferred slot.
+	 * @return true if the node can take the natural weapon, false otherwise.
+	 */
+	public boolean validLocationForNaturalWeapon(EquipNode node, Equipment equipment, EquipNode naturalLoc)
+	{
+		if (equipment.isPrimaryNaturalWeapon())
+		{
+			return getNaturalWeaponNodes().containsValue(node);
+		}
+		return node.equals(naturalLoc);
+	}
+
+	public boolean canEquip(PlayerCharacter theCharacter, EquipNode node,
+		Equipment item)
+	{
+		// Check for a required location (i.e. you can't carry a natural weapon)
+		EquipNode requiredLoc = getNatWeaponLoc(theCharacter, item);
+		if (requiredLoc != null)
+		{
+			return validLocationForNaturalWeapon(node, item, requiredLoc);
+		}
+
+		// Is this a container? Then check if the object can fit in
+		if (node.getNodeType() == EquipNode.NodeType.EQUIPMENT)
+		{
+			EquipmentFacade parent = node.getEquipment();
+			if ((parent instanceof Equipment) && ((Equipment) parent).isContainer())
+			{
+				// Check if it fits
+				if (((Equipment) parent).canContain(theCharacter, item) == 1)
+				{
+					return true;
+				}
+			}
+		}
+
+		if (node.getNodeType() == EquipNode.NodeType.PHANTOM_SLOT)
+		{
+			// Check first for an already full or taken slot
+			if (!getNodeList().containsElement(node))
+			{
+				return false;
+			}
+			EquipSlot slot = node.getSlot();
+			if (slot.canContainType(item.getType()))
+			{
+				if (item.isWeapon())
+				{
+					final String slotName = slot.getSlotName();
+
+					if (item.isUnarmed() && slotName.equals(Constants.EQUIP_LOCATION_UNARMED))
+					{
+						return true;
+					}
+					if (item.isShield() && slotName.equals(Constants.EQUIP_LOCATION_SHIELD))
+					{
+						return true;
+					}
+
+					// If it is outsized, they can't equip it to a weapon slot
+					if (item.isWeaponOutsizedForPC(theCharacter))
+					{
+						return false;
+					}
+
+					if (slotName.startsWith(Constants.EQUIP_LOCATION_BOTH))
+					{
+						return true;
+					}
+					if (item.isMelee() && item.isDouble() && slotName.equals(Constants.EQUIP_LOCATION_DOUBLE))
+					{
+						return true;
+					}
+					if (item.isWeaponOneHanded(theCharacter))
+					{
+						if (slotName.equals(Constants.EQUIP_LOCATION_PRIMARY)
+							|| slotName.startsWith(Constants.EQUIP_LOCATION_SECONDARY))
+						{
+							return true;
+						}
+					}
+
+				}
+				else
+				{
+					return true;
+				}
+			}
+		}
+
+		// Is this a body structure? Then check if the object be placed there
+		if (node.getNodeType() == EquipNode.NodeType.BODY_SLOT)
+		{
+			BodyStructure root = node.getBodyStructure();
+			if (root.isHoldsAnyType())
+			{
+				return !root.isForbidden(item.getTrueTypeList(false));
+			}
+		}
+
+		// This item can't be equipped in this location
+		return false;
+	}
+
 }

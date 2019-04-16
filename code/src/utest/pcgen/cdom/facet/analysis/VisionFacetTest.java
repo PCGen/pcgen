@@ -21,7 +21,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.analysis.VisionFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -32,6 +31,8 @@ import pcgen.core.Race;
 import pcgen.core.Vision;
 import pcgen.util.enumeration.VisionType;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class VisionFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, QualifiedObject<Vision>>
 {
@@ -40,6 +41,7 @@ public class VisionFacetTest extends
 	private QualifiedObject<Vision>[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

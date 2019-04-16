@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 19255 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Blood of Fiends	SOURCESHORT:BOF	SOURCEWEB:http://paizo.com/products/btpy8qzz?Pathfinder-Player-Companion-Blood-of-Fiends	SOURCEDATE:2012-04
+SOURCELONG:Pathfinder Player Companion: Blood of Fiends	SOURCESHORT:BOF	SOURCEWEB:http://paizo.com/products/btpy8qzz	SOURCEDATE:2012-04
 # ORIGINAL ENTRY: Stefan Radermacher
 # ORIGINAL ENTRY DATE: 12 July 2013
 
@@ -9,17 +10,17 @@ Masterpiece Activation Tiefling	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Mas
 
 
 ###Block: Subrace
-# Template Name			Unique Key				Visible	Bonus Languages									Subrace			Race Subtype
-Asura-Spawn				KEY:Tiefling (Asura-Spawn)	VISIBLE:NO												SUBRACE:Asura-Spawn	RACESUBTYPE:Asura-Spawn
-Daemon-Spawn			KEY:Tiefling (Daemon-Spawn)	VISIBLE:NO												SUBRACE:Daemon-Spawn	RACESUBTYPE:Daemon-Spawn
-Demodand-Spawn			KEY:Tiefling (Demodand-Spawn)	VISIBLE:NO												SUBRACE:Demodand-Spawn	RACESUBTYPE:Demodand-Spawn
-Demon-Spawn				KEY:Tiefling (Demon-Spawn)	VISIBLE:NO												SUBRACE:Demon-Spawn	RACESUBTYPE:Demon-Spawn
-Devil-Spawn				KEY:Tiefling (Devil-Spawn)	VISIBLE:NO												SUBRACE:Devil-Spawn	RACESUBTYPE:Devil-Spawn
-Div-Spawn				KEY:Tiefling (Div-Spawn)	VISIBLE:NO												SUBRACE:Div-Spawn		RACESUBTYPE:Div-Spawn
-Kyton-Spawn				KEY:Tiefling (Kyton-Spawn)	VISIBLE:NO												SUBRACE:Kyton-Spawn	RACESUBTYPE:Kyton-Spawn
-Oni-Spawn				KEY:Tiefling (Oni-Spawn)	VISIBLE:NO												SUBRACE:Oni-Spawn		RACESUBTYPE:Oni-Spawn
-Qlippoth-Spawn			KEY:Tiefling (Qlippoth-Spawn)	VISIBLE:NO												SUBRACE:Qlippoth-Spawn	RACESUBTYPE:Qlippoth-Spawn
-Rakshasa-Spawn			KEY:Tiefling (Rakshasa-Spawn)	VISIBLE:NO												SUBRACE:Rakshasa-Spawn	RACESUBTYPE:Rakshasa-Spawn
+# Template Name			Unique Key				Visible	Bonus Languages									Subrace
+Asura-Spawn				KEY:Tiefling (Asura-Spawn)	VISIBLE:NO												SUBRACE:Asura-Spawn
+Daemon-Spawn			KEY:Tiefling (Daemon-Spawn)	VISIBLE:NO												SUBRACE:Daemon-Spawn
+Demodand-Spawn			KEY:Tiefling (Demodand-Spawn)	VISIBLE:NO												SUBRACE:Demodand-Spawn
+Demon-Spawn				KEY:Tiefling (Demon-Spawn)	VISIBLE:NO												SUBRACE:Demon-Spawn
+Devil-Spawn				KEY:Tiefling (Devil-Spawn)	VISIBLE:NO												SUBRACE:Devil-Spawn
+Div-Spawn				KEY:Tiefling (Div-Spawn)	VISIBLE:NO												SUBRACE:Div-Spawn
+Kyton-Spawn				KEY:Tiefling (Kyton-Spawn)	VISIBLE:NO												SUBRACE:Kyton-Spawn
+Oni-Spawn				KEY:Tiefling (Oni-Spawn)	VISIBLE:NO												SUBRACE:Oni-Spawn
+Qlippoth-Spawn			KEY:Tiefling (Qlippoth-Spawn)	VISIBLE:NO												SUBRACE:Qlippoth-Spawn
+Rakshasa-Spawn			KEY:Tiefling (Rakshasa-Spawn)	VISIBLE:NO												SUBRACE:Rakshasa-Spawn
 
 Tiefling Bonus Languages						VISIBLE:NO	LANGBONUS:Celestial,Infernal,Abyssal,Auran,Terran,Aquan,Ignan
 

@@ -17,7 +17,9 @@
  */
 package tokenmodel;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.UserSelection;
@@ -26,36 +28,37 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.MultToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class AutoLangListTest extends AbstractTokenModelTest
 {
 
 	@Test
-	public void testFromAbility() throws PersistenceLayerException
+	public void testFromAbility()
 	{
-		Ability source = create(Ability.class, "Source");
+		Ability source = BuildUtilities.buildFeat(context, "Source");
 		ParseResult result =
 				new MultToken().parseToken(context, source, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
 		Language granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());
-		CNAbilitySelection cas =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source), "Granted");
+		CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory.getCNAbility(
+			BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source), "Granted");
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected(granted));
 		assertEquals(1,
@@ -66,7 +69,7 @@ public class AutoLangListTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromRace() throws PersistenceLayerException
+	public void testFromRace()
 	{
 		Race source = create(Race.class, "Source");
 		Language granted = createGrantedObject();
@@ -81,7 +84,7 @@ public class AutoLangListTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromTemplate() throws PersistenceLayerException
+	public void testFromTemplate()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		Language granted = createGrantedObject();
@@ -110,13 +113,13 @@ public class AutoLangListTest extends AbstractTokenModelTest
 		ParseResult result = AUTO_LANG_TOKEN.parseToken(context, source, "%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_LANG_TOKEN.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -151,7 +154,8 @@ public class AutoLangListTest extends AbstractTokenModelTest
 	@Override
 	protected Object getAssoc()
 	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(Language.class, "Granted");
+		return context.getReferenceContext()
+			.silentlyGetConstructedCDOMObject(Language.class, "Granted");
 	}
 	
 	

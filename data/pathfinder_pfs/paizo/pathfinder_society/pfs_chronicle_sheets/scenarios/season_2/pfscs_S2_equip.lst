@@ -1,0 +1,33 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2014-08
+
+# Equipment Name														Output Name				Type							Cost		Weight	Required Ability										Modifier									Requires Modification?	Source, Long Desc.						Source, Short Desc.	Source Page		Bonus Ability Pool				Combat bonus			Save bonus					Bonus to skill						Clear Special Property	Special Property
+
+# PFS #2-06
+# Equipment Name						Type					Cost		Weight	Required Ability										Requires Modification?	Source, Long Desc.			Clear Special Property	Special Property
+Robe of the Pure Legion +1				TYPE:Magic.Wonderous.Robe.PFS	COST:1000	WT:1		PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S02-06							SOURCELONG:PFS Chronicle #02-06					SPROP:As a cloak of resistance +1, but only against spells, spell-like effects, and supernatural abilities from a divine spellcaster or source such an outsider that serves a deity.
+#ASPECT:SkillBonuns|+1 resistance bonus against spells, spell-like effects, and supernatural abilities from a divine spellcaster or source such an outsider that serves a deity.
+
+# PFS #2-09
+Pipes Of Terror						TYPE:Magic.Wondrous.PFS		COST:9000	WT:0		PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S02-09							SOURCELONG:PFS Chronicle #02-09					SPROP:Those within 30 feet who hear music from these panpipes must succeed on a DC 16 Will save or become panicked for 7 rounds. Those who make their save are instead shaken for 1 round. While pipes of terror may be played as often as one chooses, their fear-inducing qualities may only be activated once per day.
+Ring.COPY=Ring of the Weary Sky
+Ring of the Weary Sky.MOD				TYPE:Magic.Wondrous.PFS		COST:11200			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S02-09			MODS:NO			SOURCELONG:PFS Chronicle #02-09					SPROP:once per day, the wearer of this ring may attempt to charm any creature with the elemental subtype [as charm monster, Will DC 15 negates].
+Ring.COPY=Intelligent Ring of the Weary Sky
+Intelligent Ring of the Weary Sky.MOD		TYPE:Magic.Wondrous.PFS		COST:11200			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S02-09			MODS:NO			SOURCELONG:PFS Chronicle #02-09					SPROP:(Additional cost + 10 PA); [AL N; Ego 7; Senses 30 ft. vision and hearing; Int 12, Wis 10, Cha 11; Communication empathy; Lesser Powers resist energy 1/day (CL 3rd, affects wielder only); Special Purpose control or defeat elementals]; Whenever facing a creature of the elemental subtype, the ring casts resist energy on the wearer, attuned to the applicable energy type. If the wearer has charmed the elemental with the ring's charm monster ability, the ring does not abjure the wearer against that elemental's energy type.
+
+# PFS #2-12
+Tome of Memory (Lesser)					TYPE:Magic.Wondrous.PFS		COST:1500	WT:0		PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S02-12 (Subtier 7-8)					SOURCELONG:PFS Chronicle #02-12					SPROP:grants a +5 circumstance bonus on Knowledge (history or religion) checks regarding Aroden and his faith
+Tome of Memory (Greater)				TYPE:Magic.Wondrous.PFS		COST:2500	WT:0		PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S02-12 (Subtier 10-11)					SOURCELONG:PFS Chronicle #02-12					SPROP:grants a +10 circumstance bonus on Knowledge (history or religion) checks regarding Aroden and his faith
+
+# PFS #2-14
+Flask.COPY=Nightmare Vapor Flask
+Nightmare Vapor Flask.MOD				TYPE:Magic.Wondrous.PFS		COST:2000			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S02-14			MODS:NO			SOURCELONG:PFS Chronicle #02-14	SPROP:.CLEAR		SPROP:thrown splash weapon [ranged touch attack, range increment 10 ft.] releasing 10-ft.-radius and 10-ft.-high toxic cloud of nightmare vapor poison [Pathfinder RPG Core Rulebook 560] on use. The cloud dissipates in 1d4 rounds;
+
+# PFS #2-21
+Ring.COPY=Shadow Lodge Signet
+Shadow Lodge Signet.MOD					TYPE:Magic.Wondrous.PFS		COST:150			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S02-21			MODS:NO			SOURCELONG:PFS Chronicle #02-21	SPROP:.CLEAR		SPROP:this onyx signet ring grants the wearer a +4 circumstance bonus on Disguise checks to masquerade as a member of the Shadow Lodge
+
+#
+# DONE
+#

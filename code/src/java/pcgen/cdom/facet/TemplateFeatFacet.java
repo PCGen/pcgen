@@ -34,16 +34,14 @@ import pcgen.core.PlayerCharacter;
  * TemplateFeatFacet is a Facet that tracks the selections from the FEAT tokens
  * on Templates that have been added to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class TemplateFeatFacet extends
-		AbstractSourcedListFacet<CharID, CNAbilitySelection> implements
-		DataFacetChangeListener<CharID, PCTemplate>
+public class TemplateFeatFacet extends AbstractSourcedListFacet<CharID, CNAbilitySelection>
+		implements DataFacetChangeListener<CharID, PCTemplate>
 {
 	private TemplateFacet templateFacet;
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	/**
 	 * Adds all of the feats to the Player Character triggered by the FEAT token'
@@ -56,8 +54,6 @@ public class TemplateFeatFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, PCTemplate> dfce)
@@ -66,13 +62,11 @@ public class TemplateFeatFacet extends
 		PCTemplate source = dfce.getCDOMObject();
 		if (!containsFrom(id, source))
 		{
-			PersistentTransitionChoice<CNAbilitySelection> choice =
-					source.get(ObjectKey.TEMPLATE_FEAT);
+			PersistentTransitionChoice<CNAbilitySelection> choice = source.get(ObjectKey.TEMPLATE_FEAT);
 			if (choice != null)
 			{
 				PlayerCharacter pc = trackingFacet.getPC(id);
-				Collection<? extends CNAbilitySelection> result =
-						choice.driveChoice(pc);
+				Collection<? extends CNAbilitySelection> result = choice.driveChoice(pc);
 				choice.act(result, source, pc);
 				for (CNAbilitySelection cas : result)
 				{
@@ -92,16 +86,13 @@ public class TemplateFeatFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 	{
 		CharID id = dfce.getCharID();
 		PCTemplate source = dfce.getCDOMObject();
-		PersistentTransitionChoice<CNAbilitySelection> choice =
-				source.get(ObjectKey.TEMPLATE_FEAT);
+		PersistentTransitionChoice<CNAbilitySelection> choice = source.get(ObjectKey.TEMPLATE_FEAT);
 		if (choice != null)
 		{
 			PlayerCharacter pc = trackingFacet.getPC(id);

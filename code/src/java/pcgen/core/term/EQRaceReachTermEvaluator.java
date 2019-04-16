@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.EQRaceReachTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03-Oct-2008 02:51:58
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -39,23 +35,17 @@ public class EQRaceReachTermEvaluator extends BaseEQTermEvaluator implements Ter
 	}
 
 	@Override
-	public Float resolve(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc)
+	public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(eq, primary, pc));
+		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	@Override
-	public String evaluate(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc) {
+	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
+	{
 		if (pc.hasControl(CControl.PCREACH))
 		{
-			Logging.errorPrint("RACEREACH term"
-				+ " is disabled when CREATEUREREACH control is used");
+			Logging.errorPrint("RACEREACH term" + " is disabled when CREATEUREREACH control is used");
 			return "0";
 		}
 		ReachFacet facet = FacetLibrary.getFacet(ReachFacet.class);

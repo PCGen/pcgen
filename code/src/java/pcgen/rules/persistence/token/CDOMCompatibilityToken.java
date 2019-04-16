@@ -26,7 +26,7 @@ package pcgen.rules.persistence.token;
  *            The type of object on which this CDOMCompatibilityToken can be
  *            used
  */
-public interface CDOMCompatibilityToken<T> extends CDOMToken<T>,
-		CompatibilityToken
+public interface CDOMCompatibilityToken<T> extends CDOMToken<T>, CompatibilityToken
 {
+	//This is a unifying interface (extends multiple other interfaces)
 }

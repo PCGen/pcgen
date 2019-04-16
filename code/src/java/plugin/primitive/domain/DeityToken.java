@@ -41,8 +41,7 @@ public class DeityToken implements PrimitiveToken<Domain>
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
 
 	@Override
-	public boolean initialize(LoadContext context, Class<Domain> cl,
-			String value, String args)
+	public boolean initialize(LoadContext context, Class<Domain> cl, String value, String args)
 	{
 		return (value == null) && (args == null);
 	}
@@ -96,12 +95,10 @@ public class DeityToken implements PrimitiveToken<Domain>
 		Collection<CDOMReference<Domain>> mods = deity.getListMods(list);
 		for (CDOMReference<Domain> ref : mods)
 		{
-			Collection<AssociatedPrereqObject> assoc = deity
-					.getListAssociations(list, ref);
+			Collection<AssociatedPrereqObject> assoc = deity.getListAssociations(list, ref);
 			for (AssociatedPrereqObject apo : assoc)
 			{
-				if (PrereqHandler
-						.passesAll(apo.getPrerequisiteList(), pc, deity))
+				if (PrereqHandler.passesAll(apo, pc, deity))
 				{
 					returnSet.addAll(c.convert(ref));
 					break;

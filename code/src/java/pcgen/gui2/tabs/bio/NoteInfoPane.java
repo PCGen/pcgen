@@ -1,5 +1,4 @@
 /*
- * NoteInfoPane.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 04/03/2012 4:24:46 PM
- *
- * $Id$
  */
 package pcgen.gui2.tabs.bio;
 
@@ -36,9 +31,9 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
+import pcgen.core.NoteItem;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.DescriptionFacade;
-import pcgen.facade.core.NoteFacade;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.TextFieldListener;
@@ -48,25 +43,23 @@ import pcgen.system.LanguageBundle;
  * The NoteInfoPane displays a named text area that the user can fill in for her
  * character. This allows the creation of custom notes about the character.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class NoteInfoPane extends JPanel implements CharacterInfoTab
 {
 	private final TabTitle title;
-	private final JTextField nameField; 
+	private final JTextField nameField;
 	private final JTextArea noteField;
 	private final JButton removeButton;
 	private String name;
-	private final NoteFacade note; 
+	private final NoteItem note;
 
 	/**
 	 * Create a new instance of NoteInfoPane
 	 * @param note The note we are to manage.
 	 */
-	public NoteInfoPane(NoteFacade note)
+	public NoteInfoPane(NoteItem note)
 	{
 		this.note = note;
 		this.nameField = new JTextField(15);
@@ -74,8 +67,8 @@ public class NoteInfoPane extends JPanel implements CharacterInfoTab
 		this.noteField = new JTextArea(8, 20);
 		this.title = new TabTitle(name, null);
 		this.removeButton = new JButton(LanguageBundle.getString("in_descDelNote")); //$NON-NLS-1$
-		nameField.setEditable(!note.isRequired());
-		removeButton.setEnabled(!note.isRequired());
+		nameField.setEditable(note.getPCStringKey().isEmpty());
+		removeButton.setEnabled(note.getPCStringKey().isEmpty());
 		initComponents();
 	}
 
@@ -95,15 +88,13 @@ public class NoteInfoPane extends JPanel implements CharacterInfoTab
 
 		noteField.setLineWrap(true);
 		noteField.setWrapStyleWord(true);
-		
+
 		add(hbox, BorderLayout.NORTH);
-		JScrollPane pane =
-				new JScrollPane(noteField,
-					ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
-					ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		JScrollPane pane = new JScrollPane(noteField, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+			ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		add(pane, BorderLayout.CENTER);
 	}
-	
+
 	@Override
 	public ModelMap createModels(CharacterFacade character)
 	{
@@ -141,29 +132,27 @@ public class NoteInfoPane extends JPanel implements CharacterInfoTab
 		{
 			descFacade = character.getDescriptionFacade();
 			noteField.setText(note.getValue());
-			
-			nameField.getDocument().addDocumentListener(
-				new TextFieldListener(nameField)
+
+			nameField.getDocument().addDocumentListener(new TextFieldListener(nameField)
+			{
+				@Override
+				protected void textChanged(String text)
 				{
-					@Override
-					protected void textChanged(String text)
-					{
-						descFacade.renameNote(note, text);
-						name = text;
-					}
+					descFacade.renameNote(note, text);
+					name = text;
+				}
 
-				});
+			});
 
-			noteField.getDocument().addDocumentListener(
-				new TextFieldListener(noteField)
+			noteField.getDocument().addDocumentListener(new TextFieldListener(noteField)
+			{
+				@Override
+				protected void textChanged(String text)
 				{
-					@Override
-					protected void textChanged(String text)
-					{
-						descFacade.setNote(note, text);
-					}
+					descFacade.setNote(note, text);
+				}
 
-				});
+			});
 			removeButton.addActionListener(this);
 		}
 
@@ -178,7 +167,7 @@ public class NoteInfoPane extends JPanel implements CharacterInfoTab
 	/**
 	 * @return the name
 	 */
-	public NoteFacade getNote()
+	public NoteItem getNote()
 	{
 		return note;
 	}

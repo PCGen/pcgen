@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.FollowerLimitFacet;
@@ -24,7 +26,10 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.FollowersLst;
+
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalFollowersTest extends AbstractContentTokenTest
 {
@@ -32,6 +37,7 @@ public class GlobalFollowersTest extends AbstractContentTokenTest
 	private static FollowersLst token = new FollowersLst();
 	private FollowerLimitFacet flFacet;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -48,7 +54,7 @@ public class GlobalFollowersTest extends AbstractContentTokenTest
 				token.parseToken(context, source, "Animal Companion|3");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

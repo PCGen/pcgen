@@ -27,8 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * New chooser plugin, handles Armour Proficiency.
  */
-public class ArmorProficiencyToken extends
-		AbstractQualifiedChooseToken<ArmorProf>
+public class ArmorProficiencyToken extends AbstractQualifiedChooseToken<ArmorProf>
 {
 
 	private static final Class<ArmorProf> ARMORPROF_CLASS = ArmorProf.class;
@@ -64,10 +63,15 @@ public class ArmorProficiencyToken extends
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext()
-				.getManufacturer(ARMORPROF_CLASS), obj, value);
+		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(ARMORPROF_CLASS),
+			obj, value);
+	}
+
+	@Override
+	protected String getPersistentFormat()
+	{
+		return "ARMORPROF";
 	}
 }

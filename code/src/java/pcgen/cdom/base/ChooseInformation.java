@@ -24,50 +24,96 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
- * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
- * provided as convenience to hold a set of choices and the number of choices
- * allowed, prior to final implementation of the new choice system.
+ * This is a interface is provided as convenience to hold a set of choices and the number
+ * of choices allowed for the 5.x/6.x CHOOSE system.
  * 
- * This is a TransitionChoice that is designed to be stored in a PlayerCharacter
- * file when saved. Thus, encoding and decoding (to a 'persistent' string)
- * methods are provided.
+ * This is a TransitionChoice that is designed to be stored in a PlayerCharacter file when
+ * saved. Thus, encoding and decoding (to a 'persistent' string) methods are provided.
  * 
- * @param <T>
+ * @param <T> The Format (class) of object to be chosen
  */
 public interface ChooseInformation<T>
 {
 
-	String getName();
+	/**
+	 * Returns the name of this ChooseInformation. This matches the subtoken name used
+	 * under CHOOSE.
+	 * 
+	 * @return The name of this ChooseInformation
+	 */
+	public String getName();
 
-	String getLSTformat();
+	/**
+	 * Returns the persistent LST format for this ChooseInformation. This allows it to be
+	 * unparsed.
+	 * 
+	 * @return The persistent LST format for this ChooseInformation
+	 */
+	public String getLSTformat();
 
-	String getTitle();
+	/**
+	 * Returns the title of this ChooseInformation. This is to be displayed to the user.
+	 * 
+	 * @return The title of this ChooseInformation
+	 */
+	public String getTitle();
 
-	GroupingState getGroupingState();
+	/**
+	 * Returns the GroupingState of this ChooseInformation. This allows validation that
+	 * the total items placed into the CHOOSE token are a valid combination
+	 * 
+	 * @return The GroupingState of this ChooseInformation
+	 */
+	public GroupingState getGroupingState();
 
-	ClassIdentity<? super T> getClassIdentity();
+	/**
+	 * Returns the reference Class of this ChooseInformation, indicating the class of item
+	 * to be chosen.
+	 * 
+	 * @return The reference Class of this ChooseInformation
+	 */
+	public Class<? super T> getReferenceClass();
 
-	Collection<? extends T> getSet(PlayerCharacter pc);
-	
+	/**
+	 * Returns the persistent Format of the ClassIdentity of the objects to be chosen.
+	 * 
+	 * NOTE: Behavior of this method is not guaranteed if a valid Format cannot be
+	 * discerned for the contents of this ChooseInformation. You may wish to consult with
+	 * getReferenceClass before using this method.
+	 * 
+	 * @return The persistent Format of the ClassIdentity of the objects to be chosen
+	 */
+	public String getPersistentFormat();
+
+	/**
+	 * Returns the Collection of objects defined by this ChooseInformation for the given
+	 * PlayerCharacter.
+	 * 
+	 * @param pc
+	 *            The PlayerCharacter for which the Collection of available choices should
+	 *            be determined
+	 * @return The Collection of objects defined by this ChooseInformation for the given
+	 *         PlayerCharacter
+	 */
+	public Collection<? extends T> getSet(PlayerCharacter pc);
+
 	void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T item);
 
 	void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item);
 
 	ChoiceManagerList<T> getChoiceManager(ChooseDriver owner, int cost);
 
-	CharSequence composeDisplay(Collection<? extends T> collection);
-
-
+	CharSequence composeDisplay(@NotNull Collection<? extends T> collection);
 
 	public T decodeChoice(LoadContext context, String persistentFormat);
 
 	public String encodeChoice(T item);
-
 
 	public void setChoiceActor(Chooser<T> actor);
 
 	public Chooser<T> getChoiceActor();
 
 }
-

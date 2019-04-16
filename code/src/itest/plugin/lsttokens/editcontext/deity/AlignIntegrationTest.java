@@ -19,9 +19,6 @@ package plugin.lsttokens.editcontext.deity;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
@@ -34,13 +31,16 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class AlignIntegrationTest extends AbstractIntegrationTestCase<Deity>
 {
-	static AlignToken token = new AlignToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
+	private static AlignToken token = new AlignToken();
+	private static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
 
 	@Override
-	@Before
+	@BeforeEach
 	public final void setUp() throws PersistenceLayerException,
 			URISyntaxException
 	{

@@ -1,71 +1,56 @@
 /*
- * @(#) $Id$
  * GNU LESSER GENERAL PUBLIC LICENSE
  */
 package pcgen.persistence.lst;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
+import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
- * JUnit testcases for <code>pcgen.core.Feat</code>.
- *
+ * JUnit testcases for {@code pcgen.core.Feat}.
  */
-public class FeatTest extends TestCase
+public class FeatTest
 {
 	/**
-	 * Constructor
-	 * @param name
-	 */
-	public FeatTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Main, run the test
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		junit.textui.TestRunner.run(FeatTest.class);
-	}
-
-	/**
-	 * Return a new test suite
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		// quick method, adds all methods beginning with "test"
-		return new TestSuite(FeatTest.class);
-	}
-
-	/**
 	 * Sets up the test case by loading the system plugins.
-	 * 
-	 * @see junit.framework.TestCase#setUp()
 	 */
-	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		TestHelper.loadPlugins();
+		Globals.getContext().getReferenceContext().importObject(BuildUtilities.getFeatCat());
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		SettingsHandler.getGame().clearLoadContext();
+		TokenRegistration.clearTokens();
 	}
 
 	/**
-	 * Test Alertness Feat
-	 * @throws Exception
+	 * Test Alertness Feat.
+	 * 
+	 * @throws PersistenceLayerException   if there is a problem with the LST syntax
 	 */
-	public void testAlertness() throws Exception
+	@Test
+	public void testAlertness() throws PersistenceLayerException
 	{
 		Ability alertnessFeat;
 		FeatLoader featLoader = new FeatLoader();
@@ -90,10 +75,12 @@ public class FeatTest extends TestCase
 	}
 
 	/**
-	 * Test ambidexterity feat
-	 * @throws Exception
+	 * Test ambidexterity feat.
+	 * 
+	 * @throws PersistenceLayerException   if there is a problem with the LST syntax
 	 */
-	public void testAmbidexterity() throws Exception
+	@Test
+	public void testAmbidexterity() throws PersistenceLayerException
 	{
 		FeatLoader featLoader = new FeatLoader();
 		CampaignSourceEntry source;
@@ -109,18 +96,20 @@ public class FeatTest extends TestCase
 
 		Ability ambidexterityFeat = new Ability();
 		featLoader
-			.parseLine(
-				Globals.getContext(),
-				ambidexterityFeat,
-				"Ambidexterity	PRESTAT:1,DEX=15	PREHANDSEQ:2	TYPE:General.Fighter	DESC:You ignore all penalties for using your off-hand	BONUS:COMBAT|TOHIT-SECONDARY|4", source);
+			.parseLine(Globals.getContext(), ambidexterityFeat,
+				"Ambidexterity	PRESTAT:1,DEX=15	PREHANDSEQ:2	TYPE:General.Fighter	"
+			+ "DESC:You ignore all penalties for using your off-hand	BONUS:COMBAT|TOHIT-SECONDARY|4",
+				source);
 		assertEquals("Ambidexterity", ambidexterityFeat.getKeyName());
 	}
 
 	/**
-	 * Test simple weapon feat
-	 * @throws Exception
+	 * Test simple weapon feat.
+	 * 
+	 * @throws PersistenceLayerException  if there is a problem with the LST syntax
 	 */
-	public void testSimpleWeapon() throws Exception
+	@Test
+	public void testSimpleWeapon() throws PersistenceLayerException
 	{
 		FeatLoader featLoader = new FeatLoader();
 		CampaignSourceEntry source;
@@ -139,7 +128,8 @@ public class FeatTest extends TestCase
 			.parseLine(
 				Globals.getContext(),
 				simpleWeaponFeat,
-				"Simple Weapon Proficiency	TYPE:General	DESC:You are proficient with all simple weapons. Non-proficiency suffers -4 to hit.	ADD:WEAPONPROFS|Simple", source);
+				"Simple Weapon Proficiency	TYPE:General	DESC:You are proficient with all simple weapons. "
+						+ "Non-proficiency suffers -4 to hit.	ADD:WEAPONPROFS|Simple", source);
 		assertEquals("Simple Weapon Proficiency", simpleWeaponFeat.getKeyName());
 	}
 }

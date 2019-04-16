@@ -14,21 +14,17 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
- package plugin.overland.util;
+package plugin.overland.util;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /** Class that holds a set of travel methods and speeds
- *
- * @author  Juliean Galak
  */
 public class PairList<T extends Pair<?, ?>>
 {
-	private List<T> vPairs;
+	private final List<T> vPairs;
 
 	public PairList()
 	{

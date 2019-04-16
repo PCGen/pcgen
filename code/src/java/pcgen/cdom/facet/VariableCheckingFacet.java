@@ -27,12 +27,11 @@ import pcgen.core.PlayerCharacter;
  * calculated relative to CharacterDisplay/CharID... and is thus different than
  * today's (5.x) core.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class VariableCheckingFacet
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	public Number getVariableValue(CharID id, String var)
 	{

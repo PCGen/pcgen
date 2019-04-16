@@ -43,7 +43,7 @@ BIO
 			<favoredweapon>Crossbow (Light)</favoredweapon>
 			<holyitem></holyitem>
 			<pantheonlist>Pathfinder Chronicles</pantheonlist>
-			<source>Paizo Inc. - Advanced Player's Guide, p.91</source>
+			<source>Paizo Inc. - Advanced Player&#39;s Guide, p.91</source>
 			<special_abilities></special_abilities>
 			<appearance></appearance>
 			<title></title>
@@ -68,9 +68,9 @@ BIO
 		</skin>
 		<cr>5</cr>
 		<face>
-		<face>5 ft.</face>
+		<face>5 ft. by 5 ft.</face>
 			<short>5 ft.</short>
-			<squares>1</squares>
+			<squares>1 x 1</squares>
 		</face>
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
@@ -871,7 +871,7 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
-				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+				<special_properties>disarm, trip</special_properties>
 				<template></template>
 				<type>B</type>
 				<weight>10</weight>
@@ -931,7 +931,7 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
-				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
+				<special_properties>disarm, trip</special_properties>
 				<template></template>
 				<type>B</type>
 				<weight>0</weight>
@@ -973,7 +973,7 @@ BIO
 		<weapon>
 			<common>
 				<name>
-					<short>*Gauntlet, Spiked</short>
+					<short>*Spiked Gauntlet</short>
 					<long>*Gauntlet, Spiked</long>
 				</name>
 				<category>Simple-Melee</category>
@@ -1033,6 +1033,116 @@ BIO
 		<weapon>
 			<common>
 				<name>
+					<short>Holy Water</short>
+					<long>Holy Water</long>
+				</name>
+				<category>Non-Standard-Ranged</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+7/+2</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+7/+2</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Equipped</hand>
+				<num_attacks>2</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties>splash weapon</special_properties>
+				<template></template>
+				<type></type>
+				<weight>1</weight>
+				<sequence>3</sequence>
+			</common>
+			<ranges>
+				<range>
+					<distance>10 ft.</distance>
+					<to_hit>+7/+2</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>20 ft.</distance>
+					<to_hit>+5/+0</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>30 ft.</distance>
+					<to_hit>+3/-2</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>40 ft.</distance>
+					<to_hit>+1/-4</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>50 ft.</distance>
+					<to_hit>-1/-6</to_hit>
+					<damage>1d6</damage>
+				</range>
+			</ranges>
+		</weapon>
+		<weapon>
+			<common>
+				<name>
+					<short>Oil</short>
+					<long>Oil, 1 Pint Flask</long>
+				</name>
+				<category>Non-Standard-Ranged</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+7/+2</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+7/+2</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Equipped</hand>
+				<num_attacks>2</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties>splash weapon, full-round action to prepare, 50% chance to ignite</special_properties>
+				<template></template>
+				<type>F</type>
+				<weight>1</weight>
+				<sequence>4</sequence>
+			</common>
+			<ranges>
+				<range>
+					<distance>10 ft.</distance>
+					<to_hit>+7/+2</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>20 ft.</distance>
+					<to_hit>+5/+0</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>30 ft.</distance>
+					<to_hit>+3/-2</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>40 ft.</distance>
+					<to_hit>+1/-4</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>50 ft.</distance>
+					<to_hit>-1/-6</to_hit>
+					<damage>1d6</damage>
+				</range>
+			</ranges>
+		</weapon>
+		<weapon>
+			<common>
+				<name>
 					<short>Dagger</short>
 					<long>Dagger</long>
 				</name>
@@ -1055,7 +1165,7 @@ BIO
 				<template></template>
 				<type>PS</type>
 				<weight>0</weight>
-				<sequence>3</sequence>
+				<sequence>5</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1142,7 +1252,7 @@ BIO
 				<template></template>
 				<type>P</type>
 				<weight>2</weight>
-				<sequence>5</sequence>
+				<sequence>7</sequence>
 			</common>
 			<ranges>
 				<range>
@@ -1193,11 +1303,11 @@ BIO
 				<num_attacks>2</num_attacks>
 				<reach>5</reach>
 				<size>M</size>
-				<special_properties>10 hp/inch, hardness 8</special_properties>
+				<special_properties>silver</special_properties>
 				<template></template>
 				<type>S</type>
 				<weight>4</weight>
-				<sequence>6</sequence>
+				<sequence>8</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1257,7 +1367,7 @@ BIO
 				<template></template>
 				<type>P</type>
 				<weight>0</weight>
-				<sequence>7</sequence>
+				<sequence>9</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1344,7 +1454,7 @@ BIO
 				<template></template>
 				<type>P</type>
 				<weight>0</weight>
-				<sequence>9</sequence>
+				<sequence>11</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1453,7 +1563,10 @@ BIO
 	<!-- Bard -->
 
 
-	<!-- Character Rage -->
+	<!-- Pathfinder -->
+		<!-- Character Rage -->
+		<!-- Character Rage -->
+
 	<!-- Turning ability -->
 
 	<!-- 3.0 stunning fist -->
@@ -1498,8 +1611,8 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
-			<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<special_properties>disarm, trip</special_properties>
+			<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>10</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1524,15 +1637,15 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
-			<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<special_properties>disarm, trip</special_properties>
+			<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
 			<longname>Gauntlet, Spiked</longname>
 			<id></id>
-			<name>Gauntlet, Spiked</name>
+			<name>Spiked Gauntlet</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1551,7 +1664,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.SIMPLE.STANDARD.PIERCING.UNARMED.GAUNTLET.CLOSE.WEAPON GROUP NATURAL.WEAPON GROUP CLOSE.METAL</type>
+			<type>WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.UNARMED.FINESSEABLE.PIERCING.GAUNTLET.CLOSE.WEAPON GROUP CLOSE.WEAPON GROUP NATURAL.METAL</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1603,7 +1716,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>MAGIC.ARMOR.HEAVY.ARMORPROFHEAVY.SUIT.STANDARD.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+			<type>MAGIC.ARMOR.HEAVY.ARMORPROFHEAVY.SUIT.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 			<weight>50</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1614,7 +1727,7 @@ BIO
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>18 lbs., 1 Rope (Silk/50 ft.), 1 Antitoxin (Vial), 1 Flint and Steel, 1 Holy Symbol (Silver), 2 Holy Water (Flask), 3 Iron Spike, 1 Lantern (Bullseye), 2 Oil (1 Pint Flask), 2 Sunrod</contents>
+			<contents>18 lbs., 1 Silk Rope (50 ft.), 1 Antitoxin, 1 Flint and Steel, 1 Silver Holy Symbol, 2 Holy Water, 3 Iron Spike, 1 Bullseye Lantern, 2 Oil, 2 Sunrod</contents>
 			<contents_num>9</contents_num>
 			<content_weight>18</content_weight>
 			<cost>2</cost>
@@ -1634,9 +1747,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Antitoxin (Vial)</longname>
+			<longname>Antitoxin</longname>
 			<id></id>
-			<name>Antitoxin (Vial)</name>
+			<name>Antitoxin</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1686,9 +1799,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Holy Symbol (Silver)</longname>
+			<longname>Holy Symbol, Silver</longname>
 			<id></id>
-			<name>Holy Symbol (Silver)</name>
+			<name>Silver Holy Symbol</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1707,14 +1820,14 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>GOODS.TOOLS.SPELLCOMPONENT.DIVINEFOCUS</type>
+			<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Holy Water (Flask)</longname>
+			<longname>Holy Water</longname>
 			<id></id>
-			<name>Holy Water (Flask)</name>
+			<name>Holy Water</name>
 			<carried>2.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1732,8 +1845,8 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties></special_properties>
-			<type>GOODS.FLASK.CONSUMABLE</type>
+			<special_properties>splash weapon</special_properties>
+			<type>GOODS.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.SPLASH</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1764,9 +1877,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Lantern (Bullseye)</longname>
+			<longname>Lantern, Bullseye</longname>
 			<id></id>
-			<name>Lantern (Bullseye)</name>
+			<name>Bullseye Lantern</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1784,15 +1897,15 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>Normal illumination (60&#39;), plus 1 step (120&#39;), 6 hr./pint</special_properties>
-			<type>GOODS.GENERAL.LIGHTSOURCE</type>
+			<special_properties></special_properties>
+			<type>GOODS.GENERAL.LIGHT SOURCE</type>
 			<weight>3</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Oil (1 Pint Flask)</longname>
+			<longname>Oil, 1 Pint Flask</longname>
 			<id></id>
-			<name>Oil (1 Pint Flask)</name>
+			<name>Oil</name>
 			<carried>2.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1810,8 +1923,8 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties></special_properties>
-			<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
+			<special_properties>splash weapon, full-round action to prepare, 50% chance to ignite</special_properties>
+			<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.FIRE.SPLASH</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1837,7 +1950,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>GOODS.ALCHEMICAL.CONSUMABLE.LIGHTSOURCE</type>
+			<type>GOODS.ALCHEMICAL.CONSUMABLE.LIGHT SOURCE</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1863,7 +1976,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.METAL</type>
+			<type>WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.FINESSEABLE.RANGED.THROWN.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.METAL</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1889,7 +2002,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
+			<type>WEAPON.RESIZABLE.RANGED.SIMPLE.THROWN.PIERCING.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
 			<weight>2</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1905,7 +2018,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>1</cost>
 			<equipped>N</equipped>
-			<location>Horse (Heavy/Combat Trained)</location>
+			<location>Heavy Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>2</quantity>
@@ -1915,7 +2028,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
+			<type>WEAPON.RESIZABLE.RANGED.SIMPLE.THROWN.PIERCING.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
 			<weight>2</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1940,8 +2053,8 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>10 hp/inch, hardness 8</special_properties>
-			<type>WEAPON.RESIZABLE.MELEE.ONEHANDED.MARTIAL.STANDARD.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
+			<special_properties>silver</special_properties>
+			<type>WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
 			<weight>4</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1972,13 +2085,13 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Horse (Heavy/Combat Trained)</longname>
+			<longname>Heavy Horse (Combat Trained)</longname>
 			<id></id>
-			<name>Horse (Heavy/Combat Trained)</name>
+			<name>Heavy Horse (Combat Trained)</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>65 lbs., 2 Javelin, 1 Saddle (Military), 1 Saddlebags</contents>
+			<contents>65 lbs., 2 Javelin, 1 Military Saddle, 1 Saddlebags</contents>
 			<contents_num>3</contents_num>
 			<content_weight>65</content_weight>
 			<cost>300</cost>
@@ -1998,9 +2111,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Saddle (Military)</longname>
+			<longname>Saddle, Military</longname>
 			<id></id>
-			<name>Saddle (Military)</name>
+			<name>Military Saddle</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2009,7 +2122,7 @@ BIO
 			<content_weight>0</content_weight>
 			<cost>20</cost>
 			<equipped>N</equipped>
-			<location>Horse (Heavy/Combat Trained)</location>
+			<location>Heavy Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -2030,12 +2143,12 @@ BIO
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
-			<contents>23 lbs., 2 Wooden Stake, 1 Bedroll, 1 Grappling Hook, 1 Explorer&#39;s Outfit, 1 Waterskin (Filled)</contents>
+			<contents>23 lbs., 2 Wooden Stake, 1 Bedroll, 1 Grappling Hook, 1 Explorer&#39;s Outfit, 1 Waterskin</contents>
 			<contents_num>5</contents_num>
 			<content_weight>23</content_weight>
 			<cost>4</cost>
 			<equipped>N</equipped>
-			<location>Horse (Heavy/Combat Trained)</location>
+			<location>Heavy Horse (Combat Trained)</location>
 			<maxcharges>0</maxcharges>
 			<note></note>
 			<quantity>1</quantity>
@@ -2128,9 +2241,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Waterskin (Filled)</longname>
+			<longname>Waterskin, Filled</longname>
 			<id></id>
-			<name>Waterskin (Filled)</name>
+			<name>Waterskin</name>
 			<carried>0.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2154,35 +2267,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Outfit (Traveler&#39;s)</longname>
+			<longname>Rope, Silk (50 ft.)</longname>
 			<id></id>
-			<name>Traveler&#39;s Outfit</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>1</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
-			<weight>5</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Rope (Silk/50 ft)</longname>
-			<id></id>
-			<name>Rope (Silk/50 ft.)</name>
+			<name>Silk Rope (50 ft.)</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -2200,7 +2287,7 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties>4 hp, DC 24 Strength check to burst</special_properties>
+			<special_properties></special_properties>
 			<type>GOODS.GENERAL</type>
 			<weight>5</weight>
 			<bonuslist></bonuslist>
@@ -2231,6 +2318,32 @@ BIO
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
+		<item>
+			<longname>Traveler&#39;s Outfit</longname>
+			<id></id>
+			<name>Traveler&#39;s Outfit</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>1</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
+			<weight>5</weight>
+			<bonuslist></bonuslist>
+		</item>
 		<total>
 			<weight>98 lbs.</weight>
 			<value>7563.45 gp</value>
@@ -2255,8 +2368,8 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
-				<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<special_properties>disarm, trip</special_properties>
+				<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>10</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2276,13 +2389,13 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties>Bonus to disarm an enemy (pg. 144), May be used to make trip attacks (pg.145)</special_properties>
-				<type>MAGIC.WEAPON.RESIZABLE.MELEE.TWOHANDED.MARTIAL.STANDARD.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<special_properties>disarm, trip</special_properties>
+				<type>MAGIC.WEAPON.RESIZABLE.MELEE.MARTIAL.TWOHANDED.BLUDGEONING.FLAIL.WEAPON GROUP FLAILS.CUSTOM.TEMPORARY.DISARM.METAL.TRIP.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Gauntlet, Spiked</name>
+				<name>Spiked Gauntlet</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2298,7 +2411,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.SIMPLE.STANDARD.PIERCING.UNARMED.GAUNTLET.CLOSE.WEAPON GROUP NATURAL.WEAPON GROUP CLOSE.METAL</type>
+				<type>WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.UNARMED.FINESSEABLE.PIERCING.GAUNTLET.CLOSE.WEAPON GROUP CLOSE.WEAPON GROUP NATURAL.METAL</type>
 				<weight>0</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2340,7 +2453,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>MAGIC.ARMOR.HEAVY.ARMORPROFHEAVY.SUIT.STANDARD.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
+				<type>MAGIC.ARMOR.HEAVY.ARMORPROFHEAVY.SUIT.CUSTOM.METAL.MASTERWORK.ENHANCEMENT.PLUS1</type>
 				<weight>50</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2349,7 +2462,7 @@ BIO
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>18 lbs., 1 Rope (Silk/50 ft.), 1 Antitoxin (Vial), 1 Flint and Steel, 1 Holy Symbol (Silver), 2 Holy Water (Flask), 3 Iron Spike, 1 Lantern (Bullseye), 2 Oil (1 Pint Flask), 2 Sunrod</contents>
+				<contents>18 lbs., 1 Silk Rope (50 ft.), 1 Antitoxin, 1 Flint and Steel, 1 Silver Holy Symbol, 2 Holy Water, 3 Iron Spike, 1 Bullseye Lantern, 2 Oil, 2 Sunrod</contents>
 				<cost>2</cost>
 				<equipped>Y</equipped>
 				<location>Equipped</location>
@@ -2366,7 +2479,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Antitoxin (Vial)</name>
+				<name>Antitoxin</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2408,7 +2521,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Holy Symbol (Silver)</name>
+				<name>Silver Holy Symbol</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2424,12 +2537,12 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>GOODS.TOOLS.SPELLCOMPONENT.DIVINEFOCUS</type>
+				<type>GOODS.TOOLS.SPELL COMPONENT.DIVINE FOCUS.HOLY SYMBOL</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Holy Water (Flask)</name>
+				<name>Holy Water</name>
 				<carried>2.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2444,8 +2557,8 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties></special_properties>
-				<type>GOODS.FLASK.CONSUMABLE</type>
+				<special_properties>splash weapon</special_properties>
+				<type>GOODS.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.SPLASH</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2471,7 +2584,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Lantern (Bullseye)</name>
+				<name>Bullseye Lantern</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2486,13 +2599,13 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties>Normal illumination (60&#39;), plus 1 step (120&#39;), 6 hr./pint</special_properties>
-				<type>GOODS.GENERAL.LIGHTSOURCE</type>
+				<special_properties></special_properties>
+				<type>GOODS.GENERAL.LIGHT SOURCE</type>
 				<weight>3</weight>
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Oil (1 Pint Flask)</name>
+				<name>Oil</name>
 				<carried>2.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2507,8 +2620,8 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties></special_properties>
-				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
+				<special_properties>splash weapon, full-round action to prepare, 50% chance to ignite</special_properties>
+				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.FIRE.SPLASH</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2529,7 +2642,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>GOODS.ALCHEMICAL.CONSUMABLE.LIGHTSOURCE</type>
+				<type>GOODS.ALCHEMICAL.CONSUMABLE.LIGHT SOURCE</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2550,7 +2663,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.METAL</type>
+				<type>WEAPON.RESIZABLE.MELEE.SIMPLE.LIGHT.FINESSEABLE.RANGED.THROWN.PIERCING.SLASHING.DAGGER.BLADELIGHT.WEAPON GROUP BLADES LIGHT.WEAPON GROUP THROWN.METAL</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2571,7 +2684,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
+				<type>WEAPON.RESIZABLE.RANGED.SIMPLE.THROWN.PIERCING.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
 				<weight>2</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2583,7 +2696,7 @@ BIO
 				<contents></contents>
 				<cost>1</cost>
 				<equipped>N</equipped>
-				<location>Horse (Heavy/Combat Trained)</location>
+				<location>Heavy Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>2</quantity>
@@ -2592,7 +2705,7 @@ BIO
 					<short>M</short>
 				</size>
 				<special_properties></special_properties>
-				<type>WEAPON.RESIZABLE.SIMPLE.RANGED.STANDARD.PIERCING.THROWN.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
+				<type>WEAPON.RESIZABLE.RANGED.SIMPLE.THROWN.PIERCING.JAVELIN.SPEAR.WEAPON GROUP SPEARS.WEAPON GROUP THROWN.WOODEN</type>
 				<weight>2</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2612,8 +2725,8 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties>10 hp/inch, hardness 8</special_properties>
-				<type>WEAPON.RESIZABLE.MELEE.ONEHANDED.MARTIAL.STANDARD.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
+				<special_properties>silver</special_properties>
+				<type>WEAPON.RESIZABLE.MELEE.MARTIAL.ONEHANDED.SLASHING.SWORD.BLADEHEAVY.WEAPON GROUP BLADES HEAVY.CUSTOM.METAL.SILVER</type>
 				<weight>4</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -2639,11 +2752,11 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Horse (Heavy/Combat Trained)</name>
+				<name>Heavy Horse (Combat Trained)</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>65 lbs., 2 Javelin, 1 Saddle (Military), 1 Saddlebags</contents>
+				<contents>65 lbs., 2 Javelin, 1 Military Saddle, 1 Saddlebags</contents>
 				<cost>300</cost>
 				<equipped>N</equipped>
 				<location></location>
@@ -2660,14 +2773,14 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Saddle (Military)</name>
+				<name>Military Saddle</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
 				<contents></contents>
 				<cost>20</cost>
 				<equipped>N</equipped>
-				<location>Horse (Heavy/Combat Trained)</location>
+				<location>Heavy Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -2685,10 +2798,10 @@ BIO
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
-				<contents>23 lbs., 2 Wooden Stake, 1 Bedroll, 1 Grappling Hook, 1 Explorer&#39;s Outfit, 1 Waterskin (Filled)</contents>
+				<contents>23 lbs., 2 Wooden Stake, 1 Bedroll, 1 Grappling Hook, 1 Explorer&#39;s Outfit, 1 Waterskin</contents>
 				<cost>4</cost>
 				<equipped>N</equipped>
-				<location>Horse (Heavy/Combat Trained)</location>
+				<location>Heavy Horse (Combat Trained)</location>
 				<maxcharges>0</maxcharges>
 				<note></note>
 				<quantity>1</quantity>
@@ -2765,7 +2878,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Waterskin (Filled)</name>
+				<name>Waterskin</name>
 				<carried>0.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2786,28 +2899,7 @@ BIO
 				<bonuslist></bonuslist>
 			</item>
 			<item>
-				<name>Traveler&#39;s Outfit</name>
-				<carried>1.0</carried>
-				<charges></charges>
-				<charges_used></charges_used>
-				<contents></contents>
-				<cost>1</cost>
-				<equipped>Y</equipped>
-				<location>Equipped</location>
-				<maxcharges>0</maxcharges>
-				<note></note>
-				<quantity>1</quantity>
-				<size>
-					<long>Medium</long>
-					<short>M</short>
-				</size>
-				<special_properties></special_properties>
-				<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
-				<weight>5</weight>
-				<bonuslist></bonuslist>
-			</item>
-			<item>
-				<name>Rope (Silk/50 ft.)</name>
+				<name>Silk Rope (50 ft.)</name>
 				<carried>1.0</carried>
 				<charges></charges>
 				<charges_used></charges_used>
@@ -2822,7 +2914,7 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties>4 hp, DC 24 Strength check to burst</special_properties>
+				<special_properties></special_properties>
 				<type>GOODS.GENERAL</type>
 				<weight>5</weight>
 				<bonuslist></bonuslist>
@@ -2846,6 +2938,27 @@ BIO
 				<special_properties></special_properties>
 				<type>WEAPON.RESIZABLE.MELEE.LIGHT.FINESSEABLE.RANGED.THROWN.SIMPLE.STANDARD.PIERCING.CLOSE.WOODEN</type>
 				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Traveler&#39;s Outfit</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>1</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>GOODS.CLOTHING.RESIZABLE.STARTING</type>
+				<weight>5</weight>
 				<bonuslist></bonuslist>
 			</item>
 			</equipmentset>
@@ -2884,7 +2997,7 @@ BIO
 		<feat>
 			<name>Power Attack</name>
 			<description>You can make exceptionally deadly melee attacks by sacrificing accuracy for strength.</description>
-			<type>COMBAT.ATTACKOPTION.ABYSSALBLOODLINE.DRACONICBLOODLINE.ELEMENTALBLOODLINE.BOREALBLOODLINE.SAURIANSHAMANBONUS.DJINNIBLOODLINE.EFREETIBLOODLINE.MARIDBLOODLINE.SHAITANBLOODLINE</type>
+			<type>COMBAT.ATTACKOPTION.BOREALBLOODLINE.SAURIANSHAMANBONUS.DJINNIBLOODLINE.EFREETIBLOODLINE.MARIDBLOODLINE.SHAITANBLOODLINE.ABYSSALBLOODLINE.DRACONICBLOODLINE.ELEMENTALBLOODLINE</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -2912,10 +3025,10 @@ BIO
 			<virtual>F</virtual>
 		</feat>
 		<feat>
-			<name>Weapon Focus (Flail (Heavy))</name>
+			<name>Weapon Focus (Heavy Flail)</name>
 			<description>You are especially good at using your chosen weapon.</description>
-			<type>COMBAT.WEAPONFOCUS.DESTINEDBLOODLINE.ORACLEWEAPONMASTERY</type>
-			<associated>Flail (Heavy)</associated>
+			<type>COMBAT.WEAPONFOCUS.ORACLEWEAPONMASTERY.DESTINEDBLOODLINE</type>
+			<associated>Heavy Flail</associated>
 			<count>1</count>
 			<auto>F</auto>
 			<hidden>F</hidden>
@@ -3145,6 +3258,17 @@ BIO
 			<category>Special Ability</category>
 		</ability_object>
 		<ability_object>
+			<name>Language</name>
+			<description>Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).</description>
+			<type>RACIALTRAITS.HUMANRACIALTRAIT.HUMANRACIALDEFAULT</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Special Ability</category>
+		</ability_object>
+		<ability_object>
 			<name>Lay on Hands</name>
 			<description>You can heal wounds (your own or those of others) by touch. Each day you can use this ability 5 times per day. With one use of this ability, you can heal 3d6 hit points of damage. Using this ability is a standard action, unless you target yourself, in which case it is a swift action. Despite the name of this ability, you only need one free hand to use this ability. Alternatively, you can use this healing power to deal damage to undead creatures, dealing 3d6 points of damage. Using Lay on Hands in this way requires a melee touch attack and doesn&#39;t provide an attack of opportunity. Undead do not receive a saving throw against this damage.</description>
 			<type>PALADINCLASSFEATURES.SPECIALQUALITY.SUPERNATURAL.LAYONHANDS.LAY ON HANDS</type>
@@ -3280,6 +3404,28 @@ BIO
 		</ability_object>
 		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
+			<name>Age</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
+			<name>Age ~ Adult</name>
+			<description></description>
+			<type></type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
 			<name>Armor Prof ~ Heavy</name>
 			<description></description>
 			<type>ARMORPROFHEAVY</type>
@@ -3368,6 +3514,17 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
+			<name>Human ~ Default</name>
+			<description></description>
+			<type>HUMANSUBRACE</type>
+			<associated></associated>
+			<count>0</count>
+			<auto>T</auto>
+			<hidden>F</hidden>
+			<virtual>F</virtual>
+			<category>Internal</category>
+		</ability_object>
+		<ability_object>
 			<name>Paladin Core Class Skills</name>
 			<description></description>
 			<type></type>
@@ -3390,7 +3547,7 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>Race Traits ~ Human</name>
+			<name>Racial Traits ~ Human</name>
 			<description></description>
 			<type></type>
 			<associated></associated>
@@ -3468,17 +3625,6 @@ BIO
 			<category>Internal</category>
 		</ability_object>
 		<ability_object>
-			<name>FACE_5</name>
-			<description></description>
-			<type></type>
-			<associated></associated>
-			<count>0</count>
-			<auto>T</auto>
-			<hidden>T</hidden>
-			<virtual>F</virtual>
-			<category>Internal</category>
-		</ability_object>
-		<ability_object>
 			<name>REACH_5</name>
 			<description></description>
 			<type></type>
@@ -3497,7 +3643,7 @@ BIO
 	  ====================================
 	  ====================================-->
 
-	<weapon_proficiencies>Amentum, Atlatl, Axe (Throwing), Bardiche, Battleaxe, Bayonet, Bec de Corbin, Bill, Blowgun, Broadsword (Nine Ring), Butterfly Sword, Cestus, Chakram, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Double Chicken Saber, Falchion, Flail, Flail (Heavy), Gauntlet, Gauntlet (Spiked), Glaive, Glaive-Guisarme, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Hammer (Light), Handaxe, Hooked Lance, Iron Brush, Javelin, Jutte, Katana, Kerambit, Kukri, Lance, Longbow, Longspear, Longsword, Lucerne Hammer, Lungchuan Tamo, Mace (Heavy), Mace (Light), Mattock, Mere Club, Monk&#39;s Spade, Morningstar, Naginata, Nodachi, Pick (Heavy), Pick (Light), Pilum, Poisoned Sand Tube, Quarterstaff, Ranseur, Rapier, Rhomphaia, Rock, Sansetsukon, Sap, Scimitar, Scizore, Scythe, Shang Gou, Shieldbash, Shortbow, Shortspear, Sibat, Sickle, Sling, Spear, Spear (Boar), Spells (Ray), Spells (Touch), Spiked Armor, Splash Weapon, Stake, Starknife, Sword (Bastard), Sword (Short), Sword (Tri-Point Double-Edged), Sword Cane, Tepoztopilli, Terbutje, Tiger Fork, Tonfa, Trident, Tube Arrow Shooter, Unarmed Strike, Waraxe (Dwarven), Warhammer, Wushu Dart</weapon_proficiencies>
+	<weapon_proficiencies>Amentum, Atlatl, Throwing Axe, Bardiche, Battleaxe, Bayonet, Bec de Corbin, Bill, Blowgun, Nine Ring Broadsword, Butterfly Sword, Cestus, Chakram, Club, Heavy Crossbow, Light Crossbow, Dagger, Punching Dagger, Dart, Double Chicken Saber, Falchion, Light Flail, Heavy Flail, Gauntlet, Spiked Gauntlet, Glaive, Glaive-Guisarme, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Light Hammer, Handaxe, Hooked Lance, Iron Brush, Javelin, Jutte, Katana, Kerambit, Kukri, Lance, Longbow, Longspear, Longsword, Lucerne Hammer, Lungchuan Tamo, Heavy Mace, Light Mace, Mattock, Mere Club, Monk&#39;s Spade, Morningstar, Naginata, Nodachi, Heavy Pick, Light Pick, Pilum, Poisoned Sand Tube, Quarterstaff, Ranseur, Rapier, Rhomphaia, Rock, Sansetsukon, Sap, Scimitar, Scizore, Scythe, Shang Gou, Shieldbash, Shortbow, Shortspear, Sibat, Sickle, Sling, Spear, Boar Spear, Ray Spells, Touch Spells, Spiked Armor, Splash Weapon, Stake, Starknife, Bastard Sword, Short Sword, Tri-Point Double-Edged Sword, Sword Cane, Tepoztopilli, Terbutje, Tiger Fork, Tonfa, Trident, Tube Arrow Shooter, Unarmed Strike, Dwarven Waraxe, Warhammer, Wushu Dart</weapon_proficiencies>
 	<languages>Common, Varisian</languages>
 
 

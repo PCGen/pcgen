@@ -1,0 +1,16 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# SOURCELONG:Aquatic Adventures	SOURCESHORT:AquA	SOURCEWEB:http://paizo.com/products/btpy9toq?Pathfinder-Campaign-Setting-Aquatic-Adventures	SOURCEDATE:2017-06
+# ORIGINAL ENTRY: Gary Davies
+# ORIGINAL ENTRY DATE: 2017-07
+
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list						Plural description for UI			Display Location
+ABILITYCATEGORY:Underwater Training I			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:AquanautUnderwaterTraining1											PLURAL:Underwater Training I			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Underwater Training II			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:AquanautUnderwaterTraining2											PLURAL:Underwater Training II			DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Deep Shaman Waves Wandering Hex		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShamanSpiritHex.DeepShamanWavesHex																	DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Pelagic Hunter Focus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:PelagicHunterFocusAbility											PLURAL:Pelagic Hunter Foci			DISPLAYLOCATION:Class Features
+
+#
+# End
+#

@@ -1,0 +1,103 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Weapon Master's Handbook	SOURCESHORT:WMH	SOURCEWEB:http://paizo.com/products/btpy9hdy	SOURCEDATE:2015-12
+
+###Block:
+# Ability Name			Category of Ability	Type		Required AL		Required Text							PRETOTALAB		Description																																		Stackable?	Multiple?	Choose		Bonus Ability Pool				Source Page		Benefits
+CATEGORY=FEAT|Weapon Trick.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Divine Fighting Technique.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+###Block: Racial Feats
+# Ability Name			Category of Ability	Type			Required Ability																																	Required Base Size	Multiple Requirements																		Required Skill		Required Text																													PRETOTALAB		Description																		Source Page		Benefits
+CATEGORY=FEAT|Dwarven Fury.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=FEAT|Dwarven Hatred Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Dwarven Seething.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=FEAT|Elven Battle Focus.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	DESC:(PFS: Elven Battle Focus functions only for melee weapons.)
+CATEGORY=FEAT|Elven Battle Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Elven Battle Torrent.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Illusive Gnome Bewilderment.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Illusive Gnome Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Illusive Gnome Surprise.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Orc Fury Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=FEAT|Orc Rampage.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=FEAT|Orc Snarl.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=FEAT|Slipslinger Bombardment.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Slipslinger Grenadier.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Slipslinger Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+###Block: RANGED WEAPON STYLE FEATS
+# Ability Name			Category of Ability	Type			Required Ability																					Required Text																							PRETOTALAB		Description																Source Page		Benefits
+CATEGORY=FEAT|Empty Quiver Flexibility.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Empty Quiver Flurry.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Empty Quiver Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Overwatch Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+#
+CATEGORY=FEAT|Overwatch Tactician.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=FEAT|Overwatch Vortex.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=FEAT|Startoss Comet.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Startoss Shower.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Startoss Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+###Block: MELEE WEAPON STYLE FEATS
+# Ability Name		Category of Ability	Type			Required Ability																							Multiple Requirements																														Required Stat	Required Text																									PRETOTALAB		Description															Source Page		Benefits
+CATEGORY=FEAT|Ascetic Form.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=FEAT|Ascetic Strike.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=FEAT|Ascetic Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=FEAT|Outslug Sprint.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Outslug Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Outslug Weave.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Smashing Crush.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Smashing Dent.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Smashing Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Spear Dancing Reach.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Spear Dancing Spiral.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Spear Dancing Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Swordplay Deflection.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Swordplay Style.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Swordplay Upset.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+
+###Block:
+# Ability Name			Category of Ability	Type		Multiple Requirements																																										PRETOTALAB		Define						Description											Bonus Ability Pool						Modify VAR						Source Page		Benefits
+CATEGORY=FEAT|Advanced Weapon Training.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Martial Focus.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+###Block: Ranged Weapon Mastery Feats
+# Ability Name		Category of Ability	Type					Required Ability								Multiple Requirements																		Required Stat	Required Text																									PRETOTALAB		Description																					Source Page		Benefits
+CATEGORY=FEAT|Ace Disarm.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Ace Trip.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Burrowing Shot.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=FEAT|Finesse Shot.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Impressive Grit.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Liberating Shot.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Marksman's Utility.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Ricochet Toss.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+###Block: Melee Weapon Mastery
+# Ability Name		Category of Ability	Type					Required Ability								Multiple Requirements																			Required Skill		Required Stat	Required Text																								PRETOTALAB		Description													Source Page		Benefits
+CATEGORY=FEAT|Cut from the Air.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Devastating Assault.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Difficult Swings.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Retributive Kick.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Smash from the Air.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=FEAT|Spellcut.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Targeted Blow.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Weapon Material Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+CATEGORY=FEAT|Weapon Style Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal
+
+###Block: Item Mastery Feats
+# Ability Name		Category of Ability	Type					Required Ability								Required Check Base		Required Skill			Required Text												PRETOTALAB		Description															Source Page		Benefits
+CATEGORY=FEAT|Compulsion Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	DESC:(PFS: When qualifying for and calculating the benefits of an item mastery feat, a PC uses the base Fortitude save bonus from only one of his classes. PCGen is unable to determine this automatically.)
+CATEGORY=FEAT|Curse Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	DESC:(PFS: When qualifying for and calculating the benefits of an item mastery feat, a PC uses the base Fortitude save bonus from only one of his classes. PCGen is unable to determine this automatically.)
+CATEGORY=FEAT|Dispel Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	DESC:(PFS: When qualifying for and calculating the benefits of an item mastery feat, a PC uses the base Fortitude save bonus from only one of his classes. PCGen is unable to determine this automatically.)
+CATEGORY=FEAT|Energy Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	DESC:(PFS: When qualifying for and calculating the benefits of an item mastery feat, a PC uses the base Fortitude save bonus from only one of his classes. PCGen is unable to determine this automatically.)
+CATEGORY=FEAT|Flight Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	DESC:(PFS: When qualifying for and calculating the benefits of an item mastery feat, a PC uses the base Fortitude save bonus from only one of his classes. PCGen is unable to determine this automatically.)
+CATEGORY=FEAT|Illusion Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	DESC:(PFS: When qualifying for and calculating the benefits of an item mastery feat, a PC uses the base Fortitude save bonus from only one of his classes. PCGen is unable to determine this automatically.)
+CATEGORY=FEAT|Telekinetic Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	DESC:(PFS: When qualifying for and calculating the benefits of an item mastery feat, a PC uses the base Fortitude save bonus from only one of his classes. PCGen is unable to determine this automatically.)
+CATEGORY=FEAT|Teleportation Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	DESC:(PFS: When qualifying for and calculating the benefits of an item mastery feat, a PC uses the base Fortitude save bonus from only one of his classes. PCGen is unable to determine this automatically.)
+CATEGORY=FEAT|Vision Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal	DESC:(PFS: When qualifying for and calculating the benefits of an item mastery feat, a PC uses the base Fortitude save bonus from only one of his classes. PCGen is unable to determine this automatically.)
+
+#PFS: When qualifying for and calculating the benefits of an item mastery feat, a PC uses the base Fortitude save bonus from only one of his classes.
+
+###Support###
+CATEGORY=FEAT|Bullseye Shot.MOD	PRETYPE:1,PFSLegal	TYPE:PFSLegal

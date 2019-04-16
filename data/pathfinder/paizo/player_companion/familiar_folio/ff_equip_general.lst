@@ -1,0 +1,33 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Familiar Folio	SOURCESHORT:FF	SOURCEWEB:http://paizo.com/products/btpy9au2?Pathfinder-Player-Companion-Familiar-Folio	SOURCEDATE:2014-12
+
+# ==============================
+# New Aquipment
+# ==============================
+
+# Equipment Name			Type					Cost		Weight	Source Page		Special Property
+Aquarium Ball			TYPE:Goods.General		COST:80	WT:20		SOURCEPAGE:p.20
+Beast Whistle(Avian)		TYPE:Goods.General		COST:5			SOURCEPAGE:p.20
+Beast Whistle(Canine)		TYPE:Goods.General		COST:5			SOURCEPAGE:p.20
+Beast Whistle(Feline)		TYPE:Goods.General		COST:5			SOURCEPAGE:p.20
+Beast Whistle(Rodent)		TYPE:Goods.General		COST:5			SOURCEPAGE:p.20
+Beast Whistle(Reptile)		TYPE:Goods.General		COST:5			SOURCEPAGE:p.20
+Beast Whistle(Ungulate)		TYPE:Goods.General		COST:5			SOURCEPAGE:p.20
+Hide Dye (Cold)			TYPE:Goods.General		COST:20	WT:1		SOURCEPAGE:p.20
+Hide Dye (Desert)			TYPE:Goods.General		COST:20	WT:1		SOURCEPAGE:p.20
+Hide Dye (Forest)			TYPE:Goods.General		COST:20	WT:1		SOURCEPAGE:p.20
+Hide Dye (Jungle)			TYPE:Goods.General		COST:20	WT:1		SOURCEPAGE:p.20
+Hide Dye (Mountain)		TYPE:Goods.General		COST:20	WT:1		SOURCEPAGE:p.20
+Hide Dye (Plains)			TYPE:Goods.General		COST:20	WT:1		SOURCEPAGE:p.20
+Hide Dye (Swamp)			TYPE:Goods.General		COST:20	WT:1		SOURCEPAGE:p.20
+Hide Dye (Underground)		TYPE:Goods.General		COST:20	WT:1		SOURCEPAGE:p.20
+Hide Dye (Urban)			TYPE:Goods.General		COST:20	WT:1		SOURCEPAGE:p.20
+Hide Dye (Water)			TYPE:Goods.General		COST:20	WT:1		SOURCEPAGE:p.20
+
+# ==============================
+# New Drugs and Poisons
+# ==============================
+
+Drug (Catnip)			TYPE:Goods.Drug.Consumable	COST:5			SOURCEPAGE:p.20	SPROP:Ingested; Addiction minor, Fortitude DC 11 Effects 1d6 minutes (felines only); +1 Initiative, +2 Reflex saves; Effect after 1d6 minutes; Fatigued for 1d3 hours; 1 Wis damage
+Poison (Hazemind Concentrate)	TYPE:Goods.Poison.Consumable	COST:200			SOURCEPAGE:p.20	SPROP:Injury; Fort DC 16; Onset 1 rnd; Freq 1 rnd (6); Effect DCs to influence with Charisma, Diplomacy, Handle Animal, or Intimidate checks increase by 4; Cure 1 save
+Poison (Hazemind Mist)		TYPE:Goods.Poison.Consumable	COST:225			SOURCEPAGE:p.20	SPROP:Inhaled; Fort DC 13; Onset 1 rnd; Freq 1 rnd (10); Effect DCs to influence with Charisma, Diplomacy, Handle Animal, or Intimidate checks increase by 4; Cure 1 save

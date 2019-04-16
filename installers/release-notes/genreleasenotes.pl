@@ -6,7 +6,6 @@
 # This script prepares release notes for PCGen release. It converts roadmap 
 # extracts into changelogs and the changes report to a What's New section.
 #
-# $Id: release.pl 1639 2006-11-12 11:45:20Z jdempsey $
 
 
 use strict;

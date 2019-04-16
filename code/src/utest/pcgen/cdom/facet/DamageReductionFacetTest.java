@@ -1,6 +1,4 @@
 /*
- * DamageReductionTest.java
- *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,13 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision: $
- *
- *
- *
  */
 package pcgen.cdom.facet;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.HashSet;
 import java.util.IdentityHashMap;
@@ -40,6 +36,9 @@ import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * This class tests the handling of DRs in PCGen
  */
@@ -47,10 +46,11 @@ import pcgen.core.Race;
 public class DamageReductionFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, DamageReduction>
 {
-	private DamageReductionFacet facet = new DamageReductionFacet();
+	private final DamageReductionFacet facet = new DamageReductionFacet();
 	private DamageReduction[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -72,6 +72,7 @@ public class DamageReductionFacetTest extends
 	/**
 	 * Test the retrieval of the DR String
 	 */
+	@Test
 	public void testGetDRString()
 	{
 		DamageReductionFacet drFacet = new DamageReductionFacet();
@@ -80,7 +81,7 @@ public class DamageReductionFacetTest extends
 		drFacet.setBonusCheckingFacet(new BonusCheckingFacet()
 		{
 			@Override
-			public double getBonus(CharID id, String bonusType, String bonusName)
+			public double getBonus(CharID charID, String bonusType, String bonusName)
 			{
 				return 0.0d;
 			}	
@@ -89,7 +90,7 @@ public class DamageReductionFacetTest extends
 		Map<DamageReduction, Set<Object>> drList =
                 new IdentityHashMap<>();
 		String listResult = drFacet.getDRString(id, drList);
-		assertEquals(listResult, "");
+		assertEquals("", listResult);
 		Set<Object> sourceSet = new HashSet<>();
 		sourceSet.add(new Object());
 

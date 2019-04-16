@@ -1,5 +1,4 @@
 /*
- * TreeTableModel.java
  *
  * Copyright (c) 1998 Sun Microsystems, Inc. All Rights Reserved.
  *
@@ -29,14 +28,12 @@ import javax.swing.tree.TreeModel;
  * the TreeTableModel can return a value for each of the columns and
  * set that value if isCellEditable() returns true.
  *
- * @author Philip Milne
- * @author Scott Violet
  */
 public interface TreeTableModel extends TreeModel
 {
 	/**
-	 * Indicates whether the value for node <code>node</code>,
-	 * at column number <code>column</code> is editable.
+	 * Indicates whether the value for node {@code node},
+	 * at column number {@code column} is editable.
 	 * @param node
 	 * @param column
 	 * @return TRUE if cell is editable
@@ -44,7 +41,7 @@ public interface TreeTableModel extends TreeModel
 	boolean isCellEditable(Object node, int column);
 
 	/**
-	 * Returns the type for column number <code>column</code>.
+	 * Returns the type for column number {@code column}.
 	 * @param column
 	 * @return Class
 	 */
@@ -57,15 +54,15 @@ public interface TreeTableModel extends TreeModel
 	int getColumnCount();
 
 	/**
-	 * Returns the name for column number <code>column</code>.
+	 * Returns the name for column number {@code column}.
 	 * @param column
 	 * @return column name
 	 */
 	String getColumnName(int column);
 
 	/**
-	 * Sets the value for node <code>node</code>,
-	 * at column number <code>column</code>.
+	 * Sets the value for node {@code node},
+	 * at column number {@code column}.
 	 * @param aValue
 	 * @param node
 	 * @param column
@@ -73,8 +70,8 @@ public interface TreeTableModel extends TreeModel
 	void setValueAt(Object aValue, Object node, int column);
 
 	/**
-	 * Returns the value to be displayed for node <code>node</code>,
-	 * at column number <code>column</code>.
+	 * Returns the value to be displayed for node {@code node},
+	 * at column number {@code column}.
 	 * @param node
 	 * @param column
 	 * @return Object

@@ -16,27 +16,24 @@
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- *  PcgCombatant.java
  *
- *  Created on January 16, 2002, 12:27 PM
  */
 package gmgen.plugin;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.lang.StringUtils;
-import org.jdom2.Element;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Domain;
@@ -60,8 +57,10 @@ import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
+import org.apache.commons.lang3.StringUtils;
+import org.jdom2.Element;
+
 /**
- *@author     devon
  */
 public class PcgCombatant extends Combatant
 {
@@ -83,11 +82,9 @@ public class PcgCombatant extends Combatant
 		display = pc.getDisplay();
 		this.init = new PcgSystemInitiative(pc);
 
-		PCStat stat = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(PCStat.class, "CON");
-		this.hitPoints = new SystemHP(new SystemAttribute("Constitution",
-				pc.getTotalStatFor(stat)), pc.hitPoints(), pc
-				.hitPoints());
+		PCStat stat = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, "CON");
+		this.hitPoints = new SystemHP(new SystemAttribute("Constitution", pc.getTotalStatFor(stat)), pc.hitPoints(),
+			pc.hitPoints());
 		setCombatantType("PC");
 	}
 
@@ -108,14 +105,11 @@ public class PcgCombatant extends Combatant
 		messageHandler = mh;
 		try
 		{
-			String pcgFilename = combatant.getChild("PCG").getAttribute("file")
-				.getValue();
+			String pcgFilename = combatant.getChild("PCG").getAttribute("file").getValue();
 			if (StringUtils.isNotBlank(pcgFilename))
 			{
-				File pcgFile =
-						new File(pcgFilename);
-				RequestOpenPlayerCharacterMessage msg =
-						new RequestOpenPlayerCharacterMessage(comp, pcgFile, true);
+				File pcgFile = new File(pcgFilename);
+				RequestOpenPlayerCharacterMessage msg = new RequestOpenPlayerCharacterMessage(comp, pcgFile, true);
 				messageHandler.handleMessage(msg);
 				this.pc = msg.getPlayerCharacter();
 			}
@@ -127,36 +121,29 @@ public class PcgCombatant extends Combatant
 			this.display = pc.getDisplay();
 			this.init = new PcgSystemInitiative(pc);
 
-			PCStat stat = Globals.getContext().getReferenceContext()
-					.silentlyGetConstructedCDOMObject(PCStat.class, "CON");
-			this.hitPoints =
-					new SystemHP(new SystemAttribute("Constitution", pc.getTotalStatFor(stat)), pc.hitPoints(), pc
-						.hitPoints());
+			PCStat stat =
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCStat.class, "CON");
+			this.hitPoints = new SystemHP(new SystemAttribute("Constitution", pc.getTotalStatFor(stat)), pc.hitPoints(),
+				pc.hitPoints());
 
 			setStatus(State.getState(combatant.getAttribute("status").getValue()));
 			setCombatantType(combatant.getAttribute("type").getValue());
 
-			init.setBonus(combatant.getChild("Initiative")
-				.getAttribute("bonus").getIntValue());
+			init.setBonus(combatant.getChild("Initiative").getAttribute("bonus").getIntValue());
 
 			try
 			{
-				init.setCurrentInitiative(combatant.getChild("Initiative")
-					.getAttribute("current").getIntValue());
+				init.setCurrentInitiative(combatant.getChild("Initiative").getAttribute("current").getIntValue());
 			}
 			catch (Exception e)
 			{
 				//Not necessarily set
 			}
 
-			hitPoints.setMax(combatant.getChild("HitPoints")
-				.getAttribute("max").getIntValue());
-			hitPoints.setCurrent(combatant.getChild("HitPoints").getAttribute(
-				"current").getIntValue());
-			hitPoints.setSubdual(combatant.getChild("HitPoints").getAttribute(
-				"subdual").getIntValue());
-			hitPoints.setState(State.getState(combatant.getChild("HitPoints").getAttribute(
-				"state").getValue()));
+			hitPoints.setMax(combatant.getChild("HitPoints").getAttribute("max").getIntValue());
+			hitPoints.setCurrent(combatant.getChild("HitPoints").getAttribute("current").getIntValue());
+			hitPoints.setSubdual(combatant.getChild("HitPoints").getAttribute("subdual").getIntValue());
+			hitPoints.setState(State.getState(combatant.getChild("HitPoints").getAttribute("state").getValue()));
 		}
 		catch (Exception e)
 		{
@@ -170,8 +157,8 @@ public class PcgCombatant extends Combatant
 	 * TODO  I'm not sure that it should be current - the newly calculated or an entire replacement
 	 * It appears it's called from 2 different places, one which adjusts the CR, the other ?
 	 * 
-	 * In the case of adjusting the CR the calculation is wrong anyhow, surely it should be calculated 
-	 * - the value passed in?
+	 * In the case of adjusting the CR the calculation is wrong anyhow,
+	 * surely it should be calculated - the value passed in?
 	 *
 	 * @param  cr  new CR value
 	 */
@@ -208,7 +195,7 @@ public class PcgCombatant extends Combatant
 	 *
 	 *@return    The name
 	 */
-    @Override
+	@Override
 	public String getName()
 	{
 		return display.getName();
@@ -231,7 +218,7 @@ public class PcgCombatant extends Combatant
 	 */
 	public void setPlayer(String player)
 	{
-		pc.setPCAttribute(PCAttribute.PLAYERSNAME, player);
+		pc.setPCAttribute(PCStringKey.PLAYERSNAME, player);
 	}
 
 	/**
@@ -239,13 +226,13 @@ public class PcgCombatant extends Combatant
 	 *
 	 *@return    The player's name
 	 */
-    @Override
+	@Override
 	public String getPlayer()
 	{
 		return display.getPlayersName();
 	}
 
-    @Override
+	@Override
 	public Element getSaveElement()
 	{
 		Element retElement = new Element("PcgCombatant");
@@ -253,23 +240,22 @@ public class PcgCombatant extends Combatant
 		Element hp = new Element("HitPoints");
 		Element pcg = new Element("PCG");
 
-		pcg.setAttribute("file", pc.getFileName() + "");
+		pcg.setAttribute("file", pc.getFileName());
 		retElement.addContent(pcg);
 
-		initiative.setAttribute("bonus", init.getModifier() + "");
+		initiative.setAttribute("bonus", String.valueOf(init.getModifier()));
 
 		if (init.getCurrentInitiative() > 0)
 		{
-			initiative
-				.setAttribute("current", init.getCurrentInitiative() + "");
+			initiative.setAttribute("current", String.valueOf(init.getCurrentInitiative()));
 		}
 
 		retElement.addContent(initiative);
 
-		hp.setAttribute("current", hitPoints.getCurrent() + "");
-		hp.setAttribute("subdual", hitPoints.getSubdual() + "");
-		hp.setAttribute("max", hitPoints.getMax() + "");
-		hp.setAttribute("state", hitPoints.getState() + "");
+		hp.setAttribute("current", String.valueOf(hitPoints.getCurrent()));
+		hp.setAttribute("subdual", String.valueOf(hitPoints.getSubdual()));
+		hp.setAttribute("max", String.valueOf(hitPoints.getMax()));
+		hp.setAttribute("state", String.valueOf(hitPoints.getState()));
 		retElement.addContent(hp);
 
 		retElement.setAttribute("name", getName());
@@ -299,7 +285,7 @@ public class PcgCombatant extends Combatant
 	@Override
 	public int getXP()
 	{
-		return display.getXP();
+		return pc.getXP();
 	}
 
 	/**
@@ -309,12 +295,12 @@ public class PcgCombatant extends Combatant
 	 *@param  colNumber    What column number has been edited
 	 *@param  data         The new value for the field
 	 */
-    @Override
+	@Override
 	public void editRow(List<String> columnOrder, int colNumber, Object data)
 	{
 		String columnName = columnOrder.get(colNumber);
 		String strData = String.valueOf(data);
-
+		Integer intData = Integer.valueOf(strData);
 		//Determine which row was edited
 		switch (columnName)
 		{
@@ -331,50 +317,36 @@ public class PcgCombatant extends Combatant
 				setStatus(State.getStateLocalised(strData));
 				break;
 			case "+":
-			{
-				// Initative bonus
-				Integer intData = Integer.valueOf(strData);
+				// Initiative bonus
+				
 				init.setBonus(intData.intValue());
 				break;
-			}
 			case "Init":
-			{
-				// Initative
-				Integer intData = Integer.valueOf(strData);
+				// Initiative
 				init.setCurrentInitiative(intData.intValue());
 				break;
-			}
 			case "#":
-			{
 				// Number (for tokens)
-				Integer intData = Integer.valueOf(strData);
 				setNumber(intData.intValue());
 				break;
-			}
 			case "HP":
-			{
 				// Current Hit Points
-				Integer intData = Integer.valueOf(strData);
 				hitPoints.setCurrent(intData.intValue());
 				break;
-			}
 			case "HP Max":
-			{
 				// Maximum Hit Points
-				Integer intData = Integer.valueOf(strData);
 				hitPoints.setMax(intData.intValue());
 				break;
-			}
 			case "Dur":
-			{
 				// Duration
-				Integer intData = Integer.valueOf(strData);
 				setDuration(intData.intValue());
 				break;
-			}
 			case "Type":
 				// Type
 				setCombatantType(strData);
+				break;
+			default:
+				//Case not caught, should this cause an error?
 				break;
 		}
 	}
@@ -393,11 +365,6 @@ public class PcgCombatant extends Combatant
 	{
 		protected String htmlString;
 		protected int serial = 0;
-
-		public PcRenderer()
-		{
-			// Do Nothing
-		}
 
 		/**
 		 * <p>
@@ -445,26 +412,6 @@ public class PcgCombatant extends Combatant
 				htmlString = statBuf.toString();
 			}
 			return htmlString;
-
-			//TODO: As Outputsheet is *always* false, I commented out the unreachable code.
-			//TODO: I will delete it sometime after january unless this has been changed. JK 2003-12-28
-			//TODO: This was changed this way so we could easily re-enable the bypassed code if we managed
-			//      to get the ExportHandler stuff working any faster.  RML 2004-01-30
-			//boolean outputSheet = false;
-			//if(outputSheet) {
-			//	String baseDir = SettingsHandler.getGmgenPluginDir().toString();
-			//	String initiativeDir =
-			//		SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".initiativeDir", "Initiative");
-			//	String templateName = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".templateName", "csheet_gmgen_statblock.htm");
-			//	File template = new File(baseDir + File.separator + initiativeDir + File.separator + templateName);
-			//	ExportHandler export = new ExportHandler(template);
-			//	StringWriter sWriter = new StringWriter();
-			//	export.write(pc,new BufferedWriter(sWriter));
-			//	aPane.setEditorKit(aPane.getEditorKitForContentType("text/html"));
-			//	aPane.setText(sWriter.toString());
-			//}
-			//else {
-			//int bonus = 0;
 		}
 
 		protected String getStatBlockCore()
@@ -492,8 +439,7 @@ public class PcgCombatant extends Combatant
 			statBuf.append(pcOut.getHitPoints()); //|HP|
 			statBuf.append("; ");
 
-			statBuf
-				.append("<font class='type'>Init</font> <font class='highlight'>");
+			statBuf.append("<font class='type'>Init</font> <font class='highlight'>");
 			statBuf.append(pcOut.getInitTotal()); //|INITIATIVEMOD|
 			statBuf.append("</font> (");
 			statBuf.append(pcOut.getInitStatMod()); //|STAT.1.MOD|
@@ -505,8 +451,7 @@ public class PcgCombatant extends Combatant
 			statBuf.append(pcOut.getSpeed()); //|MOVEMENT|
 			statBuf.append(";<br>");
 
-			statBuf
-				.append("<font class='type'>AC</font> <font class='highlight'>");
+			statBuf.append("<font class='type'>AC</font> <font class='highlight'>");
 			statBuf.append(pcOut.getAC()); //|AC.Total|
 			statBuf.append("</font> (flatfooted <font class='highlight'>");
 			statBuf.append(pcOut.getACFlatFooted()); //|AC.Flatfooted|
@@ -514,15 +459,13 @@ public class PcgCombatant extends Combatant
 			statBuf.append(pcOut.getACTouch()); //|AC.Touch|
 			statBuf.append("</font>);<br>");
 
-			statBuf
-				.append("<font class='type'>Melee:</font> <a href='attack:Melee\\");
+			statBuf.append("<font class='type'>Melee:</font> <a href='attack:Melee\\");
 			statBuf.append(pcOut.getMeleeTotal()); //|ATTACK.MELEE.TOTAL|
 			statBuf.append("' class='highlight'>");
 			statBuf.append(pcOut.getMeleeTotal()); //|ATTACK.MELEE.TOTAL|
 			statBuf.append("</a>; ");
 
-			statBuf
-				.append("<font class='type'>Ranged:</font> <a href='attack:Ranged\\");
+			statBuf.append("<font class='type'>Ranged:</font> <a href='attack:Ranged\\");
 			statBuf.append(pcOut.getRangedTotal()); //|ATTACK.RANGED.TOTAL|
 			statBuf.append("' class='highlight'>");
 			statBuf.append(pcOut.getRangedTotal()); //|ATTACK.RANGED.TOTAL|
@@ -530,20 +473,19 @@ public class PcgCombatant extends Combatant
 
 			statBuf.append("<font class='type'>Weapons:</font>");
 
-			List<Equipment> weaponList =
-					pc.getExpandedWeapons(Constants.MERGE_ALL);
+			List<Equipment> weaponList = pc.getExpandedWeapons(Constants.MERGE_ALL);
 
 			for (int i = 0; i < weaponList.size(); i++)
 			{
 				Equipment eq = weaponList.get(i);
 				statBuf.append("<a href=" + '"' + "attack:");
-				statBuf.append(pcOut.getWeaponName(eq)); //|WEAPON.%weap.NAME|
+				statBuf.append(PlayerCharacterOutput.getWeaponName(eq)); //|WEAPON.%weap.NAME|
 				statBuf.append("\\");
 				statBuf.append(pcOut.getWeaponToHit(i)); //|WEAPON.%weap.TOTALHIT|
 				statBuf.append("\\");
 				statBuf.append(pcOut.getWeaponRange(eq)); //|WEAPON.%weap.RANGE|
 				statBuf.append("\\");
-				statBuf.append(pcOut.getWeaponType(eq)); //|WEAPON.%weap.TYPE|
+				statBuf.append(PlayerCharacterOutput.getWeaponType(eq)); //|WEAPON.%weap.TYPE|
 				statBuf.append("\\");
 				statBuf.append(pcOut.getWeaponDamage(i)); //|WEAPON.%weap.DAMAGE|
 				statBuf.append("\\");
@@ -551,20 +493,20 @@ public class PcgCombatant extends Combatant
 				statBuf.append("\\");
 				statBuf.append(pcOut.getWeaponCritMult(i)); //|WEAPON.%weap.MULT|
 				statBuf.append("\\");
-				statBuf.append(pcOut.getWeaponHand(eq)); //|WEAPON.%weap.HAND|
+				statBuf.append(PlayerCharacterOutput.getWeaponHand(eq)); //|WEAPON.%weap.HAND|
 				statBuf.append("\\");
-				statBuf.append(pcOut.getWeaponSize(eq)); //|WEAPON.%weap.SIZE|
+				statBuf.append(PlayerCharacterOutput.getWeaponSize(eq)); //|WEAPON.%weap.SIZE|
 				statBuf.append("\\");
 				statBuf.append(pcOut.getWeaponSpecialProperties(eq)); //|WEAPON.%weap.SPROP|
 				statBuf.append('"' + " class=" + '"' + "dialog" + '"' + "> ");
 
-				statBuf.append(pcOut.getWeaponName(eq)); //|WEAPON.%weap.NAME|
+				statBuf.append(PlayerCharacterOutput.getWeaponName(eq)); //|WEAPON.%weap.NAME|
 				statBuf.append(" ");
 				statBuf.append(pcOut.getWeaponToHit(i)); //|WEAPON.%weap.TOTALHIT|
 				statBuf.append(" ");
 				statBuf.append(pcOut.getWeaponRange(eq)); //|WEAPON.%weap.RANGE|
 				statBuf.append("/");
-				statBuf.append(pcOut.getWeaponType(eq)); //|WEAPON.%weap.TYPE|
+				statBuf.append(PlayerCharacterOutput.getWeaponType(eq)); //|WEAPON.%weap.TYPE|
 				statBuf.append(" (");
 				statBuf.append(pcOut.getWeaponDamage(i)); //|WEAPON.%weap.DAMAGE|
 				statBuf.append(" ");
@@ -572,9 +514,9 @@ public class PcgCombatant extends Combatant
 				statBuf.append("/x");
 				statBuf.append(pcOut.getWeaponCritMult(i)); //|WEAPON.%weap.MULT|
 				statBuf.append(" ");
-				statBuf.append(pcOut.getWeaponHand(eq)); //|WEAPON.%weap.HAND|
+				statBuf.append(PlayerCharacterOutput.getWeaponHand(eq)); //|WEAPON.%weap.HAND|
 				statBuf.append(" ");
-				statBuf.append(pcOut.getWeaponSize(eq)); //|WEAPON.%weap.SIZE|
+				statBuf.append(PlayerCharacterOutput.getWeaponSize(eq)); //|WEAPON.%weap.SIZE|
 				statBuf.append(" ");
 				statBuf.append(pcOut.getWeaponSpecialProperties(eq)); //|WEAPON.%weap.SPROP|
 				statBuf.append(") </a> or ");
@@ -627,64 +569,22 @@ public class PcgCombatant extends Combatant
 			statBuf.append("<font class='type'>SA:</font> ");
 			statBuf.append(pcOut.getSpecialAbilities()); //|SPECIALLIST|
 
-			int turnTimes =
-					pc.getVariableValue("TurnTimesUndead", "").intValue();
+			int turnTimes = pc.getVariableValue("TurnTimesUndead", "").intValue();
 			if (turnTimes > 0)
 			{
-				int turnDieNumber =
-						pc.getVariableValue("TurnDiceUndead", "").intValue();
-				int turnDieSize =
-						pc.getVariableValue("TurnDieSizeUndead", "").intValue();
-				int turnDamage =
-						pc.getVariableValue("TurnDamagePlusUndead", "")
-							.intValue();
-				int turnLevel =
-						pc.getVariableValue("TurnLevelUndead", "").intValue();
-				int turnCheck =
-						pc.getVariableValue("TurnCheckUndead", "").intValue();
+				int turnDieNumber = pc.getVariableValue("TurnDiceUndead", "").intValue();
+				int turnDieSize = pc.getVariableValue("TurnDieSizeUndead", "").intValue();
+				int turnDamage = pc.getVariableValue("TurnDamagePlusUndead", "").intValue();
+				int turnLevel = pc.getVariableValue("TurnLevelUndead", "").intValue();
+				int turnCheck = pc.getVariableValue("TurnCheckUndead", "").intValue();
 
-				statBuf
-					.append("; <font class='type'>Turn/Rebuke Undead:</font> Turning level "
-						+ "<a href="
-						+ '"'
-						+ "dice:Turn Undead (Max HD Affected)\\"
-						+ "max(min(max((ceil((1d20"
-						+ (turnCheck > 0 ? "+" : "")
-						+ turnCheck
-						+ ")/3)-4),-4),4)+"
-						+ turnLevel
-						+ ",0)"
-						+ '"'
-						+ " class="
-						+ '"'
-						+ "dialog"
-						+ '"'
-						+ "> "
-						+ turnLevel
-						+ "</a>, Turn Damage: "
-						+ "<a href="
-						+ '"'
-						+ "dice:Turn Damage (Total HD Affected)\\"
-						+ "max("
-						+ turnDieNumber
-						+ "d"
-						+ turnDieSize
-						+ (turnDamage > 0 ? "+" : "")
-						+ turnDamage
-						+ ",0)"
-						+ '"'
-						+ " class="
-						+ '"'
-						+ "dialog"
-						+ '"'
-						+ "> "
-						+ turnDieNumber
-						+ "d"
-						+ turnDieSize
-						+ (turnDamage > 0 ? "+" : "")
-						+ turnDamage
-						+ "</a>, "
-						+ turnTimes + "/day");
+				statBuf.append("; <font class='type'>Turn/Rebuke Undead:</font> Turning level " + "<a href=" + '"'
+					+ "dice:Turn Undead (Max HD Affected)\\" + "max(min(max((ceil((1d20" + (turnCheck > 0 ? "+" : "")
+					+ turnCheck + ")/3)-4),-4),4)+" + turnLevel + ",0)" + '"' + " class=" + '"' + "dialog" + '"' + "> "
+					+ turnLevel + "</a>, Turn Damage: " + "<a href=" + '"' + "dice:Turn Damage (Total HD Affected)\\"
+					+ "max(" + turnDieNumber + "d" + turnDieSize + (turnDamage > 0 ? "+" : "") + turnDamage + ",0)"
+					+ '"' + " class=" + '"' + "dialog" + '"' + "> " + turnDieNumber + "d" + turnDieSize
+					+ (turnDamage > 0 ? "+" : "") + turnDamage + "</a>, " + turnTimes + "/day");
 			}
 			statBuf.append("; ");
 
@@ -693,14 +593,12 @@ public class PcgCombatant extends Combatant
 			statBuf.append(" ");
 
 			statBuf.append("<font class='type'>AL:</font> ");
-			statBuf.append(pcOut.getAlignmentShort()); //|ALIGNMENT.SHORT|
+			statBuf.append(pcOut.getAlignment()); //|ALIGNMENT.SHORT|
 			statBuf.append("; ");
 
-			statBuf
-				.append("<font class='type'>Sv:</font> ");
+			statBuf.append("<font class='type'>Sv:</font> ");
 			boolean firstChk = true;
-			for (PCCheck chk : Globals.getContext().getReferenceContext()
-					.getOrderSortedCDOMObjects(PCCheck.class))
+			for (PCCheck chk : Globals.getContext().getReferenceContext().getSortkeySortedCDOMObjects(PCCheck.class))
 			{
 				if (!firstChk)
 				{
@@ -717,7 +615,10 @@ public class PcgCombatant extends Combatant
 			}
 			statBuf.append(";<br>");
 
-			for (PCStat stat : pcOut.getUnmodifiableStatList())
+			List<PCStat> statList = new ArrayList<>(pcOut.getUnmodifiableStatList());
+			statList.sort(Comparator.comparing(SortKeyRequired::getSortKey));
+
+			for (PCStat stat : statList)
 			{
 				String statAbb = stat.getKeyName();
 				if (display.isNonAbility(stat))
@@ -786,24 +687,23 @@ public class PcgCombatant extends Combatant
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 
 			statBuf.append("<p><font class='type'>Possessions:</font>&nbsp;");
-			statBuf.append(pcOut.getEquipmentList()); //|FOR.0,(COUNT[EQUIPMENT]+1),1,&nbsp;\EQ.%.QTY\&nbsp;\EQ.%.NAME\, ,COMMA,1|
+			statBuf.append(pcOut.getEquipmentList());
+			//|FOR.0,(COUNT[EQUIPMENT]+1),1,&nbsp;\EQ.%.QTY\&nbsp;\EQ.%.NAME\, ,COMMA,1|
 			statBuf.append("</p>");
 
 			return statBuf.toString();
 		}
 
-		protected String getStatBlockLineSkills()
+		String getStatBlockLineSkills()
 		{
 			StringBuilder statBuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 
-			statBuf
-				.append("<p><font class='type'>Skills and Feats:</font>&nbsp;");
+			statBuf.append("<p><font class='type'>Skills and Feats:</font>&nbsp;");
 
 			//force refresh of skills
 			List<Skill> skillList =
-					SkillDisplay.getSkillListInOutputOrder(pc, display
-						.getPartialSkillList(View.VISIBLE_EXPORT));
+					SkillDisplay.getSkillListInOutputOrder(pc, display.getPartialSkillList(View.VISIBLE_EXPORT));
 			boolean firstLine = true;
 
 			for (Skill skill : skillList)
@@ -815,26 +715,20 @@ public class PcgCombatant extends Combatant
 
 				firstLine = false;
 
-				int modSkill;
-
 				CDOMSingleRef<PCStat> keyStat = skill.get(ObjectKey.KEY_STAT);
 				if (keyStat != null)
 				{
-					modSkill =
-							SkillModifier.modifier(skill, pc).intValue()
-								- pc.getStatModFor(keyStat.get());
+					int modSkill = SkillModifier.modifier(skill, pc).intValue() - pc.getStatModFor(keyStat.get());
 					Logging.debugPrint("modSkill: " + modSkill);
 				}
 
-				int temp =
-						SkillModifier.modifier(skill, pc).intValue()
-							+ SkillRankControl.getTotalRank(pc, skill).intValue();
+				int temp = SkillModifier.modifier(skill, pc).intValue()
+					+ SkillRankControl.getTotalRank(pc, skill).intValue();
 
 				statBuf.append("<a href='skill:");
 				statBuf.append(skill.getOutputName()); //|SKILL.%skill|
 				statBuf.append("\\1d20");
-				statBuf.append(((temp < 0) ? Integer.toString(temp) : "+"
-					+ temp)); //|SKILL.%skill.TOTAL|
+				statBuf.append(((temp < 0) ? Integer.toString(temp) : "+" + temp)); //|SKILL.%skill.TOTAL|
 				statBuf.append("' class='dialog'> ");
 
 				statBuf.append(skill.getOutputName()); //|SKILL.%skill|
@@ -876,9 +770,10 @@ public class PcgCombatant extends Combatant
 
 					firstLine = false;
 
-					statBuf.append(pcOut.getDomainName(dom)); //|DOMAIN|
+					statBuf.append(PlayerCharacterOutput.getDomainName(dom)); //|DOMAIN|
 					statBuf.append(" (");
-					statBuf.append(DescriptionFormatting.piWrapDesc(dom, pc.getDescription(dom), true)); //|DOMAIN.POWER|
+					statBuf.append(
+						DescriptionFormatting.piWrapDesc(dom, pc.getDescription(dom), true)); //|DOMAIN.POWER|
 					statBuf.append(")");
 				}
 
@@ -887,154 +782,7 @@ public class PcgCombatant extends Combatant
 
 			statBuf.append("<p>");
 
-			/*
-				 <p>
-				 <!-- Start Racial Innate Spells -->
-				 |FOR,%spellrace,COUNT[SPELLRACE],COUNT[SPELLRACE],1,0|
-				 |IIF(%spellrace:0)|
-				 <!-- No innate spells -->
-				 |ELSE|
-				 |FOR,%spellbook,1,1,1,1|
-				 |FOR,%class,0,0,1,1|
-				 |FOR,%level,0,0,1,1|
-				 |%SPELLLISTBOOK%class.%level.%spellbook|
-				 <font class="type">Racial Innate Spells</font>
-				 <br>
-				 <!-- Start Racial Innate Spell listing -->
-				 |FOR,%spell,0,COUNT[SPELLSINBOOK%class.%spellbook.%level]-1,1,0|
-				 <a href="spell:|SPELLMEM.%class.%spellbook.%level.%spell.NAME|\|SPELLMEM.%class.%spellbook.%level.%spell.DESC|\|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|\|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|\|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|\|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|\|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|" class="dialog">
-				 |SPELLMEM.%class.%spellbook.%level.%spell.NAME|
-				 </a>
-				 (|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)(DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|),
-				 |ENDFOR|
-				 |%|
-				 |ENDFOR|
-				 |ENDFOR|
-				 |ENDFOR|
-				 <!-- End Racial Innate Spells -->
-				 <!-- Start Other Innate Spells -->
-				 |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
-				 <br>
-				 |FOR,%class,0,0,1,1|
-				 |FOR,%level,0,0,1,1|
-				 |%SPELLLISTBOOK%class.%level.%spellbook|
-				 <br>
-				 <font class="type">|SPELLBOOKNAME.%spellbook| Innate Spells</font>
-				 <br>
-				 |FOR,%spell,0,COUNT[SPELLSINBOOK%class.%spellbook.%level]-1,1,0|
-				 <a href="spell:|SPELLMEM.%class.%spellbook.%level.%spell.NAME|\|SPELLMEM.%class.%spellbook.%level.%spell.DESC|\|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|\|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|\|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|\|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|\|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|" class="dialog">
-				 |SPELLMEM.%class.%spellbook.%level.%spell.NAME|
-				 </a>
-				 (|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)(DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|),
-				 |ENDFOR|
-				 |%|
-				 |ENDFOR|
-				 |ENDFOR|
-				 |ENDFOR|
-				 <!-- End Other Innate Spells -->
-				 |ENDIF|
-				 |ENDFOR|
-				 <!-- End Innate Spells -->
-				 |FOR,%spellbook,0,0,1,0|
-				 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
-				 |%SPELLLISTCLASS%class|
-				 <!-- START Spell list Header Table (Known) -->
-				 <br>
-				 <font class="type">|SPELLLISTCLASS.%class|
-				 |IIF(SPELLLISTCLASS.%class:Psychic Warrior.OR.SPELLLISTCLASS.%class:Psion)|
-				 Powers
-				 |ELSE|
-				 Spells Known
-				 |ENDIF|
-				 </font>
-				 <br>
-				 <!-- End Spell List Header Table (Known) -->
-				 <!-- Start Known Spells -->
-				 |FOR,%level,0,9,1,1|
-				 |FOR,%spellcount,COUNT[SPELLSINBOOK%class.%spellbook.%level],COUNT[SPELLSINBOOK%class.%spellbook.%level],1,0|
-				 |IIF(%spellcount:0)|
-				 |ELSE|
-				 <br>
-				 <font class="type">Level %level</font>
-				 <br>
-				 |FOR,%spell,0,COUNT[SPELLSINBOOK%class.%spellbook.%level]-1,1,0|
-				 <a href="spell:|SPELLMEM.%class.%spellbook.%level.%spell.NAME|\|SPELLMEM.%class.%spellbook.%level.%spell.DESC|\|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|\|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|\|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|\|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|\|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|" class="dialog">
-				 |SPELLMEM.%class.%spellbook.%level.%spell.NAME|
-				 </a>,
-				 |IIF(SPELLLISTCLASS.%class:Psychic Warrior.OR.SPELLLISTCLASS.%class:Psion)|
-				 |FOR,%ppcost,(%level*2)-1,(%level*2)-1,1,1|
-				 |IIF(%ppcost:-1)|
-				 <i>PP:</i> 0/1
-				 |ELSE|
-				 <i>PP:</i> %ppcost
-				 |ENDIF|
-				 |ENDFOR|
-				 |ENDIF|
-				 |ENDFOR|
-				 |ENDIF|
-				 |ENDFOR|
-				 |ENDFOR|
-				 <br>
-				 |%|
-				 |ENDFOR|
-				 |ENDFOR|
-				 <!-- End Known Spells -->
-				 <!-- ================================================================ -->
-				 <!-- Start Prepared Spells -->
-				 |FOR,%memorised,COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2,COUNT[SPELLRACE]+COUNT[SPELLBOOKS]-2,1,0|
-				 |IIF(%memorised:0)|
-				 |ELSE|
-				 <!-- Start Regular Prepared -->
-				 |FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0|
-				 |FOR,%foo,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1|
-				 |FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1|
-				 |IIF(%foo:0.OR.%bar:0)|
-				 <br>
-				 <font class="type">|SPELLBOOKNAME.%spellbook| Spellbook:</font>
-				 <br>
-				 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
-				 <br>
-				 <font class="type">|SPELLLISTCLASS.%class|</font>
-				 <br>
-				 |FOR,%level,0,9,1,1|
-				 |FOR,%spelllevelcount,COUNT[SPELLSINBOOK%class.%spellbook.%level],COUNT[SPELLSINBOOK%class.%spellbook.%level],1,0|
-				 |IIF(%spelllevelcount:0)|
-				 <!-- no memorized spells for SPELLSINBOOK%class %spellbook %level -->
-				 |ELSE|
-				 <br>
-				 <font class="type">Level %level</font>
-				 <br>
-				 |FOR,%spell,0,COUNT[SPELLSINBOOK%class.%spellbook.%level]-1,1,0|
-				 <a href="spell:|SPELLMEM.%class.%spellbook.%level.%spell.NAME|\|SPELLMEM.%class.%spellbook.%level.%spell.DESC|\|SPELLMEM.%class.%spellbook.%level.%spell.RANGE|\|SPELLMEM.%class.%spellbook.%level.%spell.CASTINGTIME|\|SPELLMEM.%class.%spellbook.%level.%spell.SAVEINFO|\|SPELLMEM.%class.%spellbook.%level.%spell.DURATION|\|SPELLMEM.%class.%spellbook.%level.%spell.TARGET|" class="dialog">
-				 |SPELLMEM.%class.%spellbook.%level.%spell.NAME|
-				 </a>
-				 (|SPELLMEM.%class.%spellbook.%level.%spell.TIMES|)(DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|),
-				 |ENDFOR|
-				 |ENDIF|
-				 |ENDFOR|
-				 <!-- END FOR,%spellcount,COUNT[SPELLSINBOOK%class.%spellbook.0],COUNT[SPELLSINBOOK%class.%spellbook.0],1,0 -->
-				 |ENDFOR|
-				 <!-- END SPELLLISTCLASS%class -->
-				 |%|
-				 <!-- END FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1 -->
-				 |ENDFOR|
-				 |ELSE|
-				 |ENDIF|
-				 <!-- END FOR,%bar,COUNT[SPELLSINBOOK0.%spellbook.0],COUNT[SPELLSINBOOK0.%spellbook.0],1,1 -->
-				 |ENDFOR|
-				 <!-- END FOR,%foo,COUNT[SPELLRACE],COUNT[SPELLRACE],1,1 -->
-				 |ENDFOR|
-				 <!-- END FOR,%spellbook,2,COUNT[SPELLBOOKS]-1,1,0 -->
-				 |ENDFOR|
-				 <!-- ### END class Spellbook memorized spells ### -->
-				 <!-- START FALSE IIF(%memorised:0) -->
-				 |ENDIF|
-				 |ENDFOR|
-				 <!-- ### END MEMORIZED ### -->
-				 <!-- End Prepared Spells -->
-			 */
-			ArrayList<PObject> classList =
-                    new ArrayList<>(display.getClassSet());
+			ArrayList<PObject> classList = new ArrayList<>(display.getClassSet());
 			classList.add(display.getRace());
 
 			Set<String> bookList = new HashSet<>(pc.getDisplay().getSpellBookNames());
@@ -1047,33 +795,34 @@ public class PcgCombatant extends Combatant
 			return statBuf.toString();
 		}
 
-		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuilder statBuf, Collection<PObject> classList, String spellBookName)
+		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuilder statBuf, Collection<PObject> classList,
+			String spellBookName)
 		{
-			Set<PObject> classes = new HashSet<>();
-			classes.addAll(classList);
-			
-			for ( PObject pObj : classes )
+			Set<PObject> classes = new HashSet<>(classList);
+
+			for (PObject pObj : classes)
 			{
 				if (pObj != null)
 				{
 					int maxLevel = 100;
-					if (pObj instanceof PCClass) 
+					if (pObj instanceof PCClass)
 					{
 						PCClass theClass = (PCClass) pObj;
-						maxLevel = (aPC.getDisplay().getLevel(theClass) ==0) ? maxLevel: aPC.getSpellSupport(theClass).getMaxCastLevel(aPC);
+						maxLevel = (aPC.getDisplay().getLevel(theClass) == 0) ? maxLevel
+							: aPC.getSpellSupport(theClass).getMaxCastLevel(aPC);
 					}
 					StringBuilder spellBuff = new StringBuilder();
-					for (int level = 0; level <=maxLevel; level++)
+					for (int level = 0; level <= maxLevel; level++)
 					{
 						List<CharacterSpell> spellList = aPC.getCharacterSpells(pObj, null, spellBookName, level);
 
-						if (spellList.size() >= 1)
+						if (!spellList.isEmpty())
 						{
 							spellBuff.append("<font class='type'>Level " + level + ":</font> ");
 
 							boolean firstLine = true;
 
-							for ( CharacterSpell cs : spellList )
+							for (CharacterSpell cs : spellList)
 							{
 								if (!firstLine)
 								{
@@ -1088,11 +837,12 @@ public class PcgCombatant extends Combatant
 								spellBuff.append("\\");
 								spellBuff.append(aPC.parseSpellString(cs, aPC.getDescription(spell)));
 								spellBuff.append("\\");
-								spellBuff.append(StringUtil.joinToStringBuilder(spell.getListFor(ListKey.RANGE), ", "));
+								spellBuff.append(StringUtil.join(spell.getListFor(ListKey.RANGE), ", "));
 								spellBuff.append("\\");
 								spellBuff.append(spell.getListAsString(ListKey.CASTTIME));
 								spellBuff.append("\\");
-								spellBuff.append(StringUtil.joinToStringBuilder(spell.getListFor(ListKey.SAVE_INFO), ", "));
+								spellBuff
+									.append(StringUtil.join(spell.getListFor(ListKey.SAVE_INFO), ", "));
 								spellBuff.append("\\");
 								spellBuff.append(aPC.parseSpellString(cs, spell.getListAsString(ListKey.DURATION)));
 								spellBuff.append("\\");
@@ -1105,7 +855,7 @@ public class PcgCombatant extends Combatant
 							spellBuff.append("<br>");
 						}
 					}
-					if (spellBuff.length() >0 )
+					if (spellBuff.length() > 0)
 					{
 						statBuf.append("<br><font class='type'>" + spellBookName + ":</font><br> ");
 						statBuf.append("<font class='type'>" + pObj.getDisplayName() + ":</font><br> ");
@@ -1115,7 +865,7 @@ public class PcgCombatant extends Combatant
 			}
 		}
 
-		protected String getStatBlockTitle()
+		String getStatBlockTitle()
 		{
 			StringBuilder statBuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
@@ -1130,8 +880,7 @@ public class PcgCombatant extends Combatant
 
 			String region = pcOut.getRegion(); //|REGION|.|%|
 
-			if (region != null && !region.isEmpty() && (region != null)
-				&& !"None".equals(region))
+			if ((region != null) && !region.isEmpty() && !"None".equals(region))
 			{
 				statBuf.append(" From " + region + " ");
 			}

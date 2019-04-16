@@ -1,5 +1,4 @@
 /*
- * AspectTokenTest.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,29 +14,29 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 16/08/2008 18:42:10
- *
- * $Id: $
  */
 package plugin.lsttokens.ability;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 /**
- * The Class <code>AspectTokenTest</code> is responsible for verifying that
+ * The Class {@code AspectTokenTest} is responsible for verifying that
  * the Ability AspectToken is working properly 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class AspectTokenTest extends AbstractCDOMTokenTestCase<Ability>
 {
@@ -46,7 +45,7 @@ public class AspectTokenTest extends AbstractCDOMTokenTestCase<Ability>
 	static AspectToken token = new AspectToken();
 	
 	/** The token loader. */
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()
@@ -67,48 +66,48 @@ public class AspectTokenTest extends AbstractCDOMTokenTestCase<Ability>
 	}
 
 	@Test
-	public void testInvalidNoPipe() throws PersistenceLayerException
+	public void testInvalidNoPipe()
 	{
 		assertFalse(parse("NoPipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidTwoPipe() throws PersistenceLayerException
+	public void testValidTwoPipe()
 	{
 		assertTrue(parse("One|Two|Three"));
 	}
 
 	@Test
-	public void testInvalidDoublePipe() throws PersistenceLayerException
+	public void testInvalidDoublePipe()
 	{
 		assertFalse(parse("Two||Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPipe() throws PersistenceLayerException
+	public void testInvalidOnlyPipe()
 	{
 		assertFalse(parse("|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyKey() throws PersistenceLayerException
+	public void testInvalidEmptyKey()
 	{
 		assertFalse(parse("|Value"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue() throws PersistenceLayerException
+	public void testInvalidEmptyValue()
 	{
 		assertFalse(parse("Key|"));
 		assertNoSideEffects();
@@ -160,5 +159,14 @@ public class AspectTokenTest extends AbstractCDOMTokenTestCase<Ability>
 	protected ConsolidationRule getConsolidationRule()
 	{
 		return ConsolidationRule.SEPARATE;
+	}
+
+	@Override
+	protected Ability get(LoadContext context, String name)
+	{
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 }

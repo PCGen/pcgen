@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens.deprecated;
 
@@ -45,26 +40,19 @@ public class CheckToken extends Token
 	/** Token name */
 	public static final String TOKENNAME = "CHECK";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		// If there is a .NOSIGN then replace that with an empty String
 		boolean isNosign = (tokenSource.lastIndexOf(".NOSIGN") >= 0);
 		tokenSource = tokenSource.replaceAll(".NOSIGN", "");
-		
+
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
 		aTok.nextToken();
 
@@ -77,20 +65,20 @@ public class CheckToken extends Token
 		{
 			if (saveModsBuf.length() > 0)
 			{
-				saveModsBuf.append(".");
+				saveModsBuf.append('.');
 			}
 			saveModsBuf.append(aTok.nextToken());
 		}
-		String saveMods = saveModsBuf.toString(); 
+		String saveMods = saveModsBuf.toString();
 
 		// If its just the name then return that
 		if ("NAME".equals(saveMods))
 		{
 			return getNameToken(saveType).toString();
 		}
-		if (isNosign) 
+		if (isNosign)
 		{
-			return getCheckToken(pc, saveType, saveMods) + "";
+			return String.valueOf(getCheckToken(pc, saveType, saveMods));
 		}
 		return Delta.toString(getCheckToken(pc, saveType, saveMods));
 	}
@@ -103,12 +91,10 @@ public class CheckToken extends Token
 	 * @param saveMods
 	 * @return int
 	 */
-	public static int getCheckToken(PlayerCharacter pc, String saveType,
-		String saveMods)
+	public static int getCheckToken(PlayerCharacter pc, String saveType, String saveMods)
 	{
 		PCCheck check = getNameToken(saveType);
-		return pc.calculateSaveBonus(check, "".equals(saveMods) ? "TOTAL"
-			: saveMods);
+		return pc.calculateSaveBonus(check, "".equals(saveMods) ? "TOTAL" : saveMods);
 	}
 
 	/**
@@ -122,8 +108,8 @@ public class CheckToken extends Token
 		{
 			int i = Integer.parseInt(saveType);
 
-			List<PCCheck> checkList = Globals.getContext().getReferenceContext()
-					.getOrderSortedCDOMObjects(PCCheck.class);
+			List<PCCheck> checkList =
+					Globals.getContext().getReferenceContext().getSortkeySortedCDOMObjects(PCCheck.class);
 			if ((i >= 0) && (i < checkList.size()))
 			{
 				return checkList.get(i);
@@ -132,8 +118,7 @@ public class CheckToken extends Token
 		catch (NumberFormatException e)
 		{
 			// just means it's a name, not a number
-			return Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-					PCCheck.class, saveType);
+			return Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCCheck.class, saveType);
 		}
 		return null;
 	}

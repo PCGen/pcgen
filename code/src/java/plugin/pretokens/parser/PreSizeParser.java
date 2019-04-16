@@ -1,6 +1,4 @@
 /*
- * PreSizeParser.java
- *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package plugin.pretokens.parser;
 
@@ -38,20 +29,17 @@ import pcgen.rules.context.LoadContext;
 
 /**
  * A prerequisite parser class that handles the parsing of pre size tokens.
- *
  */
-public class PreSizeParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreSizeParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
-		return new String[]{"SIZE", "SIZEEQ", "SIZEGT", "SIZEGTEQ", "SIZELT",
-			"SIZELTEQ", "SIZENEQ"};
+		return new String[]{"SIZE", "SIZEEQ", "SIZEGT", "SIZEGTEQ", "SIZELT", "SIZELTEQ", "SIZENEQ"};
 	}
 
 	/**
@@ -67,10 +55,8 @@ public class PreSizeParser extends AbstractPrerequisiteParser implements
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 		try
@@ -79,18 +65,17 @@ public class PreSizeParser extends AbstractPrerequisiteParser implements
 
 			// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
 			String compType = kind.substring(4);
-			if (compType.length() == 0)
+			if (compType.isEmpty())
 			{
 				compType = "gteq";
 			}
 			prereq.setOperator(compType);
 
-			String abb = formula.substring(0,1);
+			String abb = formula.substring(0, 1);
 
 			LoadContext context = Globals.getContext();
 			CDOMSingleRef<SizeAdjustment> ref =
-					context.getReferenceContext().getCDOMReference(
-						SizeAdjustment.class, abb);
+					context.getReferenceContext().getCDOMReference(SizeAdjustment.class, abb);
 			context.forgetMeNot(ref);
 
 			prereq.setOperand(formula);
@@ -102,8 +87,7 @@ public class PreSizeParser extends AbstractPrerequisiteParser implements
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse the prerequisite :'" + kind + ":" + formula
-					+ "'. " + pe.getLocalizedMessage());
+				"Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage());
 		}
 		return prereq;
 	}

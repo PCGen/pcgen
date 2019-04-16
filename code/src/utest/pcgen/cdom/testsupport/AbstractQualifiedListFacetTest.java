@@ -17,15 +17,17 @@
  */
 package pcgen.cdom.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import junit.framework.TestCase;
-
-import org.junit.Test;
 
 import pcgen.cdom.base.QualifiedActor;
 import pcgen.cdom.base.QualifyingObject;
@@ -37,20 +39,22 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 
-public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
-		extends TestCase
-{
-	protected CharID id;
-	protected CharID altid;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-	private Listener listener = new Listener();
-	protected Object oneSource = new Object();
+public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
+{
+	private CharID id;
+	private CharID altid;
+
+	private final Listener listener = new Listener();
+	private final Object oneSource = new Object();
 
 	private class Listener implements DataFacetChangeListener<CharID, T>
 	{
 
-		public int addEventCount;
-		public int removeEventCount;
+		private int addEventCount;
+		private int removeEventCount;
 
 		@Override
 		public void dataAdded(DataFacetChangeEvent<CharID, T> dfce)
@@ -66,10 +70,9 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 
 	}
 
-	@Override
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -111,18 +114,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	@Test
 	public void testTypeAddNullID()
 	{
-		Object source1 = new Object();
 		//Remove to try to avoid any event being formed
 		getFacet().removeDataFacetChangeListener(listener);
-		try
-		{
-			getFacet().add(null, getObject(), source1);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// Yep!
-		}
+		Object source1 = new Object();
+		assertThrows(NullPointerException.class,
+				() -> getFacet().add(null, getObject(), source1));
 		testTypeUnsetZeroCount();
 		testTypeUnsetEmpty();
 		testTypeUnsetEmptySet();
@@ -133,15 +129,8 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	public void testTypeAddNull()
 	{
 		Object source1 = new Object();
-		try
-		{
-			getFacet().add(id, null, source1);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// Yep!
-		}
+		assertThrows(NullPointerException.class,
+				() -> getFacet().add(id, null, source1));
 		testTypeUnsetZeroCount();
 		testTypeUnsetEmpty();
 		testTypeUnsetEmptySet();
@@ -271,15 +260,10 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	public void testTypeAddAllNull()
 	{
 		Object source1 = new Object();
-		try
-		{
-			getFacet().addAll(id, null, source1);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Expected
-		}
+		assertThrows(
+				NullPointerException.class,
+				() -> getFacet().addAll(id, null, source1)
+		);
 		assertEventCount(0, 0);
 	}
 
@@ -379,22 +363,16 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	@Test
 	public void testTypeAddAllNullInList()
 	{
-		Object source1 = new Object();
 		T t1 = getObject();
 		T t2 = getObject();
 		List<T> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(null);
 		pct.add(t2);
-		try
-		{
-			getFacet().addAll(id, pct, source1);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// Yep!
-		}
+		Object source1 = new Object();
+		assertThrows(NullPointerException.class,
+				() -> getFacet().addAll(id, pct, source1)
+		);
 		/*
 		 * TODO This should be zero, one or two???
 		 */
@@ -541,15 +519,8 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	{
 		Object source1 = new Object();
 		getFacet().add(id, getObject(), source1);
-		try
-		{
-			getFacet().removeAll(id, null, source1);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Expected
-		}
+		assertThrows(NullPointerException.class,
+				() -> getFacet().removeAll(id, null, source1));
 	}
 
 	@Test
@@ -656,15 +627,9 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		pct.add(t1);
 		pct.add(null);
 		assertEventCount(2, 0);
-		try
-		{
-			getFacet().removeAll(id, pct, source1);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
+		assertThrows(NullPointerException.class,
+				() -> getFacet().removeAll(id, pct, source1)
+		);
 		// CONSIDER This was old behavior - prior to null being illegal
 		// assertEventCount(2, 1);
 		// assertEquals(1, getFacet().getCount(id));
@@ -916,16 +881,16 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		assertEquals(0, emptyset.size());
 	}
 
-	abstract protected AbstractQualifiedListFacet<T> getFacet();
+	protected abstract AbstractQualifiedListFacet<T> getFacet();
 
-	abstract protected T getObject();
+	protected abstract T getObject();
 
 	protected T getAltObject()
 	{
 		return getObject();
 	}
 
-	protected T getThirdObject()
+	private T getThirdObject()
 	{
 		return getObject();
 	}
@@ -936,11 +901,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		{
 			TokenLibrary.addBonusClass(clazz);
 		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			e.printStackTrace();
 		}
@@ -1192,14 +1153,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	public void testActOnQualifiedSet()
 	{
 		Object source1 = "Source1";
-		QualifiedActor<T, T> echo = new QualifiedActor<T, T>()
-		{
-			@Override
-			public T act(T object, Object source)
-			{
-				return object;
-			}
-		};
+		QualifiedActor<T, T> echo = (object, source) -> object;
 		Collection<? extends T> origset =
 				getFacet().actOnQualifiedSet(id, echo);
 		assertNotNull(origset);
@@ -1236,14 +1190,8 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		assertTrue(setoffour.contains(t2));
 		assertTrue(setoffour.contains(t3));
 		assertEventCount(3, 0);
-		QualifiedActor<T, String> sourcedep = new QualifiedActor<T, String>()
-		{
-			@Override
-			public String act(T object, Object source)
-			{
-				return object.toString() + ":" + source.toString();
-			}
-		};
+		QualifiedActor<T, String> sourcedep =
+				(object, source) -> object.toString() + ":" + source.toString();
 		List<String> stringset = getFacet().actOnQualifiedSet(id, sourcedep);
 		assertNotNull(stringset);
 		assertEquals(4, stringset.size());

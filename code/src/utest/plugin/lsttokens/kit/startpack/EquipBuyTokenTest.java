@@ -17,10 +17,9 @@
  */
 package plugin.lsttokens.kit.startpack;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -38,6 +37,9 @@ import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class EquipBuyTokenTest extends AbstractFormulaTokenTestCase<Kit>
 {
 
@@ -47,7 +49,7 @@ public class EquipBuyTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -58,7 +60,7 @@ public class EquipBuyTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	}
 
 	static EquipBuyToken token = new EquipBuyToken();
-	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<Kit>();
+	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Kit> getCDOMClass()
@@ -96,7 +98,7 @@ public class EquipBuyTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testInvalidInputOnlyPre() throws PersistenceLayerException
+	public void testInvalidInputOnlyPre()
 	{
 		try
 		{
@@ -110,7 +112,7 @@ public class EquipBuyTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testInvalidInputEmbeddedPre() throws PersistenceLayerException
+	public void testInvalidInputEmbeddedPre()
 	{
 		assertFalse(parse("TestWP1|PRECLASS:1,Fighter=1|TestWP2"));
 		assertNoSideEffects();
@@ -118,14 +120,13 @@ public class EquipBuyTokenTest extends AbstractFormulaTokenTestCase<Kit>
 
 	@Test
 	public void testInvalidInputDoublePipePre()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("TestWP1||PRECLASS:1,Fighter=1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputPostPrePipe() throws PersistenceLayerException
+	public void testInvalidInputPostPrePipe()
 	{
 		assertFalse(parse("TestWP1|PRECLASS:1,Fighter=1|"));
 		assertNoSideEffects();

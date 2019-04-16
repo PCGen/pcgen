@@ -17,11 +17,10 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.PCAlignment;
 import plugin.lsttokens.choose.AlignmentToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
 
 public class AlignmentTokenTest extends
@@ -29,12 +28,6 @@ public class AlignmentTokenTest extends
 {
 
 	static AlignmentToken pca = new AlignmentToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 
 	@Override
 	public Chooser<PCAlignment> getActor()

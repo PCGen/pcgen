@@ -40,41 +40,34 @@ public class NameoptToken extends AbstractNonEmptyToken<EquipmentModifier>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		EquipmentModifier mod, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier mod, String value)
 	{
 		String optString = value;
 		if (optString.startsWith("TEXT"))
 		{
 			if (optString.length() < 6 || optString.charAt(4) != '=')
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " has invalid TEXT argument: " + value, context);
+				return new ParseResult.Fail(getTokenName() + " has invalid TEXT argument: " + value);
 			}
 			optString = "TEXT";
-			context.getObjectContext().put(mod, StringKey.NAME_TEXT,
-					value.substring(5));
+			context.getObjectContext().put(mod, StringKey.NAME_TEXT, value.substring(5));
 		}
 		try
 		{
-			context.getObjectContext().put(mod, ObjectKey.NAME_OPT,
-					EqModNameOpt.valueOfIgnoreCase(optString));
+			context.getObjectContext().put(mod, ObjectKey.NAME_OPT, EqModNameOpt.valueOfIgnoreCase(optString));
 			return ParseResult.SUCCESS;
 		}
 		catch (IllegalArgumentException iae)
 		{
-			return new ParseResult.Fail("Invalid Naming Option provided in "
-					+ getTokenName() + ": " + value, context);
+			return new ParseResult.Fail("Invalid Naming Option provided in " + getTokenName() + ": " + value);
 		}
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
-		EqModNameOpt opt = context.getObjectContext().getObject(mod,
-				ObjectKey.NAME_OPT);
-		String text = context.getObjectContext().getString(mod,
-				StringKey.NAME_TEXT);
+		EqModNameOpt opt = context.getObjectContext().getObject(mod, ObjectKey.NAME_OPT);
+		String text = context.getObjectContext().getString(mod, StringKey.NAME_TEXT);
 		if (opt == null)
 		{
 			if (text == null)
@@ -83,8 +76,7 @@ public class NameoptToken extends AbstractNonEmptyToken<EquipmentModifier>
 			}
 			else
 			{
-				context.addWriteMessage("Cannot have both NAME_TEXT without "
-						+ "NAME_OPT in EquipmentModifier");
+				context.addWriteMessage("Cannot have both NAME_TEXT without " + "NAME_OPT in EquipmentModifier");
 				return null;
 			}
 		}
@@ -93,8 +85,7 @@ public class NameoptToken extends AbstractNonEmptyToken<EquipmentModifier>
 		{
 			if (text == null)
 			{
-				context.addWriteMessage("Must have NAME_TEXT with "
-						+ "NAME_OPT TEXT in EquipmentModifier");
+				context.addWriteMessage("Must have NAME_TEXT with " + "NAME_OPT TEXT in EquipmentModifier");
 				return null;
 			}
 			else
@@ -110,7 +101,7 @@ public class NameoptToken extends AbstractNonEmptyToken<EquipmentModifier>
 			 */
 			retString = opt.toString();
 		}
-		return new String[] { retString };
+		return new String[]{retString};
 	}
 
 	@Override

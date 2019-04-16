@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.deity;
 
-import org.junit.Test;
-
 import pcgen.core.Deity;
 import pcgen.core.WeaponProf;
 import pcgen.rules.persistence.CDOMLoader;
@@ -27,12 +25,14 @@ import plugin.lsttokens.deity.DeityweapToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class DeityWeapIntegrationTest extends
 		AbstractListIntegrationTestCase<Deity, WeaponProf>
 {
 
-	static DeityweapToken token = new DeityweapToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
+	private static DeityweapToken token = new DeityweapToken();
+	private static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

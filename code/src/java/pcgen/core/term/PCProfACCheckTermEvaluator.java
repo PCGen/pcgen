@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCProfACCheckTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,40 +16,33 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 23:53:33
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
 import pcgen.cdom.util.CControl;
-import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 
-public class PCProfACCheckTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCProfACCheckTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String eqKey;
 
 	public PCProfACCheckTermEvaluator(String originalText, String eqKey)
 	{
 		this.originalText = originalText;
-		this.eqKey        = eqKey;
+		this.eqKey = eqKey;
 	}
 
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(),
-			CControl.EQACCHECK))
+		if (pc.hasControl(CControl.EQACCHECK))
 		{
-			Logging.errorPrint(originalText
-				+ " term is deprecated (does not function)"
-				+ " when EQACCHECK CodeControl is used");
+			Logging.errorPrint(
+				originalText + " term is deprecated (does not function)" + " when EQACCHECK CodeControl is used");
 		}
 		if ("".equals(eqKey))
 		{
@@ -58,8 +50,8 @@ public class PCProfACCheckTermEvaluator
 		}
 		else
 		{
-			final Equipment eq = Globals.getContext().getReferenceContext()
-					.silentlyGetConstructedCDOMObject(Equipment.class, eqKey);
+			final Equipment eq =
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, eqKey);
 
 			if (eq == null || pc.isProficientWith(eq))
 			{

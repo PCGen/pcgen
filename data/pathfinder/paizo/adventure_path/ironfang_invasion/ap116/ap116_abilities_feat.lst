@@ -1,0 +1,34 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+SOURCELONG:Ironfang Invasion, Chapter 2 - Fangs of War	SOURCESHORT:AP116	SOURCEWEB:http://paizo.com/products/btpy9npk	SOURCEDATE:2017-03
+# ORIGINAL ENTRY: Gary Davies
+# ORIGINAL ENTRY DATE: 2017-06
+
+# Ability Name					Category of Ability	Type				Required Ability							Restricted Ability						Required Skill		Description								Add Spell Lvl	Source Page		Benefits																																																																																																																										FACT
+Delayed Spell					CATEGORY:FEAT		TYPE:Metamagic																								DESC:You can set a spell to trigger on a delay.		ADDSPELLLEVEL:1	SOURCEPAGE:p.67	BENEFIT:A delayed spell can be activated as a standard action anytime within 1 minute per spell level of being cast. Only spells that target one or more squares or grid intersections can be affected by Delayed Spell, and the target (as well as any other variables determined at the time of casting) cannot be changed once the delayed spell is cast. You can have as many delayed spells as you wish at any given time, but only one spell can be triggered in a single standard action. Though a delayed spell does not manifest until it is triggered, it emits a magical aura as normal and can be identified with Knowledge (arcana) as a spell effect in place. A delayed spell uses up a spell slot 1 level higher than the spells actual level.	FACT:AppliedName|Delayed
+Quick Trapper					CATEGORY:FEAT		TYPE:General		PREABILITY:1,CATEGORY=Special Ability,Trapper ~ Trap										PRESKILL:1,Survival=5	DESC:Your trap-making proficiency improves greatly.				SOURCEPAGE:p.67	BENEFIT:When setting a ranger trap, you can do so as a standard action rather than a full-round action. If you do so, the trap DC is reduced by 5.
+
+
+# MODs
+#CATEGORY=FEAT|Blind-Fight.MOD						TYPE:Chernasardo Warden			!PREABILITY:1,CATEGORY=FEAT,Blind-Fight
+CATEGORY=FEAT|Iron Will.MOD							TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Iron Will
+CATEGORY=FEAT|Skill Focus.MOD							TYPE:Chernasardo Warden
+CATEGORY=FEAT|Broken Wing Gambit.MOD					TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Broken Wing Gambit
+CATEGORY=FEAT|Combat Expertise.MOD						TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Combat Expertise
+CATEGORY=FEAT|Combat Patrol.MOD						TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Combat Patrol
+CATEGORY=FEAT|Delayed Spell.MOD						TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Delayed Spell
+CATEGORY=FEAT|Greater Dirty Trick.MOD					TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Greater Dirty Trick
+CATEGORY=FEAT|Improved Dirty Trick.MOD					TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Improved Dirty Trick
+CATEGORY=FEAT|Learn Ranger Trap.MOD						TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Learn Ranger Trap
+CATEGORY=FEAT|Overwatch Style.MOD						TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Overwatch Style
+CATEGORY=FEAT|Overwatch Tactician.MOD					TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Overwatch Tactician
+CATEGORY=FEAT|Overwatch Vortex.MOD						TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Overwatch Vortex
+CATEGORY=FEAT|Paired Opportunists.MOD					TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Paired Opportunists
+CATEGORY=FEAT|Quick Trapper.MOD						TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Quick Trapper
+CATEGORY=FEAT|Shot on the Run.MOD						TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Shot on the Run
+CATEGORY=FEAT|Silent Spell.MOD						TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Silent Spell
+CATEGORY=FEAT|Spring Attack.MOD						TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Spring Attack
+CATEGORY=FEAT|Still Spell.MOD							TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Still Spell
+CATEGORY=FEAT|Target of Opportunity.MOD					TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Target of Opportunity
+CATEGORY=FEAT|Weapon Trick.MOD						TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Weapon Trick
+CATEGORY=FEAT|Whirlwind Attack.MOD						TYPE:Chernasardo Warden										!PREABILITY:1,CATEGORY=FEAT,Whirlwind Attack

@@ -16,10 +16,12 @@
  */
 package plugin.qualifier.weaponprof;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URISyntaxException;
 import java.util.Collection;
-
-import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
@@ -38,15 +40,19 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class SpellcasterQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, WeaponProf>
 {
 
 	static ChooseLst token = new ChooseLst();
 	static WeaponProficiencyToken subtoken = new WeaponProficiencyToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
-	private static final plugin.qualifier.weaponprof.SpellCasterToken PC_TOKEN = new plugin.qualifier.weaponprof.SpellCasterToken();
+	private static final plugin.qualifier.weaponprof.SpellCasterToken PC_TOKEN =
+			new plugin.qualifier.weaponprof.SpellCasterToken();
 	private WeaponProf wp1, wp2, wp3;
 
 	public SpellcasterQualifierTokenTest()
@@ -54,6 +60,7 @@ public class SpellcasterQualifierTokenTest extends
 		super("SPELLCASTER", null);
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -104,7 +111,7 @@ public class SpellcasterQualifierTokenTest extends
 	}
 
 	@Test
-	public void testGetSet() throws PersistenceLayerException
+	public void testGetSet()
 	{
 		setUpPC();
 		initializeObjects();		
@@ -130,7 +137,7 @@ public class SpellcasterQualifierTokenTest extends
 	}
 
 	@Test
-	public void testGetSetFiltered() throws PersistenceLayerException
+	public void testGetSetFiltered()
 	{
 		setUpPC();
 		initializeObjects();		

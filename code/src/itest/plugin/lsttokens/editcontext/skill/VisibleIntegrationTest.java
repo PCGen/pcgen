@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.skill;
 
-import org.junit.Test;
-
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -28,11 +26,13 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.skill.VisibleToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class VisibleIntegrationTest extends AbstractIntegrationTestCase<Skill>
 {
 
-	static VisibleToken token = new VisibleToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
+	private static VisibleToken token = new VisibleToken();
+	private static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Skill> getCDOMClass()

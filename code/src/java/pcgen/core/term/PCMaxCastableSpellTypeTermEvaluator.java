@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCMaxCastableSpellTypeTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,18 +16,14 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 23:19:38
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
 
-public class PCMaxCastableSpellTypeTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCMaxCastableSpellTypeTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String typeKey;
 
@@ -49,22 +44,24 @@ public class PCMaxCastableSpellTypeTermEvaluator
 				int cutoff = pc.getSpellSupport(spClass).getHighestLevelSpell();
 				if (pc.getSpellSupport(spClass).hasCastList())
 				{
-					for (int i = 0; i < cutoff; i++) {
+					for (int i = 0; i < cutoff; i++)
+					{
 						if (pc.getSpellSupport(spClass).getCastForLevel(i, pc) != 0)
 						{
-							max = Math.max(max,i);
+							max = Math.max(max, i);
 						}
 					}
 				}
 				else
 				{
-					for (int i = 0; i < cutoff; i++) {
+					for (int i = 0; i < cutoff; i++)
+					{
 						if (pc.getSpellSupport(spClass).getKnownForLevel(i, pc) != 0)
 						{
-							max = Math.max(max,i);
+							max = Math.max(max, i);
 						}
 					}
-				}			
+				}
 			}
 		}
 

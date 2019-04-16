@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.EQACCheckTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,18 +16,13 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03-Oct-2008 02:38:19
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.util.CControl;
-import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 
@@ -40,24 +34,18 @@ public class EQACCheckTermEvaluator extends BaseEQTermEvaluator implements TermE
 	}
 
 	@Override
-	public Float resolve(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc)
+	public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(eq, primary, pc));
+		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	@Override
-	public String evaluate(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc) {
-		if (ControlUtilities.hasControlToken(Globals.getContext(),
-			CControl.EQACCHECK))
+	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
+	{
+		if (pc.hasControl(CControl.EQACCHECK))
 		{
-			Logging.errorPrint("EQACCHECK term is deprecated (does not function)"
-				+ " when ACCHECK CodeControl is used");
+			Logging
+				.errorPrint("EQACCHECK term is deprecated (does not function)" + " when ACCHECK CodeControl is used");
 		}
 		return Integer.toString(eq.getSafe(IntegerKey.AC_CHECK));
 	}
@@ -73,4 +61,3 @@ public class EQACCheckTermEvaluator extends BaseEQTermEvaluator implements TermE
 		return false;
 	}
 }
-

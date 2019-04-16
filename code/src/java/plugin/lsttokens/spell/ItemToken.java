@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with ITEM Token
  */
-public class ItemToken extends AbstractTokenWithSeparator<Spell> implements
-		CDOMPrimaryToken<Spell>
+public class ItemToken extends AbstractTokenWithSeparator<Spell> implements CDOMPrimaryToken<Spell>
 {
 
 	@Override
@@ -50,8 +49,7 @@ public class ItemToken extends AbstractTokenWithSeparator<Spell> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Spell spell, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Spell spell, String value)
 	{
 		StringTokenizer aTok = new StringTokenizer(value, Constants.COMMA);
 
@@ -64,30 +62,24 @@ public class ItemToken extends AbstractTokenWithSeparator<Spell> implements
 				// Check ends with bracket
 				if (tokString.lastIndexOf(']') != tokString.length() - 1)
 				{
-					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ ": mismatched open Bracket: " + tokString
-							+ " in " + value, context);
+					return new ParseResult.Fail(
+						"Invalid " + getTokenName() + ": mismatched open Bracket: " + tokString + " in " + value);
 				}
-				String substring = tokString.substring(1,
-						tokString.length() - 1);
-				if (substring.length() == 0)
+				String substring = tokString.substring(1, tokString.length() - 1);
+				if (substring.isEmpty())
 				{
-					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ ": cannot be empty item in brackets []", context);
+					return new ParseResult.Fail("Invalid " + getTokenName() + ": cannot be empty item in brackets []");
 				}
-				context.getObjectContext().addToList(spell,
-						ListKey.PROHIBITED_ITEM, Type.getConstant(substring));
+				context.getObjectContext().addToList(spell, ListKey.PROHIBITED_ITEM, Type.getConstant(substring));
 			}
 			else
 			{
 				if (tokString.lastIndexOf(']') != -1)
 				{
-					return new ParseResult.Fail("Invalid " + getTokenName()
-							+ ": mismatched close Bracket: " + tokString
-							+ " in " + value, context);
+					return new ParseResult.Fail(
+						"Invalid " + getTokenName() + ": mismatched close Bracket: " + tokString + " in " + value);
 				}
-				context.getObjectContext().addToList(spell, ListKey.ITEM,
-						Type.getConstant(tokString));
+				context.getObjectContext().addToList(spell, ListKey.ITEM, Type.getConstant(tokString));
 			}
 		}
 		return ParseResult.SUCCESS;
@@ -96,10 +88,8 @@ public class ItemToken extends AbstractTokenWithSeparator<Spell> implements
 	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
-		Changes<Type> changes = context.getObjectContext().getListChanges(
-				spell, ListKey.ITEM);
-		Changes<Type> proChanges = context.getObjectContext().getListChanges(
-				spell, ListKey.PROHIBITED_ITEM);
+		Changes<Type> changes = context.getObjectContext().getListChanges(spell, ListKey.ITEM);
+		Changes<Type> proChanges = context.getObjectContext().getListChanges(spell, ListKey.PROHIBITED_ITEM);
 		Collection<Type> changeAdded = changes.getAdded();
 		Collection<Type> proAdded = proChanges.getAdded();
 		StringBuilder sb = new StringBuilder();
@@ -132,7 +122,7 @@ public class ItemToken extends AbstractTokenWithSeparator<Spell> implements
 		{
 			return null;
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	@Override

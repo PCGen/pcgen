@@ -19,7 +19,6 @@ package pcgen.rules.context;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
@@ -33,7 +32,7 @@ import pcgen.util.StringPClassUtil;
 
 public final class ReferenceContextUtilities
 {
-	
+
 	private ReferenceContextUtilities()
 	{
 		//Do not instantiate utility class
@@ -46,8 +45,7 @@ public final class ReferenceContextUtilities
 	 *            The helper object to track things such as FORWARDREF
 	 *            instances.
 	 */
-	public static void validateAssociations(AbstractReferenceContext refContext,
-		LoadValidator validator)
+	public static void validateAssociations(AbstractReferenceContext refContext, LoadValidator validator)
 	{
 		for (ReferenceManufacturer<?> rm : refContext.getAllManufacturers())
 		{
@@ -60,38 +58,28 @@ public final class ReferenceContextUtilities
 					ChooseInformation<?> ci = cdo.get(ObjectKey.CHOOSE_INFO);
 					if (ci == null)
 					{
-						Logging.errorPrint("Found "
-							+ rm.getReferenceDescription() + " "
-							+ cdo.getKeyName() + " "
-							+ " that had association: " + choice
-							+ " but was not an object with CHOOSE");
+						Logging.errorPrint("Found " + rm.getReferenceDescription() + " " + cdo.getKeyName() + " "
+							+ " that had association: " + choice + " but was not an object with CHOOSE");
 						rm.fireUnconstuctedEvent(singleRef);
 						continue;
 					}
-					ClassIdentity<?> clIdentity = ci.getClassIdentity();
-					if (choice.indexOf("%") > -1)
+					if (choice.indexOf('%') > -1)
 					{
 						//patterns or %LIST are OK
 						//See CollectionToAbilitySelection.ExpandingConverter
 						continue;
 					}
-					Class<?> cl = clIdentity.getChoiceClass();
+					Class<?> cl = ci.getReferenceClass();
 					if (Loadable.class.isAssignableFrom(cl))
 					{
-						ReferenceManufacturer<? extends Loadable> mfg =
-								refContext
-									.getManufacturer((ClassIdentity<? extends Loadable>) clIdentity);
-						if (!mfg.containsObject(choice)
-							&& (TokenLibrary.getPrimitive(cl, choice) == null)
-							&& !report(validator, clIdentity.getChoiceClass(),
-								choice))
+						@SuppressWarnings("unchecked")
+						ReferenceManufacturer<? extends Loadable> mfg = refContext
+							.getManufacturerByFormatName(ci.getPersistentFormat(), (Class<? extends Loadable>) cl);
+						if (!mfg.containsObjectKeyed(choice) && (TokenLibrary.getPrimitive(cl, choice) == null)
+							&& !report(validator, mfg.getReferenceIdentity(), choice))
 						{
-							Logging.errorPrint("Found "
-								+ rm.getReferenceDescription() + " "
-								+ cdo.getKeyName() + " "
-								+ " that had association: " + choice
-								+ " but no such "
-								+ mfg.getReferenceDescription()
+							Logging.errorPrint("Found " + rm.getReferenceDescription() + " " + cdo.getKeyName() + " "
+								+ " that had association: " + choice + " but no such " + mfg.getReferenceDescription()
 								+ " was ever defined");
 							rm.fireUnconstuctedEvent(singleRef);
 							continue;
@@ -102,10 +90,9 @@ public final class ReferenceContextUtilities
 		}
 	}
 
-	private static boolean report(UnconstructedValidator validator,
-		Class<?> cl, String key)
+	private static boolean report(UnconstructedValidator validator, ClassIdentity<?> cl, String key)
 	{
-		return validator != null && validator.allow(cl, key);
+		return validator != null && validator.allowUnconstructed(cl, key);
 	}
 
 	public static <T extends Categorized<T>> ReferenceManufacturer<? extends Loadable> getManufacturer(
@@ -116,13 +103,9 @@ public final class ReferenceContextUtilities
 		String categoryName;
 		if (equalLoc != firstToken.lastIndexOf('='))
 		{
-			Logging.log(Logging.LST_ERROR,
-				"  Error encountered: Found second = in ObjectType=Category");
-			Logging.log(Logging.LST_ERROR,
-				"  Format is: ObjectType[=Category]|Key[|Key] value was: "
-					+ firstToken);
-			Logging.log(Logging.LST_ERROR, "  Valid ObjectTypes are: "
-				+ StringPClassUtil.getValidStrings());
+			Logging.log(Logging.LST_ERROR, "  Error encountered: Found second = in ObjectType=Category");
+			Logging.log(Logging.LST_ERROR, "  Format is: ObjectType[=Category]|Key[|Key] value was: " + firstToken);
+			Logging.log(Logging.LST_ERROR, "  Valid ObjectTypes are: " + StringPClassUtil.getValidStrings());
 			return null;
 		}
 		else if ("FEAT".equals(firstToken))
@@ -140,39 +123,29 @@ public final class ReferenceContextUtilities
 			className = firstToken.substring(0, equalLoc);
 			categoryName = firstToken.substring(equalLoc + 1);
 		}
+		//CONSIDER Dynamic fails here
 		Class<? extends Loadable> c = StringPClassUtil.getClassFor(className);
 		if (c == null)
 		{
-			Logging.log(Logging.LST_ERROR, "Unrecognized ObjectType: "
-				+ className);
+			Logging.log(Logging.LST_ERROR, "Unrecognized ObjectType: " + className);
 			return null;
 		}
 		ReferenceManufacturer<? extends Loadable> rm;
 		if (Categorized.class.isAssignableFrom(c))
 		{
-			Class<? extends Category<T>> catClass =
-					(Class<? extends Category<T>>) StringPClassUtil
-						.getCategoryClassFor(className);
 			if (categoryName == null)
 			{
-				Logging
-					.log(Logging.LST_ERROR,
-						"  Error encountered: Found Categorized Type without =Category");
-				Logging.log(Logging.LST_ERROR,
-					"  Format is: ObjectType[=Category]|Key[|Key] value was: "
-						+ firstToken);
-				Logging.log(Logging.LST_ERROR, "  Valid ObjectTypes are: "
-					+ StringPClassUtil.getValidStrings());
+				Logging.log(Logging.LST_ERROR, "  Error encountered: Found Categorized Type without =Category");
+				Logging.log(Logging.LST_ERROR, "  Format is: ObjectType[=Category]|Key[|Key] value was: " + firstToken);
+				Logging.log(Logging.LST_ERROR, "  Valid ObjectTypes are: " + StringPClassUtil.getValidStrings());
 				return null;
 			}
 
-			rm =
-					refContext.getManufacturer((Class<T>) c, catClass,
-						categoryName);
+			rm = refContext.getManufacturerByFormatName(firstToken, c);
 			if (rm == null)
 			{
-				Logging.log(Logging.LST_ERROR, "  Error encountered: "
-					+ className + " Category: " + categoryName + " not found");
+				Logging.log(Logging.LST_ERROR,
+					"  Error encountered: " + className + " Category: " + categoryName + " not found");
 				return null;
 			}
 		}
@@ -180,14 +153,9 @@ public final class ReferenceContextUtilities
 		{
 			if (categoryName != null)
 			{
-				Logging
-					.log(Logging.LST_ERROR,
-						"  Error encountered: Found Non-Categorized Type with =Category");
-				Logging.log(Logging.LST_ERROR,
-					"  Format is: ObjectType[=Category]|Key[|Key] value was: "
-						+ firstToken);
-				Logging.log(Logging.LST_ERROR, "  Valid ObjectTypes are: "
-					+ StringPClassUtil.getValidStrings());
+				Logging.log(Logging.LST_ERROR, "  Error encountered: Found Non-Categorized Type with =Category");
+				Logging.log(Logging.LST_ERROR, "  Format is: ObjectType[=Category]|Key[|Key] value was: " + firstToken);
+				Logging.log(Logging.LST_ERROR, "  Valid ObjectTypes are: " + StringPClassUtil.getValidStrings());
 				return null;
 			}
 			rm = refContext.getManufacturer(c);

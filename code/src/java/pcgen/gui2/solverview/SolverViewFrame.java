@@ -26,6 +26,8 @@ import java.awt.event.ActionListener;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -34,47 +36,44 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.AbstractTableModel;
-import pcgen.base.calculation.PCGenModifier;
+
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.solver.ProcessStep;
-import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.FormulaSetupFacet;
+import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
-import pcgen.cdom.facet.VariableLibraryFacet;
+import pcgen.cdom.facet.model.VarScopedFacet;
+import pcgen.cdom.formula.PCGenScoped;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.JComboBoxEx;
+import pcgen.rules.context.LoadContext;
 import pcgen.system.CharacterManager;
 import pcgen.system.LanguageBundle;
 
 public class SolverViewFrame extends JFrame
 {
 
-	private static final ScopeFacet scopeFacet = FacetLibrary
-		.getFacet(ScopeFacet.class);
-	private static final VariableLibraryFacet variableLibraryFacet =
-			FacetLibrary.getFacet(VariableLibraryFacet.class);
-	private static final SolverManagerFacet solverManagerFacet = FacetLibrary
-		.getFacet(SolverManagerFacet.class);
-	private static final FormulaSetupFacet formulaSetupFacet = FacetLibrary
-		.getFacet(FormulaSetupFacet.class);
+	private final ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
+	private final SolverManagerFacet solverManagerFacet = FacetLibrary.getFacet(SolverManagerFacet.class);
+	private final VarScopedFacet varScopedFacet = FacetLibrary.getFacet(VarScopedFacet.class);
+	private final LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
-	private JComboBoxEx scopeChooser;
+	private final JComboBoxEx<LegalScopeWrapper> scopeChooser;
 	private LegalScope selectedScope;
 
-	private JTextField varName;
+	private final JTextField varName;
 	private String varNameText = "                               ";
 
-	private JComboBoxEx objectChooser;
+	private final JComboBoxEx<ObjectNameDisplayer> objectChooser;
 	private VarScoped activeObject;
 
-	private JComboBoxEx identifierChooser;
+	private final JComboBoxEx<PCRef> identifierChooser;
 	private CharID activeIdentifier;
 
 	private JTable viewTable;
@@ -83,7 +82,7 @@ public class SolverViewFrame extends JFrame
 
 	public SolverViewFrame()
 	{
-		identifierChooser = new JComboBoxEx();
+		identifierChooser = new JComboBoxEx<>();
 		for (CharacterFacade pcf : CharacterManager.getCharacters())
 		{
 			String pcname = pcf.getNameRef().get();
@@ -92,54 +91,55 @@ public class SolverViewFrame extends JFrame
 		}
 		identifierChooser.addActionListener(new IdentifierActionListener());
 
-		objectChooser = new JComboBoxEx();
+		objectChooser = new JComboBoxEx<>();
 		objectChooser.addActionListener(new ObjectActionListener());
 
-		scopeChooser = new JComboBoxEx();
+		scopeChooser = new JComboBoxEx<>();
 		scopeChooser.addActionListener(new ScopeActionListener());
-
-		identifierChooser.setSelectedItem(identifierChooser.getItemAt(0));
-		scopeChooser.setSelectedItem(scopeChooser.getItemAt(0));
 
 		varName = new JTextField();
 		varName.setText(varNameText);
 		varName.getDocument().addDocumentListener(new VarNameListener());
 
 		initialize();
+
+		identifierChooser.setSelectedItem(identifierChooser.getItemAt(0));
+		scopeChooser.setSelectedItem(scopeChooser.getItemAt(0));
 		objectChooser.setSelectedItem(objectChooser.getItemAt(0));
 	}
 
 	private void update()
 	{
 		updateObjects();
-		ScopeInstance scope =
-				scopeFacet.get(activeIdentifier, selectedScope.getName(), activeObject);
-		if (variableLibraryFacet
-			.isLegalVariableName(activeIdentifier.getDatasetID(),
-				scope.getLegalScope(), varNameText))
+		if ((activeObject == null) && (selectedScope.getParentScope().isPresent()))
+		{
+			//scopeFacet will error if we continue...
+			tableModel.setSteps(Collections.emptyList());
+			return;
+		}
+		ScopeInstance scope = scopeFacet.get(activeIdentifier, LegalScope.getFullName(selectedScope), activeObject);
+		if (loadContextFacet.get(activeIdentifier.getDatasetID()).get().getVariableContext()
+			.isLegalVariableID(scope.getLegalScope(), varNameText))
 		{
 			displayInfo(scope);
 		}
 		else
 		{
 			//TODO Update a status bar
-			System.err.println(selectedScope.getName()
-				+ " does not have a variable: " + varNameText);
+			System.err.println(selectedScope.getName() + " does not have a variable: " + varNameText);
 		}
 	}
 
 	private void displayInfo(ScopeInstance scope)
 	{
-		VariableID<?> varID =
-				variableLibraryFacet.getVariableID(
-					activeIdentifier.getDatasetID(), scope, varNameText);
+		VariableID<?> varID = loadContextFacet.get(activeIdentifier.getDatasetID()).get().getVariableContext()
+			.getVariableID(scope, varNameText);
 		setSteps(varID);
 	}
 
 	private <T> void setSteps(VariableID<T> varID)
 	{
-		List<ProcessStep<T>> steps =
-				solverManagerFacet.diagnose(activeIdentifier, varID);
+		List<ProcessStep<T>> steps = solverManagerFacet.diagnose(activeIdentifier, varID);
 		tableModel.setSteps(steps);
 	}
 
@@ -149,8 +149,7 @@ public class SolverViewFrame extends JFrame
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			LegalScopeWrapper wrap =
-					(LegalScopeWrapper) scopeChooser.getSelectedItem();
+			LegalScopeWrapper wrap = (LegalScopeWrapper) scopeChooser.getSelectedItem();
 			selectedScope = wrap.getLegalScope();
 			update();
 		}
@@ -163,8 +162,7 @@ public class SolverViewFrame extends JFrame
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			ObjectNameDisplayer displayer =
-					(ObjectNameDisplayer) objectChooser.getSelectedItem();
+			ObjectNameDisplayer displayer = (ObjectNameDisplayer) objectChooser.getSelectedItem();
 			if (displayer == null)
 			{
 				activeObject = null;
@@ -213,9 +211,8 @@ public class SolverViewFrame extends JFrame
 		{
 			Object item = identifierChooser.getSelectedItem();
 			activeIdentifier = ((PCRef) item).id;
-			SplitFormulaSetup formulaSetup =
-					formulaSetupFacet.get(activeIdentifier.getDatasetID());
-			for (LegalScope lvs : formulaSetup.getLegalScopeLibrary().getLegalScopes())
+			LoadContext loadContext = loadContextFacet.get(activeIdentifier.getDatasetID()).get();
+			for (LegalScope lvs : loadContext.getVariableContext().getScopes())
 			{
 				scopeChooser.addItem(new LegalScopeWrapper(lvs));
 			}
@@ -228,15 +225,15 @@ public class SolverViewFrame extends JFrame
 	{
 		if (activeIdentifier != null)
 		{
-			Collection<VarScoped> objects =
-					scopeFacet.getObjectsWithVariables(activeIdentifier);
+			Collection<PCGenScoped> objects = varScopedFacet.getSet(activeIdentifier);
 			objectChooser.removeAllItems();
-			String scopeName = selectedScope.getName();
+			String scopeName = LegalScope.getFullName(selectedScope);
 			for (VarScoped cdo : objects)
 			{
-				if (cdo.getLocalScopeName().equals(scopeName))
+				Optional<String> localScopeName = cdo.getLocalScopeName();
+				if (localScopeName.isPresent() && scopeName.equals(localScopeName.get()))
 				{
-					if (scopeFacet.get(activeIdentifier, selectedScope.getName(), cdo) != null)
+					if (scopeFacet.get(activeIdentifier, scopeName, cdo) != null)
 					{
 						objectChooser.addItem(new ObjectNameDisplayer(cdo));
 					}
@@ -260,10 +257,7 @@ public class SolverViewFrame extends JFrame
 
 		int col = 0;
 		Utility.buildConstraints(c, col, 0, 1, 1, 100, 20);
-		JLabel label =
-				new JLabel(
-					LanguageBundle
-						.getFormattedString("in_SolverView_Perspective")); //$NON-NLS-1$
+		JLabel label = new JLabel(LanguageBundle.getFormattedString("in_SolverView_Perspective")); //$NON-NLS-1$
 		gridbag.setConstraints(label, c);
 		getContentPane().add(label);
 
@@ -280,10 +274,8 @@ public class SolverViewFrame extends JFrame
 		getContentPane().add(objectChooser);
 
 		Utility.buildConstraints(c, col++, 1, 1, 1, 0, 20);
-		label =
-				new JLabel(
-					LanguageBundle.getFormattedString("in_SolverView_VarName") //$NON-NLS-1$
-				);
+		label = new JLabel(LanguageBundle.getFormattedString("in_SolverView_VarName") //$NON-NLS-1$
+		);
 		gridbag.setConstraints(label, c);
 		getContentPane().add(label);
 
@@ -291,7 +283,7 @@ public class SolverViewFrame extends JFrame
 		gridbag.setConstraints(varName, c);
 		getContentPane().add(varName);
 
-		tableModel = new SolverTableModel();
+		tableModel = new SolverTableModel<>();
 		viewTable = new JTable(tableModel);
 
 		viewTable.getColumnModel().getColumn(0).setPreferredWidth(25);
@@ -314,8 +306,8 @@ public class SolverViewFrame extends JFrame
 
 	private static class SolverTableModel<T> extends AbstractTableModel
 	{
-		private String[] columnNames = {"Modification Type", "Modification",
-			"Resulting Value", "Priority", "Source"};
+		private final String[] columnNames =
+				{"Modification Type", "Modification", "Resulting Value", "Priority", "Source"};
 
 		private List<ProcessStep<T>> steps = Collections.emptyList();
 
@@ -350,7 +342,7 @@ public class SolverViewFrame extends JFrame
 				case 2:
 					return ps.getResult();
 				case 3:
-					return ((PCGenModifier<?>) ps.getModifier()).getUserPriority();
+					return ps.getModifier().getPriority();
 				case 4:
 					return ps.getSourceInfo();
 				default:

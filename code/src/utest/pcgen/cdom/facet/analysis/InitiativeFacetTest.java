@@ -17,22 +17,23 @@
  */
 package pcgen.cdom.facet.analysis;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
-
-import junit.framework.TestCase;
-
-import org.junit.Test;
 
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
-import pcgen.cdom.facet.analysis.InitiativeFacet;
 
-public class InitiativeFacetTest extends TestCase
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class InitiativeFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -46,16 +47,24 @@ public class InitiativeFacetTest extends TestCase
 	private InitiativeFacet facet;
 	private Map<CharID, Double> bonusInfo;
 
-	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
 		facet = getMockFacet();
 		facet.setFormulaResolvingFacet(new FormulaResolvingFacet());
 		bonusInfo = new HashMap<>();
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		facet = null;
+		bonusInfo = null;
 	}
 
 	@Test

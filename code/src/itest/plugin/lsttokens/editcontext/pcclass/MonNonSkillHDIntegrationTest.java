@@ -32,8 +32,8 @@ public class MonNonSkillHDIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClass>
 {
 
-	static MonnonskillhdToken token = new MonnonskillhdToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
+	private static MonnonskillhdToken token = new MonnonskillhdToken();
+	private static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

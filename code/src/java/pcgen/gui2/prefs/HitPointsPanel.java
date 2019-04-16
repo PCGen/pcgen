@@ -1,5 +1,4 @@
 /*
- * ExperiencePanel.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,63 +14,57 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 20/07/2008 14:21:40
- *
- * $Id$
  */
 package pcgen.gui2.prefs;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.text.ParseException;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
-import pcgen.gui2.util.WholeNumberField;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 /**
- * The Class <code>HitPointsPanel</code> is responsible for 
+ * The Class {@code HitPointsPanel} is responsible for
  * displaying hit points related preferences and allowing the 
  * preferences to be edited by the user.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class HitPointsPanel extends PCGenPrefsPanel
 {
-	private static String in_hp = LanguageBundle.getString("in_Prefs_hp");
+	private static final String IN_HP = LanguageBundle.getString("in_Prefs_hp");
 
-	private JCheckBox maxHpAtFirstLevel = new JCheckBox();
-	private JCheckBox maxHpAtFirstClassLevel = new JCheckBox();
+	private final JCheckBox maxHpAtFirstLevel = new JCheckBox();
+	private final JCheckBox maxHpAtFirstClassLevel = new JCheckBox();
 
 	// "HP Roll Methods"
-	private JRadioButton hpAutomax =
-			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAutoMax"));
-	private JRadioButton hpAverage =
-			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAverage"));
-	private JRadioButton hpPercentage =
-			new JRadioButton(LanguageBundle.getString("in_Prefs_hpPercentage"));
-	private JRadioButton hpStandard =
-			new JRadioButton(LanguageBundle.getString("in_Prefs_hpStandard"));
-	private JRadioButton hpUserRolled =
-			new JRadioButton(LanguageBundle.getString("in_Prefs_hpUserRolled"));
-	private JRadioButton hpAverageRoundedUp =
+	private final JRadioButton hpAutomax = new JRadioButton(LanguageBundle.getString("in_Prefs_hpAutoMax"));
+	private final JRadioButton hpAverage = new JRadioButton(LanguageBundle.getString("in_Prefs_hpAverage"));
+	private final JRadioButton hpPercentage = new JRadioButton(LanguageBundle.getString("in_Prefs_hpPercentage"));
+	private final JRadioButton hpStandard = new JRadioButton(LanguageBundle.getString("in_Prefs_hpStandard"));
+	private final JRadioButton hpUserRolled = new JRadioButton(LanguageBundle.getString("in_Prefs_hpUserRolled"));
+	private final JRadioButton hpAverageRoundedUp =
 			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAverageRoundedUp"));
 
-	private WholeNumberField hpPct = new WholeNumberField(0, 6);
-	
+	private final SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel(0, 0, 100, 1);
+	private final JSpinner hpPercentSpinner = new JSpinner(spinnerNumberModel);
+
 	/**
 	 * Instantiates a new hit points panel.
 	 */
@@ -84,7 +77,7 @@ public class HitPointsPanel extends PCGenPrefsPanel
 		JLabel label;
 		ButtonGroup exclusiveGroup;
 		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, in_hp);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_HP);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -135,8 +128,8 @@ public class HitPointsPanel extends PCGenPrefsPanel
 		exclusiveGroup.add(hpPercentage);
 
 		Utility.buildConstraints(c, 2, iRow++, 1, 1, 0, 0);
-		gridbag.setConstraints(hpPct, c);
-		this.add(hpPct);
+		gridbag.setConstraints(hpPercentSpinner, c);
+		this.add(hpPercentSpinner);
 
 		Utility.buildConstraints(c, 1, iRow++, GridBagConstraints.REMAINDER, 1, 0, 0);
 		gridbag.setConstraints(hpAverageRoundedUp, c);
@@ -158,21 +151,27 @@ public class HitPointsPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
-	 */
 	@Override
 	public String getTitle()
 	{
-		return in_hp;
+		return IN_HP;
 	}
-	
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
-	 */
+
 	@Override
 	public void setOptionsBasedOnControls()
 	{
+		try
+		{
+			hpPercentSpinner.commitEdit();
+		}
+		catch (ParseException e)
+		{
+			// I was unable to get this to actually happen. In order to press the OK button
+			// the control must be exited, and the editor returns to the model's state.
+			// In the event this causes user confusion it might be worth making this a dialog instead.
+			Logging.errorPrint("invalid hp selected", e);
+		}
+
 		if (hpStandard.isSelected())
 		{
 			SettingsHandler.setHPRollMethod(Constants.HP_STANDARD);
@@ -197,15 +196,11 @@ public class HitPointsPanel extends PCGenPrefsPanel
 		{
 			SettingsHandler.setHPRollMethod(Constants.HP_AVERAGE_ROUNDED_UP);
 		}
-
-		SettingsHandler.setHPPercent(hpPct.getValue());
+		SettingsHandler.setHPPercent((Integer) hpPercentSpinner.getValue());
 		SettingsHandler.setHPMaxAtFirstLevel(maxHpAtFirstLevel.isSelected());
 		SettingsHandler.setHPMaxAtFirstClassLevel(maxHpAtFirstClassLevel.isSelected());
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
-	 */
 	@Override
 	public void applyOptionValuesToControls()
 	{
@@ -244,7 +239,7 @@ public class HitPointsPanel extends PCGenPrefsPanel
 				break;
 		}
 
-		hpPct.setValue(SettingsHandler.getHPPercent());
+		hpPercentSpinner.setValue(SettingsHandler.getHPPercent());
 		maxHpAtFirstLevel.setSelected(SettingsHandler.isHPMaxAtFirstLevel());
 		maxHpAtFirstClassLevel.setSelected(SettingsHandler.isHPMaxAtFirstClassLevel());
 	}

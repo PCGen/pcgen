@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.equipment;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
@@ -29,12 +27,14 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.equipment.AlttypeToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class AltTypeIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Equipment>
 {
 
-	static AlttypeToken token = new AlttypeToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static AlttypeToken token = new AlttypeToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

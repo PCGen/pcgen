@@ -27,10 +27,8 @@ import pcgen.output.publish.OutputDB;
  * StatFacet is a Facet that tracks the PCStat objects that have been granted to
  * a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class StatFacet extends AbstractListFacet<CharID, PCStat> implements
-		SetFacet<CharID, PCStat>
+public class StatFacet extends AbstractListFacet<CharID, PCStat> implements SetFacet<CharID, PCStat>
 {
 	public void init()
 	{

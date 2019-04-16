@@ -20,13 +20,34 @@ package pcgen.cdom.content;
 import java.net.URI;
 
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.base.SortKeyRequired;
 
-public class RollMethod implements Loadable
+/**
+ * A RollMethod is a method used to generate dice rolls for Character creation
+ */
+public class RollMethod implements Loadable, SortKeyRequired
 {
 
+	/**
+	 * The source URI of this RollMethod.
+	 */
 	private URI sourceURI;
+
+	/**
+	 * The name of this RollMethod.
+	 */
 	private String methodName;
+
+	/**
+	 * The implementation of this RollMethod. This is a string representation of a
+	 * formula.
+	 */
 	private String rollMethod;
+
+	/**
+	 * The sort key of this RollMethod, to indicate which items should appear first.
+	 */
+	private String sortKey;
 
 	@Override
 	public URI getSourceURI()
@@ -59,12 +80,6 @@ public class RollMethod implements Loadable
 	}
 
 	@Override
-	public String getLSTformat()
-	{
-		return getDisplayName();
-	}
-
-	@Override
 	public boolean isInternal()
 	{
 		return false;
@@ -84,6 +99,17 @@ public class RollMethod implements Loadable
 	public String getMethodRoll()
 	{
 		return rollMethod;
+	}
+
+	public void setSortKey(String sortKey)
+	{
+		this.sortKey = sortKey;
+	}
+
+	@Override
+	public String getSortKey()
+	{
+		return sortKey;
 	}
 
 }

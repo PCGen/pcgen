@@ -28,8 +28,8 @@ public class XtraSkillPointsPerLevelIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Race>
 {
 
-	static XtraskillptsperlvlToken token = new XtraskillptsperlvlToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static XtraskillptsperlvlToken token = new XtraskillptsperlvlToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

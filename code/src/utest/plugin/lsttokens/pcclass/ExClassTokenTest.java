@@ -17,7 +17,9 @@
  */
 package plugin.lsttokens.pcclass;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -29,12 +31,14 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static ExclassToken token = new ExclassToken();
 	static CDOMTokenLoader<PCClass> loader =
-			new CDOMTokenLoader<PCClass>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -55,7 +59,7 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
@@ -126,19 +130,19 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<CDOMSingleRef<PCClass>> getObjectKey()
+	private static ObjectKey<CDOMSingleRef<PCClass>> getObjectKey()
 	{
 		return ObjectKey.EX_CLASS;
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, getLegalValue());
 		CDOMSingleRef<PCClass> cl = primaryContext.getReferenceContext().getCDOMReference(
@@ -149,7 +153,7 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

@@ -1,0 +1,5 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+# Requires the ARG
+# Ability Name			Allowed Companions
+CATEGORY=Feat|Beast Rider.MOD	COMPANIONLIST:Special Mount|Companion (Gorthek)

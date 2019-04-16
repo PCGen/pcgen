@@ -1,0 +1,10 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Familiar Folio	SOURCESHORT:FF	SOURCEWEB:http://paizo.com/products/btpy9au2?Pathfinder-Player-Companion-Familiar-Folio	SOURCEDATE:2014-12
+
+# Equipment Name					Type						Cost		Weight	Source Page
+Glove of Familiar's Touch			TYPE:Magic.Wondrous.Glove		COST:23000	WT:2		SOURCEPAGE:p.21
+Mundanity Grease					TYPE:Magic.Wondrous.Consumable	COST:500	WT:1		SOURCEPAGE:p.21
+Replenishing Aquarium Ball (Greater)	TYPE:Magic.Wondrous			COST:4000	WT:20		SOURCEPAGE:p.21
+Replenishing Aquarium Ball (Lesser)		TYPE:Magic.Wondrous			COST:500	WT:20		SOURCEPAGE:p.21
+Replenishing Aquarium Ball (Standard)	TYPE:Magic.Wondrous			COST:2000	WT:20		SOURCEPAGE:p.21
+Spell-Sharing Collar				TYPE:Magic.Wondrous.Amulet		COST:7500	WT:1		SOURCEPAGE:p.21

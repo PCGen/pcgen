@@ -1,5 +1,4 @@
 /*
- * LevelGeneratorOption.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
  */
 package pcgen.core.npcgen;
 
@@ -27,23 +24,19 @@ import pcgen.base.util.WeightedCollection;
 /**
  * This class represents a particular level generator option.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  */
 public class LevelGeneratorOption extends GeneratorOption
 {
 	private WeightedCollection<Integer> theChoices = null;
-	
-	/**
-	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
-	 */
+
 	@Override
 	public void addChoice(final int aWeight, final String aValue)
 	{
-		if ( theChoices == null )
+		if (theChoices == null)
 		{
 			theChoices = new WeightedCollection<>();
 		}
-		
+
 		final StringTokenizer tok = new StringTokenizer(aValue, ","); //$NON-NLS-1$
 		final int minVal = Integer.parseInt(tok.nextToken());
 		int maxVal = minVal;
@@ -68,4 +61,3 @@ public class LevelGeneratorOption extends GeneratorOption
 		return theChoices;
 	}
 }
-

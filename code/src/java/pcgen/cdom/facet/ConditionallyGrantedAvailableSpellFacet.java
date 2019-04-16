@@ -1,5 +1,4 @@
 /*
- * ConditionallyGrantedAvailableSpellFacet.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.cdom.facet;
 
@@ -32,25 +30,20 @@ public class ConditionallyGrantedAvailableSpellFacet
 
 	public void update(CharID id)
 	{
-		Collection<AvailableSpell> set =
-				conditionallyAvailableSpellFacet.getQualifiedSet(id);
+		Collection<AvailableSpell> set = conditionallyAvailableSpellFacet.getQualifiedSet(id);
 		for (AvailableSpell as : set)
 		{
-			Collection<Object> sources =
-					conditionallyAvailableSpellFacet.getSources(id, as);
+			Collection<Object> sources = conditionallyAvailableSpellFacet.getSources(id, as);
 			for (Object source : sources)
 			{
-				availableSpellFacet.add(id, as.getSpelllist(), as.getLevel(),
-					as.getSpell(), source);
+				availableSpellFacet.add(id, as.getSpelllist(), as.getLevel(), as.getSpell(), source);
 			}
 		}
 	}
 
-	public void setConditionallyAvailableSpellFacet(
-		ConditionallyAvailableSpellFacet conditionallyAvailableSpellFacet)
+	public void setConditionallyAvailableSpellFacet(ConditionallyAvailableSpellFacet conditionallyAvailableSpellFacet)
 	{
-		this.conditionallyAvailableSpellFacet =
-				conditionallyAvailableSpellFacet;
+		this.conditionallyAvailableSpellFacet = conditionallyAvailableSpellFacet;
 	}
 
 	public void setAvailableSpellFacet(AvailableSpellFacet availableSpellFacet)

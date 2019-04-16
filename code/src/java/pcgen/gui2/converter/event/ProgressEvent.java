@@ -15,7 +15,6 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  * 
- * Created on Mar 10, 2006
  */
 package pcgen.gui2.converter.event;
 
@@ -30,7 +29,7 @@ public class ProgressEvent extends EventObject
 
 	public static final int AUTO_ADVANCE = 2;
 
-	private int ident;
+	private final int ident;
 
 	public ProgressEvent(Object arg0, int id)
 	{

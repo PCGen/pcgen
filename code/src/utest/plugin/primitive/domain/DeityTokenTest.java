@@ -30,13 +30,15 @@ import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class DeityTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Domain>
 {
 
 	static ChooseLst token = new ChooseLst();
 	static DomainToken subtoken = new DomainToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	private static final plugin.primitive.domain.DeityToken DEITY_TOKEN = new plugin.primitive.domain.DeityToken();
 
@@ -45,6 +47,7 @@ public class DeityTokenTest extends
 		super("DEITY", null);
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

@@ -1,5 +1,4 @@
 /*
- * PlayerCharacterSpellTest.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 26/01/2012 11:09:46 AM
- *
- * $Id$
  */
 package pcgen.core;
+
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
@@ -40,13 +37,15 @@ import pcgen.rules.persistence.TokenUtilities;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
- * The Class <code>PlayerCharacterSpellTest</code> checks the function of spell related
+ * The Class {@code PlayerCharacterSpellTest} checks the function of spell related
  * code in PlayerCharacter and associated objects.
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
@@ -57,16 +56,11 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	private Spell domainSpell;
 	private PCClass divineClass;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
-		Globals.getContext().loadCampaignFacets();
-	}
-
-	@Override
-	protected void additionalSetUp() throws Exception
-	{
 		LoadContext context = Globals.getContext();
 		CampaignSourceEntry source = TestHelper.createSource(getClass());
 
@@ -79,9 +73,12 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 		PCClassLoader classLoader = new PCClassLoader();
 		divineClass = classLoader.parseLine(context, null, classLine, source);
 		BuildUtilities.setFact(divineClass, "SpellType", "Divine");
-		classLoader.parseLine(context, divineClass, "CLASS:MyClass	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL", source);
-		classLoader.parseClassLevelLine(context, divineClass, 1, source, "CAST:5,4	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|DomainLVL|CL");
-		context.getReferenceContext().importObject(divineClass);
+		classLoader.parseLine(context, divineClass,
+			"CLASS:MyClass	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|"
+					+ "LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL",
+			source);
+		classLoader.parseClassLevelLine(context, divineClass, 1, source,
+			"CAST:5,4	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|DomainLVL|CL");
 		
 		final String domainLine = "Sun	SPELLLEVEL:DOMAIN|Sun=1|KEY_domainSpell";
 		GenericLoader<Domain> domainLoader = new GenericLoader<>(Domain.class);
@@ -94,13 +91,15 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 				context.getListContext().addToMasterList("CLASSES", classSpell,
 					ref, classSpell);
 		edge.setAssociation(AssociationKey.SPELL_LEVEL, 1);
-		context.commit();
+
+		finishLoad();
 	}
 
 	/**
 	 * Test that domain spell lists are built and managed correctly.
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testDomainSpell() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -120,6 +119,7 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	 * Test that class spell lists are built and managed correctly.
 	 * @throws Exception If an error occurs.
 	 */
+	@Test
 	public void testPcClassSpell() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -129,5 +129,11 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 		assertEquals("Incorrect number of spell lists in class list", 1, spellLists.size());
 		int level = SpellLevel.getFirstLevelForKey(classSpell, spellLists, pc);
 		assertEquals("Incorrect spell level in class list", 1, level);
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }

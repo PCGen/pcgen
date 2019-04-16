@@ -1,5 +1,4 @@
 /*
- * CategorizedAbilitySelectionChooseInformation.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,26 +14,19 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 06/06/2013
- *
- * $Id$
  */
 package pcgen.cdom.base;
 
 import pcgen.cdom.choiceset.CollectionToAbilitySelection;
 import pcgen.cdom.content.AbilitySelection;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.AbilityCategory;
 
 /**
  * CategorizedAbilitySelectionChooseInformation
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class CategorizedAbilitySelectionChooseInformation extends
-		BasicChooseInformation<AbilitySelection>
+public class CategorizedAbilitySelectionChooseInformation extends BasicChooseInformation<AbilitySelection>
 {
 
 	private CollectionToAbilitySelection casChoiceSet;
@@ -50,17 +42,16 @@ public class CategorizedAbilitySelectionChooseInformation extends
 	 * @throws IllegalArgumentException
 	 *             if the given name or PrimitiveChoiceSet is null
 	 */
-	public CategorizedAbilitySelectionChooseInformation(String name,
-		CollectionToAbilitySelection choice)
+	public CategorizedAbilitySelectionChooseInformation(String name, CollectionToAbilitySelection choice)
 	{
-		super(name, choice);
+		super(name, choice, choice.getCategory().getPersistentFormat());
 		this.casChoiceSet = choice;
 	}
-	
+
 	/**
 	 * @return The ability category of the choices. 
 	 */
-	public CDOMSingleRef<AbilityCategory> getCategory()
+	public AbilityCategory getCategory()
 	{
 		return casChoiceSet.getCategory();
 	}

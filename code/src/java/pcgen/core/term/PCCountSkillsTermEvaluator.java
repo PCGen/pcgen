@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountSkillsTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 20:21:57
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -31,11 +27,10 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.util.enumeration.View;
 
-public class PCCountSkillsTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCountSkillsTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	final String filterToken;
-	
+
 	public PCCountSkillsTermEvaluator(String originalText, String filterToken)
 	{
 		this.originalText = originalText;
@@ -47,18 +42,16 @@ public class PCCountSkillsTermEvaluator
 	{
 		int count = 0;
 		//TODO This is a bug, it assumes export
-		final List<Skill> skills =
-				pc.getDisplay().getPartialSkillList(View.VISIBLE_EXPORT);
+		final List<Skill> skills = pc.getDisplay().getPartialSkillList(View.VISIBLE_EXPORT);
 		SkillFilter filter = SkillFilter.getByToken(filterToken);
 		if (filter == null || filter == SkillFilter.Selected)
 		{
 			filter = pc.getSkillFilter();
 		}
-		
-		for(Skill sk : skills)
+
+		for (Skill sk : skills)
 		{
-			if (pc.includeSkill(sk, filter)
-				&& sk.qualifies(pc, null))
+			if (pc.includeSkill(sk, filter) && sk.qualifies(pc, null))
 			{
 				count++;
 			}

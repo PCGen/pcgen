@@ -1,5 +1,4 @@
 /*
- * PCGVer2ParserCharacterTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 10/11/2013
- *
- * $Id$
  */
 package pcgen.io;
+
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
@@ -34,34 +31,39 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * PCGVer2ParserCharacterTest runs tests on PCGVer2Parser which require a 
  * character to be supplied. 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 {
-
+	@BeforeEach
 	@Override
-	protected void additionalSetUp() throws Exception
+	protected void setUp() throws Exception
 	{
-		super.additionalSetUp();
+		super.setUp();
 		LoadContext context = Globals.getContext();
 		Race rakshasha =
 				context.getReferenceContext().constructCDOMObject(Race.class, "Rakshasa");
 		context
 			.unconditionallyProcess(rakshasha, "ADD", "SPELLCASTER|Sorcerer");
 		context.getReferenceContext().constructCDOMObject(PCClass.class, "Sorcerer");
+		finishLoad();
 	}
 
 	/**
 	 * Check that a racial ADD:SPELLCASTER happens exactly once on character 
 	 * load. Duplication of the association has occurred a couple of times in 
 	 * the past.
-	 * @throws Exception
+	 *
+	 * @throws PCGParseException the PCG parse exception
 	 */
-	public void testRaceAddSpellcaster() throws Exception
+	@Test
+	public void testRaceAddSpellcaster() throws PCGParseException
 	{
 		LoadContext context = Globals.getContext();
 		Race rakshasha =
@@ -77,5 +79,11 @@ public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 		PersistentTransitionChoice<?> tc = rakshasha.getListFor(ListKey.ADD).get(0);
 		List<Object> assocList = pc.getAssocList(tc, AssociationListKey.ADD);
 		assertEquals("Number of associations for ADD " + assocList, 1, assocList.size());
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }

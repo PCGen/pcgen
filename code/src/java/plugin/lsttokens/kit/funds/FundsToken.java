@@ -1,5 +1,4 @@
 /* 
- * FundsToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 6, 2006
- *
- * Current Ver: $Revision$
  */
 
 package plugin.lsttokens.kit.funds;
@@ -32,8 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * FUNDS Token for KitFunds
  */
-public class FundsToken extends AbstractNonEmptyToken<KitFunds> implements
-		CDOMPrimaryToken<KitFunds>
+public class FundsToken extends AbstractNonEmptyToken<KitFunds> implements CDOMPrimaryToken<KitFunds>
 {
 
 	/**
@@ -54,8 +48,7 @@ public class FundsToken extends AbstractNonEmptyToken<KitFunds> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitFunds kitFunds,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitFunds kitFunds, String value)
 	{
 		kitFunds.setName(value);
 		return ParseResult.SUCCESS;
@@ -69,6 +62,6 @@ public class FundsToken extends AbstractNonEmptyToken<KitFunds> implements
 		{
 			return null;
 		}
-		return new String[] { bd };
+		return new String[]{bd};
 	}
 }

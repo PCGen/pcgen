@@ -17,19 +17,16 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  PreferencesTrackingPanel.java
- *
- *  Created on August 29, 2002, 2:41 PM
  */
 package plugin.initiative.gui;
 
 import javax.swing.SwingConstants;
+
 import pcgen.core.SettingsHandler;
 import plugin.initiative.InitiativePlugin;
 
 /**
  *  Dialog for editing preferences.
- *
- *@author     devon
  */
 public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 {
@@ -116,28 +113,22 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 		return spellCheckBox.isSelected();
 	}
 
-    @Override
+	@Override
 	public void applyPreferences()
 	{
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells",
-			isSpellCheckBoxChecked());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doDeath",
-			isDeathCheckBoxChecked());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doHP",
-			isHPCheckBoxChecked());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells", isSpellCheckBoxChecked());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doDeath", isDeathCheckBoxChecked());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", isHPCheckBoxChecked());
 		initiative.applyPrefs();
 		initiative.refreshTable();
 	}
 
-    @Override
+	@Override
 	public void initPreferences()
 	{
-		setSpellCheckBoxChecked(SettingsHandler.getGMGenOption(
-			InitiativePlugin.LOG_NAME + ".doSpells", true));
-		setDeathCheckBoxChecked(SettingsHandler.getGMGenOption(
-			InitiativePlugin.LOG_NAME + ".doDeath", true));
-		setHPCheckBoxChecked(SettingsHandler.getGMGenOption(
-			InitiativePlugin.LOG_NAME + ".doHP", true));
+		setSpellCheckBoxChecked(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells", true));
+		setDeathCheckBoxChecked(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doDeath", true));
+		setHPCheckBoxChecked(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", true));
 	}
 
 	@Override

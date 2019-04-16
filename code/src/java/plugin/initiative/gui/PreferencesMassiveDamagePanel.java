@@ -17,8 +17,6 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *  PreferencesMassiveDamagePanel.java
- *
- *  Created on July 10, 2003, 5:03 PM
  */
 package plugin.initiative.gui;
 
@@ -40,16 +38,15 @@ import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
 
-/**
- *
- * @author soulcatcher
- */
 public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 {
 
-	private static final String OPTION_NAME_TYPE = InitiativePlugin.LOG_NAME + ".Damage.Massive.Type"; //$NON-NLS-1$
-	private static final String OPTION_NAME_EFFECT = InitiativePlugin.LOG_NAME + ".Damage.Massive.Effect"; //$NON-NLS-1$
-	private static final String OPTION_NAME_USESIZE = InitiativePlugin.LOG_NAME + ".Damage.Massive.SizeMod"; //$NON-NLS-1$
+	private static final String OPTION_NAME_TYPE = InitiativePlugin.LOG_NAME
+			+ ".Damage.Massive.Type"; //$NON-NLS-1$
+	private static final String OPTION_NAME_EFFECT = InitiativePlugin.LOG_NAME
+			+ ".Damage.Massive.Effect"; //$NON-NLS-1$
+	private static final String OPTION_NAME_USESIZE = InitiativePlugin.LOG_NAME
+			+ ".Damage.Massive.SizeMod"; //$NON-NLS-1$
 
 	public static final int MASSIVE_OFF = 1;
 	public static final int MASSIVE_DND = 2;
@@ -87,7 +84,7 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 		initPreferences();
 	}
 
-    @Override
+	@Override
 	public void applyPreferences()
 	{
 		SettingsHandler.setGMGenOption(OPTION_NAME_TYPE, getType());
@@ -95,7 +92,7 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 		SettingsHandler.setGMGenOption(OPTION_NAME_USESIZE, sizeCheck.isSelected());
 	}
 
-    @Override
+	@Override
 	public void initPreferences()
 	{
 		setType(SettingsHandler.getGMGenOption(OPTION_NAME_TYPE, MASSIVE_OFF));
@@ -235,7 +232,8 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 
 		massivePanel.setLayout(new BoxLayout(massivePanel, BoxLayout.Y_AXIS));
 
-		massivePanel.setBorder(new TitledBorder(null, LanguageBundle.getString("in_plugin_init_massive_massive"), //$NON-NLS-1$
+		massivePanel.setBorder(
+			new TitledBorder(null, LanguageBundle.getString("in_plugin_init_massive_massive"), //$NON-NLS-1$
 			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION));
 		massive1.setSelected(true);
 		massive1.setText(LanguageBundle.getString("in_plugin_init_massive_noTrack")); //$NON-NLS-1$
@@ -256,8 +254,7 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 
 		massivePanel.add(massive3);
 
-		massive4
-			.setText(LanguageBundle.getString("in_plugin_init_massive_Half")); //$NON-NLS-1$
+		massive4.setText(LanguageBundle.getString("in_plugin_init_massive_Half")); //$NON-NLS-1$
 		massiveDamageGroup.add(massive4);
 		massive4.addActionListener(this::massiveActionPerformed);
 
@@ -267,7 +264,8 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 
 		effectPanel.setLayout(new BoxLayout(effectPanel, BoxLayout.Y_AXIS));
 
-		effectPanel.setBorder(new TitledBorder(null, LanguageBundle.getString("in_plugin_init_massive_failure"), //$NON-NLS-1$
+		effectPanel.setBorder(
+			new TitledBorder(null, LanguageBundle.getString("in_plugin_init_massive_failure"), //$NON-NLS-1$
 			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION));
 		effect1.setSelected(true);
 		effect1.setText(LanguageBundle.getString("in_plugin_init_massive_kill")); //$NON-NLS-1$

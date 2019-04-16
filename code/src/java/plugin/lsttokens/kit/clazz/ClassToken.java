@@ -1,5 +1,4 @@
 /* 
- * ClassToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 6, 2006
- *
- * Current Ver: $Revision$
  */
 
 package plugin.lsttokens.kit.clazz;
@@ -35,8 +30,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * CLASS token for KitClass
  */
-public class ClassToken extends AbstractNonEmptyToken<KitClass> implements
-		CDOMPrimaryToken<KitClass>
+public class ClassToken extends AbstractNonEmptyToken<KitClass> implements CDOMPrimaryToken<KitClass>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -59,11 +53,9 @@ public class ClassToken extends AbstractNonEmptyToken<KitClass> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitClass kitClass,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitClass kitClass, String value)
 	{
-		CDOMSingleRef<PCClass> ref =
-				context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, value);
+		CDOMSingleRef<PCClass> ref = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, value);
 		kitClass.setPcclass(ref);
 		return ParseResult.SUCCESS;
 	}

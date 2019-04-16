@@ -1,5 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Apr 22 15:03:00 2016 -- reformated by PCGen PrettyLST v6.06.00
-SOURCELONG:Champions of Balance	SOURCESHORT:COB	SOURCEWEB:http://paizo.com/products/btpy93nc?Pathfinder-Player-Companion-Champions-of-Balance	SOURCEDATE:2014-03
+SOURCELONG:Pathfinder Player Companion: Champions of Balance	SOURCESHORT:COB	SOURCEWEB:http://paizo.com/products/btpy93nc	SOURCEDATE:2014-03
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 6 April 2016
 
@@ -7,16 +8,16 @@ SOURCELONG:Champions of Balance	SOURCESHORT:COB	SOURCEWEB:http://paizo.com/produ
 # Magic Items
 # ==============================
 
-# Equipment Name				Output Name							Required Weapon Proficiency				Type																					Contains				Cost		Weight	Crit Mult	Crit Range	Damage	Modifier							Wield Category	Range		Size		Source Page		Special Property
-Cloak of Moral Refraction																		TYPE:Magic.Wondrous.Cloak																						COST:54200	WT:1																							SOURCEPAGE:p.28
-Dimensional Acid (Basic Pit)		OUTPUTNAME:Dimensional Acid, Basic Pit										TYPE:Magic.Wondrous.Consumable																					COST:450	WT:1																							SOURCEPAGE:p.28
-Dimensional Acid (Corrosive Pit)	OUTPUTNAME:Dimensional Acid, Corrosive Pit									TYPE:Magic.Wondrous.Consumable																					COST:1750	WT:1																							SOURCEPAGE:p.28
-Dimensional Acid (Jagged Pit)		OUTPUTNAME:Dimensional Acid, Jagged Pit										TYPE:Magic.Wondrous.Consumable																					COST:1000	WT:1																							SOURCEPAGE:p.28
-Dimensional Acid (Living Pit)		OUTPUTNAME:Dimensional Acid, Living Pit										TYPE:Magic.Wondrous.Consumable																					COST:2700	WT:1																							SOURCEPAGE:p.28
-Eye of Brokerage																				TYPE:Magic.Wondrous.Amulet																						COST:16550	WT:1																							SOURCEPAGE:p.28
-Gauntlets of the Unchained																		TYPE:Magic.Wondrous.Glove																						COST:13200	WT:1																							SOURCEPAGE:p.28
-Liar's Robe																					TYPE:Magic.Wondrous.Robe																						COST:4180	WT:6																							SOURCEPAGE:p.29
+# Equipment Name				Output Name							Required Weapon Proficiency				Type																					Contains				Cost		Weight	Crit Mult	Crit Range	Damage	Modifier																	Wield Category	Range		Size		Source Page		Special Property
+Cloak of Moral Refraction																		TYPE:Magic.Wondrous.Cloak																						COST:54200	WT:1																																	SOURCEPAGE:p.28
+Dimensional Acid (Basic Pit)		OUTPUTNAME:Dimensional Acid, Basic Pit										TYPE:Magic.Wondrous.Consumable																					COST:450	WT:1																																	SOURCEPAGE:p.28
+Dimensional Acid (Corrosive Pit)	OUTPUTNAME:Dimensional Acid, Corrosive Pit									TYPE:Magic.Wondrous.Consumable																					COST:1750	WT:1																																	SOURCEPAGE:p.28
+Dimensional Acid (Jagged Pit)		OUTPUTNAME:Dimensional Acid, Jagged Pit										TYPE:Magic.Wondrous.Consumable																					COST:1000	WT:1																																	SOURCEPAGE:p.28
+Dimensional Acid (Living Pit)		OUTPUTNAME:Dimensional Acid, Living Pit										TYPE:Magic.Wondrous.Consumable																					COST:2700	WT:1																																	SOURCEPAGE:p.28
+Eye of Brokerage																				TYPE:Magic.Wondrous.Amulet																						COST:16550	WT:1																																	SOURCEPAGE:p.28
+Gauntlets of the Unchained																		TYPE:Magic.Wondrous.Glove																						COST:13200	WT:1																																	SOURCEPAGE:p.28
+Liar's Robe																					TYPE:Magic.Wondrous.Robe																						COST:4180	WT:6																																	SOURCEPAGE:p.29
 
-Judicial Hammer												PROFICIENCY:WEAPON|Earth Breaker			TYPE:Magic.Weapon.Resizable.Melee.Martial.TwoHanded.Bludgeoning.Specific.Hammer													COST:40	WT:14		CRITMULT:x3	CRITRANGE:1	DAMAGE:2d6	EQMOD:MAGIC_COST|2880.PLUS1W.STEEL			WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.29
-Slaver's Cane												PROFICIENCY:WEAPON|Mace (Light)			TYPE:Magic.Weapon.Resizable.Melee.Light.Finesseable.Simple.Bludgeoning.Specific.Mace.Hammer											COST:5	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:MAGIC_COST|20000.PLUS1W.ADAMANT_WEAP	WIELD:Light				SIZE:M	SOURCEPAGE:p.29
-Traitorous Blaster											PROFICIENCY:WEAPON|Pistol (Double-Barreled)	TYPE:Magic.Weapon.Resizable.Ranged.Exotic.Firearm.Piercing.Bludgeoning.Container.Projectile.OneHandedFireArm.Specific.Pistol	CONTAINS:2|FirearmBullet=1	COST:1750	WT:5		CRITMULT:x4	CRITRANGE:1	DAMAGE:1d8	EQMOD:MAGIC_COST|3000.PLUS1W.STEEL						RANGE:20						SPROP:Misfire 1-2 (5 ft.)
+Judicial Hammer												PROFICIENCY:WEAPON|Earth Breaker			TYPE:Magic.Weapon.Resizable.Melee.Martial.TwoHanded.Bludgeoning.Specific.Hammer													COST:40	WT:14		CRITMULT:x3	CRITRANGE:1	DAMAGE:2d6	EQMOD:Special Ability ~ Enhancement Cost|2880.Special Ability ~ +1 ~ Weapon.Material ~ Steel			WIELD:TwoHanded			SIZE:M	SOURCEPAGE:p.29
+Slaver's Cane												PROFICIENCY:WEAPON|Mace (Light)			TYPE:Magic.Weapon.Resizable.Melee.Light.Finesseable.Simple.Bludgeoning.Specific.Mace.Hammer											COST:5	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	EQMOD:Special Ability ~ Enhancement Cost|20000.Special Ability ~ +1 ~ Weapon.Material ~ Adamantine ~ Weapon	WIELD:Light				SIZE:M	SOURCEPAGE:p.29
+Traitorous Blaster											PROFICIENCY:WEAPON|Pistol (Double-Barreled)	TYPE:Magic.Weapon.Resizable.Ranged.Exotic.Firearm.Piercing.Bludgeoning.Container.Projectile.OneHandedFireArm.Specific.Pistol	CONTAINS:2|FirearmBullet=1	COST:1750	WT:5		CRITMULT:x4	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Ability ~ Enhancement Cost|3000.Special Ability ~ +1 ~ Weapon.Material ~ Steel						RANGE:20						SPROP:Misfire 1-2 (5 ft.)

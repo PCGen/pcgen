@@ -17,13 +17,17 @@
  */
 package pcgen.cdom.facet;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 import pcgen.core.LevelInfo;
 import pcgen.core.XPTable;
+
+import org.junit.jupiter.api.Test;
 
 public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 {
@@ -90,7 +94,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		facet.set(id, t1);
 		LevelInfo xpt = facet.getLevelInfo(id, 1);
 		assertNotNull(xpt);
-		assertEquals(li, xpt);
+		assertSame(li, xpt);
 	}
 
 	@Test
@@ -115,7 +119,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		facet.set(id, t1);
 		LevelInfo xpt = facet.getLevelInfo(id, 1);
 		assertNotNull(xpt);
-		assertEquals(li, xpt);
+		assertSame(li, xpt);
 	}
 	
 

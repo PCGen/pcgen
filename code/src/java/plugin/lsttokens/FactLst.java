@@ -31,8 +31,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @see plugin.lsttokens.datacontrol.FactDefToken
  * 
  */
-public class FactLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class FactLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 	@Override
 	public String getTokenName()
@@ -47,33 +46,30 @@ public class FactLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject cdo,
-		String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject cdo, String value)
 	{
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName() + " expecting '|', format is: "
-				+ "Fact identification|Fact value ... was: " + value, context);
+			return new ParseResult.Fail(
+				getTokenName() + " expecting '|', format is: " + "Fact identification|Fact value ... was: " + value);
 		}
 		else if (pipeLoc != value.lastIndexOf(Constants.PIPE))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " expecting only one '|', format is: "
-				+ "Fact identification|Fact value ... was: " + value, context);
+			return new ParseResult.Fail(getTokenName() + " expecting only one '|', format is: "
+				+ "Fact identification|Fact value ... was: " + value);
 		}
 		String factID = value.substring(0, pipeLoc);
-		if (factID.length() == 0)
+		if (factID.isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " expecting non-empty identification, "
-				+ "format is: Fact identification|Fact value ... was: " + value, context);
+			return new ParseResult.Fail(getTokenName() + " expecting non-empty identification, "
+				+ "format is: Fact identification|Fact value ... was: " + value);
 		}
 		String factStr = value.substring(pipeLoc + 1);
-		if (factStr.length() == 0)
+		if (factStr.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting non-empty value, "
-				+ "format is: Fact identification|Fact value ... was: " + value, context);
+				+ "format is: Fact identification|Fact value ... was: " + value);
 		}
 		return context.processSubToken(cdo, getTokenName(), factID, factStr);
 	}

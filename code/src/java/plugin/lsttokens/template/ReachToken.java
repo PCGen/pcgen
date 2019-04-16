@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with REACH Token
  */
-public class ReachToken extends AbstractIntToken<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>
+public class ReachToken extends AbstractIntToken<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override
@@ -44,7 +43,7 @@ public class ReachToken extends AbstractIntToken<PCTemplate> implements
 	{
 		return IntegerKey.REACH;
 	}
-	
+
 	@Override
 	protected int minValue()
 	{
@@ -62,9 +61,7 @@ public class ReachToken extends AbstractIntToken<PCTemplate> implements
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.PCREACH))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when PCREACH control is used: " + value,
-				context);
+			return new ParseResult.Fail(getTokenName() + " is disabled when PCREACH control is used: " + value);
 		}
 		return super.parseToken(context, obj, value);
 	}

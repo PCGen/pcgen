@@ -1,5 +1,4 @@
 /*
- * FilteredListFacade.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,26 +15,21 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 27, 2011, 11:36:59 PM
  */
 package pcgen.gui2.filter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.facade.util.event.ListEvent;
-import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.AbstractListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class FilteredListFacade<C, E> extends AbstractListFacade<E> implements ListListener<E>
 {
 
-	private List<E> data = new ArrayList<>();
+	private final List<E> data = new ArrayList<>();
 	private ListFacade<E> delegate = null;
 	private Filter<? super C, ? super E> filter = null;
 	private C context = null;

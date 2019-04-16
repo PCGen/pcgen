@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCHasDeityTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 11:49:49
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -28,14 +24,11 @@ import pcgen.core.Deity;
 import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
 
-public class PCHasDeityTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCHasDeityTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	private final String deity;
 
-	public PCHasDeityTermEvaluator(
-			String originalText,
-			String deity)
+	public PCHasDeityTermEvaluator(String originalText, String deity)
 	{
 		this.originalText = originalText;
 		this.deity = deity;
@@ -44,8 +37,7 @@ public class PCHasDeityTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		Deity d = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				Deity.class, deity);
+		Deity d = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Deity.class, deity);
 		return display.hasDeity(d) ? 1.0f : 0.0f;
 	}
 

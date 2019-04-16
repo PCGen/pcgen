@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Aug 5, 2004
- *
- * $Id$
- *
  */
 package plugin.exporttokens;
 
@@ -35,13 +30,10 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
 /**
- * <code>SkillSubsetToken</code> outputs the value of the Skill at
+ * {@code SkillSubsetToken} outputs the value of the Skill at
  * position x in a subset of character's skill list. The format
  * for this tag is SKILLSUBSET.pos.subname.property
  * eg SKILLSUBSET.2.KNOWLEDGE.RANK
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 // SKILLSUBSET
@@ -50,21 +42,14 @@ public class SkillSubsetToken extends SkillToken
 	/** token name */
 	public static final String TOKEN_NAME = "SKILLSUBSET";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKEN_NAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		SkillDetails details = buildSkillDetails(tokenSource);
 
@@ -90,8 +75,7 @@ public class SkillSubsetToken extends SkillToken
 	 * @param eh The ExportHandler
 	 * @return The matching skill, or null if none match.
 	 */
-	private Skill getSkill(String tokenSource, PlayerCharacter pc,
-		SkillDetails details, ExportHandler eh)
+	private Skill getSkill(String tokenSource, PlayerCharacter pc, SkillDetails details, ExportHandler eh)
 	{
 		int skillIndex;
 
@@ -102,8 +86,7 @@ public class SkillSubsetToken extends SkillToken
 		}
 		catch (NumberFormatException exc)
 		{
-			Logging.errorPrint("Error replacing SKILLSUBSET." + tokenSource,
-				exc);
+			Logging.errorPrint("Error replacing SKILLSUBSET." + tokenSource, exc);
 			return null;
 		}
 
@@ -112,8 +95,7 @@ public class SkillSubsetToken extends SkillToken
 		int prefixLength = skillPrefix.length();
 		List<Skill> skillSubset = new ArrayList<>();
 		final List<Skill> skills =
-				SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay()
-					.getPartialSkillList(View.VISIBLE_EXPORT));
+				SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay().getPartialSkillList(View.VISIBLE_EXPORT));
 
 		for (Skill bSkill : skills)
 		{
@@ -124,8 +106,7 @@ public class SkillSubsetToken extends SkillToken
 		}
 
 		// Select the skill
-		if ((skillIndex >= (skillSubset.size() - 1)) && eh != null
-			&& eh.getExistsOnly())
+		if ((skillIndex >= (skillSubset.size() - 1)) && eh != null && eh.getExistsOnly())
 		{
 			eh.setNoMoreItems(true);
 		}

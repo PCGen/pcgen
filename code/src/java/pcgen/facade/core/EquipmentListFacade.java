@@ -1,5 +1,4 @@
 /*
- * EquipmentListFacade.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 22, 2011, 12:01:45 AM
  */
 package pcgen.facade.core;
 
@@ -25,14 +23,10 @@ import java.util.EventObject;
 
 import pcgen.facade.util.ListFacade;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public interface EquipmentListFacade extends ListFacade<EquipmentFacade>
 {
 	public int getQuantity(EquipmentFacade equipment);
-	
+
 	public void addEquipmentListListener(EquipmentListListener listener);
 
 	public void removeEquipmentListListener(EquipmentListListener listener);
@@ -57,7 +51,7 @@ public interface EquipmentListFacade extends ListFacade<EquipmentFacade>
 	public static class EquipmentListEvent extends EventObject
 	{
 
-		private EquipmentFacade equipment;
+		private final EquipmentFacade equipment;
 		private final int index;
 
 		public EquipmentListEvent(Object source, EquipmentFacade equipment, int index)

@@ -2,11 +2,11 @@ PCGVERSION:2.0
 
 # System Information
 CAMPAIGN:Core Rulebook|CAMPAIGN:Bestiary
-VERSION:6.01.11-dev
+VERSION:6.07.01
 ROLLMETHOD:1|EXPRESSION:10
 PURCHASEPOINTS:N
-CHARACTERTYPE:PC
-PREVIEWSHEET:Standard.htm
+CHARACTERTYPE:Monster
+PREVIEWSHEET:Standard.htm.ftl
 POOLPOINTS:0
 POOLPOINTSAVAIL:-1
 GAMEMODE:Pathfinder_RPG
@@ -27,10 +27,10 @@ AUTORESIZEGEAR:Y
 CHARACTERNAME:pf_goldielocks
 TABNAME:01_Gold_Dragon_Great_Wrym
 PLAYERNAME:Test Monkey
-HEIGHT:0
-WEIGHT:0
+HEIGHT:900
+WEIGHT:10000
 AGE:5000
-GENDER:Male
+GENDER:Female
 HANDED:Right
 SKINCOLOR:
 EYECOLOR:Amber
@@ -100,77 +100,113 @@ EXPERIENCETABLE:Medium
 TEMPLATESAPPLIED:[NAME:Creature with Class Levels]
 TEMPLATESAPPLIED:[NAME:Base Dragon HD (8)|CHOSENTEMPLATE:[NAME:Dragon Size HD (8)]]
 TEMPLATESAPPLIED:[NAME:Dragon Size HD (8)]
+TEMPLATESAPPLIED:[NAME:Dragon Attacks HD (8)]
 TEMPLATESAPPLIED:[NAME:Dragon Size Tracker]
 TEMPLATESAPPLIED:[NAME:]
 TEMPLATESAPPLIED:[NAME:Great Wyrm]
 TEMPLATESAPPLIED:[NAME:]
+TEMPLATESAPPLIED:[NAME:Dragon Attacks (Colossal)]
+TEMPLATESAPPLIED:[NAME:]
 TEMPLATESAPPLIED:[NAME:Dragon (Colossal)]
+TEMPLATESAPPLIED:[NAME:REACH_20]
+TEMPLATESAPPLIED:[NAME:FACE_30]
 
 # Character Region
 REGION:None
 
 # Character Skills
 SKILL:Acrobatics|OUTPUTORDER:1|
+SKILL:Acrobatics (Perform (Dance))|OUTPUTORDER:2|
 SKILL:Appraise|OUTPUTORDER:3|CLASSBOUGHT:[CLASS:Dragon|RANKS:3.0|COST:1|CLASSSKILL:Y]
 SKILL:Bluff|OUTPUTORDER:4|CLASSBOUGHT:[CLASS:Dragon|RANKS:2.0|COST:1|CLASSSKILL:Y]
-SKILL:Climb|OUTPUTORDER:5|CLASSBOUGHT:[CLASS:Dragon|RANKS:3.0|COST:1|CLASSSKILL:Y]
-SKILL:Craft (Untrained)|OUTPUTORDER:6|
-SKILL:Diplomacy|OUTPUTORDER:7|CLASSBOUGHT:[CLASS:Dragon|RANKS:4.0|COST:1|CLASSSKILL:Y]
-SKILL:Disguise|OUTPUTORDER:8|
-SKILL:Escape Artist|OUTPUTORDER:9|
-SKILL:Fly|OUTPUTORDER:10|CLASSBOUGHT:[CLASS:Dragon|RANKS:30.0|COST:1|CLASSSKILL:Y]
-SKILL:Heal|OUTPUTORDER:11|CLASSBOUGHT:[CLASS:Dragon|RANKS:7.0|COST:1|CLASSSKILL:Y]
-SKILL:Intimidate|OUTPUTORDER:12|CLASSBOUGHT:[CLASS:Dragon|RANKS:4.0|COST:1|CLASSSKILL:Y]
-SKILL:Perception|OUTPUTORDER:14|
-SKILL:Perform (Untrained)|OUTPUTORDER:15|
-SKILL:Ride|OUTPUTORDER:16|
-SKILL:Sense Motive|OUTPUTORDER:17|CLASSBOUGHT:[CLASS:Dragon|RANKS:2.0|COST:1|CLASSSKILL:Y]
-SKILL:Stealth|OUTPUTORDER:18|
-SKILL:Survival|OUTPUTORDER:19|CLASSBOUGHT:[CLASS:Dragon|RANKS:17.0|COST:1|CLASSSKILL:Y]
-SKILL:Swim|OUTPUTORDER:20|
-SKILL:Acrobatics (Jump)|OUTPUTORDER:2|
-SKILL:Knowledge (Arcana)|OUTPUTORDER:13|CLASSBOUGHT:[CLASS:Dragon|RANKS:2.0|COST:1|CLASSSKILL:Y]
+SKILL:Bluff (Perform (Act))|OUTPUTORDER:5|
+SKILL:Bluff (Perform (Comedy))|OUTPUTORDER:6|
+SKILL:Bluff (Perform (Sing))|OUTPUTORDER:7|
+SKILL:Bluff (Perform (String Instruments))|OUTPUTORDER:8|
+SKILL:Climb|OUTPUTORDER:9|CLASSBOUGHT:[CLASS:Dragon|RANKS:3.0|COST:1|CLASSSKILL:Y]
+SKILL:Craft (Untrained)|OUTPUTORDER:10|
+SKILL:Diplomacy|OUTPUTORDER:11|CLASSBOUGHT:[CLASS:Dragon|RANKS:4.0|COST:1|CLASSSKILL:Y]
+SKILL:Diplomacy (Perform (Keyboard Instruments))|OUTPUTORDER:12|
+SKILL:Diplomacy (Perform (Oratory))|OUTPUTORDER:13|
+SKILL:Diplomacy (Perform (String Instruments))|OUTPUTORDER:14|
+SKILL:Diplomacy (Perform (Wind Instruments))|OUTPUTORDER:15|
+SKILL:Disguise|OUTPUTORDER:17|
+SKILL:Disguise (Perform (Act))|OUTPUTORDER:18|
+SKILL:Escape Artist|OUTPUTORDER:19|
+SKILL:Fly|OUTPUTORDER:20|CLASSBOUGHT:[CLASS:Dragon|RANKS:30.0|COST:1|CLASSSKILL:Y]
+SKILL:Fly (Perform (Dance))|OUTPUTORDER:21|
+SKILL:Handle Animal (Perform (Percussion Instruments))|OUTPUTORDER:23|
+SKILL:Handle Animal (Perform (Wind Instruments))|OUTPUTORDER:24|
+SKILL:Heal|OUTPUTORDER:25|CLASSBOUGHT:[CLASS:Dragon|RANKS:7.0|COST:1|CLASSSKILL:Y]
+SKILL:Intimidate|OUTPUTORDER:26|CLASSBOUGHT:[CLASS:Dragon|RANKS:4.0|COST:1|CLASSSKILL:Y]
+SKILL:Intimidate (Perform (Comedy))|OUTPUTORDER:27|
+SKILL:Intimidate (Perform (Keyboard Instruments))|OUTPUTORDER:28|
+SKILL:Intimidate (Perform (Percussion Instruments))|OUTPUTORDER:29|
+SKILL:Knowledge (Arcana)|OUTPUTORDER:30|CLASSBOUGHT:[CLASS:Dragon|RANKS:2.0|COST:1|CLASSSKILL:Y]
+SKILL:Knowledge (Untrained)|OUTPUTORDER:31|
+SKILL:Perception|OUTPUTORDER:33|
+SKILL:Perform (Untrained)|OUTPUTORDER:34|
+SKILL:Profession (Untrained)|OUTPUTORDER:35|
+SKILL:Ride|OUTPUTORDER:36|
+SKILL:Samurai Mount|OUTPUTORDER:37|
+SKILL:Sense Motive|OUTPUTORDER:38|CLASSBOUGHT:[CLASS:Dragon|RANKS:2.0|COST:1|CLASSSKILL:Y]
+SKILL:Sense Motive (Perform (Oratory))|OUTPUTORDER:39|
+SKILL:Sense Motive (Perform (Sing))|OUTPUTORDER:40|
+SKILL:Stealth|OUTPUTORDER:43|
+SKILL:Survival|OUTPUTORDER:44|CLASSBOUGHT:[CLASS:Dragon|RANKS:17.0|COST:1|CLASSSKILL:Y]
+SKILL:Swim|OUTPUTORDER:45|
+SKILL:Untrained Charisma|OUTPUTORDER:46|
+SKILL:Untrained Dexterity|OUTPUTORDER:47|
+SKILL:Untrained Intelligence|OUTPUTORDER:48|
+SKILL:Untrained Strength|OUTPUTORDER:49|
+SKILL:Untrained Wisdom|OUTPUTORDER:50|
+SKILL:Untrained ~ Disable Device|OUTPUTORDER:16|
+SKILL:Untrained ~ Handle Animal|OUTPUTORDER:22|
+SKILL:Untrained ~ Linguistics|OUTPUTORDER:32|
+SKILL:Untrained ~ Sleight of Hand|OUTPUTORDER:41|
+SKILL:Untrained ~ Spellcraft|OUTPUTORDER:42|
+SKILL:Untrained ~ Use Magic Device|OUTPUTORDER:51|
 
 # Character Languages
 LANGUAGE:Draconic
 
 # Character Feats
-FEATPOOL:-13.0
+FEATPOOL:0.0
 
 # Character Abilities
+ABILITY:*LANGBONUS|TYPE:VIRTUAL|CATEGORY:*LANGBONUS|KEY:*LANGBONUS|APPLIEDTO:|TYPE:
+USERPOOL:*LANGBONUS|POOLPOINTS:0.0
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Acrobatic|TYPE:General|DESC:You are skilled at leaping, jumping, and flying.
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Combat Casting|TYPE:General.AberrantBloodline.ArcaneBloodline.UndeadBloodline|DESC:You are adept at spellcasting when threatened or distracted.
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Multiattack|TYPE:General.Combat|DESC:This creature is particularly skilled at making attacks with its natural weapons.
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Forge Ring|TYPE:ItemCreation|DESC:You can create magic rings.
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Craft Wondrous Item|TYPE:ItemCreation|DESC:You can create wondrous items, a type of magic item.
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Craft Magic Arms and Armor|TYPE:ItemCreation|DESC:You can create magic armor, shields, or weapons.
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Eschew Materials|TYPE:General|DESC:You can cast many spells without needing to utilize minor material components.
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Craft Rod|TYPE:ItemCreation|DESC:You can create magic rods.
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Craft Staff|TYPE:ItemCreation|DESC:You can create magic staves.
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Hover|TYPE:General|DESC:You can halt your movement while flying, allowing you to hover without needing to make a Fly skill check.|DESC:Hovering within 20 feet of the ground in an area with lots of loose debris creates a hemispherical cloud with a radius of 60 feet. The winds generated can snuff torches, small campfires, exposed lanterns, and other small, open flames of non-magical origin. Clear vision within the cloud is limited to 10 feet. Creatures have concealment at 15 to 20 feet (20%% miss chance). At 25 feet or more, creatures have total concealment (50%% miss chance, and opponents cannot use sight to locate the creature).&pipe;PRESIZEGTEQ&colon;L
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Extend Spell|TYPE:Metamagic.CelestialBloodline.InfernalBloodline|DESC:You can make your spells last twice as long.
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Acrobatic|TYPE:General|DESC:You are skilled at leaping, jumping, and flying.
-ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Flyby Attack|TYPE:General|DESC:When flying you can take a move action and another standard action at any point during the move. The creature cannot take a second move action during a round when it makes a flyby attack.
 ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Craft Wand|TYPE:ItemCreation|DESC:You can create magic wands.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Craft Wondrous Item|TYPE:ItemCreation|DESC:You can create wondrous items, a type of magic item.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Eschew Materials|TYPE:General|DESC:You can cast many spells without needing to utilize minor material components.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Extend Spell|TYPE:Metamagic.CelestialBloodline.InfernalBloodline|DESC:You can make your spells last twice as long.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Flyby Attack|TYPE:General|DESC:This creature can make an attack before and after it moves while flying.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Forge Ring|TYPE:ItemCreation|DESC:You can create magic rings.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Hover|TYPE:General|DESC:This creature can hover in place with ease and can kick up clouds of dust and debris.
+ABILITY:FEAT|TYPE:NORMAL|CATEGORY:FEAT|KEY:Multiattack|TYPE:General.Combat|DESC:This creature is particularly skilled at making attacks with its natural weapons.
 USERPOOL:FEAT|POOLPOINTS:0.0
 ABILITY:Internal|TYPE:NORMAL|CATEGORY:Internal|KEY:Dragon Age Selected|TYPE:
 USERPOOL:Internal|POOLPOINTS:1.0
-ABILITY:*LANGBONUS|TYPE:VIRTUAL|CATEGORY:*LANGBONUS|KEY:*LANGBONUS|APPLIEDTO:|TYPE:
-USERPOOL:*LANGBONUS|POOLPOINTS:0.0
 
 # Character Weapon proficiencies
-WEAPONPROF:[WEAPON:Bite|WEAPON:Claws|WEAPON:Tail Slap|WEAPON:Wings]
+WEAPONPROF:[WEAPON:Bite|WEAPON:Claws|WEAPON:Tail Slap|WEAPON:Wing]
 
 # Character Equipment
 MONEY:0
-EQUIPNAME:Wings (Natural/Secondary)|OUTPUTORDER:0|COST:0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Wings|DATA:KEY=Wings]
-EQUIPNAME:Bite (Natural/Primary)|OUTPUTORDER:0|COST:0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Bite|DATA:KEY=Bite]
-EQUIPNAME:Claws (Natural/Primary)|OUTPUTORDER:0|COST:0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Claws|DATA:KEY=Claws]
-EQUIPNAME:Tail Slap (Natural/Secondary)|OUTPUTORDER:0|COST:0|WT:0.0|QUANTITY:1.0|CUSTOMIZATION:[BASEITEM:Tail Slap|DATA:KEY=Tail Slap]
+EQUIPNAME:Bite (Natural/Primary)|OUTPUTORDER:1|COST:0|WT:0.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Bite|DATA:KEY=Bite]
+EQUIPNAME:Claws (Natural/Primary)|OUTPUTORDER:2|COST:0|WT:0.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Claws|DATA:KEY=Claws]
+EQUIPNAME:Tail Slap (Natural/Primary)|OUTPUTORDER:3|COST:0|WT:0.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Tail Slap|DATA:KEY=Tail Slap]
+EQUIPNAME:Wing (Natural/Primary)|OUTPUTORDER:4|COST:0|WT:0.0|QUANTITY:1.0|NOTE:|CUSTOMIZATION:[BASEITEM:Wing|DATA:KEY=Wing]
 EQUIPSET:Default Set|ID:0.1|USETEMPMODS:Y
-EQUIPSET:Natural-Primary|ID:0.1.1|VALUE:Bite (Natural/Primary)|QUANTITY:1.0|USETEMPMODS:Y
-EQUIPSET:Natural-Primary|ID:0.1.2|VALUE:Claws (Natural/Primary)|QUANTITY:1.0|USETEMPMODS:Y
-EQUIPSET:Natural-Secondary|ID:0.1.3|VALUE:Wings (Natural/Secondary)|QUANTITY:1.0|USETEMPMODS:Y
-EQUIPSET:Natural-Secondary|ID:0.1.4|VALUE:Tail Slap (Natural/Secondary)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Natural-Primary|ID:0.1.02|VALUE:Bite (Natural/Primary)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Natural-Primary|ID:0.1.03|VALUE:Claws (Natural/Primary)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Natural-Primary|ID:0.1.04|VALUE:Tail Slap (Natural/Primary)|QUANTITY:1.0|USETEMPMODS:Y
+EQUIPSET:Natural-Primary|ID:0.1.05|VALUE:Wing (Natural/Primary)|QUANTITY:1.0|USETEMPMODS:Y
 CALCEQUIPSET:0.1
 
 # Temporary Bonuses
@@ -178,7 +214,7 @@ CALCEQUIPSET:0.1
 # EquipSet Temp Bonuses
 
 # Character Deity/Domain
-DEITY:Torag|DEITYDOMAINS:[DOMAIN:Artifice|DOMAIN:Earth|DOMAIN:Good|DOMAIN:Law|DOMAIN:Protection]|ALIGNALLOW:|DESC:God of the forge, protection, strategy|HOLYITEM:|DEITYFAVWEAP:[WEAPON:Warhammer]|DEITYALIGN:Lawful Good
+DEITY:Torag|DEITYDOMAINS:[DOMAIN:Artifice|DOMAIN:Earth|DOMAIN:Good|DOMAIN:Law|DOMAIN:Protection]|ALIGNALLOW:|DESC:God of the forge, protection, strategy|DEITYFAVWEAP:[WEAPON:Warhammer]|DEITYALIGN:LG
 
 # Character Spells Information
 SPELLNAME:Acid Arrow|TIMES:1|CLASS:Sorcerer/Cleric (Arcane)|BOOK:Known Spells|SPELLLEVEL:2|SOURCE:[TYPE:CLASS|NAME:Sorcerer/Cleric (Arcane)]

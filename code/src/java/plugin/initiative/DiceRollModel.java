@@ -24,7 +24,6 @@ package plugin.initiative;
  * or short description and the dice expression.
  * </p>
  * 
- * @author Ross M. Lodge
  *  
  */
 public class DiceRollModel extends PObjectModel
@@ -50,8 +49,7 @@ public class DiceRollModel extends PObjectModel
 	DiceRollModel(String objectString)
 	{
 		super(objectString);
-		m_expression = getStringValue(outputTokens,
-				DiceRollModel.SEGMENT_POSITION_DICE_EXPRESSION);
+		m_expression = getStringValue(outputTokens, DiceRollModel.SEGMENT_POSITION_DICE_EXPRESSION);
 	}
 
 	/**

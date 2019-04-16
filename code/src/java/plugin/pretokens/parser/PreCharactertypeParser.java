@@ -1,5 +1,4 @@
 /*
- * PreDomainParser.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision: 15054 $
- *
- *
- *
  */
 package plugin.pretokens.parser;
 
@@ -31,16 +23,14 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre charactertype tokens.
- *
  */
-public class PreCharactertypeParser extends AbstractPrerequisiteListParser implements
-		PrerequisiteParserInterface
+public class PreCharactertypeParser extends AbstractPrerequisiteListParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"CHARACTERTYPE"};

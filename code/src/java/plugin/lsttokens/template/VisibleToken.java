@@ -28,15 +28,9 @@ import pcgen.util.enumeration.Visibility;
 /**
  * Class deals with VISIBLE Token
  */
-public class VisibleToken extends AbstractNonEmptyToken<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>
+public class VisibleToken extends AbstractNonEmptyToken<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -44,8 +38,7 @@ public class VisibleToken extends AbstractNonEmptyToken<PCTemplate> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		PCTemplate template, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCTemplate template, String value)
 	{
 		Visibility vis;
 		if (value.equals("DISPLAY"))
@@ -66,7 +59,7 @@ public class VisibleToken extends AbstractNonEmptyToken<PCTemplate> implements
 		}
 		else
 		{
-			return new ParseResult.Fail("Can't understand Visibility: " + value, context);
+			return new ParseResult.Fail("Can't understand Visibility: " + value);
 		}
 		context.getObjectContext().put(template, ObjectKey.VISIBILITY, vis);
 		return ParseResult.SUCCESS;
@@ -75,8 +68,7 @@ public class VisibleToken extends AbstractNonEmptyToken<PCTemplate> implements
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate template)
 	{
-		Visibility vis = context.getObjectContext().getObject(template,
-				ObjectKey.VISIBILITY);
+		Visibility vis = context.getObjectContext().getObject(template, ObjectKey.VISIBILITY);
 		if (vis == null)
 		{
 			return null;
@@ -100,11 +92,10 @@ public class VisibleToken extends AbstractNonEmptyToken<PCTemplate> implements
 		}
 		else
 		{
-			context.addWriteMessage("Visibility " + vis
-					+ " is not a valid Visibility for a PCTemplate");
+			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for a PCTemplate");
 			return null;
 		}
-		return new String[] { visString };
+		return new String[]{visString};
 	}
 
 	@Override

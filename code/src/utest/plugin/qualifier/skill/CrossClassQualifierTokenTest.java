@@ -16,6 +16,10 @@
  */
 package plugin.qualifier.skill;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URISyntaxException;
 import java.util.Collection;
 
@@ -31,14 +35,15 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
-
-import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class CrossClassQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Skill>
@@ -57,6 +62,7 @@ public class CrossClassQualifierTokenTest extends
 		super("CROSSCLASS", null);
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -101,7 +107,7 @@ public class CrossClassQualifierTokenTest extends
 	}
 
 		@Test
-	public void testGetSet() throws PersistenceLayerException
+	public void testGetSet()
 	{
 		setUpPC();
 		initializeObjects();
@@ -138,7 +144,7 @@ public class CrossClassQualifierTokenTest extends
 	}
 
 		@Test
-		public void testGetSetFiltered() throws PersistenceLayerException
+		public void testGetSetFiltered()
 		{
 			setUpPC();
 			initializeObjects();
@@ -167,7 +173,7 @@ public class CrossClassQualifierTokenTest extends
 		}
 
 		@Test
-		public void testGetSetNegated() throws PersistenceLayerException
+		public void testGetSetNegated()
 		{
 			setUpPC();
 			initializeObjects();

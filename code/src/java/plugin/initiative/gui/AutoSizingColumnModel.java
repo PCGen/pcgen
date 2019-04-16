@@ -18,14 +18,14 @@
  */
 package plugin.initiative.gui;
 
+import java.util.Enumeration;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.TableCellRenderer;
 import javax.swing.table.TableColumn;
-import java.util.Enumeration;
 
 /**
- * @author LodgeR
  * <p>GradesViewColumnModel</p>
  * <p>edit method description . . .</p>
  */
@@ -59,32 +59,25 @@ public class AutoSizingColumnModel extends DefaultTableColumnModel
 			if (renderer != null)
 			{
 				headerWidth =
-						renderer.getTableCellRendererComponent(m_table,
-							aColumn.getHeaderValue(), false, false, 0, 0)
+						renderer.getTableCellRendererComponent(m_table, aColumn.getHeaderValue(), false, false, 0, 0)
 							.getPreferredSize().width;
 			}
 
-			renderer =
-					m_table.getDefaultRenderer(m_table.getModel()
-						.getColumnClass(getColumnCount()));
+			renderer = m_table.getDefaultRenderer(m_table.getModel().getColumnClass(getColumnCount()));
 
 			if (renderer != null && getColumnCount() > 0)
 			{
 				for (int row = 0; row < rowCount; row++)
 				{
-					contentsWidth =
-							Math.max(contentsWidth,
-								renderer
-									.getTableCellRendererComponent(
-										m_table,
-										m_table.getModel().getValueAt(row,
-											getColumnCount()), false, false,
-										row, 0).getPreferredSize().width);
+					contentsWidth = Math.max(contentsWidth,
+						renderer
+							.getTableCellRendererComponent(m_table,
+								m_table.getModel().getValueAt(row, getColumnCount()), false, false, row, 0)
+							.getPreferredSize().width);
 				}
 			}
 
-			aColumn.setPreferredWidth(Math.max(headerWidth, contentsWidth)
-				+ getColumnMargin() + COLUMN_WIDTH_PADDING);
+			aColumn.setPreferredWidth(Math.max(headerWidth, contentsWidth) + getColumnMargin() + COLUMN_WIDTH_PADDING);
 		}
 		else
 		{
@@ -109,10 +102,7 @@ public class AutoSizingColumnModel extends DefaultTableColumnModel
 		return returnValue;
 	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.table.TableColumnModel#addColumn(javax.swing.table.TableColumn)
-	 */
-    @Override
+	@Override
 	public void addColumn(TableColumn aColumn)
 	{
 		setColumnPreferredWidth(aColumn);

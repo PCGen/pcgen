@@ -646,9 +646,7 @@
 				<xsl:otherwise>lightline</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		<xsl:variable name="basecasterlevel" select="../../@spellcasterlevel">
-		</xsl:variable>
-		<xsl:variable name="baseconcentration" select="../../@concentration">
+        <xsl:variable name="baseconcentration" select="../../@concentration">
 		</xsl:variable>
 		<fo:table-row keep-with-next.within-column="always" keep-together="always">
 											<xsl:message>Test</xsl:message>

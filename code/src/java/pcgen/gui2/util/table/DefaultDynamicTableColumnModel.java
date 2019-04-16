@@ -1,5 +1,4 @@
 /*
- * DefaultDynamicTableColumnModel.java
  * Copyright 2008 (C) Connor Petty <mistercpp2000@gmail.com>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,192 +15,182 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 25, 2008, 2:01:31 PM
  */
 package pcgen.gui2.util.table;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import javax.swing.event.TableColumnModelEvent;
 import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
+
 import pcgen.gui2.util.event.DynamicTableColumnModelListener;
 
 /**
  *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
-public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
-        implements DynamicTableColumnModel
+public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel implements DynamicTableColumnModel
 {
 
-    private final List<TableColumn> availableColumns = new ArrayList<>(5);
-    private final List<TableColumn> safeColumns = Collections.unmodifiableList(availableColumns);
-    private int offset;
+	private final List<TableColumn> availableColumns = new ArrayList<>(5);
+	private final List<TableColumn> safeColumns = Collections.unmodifiableList(availableColumns);
+	private int offset;
 
-    /**
-     * This constructs an empty table model with an intial offset of <code>offset</code>.
-     * When adding columns to the model, the first <code>offset</code> number of colums added will
-     * be made always visible.
-     * @param offset this is the number of always visible columns when this model is populated.
-     */
-    public DefaultDynamicTableColumnModel(int offset)
-    {
-        this.offset = offset;
-    }
+	/**
+	 * This constructs an empty table model with an intial offset of {@code offset}.
+	 * When adding columns to the model, the first {@code offset} number of colums added will
+	 * be made always visible.
+	 * @param offset this is the number of always visible columns when this model is populated.
+	 */
+	public DefaultDynamicTableColumnModel(int offset)
+	{
+		this.offset = offset;
+	}
 
-    /**
-     * 
-     * @param model the columns model to copy data from
-     * @param offset describes the number of always visible columns
-     */
-    public DefaultDynamicTableColumnModel(TableColumnModel model, int offset)
-    {
-        this(offset);
-        ArrayList<TableColumn> allColumns = Collections.list(model.getColumns());
-        if (offset < allColumns.size())
-        {
-            tableColumns.addAll(allColumns.subList(0, offset));
-            availableColumns.addAll(allColumns.subList(offset, allColumns.size()));
-        }
-    }
+	/**
+	 * 
+	 * @param model the columns model to copy data from
+	 * @param offset describes the number of always visible columns
+	 */
+	public DefaultDynamicTableColumnModel(TableColumnModel model, int offset)
+	{
+		this(offset);
+		ArrayList<TableColumn> allColumns = Collections.list(model.getColumns());
+		if (offset < allColumns.size())
+		{
+			tableColumns.addAll(allColumns.subList(0, offset));
+			availableColumns.addAll(allColumns.subList(offset, allColumns.size()));
+		}
+	}
 
-    /**
-     * 
-     * @param model the columns model to copy data from
-     * @param offset describes the number of always visible columns
-     * @param visibleColumns used to specify additional columns 
-     * that will be visible upon initialization
-     */
-    public DefaultDynamicTableColumnModel(TableColumnModel model, int offset,
-                                           int[] visibleColumns)
-    {
-        this(model, offset);
-        for (int column : visibleColumns)
-        {
-            super.addColumn(availableColumns.get(column - offset));
-        }
-    }
-
-	@Override
-    public void addDynamicTableColumnModelListener(DynamicTableColumnModelListener listener)
-    {
-        listenerList.add(DynamicTableColumnModelListener.class, listener);
-    }
+	/**
+	 * 
+	 * @param model the columns model to copy data from
+	 * @param offset describes the number of always visible columns
+	 * @param visibleColumns used to specify additional columns 
+	 * that will be visible upon initialization
+	 */
+	public DefaultDynamicTableColumnModel(TableColumnModel model, int offset, int[] visibleColumns)
+	{
+		this(model, offset);
+		for (int column : visibleColumns)
+		{
+			super.addColumn(availableColumns.get(column - offset));
+		}
+	}
 
 	@Override
-    public void removeDynamicTableColumnModelListener(DynamicTableColumnModelListener listener)
-    {
-        listenerList.remove(DynamicTableColumnModelListener.class, listener);
-    }
-
-    /**
-     * Notifies all listeners that have registered interest for
-     * notification on this event type.  The event instance
-     * is lazily created using the parameters passed into
-     * the fire method.
-     * @param  e  the event received
-     * @see javax.swing.event.EventListenerList
-     */
-    protected void fireAvailableColumnAdded(TableColumnModelEvent e)
-    {
-        // Guaranteed to return a non-null array
-        Object[] listeners = listenerList.getListenerList();
-        // Process the listeners last to first, notifying
-        // those that are interested in this event
-        for (int i = listeners.length - 2; i >= 0; i -= 2)
-        {
-            if (listeners[i] == DynamicTableColumnModelListener.class)
-            {
-                // Lazily create the event:
-                // if (e == null)
-                //  e = new ChangeEvent(this);
-                ((DynamicTableColumnModelListener) listeners[i + 1]).availableColumnAdded(e);
-            }
-        }
-    }
-
-    /**
-     * Notifies all listeners that have registered interest for
-     * notification on this event type.  The event instance
-     * is lazily created using the parameters passed into
-     * the fire method.
-     * @param  e  the event received
-     * @see javax.swing.event.EventListenerList
-     */
-    protected void fireAvailableColumnRemoved(TableColumnModelEvent e)
-    {
-        // Guaranteed to return a non-null array
-        Object[] listeners = listenerList.getListenerList();
-        // Process the listeners last to first, notifying
-        // those that are interested in this event
-        for (int i = listeners.length - 2; i >= 0; i -= 2)
-        {
-            if (listeners[i] == DynamicTableColumnModelListener.class)
-            {
-                // Lazily create the event:
-                // if (e == null)
-                //  e = new ChangeEvent(this);
-                ((DynamicTableColumnModelListener) listeners[i + 1]).availableColumnRemove(e);
-            }
-        }
-    }
-
-    @Override
-    public void addColumn(TableColumn column)
-    {
-        if (getColumnCount() < offset)
-        {
-            super.addColumn(column);
-        }
-        else
-        {
-            int index = availableColumns.size();
-            availableColumns.add(column);
-            fireAvailableColumnAdded(new TableColumnModelEvent(this, -1, index));
-        }
-    }
-
-    @Override
-    public void removeColumn(TableColumn column)
-    {
-        super.removeColumn(column);
-        if (availableColumns.contains(column))
-        {
-            int index = availableColumns.indexOf(column);
-            availableColumns.remove(column);
-            fireAvailableColumnRemoved(new TableColumnModelEvent(this, index, -1));
-        }
-    }
+	public void addDynamicTableColumnModelListener(DynamicTableColumnModelListener listener)
+	{
+		listenerList.add(DynamicTableColumnModelListener.class, listener);
+	}
 
 	@Override
-    public List<TableColumn> getAvailableColumns()
-    {
-        return safeColumns;
-    }
+	public void removeDynamicTableColumnModelListener(DynamicTableColumnModelListener listener)
+	{
+		listenerList.remove(DynamicTableColumnModelListener.class, listener);
+	}
+
+	/**
+	 * Notifies all listeners that have registered interest for
+	 * notification on this event type.  The event instance
+	 * is lazily created using the parameters passed into
+	 * the fire method.
+	 * @param  e  the event received
+	 */
+	protected void fireAvailableColumnAdded(TableColumnModelEvent e)
+	{
+		// Guaranteed to return a non-null array
+		Object[] listeners = listenerList.getListenerList();
+		// Process the listeners last to first, notifying
+		// those that are interested in this event
+		for (int i = listeners.length - 2; i >= 0; i -= 2)
+		{
+			if (listeners[i] == DynamicTableColumnModelListener.class)
+			{
+				((DynamicTableColumnModelListener) listeners[i + 1]).availableColumnAdded(e);
+			}
+		}
+	}
+
+	/**
+	 * Notifies all listeners that have registered interest for
+	 * notification on this event type.  The event instance
+	 * is lazily created using the parameters passed into
+	 * the fire method.
+	 * @param  e  the event received
+	 */
+	protected void fireAvailableColumnRemoved(TableColumnModelEvent e)
+	{
+		// Guaranteed to return a non-null array
+		Object[] listeners = listenerList.getListenerList();
+		// Process the listeners last to first, notifying
+		// those that are interested in this event
+		for (int i = listeners.length - 2; i >= 0; i -= 2)
+		{
+			if (listeners[i] == DynamicTableColumnModelListener.class)
+			{
+				((DynamicTableColumnModelListener) listeners[i + 1]).availableColumnRemove(e);
+			}
+		}
+	}
 
 	@Override
-    public boolean isVisible(TableColumn column)
-    {
-        return tableColumns.contains(column);
-    }
+	public void addColumn(TableColumn column)
+	{
+		if (getColumnCount() < offset)
+		{
+			super.addColumn(column);
+		}
+		else
+		{
+			int index = availableColumns.size();
+			availableColumns.add(column);
+			fireAvailableColumnAdded(new TableColumnModelEvent(this, -1, index));
+		}
+	}
 
 	@Override
-    public void setVisible(TableColumn column, boolean visible)
-    {
-        if (availableColumns.contains(column) && isVisible(column) != visible)
-        {
-            if (visible)
-            {
-                super.addColumn(column);
-            }
-            else
-            {
-                super.removeColumn(column);
-            }
-        }
-    }
+	public void removeColumn(TableColumn column)
+	{
+		super.removeColumn(column);
+		if (availableColumns.contains(column))
+		{
+			int index = availableColumns.indexOf(column);
+			availableColumns.remove(column);
+			fireAvailableColumnRemoved(new TableColumnModelEvent(this, index, -1));
+		}
+	}
+
+	@Override
+	public List<TableColumn> getAvailableColumns()
+	{
+		return safeColumns;
+	}
+
+	@Override
+	public boolean isVisible(TableColumn column)
+	{
+		return tableColumns.contains(column);
+	}
+
+	@Override
+	public void setVisible(TableColumn column, boolean visible)
+	{
+		if (availableColumns.contains(column) && isVisible(column) != visible)
+		{
+			if (visible)
+			{
+				super.addColumn(column);
+			}
+			else
+			{
+				super.removeColumn(column);
+			}
+		}
+	}
 
 }

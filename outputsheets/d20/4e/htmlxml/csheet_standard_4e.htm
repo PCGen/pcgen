@@ -9,10 +9,6 @@ Modifications by: arcady
 Email: arcady0@yahoo.com
 Revisions: Barak  10/15/02
 Email: barak@voyager.net
-
-$Revision$
-$Author$
-$Date$
 -->
 <head>
 <meta http-equiv="content-type" content="text-html; charset=utf-8" />
@@ -126,14 +122,11 @@ $Date$
 	.skillValue {
 	font-family: Arial, sans-serif;
 	font-size: 10pt;
-	border-top-width: 1px;
-	border-top-style: solid;
-	border-top-color: black;
-	}
+        border-top: 1px solid black;
+    }
 	.topline {
-		border-top-width:1px; 
-		border-top: 1pt solid black; 
-		font-family: Arial, sans-serif; 
+        border-top: 1pt solid black;
+        font-family: Arial, sans-serif;
 		font-size:6pt; 
 	}
 	.spname { 
@@ -209,13 +202,11 @@ $Date$
 		border: 5px solid lightgray;
 	}
 	.borderbottom {
-		border-bottom-width:1px;
-		border-bottom: 1pt solid black;
-	}
+        border-bottom: 1pt solid black;
+    }
 	.borderbottom8 {
-		border-bottom-width:1px;
-		border-bottom: 1pt solid black;
-		font-size:8pt;
+        border-bottom: 1pt solid black;
+        font-size:8pt;
 	}
 	span.notes p {
 		margin-top:0; 
@@ -2556,7 +2547,7 @@ at will
  </tr>
 |ENDFOR|
  <tr>
-  <td colspan="9" bgcolor="black"><font style="font-size: 8pt" color="white"><br /></font></td>
+  <td colspan="9" bgcolor="black"><span style="font-size: 8pt color: white; "><br /></span></td>
  </tr>
 </table>
 |%|
@@ -2690,7 +2681,7 @@ at will
 <br />
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
-  <td colspan="11" align="center" bgcolor="black"><font color="white"><b>Racial Innate</b></font></td>
+  <td colspan="11" align="center" bgcolor="black"><span style="color: white; "><b>Racial Innate</b></span></td>
  </tr>
  <tr>
   <td valign="top">
@@ -2701,8 +2692,8 @@ at will
      <td align="right" class="font9">At Will</td>
 |ELSE|
     <tr>
-     <td align="right"><font style="font-size: 11pt">
-|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,2|</font>
+     <td align="right"><span style="font-size: 11pt">
+|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,2|</span>
      </td>
 |ENDIF|
      <td class="font9"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)</td>
@@ -2712,7 +2703,7 @@ at will
   </td>
  </tr>
  <tr>
-  <td colspan="11" bgcolor="black"><font style="font-size: 8pt" color="white"><br /></font></td>
+  <td colspan="11" bgcolor="black"><span style="font-size: 8pt color: white; "><br /></span></td>
  </tr>
 </table>
 |%|
@@ -2727,7 +2718,7 @@ at will
 |%SPELLLISTBOOK.%class.%level.%spellbook|
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
-  <td colspan="11" align="center" bgcolor="black"><font color="white"><b>|SPELLBOOKNAME.%spellbook| Spells</b></font></td>
+  <td colspan="11" align="center" bgcolor="black"><span style="color: white; "><b>|SPELLBOOKNAME.%spellbook| Spells</b></span></td>
  </tr>
   <td valign="top">
    <table>
@@ -2737,8 +2728,8 @@ at will
      <td align="right" class="font9">At Will</td>
 |ELSE|
     <tr>
-     <td align="right"><font style="font-size: 11pt">
-|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,2|</font>
+     <td align="right"><span style="font-size: 11pt">
+|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,2|</span>
      </td>
 |ENDIF|
      <td class="font9"><b>|SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)</td>
@@ -2748,7 +2739,7 @@ at will
   </td>
  </tr>
  <tr>
-  <td colspan="11" bgcolor="black"><font style="font-size: 8pt" color="white"><br /></font></td>
+  <td colspan="11" bgcolor="black"><span style="font-size: 8pt color: white; "><br /></span></td>
  </tr>
 </table>
 |%|
@@ -2770,12 +2761,13 @@ at will
 <br />
 <table width="100%" cellspacing="0" cellpadding="2" summary="Spell List">
  <tr>
-  <td colspan="11" align="center" bgcolor="black"><font color="white"><b>|SPELLBOOKNAME.%spellbook|</b></font></td>
+  <td colspan="11" align="center" bgcolor="black"><span style="color: white; "><b>|SPELLBOOKNAME.%spellbook|</b></span></td>
  </tr>
 |FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1|
 |%SPELLLISTCLASS.%class|
  <tr>
-  <td align="center" bgcolor="#DDDDDD" colspan="11"><font style="font-size: 9pt" color="black">|SPELLLISTCLASS.%class|</font></td>
+  <td align="center" bgcolor="#DDDDDD" colspan="11"><span
+          style="font-size: 9pt color: black; ">|SPELLLISTCLASS.%class|</span></td>
  </tr>
  <tr>
 |FOR,%level,0,4,1,1|
@@ -2786,7 +2778,7 @@ at will
 |ELSE|
    <table summary="Spell List">
     <tr>
-     <td valign="top" align="center" colspan="2"><font style="font-size: 9pt" color="black"><u>Level %level</u></font></td>
+     <td valign="top" align="center" colspan="2"><span style="font-size: 9pt color: black; "><u>Level %level</u></span></td>
     </tr>
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
     <tr>
@@ -2810,12 +2802,12 @@ at will
 |ELSE|
    <table summary="Spell List">
     <tr>
-     <td valign="top" align="center" colspan="2"><font style="font-size: 9pt" color="black"><u>Level %level</u></font></td>
+     <td valign="top" align="center" colspan="2"><span style="font-size: 9pt color: black; "><u>Level %level</u></span></td>
     </tr>
 |FOR,%spell,0,COUNT[SPELLSINBOOK.%class.%spellbook.%level]-1,1,0|
     <tr>
-     <td align="right"><font style="font-size: 11pt">
-|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,1|</font>
+     <td align="right"><span style="font-size: 11pt">
+|FOR.0,SPELLMEM.%class.%spellbook.%level.%spell.TIMES,1,&#9744;,NONE,NONE,1|</span>
      </td>
      <td class="font9"><b>|SPELLMEM.%class.%spellbook.%level.%spell.BONUSSPELL||SPELLMEM.%class.%spellbook.%level.%spell.NAME|</b> (DC:|SPELLMEM.%class.%spellbook.%level.%spell.DC|)</td>
     </tr>
@@ -2831,7 +2823,7 @@ at will
 <!-- END FOR,%class,COUNT[SPELLRACE],COUNT[SPELLRACE]+COUNT[CLASSES]-1,1,1 -->
 |ENDFOR|
  <tr>
-  <td colspan="11" bgcolor="black"><font style="font-size: 8pt" color="white">* = Domain/Specialty Spell</font></td>
+  <td colspan="11" bgcolor="black"><span style="font-size: 8pt color: white; ">* = Domain/Specialty Spell</span></td>
  </tr>
 </table>
 |ELSE|
@@ -2856,46 +2848,47 @@ at will
 <!-- START Bio Table -->
 <table width="100%" cellspacing="0" cellpadding="2">
  <tr>
-  <td colspan="2"><font style="font-size: 14pt">|NAME| |%FOLLOWEROF|- |FOLLOWEROF| |%| |%BIO|</font></td>
+  <td colspan="2"><span style="font-size: 14pt">|NAME| |%FOLLOWEROF|- |FOLLOWEROF| |%| |%BIO|</span></td>
  </tr>
  <tr>
   <td class="border" height="400" width="1%"><img src="|NAME|_Full.jpg" height="400" alt="|NAME|'s portrait" /></td>
   <td valign="top" width="99%">
    <table width="100%" cellspacing="0" cellpadding="2">
     <tr><td class="biodata">|RACE|<br/></td></tr>
-    <tr><td class="topline"><font style="font-size: 6pt">RACE</font></td></tr>
+    <tr><td class="topline"><span style="font-size: 6pt">RACE</span></td></tr>
     <tr><td class="biodata">|AGE|<br/></td></tr>
-    <tr><td class="topline"><font style="font-size: 6pt">AGE</font></td></tr>
+    <tr><td class="topline"><span style="font-size: 6pt">AGE</span></td></tr>
     <tr><td class="biodata">|HEIGHT|<br/></td></tr>
-    <tr><td class="topline"><font style="font-size: 6pt">HEIGHT</font></td></tr>
+    <tr><td class="topline"><span style="font-size: 6pt">HEIGHT</span></td></tr>
     <tr><td class="biodata">|WEIGHT|<br/></td></tr>
-    <tr><td class="topline"><font style="font-size: 6pt">WEIGHT</font></td></tr>
+    <tr><td class="topline"><span style="font-size: 6pt">WEIGHT</span></td></tr>
     <tr><td class="biodata">|COLOR.EYE|<br/></td></tr>
-    <tr><td class="topline"><font style="font-size: 6pt">EYE COLOR</font></td></tr>
+    <tr><td class="topline"><span style="font-size: 6pt">EYE COLOR</span></td></tr>
     <tr><td class="biodata">|COLOR.SKIN|<br/></td></tr>
-    <tr><td class="topline"><font style="font-size: 6pt">SKIN COLOR</font></td></tr>
+    <tr><td class="topline"><span style="font-size: 6pt">SKIN COLOR</span></td></tr>
     <tr><td class="biodata">|COLOR.HAIR|<br/></td></tr>
-    <tr><td class="topline"><font style="font-size: 6pt">HAIR COLOR</font></td></tr>
+    <tr><td class="topline"><span style="font-size: 6pt">HAIR COLOR</span></td></tr>
     <tr><td class="biodata">|LENGTH.HAIR|<br/></td></tr>
-    <tr><td class="topline"><font style="font-size: 6pt">HAIR LENGTH</font></td></tr>
+    <tr><td class="topline"><span style="font-size: 6pt">HAIR LENGTH</span></td></tr>
     <tr><td class="biodata">|PHOBIAS|<br/></td></tr>
-    <tr><td class="topline"><font style="font-size: 6pt">PHOBIAS</font></td></tr>
+    <tr><td class="topline"><span style="font-size: 6pt">PHOBIAS</span></td></tr>
     <tr><td class="biodata">|PERSONALITY1| |PERSONALITY2|<br/></td></tr>
-    <tr><td class="topline"><font style="font-size: 6pt">PERSONALITY TRAITS</font></td></tr>
+    <tr><td class="topline"><span style="font-size: 6pt">PERSONALITY TRAITS</span></td></tr>
     <tr><td class="biodata">|INTERESTS|<br/></td></tr>
-    <tr><td class="topline"><font style="font-size: 6pt">INTERESTS</font></td></tr>
+    <tr><td class="topline"><span style="font-size: 6pt">INTERESTS</span></td></tr>
     <tr><td class="biodata">|SPEECHTENDENCY|, |CATCHPHRASE|<br/></td></tr>
-    <tr><td class="topline"><font style="font-size: 6pt">SPOKEN STYLE</font></td></tr>
+    <tr><td class="topline"><span style="font-size: 6pt">SPOKEN STYLE</span></td></tr>
    </table>
 <!-- STOP BIO Table -->
   </td>
  </tr>
- <tr><td class="borderbottom" colspan="2"><font style="font-size: 14pt">Description</font></td></tr>
- <tr><td colspan="2"><font style="font-size: 9pt"><span class="notes">|DESC|</span></font></td></tr>
- <tr><td class="borderbottom" colspan="2"><font style="font-size: 14pt">Home</font></td></tr>
- <tr><td colspan="2"><font style="font-size: 9pt">|%REGION| From |REGION|. |%| |%BIO| |RESIDENCE|, |LOCATION|<br/></font></td></tr>
- <tr><td class="borderbottom" colspan="2"><font style="font-size: 14pt">Biography</font></td></tr>
- <tr><td colspan="2"><font style="font-size: 9pt"><span class="notes">|BIO|</span></font></td></tr>
+ <tr><td class="borderbottom" colspan="2"><span style="font-size: 14pt">Description</span></td></tr>
+ <tr><td colspan="2"><span style="font-size: 9pt"><span class="notes">|DESC|</span></span></td></tr>
+ <tr><td class="borderbottom" colspan="2"><span style="font-size: 14pt">Home</span></td></tr>
+ <tr><td colspan="2"><span
+         style="font-size: 9pt">|%REGION| From |REGION|. |%| |%BIO| |RESIDENCE|, |LOCATION|<br/></span></td></tr>
+ <tr><td class="borderbottom" colspan="2"><span style="font-size: 14pt">Biography</span></td></tr>
+ <tr><td colspan="2"><span style="font-size: 9pt"><span class="notes">|BIO|</span></span></td></tr>
 </table>
 |%|
 |%NOTES|
@@ -2911,7 +2904,7 @@ at will
 |ENDFOR|
 </table>
 |%|
-<br /><center><font size="-1">Created using <a href="http://pcgen.org/">PCGen</a> |EXPORT.VERSION| on |EXPORT.DATE|</font></center>
+<br /><div style="text-align: center;"><span style="font-size: smaller; ">Created using <a href="http://pcgen.org/">PCGen</a> |EXPORT.VERSION| on |EXPORT.DATE|</span></div>
 </body>
 </html>
 

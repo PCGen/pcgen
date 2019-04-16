@@ -1,0 +1,37 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+# Ability Category			Visible		Editable?		Category of Object		Type of Object		Display where?													Display Location
+ABILITYCATEGORY:Chronicle_S01-29	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-29	DISPLAYNAME:PFS Scenario #29: The Devil We Know, Part I: Shipyard Rats				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-30	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-30	DISPLAYNAME:PFS Scenario #30: The Devil We Know, Part II: Cassomir's Locker			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-31	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-31	DISPLAYNAME:PFS Scenario #31: Sniper in the Deep							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-32	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-32	DISPLAYNAME:PFS Scenario #32: Drow of the Darklands Pyramid						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-33	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-33	DISPLAYNAME:PFS Scenario #33: Assault on the Kingdom of the Impossible				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-34	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-34	DISPLAYNAME:PFS Scenario #34: Encounter at the Drowning Stones					DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-35	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-35	DISPLAYNAME:PFS Scenario #35: Voice in the Void								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-36	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-36	DISPLAYNAME:PFS Scenario #36: Echoes of the Everwar, Part I: The Prisoner of Skull		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-37	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-37	DISPLAYNAME:PFS Scenario #37: The Beggar's Pearl							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-38	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-38	DISPLAYNAME:PFS Scenario #38: No Plunder, No Pay							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-39	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-39	DISPLAYNAME:PFS Scenario #39: The Citadel of Flame							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-40	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-40	DISPLAYNAME:PFS Scenario #40: Hall of Drunken Heroes							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-41	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-41	DISPLAYNAME:PFS Scenario #41: The Devil We Know, Part III: Crypt of Fools			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-42	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-42	DISPLAYNAME:PFS Scenario #42: Echoes of the Everwar, Part II: The Watcher of Ages		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-43	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-43	DISPLAYNAME:PFS Scenario #43: The Pallid Plague								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-44	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-44	DISPLAYNAME:PFS Scenario #44: Echoes of the Everwar, Part III: Terror at Whistledown	DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-45	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-45	DISPLAYNAME:PFS Scenario #45: Delirium's Tangle								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-46	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-46	DISPLAYNAME:PFS Scenario #46: Eyes of the Ten, Part I: Requiem for the Red Raven		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-47	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-47	DISPLAYNAME:PFS Scenario #47: The Darkest Vengeance							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-48	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-48	DISPLAYNAME:PFS Scenario #48: The Devil We Know, Part IV: Rules of the Swift			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-49	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-49	DISPLAYNAME:PFS Scenario #49: Among the Dead								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-50	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-50	DISPLAYNAME:PFS Scenario #50: Fortune's Blight								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-51	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-51	DISPLAYNAME:PFS Scenario #51: The City of Strangers, Part I: The Shadow Gambit		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-52	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-52	DISPLAYNAME:PFS Scenario #52: The City of Strangers, Part II: The Twofold Demise		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-53	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-53	DISPLAYNAME:PFS Scenario #53: Echoes of the Everwar, Part IV: The Faithless Dead		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-54	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-54	DISPLAYNAME:PFS Scenario #54: Eyes of the Ten, Part II: The Maze of the Open Road		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-55	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-55	DISPLAYNAME:PFS Scenario #55: The Infernal Vault							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S01-56	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S01-56	DISPLAYNAME:PFS Scenario #56: The Jester's Fraud							DISPLAYLOCATION:Chronicles
+
+#
+# DONE
+#

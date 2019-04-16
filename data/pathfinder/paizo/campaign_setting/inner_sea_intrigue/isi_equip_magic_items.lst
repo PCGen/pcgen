@@ -1,0 +1,36 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Inner Sea Intrigue	SOURCESHORT:ISI	SOURCEWEB:http://paizo.com/products/btpy9l37?Pathfinder-Campaign-Setting-Inner-Sea-Intrigue	SOURCEDATE:2016-06
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 December 2017
+
+# ==============================
+# New Magic Items
+# ==============================
+#FAQ: Page 54-Kyonin bliss is a single-use item.
+# Equipment Name			Product Identity?	Type							Cost		Weight	Source Page		Innate Spells
+Bloodlink							TYPE:Magic.Wondrous.Amulet			COST:4800			SOURCEPAGE:p.52
+Brastlewark Brew						TYPE:Magic.Wondrous.Consumable		COST:150	WT:1		SOURCEPAGE:p.52
+Chalice of Poison						TYPE:Magic.Wondrous				COST:10080	WT:1		SOURCEPAGE:p.53
+Charmer's Kiss						TYPE:Magic.Wondrous.Consumable		COST:750			SOURCEPAGE:p.53
+Chelish Listening Trumpet	NAMEISPI:YES	TYPE:Magic.Wondrous				COST:10080	WT:1		SOURCEPAGE:p.53
+Elixir of Amnesia						TYPE:Magic.Wondrous.Elixir.Consumable	COST:500			SOURCEPAGE:p.53
+Forger's Friend						TYPE:Magic.Wondrous				COST:11200	WT:5		SOURCEPAGE:p.53
+Harrow Deck of Secret Schemes	NAMEISPI:YES	TYPE:Magic.Wondrous				COST:34400			SOURCEPAGE:p.53
+Hat of Infinite Disguises				TYPE:Magic.Wondrous.Headgear			COST:25000	WT:1		SOURCEPAGE:p.54
+Holdout Wand Wrap						TYPE:Magic.Wondrous				COST:4000			SOURCEPAGE:p.54
+Kitharodian Pen			NAMEISPI:YES	TYPE:Magic.Wondrous				COST:720			SOURCEPAGE:p.54
+Kyonin Bliss			NAMEISPI:YES	TYPE:Magic.Wondrous.Consumable		COST:4800			SOURCEPAGE:p.54
+Mask of the Cursed Eye					TYPE:Magic.Wondrous.Headgear			COST:2500	WT:1		SOURCEPAGE:p.54
+Masterful Gray Gloves					TYPE:Magic.Wondrous.Glove			COST:5400	WT:.5		SOURCEPAGE:p.55
+Medicinal Bezoar						TYPE:Magic.Wondrous.Consumable		COST:1600	WT:.5		SOURCEPAGE:p.55
+Memory Musk Gourd						TYPE:Magic.Wondrous.Consumable		COST:4800	WT:1		SOURCEPAGE:p.55
+Platter of Exquisite Feasting				TYPE:Magic.Wondrous				COST:250	WT:1		SOURCEPAGE:p.55
+Rod of the Alicorn					TYPE:Magic.Wondrous				COST:25000	WT:5		SOURCEPAGE:p.55	SPELLS:Rod of the Alicorn|TIMES=3|CASTERLEVEL=9|Cure Light Wounds	SPELLS:Rod of the Alicorn|CASTERLEVEL=9|Cure Moderate Wounds|Neutralize Poison
+Saboteur's Gloves						TYPE:Magic.Wondrous.Glove			COST:15240	WT:.5		SOURCEPAGE:p.55
+Seamless Skin						TYPE:Magic.Wondrous.Robe			COST:70000	WT:8		SOURCEPAGE:p.55
+Spectacles of Lip Reading				TYPE:Magic.Wondrous.Eyegear			COST:3000	WT:1		SOURCEPAGE:p.56
+Survivor's Ring						TYPE:Magic.Ring					COST:56160			SOURCEPAGE:p.56
+Toastmaster's Teacup					TYPE:Magic.Wondrous				COST:5000	WT:.25	SOURCEPAGE:p.56
+Triple Eyes of Vivid Auras				TYPE:Magic.Wondrous.Eyegear			COST:15000	WT:1		SOURCEPAGE:p.56
+Witness Hunter's Ring					TYPE:Magic.Ring					COST:25200			SOURCEPAGE:p.56

@@ -17,7 +17,10 @@
  */
 package plugin.lsttokens.kit.startpack;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Kit;
@@ -29,12 +32,14 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 {
 
 	static VisibleToken token = new VisibleToken();
 
-	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<Kit>();
+	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Kit> getCDOMClass()
@@ -48,6 +53,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 		return loader;
 	}
 
+
 	@Override
 	public CDOMPrimaryToken<Kit> getToken()
 	{
@@ -57,20 +63,20 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	@Test
 	public void testInvalidOutput()
 	{
-		assertTrue(primaryContext.getWriteMessageCount() == 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
 		assertNull(token.unparse(primaryContext, primaryProf));
 		assertFalse(primaryContext.getWriteMessageCount() == 0);
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 	}
 
 	@Test
-	public void testInvalidInputStringSet() throws PersistenceLayerException
+	public void testInvalidInputStringSet()
 	{
 		assertTrue(parse("QUALIFY"));
 		assertTrue(parseSecondary("QUALIFY"));
@@ -79,7 +85,6 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	public void internalTestInvalidInputString(Object val)
-			throws PersistenceLayerException
 	{
 		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
 		assertFalse(parse("Always"));
@@ -97,7 +102,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("QUALIFY"));
 		assertEquals(Visibility.QUALIFY, primaryProf.get(ObjectKey.VISIBILITY));

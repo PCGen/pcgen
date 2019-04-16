@@ -8,13 +8,15 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:2,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
-SOURCELONG:Dragon Empires Primer
+SOURCELONG:Pathfinder Player Companion: Dragon Empires Primer
 SOURCESHORT:DEP
-SOURCEWEB:http://paizo.com/products/btpy8pg0?Pathfinder-Player-Companion-Dragon-Empires-Primer
+SOURCEWEB:http://paizo.com/products/btpy8pg0
 SOURCEDATE:2012-01
 ISOGL:YES
 
@@ -22,7 +24,7 @@ ISOGL:YES
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/companion/pathfinderRPG/v5748btpy8hih|Buy this publication from Paizo Publishing!
+URL:Paizo Publishing|http://paizo.com/products/btpy8pg0|Buy this publication from Paizo Publishing!
 DESC:The distant continent of Tian Xia rests on the opposite side of the world from the Inner Sea region, and it shows. From the treacherous jungles of naga-ruled Nagajor to the sorcerous kingdom of Dtang Ma, and from the trackless and unforgiving deserts of Shaguang to the wondrous city of Goka, countless opportunities can be found for any character or adventure in amazingly expansive Tian Xia. While the extensive Dragon Empires Gazetteer unveils dozens of the mystical continent's secrets, the Dragon Empires Primer provides information pertinent to creating characters for campaigns set in this vast and diverse region. This volume of Player Companion provides players and Game Masters alike with all of the settingspecific traits and trappings they need to customize and play characters in the Dragon Empires.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.

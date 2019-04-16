@@ -1,5 +1,4 @@
 /*
- * DeferredCharacterComboBoxModel.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 
 package pcgen.gui2.tabs.models;
@@ -26,14 +24,14 @@ import java.awt.event.FocusListener;
 import javax.swing.ComboBoxModel;
 import javax.swing.SwingUtilities;
 
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.facade.util.ListFacade;
 import pcgen.gui2.util.FacadeListModel;
 
 /**
- * The Class <code>DeferredCharacterComboBoxModel</code> is a model for a combo 
+ * The Class {@code DeferredCharacterComboBoxModel} is a model for a combo
  * box that holds off setting the value until focus is lost. This gets around a bug 
  * with the keyboard navigation of JComboBox where each key press selects the 
  * highlighted entry. This model should be used where costly or permanent actions 
@@ -42,16 +40,13 @@ import pcgen.gui2.util.FacadeListModel;
  * Note: This class needs to be added as a FocusListener of the target JComboBox 
  * for selection to work.  
  *
- * <br>
  *  
  * @param <E> The type of object being managed, generally a Facade 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
-public abstract class DeferredCharacterComboBoxModel<E> extends
-		FacadeListModel<E> implements ComboBoxModel, ReferenceListener<E>,
-		FocusListener
+public abstract class DeferredCharacterComboBoxModel<E> extends FacadeListModel<E>
+		implements ComboBoxModel<E>, ReferenceListener<E>, FocusListener
 {
 
 	private ReferenceFacade<E> reference = null;
@@ -66,6 +61,7 @@ public abstract class DeferredCharacterComboBoxModel<E> extends
 		setListFacade(list);
 		setReference(ref);
 	}
+
 	/**
 	 * Set the reference to the selected object that we should listen for external changes to.
 	 * @param ref The reference.
@@ -102,7 +98,7 @@ public abstract class DeferredCharacterComboBoxModel<E> extends
 	{
 		setSelectedItem(e.getNewReference());
 	}
-	
+
 	/**
 	 * Now that the user has finished updating the combo box, save the value 
 	 * they selected. This should be implemented as appropriate for each child 

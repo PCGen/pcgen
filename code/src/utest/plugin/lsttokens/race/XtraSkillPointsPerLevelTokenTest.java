@@ -28,7 +28,7 @@ public class XtraSkillPointsPerLevelTokenTest extends AbstractFormulaTokenTestCa
 {
 
 	static XtraskillptsperlvlToken token = new XtraskillptsperlvlToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

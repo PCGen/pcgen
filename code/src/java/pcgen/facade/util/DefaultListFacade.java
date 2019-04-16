@@ -1,5 +1,4 @@
 /*
- * DefaultListFacade.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 25, 2010, 3:51:05 PM
  */
 package pcgen.facade.util;
 
@@ -26,14 +24,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class DefaultListFacade<E> extends AbstractListFacade<E>
+		implements WriteableListFacade<E>
 {
 
-	private ArrayList<E> elementList;
+	private final ArrayList<E> elementList;
 
 	public DefaultListFacade()
 	{
@@ -51,23 +46,23 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		return new Iterator<E>()
 		{
 
-			private ListIterator<E> iterator = elementList.listIterator();
+			private final ListIterator<E> iterator = elementList.listIterator();
 			private int index;
 
-            @Override
+			@Override
 			public boolean hasNext()
 			{
 				return iterator.hasNext();
 			}
 
-            @Override
+			@Override
 			public E next()
 			{
 				index = iterator.nextIndex();
 				return iterator.next();
 			}
 
-            @Override
+			@Override
 			public void remove()
 			{
 				E element = getElementAt(index);
@@ -78,19 +73,19 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		};
 	}
 
-    @Override
+	@Override
 	public E getElementAt(int index)
 	{
 		return elementList.get(index);
 	}
 
-    @Override
+	@Override
 	public int getSize()
 	{
 		return elementList.size();
 	}
 
-    @Override
+	@Override
 	public boolean containsElement(E element)
 	{
 		return elementList.contains(element);
@@ -101,17 +96,20 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		return elementList.indexOf(element);
 	}
 
+	@Override
 	public void addElement(E element)
 	{
 		addElement(elementList.size(), element);
 	}
 
+	@Override
 	public void addElement(int index, E element)
 	{
 		elementList.add(index, element);
 		fireElementAdded(this, element, index);
 	}
 
+	@Override
 	public boolean removeElement(E element)
 	{
 		int index = elementList.indexOf(element);
@@ -123,6 +121,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		return false;
 	}
 
+	@Override
 	public void removeElement(int index)
 	{
 		fireElementRemoved(this, elementList.remove(index), index);
@@ -170,13 +169,12 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 	public void updateContents(List<? extends E> newElements)
 	{
 		final int maxUpdateSize = 20;
-		if (isEmpty() || newElements.isEmpty()
-			|| Math.abs(getSize() - newElements.size()) > maxUpdateSize)
+		if (isEmpty() || newElements.isEmpty() || Math.abs(getSize() - newElements.size()) > maxUpdateSize)
 		{
 			setContents(newElements);
 			return;
 		}
-		
+
 		// Scan for items that need to be removed
 		int currPos = 0;
 		for (Iterator<E> iterator = elementList.iterator(); iterator.hasNext();)
@@ -188,7 +186,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 			{
 				if (e.equals(newElements.get(index)))
 				{
-					currPos = index+1;
+					currPos = index + 1;
 					found = true;
 					break;
 				}
@@ -204,8 +202,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		currPos = 0;
 		for (E e : newElements)
 		{
-			if (elementList.size() <= currPos
-				|| !e.equals(elementList.get(currPos)))
+			if (elementList.size() <= currPos || !e.equals(elementList.get(currPos)))
 			{
 				addElement(currPos, e);
 			}
@@ -224,13 +221,12 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 	public void updateContentsNoOrder(List<? extends E> newElements)
 	{
 		final int maxUpdateSize = 20;
-		if (isEmpty() || newElements.isEmpty()
-			|| Math.abs(getSize() - newElements.size()) > maxUpdateSize)
+		if (isEmpty() || newElements.isEmpty() || Math.abs(getSize() - newElements.size()) > maxUpdateSize)
 		{
 			setContents(newElements);
 			return;
 		}
-		
+
 		for (E elem : newElements)
 		{
 			if (!containsElement(elem))
@@ -238,7 +234,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 				addElement(elem);
 			}
 		}
-		
+
 		for (Iterator<E> iterator = elementList.iterator(); iterator.hasNext();)
 		{
 			E e = iterator.next();
@@ -250,7 +246,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 			}
 		}
 	}
-	
+
 	/**
 	 * @return A copy of the contents of the list.
 	 */
@@ -258,7 +254,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 	{
 		return new ArrayList<>(elementList);
 	}
-	
+
 	@Override
 	public String toString()
 	{

@@ -1,5 +1,4 @@
 /*
- * AbstractSpellListToken.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 02/01/2009 11:28:40 AM
  *
- * $Id: $
  */
 
 package pcgen.rules.persistence.token;
@@ -41,10 +38,9 @@ import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
 
 /**
- * The Class <code>AbstractSpellListToken</code> ...
+ * The Class {@code AbstractSpellListToken} ...
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<CDOMObject>
 {
@@ -64,29 +60,23 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 	 * @return the map
 	 */
 	protected TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> getMap(
-		LoadContext context,
-		CDOMObject obj,
-		Collection<CDOMReference<? extends CDOMList<?>>> changedLists,
+		LoadContext context, CDOMObject obj, Collection<CDOMReference<? extends CDOMList<?>>> changedLists,
 		boolean knownSpells)
 	{
 		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> map =
-                new TripleKeyMapToList<>();
+				new TripleKeyMapToList<>();
 
 		for (CDOMReference listRef : changedLists)
 		{
 			AssociatedChanges<CDOMReference<Spell>> changes =
-					context.getListContext().getChangesInList(getTokenName(),
-						obj, listRef);
+					context.getListContext().getChangesInList(getTokenName(), obj, listRef);
 			Collection<?> removedItems = changes.getRemoved();
-			if (removedItems != null && !removedItems.isEmpty()
-					|| changes.includesGlobalClear())
+			if (removedItems != null && !removedItems.isEmpty() || changes.includesGlobalClear())
 			{
-				context.addWriteMessage(getTokenName()
-						+ " does not support .CLEAR");
+				context.addWriteMessage(getTokenName() + " does not support .CLEAR");
 				return null;
 			}
-			MapToList<CDOMReference<Spell>, AssociatedPrereqObject> mtl = changes
-					.getAddedAssociations();
+			MapToList<CDOMReference<Spell>, AssociatedPrereqObject> mtl = changes.getAddedAssociations();
 			if (mtl == null || mtl.isEmpty())
 			{
 				// Zero indicates no Token
@@ -97,10 +87,8 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 			{
 				for (AssociatedPrereqObject assoc : mtl.getListFor(added))
 				{
-					Integer lvl = assoc
-							.getAssociation(AssociationKey.SPELL_LEVEL);
-					String prereqString = getPrerequisiteString(context, assoc
-							.getPrerequisiteList());
+					Integer lvl = assoc.getAssociation(AssociationKey.SPELL_LEVEL);
+					String prereqString = getPrerequisiteString(context, assoc.getPrerequisiteList());
 					Boolean known = assoc.getAssociation(AssociationKey.KNOWN);
 					boolean isKnown = known != null && known.booleanValue();
 					if (knownSpells == isKnown)
@@ -122,14 +110,15 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 	 *
 	 * @return the string builder
 	 */
-	protected StringBuilder processUnparse(String type, TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> domainMap, String prereqs)
+	protected StringBuilder processUnparse(String type,
+		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> domainMap,
+		String prereqs)
 	{
 		StringBuilder sb = new StringBuilder(type);
 		Set<Integer> levels = domainMap.getSecondaryKeySet(prereqs);
 		for (Integer level : new TreeSet<>(levels))
 		{
-			for (CDOMReference<? extends CDOMList<?>> list : domainMap
-					.getTertiaryKeySet(prereqs, level))
+			for (CDOMReference<? extends CDOMList<?>> list : domainMap.getTertiaryKeySet(prereqs, level))
 			{
 				sb.append(Constants.PIPE);
 				String lsts = list.getLSTformat(false);

@@ -1,5 +1,4 @@
 /*
- * PreAbilityParserTest.java
  * Copyright 2007 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,19 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on January 23, 2006
- *
- * Current Ver: $Revision: 1777 $
- *
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.Globals;
@@ -36,164 +27,128 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreAbilityParser;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreAbilityParserTest</code> tests the function of the 
+ * {@code PreAbilityParserTest} tests the function of the
  * PREABILITY parser.
- *
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 {
 
-	/**
-	 * @throws Exception
-	 */
 	@Test
 	public void testCategoryInterpretation() throws Exception
 	{
 
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq = parser.parse("ability", "1,CATEGORY.Mutation,Sneak Attack", false, false);
-		assertEquals("Category specified for single key",
-			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "<prereq kind=\"ability\" count-multiples=\"true\" category=\"Mutation\" key=\"Sneak Attack\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n" + "", prereq.toString());
+		assertEquals(
+				"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
+				+ "<prereq kind=\"ability\" count-multiples=\"true\" category=\"Mutation\" "
+					+ "key=\"Sneak Attack\" operator=\"GTEQ\" operand=\"1\" >\n"
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString(), "Category specified for single key");
 
 		prereq = parser.parse("ability", "2,CATEGORY=Mutation,Foo,Bar", false, false);
-		assertEquals("Category specified for multiple keys",
-			"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
-				+ "<prereq kind=\"ability\" count-multiples=\"true\" category=\"Mutation\" key=\"Foo\" operator=\"GTEQ\" operand=\"1\" >\n"
+		assertEquals(
+				"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
+				+ "<prereq kind=\"ability\" count-multiples=\"true\" category=\"Mutation\" key=\"Foo\" "
+					+ "operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"ability\" count-multiples=\"true\" category=\"Mutation\" key=\"Bar\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n" + "", prereq.toString());
+				+ "<prereq kind=\"ability\" count-multiples=\"true\" category=\"Mutation\" key=\"Bar\" "
+					+ "operator=\"GTEQ\" operand=\"1\" >\n"
+				+ "</prereq>\n" + "</prereq>\n", prereq.toString(), "Category specified for multiple keys");
 
 		prereq = parser.parse("ability", "1,CATEGORY.ANY,Sneak Attack", false, false);
-		assertEquals("Category of ANY specified for single key",
-			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
-			+ "<prereq kind=\"ability\" count-multiples=\"true\" key=\"Sneak Attack\" operator=\"GTEQ\" operand=\"1\" >\n"
-			+ "</prereq>\n" + "</prereq>\n" + "", prereq.toString());
+		assertEquals(
+				"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
+		+ "<prereq kind=\"ability\" count-multiples=\"true\" key=\"Sneak Attack\" operator=\"GTEQ\" operand=\"1\" >\n"
+		+ "</prereq>\n" + "</prereq>\n", prereq.toString(), "Category of ANY specified for single key");
 
 		prereq = parser.parse("ability", "1,CATEGORY.ANY,Foo,Bar", false, false);
-		assertEquals("Category specified for multiple key",
-			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
+		assertEquals(
+				"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
 			+ "<prereq kind=\"ability\" count-multiples=\"true\" key=\"Foo\" operator=\"GTEQ\" operand=\"1\" >\n"
 			+ "</prereq>\n" 
 			+ "<prereq kind=\"ability\" count-multiples=\"true\" key=\"Bar\" operator=\"GTEQ\" operand=\"1\" >\n"
 			+ "</prereq>\n" 
-			+ "</prereq>\n" + "", prereq.toString());
+			+ "</prereq>\n", prereq.toString(), "Category specified for multiple key");
 	}
 
-	/**
-	 * @throws Exception
-	 */
+	
 	@Test
 	public void testSingleEntry() throws Exception
 	{
 
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq = parser.parse("ability", "1,Sneak Attack", false, false);
-		assertEquals("Category not specified for single key",
-			"<prereq kind=\"ability\" key=\"Sneak Attack\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "", prereq.toString());
+		assertEquals(
+				"<prereq kind=\"ability\" key=\"Sneak Attack\" operator=\"GTEQ\" operand=\"1\" >\n"
+				+ "</prereq>\n", prereq.toString(), "Category not specified for single key");
 	}
 
-	/**
-	 * @throws Exception
-	 */
+	
 	@Test
 	public void testNegates() throws Exception
 	{
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq = parser.parse("ability", "1,Sneak Attack,[Alertness]", false, false);
 		assertEquals(
-			"Negated entry should be parsed",
-			"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
-				+ "<prereq kind=\"ability\" count-multiples=\"true\" key=\"Sneak Attack\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n"
-				+ "<prereq kind=\"ability\" count-multiples=\"true\" key=\"Alertness\" operator=\"LT\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
+				"<prereq operator=\"GTEQ\" operand=\"2\" >\n"
+		+ "<prereq kind=\"ability\" count-multiples=\"true\" key=\"Sneak Attack\" operator=\"GTEQ\" operand=\"1\" >\n"
+		+ "</prereq>\n"
+		+ "<prereq kind=\"ability\" count-multiples=\"true\" key=\"Alertness\" operator=\"LT\" operand=\"1\" >\n"
+		+ "</prereq>\n" + "</prereq>\n", prereq.toString(), "Negated entry should be parsed");
 	}
 
-	/**
-	 * @throws Exception
-	 */
+	
 	@Test
 	public void testNoKey() throws Exception
 	{
 
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq = parser.parse("ability", "1,CATEGORY.Mutation", false, false);
-		assertEquals("Category specified for no key",
+		assertEquals(
 				"<prereq kind=\"ability\" category=\"Mutation\" key=\"ANY\" operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "</prereq>\n" + "", prereq.toString());
+				+ "</prereq>\n", prereq.toString(), "Category specified for no key");
 	}
 	
 	/**
 	 * Test that an error is produced if two categories are specified.
-	 * @throws Exception
 	 */
 	@Test
-	public void testTwoCategories() throws Exception
+	public void testTwoCategories()
 	{
-		try
-		{
-			PreAbilityParser parser = new PreAbilityParser();
-			Prerequisite prereq =
-					parser.parse("ability",
-						"1,CATEGORY.Mutation,KEY_a,CATEGORY.Foo", false, false);
-			fail("Should have thrown a PersistenceLayerException.");
-		}
-		catch (PersistenceLayerException e)
-		{
-			// Ignore, this is the expected result.
-		}
+		PreAbilityParser parser = new PreAbilityParser();
+		assertThrows(PersistenceLayerException.class,
+				() -> parser.parse("ability", "1,CATEGORY.Mutation,KEY_a,CATEGORY.Foo", false,
+				false));
 	}
 	
 	/**
-	 * Test that an error is produced if separators are incorrect
-	 * @throws Exception
+	 * Test that an error is produced if separators are incorrect.
 	 */
 	@Test
-	public void testInvalidSeparators() throws Exception
+	public void testInvalidSeparators()
 	{
-		try
-		{
-			PreAbilityParser parser = new PreAbilityParser();
-			Prerequisite prereq =
-					parser.parse("ability",
-						"1,CATEGORY.Mutation,,KEY_a", false, false);
-			fail("Should have thrown a PersistenceLayerException.");
-		}
-		catch (PersistenceLayerException e)
-		{
-			// Ignore, this is the expected result.
-		}
+		PreAbilityParser parser = new PreAbilityParser();
+		assertThrows(PersistenceLayerException.class,
+				() -> parser.parse("ability", "1,CATEGORY.Mutation,,KEY_a", false, false));
 	}
 	
 	/**
-	 * Test that an error is produced if separators are incorrect
-	 * @throws Exception
+	 * Test that an error is produced if separators are incorrect.
 	 */
 	@Test
-	public void testInvalidCharacter() throws Exception
+	public void testInvalidCharacter()
 	{
-		try
-		{
-			PreAbilityParser parser = new PreAbilityParser();
-			Prerequisite prereq =
-					parser.parse("ability",
-						"1,CATEGORY.Mutation,KEY_a|Key_b", false, false);
-			fail("Should have thrown a PersistenceLayerException.");
-		}
-		catch (PersistenceLayerException e)
-		{
-			// Ignore, this is the expected result.
-		}
+		PreAbilityParser parser = new PreAbilityParser();
+		assertThrows(PersistenceLayerException.class,
+				() -> parser.parse("ability", "1,CATEGORY.Mutation,KEY_a|Key_b", false, false));
 	}
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		Globals.setUseGUI(false);

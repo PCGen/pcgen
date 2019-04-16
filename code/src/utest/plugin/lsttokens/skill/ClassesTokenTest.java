@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.skill;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Skill;
@@ -34,31 +34,28 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 {
 
 	static ClassesToken token = new ClassesToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
-	private static boolean classSetUpFired = false;
-
-	@BeforeClass
-	public static final void ltClassSetUp() throws PersistenceLayerException
+	@BeforeAll
+	public static void ltClassSetUp() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new PreClassParser());
-		classSetUpFired = true;
 	}
 
+	@BeforeEach
 	@Override
-	@Before
 	public final void setUp() throws PersistenceLayerException,
 			URISyntaxException
 	{
 		super.setUp();
-		if (!classSetUpFired)
-		{
-			ltClassSetUp();
-		}
 	}
 
 	@Override
@@ -80,28 +77,28 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputLeadingBar() throws PersistenceLayerException
+	public void testInvalidInputLeadingBar()
 	{
 		assertFalse(parse("|Wizard"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTrailingBar() throws PersistenceLayerException
+	public void testInvalidInputTrailingBar()
 	{
 		assertFalse(parse("Wizard|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNegationMix() throws PersistenceLayerException
+	public void testInvalidInputNegationMix()
 	{
 		assertFalse(parse("Wizard|!Sorcerer"));
 		assertNoSideEffects();
@@ -109,21 +106,20 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 
 	@Test
 	public void testInvalidInputNegationMixTwo()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("!Wizard|Sorcerer"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe() throws PersistenceLayerException
+	public void testInvalidInputDoublePipe()
 	{
 		assertFalse(parse("Wizard||Sorcerer"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyType() throws PersistenceLayerException
+	public void testInvalidInputEmptyType()
 	{
 		try
 		{
@@ -145,7 +141,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidInputNotClass() throws PersistenceLayerException
+	public void testInvalidInputNotClass()
 	{
 		assertTrue(parse("Wizard"));
 		assertConstructionError();
@@ -153,14 +149,13 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 
 	@Test
 	public void testInvalidInputNotClassCompound()
-			throws PersistenceLayerException
 	{
 		assertTrue(parse("Wizard|Sorcerer"));
 		assertConstructionError();
 	}
 
 	// @Test(expected = IllegalArgumentException.class)
-	public void testInvalidInputAllPlus() throws PersistenceLayerException
+	public void testInvalidInputAllPlus()
 	{
 		try
 		{
@@ -175,7 +170,6 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 
 	// @Test(expected = IllegalArgumentException.class)
 	public void testInvalidInputNegativeAllPlus()
-			throws PersistenceLayerException
 	{
 		try
 		{
@@ -189,7 +183,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidInputNegativeAll() throws PersistenceLayerException
+	public void testInvalidInputNegativeAll()
 	{
 		// This technically gets caught by the PRECLASS parser...
 		assertFalse(parse("!ALL"));
@@ -197,14 +191,14 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidInputNonSensicalAll() throws PersistenceLayerException
+	public void testInvalidInputNonSensicalAll()
 	{
 		assertFalse(parse("ALL|!ALL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNonSensicalAllSpecific() throws PersistenceLayerException
+	public void testInvalidInputNonSensicalAllSpecific()
 	{
 		assertFalse(parse("ALL|Wizard"));
 		assertNoSideEffects();
@@ -282,14 +276,6 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return new ConsolidationRule()
-		{
-
-            @Override
-			public String[] getAnswer(String... strings)
-			{
-				return new String[]{"Bard|Sorcerer|Wizard"};
-			}
-		};
+		return strings -> new String[]{"Bard|Sorcerer|Wizard"};
 	}
 }

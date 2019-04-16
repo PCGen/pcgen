@@ -1,25 +1,38 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Pathfinder Society Field Guide	SOURCESHORT:PFSFG	SOURCEWEB:http://paizo.com/products/btpy8mfq	SOURCEDATE:2011-08
 # Original Entry by: Mark Means
 
 # Armor
-# Modifier Name	Unique Key		Type					Plus		Cost		Visible		Source Page		Multiple Requirements						Required Type				Misc bonus			Weapon prof. bonus									Weapon prop. bonus						Special Property																																								Ability							SORTKEY
-Bitter		KEY:BITTER		TYPE:Armor				PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.50																																									SPROP:if wearer grappled by bite, creature must make DC 14 Fortitude save or end the grapple, if victim swallowed and still alive, attacker must make DC 14 Fortitude save or be nauseated for 1 round and may vomit up the victim as a standard action
-Comfort		KEY:COMFORT		TYPE:Armor						COST:5000	VISIBLE:QUALIFY	SOURCEPAGE:p.50																BONUS:MISC|ACCHECK|-1																						SPROP:always clean, can sleep in as if light armor, no penalty to resist extreme heat, counts as cold-weather clothes, armor check penalty reduced by 1
-Trapwarding		KEY:TRAPWARDING	TYPE:Armor				PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.50																																									SPROP:luck bonus on all saves against traps equal to the armor's enhancement bonus
+# Modifier Name									Unique Key								Type					Plus		Cost		Visible		Source Page		Multiple Requirements							Required Type									Misc bonus			Weapon prof. bonus									Weapon prop. bonus						Special Property																																								Ability							SORTKEY
+Bitter										KEY:Special Ability ~ Bitter ~ Armor			TYPE:Armor.Bracer			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.50	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Bracer]																																					SPROP:if wearer grappled by bite, creature must make DC 14 Fortitude save or end the grapple, if victim swallowed and still alive, attacker must make DC 14 Fortitude save or be nauseated for 1 round and may vomit up the victim as a standard action
+Comfort										KEY:Special Ability ~ Comfort ~ Armor			TYPE:Armor						COST:5000	VISIBLE:QUALIFY	SOURCEPAGE:p.50																						BONUS:MISC|ACCHECK|-1																						SPROP:always clean, can sleep in as if light armor, no penalty to resist extreme heat, counts as cold-weather clothes, armor check penalty reduced by 1
+Trapwarding										KEY:Special Ability ~ Trapwarding ~ Armor			TYPE:Armor				PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.50																																															SPROP:luck bonus on all saves against traps equal to the armor's enhancement bonus
 
 
 # Weapons
-Agile			KEY:AGILE		TYPE:Weapon.Melee			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.50	PREMULT:1,[PRETYPE:1,Finesseable],[PREWIELD:1,Light]	PRETYPE:3,Enhancement,Weapon,Melee																	BONUS:WEAPON|DAMAGE|(max(STR,DEX)-STR)|TYPE=NotRanged	SPROP:dex bonus to damage using Weapon Finesse and Finessable weapon
-Dueling		KEY:DUELING		TYPE:Weapon.Melee			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.50										PRETYPE:3,Enhancement,Weapon,Melee																										SPROP:luck bonus equal to twice its enhancement bonus to CMB and to CMD versus disarm, trip, reposition and dirty tricks using this weapon
-Guardian		KEY:GUARDIAN	TYPE:Weapon.Melee			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.51										PRETYPE:3,Enhancement,Weapon,Melee																										SPROP:swift action to transfer some or all of the weapons enhancement bonus to saving throws that stacks with all others
+Agile											KEY:Special Ability ~ Agile ~ Melee				TYPE:Weapon.Melee			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.50	PREMULT:1,[PRETYPE:1,Finesseable],[PREWIELD:1,Light]		PRETYPE:3,Enhancement,Weapon,Melee																						BONUS:WEAPON|DAMAGE|(max(STR,DEX)-STR)|TYPE=NotRanged	SPROP:dex bonus to damage using Weapon Finesse and Finessable weapon
+Dueling										KEY:Special Ability ~ Dueling / Luck Bonus ~ Melee	TYPE:Weapon.Melee			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.50											PRETYPE:3,Enhancement,Weapon,Melee																															SPROP:luck bonus equal to twice its enhancement bonus to CMB and to CMD versus disarm, trip, reposition and dirty tricks using this weapon
+Guardian										KEY:Special Ability ~ Guardian ~ Melee			TYPE:Weapon.Melee			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.51											PRETYPE:3,Enhancement,Weapon,Melee																															SPROP:swift action to transfer some or all of the weapons enhancement bonus to saving throws that stacks with all others
 
 #Agile bonus to add dex to weapon damage instead of str, but not increased for two-handed weapons though still reduced for off-hand weapons
 
 
 # Supposedly legal...
-Agile			KEY:Agile_AMF	TYPE:AmuletOfMightyFists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.50										PRETYPE:1,EQMOD=MightyFist_AMF					BONUS:WEAPONPROF=TYPE.Natural|DAMAGE|(max(STR,DEX)-STR)|TYPE=NotRanged										SPROP:dex bonus to damage using Weapon Finesse and Finessable weapon																															ABILITY:Special Ability|AUTOMATIC|Unarmed Agile	SORTKEY:+1
+Agile											KEY:Special Ability ~ Agile ~ Amulet of Mighty Fists	TYPE:Amulet of Mighty Fists	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.50											PRETYPE:1,EQMOD=Special Ability ~ Amulet of Mighty Fists Base					BONUS:WEAPONPROF=TYPE.Natural|DAMAGE|(max(STR,DEX)-STR)|TYPE=NotRanged										SPROP:dex bonus to damage using Weapon Finesse and Finessable weapon																															ABILITY:Special Ability|AUTOMATIC|Unarmed Agile	SORTKEY:+1
 
 #
 ###END
 #
+
+
+
+
+#Old KEYs
+Special Ability ~ Bitter ~ Armor.COPY=BITTER																						VISIBLE:NO
+Special Ability ~ Comfort ~ Armor.COPY=COMFORT																						VISIBLE:NO
+Special Ability ~ Trapwarding ~ Armor.COPY=TRAPWARDING																				VISIBLE:NO
+Special Ability ~ Agile ~ Melee.COPY=AGILE																						VISIBLE:NO
+Special Ability ~ Dueling / Luck Bonus ~ Melee.COPY=DUELING																				VISIBLE:NO
+Special Ability ~ Guardian ~ Melee.COPY=GUARDIAN																					VISIBLE:NO
+Special Ability ~ Agile ~ Amulet of Mighty Fists.COPY=Agile_AMF																			VISIBLE:NO

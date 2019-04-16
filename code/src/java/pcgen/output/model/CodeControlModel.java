@@ -3,6 +3,7 @@ package pcgen.output.model;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.inst.CodeControl;
 import pcgen.output.base.SimpleWrapperLibrary;
+
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -29,8 +30,7 @@ public class CodeControlModel implements TemplateHashModel
 	@Override
 	public TemplateModel get(String key) throws TemplateModelException
 	{
-		String result =
-				control.get(ObjectKey.getKeyFor(String.class, "*" + key));
+		String result = control.get(ObjectKey.getKeyFor(String.class, "*" + key));
 		if (result == null)
 		{
 			return null;

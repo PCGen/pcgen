@@ -17,24 +17,28 @@
  */
 package plugin.lsttokens;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 {
 
 	static TypeLst token = new TypeLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -49,7 +53,13 @@ public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}
@@ -85,43 +95,42 @@ public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 	}
 
 	@Test
-	public void testReplacementRemove() throws PersistenceLayerException
+	public void testReplacementRemove()
 	{
 		String[] unparsed;
 		assertTrue(parse("REMOVE.TestWP1"));
-		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNull("Expected item to be equal", unparsed);
+		unparsed = getWriteToken().unparse(primaryContext, primaryProf);
+		assertNull(unparsed);
 
 		assertTrue(parse("TestWP1"));
 		assertTrue(parse("ADD.TestWP2"));
-		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP1"
+		unparsed = getWriteToken().unparse(primaryContext, primaryProf);
+		assertEquals("TestWP1"
 			+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
-			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be null", unparsed);
+			unparsed = getWriteToken().unparse(primaryContext, primaryProf);
+			assertNull(unparsed);
 		}
 	}
 
 	@Test
-	public void testReplacementRemoveTwo() throws PersistenceLayerException
+	public void testReplacementRemoveTwo()
 	{
 		String[] unparsed;
 		assertTrue(parse("TestWP1"));
 		assertTrue(parse("TestWP2"));
-		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP1"
+		unparsed = getWriteToken().unparse(primaryContext, primaryProf);
+		assertEquals("TestWP1"
 			+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		assertTrue(parse("REMOVE.TestWP1"));
-		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
+		unparsed = getWriteToken().unparse(primaryContext, primaryProf);
+		assertEquals("TestWP2", unparsed[0]);
 	}
 
 	@Test
 	public void testInputInvalidRemoveNoTrailing()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("TestWP1.REMOVE"));
 		assertNoSideEffects();
@@ -129,42 +138,41 @@ public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 
 	@Test
 	public void testInputInvalidAddNoTrailing()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("TestWP1.ADD"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidAddRemove() throws PersistenceLayerException
+	public void testInputInvalidAddRemove()
 	{
 		assertFalse(parse("TestWP1.ADD.REMOVE.TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidRemoveAdd() throws PersistenceLayerException
+	public void testInputInvalidRemoveAdd()
 	{
 		assertFalse(parse("TestWP1.REMOVE.ADD.TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidEmbeddedClear() throws PersistenceLayerException
+	public void testInputInvalidEmbeddedClear()
 	{
 		assertFalse(parse("TestWP1.CLEAR.TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidDotClearDot() throws PersistenceLayerException
+	public void testInputInvalidDotClearDot()
 	{
 		assertFalse(parse(".CLEAR."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInputInvalidDotClearStuff() throws PersistenceLayerException
+	public void testInputInvalidDotClearStuff()
 	{
 		assertFalse(parse(".CLEARSTUFF"));
 		assertNoSideEffects();

@@ -34,17 +34,14 @@ import pcgen.core.WeaponProf;
  * AutoWeaponProfFacet is a Facet that tracks the WeaponProfs that have been
  * granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class AutoWeaponProfFacet extends
-		AbstractQualifiedListFacet<WeaponProfProvider> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class AutoWeaponProfFacet extends AbstractQualifiedListFacet<WeaponProfProvider>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
-	private PrerequisiteFacet prereqFacet = FacetLibrary
-			.getFacet(PrerequisiteFacet.class);
+	private PrerequisiteFacet prereqFacet = FacetLibrary.getFacet(PrerequisiteFacet.class);
 
 	/**
 	 * Processes an added CDOMObject to extract WeaponProf objects which are
@@ -58,8 +55,6 @@ public class AutoWeaponProfFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -84,8 +79,6 @@ public class AutoWeaponProfFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -147,7 +140,7 @@ public class AutoWeaponProfFacet extends
 		}
 		return false;
 	}
-	
+
 	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
 	{
 		this.consolidationFacet = consolidationFacet;

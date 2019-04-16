@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.BonusSkillRankChangeFacet.SkillRankChangeEvent;
@@ -34,11 +35,9 @@ import pcgen.core.Skill;
  * TotalSkillRankFacet stores the total skill rank for Skills (includes user
  * taken ranks and BONUS:SKILLRANK)
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
-		SkillRankChangeListener,
-		pcgen.cdom.facet.BonusSkillRankChangeFacet.SkillRankChangeListener
+public class TotalSkillRankFacet extends AbstractStorageFacet<CharID>
+		implements SkillRankChangeListener, pcgen.cdom.facet.BonusSkillRankChangeFacet.SkillRankChangeListener
 {
 	private static final Double DOUBLE_ZERO = 0.0d;
 
@@ -61,14 +60,8 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 	 */
 	public void set(CharID id, Skill sk, Double rank)
 	{
-		if (sk == null)
-		{
-			throw new IllegalArgumentException("Skill cannot be null");
-		}
-		if (rank == null)
-		{
-			throw new IllegalArgumentException("Rank cannot be null");
-		}
+		Objects.requireNonNull(sk, "Skill cannot be null");
+		Objects.requireNonNull(rank, "Rank cannot be null");
 		Map<Skill, Double> map = getConstructingInfo(id);
 		Double currentRank = map.get(sk);
 		boolean isNew = (currentRank == null) || (rank.doubleValue() != currentRank.doubleValue());
@@ -95,10 +88,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 	 */
 	public void remove(CharID id, Skill sk)
 	{
-		if (sk == null)
-		{
-			throw new IllegalArgumentException("Skill cannot be null");
-		}
+		Objects.requireNonNull(sk, "Skill cannot be null");
 		Map<Skill, Double> map = getInfo(id);
 		if (map == null)
 		{
@@ -169,11 +159,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 	 */
 	public Double get(CharID id, Skill obj)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException(
-				"Object for getting association may not be null");
-		}
+		Objects.requireNonNull(obj, "Object for getting association may not be null");
 		Map<Skill, Double> map = getInfo(id);
 		if (map != null)
 		{
@@ -187,19 +173,17 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 	 * structure for adding and removing listeners to a class that can provide
 	 * updates for changes to Association Bonus values on a Player Character.
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
 	public static class AssociationChangeSupport
 	{
 		private final Object source;
-		
+
 		public AssociationChangeSupport(Object src)
 		{
 			source = src;
 		}
 
-		private List<AssociationChangeListener> listeners =
-                new ArrayList<>();
+		private final List<AssociationChangeListener> listeners = new ArrayList<>();
 
 		/**
 		 * Adds a new AssociationChangeListener to receive
@@ -216,8 +200,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 		 *            The AssociationChangeListener to receive
 		 *            AssociationChangeEvents from this AssociationChangeSupport
 		 */
-		public synchronized void addAssociationChangeListener(
-			AssociationChangeListener listener)
+		public synchronized void addAssociationChangeListener(AssociationChangeListener listener)
 		{
 			listeners.add(listener);
 		}
@@ -229,8 +212,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 		 * @param listener
 		 *            The AssociationChangeListener to be removed
 		 */
-		public synchronized void removeAssociationChangeListener(
-			AssociationChangeListener listener)
+		public synchronized void removeAssociationChangeListener(AssociationChangeListener listener)
 		{
 			listeners.remove(listener);
 		}
@@ -254,12 +236,9 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 		 * @param newValue
 		 *            The new value of the Bonus value
 		 */
-		public void fireAssociationChange(CharID id, Skill skill,
-			Number oldValue, Number newValue)
+		public void fireAssociationChange(CharID id, Skill skill, Number oldValue, Number newValue)
 		{
-			AssociationChangeEvent bce =
-					new AssociationChangeEvent(id, skill, oldValue, newValue,
-						source);
+			AssociationChangeEvent bce = new AssociationChangeEvent(id, skill, oldValue, newValue, source);
 
 			for (AssociationChangeListener target : listeners)
 			{
@@ -298,8 +277,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 	 * @param listener
 	 *            The AssociationChangeListener to be removed
 	 */
-	public void removeAssociationChangeListener(
-		AssociationChangeListener listener)
+	public void removeAssociationChangeListener(AssociationChangeListener listener)
 	{
 		if (support == null)
 		{
@@ -335,8 +313,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 	}
 
 	@Override
-	public void rankChanged(
-		pcgen.cdom.facet.SkillRankFacet.SkillRankChangeEvent srce)
+	public void rankChanged(pcgen.cdom.facet.SkillRankFacet.SkillRankChangeEvent srce)
 	{
 		CharID id = srce.getCharID();
 		Skill skill = srce.getSkill();
@@ -356,8 +333,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 		this.skillRankFacet = skillRankFacet;
 	}
 
-	public void setBonusSkillRankChangeFacet(
-		BonusSkillRankChangeFacet bonusSkillRankChangeFacet)
+	public void setBonusSkillRankChangeFacet(BonusSkillRankChangeFacet bonusSkillRankChangeFacet)
 	{
 		this.bonusSkillRankChangeFacet = bonusSkillRankChangeFacet;
 	}

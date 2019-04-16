@@ -17,12 +17,8 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * PreferencesDamagePanel.java
- *
- * Created on July 11, 2003, 4:34 PM
  */
 package plugin.initiative.gui;
-
-import gmgen.gui.PreferencesPanel;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -31,6 +27,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
 
+import gmgen.gui.PreferencesPanel;
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
@@ -38,12 +35,11 @@ import plugin.initiative.InitiativePlugin;
 /**
  * Preference panel for damage related settings.
  * 
- * @author soulcatcher
  */
 public class PreferencesDamagePanel extends PreferencesPanel
 {
 	private static final long serialVersionUID = -7745121219014841051L;
-	
+
 	private static final String SETTING_DAMAGE_DYING = ".Damage.Dying"; //$NON-NLS-1$
 	private static final String SETTING_DAMAGE_DYING_START = ".Damage.Dying.Start"; //$NON-NLS-1$
 	private static final String SETTING_DAMAGE_DEATH = ".Damage.Death"; //$NON-NLS-1$
@@ -54,17 +50,17 @@ public class PreferencesDamagePanel extends PreferencesPanel
 	// XXX Can replace those constants with enums that have a value for saving purpose
 	public static final int DAMAGE_DYING_END = 1;
 	public static final int DAMAGE_DYING_INITIATIVE = 2;
-	
+
 	public static final int DAMAGE_DISABLED_ZERO = 1;
 	public static final int DAMAGE_DISABLED_CON = 2;
-	
+
 	public static final int DAMAGE_DEATH_NEG_TEN = 1;
 	public static final int DAMAGE_DEATH_NEG_CON = 2;
-	
+
 	public static final int DAMAGE_STABLE_PERCENT = 1;
 	public static final int DAMAGE_STABLE_SAVE = 2;
 	public static final int DAMAGE_STABLE_NONE = 3;
-	
+
 	public static final int DAMAGE_SUBDUAL = 1;
 	public static final int DAMAGE_NON_LETHAL = 2;
 
@@ -255,38 +251,29 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		return returnVal;
 	}
 
-    @Override
+	@Override
 	public void applyPreferences()
 	{
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
-			+ SETTING_DAMAGE_DYING, getDying());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
-			+ SETTING_DAMAGE_DYING_START, dyingCB1.isSelected());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
-			+ SETTING_DAMAGE_DEATH, getDeath());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
-			+ SETTING_DAMAGE_STABLE, getStable());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
-			+ SETTING_DAMAGE_SUBDUAL2, getSubdual());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME
-			+ SETTING_DAMAGE_DISABLED, getDisabled());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DYING, getDying());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DYING_START, dyingCB1.isSelected());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DEATH, getDeath());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_STABLE, getStable());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_SUBDUAL2, getSubdual());
+		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DISABLED, getDisabled());
 	}
 
-    @Override
+	@Override
 	public void initPreferences()
 	{
-		setDying(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
-			+ SETTING_DAMAGE_DYING, DAMAGE_DYING_END));
-		setDyingStart(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
-			+ SETTING_DAMAGE_DYING_START, true));
-		setDeath(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
-			+ SETTING_DAMAGE_DEATH, DAMAGE_DEATH_NEG_TEN));
-		setStable(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
-			+ SETTING_DAMAGE_STABLE, DAMAGE_STABLE_PERCENT));
-		setSubdual(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
-			+ SETTING_DAMAGE_SUBDUAL2, DAMAGE_SUBDUAL));
-		setDisabled(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
-			+ SETTING_DAMAGE_DISABLED, DAMAGE_DISABLED_ZERO));
+		setDying(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DYING, DAMAGE_DYING_END));
+		setDyingStart(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DYING_START, true));
+		setDeath(
+			SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DEATH, DAMAGE_DEATH_NEG_TEN));
+		setStable(
+			SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_STABLE, DAMAGE_STABLE_PERCENT));
+		setSubdual(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_SUBDUAL2, DAMAGE_SUBDUAL));
+		setDisabled(
+			SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DISABLED, DAMAGE_DISABLED_ZERO));
 	}
 
 	@Override
@@ -333,58 +320,48 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		c.weightx = 1.0;
 		c.fill = GridBagConstraints.HORIZONTAL;
 
-		dyingPanel.setLayout(new javax.swing.BoxLayout(dyingPanel,
-			javax.swing.BoxLayout.Y_AXIS));
+		dyingPanel.setLayout(new javax.swing.BoxLayout(dyingPanel, javax.swing.BoxLayout.Y_AXIS));
 
-		dyingPanel.setBorder(new TitledBorder(null,
-			LanguageBundle.getString("in_plugin_initiative_dying"), //$NON-NLS-1$
-			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-			javax.swing.border.TitledBorder.DEFAULT_POSITION));
+		dyingPanel.setBorder(new TitledBorder(
+			null, LanguageBundle.getString("in_plugin_initiative_dying"), //$NON-NLS-1$
+			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 		dyingRB1.setSelected(true);
-		dyingRB1
-			.setText(LanguageBundle.getString("in_plugin_initiative_dying_end")); //$NON-NLS-1$
+		dyingRB1.setText(LanguageBundle.getString("in_plugin_initiative_dying_end")); //$NON-NLS-1$
 		dyingGroup.add(dyingRB1);
 		dyingPanel.add(dyingRB1);
 
-		dyingRB2
-			.setText(LanguageBundle.getString("in_plugin_initiative_dying_own")); //$NON-NLS-1$
+		dyingRB2.setText(LanguageBundle.getString("in_plugin_initiative_dying_own")); //$NON-NLS-1$
 		dyingGroup.add(dyingRB2);
 		dyingPanel.add(dyingRB2);
 
 		dyingCB1.setSelected(true);
-		dyingCB1
-			.setText(LanguageBundle.getString("in_plugin_initiative_dying_start")); //$NON-NLS-1$
+		dyingCB1.setText(LanguageBundle.getString("in_plugin_initiative_dying_start")); //$NON-NLS-1$
 		dyingPanel.add(dyingCB1);
 
 		mainPanel.add(dyingPanel, c);
 
 		//DISABLED OPTION
-		disabledPanel.setLayout(new javax.swing.BoxLayout(disabledPanel,
-			javax.swing.BoxLayout.Y_AXIS));
+		disabledPanel.setLayout(new javax.swing.BoxLayout(disabledPanel, javax.swing.BoxLayout.Y_AXIS));
 
 		disabledPanel.setBorder(new javax.swing.border.TitledBorder(null,
-				LanguageBundle.getString("in_plugin_initiative_disabled"), //$NON-NLS-1$
-			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-			javax.swing.border.TitledBorder.DEFAULT_POSITION));
+			LanguageBundle.getString("in_plugin_initiative_disabled"), //$NON-NLS-1$
+			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 		disabledRBZero.setSelected(true);
-		disabledRBZero
-			.setText(LanguageBundle.getString("in_plugin_initiative_disabled_zero")); //$NON-NLS-1$
+		disabledRBZero.setText(LanguageBundle.getString("in_plugin_initiative_disabled_zero")); //$NON-NLS-1$
 		disabledGroup.add(disabledRBZero);
 		disabledPanel.add(disabledRBZero);
 
-		disabledRBCon
-			.setText(LanguageBundle.getString("in_plugin_initiative_disabled_mincon")); //$NON-NLS-1$
+		disabledRBCon.setText(LanguageBundle.getString("in_plugin_initiative_disabled_mincon")); //$NON-NLS-1$
 		disabledGroup.add(disabledRBCon);
 		disabledPanel.add(disabledRBCon);
 		mainPanel.add(disabledPanel, c);
 		//END DISABLED OPTION
 
-		jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3,
-			javax.swing.BoxLayout.Y_AXIS));
+		jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.Y_AXIS));
 
-		jPanel3.setBorder(new javax.swing.border.TitledBorder(null, LanguageBundle.getString("in_plugin_initiative_death"), //$NON-NLS-1$
-			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-			javax.swing.border.TitledBorder.DEFAULT_POSITION));
+		jPanel3.setBorder(new javax.swing.border.TitledBorder(null,
+			LanguageBundle.getString("in_plugin_initiative_death"), //$NON-NLS-1$
+			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 		deathRB1.setSelected(true);
 		deathRB1.setText(LanguageBundle.getString("in_plugin_initiative_death_minten")); //$NON-NLS-1$
 		deathGroup.add(deathRB1);
@@ -396,13 +373,11 @@ public class PreferencesDamagePanel extends PreferencesPanel
 
 		mainPanel.add(jPanel3, c);
 
-		jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4,
-			javax.swing.BoxLayout.Y_AXIS));
+		jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
 
 		jPanel4.setBorder(new javax.swing.border.TitledBorder(null,
 			LanguageBundle.getString("in_plugin_initiative_stabilize_auto"), //$NON-NLS-1$
-			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-			javax.swing.border.TitledBorder.DEFAULT_POSITION));
+			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 		stableRB1.setSelected(true);
 		stableRB1.setText(LanguageBundle.getString("in_plugin_initiative_stabilize_tenpercent")); //$NON-NLS-1$
 		stableGroup.add(stableRB1);
@@ -418,13 +393,11 @@ public class PreferencesDamagePanel extends PreferencesPanel
 
 		mainPanel.add(jPanel4, c);
 
-		jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5,
-			javax.swing.BoxLayout.Y_AXIS));
+		jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.Y_AXIS));
 
 		jPanel5.setBorder(new javax.swing.border.TitledBorder(null,
 			LanguageBundle.getString("in_plugin_initiative_subdualnl"), //$NON-NLS-1$
-			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION,
-			javax.swing.border.TitledBorder.DEFAULT_POSITION));
+			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 		nonLethalRB1.setSelected(true);
 		nonLethalRB1.setText(LanguageBundle.getString("in_plugin_initiative_subdual")); //$NON-NLS-1$
 		nonLethalGroup.add(nonLethalRB1);

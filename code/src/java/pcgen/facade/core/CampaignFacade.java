@@ -1,5 +1,4 @@
 /*
- * CampaignFacade.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,24 +15,20 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 7, 2010, 2:38:05 PM
  */
 package pcgen.facade.core;
 
 import java.util.List;
 
+import pcgen.core.GameMode;
 import pcgen.facade.util.ListFacade;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public interface CampaignFacade
 {
 
 	public boolean showInMenu();
 
-	public ListFacade<GameModeFacade> getGameModes();
+	public ListFacade<GameMode> getGameModes();
 
 	public String getName();
 
@@ -52,7 +47,6 @@ public interface CampaignFacade
 	 * @return A list of text descriptions of the type of book the source represents.
 	 */
 	public List<String> getBookTypeList();
-
 
 	/**
 	 * @return The name of the implementation status of the source.

@@ -1,0 +1,43 @@
+#  Sun Sep 23 13:50:08 2018 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Starfinder Pact Worlds	SOURCESHORT:SPW	SOURCEDATE:2018-03
+# Original Entry by: Iridios
+
+###Magic Items###
+# Equipment Name					Type						Cost		Weight	Source Page		Modify VAR			Quality and value				Special Property
+Encryption tattoo (agent)			TYPE:Magic.Tattoo				COST:50			SOURCEPAGE:p.201					QUALITY:Level|1	QUALITY:Bulk|-
+Lawfinder						TYPE:Magic.Compass			COST:1200	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|3	QUALITY:Bulk|L
+Brigh's bolt					TYPE:Magic.Rod				COST:1300			SOURCEPAGE:p.201					QUALITY:Level|3	QUALITY:Bulk|-
+Pact Worlds serum (Aballon Spark)		TYPE:Magic.Serum.Consumable		COST:475	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	SPROP:+2 insight bonus to Computers checks, and you can attempt checks with this skill untrained.
+Pact Worlds serum (Absalom Affable)		TYPE:Magic.Serum.Consumable		COST:475	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	SPROP:+2 insight bonus to Diplomacy and Disguise checks.
+Pact Worlds serum (Akiton Rustrider)	TYPE:Magic.Serum.Consumable		COST:475	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	SPROP:+2 insight bonus to Athletics and Survival checks, and you do not take a penalty to Survival checks when riding a creature bareback.
+Pact Worlds serum (Bretheda Effervescent)	TYPE:Magic.Serum.Consumable		COST:475	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	SPROP:+2 insight bonus recall knowledge with the Culture, Life Science, Mysticism, Physical Science, and Profession skills and can attempt checks to recall knowledge untrained with these skills.
+Pact Worlds serum (Castrovel Effloresce)	TYPE:Magic.Serum.Consumable		COST:475	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	SPROP:+2 insight bonus to Life Science and Survival checks, and you can attempt Life Science checks and Survival checks to rear a wild animal untrained.
+Pact Worlds serum (Diaspora Daredevil)	TYPE:Magic.Serum.Consumable		COST:475	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	SPROP:+2 insight bonus to Piloting checks and to Computers checks when piloting a vehicle or when acting in a Starship role.
+Pact Worlds serum (Eox Deliquesce)		TYPE:Magic.Serum.Consumable		COST:475	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	SPROP:+2 insight bonus to Mysticism checks, and you can attempt checks with this skill untrained.
+Pact Worlds serum (Idari Gold)		TYPE:Magic.Serum.Consumable		COST:475	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	SPROP:+3 insight bonus to Acrobatics and Sense Motive checks.
+Pact Worlds serum (Triaxus Dragonsight)	TYPE:Magic.Serum.Consumable		COST:475	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	SPROP:+2 insight bonus to Perception checks, and you can ignore concealment caused by dim light.
+Pact Worlds serum (Verces Gleam)		TYPE:Magic.Serum.Consumable		COST:475	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|5	QUALITY:Bulk|L	SPROP:+3 insight bonus to Athletics checks.
+Encryption tattoo (operative)			TYPE:Magic.Tattoo				COST:8900			SOURCEPAGE:p.201					QUALITY:Level|8	QUALITY:Bulk|-	SPROP:1/day gain DR 5/- for up to one minute.
+Ratfolk belt					TYPE:Magic.Belt.WornMagic		COST:12250			SOURCEPAGE:p.201					QUALITY:Level|9	QUALITY:Bulk|-
+Aballonian drone box				TYPE:Magic.Container			COST:24500	WT:1		SOURCEPAGE:p.201	BONUS:VAR|Bulk|1		QUALITY:Level|11	QUALITY:Bulk|1
+Encryption tattoo (provocateur)		TYPE:Magic.Tattoo				COST:48000			SOURCEPAGE:p.201					QUALITY:Level|13	QUALITY:Bulk|-	SPROP:1/day gain DR 10/- for up to one minute.
+Boardroom attire					TYPE:Magic.Torso.WornMagic		COST:62500	WT:0.1	SOURCEPAGE:p.201	BONUS:VAR|BulkLight|1	QUALITY:Level|14	QUALITY:Bulk|L
+Encryption tattoo (master)			TYPE:Magic.Tattoo				COST:360000										QUALITY:Level|18	QUALITY:Bulk|-	SPROP:1/day gain DR 15/- for up to one minute.
+
+###Hybrid Itmes###
+Ablative Insulation Mk 1			TYPE:Magic.Hybrid				COST:350	WT:0.1	SOURCEPAGE:p.203	BONUS:VAR|BulkLight|1	QUALITY:Level|4	QUALITY:Bulk|L	SPROP:Gain Energy Resistance 5 for 1 hour or until 20 pts of Damage have been absorbed.
+Prescient Lenses Mk 1				TYPE:Magic.Hybrid.Glasses.WornMagic	COST:2150			SOURCEPAGE:p.203					QUALITY:Level|4	QUALITY:Bulk|-	SPROP:1/Day gain +1 insight bonus to a single attack roll, ability check, or skill check attempted before the start of your next turn.
+Tactokinesis Gloves				TYPE:Magic.Hybrid.Gloves.WornMagic	COST:4450	WT:0.1	SOURCEPAGE:p.203	BONUS:VAR|BulkLight|1	QUALITY:Level|6	QUALITY:Bulk|L
+Motospheres (4 Pack)				TYPE:Magic.Hybrid				COST:5600	WT:0.1	SOURCEPAGE:p.203	BONUS:VAR|BulkLight|1	QUALITY:Level|7	QUALITY:Bulk|L
+Ablative Insulation Mk 2			TYPE:Magic.Hybrid				COST:1500	WT:0.1	SOURCEPAGE:p.203	BONUS:VAR|BulkLight|1	QUALITY:Level|8	QUALITY:Bulk|L	SPROP:Gain Energy Resistance 10 for 1 hour or until 40 pts of Damage have been absorbed.
+Prescient Lenses Mk 2				TYPE:Magic.Hybrid.Glasses.WornMagic	COST:13900			SOURCEPAGE:p.203					QUALITY:Level|9	QUALITY:Bulk|-	SPROP:1/Day Roll the attack roll or check twice and take the better of the two results.
+Necrotic Mantle					TYPE:Magic.Hybrid.Cloak.WornMagic	COST:17000	WT:0.1	SOURCEPAGE:p.203	BONUS:VAR|BulkLight|1	QUALITY:Level|10	QUALITY:Bulk|L
+Ablative Insulation Mk 3			TYPE:Magic.Hybrid				COST:5500	WT:0.1	SOURCEPAGE:p.203	BONUS:VAR|BulkLight|1	QUALITY:Level|12	QUALITY:Bulk|L	SPROP:Gain Energy Resistance 15 for 1 hour or until 60 pts of Damage have been absorbed.
+Mind Guardian					TYPE:Magic.Hybrid.Ring.WornMagic	COST:36000			SOURCEPAGE:p.203					QUALITY:Level|12	QUALITY:Bulk|-
+Prescient Lenses Mk 3				TYPE:Magic.Hybrid.Glasses.WornMagic	COST:77000			SOURCEPAGE:p.203					QUALITY:Level|14	QUALITY:Bulk|-	SPROP:1/Day as a reaction you can instead reroll a failed attack roll, ability check, or skill check.
+
+###Spell Ampoules###
+
+###Spell Gems###
+
+# Weapon Fusion

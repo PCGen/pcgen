@@ -1,0 +1,47 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+# Equipment Name						SORTKEY		Type						Cost		Modifier																						Source Page		Special Property																																																																																																																																																Visible
+Breastplate (Base).COPY=Entropic Raiment													EQMOD:Material ~ Steel																																																																																																																																																																									VISIBLE:YES
+Entropic Raiment.MOD								TYPE:Greater Major Armor		COST:99350	EQMOD:Special Ability ~ +4 ~ Armor																		SOURCEPAGE:p.69	SPROP:+4 deathless undead controlling breastplate
+Studded Leather (Base).COPY=Infiltrator's Armor												EQMOD:Material ~ Leather|Material ~ Steel																																																																																																																																																																						VISIBLE:YES
+Infiltrator's Armor								TYPE:Lesser Major Armor			COST:17025	EQMOD:Special Ability ~ +2 ~ Armor																		SOURCEPAGE:p.70	SPROP:+2 blending glamered shadow studded leather, cast Snuff at will
+Light Steel Shield (Base).COPY=Penumbral Ward												EQMOD:Material ~ Steel																																																																																																																																																																									VISIBLE:YES
+Penumbral Ward.MOD								TYPE:Lesser Major Armor			COST:33159	EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Ghost Touch ~ Weapon											SOURCEPAGE:p.70	SPROP:+2 ghost touch gloom light steel shield
+
+
+Arrow of Forgotten Graves							TYPE:Lesser Minor				COST:450
+
+Dagger (Base).COPY=Hidden Blade														EQMOD:Material ~ Steel																																																																																																																																																																									VISIBLE:YES
+Hidden Blade.MOD									TYPE:Greater Medium			COST:18302	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Concealed ~ Weapon														SPROP:+2 concealed sneaky dagger
+
+Composite Shortbow (Base).COPY=Phantom Pain												EQMOD:Material ~ Wood																																																																																																																																																																									VISIBLE:YES
+Phantom Pain.MOD									TYPE:Greater Major			COST:53875	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Necrotic ~ Weapon															SPROP:+1 adaptive endless ammunition necrotic composite shortbow
+
+Spiked Chain (Base).COPY=Tormentor's Shackle												EQMOD:Material ~ Steel																																																																																																																																																																									VISIBLE:YES
+Tormentor's Shackle.MOD								TYPE:Greater Major			COST:75325	EQMOD:Special Ability ~ +3 ~ Weapon																					SPROP:+3 cruel ominous spiked chain
+
+Scythe (Base).COPY=Twilight Reaver																																																																																																																																																																																										VISIBLE:YES
+Twilight Reaver.MOD								TYPE:Greater Major			COST:83336	EQMOD:Special Ability ~ +2 ~ Weapon.Material ~ Cold Iron.Special Ability ~ Keen ~ Weapon.Special Ability ~ Umbral / Greater ~ Weapon				SPROP:+2 cold iron keen greater umbral scythe
+
+Longsword (Base).COPY=Edge of Oblivion													EQMOD:Material ~ Steel																																																																																																																																																																									VISIBLE:YES
+Edge of Oblivion.MOD								TYPE:Greater Major			COST:213015	EQMOD:Material ~ Adamantine ~ Weapon.Special Ability ~ Necrotic ~ Weapon.Special Ability ~ Vorpal ~ Melee.Special Ability ~ +3 ~ Weapon				SPROP:+3 adamantine necrotic vorpal longsword (Cost is 213015) Rather than decapitating the victim on a natural 20 critical hit (as with a normal vorpal weapon), the edge of oblivion unleashes a burst of entropic power, aging the creature so far that it is reduced to a fine dust. A creature reduced to dust in this manner can only be revived via miracle, wish, or true resurrection. This ability allows the edge of oblivion to function on creatures that normally would not be slain by a vorpal weapon, such as aberrations, oozes, and undead; however, creatures that are immortal or immune to magical aging become immune to this effect instead. Nightshades, being made of entropy, are also immune to this effect.
+
+# Rings
+Shadow Walker's Ring					SORTKEY:Ring	TYPE:Ring.Magic.Lesser Medium		COST:10000																											SPROP:The wearer casts illusion spells of the shadow subschool that allow for teleportation at +4 caster level, such as shadow walk, shadow step, shadow space, or shadow gate. When using the shadow walk spell, both the wearer and his companions always arrive on target without being shunted in a random direction upon arrival. In addition, if the wearer has the ability to teleport through the Plane of Shadows a daily distance measured in feet, such as a shadowdancer's shadow jump ability, a nightblade's shadow shift, or the shadow step ability of the wizard's shadow subschool, he can teleport an additional 50 feet each day with that ability. If he has multiple such abilities, he can divide this extra distance between each ability.
+Ring of Shadow Mastery					SORTKEY:Ring	TYPE:Ring.Magic.Greater Medium	COST:18000																											SPROP:Twice per day, the user can store shadow surges into the ring of shadow mastery. Doing so takes 10 minutes of concentration for each surge. She can store up to 2 shadow surges within the ring in this way. She can spend the shadow surges stored in the ring as normal for her own abilities, or in one of the following ways: As a swift action, the wearer can spend 1 shadow surge stored in the ring to grant herself a +2 insight bonus on Sleight of Hand, Bluff, and Stealth checks for 1 minute. As a swift action, the wearer can spend 1 shadow surge stored in the ring to use the dusk strike nightblade art, allowing her next attack to target touch AC. As a standard action, the wearer of the ring can spend 2 shadow surges stored within the ring to cast shadow conjuration, as the spell (DC 16). Any shadow surges stored in the ring disappear at the start of each day.
+
+Night Candle									TYPE:Least Minor.Wondrous.Magic	COST:120
+Informant's Script								TYPE:Least Minor.Wondrous.Magic	COST:600
+Shadowstruct Flash								TYPE:Least Minor.Wondrous.Magic	COST:900
+
+Hidden Step Shoes									TYPE:Lesser Minor.Wondrous.Magic	COST:1500
+Bracers of Dusk and Dawn							TYPE:Lesser Minor.Wondrous.Magic	COST:3000
+
+Shadowcraft Gloves								TYPE:Greater Minor.Wondrous.Magic	COST:7800
+
+Lunar Amulet									TYPE:Lesser Medium.Wondrous.Magic	COST:16000
+
+Vest of Steady Aging								TYPE:Greater Medium.Wondrous.Magic	COST:21000
+
+Voidsight Goggles									TYPE:Lesser Major.Wondrous.Magic	COST:30000
+Shroud of Shadows									TYPE:Lesser Major.Wondrous.Magic	COST:34000

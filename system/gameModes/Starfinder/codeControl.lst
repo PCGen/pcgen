@@ -1,0 +1,56 @@
+# This is a YES/NO code control to enable "Alignment" throughout a game mode
+ALIGNMENTFEATURE:YES
+
+# This is a YES/NO code control to enable "Domain" throughout a game mode
+DOMAINFEATURE:YES
+
+
+# CRITMULT
+# CRITRANGE
+# Legs deactivated PRELEGS - Which is currently used for BONUS:LOADMULT - need to do a table.
+#LEGS:Race_Legs
+#CREATUREHANDS:Race_Hands
+# 
+# FUMBLERANGE
+# 
+# ALTHP
+# 
+# EQMAXDEX
+# PCMAXDEX
+# EQACCHECK
+# PCACCHECK
+# 
+# EQSPELLFAILURE
+# PCSPELLFAILURE
+# EDR
+# 
+FACE:Face
+#REGEX to find all common forms of Face in the code: FACE:([0-9]\.[0-9],[0-9]\.[0-9]|[0-9]+,[0-9]+|[0-9]\.[0-9]|[0-9]+)
+
+# EQRANGE
+# 
+# SIZEMODDEFENSE
+# 
+# EQBASEACMOD
+# EQACMOD
+# ALTERSAC
+# ACVARTOTAL
+# ACVARARMOR
+# 
+# EQREACH
+#PCREACH:Race_Reach
+# 
+# INITIATIVE
+# INITIATIVESTAT
+# INITIATIVEMISC
+# INITIATIVEBONUS
+# 
+STATINPUT:STATSCORE
+# 
+# BASESAVE
+# TOTALSAVE:
+# MISCSAVE:Save_Misc
+# EPICSAVE:Save_EpicBonus
+# MAGICSAVE:Save_MagicBonus
+STATMODSAVE:Save_StatBonus
+# RACESAVE:Save_

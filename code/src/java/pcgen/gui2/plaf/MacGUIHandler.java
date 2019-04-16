@@ -1,7 +1,4 @@
 /*
- * MacGUI.java
- * Copyright 2006 (C) Tod Milam <twmilam@yahoo.com>
- *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -15,23 +12,26 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on January 18, 2006
  */
 package pcgen.gui2.plaf;
 
-import com.apple.eawt.Application;
-import pcgen.gui2.plaf.osx.OSXAboutHandler;
-import pcgen.gui2.plaf.osx.OSXPreferencesHandler;
-import pcgen.gui2.plaf.osx.OSXQuitHandler;
+import java.awt.Desktop;
+import java.awt.desktop.AboutEvent;
+import java.awt.desktop.AboutHandler;
+import java.awt.desktop.PreferencesEvent;
+import java.awt.desktop.PreferencesHandler;
+import java.awt.desktop.QuitEvent;
+import java.awt.desktop.QuitHandler;
+import java.awt.desktop.QuitResponse;
+
+import pcgen.gui2.PCGenUIManager;
 
 /**
  * {@code MacGUI} initializes Mac-specific GUI elements.
  */
 public final class MacGUIHandler
 {
-	private static MacGUIHandler myObj = null;
-	private static Application theApp = null;
+	private static MacGUIHandler theAdapter;
 
 	private MacGUIHandler()
 	{
@@ -43,18 +43,46 @@ public final class MacGUIHandler
 	 */
 	public static void initialize()
 	{
-		if (myObj != null)
+		if (theAdapter != null)
 		{
 			// we have already initialized.
 			return;
 		}
 
 		// set up the Application menu
-		myObj = new MacGUIHandler();
-		theApp = Application.getApplication();
-		theApp.setAboutHandler(new OSXAboutHandler());
-		theApp.setPreferencesHandler(new OSXPreferencesHandler());
-		theApp.setQuitHandler(new OSXQuitHandler());
-	}  // end static initialize method
-}  // end class MacGUI
+		theAdapter = new MacGUIHandler();
+		MacGUIHandler.initialize();
+		Desktop theDesktop = Desktop.getDesktop();
+		theDesktop.setAboutHandler(new OSXAboutHandler());
+		theDesktop.setPreferencesHandler(new OSXPreferencesHandler());
+		theDesktop.setQuitHandler(new OSXQuitHandler());
+	}
 
+	private static class OSXAboutHandler implements AboutHandler
+	{
+		@Override
+		public void handleAbout(final AboutEvent aboutEvent)
+		{
+			PCGenUIManager.displayAboutDialog();
+		}
+	}
+
+	private static class OSXPreferencesHandler implements PreferencesHandler
+	{
+		@Override
+		public void handlePreferences(final PreferencesEvent preferencesEvent)
+		{
+			PCGenUIManager.displayPreferencesDialog();
+		}
+	}
+
+	private static class OSXQuitHandler implements QuitHandler
+	{
+		@Override
+		public void handleQuitRequestWith(final QuitEvent quitEvent, final QuitResponse quitResponse)
+		{
+			PCGenUIManager.closePCGen();
+		}
+	}
+
+}

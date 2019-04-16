@@ -1,5 +1,5 @@
+#!usr/bin/env python
 # -*- coding: utf-8 -*-
-# Python 2 script
 
 # This is a generalised script for crawling over all the HTML files and making changes en-masse.
 # In this particular case, it's changing all of the following to be lowercase:
@@ -33,12 +33,12 @@ def process_one_file(html_filename):
         if t.has_attr("href"):
             href = t["href"]
             if (not href.startswith("http://")) and ("#" in href):
-                #print href
+                #print (href)
                 # Find relative links within the pcgen docs.
                 # Find relative links that refer to a specific anchor ("#")
                 href_position = href.find("#")
                 t["href"] = href[:href_position + 1] + href[href_position + 1:].lower()
-                #print tag["href"]
+                #print (tag["href"])
 
     def delete_w3c_validation_stickers(t):
         # Deleting things like the below - because it's the future and we are using XHTML now, not HTML 4.01 Strict.
@@ -57,7 +57,7 @@ def process_one_file(html_filename):
             lowercase_id_name(tag)
             delete_w3c_validation_stickers(tag)
 
-        # print soup.prettify()
+        # print (soup.prettify())
 
     with codecs.open(html_filename, encoding="utf-8", mode="w") as fh:
         output_html = soup.prettify()
@@ -65,7 +65,7 @@ def process_one_file(html_filename):
 
 
 
-# print list_all_html_files()
+# print (list_all_html_files())
 
 # process_one_file("../listfilepages\\globalfilestagpages\\globalfilesprexxx.html")
 

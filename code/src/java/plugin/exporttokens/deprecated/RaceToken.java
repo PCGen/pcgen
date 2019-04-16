@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens.deprecated;
 
@@ -51,21 +46,14 @@ public class RaceToken extends Token
 	private static final String TOKENNAME = "RACE"; //$NON-NLS-1$
 	private static final String[] SUBTOKENLIST = {"ABILITYLIST"}; //$NON-NLS-1$
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = Constants.EMPTY_STRING;
 
@@ -89,14 +77,13 @@ public class RaceToken extends Token
 		return retString;
 	}
 
-	private static String getSubToken(final String subToken,
-		CharacterDisplay display)
+	private static String getSubToken(final String subToken, CharacterDisplay display)
 	{
 		if (!subToken.equals(SUBTOKENLIST[0]))
 		{
 			return Constants.EMPTY_STRING;
 		}
-		
+
 		final List<SpecialAbility> saList = new ArrayList<>();
 		Race race = display.getRace();
 		saList.addAll(display.getResolvedUserSpecialAbilities(race));
@@ -131,7 +118,7 @@ public class RaceToken extends Token
 		Race race = pc.getDisplay().getRace();
 		String tempRaceName = OutputNameFormatting.getOutputName(race);
 
-		if (tempRaceName == null || tempRaceName.length() == 0)
+		if (tempRaceName == null || tempRaceName.isEmpty())
 		{
 			tempRaceName = race.getDisplayName();
 		}
@@ -165,8 +152,7 @@ public class RaceToken extends Token
 							extraRaceInfo.append(' ');
 						}
 
-						extraRaceInfo.append(monsterHD).append(
-							LanguageBundle.getString("in_hdLabel")); //$NON-NLS-1$
+						extraRaceInfo.append(monsterHD).append(LanguageBundle.getString("in_hdLabel")); //$NON-NLS-1$
 					}
 				}
 			}

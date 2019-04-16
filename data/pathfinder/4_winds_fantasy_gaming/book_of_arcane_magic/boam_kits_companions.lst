@@ -1,0 +1,79 @@
+# Sun Jan 21 13:38:15 2018 -- reformated by PCGen PrettyLST v6.06.00
+# Original Entry by: AinvarG, June 19, 2010
+# Revised by: LearnTribe, 21 August, 2017
+SOURCELONG:Book of Arcane Magic	SOURCESHORT:boam	SOURCEWEB:http://www.4windsfantasygaming.com	SOURCEDATE:2009-01
+SOURCESHORT:boam
+SOURCEWEB:http://www.4windsfantasygaming.com
+
+###Block: Familiars --------------------------------------
+STARTPACK:Familiar ~ Badgerhound	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+#SKILL:Survival	RANK:1
+ABILITY:CATEGORY=FEAT|Alertness
+
+STARTPACK:Familiar ~ Golden Eagle	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Intimidate	RANK:1
+ABILITY:CATEGORY=FEAT|Alertness|Weapon Finesse
+
+STARTPACK:Familiar ~ Fluttermouse	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Fly	RANK:1
+ABILITY:CATEGORY=FEAT|Alertness|Weapon Finesse
+#Errata?: Perception bonus: WIS +2, Alertness +2, Racial +4 =? +4
+#Errata?: Stealth bonus: DEX +3, Racial +4, Size +8 = +7
+
+STARTPACK:Familiar ~ Red Fox	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Survival	RANK:1
+ABILITY:CATEGORY=FEAT|Alertness|Weapon Finesse
+#Errata?: Perception bonus: WIS +2, Alertness +2, Racial +4 =? +4
+#Errata?: Stealth bonus: DEX +3, Racial +4, Size +4 =? +3
+#Errata?: Survival bonus: WIS +2, Rank +1, Class +3 =? +6
+
+STARTPACK:Familiar ~ Hedgehog	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Perception	RANK:1
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+STARTPACK:Familiar ~ Parrot	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:1
+ABILITY:CATEGORY=FEAT|Alertness
+
+STARTPACK:Familiar ~ Rabbit	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Perception	RANK:1
+ABILITY:CATEGORY=FEAT|Alertness|Agile Maneuvers
+
+STARTPACK:Familiar ~ Robin	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Fly	RANK:1
+ABILITY:CATEGORY=FEAT|Acrobatic|Alertness
+
+STARTPACK:Familiar ~ Woodrat	TYPE:Companion	VISIBLE:NO
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Stealth	RANK:1
+ABILITY:CATEGORY=FEAT|Acrobatic|Alertness
+
+STARTPACK:Familiar ~ Clockwork Bat	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
+ABILITY:CATEGORY=FEAT|Acrobatic|Alertness
+#Errata?: Fly bonus: DEX +2, Acrobatics +2 =? +0
+#Errata?: Perception bonus: WIS -4, Alertness +2 =? +0
+
+STARTPACK:Familiar ~ Clockwork Cat	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
+ABILITY:CATEGORY=FEAT|Alertness|Weapon Finesse
+#Errata?: Perception bonus: WIS -4, Alertness +2 =? +0
+
+STARTPACK:Familiar ~ Clockwork Owl	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
+ABILITY:CATEGORY=FEAT|Acrobatic|Alertness
+#Errata?: Fly bonus: DEX +2, Acrobatics +2 =? +0
+#Errata?: Perception bonus: WIS -4, Alertness +2 =? +0
+
+STARTPACK:Familiar ~ Clockwork Rat	TYPE:Companion	VISIBLE:NO
+STAT:STR=10|DEX=10|INT=10|WIS=10|CHA=10
+ABILITY:CATEGORY=FEAT|Alertness|Weapon Finesse
+#Errata?: Perception bonus: WIS -4, Alertness +2 =? +0

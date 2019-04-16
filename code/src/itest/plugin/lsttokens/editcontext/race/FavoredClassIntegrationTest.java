@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.race;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
@@ -28,12 +26,14 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.race.FavclassToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class FavoredClassIntegrationTest extends
 		AbstractListIntegrationTestCase<Race, PCClass>
 {
 
-	static FavclassToken token = new FavclassToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static FavclassToken token = new FavclassToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

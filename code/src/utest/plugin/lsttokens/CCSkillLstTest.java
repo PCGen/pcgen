@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
 import pcgen.core.Skill;
@@ -27,6 +25,8 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalListTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
+import org.junit.jupiter.api.Test;
 
 public class CCSkillLstTest extends AbstractGlobalListTokenTestCase<Skill>
 {
@@ -68,7 +68,7 @@ public class CCSkillLstTest extends AbstractGlobalListTokenTestCase<Skill>
 	}
 
 	static CDOMPrimaryToken<CDOMObject> token = new CcskillLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()
@@ -83,7 +83,13 @@ public class CCSkillLstTest extends AbstractGlobalListTokenTestCase<Skill>
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}

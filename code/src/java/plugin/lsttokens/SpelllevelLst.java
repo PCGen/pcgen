@@ -41,14 +41,8 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractSpellListToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
 
-/**
- * @author djones4
- *
- */
-public class SpelllevelLst extends AbstractSpellListToken implements
-		CDOMPrimaryToken<CDOMObject>
+public class SpelllevelLst extends AbstractSpellListToken implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -58,14 +52,12 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		// SPELLLEVEL:CLASS|Name1,Name2=Level1|Spell1,Spell2,Spell3|Name3=Level2|Spell4,Spell5|PRExxx|PRExxx
 
@@ -76,8 +68,7 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 			int lastPipeLoc = workingValue.lastIndexOf('|');
 			if (lastPipeLoc == -1)
 			{
-				return new ParseResult.Fail("Invalid " + getTokenName()
-						+ " not enough tokens: " + value, context);
+				return new ParseResult.Fail("Invalid " + getTokenName() + " not enough tokens: " + value);
 			}
 			String lastToken = workingValue.substring(lastPipeLoc + 1);
 			if (looksLikeAPrerequisite(lastToken))
@@ -86,9 +77,8 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 				Prerequisite prerequisite = getPrerequisite(lastToken);
 				if (prerequisite == null)
 				{
-					return new ParseResult.Fail("Invalid prerequisite "
-							+ lastToken + " in " + getTokenName() + " tag: "
-							+ value, context);
+					return new ParseResult.Fail(
+						"Invalid prerequisite " + lastToken + " in " + getTokenName() + " tag: " + value);
 				}
 				prereqs.add(prerequisite);
 			}
@@ -102,8 +92,7 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 
 		if (tok.countTokens() < 3)
 		{
-			return new ParseResult.Fail("Insufficient values in SPELLLEVEL tag: "
-					+ value, context);
+			return new ParseResult.Fail("Insufficient values in SPELLLEVEL tag: " + value);
 		}
 
 		String tagType = tok.nextToken(); // CLASS or DOMAIN
@@ -115,43 +104,38 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 
 			if (tagType.equalsIgnoreCase("CLASS"))
 			{
-				if (!subParse(context, obj, ClassSpellList.class, tokString,
-						spellString, prereqs))
+				ParseResult pr = subParse(context, obj, ClassSpellList.class, tokString, spellString, prereqs);
+				if (!pr.passed())
 				{
-					return ParseResult.INTERNAL_ERROR;
-					//return new ParseResult.Fail("  " + getTokenName()
-					//		+ " error - entire token was " + value, context);
+					return new ParseResult.Fail(
+						getTokenName() + " failed due to " + pr + ".  Entire token was: " + value);
 				}
 			}
 			else if (tagType.equalsIgnoreCase("DOMAIN"))
 			{
-				if (!subParse(context, obj, DomainSpellList.class, tokString,
-						spellString, prereqs))
+				ParseResult pr = subParse(context, obj, DomainSpellList.class, tokString, spellString, prereqs);
+				if (!pr.passed())
 				{
-					return new ParseResult.Fail("  " + getTokenName()
-							+ " error - entire token was " + value, context);
+					return new ParseResult.Fail(
+						getTokenName() + " failed due to " + pr + ".  Entire token was: " + value);
 				}
 			}
 			else
 			{
-				return new ParseResult.Fail("First token of " + getTokenName()
-						+ " must be CLASS or DOMAIN:" + value, context);
+				return new ParseResult.Fail("First token of " + getTokenName() + " must be CLASS or DOMAIN:" + value);
 			}
 		}
 
 		return ParseResult.SUCCESS;
 	}
 
-	private <CL extends Loadable & CDOMList<Spell>> boolean subParse(
-			LoadContext context, CDOMObject obj, Class<CL> tagType,
-			String tokString, String spellString, List<Prerequisite> prereqs)
+	private <CL extends Loadable & CDOMList<Spell>> ParseResult subParse(LoadContext context, CDOMObject obj,
+		Class<CL> tagType, String tokString, String spellString, List<Prerequisite> prereqs)
 	{
 		int equalLoc = tokString.indexOf(Constants.EQUALS);
 		if (equalLoc == -1)
 		{
-			Logging.errorPrint("Expected an = in SPELLLEVEL " + "definition: "
-					+ tokString);
-			return false;
+			return new ParseResult.Fail("Expected an = in SPELLLEVEL " + "definition: " + tokString);
 		}
 
 		String casterString = tokString.substring(0, equalLoc);
@@ -163,20 +147,17 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Expected a number for SPELLLEVEL, found: "
-					+ spellLevel);
-			return false;
+			return new ParseResult.Fail("Expected a number for SPELLLEVEL, found: " + spellLevel);
 		}
 
-		if (isEmpty(casterString) || hasIllegalSeparator(',', casterString))
+		ParseResult pr = checkSeparatorsAndNonEmpty(',', casterString);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
-		StringTokenizer clTok = new StringTokenizer(casterString,
-				Constants.COMMA);
-		List<CDOMReference<? extends CDOMList<Spell>>> slList =
-				new ArrayList<>();
+		StringTokenizer clTok = new StringTokenizer(casterString, Constants.COMMA);
+		List<CDOMReference<? extends CDOMList<Spell>>> slList = new ArrayList<>();
 		while (clTok.hasMoreTokens())
 		{
 			String classString = clTok.nextToken();
@@ -186,8 +167,7 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 				/*
 				 * This is actually a TYPE
 				 */
-				ref = context.getReferenceContext().getCDOMTypeReference(tagType, classString
-						.substring(12));
+				ref = context.getReferenceContext().getCDOMTypeReference(tagType, classString.substring(12));
 			}
 			else
 			{
@@ -196,9 +176,10 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 			slList.add(ref);
 		}
 
-		if (hasIllegalSeparator(',', spellString))
+		pr = checkForIllegalSeparator(',', spellString);
+		if (!pr.passed())
 		{
-			return false;
+			return pr;
 		}
 
 		StringTokenizer spTok = new StringTokenizer(spellString, ",");
@@ -206,17 +187,15 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 		while (spTok.hasMoreTokens())
 		{
 			String spellName = spTok.nextToken();
-			CDOMReference<Spell> sp = context.getReferenceContext().getCDOMReference(Spell.class,
-					spellName);
+			CDOMReference<Spell> sp = context.getReferenceContext().getCDOMReference(Spell.class, spellName);
 			for (CDOMReference<? extends CDOMList<Spell>> sl : slList)
 			{
-				AssociatedPrereqObject tpr = context.getListContext()
-						.addToList(getTokenName(), obj, sl, sp);
+				AssociatedPrereqObject tpr = context.getListContext().addToList(getTokenName(), obj, sl, sp);
 				tpr.setAssociation(AssociationKey.SPELL_LEVEL, splLevel);
 				tpr.addAllPrerequisites(prereqs);
 			}
 		}
-		return true;
+		return ParseResult.SUCCESS;
 	}
 
 	@Override
@@ -224,8 +203,8 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 	{
 		Set<String> set = new TreeSet<>();
 
-		Collection<CDOMReference<? extends CDOMList<?>>> changedDomainLists = context
-				.getListContext().getChangedLists(obj, DomainSpellList.class);
+		Collection<CDOMReference<? extends CDOMList<?>>> changedDomainLists =
+				context.getListContext().getChangedLists(obj, DomainSpellList.class);
 		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> domainMap =
 				getMap(context, obj, changedDomainLists, false);
 		for (String prereqs : domainMap.getKeySet())
@@ -233,8 +212,8 @@ public class SpelllevelLst extends AbstractSpellListToken implements
 			set.add(processUnparse("DOMAIN", domainMap, prereqs).toString());
 		}
 
-		Collection<CDOMReference<? extends CDOMList<?>>> changedClassLists = context
-				.getListContext().getChangedLists(obj, ClassSpellList.class);
+		Collection<CDOMReference<? extends CDOMList<?>>> changedClassLists =
+				context.getListContext().getChangedLists(obj, ClassSpellList.class);
 		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> classMap =
 				getMap(context, obj, changedClassLists, false);
 		for (String prereqs : classMap.getKeySet())

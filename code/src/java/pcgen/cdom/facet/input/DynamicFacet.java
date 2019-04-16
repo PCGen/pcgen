@@ -28,9 +28,8 @@ import pcgen.cdom.inst.Dynamic;
  * DynamicFacet is a Facet that tracks all Dynamic Objects that have been
  * granted to a Player Character.
  */
-public class DynamicFacet extends
-		AbstractScopeFacet<CharID, Category<Dynamic>, Dynamic> implements
-		DataFacetChangeListener<CharID, Dynamic>
+public class DynamicFacet extends AbstractScopeFacet<CharID, Category<Dynamic>, Dynamic>
+		implements DataFacetChangeListener<CharID, Dynamic>
 {
 	/**
 	 * Adds the active Dynamic to this facet.
@@ -41,8 +40,6 @@ public class DynamicFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, Dynamic> dfce)
@@ -61,8 +58,6 @@ public class DynamicFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, Dynamic> dfce)

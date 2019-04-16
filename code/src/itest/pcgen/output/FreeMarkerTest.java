@@ -29,33 +29,32 @@ import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 import pcgen.output.wrapper.CDOMObjectWrapper;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class FreeMarkerTest extends AbstractOutputTestCase
 {
+	private static final CheckFacet CF = new CheckFacet();
 
-	private static final CheckFacet cf = new CheckFacet();
-
-	private static boolean classSetUpRun = false;
-
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
-		if (!classSetUpRun)
-		{
-			classSetUp();
-			classSetUpRun = true;
-		}
 		CDOMWrapperInfoFacet wiFacet =
 				FacetLibrary.getFacet(CDOMWrapperInfoFacet.class);
 		wiFacet.initialize(dsid);
 	}
 
-	private void classSetUp()
+	@BeforeAll
+	public static void classSetUp()
 	{
 		OutputDB.reset();
-		cf.init();
+		CF.init();
 	}
 
+	@Test
 	public void testBasic()
 	{
 		createChecks();
@@ -63,6 +62,7 @@ public class FreeMarkerTest extends AbstractOutputTestCase
 			+ "</#list>", "WillRefFort");
 	}
 
+	@Test
 	public void testNested()
 	{
 		createChecks();
@@ -83,15 +83,15 @@ public class FreeMarkerTest extends AbstractOutputTestCase
 		PCCheck pcc = new PCCheck();
 		pcc.setName("Willpower");
 		pcc.put(sn, new BasicIndirect<>(sm, "Will"));
-		cf.add(id, pcc);
+		CF.add(id, pcc);
 		pcc = new PCCheck();
 		pcc.setName("Reflex");
 		pcc.put(sn, new BasicIndirect<>(sm, "Ref"));
-		cf.add(id, pcc);
+		CF.add(id, pcc);
 		pcc = new PCCheck();
 		pcc.setName("Fortitude");
 		pcc.put(sn, new BasicIndirect<>(sm, "Fort"));
-		cf.add(id, pcc);
+		CF.add(id, pcc);
 
 		FactKeyActor<?> fka = new FactKeyActor<>(sn);
 		CDOMObjectWrapper.load(dsid, pcc.getClass(), "shortname", fka);

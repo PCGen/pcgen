@@ -1,5 +1,4 @@
 /*
- * RequestAddPreferencesPanelMessage.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 16/02/2014 10:29:23 pm
  *
- * $Id$
  */
 package gmgen.pluginmgr.messages;
 
@@ -29,9 +26,7 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class {@code RequestAddPreferencesPanelMessage} encapsulates
  * a request to add a panel to the GMGen preferences.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 @SuppressWarnings("serial")
@@ -46,9 +41,7 @@ public class RequestAddPreferencesPanelMessage extends PCGenMessage
 	 * @param name The name of the panel.
 	 * @param prefsPanel The panel to be added.
 	 */
-	public RequestAddPreferencesPanelMessage(
-		Object source, String name,
-		PreferencesPanel prefsPanel)
+	public RequestAddPreferencesPanelMessage(Object source, String name, PreferencesPanel prefsPanel)
 	{
 		super(source);
 		this.name = name;

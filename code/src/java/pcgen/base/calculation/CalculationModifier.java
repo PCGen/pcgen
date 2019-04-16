@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-18 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -17,79 +17,67 @@
  */
 package pcgen.base.calculation;
 
+import java.util.Objects;
+
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.util.FormatManager;
 
 /**
- * A CalculationModifier is a Modifier that is a wrapper around a
- * NEPCalculation. A CalculationModifier also contains the user priority of the
- * Modifier.
+ * A CalculationModifier is a Modifier that is a wrapper around a NEPCalculation. A
+ * CalculationModifier also contains the user priority of the Modifier.
  * 
  * @see pcgen.base.calculation.NEPCalculation
  * 
  * @param <T>
  *            The format that this CalculationModifier acts upon
  */
-public final class CalculationModifier<T> implements PCGenModifier<T>
+public final class CalculationModifier<T> extends AbstractPCGenModifier<T>
 {
-
-	/**
-	 * The user priority for this CalculationModifier.
-	 */
-	private final int userPriority;
 
 	/**
 	 * The NEPCalculation to be performed by this CalculationModifier.
 	 */
 	private final NEPCalculation<T> toDo;
 
+	private final FormatManager<T> formatManager;
+
 	/**
-	 * Constructs a new CalculationModifier from the given NEPCalculation and
-	 * user priority.
+	 * Constructs a new CalculationModifier from the given NEPCalculation.
 	 * 
 	 * The intent is that a solver would process the Modifier with the lowest
 	 * user priority first.
 	 * 
 	 * @param calc
-	 *            The NEPCalculation to be performed by this CalculationModifier
-	 *            when it is processed
-	 * @param userPriority
-	 *            The user priority of this CalculationModifier.
+	 *            The NEPCalculation to be performed by this CalculationModifier when it
+	 *            is processed
 	 * @throws IllegalArgumentException
 	 *             if the given NEPCalculation is null
 	 */
-	public CalculationModifier(NEPCalculation<T> calc, int userPriority)
+	public CalculationModifier(NEPCalculation<T> calc, FormatManager<T> fmtManager)
 	{
-		if (calc == null)
-		{
-			throw new IllegalArgumentException("Calculation cannot be null");
-		}
+		Objects.requireNonNull(calc, "Calculation cannot be null");
+		Objects.requireNonNull(fmtManager, "FormatManager cannot be null");
 		toDo = calc;
-		this.userPriority = userPriority;
-	}
-
-	@Override
-	public int getUserPriority()
-	{
-		return userPriority;
+		formatManager = fmtManager;
 	}
 
 	@Override
 	public long getPriority()
 	{
-		return ((long) userPriority << 32) + toDo.getInherentPriority();
+		return ((long) getUserPriority() << 32) + toDo.getInherentPriority();
 	}
 
 	@Override
-	public T process(EvaluationManager evalManager)
+	public T process(EvaluationManager manager)
 	{
-		return toDo.process(evalManager);
+		return toDo.process(manager);
 	}
 
 	@Override
-	public void getDependencies(DependencyManager fdm)
+	public void getDependencies(DependencyManager manager)
 	{
-		toDo.getDependencies(fdm);
+		toDo.getDependencies(manager);
 	}
 
 	@Override
@@ -99,9 +87,9 @@ public final class CalculationModifier<T> implements PCGenModifier<T>
 	}
 
 	@Override
-	public Class<T> getVariableFormat()
+	public FormatManager<T> getVariableFormat()
 	{
-		return toDo.getVariableFormat();
+		return formatManager;
 	}
 
 	@Override
@@ -113,7 +101,7 @@ public final class CalculationModifier<T> implements PCGenModifier<T>
 	@Override
 	public int hashCode()
 	{
-		return userPriority ^ toDo.hashCode();
+		return getUserPriority() ^ toDo.hashCode();
 	}
 
 	@Override
@@ -122,9 +110,30 @@ public final class CalculationModifier<T> implements PCGenModifier<T>
 		if (o instanceof CalculationModifier)
 		{
 			CalculationModifier<?> other = (CalculationModifier<?>) o;
-			return (other.userPriority == userPriority)
-				&& other.toDo.equals(toDo);
+			return (other.getUserPriority() == getUserPriority()) && other.toDo.equals(toDo);
 		}
 		return false;
+	}
+
+	/**
+	 * Returns true if the given FormatManager is equal to the FormatManager for this
+	 * CalculationModifier.
+	 * 
+	 * @param fm
+	 *            The FormatManager to check if it is equal to the FormatManager for this
+	 *            CalculationModifier
+	 * @return true if the given FormatManager is equal to the FormatManager for this
+	 *         CalculationModifier; false otherwise
+	 */
+	public boolean isCompatible(FormatManager<?> fm)
+	{
+		return formatManager.equals(fm);
+	}
+	
+	@Override
+	public String toString()
+	{
+		return getClass().getSimpleName() + ": " + toDo + " ["
+			+ formatManager.getIdentifierType() + "]";
 	}
 }

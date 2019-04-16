@@ -20,10 +20,6 @@ void unSnapshotVersion() {
 
 void updateVersion() {
 	def version = project.version.toString()
-	def versionPatterns = [
-		//Increments last number: "2.5-SNAPSHOT" => "2.6-SNAPSHOT"
-		/(\d+)([^\d]*$)/: { Matcher m, Project p -> m.replaceAll("${ (m[0][1] as int) + 1 }${ m[0][2] }") }
-	]
 	String pattern = /(\d+)([^\d]*$)/
 	//noinspection GroovyUnusedAssignment
 	Closure handler = { Matcher m, Project p -> m.replaceAll("${ String.format( '%02d', (m[0][1] as int) + 1 )}${ m[0][2] }") }
@@ -79,7 +75,7 @@ void updateVersionProperty(String newVersion) {
 			try {
 				project.ant.replace(file: propFile, token: "${prop}=${oldVersion}", value: "${prop}=${newVersion}", failOnNoReplacements: true)
 			} catch (org.apache.tools.ant.BuildException be) {
-				throw new GradleException("Unable to update version property. Please check file permissions, and ensure property is in \"${prop}=${newVersion}\" format.")
+				throw new GradleException("Unable to update version property. Please check file permissions, and ensure property is in \"${prop}=${newVersion}\" format.", be)
 			}
 		}
 	}
@@ -97,7 +93,7 @@ File findPropertiesFile() {
 			propertiesFile.append("version=${project.version}")
 		} else {
 			log.debug "[$propertiesFile.canonicalPath] was not found, and user opted out of it being created. Throwing exception."
-			throw new GradleException("[$propertiesFile.canonicalPath] not found and you opted out of it being created,\n please create it manually and and specify the version property.")
+			throw new GradleException("[$propertiesFile.canonicalPath] not found and you opted out of it being created,\n please create it manually and specify the version property.")
 		}
 	}
 	propertiesFile

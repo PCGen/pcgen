@@ -17,7 +17,8 @@
  */
 package plugin.lsttokens.template;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubRace;
@@ -28,12 +29,14 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class SubraceTokenTest extends
 		AbstractTypeSafeTokenTestCase<PCTemplate, SubRace>
 {
 
 	static SubraceToken token = new SubraceToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -71,12 +74,6 @@ public class SubraceTokenTest extends
 		return false;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public boolean isClearLegal()
 	{
@@ -90,26 +87,26 @@ public class SubraceTokenTest extends
 	}
 
 	@Test
-	public void testReplacementYes() throws PersistenceLayerException
+	public void testReplacementYes()
 	{
 		String[] unparsed;
 		getConstant("TestWP1");
 		assertTrue(parse("YES"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "YES", unparsed[0]);
+		assertEquals("YES", unparsed[0]);
 		assertTrue(parse("TestWP1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "TestWP1", unparsed[0]);
+		assertEquals("TestWP1", unparsed[0]);
 		assertTrue(parse("YES"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "YES", unparsed[0]);
+		assertEquals("YES", unparsed[0]);
 	}
 
 	@Test
-	public void testOverwriteYes() throws PersistenceLayerException
+	public void testOverwriteYes()
 	{
 		parse("YES");
 		validateUnparsed(primaryContext, primaryProf, "YES");
@@ -119,7 +116,7 @@ public class SubraceTokenTest extends
 	}
 
 	@Test
-	public void testOverwriteWithYes() throws PersistenceLayerException
+	public void testOverwriteWithYes()
 	{
 		parse("TestWP1");
 		validateUnparsed(primaryContext, primaryProf, "TestWP1");
@@ -129,16 +126,16 @@ public class SubraceTokenTest extends
 	}
 
 	@Test
-	public void testUnparseYes() throws PersistenceLayerException
+	public void testUnparseYes()
 	{
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, true);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
 	}
 
 	@Test
-	public void testUnparseIllegal() throws PersistenceLayerException
+	public void testUnparseIllegal()
 	{
-		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		SubRace o = getConstant(getLegalValue());
 		primaryProf.put(getObjectKey(), o);
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, true);
@@ -147,9 +144,9 @@ public class SubraceTokenTest extends
 	}
 
 	@Test
-	public void testUnparseLegalWithFalse() throws PersistenceLayerException
+	public void testUnparseLegalWithFalse()
 	{
-		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		SubRace o = getConstant(getLegalValue());
 		primaryProf.put(getObjectKey(), o);
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, false);

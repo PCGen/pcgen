@@ -1,5 +1,4 @@
 /*
- * QualifierToken.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -37,8 +36,7 @@ import pcgen.rules.context.LoadContext;
  * @param <T>
  *            The Type of object processed by the QualifierToken
  */
-public interface QualifierToken<T extends CDOMObject> extends LstToken,
-		PrimitiveCollection<T>
+public interface QualifierToken<T extends CDOMObject> extends LstToken, PrimitiveCollection<T>
 {
 	/**
 	 * Initializes the QualifierToken with the content of the
@@ -67,6 +65,6 @@ public interface QualifierToken<T extends CDOMObject> extends LstToken,
 	 *            otherwise
 	 * @return true if initialization was successful; false otherwise
 	 */
-	public boolean initialize(LoadContext context, SelectionCreator<T> cl,
-		String condition, String value, boolean negated);
+	public boolean initialize(LoadContext context, SelectionCreator<T> cl, String condition, String value,
+		boolean negated);
 }

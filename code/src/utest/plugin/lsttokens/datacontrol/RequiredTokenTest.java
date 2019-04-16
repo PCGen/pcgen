@@ -17,16 +17,16 @@
  */
 package plugin.lsttokens.datacontrol;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
-import pcgen.cdom.content.ContentDefinition;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
@@ -37,86 +37,78 @@ import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class RequiredTokenTest extends TestCase
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import util.TestURI;
+
+class RequiredTokenTest
 {
+	private static final RequiredToken token = new RequiredToken();
+	private FactDefinition<CDOMObject, Object> cd;
 
-	static RequiredToken token = new RequiredToken();
-	ContentDefinition cd;
+	private LoadContext context;
 
-	protected LoadContext context;
+	private static CampaignSourceEntry testCampaign;
 
-	private static boolean classSetUpFired = false;
-	protected static CampaignSourceEntry testCampaign;
-
-	@BeforeClass
-	public static final void classSetUp() throws URISyntaxException
+	@BeforeAll
+	static void classSetUp()
 	{
 		testCampaign =
-				new CampaignSourceEntry(new Campaign(), new URI(
-					"file:/Test%20Case"));
-		classSetUpFired = true;
+				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
-	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	@BeforeEach
+	void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
 		resetContext();
 	}
 
-	protected void resetContext()
+	private void resetContext()
 	{
 		URI testURI = testCampaign.getURI();
 		context =
-				new RuntimeLoadContext(new RuntimeReferenceContext(),
+				new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 					new ConsolidatedListCommitStrategy());
 		context.setSourceURI(testURI);
 		context.setExtractURI(testURI);
-		cd = new FactDefinition();
+		cd = new FactDefinition<>();
 	}
 
 	@Test
-	public void testInvalidInputNullString() throws PersistenceLayerException
+	public void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(context, cd, null).passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString() throws PersistenceLayerException
+	public void testInvalidInputEmptyString()
 	{
 		assertFalse(token.parseToken(context, cd, "").passed());
 	}
 
 	@Test
-	public void testValidStringYes() throws PersistenceLayerException
+	public void testValidStringYes()
 	{
 		assertNull(cd.getRequired());
 		assertTrue(token.parseToken(context, cd, "YES").passed());
 		assertNotNull(cd.getRequired());
-		assertTrue(cd.getRequired().booleanValue());
+		assertTrue(cd.getRequired());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("YES", unparsed[0]);
+		assertArrayEquals(new String[]{"YES"}, unparsed);
 	}
 
 	@Test
-	public void testValidStringNo() throws PersistenceLayerException
+	public void testValidStringNo()
 	{
 		assertNull(cd.getRequired());
 		assertTrue(token.parseToken(context, cd, "NO").passed());
 		assertNotNull(cd.getRequired());
-		assertFalse(cd.getRequired().booleanValue());
+		assertFalse(cd.getRequired());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("NO", unparsed[0]);
+		assertArrayEquals(new String[]{"NO"}, unparsed);
 	}
 
 }

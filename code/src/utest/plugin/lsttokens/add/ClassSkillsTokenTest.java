@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.add;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.junit.Test;
 
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceActor;
@@ -41,6 +41,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 {
 
@@ -53,6 +56,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 		return PCClass.class;
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -77,24 +81,6 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	public boolean isAllLegal()
 	{
 		return true;
-	}
-
-	@Override
-	public boolean isTypeLegal()
-	{
-		return true;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
-	@Override
-	public boolean allowsParenAsSub()
-	{
-		return false;
 	}
 
 	@Override
@@ -145,7 +131,6 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 
 	@Test
 	public void testInvalidInputAutoRankNoRank()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK="));
 		assertNoSideEffects();
@@ -153,7 +138,6 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 
 	@Test
 	public void testInvalidInputAutoRankNegativeRank()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=-3"));
 		assertNoSideEffects();
@@ -161,7 +145,6 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 
 	@Test
 	public void testInvalidInputAutoRankZeroRank()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=0"));
 		assertNoSideEffects();
@@ -169,7 +152,6 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 
 	@Test
 	public void testInvalidInputAutoRankDuplicated()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|'
 				+ "NONEXCLUSIVE,AUTORANK=3,AUTORANK=2"));
@@ -177,7 +159,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testInvalidInputOnlyAutoRank() throws PersistenceLayerException
+	public void testInvalidInputOnlyAutoRank()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + "AUTORANK=3"));
 		assertNoSideEffects();
@@ -197,7 +179,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseSingleRanked() throws PersistenceLayerException
+	public void testUnparseSingleRanked()
 	{
 		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		addSingleRef(refs, "TestWP1");
@@ -213,11 +195,11 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseUntrained() throws PersistenceLayerException
+	public void testUnparseUntrained()
 	{
 		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(
-				"UNTRAINED", Skill.class, getAllRef(), ObjectKey.USE_UNTRAINED,
+				"UNTRAINED", getAllRef(), ObjectKey.USE_UNTRAINED,
 				Boolean.TRUE);
 		omr.returnIncludesNulls(true);
 		refs.add(omr);
@@ -233,11 +215,11 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseTrained() throws PersistenceLayerException
+	public void testUnparseTrained()
 	{
 		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(
-				"TRAINED", Skill.class, getAllRef(), ObjectKey.USE_UNTRAINED,
+				"TRAINED", getAllRef(), ObjectKey.USE_UNTRAINED,
 				Boolean.FALSE);
 		omr.returnIncludesNulls(true);
 		refs.add(omr);
@@ -253,11 +235,11 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseExclusive() throws PersistenceLayerException
+	public void testUnparseExclusive()
 	{
 		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(
-				"EXCLUSIVE", Skill.class, getAllRef(), ObjectKey.EXCLUSIVE,
+				"EXCLUSIVE", getAllRef(), ObjectKey.EXCLUSIVE,
 				Boolean.TRUE);
 		omr.returnIncludesNulls(true);
 		refs.add(omr);
@@ -273,11 +255,11 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	}
 
 	@Test
-	public void testUnparseNonExclusive() throws PersistenceLayerException
+	public void testUnparseNonExclusive()
 	{
 		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		ObjectMatchingReference<Skill, Boolean> omr = new ObjectMatchingReference<>(
-				"NONEXCLUSIVE", Skill.class, getAllRef(), ObjectKey.EXCLUSIVE,
+				"NONEXCLUSIVE", getAllRef(), ObjectKey.EXCLUSIVE,
 				Boolean.FALSE);
 		omr.returnIncludesNulls(true);
 		refs.add(omr);

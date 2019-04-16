@@ -1,0 +1,71 @@
+CAMPAIGN:Agents of Evil
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:6,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Equipment
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Agents of Evil
+SOURCESHORT:AoE
+SOURCEWEB:https://paizo.com/products/btpy9he0
+SOURCEDATE:2015-12
+ISOGL:YES
+
+COVER:agents_of_evil.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|https://paizo.com/products/btpy9he0|Buy this publication from Paizo Publishing!
+DESC:It's Good to Be Bad! Not every protagonist is a hero! Author Thurston Hillman brings you all the twisted tools you need to carry out nefarious deeds in Pathfinder Player Companion: Agents of Evil. Delve deep into discussions of what it means to undertake evil tasks, both for truly selfish characters and for those hard-eyed heroes willing to get their hands dirty in pursuit of the greater good. Explore new character options for PCs not squeamish about what patrons, gods, or other sources of power they serve, and gear up with a smorgasboard of sinister magic items, forbidden equipment, and spells that will make paladins think twice about working with you!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Demon Lord, Jubilex from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on material by Gary Gygax.
+COPYRIGHT:Pathfinder Player Companion: Agents of Evil Copyright 2015, Paizo Inc.; Author: Thurston Hillman.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Agents of Evil" Copyright 2019, PCgen Data team (including but not limited to Gwen T. (evilpixie87), Paul Grosse and Andrew Maitland)
+
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:aoe_abilities.lst
+ABILITY:aoe_abilities_class.lst
+ABILITY:aoe_abilities_race.lst
+ABILITYCATEGORY:aoe_abilitycategories.lst
+CLASS:aoe_classes.lst
+EQUIPMENT:aoe_equip_arms_armor.lst
+EQUIPMENT:aoe_equip_general.lst
+EQUIPMENT:aoe_equip_magic_items.lst
+EQUIPMOD:aoe_equipmods.lst
+ABILITY:aoe_feats.lst
+SKILL:aoe_skills.lst
+SPELL:aoe_spells.lst
+
+COMPANIONMOD:support/aoe_companionmods_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+ABILITY:support/aoe_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+TEMPLATE:support/aoe_templates_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+
+
+FORWARDREF:CLASSSPELLLIST|Bloodrager,Medium,Mesmerist,Occultist,Psychic,Shaman,Spiritualist
+
+# ENTRY DATE: 2019-01
+# LST MONKEY: Gwen T. (evilpixie87)
+# RELEASE REVIEW #
+# LICENSE: Paul Grosse
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.07.08
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.1
+# COMMENTS:
+
+#
+# End
+#

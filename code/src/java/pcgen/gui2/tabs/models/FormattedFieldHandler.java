@@ -1,5 +1,4 @@
 /*
- * FormattedFieldHandler.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Oct 1, 2011, 4:46:28 PM
  */
 package pcgen.gui2.tabs.models;
 
@@ -28,12 +26,10 @@ import javax.swing.JFormattedTextField;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
+import pcgen.gui2.util.ManagedField;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
-public abstract class FormattedFieldHandler implements PropertyChangeListener, ReferenceListener<Integer>
+public abstract class FormattedFieldHandler implements PropertyChangeListener,
+		ReferenceListener<Integer>, ManagedField
 {
 
 	private JFormattedTextField field;
@@ -45,7 +41,8 @@ public abstract class FormattedFieldHandler implements PropertyChangeListener, R
 		this.ref = ref;
 	}
 
-	public JFormattedTextField getFormattedTextField()
+	@Override
+	public JFormattedTextField getTextField()
 	{
 		return field;
 	}
@@ -54,6 +51,7 @@ public abstract class FormattedFieldHandler implements PropertyChangeListener, R
 	 * Attach the handler to the screen field. e.g. When the character is
 	 * made active.
 	 */
+	@Override
 	public void install()
 	{
 		field.setValue(ref.get());
@@ -65,6 +63,7 @@ public abstract class FormattedFieldHandler implements PropertyChangeListener, R
 	 * Detach the handler from the on screen field. e.g. when the
 	 * character is no longer being displayed.
 	 */
+	@Override
 	public void uninstall()
 	{
 		field.removePropertyChangeListener(this);

@@ -17,29 +17,16 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreVisionParser;
 import plugin.pretokens.writer.PreVisionWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class PreVisionRoundRobin extends AbstractRankedRoundRobin
 {
-
-	public static void main(String args[])
-	{
-		TestRunner.run(PreVisionRoundRobin.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreVisionRoundRobin.class);
-	}
-
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -66,6 +53,7 @@ public class PreVisionRoundRobin extends AbstractRankedRoundRobin
 		return false;
 	}
 
+	@Test
 	public void testAnyTarget()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,Foo=ANY");

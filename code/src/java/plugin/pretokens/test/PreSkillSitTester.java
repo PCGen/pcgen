@@ -35,13 +35,11 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-public class PreSkillSitTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreSkillSitTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	@Override
-	public int passes(final Prerequisite prereq,
-		final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
 		CharacterDisplay display = character.getDisplay();
 		final int requiredRanks = Integer.parseInt(prereq.getOperand());
@@ -65,8 +63,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 				foundMatch = true;
 				foundSkill = true;
 				runningTotal =
-						getRunningTotal(aSkill, character, prereq, foundMatch,
-							runningTotal, requiredRanks, situation);
+						getRunningTotal(aSkill, character, prereq, foundMatch, runningTotal, requiredRanks, situation);
 			}
 
 			if (prereq.isCountMultiples() || prereq.isTotalValues())
@@ -95,9 +92,8 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 					{
 						foundSkill = true;
 						foundMatch = true;
-						int theTotal =
-								getRunningTotal(mock, character, prereq,
-									foundMatch, runningTotal, requiredRanks, situation);
+						int theTotal = getRunningTotal(mock, character, prereq, foundMatch, runningTotal, requiredRanks,
+							situation);
 						runningTotal += theTotal;
 
 					}
@@ -107,7 +103,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 
 		// If we are looking for a negative test i.e. !PRESKILL and the PC
 		// doesn't have the skill we have to return a match
-		if (foundSkill == false)
+		if (!foundSkill)
 		{
 			if (prereq.getOperator() == PrerequisiteOperator.LT)
 			{
@@ -117,17 +113,14 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 		return countedTotal(prereq, runningTotal);
 	}
 
-	private Map<Skill, Set<Skill>> getImitators(
-		 CharacterDisplay display)
+	private Map<Skill, Set<Skill>> getImitators(CharacterDisplay display)
 	{
-		HashMap<Skill, Set<Skill>> serveAsSkills =
-				new HashMap<>();
+		HashMap<Skill, Set<Skill>> serveAsSkills = new HashMap<>();
 		Set<Skill> skillSet = new HashSet<>(display.getSkillSet());
 		for (Skill aSkill : skillSet)
 		{
 			Set<Skill> servesAs = new HashSet<>();
-			for (CDOMReference<Skill> ref : aSkill
-				.getSafeListFor(ListKey.SERVES_AS_SKILL))
+			for (CDOMReference<Skill> ref : aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL))
 			{
 				servesAs.addAll(ref.getContainedObjects());
 			}
@@ -157,29 +150,22 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 		String skillName = prereq.getKey();
 		if (prereq.getSubKey() != null && !prereq.getSubKey().equals("")) //$NON-NLS-1$
 		{
-			skillName += " (" + prereq.getSubKey() + ")"; //$NON-NLS-1$ //$NON-NLS-2$
+			skillName += " (" + prereq.getSubKey() + ')'; //$NON-NLS-1$ 
 
 		}
 
-		final String foo =
-				LanguageBundle.getFormattedString(
-					"PreSkill.toHtml", //$NON-NLS-1$
-						prereq.getOperator().toDisplayString(),
-						prereq.getOperand(), skillName);
+		final String foo = LanguageBundle.getFormattedString("PreSkill.toHtml", //$NON-NLS-1$
+			prereq.getOperator().toDisplayString(), prereq.getOperand(), skillName);
 		return foo;
 	}
 
-	private int getRunningTotal(Skill aSkill, PlayerCharacter character,
-		Prerequisite prereq, boolean foundMatch, int runningTotal,
-		int requiredRanks, String situation)
+	private int getRunningTotal(Skill aSkill, PlayerCharacter character, Prerequisite prereq, boolean foundMatch,
+		int runningTotal, int requiredRanks, String situation)
 	{
 		if (foundMatch)
 		{
-			int rank = SkillRankControl.getTotalRank(character, aSkill)
-				.intValue();
-			rank +=
-					character.getTotalBonusTo("SITUATION", aSkill.getKeyName()
-						+ "=" + situation);
+			int rank = SkillRankControl.getTotalRank(character, aSkill).intValue();
+			rank += character.getTotalBonusTo("SITUATION", aSkill.getKeyName() + '=' + situation);
 			if (prereq.isTotalValues())
 			{
 				runningTotal += rank;

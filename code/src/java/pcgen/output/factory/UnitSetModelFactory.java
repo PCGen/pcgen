@@ -27,17 +27,14 @@ import pcgen.output.model.UnitSetModel;
  */
 public class UnitSetModelFactory implements ModeModelFactory
 {
-	
+
 	/*
 	 * Note: It would be nice someday if this wasn't necessary as a separate
 	 * class. A more "CDOM-like" structure in the GameMode object would allow
 	 * the UnitSet to be grabbed "generically" as an ObjectKey, but that is just
 	 * not in place today for GameMode.
 	 */
-	
-	/**
-	 * @see pcgen.output.base.ModeModelFactory#generate(pcgen.core.GameMode mode)
-	 */
+
 	@Override
 	public UnitSetModel generate(GameMode mode)
 	{

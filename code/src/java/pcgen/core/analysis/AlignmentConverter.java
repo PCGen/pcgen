@@ -21,23 +21,22 @@ import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
 import pcgen.util.Logging;
 
-public class AlignmentConverter
+public final class AlignmentConverter
 {
 	private static final Class<PCAlignment> ALIGNMENT_CLASS = PCAlignment.class;
+
+	private AlignmentConverter()
+	{
+	}
 
 	public static PCAlignment getPCAlignment(String alignKey)
 	{
 		PCAlignment desiredAlign;
 		desiredAlign =
-				Globals
-					.getContext()
-					.getReferenceContext()
-					.silentlyGetConstructedCDOMObject(ALIGNMENT_CLASS,
-						alignKey);
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(ALIGNMENT_CLASS, alignKey);
 		if (desiredAlign == null)
 		{
-			Logging.errorPrint("Unable to find alignment that matches: "
-				+ alignKey);
+			Logging.errorPrint("Unable to find alignment that matches: " + alignKey);
 		}
 		return desiredAlign;
 	}

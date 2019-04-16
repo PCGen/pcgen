@@ -19,8 +19,6 @@ package plugin.lsttokens.editcontext.sizeadjustment;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -30,13 +28,14 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.sizeadjustment.IsdefaultsizeToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class IsDefaultSizeIntegrationTest extends
 		AbstractIntegrationTestCase<SizeAdjustment>
 {
 
-	static IsdefaultsizeToken token = new IsdefaultsizeToken();
-	static CDOMTokenLoader<SizeAdjustment> loader =
-            new CDOMTokenLoader<>();
+	private static IsdefaultsizeToken token = new IsdefaultsizeToken();
+	private static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

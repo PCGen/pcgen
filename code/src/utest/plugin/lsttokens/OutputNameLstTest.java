@@ -28,7 +28,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class OutputNameLstTest extends AbstractGlobalStringTokenTestCase
 {
 	static CDOMPrimaryToken<CDOMObject> token = new OutputnameLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()
@@ -43,7 +43,13 @@ public class OutputNameLstTest extends AbstractGlobalStringTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}

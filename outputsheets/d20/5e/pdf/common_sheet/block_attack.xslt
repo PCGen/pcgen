@@ -103,8 +103,7 @@
 	</xsl:template>
 
 	<xsl:template name="to_hit.header">
-		<xsl:param name="dalign" select="'after'"/>
-		<fo:table-row>
+        <fo:table-row>
 											<xsl:message>Test</xsl:message>
 			<fo:table-cell><fo:block/></fo:table-cell>
 

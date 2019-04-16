@@ -20,7 +20,6 @@ package pcgen.cdom.facet.analysis;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.facet.analysis.FavoredClassFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -29,14 +28,18 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class FavoredClassFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, PCClass>
 {
+	private static int n = 0;
 
 	private FavoredClassFacet facet = new FavoredClassFacet();
 	private PCClass[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
@@ -60,8 +63,6 @@ public class FavoredClassFacetTest extends
 	{
 		return facet;
 	}
-
-	public static int n = 0;
 
 	@Override
 	protected PCClass getObject()

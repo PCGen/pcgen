@@ -1,5 +1,4 @@
 /*
- * CampaignHistoryInfoPane.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 26, 2011, 7:57:40 PM
  */
 package pcgen.gui2.tabs.bio;
 
@@ -32,8 +30,8 @@ import java.beans.PropertyChangeListener;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.BorderFactory;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -49,22 +47,21 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.Scrollable;
 import javax.swing.SwingUtilities;
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.math.NumberUtils;
-
 import pcgen.cdom.base.Constants;
+import pcgen.core.ChronicleEntry;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.core.ChronicleEntryFacade;
 import pcgen.facade.core.DescriptionFacade;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.TextFieldListener;
 import pcgen.gui2.tools.Icons;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
+
 /**
  * The CampaignHistoryInfoPane displays a set of chronicles that the user can fill in for his
  * character.
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 {
@@ -132,7 +129,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		pane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		add(pane);
 		add(Box.createVerticalStrut(10));
-		addButton.setAlignmentX((float) 0.5);
+		addButton.setAlignmentX(0.5f);
 		add(addButton);
 		add(Box.createVerticalStrut(5));
 		add(Box.createVerticalGlue());
@@ -178,7 +175,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		{
 			descFacade = character.getDescriptionFacade();
 			chronicles = new ArrayList<>();
-			for (ChronicleEntryFacade entry : descFacade.getChronicleEntries())
+			for (ChronicleEntry entry : descFacade.getChronicleEntries())
 			{
 				chronicles.add(new ChroniclePane(this, entry));
 			}
@@ -189,7 +186,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		 */
 		private ChroniclePane createNewChronicleEntry()
 		{
-			ChronicleEntryFacade entry = descFacade.createChronicleEntry();
+			ChronicleEntry entry = descFacade.createChronicleEntry();
 			ChroniclePane pane = new ChroniclePane(this, entry);
 			return pane;
 		}
@@ -262,7 +259,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		/**
 		 * Deletes a chronicle from this character and updates the display
 		 */
-		public void deleteChroniclePane(ChroniclePane pane, ChronicleEntryFacade entry)
+		public void deleteChroniclePane(ChroniclePane pane, ChronicleEntry entry)
 		{
 			descFacade.removeChronicleEntry(entry);
 			chroniclesPane.remove(pane);
@@ -278,15 +275,15 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 	private static class ChroniclePane extends JPanel implements ActionListener
 	{
 
-		private JCheckBox checkBox = new JCheckBox();
-		private JButton deleteButton = new JButton();
-		private JTextField campaignField = new JTextField();
-		private JTextField adventureField = new JTextField();
-		private JTextField partyField = new JTextField();
-		private JTextField dateField = new JTextField();
-		private JFormattedTextField xpField = new JFormattedTextField(NumberFormat.getIntegerInstance());
-		private JTextField gmField = new JTextField();
-		private JTextArea textArea = new JTextArea()
+		private final JCheckBox checkBox = new JCheckBox();
+		private final JButton deleteButton = new JButton();
+		private final JTextField campaignField = new JTextField();
+		private final JTextField adventureField = new JTextField();
+		private final JTextField partyField = new JTextField();
+		private final JTextField dateField = new JTextField();
+		private final JFormattedTextField xpField = new JFormattedTextField(NumberFormat.getIntegerInstance());
+		private final JTextField gmField = new JTextField();
+		private final JTextArea textArea = new JTextArea()
 		{
 			@Override
 			public Dimension getMinimumSize()
@@ -299,7 +296,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 
 		};
 		private ChronicleHandler handler;
-		private ChronicleEntryFacade entry;
+		private ChronicleEntry entry;
 
 		/**
 		 * Creates a bare ChroniclePane that initializes the layout of its components. This is meant
@@ -313,7 +310,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 			initComponents();
 		}
 
-		public ChroniclePane(ChronicleHandler handler, final ChronicleEntryFacade entry)
+		public ChroniclePane(ChronicleHandler handler, final ChronicleEntry entry)
 		{
 			this();
 			this.handler = handler;
@@ -347,8 +344,9 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		{
 			if (fieldsNotBlank())
 			{
-				int ret = JOptionPane.showConfirmDialog(this, "<html>This chronicle has been written in." +
-						"<br>Are you sure you want to delete it?</html>", Constants.APPLICATION_NAME, JOptionPane.YES_NO_OPTION);
+				int ret = JOptionPane.showConfirmDialog(this,
+					"<html>This chronicle has been written in." + "<br>Are you sure you want to delete it?</html>",
+					Constants.APPLICATION_NAME, JOptionPane.YES_NO_OPTION);
 				if (ret != JOptionPane.YES_OPTION)
 				{//The user has not agreed so exit out
 					return;
@@ -364,14 +362,10 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		 */
 		private boolean fieldsNotBlank()
 		{
-			return StringUtils.isNotBlank(campaignField.getText()) ||
-					StringUtils.isNotBlank(adventureField.getText()) ||
-					StringUtils.isNotBlank(adventureField.getText()) ||
-					StringUtils.isNotBlank(partyField.getText()) ||
-					StringUtils.isNotBlank(dateField.getText()) ||
-					!NumberUtils.INTEGER_ZERO.equals(xpField.getValue()) ||
-					StringUtils.isNotBlank(gmField.getText()) ||
-					StringUtils.isNotBlank(textArea.getText());
+			return StringUtils.isNotBlank(campaignField.getText()) || StringUtils.isNotBlank(adventureField.getText())
+				|| StringUtils.isNotBlank(partyField.getText()) || StringUtils.isNotBlank(dateField.getText())
+				|| !NumberUtils.INTEGER_ZERO.equals(xpField.getValue()) || StringUtils.isNotBlank(gmField.getText())
+				|| StringUtils.isNotBlank(textArea.getText());
 		}
 
 		private void initComponents()
@@ -395,7 +389,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 			add(new JLabel("Adventure:"), gbc);
 			gbc2.gridwidth = GridBagConstraints.REMAINDER;
 			add(adventureField, gbc2);
-			
+
 			add(new JLabel(), gbc);
 			add(new JLabel("Party Name:"), gbc);
 			gbc2.gridwidth = 1;
@@ -449,50 +443,46 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 
 			};
 			checkBox.addActionListener(actionListener);
-			campaignField.getDocument().addDocumentListener(
-				new TextFieldListener(campaignField)
+			campaignField.getDocument().addDocumentListener(new TextFieldListener(campaignField)
+			{
+
+				@Override
+				protected void textChanged(String text)
 				{
+					entry.setCampaign(text);
+				}
 
-					@Override
-					protected void textChanged(String text)
-					{
-						entry.setCampaign(text);
-					}
+			});
+			adventureField.getDocument().addDocumentListener(new TextFieldListener(adventureField)
+			{
 
-				});
-			adventureField.getDocument().addDocumentListener(
-				new TextFieldListener(adventureField)
+				@Override
+				protected void textChanged(String text)
 				{
+					entry.setAdventure(text);
+				}
 
-					@Override
-					protected void textChanged(String text)
-					{
-						entry.setAdventure(text);
-					}
+			});
+			partyField.getDocument().addDocumentListener(new TextFieldListener(partyField)
+			{
 
-				});
-			partyField.getDocument().addDocumentListener(
-				new TextFieldListener(partyField)
+				@Override
+				protected void textChanged(String text)
 				{
+					entry.setParty(text);
+				}
 
-					@Override
-					protected void textChanged(String text)
-					{
-						entry.setParty(text);
-					}
+			});
+			dateField.getDocument().addDocumentListener(new TextFieldListener(dateField)
+			{
 
-				});
-			dateField.getDocument().addDocumentListener(
-				new TextFieldListener(dateField)
+				@Override
+				protected void textChanged(String text)
 				{
+					entry.setDate(text);
+				}
 
-					@Override
-					protected void textChanged(String text)
-					{
-						entry.setDate(text);
-					}
-
-				});
+			});
 			xpField.addPropertyChangeListener("value", new PropertyChangeListener()
 			{
 
@@ -503,28 +493,26 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 				}
 
 			});
-			gmField.getDocument().addDocumentListener(
-				new TextFieldListener(gmField)
+			gmField.getDocument().addDocumentListener(new TextFieldListener(gmField)
+			{
+
+				@Override
+				protected void textChanged(String text)
 				{
+					entry.setGmField(text);
+				}
 
-					@Override
-					protected void textChanged(String text)
-					{
-						entry.setGmField(text);
-					}
+			});
+			textArea.getDocument().addDocumentListener(new TextFieldListener(textArea)
+			{
 
-				});
-			textArea.getDocument().addDocumentListener(
-				new TextFieldListener(textArea)
+				@Override
+				protected void textChanged(String text)
 				{
+					entry.setChronicle(text);
+				}
 
-					@Override
-					protected void textChanged(String text)
-					{
-						entry.setChronicle(text);
-					}
-
-				});
+			});
 		}
 
 	}
@@ -538,7 +526,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 	private static class ChroniclesPane extends JPanel implements Scrollable
 	{
 
-		private ChroniclePane dummyPane = new ChroniclePane();
+		private final ChroniclePane dummyPane = new ChroniclePane();
 
 		public ChroniclesPane()
 		{

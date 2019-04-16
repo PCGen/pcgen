@@ -21,6 +21,7 @@ $Date: 2014-06-12 11:36:12 +1000 (Thu, 12 Jun 2014) $
 <meta http-equiv="content-type" content="text-html; charset=utf-8" />
 <title>${pcstring('NAME')} [${pcstring('POOL.COST')} Points]</title>
 <style type="text/css">
+	p { margin:0; }
 	.pcgen {
 		font-size:xx-small;
 	}
@@ -299,10 +300,6 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
           <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>AC</b></font>
             <font style="font-size:5pt" color="white"><br />Armour Class</font></td>
           <td align="center" class="border9"><b>${pcstring('AC.Total')}</b></td>
-          <td align="center" class="font7"><b>:</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Touch')}</b></td>
-          <td align="center" class="font7"><b>:</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Flatfooted')}</b></td>
           <td align="center" class="font7"><b>=</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Base')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
@@ -314,23 +311,13 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Ability')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Size')}</b></td>
-          <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.NaturalArmor')}</b></td>
-          <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Dodge')}</b></td>
-          <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Deflection')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Misc')}</b></td>
           </tr>
         <tr>
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>TOTAL</b></font></td>
-          <td align="center"></td>
-          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>TOUCH</b></font></td>
-          <td align="center"></td>
-          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>FLAT</b></font></td>
           <td align="center"></td>
           <td align="center" width="25" class="font6">BASE</td>
           <td align="center"></td>
@@ -340,13 +327,7 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
           <td align="center"></td>
           <td align="center" width="25" class="font6">STAT<br />BONUS</td>
           <td align="center"></td>
-          <td align="center" width="25" class="font6">SIZE<br />BONUS</td>
-          <td align="center"></td>
           <td align="center" width="25" class="font6">NATURAL<br />ARMOR</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">DODGE<br />BONUS</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">DEFLECTION<br />BONUS</td>
           <td align="center"></td>
           <td align="center" width="25" class="font6">MISC<br />BONUS</td>
           </tr>
@@ -379,46 +360,25 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
 <!-- STOP Initiative Table -->
   </td>
   <td width="20%" valign="top" >
-<!-- START Base Attack Table -->
-   <table summary="Base Attack Table">
+<!-- START Proficiency Bonus Table -->
+   <table summary="Proficiency Bonus Table">
     <tr>
-     <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>BASE ATTACK</b></font><font style="font-size:5pt" color="white"><br />Bonus</font></td>
-     <td align="center" width="94" class="border"><font style="font-size: small"><b>${pcstring('ATTACK.MELEE')}<br /></b></font></td>
+     <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>PROFICIENCY</b></font><font style="font-size:5pt" color="white"><br />Bonus</font></td>
+     <td align="center" width="94" class="border"><font style="font-size: small"><b>+${pcstring('VAR.Proficiency_Bonus.INTVAL')}<br /></b></font></td>
      <td align="center" width="50%"><br /></td>
     </tr>
    </table>
-<!-- STOP Base Attack Table -->
+<!-- STOP Proficiency Bonus Table -->
   </td>
   <td width="60%" valign="top">
 <!-- START Misc Stat Table -->
       <table summary="Misc Stat Table">
         <tr>
-          <td align="center" class="border9"><br /></td>
-          <td align="center"></td>
-          <td align="center" class="border9"><b>${pcstring('SPELLFAILURE')}</b></td>
-          <td align="center"></td>
-          <td align="center" class="border9"><b>${pcstring('ACCHECK')}</b></td>
-          <td align="center"></td>
-          <td align="center" class="border9"><b>${pcstring('MAXDEX')}</b></td>
-          <td align="center"></td>
-          <td align="center" class="border9"><b>${pcstring('SR')}</b></td>
-          <td align="center"></td>
-          <td align="center" class="border9"><b>&nbsp;</b></td>
-          </tr>
-        <tr>
-          <td align="center" width="25" class="font6">MISS<br />CHANCE</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">ARCANE<br />FAILURE</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">ARMOR<br />CHECK</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">MAX<br />DEX</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">SPELL<br />RESIST.</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">TEMP</td>
-          </tr>
-        </table>
+					<td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>HIT&nbsp;DIE</b></font></font></td>
+		      <td align="center" width="94" class="border"><font style="font-size: small"><b>${pcstring('TEXT.REPLACEFIRST{^.*;,}.HITDICE.MEDIUM')}<br /></b></font></td>
+		      <td align="center" width="50%"><br /></td>
+        </tr>
+      </table>
 <!-- STOP Misc Stat Table -->
   </td>
   </tr>
@@ -537,101 +497,8 @@ Wisdom
      <td align="center" class="font7"><b>+</b></td>
      <td align="center" class="tempborder"><br /></td>
     </tr>
-<#if (pcvar("UseCombatManueverBonus") = 1)>
-    <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>CMB</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB.INTVAL.SIGN')}</b></td>
-     <td align="center" class="font7"><b>=</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.MELEE.BASE')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_STAT.INTVAL.SIGN')}</b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CM_SizeMod.INTVAL.SIGN')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10 epic"><b>+0<br /></b></td>
-     <td align="center" class="font7 epic"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB-ATTACK.MELEE.BASE-VAR.CMB_STAT-VAR.CM_SizeMod.INTVAL.SIGN')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="tempborder"><br /></td>
-    </tr>
-   </table>
-   <table width="100%" summary="CMB block">
-<#if (pcvar("CMD") > 0)>
-   <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>CMB</b></font></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Grapple.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Trip.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Disarm.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Sunder.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_BullRush.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Overrun.INTVAL.SIGN')}</b></td>
-   </tr>
-   <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>CMD</b></font></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMD_Grapple.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>
-<#if (pcvar("CantBeTripped") != 0)>
-Immune
-<#else>
-${pcstring('VAR.CMD_Trip.INTVAL')}
-</#if>
-	</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMD_Disarm.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMD_Sunder.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMD_BullRush.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMD_Overrun.INTVAL')}</b></td>
-    </tr>
-<#else>
-   <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>OFFENSE</b></font></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Grapple.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Trip.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Disarm.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Sunder.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Bull.INTVAL.SIGN')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Overrun.INTVAL.SIGN')}</b></td>
-    </tr>
-    <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>DEFENSE</b></font></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Grapple_DEF.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Trip_DEF.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Disarm_DEF.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Sunder_DEF.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Bull_DEF.INTVAL')}</b></td>
-     <td align="center" class="border10"><b>${pcstring('VAR.CMB_Overrun_DEF.INTVAL')}</b></td>
-    </tr>
-</#if>
-    <tr>
-     <td align="center" width="28%"></td>
-     <td align="center" width="12%" valign="bottom" class="font6">GRAPPLE</td>
-     <td align="center" width="12%" valign="bottom" class="font6">TRIP</td>
-     <td align="center" width="12%" valign="bottom" class="font6">DISARM</td>
-     <td align="center" width="12%" valign="bottom" class="font6">SUNDER</td>
-     <td align="center" width="12%" valign="bottom" class="font6">BULL RUSH</td>
-     <td align="center" width="12%" valign="bottom" class="font6">OVERRUN</td>
-    </tr>
-   </table>
-   <br />
-<#else>
-    <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>GRAPPLE</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.GRAPPLE.TOTAL')}</b></td>
-     <td align="center" class="font7"><b>=</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.GRAPPLE')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.GRAPPLE.STAT')}</b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.GRAPPLE.SIZE')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10 epic"><b>${pcstring('ATTACK.GRAPPLE.EPIC')}<br /></b></td>
-     <td align="center" class="font7 epic"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.GRAPPLE.MISC')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="tempborder"><br /></td>
-    </tr>
     <tr><td></td></tr>
    </table>
-</#if>
    <table width="100%" summary="Saving Throws">
      <tr>
 	   <td align="left" valign="top" class="border8"><div class="font6">CONDITIONAL MODIFIERS:</div>
@@ -817,7 +684,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
     <tr>
      <td align="left" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>&nbsp;Bonus</b></font></td>
      <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.1.TOTALHIT')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.1.TOTALHIT')} (Diadvantage)<br /></b></td>
+     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.1.TOTALHIT')} (Disadvantage)<br /></b></td>
     </tr>
     <tr>
      <td align="left" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>&nbsp;Dam</b></font></td>
@@ -1010,7 +877,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
     </tr>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=SkillExport","TYPE=SkillExport")-1') ; ability , ability_has_next>
 <#if (ability % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
-     <td align="left" ><font style="font-size: x-small"><#if (pcvar("ABILITYALL.SkillExport.${ability}.TYPE=SkillExport.ASPECT.ProfBonus") >= 1)>&#9670;</#if></font></td>	
+     <td align="left" ><font style="font-size: x-small"><#if (pcvar("ABILITYALL.SkillExport.${ability}.TYPE=SkillExport.ASPECT.ProfBonus") >= 1)>&#9670;</#if></font></td>
      <td align="left" class="font8">&nbsp;&nbsp;${pcstring('ABILITYALL.SkillExport.${ability}.TYPE=SkillExport')}</td>
      <td align="center" class="font8">${pcstring('ABILITYALL.SkillExport.${ability}.TYPE=SkillExport.ASPECT.KEYSTAT')}</td>
      <td align="center" class="borderbottom8" valign="bottom"><b>${pcstring('ABILITYALL.SkillExport.${ability}.TYPE=SkillExport.ASPECT.Total')}</b></td>
@@ -1752,37 +1619,6 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialQuality}.TYPE=SpecialQua
   </td>
  </tr>
 <!-- STOP Feat Table -->
-
-<!-- START PFS Chronicle Table -->
- <tr>
-  <td>
-<#if (pcvar('count("ABILITIES","CATEGORY=PFS Chronicle","TYPE=PFSChronicle","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
-   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
-    <tr>
-     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>PFS Chronicles</b></font></th>
-    </tr>
-<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=PFS Chronicle","TYPE=PFSChronicle","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; PFSChronicle , PFSChronicle_has_next>
-<#if (PFSChronicle % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
-     <td valign="top" class="font8"><b>
-<#assign typeOfAbility = pcstring("ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.TYPE")?lower_case />
-<#if (pcstring("ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.HASASPECT.Name") = "Y")>
-${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.ASPECT.Name')}
-<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
-<#else>
-${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle')}
-<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
-</#if>
-:</b>
-${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.DESC')}
-<i>&#8212; [${pcstring('ABILITYALL.PFS Chronicle.VISIBLE.${PFSChronicle}.TYPE=PFSChronicle.SOURCE')}]</i>
-    </td>
-    </tr>
-</@loop>
-   </table>
-</#if>
-  </td>
- </tr>
-<!-- STOP PFS Chronicle Table -->
 
 </table>
 

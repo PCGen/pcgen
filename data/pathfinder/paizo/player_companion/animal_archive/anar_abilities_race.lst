@@ -1,6 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 # $Revision$ $Author$
-SOURCELONG:Pathfinder Player Companion Animal Archive	SOURCESHORT:AnAr	SOURCEWEB:http://paizo.com/products/btpy8tdj?Pathfinder-Player-Companion-Animal-Archive	SOURCEDATE:2013-03
+SOURCELONG:Pathfinder Player Companion: Animal Archive	SOURCESHORT:AnAr	SOURCEWEB:http://paizo.com/products/btpy8tdj	SOURCEDATE:2013-03
 
 ###Block: Animal Tricks ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Ability Name	Unique Key					Category of Ability		Type			Description																																																															Source Page
@@ -40,17 +41,17 @@ Companion Advancement (Panda)		KEY:Companion Advancement ~ Panda	CATEGORY:Specia
 Companion Advancement (Walrus)	KEY:Companion Advancement ~ Walrus	CATEGORY:Special Ability	TYPE:CompanionAdvancement		VISIBLE:DISPLAY	PRERACE:1,Companion (Walrus)																																											ABILITY:Special Ability|AUTOMATIC|Walrus ~ Fatal Gore									BONUS:SIZEMOD|NUMBER|1
 
 
-Race Traits ~ Companion (Llama)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite
-Race Traits ~ Llama									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite	ABILITY:Special Ability|AUTOMATIC|Llama ~ Spit
+Racial Traits ~ Companion (Llama)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite
+Racial Traits ~ Llama									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite	ABILITY:Special Ability|AUTOMATIC|Llama ~ Spit
 
-Race Traits ~ Moose									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore|Hoof	ABILITY:Special Ability|AUTOMATIC|Powerful Charge|Scent
-Race Traits ~ Companion (Moose)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore|Hoof
+Racial Traits ~ Moose									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore|Hoof	ABILITY:Special Ability|AUTOMATIC|Powerful Charge|Scent
+Racial Traits ~ Companion (Moose)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore|Hoof
 
-Race Traits ~ Panda									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite|Claw	ABILITY:Special Ability|AUTOMATIC|Panda ~ Powerful Bite
-Race Traits ~ Companion (Panda)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite|Claw
+Racial Traits ~ Panda									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite|Claw	ABILITY:Special Ability|AUTOMATIC|Panda ~ Powerful Bite
+Racial Traits ~ Companion (Panda)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Bite|Claw
 
-Race Traits ~ Walrus									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore	ABILITY:Special Ability|AUTOMATIC|Hold Breath|Walrus ~ Fatal Gore
-Race Traits ~ Companion (Walrus)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore	ABILITY:Special Ability|AUTOMATIC|Hold Breath
+Racial Traits ~ Walrus									CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore	ABILITY:Special Ability|AUTOMATIC|Hold Breath|Walrus ~ Fatal Gore
+Racial Traits ~ Companion (Walrus)							CATEGORY:Internal																																																											ABILITY:Internal|AUTOMATIC|Gore	ABILITY:Special Ability|AUTOMATIC|Hold Breath
 
 
 Spit						KEY:Llama ~ Spit				CATEGORY:Special Ability	TYPE:Extraordinary.SpecialAttack									DESC:Once per hour, a llama can regurgitate the contents of its stomach, spitting the foul material at a single target within 10 feet. The target must succeed at a DC 12 Fortitude save or be sickened for 1d4 rounds. The save DC is Constitution-based.																															SOURCEPAGE:p.28
@@ -65,7 +66,7 @@ Platypus ~ Semiaquatic									CATEGORY:Special Ability	TYPE:Extraordinary.Speci
 
 ###Block: From B3
 # Ability Name		Unique Key		Category of Ability		Type									Description																																																																																										Ability									Source Page
-Race Traits ~ Skunk				CATEGORY:Internal																																																																																																							ABILITY:Special Ability|AUTOMATIC|TYPE=SkunkRacialAbility
+Racial Traits ~ Skunk				CATEGORY:Internal																																																																																																							ABILITY:Special Ability|AUTOMATIC|TYPE=SkunkRacialAbility
 #
 Musk				KEY:Skunk ~ Musk	CATEGORY:Special Ability	TYPE:SkunkRacialAbility.SpecialQuality.Extraordinary	DESC:Up to twice per day, a skunk can spray a stream of noxious musk at a single target within 10 feet as a standard action. With a successful ranged touch attack, the creature struck by this spray must make a DC 11 Fortitude save or be nauseated for 1d4 rounds and then sickened for 1d4 minutes by the horrific stench. A successful save reduces the effect to only 1d4 rounds of being sickened. A creature cannot use the scent ability as long as it is affected by this musk. The save DC is Constitution-based, and includes a +2 racial bonus.											SOURCEPAGE:p.247
 
@@ -124,16 +125,16 @@ Familiar (Squirrel)	CATEGORY:Internal																												BONUS:SKILL|Sle
 Boon Companion Tracker	CATEGORY:Internal
 ###Block: Tracking
 # Ability Name						Define														Modify VAR
-CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_AnimalCompanion|0	DEFINE:AnimalCompanionLVL_Diff|0		BONUS:VAR|BoonCompanionBonus_AnimalCompanion|MAX(0,MIN(4,AnimalCompanionLVL_Diff))	BONUS:VAR|AnimalCompanionLVL_Diff|TL-AnimalCompanionMasterLVL
-CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_Familiar|0	DEFINE:FamiliarLVL_Diff|0				BONUS:VAR|BoonCompanionBonus_Familiar|MAX(0,MIN(4,FamiliarLVL_Diff))	BONUS:VAR|FamiliarLVL_Diff|TL-FamiliarMasterLVL
-CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_SpecialMount|0	DEFINE:SpecialMountLVL_Diff|0				BONUS:VAR|BoonCompanionBonus_SpecialMount|MAX(0,MIN(4,SpecialMountLVL_Diff))	BONUS:VAR|SpecialMountLVL_Diff|TL-CompanionMasterLVL_Paladin
-CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_CavalierMount|0	DEFINE:CavalierMountLVL_Diff|0			BONUS:VAR|BoonCompanionBonus_CavalierMount|MAX(0,MIN(4,CavalierMountLVL_Diff))	BONUS:VAR|CavalierMountLVL_Diff|TL-CompanionMasterLVL_Cavalier
-CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_HuntmasterCompanion|0	DEFINE:HuntmasterCompanionLVL_Diff|0	BONUS:VAR|BoonCompanionBonus_HuntmasterCompanion|MAX(0,MIN(4,HuntmasterCompanionLVL_Diff))	BONUS:VAR|HuntmasterCompanionLVL_Diff|TL-CompanionMasterLVL_Huntmaster
+CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_AnimalCompanion|0	DEFINE:AnimalCompanionLVL_Diff|0		BONUS:VAR|BoonCompanionBonus_AnimalCompanion|MAX(0,MIN(4,AnimalCompanionLVL_Diff))|TYPE=NoStack	BONUS:VAR|AnimalCompanionLVL_Diff|TL-AnimalCompanionMasterLVL|TYPE=NoStack
+CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_Familiar|0	DEFINE:FamiliarLVL_Diff|0				BONUS:VAR|BoonCompanionBonus_Familiar|MAX(0,MIN(4,FamiliarLVL_Diff))|TYPE=NoStack	BONUS:VAR|FamiliarLVL_Diff|TL-FamiliarMasterLVL|TYPE=NoStack
+CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_SpecialMount|0	DEFINE:SpecialMountLVL_Diff|0				BONUS:VAR|BoonCompanionBonus_SpecialMount|MAX(0,MIN(4,SpecialMountLVL_Diff))|TYPE=NoStack	BONUS:VAR|SpecialMountLVL_Diff|TL-CompanionMasterLVL_Paladin|TYPE=NoStack
+CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_CavalierMount|0	DEFINE:CavalierMountLVL_Diff|0			BONUS:VAR|BoonCompanionBonus_CavalierMount|MAX(0,MIN(4,CavalierMountLVL_Diff))|TYPE=NoStack	BONUS:VAR|CavalierMountLVL_Diff|TL-CompanionMasterLVL_Cavalier|TYPE=NoStack
+CATEGORY=Internal|Boon Companion Tracker.MOD	DEFINE:BoonCompanionBonus_HuntmasterCompanion|0	DEFINE:HuntmasterCompanionLVL_Diff|0	BONUS:VAR|BoonCompanionBonus_HuntmasterCompanion|MAX(0,MIN(4,HuntmasterCompanionLVL_Diff))|TYPE=NoStack	BONUS:VAR|HuntmasterCompanionLVL_Diff|TL-CompanionMasterLVL_Huntmaster|TYPE=NoStack
 
 ###Block: Selections
 # Ability Name					Unique Key						Category of Ability	Type					Multiple Requirements																Modify VAR
-Animal Companion					KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:AnimalCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Animal Companion]		BONUS:VAR|AnimalCompanionLVL|BoonCompanionBonus_AnimalCompanion|PREVARGTEQ:AnimalCompanionLVL,1
-Familiar						KEY:Boon Companion ~ Familiar			CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:FamiliarLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Familiar]					BONUS:VAR|FamiliarLVL|BoonCompanionBonus_Familiar|PREVARGTEQ:FamiliarLVL,1
-Special Mount					KEY:Boon Companion ~ Special Mount		CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:SpecialMountLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Special Mount]			BONUS:VAR|SpecialMountLVL|BoonCompanionBonus_SpecialMount|PREVARGTEQ:SpecialMountLVL,1
-Cavalier Mount					KEY:Boon Companion ~ Cavalier Mount		CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:CavalierMountLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Cavalier Mount]			BONUS:VAR|CavalierMountLVL|BoonCompanionBonus_CavalierMount|PREVARGTEQ:CavalierMountLVL,1
-Animal Companion (Huntmaster Archetype)	KEY:Boon Companion ~ Huntmaster Companion	CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:HuntmasterCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Huntmaster Companion]	BONUS:VAR|HuntmasterCompanionLVL|BoonCompanionBonus_HuntmasterCompanion|PREVARGTEQ:HuntmasterCompanionLVL,1
+Animal Companion					KEY:Boon Companion ~ Animal Companion	CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:AnimalCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Animal Companion]		BONUS:VAR|AnimalCompanionLVL|BoonCompanionBonus_AnimalCompanion|TYPE=NoStack|PREVARGTEQ:AnimalCompanionLVL,1
+Familiar						KEY:Boon Companion ~ Familiar			CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:FamiliarLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Familiar]					BONUS:VAR|FamiliarLVL|BoonCompanionBonus_Familiar|TYPE=NoStack|PREVARGTEQ:FamiliarLVL,1
+Special Mount					KEY:Boon Companion ~ Special Mount		CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:SpecialMountLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Special Mount]			BONUS:VAR|SpecialMountLVL|BoonCompanionBonus_SpecialMount|TYPE=NoStack|PREVARGTEQ:SpecialMountLVL,1
+Cavalier Mount					KEY:Boon Companion ~ Cavalier Mount		CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:CavalierMountLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Cavalier Mount]			BONUS:VAR|CavalierMountLVL|BoonCompanionBonus_CavalierMount|TYPE=NoStack|PREVARGTEQ:CavalierMountLVL,1
+Animal Companion (Huntmaster Archetype)	KEY:Boon Companion ~ Huntmaster Companion	CATEGORY:Internal		TYPE:BoonCompanionSelection	PREMULT:1,[PREVARGT:HuntmasterCompanionLVL,0],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Huntmaster Companion]	BONUS:VAR|HuntmasterCompanionLVL|BoonCompanionBonus_HuntmasterCompanion|TYPE=NoStack|PREVARGTEQ:HuntmasterCompanionLVL,1

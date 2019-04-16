@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Pathfinder Society Field Guide	SOURCESHORT:PFSFG	SOURCEWEB:http://paizo.com/products/btpy8mfq	SOURCEDATE:2011-08
 # Original Entry by: Mark Means
@@ -84,7 +85,7 @@ STARTPACK:Pathfinder's Kit	APPLY:INSTANT	TOTALCOST:12
 GEAR:Backpack			QTY:1	SIZE:PC	LOCATION:Not Carried
 GEAR:Bedroll			QTY:1	SIZE:PC	LOCATION:Not Carried
 GEAR:Pouch (Belt)			QTY:1	SIZE:PC	LOCATION:Not Carried
-GEAR:Mug or Tankard (Clay)	QTY:1	SIZE:PC	LOCATION:Not Carried
+GEAR:Mug (Clay)			QTY:1	SIZE:PC	LOCATION:Not Carried
 GEAR:Dagger				QTY:1	SIZE:PC	LOCATION:Not Carried
 GEAR:Fishhook			QTY:2	SIZE:PC	LOCATION:Not Carried
 GEAR:Flint and Steel		QTY:1	SIZE:PC	LOCATION:Not Carried

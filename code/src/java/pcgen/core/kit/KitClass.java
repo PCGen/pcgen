@@ -1,5 +1,4 @@
 /*
- * KitClass.java
  * Copyright 2005 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on August 20, 2005, 1640h
- *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -38,9 +33,7 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.gui2.UIPropertyContext;
 
 /**
- * <code>KitClass</code> <strong>needs documentation</strong>.
- *
- * @author boomer70
+ * {@code KitClass} <strong>needs documentation</strong>.
  */
 public class KitClass extends BaseKit
 {
@@ -50,10 +43,10 @@ public class KitClass extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient PCClass theClass = null;
+	private PCClass theClass = null;
 	private String theOrigSubClass = null;
-	private transient int theLevel = -1;
-	private transient boolean doLevelAbilities = true;
+	private int theLevel = -1;
+	private boolean doLevelAbilities = true;
 
 	@Override
 	public String toString()
@@ -69,22 +62,20 @@ public class KitClass extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-		List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		theLevel = -1;
 		doLevelAbilities = true;
-		
+
 		theClass = pcClass.get();
 
 		theOrigSubClass = aPC.getSubClassName(theClass);
 		applySubClass(aPC);
 
-		if (!PrereqHandler.passesAll(theClass.getPrerequisiteList(), aPC, aKit))
+		if (!PrereqHandler.passesAll(theClass, aPC, aKit))
 		{
 			PrereqHandler.toHtmlString(theClass.getPrerequisiteList());
-			warnings.add("CLASS: Not qualified for class \""
-				+ theClass.getKeyName() + "\".");
+			warnings.add("CLASS: Not qualified for class \"" + theClass.getKeyName() + "\".");
 			return false;
 		}
 
@@ -126,14 +117,13 @@ public class KitClass extends BaseKit
 		theClass = null;
 	}
 
-	private void addLevel(final PlayerCharacter pc, final int numLevels,
-		final PCClass aClass, final boolean doLevelAbilitiesIn)
+	private void addLevel(final PlayerCharacter pc, final int numLevels, final PCClass aClass,
+		final boolean doLevelAbilitiesIn)
 	{
 		// We want to level up as quietly as possible for kits.
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 		//		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
-		//		SettingsHandler.setShowFeatDialogAtLevelUp(false);
 		int tempChoicePref = UIPropertyContext.getSingleChoiceAction();
 		UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 
@@ -143,7 +133,6 @@ public class KitClass extends BaseKit
 		pc.setDoLevelAbilities(tempDoLevelAbilities);
 
 		UIPropertyContext.setSingleChoiceAction(tempChoicePref);
-		//		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 	}
 

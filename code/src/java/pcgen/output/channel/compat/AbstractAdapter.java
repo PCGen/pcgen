@@ -71,8 +71,7 @@ public class AbstractAdapter<T>
 					e = new ReferenceEvent<>(source, oldValue, newValue);
 				}
 				@SuppressWarnings("unchecked")
-				ReferenceListener<T> referenceListener =
-						(ReferenceListener<T>) listeners[i + 1];
+				ReferenceListener<T> referenceListener = (ReferenceListener<T>) listeners[i + 1];
 				referenceListener.referenceChanged(e);
 			}
 		}

@@ -17,24 +17,35 @@
  */
 package plugin.dicebag.gui;
 
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.table.AbstractTableModel;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.AbstractTableModel;
+
+import pcgen.core.RollingMethods;
 import pcgen.gui2.tools.Icons;
 
 /**
  * <p>The internal frame view class for the DiceBag.</p>
- *
- * @author Ross M. Lodge
  */
 public class DiceBagView extends JInternalFrame implements Observer
 {
@@ -74,10 +85,10 @@ public class DiceBagView extends JInternalFrame implements Observer
 	/** Label for name of dice bag */
 	private JLabel m_nameFieldLabel;
 
-	/** JPanel for <code>BoxLayout.CENTER</code> of content pane */
+	/** JPanel for {@code BoxLayout.CENTER} of content pane */
 	private JPanel m_center;
 
-	/** Jpanel for top (<code>BorderLayout.NORTH</code>) region */
+	/** Jpanel for top ({@code BorderLayout.NORTH}) region */
 	private JPanel m_top;
 
 	/** JPanel for bottom of m_top. */
@@ -125,7 +136,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 	/**
 	 *
 	 * <p>Handles the press of the editing button; calls
-	 * <code>setupEditMode()</code>.</p>
+	 * {@code setupEditMode()}.</p>
 	 *
 	 * @param e Event that fired handler.
 	 */
@@ -134,12 +145,10 @@ public class DiceBagView extends JInternalFrame implements Observer
 		setupEditMode();
 	}
 
-	/* (non-Javadoc)
-	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-	 *
+	/**
 	 * Does nothing
 	 */
-    @Override
+	@Override
 	public void update(Observable o, Object arg)
 	{
 		// TODO:  Method doesn't do anything?
@@ -165,8 +174,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			resultString = Double.toString(result);
 		}
 
-		m_exprResult.setText("<html><b>" + diceRoll + ": " + resultString
-			+ "</b></html>");
+		m_exprResult.setText("<html><b>" + diceRoll + ": " + resultString + "</b></html>");
 	}
 
 	/**
@@ -190,20 +198,17 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 */
 	private void deleteRecords(ActionEvent e)
 	{
-		while ((m_table.getSelectedRow() >= 0)
-			&& (m_table.getSelectedRow() < m_bag.diceCount()))
+		while ((m_table.getSelectedRow() >= 0) && (m_table.getSelectedRow() < m_bag.diceCount()))
 		{
 			m_bag.removeDie(m_table.getSelectedRow());
-			m_tableModel.fireTableRowsDeleted(m_table.getSelectedRow(), m_table
-				.getSelectedRow());
+			m_tableModel.fireTableRowsDeleted(m_table.getSelectedRow(), m_table.getSelectedRow());
 		}
 	}
 
 	/**
 	 * <p>Initializes the view and all components, and starts the bag in
-	 * editing mode.  It sets the size (<code>pack()</code>) of the
+	 * editing mode.  It sets the size ({@code pack()}) of the
 	 * internal frame, but does <b>not</b> show the frame.</p>
-	 *
 	 *
 	 */
 	private void initComponents()
@@ -242,8 +247,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		m_top.setLayout(new GridLayout(2, 1));
 		m_topTop.setLayout(new BoxLayout(m_topTop, BoxLayout.X_AXIS));
 		m_topBottom.setLayout(new BoxLayout(m_topBottom, BoxLayout.X_AXIS));
-		m_center.setLayout(new DiceBagGridLayout(0, 3,
-			DiceBagGridLayout.MANAGE_BY_COLUMNS, 75, 100));
+		m_center.setLayout(new DiceBagGridLayout(0, 3, DiceBagGridLayout.MANAGE_BY_COLUMNS, 75, 100));
 		m_center.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		//Rolling mode controls
@@ -251,12 +255,9 @@ public class DiceBagView extends JInternalFrame implements Observer
 		m_rollButton.setActionCommand("ROLL");
 		m_rollButton.addActionListener(m_bagListener);
 		m_exprResult = new JLabel(" ");
-		m_exprResult.setMinimumSize(new Dimension(50, m_exprResult
-			.getMinimumSize().height));
-		m_exprResult.setPreferredSize(new Dimension(50, m_exprResult
-			.getPreferredSize().height));
-		m_exprResult.setMaximumSize(new Dimension(Integer.MAX_VALUE,
-			m_exprResult.getMaximumSize().height));
+		m_exprResult.setMinimumSize(new Dimension(50, m_exprResult.getMinimumSize().height));
+		m_exprResult.setPreferredSize(new Dimension(50, m_exprResult.getPreferredSize().height));
+		m_exprResult.setMaximumSize(new Dimension(Integer.MAX_VALUE, m_exprResult.getMaximumSize().height));
 		m_editButton = new JButton("Edit");
 		m_editButton.setActionCommand("EDIT");
 		m_editButton.addActionListener(m_bagListener);
@@ -290,21 +291,21 @@ public class DiceBagView extends JInternalFrame implements Observer
 		m_nameFieldLabel = new JLabel("Name: ");
 		m_nameField.getDocument().addDocumentListener(new DocumentListener()
 		{
-            @Override
+			@Override
 			public void insertUpdate(DocumentEvent e)
 			{
 				m_bag.setName(m_nameField.getText());
 				setTitle(m_nameField.getText());
 			}
 
-            @Override
+			@Override
 			public void removeUpdate(DocumentEvent e)
 			{
 				m_bag.setName(m_nameField.getText());
 				setTitle(m_nameField.getText());
 			}
 
-            @Override
+			@Override
 			public void changedUpdate(DocumentEvent e)
 			{
 				// TODO:  Method doesn't do anything?
@@ -330,17 +331,14 @@ public class DiceBagView extends JInternalFrame implements Observer
 	{
 		for (int row = m_table.getRowCount() - 2; row >= 0; row--)
 		{
-			if ((row < (m_table.getRowCount() - 2))
-				&& m_table.isRowSelected(row)
-				&& !m_table.isRowSelected(row + 1))
+			if ((row < (m_table.getRowCount() - 2)) && m_table.isRowSelected(row) && !m_table.isRowSelected(row + 1))
 			{
 				final String die1 = m_bag.getDie(row);
 				final String die2 = m_bag.getDie(row + 1);
 				m_bag.setDie(row + 1, die1);
 				m_bag.setDie(row, die2);
 				m_tableModel.fireTableRowsUpdated(row, row + 1);
-				m_table.getSelectionModel().addSelectionInterval(row + 1,
-					row + 1);
+				m_table.getSelectionModel().addSelectionInterval(row + 1, row + 1);
 				m_table.getSelectionModel().removeSelectionInterval(row, row);
 			}
 		}
@@ -356,16 +354,14 @@ public class DiceBagView extends JInternalFrame implements Observer
 	{
 		for (int row = 0; row < m_table.getRowCount(); row++)
 		{
-			if ((row > 0) && m_table.isRowSelected(row)
-				&& !m_table.isRowSelected(row - 1))
+			if ((row > 0) && m_table.isRowSelected(row) && !m_table.isRowSelected(row - 1))
 			{
 				final String die1 = m_bag.getDie(row);
 				final String die2 = m_bag.getDie(row - 1);
 				m_bag.setDie(row - 1, die1);
 				m_bag.setDie(row, die2);
 				m_tableModel.fireTableRowsUpdated(row - 1, row);
-				m_table.getSelectionModel().addSelectionInterval(row - 1,
-					row - 1);
+				m_table.getSelectionModel().addSelectionInterval(row - 1, row - 1);
 				m_table.getSelectionModel().removeSelectionInterval(row, row);
 			}
 		}
@@ -382,8 +378,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		getContentPane().add(m_top, BorderLayout.NORTH);
 		m_top.add(m_topTop);
 		m_top.add(m_topBottom);
-		m_nameField.setPreferredSize(new Dimension(100, m_nameField
-			.getPreferredSize().height));
+		m_nameField.setPreferredSize(new Dimension(100, m_nameField.getPreferredSize().height));
 		m_topBottom.add(m_nameFieldLabel);
 		m_topBottom.add(m_nameField);
 		m_nameField.setText(m_bag.getName());
@@ -402,8 +397,8 @@ public class DiceBagView extends JInternalFrame implements Observer
 		m_topTop.add(m_moveUp);
 		m_topTop.add(Box.createHorizontalStrut(5));
 		m_topTop.add(m_moveDown);
-		m_table.setPreferredScrollableViewportSize(new Dimension(m_table
-			.getPreferredScrollableViewportSize().width, 200));
+		m_table
+			.setPreferredScrollableViewportSize(new Dimension(m_table.getPreferredScrollableViewportSize().width, 200));
 		getContentPane().validate();
 		pack();
 	}
@@ -411,7 +406,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 	/**
 	 * <p>Sets up the rolling mode; first cleans out all components
 	 * and then displays the components for the rolling mode.</p>
-	 *
 	 *
 	 */
 	private void setupRollingMode()
@@ -434,8 +428,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 		//Add components to topTop panel
 		m_topTop.add(m_exprFieldLabel);
-		m_exprField.setPreferredSize(new Dimension(50, m_exprField
-			.getPreferredSize().height));
+		m_exprField.setPreferredSize(new Dimension(50, m_exprField.getPreferredSize().height));
 		m_topTop.add(m_exprField);
 		m_topTop.add(Box.createHorizontalStrut(10));
 		m_topTop.add(m_rollButton);
@@ -457,8 +450,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			else
 			{
 				button = new JButton(" ");
-				button.setPreferredSize(new Dimension(100, button
-					.getPreferredSize().height));
+				button.setPreferredSize(new Dimension(100, button.getPreferredSize().height));
 				button.addActionListener(m_bagListener);
 				button.setActionCommand(Integer.toString(i));
 				m_diceButtons.add(button);
@@ -484,23 +476,17 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 	/**
 	 * <p>An action listener for the buttons in the GUI.</p>
-	 *
-	 * @author Ross M. Lodge
 	 */
 	private class BagListener implements ActionListener
 	{
-		/* (non-Javadoc)
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
-        @Override
+		@Override
 		public void actionPerformed(ActionEvent e)
 		{
 			String command = e.getActionCommand();
 
 			if ("ROLL".equals(command))
 			{
-				setRollResult(m_exprField.getText(), m_bag.rollDie(m_exprField
-					.getText()));
+				setRollResult(m_exprField.getText(), RollingMethods.roll(m_exprField.getText()));
 			}
 			else if ("EDIT".equals(command))
 			{
@@ -531,8 +517,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 				}
 				catch (NumberFormatException ex)
 				{
-					System.err
-						.println("Invalid command passed to BagListener.");
+					System.err.println("Invalid command passed to BagListener.");
 					ex.printStackTrace();
 				}
 			}
@@ -542,75 +527,58 @@ public class DiceBagView extends JInternalFrame implements Observer
 	/**
 	 *
 	 * <p>Table model for displaying/editing the dice bag information.
-	 * Basically this overrides enough of <code>AbstracTableModel</code>
+	 * Basically this overrides enough of {@code AbstracTableModel}
 	 * to make the code useful.</p>
-	 *
-	 * @author Ross M. Lodge
 	 *
 	 */
 	private class BagTableModel extends AbstractTableModel
 	{
-		/* (non-Javadoc)
-		 * @see javax.swing.table.TableModel#isCellEditable(int, int)
-		 */
-        @Override
+		@Override
 		public boolean isCellEditable(int rowIndex, int columnIndex)
 		{
 			return true;
 		}
 
-		/* (non-Javadoc)
-		 * @see javax.swing.table.TableModel#getColumnClass(int)
-		 */
-        @Override
+		@Override
 		public Class<?> getColumnClass(int columnIndex)
 		{
 			return String.class;
 		}
 
-		/* (non-Javadoc)
-		 * @see javax.swing.table.TableModel#getColumnCount()
-		 *
+		/**
 		 * Always a single column
 		 */
-        @Override
+		@Override
 		public int getColumnCount()
 		{
 			return 1;
 		}
 
-		/* (non-Javadoc)
-		 * @see javax.swing.table.TableModel#getColumnName(int)
-		 */
-        @Override
+		@Override
 		public String getColumnName(int column)
 		{
 			return "Dice Expression";
 		}
 
-		/* (non-Javadoc)
-		 * @see javax.swing.table.TableModel#getRowCount()
-		 *
+		/**
 		 * We add one more row than the number of dice in the bag;
 		 * users can type in that row to add a new die.
 		 */
-        @Override
+		@Override
 		public int getRowCount()
 		{
 			return m_bag.diceCount() + 1;
 		}
 
-		/* (non-Javadoc)
-		 * @see javax.swing.table.TableModel#setValueAt(java.lang.Object, int, int)
-		 *
+		/**
 		 * Sets the value at the specified index, or adds a new die at the end.
 		 */
-        @Override
+		@Override
 		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
 		{
 			if ((rowIndex >= 0) && (rowIndex < (getRowCount() - 1)))
 			{
-				if ((aValue == null) || (aValue.toString().length() == 0))
+				if ((aValue == null) || (aValue.toString().isEmpty()))
 				{
 					m_bag.removeDie(rowIndex);
 					fireTableRowsDeleted(rowIndex, rowIndex);
@@ -627,10 +595,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 			}
 		}
 
-		/* (non-Javadoc)
-		 * @see javax.swing.table.TableModel#getValueAt(int, int)
-		 */
-        @Override
+		@Override
 		public Object getValueAt(int rowIndex, int columnIndex)
 		{
 			String returnValue = null;

@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.facet.FacetLibrary;
@@ -24,7 +26,10 @@ import pcgen.cdom.facet.analysis.CharacterSpellResistanceFacet;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.SrLst;
+
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalSRTest extends AbstractContentTokenTest
 {
@@ -32,6 +37,7 @@ public class GlobalSRTest extends AbstractContentTokenTest
 	private static SrLst token = new SrLst();
 	private CharacterSpellResistanceFacet srFacet;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -45,7 +51,7 @@ public class GlobalSRTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "25+INT");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

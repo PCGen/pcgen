@@ -1,5 +1,4 @@
 /*
- * AbilitySelectionApplication.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.cdom.facet;
 
@@ -31,11 +29,9 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 
-public class AbilitySelectionApplication implements
-		DataFacetChangeListener<CharID, CNAbilitySelection>
+public class AbilitySelectionApplication implements DataFacetChangeListener<CharID, CNAbilitySelection>
 {
-	private final PlayerCharacterTrackingFacet pcFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet pcFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
@@ -48,8 +44,7 @@ public class AbilitySelectionApplication implements
 		String selection = cnas.getSelection();
 		if (selection != null)
 		{
-			ChooseInformation<?> chooseInfo =
-					ability.get(ObjectKey.CHOOSE_INFO);
+			ChooseInformation<?> chooseInfo = ability.get(ObjectKey.CHOOSE_INFO);
 			if (chooseInfo != null)
 			{
 				applySelection(pc, chooseInfo, cna, selection);
@@ -57,21 +52,15 @@ public class AbilitySelectionApplication implements
 		}
 	}
 
-	private <T> void applySelection(PlayerCharacter pc,
-		ChooseInformation<T> chooseInfo, CNAbility cna, String selection)
+	private <T> void applySelection(PlayerCharacter pc, ChooseInformation<T> chooseInfo, CNAbility cna,
+		String selection)
 	{
 		Ability ability = cna.getAbility();
 		T obj = chooseInfo.decodeChoice(Globals.getContext(), selection);
 		if (obj == null)
 		{
-			Logging
-				.errorPrint("Unable to apply Selection: '"
-					+ selection
-					+ "' to Ability "
-					+ ability
-					+ " ("
-					+ ability.getCDOMCategory()
-					+ ") because the given selection does not exist in the loaded data");
+			Logging.errorPrint("Unable to apply Selection: '" + selection + "' to Ability " + ability + " ("
+				+ ability.getCDOMCategory() + ") because the given selection does not exist in the loaded data");
 		}
 		else
 		{
@@ -80,8 +69,7 @@ public class AbilitySelectionApplication implements
 	}
 
 	@Override
-	public void dataRemoved(
-		DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
+	public void dataRemoved(DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
 	{
 		CharID id = dfce.getCharID();
 		CNAbilitySelection cnas = dfce.getCDOMObject();
@@ -91,8 +79,7 @@ public class AbilitySelectionApplication implements
 		String selection = cnas.getSelection();
 		if (selection != null)
 		{
-			ChooseInformation<?> chooseInfo =
-					ability.get(ObjectKey.CHOOSE_INFO);
+			ChooseInformation<?> chooseInfo = ability.get(ObjectKey.CHOOSE_INFO);
 			if (chooseInfo != null)
 			{
 				removeSelection(pc, chooseInfo, cna, selection);
@@ -100,8 +87,8 @@ public class AbilitySelectionApplication implements
 		}
 	}
 
-	private <T> void removeSelection(PlayerCharacter pc,
-		ChooseInformation<T> chooseInfo, CNAbility cna, String selection)
+	private <T> void removeSelection(PlayerCharacter pc, ChooseInformation<T> chooseInfo, CNAbility cna,
+		String selection)
 	{
 		T obj = chooseInfo.decodeChoice(Globals.getContext(), selection);
 		chooseInfo.getChoiceActor().removeChoice(pc, cna, obj);

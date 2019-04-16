@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Psionics Expanded	SOURCESHORT:PsiEx	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2012-07
 # ORIGINAL ENTRY: Douglas Limmer
@@ -69,19 +70,19 @@ CLASS:Body Snatcher	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Diplomacy|TYPE=Per
 
 ###Block: Metaforge prestige class
 
-# Class Name	Hit Dice	Type					Max Level	Source Page		Combat bonus																Save bonus																																				Modify VAR
-CLASS:Metaforge	HD:10		TYPE:PC.Prestige.Psionic	DEFINE:MetaforgeLVL|0	BONUS:VAR|MetaforgeLVL|CL	MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name	Hit Dice	Type					Max Level	Source Page		Define			Combat bonus																Save bonus																																				Modify VAR
+CLASS:Metaforge	HD:10		TYPE:PC.Prestige.Psionic	MAXLEVEL:10	SOURCEPAGE:p.38	DEFINE:MetaforgeLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|MetaforgeLVL|CL	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 # Class Name	Required Ability												Required Skill
 CLASS:Metaforge	PREABILITY:2,CATEGORY=Special Ability,Enhanced Mind Blade,Invigorating Suit ~ Aegis	PRESKILL:1,TYPE.Craft=3,TYPE.Craft=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Metaforge	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Fly|Intimidate|Knowledge (Psionics)
 
 ###Block: Metaforge class abilities
-1	BONUS:VAR|AegisCL|MetaforgeLVL	BONUS:VAR|AegisDRLVL|CL	BONUS:VAR|AstralSuitLVL|MetaforgeLVL	BONUS:VAR|MndBladeLVL|MetaforgeLVL	
-1	BONUS:VAR|CrystallizedMindBlade|(MetaforgeLVL+3)/4																					ABILITY:Special Ability|AUTOMATIC|Crystallized Mind Blade ~ Metaforge
-2	BONUS:VAR|TransferEnhancement|MetaforgeLVL/2																						ABILITY:Special Ability|AUTOMATIC|Transfer Enhancement ~ Metaforge
-3																												ABILITY:Special Ability|AUTOMATIC|Dual Summon ~ Metaforge
-10																												ABILITY:Special Ability|AUTOMATIC|Shift Form ~ Metaforge
+1	BONUS:VAR|AegisCL|MetaforgeLVL	BONUS:VAR|AegisDRLVL|CL	BONUS:VAR|AstralSuitLVL|MetaforgeLVL	BONUS:VAR|MndBladeLVL|MetaforgeLVL
+1	BONUS:VAR|CrystallizedMindBlade|(MetaforgeLVL+3)/4															ABILITY:Special Ability|AUTOMATIC|Crystallized Mind Blade ~ Metaforge
+2	BONUS:VAR|TransferEnhancement|MetaforgeLVL/2																ABILITY:Special Ability|AUTOMATIC|Transfer Enhancement ~ Metaforge
+3																								ABILITY:Special Ability|AUTOMATIC|Dual Summon ~ Metaforge
+10																								ABILITY:Special Ability|AUTOMATIC|Shift Form ~ Metaforge
 
 
 ###Block: Metamorph prestige class

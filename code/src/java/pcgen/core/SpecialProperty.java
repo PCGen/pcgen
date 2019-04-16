@@ -1,5 +1,4 @@
 /*
- * SpecialProperty.java
  * Copyright 2004 (C) Devon Jones
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  */
 package pcgen.core;
 
@@ -29,9 +27,8 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 
 /**
- * <code>SpecialProperty</code>.
+ * {@code SpecialProperty}.
  *
- * @author Devon Jones
  */
 public final class SpecialProperty extends TextProperty
 {
@@ -61,8 +58,7 @@ public final class SpecialProperty extends TextProperty
 		String spName = tok.nextToken();
 		if (PreParserFactory.isPreReqString(spName))
 		{
-			Logging.errorPrint("Leading PRExxx found in SPROP: "
-					+ input);
+			Logging.errorPrint("Leading PRExxx found in SPROP: " + input);
 			return null;
 		}
 
@@ -95,8 +91,7 @@ public final class SpecialProperty extends TextProperty
 				if (hitPre && !warnedPre)
 				{
 					warnedPre = true;
-					Logging.deprecationPrint("Found PRExxx in middle of"
-							+ "SPROP value: " + input);
+					Logging.deprecationPrint("Found PRExxx in middle of" + "SPROP value: " + input);
 					Logging.deprecationPrint("PRExxx should be at the end");
 				}
 				sb.append(Constants.PIPE);
@@ -105,8 +100,7 @@ public final class SpecialProperty extends TextProperty
 
 			if (Constants.LST_DOT_CLEAR.equals(cString))
 			{
-				Logging.errorPrint("Invalid/Embedded .CLEAR found in SPROP: "
-					+ input);
+				Logging.errorPrint("Invalid/Embedded .CLEAR found in SPROP: " + input);
 				return null;
 			}
 		}

@@ -1,5 +1,4 @@
 /*
- * ShieldProf.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,28 +15,23 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on January 14, 2008
  */
 package pcgen.core;
 
 import pcgen.cdom.base.Ungranted;
 
-
 /**
- * <code>ShieldProf</code>.
+ * {@code ShieldProf}.
  *
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  * DO NOT DELETE (waiting for use)
  */
-public final class ShieldProf extends PObject implements Comparable<Object>,
-		Ungranted
+public final class ShieldProf extends PObject implements Comparable<Object>, Ungranted
 {
 	/**
 	 * Compares keyName only
 	 *
 	 * @param o1 Object
 	 * @return int
-	 * @see Comparable#compareTo(Object)
 	 */
 	@Override
 	public int compareTo(final Object o1)
@@ -54,8 +48,7 @@ public final class ShieldProf extends PObject implements Comparable<Object>,
 	@Override
 	public boolean equals(final Object obj)
 	{
-		return obj instanceof ShieldProf
-				&& getKeyName().equalsIgnoreCase(((ShieldProf) obj).getKeyName());
+		return obj instanceof ShieldProf && getKeyName().equalsIgnoreCase(((ShieldProf) obj).getKeyName());
 	}
 
 	/**

@@ -1,5 +1,4 @@
 /*
- * ProfToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 6, 2006
- *
- * Current Ver: $Revision$
  */
 
 package plugin.lsttokens.kit.prof;
@@ -39,8 +34,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * PROF Token part of Kit Prof Lst Token
  */
-public class ProfToken extends AbstractTokenWithSeparator<KitProf> implements
-		CDOMPrimaryToken<KitProf>
+public class ProfToken extends AbstractTokenWithSeparator<KitProf> implements CDOMPrimaryToken<KitProf>
 {
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
 
@@ -68,15 +62,13 @@ public class ProfToken extends AbstractTokenWithSeparator<KitProf> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		KitProf obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, KitProf obj, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			CDOMSingleRef<WeaponProf> ref =
-					context.getReferenceContext().getCDOMReference(WEAPONPROF_CLASS, tokText);
+			CDOMSingleRef<WeaponProf> ref = context.getReferenceContext().getCDOMReference(WEAPONPROF_CLASS, tokText);
 			obj.addProficiency(ref);
 		}
 		return ParseResult.SUCCESS;
@@ -90,7 +82,6 @@ public class ProfToken extends AbstractTokenWithSeparator<KitProf> implements
 		{
 			return null;
 		}
-		return new String[]{ReferenceUtilities.joinLstFormat(ref,
-			Constants.PIPE)};
+		return new String[]{ReferenceUtilities.joinLstFormat(ref, Constants.PIPE)};
 	}
 }

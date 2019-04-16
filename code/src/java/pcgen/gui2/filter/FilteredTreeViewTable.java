@@ -1,5 +1,4 @@
 /*
- * FilteredTreeViewTable.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 15, 2010, 7:42:03 PM
  */
 package pcgen.gui2.filter;
 
@@ -33,14 +31,10 @@ import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements FilterHandler
 {
 
-	private static final TreeView<Object> searchView = new TreeView<Object>()
+	private static final TreeView<Object> SEARCH_VIEW = new TreeView<Object>()
 	{
 
 		@Override
@@ -65,7 +59,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 
 	public FilteredTreeViewTable()
 	{
-		RowSorter rowSorter = new SortableTableRowSorter()
+		RowSorter<SortableTableModel> rowSorter = new SortableTableRowSorter()
 		{
 
 			@Override
@@ -118,7 +112,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 	@Override
 	public void setTreeViewModel(TreeViewModel<E> viewModel)
 	{
-		FilteredTreeViewModel oldModel = filteredModel;
+		FilteredTreeViewModel<C, E> oldModel = filteredModel;
 		filteredModel = new FilteredTreeViewModel<>();
 		filteredModel.setBaseModel(viewModel);
 		if (filter != null)
@@ -133,57 +127,6 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 		}
 		sortModel();
 	}
-	
-//	private CharacterInfoTab parentTab()
-//	{
-//		Container parent = this;
-//		do
-//		{
-//			parent = parent.getParent();
-//		}
-//		while (parent != null && !(parent instanceof CharacterInfoTab));
-//		return (CharacterInfoTab) parent;
-//	}
-//	
-//	@Override
-//	public void setTreeViewModel(TreeViewModel<E> viewModel)
-//	{
-//		CharacterInfoTab tab = parentTab();
-//		String id = "";
-//		if (tab != null)
-//		{
-//			id = tab.getClass().getName();
-//		}
-//
-//		StopWatch watch = new StopWatch(id);
-//		FilteredTreeViewModel oldModel = filteredModel;
-//		filteredModel = new FilteredTreeViewModel<C, E>();
-//		watch.start("setBaseModel");
-//		filteredModel.setBaseModel(viewModel);
-//		watch.stop();
-//		if (filter != null)
-//		{
-//			watch.start("setFilter");
-//			filteredModel.setFilter(filter);
-//			watch.stop();
-//			watch.start("setContext");
-//			filteredModel.setContext(context);
-//			watch.stop();
-//		}
-//		watch.start("super.setTreeViewModel");
-//		super.setTreeViewModel(filteredModel);
-//		watch.stop();
-//		if (oldModel != null)
-//		{
-//			watch.start("oldModel.setBaseModel");
-//			oldModel.setBaseModel(null);
-//			watch.stop();
-//		}
-//		watch.start("sortModel");
-//		sortModel();
-//		watch.stop();
-//		System.out.println(watch.prettyPrint());
-//	}
 
 	@Override
 	public void setSearchEnabled(boolean searchMode)
@@ -196,7 +139,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 				if (searchMode)
 				{
 					tempView = treetableModel.getSelectedTreeView();
-					setTreeView(searchView);
+					setTreeView(SEARCH_VIEW);
 					cornerPopupMenu.setTreeViewsEnabled(false);
 				}
 				else

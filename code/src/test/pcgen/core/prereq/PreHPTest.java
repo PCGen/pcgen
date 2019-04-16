@@ -1,6 +1,4 @@
 /*
- * PreHDTest.java
- *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,14 +14,13 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -34,38 +31,28 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreHPTest</code> tests that the PREHP tag is
+ * {@code PreHPTest} tests that the PREHP tag is
  * working correctly.
- *
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
 public class PreHPTest extends AbstractCharacterTestCase
 {
 	PCClass myClass = new PCClass();
 
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreHPTest.class);
-	}
-
 	/**
-	 * @return Test
+	 * Test the PREHP code.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreHPTest.class);
-	}
-
-	/**
-	 * Test the PREHP code
-	 * @throws Exception
-	 */
-	public void testHP() throws Exception
+	@Test
+	public void testHP() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
@@ -98,6 +85,7 @@ public class PreHPTest extends AbstractCharacterTestCase
 			character, null));
 	}
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{

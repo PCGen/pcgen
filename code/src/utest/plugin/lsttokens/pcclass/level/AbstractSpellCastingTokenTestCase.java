@@ -17,13 +17,20 @@
  */
 package plugin.lsttokens.pcclass.level;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractSpellCastingTokenTestCase extends
 		AbstractPCClassLevelTokenTestCase
@@ -46,14 +53,7 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 		assertNull(getToken().unparse(primaryContext, primaryProf1));
 		// Get back the appropriate token:
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf2);
-
-		assertEquals(str.length, unparsed.length);
-
-		for (int i = 0; i < str.length; i++)
-		{
-			assertEquals("Expected " + i + " item to be equal", str[i],
-					unparsed[i]);
-		}
+		assertArrayEquals(str, unparsed);
 
 		// And fails for subsequent levels
 		assertNull(getToken().unparse(primaryContext, primaryProf3));
@@ -76,40 +76,34 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 		assertNull(getToken().unparse(secondaryContext, secondaryProf1));
 		String[] sUnparsed = getToken().unparse(secondaryContext,
 				secondaryProf2);
-		assertEquals(unparsed.length, sUnparsed.length);
-
-		for (int i = 0; i < unparsed.length; i++)
-		{
-			assertEquals("Expected " + i + " item to be equal", unparsed[i],
-					sUnparsed[i]);
-		}
+		assertArrayEquals(str, unparsed);
 		assertEquals(0, primaryContext.getWriteMessageCount());
 		assertEquals(0, secondaryContext.getWriteMessageCount());
 	}
 
 	@Test
-	public void testInvalidListEmpty() throws PersistenceLayerException
+	public void testInvalidListEmpty()
 	{
 		assertFalse(parse("", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListEnd() throws PersistenceLayerException
+	public void testInvalidListEnd()
 	{
 		assertFalse(parse("1,", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListStart() throws PersistenceLayerException
+	public void testInvalidListStart()
 	{
 		assertFalse(parse(",1", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin() throws PersistenceLayerException
+	public void testInvalidListDoubleJoin()
 	{
 		assertFalse(parse("1,,2", 2));
 		assertNoSideEffects();
@@ -117,7 +111,6 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 
 	@Test
 	public void testInvalidListNegativeNumber()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("1,-2", 2));
 		assertNoSideEffects();
@@ -166,37 +159,30 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		primaryProf1.addToListFor(getListKey(), FormulaFactory.ONE);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf1);
-		expectSingle(unparsed, "1");
+		assertArrayEquals(new String[]{"1"}, unparsed);
 	}
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		primaryProf1.addToListFor(getListKey(), null);
-		try
-		{
-			getToken().unparse(primaryContext, primaryProf1);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Yep!
-		}
+		assertThrows(NullPointerException.class,
+				() -> getToken().unparse(primaryContext, primaryProf1));
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		primaryProf1
 				.addToListFor(getListKey(), FormulaFactory.getFormulaFor(1));
 		primaryProf1
 				.addToListFor(getListKey(), FormulaFactory.getFormulaFor(2));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf1);
-		expectSingle(unparsed, "1,2");
+		assertArrayEquals(new String[]{"1,2"}, unparsed);
 	}
 
 	/*

@@ -2,7 +2,7 @@
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
 
 # not sure how to increase a spell's spell point cost through metamagic.  these feats will be commented out
-# until i figure it out.
+# until I figure it out.
 
 # Empower Spell.MOD	ADDSPELLPOINTS:4
 # Enlage Spell.MOD	ADDSPELLPOINTS:2

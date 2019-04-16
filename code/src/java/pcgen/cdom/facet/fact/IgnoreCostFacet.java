@@ -24,7 +24,6 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * IgnoreCostFacet is a Facet to track whether a character should ignore cost
  * when purchasing items.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class IgnoreCostFacet extends AbstractItemFacet<CharID, Boolean>
 {

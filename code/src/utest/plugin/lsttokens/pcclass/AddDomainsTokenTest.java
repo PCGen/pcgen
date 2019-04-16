@@ -17,9 +17,9 @@
  */
 package plugin.lsttokens.pcclass;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
@@ -35,16 +35,20 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class AddDomainsTokenTest extends
 		AbstractListContextTokenTestCase<PCClass, Domain>
 {
 
 	static AdddomainsToken token = new AdddomainsToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -108,7 +112,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidEmptyPre() throws PersistenceLayerException
+	public void testInvalidEmptyPre()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1[]"));
@@ -116,7 +120,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidEmptyPre2() throws PersistenceLayerException
+	public void testInvalidEmptyPre2()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1["));
@@ -124,7 +128,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidEmptyPre3() throws PersistenceLayerException
+	public void testInvalidEmptyPre3()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1]"));
@@ -132,7 +136,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidMismatchedBracket() throws PersistenceLayerException
+	public void testInvalidMismatchedBracket()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1[PRERACE:Dwarf"));
@@ -141,7 +145,6 @@ public class AddDomainsTokenTest extends
 
 	@Test
 	public void testInvalidTrailingAfterBracket()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1[PRERACE:Dwarf]Hi"));
@@ -183,7 +186,6 @@ public class AddDomainsTokenTest extends
 
 	@Test
 	public void testInvalidInputBadPrerequisite()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -204,7 +206,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Override
-	public void testInvalidInputJoinedDot() throws PersistenceLayerException
+	public void testInvalidInputJoinedDot()
 	{
 		//Ignore as this is legal for now
 	}

@@ -34,7 +34,6 @@ import pcgen.core.WeaponProf;
  * granted to a Player Character via the Deity selection of the Player
  * Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class DeityWeaponProfFacet extends AbstractSourcedListFacet<CharID, WeaponProf>
 		implements DataFacetChangeListener<CharID, Deity>
@@ -53,15 +52,12 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<CharID, Weapo
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, Deity> dfce)
 	{
 		Deity deity = dfce.getCDOMObject();
-		List<CDOMReference<WeaponProf>> weaponList = deity
-				.getListFor(ListKey.DEITYWEAPON);
+		List<CDOMReference<WeaponProf>> weaponList = deity.getListFor(ListKey.DEITYWEAPON);
 		if (weaponList != null)
 		{
 			for (CDOMReference<WeaponProf> ref : weaponList)
@@ -92,8 +88,6 @@ public class DeityWeaponProfFacet extends AbstractSourcedListFacet<CharID, Weapo
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, Deity> dfce)

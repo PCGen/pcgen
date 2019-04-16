@@ -34,7 +34,7 @@ ABILITY:CATEGORY=FEAT|Combat Casting
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Weapon Focus (Longsword)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
-GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:FLAME
+GEAR:Longsword	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Ability ~ Flaming ~ Weapon
 
 
 STARTPACK:Demon (Seraptis) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demon (Seraptis)],[!PRERACE:1,%]	SOURCEPAGE:p.60
@@ -59,7 +59,7 @@ ABILITY:CATEGORY=FEAT|Multiattack
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-GEAR:Scimitar	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS1W.WOUND
+GEAR:Scimitar	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Wounding ~ Weapon
 
 
 STARTPACK:Demon (Vavakia) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demon (Vavakia)],[!PRERACE:1,%]	SOURCEPAGE:p.61
@@ -86,5 +86,5 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Enervation)
 ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-GEAR:Breastplate	SIZE:PC	LOCATION:Equipped		EQMOD:PLUS2A
-GEAR:Ranseur	SIZE:PC	LOCATION:Both Hands	EQMOD:PLUS1W.UNHOLY
+GEAR:Breastplate	SIZE:PC	LOCATION:Equipped		EQMOD:Special Ability ~ +2 ~ Armor
+GEAR:Ranseur	SIZE:PC	LOCATION:Both Hands	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Unholy ~ Weapon

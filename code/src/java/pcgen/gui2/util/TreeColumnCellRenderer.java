@@ -1,5 +1,4 @@
 /*
- * TreeColumnCellRenderer.java
  * Copyright 2016 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,11 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 3, 2016, 4:52:04 PM
  */
 package pcgen.gui2.util;
 
 import java.awt.Component;
+
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
@@ -35,12 +34,11 @@ import javax.swing.tree.DefaultTreeCellRenderer;
  * cell. Then in this class we assign this tree cell's background color to the one that was set for
  * the tree.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class TreeColumnCellRenderer extends DefaultTreeCellRenderer
 {
 
-	public TreeColumnCellRenderer()
+	protected TreeColumnCellRenderer()
 	{
 		setClosedIcon(null);
 		setLeafIcon(null);
@@ -48,7 +46,8 @@ public class TreeColumnCellRenderer extends DefaultTreeCellRenderer
 	}
 
 	@Override
-	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus)
+	public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf,
+		int row, boolean hasFocus)
 	{
 		setBackgroundNonSelectionColor(tree.getBackground());
 		return super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);

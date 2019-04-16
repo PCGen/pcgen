@@ -1,0 +1,5 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+#SOURCELONG:Artifacts and Legends	SOURCESHORT:AandL	SOURCEWEB:http://paizo.com/products/btpy8u7k	SOURCEDATE:2012-10
+
+# Template Name					Visible	Ability
+Masterpiece Activation Artifacts Legends	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Song of Extinction|PREMULT:1,[PRESPELL:1,Masterpiece (Song of Extinction)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Song of Extinction)]

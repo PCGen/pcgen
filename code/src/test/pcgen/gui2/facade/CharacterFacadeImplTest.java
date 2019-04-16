@@ -1,5 +1,4 @@
 /*
- * CharacterFacadeImplTest.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -15,29 +14,27 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 13/04/2013 5:48:18 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.character.EquipSet;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
- * The Class <code>CharacterFacadeImplTest</code> verifies the behaviour of 
+ * The Class {@code CharacterFacadeImplTest} verifies the behaviour of
  * CharacterFacadeImpl.
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class CharacterFacadeImplTest extends AbstractCharacterTestCase
@@ -62,17 +59,14 @@ public class CharacterFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Incorrect id of the default equip set",
 			EquipSet.DEFAULT_SET_PATH, defaultEquipSet.getIdPath());
 	}
-	
-	/* (non-Javadoc)
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
+
+	@BeforeEach
 	@Override
-	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();
 		dataset = new MockDataSetFacade(SettingsHandler.getGame());
-		dataset.addAbilityCategory(AbilityCategory.FEAT);
+		dataset.addAbilityCategory(BuildUtilities.getFeatCat());
 		uiDelegate = new MockUIDelegate();
 	}
 

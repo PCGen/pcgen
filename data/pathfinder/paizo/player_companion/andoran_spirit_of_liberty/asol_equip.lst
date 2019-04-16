@@ -1,6 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #
-SOURCELONG:Andoran, Spirit of Liberty	SOURCESHORT:ASoL	SOURCEWEB:http://paizo.com/products/btpy8bc3?Pathfinder-Companion-Andoran-Spirit-of-Liberty	SOURCEDATE:2009-11
+SOURCELONG:Pathfinder Companion: Andoran, Spirit of Liberty	SOURCESHORT:ASoL	SOURCEWEB:http://paizo.com/products/btpy8bc3	SOURCEDATE:2009-11
 # Original Entry by: J. Hunter Johnson
 
 ###Block: Wondrous Items
@@ -15,11 +16,11 @@ Figurine of Wondrous Power (Serpentine Eagle).MOD																								SOURCEP
 Golden Eagle Epaulets																			TYPE:Magic.Wondrous.Shoulders		COST:3000	WT:0.02	SOURCEPAGE:p.26	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=1|Bless,11	BONUS:ABILITYPOOL|Golden Eagle Epaulets Skill Choice|1	SPROP:If you are reduced to 0 or fewer hit points, once per day the epaulets automatically activate a sanctuary spell (Will DC 11) on you.
 
 ###Block: Weapons
-# Equipment Name					Cost		Weight	Modifier							Special Property
-Sword (Bastard).COPY=Talon Sword
-Talon Sword.MOD					COST:35	WT:6		EQMOD:ALCHM.DEFEND.MAGIC_COST|1000.PLUS2W		SPROP:Its defending ability also protects your mount
-Sword (Bastard).COPY=Talonstrike Sword
-Talonstrike Sword.MOD				COST:35	WT:6		EQMOD:ALCHM.DEFEND.MAGIC_COST|20200.PLUS2W	SPROP:Its defending ability also protects your mount, and it can cast dimensional anchor on the target as a free action upon a successful hit
+# Equipment Name						Cost		Weight	Modifier																							Special Property																						Visible
+Bastard Sword (Base).COPY=Talon Sword																																																						VISIBLE:YES
+Talon Sword.MOD						COST:35	WT:6		EQMOD:Material ~ Alchemical Silver.Special Ability ~ Defending ~ Melee.Special Ability ~ Enhancement Cost|1000.Special Ability ~ +2 ~ Weapon	SPROP:Its defending ability also protects your mount
+Bastard Sword (Base).COPY=Talonstrike Sword																																																					VISIBLE:YES
+Talonstrike Sword.MOD					COST:35	WT:6		EQMOD:Material ~ Alchemical Silver.Special Ability ~ Defending ~ Melee.Special Ability ~ Enhancement Cost|20200.Special Ability ~ +2 ~ Weapon	SPROP:Its defending ability also protects your mount, and it can cast dimensional anchor on the target as a free action upon a successful hit
 #
 # End
 #

@@ -25,9 +25,7 @@ import pcgen.core.Skill;
  * SkillOutputOrderFacet stores the order for Skills and how they should be
  * output for a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class SkillOutputOrderFacet extends
-		AbstractAssociationFacet<CharID, Skill, Integer>
+public class SkillOutputOrderFacet extends AbstractAssociationFacet<CharID, Skill, Integer>
 {
 }

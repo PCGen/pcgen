@@ -1,0 +1,55 @@
+# This is a YES/NO code control to enable "Alignment" throughout a game mode
+ALIGNMENTFEATURE:YES
+
+# This is a YES/NO code control to enable "Domain" throughout a game mode
+DOMAINFEATURE:YES
+
+# CRITMULT
+# CRITRANGE
+# 
+# LEGS
+# CREATUREHANDS
+# 
+# FUMBLERANGE
+# 
+# ALTHP
+# 
+# EQMAXDEX
+# PCMAXDEX
+# EQACCHECK
+# PCACCHECK
+# 
+# EQSPELLFAILURE
+# PCSPELLFAILURE
+# EDR
+# 
+# FACE:Face
+#REGEX to find all common forms of Face in the code: FACE:([0-9]\.[0-9],[0-9]\.[0-9]|[0-9]+,[0-9]+|[0-9]\.[0-9]|[0-9]+)
+
+# EQRANGE
+# 
+# SIZEMODDEFENSE
+# 
+# EQBASEACMOD
+# EQACMOD
+# ALTERSAC
+# ACVARTOTAL
+# ACVARARMOR
+# 
+# EQREACH
+# PCREACH
+# 
+# INITIATIVE
+# INITIATIVESTAT
+# INITIATIVEMISC
+# INITIATIVEBONUS
+# 
+# STATINPUT
+# 
+# BASESAVE
+# TOTALSAVE
+# MISCSAVE
+# EPICSAVE
+# MAGICSAVE
+# STATMODSAVE
+# RACESAVE

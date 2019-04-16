@@ -51,7 +51,7 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Run
 ABILITY:CATEGORY=FEAT|Self-Sufficient
 ABILITY:CATEGORY=FEAT|Weapon Focus(Spear)
-GEAR:Spear	LOCATION:Equipped	EQMOD:PLUS1W
+GEAR:Spear	LOCATION:Equipped	EQMOD:Special Ability ~ +1 ~ Weapon
 ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Ahuizotl Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ahuizotl],[!PRERACE:1,%]	SOURCEPAGE:p.10
@@ -183,8 +183,8 @@ STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Improved Critical (Greatsword)
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Greatsword	LOCATION:Primary Hand	EQMOD:PLUS1W.FLM_BRST
-GEAR:Javelin	LOCATION:Carried		EQMOD:PLUS1W.FLAME
+GEAR:Greatsword	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Flaming Burst ~ Weapon
+GEAR:Javelin	LOCATION:Carried		EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Flaming ~ Weapon
 ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Ascomoid Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ascomoid],[!PRERACE:1,%]	SOURCEPAGE:p.20
@@ -212,7 +212,7 @@ STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 #ABILITY:CATEGORY=FEAT|Lightning Reflexes
 #ABILITY:CATEGORY=FEAT|Mobility
 #ABILITY:CATEGORY=FEAT|Nimble Moves
-GEAR:Kukri	QTY:2	LOCATION:Two Weapons	EQMOD:MWORKW
+GEAR:Kukri	QTY:2	LOCATION:Two Weapons	EQMOD:Special Quality ~ Masterwork ~ Weapon
 ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Asura (Aghasura) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Asura (Aghasura)],[!PRERACE:1,%]	SOURCEPAGE:p.23
@@ -236,8 +236,8 @@ STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 #ABILITY:CATEGORY=FEAT|Lightning Reflexes
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Scimitar)
-GEAR:Scimitar	QTY:2	SIZE:H	LOCATION:Two Weapons	EQMOD:MWORKW
-GEAR:Breastplate		SIZE:H	LOCATION:Equipped		EQMOD:MWORKW
+GEAR:Scimitar	QTY:2	SIZE:H	LOCATION:Two Weapons	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Breastplate		SIZE:H	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Weapon
 ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 STARTPACK:Asura (Asurendra) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Asura (Asurendra)],[!PRERACE:1,%]	SOURCEPAGE:p.24-25
@@ -315,9 +315,9 @@ STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Great Cleave
 #ABILITY:CATEGORY=FEAT|Mobility
 #ABILITY:CATEGORY=FEAT|Power Attack
-GEAR:Kukri		QTY:1	LOCATION:Primary Hand	EQMOD:MWORKW
-GEAR:Longsword	QTY:1	LOCATION:Secondary Hand	EQMOD:MWORKW
-GEAR:Spear		QTY:1	LOCATION:Carried		EQMOD:MWORKW
+GEAR:Kukri		QTY:1	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Longsword	QTY:1	LOCATION:Secondary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Spear		QTY:1	LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon
 ABILITY:CATEGORY=Traits|Trait ~ No Traits
 
 
@@ -472,7 +472,7 @@ STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Rapid Shot
 #ABILITY:CATEGORY=FEAT|Shot on the Run
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Longbow)
-GEAR:Longbow (Composite +0)	LOCATION:Equipped	EQMOD:BOWSTR.PLUS1W
+GEAR:Longbow (Composite +0)	LOCATION:Equipped	EQMOD:Special Quality ~ Composite Bow Strength Rating.Special Ability ~ +1 ~ Weapon
 
 
 STARTPACK:Behemoth (Tempest) Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Behemoth (Tempest)],[!PRERACE:1,%]	SOURCEPAGE:p.37
@@ -658,7 +658,7 @@ ALIGN:TN
 RACE:Caryatid Column	!PRERACE:1,%
 NAME:Caryatid Column
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-GEAR:Longsword	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Longsword	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Caulborn Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Caulborn],[!PRERACE:1,%]	SOURCEPAGE:p.48
@@ -702,7 +702,7 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Combat Reflexes
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Spear)
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Tentacles)
-GEAR:Spear	LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Spear	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Ceratioidi Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ceratioidi],[!PRERACE:1,%]	SOURCEPAGE:p.50
@@ -790,7 +790,7 @@ NAME:Clockwork Soldier
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Improved Initiative
 #ABILITY:CATEGORY=FEAT|Lightning Reflexes
-GEAR:Halberd	LOCATION:Primary Hand	EQMOD:PLUS1W
+GEAR:Halberd	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
 
 
 STARTPACK:Clockwork Spy Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Clockwork (Spy)],[!PRERACE:1,%]	SOURCEPAGE:p.58
@@ -824,7 +824,7 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Spirited Charge
 #ABILITY:CATEGORY=FEAT|Trample
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Glaive)
-GEAR:Glaive		LOCATION:Two Hands	EQMOD:PLUS2W.ICY_BRST
+GEAR:Glaive		LOCATION:Two Hands	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Icy Burst ~ Weapon
 GEAR:Full Plate	LOCATION:Equipped
 
 
@@ -861,7 +861,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Iron Will
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Staggering Critical
-GEAR:Greatclub		LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Greatclub		LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Rock (Medium)	LOCATION:Carried
 GEAR:Hide			LOCATION:Equipped
 
@@ -891,8 +891,8 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Stealthy
 #ABILITY:CATEGORY=FEAT|Step Up
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Dagger)
-GEAR:Dagger (Chain)	LOCATION:Equipped	EQMOD:PLUS2W.BLEED
-GEAR:Dagger (Chain)	LOCATION:Equipped	EQMOD:PLUS2W.BLEED
+GEAR:Dagger (Chain)	LOCATION:Equipped	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Bleed ~ Monster
+GEAR:Dagger (Chain)	LOCATION:Equipped	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Bleed ~ Monster
 
 
 STARTPACK:Daemon (Vulnudaemon) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Daemon (Vulnudaemon)],[!PRERACE:1,%]	SOURCEPAGE:p.63
@@ -996,7 +996,7 @@ STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 #ABILITY:CATEGORY=FEAT|Multiattack
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Ray of Enfeeblement)
-GEAR:Morningstar	LOCATION:Primary Hand	EQMOD:PLUS2W.UNHOLY
+GEAR:Morningstar	LOCATION:Primary Hand	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Unholy ~ Weapon
 
 
 STARTPACK:Demodand (Slimy) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demodand (Slimy)],[!PRERACE:1,%]	SOURCEPAGE:p.70
@@ -1026,7 +1026,7 @@ STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Lightning Reflexes
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Breastplate	LOCATION:Equipped	EQMOD:MWORKA
+GEAR:Breastplate	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Armor
 
 
 STARTPACK:Demodand (Tarry) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demodand (Tarry)],[!PRERACE:1,%]	SOURCEPAGE:p.71
@@ -1053,7 +1053,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Sword (Short))
-GEAR:Sword (Short)	QTY:2	LOCATION:Two Weapons	EQMOD:MWORKW
+GEAR:Sword (Short)	QTY:2	LOCATION:Two Weapons	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Demon (Coloxus) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demon (Coloxus)],[!PRERACE:1,%]	SOURCEPAGE:p.72
@@ -1104,7 +1104,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Lightning Reflexes
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Scimitar	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Scimitar	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Demon (Schir) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demon (Schir)],[!PRERACE:1,%]	SOURCEPAGE:p.74
@@ -1120,7 +1120,7 @@ STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 #ABILITY:CATEGORY=FEAT|Iron Will
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Halberd)
-GEAR:Halberd	LOCATION:Two Hands	EQMOD:MWORKW
+GEAR:Halberd	LOCATION:Two Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Derhii Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Derhii],[!PRERACE:1,%]	SOURCEPAGE:p.75
@@ -1136,7 +1136,7 @@ STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 #ABILITY:CATEGORY=FEAT|Combat Reflexes
 #ABILITY:CATEGORY=FEAT|Iron Will
 #ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
-GEAR:Falchion		LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Falchion		LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Javelin	QTY:4	LOCATION:Carried
 
 
@@ -1166,7 +1166,7 @@ STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
 #ABILITY:CATEGORY=FEAT|Iron Will
 #ABILITY:CATEGORY=FEAT|Mobility
 #ABILITY:CATEGORY=FEAT|Persuasive
-GEAR:Binding Contract	LOCATION:Equipped	EQMOD:PPRCT
+GEAR:Binding Contract	LOCATION:Equipped	EQMOD:Special Ability ~ Paper Cut ~ Monster
 
 
 STARTPACK:Dinosaur (Dimetrodon) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dinosaur (Dimetrodon)],[!PRERACE:1,%]	SOURCEPAGE:p.78
@@ -1296,7 +1296,7 @@ STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Staggering Critical
 #ABILITY:CATEGORY=FEAT|Stunning Critical
-GEAR:Half-Plate	LOCATION:Equipped	EQMOD:PLUS5A
+GEAR:Half-Plate	LOCATION:Equipped	EQMOD:Special Ability ~ +5 ~ Armor
 
 
 STARTPACK:Div (Doru) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Div (Doru)],[!PRERACE:1,%]	SOURCEPAGE:p.86
@@ -1383,7 +1383,7 @@ STAT:STR=11|DEX=10|CON=11|INT=11|WIS=11|CHA=10
 #ABILITY:CATEGORY=FEAT|Lightning Reflexes
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Falchion)
-GEAR:Falchion	SIZE:L	LOCATION:Primary Hand	EQMOD:PLUS1W
+GEAR:Falchion	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
 
 
 STARTPACK:Div (Shira) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Div (Shira)],[!PRERACE:1,%]	SOURCEPAGE:p.90
@@ -1426,17 +1426,26 @@ ALIGN:CG
 RACE:Dragon (Faerie)	!PRERACE:1,%
 NAME:Faerie Dragon
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-#SKILL:Acrobatics		RANK:8
-#SKILL:Bluff			RANK:9
-#SKILL:Diplomacy		RANK:9
-#SKILL:Fly			RANK:23
-#SKILL:Perception		RANK:8
-#SKILL:Sense Motive	RANK:8
-#SKILL:Stealth		RANK:17
-#SKILL:Swim			RANK:13
-#SKILL:Use Magic Device	RANK:9
-#ABILITY:CATEGORY=FEAT|Acrobatic
-#ABILITY:CATEGORY=FEAT|Dodge
+LANGBONUS:Common|Elven|Sylvan
+SKILL:Acrobatics		RANK:3
+SKILL:Bluff			RANK:3
+SKILL:Diplomacy		RANK:3
+SKILL:Fly			RANK:3
+SKILL:Perception		RANK:3
+SKILL:Sense Motive	RANK:3
+SKILL:Stealth		RANK:3
+SKILL:Swim			RANK:3
+SKILL:Use Magic Device	RANK:3
+ABILITY:CATEGORY=FEAT|Acrobatic
+ABILITY:CATEGORY=FEAT|Dodge
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Grease
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Silent Image
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Sleep
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Flare
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ghost Sound
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Open/Close
 
 
 STARTPACK:Dragonne Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragonne],[!PRERACE:1,%]	SOURCEPAGE:p.104
@@ -1632,7 +1641,7 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Precise Shot
 #ABILITY:CATEGORY=FEAT|Rapid Shot
 #ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Shortbow (Composite +0)	LOCATION:Equipped	EQMOD:BOWSTR.PLUS1W.SHOCK
+GEAR:Shortbow (Composite +0)	LOCATION:Equipped	EQMOD:Special Quality ~ Composite Bow Strength Rating.Special Ability ~ +1 ~ Weapon.Special Ability ~ Shock ~ Weapon
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
@@ -1747,7 +1756,7 @@ STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
 #ABILITY:CATEGORY=FEAT|Mobility
 #ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Scimitar)
-GEAR:Scimitar	QTY:2	LOCATION:Two Weapons	EQMOD:MWORKW
+GEAR:Scimitar	QTY:2	LOCATION:Two Weapons	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Rock (Small)		LOCATION:Carried
 GEAR:Leather		LOCATION:Equipped
 
@@ -1770,7 +1779,7 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 #ABILITY:CATEGORY=FEAT|Rapid Shot
 #ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Longbow)
-GEAR:Longbow (Composite +0)	QTY:2	LOCATION:Two Weapons	EQMOD:MWORKW.BOWSTR
+GEAR:Longbow (Composite +0)	QTY:2	LOCATION:Two Weapons	EQMOD:Special Quality ~ Masterwork ~ Weapon.Special Quality ~ Composite Bow Strength Rating
 
 
 STARTPACK:Girtablilu Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Girtablilu],[!PRERACE:1,%]	SOURCEPAGE:p.130
@@ -1790,7 +1799,7 @@ STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Lightning Reflexes
 #ABILITY:CATEGORY=FEAT|Mobility
 #ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Spear		LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Spear		LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Leather	LOCATION:Equipped
 
 
@@ -2092,7 +2101,7 @@ STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 #SKILL:Survival		RANK:6
 #ABILITY:CATEGORY=FEAT|Alertness
 #ABILITY:CATEGORY=FEAT|Dodge
-GEAR:Battleaxe	LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Battleaxe	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Leather	LOCATION:Equipped
 
 
@@ -2197,7 +2206,7 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Lightning Reflexes
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
-GEAR:Quarterstaff	LOCATION:Equipped	EQMOD:PLUS5W
+GEAR:Quarterstaff	LOCATION:Equipped	EQMOD:Special Ability ~ +5 ~ Weapon
 
 
 STARTPACK:Kami (Kodama) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kami (Kodama)],[!PRERACE:1,%]	SOURCEPAGE:p.162
@@ -2257,7 +2266,7 @@ STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Lightning Reflexes
 #ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Quarterstaff)
-GEAR:Quarterstaff	LOCATION:Equipped	EQMOD:PLUS2W
+GEAR:Quarterstaff	LOCATION:Equipped	EQMOD:Special Ability ~ +2 ~ Weapon
 
 
 STARTPACK:Kami (Zuishin) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kami (Zuishin)],[!PRERACE:1,%]	SOURCEPAGE:p.165
@@ -2279,9 +2288,9 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Precise Shot
 #ABILITY:CATEGORY=FEAT|Rapid Shot
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Longbow)
-GEAR:Longbow (Composite +0)	LOCATION:Carried	EQMOD:PLUS1W.BOWSTR
-GEAR:Halberd			LOCATION:Carried	EQMOD:PLUS1W
-GEAR:Breastplate			LOCATION:Equipped	EQMOD:MWORKA
+GEAR:Longbow (Composite +0)	LOCATION:Carried	EQMOD:Special Ability ~ +1 ~ Weapon.Special Quality ~ Composite Bow Strength Rating
+GEAR:Halberd			LOCATION:Carried	EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Breastplate			LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Armor
 
 
 STARTPACK:Kappa Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kappa],[!PRERACE:1,%]	SOURCEPAGE:p.166
@@ -2328,21 +2337,21 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Hover
 #ABILITY:CATEGORY=FEAT|Iron Will
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Gore)
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Lightning Bolt
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Restoration (Lesser)
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Scorching Ray
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Color Spray
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Cure Light Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disguise Self
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Remove Fear
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Sanctuary
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Create Water
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Guidance
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mending
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Stabilize
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Lightning Bolt
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Restoration (Lesser)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Scorching Ray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Color Spray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Cure Light Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Disguise Self
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Remove Fear
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Sanctuary
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Arcane Mark
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Create Water
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Guidance
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mending
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Stabilize
 
 
 STARTPACK:Kongamato Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kongamato],[!PRERACE:1,%]	SOURCEPAGE:p.169
@@ -2659,7 +2668,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Improved Two-Weapon Fighting
 #ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Scimitar)
-GEAR:Scimitar	QTY:2	LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Scimitar	QTY:2	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Magmin Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Magmin],[!PRERACE:1,%]	SOURCEPAGE:p.189
@@ -2967,9 +2976,9 @@ STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Improved Sunder
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Quick Draw
-GEAR:Longsword		LOCATION:Equipped	EQMOD:PLUS1W
-GEAR:Spear		QTY:4	LOCATION:Carried	EQMOD:MWORKW
-GEAR:Breastplate		LOCATION:Equipped	EQMOD:MWORKA
+GEAR:Longsword		LOCATION:Equipped	EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Spear		QTY:4	LOCATION:Carried	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Breastplate		LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Armor
 
 
 STARTPACK:Nixie Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Nixie],[!PRERACE:1,%]	SOURCEPAGE:p.201
@@ -3026,7 +3035,7 @@ STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Lightning Reflexes
 #ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Phantasmal Killer)
 GEAR:Shears	LOCATION:Primary Hand
-GEAR:Hide	LOCATION:Equipped		EQMOD:PLUS3A
+GEAR:Hide	LOCATION:Equipped		EQMOD:Special Ability ~ +3 ~ Armor
 
 
 STARTPACK:Nuckelavee Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Nuckelavee],[!PRERACE:1,%]	SOURCEPAGE:p.203
@@ -3047,7 +3056,7 @@ STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Mobility
 #ABILITY:CATEGORY=FEAT|Spring Attack
 #ABILITY:CATEGORY=FEAT|Wind Stance
-GEAR:Longsword	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Longsword	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Nue Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Nuckelavee],[!PRERACE:1,%]	SOURCEPAGE:p.204
@@ -3092,8 +3101,8 @@ STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Lightning Reflexes
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Katana		LOCATION:Primary Hand	EQMOD:PLUS1W
-GEAR:Banded Mail	LOCATION:Equipped		EQMOD:PLUS1A
+GEAR:Katana		LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Banded Mail	LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
 
 
 STARTPACK:Oni (Ice Yai) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Oni (Ice Yai)],[!PRERACE:1,%]	SOURCEPAGE:p.207
@@ -3138,9 +3147,9 @@ STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Cleave
 #ABILITY:CATEGORY=FEAT|Combat Reflexes
 #ABILITY:CATEGORY=FEAT|Power Attack
-GEAR:Half-Plate			LOCATION:Equipped	EQMOD:MWORKA
-GEAR:Greatclub			LOCATION:Equipped	EQMOD:MWORKW
-GEAR:Longbow (Composite +0)	LOCATION:Carried	EQMOD:BOWSTR
+GEAR:Half-Plate			LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Greatclub			LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Longbow (Composite +0)	LOCATION:Carried	EQMOD:Special Quality ~ Composite Bow Strength Rating
 
 
 STARTPACK:Oni (Spirit) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Oni (Spirit)],[!PRERACE:1,%]	SOURCEPAGE:p.209
@@ -3189,8 +3198,8 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Staggering Critical
 #ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Full Plate	LOCATION:Equipped	EQMOD:MWORKA
-GEAR:Greatclub	LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Full Plate	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Greatclub	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Oni (Water Yai) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Oni (Water Yai)],[!PRERACE:1,%]	SOURCEPAGE:p.212
@@ -3220,7 +3229,7 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 #ABILITY:CATEGORY=FEAT|Improved Disarm
 #ABILITY:CATEGORY=FEAT|Improved Initiative
 #ABILITY:CATEGORY=FEAT|Power Attack
-GEAR:Spear	LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Spear	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Owl (Giant) Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Owl (Giant)],[!PRERACE:1,%]	SOURCEPAGE:p.213
 ALIGN:LN
@@ -3270,7 +3279,7 @@ STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 #ABILITY:CATEGORY=FEAT|Precise Shot
 #ABILITY:CATEGORY=FEAT|Quick Draw
 #ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
-GEAR:Pistol		QTY:2	LOCATION:Two Weapons	EQMOD:PLUS1W
+GEAR:Pistol		QTY:2	LOCATION:Two Weapons	EQMOD:Special Ability ~ +1 ~ Weapon
 GEAR:Leather		LOCATION:Equipped
 
 
@@ -3314,7 +3323,7 @@ STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
 #ABILITY:CATEGORY=FEAT|Power Attack
 #ABILITY:CATEGORY=FEAT|Spring Attack
 #ABILITY:CATEGORY=FEAT|Whirlwind Attack
-GEAR:Scimitar	LOCATION:Primary Hand	EQMOD:PLUS2W.FLM_BRST
+GEAR:Scimitar	LOCATION:Primary Hand	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Flaming Burst ~ Weapon
 
 
 STARTPACK:Phantom Fungus Default	TYPE:Default Monster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Phantom Fungus],[!PRERACE:1,%]	SOURCEPAGE:p.219
@@ -3496,7 +3505,7 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Message
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
-GEAR:Falchion	LOCATION:Primary Hand	EQMOD:PLUS3W
+GEAR:Falchion	LOCATION:Primary Hand	EQMOD:Special Ability ~ +3 ~ Weapon
 
 
 STARTPACK:Rakshasa (Marai) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Rakshasa (Marai)],[!PRERACE:1,%]	SOURCEPAGE:p.228
@@ -3795,7 +3804,7 @@ STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 #SKILL:Use Magic Device		RANK:10
 #ABILITY:CATEGORY=FEAT|Combat Expertise
 #ABILITY:CATEGORY=FEAT|Iron Will
-GEAR:Falchion	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Falchion	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 
 STARTPACK:Shedu Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Shedu],[!PRERACE:1,%]	SOURCEPAGE:p.243
@@ -3845,7 +3854,7 @@ STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Stand Still
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Scythe)
 #ABILITY:CATEGORY=FEAT|Whirlwind Attack
-GEAR:Scythe	LOCATION:Equipped	EQMOD:PLUS3W.AXIOM
+GEAR:Scythe	LOCATION:Equipped	EQMOD:Special Ability ~ +3 ~ Weapon.Special Ability ~ Axiomatic ~ Weapon
 
 
 STARTPACK:Simurgh Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Simurgh],[!PRERACE:1,%]	SOURCEPAGE:p.245
@@ -4112,7 +4121,7 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Two-Weapon Defense
 #ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Quarterstaff)
-GEAR:Quarterstaff	LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Quarterstaff	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Sling		LOCATION:Carried
 
 
@@ -4178,7 +4187,7 @@ STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Regenerate)
 #ABILITY:CATEGORY=FEAT|Spell Penetration
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Mace (Light))
-GEAR:Mace (Light)	LOCATION:Primary Hand	EQMOD:PLUS2W.AXIOM
+GEAR:Mace (Light)	LOCATION:Primary Hand	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Axiomatic ~ Weapon
 
 
 STARTPACK:Thriae Seer Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Thriae (Seer)],[!PRERACE:1,%]	SOURCEPAGE:p.266
@@ -4201,7 +4210,7 @@ STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Improved Two-Weapon Fighting
 #ABILITY:CATEGORY=FEAT|Lightning Reflexes
 #ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
-GEAR:Quarterstaff	LOCATION:Equipped	EQMOD:PLUS2W
+GEAR:Quarterstaff	LOCATION:Equipped	EQMOD:Special Ability ~ +2 ~ Weapon
 
 
 STARTPACK:Thriae Soldier Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Thriae (Soldier)],[!PRERACE:1,%]	SOURCEPAGE:p.267
@@ -4218,7 +4227,7 @@ STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 #ABILITY:CATEGORY=FEAT|Precise Shot
 #ABILITY:CATEGORY=FEAT|Rapid Shot
 GEAR:Chain Shirt			LOCATION:Equipped
-GEAR:Longbow (Composite +0)	LOCATION:Equipped	EQMOD:BOWSTR
+GEAR:Longbow (Composite +0)	LOCATION:Equipped	EQMOD:Special Quality ~ Composite Bow Strength Rating
 
 
 STARTPACK:Titan (Hekatonkheires) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Titan (Hekatonkheires)],[!PRERACE:1,%]	SOURCEPAGE:p.268-269
@@ -4377,8 +4386,8 @@ STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 #ABILITY:CATEGORY=FEAT|Trample
 #ABILITY:CATEGORY=FEAT|Vital Strike
 #ABILITY:CATEGORY=FEAT|Weapon Focus (Spear)
-GEAR:Spear		LOCATION:Equipped	EQMOD:PLUS2W.RETURN
-GEAR:Breastplate	LOCATION:Equipped	EQMOD:PLUS2A
+GEAR:Spear		LOCATION:Equipped	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Returning ~ Thrown
+GEAR:Breastplate	LOCATION:Equipped	EQMOD:Special Ability ~ +2 ~ Armor
 
 
 STARTPACK:Vodyanoi Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Vodyanoi],[!PRERACE:1,%]	SOURCEPAGE:p.282

@@ -1,5 +1,4 @@
 /*
- * PCVarFunction.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,13 +15,13 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 25/10/2013
  */
 package pcgen.io.freemarker;
 
 import java.util.List;
 
 import pcgen.core.PlayerCharacter;
+
 import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;
 
@@ -31,7 +30,6 @@ import freemarker.template.TemplateModelException;
  * Freemarker template. It evaluates a variable for the current character and 
  * returns the value as a number. e.g. ${pcvar("CL=Fighter")} 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PCVarFunction implements TemplateMethodModelEx
 {
@@ -52,8 +50,7 @@ public class PCVarFunction implements TemplateMethodModelEx
 	{
 		if (arg0.size() != 1)
 		{
-			throw new TemplateModelException(
-				"Wrong arguments. formula required");
+			throw new TemplateModelException("Wrong arguments. formula required");
 		}
 
 		String formula = arg0.get(0).toString();

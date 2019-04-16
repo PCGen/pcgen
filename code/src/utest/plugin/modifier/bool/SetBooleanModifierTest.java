@@ -17,22 +17,24 @@
  */
 package plugin.modifier.bool;
 
-import pcgen.base.format.BooleanManager;
-import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ManagerFactory;
-import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.solver.Modifier;
-import pcgen.base.util.FormatManager;
-import pcgen.rules.persistence.token.ModifierFactory;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Test;
+import pcgen.base.calculation.FormulaModifier;
+import pcgen.base.format.BooleanManager;
+import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.modifier.testsupport.EvalManagerUtilities;
-import static org.junit.Assert.*;
+
+import org.junit.jupiter.api.Test;
 
 public class SetBooleanModifierTest
 {
 
-	private final LegalScope varScope = new SimpleLegalScope(null, "Global");
+	private final PCGenScope varScope = new GlobalScope();
 	private FormatManager<Boolean> booleanManager = new BooleanManager();
 
 	@Test
@@ -41,7 +43,7 @@ public class SetBooleanModifierTest
 		try
 		{
 			ModifierFactory m = new SetModifierFactory();
-			m.getModifier(100, null, new ManagerFactory(){}, null, null, null);
+			m.getModifier(null, new ManagerFactory(){}, null, null, null);
 			fail("Expected SetModifier with null set value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -54,10 +56,11 @@ public class SetBooleanModifierTest
 	public void testGetModifier()
 	{
 		ModifierFactory factory = new SetModifierFactory();
-		Modifier<Boolean> modifier =
-				factory.getModifier(5, "True", new ManagerFactory(){}, null, varScope, booleanManager);
-		assertEquals(5l<<32, modifier.getPriority());
-		assertSame(Boolean.class, modifier.getVariableFormat());
+		FormulaModifier<Boolean> modifier =
+				factory.getModifier("True", new ManagerFactory(){}, null, varScope, booleanManager);
+		modifier.addAssociation("PRIORITY=5");
+		assertEquals(5L <<32, modifier.getPriority());
+		assertEquals(booleanManager, modifier.getVariableFormat());
 		assertEquals(Boolean.TRUE, modifier.process(EvalManagerUtilities.getInputEM(Boolean.FALSE)));
 	}
 

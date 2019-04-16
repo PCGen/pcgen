@@ -39,8 +39,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<EquipmentModifier>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, EquipmentModifier obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, EquipmentModifier obj, String value)
 	{
 		if (value == null)
 		{
@@ -48,15 +47,13 @@ public class NoChoiceToken implements CDOMSecondaryToken<EquipmentModifier>
 			context.getObjectContext().put(obj, StringKey.CHOICE_STRING, getTokenName());
 			return ParseResult.SUCCESS;
 		}
-		return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " must not have arguments: " + value, context);
+		return new ParseResult.Fail("CHOOSE:" + getTokenName() + " must not have arguments: " + value);
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier eqMod)
 	{
-		String chooseString = context.getObjectContext().getString(eqMod,
-				StringKey.CHOICE_STRING);
+		String chooseString = context.getObjectContext().getString(eqMod, StringKey.CHOICE_STRING);
 		if (chooseString == null)
 		{
 			return null;
@@ -74,7 +71,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<EquipmentModifier>
 			}
 			returnString = chooseString.substring(getTokenName().length() + 1);
 		}
-		return new String[] { returnString };
+		return new String[]{returnString};
 	}
 
 	@Override

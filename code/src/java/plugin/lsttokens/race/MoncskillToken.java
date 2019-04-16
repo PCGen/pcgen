@@ -51,8 +51,8 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with MONCSKILL Token
  */
-public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
-		CDOMPrimaryToken<Race>, ChooseSelectionActor<Skill>
+public class MoncskillToken extends AbstractTokenWithSeparator<Race>
+		implements CDOMPrimaryToken<Race>, ChooseSelectionActor<Skill>
 {
 
 	private static final Class<Skill> SKILL_CLASS = Skill.class;
@@ -70,16 +70,15 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			Race race, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Race race, String value)
 	{
 		boolean firstToken = true;
 		boolean foundAny = false;
 		boolean foundOther = false;
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		CDOMGroupRef<ClassSkillList> monsterList = context.getReferenceContext()
-				.getCDOMTypeReference(ClassSkillList.class, "Monster");
+		CDOMGroupRef<ClassSkillList> monsterList =
+				context.getReferenceContext().getCDOMTypeReference(ClassSkillList.class, "Monster");
 
 		while (tok.hasMoreTokens())
 		{
@@ -88,12 +87,10 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 			{
 				if (!firstToken)
 				{
-					return new ParseResult.Fail("Non-sensical situation was "
-							+ "encountered while parsing " + getTokenName()
-							+ ": When used, .CLEAR must be the first argument", context);
+					return new ParseResult.Fail("Non-sensical situation was " + "encountered while parsing "
+						+ getTokenName() + ": When used, .CLEAR must be the first argument");
 				}
-				context.getListContext().removeAllFromList(getTokenName(),
-						race, monsterList);
+				context.getListContext().removeAllFromList(getTokenName(), race, monsterList);
 			}
 			else if (tokText.startsWith(Constants.LST_DOT_CLEAR_DOT))
 			{
@@ -107,24 +104,20 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 				{
 					if (Constants.LST_LIST.equals(clearText))
 					{
-						context.getObjectContext().removeFromList(race,
-								ListKey.NEW_CHOOSE_ACTOR, this);
+						context.getObjectContext().removeFromList(race, ListKey.NEW_CHOOSE_ACTOR, this);
 					}
 					else
 					{
 						skill = getSkillReference(context, clearText);
 						if (skill == null)
 						{
-							return new ParseResult.Fail(
-									"  Error was encountered while parsing "
-											+ getTokenName(), context);
+							return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
 						}
 					}
 				}
 				if (skill != null)
 				{
-					context.getListContext().removeFromList(getTokenName(),
-							race, monsterList, skill);
+					context.getListContext().removeFromList(getTokenName(), race, monsterList, skill);
 				}
 			}
 			else
@@ -148,78 +141,67 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 					foundOther = true;
 					if (Constants.LST_LIST.equals(tokText))
 					{
-						context.getObjectContext().addToList(race,
-								ListKey.NEW_CHOOSE_ACTOR, this);
+						context.getObjectContext().addToList(race, ListKey.NEW_CHOOSE_ACTOR, this);
 					}
 					else
 					{
 						skill = getSkillReference(context, tokText);
 						if (skill == null)
 						{
-							return new ParseResult.Fail(
-									"  Error was encountered while parsing "
-											+ getTokenName(), context);
+							return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
 						}
 					}
 				}
 				if (skill != null)
 				{
-					AssociatedPrereqObject apo = context
-							.getListContext()
-							.addToList(getTokenName(), race, monsterList, skill);
-					apo.setAssociation(AssociationKey.SKILL_COST,
-							SkillCost.CLASS);
+					AssociatedPrereqObject apo =
+							context.getListContext().addToList(getTokenName(), race, monsterList, skill);
+					apo.setAssociation(AssociationKey.SKILL_COST, SkillCost.CLASS);
 				}
 			}
 			firstToken = false;
 		}
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+			return new ParseResult.Fail(
+				"Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
 
-	private CDOMReference<Skill> getSkillReference(LoadContext context,
-			String tokText)
+	private CDOMReference<Skill> getSkillReference(LoadContext context, String tokText)
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{
-			return new PatternMatchingReference<>(Skill.class, context.getReferenceContext()
-					.getCDOMAllReference(SKILL_CLASS), tokText);
+			return new PatternMatchingReference<>(context.getReferenceContext().getCDOMAllReference(SKILL_CLASS),
+				tokText);
 		}
 		else
 		{
-			return TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS,
-					tokText);
+			return TokenUtilities.getTypeOrPrimitive(context, SKILL_CLASS, tokText);
 		}
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		CDOMGroupRef<ClassSkillList> monsterList = context.getReferenceContext()
-				.getCDOMTypeReference(ClassSkillList.class, "Monster");
-		AssociatedChanges<CDOMReference<Skill>> changes = context
-				.getListContext().getChangesInList(getTokenName(), race,
-						monsterList);
-		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
-				.getListChanges(race, ListKey.NEW_CHOOSE_ACTOR);
+		CDOMGroupRef<ClassSkillList> monsterList =
+				context.getReferenceContext().getCDOMTypeReference(ClassSkillList.class, "Monster");
+		AssociatedChanges<CDOMReference<Skill>> changes =
+				context.getListContext().getChangesInList(getTokenName(), race, monsterList);
+		Changes<ChooseSelectionActor<?>> listChanges =
+				context.getObjectContext().getListChanges(race, ListKey.NEW_CHOOSE_ACTOR);
 		List<String> list = new ArrayList<>();
 		Collection<CDOMReference<Skill>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
 		{
 			if (changes.includesGlobalClear())
 			{
-				context.addWriteMessage("Non-sensical relationship in "
-						+ getTokenName()
-						+ ": global .CLEAR and local .CLEAR. performed");
+				context.addWriteMessage(
+					"Non-sensical relationship in " + getTokenName() + ": global .CLEAR and local .CLEAR. performed");
 				return null;
 			}
-			list.add(Constants.LST_DOT_CLEAR_DOT
-					+ ReferenceUtilities
-							.joinLstFormat(removedItems, "|.CLEAR."));
+			list.add(Constants.LST_DOT_CLEAR_DOT + ReferenceUtilities.joinLstFormat(removedItems, "|.CLEAR."));
 		}
 		Collection<ChooseSelectionActor<?>> listRemoved = listChanges.getRemoved();
 		if (listRemoved != null && !listRemoved.isEmpty())
@@ -233,8 +215,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 		{
 			list.add(Constants.LST_DOT_CLEAR);
 		}
-		MapToList<CDOMReference<Skill>, AssociatedPrereqObject> map = changes
-				.getAddedAssociations();
+		MapToList<CDOMReference<Skill>, AssociatedPrereqObject> map = changes.getAddedAssociations();
 		if (map != null && !map.isEmpty())
 		{
 			Set<CDOMReference<Skill>> added = map.getKeySet();
@@ -242,11 +223,9 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 			{
 				for (AssociatedPrereqObject assoc : map.getListFor(ab))
 				{
-					if (!SkillCost.CLASS.equals(assoc
-							.getAssociation(AssociationKey.SKILL_COST)))
+					if (!SkillCost.CLASS.equals(assoc.getAssociation(AssociationKey.SKILL_COST)))
 					{
-						context.addWriteMessage("Skill Cost must be "
-								+ "CLASS for Token " + getTokenName());
+						context.addWriteMessage("Skill Cost must be " + "CLASS for Token " + getTokenName());
 						return null;
 					}
 				}
@@ -266,8 +245,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 					}
 					catch (PersistenceLayerException e)
 					{
-						context.addWriteMessage("Error writing Prerequisite: "
-								+ e);
+						context.addWriteMessage("Error writing Prerequisite: " + e);
 						return null;
 					}
 				}

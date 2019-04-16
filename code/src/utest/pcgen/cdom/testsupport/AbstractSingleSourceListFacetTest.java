@@ -17,6 +17,15 @@
  */
 package pcgen.cdom.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -29,23 +38,22 @@ import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 
-import junit.framework.TestCase;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
-		TestCase
+public abstract class AbstractSingleSourceListFacetTest<CT, ST>
 {
 	private CharID id;
 	private CharID altid;
 
-	private Listener listener = new Listener();
-	ST oneSource = developSource();
+	private final Listener listener = new Listener();
+	private final ST oneSource = developSource();
 
 	private class Listener implements DataFacetChangeListener<CharID, CT>
 	{
 
-		public int addEventCount;
-		public int removeEventCount;
+		private int addEventCount;
+		private int removeEventCount;
 
         @Override
 		public void dataAdded(DataFacetChangeEvent<CharID, CT> dfce)
@@ -61,10 +69,9 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 
 	}
 
-	@Override
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -92,8 +99,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 	@Test
 	public void testRemoveAllUnsetEmpty()
 	{
-		// Not particularly a test, just make sure it doesn't throw an exception
-		getFacet().removeAll(id, oneSource);
+		assertDoesNotThrow(() -> getFacet().removeAll(id, oneSource));
 	}
 
 	@Test
@@ -109,15 +115,8 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		ST source1 = developSource();
 		//Remove to try to avoid any event being formed
 		getFacet().removeDataFacetChangeListener(listener);
-		try
-		{
-			getFacet().add(null, getTypeObj(), source1);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// Yep!
-		}
+		assertThrows(NullPointerException.class,
+				() -> getFacet().add(null, getTypeObj(), source1));
 		testObjUnsetZeroCount();
 		testObjUnsetEmpty();
 		testObjUnsetEmptySet();
@@ -133,7 +132,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 			getFacet().add(id, null, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -152,7 +151,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 			getFacet().add(id, t1, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// OK
 		}
@@ -388,7 +387,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 			getFacet().addAll(id, pct, source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -588,11 +587,11 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		assertTrue(setoftwo.contains(t3));
 		// Prove independence
 		pct.remove(t1);
-		setoftwo = getFacet().getSet(id);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t2));
-		assertTrue(setoftwo.contains(t3));
+		Set<CT> set = getFacet().getSet(id);
+		assertNotNull(set);
+		assertEquals(2, set.size());
+		assertTrue(set.contains(t2));
+		assertTrue(set.contains(t3));
 	}
 
 	@Test
@@ -1012,5 +1011,4 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 	protected abstract AbstractSingleSourceListFacet<CT, ST> getFacet();
 
 	protected abstract ST developSource();
-
 }

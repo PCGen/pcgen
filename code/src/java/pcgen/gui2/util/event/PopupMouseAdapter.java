@@ -1,5 +1,4 @@
 /*
- * PopupMouseAdapter.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Sep 8, 2008, 4:08:31 PM
  */
 package pcgen.gui2.util.event;
 
@@ -25,31 +23,30 @@ import java.awt.event.MouseEvent;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public abstract class PopupMouseAdapter extends MouseAdapter
 {
 
-    public abstract void showPopup(MouseEvent e);
+	public abstract void showPopup(MouseEvent e);
 
-    protected void maybeShowPopup(MouseEvent e)
-    {
-        if (e.isPopupTrigger())
-        {
-            showPopup(e);
-        }
-    }
+	protected void maybeShowPopup(MouseEvent e)
+	{
+		if (e.isPopupTrigger())
+		{
+			showPopup(e);
+		}
+	}
 
-    @Override
-    public void mousePressed(MouseEvent e)
-    {
-        maybeShowPopup(e);
-    }
+	@Override
+	public void mousePressed(MouseEvent e)
+	{
+		maybeShowPopup(e);
+	}
 
-    @Override
-    public void mouseReleased(MouseEvent e)
-    {
-        maybeShowPopup(e);
-    }
+	@Override
+	public void mouseReleased(MouseEvent e)
+	{
+		maybeShowPopup(e);
+	}
 
 }

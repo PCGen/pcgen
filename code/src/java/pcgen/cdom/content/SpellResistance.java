@@ -32,8 +32,7 @@ public class SpellResistance extends ConcretePrereqObject
 	 * The special case of no spell resistance. This is "cached" in order to
 	 * provide reuse of this case during runtime.
 	 */
-	public static final SpellResistance NONE = new SpellResistance(
-			FormulaFactory.ZERO);
+	public static final SpellResistance NONE = new SpellResistance(FormulaFactory.ZERO);
 
 	/**
 	 * The Formula representing the reduction provided by this SpellResistance.
@@ -49,7 +48,6 @@ public class SpellResistance extends ConcretePrereqObject
 	 */
 	public SpellResistance(Formula aReduction)
 	{
-		super();
 		reduction = aReduction;
 	}
 
@@ -63,23 +61,12 @@ public class SpellResistance extends ConcretePrereqObject
 		return reduction;
 	}
 
-	/**
-	 * Returns a String representation of this SpellResistance.
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
 		return reduction.toString();
 	}
 
-	/**
-	 * Returns true if the given object is a SpellResistance with equal
-	 * reduction to this Spell Resistance.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object other)
 	{
@@ -91,11 +78,6 @@ public class SpellResistance extends ConcretePrereqObject
 		return false;
 	}
 
-	/**
-	 * Provides a consistent-with-equals hashCode for this SpellResistance.
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

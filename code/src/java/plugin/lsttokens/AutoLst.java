@@ -25,12 +25,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- *
- */
-public class AutoLst extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class AutoLst extends AbstractNonEmptyToken<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -40,23 +35,19 @@ public class AutoLst extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " requires a SubToken", context);
+			return new ParseResult.Fail(getTokenName() + " requires a SubToken");
 		}
-		return context.processSubToken(obj, getTokenName(), value.substring(0,
-				pipeLoc), value.substring(pipeLoc + 1));
+		return context.processSubToken(obj, getTokenName(), value.substring(0, pipeLoc), value.substring(pipeLoc + 1));
 	}
 
 	@Override

@@ -20,58 +20,49 @@ package pcgen.cdom.primitive;
 import java.text.Collator;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.PrimitiveCollection;
 
+import org.jetbrains.annotations.NotNull;
+
 public final class PrimitiveUtilities
 {
-
 	/**
 	 * A COLLATOR used to sort Strings in a locale-aware method.
 	 */
 	private static final Collator COLLATOR = Collator.getInstance();
 
+	/**
+	 * A Comparator used to sort PrimitiveCollection objects
+	 */
+	public static final Comparator<PrimitiveCollection<?>> COLLECTION_SORTER =
+			(lstw1, lstw2) -> COLLATOR.compare(lstw1.getLSTformat(false), lstw2.getLSTformat(false));
+
 	private PrimitiveUtilities()
 	{
-		// Cannot construct utility class
+		//Prohibit use of constructor in final/utility class
 	}
 
-	public static final Comparator<PrimitiveCollection<?>> COLLECTION_SORTER =
-			new Comparator<PrimitiveCollection<?>>()
+	/**
+	 * Joins the LST format of a Collection of PrimitiveCollection objects.
+	 * 
+	 * @param pcCollection
+	 *            The Collection of PrimitiveCollection objects
+	 * @param separator
+	 *            The separator used to separate the LST format of the PrimitiveCollection
+	 *            objects
+	 * @param useAny
+	 *            true if "ANY" should be used for all items; false if "ALL" should be
+	 *            used
+	 * @return A String of the joined LST formats of the given Collection of
+	 *         PrimitiveCollection objects
+	 */
+	@NotNull
+	public static String joinLstFormat(@NotNull Collection<? extends PrimitiveCollection<?>> pcCollection,
+		@NotNull CharSequence separator, boolean useAny)
 	{
-		@Override
-		public int compare(PrimitiveCollection<?> lstw1,
-				PrimitiveCollection<?> lstw2)
-		{
-			return COLLATOR.compare(lstw1.getLSTformat(false), lstw2.getLSTformat(false));
-		}
-	};
-
-	public static String joinLstFormat(
-			Collection<? extends PrimitiveCollection<?>> pcfCollection,
-			String separator, boolean useAny)
-	{
-		if (pcfCollection == null)
-		{
-			return "";
-		}
-
-		final StringBuilder result = new StringBuilder(
-				pcfCollection.size() * 10);
-
-		boolean needjoin = false;
-
-		for (PrimitiveCollection<?> pcf : pcfCollection)
-		{
-			if (needjoin)
-			{
-				result.append(separator);
-			}
-			needjoin = true;
-			result.append(pcf.getLSTformat(useAny));
-		}
-
-		return result.toString();
+		return pcCollection.stream().map(pcf -> pcf.getLSTformat(useAny)).collect(Collectors.joining(separator));
 	}
 
 }

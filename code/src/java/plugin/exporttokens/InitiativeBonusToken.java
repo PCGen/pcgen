@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens;
 
@@ -39,9 +34,6 @@ public class InitiativeBonusToken extends Token
 	/** Token Name */
 	public static final String TOKENNAME = "INITIATIVEBONUS";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -50,12 +42,8 @@ public class InitiativeBonusToken extends Token
 
 	//TODO: Merge InitiativeBonusToken, InitiativeMiscToken and InitiativeModToken
 	//to become INITIATIVE.BONUS, INITAITIVE.MISC & INITIATIVE.MOD
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		return Delta.toString(getInitiativeBonusToken(pc));
 	}
@@ -67,12 +55,10 @@ public class InitiativeBonusToken extends Token
 	 */
 	public static int getInitiativeBonusToken(PlayerCharacter pc)
 	{
-		String initiativeVar = ControlUtilities
-				.getControlToken(Globals.getContext(), CControl.INITIATIVEBONUS);
+		String initiativeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.INITIATIVEBONUS);
 		if (initiativeVar == null)
 		{
-			return pc.getDisplay().processOldInitiativeMod()
-				- pc.getVariableValue("INITCOMP", "").intValue();
+			return pc.getDisplay().processOldInitiativeMod() - pc.getVariableValue("INITCOMP", "").intValue();
 		}
 		return ((Number) pc.getGlobal(initiativeVar)).intValue();
 	}

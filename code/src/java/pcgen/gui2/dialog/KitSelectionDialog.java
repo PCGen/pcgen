@@ -1,5 +1,4 @@
 /*
- * KitSelectionDialog.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 01/03/2012 8:01:51 AM
- *
- * $Id$
  */
 package pcgen.gui2.dialog;
 
@@ -33,6 +28,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.kits.KitPanel;
@@ -40,21 +36,18 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>KitSelectionDialog</code> provides a pop-up dialog that allows 
+ * The Class {@code KitSelectionDialog} provides a pop-up dialog that allows
  * the user to add kits to a character. Kits are prepared groups of equipment and 
  * other rules items.  
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
-public class KitSelectionDialog extends JDialog
-		implements ActionListener
+public class KitSelectionDialog extends JDialog implements ActionListener
 {
-	private KitPanel kitPanel;
-	private JPanel buttonPanel;
-	private JButton closeButton;
+	private final KitPanel kitPanel;
+	private final JPanel buttonPanel;
+	private final JButton closeButton;
 
 	/**
 	 * Create a new instance of KitSelectionDialog
@@ -69,7 +62,7 @@ public class KitSelectionDialog extends JDialog
 		this.closeButton = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
 		this.closeButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
 		this.kitPanel = new KitPanel(character);
-		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		initComponents();
 		pack();
 		Utility.resizeComponentToScreen(this);
@@ -81,7 +74,7 @@ public class KitSelectionDialog extends JDialog
 		pane.setLayout(new BorderLayout());
 
 		pane.add(kitPanel, BorderLayout.CENTER);
-		
+
 		closeButton.addActionListener(this);
 
 		Box buttons = Box.createHorizontalBox();
@@ -90,7 +83,7 @@ public class KitSelectionDialog extends JDialog
 		buttons.add(closeButton);
 		buttons.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		pane.add(buttons, BorderLayout.SOUTH);
-		
+
 		Utility.installEscapeCloseOperation(this);
 	}
 

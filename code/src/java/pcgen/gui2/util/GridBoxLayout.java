@@ -1,5 +1,4 @@
 /*
- * GridBoxLayout.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -18,10 +17,13 @@
  *
  */
 
-
 package pcgen.gui2.util;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.Insets;
 import java.io.Serializable;
 
 /**
@@ -29,7 +31,7 @@ import java.io.Serializable;
  */
 public class GridBoxLayout extends GridLayout implements Serializable
 {
-	
+
 	/**
 	 * Constructor
 	 * @param rows
@@ -46,7 +48,7 @@ public class GridBoxLayout extends GridLayout implements Serializable
 	 * @param cols
 	 * @param hgap
 	 * @param vgap
-	 * @throws IllegalArgumentException
+	 * @throws IllegalArgumentException  if the value of both rows and cols is set to zero
 	 */
 	public GridBoxLayout(int rows, int cols, int hgap, int vgap) throws IllegalArgumentException
 	{
@@ -119,9 +121,9 @@ public class GridBoxLayout extends GridLayout implements Serializable
 			}
 
 			return new Dimension(insets.left + insets.right + w + (nCols - 1) * getHgap(),
-			 insets.top + insets.bottom + h + (nRows - 1) * getVgap());
-    }
-  }
+				insets.top + insets.bottom + h + (nRows - 1) * getVgap());
+		}
+	}
 
 	@Override
 	public Dimension minimumLayoutSize(Container parent)
@@ -189,9 +191,9 @@ public class GridBoxLayout extends GridLayout implements Serializable
 			}
 
 			return new Dimension(insets.left + insets.right + w + (nCols - 1) * getHgap(),
-			 insets.top + insets.bottom + h + (nRows - 1) * getVgap());
+				insets.top + insets.bottom + h + (nRows - 1) * getVgap());
 		}
-  }
+	}
 
 	@Override
 	public void layoutContainer(Container parent)
@@ -265,8 +267,8 @@ public class GridBoxLayout extends GridLayout implements Serializable
 
 			Dimension pDim = parent.getSize();
 
-			int pWidth = pDim.width - (insets.left + insets.right) - (nCols -	1) * getHgap();
-			int pHeight = pDim.height - (insets.top + insets.bottom) - (nRows -	1) * getVgap();
+			int pWidth = pDim.width - (insets.left + insets.right) - (nCols - 1) * getHgap();
+			int pHeight = pDim.height - (insets.top + insets.bottom) - (nRows - 1) * getVgap();
 
 			float widthProportion = (float) pWidth / w;
 			float heightProportion = (float) pHeight / h;

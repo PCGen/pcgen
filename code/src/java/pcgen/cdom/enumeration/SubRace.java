@@ -19,12 +19,12 @@ package pcgen.cdom.enumeration;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.util.CaseInsensitiveMap;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant. It is designed to hold SubRaces in a
  * type-safe fashion, so that they can be quickly compared and use less memory
@@ -51,15 +51,11 @@ public final class SubRace implements TypeSafeConstant
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private SubRace(String name)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException(
-					"Name for SubRace cannot be null");
-		}
+		Objects.requireNonNull(name, "Name for SubRace cannot be null");
 		ordinal = ordinalCount++;
 		fieldName = name;
 	}
@@ -133,8 +129,7 @@ public final class SubRace implements TypeSafeConstant
 		SubRace subRace = typeMap.get(name);
 		if (subRace == null)
 		{
-			throw new IllegalArgumentException(name
-					+ " is not a previously defined SubRace");
+			throw new IllegalArgumentException(name + " is not a previously defined SubRace");
 		}
 		return subRace;
 	}

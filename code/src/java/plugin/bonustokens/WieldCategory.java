@@ -14,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 13, 2002, 9:19 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.bonustokens;
 
@@ -29,14 +24,13 @@ import pcgen.core.bonus.MultiTagBonusObj;
  */
 public final class WieldCategory extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS =
-			{"LIGHT", "ONEHANDED", "TWOHANDED"};
+	private static final String[] BONUS_TAGS = {"LIGHT", "ONEHANDED", "TWOHANDED"};
 
 	/**
 	 * Return the bonus tag handled by this class.
 	 * @return The bonus handled by this class.
 	 */
-		@Override
+	@Override
 	public String getBonusHandled()
 	{
 		return "WIELDCATEGORY";
@@ -45,7 +39,6 @@ public final class WieldCategory extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual wield category that may be bonused.
 	 * @param tagNumber the index of the wield category.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The wield category.
 	 */
 	@Override
@@ -56,7 +49,6 @@ public final class WieldCategory extends MultiTagBonusObj
 
 	/**
 	 * Get the number of wield categories that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of wield categories.
 	 */
 	@Override

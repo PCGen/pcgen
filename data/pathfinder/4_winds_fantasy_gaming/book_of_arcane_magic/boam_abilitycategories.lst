@@ -1,0 +1,20 @@
+# Sun Jan 20 20:05:07 2019 -- reformated by PCGen PrettyLST v6.08.00
+# Original Entry by: AinvarG, June 19, 2010
+# Revised by: LearnTribe, 22 August, 2017
+
+# Sorcerer Bloodline Feats
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Specific choices list						Plural description for UI		Display Location
+ABILITYCATEGORY:Bestial Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:BestialBloodline											PLURAL:Bestial Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Divine Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DivineBloodline											PLURAL:Divine Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Feline Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:FelineBloodline											PLURAL:Feline Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Fiendish Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:FiendishBloodline		ABILITYLIST:Skill Focus(Perception)				PLURAL:Fiendish Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Genie Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:GenieBloodline											PLURAL:Genie Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Lycanthropic Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:LycanthropicBloodline										PLURAL:Lycanthropic Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Mixed Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MixedBloodline											PLURAL:Mixed Bloodline Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Monstrous Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MonstrousBloodline											PLURAL:Monstrous Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Nightmarish Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:NightmarishBloodline										PLURAL:Nightmarish Bloodline Feats	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Scaly Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ScalyBloodline											PLURAL:Scaly Bloodline Feats		DISPLAYLOCATION:Feats
+
+# College Trained Bard Feat
+ABILITYCATEGORY:College Trained Bard Knowledge skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability						ABILITYLIST:College Trained Bard Knowledge bonus							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:College Trained Bard Perform skill	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability						ABILITYLIST:College Trained Bard Perform bonus								DISPLAYLOCATION:Feats

@@ -17,6 +17,8 @@
  */
 package tokenmodel;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Collection;
 
 import pcgen.cdom.base.CDOMObject;
@@ -25,13 +27,14 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Language;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.add.AbilityToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
 import tokenmodel.testsupport.AbstractAddListTokenTest;
+import util.TestURI;
 
 public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 {
@@ -47,7 +50,7 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 				ADD_ABILITY_TOKEN.parseToken(context, source, "FEAT|VIRTUAL|Granted (English)");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -74,7 +77,7 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 	@Override
 	protected int getCount()
 	{
-		return getTargetFacet().getPoolAbilities(id, AbilityCategory.FEAT, Nature.VIRTUAL)
+		return getTargetFacet().getPoolAbilities(id, BuildUtilities.getFeatCat(), Nature.VIRTUAL)
 			.size();
 	}
 
@@ -82,12 +85,11 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 	protected boolean containsExpected(Ability granted)
 	{
 		Collection<CNAbility> abilities =
-				getTargetFacet().getPoolAbilities(id, AbilityCategory.FEAT, Nature.VIRTUAL);
+				getTargetFacet().getPoolAbilities(id, BuildUtilities.getFeatCat(), Nature.VIRTUAL);
 		for (CNAbility a : abilities)
 		{
-			boolean abilityExpected =
-					a.getAbility().equals(context.getReferenceContext().silentlyGetConstructedCDOMObject(
-						Ability.class, AbilityCategory.FEAT, "Granted"));
+			boolean abilityExpected = a.getAbility().equals(context.getReferenceContext()
+				.getManufacturerId(BuildUtilities.getFeatCat()).getActiveObject("Granted"));
 			if (abilityExpected)
 			{
 				if (pc.getDetailedAssociationCount(a) == 1)
@@ -121,39 +123,38 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 	protected Ability createGrantedObject()
 	{
 		context.getReferenceContext().constructCDOMObject(Language.class, "English");
-		Ability a = super.createGrantedObject();
+		Ability a = BuildUtilities.buildFeat(context, "Granted");
 		ParseResult result = AUTO_LANG_TOKEN.parseToken(context, a, "%LIST");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		result = CHOOSE_LANG_TOKEN.parseToken(context, a, "ALL");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
 		return a;
 	}
 
 	//TODO CODE-2016/CODE-1921 (needs to be consistent with other methods of ADD:)
 	@Override
-	public void testFromAbility() throws PersistenceLayerException
+	public void testFromAbility()
 	{
 		//Not supported equivalent to other methods
 	}
 
 	//TODO CODE-2016 (needs to be consistent with other methods of ADD:)
 	@Override
-	public void testFromClass() throws PersistenceLayerException
+	public void testFromClass()
 	{
 		//Not supported equivalent to other methods
 	}

@@ -17,27 +17,28 @@
  */
 package plugin.lsttokens.editcontext.pcclass.level;
 
-import java.net.URI;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URISyntaxException;
-
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
 
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.persistence.lst.LstToken;
-import pcgen.persistence.lst.TokenStore;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import util.TestURI;
+
+public abstract class AbstractPCClassLevelTokenTestCase
 {
 	protected LoadContext primaryContext;
 	protected LoadContext secondaryContext;
@@ -47,27 +48,19 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	protected PCClassLevel secondaryProf2;
 	protected PCClassLevel primaryProf3;
 	protected PCClassLevel secondaryProf3;
-	static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<>();
+	protected static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<>();
 
-	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 
-	@BeforeClass
-	public static final void classSetUp() throws URISyntaxException
+	@BeforeAll
+	public static void classSetUp()
 	{
-		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
-				"file:/Test%20Case"));
-		classSetUpFired = true;
+		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
-	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		// Yea, this causes warnings...
 		TokenRegistration.register(getToken());
 		primaryContext = new EditorLoadContext();
@@ -91,11 +84,6 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		return PCClassLevel.class;
 	}
 
-	public static void addToken(LstToken tok)
-	{
-		TokenStore.inst().addToTokenMap(tok);
-	}
-
 	public void runRoundRobin(String... str) throws PersistenceLayerException
 	{
 		// Default is not to write out anything
@@ -116,14 +104,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		assertNull(getToken().unparse(primaryContext, primaryProf3));
 		// Get back the appropriate token:
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf2);
-
-		assertEquals(str.length, unparsed.length);
-
-		for (int i = 0; i < str.length; i++)
-		{
-			assertEquals("Expected " + i + " item to be equal", str[i],
-					unparsed[i]);
-		}
+		assertArrayEquals(str, unparsed);
 
 		// Do round Robin
 		StringBuilder unparsedBuilt = new StringBuilder();
@@ -151,12 +132,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		String[] sUnparsed = getToken().unparse(secondaryContext,
 				secondaryProf2);
 		assertEquals(unparsed.length, sUnparsed.length);
-
-		for (int i = 0; i < unparsed.length; i++)
-		{
-			assertEquals("Expected " + i + " item to be equal", unparsed[i],
-					sUnparsed[i]);
-		}
+		assertArrayEquals(sUnparsed, unparsed);
 	}
 
 	public abstract CDOMPrimaryToken<PCClassLevel> getToken();

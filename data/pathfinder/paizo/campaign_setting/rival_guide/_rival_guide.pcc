@@ -1,0 +1,55 @@
+CAMPAIGN:Rival Guide
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Campaign Setting
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Campaign Setting
+SETTING:Pathfinder
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Bestiary
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Rival Guide
+SOURCESHORT:RG
+SOURCEWEB:https://paizo.com/products/btpy8kc
+SOURCEDATE:2011-05
+ISOGL:YES
+
+COVER:rival_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|https://paizo.com/products/btpy8kc|Buy this publication from Paizo Publishing!
+DESC:Forged by legends and bearing the might of immortal beings, artifacts possess world-shattering abilities far beyond the powers of even the most devastating mortal magic. But artifacts are born, not merely crafted. Behind every incredible artifact lies an equally remarkable tale, the sort of history that time and wonder transform into legend. Incredible weapons like the Axe of the Dwarvish Lords and the Seven Swords of Sin grant wielders the tools to raise or devastate nations, magical wonders like the Codex of the Infinite Planes and the Book of the Damned unlock secrets no mortal was meant to control, and unbelievable treasures like the Orbs of Dragonkind and the time-shattering Staff of Ages grant bearers mastery over the laws of reality. Power to rival the gods and the truths behind the Pathfinder campaign setting’s deepest secrets lie within—but are only for the bold.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000,  Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Campaign Setting: Rival Guide. Copyright 2011 , Paizo Publishing, LLC. Authors: Brian Cortijo, Adam Daigle, Tim Hitchcock, Brandon Hodge, Colin McComb, Jason Nelson, Amber Scott, Neil Spicer, and Todd Stewart.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Rival Guide" Copyright 2018, PCGen Data team (Including, but not limited to Gwen T., Paul Grosse, and Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:rg_abilities_race.lst
+COMPANIONMOD:rg_companionmods.lst
+EQUIPMENT:rg_equip_general.lst
+EQUIPMENT:rg_equip_magic.lst
+ABILITY:rg_feats.lst
+SPELL:rg_spells.lst
+TEMPLATE:rg_templates.lst
+
+# ENTRY DATE: December 2018
+# LST MONKEY: Gwen T. (evilpixie87)
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE: 
+# Built for PCGen Version: 6.07.10
+# Updated to work with version: -
+# MINVER:6.6
+# MINDEVVER:6.06.1
+# COMMENTS:

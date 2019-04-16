@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.campaign;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
@@ -27,11 +27,13 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class TypeTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static TypeToken token = new TypeToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()
@@ -52,48 +54,42 @@ public class TypeTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
-	@Test
-	public void testInvalidListEmpty() throws PersistenceLayerException
+	public void testInvalidListEmpty()
 	{
 		assertFalse(parse("."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListTrailing() throws PersistenceLayerException
+	public void testInvalidListTrailing()
 	{
 		assertFalse(parse("Type."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListLeading() throws PersistenceLayerException
+	public void testInvalidListLeading()
 	{
 		assertFalse(parse(".Type"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListDouble() throws PersistenceLayerException
+	public void testInvalidListDouble()
 	{
 		assertFalse(parse("One..Type"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListTooMany() throws PersistenceLayerException
+	public void testInvalidListTooMany()
 	{
 		assertFalse(parse("One.Two.Three.Oops"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();

@@ -1,0 +1,18 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Heroes of the Wild	SOURCESHORT:HOTW	SOURCEWEB:http://paizo.com/products/btpy9cro	SOURCEDATE:2015-04
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 April 2016
+
+# ==============================
+# Magic Armor
+# ==============================
+
+# Equipment Name		Required Weapon Proficiency	Required Armor Proficiency	Type														Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier																							Wield Category	Maximum DEX Bonus	Size		Source Page		% of Spell Failure	Combat bonus
+Arboreal Armor							PROFICIENCY:ARMOR|Wooden	TYPE:Armor.Magic.Light.ArmorProfLight.Suit.Specific.Nonmetal				COST:20	WT:25		ACCHECK:-1								EQMOD:Special Ability ~ Enhancement Cost|2500.Special Ability ~ Wild ~ Armor.Material ~ Leather|Material ~ Wood.Special Ability ~ +1 ~ Armor				MAXDEX:3				SOURCEPAGE:p.28	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor
+
+# ==============================
+# Magic Weapon
+# ==============================
+
+Shatterstone Hammer	PROFICIENCY:WEAPON|Warhammer						TYPE:Weapon.Magic.Resizable.Melee.OneHanded.Martial.Specific.Bludgeoning.Hammer	COST:12	WT:5					CRITMULT:x3	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Ability ~ Enhancement Cost|24400.Material ~ Steel.Special Ability ~ +1 ~ Weapon									WIELD:OneHanded				SIZE:M	SOURCEPAGE:p.142

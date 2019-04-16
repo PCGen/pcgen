@@ -20,6 +20,7 @@ package pcgen.output.wrapper;
 import pcgen.cdom.base.Category;
 import pcgen.output.base.SimpleObjectWrapper;
 import pcgen.output.model.CategoryModel;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 

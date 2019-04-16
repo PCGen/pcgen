@@ -1,5 +1,4 @@
 /*
- * GameModeLstToken.java
  * Copyright 2005 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 2, 2002, 8:16 AM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.persistence.lst;
@@ -28,9 +25,8 @@ import java.net.URI;
 import pcgen.core.GameMode;
 
 /**
- * <code>GameModeLstToken</code>
+ * {@code GameModeLstToken}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public interface GameModeLstToken extends LstToken
 {

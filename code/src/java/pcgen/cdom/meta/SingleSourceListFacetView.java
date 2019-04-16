@@ -27,8 +27,8 @@ public class SingleSourceListFacetView<T> implements FacetView<T>
 {
 
 	private AbstractSingleSourceListFacet<T, ?> facet;
-	
-	public SingleSourceListFacetView(AbstractSingleSourceListFacet<T, ?> facet)
+
+	SingleSourceListFacetView(AbstractSingleSourceListFacet<T, ?> facet)
 	{
 		this.facet = facet;
 	}
@@ -63,7 +63,7 @@ public class SingleSourceListFacetView<T> implements FacetView<T>
 	{
 		return facet.equals(src);
 	}
-	
+
 	@Override
 	public String toString()
 	{

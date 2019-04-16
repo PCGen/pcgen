@@ -1,6 +1,4 @@
 /*
- * PreReqHandlerTest.java
- *
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,71 +14,51 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 14-Jan-2004
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.core.prereq;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
-import junit.framework.TestCase;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.TokenRegistration;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-/**
- * @author wardc
- */
-@SuppressWarnings("nls")
-public class PreReqHandlerTest extends TestCase
+public class PreReqHandlerTest
 {
 
 	/**
-	 * Run the JUnit test
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreReqHandlerTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreReqHandlerTest.class);
-	}
-
-	/**
 	 * Sets up the test case by loading the system plugins.
-	 * 
-	 * @see junit.framework.TestCase#setUp()
 	 */
-	@Override
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
-		super.setUp();
 		TestHelper.loadPlugins();
 	}
 
+	@AfterEach
+	void tearDown()
+	{
+		LocaleDependentTestCase.after();
+		TokenRegistration.clearTokens();
+	}
+
 	/**
-	 * Print out as HTML
-	 * @throws Exception
+	 * Print out as HTML.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testToHtml() throws Exception
+	@Test
+	public void testToHtml() throws PersistenceLayerException
 	{
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		final List<Prerequisite> list = new ArrayList<>();
@@ -94,8 +72,12 @@ public class PreReqHandlerTest extends TestCase
 		final String htmlString = PrereqHandler.toHtmlString(list);
 		System.out.println(htmlString);
 		assertEquals(
-			"at least 15 ranks in Spellcraft and at least 1 Arcane spell of level 8 and at least 2 FEAT(s) of type Metamagic and at least 2 FEAT(s) of type ItemCreation and at least 20 of ( at least 1 ranks in TYPE.Knowledge )",
-			htmlString);
-		EnUsLocaleDependentTestCase.after();
+				"at least 15 ranks in Spellcraft and at least 1 Arcane spell of level 8 and at least 2 FEAT(s) of "
+						+ "type "
+						+ "Metamagic and at least 2 FEAT(s) of type ItemCreation and at least 20 of "
+						+ "( at least 1 ranks in TYPE.Knowledge )",
+				htmlString
+		);
+
 	}
 }

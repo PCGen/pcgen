@@ -1,0 +1,17 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Monster Summoner's Handbook	SOURCESHORT:MSH	SOURCEWEB:http://paizo.com/products/btpy9ela?Pathfinder-Player-Companion-Monster-Summoners-Handbook	SOURCEDATE:2015-07
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 2 May 2017
+
+# ==============================
+# Magic Armor
+# ==============================
+
+# Equipment Name			Required Weapon Proficiency	Required Armor Proficiency	Type										Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier					Wield Category	Maximum DEX Bonus	Range		Size		Source Page		% of Spell Failure	Combat bonus								Modify VAR				Special Property
+Armor of Fragmenting Stone						PROFICIENCY:ARMOR|Full Plate	TYPE:Enhancement.Armor.Heavy.ArmorProfHeavy.Suit.Specific	COST:1500	WT:60		ACCHECK:-6								EQMOD:MAGIC_COST|16000.PLUS2A.STEEL				MAXDEX:1						SOURCEPAGE:p.20	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor|PREVAREQ:DisableArmorBonus,0	BONUS:VAR|ArmorCheckPenalty|6	SPROP:Summon Medium earth elemental 1/day for up to 7 rounds.
+
+# ==============================
+# Magic Weapon
+# ==============================
+
+Sword of Tempests			PROFICIENCY:WEAPON|Longsword						TYPE:Weapon.Resizable.Melee.Martial.Specific.Slashing.Sword	COST:15	WT:6					CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:MAGIC_COST|19000.PLUS2W.STEEL	WIELD:OneHanded				RANGE:30	SIZE:M	SOURCEPAGE:p.21																				SPROP:3/day, with confirmed critical, can summon Medium air elemental for up to 7 rounds.

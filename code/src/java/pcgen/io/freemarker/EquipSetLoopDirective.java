@@ -1,5 +1,4 @@
 /*
- * EquipSetLoopDirective.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 27/12/2013
  *
- * $Id$
  */
 package pcgen.io.freemarker;
 
@@ -29,6 +26,7 @@ import java.util.Map;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.EquipSet;
+
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
@@ -44,7 +42,6 @@ import freemarker.template.TemplateModelException;
  * 
  * <p>Nested content is output once for each loop</p>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class EquipSetLoopDirective implements TemplateDirectiveModel
 {
@@ -61,15 +58,14 @@ public class EquipSetLoopDirective implements TemplateDirectiveModel
 
 	@SuppressWarnings("rawtypes")
 	@Override
-	public void execute(Environment env, Map params, TemplateModel[] loopVars,
-		TemplateDirectiveBody body) throws TemplateException, IOException
+	public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body)
+		throws TemplateException, IOException
 	{
 		if (body == null)
 		{
-			throw new TemplateModelException(
-				"This directive must have content.");
+			throw new TemplateModelException("This directive must have content.");
 		}
-		
+
 		List<EquipSet> eqSetList = new ArrayList<>();
 		EquipSet currSet = null;
 		String currIdPath = pc.getCalcEquipSetId();
@@ -88,15 +84,17 @@ public class EquipSetLoopDirective implements TemplateDirectiveModel
 		for (EquipSet equipSet : eqSetList)
 		{
 			pc.setCalcEquipSetId(equipSet.getIdPath());
+			pc.setCalcEquipmentList(equipSet.getUseTempMods());
 
 			// Executes the nested body (same as <#nested> in FTL). In this
 			// case we don't provide a special writer as the parameter:
 			body.render(env.getOut());
 		}
-		
+
 		if (currSet != null)
 		{
 			pc.setCalcEquipSetId(currSet.getIdPath());
+			pc.setCalcEquipmentList(currSet.getUseTempMods());
 		}
 	}
 

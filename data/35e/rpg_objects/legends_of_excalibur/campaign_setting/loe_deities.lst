@@ -1,11 +1,12 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Legends of Excalibur - Arthurian Adventures	SOURCESHORT:Excalibur	SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex	SOURCEDATE:2003-01
 # Author: David Culliford (dculliford@yahoo.com)
 
 # Original Entry by: dlm1065
 
-# Deity Name	Description of Deity/Title	FACT				Source Page
-None			DESC:None				FACT:Symbol|None		SOURCEPAGE:Non file in RSRD why none
+# Deity Name	Description of Deity/Title	FACT				Source Page						GROUP
+None			DESC:None				FACT:Symbol|None		SOURCEPAGE:Non file in RSRD why none	GROUP:UNSELECTED
 One God		DESC:The One True God		FACT:Symbol|Crusifix	SOURCEPAGE:p50
 Old Faith		DESC:The older pagan faiths	FACT:Symbol|None		SOURCEPAGE:p50
 # DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE

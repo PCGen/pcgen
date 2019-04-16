@@ -1,0 +1,13 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2016-08
+
+# Modifier Name	Unique Key			Type													Cost							Visible		Type granted			Keys to replace		Source Page		Required Type				Modify VAR							Bonus Equip Mods						Bonus Armor Mods																			Weapon prop. bonus																	Special Property			Ability										Change Armor Type		Choose		Apply to both heads	Nb of Charges
+
+# PFS #8-20
+# Modifier Name	Unique Key			Naming Format	Naming Option	Type							Cost		Visible		Type granted				Keys to replace						Source, Long Desc.	Required Type
+Coral			KEY:Material ~ Coral	FORMATCAT:FRONT	NAMEOPT:NORMAL	TYPE:BaseMaterial.MasterworkQuality.Armor	COST:5500	VISIBLE:QUALIFY	ITYPE:Coral.Nonmetal.Masterwork	REPLACES:Special Quality ~ Masterwork ~ Armor	SOURCELONG:PFS #8-20	PRETYPE:1,Heavy	PRETYPE:1,Metal
+
+#
+# DONE
+#

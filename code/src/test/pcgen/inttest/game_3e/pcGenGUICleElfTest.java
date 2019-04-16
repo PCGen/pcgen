@@ -1,5 +1,4 @@
 /*
- * pcGenGUICleElfTest.java
  * Copyright 2015 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -17,56 +16,19 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created/Reinstated on 2015-11-24
- *
- * $Id$
  */
 package pcgen.inttest.game_3e;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.inttest.PcgenFtlTestCase;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests a 3e 2nd level Elf Cleric Law and Protection domains.
  */
-@SuppressWarnings("nls")
 public class pcGenGUICleElfTest extends PcgenFtlTestCase
 {
-
-	/**
-	 * Run the test.
-	 * 
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		junit.textui.TestRunner.run(pcGenGUICleElfTest.class);
-	}
-
-	/**
-	 * standard JUnit style constructor
-	 * 
-	 * @param name No Idea.
-	 */
-	public pcGenGUICleElfTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Returns a test suite of all the tests in this class.
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(pcGenGUICleElfTest.class);
-	}
-
-	/**
-	 * Load and output the character.
-	 * 
-	 * @throws Exception If there is a problem.
-	 */
+	@Test
 	public void testCleElf() throws Exception
 	{
 		runTest("3e_CleElf", "3e");

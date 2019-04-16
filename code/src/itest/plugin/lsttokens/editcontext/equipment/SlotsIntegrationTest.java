@@ -28,8 +28,8 @@ public class SlotsIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Equipment>
 {
 
-	static SlotsToken token = new SlotsToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
+	private static SlotsToken token = new SlotsToken();
+	private static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

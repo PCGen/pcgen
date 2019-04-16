@@ -17,17 +17,23 @@
  */
 package plugin.lsttokens.kit.ability;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.net.URISyntaxException;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.kit.KitAbilities;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 {
@@ -35,6 +41,19 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	static AbilityToken token = new AbilityToken();
 	static CDOMSubLineLoader<KitAbilities> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitAbilities.class);
+
+	@BeforeEach
+	@Override
+	public void setUp() throws PersistenceLayerException, URISyntaxException
+	{
+		super.setUp();
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName("Dummy");
+		primaryContext.getReferenceContext().importObject(a);
+		Ability b = BuildUtilities.getFeatCat().newInstance();
+		b.setName("Dummy");
+		secondaryContext.getReferenceContext().importObject(b);
+	}
 
 	@Override
 	public Class<KitAbilities> getCDOMClass()
@@ -55,7 +74,7 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount() throws PersistenceLayerException
+	public void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("CATEGORY=FEAT|Fireball"));
 		assertConstructionError();
@@ -64,25 +83,17 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Fireball");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.getReferenceContext()
-				.constructCDOMObject(Ability.class, "Fireball");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		BuildUtilities.buildFeat(primaryContext, "Fireball");
+		BuildUtilities.buildFeat(secondaryContext, "Fireball");
 		runRoundRobin("CATEGORY=FEAT|Fireball");
 	}
 
 	@Test
 	public void testRoundRobinType() throws PersistenceLayerException
 	{
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Fireball");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		Ability ab = BuildUtilities.buildFeat(primaryContext, "Fireball");
 		ab.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
-		ab = secondaryContext.getReferenceContext()
-				.constructCDOMObject(Ability.class, "Fireball");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		ab = BuildUtilities.buildFeat(secondaryContext, "Fireball");
 		ab.addToListFor(ListKey.TYPE, Type.getConstant("Test"));
 		runRoundRobin("CATEGORY=FEAT|TYPE=Test");
 	}
@@ -90,38 +101,32 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	@Test
 	public void testRoundRobinTwo() throws PersistenceLayerException
 	{
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Fireball");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.getReferenceContext()
-				.constructCDOMObject(Ability.class, "Fireball");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "English");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "English");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		BuildUtilities.buildFeat(primaryContext, "Fireball");
+		BuildUtilities.buildFeat(secondaryContext, "Fireball");
+		BuildUtilities.buildFeat(primaryContext, "English");
+		BuildUtilities.buildFeat(secondaryContext, "English");
 		runRoundRobin("CATEGORY=FEAT|English" + getJoinCharacter() + "Fireball");
 	}
 
 	@Test
-	public void testInvalidListEnd() throws PersistenceLayerException
+	public void testInvalidListEnd()
 	{
 		assertFalse(parse("CATEGORY=FEAT|TestWP1" + getJoinCharacter()));
 	}
 
-	private char getJoinCharacter()
+	private static char getJoinCharacter()
 	{
 		return '|';
 	}
 
 	@Test
-	public void testInvalidListStart() throws PersistenceLayerException
+	public void testInvalidListStart()
 	{
 		assertFalse(parse("CATEGORY=FEAT|" + getJoinCharacter() + "TestWP1"));
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin() throws PersistenceLayerException
+	public void testInvalidListDoubleJoin()
 	{
 		assertFalse(parse("CATEGORY=FEAT|TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));

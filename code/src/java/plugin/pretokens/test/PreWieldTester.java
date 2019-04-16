@@ -1,5 +1,4 @@
 /*
- * PreWield.java
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -14,11 +13,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.pretokens.test;
 
@@ -28,20 +22,11 @@ import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
-/**
- * @author jayme cox &lt;jaymecox@users.sourceforge.net&gt;
- *
- */
-public class PreWieldTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreWieldTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
-	public int passes(final Prerequisite prereq, final Equipment equipment,
-		CharacterDisplay display)
+	public int passes(final Prerequisite prereq, final Equipment equipment, CharacterDisplay display)
 	{
 		int runningTotal = 0;
 		if (equipment.getWieldName().equalsIgnoreCase(prereq.getKey()))
@@ -49,15 +34,14 @@ public class PreWieldTester extends AbstractDisplayPrereqTest implements
 			runningTotal++;
 		}
 
-		return countedTotal(prereq, prereq.getOperator().compare(runningTotal,
-			1));
+		return countedTotal(prereq, prereq.getOperator().compare(runningTotal, 1));
 	}
 
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "WIELD"; //$NON-NLS-1$

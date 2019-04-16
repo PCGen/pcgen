@@ -17,21 +17,19 @@
  */
 package plugin.lsttokens.pcclass;
 
-import org.junit.Test;
-
 import pcgen.core.PCClass;
 import pcgen.core.WeaponProf;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class WeaponbonusTokenTest extends
-		AbstractListTokenTestCase<PCClass, WeaponProf>
+public class WeaponbonusTokenTest
+		extends AbstractListInputTokenTestCase<PCClass, WeaponProf>
 {
 
 	static WeaponbonusToken token = new WeaponbonusToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -85,12 +83,6 @@ public class WeaponbonusTokenTest extends
 	public char getJoinCharacter()
 	{
 		return '|';
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

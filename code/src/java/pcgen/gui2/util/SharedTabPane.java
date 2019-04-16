@@ -1,5 +1,4 @@
 /*
- * SharedTabPane.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,28 +15,24 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Sep 6, 2009, 4:51:59 PM
  */
 package pcgen.gui2.util;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SingleSelectionModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class SharedTabPane extends JTabbedPane
 {
 
 	private Component sharedComponent = null;
 
-	public SharedTabPane()
+	protected SharedTabPane()
 	{
 		final SingleSelectionModel selectionModel = getModel();
 		selectionModel.addChangeListener(new ChangeListener()
@@ -72,7 +67,7 @@ public class SharedTabPane extends JTabbedPane
 		insertTab(title, null, new JPanel(new BorderLayout()), null, index);
 	}
 
-	public void addTab(Component tabRenderer)
+	protected void addTab(Component tabRenderer)
 	{
 		int index = getTabCount();
 		addTab(null, new JPanel(new BorderLayout()));
@@ -107,7 +102,7 @@ public class SharedTabPane extends JTabbedPane
 		}
 	}
 
-	public void setSharedComponent(Component comp)
+	protected void setSharedComponent(Component comp)
 	{
 		this.sharedComponent = comp;
 	}

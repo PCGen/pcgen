@@ -26,8 +26,6 @@ import java.awt.GridLayout;
  * <p>The caller can specify whether the manager should give manage by columns,
  * in which case the min/max values represent minimum and maximum column widths, or by
  * rows, in which case the values represent column heights.</p>
- *
- * @author Ross Lodge
  */
 public class DiceBagGridLayout extends GridLayout
 {
@@ -57,10 +55,8 @@ public class DiceBagGridLayout extends GridLayout
 	private int m_minSize = 0;
 
 	/**
-	 * <p>Default constructor.  Uses a default of <code>MANAGE_BY_ROWS</code>, a minimum
+	 * <p>Default constructor.  Uses a default of {@code MANAGE_BY_ROWS}, a minimum
 	 * size of 50, and a maximum size of 200.</p>
-	 *
-	 * @see java.awt.GridLayout#GridLayout()
 	 */
 	public DiceBagGridLayout()
 	{
@@ -75,14 +71,11 @@ public class DiceBagGridLayout extends GridLayout
 	 *
 	 * @param rows     Initial number of rows.
 	 * @param cols     Initial number of columns.
-	 * @param manageBy Either <code>MANAGE_BY_ROWS</code> or <code>MANAGE_BY_COLUMNS</code>.
+	 * @param manageBy Either {@code MANAGE_BY_ROWS} or {@code MANAGE_BY_COLUMNS}.
 	 * @param minSize  Minimum size, expressed in pixels.
 	 * @param maxSize  Maximum size, expressed in pixels.
-	 *
-	 * @see java.awt.GridLayout#GridLayout(int rows, int cols)
 	 */
-	public DiceBagGridLayout(int rows, int cols, int manageBy, int minSize,
-		int maxSize)
+	public DiceBagGridLayout(int rows, int cols, int manageBy, int minSize, int maxSize)
 	{
 		super(rows, cols);
 		m_manageBy = manageBy;
@@ -97,14 +90,11 @@ public class DiceBagGridLayout extends GridLayout
 	 * @param cols     Initial number of columns.
 	 * @param hgap     Horizontal gap
 	 * @param vgap     Vertical gap
-	 * @param manageBy Either <code>MANAGE_BY_ROWS</code> or <code>MANAGE_BY_COLUMNS</code>.
+	 * @param manageBy Either {@code MANAGE_BY_ROWS} or {@code MANAGE_BY_COLUMNS}.
 	 * @param minSize  Minimum size, expressed in pixels.
 	 * @param maxSize  Maximum size, expressed in pixels.
-	 *
-	 * @see java.awt.GridLayout#GridLayout(int rows, int cols, int hgap, int vgap)
 	 */
-	public DiceBagGridLayout(int rows, int cols, int hgap, int vgap,
-		int manageBy, int minSize, int maxSize)
+	public DiceBagGridLayout(int rows, int cols, int hgap, int vgap, int manageBy, int minSize, int maxSize)
 	{
 		super(rows, cols, hgap, vgap);
 		m_manageBy = manageBy;
@@ -114,55 +104,47 @@ public class DiceBagGridLayout extends GridLayout
 
 	/**
 	 * <p>This method computes the correct number of rows or columns based
-	 * on the current size of the <code>parent</code> and the <code>m_manageBy</code>
-	 * value, using an algorithm similar to <code>getMinimumLayoutSize()</code>.  It then
-	 * sets the new number of rows or columns and calls the <code>super</code>'s implementation.</p>
-	 *
-	 * @see java.awt.LayoutManager#layoutContainer(java.awt.Container)
+	 * on the current size of the {@code parent} and the {@code m_manageBy}
+	 * value, using an algorithm similar to {@code getMinimumLayoutSize()}.  It then
+	 * sets the new number of rows or columns and calls the {@code super}'s implementation.</p>
 	 *
 	 * @param parent Container -- parent.
 	 */
-    @Override
+	@Override
 	public void layoutContainer(Container parent)
 	{
 		if (m_manageBy == MANAGE_BY_COLUMNS)
 		{
-			int minWCols =
-					(int) Math.floor((parent.getWidth() - getHgap()
-						- parent.getInsets().left - parent.getInsets().right)
-						/ (m_minSize + getHgap()));
-			int maxWCols =
-					(int) Math.floor((parent.getWidth() - getHgap()
-						- parent.getInsets().left - parent.getInsets().right)
-						/ (m_maxSize + getHgap()));
+			int minWCols = (int) Math
+				.floor((parent.getWidth() - getHgap() - parent.getInsets().left - parent.getInsets().right)
+					/ (m_minSize + getHgap()));
+			int maxWCols = (int) Math
+				.floor((parent.getWidth() - getHgap() - parent.getInsets().left - parent.getInsets().right)
+					/ (m_maxSize + getHgap()));
 
 			if ((minWCols < getColumns()) && (minWCols > 0))
 			{
 				setColumns(minWCols);
 			}
-			else if ((maxWCols > getColumns())
-				&& (maxWCols <= parent.getComponentCount()))
+			else if ((maxWCols > getColumns()) && (maxWCols <= parent.getComponentCount()))
 			{
 				setColumns(maxWCols);
 			}
 		}
 		else if (m_manageBy == MANAGE_BY_ROWS)
 		{
-			int minWRows =
-					(int) Math.floor((parent.getHeight() - getVgap()
-						- parent.getInsets().top - parent.getInsets().bottom)
-						/ (m_minSize + getVgap()));
-			int maxWRows =
-					(int) Math.floor((parent.getHeight() - getVgap()
-						- parent.getInsets().top - parent.getInsets().bottom)
-						/ (m_maxSize + getVgap()));
+			int minWRows = (int) Math
+				.floor((parent.getHeight() - getVgap() - parent.getInsets().top - parent.getInsets().bottom)
+					/ (m_minSize + getVgap()));
+			int maxWRows = (int) Math
+				.floor((parent.getHeight() - getVgap() - parent.getInsets().top - parent.getInsets().bottom)
+					/ (m_maxSize + getVgap()));
 
 			if ((minWRows < getRows()) && (minWRows > 0))
 			{
 				setRows(minWRows);
 			}
-			else if ((maxWRows > getRows())
-				&& (maxWRows <= parent.getComponentCount()))
+			else if ((maxWRows > getRows()) && (maxWRows <= parent.getComponentCount()))
 			{
 				setRows(maxWRows);
 			}

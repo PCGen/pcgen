@@ -17,7 +17,10 @@
  */
 package tokencontent;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillCost;
@@ -28,12 +31,14 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 import pcgen.gui2.facade.MockUIDelegate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.pcclass.level.CskillToken;
+
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class PCClassLevelCSkillTest extends AbstractTokenModelTest
 {
@@ -55,13 +60,13 @@ public class PCClassLevelCSkillTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect() throws PersistenceLayerException
+	public void testDirect()
 	{
 		PCClassLevel pcl = dragon.getOriginalClassLevel(1);
 		ParseResult result = token.parseToken(context, pcl, "MySkill");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

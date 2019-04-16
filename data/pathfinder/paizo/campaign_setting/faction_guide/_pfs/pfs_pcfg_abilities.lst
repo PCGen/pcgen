@@ -1,0 +1,24 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Chronicles: Faction Guide	SOURCESHORT:PCFG	SOURCEWEB:http://paizo.com/products/btpy8emo?Pathfinder-Chronicles-Faction-Guide	SOURCEDATE:2010-06
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+
+# Ability Name								Type			!PRECHARACTERTYPE
+CATEGORY=Special Ability|Trait ~ Coherent Rage.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Demon Slayer.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Slippery.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Witty Repartee.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Defy Madness.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Faithful Feedback.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Necrotic Aura.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ St. Clydwell's Ward.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Unnatural Presence.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Lucid Dreamer.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Second Tongue.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Tar-Baphon's Whisper.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Freed Slave.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Trifler.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Bellflower Tiller.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Convincing Liar.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Noble Savage.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Trait ~ Savant.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

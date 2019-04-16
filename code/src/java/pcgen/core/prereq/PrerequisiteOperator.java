@@ -1,5 +1,4 @@
 /*
- * PrerequisiteOperator.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,23 +15,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 19-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.core.prereq;
 
 import pcgen.core.utils.CoreUtility;
 import pcgen.system.LanguageBundle;
 
-/**
- * @author wardc
- * 
- */
 public enum PrerequisiteOperator
 {
 	GTEQ
@@ -162,8 +150,7 @@ public enum PrerequisiteOperator
 
 	public String toDisplayString()
 	{
-		return LanguageBundle.getString("PrerequisiteOperator.display."
-				+ toString().toLowerCase());
+		return LanguageBundle.getString("PrerequisiteOperator.display." + toString().toLowerCase());
 	}
 
 	public int compare(final int leftHandOp, final int rightHandOp)
@@ -187,8 +174,7 @@ public enum PrerequisiteOperator
 
 	public abstract boolean booleanCompare(float leftHandOp, float rightHandOp);
 
-	public static PrerequisiteOperator getOperatorByName(
-			final String operatorName) throws PrerequisiteException
+	public static PrerequisiteOperator getOperatorByName(final String operatorName) throws PrerequisiteException
 	{
 		try
 		{
@@ -207,7 +193,8 @@ public enum PrerequisiteOperator
 				}
 			}
 		}
-		throw new PrerequisiteException(LanguageBundle.getFormattedString(
+		throw new PrerequisiteException(
+			LanguageBundle.getFormattedString(
 				"PrerequisiteOperator.error.invalid_operator", operatorName)); //$NON-NLS-1$
 	}
 

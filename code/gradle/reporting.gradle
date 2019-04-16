@@ -3,43 +3,46 @@
  * called from the main build.gradle file.
  *
  * Usage: gradle allReports
- * 
- * Author: James Dempsey 
  */
+
+buildScan {
+	termsOfServiceUrl = 'https://gradle.com/terms-of-service';
+	termsOfServiceAgree = 'yes'
+}
 
 checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
+	configProperties = [samedir: "${rootDir}/code/standards"]
 	ignoreFailures = true
 	showViolations = false
+	toolVersion = '8.19'
 	sourceSets = []
 }
 
 pmd {
-    // turn off the default rules
-    ruleSets = []
-	ruleSetFiles = files('code/standards/pmdruleset.xml')
-	
-	ignoreFailures = true
+	// turn off the default rules
+	ruleSets = []
+	ruleSetFiles = files('code/standards/ruleset.xml')
+	consoleOutput = true
 	sourceSets = []
-	toolVersion = "5.5.1"
+	toolVersion = "6.10.0"
 }
 
-findbugs {
-	ignoreFailures = true
-//	effort = 'max'
-	sourceSets = []
+spotbugs {
+	excludeFilter = file("$rootProject.projectDir/code/standards/spotbugs_ignore.xml")
+	omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'DoInsideDoPrivileged']
+	reportLevel = 'low'
+	ignoreFailures = 'true'
+	toolVersion = '3.1.12'
 }
 
-tasks.withType(FindBugs) {
-	reports {
-		xml.enabled false
-		html.enabled true
-		html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
-		excludeFilterConfig resources.text.fromFile('code/standards/findbugs_ignore.xml')
-		reportLevel 'low'
-		// While these can be filtered out later, there is a minor speedup to disabling them here.
-		omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'FinalParameters', 'ImmatureClass',
-						'DoInsideDoPrivileged', 'CyclomaticComplexity']
-	}
-}
-task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'findbugsMain'] }
+//Unable to determine how to do this with SpotBugs - this is consistent with their docs, but dumps stack
+//tasks.withType(com.github.spotbugs.SpotBugsTask) {
+//	reports {
+//		xml.enabled = false
+//		html.enabled = true
+//		html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
+//	}
+//}
+
+task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain'] }

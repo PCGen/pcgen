@@ -1,5 +1,4 @@
 /*
- * PreShieldProfTest.java
  * Copyright 2008 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,26 +14,22 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 22/03/2008
- *
- * $Id$
  */
 package pcgen.core.prereq;
 
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
@@ -44,42 +39,23 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
- * <code>PreShieldProfTest</code> tests that the PREPROFWITHSHIELD tag is
+ * {@code PreShieldProfTest} tests that the PREPROFWITHSHIELD tag is
  * working correctly.
- *
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreShieldProfTest extends AbstractCharacterTestCase
 {
-	
-	/**
-	 * The main method.
-	 * 
-	 * @param args the arguments
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreShieldProfTest.class);
-	}
-
-	/**
-	 * Suite.
-	 * 
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreShieldProfTest.class);
-	}
-	
 	/**
 	 * Test with a simple shield proficiency.
 	 * 
 	 * @throws Exception the exception
 	 */
+	@Test
 	public void testOneOption() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -97,7 +73,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Steel Shield");
 		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), martialProf, null);
 
 		assertTrue("Character has the Heavy Wooden Shield proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -119,6 +95,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	 * 
 	 * @throws Exception the exception
 	 */
+	@Test
 	public void testMultiple() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -137,7 +114,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Full Plate");
 		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), martialProf, null);
 
 		assertTrue("Character has one of Heavy Wooden Shield or Full Plate proficiency", 
 			PrereqHandler.passes(prereq, character, null));
@@ -159,6 +136,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	 * 
 	 * @throws Exception the exception
 	 */
+	@Test
 	public void testType() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -177,7 +155,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|SHIELDTYPE=Medium");
 		Globals.getContext().getReferenceContext().resolveReferences(null);
 		
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), martialProf, null);
 		
 		assertTrue("Character has Medium Shield Proficiency", 
 				PrereqHandler.passes(prereq, character, null));
@@ -188,6 +166,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	 * 
 	 * @throws Exception the exception
 	 */
+	@Test
 	public void testInverse() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -206,7 +185,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Steel Shield");
 		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), martialProf, null);
 
 		assertFalse("Character has the Heavy Steel Shield proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -229,6 +208,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	 * 
 	 * @throws Exception the exception
 	 */
+	@Test
 	public void testShieldProfAddedWithAutoShieldProf() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -242,10 +222,10 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 			prereq, character, null));
 		
 		final Ability martialProf = 
-			TestHelper.makeAbility("Shield Proficiency (Single)", AbilityCategory.FEAT, "General");
+			TestHelper.makeAbility("Shield Proficiency (Single)", BuildUtilities.getFeatCat(), "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|SHIELDTYPE.Heavy");
 		
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), martialProf, null);
 
 		assertTrue("Character has the Heavy Steel Shield proficiency.", 
 					PrereqHandler.passes(prereq, character, null));
@@ -269,6 +249,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 	 * 
 	 * @throws Exception the exception
 	 */
+	@Test
 	public void testWithFeatThatGrantsBonus() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -292,7 +273,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		final String barStr =
 			"Bar	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50";
 		featLoader.parseLine(Globals.getContext(), bar, barStr, cse);
-		addAbility(AbilityCategory.FEAT, bar);
+		addAbility(BuildUtilities.getFeatCat(), bar);
 		
 		assertEquals("Character should have 50 bonus hp added.",
 					baseHp+50,
@@ -304,13 +285,13 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Full Plate");
 		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), martialProf, null);
 		
 		Ability foo = new Ability();
 		final String fooStr =
 			"Foo	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50|PREPROFWITHSHIELD:1,Full Plate";
 		featLoader.parseLine(Globals.getContext(), foo, fooStr, cse);
-		addAbility(AbilityCategory.FEAT, foo);
+		addAbility(BuildUtilities.getFeatCat(), foo);
 		
 		assertEquals("Character has the Full Plate proficiency so the bonus should be added",
 					baseHp+50+50,
@@ -318,10 +299,8 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 					);
 	
 	}
-	
-	/* (non-Javadoc)
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
+
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

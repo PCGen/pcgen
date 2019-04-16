@@ -1,5 +1,4 @@
 /*
- * SystemLoader.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 22, 2002, 10:29 PM
  *
- * $Id$
  */
 package pcgen.persistence;
 
@@ -28,12 +25,11 @@ import java.util.List;
 import pcgen.core.GameMode;
 
 /**
- * <code>SystemLoader</code> is an abstract factory class that hides
+ * {@code SystemLoader} is an abstract factory class that hides
  * the implementation details of the actual loader.  The initialize method
  * creates an instance of the underlying loader and calls abstract methods to
  * do the loading of system files.
  *
- * @author  David Rice &lt;david-pcgen@jcuz.com&gt;
  */
 public interface SystemLoader
 {

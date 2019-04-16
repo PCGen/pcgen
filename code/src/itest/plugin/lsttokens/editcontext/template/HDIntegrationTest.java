@@ -17,12 +17,6 @@
  */
 package plugin.lsttokens.editcontext.template;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
@@ -40,18 +34,19 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreLevelWriter;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 public class HDIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
 {
 
-	static HdToken token = new HdToken();
-	static CDOMTokenLoader<PCTemplate> loader =
+	private static HdToken token = new HdToken();
+	private static CDOMTokenLoader<PCTemplate> loader =
             new CDOMTokenLoader<>();
 
-	private static boolean classSetUpFired = false;
-
-	@BeforeClass
-	public static final void ltClassSetUp() throws PersistenceLayerException
+	@BeforeAll
+	public static void ltClassSetUp() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new PreLevelParser());
 		TokenRegistration.register(new PreLevelWriter());
@@ -59,19 +54,6 @@ public class HDIntegrationTest extends
 		TokenRegistration.register(new DrLst());
 		TokenRegistration.register(new SrLst());
 		TokenRegistration.register(new SabLst());
-		classSetUpFired = true;
-	}
-
-	@Override
-	@Before
-	public final void setUp() throws PersistenceLayerException,
-		URISyntaxException
-	{
-		super.setUp();
-		if (!classSetUpFired)
-		{
-			ltClassSetUp();
-		}
 	}
 
 	@Override

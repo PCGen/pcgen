@@ -1,0 +1,32 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Blood of the Beast	SOURCESHORT:BOTB	SOURCEWEB:http://paizo.com/products/btpy9oo8?Pathfinder-Player-Companion-Blood-of-the-Beast	SOURCEDATE:2016-12
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 March 2017
+# PFS MODS: Mark Means, 2 Jan 2019
+
+# MJM: All these languages appear to be defined in prior sources.
+#      Not sure why they are redefined in the parent instead of including the other sources' lst files where they are defined.
+
+# Language		Product Identity?	Type
+#Common					TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Dtang			NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Erutaki		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Hallit		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Hon-La		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Hwan			NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Iobarian		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Kelish		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Minatan		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Minkaian		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Osiriani		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Polyglot					TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Shadowtongue				TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Shoanti		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Skald			NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Taldane		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Tien			NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Varisian		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Varki			NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Vudrani		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage
+#Senzar		NAMEISPI:YES	TYPE:Spoken.Written.Read.ModernHumanLanguage

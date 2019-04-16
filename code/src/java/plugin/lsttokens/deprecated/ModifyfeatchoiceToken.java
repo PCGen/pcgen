@@ -78,8 +78,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 
 		List<CDOMReference<Ability>> refs = new ArrayList<>();
-		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturer(
-				ABILITY_CLASS, AbilityCategory.FEAT);
+		ReferenceManufacturer<Ability> rm = context.getReferenceContext().getManufacturerId(AbilityCategory.FEAT);
 
 		while (tok.hasMoreTokens())
 		{
@@ -97,17 +96,16 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		ReferenceChoiceSet<Ability> rcs = new ReferenceChoiceSet<>(refs);
 		ModifyChoiceDecorator gfd = new ModifyChoiceDecorator(rcs);
 		ChoiceSet<CNAbility> cs = new ChoiceSet<>(getTokenName(), gfd);
-		
-		TabInfo ti = context.getReferenceContext().silentlyGetConstructedCDOMObject(
-				TabInfo.class, Tab.ABILITIES.toString());
+
+		TabInfo ti =
+				context.getReferenceContext().silentlyGetConstructedCDOMObject(TabInfo.class, Tab.ABILITIES.toString());
 		String singularName = ti.getResolvedName();
 		if (singularName.endsWith("s"))
 		{
 			singularName = singularName.substring(0, singularName.length() - 1);
 		}
 		cs.setTitle("Select a " + singularName + " to modify");
-		TransitionChoice<CNAbility> tc = new ConcreteTransitionChoice<>(cs,
-				FormulaFactory.ONE);
+		TransitionChoice<CNAbility> tc = new ConcreteTransitionChoice<>(cs, FormulaFactory.ONE);
 		tc.setRequired(false);
 		context.getObjectContext().put(ability, ObjectKey.MODIFY_CHOICE, tc);
 		tc.setChoiceActor(this);
@@ -118,15 +116,13 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 	@Override
 	public String[] unparse(LoadContext context, Ability ability)
 	{
-		TransitionChoice<CNAbility> mc = context.getObjectContext().getObject(
-				ability, ObjectKey.MODIFY_CHOICE);
+		TransitionChoice<CNAbility> mc = context.getObjectContext().getObject(ability, ObjectKey.MODIFY_CHOICE);
 		if (mc == null)
 		{
 			// Zero indicates no Token
 			return null;
 		}
-		return new String[] { StringUtil.replaceAll(mc.getChoices()
-				.getLSTformat(), ",", Constants.PIPE) };
+		return new String[]{StringUtil.replaceAll(mc.getChoices().getLSTformat(), ",", Constants.PIPE)};
 	}
 
 	@Override
@@ -142,12 +138,10 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		processApplication(pc, choice, choice.getChooseInfo());
 	}
 
-	private <T> void processApplication(PlayerCharacter pc, CNAbility choice,
-		ChooseInformation<T> chooseInfo)
+	private <T> void processApplication(PlayerCharacter pc, CNAbility choice, ChooseInformation<T> chooseInfo)
 	{
 		List<T> available = new ArrayList<>(chooseInfo.getSet(pc));
-		List<? extends T> selected =
-				chooseInfo.getChoiceActor().getCurrentlySelected(choice, pc);
+		List<? extends T> selected = chooseInfo.getChoiceActor().getCurrentlySelected(choice, pc);
 
 		final int currentSelections = selected.size();
 		final List<T> origSelections = new ArrayList<>(selected);
@@ -155,7 +149,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		//
 		// If nothing to choose, or nothing selected, then leave
 		//
-		if ((available.size() == 0) || (currentSelections == 0))
+		if (available.isEmpty() || (currentSelections == 0))
 		{
 			return;
 		}
@@ -163,13 +157,11 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		Globals.sortChooserLists(available, selected);
 
 		CDOMChooserFacadeImpl<T> chooserFacade =
-				new CDOMChooserFacadeImpl<>(
-						"Modify selections for " + choice, available,
-						selected, 0);
+				new CDOMChooserFacadeImpl<>("Modify selections for " + choice, available, selected, 0);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 		final int selectedSize = chooserFacade.getFinalSelected().size();
-		
+
 		if (selectedSize != currentSelections)
 		{
 			// need to have the same number of selections when finished

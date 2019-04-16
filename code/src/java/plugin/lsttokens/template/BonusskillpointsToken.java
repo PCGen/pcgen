@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with BONUSSKILLPOINTS Token
  */
-public class BonusskillpointsToken extends AbstractIntToken<PCTemplate>
-		implements CDOMPrimaryToken<PCTemplate>
+public class BonusskillpointsToken extends AbstractIntToken<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override
@@ -40,7 +39,7 @@ public class BonusskillpointsToken extends AbstractIntToken<PCTemplate>
 	{
 		return IntegerKey.BONUS_CLASS_SKILL_POINTS;
 	}
-	
+
 	@Override
 	protected int minValue()
 	{

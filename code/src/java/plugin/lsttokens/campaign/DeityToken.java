@@ -26,8 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with DEITY Token
  */
-public class DeityToken extends AbstractBasicCampaignToken implements
-		CDOMPrimaryToken<Campaign>
+public class DeityToken extends AbstractBasicCampaignToken implements CDOMPrimaryToken<Campaign>
 {
 	@Override
 	public String getTokenName()

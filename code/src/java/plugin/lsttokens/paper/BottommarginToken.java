@@ -1,5 +1,4 @@
 /*
- * BottommarginToken.java
  * Copyright (c) 2010 Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2006 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
@@ -16,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 2, 2002, 8:02 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.lsttokens.paper;
 
@@ -31,12 +25,10 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>BottommarginToken</code>
+ * {@code BottommarginToken}
  * 
- * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
-public class BottommarginToken extends AbstractNonEmptyToken<PaperInfo>
-		implements CDOMPrimaryToken<PaperInfo>
+public class BottommarginToken extends AbstractNonEmptyToken<PaperInfo> implements CDOMPrimaryToken<PaperInfo>
 {
 
 	@Override
@@ -46,14 +38,13 @@ public class BottommarginToken extends AbstractNonEmptyToken<PaperInfo>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PaperInfo pi,
-			String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PaperInfo pi, String value)
 	{
 		pi.setPaperInfo(PaperInfo.BOTTOMMARGIN, value);
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, PaperInfo pi)
 	{
 		String info = pi.getPaperInfo(PaperInfo.BOTTOMMARGIN);
@@ -62,10 +53,10 @@ public class BottommarginToken extends AbstractNonEmptyToken<PaperInfo>
 			// Probably an error
 			return null;
 		}
-		return new String[] { info };
+		return new String[]{info};
 	}
 
-    @Override
+	@Override
 	public Class<PaperInfo> getTokenClass()
 	{
 		return PaperInfo.class;

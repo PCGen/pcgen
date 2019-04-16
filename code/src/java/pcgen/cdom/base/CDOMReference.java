@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,6 +18,7 @@
 package pcgen.cdom.base;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.base.util.ObjectContainer;
 import pcgen.core.PlayerCharacter;
@@ -36,49 +37,34 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            The class of object this CDOMReference refers to.
  */
-public abstract class CDOMReference<T> implements ObjectContainer<T>,
-		PrimitiveCollection<T>
+public abstract class CDOMReference<T> implements ObjectContainer<T>, PrimitiveCollection<T>
 {
 
 	/**
 	 * The name of this CDOMReference. This is the identifying information about
 	 * the CDOMReference, and may (or may not) be used to identify the objects
-	 * to which this CDOMReference resolves (will depend on the implementation)
+	 * to which this CDOMReference resolves (will depend on the implementation).
 	 */
 	private final String name;
 
 	/**
-	 * The class of object this CDOMReference refers to.
+	 * Whether this CDOMReference requires a target. This is designed to be set by a
+	 * CONSUMER of a CDOMReference so that it can indicate back to a resolution system
+	 * whether certain information is required to properly resolve the CDOMReference.
 	 */
-	private final Class<T> clazz;
-	
 	private boolean requiresTarget = false;
 
 	/**
-	 * Constructs a new CDOMReference to the given Class of object, with the
-	 * given name.
+	 * Constructs a new CDOMReference with the given name.
 	 * 
-	 * @param objClass
-	 *            The class of object this CDOMReference refers to.
 	 * @param refName
 	 *            The name of this CDOMReference.
 	 * @throws IllegalArgumentException
-	 *             if the given Class or name is null
+	 *             if the given name is null
 	 */
-	protected CDOMReference(Class<T> objClass, String refName)
+	protected CDOMReference(String refName)
 	{
-		if (objClass == null)
-		{
-			throw new IllegalArgumentException(
-					"Class for CDOMReference cannot be null");
-		}
-		if (refName == null)
-		{
-			throw new IllegalArgumentException(
-					"Name for CDOMReference cannot be null");
-		}
-		clazz = objClass;
-		name = refName;
+		name = Objects.requireNonNull(refName);
 	}
 
 	/**
@@ -95,59 +81,19 @@ public abstract class CDOMReference<T> implements ObjectContainer<T>,
 	}
 
 	/**
-	 * The class of object this CDOMReference refers to.
-	 * 
-	 * @return The class of object this CDOMReference refers to.
-	 */
-	@Override
-	public Class<T> getReferenceClass()
-	{
-		return clazz;
-	}
-
-	/**
 	 * Adds an object to be included in the Collection of objects to which this
 	 * CDOMReference refers.
 	 * 
 	 * Note that specific implementations may limit the number of times this
 	 * method may be called, and may throw an IllegalStateException if that
 	 * limit is exceeded. Note: The limit defined may be any value, including
-	 * zero (or "this is an optional method")
+	 * zero (or "this is an optional method").
 	 * 
 	 * @param item
-	 *            an object to be included in the Collection of objects to which
+	 *            An object to be included in the Collection of objects to which
 	 *            this CDOMReference refers.
 	 */
 	public abstract void addResolution(T item);
-
-	/**
-	 * Returns true if the given Object is included in the Collection of Objects
-	 * to which this CDOMReference refers.
-	 * 
-	 * Note that the behavior of this class is undefined if the CDOMReference
-	 * has not yet been resolved.
-	 * 
-	 * @param item
-	 *            The object to be tested to see if it is referred to by this
-	 *            CDOMReference.
-	 * @return true if the given Object is included in the Collection of Objects
-	 *         to which this CDOMReference refers; false otherwise.
-	 */
-	@Override
-	public abstract boolean contains(T item);
-
-	/**
-	 * Returns a representation of this CDOMReference, suitable for storing in
-	 * an LST file.
-	 * 
-	 * Note that this will ALWAYS return a comma-delimited list of objects if
-	 * more than one object is present in the CDOMReference.
-	 * 
-	 * @return A representation of this CDOMReference, suitable for storing in
-	 *         an LST file.
-	 */
-	@Override
-	public abstract String getLSTformat(boolean useAny);
 
 	/**
 	 * Returns the count of the number of objects included in the Collection of
@@ -156,7 +102,7 @@ public abstract class CDOMReference<T> implements ObjectContainer<T>,
 	 * Note that the behavior of this class is undefined if the CDOMReference
 	 * has not yet been resolved.
 	 * 
-	 * @return the count of the number of objects included in the Collection of
+	 * @return The count of the number of objects included in the Collection of
 	 *         Objects to which this CDOMReference refers.
 	 */
 	public abstract int getObjectCount();
@@ -192,9 +138,18 @@ public abstract class CDOMReference<T> implements ObjectContainer<T>,
 	@Override
 	public String toString()
 	{
-		return getClass().getSimpleName() + " " + clazz.getSimpleName() + " "
-				+ getName();
+		return getClass().getSimpleName() + " " + getReferenceClass().getSimpleName() + " " + getName();
 	}
+
+	/**
+	 * Returns a description of the contents of this CDOMReference.
+	 * 
+	 * It is strongly advised that no dependency on this method be created, as it is
+	 * designed for human readability and the return value may be changed without warning.
+	 * 
+	 * @return A description of the contents of this CDOMReference
+	 */
+	public abstract String getReferenceDescription();
 
 	@Override
 	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
@@ -211,13 +166,38 @@ public abstract class CDOMReference<T> implements ObjectContainer<T>,
 	 */
 	public abstract String getChoice();
 
+	/**
+	 * Returns true if this CDOMReference requires a target. This is designed to be read
+	 * by a resolution system to identify whether the Name of this CDOMReference is
+	 * sufficiently detailed enough to indicate there is a target.
+	 * 
+	 * @return true if this CDOMReference requires a target; false otherwise
+	 */
 	public boolean requiresTarget()
 	{
 		return requiresTarget;
 	}
-	
+
+	/**
+	 * Sets whether this CDOMReference requires that it contains a target. This is
+	 * designed to be set by a CONSUMER of a CDOMReference so that it can indicate back to
+	 * a resolution system whether certain information is required to properly resolve the
+	 * CDOMReference.
+	 * 
+	 * @param required
+	 *            Whether this CDOMReference requires that it contains a target
+	 */
 	public void setRequiresTarget(boolean required)
 	{
 		requiresTarget = required;
 	}
+
+	/**
+	 * Returns the persistent version of the ClassIdentity of the type of object that this
+	 * CDOMReference contains.
+	 * 
+	 * @return The persistent version of the ClassIdentity of the type of object that this
+	 *         CDOMReference contains
+	 */
+	public abstract String getPersistentFormat();
 }

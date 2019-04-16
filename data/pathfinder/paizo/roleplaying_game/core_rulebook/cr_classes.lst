@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21663 $ $Author: amaitland $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher and Eric C. Smith (Maredudd); Archetype work by Andrew Maitland
@@ -19,8 +20,8 @@ CLASS:Ex-Barbarian	STARTSKILLPTS:4
 1	ABILITY:Class|AUTOMATIC|Barbarian
 
 
-# Class Name	Hit Dice	Type								Max Level	Source Page		Define							Combat bonus																	Save bonus																																		Modify VAR																																																																																																																	Monster Role	FACT
-CLASS:Bard		HD:8		TYPE:Base.PC.SpontaneousArcane.Spontaneous	MAXLEVEL:20	SOURCEPAGE:p.34	DEFINE:BardLVL|0	DEFINE:CasterLevelBLBard|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|BardLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Bard|Caster_Level_Bard-CasterLevelBLBard	BONUS:VAR|Caster_Level_Bard|CL+Caster_Level_Bonus+CasterLevelBLBard	BONUS:VAR|CasterLevelBL_x_Bard|charbonusto("PCLEVEL","Bard")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Bard|TYPE=Base	ROLE:Skill		FACT:ClassType|PC	FACT:Abb|Brd	FACT:SpellType|Arcane
+# Class Name	Hit Dice	Type								Max Level	Source Page		Define							Combat bonus																	Save bonus																																		Modify VAR																																																																																																																											Monster Role	FACT
+CLASS:Bard		HD:8		TYPE:Base.PC.SpontaneousArcane.Spontaneous	MAXLEVEL:20	SOURCEPAGE:p.34	DEFINE:BardLVL|0	DEFINE:CasterLevelBLBard|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|BardLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Bard|Caster_Level_Bard-CasterLevelBLBard	BONUS:VAR|Caster_Level_Bard|CL+Caster_Level_Bonus+CasterLevelBLBard	BONUS:VAR|CasterLevelBL_x_Bard|charbonusto("PCLEVEL","Bard")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Bard|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Bard	ROLE:Skill		FACT:ClassType|PC	FACT:Abb|Brd	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl
 CLASS:Bard		STARTSKILLPTS:6
 # Class Name	Spell Stat		Memorize	Caster level
@@ -198,7 +199,7 @@ CLASS:Fighter	STARTSKILLPTS:2
 5	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Weapon Training|PREVAREQ:Fighter_CF_WeaponTraining,0
 19	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Armor Mastery|PREVAREQ:Fighter_CF_ArmorMastery,0
 ###Block:
-20	BONUS:ABILITYPOOL|Weapon Mastery|1|PREVAREQ:FighterWeaponMastery,0
+20	BONUS:ABILITYPOOL|Weapon Mastery|1|PREVAREQ:FighterWeaponMastery,0|PREVAREQ:Fighter_CF_WeaponMastery,0
 
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define															Modify VAR																Monster Role	FACT
@@ -287,7 +288,7 @@ CLASS:Ranger	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.64	ABILITY:Internal|AU
 # Class Name	Skill Pts/Lvl
 CLASS:Ranger	STARTSKILLPTS:6
 # Class Name	Spell Stat		Automatically Known Spell Levels			Craft Level Mult.	Caster level
-CLASS:Ranger	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|Caster_Level_BL_Stripped_Ranger|PRECLASS:1,Ranger=4
+CLASS:Ranger	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Ranger|Caster_Level_Ranger|PRECLASS:1,Ranger=4
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Ranger
 ###Block: Progression Abilities
@@ -336,27 +337,25 @@ CLASS:Rogue		HD:8		TYPE:Base.PC.Rogue	MAXLEVEL:20	SOURCEPAGE:p.67	DEFINE:RogueLV
 # Class Name	Skill Pts/Lvl
 CLASS:Rogue		STARTSKILLPTS:8
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueWeaponProficiencies,TYPE.RogueLightArmor,TYPE.RogueArmorProficiencies
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|Weapon Proficiencies ~ Rogue|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueWeaponProficiencies
-1	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.RogueLightArmor,TYPE.RogueArmorProficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Rogue
 1	ABILITY:Class|AUTOMATIC|Rogue
 
 
-# Class Name	Hit Dice	Type								Max Level	Source Page		Ability																	Define									Combat bonus																	Save bonus																																		Modify VAR																																																																																																																					Monster Role	FACT
-CLASS:Sorcerer	HD:6		TYPE:Base.PC.SpontaneousArcane.Spontaneous	MAXLEVEL:20	SOURCEPAGE:p.70	ABILITY:Internal|AUTOMATIC|Class Skills ~ Sorcerer|!PREABILITY:1,CATEGORY=Archetype,SorcererClassSkills	DEFINE:SorcererLVL|0	DEFINE:CasterLevelBLSorcerer|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SorcererLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Sorcerer|Caster_Level_Sorcerer-CasterLevelBLSorcerer	BONUS:VAR|Caster_Level_Sorcerer|CL+Caster_Level_Bonus+CasterLevelBLSorcerer	BONUS:VAR|CasterLevelBL_x_Sorcerer|charbonusto("PCLEVEL","Sorcerer")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Sorcerer|TYPE=Base	ROLE:Sorcerer	FACT:ClassType|PC	FACT:Abb|Sor	FACT:SpellType|Arcane
+# Class Name	Hit Dice	Type								Max Level	Source Page		Define									Combat bonus																	Save bonus																																		Modify VAR																																																																																																																															Monster Role	FACT
+CLASS:Sorcerer	HD:6		TYPE:Base.PC.SpontaneousArcane.Spontaneous	MAXLEVEL:20	SOURCEPAGE:p.70	DEFINE:SorcererLVL|0	DEFINE:CasterLevelBLSorcerer|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SorcererLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Sorcerer|Caster_Level_Sorcerer-CasterLevelBLSorcerer	BONUS:VAR|Caster_Level_Sorcerer|CL+Caster_Level_Bonus+CasterLevelBLSorcerer	BONUS:VAR|CasterLevelBL_x_Sorcerer|charbonusto("PCLEVEL","Sorcerer")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Sorcerer|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Sorcerer	ROLE:Sorcerer	FACT:ClassType|PC	FACT:Abb|Sor	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl
 CLASS:Sorcerer	STARTSKILLPTS:2
 # Class Name	Spell Stat		Memorize	Caster level
 CLASS:Sorcerer	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|Caster_Level_BL_Stripped_Sorcerer
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Sorcerer
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Sorcerer|PREVAREQ:Sorcerer_CF_WeaponProficiencies,0
-1	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Simple|PREVAREQ:Sorcerer_CF_WeaponProficiencies,0
-###Block:
-1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Sorcerer Bloodline|PREVAREQ:Sorcerer_CF_Bloodline,0
-1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Cantrips
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Weapon and Armor Proficiency|PREVAREQ:Sorcerer_CF_WeaponProficiencies,0
+###Block: Class Features
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Spells|PREVAREQ:Sorcerer_CF_Spells,0
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Standard Bloodline|PREVAREQ:Sorcerer_CF_Bloodline,0
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Cantrips|PREVAREQ:Sorcerer_CF_Cantrips,0
 1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Eschew Materials|PREVAREQ:Sorcerer_CF_EschewMaterials,0
-###Block: Level progression
+###Block: Spell Level Progression
 1	CAST:0,3				KNOWN:4,2
 2	CAST:0,4				KNOWN:5,2
 3	CAST:0,5				KNOWN:5,3
@@ -379,39 +378,39 @@ CLASS:Sorcerer	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|Caster_Level
 20	CAST:0,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 
-# Class Name	Hit Dice	Type			Max Level	Base class as subclass?	Source Page		Bonus Languages		Ability																Visible	Define																																	Combat bonus																	Save bonus																																		Modify VAR																																																																																																																															Monster Role	FACT
-CLASS:Wizard	HD:6		TYPE:Base.PC	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:p.77	LANGBONUS:Draconic	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,WizardClassSkills	VISIBLE:YES	DEFINE:DisallowWizardArcaneSchoolArchetype|0	DEFINE:WizardLVL|0	DEFINE:WizardSchoolLVL|0	DEFINE:SpellMasteryQualify|0	DEFINE:Caster_Level_BL_Stripped_Wizard|0	DEFINE:CasterLevelBLWizard|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|WizardLVL|CL	BONUS:VAR|WizardSchoolLVL|WizardLVL	BONUS:VAR|SpellMasteryQualify|1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Wizard|Caster_Level_Wizard-CasterLevelBLWizard	BONUS:VAR|Caster_Level_Wizard|WizardLVL+Caster_Level_Bonus+CasterLevelBLWizard	BONUS:VAR|CasterLevelBL_x_Wizard|charbonusto("PCLEVEL","Wizard")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Wizard|TYPE=Base	ROLE:Wizard		FACT:ClassType|PC	FACT:Abb|Wiz	FACT:SpellType|Arcane
+# Class Name	Hit Dice	Type			Max Level	Base class as subclass?	Source Page		Bonus Languages		Ability																Visible	Define																												Combat bonus																	Save bonus																																		Modify VAR																																																																																																																																			Monster Role	FACT
+CLASS:Wizard	HD:6		TYPE:Base.PC	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURCEPAGE:p.77	LANGBONUS:Draconic	ABILITY:Internal|AUTOMATIC|Class Skills ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,WizardClassSkills	VISIBLE:YES	DEFINE:DisallowWizardArcaneSchoolArchetype|0	DEFINE:WizardLVL|0	DEFINE:SpellMasteryQualify|0	DEFINE:Caster_Level_BL_Stripped_Wizard|0	DEFINE:CasterLevelBLWizard|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|WizardLVL|CL	BONUS:VAR|SpellMasteryQualify|1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Wizard|Caster_Level_Wizard-CasterLevelBLWizard	BONUS:VAR|Caster_Level_Wizard|WizardLVL+Caster_Level_Bonus+CasterLevelBLWizard	BONUS:VAR|CasterLevelBL_x_Wizard|charbonusto("PCLEVEL","Wizard")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Wizard|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Wizard	ROLE:Wizard		FACT:ClassType|PC	FACT:Abb|Wiz	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl
 CLASS:Wizard	STARTSKILLPTS:2
 # Class Name	Spell Stat		Spellbook		Caster level
 CLASS:Wizard	SPELLSTAT:INT	SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|Caster_Level_BL_Stripped_Wizard
 #
 SUBCLASS:Abjurer		COST:0	CHOICE:SCHOOL|Abjuration
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Abjuration School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Abjuration School														PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Conjurer		COST:0	CHOICE:SCHOOL|Conjuration
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Conjuration School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Conjuration School														PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Diviner		COST:0	CHOICE:SCHOOL|Divination
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Divination School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Divination School														PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Enchanter	COST:0	CHOICE:SCHOOL|Enchantment
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Enchantment School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Enchantment School														PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Evoker		COST:0	CHOICE:SCHOOL|Evocation
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Evocation School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Evocation School														PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Illusionist	COST:0	CHOICE:SCHOOL|Illusion
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Illusion School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Illusion School														PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Necromancer	COST:0	CHOICE:SCHOOL|Necromancy
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Necromancy School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Necromancy School														PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Transmuter	COST:0	CHOICE:SCHOOL|Transmutation
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Transmutation School																		!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Transmutation School														PREVAREQ:Wizard_CF_ArcaneSchool,0
 SUBCLASS:Universalist	COST:0
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
+SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|PREVAREQ:Wizard_CF_ArcaneSchool,0|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
 1	ABILITY:Class|AUTOMATIC|Wizard
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
-1	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Wizard|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Wizard|PREVAREQ:Wizard_CF_WeaponProficiencies,0
+1	ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Wizard|PREVAREQ:Wizard_CF_WeaponProficiencies,0
 ###Block:
 1	ABILITY:FEAT|AUTOMATIC|Scribe Scroll|PREVAREQ:Wizard_CF_ScribeScroll,0
 ###Block:
-#1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
+#1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|PREVAREQ:Wizard_CF_ArcaneSchool,0|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane School|PREVAREQ:Wizard_CF_ArcaneSchool,0
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane Bond|PREVAREQ:Wizard_CF_ArcaneBond,0
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Cantrips|PREVAREQ:Wizard_CF_Cantrips,0
@@ -518,7 +517,7 @@ CLASS:Assassin	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|Diplomacy|Disable D
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																							Modify VAR																																																																		FACT
 CLASS:Dragon Disciple	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.380	DEFINE:DragonDiscipleLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|DragonDiscipleLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|DrD
-# Class Name		Required Language		Multiple Requirements																																Prohibited Race			Required Skill				Prohibited Template
+# Class Name		Required Language		Multiple Requirements																																									Prohibited Race			Required Skill				Prohibited Template
 CLASS:Dragon Disciple	PRELANG:1,Draconic	PREMULT:1,[PREFACT:1,ABILITIES,QualifiedForDragonDisciple=true],[PREMULT:3,[PRESPELLCAST:MEMORIZE=N],[PRESPELLCAST:TYPE=Arcane],[!PRECLASS:1,Sorcerer=1]],[PREMULT:2,[PRECLASS:1,Sorcerer=1],[PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Draconic]]	!PRERACE:1,RACETYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=5	!PRETEMPLATE:1,Half Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Diplomacy|Escape Artist|Fly|TYPE=Knowledge|Perception|Spellcraft
@@ -532,6 +531,7 @@ CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Diplomacy|Escape Artist|Fly|TYPE=Kn
 10	ADD:SPELLCASTER|Arcane
 ###Block: Progression
 1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Weapon and Armor Proficiency
+1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Spells per Day
 1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Blood of Dragons|Dragon Disciple ~ Natural Armor Increase
 2	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Ability Boost|Dragon Disciple ~ Dragon Bite|Dragon Disciple ~ Bloodline Feat
 3	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Breath Weapon
@@ -607,8 +607,8 @@ CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Diplomacy|Handle Animal|Heal|TY
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																	Save bonus																						Modify VAR																																																												FACT
 CLASS:Mystic Theurge	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.387	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Myt
-# Class Name		Multiple Requirements																																	Required Skill
-CLASS:Mystic Theurge	PREMULT:1,[PRESPELLTYPE:1,Divine=2],[PREABILITY:1,CATEGORY=Spell-Like Ability,TYPE.SpellLikeDivineLVL2]	PREMULT:1,[PRESPELLTYPE:1,Arcane=2],[PREABILITY:1,CATEGORY=Spell-Like Ability,TYPE.SpellLikeArcaneLVL2]	PRESKILL:2,Knowledge (Arcana)=3,Knowledge (Religion)=3
+# Class Name		Required Skill								Req. Spell Type
+CLASS:Mystic Theurge	PRESKILL:2,Knowledge (Arcana)=3,Knowledge (Religion)=3	PRESPELLTYPE:1,Divine=2	PRESPELLTYPE:1,Arcane=2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mystic Theurge	STARTSKILLPTS:2	CSKILL:Knowledge (Arcana)|Knowledge (Religion)|Sense Motive|Spellcraft
 ###Block: Level Progression

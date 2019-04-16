@@ -18,14 +18,18 @@
 package pcgen.base.util;
 
 
-import static org.junit.Assert.*;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.base.FormulaFactory;
 
-public class NamedFormulaTest
+import org.junit.jupiter.api.Test;
+
+
+class NamedFormulaTest
 {
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testNullConstructor()
 	{

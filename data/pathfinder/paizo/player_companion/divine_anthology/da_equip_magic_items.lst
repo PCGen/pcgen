@@ -1,0 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Divine Anthology	SOURCESHORT:DA	SOURCEWEB:http://paizo.com/products/btpy9nvh	SOURCEDATE:2016-10
+
+
+# Equipment Name			Type					Cost		Weight
+Book of Written Whispers	TYPE:Magic.Wondrous.Book	COST:6000	WT:1
+Amulet of Courage			TYPE:Magic.Wondrous.Amulet	COST:6000

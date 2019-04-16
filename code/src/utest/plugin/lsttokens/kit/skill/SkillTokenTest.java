@@ -17,7 +17,8 @@
  */
 package plugin.lsttokens.kit.skill;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
@@ -27,6 +28,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import org.junit.jupiter.api.Test;
 
 public class SkillTokenTest extends AbstractKitTokenTestCase<KitSkill>
 {
@@ -54,7 +57,7 @@ public class SkillTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount() throws PersistenceLayerException
+	public void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("Fireball"));
 		assertConstructionError();
@@ -69,19 +72,19 @@ public class SkillTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	}
 
 	@Test
-	public void testInvalidInputEmptyType() throws PersistenceLayerException
+	public void testInvalidInputEmptyType()
 	{
 		assertFalse(parse("TYPE="));
 	}
 
 	@Test
-	public void testInvalidInputTrailingType() throws PersistenceLayerException
+	public void testInvalidInputTrailingType()
 	{
 		assertFalse(parse("TYPE=One."));
 	}
 
 	@Test
-	public void testInvalidInputDoubleType() throws PersistenceLayerException
+	public void testInvalidInputDoubleType()
 	{
 		assertFalse(parse("TYPE=One..Two"));
 	}

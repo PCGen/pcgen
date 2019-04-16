@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 06/06/2013
- *
- * $Id$
  */
 package plugin.lsttokens.choose;
 
@@ -36,7 +32,6 @@ import pcgen.cdom.choiceset.CollectionToAbilitySelection;
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
@@ -50,14 +45,11 @@ import pcgen.rules.persistence.token.ParseResult;
  * New chooser plugin, handles ability selection.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMSecondaryToken<CDOMObject>,
-		Chooser<AbilitySelection>
+		implements CDOMSecondaryToken<CDOMObject>, Chooser<AbilitySelection>
 {
-	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS =
-			AbilityCategory.class;
+	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
 	@Override
 	public String getParentToken()
@@ -70,10 +62,9 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 	{
 		return '|';
 	}
-	
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		ReferenceManufacturer<Ability> rm, CDOMSingleRef<AbilityCategory> acRef,
-		CDOMObject obj, String value)
+
+	protected ParseResult parseTokenWithSeparator(LoadContext context, ReferenceManufacturer<Ability> rm,
+		AbilityCategory cat, CDOMObject obj, String value)
 	{
 		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
@@ -93,10 +84,10 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 				{
 					title = title.substring(1, title.length() - 1);
 				}
-				if (title == null || title.length() == 0)
+				if ((title == null) || title.isEmpty())
 				{
-					return new ParseResult.Fail(getParentToken() + Constants.COLON
-						+ getTokenName() + " had TITLE= but no title: " + value, context);
+					return new ParseResult.Fail(
+						getParentToken() + Constants.COLON + getTokenName() + " had TITLE= but no title: " + value);
 				}
 				activeValue = value.substring(0, pipeLoc);
 			}
@@ -114,14 +105,12 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		}
 		if (!prim.getGroupingState().isValid())
 		{
-			return new ParseResult.Fail("Non-sensical " + getFullName()
-				+ ": Contains ANY and a specific reference: " + value, context);
+			return new ParseResult.Fail(
+				"Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + value);
 		}
-		CollectionToAbilitySelection pcs =
-				new CollectionToAbilitySelection(acRef, prim);
+		CollectionToAbilitySelection pcs = new CollectionToAbilitySelection(cat, prim);
 		CategorizedAbilitySelectionChooseInformation tc =
-				new CategorizedAbilitySelectionChooseInformation(
-					getTokenName(), pcs);
+				new CategorizedAbilitySelectionChooseInformation(getTokenName(), pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -136,9 +125,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		ChooseInformation<?> tc =
-				context.getObjectContext()
-					.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> tc = context.getObjectContext().getObject(cdo, ObjectKey.CHOOSE_INFO);
 		if (tc == null)
 		{
 			return null;
@@ -156,15 +143,15 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		}
 		if (!tc.getGroupingState().isValid())
 		{
-			context.addWriteMessage("Invalid combination of objects"
-				+ " was used in: " + getParentToken() + Constants.COLON + getTokenName());
+			context.addWriteMessage("Invalid combination of objects" + " was used in: " + getParentToken()
+				+ Constants.COLON + getTokenName());
 			return null;
 		}
 
 		StringBuilder sb = new StringBuilder();
 		if (tc instanceof CategorizedAbilitySelectionChooseInformation)
 		{
-			sb.append(((CategorizedAbilitySelectionChooseInformation) tc).getCategory().getLSTformat(false));
+			sb.append(((CategorizedAbilitySelectionChooseInformation) tc).getCategory().getKeyName());
 		}
 		else
 		{
@@ -183,15 +170,13 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver owner, AbilitySelection st,
-		PlayerCharacter pc)
+	public void applyChoice(ChooseDriver owner, AbilitySelection st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, st);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner,
-		AbilitySelection choice)
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, AbilitySelection choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -205,8 +190,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		AbilitySelection choice)
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, AbilitySelection choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -220,8 +204,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 	}
 
 	@Override
-	public List<AbilitySelection> getCurrentlySelected(ChooseDriver owner,
-		PlayerCharacter pc)
+	public List<AbilitySelection> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
@@ -245,28 +228,21 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 	}
 
 	@Override
-	public ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	public ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		int barLoc = value.indexOf('|');
 		if (barLoc == -1)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-				+ " requires a CATEGORY and arguments : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " requires a CATEGORY and arguments : " + value);
 		}
 		String cat = value.substring(0, barLoc);
-		CDOMSingleRef<AbilityCategory> acRef =
-				context.getReferenceContext().getCDOMReference(
-					ABILITY_CATEGORY_CLASS, cat);
+		AbilityCategory acRef = context.getReferenceContext().get(ABILITY_CATEGORY_CLASS, cat);
 		String abilities = value.substring(barLoc + 1);
 		ReferenceManufacturer<Ability> rm =
-				context.getReferenceContext().getManufacturer(ABILITY_CLASS,
-					ABILITY_CATEGORY_CLASS, cat);
+				context.getReferenceContext().getManufacturerByFormatName("ABILITY=" + cat, ABILITY_CLASS);
 		if (rm == null)
 		{
-			return new ParseResult.Fail(
-				"Could not get Reference Manufacturer for Category: " + cat,
-				context);
+			return new ParseResult.Fail("Could not get Reference Manufacturer for Category: " + cat);
 		}
 		return parseTokenWithSeparator(context, rm, acRef, obj, abilities);
 	}
@@ -291,8 +267,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 	@Override
 	public AbilitySelection decodeChoice(LoadContext context, String s)
 	{
-		return AbilitySelection.getAbilitySelectionFromPersistentFormat(
-			context, s);
+		return AbilitySelection.getAbilitySelectionFromPersistentFormat(context, s);
 	}
 
 	@Override

@@ -1,0 +1,117 @@
+#  Sun Sep 23 13:50:08 2018 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Starfinder Pact Worlds	SOURCESHORT:SPW	SOURCEDATE:2018-03
+# Original Entry by: Iridios
+
+
+###Block:BASIC MELEE WEAPONS
+# One-Handed Weapons
+
+# Operative sub group
+# Equipment Name			Unique Key					Required Weapon Proficiency					Type																					Cost		Weight	Damage	Wield Category	Modify VAR			Quality and value									Special Property		MODIFY			PART
+Sword cane, tactical		KEY:Sword cane (tactical)		PROFICIENCY:WEAPON|Sword cane (tactical)			TYPE:RESIZABLE.P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.Damage_UseStr.Operative	COST:250	WT:0.1	DAMAGE:1d4	WIELD:OneHanded	BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Critical|Bleed 1d3	QUALITY:Bulk|L	SPROP:Analog.operative	MODIFY:ItemLevel|SET|1	PART:1|MODIFY:Damage|SET|1d4
+Sword cane, advanced		KEY:Sword cane (advanced)		PROFICIENCY:WEAPON|Sword cane (advanced)			TYPE:RESIZABLE.P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.Damage_UseStr.Operative	COST:2100	WT:0.1	DAMAGE:1d4	WIELD:OneHanded	BONUS:VAR|BulkLight|1	QUALITY:Level|4	QUALITY:Critical|Bleed 1d4	QUALITY:Bulk|L	SPROP:Analog.operative	MODIFY:ItemLevel|SET|4	PART:1|MODIFY:Damage|SET|1d4
+Sword cane, ultrathin		KEY:Sword cane (ultrathin)		PROFICIENCY:WEAPON|Sword cane (ultrathin)			TYPE:RESIZABLE.P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.Damage_UseStr.Operative	COST:7000	WT:0.1	DAMAGE:2d4	WIELD:OneHanded	BONUS:VAR|BulkLight|1	QUALITY:Level|7	QUALITY:Critical|Bleed 1d4	QUALITY:Bulk|L	SPROP:Analog.operative	MODIFY:ItemLevel|SET|7	PART:1|MODIFY:Damage|SET|2d4
+Sword cane, zero-edge		KEY:Sword cane (zero-edge)		PROFICIENCY:WEAPON|Sword cane (zero-edge)			TYPE:RESIZABLE.P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.Damage_UseStr.Operative	COST:18000	WT:0.1	DAMAGE:2d6	WIELD:OneHanded	BONUS:VAR|BulkLight|1	QUALITY:Level|10	QUALITY:Critical|Bleed 1d6	QUALITY:Bulk|L	SPROP:Analog.operative	MODIFY:ItemLevel|SET|10	PART:1|MODIFY:Damage|SET|2d6
+Sword cane, molecular rift	KEY:Sword cane (molecular rift)	PROFICIENCY:WEAPON|Sword cane (molecular rift)		TYPE:RESIZABLE.P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.Damage_UseStr.Operative	COST:50900	WT:0.1	DAMAGE:3d8	WIELD:OneHanded	BONUS:VAR|BulkLight|1	QUALITY:Level|13	QUALITY:Critical|Bleed 1d8	QUALITY:Bulk|L	SPROP:Analog.operative	MODIFY:ItemLevel|SET|13	PART:1|MODIFY:Damage|SET|3d8
+Sword cane, dimensional slice	KEY:Sword cane (dimensional slice)	PROFICIENCY:WEAPON|Sword cane (dimensional slice)	TYPE:RESIZABLE.P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee Weapons.Uncategorized.Damage_UseStr.Operative	COST:160000	WT:0.1	DAMAGE:5d8	WIELD:OneHanded	BONUS:VAR|BulkLight|1	QUALITY:Level|16	QUALITY:Critical|Bleed 2d6	QUALITY:Bulk|L	SPROP:Analog.operative	MODIFY:ItemLevel|SET|16	PART:1|MODIFY:Damage|SET|5d8
+
+# Two-Handed Weapons
+
+###Block:ADVANCED MELEE WEAPONS
+# One-Handed Weapons
+
+# UNCATEGORIZED
+
+#TWO-HANDED WEAPONS
+# Equipment Name				Unique Key									Required Weapon Proficiency					Type																		Cost		Weight	Damage	Wield Category	Range		Ability												Modify VAR			Quality and value																		Special Property						MODIFY			PART
+Xenolash, immature			KEY:Xenolash (immature)							PROFICIENCY:WEAPON|Xenolash (immature)			TYPE:RESIZABLE.Weapon.Melee.Advanced Melee.Prof Group Advanced Melee.ToHit_UseStr.Damage_UseStr	TYPE:A & S	COST:2430	WT:1		DAMAGE:2d4	WIELD:TwoHanded																BONUS:VAR|Bulk|1		QUALITY:Level|4	QUALITY:Critical|Corrode 1d4	QUALITY:Bulk|1										SPROP:Analog, disarm, entangle, reach, trip	MODIFY:ItemLevel|SET|4	PART:1|MODIFY:Damage|SET|2d4
+Xenolash, mature				KEY:Xenolash (mature)							PROFICIENCY:WEAPON|Xenolash (mature)			TYPE:RESIZABLE.Weapon.Melee.Advanced Melee.Prof Group Advanced Melee.ToHit_UseStr.Damage_UseStr	TYPE:A & S	COST:17000	WT:1		DAMAGE:5d4	WIELD:TwoHanded																BONUS:VAR|Bulk|1		QUALITY:Level|10	QUALITY:Critical|Corrode 2d4	QUALITY:Bulk|1										SPROP:Analog, disarm, entangle, reach, trip	MODIFY:ItemLevel|SET|10	PART:1|MODIFY:Damage|SET|5d4
+Xenolash, blooming			KEY:Xenolash (blooming)							PROFICIENCY:WEAPON|Xenolash (blooming)			TYPE:RESIZABLE.Weapon.Melee.Advanced Melee.Prof Group Advanced Melee.ToHit_UseStr.Damage_UseStr	TYPE:A & S	COST:70000	WT:1		DAMAGE:9d4	WIELD:TwoHanded																BONUS:VAR|Bulk|1		QUALITY:Level|14	QUALITY:Critical|Corrode 4d4	QUALITY:Bulk|1										SPROP:Analog, disarm, entangle, reach, trip	MODIFY:ItemLevel|SET|14	PART:1|MODIFY:Damage|SET|9d4
+Xenolash, seeded				KEY:Xenolash (seeded)							PROFICIENCY:WEAPON|Xenolash (seeded)			TYPE:RESIZABLE.Weapon.Melee.Advanced Melee.Prof Group Advanced Melee.ToHit_UseStr.Damage_UseStr	TYPE:A & S	COST:409000	WT:1		DAMAGE:9d8	WIELD:TwoHanded																BONUS:VAR|Bulk|1		QUALITY:Level|18	QUALITY:Critical|Corrode 6d4	QUALITY:Bulk|1										SPROP:Analog, disarm, entangle, reach, trip	MODIFY:ItemLevel|SET|18	PART:1|MODIFY:Damage|SET|9d8
+
+# TABLE 7-3:SMALL ARMS
+# ONE-HANDED WEAPONS
+Nightarch needler, tactical		KEY:Nightarch needler (tactical)					PROFICIENCY:WEAPON|Nightarch needler (tactical)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Small Arms.Weapon	TYPE:P					COST:1650	WT:0.1	DAMAGE:1d6	WIELD:OneHanded	RANGE:30														BONUS:VAR|BulkLight|1	QUALITY:Level|3	QUALITY:Critical|Injection DC +2	QUALITY:Bulk|L	QUALITY:Capacity|5 darts	QUALITY:Usage|1	SPROP:Analog, injection					MODIFY:ItemLevel|SET|3	PART:1|MODIFY:Damage|SET|1d6
+Nightarch needler, advanced		KEY:Nightarch needler (advanced)					PROFICIENCY:WEAPON|Nightarch needler (advanced)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Small Arms.Weapon	TYPE:P					COST:6270	WT:0.1	DAMAGE:2d6	WIELD:OneHanded	RANGE:30														BONUS:VAR|BulkLight|1	QUALITY:Level|8	QUALITY:Critical|Injection DC +2	QUALITY:Bulk|L	QUALITY:Capacity|5 darts	QUALITY:Usage|1	SPROP:Analog, injection					MODIFY:ItemLevel|SET|8	PART:1|MODIFY:Damage|SET|2d6
+Nightarch needler, elite		KEY:Nightarch needler (elite)						PROFICIENCY:WEAPON|Nightarch needler (elite)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Small Arms.Weapon	TYPE:P					COST:44980	WT:0.1	DAMAGE:4d6	WIELD:OneHanded	RANGE:30														BONUS:VAR|BulkLight|1	QUALITY:Level|13	QUALITY:Critical|Injection DC +2	QUALITY:Bulk|L	QUALITY:Capacity|5 darts	QUALITY:Usage|1	SPROP:Analog, injection					MODIFY:ItemLevel|SET|13	PART:1|MODIFY:Damage|SET|4d6
+Nightarch needler, paragon		KEY:Nightarch needler (paragon)					PROFICIENCY:WEAPON|Nightarch needler (paragon)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Small Arms.Weapon	TYPE:P					COST:369000	WT:0.1	DAMAGE:8d6	WIELD:OneHanded	RANGE:30														BONUS:VAR|BulkLight|1	QUALITY:Level|18	QUALITY:Critical|Injection DC +2	QUALITY:Bulk|L	QUALITY:Capacity|5 darts	QUALITY:Usage|1	SPROP:Analog, injection					MODIFY:ItemLevel|SET|18	PART:1|MODIFY:Damage|SET|8d6
+
+# TABLE 7-4:Longarms
+# TWO-HANDED WEAPONS
+Kalo shredder, slipstream-class	KEY:Kalo shredder (slipstream-class)				PROFICIENCY:WEAPON|Kalo shredder (slipstream-class)	TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Longarms	TYPE:S						COST:1610	WT:1		DAMAGE:1d6	WIELD:TwoHanded	RANGE:30														BONUS:VAR|Bulk|1		QUALITY:Level|3	QUALITY:Critical|Bleed 1d4	QUALITY:Bulk|1	QUALITY:Capacity|8 flechettes	QUALITY:Usage|1		SPROP:Analog, automatic, underwater			MODIFY:ItemLevel|SET|3	PART:1|MODIFY:Damage|SET|1d6
+Kalo shredder, cascade-class		KEY:Kalo shredder (cascade-class)					PROFICIENCY:WEAPON|Kalo shredder (cascade-class)	TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Longarms	TYPE:S						COST:6630	WT:1		DAMAGE:2d6	WIELD:TwoHanded	RANGE:40														BONUS:VAR|Bulk|1		QUALITY:Level|7	QUALITY:Critical|Bleed 1d6	QUALITY:Bulk|1	QUALITY:Capacity|18 flechettes	QUALITY:Usage|1	SPROP:Analog, automatic, underwater			MODIFY:ItemLevel|SET|7	PART:1|MODIFY:Damage|SET|2d6
+Kalo shredder, torrent-class		KEY:Kalo shredder (torrent-class)					PROFICIENCY:WEAPON|Kalo shredder (torrent-class)	TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Longarms	TYPE:S						COST:26700	WT:1		DAMAGE:4d6	WIELD:TwoHanded	RANGE:40														BONUS:VAR|Bulk|1		QUALITY:Level|11	QUALITY:Critical|Bleed 3d4	QUALITY:Bulk|1	QUALITY:Capacity|24 flechettes	QUALITY:Usage|1	SPROP:Analog, automatic, underwater			MODIFY:ItemLevel|SET|11	PART:1|MODIFY:Damage|SET|4d6
+Kalo shredder, deluge-class		KEY:Kalo shredder (deluge-class)					PROFICIENCY:WEAPON|Kalo shredder (deluge-class)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Longarms	TYPE:S						COST:74300	WT:1		DAMAGE:6d6	WIELD:TwoHanded	RANGE:60														BONUS:VAR|Bulk|1		QUALITY:Level|14	QUALITY:Critical|Bleed 4d4	QUALITY:Bulk|1	QUALITY:Capacity|36 flechettes	QUALITY:Usage|1	SPROP:Analog, automatic, underwater			MODIFY:ItemLevel|SET|14	PART:1|MODIFY:Damage|SET|6d6
+Kalo shredder, monsoon-class		KEY:Kalo shredder (monsoon-class)					PROFICIENCY:WEAPON|Kalo shredder (monsoon-class)	TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Longarms	TYPE:S						COST:784000	WT:1		DAMAGE:12d6	WIELD:TwoHanded	RANGE:60														BONUS:VAR|Bulk|1		QUALITY:Level|17	QUALITY:Critical|Bleed 4d6	QUALITY:Bulk|1	QUALITY:Capacity|48 flechettes	QUALITY:Usage|1	SPROP:Analog, automatic, underwater			MODIFY:ItemLevel|SET|17	PART:1|MODIFY:Damage|SET|12d6
+
+# TABLE 7-5:HEAVY WEAPONS
+# TWO-HANDED WEAPONS
+Starheart cannon, red star		KEY:Starheart cannon (red star)					PROFICIENCY:WEAPON|Starheart cannon (red star)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Heavy	TYPE:E & F							COST:1300	WT:2		DAMAGE:1d6	WIELD:TwoHanded	RANGE:100														BONUS:VAR|Bulk|2		QUALITY:Level|3	QUALITY:Critical|Blind	QUALITY:Bulk|2	QUALITY:Capacity|40 charges	QUALITY:Usage|5			SPROP:Bright, explode (5,) unwieldy			MODIFY:ItemLevel|SET|3	PART:1|MODIFY:Damage|SET|1d6
+Starheart cannon, yellow star		KEY:Starheart cannon (yellow star)					PROFICIENCY:WEAPON|Starheart cannon (yellow star)	TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Heavy	TYPE:E & F							COST:9050	WT:2		DAMAGE:3d6	WIELD:TwoHanded	RANGE:100														BONUS:VAR|Bulk|2		QUALITY:Level|8	QUALITY:Critical|Blind	QUALITY:Bulk|2	QUALITY:Capacity|100 charges	QUALITY:Usage|5			SPROP:Bright, explode (10,) unwieldy		MODIFY:ItemLevel|SET|8	PART:1|MODIFY:Damage|SET|3d6
+Starheart cannon, white star		KEY:Starheart cannon (white star)					PROFICIENCY:WEAPON|Starheart cannon (white star)	TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Heavy	TYPE:E & F							COST:48100	WT:2		DAMAGE:5d6	WIELD:TwoHanded	RANGE:100														BONUS:VAR|Bulk|2		QUALITY:Level|13	QUALITY:Critical|Blind	QUALITY:Bulk|2	QUALITY:Capacity|100 charges	QUALITY:Usage|5			SPROP:Bright, explode (10,) unwieldy		MODIFY:ItemLevel|SET|13	PART:1|MODIFY:Damage|SET|5d6
+Starheart cannon, blue star		KEY:Starheart cannon (blue star)					PROFICIENCY:WEAPON|Starheart cannon (blue star)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Heavy	TYPE:E & F							COST:360000	WT:2		DAMAGE:9d6	WIELD:TwoHanded	RANGE:100														BONUS:VAR|Bulk|2		QUALITY:Level|18	QUALITY:Critical|Blind	QUALITY:Bulk|2	QUALITY:Capacity|100 charges	QUALITY:Usage|10			SPROP:Bright, explode (15) unwieldy			MODIFY:ItemLevel|SET|18	PART:1|MODIFY:Damage|SET|9d6
+Anacite ion cannon, static		KEY:Anacite ion cannon (static)					PROFICIENCY:WEAPON|Anacite ion cannon (static)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Heavy	TYPE:E							COST:1550	WT:2		DAMAGE:1d10	WIELD:TwoHanded	RANGE:20														BONUS:VAR|Bulk|2		QUALITY:Level|3	QUALITY:Critical|Staggered	QUALITY:Bulk|2	QUALITY:Capacity|20 charges	QUALITY:Usage|2		SPROP:Line, lockdown, unwieldy			MODIFY:ItemLevel|SET|3	PART:1|MODIFY:Damage|SET|1d10
+Anacite ion cannon, aurora		KEY:Anacite ion cannon (aurora)					PROFICIENCY:WEAPON|Anacite ion cannon (aurora)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Heavy	TYPE:E							COST:10900	WT:2		DAMAGE:2d10	WIELD:TwoHanded	RANGE:45														BONUS:VAR|Bulk|2		QUALITY:Level|8	QUALITY:Critical|Staggered	QUALITY:Bulk|2	QUALITY:Capacity|40 charges	QUALITY:Usage|4		SPROP:Line, lockdown, unwieldy			MODIFY:ItemLevel|SET|8	PART:1|MODIFY:Damage|SET|2d10
+Anacite ion cannon, storm		KEY:Anacite ion cannon (storm)					PROFICIENCY:WEAPON|Anacite ion cannon (storm)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Heavy	TYPE:E							COST:52900	WT:2		DAMAGE:4d10	WIELD:TwoHanded	RANGE:75														BONUS:VAR|Bulk|2		QUALITY:Level|13	QUALITY:Critical|Staggered	QUALITY:Bulk|2	QUALITY:Capacity|80 charges	QUALITY:Usage|5		SPROP:Line, lockdown, unwieldy			MODIFY:ItemLevel|SET|13	PART:1|MODIFY:Damage|SET|4d10
+Anacite ion cannon, tempest		KEY:Anacite ion cannon (tempest)					PROFICIENCY:WEAPON|Anacite ion cannon (tempest)		TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Heavy	TYPE:E							COST:441000	WT:2		DAMAGE:6d10	WIELD:TwoHanded	RANGE:100														BONUS:VAR|Bulk|2		QUALITY:Level|18	QUALITY:Critical|Staggered	QUALITY:Bulk|2	QUALITY:Capacity|100 charges	QUALITY:Usage|10		SPROP:Line, lockdown, unwieldy			MODIFY:ItemLevel|SET|18	PART:1|MODIFY:Damage|SET|6d10
+
+# TABLE 7-6:Sniper Weapons
+# TWO-HANDED WEAPONS
+# PROJECTILE
+Shobhad horizon striker, tactical	KEY:Shobhad horizon striker (tactical)				PROFICIENCY:WEAPON|Shobhad horizon striker (tactical)	TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Sniper	TYPE:P							COST:440	WT:2		DAMAGE:2d4	WIELD:TwoHanded	RANGE:100														BONUS:VAR|Bulk|2		QUALITY:Level|1	QUALITY:Critical|-	QUALITY:Bulk|2	QUALITY:Capacity|2 rounds	QUALITY:Usage|1			SPROP:Analog, sniper (500,) unwieldy		MODIFY:ItemLevel|SET|1	PART:1|MODIFY:Damage|SET|2d4
+Shobhad horizon striker, advanced	KEY:Shobhad horizon striker (advanced)				PROFICIENCY:WEAPON|Shobhad horizon striker (advanced)	TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Sniper	TYPE:P							COST:4750	WT:2		DAMAGE:3d4	WIELD:TwoHanded	RANGE:120														BONUS:VAR|Bulk|2		QUALITY:Level|6	QUALITY:Critical|-	QUALITY:Bulk|2	QUALITY:Capacity|2 rounds	QUALITY:Usage|1			SPROP:Analog, sniper (1,000,) unwieldy		MODIFY:ItemLevel|SET|6	PART:1|MODIFY:Damage|SET|3d4
+Shobhad horizon striker, elite	KEY:Shobhad horizon striker (elite)					PROFICIENCY:WEAPON|Shobhad horizon striker (elite)	TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Sniper	TYPE:P							COST:27300	WT:2		DAMAGE:6d4	WIELD:TwoHanded	RANGE:140														BONUS:VAR|Bulk|2		QUALITY:Level|11	QUALITY:Critical|-	QUALITY:Bulk|2	QUALITY:Capacity|2 rounds	QUALITY:Usage|1			SPROP:Analog, sniper (1,250,) unwieldy		MODIFY:ItemLevel|SET|11	PART:1|MODIFY:Damage|SET|6d4
+Shobhad horizon striker, paragon	KEY:Shobhad horizon striker (paragon)				PROFICIENCY:WEAPON|Shobhad horizon striker (paragon)	TYPE:RESIZABLE.Weapon.Ranged.ToHit_UseDex.Prof Group Sniper	TYPE:P							COST:185000	WT:2		DAMAGE:8d8	WIELD:TwoHanded	RANGE:160														BONUS:VAR|Bulk|2		QUALITY:Level|16	QUALITY:Critical|-	QUALITY:Bulk|2	QUALITY:Capacity|2 rounds	QUALITY:Usage|1			SPROP:Analog, sniper (1,500,) unwieldy		MODIFY:ItemLevel|SET|16	PART:1|MODIFY:Damage|SET|8d8
+
+# TABLE 7-7:GRENADES
+# GRENADES
+
+# TABLE 7-8:SPECIAL WEAPONS
+
+# TABLE 7-9:AMMUNITION
+Flechettes					KEY:Flechettes																	TYPE:Standard Ammunition.Flechette													COST:75	WT:0.1																					BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:ChargesCartridges|25										SPROP:-							MODIFY:ItemLevel|SET|1
+
+# TABLE 7-10:SOLARIAN WEAPON CRYSTALS
+Tauon crystal, least			KEY:Solarion Weapon Crystal ~ Tauon crystal (least)											TYPE:Weapon Crystal.Solarian Weapon Crystal											COST:235										ABILITY:Internal|AUTOMATIC|Solarion Weapon Crystal ~ Tauon crystal (least)					QUALITY:Level|1																		SPROP:+1 E, Critical = Staggered, Stun mode	MODIFY:ItemLevel|SET|1
+Tauon crystal, minor			KEY:Solarion Weapon Crystal ~ Tauon crystal (minor)											TYPE:Weapon Crystal.Solarian Weapon Crystal											COST:1850										ABILITY:Internal|AUTOMATIC|Solarion Weapon Crystal ~ Tauon crystal (minor)					QUALITY:Level|4																		SPROP:+1d3 E, Critical = Staggered, Stun mode	MODIFY:ItemLevel|SET|4
+Tauon crystal, lesser			KEY:Solarion Weapon Crystal ~ Tauon crystal (lesser)											TYPE:Weapon Crystal.Solarian Weapon Crystal											COST:6000										ABILITY:Internal|AUTOMATIC|Solarion Weapon Crystal ~ Tauon crystal (lesser)					QUALITY:Level|7																		SPROP:+1d4 E, Critical = Staggered, Stun mode	MODIFY:ItemLevel|SET|7
+Tauon crystal, standard			KEY:Solarion Weapon Crystal ~ Tauon crystal (standard)										TYPE:Weapon Crystal.Solarian Weapon Crystal											COST:17500										ABILITY:Internal|AUTOMATIC|Solarion Weapon Crystal ~ Tauon crystal (standard)					QUALITY:Level|10																		SPROP:+2d4 E, Critical = Staggered, Stun mode	MODIFY:ItemLevel|SET|10
+Tauon crystal, greater			KEY:Solarion Weapon Crystal ~ Tauon crystal (greater)											TYPE:Weapon Crystal.Solarian Weapon Crystal											COST:48400										ABILITY:Internal|AUTOMATIC|Solarion Weapon Crystal ~ Tauon crystal (greater)					QUALITY:Level|13																		SPROP:+3d4 E, Critical = Staggered, Stun mode	MODIFY:ItemLevel|SET|13
+Tauon crystal, true			KEY:Solarion Weapon Crystal ~ Tauon crystal (true)											TYPE:Weapon Crystal.Solarian Weapon Crystal											COST:161000										ABILITY:Internal|AUTOMATIC|Solarion Weapon Crystal ~ Tauon crystal (true)					QUALITY:Level|16																		SPROP:+3d8 E, Critical = Staggered, Stun mode	MODIFY:ItemLevel|SET|16
+
+###Block: Armor
+# Light
+# Equipment Name			Unique Key					Required Armor Proficiency				Type				Cost		Weight	AC Penalty Check	Maximum DEX Bonus	Combat bonus										Quality and value				Special Property				MODIFY				MODIFYOTHER
+Zeizerer diffractor I		KEY:Zeizerer diffractor I		PROFICIENCY:ARMOR|Zeizerer diffractor I		TYPE:ARMOR.Light_Armor	COST:650	WT:0.1	ACCHECK:0		MAXDEX:4		BONUS:COMBAT|AC|2|TYPE=EAC_Armor	BONUS:COMBAT|AC|2|TYPE=KAC_Armor	QUALITY:Level|2	QUALITY:BULK|L	SPROP:EAC = 2	SPROP:KAC = 2	MODIFY:UpgradeSlot|SET|0	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-0
+Hardened resin			KEY:Hardened resin			PROFICIENCY:ARMOR|Hardened resin			TYPE:ARMOR.Light_Armor	COST:1200	WT:1		ACCHECK:-1		MAXDEX:5		BONUS:COMBAT|AC|2|TYPE=EAC_Armor	BONUS:COMBAT|AC|3|TYPE=KAC_Armor	QUALITY:Level|3	QUALITY:BULK|1	SPROP:EAC = 2	SPROP:KAC = 3	MODIFY:UpgradeSlot|SET|1	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-0
+Zeizerer diffractor II		KEY:Zeizerer diffractor II		PROFICIENCY:ARMOR|Zeizerer diffractor II		TYPE:ARMOR.Light_Armor	COST:4150	WT:0.1	ACCHECK:0		MAXDEX:6		BONUS:COMBAT|AC|6|TYPE=EAC_Armor	BONUS:COMBAT|AC|6|TYPE=KAC_Armor	QUALITY:Level|6	QUALITY:BULK|L	SPROP:EAC = 6	SPROP:KAC = 6	MODIFY:UpgradeSlot|SET|1	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-0
+Zeizerer diffractor III		KEY:Zeizerer diffractor III		PROFICIENCY:ARMOR|Zeizerer diffractor III		TYPE:ARMOR.Light_Armor	COST:12500	WT:0.1	ACCHECK:0		MAXDEX:7		BONUS:COMBAT|AC|11|TYPE=EAC_Armor	BONUS:COMBAT|AC|11|TYPE=KAC_Armor	QUALITY:Level|9	QUALITY:BULK|L	SPROP:EAC = 11	SPROP:KAC = 11	MODIFY:UpgradeSlot|SET|2	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-0
+Zeizerer diffractor IV		KEY:Zeizerer diffractor IV		PROFICIENCY:ARMOR|Zeizerer diffractor IV		TYPE:ARMOR.Light_Armor	COST:48500	WT:0.1	ACCHECK:0		MAXDEX:8		BONUS:COMBAT|AC|15|TYPE=EAC_Armor	BONUS:COMBAT|AC|15|TYPE=KAC_Armor	QUALITY:Level|13	QUALITY:BULK|L	SPROP:EAC = 15	SPROP:KAC = 15	MODIFY:UpgradeSlot|SET|3	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-0
+Zeizerer diffractor V		KEY:Zeizerer diffractor V		PROFICIENCY:ARMOR|Zeizerer diffractor V		TYPE:ARMOR.Light_Armor	COST:340000	WT:0.1	ACCHECK:0		MAXDEX:9		BONUS:COMBAT|AC|20|TYPE=EAC_Armor	BONUS:COMBAT|AC|20|TYPE=KAC_Armor	QUALITY:Level|18	QUALITY:BULK|L	SPROP:EAC = 20	SPROP:KAC = 20	MODIFY:UpgradeSlot|SET|4	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-0
+
+# Heavy Armor
+Hellknight plate, armiger	KEY:Hellknight plate (armiger)	PROFICIENCY:ARMOR|Hellknight plate (armiger)	TYPE:ARMOR.Heavy_Armor	COST:980	WT:3		ACCHECK:-2		MAXDEX:2		BONUS:COMBAT|AC|4|TYPE=EAC_Armor	BONUS:COMBAT|AC|5|TYPE=KAC_Armor	QUALITY:Level|2	QUALITY:BULK|3	SPROP:EAC = 4	SPROP:KAC = 5	MODIFY:UpgradeSlot|SET|2	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-10
+Formian hide, basic		KEY:Formian hide (basic)		PROFICIENCY:ARMOR|Formian hide (basic)		TYPE:ARMOR.Heavy_Armor	COST:2400	WT:2		ACCHECK:-3		MAXDEX:2		BONUS:COMBAT|AC|7|TYPE=EAC_Armor	BONUS:COMBAT|AC|8|TYPE=KAC_Armor	QUALITY:Level|4	QUALITY:BULK|2	SPROP:EAC = 7	SPROP:KAC = 8	MODIFY:UpgradeSlot|SET|2	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-5
+Hellknight plate, lictor	KEY:Hellknight plate (lictor)		PROFICIENCY:ARMOR|Hellknight plate (lictor)	TYPE:ARMOR.Heavy_Armor	COST:3300	WT:3		ACCHECK:-2		MAXDEX:2		BONUS:COMBAT|AC|9|TYPE=EAC_Armor	BONUS:COMBAT|AC|10|TYPE=KAC_Armor	QUALITY:Level|5	QUALITY:BULK|3	SPROP:EAC = 9	SPROP:KAC = 10	MODIFY:UpgradeSlot|SET|2	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-10
+Formian hide, advanced		KEY:Formian hide (advanced)		PROFICIENCY:ARMOR|Formian hide (advanced)		TYPE:ARMOR.Heavy_Armor	COST:6100	WT:2		ACCHECK:-3		MAXDEX:3		BONUS:COMBAT|AC|10|TYPE=EAC_Armor	BONUS:COMBAT|AC|12|TYPE=KAC_Armor	QUALITY:Level|7	QUALITY:BULK|2	SPROP:EAC = 10	SPROP:KAC = 12	MODIFY:UpgradeSlot|SET|3	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-5
+Hellknight plate, maralictor	KEY:Hellknight plate (maralictor)	PROFICIENCY:ARMOR|Hellknight plate (maralictor)	TYPE:ARMOR.Heavy_Armor	COST:14500	WT:3		ACCHECK:-2		MAXDEX:2		BONUS:COMBAT|AC|16|TYPE=EAC_Armor	BONUS:COMBAT|AC|17|TYPE=KAC_Armor	QUALITY:Level|9	QUALITY:BULK|3	SPROP:EAC = 16	SPROP:KAC = 17	MODIFY:UpgradeSlot|SET|4	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-10
+Formian hide, superior		KEY:Formian hide (superior)		PROFICIENCY:ARMOR|Formian hide (superior)		TYPE:ARMOR.Heavy_Armor	COST:16500	WT:2		ACCHECK:-4		MAXDEX:3		BONUS:COMBAT|AC|15|TYPE=EAC_Armor	BONUS:COMBAT|AC|17|TYPE=KAC_Armor	QUALITY:Level|10	QUALITY:BULK|2	SPROP:EAC = 15	SPROP:KAC = 17	MODIFY:UpgradeSlot|SET|3	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-5
+Hellknight plate, paralictor	KEY:Hellknight plate (paralictor)	PROFICIENCY:ARMOR|Hellknight plate (paralictor)	TYPE:ARMOR.Heavy_Armor	COST:80000	WT:3		ACCHECK:-2		MAXDEX:3		BONUS:COMBAT|AC|21|TYPE=EAC_Armor	BONUS:COMBAT|AC|22|TYPE=KAC_Armor	QUALITY:Level|14	QUALITY:BULK|3	SPROP:EAC = 21	SPROP:KAC = 22	MODIFY:UpgradeSlot|SET|6	MODIFYOTHER:PC.MOVEMENT|Walk|Speed|ADD|-10
+
+# Powered Armor
+
+###Block: Cybernetics
+
+# Bio-tech
+
+# Personal Upgrades
+
+# Weapon Crystals
+# Equipment Name		Special Property
+Solarian Weapon.MOD	SPROP:+1d3 Knockdown|PREABILITY:1,CATEGORY=Internal,Solarion Weapon Crystal ~ Graviton crystal (least)
+Solarian Weapon.MOD	SPROP:+1 Staggered|PREABILITY:1,CATEGORY=Internal,Solarion Weapon Crystal ~ Tauon crystal (least)
+Solarian Weapon.MOD	SPROP:+1d3 Staggered|PREABILITY:1,CATEGORY=Internal,Solarion Weapon Crystal ~ Tauon crystal (minor)
+Solarian Weapon.MOD	SPROP:+1d4 Staggered|PREABILITY:1,CATEGORY=Internal,Solarion Weapon Crystal ~ Tauon crystal (lesser)
+Solarian Weapon.MOD	SPROP:+2d4 Staggered|PREABILITY:1,CATEGORY=Internal,Solarion Weapon Crystal ~ Tauon crystal (standard)
+Solarian Weapon.MOD	SPROP:+3d4 Staggered|PREABILITY:1,CATEGORY=Internal,Solarion Weapon Crystal ~ Tauon crystal (greater)
+Solarian Weapon.MOD	SPROP:+3d8 Staggered|PREABILITY:1,CATEGORY=Internal,Solarion Weapon Crystal ~ Tauon crystal (true)

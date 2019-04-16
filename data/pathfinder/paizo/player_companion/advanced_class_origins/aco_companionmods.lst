@@ -1,0 +1,21 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 12957 $ $Author: jbaril $ -- Sun Jul  6 20:02:09 2014 -- reformated by prettylst.pl v1.51 (build 23662)
+SOURCELONG:Pathfinder Player Companion: Advanced Class Origins	SOURCESHORT:ACO	SOURCEWEB:http://paizo.com/products/btpy965z	SOURCEDATE:2014-10
+
+# Class of the Master				Type				Ability
+FOLLOWER:ShamanMammothSpiritAnimal=1	TYPE:Familiar		ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Mammoth
+
+FOLLOWER:SpiritAnimalLVL=3			TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Deliver Touch Spells
+FOLLOWER:ShamanBattleSpiritAnimal=1		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Battle
+FOLLOWER:ShamanBonesSpiritAnimal=1		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Bones
+FOLLOWER:ShamanFlameSpiritAnimal=1		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Flame
+FOLLOWER:ShamanHeavensSpiritAnimal=1	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Heavens
+FOLLOWER:ShamanLifeSpiritAnimal=1		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Life
+FOLLOWER:ShamanLoreSpiritAnimal=1		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Lore
+FOLLOWER:ShamanNatureSpiritAnimal=1		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Nature
+FOLLOWER:ShamanStoneSpiritAnimal=1		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Stone
+FOLLOWER:ShamanWavesSpiritAnimal=1		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Waves
+FOLLOWER:ShamanWindSpiritAnimal=1		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Wind
+FOLLOWER:ShamanMammothSpiritAnimal=1	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Mammoth
+
+FOLLOWER:SpiritAnimalToMegafauna=1		TYPE:Animal Companion	ABILITY:Internal|AUTOMATIC|Mammoth Spirit ~ Megafauna Companion Intelligence

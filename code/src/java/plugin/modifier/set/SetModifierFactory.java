@@ -17,15 +17,16 @@
  */
 package plugin.modifier.set;
 
-import pcgen.base.calculation.PCGenModifier;
+import pcgen.base.calculation.AbstractPCGenModifier;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.rules.persistence.token.AbstractSetModifierFactory;
+import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.rules.persistence.token.AbstractFixedSetModifierFactory;
 
 /**
  * A SetModifierFactory is a ModifierFactory that returns a specific value
@@ -36,24 +37,12 @@ import pcgen.rules.persistence.token.AbstractSetModifierFactory;
  *            The Class of object contained in the arrays processed by this
  *            SetModifierFactory
  */
-public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
+public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 {
 
 	@SuppressWarnings("rawtypes")
 	private static final Class ARRAY_CLASS = Object[].class;
 
-	/**
-	 * @see pcgen.rules.persistence.token.ModifierFactory#getIdentification()
-	 */
-	@Override
-	public String getIdentification()
-	{
-		return "SET";
-	}
-
-	/**
-	 * @see pcgen.rules.persistence.token.ModifierFactory#getVariableFormat()
-	 */
 	@Override
 	@SuppressWarnings("unchecked")
 	public Class<T[]> getVariableFormat()
@@ -62,25 +51,22 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 	}
 
 	@Override
-	public PCGenModifier<T[]> getModifier(int userPriority, String instructions,
-		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
-		FormatManager<T[]> formatManager)
+	public FormulaModifier<T[]> getModifier(String instructions, ManagerFactory managerFactory, FormulaManager ignored,
+		PCGenScope varScope, FormatManager<T[]> formatManager)
 	{
 		Indirect<T[]> indirect = formatManager.convertIndirect(instructions);
-		return new SetIndirectArrayModifier(formatManager, userPriority,
-			indirect);
+		return new SetIndirectArrayModifier(formatManager, indirect);
 	}
 
 	@Override
-	public PCGenModifier<T[]> getFixedModifier(int userPriority,
-		FormatManager<T[]> fmtManager, String instructions)
+	public FormulaModifier<T[]> getFixedModifier(FormatManager<T[]> fmtManager, String instructions)
 	{
 		T[] toSet = fmtManager.convert(instructions);
-		return new SetDirectArrayModifier(fmtManager, userPriority, toSet);
+		return new SetDirectArrayModifier(fmtManager, toSet);
 	}
 
 	/**
-	 * A SetDirectArrayModifier is a PCGenModifier that contains a set of objects 
+	 * A SetDirectArrayModifier is a FormulaModifier that contains a set of objects 
 	 * to be used by the Modifier.
 	 */
 	private final class SetDirectArrayModifier extends SetArrayModifier
@@ -91,10 +77,9 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		 */
 		private T[] toSet;
 
-		private SetDirectArrayModifier(FormatManager<T[]> formatManager,
-		                               int userPriority, T[] toSet)
+		private SetDirectArrayModifier(FormatManager<T[]> formatManager, T[] toSet)
 		{
-			super(formatManager, userPriority);
+			super(formatManager);
 			this.toSet = toSet;
 		}
 
@@ -110,10 +95,15 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 			return toSet;
 		}
 
+		@Override
+		public void getDependencies(DependencyManager fdm)
+		{
+			//Since this already knows the toSet objects, it has no dependencies
+		}
 	}
 
 	/**
-	 * A SetIndirectArrayModifier is a PCGenModifier that contains a set of Indirect objects
+	 * A SetIndirectArrayModifier is a FormulaModifier that contains a set of Indirect objects
 	 * to be resolved and used by the Modifier when executed.
 	 */
 	private final class SetIndirectArrayModifier extends SetArrayModifier
@@ -124,10 +114,9 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		 */
 		private Indirect<T[]> toSet;
 
-		private SetIndirectArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority, Indirect<T[]> toSet)
+		private SetIndirectArrayModifier(FormatManager<T[]> formatManager, Indirect<T[]> toSet)
 		{
-			super(formatManager, userPriority);
+			super(formatManager);
 			this.toSet = toSet;
 		}
 
@@ -143,38 +132,30 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 			return toSet.get();
 		}
 
+		@Override
+		public void getDependencies(DependencyManager fdm)
+		{
+			//CONSIDER: How does DependencyManager want to know about Indirect?
+		}
 	}
 
 	/**
 	 * The Modifier that implements SET for Set objects
 	 */
-	abstract class SetArrayModifier implements PCGenModifier<T[]>
+	abstract class SetArrayModifier extends AbstractPCGenModifier<T[]>
 	{
-
-		/**
-		 * The user priority of this SetModifier
-		 */
-		private final int userPriority;
 
 		private final FormatManager<T[]> fmtManager;
 
-		SetArrayModifier(FormatManager<T[]> formatManager,
-		                 int userPriority)
+		SetArrayModifier(FormatManager<T[]> formatManager)
 		{
 			this.fmtManager = formatManager;
-			this.userPriority = userPriority;
-		}
-
-		@Override
-		public int getUserPriority()
-		{
-			return userPriority;
 		}
 
 		@Override
 		public long getPriority()
 		{
-			return ((long) userPriority << 32);
+			return ((long) getUserPriority() << 32);
 		}
 
 		@Override
@@ -191,15 +172,9 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		protected abstract T[] getArray();
 
 		@Override
-		public Class<T[]> getVariableFormat()
+		public FormatManager<T[]> getVariableFormat()
 		{
-			return fmtManager.getManagedClass();
-		}
-
-		@Override
-		@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
-		public void getDependencies(DependencyManager fdm)
-		{
+			return fmtManager;
 		}
 
 		@Override
@@ -217,6 +192,5 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		{
 			return fmtManager;
 		}
-
 	}
 }

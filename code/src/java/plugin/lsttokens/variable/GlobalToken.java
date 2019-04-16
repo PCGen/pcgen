@@ -17,18 +17,17 @@
  */
 package plugin.lsttokens.variable;
 
-import java.util.Set;
-
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.DatasetVariable;
+import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
-		implements CDOMPrimaryToken<DatasetVariable>
+public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable> implements CDOMPrimaryToken<DatasetVariable>
 {
 
 	@Override
@@ -38,14 +37,12 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		DatasetVariable dv, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, DatasetVariable dv, String value)
 	{
 		//Just a name
 		if (dv.getDisplayName() != null)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " must be the first token on the line");
+			return new ParseResult.Fail(getTokenName() + " must be the first token on the line");
 		}
 		String format;
 		String varName;
@@ -64,57 +61,45 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 		FormatManager<?> formatManager;
 		try
 		{
-			formatManager =
-					context.getReferenceContext().getFormatManager(format);
+			formatManager = context.getReferenceContext().getFormatManager(format);
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " does not support format " + format + ", found in " + value
+			return new ParseResult.Fail(getTokenName() + " does not support format " + format + ", found in " + value
 				+ " due to " + e.getMessage());
 		}
-		LegalScope scope = context.getActiveScope().getLegalScope();
+		PCGenScope scope = context.getActiveScope();
 
 		if (!DatasetVariable.isLegalName(varName))
 		{
-			return new ParseResult.Fail(varName
-				+ " is not a valid variable name");
+			return new ParseResult.Fail(varName + " is not a valid variable name");
 		}
 
-		boolean legal =
-				context.getVariableContext().assertLegalVariableID(scope,
-					formatManager, varName);
-		if (!legal)
+		try
 		{
-			Set<LegalScope> known =
-					context.getVariableContext().getKnownLegalScopes(varName);
-			StringBuilder sb = new StringBuilder();
-			for (LegalScope v : known)
-			{
-				sb.append(v.getName());
-				sb.append(", ");
-			}
-			return new ParseResult.Fail(getTokenName()
-				+ " found a var defined in incompatible variable scopes: "
-				+ value + " was requested in " + scope.getName()
-				+ " but was previously in " + sb.toString(), context);
+			context.getVariableContext().assertLegalVariableID(varName, scope, formatManager);
+		}
+		catch (LegalVariableException e)
+		{
+			return new ParseResult.Fail(
+				getTokenName() + " encountered an exception in varible definition : " + e.getMessage());
 		}
 		dv.setName(varName);
-		dv.setFormat(format);
-		dv.setScopeName("Global Variables");
+		dv.setFormat(formatManager);
+		dv.setScope(scope);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, DatasetVariable dv)
 	{
-		String scope = dv.getScopeName();
-		if (scope != null && !scope.equals("Global Variables"))
+		PCGenScope scope = dv.getScope();
+		if (scope != null && !scope.getName().equals(GlobalScope.GLOBAL_SCOPE_NAME))
 		{
 			//is a local variable
 			return null;
 		}
-		String format = dv.getFormat();
+		FormatManager<?> format = dv.getFormat();
 		if (format == null)
 		{
 			//Not a valid object
@@ -127,9 +112,10 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
-		if (!format.equals("NUMBER"))
+		String identifier = format.getIdentifierType();
+		if (!"NUMBER".equals(identifier))
 		{
-			sb.append(format);
+			sb.append(format.getIdentifierType());
 			sb.append('=');
 		}
 		sb.append(varName);

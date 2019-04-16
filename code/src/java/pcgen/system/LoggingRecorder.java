@@ -1,5 +1,4 @@
 /*
- * LoggingRecorder.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Mar 15, 2011, 2:23:13 AM
  */
 package pcgen.system;
 
@@ -25,14 +23,10 @@ import java.io.StringWriter;
 import java.util.logging.FileHandler;
 import java.util.logging.LogRecord;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class LoggingRecorder extends FileHandler
 {
 
-	private static final StringWriter writer = new StringWriter();
+	private static final StringWriter WRITER = new StringWriter();
 
 	public LoggingRecorder() throws IOException
 	{
@@ -42,17 +36,17 @@ public class LoggingRecorder extends FileHandler
 	public synchronized void publish(LogRecord record)
 	{
 		super.publish(record);
-		LoggingRecorder.writer.write(getFormatter().format(record));
+		LoggingRecorder.WRITER.write(getFormatter().format(record));
 	}
 
 	public static String getLogs()
 	{
-		return writer.toString();
+		return WRITER.toString();
 	}
 
 	public static void clearLogs()
 	{
-		writer.getBuffer().setLength(0);
+		WRITER.getBuffer().setLength(0);
 	}
 
 }

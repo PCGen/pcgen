@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCSizeModEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 10-Aug-2008 00:16:05
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -28,8 +24,7 @@ import pcgen.cdom.util.CControl;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 
-public class PCSizeModEvaluatorTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCSizeModEvaluatorTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	public PCSizeModEvaluatorTermEvaluator(String originalText)
 	{
@@ -41,8 +36,8 @@ public class PCSizeModEvaluatorTermEvaluator
 	{
 		if (pc.hasControl(CControl.SIZEMODDEFENSE))
 		{
-			Logging.errorPrint("SIZEMOD term is deprecated (does not function)"
-					+ " when SIZEMODDEFENSE CodeControl is used");
+			Logging.errorPrint(
+				"SIZEMOD term is deprecated (does not function)" + " when SIZEMODDEFENSE CodeControl is used");
 		}
 		return (float) pc.getSizeAdjustmentBonusTo("COMBAT", "AC");
 	}

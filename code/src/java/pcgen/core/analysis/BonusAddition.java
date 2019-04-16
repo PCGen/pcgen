@@ -1,6 +1,5 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PObject.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -28,6 +27,10 @@ import pcgen.util.Logging;
 
 public final class BonusAddition
 {
+	private BonusAddition()
+	{
+	}
+
 	/**
 	 * Apply the bonus to a character. The bonus can optionally only be added
 	 * once no matter how many associated choices this object has. This is
@@ -40,8 +43,7 @@ public final class BonusAddition
 	 * @param aPC
 	 *            The character to apply thr bonus to.
 	 */
-	public static void applyBonus(String bonusString, String chooseString,
-			PlayerCharacter aPC, CDOMObject target)
+	public static void applyBonus(String bonusString, String chooseString, PlayerCharacter aPC, CDOMObject target)
 	{
 		bonusString = makeBonusString(bonusString, chooseString, aPC);
 
@@ -60,8 +62,7 @@ public final class BonusAddition
 	 * @param aPC
 	 *            The player character to remove th bonus from.
 	 */
-	public static void removeBonus(String bonusString, PlayerCharacter aPC,
-			CDOMObject target)
+	public static void removeBonus(String bonusString, PlayerCharacter aPC, CDOMObject target)
 	{
 		BonusObj toRemove = null;
 		BonusObj aBonus = Bonus.newBonus(Globals.getContext(), bonusString);
@@ -81,13 +82,12 @@ public final class BonusAddition
 		}
 		else
 		{
-			Logging.errorPrint("removeBonus: Could not find bonus: " + bonusString
-					+ " in bonusList " + aPC.getSaveableBonusList(target));
+			Logging.errorPrint("removeBonus: Could not find bonus: " + bonusString + " in bonusList "
+				+ aPC.getSaveableBonusList(target));
 		}
 	}
 
-	private static String makeBonusString(String bonusString,
-			String chooseString, PlayerCharacter aPC)
+	private static String makeBonusString(String bonusString, String chooseString, PlayerCharacter aPC)
 	{
 		// assumption is that the chooseString is in the form
 		// class/type[space]level
@@ -104,8 +104,7 @@ public final class BonusAddition
 
 		if (lockIt)
 		{
-			bonusString = bonusString.substring(0, bonusString
-					.lastIndexOf(".LOCK"));
+			bonusString = bonusString.substring(0, bonusString.lastIndexOf(".LOCK"));
 		}
 
 		if (i >= 0)
@@ -121,22 +120,19 @@ public final class BonusAddition
 		while (bonusString.lastIndexOf("TYPE=%") >= 0)
 		{
 			i = bonusString.lastIndexOf("TYPE=%");
-			bonusString = bonusString.substring(0, i + 5) + classString
-					+ bonusString.substring(i + 6);
+			bonusString = bonusString.substring(0, i + 5) + classString + bonusString.substring(i + 6);
 		}
 
 		while (bonusString.lastIndexOf("CLASS=%") >= 0)
 		{
 			i = bonusString.lastIndexOf("CLASS=%");
-			bonusString = bonusString.substring(0, i + 6) + classString
-					+ bonusString.substring(i + 7);
+			bonusString = bonusString.substring(0, i + 6) + classString + bonusString.substring(i + 7);
 		}
 
 		while (bonusString.lastIndexOf("LEVEL=%") >= 0)
 		{
 			i = bonusString.lastIndexOf("LEVEL=%");
-			bonusString = bonusString.substring(0, i + 6) + levelString
-					+ bonusString.substring(i + 7);
+			bonusString = bonusString.substring(0, i + 6) + levelString + bonusString.substring(i + 7);
 		}
 
 		if (lockIt)

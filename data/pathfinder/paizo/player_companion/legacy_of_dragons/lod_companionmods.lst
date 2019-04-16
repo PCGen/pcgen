@@ -1,0 +1,26 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Legacy of Dragons	SOURCESHORT:LoD	SOURCEWEB:http://paizo.com/products/btpy9nfl?Pathfinder-Player-Companion-Legacy-of-Dragons	SOURCEDATE:2016-08
+# Original Entry By: Gwen T. (evilpixie87)
+
+# Class of the Master		Type				Hit Dice	Ability																Bonus Ability Pool																			Add to base move										Modify VAR							Main Race Type
+FOLLOWER:DrakeCompanionLVL=1	TYPE:Drake Companion																																																														RACETYPE:Dragon
+FOLLOWER:DrakeCompanionLVL=2	TYPE:Drake Companion	HD:1
+FOLLOWER:DrakeCompanionLVL=3	TYPE:Drake Companion	HD:1																			BONUS:ABILITYPOOL|Drake Companion Power|1																												BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK
+FOLLOWER:DrakeCompanionLVL=4	TYPE:Drake Companion
+FOLLOWER:DrakeCompanionLVL=5	TYPE:Drake Companion	HD:1		ABILITY:Internal|AUTOMATIC|Drake Companion Size Increase								BONUS:ABILITYPOOL|Companion Stat Increase|1
+FOLLOWER:DrakeCompanionLVL=6	TYPE:Drake Companion	HD:1																																																					BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK
+FOLLOWER:DrakeCompanionLVL=7	TYPE:Drake Companion	HD:1																			BONUS:ABILITYPOOL|Drake Companion Power|1
+FOLLOWER:DrakeCompanionLVL=8	TYPE:Drake Companion
+FOLLOWER:DrakeCompanionLVL=9	TYPE:Drake Companion	HD:1		ABILITY:Internal|AUTOMATIC|Drake Companion Size Increase|PREVAREQ:mastervar("DrakeWardenCharge"),0																							BONUS:MOVEADD|TYPE.Walk|10|PREVAREQ:mastervar("DrakeWardenCharge"),0	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK
+FOLLOWER:DrakeCompanionLVL=10	TYPE:Drake Companion	HD:1																			BONUS:ABILITYPOOL|Companion Stat Increase|1
+FOLLOWER:DrakeCompanionLVL=11	TYPE:Drake Companion	HD:1																			BONUS:ABILITYPOOL|Drake Companion Power|1|PREVAREQ:mastervar("DrakeWardenCharge"),0
+FOLLOWER:DrakeCompanionLVL=12	TYPE:Drake Companion																																																						BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK
+FOLLOWER:DrakeCompanionLVL=13	TYPE:Drake Companion	HD:1		ABILITY:Internal|AUTOMATIC|Drake Companion Size Increase|PREVAREQ:mastervar("DrakeWardenCharge"),0
+FOLLOWER:DrakeCompanionLVL=14	TYPE:Drake Companion	HD:1
+FOLLOWER:DrakeCompanionLVL=15	TYPE:Drake Companion	HD:1																			BONUS:ABILITYPOOL|Drake Companion Power|1|PREVAREQ:mastervar("DrakeWardenCharge"),0	BONUS:ABILITYPOOL|Companion Stat Increase|1													BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK
+FOLLOWER:DrakeCompanionLVL=16	TYPE:Drake Companion
+FOLLOWER:DrakeCompanionLVL=17	TYPE:Drake Companion	HD:1		ABILITY:Internal|AUTOMATIC|Drake Companion Size Increase|PREVAREQ:mastervar("DrakeWardenCharge"),0
+FOLLOWER:DrakeCompanionLVL=18	TYPE:Drake Companion	HD:1																																																					BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK
+FOLLOWER:DrakeCompanionLVL=19	TYPE:Drake Companion	HD:1																			BONUS:ABILITYPOOL|Drake Companion Power|1|PREVAREQ:mastervar("DrakeWardenCharge"),0
+FOLLOWER:DrakeCompanionLVL=20	TYPE:Drake Companion																				BONUS:ABILITYPOOL|Companion Stat Increase|1

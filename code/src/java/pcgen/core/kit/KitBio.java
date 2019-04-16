@@ -1,5 +1,4 @@
 /*
- * KitBio.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,35 +14,33 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on February 16, 2006, 11:43 AM
- *
- * $Id$
  */
 package pcgen.core.kit;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import pcgen.base.lang.StringUtil;
+import pcgen.base.util.Indirect;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.NumericPCAttribute;
-import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 
 /**
  * Code to represent a bio setting choices for a Kit.
- *
- * @author Aaron Divinsky &lt;boomer70@yahoo.com&gt;
  */
 public class KitBio extends BaseKit
 {
 	private String theCharacterName = null;
 	private Integer theCharacterAge = null;
-	private List<Gender> theGenders = null;
-	private transient Gender selectedGender = null;
+	private List<Indirect<Gender>> theGenders = null;
+	private List<String> theGenderNames = null;
+	private Gender selectedGender = null;
 
 	/**
 	 * Set the character name to set for this kit item.
@@ -84,7 +81,7 @@ public class KitBio extends BaseKit
 	{
 		if (theCharacterName != null)
 		{
-			aPC.setPCAttribute(PCAttribute.NAME, theCharacterName);
+			aPC.setPCAttribute(PCStringKey.NAME, theCharacterName);
 		}
 		if (theCharacterAge != null)
 		{
@@ -110,7 +107,7 @@ public class KitBio extends BaseKit
 	/**
 	 * Try and apply the selected gender to the character.  Any problems
 	 * encountered should be logged as a string in the
-	 * <code>warnings</code> list.
+	 * {@code warnings} list.
 	 *
 	 * @param aKit The owning kit for this item
 	 * @param aPC The character the kit is being applied to
@@ -119,8 +116,7 @@ public class KitBio extends BaseKit
 	 * @return true if OK
 	 */
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-		List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		selectedGender = null;
 		if (theGenders != null && !theGenders.isEmpty())
@@ -128,8 +124,10 @@ public class KitBio extends BaseKit
 			if (theGenders.size() > 1)
 			{
 				List<Gender> selList = new ArrayList<>(1);
-				selList = Globals.getChoiceFromList("Choose Gender", theGenders, selList,
-					1, aPC);
+				List<Gender> theGenderObjects = theGenders.stream().map(g -> g.get())
+						.collect(Collectors.toList());
+				selList = Globals.getChoiceFromList("Choose Gender", theGenderObjects,
+					selList, 1, aPC);
 				if (selList.size() == 1)
 				{
 					selectedGender = selList.get(0);
@@ -137,7 +135,7 @@ public class KitBio extends BaseKit
 			}
 			else
 			{
-				selectedGender = theGenders.get(0);
+				selectedGender = theGenders.get(0).get();
 			}
 		}
 		apply(aPC);
@@ -166,21 +164,22 @@ public class KitBio extends BaseKit
 		return info.toString();
 	}
 
-	public void addGender(Gender gender)
+	public void addGender(Indirect<Gender> gender)
 	{
 		if (theGenders == null)
 		{
 			theGenders = new ArrayList<>();
+			theGenderNames = new ArrayList<>();
 		}
-		if (theGenders.contains(gender))
+		if (theGenderNames.contains(gender.getUnconverted()))
 		{
-			throw new IllegalArgumentException("Cannot add Gender: " + gender
-				+ " twice");
+			throw new IllegalArgumentException("Cannot add Gender: " + gender + " twice");
 		}
+		theGenderNames.add(gender.getUnconverted());
 		theGenders.add(gender);
 	}
 
-	public Collection<Gender> getGenders()
+	public Collection<Indirect<Gender>> getGenders()
 	{
 		return theGenders;
 	}

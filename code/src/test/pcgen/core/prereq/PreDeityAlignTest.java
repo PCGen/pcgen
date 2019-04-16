@@ -1,6 +1,4 @@
 /*
- * PreDeityAlignTest.java
- *
  * Copyright 2005 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,54 +14,43 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17-Sep-2005
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.PlayerCharacter;
+import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreDeityAlignTest</code> tests that the PREDEITYALIGN tag is 
+ * {@code PreDeityAlignTest} tests that the PREDEITYALIGN tag is
  * working correctly.
- *
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreDeityAlignTest extends AbstractCharacterTestCase
 {
 	private Deity deity;
 
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreDeityAlignTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreDeityAlignTest.class);
-	}
-
 	/**
 	 * Test that alignment abbreviation values work correctly in Deity Align tests.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testAbbrev() throws Exception
+	@Test
+	public void testAbbrev() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setAlignment(ng);
+		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,
 			character.getDeity());
@@ -93,8 +80,9 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 			PrereqHandler.passes(prereq, character, null));
 	}
 
+	@BeforeEach
     @Override
-	protected void setUp() throws Exception
+    public void setUp() throws Exception
 	{
 		super.setUp();
 		deity = new Deity();
@@ -102,10 +90,4 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 		deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
 	}
 
-    @Override
-	protected void tearDown() throws Exception
-	{
-		// TODO Auto-generated method stub
-		super.tearDown();
-	}
 }

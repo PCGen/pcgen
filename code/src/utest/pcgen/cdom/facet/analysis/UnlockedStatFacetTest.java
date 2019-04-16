@@ -20,7 +20,6 @@ package pcgen.cdom.facet.analysis;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -28,6 +27,8 @@ import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+
+import org.junit.jupiter.api.BeforeEach;
 
 public class UnlockedStatFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, PCStat>
@@ -37,6 +38,7 @@ public class UnlockedStatFacetTest extends
 	private PCStat[] stat;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

@@ -33,13 +33,15 @@ import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class TypeTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, WeaponProf>
 {
 
 	static ChooseLst token = new ChooseLst();
 	static WeaponProficiencyToken subtoken = new WeaponProficiencyToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 	private static final TypeToken TYPE_TOKEN = new TypeToken();
 
 	public TypeTokenTest()
@@ -47,6 +49,7 @@ public class TypeTokenTest extends
 		super("TYPE", "Medium");
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

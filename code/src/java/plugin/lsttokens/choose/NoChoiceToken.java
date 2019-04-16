@@ -21,13 +21,11 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import pcgen.cdom.base.BasicClassIdentity;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.Chooser;
-import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -40,16 +38,14 @@ import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * New chooser plugin, handles no Choice.
  */
-public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
-		ChooseInformation<String>, Chooser<String>,
-		DeferredToken<CDOMObject>
+public class NoChoiceToken
+		implements CDOMSecondaryToken<CDOMObject>, ChooseInformation<String>, Chooser<String>, DeferredToken<CDOMObject>
 {
-
-	private static final ClassIdentity<String> STRING_INFO = BasicClassIdentity
-		.getIdentity(String.class);
 
 	@Override
 	public String getTokenName()
@@ -64,8 +60,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
 	{
 		if (value == null)
 		{
@@ -73,16 +68,13 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 			context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, this);
 			return ParseResult.SUCCESS;
 		}
-		return new ParseResult.Fail("CHOOSE:" + getTokenName()
-			+ " will ignore arguments: " + value, context);
+		return new ParseResult.Fail("CHOOSE:" + getTokenName() + " will ignore arguments: " + value);
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		ChooseInformation<?> chooseString =
-				context.getObjectContext()
-					.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> chooseString = context.getObjectContext().getObject(cdo, ObjectKey.CHOOSE_INFO);
 		if ((chooseString == null) || !chooseString.equals(this))
 		{
 			return null;
@@ -97,9 +89,9 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public ClassIdentity<String> getClassIdentity()
+	public Class<String> getReferenceClass()
 	{
-		return STRING_INFO;
+		return String.class;
 	}
 
 	@Override
@@ -174,8 +166,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		restoreChoice(pc, owner, "");
 	}
 
-	private void applyChoice(ChooseDriver owner, PlayerCharacter pc,
-		ChooseSelectionActor<String> ca)
+	private void applyChoice(ChooseDriver owner, PlayerCharacter pc, ChooseSelectionActor<String> ca)
 	{
 		ca.applyChoice(owner, "", pc);
 	}
@@ -195,8 +186,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		String choice)
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
 	{
 		pc.addAssoc(owner, getListKey(), "");
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -210,8 +200,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public List<String> getCurrentlySelected(ChooseDriver owner,
-		PlayerCharacter pc)
+	public List<String> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
@@ -222,14 +211,14 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public CharSequence composeDisplay(Collection<? extends String> collection)
+	public CharSequence composeDisplay(@NotNull Collection<? extends String> collection)
 	{
 		StringBuilder sb = new StringBuilder(5);
-		int count = (collection == null) ? 0 : collection.size();
+		int count = collection.size();
 		if (count > 1)
 		{
 			sb.append(count);
-			sb.append("x");
+			sb.append('x');
 		}
 		return sb;
 	}
@@ -240,9 +229,8 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		ChooseInformation<?> ci = obj.get(ObjectKey.CHOOSE_INFO);
 		if ((ci == this) && !obj.getSafe(ObjectKey.STACKS))
 		{
-			Logging
-				.errorPrint("CHOOSE:NOCHOICE requires both MULT:YES and STACK:YES, was STACK:NO on "
-					+ obj.getClass().getSimpleName() + " " + obj.getKeyName(), obj.getSourceURI());
+			Logging.errorPrint("CHOOSE:NOCHOICE requires both MULT:YES and STACK:YES, was STACK:NO on "
+				+ obj.getClass().getSimpleName() + ' ' + obj.getKeyName(), obj.getSourceURI());
 			return false;
 		}
 		return true;
@@ -252,6 +240,12 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	public Class<CDOMObject> getDeferredTokenClass()
 	{
 		return CDOMObject.class;
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return "STRING";
 	}
 
 }

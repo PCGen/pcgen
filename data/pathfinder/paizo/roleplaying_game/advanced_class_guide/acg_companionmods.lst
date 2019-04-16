@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
@@ -6,17 +7,17 @@ SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/produ
 # COMMENT: Can't seem to get mastervar to work in 6.04
 #      Wrong number of arguments error when companion loaded
 
-# Class of the Master			Type				Ability																		Bonus Ability Pool				Modify VAR
-FOLLOWER:HunterAnimalCompanionLVL=1	TYPE:Animal Companion	ABILITY:FEAT|AUTOMATIC|Outflank|PREABILITY:1,CATEGORY=Special Ability,Hunter Precise Companion Feat ~ Outflank
+# Class of the Master			Type				Ability																		Define						Bonus Ability Pool				Modify VAR
+FOLLOWER:HunterAnimalCompanionLVL=1	TYPE:Animal Companion	ABILITY:FEAT|AUTOMATIC|Outflank|PREABILITY:1,CATEGORY=Special Ability,Hunter Precise Companion Feat ~ Outflank	DEFINE:HunterSkirmisherAnimalTrick|0								BONUS:VAR|HunterSkirmisherAnimalTrick|1	BONUS:VAR|HunterAnimalFocusLVL|mastervar("HunterAnimalFocusLVL")
 #	BONUS:VAR|BonusTricks|mastervar("HunterBonusTricks")
 #	BONUS:ABILITYPOOL|Hunter Animal Focus|mastervar("HunterAnimalFocusACPool")
 
-FOLLOWER:HunterBonusTricks=1		TYPE:Animal Companion																											BONUS:VAR|BonusTricks|1
-FOLLOWER:HunterBonusTricks=2		TYPE:Animal Companion																											BONUS:VAR|BonusTricks|1
-FOLLOWER:HunterBonusTricks=3		TYPE:Animal Companion																											BONUS:VAR|BonusTricks|1
+FOLLOWER:HunterBonusTricks=1		TYPE:Animal Companion																																		BONUS:VAR|BonusTricks|1
+FOLLOWER:HunterBonusTricks=2		TYPE:Animal Companion																																		BONUS:VAR|BonusTricks|1
+FOLLOWER:HunterBonusTricks=3		TYPE:Animal Companion																																		BONUS:VAR|BonusTricks|1
 
-FOLLOWER:HunterAnimalFocusACPool=1	TYPE:Animal Companion																				BONUS:ABILITYPOOL|Hunter Animal Focus|1
-FOLLOWER:HunterAnimalFocusACPool=2	TYPE:Animal Companion																				BONUS:ABILITYPOOL|Hunter Animal Focus|1
+FOLLOWER:HunterAnimalFocusACPool=1	TYPE:Animal Companion																											BONUS:ABILITYPOOL|Hunter Animal Focus|1
+FOLLOWER:HunterAnimalFocusACPool=2	TYPE:Animal Companion																											BONUS:ABILITYPOOL|Hunter Animal Focus|1
 
 ###Block: Spirit Animal Abilities
 # Class of the Master				Type			Ability
@@ -87,36 +88,21 @@ FOLLOWER:HalfOrcHunterFavClassBonus=20	TYPE:Animal Companion											BONUS:HP|
 #	BONUS:HP|CURRENTMAX|mastervar("OrcHunterFavClassBonus")
 
 ###Block: Modifications for Evolved Companion feat -- 20 arbitrarily chosen as the limit
-# Class of the Master				Type				Spell Res.			Ability																																																																																								Bonus Ability Pool										Modify VAR																																																																							Template
-FOLLOWER:EvolvedCompanionFeatCount=1	TYPE:Animal Companion																																																																																														BONUS:ABILITYPOOL|Eidolon Evolution|mastervar("EvolvedCompanionFeatCount")
-#FOLLOWER:EvolvedCompanionFeatCount=2	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=3	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=4	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=5	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=6	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=7	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=8	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=9	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=10	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=11	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=12	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=13	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=14	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=15	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=16	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=17	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=18	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=19	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#FOLLOWER:EvolvedCompanionFeatCount=20	TYPE:Animal Companion	BONUS:ABILITYPOOL|Eidolon Evolution|1
-#
-FOLLOWER:DivineHunterCelestialCompanion=1	TYPE:Animal Companion																																																																																																																																																																																			TEMPLATE:Celestial Creature
-FOLLOWER:DivineHunterFiendishCompanion=1	TYPE:Animal Companion																																																																																																																																																																																			TEMPLATE:Fiendish Creature
+# Class of the Master				Type				Spell Res.			Ability																																																																																								Bonus Ability Pool											Modify VAR																																																																							Template
+FOLLOWER:AnimalCompanionLVL=1			TYPE:Animal Companion																																																																																														BONUS:ABILITYPOOL|Eidolon Evolution|mastervar("EvolvedCompanionFeatCount_NBC")
+FOLLOWER:CavalierMountLVL=1			TYPE:Cavalier Mount																																																																																														BONUS:ABILITYPOOL|Eidolon Evolution|mastervar("EvolvedCompanionFeatCount_Mount")
+FOLLOWER:SamuraiMountLVL=1			TYPE:Samurai Mount																																																																																														BONUS:ABILITYPOOL|Eidolon Evolution|mastervar("EvolvedCompanionFeatCount_Mount")
+FOLLOWER:SpecialMountLVL=1			TYPE:Special Mount																																																																																														BONUS:ABILITYPOOL|Eidolon Evolution|mastervar("EvolvedCompanionFeatCount_DBC")
 
-FOLLOWER:DivineCommanderCelestialMount=1	TYPE:Animal Companion																																																																																																																																																																																			TEMPLATE:Celestial Creature
-FOLLOWER:DivineCommanderEntropicMount=1	TYPE:Animal Companion																																																																																																																																																																																			TEMPLATE:Entropic Creature
-FOLLOWER:DivineCommanderFiendishMount=1	TYPE:Animal Companion																																																																																																																																																																																			TEMPLATE:Fiendish Creature
-FOLLOWER:DivineCommanderResoluteMount=1	TYPE:Animal Companion																																																																																																																																																																																			TEMPLATE:Resolute Creature
-FOLLOWER:DivineCommanderUnbiasedMount=1	TYPE:Animal Companion	SR:AnimalCompanionLVL+5	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|PREVARGTEQ:DivineCommanderMountResistance Acid,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|PREVARGTEQ:DivineCommanderMountResistance Cold,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Electricity|PREVARGTEQ:DivineCommanderMountResistance Electricity,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Fire|PREVARGTEQ:DivineCommanderMountResistance Fire,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Sonic|PREVARGTEQ:DivineCommanderMountResistance Sonic,1														BONUS:VAR|AcidResistanceBonus|DivineCommanderMountResistance Acid|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|DivineCommanderMountResistance Cold|TYPE=Resistance	BONUS:VAR|ElectricityResistanceBonus|DivineCommanderMountResistance Electricity|TYPE=Resistance	BONUS:VAR|FireResistanceBonus|DivineCommanderMountResistance Fire|TYPE=Resistance	BONUS:VAR|SonicResistanceBonus|DivineCommanderMountResistance Sonic|TYPE=Resistance
+#
+FOLLOWER:DivineHunterCelestialCompanion=1	TYPE:Animal Companion																																																																																																																																																																																				TEMPLATE:Celestial Creature
+FOLLOWER:DivineHunterFiendishCompanion=1	TYPE:Animal Companion																																																																																																																																																																																				TEMPLATE:Fiendish Creature
+
+FOLLOWER:DivineCommanderCelestialMount=1	TYPE:Animal Companion																																																																																																																																																																																				TEMPLATE:Celestial Creature
+FOLLOWER:DivineCommanderEntropicMount=1	TYPE:Animal Companion																																																																																																																																																																																				TEMPLATE:Entropic Creature
+FOLLOWER:DivineCommanderFiendishMount=1	TYPE:Animal Companion																																																																																																																																																																																				TEMPLATE:Fiendish Creature
+FOLLOWER:DivineCommanderResoluteMount=1	TYPE:Animal Companion																																																																																																																																																																																				TEMPLATE:Resolute Creature
+FOLLOWER:DivineCommanderUnbiasedMount=1	TYPE:Animal Companion	SR:AnimalCompanionLVL+5	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|PREVARGTEQ:DivineCommanderMountResistance Acid,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|PREVARGTEQ:DivineCommanderMountResistance Cold,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Electricity|PREVARGTEQ:DivineCommanderMountResistance Electricity,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Fire|PREVARGTEQ:DivineCommanderMountResistance Fire,1	ABILITY:Special Ability|AUTOMATIC|Resistance to Sonic|PREVARGTEQ:DivineCommanderMountResistance Sonic,1															BONUS:VAR|AcidResistanceBonus|DivineCommanderMountResistance Acid|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|DivineCommanderMountResistance Cold|TYPE=Resistance	BONUS:VAR|ElectricityResistanceBonus|DivineCommanderMountResistance Electricity|TYPE=Resistance	BONUS:VAR|FireResistanceBonus|DivineCommanderMountResistance Fire|TYPE=Resistance	BONUS:VAR|SonicResistanceBonus|DivineCommanderMountResistance Sonic|TYPE=Resistance
 
 #
 # End

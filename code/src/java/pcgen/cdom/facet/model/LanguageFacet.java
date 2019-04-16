@@ -33,11 +33,9 @@ import pcgen.output.publish.OutputDB;
  * LanguageFacet is a Facet that tracks the Languages that have been granted to
  * a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class LanguageFacet extends AbstractSourcedListFacet<CharID, Language>
-		implements DataFacetChangeListener<CharID, Language>,
-		PerspectiveLocation, SetFacet<CharID, Language>
+		implements DataFacetChangeListener<CharID, Language>, PerspectiveLocation, SetFacet<CharID, Language>
 {
 
 	/**
@@ -52,8 +50,6 @@ public class LanguageFacet extends AbstractSourcedListFacet<CharID, Language>
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, Language> dfce)
@@ -73,15 +69,13 @@ public class LanguageFacet extends AbstractSourcedListFacet<CharID, Language>
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, Language> dfce)
 	{
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
-	
+
 	public void init()
 	{
 		CorePerspectiveDB.register(CorePerspective.LANGUAGE, FacetBehavior.MODEL, this);

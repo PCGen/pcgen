@@ -17,8 +17,8 @@
  */
 package plugin.exporttokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import static org.junit.Assert.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -41,38 +41,21 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class SkillSitTokenTest extends AbstractCharacterTestCase
 {
 	private Skill balance = null;
 	private Skill[] knowledge = null;
 	private Skill tumble = null;
 
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(SkillSitTokenTest.class);
-	}
-
-	/**
-	 * Basic constructor, name only.
-	 * @param name The name of the test class.
-	 */
-	public SkillSitTokenTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		PlayerCharacter character = getCharacter();
 
 		final LevelInfo levelInfo = new LevelInfo();
 		levelInfo.setLevelString("LEVEL");
@@ -81,10 +64,6 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 		GameMode gamemode = SettingsHandler.getGame();
 		gamemode.addLevelInfo("Default", levelInfo);
 
-		//Stats
-		setPCStat(character, dex, 16);
-		setPCStat(character, intel, 17);
-		
 		LoadContext context = Globals.getContext();
 		BonusObj aBonus = Bonus.newBonus(context, "MODSKILLPOINTS|NUMBER|INT");
 		
@@ -96,13 +75,13 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 		// Race
 		Race testRace = new Race();
 		testRace.setName("TestRace");
-		character.setRace(testRace);
+		context.getReferenceContext().importObject(testRace);
 
 		// Class
 		PCClass myClass = new PCClass();
-		myClass.setName("My Class");
+		myClass.setName("MyClass");
 		myClass.put(FormulaKey.START_SKILL_POINTS, FormulaFactory.getFormulaFor(3));
-		character.incrementClassLevel(5, myClass, true);
+		context.getReferenceContext().importObject(myClass);
 
 		//Skills
 		knowledge = new Skill[2];
@@ -118,7 +97,6 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 		{
 			knowledge[0].addToListFor(ListKey.BONUS, aBonus);
 		}
-		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge[0]);
 
 		knowledge[1] = new Skill();
 		context.unconditionallyProcess(knowledge[1], "CLASSES", "MyClass");
@@ -131,7 +109,6 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 			knowledge[1].addToListFor(ListKey.BONUS, aBonus);
 		}
 		context.getReferenceContext().importObject(knowledge[1]);
-		SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
 
 		tumble = new Skill();
 		context.unconditionallyProcess(tumble, "CLASSES", "MyClass");
@@ -142,7 +119,6 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 		CDOMDirectSingleRef<PCStat> dexRef = CDOMDirectSingleRef.getRef(dex);
 		tumble.put(ObjectKey.KEY_STAT, dexRef);
 		context.getReferenceContext().importObject(tumble);
-		SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
 
 		balance = new Skill();
 		context.unconditionallyProcess(balance, "CLASSES", "MyClass");
@@ -157,17 +133,27 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 			balance.addToListFor(ListKey.BONUS, aBonus);
 		}
 		context.getReferenceContext().importObject(balance);
-		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
 
-		context.getReferenceContext().buildDerivedObjects();
-		context.getReferenceContext().resolveReferences(null);
+		finishLoad();
+
+		PlayerCharacter character = getCharacter();
+
+		//Stats
+		setPCStat(character, dex, 16);
+		setPCStat(character, intel, 17);
+		
+		character.setRace(testRace);
+		character.incrementClassLevel(5, myClass, true);
+		
+		SkillRankControl.modRanks(8.0, myClass, true, character, knowledge[0]);
+		SkillRankControl.modRanks(5.0, myClass, true, character, knowledge[1]);
+		SkillRankControl.modRanks(7.0, myClass, true, character, tumble);
+		SkillRankControl.modRanks(4.0, myClass, true, character, balance);
 
 		character.calcActiveBonuses();
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
+	@AfterEach
 	@Override
 	protected void tearDown() throws Exception
 	{
@@ -182,6 +168,7 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the SKILL token.
 	 */
+	@Test
 	public void testSkillToken()
 	{
 		PlayerCharacter character = getCharacter();
@@ -252,5 +239,11 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 			character, null));
 		assertEquals("SkillToken", "Tumble (On Hot Concrete)",
 			token.getToken("SKILLSIT.TUMBLE=On Hot Concrete", character, null));
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//We will handle this locally
 	}
 }

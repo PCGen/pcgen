@@ -1,5 +1,4 @@
 /*
- * CharacterStatsPanel.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 26/10/2008 14:38:01
- *
- * $Id: $
  */
 package pcgen.gui2.prefs;
 
@@ -43,28 +38,24 @@ import javax.swing.border.TitledBorder;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.RollMethod;
-import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.GameMode;
 import pcgen.core.PointBuyMethod;
 import pcgen.core.SettingsHandler;
-import pcgen.gui2.util.JComboBoxEx;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui2.util.JComboBoxEx;
 import pcgen.system.LanguageBundle;
 
-
 /**
- * The Class <code>CharacterStatsPanel</code> is responsible for managing 
+ * The Class {@code CharacterStatsPanel} is responsible for managing
  * the character stats preferences.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class CharacterStatsPanel extends PCGenPrefsPanel
 {
-	
-	private static String in_abilities =
-		LanguageBundle.getString("in_Prefs_abilities");
+
+	private static final String IN_ABILITIES = LanguageBundle.getString("in_Prefs_abilities");
 	private String[] pMode;
 	private String[] pModeMethodName;
 	private JDialog parent;
@@ -73,10 +64,9 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	private JRadioButton abilitiesPurchasedButton;
 	private JRadioButton abilitiesRolledButton;
 	private JRadioButton abilitiesUserRolledButton;
-	private JComboBoxEx abilityPurchaseModeCombo;
-	private JComboBoxEx abilityRolledModeCombo = null;
-	private JComboBoxEx abilityScoreCombo;
-	private JButton purchaseModeButton;
+	private JComboBoxEx<String> abilityPurchaseModeCombo;
+	private JComboBoxEx<String> abilityRolledModeCombo = null;
+	private JComboBoxEx<String> abilityScoreCombo;
 	private PurchaseModeFrame pmsFrame = null;
 
 	private ActionListener rolledModeListener;
@@ -91,7 +81,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	public CharacterStatsPanel(JDialog parent)
 	{
 		this.parent = parent;
-		
+
 		initComponents();
 
 		addAbilitiesPanelListeners();
@@ -107,8 +97,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		JLabel label;
 		ButtonGroup exclusiveGroup;
 		Border etched = null;
-		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_abilities);
+		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_ABILITIES);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
@@ -123,9 +112,8 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 
 		exclusiveGroup = new ButtonGroup();
 		Utility.buildConstraints(c, 0, row++, 3, 1, 0, 0);
-		label =
-				new JLabel(LanguageBundle.getFormattedString(
-					"in_Prefs_abilitiesGenLabel", gameMode.getDisplayName())); //$NON-NLS-1$
+		label = new JLabel(LanguageBundle.getFormattedString(
+			"in_Prefs_abilitiesGenLabel", gameMode.getDisplayName())); //$NON-NLS-1$
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 0, row, 1, 1, 0, 0);
@@ -134,18 +122,13 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		this.add(label);
 
 		Utility.buildConstraints(c, 1, row++, 2, 1, 0, 0);
-		abilitiesUserRolledButton =
-				new JRadioButton(LanguageBundle
-					.getString("in_Prefs_abilitiesUserRolled"));
+		abilitiesUserRolledButton = new JRadioButton(LanguageBundle.getString("in_Prefs_abilitiesUserRolled"));
 		gridbag.setConstraints(abilitiesUserRolledButton, c);
 		this.add(abilitiesUserRolledButton);
 		exclusiveGroup.add(abilitiesUserRolledButton);
 
 		Utility.buildConstraints(c, 1, row++, 2, 1, 0, 0);
-		abilitiesAllSameButton =
-				new JRadioButton(LanguageBundle
-					.getString("in_Prefs_abilitiesAllSame")
-					+ ": ");
+		abilitiesAllSameButton = new JRadioButton(LanguageBundle.getString("in_Prefs_abilitiesAllSame") + ": ");
 		gridbag.setConstraints(abilitiesAllSameButton, c);
 		this.add(abilitiesAllSameButton);
 		exclusiveGroup.add(abilitiesAllSameButton);
@@ -155,7 +138,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		this.add(label);
 		Utility.buildConstraints(c, 2, row++, 2, 1, 0, 0);
 
-		abilityScoreCombo = new JComboBoxEx();
+		abilityScoreCombo = new JComboBoxEx<>();
 		for (int i = gameMode.getStatMin(); i <= gameMode.getStatMax(); ++i)
 		{
 			abilityScoreCombo.addItem(String.valueOf(i));
@@ -164,9 +147,8 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(abilityScoreCombo, c);
 		this.add(abilityScoreCombo);
 
-		ReferenceManufacturer<RollMethod> mfg = gameMode.getModeContext().getReferenceContext()
-				.getManufacturer(RollMethod.class);
-		List<RollMethod> rollMethods = mfg.getOrderSortedObjects();
+		List<RollMethod> rollMethods =
+				gameMode.getModeContext().getReferenceContext().getSortkeySortedCDOMObjects(RollMethod.class);
 		if (!rollMethods.isEmpty())
 		{
 			Utility.buildConstraints(c, 1, row++, 2, 1, 0, 0);
@@ -176,7 +158,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 			exclusiveGroup.add(abilitiesRolledButton);
 			Utility.buildConstraints(c, 2, row++, 2, 1, 0, 0);
 
-			abilityRolledModeCombo = new JComboBoxEx();
+			abilityRolledModeCombo = new JComboBoxEx<>();
 
 			for (RollMethod rm : rollMethods)
 			{
@@ -187,15 +169,11 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 			this.add(abilityRolledModeCombo);
 		}
 
-		Collection<PointBuyMethod> methods = SettingsHandler.getGame()
-				.getModeContext().getReferenceContext()
-				.getConstructedCDOMObjects(PointBuyMethod.class);
+		Collection<PointBuyMethod> methods = SettingsHandler.getGame().getModeContext().getReferenceContext()
+			.getConstructedCDOMObjects(PointBuyMethod.class);
 		final int purchaseMethodCount = methods.size();
 		Utility.buildConstraints(c, 1, row++, 2, 1, 0, 0);
-		abilitiesPurchasedButton =
-				new JRadioButton(LanguageBundle
-					.getString("in_Prefs_abilitiesPurchased")
-					+ ": ");
+		abilitiesPurchasedButton = new JRadioButton(LanguageBundle.getString("in_Prefs_abilitiesPurchased") + ": ");
 		gridbag.setConstraints(abilitiesPurchasedButton, c);
 		this.add(abilitiesPurchasedButton);
 		exclusiveGroup.add(abilitiesPurchasedButton);
@@ -212,7 +190,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 			i++;
 		}
 
-		abilityPurchaseModeCombo = new JComboBoxEx(pMode);
+		abilityPurchaseModeCombo = new JComboBoxEx<>(pMode);
 
 		gridbag.setConstraints(abilityPurchaseModeCombo, c);
 		this.add(abilityPurchaseModeCombo);
@@ -231,9 +209,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, row++, 3, 1, 0, 0);
-		purchaseModeButton =
-				new JButton(LanguageBundle
-					.getString("in_Prefs_purchaseModeConfig"));
+		JButton purchaseModeButton = new JButton(LanguageBundle.getString("in_Prefs_purchaseModeConfig"));
 		gridbag.setConstraints(purchaseModeButton, c);
 		this.add(purchaseModeButton);
 		purchaseModeButton.addActionListener(new PurchaseModeButtonListener());
@@ -245,14 +221,11 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#applyOptionValuesToControls()
-	 */
 	@Override
 	public void applyOptionValuesToControls()
 	{
 		stopListeners();
-		
+
 		final GameMode gameMode = SettingsHandler.getGame();
 		boolean bValid = true;
 		final int rollMethod = gameMode.getRollMethod();
@@ -270,8 +243,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 				break;
 
 			case Constants.CHARACTER_STAT_METHOD_PURCHASE:
-				if (!abilitiesPurchasedButton.isVisible()
-					|| (pMode.length == 0))
+				if (!abilitiesPurchasedButton.isVisible() || (pMode.length == 0))
 				{
 					bValid = false;
 				}
@@ -290,8 +262,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 				else
 				{
 					abilitiesRolledButton.setSelected(true);
-					abilityRolledModeCombo.setSelectedItem(gameMode
-						.getRollMethodExpressionName());
+					abilityRolledModeCombo.setSelectedItem(gameMode.getRollMethodExpressionName());
 				}
 
 				break;
@@ -308,13 +279,10 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 			gameMode.setRollMethod(Constants.CHARACTER_STAT_METHOD_USER);
 		}
 
-		int allStatsValue =
-				Math.min(gameMode.getStatMax(), gameMode.getAllStatsValue());
-		allStatsValue =
-				Math.max(gameMode.getStatMin(), allStatsValue);
+		int allStatsValue = Math.min(gameMode.getStatMax(), gameMode.getAllStatsValue());
+		allStatsValue = Math.max(gameMode.getStatMin(), allStatsValue);
 		gameMode.setAllStatsValue(allStatsValue);
-		abilityScoreCombo.setSelectedIndex(allStatsValue
-			- gameMode.getStatMin());
+		abilityScoreCombo.setSelectedIndex(allStatsValue - gameMode.getStatMin());
 
 		if ((pMode != null) && (pModeMethodName != null))
 		{
@@ -328,7 +296,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 				}
 			}
 		}
-		
+
 		startListeners();
 	}
 
@@ -341,7 +309,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		{
 			pmsFrame = new PurchaseModeFrame(parent);
 			final GameMode gameMode = SettingsHandler.getGame();
-			
+
 			pmsFrame.setStatMin(gameMode.getStatMin());
 			pmsFrame.setStatMax(gameMode.getStatMax());
 
@@ -351,16 +319,13 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 				@Override
 				public void windowClosed(WindowEvent e)
 				{
-					Collection<PointBuyMethod> methods = SettingsHandler
-							.getGame().getModeContext().getReferenceContext()
-							.getConstructedCDOMObjects(PointBuyMethod.class);
+					Collection<PointBuyMethod> methods = SettingsHandler.getGame().getModeContext()
+						.getReferenceContext().getConstructedCDOMObjects(PointBuyMethod.class);
 					final int purchaseMethodCount = methods.size();
 					pMode = new String[purchaseMethodCount];
 					pModeMethodName = new String[purchaseMethodCount];
 
-					final String methodName =
-							SettingsHandler.getGame()
-								.getPurchaseModeMethodName();
+					final String methodName = SettingsHandler.getGame().getPurchaseModeMethodName();
 					abilityPurchaseModeCombo.removeAllItems();
 
 					int i = 0;
@@ -384,16 +349,13 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 					// If user has added at least one method, then make the controls visible. Otherwise
 					// it is not a valid choice and cannot be selected, so hide it.
 					//
-					abilityPurchaseModeCombo
-						.setVisible(purchaseMethodCount != 0);
-					abilitiesPurchasedButton
-						.setVisible(purchaseMethodCount != 0);
+					abilityPurchaseModeCombo.setVisible(purchaseMethodCount != 0);
+					abilitiesPurchasedButton.setVisible(purchaseMethodCount != 0);
 
 					//
 					// If no longer visible, but was selected, then use 'user rolled' instead
 					//
-					if (!abilitiesPurchasedButton.isVisible()
-						&& abilitiesPurchasedButton.isSelected())
+					if (!abilitiesPurchasedButton.isVisible() && abilitiesPurchasedButton.isSelected())
 					{
 						abilitiesUserRolledButton.setSelected(true);
 					}
@@ -413,32 +375,11 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	 */
 	private void addAbilitiesPanelListeners()
 	{
-		scoreListener = new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				abilitiesAllSameButton.setSelected(true);
-			}
-		};
+		scoreListener = evt -> abilitiesAllSameButton.setSelected(true);
 
-		purchaseModeListener = new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				abilitiesPurchasedButton.setSelected(true);
-			}
-		};
+		purchaseModeListener = evt -> abilitiesPurchasedButton.setSelected(true);
 
-		rolledModeListener = new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				abilitiesRolledButton.setSelected(true);
-			}
-		};
+		rolledModeListener = evt -> abilitiesRolledButton.setSelected(true);
 
 		startListeners();
 	}
@@ -473,24 +414,17 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
-	 */
 	@Override
 	public String getTitle()
 	{
-		return in_abilities;
+		return IN_ABILITIES;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#setOptionsBasedOnControls()
-	 */
 	@Override
 	public void setOptionsBasedOnControls()
 	{
 		final GameMode gameMode = SettingsHandler.getGame();
-		gameMode.setAllStatsValue(abilityScoreCombo.getSelectedIndex()
-			+ gameMode.getStatMin());
+		gameMode.setAllStatsValue(abilityScoreCombo.getSelectedIndex() + gameMode.getStatMin());
 
 		if (abilitiesUserRolledButton.isSelected())
 		{
@@ -502,25 +436,20 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		}
 		else if (abilitiesPurchasedButton.isSelected())
 		{
-			if (abilityPurchaseModeCombo.isVisible()
-				&& (abilityPurchaseModeCombo.getSelectedIndex() >= 0))
+			if (abilityPurchaseModeCombo.isVisible() && (abilityPurchaseModeCombo.getSelectedIndex() >= 0))
 			{
-				gameMode
-					.setPurchaseMethodName(pModeMethodName[abilityPurchaseModeCombo
-						.getSelectedIndex()]);
+				gameMode.setPurchaseMethodName(pModeMethodName[abilityPurchaseModeCombo.getSelectedIndex()]);
 			}
 			else
 			{
 				gameMode.setRollMethod(Constants.CHARACTER_STAT_METHOD_USER);
 			}
 		}
-		else if ((abilitiesRolledButton != null)
-			&& (abilitiesRolledButton.isSelected()))
+		else if ((abilitiesRolledButton != null) && (abilitiesRolledButton.isSelected()))
 		{
 			if (abilityRolledModeCombo.getSelectedIndex() >= 0)
 			{
-				gameMode.setRollMethodExpressionByName(abilityRolledModeCombo
-					.getSelectedItem().toString());
+				gameMode.setRollMethodExpressionByName(abilityRolledModeCombo.getSelectedItem().toString());
 			}
 			else
 			{
@@ -535,9 +464,6 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	private final class PurchaseModeButtonListener implements ActionListener
 	{
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
 		@Override
 		public void actionPerformed(ActionEvent actionEvent)
 		{

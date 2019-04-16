@@ -1,5 +1,4 @@
 /*
- * PreKitTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,47 +14,31 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 27/10/2013
- *
- * $Id$
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
 import plugin.pretokens.test.PreKitTester;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * PreKitTest verifies the behaviour of PREKIT processing.
- * 
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class PreKitTest extends AbstractCharacterTestCase
+class PreKitTest extends AbstractCharacterTestCase
 {
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreKitTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreKitTest.class);
-	}
-
 	/**
 	 * Ensure a character with a kit correctly passes
 	 * PREKIT
 	 */
+	@Test
 	public void testKitPresence()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -78,6 +61,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 * Ensure that a character with no templates correctly
 	 * passes !PRETEMPLATE
 	 */
+	@Test
 	public void testKitAbsence()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -96,6 +80,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 * Ensure that a character with kits, but not the
 	 * required kit correctly passes !PREKIT
 	 */
+	@Test
 	public void testSpecificKitAbsent()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -118,6 +103,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 * Ensure a character with the requested kit correctly fails
 	 * !PREKIT
 	 */
+	@Test
 	public void testNotAbsent()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -140,6 +126,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 * Ensure a character with the requested kit correctly passes
 	 * a wildcard test
 	 */
+	@Test
 	public void testWildcard()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -162,6 +149,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 * Ensure a test with a non integer operand fails with a meaningfull
 	 * error message
 	 */
+	@Test
 	public void testBadOperand()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -176,6 +164,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
+	@Test
 	public void testKindHandled()
 	{
 		final PreKitTester preKit = new PreKitTester();

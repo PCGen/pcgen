@@ -17,14 +17,15 @@
  */
 package plugin.lsttokens.editcontext.testsupport;
 
-import java.net.URISyntaxException;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
+import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreHDParser;
@@ -32,9 +33,17 @@ import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreHDWriter;
 import plugin.pretokens.writer.PreLevelWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 		extends AbstractIntegrationTestCase<T>
 {
+
+	private static final PrerequisiteParserInterface prehd = new PreHDParser();
+	private static final PrerequisiteWriterInterface prehdwriter = new PreHDWriter();
+	private static final PrerequisiteParserInterface prelevel = new PreLevelParser();
+	private static final PrerequisiteWriterInterface prelevelwriter = new PreLevelWriter();
 
 	public abstract boolean isZeroAllowed();
 
@@ -44,13 +53,8 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 
 	public abstract boolean doesOverwrite();
 
-	PreHDParser prehd = new PreHDParser();
-	PreHDWriter prehdwriter = new PreHDWriter();
-	PreLevelParser prelevel = new PreLevelParser();
-	PreLevelWriter prelevelwriter = new PreLevelWriter();
-
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -62,7 +66,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testArchitectire() throws PersistenceLayerException
+	public void testArchitectire()
 	{
 		assertTrue(isPositiveAllowed() || isNegativeAllowed());
 	}
@@ -117,7 +121,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 			TestContext tc = new TestContext();
 			commit(testCampaign, tc, "1");
 			commit(testCampaign, tc, "2");
-			tc.putText(testCampaign.getURI(), new String[]{"1", "2"});
+			tc.putText(testCampaign.getURI(), "1", "2");
 			completeRoundRobin(tc);
 		}
 	}
@@ -131,7 +135,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 			TestContext tc = new TestContext();
 			commit(testCampaign, tc, "-1");
 			commit(testCampaign, tc, "-2");
-			tc.putText(testCampaign.getURI(), new String[]{"-1", "-2"});
+			tc.putText(testCampaign.getURI(), "-1", "-2");
 			completeRoundRobin(tc);
 		}
 	}

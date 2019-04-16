@@ -17,12 +17,18 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> extends
 		AbstractCDOMTokenTestCase<T>
@@ -31,7 +37,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	public abstract boolean isClearLegal();
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		if (requiresPreconstruction())
 		{
@@ -65,7 +71,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	public abstract ObjectKey<CT> getObjectKey();
 
 	@Test
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 		String[] unparsed;
 		if (requiresPreconstruction())
@@ -77,23 +83,23 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 		assertTrue(parse("TestWP1"));
 		assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
 		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
+		assertEquals("TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be null", unparsed);
+			assertNull(unparsed);
 		}
 	}
 
 	@Test
-	public void testInvalidPreconstruction() throws PersistenceLayerException
+	public void testInvalidPreconstruction()
 	{
 		if (requiresPreconstruction())
 		{
@@ -112,7 +118,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	}
 
 	@Test
-	public void testInvalidEmptyInput() throws PersistenceLayerException
+	public void testInvalidEmptyInput()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
@@ -169,7 +175,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	}
 
 	@Override
-	public void testOverwrite() throws PersistenceLayerException
+	public void testOverwrite()
 	{
 		if (requiresPreconstruction())
 		{
@@ -192,14 +198,14 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		CT o = getConstant(getLegalValue());
 		primaryProf.put(getObjectKey(), o);
@@ -208,7 +214,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

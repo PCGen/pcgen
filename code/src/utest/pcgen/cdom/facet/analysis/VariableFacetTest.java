@@ -17,9 +17,8 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
@@ -29,20 +28,31 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.core.PCTemplate;
 
-public class VariableFacetTest extends TestCase
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class VariableFacetTest
 {
 
 	private VariableFacet facet = new VariableFacet();
 	private CharID id;
 	private CharID altid;
 
-	@Override
-	protected void setUp() throws Exception
+	@BeforeEach
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		facet = null;
 	}
 
 	@Test

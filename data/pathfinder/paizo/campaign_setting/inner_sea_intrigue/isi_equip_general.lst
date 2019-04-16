@@ -1,0 +1,35 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Inner Sea Intrigue	SOURCESHORT:ISI	SOURCEWEB:http://paizo.com/products/btpy9l37?Pathfinder-Campaign-Setting-Inner-Sea-Intrigue	SOURCEDATE:2016-06
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 December 2017
+
+# ==============================
+# Alchemical Items
+# ==============================
+
+# Equipment Name				Product Identity?	Output Name		Type							Cost		Weight	Source Page		Special Property
+Antidote (Vial)										TYPE:Goods.Alchemical.Vial.Consumable	COST:0			SOURCEPAGE:p.50	SPROP:Price is half that of the specific poison it counteracts; grants a +10 alchemical bonus on saves against that poison for 4 hours.
+Calistria's Kindness			NAMEISPI:YES				TYPE:Goods.Alchemical.Vial.Consumable	COST:3			SOURCEPAGE:p.50
+Chameleon Pill										TYPE:Goods.Alchemical.Consumable		COST:100			SOURCEPAGE:p.50	SPROP:+4 circumstance bonus on Stealth checks for 4 hours.
+Waspguts											TYPE:Goods.Alchemical.Vial.Consumable	COST:100	WT:2		SOURCEPAGE:p.50
+
+# ==============================
+# Adventuring Gear
+# ==============================
+
+Broadsheet											TYPE:Goods.General				COST:.6			SOURCEPAGE:p.50
+Piecemeal Weapon										TYPE:Goods.General				COST:50	WT:10		SOURCEPAGE:p.50
+Wing Staff											TYPE:Goods.General				COST:1000	WT:6		SOURCEPAGE:p.50
+
+# ==============================
+# Poisons
+# ==============================
+
+Poison (Blackfingers' Silence)	NAMEISPI:YES	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable			COST:400	WT:0		SOURCEPAGE:p.51	SPROP:Injury; Fort DC 14; Freq 1 rnd (4); Effect Muteness 1 rnd; Cure 1 save
+Poison (Breath of the Mantis God)				OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable			COST:1300	WT:0		SOURCEPAGE:p.51	SPROP:Inhaled; Fort DC 21; Onset Injury; Freq 1 min (6); Effect 1d4 bleed; see text/1d3 Con dmg; Cure 2 saves
+Poison (Calistria's Revenge)		NAMEISPI:YES	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable			COST:500	WT:0		SOURCEPAGE:p.51	SPROP:Ingested; Fort DC 16; Onset Drinking alcohol; Freq 1 min (6); Effect 1d2 Dex dmg; Cure 2 saves
+Poison (Chelish Deathapple)		NAMEISPI:YES	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable			COST:200	WT:0		SOURCEPAGE:p.51	SPROP:Ingested; Fort DC 23; Onset 1 min.; Freq 1 min (2); Effect Deathlike trance 1 min./deathlike trance 8 hrs; Cure 1 save
+Poison (Marvelous Fear Gas)					OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable			COST:150	WT:0		SOURCEPAGE:p.51	SPROP:Inhaled; Fort DC 17; Onset Injury or fear; Freq 1 min (4); Effect Shaken 10 min./1d2 Wis dmg; Cure 1 save
+Poison (Twilight Illness)					OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable			COST:750	WT:0		SOURCEPAGE:p.51	SPROP:Contact; Fort DC 19; Onset Eating food; Freq 1 hr (8); Effect Nauseated 1 hr. and sickened 1 day; Cure 1 save
+Poison (Vessel Between)						OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable			COST:400	WT:0		SOURCEPAGE:p.51	SPROP:Ingested; Fort DC 20; Onset Sickened; Freq 1 min (4); Effect 1d2 Con and Wis dmg; Cure 2 saves

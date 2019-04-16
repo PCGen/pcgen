@@ -17,12 +17,18 @@
  */
 package pcgen.cdom.content.fact;
 
+import java.util.Objects;
+
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.GroupDefinition;
 import pcgen.cdom.enumeration.GroupingState;
+import pcgen.cdom.grouping.GroupingCollection;
+import pcgen.cdom.grouping.GroupingDefinition;
+import pcgen.cdom.grouping.GroupingInfo;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.persistence.ChoiceSetLoadUtilities;
 
 /**
  * A FactGroupDefinition is a GroupDefinition built around a Fact, specifically
@@ -37,8 +43,7 @@ import pcgen.rules.context.LoadContext;
  *            The Type of object this FactGroupDefinition contains (the content
  *            of the fact)
  */
-public class FactGroupDefinition<T extends CDOMObject, F> implements
-		GroupDefinition<T>
+public class FactGroupDefinition<T extends CDOMObject, F> implements GroupDefinition<T>, GroupingDefinition<T>
 {
 
 	/**
@@ -57,56 +62,69 @@ public class FactGroupDefinition<T extends CDOMObject, F> implements
 	 */
 	public FactGroupDefinition(FactInfo<T, F> fi)
 	{
-		if (fi == null)
-		{
-			throw new IllegalArgumentException("Fact Info cannot be null");
-		}
+		Objects.requireNonNull(fi, "Fact Info cannot be null");
 		def = fi;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getPrimitiveName()
-	 */
 	@Override
 	public String getPrimitiveName()
 	{
 		return def.getFactName();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getGroupingState()
-	 */
 	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getReferenceClass()
-	 */
 	@Override
 	public Class<T> getReferenceClass()
 	{
 		return def.getUsableLocation();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getFormatManager()
-	 */
 	@Override
 	public FormatManager<?> getFormatManager()
 	{
 		return def.getFormatManager();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getPrimitive(pcgen.rules.context.LoadContext,
-	 *      java.lang.String)
-	 */
 	@Override
 	public ObjectContainer<T> getPrimitive(LoadContext context, String value)
 	{
 		return new FactGroup<>(context, def, value);
+	}
+
+	@Override
+	public String getIdentification()
+	{
+		return def.getFactName();
+	}
+
+	@Override
+	public Class<?> getUsableLocation()
+	{
+		return def.getUsableLocation();
+	}
+
+	@Override
+	public GroupingCollection<T> process(LoadContext context, GroupingInfo<T> info)
+	{
+		FactGrouping<T, F> groupGrouping = new FactGrouping<>(def, info);
+		if (info.hasChild())
+		{
+			GroupingCollection<?> childCollection =
+					ChoiceSetLoadUtilities.getDynamicGroup(context, info.getChild());
+			groupGrouping.setChild(childCollection);
+		}
+		return groupGrouping;
+	}
+
+	@Override
+	public boolean requiresDirect()
+	{
+		//FACTs can't go to a parent - they are precise by their definitions
+		return true;
 	}
 }

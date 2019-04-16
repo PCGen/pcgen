@@ -1,5 +1,4 @@
 /*
- * LoopDirective.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 23/10/2013
  *
- * $Id$
  */
 package pcgen.io.freemarker;
 
@@ -56,20 +53,19 @@ import freemarker.template.TemplateNumberModel;
  * 
  * See http://freemarker.org/docs/pgui_datamodel_directive.html#autoid_37
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class LoopDirective implements TemplateDirectiveModel
 {
 	@SuppressWarnings("rawtypes")
 	@Override
-	public void execute(Environment env, Map params, TemplateModel[] loopVars,
-		TemplateDirectiveBody body) throws TemplateException, IOException
+	public void execute(Environment env, Map params, TemplateModel[] loopVars, TemplateDirectiveBody body)
+		throws TemplateException, IOException
 	{
 		// Check if no parameters were given:
 		int fromVal = 0;
 		Integer toVal = null;
 		int step = 1;
-		
+
 		for (Object entryObj : params.entrySet())
 		{
 			Map.Entry entry = (Entry) entryObj;
@@ -81,37 +77,30 @@ public class LoopDirective implements TemplateDirectiveModel
 				case "from":
 					if (!(paramValue instanceof TemplateNumberModel))
 					{
-						throw new TemplateModelException("The \"" + paramName
-								                                 + "\" parameter " + "must be a number.");
+						throw new TemplateModelException("The \"" + paramName + "\" parameter " + "must be a number.");
 					}
-					fromVal =
-							((TemplateNumberModel) paramValue).getAsNumber()
-									.intValue();
+					fromVal = ((TemplateNumberModel) paramValue).getAsNumber().intValue();
 					break;
 				case "to":
 					if (!(paramValue instanceof TemplateNumberModel))
 					{
-						throw new TemplateModelException("The \"" + paramName
-								                                 + "\" parameter " + "must be a number.");
+						throw new TemplateModelException("The \"" + paramName + "\" parameter " + "must be a number.");
 					}
-					toVal =
-							((TemplateNumberModel) paramValue).getAsNumber()
-									.intValue();
+					toVal = ((TemplateNumberModel) paramValue).getAsNumber().intValue();
 					break;
 				case "step":
 					if (!(paramValue instanceof TemplateNumberModel))
 					{
-						throw new TemplateModelException("The \"" + paramName
-								                                 + "\" parameter " + "must be a number.");
+						throw new TemplateModelException("The \"" + paramName + "\" parameter " + "must be a number.");
 					}
-					step =
-							((TemplateNumberModel) paramValue).getAsNumber()
-									.intValue();
+					step = ((TemplateNumberModel) paramValue).getAsNumber().intValue();
 					if (step == 0)
 					{
-						throw new TemplateModelException("The \"" + paramName
-								                                 + "\" parameter must not be 0.");
+						throw new TemplateModelException("The \"" + paramName + "\" parameter must not be 0.");
 					}
+					break;
+				default:
+					//Case not caught, should this cause an error?
 					break;
 			}
 		}
@@ -122,10 +111,9 @@ public class LoopDirective implements TemplateDirectiveModel
 		}
 		if (body == null)
 		{
-			throw new TemplateModelException(
-				"This directive must have content.");
+			throw new TemplateModelException("This directive must have content.");
 		}
-		
+
 		if (step > 0)
 		{
 			for (int i = fromVal; i <= toVal; i += step)
@@ -138,9 +126,7 @@ public class LoopDirective implements TemplateDirectiveModel
 				}
 				if (loopVars.length > 1)
 				{
-					loopVars[1] =
-							i + step <= toVal ? TemplateBooleanModel.TRUE
-								: TemplateBooleanModel.FALSE;
+					loopVars[1] = i + step <= toVal ? TemplateBooleanModel.TRUE : TemplateBooleanModel.FALSE;
 				}
 
 				// Executes the nested body (same as <#nested> in FTL). In this
@@ -160,9 +146,7 @@ public class LoopDirective implements TemplateDirectiveModel
 				}
 				if (loopVars.length > 1)
 				{
-					loopVars[1] =
-							i + step >= toVal ? TemplateBooleanModel.TRUE
-								: TemplateBooleanModel.FALSE;
+					loopVars[1] = i + step >= toVal ? TemplateBooleanModel.TRUE : TemplateBooleanModel.FALSE;
 				}
 
 				// Executes the nested body (same as <#nested> in FTL). In this
@@ -170,7 +154,7 @@ public class LoopDirective implements TemplateDirectiveModel
 				body.render(env.getOut());
 			}
 		}
-			
+
 	}
 
 }

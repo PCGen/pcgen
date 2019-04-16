@@ -17,21 +17,23 @@
  */
 package plugin.lsttokens.equipment;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTextPropertyTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class SPropTokenTest extends
 		AbstractTextPropertyTokenTestCase<Equipment>
 {
 	static SpropToken token = new SpropToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()
@@ -52,21 +54,21 @@ public class SPropTokenTest extends
 	}
 
 	@Test
-	public void testInvalidDoubleClear() throws PersistenceLayerException
+	public void testInvalidDoubleClear()
 	{
 		assertFalse(parse(".CLEAR|.CLEAR|Second"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearAsVariable() throws PersistenceLayerException
+	public void testInvalidClearAsVariable()
 	{
 		assertFalse(parse("Second|.CLEAR"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidClear() throws PersistenceLayerException
+	public void testValidClear()
 	{
 		assertTrue(parse(Constants.LST_DOT_CLEAR));
 	}

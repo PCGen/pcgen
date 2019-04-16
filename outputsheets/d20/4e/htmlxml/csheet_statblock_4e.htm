@@ -5,11 +5,6 @@
 <!--
 	This format is designed to match the official WotC Statblock style 
 	as defined in the 3.5 Edition DMG (II)
-
-$Revision$
-$Author$
-$Date$
-
 -->
 <style type="text/css">
 	body  { font-family: Arial, sans-serif; font-size:10pt; text-align:left; color:black; background:white; font-weight:normal; margin: 0px; padding: 5px; }
@@ -20,15 +15,15 @@ $Date$
 
 <table width="100%">
 	<tr>
-		<td><b><font size="+1">|TEXT.UPPER.NAME|</font></b></td>
+		<td><b><span style="font-size: larger; ">|TEXT.UPPER.NAME|</span></b></td>
 		<td align="right">
-			<b><font size="+1">CR 
+			<b><span style="font-size: larger; ">CR
 |IIF(CR:0)|
 &mdash;
 |ELSE|
 |CR|
 |ENDIF|
-			</font></b>
+			</span></b>
 		</td>
 	</tr>
 </table>
@@ -572,7 +567,7 @@ Listen |SKILL.Listen.TOTAL.SIGN|, Spot |SKILL.Spot.TOTAL.SIGN|,
 <!-- End Prepared Spells -->
 
 <!-- Domain list -->
-|%DOMAIN.1|<p />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|%DOMAIN.1|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 *: Domain spell. Deity: |DEITY|.
 Domains: 
 |FOR.1,COUNT[DOMAINS]+1,1,\DOMAIN.%\, ,NONE,1|

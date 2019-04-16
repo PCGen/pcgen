@@ -1,5 +1,4 @@
 /*
- * ThumbnailPane.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 9, 2011, 3:11:44 PM
  */
 package pcgen.gui2.tabs.bio;
 
@@ -26,15 +24,12 @@ import java.awt.Graphics;
 import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 
 import pcgen.cdom.base.Constants;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 class ThumbnailPane extends JComponent
 {
 
@@ -118,9 +113,8 @@ class ThumbnailPane extends JComponent
 			return;
 		}
 		Insets insets = getInsets();
-		g.drawImage(portrait.getSubimage(cropRect.x, cropRect.y,
-			cropRect.width, cropRect.height), insets.left, insets.top,
-			Constants.THUMBNAIL_SIZE, Constants.THUMBNAIL_SIZE, this);
+		g.drawImage(portrait.getSubimage(cropRect.x, cropRect.y, cropRect.width, cropRect.height), insets.left,
+			insets.top, Constants.THUMBNAIL_SIZE, Constants.THUMBNAIL_SIZE, this);
 	}
 
 }

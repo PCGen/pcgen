@@ -1,5 +1,4 @@
 /*
- * EquipBuyToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 6, 2006
- *
- * Current Ver: $Revision$
  */
 
 package plugin.lsttokens.kit.startpack;
@@ -42,8 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * EQUIPBUY Token for KitStartpack
  */
-public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements
-		CDOMPrimaryToken<Kit>
+public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements CDOMPrimaryToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -63,8 +57,7 @@ public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Kit kit,
-			String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Kit kit, String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -73,14 +66,12 @@ public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements
 		String activeValue = sep.next();
 		if (looksLikeAPrerequisite(activeValue))
 		{
-			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
-					+ getTokenName(), context);
+			return new ParseResult.Fail("Cannot have only PRExxx subtoken in " + getTokenName());
 		}
 		Formula f = FormulaFactory.getFormulaFor(activeValue);
 		if (!f.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + f.toString(), context);
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + f.toString());
 		}
 		List<Prerequisite> prereqs = new ArrayList<>();
 
@@ -90,8 +81,8 @@ public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements
 			Prerequisite prereq = getPrerequisite(activeValue);
 			if (prereq == null)
 			{
-				return new ParseResult.Fail("   (Did you put feats after the "
-					+ "PRExxx tags in " + getTokenName() + ":?)", context);
+				return new ParseResult.Fail(
+					"   (Did you put feats after the " + "PRExxx tags in " + getTokenName() + ":?)");
 			}
 			prereqs.add(prereq);
 		}

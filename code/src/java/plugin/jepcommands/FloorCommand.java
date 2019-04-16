@@ -1,9 +1,10 @@
 package plugin.jepcommands;
 
-import org.nfunk.jep.ParseException;
+import java.util.Stack;
+
 import pcgen.util.PCGenCommand;
 
-import java.util.Stack;
+import org.nfunk.jep.ParseException;
 
 /**
  * JEP command for floor
@@ -23,7 +24,7 @@ public class FloorCommand extends PCGenCommand
 	 * Gets the name of the function handled by this class.
 	 * @return The name of the function.
 	 */
-    @Override
+	@Override
 	public String getFunctionName()
 	{
 		return "FLOOR";
@@ -31,13 +32,13 @@ public class FloorCommand extends PCGenCommand
 
 	/**
 	 * Runs floor on the inStack. The parameter is popped
-	 * off the <code>inStack</code>, and the floor of its value is
-	 * pushed back to the top of <code>inStack</code>.
+	 * off the {@code inStack}, and the floor of its value is
+	 * pushed back to the top of {@code inStack}.
 	 * @param inStack the jep stack
 	 * @throws ParseException
 	 */
 	@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-    @Override
+	@Override
 	public void run(final Stack inStack) throws ParseException
 	{
 		// check the stack

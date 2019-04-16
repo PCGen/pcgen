@@ -32,8 +32,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class PCToken extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>
+public class PCToken extends AbstractTokenWithSeparator<CDOMObject> implements CDOMSecondaryToken<CDOMObject>
 {
 
 	@Override
@@ -43,16 +42,13 @@ public class PCToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	public ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	public ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
-		final String v =
-				value.replaceAll(Pattern.quote("<this>"), obj.getKeyName());
+		final String v = value.replaceAll(Pattern.quote("<this>"), obj.getKeyName());
 		BonusObj bon = Bonus.newBonus(context, v);
 		if (bon == null)
 		{
-			return new ParseResult.Fail(getFullTokenName()
-				+ " was given invalid type: " + value, context);
+			return new ParseResult.Fail(getFullTokenName() + " was given invalid type: " + value);
 		}
 		bon.setTokenSource(getFullTokenName());
 		context.getObjectContext().addToList(obj, ListKey.BONUS_PC, bon);
@@ -62,9 +58,7 @@ public class PCToken extends AbstractTokenWithSeparator<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<BonusObj> changes =
-				context.getObjectContext()
-					.getListChanges(obj, ListKey.BONUS_PC);
+		Changes<BonusObj> changes = context.getObjectContext().getListChanges(obj, ListKey.BONUS_PC);
 		Collection<BonusObj> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{

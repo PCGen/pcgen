@@ -17,39 +17,15 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreSpecialAbilityParser;
 import plugin.pretokens.writer.PreSpecialAbilityWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class PreSARoundRobin extends AbstractBasicRoundRobin
 {
-	
-	/**
-	 * The main method.
-	 * 
-	 * @param args the arguments
-	 */
-	public static void main(String args[])
-	{
-		TestRunner.run(PreSARoundRobin.class);
-	}
-
-	/**
-	 * Suite.
-	 * 
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSARoundRobin.class);
-	}
-
-	/* (non-Javadoc)
-	 * @see junit.framework.TestCase#setUp()
-	 */
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -58,9 +34,6 @@ public class PreSARoundRobin extends AbstractBasicRoundRobin
 		TokenRegistration.register(new PreSpecialAbilityWriter());
 	}
 
-	/* (non-Javadoc)
-	 * @see plugin.pretokens.AbstractBasicRoundRobin#getBaseString()
-	 */
 	@Override
 	public String getBaseString()
 	{

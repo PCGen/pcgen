@@ -3,7 +3,7 @@ CAMPAIGN:Advanced Class Guide
 KEY:Advanced Class Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
-STATUS:ALPHA
+STATUS:BETA
 RANK:1
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -50,6 +50,7 @@ ABILITY:acg_abilities_race.lst
 ABILITY:acg_abilities_other.lst
 ABILITYCATEGORY:acg_abilitycategories.lst
 CLASS:acg_classes.lst
+DOMAIN:acg_domains.lst
 EQUIPMENT:acg_equip.lst
 EQUIPMOD:acg_equipmods.lst
 ABILITY:acg_feats.lst
@@ -62,6 +63,11 @@ COMPANIONMOD:acg_companionmods.lst
 
 
 ABILITY:support/acg_abilities_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+ABILITY:support/acg_abilities_cob.lst|PRECAMPAIGN:1,INCLUDES=Champions of Balance
+ABILITY:support/acg_abilities_dep.lst|PRECAMPAIGN:1,INCLUDES=Dragon Empires Primer
+ABILITY:support/acg_abilities_oog.lst|PRECAMPAIGN:1,INCLUDES=Orcs of Golarion
+ABILITY:support/acg_abilities_potr.lst|PRECAMPAIGN:1,INCLUDES=People of the River
+ABILITY:support/acg_abilities_psand.lst|PRECAMPAIGN:1,INCLUDES=People of the Sands
 
 #Spells from ARG
 

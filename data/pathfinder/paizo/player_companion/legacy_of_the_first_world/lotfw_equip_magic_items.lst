@@ -1,0 +1,10 @@
+SOURCELONG:Pathfinder Player Companion: Legacy of the First World	SOURCESHORT:LOTFW	SOURCEWEB:https://paizo.com/products/btpy9t1t	SOURCEDATE:2015-06
+
+Charm of the Thriceborn											TYPE:Magic.Wondrous				COST:2400																SOURCEPAGE:p.25			SPROP:At start of day, owner rolls 3 d20s, keeping the results. During the day, owner can replace a d20 roll with one of these results.
+Clandestine Horseshoes											TYPE:Magic.Wondrous.Feet.Horseshoes		COST:6000	WT:12															SOURCEPAGE:p.27
+Hood of Privacy												TYPE:Magic.Wondrous.Headgear			COST:120000	WT:1															SOURCEPAGE:p.27
+Ribbon of the Three											TYPE:Magic.Wondrous.Headgear			COST:60000																SOURCEPAGE:p.25			SPROP:The wearer is constantly under the effect of threefold face.
+Rod (Thriceborn/Lesser)			OUTPUTNAME:Lesser Rod of the Thriceborn		TYPE:Magic.Rod					COST:2500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.25			SPROP:Wielder can cast up to three spells per day through rod, forcing target to roll 3 save and take middle result. Affects spells up to 3rd level. Can't be used with metamagic rods or the Persistent Spell feat.
+Rod (Thriceborn)				OUTPUTNAME:Rod of the Thriceborn			TYPE:Magic.Rod					COST:6500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.25			SPROP:Wielder can cast up to three spells per day through rod, forcing target to roll 3 save and take middle result. Affects spells up to 6th level. Can't be used with metamagic rods or the Persistent Spell feat.
+Rod (Thriceborn/Greater)		OUTPUTNAME:Greater Rod of the Thriceborn		TYPE:Magic.Rod					COST:19500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.25			SPROP:Wielder can cast up to three spells per day through rod, forcing target to roll 3 save and take middle result. Affects spells up to 9th level. Can't be used with metamagic rods or the Persistent Spell feat.
+Whispering Gloves												TYPE:Magic.Wondrous.Hands.Glove		COST:1000	WT:1															SOURCEPAGE:p.27

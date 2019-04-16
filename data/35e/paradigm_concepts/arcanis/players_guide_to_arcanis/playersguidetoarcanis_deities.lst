@@ -1,10 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 SOURCELONG:Player's Guide to Arcanis	SOURCESHORT:PGtA	SOURCEWEB:http://www.paradigmconcepts.com	SOURCEDATE:2004-06
 # all 2006-06-03 errata applied
 
 #Deity Name	Domains														Desciption of Deity/Title				Holy Item					Deity Weapon			ALIGN		Source Index
-# Deity Name	Product Identity?	Domains														Description of Deity/Title																																								FACT							FACTSET				Deity Weapon							Align		Source URI																		Source Page				Multiple Requirements
+# Deity Name	Product Identity?	Domains														Description of Deity/Title																																								FACT							FACTSET				Deity Weapon							Align		Source URI																		Source Page				Multiple Requirements																										GROUP
 Althares		NAMEISPI:YES	DOMAINS:Artificer,Commerce,Divination,Holy,Knowledge							DESC:Artificer of the Gods																																								FACT:Symbol|Holy Book on a Chain		FACTSET:Pantheon|Man		DEITYWEAP:Warhammer|Altherian Flintlock (Pistol)	ALIGN:TN																				SOURCEPAGE:p.7			PREMULT:1,[!PRECLASS:1,Cleric=1],[PRESUBCLASS:1,Althares]
 Anshar		NAMEISPI:YES	DOMAINS:Healing,Holy,Pain,Strength,Suffering,Travel							DESC:The Far Traveler																																									FACT:Symbol|Strand of Thorn Bush		FACTSET:Pantheon|Man		DEITYWEAP:Unarmed Strike					ALIGN:TN																				SOURCEPAGE:p.10			PREMULT:1,[!PRECLASS:1,Cleric=1],[PRESUBCLASS:1,Anshar]
 Belisarda		NAMEISPI:YES	DOMAINS:Air,Animal,Earth,Fire,Healing,Holy,Plant,Protection,Refuge,Storm,Travel,War,Water	DESC:God of the Elorii																																									FACT:Symbol|(Known only to the Elorii)	FACTSET:Pantheon|Elorii		DEITYWEAP:Longbow							ALIGN:TN																				SOURCEPAGE:p.178			PREMULT:1,[PREMULT:2,[PRERACE:1,Elorii],[PREMULT:1,[!PRECLASS:1,Cleric=1],[PRESUBCLASS:1,Belisarda]]],[PREMULT:2,[!PRERACE:1,Elorii],[PREREGION:Western Lands (Lhyllifel)]]
@@ -28,4 +29,4 @@ Marok			NAMEISPI:YES	DOMAINS:Earth																																														
 Osalian		NAMEISPI:YES	DOMAINS:Air																																																																															ALIGN:TN																									PREMULT:2,[PRERACE:1,Elorii],[PREMULT:1,[!PRECLASS:1,Cleric=1],[PRESUBCLASS:1,Osalian]]
 
 
-None						DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE								DESC:Due to closed content PCGEN cannot provide a list of deities, sorry but you need to homebrew your own list; Please see the Documentation for how to do so - http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html	FACT:Symbol|None										DEITYWEAP:ANY									SOURCEWEB:http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html
+None						DOMAINS:ANY|PREALIGN:LG,LN,LE,NG,TN,NE,CG,CN,CE								DESC:Due to closed content PCGEN cannot provide a list of deities, sorry but you need to homebrew your own list; Please see the Documentation for how to do so - http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html	FACT:Symbol|None										DEITYWEAP:ANY									SOURCEWEB:http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html																																			GROUP:UNSELECTED

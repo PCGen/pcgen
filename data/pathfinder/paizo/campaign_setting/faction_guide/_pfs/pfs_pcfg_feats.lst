@@ -1,0 +1,24 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Chronicles: Faction Guide	SOURCESHORT:PCFG	SOURCEWEB:http://paizo.com/products/btpy8emo?Pathfinder-Chronicles-Faction-Guide	SOURCEDATE:2010-06
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+
+# Ability Name						Type			!PRECHARACTERTYPE
+Advanced Defensive Combat Training.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Bloodstone Manhunter.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Calm Disposition.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Death's Suitor.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Disassemble Magic Item.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Divine Deception.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Fearsome Barricade.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Grand Master Performer.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Ki Diversity.MOD						TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Let Them Come.MOD						TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Master Performer (Kitharodian Academy).MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Nameless Servitor.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Old Cults Awakener.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Ominous Mien.MOD						TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Silent Performer.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Touched by Sacred Fire.MOD				TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Verbose Performer.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Whispered Knowledge.MOD					TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

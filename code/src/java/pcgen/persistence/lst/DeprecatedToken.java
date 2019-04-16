@@ -1,5 +1,4 @@
 /*
- * DeprecatedToken.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -19,8 +18,6 @@
  */
 
 /*
- * Created on Sep 2, 2005
- *
  * TODO To change the template for this generated file go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
@@ -28,10 +25,6 @@
 package pcgen.persistence.lst;
 
 import pcgen.cdom.base.CDOMObject;
-
-/**
- * @author djones4
- */
 
 public interface DeprecatedToken
 {

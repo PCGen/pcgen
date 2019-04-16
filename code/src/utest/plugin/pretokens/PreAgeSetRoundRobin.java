@@ -1,5 +1,4 @@
 /*
- * PreAgeSetRoundRobin.java
  * Copyright 2008 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,53 +14,22 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 1/04/2008
- *
- * $Id$
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreAgeSetParser;
 import plugin.pretokens.writer.PreAgeSetWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+
 /**
- * <code>PreAgeSetRoundRobin</code> verifies that preageset tags can be 
+ * {@code PreAgeSetRoundRobin} verifies that preageset tags can be
  * read and written.
- *
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreAgeSetRoundRobin extends AbstractBasicRoundRobin
 {
-	
-	/**
-	 * The main method.
-	 * 
-	 * @param args the arguments
-	 */
-	public static void main(String args[])
-	{
-		TestRunner.run(PreAgeSetRoundRobin.class);
-	}
-
-	/**
-	 * Suite.
-	 * 
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreAgeSetRoundRobin.class);
-	}
-
-	/* (non-Javadoc)
-	 * @see junit.framework.TestCase#setUp()
-	 */
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -70,18 +38,12 @@ public class PreAgeSetRoundRobin extends AbstractBasicRoundRobin
 		TokenRegistration.register(new PreAgeSetWriter());
 	}
 
-	/* (non-Javadoc)
-	 * @see plugin.pretokens.AbstractBasicRoundRobin#getBaseString()
-	 */
 	@Override
 	public String getBaseString()
 	{
 		return "AGESET";
 	}
 
-	/* (non-Javadoc)
-	 * @see plugin.pretokens.AbstractBasicRoundRobin#isTypeAllowed()
-	 */
 	@Override
 	public boolean isTypeAllowed()
 	{

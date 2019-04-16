@@ -1,5 +1,4 @@
 /*
- * LstLineFileLoader.java
  * Copyright 2003 (C) David Hibbs <sage_sam@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 17, 2003, 12:00 PM
  *
- * Current Ver: $Revision$ <br>
  */
 package pcgen.persistence.lst;
 
@@ -27,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Observable;
 import java.util.Set;
 
@@ -36,9 +34,9 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
+import pcgen.util.Logging;
 
 /**
  * This class is an extension of the LstFileLoader that loads items
@@ -48,10 +46,7 @@ import pcgen.system.PCGenSettings;
  * to directly create characters.
  *
  * <p>
- * Current Ver: $Revision$ <br>
  *
- * @author AD9C15
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  */
 public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observable
 {
@@ -79,14 +74,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	private boolean processComplete = true;
 	/** A list of objects that will not be included. */
 	protected List<String> excludedObjects = new ArrayList<>();
-
-	/**
-	 * LstObjectFileLoader constructor.
-	 */
-	public LstObjectFileLoader()
-	{
-		super();
-	}
 
 	/**
 	 * This method loads the given list of LST files.
@@ -132,7 +119,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * CDOMObject of the appropriate type will be created prior to applying the
 	 * line contents.  Because of this behavior, it is necessary for this
 	 * method to return the new object.  Implementations of this method also
-	 * MUST call <code>completeObject</code> with the original target prior to 
+	 * MUST call {@code completeObject} with the original target prior to
 	 * returning the new value.
 	 * @param context TODO
 	 * @param target CDOMObject to apply the line to, barring the start of a
@@ -145,8 +132,8 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 *         LST line
 	 * @throws PersistenceLayerException if there is a problem with the LST syntax
 	 */
-	public abstract T parseLine(LoadContext context, T target,
-		String lstLine, SourceEntry source) throws PersistenceLayerException;
+	public abstract T parseLine(LoadContext context, T target, String lstLine, SourceEntry source)
+		throws PersistenceLayerException;
 
 	/**
 	 * This method is called by the loading framework to signify that the
@@ -154,11 +141,11 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * system.
 	 * 
 	 * <p>This method will check that the loaded object should be included via
-	 * a call to <code>includeObject</code> and if not add it to the list of
+	 * a call to {@code includeObject} and if not add it to the list of
 	 * excluded objects.
 	 * 
 	 * <p>Once the object has been verified the method will call
-	 * <code>finishObject</code> to give each object a chance to complete 
+	 * {@code finishObject} to give each object a chance to complete
 	 * processing.
 	 * 
 	 * <p>The object is then added to the system if it doesn't already exist.
@@ -172,8 +159,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * 
 	 * @throws PersistenceLayerException 
 	 */
-	public void completeObject(LoadContext context, SourceEntry source,
-		final T pObj) throws PersistenceLayerException
+	public void completeObject(LoadContext context, SourceEntry source, final T pObj) throws PersistenceLayerException
 	{
 		if (!processComplete || pObj == null)
 		{
@@ -195,8 +181,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	{
 		final T currentObj = getMatchingObject(context, pObj);
 
-		if (!context.consolidate() || currentObj == null
-				|| !pObj.equals(currentObj))
+		if (!context.consolidate() || currentObj == null || !pObj.equals(currentObj))
 		{
 			addGlobalObject(pObj);
 		}
@@ -206,19 +191,14 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 			if (currentObj != pObj)
 			{
 				boolean allowoverride =
-						PCGenSettings.OPTIONS_CONTEXT.initBoolean(
-							PCGenSettings.OPTION_ALLOW_OVERRIDE_DUPLICATES,
-							true);
+						PCGenSettings.OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_ALLOW_OVERRIDE_DUPLICATES, true);
 				if (allowoverride)
 				{
 					// If the new object is more recent than the current
 					// one, use the new object
 					final Date pObjDate = pObj.get(ObjectKey.SOURCE_DATE);
-					final Date currentObjDate = currentObj
-							.get(ObjectKey.SOURCE_DATE);
-					if ((pObjDate != null)
-						&& ((currentObjDate == null) || ((pObjDate
-							.compareTo(currentObjDate) > 0))))
+					final Date currentObjDate = currentObj.get(ObjectKey.SOURCE_DATE);
+					if ((pObjDate != null) && ((currentObjDate == null) || ((pObjDate.compareTo(currentObjDate) > 0))))
 					{
 						performForget(context, currentObj);
 						addGlobalObject(pObj);
@@ -236,10 +216,8 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 				else
 				{
 					// Duplicate loading error
-					Logging.errorPrintLocalised(
-						"Warnings.LstFileLoader.DuplicateObject", //$NON-NLS-1$
-						pObj.getKeyName(), currentObj.getSourceURI(), pObj
-							.getSourceURI());
+					Logging.errorPrintLocalised("Warnings.LstFileLoader.DuplicateObject", //$NON-NLS-1$
+						pObj.getKeyName(), currentObj.getSourceURI(), pObj.getSourceURI());
 				}
 			}
 		}
@@ -268,10 +246,8 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	protected boolean includeObject(SourceEntry source, CDOMObject cdo)
 	{
 		// Null check; never add nulls or objects without a name/key name
-		if ((cdo == null) || (cdo.getDisplayName() == null)
-			|| (cdo.getDisplayName().trim().length() == 0)
-			|| (cdo.getKeyName() == null)
-			|| (cdo.getKeyName().trim().length() == 0))
+		if ((cdo == null) || (cdo.getDisplayName() == null) || (cdo.getDisplayName().trim().isEmpty())
+			|| (cdo.getKeyName() == null) || (cdo.getKeyName().trim().isEmpty()))
 		{
 			return false;
 		}
@@ -317,7 +293,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	{
 		return getObjectKeyed(context, key.getKeyName());
 	}
-	
+
 	/**
 	 * This method loads a single LST formatted file.
 	 * @param sourceEntry CampaignSourceEntry containing the absolute file path
@@ -328,23 +304,19 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		setChanged();
 		URI uri = sourceEntry.getURI();
 		notifyObservers(uri);
-
 		StringBuilder dataBuffer;
-
 		try
 		{
 			dataBuffer = LstFileLoader.readFromURI(uri);
 		}
 		catch (PersistenceLayerException ple)
 		{
-			String message = LanguageBundle.getFormattedString(
-				"Errors.LstFileLoader.LoadError", //$NON-NLS-1$
+			String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.LoadError", //$NON-NLS-1$
 				uri, ple.getMessage());
 			Logging.errorPrint(message);
 			setChanged();
 			return;
 		}
-
 		String aString = dataBuffer.toString();
 		if (context != null)
 		{
@@ -352,23 +324,18 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		}
 		T target = null;
 		ArrayList<ModEntry> classModLines = null;
-
 		boolean allowMultiLine =
-				PCGenSettings.OPTIONS_CONTEXT.initBoolean(
-					PCGenSettings.OPTION_SOURCES_ALLOW_MULTI_LINE, false);
+				PCGenSettings.OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_SOURCES_ALLOW_MULTI_LINE, false);
 		if (allowMultiLine)
 		{
 			// Support the new file type. All lines that start with a tab belong to the previous line.
 			aString = aString.replaceAll("\r?\n\t", "\t");
 		}
-		
 		String[] fileLines = aString.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
-
 		for (int i = 0; i < fileLines.length; i++)
 		{
 			String line = fileLines[i];
-			if ((line.length() == 0)
-				|| (line.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR))
+			if ((line.trim().isEmpty()) || (line.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR))
 			{
 				continue;
 			}
@@ -382,7 +349,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 			{
 				firstToken = line.substring(0, sepLoc);
 			}
-
 			// Check for continuation of class mods
 			if (classModLines != null)
 			{
@@ -399,21 +365,15 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 					continue;
 				}
 			}
-
 			// check for copies, mods, and forgets
 			// TODO - Figure out why we need to check SOURCE in this file
 			if (line.startsWith("SOURCE")) //$NON-NLS-1$
 			{
 				SourceLoader.parseLine(context, line, uri);
 			}
-			else if (line.trim().length()==0)
-			{
-				// Ignore the line
-			}
 			else if (firstToken.indexOf(COPY_SUFFIX) > 0)
 			{
-				copyLineList.add(new ModEntry(sourceEntry, line,
-					i + 1));
+				copyLineList.add(new ModEntry(sourceEntry, line, i + 1));
 			}
 			else if (firstToken.indexOf(MOD_SUFFIX) > 0)
 			{
@@ -444,10 +404,8 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 				}
 				catch (PersistenceLayerException ple)
 				{
-					String message =
-							LanguageBundle.getFormattedString(
-								"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
-								uri, i + 1, ple.getMessage());
+					String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.ParseError", //$NON-NLS-1$
+						uri, i + 1, ple.getMessage());
 					Logging.errorPrint(message);
 					setChanged();
 					if (Logging.isDebugMode())
@@ -457,24 +415,19 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 				}
 				catch (Throwable t)
 				{
-					String message =
-							LanguageBundle.getFormattedString(
-								"Errors.LstFileLoader.ParseError", //$NON-NLS-1$
-								uri, i + 1, t.getMessage());
+					String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.ParseError", //$NON-NLS-1$
+						uri, i + 1, t.getMessage());
 					Logging.errorPrint(message, t);
 					setChanged();
-					Logging.errorPrint(LanguageBundle
-						.getString("Errors.LstFileLoader.Ignoring: " + t.getMessage()));
-					if  (Logging.isDebugMode())
+					Logging.errorPrint(LanguageBundle.getString("Errors.LstFileLoader.Ignoring: " + t.getMessage()));
+					if (Logging.isDebugMode())
 					{
-						Logging.errorPrint(LanguageBundle
-								.getString("Errors.LstFileLoader.Ignoring"), t);
+						Logging.errorPrint(LanguageBundle.getString("Errors.LstFileLoader.Ignoring"), t);
 						t.printStackTrace();
 					}
 				}
 			}
 		}
-
 		if (classModLines != null)
 		{
 			modEntryList.add(classModLines);
@@ -487,9 +440,8 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 			}
 			catch (PersistenceLayerException ple)
 			{
-				Logging.errorPrint("Error in completing "
-					+ target.getClass().getSimpleName() + " "
-					+ target.getKeyName());
+				Logging
+					.errorPrint("Error in completing " + target.getClass().getSimpleName() + " " + target.getKeyName());
 				setChanged();
 				if (Logging.isDebugMode())
 				{
@@ -513,12 +465,13 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	/**
 	 * This method will perform a single .COPY operation based on the LST
 	 * file content.
-	 * @param lstLine String containing the LST source for the
-	 * .COPY operation
+	 * @param context
+	 * @param me 
 	 * @throws PersistenceLayerException 
 	 */
 	private void performCopy(LoadContext context, ModEntry me) throws PersistenceLayerException
 	{
+		// lstLine String containing the LST source for the COPY operation
 		String lstLine = me.getLstLine();
 		int sepLoc = lstLine.indexOf(FIELD_SEPARATOR);
 		String name;
@@ -556,8 +509,8 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * @return The new object, or null if the base object could not be found.
 	 * @throws PersistenceLayerException If an unexpected error occurs.
 	 */
-	protected T getCopy(LoadContext context, final String baseName,
-			final String copyName, CampaignSourceEntry source) throws PersistenceLayerException
+	protected T getCopy(LoadContext context, final String baseName, final String copyName, CampaignSourceEntry source)
+		throws PersistenceLayerException
 	{
 		T object = getObjectKeyed(context, baseName);
 
@@ -573,9 +526,8 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 			{
 				return null;
 			}
-			
-			String message = LanguageBundle.getFormattedString(
-				"Errors.LstFileLoader.CopyObjectNotFound", //$NON-NLS-1$
+
+			String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.CopyObjectNotFound", //$NON-NLS-1$
 				baseName);
 			Logging.errorPrint(message);
 			setChanged();
@@ -617,7 +569,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 
 		// get the actual object to modify
 		T object = context.getReferenceContext().performMod(getObjectKeyed(context, key));
-		
+
 		if (object == null)
 		{
 			if (!includeItems.isEmpty() && !includeItems.contains(key))
@@ -630,8 +582,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 				return;
 			}
 
-			String message = LanguageBundle.getFormattedString(
-				"Errors.LstFileLoader.ModObjectNotFound", //$NON-NLS-1$
+			String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.ModObjectNotFound", //$NON-NLS-1$
 				entry.getSource().getURI(), entry.getLineNumber(), key);
 			Logging.log(Logging.LST_ERROR, message);
 			setChanged();
@@ -649,9 +600,9 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 					try
 					{
 						String origPage = object.get(StringKey.SOURCE_PAGE);
-						
+
 						parseLine(context, object, element.getLstLine(), element.getSource());
-	
+
 						if (origPage != object.get(StringKey.SOURCE_PAGE))
 						{
 							Campaign campaign = element.source.getCampaign();
@@ -665,10 +616,10 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 					}
 					catch (PersistenceLayerException ple)
 					{
-						String message = LanguageBundle.getFormattedString(
-							"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
-							element.getSource().getURI(), element.getLineNumber(),
-							ple.getMessage());
+						String message =
+								LanguageBundle.getFormattedString(
+									"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
+							element.getSource().getURI(), element.getLineNumber(), ple.getMessage());
 						Logging.errorPrint(message);
 						setChanged();
 					}
@@ -678,10 +629,8 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		}
 		catch (PersistenceLayerException ple)
 		{
-			String message = LanguageBundle.getFormattedString(
-				"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
-				entry.getSource().getURI(), entry.getLineNumber(), ple
-					.getMessage());
+			String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
+				entry.getSource().getURI(), entry.getLineNumber(), ple.getMessage());
 			Logging.errorPrint(message);
 			setChanged();
 		}
@@ -710,8 +659,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 
 		for (String forgetKey : forgetLineList)
 		{
-			forgetKey =
-					forgetKey.substring(0, forgetKey.indexOf(FORGET_SUFFIX));
+			forgetKey = forgetKey.substring(0, forgetKey.indexOf(FORGET_SUFFIX));
 
 			if (excludedObjects.contains(forgetKey))
 			{
@@ -761,22 +709,15 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		 * 
 		 * @throws IllegalArgumentException if aSource or aLstLine is null.
 		 */
-		public ModEntry(final CampaignSourceEntry aSource,
-			final String aLstLine, final int aLineNumber)
+		public ModEntry(final CampaignSourceEntry aSource, final String aLstLine, final int aLineNumber)
 		{
 			super();
 
 			// These are programming errors so the msgs don't need to be 
 			// internationalized.
-			if (aSource == null)
-			{
-				throw new IllegalArgumentException("source must not be null"); //$NON-NLS-1$
-			}
+			Objects.requireNonNull(aSource, "source must not be null");
 
-			if (aLstLine == null)
-			{
-				throw new IllegalArgumentException("lstLine must not be null"); //$NON-NLS-1$
-			}
+			Objects.requireNonNull(aLstLine, "lstLine must not be null");
 
 			this.source = aSource;
 			this.lstLine = aLstLine;

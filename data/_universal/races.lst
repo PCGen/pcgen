@@ -1,0 +1,2 @@
+#COMMENT: This is to replace the UI 'None Selected'. This is a core assumption race, this MUST be used in every system.
+<none selected>	KEY:None Selected	GROUP:UNSELECTED	FACT:BaseSize|M	TYPE:Humanoid

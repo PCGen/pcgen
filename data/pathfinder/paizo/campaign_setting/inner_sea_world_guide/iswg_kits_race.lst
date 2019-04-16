@@ -27,8 +27,8 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Staggering Critical
 ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Longsword	SIZE:L	LOCATION:Primary Hand	EQMOD:PLUS1W
-GEAR:Longsword	SIZE:L	LOCATION:Secondary Hand	EQMOD:PLUS1W
+GEAR:Longsword	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Longsword	SIZE:L	LOCATION:Secondary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
 
 STARTPACK:Charau-ka Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Charau-ka]	SOURCEPAGE:p.308
 RACE:Charau-ka	!PRERACE:1,%

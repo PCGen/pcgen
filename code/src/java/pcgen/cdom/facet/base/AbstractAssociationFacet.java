@@ -20,6 +20,7 @@ package pcgen.cdom.facet.base;
 import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.util.ListSet;
@@ -41,8 +42,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * 
  * null is NOT a valid base object or association.
  */
-public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A>
-		extends AbstractScopeFacet<IDT, S, A>
+public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A> extends AbstractScopeFacet<IDT, S, A>
 {
 
 	/**
@@ -60,11 +60,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 */
 	public A get(IDT id, S obj)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException(
-				"Object for getting association may not be null");
-		}
+		Objects.requireNonNull(obj, "Object for getting association may not be null");
 		Map<S, A> map = getCachedMap(id);
 		if (map != null)
 		{
@@ -88,22 +84,14 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 */
 	public void set(IDT id, S obj, A association)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
-		if (association == null)
-		{
-			throw new IllegalArgumentException("Association may not be null");
-		}
+		Objects.requireNonNull(obj, "Object to add may not be null");
+		Objects.requireNonNull(association, "Association may not be null");
 		A old = getConstructingCachedMap(id).put(obj, association);
 		if (old != null)
 		{
-			fireScopeFacetChangeEvent(id, obj, old,
-				DataFacetChangeEvent.DATA_REMOVED);
+			fireScopeFacetChangeEvent(id, obj, old, DataFacetChangeEvent.DATA_REMOVED);
 		}
-		fireScopeFacetChangeEvent(id, obj, association,
-			DataFacetChangeEvent.DATA_ADDED);
+		fireScopeFacetChangeEvent(id, obj, association, DataFacetChangeEvent.DATA_ADDED);
 	}
 
 	/**
@@ -126,8 +114,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 			if (old != null)
 			{
 				// Only send out notifications if we really removed something.
-				fireScopeFacetChangeEvent(id, obj, old,
-					DataFacetChangeEvent.DATA_REMOVED);
+				fireScopeFacetChangeEvent(id, obj, old, DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}
@@ -157,6 +144,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 */
 	public Map<S, A> removeAll(IDT id)
 	{
+		@SuppressWarnings("unchecked")
 		Map<S, A> componentMap = (Map<S, A>) removeCache(id);
 		if (componentMap == null)
 		{
@@ -164,8 +152,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 		}
 		for (Map.Entry<S, A> entry : componentMap.entrySet())
 		{
-			fireScopeFacetChangeEvent(id, entry.getKey(), entry.getValue(),
-				DataFacetChangeEvent.DATA_REMOVED);
+			fireScopeFacetChangeEvent(id, entry.getKey(), entry.getValue(), DataFacetChangeEvent.DATA_REMOVED);
 		}
 		return componentMap;
 	}
@@ -201,8 +188,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 		{
 			return Collections.emptySet();
 		}
-		return Collections
-			.unmodifiableSet(new ListSet<>(componentMap.keySet()));
+		return Collections.unmodifiableSet(new ListSet<>(componentMap.keySet()));
 	}
 
 	/**
@@ -241,7 +227,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	public boolean isEmpty(IDT id)
 	{
 		Map<S, A> componentMap = getCachedMap(id);
-		return componentMap == null || componentMap.isEmpty();
+		return (componentMap == null) || componentMap.isEmpty();
 	}
 
 	/**
@@ -262,7 +248,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	public boolean contains(IDT id, S obj)
 	{
 		Map<S, A> componentMap = getCachedMap(id);
-		return componentMap != null && componentMap.containsKey(obj);
+		return (componentMap != null) && componentMap.containsKey(obj);
 	}
 
 	/**
@@ -281,6 +267,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 *         null if no information has been set in this
 	 *         AbstractAssociationFacet for the item.
 	 */
+	@SuppressWarnings("unchecked")
 	protected Map<S, A> getCachedMap(IDT id)
 	{
 		return (Map<S, A>) getCache(id);

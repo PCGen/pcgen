@@ -1,0 +1,13 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Kitsune Compendium	SOURCESHORT:EGKC	SOURCEWEB:http://www.everymangaming.com/	SOURCEDATE:2014-04
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 22 July 2017
+
+# Template Name				Visible	Ability																																																																																																		Subrace
+Masterpiece Activation Kitsune	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Cessation of Suffering|PREMULT:1,[PRESPELL:1,Masterpiece (Cessation of Suffering)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Cessation of Suffering)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Starseeker Rhapsody|PREMULT:1,[PRESPELL:1,Masterpiece (Starseeker Rhapsody)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Starseeker Rhapsody)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ The Vulpinal's Whispers|PREMULT:1,[PRESPELL:1,Masterpiece (The Vulpinal's Whispers)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (The Vulpinal's Whispers)]
+
+Earthkin					VISIBLE:NO																																																																																																				SUBRACE:Earthkin
+Firekin					VISIBLE:NO																																																																																																				SUBRACE:Firekin
+Voidkin					VISIBLE:NO																																																																																																				SUBRACE:Voidkin
+Waterkin					VISIBLE:NO																																																																																																				SUBRACE:Waterkin
+Windkin					VISIBLE:NO																																																																																																				SUBRACE:Windkin

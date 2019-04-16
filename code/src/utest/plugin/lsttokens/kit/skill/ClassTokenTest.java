@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.kit.skill;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.core.PCClass;
 import pcgen.core.kit.KitSkill;
@@ -25,6 +25,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import org.junit.jupiter.api.Test;
 
 public class ClassTokenTest extends AbstractKitTokenTestCase<KitSkill>
 {
@@ -52,14 +54,14 @@ public class ClassTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount() throws PersistenceLayerException
+	public void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputOnlyOne() throws PersistenceLayerException
+	public void testInvalidInputOnlyOne()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");

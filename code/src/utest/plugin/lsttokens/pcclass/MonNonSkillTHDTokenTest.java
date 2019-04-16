@@ -17,9 +17,12 @@
  */
 package plugin.lsttokens.pcclass;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCClass;
@@ -40,16 +43,20 @@ import plugin.pretokens.parser.PreLevelMaxParser;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static MonnonskillhdToken token = new MonnonskillhdToken();
 	static CDOMTokenLoader<PCClass> loader =
-			new CDOMTokenLoader<PCClass>();
+			new CDOMTokenLoader<>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -78,7 +85,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		try
 		{
@@ -92,7 +99,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testOnlyPre() throws PersistenceLayerException
+	public void testOnlyPre()
 	{
 		assertFalse(parse("PRERACE:1,Human"));
 		assertNoSideEffects();
@@ -172,7 +179,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseOne() throws PersistenceLayerException
+	public void testUnparseOne()
 	{
 		expectSingle(setAndUnparse(1), Integer.toString(1));
 	}
@@ -207,7 +214,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	// }
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.addToListFor(ListKey.BONUS, null);
 		try
@@ -220,7 +227,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		}
 	}
 
-	protected String[] setAndUnparse(int val) throws PersistenceLayerException
+	protected String[] setAndUnparse(int val)
 	{
 		primaryProf.addToListFor(ListKey.BONUS, getBonus(val));
 		return getToken().unparse(primaryContext, primaryProf);

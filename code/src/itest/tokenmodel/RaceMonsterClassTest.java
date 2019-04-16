@@ -17,17 +17,20 @@
  */
 package tokenmodel;
 
-import org.junit.Test;
-
+import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.race.MonsterclassToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class RaceMonsterClassTest extends AbstractTokenModelTest
 {
@@ -35,7 +38,7 @@ public class RaceMonsterClassTest extends AbstractTokenModelTest
 	private static MonsterclassToken token = new MonsterclassToken();
 
 	@Test
-	public void testSimple() throws PersistenceLayerException
+	public void testSimple()
 	{
 		TokenRegistration.register(plugin.bonustokens.Feat.class);
 		Race source = create(Race.class, "Source");
@@ -43,7 +46,7 @@ public class RaceMonsterClassTest extends AbstractTokenModelTest
 		ParseResult result = token.parseToken(context, source, "Granted:3");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

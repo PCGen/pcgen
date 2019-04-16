@@ -17,9 +17,10 @@
  */
 package plugin.lsttokens.race;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
@@ -37,19 +38,25 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractListContextTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class MonCSkillTokenTest extends
 		AbstractListContextTokenTestCase<Race, Skill>
 {
 	static MoncskillToken token = new MoncskillToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
-		ClassSkillList a = primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Scary Monster");
+		ClassSkillList a =
+				primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Scary Monster");
 		a.addType(Type.MONSTER);
-		ClassSkillList b = secondaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Scary Monster");
+		ClassSkillList b =
+				secondaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Scary Monster");
 		b.addType(Type.MONSTER);
 	}
 
@@ -122,20 +129,20 @@ public class MonCSkillTokenTest extends
 	}
 
 	@Test
-	public void testValidInputClearList() throws PersistenceLayerException
+	public void testValidInputClearList()
 	{
 		assertTrue(parse(".CLEAR.LIST"));
 	}
 
 	@Test
-	public void testInvalidInputAllList() throws PersistenceLayerException
+	public void testInvalidInputAllList()
 	{
 		assertFalse(parse("ALL" + getJoinCharacter() + "LIST"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputAllPattern() throws PersistenceLayerException
+	public void testInvalidInputAllPattern()
 	{
 		assertFalse(parse("ALL" + getJoinCharacter() + "Pattern%"));
 		assertNoSideEffects();

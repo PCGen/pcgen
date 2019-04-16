@@ -63,10 +63,15 @@ public class EquipmentToken extends AbstractQualifiedChooseToken<Equipment>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext()
-				.getManufacturer(EQUIPMENT_CLASS), obj, value);
+		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(EQUIPMENT_CLASS),
+			obj, value);
+	}
+
+	@Override
+	protected String getPersistentFormat()
+	{
+		return "EQUIPMENT";
 	}
 }

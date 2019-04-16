@@ -1,6 +1,5 @@
 /*
  * Copyright 2009 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PObject.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -32,8 +31,12 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 
-public class PCClassKeyChange
+public final class PCClassKeyChange
 {
+	private PCClassKeyChange()
+	{
+	}
+
 	public static void changeReferences(String oldClass, PCClass pcc)
 	{
 		String newClass = pcc.getKeyName();
@@ -55,8 +58,7 @@ public class PCClassKeyChange
 		}
 	}
 
-	private static void renameVariables(String oldClass, CDOMObject pcc,
-			String newClass)
+	private static void renameVariables(String oldClass, CDOMObject pcc, String newClass)
 	{
 		//
 		// Go through the variable list (DEFINE) and adjust the class to the new
@@ -64,13 +66,12 @@ public class PCClassKeyChange
 		//
 		for (VariableKey vk : pcc.getVariableKeys())
 		{
-			pcc.put(vk, FormulaFactory.getFormulaFor(pcc.get(vk).toString()
-					.replaceAll("=" + oldClass, "=" + newClass)));
+			pcc.put(vk,
+				FormulaFactory.getFormulaFor(pcc.get(vk).toString().replaceAll("=" + oldClass, "=" + newClass)));
 		}
 	}
 
-	private static void renameBonusTarget(CDOMObject cdo, String oldClass,
-			String newClass)
+	private static void renameBonusTarget(CDOMObject cdo, String oldClass, String newClass)
 	{
 		//
 		// Go through the bonus list (BONUS) and adjust the class to the new
@@ -93,10 +94,8 @@ public class PCClassKeyChange
 						break;
 					}
 					LoadContext context = Globals.getContext();
-					final BonusObj aBonus = Bonus.newBonus(context, bonus.substring(0,
-							offs + 1)
-							+ newClass
-							+ bonus.substring(offs + oldClass.length() + 1));
+					final BonusObj aBonus = Bonus.newBonus(context,
+						bonus.substring(0, offs + 1) + newClass + bonus.substring(offs + oldClass.length() + 1));
 
 					if (aBonus != null)
 					{

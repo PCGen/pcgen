@@ -17,9 +17,11 @@
  */
 package tokenmodel;
 
-import java.util.Collection;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Test;
+import java.util.Collection;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.CNAbility;
@@ -28,19 +30,21 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.GrantedAbilityFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.add.AbilityToken;
 import plugin.lsttokens.choose.NoChoiceToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractAddListTokenTest;
 import tokenmodel.testsupport.AssocCheck;
 import tokenmodel.testsupport.NoAssociations;
+import util.TestURI;
 
 public class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 {
@@ -64,7 +68,7 @@ public class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 		ParseResult result = runToken(source);
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -98,7 +102,7 @@ public class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 	@Override
 	protected int getCount()
 	{
-		return getTargetFacet().getPoolAbilities(id, AbilityCategory.FEAT, Nature.VIRTUAL)
+		return getTargetFacet().getPoolAbilities(id, BuildUtilities.getFeatCat(), Nature.VIRTUAL)
 			.size();
 	}
 
@@ -106,12 +110,11 @@ public class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 	protected boolean containsExpected(Ability granted)
 	{
 		Collection<CNAbility> abilities =
-				getTargetFacet().getPoolAbilities(id, AbilityCategory.FEAT, Nature.VIRTUAL);
+				getTargetFacet().getPoolAbilities(id, BuildUtilities.getFeatCat(), Nature.VIRTUAL);
 		for (CNAbility a : abilities)
 		{
-			boolean abilityExpected =
-					a.getAbility().equals(context.getReferenceContext().silentlyGetConstructedCDOMObject(
-						Ability.class, AbilityCategory.FEAT, "Granted"));
+			boolean abilityExpected = a.getAbility().equals(context.getReferenceContext()
+				.getManufacturerId(BuildUtilities.getFeatCat()).getActiveObject("Granted"));
 			if (abilityExpected)
 			{
 				boolean c = assocCheck.check(a);
@@ -129,27 +132,28 @@ public class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 	@Override
 	protected Ability createGrantedObject()
 	{
-		Ability a = super.createGrantedObject();
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName("Granted");
+		context.getReferenceContext().importObject(a);
 		return a;
 	}
 
 	//TODO CODE-2016/CODE-1921 (needs to be consistent with other methods of ADD:)
 	@Override
-	public void testFromAbility() throws PersistenceLayerException
+	public void testFromAbility()
 	{
 		//Not supported equivalent to other methods
 	}
 
 	//TODO CODE-2016 (needs to be consistent with other methods of ADD:)
 	@Override
-	public void testFromClass() throws PersistenceLayerException
+	public void testFromClass()
 	{
 		//Not supported equivalent to other methods
 	}
 
 	@Test
-	public void testMult() throws PersistenceLayerException
+	public void testMult()
 	{
 		TokenRegistration.register(new NoChoiceToken());
 		TokenRegistration.register(new StackToken());
@@ -164,6 +168,7 @@ public class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 		assocCheck = new AssocCheck()
 		{
 			
+			@Override
 			public boolean check(CNAbility g)
 			{
 				if (pc.getDetailedAssociationCount(g) == 2)

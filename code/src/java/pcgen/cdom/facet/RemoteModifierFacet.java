@@ -17,31 +17,34 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
 
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
-import pcgen.cdom.base.CDOMObject;
+import pcgen.base.solver.Modifier;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.RemoteModifier;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.VarScopedFacet;
-import pcgen.cdom.inst.EquipmentHead;
-import pcgen.core.Equipment;
+import pcgen.cdom.formula.PCGenScoped;
+import pcgen.cdom.formula.local.DefinedWrappingModifier;
+import pcgen.cdom.formula.local.RemoteWrappingModifier;
+import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.rules.context.LoadContext;
 
 /**
  * RemoteModifierFacet is a Facet that tracks remove Modifiers that have been
  * granted to a Player Character by looking for MODIFYOTHER: entries on
  * CDOMObjects added to/removed from the Player Character.
  */
-public class RemoteModifierFacet extends
-		AbstractAssociationFacet<CharID, RemoteModifier<?>, VarScoped> implements
-		DataFacetChangeListener<CharID, VarScoped>
+public class RemoteModifierFacet extends AbstractAssociationFacet<CharID, RemoteModifier<?>, PCGenScoped>
+		implements DataFacetChangeListener<CharID, PCGenScoped>
 {
 
 	private ScopeFacet scopeFacet;
@@ -50,134 +53,126 @@ public class RemoteModifierFacet extends
 
 	private SolverManagerFacet solverManagerFacet;
 
-	@Override
-	public void dataAdded(DataFacetChangeEvent<CharID, VarScoped> dfce)
-	{
-		CharID id = dfce.getCharID();
-		VarScoped vs = dfce.getCDOMObject();
-		/*
-		 * If this can have local variables, find what may have been modified by
-		 * previous objects
-		 */
-		for (RemoteModifier<?> rm : getSet(id))
-		{
-			VarScoped src = get(id, rm);
-			ScopeInstance inst = scopeFacet.get(id, src);
-			processAdd(id, rm, vs, inst);
-			if (vs instanceof Equipment)
-			{
-				Equipment e = (Equipment) vs;
-				for (EquipmentHead head : e.getEquipmentHeads())
-				{
-					processAdd(id, rm, head, inst);
-				}
-			}
-		}
-		/*
-		 * Look at what newly added object can modify on others
-		 */
-		if (vs instanceof CDOMObject)
-		{
-			ScopeInstance inst = scopeFacet.get(id, vs);
-			List<RemoteModifier<?>> list =
-					((CDOMObject) vs).getListFor(ListKey.REMOTE_MODIFIER);
-			if (list != null)
-			{
-				Set<? extends VarScoped> targets = varScopedFacet.getSet(id);
-				for (RemoteModifier<?> rm : list)
-				{
-					set(id, rm, vs);
-					//Apply to existing as necessary
-					for (VarScoped obj : targets)
-					{
-						processAdd(id, rm, obj, inst);
-						if (obj instanceof Equipment)
-						{
-							Equipment e = (Equipment) obj;
-							for (EquipmentHead head : e.getEquipmentHeads())
-							{
-								processAdd(id, rm, head, inst);
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	private <MT> void processAdd(CharID id, RemoteModifier<MT> rm,
-		VarScoped vs, ScopeInstance src)
-	{
-		if (rm.getGrouping().contains(vs))
-		{
-			VarModifier<MT> vm = rm.getVarModifier();
-			solverManagerFacet.addModifier(id, vm, vs, src);
-		}
-	}
+	private LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
 	@Override
-	public void dataRemoved(DataFacetChangeEvent<CharID, VarScoped> dfce)
+	public void dataAdded(DataFacetChangeEvent<CharID, PCGenScoped> dfce)
 	{
 		CharID id = dfce.getCharID();
-		VarScoped vs = dfce.getCDOMObject();
+		PCGenScoped addedObject = dfce.getCDOMObject();
 		/*
-		 * If this can have local variables, find what had been modified by
-		 * previous objects
+		 * If addedObject can have local variables, find what may have been modified by
+		 * previous objects.
 		 */
-		for (RemoteModifier<?> rm : getSet(id))
+		for (RemoteModifier<?> remoteModifier : getSet(id))
 		{
-			VarScoped src = get(id, rm);
-			ScopeInstance inst = scopeFacet.get(id, src);
-			processRemove(id, rm, vs, inst);
-			if (vs instanceof Equipment)
-			{
-				Equipment e = (Equipment) vs;
-				for (EquipmentHead head : e.getEquipmentHeads())
-				{
-					processRemove(id, rm, head, inst);
-				}
-			}
+			PCGenScoped modSource = get(id, remoteModifier);
+			processAdd(id, remoteModifier, addedObject, modSource);
 		}
 		/*
-		 * Look at what newly added object can modify on others
+		 * Look at what addedObject can modify on others.
 		 */
-		if (vs instanceof CDOMObject)
+		RemoteModifier<?>[] remoteModifierArray = addedObject.getRemoteModifierArray();
+		if (remoteModifierArray.length > 0)
 		{
-			ScopeInstance inst = scopeFacet.get(id, vs);
-			List<RemoteModifier<?>> list =
-					((CDOMObject) vs).getListFor(ListKey.REMOTE_MODIFIER);
-			if (list != null)
+			Set<PCGenScoped> targets = varScopedFacet.getSet(id);
+			for (RemoteModifier<?> remoteModifier : remoteModifierArray)
 			{
-				Set<? extends VarScoped> targets = varScopedFacet.getSet(id);
-				for (RemoteModifier<?> rm : list)
+				set(id, remoteModifier, addedObject);
+				//Apply to existing as necessary
+				for (PCGenScoped obj : targets)
 				{
-					remove(id, rm);
-					//RemoveFrom existing as necessary
-					for (VarScoped obj : targets)
-					{
-						processRemove(id, rm, obj, inst);
-						if (obj instanceof Equipment)
-						{
-							Equipment e = (Equipment) obj;
-							for (EquipmentHead head : e.getEquipmentHeads())
-							{
-								processRemove(id, rm, head, inst);
-							}
-						}
-					}
+					processAdd(id, remoteModifier, obj, addedObject);
 				}
 			}
 		}
 	}
 
-	private <MT> void processRemove(CharID id, RemoteModifier<MT> rm,
-		VarScoped vs, ScopeInstance src)
+	private <MT> void processAdd(CharID id, RemoteModifier<MT> remoteModifier,
+		VarScoped targetObject, PCGenScoped modSource)
 	{
-		if (rm.getGrouping().contains(vs))
+		ScopeInstance modSourceInstance = scopeFacet.get(id, modSource);
+		VarModifier<MT> varModifier = remoteModifier.getVarModifier();
+		FormulaModifier<MT> formulaModifier = varModifier.getModifier();
+		Consumer<PCGenScoped> consumer = target -> solverManagerFacet.addModifier(id,
+			varModifier, target, getModifier(id, formulaModifier, modSource,
+				modSourceInstance, target, scopeFacet.get(id, target)),
+			scopeFacet.get(id, target));
+		remoteModifier.getGrouping().process(modSource, consumer);
+	}
+
+	private <T> Modifier<T> getModifier(CharID id, FormulaModifier<T> modifier, VarScoped source,
+		ScopeInstance sourceInstance, VarScoped target, ScopeInstance targetInstance)
+	{
+		PCGenScope sourceScope = (PCGenScope) sourceInstance.getLegalScope();
+		LoadContext context = loadContextFacet.get(id.getDatasetID()).get();
+		Modifier<T> returnValue;
+		try
 		{
-			VarModifier<MT> vm = rm.getVarModifier();
-			solverManagerFacet.removeModifier(id, vm, vs, src);
+			FormatManager<?> sourceFormatManager = sourceScope.getFormatManager(context);
+			PCGenScope targetScope = (PCGenScope) targetInstance.getLegalScope();
+			FormatManager<?> targetFormatManager = targetScope.getFormatManager(context);
+			returnValue =
+					new RemoteWrappingModifier<>(modifier, source, sourceFormatManager, target, targetFormatManager);
 		}
+		catch (UnsupportedOperationException e)
+		{
+			/*
+			 * Assume this failure is from sourceScope.getFormatManager, as it will fail
+			 * if the source is a GlobalModifier, so source() cannot be used... but we
+			 * still want to define target().
+			 */
+			PCGenScope targetScope = (PCGenScope) targetInstance.getLegalScope();
+			FormatManager<?> targetFormatManager = targetScope.getFormatManager(context);
+			returnValue = new DefinedWrappingModifier<>(modifier, "target", target, targetFormatManager);
+		}
+		return returnValue;
+	}
+
+	@Override
+	public void dataRemoved(DataFacetChangeEvent<CharID, PCGenScoped> dfce)
+	{
+		CharID id = dfce.getCharID();
+		PCGenScoped addedObject = dfce.getCDOMObject();
+		/*
+		 * If addedObject can have local variables, find what had been modified by
+		 * previous objects.
+		 */
+		for (RemoteModifier<?> remoteModifier : getSet(id))
+		{
+			PCGenScoped modSource = get(id, remoteModifier);
+			processRemove(id, remoteModifier, addedObject, modSource);
+		}
+		/*
+		 * Look at what addedObject can modify on others.
+		 */
+		RemoteModifier<?>[] remoteModifierArray = addedObject.getRemoteModifierArray();
+		if (remoteModifierArray.length > 0)
+		{
+			Set<? extends VarScoped> targets = varScopedFacet.getSet(id);
+			for (RemoteModifier<?> remoteModifier : remoteModifierArray)
+			{
+				remove(id, remoteModifier);
+				//RemoveFrom existing as necessary
+				for (VarScoped obj : targets)
+				{
+					processRemove(id, remoteModifier, obj, addedObject);
+				}
+			}
+		}
+	}
+
+	private <MT> void processRemove(CharID id, RemoteModifier<MT> remoteModifier,
+		VarScoped targetObject, PCGenScoped modSource)
+	{
+		ScopeInstance modSourceInstance = scopeFacet.get(id, modSource);
+		VarModifier<MT> varModifier = remoteModifier.getVarModifier();
+		FormulaModifier<MT> formulaModifier = varModifier.getModifier();
+		Consumer<PCGenScoped> consumer = target -> solverManagerFacet.removeModifier(id,
+			varModifier, target, getModifier(id, formulaModifier, modSource,
+				modSourceInstance, target, scopeFacet.get(id, target)),
+			scopeFacet.get(id, target));
+		remoteModifier.getGrouping().process(modSource, consumer);
 	}
 
 	public void setScopeFacet(ScopeFacet scopeFacet)
@@ -196,10 +191,10 @@ public class RemoteModifierFacet extends
 	}
 
 	/**
-	 * Initializes the connections for ArmorProfFacet to other facets.
+	 * Initializes the connections for RemoteModifierFacet to other facets.
 	 * 
 	 * This method is automatically called by the Spring framework during
-	 * initialization of the ArmorProfFacet.
+	 * initialization of the RemoteModifierFacet.
 	 */
 	public void init()
 	{
@@ -207,10 +202,9 @@ public class RemoteModifierFacet extends
 	}
 
 	/*
-	 * In Ability: MODIFYOTHER:EQUIPMENT|GROUP=Martial|EqCritRange|ADD|1
+	 * In Ability: MODIFYOTHER:PC.EQUIPMENT|GROUP=Martial|EqCritRange|ADD|1
 	 * 
-	 * In Global:
-	 * MODIFYOTHER:EQUIPMENT.PART|ALL|CritRange|SOLVE|value()+EqCritRange
+	 * In Global: MODIFYOTHER:PC.EQUIPMENT.PART|ALL|CritRange|SOLVE|value()+EqCritRange
 	 * |PRIORITY=10000
 	 * 
 	 * effectively we are solving APPLYTO:EQUIPMENT|PC[GROUP=Martial]|...

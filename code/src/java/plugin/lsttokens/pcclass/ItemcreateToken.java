@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with ITEMCREATE Token
  */
-public class ItemcreateToken extends AbstractStringToken<PCClass> implements
-		CDOMPrimaryToken<PCClass>
+public class ItemcreateToken extends AbstractStringToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override

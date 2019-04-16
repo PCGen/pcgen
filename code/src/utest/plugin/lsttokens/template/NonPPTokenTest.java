@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.template;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.persistence.CDOMLoader;
@@ -30,7 +28,7 @@ public class NonPPTokenTest extends AbstractIntegerTokenTestCase<PCTemplate>
 {
 
 	static NonppToken token = new NonppToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -74,9 +72,4 @@ public class NonPPTokenTest extends AbstractIntegerTokenTestCase<PCTemplate>
 		return false;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		//Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

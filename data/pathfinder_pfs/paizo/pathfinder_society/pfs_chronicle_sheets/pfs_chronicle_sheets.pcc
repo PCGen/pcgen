@@ -1,4 +1,4 @@
-# CVS $Revision: 21789 $ $Author: amaitland $ -- Fri Dec  9 22:23:18 2005 -- reformated by prettylst.pl v1.35 (build 553)
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Fri Dec  9 22:23:18 2005 -- reformated by prettylst.pl v1.35 (build 553)
 CAMPAIGN:Pathfinder Society Chronicle Sheets
 GAMEMODE:Pathfinder_PFS
 RANK:9
@@ -13,7 +13,7 @@ TYPE:Paizo Publishing.Pathfinder Society
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://www.paizo.com
-SOURCELONG:My Pathfinder Society Chronicle Sheets
+SOURCELONG:Pathfinder Society Chronicle Sheets
 SOURCESHORT:PFSCS
 SOURCEWEB:http://www.paizo.com
 SOURCEDATE:2014-08
@@ -26,43 +26,40 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Society Organized Play Chroni
 
 ABILITY:pfscs_abilities.lst
 ABILITYCATEGORY:pfscs_abilitycategories.lst
-# BIOSET:pfscs_biosettings.lst
-# CLASS:pfscs_classes.lst
-# COMPANIONMOD:pfscs_companionmods.lst
-# DEITY:pfscs_deities.lst
-# DOMAIN:pfscs_domains.lst
-# EQUIPMENT:pfscs_equip_arms_armor.lst
-# EQUIPMENT:pfscs_equip_general.lst
 EQUIPMENT:pfscs_equip.lst
-EQUIPMOD:pfscs_equipmods.lst
-# FEAT:pfscs_feats.lst
-# KIT:pfscs_kits.lst
-# LANGUAGE:pfscs_languages.lst
-# RACE:pfscs_races.lst
-# SKILL:pfscs_skills.lst
-# SPELL:pfscs_spells.lst
-# TEMPLATE:pfscs_templates.lst
 
-# ARMORPROF:pfscs_profs_armor.lst
-# SHIELDPROF:pfscs_profs_shield.lst
-# WEAPONPROF:pfscs_profs_weapon.lst
-
+#
 # load these in case the source isn't loaded
+#
 
 # needed for Gorge of Gluttons
 EQUIPMENT:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/arg_equip_arms_armor.lst|(INCLUDE:Dogslicer)|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 WEAPONPROF:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/arg_profs_weapon.lst|(INCLUDE:Dogslicer)|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
-EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ue_equipmods.lst|(INCLUDE:FRAGILE)|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_combat/uc_equipmods.lst|(INCLUDE:Special Quality ~ Fragile)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 
 # needed for Skill Specialization
 ABILITYCATEGORY:@/pathfinder/paizo/campaign_setting/pathfinder_society_field_guide/pfsfg_abilitycategories_skillspecialization.lst|!PRECAMPAIGN:1,INCLUDES=Pathfinder Society Field Guide
 ABILITY:@/pathfinder/paizo/campaign_setting/pathfinder_society_field_guide/pfsfg_abilities_skillspecialization.lst|!PRECAMPAIGN:1,INCLUDES=Pathfinder Society Field Guide
 
-# needed for Gamin the Misforged
-EQUIPMOD:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/apg_equipmods.lst|(INCLUDE:ALLYING)|!PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+# needed for Cornered Fury
+ABILITY:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/arg_abilities_race.lst|(INCLUDE:CATEGORY=Special Ability,Cornered Fury)|!PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 
-# needed for Glorymane
-EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ue_equipmods.lst|(INCLUDE:BRONZE)|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+PCC:scenarios/season_0/pfscs_S0.pcc
+PCC:scenarios/season_1/pfscs_S1.pcc
+PCC:scenarios/season_2/pfscs_S2.pcc
+PCC:scenarios/season_3/pfscs_S3.pcc
+PCC:scenarios/season_4/pfscs_S4.pcc
+PCC:scenarios/season_5/pfscs_S5.pcc
+PCC:scenarios/season_6/pfscs_S6.pcc
+PCC:scenarios/season_7/pfscs_S7.pcc
+PCC:scenarios/season_8/pfscs_S8.pcc
+PCC:scenarios/season_9/pfscs_S9.pcc
+
+PCC:modules/the_dragons_demand/pfscs_PZO9542.pcc
+PCC:modules/the_emerald_spire/pfscs_PZO9545.pcc
+PCC:modules/plunder_and_peril/pfscs_PZO9546.pcc
+
+PCC:online/thornkeep/pfscs_PZOGWK0001.pcc
 
 #
 # DONE

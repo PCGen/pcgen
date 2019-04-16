@@ -17,7 +17,9 @@
  */
 package plugin.lsttokens.kit.startpack;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.enumeration.KitApply;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -29,12 +31,14 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class ApplyTokenTest extends AbstractCDOMTokenTestCase<Kit>
 {
 
 	static ApplyToken token = new ApplyToken();
 
-	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<Kit>();
+	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Kit> getCDOMClass()
@@ -55,13 +59,13 @@ public class ApplyTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testInvalidInputString() throws PersistenceLayerException
+	public void testInvalidInputString()
 	{
 		internalTestInvalidInputString(null);
 	}
 
 	@Test
-	public void testInvalidInputStringSet() throws PersistenceLayerException
+	public void testInvalidInputStringSet()
 	{
 		assertTrue(parse("INSTANT"));
 		assertTrue(parseSecondary("INSTANT"));
@@ -70,7 +74,6 @@ public class ApplyTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	public void internalTestInvalidInputString(Object val)
-			throws PersistenceLayerException
 	{
 		assertEquals(val, primaryProf.get(ObjectKey.APPLY_MODE));
 		assertFalse(parse("Always"));
@@ -88,7 +91,7 @@ public class ApplyTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("INSTANT"));
 		assertEquals(KitApply.INSTANT, primaryProf.get(ObjectKey.APPLY_MODE));

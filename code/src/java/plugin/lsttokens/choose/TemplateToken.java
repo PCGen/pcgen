@@ -47,8 +47,7 @@ public class TemplateToken extends AbstractQualifiedChooseToken<PCTemplate>
 	@Override
 	public PCTemplate decodeChoice(LoadContext context, String s)
 	{
-		return context.getReferenceContext()
-			.silentlyGetConstructedCDOMObject(PCTEMPLATE_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTEMPLATE_CLASS, s);
 	}
 
 	@Override
@@ -64,10 +63,15 @@ public class TemplateToken extends AbstractQualifiedChooseToken<PCTemplate>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext()
-				.getManufacturer(PCTEMPLATE_CLASS), obj, value);
+		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(PCTEMPLATE_CLASS),
+			obj, value);
+	}
+
+	@Override
+	protected String getPersistentFormat()
+	{
+		return "PCTEMPLATE";
 	}
 }

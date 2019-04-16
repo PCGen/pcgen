@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCShieldACcheckTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,26 +16,19 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03-Aug-2008 22:38:25
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
 import pcgen.cdom.util.CControl;
-import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.Logging;
 
-public class PCShieldACcheckTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCShieldACcheckTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
-	public PCShieldACcheckTermEvaluator(
-			String originalText)
+	public PCShieldACcheckTermEvaluator(String originalText)
 	{
 		this.originalText = originalText;
 	}
@@ -44,17 +36,15 @@ public class PCShieldACcheckTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(),
-			CControl.EQACCHECK))
+		if (pc.hasControl(CControl.EQACCHECK))
 		{
-			Logging.errorPrint(originalText
-				+ " term is deprecated (does not function)"
-				+ " when EQACCHECK CodeControl is used");
+			Logging.errorPrint(
+				originalText + " term is deprecated (does not function)" + " when EQACCHECK CodeControl is used");
 		}
 
 		Float maxCheck = 0.0f;
 
-		for ( Equipment eq : pc.getEquipmentOfType("Shield", 1) )
+		for (Equipment eq : pc.getEquipmentOfType("Shield", 1))
 		{
 			maxCheck += eq.preFormulaAcCheck(pc);
 		}

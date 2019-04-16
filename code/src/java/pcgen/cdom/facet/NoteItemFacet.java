@@ -25,7 +25,6 @@ import pcgen.core.NoteItem;
  * NotesFacet is a Facet that tracks the Notes objects that
  * have been added to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class NoteItemFacet extends AbstractListFacet<CharID, NoteItem>
 {

@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCSkillRankTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 13:21:32
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -29,41 +25,40 @@ import pcgen.core.Skill;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.spell.Spell;
 
-public class PCSkillRankTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCSkillRankTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	private final String rank;
 
 	public PCSkillRankTermEvaluator(String originalText, String rank)
 	{
 		this.originalText = originalText;
-		this.rank         = rank;
+		this.rank = rank;
 	}
 
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		return convertToFloat(originalText, evaluate(display));
+		return TermUtil.convertToFloat(originalText, evaluate(display));
 	}
-	
+
 	@Override
 	public String evaluate(CharacterDisplay display)
 	{
-		Skill skill = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Skill.class, rank);
+		Skill skill = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, rank);
 		if (skill == null || !display.hasSkill(skill))
 		{
 			return "0.0";
 		}
 
-		return display.getRank(skill).toString();		
+		return display.getRank(skill).toString();
 	}
 
 	@Override
-	public String evaluate(CharacterDisplay display,  final Spell aSpell) {
+	public String evaluate(CharacterDisplay display, final Spell aSpell)
+	{
 		return evaluate(display);
 	}
-	
+
 	@Override
 	public boolean isSourceDependant()
 	{

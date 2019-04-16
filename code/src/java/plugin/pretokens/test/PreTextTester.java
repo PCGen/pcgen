@@ -1,5 +1,4 @@
 /*
- * PreText.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.pretokens.test;
 
@@ -34,14 +28,10 @@ import pcgen.system.LanguageBundle;
 
 /**
  * Prerequisite tester, test for the presence of text.
- *
  */
 public class PreTextTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
@@ -60,26 +50,23 @@ public class PreTextTester extends AbstractDisplayPrereqTest implements Prerequi
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "TEXT"; //$NON-NLS-1$
 	}
 
-
 	/**
-     * Convert PreReq to an HTML string
-     * 
-     * @param prereq
-     * @return html String representation of the PreReq 
+	 * Convert PreReq to an HTML string
+	 * 
+	 * @param prereq
+	 * @return html String representation of the PreReq 
 	 */
-    @Override
-    public String toHtmlString(final Prerequisite prereq)
+	@Override
+	public String toHtmlString(final Prerequisite prereq)
 	{
-		return LanguageBundle.getFormattedString(
-			    "AbstractPrerequisiteTest.toHtml",
-				prereq.getOperator().toDisplayString(), "",
-				"", prereq.getKey());
+		return LanguageBundle.getFormattedString("AbstractPrerequisiteTest.toHtml",
+			prereq.getOperator().toDisplayString(), "", "", prereq.getKey());
 	}
 
 }

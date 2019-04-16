@@ -17,20 +17,23 @@
  */
 package tokencontent.testsupport;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
+import pcgen.cdom.list.CompanionList;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
+import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
@@ -38,20 +41,22 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.character.CompanionMod;
-import pcgen.persistence.PersistenceLayerException;
+import pcgen.output.channel.compat.AlignmentCompat;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 {
 	@Test
-	public void testFromAbility() throws PersistenceLayerException
+	public void testFromAbility()
 	{
-		Ability source = create(Ability.class, "Source");
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
+		Ability source = BuildUtilities.buildFeat(context, "Source");
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
-		CNAbilitySelection cas =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source));
+		CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source));
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
@@ -60,21 +65,21 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromAlignment() throws PersistenceLayerException
+	public void testFromAlignment()
 	{
 		processToken(lg);
 		assertEquals(baseCount(), targetFacetCount());
-		alignmentFacet.set(id, lg);
+		AlignmentCompat.setCurrentAlignment(pc.getCharID(), lg);
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
-		alignmentFacet.set(id, ng);
+		AlignmentCompat.setCurrentAlignment(pc.getCharID(), ng);
 		assertEquals(baseCount(), targetFacetCount());
 	}
 
 	//BioSet not *supposed* to do things like this
 
 	@Test
-	public void testFromCampaign() throws PersistenceLayerException
+	public void testFromCampaign()
 	{
 		Campaign source = create(Campaign.class, "Source");
 		processToken(source);
@@ -87,7 +92,7 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromCheck() throws PersistenceLayerException
+	public void testFromCheck()
 	{
 		PCCheck source = create(PCCheck.class, "Source");
 		processToken(source);
@@ -98,7 +103,7 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromClass() throws PersistenceLayerException
+	public void testFromClass()
 	{
 		PCClass source = create(PCClass.class, "Source");
 		processToken(source);
@@ -111,7 +116,7 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromClassLevel() throws PersistenceLayerException
+	public void testFromClassLevel()
 	{
 		PCClassLevel source = create(PCClassLevel.class, "Source");
 		processToken(source);
@@ -124,9 +129,13 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromCompanionMod() throws PersistenceLayerException
+	public void testFromCompanionMod()
 	{
-		CompanionMod source = create(CompanionMod.class, "Source");
+		CompanionList cat = create(CompanionList.class, "Category");
+		context.getReferenceContext().importObject(cat);
+		CompanionMod source = cat.newInstance();
+		cat.setKeyName("Source");
+		context.getReferenceContext().importObject(source);
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
 		companionModFacet.add(id, source);
@@ -137,7 +146,7 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromDeity() throws PersistenceLayerException
+	public void testFromDeity()
 	{
 		Deity source = create(Deity.class, "Source");
 		processToken(source);
@@ -150,7 +159,7 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromDomain() throws PersistenceLayerException
+	public void testFromDomain()
 	{
 		Domain source = create(Domain.class, "Source");
 		PCClass pcc = create(PCClass.class, "Class");
@@ -165,9 +174,11 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromEqMod() throws PersistenceLayerException
+	public void testFromEqMod()
 	{
 		EquipmentModifier source = create(EquipmentModifier.class, "Source");
+		Equipment equipment = create(Equipment.class, "Parent");
+		source.setVariableParent(equipment);
 		processToken(source);
 		assertEquals(baseCount(), targetFacetCount());
 		activeEqModFacet.add(id, source, this);
@@ -180,7 +191,7 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	//Language not *supposed* to do things like this
 
 	@Test
-	public void testFromRace() throws PersistenceLayerException
+	public void testFromRace()
 	{
 		Race source = create(Race.class, "Source");
 		processToken(source);
@@ -198,9 +209,10 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	//Skill not *supposed* to do things like this
 
 	@Test
-	public void testFromStat() throws PersistenceLayerException
+	public void testFromStat()
 	{
 		PCStat source = create(PCStat.class, "Source");
+		source.put(StringKey.SORT_KEY, "Source");
 		processToken(source);
 		assertTrue(containsExpected());
 		assertEquals(baseCount() + 1, targetFacetCount());
@@ -209,7 +221,7 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testFromTemplate() throws PersistenceLayerException
+	public void testFromTemplate()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		processToken(source);

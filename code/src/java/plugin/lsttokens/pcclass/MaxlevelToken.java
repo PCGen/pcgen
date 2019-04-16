@@ -51,14 +51,12 @@ public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
 				lim = Integer.valueOf(value);
 				if (lim.intValue() <= 0)
 				{
-					return new ParseResult.Fail("Value less than 1 is not valid for "
-							+ getTokenName() + ": " + value, context);
+					return new ParseResult.Fail("Value less than 1 is not valid for " + getTokenName() + ": " + value);
 				}
 			}
 			catch (NumberFormatException nfe)
 			{
-				return new ParseResult.Fail("Value was not a number for "
-						+ getTokenName() + ": " + value, context);
+				return new ParseResult.Fail("Value was not a number for " + getTokenName() + ": " + value);
 			}
 		}
 		context.getObjectContext().put(pcc, IntegerKey.LEVEL_LIMIT, lim);
@@ -68,8 +66,7 @@ public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		Integer lim = context.getObjectContext().getInteger(pcc,
-				IntegerKey.LEVEL_LIMIT);
+		Integer lim = context.getObjectContext().getInteger(pcc, IntegerKey.LEVEL_LIMIT);
 		if (lim == null)
 		{
 			return null;
@@ -84,7 +81,7 @@ public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
 			context.addWriteMessage(getTokenName() + " must be an integer > 0");
 			return null;
 		}
-		return new String[] { returnString };
+		return new String[]{returnString};
 	}
 
 	@Override

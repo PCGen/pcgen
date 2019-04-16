@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.add;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.core.Skill;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -46,24 +44,6 @@ public class SkillTokenTest extends
 	public boolean isAllLegal()
 	{
 		return true;
-	}
-
-	@Override
-	public boolean isTypeLegal()
-	{
-		return true;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
-	@Override
-	public boolean allowsParenAsSub()
-	{
-		return false;
 	}
 
 	@Override

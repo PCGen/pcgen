@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class PoolToken extends AbstractNonEmptyToken<AbilityCategory> implements
-		CDOMPrimaryToken<AbilityCategory>
+public class PoolToken extends AbstractNonEmptyToken<AbilityCategory> implements CDOMPrimaryToken<AbilityCategory>
 {
 	@Override
 	public String getTokenName()
@@ -35,14 +34,12 @@ public class PoolToken extends AbstractNonEmptyToken<AbilityCategory> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			AbilityCategory ac, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, AbilityCategory ac, String value)
 	{
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		ac.setPoolFormula(formula);
 		return ParseResult.SUCCESS;
@@ -56,7 +53,7 @@ public class PoolToken extends AbstractNonEmptyToken<AbilityCategory> implements
 		{
 			return null;
 		}
-		return new String[] { formula.toString() };
+		return new String[]{formula.toString()};
 	}
 
 	@Override

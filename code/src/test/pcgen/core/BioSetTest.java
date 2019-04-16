@@ -1,5 +1,4 @@
 /*
- * BioSetTest.java
  *
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
@@ -16,24 +15,17 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 04-Feb-2004
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.core;
 
-import java.util.Iterator;
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Locale;
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import java.util.Optional;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
@@ -42,19 +34,26 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.persistence.lst.BioSetLoader;
 import pcgen.persistence.lst.BioSetLoaderTest;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * A collection of tests to validate the functioning of the core BioSet class.
- *
  */
 @SuppressWarnings("nls")
 public class BioSetTest extends AbstractCharacterTestCase
 {
-	static final String[] BIO_SET_DATA =
+	private static final String[] BIO_SET_DATA =
 			{
 				"AGESET:0|Adulthood",
-				"RACENAME:Human%		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
-				"RACENAME:Human%		SEX:Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:120|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d10|BASEWT:85|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]",
-				"RACENAME:Human%		BASEAGE:15	MAXAGE:34	AGEDIEROLL:5d4	HAIR:Blond|Brown	EYES:Blue	SKINTONE:Tanned|Pasty",
+				"RACENAME:Human%		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|"
+				+ "Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
+				"RACENAME:Human%		SEX:Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:120|WTDIEROLL:2d4|"
+				+ "TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d10|BASEWT:85|WTDIEROLL:2d4|"
+						+ "TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]",
+				"RACENAME:Human%		BASEAGE:15	MAXAGE:34	AGEDIEROLL:5d4	HAIR:Blond|Brown	EYES:Blue	"
+						+ "SKINTONE:Tanned|Pasty",
 				"AGESET:1|Middle Age	BONUS:STAT|STR,CON,DEX|-1	BONUS:STAT|INT,WIS,CHA|1",
 				"RACENAME:Human%		BASEAGE:35	MAXAGE:52	AGEDIEROLL:3d6",
 				"AGESET:2|Old		BONUS:STAT|STR,CON,DEX|-3	BONUS:STAT|INT,WIS,CHA|2",
@@ -62,44 +61,17 @@ public class BioSetTest extends AbstractCharacterTestCase
 				"AGESET:3|Venerable	BONUS:STAT|STR,CON,DEX|-6	BONUS:STAT|INT,WIS,CHA|3",
 				"RACENAME:Human%		BASEAGE:70	MAXAGE:110	AGEDIEROLL:4d10"};
 
-	/**
-	 * Run the tests standalone from the command line.
-	 * @param args Command line args - ignored.
-	 */
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(BioSetTest.class);
-	}
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test".
-	 *
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(BioSetTest.class);
-	}
-
-	/**
-	 * Basic constructor, name only.
-	 * @param name The name of the test class.
-	 */
-	public BioSetTest(final String name)
-	{
-		super(name);
-	}
-
+	@BeforeEach
     @Override
-	protected void additionalSetUp() throws Exception
+	public void setUp() throws Exception
 	{
+		super.setUp();
 		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA,
 			new BioSetLoader());
+		finishLoad();
 	}
 
-	/**
-	 * @see junit.framework.TestCase#tearDown()
-	 */
+	@AfterEach
 	@Override
 	protected void tearDown() throws Exception
 	{
@@ -109,60 +81,10 @@ public class BioSetTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Verify that the copyRaceTags function in BioSet
-	 * is functioning properly.
-	 */
-	public void testCopyRaceTags()
-	{
-		final String BASE_RACE_NAME = "Human";
-		final String NEW_RACE_NAME = "TestHuman";
-		final String[] TEST_TAGS =
-				{"HAIR", "EYES", "SKINTONE", "AGEDIEROLL", "CLASS",
-					"BASEAGE", "MAXAGE", "SEX", "CLASS"};
-
-		final BioSet currBioSet = SettingsHandler.getGame().getBioSet();
-
-		currBioSet.copyRaceTags(Constants.NONE, BASE_RACE_NAME,
-			Constants.NONE, NEW_RACE_NAME);
-
-		List<String> baseRaceTag;
-		List<String> newRaceTag;
-		for (int i = 0; i < TEST_TAGS.length; i++)
-		{
-			final String testArg = TEST_TAGS[i];
-			baseRaceTag =
-					currBioSet.getTagForRace(Constants.NONE, BASE_RACE_NAME,
-						testArg);
-			newRaceTag =
-					currBioSet.getTagForRace(Constants.NONE, NEW_RACE_NAME,
-						testArg);
-			// System.out.println(
-			// "Got '"
-			// + testArg
-			// + "' base of "
-			// + baseRaceTag
-			// + " and new of "
-			// + newRaceTag
-			// + ".");
-			for (Iterator<String> newIter = newRaceTag.iterator(), baseIter =
-					baseRaceTag.iterator(); newIter.hasNext()
-				&& baseIter.hasNext();)
-			{
-				final Object baseElem = baseIter.next();
-				final Object newElem = newIter.next();
-				assertEquals("Comparison of " + testArg + " values (b,n).",
-					baseElem, newElem);
-			}
-		}
-
-		//		System.out.println(
-		//			currBioSet.getRacePCCText(Constants.NONE, NEW_RACE_NAME));
-	}
-
-	/**
 	 * Verify that the randomize function in BioSet
 	 * is functioning properly.
 	 */
+	@Test
 	public void testRandomize()
 	{
 		final int[] BASE_AGE = {15, 35, 53, 70};
@@ -179,32 +101,33 @@ public class BioSetTest extends AbstractCharacterTestCase
 			currBioSet.randomize("AGECAT" + ageCat, pc);
 			final int age = pc.getDisplay().getAge();
 			//System.out.println("Age for cat " + ageCat + " is " + age + ".");
-			assertTrue("Generated age " + age + " is not between "
-				+ BASE_AGE[ageCat] + " and " + MAX_AGE[ageCat],
-				(age >= BASE_AGE[ageCat] && age <= MAX_AGE[ageCat]));
+			assertTrue(
+					(age >= BASE_AGE[ageCat] && age <= MAX_AGE[ageCat]), "Generated age " + age + " is not between "
+						+ BASE_AGE[ageCat] + " and " + MAX_AGE[ageCat]);
 		}
 		LocaleDependentTestCase.before(Locale.US);
 		currBioSet.randomize("AGE.HT.WT.EYES.HAIR.SKIN", pc);
 		LocaleDependentTestCase.after();
-		assertTrue("Generated height " + pc.getDisplay().getHeight()
-			+ " is not in required range.", (pc.getDisplay().getHeight() >= 58 && pc
-					.getDisplay().getHeight() <= 78));
-		assertTrue("Generated weight " + pc.getDisplay().getWeight()
-			+ " is not in required range.", (pc.getDisplay().getWeight() >= 120 && pc
-					.getDisplay().getWeight() <= 280));
-		assertTrue("Generated eye colour " + pc.getSafeStringFor(PCStringKey.EYECOLOR)
-			+ " is not valid.", ("Blue".equals(pc.getSafeStringFor(PCStringKey.EYECOLOR))));
-		assertTrue("Generated hair colour " + pc.getSafeStringFor(PCStringKey.HAIRCOLOR)
-			+ " is not valid.", ("Blond".equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR)) || "Brown"
-			.equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR))));
-		assertTrue("Generated skin colour " + pc.getSafeStringFor(PCStringKey.SKINCOLOR)
-			+ " is not valid.", ("Pasty".equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR)) || "Tanned"
-			.equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR))));
+		assertTrue((pc.getDisplay().getHeight() >= 58 && pc
+					.getDisplay().getHeight() <= 78), "Generated height " + pc.getDisplay().getHeight()
+						+ " is not in required range.");
+		assertTrue((pc.getDisplay().getWeight() >= 120 && pc
+					.getDisplay().getWeight() <= 280), "Generated weight " + pc.getDisplay().getWeight()
+						+ " is not in required range.");
+		assertEquals("Blue", pc.getSafeStringFor(PCStringKey.EYECOLOR), "Generated eye colour " + pc.getSafeStringFor(PCStringKey.EYECOLOR)
+				+ " is not valid.");
+		assertTrue(("Blond".equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR)) || "Brown"
+			.equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR))), "Generated hair colour " + pc.getSafeStringFor(PCStringKey.HAIRCOLOR)
+				+ " is not valid.");
+		assertTrue(("Pasty".equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR)) || "Tanned"
+			.equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR))), "Generated skin colour " + pc.getSafeStringFor(PCStringKey.SKINCOLOR)
+				+ " is not valid.");
 	}
 
 	/**
 	 * Test the age set
 	 */
+	@Test
 	public void testAgeSet()
 	{
 		final PlayerCharacter pc = getCharacter();
@@ -214,25 +137,32 @@ public class BioSetTest extends AbstractCharacterTestCase
 		pc.setRace(human);
 		pc.setPCAttribute(NumericPCAttribute.AGE, 12);
 		int idx = display.getAgeSetIndex();
-		assertEquals("Ageset for " + display.getAge() + ".", 0, idx);
+		assertEquals(0, idx, "Ageset for " + display.getAge() + ".");
 
 		pc.setPCAttribute(NumericPCAttribute.AGE, 17);
 		idx = display.getAgeSetIndex();
-		assertEquals("Ageset for " + display.getAge() + ".", 0, idx);
+		assertEquals(0, idx, "Ageset for " + display.getAge() + ".");
 
 		pc.setPCAttribute(NumericPCAttribute.AGE, 36);
 		idx = display.getAgeSetIndex();
-		assertEquals("Ageset for " + display.getAge() + ".", 1, idx);
+		assertEquals(1, idx, "Ageset for " + display.getAge() + ".");
 
 		pc.setPCAttribute(NumericPCAttribute.AGE, 54);
 		idx = display.getAgeSetIndex();
-		assertEquals("Ageset for " + display.getAge() + ".", 2, idx);
+		assertEquals(2, idx, "Ageset for " + display.getAge() + ".");
 
 		pc.setPCAttribute(NumericPCAttribute.AGE, 72);
 		idx = display.getAgeSetIndex();
-		assertEquals("Ageset for " + display.getAge() + ".", 3, idx);
+		assertEquals(3, idx, "Ageset for " + display.getAge() + ".");
 
-		SettingsHandler.getGame().getBioSet().getAgeSet(Region.getConstant(pc.getDisplay().getRegionString()), idx);
+		Optional<Region> region = pc.getDisplay().getRegion();
+		SettingsHandler.getGame().getBioSet().getAgeSet(region, idx);
 
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }

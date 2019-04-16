@@ -1,6 +1,4 @@
 /*
- * PreRaceTest.java
- *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,19 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 13-Jan-2004
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -40,38 +31,17 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 
-/**
- * @author wardc
- *
- */
+import org.junit.jupiter.api.Test;
+
+
 @SuppressWarnings("nls")
 public class PreRaceTest extends AbstractCharacterTestCase
 {
 	/**
-	 * Runs the test.
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreRaceTest.class);
-	}
-
-	/**
-	 * Returns a TestSuite consisting of all the tests in this class.
-	 * 
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreRaceTest.class);
-	}
-
-	/**
 	 * Test to ensure that we return false when races don't match.
-	 * 
-	 * @throws Exception
 	 */
-	public void testFail() throws Exception
+	@Test
+	public void testFail()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -91,11 +61,10 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to make sure we return false when race is equal but NOT is specificed.
-	 * 
-	 * @throws Exception
+	 * Test to make sure we return false when race is equal but NOT is specified.
 	 */
-	public void testNeqFails() throws Exception
+	@Test
+	public void testNeqFails()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -116,10 +85,9 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test to make sure that NOT returns true if races don't match.
-	 * 
-	 * @throws Exception
 	 */
-	public void testNeqPasses() throws Exception
+	@Test
+	public void testNeqPasses()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -140,10 +108,9 @@ public class PreRaceTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test to make sure that we return true when races are equal.
-	 * 
-	 * @throws Exception
 	 */
-	public void testPass() throws Exception
+	@Test
+	public void testPass()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -163,10 +130,9 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	}
 	/**
 	 * Test to make sure that we return true when races are equal using ServesAs.
-	 * 
-	 * @throws Exception
 	 */
-	public void testPassServesAsName() throws Exception
+	@Test
+	public void testPassServesAsName()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -191,7 +157,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		assertTrue("Expected prereq " + prereq + " to pass for race " + fake
 			+ " with SERVESAS", passes);
 	}
-	
+
+	@Test
 	public void testRaceTypeEq()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -210,7 +177,8 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(prereq + " should pass", passes);
 	}
-	
+
+	@Test
 	public void testRaceTypeNeq()
 	{
 		final PlayerCharacter character = getCharacter();
@@ -236,10 +204,9 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	
 	/**
 	 * Test to make sure that we return true when races RACESUBTYPE are equal using ServesAs.
-	 * 
-	 * @throws Exception
 	 */
-	public void testPassServesAsRaceSubType() throws Exception
+	@Test
+	public void testPassServesAsRaceSubType()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -297,10 +264,9 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	
 	/**
 	 * Test to make sure that we return true when races RACETYPE are equal using ServesAs.
-	 * 
-	 * @throws Exception
 	 */
-	public void testPassServesAsRaceType() throws Exception
+	@Test
+	public void testPassServesAsRaceType()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -331,7 +297,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Prereq " + prereq + " should pass due to SERVESAS",passes);
+		assertTrue("Prereq " + prereq + " should pass due to SERVESAS", passes);
 
 		prereq.setKey("RACETYPE=Smaller");
 		passes = PrereqHandler.passes(prereq, character, null);
@@ -342,10 +308,9 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	
 	/**
 	 * Test to make sure that we return true when races TYPE are equal.
-	 * 
-	 * @throws Exception
 	 */
-	public void testPassServesAsType() throws Exception
+	@Test
+	public void testPassServesAsType()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -374,7 +339,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Prereq " + prereq + " should pass due to SERVESAS",passes);
+		assertTrue("Prereq " + prereq + " should pass due to SERVESAS", passes);
 
 		prereq.setKey("TYPE=Smaller");
 		passes = PrereqHandler.passes(prereq, character, null);
@@ -387,6 +352,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 * Test to make sure that PRERACE with wildcarded names functions 
 	 * correctly with SERVESAS
 	 */
+	@Test
 	public void testPassServesAsNameWildcard()
 	{
 		final PlayerCharacter character = getCharacter();

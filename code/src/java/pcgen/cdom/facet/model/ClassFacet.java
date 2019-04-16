@@ -23,6 +23,7 @@ import java.util.EventObject;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.swing.event.EventListenerList;
@@ -41,13 +42,10 @@ import pcgen.output.publish.OutputDB;
  * ClassFacet is a Facet that tracks the PCClass objects possessed by a Player
  * Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
-		SetFacet<CharID, PCClass>
+public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements SetFacet<CharID, PCClass>
 {
-	private final ClassLevelChangeSupport support =
-			new ClassLevelChangeSupport();
+	private final ClassLevelChangeSupport support = new ClassLevelChangeSupport();
 
 	/**
 	 * Add the given PCClass to the list of PCClass objects stored in this
@@ -63,10 +61,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 	 */
 	public void addClass(CharID id, PCClass obj)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("PCClass to add may not be null");
-		}
+		Objects.requireNonNull(obj, "PCClass to add may not be null");
 		if (getConstructingClassInfo(id).addClass(obj))
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
@@ -95,19 +90,10 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 	 * @throws CloneNotSupportedException
 	 *             if the class level cannot be thrown
 	 */
-	public boolean setClassLevel(CharID id, PCClass pcc, PCClassLevel pcl)
-		throws CloneNotSupportedException
+	public boolean setClassLevel(CharID id, PCClass pcc, PCClassLevel pcl) throws CloneNotSupportedException
 	{
-		if (pcc == null)
-		{
-			throw new IllegalArgumentException(
-					"Class cannot be null in setClassLevel");
-		}
-		if (pcl == null)
-		{
-			throw new IllegalArgumentException(
-					"Class Level cannot be null in setClassLevel");
-		}
+		Objects.requireNonNull(pcc, "Class cannot be null in setClassLevel");
+		Objects.requireNonNull(pcl, "Class Level cannot be null in setClassLevel");
 		ClassInfo info = getClassInfo(id);
 		if (info == null)
 		{
@@ -161,10 +147,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 	 */
 	public void removeClass(CharID id, PCClass obj)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("PCClass to add may not be null");
-		}
+		Objects.requireNonNull(obj, "PCClass to add may not be null");
 		ClassInfo info = getClassInfo(id);
 		if (info != null)
 		{
@@ -172,8 +155,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 			{
 				setLevel(id, obj, 0);
 				info.removeClass(obj);
-				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 			}
 			if (info.isEmpty())
 			{
@@ -197,8 +179,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 		{
 			for (PCClass obj : info.getClassSet())
 			{
-				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 				int oldLevel = info.getLevel(obj);
 				support.fireClassLevelChangeEvent(id, obj, oldLevel, 0);
 			}
@@ -408,7 +389,6 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 	 * for a PCClass and Player Character, as well as the levels of the
 	 * PCClasses for a Player Character.
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
 	public static class ClassInfo
 	{
@@ -416,14 +396,12 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 		 * Map that stores the PCClassLevel objects active for a Player
 		 * Character.
 		 */
-		private Map<PCClass, Map<Integer, PCClassLevel>> map =
-                new LinkedHashMap<>();
+		private Map<PCClass, Map<Integer, PCClassLevel>> map = new LinkedHashMap<>();
 		/**
 		 * Map that stores the numeric level values for the PCClasses in a
 		 * Player Character.
 		 */
-		private Map<PCClass, Integer> levelmap =
-                new HashMap<>();
+		private Map<PCClass, Integer> levelmap = new HashMap<>();
 
 		public ClassInfo()
 		{
@@ -432,32 +410,24 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 
 		public ClassInfo(ClassInfo info)
 		{
-			for (Map.Entry<PCClass, Map<Integer, PCClassLevel>> me : info.map
-				.entrySet())
+			for (Map.Entry<PCClass, Map<Integer, PCClassLevel>> me : info.map.entrySet())
 			{
-				map.put(me.getKey(), new HashMap<>(me
-                        .getValue()));
+				map.put(me.getKey(), new HashMap<>(me.getValue()));
 			}
 			levelmap.putAll(info.levelmap);
 		}
 
 		public Integer setLevel(PCClass pcc, int level)
 		{
-			if (pcc == null)
-			{
-				throw new IllegalArgumentException(
-					"Class for setLevel must not be null");
-			}
+			Objects.requireNonNull(pcc, "Class for setLevel must not be null");
 			if (level < 0)
 			{
-				throw new IllegalArgumentException("Level for "
-					+ pcc.getDisplayName() + " must be > 0");
+				throw new IllegalArgumentException("Level for " + pcc.getDisplayName() + " must be > 0");
 			}
 			if (level != 0 && !map.containsKey(pcc))
 			{
 				throw new IllegalArgumentException(
-					"Cannot set level for PCClass " + pcc.getKeyName()
-						+ " which is not added");
+					"Cannot set level for PCClass " + pcc.getKeyName() + " which is not added");
 			}
 			Integer oldlvl = levelmap.put(pcc, level);
 			return (oldlvl == null) ? 0 : oldlvl;
@@ -473,8 +443,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 		{
 			Map<PCClass, Map<Integer, PCClassLevel>> oldMap = map;
 			map = new LinkedHashMap<>();
-			for (Map.Entry<PCClass, Map<Integer, PCClassLevel>> me : oldMap
-				.entrySet())
+			for (Map.Entry<PCClass, Map<Integer, PCClassLevel>> me : oldMap.entrySet())
 			{
 				PCClass currentClass = me.getKey();
 				if (oldClass.equals(currentClass))
@@ -494,8 +463,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 			{
 				return false;
 			}
-			Map<Integer, PCClassLevel> levelMap =
-                    new HashMap<>();
+			Map<Integer, PCClassLevel> levelMap = new HashMap<>();
 			map.put(pcc, levelMap);
 			/*
 			 * DO NOT initialize levelMap here - see CODE-208
@@ -503,8 +471,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 			return true;
 		}
 
-		public boolean setClassLevel(PCClass pcc, PCClassLevel pcl)
-			throws CloneNotSupportedException
+		public boolean setClassLevel(PCClass pcc, PCClassLevel pcl) throws CloneNotSupportedException
 		{
 			Map<Integer, PCClassLevel> localMap = map.get(pcc);
 			if (localMap == null)
@@ -519,15 +486,10 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 
 		public PCClassLevel getClassLevel(PCClass pcc, int level)
 		{
-			if (pcc == null)
-			{
-				throw new IllegalArgumentException(
-					"Class in getClassLevel cannot be null");
-			}
+			Objects.requireNonNull(pcc, "Class in getClassLevel cannot be null");
 			if (level < 0)
 			{
-				throw new IllegalArgumentException(
-					"Level cannot be negative in getClassLevel");
+				throw new IllegalArgumentException("Level cannot be negative in getClassLevel");
 			}
 			//map.get(pcc) doesn't seem to find the monster class
 			//Map<Integer, PCClassLevel> localMap = map.get(pcc);
@@ -543,8 +505,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 			if (localMap == null)
 			{
 				throw new IllegalArgumentException(
-					"Level cannot be returned for Class " + pcc.getKeyName()
-						+ " which is not in the PC");
+					"Level cannot be returned for Class " + pcc.getKeyName() + " which is not in the PC");
 			}
 			PCClassLevel classLevel = localMap.get(level);
 			if (classLevel == null)
@@ -629,6 +590,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 	public static interface ClassLevelChangeListener extends EventListener
 	{
 		public void levelChanged(ClassLevelChangeEvent lce);
+
 		public void levelObjectChanged(ClassLevelObjectChangeEvent lce);
 	}
 
@@ -644,18 +606,11 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 		private final int oldLvl;
 		private final int newLvl;
 
-		public ClassLevelChangeEvent(CharID source, PCClass pcc, int oldLevel,
-			int newLevel)
+		public ClassLevelChangeEvent(CharID source, PCClass pcc, int oldLevel, int newLevel)
 		{
 			super(source);
-			if (source == null)
-			{
-				throw new IllegalArgumentException("CharID cannot be null");
-			}
-			if (pcc == null)
-			{
-				throw new IllegalArgumentException("PCClass cannot be null");
-			}
+			Objects.requireNonNull(source, "CharID cannot be null");
+			Objects.requireNonNull(pcc, "PCClass cannot be null");
 			charID = source;
 			pcClass = pcc;
 			oldLvl = oldLevel;
@@ -702,22 +657,12 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 		private final PCClassLevel oldLvl;
 		private final PCClassLevel newLvl;
 
-		public ClassLevelObjectChangeEvent(CharID source, PCClass pcc,
-				PCClassLevel oldLevel, PCClassLevel newLevel)
+		public ClassLevelObjectChangeEvent(CharID source, PCClass pcc, PCClassLevel oldLevel, PCClassLevel newLevel)
 		{
 			super(source);
-			if (source == null)
-			{
-				throw new IllegalArgumentException("CharID cannot be null");
-			}
-			if (pcc == null)
-			{
-				throw new IllegalArgumentException("PCClass cannot be null");
-			}
-			if (newLevel == null)
-			{
-				throw new IllegalArgumentException("New Level cannot be null");
-			}
+			Objects.requireNonNull(source, "CharID cannot be null");
+			Objects.requireNonNull(pcc, "PCClass cannot be null");
+			Objects.requireNonNull(newLevel, "New Level cannot be null");
 			charID = source;
 			pcClass = pcc;
 			oldLvl = oldLevel;
@@ -811,24 +756,22 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 		 *            ClassFacet
 		 * @param pcc
 		 *			  The PCClass to be added to the list of PCClass objects stored
-  	     *            in this AbstractListFacet for the Player Character represented
-	     *            by the given CharID
-	     * @param oldLevel
-	     * 			  The chracter's previous level
-	     * 
-	     * @param newLevel
-	     * 			  The new level specified by the user.
+		 *            in this AbstractListFacet for the Player Character represented
+		 *            by the given CharID
+		 * @param oldLevel
+		 * 			  The chracter's previous level
+		 * 
+		 * @param newLevel
+		 * 			  The new level specified by the user.
 		 */
-		protected void fireClassLevelChangeEvent(CharID id, PCClass pcc,
-			int oldLevel, int newLevel)
+		protected void fireClassLevelChangeEvent(CharID id, PCClass pcc, int oldLevel, int newLevel)
 		{
 			if (oldLevel == newLevel)
 			{
 				// Nothing to do
 				return;
 			}
-			ClassLevelChangeListener[] listeners =
-					listenerList.getListeners(ClassLevelChangeListener.class);
+			ClassLevelChangeListener[] listeners = listenerList.getListeners(ClassLevelChangeListener.class);
 			/*
 			 * This list is decremented from the end of the list to the
 			 * beginning in order to maintain consistent operation with how Java
@@ -841,24 +784,21 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 				// Lazily create event
 				if (ccEvent == null)
 				{
-					ccEvent =
-							new ClassLevelChangeEvent(id, pcc, oldLevel,
-								newLevel);
+					ccEvent = new ClassLevelChangeEvent(id, pcc, oldLevel, newLevel);
 				}
 				listeners[i].levelChanged(ccEvent);
 			}
 		}
-		
-		public void fireClassLevelObjectChangeEvent(CharID id, PCClass pcc,
-				PCClassLevel oldLevel, PCClassLevel newLevel)
+
+		public void fireClassLevelObjectChangeEvent(CharID id, PCClass pcc, PCClassLevel oldLevel,
+			PCClassLevel newLevel)
 		{
 			if (oldLevel == newLevel)
 			{
 				// Nothing to do
 				return;
 			}
-			ClassLevelChangeListener[] listeners =
-					listenerList.getListeners(ClassLevelChangeListener.class);
+			ClassLevelChangeListener[] listeners = listenerList.getListeners(ClassLevelChangeListener.class);
 			/*
 			 * This list is decremented from the end of the list to the
 			 * beginning in order to maintain consistent operation with how Java
@@ -871,9 +811,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 				// Lazily create event
 				if (ccEvent == null)
 				{
-					ccEvent =
-							new ClassLevelObjectChangeEvent(id, pcc, oldLevel,
-								newLevel);
+					ccEvent = new ClassLevelObjectChangeEvent(id, pcc, oldLevel, newLevel);
 				}
 				listeners[i].levelObjectChanged(ccEvent);
 			}

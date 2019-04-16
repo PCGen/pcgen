@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.EQBaseCostTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03-Oct-2008 01:55:27
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -28,8 +24,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
-public class EQBaseCostTermEvaluator
-		extends BaseEQTermEvaluator implements TermEvaluator 
+public class EQBaseCostTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
 	public EQBaseCostTermEvaluator(String expressionString)
 	{
@@ -37,22 +32,17 @@ public class EQBaseCostTermEvaluator
 	}
 
 	@Override
-	public Float resolve(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc)
+	public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(eq, primary, pc));
+		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	@Override
-	public String evaluate(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc) {
+	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
+	{
 		return eq.getSafe(ObjectKey.COST).toString();
 	}
-	
+
 	@Override
 	public boolean isSourceDependant()
 	{

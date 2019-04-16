@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Feb 22, 2006
- *
- * $Id$
- *
  */
 package plugin.lsttokens.equipment;
 
@@ -29,19 +24,14 @@ import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
- * <code>NumPagesToken</code> deals with NUMPAGES token
+ * {@code NumPagesToken} deals with NUMPAGES token
  * 
  * (Tue, 14 Mar 2006) $
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class NumPagesToken extends AbstractIntToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class NumPagesToken extends AbstractIntToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{

@@ -1,5 +1,4 @@
 /*
- * DataSetFacade.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,28 +15,35 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 19, 2008, 3:31:30 PM
  */
 package pcgen.facade.core;
 
 import java.util.List;
 
-import pcgen.facade.core.generator.StatGenerationFacade;
+import pcgen.core.AbilityCategory;
+import pcgen.core.BodyStructure;
+import pcgen.core.Campaign;
+import pcgen.core.Deity;
+import pcgen.core.GameMode;
+import pcgen.core.Kit;
+import pcgen.core.PCAlignment;
+import pcgen.core.PCClass;
+import pcgen.core.PCStat;
+import pcgen.core.PCTemplate;
+import pcgen.core.Race;
+import pcgen.core.SizeAdjustment;
+import pcgen.core.Skill;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public interface DataSetFacade
 {
 
-    public MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> getAbilities();
-    
-//	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category);
-//
-//	public ListFacade<AbilityCategoryFacade> getAbilityCategories();
+	public MapFacade<AbilityCategory, ListFacade<AbilityFacade>> getAbilities();
+
+	//	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category);
+	//
+	//	public ListFacade<AbilityCategoryFacade> getAbilityCategories();
 
 	/**
 	 * Retrieve the abilities that must be taken before this ability can be taken.
@@ -47,27 +53,25 @@ public interface DataSetFacade
 	 */
 	public List<AbilityFacade> getPrereqAbilities(AbilityFacade abilityFacade);
 
-	public ListFacade<SkillFacade> getSkills();
+	public ListFacade<Skill> getSkills();
 
-	public ListFacade<RaceFacade> getRaces();
+	public ListFacade<Race> getRaces();
 
-	public ListFacade<ClassFacade> getClasses();
+	public ListFacade<PCClass> getClasses();
 
-	public ListFacade<DeityFacade> getDeities();
+	public ListFacade<Deity> getDeities();
 
-	public ListFacade<TemplateFacade> getTemplates();
+	public ListFacade<PCTemplate> getTemplates();
 
-	public ListFacade<CampaignFacade> getCampaigns();
+	public ListFacade<Campaign> getCampaigns();
 
-	public GameModeFacade getGameMode();
+	public GameMode getGameMode();
 
-	public ListFacade<AlignmentFacade> getAlignments();
+	public ListFacade<PCAlignment> getAlignments();
 
-	public ListFacade<StatFacade> getStats();
+	public ListFacade<PCStat> getStats();
 
-	public ListFacade<StatGenerationFacade> getStatGenerators();
-
-	public SkillFacade getSpeakLanguageSkill();
+	public Skill getSpeakLanguageSkill();
 
 	public ListFacade<EquipmentFacade> getEquipment();
 
@@ -76,8 +80,8 @@ public interface DataSetFacade
 	 * @param equip The item of equipment to be added.
 	 */
 	public void addEquipment(EquipmentFacade equip);
-	
-	public ListFacade<BodyStructureFacade> getEquipmentLocations();
+
+	public ListFacade<BodyStructure> getEquipmentLocations();
 
 	public ListFacade<String> getXPTableNames();
 
@@ -91,13 +95,13 @@ public interface DataSetFacade
 	/**
 	 * @return the list of kits
 	 */
-	public ListFacade<KitFacade> getKits();
+	public ListFacade<Kit> getKits();
 
 	/**
 	 * @return The list of sizes
 	 */
-	public ListFacade<SizeAdjustmentFacade> getSizes();
-	
+	public ListFacade<SizeAdjustment> getSizes();
+
 	/**
 	 * Update the equipment list from the global equipment list. 
 	 */

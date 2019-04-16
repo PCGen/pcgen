@@ -17,9 +17,11 @@
  */
 package plugin.lsttokens.testsupport;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
@@ -51,6 +53,9 @@ import plugin.lsttokens.equipment.ProficiencyToken;
 import plugin.primitive.language.LangBonusToken;
 import plugin.qualifier.pobject.QualifiedToken;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
 		extends AbstractCDOMTokenTestCase<T>
 {
@@ -67,14 +72,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		token = tok;
 		target = tgt;
-		if (tgt == null)
-		{
-			qualifier = token;
-		}
-		else
-		{
-			qualifier = token + "=" + target;
-		}
+		qualifier = (tgt == null) ? token : (token + "=" + target);
 	}
 
 	@Override
@@ -94,6 +92,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	protected abstract boolean allowsNotQualifier();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -137,63 +136,63 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierOpenBracket() throws PersistenceLayerException
+	public void testQualifierOpenBracket()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "["));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testQualifierCloseBracket() throws PersistenceLayerException
+	public void testQualifierCloseBracket()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testQualifierEmptyBrackets() throws PersistenceLayerException
+	public void testQualifierEmptyBrackets()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testQualifierPipeInBrackets() throws PersistenceLayerException
+	public void testQualifierPipeInBrackets()
 	{
 		assertFalse(parse(getSubTokenName() + "|" + qualifier + "[|]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testQualifierCommaInBrackets() throws PersistenceLayerException
+	public void testQualifierCommaInBrackets()
 	{
 		assertFalse(parse(getSubTokenName() + "|" + qualifier + "[,]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testQualifierEmptyType() throws PersistenceLayerException
+	public void testQualifierEmptyType()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testQualifierEmptyNotType() throws PersistenceLayerException
+	public void testQualifierEmptyNotType()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testQualifierTypeDot() throws PersistenceLayerException
+	public void testQualifierTypeDot()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=One.]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testQualifierNotTypeDot() throws PersistenceLayerException
+	public void testQualifierNotTypeDot()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=One.]"));
 		assertNoSideEffects();
@@ -201,7 +200,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testQualifierNotTypeDoubleDot()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[!TYPE=One..Two]"));
@@ -209,14 +207,14 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierTypeEqualDot() throws PersistenceLayerException
+	public void testQualifierTypeEqualDot()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=.One]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testQualifierTypeDoubleDot() throws PersistenceLayerException
+	public void testQualifierTypeDoubleDot()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=One..Two]"));
@@ -224,14 +222,14 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierNotTypeEqualDot() throws PersistenceLayerException
+	public void testQualifierNotTypeEqualDot()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=.One]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testQualifierPrimitivePipe() throws PersistenceLayerException
+	public void testQualifierPrimitivePipe()
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
@@ -240,7 +238,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierPrimitiveComma() throws PersistenceLayerException
+	public void testQualifierPrimitiveComma()
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
@@ -249,7 +247,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierPipePrim() throws PersistenceLayerException
+	public void testQualifierPipePrim()
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
@@ -258,7 +256,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierCommaPrim() throws PersistenceLayerException
+	public void testQualifierCommaPrim()
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
@@ -267,7 +265,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierDoublePipe() throws PersistenceLayerException
+	public void testQualifierDoublePipe()
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
@@ -279,7 +277,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierDoubleComma() throws PersistenceLayerException
+	public void testQualifierDoubleComma()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=Foo,,!TYPE=Bar]"));
@@ -287,7 +285,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierAllType() throws PersistenceLayerException
+	public void testQualifierAllType()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[ALL|TYPE=TestType]"));
@@ -295,7 +293,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierTypeAll() throws PersistenceLayerException
+	public void testQualifierTypeAll()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=TestType|ALL]"));
@@ -303,7 +301,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierTypePrimBad() throws PersistenceLayerException
+	public void testQualifierTypePrimBad()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=Foo]TestWP1"));
@@ -311,7 +309,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierPrimTypeBadPipe() throws PersistenceLayerException
+	public void testQualifierPrimTypeBadPipe()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1]TYPE=Foo|TYPE=Bar"));
@@ -319,7 +317,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierPrimTypeBad() throws PersistenceLayerException
+	public void testQualifierPrimTypeBad()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1]TYPE=Foo"));
@@ -327,7 +325,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierTypePrimComma() throws PersistenceLayerException
+	public void testQualifierTypePrimComma()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=Foo]TestWP1,TYPE=Bar"));
@@ -335,21 +333,21 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierAllPrim() throws PersistenceLayerException
+	public void testQualifierAllPrim()
 	{
 		assertFalse(parse(getSubTokenName() + "|" + qualifier + "[ALL|TestWP1]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testQualifierPrimAll() throws PersistenceLayerException
+	public void testQualifierPrimAll()
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|ALL]"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testBadNoSideEffect() throws PersistenceLayerException
+	public void testBadNoSideEffect()
 	{
 		assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TestWP2]"));
@@ -361,7 +359,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierDot() throws PersistenceLayerException
+	public void testQualifierDot()
 	{
 		boolean parse = parse(getSubTokenName() + '|' + qualifier + "." + qualifier);
 		if (parse)
@@ -375,7 +373,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierAsPrim() throws PersistenceLayerException
+	public void testQualifierAsPrim()
 	{
 		try
 		{
@@ -397,14 +395,14 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierBadPrim() throws PersistenceLayerException
+	public void testQualifierBadPrim()
 	{
 		assertTrue(parse(getSubTokenName() + '|' + qualifier + "[String]"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testQualifierNoConstruct() throws PersistenceLayerException
+	public void testQualifierNoConstruct()
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
@@ -415,7 +413,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierTypeCheck() throws PersistenceLayerException
+	public void testQualifierTypeCheck()
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
@@ -426,7 +424,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testQualifierTypeDotCheck() throws PersistenceLayerException
+	public void testQualifierTypeDotCheck()
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
@@ -438,7 +436,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testQualifierBadAllNoSideEffect()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
@@ -454,7 +451,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testNegatedQualifierPipe() throws PersistenceLayerException
+	public void testNegatedQualifierPipe()
 	{
 		if (!allowsNotQualifier())
 		{
@@ -466,7 +463,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testNegatedQualifierPrim() throws PersistenceLayerException
+	public void testNegatedQualifierPrim()
 	{
 		if (!allowsNotQualifier())
 		{
@@ -480,7 +477,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testNegatedQualifierParenPrim()
-			throws PersistenceLayerException
 	{
 		if (!allowsNotQualifier())
 		{
@@ -493,7 +489,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	@Test
-	public void testNegatedQualifierAll() throws PersistenceLayerException
+	public void testNegatedQualifierAll()
 	{
 		if (!allowsNotQualifier())
 		{
@@ -504,7 +500,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputJoinedDotQualifier()
-			throws PersistenceLayerException
 	{
 		boolean parse = parse(getSubTokenName() + '|' + "PC." + qualifier);
 		if (parse)
@@ -519,7 +514,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputQualifierOpenBracket()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "["));
 		assertNoSideEffects();
@@ -527,7 +521,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputQualifierCloseBracket()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "]"));
 		assertNoSideEffects();
@@ -535,7 +528,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputQualifierEmptyBracket()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[]"));
 		assertNoSideEffects();
@@ -543,7 +535,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputQualifierQualifier()
-			throws PersistenceLayerException
 	{
 		try
 		{
@@ -566,7 +557,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputJoinQualifiedOnlyPipe()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + "|" + qualifier + "[|]"));
 		assertNoSideEffects();
@@ -574,7 +564,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputJoinQualifiedOnlyComma()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + "|" + qualifier + "[,]"));
 		assertNoSideEffects();
@@ -582,7 +571,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputStringQualified()
-			throws PersistenceLayerException
 	{
 		assertTrue(parse(getSubTokenName() + '|' + qualifier + "[String]"));
 		assertConstructionError();
@@ -590,7 +578,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputJoinedDotQualified()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(primaryContext, getTargetClass(), "TestWP2");
@@ -601,7 +588,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputQualifiedTypeEmpty()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=]"));
 		assertNoSideEffects();
@@ -609,7 +595,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputQualifiedNotTypeEmpty()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=]"));
 		assertNoSideEffects();
@@ -617,7 +602,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputQualifiedTypeUnterminated()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=One.]"));
 		assertNoSideEffects();
@@ -625,7 +609,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputQualifiedNotTypeUnterminated()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=One.]"));
 		assertNoSideEffects();
@@ -633,7 +616,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputQualifiedTypeDoubleSeparator()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=One..Two]"));
@@ -642,7 +624,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputQualifiedNotTypeDoubleSeparator()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[!TYPE=One..Two]"));
@@ -651,7 +632,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputQualifiedTypeFalseStart()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=.One]"));
 		assertNoSideEffects();
@@ -659,7 +639,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputQualifiedNotTypeFalseStart()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=.One]"));
 		assertNoSideEffects();
@@ -667,7 +646,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedListEndPipe()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|]"));
@@ -676,7 +654,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedListEndComma()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1,]"));
@@ -685,7 +662,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedListStartPipe()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[|TestWP1]"));
@@ -694,7 +670,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedListStartComma()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[,TestWP1]"));
@@ -703,7 +678,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedListDoubleJoinPipe()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(primaryContext, getTargetClass(), "TestWP2");
@@ -714,7 +688,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedListDoubleJoinComma()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=Foo,,!TYPE=Bar]"));
@@ -723,7 +696,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedInputNotBuilt()
-			throws PersistenceLayerException
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, getTargetClass(), "TestWP1");
@@ -734,7 +706,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedDanglingType()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
@@ -744,7 +715,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedDanglingPrimitive()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
@@ -754,7 +724,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedDanglingTypePipe()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
@@ -764,7 +733,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedDanglingPrimitiveComma()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
@@ -822,7 +790,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedInputCheckTypeEqualLengthBar()
-			throws PersistenceLayerException
 	{
 		/*
 		 * Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
@@ -836,7 +803,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedInputCheckTypeDotLengthPipe()
-			throws PersistenceLayerException
 	{
 		/*
 		 * Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
@@ -971,7 +937,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedInputAnyItem()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		assertFalse(parse(getSubTokenName() + "|" + qualifier + "[ALL|TestWP1]"));
@@ -980,7 +945,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedInputItemAny()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|ALL]"));
@@ -989,7 +953,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedInputAnyType()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[ALL|TYPE=TestType]"));
@@ -998,7 +961,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidQualifiedInputTypeAny()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=TestType|ALL]"));
@@ -1007,7 +969,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInputInvalidQualifiedAddsTypeNoSideEffect()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
@@ -1026,7 +987,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInputInvalidQualifiedAddsBasicNoSideEffect()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
@@ -1047,7 +1007,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInputInvalidQualifiedAddsAllNoSideEffect()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
@@ -1074,9 +1033,8 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputJoinedDotNotQualifierAlone()
-			throws PersistenceLayerException
 	{
-		boolean parse = parse(getSubTokenName() + '|' + "PC.!" + qualifier + "");
+		boolean parse = parse(getSubTokenName() + '|' + "PC.!" + qualifier);
 		if (parse)
 		{
 			assertConstructionError();
@@ -1089,7 +1047,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputNotQualifierOpenBracket()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1100,7 +1057,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputNotQualifierCloseBracket()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1111,7 +1067,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputNotQualifierEmptyBracket()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1122,7 +1077,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputNotQualifierNotQualifier()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1141,7 +1095,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputJoinNotQualifierOnlyPipe()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1152,7 +1105,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputJoinNotQualifierOnlyComma()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1163,7 +1115,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputStringNotQualifier()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1175,7 +1126,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputJoinedDotNotQualifier()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1189,7 +1139,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputNotQualifierTypeEmpty()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1201,7 +1150,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputNotQualifierNotTypeEmpty()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1213,7 +1161,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputNotQualifierTypeUnterminated()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1225,7 +1172,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputNotQualifierNotTypeUnterminated()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1237,7 +1183,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputNotQualifierTypeDoubleSeparator()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1249,7 +1194,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputNotQualifierNotTypeDoubleSeparator()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1261,7 +1205,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputNotQualifierTypeFalseStart()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1273,7 +1216,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidInputNotQualifierNotTypeFalseStart()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1285,7 +1227,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierListEndPipe()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1298,7 +1239,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierListEndComma()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1311,7 +1251,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierListStartPipe()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1324,7 +1263,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierListStartComma()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1337,7 +1275,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierListDoubleJoinPipe()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1351,7 +1288,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierListDoubleJoinComma()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1363,7 +1299,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierInputNotBuilt()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1377,7 +1312,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierDanglingType()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1390,7 +1324,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierDanglingPrimitive()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1403,7 +1336,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierDanglingTypePipe()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1416,7 +1348,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierDanglingPrimitiveComma()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1485,7 +1416,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierInputCheckTypeEqualLengthBar()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1502,7 +1432,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierInputCheckTypeDotLengthPipe()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1669,7 +1598,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierInputAnyItem()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1683,7 +1611,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierInputItemAny()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1696,7 +1623,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierInputAnyType()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1708,7 +1634,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInvalidNotQualifierInputTypeAny()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1720,7 +1645,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInputInvalidNotQualifierAddsTypeNoSideEffect()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1742,7 +1666,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInputInvalidNotQualifierAddsBasicNoSideEffect()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1766,7 +1689,6 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 
 	@Test
 	public void testInputInvalidNotQualifierAddsAllNoSideEffect()
-			throws PersistenceLayerException
 	{
 		if (allowsNotQualifier())
 		{
@@ -1883,7 +1805,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 	
 	@Test
-	public void testTargetCheck() throws PersistenceLayerException
+	public void testTargetCheck()
 	{
 		if (target == null)
 		{
@@ -1899,9 +1821,9 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	}
 
 	protected static final MultToken ABILITY_MULT_TOKEN = new plugin.lsttokens.ability.MultToken();
-	protected static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN = new plugin.lsttokens.choose.LangToken();
-	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
-			new plugin.lsttokens.ChooseLst();
+	protected static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN =
+			new plugin.lsttokens.choose.LangToken();
+	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN = new plugin.lsttokens.ChooseLst();
 	protected static final VisibleToken ABILITY_VISIBLE_TOKEN = new plugin.lsttokens.ability.VisibleToken();
 	protected static final AutoLst AUTO_TOKEN = new plugin.lsttokens.AutoLst();
 	protected static final LangToken AUTO_LANG_TOKEN = new plugin.lsttokens.auto.LangToken();
@@ -1950,7 +1872,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	protected SizeAdjustment diminutive;
 	protected SizeAdjustment fine;
 
-	protected void setUpPC() throws PersistenceLayerException
+	protected void setUpPC()
 	{
 		TokenRegistration.register(AUTO_LANG_TOKEN);
 		TokenRegistration.register(ABILITY_VISIBLE_TOKEN);
@@ -1963,22 +1885,22 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		TokenRegistration.register(LANGBONUS_PRIM);
 		TokenRegistration.register(PC_QUAL);
 				
-		Globals.createEmptyRace();
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		resetContext();
+		BuildUtilities.buildUnselectedRace(Globals.getContext());
 		GameMode gamemode = SettingsHandler.getGame();
 		
-		str = BuildUtilities.createStat("Strength", "STR");
+		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"), FormulaFactory
 			.getFormulaFor("STRSCORE"));
 		str.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"), FormulaFactory
 			.getFormulaFor(2));
-		dex = BuildUtilities.createStat("Dexterity", "DEX");
-		PCStat con = BuildUtilities.createStat("Constitution", "CON");
-		intel = BuildUtilities.createStat("Intelligence", "INT");
-		wis = BuildUtilities.createStat("Wisdom", "WIS");
-		cha = BuildUtilities.createStat("Charisma", "CHA");
+		dex = BuildUtilities.createStat("Dexterity", "DEX", "B");
+		PCStat con = BuildUtilities.createStat("Constitution", "CON", "C");
+		intel = BuildUtilities.createStat("Intelligence", "INT", "D");
+		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
+		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
@@ -2032,7 +1954,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		QualifierToken<?> one = getQualifierClass().newInstance();
 		QualifierToken<?> two = getQualifierClass().newInstance();
-		assertTrue(one.equals(two));
+		assertEquals(one, two);
 	}
 
 	protected abstract Class<? extends QualifierToken> getQualifierClass();

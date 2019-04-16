@@ -1,5 +1,4 @@
 /*
- * EqToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.io.exporttoken;
@@ -63,21 +60,14 @@ public class EqToken extends Token
 	private static int cachedSerial = 0;
 	private static PlayerCharacter cachedPC = null;
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		// Starting EQ.%.NAME.MAGIC,befTrue,aftTrue,befFalse,aftFalse reading
 		String bFilter = "";
@@ -139,8 +129,7 @@ public class EqToken extends Token
 		List<Equipment> eqList = null;
 		StringTokenizer aTok = null;
 		int temp = -1;
-		if (comparatorString.equals(cachedString) && pc == cachedPC
-			&& pc.getSerial() == cachedSerial)
+		if (comparatorString.equals(cachedString) && pc == cachedPC && pc.getSerial() == cachedSerial)
 		{
 			//			cacheHit++;
 			//			if (cacheHit%100==0) {
@@ -179,7 +168,7 @@ public class EqToken extends Token
 			//Merge
 			String token = aTok.nextToken();
 			int merge = Constants.MERGE_ALL;
-			if (token.indexOf("MERGE") >= 0)
+			if (token.contains("MERGE"))
 			{
 				merge = returnMergeType(token);
 				token = aTok.nextToken();
@@ -187,10 +176,7 @@ public class EqToken extends Token
 
 			// Get the list of equipment
 			eqList = new ArrayList<>();
-			for (Equipment eq : pc.getEquipmentListInOutputOrder(merge))
-			{
-				eqList.add(eq);
-			}
+			eqList.addAll(pc.getEquipmentListInOutputOrder(merge));
 
 			//Begin Not code...
 			while (aTok.hasMoreTokens())
@@ -245,12 +231,10 @@ public class EqToken extends Token
 			if ((temp >= 0) && (temp < eqList.size()))
 			{
 				Equipment eq = eqList.get(temp);
-				retString =
-						FileAccess.filterString(getEqToken(pc, eq, tempString,
-							aTok));
-				 
+				retString = FileAccess.filterString(getEqToken(pc, eq, tempString, aTok));
+
 				// Starting EQ.%.NAME.MAGIC,befTrue,aftTrue,befFalse,aftFalse treatment
-				if (!"".equals(bFilter))
+				if (bFilter != null && !bFilter.isEmpty())
 				{
 					aTok = new StringTokenizer(bFilter, ".");
 
@@ -300,8 +284,6 @@ public class EqToken extends Token
 	 * EqToken manages its own encoding to allow the data to be encoded but 
 	 * export sheet markup to passed through as is. Tell ExportHandler that it
 	 * should not re-encode the output from this token.  
-	 * 
-	 * @see pcgen.io.exporttoken.Token#isEncoded()
 	 */
 	@Override
 	public boolean isEncoded()
@@ -323,50 +305,47 @@ public class EqToken extends Token
 		}
 
 		int range = eq.getSafe(IntegerKey.RANGE);
-	
+
 		if (range == 0)
 		{
 			final String aRange = eq.getWeaponInfo("RANGE", true);
-	
-			if (aRange.length() != 0)
+
+			if (!aRange.isEmpty())
 			{
 				range = Integer.valueOf(aRange);
 			}
 		}
-	
+
 		int r = range + (int) eq.bonusTo(pc, "EQMWEAPON", "RANGEADD", true);
 		final int i = (int) eq.bonusTo(pc, "EQMWEAPON", "RANGEMULT", true);
 		double rangeMult = 1.0;
-	
+
 		if (i > 0)
 		{
 			rangeMult += (i - 1);
 		}
-	
+
 		int postAdd = 0;
-	
+
 		if (pc != null)
 		{
 			if (eq.isThrown())
 			{
 				r += (int) pc.getTotalBonusTo("RANGEADD", "THROWN");
 				postAdd = (int) pc.getTotalBonusTo("POSTRANGEADD", "THROWN");
-				rangeMult +=
-						((int) pc.getTotalBonusTo("RANGEMULT", "THROWN") / 100.0);
+				rangeMult += ((int) pc.getTotalBonusTo("RANGEMULT", "THROWN") / 100.0);
 			}
 			else if (eq.isProjectile())
 			{
 				r += (int) pc.getTotalBonusTo("RANGEADD", "PROJECTILE");
-				postAdd =
-						(int) pc.getTotalBonusTo("POSTRANGEADD", "PROJECTILE");
-				rangeMult +=
-						((int) pc.getTotalBonusTo("RANGEMULT", "PROJECTILE") / 100.0);
+				postAdd = (int) pc.getTotalBonusTo("POSTRANGEADD", "PROJECTILE");
+				rangeMult += ((int) pc.getTotalBonusTo("RANGEMULT", "PROJECTILE") / 100.0);
 			}
 		}
-	
+
 		r *= rangeMult;
 		r += postAdd;
-	
+
 		return r;
 	}
 
@@ -388,7 +367,7 @@ public class EqToken extends Token
 		{
 			return "-";
 		}
-	
+
 		return "x" + Integer.toString(mult);
 	}
 
@@ -400,7 +379,7 @@ public class EqToken extends Token
 	 */
 	public static String getAcCheckToken(PlayerCharacter pc, Equipment eq)
 	{
-		return getAcCheckTokenInt(pc, eq) + "";
+		return String.valueOf(getAcCheckTokenInt(pc, eq));
 	}
 
 	/**
@@ -411,15 +390,12 @@ public class EqToken extends Token
 	 */
 	public static int getAcCheckTokenInt(PlayerCharacter pc, Equipment eq)
 	{
-		String acCheckVar =
-				ControlUtilities.getControlToken(Globals.getContext(),
-					CControl.EQACCHECK);
+		String acCheckVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.EQACCHECK);
 		if (acCheckVar == null)
 		{
 			return eq.preFormulaAcCheck(pc);
 		}
-		return ((Number) eq.getLocalVariable(pc.getCharID(), acCheckVar))
-			.intValue();
+		return ((Number) eq.getLocalVariable(pc.getCharID(), acCheckVar)).intValue();
 	}
 
 	/**
@@ -430,7 +406,7 @@ public class EqToken extends Token
 	 */
 	public static String getAcModToken(PlayerCharacter pc, Equipment eq)
 	{
-		return getAcModTokenInt(pc, eq) + "";
+		return String.valueOf(getAcModTokenInt(pc, eq));
 	}
 
 	/**
@@ -441,7 +417,7 @@ public class EqToken extends Token
 	 */
 	public static int getAcModTokenInt(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getACMod(pc).intValue();
+		return eq.getACMod(pc);
 	}
 
 	/**
@@ -462,9 +438,7 @@ public class EqToken extends Token
 	 */
 	public static String getAltCritRangeToken(PlayerCharacter pc, Equipment eq)
 	{
-		String critRangeVar =
-				ControlUtilities.getControlToken(Globals.getContext(),
-					CControl.CRITRANGE);
+		String critRangeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.CRITRANGE);
 		if (critRangeVar == null)
 		{
 			int critRange = getOldBonusedCritRange(pc, eq, false);
@@ -473,8 +447,7 @@ public class EqToken extends Token
 		else
 		{
 			EquipmentHead head = eq.getEquipmentHead(2);
-			return WeaponToken.getCritRangeHead(pc, head, critRangeVar)
-				.toString();
+			return WeaponToken.getCritRangeHead(pc, head, critRangeVar).toString();
 		}
 	}
 
@@ -497,7 +470,7 @@ public class EqToken extends Token
 	 */
 	public static String getAttacksToken(PlayerCharacter pc, Equipment eq)
 	{
-		return getAttacksTokenDouble(pc, eq) + "";
+		return String.valueOf(getAttacksTokenDouble(pc, eq));
 	}
 
 	/**
@@ -518,7 +491,7 @@ public class EqToken extends Token
 	 */
 	public static String getCarriedToken(Equipment eq)
 	{
-		return getCarriedTokenFloat(eq) + "";
+		return String.valueOf(getCarriedTokenFloat(eq));
 	}
 
 	/**
@@ -528,7 +501,7 @@ public class EqToken extends Token
 	 */
 	public static float getCarriedTokenFloat(Equipment eq)
 	{
-		return eq.numberCarried().floatValue();
+		return eq.numberCarried();
 	}
 
 	/**
@@ -542,7 +515,7 @@ public class EqToken extends Token
 		int charges = getChargesTokenInt(eq);
 		if (charges >= 0)
 		{
-			retString = charges + "";
+			retString = String.valueOf(charges);
 		}
 		return retString;
 	}
@@ -568,7 +541,7 @@ public class EqToken extends Token
 		int charges = getChargesUsedTokenInt(eq);
 		if (charges >= 0)
 		{
-			retString = charges + "";
+			retString = String.valueOf(charges);
 		}
 		return retString;
 	}
@@ -589,8 +562,7 @@ public class EqToken extends Token
 	 * @param eq
 	 * @return Content Weight Token as double
 	 */
-	public static double getContentWeightTokenDouble(PlayerCharacter pc,
-		Equipment eq)
+	public static double getContentWeightTokenDouble(PlayerCharacter pc, Equipment eq)
 	{
 		if (eq.getChildCount() == 0)
 		{
@@ -606,8 +578,7 @@ public class EqToken extends Token
 	 * @param tokenizer
 	 * @return Contents Token
 	 */
-	public static String getContentsToken(PlayerCharacter pc, Equipment eq,
-		StringTokenizer tokenizer)
+	public static String getContentsToken(PlayerCharacter pc, Equipment eq, StringTokenizer tokenizer)
 	{
 		if (tokenizer.hasMoreTokens())
 		{
@@ -622,8 +593,7 @@ public class EqToken extends Token
 			try
 			{
 				int contentsIndex = Integer.parseInt(bType);
-				return getEqToken(pc, eq.getContainedByIndex(contentsIndex),
-					aSubTag, tokenizer);
+				return getEqToken(pc, eq.getContainedByIndex(contentsIndex), aSubTag, tokenizer);
 			}
 			catch (NumberFormatException e)
 			{
@@ -650,7 +620,7 @@ public class EqToken extends Token
 	 */
 	public static String getContentsNumToken(Equipment eq)
 	{
-		return getContentsNumTokenInt(eq) + "";
+		return String.valueOf(getContentsNumTokenInt(eq));
 	}
 
 	/**
@@ -692,9 +662,7 @@ public class EqToken extends Token
 	 */
 	public static String getCritRangeToken(PlayerCharacter pc, Equipment eq)
 	{
-		String critRangeVar =
-				ControlUtilities.getControlToken(Globals.getContext(),
-					CControl.CRITRANGE);
+		String critRangeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.CRITRANGE);
 		if (critRangeVar == null)
 		{
 			int critRange = getOldBonusedCritRange(pc, eq, true);
@@ -703,8 +671,7 @@ public class EqToken extends Token
 		else
 		{
 			EquipmentHead head = eq.getEquipmentHead(1);
-			return WeaponToken.getCritRangeHead(pc, head, critRangeVar)
-				.toString();
+			return WeaponToken.getCritRangeHead(pc, head, critRangeVar).toString();
 		}
 	}
 
@@ -724,8 +691,7 @@ public class EqToken extends Token
 	 * @param eq
 	 * @return Description Token
 	 */
-	public static String getDescriptionToken(final PlayerCharacter aPC,
-		Equipment eq)
+	public static String getDescriptionToken(final PlayerCharacter aPC, Equipment eq)
 	{
 		return aPC.getDescription(eq);
 	}
@@ -738,7 +704,7 @@ public class EqToken extends Token
 	 */
 	public static String getEdrToken(PlayerCharacter pc, Equipment eq)
 	{
-		return getEdrTokenInt(pc, eq) + "";
+		return String.valueOf(getEdrTokenInt(pc, eq));
 	}
 
 	/**
@@ -749,12 +715,10 @@ public class EqToken extends Token
 	 */
 	public static int getEdrTokenInt(PlayerCharacter pc, Equipment eq)
 	{
-		String edrVar =
-				ControlUtilities.getControlToken(Globals.getContext(), CControl.EDR);
+		String edrVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.EDR);
 		if (edrVar == null)
 		{
-			return Math.max(0, eq.getSafe(IntegerKey.EDR)
-				+ (int) eq.bonusTo(pc, "EQMARMOR", "EDR", true));
+			return Math.max(0, eq.getSafe(IntegerKey.EDR) + (int) eq.bonusTo(pc, "EQMARMOR", "EDR", true));
 		}
 		return (Integer) eq.getLocalVariable(pc.getCharID(), edrVar);
 	}
@@ -811,7 +775,7 @@ public class EqToken extends Token
 			return fr == null ? "" : fr;
 		}
 		return (String) eq.getLocalVariable(pc.getCharID(), frVar);
-		
+
 	}
 
 	/**
@@ -872,7 +836,7 @@ public class EqToken extends Token
 		int charges = getMaxChargesTokenInt(eq);
 		if (charges >= 0)
 		{
-			retString = charges + "";
+			retString = String.valueOf(charges);
 		}
 		return retString;
 	}
@@ -895,18 +859,13 @@ public class EqToken extends Token
 	 */
 	public static int getMaxDexTokenInt(PlayerCharacter pc, Equipment eq)
 	{
-		String maxDexVar =
-				ControlUtilities
-					.getControlToken(Globals.getContext(), CControl.EQMAXDEX);
+		String maxDexVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.EQMAXDEX);
 		if (maxDexVar == null)
 		{
-			int mdex =
-					eq.getSafe(IntegerKey.MAX_DEX)
-						+ (int) eq.bonusTo(pc, "EQMARMOR", "MAXDEX", true);
+			int mdex = eq.getSafe(IntegerKey.MAX_DEX) + (int) eq.bonusTo(pc, "EQMARMOR", "MAXDEX", true);
 			return Math.min(Constants.MAX_MAXDEX, Math.max(0, mdex));
 		}
-		return ((Number) eq.getLocalVariable(pc.getCharID(), maxDexVar))
-			.intValue();
+		return ((Number) eq.getLocalVariable(pc.getCharID(), maxDexVar)).intValue();
 	}
 
 	/**
@@ -947,8 +906,7 @@ public class EqToken extends Token
 	 */
 	public static String getQtyToken(Equipment eq)
 	{
-		return BigDecimalHelper.trimZeros(Double
-			.toString(getQtyDoubleToken(eq)));
+		return BigDecimalHelper.trimZeros(Double.toString(getQtyDoubleToken(eq)));
 	}
 
 	/**
@@ -983,8 +941,7 @@ public class EqToken extends Token
 	 */
 	public static String getCheckboxesToken(Equipment eq)
 	{
-		return BigDecimalHelper.trimZeros(Double
-			.toString(getCheckboxesDoubleToken(eq)));
+		return BigDecimalHelper.trimZeros(Double.toString(getCheckboxesDoubleToken(eq)));
 	}
 
 	/**
@@ -995,8 +952,7 @@ public class EqToken extends Token
 	 */
 	public static String getRangeToken(Equipment eq, PlayerCharacter pc)
 	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			getRange(pc, eq).intValue())
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(getRange(pc, eq))
 			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 
@@ -1037,22 +993,18 @@ public class EqToken extends Token
 	 */
 	public static String getSourceToken(Equipment eq)
 	{
-		return SourceFormat.getFormattedString(eq,
-		Globals.getSourceDisplay(), true);
+		return SourceFormat.getFormattedString(eq, Globals.getSourceDisplay(), true);
 	}
 
 	public static int getSpellFailureTokenInt(PlayerCharacter pc, Equipment eq)
 	{
-		String spellFailVar =
-				ControlUtilities.getControlToken(Globals.getContext(),
-					CControl.EQSPELLFAILURE);
+		String spellFailVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.EQSPELLFAILURE);
 		if (spellFailVar == null)
 		{
-			return Math.max(0, eq.getSafe(IntegerKey.SPELL_FAILURE)
-				+ (int) eq.bonusTo(pc, "EQMARMOR", "SPELLFAILURE", true));
+			return Math.max(0,
+				eq.getSafe(IntegerKey.SPELL_FAILURE) + (int) eq.bonusTo(pc, "EQMARMOR", "SPELLFAILURE", true));
 		}
-		return ((Number) eq.getLocalVariable(pc.getCharID(), spellFailVar))
-			.intValue();
+		return ((Number) eq.getLocalVariable(pc.getCharID(), spellFailVar)).intValue();
 	}
 
 	/**
@@ -1072,8 +1024,7 @@ public class EqToken extends Token
 	 * @param eq
 	 * @return Total Weight Token as double
 	 */
-	public static double getTotalWeightTokenDouble(PlayerCharacter pc,
-		Equipment eq)
+	public static double getTotalWeightTokenDouble(PlayerCharacter pc, Equipment eq)
 	{
 		return getContentWeightTokenDouble(pc, eq) + getWtTokenDouble(pc, eq);
 	}
@@ -1127,8 +1078,7 @@ public class EqToken extends Token
 	 * @param type
 	 * @return List
 	 */
-	public static List<Equipment> listNotType(
-		List<Equipment> eqList, String type)
+	public static List<Equipment> listNotType(List<Equipment> eqList, String type)
 	{
 		return EquipmentUtilities.removeEqType(eqList, type);
 	}
@@ -1140,8 +1090,7 @@ public class EqToken extends Token
 	 * @param type
 	 * @return List
 	 */
-	public static List<Equipment> listAddType(PlayerCharacter pc,
-		List<Equipment> eqList, String type)
+	public static List<Equipment> listAddType(PlayerCharacter pc, List<Equipment> eqList, String type)
 	{
 		return pc.addEqType(eqList, type);
 	}
@@ -1157,8 +1106,7 @@ public class EqToken extends Token
 		return EquipmentUtilities.removeNotEqType(eqList, type);
 	}
 
-	protected static String getEqToken(PlayerCharacter pc, Equipment eq,
-		String token, StringTokenizer tokenizer)
+	protected static String getEqToken(PlayerCharacter pc, Equipment eq, String token, StringTokenizer tokenizer)
 	{
 		String retString = "";
 
@@ -1176,21 +1124,15 @@ public class EqToken extends Token
 		}
 		else if ("WT".equals(token) || "ITEMWEIGHT".equals(token))
 		{
-			retString =
-					Globals.getGameModeUnitSet().displayWeightInUnitSet(
-						getWtTokenDouble(pc, eq));
+			retString = Globals.getGameModeUnitSet().displayWeightInUnitSet(getWtTokenDouble(pc, eq));
 		}
 		else if ("TOTALWT".equals(token))
 		{
-			retString =
-					Globals.getGameModeUnitSet().displayWeightInUnitSet(
-						getTotalWtTokenDouble(pc, eq));
+			retString = Globals.getGameModeUnitSet().displayWeightInUnitSet(getTotalWtTokenDouble(pc, eq));
 		}
 		else if ("TOTALWEIGHT".equals(token))
 		{
-			retString =
-					Globals.getGameModeUnitSet().displayWeightInUnitSet(
-						getTotalWeightTokenDouble(pc, eq));
+			retString = Globals.getGameModeUnitSet().displayWeightInUnitSet(getTotalWeightTokenDouble(pc, eq));
 		}
 		else if ("ISTYPE".equals(token))
 		{
@@ -1202,9 +1144,7 @@ public class EqToken extends Token
 		}
 		else if ("CONTENTWEIGHT".equals(token))
 		{
-			retString =
-					Globals.getGameModeUnitSet().displayWeightInUnitSet(
-						getContentWeightTokenDouble(pc, eq));
+			retString = Globals.getGameModeUnitSet().displayWeightInUnitSet(getContentWeightTokenDouble(pc, eq));
 		}
 		else if ("COST".equals(token))
 		{
@@ -1307,8 +1247,8 @@ public class EqToken extends Token
 				Set<String> qualities = new TreeSet<>();
 				for (Map.Entry<String, String> me : qualityMap.entrySet())
 				{
-					qualities.add(new StringBuilder().append(me.getKey())
-							.append(": ").append(me.getValue()).toString());
+					qualities
+						.add(new StringBuilder().append(me.getKey()).append(": ").append(me.getValue()).toString());
 				}
 				return StringUtil.join(qualities, ", ");
 			}

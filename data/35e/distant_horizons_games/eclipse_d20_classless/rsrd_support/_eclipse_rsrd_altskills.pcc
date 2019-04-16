@@ -1,0 +1,114 @@
+# CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
+CAMPAIGN:Eclipse - The Codex Persona (RSRD) - Alternate Skills
+RANK:5
+GAMEMODE:35e
+GENRE:Any
+BOOKTYPE:EclipseCore
+SETTING:Any
+STATUS:RELEASE
+PRECAMPAIGN:1,BOOKTYPE=Core Rules
+TYPE:Distant Horizons Games.Eclipse
+PUBNAMELONG:Distant Horizons Games
+PUBNAMESHORT:DHG
+PUBNAMEWEB:http://ruscumag.wordpress.com/atheria-d20/
+SOURCELONG:Eclipse - The Codex Persona
+SOURCESHORT:Eclipse
+SOURCEWEB:http://www.lulu.com/content/435647
+SOURCEDATE:2005-01
+# COMMENT: Unknown Month - Set as 01
+ISOGL:YES
+
+COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document, Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Character Portraits: Fantasy Heroes copyright 2003, Mongoose Publishing
+COPYRIGHT:Eclipse: The Codex Persona copyright 2005 by Paul Melroy and Patrick Bryant. Distributed by Distant Horizons Games, www.DistantHorizonsGames.Com
+COPYRIGHT:PCGen dataset conversion for "Eclipse: The Codex Persona" Copyright 2010, PCGen Data Team (Including, but not limited to Andrew Maitland (LegacyKing))
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+#LOGO:@/publisher_logos/DHG_Logo_Border.bmp
+LOGO:@/publisher_logos/DHG_OGL_Logo.jpg
+
+COVER:51254.jpg
+DATACONTROL:*/_universal/datacontrols_no_align.lst
+RACE:*/_universal/races.lst
+
+
+ABILITY:eclipse_rsrd_abilities.lst
+ABILITY:eclipse_rsrd_abilities_skills.lst
+
+ABILITYCATEGORY:eclipse_rsrd_ability_categories.lst
+
+CLASS:eclipse_rsrd_class_mods.lst
+SKILL:eclipse_rsrd_skills_altrules.lst
+SKILL:eclipse_rsrd_skills_modsalt.lst
+WEAPONPROF:eclipse_rsrd_profs_weapons.lst
+#Block: Universal Functions -------------------------------------------
+BONUS:ABILITYPOOL|Disadvantages|3|PREVARGTEQ:EclipseClass,1
+
+
+
+#Block: Core Files ---------------------------------------------------------
+#PCC:../eclipse.pcc
+#COMMENT: Direct Reference is best
+
+DATACONTROL:../eclipse__datacontrols.lst
+ABILITY:../eclipse_abilities.lst
+ABILITY:../eclipse_abilities_disadvantages.lst
+ABILITY:../eclipse_abilities_martial_arts.lst
+ABILITY:../eclipse_abilities_misc.lst
+ABILITY:../eclipse_abilities_mods.lst
+ABILITY:../eclipse_abilities_paths.lst
+ABILITY:../eclipse_abilities_proficiencies.lst
+ABILITY:../eclipse_abilities_racial.lst
+ABILITY:../eclipse_abilities_enchantments.lst
+ABILITY:../eclipse_abilities_combat_enhancements.lst
+ABILITY:../eclipse_abilities_companion.lst
+ABILITY:../eclipse_abilities_enchantments.lst
+
+ABILITYCATEGORY:../eclipse_ability_categories.lst
+
+CLASS:../eclipse_class.lst
+
+COMPANIONMOD:../eclipse_companionmods.lst
+
+EQUIPMENT:../eclipse_equip.lst
+
+ABILITY:../eclipse_feats.lst
+
+KIT:../eclipse_kits.lst
+
+#LANGUAGE:../eclipse_languages.lst
+RACE:eclipse_rsrd_races_companions.lst
+RACE:../eclipse_races_companions.lst
+RACE:../eclipse_races_samples.lst
+
+ARMORPROF:../eclipse_profs_armor.lst
+SHIELDPROF:../eclipse_profs_shields.lst
+WEAPONPROF:../eclipse_profs_weapons.lst
+
+SPELL:../eclipse_spells.lst
+SKILL:../eclipse_skills.lst
+SKILL:../eclipse_skills_ma.lst
+
+TEMPLATE:../eclipse_templates.lst
+
+#DEITY:../eclipse_deities.lst
+#DOMAIN:../eclipse_domains.lst
+#EQUIPMOD:../eclipse_equipmods_base.lst
+
+
+
+###Block: Declutter TYPES - not needed to be seen.
+HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
+HIDETYPE:FEAT|DisadvantageCounter|Corruptable|General|NaturalMagicChoice|ManaChoice|Awareness|Base Attack Bonus|HD|SkillBuy|WayofDragonsCraft|WayofDragonsSpeech
+HIDETYPE:FEAT|WayofWingsofFire|WayofHostingtheEssence|WayofInnerFire|WayoftheArtificer
+HIDETYPE:FEAT|ArtoftheOccult|PathofDissonance|CelebratedWay|ChordsOfFate|PathOfWhispers|PathOfArtisticMastery|Synergy|Manipulation|Inspiration
+HIDETYPE:FEAT|MartialArtsSkill|OccultMartialTech|MasterMartialTech|AdvancedMartialTech|BasicTechnique
+HIDETYPE:FEAT|Channeling|PathOfInfusions|PlanarBonds|HandOfDarkness|HatredsWeal|GloriousTouch|ChannelingBasicUpgrade|ChannelingBaseUpgrade
+HIDETYPE:FEAT|Focusing|MultipleMedia
+HIDETYPE:FEAT|CharCreation|DivineWrath|Hexcrafting|PathOfThePharaoh|SpellCasterOutput|SpiritWeapon|SpiritWeaponCap|SpiritWeaponDamage|TheBoundlessRealms|TidesOfLightAndDark
+HIDETYPE:FEAT|WayOfOmnipresence|WayOfTheLands|WayOfValor|WitchcraftOutput|Special Ability|ChannelingBase|EclipseAbilityOutput
+
+HIDETYPE:SKILL|AdeptChoice|NormalSkill|MartialArtsStyle|Sample
+HIDETYPE:SKILL|OccultSkill|ThaumaturgyNecromancy|ThaumaturgyWeatherControl|ThaumaturgyPsychokinesis|ThaumaturgyTelepathy|ThaumaturgyWarping|ThaumaturgyHealing|ThaumaturgyESP|ThaumaturgyMysticism|TheurgicalVerb|TheurgicalNoun

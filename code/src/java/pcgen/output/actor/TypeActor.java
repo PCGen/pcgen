@@ -1,5 +1,4 @@
 /*
- * TypeActor.java
  * Copyright 2016 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,14 +15,12 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jun 8, 2016, 10:44:28 PM
  */
 package pcgen.output.actor;
 
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 import java.util.ArrayList;
 import java.util.List;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
@@ -31,24 +28,20 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.output.base.OutputActor;
 import pcgen.output.model.CollectionModel;
 
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
+
 /**
  * A TypeActor is designed to process an interpolation and convert the
  types of a CDOMObject into a TemplateModel.
  * 
  * Note that the actual name of the interpolation is stored externally to this
  * Actor (in CDOMObjectWrapperInfo to be precise)
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class TypeActor implements OutputActor<CDOMObject>
 {
-
-	/**
-	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
-	 * java.lang.Object)
-	 */
 	@Override
-	public TemplateModel process(CharID id, CDOMObject d)
-			throws TemplateModelException
+	public TemplateModel process(CharID id, CDOMObject d) throws TemplateModelException
 	{
 		final List<Type> types = d.getSafeListFor(ListKey.TYPE);
 		List<String> strings = new ArrayList<>(types.size());

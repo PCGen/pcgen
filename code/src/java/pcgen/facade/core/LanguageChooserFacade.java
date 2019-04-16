@@ -1,5 +1,4 @@
 /*
- * LanguageChooserFacade.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,17 +15,13 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 10, 2010, 12:37:07 PM
  */
 package pcgen.facade.core;
 
-import pcgen.facade.util.ReferenceFacade;
+import pcgen.core.Language;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public interface LanguageChooserFacade
 {
 
@@ -34,13 +29,13 @@ public interface LanguageChooserFacade
 	 *
 	 * @return the currently available languages
 	 */
-	ListFacade<LanguageFacade> getAvailableList();
+	ListFacade<Language> getAvailableList();
 
 	/**
 	 * 
 	 * @return the currently selected languages
 	 */
-	ListFacade<LanguageFacade> getSelectedList();
+	ListFacade<Language> getSelectedList();
 
 	/**
 	 * adds a language to the selected list and
@@ -48,7 +43,7 @@ public interface LanguageChooserFacade
 	 * is no longer available
 	 * @param language the language to be added
 	 */
-	void addSelected(LanguageFacade language);
+	void addSelected(Language language);
 
 	/**
 	 * removes a language from the selected list and
@@ -56,7 +51,7 @@ public interface LanguageChooserFacade
 	 * is now available
 	 * @param language the language to be removed
 	 */
-	void removeSelected(LanguageFacade language);
+	void removeSelected(Language language);
 
 	ReferenceFacade<Integer> getRemainingSelections();
 
@@ -69,7 +64,6 @@ public interface LanguageChooserFacade
 	 * undos any changes made to the selected and available list
 	 */
 	void rollback();
-
 
 	/**
 	 * this returns the string that will be displayed in the summary tab, as

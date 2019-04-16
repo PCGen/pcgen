@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.spell;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
@@ -27,11 +25,13 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class SpellResTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 {
 
 	static SpellresToken token = new SpellresToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

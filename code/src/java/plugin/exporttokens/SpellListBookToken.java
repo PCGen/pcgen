@@ -15,13 +15,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Jul 15, 2004
- *
- * $Id$
- *
  */
 package plugin.exporttokens;
+
+import java.util.List;
 
 import pcgen.core.Globals;
 import pcgen.core.PObject;
@@ -31,14 +28,9 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
 
-import java.util.List;
-
 /**
- * <code>SpellListBookToken</code> gives a comma delimited list of spells
+ * {@code SpellListBookToken} gives a comma delimited list of spells
  * known for the specified spellcaster class number and level (if any).
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class SpellListBookToken extends SpellListToken
@@ -46,27 +38,18 @@ public class SpellListBookToken extends SpellListToken
 	/** token name */
 	public static final String TOKENNAME = "SPELLLISTBOOK";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		StringBuilder retValue = new StringBuilder();
 
-		SpellListTokenParams params =
-				new SpellListTokenParams(tokenSource,
-					SpellListToken.SPELLTAG_BOOK);
+		SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_BOOK);
 
 		final PObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 
@@ -79,9 +62,7 @@ public class SpellListBookToken extends SpellListToken
 				bookName = pc.getDisplay().getSpellBookNames().get(params.getBookNum());
 			}
 
-			final List<CharacterSpell> spells =
-					pc.getCharacterSpells(aObject,
-						null, bookName, params.getLevel());
+			final List<CharacterSpell> spells = pc.getCharacterSpells(aObject, null, bookName, params.getLevel());
 
 			boolean needcomma = false;
 			for (CharacterSpell cs : spells)

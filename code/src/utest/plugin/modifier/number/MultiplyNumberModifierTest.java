@@ -17,23 +17,25 @@
  */
 package plugin.modifier.number;
 
-import pcgen.base.calculation.BasicCalculation;
-import pcgen.base.format.NumberManager;
-import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ManagerFactory;
-import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.solver.Modifier;
-import pcgen.base.util.FormatManager;
-import pcgen.rules.persistence.token.ModifierFactory;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Test;
+import pcgen.base.calculation.BasicCalculation;
+import pcgen.base.calculation.FormulaModifier;
+import pcgen.base.format.NumberManager;
+import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.util.FormatManager;
+import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.modifier.testsupport.EvalManagerUtilities;
-import static org.junit.Assert.*;
+
+import org.junit.jupiter.api.Test;
 
 public class MultiplyNumberModifierTest
 {
 
-	private LegalScope varScope = new SimpleLegalScope(null, "Global");
+	private final PCGenScope varScope = new GlobalScope();
 	private final FormatManager<Number> numManager = new NumberManager();
 
 	@Test
@@ -42,8 +44,8 @@ public class MultiplyNumberModifierTest
 		try
 		{
 			ModifierFactory m = new MultiplyModifierFactory();
-			m.getModifier(100, null, new ManagerFactory(){}, null, null, null);
-			fail("Expected MultiplyModifier with null multiply value to fail");
+			m.getModifier(null, new ManagerFactory(){}, null, null, null);
+				fail("Expected MultiplyModifier with null multiply value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
@@ -104,21 +106,21 @@ public class MultiplyNumberModifierTest
 	public void testProcessZero4()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
-		assertEquals(0, modifier.process(-4,0));
+		assertEquals(0, modifier.process(-4, 0));
 	}
 
 	@Test
 	public void testProcessMixed1()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
-		assertEquals(-35, modifier.process(5,-7));
+		assertEquals(-35, modifier.process(5, -7));
 	}
 
 	@Test
 	public void testProcessMixed2()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
-		assertEquals(-12, modifier.process(-4,3));
+		assertEquals(-12, modifier.process(-4, 3));
 	}
 
 	@Test
@@ -174,31 +176,32 @@ public class MultiplyNumberModifierTest
 	public void testProcessDoubleZero4()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
-		assertEquals(-0.0, modifier.process(-4.3,0.0));
+		assertEquals(-0.0, modifier.process(-4.3, 0.0));
 	}
 
 	@Test
 	public void testProcessDoubleMixed1()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
-		assertEquals(-38.16, modifier.process(5.3,-7.2));
+		assertEquals(-38.16, modifier.process(5.3, -7.2));
 	}
 
 	@Test
 	public void testProcessDoubleMixed2()
 	{
 		BasicCalculation modifier = new MultiplyModifierFactory();
-		assertEquals(-3.08, modifier.process(-2.2,1.4));
+		assertEquals(-3.08, modifier.process(-2.2, 1.4));
 	}
 
 	@Test
 	public void testGetModifier()
 	{
 		MultiplyModifierFactory factory = new MultiplyModifierFactory();
-		Modifier<Number> modifier =
-				factory.getModifier(35, "6.5", new ManagerFactory(){}, null, varScope, numManager);
-		assertEquals((35l<<32)+factory.getInherentPriority(), modifier.getPriority());
-		assertEquals(Number.class, modifier.getVariableFormat());
+		FormulaModifier<Number> modifier =
+				factory.getModifier("6.5", new ManagerFactory(){}, null, varScope, numManager);
+		modifier.addAssociation("PRIORITY=35");
+		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
+		assertEquals(numManager, modifier.getVariableFormat());
 		assertEquals(27.95, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
 	}
 }

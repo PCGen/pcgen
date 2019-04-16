@@ -1,5 +1,4 @@
 /*
- * SortableTableRowSorter.java
  * Copyright 2016 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 17, 2016, 1:10:22 PM
  */
 package pcgen.gui2.util.table;
 
@@ -25,14 +23,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
 import javax.swing.RowSorter;
 import javax.swing.SortOrder;
+
 import pcgen.util.Comparators;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class SortableTableRowSorter extends RowSorter<SortableTableModel>
 {
 
@@ -40,7 +36,7 @@ public class SortableTableRowSorter extends RowSorter<SortableTableModel>
 
 	private SortableTableModel model;
 
-	public SortableTableRowSorter()
+	protected SortableTableRowSorter()
 	{
 		this(null);
 	}
@@ -146,7 +142,7 @@ public class SortableTableRowSorter extends RowSorter<SortableTableModel>
 			return;
 		}
 		int columnCount = m.getColumnCount();
-		Comparator[] comparators = new Comparator[columnCount];
+		Comparator<?>[] comparators = new Comparator[columnCount];
 		for (int i = 0; i < columnCount; i++)
 		{
 			comparators[i] = Comparators.getComparatorFor(m.getColumnClass(i));
@@ -219,9 +215,9 @@ class RowComparator implements Comparator<Row>
 {
 
 	private final RowSorter.SortKey[] keys;
-	private final Comparator[] comparators;
+	private final Comparator<?>[] comparators;
 
-	public RowComparator(RowSorter.SortKey[] keys, Comparator[] comparators)
+	RowComparator(RowSorter.SortKey[] keys, Comparator<?>[] comparators)
 	{
 		this.keys = keys;
 		this.comparators = comparators;
@@ -298,11 +294,7 @@ class RowComparator implements Comparator<Row>
 		{
 			return false;
 		}
-		if (!Arrays.deepEquals(this.comparators, other.comparators))
-		{
-			return false;
-		}
-		return true;
+		return Arrays.deepEquals(this.comparators, other.comparators);
 	}
 
 }

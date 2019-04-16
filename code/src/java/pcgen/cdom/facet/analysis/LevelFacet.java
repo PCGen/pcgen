@@ -27,11 +27,11 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
-import pcgen.cdom.facet.model.RaceFacet;
-import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeEvent;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
+import pcgen.cdom.facet.model.RaceFacet;
+import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
@@ -40,10 +40,8 @@ import pcgen.core.Race;
  * includes the ability to distinguish what is a Monster Level, PC level, NPC
  * level, etc.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class LevelFacet extends AbstractStorageFacet<CharID> implements
-		ClassLevelChangeListener
+public class LevelFacet extends AbstractStorageFacet<CharID> implements ClassLevelChangeListener
 {
 	private TemplateFacet templateFacet;
 	private RaceFacet raceFacet;
@@ -199,27 +197,25 @@ public class LevelFacet extends AbstractStorageFacet<CharID> implements
 	/**
 	 * Data structure for caching level information about a Player Character
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
 	private static class LevelCacheInfo
 	{
 		public int monsterLevels;
 		public int nonMonsterLevels;
-		
+
 		@Override
 		public int hashCode()
 		{
 			return monsterLevels * nonMonsterLevels;
 		}
-		
+
 		@Override
 		public boolean equals(Object o)
 		{
 			if (o instanceof LevelCacheInfo)
 			{
 				LevelCacheInfo other = (LevelCacheInfo) o;
-				return monsterLevels == other.monsterLevels
-					&& nonMonsterLevels == other.nonMonsterLevels;
+				return monsterLevels == other.monsterLevels && nonMonsterLevels == other.nonMonsterLevels;
 			}
 			return false;
 		}
@@ -290,8 +286,8 @@ public class LevelFacet extends AbstractStorageFacet<CharID> implements
 	 * Interface for a LevelChangeListener that wants to receive
 	 * LevelChangeEvents from LevelFacet.
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
+	@FunctionalInterface
 	public static interface LevelChangeListener extends EventListener
 	{
 		public void levelChanged(LevelChangeEvent lce);
@@ -384,8 +380,7 @@ public class LevelFacet extends AbstractStorageFacet<CharID> implements
 		 */
 		protected void fireLevelChangeEvent(CharID id)
 		{
-			LevelChangeListener[] listeners = listenerList
-					.getListeners(LevelChangeListener.class);
+			LevelChangeListener[] listeners = listenerList.getListeners(LevelChangeListener.class);
 			/*
 			 * This list is decremented from the end of the list to the
 			 * beginning in order to maintain consistent operation with how Java

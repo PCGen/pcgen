@@ -17,7 +17,9 @@
  */
 package plugin.lsttokens.pcclass;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
@@ -30,11 +32,13 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static PreracetypeToken token = new PreracetypeToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -55,7 +59,7 @@ public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testInvalidEmptyInput() throws PersistenceLayerException
+	public void testInvalidEmptyInput()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
@@ -110,19 +114,19 @@ public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<Prerequisite> getObjectKey()
+	private static ObjectKey<Prerequisite> getObjectKey()
 	{
 		return ObjectKey.PRERACETYPE;
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		Prerequisite p = new Prerequisite();
 		p.setKind("RACETYPE");
@@ -151,7 +155,7 @@ public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());

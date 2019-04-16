@@ -15,13 +15,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens;
+
+import java.util.StringTokenizer;
 
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
@@ -29,8 +26,6 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Logging;
-
-import java.util.StringTokenizer;
 
 /**
  * Deals with following tokens
@@ -43,21 +38,14 @@ public class CasterLevelToken extends Token
 	/** The token name */
 	public static final String TOKENNAME = "CASTERLEVEL";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		String tag = aTok.nextToken(); // burn off CASTERLEVEL
@@ -85,8 +73,7 @@ public class CasterLevelToken extends Token
 
 		if (varName.equals("TOTAL") || varName.equals(""))
 		{
-			return Integer.toString(pc.getVariableValue(tokenSource, "TOTAL")
-				.intValue());
+			return Integer.toString(pc.getVariableValue(tokenSource, "TOTAL").intValue());
 		}
 		return getClassToken(pc, i);
 	}
@@ -107,8 +94,7 @@ public class CasterLevelToken extends Token
 			PCClass pcClass = display.getClassList().get(classNumber);
 			cString = "CLASS:" + pcClass.getKeyName();
 		}
-		return Float.toString(pc.getVariableValue(TOKENNAME, cString)
-			.intValue());
+		return Float.toString(pc.getVariableValue(TOKENNAME, cString).intValue());
 	}
 
 }

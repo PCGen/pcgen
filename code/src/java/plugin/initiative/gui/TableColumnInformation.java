@@ -23,13 +23,11 @@ import java.util.List;
 /**
  * <p>
  * This class assists in managing a set of columns for a custom
- * table model.  It is <strong>not</strong> a <code>TableColumnModel</code>,
- * but a utility class for maintaining column information inside a <code>TableModel</code>.
+ * table model.  It is <strong>not</strong> a {@code TableColumnModel},
+ * but a utility class for maintaining column information inside a {@code TableModel}.
  * </p>
  *
- * <p>Current Ver: $Revision$</p>
  * 
- * @author LodgeR
  */
 public class TableColumnInformation
 {
@@ -73,8 +71,8 @@ public class TableColumnInformation
 		 * @param peditable
 		 * @param plabel
 		 */
-		public ColStruct(String pcolumnKey, Class<?> pcolumnClass,
-			Object pdefaultValue, boolean peditable, String plabel)
+		public ColStruct(String pcolumnKey, Class<?> pcolumnClass, Object pdefaultValue, boolean peditable,
+			String plabel)
 		{
 			this.columnKey = pcolumnKey;
 			this.columnClass = pcolumnClass;
@@ -84,7 +82,7 @@ public class TableColumnInformation
 		}
 	}
 
-	/** An arraylist of <code>ColStructs</code> */
+	/** An arraylist of {@code ColStructs} */
 	private List<ColStruct> columns = null;
 
 	/**
@@ -113,12 +111,10 @@ public class TableColumnInformation
 	 * @param editable
 	 * @param label
 	 */
-	public void addColumn(int columnIndex, String columnKey,
-		Class<?> columnClass, Object defaultValue, boolean editable,
-		String label)
+	public void addColumn(int columnIndex, String columnKey, Class<?> columnClass, Object defaultValue,
+		boolean editable, String label)
 	{
-		columns.add(columnIndex, new ColStruct(columnKey, columnClass,
-			defaultValue, editable, label));
+		columns.add(columnIndex, new ColStruct(columnKey, columnClass, defaultValue, editable, label));
 	}
 
 	/**
@@ -133,11 +129,9 @@ public class TableColumnInformation
 	 * @param editable
 	 * @param label
 	 */
-	public void addColumn(String columnKey, Class<?> columnClass,
-		Object defaultValue, boolean editable, String label)
+	public void addColumn(String columnKey, Class<?> columnClass, Object defaultValue, boolean editable, String label)
 	{
-		columns.add(new ColStruct(columnKey, columnClass, defaultValue,
-			editable, label));
+		columns.add(new ColStruct(columnKey, columnClass, defaultValue, editable, label));
 	}
 
 	/**
@@ -302,7 +296,6 @@ public class TableColumnInformation
 	 * Removes all columns
 	 * </p>
 	 * 
-	 *
 	 */
 	public void removeAll()
 	{

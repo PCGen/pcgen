@@ -1,5 +1,4 @@
 /*
- * PreClassTest.java
  *
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -17,29 +16,23 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 22-Jan-2004
  *
- * Current Ver: $Revision$
  * 
  * 
- *
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreClassParser;
 
-/**
- * @author wardc
- *
- */
+import org.junit.jupiter.api.Test;
+
+
 @SuppressWarnings("nls")
 public class PreClassTest extends EnUsLocaleDependentTestCase
 {
@@ -58,65 +51,38 @@ public class PreClassTest extends EnUsLocaleDependentTestCase
 	
 	/**
 	 * Test that an error is produced if separators are incorrect
-	 * @throws Exception
 	 */
 	@Test
-	public void testInvalidSeparators() throws Exception
+	public void testInvalidSeparators()
 	{
-		try
-		{
+		assertThrows(PersistenceLayerException.class, () -> {
 			PreClassParser parser = new PreClassParser();
-			Prerequisite prereq =
-					parser.parse("class",
-						"1,,Monk=1", false, false);
-			fail("Should have thrown a PersistenceLayerException.");
-		}
-		catch (PersistenceLayerException e)
-		{
-			// Ignore, this is the expected result.
-		}
+			parser.parse("class", "1,,Monk=1", false, false);
+		});
 	}
 	
 	/**
-	 * Test that an error is produced if separators are incorrect
-	 * @throws Exception
+	 * Test that an error is produced if separators are incorrect.
 	 */
 	@Test
-	public void testInvalidCharacter() throws Exception
+	public void testInvalidCharacter()
 	{
-		try
-		{
+		assertThrows(PersistenceLayerException.class, () -> {
 			PreClassParser parser = new PreClassParser();
-			Prerequisite prereq =
-					parser.parse("class",
-						"1,Monk=1|Cleric=1", false, false);
-			fail("Should have thrown a PersistenceLayerException.");
-		}
-		catch (PersistenceLayerException e)
-		{
-			// Ignore, this is the expected result.
-		}
+			parser.parse("class", "1,Monk=1|Cleric=1", false, false);
+		});
 	}
 	
 	/**
-	 * Test that an error is produced if separators are incorrect
-	 * @throws Exception
+	 * Test that an error is produced if separators are incorrect.
 	 */
 	@Test
-	public void testInvalidNegate() throws Exception
+	public void testInvalidNegate()
 	{
-		try
-		{
-			PreClassParser parser = new PreClassParser();
-			Prerequisite prereq =
-					parser.parse("class",
-						"1,Monk=1[Cleric=1]", false, false);
-			fail("Should have thrown a PersistenceLayerException.");
-		}
-		catch (PersistenceLayerException e)
-		{
-			// Ignore, this is the expected result.
-		}
+		assertThrows(PersistenceLayerException.class, () -> {
+			PrerequisiteParserInterface parser = new PreClassParser();
+			parser.parse("class", "1,Monk=1[Cleric=1]", false, false);
+		});
 	}
 	
 }

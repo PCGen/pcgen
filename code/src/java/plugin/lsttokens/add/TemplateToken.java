@@ -44,8 +44,8 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<PCTemplate>
+public class TemplateToken extends AbstractNonEmptyToken<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<PCTemplate>
 {
 
 	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;
@@ -68,8 +68,7 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -86,20 +85,17 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 			count = FormulaFactory.getFormulaFor(activeValue);
 			if (!count.isValid())
 			{
-				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString(), context);
+				return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
 			}
 			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{
-				return new ParseResult.Fail("Count in " + getFullName()
-								+ " must be > 0", context);
+				return new ParseResult.Fail("Count in " + getFullName() + " must be > 0");
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
-			return new ParseResult.Fail(getFullName()
-					+ " had too many pipe separated items: " + value, context);
+			return new ParseResult.Fail(getFullName() + " had too many pipe separated items: " + value);
 		}
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);
 		if (!pr.passed())
@@ -111,15 +107,12 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 		StringTokenizer tok = new StringTokenizer(activeValue, Constants.COMMA);
 		while (tok.hasMoreTokens())
 		{
-			refs.add(context.getReferenceContext().getCDOMReference(PCTEMPLATE_CLASS, tok
-					.nextToken()));
+			refs.add(context.getReferenceContext().getCDOMReference(PCTEMPLATE_CLASS, tok.nextToken()));
 		}
 
-		ReferenceChoiceSet<PCTemplate> rcs = new ReferenceChoiceSet<>(
-				refs);
+		ReferenceChoiceSet<PCTemplate> rcs = new ReferenceChoiceSet<>(refs);
 		ChoiceSet<PCTemplate> cs = new ChoiceSet<>("TEMPLATE", rcs);
-		PersistentTransitionChoice<PCTemplate> tc = new ConcretePersistentTransitionChoice<>(
-				cs, count);
+		PersistentTransitionChoice<PCTemplate> tc = new ConcretePersistentTransitionChoice<>(cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
 		return ParseResult.SUCCESS;
@@ -128,10 +121,9 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<PersistentTransitionChoice<?>> grantChanges = context
-				.getObjectContext().getListChanges(obj, ListKey.ADD);
-		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges
-				.getAdded();
+		Changes<PersistentTransitionChoice<?>> grantChanges =
+				context.getObjectContext().getListChanges(obj, ListKey.ADD);
+		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges.getAdded();
 		if (addedItems == null || addedItems.isEmpty())
 		{
 			// Zero indicates no Token
@@ -146,14 +138,12 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 				Formula f = container.getCount();
 				if (f == null)
 				{
-					context.addWriteMessage("Unable to find " + getFullName()
-							+ " Count");
+					context.addWriteMessage("Unable to find " + getFullName() + " Count");
 					return null;
 				}
 				if (f.isStatic() && f.resolveStatic().doubleValue() <= 0)
 				{
-					context.addWriteMessage("Count in " + getFullName()
-							+ " must be > 0");
+					context.addWriteMessage("Count in " + getFullName() + " must be > 0");
 					return null;
 				}
 				StringBuilder sb = new StringBuilder();
@@ -177,15 +167,13 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, PCTemplate choice,
-			PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, PCTemplate choice, PlayerCharacter pc)
 	{
 		pc.addTemplate(choice);
 	}
 
 	@Override
-	public boolean allow(PCTemplate choice, PlayerCharacter pc,
-			boolean allowStack)
+	public boolean allow(PCTemplate choice, PlayerCharacter pc, boolean allowStack)
 	{
 		return !pc.hasTemplate(choice);
 	}
@@ -193,8 +181,7 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public PCTemplate decodeChoice(LoadContext context, String s)
 	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(
-				PCTEMPLATE_CLASS, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTEMPLATE_CLASS, s);
 	}
 
 	@Override
@@ -204,15 +191,13 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			PCTemplate choice)
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, PCTemplate choice)
 	{
 		//No action required
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-			PCTemplate choice)
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, PCTemplate choice)
 	{
 		pc.removeTemplate(choice);
 	}

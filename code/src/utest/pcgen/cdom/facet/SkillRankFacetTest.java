@@ -17,9 +17,9 @@
  */
 package pcgen.cdom.facet;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -28,12 +28,16 @@ import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeListener;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
-public class SkillRankFacetTest extends TestCase
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class SkillRankFacetTest
 {
 	private CharID id;
 	private CharID altid;
 	private SkillRankFacet facet = new SkillRankFacet();
-	private Skill s1, s2, s3;
+	private Skill s1;
+	private Skill s2;
 	private PCClass cl1, cl2;
 
 	private SRListener listener = new SRListener();
@@ -52,11 +56,9 @@ public class SkillRankFacetTest extends TestCase
 		}
 
 	}
-
-	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -65,7 +67,7 @@ public class SkillRankFacetTest extends TestCase
 		s1.setName("S1");
 		s2 = new Skill();
 		s2.setName("S2");
-		s3 = new Skill();
+		Skill s3 = new Skill();
 		s3.setName("S3");
 		cl1 = new PCClass();
 		cl1.setName("Cl1");
@@ -81,7 +83,7 @@ public class SkillRankFacetTest extends TestCase
 	@Test
 	public void testRankUnsetZero()
 	{
-		assertEquals(0.0f, facet.getRank(id, s1));
+		assertEquals(0.0f, facet.getRank(id, s1), 0.01);
 	}
 
 	@Test
@@ -93,15 +95,9 @@ public class SkillRankFacetTest extends TestCase
 	@Test
 	public void testAddCharIDNull()
 	{
-		try
-		{
+		assertThrows(NullPointerException.class, () -> {
 			facet.set(null, s1, cl1, 4.0);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// Yep!
-		}
+		});
 		testRankUnsetZero();
 		testUnsetEmpty();
 		assertEventCount(0);
@@ -110,15 +106,9 @@ public class SkillRankFacetTest extends TestCase
 	@Test
 	public void testAddSkillNull()
 	{
-		try
-		{
+		assertThrows(NullPointerException.class, () -> {
 			facet.set(id, null, cl1, 4.0);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// Yep!
-		}
+		});
 		testRankUnsetZero();
 		testUnsetEmpty();
 		assertEventCount(0);
@@ -132,8 +122,8 @@ public class SkillRankFacetTest extends TestCase
 		assertEventCount(0);
 		facet.set(id, s1, null, 4.0);
 		assertEventCount(1);
-		assertEquals(4.0f, facet.get(id, s1, null).floatValue());
-		assertEquals(4.0f, facet.getRank(id, s1));
+		assertEquals(4.0f, facet.get(id, s1, null).floatValue(), 0.01);
+		assertEquals(4.0f, facet.getRank(id, s1), 0.01);
 	}
 
 	@Test
@@ -144,8 +134,8 @@ public class SkillRankFacetTest extends TestCase
 		assertEventCount(0);
 		facet.set(id, s1, cl1, 4.0);
 		assertEventCount(1);
-		assertEquals(4.0f, facet.get(id, s1, cl1).floatValue());
-		assertEquals(4.0f, facet.getRank(id, s1));
+		assertEquals(4.0f, facet.get(id, s1, cl1).floatValue(), 0.01);
+		assertEquals(4.0f, facet.getRank(id, s1), 0.01);
 	}
 
 	@Test
@@ -157,9 +147,9 @@ public class SkillRankFacetTest extends TestCase
 		facet.set(id, s1, cl1, 4.0);
 		facet.set(id, s1, cl2, 2.0);
 		assertEventCount(2);
-		assertEquals(4.0f, facet.get(id, s1, cl1).floatValue());
-		assertEquals(2.0f, facet.get(id, s1, cl2).floatValue());
-		assertEquals(6.0f, facet.getRank(id, s1));
+		assertEquals(4.0f, facet.get(id, s1, cl1).floatValue(), 0.01);
+		assertEquals(2.0f, facet.get(id, s1, cl2).floatValue(), 0.01);
+		assertEquals(6.0f, facet.getRank(id, s1), 0.01);
 	}
 
 	@Test
@@ -172,14 +162,14 @@ public class SkillRankFacetTest extends TestCase
 		assertEventCount(1);
 		SkillRankChangeEvent event = listener.lastRankEvent;
 		assertEquals(s1, event.getSkill());
-		assertEquals(0.0f, event.getOldRank());
-		assertEquals(4.0f, event.getNewRank());
+		assertEquals(0.0f, event.getOldRank(), 0.01);
+		assertEquals(4.0f, event.getNewRank(), 0.01);
 		//More Ranks
 		facet.set(id, s1, cl2, 2.0);
 		event = listener.lastRankEvent;
 		assertEquals(s1, event.getSkill());
-		assertEquals(4.0f, event.getOldRank());
-		assertEquals(6.0f, event.getNewRank());
+		assertEquals(4.0f, event.getOldRank(), 0.01);
+		assertEquals(6.0f, event.getNewRank(), 0.01);
 	}
 
 	@Test
@@ -192,15 +182,15 @@ public class SkillRankFacetTest extends TestCase
 		assertEventCount(1);
 		SkillRankChangeEvent event = listener.lastRankEvent;
 		assertEquals(s1, event.getSkill());
-		assertEquals(0.0f, event.getOldRank());
-		assertEquals(4.0f, event.getNewRank());
+		assertEquals(0.0f, event.getOldRank(), 0.01);
+		assertEquals(4.0f, event.getNewRank(), 0.01);
 		//Remove
 		facet.remove(id, s1, cl1);
 		event = listener.lastRankEvent;
 		assertEquals(s1, event.getSkill());
-		assertEquals(4.0f, event.getOldRank());
-		assertEquals(0.0f, event.getNewRank());
-		assertEquals(0.0f, facet.getRank(id, s1));
+		assertEquals(4.0f, event.getOldRank(), 0.01);
+		assertEquals(0.0f, event.getNewRank(), 0.01);
+		assertEquals(0.0f, facet.getRank(id, s1), 0.01);
 	}
 
 	@Test
@@ -223,10 +213,10 @@ public class SkillRankFacetTest extends TestCase
 		assertEventCount(0);
 		facet.set(id, s1, cl1, 4);
 		assertEventCount(1);
-		assertEquals(4.0f, facet.getRank(id, s1));
+		assertEquals(4.0f, facet.getRank(id, s1), 0.01);
 		facet.remove(id, s1, cl2);
 		assertEventCount(1);
-		assertEquals(4.0f, facet.getRank(id, s1));
+		assertEquals(4.0f, facet.getRank(id, s1), 0.01);
 	}
 
 	@Test
@@ -237,24 +227,18 @@ public class SkillRankFacetTest extends TestCase
 		assertEventCount(0);
 		facet.set(id, s2, cl1, 4);
 		assertEventCount(1);
-		assertEquals(4.0f, facet.getRank(id, s2));
+		assertEquals(4.0f, facet.getRank(id, s2), 0.01);
 		facet.remove(id, s1, cl2);
 		assertEventCount(1);
-		assertEquals(4.0f, facet.getRank(id, s2));
+		assertEquals(4.0f, facet.getRank(id, s2), 0.01);
 	}
 
 	@Test
 	public void testRemoveCharIDNull()
 	{
-		try
-		{
+		assertThrows(NullPointerException.class, () -> {
 			facet.remove(null, s1, cl1);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// Yep!
-		}
+		});
 		testRankUnsetZero();
 		testUnsetEmpty();
 		assertEventCount(0);
@@ -263,15 +247,9 @@ public class SkillRankFacetTest extends TestCase
 	@Test
 	public void testRemoveSkillNull()
 	{
-		try
-		{
+		assertThrows(NullPointerException.class, () -> {
 			facet.remove(id, null, cl1);
-			fail();
-		}
-		catch (IllegalArgumentException e)
-		{
-			// Yep!
-		}
+		});
 		testRankUnsetZero();
 		testUnsetEmpty();
 		assertEventCount(0);
@@ -287,15 +265,15 @@ public class SkillRankFacetTest extends TestCase
 		assertEventCount(1);
 		SkillRankChangeEvent event = listener.lastRankEvent;
 		assertEquals(s1, event.getSkill());
-		assertEquals(0.0f, event.getOldRank());
-		assertEquals(4.0f, event.getNewRank());
+		assertEquals(0.0f, event.getOldRank(), 0.01);
+		assertEquals(4.0f, event.getNewRank(), 0.01);
 		//Remove
 		facet.remove(id, s1, null);
 		event = listener.lastRankEvent;
 		assertEquals(s1, event.getSkill());
-		assertEquals(4.0f, event.getOldRank());
-		assertEquals(0.0f, event.getNewRank());
-		assertEquals(0.0f, facet.getRank(id, s1));
+		assertEquals(4.0f, event.getOldRank(), 0.01);
+		assertEquals(0.0f, event.getNewRank(), 0.01);
+		assertEquals(0.0f, facet.getRank(id, s1), 0.01);
 	}
 
 	/*
@@ -303,27 +281,21 @@ public class SkillRankFacetTest extends TestCase
 	 */
 
 	@Test
-	public void testGetSetIndependence()
-	{
-		//TODO Not possible with NamedValue being mutable :(
-	}
-
-	@Test
 	public void testCopyContents()
 	{
 		facet.set(id, s1, cl1, 4);
 		facet.set(id, s2, cl2, 2);
-		assertEquals(0.0f, facet.getRank(altid, s1));
-		assertEquals(0.0f, facet.getRank(altid, s2));
+		assertEquals(0.0f, facet.getRank(altid, s1), 0.01);
+		assertEquals(0.0f, facet.getRank(altid, s2), 0.01);
 		facet.copyContents(id, altid);
-		assertEquals(4.0f, facet.getRank(altid, s1));
-		assertEquals(2.0f, facet.getRank(altid, s2));
+		assertEquals(4.0f, facet.getRank(altid, s1), 0.01);
+		assertEquals(2.0f, facet.getRank(altid, s2), 0.01);
 	}
 
 	@Test
 	public void testEmptyCopyContents()
 	{
 		facet.copyContents(id, altid);
-		assertEquals(0.0f, facet.getRank(altid, s1));
+		assertEquals(0.0f, facet.getRank(altid, s1), 0.01);
 	}
 }

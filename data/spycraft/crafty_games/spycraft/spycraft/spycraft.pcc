@@ -1,13 +1,9 @@
-# CVS $Revision$ $Author$ -- Thu Jun 10 06:35:40 2004 -- reformated by prettylst.pl v1.32 (build 353)
-#
-# Spycraft PCGen dataset by Eddy Anthony
-#
-
 CAMPAIGN:Spycraft Espionage Handbook
 GAMEMODE:Spycraft
-RANK:1
+RANK:0
 GENRE:Espionage
 BOOKTYPE:Core Rules
+STATUS:RELEASE
 SETTING:Spycraft
 TYPE:Crafty Games.Spycraft.Core Rules
 PUBNAMELONG:Crafty Games
@@ -33,8 +29,13 @@ URL:RPG Now|http://rpg.drivethrustuff.com/index.php?cPath=562&affiliate_id=71282
 #EXTRAFILE:OGL.txt
 #EXTRAFILE:help_spycraft.html
 #PCC:@/homebrew/conversion_support/conversion_support.pcc
+#COMMENT: CORE BOOK
+DATACONTROL:*/_universal/datacontrols_no_align.lst
+RACE:*/_universal/races.lst
+
 SAVE:spycraft__saves.lst
 STAT:spycraft__stats.lst
+SIZE:spycraft__sizes.lst
 
 ABILITY:spycraft_abilities.lst
 ABILITY:spycraft_abilities_class.lst
@@ -72,6 +73,9 @@ SKILL:spycraft_skills_mod.lst
 
 
 HIDETYPE:SKILL|UnlockedPotential
+#
+# Spycraft PCGen dataset by Eddy Anthony
+#
 
 #
 # End

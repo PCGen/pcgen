@@ -17,13 +17,15 @@
  */
 package plugin.lsttokens.kit.skill;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.core.kit.KitSkill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import org.junit.jupiter.api.Test;
 
 public class RankTokenTest extends AbstractKitTokenTestCase<KitSkill>
 {
@@ -63,7 +65,7 @@ public class RankTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	}
 
 	@Test
-	public void testInvalidInputFormula() throws PersistenceLayerException
+	public void testInvalidInputFormula()
 	{
 		assertFalse(parse("FormulaProhibited"));
 	}
@@ -75,7 +77,7 @@ public class RankTokenTest extends AbstractKitTokenTestCase<KitSkill>
 //	}
 
 	@Test
-	public void testInvalidInputNegative() throws PersistenceLayerException
+	public void testInvalidInputNegative()
 	{
 		assertFalse(parse("-1"));
 	}

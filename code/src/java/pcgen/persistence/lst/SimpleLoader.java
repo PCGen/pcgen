@@ -18,6 +18,7 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Loadable;
@@ -31,19 +32,14 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 
 	public SimpleLoader(Class<T> cl)
 	{
-		if (cl == null)
-		{
-			throw new IllegalArgumentException("Loaded Class cannot be null");
-		}
+		Objects.requireNonNull(cl, "Loaded Class cannot be null");
 		loadClass = cl;
 	}
 
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-			throws PersistenceLayerException
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
 	{
-		StringTokenizer colToken = new StringTokenizer(lstLine,
-				SystemLoader.TAB_DELIM);
+		StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		String firstToken = colToken.nextToken().trim();
 		Loadable loadable = getLoadable(context, firstToken.intern(), sourceURI);
 		if (loadable == null)
@@ -53,12 +49,17 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 
 		while (colToken.hasMoreTokens())
 		{
-			LstUtils.processToken(context, loadable, sourceURI, colToken.nextToken());
+			processNonFirstToken(context, sourceURI, colToken.nextToken(), loadable);
 		}
 	}
 
-	protected T getLoadable(LoadContext context, String firstToken,
-			URI sourceURI) throws PersistenceLayerException
+	protected void processNonFirstToken(LoadContext context, URI sourceURI,
+		String token, Loadable loadable) throws PersistenceLayerException
+	{
+		LstUtils.processToken(context, loadable, sourceURI, token);
+	}
+
+	protected T getLoadable(LoadContext context, String firstToken, URI sourceURI)
 	{
 		String name = processFirstToken(context, firstToken);
 		if (name == null)

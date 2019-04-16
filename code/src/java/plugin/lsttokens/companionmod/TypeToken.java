@@ -19,10 +19,8 @@ package plugin.lsttokens.companionmod;
 
 import java.util.Collection;
 
-import pcgen.cdom.base.Category;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.cdom.list.CompanionList;
 import pcgen.core.character.CompanionMod;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -31,12 +29,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class TypeToken extends AbstractNonEmptyToken<CompanionMod> implements
-		CDOMPrimaryToken<CompanionMod>
+public class TypeToken extends AbstractNonEmptyToken<CompanionMod> implements CDOMPrimaryToken<CompanionMod>
 {
-
-	private static final Class<CompanionList> COMPANIONLIST_CLASS =
-			CompanionList.class;
 
 	@Override
 	public String getTokenName()
@@ -45,28 +39,18 @@ public class TypeToken extends AbstractNonEmptyToken<CompanionMod> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CompanionMod mod, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CompanionMod mod, String value)
 	{
 		//TODO Check for "." and warn?
 		Type type = Type.getConstant(value);
 		context.getObjectContext().addToList(mod, ListKey.TYPE, type);
-		final Category<CompanionMod> cat =
-				context.getReferenceContext().constructNowIfNecessary(COMPANIONLIST_CLASS, value);
-		if (cat == null)
-		{
-			return new ParseResult.Fail("Cannot find Companion List: "
-				+ value, context);
-		}
-		context.getReferenceContext().reassociateCategory(cat, mod);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, CompanionMod mod)
 	{
-		Changes<Type> changes =
-				context.getObjectContext().getListChanges(mod, ListKey.TYPE);
+		Changes<Type> changes = context.getObjectContext().getListChanges(mod, ListKey.TYPE);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
@@ -78,8 +62,7 @@ public class TypeToken extends AbstractNonEmptyToken<CompanionMod> implements
 			{
 				return new String[]{added.iterator().next().toString()};
 			}
-			Logging.errorPrint("CompanionMod " + mod.getKeyName()
-				+ " had more than one TYPE specified.  "
+			Logging.errorPrint("CompanionMod " + mod.getKeyName() + " had more than one TYPE specified.  "
 				+ "A single TYPE is required for a CompanionMod.");
 		}
 		return null;

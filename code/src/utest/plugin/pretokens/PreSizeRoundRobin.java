@@ -17,9 +17,6 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.SizeAdjustment;
 import plugin.lsttokens.testsupport.BuildUtilities;
@@ -31,18 +28,7 @@ public class PreSizeRoundRobin extends AbstractComparatorRoundRobin
 {
 	protected SizeAdjustment medium;
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreSizeRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSizeRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

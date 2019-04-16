@@ -1,5 +1,4 @@
 /*
- * JLabelPane.java
  * Copyright 2001 (C) Jonas Karlsson <jujutsunerd@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -17,24 +16,22 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA
  *
- * Created on June 4, 2002
  */
 package pcgen.gui2.util;
 
-import pcgen.cdom.base.Constants;
-
 import javax.swing.JEditorPane;
 
+import pcgen.cdom.base.Constants;
+
 /**
- *  <code>JLabelPane</code> extends <code>JEditorPane</code> for PCGen
+ *  {@code JLabelPane} extends {@code JEditorPane} for PCGen
  *  Label panes
  *
- * @author &lt;a href="mailto:jujutsunerd@users.sourceforge.net"&gt;Jonas Karlsson&lt;/a&gt;
  */
 public final class JLabelPane extends JEditorPane
 {
 	/**
-	 * Create default HTML "label", an HTML <code>JEditorPane</code>
+	 * Create default HTML "label", an HTML {@code JEditorPane}
 	 */
 	public JLabelPane()
 	{
@@ -59,16 +56,16 @@ public final class JLabelPane extends JEditorPane
 
 	/**
 	 * Update the text in a non-editable HTML "label". If the label
-	 * is <code>null</code>, use a default, blank HTML string
+	 * is {@code null}, use a default, blank HTML string
 	 *
-	 * @param newContents String new contents of pane or <code>null</code>
+	 * @param newContents String new contents of pane or {@code null}
 	 */
 	@Override
 	public void setText(String newContents)
 	{
 		String labelText = newContents;
 
-		if ((newContents == null) || (newContents.length() == 0))
+		if ((newContents == null) || (newContents.isEmpty()))
 		{
 			labelText = Constants.WRAPPED_NONE_SELECTED;
 		}

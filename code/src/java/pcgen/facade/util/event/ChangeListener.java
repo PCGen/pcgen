@@ -1,5 +1,4 @@
 /*
- * ChangeListener.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,20 +14,14 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 16/01/2012 8:48:48 AM
- *
- * $Id$
  */
 package pcgen.facade.util.event;
 
 /**
- * The interface <code>ChangeListener</code> should be implemented by classes interested in 
+ * The interface {@code ChangeListener} should be implemented by classes interested in
  * object changes.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 @FunctionalInterface

@@ -22,22 +22,19 @@ import plugin.overland.util.RBCost;
 
 /**
  * Implementation of RoomBoard. This class is package view on purpose.
- *
- * @author Vincent Lhote
- *
  */
 class RoomBoardImplementation implements RoomBoard
 {
 	private final PairList<RBCost> animals; //holds animal costs
 	private final PairList<RBCost> foods; //holds inn costs
 	private final PairList<RBCost> inns; //holds inn costs
-	
+
 	/**
 	 * @param inns
 	 * @param foods
 	 * @param animals
 	 */
-	public RoomBoardImplementation(PairList<RBCost> inns, PairList<RBCost> foods, PairList<RBCost> animals)
+	RoomBoardImplementation(PairList<RBCost> inns, PairList<RBCost> foods, PairList<RBCost> animals)
 	{
 		this.inns = inns;
 		// TODO Auto-generated constructor stub
@@ -48,7 +45,7 @@ class RoomBoardImplementation implements RoomBoard
 	/**
 	 * @return the animals
 	 */
-    @Override
+	@Override
 	public PairList<RBCost> getAnimals()
 	{
 		return animals;
@@ -57,7 +54,7 @@ class RoomBoardImplementation implements RoomBoard
 	/**
 	 * @return the foods
 	 */
-    @Override
+	@Override
 	public PairList<RBCost> getFoods()
 	{
 		return foods;
@@ -66,7 +63,7 @@ class RoomBoardImplementation implements RoomBoard
 	/**
 	 * @return the inns
 	 */
-    @Override
+	@Override
 	public PairList<RBCost> getInns()
 	{
 		return inns;

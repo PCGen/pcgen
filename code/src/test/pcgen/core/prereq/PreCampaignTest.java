@@ -1,5 +1,4 @@
 /*
- * PreCampaignTest.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 27/07/2008 15:46:38
- *
- * $Id$
  */
 package pcgen.core.prereq;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -36,14 +34,14 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
- * The Class <code>PreCampaignTest</code> checks the processing
+ * The Class {@code PreCampaignTest} checks the processing
  * of the PRECAMPAIGN tag.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreCampaignTest extends AbstractCharacterTestCase
 {
@@ -54,6 +52,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	private Campaign camp4Wild;
 	private Campaign camp6TypeParent;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

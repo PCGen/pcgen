@@ -1,5 +1,4 @@
 /*
- * TabTitle.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,13 +15,13 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 3, 2010, 5:36:10 PM
  */
 package pcgen.gui2.tabs;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
 
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
@@ -31,20 +30,17 @@ import pcgen.util.enumeration.Tab;
  * A container for information relating to how a character tab should be
  * displayed.
  * 
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class TabTitle
 {
 
-	public static final String FOREGROUND = "foreground"; //$NON-NLS-1$
-	public static final String BACKGROUND = "background"; //$NON-NLS-1$
-	public static final String ENABLED = "enabled"; //$NON-NLS-1$
+	static final String ENABLED = "enabled"; //$NON-NLS-1$
 	public static final String TITLE = "title"; //$NON-NLS-1$
-	public static final String ICON = "icon"; //$NON-NLS-1$
-	public static final String TOOLTIP = "tooltip"; //$NON-NLS-1$
+	static final String ICON = "icon"; //$NON-NLS-1$
+	static final String TOOLTIP = "tooltip"; //$NON-NLS-1$
 	public static final String TAB = "tab"; //$NON-NLS-1$
-	private PropertyChangeSupport support;
-	private Hashtable<String, Object> table;
+	private final PropertyChangeSupport support;
+	private final Map<String, Object> propertyTable;
 
 	/**
 	 * Create a new TabTitle instance for a specific tab.
@@ -83,7 +79,7 @@ public class TabTitle
 	public TabTitle()
 	{
 		support = new PropertyChangeSupport(this);
-		table = new Hashtable<>();
+		propertyTable = new HashMap<>();
 	}
 
 	public void addPropertyChangeListener(PropertyChangeListener l)
@@ -91,19 +87,14 @@ public class TabTitle
 		support.addPropertyChangeListener(l);
 	}
 
-	public void removePropertyChangeListener(PropertyChangeListener l)
-	{
-		support.removePropertyChangeListener(l);
-	}
-
 	public Object getValue(String prop)
 	{
-		return table.get(prop);
+		return propertyTable.get(prop);
 	}
 
 	public void putValue(String prop, Object value)
 	{
-		support.firePropertyChange(prop, table.put(prop, value), value);
+		support.firePropertyChange(prop, propertyTable.put(prop, value), value);
 	}
 
 	public void setEnabled(boolean enable)

@@ -24,6 +24,7 @@ import pcgen.core.AgeSet;
 
 public class AgeSetFacetTest extends AbstractItemFacetTest<AgeSet>
 {
+	private static int n = 0;
 
 	private final AgeSetFacet facet = new AgeSetFacet();
 
@@ -33,11 +34,12 @@ public class AgeSetFacetTest extends AbstractItemFacetTest<AgeSet>
 		return facet;
 	}
 
-	private int n = 0;
-
 	@Override
 	protected AgeSet getItem()
 	{
-		return new AgeSet("AgeSet" + n, n++);
+		AgeSet ageSet = new AgeSet();
+		ageSet.setName("AgeSet" + n);
+		ageSet.setAgeIndex(n++);
+		return ageSet;
 	}
 }

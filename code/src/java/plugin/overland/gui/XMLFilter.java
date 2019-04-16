@@ -14,22 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
- package plugin.overland.gui;
+package plugin.overland.gui;
 
-/**
- * @author  devon
- */
 public class XMLFilter implements java.io.FilenameFilter
 {
-	/** Creates a new instance of XMLFilter */
-	public XMLFilter()
-	{
-		// Empty Constructor
-	}
-
 	/**
 	 * Return true if filter matches *.xml
 	 * 
@@ -37,7 +26,7 @@ public class XMLFilter implements java.io.FilenameFilter
 	 * @param str 
 	 * @return true if filter matches 
 	 */
-    @Override
+	@Override
 	public boolean accept(java.io.File file, String str)
 	{
 		return str.matches(".*\\.xml$"); //$NON-NLS-1$

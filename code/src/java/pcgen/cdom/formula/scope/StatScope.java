@@ -17,47 +17,49 @@
  */
 package pcgen.cdom.formula.scope;
 
-import pcgen.base.formula.base.LegalScope;
+import java.util.Optional;
+
+import pcgen.base.util.FormatManager;
+import pcgen.core.PCStat;
+import pcgen.rules.context.LoadContext;
 
 /**
  * Defines a Scope that covers variables local to PCStat objects
  */
-public class StatScope implements LegalScope
+public class StatScope implements PCGenScope
 {
 
 	/**
 	 * The parent of this scope (once loaded)
 	 */
-	private LegalScope parent;
+	private Optional<PCGenScope> parent;
 
-	/**
-	 * The String representation of the objects covered by this Scope
-	 * 
-	 * @see pcgen.base.formula.base.LegalScope#getName()
-	 */
 	@Override
 	public String getName()
 	{
 		return "STAT";
 	}
 
-	/**
-	 * @see pcgen.base.formula.base.LegalScope#getParentScope()
-	 */
 	@Override
-	public LegalScope getParentScope()
+	public Optional<PCGenScope> getParentScope()
 	{
 		return parent;
 	}
 
 	/**
-	 * Sets the parent LegalScope for this PCStatScope.
+	 * Sets the parent PCGenScope for this PCStatScope.
 	 * 
 	 * @param parent
-	 *            The parent LegalScope for this PCStatScope
+	 *            The parent PCGenScope for this PCStatScope
 	 */
-	public void setParent(LegalScope parent)
+	public void setParent(PCGenScope parent)
 	{
-		this.parent = parent;
+		this.parent = Optional.of(parent);
+	}
+
+	@Override
+	public FormatManager<PCStat> getFormatManager(LoadContext context)
+	{
+		return context.getReferenceContext().getManufacturer(PCStat.class);
 	}
 }

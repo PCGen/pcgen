@@ -24,11 +24,8 @@ import java.util.Observable;
 
 /**
  * <p>The model for the pluging -- basically a linked list of open
- * dice bags.  This is an <code>Observable</code> class that sends
+ * dice bags.  This is an {@code Observable} class that sends
  * out messages to observers (views).</p>
- *
- * @author Ross M. Lodge
- *
  */
 public class DiceBagPluginModel extends Observable
 {
@@ -37,14 +34,6 @@ public class DiceBagPluginModel extends Observable
 
 	/** A list of the open dice-bags */
 	private List<DiceBagModel> m_diceBags = new ArrayList<>();
-
-	/**
-	 * <p>Default (and only) constructor.  Creates an empty model.</p>
-	 */
-	public DiceBagPluginModel()
-	{
-		// Empty Constructor
-	}
 
 	/**
 	 * <p>Sets the currently active bag.</p>
@@ -67,7 +56,7 @@ public class DiceBagPluginModel extends Observable
 	}
 
 	/**
-	 * <p>Adds a new dice bag.  Generates a <code>DICE_BAG_ADDED</code> message.</p>
+	 * <p>Adds a new dice bag.  Generates a {@code DICE_BAG_ADDED} message.</p>
 	 */
 	public void addNewDicebag()
 	{
@@ -78,7 +67,7 @@ public class DiceBagPluginModel extends Observable
 	}
 
 	/**
-	 * <p>Closes the requested dice bag; generates a <code>DICE_BAG_REMOVED</code>
+	 * <p>Closes the requested dice bag; generates a {@code DICE_BAG_REMOVED}
 	 * message.</p>
 	 *
 	 * @param bag Bag to close
@@ -92,7 +81,7 @@ public class DiceBagPluginModel extends Observable
 
 	/**
 	 * <p>Loads a dice bag from file.
-	 * Generates a <code>DICE_BAG_ADDED</code> message.</p>
+	 * Generates a {@code DICE_BAG_ADDED} message.</p>
 	 *
 	 * @param f File to load
 	 * @return TRUE or FALSE
@@ -109,7 +98,7 @@ public class DiceBagPluginModel extends Observable
 	}
 
 	/**
-	 * <p>Saves a dice bag to a file; generates the <code>DICE_BAG_SAVED</code>
+	 * <p>Saves a dice bag to a file; generates the {@code DICE_BAG_SAVED}
 	 * message.</p>
 	 *
 	 * @param bag bag to save

@@ -40,14 +40,13 @@ import pcgen.util.Logging;
 public class EquipmentLoader implements Loader
 {
 
-	public static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
+	private static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;
 	private final ListKey<CampaignSourceEntry> listkey;
 	private final EditorLoadContext context;
 	private final Writer changeLogWriter;
 
-	public EquipmentLoader(EditorLoadContext lc,
-		ListKey<CampaignSourceEntry> lk, Writer changeLogWriter)
+	public EquipmentLoader(EditorLoadContext lc, ListKey<CampaignSourceEntry> lk, Writer changeLogWriter)
 	{
 		context = lc;
 		listkey = lk;
@@ -55,9 +54,8 @@ public class EquipmentLoader implements Loader
 	}
 
 	@Override
-	public List<CDOMObject> process(StringBuilder sb, int line,
-			String lineString, ConversionDecider decider)
-			throws PersistenceLayerException, InterruptedException
+	public List<CDOMObject> process(StringBuilder sb, int line, String lineString, ConversionDecider decider)
+		throws PersistenceLayerException, InterruptedException
 	{
 		String[] tokens = lineString.split(FIELD_SEPARATOR);
 		if (tokens.length == 0)
@@ -71,16 +69,15 @@ public class EquipmentLoader implements Loader
 		{
 			String token = tokens[tok];
 			sb.append(FIELD_SEPARATOR);
-			if (token.length() == 0)
+			if (token.isEmpty())
 			{
 				continue;
 			}
 
 			Equipment obj = context.getReferenceContext().constructCDOMObject(EQUIPMENT_CLASS,
-					line + "Test" + tok + " " + token);
+				line + "Test" + tok + " " + token);
 			obj.put(StringKey.CONVERT_NAME, tokens[0]);
-			List<CDOMObject> injected = processToken(sb, objectName, obj,
-					token, decider, line);
+			List<CDOMObject> injected = processToken(sb, objectName, obj, token, decider, line);
 			if (injected != null)
 			{
 				list.addAll(injected);
@@ -101,15 +98,13 @@ public class EquipmentLoader implements Loader
 		return list;
 	}
 
-	private List<CDOMObject> processToken(StringBuilder sb, String objectName,
-			CDOMObject obj, String token, ConversionDecider decider, int line)
-			throws PersistenceLayerException, InterruptedException
+	private List<CDOMObject> processToken(StringBuilder sb, String objectName, CDOMObject obj, String token,
+		ConversionDecider decider, int line)
 	{
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
 		{
-			Logging.errorPrint("Invalid Token - does not contain a colon: "
-					+ token);
+			Logging.errorPrint("Invalid Token - does not contain a colon: " + token);
 			return null;
 		}
 		else if (colonLoc == 0)
@@ -119,10 +114,8 @@ public class EquipmentLoader implements Loader
 		}
 
 		String key = token.substring(0, colonLoc);
-		String value = (colonLoc == token.length() - 1) ? null : token
-				.substring(colonLoc + 1);
-		TokenProcessEvent tpe = new TokenProcessEvent(context, decider, key,
-				value, objectName, obj);
+		String value = (colonLoc == token.length() - 1) ? null : token.substring(colonLoc + 1);
+		TokenProcessEvent tpe = new TokenProcessEvent(context, decider, key, value, objectName, obj);
 		String error = TokenConverter.process(tpe);
 		if (tpe.isConsumed())
 		{
@@ -130,7 +123,8 @@ public class EquipmentLoader implements Loader
 			{
 				try
 				{
-					changeLogWriter.append("Line " + line + " converted '"+token+"' to '" + tpe.getResult() +"'.\n");
+					changeLogWriter
+						.append("Line " + line + " converted '" + token + "' to '" + tpe.getResult() + "'.\n");
 				}
 				catch (IOException e)
 				{
@@ -151,10 +145,4 @@ public class EquipmentLoader implements Loader
 	{
 		return c.getSafeListFor(listkey);
 	}
-
-	public String getLoadName()
-	{
-		return EQUIPMENT_CLASS.getSimpleName();
-	}
-
 }

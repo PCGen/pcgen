@@ -1,5 +1,4 @@
 /*
- * MessageHandlerManager.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 16/02/2014 9:19:23 am
  *
- * $Id$
  */
 package pcgen.pluginmgr;
 
@@ -28,32 +25,30 @@ import pcgen.pluginmgr.messages.ComponentAddedMessage;
 import pcgen.pluginmgr.messages.ComponentRemovedMessage;
 
 /**
- * The Class <code>MessageHandlerManager</code> records the list of message handlers
+ * The Class {@code MessageHandlerManager} records the list of message handlers
  * and ensures that they get advised of any messages in order. 
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class MessageHandlerManager
 {
 	private final PCGenMessageHandler postbox;
 	private final EventListenerList chain;
-	
+
 	public MessageHandlerManager()
 	{
 		chain = new EventListenerList();
 		postbox = new PCGenMessagePostbox();
 	}
-	
+
 	public void addMember(PCGenMessageHandler plugin)
 	{
 		// Add the plugin to the chain of responsibility.
 		chain.add(PCGenMessageHandler.class, plugin);
 		postbox.handleMessage(new ComponentAddedMessage(this, plugin));
 	}
-	
+
 	public void removeMember(PCGenMessageHandler plugin)
 	{
 		postbox.handleMessage(new ComponentRemovedMessage(this, plugin));
@@ -61,7 +56,6 @@ public class MessageHandlerManager
 		chain.remove(PCGenMessageHandler.class, plugin);
 	}
 
-	
 	/**
 	 * @return the postbox to be used to despatch messages 
 	 */
@@ -71,9 +65,9 @@ public class MessageHandlerManager
 	}
 
 	/* ------------------------------------------------------------- */
-	
+
 	/**
-	 * The Class <code>PCGenMessagePostbox</code> distributes PCGenMessages
+	 * The Class {@code PCGenMessagePostbox} distributes PCGenMessages
 	 * to all handlers registered in the parent ChainOfResponsibility. The handlers 
 	 * are advised in order (with the source of the message advised last) however 
 	 * messages may be consumed in which case no further handlers are advised of 
@@ -94,8 +88,7 @@ public class MessageHandlerManager
 			{
 				if (listeners[i] == PCGenMessageHandler.class)
 				{
-					PCGenMessageHandler handler =
-							(PCGenMessageHandler) listeners[i + 1];
+					PCGenMessageHandler handler = (PCGenMessageHandler) listeners[i + 1];
 					if (handler == msg.getSource())
 					{
 						sourceListening = true;
@@ -118,6 +111,6 @@ public class MessageHandlerManager
 				((PCGenMessageHandler) msg.getSource()).handleMessage(msg);
 			}
 		}
-		
+
 	}
 }

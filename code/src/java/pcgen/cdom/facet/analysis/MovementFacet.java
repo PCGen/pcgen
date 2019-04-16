@@ -26,16 +26,15 @@ import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.core.Movement;
+import pcgen.core.SimpleMovement;
 
 /**
  * MovementFacet is a Facet that tracks the Movement objects that are contained
  * in a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class MovementFacet extends AbstractSourcedListFacet<CharID, Movement> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class MovementFacet extends AbstractSourcedListFacet<CharID, SimpleMovement>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
@@ -51,29 +50,17 @@ public class MovementFacet extends AbstractSourcedListFacet<CharID, Movement> im
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		/*
-		 * TODO Should consider here whether this should get input from
-		 * BaseMovementFacet vs. capturing these directly. The reason that this
-		 * is done directly is that BaseMovementFacet would have to override
-		 * methods to get this add done, so that is risky, then since this is
-		 * already listening to the consolidated objectfacet, yet another class
-		 * would be required to do the listening for Movement objects added into
-		 * BaseMovementFacet. This is not unreasonable, though perhaps not pure
-		 * in that this uses to ListKey objects.
-		 */
-		List<Movement> ml = cdo.getListFor(ListKey.BASE_MOVEMENT);
+		List<SimpleMovement> ml = cdo.getListFor(ListKey.BASE_MOVEMENT);
 		if (ml != null)
 		{
 			addAll(dfce.getCharID(), ml, cdo);
 		}
-		ml = cdo.getListFor(ListKey.MOVEMENT);
+		ml = cdo.getListFor(ListKey.SIMPLEMOVEMENT);
 		if (ml != null)
 		{
 			addAll(dfce.getCharID(), ml, cdo);
@@ -91,8 +78,6 @@ public class MovementFacet extends AbstractSourcedListFacet<CharID, Movement> im
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)

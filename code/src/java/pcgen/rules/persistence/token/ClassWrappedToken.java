@@ -69,25 +69,20 @@ public class ClassWrappedToken implements CDOMCompatibilityToken<PCClassLevel>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, PCClassLevel obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, PCClassLevel obj, String value)
 	{
 		if (ONE.equals(obj.get(IntegerKey.LEVEL)))
 		{
 			PCClass parent = (PCClass) obj.get(ObjectKey.TOKEN_PARENT);
-			if (parent instanceof SubClass
-					|| parent instanceof SubstitutionClass)
+			if (parent instanceof SubClass || parent instanceof SubstitutionClass)
 			{
-				return new ParseResult.Fail("Data used token: " + value
-						+ " which is a Class token, "
-						+ "but it was used in a class level for a "
-						+ parent.getClass().getSimpleName(), context);
+				return new ParseResult.Fail("Data used token: " + value + " which is a Class token, "
+					+ "but it was used in a class level for a " + parent.getClass().getSimpleName());
 			}
 			return wrappedToken.parseToken(context, parent, value);
 		}
-		return new ParseResult.Fail("Data used token: " + value
-				+ " which is a Class token, "
-				+ "but it was used in a class level line other than level 1", context);
+		return new ParseResult.Fail("Data used token: " + value + " which is a Class token, "
+			+ "but it was used in a class level line other than level 1");
 	}
 
 	@Override

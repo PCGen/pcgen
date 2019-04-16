@@ -1,5 +1,4 @@
 /*
- * LanguageChooserDialog.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 8, 2010, 3:35:32 PM
  */
 package pcgen.gui2.dialog;
 
@@ -44,13 +42,13 @@ import javax.swing.JSplitPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.WindowConstants;
 
+import pcgen.core.Language;
 import pcgen.facade.core.LanguageChooserFacade;
-import pcgen.facade.core.LanguageFacade;
-import pcgen.facade.util.event.ReferenceEvent;
-import pcgen.facade.util.event.ReferenceListener;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FacadeListModel;
@@ -63,19 +61,15 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class LanguageChooserDialog extends JDialog implements ActionListener, ReferenceListener<Integer>
 {
 
 	private final LanguageChooserFacade chooser;
-	private final JTreeViewTable<LanguageFacade> availTable;
+	private final JTreeViewTable<Language> availTable;
 	private final JLabel remainingLabel;
 	private final LangTreeViewModel treeViewModel;
-	private final FacadeListModel<LanguageFacade> listModel;
-	private final JListEx list;
+	private final FacadeListModel<Language> listModel;
+	private final JListEx<Language> list;
 
 	public LanguageChooserDialog(Frame frame, LanguageChooserFacade chooser)
 	{
@@ -84,7 +78,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		this.availTable = new JTreeViewTable<>();
 		this.remainingLabel = new JLabel();
 		this.treeViewModel = new LangTreeViewModel();
-		this.list = new JListEx();
+		this.list = new JListEx<>();
 		this.listModel = new FacadeListModel<>();
 
 		treeViewModel.setDelegate(chooser.getAvailableList());
@@ -191,9 +185,9 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 			{
 				for (Object object : data)
 				{
-					if (object instanceof LanguageFacade)
+					if (object instanceof Language)
 					{
-						chooser.addSelected((LanguageFacade) object);
+						chooser.addSelected((Language) object);
 					}
 				}
 			}
@@ -204,7 +198,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 			Object value = list.getSelectedValue();
 			if (value != null)
 			{
-				chooser.removeSelected((LanguageFacade) value);
+				chooser.removeSelected((Language) value);
 			}
 			return;
 		}
@@ -219,16 +213,16 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		dispose();
 	}
 
-	private static class LangTreeViewModel extends DelegatingListFacade<LanguageFacade> implements TreeViewModel<LanguageFacade>,
-			DataView<LanguageFacade>//, TreeView<LanguageFacade>
+	private static class LangTreeViewModel extends DelegatingListFacade<Language>
+			implements TreeViewModel<Language>, DataView<Language>//, TreeView<LanguageFacade>
 	{
-		private static final ListFacade<TreeView<LanguageFacade>> views =
-                new DefaultListFacade<>(Arrays.asList(LanguageTreeView.values()));
+		private static final ListFacade<TreeView<Language>> VIEWS =
+				new DefaultListFacade<>(Arrays.asList(LanguageTreeView.values()));
 
 		@Override
-		public ListFacade<? extends TreeView<LanguageFacade>> getTreeViews()
+		public ListFacade<? extends TreeView<Language>> getTreeViews()
 		{
-			return views;
+			return VIEWS;
 		}
 
 		@Override
@@ -238,25 +232,25 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		}
 
 		@Override
-		public DataView<LanguageFacade> getDataView()
+		public DataView<Language> getDataView()
 		{
 			return this;
 		}
 
 		@Override
-		public ListFacade<LanguageFacade> getDataModel()
+		public ListFacade<Language> getDataModel()
 		{
 			return this;
 		}
 
 		@Override
-		public Object getData(LanguageFacade element, int column)
+		public Object getData(Language element, int column)
 		{
 			return null;
 		}
 
 		@Override
-		public void setData(Object value, LanguageFacade element, int column)
+		public void setData(Object value, Language element, int column)
 		{
 		}
 
@@ -274,11 +268,11 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 
 	}
 
-	private enum LanguageTreeView implements TreeView<LanguageFacade>
+	private enum LanguageTreeView implements TreeView<Language>
 	{
 		NAME("in_nameLabel"), //$NON-NLS-1$
 		TYPE_NAME("in_typeName"); //$NON-NLS-1$
-		
+
 		private final String name;
 
 		private LanguageTreeView(String name)
@@ -293,15 +287,15 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		}
 
 		@Override
-		public List<TreeViewPath<LanguageFacade>> getPaths(LanguageFacade pobj)
+		public List<TreeViewPath<Language>> getPaths(Language pobj)
 		{
-			List<TreeViewPath<LanguageFacade>> paths = new ArrayList<>();
+			List<TreeViewPath<Language>> paths = new ArrayList<>();
 			switch (this)
 			{
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case TYPE_NAME:
-					for(String type : pobj.getTypes())
+					for (String type : getTypes(pobj))
 					{
 						paths.add(new TreeViewPath<>(pobj, type));
 					}
@@ -310,6 +304,16 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 					throw new InternalError();
 			}
 		}
-		
+
+		private List<String> getTypes(Language pobj)
+		{
+			List<String> typeList = new ArrayList<>();
+			for (pcgen.cdom.enumeration.Type type : pobj.getTrueTypeList(false))
+			{
+				typeList.add(type.toString());
+			}
+			return typeList;
+		}
+
 	}
 }

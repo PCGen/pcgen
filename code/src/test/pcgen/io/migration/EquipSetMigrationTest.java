@@ -1,5 +1,4 @@
 /*
- * EquipSetMigrationTest.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 05/05/2013 1:37:20 PM
- *
- * $Id$
  */
 package pcgen.io.migration;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
@@ -31,20 +28,19 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.character.EquipSet;
 import pcgen.util.TestHelper;
 
-/**
- * The Class <code>EquipSetMigrationTest</code> verifies the EquipSetMigration
- * class is functioning correctly.
- *
- * <br/>
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- */
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
+/**
+ * The Class {@code EquipSetMigrationTest} verifies the EquipSetMigration
+ * class is functioning correctly.
+ */
 public class EquipSetMigrationTest extends AbstractCharacterTestCase
 {
-	private final int[] preOrderedVer = {6,0,1};
-	private final int[] postOrderedVer = {6,1,3};
+	private final int[] preOrderedVer = {6, 0, 1};
+	private final int[] postOrderedVer = {6, 1, 3};
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -59,16 +55,18 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for {@link pcgen.io.migration.EquipSetMigration#migrateEquipSets(pcgen.core.PlayerCharacter, int[])}.
 	 */
+	@Test
 	public void testMigrateEquipSetsNoEquip()
 	{
 		PlayerCharacter pc = getCharacter();
 		EquipSetMigration.migrateEquipSets(pc, preOrderedVer);
-		assertEquals("No equipsets", 0, pc.getDisplay().getEquipSet().size());
+		assertEquals(0, pc.getDisplay().getEquipSet().size(), "No equipsets");
 	}
 
 	/**
 	 * Test method for {@link pcgen.io.migration.EquipSetMigration#migrateEquipSets(pcgen.core.PlayerCharacter, int[])}.
 	 */
+	@Test
 	public void testMigrateEquipSetsSimpleEquipSet()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -93,7 +91,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 		EquipSetMigration.migrateEquipSets(pc, preOrderedVer);
 		List<EquipSet> migratedList = (List<EquipSet>) pc.getDisplay()
 			.getEquipSet();
-		assertEquals("Unexpected number of equipsets", 4, migratedList.size());
+		assertEquals(4, migratedList.size(), "Unexpected number of equipsets");
 		verifyEquipSet(migratedList.get(0), "0.1", null);
 		verifyEquipSet(migratedList.get(1), "0.1.01", eqItemOne);
 		verifyEquipSet(migratedList.get(2), "0.1.02", eqItemTwo);
@@ -103,6 +101,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for {@link pcgen.io.migration.EquipSetMigration#renumberEquipmentSets(pcgen.core.PlayerCharacter)}.
 	 */
+	@Test
 	public void testRenumberEquipmentSetsNestedEquipSet()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -127,7 +126,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 		EquipSetMigration.renumberEquipmentSets(pc);
 		List<EquipSet> migratedList = (List<EquipSet>) pc.getDisplay()
 			.getEquipSet();
-		assertEquals("Unexpected number of equipsets", 5, migratedList.size());
+		assertEquals(5, migratedList.size(), "Unexpected number of equipsets");
 		verifyEquipSet(migratedList.get(0), "0.1", null);
 		verifyEquipSet(migratedList.get(1), "0.1.02", eqItemOne);
 		verifyEquipSet(migratedList.get(2), "0.1.01", eqBackpack);
@@ -138,6 +137,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for {@link pcgen.io.migration.EquipSetMigration#renumberEquipmentSets(pcgen.core.PlayerCharacter)}.
 	 */
+	@Test
 	public void testRenumberEquipmentSetsMultipleEquipSet()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -174,7 +174,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 		EquipSetMigration.renumberEquipmentSets(pc);
 		List<EquipSet> migratedList = (List<EquipSet>) pc.getDisplay()
 			.getEquipSet();
-		assertEquals("Unexpected number of equipsets", 9, migratedList.size());
+		assertEquals(9, migratedList.size(), "Unexpected number of equipsets");
 		verifyEquipSet(migratedList.get(0), "0.1", null);
 		verifyEquipSet(migratedList.get(2), "0.1.01", eqItemOne);
 		verifyEquipSet(migratedList.get(3), "0.1.02", eqItemTwo);
@@ -189,6 +189,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for {@link pcgen.io.migration.EquipSetMigration#migrateEquipSets(pcgen.core.PlayerCharacter, int[])}.
 	 */
+	@Test
 	public void testMigrateEquipSetsNoMigrate()
 	{
 		PlayerCharacter pc = getCharacter();
@@ -213,30 +214,30 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 		EquipSetMigration.migrateEquipSets(pc, postOrderedVer);
 		List<EquipSet> migratedList = (List<EquipSet>) pc.getDisplay()
 			.getEquipSet();
-		assertEquals("Unexpected number of equipsets", 4, migratedList.size());
+		assertEquals(4, migratedList.size(), "Unexpected number of equipsets");
 		verifyEquipSet(migratedList.get(0), "0.1", null);
 		verifyEquipSet(migratedList.get(1), "0.1.1", eqItemOne);
 		verifyEquipSet(migratedList.get(2), "0.1.6", eqItemTwo);
 		verifyEquipSet(migratedList.get(3), "0.1.4", eqItemThree);
 	}
 	
-	private void verifyEquipSet(EquipSet equipSet, String expectedIdPath, Equipment expectedItem)
+	private static void verifyEquipSet(EquipSet equipSet, String expectedIdPath, Equipment expectedItem)
 	{
-		assertEquals("Unexpected item", expectedItem, equipSet.getItem());
-		assertEquals("Unexpected path", expectedIdPath, equipSet.getIdPath());
+		assertEquals(expectedItem, equipSet.getItem(), "Unexpected item");
+		assertEquals(expectedIdPath, equipSet.getIdPath(), "Unexpected path");
 	}
 
 	/**
 	 * Add the equipment item to the equipset.
 	 * 
 	 * @param pc The character owning the set
-	 * @param es The set to add the item to
 	 * @param item The item of equipment
 	 * @param qty The number to be placed in the location.
+	 * @param id The set to add the item to
 	 * @return The new EquipSet object for the item.
 	 */
-	private EquipSet equipItem(PlayerCharacter pc, 
-		Equipment item, float qty, String locName, String id)
+	private static EquipSet equipItem(PlayerCharacter pc,
+	                                  Equipment item, float qty, String locName, String id)
 	{
 		EquipSet newSet = new EquipSet(id, locName, item.getName(), item);
 		item.setQty(qty);

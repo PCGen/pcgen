@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountVisionTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,17 +16,13 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 20:42:33
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
 import pcgen.core.display.CharacterDisplay;
 
-public class PCCountVisionTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCCountVisionTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountVisionTermEvaluator(String originalText)
 	{

@@ -14,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core;
 
@@ -26,6 +21,7 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.StringJoiner;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
@@ -45,15 +41,11 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.system.PCGenSettings;
 
 /**
- * <code>PObject</code><br>
+ * {@code PObject}<br>
  * This is the base class for several objects in the PCGen database.
- *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @author Joe.Frazier
- *
  */
-public class PObject extends CDOMObject implements Cloneable, Serializable, Comparable<Object>,
-	KeyedListContainer, QualifyingObject
+public class PObject extends CDOMObject
+		implements Cloneable, Serializable, Comparable<Object>, KeyedListContainer, QualifyingObject
 {
 
 	private HiddenTypeFacet hiddenTypeFacet = FacetLibrary.getFacet(HiddenTypeFacet.class);
@@ -62,7 +54,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	private static final long serialVersionUID = 1;
 
 	private final Class<?> myClass = getClass();
-	
+
 	/* ************
 	 * Methods
 	 * ************/
@@ -92,10 +84,8 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 
 	/**
 	 * Compares the keys of the object.
-	 * 
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
-    @Override
+	@Override
 	public int compareTo(final Object obj)
 	{
 		if (obj != null)
@@ -106,14 +96,10 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return 1;
 	}
 
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
-	public boolean equals( final Object obj )
+	public boolean equals(final Object obj)
 	{
-		return obj instanceof PObject
-				&& getKeyName().equalsIgnoreCase(((PObject) obj).getKeyName());
+		return obj instanceof PObject && getKeyName().equalsIgnoreCase(((PObject) obj).getKeyName());
 	}
 
 	//Temporarily commented out since unit tests are badly behaved, see COD#E-1895
@@ -172,7 +158,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		}
 		return Collections.unmodifiableList(ret);
 	}
-	
+
 	/**
 	 * If aType begins with an &#34; (Exclamation Mark) the &#34; will be
 	 * removed before checking the type.
@@ -180,7 +166,6 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	 * @param aType
 	 * @return Whether the item is of this type
 	 * 
-	 * Note:  This method is overridden in Equipment.java
 	 */
 	@Override
 	public boolean isType(final String aType)
@@ -195,7 +180,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			myType = aType.substring(1).toUpperCase();
 		}
-		else if (aType.startsWith("TYPE=") || aType.startsWith("TYPE."))	//$NON-NLS-1$ //$NON-NLS-2$
+		else if (aType.startsWith("TYPE=") || aType.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 		{
 			myType = aType.substring(5).toUpperCase();
 		}
@@ -203,7 +188,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		{
 			myType = aType.toUpperCase();
 		}
-		
+
 		//
 		// Must match all listed types in order to qualify
 		//
@@ -221,8 +206,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	@Override
 	public String toString()
 	{
-		if (PCGenSettings.OPTIONS_CONTEXT.getBoolean(
-			PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS, false))
+		if (PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS, false))
 		{
 			return getOutputName();
 		}
@@ -230,41 +214,35 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 		return getDisplayName();
 	}
 
-    /**
-     * @return true if the name of this item is Product Identity (i.e owned by the publisher)
-     */
-    public boolean isNamePI()
-    {
-    	return getSafe(ObjectKey.NAME_PI);
-    }
-    
+	/**
+	 * @return true if the name of this item is Product Identity (i.e owned by the publisher)
+	 */
+	public boolean isNamePI()
+	{
+		return getSafe(ObjectKey.NAME_PI);
+	}
+
 	/**
 	 * Get the PCC text with the saved name
 	 * @return the PCC text with the saved name
 	 */
 	public String getPCCText()
 	{
-		final StringBuilder txt = new StringBuilder(200);
-		txt.append(getDisplayName());
-		txt.append("\t");
-		txt.append(StringUtil.joinToStringBuilder(Globals.getContext().unparse(
-				this), "\t"));
-		txt.append("\t");
-		txt.append(PrerequisiteWriter.prereqsToString(this));
+		StringJoiner txt = new StringJoiner("\t");
+		txt.add(getDisplayName());
+		Globals.getContext().unparse(this).forEach(item -> txt.add(item));
+		txt.add(PrerequisiteWriter.prereqsToString(this));
 		return txt.toString();
 	}
 
 	public String getSource()
 	{
-		return SourceFormat.getFormattedString(this,
-			Globals.getSourceDisplay(), true);
+		return SourceFormat.getFormattedString(this, Globals.getSourceDisplay(), true);
 	}
 
 	public String getSourceForNodeDisplay()
 	{
-		return SourceFormat.getFormattedString(this,
-				SourceFormat.LONG, false);
+		return SourceFormat.getFormattedString(this, SourceFormat.LONG, false);
 	}
-
 
 }

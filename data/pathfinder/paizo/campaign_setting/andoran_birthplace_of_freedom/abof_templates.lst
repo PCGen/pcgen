@@ -1,0 +1,9 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Andoran, Birthplace of Freedom	SOURCESHORT:ABOF	SOURCEDATE:2015-05
+# ORIGINAL ENTRY: James Parker, with Gwen T. (evilpixie87)
+
+# Template Name			Challenge Rating	Required Template			Ability
+Lycanthrope (Animal Form).MOD									ABILITY:Special Ability|AUTOMATIC|Silverblooded Damage Reduction|PREABILITY:1,CATEGORY=Special Ability,Silverblooded Lycanthrope
+Lycanthrope (Hybrid Form).MOD									ABILITY:Special Ability|AUTOMATIC|Silverblooded Damage Reduction|PREABILITY:1,CATEGORY=Special Ability,Silverblooded Lycanthrope
+
+Silverblood Lycanthrope		CR:1			PRETEMPLATE:1,Lycanthrope	ABILITY:Special Ability|AUTOMATIC|Silverblooded Lycanthrope ~ Lunar Sympathy

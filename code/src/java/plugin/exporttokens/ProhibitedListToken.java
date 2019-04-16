@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens;
 
@@ -40,27 +35,19 @@ public class ProhibitedListToken extends AbstractExportToken
 {
 	public static final String TOKENNAME = "PROHIBITEDLIST";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		return getProhibitedListToken(tokenSource, display);
 	}
 
-	public static String getProhibitedListToken(String tokenSource,
-		CharacterDisplay display)
+	public static String getProhibitedListToken(String tokenSource, CharacterDisplay display)
 	{
 		int k = tokenSource.lastIndexOf(',');
 
@@ -79,14 +66,12 @@ public class ProhibitedListToken extends AbstractExportToken
 		{
 			if (display.getLevel(pcClass) > 0)
 			{
-				for (SpellProhibitor sp : pcClass
-					.getSafeListFor(ListKey.PROHIBITED_SPELLS))
+				for (SpellProhibitor sp : pcClass.getSafeListFor(ListKey.PROHIBITED_SPELLS))
 				{
 					set.addAll(sp.getValueList());
 				}
 
-				Collection<? extends SpellProhibitor> prohibList =
-						display.getProhibitedSchools(pcClass);
+				Collection<? extends SpellProhibitor> prohibList = display.getProhibitedSchools(pcClass);
 				if (prohibList != null)
 				{
 					for (SpellProhibitor sp : prohibList)

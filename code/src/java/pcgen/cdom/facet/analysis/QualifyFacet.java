@@ -22,6 +22,7 @@ import java.util.List;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
@@ -35,10 +36,8 @@ import pcgen.cdom.reference.Qualifier;
  * QualifyFacet is a Facet that tracks the objects to which the Player Character
  * should Qualify.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class QualifyFacet extends AbstractStorageFacet<CharID> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class QualifyFacet extends AbstractStorageFacet<CharID> implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
@@ -55,8 +54,6 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -86,8 +83,6 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -152,10 +147,8 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 	 */
 	private static class CacheInfo
 	{
-		private HashMapToList<Class<? extends Loadable>, Qualifier> hml =
-                new HashMapToList<>();
-		private HashMapToList<CDOMObject, Qualifier> sourceMap =
-                new HashMapToList<>();
+		private HashMapToList<String, Qualifier> hml = new HashMapToList<>();
+		private HashMapToList<CDOMObject, Qualifier> sourceMap = new HashMapToList<>();
 
 		/**
 		 * Adds the given Qualifier to the CacheInfo, with the given source.
@@ -167,7 +160,7 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 		 */
 		public void add(Qualifier q, CDOMObject source)
 		{
-			hml.addToListFor(q.getQualifiedClass(), q);
+			hml.addToListFor(q.getQualifiedReference().getPersistentFormat(), q);
 			sourceMap.addToListFor(source, q);
 		}
 
@@ -186,7 +179,7 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 			{
 				for (Qualifier q : list)
 				{
-					hml.removeFromListFor(q.getQualifiedClass(), q);
+					hml.removeFromListFor(q.getQualifiedReference().getPersistentFormat(), q);
 				}
 			}
 		}
@@ -203,8 +196,8 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 		 */
 		public boolean isQualified(Loadable qualTestObject)
 		{
-			Class<? extends Loadable> cl = qualTestObject.getClass();
-			List<Qualifier> list = hml.getListFor(cl);
+			ClassIdentity<? extends Loadable> identity = qualTestObject.getClassIdentity();
+			List<Qualifier> list = hml.getListFor(identity.getPersistentFormat());
 			if (list != null)
 			{
 				for (Qualifier q : list)
@@ -218,13 +211,13 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 			}
 			return false;
 		}
-		
+
 		@Override
 		public int hashCode()
 		{
 			return hml.hashCode();
 		}
-		
+
 		@Override
 		public boolean equals(Object o)
 		{
@@ -277,7 +270,7 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 	{
 		consolidationFacet.addDataFacetChangeListener(this);
 	}
-	
+
 	public int getCount(CharID id)
 	{
 		CacheInfo ci = (CacheInfo) getCache(id);

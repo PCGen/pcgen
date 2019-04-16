@@ -17,6 +17,10 @@
  */
 package pcgen.core.bonus;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 import java.util.Set;
 
@@ -26,16 +30,18 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.facade.core.InfoFacade;
 import pcgen.core.spell.Spell;
+import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.facade.TempBonusHelper;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 
-public class TempBonusTest extends AbstractCharacterTestCase
+import org.junit.jupiter.api.Test;
+
+class TempBonusTest extends AbstractCharacterTestCase
 {
 
-	public void testPCTemporaryBonus() throws PersistenceLayerException
+	@Test
+	public void testPCTemporaryBonus()
 	{
 		LoadContext context = Globals.getContext();
 		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
@@ -56,8 +62,8 @@ public class TempBonusTest extends AbstractCharacterTestCase
 		}
 	}
 
-	
-	public void testANYPCTemporaryBonus() throws PersistenceLayerException
+	@Test
+	public void testANYPCTemporaryBonus()
 	{
 		LoadContext context = Globals.getContext();
 		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
@@ -78,8 +84,8 @@ public class TempBonusTest extends AbstractCharacterTestCase
 		}
 	}
 
-	
-	public void testEquipmentTemporaryBonus() throws PersistenceLayerException
+	@Test
+	public void testEquipmentTemporaryBonus()
 	{
 		PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();

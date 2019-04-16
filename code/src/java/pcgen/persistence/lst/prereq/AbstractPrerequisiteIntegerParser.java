@@ -1,5 +1,4 @@
 /*
- * AbstractPrerequisiteIntegerParser.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -17,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18-Dec-2003
  *
- * Current Ver: $Revision$
  *
  *
  *
@@ -29,23 +26,13 @@ package pcgen.persistence.lst.prereq;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 
-/**
- * @author wardc
- *
- */
-public abstract class AbstractPrerequisiteIntegerParser extends
-		AbstractPrerequisiteParser
+public abstract class AbstractPrerequisiteIntegerParser extends AbstractPrerequisiteParser
 {
-	/**
-	 * @see pcgen.persistence.lst.prereq.AbstractPrerequisiteParser#parse(java.lang.String, java.lang.String, boolean, boolean)
-	 */
 	@Override
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException
 	{
-		Prerequisite prereq =
-				super.parse(kind, formula, invertResult, overrideQualify);
+		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
 		try
 		{
@@ -53,8 +40,7 @@ public abstract class AbstractPrerequisiteIntegerParser extends
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PersistenceLayerException("'" + formula
-				+ "' is not a valid integer");
+			throw new PersistenceLayerException("'" + formula + "' is not a valid integer");
 		}
 
 		if (invertResult)

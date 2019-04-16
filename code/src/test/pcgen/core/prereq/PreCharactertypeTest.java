@@ -1,6 +1,4 @@
 /*
- * PreDomainTest.java
- *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,46 +14,32 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreDomainTest</code> tests that the PREDOMAIN tag is
+ * {@code PreDomainTest} tests that the PREDOMAIN tag is
  * working correctly.
- *
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
-public class PreCharactertypeTest extends AbstractCharacterTestCase
+class PreCharactertypeTest extends AbstractCharacterTestCase
 {
-
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreCharactertypeTest.class);
-	}
-
 	/**
-	 * @return Test
+	 * Test to make sure it is not looking at deity domains.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreCharactertypeTest.class);
-	}
-
-	/**
-	 * Test to make sure it is not looking at deity domains
-	 * @throws Exception
-	 */
-	public void testCharactertype() throws Exception
+	@Test
+	void testCharactertype() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.setCharacterType("PC");
@@ -66,13 +50,13 @@ public class PreCharactertypeTest extends AbstractCharacterTestCase
 
 		prereq = factory.parse("PRECHARACTERTYPE:1,PC");
 
-		assertTrue("Character has character type 'PC'", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has character type 'PC'");
 
 		prereq = factory.parse("PRECHARACTERTYPE:1,NPC");
 
-		assertFalse("Character doesn't have character type 'NPC'", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character doesn't have character type 'NPC'");
 
 	}
 }

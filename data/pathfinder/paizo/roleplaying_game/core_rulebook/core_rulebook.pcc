@@ -1,7 +1,7 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Core Rulebook
 KEY:Core Rulebook
-GAMEMODE:Pathfinder|Pathfinder_PFS
+GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder RPG
 RANK:0
 STATUS:RELEASE
@@ -40,17 +40,19 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Core Rulebook" Copyright 
 
 # Data Files
 PCC:@/homebrew/conversion_support/conversion_support.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/core_essentials/core_essentials.pcc
-
+PCC:@/pathfinder/paizo/roleplaying_game/core_essentials/_core_essentials.pcc
 
 
 # Fact/Factset & Formula System
-DATACONTROL:cr__datacontrols.lst
-
-### GM Moved
 ALIGNMENT:cr__align.lst
+DATACONTROL:cr__datacontrols.lst
+DATATABLE:cr__datatables.lst
+DYNAMIC:cr__dynamic.lst
+GLOBALMODIFIER:cr__globalmodifiers.lst
 SAVE:cr__saves.lst
 STAT:cr__stats.lst
+VARIABLE:cr__variables.lst
+
 
 # Standard Files
 ABILITYCATEGORY:cr_abilitycategories.lst
@@ -91,10 +93,11 @@ RACE:cr_races_companion.lst
 HIDETYPE:FEAT|SpecialQuality|SpecialAttack|Extraordinary|SpellLike|Supernatural|AttackOption|Aura|Immunity|ModifyAC|Resistance|Weakness
 HIDETYPE:FEAT|WizardBonus|SkillFocus|WeaponFocus
 HIDETYPE:FEAT|AberrantBloodline|AbyssalBloodline|ArcaneBloodline|CelestialBloodline|DestinedBloodline|DraconicBloodline|ElementalBloodline|FeyBloodline|InfernalBloodline|UndeadBloodline
-HIDETYPE:EQUIP|AmuletOfMightyFists
+HIDETYPE:EQUIP|Amulet of Mighty Fists
 
 # Hide key stat types for skills
 HIDETYPE:SKILL|Strength|Dexterity|Constitution|Intelligence|Wisdom|Charisma|Base|Background
+HIDETYPE:SKILL|ACHECK
 
 COMPANIONLIST:Mount|ANY
 COMPANIONLIST:Follower|ANY
@@ -102,3 +105,15 @@ COMPANIONLIST:Follower|ANY
 FORWARDREF:RACE|Orc
 
 # Implement Pharasma-Friendly Death Domain from http://paizo.com/paizo/blog/v5748dyo5lbvp
+
+# ENTRY DATE:
+# LST MONKEY: Stefan Radermacher, Andrew Maitland, Eric Smith, David Bender, gjorbjond, and James Dempsey
+# LICENSE MONKEY: Eric Smith
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE: Andrew Maitland
+# Built for PCGen Version: 6.04.01
+# Updated to work with version: -
+# MINVER:6.4
+# MINDEVVER:6.04.1
+# COMMENTS:

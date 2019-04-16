@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCModEquipTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 12:17:26
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -30,15 +26,14 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.util.Logging;
 
-public class PCModEquipTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCModEquipTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String modEq;
 
 	public PCModEquipTermEvaluator(String originalText, String modEq)
 	{
 		this.originalText = originalText;
-		this.modEq        = modEq;
+		this.modEq = modEq;
 	}
 
 	@Override
@@ -57,9 +52,7 @@ public class PCModEquipTermEvaluator
 		{
 			if (pc.hasControl(CControl.PCACCHECK))
 			{
-				Logging
-					.errorPrint("Term MODEQUIPACCHECK is not supported "
-						+ "when PCACCHECK code control is used");
+				Logging.errorPrint("Term MODEQUIPACCHECK is not supported " + "when PCACCHECK code control is used");
 			}
 			else
 			{
@@ -70,9 +63,7 @@ public class PCModEquipTermEvaluator
 		{
 			if (pc.hasControl(CControl.PCMAXDEX))
 			{
-				Logging
-					.errorPrint("Term MODEQUIPMAXDEX is not supported "
-						+ "when PCMAXDEX code control is used");
+				Logging.errorPrint("Term MODEQUIPMAXDEX is not supported " + "when PCMAXDEX code control is used");
 			}
 			else
 			{
@@ -83,9 +74,8 @@ public class PCModEquipTermEvaluator
 		{
 			if (pc.hasControl(CControl.PCSPELLFAILURE))
 			{
-				Logging
-					.errorPrint("Term MODEQUIPSPELLFAILURE is not supported "
-						+ "when PCSPELLFAILURE code control is used");
+				Logging.errorPrint(
+					"Term MODEQUIPSPELLFAILURE is not supported " + "when PCSPELLFAILURE code control is used");
 			}
 			else
 			{

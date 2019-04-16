@@ -16,7 +16,7 @@ PUBNAMEWEB:http://paizo.com/
 SOURCELONG:Guide To Pathfinder Society Organized Play
 SOURCESHORT:GTPSOP
 SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play
-SOURCEDATE:2013-08
+SOURCEDATE:2014-08
 ISOGL:YES
 
 DESC:WARNING: ONLY LOAD THIS IF YOU ARE PLAYING BY PATHFINDER SOCIETY RULES.
@@ -26,13 +26,13 @@ LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play|Download this publication from Paizo Publishing!
-DESC:This contains the traits for the various factions within the Pathfinder Society.  It is based on version 5.0 of the Pathfinder Society Guide to Organized Play released 5th August 2013.
+DESC:This contains the traits for the various factions within the Pathfinder Society.  It is based on version 6.0 of the Pathfinder Society Guide to Organized Play released 14th August 2014.
 DESC:http://paizo.com/pathfinderSociety/about/additionalResources contains a book-by-book analysis of campaign-legal feat, races, languages, items, etc. choices beyond the Core Rulebook. Check there before taking any feat from a non-Core Rulebook source
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a © 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document © 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Guide to Pathfinder Society Organized Play, Version 5.0 © 2013, Paizo Inc.; Authors: Mike Brock, Erik Mona, and Mark Moreland.
+COPYRIGHT:Guide to Pathfinder Society Organized Play, Version 6.0 © 2014, Paizo Inc.; Authors: Mike Brock, Erik Mona, and Mark Moreland.
 
 COPYRIGHT:PCGen dataset conversion for "Guide to Pathfinder Society Organized Play" Copyright 2011, 2013, PCGen Data team (Including, but not limited to Jeff Baril, Andrew Wilson, Vincent Lhote).
 
@@ -46,10 +46,12 @@ ABILITY:gtpsop_abilities.lst
 KIT:gtpsop_kits.lst
 TEMPLATE:gtpsop_templates.lst
 
+# include the Wayfinder if ISWG is not included
+EQUIPMENT:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/iswg_equip_magic_items.lst|(INCLUDE:Wayfinder)|!PRECAMPAIGN:1,Inner Sea World Guide
+
 OPTION:gameMode.Pathfinder_PFS.purchaseMethodName=High Fantasy
+OPTION:gameMode.Pathfinder_PFS.rollMethod=2
 OPTION:gameMode.Pathfinder_PFS.xpTableName=PFS Rules
-OPTION:gameMode.Pathfinder_PFS.rollMethod=0
-OPTION:gameMode.Pathfinder_PFS.allStatsValue=10
 
 # TODO: p.8 All characters gain Common as a free language.
 # You gain free languages granted by your race, ethnicity (for humans), and class (e.g., Druidic for druids).
@@ -59,7 +61,7 @@ OPTION:gameMode.Pathfinder_PFS.allStatsValue=10
 # All languages except Druidic are available by putting a skill rank in Linguistics (see below).
 # Tian characters receive the languages Tien and Common for free.
 
-# PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
+PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/_pfs/_.pcc
 
 ########################
 # Blocked Resources    #
@@ -76,101 +78,6 @@ OPTION:gameMode.Pathfinder_PFS.allStatsValue=10
 # Additional Resources
 # Last Updated Friday, January 9, 2015
 
-############################
-# PFS Additional Resources #
-############################
-
-PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_advanced_class_guide.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/advanced_race_guide.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/bestiary/bestiary.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/bestiary_2/bestiary_2.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/bestiary_3/bestiary_3.pcc
-# PCC:@/pathfinder/paizo/roleplaying_game/bestiary_4/bestiary_4.pcc
-# PCC:@/pathfinder/paizo/roleplaying_game/monster_codex/monster_codex.pcc
-# PCC:@/pathfinder/paizo/roleplaying_game/npc_codex/npc_codex.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/pathfinder_unchained/_pathfinder_unchained.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/ultimate_combat/_ultimate_combat.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ultimate_equipment.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/ultimate_magic/_ultimate_magic.pcc
-PCC:@/pathfinder/paizo/roleplaying_game/ultimate_campaign/_ultimate_campaign.pcc
-
-
-# Princes of Darkness - book of the damned vol 1
-PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/book_of_the_damned_volume_1.pcc
-# Lords of Chaos - book of the damned vol 2
-PCC:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/_book_of_the_damned_volume_2.pcc
-
-PCC:@/pathfinder/paizo/campaign_setting/dark_markets/dark_markets.pcc
-PCC:@/pathfinder/paizo/campaign_setting/dragon_empires_gazetteer/dragon_empires_gazetteer.pcc
-PCC:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/guide_to_the_river_kingdoms.pcc
-PCC:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/heart_of_the_jungle.pcc
-PCC:@/pathfinder/paizo/campaign_setting/inner_sea_bestiary/inner_sea_bestiary.pcc
-PCC:@/pathfinder/paizo/campaign_setting/inner_sea_combat/_inner_sea_combat.pcc
-PCC:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/inner_sea_world_guide.pcc
-PCC:@/pathfinder/paizo/campaign_setting/pathfinder_society_field_guide/pathfinder_society_field_guide.pcc
-PCC:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/seekers_of_secrets.pcc
-
-# PCC:@/pathfinder/paizo/campaign_setting/chronicles_of_the_righteous/chronicles_of_the_righteous.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/cities_of_golarion/cities_of_golarion.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/city_of_strangers/city_of_strangers.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/classic_horrors_revisited/classic_horrors_revisited.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/classic_monsters_revisited/classic_monsters_revisited.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/classic_treasures_revisited/classic_treasures_revisited.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/demons_revisited/demons_revisited.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/dungeon_denizens_revisited/dungeon_denizens_revisited.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/dungeons_of_golarion/dungeons_of_golarion.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/faction_guide/faction_guide.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/giants_revisited/giants_revisited.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/gods_and_magic/gods_and_magic.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/horseman_of_the_apocalypse/horseman_of_the_apocalypse.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/inner_sea_gods/inner_sea_gods.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/inner_sea_magic/inner_sea_magic.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/lands_of_the_linnorm_kings/lands_of_the_linnorm_kings.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/lost_kingdoms/lost_kingdoms.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/magnimar_city_of_monuments/magnimar_city_of_monuments.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/mystery_monsters_revisited/mystery_monsters_revisited.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/mythical_monsters_revisited.mythical_monsters_revisited.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/occult_mysteries/occult_mysteries.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/osirion_legacy_of_pharaohs/osirion_legacy_of_pharaohs.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/paths_of_prestige/paths_of_prestige.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/rival_guide/rival_guide.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/ships_of_the_inner_sea/ships_of_the_inner_sea.pcc
-# PCC:@/pathfinder/paizo/campaign_setting/technology_guide/technology_guide.pcc
-
-PCC:@/pathfinder/paizo/player_companion/adventurers_armory/_adventurers_armory.pcc
-PCC:@/pathfinder/paizo/player_companion/andoran_spirit_of_liberty/andoran_spirit_of_liberty.pcc
-PCC:@/pathfinder/paizo/player_companion/animal_archive/_animal_archive.pcc
-PCC:@/pathfinder/paizo/player_companion/blood_of_angels/blood_of_angels.pcc
-PCC:@/pathfinder/paizo/player_companion/blood_of_fiends/blood_of_fiends.pcc
-PCC:@/pathfinder/paizo/player_companion/blood_of_the_moon/_blood_of_the_moon.pcc
-PCC:@/pathfinder/paizo/player_companion/cheliax_empire_of_devils/cheliax_empire_of_devils.pcc
-PCC:@/pathfinder/paizo/player_companion/dragon_empires_primer/dragon_empires_primer.pcc
-PCC:@/pathfinder/paizo/player_companion/dungeoneers_handbook/dungeoneers_handbook.pcc
-PCC:@/pathfinder/paizo/player_companion/dwarves_of_golarion/dwarves_of_golarion.pcc
-PCC:@/pathfinder/paizo/player_companion/faiths_of_balance/faiths_of_balance.pcc
-PCC:@/pathfinder/paizo/player_companion/faiths_of_corruption/faiths_of_corruption.pcc
-PCC:@/pathfinder/paizo/player_companion/faiths_of_purity/faiths_of_purity.pcc
-PCC:@/pathfinder/paizo/player_companion/gnomes_of_golarion/gnomes_of_golarion.pcc
-PCC:@/pathfinder/paizo/player_companion/goblins_of_golarion/goblins_of_golarion.pcc
-PCC:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.pcc
-PCC:@/pathfinder/paizo/player_companion/inner_sea_primer/inner_sea_primer.pcc
-PCC:@/pathfinder/paizo/player_companion/orcs_of_golarion/orcs_of_golarion.pcc
-PCC:@/pathfinder/paizo/player_companion/people_of_the_stars/_people_of_the_stars.pcc
-PCC:@/pathfinder/paizo/player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.pcc
-PCC:@/pathfinder/paizo/player_companion/qadira_gateway_to_the_east/qadira_gateway_to_the_east.pcc
-PCC:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/sargava_the_lost_colony.pcc
-PCC:@/pathfinder/paizo/player_companion/varisia_birthplace_of_legends/_varisia_birthplace_of_legends.pcc
-
-#PCC:@/pathfinder/paizo/player_companion/taldor_echoes_of_glory/taldor_echoes_of_glory.pcc
-
-#PCC:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/curse_of_the_crimson_throne_players_guide.pcc
-#PCC:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/ap9/ap9.pcc
-#PCC:@/pathfinder/paizo/adventure_path/legacy_of_fire/players_guide/legacy_of_fire_players_guide.pcc
-#PCC:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rise_of_the_runelords_ae/rise_of_the_runelords_ae.pcc
-#PCC:@/pathfinder/paizo/adventure_path/skull_and_shackles/ap55/ap55.pcc
-
-# PFS Versions:
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_pfs/_.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/_pfs/_.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/_pfs/_.pcc

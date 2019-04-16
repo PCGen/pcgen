@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.EQCritMultTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,17 +16,12 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03-Oct-2008 02:14:17
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
 import pcgen.cdom.util.CControl;
-import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.util.Logging;
@@ -40,16 +34,11 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 	}
 
 	@Override
-	public Float resolve(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc)
+	public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(),
-			CControl.CRITMULT))
+		if (pc.hasControl(CControl.CRITMULT))
 		{
-			Logging
-				.errorPrint("CRITMULT term is disabled when CRITMULT control is used");
+			Logging.errorPrint("CRITMULT term is disabled when CRITMULT control is used");
 		}
 		if (primary)
 		{
@@ -60,15 +49,11 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 	}
 
 	@Override
-	public String evaluate(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc) {
-		if (ControlUtilities.hasControlToken(Globals.getContext(),
-			CControl.CRITMULT))
+	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
+	{
+		if (pc.hasControl(CControl.CRITMULT))
 		{
-			Logging
-				.errorPrint("CRITMULT term is disabled when CRITMULT control is used");
+			Logging.errorPrint("CRITMULT term is disabled when CRITMULT control is used");
 		}
 		if (primary)
 		{
@@ -77,7 +62,7 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 
 		return EqToken.multAsString(eq.getAltCritMultiplier());
 	}
-	
+
 	@Override
 	public boolean isSourceDependant()
 	{

@@ -1,0 +1,105 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEDATE:2016-04
+
+# Skill Name					Situational Skill
+Acrobatics.MOD					SITUATION:In forests
+Bluff.MOD						SITUATION:Appear Innocent
+Bluff.MOD						SITUATION:Stay in character
+Bluff.MOD						SITUATION:True from current identity's point of view
+Climb.MOD						SITUATION:In forests
+Diplomacy.MOD					SITUATION:Bargain with a conjured creature
+Diplomacy.MOD					SITUATION:Bribery attempts
+Diplomacy.MOD					SITUATION:Interacting with criminals
+Heal.MOD						SITUATION:Notice medical evidence tampering
+Intimidate.MOD					SITUATION:In Vigilante Identity
+Intimidate.MOD					SITUATION:Interacting with criminals
+Perception.MOD					SITUATION:Pierce disguise
+Sense Motive.MOD					SITUATION:Avoid surprise attack
+Sleight of Hand.MOD				SITUATION:Draw Hidden Weapon
+Stealth.MOD						SITUATION:Move at half speed or less
+
+Appraise.MOD					SITUATION:In Social Identity
+Bluff.MOD						SITUATION:In Social Identity
+Craft (Alchemy).MOD				SITUATION:In Social Identity
+Craft (Armor).MOD					SITUATION:In Social Identity
+Craft (Baskets).MOD				SITUATION:In Social Identity
+Craft (Blacksmithing).MOD			SITUATION:In Social Identity
+Craft (Books).MOD					SITUATION:In Social Identity
+Craft (Bows).MOD					SITUATION:In Social Identity
+Craft (Calligraphy).MOD				SITUATION:In Social Identity
+Craft (Carpentry).MOD				SITUATION:In Social Identity
+Craft (Cloth).MOD					SITUATION:In Social Identity
+Craft (Clothing).MOD				SITUATION:In Social Identity
+Craft (Gemcutting).MOD				SITUATION:In Social Identity
+Craft (Glass).MOD					SITUATION:In Social Identity
+Craft (Jewelry).MOD				SITUATION:In Social Identity
+Craft (Leather).MOD				SITUATION:In Social Identity
+Craft (Locks).MOD					SITUATION:In Social Identity
+Craft (Paintings).MOD				SITUATION:In Social Identity
+Craft (Pottery).MOD				SITUATION:In Social Identity
+Craft (Sculptures).MOD				SITUATION:In Social Identity
+Craft (Ships).MOD					SITUATION:In Social Identity
+Craft (Shoes).MOD					SITUATION:In Social Identity
+Craft (Stonemasonry).MOD			SITUATION:In Social Identity
+Craft (Traps).MOD					SITUATION:In Social Identity
+Craft (Weapons).MOD				SITUATION:In Social Identity
+Diplomacy.MOD					SITUATION:In Social Identity
+Disguise.MOD					SITUATION:In Social Identity
+Handle Animal.MOD					SITUATION:In Social Identity
+Heal.MOD						SITUATION:In Social Identity
+Intimidate.MOD					SITUATION:In Social Identity
+Knowledge (arcana).MOD				SITUATION:In Social Identity
+Knowledge (dungeoneering).MOD			SITUATION:In Social Identity
+Knowledge (engineering).MOD			SITUATION:In Social Identity
+Knowledge (geography).MOD			SITUATION:In Social Identity
+Knowledge (history).MOD				SITUATION:In Social Identity
+Knowledge (local).MOD				SITUATION:In Social Identity
+Knowledge (nature).MOD				SITUATION:In Social Identity
+Knowledge (nobility).MOD			SITUATION:In Social Identity
+Knowledge (planes).MOD				SITUATION:In Social Identity
+Knowledge (religion).MOD			SITUATION:In Social Identity
+Linguistics.MOD					SITUATION:In Social Identity
+Perform (Act).MOD					SITUATION:In Social Identity
+Perform (Comedy).MOD				SITUATION:In Social Identity
+Perform (Dance).MOD				SITUATION:In Social Identity
+Perform (Keyboard Instruments).MOD		SITUATION:In Social Identity
+Perform (Oratory).MOD				SITUATION:In Social Identity
+Perform (Percussion Instruments).MOD	SITUATION:In Social Identity
+Perform (Sing).MOD				SITUATION:In Social Identity
+Perform (String Instruments).MOD		SITUATION:In Social Identity
+Perform (Wind Instruments).MOD		SITUATION:In Social Identity
+Profession (Architect).MOD			SITUATION:In Social Identity
+Profession (Baker).MOD				SITUATION:In Social Identity
+Profession (Barrister).MOD			SITUATION:In Social Identity
+Profession (Brewer).MOD				SITUATION:In Social Identity
+Profession (Butcher).MOD			SITUATION:In Social Identity
+Profession (Clerk).MOD				SITUATION:In Social Identity
+Profession (Cook).MOD				SITUATION:In Social Identity
+Profession (Courtesan).MOD			SITUATION:In Social Identity
+Profession (Driver).MOD				SITUATION:In Social Identity
+Profession (Engineer).MOD			SITUATION:In Social Identity
+Profession (Farmer).MOD				SITUATION:In Social Identity
+Profession (Fisherman).MOD			SITUATION:In Social Identity
+Profession (Gambler).MOD			SITUATION:In Social Identity
+Profession (Gardener).MOD			SITUATION:In Social Identity
+Profession (Herbalist).MOD			SITUATION:In Social Identity
+Profession (Innkeeper).MOD			SITUATION:In Social Identity
+Profession (Librarian).MOD			SITUATION:In Social Identity
+Profession (Merchant).MOD			SITUATION:In Social Identity
+Profession (Midwife).MOD			SITUATION:In Social Identity
+Profession (Miller).MOD				SITUATION:In Social Identity
+Profession (Miner).MOD				SITUATION:In Social Identity
+Profession (Porter).MOD				SITUATION:In Social Identity
+Profession (Sailor).MOD				SITUATION:In Social Identity
+Profession (Scribe).MOD				SITUATION:In Social Identity
+Profession (Shepherd).MOD			SITUATION:In Social Identity
+Profession (Soldier).MOD			SITUATION:In Social Identity
+Profession (Soothsayer).MOD			SITUATION:In Social Identity
+Profession (Stable Master).MOD		SITUATION:In Social Identity
+Profession (Tanner).MOD				SITUATION:In Social Identity
+Profession (Trapper).MOD			SITUATION:In Social Identity
+Profession (Woodcutter).MOD			SITUATION:In Social Identity
+Sense Motive.MOD					SITUATION:In Social Identity
+Spellcraft.MOD					SITUATION:In Social Identity
+Survival.MOD					SITUATION:In Social Identity

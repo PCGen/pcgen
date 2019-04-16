@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- $Id: fantasy_master_alt_condensed.xslt 23548 2014-03-28 06:52:47Z amaitland $ -->
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fo="http://www.w3.org/1999/XSL/Format"
@@ -256,12 +255,6 @@
 	<!--		Start the character		-->
 	<xsl:template match="character">
 		<!-- calculate the number of weapons and skills on the first page -->
-		<xsl:variable name="first_page_weapon_count">
-			<xsl:call-template name="view.weapon.num"/>
-		</xsl:variable>
-		<xsl:variable name="first_page_skills_count">
-			<xsl:call-template name="view.skills.num"/>
-		</xsl:variable>
 		<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
 			<xsl:call-template name="page.layouts"/>
 			<!--

@@ -1,5 +1,4 @@
 /*
- * ComponentAddedMessage.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 22/02/2014 3:48:31 pm
  *
- * $Id$
  */
 package pcgen.pluginmgr.messages;
 
@@ -26,12 +23,10 @@ import pcgen.pluginmgr.PCGenMessage;
 import pcgen.pluginmgr.PCGenMessageHandler;
 
 /**
- * The Class <code>ComponentAddedMessage</code> indicates that a plugin has 
+ * The Class {@code ComponentAddedMessage} indicates that a plugin has
  * been added to the system. 
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class ComponentAddedMessage extends PCGenMessage
 {

@@ -17,10 +17,11 @@
  */
 package plugin.lsttokens.race;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Race;
@@ -41,6 +42,9 @@ import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreHDWriter;
 import plugin.pretokens.writer.PreLevelWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
@@ -50,7 +54,7 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 	PreLevelWriter prelevelwriter = new PreLevelWriter();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -62,7 +66,7 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	static StartfeatsToken token = new StartfeatsToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -99,21 +103,21 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 	// }
 
 	@Test
-	public void testInvalidEquation() throws PersistenceLayerException
+	public void testInvalidEquation()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "1+2").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidString() throws PersistenceLayerException
+	public void testInvalidString()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "String").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDecimal() throws PersistenceLayerException
+	public void testInvalidDecimal()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "4.0").passed());
 		assertNoSideEffects();
@@ -178,7 +182,7 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 	// }
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.addToListFor(ListKey.BONUS, null);
 		try

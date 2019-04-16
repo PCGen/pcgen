@@ -1,0 +1,28 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 3819 $ $Author: amaitland $ -- Fri Nov 20 23:47:57 2009 -- reformated by prettylst.pl v1.39 (build 10232)
+SOURCELONG:PCGen Enhancement Re-namer	SOURCESHORT:PCGen RNM	SOURCEWEB:http://pcgen.sourceforge.net/
+
+# Original Entry by: Eddy Anthony
+
+# Modifier Name					Naming Format
+Special Ability ~ +1 ~ Weapon.MOD		FORMATCAT:FRONT
+Special Ability ~ +2 ~ Weapon.MOD		FORMATCAT:FRONT
+Special Ability ~ +3 ~ Weapon.MOD		FORMATCAT:FRONT
+Special Ability ~ +4 ~ Weapon.MOD		FORMATCAT:FRONT
+Special Ability ~ +5 ~ Weapon.MOD		FORMATCAT:FRONT
+
+Special Ability ~ +1 ~ Shield.MOD		FORMATCAT:FRONT
+Special Ability ~ +2 ~ Shield.MOD		FORMATCAT:FRONT
+Special Ability ~ +3 ~ Shield.MOD		FORMATCAT:FRONT
+Special Ability ~ +4 ~ Shield.MOD		FORMATCAT:FRONT
+Special Ability ~ +5 ~ Shield.MOD		FORMATCAT:FRONT
+
+Special Ability ~ +1 ~ Ammunition.MOD	FORMATCAT:FRONT
+Special Ability ~ +2 ~ Ammunition.MOD	FORMATCAT:FRONT
+Special Ability ~ +3 ~ Ammunition.MOD	FORMATCAT:FRONT
+Special Ability ~ +4 ~ Ammunition.MOD	FORMATCAT:FRONT
+Special Ability ~ +5 ~ Ammunition.MOD	FORMATCAT:FRONT
+
+#
+# End
+#

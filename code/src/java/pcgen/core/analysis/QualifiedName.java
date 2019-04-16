@@ -1,6 +1,5 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from Ability.java and Skill.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -22,8 +21,8 @@ package pcgen.core.analysis;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.StringJoiner;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -32,8 +31,12 @@ import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 
-public class QualifiedName
+public final class QualifiedName
 {
+
+	private QualifiedName()
+	{
+	}
 
 	/**
 	 * This method generates a name for this Ability which includes any choices
@@ -59,7 +62,7 @@ public class QualifiedName
 		// start with the name of the ability
 		// don't do for Weapon Profs
 		final StringBuilder aStrBuf = new StringBuilder(outputName);
-		
+
 		ChooseInformation<?> chooseInfo = a.get(ObjectKey.CHOOSE_INFO);
 		if (chooseInfo != null)
 		{
@@ -68,7 +71,7 @@ public class QualifiedName
 		return aStrBuf.toString();
 	}
 
-	private static <T> void processChooseInfo(StringBuilder aStrBuf, PlayerCharacter pc, 
+	private static <T> void processChooseInfo(StringBuilder aStrBuf, PlayerCharacter pc,
 		ChooseInformation<T> chooseInfo, List<CNAbility> list)
 	{
 		List<T> allSelections = new ArrayList<>();
@@ -76,13 +79,12 @@ public class QualifiedName
 		{
 			if (pc.hasAssociations(cna))
 			{
-				List<? extends T> selections =
-						(List<? extends T>) pc.getDetailedAssociations(cna);
+				List<? extends T> selections = (List<? extends T>) pc.getDetailedAssociations(cna);
 				allSelections.addAll(selections);
 			}
 		}
 		String choiceInfo = chooseInfo.composeDisplay(allSelections).toString();
-		if (choiceInfo.length() > 0)
+		if (!choiceInfo.isEmpty())
 		{
 			aStrBuf.append(" (");
 			aStrBuf.append(choiceInfo);
@@ -98,14 +100,11 @@ public class QualifiedName
 			return outputName;
 		}
 
-		final StringBuilder buffer = new StringBuilder(50);
-		buffer.append(outputName).append("(");
+		StringJoiner joiner = new StringJoiner(", ", outputName + "(", ")");
 		List<String> associationList = pc.getAssociationList(s);
 		Collections.sort(associationList);
-		buffer.append(StringUtil.joinToStringBuilder(associationList, ", "));
-		buffer.append(")");
-
-		return buffer.toString();
+		associationList.forEach(assoc -> joiner.add(assoc));
+		return joiner.toString();
 	}
 
 }

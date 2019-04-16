@@ -38,11 +38,9 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * 
  * @see pcgen.cdom.facet.CDOMObjectConsolidationFacet
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class CharacterConsolidationFacet extends
-		AbstractSourcedListFacet<CharID, CDOMObject> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class CharacterConsolidationFacet extends AbstractSourcedListFacet<CharID, CDOMObject>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	/**
@@ -57,8 +55,6 @@ public class CharacterConsolidationFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -79,8 +75,6 @@ public class CharacterConsolidationFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)

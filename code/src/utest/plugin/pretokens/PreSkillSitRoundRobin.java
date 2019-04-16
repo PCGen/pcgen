@@ -17,29 +17,15 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreSkillSitParser;
 import plugin.pretokens.writer.PreSkillSitWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class PreSkillSitRoundRobin extends AbstractRankedRoundRobin
 {
-
-	public static void main(String args[])
-	{
-		TestRunner.run(PreSkillSitRoundRobin.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSkillSitRoundRobin.class);
-	}
-
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

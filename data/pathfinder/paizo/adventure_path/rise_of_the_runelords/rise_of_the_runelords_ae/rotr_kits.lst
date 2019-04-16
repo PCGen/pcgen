@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Jul 23 18:41:10 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Rise of the Runelords Adventure Path	SOURCESHORT:RotR	SOURCEWEB:http://paizo.com/products/btpy8tc0?Pathfinder-Adventure-Path-Rise-of-the-Runelords-Anniversary-Edition	SOURCEDATE:2012-07
 # Original Entry by: Andrew Maitland
@@ -41,7 +42,7 @@ SKILL:Survival		RANK:1
 ABILITY:CATEGORY=FEAT|Mounted Combat
 ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Animal
 GEAR:Studded Leather			SIZE:S	LOCATION:Equipped
-GEAR:Horsechopper						LOCATION:Both Hands	EQMOD:MWORKW.STEEL
+GEAR:Horsechopper						LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon.Material ~ Steel
 GEAR:Shortbow				SIZE:S	LOCATION:Carried
 GEAR:Arrow			QTY:20	SIZE:S	LOCATION:Carried
 
@@ -82,10 +83,10 @@ ABILITY:CATEGORY=Favored Class|Monk
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
 GEAR:Potion of Cure Light Wounds	LOCATION:Equipped
-GEAR:Shortbow (Composite)		LOCATION:Both Hands	EQMOD:BOWSTR|+1.WOOD
+GEAR:Shortbow (Composite)		LOCATION:Both Hands	EQMOD:Special Quality ~ Composite Bow Strength Rating|+1.Material ~ Wood
 GEAR:Ring of Protection +1		LOCATION:Equipped
-GEAR:Thieves' Tools			LOCATION:Equipped		EQMOD:MWORKT
-GEAR:Musical Instrument (Flute)	LOCATION:Equipped		EQMOD:MWORKT
+GEAR:Thieves' Tools			LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Item
+GEAR:Musical Instrument (Flute)	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Item
 GEAR:Flurry of Blows			LOCATION:Equipped
 
 
@@ -103,9 +104,9 @@ ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=Fighter Bonus Feat|Improved Initiative
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
 TEMPLATE:Waters of Lamashtu (Koruvus's Mutation)
-GEAR:Longsword	LOCATION:Primary Hand	EQMOD:PLUS1W
-GEAR:Handaxe	LOCATION:Secondary Hand	EQMOD:MWORKW
-GEAR:Dagger		LOCATION:Carried		EQMOD:ALCHM
+GEAR:Longsword	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Handaxe	LOCATION:Secondary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Dagger		LOCATION:Carried		EQMOD:Material ~ Alchemical Silver
 
 
 STARTPACK:NPC (Gogmurt)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Goblin]	SOURCEPAGE:p.35	NAMEISPI:YES
@@ -126,8 +127,8 @@ SKILL:Survival			RANK:4
 ABILITY:CATEGORY=FEAT|Brew Potion
 ABILITY:CATEGORY=FEAT|Combat Casting
 GEAR:Potion of Cure Light Wounds	QTY:2			LOCATION:Carried
-GEAR:Wand								LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Produce Flame]CASTER[Druid]SPELLTYPE[Divine]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[34]
-GEAR:Leather					SIZE:S	LOCATION:Equipped		EQMOD:PLUS1A.LEATHER
+GEAR:Wand								LOCATION:Carried		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Produce Flame]CASTER[Druid]SPELLTYPE[Divine]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[34]
+GEAR:Leather					SIZE:S	LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor.Material ~ Leather
 GEAR:Spear						SIZE:S	LOCATION:Both Hands
 GEAR:Sling						SIZE:S	LOCATION:Carried
 GEAR:Cloak of Resistance +1					LOCATION:Equipped
@@ -156,8 +157,8 @@ ABILITY:CATEGORY=Fighter Bonus Feat|Ride-By Attack
 ABILITY:CATEGORY=Fighter Bonus Feat|Spirited Charge
 GEAR:Potion of Barkskin +2					LOCATION:Carried
 GEAR:Potion of Cure Moderate Wounds	QTY:2			LOCATION:Carried
-GEAR:Breastplate					SIZE:S	LOCATION:Equipped	EQMOD:MWORKA.STEEL
-GEAR:Dogslicer					SIZE:S	LOCATION:Equipped	EQMOD:PLUS1W.STEEL
+GEAR:Breastplate					SIZE:S	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Armor.Material ~ Steel
+GEAR:Dogslicer					SIZE:S	LOCATION:Equipped	EQMOD:Special Ability ~ +1 ~ Weapon.Material ~ Steel
 
 
 STARTPACK:NPC (Bruthazamus)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bugbear]	SOURCEPAGE:p.44	NAMEISPI:YES
@@ -178,9 +179,9 @@ ABILITY:CATEGORY=Favored Enemy|Favored Enemy ~ Humanoid (Elf)
 GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
 GEAR:Studded Leather					LOCATION:Equipped
 GEAR:Flail (Heavy)					LOCATION:Both Hands
-GEAR:Longbow (Composite)				LOCATION:Carried		EQMOD:BOWSTR|+3.MWORKW
+GEAR:Longbow (Composite)				LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+3.Special Quality ~ Masterwork ~ Weapon
 GEAR:Arrow					QTY:20	LOCATION:Carried
-GEAR:Arrow					QTY:4		LOCATION:Carried		EQMOD:PLUS1W.BANE|Humanoids (Elf)
+GEAR:Arrow					QTY:4		LOCATION:Carried		EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Bane ~ Weapon|Elf Bane
 
 
 STARTPACK:NPC (Orik Vancaskerkin)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Human]	SOURCEPAGE:p.46	NAMEISPI:YES
@@ -204,9 +205,9 @@ ABILITY:CATEGORY=FEAT|Blind-Fight
 ABILITY:CATEGORY=Fighter Bonus Feat|Exotic Weapon Proficiency(Sword (Bastard))
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
 GEAR:Potion of Cure Moderate Wounds			LOCATION:Carried
-GEAR:Banded Mail						LOCATION:Equipped		EQMOD:PLUS1A
-GEAR:Shield (Heavy/Steel)				LOCATION:Equipped		EQMOD:MWORKA
-GEAR:Sword (Bastard)					LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Banded Mail						LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Shield (Heavy/Steel)				LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Sword (Bastard)					LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Arrow					QTY:20	LOCATION:Carried
 GEAR:Longbow (Composite +0)				LOCATION:Carried
 GEAR:Everburning Torch					LOCATION:Carried
@@ -235,17 +236,17 @@ SKILL:Stealth			RANK:3
 ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Spell Focus (Evocation)
-GEAR:Wand						LOCATION:Carried		EQMOD:SPL_CHRG|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[38]
-GEAR:Potion of Cure Light Wounds		LOCATION:Carried
-GEAR:Scroll (Sleep)				LOCATION:Carried
-GEAR:Scroll (Comprehend Languages/Arcane)	LOCATION:Carried
-GEAR:Scroll (Minor Image)			LOCATION:Carried
-GEAR:Scroll (See Invisibility)		LOCATION:Carried
-GEAR:Scroll (Whispering Wind)			LOCATION:Carried
-GEAR:Dagger						LOCATION:Primary Hand
-GEAR:Cloak of Resistance +1			LOCATION:Equipped
-GEAR:Everburning Torch				LOCATION:Carried
-GEAR:Spellbook (Wizard's/Blank)		LOCATION:Carried
+GEAR:Wand							LOCATION:Carried		EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile]SPELLLEVEL[1]CASTERLEVEL[1]CHARGES[38]
+GEAR:Potion of Cure Light Wounds			LOCATION:Carried
+GEAR:Scroll of Sleep					LOCATION:Carried
+GEAR:Scroll of Comprehend Languages (Arcane)	LOCATION:Carried
+GEAR:Scroll of Minor Image				LOCATION:Carried
+GEAR:Scroll of See Invisibility			LOCATION:Carried
+GEAR:Scroll of Whispering Wind			LOCATION:Carried
+GEAR:Dagger							LOCATION:Primary Hand
+GEAR:Cloak of Resistance +1				LOCATION:Equipped
+GEAR:Everburning Torch					LOCATION:Carried
+GEAR:Spellbook						LOCATION:Carried
 
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Acid Splash
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Burning Hands
@@ -273,40 +274,40 @@ SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Shatter
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Sleep
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Spider Climb
 
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Acid Splash
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Arcane Mark
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Burning Hands
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Comprehend Languages
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Dancing Lights
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Daze
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Detect Magic
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Detect Poison
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Detect Secret Doors
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Disrupt Undead
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Flare
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Floating Disk
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Ghost Sound
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Identify
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Light
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Locate Object
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Mage Armor
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Mage Hand
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Mending
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Message
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Minor Image
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Mirror Image
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Obscuring Mist
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Open/Close
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Prestidigitation
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Ray of Enfeeblement
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Ray of Frost
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Read Magic
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Resistance
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|See Invisibility
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Shatter
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Sleep
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Spider Climb
-SPELLS:SPELLBOOK=Spellbook (Wizard's/Blank)|CLASS=Wizard|Touch of Fatigue
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Acid Splash
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Arcane Mark
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Burning Hands
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Comprehend Languages
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Dancing Lights
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Daze
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Detect Magic
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Detect Poison
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Detect Secret Doors
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Disrupt Undead
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Flare
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Floating Disk
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Ghost Sound
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Identify
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Light
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Locate Object
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Mage Armor
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Mage Hand
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Mending
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Message
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Minor Image
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Mirror Image
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Obscuring Mist
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Open/Close
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Prestidigitation
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Ray of Enfeeblement
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Ray of Frost
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Read Magic
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Resistance
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|See Invisibility
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Shatter
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Sleep
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Spider Climb
+SPELLS:SPELLBOOK=Spellbook|CLASS=Wizard|Touch of Fatigue
 
 
 STARTPACK:NPC (Nualia)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Aasimar]	SOURCEPAGE:p.52	NAMEISPI:YES
@@ -334,12 +335,12 @@ ABILITY:CATEGORY=Fighter Bonus Feat|Exotic Weapon Proficiency (Sword (Bastard))
 ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
 ABILITY:CATEGORY=Channel Energy|Cleric ~ Channel Negative Energy
 TEMPLATE:Lamashtu's Gift
-GEAR:Breastplate					LOCATION:Equipped		EQMOD:PLUS1A
-GEAR:Sword (Bastard)				LOCATION:Primary Hand	EQMOD:PLUS1W
+GEAR:Breastplate					LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Sword (Bastard)				LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
 GEAR:Sihedron Medallion				LOCATION:Equipped
-GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:BOWSTR|+3.MWORKW
+GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+3.Special Quality ~ Masterwork ~ Weapon
 GEAR:Arrow				QTY:20	LOCATION:Carried
-GEAR:Holy Symbol (Silver)			LOCATION:Carried
+GEAR:Holy Symbol					LOCATION:Carried		EQMOD:Holy Symbol (Silver)
 GEAR:Coin (Platinum Piece)	QTY:7		LOCATION:Carried
 GEAR:Coin (Gold Piece)		QTY:5		LOCATION:Carried
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Cause Fear

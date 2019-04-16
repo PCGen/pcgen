@@ -38,43 +38,37 @@ public final class CorePerspectiveDB
 		//Do not construct utility class
 	}
 
-	private static DoubleKeyMap<CorePerspective, Object, FacetView<?>> map =
-            new DoubleKeyMap<>();
-	private static HashMap<CorePerspective, FacetView<?>> rootmap =
-            new HashMap<>();
-	private static HashMap<Object, FacetView<?>> facetToView =
-            new HashMap<>();
-	private static Map<Object, CorePerspective> facetToPerspective =
-            new HashMap<>();
-	private static HashMapToList<Object, Object> virtualParents =
-            new HashMapToList<>();
+	private static DoubleKeyMap<CorePerspective, Object, FacetView<?>> map = new DoubleKeyMap<>();
+	private static HashMap<CorePerspective, FacetView<?>> rootmap = new HashMap<>();
+	private static HashMap<Object, FacetView<?>> facetToView = new HashMap<>();
+	private static Map<Object, CorePerspective> facetToPerspective = new HashMap<>();
+	private static HashMapToList<Object, Object> virtualParents = new HashMapToList<>();
 
-	public static <S, D> Object register(CorePerspective perspective,
-		FacetBehavior behavior, AbstractItemConvertingFacet<S, D> facet)
+	public static <S, D> Object register(CorePerspective perspective, FacetBehavior behavior,
+		AbstractItemConvertingFacet<S, D> facet)
 	{
 		FacetView<Object> view = new ConvertingFacetView<>(facet);
 		finishRegistration(perspective, behavior, view, facet);
 		return view;
 	}
 
-	public static <T> Object register(CorePerspective perspective,
-		FacetBehavior behavior, AbstractSourcedListFacet<CharID, T> facet)
+	public static <T> Object register(CorePerspective perspective, FacetBehavior behavior,
+		AbstractSourcedListFacet<CharID, T> facet)
 	{
 		FacetView<T> view = new ListFacetView<>(facet);
 		finishRegistration(perspective, behavior, view, facet);
 		return view;
 	}
 
-	public static <T> Object register(CorePerspective perspective,
-		FacetBehavior behavior, AbstractSingleSourceListFacet<T, ?> facet)
+	public static <T> Object register(CorePerspective perspective, FacetBehavior behavior,
+		AbstractSingleSourceListFacet<T, ?> facet)
 	{
 		FacetView<T> view = new SingleSourceListFacetView<>(facet);
 		finishRegistration(perspective, behavior, view, facet);
 		return view;
 	}
 
-	public static <T extends QualifyingObject> Object register(
-		CorePerspective perspective, FacetBehavior behavior,
+	public static <T extends QualifyingObject> Object register(CorePerspective perspective, FacetBehavior behavior,
 		AbstractQualifiedListFacet<T> facet)
 	{
 		FacetView<T> view = new QualifiedFacetView<>(facet);
@@ -82,15 +76,13 @@ public final class CorePerspectiveDB
 		return view;
 	}
 
-	private static void finishRegistration(CorePerspective perspective,
-		FacetBehavior behavior, FacetView<?> view, Object f)
+	private static void finishRegistration(CorePerspective perspective, FacetBehavior behavior, FacetView<?> view,
+		Object f)
 	{
 		Object location = behavior;
 		if (f instanceof PerspectiveLocation)
 		{
-			location =
-					new Location(behavior,
-						((PerspectiveLocation) f).getIdentity());
+			location = new Location(behavior, ((PerspectiveLocation) f).getIdentity());
 		}
 		map.put(perspective, location, view);
 		facetToView.put(f, view);
@@ -101,16 +93,14 @@ public final class CorePerspectiveDB
 		}
 	}
 
-	private static class Location
+	private static final class Location
 	{
 
 		private final String location;
 
-		public Location(FacetBehavior behavior, String source)
+		private Location(FacetBehavior behavior, String source)
 		{
-			location =
-					new StringBuilder(40).append(behavior).append(" (")
-						.append(source).append(")").toString();
+			location = String.valueOf(behavior) + " (" + source + ")";
 		}
 
 		@Override
@@ -120,18 +110,12 @@ public final class CorePerspectiveDB
 		}
 	}
 
-	public static Collection<CorePerspective> getPerspectives()
-	{
-		return map.getKeySet();
-	}
-
 	public static Collection<Object> getLocations(CorePerspective perspective)
 	{
 		return map.getSecondaryKeySet(perspective);
 	}
 
-	public static <T> FacetView<T> getView(CorePerspective perspective,
-		Object location)
+	public static <T> FacetView<T> getView(CorePerspective perspective, Object location)
 	{
 		@SuppressWarnings("unchecked")
 		FacetView<T> facetView = (FacetView<T>) map.get(perspective, location);
@@ -162,8 +146,7 @@ public final class CorePerspectiveDB
 		FacetView<?> view = facetToView.get(obj);
 		if (view == null)
 		{
-			throw new IllegalStateException(
-				"Cannot register virtual parent when object is not yet registered");
+			throw new IllegalStateException("Cannot register virtual parent when object is not yet registered");
 		}
 		virtualParents.addToListFor(view, parent);
 	}

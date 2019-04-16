@@ -24,42 +24,22 @@ import java.util.TreeSet;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Movement;
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.core.Race;
+import pcgen.core.SimpleMovement;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class MoveToken extends AbstractTokenWithSeparator<Race> implements
-		CDOMPrimaryToken<Race>
+public class MoveToken extends AbstractTokenWithSeparator<Race> implements CDOMPrimaryToken<Race>
 {
 
 	@Override
 	public String getTokenName()
 	{
 		return "MOVE";
-	}
-
-	private ParseResult validateMove(String value, String mod)
-	{
-		try
-		{
-			if (Integer.parseInt(mod) < 0)
-			{
-				return new ParseResult.Fail(
-					"Invalid movement (cannot be negative): " + mod
-						+ " in MOVE: " + value);
-			}
-		}
-		catch (NumberFormatException nfe)
-		{
-			return new ParseResult.Fail(
-				"Invalid movement (must be an integer >= 0): " + mod
-					+ " in MOVE: " + value);
-		}
-		return ParseResult.SUCCESS;
 	}
 
 	@Override
@@ -69,71 +49,48 @@ public class MoveToken extends AbstractTokenWithSeparator<Race> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Race obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Race obj, String value)
 	{
 		StringTokenizer moves = new StringTokenizer(value, Constants.COMMA);
-		Movement cm;
 
-		if (moves.countTokens() == 1)
+		while (moves.countTokens() > 1)
 		{
-			cm = new Movement(1);
+			MovementType type = MovementType.getConstant(moves.nextToken());
 			String mod = moves.nextToken();
-			ParseResult pr = validateMove(value, mod);
-			if (!pr.passed())
+			try
 			{
-				return pr;
+				SimpleMovement cm =
+						new SimpleMovement(type, Integer.parseInt(mod));
+				context.getObjectContext().addToList(obj,
+					ListKey.BASE_MOVEMENT, cm);
 			}
-			cm.assignMovement(0, "Walk", mod);
+			catch (NumberFormatException e)
+			{
+				return new ParseResult.Fail(
+					"Movement must be a number, found: " + mod);
+			}
 		}
-		else
+		if (moves.countTokens() != 0)
 		{
-			cm = new Movement(moves.countTokens() / 2);
-
-			int x = 0;
-			while (moves.countTokens() > 1)
-			{
-				String type = moves.nextToken();
-				String mod = moves.nextToken();
-				ParseResult pr = validateMove(value, mod);
-				if (!pr.passed())
-				{
-					return pr;
-				}
-				cm.assignMovement(x++, type, mod);
-			}
-			if (moves.countTokens() != 0)
-			{
-				return new ParseResult.Fail("Badly formed MOVE token "
-					+ "(extra value at end of list): " + value, context);
-			}
+			return new ParseResult.Fail("Badly formed MOVE token " + "(extra value at end of list): " + value);
 		}
-		cm.setMoveRatesFlag(0);
-		context.getObjectContext().addToList(obj, ListKey.BASE_MOVEMENT, cm);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, Race obj)
 	{
-		Changes<Movement> changes =
-				context.getObjectContext().getListChanges(obj,
-					ListKey.BASE_MOVEMENT);
-		Collection<Movement> added = changes.getAdded();
+		Changes<SimpleMovement> changes = context.getObjectContext().getListChanges(obj, ListKey.BASE_MOVEMENT);
+		Collection<SimpleMovement> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{
 			// Zero indicates no Token
 			return null;
 		}
 		Set<String> set = new TreeSet<>();
-		for (Movement m : added)
+		for (SimpleMovement movement : added)
 		{
-			if (m.getMoveRatesFlag() == 0)
-			{
-				StringBuilder sb = new StringBuilder();
-				m.addTokenContents(sb);
-				set.add(sb.toString());
-			}
+			set.add(movement.getMovementType() + "," + movement.getMovement());
 		}
 		if (set.isEmpty())
 		{

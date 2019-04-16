@@ -6,9 +6,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
-
 /**
- * @author karianna
  * Class deals with MISC Token
  */
 public class MiscToken extends Token
@@ -17,32 +15,25 @@ public class MiscToken extends Token
 	/** Token name */
 	public static final String TOKENNAME = "MISC";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		String tokens[] = tokenSource.split(",", 2);
+		String[] tokens = tokenSource.split(",", 2);
 		String tokenHead = tokens[0];
 		String sourceText = "\n";
 
-		if(tokens.length == 2)
+		if (tokens.length == 2)
 		{
 			sourceText = tokens[1];
 		}
 
-		String headTokens[] = tokenHead.split("\\.");
+		String[] headTokens = tokenHead.split("\\.");
 		String subToken = headTokens[1];
 
 		PCStringKey key;

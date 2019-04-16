@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.content.fact;
 
+import java.util.Objects;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.persistence.lst.LstToken;
@@ -32,13 +34,12 @@ import pcgen.util.Logging;
  * present on the object.
  * 
  * @param <T>
- *            The type of of object upon which the FactDefinitionEnforcer will
+ *            The type of object upon which the FactDefinitionEnforcer will
  *            be used
  * @param <F>
  *            The format of the data stored in the Fact
  */
-public class FactDefinitionEnforcer<T extends CDOMObject, F> implements
-		DeferredToken<T>, LstToken
+public class FactDefinitionEnforcer<T extends CDOMObject, F> implements DeferredToken<T>, LstToken
 {
 
 	/**
@@ -57,17 +58,10 @@ public class FactDefinitionEnforcer<T extends CDOMObject, F> implements
 	 */
 	public FactDefinitionEnforcer(FactInfo<T, F> fi)
 	{
-		if (fi == null)
-		{
-			throw new IllegalArgumentException("Fact Info cannot be null");
-		}
+		Objects.requireNonNull(fi, "Fact Info cannot be null");
 		def = fi;
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.DeferredToken#process(pcgen.rules.context.LoadContext,
-	 *      pcgen.cdom.base.Loadable)
-	 */
 	@Override
 	public boolean process(LoadContext context, T obj)
 	{
@@ -76,24 +70,17 @@ public class FactDefinitionEnforcer<T extends CDOMObject, F> implements
 		{
 			return true;
 		}
-		Logging.errorPrint("FACT " + def.getFactName()
-			+ " was required but not set in " + obj.getClass().getSimpleName()
-			+ " " + obj.getKeyName());
+		Logging.errorPrint("FACT " + def.getFactName() + " was required but not set in "
+			+ obj.getClass().getSimpleName() + " " + obj.getKeyName());
 		return false;
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.DeferredToken#getDeferredTokenClass()
-	 */
 	@Override
 	public Class<T> getDeferredTokenClass()
 	{
 		return def.getUsableLocation();
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{

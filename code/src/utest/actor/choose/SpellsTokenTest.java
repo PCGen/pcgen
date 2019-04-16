@@ -17,11 +17,10 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.spell.Spell;
 import plugin.lsttokens.choose.SpellsToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
 
 public class SpellsTokenTest extends
@@ -29,12 +28,6 @@ public class SpellsTokenTest extends
 {
 
 	static SpellsToken pca = new SpellsToken();
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 
 	@Override
 	public Chooser<Spell> getActor()

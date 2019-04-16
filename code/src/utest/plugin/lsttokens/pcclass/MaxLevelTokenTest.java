@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.pcclass;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
@@ -27,11 +25,13 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractIntegerTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class MaxLevelTokenTest extends AbstractIntegerTokenTestCase<PCClass>
 {
 
 	static MaxlevelToken token = new MaxlevelToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

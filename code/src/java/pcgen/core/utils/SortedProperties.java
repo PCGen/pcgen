@@ -1,6 +1,4 @@
 /*
- *  SortedProperties.java
- *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
  *  License as published by the Free Software Foundation; either
@@ -14,33 +12,26 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 07, 2003, 2:15 AM
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core.utils;
 
-import pcgen.util.Logging;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Properties;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
-import java.io.*;
-import java.util.*;
+import pcgen.util.Logging;
 
 /**
  * An subclass of Properties whose output is sorted
- *
- * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  */
 public class SortedProperties extends Properties
 {
-	/**
-	 * Constructor
-	 */
-	public SortedProperties()
-	{
-		super();
-	}
 
 	/**
 	 * Store properties
@@ -91,10 +82,7 @@ public class SortedProperties extends Properties
 			{
 				if (Logging.isDebugMode())
 				{
-					Logging
-						.debugPrint(
-							"Caught exception trying to close writer in SortedProperties.mystore",
-							iox);
+					Logging.debugPrint("Caught exception trying to close writer in SortedProperties.mystore", iox);
 				}
 
 				// ignore
@@ -136,5 +124,5 @@ public class SortedProperties extends Properties
 		key = key.replaceAll("=", "\\\\=");
 		return key;
 	}
-	
+
 }

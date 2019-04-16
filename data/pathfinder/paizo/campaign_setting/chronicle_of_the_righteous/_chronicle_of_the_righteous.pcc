@@ -5,7 +5,7 @@ TYPE:Paizo Publishing.Campaign Setting
 RANK:4
 STATUS:BETA
 GENRE:Fantasy
-BOOKTYPE:Supplement
+BOOKTYPE:Campaign Setting
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
 PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide
@@ -63,7 +63,7 @@ SPELL:cotr_spells.lst
 # LICENSE MONKEY: Paul Grosse
 # RELEASE REVIEW #
 # BETA: Andrew Maitland (8/23/2016)
-# RELEASE: 
+# RELEASE:
 # Built for PCGen Version: 6.06.01
 # Updated to work with version: -
 # MINVER:6.6

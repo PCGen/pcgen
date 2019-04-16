@@ -1,5 +1,4 @@
 /*
- * KitProf.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 28, 2002, 11:50 PM
- *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -41,22 +36,19 @@ import pcgen.core.Race;
 import pcgen.core.WeaponProf;
 
 /**
- * <code>KitFeat</code>.
- *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
+ * {@code KitFeat}.
  */
 public final class KitProf extends BaseKit
 {
 	private Integer choiceCount;
 
-	private final List<CDOMSingleRef<WeaponProf>> profList =
-            new ArrayList<>();
+	private final List<CDOMSingleRef<WeaponProf>> profList = new ArrayList<>();
 	private Boolean racialProf;
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient CDOMObject thePObject = null;
-	private transient List<WeaponProf> weaponProfs = null;
+	private CDOMObject thePObject = null;
+	private List<WeaponProf> weaponProfs = null;
 
 	/**
 	 * True if it is a racial proficiency
@@ -93,8 +85,7 @@ public final class KitProf extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-		List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		thePObject = null;
 		weaponProfs = null;
@@ -112,8 +103,7 @@ public final class KitProf extends BaseKit
 			}
 			if (!aPC.hasBonusWeaponProfs(pcRace))
 			{
-				warnings
-					.add("PROF: Race has already selected bonus weapon proficiency");
+				warnings.add("PROF: Race has already selected bonus weapon proficiency");
 
 				return false;
 			}
@@ -129,7 +119,7 @@ public final class KitProf extends BaseKit
 		else
 		{
 			Collection<PCClass> pcClasses = aPC.getClassSet();
-			if (pcClasses == null || pcClasses.size() == 0)
+			if (pcClasses == null || pcClasses.isEmpty())
 			{
 				warnings.add("PROF: No owning class found.");
 
@@ -156,8 +146,7 @@ public final class KitProf extends BaseKit
 			thePObject = pcClass;
 			if (!aPC.hasBonusWeaponProfs(pcClass))
 			{
-				warnings
-					.add("PROF: Class has already selected bonus weapon proficiency");
+				warnings.add("PROF: Class has already selected bonus weapon proficiency");
 
 				return false;
 			}
@@ -175,8 +164,7 @@ public final class KitProf extends BaseKit
 			}
 			else
 			{
-				warnings.add("PROF: Weapon proficiency \"" + wp.getKeyName()
-					+ "\" is not in list of choices");
+				warnings.add("PROF: Weapon proficiency \"" + wp.getKeyName() + "\" is not in list of choices");
 			}
 		}
 
@@ -208,13 +196,10 @@ public final class KitProf extends BaseKit
 			//
 			while (true)
 			{
-				xs =
-						Globals
-							.getChoiceFromList("Choose Proficiencies",
-								aProfList, new ArrayList<>(),
-								numberOfChoices, aPC);
+				xs = Globals.getChoiceFromList("Choose Proficiencies", aProfList, new ArrayList<>(), numberOfChoices,
+					aPC);
 
-				if (xs.size() != 0)
+				if (!xs.isEmpty())
 				{
 					break;
 				}
@@ -237,9 +222,8 @@ public final class KitProf extends BaseKit
 
 	private PersistentTransitionChoice<WeaponProf> getPTC(CDOMObject cdo)
 	{
-		List<PersistentTransitionChoice<?>> adds =
-				cdo.getListFor(ListKey.ADD);
-		for (PersistentTransitionChoice<?> ptc: adds)
+		List<PersistentTransitionChoice<?>> adds = cdo.getListFor(ListKey.ADD);
+		for (PersistentTransitionChoice<?> ptc : adds)
 		{
 			if (ptc.getChoiceClass().equals(WeaponProf.class))
 			{

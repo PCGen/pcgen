@@ -17,9 +17,9 @@
  */
 package plugin.lsttokens.spell;
 
+import java.util.StringJoiner;
 import java.util.StringTokenizer;
 
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.identifier.SpellSchool;
@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with SCHOOL Token
  */
-public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements
-		CDOMPrimaryToken<Spell>
+public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements CDOMPrimaryToken<Spell>
 {
 
 	@Override
@@ -50,8 +49,7 @@ public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Spell spell, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Spell spell, String value)
 	{
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 
@@ -63,29 +61,23 @@ public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements
 			{
 				if (!first)
 				{
-					return new ParseResult.Fail("  Non-sensical " + getTokenName()
-							+ ": .CLEAR was not the first list item: " + value, context);
+					return new ParseResult.Fail(
+						"  Non-sensical " + getTokenName() + ": .CLEAR was not the first list item: " + value);
 				}
-				context.getObjectContext().removeList(spell,
-						ListKey.SPELL_SCHOOL);
+				context.getObjectContext().removeList(spell, ListKey.SPELL_SCHOOL);
 			}
 			else if (Constants.LST_ALL.equals(tokString))
 			{
-				return new ParseResult.Fail(getTokenName()
-					+ "used reserved word ALL: " + value, context);
+				return new ParseResult.Fail(getTokenName() + "used reserved word ALL: " + value);
 			}
 			else if (Constants.LST_ANY.equals(tokString))
 			{
-				return new ParseResult.Fail(getTokenName()
-					+ "used reserved word ANY: " + value, context);
+				return new ParseResult.Fail(getTokenName() + "used reserved word ANY: " + value);
 			}
 			else
 			{
-				SpellSchool ss =
-						context.getReferenceContext().constructNowIfNecessary(SpellSchool.class,
-							tokString);
-				context.getObjectContext().addToList(spell,
-						ListKey.SPELL_SCHOOL, ss);
+				SpellSchool ss = context.getReferenceContext().constructNowIfNecessary(SpellSchool.class, tokString);
+				context.getObjectContext().addToList(spell, ListKey.SPELL_SCHOOL, ss);
 			}
 			first = false;
 		}
@@ -95,27 +87,21 @@ public class SchoolToken extends AbstractTokenWithSeparator<Spell> implements
 	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
-		Changes<SpellSchool> changes = context.getObjectContext().getListChanges(
-				spell, ListKey.SPELL_SCHOOL);
+		Changes<SpellSchool> changes = context.getObjectContext().getListChanges(spell, ListKey.SPELL_SCHOOL);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
-		StringBuilder sb = new StringBuilder();
+		StringJoiner joiner = new StringJoiner(Constants.PIPE);
 		if (changes.includesGlobalClear())
 		{
-			sb.append(Constants.LST_DOT_CLEAR);
+			joiner.add(Constants.LST_DOT_CLEAR);
 		}
 		if (changes.hasAddedItems())
 		{
-			if (sb.length() != 0)
-			{
-				sb.append(Constants.PIPE);
-			}
-			sb.append(StringUtil.joinToStringBuilder(changes.getAdded(),
-					Constants.PIPE));
+			changes.getAdded().forEach(added -> joiner.add(added.toString()));
 		}
-		return new String[] { sb.toString() };
+		return new String[]{joiner.toString()};
 	}
 
 	@Override

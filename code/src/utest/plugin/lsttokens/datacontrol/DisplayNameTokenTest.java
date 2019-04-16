@@ -17,14 +17,14 @@
  */
 package plugin.lsttokens.datacontrol;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
-
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 import pcgen.cdom.content.ContentDefinition;
 import pcgen.cdom.content.fact.FactDefinition;
@@ -37,44 +37,58 @@ import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class DisplayNameTokenTest extends TestCase
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import util.TestURI;
+
+public class DisplayNameTokenTest
 {
 
-	static DisplayNameToken token = new DisplayNameToken();
-	ContentDefinition cd;
+	private static DisplayNameToken token = new DisplayNameToken();
+	private static CampaignSourceEntry testCampaign;
 
-	protected LoadContext context;
+	private ContentDefinition cd;
+	private LoadContext context;
 
-	private static boolean classSetUpFired = false;
-	protected static CampaignSourceEntry testCampaign;
-
-	@BeforeClass
-	public static final void classSetUp() throws URISyntaxException
+	@BeforeAll
+	public static void classSetUp()
 	{
 		testCampaign =
-				new CampaignSourceEntry(new Campaign(), new URI(
-					"file:/Test%20Case"));
-		classSetUpFired = true;
+				new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
-	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
 		resetContext();
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		TokenRegistration.clearTokens();
+		context = null;
+		cd = null;
+	}
+
+	@AfterAll
+	public static void classTearDown()
+	{
+		token = null;
+		testCampaign = null;
 	}
 
 	protected void resetContext()
 	{
 		URI testURI = testCampaign.getURI();
 		context =
-				new RuntimeLoadContext(new RuntimeReferenceContext(),
+				new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 					new ConsolidatedListCommitStrategy());
 		context.setSourceURI(testURI);
 		context.setExtractURI(testURI);
@@ -82,19 +96,19 @@ public class DisplayNameTokenTest extends TestCase
 	}
 
 	@Test
-	public void testInvalidInputNullString() throws PersistenceLayerException
+	public void testInvalidInputNullString()
 	{
-		assertFalse(token.parseToken(context, cd, null).passed());
+		Assertions.assertFalse(token.parseToken(context, cd, null).passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString() throws PersistenceLayerException
+	public void testInvalidInputEmptyString()
 	{
-		assertFalse(token.parseToken(context, cd, "").passed());
+		Assertions.assertFalse(token.parseToken(context, cd, "").passed());
 	}
 
 	@Test
-	public void testValidStringYes() throws PersistenceLayerException
+	public void testValidStringYes()
 	{
 		assertNull(cd.getDisplayName());
 		assertTrue(token.parseToken(context, cd, "YES").passed());
@@ -102,12 +116,11 @@ public class DisplayNameTokenTest extends TestCase
 		assertEquals("YES", cd.getDisplayName());
 		String[] unparsed = token.unparse(context, cd);
 		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("YES", unparsed[0]);
+		assertArrayEquals(new String[]{"YES"}, unparsed);
 	}
 
 	@Test
-	public void testValidStringNo() throws PersistenceLayerException
+	public void testValidStringNo()
 	{
 		assertNull(cd.getDisplayName());
 		String str = "Wow! Some String?!?";
@@ -116,8 +129,7 @@ public class DisplayNameTokenTest extends TestCase
 		assertEquals(str, cd.getDisplayName());
 		String[] unparsed = token.unparse(context, cd);
 		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals(str, unparsed[0]);
+		assertArrayEquals(new String[]{str}, unparsed);
 	}
 
 }

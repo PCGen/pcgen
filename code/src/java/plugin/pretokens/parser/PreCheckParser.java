@@ -1,5 +1,4 @@
 /*
- * PreCheckParser.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,13 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package plugin.pretokens.parser;
 
@@ -35,7 +27,6 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 
 /**
  * A prerequisite parser class that handles the parsing of pre check tokens.
- *
  */
 public class PreCheckParser extends AbstractPrerequisiteListParser
 {
@@ -43,24 +34,22 @@ public class PreCheckParser extends AbstractPrerequisiteListParser
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"CHECK", "CHECKBASE"};
 	}
 
 	@Override
-	public Prerequisite parse(String kind, String formula, boolean invertResult,
-		boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(),
-			CControl.TOTALSAVE))
+		if (ControlUtilities.hasControlToken(Globals.getContext(), CControl.TOTALSAVE))
 		{
 			throw new PersistenceLayerException(
 				"PRECHECK and PRECHECKBASE are disabled when TOTALSAVE CodeControl is used");
 		}
 		return super.parse(kind, formula, invertResult, overrideQualify);
 	}
-    
-    
+
 }

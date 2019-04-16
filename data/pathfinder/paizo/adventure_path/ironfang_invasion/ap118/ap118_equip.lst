@@ -1,0 +1,21 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Ironfang Invasion, Chapter 4 - Siege of Stone	SOURCESHORT:AP118	SOURCEWEB:http://paizo.com/products/btpy9pn4	SOURCEDATE:2017-05
+# ORIGINAL ENTRY: Gary Davies
+# ORIGINAL ENTRY DATE: 2017-06
+
+# New Poison
+# Equipment Name			Output Name		Type						Cost		Weight	Source Page		Modify VAR								Special Property
+Poison (Bloodbrain Venom)	OUTPUTNAME:[NAME]	TYPE:Goods.Poison.Consumable		COST:400	WT:0		SOURCEPAGE:p.16										SPROP:Injury; Fort DC 17; Freq 1 rnd. (6); Effect 1d6 Str dmg and scented for 10 minutes/1d3 Str dmg; Cure 1 save
+
+# New Magic Items
+# Equipment Name			Output Name		Type						Cost		Weight	Source Page		Modify VAR								Special Property
+Sigil Of Kraggodan					TYPE:Magic.Ring				COST:16000			SOURCEPAGE:p.41	BONUS:VAR|AcidResistanceBonus|10|TYPE=Resistance	SPROP:This ring grants Acid Resistance 10. In addition, three times per day as a swift action, the wearer can make himself undetectable by crafted and magical traps and creatures of the construct type for the following minute. This functions like greater invisibility within these limits and also prevents the character's weight or presence from triggering traps.
+
+# New Artifacts
+# Equipment Name			Output Name		Type						Cost		Weight	Source Page		Modify VAR								Special Property
+The Enthroned King					TYPE:Artifact.Minor.Intelligent	COST:0	WT:2		SOURCEPAGE:p.50										SPROP:Neutral good, INT 16, WIS 16, CHA 19, EGO 13, Senses 60 ft, darkvision, Language speech (common, dwarven, terran, undercommon), worn openly it grants its carrier a +1 Luck bonus on all ability checks, saving throws, and skill checks, 1d10+10 temporary hit points 3/day
+
+#BONUS:Save|ALL|1|TYPE=Luck|PREEQUIP:1,The Enthroned King		BONUS:Skill|ALL|1|TYPE=Luck|PREEQUIP:1,The Enthroned King
+
+#a +1 luck bonus on all ability checks, saving throws, and skill checks
+#While a character rarely rolls an ability check (using just an ability score)

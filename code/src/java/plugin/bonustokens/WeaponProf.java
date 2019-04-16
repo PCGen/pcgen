@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 13, 2002, 9:19 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.bonustokens;
 
@@ -34,11 +29,9 @@ import pcgen.util.Logging;
  */
 public final class WeaponProf extends MultiTagBonusObj
 {
-	private static final String[] bonusTags =
-			{"CRITMULTADD", "CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGE",
-				"DAMAGE-SHORTRANGE", "DAMAGESIZE", "PCSIZE", "REACH", "TOHIT",
-				"TOHIT-SHORTRANGE", "TOHITOVERSIZE", "WEAPONBAB",
-				"WIELDCATEGORY"};
+	private static final String[] BONUS_TAGS =
+			{"CRITMULTADD", "CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGE", "DAMAGE-SHORTRANGE", "DAMAGESIZE", "PCSIZE",
+				"REACH", "TOHIT", "TOHIT-SHORTRANGE", "TOHITOVERSIZE", "WEAPONBAB", "WIELDCATEGORY", "STATDAMAGE"};
 
 	/**
 	 * Return the bonus tag handled by this class.
@@ -53,24 +46,22 @@ public final class WeaponProf extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual weapon proficiency attribute that may be bonused.
 	 * @param tagNumber the index of the weapon proficiency attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The weapon proficiency attribute.
 	 */
 	@Override
 	protected String getBonusTag(final int tagNumber)
 	{
-		return bonusTags[tagNumber];
+		return BONUS_TAGS[tagNumber];
 	}
 
 	/**
 	 * Get the number of weapon proficiency attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of weapon proficiency attributes.
 	 */
 	@Override
 	protected int getBonusTagLength()
 	{
-		return bonusTags.length;
+		return BONUS_TAGS.length;
 	}
 
 	@Override
@@ -80,16 +71,14 @@ public final class WeaponProf extends MultiTagBonusObj
 		{
 			if ("CRITRANGEADD".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:WEAPONPROF|CRITRANGEADD is disabled when CRITRANGE control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:WEAPONPROF|CRITRANGEADD is disabled when CRITRANGE control is used: " + token,
+					context);
 				return false;
 			}
 			if ("CRITRANGEDOUBLE".equals(token))
 			{
 				Logging.errorPrint(
-					"BONUS:WEAPONPROF|CRITRANGEDOUBLE is disabled when CRITRANGE control is used: "
-						+ token, context);
+					"BONUS:WEAPONPROF|CRITRANGEDOUBLE is disabled when CRITRANGE control is used: " + token, context);
 				return false;
 			}
 		}
@@ -97,9 +86,8 @@ public final class WeaponProf extends MultiTagBonusObj
 		{
 			if ("CRITMULTADD".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:WEAPONPROF|CRITMULTADD is disabled when CRITMULT control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:WEAPONPROF|CRITMULTADD is disabled when CRITMULT control is used: " + token,
+					context);
 				return false;
 			}
 		}
@@ -107,9 +95,8 @@ public final class WeaponProf extends MultiTagBonusObj
 		{
 			if ("REACH".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:WEAPONPROF|REACH is disabled when EQREACH control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:WEAPONPROF|REACH is disabled when EQREACH control is used: " + token,
+					context);
 				return false;
 			}
 		}

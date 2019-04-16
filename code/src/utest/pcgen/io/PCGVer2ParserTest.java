@@ -1,5 +1,4 @@
 /*
- * PCGVer2ParserTest.java
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,20 +14,21 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 19-Nov-2004
  */
 package pcgen.io;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import pcgen.system.PCGenPropBundle;
 
-import org.junit.Test;
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import org.hamcrest.MatcherAssert;
+import org.junit.jupiter.api.Test;
 
-/**
- */
-public class PCGVer2ParserTest
+
+class PCGVer2ParserTest
 {
 
 	@Test
@@ -45,7 +45,7 @@ public class PCGVer2ParserTest
 		assertEquals(5, version[0]);
 		assertEquals(7, version[1]);
 		assertEquals(1, version[2]);
-		assertEquals(null, suffix);
+		assertNull(suffix);
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class PCGVer2ParserTest
 		assertEquals(5, version[0]);
 		assertEquals(7, version[1]);
 		assertEquals(1, version[2]);
-		assertEquals(null, suffix);
+		assertNull(suffix);
 	}
 
 	@Test
@@ -79,7 +79,7 @@ public class PCGVer2ParserTest
 		assertEquals(5, version[0]);
 		assertEquals(7, version[1]);
 		assertEquals(1, version[2]);
-		assertEquals(null, suffix);
+		assertNull(suffix);
 	}
 
 	@Test
@@ -120,37 +120,24 @@ public class PCGVer2ParserTest
 	public void test_1045596_6()
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
-
-		try
-		{
-			parser.parseVersionLine("5.7.1");
-			fail("Should have thrown an exception");
-		}
-		catch (PCGParseException e)
-		{
-			assertThat(e.getMessage(), is("Not a Version Line."));
-		}
+		PCGParseException pcgParseException =
+				assertThrows(PCGParseException.class, () -> parser.parseVersionLine("5.7.1"));
+		assertEquals("Not a Version Line.", pcgParseException.getMessage());
 	}
 
 	@Test
 	public void test_1045596_7()
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
-
-		try
-		{
-			parser.parseVersionLine("VERSION:5.7.1RC1");
-			fail("Should have thrown an exception");
-		}
-		catch (PCGParseException e)
-		{
-			assertEquals("Invalid PCGen version.", e.getMessage());
-		}
+		PCGParseException pcgParseException =
+				assertThrows(PCGParseException.class, () -> parser.parseVersionLine("VERSION:5.7.1RC1"));
+		assertEquals("Invalid PCGen version.", pcgParseException.getMessage());
 	}
 
 	/**
 	 * Test parsing of version line for broken 5.12RC1 version number.
-	 * @throws PCGParseException
+	 *
+	 * @throws PCGParseException the PCG parse exception
 	 */
 	@Test
 	public void test_1045596_8() throws PCGParseException
@@ -172,7 +159,8 @@ public class PCGVer2ParserTest
 
 	/**
 	 * Test that the currently specified version can be parsed.
-	 * @throws PCGParseException
+	 *
+	 * @throws PCGParseException the PCG parse exception
 	 */
 	@Test
 	public void testCurrVersion() throws PCGParseException
@@ -182,9 +170,8 @@ public class PCGVer2ParserTest
 		parser.parseVersionLine("VERSION:" + PCGenPropBundle.getVersionNumber());
 
 		int[] version = parser.getPcgenVersion();
-		parser.getPcgenVersionSuffix();
 
-		assertThat("version length is correct", version.length, is(3));
+		MatcherAssert.assertThat("version length is correct", version.length, is(3));
 	}
 	
 	@Test
@@ -193,11 +180,11 @@ public class PCGVer2ParserTest
 		PCGVer2Parser parser = new PCGVer2Parser(null);
 
 		parser.parseVersionLine("VERSION:5.13.6");
-		assertEquals("Check of a matching version", 0, parser
-			.compareVersionTo(new int[]{5, 13, 6}));
-		assertEquals("Check of an earlier version", -1, parser
-			.compareVersionTo(new int[]{5, 13, 7}));
-		assertEquals("Check of a later version", 1, parser
-			.compareVersionTo(new int[]{5, 13, 5}));
+		assertEquals(0, parser
+			.compareVersionTo(new int[]{5, 13, 6}), "Check of a matching version");
+		assertEquals(-1, parser
+			.compareVersionTo(new int[]{5, 13, 7}), "Check of an earlier version");
+		assertEquals(1, parser
+			.compareVersionTo(new int[]{5, 13, 5}), "Check of a later version");
 	}
 }

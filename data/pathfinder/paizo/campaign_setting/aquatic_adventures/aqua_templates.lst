@@ -1,0 +1,8 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Aquatic Adventures	SOURCESHORT:AquA	SOURCEWEB:http://paizo.com/products/btpy9toq?Pathfinder-Campaign-Setting-Aquatic-Adventures	SOURCEDATE:2017-06
+# ORIGINAL ENTRY: Gary Davies
+# ORIGINAL ENTRY DATE: 2017-07
+
+# Template Name		Visible		Required Movement Rate	Prohibited Movement Rate	Add to base move			Clone Movement
+Add Swim Speed		VISIBLE:DISPLAY					!PREMOVE:1,Swim=1								MOVECLONE:Walk,Swim,*1
+Increase Swim Speed	VISIBLE:DISPLAY	PREMOVE:1,Swim=1							BONUS:MOVEADD|TYPE.Swim|10

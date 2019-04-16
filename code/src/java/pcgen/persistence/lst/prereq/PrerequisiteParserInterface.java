@@ -1,5 +1,4 @@
 /*
- * PrereqParserInterface.java
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 28, 2003
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.persistence.lst.prereq;
@@ -27,7 +24,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 
 /**
- * @author frugal@purplewombat.co.uk
  *
  * Interface to the Prerequisite parser. Each Prerequisite
  * is parsed by a separate class, each class implements this
@@ -48,18 +44,18 @@ public interface PrerequisiteParserInterface
 	public String[] kindsHandled();
 
 	/**
+	 * Parses the.
+	 *
 	 * @param kind the kind of the prerequisite (less the "PRE" prefix)
 	 * @param formula The body of the prerequisite;
 	 * @param invertResult If the prerequisite should invert the result
 	 * before it is returned
-	 * @param overrideQualify
-	 *
+	 * @param overrideQualify the override qualify
 	 * @return Returns a Prerequisite instance containing the parsed contents
 	 * of the input string "value". If the input could not be parsed
 	 * for any reason a PersistenceLayerException will be thrown.
-	 * @throws PersistenceLayerException
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public Prerequisite parse(String kind, String formula,
-		boolean invertResult, boolean overrideQualify)
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException;
 }

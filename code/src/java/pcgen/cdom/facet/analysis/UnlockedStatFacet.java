@@ -33,7 +33,6 @@ import pcgen.core.PCStat;
  * UnlockedStatFacet is a Facet that tracks the Unlocked Stats that have been
  * applied to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UnlockedStatFacet extends AbstractSourcedListFacet<CharID, PCStat>
 		implements DataFacetChangeListener<CharID, CDOMObject>
@@ -52,8 +51,6 @@ public class UnlockedStatFacet extends AbstractSourcedListFacet<CharID, PCStat>
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -81,8 +78,6 @@ public class UnlockedStatFacet extends AbstractSourcedListFacet<CharID, PCStat>
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)

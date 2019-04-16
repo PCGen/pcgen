@@ -36,15 +36,13 @@ import pcgen.core.SpecialAbility;
 /**
  * SpecialAbilityFacet tracks the SpecialAbility objects on a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class SpecialAbilityFacet extends
-		AbstractQualifiedListFacet<SpecialAbility> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class SpecialAbilityFacet extends AbstractQualifiedListFacet<SpecialAbility>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
@@ -127,8 +125,7 @@ public class SpecialAbilityFacet extends
 	 *         each of the objects in this SpecialAbilityFacet for which the
 	 *         Player Character qualifies.
 	 */
-	public <T> List<T> getAllResolved(CharID id,
-		QualifiedActor<SpecialAbility, T> qa)
+	public <T> List<T> getAllResolved(CharID id, QualifiedActor<SpecialAbility, T> qa)
 	{
 		return actOnQualifiedSet(id, qa);
 	}
@@ -145,8 +142,6 @@ public class SpecialAbilityFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -167,8 +162,6 @@ public class SpecialAbilityFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)

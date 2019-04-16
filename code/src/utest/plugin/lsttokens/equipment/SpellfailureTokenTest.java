@@ -29,7 +29,7 @@ public class SpellfailureTokenTest extends AbstractIntegerTokenTestCase<Equipmen
 {
 
 	static SpellfailureToken token = new SpellfailureToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()
@@ -74,7 +74,7 @@ public class SpellfailureTokenTest extends AbstractIntegerTokenTestCase<Equipmen
 	}
 
 	@Override
-	public void testOutputZero() throws PersistenceLayerException
+	public void testOutputZero()
 	{
 		//Consume due to deprecation
 	}
@@ -86,7 +86,7 @@ public class SpellfailureTokenTest extends AbstractIntegerTokenTestCase<Equipmen
 	}
 
 	@Override
-	public void testUnparseZero() throws PersistenceLayerException
+	public void testUnparseZero()
 	{
 		//Consume due to deprecation
 	}

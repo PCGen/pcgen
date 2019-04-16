@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with STARTSKILLPTS Token
  */
-public class StartskillptsToken extends AbstractNonEmptyToken<PCClass>
-		implements CDOMPrimaryToken<PCClass>
+public class StartskillptsToken extends AbstractNonEmptyToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override
@@ -40,30 +39,26 @@ public class StartskillptsToken extends AbstractNonEmptyToken<PCClass>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc, String value)
 	{
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
-		context.getObjectContext().put(pcc, FormulaKey.START_SKILL_POINTS,
-				formula);
+		context.getObjectContext().put(pcc, FormulaKey.START_SKILL_POINTS, formula);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		Formula f = context.getObjectContext().getFormula(pcc,
-				FormulaKey.START_SKILL_POINTS);
+		Formula f = context.getObjectContext().getFormula(pcc, FormulaKey.START_SKILL_POINTS);
 		if (f == null)
 		{
 			return null;
 		}
-		return new String[] { f.toString() };
+		return new String[]{f.toString()};
 	}
 
 	@Override

@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCHasClassTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,30 +16,26 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 04-Aug-2008 18:16:20
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
 
-public class PCHasClassTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCHasClassTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
 	private final String source;
 
-	public PCHasClassTermEvaluator(
-			String originalText, String source)
+	public PCHasClassTermEvaluator(String originalText, String source)
 	{
 		this.originalText = originalText;
-		this.source       = source;
+		this.source = source;
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc) {
+	public Float resolve(PlayerCharacter pc)
+	{
 		return pc.getClassKeyed(source) != null ? 1.0f : 0.0f;
 	}
 

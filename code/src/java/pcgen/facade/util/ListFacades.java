@@ -1,5 +1,4 @@
 /*
- * ListFacades.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,20 +15,16 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 25, 2010, 4:29:53 PM
  */
 package pcgen.facade.util;
 
 import java.util.AbstractList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
 import pcgen.facade.util.event.ListListener;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public final class ListFacades
 {
 
@@ -38,7 +33,7 @@ public final class ListFacades
 		//Do not instantiate Utility Class
 	}
 
-	public static final ListFacade EMPTY_LIST = new EmptyList();
+	private static final ListFacade EMPTY_LIST = new EmptyList();
 
 	public static <T> ListFacade<T> emptyList()
 	{
@@ -65,69 +60,48 @@ public final class ListFacades
 		};
 	}
 
-	private static class EmptyList implements ListFacade
+	private static class EmptyList implements ListFacade<Object>
 	{
 
-		private static Iterator iterator = new Iterator()
-		{
+		private static final Iterator<Object> ITERATOR = Collections.emptyIterator();
 
-            @Override
-			public boolean hasNext()
-			{
-				return false;
-			}
-
-            @Override
-			public Object next()
-			{
-				throw new UnsupportedOperationException();
-			}
-
-            @Override
-			public void remove()
-			{
-				throw new UnsupportedOperationException();
-			}
-
-		};
-
-        @Override
-		public void addListListener(ListListener listener)
+		@Override
+		public void addListListener(ListListener<? super Object> listener)
 		{
 			//This list never changes so there's no point in listening to it
 		}
 
-        @Override
+		@Override
 		public Object getElementAt(int index)
 		{
-			throw new IndexOutOfBoundsException();
+			throw new IndexOutOfBoundsException(index);
 		}
 
-        @Override
+		@Override
 		public int getSize()
 		{
 			return 0;
 		}
 
-        @Override
-		public void removeListListener(ListListener listener)
+		@Override
+		public void removeListListener(ListListener<? super Object> listener)
 		{
 			//This list never changes so there's no point in listening to it
 		}
 
-        @Override
-		public Iterator iterator()
+		@Override
+		public Iterator<Object> iterator()
 		{
-			return iterator;
+			return ITERATOR;
 		}
 
-        @Override
+		@Override
 		public boolean isEmpty()
 		{
 			return true;
 		}
 
-        @Override
+		@Override
 		public boolean containsElement(Object element)
 		{
 			return false;

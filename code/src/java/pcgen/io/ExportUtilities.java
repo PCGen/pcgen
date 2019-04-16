@@ -1,5 +1,4 @@
 /*
- * ExportUtilities.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,20 +15,20 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 24/12/2013
  *
- * $Id$
  */
 package pcgen.io;
 
 import java.io.File;
 
-import org.apache.commons.lang.StringUtils;
+import freemarker.template.DefaultObjectWrapperBuilder;
+import freemarker.template.ObjectWrapper;
+import freemarker.template.Version;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * ExportUtilities is a collection of useful tools for exporting characters.
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class ExportUtilities
 {
@@ -39,7 +38,7 @@ public final class ExportUtilities
 	private ExportUtilities()
 	{
 	}
-	
+
 	/**
 	 * Retrieve the extension that should be used for the output file. This is base don the template name.  
 	 * @param templateFilename The filename of the export template.
@@ -55,14 +54,12 @@ public final class ExportUtilities
 
 		if (templateFilename.endsWith(".ftl"))
 		{
-			templateFilename = templateFilename.substring(0, templateFilename.length()-4);
+			templateFilename = templateFilename.substring(0, templateFilename.length() - 4);
 		}
-		String extension =
-				StringUtils.substringAfterLast(templateFilename, ".");
+		String extension = StringUtils.substringAfterLast(templateFilename, ".");
 		if (StringUtils.isEmpty(extension))
 		{
-			extension =
-					StringUtils.substringAfterLast(templateFilename, "-");
+			extension = StringUtils.substringAfterLast(templateFilename, "-");
 		}
 
 		return extension;
@@ -86,9 +83,16 @@ public final class ExportUtilities
 	public static boolean isPdfTemplate(String templateFilename)
 	{
 		String extension = getOutputExtension(templateFilename, false);
-		return (extension.equalsIgnoreCase("pdf")
-			|| extension.equalsIgnoreCase("fo")
-			|| extension.equalsIgnoreCase("xslt")
-			|| extension.equalsIgnoreCase("xsl"));
+		return (extension.equalsIgnoreCase("pdf") || extension.equalsIgnoreCase("fo")
+			|| extension.equalsIgnoreCase("xslt") || extension.equalsIgnoreCase("xsl"));
+	}
+
+	/**
+	 * Returns an ObjectWrapper of sufficiently high version for pcgen
+	 */
+	public static ObjectWrapper getObjectWrapper() {
+		DefaultObjectWrapperBuilder defaultObjectWrapperBuilder = new DefaultObjectWrapperBuilder(
+				new Version("2.3.28"));
+		return defaultObjectWrapperBuilder.build();
 	}
 }

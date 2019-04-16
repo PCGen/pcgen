@@ -17,9 +17,10 @@
  */
 package plugin.lsttokens;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -33,6 +34,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -43,12 +45,16 @@ import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreLevelWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class AbilityLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new AbilityLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -74,104 +80,110 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNotANature() throws PersistenceLayerException
+	public void testInvalidNotANature()
 	{
 		assertFalse(parse("FEAT|NotANature|,TestWP1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNotaCategory() throws PersistenceLayerException
+	public void testInvalidNotaCategory()
 	{
 		assertFalse(parse("NotaCategory|NORMAL|,TestWP1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoAbility() throws PersistenceLayerException
+	public void testInvalidNoAbility()
 	{
 		assertFalse(parse("FEAT|NORMAL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCategoryOnly() throws PersistenceLayerException
+	public void testInvalidCategoryOnly()
 	{
 		assertFalse(parse("FEAT"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCategoryBarOnly() throws PersistenceLayerException
+	public void testInvalidCategoryBarOnly()
 	{
 		assertFalse(parse("FEAT|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyCategory() throws PersistenceLayerException
+	public void testInvalidEmptyCategory()
 	{
 		assertFalse(parse("|NORMAL|Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyNature() throws PersistenceLayerException
+	public void testInvalidEmptyNature()
 	{
 		assertFalse(parse("FEAT||Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyAbility() throws PersistenceLayerException
+	public void testInvalidEmptyAbility()
 	{
 		assertFalse(parse("FEAT|NORMAL|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPre() throws PersistenceLayerException
+	public void testInvalidOnlyPre()
 	{
 		assertFalse(parse("FEAT|NORMAL|PRERACE:1,Human"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoubleBarAbility() throws PersistenceLayerException
+	public void testInvalidDoubleBarAbility()
 	{
 		assertFalse(parse("FEAT|NORMAL|Abil1||Abil2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearDotPre() throws PersistenceLayerException
+	public void testInvalidClearDotPre()
 	{
 		assertFalse(parse("FEAT|NORMAL|.CLEAR.Abil1|PRELEVEL:MIN=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidClearPre() throws PersistenceLayerException
+	public void testInvalidClearPre()
 	{
 		assertFalse(parse("FEAT|NORMAL|.CLEAR|PRELEVEL:MIN=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInsertedPre() throws PersistenceLayerException
+	public void testInvalidInsertedPre()
 	{
 		assertFalse(parse("FEAT|NORMAL|Abil1|PRELEVEL:MIN=4|Abil2"));
 		assertNoSideEffects();
@@ -179,28 +191,27 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidDoubleBarStartAbility()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("FEAT|NORMAL||Abil1|Abil2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBarEndAbility() throws PersistenceLayerException
+	public void testInvalidBarEndAbility()
 	{
 		assertFalse(parse("FEAT|NORMAL|Abil1|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidAnyNature() throws PersistenceLayerException
+	public void testInvalidAnyNature()
 	{
 		assertFalse(parse("FEAT|ANY|Abil1"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidListPre() throws PersistenceLayerException
+	public void testInvalidListPre()
 	{
 		assertFalse(parse("FEAT|AUTOMATIC|%LIST|PRERACE:1,Human"));
 		assertNoSideEffects();
@@ -257,16 +268,10 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 				AbilityCategory.class, "NEWCAT");
 		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.getReferenceContext().reassociateCategory(pac, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Abil3");
-		secondaryContext.getReferenceContext().reassociateCategory(sac, ab);
-		ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil4");
-		primaryContext.getReferenceContext().reassociateCategory(pac, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Abil4");
-		secondaryContext.getReferenceContext().reassociateCategory(sac, ab);
+		BuildUtilities.buildAbility(primaryContext, pac, "Abil3");
+		BuildUtilities.buildAbility(primaryContext, pac, "Abil4");
+		BuildUtilities.buildAbility(secondaryContext, sac, "Abil3");
+		BuildUtilities.buildAbility(secondaryContext, sac, "Abil4");
 		runRoundRobin("FEAT|VIRTUAL|Abil1|Abil2", "NEWCAT|VIRTUAL|Abil3|Abil4");
 	}
 
@@ -329,12 +334,12 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		runRoundRobin("FEAT|AUTOMATIC|Improved Critical(%LIST)|PRECLASS:1,Oracle=8");
 	}
 
-	//  
 	private static Ability construct(LoadContext context, String name)
 	{
-		Ability ab = context.getReferenceContext().constructCDOMObject(Ability.class, name);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		return ab;
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 
 	@Test
@@ -365,7 +370,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInputInvalidAddsTypeNoSideEffect()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -381,7 +385,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInputInvalidTypeClearDotNoSideEffect()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -439,7 +442,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputCheckTypeEqualLength()
-			throws PersistenceLayerException
 	{
 		// Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
 		// consume the |
@@ -450,7 +452,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputCheckTypeDotLength()
-			throws PersistenceLayerException
 	{
 		// Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
 		// consume the |
@@ -460,7 +461,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidInputTypeEmpty() throws PersistenceLayerException
+	public void testInvalidInputTypeEmpty()
 	{
 		assertFalse(parse("Feat|VIRTUAL|TYPE="));
 		assertNoSideEffects();
@@ -468,7 +469,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputTypeUnterminated()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Feat|VIRTUAL|TYPE=One."));
 		assertNoSideEffects();
@@ -476,7 +476,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputTypeDoubleSeparator()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Feat|VIRTUAL|TYPE=One..Two"));
 		assertNoSideEffects();
@@ -484,7 +483,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputTypeFalseStart()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Feat|VIRTUAL|TYPE=.One"));
 		assertNoSideEffects();
@@ -517,7 +515,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testValidInputClearWorking() throws PersistenceLayerException
+	public void testValidInputClearWorking()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -528,7 +526,6 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testValidInputClearJoinWorking()
-		throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -539,7 +536,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testListTargetClearWorking() throws PersistenceLayerException
+	public void testListTargetClearWorking()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -549,7 +546,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testClearMixedWorking() throws PersistenceLayerException
+	public void testClearMixedWorking()
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
@@ -565,8 +562,18 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		return Constants.PIPE;
 	}
 
-	protected String getClearString()
+	private static String getClearString()
 	{
 		return Constants.LST_DOT_CLEAR;
 	}
+
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		super.additionalSetup(context);
+		//We build dummy objects so that AbilityCategory.FEAT has been loaded properly
+		construct(context, "Dummy");
+	}
+
+	
 }

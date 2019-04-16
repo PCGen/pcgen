@@ -1,5 +1,4 @@
 /*
- * TableToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 6, 2006
- *
- * Current Ver: $Revision$
  */
 
 package plugin.lsttokens.kit.table;
@@ -37,8 +32,8 @@ import pcgen.util.Logging;
 /**
  * TABLE token for KitTable
  */
-public class TableToken extends AbstractNonEmptyToken<KitTable> implements
-		CDOMPrimaryToken<KitTable>, DeferredToken<Kit>
+public class TableToken extends AbstractNonEmptyToken<KitTable>
+		implements CDOMPrimaryToken<KitTable>, DeferredToken<Kit>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -56,10 +51,10 @@ public class TableToken extends AbstractNonEmptyToken<KitTable> implements
 	{
 		return KitTable.class;
 	}
+
 	@Override
 
-	protected ParseResult parseNonEmptyToken(LoadContext context, KitTable kitTable,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitTable kitTable, String value)
 	{
 		kitTable.setTableName(value);
 		return ParseResult.SUCCESS;
@@ -73,7 +68,7 @@ public class TableToken extends AbstractNonEmptyToken<KitTable> implements
 		{
 			return null;
 		}
-		return new String[] { bd };
+		return new String[]{bd};
 	}
 
 	@Override
@@ -87,9 +82,8 @@ public class TableToken extends AbstractNonEmptyToken<KitTable> implements
 				KitTable kt = obj.addTable((KitTable) bk);
 				if (kt != null)
 				{
-					Logging.errorPrint("Kit Table: " + kt.getTableName()
-						+ " in Kit " + obj.getKeyName() + " was a duplicate, "
-						+ "Kit had more than one table with that name.");
+					Logging.errorPrint("Kit Table: " + kt.getTableName() + " in Kit " + obj.getKeyName()
+						+ " was a duplicate, " + "Kit had more than one table with that name.");
 					return false;
 				}
 			}

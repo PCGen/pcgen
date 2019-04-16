@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 14/02/2011 8:40:15 PM
- *
- * $Id$
  */
 package plugin.lsttokens.equipment;
 
@@ -34,36 +30,27 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * The Class <code>IconToken</code> processes the ICPON token. This 
+ * The Class {@code IconToken} processes the ICPON token. This
  * allows an icon to be specified for the item of equipment.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class IconToken extends AbstractNonEmptyToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class IconToken extends AbstractNonEmptyToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.rules.persistence.token.AbstractToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "ICON";
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.rules.persistence.token.CDOMToken#parse(pcgen.rules.context.LoadContext, java.lang.Object, java.lang.String)
-	 */
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, Equipment eq, String value)
 	{
 		URI uri = new URIFactory(eq.getSourceURI(), value).getURI();
 		if (uri == URIFactory.FAILED_URI)
 		{
-			return new ParseResult.Fail(getTokenName() + " must be a valid URI.", context);
+			return new ParseResult.Fail(getTokenName() + " must be a valid URI.");
 		}
 		context.getObjectContext().put(eq, StringKey.ICON, value);
 		context.getObjectContext().put(eq, ObjectKey.ICON_URI, uri);
@@ -71,9 +58,6 @@ public class IconToken extends AbstractNonEmptyToken<Equipment> implements
 
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.rules.persistence.token.CDOMPrimaryToken#unparse(pcgen.rules.context.LoadContext, java.lang.Object)
-	 */
 	@Override
 	public String[] unparse(LoadContext context, Equipment eq)
 	{
@@ -85,9 +69,6 @@ public class IconToken extends AbstractNonEmptyToken<Equipment> implements
 		return new String[]{icon};
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.rules.persistence.token.CDOMToken#getTokenClass()
-	 */
 	@Override
 	public Class<Equipment> getTokenClass()
 	{

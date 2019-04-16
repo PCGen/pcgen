@@ -1,5 +1,4 @@
 /*
- * SourceSelectionFacade.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,28 +15,25 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 7, 2010, 3:13:55 PM
  */
 package pcgen.facade.core;
 
-import pcgen.facade.util.ReferenceFacade;
-import pcgen.facade.util.ListFacade;
-
 import java.util.List;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
+import pcgen.core.Campaign;
+import pcgen.core.GameMode;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
+
 public interface SourceSelectionFacade extends LoadableFacade
 {
 
-	public ListFacade<CampaignFacade> getCampaigns();
+	public ListFacade<Campaign> getCampaigns();
 
-	public ReferenceFacade<GameModeFacade> getGameMode();
+	public ReferenceFacade<GameMode> getGameMode();
 
-	public void setCampaigns(List<CampaignFacade> campaign);
+	public void setCampaigns(List<Campaign> campaign);
 
-	public void setGameMode(GameModeFacade gameMode);
+	public void setGameMode(GameMode gameMode);
 
 }

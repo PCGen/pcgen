@@ -20,18 +20,17 @@ package plugin.initiative.gui;
 import java.awt.Component;
 import java.awt.HeadlessException;
 import java.text.DecimalFormat;
+
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.text.NumberFormatter;
+
 import plugin.initiative.DiceRollModel;
 
 /**
  * <p>
  * A generic check dialog; handles an expression with a DC
  * </p>
- *
- * @author Ross M. Lodge
- *
  */
 public class CheckDialog extends DiceRollDialog
 {
@@ -59,12 +58,10 @@ public class CheckDialog extends DiceRollDialog
 	 * <p>
 	 * Initializes the DC value
 	 * </p>
-	 *
 	 */
 	private void initDC()
 	{
-		NumberFormatter formatter =
-				new NumberFormatter(new DecimalFormat("##"));
+		NumberFormatter formatter = new NumberFormatter(new DecimalFormat("##"));
 		formatter.setValueClass(Integer.class);
 		m_dc = new JFormattedTextField(formatter);
 		m_dc.setFocusLostBehavior(JFormattedTextField.COMMIT_OR_REVERT);
@@ -74,12 +71,7 @@ public class CheckDialog extends DiceRollDialog
 		addComponent(m_dc, label);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see plugin.initiative.gui.DiceRollDialog#initComponents()
-	 */
-    @Override
+	@Override
 	protected void initComponents()
 	{
 		/*
@@ -91,31 +83,18 @@ public class CheckDialog extends DiceRollDialog
 		super.initComponents();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see plugin.initiative.gui.DiceRollDialog#setResult(int)
-	 */
-    @Override
+	@Override
 	protected void setResult(int result)
 	{
-		m_result.setText("<html><body><b>"
-			+ result
-			+ ((result >= (Integer) m_dc.getValue()) ? " (passed)"
-				: "") + "</b></body></html>");
+		m_result.setText("<html><body><b>" + result + ((result >= (Integer) m_dc.getValue()) ? " (passed)" : "")
+			+ "</b></body></html>");
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see plugin.initiative.gui.DiceRollDialog#initListeners()
-	 */
-    @Override
+	@Override
 	protected void initListeners()
 	{
 		super.initListeners();
-		m_dc.addPropertyChangeListener(evt ->
-		{
+		m_dc.addPropertyChangeListener(evt -> {
 			if ("value".equals(evt.getPropertyName()))
 			{
 				m_defaultDC = (Integer) m_dc.getValue();

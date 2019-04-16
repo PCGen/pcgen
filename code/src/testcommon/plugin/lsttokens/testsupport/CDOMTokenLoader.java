@@ -47,17 +47,17 @@ public class CDOMTokenLoader<T extends Loadable> implements CDOMLoader<T>
 			{
 				Logging.errorPrint("Invalid Token - does not contain a colon: "
 						+ token);
-				returnValue &= false;
+				returnValue = false;
 				continue;
 			}
 			else if (colonLoc == 0)
 			{
 				Logging.errorPrint("Invalid Token - starts with a colon: "
 						+ token);
-				returnValue &= false;
+				returnValue = false;
 			}
 			String key = token.substring(0, colonLoc);
-			String value = (colonLoc == token.length() - 1) ? null : token
+			String value = (colonLoc == (token.length() - 1)) ? null : token
 					.substring(colonLoc + 1);
 			if (context.processToken(obj, key.intern(), value.intern()))
 			{
@@ -67,7 +67,7 @@ public class CDOMTokenLoader<T extends Loadable> implements CDOMLoader<T>
 			{
 				context.rollback();
 				Logging.replayParsedMessages();
-				returnValue &= false;
+				returnValue = false;
 			}
 			Logging.clearParseMessages();
 		}

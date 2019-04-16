@@ -1,0 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Martial Focus Weapon Training	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MartialFocusWeaponTraining	PLURAL:Martial Focus Weapon Trainings	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Advanced Weapon Training		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Advanced Weapon Training		PLURAL:Advanced Weapon Trainings		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Fighter's Finesse			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Fighter's Finesse			PLURAL:Fighter's Finesse Selections		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Tempered Champion Feat Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:TemperedChampionFeat		PLURAL:Tempered Champion Feat Choices	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Weapon Trick Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Weapon Trick Category		PLURAL:Weapon Trick Choices			DISPLAYLOCATION:Feats

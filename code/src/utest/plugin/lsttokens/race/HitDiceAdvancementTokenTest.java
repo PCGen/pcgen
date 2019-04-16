@@ -17,7 +17,9 @@
  */
 package plugin.lsttokens.race;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
@@ -29,11 +31,13 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class HitDiceAdvancementTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
 	static HitdiceadvancementToken token = new HitdiceadvancementToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -54,7 +58,7 @@ public class HitDiceAdvancementTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "").passed());
 		assertNoSideEffects();
@@ -68,63 +72,63 @@ public class HitDiceAdvancementTokenTest extends AbstractCDOMTokenTestCase<Race>
 	// }
 
 	@Test
-	public void testInvalidEmptyValue1() throws PersistenceLayerException
+	public void testInvalidEmptyValue1()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, ",2,3,4").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValue2() throws PersistenceLayerException
+	public void testInvalidEmptyValue2()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "1,,3,4").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyValueLast() throws PersistenceLayerException
+	public void testInvalidEmptyValueLast()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "1,2,3,").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNegativeValue() throws PersistenceLayerException
+	public void testInvalidNegativeValue()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "-1,2,3").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDecreasingValue() throws PersistenceLayerException
+	public void testInvalidDecreasingValue()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "5,3,8").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmbeddedSplat() throws PersistenceLayerException
+	public void testInvalidEmbeddedSplat()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "5,*,8").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNaN() throws PersistenceLayerException
+	public void testInvalidNaN()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "5,N").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTooMuchSplat() throws PersistenceLayerException
+	public void testInvalidTooMuchSplat()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "5,8*").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTooMuchAfterSplat() throws PersistenceLayerException
+	public void testInvalidTooMuchAfterSplat()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "5,*8").passed());
 		assertNoSideEffects();
@@ -172,19 +176,19 @@ public class HitDiceAdvancementTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		getUnparseTarget().removeListFor(getListKey());
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ListKey<Integer> getListKey()
+	private static ListKey<Integer> getListKey()
 	{
 		return ListKey.HITDICE_ADVANCEMENT;
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		getUnparseTarget().addToListFor(getListKey(), 1);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -192,7 +196,7 @@ public class HitDiceAdvancementTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		getUnparseTarget().addToListFor(getListKey(), null);
 		try
@@ -207,7 +211,7 @@ public class HitDiceAdvancementTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		getUnparseTarget().addToListFor(getListKey(), 1);
 		getUnparseTarget().addToListFor(getListKey(), 2);
@@ -217,7 +221,7 @@ public class HitDiceAdvancementTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 
 	@Test
-	public void testUnparseMultipleStar() throws PersistenceLayerException
+	public void testUnparseMultipleStar()
 	{
 		getUnparseTarget().addToListFor(getListKey(), 1);
 		getUnparseTarget().addToListFor(getListKey(), 2);
@@ -228,7 +232,7 @@ public class HitDiceAdvancementTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ListKey objectKey = getListKey();
 		primaryProf.addToListFor(objectKey, new Object());

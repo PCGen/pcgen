@@ -28,7 +28,7 @@ public class GenreTokenTest extends AbstractStringTokenTestCase<Campaign>
 {
 
 	static GenreToken token = new GenreToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()

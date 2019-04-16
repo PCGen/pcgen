@@ -1,5 +1,4 @@
 /*
- * PlayerCharacterWasClosedMessage.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 17/02/2014 7:41:11 am
  *
- * $Id$
  */
 package pcgen.pluginmgr.messages;
 
@@ -26,12 +23,10 @@ import pcgen.core.PlayerCharacter;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>PlayerCharacterWasClosedMessage</code> encapsulates an 
+ * The Class {@code PlayerCharacterWasClosedMessage} encapsulates an
  * advisory message that a character was closed in the user interface of PCGen.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class PlayerCharacterWasClosedMessage extends PCGenMessage
@@ -44,8 +39,7 @@ public class PlayerCharacterWasClosedMessage extends PCGenMessage
 	 * @param source The object advising of the event.
 	 * @param pc The character that was closed.
 	 */
-	public PlayerCharacterWasClosedMessage(Object source,
-		PlayerCharacter pc)
+	public PlayerCharacterWasClosedMessage(Object source, PlayerCharacter pc)
 	{
 		super(source);
 		this.pc = pc;

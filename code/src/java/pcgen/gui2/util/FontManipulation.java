@@ -1,5 +1,4 @@
 /*
- * FontManipulation.java
  * Copyright 2013 (C) Vincent Lhote
  * 
  * This library is free software; you can redistribute it and/or
@@ -38,7 +37,6 @@ import java.awt.Font;
  * <li>x-small
  * <li>xx-small
  * </ul>
- * @author Vincent Lhote
  */
 public class FontManipulation
 {
@@ -62,7 +60,7 @@ public class FontManipulation
 	}
 
 	/**
-	 * For extra extra large font.
+	 * For extra large font.
 	 * 
 	 * @param f
 	 *            base font
@@ -73,7 +71,7 @@ public class FontManipulation
 	}
 
 	/**
-	 * For extra extra large font.
+	 * For extra large font.
 	 * 
 	 * @param container
 	 *            element to change the font of
@@ -82,29 +80,6 @@ public class FontManipulation
 	{
 		Font font = container.getFont();
 		container.setFont(xxlarge(font));
-	}
-	
-	/**
-	 * For extra large font.
-	 * 
-	 * @param f
-	 *            base font
-	 */
-	public static Font xlarge(Font f)
-	{
-		return f.deriveFont(f.getSize() * 1.333f);
-	}
-
-	/**
-	 * For extra large font.
-	 * 
-	 * @param container
-	 *            element to change the font of
-	 */
-	public static void xlarge(Container container)
-	{
-		Font font = container.getFont();
-		container.setFont(xlarge(font));
 	}
 
 	/**
@@ -141,7 +116,6 @@ public class FontManipulation
 		return f.deriveFont(f.getSize() * 0.917f);
 	}
 
-
 	/**
 	 * Change font of container for a bit smaller font.
 	 * 
@@ -160,7 +134,7 @@ public class FontManipulation
 	 * @param f
 	 *            base font
 	 */
-	public static Font xsmall(Font f)
+	private static Font xsmall(Font f)
 	{
 		return f.deriveFont(f.getSize() * 0.833f);
 	}
@@ -187,7 +161,7 @@ public class FontManipulation
 	{
 		return f.deriveFont(Font.ITALIC);
 	}
-	
+
 	/**
 	 * For plain font.
 	 * 
@@ -198,7 +172,7 @@ public class FontManipulation
 	{
 		return f.deriveFont(Font.PLAIN);
 	}
-	
+
 	/**
 	 * For bold font.
 	 * 
@@ -209,7 +183,7 @@ public class FontManipulation
 	{
 		return f.deriveFont(Font.BOLD);
 	}
-	
+
 	/**
 	 * For italic font.
 	 * 
@@ -220,7 +194,7 @@ public class FontManipulation
 	{
 		return f.deriveFont(Font.ITALIC);
 	}
-	
+
 	/**
 	 * For bold italic font.
 	 * 

@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens.deprecated;
 
@@ -36,24 +31,14 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class BioToken extends AbstractExportToken
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "BIO";
 	}
 
-	/**
-	 * TODO  Could expand Token itself or even create a sub class of Token so that
-	 * the beforeValue and afterValue can be handled more cleanly. 
-	 *
-	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		String beforeValue = "";
 		String afterValue = "";
@@ -81,8 +66,6 @@ public class BioToken extends AbstractExportToken
 			}
 		}
 
-		return beforeValue
-			+ display.getBio().replaceAll("\n", afterValue + "\n" + beforeValue)
-			+ afterValue;
+		return beforeValue + display.getBio().replaceAll("\n", afterValue + '\n' + beforeValue) + afterValue;
 	}
 }

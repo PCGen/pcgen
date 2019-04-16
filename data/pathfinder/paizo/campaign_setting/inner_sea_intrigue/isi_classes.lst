@@ -1,0 +1,63 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Inner Sea Intrigue	SOURCESHORT:ISI	SOURCEWEB:http://paizo.com/products/btpy9l37?Pathfinder-Campaign-Setting-Inner-Sea-Intrigue	SOURCEDATE:2016-06
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 December 2017
+
+###Block: Enchanting Courtesan
+
+# Class Name			Hit Dice	Type			Max Level	Source Page		Define					Combat bonus																	Save bonus																							Modify VAR																																																																		FACT
+CLASS:Enchanting Courtesan	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.34	DEFINE:EnchantingCourtesanLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|EnchantingCourtesanLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|EnC
+# Class Name			Required Ability											Multiple Requirements									Required Skill								Required Spell School
+CLASS:Enchanting Courtesan	PREABILITY:1,CATEGORY=FEAT,Spell Focus (divination),Spell Focus (enchantment)	PREMULT:1,[PRESKILL:1,Perform (act)=2],[PRESKILL:1,Perform (dance)=2]	PRESKILL:3,Bluff=5,Knowledge (arcana)=2,Sense Motive=5	PRESPELLSCHOOL:2,Divination=1	PRESPELLSCHOOL:1,Divination=2	PRESPELLSCHOOL:2,Enchantment=1	PRESPELLSCHOOL:1,Enchantment=2
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Enchanting Courtesan	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Diplomacy|Disguise|Intimidate|Knowledge (arcana)|Knowledge (local)|Knowledge (nobility)|Knowledge (religion)|Linguistics|TYPE=Perform|Sense Motive|Sleight of Hand|Stealth
+###Block: Spell Improvement
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+###Block: Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Enchanting Courtesan ~ Covert Spells
+1	ABILITY:Special Ability|AUTOMATIC|Enchanting Courtesan ~ Enchanting Touch
+1	ABILITY:Special Ability|AUTOMATIC|Enchanting Courtesan ~ Seducer's Leverage
+2	ABILITY:Special Ability|AUTOMATIC|Enchanting Courtesan ~ Poison Use
+2	ABILITY:Special Ability|AUTOMATIC|Enchanting Courtesan ~ Seductive Intuition
+3	ABILITY:Special Ability|AUTOMATIC|Enchanting Courtesan ~ Hidden Spell
+3	ABILITY:Special Ability|AUTOMATIC|Enchanting Courtesan ~ Master Poisoner
+4	ABILITY:Special Ability|AUTOMATIC|Enchanting Courtesan ~ Contact Poison Wielder
+5	ABILITY:Special Ability|AUTOMATIC|Enchanting Courtesan ~ Deluding Touch
+7	ABILITY:Special Ability|AUTOMATIC|Enchanting Courtesan ~ Informative Liaisons
+8	ABILITY:Special Ability|AUTOMATIC|Enchanting Courtesan ~ Overwhelming Touch
+10	ABILITY:Special Ability|AUTOMATIC|Enchanting Courtesan ~ Touch of Ecstasy
+
+
+###Block: Lion Blade
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																						Modify VAR																																																																		FACT
+CLASS:Lion Blade	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.36	DEFINE:LionBladeLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|LionBladeLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|LnB
+# Class Name	Required Ability																																Required Skill													Required Text									Var. Min. Value
+CLASS:Lion Blade	PREABILITY:3,CATEGORY=FEAT,Deceitful,Improved Initiative,Skill Focus (TYPE=Perform)	PREABILITY:1,CATEGORY=Special Ability,Bardic Performance ~ Inspire Competence,Deadly Courtesan ~ Bardic Performance	PRESKILL:3,Bluff=3,Disguise=5,Stealth=5	PRESKILL:1,Perform (sing)=3,Perform (act)=3	PRETEXT:Servant of Taldor or the Sovereign Court affiliation	PREVARGTEQ:SneakAttackDice,2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Lion Blade	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Climb|Diplomacy|Disable Device|Disguise|Intimidate|Knowledge (local)|Knowledge (nobility)|Linguistics|Perception|TYPE=Perform|Sleight of Hand|Stealth|Sense Motive
+###Block: Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Lion Blade ~ Bardic Performance
+1	ABILITY:Special Ability|AUTOMATIC|Lion Blade ~ Master of Disguise
+1	ABILITY:Special Ability|AUTOMATIC|Lion Blade ~ Move with the Crowd
+2	ABILITY:Special Ability|AUTOMATIC|Lion Blade ~ Slowing Strike
+2	ABILITY:Special Ability|AUTOMATIC|Lion Blade ~ Sneak Attack
+3	ABILITY:Special Ability|AUTOMATIC|Lion Blade ~ Unexpected Suggestion
+3	ABILITY:Special Ability|AUTOMATIC|Lion Blade ~ Hide in the Crowd
+4	ABILITY:Special Ability|AUTOMATIC|Lion Blade ~ Expeditious Advance
+4	ABILITY:Special Ability|AUTOMATIC|Lion Blade ~ Perfect Surprise
+6	ABILITY:Special Ability|AUTOMATIC|Lion Blade ~ Crowd Strike
+7	ABILITY:Special Ability|AUTOMATIC|Lion Blade ~ Secret Step
+7	ABILITY:Special Ability|AUTOMATIC|Lion Blade ~ Cloud the Mind
+8	ABILITY:Special Ability|AUTOMATIC|Lion Blade ~ Narrow Miss
+9	ABILITY:Special Ability|AUTOMATIC|Lion Blade ~ Grandmaster of Disguise
+10	ABILITY:Special Ability|AUTOMATIC|Lion Blade ~ Silent Soul

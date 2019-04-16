@@ -1,5 +1,4 @@
 /*
- * InfoWrapper.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 26/08/2013
- *
- * $Id$
  */
 package pcgen.core.chooser;
 
@@ -36,21 +31,17 @@ import pcgen.util.SortKeyAware;
 /**
  * InfoWrapper is a general purpose container for data in choosers. It wraps 
  * data of any type in an InfoFacade compliant wrapper. 
- * 
- * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class InfoWrapper implements InfoFacade, SortKeyAware
 {
-	private static final NumberFormat SORTABLE_NUMBER_FORMAT =
-			new DecimalFormat("0000000000.00000");
+	private static final NumberFormat SORTABLE_NUMBER_FORMAT = new DecimalFormat("0000000000.00000");
 
 	private final Object obj;
 
 	public InfoWrapper(Object cdomObj)
 	{
 		this.obj = cdomObj;
-		
+
 	}
 
 	@Override
@@ -80,7 +71,7 @@ public class InfoWrapper implements InfoFacade, SortKeyAware
 	@Override
 	public boolean isNamePI()
 	{
-    	return false;
+		return false;
 	}
 
 	/**
@@ -96,7 +87,7 @@ public class InfoWrapper implements InfoFacade, SortKeyAware
 	{
 		if (obj instanceof CDOMObject)
 		{
-			final List<Type> types = ((CDOMObject)obj).getSafeListFor(ListKey.TYPE);
+			final List<Type> types = ((CDOMObject) obj).getSafeListFor(ListKey.TYPE);
 			return StringUtil.join(types, ".");
 		}
 		return "";
@@ -107,8 +98,7 @@ public class InfoWrapper implements InfoFacade, SortKeyAware
 	{
 		if (obj instanceof Number)
 		{
-			return SORTABLE_NUMBER_FORMAT.format(100000.0d + ((Number) obj)
-				.doubleValue());
+			return SORTABLE_NUMBER_FORMAT.format(100000.0d + ((Number) obj).doubleValue());
 		}
 		return toString();
 	}

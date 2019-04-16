@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,6 +18,7 @@
 package pcgen.cdom.reference;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.GroupingState;
@@ -36,9 +37,14 @@ import pcgen.cdom.enumeration.GroupingState;
  *            The Class of the underlying object contained by this
  *            CDOMTransparentAllRef
  */
-public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> implements
-		TransparentReference<T>
+public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> implements TransparentReference<T>
 {
+
+	/**
+	 * The Class that indicates the types of objects contained in this
+	 * CDOMTransparentAllRef.
+	 */
+	private final Class<T> refClass;
 
 	/**
 	 * Holds the reference to which this CDOMTransparentAllRef will delegate
@@ -47,15 +53,26 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	private CDOMGroupRef<T> subReference = null;
 
 	/**
+	 * The String representation of the Format of objects in this CDOMTransparentSingleRef (e.g.
+	 * "ABILITY=FEAT").
+	 */
+	private final String formatRepresentation;
+
+	/**
 	 * Constructs a new CDOMTransparentAllRef for the given Class.
 	 * 
+	 * @param formatRepresentation
+	 *            the persistent representation of the ClassIdentity of the objects to be
+	 *            stored in this CDOMTransparentAllRef
 	 * @param objClass
 	 *            The Class of the underlying objects contained by this
 	 *            CDOMTransparentTypeRef.
 	 */
-	public CDOMTransparentAllRef(Class<T> objClass)
+	public CDOMTransparentAllRef(String formatRepresentation, Class<T> objClass)
 	{
-		super(objClass, "ALL");
+		super("ALL");
+		this.formatRepresentation = Objects.requireNonNull(formatRepresentation);
+		refClass = objClass;
 	}
 
 	/**
@@ -78,9 +95,8 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	{
 		if (subReference == null)
 		{
-			throw new IllegalStateException("Cannot ask for contains: "
-					+ getReferenceClass().getName() + " Reference " + getName()
-					+ " has not been resolved");
+			throw new IllegalStateException("Cannot ask for contains: " + getReferenceClass().getName() + " Reference "
+				+ getName() + " has not been resolved");
 		}
 		return subReference.contains(item);
 	}
@@ -94,7 +110,6 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	 * 
 	 * @return A representation of this CDOMTransparentAllRef, suitable for
 	 *         storing in an LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -102,33 +117,17 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 		return subReference.getLSTformat(useAny);
 	}
 
-	/**
-	 * Returns true if this CDOMTransparentAllRef is equal to the given Object.
-	 * Equality is defined as being another CDOMTransparentAllRef object with
-	 * equal Class represented by the reference. This is NOT a deep .equals, in
-	 * that neither the actual contents of this CDOMTransparentAllRef nor the
-	 * underlying CDOMGroupRef are tested.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
 		if (obj instanceof CDOMTransparentAllRef)
 		{
 			CDOMTransparentAllRef<?> ref = (CDOMTransparentAllRef<?>) obj;
-			return getReferenceClass().equals(ref.getReferenceClass())
-					&& getName().equals(ref.getName());
+			return getReferenceClass().equals(ref.getReferenceClass()) && getName().equals(ref.getName());
 		}
 		return false;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this
-	 * CDOMTransparentAllRef
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -150,8 +149,7 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	@Override
 	public void addResolution(T item)
 	{
-		throw new IllegalStateException(
-				"Cannot resolve a Transparent Reference");
+		throw new IllegalStateException("Cannot resolve a Transparent Reference");
 	}
 
 	/**
@@ -180,9 +178,8 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 		}
 		else
 		{
-			throw new IllegalArgumentException("Cannot resolve a "
-					+ getReferenceClass().getSimpleName() + " Reference to a "
-					+ rm.getReferenceClass().getSimpleName());
+			throw new IllegalArgumentException("Cannot resolve a " + getReferenceClass().getSimpleName()
+				+ " Reference to a " + rm.getReferenceClass().getSimpleName());
 		}
 	}
 
@@ -241,6 +238,25 @@ public class CDOMTransparentAllRef<T extends Loadable> extends CDOMGroupRef<T> i
 	@Override
 	public String getChoice()
 	{
-		return subReference == null ? null : subReference.getChoice();
+		return (subReference == null) ? null : subReference.getChoice();
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return refClass;
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return (subReference == null) ? "ALL " + refClass.getSimpleName() : subReference.getReferenceDescription();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		// TODO Auto-generated method stub
+		return formatRepresentation;
 	}
 }

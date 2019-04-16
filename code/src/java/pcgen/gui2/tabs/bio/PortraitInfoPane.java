@@ -1,5 +1,4 @@
 /*
- * PortraitInfoPane.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 9, 2011, 3:34:09 PM
  */
 package pcgen.gui2.tabs.bio;
 
@@ -53,8 +51,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tools.Icons;
@@ -63,21 +59,16 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 @SuppressWarnings("serial")
 public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 {
 
-	private static final TabTitle tabTitle = new TabTitle("in_portrait", null);
+	private static final TabTitle TAB_TITLE = new TabTitle("in_portrait", null);
 	private static final int MAX_PORTRAIT_HEIGHT = 400;
 	private final PortraitPane portraitPane;
 	private final ThumbnailPane tnPane;
 	private final JButton loadButton;
 	private final JButton clearButton;
-	private final JButton purchaseButton;
 	private final JSlider zoomSlider;
 	private JFileChooser chooser = null;
 
@@ -88,7 +79,6 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		this.portraitPane = new PortraitPane();
 		this.loadButton = new JButton();
 		this.clearButton = new JButton();
-		this.purchaseButton = new JButton();
 		this.zoomSlider = new JSlider(SwingConstants.VERTICAL);
 		initComponents();
 	}
@@ -105,27 +95,26 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		panel.add(loadButton, gbc);
 		Utility.buildConstraints(gbc, 1, 2, 1, 1, 0, 0, GridBagConstraints.NONE, GridBagConstraints.WEST);
 		panel.add(clearButton, gbc);
-		
+
 		Utility.buildConstraints(gbc, 2, 1, 1, 1, 0, 0, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER);
 		zoomSlider.setInverted(true);
 		zoomSlider.setPreferredSize(new Dimension(20, 10));
 		panel.add(zoomSlider, gbc);
-		
+
 		Utility.buildConstraints(gbc, 3, 0, 1, 1, 0, 0, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER);
 		panel.add(new JLabel(LanguageBundle.getString("in_thumbnailPortrait")), gbc);
-		
+
 		Utility.buildConstraints(gbc, 3, 1, 1, 1, 0, 0, GridBagConstraints.NONE, GridBagConstraints.NORTH);
 		panel.add(tnPane, gbc);
-		
+
 		this.setViewportView(panel);
 	}
 
 	private BufferedImage createDefaultPortrait()
 	{
 		ImageIcon defaultPortrait = Icons.DefaultPortrait.getImageIcon();
-		BufferedImage bufImage = new BufferedImage(defaultPortrait.getIconWidth(),
-				defaultPortrait.getIconHeight(),
-				BufferedImage.TYPE_INT_ARGB);
+		BufferedImage bufImage = new BufferedImage(defaultPortrait.getIconWidth(), defaultPortrait.getIconHeight(),
+			BufferedImage.TYPE_INT_ARGB);
 		defaultPortrait.paintIcon(this, bufImage.createGraphics(), 0, 0);
 		return bufImage;
 	}
@@ -159,7 +148,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 	@Override
 	public TabTitle getTabTitle()
 	{
-		return tabTitle;
+		return TAB_TITLE;
 	}
 
 	private class LoadAction extends AbstractAction implements PropertyChangeListener
@@ -219,49 +208,15 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 
 	}
 
-	private class PurchaseAction extends AbstractAction
-	{
-
-		private final CharacterFacade character;
-
-		public PurchaseAction(CharacterFacade character)
-		{
-			super(LanguageBundle.getString("in_buyPortrait")); //$NON-NLS-1$
-			this.character = character;
-			putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_buyPortraitTipString")); //$NON-NLS-1$
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			try
-			{
-				Utility
-						.viewInBrowser("https://www.e-junkie.com/ecom/gb.php?cl=154598&c=ib&aff=154875"); //$NON-NLS-1$
-			}
-			catch (IOException ex)
-			{
-				Logging.errorPrint(
-						"Could not open affiliate site in external browser.", ex);
-				ShowMessageDelegate.showMessageDialog(
-						"Could not open affiliate site in external browser.",
-						Constants.APPLICATION_NAME, MessageType.ERROR);
-			}
-		}
-
-	}
-
 	private class PortraitHandler extends MouseAdapter implements ReferenceListener<Object>, ChangeListener
 	{
 
 		private final CharacterFacade character;
 		private Rectangle cropRect;
-//		private final PortraitPane.MouseHandler mouseHandler;
 		private BufferedImage portrait;
 		private float scale;
 		private boolean movingRect = false;
 		private Point cropOffset = null;
-//		private BoundedRangeModel boundedRangeModel;
 
 		public PortraitHandler(CharacterFacade character)
 		{
@@ -271,7 +226,6 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			{
 				cropRect = new Rectangle(0, 0, 100, 100);
 			}
-//			this.mouseHandler = portraitPane.createMouseHandler(character);
 		}
 
 		public void install()
@@ -312,7 +266,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 					else
 					{
 						Logging.errorPrint("Unable to read portrait file " //$NON-NLS-1$
-								+ file.getAbsolutePath());
+							+ file.getAbsolutePath());
 					}
 				}
 			}
@@ -367,7 +321,8 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		{
 			if (movingRect)
 			{
-				int x, y;
+				int x;
+				int y;
 				if (scale < 1)
 				{
 					x = (int) (e.getX() / scale - cropOffset.x);
@@ -396,8 +351,8 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			Point mousepoint = e.getPoint();
 			if (scale < 1)
 			{
-				mousepoint.x = (int) (mousepoint.x / scale);
-				mousepoint.y = (int) (mousepoint.y / scale);
+				mousepoint.x /= scale;
+				mousepoint.y /= scale;
 			}
 			movingRect = cropRect.contains(mousepoint);
 			cropOffset = new Point(mousepoint.x - cropRect.x, mousepoint.y - cropRect.y);
@@ -419,8 +374,8 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			Point mousepoint = e.getPoint();
 			if (scale < 1)
 			{
-				mousepoint.x = (int) (mousepoint.x / scale);
-				mousepoint.y = (int) (mousepoint.y / scale);
+				mousepoint.x /= scale;
+				mousepoint.y /= scale;
 			}
 			if (!cropRect.contains(mousepoint))
 			{

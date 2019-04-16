@@ -1,0 +1,5 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Divine Anthology	SOURCESHORT:DA	SOURCEWEB:http://paizo.com/products/btpy9nvh	SOURCEDATE:2016-10
+
+# Domain Name		Multiple Requirements									Ability									Source Page		List of Domain Spells by Level
+Medicine Subdomain	PREMULT:1,[PREDOMAIN:1,Medicine Subdomain],[PREVARLT:HealingDomain,1]	ABILITY:Internal|AUTOMATIC|Core Domain ~ Medicine Subdomain	SOURCEPAGE:p.24	SPELLLEVEL:DOMAIN|Medicine Subdomain=1|Diagnose Disease|Medicine Subdomain=2|Placebo Effect|Medicine Subdomain=3|Cure Serious Wounds|Medicine Subdomain=4|Cure Critical Wounds|Medicine Subdomain=5|Breath of Life|Medicine Subdomain=6|Heal|Medicine Subdomain=7|Regenerate|Medicine Subdomain=8|Cure Critical Wounds (Mass)|Medicine Subdomain=9|Heal (Mass)

@@ -29,21 +29,18 @@ import pcgen.util.Logging;
  * @param <T>
  *            The type of object on which this AbstractToFactToken can operate.
  */
-public abstract class AbstractToFactToken<T extends Loadable> extends
-		AbstractNonEmptyToken<T> implements CDOMCompatibilityToken<T>
+public abstract class AbstractToFactToken<T extends Loadable> extends AbstractNonEmptyToken<T>
+		implements CDOMCompatibilityToken<T>
 {
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, T obj,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, T obj, String value)
 	{
-		Logging.deprecationPrint(getTokenClass().getSimpleName() + " token "
-			+ getTokenName()
-			+ " has been deprecated and replaced by FACT. Token was "
-			+ getTokenName() + ":" + value, context);
+		Logging.deprecationPrint(getTokenClass().getSimpleName() + " token " + getTokenName()
+			+ " has been deprecated and replaced by FACT. Token was " + getTokenName() + ':' + value, context);
 		try
 		{
-			if (!context.processToken(obj, "FACT", getTokenName() + "|" + value))
+			if (!context.processToken(obj, "FACT", getTokenName() + '|' + value))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Delegation Error to FACT");

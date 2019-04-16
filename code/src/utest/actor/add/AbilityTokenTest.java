@@ -17,6 +17,11 @@
  */
 package actor.add;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
@@ -32,12 +37,14 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.testsupport.AbstractCharacterUsingTestCase;
-
-import org.junit.Before;
-import org.junit.Test;
 import plugin.lsttokens.AddLst;
 import plugin.lsttokens.add.AbilityToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 {
@@ -45,29 +52,35 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 	private static final LstToken ADD_TOKEN = new AddLst();
 	private static final LstToken ADD_ABILITY_TOKEN = new AbilityToken();
 
-	private static final AbilityToken pca = new AbilityToken();
+	private static final AbilityToken PCA = new AbilityToken();
 
 	protected LoadContext context;
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		super.setUp();
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
-		context.getReferenceContext().importObject(AbilityCategory.FEAT);
-		// new RuntimeLoadContext(new RuntimeReferenceContext(),
-		// new ConsolidatedListCommitStrategy());
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+	}
+
+	@AfterEach
+	@Override
+	public void tearDown() throws Exception
+	{
+		context = null;
+		super.tearDown();
 	}
 
 	@Test
 	public void testEncodeChoice()
 	{
 		Ability item = construct("ItemName");
-		CNAbilitySelection as =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, item));
-		assertEquals("CATEGORY=FEAT|NATURE=NORMAL|ItemName", pca
+		CNAbilitySelection as = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item));
+		assertEquals("CATEGORY=FEAT|NATURE=NORMAL|ItemName", PCA
 			.encodeChoice(as));
 	}
 
@@ -76,7 +89,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 	{
 		try
 		{
-			pca.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName");
+			PCA.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName");
 			fail();
 		}
 		catch (IllegalArgumentException e)
@@ -84,9 +97,9 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 			// OK
 		}
 		Ability item = construct("ItemName");
-		CNAbilitySelection as =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, item));
-		assertEquals(as, pca
+		CNAbilitySelection as = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item));
+		assertEquals(as, PCA
 			.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName"));
 	}
 
@@ -94,16 +107,12 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 	@Test
 	public void testWithChoose()
 	{
-		try {
-			setUpPC();
-			//Need to make sure we use the character related context
-			context = Globals.getContext();
-			context.getReferenceContext().importObject(AbilityCategory.FEAT);
-			TokenRegistration.register(ADD_TOKEN);
-			TokenRegistration.register(ADD_ABILITY_TOKEN);
-		} catch (PersistenceLayerException e1) {
-			fail("Cannot set up PC");
-		}
+		setUpPC();
+		//Need to make sure we use the character related context
+		context = Globals.getContext();
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+		TokenRegistration.register(ADD_TOKEN);
+		TokenRegistration.register(ADD_ABILITY_TOKEN);
 		Ability item = construct("ChooseAbility");
 		Ability parent = construct("Parent");
 		context.getReferenceContext().constructCDOMObject(Language.class, "Foo");
@@ -111,18 +120,24 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		context.getReferenceContext().constructCDOMObject(Language.class, "Goo");
 		context.getReferenceContext().constructCDOMObject(Language.class, "Wow");
 		context.getReferenceContext().constructCDOMObject(Language.class, "Rev");
-		AbilityCategory ff = context.getReferenceContext().constructCDOMObject(AbilityCategory.class, "Fighter Feat");
-		ff.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
-		AbilityCategory oc = context.getReferenceContext().constructCDOMObject(AbilityCategory.class, "Some Other Category");
-		Ability badCA = context.getReferenceContext().constructCDOMObject(Ability.class, "ChooseAbility");
-		context.getReferenceContext().reassociateCategory(oc, badCA);
-		try {
+		AbilityCategory ff = context.getReferenceContext()
+			.constructCDOMObject(AbilityCategory.class, "Fighter Feat");
+		ff.setAbilityCategory(CDOMDirectSingleRef.getRef(BuildUtilities.getFeatCat()));
+		AbilityCategory oc = context.getReferenceContext()
+			.constructCDOMObject(AbilityCategory.class, "Some Other Category");
+		Ability badCA = oc.newInstance();
+		badCA.setName("ChooseAbility");
+		context.getReferenceContext().importObject(badCA);
+		try
+		{
 			assertTrue(context.processToken(item, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
 			assertTrue(context.processToken(item, "MULT", "Yes"));
 			assertTrue(context.processToken(badCA, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
 			assertTrue(context.processToken(badCA, "MULT", "Yes"));
 			assertTrue(context.processToken(parent, "ADD", "ABILITY|FEAT|NORMAL|ChooseAbility"));
-		} catch (PersistenceLayerException e) {
+		}
+		catch (PersistenceLayerException e)
+		{
 			e.printStackTrace();
 			fail();
 		}
@@ -130,65 +145,72 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		PlayerCharacter pc = new PlayerCharacter();
 		Object source = UserSelection.getInstance();
 		
-		CNAbilitySelection badCACAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(oc, Nature.AUTOMATIC, badCA), "Foo");
-		CNAbilitySelection fooCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, item), "Foo");
-		CNAbilitySelection barCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, item), "Bar");
-		CNAbilitySelection gooCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, item), "Goo");
-		CNAbilitySelection wowCAS =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, item), "Wow");
-		CNAbilitySelection wowFFCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(ff, Nature.NORMAL, item), "Wow");
-		CNAbilitySelection revCAS =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, item), "Rev");
-		CNAbilitySelection revFFCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(ff, Nature.NORMAL, item), "Rev");
+		CNAbilitySelection badCACAS = new CNAbilitySelection(
+			CNAbilityFactory.getCNAbility(oc, Nature.AUTOMATIC, badCA), "Foo");
+		CNAbilitySelection fooCAS = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, item), "Foo");
+		CNAbilitySelection barCAS = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.VIRTUAL, item), "Bar");
+		CNAbilitySelection gooCAS = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item), "Goo");
+		CNAbilitySelection wowCAS = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item), "Wow");
+		CNAbilitySelection wowFFCAS = new CNAbilitySelection(
+			CNAbilityFactory.getCNAbility(ff, Nature.NORMAL, item), "Wow");
+		CNAbilitySelection revCAS = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.NORMAL, item), "Rev");
+		CNAbilitySelection revFFCAS = new CNAbilitySelection(
+			CNAbilityFactory.getCNAbility(ff, Nature.NORMAL, item), "Rev");
 		
-		assertTrue(pca.allow(fooCAS, pc, false));
-		assertTrue(pca.allow(barCAS, pc, false));
-		assertTrue(pca.allow(gooCAS, pc, false));
-		assertTrue(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		assertTrue(PCA.allow(fooCAS, pc, false));
+		assertTrue(PCA.allow(barCAS, pc, false));
+		assertTrue(PCA.allow(gooCAS, pc, false));
+		assertTrue(PCA.allow(wowCAS, pc, false));
+		assertTrue(PCA.allow(revFFCAS, pc, false));
 		pc.applyAbility(badCACAS, source);
 		//Should have had no effect
-		assertTrue(pca.allow(fooCAS, pc, false));
-		assertTrue(pca.allow(barCAS, pc, false));
-		assertTrue(pca.allow(gooCAS, pc, false));
-		assertTrue(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		assertTrue(PCA.allow(fooCAS, pc, false));
+		assertTrue(PCA.allow(barCAS, pc, false));
+		assertTrue(PCA.allow(gooCAS, pc, false));
+		assertTrue(PCA.allow(wowCAS, pc, false));
+		assertTrue(PCA.allow(revFFCAS, pc, false));
 		pc.applyAbility(fooCAS, source);
-		assertFalse(pca.allow(fooCAS, pc, false));
-		assertTrue(pca.allow(barCAS, pc, false));
-		assertTrue(pca.allow(gooCAS, pc, false));
-		assertTrue(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		assertFalse(PCA.allow(fooCAS, pc, false));
+		assertTrue(PCA.allow(barCAS, pc, false));
+		assertTrue(PCA.allow(gooCAS, pc, false));
+		assertTrue(PCA.allow(wowCAS, pc, false));
+		assertTrue(PCA.allow(revFFCAS, pc, false));
 		pc.applyAbility(barCAS, source);
-		assertFalse(pca.allow(fooCAS, pc, false));
-		assertFalse(pca.allow(barCAS, pc, false));
-		assertTrue(pca.allow(gooCAS, pc, false));
-		assertTrue(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		assertFalse(PCA.allow(fooCAS, pc, false));
+		assertFalse(PCA.allow(barCAS, pc, false));
+		assertTrue(PCA.allow(gooCAS, pc, false));
+		assertTrue(PCA.allow(wowCAS, pc, false));
+		assertTrue(PCA.allow(revFFCAS, pc, false));
 		pc.applyAbility(gooCAS, source);
-		assertFalse(pca.allow(fooCAS, pc, false));
-		assertFalse(pca.allow(barCAS, pc, false));
-		assertFalse(pca.allow(gooCAS, pc, false));
-		assertTrue(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		assertFalse(PCA.allow(fooCAS, pc, false));
+		assertFalse(PCA.allow(barCAS, pc, false));
+		assertFalse(PCA.allow(gooCAS, pc, false));
+		assertTrue(PCA.allow(wowCAS, pc, false));
+		assertTrue(PCA.allow(revFFCAS, pc, false));
 		pc.applyAbility(wowFFCAS, source);
-		assertFalse(pca.allow(fooCAS, pc, false));
-		assertFalse(pca.allow(barCAS, pc, false));
-		assertFalse(pca.allow(gooCAS, pc, false));
-		assertFalse(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		assertFalse(PCA.allow(fooCAS, pc, false));
+		assertFalse(PCA.allow(barCAS, pc, false));
+		assertFalse(PCA.allow(gooCAS, pc, false));
+		assertFalse(PCA.allow(wowCAS, pc, false));
+		assertTrue(PCA.allow(revFFCAS, pc, false));
 		pc.applyAbility(revCAS, source);
-		assertFalse(pca.allow(fooCAS, pc, false));
-		assertFalse(pca.allow(barCAS, pc, false));
-		assertFalse(pca.allow(gooCAS, pc, false));
-		assertFalse(pca.allow(wowCAS, pc, false));
-		assertFalse(pca.allow(revFFCAS, pc, false));
+		assertFalse(PCA.allow(fooCAS, pc, false));
+		assertFalse(PCA.allow(barCAS, pc, false));
+		assertFalse(PCA.allow(gooCAS, pc, false));
+		assertFalse(PCA.allow(wowCAS, pc, false));
+		assertFalse(PCA.allow(revFFCAS, pc, false));
 	}
 
 	protected Ability construct(String one)
 	{
-		Ability obj = context.getReferenceContext().constructCDOMObject(Ability.class, one);
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, obj);
-		return obj;
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(one);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 }

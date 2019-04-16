@@ -111,8 +111,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<CNAbility>
 		for (CNAbility cna : pcfeats)
 		{
 			Ability a = cna.getAbility();
-			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED).booleanValue()
-				&& collection.contains(a))
+			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED).booleanValue() && collection.contains(a))
 			{
 				returnSet.add(cna);
 			}
@@ -120,26 +119,12 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<CNAbility>
 		return returnSet;
 	}
 
-	/**
-	 * Returns true if this ModifyChoiceDecorator is equal to the given Object.
-	 * Equality is defined as being another ModifyChoiceDecorator object with
-	 * equal underlying PrimitiveChoiceSet.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
-		return (obj instanceof ModifyChoiceDecorator)
-				&& ((ModifyChoiceDecorator) obj).pcs.equals(pcs);
+		return (obj instanceof ModifyChoiceDecorator) && ((ModifyChoiceDecorator) obj).pcs.equals(pcs);
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this
-	 * ModifyChoiceDecorator
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

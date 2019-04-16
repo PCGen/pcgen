@@ -31,11 +31,9 @@ import pcgen.core.QualifiedObject;
  * HasDeityWeaponProfFacet is a Facet that tracks if the Deity Weapon Profs are
  * contained in the Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class HasDeityWeaponProfFacet extends
-		AbstractQualifiedListFacet<QualifiedObject<Boolean>> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class HasDeityWeaponProfFacet extends AbstractQualifiedListFacet<QualifiedObject<Boolean>>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
@@ -51,8 +49,6 @@ public class HasDeityWeaponProfFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -76,8 +72,6 @@ public class HasDeityWeaponProfFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)

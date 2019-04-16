@@ -1,5 +1,4 @@
 /*
- * LanguageBundle.java
  * Copyright 2002 (C) Thomas Behr <ravenlock@gmx.de>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on January 03, 2002, 2:15 PM
  */
 package pcgen.system;
 
@@ -24,6 +22,7 @@ import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
+
 import pcgen.util.Logging;
 
 /**
@@ -31,7 +30,6 @@ import pcgen.util.Logging;
  * It provides a set of features to translate il8n keys into text in the 
  * language chosen in preferences.
  *
- * @author Thomas Behr 03-01-02
  */
 public final class LanguageBundle
 {
@@ -133,14 +131,11 @@ public final class LanguageBundle
 		{
 			Logging.log(Logging.WARNING, "Reinitialising the language bundle."); //$NON-NLS-1$
 		}
-		Logging.log(Logging.INFO,
-				MessageFormat.format("Initialising language bundle with locale {0}.", //$NON-NLS-1$
-						Locale.getDefault()));
+		Logging.log(Logging.INFO, MessageFormat.format("Initialising language bundle with locale {0}.", //$NON-NLS-1$
+			Locale.getDefault()));
 		try
 		{
-			bundle =
-					ResourceBundle.getBundle(
-						BUNDLE_NAME + ".LanguageBundle"); //$NON-NLS-1$
+			bundle = ResourceBundle.getBundle(BUNDLE_NAME + ".LanguageBundle"); //$NON-NLS-1$
 		}
 		catch (MissingResourceException mrex)
 		{
@@ -155,9 +150,7 @@ public final class LanguageBundle
 	public static void reload()
 	{
 		Locale l = Locale.getDefault();
-		if (bundle != null
-			&& ((l == null && bundle.getLocale() == null) || !l.equals(bundle
-				.getLocale())))
+		if (bundle != null && ((l == null && bundle.getLocale() == null) || !l.equals(bundle.getLocale())))
 		{
 			bundle = null;
 		}
@@ -167,7 +160,7 @@ public final class LanguageBundle
 	 * Standard bundle key prefix.
 	 */
 	public static final String KEY_PREFIX = "in_"; //$NON-NLS-1$
-	
+
 	/**
 	 * Allow pretty formatting of multiplier. For example, if d is 0.5d, it 
 	 * returns x 1/2 ( 

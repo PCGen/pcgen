@@ -15,29 +15,22 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on October 6, 2005, 8:58 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.lsttokens.gamemode;
-
-import pcgen.core.GameMode;
-import pcgen.persistence.lst.GameModeLstToken;
 
 import java.net.URI;
 import java.util.StringTokenizer;
 
+import pcgen.core.GameMode;
+import pcgen.persistence.lst.GameModeLstToken;
+
 /**
- * <code>SkillRankTextToken</code>
- *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
+ * {@code SkillRankTextToken}
  */
 public class SkillRankTextToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "SKILLRANKTEXT";
@@ -46,7 +39,7 @@ public class SkillRankTextToken implements GameModeLstToken
 	//
 	// SKILLRANKTEXT:<rank_val> <tab> <display_text>
 	//
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		final StringTokenizer tok = new StringTokenizer(value, "\t");

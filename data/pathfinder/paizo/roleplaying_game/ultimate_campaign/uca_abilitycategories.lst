@@ -1,11 +1,17 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 20472 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Ultimate Campaign	SOURCESHORT:UCA	SOURCEWEB:http://paizo.com/products/btpy8x64?Pathfinder-Roleplaying-Game-Ultimate-Campaign	SOURCEDATE:2012-08
 # ORIGINAL ENTRY: Stefan Radermacher
 # ORIGINAL ENTRY DATE: 12 July 2013
 
 ###Block: Character Traits
-# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
-ABILITYCATEGORY:Drawbacks		VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Drawback			PLURAL:Drawbacks			DISPLAYLOCATION:Traits
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Drawbacks					VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Drawback				PLURAL:Drawbacks					DISPLAYLOCATION:Traits
 
-ABILITYCATEGORY:Deathtouched Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Deathtouched Choice	PLURAL:Deathtouched Choices	DISPLAYLOCATION:Traits
-ABILITYCATEGORY:Blood of Dragons	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Blood of Dragons		PLURAL:Blood of Dragons		DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Deathtouched Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Deathtouched Choice		PLURAL:Deathtouched Choices			DISPLAYLOCATION:Traits
+ABILITYCATEGORY:Blood of Dragons				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Blood of Dragons			PLURAL:Blood of Dragons				DISPLAYLOCATION:Traits
+
+ABILITYCATEGORY:Retraining					VISIBLE:YES		EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Retraining				PLURAL:Retraining					DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Retraining Skill Ranks Removed		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RetrainingSkillRanksRemoved	PLURAL:Retraining Skills Ranks Removed	DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Retraining Skill Ranks Added		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RetrainingSkillRanksAdded	PLURAL:Retraining Skills Ranks Added	DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Retraining Ability Score Increase	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RetrainingAbilityScoreIncrease	PLURAL:Retraining Ability Scores Increase	DISPLAYLOCATION:Misc

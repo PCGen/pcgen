@@ -27,7 +27,6 @@ import pcgen.core.WeaponProf;
  * WeaponProfFacet is a Facet that tracks the WeaponProfs that have been granted
  * to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class WeaponProfFacet extends AbstractSourcedListFacet<CharID, WeaponProf>
 		implements DataFacetChangeListener<CharID, WeaponProf>
@@ -44,8 +43,6 @@ public class WeaponProfFacet extends AbstractSourcedListFacet<CharID, WeaponProf
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, WeaponProf> dfce)
@@ -64,8 +61,6 @@ public class WeaponProfFacet extends AbstractSourcedListFacet<CharID, WeaponProf
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, WeaponProf> dfce)

@@ -1,5 +1,4 @@
 /**
- * DescriptionFacade.java
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -15,64 +14,61 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 06/10/2011 7:53:48 PM
- *
- * $Id$
  */
 package pcgen.facade.core;
 
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.cdom.enumeration.PCStringKey;
+import pcgen.core.ChronicleEntry;
+import pcgen.core.NoteItem;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 
 /**
- * The Class <code>DescriptionFacade</code> tracks descriptive entries about the character, 
+ * The Class {@code DescriptionFacade} tracks descriptive entries about the character,
  * interfacing between the user interface and the core.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface DescriptionFacade
 {
-	
+
 	/**
 	 * Remove a chronicle entry.
 	 * @param chronicleEntry The entry to be removed.
 	 */
-	public void removeChronicleEntry(ChronicleEntryFacade chronicleEntry);
-	
+	public void removeChronicleEntry(ChronicleEntry chronicleEntry);
+
 	/**
 	 * Retrieve the set of the character's chronicle entries.
 	 * @return The character's chronicle entries.
 	 */
-	public ListFacade<ChronicleEntryFacade> getChronicleEntries();
+	public ListFacade<ChronicleEntry> getChronicleEntries();
 
 	/**
 	 * Create a new Chronicle Entry and add it to the character's list.
 	 * @return The new ChronicleEntry.
 	 */
-	public ChronicleEntryFacade createChronicleEntry();
-	
+	public ChronicleEntry createChronicleEntry();
+
 	/**
 	 * Retrieve the set of notes defined for the character.
 	 * @return The character's notes.
 	 */
-	public ListFacade<NoteFacade> getNotes();
-	
+	public ListFacade<NoteItem> getNotes();
+
 	/**
 	 * Update the name of a note.
 	 * @param note The note to be renamed.
 	 * @param newName The new name.
 	 */
-	public void renameNote(NoteFacade note, String newName);
-	
+	public void renameNote(NoteItem note, String newName);
+
 	/**
 	 * Remove a note from a character. 
 	 * @param note The note to be removed.
 	 */
-	public void deleteNote(NoteFacade note);
+	public void deleteNote(NoteItem note);
 
 	/**
 	 * Add a new custom note to the character.
@@ -84,7 +80,7 @@ public interface DescriptionFacade
 	 * @param note The note to be updated.
 	 * @param text The new contents of the note.
 	 */
-	public void setNote(NoteFacade note, String text);
+	public void setNote(NoteItem note, String text);
 
 	/**
 	 * Retrieve the value for a text only biography field.
@@ -95,27 +91,9 @@ public interface DescriptionFacade
 
 	/**
 	 * Update the value of a text only biography field.
-	 * @param field The field to be updated. 
+	 * @param attribute The attribute to be updated. 
 	 * @param newValue The new value of the field.
 	 */
-	public void setBiographyField(BiographyField field, String newValue);
+	public void setBiographyField(PCStringKey attribute, String newValue);
 
-	/**
-	 * @return The custom BiographyFields held for this character.
-	 */
-	public ListFacade<BiographyField> getCustomBiographyFields();
-	
-	/**
-	 * Add a new field to the list of fields that will be displayed for 
-	 * this character.
-	 * @param field The BiographyField to be displayed.
-	 */
-	public void addCustomBiographyField(BiographyField field);
-	
-	/**
-	 * Remove a new field from the list of fields that will be displayed for 
-	 * this character.
-	 * @param field The BiographyField to be hidden.
-	 */
-	public void removeCustomBiographyField(BiographyField field);
 }

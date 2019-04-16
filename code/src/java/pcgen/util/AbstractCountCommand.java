@@ -1,5 +1,4 @@
 /*
- * AbstractCountCommand.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 11/08/2013
  *
- * $Id$
  */
 package pcgen.util;
 
@@ -33,36 +30,18 @@ import pcgen.core.VariableProcessor;
  * two commands.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public abstract class AbstractCountCommand extends PCGenCommand
 {
 
 	public enum JepAbilityCountEnum
 	{
-		CATEGORY,
-		NAME,
-		NATURE,
-		TYPE,
-		EXCLUDETYPE,
-		VISIBILITY,
-		ASPECT,
-		CAT,
-		NAM,
-		NAT,
-		TYP,
-		VIS,
-		KEY
+		CATEGORY, NAME, NATURE, TYPE, EXCLUDETYPE, VISIBILITY, ASPECT, CAT, NAM, NAT, TYP, VIS, KEY
 	}
 
 	public enum JepEquipmentCountEnum
 	{
-		TYPE,
-		WIELDCATEGORY,
-		LOCATION,
-		TYP,
-		WDC,
-		LOC
+		TYPE, WIELDCATEGORY, LOCATION, TYP, WDC, LOC
 	}
 
 	/**
@@ -77,8 +56,7 @@ public abstract class AbstractCountCommand extends PCGenCommand
 		{
 			pc = ((VariableProcessor) parent).getPc();
 		}
-		else
-		if (parent instanceof PlayerCharacter)
+		else if (parent instanceof PlayerCharacter)
 		{
 			pc = (PlayerCharacter) parent;
 		}
@@ -98,7 +76,7 @@ public abstract class AbstractCountCommand extends PCGenCommand
 	protected static Object[] paramStackToArray(final Stack inStack, final int maxParam)
 	{
 		final Object[] par = new Object[maxParam];
-	
+
 		if (maxParam > 0)
 		{
 			for (int i = maxParam - 1; i >= 0; i--)
@@ -106,7 +84,7 @@ public abstract class AbstractCountCommand extends PCGenCommand
 				par[i] = inStack.pop();
 			}
 		}
-	
+
 		return par;
 	}
 

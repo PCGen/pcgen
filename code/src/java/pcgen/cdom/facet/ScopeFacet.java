@@ -17,14 +17,14 @@
  */
 package pcgen.cdom.facet;
 
-import java.util.Collection;
+import java.util.Optional;
 
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
-import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
-import pcgen.cdom.inst.Dynamic;
+import pcgen.cdom.formula.scope.GlobalScope;
 
 /**
  * ScopeFacet stores the relationship from a Character, LegalScope, and
@@ -32,8 +32,6 @@ import pcgen.cdom.inst.Dynamic;
  */
 public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 {
-	public static final VarScoped GLOBAL_FACT = new Global();
-
 	/**
 	 * Returns the Global ScopeInstance for the PlayerCharacter represented by
 	 * the given CharID.
@@ -46,7 +44,7 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 	 */
 	public ScopeInstance getGlobalScope(CharID id)
 	{
-		return get(id).getGlobalInstance("Global");
+		return get(id).getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
 	}
 
 	/**
@@ -66,50 +64,25 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 	 * @return The ScopeInstance for the CharID representing the PlayerCharacter
 	 *         and the given LegalScope and VarScoped objects
 	 */
-	public ScopeInstance get(CharID id, String legalScopeName,
-		VarScoped scopedObject)
+	public ScopeInstance get(CharID id, String legalScopeName, VarScoped scopedObject)
 	{
-		return get(id).get(legalScopeName, scopedObject);
+		return get(id).get(legalScopeName, Optional.of(scopedObject));
 	}
 
 	public ScopeInstance get(CharID id, VarScoped vs)
 	{
-		String localName = vs.getLocalScopeName();
+		Optional<String> localName = vs.getLocalScopeName();
 		VarScoped active = vs;
-		while (localName == null)
+		while (localName.isEmpty())
 		{
-			active = active.getVariableParent();
-			if (active == null)
+			Optional<VarScoped> parent = active.getVariableParent();
+			if (parent.isEmpty())
 			{
 				return getGlobalScope(id);
 			}
+			active = parent.get();
 			localName = active.getLocalScopeName();
 		}
-		return get(id, localName, vs);
-	}
-
-	/**
-	 * Returns a Collection of VarScoped objects indicating the objects on which
-	 * there are variables for the PlayerCharacter represented by the given
-	 * CharID.
-	 * 
-	 * @param id
-	 *            The CharID representing the PlayerCharacter within which the
-	 *            VarScoped objects that have variables should be identified
-	 * @return A Collection of VarScoped objects indicating the objects on which
-	 *         there are variables for the PlayerCharacter represented by the
-	 *         given CharID
-	 */
-	public Collection<VarScoped> getObjectsWithVariables(CharID id)
-	{
-		return get(id).getInstancedObjects();
-	}
-
-	private static class Global extends Dynamic
-	{
-		public Global()
-		{
-			setName("Global");
-		}
+		return get(id, localName.get(), vs);
 	}
 }

@@ -35,16 +35,14 @@ import pcgen.core.spell.Spell;
  * DomainSpellsFacet tracks the Domain Spells allowed / granted to the Player
  * Character due to the Domain selections of the Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class DomainSpellsFacet extends
-		AbstractSourcedListFacet<CharID, CDOMList<Spell>> implements
-		DataFacetChangeListener<CharID, Domain>
+public class DomainSpellsFacet extends AbstractSourcedListFacet<CharID, CDOMList<Spell>>
+		implements DataFacetChangeListener<CharID, Domain>
 {
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
-	
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+
 	private DomainFacet domainFacet;
 
 	private ClassFacet classFacet;
@@ -60,8 +58,6 @@ public class DomainSpellsFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, Domain> dfce)
@@ -77,8 +73,7 @@ public class DomainSpellsFacet extends
 			{
 				PlayerCharacter pc = trackingFacet.getPC(id);
 				final int maxLevel = pc.getSpellSupport(domainClass).getMaxCastLevel();
-				DomainApplication.addSpellsToClassForLevels(pc, domain,
-						domainClass, 0, maxLevel);
+				DomainApplication.addSpellsToClassForLevels(pc, domain, domainClass, 0, maxLevel);
 			}
 		}
 	}
@@ -93,7 +88,7 @@ public class DomainSpellsFacet extends
 				return aClass;
 			}
 		}
-		
+
 		return null;
 	}
 
@@ -108,8 +103,6 @@ public class DomainSpellsFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, Domain> dfce)

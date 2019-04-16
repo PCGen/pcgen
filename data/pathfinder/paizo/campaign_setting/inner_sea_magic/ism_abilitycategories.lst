@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 12254 $ $Author: eddyanthony $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Inner Sea Magic	SOURCESHORT:ISM	SOURCEWEB:http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-Sea-Magic	SOURCEDATE:2011-07
 # Original Entry by:Stefan Radermacher & Paul Shipley (elro the onk)
@@ -51,15 +52,17 @@ ABILITYCATEGORY:Blessing of the Harrow Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDI
 ABILITYCATEGORY:Winter Witch Patron					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WinterWitchPatron			PLURAL:Winter Witch Patrons					DISPLAYLOCATION:Class Features
 
 ###Block: Prestige classes
-# Ability Category					Visible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Cyphermage Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:CyphermageClassFeatures	PLURAL:Cyphermage Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Cypherlord				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Cypherlord			PLURAL:Cypherlords			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Cypher Lore				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:CypherLore			PLURAL:Cypher Lore			DISPLAYLOCATION:Class Features
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Cyphermage Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:CyphermageClassFeatures	PLURAL:Cyphermage Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cypherlord					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Cypherlord			PLURAL:Cypherlords			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Cypher Lore					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:CypherLore			PLURAL:Cypher Lore			DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Divine Scion Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:DivineScionClassFeatures	PLURAL:Divine Scion Class Features	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Opposition Alignment		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:OppositionAlign		PLURAL:Opposition Alignments		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Domain Specialization		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:DomainSpecialization	PLURAL:Domain Specializations		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:True Scion				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:TrueScion			PLURAL:True Scion				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Divine Scion Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:DivineScionClassFeatures	PLURAL:Divine Scion Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Opposition Alignment			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:OppositionAlign		PLURAL:Opposition Alignments		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Domain Specialization			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Special Ability	TYPE:DomainSpecialization	PLURAL:Domain Specializations		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:True Scion					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:TrueScion			PLURAL:True Scion				DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:Black Blooded Dual Cursed Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DualBlackBloodedCurse							DISPLAYLOCATION:Class Features
 
 #
 # End

@@ -1,5 +1,4 @@
 /*
- * KitFunds.java
  * Copyright 2005 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on January 20, 2005, 9:46 AM
- *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -29,9 +24,7 @@ import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 
 /**
- * <code>KitFunds</code>.
- *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
+ * {@code KitFunds}.
  */
 public final class KitFunds extends BaseKit
 {
@@ -40,7 +33,7 @@ public final class KitFunds extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient int theQty = 0;
+	private int theQty = 0;
 
 	@Override
 	public String toString()
@@ -49,8 +42,7 @@ public final class KitFunds extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-		List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		theQty = -1;
 		if (quantity == null)
@@ -78,7 +70,7 @@ public final class KitFunds extends BaseKit
 		quantity = formula;
 	}
 
-    @Override
+	@Override
 	public void setName(String value)
 	{
 		name = value;

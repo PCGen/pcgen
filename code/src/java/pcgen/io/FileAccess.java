@@ -1,5 +1,4 @@
 /*
- * FileAccess.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  */
 package pcgen.io;
 
@@ -34,12 +32,15 @@ import pcgen.io.filters.PatternFilter;
 /**
  * {@code FileAccess}.
  *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class FileAccess
 {
 	private static OutputFilter outputFilter = null;
 	private static int maxLength = -1;
+
+	private FileAccess()
+	{
+	}
 
 	/**
 	 * Filter the supplied string according to the current output filter. This
@@ -116,8 +117,8 @@ public final class FileAccess
 		}
 		catch (IOException exception)
 		{
-			ShowMessageDelegate.showMessageDialog(exception.getMessage(),
-				Constants.APPLICATION_NAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(exception.getMessage(), Constants.APPLICATION_NAME,
+				MessageType.ERROR);
 		}
 	}
 
@@ -149,8 +150,8 @@ public final class FileAccess
 		}
 		catch (IOException exception)
 		{
-			ShowMessageDelegate.showMessageDialog(exception.getMessage(),
-				Constants.APPLICATION_NAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(exception.getMessage(), Constants.APPLICATION_NAME,
+				MessageType.ERROR);
 		}
 	}
 }

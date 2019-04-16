@@ -1,5 +1,4 @@
 /*
- * PCStat.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,36 +14,21 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on August 10, 2002, 11:58 PM
  */
 package pcgen.core;
+
+import java.util.Optional;
 
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.base.SortKeyRequired;
-import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.facade.core.StatFacade;
+import pcgen.cdom.enumeration.StringKey;
 
-/**
- * <code>PCStat</code>.
- *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- */
-public final class PCStat extends PObject implements StatFacade,
-		NonInteractive, SortKeyRequired, VarScoped
+public final class PCStat extends PObject
+		implements NonInteractive, SortKeyRequired, VarScoped
 {
-	@Override
-	public int getMinValue()
-	{
-		return getSafe(IntegerKey.MIN_VALUE);		
-	}
 	/*
-	 * (non-Javadoc)
-	 * @see pcgen.core.PObject#toString()
-	 * 
-	 * This is what the UI displays for the CHOOSE:PCSTAT. Removed additional sb.append to de-clutter display.
-	 * 
+	 * This is what the UI displays for the CHOOSE:PCSTAT.
 	 */
 	@Override
 	public String toString()
@@ -52,18 +36,15 @@ public final class PCStat extends PObject implements StatFacade,
 		return getKeyName();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.StatFacade#getName()
-	 */
-    @Override
-	public String getName()
+	@Override
+	public Optional<String> getLocalScopeName()
 	{
-		return getDisplayName();
+		return Optional.of("PC.STAT");
 	}
 
 	@Override
-	public String getLocalScopeName()
+	public String getSortKey()
 	{
-		return "STAT";
+		return get(StringKey.SORT_KEY);
 	}
 }

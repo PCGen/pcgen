@@ -17,14 +17,15 @@
  */
 package pcgen.output.model;
 
-import pcgen.base.formula.base.ScopeInstance;
+import java.util.Objects;
+
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
-import pcgen.cdom.facet.ScopeFacet;
-import pcgen.cdom.facet.VariableLibraryFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
+import pcgen.cdom.formula.VariableUtilities;
+
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
@@ -37,29 +38,15 @@ public class GlobalVarModel implements TemplateHashModel
 {
 
 	/**
-	 * The global VariableLibraryFacet used to get VariableIDs
-	 */
-	private final VariableLibraryFacet variableLibraryFacet = FacetLibrary
-		.getFacet(VariableLibraryFacet.class);
-
-	/**
 	 * The global VariableStore Facet used to get VariableID values
 	 */
-	private final VariableStoreFacet variableStoreFacet = FacetLibrary
-		.getFacet(VariableStoreFacet.class);
-
-	/**
-	 * The global ScopeFacet used to get VariableScopes
-	 */
-	private final ScopeFacet scopeFacet = FacetLibrary
-		.getFacet(ScopeFacet.class);
+	private final VariableStoreFacet variableStoreFacet = FacetLibrary.getFacet(VariableStoreFacet.class);
 
 	/**
 	 * The global ObjectWrapperFacet used to wrap the current value of a
 	 * variable
 	 */
-	private final ObjectWrapperFacet wrapperFacet = FacetLibrary
-		.getFacet(ObjectWrapperFacet.class);
+	private final ObjectWrapperFacet wrapperFacet = FacetLibrary.getFacet(ObjectWrapperFacet.class);
 
 	/**
 	 * The underlying CharID for this InfoModel
@@ -74,33 +61,23 @@ public class GlobalVarModel implements TemplateHashModel
 	 */
 	public GlobalVarModel(CharID id)
 	{
-		if (id == null)
-		{
-			throw new IllegalArgumentException("CharID cannot be null");
-		}
+		Objects.requireNonNull(id, "CharID cannot be null");
 		this.id = id;
 	}
 
 	/**
 	 * Gets the global variable (new formula system) represented by the given
 	 * key.
-	 * 
-	 * @see freemarker.template.TemplateHashModel#get(java.lang.String)
 	 */
 	@Override
 	public TemplateModel get(String varName) throws TemplateModelException
 	{
-		ScopeInstance varScope = scopeFacet.getGlobalScope(id);
 		VariableID<?> varID =
-				variableLibraryFacet.getVariableID(id.getDatasetID(), varScope,
-					varName);
+				VariableUtilities.getGlobalVariableID(id, varName);
 		Object value = variableStoreFacet.getValue(id, varID);
 		return wrapperFacet.wrap(id, value);
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty() throws TemplateModelException
 	{

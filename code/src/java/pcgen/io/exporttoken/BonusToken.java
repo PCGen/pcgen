@@ -1,5 +1,4 @@
 /*
- * BonusToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,12 +15,12 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.io.exporttoken;
+
+import java.util.StringTokenizer;
 
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
@@ -32,8 +31,6 @@ import pcgen.io.ExportHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
-
-import java.util.StringTokenizer;
 
 /**
  * Deals with BONUS token
@@ -50,13 +47,10 @@ public class BonusToken extends Token
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 *
 	 * TODO: Bonuses need to be stripped out, and there need to be methods for the various types.
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		return getBonusToken(tokenSource, pc);
 	}
@@ -95,8 +89,7 @@ public class BonusToken extends Token
 		{
 			String bucket = bonusTok.nextToken();
 
-			if (CoreUtility.doublesEqual(total, 0.0)
-				&& "LISTING".equals(bucket))
+			if (CoreUtility.doublesEqual(total, 0.0) && "LISTING".equals(bucket))
 			{
 				return pc.listBonusesFor(aType, aName);
 			}
@@ -104,10 +97,8 @@ public class BonusToken extends Token
 			{
 				if (Logging.isDebugMode())
 				{
-					Logging
-						.debugPrint("Why is this not parsed in loading: "
-							+ bucket
-							+ " rather than in BonusToken.getBonusToken()");
+					Logging.debugPrint(
+						"Why is this not parsed in loading: " + bucket + " rather than in BonusToken.getBonusToken()");
 				}
 				Prerequisite prereq = null;
 				try
@@ -152,7 +143,7 @@ public class BonusToken extends Token
 
 			signIt = 1;
 
-			if ((bucket.length() > 0) && (bucket.charAt(0) == '!'))
+			if ((!bucket.isEmpty()) && (bucket.charAt(0) == '!'))
 			{
 				signIt = -1;
 				bucket = bucket.substring(1);
@@ -199,7 +190,6 @@ public class BonusToken extends Token
 			total += (lastValue * signIt);
 		}
 
-		return String.valueOf((int) (total * Math.pow(10, decimals))
-			/ (int) Math.pow(10, decimals));
+		return String.valueOf((int) (total * Math.pow(10, decimals)) / (int) Math.pow(10, decimals));
 	}
 }

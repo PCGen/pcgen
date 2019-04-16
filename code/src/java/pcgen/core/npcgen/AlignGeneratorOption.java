@@ -1,5 +1,4 @@
 /*
- * AlignGeneratorOption.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
  */
 package pcgen.core.npcgen;
 
@@ -29,35 +26,33 @@ import pcgen.util.Logging;
 /**
  * This class represents a particular alignment generator option.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  */
 public class AlignGeneratorOption extends GeneratorOption
 {
 	private WeightedCollection<PCAlignment> theChoices = null;
-	
-	/**
-	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
-	 */
+
 	@Override
 	public void addChoice(final int aWeight, final String aValue)
 	{
-		if ( theChoices == null )
+		if (theChoices == null)
 		{
 			theChoices = new WeightedCollection<>();
 		}
-		
-		if ( aValue.equals("*") ) //$NON-NLS-1$
+
+		if (aValue.equals("*")) //$NON-NLS-1$
 		{
-			for ( final PCAlignment align : Globals.getContext().getReferenceContext().getOrderSortedCDOMObjects(PCAlignment.class) )
+			for (PCAlignment align : Globals.getContext().getReferenceContext()
+				.getSortkeySortedCDOMObjects(PCAlignment.class))
 			{
-				if ( align.getSafe(ObjectKey.VALID_FOR_FOLLOWER) && ! theChoices.contains(align) )
+				if (align.getSafe(ObjectKey.VALID_FOR_FOLLOWER) && !theChoices.contains(align))
 				{
 					theChoices.add(align, aWeight);
 				}
 			}
 			return;
 		}
-		final PCAlignment align = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCAlignment.class, aValue);
+		PCAlignment align =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCAlignment.class, aValue);
 		if (align == null)
 		{
 			Logging.errorPrintLocalised("NPCGen.Options.AlignNotFound", aValue); //$NON-NLS-1$

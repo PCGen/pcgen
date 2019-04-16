@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCLTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,37 +16,32 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 04-Aug-2008 16:43:40
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
 
-public class PCCLTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCLTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String classKey;
 
-	public PCCLTermEvaluator(
-			String originalText, String aClass)
+	public PCCLTermEvaluator(String originalText, String aClass)
 	{
 		this.originalText = originalText;
-		this.classKey        = aClass;
+		this.classKey = aClass;
 	}
 
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(pc));
+		return TermUtil.convertToFloat(originalText, evaluate(pc));
 	}
 
 	@Override
-	public String evaluate (PlayerCharacter pc)
+	public String evaluate(PlayerCharacter pc)
 	{
 		final PCClass aClass = pc.getClassKeyed(classKey);
 
@@ -60,7 +54,7 @@ public class PCCLTermEvaluator
 	}
 
 	@Override
-	public String evaluate (PlayerCharacter pc, Spell aSpell)
+	public String evaluate(PlayerCharacter pc, Spell aSpell)
 	{
 		return evaluate(pc);
 	}

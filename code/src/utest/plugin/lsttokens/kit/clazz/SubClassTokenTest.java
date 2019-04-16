@@ -17,18 +17,20 @@
  */
 package plugin.lsttokens.kit.clazz;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.core.PCClass;
-import pcgen.core.SubClass;
 import pcgen.core.kit.KitClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 {
@@ -37,6 +39,7 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	static CDOMSubLineLoader<KitClass> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitClass.class);
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -68,24 +71,20 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount() throws PersistenceLayerException
+	public void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
 	@Test
-	public void testInvalidInputOnlyOne() throws PersistenceLayerException
+	public void testInvalidInputOnlyOne()
 	{
 		SubClassCategory cat = SubClassCategory.getConstant("Wizard");
-		SubClass sc = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Fireball");
-		primaryContext.getReferenceContext().reassociateCategory(cat, sc);
-		sc = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Fireball");
-		secondaryContext.getReferenceContext().reassociateCategory(cat, sc);
-		sc = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "English");
-		primaryContext.getReferenceContext().reassociateCategory(cat, sc);
-		sc = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "English");
-		secondaryContext.getReferenceContext().reassociateCategory(cat, sc);
+		constructCategorized(primaryContext, cat, "Fireball");
+		constructCategorized(secondaryContext, cat, "Fireball");
+		constructCategorized(primaryContext, cat, "English");
+		constructCategorized(secondaryContext, cat, "English");
 		assertTrue(parse("Fireball,English"));
 		assertConstructionError();
 	}
@@ -94,10 +93,8 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
 		SubClassCategory cat = SubClassCategory.getConstant("Wizard");
-		SubClass sc = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Fireball");
-		primaryContext.getReferenceContext().reassociateCategory(cat, sc);
-		sc = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "Fireball");
-		secondaryContext.getReferenceContext().reassociateCategory(cat, sc);
+		constructCategorized(primaryContext, cat, "Fireball");
+		constructCategorized(secondaryContext, cat, "Fireball");
 		runRoundRobin("Fireball");
 	}
 }

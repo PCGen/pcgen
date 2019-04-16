@@ -1,5 +1,4 @@
 /*
- * LevelAbility.java
  * Copyright 2006 (C) Andrew Wilson <nuance@sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -23,6 +22,8 @@
  * $$id$$
  */
 package pcgen.core.levelability;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -46,12 +47,16 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.util.TestHelper;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * Tests for Level Ability Class Skills
@@ -61,14 +66,11 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 {
 
 	PCClass pcClass;
-	Race emptyRace = new Race();
 	boolean firstTime = true;
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 
@@ -92,11 +94,9 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, pcClass);
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
 	@Override
-	protected void tearDown() throws Exception
+	@AfterEach
+	public void tearDown() throws Exception
 	{
 		pcClass = null;
 		super.tearDown();
@@ -105,6 +105,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
+	@Test
 	public void testBasicChoicesList()
 	{
 		PCClass po = new PCClass();
@@ -133,6 +134,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
+	@Test
 	public void testGetChoicesListWithParens()
 	{
 		PCClass po = new PCClass();
@@ -161,6 +163,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
+	@Test
 	public void testGetChoicesListWithClassSkill()
 	{
 		CampaignSourceEntry source;
@@ -222,8 +225,8 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
 	}
 
-	private PCClass parsePCClassText(String classPCCText,
-			CampaignSourceEntry source) throws PersistenceLayerException
+	private static PCClass parsePCClassText(String classPCCText,
+											CampaignSourceEntry source) throws PersistenceLayerException
 		{
 			PCClassLoader pcClassLoader = new PCClassLoader();
 			PCClass reconstClass = null;

@@ -8,27 +8,19 @@ import pcgen.io.exporttoken.AbstractExportToken;
 import pcgen.util.Logging;
 
 /**
- * @author karianna
  * Class deals with SPELLBOOKNAME Token
  */
 public class SpellBookNameToken extends AbstractExportToken
 {
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "SPELLBOOKNAME";
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		String bString = aTok.nextToken();
@@ -40,8 +32,7 @@ public class SpellBookNameToken extends AbstractExportToken
 		}
 		else
 		{
-			Logging
-				.errorPrint("Old syntax SPELLBOOKNAMEx will be replaced for SPELLBOOKNAME.x");
+			Logging.errorPrint("Old syntax SPELLBOOKNAMEx will be replaced for SPELLBOOKNAME.x");
 			bookNum = Integer.parseInt(tokenSource.substring(13));
 		}
 

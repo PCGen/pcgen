@@ -62,5 +62,5 @@ public interface ChoiceActor<T>
 	 *         PlayerCharacter under the provided stacking conditions.
 	 */
 	public boolean allow(T item, PlayerCharacter pc, boolean allowStack);
-	
+
 }

@@ -1,0 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Divine Anthology	SOURCESHORT:DA	SOURCEWEB:http://paizo.com/products/btpy9nvh	SOURCEDATE:2016-10
+
+
+
+# Equipment Name	Type						Number of Pages	Page Usage				Cost		Weight	Source Page		Ability											Special Property
+The Prying Eye	TYPE:Goods.Tools.Book.Spellbook	NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:2200	WT:3		SOURCEPAGE:p.5	ABILITY:Special Ability|AUTOMATIC|Preparation Ritual ~ Keen Perception	SPROP:Level 7 Universalist	SPROP:Spells - 4.arcane eye, eyes of the void, medusa's bane; 3.arcane sight, channel the gift, fractions of heal and harm; 2.darkvision, burning gaze, see invisibility, spell gauge; 1.countless eyes, detect secret doors, identify, invisibility alarm, see alignment, true strike	SPROP:Preparation Ritual - Keen Perception

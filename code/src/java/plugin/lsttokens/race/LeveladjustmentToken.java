@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with LEVELADJUSTMENT Token
  */
-public class LeveladjustmentToken extends AbstractNonEmptyToken<Race> implements
-		CDOMPrimaryToken<Race>
+public class LeveladjustmentToken extends AbstractNonEmptyToken<Race> implements CDOMPrimaryToken<Race>
 {
 
 	@Override
@@ -40,30 +39,26 @@ public class LeveladjustmentToken extends AbstractNonEmptyToken<Race> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Race race,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, Race race, String value)
 	{
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
-		context.getObjectContext().put(race, FormulaKey.LEVEL_ADJUSTMENT,
-				formula);
+		context.getObjectContext().put(race, FormulaKey.LEVEL_ADJUSTMENT, formula);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		Formula f = context.getObjectContext().getFormula(race,
-				FormulaKey.LEVEL_ADJUSTMENT);
+		Formula f = context.getObjectContext().getFormula(race, FormulaKey.LEVEL_ADJUSTMENT);
 		if (f == null)
 		{
 			return null;
 		}
-		return new String[] { f.toString() };
+		return new String[]{f.toString()};
 	}
 
 	@Override

@@ -18,6 +18,7 @@
 package pcgen.output.base;
 
 import pcgen.cdom.enumeration.CharID;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 

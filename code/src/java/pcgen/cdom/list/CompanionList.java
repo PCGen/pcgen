@@ -1,5 +1,5 @@
 /*
- * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2008-18 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -19,24 +19,14 @@ package pcgen.cdom.list;
 
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.reference.CDOMAllRef;
-import pcgen.cdom.reference.CDOMCategorizedSingleRef;
-import pcgen.cdom.reference.CDOMGroupRef;
-import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.CDOMTypeRef;
-import pcgen.cdom.reference.ManufacturableFactory;
-import pcgen.cdom.reference.ReferenceManufacturer;
-import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.core.Race;
 import pcgen.core.character.CompanionMod;
-import pcgen.util.Logging;
 
 /**
  * CompanionList is a CDOMListObject designed to reference a List of Race
  * objects available as companions to a PlayerCharacter objects.
  */
-public class CompanionList extends CDOMListObject<Race> implements
-		Category<CompanionMod>
+public class CompanionList extends CDOMListObject<Race> implements Category<CompanionMod>
 {
 
 	/**
@@ -60,91 +50,9 @@ public class CompanionList extends CDOMListObject<Race> implements
 	}
 
 	@Override
-	public CompanionMod newInstance()
-	{
-		CompanionMod mod = new CompanionMod();
-		mod.setCDOMCategory(this);
-		return mod;
-	}
-
-	@Override
-	public boolean isMember(CompanionMod item)
-	{
-		return (item != null) && equals(item.getCDOMCategory());
-	}
-
-	@Override
 	public String getReferenceDescription()
 	{
 		return "CompanionMod of TYPE " + getKeyName();
-	}
-
-	@Override
-	public boolean resolve(ReferenceManufacturer<CompanionMod> rm, String name,
-		CDOMSingleRef<CompanionMod> reference, UnconstructedValidator validator)
-	{
-		boolean returnGood = true;
-		CompanionMod activeObj = rm.getObject(name);
-		if (activeObj == null)
-		{
-			// Wasn't constructed!
-			if (name.charAt(0) != '*' && !report(validator, name))
-			{
-				Logging.errorPrint("Unconstructed Reference: "
-					+ getReferenceDescription() + " " + name);
-				rm.fireUnconstuctedEvent(reference);
-				returnGood = false;
-			}
-			activeObj = rm.buildObject(name);
-		}
-		reference.addResolution(activeObj);
-		return returnGood;
-	}
-
-	private boolean report(UnconstructedValidator validator, String key)
-	{
-		return validator != null
-			&& validator.allow(getReferenceClass(), this, key);
-	}
-
-	@Override
-	public boolean populate(ReferenceManufacturer<CompanionMod> parentCrm,
-		ReferenceManufacturer<CompanionMod> rm, UnconstructedValidator validator)
-	{
-		//Never hierarchical
-		return true;
-	}
-
-	@Override
-	public ManufacturableFactory<CompanionMod> getParent()
-	{
-		//Never hierarchical
-		return null;
-	}
-
-	@Override
-	public CDOMSingleRef<CompanionMod> getReference(String key)
-	{
-		return new CDOMCategorizedSingleRef<>(CompanionMod.class,
-                this, key);
-	}
-
-	@Override
-	public CDOMGroupRef<CompanionMod> getTypeReference(String... types)
-	{
-		return new CDOMTypeRef<>(CompanionMod.class, types);
-	}
-
-	@Override
-	public CDOMGroupRef<CompanionMod> getAllReference()
-	{
-		return new CDOMAllRef<>(CompanionMod.class);
-	}
-
-	@Override
-	public Class<CompanionMod> getReferenceClass()
-	{
-		return CompanionMod.class;
 	}
 
 	@Override
@@ -154,4 +62,52 @@ public class CompanionList extends CDOMListObject<Race> implements
 		return null;
 	}
 
+	@Override
+	public String getName()
+	{
+		return getDisplayName();
+	}
+
+	@Override
+	public Class<CompanionMod> getReferenceClass()
+	{
+		return CompanionMod.class;
+	}
+
+	@Override
+	public CompanionMod newInstance()
+	{
+		CompanionMod instance = new CompanionMod();
+		instance.setCDOMCategory(this);
+		return instance;
+	}
+
+	@Override
+	public boolean isMember(CompanionMod item)
+	{
+		return CompanionMod.class.equals(item.getClass()) && this.equals(item.getCDOMCategory());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getKeyName().hashCode() ^ getReferenceClass().hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (getClass().equals(o.getClass()))
+		{
+			CompanionList other = (CompanionList) o;
+			return getKeyName().equals(other.getKeyName());
+		}
+		return false;
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return "COMPANIONLIST=" + getKeyName();
+	}
 }

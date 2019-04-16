@@ -17,14 +17,12 @@
  */
 package plugin.lsttokens.pcclass.level;
 
-import java.net.URI;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URISyntaxException;
-
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.inst.PCClassLevel;
@@ -32,19 +30,23 @@ import pcgen.core.Campaign;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
-import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import util.TestURI;
+
+public abstract class AbstractPCClassLevelTokenTestCase
 {
 	protected LoadContext primaryContext;
 	protected LoadContext secondaryContext;
@@ -56,31 +58,25 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	protected PCClassLevel secondaryProf2;
 	protected PCClassLevel primaryProf3;
 	protected PCClassLevel secondaryProf3;
-	protected CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<PCClassLevel>();
+	protected CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<>();
 
-	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 
-	@BeforeClass
-	public static final void classSetUp() throws URISyntaxException
+	@BeforeAll
+	static void classSetUp()
 	{
-		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
-				"file:/Test%20Case"));
-		classSetUpFired = true;
+		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 	}
 
-	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	@BeforeEach
+	void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		// Yea, this causes warnings...
 		TokenRegistration.register(getToken());
-		primaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
-		secondaryContext = new RuntimeLoadContext(new RuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
+		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		secondaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
 		primaryProf = primaryContext.getReferenceContext().constructCDOMObject(PCClass.class,
 				"TestObj");
 		secondaryProf = secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class,
@@ -93,14 +89,9 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		secondaryProf3 = secondaryProf.getOriginalClassLevel(3);
 	}
 
-	public Class<? extends PCClassLevel> getCDOMClass()
+	public static Class<? extends PCClassLevel> getCDOMClass()
 	{
 		return PCClassLevel.class;
-	}
-
-	public static void addToken(LstToken tok)
-	{
-		TokenLibrary.addToTokenMap(tok);
 	}
 
 	public void runRoundRobin(String... str) throws PersistenceLayerException
@@ -122,12 +113,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf2);
 
 		assertEquals(str.length, unparsed.length);
-
-		for (int i = 0; i < str.length; i++)
-		{
-			assertEquals("Expected " + i + " item to be equal", str[i],
-					unparsed[i]);
-		}
+		assertArrayEquals(str, unparsed);
 
 		// Do round Robin
 		StringBuilder unparsedBuilt = new StringBuilder();
@@ -157,20 +143,13 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	private void validateUnparsed(LoadContext sc, PCClassLevel sp,
 			String... unparsed)
 	{
-		String[] sUnparsed = getToken().unparse(sc,
-				sp);
-		assertEquals(unparsed.length, sUnparsed.length);
-
-		for (int i = 0; i < unparsed.length; i++)
-		{
-			assertEquals("Expected " + i + " item to be equal", unparsed[i],
-					sUnparsed[i]);
-		}
+		String[] sUnparsed = getToken().unparse(sc, sp);
+		assertArrayEquals(sUnparsed, unparsed);
 	}
 
 	public abstract CDOMPrimaryToken<PCClassLevel> getToken();
 
-	public void isCDOMEqual(CDOMObject cdo1, CDOMObject cdo2)
+	public static void isCDOMEqual(CDOMObject cdo1, CDOMObject cdo2)
 	{
 		assertTrue(cdo1.isCDOMEqual(cdo2));
 	}
@@ -178,7 +157,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	public void assertNoSideEffects()
 	{
 		isCDOMEqual(primaryProf, secondaryProf);
-		assertFalse(primaryContext.getListContext().hasMasterLists());
+		Assertions.assertFalse(primaryContext.getListContext().hasMasterLists());
 	}
 
 	public boolean parse(String str, int level)
@@ -216,7 +195,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	}
 
 	@Test
-	public void testOverwrite() throws PersistenceLayerException
+	public void testOverwrite()
 	{
 		parse(getLegalValue(), 1);
 		validateUnparsed(primaryContext, primaryProf.getOriginalClassLevel(1),
@@ -232,13 +211,6 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	protected abstract String getAlternateLegalValue();
 
 	protected abstract ConsolidationRule getConsolidationRule();
-
-	protected void expectSingle(String[] unparsed, String expected)
-	{
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", expected, unparsed[0]);
-	}
 
 	protected void assertCleanConstruction()
 	{

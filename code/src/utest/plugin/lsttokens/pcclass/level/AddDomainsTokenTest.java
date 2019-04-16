@@ -17,9 +17,9 @@
  */
 package plugin.lsttokens.pcclass.level;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
@@ -28,6 +28,7 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractListContextTokenTestCase;
@@ -36,16 +37,20 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class AddDomainsTokenTest extends
 		AbstractListContextTokenTestCase<PCClassLevel, Domain>
 {
 
 	static AdddomainsToken token = new AdddomainsToken();
-	static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<PCClassLevel>();
+	static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -54,19 +59,12 @@ public class AddDomainsTokenTest extends
 		TokenRegistration.register(preracewriter);
 	}
 
-	private final PCClass primClass = new PCClass();
-	private final PCClass secClass = new PCClass();
-
 	@Override
-	protected PCClassLevel getPrimary(String name)
+	protected PCClassLevel get(LoadContext context, String name)
 	{
-		return primClass.getOriginalClassLevel(1);
-	}
-
-	@Override
-	protected PCClassLevel getSecondary(String name)
-	{
-		return secClass.getOriginalClassLevel(1);
+		PCClass pcc = context.getReferenceContext().constructNowIfNecessary(PCClass.class,
+			"Cl");
+		return pcc.getOriginalClassLevel(1);
 	}
 
 	@Override
@@ -124,7 +122,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidEmptyPre() throws PersistenceLayerException
+	public void testInvalidEmptyPre()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1[]"));
@@ -132,7 +130,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidEmptyPre2() throws PersistenceLayerException
+	public void testInvalidEmptyPre2()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1["));
@@ -140,7 +138,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidEmptyPre3() throws PersistenceLayerException
+	public void testInvalidEmptyPre3()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1]"));
@@ -148,7 +146,7 @@ public class AddDomainsTokenTest extends
 	}
 
 	@Test
-	public void testInvalidMismatchedBracket() throws PersistenceLayerException
+	public void testInvalidMismatchedBracket()
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1[PRERACE:Dwarf"));
@@ -157,7 +155,6 @@ public class AddDomainsTokenTest extends
 
 	@Test
 	public void testInvalidTrailingAfterBracket()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		assertFalse(parse("TestWP1[PRERACE:Dwarf]Hi"));
@@ -199,7 +196,6 @@ public class AddDomainsTokenTest extends
 
 	@Test
 	public void testInvalidInputBadPrerequisite()
-			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");

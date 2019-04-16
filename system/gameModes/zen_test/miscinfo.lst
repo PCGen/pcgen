@@ -6,19 +6,11 @@
 LEVELMSG:Congratulations, you can advance with that much experience!
 #
 #
-ALIGNMENTNAME:Alignment
-HPNAME:Hit Points
-HPABBREV:HP
-#ALTHPNAME:
-#ALTHPABBREV:
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
-# ACNAME: and ACABBREV: are required for proper usage.
 ACNAME:Armor Class
-ACABBREV:AC
 
 # Whether to allow AutoResizing of Equipment for nonmedium characters in this gamemode
-ALLOWAUTORESIZE:Y
 
 # Stacking bonuses
 BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
@@ -26,7 +18,6 @@ BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
 #
 #misc. currency specific items
 #
-CURRENCYUNIT:Gold
 CURRENCYUNITABBREV:gp
 
 #
@@ -37,20 +28,10 @@ DEFAULTUNITSET:Imperial
 
 # The following determine whether some Class-related
 # variables are displayed on the Classes tab.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense
 #  value is displayed.
-# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
-# DISPLAYVARIABLExNAME: determines the variable displayed.
-#  This must match the DEFINE: variable in order to be displayed
-# Up to 3 variables can be displayed in this manner
+#
+#
 
-SHOWCLASSDEFENSE:No
-#DISPLAYVARIABLE1TEXT:
-#DISPLAYVARIABLE1NAME:
-#DISPLAYVARIABLE2TEXT:
-#DISPLAYVARIABLE2NAME:
-#DISPLAYVARIABLE3TEXT:
-#DISPLAYVARIABLE3NAME:
 
 #
 # Whether or not the game mode displays these tabs
@@ -74,7 +55,6 @@ TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Zen Test
-MENUTOOLTIP:Use 3.5e character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:35e|DnD|35e Test|zen_test
 #
@@ -138,8 +118,6 @@ BABMAXATT:1
 BABATTCYC:5
 BABMINVAL:1
 # Epic stuff
-BABMAXLVL:20
-CHECKSMAXLVL:20
 
 #Class Types
 CLASSTYPE:PC		CRFORMULA:CL		ISMONSTER:NO	XPPENALTY:YES	CRMOD:0	CRMODPRIORITY:1
@@ -240,7 +218,6 @@ WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
 #
 # Wield Category Steps
 #  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
-WCSTEPSFORMULA:EQUIP.SIZE.INT-PC.SIZE.INT
 
 WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded							ZERO:Light
 WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
@@ -251,12 +228,12 @@ WIELDCATEGORY:TooLarge							DOWN:TwoHanded|OneHanded|Light	ZERO:TwoHanded
 #
 # Dice rolling methods for character creation
 #
-ROLLMETHOD:3d6						METHOD:3d6
-ROLLMETHOD:4d4						METHOD:4d4
-ROLLMETHOD:4d6 drop lowest				METHOD:roll(4,6,top(3))
-ROLLMETHOD:4d6 reroll 1's				METHOD:roll(4,6,reroll(1))
-ROLLMETHOD:4d6 reroll 1's drop the lowest		METHOD:roll(4,6,top(3),reroll(1))
-ROLLMETHOD:5d6 drop 2 lowest				METHOD:roll(5,6,top(3))
+ROLLMETHOD:3d6						SORTKEY:A1	METHOD:3d6
+ROLLMETHOD:4d4						SORTKEY:A2	METHOD:4d4
+ROLLMETHOD:4d6 drop lowest				SORTKEY:A3	METHOD:roll(4,6,top(3))
+ROLLMETHOD:4d6 reroll 1's				SORTKEY:A4	METHOD:roll(4,6,reroll(1))
+ROLLMETHOD:4d6 reroll 1's drop the lowest		SORTKEY:A5	METHOD:roll(4,6,top(3),reroll(1))
+ROLLMETHOD:5d6 drop 2 lowest				SORTKEY:A6	METHOD:roll(5,6,top(3))
 
 # Unit Set
 UNITSET:Imperial	HEIGHTUNIT:ftin	HEIGHTFACTOR:1		HEIGHTPATTERN:#		DISTANCEUNIT:ft.	DISTANCEFACTOR:1	DISTANCEPATTERN:#.##	WEIGHTUNIT:lbs.	WEIGHTFACTOR:1	WEIGHTPATTERN:#.##

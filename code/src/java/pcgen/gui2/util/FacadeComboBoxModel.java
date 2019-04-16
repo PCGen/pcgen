@@ -1,5 +1,4 @@
 /*
- * FacadeComboBoxModel.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,27 +15,22 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 8, 2010, 6:18:36 PM
  */
 package pcgen.gui2.util;
 
 import javax.swing.AbstractListModel;
 import javax.swing.ComboBoxModel;
 
+import pcgen.facade.util.DelegatingListFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.facade.util.DelegatingListFacade;
-import pcgen.facade.util.ListFacade;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
-public class FacadeComboBoxModel<E> extends AbstractListModel
-		implements ComboBoxModel, ListListener<E>, ReferenceListener<E>
+public class FacadeComboBoxModel<E> extends AbstractListModel<E>
+		implements ComboBoxModel<E>, ListListener<E>, ReferenceListener<E>
 {
 
 	private DelegatingListFacade<E> delegate;
@@ -82,7 +76,7 @@ public class FacadeComboBoxModel<E> extends AbstractListModel
 	}
 
 	@Override
-	public Object getElementAt(int index)
+	public E getElementAt(int index)
 	{
 		return delegate.getElementAt(index);
 	}

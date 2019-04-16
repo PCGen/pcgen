@@ -17,10 +17,7 @@
  */
 package plugin.lsttokens;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
@@ -31,21 +28,16 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
 public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new ServesAsToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
-
-	@Override
-	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
-		super.setUp();
-	}
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<Skill> getLoader()
@@ -60,76 +52,82 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}
 
 	@Test
-	public void testInvalidObject() throws PersistenceLayerException
+	public void testInvalidObject()
 	{
 		assertFalse(token.parseToken(primaryContext, new EquipmentModifier(),
 				"Fireball").passed());
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeOnly() throws PersistenceLayerException
+	public void testInvalidTypeOnly()
 	{
 		assertFalse(parse("SKILL"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTypeBarOnly() throws PersistenceLayerException
+	public void testInvalidTypeBarOnly()
 	{
 		assertFalse(parse("SKILL|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEmptyType() throws PersistenceLayerException
+	public void testInvalidEmptyType()
 	{
 		assertFalse(parse("|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidBadType() throws PersistenceLayerException
+	public void testInvalidBadType()
 	{
 		assertFalse(parse("CAMPAIGN|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidCatTypeNoEqual() throws PersistenceLayerException
+	public void testInvalidCatTypeNoEqual()
 	{
 		assertFalse(parse("ABILITY|Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNonCatTypeEquals() throws PersistenceLayerException
+	public void testInvalidNonCatTypeEquals()
 	{
 		assertFalse(parse("SKILL=Arcane|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidDoubleEquals() throws PersistenceLayerException
+	public void testInvalidDoubleEquals()
 	{
 		assertFalse(parse("ABILITY=FEAT=Mutation|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidUnbuiltCategory() throws PersistenceLayerException
+	public void testInvalidUnbuiltCategory()
 	{
 		try
 		{
@@ -144,21 +142,20 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidSpellbookAndSpellBarOnly()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("SKILL|Fireball|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidSpellBarStarting() throws PersistenceLayerException
+	public void testInvalidSpellBarStarting()
 	{
 		assertFalse(parse("SKILL||Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidWrongType() throws PersistenceLayerException
+	public void testInvalidWrongType()
 	{
 		assertFalse(parse("SPELL|Fireball"));
 		assertNoSideEffects();
@@ -181,11 +178,8 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 				AbilityCategory.class, "NEWCAT");
 		AbilityCategory sac = secondaryContext.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "NEWCAT");
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "Abil3");
-		primaryContext.getReferenceContext().reassociateCategory(pac, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class,
-				"Abil3");
-		secondaryContext.getReferenceContext().reassociateCategory(sac, ab);
+		BuildUtilities.buildAbility(primaryContext, pac, "Abil3");
+		BuildUtilities.buildAbility(secondaryContext, sac, "Abil3");
 		runRoundRobin("ABILITY=NEWCAT|Abil3");
 	}
 
@@ -227,14 +221,6 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return new ConsolidationRule()
-		{
-
-            @Override
-			public String[] getAnswer(String... strings)
-			{
-				return new String[] { "SKILL|Fireball|Jump|Lightning Bolt" };
-			}
-		};
+		return strings -> new String[]{"SKILL|Fireball|Jump|Lightning Bolt"};
 	}
 }

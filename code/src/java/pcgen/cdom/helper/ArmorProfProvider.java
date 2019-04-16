@@ -20,8 +20,8 @@ package pcgen.cdom.helper;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMReference;
-import pcgen.core.Equipment;
 import pcgen.core.ArmorProf;
+import pcgen.core.Equipment;
 
 /**
  * An ArmorProfProvider is an object that contains the ability to contain Armor
@@ -50,8 +50,7 @@ public class ArmorProfProvider extends AbstractProfProvider<ArmorProf>
 	 *            The List of Equipment references indicating the TYPEs of
 	 *            Equipment objects this ArmorProfProvider will contain.
 	 */
-	public ArmorProfProvider(List<CDOMReference<ArmorProf>> profs,
-			List<CDOMReference<Equipment>> equipTypes)
+	public ArmorProfProvider(List<CDOMReference<ArmorProf>> profs, List<CDOMReference<Equipment>> equipTypes)
 	{
 		super(profs, equipTypes);
 	}
@@ -74,8 +73,7 @@ public class ArmorProfProvider extends AbstractProfProvider<ArmorProf>
 		 * can contain late-created objects, dependent upon full resolution of
 		 * Tracker 2001287 - thpr Oct 15, 2008
 		 */
-		return providesProficiency(equipment.getArmorProf())
-				|| providesEquipmentType(equipment.getType());
+		return providesProficiency(equipment.getArmorProf()) || providesEquipmentType(equipment.getType());
 	}
 
 	/**

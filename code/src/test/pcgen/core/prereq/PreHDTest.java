@@ -1,6 +1,4 @@
 /*
- * PreHDTest.java
- *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,14 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.LevelCommandFactory;
@@ -37,14 +33,13 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+import org.junit.jupiter.api.Test;
 
 /**
- * <code>PreHDTest</code> tests that the PREHD tag is
+ * {@code PreHDTest} tests that the PREHD tag is
  * working correctly.
- *
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
 @SuppressWarnings("nls")
 public class PreHDTest extends AbstractCharacterTestCase
@@ -54,27 +49,11 @@ public class PreHDTest extends AbstractCharacterTestCase
 	PCClass monClass = new PCClass();
 
 	/**
-	 * Main method.  Runs the test.
-	 * @param args
+	 * Test the PREHD code.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreHDTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreHDTest.class);
-	}
-
-	/**
-	 * Test the PREHD code
-	 * @throws Exception
-	 */
-	public void testHD() throws Exception
+	public void testHD() throws PersistenceLayerException
 	{
 		race.setName("Human");
 		CDOMDirectSingleRef<SizeAdjustment> mediumRef = CDOMDirectSingleRef.getRef(medium);
@@ -129,10 +108,12 @@ public class PreHDTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Tests using monster class levels
-	 * @throws Exception
+	 * Tests using monster class levels.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testClassLevels() throws Exception
+	@Test
+	public void testClassLevels() throws PersistenceLayerException
 	{
 		monClass.setName("Humanoid");
 		monClass.put(ObjectKey.IS_MONSTER, true);

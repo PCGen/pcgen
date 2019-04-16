@@ -1,6 +1,4 @@
 /*
- * PreCSkillTest.java
- *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,14 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -35,14 +31,15 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreCSkillTest</code> tests that the PRECSKILL tag is
+ * {@code PreCSkillTest} tests that the PRECSKILL tag is
  * working correctly.
- *
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
 public class PreCSkillTest extends AbstractCharacterTestCase
 {
@@ -52,24 +49,13 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 	private Skill spy3;
 	private Skill spot;
 
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreCSkillTest.class);
-	}
-
 	/**
-	 * @return Test
+	 * Test that CSkill works.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreCSkillTest.class);
-	}
-
-	/**
-	 * Test that CSkill works
-	 * @throws Exception
-	 */
-	public void testCSkill() throws Exception
+	@Test
+	public void testCSkill() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
@@ -125,6 +111,8 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		assertTrue("Character has 3 Spy Skills", PrereqHandler.passes(prereq,
 			character, null));
 	}
+
+	@Test
 	public void testCSkillServesAs() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -188,8 +176,10 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 		
 		
 	}
+
+	@BeforeEach
     @Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 

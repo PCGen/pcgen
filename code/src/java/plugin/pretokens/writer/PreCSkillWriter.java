@@ -1,5 +1,4 @@
 /*
- * PrerequisiteCSkillWriter.java
  *
  * Copyright 2005 (C) Greg Bingleman <byngl@hotmail.com>
  *
@@ -17,17 +16,14 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 27, 2005, 10:21 AM
  *
  * @ author	Greg Bingleman <byngl@hotmail.com>
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.pretokens.writer;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Locale;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -35,35 +31,23 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
-public class PreCSkillWriter extends AbstractPrerequisiteWriter implements
-		PrerequisiteWriterInterface
+public class PreCSkillWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
-	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "cskill";
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
-	 */
-    @Override
+	@Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ,
-			PrerequisiteOperator.LT};
+		return new PrerequisiteOperator[]{PrerequisiteOperator.GTEQ, PrerequisiteOperator.LT};
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
-	 */
-    @Override
-	public void write(Writer writer, Prerequisite prereq)
-		throws PersistenceLayerException
+	@Override
+	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 		try
@@ -72,7 +56,7 @@ public class PreCSkillWriter extends AbstractPrerequisiteWriter implements
 			{
 				writer.write('!');
 			}
-			writer.write("PRECSKILL:" + (prereq.isOverrideQualify() ? "Q:":""));
+			writer.write("PRECSKILL:" + (prereq.isOverrideQualify() ? "Q:" : ""));
 			writer.write(prereq.getOperand());
 			writer.write(',');
 			writer.write(prereq.getKey());
@@ -85,14 +69,12 @@ public class PreCSkillWriter extends AbstractPrerequisiteWriter implements
 		}
 		catch (IOException e)
 		{
-			throw new PersistenceLayerException(e.getMessage());
+			throw new PersistenceLayerException(e);
 		}
 	}
 
-
 	@Override
-	public boolean specialCase(Writer writer, Prerequisite prereq)
-			throws IOException
+	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
 	{
 		PrerequisiteOperator po = getConsolidateMethod(kindHandled(), prereq, false);
 		if (po == null)
@@ -104,10 +86,8 @@ public class PreCSkillWriter extends AbstractPrerequisiteWriter implements
 			writer.write('!');
 		}
 
-		writer.write("PRE" + kindHandled().toUpperCase() + ":"
-				+ (prereq.isOverrideQualify() ? "Q:" : ""));
-		writer.write(po == PrerequisiteOperator.GTEQ ? prereq.getOperand()
-				: "1");
+		writer.write("PRE" + kindHandled().toUpperCase(Locale.ENGLISH) + ':' + (prereq.isOverrideQualify() ? "Q:" : ""));
+		writer.write(po == PrerequisiteOperator.GTEQ ? prereq.getOperand() : "1");
 		for (Prerequisite p : prereq.getPrerequisites())
 		{
 			writer.write(',');

@@ -32,11 +32,10 @@ import pcgen.core.Equipment;
  * Note this list of Secondary weapons may contain multiple entries to handle
  * both melee and ranged instances of that Equipment.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SecondaryWeaponFacet extends AbstractListFacet<CharID, Equipment>
 {
-	
+
 	@Override
 	protected Collection<Equipment> getCopyForNewOwner(Collection<Equipment> componentSet)
 	{

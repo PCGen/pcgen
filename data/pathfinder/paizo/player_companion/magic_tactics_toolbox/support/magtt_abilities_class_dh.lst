@@ -1,0 +1,3 @@
+SOURCELONG:Magic Tactics Toolbox	SOURCESHORT:MagTT		SOURCEWEB:https://paizo.com/products/btpy9l2u	SOURCEDATE:2016-07
+
+Dampen Presence				KEY:Rogue Talent ~ Dampen Presence				CATEGORY:Special Ability	TYPE:RogueClassFeatures.SpecialQuality.Extraordinary.RogueTalent													SOURCEPAGE:p.27		DESC:A rogue who selects this talent gains Dampen Presence as a bonus feat. The rogue does not need to meet the feat's prerequisites. The rogue is also considered to have the Skill Focus (Stealth) feat for the purpose of satisfying the prerequisites of any feat that lists Dampen Presence as a prerequisite.		ABILITY:FEAT|AUTOMATIC|Dampen Presence

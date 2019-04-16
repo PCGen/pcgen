@@ -1,5 +1,4 @@
 /*
- * Combat.java
  * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 13, 2002, 9:19 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.bonustokens;
 
@@ -34,41 +28,34 @@ import pcgen.util.Logging;
  */
 public final class Combat extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS =
-			{"AC", "ATTACKS", "ATTACKS-SECONDARY", "DAMAGE",
-				"DAMAGESIZE", "DAMAGE-PRIMARY", "DAMAGE-SECONDARY",
-				"DAMAGE-SHORTRANGE", "DEFENSE", "INITIATIVE", "RANGEPENALTY", 
-				"REACH", "TOHIT", "TOHIT-PRIMARY", "TOHIT-SECONDARY", 
-				"TOHIT-SHORTRANGE", "BASEAB", "EPICAB"};
+	private static final String[] BONUS_TAGS = {"AC", "ATTACKS", "ATTACKS-SECONDARY", "DAMAGE", "DAMAGESIZE",
+		"DAMAGE-PRIMARY", "DAMAGE-SECONDARY", "DAMAGE-SHORTRANGE", "DEFENSE", "INITIATIVE", "RANGEPENALTY", "REACH",
+		"TOHIT", "TOHIT-PRIMARY", "TOHIT-SECONDARY", "TOHIT-SHORTRANGE", "BASEAB", "EPICAB"};
 
 	@Override
 	protected boolean parseToken(LoadContext context, String token)
 	{
 		if ("BAB".equalsIgnoreCase(token))
 		{
-			Logging.errorPrint("BONUS:COMBAT|BAB has been removed due to "
-				+ "unusual behavior around epic class levels.  "
-				+ "Please use BONUS:COMBAT|BASEAB or BONUS:COMBAT|EPICAB",
-				context);
+			Logging
+				.errorPrint("BONUS:COMBAT|BAB has been removed due to " + "unusual behavior around epic class levels.  "
+					+ "Please use BONUS:COMBAT|BASEAB or BONUS:COMBAT|EPICAB", context);
 			return false;
 		}
 		if (ControlUtilities.hasControlToken(context, CControl.ACVARTOTAL))
 		{
 			if ("AC".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:COMBAT|AC is deprecated when ACVARTOTAL control is used: "
-							+ token, context);
-					return false;
-				}
+				Logging.errorPrint("BONUS:COMBAT|AC is deprecated when ACVARTOTAL control is used: " + token, context);
+				return false;
 			}
+		}
 		if (ControlUtilities.hasControlToken(context, CControl.INITIATIVE))
 		{
 			if ("INITIATIVE".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:COMBAT|INITIATIVE is disabled when INITIATIVE control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:COMBAT|INITIATIVE is disabled when INITIATIVE control is used: " + token,
+					context);
 				return false;
 			}
 		}
@@ -76,10 +63,9 @@ public final class Combat extends MultiTagBonusObj
 		{
 			if ("REACH".equals(token))
 			{
-				Logging.errorPrint("BONUS:COMBAT|REACH"
-						+ " is disabled when PCREACH control is used: " + token,
-						context);
-					return false;
+				Logging.errorPrint("BONUS:COMBAT|REACH" + " is disabled when PCREACH control is used: " + token,
+					context);
+				return false;
 			}
 		}
 		return super.parseToken(context, token);
@@ -98,7 +84,6 @@ public final class Combat extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual combat attribute that may be bonused.
 	 * @param tagNumber the index of the combat attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The combat attribute.
 	 */
 	@Override
@@ -109,7 +94,6 @@ public final class Combat extends MultiTagBonusObj
 
 	/**
 	 * Get the number of combat attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of combat attributes.
 	 */
 	@Override

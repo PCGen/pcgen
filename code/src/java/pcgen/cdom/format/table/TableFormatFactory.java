@@ -17,16 +17,16 @@
  */
 package pcgen.cdom.format.table;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 import pcgen.base.formatmanager.FormatManagerFactory;
 import pcgen.base.formatmanager.FormatManagerLibrary;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.ObjectDatabase;
 
 /**
  * An TableFormatFactory builds a FormatManager supporting a DataTable from the
- * name of the formats of the component of the TableFormat.
+ * name of the format of the lookup column of the TableFormat.
  */
 public class TableFormatFactory implements FormatManagerFactory
 {
@@ -34,40 +34,31 @@ public class TableFormatFactory implements FormatManagerFactory
 	/**
 	 * A pattern to ensure no subtables.
 	 */
-	private static final Pattern SUB_PATTERN =
-			Pattern.compile(Pattern.quote("TABLE["), Pattern.CASE_INSENSITIVE);
+	private static final Pattern SUB_PATTERN = Pattern.compile(Pattern.quote("TABLE["), Pattern.CASE_INSENSITIVE);
 
 	/**
-	 * The ObjectDatabase used by ColumnFormatManager objects built by this
+	 * The FormatManager used by ColumnFormatManager objects built by this
 	 * TableFormatFactory.
 	 */
-	private final ObjectDatabase database;
+	private final FormatManager<DataTable> tableFormat;
 
 	/**
-	 * Constructs a new TableFormatFactory with the given ObjectDatabase to be
+	 * Constructs a new TableFormatFactory with the given FormatManager to be
 	 * used by TableFormatManager objects built by this TableFormatFactory.
 	 * 
-	 * @param objDatabase
-	 *            The ObjectDatabase used by TableFormatManager objects built by
+	 * @param tableFormat
+	 *            The FormatManager used by TableFormatManager objects built by
 	 *            this TableFormatFactory
 	 */
-	public TableFormatFactory(ObjectDatabase objDatabase)
+	public TableFormatFactory(FormatManager<DataTable> tableFormat)
 	{
-		this.database = objDatabase;
+		this.tableFormat = tableFormat;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public FormatManager<?> build(String subFormatName,
-		FormatManagerLibrary library)
+	public FormatManager<DataTable> build(String subFormatName, FormatManagerLibrary library)
 	{
-		if (subFormatName == null)
-		{
-			throw new IllegalArgumentException(
-				"Table Format cannot be built from no instructions");
-		}
+		Objects.requireNonNull(subFormatName, "Table Format cannot be built from no instructions");
 		if (SUB_PATTERN.matcher(subFormatName).find())
 		{
 			/*
@@ -76,24 +67,11 @@ public class TableFormatFactory implements FormatManagerFactory
 			 * Table.
 			 */
 			throw new IllegalArgumentException(
-				"Multidimensional Table format not supported: " + subFormatName
-					+ " may not contain brackets");
+				"Multidimensional Table format not supported: " + subFormatName + " may not contain brackets");
 		}
-		String[] parts = subFormatName.split(",");
-		if (parts.length != 2)
-		{
-			throw new IllegalArgumentException(
-				"Table format must have 2 sub parts (lookup and result), found: "
-					+ subFormatName);
-		}
-		return new TableFormatManager(database,
-			library.getFormatManager(parts[0]),
-			library.getFormatManager(parts[1]));
+		return new TableFormatManager(tableFormat, library.getFormatManager(subFormatName));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getBuilderBaseFormat()
 	{

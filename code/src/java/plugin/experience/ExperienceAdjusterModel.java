@@ -14,10 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
- package plugin.experience;
+package plugin.experience;
+
+import java.io.File;
+import java.util.Observable;
+import java.util.stream.IntStream;
 
 import gmgen.io.ReadXML;
 import gmgen.plugin.Combatant;
@@ -25,8 +27,6 @@ import gmgen.plugin.InitHolder;
 import gmgen.plugin.InitHolderList;
 import gmgen.plugin.State;
 import gmgen.util.LogUtilities;
-import java.io.File;
-import java.util.Observable;
 import pcgen.core.SettingsHandler;
 import pcgen.util.Logging;
 import plugin.experience.gui.PreferencesExperiencePanel;
@@ -34,13 +34,11 @@ import plugin.experience.gui.PreferencesExperiencePanel;
 /**
  * This {@code class} holds all the necessary data in order to have
  * functionality for the experience adjuster.<br>
- * Created on February 19, 2003<br>
- * Updated on February 26, 2003
  */
 public class ExperienceAdjusterModel extends Observable
 {
 	private ReadXML experienceTable = null;
-	private ExperienceList enemies = new ExperienceList();
+	private final ExperienceList enemies = new ExperienceList();
 	protected ExperienceList party = new ExperienceList();
 	protected InitHolderList combat;
 	protected File dir;
@@ -52,8 +50,8 @@ public class ExperienceAdjusterModel extends Observable
 	/**
 	 * Class constructor for ExperienceAdjusterView taking a
 	 * parent directory.  This will call the
-	 * function <code>initComponents</code> to initialise all the GUI
-	 * components on the <code>JPanel</code>.
+	 * function {@code initComponents} to initialise all the GUI
+	 * components on the {@code JPanel}.
 	 * @param parentDir the directory this is running out of
 	 */
 	ExperienceAdjusterModel(File parentDir)
@@ -134,32 +132,24 @@ public class ExperienceAdjusterModel extends Observable
 	 */
 	void addExperienceToParty()
 	{
-		int expType =
-				SettingsHandler.getGMGenOption(
-					ExperienceAdjusterPlugin.LOG_NAME + ".ExperienceType",
-					PreferencesExperiencePanel.EXPERIENCE_35);
-		LogUtilities.inst().logMessage(
-			ExperienceAdjusterPlugin.LOG_NAME,
-			"Party Awarded " + getPartyExperience()
-				+ " Total Experience Split as:");
+		int expType = SettingsHandler.getGMGenOption(ExperienceAdjusterPlugin.LOG_NAME + ".ExperienceType",
+			PreferencesExperiencePanel.EXPERIENCE_35);
+		LogUtilities.inst().logMessage(ExperienceAdjusterPlugin.LOG_NAME,
+			"Party Awarded " + getPartyExperience() + " Total Experience Split as:");
 
 		for (int i = 0; i < party.size(); i++)
 		{
-			Combatant cbt = ((ExperienceListItem) party.get(i)).getCombatant();
+			Combatant cbt = party.get(i).getCombatant();
 			if (expType == PreferencesExperiencePanel.EXPERIENCE_3)
 			{
-				cbt.setXP(cbt.getXP()
-					+ (getPartyTotalExperience() / party.size()));
-				LogUtilities.inst().logMessage(
-					ExperienceAdjusterPlugin.LOG_NAME,
-					cbt.getName() + ": "
-						+ (getPartyTotalExperience() / party.size()));
+				cbt.setXP(cbt.getXP() + (getPartyTotalExperience() / party.size()));
+				LogUtilities.inst().logMessage(ExperienceAdjusterPlugin.LOG_NAME,
+					cbt.getName() + ": " + (getPartyTotalExperience() / party.size()));
 			}
 			else
 			{
 				cbt.setXP(cbt.getXP() + getCombatantExperience(cbt));
-				LogUtilities.inst().logMessage(
-					ExperienceAdjusterPlugin.LOG_NAME,
+				LogUtilities.inst().logMessage(ExperienceAdjusterPlugin.LOG_NAME,
 					cbt.getName() + ": " + getCombatantExperience(cbt));
 			}
 		}
@@ -170,11 +160,9 @@ public class ExperienceAdjusterModel extends Observable
 	 */
 	void clearEnemies()
 	{
-		for (int i = 0; i < enemies.size(); i++)
-		{
-			ExperienceListItem item = (ExperienceListItem) enemies.get(i);
-			combat.remove(item.getCombatant());
-		}
+		IntStream.range(0, enemies.size())
+		         .mapToObj(enemies::get)
+		         .forEach(item -> combat.remove(item.getCombatant()));
 
 		enemies.removeAllElements();
 	}
@@ -189,10 +177,8 @@ public class ExperienceAdjusterModel extends Observable
 			party.removeAllElements();
 			enemies.removeAllElements();
 
-			for (int i = 0; i < combat.size(); i++)
+			for (InitHolder iH : combat)
 			{
-				InitHolder iH = combat.get(i);
-
 				if (iH instanceof Combatant)
 				{
 					Combatant cbt = (Combatant) iH;
@@ -203,8 +189,7 @@ public class ExperienceAdjusterModel extends Observable
 					}
 					else if (cbt.getCombatantType().equals("Enemy"))
 					{
-						if (cbt.getStatus() == State.Dead
-							|| cbt.getStatus() == State.Defeated)
+						if (cbt.getStatus() == State.Dead || cbt.getStatus() == State.Defeated)
 						{
 							enemies.addElement(new ExperienceListItem(cbt));
 						}
@@ -234,10 +219,8 @@ public class ExperienceAdjusterModel extends Observable
 		float enemyCR;
 		int tableCR;
 		int experience = 0;
-		File experienceFolder =
-				new File(dir, "experience_tables");
-		File experienceFile =
-				new File(experienceFolder, "7_1.xml");
+		File experienceFolder = new File(dir, "experience_tables");
+		File experienceFile = new File(experienceFolder, "7_1.xml");
 		// Lets not load the massive XML file more than we have to
 		if (experienceTable == null)
 		{
@@ -246,7 +229,7 @@ public class ExperienceAdjusterModel extends Observable
 
 		for (int i = 0; i < enemies.size(); i++)
 		{
-			ExperienceListItem item = (ExperienceListItem) enemies.get(i);
+			ExperienceListItem item = enemies.get(i);
 			enemyCR = item.getCombatant().getCR();
 
 			if (enemyCR < 1)
@@ -258,10 +241,8 @@ public class ExperienceAdjusterModel extends Observable
 				tableCR = (int) enemyCR;
 			}
 
-			String xp =
-					(String) experienceTable.getTable().crossReference(
-						Integer.toString((int) cbt.getCR()),
-						Integer.toString(tableCR));
+			String xp = (String) experienceTable.getTable().crossReference(Integer.toString((int) cbt.getCR()),
+				Integer.toString(tableCR));
 
 			try
 			{
@@ -276,28 +257,25 @@ public class ExperienceAdjusterModel extends Observable
 			}
 			catch (Exception e)
 			{
-				Logging.errorPrint("Experience Value: '" + xp
-					+ "' Not a number");
+				Logging.errorPrint("Experience Value: '" + xp + "' Not a number");
 				Logging.errorPrint(e.getMessage(), e);
 			}
 		}
 
-		return new Double((experience * multiplier) / party.size()).intValue();
+		return (int)((experience * multiplier) / party.size());
 	}
 
 	/**
 	 * Get party total experience
 	 * @return party total experience
 	 */
-	public int getPartyTotalExperience()
+	private int getPartyTotalExperience()
 	{
 		float enemyCR;
 		int tableCR;
 		int experience = 0;
-		File experienceFolder =
-				new File(dir, "experience_tables");
-		File experienceFile =
-				new File(experienceFolder, "7_1.xml");
+		File experienceFolder = new File(dir, "experience_tables");
+		File experienceFile = new File(experienceFolder, "7_1.xml");
 		// Lets not load the massive XML file more than we have to
 		if (experienceTable == null)
 		{
@@ -306,7 +284,7 @@ public class ExperienceAdjusterModel extends Observable
 
 		for (int i = 0; i < enemies.size(); i++)
 		{
-			ExperienceListItem item = (ExperienceListItem) enemies.get(i);
+			ExperienceListItem item = enemies.get(i);
 			enemyCR = item.getCombatant().getCR();
 
 			if (enemyCR < 1)
@@ -318,10 +296,8 @@ public class ExperienceAdjusterModel extends Observable
 				tableCR = (int) enemyCR;
 			}
 
-			String xp =
-					(String) experienceTable.getTable().crossReference(
-						Integer.toString(party.averageCR()),
-						Integer.toString(tableCR));
+			String xp = (String) experienceTable.getTable().crossReference(Integer.toString(party.averageCR()),
+				Integer.toString(tableCR));
 
 			try
 			{
@@ -336,13 +312,12 @@ public class ExperienceAdjusterModel extends Observable
 			}
 			catch (Exception e)
 			{
-				Logging.errorPrint("Experience Value: '" + xp
-					+ "' Not a number");
+				Logging.errorPrint("Experience Value: '" + xp + "' Not a number");
 				Logging.errorPrint(e.getMessage(), e);
 			}
 		}
 
-		return new Double(experience * multiplier).intValue();
+		return (int)(experience * multiplier);
 	}
 
 	/**
@@ -359,23 +334,19 @@ public class ExperienceAdjusterModel extends Observable
 	 */
 	void updatePartyExperience()
 	{
-		int expType =
-				SettingsHandler.getGMGenOption(
-					ExperienceAdjusterPlugin.LOG_NAME + ".ExperienceType",
-					PreferencesExperiencePanel.EXPERIENCE_35);
+		int expType = SettingsHandler.getGMGenOption(ExperienceAdjusterPlugin.LOG_NAME + ".ExperienceType",
+			PreferencesExperiencePanel.EXPERIENCE_35);
 		if (expType == PreferencesExperiencePanel.EXPERIENCE_3)
 		{
 			partyExperience = getPartyTotalExperience();
 		}
 		else
 		{
-			partyExperience = 0;
-			for (int i = 0; i < party.size(); i++)
-			{
-				Combatant cbt =
-						((ExperienceListItem) party.get(i)).getCombatant();
-				partyExperience += getCombatantExperience(cbt);
-			}
+			partyExperience =  IntStream.range(0, party.size())
+			         .mapToObj(party::get)
+			         .map(ExperienceListItem::getCombatant)
+			         .mapToInt(this::getCombatantExperience)
+			         .sum();
 		}
 	}
 }

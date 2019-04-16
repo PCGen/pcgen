@@ -14,6 +14,7 @@ ABILITYCATEGORY:Stout or Studious			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FR
 ABILITYCATEGORY:Nomadic Halfling Bonus Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:MageCraft				ABILITYLIST:Mounted Combat																													DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Innate Magic Spell			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:InnateMagic																																PLURAL:Innate Magic Spells	DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Clan or Kurgun Ability		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability							ABILITYLIST:Clan Dwarf ~ Stonecunning|Kurgun Dwarf ~ Natural Mountaineers																					DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dwarven Clan Dialect		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal									ABILITYLIST:Dwarven Clan Dialect																												DISPLAYLOCATION:Racial Abilities
 
 ###Block: Heroic Path
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list				Plural description for UI		Display Location

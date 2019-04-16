@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.template;
 
-import org.junit.Test;
-
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
@@ -29,12 +27,14 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.template.HitdieToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class HitDieIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCTemplate>
 {
 
-	static HitdieToken token = new HitdieToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+	private static HitdieToken token = new HitdieToken();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

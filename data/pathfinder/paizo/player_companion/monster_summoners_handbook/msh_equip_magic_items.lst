@@ -1,0 +1,18 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Monster Summoner's Handbook	SOURCESHORT:MSH	SOURCEWEB:http://paizo.com/products/btpy9ela?Pathfinder-Player-Companion-Monster-Summoners-Handbook	SOURCEDATE:2015-07
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 2 May 2017
+
+# ==============================
+# Magic Items
+# ==============================
+
+# Equipment Name				Output Name						Type					Cost		Weight	Source Page
+Bracers of Celestial Intervention								TYPE:Magic.Wondrous.Bracer	COST:16000	WT:1		SOURCEPAGE:20
+Caller's Feather											TYPE:Magic.Wondrous.Headgear	COST:2000	WT:0		SOURCEPAGE:20
+Periapt of Temporary Familiar									TYPE:Magic.Wondrous.Amulet	COST:8000	WT:1		SOURCEPAGE:20
+Rod (Giant Summoning/Lesser)		OUTPUTNAME:Lesser Rod of Giant Summoning	TYPE:Magic.Rod.Metamagic	COST:3000	WT:5		SOURCEPAGE:20
+Rod (Giant Summoning)			OUTPUTNAME:Rod of Giant Summoning		TYPE:Magic.Rod.Metamagic	COST:11000	WT:5		SOURCEPAGE:20
+Rod (Giant Summoning/Greater)		OUTPUTNAME:Greater Rod of Giant Summoning	TYPE:Magic.Rod.Metamagic	COST:24500	WT:5		SOURCEPAGE:20
+Summoner's Robe											TYPE:Magic.Wondrous.Robe	COST:50000	WT:5		SOURCEPAGE:21
+Visage of the Bound										TYPE:Magic.Wondrous.Headgear	COST:22900	WT:2		SOURCEPAGE:21

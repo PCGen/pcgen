@@ -39,24 +39,22 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
  * {@code MonsterClassFacet} is a Facet that tracks the {@literal Classes & Levels} that a Player
  * Character was granted through MONSTERCLASS
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class MonsterClassFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
 	private LevelFacet levelFacet;
-	
+
 	private ClassFacet classFacet;
-	
+
 	private FormulaResolvingFacet formulaResolvingFacet;
 
 	private LevelInfoFacet levelInfoFacet;
 
 	private RaceFacet raceFacet;
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
-
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	/**
 	 * Adds monster classes to the Player Character when a CDOMObject which
@@ -69,8 +67,6 @@ public class MonsterClassFacet implements DataFacetChangeListener<CharID, CDOMOb
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -88,10 +84,8 @@ public class MonsterClassFacet implements DataFacetChangeListener<CharID, CDOMOb
 		{
 			PCLevelInfo pli = levelInfoFacet.get(id, i);
 			final String classKeyName = pli.getClassKeyName();
-			final PCClass aClass =
-					Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(PCClass.class,
-							classKeyName);
+			final PCClass aClass = Globals.getContext().getReferenceContext()
+				.silentlyGetConstructedCDOMObject(PCClass.class, classKeyName);
 
 			if (aClass.isMonster())
 			{
@@ -100,8 +94,7 @@ public class MonsterClassFacet implements DataFacetChangeListener<CharID, CDOMOb
 		}
 
 		PlayerCharacter pc = trackingFacet.getPC(id);
-		final List<PCLevelInfo> existingLevelInfo =
-                new ArrayList<>(levelInfoFacet.getSet(id));
+		final List<PCLevelInfo> existingLevelInfo = new ArrayList<>(levelInfoFacet.getSet(id));
 		levelInfoFacet.removeAll(id);
 		// Make sure monster classes are added first
 		if (!pc.isImporting())
@@ -109,8 +102,7 @@ public class MonsterClassFacet implements DataFacetChangeListener<CharID, CDOMOb
 			LevelCommandFactory lcf = cdo.get(ObjectKey.MONSTER_CLASS);
 			if (lcf != null)
 			{
-				int levelCount = formulaResolvingFacet.resolve(id, lcf.getLevelCount(),
-						"").intValue();
+				int levelCount = formulaResolvingFacet.resolve(id, lcf.getLevelCount(), "").intValue();
 				pc.incrementClassLevel(levelCount, lcf.getPCClass(), true);
 			}
 		}
@@ -163,8 +155,6 @@ public class MonsterClassFacet implements DataFacetChangeListener<CharID, CDOMOb
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -174,8 +164,7 @@ public class MonsterClassFacet implements DataFacetChangeListener<CharID, CDOMOb
 		if (lcf != null)
 		{
 			CharID id = dfce.getCharID();
-			int levelCount = formulaResolvingFacet.resolve(id, lcf.getLevelCount(), "")
-					.intValue();
+			int levelCount = formulaResolvingFacet.resolve(id, lcf.getLevelCount(), "").intValue();
 			PlayerCharacter pc = trackingFacet.getPC(id);
 			pc.incrementClassLevel(-levelCount, lcf.getPCClass(), true);
 		}

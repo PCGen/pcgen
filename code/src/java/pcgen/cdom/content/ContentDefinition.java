@@ -21,11 +21,9 @@ import java.util.Objects;
 
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.StringPClassUtil;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
@@ -98,10 +96,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 	 */
 	public void setDisplayName(String name)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Display Name cannot be null");
-		}
+		Objects.requireNonNull(name, "Display Name cannot be null");
 		displayName = name;
 	}
 
@@ -149,10 +144,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 	 */
 	public FormatManager<?> setFormatManager(FormatManager<F> fmtManager)
 	{
-		if (fmtManager == null)
-		{
-			throw new IllegalArgumentException("Format Manager cannot be null");
-		}
+		Objects.requireNonNull(fmtManager, "Format Manager cannot be null");
 		FormatManager<?> returnValue = formatManager;
 		this.formatManager = fmtManager;
 		return returnValue;
@@ -242,8 +234,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 	{
 		if (set && CDOMObject.class.equals(usableLocation))
 		{
-			throw new UnsupportedOperationException(
-				"Global ContentDefinition cannot be required");
+			throw new UnsupportedOperationException("Global ContentDefinition cannot be required");
 		}
 		required = set;
 	}
@@ -262,21 +253,6 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 	public Boolean getRequired()
 	{
 		return required;
-	}
-
-	@Override
-	public String getLSTformat()
-	{
-		String loc;
-		if (CDOMObject.class.equals(usableLocation))
-		{
-			loc = "GLOBAL";
-		}
-		else
-		{
-			loc = StringPClassUtil.getStringFor(usableLocation);
-		}
-		return loc + Constants.PIPE + getKeyName();
 	}
 
 	/**

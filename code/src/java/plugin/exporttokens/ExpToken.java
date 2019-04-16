@@ -15,19 +15,15 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens;
 
 import java.util.StringTokenizer;
 
+import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
-import pcgen.io.exporttoken.AbstractExportToken;
+import pcgen.io.exporttoken.Token;
 
 /** 
  * Deal with Tokens:
@@ -37,35 +33,29 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * EXP.FACTOR
  * EXP.PENALTY
  */
-public class ExpToken extends AbstractExportToken
+public class ExpToken extends Token
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "EXP";
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
 
+		CharacterDisplay display = pc.getDisplay();
 		if (aTok.hasMoreTokens())
 		{
 			String token = aTok.nextToken();
 
 			if ("CURRENT".equals(token))
 			{
-				retString = Integer.toString(display.getXP());
+				retString = Integer.toString(pc.getXP());
 			}
 			else if ("NEXT".equals(token))
 			{

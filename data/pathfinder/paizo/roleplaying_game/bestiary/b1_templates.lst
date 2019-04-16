@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21245 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
 
@@ -62,14 +63,14 @@ Silver Half-Dragon	VISIBLE:NO	SUBRACE:Half-Silver Dragon
 White Half-Dragon		VISIBLE:NO	SUBRACE:Half-White Dragon
 
 ###Block: Lich template
-# Template Name	Hit Dice Size			Challenge Rating	Damage Reduction			Source Page		Define			Prohibited Race			Bonus to skill								Stat bonus				Modify VAR																	Weapon prof. bonus					Class Skill																			Ability																																						Apply Kit		Subrace		Main Race Type	Natural Attacks
-Lich			HITDIE:8|CLASS.TYPE=Monster	CR:2			DR:15/Bludgeoning	DR:15/Magic	SOURCEPAGE:p.189	DEFINE:NoTypeTraits|0	!PRERACE:1,RACETYPE=Undead	BONUS:SKILL|Perception,Sense Motive,Stealth|8|TYPE=Racial	BONUS:STAT|INT,WIS,CHA|2	BONUS:VAR|AC_Natural_Armor|5|TYPE=Base.REPLACE	BONUS:VAR|NoTypeTraits|1	BONUS:VAR|ChannelResistance|4	BONUS:WEAPONPROF=Touch|DAMAGE|floor(TL/2)-STR	CSKILL:Climb|Disguise|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Perception|Sense Motive|Spellcraft|Stealth	ABILITY:Internal|AUTOMATIC|Race Traits ~ Lich	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Immunity to Cold|Immunity to Electricity|Lich ~ Fear Aura|Lich ~ Paralyzing Touch|Lich ~ Rejuvenation|Undead Traits|Undead Traits	KIT:1|CE|LE|NE	SUBRACE:Lich	RACETYPE:Undead	NATURALATTACKS:Touch,Weapon.Natural.Weapon Group Natural.Melee.Finesseable,*1,1d8
+# Template Name	Hit Dice Size			Challenge Rating	Damage Reduction					Source Page		Define							Prohibited Race				Bonus to skill									Stat bonus				Modify VAR																	Weapon prof. bonus					Class Skill																			Ability																																						Apply Kit		Subrace		Main Race Type	Natural Attacks
+Lich			HITDIE:8|CLASS.TYPE=Monster	CR:2		DR:LichDR/Bludgeoning	DR:LichDR/Magic	SOURCEPAGE:p.189	DEFINE:NoTypeTraits|0	DEFINE:LichDR|0	!PRERACE:1,RACETYPE=Undead	BONUS:SKILL|Perception,Sense Motive,Stealth|8|TYPE=Racial	BONUS:STAT|INT,WIS,CHA|2	BONUS:VAR|LichDR|15	BONUS:VAR|AC_Natural_Armor|5|TYPE=Base.REPLACE	BONUS:VAR|NoTypeTraits|1	BONUS:VAR|ChannelResistance|4	BONUS:WEAPONPROF=Touch|DAMAGE|floor(TL/2)-STR	CSKILL:Climb|Disguise|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Perception|Sense Motive|Spellcraft|Stealth	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Lich	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Immunity to Cold|Immunity to Electricity|Lich ~ Fear Aura|Lich ~ Paralyzing Touch|Lich ~ Rejuvenation|Undead Traits|Undead Traits	KIT:1|CE|LE|NE	SUBRACE:Lich	RACETYPE:Undead	NATURALATTACKS:Touch,Weapon.Natural.Weapon Group Natural.Melee.Finesseable,*1,1d8
 
 ###Block: Lycanthrope
-# Template Name			Challenge Rating	Size							Damage Reduction																						Template					Define			Required Ability								Required Race			Required Template			Prohibited Template				Bonus Ability Pool											Stat bonus					Modify VAR								Ability											Race Subtype
-Lycanthrope				CR:1																																								DEFINE:Lycanthrope|0											PRERACE:1,RACETYPE=Humanoid													BONUS:ABILITYPOOL|Lycanthrope Type|1	BONUS:ABILITYPOOL|Lycanthrope Kind|1	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-2	BONUS:VAR|HasLowLightVision|1	BONUS:VAR|Lycanthrope|1	ABILITY:Special Ability|AUTOMATIC|Lycanthrope ~ Change Shape|Scent	RACESUBTYPE:.REMOVE.Humanoid|Shapechanger|Augmented Humanoid
-Lycanthrope (Animal Form)				SIZE:AnimalSize					DR:10/silver|PREABILITY:1,CATEGORY=Special Ability,Natural Lycanthrope	DR:5/silver|PREABILITY:1,CATEGORY=Special Ability,Afflicted Lycanthrope	TEMPLATE:Lycanthrope Abilities					PREABILITY:1,CATEGORY=Special Ability,TYPE=LycanthropeKind						PRETEMPLATE:1,Lycanthrope	!PRETEMPLATE:1,Lycanthrope (Hybrid Form)															BONUS:STAT|STR,CON|2	TEMPLATE:Polymorph Effect
-Lycanthrope (Hybrid Form)				SIZE:max(AnimalSize,var("RACESIZE"))	DR:10/silver|PREABILITY:1,CATEGORY=Special Ability,Natural Lycanthrope	DR:5/silver|PREABILITY:1,CATEGORY=Special Ability,Afflicted Lycanthrope	TEMPLATE:Lycanthrope Abilities					PREABILITY:1,CATEGORY=Special Ability,TYPE=LycanthropeKind						PRETEMPLATE:1,Lycanthrope	!PRETEMPLATE:1,Lycanthrope (Animal Form)															BONUS:STAT|STR,CON|2
+# Template Name			Challenge Rating	Size							Damage Reduction																						Template										Define			Required Ability								Multiple Requirements									Required Template			Prohibited Template				Bonus Ability Pool											Stat bonus					Modify VAR								Ability											Race Subtype
+Lycanthrope				CR:1																																													DEFINE:Lycanthrope|0											PREMULT:1,[PRERACE:1,RACETYPE=Humanoid],[PREVAREQ:QualifyAsHumanoid,1]													BONUS:ABILITYPOOL|Lycanthrope Type|1	BONUS:ABILITYPOOL|Lycanthrope Kind|1	BONUS:STAT|WIS|2	BONUS:STAT|CHA|-2	BONUS:VAR|HasLowLightVision|1	BONUS:VAR|Lycanthrope|1	ABILITY:Special Ability|AUTOMATIC|Lycanthrope ~ Change Shape|Scent	RACESUBTYPE:.REMOVE.Humanoid|Shapechanger|Augmented Humanoid
+Lycanthrope (Animal Form)				SIZE:AnimalSize					DR:10/silver|PREABILITY:1,CATEGORY=Special Ability,Natural Lycanthrope	DR:5/silver|PREABILITY:1,CATEGORY=Special Ability,Afflicted Lycanthrope	TEMPLATE:Lycanthrope Abilities	TEMPLATE:Polymorph Effect					PREABILITY:1,CATEGORY=Special Ability,TYPE=LycanthropeKind													PRETEMPLATE:1,Lycanthrope	!PRETEMPLATE:1,Lycanthrope (Hybrid Form)															BONUS:STAT|STR,CON|2
+Lycanthrope (Hybrid Form)				SIZE:max(AnimalSize,var("RACESIZE"))	DR:10/silver|PREABILITY:1,CATEGORY=Special Ability,Natural Lycanthrope	DR:5/silver|PREABILITY:1,CATEGORY=Special Ability,Afflicted Lycanthrope	TEMPLATE:Lycanthrope Abilities										PREABILITY:1,CATEGORY=Special Ability,TYPE=LycanthropeKind													PRETEMPLATE:1,Lycanthrope	!PRETEMPLATE:1,Lycanthrope (Animal Form)															BONUS:STAT|STR,CON|2
 
 ###Block: Lycanthrope Subrace
 # Template Name		Visible	Required Ability								Subrace
@@ -79,10 +80,10 @@ Natural Werewolf		VISIBLE:NO	PREABILITY:1,CATEGORY=Special Ability,Natural Lycan
 Afflicted Werewolf	VISIBLE:NO	PREABILITY:1,CATEGORY=Special Ability,Afflicted Lycanthrope	SUBRACE:Afflicted Werewolf
 
 ###Block: Lycanthrope Abilities (in Hybrid and animal forms)
-# Template Name		Visible	Template														Required Ability						Weapon prof. bonus			Ability															Move
+# Template Name		Visible	Template								Required Ability						Weapon prof. bonus			Ability															Move
 Lycanthrope Abilities	VISIBLE:NO	TEMPLATE:CHOOSE:Wererat Abilities|Werewolf Abilities
-Wererat Abilities		VISIBLE:NO	TEMPLATE:CHOOSE:Wererat_STATS											PREABILITY:1,CATEGORY=Special Ability,Wererat	BONUS:WEAPONPROF=Bite|DAMAGESIZE|-1	ABILITY:Special Ability|AUTOMATIC|Disease ~ Filth Fever	ABILITY:Internal|AUTOMATIC|Bite	MOVE:Walk,40,Climb,20,Swim,20
-Werewolf Abilities	VISIBLE:NO	TEMPLATE:CHOOSE:Werewolf_STATS										PREABILITY:1,CATEGORY=Special Ability,Werewolf							ABILITY:Special Ability|AUTOMATIC|Trip	ABILITY:Internal|AUTOMATIC|Bite				MOVE:Walk,50
+Wererat Abilities		VISIBLE:NO	TEMPLATE:CHOOSE:Wererat_STATS					PREABILITY:1,CATEGORY=Special Ability,Wererat	BONUS:WEAPONPROF=Bite|DAMAGESIZE|-1	ABILITY:Special Ability|AUTOMATIC|Disease ~ Filth Fever	ABILITY:Internal|AUTOMATIC|Bite	MOVE:Walk,40,Climb,20,Swim,20
+Werewolf Abilities	VISIBLE:NO	TEMPLATE:CHOOSE:Werewolf_STATS				PREABILITY:1,CATEGORY=Special Ability,Werewolf							ABILITY:Special Ability|AUTOMATIC|Trip	ABILITY:Internal|AUTOMATIC|Bite				MOVE:Walk,50
 
 ###Block: Lycanthrope Ability Scores (in Hybrid and animal forms)
 # Template Name	Visible	Define Stat
@@ -91,7 +92,7 @@ Werewolf_STATS	VISIBLE:NO	DEFINESTAT:MINVALUE|STR|13	DEFINESTAT:MINVALUE|DEX|15	
 
 ###Block: Skeleton Templates
 # Template Name			Hit Dice Size			Challenge Rating	Visible	Damage Reduction	Template						Source Page		Define Stat			Required Hit Dice	Prohibited Race						Required Stat	Stat bonus					Modify VAR																																																													Class Skill																			Ability																																			Apply Kit		Subrace				Main Race Type	Race Subtype		Add Levels
-Skeleton				HITDIE:8|CLASS.TYPE=Monster						DR:5/Bludgeoning	TEMPLATE:CHOOSE:Skeleton HitDice		SOURCEPAGE:p.250	DEFINESTAT:LOCK|CHA|10				!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct				BONUS:STAT|DEX|2				BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEGTEQ:S	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEGTEQ:M	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEGTEQ:H	BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK|PRESIZEGTEQ:G	BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK|PRESIZEGTEQ:C																																	ABILITY:Internal|AUTOMATIC|Race Traits ~ Skeleton	ABILITY:Special Ability|AUTOMATIC|Immunity to Cold	ABILITY:FEAT|AUTOMATIC|Improved Initiative											KIT:1|NE		SUBRACE:Skeleton			RACETYPE:Undead	RACESUBTYPE:Mindless
+Skeleton				HITDIE:8|CLASS.TYPE=Monster						DR:5/Bludgeoning	TEMPLATE:CHOOSE:Skeleton HitDice		SOURCEPAGE:p.250	DEFINESTAT:LOCK|CHA|10				!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct				BONUS:STAT|DEX|2				BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEGTEQ:S	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEGTEQ:M	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEGTEQ:H	BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK|PRESIZEGTEQ:G	BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK|PRESIZEGTEQ:C																																	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Skeleton	ABILITY:Special Ability|AUTOMATIC|Immunity to Cold	ABILITY:FEAT|AUTOMATIC|Improved Initiative											KIT:1|NE		SUBRACE:Skeleton			RACETYPE:Undead	RACESUBTYPE:Mindless
 Skeleton (Bloody)			HITDIE:8|CLASS.TYPE=Monster						DR:5/Bludgeoning	TEMPLATE:CHOOSE:Skeleton HitDice		SOURCEPAGE:p.251	DEFINESTAT:LOCK|CHA|14				!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct				BONUS:STAT|DEX|2				BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEGTEQ:S	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEGTEQ:M	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEGTEQ:H	BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK|PRESIZEGTEQ:G	BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK|PRESIZEGTEQ:C	BONUS:VAR|ChannelResistance|4	BONUS:VAR|FastHealingRate|max(1,(HD/2))																					ABILITY:Special Ability|AUTOMATIC|Bloody Skeleton ~ Deathless|Channel Resistance|Fast Healing|Immunity to Cold	ABILITY:FEAT|AUTOMATIC|Improved Initiative										KIT:1|NE		SUBRACE:Bloody Skeleton		RACETYPE:Undead	RACESUBTYPE:Mindless
 Skeleton (Burning)		HITDIE:8|CLASS.TYPE=Monster						DR:5/Bludgeoning	TEMPLATE:CHOOSE:Skeleton HitDice		SOURCEPAGE:p.251	DEFINESTAT:LOCK|CHA|12				!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct				BONUS:STAT|DEX|2				BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEGTEQ:S	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEGTEQ:M	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEGTEQ:H	BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK|PRESIZEGTEQ:G	BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK|PRESIZEGTEQ:C																																	ABILITY:Special Ability|AUTOMATIC|Burning Skeleton ~ Fiery Aura|Burning Skeleton ~ Fiery Death|Burning Skeleton ~ Fire Damage|Immunity to Fire|Vulnerability to Cold	ABILITY:FEAT|AUTOMATIC|Improved Initiative	KIT:1|NE		SUBRACE:Burning Skeleton	RACETYPE:Undead	RACESUBTYPE:Mindless
 Skeletal Champion			HITDIE:8|CLASS.TYPE=Monster	CR:1					DR:5/Bludgeoning	TEMPLATE:CHOOSE:Skeletal Champion HitDice											!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct	PRESTAT:1,INT=3	BONUS:STAT|STR|2	BONUS:STAT|DEX|2	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEGTEQ:S	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEGTEQ:M	BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK|PRESIZEGTEQ:H	BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK|PRESIZEGTEQ:G	BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK|PRESIZEGTEQ:C	BONUS:VAR|ChannelResistance|4								CSKILL:Climb|Disguise|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Perception|Sense Motive|Spellcraft|Stealth	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Immunity to Cold	ABILITY:FEAT|AUTOMATIC|Improved Initiative																	KIT:1|CE|LE|NE	SUBRACE:Skeletal Champion	RACETYPE:Undead
@@ -110,7 +111,7 @@ Skeletal Champion HitDice									VISIBLE:NO																		PREHD:MAX=0							
 
 ###Block: Vampire
 # Template Name	Hit Dice Size			Challenge Rating	Damage Reduction			Template																																					Source Page		Define			Prohibited Race						Var. Min. Value	Bonus to skill									Stat bonus										Modify VAR																																			Ability																																																																																											Apply Kit		Subrace		Main Race Type
-Vampire		HITDIE:8|CLASS.TYPE=Monster	CR:2			DR:10/Silver	DR:10/Magic	TEMPLATE:CHOOSE:Vampire ~ Aberration|Vampire ~ Animal|Vampire ~ Dragon|Vampire ~ Fey|Vampire ~ Humanoid|Vampire ~ Magical Beast|Vampire ~ Monstrous Humanoid|Vampire ~ Ooze|Vampire ~ Outsider|Vampire ~ Plant|Vampire ~ Vermin	SOURCEPAGE:p.270	DEFINE:NoTypeTraits|0	!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct	PREVARGTEQ:TL,5	BONUS:SKILL|Bluff,Perception,Sense Motive,Stealth|8|TYPE=Racial	BONUS:STAT|STR|6	BONUS:STAT|DEX,CHA|4	BONUS:STAT|INT,WIS|2	BONUS:VAR|AC_Natural_Armor|6|TYPE=Base.STACK	BONUS:VAR|NoTypeTraits|1	BONUS:VAR|ColdResistanceBonus,ElectricityResistanceBonus|10|TYPE=Resistance	BONUS:VAR|FastHealingRate|5	BONUS:VAR|ChannelResistance|4	ABILITY:Internal|AUTOMATIC|Race Traits ~ Vampire	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Fast Healing|Resistance to Cold|Resistance to Electricity|Undead Traits|Vampire ~ Blood Drain|Vampire ~ Change Shape|Vampire ~ Children of the Night|Vampire ~ Create Spawn|Vampire ~ Dominate|Vampire ~ Energy Drain|Vampire ~ Gaseous Form|Vampire ~ Shadowless|Vampire ~ Spider Climb|Vampire Weaknesses	ABILITY:FEAT|AUTOMATIC|Alertness|Combat Reflexes|Dodge|Improved Initiative|Lightning Reflexes|Toughness	ABILITY:Internal|AUTOMATIC|Slam	KIT:1|CE|LE|NE	SUBRACE:Vampire	RACETYPE:Undead
+Vampire		HITDIE:8|CLASS.TYPE=Monster	CR:2			DR:10/Silver	DR:10/Magic	TEMPLATE:CHOOSE:Vampire ~ Aberration|Vampire ~ Animal|Vampire ~ Dragon|Vampire ~ Fey|Vampire ~ Humanoid|Vampire ~ Magical Beast|Vampire ~ Monstrous Humanoid|Vampire ~ Ooze|Vampire ~ Outsider|Vampire ~ Plant|Vampire ~ Vermin	SOURCEPAGE:p.270	DEFINE:NoTypeTraits|0	!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct	PREVARGTEQ:TL,5	BONUS:SKILL|Bluff,Perception,Sense Motive,Stealth|8|TYPE=Racial	BONUS:STAT|STR|6	BONUS:STAT|DEX,CHA|4	BONUS:STAT|INT,WIS|2	BONUS:VAR|AC_Natural_Armor|6|TYPE=Base.STACK	BONUS:VAR|NoTypeTraits|1	BONUS:VAR|ColdResistanceBonus,ElectricityResistanceBonus|10|TYPE=Resistance	BONUS:VAR|FastHealingRate|5	BONUS:VAR|ChannelResistance|4	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Vampire	ABILITY:Special Ability|AUTOMATIC|Channel Resistance|Fast Healing|Resistance to Cold|Resistance to Electricity|Undead Traits|Vampire ~ Blood Drain|Vampire ~ Change Shape|Vampire ~ Children of the Night|Vampire ~ Create Spawn|Vampire ~ Dominate|Vampire ~ Energy Drain|Vampire ~ Gaseous Form|Vampire ~ Shadowless|Vampire ~ Spider Climb|Vampire Weaknesses	ABILITY:FEAT|AUTOMATIC|Alertness|Combat Reflexes|Dodge|Improved Initiative|Lightning Reflexes|Toughness	ABILITY:Internal|AUTOMATIC|Slam	KIT:1|CE|LE|NE	SUBRACE:Vampire	RACETYPE:Undead
 
 ###Block: Vampire subtype removal
 # Template Name	Race Subtype
@@ -131,20 +132,20 @@ Vampire ~ Plant			VISIBLE:NO	PRERACE:1,RACETYPE=Plant			RACETYPE:Undead	RACESUBT
 Vampire ~ Vermin			VISIBLE:NO	PRERACE:1,RACETYPE=Vermin			RACETYPE:Undead	RACESUBTYPE:Augmented Vermin
 
 ###Block: Zombie
-# Template Name	Damage Reduction	Template																								Source Page		Define			Add to base move			Stat bonus					Modify VAR				Ability																														Apply Kit	Subrace
-Zombie		DR:5/Slashing	TEMPLATE:Undead	TEMPLATE:CHOOSE:Zombie ~ Tiny|Zombie ~ Small|Zombie ~ Medium|Zombie ~ Large|Zombie ~ Huge|Zombie ~ Gargantuan|Zombie ~ Colossal	SOURCEPAGE:p.288	DEFINE:NoTypeTraits|0						BONUS:STAT|STR|2	BONUS:STAT|DEX|-2	BONUS:VAR|NoTypeTraits|1	ABILITY:Internal|AUTOMATIC|Slam	ABILITY:Special Ability|AUTOMATIC|Undead Traits|Zombie ~ Staggered	ABILITY:FEAT|AUTOMATIC|Toughness								KIT:1|NE	SUBRACE:Zombie
-Zombie (Fast)				TEMPLATE:Undead	TEMPLATE:CHOOSE:Zombie ~ Tiny|Zombie ~ Small|Zombie ~ Medium|Zombie ~ Large|Zombie ~ Huge|Zombie ~ Gargantuan|Zombie ~ Colossal	SOURCEPAGE:p.288	DEFINE:NoTypeTraits|0	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR,DEX|2			BONUS:VAR|NoTypeTraits|1	ABILITY:Internal|AUTOMATIC|Slam	ABILITY:Special Ability|AUTOMATIC|Undead Traits|Zombie ~ Quick Strikes	ABILITY:FEAT|AUTOMATIC|Toughness								KIT:1|NE	SUBRACE:Fast Zombie
-Zombie (Plague)				TEMPLATE:Undead	TEMPLATE:CHOOSE:Zombie ~ Tiny|Zombie ~ Small|Zombie ~ Medium|Zombie ~ Large|Zombie ~ Huge|Zombie ~ Gargantuan|Zombie ~ Colossal	SOURCEPAGE:p.288	DEFINE:NoTypeTraits|0						BONUS:STAT|STR|2	BONUS:STAT|DEX|-2	BONUS:VAR|NoTypeTraits|1	ABILITY:Internal|AUTOMATIC|Slam	ABILITY:Special Ability|AUTOMATIC|Plague Zombie ~ Disease|Undead Traits|Zombie ~ Death Burst|Zombie ~ Staggered	ABILITY:FEAT|AUTOMATIC|Toughness	KIT:1|NE	SUBRACE:Plague Zombie
+# Template Name	Damage Reduction	Template																								Source Page		Define			Add to base move			Stat bonus					Modify VAR								Ability																														Apply Kit	Subrace			Main Race Type
+Zombie		DR:5/Slashing	TEMPLATE:Undead	TEMPLATE:CHOOSE:Zombie ~ Tiny|Zombie ~ Small|Zombie ~ Medium|Zombie ~ Large|Zombie ~ Huge|Zombie ~ Gargantuan|Zombie ~ Colossal	SOURCEPAGE:p.288	DEFINE:NoTypeTraits|0						BONUS:STAT|STR|2	BONUS:STAT|DEX|-2	BONUS:VAR|NoTypeTraits|1	BONUS:VAR|SlamSize|1	ABILITY:Internal|AUTOMATIC|Slam	ABILITY:Special Ability|AUTOMATIC|Undead Traits|Zombie ~ Staggered	ABILITY:FEAT|AUTOMATIC|Toughness								KIT:1|NE	SUBRACE:Zombie		RACETYPE:Undead
+Zombie (Fast)				TEMPLATE:Undead	TEMPLATE:CHOOSE:Zombie ~ Tiny|Zombie ~ Small|Zombie ~ Medium|Zombie ~ Large|Zombie ~ Huge|Zombie ~ Gargantuan|Zombie ~ Colossal	SOURCEPAGE:p.288	DEFINE:NoTypeTraits|0	BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|STR,DEX|2			BONUS:VAR|NoTypeTraits|1	BONUS:VAR|SlamSize|1	ABILITY:Internal|AUTOMATIC|Slam	ABILITY:Special Ability|AUTOMATIC|Undead Traits|Zombie ~ Quick Strikes	ABILITY:FEAT|AUTOMATIC|Toughness								KIT:1|NE	SUBRACE:Fast Zombie	RACETYPE:Undead
+Zombie (Plague)				TEMPLATE:Undead	TEMPLATE:CHOOSE:Zombie ~ Tiny|Zombie ~ Small|Zombie ~ Medium|Zombie ~ Large|Zombie ~ Huge|Zombie ~ Gargantuan|Zombie ~ Colossal	SOURCEPAGE:p.288	DEFINE:NoTypeTraits|0						BONUS:STAT|STR|2	BONUS:STAT|DEX|-2	BONUS:VAR|NoTypeTraits|1	BONUS:VAR|SlamSize|1	ABILITY:Internal|AUTOMATIC|Slam	ABILITY:Special Ability|AUTOMATIC|Plague Zombie ~ Disease|Undead Traits|Zombie ~ Death Burst|Zombie ~ Staggered	ABILITY:FEAT|AUTOMATIC|Toughness	KIT:1|NE	SUBRACE:Plague Zombie	RACETYPE:Undead
 
 ###Block: Zombie
-# Template Name			Visible	Required Size	Modify VAR							Weapon prof. bonus				Auto Language		Bonus Languages		Add Levels
-Zombie ~ Tiny			VISIBLE:NO	PRESIZEEQ:T										BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)
-Zombie ~ Small			VISIBLE:NO	PRESIZEEQ:S		BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK	BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)									ADDLEVEL:Undead (Mindless)|1
-Zombie ~ Medium			VISIBLE:NO	PRESIZEEQ:M		BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)									ADDLEVEL:Undead (Mindless)|1
-Zombie ~ Large			VISIBLE:NO	PRESIZEEQ:L		BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK	BONUS:WEAPONPROF=Slam|DAMAGE|max(0,STR/2)									ADDLEVEL:Undead (Mindless)|2
-Zombie ~ Huge			VISIBLE:NO	PRESIZEEQ:H		BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK																ADDLEVEL:Undead (Mindless)|4
-Zombie ~ Gargantuan		VISIBLE:NO	PRESIZEEQ:G		BONUS:VAR|AC_Natural_Armor|7|TYPE=Base.STACK																ADDLEVEL:Undead (Mindless)|6
-Zombie ~ Colossal			VISIBLE:NO	PRESIZEEQ:C		BONUS:VAR|AC_Natural_Armor|11|TYPE=Base.STACK																ADDLEVEL:Undead (Mindless)|1
+# Template Name		Visible	Required Size	Modify VAR							Add Levels
+Zombie ~ Tiny		VISIBLE:NO	PRESIZEEQ:T
+Zombie ~ Small		VISIBLE:NO	PRESIZEEQ:S		BONUS:VAR|AC_Natural_Armor|1|TYPE=Base.STACK	ADDLEVEL:Undead (Mindless)|1
+Zombie ~ Medium		VISIBLE:NO	PRESIZEEQ:M		BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK	ADDLEVEL:Undead (Mindless)|1
+Zombie ~ Large		VISIBLE:NO	PRESIZEEQ:L		BONUS:VAR|AC_Natural_Armor|3|TYPE=Base.STACK	ADDLEVEL:Undead (Mindless)|2
+Zombie ~ Huge		VISIBLE:NO	PRESIZEEQ:H		BONUS:VAR|AC_Natural_Armor|4|TYPE=Base.STACK	ADDLEVEL:Undead (Mindless)|4
+Zombie ~ Gargantuan	VISIBLE:NO	PRESIZEEQ:G		BONUS:VAR|AC_Natural_Armor|7|TYPE=Base.STACK	ADDLEVEL:Undead (Mindless)|6
+Zombie ~ Colossal		VISIBLE:NO	PRESIZEEQ:C		BONUS:VAR|AC_Natural_Armor|11|TYPE=Base.STACK	ADDLEVEL:Undead (Mindless)|1
 
 # Zombie issues:
 #TODO Can't do now: Remove Feats and Skills
@@ -152,6 +153,24 @@ Zombie ~ Colossal			VISIBLE:NO	PRESIZEEQ:C		BONUS:VAR|AC_Natural_Armor|11|TYPE=B
 #TODO Can't do now: Swap Monsters Class for Undead monster class so that Saves and BAB is recalculated
 # The only work around is to create a Zombie version of any race you want a Zombie of.
 
-Default Language ~ Tengu	VISIBLE:NO																			AUTO:LANG|Common|Tengu	LANGBONUS:TYPE=Spoken
+###Block:
+# Template Name			Unique Key				Visible	Modify VAR													Auto Language		Bonus Languages		Race Subtype		Type				Description
+Default Language ~ Tengu						VISIBLE:NO															AUTO:LANG|Common|Tengu	LANGBONUS:TYPE=Spoken
 
-Polymorph Effect	DESC:Removes Armor and Shield Bonuses from creature.	BONUS:VAR|DisableArmorBonus|1|TYPE=Base	BONUS:VAR|DisableShieldBonus|1|TYPE=Base
+Polymorph Effect										BONUS:VAR|DisableArmorBonus|1|TYPE=Base	BONUS:VAR|DisableShieldBonus|1|TYPE=Base																	DESC:Removes Armor and Shield Bonuses from creature.
+
+
+Aasimar				KEY:RaceSubtype ~ Aasimar	VISIBLE:NO																							RACESUBTYPE:Aasimar	TYPE:Racial Heritage
+Drow					KEY:RaceSubtype ~ Drow		VISIBLE:NO																							RACESUBTYPE:Drow		TYPE:Racial Heritage
+Duergar				KEY:RaceSubtype ~ Duergar	VISIBLE:NO																							RACESUBTYPE:Duergar	TYPE:Racial Heritage
+Goblin				KEY:RaceSubtype ~ Goblin	VISIBLE:NO																							RACESUBTYPE:Goblin	TYPE:Racial Heritage
+Hobgoblin				KEY:RaceSubtype ~ Hobgoblin	VISIBLE:NO																							RACESUBTYPE:Hobgoblin	TYPE:Racial Heritage
+Kobold				KEY:RaceSubtype ~ Kobold	VISIBLE:NO																							RACESUBTYPE:Kobold	TYPE:Racial Heritage
+Merfolk				KEY:RaceSubtype ~ Merfolk	VISIBLE:NO																							RACESUBTYPE:Merfolk	TYPE:Racial Heritage
+Orc					KEY:RaceSubtype ~ Orc		VISIBLE:NO																							RACESUBTYPE:Orc		TYPE:Racial Heritage
+Tengu					KEY:RaceSubtype ~ Tengu		VISIBLE:NO																							RACESUBTYPE:Tengu		TYPE:Racial Heritage
+Tiefling				KEY:RaceSubtype ~ Tiefling	VISIBLE:NO																							RACESUBTYPE:Tiefling	TYPE:Racial Heritage
+Svirfneblin				KEY:RaceSubtype ~ Svirfneblin	VISIBLE:NO																							RACESUBTYPE:Svirfneblin	TYPE:Racial Heritage
+
+# Tiefling Subrace
+Tiefling				KEY:Tiefling (Base)		VISIBLE:NO

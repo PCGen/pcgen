@@ -17,7 +17,8 @@
  */
 package plugin.lsttokens.kit;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.core.Kit;
 import pcgen.core.kit.KitKit;
@@ -25,6 +26,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import org.junit.jupiter.api.Test;
 
 public class KitTokenTest extends AbstractKitTokenTestCase<KitKit>
 {
@@ -52,7 +55,7 @@ public class KitTokenTest extends AbstractKitTokenTestCase<KitKit>
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount() throws PersistenceLayerException
+	public void testInvalidInputEmptyCount()
 	{
 		assertTrue(parse("Fireball"));
 		assertConstructionError();
@@ -77,24 +80,24 @@ public class KitTokenTest extends AbstractKitTokenTestCase<KitKit>
 	}
 
 	@Test
-	public void testInvalidListEnd() throws PersistenceLayerException
+	public void testInvalidListEnd()
 	{
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
 
-	private char getJoinCharacter()
+	private static char getJoinCharacter()
 	{
 		return '|';
 	}
 
 	@Test
-	public void testInvalidListStart() throws PersistenceLayerException
+	public void testInvalidListStart()
 	{
 		assertFalse(parse(getJoinCharacter() + "TestWP1"));
 	}
 
 	@Test
-	public void testInvalidListDoubleJoin() throws PersistenceLayerException
+	public void testInvalidListDoubleJoin()
 	{
 		assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));

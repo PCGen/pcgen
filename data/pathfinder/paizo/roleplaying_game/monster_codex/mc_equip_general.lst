@@ -1,0 +1,31 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Monster Codex	SOURCESHORT:MC	SOURCEWEB:http://paizo.com/products/btpy9926?Pathfinder-Roleplaying-Game-Monster-Codex	SOURCEDATE:2014-11
+
+# ==============================
+# Adventuring Gear
+# ==============================
+
+# Equipment Name			Output Name						Type											Contains		Cost		Weight	Size		Source Page		Special Property
+Bombchucker											TYPE:Goods.General											COST:12	WT:1				SOURCEPAGE:p.117	SPROP:Adds 10 ft. to range increment of thrown splash weapons.
+Flying Straps										TYPE:Goods.Mount.Resizable										COST:10	WT:10				SOURCEPAGE:p.105
+Flying Straps (Masterwork)	OUTPUTNAME:Flying Straps, Masterwork	TYPE:Goods.Mount.Resizable										COST:80	WT:10				SOURCEPAGE:p.105
+Horn Harness										TYPE:Goods.Mount.Resizable										COST:30	WT:20				SOURCEPAGE:p.164	SPROP:Includes a quiver that typically holds up to 12 javelins.
+Saddle (Gorthek)			OUTPUTNAME:Gorthek Saddle			TYPE:Goods.Mount.Resizable										COST:50	WT:75				SOURCEPAGE:p.164
+
+# ==============================
+# Alchemical Goods
+# ==============================
+
+Alchemical Blood										TYPE:Goods.Alchemical.Consumable									COST:40	WT:1				SOURCEPAGE:p.237
+Fervor Juice										TYPE:Goods.Alchemical.Consumable									COST:50					SOURCEPAGE:p.117
+Light-Killer's Grease									TYPE:Goods.Alchemical.Consumable									COST:25					SOURCEPAGE:p.33
+Signal Rocket										TYPE:Goods.Alchemical.Consumable									COST:100	WT:3				SOURCEPAGE:p.117
+Spiderdraw											TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Splash				COST:40	WT:0.5			SOURCEPAGE:p.33
+Rhinarium Paste										TYPE:Goods.Alchemical.Consumable									COST:75	WT:0.5			SOURCEPAGE:p.177
+
+# ==============================
+# Mounts
+# ==============================
+
+Rat (Riding)										TYPE:Mount.Goods.Transportation.Container					CONTAINS:*263|Any	COST:50			SIZE:M	SOURCEPAGE:p.177
+Rat (Riding/Combat Trained)								TYPE:Mount.Goods.Transportation.Container					CONTAINS:*263|Any	COST:75			SIZE:M	SOURCEPAGE:p.177

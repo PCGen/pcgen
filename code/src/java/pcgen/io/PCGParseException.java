@@ -1,5 +1,4 @@
 /*
- * PCGParseException.java
  * Copyright 2002 (C) Thomas Behr <ravenlock@gmx.de>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on March 15, 2002, 9:30 PM
  */
 package pcgen.io;
 
@@ -26,7 +24,6 @@ import pcgen.cdom.base.Constants;
  * {@code ParseException}<br>
  *
  *
- * @author ???
  */
 final class PCGParseException extends Exception
 {
@@ -42,8 +39,8 @@ final class PCGParseException extends Exception
 	 */
 	PCGParseException(String errorMethod, String errorLine, String errorMessage)
 	{
-		super("Method: " + errorMethod + Constants.LINE_SEPARATOR + "Line: "
-			+ errorLine + Constants.LINE_SEPARATOR + "Message: " + errorMessage);
+		super("Method: " + errorMethod + Constants.LINE_SEPARATOR + "Line: " + errorLine + Constants.LINE_SEPARATOR
+			+ "Message: " + errorMessage);
 
 		this.errorMethod = errorMethod;
 		this.errorLine = errorLine;
@@ -61,7 +58,7 @@ final class PCGParseException extends Exception
 	/**
 	 * @return error message
 	 */
-    @Override
+	@Override
 	public String getMessage()
 	{
 		return errorMessage;

@@ -19,15 +19,15 @@
 package gmgen.io;
 
 import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Vector;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * {@code VectorTable} holds 2 dimensional tables.  It is used by GMGen
- * to hold the XML tables that are being loaded<p>
- * Created on February 26, 2003
- * @author  Expires 2003
+ * to hold the XML tables that are being loaded
  */
 public class VectorTable extends AbstractList
 {
@@ -35,10 +35,10 @@ public class VectorTable extends AbstractList
 	private String name;
 
 	/** The {@code Vector} that holds the header row of the tables. */
-	private final List header;
+	private final List<Object> header;
 
 	/** The {@code Vector} that holds the data of the tables. */
-	private final Vector rows;
+	private final List<Object> rows;
 
 	/**
 	 * Creates an instance of this class with a table's name being passed to it.
@@ -48,8 +48,8 @@ public class VectorTable extends AbstractList
 	private VectorTable(String s)
 	{
 		this.name = s;
-		rows = new Vector();
-		header = new Vector();
+		rows = new ArrayList<>();
+		header = new ArrayList<>();
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class VectorTable extends AbstractList
 	 * table is empty.
 	 * @return <b>{@code true}</b> if the table is empty.
 	 */
-    @Override
+	@Override
 	public boolean isEmpty()
 	{
 		return rows.isEmpty();
@@ -82,30 +82,21 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Gets the name of the table that is being stored
-	 * @return the name of the table
-	 */
-	public String getName()
-	{
-		return this.name;
-	}
-
-	/**
 	 * Adds an {@code Object} to the 2 dimensional table.
 	 * @param o an entry that will be placed in the table.
 	 * @return true or false
 	 */
-    @Override
+	@Override
 	public boolean add(Object o)
 	{
 		/* if o is a container, adds it to rows and header and returns true, else returns false.    */
-		if (o instanceof Vector)
+		if (o instanceof AbstractList)
 		{
-			if (((Vector) o).isEmpty())
+			if (((AbstractList) o).isEmpty())
 			{
 				return false;
 			}
-			header.add(((Vector) o).firstElement());
+			header.add(((AbstractList) o).get(0));
 			rows.add(o);
 
 			return true;
@@ -114,22 +105,21 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Calls clear on every {@code Vector} in <code>rows</code>.
+	 * Calls clear on every {@code Vector} in {@code rows}.
 	 */
-    @Override
+	@Override
 	public void clear()
 	{
-		int x;
 
-		for (x = rows.size() - 1; x >= 0; x--)
+		for (int x = rows.size() - 1; x >= 0; x--)
 		{
 			try
 			{
-				((Vector) rows.elementAt(x)).clear();
+				((Collection) rows.get(x)).clear();
 			}
 			catch (Exception e)
 			{
-			    // TODO - Handle Exception			    
+				// TODO - Handle Exception			    
 			}
 
 			rows.clear();
@@ -138,14 +128,13 @@ public class VectorTable extends AbstractList
 
 	/**
 	 * Checks to see if the paramater can be found in either {@code rows}
-	 * or an {@code element} of <code>rows</code>.
+	 * or an {@code element} of {@code rows}.
 	 * @param o the {@code Object} that needs to be found in the table.
 	 * @return <b>true</b> if the object is found.  Otherwise <b>false</b>.
 	 */
-    @Override
+	@Override
 	public boolean contains(Object o)
 	{
-		int x;
 		boolean found = false;
 
 		if (rows.contains(o))
@@ -153,11 +142,11 @@ public class VectorTable extends AbstractList
 			return true;
 		}
 
-		for (x = rows.size() - 1; x >= 0; x--)
+		for (int x = rows.size() - 1; x >= 0; x--)
 		{
 			try
 			{
-				if (((Vector) rows.elementAt(x)).contains(o))
+				if (((Collection) rows.get(x)).contains(o))
 				{
 					found = true;
 
@@ -166,7 +155,7 @@ public class VectorTable extends AbstractList
 			}
 			catch (Exception e)
 			{
-			    // TODO - Handle Exception			    
+				// TODO - Handle Exception			    
 			}
 		}
 
@@ -174,8 +163,8 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Looks up {@code Object} X  in <code>header</code>, and the
-	 * {@code Object} <code>Y</code> in <code>rows</code> 0, and
+	 * Looks up {@code Object} X  in {@code header}, and the
+	 * {@code Object} {@code Y} in {@code rows} 0, and
 	 * {@code returns} the resulting cell.
 	 * @param X the header to look for.
 	 * @param Y the item in the {@code row} to look for.
@@ -185,7 +174,7 @@ public class VectorTable extends AbstractList
 	{
 		int x;
 		int y;
-		Vector v;
+		List<Object> v;
 
 		if (rows.isEmpty())
 		{
@@ -197,12 +186,12 @@ public class VectorTable extends AbstractList
 			return null;
 		}
 
-		x = ((Vector) rows.firstElement()).indexOf(Y);
+		x = ((List<Object>) rows.get(0)).indexOf(Y);
 		y = header.indexOf(X);
 
 		try
 		{
-			v = (Vector) rows.elementAt(y);
+			v = (List<Object>) rows.get(y);
 		}
 		catch (Exception e)
 		{
@@ -211,23 +200,12 @@ public class VectorTable extends AbstractList
 
 		try
 		{
-			return v.elementAt(x);
+			return v.get(x);
 		}
 		catch (Exception e)
 		{
 			return null;
 		}
-	}
-
-	/**
-	 * Finds the element at a certain {@code index} in the
-	 * {@code rows}.
-	 * @param index the {@code index} number of the item to find.
-	 * @return the item at the specified {@code index}.
-	 */
-	public Object elementAt(int index)
-	{
-		return rows.elementAt(index);
 	}
 
 	/**
@@ -246,8 +224,7 @@ public class VectorTable extends AbstractList
 		 * special consideration for a Set or something that VectorTables are stored in, 
 		 * then a special comparator should be built, in my opinion - thpr 10/29/06
 		 */
-		return o != null && o.toString()
-				.equals(name);
+		return o != null && o.toString().equals(name);
 
 	}
 
@@ -257,14 +234,14 @@ public class VectorTable extends AbstractList
 	 *        retrieved.
 	 * @return the {@code Object} that is looked up.
 	 */
-    @Override
+	@Override
 	public Object get(int index)
 	{
 		return rows.get(index);
 	}
 
 	/**
-	 * Gets the {@code hashCode} value for the <code>Vector</code>.
+	 * Gets the {@code hashCode} value for the {@code Vector}.
 	 * @return the hash code.
 	 */
 	@Override
@@ -276,13 +253,11 @@ public class VectorTable extends AbstractList
 	/**
 	 * Takes an {@code Object} out of the table if it exists in the table.
 	 * @param o the {@code Object} that needs to be removed.
-	 * @return <b>{@code true}</b> if the <code>Object</code> is removed
-	 *         successfully.
+	 * @return <b>{@code true}</b> if the {@code Object} is removed successfully.
 	 */
-    @Override
+	@Override
 	public boolean remove(Object o)
 	{
-		int x;
 		boolean success;
 
 		success = false;
@@ -296,19 +271,19 @@ public class VectorTable extends AbstractList
 			}
 			else
 			{
-				for (x = rows.size() - 1; x >= 0; x--)
+				for (int x = rows.size() - 1; x >= 0; x--)
 				{
 					try
 					{
-						if (((Vector) rows.elementAt(x)).contains(o))
+						if (((Collection<Object>) rows.get(x)).contains(o))
 						{
-							((Vector) rows.elementAt(x)).remove(o);
+							((Collection<Object>) rows.get(x)).remove(o);
 							success = true;
 						}
 					}
 					catch (Exception e)
 					{
-					    // TODO - Handle Exception					    
+						// TODO - Handle Exception					    
 					}
 				}
 			}
@@ -318,33 +293,23 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Gets the number of items in the {@code row} <code>Vector</code>.
+	 * Gets the number of items in the {@code row} {@code Vector}.
 	 * @return the number of items in the {@code row}.
 	 */
-    @Override
+	@Override
 	public int size()
 	{
 		return rows.size();
 	}
 
 	/**
-	 * Gets the number of items in the {@code row} <code>Vector</code>.
-	 * It is the same as the {@code size()} method in this class.
-	 * @return the number of items in the {@code row}.
-	 */
-	public int sizeY()
-	{
-		return rows.size();
-	}
-
-	/**
-	 * Stores the {@code row} <code>Vector</code> as an <code>array</code>
+	 * Stores the {@code row} {@code Vector} as an {@code array}
 	 * of {@code Objects}.
 	 * @return an {@code array} that consists of the items from the
-	 *          {@code row} <code>Vector</code>.
+	 *          {@code row} {@code Vector}.
 	 */
-    @Override
-	public Object[] toArray()
+	@Override
+	public @NotNull Object[] toArray()
 	{
 		return rows.toArray();
 	}
@@ -362,7 +327,7 @@ public class VectorTable extends AbstractList
 			return null;
 		}
 
-		return ((Collection) rows.elementAt(x)).toArray();
+		return ((Collection<Object>) rows.get(x)).toArray();
 	}
 
 	/**

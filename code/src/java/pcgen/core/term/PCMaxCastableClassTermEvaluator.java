@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCMaxCastableClassTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 23:14:10
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -33,18 +29,16 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
 
-public class PCMaxCastableClassTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCMaxCastableClassTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
-	private ClassSpellList spellList;
+	private final ClassSpellList spellList;
 
 	public PCMaxCastableClassTermEvaluator(String originalText, String classKey)
 	{
 		this.originalText = originalText;
 		this.spellList = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(ClassSpellList.class,
-						classKey);
+			.silentlyGetConstructedCDOMObject(ClassSpellList.class, classKey);
 		// TODO Warning if null? or is null gate in resolve not necessary?
 	}
 

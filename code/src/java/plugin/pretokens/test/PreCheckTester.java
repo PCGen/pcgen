@@ -1,6 +1,4 @@
 /*
- * Created on 01-Dec-2003
- *
  * To change the template for this generated file go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
@@ -30,15 +28,12 @@ public class PreCheckTester extends AbstractPrerequisiteTest implements Prerequi
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "CHECK"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
@@ -46,7 +41,8 @@ public class PreCheckTester extends AbstractPrerequisiteTest implements Prerequi
 
 		final String checkName = prereq.getKey();
 		final int operand = character.getVariableValue(prereq.getOperand(), "").intValue(); //$NON-NLS-1$
-		PCCheck check = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCCheck.class, checkName);
+		PCCheck check =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCCheck.class, checkName);
 		if (check != null)
 		{
 			final int characterCheckBonus = character.getTotalCheck(check);

@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCSPellBaseStatTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 10-Aug-2008 00:22:33
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -30,15 +26,14 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 
-public class PCSPellBaseStatTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCSPellBaseStatTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String classKey;
 
 	public PCSPellBaseStatTermEvaluator(String originalText, String classKey)
 	{
 		this.originalText = originalText;
-		this.classKey     = classKey;
+		this.classKey = classKey;
 	}
 
 	@Override

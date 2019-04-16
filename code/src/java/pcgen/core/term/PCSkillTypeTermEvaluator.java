@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCSkillTypeTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,23 +16,19 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 07-Aug-2008 20:27:13
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
 import java.util.Collection;
 
+import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
-public class PCSkillTypeTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCSkillTypeTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
 	private final String type;
@@ -41,20 +36,19 @@ public class PCSkillTypeTermEvaluator
 	public PCSkillTypeTermEvaluator(String originalText, String type)
 	{
 		this.originalText = originalText;
-		this.type         = type;
+		this.type = type;
 	}
-	
+
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		int count = 0;
 		Collection<Skill> skills = pc.getDisplay().getSkillSet();
-		for(Skill sk : skills)
+		for (Skill sk : skills)
 		{
 			Visibility skVis = sk.getSafe(ObjectKey.VISIBILITY);
 			//TODO This is a bug, it assumes export
-			if (!skVis.isVisibleTo(View.HIDDEN_EXPORT) && sk.isType(type)
-				&& sk.qualifies(pc, null))
+			if (!skVis.isVisibleTo(View.HIDDEN_EXPORT) && sk.isType(type) && sk.qualifies(pc, null))
 			{
 				count++;
 			}

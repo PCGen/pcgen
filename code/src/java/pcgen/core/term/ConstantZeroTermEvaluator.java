@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.ConstantZeroTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,17 +16,14 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 22-Sep-2008 01:31:27
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
 import pcgen.core.display.CharacterDisplay;
 
-public class ConstantZeroTermEvaluator
-		extends BasePCDTermEvaluator implements TermEvaluator {
+public class ConstantZeroTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
+{
 
 	public ConstantZeroTermEvaluator(String originalText)
 	{
@@ -44,7 +40,7 @@ public class ConstantZeroTermEvaluator
 	public boolean isSourceDependant()
 	{
 		return false;
-	}	
+	}
 
 	public boolean isStatic()
 	{

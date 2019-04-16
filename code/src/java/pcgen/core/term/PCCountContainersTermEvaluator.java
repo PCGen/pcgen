@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountContainersTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 15:40:16
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -28,12 +24,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.core.Equipment;
 import pcgen.cdom.base.Constants;
+import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacter;
 
-public class PCCountContainersTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCountContainersTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	public PCCountContainersTermEvaluator(String originalText)
 	{
@@ -48,7 +43,7 @@ public class PCCountContainersTermEvaluator
 		final Collection<Equipment> aList = new ArrayList<>();
 		final List<Equipment> eList = pc.getEquipmentListInOutputOrder(merge);
 
-		for ( Equipment eq : eList )
+		for (Equipment eq : eList)
 		{
 			if (eq.acceptsChildren())
 			{

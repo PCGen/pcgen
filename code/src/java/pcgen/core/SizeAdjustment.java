@@ -1,5 +1,4 @@
 /*
- * SizeAdjustment.java
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,24 +15,21 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 13, 2001, 4:24 PM
  */
 package pcgen.core;
 
 import java.util.List;
+import java.util.Optional;
 
 import pcgen.base.formula.base.VarScoped;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
-import pcgen.facade.core.SizeAdjustmentFacade;
 
 /**
- * <code>SizeAdjustment</code>.
+ * {@code SizeAdjustment}.
  *
- * @author Greg Bingleman &lt;byngl@users.sourceforge.net&gt;
  */
-public final class SizeAdjustment extends PObject implements
-		SizeAdjustmentFacade, VarScoped
+public final class SizeAdjustment extends PObject implements VarScoped
 {
 	/**
 	 * Activates (checks PrereqToUse) and returns list of BonusObj's
@@ -49,8 +45,8 @@ public final class SizeAdjustment extends PObject implements
 	}
 
 	@Override
-	public String getLocalScopeName()
+	public Optional<String> getLocalScopeName()
 	{
-		return "SIZE";
+		return Optional.of("PC.SIZE");
 	}
 }

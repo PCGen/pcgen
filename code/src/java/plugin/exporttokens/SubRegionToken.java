@@ -15,15 +15,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens;
 
-import pcgen.cdom.base.Constants;
+import java.util.Optional;
+
+import pcgen.cdom.enumeration.SubRegion;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
@@ -33,29 +30,23 @@ import pcgen.io.exporttoken.AbstractExportToken;
  */
 public class SubRegionToken extends AbstractExportToken
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "SUBREGION";
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
-		String retString = display.getRegionString();
-		String subRegion = display.getSubRegion();
-		if (!subRegion.equals(Constants.NONE))
+		StringBuilder sb = new StringBuilder(40);
+		sb.append(display.getRegionString());
+		Optional<SubRegion> subRegion = display.getSubRegion();
+		if (subRegion.isPresent())
 		{
-			retString += (" (" + subRegion + ")");
+			sb.append(" (").append(subRegion.get().toString()).append(')');
 		}
-		
-		return retString;
+
+		return sb.toString();
 	}
 }

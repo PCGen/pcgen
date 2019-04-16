@@ -1,105 +1,105 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserules.net/recoiled/index.html	SOURCEDATE:2004-12
 # Original Entry by: Lone Jedi (MSRD by bD_92)
 
-# Weapon Name					Type
-Grapple						TYPE:Unarmed.Melee
-Ray							TYPE:Unarmed.Melee
+# Weapon Name				Type
+Grapple					TYPE:Unarmed.Melee
+Ray						TYPE:Unarmed.Melee
 
 #Ranged
-# Weapon Name					Type
-Harpers Ferry Pistol				TYPE:PersonalFirearm
-U.S. Percussion Navy Pistol			TYPE:PersonalFirearm
-U.S. Percussion Navy Pistol (Rifled)	TYPE:PersonalFirearm
-Allen and Thurber Pepperbox			TYPE:PersonalFirearm
-Pocket Deringer					TYPE:PersonalFirearm
+# Weapon Name				Type
+Harpers Ferry Pistol			TYPE:PersonalFirearm
+US Percussion Navy Pistol		TYPE:PersonalFirearm
+Allen and Thurber Pepperbox		TYPE:PersonalFirearm
+Pocket Deringer				TYPE:PersonalFirearm
 
-Sharps Pepperbox					TYPE:PersonalFirearm
-Remington Double-Derringer			TYPE:PersonalFirearm
+Sharps Pepperbox				TYPE:PersonalFirearm
+Remington Double-Derringer		TYPE:PersonalFirearm
 
-Colt Walker Dragoon				TYPE:PersonalFirearm
-Colt New Model Army				TYPE:PersonalFirearm
-Remington Pocket Pistol				TYPE:PersonalFirearm
-Reid's Knuckleduster				TYPE:PersonalFirearm
-Colt Peacemaker					TYPE:PersonalFirearm
-S&W Schofield					TYPE:PersonalFirearm
+Colt Walker Dragoon			TYPE:PersonalFirearm
+Colt New Model Army			TYPE:PersonalFirearm
+Remington Pocket Pistol			TYPE:PersonalFirearm
+Reid's Knuckleduster			TYPE:PersonalFirearm
+Colt Peacemaker				TYPE:PersonalFirearm
+S&W Schofield				TYPE:PersonalFirearm
 
-Starr Army Revolver				TYPE:PersonalFirearm
-Webley RIC						TYPE:PersonalFirearm
-Colt Lightning					TYPE:PersonalFirearm
-Colt Thunderer					TYPE:PersonalFirearm
+Starr Army Revolver			TYPE:PersonalFirearm
+Webley RIC					TYPE:PersonalFirearm
+Colt Lightning				TYPE:PersonalFirearm
+Colt Thunderer				TYPE:PersonalFirearm
 
-M1816 Flintlock Musket				TYPE:PersonalFirearm
-M1842 Percussion Musket				TYPE:PersonalFirearm
+M1816 Flintlock Musket			TYPE:PersonalFirearm
+M1842 Percussion Musket			TYPE:PersonalFirearm
 
-Harpers Ferry Rifle				TYPE:PersonalFirearm
-Hawken Rifle					TYPE:PersonalFirearm
-Sharps Rifle					TYPE:PersonalFirearm
-Sharps Carbine					TYPE:PersonalFirearm
-Spencer Carbine					TYPE:PersonalFirearm
-Henry Rifle						TYPE:PersonalFirearm
-Winchester 73					TYPE:PersonalFirearm
-Sharps Big Fifty					TYPE:PersonalFirearm
+Harpers Ferry Rifle			TYPE:PersonalFirearm
+Hawken Rifle				TYPE:PersonalFirearm
+Sharps Rifle				TYPE:PersonalFirearm
+Sharps Carbine				TYPE:PersonalFirearm
+Spencer Carbine				TYPE:PersonalFirearm
+Henry Rifle					TYPE:PersonalFirearm
+Winchester 73				TYPE:PersonalFirearm
+Sharps Big Fifty				TYPE:PersonalFirearm
 
-Loomis Side-By-Side				TYPE:PersonalFirearm
-Remington Single-Barrel				TYPE:PersonalFirearm
-Remington-Whitmore M1873			TYPE:PersonalFirearm
-Winchester Lever-Action				TYPE:PersonalFirearm
+Loomis Side-By-Side			TYPE:PersonalFirearm
+Remington Single-Barrel			TYPE:PersonalFirearm
+Remington-Whitmore M1873		TYPE:PersonalFirearm
+Winchester Lever-Action			TYPE:PersonalFirearm
 
 # Exotic Firearms
-Cannon						TYPE:ExoticFirearms
-Heavy Machine Gun					TYPE:ExoticFirearms
-Grenade Launcher					TYPE:ExoticFirearms
+Cannon					TYPE:ExoticFirearms
+Heavy Machine Gun				TYPE:ExoticFirearms
+Grenade Launcher				TYPE:ExoticFirearms
 
-Crossbow						TYPE:Simple
-Javelin						TYPE:Simple
-Whip							TYPE:Simple
+Crossbow					TYPE:Simple
+Javelin					TYPE:Simple
+Whip						TYPE:Simple
 
-Bow							TYPE:Archaic
-Shuriken						TYPE:Archaic
+Bow						TYPE:Archaic
+Shuriken					TYPE:Archaic
 
-Bola							TYPE:ExoticRanged
-Lasso							TYPE:ExoticRanged
-Net							TYPE:ExoticRanged
+Bola						TYPE:ExoticRanged
+Lasso						TYPE:ExoticRanged
+Net						TYPE:ExoticRanged
 
 #Melee
-Brass Knuckles					TYPE:Melee.Simple
-Cleaver						TYPE:Melee.Simple
-Club							TYPE:Melee.Simple
-Coup Stick						TYPE:Melee.Simple
-Knife							TYPE:Melee.Simple.Light
-Pistol Whip						TYPE:Melee.Simple
-Pitchfork						TYPE:Melee.Simple
-Rifle Butt						TYPE:Melee.Simple
-Sap							TYPE:Melee.Simple
-Sledgehammer					TYPE:Melee.Simple
-Staff							TYPE:Melee.Simple
-Unarmed Strike					TYPE:Melee.Simple
+Brass Knuckles				TYPE:Melee.Simple
+Cleaver					TYPE:Melee.Simple
+Club						TYPE:Melee.Simple
+Coup Stick					TYPE:Melee.Simple
+Knife						TYPE:Melee.Simple.Light
+Pistol Whip					TYPE:Melee.Simple
+Pitchfork					TYPE:Melee.Simple
+Rifle Butt					TYPE:Melee.Simple
+Sap						TYPE:Melee.Simple
+Sledgehammer				TYPE:Melee.Simple
+Staff						TYPE:Melee.Simple
+Unarmed Strike				TYPE:Melee.Simple
 
-Ax							TYPE:Melee.Archaic
-Bayonet (Fixed)					TYPE:Melee.Archaic
-Bowie Knife						TYPE:Melee.Archaic
-Hatchet						TYPE:Melee.Archaic
-Tomahawk						TYPE:Melee.Archaic
-Longsword						TYPE:Melee.Archaic
-Pickax						TYPE:Melee.Archaic
-Rapier						TYPE:Melee.Archaic
-Saber							TYPE:Melee.Archaic
-Spear							TYPE:Melee.Archaic
-Straight Razor					TYPE:Melee.Archaic
-Sword cane						TYPE:Melee.Archaic
+Ax						TYPE:Melee.Archaic
+Bayonet (Fixed)				TYPE:Melee.Archaic
+Bowie Knife					TYPE:Melee.Archaic
+Hatchet					TYPE:Melee.Archaic
+Tomahawk					TYPE:Melee.Archaic
+Longsword					TYPE:Melee.Archaic
+Pickax					TYPE:Melee.Archaic
+Rapier					TYPE:Melee.Archaic
+Saber						TYPE:Melee.Archaic
+Spear						TYPE:Melee.Archaic
+Straight Razor				TYPE:Melee.Archaic
+Sword cane					TYPE:Melee.Archaic
 
-Chain							TYPE:Melee.Exotic
-Claymore						TYPE:Melee.Exotic
+Chain						TYPE:Melee.Exotic
+Claymore					TYPE:Melee.Exotic
 
 #Improvised
-Improvised Weapon (Diminutive)		TYPE:Melee.Improvised
-Improvised Weapon (Tiny)			TYPE:Melee.Improvised
-Improvised Weapon (Small)			TYPE:Melee.Improvised
-Improvised Weapon (Medium)			TYPE:Melee.Improvised
-Improvised Weapon (Large)			TYPE:Melee.Improvised
-Improvised Weapon (Huge)			TYPE:Melee.Improvised
-Improvised Weapon (Gargantuan)		TYPE:Melee.Improvised
-Improvised Weapon (Colossal)			TYPE:Melee.Improvised
+Improvised Weapon (Diminutive)	TYPE:Melee.Improvised
+Improvised Weapon (Tiny)		TYPE:Melee.Improvised
+Improvised Weapon (Small)		TYPE:Melee.Improvised
+Improvised Weapon (Medium)		TYPE:Melee.Improvised
+Improvised Weapon (Large)		TYPE:Melee.Improvised
+Improvised Weapon (Huge)		TYPE:Melee.Improvised
+Improvised Weapon (Gargantuan)	TYPE:Melee.Improvised
+Improvised Weapon (Colossal)		TYPE:Melee.Improvised
 #
-Improvised Weapon					TYPE:Melee.Improvised
+Improvised Weapon				TYPE:Melee.Improvised

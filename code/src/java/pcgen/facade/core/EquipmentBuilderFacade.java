@@ -1,5 +1,4 @@
 /*
- * EquipmentBuilderFacade.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,25 +14,21 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 14/09/2013
- *
- * $Id$
  */
 package pcgen.facade.core;
 
-import pcgen.facade.util.ReferenceFacade;
-
 import java.util.EnumSet;
 
+import pcgen.core.EquipmentModifier;
+import pcgen.core.SizeAdjustment;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 
 /**
  * EquipmentBuilderFacade defines the methods that can be used to build up a 
  * piece of custom equipment.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface EquipmentBuilderFacade
 {
@@ -46,39 +41,39 @@ public interface EquipmentBuilderFacade
 		PRIMARY, SECONDARY;
 
 		/**
-		 * @return
+		 * @return boolean {@code true} is Primary
 		 */
 		public boolean isPrimary()
 		{
 			return this == PRIMARY;
 		}
 	}
-	
-	public boolean addModToEquipment(EquipModFacade modifier, EquipmentHead head);
-	
-	public boolean removeModFromEquipment(EquipModFacade modifier, EquipmentHead head);
-	
+
+	public boolean addModToEquipment(EquipmentModifier modifier, EquipmentHead head);
+
+	public boolean removeModFromEquipment(EquipmentModifier modifier, EquipmentHead head);
+
 	public boolean setName(String name);
-	
+
 	public boolean setSProp(String sprop);
-	
+
 	public boolean setCost(String newCost);
-	
+
 	public boolean setWeight(String newWeight);
-	
-	public ListFacade<EquipModFacade> getAvailList(EquipmentHead head);
-	
-	public ListFacade<EquipModFacade> getSelectedList(EquipmentHead head);
-	
+
+	public ListFacade<EquipmentModifier> getAvailList(EquipmentHead head);
+
+	public ListFacade<EquipmentModifier> getSelectedList(EquipmentHead head);
+
 	public EquipmentFacade getEquipment();
 
 	/**
 	 * Is the modifier able to be added to the item of equipment?
-	 * @param eqModFacade The equipment modifier to be checked.
+	 * @param eqMod The equipment modifier to be checked.
 	 * @param head The equipment head that is being modified.
 	 * @return True if it can be added, false if not.
 	 */
-	public boolean canAddModifier(EquipModFacade eqModFacade, EquipmentHead head);
+	public boolean canAddModifier(EquipmentModifier eqMod, EquipmentHead head);
 
 	/**
 	 * Can this item of equipment be resized?
@@ -89,13 +84,13 @@ public interface EquipmentBuilderFacade
 	/**
 	 * @param newSize The new size for the equipment.
 	 */
-	public void setSize(SizeAdjustmentFacade newSize);
+	public void setSize(SizeAdjustment newSize);
 
 	/**
 	 * @return A reference to the equipment's current size.
 	 */
-	public ReferenceFacade<SizeAdjustmentFacade> getSizeRef();
-	
+	public ReferenceFacade<SizeAdjustment> getSizeRef();
+
 	/**
 	 * @return The equipment heads which can be customized on this item of equipment.
 	 */
@@ -103,22 +98,22 @@ public interface EquipmentBuilderFacade
 
 	/**
 	 * @param newValue
-	 * @return
+	 * @return boolean
 	 */
 	boolean setDamage(String newValue);
 
 	/**
-	 * @return
+	 * @return String Base Item Name
 	 */
 	public String getBaseItemName();
 
 	/**
-	 * @return
+	 * @return boolean
 	 */
 	public boolean isWeapon();
 
 	/**
-	 * @return
+	 * @return String Damage
 	 */
 	public String getDamage();
 

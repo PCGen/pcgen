@@ -17,10 +17,15 @@
  */
 package plugin.lsttokens.template;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Arrays;
 import java.util.List;
-
-import org.junit.Test;
 
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.LevelCommandFactory;
@@ -35,10 +40,12 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
 	static AddLevelToken token = new AddLevelToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -59,28 +66,28 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testInvalidInputNoPipe() throws PersistenceLayerException
+	public void testInvalidInputNoPipe()
 	{
 		assertFalse(parse("Fighter:3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoClass() throws PersistenceLayerException
+	public void testInvalidInputNoClass()
 	{
 		assertFalse(parse("|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoLevelCount() throws PersistenceLayerException
+	public void testInvalidInputNoLevelCount()
 	{
 		assertFalse(parse("Fighter|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoPipes() throws PersistenceLayerException
+	public void testInvalidInputTwoPipes()
 	{
 		assertFalse(parse("Fighter|3|3"));
 		assertNoSideEffects();
@@ -88,7 +95,6 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidInputNegativeLevelCount()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Fighter|-5"));
 		assertNoSideEffects();
@@ -96,14 +102,13 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Test
 	public void testInvalidInputZeroLevelCount()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("Fighter|0"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNotAClass() throws PersistenceLayerException
+	public void testInvalidInputNotAClass()
 	{
 		assertTrue(parse("NotAClass|3"));
 		assertConstructionError();
@@ -156,14 +161,14 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.removeListFor(ListKey.ADD_LEVEL);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		CDOMSingleRef<PCClass> cl = primaryContext.getReferenceContext().getCDOMReference(
@@ -197,7 +202,7 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	//	}
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		primaryProf.addToListFor(ListKey.ADD_LEVEL, null);
 		try
@@ -212,7 +217,7 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Cleric");
@@ -234,7 +239,7 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ListKey objectKey = ListKey.ADD_LEVEL;
 		primaryProf.addToListFor(objectKey, new Object());

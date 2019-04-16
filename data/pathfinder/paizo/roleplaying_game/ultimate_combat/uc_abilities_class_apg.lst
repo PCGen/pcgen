@@ -1,0 +1,8 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+# Ninja Supported Rogue Archetype:
+# Ability Name							Unique Key				Category of Ability	Type					Required Class		Multiple Requirements																									Description																																																					Ability																										Cost		Source Page		Aspects					FACT
+Scout									KEY:Ninja Archetype ~ Scout	CATEGORY:Archetype	TYPE:Archetype.NinjaArchetype	PRECLASS:1,Ninja=1	PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Ninja Archetype ~ Scout],[!PREFACT:1,ABILITIES,Ninja_Archetype_UncannyDodge=True,Ninja_Archetype_ImprovedUncannyDodge=True]	DESC:Not all rogues live in the city. Scouts frequently roam the wilderness, often banding together as bandits, but sometimes serving as guides, as trailblazers, or as companions to a ranger or barbarian warrior. More comfortable with sneaking and hiding outdoors, the scout is still effective in the city and the dungeon.	ABILITY:Ninja Class Feature|AUTOMATIC|Scout ~ Scout's Charge|PRECLASS:1,Ninja=4	ABILITY:Ninja Class Feature|AUTOMATIC|Scout ~ Skirmisher|PRECLASS:1,Ninja=8	COST:0	SOURCEPAGE:p.134	ASPECT:Archetype Base Class|Ninja	FACT:Ninja_CF_UncannyDodge|true	FACT:Ninja_CF_ImprovedUncannyDodge|true	FACT:Ninja_Archetype_UncannyDodge|true	FACT:Ninja_Archetype_ImprovedUncannyDodge|true
+
+CATEGORY=Special Ability|Scout ~ Scout's Charge.MOD										TYPE:Ninja Class Feature
+CATEGORY=Special Ability|Scout ~ Skirmisher.MOD											TYPE:Ninja Class Feature

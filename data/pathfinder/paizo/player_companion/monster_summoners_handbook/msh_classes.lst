@@ -1,0 +1,16 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Monster Summoner's Handbook	SOURCESHORT:MSH	SOURCEWEB:http://paizo.com/products/btpy9ela?Pathfinder-Player-Companion-Monster-Summoners-Handbook	SOURCEDATE:2015-07
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 2 May 2017
+
+# ==============================
+# Masterpiece Support
+# ==============================
+
+# Class Name
+CLASS:Bard.MOD
+1	TEMPLATE:Masterpiece Activation Monster Summoner
+
+# Class Name
+CLASS:Skald.MOD
+1	TEMPLATE:Masterpiece Activation Monster Summoner

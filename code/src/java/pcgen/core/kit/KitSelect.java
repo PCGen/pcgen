@@ -1,5 +1,4 @@
 /*
- * KitSelect.java
  * Copyright 2005 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 13, 2005
- *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -29,9 +24,7 @@ import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 
 /**
- * <code>KitSelect</code>.
- *
- * @author Aaron Divinsky &lt;boomer70@yahoo.com&gt;
+ * {@code KitSelect}.
  */
 public final class KitSelect extends BaseKit
 {
@@ -62,8 +55,7 @@ public final class KitSelect extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
-		List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
 		aKit.setSelectValue(theFormula.resolve(aPC, "").intValue());
 		return true;

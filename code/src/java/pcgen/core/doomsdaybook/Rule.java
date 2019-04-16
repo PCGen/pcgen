@@ -14,19 +14,13 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
- package pcgen.core.doomsdaybook;
-
-import pcgen.util.Logging;
+package pcgen.core.doomsdaybook;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author  devon
- */
+import pcgen.util.Logging;
+
 public class Rule extends ArrayList<String> implements DataElement
 {
 	ArrayList<DataValue> retList = new ArrayList<>();
@@ -62,7 +56,7 @@ public class Rule extends ArrayList<String> implements DataElement
 		this.weight = weight;
 	}
 
-    @Override
+	@Override
 	public ArrayList<DataValue> getData() throws Exception
 	{
 		retList.clear();
@@ -76,7 +70,7 @@ public class Rule extends ArrayList<String> implements DataElement
 		return retList;
 	}
 
-    @Override
+	@Override
 	public ArrayList<DataValue> getData(int choice) throws Exception
 	{
 		return getData();
@@ -87,13 +81,13 @@ public class Rule extends ArrayList<String> implements DataElement
 		this.id = id;
 	}
 
-    @Override
+	@Override
 	public String getId()
 	{
 		return id;
 	}
 
-    @Override
+	@Override
 	public ArrayList<DataValue> getLastData() throws Exception
 	{
 		retList.clear();
@@ -112,7 +106,7 @@ public class Rule extends ArrayList<String> implements DataElement
 		this.title = title;
 	}
 
-    @Override
+	@Override
 	public String getTitle()
 	{
 		return title;
@@ -123,7 +117,7 @@ public class Rule extends ArrayList<String> implements DataElement
 		this.weight = weight;
 	}
 
-    @Override
+	@Override
 	public int getWeight()
 	{
 		return weight;

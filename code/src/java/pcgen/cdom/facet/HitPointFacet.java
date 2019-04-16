@@ -42,22 +42,20 @@ import pcgen.core.SettingsHandler;
  * Specifically this Facet stores the number of hit points granted to a Player
  * Character for each PCClassLevel possessed by the Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class HitPointFacet extends
-		AbstractAssociationFacet<CharID, PCClassLevel, Integer> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class HitPointFacet extends AbstractAssociationFacet<CharID, PCClassLevel, Integer>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
-	
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+
 	private ClassFacet classFacet;
 
 	private RaceFacet raceFacet;
 
 	private TemplateFacet templateFacet;
-	
+
 	private LevelFacet levelFacet;
 
 	private BonusCheckingFacet bonusCheckingFacet;
@@ -70,17 +68,14 @@ public class HitPointFacet extends
 	 * @param totalLevel the level the hitpoints are being rolled for (used in maths)
 	 * @return the hitpoints for the given level.
 	 */
-	private static int rollHP(
-			final int min,
-			final int max,
-			final int totalLevel)
+	private static int rollHP(final int min, final int max, final int totalLevel)
 	{
 		int roll;
 
 		switch (SettingsHandler.getHPRollMethod())
 		{
 			case Constants.HP_USER_ROLLED:
-				roll = -1;
+				roll = 1;
 
 				break;
 
@@ -116,43 +111,12 @@ public class HitPointFacet extends
 
 				break;
 
-			case Constants.HP_STANDARD:default:
+			case Constants.HP_STANDARD:
+			default:
 				roll = Math.abs(RandomUtil.getRandomInt((max - min) + 1)) + min;
 
 				break;
 		}
-
-//		if (SettingsHandler.getShowHPDialogAtLevelUp())
-//		{
-//			final Object[] rollChoices = new Object[max - min + 2];
-//			rollChoices[0] = Constants.NONESELECTED;
-//
-//			for (int i = min; i <= max; ++i)
-//			{
-//				rollChoices[i - min + 1] = i;
-//			}
-//
-//			while (min <= max)
-//			{
-//				//TODO: This must be refactored away. Core shouldn't know about gui.
-//				final InputInterface ii = InputFactory.getInputInstance();
-//				final Object selectedValue = ii.showInputDialog(Globals.getRootFrame(),
-//					"Randomly generate a number between " + min + " and " + max
-//						+ "." + Constants.LINE_SEPARATOR
-//						+ "Select it from the box below.",
-//					SettingsHandler.getGame().getHPText() + " for "
-//						+ CoreUtility.ordinal(level) + " level of " + name,
-//					MessageType.INFORMATION,
-//					rollChoices, roll);
-//
-//				if ((selectedValue != null) && (selectedValue instanceof Integer))
-//				{
-//					roll = (Integer) selectedValue;
-//
-//					break;
-//				}
-//			}
-//		}
 
 		return roll;
 	}
@@ -169,8 +133,6 @@ public class HitPointFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -189,8 +151,7 @@ public class HitPointFacet extends
 				Processor<HitDie> dieLock = cdo.get(ObjectKey.HITDIE);
 				if (dieLock != null)
 				{
-					for (int level = 1; level <= classFacet.getLevel(id,
-						pcClass); level++)
+					for (int level = 1; level <= classFacet.getLevel(id, pcClass); level++)
 					{
 						HitDie baseHD = pcClass.getSafe(ObjectKey.LEVEL_HITDIE);
 						if (!baseHD.equals(getLevelHitDie(id, pcClass, level)))
@@ -304,36 +265,21 @@ public class HitPointFacet extends
 		}
 		else
 		{
-			final int min =
-					1
-						+ (int) bonusCheckingFacet.getBonus(id, "HD", "MIN")
-						+ (int) bonusCheckingFacet.getBonus(id, "HD", "MIN;CLASS."
-							+ pcc.getKeyName());
-			final int max =
-					getLevelHitDie(id, pcc, level).getDie()
-						+ (int) bonusCheckingFacet.getBonus(id, "HD", "MAX")
-						+ (int) bonusCheckingFacet.getBonus(id, "HD", "MAX;CLASS."
-							+ pcc.getKeyName());
+			final int min = 1 + (int) bonusCheckingFacet.getBonus(id, "HD", "MIN")
+				+ (int) bonusCheckingFacet.getBonus(id, "HD", "MIN;CLASS." + pcc.getKeyName());
+			final int max = getLevelHitDie(id, pcc, level).getDie() + (int) bonusCheckingFacet.getBonus(id, "HD", "MAX")
+				+ (int) bonusCheckingFacet.getBonus(id, "HD", "MAX;CLASS." + pcc.getKeyName());
 
-			if (SettingsHandler.getGame().getHPFormula().length() == 0)
+			if (first && maximizeHPatFirstLevel(pcc, level))
 			{
-				if (first
-					&& level == 1
-					&& SettingsHandler.isHPMaxAtFirstLevel()
-					&& (!SettingsHandler.isHPMaxAtFirstPCClassLevelOnly() || pcc
-						.isType("PC")))
+				roll = max;
+			}
+			else
+			{
+				PlayerCharacter pc = trackingFacet.getPC(id);
+				if (!pc.isImporting())
 				{
-					roll = max;
-				}
-				else
-				{
-					PlayerCharacter pc = trackingFacet.getPC(id);
-					if (!pc.isImporting())
-					{
-						roll =
-								rollHP(min, max,
-										levelFacet.getTotalLevels(id));
-					}
+					roll = rollHP(min, max, levelFacet.getTotalLevels(id));
 				}
 			}
 
@@ -341,6 +287,12 @@ public class HitPointFacet extends
 		}
 		PCClassLevel classLevel = classFacet.getClassLevel(id, pcc, level - 1);
 		set(id, classLevel, roll);
+	}
+
+	private boolean maximizeHPatFirstLevel(PCClass pcc, int level)
+	{
+		boolean classAllowsMaxHP = !SettingsHandler.isHPMaxAtFirstPCClassLevelOnly() || pcc.isType("PC");
+		return (level == 1) && SettingsHandler.isHPMaxAtFirstLevel() && classAllowsMaxHP;
 	}
 
 	public void setClassFacet(ClassFacet classFacet)

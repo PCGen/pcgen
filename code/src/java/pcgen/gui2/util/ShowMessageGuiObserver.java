@@ -1,5 +1,4 @@
 /*
- * ShowMessageGuiObserver.java
  *
  * Copyright 2004 (C) Frugal <frugal@purplewombat.co.uk>
  *
@@ -17,22 +16,20 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18-Dec-2003
  *
- * Current Ver: $Revision$
  *
  *
  *
  */
 package pcgen.gui2.util;
 
-import pcgen.cdom.base.Constants;
-import pcgen.facade.core.UIDelegate;
-import pcgen.core.utils.MessageType;
-import pcgen.core.utils.MessageWrapper;
-
 import java.util.Observable;
 import java.util.Observer;
+
+import pcgen.cdom.base.Constants;
+import pcgen.core.utils.MessageType;
+import pcgen.core.utils.MessageWrapper;
+import pcgen.facade.core.UIDelegate;
 
 public class ShowMessageGuiObserver implements Observer
 {
@@ -43,11 +40,6 @@ public class ShowMessageGuiObserver implements Observer
 		this.uiDelegate = uiDelegate;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-	 */
 	@Override
 	public void update(Observable o, Object arg)
 	{
@@ -60,13 +52,12 @@ public class ShowMessageGuiObserver implements Observer
 	public void showMessageDialog(MessageWrapper messageWrapper)
 	{
 		MessageType mt = messageWrapper.getMessageType();
-		String title =  messageWrapper
-				.getTitle();
+		String title = messageWrapper.getTitle();
 		if (title == null)
 		{
 			title = Constants.APPLICATION_NAME;
 		}
-			
+
 		String message = String.valueOf(messageWrapper.getMessage());
 		if (mt.equals(MessageType.WARNING))
 		{

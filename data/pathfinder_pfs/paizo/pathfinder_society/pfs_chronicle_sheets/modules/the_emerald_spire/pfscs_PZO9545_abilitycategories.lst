@@ -1,0 +1,26 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+# Ability Category				Visible		Editable?		Category of Object		Type of Object			Display where?													Display Location
+ABILITYCATEGORY:Chronicle_PZO9545-01	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-01	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: The Tower Ruins		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-02	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-02	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: The Cellars			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-03	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-03	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: Splinterden			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-04	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-04	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: Godhome				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-05	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-05	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: The Drowned Level		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-06	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-06	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: The Clockwork Maze		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-07	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-07	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: Shrine of the Awakener	DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-08	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-08	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: The Circle of Vissk-Thar	DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-09	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-09	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: The Spire Axis			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-10	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-10	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: The Magma Vault		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-11	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-11	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: The Tomb of Yarrix		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-12	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-12	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: The Automaton Forge		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-13	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-13	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: The Pleasure Gardens		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-14	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-14	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: The Throne of Azlant		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-15	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-15	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: Order and Chaos		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-16	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-16	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: The Emerald Root		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_PZO9545-17	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_PZO9545-17	DISPLAYNAME:Pathfinder Module: The Emerald Spire Superdungeon: Land Rush			DISPLAYLOCATION:Chronicles
+
+#
+# DONE
+#

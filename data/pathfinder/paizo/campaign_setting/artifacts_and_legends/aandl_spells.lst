@@ -1,0 +1,13 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Artifacts and Legends	SOURCESHORT:AandL	SOURCEWEB:http://paizo.com/products/btpy8u7k	SOURCEDATE:2012-10
+
+# Spell Name										Classes of caster																School			Casting Time		Source Page
+Masterpiece (Song of Extinction)							CLASSES:Bard=6[PRESKILL:1,Perform (Sing)=15,Perform (String Instruments)=15,Perform (Wind Instruments)=15]	SCHOOL:Masterpiece	CASTTIME:5 full rounds	SOURCEPAGE:p.49
+
+
+Barkskin.COPY=Barkskin (wielder only)
+Blight.COPY=Blight (swift action in combat)
+Gaseous Form.COPY=Gaseous Form (self only)
+Summon Monster IX.COPY=Summon Monster IX (elder earth elemental only)
+True Resurrection.COPY=True Resurrection (wielder only)
+Water Breathing.COPY=Water Breathing (self only)

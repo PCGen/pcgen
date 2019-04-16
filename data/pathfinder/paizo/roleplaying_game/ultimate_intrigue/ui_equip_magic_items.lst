@@ -1,0 +1,56 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEDATE:2016-04
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 29 March 2017
+
+# ==============================
+# New Magic Items
+# ==============================
+
+# Equipment Name					Type									Cost		Weight	Source Page		Ability														Special Property
+Accent Pill						TYPE:Magic.Wondrous.Consumable.LeastMinor			COST:300			SOURCEPAGE:p.243
+Best Friend Pendant				TYPE:Magic.Wondrous.Amulet.GreaterMinor			COST:5000			SOURCEPAGE:p.243
+Best Friend Pendant (Greater)			TYPE:Magic.Wondrous.Amulet.LesserMedium			COST:9000			SOURCEPAGE:p.243
+Black Marketeer's Bag				TYPE:Magic.Wondrous.GreaterMinor				COST:6200	WT:3		SOURCEPAGE:p.244
+Candle of Comity					TYPE:Magic.Wondrous.Consumable.LesserMinor		COST:2000	WT:1		SOURCEPAGE:p.244
+Candle of Drowsiness				TYPE:Magic.Wondrous.Consumable.LesserMinor		COST:2500	WT:.5		SOURCEPAGE:p.244
+Coat of Pockets					TYPE:Magic.Wondrous.Shirt.LesserMinor			COST:2500	WT:7		SOURCEPAGE:p.244
+Coat of the Undercity				TYPE:Magic.Wondrous.Shirt.GreaterMinor			COST:7500	WT:5		SOURCEPAGE:p.244
+Coat of the Undercity (Greater)		TYPE:Magic.Wondrous.Shirt.LesserMajor			COST:37500	WT:5		SOURCEPAGE:p.245
+Codex of Conversations				TYPE:Magic.Wondrous.LesserMedium				COST:10000	WT:3		SOURCEPAGE:p.245
+Costume Bureau					TYPE:Magic.Wondrous.GreaterMinor				COST:7000	WT:175	SOURCEPAGE:p.245
+Courier's Secure Pouch				TYPE:Magic.Wondrous.LesserMinor				COST:1600	WT:2		SOURCEPAGE:p.245
+Communique Ring					TYPE:Magic.Ring.GreaterMinor					COST:6000			SOURCEPAGE:p.241
+Deadened Shadows Cloak				TYPE:Magic.Wondrous.Cloak.GreaterMajor			COST:63250	WT:2		SOURCEPAGE:p.246
+Deck of Doors					TYPE:Magic.Wondrous.LesserMedium				COST:12150			SOURCEPAGE:p.246
+Fan of Flirting					TYPE:Magic.Wondrous.LesserMinor				COST:1700			SOURCEPAGE:p.246
+Ghost Needle					TYPE:Magic.Wondrous.Consumable.LesserMinor		COST:3600			SOURCEPAGE:p.246
+Glass of Veils					TYPE:Magic.Wondrous.GreaterMajor				COST:53000	WT:40		SOURCEPAGE:p.247
+Glittering Trinket (Belt Buckle)		TYPE:Magic.Wondrous.Belt.LeastMinor				COST:120	WT:.5		SOURCEPAGE:p.247
+Glittering Trinket (Bracelet)			TYPE:Magic.Wondrous.Bracer.LeastMinor			COST:120	WT:.5		SOURCEPAGE:p.247
+Glittering Trinket (Necklace)			TYPE:Magic.Wondrous.Amulet.LeastMinor			COST:120	WT:.5		SOURCEPAGE:p.247
+Glittering Trinket (Ring)			TYPE:Magic.Ring.LeastMinor					COST:120	WT:.5		SOURCEPAGE:p.247
+Gloves of Unexpected Violence			TYPE:Magic.Wondrous.Glove.LesserMedium			COST:10000			SOURCEPAGE:p.247	ABILITY:FEAT|VIRTUAL|Catch Off-Guard
+Gloves of Unexpected Violence (Expert)	TYPE:Magic.Wondrous.Glove.LesserMajor			COST:30000			SOURCEPAGE:p.247	ABILITY:FEAT|VIRTUAL|Catch Off-Guard	ABILITY:FEAT|VIRTUAL|Improvised Weapon Mastery
+Ink of Mimicry					TYPE:Magic.Wondrous.Consumable.LesserMinor		COST:1950			SOURCEPAGE:p.247
+Magnificent Map					TYPE:Magic.Wondrous.GreaterMinor				COST:7800	WT:.5		SOURCEPAGE:p.248
+Mask of Stolen Mien				TYPE:Magic.Wondrous.Headgear.LesserMedium			COST:17200	WT:.5		SOURCEPAGE:p.248
+Memory Box						TYPE:Magic.Wondrous.LesserMajor				COST:28000			SOURCEPAGE:p.248
+Monocle of Flawlessness				TYPE:Magic.Wondrous.Eyegear.LesserMedium			COST:8750			SOURCEPAGE:p.249																SPROP:+2 on saves to disbelieve illusions.
+Murderer's Silence				TYPE:Magic.Wondrous.Consumable.LeastMinor			COST:900	WT:1		SOURCEPAGE:p.249
+Parley Ward						TYPE:Magic.Wondrous.GreaterMajor				COST:52000	WT:2		SOURCEPAGE:p.249
+Pipe of Revealing Mists				TYPE:Magic.Wondrous.LesserMinor				COST:2592	WT:.5		SOURCEPAGE:p.249
+Planar Parchment					TYPE:Magic.Wondrous.Consumable.GreaterMedium		COST:18000	WT:1		SOURCEPAGE:p.250
+Polish of Inconspicuous Armor			TYPE:Magic.Wondrous.Consumable.LeastMinor			COST:750	WT:.5		SOURCEPAGE:p.250
+Private Palanquin					TYPE:Magic.Wondrous.GreaterMajor				COST:63000	WT:500	SOURCEPAGE:p.250
+Quick-Change Mask					TYPE:Magic.Wondrous.Consumable.Headgear.LeastMinor	COST:650			SOURCEPAGE:p.250
+Raucous Canard					TYPE:Magic.Wondrous.Consumable.LeastMinor			COST:100			SOURCEPAGE:p.251
+Ring of the Shadow Victim			TYPE:Magic.Ring.GreaterMajor					COST:101000			SOURCEPAGE:p.241
+Rings of Bondage					TYPE:Magic.Ring.GreaterMedium					COST:18200			SOURCEPAGE:p.242
+Rings of Bondage (Greater)			TYPE:Magic.Ring.LesserMajor					COST:42000			SOURCEPAGE:p.242
+Shadow Hand Smoke Pellet			TYPE:Magic.Wondrous.Consumable.LeastMinor			COST:800			SOURCEPAGE:p.251
+Swarmwalker's Ring				TYPE:Magic.Ring.GreaterMedium					COST:26000			SOURCEPAGE:p.242
+Time Bomb						TYPE:Magic.Wondrous.Consumable.LesserMinor		COST:1000	WT:1		SOURCEPAGE:p.251
+Time Bomb (Greater)				TYPE:Magic.Wondrous.Consumable.GreaterMinor		COST:6000	WT:1		SOURCEPAGE:p.251
+Vestments of False Faith			TYPE:Magic.Wondrous.Robe.GreaterMedium			COST:27000	WT:5		SOURCEPAGE:p.251

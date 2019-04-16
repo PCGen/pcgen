@@ -1,0 +1,17 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21684 $ $Author: spraynpray $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Roleplaying Guild Guide	SOURCESHORT:RGG8	SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play	SOURCEDATE:2015-08
+# Original Entry by: Andrew Wilson
+# Updated by: Jeff Baril
+# Updated by: Vincent Lhote
+# Updated by: Mark Means
+
+# Ability Name			Category of Ability	Type			Define													Multiple?	Choose		Modify VAR																							Aspects
+
+####################################
+# HANDLE CHANGED FEAT PREREQUISITE #
+####################################
+# According to RGG version 8, pp 8, "Feats and Traits" if a feat's prerequisites have changed, a PC may switch to the updated feat, ignoring the prerequisites or keep the feat or or retrain it at no cost.
+# One such feat issue is that "Improved Two-Weapon Feint" didn't originionally require "Two-Weapon Feint" as a prerequisite.
+# Ability Name					Category of Ability	Type			Required Ability														Multiple Requirements																						PRETOTALAB		Description																														Ability							Source Page
+Improved Two-Weapon Feint (PFS Errata)	CATEGORY:FEAT		TYPE:Combat.PFS	PREABILITY:3,CATEGORY=FEAT,Combat Expertise,Improved Two-Weapon Fighting,Two-Weapon Fighting	PREMULT:1,[PRESTAT:1,INT=13],[PREVARGTEQ:CombatFeatIntRequirement,13]	PREMULT:1,[PREVARGTEQ:PreStatScore_DEX,17],[PREVARGTEQ:FeatDexRequirement,17]	PRETOTALAB:6	DESC:You had Improved Two-Weapon Feint prior to the errata that added the Two-Weapon Feint prerequisite. You are permitted to switch to the updated feat, ignoring the prerequisites.	ABILITY:FEAT|VIRTUAL|Improved Two-Weapon Feint	SOURCEPAGE:p.8

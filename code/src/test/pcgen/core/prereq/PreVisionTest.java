@@ -1,14 +1,12 @@
 /*
- * Created on 22-Dec-2003
- *
  * To change the template for this generated file go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.SimpleAssociatedObject;
@@ -18,34 +16,15 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Vision;
 import pcgen.util.enumeration.VisionType;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * Tests PREVISION token
  */
 public class PreVisionTest extends AbstractCharacterTestCase
 {
-
-	/**
-	 * Main
-	 * 
-	 * @param args
-	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreVisionTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreVisionTest.class);
-	}
-
-	/**
-	 * @throws Exception
-	 */
-	public void testVision2Pass() throws Exception
+	@Test
+	public void testVision2Pass()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -73,10 +52,9 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testVisionFail() throws Exception
+
+	@Test
+	public void testVisionFail()
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -97,10 +75,8 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testVisionPass() throws Exception
+	@Test
+	public void testVisionPass()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -121,10 +97,9 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testVisionPresentTen() throws Exception
+
+	@Test
+	public void testVisionPresentTen()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -149,10 +124,8 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testVisionNotPresentTen() throws Exception
+	@Test
+	public void testVisionNotPresentTen()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -177,10 +150,8 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testVisionPresentZero() throws Exception
+	@Test
+	public void testVisionPresentZero()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -204,10 +175,8 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testVisionNotPresentZero() throws Exception
+	@Test
+	public void testVisionNotPresentZero()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -232,10 +201,8 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testVisionZeroTen() throws Exception
+	@Test
+	public void testVisionZeroTen()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -259,10 +226,8 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testVisionNotZeroTen() throws Exception
+	@Test
+	public void testVisionNotZeroTen()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -287,10 +252,8 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testVisionZeroZero() throws Exception
+	@Test
+	public void testVisionZeroZero()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();
@@ -314,10 +277,8 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-	/**
-	 * @throws Exception
-	 */
-	public void testVisionNotZeroZero() throws Exception
+	@Test
+	public void testVisionNotZeroZero()
 	{
 		final PlayerCharacter character = getCharacter();
 		final PCTemplate template = new PCTemplate();

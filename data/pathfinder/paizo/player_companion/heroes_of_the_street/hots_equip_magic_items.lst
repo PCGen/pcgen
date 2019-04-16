@@ -1,0 +1,25 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Heroes of the Streets	SOURCESHORT:HOTS	SOURCEWEB:http://paizo.com/products/btpy9ghc	SOURCEDATE:2015-10
+# Original Entry By: Gwen T. (evilpixie87)
+
+# ==============================
+# Magic Weapon and Armor
+# ==============================
+
+# Equipment Name			Required Weapon Proficiency		Required Armor Proficiency	Type															Contains			Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier																					Wield Category		Maximum DEX Bonus	Range		Size		Source Page		% of Spell Failure	Combat bonus								Modify VAR
+Cornerstone Crossbow		PROFICIENCY:WEAPON|Crossbow (Light)						TYPE:Weapon.Magic.Resizable.Simple.Ranged.Specific.Piercing.Container.Projectile.Crossbow	CONTAINS:UNLIM|Bolt	COST:35	WT:4					CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:Special Ability ~ Enhancement Cost|13000.Special Ability ~ Seeking ~ Ranged.Special Ability ~ +1 ~ Weapon.Material ~ Wood	WIELD:TwoHandsOnly				RANGE:80	SIZE:M	SOURCEPAGE:p.14
+
+Emissary's Breastplate								PROFICIENCY:ARMOR|Breastplate	TYPE:Armor.Magic.Medium.ArmorProfMedium.Suit.Specific											COST:200	WT:30		ACCHECK:-4								EQMOD:Special Ability ~ Enhancement Cost|10000.Material ~ Steel.Special Ability ~ +1 ~ Armor											MAXDEX:3						SOURCEPAGE:p.15	SPELLFAILURE:25		BONUS:COMBAT|AC|6|TYPE=Armor|PREVAREQ:DisableArmorBonus,0	BONUS:VAR|ArmorCheckPenalty|4
+
+# ==============================
+# Magic Items
+# ==============================
+
+Cloak of Daggers														TYPE:Magic.Wondrous.Cloak															COST:18000	WT:2																																												SOURCEPAGE:p.14
+Combat Sandals														TYPE:Magic.Wondrous.Boot															COST:18000	WT:3																																												SOURCEPAGE:p.14
+Diminishing Sash														TYPE:Magic.Wondrous.Belt															COST:5000	WT:1																																												SOURCEPAGE:p.14
+Maintenance Overseer's Ring												TYPE:Magic.Ring																	COST:8000																																													SOURCEPAGE:p.15
+Marker's Monocle														TYPE:Magic.Wondrous.Eyegear															COST:5600																																													SOURCEPAGE:p.15
+Pauper's Robes														TYPE:Magic.Wondrous.Robe															COST:2400	WT:4																																												SOURCEPAGE:p.15
+Pickpocket's Bandolier													TYPE:Magic.Wondrous.Shirt.Container										CONTAINS:12|Any		COST:12500	WT:2																																												SOURCEPAGE:p.15

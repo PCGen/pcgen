@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with CRFORMULA Token
  */
-public class CrformulaToken extends AbstractNonEmptyToken<PCClass> implements
-		CDOMPrimaryToken<PCClass>
+public class CrformulaToken extends AbstractNonEmptyToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override
@@ -40,14 +39,12 @@ public class CrformulaToken extends AbstractNonEmptyToken<PCClass> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc, String value)
 	{
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		context.getObjectContext().put(pcc, FormulaKey.CR, formula);
 		return ParseResult.SUCCESS;
@@ -61,7 +58,7 @@ public class CrformulaToken extends AbstractNonEmptyToken<PCClass> implements
 		{
 			return null;
 		}
-		return new String[] { f.toString() };
+		return new String[]{f.toString()};
 	}
 
 	@Override

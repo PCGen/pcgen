@@ -38,8 +38,8 @@ import pcgen.util.Logging;
  * This is for use in a case like AUTO:FEAT|%LIST where the Category and Nature
  * are known by the token, and the Ability and Selection are known by CHOOSE
  */
-public class AbilitySelector extends ConcretePrereqObject implements
-		QualifyingObject, ChooseSelectionActor<AbilitySelection>
+public class AbilitySelector extends ConcretePrereqObject
+		implements QualifyingObject, ChooseSelectionActor<AbilitySelection>
 {
 
 	private final String source;
@@ -93,8 +93,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver obj, AbilitySelection as,
-		PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, AbilitySelection as, PlayerCharacter pc)
 	{
 		CNAbility cna = CNAbilityFactory.getCNAbility(category.get(), nature, as.getObject());
 		CNAbilitySelection cnas = new CNAbilitySelection(cna, as.getSelection());
@@ -109,8 +108,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public void removeChoice(ChooseDriver obj, AbilitySelection as,
-		PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, AbilitySelection as, PlayerCharacter pc)
 	{
 		CNAbilitySelection cnas = pc.getAssociatedSelection(as);
 		if (cnas == null)
@@ -142,9 +140,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 		if (o instanceof AbilitySelector)
 		{
 			AbilitySelector other = (AbilitySelector) o;
-			return source.equals(other.source)
-					&& category.equals(other.category)
-					&& nature.equals(other.nature);
+			return source.equals(other.source) && category.equals(other.category) && nature == other.nature;
 		}
 		return false;
 	}

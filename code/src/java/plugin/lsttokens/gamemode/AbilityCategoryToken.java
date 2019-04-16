@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
  */
 package plugin.lsttokens.gamemode;
 
@@ -35,20 +33,18 @@ import pcgen.util.Logging;
  * <p>The class deligates the loading of the various subtokens to a separate
  * loader.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  */
 public class AbilityCategoryToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		final AbilityCategoryLoader loader = new AbilityCategoryLoader();
 		try
 		{
-			loader.parseLine(gameMode.getModeContext(), getTokenName() + ':'
-					+ value, source);
+			loader.parseLine(gameMode.getModeContext(), getTokenName() + ':' + value, source);
 		}
 		catch (PersistenceLayerException e)
 		{
@@ -75,10 +71,8 @@ public class AbilityCategoryToken implements GameModeLstToken
 
 	/**
 	 * Returns the name of the token this class handles.
-	 * 
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "ABILITYCATEGORY"; //$NON-NLS-1$

@@ -1,0 +1,5 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+#SOURCELONG:Bestiary 5	SOURCESHORT:B5	SOURCEWEB:http://paizo.com/products/btpy9g9x	SOURCEDATE:2015-12
+
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Display Location
+ABILITYCATEGORY:Clockwork Familiar Installed Item Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ClockworkFamiliarInstalledItem	DISPLAYLOCATION:Racial Features

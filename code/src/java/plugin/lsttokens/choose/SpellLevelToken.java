@@ -62,8 +62,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	public ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
@@ -100,42 +99,37 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail("Found no arguments in "
-				+ getFullName() + ": " + value, context);
+			return new ParseResult.Fail("Found no arguments in " + getFullName() + ": " + value);
 		}
 		List<SpellLevelInfo> sliList = new ArrayList<>();
 		while (sep.hasNext())
 		{
 			String token = sep.next();
-			PrimitiveCollection<PCClass> pcf =
-					context.getPrimitiveChoiceFilter(
-						context.getReferenceContext().getManufacturer(PCClass.class), token);
+			PrimitiveCollection<PCClass> pcf = context
+				.getPrimitiveChoiceFilter(context.getReferenceContext().getManufacturer(PCClass.class), token);
 			if (!sep.hasNext())
 			{
 				return new ParseResult.Fail(
-					"Expected minimum level argument after " + token + " in "
-						+ getFullName() + ": " + value, context);
+					"Expected minimum level argument after " + token + " in " + getFullName() + ": " + value);
 			}
 			String minLevelString = sep.next();
 			Formula minLevel = FormulaFactory.getFormulaFor(minLevelString);
 			if (!sep.hasNext())
 			{
 				return new ParseResult.Fail(
-					"Expected maximum level argument after " + minLevelString
-						+ " in " + getFullName() + ": " + value, context);
+					"Expected maximum level argument after " + minLevelString + " in " + getFullName() + ": " + value);
 			}
 			String maxLevelString = sep.next();
 			Formula maxLevel = FormulaFactory.getFormulaFor(maxLevelString);
 			if (!maxLevel.isValid())
 			{
-				return new ParseResult.Fail("Max Level Formula in "
-					+ getTokenName() + " was not valid: " + maxLevel.toString(), context);
+				return new ParseResult.Fail(
+					"Max Level Formula in " + getTokenName() + " was not valid: " + maxLevel.toString());
 			}
 			SpellLevelInfo sli = new SpellLevelInfo(pcf, minLevel, maxLevel);
 			sliList.add(sli);
 		}
-		SpellLevelChooseInformation tc =
-				new SpellLevelChooseInformation(getTokenName(), sliList);
+		SpellLevelChooseInformation tc = new SpellLevelChooseInformation(getTokenName(), sliList);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -150,9 +144,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject cdo)
 	{
-		ChooseInformation<?> tc =
-				context.getObjectContext()
-					.getObject(cdo, ObjectKey.CHOOSE_INFO);
+		ChooseInformation<?> tc = context.getObjectContext().getObject(cdo, ObjectKey.CHOOSE_INFO);
 		if (tc == null)
 		{
 			return null;
@@ -170,8 +162,8 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		}
 		if (!tc.getGroupingState().isValid())
 		{
-			context.addWriteMessage("Invalid combination of objects"
-				+ " was used in: " + getParentToken() + Constants.COLON + getTokenName());
+			context.addWriteMessage("Invalid combination of objects" + " was used in: " + getParentToken()
+				+ Constants.COLON + getTokenName());
 			return null;
 		}
 		StringBuilder sb = new StringBuilder();
@@ -192,8 +184,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner,
-		SpellLevel choice)
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, SpellLevel choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -207,8 +198,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		SpellLevel choice)
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, SpellLevel choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -222,15 +212,13 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public List<SpellLevel> getCurrentlySelected(ChooseDriver owner,
-		PlayerCharacter pc)
+	public List<SpellLevel> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
 
 	@Override
-	public boolean allow(SpellLevel choice, PlayerCharacter pc,
-		boolean allowStack)
+	public boolean allow(SpellLevel choice, PlayerCharacter pc, boolean allowStack)
 	{
 		/*
 		 * This is universally true, as any filter for qualify, etc. was dealt
@@ -264,7 +252,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 	@Override
 	public SpellLevel decodeChoice(LoadContext context, String s)
 	{
-		return SpellLevel.decodeChoice(s);
+		return SpellLevel.decodeChoice(context, s);
 	}
 
 	@Override

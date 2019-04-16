@@ -1,0 +1,25 @@
+
+FOLLOWER:ShamanMammothSpiritAnimal=1	TYPE:Familiar		ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Mammoth
+
+FOLLOWER:ShamanMammothSpiritAnimal=1	TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Spirit Animal ~ Mammoth
+
+FOLLOWER:SpiritAnimalToMegafauna=1		TYPE:Animal Companion	ABILITY:Internal|AUTOMATIC|Mammoth Spirit ~ Megafauna Companion Intelligence
+
+FOLLOWER:SpiritPhantomFocus_Battle=1	TYPE:Phantom		ABILITY:Special Ability|AUTOMATIC|Spirit Phantom Focus ~ Battle		
+FOLLOWER:SpiritPhantomFocus_Bones=1		TYPE:Phantom		ABILITY:Special Ability|AUTOMATIC|Spirit Phantom Focus ~ Bones		
+FOLLOWER:SpiritPhantomFocus_Flame=1		TYPE:Phantom		ABILITY:Special Ability|AUTOMATIC|Spirit Phantom Focus ~ Flame		
+FOLLOWER:SpiritPhantomFocus_Heavens=1	TYPE:Phantom		ABILITY:Special Ability|AUTOMATIC|Spirit Phantom Focus ~ Heavens		
+FOLLOWER:SpiritPhantomFocus_Life=1		TYPE:Phantom		ABILITY:Special Ability|AUTOMATIC|Spirit Phantom Focus ~ Life		
+FOLLOWER:SpiritPhantomFocus_Lore=1		TYPE:Phantom		ABILITY:Special Ability|AUTOMATIC|Spirit Phantom Focus ~ Lore		
+FOLLOWER:SpiritPhantomFocus_Nature=1	TYPE:Phantom		ABILITY:Special Ability|AUTOMATIC|Spirit Phantom Focus ~ Nature		
+FOLLOWER:SpiritPhantomFocus_Stone=1		TYPE:Phantom		ABILITY:Special Ability|AUTOMATIC|Spirit Phantom Focus ~ Stone		
+FOLLOWER:SpiritPhantomFocus_Waves=1		TYPE:Phantom		ABILITY:Special Ability|AUTOMATIC|Spirit Phantom Focus ~ Waves		
+FOLLOWER:SpiritPhantomFocus_Wind=1		TYPE:Phantom		ABILITY:Special Ability|AUTOMATIC|Spirit Phantom Focus ~ Wind		
+
+
+FOLLOWER:GrantGiganticSteed=1			TYPE:Animal Companion	ABILITY:Internal|AUTOMATIC|Gigantic Steed ~ Companion
+FOLLOWER:GrantRuggedSteed=1			TYPE:Animal Companion	ABILITY:Internal|AUTOMATIC|Rugged Steed ~ Companion
+FOLLOWER:GrantSteedsReach=1			TYPE:Animal Companion	ABILITY:Internal|AUTOMATIC|Steed's Reach ~ Companion
+FOLLOWER:MasterIsAsavir=1			TYPE:Animal Companion	ABILITY:Internal|AUTOMATIC|Asavir Mount Bonuses
+FOLLOWER:MasterIsRavenMaster=1		TYPE:Animal Companion	ABILITY:Internal|AUTOMATIC|Raven Master ~ Companion Abilities
+

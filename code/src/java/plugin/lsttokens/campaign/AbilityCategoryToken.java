@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on November 20, 2007
  */
 package plugin.lsttokens.campaign;
 
@@ -27,14 +26,10 @@ import pcgen.rules.persistence.token.AbstractBasicCampaignToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
- * <code>AbilityCategoryToken</code> parses ABILITYCATEGORY in campaign (pcc)
+ * {@code AbilityCategoryToken} parses ABILITYCATEGORY in campaign (pcc)
  * files.
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class AbilityCategoryToken extends AbstractBasicCampaignToken implements
-		CDOMPrimaryToken<Campaign>
+public class AbilityCategoryToken extends AbstractBasicCampaignToken implements CDOMPrimaryToken<Campaign>
 {
 	@Override
 	public String getTokenName()

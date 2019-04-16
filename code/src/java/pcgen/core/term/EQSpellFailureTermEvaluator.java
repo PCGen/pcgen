@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.EQSpellFailureTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03-Oct-2008 02:42:03
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -34,27 +30,21 @@ public class EQSpellFailureTermEvaluator extends BaseEQTermEvaluator implements 
 {
 	public EQSpellFailureTermEvaluator(String expressionString)
 	{
-		this.originalText =expressionString;
+		this.originalText = expressionString;
 	}
 
 	@Override
-	public Float resolve(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc)
+	public Float resolve(Equipment eq, boolean primary, PlayerCharacter pc)
 	{
-		return convertToFloat(originalText, evaluate(eq, primary, pc));
+		return TermUtil.convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
 	@Override
-	public String evaluate(
-			Equipment eq,
-			boolean primary,
-			PlayerCharacter pc) {
+	public String evaluate(Equipment eq, boolean primary, PlayerCharacter pc)
+	{
 		if (pc.hasControl(CControl.EQSPELLFAILURE))
 		{
-			Logging.errorPrint("EQSPELLFAIL term is disabled "
-				+ "when EQSPELLFAILURE control is used");
+			Logging.errorPrint("EQSPELLFAIL term is disabled " + "when EQSPELLFAILURE control is used");
 		}
 		return String.valueOf(eq.getSafe(IntegerKey.SPELL_FAILURE));
 	}

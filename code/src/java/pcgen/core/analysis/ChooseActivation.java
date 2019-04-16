@@ -20,8 +20,12 @@ package pcgen.core.analysis;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 
-public class ChooseActivation
+public final class ChooseActivation
 {
+
+	private ChooseActivation()
+	{
+	}
 
 	/**
 	 * Check if an object has a new style choose. As at Oct 2013 this meant any

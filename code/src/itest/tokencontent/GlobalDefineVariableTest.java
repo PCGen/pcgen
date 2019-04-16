@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.FacetLibrary;
@@ -24,7 +26,10 @@ import pcgen.cdom.facet.analysis.VariableFacet;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.DefineLst;
+
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalDefineVariableTest extends AbstractContentTokenTest
 {
@@ -32,8 +37,9 @@ public class GlobalDefineVariableTest extends AbstractContentTokenTest
 	private static DefineLst token = new DefineLst();
 	private VariableFacet variableFacet;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		variableFacet = FacetLibrary.getFacet(VariableFacet.class);
@@ -45,7 +51,7 @@ public class GlobalDefineVariableTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "This|0");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

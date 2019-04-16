@@ -1,5 +1,4 @@
 /*
- * EntityEncoder.java
  * Copyright 2002 (C) Thomas Behr <ravenlock@gmx.de>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 09, 2002, 0:00 AM
  */
 package pcgen.io;
 
@@ -30,7 +28,6 @@ import java.util.StringTokenizer;
  * Encodes reserved characters and escape sequences as entities<br>
  * Decodes entities as reserved characters and escape sequences
  *
- * @author Thomas Behr
  */
 public final class EntityEncoder
 {
@@ -88,11 +85,9 @@ public final class EntityEncoder
 		final StringBuilder buffer = new StringBuilder();
 		final StringTokenizer tokens = new StringTokenizer(s, "&;", true);
 
-		String cToken;
-
 		while (tokens.hasMoreTokens())
 		{
-			cToken = tokens.nextToken();
+			String cToken = tokens.nextToken();
 
 			if ("&".equals(cToken))
 			{
@@ -152,7 +147,7 @@ public final class EntityEncoder
 		if (s != null)
 		{
 			final StringTokenizer tokens = new StringTokenizer(s, ENCODE, true);
-	
+
 			while (tokens.hasMoreTokens())
 			{
 				buffer.append(ENTITIES.get(tokens.nextToken()));
@@ -182,7 +177,7 @@ public final class EntityEncoder
 		if (s != null)
 		{
 			final StringTokenizer tokens = new StringTokenizer(s, ENCODE_LIGHT, true);
-	
+
 			while (tokens.hasMoreTokens())
 			{
 				buffer.append(ENTITIES_LIGHT.get(tokens.nextToken()));
@@ -203,9 +198,9 @@ final class EntityMap
 	 */
 	public String get(String key)
 	{
-		final Object value = map.get(key);
+		final String value = map.get(key);
 
-		return (value == null) ? key : (String) value;
+		return (value == null) ? key : value;
 	}
 
 	/**

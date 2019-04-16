@@ -17,10 +17,10 @@
  */
 package plugin.lsttokens;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
@@ -36,10 +36,13 @@ import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class DescLstTest extends AbstractGlobalTokenTestCase
 {
 	static CDOMPrimaryToken<CDOMObject> token = new DescLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()
@@ -54,7 +57,13 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}
@@ -65,7 +74,7 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -76,58 +85,60 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Test
-	public void testInvalidDoublePipe() throws PersistenceLayerException
+	public void testInvalidDoublePipe()
 	{
 		assertFalse(parse("SA Number %||VarF"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidEndingPipe() throws PersistenceLayerException
+	public void testInvalidEndingPipe()
 	{
 		assertFalse(parse("SA Number|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidStartingPipe() throws PersistenceLayerException
+	public void testInvalidStartingPipe()
 	{
 		assertFalse(parse("|Var"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidVarAfterPre() throws PersistenceLayerException
+	public void testInvalidVarAfterPre()
 	{
 		assertFalse(parse("SA % plus %|Var|PRECLASS:1,Fighter|Var2"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidOnlyPre() throws PersistenceLayerException
+	public void testInvalidOnlyPre()
 	{
 		assertFalse(parse("PRECLASS:1,Fighter"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidParen() throws PersistenceLayerException
+	public void testInvalidParen()
 	{
 		assertFalse(parse("The caster gains attack, damage bonus, +(min(6,(CASTERLEVEL/3))."));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testGoodParentheses() throws PersistenceLayerException {
+	public void testGoodParentheses()
+	{
 		assertTrue(parse("(first)"));
 	}
 	
 	@Test
-	public void testBadParentheses() throws PersistenceLayerException {
-		assertFalse("Missing end paren should have been flagged.", parse("(first"));
-		assertFalse("Missing start paren should have been flagged.", parse("first)"));
-		assertFalse("Missing start paren should have been flagged.", parse("(fir)st)"));
-		assertFalse("Out of order parens should have been flagged.", parse(")(fir(st)"));
+	public void testBadParentheses()
+	{
+		assertFalse(parse("(first"), "Missing end paren should have been flagged.");
+		assertFalse(parse("first)"), "Missing start paren should have been flagged.");
+		assertFalse(parse("(fir)st)"), "Missing start paren should have been flagged.");
+		assertFalse(parse(")(fir(st)"), "Out of order parens should have been flagged.");
 		assertNoSideEffects();
 	}
 

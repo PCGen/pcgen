@@ -16,8 +16,8 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  */
 package plugin.lsttokens.equipmentmodifier;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.EquipmentModifier;
@@ -28,11 +28,13 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifier>
 {
 
 	static ChargesToken token = new ChargesToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()
@@ -53,56 +55,56 @@ public class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidNoPipe() throws PersistenceLayerException
+	public void testInvalidNoPipe()
 	{
 		assertFalse(parse("4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidTwoPipe() throws PersistenceLayerException
+	public void testInvalidTwoPipe()
 	{
 		assertFalse(parse("4|5|6"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMinNaN() throws PersistenceLayerException
+	public void testInvalidMinNaN()
 	{
 		assertFalse(parse("String|4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMaxNaN() throws PersistenceLayerException
+	public void testInvalidMaxNaN()
 	{
 		assertFalse(parse("3|Str"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMinNegative() throws PersistenceLayerException
+	public void testInvalidMinNegative()
 	{
 		assertFalse(parse("-4|5"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMaxNegative() throws PersistenceLayerException
+	public void testInvalidMaxNegative()
 	{
 		assertFalse(parse("6|-7"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidMaxLTMin() throws PersistenceLayerException
+	public void testInvalidMaxLTMin()
 	{
 		assertFalse(parse("7|3"));
 		assertNoSideEffects();
@@ -139,7 +141,7 @@ public class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testUnparseMinNull() throws PersistenceLayerException
+	public void testUnparseMinNull()
 	{
 		primaryProf.put(IntegerKey.MIN_CHARGES, null);
 		primaryProf.put(IntegerKey.MAX_CHARGES, 1);
@@ -147,7 +149,7 @@ public class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testUnparseMaxNull() throws PersistenceLayerException
+	public void testUnparseMaxNull()
 	{
 		primaryProf.put(IntegerKey.MIN_CHARGES, 1);
 		primaryProf.put(IntegerKey.MAX_CHARGES, null);
@@ -155,43 +157,43 @@ public class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@Test
-	public void testUnparseNormal() throws PersistenceLayerException
+	public void testUnparseNormal()
 	{
 		expectSingle(setAndUnparse(5, 10), "5|10");
 	}
 
 	@Test
-	public void testUnparseEqual() throws PersistenceLayerException
+	public void testUnparseEqual()
 	{
 		expectSingle(setAndUnparse(5, 5), "5|5");
 	}
 
 	@Test
-	public void testUnparseZeroMin() throws PersistenceLayerException
+	public void testUnparseZeroMin()
 	{
 		expectSingle(setAndUnparse(0, 5), "0|5");
 	}
 
 	@Test
-	public void testUnparseZeroMinMax() throws PersistenceLayerException
+	public void testUnparseZeroMinMax()
 	{
 		expectSingle(setAndUnparse(0, 0), "0|0");
 	}
 
 	@Test
-	public void testUnparseMaxLTMin() throws PersistenceLayerException
+	public void testUnparseMaxLTMin()
 	{
 		assertNull(setAndUnparse(10, 5));
 	}
 
 	@Test
-	public void testUnparseNegativeMin() throws PersistenceLayerException
+	public void testUnparseNegativeMin()
 	{
 		assertNull(setAndUnparse(-5, 10));
 	}
 
 	@Test
-	public void testUnparseNegativeMax() throws PersistenceLayerException
+	public void testUnparseNegativeMax()
 	{
 		assertNull(setAndUnparse(5, -10));
 	}

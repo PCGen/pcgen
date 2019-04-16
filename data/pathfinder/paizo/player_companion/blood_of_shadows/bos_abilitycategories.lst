@@ -1,0 +1,13 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+# SOURCELONG:Blood of Shadows	SOURCESHORT:BOS	SOURCEWEB:http://paizo.com/products/btpy9j6s?Pathfinder-Player-Companion-Blood-of-Shadows	SOURCEDATE:2016-02
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 April 2016
+
+
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list			Plural description for UI			Display Location
+ABILITYCATEGORY:Drow Spirit					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ElfMagic																		DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Shadow Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowRevelation.GeneralRevelation							PLURAL:Shadow Mystery Revelations		DISPLAYLOCATION:Class Features
+
+ABILITYCATEGORY:BoS Bonus Teamwork Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork											PLURAL:BoS Bonus Teamwork Feats		DISPLAYLOCATION:Feats

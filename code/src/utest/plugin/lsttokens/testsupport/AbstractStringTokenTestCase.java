@@ -17,29 +17,34 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.persistence.PersistenceLayerException;
 
+import org.junit.jupiter.api.Test;
+
 public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 		AbstractCDOMTokenTestCase<T>
 {
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
-		assertEquals(null, primaryProf.get(getStringKey()));
+		assertNull(primaryProf.get(getStringKey()));
 		assertNoSideEffects();
 	}
 
 	protected abstract boolean isClearLegal();
 
 	@Test
-	public void testInputClear() throws PersistenceLayerException
+	public void testInputClear()
 	{
 		try
 		{
@@ -55,7 +60,7 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("Niederösterreich"));
 		assertEquals("Niederösterreich", primaryProf.get(getStringKey()));
@@ -72,24 +77,24 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	public abstract StringKey getStringKey();
 
 	@Test
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 		String[] unparsed;
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 		assertTrue(parse("Start"));
 		assertTrue(parse("Mod"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "Mod", unparsed[0]);
+		assertEquals("Mod", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 	}
 
@@ -136,13 +141,13 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		expectSingle(setAndUnparse(getLegalValue()), getLegalValue());
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getStringKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));

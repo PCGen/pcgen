@@ -17,19 +17,15 @@
  */
 package pcgen.cdom.inst;
 
-import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
-import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.ScopeFacet;
-import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.analysis.ResultFacet;
-import pcgen.core.EquipmentModifier;
+import pcgen.cdom.formula.scope.EquipmentPartScope;
 
 /**
  * An EquipmentHead is a CDOMObject that represents characteristics of a single
@@ -38,9 +34,6 @@ import pcgen.core.EquipmentModifier;
  */
 public final class EquipmentHead extends CDOMObject
 {
-	private static final SolverManagerFacet SOLVER_FACET = FacetLibrary
-			.getFacet(SolverManagerFacet.class);
-	private static final ScopeFacet SCOPE_FACET = FacetLibrary.getFacet(ScopeFacet.class);
 
 	/*
 	 * Note: The equality issue referenced below (and the reason for the
@@ -71,11 +64,7 @@ public final class EquipmentHead extends CDOMObject
 	 */
 	public EquipmentHead(VarScoped source, int idx)
 	{
-		if (source == null)
-		{
-			throw new IllegalArgumentException(
-				"Source for EquipmentHead cannot be null");
-		}
+		Objects.requireNonNull(source, "Source for EquipmentHead cannot be null");
 		index = idx;
 		headSource = source;
 	}
@@ -90,11 +79,6 @@ public final class EquipmentHead extends CDOMObject
 		return index;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this EquipmentHead
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -106,13 +90,6 @@ public final class EquipmentHead extends CDOMObject
 		return headSource;
 	}
 
-	/**
-	 * Returns true if this EquipmentHead is equal to the given Object. Equality
-	 * is defined as being another EquipmentHead object with equal CDOM
-	 * characteristics
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -128,53 +105,22 @@ public final class EquipmentHead extends CDOMObject
 		return other.index == index && other.headSource.equals(headSource);
 	}
 
-	/**
-	 * Returns true if the EquipmentHead is of the given Type; false otherwise.
-	 * 
-	 * @see pcgen.cdom.base.CDOMObject#isType(java.lang.String)
-	 */
 	@Override
 	public boolean isType(String type)
 	{
 		return false;
 	}
 
-	public void removeVarModifiers(CharID id, EquipmentModifier aMod)
+	@Override
+	public Optional<String> getLocalScopeName()
 	{
-		List<VarModifier<?>> modifiers = aMod.getListFor(ListKey.MODIFY);
-		if (modifiers != null)
-		{
-			ScopeInstance inst = SCOPE_FACET.get(id, aMod.getLocalScopeName(), aMod);
-			for (VarModifier<?> vm : modifiers)
-			{
-				SOLVER_FACET.addModifier(id, vm, this, inst);
-			}
-		}
-	}
-
-	public void addVarModifiers(CharID id, EquipmentModifier aMod)
-	{
-		List<VarModifier<?>> modifiers = aMod.getListFor(ListKey.MODIFY);
-		if (modifiers != null)
-		{
-			ScopeInstance inst = SCOPE_FACET.get(id, aMod.getLocalScopeName(), aMod);
-			for (VarModifier<?> vm : modifiers)
-			{
-				SOLVER_FACET.addModifier(id, vm, this, inst);
-			}
-		}
+		return Optional.of(EquipmentPartScope.PC_EQUIPMENT_PART);
 	}
 
 	@Override
-	public String getLocalScopeName()
+	public Optional<VarScoped> getVariableParent()
 	{
-		return "EQUIPMENT.PART";
-	}
-
-	@Override
-	public VarScoped getVariableParent()
-	{
-		return headSource;
+		return Optional.of(headSource);
 	}
 
 	public Object getLocalVariable(CharID id, String varName)

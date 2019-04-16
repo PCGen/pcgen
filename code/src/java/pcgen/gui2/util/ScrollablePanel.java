@@ -1,5 +1,4 @@
 /*
- * ScrollablePanel.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -19,29 +18,26 @@
  */
 
 /*
- * Created on Sep 27, 2004
- *
  * TODO To change the template for this generated file go to
  * Window - Preferences - Java - Code Style - Code Templates
  */
 package pcgen.gui2.util;
 
-import javax.swing.JPanel;
-import javax.swing.Scrollable;
 import java.awt.Dimension;
 import java.awt.Rectangle;
 
+import javax.swing.JPanel;
+import javax.swing.Scrollable;
+
 /**
- * The Class <code>ScrollablePanel</code> provides a panel which can be 
+ * The Class {@code ScrollablePanel} provides a panel which can be
  * dynamically built up and displayed in a JScrollPane.  
  *
- * <br>
  * 
- * @author Devon Jones
  */
 public class ScrollablePanel extends JPanel implements Scrollable
 {
-	int scrollNum;
+	private int scrollNum;
 
 	//
 	// Scrollable methods
@@ -53,11 +49,10 @@ public class ScrollablePanel extends JPanel implements Scrollable
 	 */
 	public ScrollablePanel(int scrollNum)
 	{
-		super();
 		this.scrollNum = scrollNum;
 	}
 
-    @Override
+	@Override
 	public Dimension getPreferredScrollableViewportSize()
 	{
 		return getPreferredSize();
@@ -70,9 +65,8 @@ public class ScrollablePanel extends JPanel implements Scrollable
 	 * @param direction
 	 * @return int
 	 */
-    @Override
-	public int getScrollableUnitIncrement(Rectangle visibleRect,
-		int orientation, int direction)
+	@Override
+	public int getScrollableUnitIncrement(Rectangle visibleRect, int orientation, int direction)
 	{
 		return scrollNum;
 	}
@@ -84,20 +78,19 @@ public class ScrollablePanel extends JPanel implements Scrollable
 	 * @param direction
 	 * @return int
 	 */
-    @Override
-	public int getScrollableBlockIncrement(Rectangle visibleRect,
-		int orientation, int direction)
+	@Override
+	public int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction)
 	{
 		return scrollNum;
 	}
 
-    @Override
+	@Override
 	public boolean getScrollableTracksViewportWidth()
 	{
 		return true;
 	}
 
-    @Override
+	@Override
 	public boolean getScrollableTracksViewportHeight()
 	{
 		return false;

@@ -17,28 +17,15 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreEquipTwoWeaponParser;
 import plugin.pretokens.writer.PreEquipTwoWeaponWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class PreEquipTwoWeaponRoundRobin extends AbstractEquipmentRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreEquipTwoWeaponRoundRobin.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreEquipTwoWeaponRoundRobin.class);
-	}
-
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

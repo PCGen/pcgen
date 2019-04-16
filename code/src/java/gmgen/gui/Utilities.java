@@ -1,6 +1,4 @@
 /*
- * Utilities.java
- *
  * Copyright 2002, 2003 (C) B. K. Oxley (binkley) <binkley@alumni.rice.edu>
  *
  * This library is free software; you can redistribute it and/or
@@ -17,24 +15,15 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA.
- *
- * Created on August 18th, 2002.
  */
-package gmgen.gui; // hm.binkley.gui;
+package gmgen.gui;
 
+import java.net.URL;
 
 import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
-import java.awt.event.InputEvent;
-import java.awt.event.MouseEvent;
 
 /**
- * {@code Utilities}.
- *
- * @author &lt;a href="binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
- *
- * @see SwingConstants
+ * Utility Code for manipulating the GUI
  */
 final class Utilities
 {
@@ -42,6 +31,8 @@ final class Utilities
 	private Utilities()
 	{
 	}
+
+	private static final String RESOURE_PREFIX = "resources/";
 
 	/**
 	 * Fetch an {@code ImageIcon} relative to the calling
@@ -51,35 +42,9 @@ final class Utilities
 	 *
 	 * @return {@code ImageIcon}, the icon or {@code null} on failure
 	 */
-		static ImageIcon getImageIcon(final String location)
+	static ImageIcon getImageIcon(final String location)
 	{
 		return getImageIcon(location, null);
-	}
-
-	/**
-	 * Work around bug in W32; it returns false even on right-mouse
-	 * clicks.
-	 *
-	 * @param e {@code MouseEvent}, the event
-	 *
-	 * @return {@code boolean}, the condition
-	 */
-	static boolean isRightMouseButton(final MouseEvent e)
-	{
-		return e.isPopupTrigger() || SwingUtilities.isRightMouseButton(e);
-	}
-
-	/**
-	 * {@code isShiftLeftMouseButton} detects SHIFT-BUTTON1
-	 * events for flipping pane shortcuts.
-	 *
-	 * @param e {@code MouseEvent}, the event
-	 *
-	 * @return {@code boolean}, the condition
-	 */
-	static boolean isShiftLeftMouseButton(MouseEvent e)
-	{
-		return ((e.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK) && e.isShiftDown();
 	}
 
 	/**
@@ -95,13 +60,20 @@ final class Utilities
 	 */
 	private static ImageIcon getImageIcon(String location, final String description)
 	{
-		String prefix = "resources/";
 
-		if (location.startsWith(prefix))
+		if (location.startsWith(RESOURE_PREFIX))
 		{
-			location = location.substring(prefix.length());
+			location = location.substring(RESOURE_PREFIX.length());
 		}
 
-		return IconUtilitities.getImageIcon(location, description);
+		final URL iconURL = Utilities.class.getResource(location);
+
+		if (iconURL == null)
+		{
+			return null;
+		}
+
+		return new ImageIcon(iconURL, description);
 	}
+
 }

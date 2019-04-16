@@ -15,13 +15,12 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on October 29, 2006.
  * 
- * $Date: 2006-06-22 21:22:44 -0400 (Thu, 22 Jun 2006) $
  */
 package pcgen.cdom.base;
 
 import java.util.Collection;
+import java.util.Objects;
 
 import pcgen.cdom.choiceset.AbilityRefChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
@@ -46,8 +45,7 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            the Class contained within this ChoiceSet
  */
-public class ChoiceSet<T> extends ConcretePrereqObject implements
-		SelectableSet<T>
+public class ChoiceSet<T> extends ConcretePrereqObject implements SelectableSet<T>
 {
 
 	/**
@@ -65,7 +63,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements
 	 * The title (presented to the user) of this ChoiceSet
 	 */
 	private String title = null;
-	
+
 	/**
 	 * An identifier to check if the ChoiceSet (and the underlying
 	 * PrimitiveChoiceSet) should use the "ANY" identifier (vs. "ALL") when
@@ -106,15 +104,8 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements
 	 */
 	public ChoiceSet(String name, PrimitiveChoiceSet<T> choice, boolean any)
 	{
-		if (choice == null)
-		{
-			throw new IllegalArgumentException(
-					"PrimitiveChoiceSet cannot be null");
-		}
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Name cannot be null");
-		}
+		Objects.requireNonNull(choice, "PrimitiveChoiceSet cannot be null");
+		Objects.requireNonNull(name, "Name cannot be null");
 		pcs = choice;
 		setName = name;
 		useAny = any;
@@ -171,7 +162,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements
 		return setName;
 	}
 
- 	/**
+	/**
 	 * Sets the title of this ChoiceSet. Note that this should be the name that
 	 * is displayed to the user when a selection from this ChoiceSet is made,
 	 * but it does not represent information that should be stored in a
@@ -205,24 +196,12 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements
 		return pcs.getGroupingState();
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this ChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return setName.hashCode() ^ pcs.hashCode();
 	}
 
-	/**
-	 * Returns true if this ChoiceSet is equal to the given Object. Equality is
-	 * defined as being another ChoiceSet object with an equal name and equal
-	 * underlying PrimitiveChoiceSet.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

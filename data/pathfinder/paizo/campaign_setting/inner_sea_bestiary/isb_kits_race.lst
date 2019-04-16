@@ -77,7 +77,7 @@ ABILITY:CATEGORY=FEAT|Weapon Finesse
 GEAR:Dagger							LOCATION:Primary Hand
 GEAR:Shortbow						LOCATION:Carried
 GEAR:Arrow					QTY:20	LOCATION:Carried
-GEAR:Musical Instrument (Pan Pipes)			LOCATION:Carried		EQMOD:MWORKT
+GEAR:Musical Instrument (Pan Pipes)			LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Item
 
 
 STARTPACK:Cayhound Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Cayhound],[!PRERACE:1,%]	SOURCEPAGE:p.8
@@ -195,8 +195,8 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 ABILITY:CATEGORY=FEAT|Vital Strike
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-GEAR:Terbutje (Great)	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW
-GEAR:BreastPlate									EQMOD:PLUS1A.GOLD
+GEAR:Terbutje (Great)	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:BreastPlate									EQMOD:Special Ability ~ +1 ~ Armor.Material ~ Gold
 GEAR:Rock (Small)		QTY:1	SIZE:PC	LOCATION:Equipped
 
 STARTPACK:Monkey Goblin Barbarian	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Goblin (Monkey)],[!PRERACE:1,%]	SOURCEPAGE:p.16
@@ -242,7 +242,7 @@ GENDER:Neuter
 NAME:Quantium Golem
 ABILITY:CATEGORY=FEAT|Whirlwind Attack
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-GEAR:Sword (Bastard)	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS5W
+GEAR:Sword (Bastard)	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Ability ~ +5 ~ Weapon
 
 STARTPACK:Kakuen-Taka Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kakuen-Taka],[!PRERACE:1,%]	SOURCEPAGE:p.20
 ALIGN:CE
@@ -348,7 +348,7 @@ ABILITY:CATEGORY=FEAT|Toughness
 STAT:STR=8|DEX=13|CON=10|INT=15|WIS=12|CHA=14
 GEAR:Crossbow (Light)	QTY:1		SIZE:PC	LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:20	SIZE:PC	LOCATION:Crossbow (Light)
-GEAR:Quarterstaff		QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:MWORKW
+GEAR:Quarterstaff		QTY:1		SIZE:PC	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Amulet			QTY:1		SIZE:PC	LOCATION:Equipped
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Charm Person|Mage Armor|Magic Missile
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Wizard|Charm Person|Mage Armor|Magic Missile|Acid Splash|Detect Magic|Flare|Read Magic
@@ -425,8 +425,8 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=Fighter Bonus Feat|Cleave
 ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longsword)
 STAT:STR=9|DEX=14|CON=13|INT=12|WIS=15|CHA=10
-GEAR:Breastplate	QTY:1	SIZE:PC	LOCATION:Equipped		EQMOD:MWORKA
-GEAR:Longsword	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Breastplate	QTY:1	SIZE:PC	LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Longsword	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Mantis (Deadly) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mantis (Deadly)],[!PRERACE:1,%]	SOURCEPAGE:p.30
 ALIGN:TN
@@ -511,7 +511,7 @@ ABILITY:CATEGORY=FEAT|Shatter Defenses							FREE:YES
 ABILITY:CATEGORY=FEAT|Weapon Focus (Sword (Bastard))					FREE:YES
 ABILITY:CATEGORY=FEAT|Weapon Specialization (Sword (Bastard))			FREE:YES
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-GEAR:Sword (Bastard)	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS5W.KEEN.VORPAL
+GEAR:Sword (Bastard)	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Ability ~ +5 ~ Weapon.Special Ability ~ Keen ~ Weapon.Special Ability ~ Vorpal ~ Melee
 
 STARTPACK:Oronci Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Oronci],[!PRERACE:1,%]	SOURCEPAGE:p.36
 ALIGN:CE
@@ -528,7 +528,7 @@ ABILITY:CATEGORY=FEAT|Improved Overrun
 ABILITY:CATEGORY=FEAT|Nimble Moves
 ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
-GEAR:Battleaxe			QTY:1	SIZE:M	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Battleaxe			QTY:1	SIZE:M	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Shield (Heavy/Wooden)	QTY:1	SIZE:M	LOCATION:Secondary Hand
 
 STARTPACK:Petrified Maiden Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Petrified Maiden],[!PRERACE:1,%]	SOURCEPAGE:p.37
@@ -546,7 +546,7 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Vital Strike
 ABILITY:CATEGORY=FEAT|Weapon Focus (Scimitar)
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=10
-GEAR:Scimitar	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS1W
+GEAR:Scimitar	QTY:1	SIZE:PC	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
 
 STARTPACK:Memitim Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Psychopomp (Memitim)],[!PRERACE:1,%]	SOURCEPAGE:p.39
 ALIGN:TN
@@ -571,7 +571,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Weapon Focus (Scythe)
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-GEAR:Scythe	QTY:1	SIZE:PC	LOCATION:Both Hands	EQMOD:PLUS3W
+GEAR:Scythe	QTY:1	SIZE:PC	LOCATION:Both Hands	EQMOD:Special Ability ~ +3 ~ Weapon
 
 STARTPACK:Shoki Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Psychopomp (Shoki)],[!PRERACE:1,%]	SOURCEPAGE:p.40
 ALIGN:TN
@@ -594,7 +594,7 @@ ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Persuasive
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-GEAR:Quarterstaff	QTY:1	SIZE:PC	LOCATION:Both Hands	EQMOD:C_IRON.PLUS2W
+GEAR:Quarterstaff	QTY:1	SIZE:PC	LOCATION:Both Hands	EQMOD:Material ~ Cold Iron.Special Ability ~ +2 ~ Weapon
 
 STARTPACK:Viduus Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Psychopomp (Viduus)],[!PRERACE:1,%]	SOURCEPAGE:p.41
 ALIGN:TN
@@ -648,7 +648,7 @@ SKILL:Sense Motive	RANK:4	FREE:YES
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Power Attack
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-GEAR:Spear	QTY:1	SIZE:PC	LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Spear	QTY:1	SIZE:PC	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Robot (Myrmidon) Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	APPLY:INSTANT	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Robot (Myrmidon)],[!PRERACE:1,%]	SOURCEPAGE:p.45
 ALIGN:TN
@@ -968,4 +968,4 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Contagious Flame)
 ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-GEAR:Breastplate	QTY:1	SIZE:PC	LOCATION:Equipped	EQMOD:PLUS5A
+GEAR:Breastplate	QTY:1	SIZE:PC	LOCATION:Equipped	EQMOD:Special Ability ~ +5 ~ Armor

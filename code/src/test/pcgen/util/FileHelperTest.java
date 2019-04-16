@@ -1,5 +1,4 @@
-/**
- * FileHelperTest.java
+/*
  * Copyright 2003 (C) John Watson <john@sleazyweasel.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,137 +14,114 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
  */
 package pcgen.util;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+
 import java.io.File;
 
-import org.apache.commons.lang.SystemUtils;
-
-import junit.framework.TestCase;
+import org.apache.commons.lang3.SystemUtils;
+import org.junit.jupiter.api.Test;
 
 /**
  * FileHelperTest
  */
-public class FileHelperTest extends TestCase
+class FileHelperTest
 {
 
-	final static String BACK_ONE = ".." + File.separator;
-			
-	/**
-	 * Constructs a new <code>FileHelperTest</code>.
-	 *
-	 * @see PCGenTestCase#PCGenTestCase()
-	 */
-	public FileHelperTest()
-	{
-		super();
-	}
+	private static final String BACK_ONE = ".." + File.separator;
 
 	/**
-	 * Constructs a new <code>FileHelperTest</code> with the given
-	 * <var>name</var>.
-	 *
-	 * @param name the test case name
-	 *
-	 * @see PCGenTestCase#PCGenTestCase(String)
+	 * Test the relative paths.
 	 */
-	public FileHelperTest(final String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Test the relative paths
-	 * @throws Exception
-	 */
-	public void testRelativePaths() throws Exception
+	@Test
+	public void testRelativePaths()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
 		final File sameDir = new File("/one/two/three/four/bar.txt");
 		final String path = FileHelper.findRelativePath(base, sameDir);
-		assertEquals("wrong when same directory", "bar.txt", path);
+		assertEquals("bar.txt", path, "wrong when same directory");
 	}
 
 	/**
 	 * Test relative paths but back one (../)
-	 * @throws Exception
 	 */
-	public void testRelativePathBack1() throws Exception
+	@Test
+	public void testRelativePathBack1()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
 		final File backOneDir = new File("/one/two/three/bar.txt");
 		final String path = FileHelper.findRelativePath(base, backOneDir);
-		assertEquals("wrong when back one directory", BACK_ONE
-			+ "bar.txt", path);
+		assertEquals(BACK_ONE
+				+ "bar.txt", path, "wrong when back one directory");
 	}
 
 	/**
 	 * Test relative path back two (../../)
-	 * @throws Exception
 	 */
-	public void testRelativePathBack2() throws Exception
+	@Test
+	public void testRelativePathBack2()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
 		final File backTwoDirs = new File("/one/two/bar.txt");
 		final String path = FileHelper.findRelativePath(base, backTwoDirs);
-		assertEquals("wrong when back two directories", BACK_ONE+BACK_ONE+"bar.txt", path);
+		assertEquals(BACK_ONE + BACK_ONE + "bar.txt", path, "wrong when back two directories");
 	}
 
 	/**
-	 * Test realtive path one ahead (./foobar)
-	 * @throws Exception
+	 * Test relative path one ahead (./foobar)
 	 */
-	public void testRelativePathAhead1() throws Exception
+	@Test
+	public void testRelativePathAhead1()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
 		final File aheadOneDir = new File("/one/two/three/four/five/bar.txt");
 		final String path = FileHelper.findRelativePath(base, aheadOneDir);
-		assertEquals("wrong when ahead one directory", "five" + File.separator
-			+ "bar.txt", path);
+		assertEquals("five" + File.separator
+				+ "bar.txt", path, "wrong when ahead one directory");
 	}
 
 	/**
-	 * Test realtive path one ahead (./foobar/foobar)
-	 * @throws Exception
+	 * Test relative path one ahead (./foobar/foobar)
 	 */
-	public void testRelativePathAhead2() throws Exception
+	@Test
+	public void testRelativePathAhead2()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
 		final File aheadTwoDirs =
 				new File("/one/two/three/four/five/six/bar.txt");
 		final String path = FileHelper.findRelativePath(base, aheadTwoDirs);
-		assertEquals("wrong when ahead two directories", "five"
-			+ File.separator + "six" + File.separator + "bar.txt", path);
+		assertEquals(
+				String.join(File.separator, "five", "six", "bar.txt"), path, "wrong when ahead two directories");
 	}
 
 	/**
-	 * Test realtive path different branch
-	 * @throws Exception
+	 * Test relative path different branch.
 	 */
-	public void testRelativePathDifferentBranch() throws Exception
+	@Test
+	public void testRelativePathDifferentBranch()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
 		final File onADifferentBranch = new File("/one/two/buckle/my/shoe.txt");
 		final String path =
 				FileHelper.findRelativePath(base, onADifferentBranch);
-		assertEquals("wrong when on a different branch", BACK_ONE+BACK_ONE+"buckle"
-			+ File.separator + "my" + File.separator + "shoe.txt", path);
+		assertEquals(BACK_ONE + BACK_ONE + "buckle"
+				+ File.separator + "my" + File.separator + "shoe.txt", path, "wrong when on a different branch");
 	}
 
 	/**
-	 * Test realtive path, unrelated
-	 * @throws Exception
+	 * Test relative path, unrelated.
 	 */
-	public void testRelativePathUnrelated() throws Exception
+	@Test
+	public void testRelativePathUnrelated()
 	{
 		final File base = new File("/one/two/three/four/foo.txt");
 
@@ -153,10 +129,10 @@ public class FileHelperTest extends TestCase
 				new File("/and/now/for/something/completely/different.txt");
 		final String path =
 				FileHelper.findRelativePath(base, completelyUnrelated);
-		assertEquals("wrong when completely different", BACK_ONE+BACK_ONE+BACK_ONE+BACK_ONE+"and"
-			+ File.separator + "now" + File.separator + "for" + File.separator
-			+ "something" + File.separator + "completely" + File.separator
-			+ "different.txt", path);
+		assertEquals(BACK_ONE + BACK_ONE + BACK_ONE + BACK_ONE + "and"
+				+ File.separator + "now" + File.separator + "for" + File.separator
+				+ "something" + File.separator + "completely" + File.separator
+				+ "different.txt", path, "wrong when completely different");
 	}
 	
 	/**
@@ -164,16 +140,17 @@ public class FileHelperTest extends TestCase
 	 * Note the tests only run on Windows machines.
 	 * @throws Exception In some failure conditions.
 	 */
+	@Test
 	public void testWindowsDriveSame() throws Exception
 	{
 		final File base = new File("C:\\Temp\\foo.txt"); 
-		final File sameDir = new File("C:\\Temp\\bar\\baz.txt"); 
-		if (SystemUtils.IS_OS_WINDOWS)
-		{
-			final String path = FileHelper.findRelativePath(base, sameDir);
-			assertEquals("Incorrect relative path for same windows drive",
-				"bar\\baz.txt", path);
-		}
+		final File sameDir = new File("C:\\Temp\\bar\\baz.txt");
+		assumeTrue(SystemUtils.IS_OS_WINDOWS);
+		final String path = FileHelper.findRelativePath(base, sameDir);
+		assertEquals(
+				"bar\\baz.txt", path,
+				"Incorrect relative path for same windows drive"
+		);
 	}
 	
 	/**
@@ -181,16 +158,16 @@ public class FileHelperTest extends TestCase
 	 * Note the tests only run on Windows machines.
 	 * @throws Exception In some failure conditions.
 	 */
+	@Test
 	public void testWindowsDriveDifferent() throws Exception
 	{
 		final File base = new File("C:\\Temp\\foo.txt"); 
 		final File sameDir = new File("D:\\Temp\\bar.txt");
-		
-		if (SystemUtils.IS_OS_WINDOWS)
-		{
-			final String path = FileHelper.findRelativePath(base, sameDir);
-			assertEquals("Incorrect relative path for different windows drive",
-				"D:\\Temp\\bar.txt", path);
-		}
+		assumeTrue(SystemUtils.IS_OS_WINDOWS);
+		final String path = FileHelper.findRelativePath(base, sameDir);
+		assertEquals(
+				"D:\\Temp\\bar.txt", path,
+				"Incorrect relative path for different windows drive"
+		);
 	}
 }

@@ -1,5 +1,4 @@
 /*
- * Skill.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,38 +15,31 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  *
- * $Id$
  */
 package pcgen.core;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.bonus.BonusObj;
-import pcgen.facade.core.SkillFacade;
 
 /**
- * <code>Skill</code>.
+ * {@code Skill}.
  * 
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
-public final class Skill extends PObject implements SkillFacade, ChooseDriver,
-		VarScoped
+public final class Skill extends PObject implements ChooseDriver, VarScoped
 {
 	public String getKeyStatAbb()
 	{
@@ -58,8 +50,7 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 	@Override
 	public boolean equals(final Object obj)
 	{
-		return obj instanceof Skill
-				&& getKeyName().equalsIgnoreCase(((Skill) obj).getKeyName());
+		return obj instanceof Skill && getKeyName().equalsIgnoreCase(((Skill) obj).getKeyName());
 	}
 
 	@Override
@@ -68,39 +59,11 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 		return getKeyName().hashCode();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.SkillFacade#getKeyStat()
-	 */
-    @Override
-	public String getKeyStat()
-	{
-		return getKeyStatAbb();
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.SkillFacade#isUntrained()
-	 */
-    @Override
-	public boolean isUntrained()
-	{
-		return getSafe(ObjectKey.USE_UNTRAINED);
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.SkillFacade#getTypes()
-	 */
-    @Override
-	public String getDisplayType()
-	{
-		List<Type> trueTypeList = getTrueTypeList(true);
-		return StringUtil.join(trueTypeList, ".");
-	}
-
 	@Override
 	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
 	{
 		List<BonusObj> list = new ArrayList<>(super.getRawBonusList(pc));
-		Collections.sort(list, new SkillBonusComparator(this));
+		list.sort(new SkillBonusComparator(this));
 		return list;
 	}
 
@@ -108,7 +71,6 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 	 * A comparator for sorting bonuses which puts the bonuses in the order
 	 * bonuses to this skill, bonuses without prereqs, bonuses with prereqs.  
 	 *
-	 * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
 	 */
 	public final class SkillBonusComparator implements Comparator<BonusObj>
 	{
@@ -118,13 +80,14 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 		private SkillBonusComparator(Skill skill)
 		{
 			this.skill = skill;
-			
+
 		}
+
 		@Override
 		public int compare(BonusObj arg0, BonusObj arg1)
 		{
-			boolean arg0BonusThisSkill = bonusToThisSkill(arg0); 
-			boolean arg1BonusThisSkill = bonusToThisSkill(arg1); 
+			boolean arg0BonusThisSkill = bonusToThisSkill(arg0);
+			boolean arg1BonusThisSkill = bonusToThisSkill(arg1);
 			if (arg0BonusThisSkill != arg1BonusThisSkill)
 			{
 				if (arg0BonusThisSkill)
@@ -141,10 +104,10 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 				}
 				return 1;
 			}
-			
+
 			return arg0.toString().compareTo(arg1.toString());
 		}
-		
+
 		private boolean bonusToThisSkill(BonusObj bonus)
 		{
 			if (!"SKILL".equals(bonus.getBonusName()))
@@ -160,7 +123,7 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 			}
 			return false;
 		}
-		
+
 	}
 
 	@Override
@@ -194,8 +157,8 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 	}
 
 	@Override
-	public String getLocalScopeName()
+	public Optional<String> getLocalScopeName()
 	{
-		return "SKILL";
+		return Optional.of("PC.SKILL");
 	}
 }

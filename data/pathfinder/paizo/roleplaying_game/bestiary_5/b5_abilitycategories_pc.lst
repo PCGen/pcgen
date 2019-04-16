@@ -1,0 +1,15 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+#SOURCELONG:Bestiary 5	SOURCESHORT:B5	SOURCEWEB:http://paizo.com/products/btpy9g9x	SOURCEDATE:2015-12
+
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Android Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Android Racial Trait		PLURAL:Android Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Astomoi Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Astomoi Racial Trait		PLURAL:Astomoi Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Caligni Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Caligni Racial Trait		PLURAL:Caligni Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Deep One Hybrid Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Deep One Hybrid Racial Trait	PLURAL:Deep One Hybrid Racial Traits	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Ghoran Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Ghoran Racial Trait		PLURAL:Ghoran Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Orang-Pendak Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Orang-Pendak Racial Trait	PLURAL:Orang-Pendak Racial Traits		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Reptoid Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Reptoid Racial Trait		PLURAL:Reptoid Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Shabti Racial Trait			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Shabti Racial Trait		PLURAL:Shabti Racial Traits			DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Skinwalker Racial Trait		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Skinwalker Racial Trait		PLURAL:Skinwalker Racial Traits		DISPLAYLOCATION:Racial Abilities
+
+ABILITYCATEGORY:Skinwalker Heritage			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:Skinwalker Subrace			PLURAL:Skinwalker Heritages			DISPLAYLOCATION:Racial Abilities

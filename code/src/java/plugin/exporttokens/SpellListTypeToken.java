@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Jul 15, 2004
- *
- * $Id$
- *
  */
 package plugin.exporttokens;
 
@@ -30,11 +25,8 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
 
 /**
- * <code>SpellListTypeToken</code> outputs the type (i.e. Arcane or 
+ * {@code SpellListTypeToken} outputs the type (i.e. Arcane or
  * Divine) of the specified spell class.
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class SpellListTypeToken extends SpellListToken
@@ -43,27 +35,18 @@ public class SpellListTypeToken extends SpellListToken
 	/** token name */
 	public static final String TOKENNAME = "SPELLLISTTYPE";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		StringBuilder retValue = new StringBuilder();
 
-		SpellListTokenParams params =
-				new SpellListTokenParams(tokenSource,
-					SpellListToken.SPELLTAG_TYPE);
+		SpellListTokenParams params = new SpellListTokenParams(tokenSource, SpellListToken.SPELLTAG_TYPE);
 
 		final CDOMObject aObject = pc.getSpellClassAtIndex(params.getClassNum());
 

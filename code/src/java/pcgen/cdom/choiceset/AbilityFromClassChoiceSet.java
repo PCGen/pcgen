@@ -43,8 +43,7 @@ import pcgen.core.PlayerCharacter;
  * In particular, AbilityFromClassChoiceSet is designed to handle
  * REMOVE:FEAT|Class.???
  */
-public class AbilityFromClassChoiceSet implements
-		PrimitiveChoiceSet<CNAbilitySelection>
+public class AbilityFromClassChoiceSet implements PrimitiveChoiceSet<CNAbilitySelection>
 {
 
 	/**
@@ -82,14 +81,6 @@ public class AbilityFromClassChoiceSet implements
 		return "CLASS." + classRef.getLSTformat(useAny);
 	}
 
-	/**
-	 * Returns true if this AbilityFromClassChoiceSet is equal to the given
-	 * Object. Equality is defined as being another AbilityFromClassChoiceSet
-	 * object with equal Class represented by the reference provided during
-	 * construction of the AbilityFromClassChoiceSets
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -101,12 +92,6 @@ public class AbilityFromClassChoiceSet implements
 		return false;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this
-	 * AbilityFromClassChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -153,8 +138,8 @@ public class AbilityFromClassChoiceSet implements
 			{
 				for (Ability aFeat : abilityList)
 				{
-					set.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(
-						AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
+					set.add(new CNAbilitySelection(
+						CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
 				}
 			}
 			for (int lvl = 0; lvl < pc.getLevel(aClass); lvl++)
@@ -166,8 +151,8 @@ public class AbilityFromClassChoiceSet implements
 				{
 					for (Ability aFeat : abilityList)
 					{
-						set.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(
-							AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
+						set.add(new CNAbilitySelection(
+							CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
 					}
 				}
 			}

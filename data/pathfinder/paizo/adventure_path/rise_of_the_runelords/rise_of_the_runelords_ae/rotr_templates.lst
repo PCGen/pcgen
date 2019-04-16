@@ -6,7 +6,7 @@ SOURCELONG:Rise of the Runelords Adventure Path	SOURCESHORT:RotR	SOURCEWEB:http:
 # Template Name					Size		Damage Reduction	Source Page		Special ABility																														Combat bonus		Misc bonus		Add to base move			Adjust PC Size		Stat bonus										Modify VAR						Ability															Spell Res.	Subrace		Natural Attacks
 Lamia Harridan							DR:10/magic																																									BONUS:MISC|CR|1						BONUS:SIZEMOD|NUMBER|1	BONUS:STAT|DEX|6	BONUS:STAT|WIS,CHA|2												ABILITY:Special Ability|AUTOMATIC|Pounce|Rake									SR:CR+11
 
-Runeslave																																																		BONUS:MISC|CR|1	BONUS:MOVEADD|TYPE.Walk|20					BONUS:STAT|STR|4	BONUS:STAT|DEX|2	BONUS:STAT|INT,WIS,CHA|-2								ABILITY:Internal|AUTOMATIC|Race Traits ~ Runeslave	ABILITY:FEAT|AUTOMATIC|Diehard|Toughness
+Runeslave																																																		BONUS:MISC|CR|1	BONUS:MOVEADD|TYPE.Walk|20					BONUS:STAT|STR|4	BONUS:STAT|DEX|2	BONUS:STAT|INT,WIS,CHA|-2								ABILITY:Internal|AUTOMATIC|Racial Traits ~ Runeslave	ABILITY:FEAT|AUTOMATIC|Diehard|Toughness
 
 
 

@@ -44,7 +44,6 @@ public class HitDieFormula implements Processor<HitDie>
 	 */
 	public HitDieFormula(ReferenceFormula<Integer> refFormula)
 	{
-		super();
 		formula = refFormula;
 	}
 
@@ -66,8 +65,7 @@ public class HitDieFormula implements Processor<HitDie>
 	@Override
 	public HitDie applyProcessor(HitDie origHD, Object context)
 	{
-		return new HitDie(formula.resolve(origHD.getDie())
-				.intValue());
+		return new HitDie(formula.resolve(origHD.getDie()).intValue());
 	}
 
 	/**
@@ -94,28 +92,15 @@ public class HitDieFormula implements Processor<HitDie>
 		return HitDie.class;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this HitDieFormula
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return formula.hashCode();
 	}
 
-	/**
-	 * Returns true if this HitDieFormula is equal to the given Object. Equality
-	 * is defined as being another HitDieFormula object with equal underlying
-	 * formula.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof HitDieFormula
-				&& ((HitDieFormula) obj).formula.equals(formula);
+		return obj instanceof HitDieFormula && ((HitDieFormula) obj).formula.equals(formula);
 	}
 }

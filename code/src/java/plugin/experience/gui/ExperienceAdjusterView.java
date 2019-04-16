@@ -14,10 +14,8 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
- package plugin.experience.gui;
+package plugin.experience.gui;
 
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
@@ -30,86 +28,79 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 import pcgen.core.utils.CoreUtility;
 import pcgen.system.LanguageBundle;
 import plugin.experience.ExperienceAdjusterModel;
+import plugin.experience.ExperienceListItem;
 
 /**
  * The View for the Experience Adjuster.  This view is independant and will be
- * created by the <code>ExperienceAdjusterController</code>.  The view is
- * implemented as a <code>JPanel</code> so it can be added to the
- * <code>JTabbedPane</code> of the <code>GMGenSystemView</code>.<br>
- * Created on February 19, 2003<br>
- * Updated on March 6, 2003
+ * created by the {@code ExperienceAdjusterController}.  The view is
+ * implemented as a {@code JPanel} so it can be added to the
+ * {@code JTabbedPane} of the {@code GMGenSystemView}.<br>
  */
 // TODO use multi column list rather than a single line
-public class ExperienceAdjusterView extends javax.swing.JPanel
+public class ExperienceAdjusterView extends JPanel
 {
 	// TODO make this l&f / UIManager value dependent
 	private static final int BORDER_SIZE = 6;
 
 	/** Button to add an enemy to the experience calculation. */
-	private javax.swing.JButton addEnemyButton;
+	private JButton addEnemyButton;
 
 	/** The <b>Add Experience to Selected Character</b> button. */
-	private javax.swing.JButton addExperienceToCharButton;
+	private JButton addExperienceToCharButton;
 
 	/** The <b>Add Experience to Selected Group</b> button. */
-	private javax.swing.JButton addExperienceToPartyButton;
+	private JButton addExperienceToPartyButton;
 
 	/** The <b>Add Experience to Selected Character</b> button. */
-	private javax.swing.JButton adjustCRButton;
+	private JButton adjustCRButton;
 
 	/** Button to delete an enemy from the experience calculation. */
-	private javax.swing.JButton removeEnemyButton;
+	private JButton removeEnemyButton;
 
 	/** The <b>Total Experience from Combat:</b> label. */
-	private javax.swing.JLabel experienceFromCombat;
+	private JLabel experienceFromCombat;
 
 	/** The multiplier label. */
-	private javax.swing.JLabel experienceMultLabel;
+	private JLabel experienceMultLabel;
 
-	/** The Name for the eperience multiplier label. */
-	private javax.swing.JLabel experienceMultNameLabel;
-	private javax.swing.JLabel spCharLabel;
+	/** The Name for the experience multiplier label. */
+	private JLabel experienceMultNameLabel;
 
 	//Various components to shape the form properly
-	private javax.swing.JLabel jLabel4;
-	private javax.swing.JLabel jLabel5;
-	private javax.swing.JLabel jLabel7;
+	private JLabel jLabel4;
+	private JLabel jLabel5;
 
 	/** The GUI component that holds the list of PC combatants. */
-	private javax.swing.JList characterList;
+	private JList<ExperienceListItem> characterList;
 
 	/** The GUI component that holds the list of enemy combatants. */
-	private javax.swing.JList enemyList;
-	private javax.swing.JPanel jPanel1;
-	private javax.swing.JPanel panelChar;
-	private javax.swing.JPanel jPanel5;
-	private javax.swing.JPanel jPanel6;
-	private javax.swing.JPanel jPanel7;
-	private javax.swing.JPanel jPanel8;
-	private javax.swing.JScrollPane scrollPaneChar;
-	private javax.swing.JScrollPane scrollPaneEnemy;
+	private JList enemyList;
+	private JPanel jPanel1;
+	private JPanel panelChar;
+	private JPanel jPanel5;
+	private JPanel jPanel6;
+	private JPanel jPanel7;
+	private JPanel jPanel8;
+	private JScrollPane scrollPaneChar;
 
 	/** The <b>Experience Multiplier</b> slider. */
-	private javax.swing.JSlider experienceMultSlider;
+	private JSlider experienceMultSlider;
 
 	/** The user editable field that takes in experience to add. */
-	private javax.swing.JTextField experienceToAdd;
+	private JTextField experienceToAdd;
 
 	private ExperienceAdjusterModel model;
 
 	/**
-	 * Creates an instance of <code>ExperienceAdjusterView</code>
-	 * <code>ExperienceAdjusterController</code>.
+	 * Creates an instance of {@code ExperienceAdjusterView}
+	 * {@code ExperienceAdjusterController}.
 	 */
 	public ExperienceAdjusterView(ExperienceAdjusterModel model)
 	{
@@ -128,7 +119,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the <b>Add Experience to Selected Character</b> button.
-	 * @return the <code>addExperienceToCharButton</code>.
+	 * @return the {@code addExperienceToCharButton}.
 	 */
 	public JButton getAddExperienceToCharButton()
 	{
@@ -137,7 +128,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the <b>Add Experience to Selected Party</b> button.
-	 * @return the <code>addExperienceToPartyButton</code>.
+	 * @return the {@code addExperienceToPartyButton}.
 	 */
 	public JButton getAddExperienceToPartyButton()
 	{
@@ -146,7 +137,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the <b>Adjust CR</b> button.
-	 * @return the <code>adjustCRButton</code>.
+	 * @return the {@code adjustCRButton}.
 	 */
 	public JButton getAdjustCRButton()
 	{
@@ -155,7 +146,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the list of characters from the GUI.
-	 * @return the <code>characterList</code>.
+	 * @return the {@code characterList}.
 	 */
 	public JList getCharacterList()
 	{
@@ -182,7 +173,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the field for experience to add.
-	 * @return the <code>experienceToAdd</code> field.
+	 * @return the {@code experienceToAdd} field.
 	 */
 	public JTextField getExperienceField()
 	{
@@ -198,52 +189,25 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		experienceFromCombat.setText(Integer.toString(experience));
 	}
 
-	/**
-	 * Sets the experience from combat value on the GUI.
-	 * @param experience the value of experience that has come from the combat.
-	 */
-	public void setExperienceFromCombat(String experience)
-	{
-		experienceFromCombat.setText(experience);
-	}
-
-	/**
-	 * Gets the value from the experience from combat label.
-	 * @return the value for experience from combat.
-	 */
-	public int getExperienceFromCombat()
-	{
-		return Integer.parseInt(experienceFromCombat.getText());
-	}
-
 	/** The multiplier label.
 	 * @return JLabel*/
-	public javax.swing.JLabel getExperienceMultLabel()
+	public JLabel getExperienceMultLabel()
 	{
 		return experienceMultLabel;
 	}
 
 	/** The Name for the experience multiplier label.
 	 * @return JLabel*/
-	public javax.swing.JLabel getExperienceMultNameLabel()
+	public JLabel getExperienceMultNameLabel()
 	{
 		return experienceMultNameLabel;
 	}
 
 	/** The <b>Experience Multiplier</b> slider.
 	 * @return JSlider*/
-	public javax.swing.JSlider getExperienceMultSlider()
+	public JSlider getExperienceMultSlider()
 	{
 		return experienceMultSlider;
-	}
-
-	/**
-	 * Sets the experience to add field if needed.
-	 * @param experience the value for the experience to add to the character.
-	 */
-	public void setExperienceToAdd(int experience)
-	{
-		experienceToAdd.setText(Integer.toString(experience));
 	}
 
 	/**
@@ -256,19 +220,10 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 	}
 
 	/**
-	 * Gets the experience to add that the user has input.
-	 * @return the experience to add as an <code>int</code>.
-	 */
-	public int getExperienceToAdd()
-	{
-		return Integer.parseInt(experienceToAdd.getText());
-	}
-
-	/**
 	 * sets the party in the main list display
 	 * @param party
 	 */
-	public void setParty(DefaultListModel party)
+	public void setParty(DefaultListModel<ExperienceListItem> party)
 	{
 		characterList.setModel(party);
 	}
@@ -291,30 +246,30 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 	{
 		java.awt.GridBagConstraints gridBagConstraints;
 
-		jPanel5 = new javax.swing.JPanel();
-		panelChar = new javax.swing.JPanel();
-		characterList = new javax.swing.JList();
-		spCharLabel = new javax.swing.JLabel();
-		jPanel1 = new javax.swing.JPanel();
-		jLabel4 = new javax.swing.JLabel();
-		enemyList = new javax.swing.JList();
-		jPanel6 = new javax.swing.JPanel();
-		jPanel7 = new javax.swing.JPanel();
-		jLabel7 = new javax.swing.JLabel();
-		experienceToAdd = new javax.swing.JTextField(6);
-		addExperienceToCharButton = new javax.swing.JButton();
-		jPanel8 = new javax.swing.JPanel();
-		jLabel5 = new javax.swing.JLabel();
-		experienceFromCombat = new javax.swing.JLabel();
-		experienceMultNameLabel = new javax.swing.JLabel();
-		experienceMultSlider = new javax.swing.JSlider();
-		addExperienceToPartyButton = new javax.swing.JButton();
-		experienceMultLabel = new javax.swing.JLabel();
-		adjustCRButton = new javax.swing.JButton();
-		addEnemyButton = new javax.swing.JButton();
-		removeEnemyButton = new javax.swing.JButton();
+		jPanel5 = new JPanel();
+		panelChar = new JPanel();
+		characterList = new JList<>();
+		JLabel spCharLabel = new JLabel();
+		jPanel1 = new JPanel();
+		jLabel4 = new JLabel();
+		enemyList = new JList();
+		jPanel6 = new JPanel();
+		jPanel7 = new JPanel();
+		JLabel jLabel7 = new JLabel();
+		experienceToAdd = new JTextField(6);
+		addExperienceToCharButton = new JButton();
+		jPanel8 = new JPanel();
+		jLabel5 = new JLabel();
+		experienceFromCombat = new JLabel();
+		experienceMultNameLabel = new JLabel();
+		experienceMultSlider = new JSlider();
+		addExperienceToPartyButton = new JButton();
+		experienceMultLabel = new JLabel();
+		adjustCRButton = new JButton();
+		addEnemyButton = new JButton();
+		removeEnemyButton = new JButton();
 		scrollPaneChar = new JScrollPane(characterList);
-		scrollPaneEnemy = new JScrollPane(enemyList);
+		JScrollPane scrollPaneEnemy = new JScrollPane(enemyList);
 
 		setLayout(new GridLayout(0, 1));
 
@@ -356,16 +311,10 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		// add an empty horizontal glue like panel
 		jPanel7.add(new JPanel(), gridBagConstraints);
 		// Updates the button if there is a selected character
-		characterList.addListSelectionListener(new ListSelectionListener()
-		{
-			
-			@Override
-			public void valueChanged(ListSelectionEvent e)
+		characterList.addListSelectionListener(e -> {
+			if (!e.getValueIsAdjusting())
 			{
-				if (!e.getValueIsAdjusting())
-				{
-					addExperienceToCharButton.setEnabled(!characterList.isSelectionEmpty());
-				}
+				addExperienceToCharButton.setEnabled(!characterList.isSelectionEmpty());
 			}
 		});
 
@@ -404,36 +353,34 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		gridBagConstraints.gridwidth = 2;
 		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
 		jPanel8.add(experienceMultSlider, gridBagConstraints);
-		experienceMultSlider.addChangeListener(new ChangeListener() {
-			
-			@Override
-			public void stateChanged(ChangeEvent e) {
-				double realValue = getSliderRealValue();
+		experienceMultSlider.addChangeListener(e -> {
+			double realValue = getSliderRealValue();
 
-				if (CoreUtility.doublesEqual(realValue, 0.5)) {
-					getExperienceMultNameLabel().setText(
-							LanguageBundle.getString("in_plugin_xp_half")); //$NON-NLS-1$
-				} else if (realValue <= 0.7) {
-					getExperienceMultNameLabel().setText(
-							LanguageBundle.getString("in_plugin_xp_easier")); //$NON-NLS-1$
-				} else if ((realValue > 0.7) && (realValue < 1.5)) {
-					getExperienceMultNameLabel().setText(
-							LanguageBundle.getString("in_plugin_xp_normal")); //$NON-NLS-1$
-				} else if (realValue >= 1.5) {
-					getExperienceMultNameLabel().setText(
-							LanguageBundle.getString("in_plugin_xp_harder")); //$NON-NLS-1$
-				}
-
-				if (CoreUtility.doublesEqual(realValue, 2)) {
-					getExperienceMultNameLabel().setText(
-							LanguageBundle.getString("in_plugin_xp_twice")); //$NON-NLS-1$
-				}
-
-				getExperienceMultLabel().setText(
-						LanguageBundle.getPrettyMultiplier(realValue));
-
-				model.setMultiplier(realValue);
+			if (CoreUtility.doublesEqual(realValue, 0.5))
+			{
+				getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_half")); //$NON-NLS-1$
 			}
+			else if (realValue <= 0.7)
+			{
+				getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_easier")); //$NON-NLS-1$
+			}
+			else if ((realValue > 0.7) && (realValue < 1.5))
+			{
+				getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_normal")); //$NON-NLS-1$
+			}
+			else if (realValue >= 1.5)
+			{
+				getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_harder")); //$NON-NLS-1$
+			}
+
+			if (CoreUtility.doublesEqual(realValue, 2))
+			{
+				getExperienceMultNameLabel().setText(LanguageBundle.getString("in_plugin_xp_twice")); //$NON-NLS-1$
+			}
+
+			getExperienceMultLabel().setText(LanguageBundle.getPrettyMultiplier(realValue));
+
+			model.setMultiplier(realValue);
 		});
 
 		addExperienceToPartyButton.setText(LanguageBundle.getString("in_plugin_xp_addXpToParty")); //$NON-NLS-1$
@@ -479,17 +426,11 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		jPanel8.add(removeEnemyButton, gridBagConstraints);
 		// Update buttons on selection change
-		enemyList.addListSelectionListener(new ListSelectionListener()
-		{
-			
-			@Override
-			public void valueChanged(ListSelectionEvent e)
+		enemyList.addListSelectionListener(e -> {
+			if (!e.getValueIsAdjusting())
 			{
-				if (!e.getValueIsAdjusting())
-				{
-					adjustCRButton.setEnabled(!enemyList.isSelectionEmpty());
-					removeEnemyButton.setEnabled(!enemyList.isSelectionEmpty());
-				}
+				adjustCRButton.setEnabled(!enemyList.isSelectionEmpty());
+				removeEnemyButton.setEnabled(!enemyList.isSelectionEmpty());
 			}
 		});
 
@@ -499,12 +440,13 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		add(jPanel6);
 	}
 
-	private double calculateRealValue(int i) {
+	private static double calculateRealValue(int i)
+	{
 		return 1.0 + (i * 0.1);
 	}
 
-	public double getSliderRealValue()
+	private double getSliderRealValue()
 	{
-		return calculateRealValue(getExperienceMultSlider().getValue());
+		return ExperienceAdjusterView.calculateRealValue(getExperienceMultSlider().getValue());
 	}
 }

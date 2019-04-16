@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCEDATE:2010-04
 # Original Entry by: Paul Shipley (elro the onk)
@@ -5,10 +6,11 @@ SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1	SOURCESHORT:SGGAH	SOURCE
 #Block: .MODs for Magister bonus feats
 #Core
 # Feat Name					Type						Modify VAR
-# Ability Name						Type						Modify VAR
+# Ability Name						Type
 CATEGORY=FEAT|Arcane Armor Training.MOD		TYPE:Magister
 CATEGORY=FEAT|Arcane Armor Mastery.MOD		TYPE:Magister
-CATEGORY=FEAT|Arcane Strike.MOD			TYPE:Magister				BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Archon")+var("BL=Archon")+charbonusto("CASTERLEVEL","Death Mage")+var("BL=Death Mage")+charbonusto("CASTERLEVEL","Magister")+var("BL=Magister")
+CATEGORY=FEAT|Arcane Strike.MOD			TYPE:Magister
+#BONUS:VAR|ArcaneStrikeLVL|charbonusto("CASTERLEVEL","Archon")+var("BL=Archon")+charbonusto("CASTERLEVEL","Death Mage")+var("BL=Death Mage")+charbonusto("CASTERLEVEL","Magister")+var("BL=Magister")
 CATEGORY=FEAT|Armor Proficiency (Medium).MOD	TYPE:Magister
 CATEGORY=FEAT|Augment Summoning.MOD			TYPE:Magister
 CATEGORY=FEAT|Combat Casting.MOD			TYPE:Magister

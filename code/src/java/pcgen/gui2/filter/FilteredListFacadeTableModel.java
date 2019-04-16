@@ -1,5 +1,4 @@
 /*
- * FilteredListFacadeTableModel.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 31, 2011, 9:55:02 PM
  */
 package pcgen.gui2.filter;
 
@@ -32,11 +30,8 @@ import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.util.table.Row;
 import pcgen.gui2.util.table.SortableTableModel;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
-public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel implements SortableTableModel, ListListener<E>
+public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
+		implements SortableTableModel, ListListener<E>
 {
 
 	protected final SortedListFacade<E> sortedList;
@@ -53,14 +48,16 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 		this.character = character;
 		this.filteredList = new FilteredListFacade<>();
 		filteredList.setContext(character);
-		this.sortedList = new SortedListFacade<>(new Comparator<Object>() {
+		this.sortedList = new SortedListFacade<>(new Comparator<Object>()
+		{
 
-            @Override
-            public int compare(Object o1, Object o2) {
-                return 0;
-            }
+			@Override
+			public int compare(Object o1, Object o2)
+			{
+				return 0;
+			}
 
-        });
+		});
 		sortedList.addListListener(this);
 		sortedList.setDelegate(filteredList);
 	}

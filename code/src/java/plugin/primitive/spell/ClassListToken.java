@@ -30,10 +30,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
 
 /**
- * The Class <code>ClassListToken</code> handles the restriction of a spell choice to a spell from a
+ * The Class {@code ClassListToken} handles the restriction of a spell choice to a spell from a
  * class spell list.
  *
- * <br>
  * 
  */
 public class ClassListToken extends AbstractRestrictedSpellPrimitive
@@ -42,15 +41,14 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 	private MasterAvailableSpellFacet masterAvailableSpellFacet;
 
 	@Override
-	public boolean initialize(LoadContext context, Class<Spell> cl,
-			String value, String args)
+	public boolean initialize(LoadContext context, Class<Spell> cl, String value, String args)
 	{
 		if (value == null)
 		{
 			return false;
 		}
 		spelllist = context.getReferenceContext().getCDOMReference(ClassSpellList.class, value);
-		masterAvailableSpellFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);	
+		masterAvailableSpellFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);
 		return initialize(context, args);
 	}
 
@@ -65,9 +63,8 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 	{
 		ClassSpellList list = spelllist.get();
 		DataSetID datasetID = pc.getCharID().getDatasetID();
-		
-		for (AvailableSpell availSpell : masterAvailableSpellFacet
-			.getMatchingSpellsInList(list, datasetID, spell))
+
+		for (AvailableSpell availSpell : masterAvailableSpellFacet.getMatchingSpellsInList(list, datasetID, spell))
 		{
 			int level = availSpell.getLevel();
 			if (level >= 0 && allow(pc, level, "", spell, list))
@@ -98,8 +95,7 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 			{
 				return other.spelllist == null;
 			}
-			return spelllist.equals(other.spelllist)
-					&& equalsRestrictedPrimitive(other);
+			return spelllist.equals(other.spelllist) && equalsRestrictedPrimitive(other);
 		}
 		return false;
 	}
@@ -113,8 +109,8 @@ public class ClassListToken extends AbstractRestrictedSpellPrimitive
 	@Override
 	public CharSequence getPrimitiveLST()
 	{
-		return new StringBuilder().append(getTokenName()).append('=').append(
-				spelllist.getLSTformat(false)).append(getRestrictionLST());
+		return new StringBuilder().append(getTokenName()).append('=').append(spelllist.getLSTformat(false))
+			.append(getRestrictionLST());
 	}
 
 }

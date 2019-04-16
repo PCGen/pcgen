@@ -20,61 +20,54 @@ package pcgen.output.actor;
 import java.math.BigDecimal;
 
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.model.DeityFacet;
+import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.Deity;
 import pcgen.core.PCStat;
+import pcgen.core.Race;
 import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 import pcgen.output.wrapper.CDOMObjectWrapper;
 
-public class ObjectKeyActorTest extends AbstractOutputTestCase
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+class ObjectKeyActorTest extends AbstractOutputTestCase
 {
 
-	private static final DeityFacet df = new DeityFacet();
+	private static final RaceFacet DF = new RaceFacet();
 
-	private static boolean classSetUpRun = false;
-
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		if (!classSetUpRun)
-		{
-			classSetUp();
-			classSetUpRun = true;
-		}
-	}
-
-	private void classSetUp()
+	@BeforeAll
+	public static void classSetUp()
 	{
 		OutputDB.reset();
-		df.init();
+		DF.init();
 	}
 
+	@Test
 	public void testBasicObjectKeyActor()
 	{
-		Deity d = new Deity();
+		Race d = new Race();
 		d.setName("Bob");
 		BigDecimal expectedResult = new BigDecimal("4.063");
-		df.set(id, d);
+		DF.set(id, d);
 		d.put(ObjectKey.COST, expectedResult);
 		ObjectKeyActor<BigDecimal> oka =
 				new ObjectKeyActor<>(ObjectKey.COST);
 		CDOMObjectWrapper.load(dsid, d.getClass(), "cost", oka);
-		processThroughFreeMarker("${deity.cost}", expectedResult.toString());
+		processThroughFreeMarker("${race.cost}", expectedResult.toString());
 	}
 
+	@Test
 	public void testWrappedObjectKeyActor()
 	{
-		Deity d = new Deity();
+		Race d = new Race();
 		d.setName("Bob");
 		PCStat str = new PCStat();
 		str.setName("Strength");
 		BigDecimal expectedResult = new BigDecimal("4.063");
 		str.put(ObjectKey.COST, expectedResult);
-		df.set(id, d);
+		DF.set(id, d);
 		d.put(ObjectKey.SPELL_STAT, CDOMDirectSingleRef.getRef(str));
 		ObjectKeyActor<BigDecimal> oka_cost =
 				new ObjectKeyActor<>(ObjectKey.COST);
@@ -82,8 +75,8 @@ public class ObjectKeyActorTest extends AbstractOutputTestCase
 		ObjectKeyActor<CDOMSingleRef<PCStat>> oka_stat =
 				new ObjectKeyActor<>(ObjectKey.SPELL_STAT);
 		CDOMObjectWrapper.load(dsid, d.getClass(), "stat", oka_stat);
-		processThroughFreeMarker("${deity.stat}", str.getDisplayName());
-		processThroughFreeMarker("${deity.stat.cost}", expectedResult.toString());
+		processThroughFreeMarker("${race.stat}", str.getDisplayName());
+		processThroughFreeMarker("${race.stat.cost}", expectedResult.toString());
 	}
 
 }

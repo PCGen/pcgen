@@ -34,7 +34,6 @@ import pcgen.util.enumeration.Load;
  * UnencumberedLoadFacet is a Facet that tracks the Load objects for
  * Unencumbered movement that have been locked on a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UnencumberedLoadFacet extends AbstractSourcedListFacet<CharID, Load>
 		implements DataFacetChangeListener<CharID, CDOMObject>
@@ -52,8 +51,6 @@ public class UnencumberedLoadFacet extends AbstractSourcedListFacet<CharID, Load
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -77,8 +74,6 @@ public class UnencumberedLoadFacet extends AbstractSourcedListFacet<CharID, Load
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -100,8 +95,6 @@ public class UnencumberedLoadFacet extends AbstractSourcedListFacet<CharID, Load
 	 * getConstructingCacheMap(CharID) in order to implicitly call this method.
 	 * 
 	 * @return A new (empty) Map for use in this UnencumberedArmorFacet.
-	 * 
-	 * @see pcgen.cdom.facet.base.AbstractSourcedListFacet#getComponentMap()
 	 */
 	@Override
 	protected Map<Load, Set<Object>> getComponentMap()

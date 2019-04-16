@@ -1,0 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+#SOURCELONG:Spymaster's Handbook	SOURCESHORT:SMH	SOURCEWEB:http://paizo.com/products/btpy9l2w	SOURCEDATE:2016-07
+
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI	Display Location
+ABILITYCATEGORY:Breath of the Ancestor Type	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:BreathOfTheAncestorType						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Intrigue Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Intrigue			PLURAL:Intrigue Feats		DISPLAYLOCATION:Feats

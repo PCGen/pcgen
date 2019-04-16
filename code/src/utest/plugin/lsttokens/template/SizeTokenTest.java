@@ -17,11 +17,9 @@
  */
 package plugin.lsttokens.template;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCTemplate;
@@ -34,11 +32,14 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class SizeTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
 
 	static SizeToken token = new SizeToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -59,7 +60,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -72,13 +73,6 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 		SizeAdjustment sm = BuildUtilities.createSize("Medium", 1);
 		secondaryContext.getReferenceContext().importObject(sm);
 
-	}
-
-	@Override
-	@After
-	public void tearDown() throws Exception
-	{
-		super.tearDown();
 	}
 
 	@Test
@@ -112,14 +106,14 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(StringKey.SIZEFORMULA, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(StringKey.SIZEFORMULA, "1");
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "1");

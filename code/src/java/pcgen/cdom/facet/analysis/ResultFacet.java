@@ -17,13 +17,15 @@
  */
 package pcgen.cdom.facet.analysis;
 
+import java.util.Optional;
+
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.ScopeFacet;
-import pcgen.cdom.facet.VariableLibraryFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
+import pcgen.cdom.formula.VariableUtilities;
 import pcgen.util.Logging;
 
 /**
@@ -38,50 +40,36 @@ public class ResultFacet
 
 	private ScopeFacet scopeFacet;
 
-	private VariableLibraryFacet variableLibraryFacet;
-
 	private VariableStoreFacet variableStoreFacet;
 
 	public Object getGlobalVariable(CharID id, String varName)
 	{
-		ScopeInstance scope = scopeFacet.getGlobalScope(id);
-		VariableID<?> varID =
-				variableLibraryFacet.getVariableID(id.getDatasetID(), scope,
-						varName);
+		VariableID<?> varID = VariableUtilities.getGlobalVariableID(id, varName);
 		return variableStoreFacet.getValue(id, varID);
 	}
 
 	public Object getLocalVariable(CharID id, CDOMObject cdo, String varName)
 	{
-		String localScopeName = cdo.getLocalScopeName();
-		if (localScopeName == null)
+		Optional<String> localScopeName = cdo.getLocalScopeName();
+		if (localScopeName.isEmpty())
 		{
 			return getGlobalVariable(id, varName);
 		}
 
-		ScopeInstance scope = scopeFacet.get(id, localScopeName, cdo);
+		ScopeInstance scope = scopeFacet.get(id, localScopeName.get(), cdo);
 		if (scope == null)
 		{
-			Logging.errorPrint("Improperly built "
-					+ cdo.getClass().getSimpleName() + ": " + cdo.getKeyName()
-					+ " had no VariableScope");
+			Logging.errorPrint("Improperly built " + cdo.getClass().getSimpleName() + ": " + cdo.getKeyName()
+				+ " had no VariableScope");
 			return null;
 		}
-		VariableID<?> varID =
-				variableLibraryFacet.getVariableID(id.getDatasetID(), scope,
-						varName);
+		VariableID<?> varID =  VariableUtilities.getLocalVariableID(id, scope, varName);
 		return variableStoreFacet.getValue(id, varID);
 	}
 
 	public void setScopeFacet(ScopeFacet scopeFacet)
 	{
 		this.scopeFacet = scopeFacet;
-	}
-
-	public void setVariableLibraryFacet(
-			VariableLibraryFacet variableLibraryFacet)
-	{
-		this.variableLibraryFacet = variableLibraryFacet;
 	}
 
 	public void setVariableStoreFacet(VariableStoreFacet variableStoreFacet)

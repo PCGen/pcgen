@@ -97,8 +97,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 *            The Formula indicating the number of choices that may be
 	 *            selected when selections are made in this TransitionChoice.
 	 */
-	public ConcreteTransitionChoice(SelectableSet<? extends T> set,
-			Formula count)
+	public ConcreteTransitionChoice(SelectableSet<? extends T> set, Formula count)
 	{
 		choices = set;
 		choiceCount = count;
@@ -135,8 +134,6 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	/**
 	 * Returns true if the given Object is a TransitionChoice and has identical
 	 * underlying choices and choiceCount
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -144,9 +141,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 		if (obj instanceof ConcreteTransitionChoice)
 		{
 			ConcreteTransitionChoice<?> other = (ConcreteTransitionChoice<?>) obj;
-			if (choiceCount == other.choiceCount
-					|| (choiceCount != null && choiceCount
-							.equals(other.choiceCount)))
+			if (choiceCount == other.choiceCount || (choiceCount != null && choiceCount.equals(other.choiceCount)))
 			{
 				return choices.equals(other.choices);
 			}
@@ -156,14 +151,11 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 
 	/**
 	 * Returns a consistent-with-equals hashCode for this TransitionChoice.
-	 * 
-	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode()
 	{
-		return choices.hashCode() + 29
-				* (choiceCount == null ? -1 : choiceCount.hashCode());
+		return choices.hashCode() + 29 * (choiceCount == null ? -1 : choiceCount.hashCode());
 	}
 
 	/**
@@ -185,8 +177,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 		String title = choices.getTitle();
 		if (title == null)
 		{
-			title = "Choose a "
-					+ StringPClassUtil.getStringFor(choices.getChoiceClass());
+			title = "Choose a " + StringPClassUtil.getStringFor(choices.getChoiceClass());
 		}
 
 		Collection<? extends T> set = choices.getSet(pc);
@@ -196,7 +187,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 		{
 			if (choiceActor == null || choiceActor.allow(item, pc, allowStack))
 			{
-				if (assocList != null && stackLimit != null && stackLimit.intValue() > 0)
+				if (assocList != null && stackLimit != null && stackLimit > 0)
 				{
 					int takenCount = 0;
 					for (Object choice : assocList)
@@ -206,7 +197,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 							takenCount++;
 						}
 					}
-					if (stackLimit.intValue() <= takenCount)
+					if (stackLimit <= takenCount)
 					{
 						continue;
 					}
@@ -223,9 +214,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 		else
 		{
 			CDOMChooserFacadeImpl<T> chooserFacade =
-                    new CDOMChooserFacadeImpl<>(
-                            title, new ArrayList<>(allowed),
-                            new ArrayList<>(), numChoices);
+					new CDOMChooserFacadeImpl<>(title, new ArrayList<>(allowed), new ArrayList<>(), numChoices);
 			chooserFacade.setAllowsDups(allowStack);
 			chooserFacade.setRequireCompleteSelection(required);
 			chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
@@ -276,13 +265,11 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 *            The PlayerCharacter to which the choices should be applied.
 	 */
 	@Override
-	public void act(Collection<? extends T> choicesMade, CDOMObject owner,
-			PlayerCharacter apc)
+	public void act(Collection<? extends T> choicesMade, CDOMObject owner, PlayerCharacter apc)
 	{
 		if (choiceActor == null)
 		{
-			throw new IllegalStateException(
-					"Cannot act without a defined ChoiceActor");
+			throw new IllegalStateException("Cannot act without a defined ChoiceActor");
 		}
 		for (T choice : choicesMade)
 		{

@@ -1,5 +1,4 @@
 /*
- * CompanionSupportFacade.java
  * Copyright 2012 Connor Petty <cpmeister@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,18 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Mar 4, 2012, 6:08:03 PM
  */
 package pcgen.facade.core;
 
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public interface CompanionSupportFacade
 {
 
@@ -35,7 +28,6 @@ public interface CompanionSupportFacade
 	 * A CharacterFacade is used instead of a CompanionFacade to make
 	 * sure that the added companion is an existing character. This enforces
 	 * that this method doesn't try to create a new character behind the scenes.
-	 * <br>
 	 * To implement this method, the added companion would need to be wrapped in
 	 * another CompanionFacade such that the backing character can be garbage
 	 * collected if the character is closed.
@@ -47,7 +39,7 @@ public interface CompanionSupportFacade
 	/**
 	 * Removes a companion from this character.
 	 * The companion to removed will be one retrieved from the
-	 * <code>getCompanions</code> list.
+	 * {@code getCompanions} list.
 	 * @param companion the companion to remove
 	 */
 	public void removeCompanion(CompanionFacade companion);

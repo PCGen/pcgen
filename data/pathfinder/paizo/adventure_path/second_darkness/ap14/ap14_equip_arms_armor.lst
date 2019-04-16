@@ -1,6 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Second Darkness, Chapter 2 - Children of the Void	SOURCESHORT:AP14	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ed	SOURCEDATE:2008-10
 
-# Equipment Name	Required Weapon Proficiency		Type												Cost		Weight	Crit Mult	Crit Range	Damage	Modifier					Wield Category	Requires Modification?	Size		Source Page		Special Property
-Tyranny's Foil	PROFICIENCY:WEAPON|Halberd		TYPE:Weapon.Resizable.Melee.Martial.Standard.Piercing.Slashing.Polearm	COST:10	WT:12		CRITMULT:x3	CRITRANGE:1	DAMAGE:2d8	EQMOD:ANARCH.KEEN.PLUS2W.STEEL	WIELD:TwoHanded	MODS:NO			SIZE:L	SOURCEPAGE:p.86	SPROP:Opens all nonmagical locked doors and bindings, breaks all non-magical chains and shackles within 30 ft.
-Pickaxe		PROFICIENCY:WEAPON|Pick (Heavy)	TYPE:Weapon.Resizable.Melee.Martial.Standard.Piercing.Pick			COST:14	WT:12		CRITMULT:x4	CRITRANGE:1	DAMAGE:1d8	EQMOD:STEEL					WIELD:TwoHanded					SIZE:M	SOURCEPAGE:p.29
+# Equipment Name	Required Weapon Proficiency		Type												Cost		Weight	Crit Mult	Crit Range	Damage	Modifier																				Wield Category	Requires Modification?	Size		Source Page		Special Property
+Tyranny's Foil	PROFICIENCY:WEAPON|Halberd		TYPE:Weapon.Resizable.Melee.Martial.Standard.Piercing.Slashing.Polearm	COST:10	WT:12		CRITMULT:x3	CRITRANGE:1	DAMAGE:2d8	EQMOD:Special Ability ~ Anarchic ~ Weapon.Special Ability ~ Keen ~ Weapon.Special Ability ~ +2 ~ Weapon.Material ~ Steel	WIELD:TwoHanded	MODS:NO			SIZE:L	SOURCEPAGE:p.86	SPROP:Opens all nonmagical locked doors and bindings, breaks all non-magical chains and shackles within 30 ft.
+Pickaxe		PROFICIENCY:WEAPON|Pick (Heavy)	TYPE:Weapon.Resizable.Melee.Martial.Standard.Piercing.Pick			COST:14	WT:12		CRITMULT:x4	CRITRANGE:1	DAMAGE:1d8	EQMOD:Material ~ Steel																		WIELD:TwoHanded					SIZE:M	SOURCEPAGE:p.29

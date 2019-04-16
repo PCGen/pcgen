@@ -17,10 +17,11 @@
  */
 package plugin.lsttokens.deity;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Before;
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -34,14 +35,17 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 {
 	static AlignToken token = new AlignToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<Deity>();
+	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
 	private PCAlignment lg;
 
 	@Override
-	@Before
+	@BeforeEach
 	public final void setUp() throws PersistenceLayerException,
 			URISyntaxException
 	{
@@ -74,22 +78,22 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 		return token;
 	}
 
-	public ObjectKey<?> getObjectKey()
+	public static ObjectKey<?> getObjectKey()
 	{
 		return ObjectKey.ALIGNMENT;
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidFormula() throws PersistenceLayerException
+	public void testInvalidFormula()
 	{
-		if(parse("1+3"))
+		if (parse("1+3"))
 		{
 			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 		}
@@ -100,14 +104,14 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 	}
 
 	@Test
-	public void testInvalidInteger() throws PersistenceLayerException
+	public void testInvalidInteger()
 	{
 		assertFalse(parse("4"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidString() throws PersistenceLayerException
+	public void testInvalidString()
 	{
 		if (parse("String"))
 		{
@@ -150,14 +154,14 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.ALIGNMENT, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseLegal() throws PersistenceLayerException
+	public void testUnparseLegal()
 	{
 		primaryProf.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(lg));
 		expectSingle(getToken().unparse(primaryContext, primaryProf), lg
@@ -166,7 +170,7 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.ALIGNMENT;
 		primaryProf.put(objectKey, new Object());

@@ -1,5 +1,4 @@
 /*
- * RequestAddTabToGMGenMessage.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 16/02/2014 10:02:56 pm
- *
- * $Id$
  */
 package gmgen.pluginmgr.messages;
 
@@ -28,11 +23,7 @@ import pcgen.pluginmgr.PCGenMessage;
 
 /**
  * The Class {@code RequestAddTabToGMGenMessage} is a message
- * requesting that a tab be added to the GMGen user interface. 
- *
- * <br>
- * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ * requesting that a tab be added to the GMGen user interface.
  */
 @SuppressWarnings("serial")
 public class RequestAddTabToGMGenMessage extends PCGenMessage
@@ -48,8 +39,7 @@ public class RequestAddTabToGMGenMessage extends PCGenMessage
 	 * @param name The name of the tab.
 	 * @param pane The contents of the tab.
 	 */
-	public RequestAddTabToGMGenMessage(Object source,
-		String name, Component pane)
+	public RequestAddTabToGMGenMessage(Object source, String name, Component pane)
 	{
 		super(source);
 		this.name = name;

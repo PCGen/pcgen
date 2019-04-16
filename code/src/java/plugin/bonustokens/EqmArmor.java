@@ -1,5 +1,4 @@
 /*
- * EqmArmor.java
  * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 13, 2002, 9:19 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.bonustokens;
 
@@ -34,8 +28,7 @@ import pcgen.util.Logging;
  */
 public final class EqmArmor extends MultiTagBonusObj
 {
-	private static final String[] BONUS_TAGS =
-			{"AC", "ACCHECK", "DEFBONUS", "EDR", "MAXDEX", "SPELLFAILURE"};
+	private static final String[] BONUS_TAGS = {"AC", "ACCHECK", "DEFBONUS", "EDR", "MAXDEX", "SPELLFAILURE"};
 
 	/**
 	 * Return the bonus tag handled by this class.
@@ -50,7 +43,6 @@ public final class EqmArmor extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual armour equipment attribute that may be bonused.
 	 * @param tagNumber the index of the equipment attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The equipment attribute.
 	 */
 	@Override
@@ -61,7 +53,6 @@ public final class EqmArmor extends MultiTagBonusObj
 
 	/**
 	 * Get the number of armour equipment attributes that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of equipment attributes.
 	 */
 	@Override
@@ -77,9 +68,7 @@ public final class EqmArmor extends MultiTagBonusObj
 		{
 			if ("EDR".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:EQMARMOR|EDR is disabled when EDR control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:EQMARMOR|EDR is disabled when EDR control is used: " + token, context);
 				return false;
 			}
 		}
@@ -87,8 +76,9 @@ public final class EqmArmor extends MultiTagBonusObj
 		{
 			if ("SPELLFAILURE".equals(token))
 			{
-				Logging.errorPrint("BONUS:EQMARMOR|SPELLFAILURE is disabled "
-					+ "when EQSPELLFAILURE control is used: " + token, context);
+				Logging.errorPrint(
+					"BONUS:EQMARMOR|SPELLFAILURE is disabled " + "when EQSPELLFAILURE control is used: " + token,
+					context);
 				return false;
 			}
 		}
@@ -96,8 +86,8 @@ public final class EqmArmor extends MultiTagBonusObj
 		{
 			if ("MAXDEX".equals(token))
 			{
-				Logging.errorPrint("BONUS:EQMARMOR|MAXDEX is disabled "
-					+ "when EQMAXDEX control is used: " + token, context);
+				Logging.errorPrint("BONUS:EQMARMOR|MAXDEX is disabled " + "when EQMAXDEX control is used: " + token,
+					context);
 				return false;
 			}
 		}
@@ -105,9 +95,8 @@ public final class EqmArmor extends MultiTagBonusObj
 		{
 			if ("AC".equals(token))
 			{
-				Logging.errorPrint(
-					"BONUS:EQMARMOR|AC is deprecated when ACVARTOTAL control is used: "
-						+ token, context);
+				Logging.errorPrint("BONUS:EQMARMOR|AC is deprecated when ACVARTOTAL control is used: " + token,
+					context);
 				return false;
 			}
 		}
@@ -115,8 +104,8 @@ public final class EqmArmor extends MultiTagBonusObj
 		{
 			if ("ACCHECK".equals(token))
 			{
-				Logging.errorPrint("BONUS:EQMARMOR|ACCHECK is disabled "
-					+ "when EQACCHECK control is used: " + token, context);
+				Logging.errorPrint("BONUS:EQMARMOR|ACCHECK is disabled " + "when EQACCHECK control is used: " + token,
+					context);
 				return false;
 			}
 		}

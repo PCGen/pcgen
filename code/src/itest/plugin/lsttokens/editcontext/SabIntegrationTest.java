@@ -20,18 +20,20 @@ package plugin.lsttokens.editcontext;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.SabLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class SabIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<CDOMObject>
 {
 
-	static SabLst token = new SabLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static SabLst token = new SabLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()
@@ -95,5 +97,12 @@ public class SabIntegrationTest extends
 		// TODO No action for now, since Sab doesn't join
 	}
 	
-	
+	@Override
+	protected Ability construct(LoadContext context, String name)
+	{
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
+	}
 }

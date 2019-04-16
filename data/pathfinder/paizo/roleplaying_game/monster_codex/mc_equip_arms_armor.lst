@@ -1,0 +1,23 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Monster Codex	SOURCESHORT:MC	SOURCEWEB:http://paizo.com/products/btpy9926?Pathfinder-Roleplaying-Game-Monster-Codex	SOURCEDATE:2014-11
+
+# Equipment Name							Unique Key				Required Weapon Proficiency				Type															Contains			Cost		Weight	Base Quantity	Crit Mult	Crit Range	Damage	Modifier																								Wield Category		Requires Modification?	Range		Size		Source Page		Special Property																							Visible
+Bolas Bolts (10)							KEY:Bolts (Bolas/10)										TYPE:Ammunition.Resizable.Standard.BolaBolt												COST:20	WT:4		BASEQTY:10								EQMOD:Material ~ Steel.Material ~ Wood																							MODS:YES							SOURCEPAGE:p.44
+Bullet, Sling (Alchemical)					KEY:Bullet (Sling/Alchemical)									TYPE:Ammunition.Resizable.Standard.Bullet													COST:5	WT:1																																								MODS:YES							SOURCEPAGE:p.117	SPROP:DC 15 Craft (alchemy) or Sleight of Hand check to fill with one dose of alchemical splash weapon (like alchemist fire).
+
+Slaver's Crossbow, Heavy					KEY:Slaver's Crossbow (Heavy)	PROFICIENCY:WEAPON|Slaver's Crossbow (Heavy)	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Bludgeoning.Container.Projectile.Crossbow	CONTAINS:UNLIM|BolaBolt	COST:400	WT:12					CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:Material ~ Wood.Special Quality ~ Nonlethal.Special Quality ~ Trip													WIELD:TwoHandsOnly					RANGE:80	SIZE:M	SOURCEPAGE:p.45	SPROP:Entangles target on a successful critical.
+Slaver's Crossbow, Light					KEY:Slaver's Crossbow (Light)	PROFICIENCY:WEAPON|Slaver's Crossbow (Light)	TYPE:Weapon.Resizable.Exotic.Ranged.Standard.Bludgeoning.Container.Projectile.Crossbow	CONTAINS:UNLIM|BolaBolt	COST:250	WT:6					CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:Material ~ Wood.Special Quality ~ Nonlethal.Special Quality ~ Trip													WIELD:TwoHandsOnly					RANGE:40	SIZE:M	SOURCEPAGE:p.45	SPROP:Entangles target on a successful critical.
+
+Flindbar													PROFICIENCY:WEAPON|Flindbar				TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Standard.Bludgeoning.Piercing.Flail.Gnoll					COST:9	WT:6					CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:Special Quality ~ Disarm.Special Quality ~ Trip.Material ~ Steel														WIELD:OneHanded								SIZE:M	SOURCEPAGE:p.93
+
+Arrow (Base).COPY=Snakebiter Arrow																																																	EQMOD:Material ~ Steel.Material ~ Wood																																																											VISIBLE:YES
+Battleaxe (Base).COPY=Frostblood Axe																																																EQMOD:Material ~ Steel																																																														VISIBLE:YES
+Heavy Flail (Base).COPY=Serpent-Necked Flail																																															EQMOD:Material ~ Steel																																																														VISIBLE:YES
+Greataxe (Base).COPY=Cave Dweller's Greataxe																																															EQMOD:Material ~ Steel																																																														VISIBLE:YES
+Heavy Steel Shield (Base).COPY=Bloodfeast Shield																																														EQMOD:Material ~ Steel																																																														VISIBLE:YES
+
+Frostblood Axe.MOD																																																			EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Frost ~ Weapon.Special Ability ~ Wounding ~ Weapon.Special Ability ~ Enhancement Cost|8000													SOURCEPAGE:p.69	SPROP:After killing a creature of at least 1 HD, wielder can cast divine favor on himself or bless on himself and his allies as an immediate action.
+Serpent-Necked Flail.MOD																																																		EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Speed ~ Weapon																										SOURCEPAGE:p.201	SPROP:Command work causes flail to change to masterwork mace form and back.
+Snakebiter Arrow.MOD																																																			EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Seeking ~ Ranged.Special Ability ~ Enhancement Cost|140																			SOURCEPAGE:p.201	SPROP:DC 10 Handle Animal check required to use snakes as arrows. Failure means snake attacks user.
+Cave Dweller's Greataxe.MOD																																																		EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Enhancement Cost|6000																									SOURCEPAGE:p.213	SPROP:1/day can force struck creature to attempt a DC 16 Fort or be slowed one round, 2nd save or be petrified 1d4 rounds
+Bloodfeast Shield.MOD																																																			EQMOD:Special Ability ~ +2 ~ Shield.Special Ability ~ Enhancement Cost|14600																									SOURCEPAGE:p.237

@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.deity;
 
-import org.junit.Test;
-
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.rules.persistence.CDOMLoader;
@@ -27,12 +25,14 @@ import plugin.lsttokens.deity.DomainsToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class DomainsIntegrationTest extends
 		AbstractListIntegrationTestCase<Deity, Domain>
 {
 
-	static DomainsToken token = new DomainsToken();
-	static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
+	private static DomainsToken token = new DomainsToken();
+	private static CDOMTokenLoader<Deity> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

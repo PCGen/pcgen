@@ -75,10 +75,15 @@ public class RaceToken extends AbstractQualifiedChooseToken<Race>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
-		return super.parseTokenWithSeparator(context, context.getReferenceContext()
-				.getManufacturer(RACE_CLASS), obj, value);
+		return super.parseTokenWithSeparator(context, context.getReferenceContext().getManufacturer(RACE_CLASS), obj,
+			value);
+	}
+
+	@Override
+	protected String getPersistentFormat()
+	{
+		return "RACE";
 	}
 }

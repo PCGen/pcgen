@@ -31,13 +31,15 @@ import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class LangBonusTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Language>
 {
 
 	static ChooseLst token = new ChooseLst();
 	static LangToken subtoken = new LangToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 	private static final LangBonusToken LANGBONUS_TOKEN = new LangBonusToken();
 
 	public LangBonusTokenTest()
@@ -45,6 +47,7 @@ public class LangBonusTokenTest extends
 		super("LANGBONUS", null);
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

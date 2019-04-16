@@ -1,0 +1,42 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+# Name						Dataformat				Required	Selectable		Visible	Explanation
+DEFAULTVARIABLEVALUE:ORDEREDPAIR|0,0
+DEFAULTVARIABLEVALUE:NUMBER|0
+DEFAULTVARIABLEVALUE:BOOLEAN|False
+DEFAULTVARIABLEVALUE:STRING|
+DEFAULTVARIABLEVALUE:DICE|0
+DEFAULTVARIABLEVALUE:ALIGNMENT|None
+DEFAULTVARIABLEVALUE:HANDED|Right
+
+
+FACTDEF:RACE|BaseSize				DATAFORMAT:SIZEADJUSTMENT	REQUIRED:NO				VISIBLE:YES	EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
+
+
+FACTDEF:SPELL|CompMaterial			DATAFORMAT:String								VISIBLE:YES
+# Name						Dataformat				Required	Selectable		Visible	Explanation
+FACTDEF:ABILITY|AppliedName			DATAFORMAT:String								VISIBLE:YES
+
+FACTDEF:CLASS|Abb					DATAFORMAT:String								VISIBLE:YES
+FACTDEF:CLASS|ClassType				DATAFORMAT:String								VISIBLE:YES
+FACTDEF:CLASS|SpellType				DATAFORMAT:String					SELECTABLE:YES	VISIBLE:YES
+
+FACTDEF:DEITY|Symbol				DATAFORMAT:String								VISIBLE:YES
+FACTDEF:DEITY|Worshippers			DATAFORMAT:String								VISIBLE:YES
+FACTDEF:DEITY|Title				DATAFORMAT:String								VISIBLE:YES
+FACTDEF:DEITY|Appearance			DATAFORMAT:String								VISIBLE:YES
+
+FACTDEF:EQUIPMENT|RateOfFire			DATAFORMAT:String								VISIBLE:YES
+
+FACTDEF:TEMPLATE|AppliedName			DATAFORMAT:String								VISIBLE:YES
+
+FACTSETDEF:DEITY|Pantheon			DATAFORMAT:String					SELECTABLE:YES	VISIBLE:YES
+FACTSETDEF:DEITY|Race				DATAFORMAT:String								VISIBLE:YES
+
+
+
+###Block: RACE "TYPE" replacement
+# Currently we use PRERACETYPE - A CLASS tag only - to allow a changed creature RACETYPE to still access their original racial HD class.
+# This transition aims to remove that reliance. Switching to a simple Boolean based upon the starting racetype "FACT"
+# Name			Dataformat		Required	Selectable		Visible	Displayname			Explanation
+FACTDEF:RACE|RACETYPE	DATAFORMAT:String	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:RaceType	EXPLANATION:Determines what the 'RACE TYPE' is.

@@ -17,10 +17,17 @@
  */
 package pcgen.base.formula;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class MultiplyingFormulaTest
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import org.junit.jupiter.api.Test;
+
+
+class MultiplyingFormulaTest
 {
 
 	@Test
@@ -31,7 +38,7 @@ public class MultiplyingFormulaTest
 		assertEquals("*0", new MultiplyingFormula(0).toString());
 		assertEquals("*-3", new MultiplyingFormula(-3).toString());
 	}
-	
+
 	@Test
 	public void testIdentity()
 	{
@@ -48,14 +55,14 @@ public class MultiplyingFormulaTest
 		MultiplyingFormula f2 = new MultiplyingFormula(1);
 		MultiplyingFormula f3 = new MultiplyingFormula(2);
 		MultiplyingFormula f4 = new MultiplyingFormula(-1);
-		assertTrue(f1 != f2);
+		assertNotSame(f1, f2);
 		assertEquals(f1.hashCode(), f2.hashCode());
 		assertEquals(f1, f2);
-		assertFalse(f1.equals(null));
-		assertFalse(f1.hashCode() == f3.hashCode());
-		assertFalse(f1.equals(f3));
-		assertFalse(f1.hashCode() == f4.hashCode());
-		assertFalse(f1.equals(f4));
+		assertNotNull(f1);
+		assertNotEquals(f1.hashCode(), f3.hashCode());
+		assertNotEquals(f1, f3);
+		assertNotEquals(f1.hashCode(), f4.hashCode());
+		assertNotEquals(f1, f4);
 	}
 
 	@Test
@@ -89,42 +96,22 @@ public class MultiplyingFormulaTest
 
 	private void testBrokenCalls(MultiplyingFormula f)
 	{
-		try
-		{
+		assertThrows(IllegalArgumentException.class, () -> {
 			f.resolve((Number[]) null);
-			fail("null should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
+			},
+				"null should be illegal");
+		assertThrows(IllegalArgumentException.class, () -> {
 			f.resolve();
-			fail("empty array should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
+			},
+			"empty array should be illegal");
+		assertThrows(IllegalArgumentException.class, () -> {
 			f.resolve(4, 2.5);
-			fail("two arguments in array should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
+			},
+			"two arguments in array should be illegal");
+
+		assertThrows(IllegalArgumentException.class, () -> {
 			f.resolve(4, 2.5);
-			fail("two arguments should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
+		}, "two arguments should be illegal");
 	}
 
 }

@@ -30,15 +30,14 @@ import pcgen.rules.persistence.token.ParseResult;
 public class StatusToken implements CDOMPrimaryToken<Campaign>
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "STATUS";
 	}
 
-    @Override
-	public ParseResult parseToken(LoadContext context, Campaign campaign,
-		String value)
+	@Override
+	public ParseResult parseToken(LoadContext context, Campaign campaign, String value)
 	{
 		Status set;
 		if (value.equalsIgnoreCase("RELEASE"))
@@ -59,26 +58,25 @@ public class StatusToken implements CDOMPrimaryToken<Campaign>
 		}
 		else
 		{
-			return new ParseResult.Fail("You should use 'RELEASE', 'ALPHA', 'BETA', or 'TESTONLY' as the "
-				+ getTokenName() + ": " + value, context);
+			return new ParseResult.Fail(
+				"You should use 'RELEASE', 'ALPHA', 'BETA', or 'TESTONLY' as the " + getTokenName() + ": " + value);
 		}
 		context.getObjectContext().put(campaign, ObjectKey.STATUS, set);
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		Status status = context.getObjectContext().getObject(campaign,
-				ObjectKey.STATUS);
+		Status status = context.getObjectContext().getObject(campaign, ObjectKey.STATUS);
 		if (status == null)
 		{
 			return null;
 		}
-		return new String[] { status.toString() };
+		return new String[]{status.toString()};
 	}
 
-    @Override
+	@Override
 	public Class<Campaign> getTokenClass()
 	{
 		return Campaign.class;

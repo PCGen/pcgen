@@ -18,6 +18,7 @@
 package pcgen.cdom.content;
 
 import java.net.URI;
+import java.util.Objects;
 
 import pcgen.cdom.base.Loadable;
 
@@ -46,10 +47,7 @@ public abstract class UserContent implements Loadable
 	@Override
 	public void setName(String name)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException("Name cannot be null");
-		}
+		Objects.requireNonNull(name, "Name cannot be null");
 		this.name = name;
 	}
 
@@ -80,10 +78,7 @@ public abstract class UserContent implements Loadable
 	 */
 	public void setExplanation(String value)
 	{
-		if (value == null)
-		{
-			throw new IllegalArgumentException("Explanation may not be null");
-		}
+		Objects.requireNonNull(value, "Explanation may not be null");
 		explanation = value;
 	}
 

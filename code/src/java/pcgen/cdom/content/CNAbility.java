@@ -18,6 +18,7 @@
 package pcgen.cdom.content;
 
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
@@ -37,8 +38,8 @@ import pcgen.core.Ability;
 /**
  * An CNAbility represents an "unresolved" (categorized) Ability &amp; Nature.
  */
-public class CNAbility extends ConcretePrereqObject implements
-		QualifyingObject, Comparable<CNAbility>, ChooseDriver, Reducible
+public class CNAbility extends ConcretePrereqObject
+		implements QualifyingObject, Comparable<CNAbility>, ChooseDriver, Reducible
 {
 
 	private final Category<Ability> category;
@@ -63,37 +64,23 @@ public class CNAbility extends ConcretePrereqObject implements
 	 */
 	CNAbility(Category<Ability> cat, Ability abil, Nature nat)
 	{
-		if (cat == null)
+		Objects.requireNonNull(cat, "Cannot build CNAbility with null Category");
+		Objects.requireNonNull(abil, "Cannot build CNAbility with null Ability");
+		Objects.requireNonNull(nat, "Cannot build CNAbility with null Nature");
+		if (abil.getKeyName() == null || abil.getKeyName().isEmpty())
 		{
-			throw new IllegalArgumentException(
-				"Cannot build CNAbility with null Category");
-		}
-		if (abil == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot build CNAbility with null Ability");
-		}
-		if (nat == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot build CNAbility with null Nature");
-		}
-		if (abil.getKeyName() == null || abil.getKeyName().length() == 0)
-		{
-			throw new IllegalArgumentException(
-				"Cannot build CNAbility when Ability has no key");
+			throw new IllegalArgumentException("Cannot build CNAbility when Ability has no key");
 		}
 		Category<Ability> origCategory = abil.getCDOMCategory();
 		if (origCategory == null)
 		{
-			throw new IllegalArgumentException("Cannot build CNAbility for "
-				+ abil + " when Ability has null original Category");
+			throw new IllegalArgumentException(
+				"Cannot build CNAbility for " + abil + " when Ability has null original Category");
 		}
 		if (!cat.getParentCategory().equals(origCategory))
 		{
-			throw new IllegalArgumentException("Cannot build CNAbility for "
-				+ abil + " with incompatible Category: " + cat
-				+ " is not compatible with Ability's Category: " + origCategory);
+			throw new IllegalArgumentException("Cannot build CNAbility for " + abil + " with incompatible Category: "
+				+ cat + " is not compatible with Ability's Category: " + origCategory);
 		}
 		category = cat;
 		ability = abil;
@@ -163,9 +150,7 @@ public class CNAbility extends ConcretePrereqObject implements
 		if (o instanceof CNAbility)
 		{
 			CNAbility other = (CNAbility) o;
-			return category.equals(other.category)
-					&& ability.equals(other.ability)
-					&& nature.equals(other.nature);
+			return category.equals(other.category) && ability.equals(other.ability) && nature == other.nature;
 		}
 		return false;
 	}
@@ -173,13 +158,13 @@ public class CNAbility extends ConcretePrereqObject implements
 	@Override
 	public int compareTo(CNAbility other)
 	{
-	    final int equal = 0;
+		final int equal = 0;
 
 		if (this == other)
 		{
 			return equal;
 		}
-		
+
 		// ability details
 		int compare = this.ability.compareTo(other.ability);
 		if (compare != equal)
@@ -231,9 +216,6 @@ public class CNAbility extends ConcretePrereqObject implements
 		return ability.getDisplayName();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
-	 */
 	@Override
 	public CDOMObject getCDOMObject()
 	{

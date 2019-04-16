@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountVisibleTemplatesTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 20:39:59
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -30,8 +26,7 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
-public class PCCountVisibleTemplatesTermEvaluator 
-		extends BasePCDTermEvaluator implements TermEvaluator
+public class PCCountVisibleTemplatesTermEvaluator extends BasePCDTermEvaluator implements TermEvaluator
 {
 	public PCCountVisibleTemplatesTermEvaluator(String originalText)
 	{
@@ -43,7 +38,7 @@ public class PCCountVisibleTemplatesTermEvaluator
 	{
 		Float count = 0.0f;
 
-		for ( PCTemplate template : display.getTemplateSet() )
+		for (PCTemplate template : display.getTemplateSet())
 		{
 			final Visibility vis = template.getSafe(ObjectKey.VISIBILITY);
 

@@ -25,10 +25,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.util.ListSet;
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
@@ -60,8 +60,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * @param <T>
  *            The Type of object stored in this AbstractSourcedListFacet
  */
-public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
-		extends AbstractDataFacet<IDT, T>
+public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T> extends AbstractDataFacet<IDT, T>
 {
 	/**
 	 * Add the given object with the given source to the list of objects stored
@@ -80,16 +79,13 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 	 */
 	public void add(IDT id, T obj, Object source)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
+		Objects.requireNonNull(obj, "Object to add may not be null");
 		Map<T, Set<Object>> map = getConstructingCachedMap(id);
 		Set<Object> set = map.get(obj);
 		boolean fireNew = (set == null);
 		if (fireNew)
 		{
-			set = new WrappedMapSet<>(IdentityHashMap.class);
+			set = Collections.newSetFromMap(new IdentityHashMap<>());
 			map.put(obj, set);
 		}
 		set.add(source);
@@ -144,8 +140,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 	public boolean remove(IDT id, T obj, Object source)
 	{
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
-		return (componentMap != null)
-			&& processRemoval(id, componentMap, obj, source);
+		return (componentMap != null) && processRemoval(id, componentMap, obj, source);
 	}
 
 	/**
@@ -250,8 +245,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 		{
 			return Collections.emptySet();
 		}
-		return Collections
-			.unmodifiableSet(new ListSet<>(componentMap.keySet()));
+		return Collections.unmodifiableSet(new ListSet<>(componentMap.keySet()));
 	}
 
 	/**
@@ -340,12 +334,8 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 	private Set<Object> getConstructingCachedSetFor(IDT id, T obj)
 	{
 		Map<T, Set<Object>> map = getConstructingCachedMap(id);
-		Set<Object> set = map.get(obj);
-		if (set == null)
-		{
-			set = new WrappedMapSet<>(IdentityHashMap.class);
-			map.put(obj, set);
-		}
+		Set<Object> set = map.computeIfAbsent(obj, k -> Collections.newSetFromMap(new IdentityHashMap<>()));
+
 		return set;
 	}
 
@@ -365,6 +355,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 	 *         PCGenIdentifier; null if no information has been set in this
 	 *         AbstractSourcedListFacet for the resource.
 	 */
+	@SuppressWarnings("unchecked")
 	protected Map<T, Set<Object>> getCachedMap(IDT id)
 	{
 		return (Map<T, Set<Object>>) getCache(id);
@@ -453,8 +444,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 			{
 				T obj = me.getKey();
 				Set<Object> sourceSet = me.getValue();
-				Set<Object> targetSet =
-						getConstructingCachedSetFor(destination, obj);
+				Set<Object> targetSet = getConstructingCachedSetFor(destination, obj);
 				targetSet.addAll(sourceSet);
 			}
 		}
@@ -483,14 +473,9 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 	 *            The source for the given object to be removed from the list of
 	 *            sources for that object
 	 */
-	private boolean processRemoval(IDT id, Map<T, Set<Object>> componentMap,
-		T obj, Object source)
+	private boolean processRemoval(IDT id, Map<T, Set<Object>> componentMap, T obj, Object source)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException(
-				"Object to remove may not be null");
-		}
+		Objects.requireNonNull(obj, "Object to remove may not be null");
 		Set<Object> set = componentMap.get(obj);
 		if (set == null)
 		{
@@ -532,8 +517,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 			 * concurrent modification exception on a recursive remove
 			 */
 			List<T> removedKeys = new ArrayList<>();
-			for (Iterator<Map.Entry<T, Set<Object>>> it =
-					componentMap.entrySet().iterator(); it.hasNext();)
+			for (Iterator<Map.Entry<T, Set<Object>>> it = componentMap.entrySet().iterator(); it.hasNext();)
 			{
 				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
@@ -550,8 +534,7 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 			}
 			for (T obj : removedKeys)
 			{
-				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_REMOVED);
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
 			}
 		}
 	}

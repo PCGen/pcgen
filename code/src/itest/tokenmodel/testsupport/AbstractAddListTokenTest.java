@@ -17,7 +17,8 @@
  */
 package tokenmodel.testsupport;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.UserSelection;
@@ -27,27 +28,27 @@ import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
-import pcgen.persistence.PersistenceLayerException;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		extends AbstractTokenModelTest
 {
 	@Test
-	public void testFromAbility() throws PersistenceLayerException
+	public void testFromAbility()
 	{
-		Ability source = create(Ability.class, "Source");
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
+		Ability source = BuildUtilities.buildFeat(context, "Source");
 		T granted = createGrantedObject();
 		processToken(source);
 		assertEquals(0, getCount());
-		CNAbilitySelection cas =
-				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source));
+		CNAbilitySelection cas = new CNAbilitySelection(CNAbilityFactory
+			.getCNAbility(BuildUtilities.getFeatCat(), Nature.AUTOMATIC, source));
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
 		assertTrue(containsExpected(granted));
 		assertEquals((directAbilityFacet == getTargetFacet()) ? 2 : 1,
@@ -60,7 +61,7 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 	//BioSet not *supposed* to do things like this
 
 	@Test
-	public void testFromClass() throws PersistenceLayerException
+	public void testFromClass()
 	{
 		PCClass source = create(PCClass.class, "Source");
 		T granted = createGrantedObject();
@@ -75,7 +76,7 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 	}
 
 	@Test
-	public void testFromClassLevel() throws PersistenceLayerException
+	public void testFromClassLevel()
 	{
 		PCClassLevel source = create(PCClassLevel.class, "Source");
 		T granted = createGrantedObject();
@@ -90,7 +91,7 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 	}
 
 	@Test
-	public void testFromDeity() throws PersistenceLayerException
+	public void testFromDeity()
 	{
 		Deity source = create(Deity.class, "Source");
 		T granted = createGrantedObject();
@@ -105,7 +106,7 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 	}
 
 	@Test
-	public void testFromDomain() throws PersistenceLayerException
+	public void testFromDomain()
 	{
 		Domain source = create(Domain.class, "Source");
 		PCClass pcc = create(PCClass.class, "Class");
@@ -124,7 +125,7 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 	//Language not *supposed* to do things like this
 
 	@Test
-	public void testFromRace() throws PersistenceLayerException
+	public void testFromRace()
 	{
 		Race source = create(Race.class, "Source");
 		T granted = createGrantedObject();
@@ -144,7 +145,7 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 	//Skill not *supposed* to do things like this
 
 	@Test
-	public void testFromTemplate() throws PersistenceLayerException
+	public void testFromTemplate()
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		T granted = createGrantedObject();

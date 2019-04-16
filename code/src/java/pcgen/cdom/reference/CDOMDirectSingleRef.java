@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -19,6 +19,7 @@ package pcgen.cdom.reference;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.enumeration.GroupingState;
@@ -42,7 +43,7 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	 */
 	private final T referencedObject;
 
- 	/**
+	/**
 	 * The specific choice (association) for the Ability this
 	 * CDOMDirectSingleRef contains. May remain null if the given Ability does
 	 * not have a specific choice (or does not require a specific choice)
@@ -57,8 +58,8 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	 */
 	public CDOMDirectSingleRef(T item)
 	{
-		super((Class<T>) item.getClass(), item.getLSTformat());
-		referencedObject = item;
+		super(item.getKeyName());
+		referencedObject = Objects.requireNonNull(item);
 	}
 
 	/**
@@ -110,38 +111,24 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	 * 
 	 * @return A representation of this CDOMDirectSingleRef, suitable for
 	 *         storing in an LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return referencedObject.getLSTformat();
+		return referencedObject.getKeyName();
 	}
 
-	/**
-	 * Returns true if this CDOMDirectSingleRef is equal to the given Object.
-	 * Equality is defined as being another CDOMDirectSingleRef object with
-	 * equal underlying object.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
 		return obj instanceof CDOMDirectSingleRef
-				&& referencedObject
-						.equals(((CDOMDirectSingleRef<?>) obj).referencedObject);
+			&& referencedObject.equals(((CDOMDirectSingleRef<?>) obj).referencedObject);
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this CDOMDirectSingleRef
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
-		return referencedObject.getLSTformat().hashCode();
+		return referencedObject.getKeyName().hashCode();
 	}
 
 	/**
@@ -221,5 +208,24 @@ public class CDOMDirectSingleRef<T extends Loadable> extends CDOMSingleRef<T>
 	public String getChoice()
 	{
 		return choice;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return (Class<T>) referencedObject.getClass();
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return getReferenceClass().getSimpleName() + " " + getName();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return referencedObject.getClassIdentity().getPersistentFormat();
 	}
 }

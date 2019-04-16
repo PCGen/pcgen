@@ -31,12 +31,14 @@ import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class UseUntrainedTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Skill>
 {
 	static ChooseLst token = new ChooseLst();
 	static SkillToken subtoken = new SkillToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	private static final UseUntrainedToken USEUNTRAINED_TOKEN = new UseUntrainedToken();
 
@@ -45,6 +47,7 @@ public class UseUntrainedTokenTest extends
 		super("USEUNTRAINED", null);
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

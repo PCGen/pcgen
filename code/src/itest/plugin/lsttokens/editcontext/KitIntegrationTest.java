@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Domain;
 import pcgen.core.Kit;
@@ -28,12 +26,14 @@ import plugin.lsttokens.KitLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class KitIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Kit>
 {
 
-	static KitLst token = new KitLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static KitLst token = new KitLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public String getPrefix()

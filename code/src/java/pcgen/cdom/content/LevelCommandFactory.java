@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.content;
 
+import java.util.Objects;
+
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -27,8 +29,7 @@ import pcgen.core.PCClass;
  * A LevelCommandFactory is used to identify a PCClass which is to be applied
  * with a given number of levels (as defined by a Formula) to a PlayerCharacter.
  */
-public class LevelCommandFactory extends ConcretePrereqObject implements
-		Comparable<LevelCommandFactory>
+public class LevelCommandFactory extends ConcretePrereqObject implements Comparable<LevelCommandFactory>
 {
 
 	/**
@@ -60,16 +61,8 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 */
 	public LevelCommandFactory(CDOMSingleRef<PCClass> classRef, Formula lvls)
 	{
-		if (classRef == null)
-		{
-			throw new IllegalArgumentException(
-					"Class Reference for LevelCommandFactory cannot be null");
-		}
-		if (lvls == null)
-		{
-			throw new IllegalArgumentException(
-					"Level Formula for LevelCommandFactory cannot be null");
-		}
+		Objects.requireNonNull(classRef, "Class Reference for LevelCommandFactory cannot be null");
+		Objects.requireNonNull(lvls, "Level Formula for LevelCommandFactory cannot be null");
 		pcClass = classRef;
 		levels = lvls;
 	}
@@ -110,24 +103,12 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 		return pcClass.getLSTformat(false);
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this LevelCommandFactory
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return pcClass.hashCode() * 29 + levels.hashCode();
 	}
 
-	/**
-	 * Returns true if this LevelCommandFactory is equal to the given Object.
-	 * Equality is defined as being another LevelCommandFactory object with
-	 * equal PCClass to be added and equal level Formula.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -160,8 +141,7 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	@Override
 	public int compareTo(LevelCommandFactory other)
 	{
-		int compareResult = ReferenceUtilities.REFERENCE_SORTER.compare(
-				pcClass, other.pcClass);
+		int compareResult = ReferenceUtilities.REFERENCE_SORTER.compare(pcClass, other.pcClass);
 		if (compareResult == 0)
 		{
 			if (levels.equals(other.levels))

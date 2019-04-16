@@ -37,8 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with MONSKILL Token
  */
-public class MonskillToken extends AbstractNonEmptyToken<PCClass> implements
-		CDOMPrimaryToken<PCClass>
+public class MonskillToken extends AbstractNonEmptyToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override
@@ -48,20 +47,17 @@ public class MonskillToken extends AbstractNonEmptyToken<PCClass> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc, String value)
 	{
 		BonusObj bon = Bonus.newBonus(context, "MONSKILLPTS|NUMBER|" + value);
 		if (bon == null)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " was given invalid bonus value: " + value, context);
+			return new ParseResult.Fail(getTokenName() + " was given invalid bonus value: " + value);
 		}
 		Prerequisite prereq = getPrerequisite("PRELEVELMAX:1");
 		if (prereq == null)
 		{
-			return new ParseResult.Fail("Internal Error: " + getTokenName()
-					+ " had invalid prerequisite", context);
+			return new ParseResult.Fail("Internal Error: " + getTokenName() + " had invalid prerequisite");
 		}
 		bon.addPrerequisite(prereq);
 		bon.setTokenSource(getTokenName());
@@ -72,8 +68,7 @@ public class MonskillToken extends AbstractNonEmptyToken<PCClass> implements
 	@Override
 	public String[] unparse(LoadContext context, PCClass obj)
 	{
-		Changes<BonusObj> changes = context.getObjectContext().getListChanges(obj,
-				ListKey.BONUS);
+		Changes<BonusObj> changes = context.getObjectContext().getListChanges(obj, ListKey.BONUS);
 		if (changes == null || changes.isEmpty())
 		{
 			// Empty indicates no token present
@@ -89,8 +84,7 @@ public class MonskillToken extends AbstractNonEmptyToken<PCClass> implements
 			{
 				StringBuilder sb = new StringBuilder();
 				sb.append(bonus.getValue());
-				List<Prerequisite> prereqList = new ArrayList<>(
-						bonus.getPrerequisiteList());
+				List<Prerequisite> prereqList = new ArrayList<>(bonus.getPrerequisiteList());
 				Prerequisite prereq = getPrerequisite("PRELEVELMAX:1");
 				prereqList.remove(prereq);
 				if (!prereqList.isEmpty())

@@ -1,5 +1,4 @@
 /*
- * CharacterHPDialog.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 30, 2010, 10:18:59 PM
  */
 package pcgen.gui2.dialog;
 
@@ -43,25 +41,21 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
-import org.apache.commons.lang.math.NumberUtils;
-
+import pcgen.core.PCClass;
 import pcgen.core.RollingMethods;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.facade.core.CharacterLevelsFacade.CharacterLevelEvent;
 import pcgen.facade.core.CharacterLevelsFacade.HitPointListener;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.table.IntegerEditor;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
+import org.apache.commons.lang3.math.NumberUtils;
+
 public final class CharacterHPDialog extends JDialog implements ActionListener
 {
 
@@ -143,7 +137,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 		hpRef.addReferenceListener(hpListener);
 		box.add(totalHp);
 		box.add(Box.createHorizontalStrut(5));
-		
+
 		JButton button = new JButton("Reroll All");
 		button.setActionCommand("Reroll");
 		button.addActionListener(this);
@@ -168,7 +162,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 			}
 
 		});
-		
+
 		Utility.installEscapeCloseOperation(this);
 	}
 
@@ -265,7 +259,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 		public Object getValueAt(int rowIndex, int columnIndex)
 		{
 			CharacterLevelFacade level = levels.getElementAt(rowIndex);
-			ClassFacade c = levels.getClassTaken(level);
+			PCClass c = levels.getClassTaken(level);
 			switch (columnIndex)
 			{
 				case 0:
@@ -303,7 +297,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 	private class Renderer implements TableCellRenderer
 	{
 
-		private JButton button = new JButton();
+		private final JButton button = new JButton();
 
 		public Renderer()
 		{
@@ -312,7 +306,8 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 		}
 
 		@Override
-		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column)
+		public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+			int row, int column)
 		{
 			return button;
 		}
@@ -322,7 +317,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 	private class Editor extends AbstractCellEditor implements TableCellEditor, ActionListener
 	{
 
-		private JButton button = new JButton();
+		private final JButton button = new JButton();
 		private int editingRow;
 
 		public Editor()
@@ -339,7 +334,8 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 		}
 
 		@Override
-		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column)
+		public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
+			int column)
 		{
 			editingRow = row;
 			return button;

@@ -1,0 +1,17 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2014-08
+
+# Spell Name		Classes of caster							School			Sub-School			Descriptor							Components		Casting Time			Range			Target Area or Effect						Duration							Save Info			Spell Resistance		Source Page		Description
+
+# PFS #7-04
+# Spell Name	Classes of caster			School		Components	Casting Time	Range			Target Area or Effect						Duration				Spell Resistance	Source Page		Description
+Covetous Aura	CLASSES:Sorcerer,Wizard=5	SCHOOL:Abjuration	COMPS:V, S	CASTTIME:1 round	RANGE:Personal	TARGETAREA:25-ft.-radius emanation centered on you	DURATION:1 round/level (D)	SPELLRES:No		SOURCEPAGE:p.418	DESC:Anytime a harmless (so noted by a spell's saving throw description) spell of 3rd level or lower is cast within a covetous aura's area of effect, you may choose to immediately gain the benefit of that spell as it had also targeted you. The intended target still gains the effect of the spell. You gain the benefits of this duplicated spell only if the caster is in range of the covetous aura. Each time a covetous aura duplicates a spell effect, the remaining duration of the covetous aura is reduced by a number of rounds equal to the spell level of the spell effect that is duplicated.
+
+# TODO: This spell is also Arcanist,Witch=5 but those sources are not included in the core assumption. Must add new PCC loaded lst files using PRECAMPAIGN for these:
+#Covetous Aura.MOD		CLASSES:Arcanist=5
+#Covetous Aura.MOD		CLASSES:Witch=5
+
+#
+# DONE
+#

@@ -1,0 +1,9 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Familiar Folio	SOURCESHORT:FF	SOURCEWEB:http://paizo.com/products/btpy9au2?Pathfinder-Player-Companion-Familiar-Folio	SOURCEDATE:2014-12
+
+# Language			Type
+Common (cannot speak)	TYPE:Understand
+Plantspeech (fungi)	TYPE:Spoken.Written.Read
+Plantspeech (gourds)	TYPE:Spoken.Written.Read
+Plantspeech (seaweed)	TYPE:Spoken.Written.Read
+Plantspeech (trees)	TYPE:Spoken.Written.Read

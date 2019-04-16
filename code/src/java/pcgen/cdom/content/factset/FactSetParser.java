@@ -20,6 +20,7 @@ package pcgen.cdom.content.factset;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 import pcgen.base.util.FormatManager;
@@ -39,12 +40,12 @@ import pcgen.rules.persistence.token.ParseResult;
  * defined
  * 
  * @param <T>
- *            The type of of object upon which the FactSetParser can be used
+ *            The type of object upon which the FactSetParser can be used
  * @param <F>
  *            The format of the data stored in the FactSet
  */
-public class FactSetParser<T extends CDOMObject, F> extends
-		AbstractTokenWithSeparator<T> implements CDOMSecondaryToken<T>
+public class FactSetParser<T extends CDOMObject, F> extends AbstractTokenWithSeparator<T>
+		implements CDOMSecondaryToken<T>
 {
 
 	/**
@@ -63,11 +64,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 	 */
 	public FactSetParser(FactSetInfo<T, F> fsi)
 	{
-		if (fsi == null)
-		{
-			throw new IllegalArgumentException("FactSet Info cannot be null");
-		}
-		def = fsi;
+		def = Objects.requireNonNull(fsi);
 	}
 
 	@Override
@@ -77,8 +74,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context, T obj,
-		String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, T obj, String value)
 	{
 		FormatManager<F> fmtManager = def.getFormatManager();
 		FactSetKey<F> fsk = def.getFactSetKey();
@@ -92,13 +88,12 @@ public class FactSetParser<T extends CDOMObject, F> extends
 			{
 				if (!firstToken)
 				{
-					return new ParseResult.Fail("Non-sensical situation was "
-						+ "encountered while parsing " + getParentToken()
-						+ Constants.PIPE + getTokenName()
-						+ ": When used, .CLEARALL must be the first argument",
-						context);
+					return new ParseResult.Fail(
+						"Non-sensical situation was " + "encountered while parsing " + getParentToken() + Constants.PIPE
+							+ getTokenName() + ": When used, .CLEARALL must be the first argument");
 				}
 				objContext.removeSet(obj, fsk);
+				firstToken = false;
 			}
 
 			Indirect<F> indirect = fmtManager.convertIndirect(token);
@@ -129,8 +124,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 	public String[] unparse(LoadContext context, T obj)
 	{
 		FactSetKey<F> fk = def.getFactSetKey();
-		Changes<Indirect<F>> changes =
-				context.getObjectContext().getSetChanges(obj, fk);
+		Changes<Indirect<F>> changes = context.getObjectContext().getSetChanges(obj, fk);
 		Collection<Indirect<F>> removedItems = changes.getRemoved();
 		List<String> results = new ArrayList<>(2);
 		if (changes.includesGlobalClear())
@@ -139,12 +133,11 @@ public class FactSetParser<T extends CDOMObject, F> extends
 		}
 		if (removedItems != null && !removedItems.isEmpty())
 		{
-			context.addWriteMessage(getTokenName() + " does not support "
-				+ Constants.LST_DOT_CLEAR_DOT);
+			context.addWriteMessage(getTokenName() + " does not support " + Constants.LST_DOT_CLEAR_DOT);
 			return null;
 		}
 		Collection<Indirect<F>> added = changes.getAdded();
-		if (added != null && added.size() > 0)
+		if (added != null && !added.isEmpty())
 		{
 			StringBuilder sb = new StringBuilder();
 			boolean needsPipe = false;

@@ -52,17 +52,13 @@ public class FumblerangeToken extends AbstractStringToken<EquipmentModifier>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		EquipmentModifier obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier obj, String value)
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.FUMBLERANGE))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when FUMBLERANGE control is used: " + value,
-				context);
+			return new ParseResult.Fail(getTokenName() + " is disabled when FUMBLERANGE control is used: " + value);
 		}
 		return super.parseNonEmptyToken(context, obj, value);
 	}
-	
-	
+
 }

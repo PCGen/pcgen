@@ -21,7 +21,6 @@ import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Set;
 
-import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractDataFacet;
@@ -33,11 +32,8 @@ import pcgen.output.publish.OutputDB;
  * EquippedEquipmentFacet is a Facet that tracks the Equipment that is Equipped
  * by a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class EquippedEquipmentFacet extends
-		AbstractDataFacet<CharID, Equipment> implements
-		SetFacet<CharID, Equipment>
+public class EquippedEquipmentFacet extends AbstractDataFacet<CharID, Equipment> implements SetFacet<CharID, Equipment>
 {
 	private EquipmentFacet equipmentFacet;
 
@@ -52,11 +48,9 @@ public class EquippedEquipmentFacet extends
 	 */
 	public void reset(CharID id)
 	{
-		Set<Equipment> oldEquipped =
-				(Set<Equipment>) removeCache(id);
+		Set<Equipment> oldEquipped = (Set<Equipment>) removeCache(id);
 		Set<Equipment> currentEquipment = equipmentFacet.getSet(id);
-		Set<Equipment> newEquipped = new WrappedMapSet<>(
-                IdentityHashMap.class);
+		Set<Equipment> newEquipped = Collections.newSetFromMap(new IdentityHashMap<>());
 		setCache(id, newEquipped);
 		if (oldEquipped != null)
 		{
@@ -65,8 +59,7 @@ public class EquippedEquipmentFacet extends
 			{
 				if (!currentEquipment.contains(e))
 				{
-					fireDataFacetChangeEvent(id, e,
-							DataFacetChangeEvent.DATA_REMOVED);
+					fireDataFacetChangeEvent(id, e, DataFacetChangeEvent.DATA_REMOVED);
 				}
 			}
 		}
@@ -78,8 +71,7 @@ public class EquippedEquipmentFacet extends
 				// If not old, it's added
 				if (oldEquipped == null || !oldEquipped.contains(e))
 				{
-					fireDataFacetChangeEvent(id, e,
-							DataFacetChangeEvent.DATA_ADDED);
+					fireDataFacetChangeEvent(id, e, DataFacetChangeEvent.DATA_ADDED);
 				}
 			}
 			else
@@ -87,8 +79,7 @@ public class EquippedEquipmentFacet extends
 				// If old, it's removed
 				if (oldEquipped != null && oldEquipped.contains(e))
 				{
-					fireDataFacetChangeEvent(id, e,
-							DataFacetChangeEvent.DATA_REMOVED);
+					fireDataFacetChangeEvent(id, e, DataFacetChangeEvent.DATA_REMOVED);
 				}
 			}
 		}
@@ -126,8 +117,7 @@ public class EquippedEquipmentFacet extends
 		{
 			return Collections.emptySet();
 		}
-		Set<Equipment> returnEquipped = new WrappedMapSet<>(
-                IdentityHashMap.class);
+		Set<Equipment> returnEquipped = Collections.newSetFromMap(new IdentityHashMap<>());
 		returnEquipped.addAll(set);
 		return returnEquipped;
 	}
@@ -185,8 +175,7 @@ public class EquippedEquipmentFacet extends
 		Set<Equipment> set = (Set<Equipment>) getCache(source);
 		if (set != null)
 		{
-			Set<Equipment> newEquipped = new WrappedMapSet<>(
-                    IdentityHashMap.class);
+			Set<Equipment> newEquipped = Collections.newSetFromMap(new IdentityHashMap<>());
 			newEquipped.addAll(set);
 			setCache(copy, newEquipped);
 		}
@@ -198,7 +187,7 @@ public class EquippedEquipmentFacet extends
 	 */
 	public void removeAll(CharID id)
 	{
-		removeCache(id);		
+		removeCache(id);
 	}
 
 	public void init()

@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
 package pcgen.util.enumeration;
 
@@ -46,7 +44,7 @@ public enum Load
 	{
 		return checkLtEq(x) ? x : this;
 	}
-	
+
 	/**
 	 * @param val should be a string value to be checked for equality (case-insensitive) with
 	 * 				one of the enum values for this enumeration
@@ -55,7 +53,7 @@ public enum Load
 	public static Load getLoadType(String val)
 	{
 		Load r = null;
-		
+
 		if (LIGHT.toString().equalsIgnoreCase(val))
 		{
 			r = LIGHT;

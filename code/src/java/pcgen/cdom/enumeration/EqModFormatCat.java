@@ -30,6 +30,6 @@ package pcgen.cdom.enumeration;
 public enum EqModFormatCat
 {
 
-	FRONT, MIDDLE, PARENS;
+	FRONT, MIDDLE, PARENS
 
 }

@@ -1,0 +1,10 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEDATE:2016-04
+
+### Starting Gold
+# Template Name			Visible	Template															Apply Kit
+Starting Gold ~ UI		VISIBLE:NO	TEMPLATE:CHOOSE:Starting Gold UI ~ Random|Starting Gold UI ~ Maximum|Starting Gold UI ~ Average
+Starting Gold UI ~ Random	VISIBLE:NO																	KIT:1|Starting Gold UI ~ Random
+Starting Gold UI ~ Maximum	VISIBLE:NO																	KIT:1|Starting Gold UI ~ Maximum
+Starting Gold UI ~ Average	VISIBLE:NO																	KIT:1|Starting Gold UI ~ Average

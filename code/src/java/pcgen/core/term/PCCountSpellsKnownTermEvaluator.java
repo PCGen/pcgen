@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountSpellsKnownTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 07-Aug-2008 22:41:16
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -30,16 +26,14 @@ import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 
-public class PCCountSpellsKnownTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCountSpellsKnownTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final int[] nums;
 
-	public PCCountSpellsKnownTermEvaluator(
-			String originalText, int[] nums)
+	public PCCountSpellsKnownTermEvaluator(String originalText, int[] nums)
 	{
 		this.originalText = originalText;
-		this.nums         = nums;
+		this.nums = nums;
 	}
 
 	@Override
@@ -62,9 +56,7 @@ public class PCCountSpellsKnownTermEvaluator
 
 				if (pObj != null)
 				{
-					count = (float) pc.getCharacterSpells(
-									pObj,
-									null, Globals.getDefaultSpellBook(), nums[1]).size();
+					count = (float) pc.getCharacterSpells(pObj, null, Globals.getDefaultSpellBook(), nums[1]).size();
 				}
 			}
 		}

@@ -1,5 +1,4 @@
 /*
- * SignedInteger.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -16,27 +15,23 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 04/01/2013 11:26:33 AM
  *
- * $Id$
  */
 package pcgen.util;
 
 /**
- * The Class <code>SignedInteger</code> provides a number which always carries a 
+ * The Class {@code SignedInteger} provides a number which always carries a
  * leading sign in its string representation. It is currently used for displaying 
  * numerically sorted lists of modifiers in choosers.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SignedInteger extends Number implements Comparable<SignedInteger>
 {
 
 	/** Version for serialisation. */
 	private static final long serialVersionUID = 3744855657358887537L;
-	
+
 	/** The integer value being represented. */
 	private final int value;
 
@@ -48,7 +43,7 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 	{
 		this.value = value;
 	}
-	
+
 	@Override
 	public double doubleValue()
 	{
@@ -86,16 +81,8 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 	@Override
 	public int compareTo(SignedInteger arg0)
 	{
-		if (value == arg0.value)
-		{
-			return 0;
-		}
-		if (value > arg0.value)
-		{
-			return 1;
-		}
-		return -1;
-	}
+        return Integer.compare(value, arg0.value);
+    }
 
 	@Override
 	public int hashCode()

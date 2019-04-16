@@ -1,5 +1,4 @@
 /*
- * CharacterTabs.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 29, 2009, 2:59:53 PM
  */
 package pcgen.gui2;
 
@@ -42,19 +40,18 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.facade.util.ListFacade;
 import pcgen.gui2.tabs.InfoTabbedPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.SharedTabPane;
 import pcgen.system.CharacterManager;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * This is the tabbed pane for PCGen characters. Unlike normal tabbed panes, the
@@ -65,7 +62,6 @@ import pcgen.system.CharacterManager;
  *
  * @see pcgen.gui2.PCGenFrame
  * @see pcgen.gui2.tabs.InfoTabbedPane
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class CharacterTabs extends SharedTabPane
 		implements ChangeListener, ReferenceListener<CharacterFacade>, ListListener<CharacterFacade>
@@ -133,7 +129,7 @@ public final class CharacterTabs extends SharedTabPane
 	{
 		int index = getSelectedIndex();
 		CharacterFacade character = index != -1 ? characters.get(index) : null;
-		frame.setSelectedCharacter(character);
+		frame.setCharacter(character);
 		if (character != null)
 		{
 			infoTabbedPane.setCharacter(character);
@@ -165,7 +161,7 @@ public final class CharacterTabs extends SharedTabPane
 			listenerMap.remove(character).removeListeners();
 		}
 		characters.clear();
-		for (CharacterFacade character : (ListFacade<CharacterFacade>) e.getSource())
+		for (CharacterFacade character : (Iterable<CharacterFacade>) e.getSource())
 		{
 			addCharacter(character);
 		}
@@ -182,9 +178,9 @@ public final class CharacterTabs extends SharedTabPane
 
 		private JLabel titleLabel;
 		private JButton closeButton;
-		private CharacterFacade character;
-		private ReferenceFacade<String> tabNameRef;
-		private ReferenceFacade<String> nameRef;
+		private final CharacterFacade character;
+		private final ReferenceFacade<String> tabNameRef;
+		private final ReferenceFacade<String> nameRef;
 
 		public TabLabel(CharacterFacade character)
 		{
@@ -294,8 +290,7 @@ public final class CharacterTabs extends SharedTabPane
 			if (e.isPopupTrigger())
 			{
 				popupMenu.setVisible(true);
-				popupMenu.show(e.getComponent(),
-						e.getX(), e.getY() - popupMenu.getHeight());
+				popupMenu.show(e.getComponent(), e.getX(), e.getY() - popupMenu.getHeight());
 			}
 		}
 

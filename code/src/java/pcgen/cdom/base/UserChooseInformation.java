@@ -28,24 +28,22 @@ import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.UserInputManager;
 import pcgen.rules.context.LoadContext;
 
-public class UserChooseInformation implements ChooseInformation<String>,
-		Chooser<String>
+import org.jetbrains.annotations.NotNull;
+
+public class UserChooseInformation implements ChooseInformation<String>, Chooser<String>
 {
-	
-	private static final ClassIdentity<String> STRING_INFO = BasicClassIdentity
-			.getIdentity(String.class);
 
 	public static final String UCI_NAME = "User Input";
-	
+
 	/**
 	 * The title (presented to the user) of this ChoiceSet
 	 */
 	private String title = null;
 
 	@Override
-	public ClassIdentity<String> getClassIdentity()
+	public Class<String> getReferenceClass()
 	{
-		return STRING_INFO;
+		return String.class;
 	}
 
 	@Override
@@ -85,21 +83,19 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	}
 
 	@Override
-	public CharSequence composeDisplay(Collection<? extends String> collection)
+	public CharSequence composeDisplay(@NotNull Collection<? extends String> collection)
 	{
-		return ChooseInformationUtilities.buildEncodedString(this, collection);
+		return ChooseInformationUtilities.buildEncodedString(collection);
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		String choice)
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 	}
 
 	@Override
-	public List<String> getCurrentlySelected(ChooseDriver owner,
-		PlayerCharacter pc)
+	public List<String> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
@@ -118,7 +114,7 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		}
 	}
 
-	private void applyChoice(ChooseDriver owner, PlayerCharacter pc, String choice,
+	private static void applyChoice(ChooseDriver owner, PlayerCharacter pc, String choice,
 		ChooseSelectionActor<String> csa)
 	{
 		csa.applyChoice(owner, choice, pc);
@@ -173,9 +169,15 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		title = chooseTitle;
 	}
 
-	private AssociationListKey<String> getListKey()
+	private static AssociationListKey<String> getListKey()
 	{
 		return AssociationListKey.getKeyFor(String.class, "CHOOSE*USERCHOICE");
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return "STRING";
 	}
 
 }

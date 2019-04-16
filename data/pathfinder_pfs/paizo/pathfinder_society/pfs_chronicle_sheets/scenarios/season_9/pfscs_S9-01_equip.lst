@@ -1,0 +1,10 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets Season 9	SOURCESHORT:PFSCS9	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2016-08
+
+# Equipment Name	Type						Cost		Weight	Required Ability								Quality and value																																					Description
+Dawnflower Sash	TYPE:Magic.Wondrous.Belt.Head.PFS	COST:2500	WT:0		PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-01	QUALITY:Aura|faint abjuration	QUALITY:Caster Level|5th	QUALITY:Slot|neck,belt	QUALITY:Construction Cost|1250	QUALITY:Construction Requirements|Craft Wondrous Item, cure light wounds, endure elements, feather fall, light	DESC:This long strip of red Qadiran fabric is wrapped around the wearer's waist or head several times and held in place by an ankh-shaped clasp of red gold. The wearer is protected as if by endure elements, but only in warm environments. If the wearer unwraps the sash to its full length and holds the clasp in her hand, she can cast feather fall once per day, briefly leaving behind a trail of pleasant red-gold light as bright as a torch that lasts for 1 round.	DESC:&nl;If Sarenrae is the wearer's patron, the wearer can use the sash to cast cure light wounds once per day on command. The wearer can trigger this ability as an immediate action if reduced to -1 hit points or fewer, though thereafter the sash must be recharged by placing it in strong sunlight for 8 continuous hours. As a swift action, the wearer can cause the clasp to shine as brightly as a torch or cease this illumination; the light is warm, feels like sunlight, and is bright enough to make sun-fearing creatures slightly uncomfortable but not so bright as to cause them harm.
+
+#
+# DONE
+#

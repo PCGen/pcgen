@@ -7,24 +7,15 @@ LEVELMSG:Congratulations, you can advance with that much experience!
 #
 #
 #ALIGNMENTNAME:
-HPNAME:Hit Point
-HPABBREV:HP
-ALTHPNAME:Damage Threshold
-ALTHPABBREV:Threshold
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
-# ACNAME: and ACABBREV: are required for proper usage.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is reflected
 # on the Classes Tab
 ACNAME:Defense
-ACABBREV:Def
 #ALTACNAME:
-#ALTACABBREV:
 
 #
 #misc. Modern specific items
 #
-CURRENCYUNIT:Wealth
 CURRENCYUNITABBREV:Wlth
 
 #
@@ -38,19 +29,8 @@ BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
 
 # The following determine whether some Class-related variables are displayed
 # on the Classes tab.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is displayed.
-# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
-# DISPLAYVARIABLExNAME: determines the variable displayed.  This must match the DEFINE:
-# variable in order to be displayed
-# up to 3 variables can be displayed in this manner
 
-SHOWCLASSDEFENSE:NO
-DISPLAYVARIABLE1TEXT:Action Points
-DISPLAYVARIABLE1NAME:ActionRemain
-DISPLAYVARIABLE2TEXT:Class Defense Bonus
-DISPLAYVARIABLE2NAME:ClassDefense
-DISPLAYVARIABLE3TEXT:Wealth Bonus
-DISPLAYVARIABLE3NAME:Wealth
+
 
 #
 # Tabs defined
@@ -73,7 +53,6 @@ TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Gaslight RPG
-MENUTOOLTIP:Use Gaslight character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Gaslight
 #
@@ -189,12 +168,12 @@ BASEDICE:1d12	UP:2d8,2d8,4d6,4d8,8d6,8d8		DOWN:1d8,1d6,1d4,1d3,1d2,1,0
 #
 # Dice rolling methods for character creation
 #
-ROLLMETHOD:3d6						METHOD:3d6
-ROLLMETHOD:4d4						METHOD:4d4
-ROLLMETHOD:4d6 drop lowest				METHOD:roll(4,6,[2,3,4])
-ROLLMETHOD:4d6, reroll 1's				METHOD:4d5+4
-ROLLMETHOD:4d6, reroll 1's, drop the lowest	METHOD:3+roll(4,5,[2,3,4])
-ROLLMETHOD:5d6 drop 2 lowest				METHOD:roll(5,6,[3,4,5])
+ROLLMETHOD:3d6						SORTKEY:A1	METHOD:3d6
+ROLLMETHOD:4d4						SORTKEY:A2	METHOD:4d4
+ROLLMETHOD:4d6 drop lowest				SORTKEY:A3	METHOD:roll(4,6,[2,3,4])
+ROLLMETHOD:4d6, reroll 1's				SORTKEY:A4	METHOD:4d5+4
+ROLLMETHOD:4d6, reroll 1's, drop the lowest	SORTKEY:A5	METHOD:3+roll(4,5,[2,3,4])
+ROLLMETHOD:5d6 drop 2 lowest				SORTKEY:A6	METHOD:roll(5,6,[3,4,5])
 
 # Unit Set
 UNITSET:Imperial	HEIGHTUNIT:ftin	HEIGHTFACTOR:1		HEIGHTPATTERN:#		DISTANCEUNIT:ft.	DISTANCEFACTOR:1	DISTANCEPATTERN:#.##	WEIGHTUNIT:lbs.	WEIGHTFACTOR:1	WEIGHTPATTERN:#.##

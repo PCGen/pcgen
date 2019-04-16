@@ -24,7 +24,6 @@ import pcgen.core.Skill;
  * AssociationChangeEvent is an event sent to a AssociationChangeListener when a
  * Association Bonus value changes on a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AssociationChangeEvent
 {
@@ -70,8 +69,7 @@ public class AssociationChangeEvent
 	 * @param src
 	 *            The source object for this AssociationChangeEvent
 	 */
-	public AssociationChangeEvent(CharID id, Skill sk, Number oldValue,
-		Number newValue, Object src)
+	public AssociationChangeEvent(CharID id, Skill sk, Number oldValue, Number newValue, Object src)
 	{
 		charID = id;
 		skill = sk;

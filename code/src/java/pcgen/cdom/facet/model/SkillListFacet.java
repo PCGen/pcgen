@@ -28,7 +28,6 @@ import pcgen.core.PCClass;
  * SkillListFacet stores the SkillList objects for a PCClass of a Player
  * Character
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SkillListFacet extends AbstractScopeFacet<CharID, PCClass, ClassSkillList>
 		implements ScopeFacetChangeListener<CharID, PCClass, ClassSkillList>
@@ -37,14 +36,12 @@ public class SkillListFacet extends AbstractScopeFacet<CharID, PCClass, ClassSki
 	@Override
 	public void dataAdded(ScopeFacetChangeEvent<CharID, PCClass, ClassSkillList> dfce)
 	{
-		add(dfce.getCharID(), dfce.getScope(), dfce.getCDOMObject(),
-			dfce.getSource());
+		add(dfce.getCharID(), dfce.getScope(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
 	@Override
 	public void dataRemoved(ScopeFacetChangeEvent<CharID, PCClass, ClassSkillList> dfce)
 	{
-		remove(dfce.getCharID(), dfce.getScope(), dfce.getCDOMObject(),
-			dfce.getSource());
+		remove(dfce.getCharID(), dfce.getScope(), dfce.getCDOMObject(), dfce.getSource());
 	}
 }

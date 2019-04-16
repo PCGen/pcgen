@@ -37,12 +37,10 @@ import pcgen.core.PCStat;
  * StatMaxValueFacet  is a Facet that tracks the Stats that have had a maximum 
  * value set on a Player Character.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class StatMaxValueFacet extends AbstractSourcedListFacet<CharID, StatLock> implements
-		DataFacetChangeListener<CharID, CDOMObject>
+public class StatMaxValueFacet extends AbstractSourcedListFacet<CharID, StatLock>
+		implements DataFacetChangeListener<CharID, CDOMObject>
 {
 	private FormulaResolvingFacet formulaResolvingFacet;
 
@@ -59,8 +57,6 @@ public class StatMaxValueFacet extends AbstractSourcedListFacet<CharID, StatLock
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -84,8 +80,6 @@ public class StatMaxValueFacet extends AbstractSourcedListFacet<CharID, StatLock
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -117,21 +111,17 @@ public class StatMaxValueFacet extends AbstractSourcedListFacet<CharID, StatLock
 		Map<StatLock, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Entry<StatLock, Set<Object>> me : componentMap
-					.entrySet())
+			for (Entry<StatLock, Set<Object>> me : componentMap.entrySet())
 			{
 				Set<Object> set = me.getValue();
 				StatLock lock = me.getKey();
-				if (lock.getLockedStat()
-						.equals(stat))
+				if (lock.getLockedStat().equals(stat))
 				{
 					for (Object source : set)
 					{
 						String sourceString =
-								(source instanceof CDOMObject) ? ((CDOMObject) source)
-										.getQualifiedKey() : "";
-						Number val = formulaResolvingFacet.resolve(id, lock
-								.getLockValue(), sourceString);
+								(source instanceof CDOMObject) ? ((CDOMObject) source).getQualifiedKey() : "";
+						Number val = formulaResolvingFacet.resolve(id, lock.getLockValue(), sourceString);
 						if (val.doubleValue() < max.doubleValue())
 						{
 							hit = true;

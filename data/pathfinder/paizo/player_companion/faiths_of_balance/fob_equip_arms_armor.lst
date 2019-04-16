@@ -1,10 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 9628 $ $Author: zaister $ -- Tue Dec  2 17:52:53 2014 -- reformated by prettylst.pl v1.51 (build 25490)
-SOURCELONG:Faiths of Balance	SOURCESHORT:FOB	SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderCompanion/v5748btpy8lvb	SOURCEDATE:2011-07
+SOURCELONG:Pathfinder Player Companion: Faiths of Balance	SOURCESHORT:FOB	SOURCEWEB:http://paizo.com/products/btpy8lvb	SOURCEDATE:2011-07
 # Original Entry by: Stefan Radermacher
 
 ###Block: Weapons
-# Equipment Name		Required Weapon Proficiency	Type														Cost		Weight	Crit Mult	Crit Range	Damage	Modifier					Wield Category	Range		Size		Source Page		Special Property
-Triple-Stinging Blade	PROFICIENCY:WEAPON|Dagger	TYPE:Weapon.Resizable.Melee.Ranged.Thrown.Simple.Specific.Piercing.Slashing.Dagger	COST:2	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:MAGIC_COST|9400.PLUS1W.STEEL	WIELD:Light		RANGE:10	SIZE:M	SOURCEPAGE:p.472	SPROP:Adds +1 to the DC of a death attack
+# Equipment Name		Required Weapon Proficiency	Type														Cost		Weight	Crit Mult	Crit Range	Damage	Modifier															Wield Category	Range		Size		Source Page		Special Property
+Triple-Stinging Blade	PROFICIENCY:WEAPON|Dagger	TYPE:Weapon.Resizable.Melee.Ranged.Thrown.Simple.Specific.Piercing.Slashing.Dagger	COST:2	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:Special Ability ~ Enhancement Cost|9400.Special Ability ~ +1 ~ Weapon.Material ~ Steel	WIELD:Light		RANGE:10	SIZE:M	SOURCEPAGE:p.472	SPROP:Adds +1 to the DC of a death attack
 
 #
 # End

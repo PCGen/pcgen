@@ -1,6 +1,4 @@
 /*
- * PreDomainTest.java
- *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,14 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -34,37 +30,28 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.output.channel.compat.AlignmentCompat;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreDomainTest</code> tests that the PREDOMAIN tag is
+ * {@code PreDomainTest} tests that the PREDOMAIN tag is
  * working correctly.
- *
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
 public class PreDomainTest extends AbstractCharacterTestCase
 {
 	private Deity deity;
 
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreDomainTest.class);
-	}
-
 	/**
-	 * @return Test
+	 * Test to make sure it is not looking at deity domains.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreDomainTest.class);
-	}
-
-	/**
-	 * Test to make sure it is not looking at deity domains
-	 * @throws Exception
-	 */
-	public void testDeity() throws Exception
+	@Test
+	public void testDeity() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -78,7 +65,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.setAlignment(ng);
+		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 		character.setDeity(deity);
 
 		assertFalse("Character's deity has Good domain", PrereqHandler.passes(
@@ -92,10 +79,11 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test with multiple options
-	 * @throws Exception
+	 * Test with multiple options.
+	 * @throws PersistenceLayerException 
 	 */
-	public void testMultiple() throws Exception
+	@Test
+	public void testMultiple() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCClass cl = new PCClass();
@@ -109,7 +97,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		assertFalse("Character has no deity selected", PrereqHandler.passes(
 			prereq, character, null));
 
-		character.setAlignment(ng);
+		AlignmentCompat.setCurrentAlignment(character.getCharID(), ng);
 		character.setDeity(deity);
 
 		assertFalse("Character's deity has Good domain", PrereqHandler.passes(
@@ -137,11 +125,10 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	
 	/**
 	 * Test for any domain.
-	 * 
-	 * @author Koen Van Daele <vandaelek@users.sorceforge.net>
-	 * @throws Exception
+	 * @throws PersistenceLayerException 
 	 */
-	public void testAny() throws Exception
+	@Test
+	public void testAny() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCClass cl = new PCClass();
@@ -174,6 +161,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		
 	}
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{

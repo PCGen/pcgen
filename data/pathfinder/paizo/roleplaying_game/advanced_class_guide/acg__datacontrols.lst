@@ -66,13 +66,27 @@ FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat12				DATAFORMAT:BOOLEAN	REQUI
 FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat15				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineFeat18				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_ArmorProficiency				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_Archetype_WeaponProficiencies			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_Spells					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_UncannyDodge				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_Archetype_ImprovedUncannyDodge			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlinePowers				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlinePowers		EXPLANATION:Remove Bloodrager BloodlinePowers
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlinePower1				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlinePower1		EXPLANATION:Remove Bloodrager BloodlinePower1
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlinePower4				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlinePower4		EXPLANATION:Remove Bloodrager BloodlinePower4
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlinePower8				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlinePower8		EXPLANATION:Remove Bloodrager BloodlinePower8
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlinePower12				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlinePower12		EXPLANATION:Remove Bloodrager BloodlinePower12
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlinePower16				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlinePower16		EXPLANATION:Remove Bloodrager BloodlinePower16
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlinePower20				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlinePower20		EXPLANATION:Remove Bloodrager BloodlinePower20
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineSpells				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlineSpells		EXPLANATION:Remove Bloodrager BloodlineSpells
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineSpell7				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlineSpell7		EXPLANATION:Remove Bloodrager BloodlineSpell7
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineSpell10				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlineSpell10		EXPLANATION:Remove Bloodrager BloodlineSpell10
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineSpell13				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlineSpell13		EXPLANATION:Remove Bloodrager BloodlineSpell13
+FACTDEF:ABILITY|Bloodrager_Archetype_BloodlineSpell16				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlineSpell16		EXPLANATION:Remove Bloodrager BloodlineSpell16
 
 FACTDEF:ABILITY|Bloodrager_CF_UncannyDodge					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_ImprovedUncannyDodge				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_ArmorProficiency					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_CF_WeaponProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_Spells						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_ClassSkills						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_Bloodline						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
@@ -91,11 +105,18 @@ FACTDEF:ABILITY|Bloodrager_CF_BloodlineFeat9					DATAFORMAT:BOOLEAN	REQUIRED:NO	
 FACTDEF:ABILITY|Bloodrager_CF_BloodlineFeat12					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_BloodlineFeat15					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
 FACTDEF:ABILITY|Bloodrager_CF_BloodlineFeat18					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Bloodrager Proficiencies removed
+FACTDEF:ABILITY|Bloodrager_CF_BloodlinePower1					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlinePower1		EXPLANATION:Remove Bloodrager BloodlinePower1
+FACTDEF:ABILITY|Bloodrager_CF_BloodlinePower4					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlinePower3		EXPLANATION:Remove Bloodrager BloodlinePower4
+FACTDEF:ABILITY|Bloodrager_CF_BloodlinePower8					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlinePower9		EXPLANATION:Remove Bloodrager BloodlinePower8
+FACTDEF:ABILITY|Bloodrager_CF_BloodlinePower12					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlinePower1		EXPLANATION:Remove Bloodrager BloodlinePower12
+FACTDEF:ABILITY|Bloodrager_CF_BloodlinePower16					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlinePower3		EXPLANATION:Remove Bloodrager BloodlinePower16
+FACTDEF:ABILITY|Bloodrager_CF_BloodlinePower20					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:BloodlinePower9		EXPLANATION:Remove Bloodrager BloodlinePower20
 
 
 # Brawler
-FACTDEF:ABILITY|Brawler_Archetype_Proficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - WeaponProficiencies
-FACTDEF:ABILITY|Brawler_Archetype_WeaponProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ImprovedAwesomeBlow
+FACTDEF:ABILITY|Brawler_Archetype_Proficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Brawler_Archetype_ArmorProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ArmorProficiencies
+FACTDEF:ABILITY|Brawler_Archetype_WeaponProficiencies				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - WeaponProficiencies
 FACTDEF:ABILITY|Brawler_Archetype_ClassSkills					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - ClassSkills
 FACTDEF:ABILITY|Brawler_Archetype_UnarmedStrike					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - UnarmedStrike
 FACTDEF:ABILITY|Brawler_Archetype_BrawlersCunning				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - BrawlersCunning
@@ -120,6 +141,8 @@ FACTDEF:ABILITY|Brawler_Archetype_BonusFeat20					DATAFORMAT:BOOLEAN	REQUIRED:NO
 
 
 
+FACTDEF:ABILITY|Brawler_CF_Proficiencies						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:WeaponProficiencies
+FACTDEF:ABILITY|Brawler_CF_ArmorProficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:WeaponProficiencies
 FACTDEF:ABILITY|Brawler_CF_WeaponProficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:WeaponProficiencies
 FACTDEF:ABILITY|Brawler_CF_ClassSkills						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:ClassSkills
 FACTDEF:ABILITY|Brawler_CF_UnarmedStrike						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:UnarmedStrike
@@ -158,6 +181,7 @@ FACTDEF:ABILITY|Hunter_Archetype_PreciseCompanion				DATAFORMAT:BOOLEAN	REQUIRED
 FACTDEF:ABILITY|Hunter_Archetype_Track						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Hunter_Archetype_HunterTactics					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Hunter_Archetype_TeamworkFeats					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Hunter_Archetype_ImprovedEmpathicLink				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Hunter_Archetype_WoodlandStride					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Hunter_Archetype_BonusTricks					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Hunter_Archetype_SecondAnimalFocus				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
@@ -174,8 +198,6 @@ FACTDEF:ABILITY|Hunter_Archetype_TeamworkFeat9					DATAFORMAT:BOOLEAN	REQUIRED:N
 FACTDEF:ABILITY|Hunter_Archetype_TeamworkFeat12					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Hunter_Archetype_TeamworkFeat15					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Hunter_Archetype_TeamworkFeat18					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_GreaterEmpatheticLink			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
-FACTDEF:ABILITY|Hunter_Archetype_ImprovedEmpatheticLink			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 
 
 FACTDEF:ABILITY|Hunter_CF_ClassSkills						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
@@ -190,6 +212,7 @@ FACTDEF:ABILITY|Hunter_CF_PreciseCompanion					DATAFORMAT:BOOLEAN	REQUIRED:NO	SE
 FACTDEF:ABILITY|Hunter_CF_Track							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_HunterTactics						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_TeamworkFeats						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
+FACTDEF:ABILITY|Hunter_CF_ImprovedEmpathicLink					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_WoodlandStride						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_BonusTricks						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_SecondAnimalFocus					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
@@ -206,8 +229,6 @@ FACTDEF:ABILITY|Hunter_CF_TeamworkFeat9						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELE
 FACTDEF:ABILITY|Hunter_CF_TeamworkFeat12						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_TeamworkFeat15						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 FACTDEF:ABILITY|Hunter_CF_TeamworkFeat18						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
-FACTDEF:ABILITY|Hunter_CF_GreaterEmpatheticLink					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
-FACTDEF:ABILITY|Hunter_CF_ImprovedEmpatheticLink				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Hunter Proficiencies removed
 
 # Investigator
 FACTDEF:ABILITY|Investigator_Archetype_ClassSkills				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
@@ -226,7 +247,15 @@ FACTDEF:ABILITY|Investigator_Archetype_StudiedStrike				DATAFORMAT:BOOLEAN	REQUI
 FACTDEF:ABILITY|Investigator_Archetype_TrueInspiration			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 
 FACTDEF:ABILITY|Investigator_Archetype_PoisonImmunity				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Investigator_Archetype_Talent3					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Investigator_Archetype_Talent5					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Investigator_Archetype_Talent7					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_Talent9					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Investigator_Archetype_Talent11					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Investigator_Archetype_Talent13					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Investigator_Archetype_Talent15					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Investigator_Archetype_Talent17					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Investigator_Archetype_Talent19					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_PoisonResistance2			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_PoisonResistance4			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_PoisonResistance6			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
@@ -249,7 +278,15 @@ FACTDEF:ABILITY|Investigator_CF_StudiedStrike					DATAFORMAT:BOOLEAN	REQUIRED:NO
 FACTDEF:ABILITY|Investigator_CF_TrueInspiration					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
 
 FACTDEF:ABILITY|Investigator_CF_PoisonImmunity					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
+FACTDEF:ABILITY|Investigator_CF_Talent3						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
+FACTDEF:ABILITY|Investigator_CF_Talent5						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
+FACTDEF:ABILITY|Investigator_CF_Talent7						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
 FACTDEF:ABILITY|Investigator_CF_Talent9						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
+FACTDEF:ABILITY|Investigator_CF_Talent11						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
+FACTDEF:ABILITY|Investigator_CF_Talent13						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
+FACTDEF:ABILITY|Investigator_CF_Talent15						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
+FACTDEF:ABILITY|Investigator_CF_Talent17						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
+FACTDEF:ABILITY|Investigator_CF_Talent19						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
 FACTDEF:ABILITY|Investigator_CF_PoisonResistance2				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
 FACTDEF:ABILITY|Investigator_CF_PoisonResistance4				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
 FACTDEF:ABILITY|Investigator_CF_PoisonResistance6				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
@@ -338,6 +375,15 @@ FACTDEF:ABILITY|Skald_Archetype_SpellKenning5					DATAFORMAT:BOOLEAN	REQUIRED:NO
 FACTDEF:ABILITY|Skald_Archetype_SpellKenning11					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Skald_Archetype_SpellKenning17					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Skald_Archetype_RagePower3					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_RagePower6					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_RagePower9					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_RagePower12					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_RagePower15					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_RagePower18					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_VersatilePerformance2				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_VersatilePerformance7				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_VersatilePerformance12			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Skald_Archetype_VersatilePerformance17			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 
 FACTDEF:ABILITY|Skald_CF_ClassSkills						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
 FACTDEF:ABILITY|Skald_CF_WeaponProficiencies					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
@@ -364,7 +410,15 @@ FACTDEF:ABILITY|Skald_CF_SpellKenning5						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELEC
 FACTDEF:ABILITY|Skald_CF_SpellKenning11						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
 FACTDEF:ABILITY|Skald_CF_SpellKenning17						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
 FACTDEF:ABILITY|Skald_CF_RagePower3							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
-
+FACTDEF:ABILITY|Skald_CF_RagePower6							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
+FACTDEF:ABILITY|Skald_CF_RagePower9							DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
+FACTDEF:ABILITY|Skald_CF_RagePower12						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
+FACTDEF:ABILITY|Skald_CF_RagePower15						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
+FACTDEF:ABILITY|Skald_CF_RagePower18						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
+FACTDEF:ABILITY|Skald_CF_VersatilePerformance2					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
+FACTDEF:ABILITY|Skald_CF_VersatilePerformance7					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
+FACTDEF:ABILITY|Skald_CF_VersatilePerformance12					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
+FACTDEF:ABILITY|Skald_CF_VersatilePerformance17					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Skald Proficiencies removed
 
 
 # Slayer

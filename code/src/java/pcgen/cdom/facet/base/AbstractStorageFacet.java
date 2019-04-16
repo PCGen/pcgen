@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.WeakHashMap;
 
@@ -74,8 +75,7 @@ public abstract class AbstractStorageFacet<T extends PCGenIdentifier>
 	 * storing the information
 	 */
 	private static final DoubleKeyMap<PCGenIdentifier, Class<?>, Object> CACHE =
-            new DoubleKeyMap<>(
-                    WeakHashMap.class, HashMap.class);
+			new DoubleKeyMap<>(WeakHashMap.class, HashMap.class);
 
 	/*
 	 * Note: the use of CACHE.getReadOnlyMapFor(K1) in peekAtCache makes calling
@@ -99,11 +99,7 @@ public abstract class AbstractStorageFacet<T extends PCGenIdentifier>
 	 */
 	public Object removeCache(T id)
 	{
-		if (id == null)
-		{
-			throw new IllegalArgumentException(
-				"PCGenIdentifier cannot be null in removeCache");
-		}
+		Objects.requireNonNull(id, "PCGenIdentifier cannot be null in removeCache");
 		return CACHE.remove(id, thisClass);
 	}
 
@@ -122,11 +118,7 @@ public abstract class AbstractStorageFacet<T extends PCGenIdentifier>
 	 */
 	public Object setCache(T id, Object o)
 	{
-		if (id == null)
-		{
-			throw new IllegalArgumentException(
-				"PCGenIdentifier cannot be null in setCache");
-		}
+		Objects.requireNonNull(id, "PCGenIdentifier cannot be null in setCache");
 		return CACHE.put(id, thisClass, o);
 	}
 
@@ -143,11 +135,7 @@ public abstract class AbstractStorageFacet<T extends PCGenIdentifier>
 	 */
 	public Object getCache(T id)
 	{
-		if (id == null)
-		{
-			throw new IllegalArgumentException(
-				"PCGenIdentifier cannot be null in getCache");
-		}
+		Objects.requireNonNull(id, "PCGenIdentifier cannot be null in getCache");
 		return CACHE.get(id, thisClass);
 	}
 
@@ -169,19 +157,10 @@ public abstract class AbstractStorageFacet<T extends PCGenIdentifier>
 	 *         given InequalityTester) for the resources identified by the given
 	 *         PCGenIdentifiers; false otherwise
 	 */
-	public static boolean areEqualCache(PCGenIdentifier id1,
-		PCGenIdentifier id2, InequalityTester t)
+	public static boolean areEqualCache(PCGenIdentifier id1, PCGenIdentifier id2, InequalityTester t)
 	{
-		if (id1 == null)
-		{
-			throw new IllegalArgumentException(
-				"PCGenIdentifier #1 cannot be null in areEqualCache");
-		}
-		if (id2 == null)
-		{
-			throw new IllegalArgumentException(
-				"PCGenIdentifier #2 cannot be null in areEqualCache");
-		}
+		Objects.requireNonNull(id1, "PCGenIdentifier #1 cannot be null in areEqualCache");
+		Objects.requireNonNull(id2, "PCGenIdentifier #2 cannot be null in areEqualCache");
 		Set<Class<?>> set1 = CACHE.getSecondaryKeySet(id1);
 		Set<Class<?>> set2 = CACHE.getSecondaryKeySet(id2);
 		if (!set1.equals(set2))
@@ -229,11 +208,7 @@ public abstract class AbstractStorageFacet<T extends PCGenIdentifier>
 	 */
 	public static Map<Class<?>, Object> peekAtCache(PCGenIdentifier id)
 	{
-		if (id == null)
-		{
-			throw new IllegalArgumentException(
-				"PCGenIdentifier cannot be null in peekAtCache");
-		}
+		Objects.requireNonNull(id, "PCGenIdentifier cannot be null in peekAtCache");
 		return CACHE.getReadOnlyMapFor(id);
 	}
 }

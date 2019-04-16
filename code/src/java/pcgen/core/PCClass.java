@@ -1,5 +1,4 @@
 /*
- * PCClass.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * $Id$
  */
 package pcgen.core;
 
@@ -28,12 +23,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
+import java.util.StringJoiner;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
-import org.apache.commons.lang.StringUtils;
-
-import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMObject;
@@ -49,7 +42,6 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
@@ -71,7 +63,6 @@ import pcgen.core.analysis.SubClassApplication;
 import pcgen.core.analysis.SubstitutionClassApplication;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
-import pcgen.facade.core.ClassFacade;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.pclevelinfo.PCLevelInfoStat;
 import pcgen.core.prereq.PrereqHandler;
@@ -79,6 +70,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.facade.core.InfoFacade;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -86,12 +78,12 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
- * <code>PCClass</code>.
- *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
+ * {@code PCClass}.
  */
-public class PCClass extends PObject implements ClassFacade
+public class PCClass extends PObject implements InfoFacade, Cloneable
 {
 
 	public static final CDOMReference<DomainList> ALLOWED_DOMAINS;
@@ -123,14 +115,6 @@ public class PCClass extends PObject implements ClassFacade
 	private String classKey = null;
 
 	/**
-	 * Default Constructor. Constructs an empty PCClass.
-	 */
-	public PCClass()
-	{
-		super();
-	}
-
-	/**
 	 * Returns the abbreviation for this class.
 	 *
 	 * @return The abbreviation string.
@@ -139,7 +123,6 @@ public class PCClass extends PObject implements ClassFacade
 	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-    @Override
 	public final String getAbbrev()
 	{
 		FactKey<String> fk = FactKey.valueOf("Abb");
@@ -201,14 +184,13 @@ public class PCClass extends PObject implements ClassFacade
 	 * REFACTOR There is potentially redundant information here - level and PC...
 	 * is this ever out of sync or can this method be removed/made private??
 	 */
-	public double getBonusTo(final String argType, final String argMname,
-		final int asLevel, final PlayerCharacter aPC)
+	public double getBonusTo(final String argType, final String argMname, final int asLevel, final PlayerCharacter aPC)
 	{
 		double i = 0;
 
 		List<BonusObj> rawBonusList = getRawBonusList(aPC);
 
-		for (int lvl = 1 ; lvl < asLevel; lvl++)
+		for (int lvl = 1; lvl < asLevel; lvl++)
 		{
 			rawBonusList.addAll(aPC.getActiveClassLevel(this, lvl).getRawBonusList(aPC));
 		}
@@ -223,8 +205,7 @@ public class PCClass extends PObject implements ClassFacade
 		for (final BonusObj bonus : rawBonusList)
 		{
 			final StringTokenizer breakOnPipes =
-					new StringTokenizer(bonus.toString().toUpperCase(),
-						Constants.PIPE, false);
+					new StringTokenizer(bonus.toString().toUpperCase(), Constants.PIPE, false);
 			final String theType = breakOnPipes.nextToken();
 
 			if (!theType.equals(type))
@@ -233,8 +214,7 @@ public class PCClass extends PObject implements ClassFacade
 			}
 
 			final String str = breakOnPipes.nextToken();
-			final StringTokenizer breakOnCommas =
-					new StringTokenizer(str, Constants.COMMA, false);
+			final StringTokenizer breakOnCommas = new StringTokenizer(str, Constants.COMMA, false);
 
 			while (breakOnCommas.hasMoreTokens())
 			{
@@ -243,8 +223,7 @@ public class PCClass extends PObject implements ClassFacade
 				if (theName.equals(mname))
 				{
 					final String aString = breakOnPipes.nextToken();
-					final List<Prerequisite> localPreReqList =
-                            new ArrayList<>();
+					final List<Prerequisite> localPreReqList = new ArrayList<>();
 					if (bonus.hasPrerequisites())
 					{
 						localPreReqList.addAll(bonus.getPrerequisiteList());
@@ -258,12 +237,13 @@ public class PCClass extends PObject implements ClassFacade
 
 						if (PreParserFactory.isPreReqString(bString))
 						{
-							Logging
-								.debugPrint("Why is this prerequisite '" + bString + "' parsed in '" + getClass().getName() + ".getBonusTo(String,String,int)' rather than in the persistence layer?"); //$NON-NLS-1$ //$NON-NLS-2$//$NON-NLS-3$
+							Logging.debugPrint(
+							"Why is this prerequisite '" + bString + "' parsed in '" //$NON-NLS-1$//$NON-NLS-2$
+							+ getClass().getName()
+							+ ".getBonusTo(String,String,int)' rather than in the persistence layer?"); //$NON-NLS-1$
 							try
 							{
-								final PreParserFactory factory =
-										PreParserFactory.getInstance();
+								final PreParserFactory factory = PreParserFactory.getInstance();
 								localPreReqList.add(factory.parse(bString));
 							}
 							catch (PersistenceLayerException ple)
@@ -281,9 +261,7 @@ public class PCClass extends PObject implements ClassFacade
 					// be referenced in Qualifies statements?
 					if (PrereqHandler.passesAll(localPreReqList, aPC, null))
 					{
-						final double j =
-								aPC.getVariableValue(aString, getQualifiedKey())
-									.doubleValue();
+						final double j = aPC.getVariableValue(aString, getQualifiedKey()).doubleValue();
 						i += j;
 					}
 				}
@@ -366,7 +344,6 @@ public class PCClass extends PObject implements ClassFacade
 	 * FINALPCCLASSANDLEVEL This is required in PCClassLevel and should be present in
 	 * PCClass for PCClassLevel creation (in the factory)
 	 */
-    @Override
 	public final String getSpellType()
 	{
 		FactKey<String> fk = FactKey.valueOf("SpellType");
@@ -479,16 +456,13 @@ public class PCClass extends PObject implements ClassFacade
 		if (mLevPerFeat == null)
 		{
 			String aString = Globals.getBonusFeatString();
-			StringTokenizer aTok =
-				new StringTokenizer(aString, "|", false);
+			StringTokenizer aTok = new StringTokenizer(aString, "|", false);
 			startLevel = Integer.parseInt(aTok.nextToken());
 			rangeLevel = Integer.parseInt(aTok.nextToken());
 			divisor = rangeLevel;
 			if (divisor > 0)
 			{
-				StringBuilder aBuf =
-					new StringBuilder("FEAT|PCPOOL|")
-						.append("max(CL");
+				StringBuilder aBuf = new StringBuilder("FEAT|PCPOOL|").append("max(CL");
 				// Make sure we only take off the startlevel value once
 				if (this == aPC.getClassKeyed(aPC.getLevelInfoClassKeyName(0)))
 				{
@@ -496,8 +470,8 @@ public class PCClass extends PObject implements ClassFacade
 					aBuf.append("+").append(rangeLevel);
 				}
 				aBuf.append(",0)/").append(divisor);
-//						Logging.debugPrint("Feat bonus for " + this + " is "
-//							+ aBuf.toString());
+				//						Logging.debugPrint("Feat bonus for " + this + " is "
+				//							+ aBuf.toString());
 				BonusObj bon = Bonus.newBonus(Globals.getContext(), aBuf.toString());
 				aPC.addBonus(bon, this);
 			}
@@ -524,8 +498,7 @@ public class PCClass extends PObject implements ClassFacade
 			return mon.booleanValue();
 		}
 
-		ClassType aClassType =
-				SettingsHandler.getGame().getClassTypeByName(getClassType());
+		ClassType aClassType = SettingsHandler.getGame().getClassTypeByName(getClassType());
 
 		if ((aClassType != null) && aClassType.isMonster())
 		{
@@ -548,27 +521,22 @@ public class PCClass extends PObject implements ClassFacade
 	@Override
 	public String getPCCText()
 	{
-		final StringBuilder pccTxt = new StringBuilder(200);
-		pccTxt.append("CLASS:").append(getDisplayName());
-		pccTxt.append("\t");
-		pccTxt.append(PrerequisiteWriter.prereqsToString(this));
-		pccTxt.append("\t");
-		pccTxt.append(StringUtil.joinToStringBuilder(Globals.getContext().unparse(
-				this), "\t"));
+		StringJoiner txt = new StringJoiner("\t");
+		txt.add("CLASS:" + getDisplayName());
+		txt.add(PrerequisiteWriter.prereqsToString(this));
+		Globals.getContext().unparse(this).forEach(item -> txt.add(item));
 
 		// now all the level-based stuff
 		final String lineSep = System.getProperty("line.separator");
 
 		for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
 		{
-			pccTxt.append(lineSep).append(me.getKey()).append('\t');
-			pccTxt.append(PrerequisiteWriter.prereqsToString(me.getValue()));
-			pccTxt.append("\t");
-			pccTxt.append(StringUtil.joinToStringBuilder(Globals.getContext()
-					.unparse(me.getValue()), "\t"));
+			txt.add(lineSep + me.getKey());
+			txt.add(PrerequisiteWriter.prereqsToString(me.getValue()));
+			Globals.getContext().unparse(me.getValue()).forEach(item -> txt.add(item));
 		}
 
-		return pccTxt.toString();
+		return txt.toString();
 	}
 
 	/*
@@ -610,10 +578,9 @@ public class PCClass extends PObject implements ClassFacade
 	 */
 	public int attackCycle(final AttackType at)
 	{
-		for (Map.Entry<AttackType, Integer> me : getMapFor(MapKey.ATTACK_CYCLE)
-				.entrySet())
+		for (Map.Entry<AttackType, Integer> me : getMapFor(MapKey.ATTACK_CYCLE).entrySet())
 		{
-			if (at.equals(me.getKey()))
+			if (at == me.getKey())
 			{
 				return me.getValue();
 			}
@@ -660,8 +627,7 @@ public class PCClass extends PObject implements ClassFacade
 		}
 		if (Logging.isDebugMode())
 		{
-			Logging.debugPrint("Found Class: " + getDisplayName()
-				+ " that did not have any SPELLSTAT defined");
+			Logging.debugPrint("Found Class: " + getDisplayName() + " that did not have any SPELLSTAT defined");
 		}
 		return null;
 	}
@@ -718,8 +684,7 @@ public class PCClass extends PObject implements ClassFacade
 				aClass.removeMapFor(MapKey.ATTACK_CYCLE);
 				for (Map.Entry<AttackType, Integer> me : acmap.entrySet())
 				{
-					aClass.addToMapFor(MapKey.ATTACK_CYCLE, me.getKey(), me
-							.getValue());
+					aClass.addToMapFor(MapKey.ATTACK_CYCLE, me.getKey(), me.getValue());
 				}
 			}
 
@@ -731,8 +696,7 @@ public class PCClass extends PObject implements ClassFacade
 		}
 		catch (CloneNotSupportedException exc)
 		{
-			ShowMessageDelegate.showMessageDialog(exc.getMessage(),
-				Constants.APPLICATION_NAME, MessageType.ERROR);
+			ShowMessageDelegate.showMessageDialog(exc.getMessage(), Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
 
 		return aClass;
@@ -752,9 +716,8 @@ public class PCClass extends PObject implements ClassFacade
 	{
 		for (Type type : getTrueTypeList(false))
 		{
-			final ClassType aClassType =
-					SettingsHandler.getGame().getClassTypeByName(type.toString());
-				if ((aClassType != null) && !aClassType.getXPPenalty())
+			final ClassType aClassType = SettingsHandler.getGame().getClassTypeByName(type.toString());
+			if ((aClassType != null) && !aClassType.getXPPenalty())
 			{
 				return false;
 			}
@@ -770,10 +733,7 @@ public class PCClass extends PObject implements ClassFacade
 	 * @param adjustForPCSize whether to adjust the result for the PC's size.
 	 * @return the unarmed damage string
 	 */
-	public String getUdamForLevel(
-		int aLevel,
-		final PlayerCharacter aPC,
-		boolean adjustForPCSize)
+	public String getUdamForLevel(int aLevel, final PlayerCharacter aPC, boolean adjustForPCSize)
 	{
 		aLevel += (int) aPC.getTotalBonusTo("UDAM", "CLASS." + getKeyName());
 		return getUDamForEffLevel(aLevel, aPC, adjustForPCSize);
@@ -787,12 +747,9 @@ public class PCClass extends PObject implements ClassFacade
 	 * @param adjustForPCSize whether to adjust the result for the PC's size.
 	 * @return the unarmed damage string
 	 */
-	String getUDamForEffLevel(
-		int aLevel,
-		final PlayerCharacter aPC,
-		boolean adjustForPCSize)
+	String getUDamForEffLevel(int aLevel, final PlayerCharacter aPC, boolean adjustForPCSize)
 	{
-		int pcSize = adjustForPCSize ? aPC.sizeInt() : aPC.getDisplay().racialSizeInt();
+		int pcSize = adjustForPCSize ? aPC.sizeInt() : aPC.racialSizeInt();
 
 		//
 		// Check "Unarmed Strike", then default to "1d3"
@@ -800,9 +757,7 @@ public class PCClass extends PObject implements ClassFacade
 		String aDamage;
 
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-		final Equipment eq =
-			ref.silentlyGetConstructedCDOMObject(
-					Equipment.class, "KEY_Unarmed Strike");
+		final Equipment eq = ref.silentlyGetConstructedCDOMObject(Equipment.class, "KEY_Unarmed Strike");
 
 		if (eq != null)
 		{
@@ -816,9 +771,7 @@ public class PCClass extends PObject implements ClassFacade
 		// resize the damage as if it were a weapon
 		if (adjustForPCSize)
 		{
-			int defSize =
-					SizeUtilities.getDefaultSizeAdjustment().get(
-						IntegerKey.SIZEORDER);
+			int defSize = SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
 			aDamage = Globals.adjustDamage(aDamage, defSize, pcSize);
 		}
 
@@ -880,10 +833,7 @@ public class PCClass extends PObject implements ClassFacade
 	 * extract some of the complicated gunk out of here that goes out and puts
 	 * information into PCLevelInfo and PlayerCharacter.
 	 */
-	public boolean addLevel(
-		final boolean argLevelMax,
-		final boolean bSilent,
-		final PlayerCharacter aPC,
+	public boolean addLevel(final boolean argLevelMax, final boolean bSilent, final PlayerCharacter aPC,
 		final boolean ignorePrereqs)
 	{
 
@@ -904,8 +854,7 @@ public class PCClass extends PObject implements ClassFacade
 				doReturn = true;
 				if (!bSilent)
 				{
-					ShowMessageDelegate.showMessageDialog(
-						"This character does not qualify for level " + newLevel,
+					ShowMessageDelegate.showMessageDialog("This character does not qualify for level " + newLevel,
 						Constants.APPLICATION_NAME, MessageType.ERROR);
 				}
 			}
@@ -927,10 +876,8 @@ public class PCClass extends PObject implements ClassFacade
 			if (!bSilent)
 			{
 				ShowMessageDelegate.showMessageDialog(
-					"This class cannot be raised above level "
-						+ Integer.toString(getSafe(IntegerKey.LEVEL_LIMIT)),
-					Constants.APPLICATION_NAME,
-					MessageType.ERROR);
+					"This class cannot be raised above level " + Integer.toString(getSafe(IntegerKey.LEVEL_LIMIT)),
+					Constants.APPLICATION_NAME, MessageType.ERROR);
 			}
 
 			return false;
@@ -966,9 +913,8 @@ public class PCClass extends PObject implements ClassFacade
 		// out
 		if (Globals.getUseGUI())
 		{
-			final int levels = SettingsHandler.isHPMaxAtFirstClassLevel()
-				? aPC.totalNonMonsterLevels()
-				: aPC.getTotalLevels();
+			final int levels =
+					SettingsHandler.isHPMaxAtFirstClassLevel() ? aPC.totalNonMonsterLevels() : aPC.getTotalLevels();
 			final boolean isFirst = levels == 1;
 
 			aPC.rollHP(this, aPC.getLevel(this), isFirst);
@@ -1032,8 +978,7 @@ public class PCClass extends PObject implements ClassFacade
 
 						if (!bSilent && SettingsHandler.getShowStatDialogAtLevelUp())
 						{
-							levelUpStats =
-							   StatApplication.askForStatIncrease(aPC, bonusStats, true);
+							levelUpStats = StatApplication.askForStatIncrease(aPC, bonusStats, true);
 						}
 					}
 				}
@@ -1077,16 +1022,9 @@ public class PCClass extends PObject implements ClassFacade
 				CDOMObjectUtilities.checkRemovals(this, aPC);
 			}
 
-			for (TransitionChoice<Kit> kit : classLevel
-					.getSafeListFor(ListKey.KIT_CHOICE))
+			for (TransitionChoice<Kit> kit : classLevel.getSafeListFor(ListKey.KIT_CHOICE))
 			{
 				kit.act(kit.driveChoice(aPC), classLevel, aPC);
-			}
-			TransitionChoice<Region> region = classLevel
-					.get(ObjectKey.REGION_CHOICE);
-			if (region != null)
-			{
-				region.act(region.driveChoice(aPC), classLevel, aPC);
 			}
 		}
 
@@ -1108,9 +1046,8 @@ public class PCClass extends PObject implements ClassFacade
 			{
 				if (!bSilent)
 				{
-					ShowMessageDelegate.showMessageDialog(SettingsHandler
-						.getGame().getLevelUpMessage(), Constants.APPLICATION_NAME,
-						MessageType.INFORMATION);
+					ShowMessageDelegate.showMessageDialog(SettingsHandler.getGame().getLevelUpMessage(),
+						Constants.APPLICATION_NAME, MessageType.INFORMATION);
 				}
 			}
 		}
@@ -1118,16 +1055,14 @@ public class PCClass extends PObject implements ClassFacade
 		//
 		// Allow exchange of classes only when assign 1st level
 		//
-		if (containsKey(ObjectKey.EXCHANGE_LEVEL) && (aPC.getLevel(this) == 1)
-				&& !aPC.isImporting())
+		if (containsKey(ObjectKey.EXCHANGE_LEVEL) && (aPC.getLevel(this) == 1) && !aPC.isImporting())
 		{
 			ExchangeLevelApplication.exchangeLevels(aPC, this);
 		}
 		return true;
 	}
 
-	public int getSkillPointsForLevel(final PlayerCharacter aPC,
-		PCClassLevel classLevel, int characterLevel)
+	public int getSkillPointsForLevel(final PlayerCharacter aPC, PCClassLevel classLevel, int characterLevel)
 	{
 		// Update Skill Points. Modified 20 Nov 2002 by sage_sam
 		// for bug #629643
@@ -1170,16 +1105,14 @@ public class PCClass extends PObject implements ClassFacade
 			}
 			else
 			{
-				Logging
-					.errorPrint("ERROR: could not find class/level info for "
-						+ getDisplayName() + "/" + oldLevel);
+				Logging.errorPrint("ERROR: could not find class/level info for " + getDisplayName() + "/" + oldLevel);
 			}
 
 			final int newLevel = oldLevel - 1;
 
 			if (oldLevel > 0)
 			{
-				PCClassLevel classLevel = aPC.getActiveClassLevel(this, oldLevel-1);
+				PCClassLevel classLevel = aPC.getActiveClassLevel(this, oldLevel - 1);
 				aPC.removeHP(classLevel);
 			}
 
@@ -1214,8 +1147,7 @@ public class PCClass extends PObject implements ClassFacade
 				// Roll back any stat changes that were made as part of the
 				// level
 
-				final List<PCLevelInfoStat> moddedStats =
-                        new ArrayList<>();
+				final List<PCLevelInfoStat> moddedStats = new ArrayList<>();
 				if (pcl.getModifiedStats(true) != null)
 				{
 					moddedStats.addAll(pcl.getModifiedStats(true));
@@ -1232,8 +1164,7 @@ public class PCClass extends PObject implements ClassFacade
 						{
 							if (aStat.equals(statToRollback.getStat()))
 							{
-								aPC.setStat(aStat, aPC.getStat(aStat)
-									- statToRollback.getStatMod());
+								aPC.setStat(aStat, aPC.getStat(aStat) - statToRollback.getStatMod());
 								break;
 							}
 						}
@@ -1263,14 +1194,13 @@ public class PCClass extends PObject implements ClassFacade
 				final int maxxp = aPC.minXPForNextECL();
 				if (aPC.getXP() >= maxxp)
 				{
-					aPC.setXP(Math.max(maxxp-1, 0));
+					aPC.setXP(Math.max(maxxp - 1, 0));
 				}
 			}
 		}
 		else
 		{
-			Logging
-				.errorPrint("No current pc in subLevel()? How did this happen?");
+			Logging.errorPrint("No current pc in subLevel()? How did this happen?");
 
 			return;
 		}
@@ -1315,15 +1245,13 @@ public class PCClass extends PObject implements ClassFacade
 			put(ObjectKey.SPELL_STAT, ss);
 		}
 
-		TransitionChoice<CDOMListObject<Spell>> slc = otherClass
-				.get(ObjectKey.SPELLLIST_CHOICE);
+		TransitionChoice<CDOMListObject<Spell>> slc = otherClass.get(ObjectKey.SPELLLIST_CHOICE);
 		if (slc != null)
 		{
 			put(ObjectKey.SPELLLIST_CHOICE, slc);
 		}
 
-		List<QualifiedObject<CDOMReference<Equipment>>> e = otherClass
-				.getListFor(ListKey.EQUIPMENT);
+		List<QualifiedObject<CDOMReference<Equipment>>> e = otherClass.getListFor(ListKey.EQUIPMENT);
 		if (e != null)
 		{
 			addAllToListFor(ListKey.EQUIPMENT, e);
@@ -1334,22 +1262,19 @@ public class PCClass extends PObject implements ClassFacade
 		{
 			addAllToListFor(ListKey.WEAPONPROF, wp);
 		}
-		QualifiedObject<Boolean> otherWP = otherClass
-				.get(ObjectKey.HAS_DEITY_WEAPONPROF);
+		QualifiedObject<Boolean> otherWP = otherClass.get(ObjectKey.HAS_DEITY_WEAPONPROF);
 		if (otherWP != null)
 		{
 			put(ObjectKey.HAS_DEITY_WEAPONPROF, otherWP);
 		}
 
-		List<ArmorProfProvider> ap = otherClass
-				.getListFor(ListKey.AUTO_ARMORPROF);
+		List<ArmorProfProvider> ap = otherClass.getListFor(ListKey.AUTO_ARMORPROF);
 		if (ap != null)
 		{
 			addAllToListFor(ListKey.AUTO_ARMORPROF, ap);
 		}
 
-		List<ShieldProfProvider> sp = otherClass
-				.getListFor(ListKey.AUTO_SHIELDPROF);
+		List<ShieldProfProvider> sp = otherClass.getListFor(ListKey.AUTO_SHIELDPROF);
 		if (sp != null)
 		{
 			addAllToListFor(ListKey.AUTO_SHIELDPROF, sp);
@@ -1378,27 +1303,17 @@ public class PCClass extends PObject implements ClassFacade
 		if (otherClass.containsListFor(ListKey.CSKILL))
 		{
 			removeListFor(ListKey.CSKILL);
-			addAllToListFor(ListKey.CSKILL, otherClass
-					.getListFor(ListKey.CSKILL));
+			addAllToListFor(ListKey.CSKILL, otherClass.getListFor(ListKey.CSKILL));
 		}
 
 		if (otherClass.containsListFor(ListKey.LOCALCCSKILL))
 		{
 			removeListFor(ListKey.LOCALCCSKILL);
-			addAllToListFor(ListKey.LOCALCCSKILL, otherClass
-					.getListFor(ListKey.LOCALCCSKILL));
+			addAllToListFor(ListKey.LOCALCCSKILL, otherClass.getListFor(ListKey.LOCALCCSKILL));
 		}
 
 		removeListFor(ListKey.KIT_CHOICE);
-		addAllToListFor(ListKey.KIT_CHOICE, otherClass
-				.getSafeListFor(ListKey.KIT_CHOICE));
-
-		remove(ObjectKey.REGION_CHOICE);
-		if (otherClass.containsKey(ObjectKey.REGION_CHOICE))
-		{
-			put(ObjectKey.REGION_CHOICE, otherClass
-					.get(ObjectKey.REGION_CHOICE));
-		}
+		addAllToListFor(ListKey.KIT_CHOICE, otherClass.getSafeListFor(ListKey.KIT_CHOICE));
 
 		removeListFor(ListKey.SAB);
 		addAllToListFor(ListKey.SAB, otherClass.getSafeListFor(ListKey.SAB));
@@ -1408,14 +1323,11 @@ public class PCClass extends PObject implements ClassFacade
 		 * I don't think so based on deferred processing of levels...
 		 */
 
-		addAllToListFor(ListKey.DAMAGE_REDUCTION, otherClass
-				.getListFor(ListKey.DAMAGE_REDUCTION));
+		addAllToListFor(ListKey.DAMAGE_REDUCTION, otherClass.getListFor(ListKey.DAMAGE_REDUCTION));
 
-		for (CDOMReference<Vision> ref : otherClass
-				.getSafeListMods(Vision.VISIONLIST))
+		for (CDOMReference<Vision> ref : otherClass.getSafeListMods(Vision.VISIONLIST))
 		{
-			for (AssociatedPrereqObject apo : otherClass.getListAssociations(
-					Vision.VISIONLIST, ref))
+			for (AssociatedPrereqObject apo : otherClass.getListAssociations(Vision.VISIONLIST, ref))
 			{
 				putToList(Vision.VISIONLIST, ref, apo);
 			}
@@ -1430,8 +1342,7 @@ public class PCClass extends PObject implements ClassFacade
 			copyLevelsFrom(otherClass);
 		}
 
-		addAllToListFor(ListKey.NATURAL_WEAPON, otherClass
-				.getListFor(ListKey.NATURAL_WEAPON));
+		addAllToListFor(ListKey.NATURAL_WEAPON, otherClass.getListFor(ListKey.NATURAL_WEAPON));
 
 		put(ObjectKey.LEVEL_HITDIE, otherClass.get(ObjectKey.LEVEL_HITDIE));
 	}
@@ -1503,7 +1414,7 @@ public class PCClass extends PObject implements ClassFacade
 	{
 		levelMap.clear();
 	}
-	
+
 	public String getFullKey()
 	{
 		return getKeyName();
@@ -1530,29 +1441,17 @@ public class PCClass extends PObject implements ClassFacade
 		return super.qualifies(aPC, owner);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.ClassFacade#getBaseStat()
-	 */
-    @Override
 	public String getBaseStat()
 	{
 		return getSpellBaseStat();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.ClassFacade#getHD()
-	 */
-    @Override
 	public String getHD()
 	{
 		HitDie hd = getSafe(ObjectKey.LEVEL_HITDIE);
 		return String.valueOf(hd.getDie());
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.ClassFacade#getTypes()
-	 */
-    @Override
 	public String[] getTypes()
 	{
 		String type = getType();
@@ -1564,5 +1463,5 @@ public class PCClass extends PObject implements ClassFacade
 		FactKey<String> fk = FactKey.valueOf("ClassType");
 		return getResolved(fk);
 	}
-	
+
 }

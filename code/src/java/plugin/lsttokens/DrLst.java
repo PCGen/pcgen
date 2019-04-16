@@ -39,13 +39,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- *
- */
-
-public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 	@Override
 	public String getTokenName()
@@ -60,19 +54,16 @@ public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
-			context.getObjectContext()
-					.removeList(obj, ListKey.DAMAGE_REDUCTION);
+			context.getObjectContext().removeList(obj, ListKey.DAMAGE_REDUCTION);
 			return ParseResult.SUCCESS;
 		}
 
@@ -87,16 +78,14 @@ public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		if (values.length != 2)
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage(getTokenName()
-					+ " failed to build DamageReduction with value " + value);
+			cpr.addErrorMessage(getTokenName() + " failed to build DamageReduction with value " + value);
 			cpr.addErrorMessage("  ...expected a String with one / as a separator");
 			return cpr;
 		}
 		Formula formula = FormulaFactory.getFormulaFor(values[0]);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		DamageReduction dr = new DamageReduction(formula, values[1]);
 
@@ -117,8 +106,7 @@ public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<DamageReduction> changes = context.getObjectContext()
-				.getListChanges(obj, ListKey.DAMAGE_REDUCTION);
+		Changes<DamageReduction> changes = context.getObjectContext().getListChanges(obj, ListKey.DAMAGE_REDUCTION);
 		Collection<DamageReduction> added = changes.getAdded();
 		List<String> list = new ArrayList<>();
 		if (changes.includesGlobalClear())
@@ -140,8 +128,7 @@ public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				if (lw.hasPrerequisites())
 				{
 					sb.append(Constants.PIPE);
-					sb.append(context.getPrerequisiteString(lw
-							.getPrerequisiteList()));
+					sb.append(context.getPrerequisiteString(lw.getPrerequisiteList()));
 				}
 				set.add(sb.toString());
 			}

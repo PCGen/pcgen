@@ -33,11 +33,10 @@ import pcgen.core.Equipment;
  * this list may contain multiple entries to handle both melee and ranged
  * instances of that Equipment.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class PrimaryWeaponFacet extends AbstractListFacet<CharID, Equipment>
 {
-	
+
 	@Override
 	protected Collection<Equipment> getCopyForNewOwner(Collection<Equipment> componentSet)
 	{

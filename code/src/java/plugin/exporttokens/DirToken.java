@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens;
 
@@ -42,26 +37,17 @@ import pcgen.util.Logging;
  * DIR.PCG
  * DIR.HTML
  * DIR.TEMP
- *
- *
  */
 public class DirToken extends AbstractExportToken
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "DIR";
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -118,8 +104,7 @@ public class DirToken extends AbstractExportToken
 	 */
 	public static String getPCGenToken()
 	{
-		return new File(ConfigurationSettings.getSystemsDir())
-			.getAbsolutePath();
+		return new File(ConfigurationSettings.getSystemsDir()).getAbsolutePath();
 	}
 
 	/**
@@ -146,7 +131,6 @@ public class DirToken extends AbstractExportToken
 	 */
 	public static String getTemplatesToken()
 	{
-		return new File(ConfigurationSettings.getOutputSheetsDir())
-			.getAbsolutePath();
+		return new File(ConfigurationSettings.getOutputSheetsDir()).getAbsolutePath();
 	}
 }

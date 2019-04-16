@@ -15,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on September 8, 2002, 6:25 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.lsttokens.gamemode;
 
@@ -29,20 +24,18 @@ import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
 /**
- * <code>AddwithmetamagicmsgToken</code>
- *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
+ * {@code AddwithmetamagicmsgToken}
  */
 public class AddwithmetamagicmsgToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "ADDWITHMETAMAGICMSG";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		gameMode.setAddWithMetamagicMessage(value);

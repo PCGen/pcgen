@@ -17,9 +17,6 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreLevelMaxParser;
 import plugin.pretokens.writer.PreLevelMaxWriter;
@@ -27,18 +24,7 @@ import plugin.pretokens.writer.PreLevelMaxWriter;
 public class PreLevelMaxRoundRobin extends AbstractIntegerRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreLevelMaxRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreLevelMaxRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

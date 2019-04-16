@@ -17,12 +17,10 @@
  */
 package plugin.lsttokens.kit.spells;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.PCClass;
 import pcgen.core.kit.KitSpells;
 import pcgen.core.spell.Spell;
@@ -30,6 +28,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.Test;
 
 public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 {
@@ -58,37 +59,36 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 
 	@Test
 	public void testInvalidInputEmptySpellbook()
-			throws PersistenceLayerException
 	{
 		assertFalse(parse("SPELLBOOK=|CLASS=Wizard|Fireball=2"));
 	}
 
 	@Test
-	public void testInvalidInputEmptyClass() throws PersistenceLayerException
+	public void testInvalidInputEmptyClass()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=|Fireball=2"));
 	}
 
 	@Test
-	public void testInvalidInputTwoClass() throws PersistenceLayerException
+	public void testInvalidInputTwoClass()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|CLASS=Cleric|Fireball=2"));
 	}
 
 	@Test
-	public void testInvalidInputTwoSpellbook() throws PersistenceLayerException
+	public void testInvalidInputTwoSpellbook()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|SPELLBOOK=Other|CLASS=Wizard|Fireball=2"));
 	}
 
 	@Test
-	public void testInvalidInputEmptySpell() throws PersistenceLayerException
+	public void testInvalidInputEmptySpell()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|=2"));
 	}
 
 	@Test
-	public void testInvalidInputEmptyCount() throws PersistenceLayerException
+	public void testInvalidInputEmptyCount()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|Fireball="));
 	}
@@ -102,19 +102,19 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 	}
 
 	@Test
-	public void testInvalidInputEmptyType() throws PersistenceLayerException
+	public void testInvalidInputEmptyType()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|TYPE."));
 	}
 
 	@Test
-	public void testInvalidInputTrailingType() throws PersistenceLayerException
+	public void testInvalidInputTrailingType()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|TYPE.One."));
 	}
 
 	@Test
-	public void testInvalidInputDoubleType() throws PersistenceLayerException
+	public void testInvalidInputDoubleType()
 	{
 		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|TYPE.One..Two"));
 	}
@@ -136,10 +136,8 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 		secondaryContext.getReferenceContext().constructCDOMObject(Spell.class, "Fireball");
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");
-		Ability ab = primaryContext.getReferenceContext().constructCDOMObject(Ability.class, "EnhancedFeat");
-		primaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
-		ab = secondaryContext.getReferenceContext().constructCDOMObject(Ability.class, "EnhancedFeat");
-		secondaryContext.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
+		constructCategorized(primaryContext, BuildUtilities.getFeatCat(), "EnhancedFeat");
+		constructCategorized(secondaryContext, BuildUtilities.getFeatCat(), "EnhancedFeat");
 		runRoundRobin("SPELLBOOK=Personal|CLASS=Wizard|Fireball[EnhancedFeat]=2");
 	}
 

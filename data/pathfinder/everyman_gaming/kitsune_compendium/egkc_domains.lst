@@ -1,0 +1,8 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Kitsune Compendium	SOURCESHORT:EGKC	SOURCEWEB:http://www.everymangaming.com/	SOURCEDATE:2014-04
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 22 July 2017
+
+# Domain Name		Multiple Requirements									Ability										Source Page		List of Domain Spells by Level
+Agriculture Subdomain	PREMULT:1,[PREDOMAIN:1,Agriculture Subdomain],[PREVARLT:PlantDomain,1]	ABILITY:Internal|AUTOMATIC|Core Domain ~ Agriculture Subdomain	SOURCEPAGE:p.15	SPELLLEVEL:DOMAIN|Agriculture Subdomain=1|Goodberry|Agriculture Subdomain=2|Barkskin|Agriculture Subdomain=3|Create Food and Water|Agriculture Subdomain=4|Command Plants|Agriculture Subdomain=5|Wall of Thorns|Agriculture Subdomain=6|Heroes' Feast|Agriculture Subdomain=7|Animate Plants|Agriculture Subdomain=8|Control Plants|Agriculture Subdomain=9|Shambler
+Kami Subdomain		PREMULT:1,[PREDOMAIN:1,Kami Subdomain],[PREVARLT:ProtectionDomain,1]	ABILITY:Internal|AUTOMATIC|Core Domain ~ Kami Subdomain		SOURCEPAGE:p.15	SPELLLEVEL:DOMAIN|Kami Subdomain=1|Sanctuary|Kami Subdomain=2|Shield Other|Kami Subdomain=3|Protection from Energy|Kami Subdomain=4|Commune with Nature|Kami Subdomain=5|Telepathic Bond|Kami Subdomain=6|Antimagic Field|Kami Subdomain=7|Repulsion|Kami Subdomain=8|Mind Blank|Kami Subdomain=9|Antipathy

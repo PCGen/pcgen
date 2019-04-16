@@ -1,7 +1,4 @@
-/*
- * Created on Sep 2, 2005
- *
- */
+
 package plugin.lsttokens;
 
 import pcgen.cdom.base.ConcretePrereqObject;
@@ -13,12 +10,7 @@ import pcgen.rules.persistence.token.AbstractToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * @author djones4
- *
- */
-public class PreLst extends AbstractToken implements
-		CDOMPrimaryToken<ConcretePrereqObject>
+public class PreLst extends AbstractToken implements CDOMPrimaryToken<ConcretePrereqObject>
 {
 	@Override
 	public String getTokenName()
@@ -27,8 +19,7 @@ public class PreLst extends AbstractToken implements
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, ConcretePrereqObject pcc,
-		String value)
+	public ParseResult parseToken(LoadContext context, ConcretePrereqObject pcc, String value)
 	{
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
@@ -47,7 +38,7 @@ public class PreLst extends AbstractToken implements
 			// indicates no Token
 			return null;
 		}
-		return new String[] { Constants.LST_DOT_CLEAR };
+		return new String[]{Constants.LST_DOT_CLEAR};
 	}
 
 	@Override

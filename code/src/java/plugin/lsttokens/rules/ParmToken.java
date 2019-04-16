@@ -26,8 +26,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with PARM Token
  */
-public class ParmToken extends AbstractNonEmptyToken<RuleCheck> implements
-		CDOMPrimaryToken<RuleCheck>
+public class ParmToken extends AbstractNonEmptyToken<RuleCheck> implements CDOMPrimaryToken<RuleCheck>
 {
 
 	@Override
@@ -37,8 +36,7 @@ public class ParmToken extends AbstractNonEmptyToken<RuleCheck> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			RuleCheck rule, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, RuleCheck rule, String value)
 	{
 		rule.setParameter(value);
 		context.getReferenceContext().reassociateKey(value, rule);
@@ -46,7 +44,7 @@ public class ParmToken extends AbstractNonEmptyToken<RuleCheck> implements
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, RuleCheck rule)
 	{
 		String parameter = rule.getParameter();
@@ -54,10 +52,10 @@ public class ParmToken extends AbstractNonEmptyToken<RuleCheck> implements
 		{
 			return null;
 		}
-		return new String[] { parameter };
+		return new String[]{parameter};
 	}
 
-    @Override
+	@Override
 	public Class<RuleCheck> getTokenClass()
 	{
 		return RuleCheck.class;

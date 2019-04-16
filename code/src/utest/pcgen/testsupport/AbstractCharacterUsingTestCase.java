@@ -16,7 +16,8 @@
  */
 package pcgen.testsupport;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
@@ -27,7 +28,6 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -42,6 +42,10 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import util.FormatSupport;
+
 /*
  * Differs from code/src/test AbstractCharacterTestCase in that this does not
  * attempt to load all plugins (trying to be light weight)
@@ -51,7 +55,8 @@ import plugin.primitive.language.LangBonusToken;
  * tested in a utest environment should probably not be dependent on
  * PlayerCharacter in a fully isolated system
  */
-public abstract class AbstractCharacterUsingTestCase extends TestCase {
+public abstract class AbstractCharacterUsingTestCase
+{
 
 	protected PCStat str;
 	protected PCStat cha;
@@ -89,6 +94,8 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase {
 	private static final TypeLst EQUIP_TYPE_TOKEN = new plugin.lsttokens.TypeLst();
 	private static final LangBonusToken LANGBONUS_PRIM = new plugin.primitive.language.LangBonusToken();
 	private static final plugin.qualifier.language.PCToken PC_QUAL = new plugin.qualifier.language.PCToken();
+	private static final plugin.modifier.cdom.SetModifierFactory SMF =
+			new plugin.modifier.cdom.SetModifierFactory();
 
 	protected void finishLoad(LoadContext context)
 	{
@@ -101,7 +108,7 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase {
 		context.loadCampaignFacets();
 	}
 
-	protected void setUpPC() throws PersistenceLayerException
+	protected void setUpPC()
 	{
 		TokenRegistration.register(AUTO_LANG_TOKEN);
 		TokenRegistration.register(ABILITY_VISIBLE_TOKEN);
@@ -113,24 +120,33 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase {
 		TokenRegistration.register(EQUIP_PROFICIENCY_TOKEN);
 		TokenRegistration.register(LANGBONUS_PRIM);
 		TokenRegistration.register(PC_QUAL);
+		TokenRegistration.register(SMF);
 
-		Globals.createEmptyRace();
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		GameMode gamemode = SettingsHandler.getGame();
+		BuildUtilities.buildUnselectedRace(Globals.getContext());
+		LoadContext context = Globals.getContext();
+		
+		AbstractReferenceContext ref = context.getReferenceContext();
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+		
+		FormatSupport.addNoneAsDefault(context,
+			ref.getManufacturer(PCAlignment.class));
+		FormatSupport.addBasicDefaults(context);
+		SourceFileLoader.defineBuiltinVariables(context);
 
-		str = BuildUtilities.createStat("Strength", "STR");
+		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"), FormulaFactory
 			.getFormulaFor("STRSCORE"));
 		str.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"), FormulaFactory
 			.getFormulaFor(2));
-		dex = BuildUtilities.createStat("Dexterity", "DEX");
-		PCStat con = BuildUtilities.createStat("Constitution", "CON");
-		intel = BuildUtilities.createStat("Intelligence", "INT");
-		wis = BuildUtilities.createStat("Wisdom", "WIS");
-		cha = BuildUtilities.createStat("Charisma", "CHA");
+		dex = BuildUtilities.createStat("Dexterity", "DEX", "B");
+		PCStat con = BuildUtilities.createStat("Constitution", "CON", "C");
+		intel = BuildUtilities.createStat("Intelligence", "INT", "D");
+		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
+		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 
-		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
@@ -176,6 +192,19 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase {
 
 		universal = ref.constructCDOMObject(Language.class, "Universal");
 		other = ref.constructCDOMObject(Language.class, "Other");
-		SourceFileLoader.createLangBonusObject(Globals.getContext());
+		SourceFileLoader.createLangBonusObject(context);
 	}
+	
+	@BeforeEach
+	public void setUp() throws Exception
+	{
+		Globals.emptyLists();
+	}
+
+	@AfterEach
+	public void tearDown() throws Exception
+	{
+		Globals.emptyLists();
+	}
+
 }

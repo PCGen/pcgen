@@ -1,5 +1,4 @@
 /*
- * ExportUtilitiesTest.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,25 +14,21 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 24/12/2013
- *
- * $Id$
  */
 package pcgen.io;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * ExportUtilitiesTest checks the function of the ExportUtilities class.
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class ExportUtilitiesTest
+class ExportUtilitiesTest
 {
 
 	/**
@@ -42,29 +37,40 @@ public class ExportUtilitiesTest
 	@Test
 	public void testGetOutputExtensionNonPdf()
 	{
-		assertEquals("Incorrect non pdf extension", "html",
-			ExportUtilities.getOutputExtension("foo.html", false));
-		assertEquals("Incorrect non pdf extension", "htm",
-			ExportUtilities.getOutputExtension("foo.htm", false));
-		assertEquals("Incorrect non pdf extension", "txt",
-			ExportUtilities.getOutputExtension("bar.foo.txt", false));
-		assertEquals("Incorrect non pdf extension", "txt",
-			ExportUtilities.getOutputExtension("bar.htm.txt", false));
-		assertEquals("Incorrect non pdf extension", "xml",
-			ExportUtilities.getOutputExtension("foo-991.xml", false));
-		assertEquals("Incorrect non pdf extension", "csv",
-			ExportUtilities.getOutputExtension("foo.csv", false));
-		assertEquals("Incorrect non pdf extension", "xslt",
-			ExportUtilities.getOutputExtension("foo.xslt", false));
+		assertEquals("html",
+			ExportUtilities.getOutputExtension("foo.html", false), "Incorrect non pdf extension"
+		);
+		assertEquals("htm",
+			ExportUtilities.getOutputExtension("foo.htm", false), "Incorrect non pdf extension"
+		);
+		assertEquals("txt",
+			ExportUtilities.getOutputExtension("bar.foo.txt", false), "Incorrect non pdf extension"
+		);
+		assertEquals("txt",
+			ExportUtilities.getOutputExtension("bar.htm.txt", false), "Incorrect non pdf extension"
+		);
+		assertEquals("xml",
+			ExportUtilities.getOutputExtension("foo-991.xml", false), "Incorrect non pdf extension"
+		);
+		assertEquals("csv",
+			ExportUtilities.getOutputExtension("foo.csv", false), "Incorrect non pdf extension"
+		);
+		assertEquals("xslt",
+			ExportUtilities.getOutputExtension("foo.xslt", false), "Incorrect non pdf extension"
+		);
 		
-		assertEquals("Incorrect non pdf freemarker extension", "html",
-			ExportUtilities.getOutputExtension("foo.html.ftl", false));
-		assertEquals("Incorrect non pdf freemarker extension", "html",
-			ExportUtilities.getOutputExtension("foo-html.ftl", false));
-		assertEquals("Incorrect non pdf freemarker extension", "xml",
-			ExportUtilities.getOutputExtension("foo.xml.ftl", false));
-		assertEquals("Incorrect non pdf freemarker extension", "xml",
-			ExportUtilities.getOutputExtension("foo-xml.ftl", false));
+		assertEquals("html",
+			ExportUtilities.getOutputExtension("foo.html.ftl", false), "Incorrect non pdf freemarker extension"
+		);
+		assertEquals("html",
+			ExportUtilities.getOutputExtension("foo-html.ftl", false), "Incorrect non pdf freemarker extension"
+		);
+		assertEquals("xml",
+			ExportUtilities.getOutputExtension("foo.xml.ftl", false), "Incorrect non pdf freemarker extension"
+		);
+		assertEquals("xml",
+			ExportUtilities.getOutputExtension("foo-xml.ftl", false), "Incorrect non pdf freemarker extension"
+		);
 	}
 
 	/**
@@ -73,10 +79,12 @@ public class ExportUtilitiesTest
 	@Test
 	public void testGetOutputExtensionPdf()
 	{
-		assertEquals("Incorrect pdf extension", "pdf",
-			ExportUtilities.getOutputExtension("foo.xslt", true));
-		assertEquals("Incorrect freemarker pdf extension", "pdf",
-			ExportUtilities.getOutputExtension("foo.xslt.ftl", true));
+		assertEquals("pdf",
+			ExportUtilities.getOutputExtension("foo.xslt", true), "Incorrect pdf extension"
+		);
+		assertEquals("pdf",
+			ExportUtilities.getOutputExtension("foo.xslt.ftl", true), "Incorrect freemarker pdf extension"
+		);
 	}
 
 	/**
@@ -85,31 +93,47 @@ public class ExportUtilitiesTest
 	@Test
 	public void testIsPdfTemplateFile()
 	{
-		assertEquals("Should not be PDF", false,
-			ExportUtilities.isPdfTemplate(new File("foo.html")));
-		assertEquals("Should not be PDF", false,
-			ExportUtilities.isPdfTemplate(new File("foo.htm")));
-		assertEquals("Should not be PDF", false,
-			ExportUtilities.isPdfTemplate(new File("foo.xml")));
-		
-		assertEquals("Should not be PDF", false,
-			ExportUtilities.isPdfTemplate(new File("foo-html.ftl")));
-		assertEquals("Should not be PDF", false,
-			ExportUtilities.isPdfTemplate(new File("foo.html.ftl")));
-		assertEquals("Should not be PDF", false,
-			ExportUtilities.isPdfTemplate(new File("foo.txt.ftl")));
-		assertEquals("Should not be PDF", false,
-			ExportUtilities.isPdfTemplate(new File("foo.xml.ftl")));
-		
-		assertEquals("Should be PDF", true,
-			ExportUtilities.isPdfTemplate(new File("foo.xslt.ftl")));
-		assertEquals("Should be PDF", true,
-			ExportUtilities.isPdfTemplate(new File("foo-fo.ftl")));
-		
-		assertEquals("Should be PDF", true,
-			ExportUtilities.isPdfTemplate(new File("foo.xsl")));
-		assertEquals("Should be PDF", true,
-			ExportUtilities.isPdfTemplate(new File("foo.pdf")));
+		assertFalse(
+				ExportUtilities.isPdfTemplate(new File("foo.html")),
+				"Should not be PDF"
+		);
+		assertFalse(
+				ExportUtilities.isPdfTemplate(new File("foo.htm")),
+				"Should not be PDF"
+		);
+		assertFalse(
+				ExportUtilities.isPdfTemplate(new File("foo.xml")),
+				"Should not be PDF"
+		);
+
+		assertFalse(
+				ExportUtilities.isPdfTemplate(new File("foo-html.ftl")),
+				"Should not be PDF"
+		);
+		assertFalse(
+				ExportUtilities.isPdfTemplate(new File("foo.html.ftl")),
+				"Should not be PDF"
+		);
+		assertFalse(
+				ExportUtilities.isPdfTemplate(new File("foo.txt.ftl")),
+				"Should not be PDF"
+		);
+		assertFalse(
+				ExportUtilities.isPdfTemplate(new File("foo.xml.ftl")),
+				"Should not be PDF"
+		);
+
+		assertTrue(
+				ExportUtilities.isPdfTemplate(new File("foo.xslt.ftl")),
+				"Should be PDF"
+		);
+		assertTrue(
+				ExportUtilities.isPdfTemplate(new File("foo-fo.ftl")),
+				"Should be PDF"
+		);
+
+		assertTrue(ExportUtilities.isPdfTemplate(new File("foo.xsl")), "Should be PDF");
+		assertTrue(ExportUtilities.isPdfTemplate(new File("foo.pdf")), "Should be PDF");
 	}
 
 	/**
@@ -118,31 +142,19 @@ public class ExportUtilitiesTest
 	@Test
 	public void testIsPdfTemplateString()
 	{
-		assertEquals("Should not be PDF", false,
-			ExportUtilities.isPdfTemplate("foo.html"));
-		assertEquals("Should not be PDF", false,
-			ExportUtilities.isPdfTemplate("foo.htm"));
-		assertEquals("Should not be PDF", false,
-			ExportUtilities.isPdfTemplate("foo.xml"));
-		
-		assertEquals("Should not be PDF", false,
-			ExportUtilities.isPdfTemplate("foo-html.ftl"));
-		assertEquals("Should not be PDF", false,
-			ExportUtilities.isPdfTemplate("foo.html.ftl"));
-		assertEquals("Should not be PDF", false,
-			ExportUtilities.isPdfTemplate("foo.txt.ftl"));
-		assertEquals("Should not be PDF", false,
-			ExportUtilities.isPdfTemplate("foo.xml.ftl"));
-		
-		assertEquals("Should be PDF", true,
-			ExportUtilities.isPdfTemplate("foo.xsl"));
-		assertEquals("Should be PDF", true,
-			ExportUtilities.isPdfTemplate("foo.pdf"));
+		assertFalse(ExportUtilities.isPdfTemplate("foo.html"), "Should not be PDF");
+		assertFalse(ExportUtilities.isPdfTemplate("foo.htm"), "Should not be PDF");
+		assertFalse(ExportUtilities.isPdfTemplate("foo.xml"), "Should not be PDF");
 
-		assertEquals("Should be PDF", true,
-			ExportUtilities.isPdfTemplate("foo.xslt.ftl"));
-		assertEquals("Should be PDF", true,
-			ExportUtilities.isPdfTemplate("foo-fo.ftl"));
+		assertFalse(ExportUtilities.isPdfTemplate("foo-html.ftl"), "Should not be PDF");
+		assertFalse(ExportUtilities.isPdfTemplate("foo.html.ftl"), "Should not be PDF");
+		assertFalse(ExportUtilities.isPdfTemplate("foo.txt.ftl"), "Should not be PDF");
+		assertFalse(ExportUtilities.isPdfTemplate("foo.xml.ftl"), "Should not be PDF");
+
+		assertTrue(ExportUtilities.isPdfTemplate("foo.xsl"), "Should be PDF");
+		assertTrue(ExportUtilities.isPdfTemplate("foo.pdf"), "Should be PDF");
+
+		assertTrue(ExportUtilities.isPdfTemplate("foo.xslt.ftl"), "Should be PDF");
+		assertTrue(ExportUtilities.isPdfTemplate("foo-fo.ftl"), "Should be PDF");
 	}
-
 }

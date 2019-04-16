@@ -1,10 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 18863 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Reign of Winter Player's Guide	SOURCESHORT:ROWPG	SOURCEWEB:http://paizo.com/products/btpy8x1t?Pathfinder-Adventure-Path-Reign-of-Winter-Players-Guide	SOURCEDATE:2013-02
 # Original Entry by: Andrew Maitland
 
 
-# Class Name		Type			Max Level	Combat bonus																	Save bonus																																		Modify VAR
-CLASS:Winter Witch	TYPE:PC.Prestige	MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|WitchHexAbilityLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
+# Class Name		Hit Dice	Type			Max Level	Combat bonus																	Save bonus																																		Modify VAR
+CLASS:Winter Witch	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")+1/2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|WitchLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1
 # Class Name		Required Skill						Required Text
 CLASS:Winter Witch	PRESKILL:2,Knowledge (Arcana)=5,Spellcraft=5	PRETEXT:Skills: Knowledge (arcana) 5 ranks, Spellcraft 5 ranks. Spells: Able to cast at least three different spells with the cold descriptor, one of which must be of 3rd level or higher. Special: Must have a patron and the ice magic class feature (Inner Sea Magic 43).
 # Class Name		Skill Pts/Lvl	Class Skill

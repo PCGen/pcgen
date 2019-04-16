@@ -42,7 +42,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.SpecialProperty;
 import pcgen.core.WeaponProf;
@@ -58,19 +57,13 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.util.Logging;
 
-/**
- * @author djones4
- *
- */
 public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMPrimaryToken<CDOMObject>, PostDeferredToken<CDOMObject>
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
+	private static final int MIN_TOKEN_COUNT = 4;
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -93,14 +86,12 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 	 * primary), or BAB - 5 (for secondary)
 	 */
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		// Currently, this isn't going to work with monk attacks
 		// - their unarmed stuff won't be affected.
@@ -126,193 +117,159 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				return pr;
 			}
-			Equipment anEquip = createNaturalWeapon(context, obj, tokString.intern());
+			String wpn = tokString.intern();
 
-			if (anEquip == null)
+			StringTokenizer commaTok = new StringTokenizer(wpn, Constants.COMMA);
+
+			int numTokens = commaTok.countTokens();
+			if (numTokens < MIN_TOKEN_COUNT)
 			{
-				return ParseResult.INTERNAL_ERROR;
-				//return new ParseResult.Fail("Natural Weapon Creation Failed for : "
-				//		+ tokString, context);
+				return new ParseResult.Fail("Invalid Build of " + "Natural Weapon in " + getTokenName() + ": " + wpn);
+			}
+
+			String attackName = commaTok.nextToken();
+
+			if (attackName.equalsIgnoreCase(Constants.LST_NONE))
+			{
+				return new ParseResult.Fail(
+					"Attempt to Build 'None' as a " + "Natural Weapon in " + getTokenName() + ": " + wpn);
+			}
+
+			attackName = attackName.intern();
+			Equipment naturalWeapon = new Equipment();
+			naturalWeapon.setName(attackName);
+			naturalWeapon.put(ObjectKey.PARENT, obj);
+			/*
+			 * This really can't be raw equipment... It really never needs to be
+			 * referred to, but this means that duplicates are never being detected
+			 * and resolved... this needs to have a KEY defined, to keep it
+			 * unique... hopefully this is good enough :)
+			 *
+			 * CONSIDER This really isn't that great, because it's String dependent,
+			 * and may not remove identical items... it certainly works, but is ugly
+			 */
+			// anEquip.setKeyName(obj.getClass().getSimpleName() + ","
+			// + obj.getKeyName() + "," + wpn);
+			/*
+			 * Perhaps the construction above should be through context just to
+			 * guarantee uniqueness of the key?? - that's too paranoid
+			 */
+
+			EquipmentHead equipHead = naturalWeapon.getEquipmentHead(1);
+
+			String profType = commaTok.nextToken();
+			pr = checkForIllegalSeparator('.', profType);
+			if (!pr.passed())
+			{
+				return pr;
+			}
+			StringTokenizer dotTok = new StringTokenizer(profType, Constants.DOT);
+			while (dotTok.hasMoreTokens())
+			{
+				Type type = Type.getConstant(dotTok.nextToken());
+				naturalWeapon.addToListFor(ListKey.TYPE, type);
+			}
+
+			String numAttacks = commaTok.nextToken();
+			boolean attacksFixed = !numAttacks.isEmpty() && numAttacks.charAt(0) == '*';
+			if (attacksFixed)
+			{
+				numAttacks = numAttacks.substring(1);
+			}
+			naturalWeapon.put(ObjectKey.ATTACKS_PROGRESS, !attacksFixed);
+			try
+			{
+				int bonusAttacks = Integer.parseInt(numAttacks) - 1;
+				final BonusObj aBonus = Bonus.newBonus(context, "WEAPON|ATTACKS|" + bonusAttacks);
+
+				if (aBonus == null)
+				{
+					return new ParseResult.Fail(
+						getTokenName() + " was given invalid number of attacks: " + bonusAttacks);
+				}
+				naturalWeapon.addToListFor(ListKey.BONUS, aBonus);
+			}
+			catch (NumberFormatException exc)
+			{
+				return new ParseResult.Fail(
+					"Non-numeric value for number of attacks in " + getTokenName() + ": '" + numAttacks + '\'');
+			}
+
+			equipHead.put(StringKey.DAMAGE, commaTok.nextToken());
+
+			// sage_sam 02 Dec 2002 for Bug #586332
+			// allow hands to be required to equip natural weapons
+			int handsrequired = 0;
+			while (commaTok.hasMoreTokens())
+			{
+				final String handsOrSpropString = commaTok.nextToken();
+				if (handsOrSpropString.startsWith("SPROP="))
+				{
+					naturalWeapon.addToListFor(ListKey.SPECIAL_PROPERTIES,
+						SpecialProperty.createFromLst(handsOrSpropString.substring(6)));
+				}
+				else
+				{
+					try
+					{
+						handsrequired = Integer.parseInt(handsOrSpropString);
+					}
+					catch (NumberFormatException exc)
+					{
+						return new ParseResult.Fail(
+							"Non-numeric value for hands required: '" + handsOrSpropString + '\'');
+					}
+				}
+			}
+			naturalWeapon.put(IntegerKey.SLOTS, handsrequired);
+
+			naturalWeapon.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
+
+			WeaponProf weaponProf =
+					context.getReferenceContext().silentlyGetConstructedCDOMObject(WEAPONPROF_CLASS, attackName);
+			if (weaponProf == null)
+			{
+				weaponProf = context.getReferenceContext().constructNowIfNecessary(WEAPONPROF_CLASS, attackName);
+				weaponProf.addToListFor(ListKey.TYPE, Type.NATURAL);
+			}
+			CDOMSingleRef<WeaponProf> wp = context.getReferenceContext().getCDOMReference(WEAPONPROF_CLASS, attackName);
+			naturalWeapon.put(ObjectKey.WEAPON_PROF, wp);
+			naturalWeapon.addToListFor(ListKey.IMPLIED_WEAPONPROF, wp);
+
+			if (!ControlUtilities.hasControlToken(context, CControl.CRITRANGE))
+			{
+				equipHead.put(IntegerKey.CRIT_RANGE, 1);
+			}
+			if (!ControlUtilities.hasControlToken(context, CControl.CRITMULT))
+			{
+				equipHead.put(IntegerKey.CRIT_MULT, 2);
 			}
 
 			if (count == 1)
 			{
-				anEquip.setModifiedName("Natural/Primary");
+				naturalWeapon.setModifiedName("Natural/Primary");
 			}
 			else
 			{
-				anEquip.setModifiedName("Natural/Secondary");
+				naturalWeapon.setModifiedName("Natural/Secondary");
 			}
 
-			anEquip.setOutputIndex(0);
-			anEquip.setOutputSubindex(count);
+			naturalWeapon.setOutputIndex(0);
+			naturalWeapon.setOutputSubindex(count);
 			// these values need to be locked.
-			anEquip.setQty(new Float(1));
-			anEquip.setNumberCarried(new Float(1));
+			naturalWeapon.setQty(Float.valueOf(1));
+			naturalWeapon.setNumberCarried(1.0f);
 
-			context.getObjectContext().addToList(obj, ListKey.NATURAL_WEAPON, anEquip);
+			context.getObjectContext().addToList(obj, ListKey.NATURAL_WEAPON, naturalWeapon);
 			count++;
 		}
 		return ParseResult.SUCCESS;
 	}
 
-	/**
-	 * Create the Natural weapon equipment item aTok = primary weapon
-	 * name,weapon type,num attacks,damage for Example:
-	 * Tentacle,Weapon.Natural.Melee.Slashing,*4,1d6
-	 *
-	 * @param aTok
-	 * @param size
-	 * @return natural weapon
-	 */
-	private Equipment createNaturalWeapon(LoadContext context, CDOMObject obj,
-			String wpn)
-	{
-		StringTokenizer commaTok = new StringTokenizer(wpn, Constants.COMMA);
-
-		int numTokens = commaTok.countTokens();
-		if (numTokens < 4)
-		{
-			Logging.errorPrint("Invalid Build of " + "Natural Weapon in "
-					+ getTokenName() + ": " + wpn);
-			return null;
-		}
-
-		String attackName = commaTok.nextToken();
-
-		if (attackName.equalsIgnoreCase(Constants.LST_NONE))
-		{
-			Logging.errorPrint("Attempt to Build 'None' as a "
-					+ "Natural Weapon in " + getTokenName() + ": " + wpn);
-			return null;
-		}
-
-		attackName = attackName.intern();
-		Equipment anEquip = new Equipment();
-		anEquip.setName(attackName);
-		anEquip.put(ObjectKey.PARENT, obj);
-		/*
-		 * This really can't be raw equipment... It really never needs to be
-		 * referred to, but this means that duplicates are never being detected
-		 * and resolved... this needs to have a KEY defined, to keep it
-		 * unique... hopefully this is good enough :)
-		 *
-		 * CONSIDER This really isn't that great, because it's String dependent,
-		 * and may not remove identical items... it certainly works, but is ugly
-		 */
-		// anEquip.setKeyName(obj.getClass().getSimpleName() + ","
-		// + obj.getKeyName() + "," + wpn);
-		/*
-		 * Perhaps the construction above should be through context just to
-		 * guarantee uniqueness of the key?? - that's too paranoid
-		 */
-
-		EquipmentHead equipHead = anEquip.getEquipmentHead(1);
-
-		String profType = commaTok.nextToken();
-		if (hasIllegalSeparator('.', profType))
-		{
-			return null;
-		}
-		StringTokenizer dotTok = new StringTokenizer(profType, Constants.DOT);
-		while (dotTok.hasMoreTokens())
-		{
-			Type type = Type.getConstant(dotTok.nextToken());
-			anEquip.addToListFor(ListKey.TYPE, type);
-		}
-
-		String numAttacks = commaTok.nextToken();
-		boolean attacksFixed = numAttacks.length() > 0
-				&& numAttacks.charAt(0) == '*';
-		if (attacksFixed)
-		{
-			numAttacks = numAttacks.substring(1);
-		}
-		anEquip.put(ObjectKey.ATTACKS_PROGRESS, !attacksFixed);
-		try
-		{
-			int bonusAttacks = Integer.parseInt(numAttacks) - 1;
-			final BonusObj aBonus = Bonus.newBonus(context, "WEAPON|ATTACKS|"
-					+ bonusAttacks);
-
-			if (aBonus == null)
-			{
-				Logging.errorPrint(getTokenName()
-						+ " was given invalid number of attacks: "
-						+ bonusAttacks);
-				return null;
-			}
-			anEquip.addToListFor(ListKey.BONUS, aBonus);
-		}
-		catch (NumberFormatException exc)
-		{
-			Logging.errorPrint("Non-numeric value for number of attacks in "
-					+ getTokenName() + ": '" + numAttacks + "'");
-			return null;
-		}
-
-		equipHead.put(StringKey.DAMAGE, commaTok.nextToken());
-
-		// sage_sam 02 Dec 2002 for Bug #586332
-		// allow hands to be required to equip natural weapons
-		int handsrequired = 0;
-		while (commaTok.hasMoreTokens())
-		{
-			final String hString = commaTok.nextToken();
-			if  (hString.startsWith("SPROP="))
-			{
-				anEquip.addToListFor(ListKey.SPECIAL_PROPERTIES,
-					SpecialProperty.createFromLst(hString.substring(6)));
-			}
-			else
-			{
-				try
-				{
-					handsrequired = Integer
-							.parseInt(hString);
-				}
-				catch (NumberFormatException exc)
-				{
-					Logging.errorPrint("Non-numeric value for hands required: '"
-							+ hString + "'");
-					return null;
-				}
-			}
-		}
-		anEquip.put(IntegerKey.SLOTS, handsrequired);
-
-		anEquip.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
-
-		WeaponProf cwp = context.getReferenceContext().silentlyGetConstructedCDOMObject(
-				WEAPONPROF_CLASS, attackName);
-		if (cwp == null)
-		{
-			cwp = context.getReferenceContext().constructNowIfNecessary(WEAPONPROF_CLASS,
-					attackName);
-			cwp.addToListFor(ListKey.TYPE, Type.NATURAL);
-		}
-		CDOMSingleRef<WeaponProf> wp = context.getReferenceContext().getCDOMReference(
-				WEAPONPROF_CLASS, attackName);
-		anEquip.put(ObjectKey.WEAPON_PROF, wp);
-		anEquip.addToListFor(ListKey.IMPLIED_WEAPONPROF, wp);
-
-		if (!ControlUtilities.hasControlToken(context, CControl.CRITRANGE))
-		{
-			equipHead.put(IntegerKey.CRIT_RANGE, 1);
-		}
-		if (!ControlUtilities.hasControlToken(context, CControl.CRITMULT))
-		{
-			equipHead.put(IntegerKey.CRIT_MULT, 2);
-		}
-
-		return anEquip;
-	}
-
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<Equipment> changes = context.getObjectContext().getListChanges(
-				obj, ListKey.NATURAL_WEAPON);
+		Changes<Equipment> changes = context.getObjectContext().getListChanges(obj, ListKey.NATURAL_WEAPON);
 		Collection<Equipment> eqadded = changes.getAdded();
 		if (eqadded == null || eqadded.isEmpty())
 		{
@@ -331,16 +288,14 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			// TODO objcontext.getString(eq, StringKey.NAME);
 			if (name == null)
 			{
-				context.addWriteMessage(getTokenName()
-						+ " expected Equipment to have a name");
+				context.addWriteMessage(getTokenName() + " expected Equipment to have a name");
 				return null;
 			}
 			sb.append(name).append(Constants.COMMA);
 			List<Type> type = eq.getListFor(ListKey.TYPE);
 			if (type == null || type.isEmpty())
 			{
-				context.addWriteMessage(getTokenName()
-						+ " expected Equipment to have a type");
+				context.addWriteMessage(getTokenName() + " expected Equipment to have a type");
 				return null;
 			}
 			sb.append(StringUtil.join(type, Constants.DOT));
@@ -348,8 +303,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			Boolean attProgress = eq.get(ObjectKey.ATTACKS_PROGRESS);
 			if (attProgress == null)
 			{
-				context.addWriteMessage(getTokenName()
-						+ " expected Equipment to know ATTACKS_PROGRESS state");
+				context.addWriteMessage(getTokenName() + " expected Equipment to know ATTACKS_PROGRESS state");
 				return null;
 			}
 			else if (!attProgress.booleanValue())
@@ -359,15 +313,13 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			List<BonusObj> bonuses = eq.getListFor(ListKey.BONUS);
 			if (bonuses == null || bonuses.isEmpty())
 			{
-				sb.append("1");
+				sb.append('1');
 			}
 			else
 			{
 				if (bonuses.size() != 1)
 				{
-					context.addWriteMessage(getTokenName()
-							+ " expected only one BONUS on Equipment: "
-							+ bonuses);
+					context.addWriteMessage(getTokenName() + " expected only one BONUS on Equipment: " + bonuses);
 					return null;
 				}
 				// TODO Validate BONUS type?
@@ -378,15 +330,13 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			EquipmentHead head = eq.getEquipmentHeadReference(1);
 			if (head == null)
 			{
-				context.addWriteMessage(getTokenName()
-						+ " expected an EquipmentHead on Equipment");
+				context.addWriteMessage(getTokenName() + " expected an EquipmentHead on Equipment");
 				return null;
 			}
 			String damage = head.get(StringKey.DAMAGE);
 			if (damage == null)
 			{
-				context.addWriteMessage(getTokenName()
-						+ " expected a Damage on EquipmentHead");
+				context.addWriteMessage(getTokenName() + " expected a Damage on EquipmentHead");
 				return null;
 			}
 			sb.append(damage);
@@ -396,7 +346,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				sb.append(',').append(hands);
 			}
-			
+
 			List<SpecialProperty> spropList = eq.getSafeListFor(ListKey.SPECIAL_PROPERTIES);
 			for (SpecialProperty sprop : spropList)
 			{
@@ -405,7 +355,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 
 			first = false;
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	@Override
@@ -424,22 +374,18 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			// If the size was just a default, check for a size prereq and use that instead.
 			if (obj.get(FormulaKey.SIZE) == null && obj.hasPreReqTypeOf("SIZE"))
 			{
-				Integer requiredSize = getRequiredSize(obj);
+				Integer requiredSize = getRequiredSize(context, obj);
 				if (requiredSize != null)
 				{
 					sizeFormula = FormulaFactory.getFormulaFor(requiredSize);
 				}
 			}
-			
+
 			if (sizeFormula.isStatic())
 			{
-				int isize =
-						sizeFormula.resolveStatic().intValue();
-				SizeAdjustment size =
-						context
-							.getReferenceContext()
-							.getSortedList(SizeAdjustment.class,
-								IntegerKey.SIZEORDER).get(isize);
+				int isize = sizeFormula.resolveStatic().intValue();
+				SizeAdjustment size = context.getReferenceContext()
+					.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER).get(isize);
 				for (Equipment e : natWeapons)
 				{
 					CDOMDirectSingleRef<SizeAdjustment> sizeRef = CDOMDirectSingleRef.getRef(size);
@@ -449,9 +395,8 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			}
 			else
 			{
-				Logging.errorPrint("SIZE in " + obj.getClass().getSimpleName()
-						+ " " + obj.getKeyName() + " must not be a variable "
-						+ "if it contains a NATURALATTACKS token");
+				Logging.errorPrint("SIZE in " + obj.getClass().getSimpleName() + ' ' + obj.getKeyName()
+					+ " must not be a variable " + "if it contains a NATURALATTACKS token");
 			}
 		}
 		return true;
@@ -463,7 +408,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 	 * @param obj The defining object. 
 	 * @return The size integer, or null if none (or multiple) specified.
 	 */
-	private Integer getRequiredSize(CDOMObject obj)
+	private Integer getRequiredSize(LoadContext context, CDOMObject obj)
 	{
 		Set<Prerequisite> sizePrereqs = new HashSet<>();
 		for (Prerequisite prereq : obj.getPrerequisiteList())
@@ -474,12 +419,8 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		Integer requiredSize = null;
 		for (Prerequisite prereq : sizePrereqs)
 		{
-			SizeAdjustment sa =
-					Globals
-						.getContext()
-						.getReferenceContext()
-						.silentlyGetConstructedCDOMObject(SizeAdjustment.class,
-							prereq.getOperand());
+			SizeAdjustment sa = context.getReferenceContext().silentlyGetConstructedCDOMObject(SizeAdjustment.class,
+				prereq.getOperand());
 			final int targetSize = sa.get(IntegerKey.SIZEORDER);
 			if (requiredSize != null && requiredSize != targetSize)
 			{

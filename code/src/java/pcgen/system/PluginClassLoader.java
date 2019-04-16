@@ -1,5 +1,4 @@
 /*
- * PluginClassLoader.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 25, 2009, 3:14:40 PM
  */
 package pcgen.system;
 
@@ -24,8 +22,6 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Modifier;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.Collection;
@@ -44,17 +40,12 @@ import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
 import pcgen.util.Logging;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 class PluginClassLoader extends PCGenTask
 {
 
-	private static final FilenameFilter pluginFilter = (dir, name) ->
-	{
+	private static final FilenameFilter PLUGIN_FILTER = (dir, name) -> {
 		if (name.contains("plugin"))
 		{
 			return true;
@@ -63,8 +54,7 @@ class PluginClassLoader extends PCGenTask
 	};
 	private final File pluginDir;
 	private final MapToList<Class<?>, PluginLoader> loaderMap;
-	private final ExecutorService dispatcher = Executors.newSingleThreadExecutor(r ->
-	{
+	private final ExecutorService dispatcher = Executors.newSingleThreadExecutor(r -> {
 		Thread thread = new Thread(r, "Plugin-loading-thread");
 		thread.setDaemon(true);
 		thread.setPriority(Thread.NORM_PRIORITY);
@@ -96,7 +86,7 @@ class PluginClassLoader extends PCGenTask
 	private void loadClasses(final File pluginJar) throws IOException
 	{
 		try (JarClassLoader loader = new JarClassLoader(pluginJar.toURI().toURL());
-		     ZipFile file = new ZipFile(pluginJar))
+				ZipFile file = new ZipFile(pluginJar))
 		{
 			final Collection<String> classList = new LinkedList<>();
 			Enumeration<? extends ZipEntry> entries = file.entries();
@@ -129,11 +119,11 @@ class PluginClassLoader extends PCGenTask
 				classList.add(name);
 			}
 			file.close();
-		/*
-		 * Loading files and loading classes can both be lengthy processes. This splits the tasks
-		 * so that class loading occurs in another thread thus allowing both processes to
-		 * operate at the same time.
-		 */
+			/*
+			 * Loading files and loading classes can both be lengthy processes. This splits the tasks
+			 * so that class loading occurs in another thread thus allowing both processes to
+			 * operate at the same time.
+			 */
 			dispatcher.execute(new Runnable()
 			{
 
@@ -149,8 +139,7 @@ class PluginClassLoader extends PCGenTask
 						}
 						catch (ClassNotFoundException | NoClassDefFoundError ex)
 						{
-							Logging.errorPrint("Error occurred while loading plugin: "
-									+ pluginJar.getName(), ex);
+							Logging.errorPrint("Error occurred while loading plugin: " + pluginJar.getName(), ex);
 						}
 					}
 					if (!pluginFound)
@@ -167,12 +156,6 @@ class PluginClassLoader extends PCGenTask
 
 	private boolean processClass(Class<?> clazz)
 	{
-		int modifiers = clazz.getModifiers();
-		if (Modifier.isInterface(modifiers) || Modifier.isAbstract(modifiers))
-		{
-			return false;
-		}
-
 		boolean loaded = false;
 		for (final Class<?> key : loaderMap.getKeySet())
 		{
@@ -188,8 +171,7 @@ class PluginClassLoader extends PCGenTask
 				}
 				catch (final Exception ex)
 				{
-					Logging.errorPrint("Error occurred while loading plugin class: "
-							+ clazz.getName(), ex);
+					Logging.errorPrint("Error occurred while loading plugin class: " + clazz.getName(), ex);
 				}
 				finally
 				{
@@ -214,7 +196,7 @@ class PluginClassLoader extends PCGenTask
 		Future<?> future = dispatcher.submit(new Runnable()
 		{
 
-            @Override
+			@Override
 			public void run()
 			{
 				dispatcher.shutdown();
@@ -239,7 +221,7 @@ class PluginClassLoader extends PCGenTask
 		{
 			return;
 		}
-		File[] pluginFiles = pluginDir.listFiles(PluginClassLoader.pluginFilter);
+		File[] pluginFiles = pluginDir.listFiles(PluginClassLoader.PLUGIN_FILTER);
 		for (final File file : pluginFiles)
 		{
 			if (file.isDirectory())
@@ -272,12 +254,9 @@ class PluginClassLoader extends PCGenTask
 
 		private final Map<String, byte[]> classDefinitions = new HashMap<>();
 
-		private JarClassLoader(URL url) throws MalformedURLException
+		private JarClassLoader(URL url)
 		{
-			super(new URL[]
-					{
-						url
-					});
+			super(new URL[]{url});
 		}
 
 		private void storeClassDef(String name, byte[] bytes)

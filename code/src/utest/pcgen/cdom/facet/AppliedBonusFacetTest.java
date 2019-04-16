@@ -27,10 +27,15 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import plugin.bonustokens.Combat;
+import plugin.lsttokens.testsupport.TokenRegistration;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 
 public class AppliedBonusFacetTest extends AbstractListFacetTest<BonusObj>
 {
 	private AppliedBonusFacet facet = new AppliedBonusFacet();
+	private LoadContext context;
 
 	@Override
 	protected AbstractListFacet<CharID, BonusObj> getFacet()
@@ -38,16 +43,25 @@ public class AppliedBonusFacetTest extends AbstractListFacetTest<BonusObj>
 		return facet;
 	}
 
-	private LoadContext context;
-
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();
 		context =
-				new RuntimeLoadContext(new RuntimeReferenceContext(),
+				new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 					new ConsolidatedListCommitStrategy());
 		addBonus(Combat.class);
+	}
+
+	@AfterEach
+	@Override
+	public void tearDown()
+	{
+		TokenRegistration.clearTokens();
+		facet = null;
+		context = null;
+		super.tearDown();
 	}
 
 	@Override

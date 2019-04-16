@@ -17,9 +17,9 @@
  */
 package pcgen.cdom.facet.fact;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -28,7 +28,12 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
-public class GenderFacetTest extends TestCase
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+
+
+class GenderFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -41,15 +46,23 @@ public class GenderFacetTest extends TestCase
 	private GenderFacet facet;
 	private TemplateFacet tfacet = new TemplateFacet();
 
-	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		facet = new GenderFacet();
-		super.setUp();
 		facet.setTemplateFacet(tfacet);
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		facet = null;
+		tfacet = null;
 	}
 
 	@Test
@@ -78,10 +91,10 @@ public class GenderFacetTest extends TestCase
 	public void testGenderSet()
 	{
 		assertTrue(facet.canSetGender(id));
-		facet.setGender(id, Gender.Female);
+		facet.set(id, Gender.Female);
 		assertTrue(facet.canSetGender(id));
 		assertEquals(Gender.Female, facet.getGender(id));
-		facet.removeGender(id);
+		facet.remove(id);
 		assertTrue(facet.canSetGender(id));
 		assertEquals(Gender.getDefaultValue(), facet.getGender(id));
 	}
@@ -103,7 +116,7 @@ public class GenderFacetTest extends TestCase
 	@Test
 	public void testGenderSetLockDominates()
 	{
-		facet.setGender(id, Gender.Female);
+		facet.set(id, Gender.Female);
 		assertEquals(Gender.Female, facet.getGender(id));
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.GENDER_LOCK, Gender.Neuter);

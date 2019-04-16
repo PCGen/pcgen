@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+###Block: Combat Tricks
+# Ability Name		Unique Key						Category of Ability		Type							Description																																														Source Page
+CATEGORY=Special Ability|Combat Trick ~ Aldori Dueling Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Demon Hunter.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Desperate Battler.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Flagbearer.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Focused Discipline.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Hamatulatsu.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Shrewd Tactician.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+CATEGORY=Special Ability|Combat Trick ~ Taldan Duelist.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal

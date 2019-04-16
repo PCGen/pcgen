@@ -1,0 +1,267 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# Weapon Name	Type
+Unarmed		TYPE:Unarmed
+Solarian Weapon	TYPE:Solarian Weapon.ADVANCED MELEE.ADVANCED MELEE WEAPONS
+
+###Block:BASIC MELEE WEAPONS
+# Weapon Name				Type
+Unarmed strike				TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Club						TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Baton (tactical)				TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Battleglove (cestus)			TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Knife (survival)				TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Dueling sword (tactical)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Knife (tactical)				TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Dueling sword (buzzblade)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Incapacitator				TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Battleglove (power)			TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Dueling sword (ultrathin)		TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Dagger (ultrathin)			TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Battleglove (nova)			TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Dagger (zero-edge)			TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Dueling sword (ripper)			TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Peacemaker					TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Battleglove (gravity)			TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Dagger (molecular rift)			TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Dueling sword (molecular rift)	TYPE:S.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Baton (advanced)				TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+# Two-Handed Weapons
+Spear (tactical)				TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Staff (battle)				TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Staff (carbon)				TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Spear (sentinel)				TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Spear (buzzblade)				TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Spear (zero-edge)				TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Staff (hardlight)				TYPE:B.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+Spear (gravity)				TYPE:P.Weapon.Melee.Weapon Group ~ Basic Melee Weapons.Basic Melee.Uncategorized
+###Block:ADVANCED MELEE WEAPONS
+# One-Handed Weapons
+# Weapon Name				Type
+Skyfire sword (tactical)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Skyfire sword (inferno)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma sword (tactical)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma sword (red star)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma sword (yellow star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma sword (white star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma sword (blue star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shock truncheon (static)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shock truncheon (aurora)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shock truncheon (storm)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Shock truncheon (tempest)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Pulse gauntlet (thunderstrike)	TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Pulse gauntlet (LFD)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Pulse gauntlet (HFD)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Pulse gauntlet (banshee)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Hammer (assault)				TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Longsword					TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Starknife (tactical)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Taclash (standard)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Injection (glove)				TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Fangblade					TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Longsword (sintered)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Starknife (sintered)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Longsword (microserrated)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Hammer (comet)				TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Longsword (ultrathin)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Taclash (numbing)				TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Starknife (accelerated)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Grindblade					TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Longsword (zero-edge)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Monowhip					TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Hammer (meteoric)				TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Starknife (lightspeed)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Longsword (molecular rift)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Longsword (ultraserrated)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Hammer (gravity well)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Starknife (dimensional slice)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Longsword (dimensional slice)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Cryopike (tactical)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Cryopike (advanced)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Flame doshko (ember)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Flame doshko (blaze)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Flame doshko (inferno)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Flame doshko (solar flare)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma doshko (red star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma doshko (yellow star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma doshko (white star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Plasma doshko (blue star)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Doshko (tactical)				TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Pike (tactical)				TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Curve blade (carbon steel)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Swoop hammer (tactical)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Devastation blade (wrack)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Doshko (advanced)				TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Staff (sentinel)				TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Pike (advanced)				TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Swoop hammer (advanced)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Curve blade (ultrathin)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Doshko (ultrathin)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Devastation blade (ruin)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Staff (repeller)				TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Swoop hammer (mach I)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Doshko (zero-edge)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Pike (elite)				TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Curve blade (buzzblade)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Doshko (molecular rift)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Swoop hammer (mach II)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Devastation blade (apocalypse)	TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Doshko (dimensional blade)		TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Curve blade (dimensional slice)	TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+Swoop hammer (mach III)			TYPE:ADVANCED MELEE.ADVANCED MELEE WEAPONS
+# SMALL ARMS
+Zero pistol (frostbite-class)		TYPE:SMALL ARMS
+Zero pistol (hailstorm-class)		TYPE:SMALL ARMS
+Zero pistol (blizzard-class)		TYPE:SMALL ARMS
+Zero pistol (avalanche-class)		TYPE:SMALL ARMS
+Flare gun (survival)			TYPE:SMALL ARMS
+Flame pistol				TYPE:SMALL ARMS
+Laser pistol (azimuth)			TYPE:SMALL ARMS
+Laser pistol (corona)			TYPE:SMALL ARMS
+Laser pistol (aphelion)			TYPE:SMALL ARMS
+Laser pistol (perihelion)		TYPE:SMALL ARMS
+Laser pistol (parallax)			TYPE:SMALL ARMS
+Laser pistol (zenith)			TYPE:SMALL ARMS
+Plasma pistol (red star)		TYPE:SMALL ARMS
+Plasma pistol (yellow star)		TYPE:SMALL ARMS
+Plasma pistol (white star)		TYPE:SMALL ARMS
+Plasma pistol (blue star)		TYPE:SMALL ARMS
+Semi-auto pistol (tactical)		TYPE:SMALL ARMS
+Semi-auto pistol (advanced)		TYPE:SMALL ARMS
+Semi-auto pistol (elite)		TYPE:SMALL ARMS
+Semi-auto pistol (paragon)		TYPE:SMALL ARMS
+Gyrojet pistol (tactical)		TYPE:SMALL ARMS
+Gyrojet pistol (advanced)		TYPE:SMALL ARMS
+Gyrojet pistol (elite)			TYPE:SMALL ARMS
+Pulsecaster (pistol)			TYPE:SMALL ARMS
+Arc pistol (static)			TYPE:SMALL ARMS
+Arc pistol (aurora)			TYPE:SMALL ARMS
+Arc pistol (storm)			TYPE:SMALL ARMS
+Sonic pistol (thunderstrike)		TYPE:SMALL ARMS
+Sonic pistol (LFD)			TYPE:SMALL ARMS
+Sonic pistol (HFD)			TYPE:SMALL ARMS
+Sonic pistol (banshee)			TYPE:SMALL ARMS
+Needler pistol				TYPE:SMALL ARMS
+
+Zero rifle (frostbite-class)		TYPE:LONGARMS
+Zero rifle (hailstorm-class)		TYPE:LONGARMS
+Zero rifle (blizzard-class)		TYPE:LONGARMS
+Zero rifle (avalanche-class)		TYPE:LONGARMS
+Flame rifle					TYPE:LONGARMS
+Laser rifle (azimuth)			TYPE:LONGARMS
+Laser rifle (corona)			TYPE:LONGARMS
+Laser rifle (aphelion)			TYPE:LONGARMS
+Autobeam rifle (tactical)		TYPE:LONGARMS
+Laser rifle (perihelion)		TYPE:LONGARMS
+Autobeam rifle (advanced)		TYPE:LONGARMS
+Laser rifle (parallax)			TYPE:LONGARMS
+Autobeam rifle (elite)			TYPE:LONGARMS
+Laser rifle (zenith)			TYPE:LONGARMS
+Plasma rifle (red star)			TYPE:LONGARMS
+Plasma rifle (yellow star)		TYPE:LONGARMS
+Plasma caster (white star)		TYPE:LONGARMS
+Plasma rifle (white star)		TYPE:LONGARMS
+Plasma caster (blue star)		TYPE:LONGARMS
+Plasma rifle (blue star)		TYPE:LONGARMS
+Hunting rifle				TYPE:LONGARMS
+Scattergun (utility)			TYPE:LONGARMS
+Acid dart rifle (tactical)		TYPE:LONGARMS
+Autotarget rifle				TYPE:LONGARMS
+Crossbolter (tactical)			TYPE:LONGARMS
+Acid dart rifle (dual)			TYPE:LONGARMS
+Seeker rifle (tactical)			TYPE:LONGARMS
+Crossbolter (dual)			TYPE:LONGARMS
+Scattergun (snub)				TYPE:LONGARMS
+Magnetar rifle (tactical)		TYPE:LONGARMS
+Combat rifle				TYPE:LONGARMS
+Acid dart rifle (complex)		TYPE:LONGARMS
+Scattergun (impact)			TYPE:LONGARMS
+Gyrojet rifle (tactical)		TYPE:LONGARMS
+Magnetar rifle (advanced)		TYPE:LONGARMS
+Seeker rifle (advanced)			TYPE:LONGARMS
+Gyrojet rifle (advanced)		TYPE:LONGARMS
+Scattergun (vortex)			TYPE:LONGARMS
+Magnetar rifle (elite)			TYPE:LONGARMS
+Gyrojet rifle (elite)			TYPE:LONGARMS
+Seeker rifle (elite)			TYPE:LONGARMS
+Scattergun (grapeshot)			TYPE:LONGARMS
+Magnetar rifle (paragon)		TYPE:LONGARMS
+Gyrojet rifle (paragon)			TYPE:LONGARMS
+Seeker rifle (paragon)			TYPE:LONGARMS
+Pulsecaster rifle				TYPE:LONGARMS
+Arc emitter (tactical)			TYPE:LONGARMS
+Arc rifle (static)			TYPE:LONGARMS
+Arc emitter (advanced)			TYPE:LONGARMS
+Arc rifle (aurora)			TYPE:LONGARMS
+Arc rifle (storm)				TYPE:LONGARMS
+Arc rifle (tempest)			TYPE:LONGARMS
+Sonic rifle (thunderstrike)		TYPE:LONGARMS
+Streetsweeper (thunderstrike)		TYPE:LONGARMS
+Sonic rifle (LFD)				TYPE:LONGARMS
+Streetsweeper (LFD)			TYPE:LONGARMS
+Sonic rifle (HFD)				TYPE:LONGARMS
+Streetsweeper (HFD)			TYPE:LONGARMS
+Sonic rifle (banshee)			TYPE:LONGARMS
+Needler rifle				TYPE:LONGARMS
+
+Zero cannon (tactical)			TYPE:HEAVY WEAPONS
+Zero cannon (advanced)			TYPE:HEAVY WEAPONS
+Zero cannon (elite)			TYPE:HEAVY WEAPONS
+Flamethrower (ifrit-class)		TYPE:HEAVY WEAPONS
+Flamethrower (salamander-class)	TYPE:HEAVY WEAPONS
+Flamethrower (hellhound-class)	TYPE:HEAVY WEAPONS
+Flamethrower (firedrake-class)	TYPE:HEAVY WEAPONS
+Flamethrower (phoenix-class)		TYPE:HEAVY WEAPONS
+Artillery laser (azimuth)		TYPE:HEAVY WEAPONS
+Artillery laser (corona)		TYPE:HEAVY WEAPONS
+Artillery laser (aphelion)		TYPE:HEAVY WEAPONS
+Autobeam artillery (tactical)		TYPE:HEAVY WEAPONS
+Artillery laser (perihelion)		TYPE:HEAVY WEAPONS
+Autobeam artillery (advanced)		TYPE:HEAVY WEAPONS
+Artillery laser (parallax)		TYPE:HEAVY WEAPONS
+Autobeam artillery (elite)		TYPE:HEAVY WEAPONS
+Artillery laser (zenith)		TYPE:HEAVY WEAPONS
+Plasma cannon (red star)		TYPE:HEAVY WEAPONS
+Plasma cannon (yellow star)		TYPE:HEAVY WEAPONS
+Plasma cannon (white star)		TYPE:HEAVY WEAPONS
+Plasma cannon (blue star)		TYPE:HEAVY WEAPONS
+Reaction cannon (light)			TYPE:HEAVY WEAPONS
+Machine gun (squad)			TYPE:HEAVY WEAPONS
+X-gen gun (tactical)			TYPE:HEAVY WEAPONS
+Reaction cannon (tactical)		TYPE:HEAVY WEAPONS
+Machine gun (light)			TYPE:HEAVY WEAPONS
+X-gen gun (advanced)			TYPE:HEAVY WEAPONS
+Reaction cannon (heavy)			TYPE:HEAVY WEAPONS
+Stellar cannon (light)			TYPE:HEAVY WEAPONS
+Crossbolter (advanced)			TYPE:HEAVY WEAPONS
+Machine gun (medium)			TYPE:HEAVY WEAPONS
+X-gen gun (elite)				TYPE:HEAVY WEAPONS
+Crossbolter (elite)			TYPE:HEAVY WEAPONS
+Reaction cannon (advanced)		TYPE:HEAVY WEAPONS
+Stellar cannon (heavy)			TYPE:HEAVY WEAPONS
+Machine gun (heavy)			TYPE:HEAVY WEAPONS
+Reaction cannon (elite)			TYPE:HEAVY WEAPONS
+Crossbolter (paragon)			TYPE:HEAVY WEAPONS
+Reaction cannon (paragon)		TYPE:HEAVY WEAPONS
+X-gen gun (paragon)			TYPE:HEAVY WEAPONS
+Shock caster (static)			TYPE:HEAVY WEAPONS
+Shock caster (aurora)			TYPE:HEAVY WEAPONS
+Shock caster (storm)			TYPE:HEAVY WEAPONS
+Shock caster (tempest)			TYPE:HEAVY WEAPONS
+Screamer (thunderstrike)		TYPE:HEAVY WEAPONS
+Screamer (LFD)				TYPE:HEAVY WEAPONS
+Screamer (HFD)				TYPE:HEAVY WEAPONS
+NIL grenade launcher (merc)		TYPE:HEAVY WEAPONS
+NIL grenade launcher (squad)		TYPE:HEAVY WEAPONS
+IMDS missile launcher			TYPE:HEAVY WEAPONS
+
+Shirren-eye rifle (tactical)		TYPE:P.SNIPER WEAPONS
+Shirren-eye rifle (advanced)		TYPE:P.SNIPER WEAPONS
+Shirren-eye rifle (elite)		TYPE:P.SNIPER WEAPONS
+Shirren-eye rifle (paragon)		TYPE:P.SNIPER WEAPONS
+Shirren-eye rifle (warpshot)		TYPE:P.SNIPER WEAPONS
+
+Grenades					TYPE:Grenades
+
+Carbonedge shuriken			TYPE:Special Weapons
+Nyfiber net					TYPE:Special Weapons
+Bow						TYPE:Special Weapons

@@ -1,5 +1,4 @@
 /*
- * AbilityChooseController.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.chooser;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -34,14 +33,9 @@ public class AbilityChooseController extends ChooseController<Ability>
 	private final PlayerCharacter pc;
 	ChoiceManagerList<?> ccm;
 
-	public AbilityChooseController(Ability a, AbilityCategory cat,
-			PlayerCharacter aPC, ChoiceManagerList<?> cont)
+	public AbilityChooseController(Ability a, AbilityCategory cat, PlayerCharacter aPC, ChoiceManagerList<?> cont)
 	{
-		if (a == null)
-		{
-			throw new IllegalArgumentException(
-					"Ability cannot be null for AbilityChooseController");
-		}
+		Objects.requireNonNull(a, "Ability cannot be null for AbilityChooseController");
 		ability = a;
 		ac = cat;
 		pc = aPC;
@@ -54,7 +48,7 @@ public class AbilityChooseController extends ChooseController<Ability>
 		if (isMultYes())
 		{
 			int availPool = pc.getAvailableAbilityPool(ac).intValue();
-			return availPool == 0 && getCost() == 0 ? 1 : availPool;
+			return ((availPool == 0) && (getCost() == 0)) ? 1 : availPool;
 		}
 		return 1;
 	}

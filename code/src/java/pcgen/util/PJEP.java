@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on January 28, 2003, 11:18 PM
- *
- * @(#) $Id$
  */
 package pcgen.util;
 
@@ -26,21 +22,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+import pcgen.core.PlayerCharacter;
+import pcgen.core.VariableProcessor;
+import pcgen.persistence.lst.LstUtils;
+import pcgen.system.PluginLoader;
+
 import org.nfunk.jep.ASTFunNode;
 import org.nfunk.jep.JEP;
 import org.nfunk.jep.Node;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommand;
 
-import pcgen.core.PlayerCharacter;
-import pcgen.core.VariableProcessor;
-import pcgen.persistence.lst.LstUtils;
-import pcgen.system.PluginLoader;
-
 /**
- * <code>PJEP</code>
+ * {@code PJEP}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  *
  * Provides a common interface setup for Singular Systems' Java Mathematical Expression Parser.
  *
@@ -49,41 +44,38 @@ import pcgen.system.PluginLoader;
  *
  * Provides the following variables:
  *   FALSE, TRUE
- *
  */
 public final class PJEP extends JEP
 {
 	private Object parent;
 	private String variableSource;
-	private static List<Class<PCGenCommand>> commandList =
-            new ArrayList<>();
+	private static List<Class<PCGenCommand>> commandList = new ArrayList<>();
 	private List<PCGenCommand> localCommandList = new ArrayList<>();
 
 	public static void addCommand(Class<PCGenCommand> clazz)
 	{
 		commandList.add(clazz);
 	}
+
 	public static PluginLoader getJepPluginLoader()
 	{
 		return new PluginLoader()
 		{
 
-            @Override
+			@Override
 			public void loadPlugin(Class clazz) throws Exception
 			{
 				addCommand(clazz);
 			}
 
-            @Override
+			@Override
 			public Class[] getPluginClasses()
 			{
-				return new Class[]
-						{
-							PCGenCommand.class
-						};
+				return new Class[]{PCGenCommand.class};
 			}
 		};
 	}
+
 	public PJEP()
 	{
 		setAllowUndeclared(true);
@@ -110,7 +102,7 @@ public final class PJEP extends JEP
 		addVariable("FALSE", 0);
 	}
 
-    @Override
+	@Override
 	public Node parseExpression(String expression_in)
 	{
 		if (updateVariables())
@@ -192,15 +184,15 @@ public final class PJEP extends JEP
 
 		/**
 		 * Runs classlevel on the inStack. The parameter is popped
-		 * off the <code>inStack</code>, and the variable's value is
-		 * pushed back to the top of <code>inStack</code>.
+		 * off the {@code inStack}, and the variable's value is
+		 * pushed back to the top of {@code inStack}.
 		 * 
 		 * @param inStack The stack to process
 		 * 
 		 * @throws ParseException
 		 */
-//		@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
-        @Override
+		//		@SuppressWarnings("unchecked") //Uses JEP, which doesn't use generics
+		@Override
 		public void run(Stack inStack) throws ParseException
 		{
 			LstUtils.deprecationWarning("Jep function cl deprecated, use classlevel instead");
@@ -271,8 +263,7 @@ public final class PJEP extends JEP
 				}
 				if (aPC == null)
 				{
-					throw new ParseException("Invalid parent (no PC): "
-						+ parent.getClass().getName());
+					throw new ParseException("Invalid parent (no PC): " + parent.getClass().getName());
 				}
 
 				// ";BEFORELEVEL="
@@ -296,7 +287,7 @@ public final class PJEP extends JEP
 	 * @return Returns the variableSource.
 	 */
 	@Deprecated
-	protected String getVariableSource()
+	private String getVariableSource()
 	{
 		return variableSource;
 	}
@@ -325,4 +316,8 @@ public final class PJEP extends JEP
 		}
 	}
 
+	public static void clear()
+	{
+		commandList.clear();
+	}
 }

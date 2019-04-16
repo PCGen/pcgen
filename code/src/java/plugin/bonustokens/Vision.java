@@ -1,5 +1,4 @@
 /*
- * Vision.java
  * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,26 +14,18 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 13, 2002, 9:19 AM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.bonustokens;
 
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>Vision</code> deals with bonuses to a character's vision.
- *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
+ * {@code Vision} deals with bonuses to a character's vision.
  */
 public final class Vision extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS =
-			{"NORMAL", "LOW-LIGHT", "DARKVISION", "BLINDSIGHT", "TREMORSENSE",
-				"ECHOSENSE", "X-RAY"};
+			{"NORMAL", "LOW-LIGHT", "DARKVISION", "BLINDSIGHT", "TREMORSENSE", "ECHOSENSE", "X-RAY"};
 
 	/**
 	 * Return the bonus tag handled by this class.
@@ -49,7 +40,6 @@ public final class Vision extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual type of vision that may be bonused.
 	 * @param tagNumber the index of the vision type.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The type of vision.
 	 */
 	@Override
@@ -60,7 +50,6 @@ public final class Vision extends MultiTagBonusObj
 
 	/**
 	 * Get the number of types of vision that may be bonused.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The number of vision types.
 	 */
 	@Override

@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.CDOMCompatibilityToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class AddFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
-		CDOMCompatibilityToken<CDOMObject>
+public class AddFeatToken extends AbstractNonEmptyToken<CDOMObject> implements CDOMCompatibilityToken<CDOMObject>
 {
 
 	@Override
@@ -39,8 +38,7 @@ public class AddFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
@@ -62,25 +60,21 @@ public class AddFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 			count = FormulaFactory.getFormulaFor(activeValue);
 			if (!count.isValid())
 			{
-				return new ParseResult.Fail("Count in " + getTokenName()
-					+ " was not valid: " + count.toString(), context);
+				return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
 			}
 			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{
-				return new ParseResult.Fail("Count in ADD:FEAT must be > 0",
-					context);
+				return new ParseResult.Fail("Count in ADD:FEAT must be > 0");
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
-			return new ParseResult.Fail(
-				"ADD:FEAT had too many pipe separated items: " + value, context);
+			return new ParseResult.Fail("ADD:FEAT had too many pipe separated items: " + value);
 		}
 		try
 		{
-			if (!context.processToken(obj, "ADD",
-				"ABILITY|" + count.toString() + "|FEAT|NORMAL|" + activeValue))
+			if (!context.processToken(obj, "ADD", "ABILITY|" + count.toString() + "|FEAT|NORMAL|" + activeValue))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Delegation Error from ADD:FEAT");
@@ -88,8 +82,7 @@ public class AddFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail("Delegation Error from ADD:FEAT: "
-				+ e.getLocalizedMessage());
+			return new ParseResult.Fail("Delegation Error from ADD:FEAT: " + e.getLocalizedMessage());
 		}
 		return ParseResult.SUCCESS;
 	}

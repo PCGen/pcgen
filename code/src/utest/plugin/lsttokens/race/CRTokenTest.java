@@ -17,7 +17,10 @@
  */
 package plugin.lsttokens.race;
 
-import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
@@ -30,11 +33,13 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
 	static CrToken token = new CrToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -55,7 +60,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testBadInputNegative() throws PersistenceLayerException
+	public void testBadInputNegative()
 	{
 		try
 		{
@@ -70,7 +75,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testBadInputNonFloat() throws PersistenceLayerException
+	public void testBadInputNonFloat()
 	{
 		try
 		{
@@ -147,7 +152,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseOne() throws PersistenceLayerException
+	public void testUnparseOne()
 	{
 		ChallengeRating cr = new ChallengeRating(FormulaFactory.ONE);
 		primaryProf.put(ObjectKey.CHALLENGE_RATING, cr);
@@ -155,7 +160,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseFraction() throws PersistenceLayerException
+	public void testUnparseFraction()
 	{
 		ChallengeRating cr = new ChallengeRating(FormulaFactory.getFormulaFor("1/2"));
 		primaryProf.put(ObjectKey.CHALLENGE_RATING, cr);
@@ -163,7 +168,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(ObjectKey.CHALLENGE_RATING, null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -171,7 +176,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = ObjectKey.CHALLENGE_RATING;
 		primaryProf.put(objectKey, new Object());

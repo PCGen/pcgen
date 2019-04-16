@@ -33,11 +33,9 @@ import pcgen.core.Skill;
  * ListSkillCostFacet processes SkillCosts associated with the MONCSKILL and
  * MONCCSKILL tokens.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ListToSkillCostFacet extends
-		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements
-		ScopeFacetChangeListener<CharID, PCClass, ClassSkillList>,
+public class ListToSkillCostFacet extends AbstractSubScopeFacet<PCClass, SkillCost, Skill>
+		implements ScopeFacetChangeListener<CharID, PCClass, ClassSkillList>,
 		SubScopeFacetChangeListener<ClassSkillList, SkillCost, Skill>
 {
 
@@ -51,13 +49,11 @@ public class ListToSkillCostFacet extends
 		CharID id = dfce.getCharID();
 		PCClass pcc = dfce.getScope();
 		ClassSkillList skilllist = dfce.getCDOMObject();
-		for (Skill sk : listSkillCostFacet.getSet(id, skilllist,
-			SkillCost.CLASS))
+		for (Skill sk : listSkillCostFacet.getSet(id, skilllist, SkillCost.CLASS))
 		{
 			add(id, pcc, SkillCost.CLASS, sk, pcc);
 		}
-		for (Skill sk : listSkillCostFacet.getSet(id, skilllist,
-			SkillCost.CROSS_CLASS))
+		for (Skill sk : listSkillCostFacet.getSet(id, skilllist, SkillCost.CROSS_CLASS))
 		{
 			add(id, pcc, SkillCost.CROSS_CLASS, sk, pcc);
 		}
@@ -86,8 +82,7 @@ public class ListToSkillCostFacet extends
 	}
 
 	@Override
-	public void dataAdded(
-		SubScopeFacetChangeEvent<ClassSkillList, SkillCost, Skill> dfce)
+	public void dataAdded(SubScopeFacetChangeEvent<ClassSkillList, SkillCost, Skill> dfce)
 	{
 		CharID id = dfce.getCharID();
 		ClassSkillList skilllist = dfce.getScope1();
@@ -103,8 +98,7 @@ public class ListToSkillCostFacet extends
 	}
 
 	@Override
-	public void dataRemoved(
-		SubScopeFacetChangeEvent<ClassSkillList, SkillCost, Skill> dfce)
+	public void dataRemoved(SubScopeFacetChangeEvent<ClassSkillList, SkillCost, Skill> dfce)
 	{
 		CharID id = dfce.getCharID();
 		ClassSkillList skilllist = dfce.getScope1();

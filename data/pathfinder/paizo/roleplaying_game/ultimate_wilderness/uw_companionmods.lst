@@ -1,0 +1,78 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
+
+# ==============================
+# Companion Archetype Support
+# ==============================
+# Class of the Master	Type			Ability
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Familiar Archetype|AUTOMATIC|Archetype Familiar
+
+# ==============================
+# Familiar Bonuses to Master
+# ==============================
+# Race of familiar						Type			Ability
+MASTERBONUSRACE:Familiar (Arctic Fox)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Arctic Fox)
+MASTERBONUSRACE:Familiar (Arctic Hare)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Arctic Hare)
+MASTERBONUSRACE:Familiar (Arctic Tern)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Arctic Tern)
+MASTERBONUSRACE:Familiar (Armadillo)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Armadillo)
+MASTERBONUSRACE:Familiar (Butterfly)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Butterfly)
+MASTERBONUSRACE:Familiar (Chicken)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Chicken)
+MASTERBONUSRACE:Familiar (Cockroach)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Cockroach)
+MASTERBONUSRACE:Familiar (Creeper Ivy)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Creeper Ivy)
+MASTERBONUSRACE:Familiar (Dodo)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Dodo)
+MASTERBONUSRACE:Familiar (Dwarf Caiman)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Dwarf Caiman)
+MASTERBONUSRACE:Familiar (Dweomer Cap)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Dweomer Cap)
+MASTERBONUSRACE:Familiar (Ermine)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Ermine)
+MASTERBONUSRACE:Familiar (Fire Salamander)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Fire Salamander)
+MASTERBONUSRACE:Familiar (Flowering Lattice)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Flowering Lattice)
+MASTERBONUSRACE:Familiar (Horned Lizard)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Horned Lizard)
+MASTERBONUSRACE:Familiar (Ioun Wyrd)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Ioun Wyrd)
+MASTERBONUSRACE:Familiar (Isopod (Giant))			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Isopod (Giant))
+MASTERBONUSRACE:Familiar (Jerboa)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Jerboa)
+MASTERBONUSRACE:Familiar (Kakapo)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Kakapo)
+MASTERBONUSRACE:Familiar (Koala)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Koala)
+MASTERBONUSRACE:Familiar (Lamprey)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Lamprey)
+MASTERBONUSRACE:Familiar (Lemming)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Lemming)
+MASTERBONUSRACE:Familiar (Leopard Slug)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Leopard Slug)
+MASTERBONUSRACE:Familiar (Margay)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Margay)
+MASTERBONUSRACE:Familiar (Marine Iguana)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Marine Iguana)
+MASTERBONUSRACE:Familiar (Meerkat)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Meerkat)
+MASTERBONUSRACE:Familiar (Mole)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Mole)
+MASTERBONUSRACE:Familiar (Mongoose)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Mongoose)
+MASTERBONUSRACE:Familiar (Moth)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Moth)
+MASTERBONUSRACE:Familiar (Osprey)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Osprey)
+MASTERBONUSRACE:Familiar (Parrot)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Parrot)
+MASTERBONUSRACE:Familiar (Peafowl)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Peafowl)
+MASTERBONUSRACE:Familiar (Penguin)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Penguin)
+MASTERBONUSRACE:Familiar (Petrifern)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Petrifern)
+MASTERBONUSRACE:Familiar (Platypus)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Platypus)
+MASTERBONUSRACE:Familiar (Popoto Dolphin)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Popoto Dolphin)
+MASTERBONUSRACE:Familiar (Ptarmigan)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Ptarmigan)
+MASTERBONUSRACE:Familiar (Pufferfish)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Pufferfish)
+MASTERBONUSRACE:Familiar (Puffin)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Puffin)
+MASTERBONUSRACE:Familiar (Rabbit)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rabbit)
+MASTERBONUSRACE:Familiar (Ravenous Tumbleweed)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Ravenous Tumbleweed)
+MASTERBONUSRACE:Familiar (Razor Fern)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Razor Fern)
+MASTERBONUSRACE:Familiar (Rhamphorhynchus)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rhamphorhynchus)
+MASTERBONUSRACE:Familiar (Sawleg Locust)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Sawleg Locust)
+MASTERBONUSRACE:Familiar (Sea Krait)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Sea Krait)
+MASTERBONUSRACE:Familiar (Seal)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Seal)
+MASTERBONUSRACE:Familiar (Shimmerwing Dragonfly)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Shimmerwing Dragonfly)
+MASTERBONUSRACE:Familiar (Skunk)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Skunk)
+MASTERBONUSRACE:Familiar (Snail Kite)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Snail Kite)
+MASTERBONUSRACE:Familiar (Spiny Starfish)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Spiny Starfish)
+MASTERBONUSRACE:Familiar (Squirrel)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Squirrel)
+MASTERBONUSRACE:Familiar (Suture Vine)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Suture Vine)
+MASTERBONUSRACE:Familiar (Tardigrade (Giant))		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Tardigrade (Giant))
+MASTERBONUSRACE:Familiar (Tarsier)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Tarsier)
+MASTERBONUSRACE:Familiar (Toucan)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Toucan)
+MASTERBONUSRACE:Familiar (Vampire Squid)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Vampire Squid)
+MASTERBONUSRACE:Familiar (Wallaby)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Wallaby)
+
+
+
+# Class of the Master				Type				Ability
+FOLLOWER:SaurianChampionMountBonuses=1	TYPE:Animal Companion	ABILITY:Internal|AUTOMATIC|Saurian Champion ~ Mount Bonuses
+
+FOLLOWER:LeshyStatBonus=1			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Leshy Familiar ~ Stat Bonus

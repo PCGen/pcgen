@@ -1,0 +1,69 @@
+CAMPAIGN:Faction Guide (PFS)
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+RANK:3
+GENRE:Fantasy
+TYPE:Paizo Publishing PFS.Pathfinder Chronicles
+STATUS:BETA
+BOOKTYPE:Supplement
+SETTING:Pathfinder Chronicles
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Chronicles: Faction Guide
+SOURCESHORT:PCFG
+SOURCEWEB:http://paizo.com/products/btpy8emo?Pathfinder-Chronicles-Faction-Guide
+SOURCEDATE:2010-06
+ISOGL:YES
+
+#COVER:_faction_guide.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8emo?Pathfinder-Chronicles-Faction-Guide|Buy this publication from Paizo Publishing!
+DESC:Loyalty over all. Every campaign has organizations that pull the secret strings of the world, toppling monarchs or leading revolutionaries toward freedom and war. These secret societies, bardic colleges, wizard academies, military orders, and religious cults capture the imagination—and now your PCs can join Golarion’s own movers and shakers with the Pathfinder Chronicles Faction Guide. This book presents a new and detailed rules system for PCs who throw in their lot with one or more of these groups, as well as the responsibilities—and rewards—that membership entails. With membership in a faction, PCs gain a whole new reason to adventure, as well as countless roleplaying opportunities in any sort of campaign, from dungeon crawl to courtly intrigue.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Chronicles: Faction Guide. Copyright 2010, Paizo Publishing, LLC; Authors: Joshua J. Frost, Jason Nelson, and Sean K Reynolds.
+COPYRIGHT:Dracolisk from the Tome of Horrors Revised. Copyright  2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Froghemoth from the Tome of Horrors Revised. Copyright  2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Rot Grub from the Tome of Horrors Revised. Copyright  2002, Necromancer Games, Inc.; Authors: Scott Greene and Clark Peterson, based on original material by Gary Gygax.
+COPYRIGHT:Russet Mold from the Tome of Horrors Revised. Copyright  2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Spriggan from the Tome of Horrors Revised. Copyright  2002, Necromancer Games, Inc.; Authors: Scott Greene and Erica Balsley, based on original material by Roger Moore and Gary Gygax.
+COPYRIGHT:Vegepygmy from the Tome of Horrors Revised. Copyright  2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Wood Golem from the Tome of Horrors Revised. Copyright  2002, Necromancer Games, Inc.; Authors: Scott Greene and Patrick Lawinger.
+COPYRIGHT:Yellow Musk Creeper from the Tome of Horrors Revised. Copyright  2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Albie Fiore.
+COPYRIGHT:Yellow Musk Zombie from the Tome of Horrors Revised. Copyright  2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Albie Fiore.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Chronicles: Faction Guide" Copyright 2017, PCGen Data Team (including, but not limited to Stefan Radermacher, Gwen T.)
+
+# Additional Resources
+# Last Updated Saturday, April 29, 2017
+#
+# Pathfinder Campaign Setting: Faction Guide
+# Feat: Fast Crawl; Spells: hibernate, tripvine; Traits: Beast of the Society, Berserker of the Society, Blade of the Society, Defender of the Society, Exalted of the Society, Greater Adept of the Society, Havoc of the Society, Honored Fist of the Society, Maestro of the Society, Stalwart of the Society, Tracker of the Society
+
+
+ABILITY:pfs_pcfg_abilities.lst|PRECAMPAIGN:1,INCLUDES=Faction Guide
+ABILITY:pfs_pcfg_feats.lst|PRECAMPAIGN:1,INCLUDES=Faction Guide
+SPELL:pfs_pcfg_spells.lst|PRECAMPAIGN:1,INCLUDES=Faction Guide
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/faction_guide/pcfg_abilitycategories.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/faction_guide/pcfg_equip_arms_armor.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/faction_guide/pcfg_equip_general.lst
+LSTEXCLUDE:@/pathfinder/paizo/campaign_setting/faction_guide/pcfg_equipmods.lst
+
+
+
+# ENTRY DATE: 18 March 2017
+# LST MONKEY: GwenT
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.07.02
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.02
+# COMMENTS:

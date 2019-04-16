@@ -18,43 +18,44 @@
 package plugin.lsttokens.editcontext.testsupport;
 
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Arrays;
 import java.util.List;
-
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Loadable;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.bonus.BonusObj;
 import pcgen.output.publish.OutputDB;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
-import pcgen.persistence.lst.LstToken;
-import pcgen.persistence.lst.TokenStore;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject & Loadable> extends
-		TestCase
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import util.TestURI;
+
+public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject & Loadable>
 {
 	protected LoadContext primaryContext;
 	protected LoadContext secondaryContext;
 	protected T primaryProf;
 	protected T secondaryProf;
 	protected String prefix = "";
-	protected int expectedPrimaryMessageCount = 0;
 
-	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
 	protected static CampaignSourceEntry modCampaign;
 
@@ -62,55 +63,43 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 
 	public abstract CDOMPrimaryToken<? super T> getToken();
 
-	@BeforeClass
-	public static final void classSetUp() throws URISyntaxException
+	@BeforeAll
+	public static void classSetUp() throws URISyntaxException
 	{
 		OutputDB.reset();
-		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
-				"file:/Test%20Case"));
+		testCampaign = new CampaignSourceEntry(new Campaign(), TestURI.getURI());
 		modCampaign = new CampaignSourceEntry(new Campaign(), new URI(
 				"file:/Test%20Case%20Modifier"));
-		classSetUpFired = true;
 	}
 
-	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
-		if (!classSetUpFired)
-		{
-			classSetUp();
-		}
 		// Yea, this causes warnings...
 		TokenRegistration.register(getToken());
 		primaryContext = new EditorLoadContext();
 		secondaryContext = new EditorLoadContext();
-		primaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
-		secondaryContext.getReferenceContext().importObject(AbilityCategory.FEAT);
-		primaryProf = primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
-				"TestObj");
-		secondaryProf = secondaryContext.getReferenceContext().constructCDOMObject(
-				getCDOMClass(), "TestObj");
+		primaryContext.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+		secondaryContext.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+		primaryProf = construct(primaryContext, "TestObj");
+		secondaryProf = construct(secondaryContext, "TestObj");
+	}
+
+	protected T construct(LoadContext context, String name)
+	{
+		return context.getReferenceContext().constructCDOMObject(getCDOMClass(),
+				name);
 	}
 
 	public abstract Class<? extends T> getCDOMClass();
 
-	public static void addToken(LstToken tok)
-	{
-		TokenStore.inst().addToTokenMap(tok);
-	}
-
-	public static void addBonus(Class<? extends BonusObj> clazz)
+	protected static void addBonus(Class<? extends BonusObj> clazz)
 	{
 		try
 		{
 			TokenLibrary.addBonusClass(clazz);
 		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			e.printStackTrace();
 		}
@@ -122,28 +111,27 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 		assertNull(getToken().unparse(secondaryContext, secondaryProf));
 		// Ensure the graphs are the same at the start
-		assertEquals("The graphs are not the same at test start", primaryProf,
-			secondaryProf);
+		assertEquals(primaryProf, secondaryProf, "The graphs are not the same at test start"
+		);
 		// Ensure the graphs are the same at the start
-		assertTrue("The graphs are not the same at test start", primaryContext
-			.getListContext().masterListsEqual(
-				secondaryContext.getListContext()));
+		assertTrue(primaryContext
+				.getListContext().masterListsEqual(
+						secondaryContext.getListContext()), "The graphs are not the same at test start");
 	}
 
 	protected void commit(CampaignSourceEntry campaign, TestContext tc,
 			String... str) throws PersistenceLayerException
 	{
-		StringBuilder unparsedBuilt = new StringBuilder();
-		for (String s : str)
-		{
-			unparsedBuilt.append(getToken().getTokenName()).append(':').append(
-					s).append('\t');
-		}
+		String unparsedBuilt =
+				Arrays.stream(str)
+				      .map(s -> getToken().getTokenName() + ':' + s + '\t')
+				      .collect(Collectors.joining());
 		URI uri = campaign.getURI();
 		primaryContext.setSourceURI(uri);
-		assertTrue("Parsing of " + unparsedBuilt.toString()
-			+ " failed unexpectedly", getLoader().parseLine(primaryContext,
-			primaryProf, unparsedBuilt.toString(), campaign.getURI()));
+		assertTrue(getLoader().parseLine(primaryContext,
+				primaryProf, unparsedBuilt, campaign.getURI()
+		), "Parsing of " + unparsedBuilt
+				+ " failed unexpectedly");
 		tc.putText(uri, str);
 		tc.putCampaign(uri, campaign);
 	}
@@ -155,7 +143,7 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 		primaryContext.setSourceURI(uri);
 		getLoader().parseLine(primaryContext, primaryProf, null,
 				campaign.getURI());
-		tc.putText(uri, null);
+		tc.putText(uri, (String[]) null);
 		tc.putCampaign(uri, campaign);
 	}
 
@@ -170,40 +158,32 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 			if (str == null)
 			{
-				assertNull("Expecting empty unparsed", unparsed);
+				assertNull(unparsed, "Expecting empty unparsed");
 				getLoader().parseLine(secondaryContext, secondaryProf, null,
 						uri);
 				continue;
 			}
-			assertNotNull(unparsed);
-			assertEquals(str.size(), unparsed.length);
-
-			for (int i = 0; i < str.size(); i++)
-			{
-				assertEquals("Expected " + i + " item to be equal", str.get(i),
-						unparsed[i]);
-			}
+			assertArrayEquals(str.toArray(), unparsed);
 
 			// Do round Robin
-			StringBuilder unparsedBuilt = new StringBuilder();
-			for (String s : unparsed)
-			{
-				unparsedBuilt.append(getToken().getTokenName()).append(':')
-						.append(s).append('\t');
-			}
+			String unparsedBuilt = Arrays.stream(unparsed)
+			                             .map(s -> getToken().getTokenName() + ':' + s + '\t')
+			                             .collect(Collectors.joining());
 			secondaryContext.setSourceURI(uri);
 			getLoader().parseLine(secondaryContext, secondaryProf,
-					unparsedBuilt.toString(), uri);
+					unparsedBuilt, uri);
 		}
 
 		// Ensure the objects are the same
-		assertEquals("Re parse of unparsed string gave a different value",
-			primaryProf, secondaryProf);
+		assertEquals(primaryProf, secondaryProf, "Re parse of unparsed string gave a different value"
+		);
 
 		// Ensure the graphs are the same
-		assertTrue("Re parse of unparsed string gave a different graph",
-			primaryContext.getListContext().masterListsEqual(
-				secondaryContext.getListContext()));
+		assertTrue(
+				primaryContext.getListContext().masterListsEqual(
+						secondaryContext.getListContext()),
+				"Re parse of unparsed string gave a different graph"
+		);
 
 		// And that it comes back out the same again
 		for (URI uri : tc.getURIs())
@@ -218,22 +198,21 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 				assertNull(unparsed);
 				continue;
 			}
-			assertEquals(str.size(), unparsed.length);
-
-			for (int i = 0; i < str.size(); i++)
-			{
-				assertEquals("Expected " + i + " item to be equal", str.get(i),
-						unparsed[i]);
-			}
+			assertArrayEquals(str.toArray(), unparsed);
 		}
 
-		assertTrue("First parse context was not valid", primaryContext.getReferenceContext().validate(null));
-		assertTrue("Unprased/reparsed context was not valid", secondaryContext.getReferenceContext().validate(null));
+		assertTrue(primaryContext.getReferenceContext().validate(null), "First parse context was not valid");
+		assertTrue(
+				secondaryContext.getReferenceContext().validate(null),
+				"Unprased/reparsed context was not valid"
+		);
+		int expectedPrimaryMessageCount = 0;
 		assertEquals(
-			"First parse and unparse/reparse had different number of messages",
-			expectedPrimaryMessageCount, primaryContext.getWriteMessageCount());
-		assertEquals("Unexpected messages in unparse/reparse", 0,
-			secondaryContext.getWriteMessageCount());
+				expectedPrimaryMessageCount, primaryContext.getWriteMessageCount(),
+				"First parse and unparse/reparse had different number of messages"
+		);
+		assertEquals(0, secondaryContext.getWriteMessageCount(),
+				"Unexpected messages in unparse/reparse"
+		);
 	}
-
 }

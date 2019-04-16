@@ -20,44 +20,41 @@ package pcgen.rules.persistence.token;
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.FormulaCalculation;
+import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.calculation.NEPCalculation;
-import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ProcessCalculation;
+import pcgen.cdom.formula.scope.PCGenScope;
 
-public abstract class AbstractNumberModifierFactory<T> implements
-		ModifierFactory<T>, BasicCalculation<T>
+public abstract class AbstractNumberModifierFactory<T> implements ModifierFactory<T>, BasicCalculation<T>
 {
 
 	@Override
-	public PCGenModifier<T> getModifier(int userPriority, String instructions,
-		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
-		FormatManager<T> formatManager)
+	public FormulaModifier<T> getModifier(String instructions, ManagerFactory managerFactory,
+		FormulaManager formulaManager, PCGenScope varScope, FormatManager<T> formatManager)
 	{
 		try
 		{
-			return getFixedModifier(userPriority, formatManager, instructions);
+			return getFixedModifier(formatManager, instructions);
 		}
 		catch (NumberFormatException e)
 		{
-			final NEPFormula<T> f = FormulaFactory.getValidFormula(instructions,
-				managerFactory, formulaManager, varScope, formatManager);
+			final NEPFormula<T> f = FormulaFactory.getValidFormula(instructions, managerFactory, formulaManager,
+				varScope, formatManager);
 			NEPCalculation<T> calc = new FormulaCalculation<>(f, this);
-			return new CalculationModifier<>(calc, userPriority);
+			return new CalculationModifier<>(calc, formatManager);
 		}
 	}
 
 	@Override
-	public PCGenModifier<T> getFixedModifier(int userPriority,
-		FormatManager<T> fmtManager, String instructions)
+	public FormulaModifier<T> getFixedModifier(FormatManager<T> formatManager, String instructions)
 	{
-		T n = fmtManager.convert(instructions);
-		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, fmtManager);
-		return new CalculationModifier<>(calc, userPriority);
+		T n = formatManager.convert(instructions);
+		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, formatManager);
+		return new CalculationModifier<>(calc, formatManager);
 	}
 }

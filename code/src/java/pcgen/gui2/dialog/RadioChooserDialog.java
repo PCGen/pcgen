@@ -1,5 +1,4 @@
 /*
- * RadioChooserDialog.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 03/06/2013
- *
- * $Id$
  */
 package pcgen.gui2.dialog;
 
@@ -50,15 +45,12 @@ import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>RadioChooserDialog</code> provides a dialog with a variable 
+ * The Class {@code RadioChooserDialog} provides a dialog with a variable
  * number of radio buttons to allow the user to make a single choice from a 
  * list. A ChooserFacade instance must be supplied, this defines the choices 
  * available, the text to be displayed on screen and the actions to be taken 
  * when the user confirms their choices. The chooser is generally displayed 
  * via a call to UIDelgate.showGeneralChooser.
- *
- * <br>
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class RadioChooserDialog extends JDialog implements ActionListener
@@ -128,8 +120,7 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 		// Create the buttons
 		for (InfoFacade infoFacade : availableList)
 		{
-			avaRadioButton[row] =
-					new JRadioButton(infoFacade.toString(), false);
+			avaRadioButton[row] = new JRadioButton(infoFacade.toString(), false);
 			avaGroup.add(avaRadioButton[row]);
 			avaRadioButton[row].addActionListener(this);
 			++row;
@@ -175,8 +166,7 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 	 * @param c The GridBagConstraints for the panel.
 	 * @param gridbag The layout of the panel.
 	 */
-	private void buildTwoColLayout(int numButtons, GridBagConstraints c,
-		GridBagLayout gridbag)
+	private void buildTwoColLayout(int numButtons, GridBagConstraints c, GridBagLayout gridbag)
 	{
 		int numRows = numButtons - numButtons / 2;
 		for (int i = 0; i < numRows; ++i)
@@ -212,18 +202,15 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 			{
 				if (selectedButton == avaRadioButton[i])
 				{
-					chooser.addSelected(chooser.getAvailableList()
-						.getElementAt(i));
+					chooser.addSelected(chooser.getAvailableList().getElementAt(i));
 					break;
 				}
 			}
-			if (chooser.isRequireCompleteSelection()
-				&& chooser.getRemainingSelections().get() > 0)
+			if (chooser.isRequireCompleteSelection() && chooser.getRemainingSelections().get() > 0)
 			{
-				JOptionPane.showMessageDialog(this, LanguageBundle
-					.getFormattedString("in_chooserRequireComplete", //$NON-NLS-1$
-						chooser.getRemainingSelections().get()),
-					chooser.getName(), JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(
+					this, LanguageBundle.getFormattedString("in_chooserRequireComplete", //$NON-NLS-1$
+					chooser.getRemainingSelections().get()), chooser.getName(), JOptionPane.INFORMATION_MESSAGE);
 				return;
 			}
 			else

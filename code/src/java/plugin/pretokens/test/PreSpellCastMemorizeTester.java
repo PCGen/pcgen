@@ -1,6 +1,4 @@
 /*
- * Created on 21-Dec-2003
- *
  * To change the template for this generated file go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
@@ -16,35 +14,29 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
 /**
- * @author Valued Customer
  *
  * To change the template for this generated type comment go to
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
-public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest
-		implements PrerequisiteTest
+public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "spellcast.memorize"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 	{
 
 		final int requiredNumber = Integer.parseInt(prereq.getOperand());
-		final boolean prereqMemorized =
-				prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
+		final boolean prereqMemorized = prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
 		int runningTotal = 0;
 
 		for (PCClass aClass : display.getClassSet())
@@ -55,32 +47,21 @@ public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest
 			}
 		}
 
-		runningTotal =
-				prereq.getOperator().compare(runningTotal, requiredNumber);
+		runningTotal = prereq.getOperator().compare(runningTotal, requiredNumber);
 		return countedTotal(prereq, runningTotal);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
-	 */
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		final boolean prereqMemorized =
-				prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
-		final Object[] args =
-				new Object[]{prereq.getOperator().toDisplayString(),
-					prereq.getOperand()};
+		final boolean prereqMemorized = prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
+		final Object[] args = new Object[]{prereq.getOperator().toDisplayString(), prereq.getOperand()};
 
 		if (prereqMemorized)
 		{
-			return LanguageBundle
-				.getFormattedString(
-					"PreSpellCastMemorize.toHtml_does_memorise", args); //$NON-NLS-1$
+			return LanguageBundle.getFormattedString("PreSpellCastMemorize.toHtml_does_memorise", args); //$NON-NLS-1$
 		}
-		return LanguageBundle
-			.getFormattedString(
-				"PreSpellCastMemorize.toHtml_does_not_memorise", args); //$NON-NLS-1$
+		return LanguageBundle.getFormattedString("PreSpellCastMemorize.toHtml_does_not_memorise", args); //$NON-NLS-1$
 	}
 
 }

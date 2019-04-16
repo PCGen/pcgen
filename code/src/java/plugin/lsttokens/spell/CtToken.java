@@ -38,19 +38,17 @@ public class CtToken implements CDOMPrimaryToken<Spell>
 	@Override
 	public String[] unparse(LoadContext context, Spell spell)
 	{
-		Integer i = context.getObjectContext().getInteger(spell,
-				IntegerKey.CASTING_THRESHOLD);
+		Integer i = context.getObjectContext().getInteger(spell, IntegerKey.CASTING_THRESHOLD);
 		if (i == null)
 		{
 			return null;
 		}
 		if (i.intValue() < 0)
 		{
-			context.addWriteMessage(getTokenName()
-					+ " requires a positive Integer");
+			context.addWriteMessage(getTokenName() + " requires a positive Integer");
 			return null;
 		}
-		return new String[] { i.toString() };
+		return new String[]{i.toString()};
 	}
 
 	@Override
@@ -67,17 +65,15 @@ public class CtToken implements CDOMPrimaryToken<Spell>
 			Integer ct = Integer.valueOf(value);
 			if (ct.intValue() < 0)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " requires a positive Integer", context);
+				return new ParseResult.Fail(getTokenName() + " requires a positive Integer");
 			}
 			context.getObjectContext().put(spell, IntegerKey.CASTING_THRESHOLD, ct);
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>", context);
+			return new ParseResult.Fail(
+				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
 		}
 	}
 }

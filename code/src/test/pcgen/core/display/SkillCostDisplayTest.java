@@ -1,5 +1,4 @@
 /*
- * SkillCostDisplayTest.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,51 +14,47 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 27/09/2008 21:04:10
- *
- * $Id: $
  */
 package pcgen.core.display;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillArmorCheck;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
- * The Class <code>SkillModifierTest</code> is responsible for checking that the 
+ * The Class {@code SkillModifierTest} is responsible for checking that the
  * SkillModifier class is operating correctly.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class SkillCostDisplayTest extends AbstractCharacterTestCase
 {
 
-	PCClass pcClass;
-	Race emptyRace = new Race();
-	boolean firstTime = true;
-	Ability skillFocus = new Ability();
-	Ability persuasive = new Ability();
-	Skill bluff;
+	private PCClass pcClass;
+	private boolean firstTime = true;
+	private Ability skillFocus = new Ability();
+	private Ability persuasive = new Ability();
+	private Skill bluff;
 
-	/* (non-Javadoc)
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -78,7 +73,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 				SkillArmorCheck.NONE);
 
 			skillFocus =
-					TestHelper.makeAbility("Skill Focus", AbilityCategory.FEAT, "General");
+					TestHelper.makeAbility("Skill Focus", BuildUtilities.getFeatCat(), "General");
 			BonusObj aBonus = Bonus.newBonus(context, "SKILL|LIST|3");
 			
 			if (aBonus != null)
@@ -94,7 +89,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 					"SKILL|TYPE.Strength|TYPE.Dexterity|TYPE.Constitution|TYPE.Intelligence|TYPE.Wisdom|TYPE.Charisma");
 
 			persuasive =
-					TestHelper.makeAbility("Persuasive", AbilityCategory.FEAT, "General");
+					TestHelper.makeAbility("Persuasive", BuildUtilities.getFeatCat(), "General");
 			aBonus = Bonus.newBonus(context, "SKILL|KEY_Bluff,KEY_Listen|2");
 			
 			if (aBonus != null)
@@ -109,9 +104,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, pcClass);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
+	@AfterEach
 	@Override
 	protected void tearDown() throws Exception
 	{
@@ -132,21 +125,22 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		setPCStat(pc, cha, 10);
 
-		assertEquals("Initial state", "", SkillCostDisplay.getModifierExplanation(
-			bluff, pc, false));
+		assertEquals("", SkillCostDisplay.getModifierExplanation(
+			bluff, pc, false), "Initial state");
 
-		AbstractCharacterTestCase.applyAbility(pc, AbilityCategory.FEAT, skillFocus, "KEY_Bluff");
+		AbstractCharacterTestCase.applyAbility(pc, BuildUtilities.getFeatCat(), skillFocus, "KEY_Bluff");
 		pc.calcActiveBonuses();
-		assertEquals("Bonus after skill focus", "+3[Skill Focus]",
-			SkillCostDisplay.getModifierExplanation(bluff, pc, false));
+		assertEquals("+3[Skill Focus]",
+			SkillCostDisplay.getModifierExplanation(bluff, pc, false), "Bonus after skill focus"
+		);
 
-		addAbility(AbilityCategory.FEAT, persuasive);
+		addAbility(BuildUtilities.getFeatCat(), persuasive);
 		String modifierExplanation = SkillCostDisplay
 			.getModifierExplanation(bluff, pc, false);
 		// Have to account for random order of the bonuses. 
-		assertTrue("Bonus after persuasive",
-			modifierExplanation.equals("+2[Persuasive] +3[Skill Focus]") ||
-			modifierExplanation.equals("+3[Skill Focus] +2[Persuasive]"));
+		assertTrue(
+				modifierExplanation.equals("+2[Persuasive] +3[Skill Focus]")
+			|| modifierExplanation.equals("+3[Skill Focus] +2[Persuasive]"), "Bonus after persuasive");
 	}
 
 }

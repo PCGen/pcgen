@@ -1,0 +1,37 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+# Ability Category			Visible		Editable?		Category of Object		Type of Object		Display where?														Display Location
+ABILITYCATEGORY:Chronicle_S02-01	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-01	DISPLAYNAME:PFS Scenario #2-01: Before the Dawn, Part I: The Bloodcove Disguise			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-02	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-02	DISPLAYNAME:PFS Scenario #2-02: Before the Dawn, Part II: Rescue at Azlant Ridge			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-03	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-03	DISPLAYNAME:PFS Scenario #2-03: The Rebel's Ransom								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-04	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-04	DISPLAYNAME:PFS Scenario #2-04: Shadows Fall on Absalom							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-05	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-05	DISPLAYNAME:PFS Scenario #2-05: Eyes of the Ten, Part III: Red Revolution				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-06	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-06	DISPLAYNAME:PFS Scenario #2-06: The Heresy of Man, Part I: The First Heresy				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-07	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-07	DISPLAYNAME:PFS Scenario #2-07: The Heresy of Man, Part II: Where Dark Things Sleep			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-08	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-08	DISPLAYNAME:PFS Scenario #2-08: The Sarkorian Prophecy							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-09	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-09	DISPLAYNAME:PFS Scenario #2-09: The Heresy of Man, Part III: Beneath Forgotten Sands		DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-10	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-10	DISPLAYNAME:PFS Scenario #2-10: Fury of the Fiend								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-11	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-11	DISPLAYNAME:PFS Scenario #2-11: The Penumbral Accords								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-12	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-12	DISPLAYNAME:PFS Scenario #2-12: Below the Silver Tarn								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-13	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-13	DISPLAYNAME:PFS Scenario #2-13: Murder on the Throaty Mermaid						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-14	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-14	DISPLAYNAME:PFS Scenario #2-14: The Chasm of Screams								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-15	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-15	DISPLAYNAME:PFS Scenario #2-15: Shades of Ice, Part I: Written in Blood					DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-16	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-16	DISPLAYNAME:PFS Scenario #2-16: The Flesh Collector								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-17	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-17	DISPLAYNAME:PFS Scenario #2-17: Shades of Ice, Part II: Exiles of Winter				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-18	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-18	DISPLAYNAME:PFS Scenario #2-18: The Forbidden Furnace of Forgotten Koor					DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-19	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-19	DISPLAYNAME:PFS Scenario #2-19: Shades of Ice, Part III: Keep of the Huskarl King			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-20	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-20	DISPLAYNAME:PFS Scenario #2-20: Wrath of the Accursed								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-21	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-21	DISPLAYNAME:PFS Scenario #2-21: The Dalsine Affair								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-22	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-22	DISPLAYNAME:PFS Scenario #2-22: Eyes of the Ten, Part IV: Nothing Ventured, Nothing Gained	DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-23	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-23	DISPLAYNAME:PFS Scenario #2-23: Shadow's Last Stand, Part I: At Shadow's Door				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-24	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-24	DISPLAYNAME:PFS Scenario #2-24: Shadow's Last Stand, Part II: Web of Corruption			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-25	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-25	DISPLAYNAME:PFS Scenario #2-25: You Only Die Twice								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-26	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-26	DISPLAYNAME:PFS Scenario #2-26: The Mantis's Prey								DISPLAYLOCATION:Chronicles
+#ABILITYCATEGORY:Chronicle_S02-EX						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S02-EX											DISPLAYNAME:PFS Scenario #2-EX: The Midnight Mauler									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S02-SP	VISIBLE:QUALIFY	EDITABLE:YES	CATEGORY:Special Ability	TYPE:Chronicle_S02-SP	DISPLAYNAME:PFS Scenario #2-SP: Year of the Shadow Lodge							DISPLAYLOCATION:Chronicles
+
+#
+# DONE
+#

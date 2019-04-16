@@ -30,10 +30,9 @@ import org.jdom2.Element;
  * translations. If PCGen UI language can only be changed after a restart, the
  * other language information is not stored to reduce memory usage.
  * 
- * @author Vincent Lhote
  * 
  */
-// TODO move to pcgen.?.util or gmgen.?.util
+// TODO move to pcgen.?.until or gmgen.?.until
 public class Localized
 {
 	/** Indicates if the PCGen need to be restarted to change the locale. In that case, no storing of other locale */
@@ -45,7 +44,7 @@ public class Localized
 	private static final String ELEMENT_LOC = "loc"; //$NON-NLS-1$
 	private static final String ATTRIBUTE_LANGUAGE = "language"; //$NON-NLS-1$
 
-	/** used to produce names based on element name when the {@value #ATTRIBUTE_DEFAULTNAME} is missing */
+	/** used to produce names based on element name when the ATTRIBUTE_DEFAULTNAME is missing */
 	private static Map<String, Integer> unnamedCount = new HashMap<>();
 
 	/** This is the default string of the node */
@@ -58,14 +57,18 @@ public class Localized
 	/**
 	 * If no attribute is defined, the default name is empty.
 	 * @param element
-	 * @param attribute if <code>null</code>, uses the trimmed text of the node.
+	 * @param attribute if {@code null}, uses the trimmed text of the node.
 	 */
 	public Localized(Element element, String attribute)
 	{
 		if (attribute == null)
+		{
 			defaultName = element.getTextTrim();
+		}
 		else
+		{
 			defaultName = element.getAttributeValue(attribute);
+		}
 		update(element, attribute);
 	}
 
@@ -132,8 +135,13 @@ public class Localized
 		if (NEED_RESTART)
 		{
 			if (defaultLocaleName != null)
+			{
 				return defaultLocaleName;
-			else return defaultName;
+			}
+			else
+			{
+				return defaultName;
+			}
 		}
 		return toString(Locale.getDefault());
 	}
@@ -141,7 +149,7 @@ public class Localized
 	/**
 	 * 
 	 * @param e
-	 * @param attribute if <code>null</code>, use the trimmed text.
+	 * @param attribute if {@code null}, use the trimmed text.
 	 */
 	private void update(Element e, String attribute)
 	{
@@ -154,11 +162,17 @@ public class Localized
 				String lang = child.getAttributeValue(ATTRIBUTE_LANGUAGE);
 				String name;
 				if (attribute == null)
+				{
 					name = child.getTextTrim();
+				}
 				else
+				{
 					name = child.getAttributeValue(attribute);
+				}
 				if (lang != null && !lang.isEmpty())
+				{
 					addName(lang, name);
+				}
 			}
 		}
 	}

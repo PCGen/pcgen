@@ -28,8 +28,8 @@ public class HandsIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCTemplate>
 {
 
-	static HandsToken token = new HandsToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
+	private static HandsToken token = new HandsToken();
+	private static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

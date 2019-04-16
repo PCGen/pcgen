@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCVarDefinedTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,24 +16,20 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 13:40:31
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
 
-public class PCVarDefinedTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCVarDefinedTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String var;
 
 	public PCVarDefinedTermEvaluator(String originalText, String var)
 	{
 		this.originalText = originalText;
-		this.var          = var;
+		this.var = var;
 	}
 
 	@Override

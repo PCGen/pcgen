@@ -1,5 +1,4 @@
 /*
- * FacadeListModel.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,23 +15,18 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 29, 2010, 7:01:01 PM
  */
 package pcgen.gui2.util;
 
 import javax.swing.AbstractListModel;
 
-import pcgen.facade.util.event.ListEvent;
-import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ListEvent;
+import pcgen.facade.util.event.ListListener;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 @SuppressWarnings("serial")
-public class FacadeListModel<E> extends AbstractListModel implements ListListener<E>
+public class FacadeListModel<E> extends AbstractListModel<E> implements ListListener<E>
 {
 
 	private DelegatingListFacade<E> delegate;
@@ -61,7 +55,7 @@ public class FacadeListModel<E> extends AbstractListModel implements ListListene
 	}
 
 	@Override
-	public Object getElementAt(int index)
+	public E getElementAt(int index)
 	{
 		return delegate.getElementAt(index);
 	}

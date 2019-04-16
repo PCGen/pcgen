@@ -23,14 +23,11 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.core.PCClass;
-import pcgen.core.SubClass;
 import pcgen.core.character.CompanionMod;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.MapChanges;
@@ -41,12 +38,10 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with FOLLOWER Token
  */
-public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
-		implements CDOMPrimaryToken<CompanionMod>
+public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod> implements CDOMPrimaryToken<CompanionMod>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
-	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 
 	@Override
 	public String getTokenName()
@@ -61,17 +56,16 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CompanionMod cMod, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CompanionMod cMod, String value)
 	{
 		int equalLoc = value.indexOf('=');
 		if (equalLoc == -1)
 		{
-			return new ParseResult.Fail("No = in token.", context);
+			return new ParseResult.Fail("No = in token.");
 		}
 		if (equalLoc != value.lastIndexOf('='))
 		{
-			return new ParseResult.Fail("Too many = in token.", context);
+			return new ParseResult.Fail("Too many = in token.");
 		}
 		String classString = value.substring(0, equalLoc);
 		String levelString = value.substring(equalLoc + 1);
@@ -83,23 +77,17 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 		while (bTok.hasMoreTokens())
 		{
 			String classKey = bTok.nextToken();
-			PCClass pcClass =
-					context.getReferenceContext().silentlyGetConstructedCDOMObject(PCCLASS_CLASS,
-						classKey);
+			PCClass pcClass = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCCLASS_CLASS, classKey);
 
 			if (pcClass != null)
 			{
-				CDOMSingleRef<PCClass> pcc =
-						context.getReferenceContext().getCDOMReference(
-							PCCLASS_CLASS, classKey);
-				context.getObjectContext().put(cMod, MapKey.APPLIED_CLASS, pcc,
-					lvl);
+				CDOMSingleRef<PCClass> pcc = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, classKey);
+				context.getObjectContext().put(cMod, MapKey.APPLIED_CLASS, pcc, lvl);
 			}
 			else
 			{
 				// Now we accept VARiable names here.
-				context.getObjectContext().put(cMod, MapKey.APPLIED_VARIABLE,
-					classKey, lvl);
+				context.getObjectContext().put(cMod, MapKey.APPLIED_VARIABLE, classKey, lvl);
 			}
 		}
 		return ParseResult.SUCCESS;
@@ -109,26 +97,20 @@ public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 	public String[] unparse(LoadContext context, CompanionMod cMod)
 	{
 		MapChanges<CDOMSingleRef<? extends PCClass>, Integer> changes =
-				context.getObjectContext().getMapChanges(cMod,
-					MapKey.APPLIED_CLASS);
+				context.getObjectContext().getMapChanges(cMod, MapKey.APPLIED_CLASS);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
 		SortedSet<String> set = new TreeSet<>();
 		Map<CDOMSingleRef<? extends PCClass>, Integer> map = changes.getAdded();
-		for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : map
-			.entrySet())
+		for (Map.Entry<CDOMSingleRef<? extends PCClass>, Integer> me : map.entrySet())
 		{
 			CDOMSingleRef<? extends PCClass> ref = me.getKey();
-			Class<? extends PCClass> refClass = ref.getReferenceClass();
-			if (SUBCLASS_CLASS.equals(refClass))
+			String prefix = ref.getPersistentFormat();
+			if (prefix.startsWith("SUBCLASS="))
 			{
-				Category<SubClass> parent =
-						((CategorizedCDOMReference<SubClass>) ref)
-							.getCDOMCategory();
-				set.add(parent.toString() + Constants.DOT + ref.getLSTformat(false) + '='
-					+ me.getValue());
+				set.add(prefix.substring(9) + Constants.DOT + ref.getLSTformat(false) + '=' + me.getValue());
 			}
 			else
 			{

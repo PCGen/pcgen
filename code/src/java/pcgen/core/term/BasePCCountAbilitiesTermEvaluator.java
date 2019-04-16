@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountFeatsBaseEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 16:08:40
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -53,11 +49,8 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	 * @param hidden  Count hidden abilities @return  An int containing the number of feats in the list
 	 * @return the number of matching abilities
 	 */
-	protected Float countVisibleAbilities(
-			PlayerCharacter pc,
-			final Iterable<CNAbility> aList,
-			final boolean visible,
-			final boolean hidden)
+	protected Float countVisibleAbilities(PlayerCharacter pc, final Iterable<CNAbility> aList, final boolean visible,
+		final boolean hidden)
 	{
 		Float count = 0.0f;
 
@@ -67,8 +60,8 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 		}
 
 		return count;
-	}	
-	
+	}
+
 	/**
 	 * Count the number of times the character has the ability. This can be
 	 * limited to either hidden or visible Abilities, and can be limited to only
@@ -83,14 +76,10 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	 * @param onceOnly Should it be counted as one if was taken multiple times?
 	 * @return The number of occurrences of the ability.
 	 */
-	protected Float countVisibleAbility(
-			PlayerCharacter pc,
-			final CNAbility cna,
-			final boolean visible,
-			final boolean hidden,
-			final boolean onceOnly)
+	protected Float countVisibleAbility(PlayerCharacter pc, final CNAbility cna, final boolean visible,
+		final boolean hidden, final boolean onceOnly)
 	{
-		Visibility v = cna.getAbility().getSafe(ObjectKey.VISIBILITY); 
+		Visibility v = cna.getAbility().getSafe(ObjectKey.VISIBILITY);
 
 		//TODO This is a bug, it assumes export
 		boolean abilityInvisibile = v.isVisibleTo(View.HIDDEN_EXPORT);

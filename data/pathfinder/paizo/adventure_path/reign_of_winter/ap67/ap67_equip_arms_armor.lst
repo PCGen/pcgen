@@ -1,10 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 17892 $ $Author: amaitland $ -- Wed Jan 21 16:41:44 2015 -- reformated by prettylst.pl v1.51 (build 25836)
 SOURCELONG:Reign of Winter, Part 1: The Snows of Summer	SOURCESHORT:AP67	SOURCEWEB:http://paizo.com/products/btpy8w7d/discuss?Pathfinder-Adventure-Path-67-The-Snows-of-Summer	SOURCEDATE:2013-02
 # ORIGINAL ENTRY: Stefan Radermacher
 
 ###Block: New Weapons
-# Equipment Name	Required Weapon Proficiency	Type													Cost		Weight	Crit Mult	Crit Range	Damage	Modifier		Wield Category	Range		Size		Source Page
-Pitchfork		PROFICIENCY:WEAPON|Pitchfork	TYPE:Weapon.Resizable.Melee.TwoHanded.Ranged.Thrown.Simple.Standard.Piercing	COST:5	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:STEEL.WOOD	WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.84
+# Equipment Name	Required Weapon Proficiency	Type													Cost		Weight	Crit Mult	Crit Range	Damage	Modifier						Wield Category	Range		Size		Source Page
+Pitchfork		PROFICIENCY:WEAPON|Pitchfork	TYPE:Weapon.Resizable.Melee.TwoHanded.Ranged.Thrown.Simple.Standard.Piercing	COST:5	WT:8		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d8	EQMOD:Material ~ Steel.Material ~ Wood	WIELD:TwoHanded	RANGE:10	SIZE:M	SOURCEPAGE:p.84
 
 #
 # End

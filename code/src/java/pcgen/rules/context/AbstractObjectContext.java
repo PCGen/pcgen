@@ -20,6 +20,7 @@ package pcgen.rules.context;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.formula.Formula;
@@ -213,8 +214,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		}
 		for (URI uri : edits.negativeMap.getKeySet())
 		{
-			for (ConcretePrereqObject cpo : edits.negativeMap
-					.getSecondaryKeySet(uri))
+			for (ConcretePrereqObject cpo : edits.negativeMap.getSecondaryKeySet(uri))
 			{
 				if (cpo instanceof CDOMObject)
 				{
@@ -253,8 +253,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		}
 		for (URI uri : edits.positiveMap.getKeySet())
 		{
-			for (ConcretePrereqObject cpo : edits.positiveMap
-					.getSecondaryKeySet(uri))
+			for (ConcretePrereqObject cpo : edits.positiveMap.getSecondaryKeySet(uri))
 			{
 				CDOMObject pos = edits.positiveMap.get(uri, cpo);
 				for (Prerequisite p : pos.getPrerequisiteList())
@@ -314,11 +313,9 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		{
 			for (CDOMObject cdo : edits.patternClearSet.getSecondaryKeySet(uri))
 			{
-				for (ListKey<?> lk : edits.patternClearSet.getTertiaryKeySet(
-						uri, cdo))
+				for (ListKey<?> lk : edits.patternClearSet.getTertiaryKeySet(uri, cdo))
 				{
-					for (String s : edits.patternClearSet.getListFor(uri, cdo,
-							lk))
+					for (String s : edits.patternClearSet.getListFor(uri, cdo, lk))
 					{
 						commit.removePatternFromList(cdo, lk, s);
 					}
@@ -374,8 +371,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		getCommitStrategy().put(cdo, key, neg.get(key));
 	}
 
-	private <K, V> void removeMapKey(CDOMObject cdo, MapKey<K, V> key1,
-			CDOMObject neg)
+	private <K, V> void removeMapKey(CDOMObject cdo, MapKey<K, V> key1, CDOMObject neg)
 	{
 		ObjectCommitStrategy commit = getCommitStrategy();
 		Set<K> secKeys = neg.getKeysFor(key1);
@@ -385,8 +381,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		}
 	}
 
-	private <K, V> void putMapKey(CDOMObject cdo, MapKey<K, V> key1,
-			CDOMObject pos)
+	private <K, V> void putMapKey(CDOMObject cdo, MapKey<K, V> key1, CDOMObject pos)
 	{
 		ObjectCommitStrategy commit = getCommitStrategy();
 		Set<K> secKeys = pos.getKeysFor(key1);
@@ -475,25 +470,24 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		}
 	}
 
-	public static class TrackingObjectCommitStrategy implements
-			ObjectCommitStrategy
+	public static class TrackingObjectCommitStrategy implements ObjectCommitStrategy
 	{
-		private final DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject> positiveMap = new DoubleKeyMap<>(
-                HashMap.class, IdentityHashMap.class);
+		private final DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject> positiveMap =
+				new DoubleKeyMap<>(HashMap.class, IdentityHashMap.class);
 
-		private final DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject> negativeMap = new DoubleKeyMap<>(
-                HashMap.class, IdentityHashMap.class);
+		private final DoubleKeyMap<URI, ConcretePrereqObject, CDOMObject> negativeMap =
+				new DoubleKeyMap<>(HashMap.class, IdentityHashMap.class);
 
-		private final DoubleKeyMapToList<URI, CDOMObject, ListKey<?>> globalClearSet = new DoubleKeyMapToList<>(
-                HashMap.class, IdentityHashMap.class);
+		private final DoubleKeyMapToList<URI, CDOMObject, ListKey<?>> globalClearSet =
+				new DoubleKeyMapToList<>(HashMap.class, IdentityHashMap.class);
 
-		private final DoubleKeyMapToList<URI, CDOMObject, FactSetKey<?>> globalClearFactSet = new DoubleKeyMapToList<>(
-                HashMap.class, IdentityHashMap.class);
+		private final DoubleKeyMapToList<URI, CDOMObject, FactSetKey<?>> globalClearFactSet =
+				new DoubleKeyMapToList<>(HashMap.class, IdentityHashMap.class);
 
 		private final HashMapToList<URI, ConcretePrereqObject> preClearSet = new HashMapToList<>();
 
-		private final TripleKeyMapToList<URI, CDOMObject, ListKey<?>, String> patternClearSet = new TripleKeyMapToList<>(
-                HashMap.class, IdentityHashMap.class, HashMap.class);
+		private final TripleKeyMapToList<URI, CDOMObject, ListKey<?>, String> patternClearSet =
+				new TripleKeyMapToList<>(HashMap.class, IdentityHashMap.class, HashMap.class);
 
 		private URI sourceURI;
 
@@ -501,11 +495,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 
 		private CDOMObject getNegative(URI source, CDOMObject cdo)
 		{
-			if (cdo == null)
-			{
-				throw new IllegalArgumentException(
-						"Cannot remove contents from null object");
-			}
+			Objects.requireNonNull(cdo, "Cannot remove contents from null object");
 			CDOMObject negative = negativeMap.get(source, cdo);
 			if (negative == null)
 			{
@@ -529,11 +519,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 
 		private CDOMObject getPositive(URI source, ConcretePrereqObject cdo)
 		{
-			if (cdo == null)
-			{
-				throw new IllegalArgumentException(
-						"Cannot assign contents to null object");
-			}
+			Objects.requireNonNull(cdo, "Cannot assign contents to null object");
 			CDOMObject positive = positiveMap.get(source, cdo);
 			if (positive == null)
 			{
@@ -556,8 +542,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		@Override
 		public void remove(CDOMObject cdo, StringKey sk)
 		{
-			getNegative(sourceURI, cdo).addToListFor(ListKey.REMOVED_STRINGKEY,
-					sk);
+			getNegative(sourceURI, cdo).addToListFor(ListKey.REMOVED_STRINGKEY, sk);
 		}
 
 		@Override
@@ -569,8 +554,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		@Override
 		public void remove(CDOMObject cdo, ObjectKey<?> sk)
 		{
-			getNegative(sourceURI, cdo).addToListFor(ListKey.REMOVED_OBJECTKEY,
-					sk);
+			getNegative(sourceURI, cdo).addToListFor(ListKey.REMOVED_OBJECTKEY, sk);
 		}
 
 		@Override
@@ -582,8 +566,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		@Override
 		public void remove(CDOMObject cdo, FactKey<?> sk)
 		{
-			getNegative(sourceURI, cdo).addToListFor(ListKey.REMOVED_FACTKEY,
-					sk);
+			getNegative(sourceURI, cdo).addToListFor(ListKey.REMOVED_FACTKEY, sk);
 		}
 
 		@Override
@@ -619,8 +602,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		@Override
 		public void remove(CDOMObject cdo, IntegerKey ik)
 		{
-			getNegative(sourceURI, cdo).addToListFor(ListKey.REMOVED_INTEGERKEY,
-					ik);
+			getNegative(sourceURI, cdo).addToListFor(ListKey.REMOVED_INTEGERKEY, ik);
 		}
 
 		@Override
@@ -674,11 +656,10 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		}
 
 		@Override
-		public <K, V> MapChanges<K, V> getMapChanges(CDOMObject cdo,
-				MapKey<K, V> mk)
+		public <K, V> MapChanges<K, V> getMapChanges(CDOMObject cdo, MapKey<K, V> mk)
 		{
-			return new MapChanges<>(getPositive(extractURI, cdo).getMapFor(
-                    mk), getNegative(extractURI, cdo).getMapFor(mk), false);
+			return new MapChanges<>(getPositive(extractURI, cdo).getMapFor(mk),
+				getNegative(extractURI, cdo).getMapFor(mk), false);
 		}
 
 		// ==== end of MapKey manipulation functions ====
@@ -728,28 +709,22 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		@Override
 		public <T> Changes<T> getListChanges(CDOMObject cdo, ListKey<T> lk)
 		{
-			return new CollectionChanges<>(getPositive(extractURI, cdo)
-                    .getListFor(lk), getNegative(extractURI, cdo)
-                    .getListFor(lk), globalClearSet.containsInList(extractURI,
-                    cdo, lk));
+			return new CollectionChanges<>(getPositive(extractURI, cdo).getListFor(lk),
+				getNegative(extractURI, cdo).getListFor(lk), globalClearSet.containsInList(extractURI, cdo, lk));
 		}
 
 		@Override
 		public <T> Changes<Indirect<T>> getSetChanges(CDOMObject cdo, FactSetKey<T> lk)
 		{
 			return new CollectionChanges<>(getPositive(extractURI, cdo).getSetFor(lk),
-                    getNegative(extractURI, cdo).getSetFor(lk),
-                    globalClearFactSet.containsInList(extractURI, cdo, lk));
+				getNegative(extractURI, cdo).getSetFor(lk), globalClearFactSet.containsInList(extractURI, cdo, lk));
 		}
 
 		@Override
-		public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo,
-				ListKey<T> lk)
+		public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo, ListKey<T> lk)
 		{
-			return new PatternChanges<>(getPositive(extractURI, cdo)
-                    .getListFor(lk), patternClearSet.getListFor(extractURI,
-                    cdo, lk), globalClearSet
-                    .containsInList(extractURI, cdo, lk));
+			return new PatternChanges<>(getPositive(extractURI, cdo).getListFor(lk),
+				patternClearSet.getListFor(extractURI, cdo, lk), globalClearSet.containsInList(extractURI, cdo, lk));
 		}
 
 		public URI getExtractURI()
@@ -783,9 +758,9 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 			patternClearSet.clear();
 		}
 
-		public <T extends CDOMObject> T cloneConstructedCDOMObject(T obj,
-				String newName)
+		public <T extends CDOMObject> T cloneConstructedCDOMObject(T obj, String newName)
 		{
+			@SuppressWarnings("unchecked")
 			Class<T> cl = (Class<T>) obj.getClass();
 			try
 			{
@@ -804,17 +779,14 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		}
 
 		@Override
-		public Changes<Prerequisite> getPrerequisiteChanges(
-				ConcretePrereqObject obj)
+		public Changes<Prerequisite> getPrerequisiteChanges(ConcretePrereqObject obj)
 		{
-			return new CollectionChanges<>(getPositive(extractURI,
-                    obj).getPrerequisiteList(), null, preClearSet
-                    .containsInList(extractURI, obj));
+			return new CollectionChanges<>(getPositive(extractURI, obj).getPrerequisiteList(), null,
+				preClearSet.containsInList(extractURI, obj));
 		}
 
 		@Override
-		public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk,
-				String pattern)
+		public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk, String pattern)
 		{
 			patternClearSet.addToListFor(sourceURI, cdo, lk, pattern);
 		}
@@ -822,36 +794,31 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		@Override
 		public boolean wasRemoved(CDOMObject cdo, ObjectKey<?> ok)
 		{
-			return getNegative(extractURI, cdo).containsInList(
-					ListKey.REMOVED_OBJECTKEY, ok);
+			return getNegative(extractURI, cdo).containsInList(ListKey.REMOVED_OBJECTKEY, ok);
 		}
 
 		@Override
 		public boolean wasRemoved(CDOMObject cdo, FactKey<?> ok)
 		{
-			return getNegative(extractURI, cdo).containsInList(
-					ListKey.REMOVED_FACTKEY, ok);
+			return getNegative(extractURI, cdo).containsInList(ListKey.REMOVED_FACTKEY, ok);
 		}
 
 		@Override
 		public boolean wasRemoved(CDOMObject cdo, FactSetKey<?> ok)
 		{
-			return getNegative(extractURI, cdo).containsInList(
-					ListKey.REMOVED_FACTSETKEY, ok);
+			return getNegative(extractURI, cdo).containsInList(ListKey.REMOVED_FACTSETKEY, ok);
 		}
 
 		@Override
 		public boolean wasRemoved(CDOMObject cdo, StringKey sk)
 		{
-			return getNegative(extractURI, cdo).containsInList(
-					ListKey.REMOVED_STRINGKEY, sk);
+			return getNegative(extractURI, cdo).containsInList(ListKey.REMOVED_STRINGKEY, sk);
 		}
 
 		@Override
 		public boolean wasRemoved(CDOMObject cdo, IntegerKey ik)
 		{
-			return getNegative(extractURI, cdo).containsInList(
-					ListKey.REMOVED_INTEGERKEY, ik);
+			return getNegative(extractURI, cdo).containsInList(ListKey.REMOVED_INTEGERKEY, ik);
 		}
 
 		public void purge(CDOMObject cdo)
@@ -883,15 +850,13 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 	}
 
 	@Override
-	public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk,
-			String pattern)
+	public <T> void removePatternFromList(CDOMObject cdo, ListKey<T> lk, String pattern)
 	{
 		edits.removePatternFromList(cdo, lk, pattern);
 	}
 
 	@Override
-	public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo,
-			ListKey<T> lk)
+	public <T> PatternChanges<T> getListPatternChanges(CDOMObject cdo, ListKey<T> lk)
 	{
 		return getCommitStrategy().getListPatternChanges(cdo, lk);
 	}

@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id: csheet_fantasy_std_grey_light.xslt 24628 2014-07-20 05:34:17Z amaitland $ -->
 <xsl:stylesheet
 	version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -215,6 +214,11 @@
 		<traits.border><subattrib border="" normal=""/></traits.border>
 		<traits.lightline><subattrib light=""/></traits.lightline>
 		<traits.darkline><subattrib medium=""/></traits.darkline>
+
+		<drawbacks.title><subattrib centre="" inverse=""/></drawbacks.title>
+		<drawbacks.border><subattrib border="" normal=""/></drawbacks.border>
+		<drawbacks.lightline><subattrib light=""/></drawbacks.lightline>
+		<drawbacks.darkline><subattrib medium=""/></drawbacks.darkline>
 
 
 		<salient_divine_abilities.title><subattrib centre="" inverse=""/></salient_divine_abilities.title>

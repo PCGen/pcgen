@@ -1,0 +1,22 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+
+
+
+STARTPACK:Drone ~ Combat	VISIBLE:NO
+STAT:STR=14|DEX=12|INT=6|WIS=10|CHA=6
+
+STARTPACK:Drone ~ Hover	VISIBLE:NO
+STAT:STR=6|DEX=16|INT=6|WIS=8|CHA=6
+
+STARTPACK:Drone ~ Stealth	VISIBLE:NO
+STAT:STR=12|DEX=14|INT=6|WIS=10|CHA=6
+
+
+STARTPACK:Playable Race Defaults	VISIBLE:NO
+# Start with 1,000 Credits
+FUNDS:cr	QTY:1000
+# Anything should be added here that ALL playable races get
+
+STARTPACK:Solarian Weapon	VISIBLE:NO
+GEAR:Solarian Weapon	SIZE:PC	LOCATION:Primary Hand

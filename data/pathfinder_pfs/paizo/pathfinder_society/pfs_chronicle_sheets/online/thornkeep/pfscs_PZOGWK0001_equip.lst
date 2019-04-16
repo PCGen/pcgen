@@ -1,0 +1,17 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2014-08
+
+# Equipment Name										Unique Key							Output Name								Type					Cost		Weight	Required Ability																				Modifier														Source, Long Desc.								Special Property																																																																																				Visible
+Arcanolembic																											TYPE:Magic.Wonderous.PFS	COST:2000	WT:2		PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZOGWK0001-2	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZOGWK0001-2																SOURCELONG:Pathfinder Online Thornkeep The Forgotten Laboratory	SPROP:This glass flask looks similar to the alembics used by alchemists to distill various liquids, but this one is framed in a delicate silver brace and the glass is etched with various arcane runes. The arcanolembic can be used to hold one potion. When a creature consumes a potion from the arcanolembic, the potion is treated as if its caster level were 2 higher than the usual minimum for a potion of its level. Placing a potion into the arcanolembic is a full-round action that provokes attacks of opportunity.
+#Aura moderate transmutation; CL 10th
+#Slot none; Price 2,000 gp; Weight 2 lbs.
+#CONSTRUCTION
+#Requirements Brew Potion, Craft Wondrous Item, 5 ranks in Craft (alchemy); Cost 1,000 gp
+
+Spiked Gauntlet (Base).COPY=+1 Keen Three-Fingered Spiked Gauntlet	KEY:Gauntlet +1 (Spiked/Keen/three-fingered)	OUTPUTNAME:+1 Keen Three-Fingered Spiked Gauntlet	TYPE:PFS								PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZOGWK0001-3												EQMOD:Material ~ Steel.Special Ability ~ +1 ~ Weapon.Special Ability ~ Keen ~ Weapon												SPROP:(cost s/b 8305 gp) imparts a -2 penalty on attack rolls)																																																																												VISIBLE:YES
+Bloodstone of Gultariix																										TYPE:Magic.Wondrous.PFS		COST:200	WT:0.01	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZOGWK0001-3																																						SPROP:when this dark crystal is dissolved into a potion, the potion is enhanced as if by the Extend Spell metamagic feat
+
+#
+# DONE
+#

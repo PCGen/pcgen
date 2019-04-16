@@ -30,9 +30,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Tab;
 
-public class StattablehiddencolumnsToken extends
-		AbstractTokenWithSeparator<TabInfo> implements
-		CDOMPrimaryToken<TabInfo>
+public class StattablehiddencolumnsToken extends AbstractTokenWithSeparator<TabInfo>
+		implements CDOMPrimaryToken<TabInfo>
 {
 
 	@Override
@@ -42,13 +41,11 @@ public class StattablehiddencolumnsToken extends
 	}
 
 	@Override
-	public ParseResult parseTokenWithSeparator(LoadContext context, TabInfo ti,
-			String value)
+	public ParseResult parseTokenWithSeparator(LoadContext context, TabInfo ti, String value)
 	{
 		if (!Tab.SUMMARY.equals(ti.getTab()))
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " may only be used on the " + Tab.SUMMARY + " Tab", context);
+			return new ParseResult.Fail(getTokenName() + " may only be used on the " + Tab.SUMMARY + " Tab");
 		}
 		ti.clearHiddenColumns();
 
@@ -62,8 +59,7 @@ public class StattablehiddencolumnsToken extends
 			}
 			catch (NumberFormatException nfe)
 			{
-				return new ParseResult.Fail(getTokenName()
-						+ " misunderstood Integer: " + token + " in " + value, context);
+				return new ParseResult.Fail(getTokenName() + " misunderstood Integer: " + token + " in " + value);
 			}
 		}
 		return ParseResult.SUCCESS;
@@ -79,7 +75,7 @@ public class StattablehiddencolumnsToken extends
 		Collection<Integer> columns = ti.getHiddenColumns();
 		TreeSet<Integer> set = new TreeSet<>();
 		set.addAll(columns);
-		return new String[] { StringUtil.join(set, Constants.COMMA) };
+		return new String[]{StringUtil.join(set, Constants.COMMA)};
 	}
 
 	@Override

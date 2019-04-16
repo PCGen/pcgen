@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -20,9 +20,12 @@ package pcgen.cdom.reference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
+import java.util.StringJoiner;
 
 import pcgen.cdom.base.CDOMReference;
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrereqObject;
 import pcgen.cdom.enumeration.GroupingState;
@@ -37,9 +40,14 @@ import pcgen.cdom.enumeration.GroupingState;
  *            The Class of the underlying objects contained by this
  *            CDOMCompoundOrReference
  */
-public class CDOMCompoundOrReference<T extends PrereqObject> extends
-		CDOMGroupRef<T>
+public class CDOMCompoundOrReference<T extends PrereqObject> extends CDOMGroupRef<T>
 {
+
+	/**
+	 * The ClassIdentity that represents the objects contained in this
+	 * CDOMCompoundOrReference.
+	 */
+	private final ClassIdentity<T> identity;
 
 	/**
 	 * The list of underlying references that this CDOMCompoundOrReference
@@ -51,16 +59,17 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	 * Creates a new CDOMCompoundOrReference with the given name which will
 	 * contain CDOMReferences that contain objects of the given Class.
 	 * 
-	 * @param objClass
-	 *            The Class of the underlying object contained by this
+	 * @param classIdentity
+	 *            The ClassIdentity of the underlying object contained by this
 	 *            CDOMCompoundOrReference.
 	 * @param refName
 	 *            An identifier of the objects this CDOMCompoundOrReference
 	 *            contains.
 	 */
-	public CDOMCompoundOrReference(Class<T> objClass, String refName)
+	public CDOMCompoundOrReference(ClassIdentity<T> classIdentity, String refName)
 	{
-		super(objClass, refName);
+		super(refName);
+		identity = Objects.requireNonNull(classIdentity);
 	}
 
 	/**
@@ -82,9 +91,8 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 		 */
 		if (!getReferenceClass().equals(ref.getReferenceClass()))
 		{
-			throw new IllegalArgumentException("Cannot add reference of "
-					+ ref.getReferenceClass()
-					+ " to CDOMCompoundOrReference of " + getReferenceClass());
+			throw new IllegalArgumentException("Cannot add reference of " + ref.getReferenceClass()
+				+ " to CDOMCompoundOrReference of " + getReferenceClass());
 		}
 		references.add(ref);
 	}
@@ -163,8 +171,7 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	@Override
 	public void addResolution(T item)
 	{
-		throw new IllegalStateException(
-				"CompoundReference cannot be given a resolution");
+		throw new IllegalStateException("CompoundReference cannot be given a resolution");
 	}
 
 	/**
@@ -239,5 +246,25 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	public String getChoice()
 	{
 		return null;
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return identity.getReferenceClass();
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		StringJoiner joiner = new StringJoiner(" OR ", identity.getReferenceDescription() + "[", "]");
+		references.stream().map(CDOMReference::getReferenceDescription).forEach(joiner::add);
+		return joiner.toString();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return identity.getPersistentFormat();
 	}
 }

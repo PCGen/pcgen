@@ -35,17 +35,11 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with DEITY Token
  */
-public class DeityToken extends AbstractTokenWithSeparator<PCClass> implements
-		CDOMPrimaryToken<PCClass>
+public class DeityToken extends AbstractTokenWithSeparator<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	private static final Class<Deity> DEITY_CLASS = Deity.class;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -59,8 +53,7 @@ public class DeityToken extends AbstractTokenWithSeparator<PCClass> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCClass pcc, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass pcc, String value)
 	{
 		context.getObjectContext().removeList(pcc, ListKey.DEITY);
 
@@ -69,8 +62,7 @@ public class DeityToken extends AbstractTokenWithSeparator<PCClass> implements
 		while (tok.hasMoreTokens())
 		{
 			String tokText = tok.nextToken();
-			CDOMReference<Deity> deity = context.getReferenceContext().getCDOMReference(
-					DEITY_CLASS, tokText);
+			CDOMReference<Deity> deity = context.getReferenceContext().getCDOMReference(DEITY_CLASS, tokText);
 			context.getObjectContext().addToList(pcc, ListKey.DEITY, deity);
 		}
 		return ParseResult.SUCCESS;
@@ -79,16 +71,14 @@ public class DeityToken extends AbstractTokenWithSeparator<PCClass> implements
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		Changes<CDOMReference<Deity>> changes = context.getObjectContext()
-				.getListChanges(pcc, ListKey.DEITY);
+		Changes<CDOMReference<Deity>> changes = context.getObjectContext().getListChanges(pcc, ListKey.DEITY);
 		Collection<CDOMReference<Deity>> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{
 			// Zero indicates no Token
 			return null;
 		}
-		return new String[] { ReferenceUtilities.joinLstFormat(added,
-				Constants.PIPE) };
+		return new String[]{ReferenceUtilities.joinLstFormat(added, Constants.PIPE)};
 	}
 
 	@Override

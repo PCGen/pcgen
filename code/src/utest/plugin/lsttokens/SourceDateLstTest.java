@@ -17,9 +17,12 @@
  */
 package plugin.lsttokens;
 
-import java.util.Date;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.util.Date;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -31,24 +34,30 @@ import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
-public class SourceDateLstTest extends AbstractGlobalTokenTestCase {
+import org.junit.jupiter.api.Test;
+
+public class SourceDateLstTest extends AbstractGlobalTokenTestCase
+{
 
 	static SourcedateLst token = new SourcedateLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
-	public ObjectKey<Date> getKey() {
+	public ObjectKey<Date> getKey()
+	{
 		return ObjectKey.SOURCE_DATE;
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException {
+	public void testInvalidInputEmpty()
+	{
 		assertFalse(parse(""));
-		assertEquals(null, primaryProf.get(getKey()));
+		assertNull(primaryProf.get(getKey()));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException {
+	public void testValidInputs()
+	{
 		assertTrue(parse("2011-09"));
 		assertEquals("September 1, 2011", token.unparse(primaryContext, primaryProf)[0]);
 		assertTrue(parse("January 24, 2010"));
@@ -61,24 +70,28 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase {
 //	}
 
 	@Test
-	public void testRoundRobinWithSpace() throws PersistenceLayerException {
+	public void testRoundRobinWithSpace() throws PersistenceLayerException
+	{
 		runRoundRobin("January 24, 2010");
 	}
 
 	@Override
-	protected String getAlternateLegalValue() {
+	protected String getAlternateLegalValue()
+	{
 		return "September 1, 2011";
 	}
 
 	@Override
-	protected String getLegalValue() {
+	protected String getLegalValue()
+	{
 		return "January 24, 2010";
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException {
+	public void testUnparseNull()
+	{
 		primaryProf.put(getKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 //	/*
@@ -98,22 +111,32 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase {
 //	}
 
 	@Override
-	protected ConsolidationRule getConsolidationRule() {
+	protected ConsolidationRule getConsolidationRule()
+	{
 		return ConsolidationRule.OVERWRITE;
 	}
 
 	@Override
-	public Class<PCTemplate> getCDOMClass() {
+	public Class<PCTemplate> getCDOMClass()
+	{
 		return PCTemplate.class;
 	}
 
 	@Override
-	public CDOMLoader<PCTemplate> getLoader() {
+	public CDOMLoader<PCTemplate> getLoader()
+	{
 		return loader;
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken() {
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
+	{
 		return token;
 	}
 }

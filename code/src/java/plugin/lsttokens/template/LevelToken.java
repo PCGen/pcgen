@@ -44,8 +44,7 @@ import pcgen.util.enumeration.Visibility;
  * (Wed, 11 Jun 2008) $
  * 
  */
-public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
-		implements CDOMPrimaryToken<PCTemplate>
+public class LevelToken extends AbstractTokenWithSeparator<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 	@Override
 	public String getTokenName()
@@ -59,8 +58,7 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
 
-			context.getObjectContext().removeList(template,
-				ListKey.LEVEL_TEMPLATES);
+			context.getObjectContext().removeList(template, ListKey.LEVEL_TEMPLATES);
 			return ParseResult.SUCCESS;
 		}
 		return super.parseToken(context, template, value);
@@ -73,8 +71,7 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCTemplate template, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCTemplate template, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.COLON);
 
@@ -82,8 +79,7 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		int plusLoc = levelStr.indexOf('+');
 		if (plusLoc == 0)
 		{
-			return new ParseResult.Fail("Malformed " + getTokenName()
-				+ " Level cannot start with +: " + value, context);
+			return new ParseResult.Fail("Malformed " + getTokenName() + " Level cannot start with +: " + value);
 		}
 		int lvl;
 		try
@@ -96,38 +92,33 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 			if (lvl <= 0)
 			{
 				ComplexParseResult cpr = new ComplexParseResult();
-				cpr.addErrorMessage("Malformed " + getTokenName()
-						+ " Token (Level was <= 0): " + lvl);
+				cpr.addErrorMessage("Malformed " + getTokenName() + " Token (Level was <= 0): " + lvl);
 				cpr.addErrorMessage("  Line was: " + value);
 				return cpr;
 			}
 		}
 		catch (NumberFormatException ex)
 		{
-			return new ParseResult.Fail("Misunderstood Level value: " + levelStr
-					+ " in " + getTokenName(), context);
+			return new ParseResult.Fail("Misunderstood Level value: " + levelStr + " in " + getTokenName());
 		}
 
 		if (!tok.hasMoreTokens())
 		{
-			return new ParseResult.Fail("Invalid " + getTokenName()
-					+ ": requires 3 colon separated elements (has one): "
-					+ value, context);
+			return new ParseResult.Fail(
+				"Invalid " + getTokenName() + ": requires 3 colon separated elements (has one): " + value);
 		}
 		String typeStr = tok.nextToken();
 		if (!tok.hasMoreTokens())
 		{
-			return new ParseResult.Fail("Invalid " + getTokenName()
-					+ ": requires 3 colon separated elements (has two): "
-					+ value, context);
+			return new ParseResult.Fail(
+				"Invalid " + getTokenName() + ": requires 3 colon separated elements (has two): " + value);
 		}
 		String argument = tok.nextToken();
 		PCTemplate derivative = new PCTemplate();
 		derivative.put(ObjectKey.VISIBILITY, Visibility.HIDDEN);
 		derivative.put(IntegerKey.LEVEL, lvl);
 		context.getReferenceContext().getManufacturer(PCTemplate.class).addDerivativeObject(derivative);
-		context.getObjectContext().addToList(template, ListKey.LEVEL_TEMPLATES,
-				derivative);
+		context.getObjectContext().addToList(template, ListKey.LEVEL_TEMPLATES, derivative);
 		try
 		{
 			if (context.processToken(derivative, typeStr, argument))
@@ -137,7 +128,7 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail(e.getMessage(), context);
+			return new ParseResult.Fail(e.getMessage());
 		}
 		return ParseResult.INTERNAL_ERROR;
 	}
@@ -145,8 +136,7 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		Changes<PCTemplate> changes = context.getObjectContext()
-				.getListChanges(pct, ListKey.LEVEL_TEMPLATES);
+		Changes<PCTemplate> changes = context.getObjectContext().getListChanges(pct, ListKey.LEVEL_TEMPLATES);
 		Collection<PCTemplate> added = changes.getAdded();
 		List<String> ret = new ArrayList<>();
 		boolean globalClear = changes.includesGlobalClear();
@@ -154,7 +144,7 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		{
 			ret.add(Constants.LST_DOT_CLEAR);
 		}
-		if(added != null)
+		if (added != null)
 		{
 			Set<String> set = new TreeSet<>();
 			for (PCTemplate pctChild : added)

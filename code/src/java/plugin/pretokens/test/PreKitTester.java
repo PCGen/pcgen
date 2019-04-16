@@ -1,5 +1,4 @@
 /*
- * PreKitTester.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 27/10/2013
- *
- * $Id$
  */
 package plugin.pretokens.test;
 
@@ -34,17 +29,12 @@ import pcgen.system.LanguageBundle;
 
 /**
  * Prerequisite tester, tests for the presence of a kit.
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PreKitTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	private static final Class<Kit> KIT_CLASS = Kit.class;
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 		throws PrerequisiteException
@@ -58,8 +48,8 @@ public class PreKitTester extends AbstractDisplayPrereqTest implements Prerequis
 		}
 		catch (NumberFormatException exceptn)
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
-				"PreKit.error", prereq.toString())); //$NON-NLS-1$
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString("PreKit.error", prereq.toString())); //$NON-NLS-1$
 		}
 
 		String kitKey = prereq.getKey().toUpperCase();
@@ -70,8 +60,7 @@ public class PreKitTester extends AbstractDisplayPrereqTest implements Prerequis
 			kitKey = kitKey.substring(0, wildCard);
 			for (Kit kit : display.getKitInfo())
 			{
-				if (kit.getKeyName().toUpperCase().startsWith(
-					kitKey))
+				if (kit.getKeyName().toUpperCase().startsWith(kitKey))
 				{
 					runningTotal++;
 				}
@@ -79,8 +68,7 @@ public class PreKitTester extends AbstractDisplayPrereqTest implements Prerequis
 		}
 		else
 		{
-			Kit kit = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-					KIT_CLASS, kitKey);
+			Kit kit = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(KIT_CLASS, kitKey);
 			if (display.hasKit(kit))
 			{
 				runningTotal++;
@@ -94,7 +82,7 @@ public class PreKitTester extends AbstractDisplayPrereqTest implements Prerequis
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "KIT"; //$NON-NLS-1$

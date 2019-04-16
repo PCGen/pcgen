@@ -18,6 +18,7 @@
 package pcgen.output.base;
 
 import pcgen.cdom.enumeration.CharID;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -51,6 +52,5 @@ public interface OutputActor<T>
 	 *             if turning the contents into a TemplateModel encounters a
 	 *             problem
 	 */
-	public TemplateModel process(CharID id, T obj)
-		throws TemplateModelException;
+	public TemplateModel process(CharID id, T obj) throws TemplateModelException;
 }

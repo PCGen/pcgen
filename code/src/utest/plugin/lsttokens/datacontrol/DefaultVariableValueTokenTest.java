@@ -17,22 +17,31 @@
  */
 package plugin.lsttokens.datacontrol;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Objects;
 
-import org.junit.Test;
-
-import pcgen.base.lang.ObjectUtil;
 import pcgen.cdom.content.DefaultVarValue;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.modifier.number.SetModifierFactory;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 public class DefaultVariableValueTokenTest extends
 		AbstractTokenTestCase<DefaultVarValue>
 {
@@ -46,8 +55,9 @@ public class DefaultVariableValueTokenTest extends
 	private static DefaultVariableValueToken token =
 			new DefaultVariableValueToken();
 	private static CDOMTokenLoader<DefaultVarValue> loader =
-			new CDOMTokenLoader<DefaultVarValue>();
+			new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -58,48 +68,48 @@ public class DefaultVariableValueTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputNullString() throws PersistenceLayerException
+	public void testInvalidInputNullString()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, null)
 			.passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyString() throws PersistenceLayerException
+	public void testInvalidInputEmptyString()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "").passed());
 	}
 
 	@Test
-	public void testInvalidInputNotAType() throws PersistenceLayerException
+	public void testInvalidInputNotAType()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "BADTYPE|45")
 			.passed());
 	}
 
 	@Test
-	public void testInvalidInputEmptyType() throws PersistenceLayerException
+	public void testInvalidInputEmptyType()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "|3")
 			.passed());
 	}
 
 	@Test
-	public void testInvalidTypeValue() throws PersistenceLayerException
+	public void testInvalidTypeValue()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "NUMBER|3r")
 			.passed());
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe() throws PersistenceLayerException
+	public void testInvalidInputDoublePipe()
 	{
 		assertFalse(token
 			.parseToken(primaryContext, primaryProf, "STRING||Def").passed());
 	}
 
 	@Test
-	public void testInvalidInputTooManyArgs() throws PersistenceLayerException
+	public void testInvalidInputTooManyArgs()
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf,
 			"STRING|Def|Abc").passed());
@@ -107,14 +117,13 @@ public class DefaultVariableValueTokenTest extends
 
 	@Test
 	public void testInvalidDefaultEmptyNumber()
-		throws PersistenceLayerException
 	{
 		assertFalse(token.parseToken(primaryContext, primaryProf, "NUMBER|")
 			.passed());
 	}
 
 	@Test
-	public void testValidDefultEmptyString() throws PersistenceLayerException
+	public void testValidDefultEmptyString()
 	{
 		assertTrue(token.parseToken(primaryContext, primaryProf, "STRING|")
 			.passed());
@@ -125,7 +134,7 @@ public class DefaultVariableValueTokenTest extends
 	}
 
 	@Test
-	public void testValidStringNo() throws PersistenceLayerException
+	public void testValidStringNo()
 	{
 		ParseResult pr =
 				token
@@ -149,12 +158,7 @@ public class DefaultVariableValueTokenTest extends
 	@Override
 	public void isCDOMEqual(DefaultVarValue cdo1, DefaultVarValue cdo2)
 	{
-		boolean same =
-				ObjectUtil
-					.compareWithNull(cdo1.getKeyName(), cdo2.getKeyName())
-					&& ObjectUtil.compareWithNull(cdo1.getLSTformat(),
-						cdo2.getLSTformat());
-		if (!same)
+		if (!Objects.equals(cdo1.getKeyName(), cdo2.getKeyName()))
 		{
 			fail("Mismatched");
 		}
@@ -190,4 +194,12 @@ public class DefaultVariableValueTokenTest extends
 		return ConsolidationRule.OVERWRITE;
 	}
 
+	@Override
+	protected void additionalSetup(LoadContext context)
+	{
+		URI testURI = testCampaign.getURI();
+		context.setSourceURI(testURI);
+		context.setExtractURI(testURI);
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
+	}
 }

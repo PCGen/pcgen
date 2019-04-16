@@ -21,7 +21,6 @@ import java.util.List;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.util.CControl;
-import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -99,8 +98,7 @@ public enum SkillArmorCheck
 			min = calculateMin(pc);
 			max = calculateMax(pc);
 		}
-		return getMultiplier()
-			* Math.min(min, (max + (int) pc.getTotalBonusTo("MISC", "ACCHECK")));
+		return getMultiplier() * Math.min(min, (max + (int) pc.getTotalBonusTo("MISC", "ACCHECK")));
 	}
 
 	protected int getMultiplier()
@@ -117,26 +115,22 @@ public enum SkillArmorCheck
 
 			switch (load)
 			{
-			case LIGHT:
-				penalty = SettingsHandler.getGame().getLoadInfo()
-						.getLoadCheckPenalty("LIGHT");
-				break;
+				case LIGHT:
+					penalty = SettingsHandler.getGame().getLoadInfo().getLoadCheckPenalty("LIGHT");
+					break;
 
-			case MEDIUM:
-				penalty = SettingsHandler.getGame().getLoadInfo()
-						.getLoadCheckPenalty("MEDIUM");
-				break;
+				case MEDIUM:
+					penalty = SettingsHandler.getGame().getLoadInfo().getLoadCheckPenalty("MEDIUM");
+					break;
 
-			case HEAVY:
-			case OVERLOAD:
-				penalty = SettingsHandler.getGame().getLoadInfo()
-						.getLoadCheckPenalty("HEAVY");
-				break;
+				case HEAVY:
+				case OVERLOAD:
+					penalty = SettingsHandler.getGame().getLoadInfo().getLoadCheckPenalty("HEAVY");
+					break;
 
-			default:
-				throw new UnreachableError(
-						"Internal Error: In Skill.modifier the load " + load
-								+ " is not supported.");
+				default:
+					throw new UnreachableError(
+						"Internal Error: In Skill.modifier the load " + load + " is not supported.");
 			}
 		}
 		return penalty;
@@ -144,9 +138,7 @@ public enum SkillArmorCheck
 
 	protected int calculateMax(PlayerCharacter pc)
 	{
-		String acCheckVar =
-				ControlUtilities.getControlToken(Globals.getContext(),
-					CControl.PCACCHECK);
+		String acCheckVar = pc.getControl(CControl.PCACCHECK);
 		if (acCheckVar == null)
 		{
 			return calculateMaxOld(pc);
@@ -157,6 +149,7 @@ public enum SkillArmorCheck
 	/**
 	 * @deprecated due to PCACCHECK code control
 	 */
+	@Deprecated
 	protected int calculateMaxOld(PlayerCharacter pc)
 	{
 		int max = 0;

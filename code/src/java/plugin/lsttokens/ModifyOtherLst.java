@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 (C) Thomas Parker <thpr@users.sourceforge.net>
+ * Copyright 2014-18 (C) Thomas Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -18,31 +18,30 @@
 package plugin.lsttokens;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
+import java.util.StringJoiner;
 
-import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.base.ScopeInstance;
-import pcgen.base.formula.base.VarScoped;
 import pcgen.base.text.ParsingSeparator;
-import pcgen.base.util.FormatManager;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.ObjectGrouping;
+import pcgen.cdom.base.VarContainer;
+import pcgen.cdom.base.VarHolder;
 import pcgen.cdom.content.RemoteModifier;
 import pcgen.cdom.content.VarModifier;
-import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.Campaign;
-import pcgen.rules.context.Changes;
+import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.cdom.grouping.GroupingCollection;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
-import pcgen.rules.persistence.token.CDOMPrimaryToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
+import pcgen.rules.persistence.token.CDOMInterfaceToken;
 import pcgen.rules.persistence.token.ParseResult;
-import pcgen.util.Logging;
+import plugin.lsttokens.ModifyLst.ModifyException;
 
-public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
-		implements CDOMPrimaryToken<CDOMObject>
+/**
+ * Implements the MODIFYOTHER token for remotely modifying variables in the new variable
+ * system.
+ */
+public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
+		implements CDOMInterfaceToken<VarContainer, VarHolder>
 {
 
 	@Override
@@ -51,254 +50,73 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		return "MODIFYOTHER";
 	}
 
-	@Override
-	protected char separator()
-	{
-		return '|';
-	}
-
 	//MODIFYOTHER:EQUIPMENT|GROUP=Martial|EqCritRange|ADD|1
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, VarHolder obj, String value)
 	{
-		if (obj instanceof Campaign)
-		{
-			return new ParseResult.Fail(getTokenName()
-				+ " may not be used in Campaign Files.  "
-				+ "Please use the Global Modifier file", context);
-		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
 		sep.addGroupingPair('(', ')');
 
 		String scopeName = sep.next();
-		/*
-		 * Note lvs is implicitly defined as "not global" since the global scope
-		 * is "" and thus would have failed the tests imposed by
-		 * AbstractTokenWithSeparator
-		 */
-		final LegalScope lvs = context.getVariableContext().getScope(scopeName);
+		PCGenScope lvs = context.getVariableContext().getScope(scopeName);
 		if (lvs == null)
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " found illegal variable scope: " + scopeName
-				+ " as first argument: " + value, context);
+			return new ParseResult.Fail(
+				getTokenName() + " found illegal variable scope: " + scopeName + " as first argument: " + value);
+		}
+		if (lvs.getParentScope() == null)
+		{
+			return new ParseResult.Fail(
+				getTokenName() + " found illegal variable scope: " + scopeName + " is a global scope");
 		}
 		if (!sep.hasNext())
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " needed 2nd argument: " + value, context);
+			return new ParseResult.Fail(getTokenName() + " needed 2nd argument: " + value);
 		}
-		LoadContext subContext = context.dropIntoContext(lvs.getName());
-		return continueParsing(subContext, obj, value, sep);
-	}
+		String fullName = LegalScope.getFullName(lvs);
+		LoadContext subContext = context.dropIntoContext(fullName);
 
-	private <GT extends VarScoped> ParseResult continueParsing(
-		LoadContext context, CDOMObject obj, String value, ParsingSeparator sep)
-	{
-		ScopeInstance scopeInst = context.getActiveScope();
-		@SuppressWarnings("unchecked")
-		final LegalScope scope = scopeInst.getLegalScope();
-		final String groupingName = sep.next();
-		ObjectGrouping group;
-		if (groupingName.startsWith("GROUP="))
+		String groupingName = sep.next();
+		GroupingCollection<?> group = subContext.getGrouping(lvs, groupingName);
+		if (group == null)
 		{
-			final String groupName = groupingName.substring(6);
-
-			group = new ObjectGrouping()
-			{
-				@Override
-				public boolean contains(VarScoped item)
-				{
-					return (item instanceof CDOMObject)
-						&& ((CDOMObject) item).containsInList(ListKey.GROUP,
-							groupName);
-				}
-
-				@Override
-				public LegalScope getScope()
-				{
-					return scope;
-				}
-
-				@Override
-				public String getIdentifier()
-				{
-					return "GROUP=" + groupName;
-				}
-			};
+			return new ParseResult.Fail(getTokenName() + " unable to build group from: " + groupingName);
 		}
-		else if ("ALL".equals(groupingName))
-		{
-			group = new ObjectGrouping()
-			{
-				@Override
-				public boolean contains(VarScoped cdo)
-				{
-					return true;
-				}
-
-				@Override
-				public LegalScope getScope()
-				{
-					return scope;
-				}
-
-				@Override
-				public String getIdentifier()
-				{
-					return "ALL";
-				}
-			};
-		}
-		else
-		{
-			group = new ObjectGrouping()
-			{
-				@Override
-				public boolean contains(VarScoped cdo)
-				{
-					return cdo.getKeyName().equalsIgnoreCase(groupingName);
-				}
-
-				@Override
-				public LegalScope getScope()
-				{
-					return scope;
-				}
-
-				@Override
-				public String getIdentifier()
-				{
-					return groupingName;
-				}
-			};
-		}
-
-		if (!sep.hasNext())
-		{
-			return new ParseResult.Fail(getTokenName()
-				+ " needed 3rd argument: " + value, context);
-		}
-		String varName = sep.next();
-		if (!context.getVariableContext().isLegalVariableID(scope, varName))
-		{
-			return new ParseResult.Fail(getTokenName()
-				+ " found invalid var name: " + varName + " Modified on "
-				+ obj.getClass().getSimpleName() + " " + obj.getKeyName(),
-				context);
-		}
-		if (!sep.hasNext())
-		{
-			return new ParseResult.Fail(getTokenName()
-				+ " needed 4th argument: " + value, context);
-		}
-		String modType = sep.next();
-		if (!sep.hasNext())
-		{
-			return new ParseResult.Fail(getTokenName()
-				+ " needed 5th argument: " + value, context);
-		}
-		String modValue = sep.next();
-		int priorityNumber = 0; //Defaults to zero
-		if (sep.hasNext())
-		{
-			String priority = sep.next();
-			if (priority.length() < 10)
-			{
-				return new ParseResult.Fail(getTokenName()
-					+ " was expecting PRIORITY= but got " + priority + " in "
-					+ value, context);
-			}
-			if ("PRIORITY=".equalsIgnoreCase(priority.substring(0, 9)))
-			{
-				try
-				{
-					priorityNumber = Integer.parseInt(priority.substring(9));
-				}
-				catch (NumberFormatException e)
-				{
-					return new ParseResult.Fail(getTokenName()
-						+ " requires Priority to be an integer: "
-						+ priority.substring(9) + " was not an integer");
-				}
-				if (priorityNumber < 0)
-				{
-					return new ParseResult.Fail(getTokenName()
-						+ " Priority requires an integer >= 0. "
-						+ priorityNumber + " was not positive");
-				}
-			}
-			else
-			{
-				return new ParseResult.Fail(getTokenName()
-					+ " was expecting PRIORITY=x but got " + priority + " in "
-					+ value, context);
-			}
-			if (sep.hasNext())
-			{
-				return new ParseResult.Fail(getTokenName()
-					+ " had too many arguments: " + value, context);
-			}
-		}
-		PCGenModifier<?> modifier;
+		StringJoiner sb = new StringJoiner("|");
+		sep.forEachRemaining(i -> sb.add(i));
+		PCGenScope scope = subContext.getActiveScope();
 		try
 		{
-			FormatManager<?> format =
-					context.getVariableContext().getVariableFormat(scope,
-						varName);
-			modifier =
-					context.getVariableContext().getModifier(modType, modValue,
-						priorityNumber, scope, format);
+			VarModifier<?> vm = ModifyLst.parseModifyInfo(subContext, sb.toString(),
+				scope, getTokenName(), 2);
+			obj.addRemoteModifier(new RemoteModifier<>(group, vm));
 		}
-		catch (IllegalArgumentException iae)
+		catch (ModifyException e)
 		{
-			return new ParseResult.Fail(getTokenName() + " Modifier " + modType
-				+ " had value " + modValue + " but it was not valid: "
-				+ iae.getMessage(), context);
+			return new ParseResult.Fail(e.getMessage());
 		}
-		VarModifier<?> vm = new VarModifier<>(varName, scope, modifier);
-		RemoteModifier<?> rm = new RemoteModifier<>(group, vm);
-		context.getObjectContext().addToList(obj, ListKey.REMOTE_MODIFIER, rm);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, CDOMObject obj)
+	public String[] unparse(LoadContext context, VarContainer obj)
 	{
-		Changes<RemoteModifier<?>> changes =
-				context.getObjectContext().getListChanges(obj,
-					ListKey.REMOTE_MODIFIER);
-		if (changes.hasRemovedItems())
-		{
-			Logging.errorPrint(getTokenName()
-				+ " does not support removed items");
-			return null;
-		}
-		if (changes.includesGlobalClear())
-		{
-			Logging.errorPrint(getTokenName() + " does not support .CLEAR");
-			return null;
-		}
-		Collection<RemoteModifier<?>> added = changes.getAdded();
+		RemoteModifier<?>[] added = obj.getRemoteModifierArray();
 		List<String> modifiers = new ArrayList<>();
-		if (added != null && added.size() > 0)
+		for (RemoteModifier<?> rm : added)
 		{
-			for (RemoteModifier<?> rm : added)
-			{
-				VarModifier<?> vm = rm.getVarModifier();
-				StringBuilder sb = new StringBuilder();
-				ObjectGrouping og = rm.getGrouping();
-				sb.append(og.getScope().getName());
-				sb.append(Constants.PIPE);
-				sb.append(og.getIdentifier());
-				sb.append(Constants.PIPE);
-				sb.append(vm.getVarName());
-				sb.append(Constants.PIPE);
-				sb.append(unparseModifier(vm));
-				modifiers.add(sb.toString());
-			}
+			VarModifier<?> vm = rm.getVarModifier();
+			StringBuilder sb = new StringBuilder();
+			GroupingCollection<?> og = rm.getGrouping();
+			sb.append(LegalScope.getFullName(vm.getLegalScope()));
+			sb.append(Constants.PIPE);
+			sb.append(og.getInstructions());
+			sb.append(Constants.PIPE);
+			sb.append(vm.getVarName());
+			sb.append(Constants.PIPE);
+			sb.append(ModifyLst.unparseModifier(vm));
+			modifiers.add(sb.toString());
 		}
 		if (modifiers.isEmpty())
 		{
@@ -308,28 +126,15 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 		return modifiers.toArray(new String[modifiers.size()]);
 	}
 
-	private String unparseModifier(VarModifier<?> vm)
+	@Override
+	public Class<VarHolder> getTokenClass()
 	{
-		PCGenModifier<?> modifier = vm.getModifier();
-		String type = modifier.getIdentification();
-		int userPriority = modifier.getUserPriority();
-		StringBuilder sb = new StringBuilder();
-		sb.append(type);
-		sb.append(Constants.PIPE);
-		sb.append(modifier.getInstructions());
-		if (userPriority > 0)
-		{
-			sb.append(Constants.PIPE);
-			sb.append("PRIORITY=");
-			sb.append(userPriority);
-		}
-		return sb.toString();
+		return VarHolder.class;
 	}
 
 	@Override
-	public Class<CDOMObject> getTokenClass()
+	public Class<VarContainer> getReadInterface()
 	{
-		return CDOMObject.class;
+		return VarContainer.class;
 	}
-
 }

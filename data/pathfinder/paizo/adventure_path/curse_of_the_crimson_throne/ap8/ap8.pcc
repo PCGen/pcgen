@@ -45,9 +45,12 @@ COPYRIGHT:PCGen dataset conversion for "Curse of the Crimson Throne, Chapter 2: 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:ap8_abilities.lst
 EQUIPMENT:ap8_equip_arms_armor.lst
 EQUIPMENT:ap8_equip_general.lst
 EQUIPMENT:ap8_equip_magic_items.lst
 KIT:ap8_kits.lst
 SKILL:ap8_skills.lst
 TEMPLATE:ap8_templates.lst
+
+HIDETYPE:FEAT|NosferatuSkillFocus

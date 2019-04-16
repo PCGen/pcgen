@@ -1,0 +1,42 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI				Display where?															Display Location
+ABILITYCATEGORY:Chronicle_S03-01					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-01												DISPLAYNAME:PFS Scenario #3-01: The Frostfur Captives									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-02					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-02												DISPLAYNAME:PFS Scenario #3-02: Sewer Dragons of Absalom								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-03					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-03												DISPLAYNAME:PFS Scenario #3-03: The Ghenett Manor Gauntlet								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-04					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-04												DISPLAYNAME:PFS Scenario #3-04: The Kortos Envoy									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-05					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-05												DISPLAYNAME:PFS Scenario #3-05: Tide of Twilight									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-06					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-06												DISPLAYNAME:PFS Scenario #3-06: Song of the Sea Witch									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-07					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-07												DISPLAYNAME:PFS Scenario #3-07: Echoes of the Overwatched								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-08					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-08												DISPLAYNAME:PFS Scenario #3-08: Among the Gods										DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-09					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-09												DISPLAYNAME:PFS Scenario #3-09: The Quest for Perfection, Part I: The Edge of Heaven			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-10					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-10												DISPLAYNAME:PFS Scenario #3-10: The Immortal Conundrum								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-11					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-11												DISPLAYNAME:PFS Scenario #3-11: The Quest for Perfection, Part II: On Hostile Waters			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-12					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-12												DISPLAYNAME:PFS Scenario #3-12: Wonders in the Weave, Part I: The Dog Pharaoh's Tomb			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-13					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-13												DISPLAYNAME:PFS Scenario #3-13: The Quest for Perfection, Part III: Defenders of Nesting Swallow	DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-14					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-14												DISPLAYNAME:PFS Scenario #3-14: Wonders in the Weave, Part II: Snakes in the Fold				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-15					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-15												DISPLAYNAME:PFS Scenario #3-15: The Haunting of Hinojai								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-16					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-16												DISPLAYNAME:PFS Scenario #3-16: The Midnight Mauler									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-17					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-17												DISPLAYNAME:PFS Scenario #3-17: Red Harvest										DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-18					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-18												DISPLAYNAME:PFS Scenario #3-18: The God's Market Gamble								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-19					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-19												DISPLAYNAME:PFS Scenario #3-19: The Icebound Outpost									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-20					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-20												DISPLAYNAME:PFS Scenario #3-20: The Rats of Round Mountain, Part I: The Sundered Path			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-21					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-21												DISPLAYNAME:PFS Scenario #3-21: The Temple of Empyreal Enlightenment						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-22					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-22												DISPLAYNAME:PFS Scenario #3-22: The Rats of Round Mountain, Part II: Pagoda of the Rat			DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-23					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-23												DISPLAYNAME:PFS Scenario #3-23: The Goblinblood Dead									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-24					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-24												DISPLAYNAME:PFS Scenario #3-24: The Golden Serpent									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-25					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-25												DISPLAYNAME:PFS Scenario #3-25: Storming the Diamond Gate								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-26					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-26												DISPLAYNAME:PFS Scenario #3-26: Portal of the Sacred Rune								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-EX					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-EX												DISPLAYNAME:PFS Scenario #3-EX: The Cyphermage Dilemma								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-SP					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-SP												DISPLAYNAME:PFS Scenario #3-SP: Blood Under Absalom									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-IS1					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-IS1												DISPLAYNAME:PFS Scenario #3-IS1: First Steps, Part 1: In Service to Lore					DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-IS2					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-IS2												DISPLAYNAME:PFS Scenario #3-IS2: First Steps, Part 2: To Delve the Dungeon Deep				DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S03-IS3					VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S03-IS3												DISPLAYNAME:PFS Scenario #3-IS3: First Steps, Part 3: A Vision of Betrayal					DISPLAYLOCATION:Chronicles
+
+ABILITYCATEGORY:Mutani Manual Of Martial Mastery Option	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MutaniManualOfMartialMasteryOption	PLURAL:Mutani Manual Of Martial Mastery Options																		DISPLAYLOCATION:Chronicles
+
+#
+# DONE
+#

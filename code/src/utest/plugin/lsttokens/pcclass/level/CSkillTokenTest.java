@@ -17,19 +17,21 @@
  */
 package plugin.lsttokens.pcclass.level;
 
-import org.junit.Test;
-
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
+import plugin.lsttokens.testsupport.AbstractListInputTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-public class CSkillTokenTest extends
-		AbstractListTokenTestCase<PCClassLevel, Skill>
+import org.junit.jupiter.api.Test;
+
+public class CSkillTokenTest extends AbstractListInputTokenTestCase<PCClassLevel, Skill>
 {
+	private static CDOMPrimaryToken<PCClassLevel> token = new CskillToken();
+	private static CDOMTokenLoader<PCClassLevel> loader =
+			new CDOMTokenLoader<>();
 
 	@Override
 	public char getJoinCharacter()
@@ -67,10 +69,6 @@ public class CSkillTokenTest extends
 		return true;
 	}
 
-	static CDOMPrimaryToken<PCClassLevel> token = new CskillToken();
-	static CDOMTokenLoader<PCClassLevel> loader =
-			new CDOMTokenLoader<PCClassLevel>();
-
 	@Override
 	public CDOMLoader<PCClassLevel> getLoader()
 	{
@@ -90,7 +88,7 @@ public class CSkillTokenTest extends
 	}
 
 	@Test
-	public void testRoundRobinList() throws PersistenceLayerException
+	public void testRoundRobinList()
 	{
 		boolean result = parse("LIST");
 		if (result)

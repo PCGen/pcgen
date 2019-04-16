@@ -28,10 +28,8 @@ import pcgen.rules.context.LoadContext;
  * EquipmentTypeFacet is a Facet that calculates the TYPE items that have been
  * added to a Equipment in a dataset.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class EquipmentTypeFacet extends AbstractListFacet<DataSetID, Type>
-		implements DataSetInitializedFacet
+public class EquipmentTypeFacet extends AbstractListFacet<DataSetID, Type> implements DataSetInitializedFacet
 {
 
 	private DataSetInitializationFacet datasetInitializationFacet;
@@ -40,8 +38,7 @@ public class EquipmentTypeFacet extends AbstractListFacet<DataSetID, Type>
 	public void initialize(LoadContext context)
 	{
 		DataSetID id = context.getDataSetID();
-		for (Equipment e : context.getReferenceContext()
-			.getConstructedCDOMObjects(Equipment.class))
+		for (Equipment e : context.getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 		{
 			for (Type t : e.getTrueTypeList(false))
 			{
@@ -50,8 +47,7 @@ public class EquipmentTypeFacet extends AbstractListFacet<DataSetID, Type>
 		}
 	}
 
-	public void setDataSetInitializationFacet(
-		DataSetInitializationFacet datasetInitializationFacet)
+	public void setDataSetInitializationFacet(DataSetInitializationFacet datasetInitializationFacet)
 	{
 		this.datasetInitializationFacet = datasetInitializationFacet;
 	}

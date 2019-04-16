@@ -29,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with EDR token
  */
-public class EdrToken extends AbstractIntToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class EdrToken extends AbstractIntToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -58,17 +57,13 @@ public class EdrToken extends AbstractIntToken<Equipment> implements
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, Equipment obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, Equipment obj, String value)
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.EDR))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " is disabled when EDR control is used: " + value,
-				context);
+			return new ParseResult.Fail(getTokenName() + " is disabled when EDR control is used: " + value);
 		}
 		return super.parseToken(context, obj, value);
 	}
-	
-	
+
 }

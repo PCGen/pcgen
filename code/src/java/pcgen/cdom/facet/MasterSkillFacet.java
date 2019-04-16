@@ -18,6 +18,7 @@
 package pcgen.cdom.facet;
 
 import java.util.Collection;
+
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.DataSetInitializedFacet;
 import pcgen.cdom.base.MasterListInterface;
@@ -29,16 +30,14 @@ import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
 
 /**
- * The Class <code>MasterSkillFacet</code> caches a copy of all class skill
+ * The Class {@code MasterSkillFacet} caches a copy of all class skill
  * lists. This allows faster checking of whether skills are class skills for a
  * character class. Note this is a "global" facet in that it does not have
  * method that depend on CharID (they are not character specific).
  * 
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  */
-public class MasterSkillFacet extends
-		AbstractScopeFacet<DataSetID, ClassSkillList, Skill> implements
-		DataSetInitializedFacet
+public class MasterSkillFacet extends AbstractScopeFacet<DataSetID, ClassSkillList, Skill>
+		implements DataSetInitializedFacet
 {
 
 	private DataSetInitializationFacet datasetInitializationFacet;
@@ -64,8 +63,7 @@ public class MasterSkillFacet extends
 		}
 	}
 
-	public void setDataSetInitializationFacet(
-		DataSetInitializationFacet datasetInitializationFacet)
+	public void setDataSetInitializationFacet(DataSetInitializationFacet datasetInitializationFacet)
 	{
 		this.datasetInitializationFacet = datasetInitializationFacet;
 	}

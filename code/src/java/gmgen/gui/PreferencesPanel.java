@@ -16,19 +16,16 @@
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- *  Created on May 24, 2003
  */
 package gmgen.gui;
-
 
 /** 
  * This interface defines what a preferences panel needs to be able to do.
  *
- * @author  devon
  */
 public abstract class PreferencesPanel extends javax.swing.JPanel
 {
-	/** Apply the preferences */ 
+	/** Apply the preferences */
 	public abstract void applyPreferences();
 
 	/** Initialize Preferences */

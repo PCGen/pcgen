@@ -54,8 +54,7 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 	{
 		if (dieSize < 0)
 		{
-			throw new IllegalArgumentException(
-					"HitDie can not have a negative die size");
+			throw new IllegalArgumentException("HitDie can not have a negative die size");
 		}
 		die = dieSize;
 	}
@@ -94,8 +93,7 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 				{
 					if (Logging.isDebugMode())
 					{
-						Logging.debugPrint("Hit Die: " + die
-							+ " is Highest Hit Die in Die Sizes");
+						Logging.debugPrint("Hit Die: " + die + " is Highest Hit Die in Die Sizes");
 					}
 					return this;
 				}
@@ -105,8 +103,7 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 				}
 			}
 		}
-		Logging.errorPrint("Cannot find Hit Die: " + die
-				+ " in Global Die Sizes");
+		Logging.errorPrint("Cannot find Hit Die: " + die + " in Global Die Sizes");
 		return this;
 	}
 
@@ -134,8 +131,7 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 				{
 					if (Logging.isDebugMode())
 					{
-						Logging.debugPrint("Hit Die: " + die
-							+ " is Lowest Hit Die in Die Sizes");
+						Logging.debugPrint("Hit Die: " + die + " is Lowest Hit Die in Die Sizes");
 					}
 				}
 				else
@@ -144,28 +140,16 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 				}
 			}
 		}
-		Logging.errorPrint("Cannot find Hit Die: " + die
-				+ " in Global Die Sizes");
+		Logging.errorPrint("Cannot find Hit Die: " + die + " in Global Die Sizes");
 		return this;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this HitDie
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return die;
 	}
 
-	/**
-	 * Returns true if this HitDie is equal to the given Object. Equality is
-	 * defined as being another HitDie object with equal die size.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -197,7 +181,7 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 	@Override
 	public int compareTo(HitDie other)
 	{
-		return die == other.die ? 0 : die < other.die ? -1 : 1;
+		return Integer.compare(die, other.die);
 	}
 
 }

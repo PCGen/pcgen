@@ -1,5 +1,4 @@
 /*
- * PreFactTest.java
  * Copyright James Dempsey, 2015
  *
  * This library is free software; you can redistribute it and/or
@@ -15,42 +14,48 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 31 May 2015 4:37:01 pm
  */
 package pcgen.core.prereq;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreFactTest</code> tests that the PREFACT tag is
+ * {@code PreFactTest} tests that the PREFACT tag is
  * working correctly.
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreFactTest extends AbstractCharacterTestCase
 {
 
+	@BeforeEach
 	@Override
-	protected void additionalSetUp() throws Exception
+	public void setUp() throws Exception
 	{
+		super.setUp();
 		LoadContext context = Globals.getContext();
 		BuildUtilities.createFact(context, "Abb", Race.class);
-		
-		super.additionalSetUp();
+		finishLoad();
 	}
 
 	/**
-	 * Test the PREFACT code
-	 * @throws Exception
+	 * Test the PREFACT code.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testFact() throws Exception
+	@Test
+	public void testFact() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		Race race = new Race();
@@ -64,12 +69,18 @@ public class PreFactTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREFACT:1,RACE,ABB=Hum");
 
-		assertFalse("Character should not be a matching race", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character should not be a matching race");
 
 		prereq = factory.parse("PREFACT:1,RACE,ABB=Hgln");
 
-		assertTrue("Character should be a matching race", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character should be a matching race");
+	}
+
+	@Override
+	protected void defaultSetupEnd()
+	{
+		//Nothing, we will trigger ourselves
 	}
 }

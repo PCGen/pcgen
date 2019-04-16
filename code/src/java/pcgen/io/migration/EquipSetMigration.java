@@ -1,5 +1,4 @@
 /*
- * EquipSetMigration.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 05/05/2013 12:54:09 PM
  *
- * $Id$
  */
 package pcgen.io.migration;
 
@@ -26,7 +23,6 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -40,15 +36,16 @@ import pcgen.core.utils.CoreUtility;
  * The Class {@code EquipSetMigration} updates a character's equipment
  * sets to match newer requirements.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class EquipSetMigration
+public final class EquipSetMigration
 {
 
-	private static EquipSetOutputOrderComparator comparator =
-			new EquipSetOutputOrderComparator();
+	private static EquipSetOutputOrderComparator comparator = new EquipSetOutputOrderComparator();
+
+	private EquipSetMigration()
+	{
+	}
 
 	/**
 	 * Update the character's equipment sets, if required.
@@ -56,7 +53,7 @@ public class EquipSetMigration
 	 * @param pc The character being updated.
 	 * @param pcgVer The version of PCGen in which the character was created.
 	 */
-	public static void migrateEquipSets(PlayerCharacter pc, int pcgVer[])
+	public static void migrateEquipSets(PlayerCharacter pc, int[] pcgVer)
 	{
 		if (CoreUtility.compareVersions(pcgVer, new int[]{6, 1, 3}) < 0)
 		{
@@ -77,8 +74,7 @@ public class EquipSetMigration
 		List<EquipSet> sortedChildrenEs = getSortedChildren(allEquipSets, "0");
 		for (EquipSet equipSet : sortedChildrenEs)
 		{
-			List<EquipSet> children =
-					getSortedChildren(allEquipSets, equipSet.getIdPath());
+			List<EquipSet> children = getSortedChildren(allEquipSets, equipSet.getIdPath());
 			renumberChildren(children, allEquipSets, equipSet.getIdPath());
 		}
 	}
@@ -89,8 +85,7 @@ public class EquipSetMigration
 	 * @param parentIdPath The id path of the top of the tree we want to retrieve.
 	 * @return The sorted list of child equipment sets.
 	 */
-	private static List<EquipSet> getSortedChildren(
-		Collection<EquipSet> allEquipSets, String parentIdPath)
+	private static List<EquipSet> getSortedChildren(Collection<EquipSet> allEquipSets, String parentIdPath)
 	{
 		List<EquipSet> children = new ArrayList<>();
 		for (EquipSet equipSet : allEquipSets)
@@ -101,7 +96,7 @@ public class EquipSetMigration
 			}
 		}
 
-		Collections.sort(children, comparator);
+		children.sort(comparator);
 		return children;
 	}
 
@@ -113,8 +108,8 @@ public class EquipSetMigration
 	 * @param allEquipSets The collection of all of the character's equipment sets.
 	 * @param newParentPath The new path of the parent.
 	 */
-	private static void renumberChildren(List<EquipSet> targets,
-		Collection<EquipSet> allEquipSets, String newParentPath)
+	private static void renumberChildren(List<EquipSet> targets, Collection<EquipSet> allEquipSets,
+		String newParentPath)
 	{
 		if (targets.isEmpty())
 		{
@@ -127,15 +122,13 @@ public class EquipSetMigration
 		{
 			String oldIdPath = equipSet.getIdPath();
 			equipSet.setIdPath(newParentPath + "." + format.format(index++));
-			List<EquipSet> children =
-					getSortedChildren(allEquipSets, oldIdPath);
+			List<EquipSet> children = getSortedChildren(allEquipSets, oldIdPath);
 			renumberChildren(children, allEquipSets, equipSet.getIdPath());
 		}
 	}
 
 	/** Comparator to order the equipment sets in output order. */
-	private static class EquipSetOutputOrderComparator implements
-			Comparator<EquipSet>
+	private static class EquipSetOutputOrderComparator implements Comparator<EquipSet>
 	{
 
 		@Override
@@ -144,14 +137,11 @@ public class EquipSetMigration
 			Equipment equip0 = arg0.getItem();
 			Equipment equip1 = arg1.getItem();
 
-			int equipOutputOrder0 =
-					equip0 == null ? 99999 : equip0.getOutputIndex();
-			int equipOutputOrder1 =
-					equip1 == null ? 99999 : equip1.getOutputIndex();
+			int equipOutputOrder0 = equip0 == null ? 99999 : equip0.getOutputIndex();
+			int equipOutputOrder1 = equip1 == null ? 99999 : equip1.getOutputIndex();
 			if (equipOutputOrder0 != equipOutputOrder1)
 			{
-				return ((Integer) equipOutputOrder0)
-					.compareTo(equipOutputOrder1);
+				return Integer.compare(equipOutputOrder0, equipOutputOrder1);
 			}
 
 			String sortKey0 = getSortKey(equip0);

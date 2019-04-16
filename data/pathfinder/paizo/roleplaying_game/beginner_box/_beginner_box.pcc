@@ -1,0 +1,48 @@
+CAMPAIGN:Beginner Box
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder RPG
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Beginner Box
+SOURCESHORT:BBox
+SOURCEWEB:http://paizo.com/products/btpy8osv
+SOURCEDATE:2011-10
+ISOGL:YES
+
+COVER:beginner_box.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy8osv|Buy this publication from Paizo Publishing!
+DESC:The Adventure Begins! Take your first step into an exciting world of fantasy adventure with the Pathfinder Roleplaying Game Beginner Box! Within you'll find simple rules to create and customize your own hero, as well as a robust system to run your character through challenging adventures and deadly battles against villainous monsters like goblins and dragons!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000,  Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Roleplaying Game Beginner Box. Copyright 2011, Paizo Publishing, LLC; Authors: Jason Bulmahn and Sean K Reynolds.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Beginner Box" Copyright 2018, PCGen Data team (Including, but not limited to Gwen T.)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+EQUIPMENT:bbox_equip_arms_armor.lst
+EQUIPMENT:bbox_equip_magic_items.lst
+
+# ENTRY DATE: 30 January 2018
+# LST MONKEY: Gwen T. (evilpixie87)
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland (LegacyKing)
+# RELEASE:
+# Built for PCGen Version: 6.06.06
+# Updated to work with version: -
+# MINVER:6.6
+# MINDEVVER:6.06.1
+# COMMENTS:

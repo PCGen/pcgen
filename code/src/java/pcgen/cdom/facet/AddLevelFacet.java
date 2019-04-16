@@ -37,14 +37,13 @@ import pcgen.gui2.UIPropertyContext;
  * AddLevelFacet performs the addition of levels to a Player Character that are
  * defined by the ADDLEVEL token.
  * 
- * @author Tom Parker (thpr [at] yahoo.com)
  */
 public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate>
 {
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
-	
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+
 	private TemplateFacet templateFacet;
 
 	/**
@@ -58,8 +57,6 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, PCTemplate> dfce)
@@ -72,8 +69,7 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 		// character so don't apply them again.
 		if (!pc.isImporting())
 		{
-			for (LevelCommandFactory lcf : template
-					.getSafeListFor(ListKey.ADD_LEVEL))
+			for (LevelCommandFactory lcf : template.getSafeListFor(ListKey.ADD_LEVEL))
 			{
 				add(lcf.getLevelCount(), lcf.getPCClass(), pc);
 			}
@@ -92,8 +88,6 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, PCTemplate> dfce)
@@ -102,10 +96,8 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 		CharID id = dfce.getCharID();
 		PlayerCharacter pc = trackingFacet.getPC(id);
 
-		List<LevelCommandFactory> lcfList = template
-				.getSafeListFor(ListKey.ADD_LEVEL);
-		for (ListIterator<LevelCommandFactory> it = lcfList
-				.listIterator(lcfList.size()); it.hasPrevious();)
+		List<LevelCommandFactory> lcfList = template.getSafeListFor(ListKey.ADD_LEVEL);
+		for (ListIterator<LevelCommandFactory> it = lcfList.listIterator(lcfList.size()); it.hasPrevious();)
 		{
 			LevelCommandFactory lcf = it.previous();
 			remove(lcf.getLevelCount(), lcf.getPCClass(), pc);
@@ -179,18 +171,15 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 	{
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
-		boolean tempFeatDlg = SettingsHandler.getShowFeatDialogAtLevelUp();
-		SettingsHandler.setShowFeatDialogAtLevelUp(false);
 		int tempChoicePref = UIPropertyContext.getSingleChoiceAction();
 		UIPropertyContext.setSingleChoiceAction(Constants.CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT);
 
 		pc.incrementClassLevel(levels, pcClass, true, true);
 
 		UIPropertyContext.setSingleChoiceAction(tempChoicePref);
-		SettingsHandler.setShowFeatDialogAtLevelUp(tempFeatDlg);
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 	}
-	
+
 	public void setTemplateFacet(TemplateFacet templateFacet)
 	{
 		this.templateFacet = templateFacet;

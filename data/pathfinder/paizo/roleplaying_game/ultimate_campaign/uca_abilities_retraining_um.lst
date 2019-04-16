@@ -1,0 +1,9 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 20472 $ $Author: mjmeans $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Ultimate Campaign	SOURCESHORT:UCA	SOURCEWEB:http://paizo.com/products/btpy8x64?Pathfinder-Roleplaying-Game-Ultimate-Campaign	SOURCEDATE:2013-05
+
+# Ability Name			Unique Key						Category of Ability		Type						Multiple Requirements																											Description																																																																																				Combat bonus					Bonus to skill								Class Skill				Source Page		Aspects
+
+# Retraining Class Feature Choices
+# Ability Name	Unique Key							Category of Ability		Type					Description
+Magus Arcana	KEY:Retraining ~ Class Feature ~ Magus Arcana	CATEGORY:Special Ability	TYPE:RetrainingClassFeature	DESC:You retrained a magus arcana choice.

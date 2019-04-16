@@ -1,5 +1,4 @@
 /*
- * PreCampaignTester.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 12/07/2008 12:38:47
- *
- * $Id: $
  */
 package plugin.pretokens.test;
 
@@ -29,6 +24,7 @@ import java.util.List;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
@@ -42,20 +38,17 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>PreCampaignTester</code> is responsible for testing if the 
+ * The Class {@code PreCampaignTester} is responsible for testing if the
  * currently loaded sources satisfy the campaign prerequisite.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PreCampaignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
-	 */
 	@Override
-	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
+		throws PrerequisiteException
 	{
 		final int number;
 		try
@@ -64,26 +57,22 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 		}
 		catch (NumberFormatException exceptn)
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
-				"PreFeat.error", prereq.toString())); //$NON-NLS-1$
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString("PreFeat.error", prereq.toString())); //$NON-NLS-1$
 		}
 
 		int runningTotal = 0;
 		if (prereq.getKey().startsWith("BOOKTYPE="))
 		{
-			runningTotal +=
-					countCampaignByBookType(prereq.getKey().substring(9), false);
+			runningTotal += countCampaignByBookType(prereq.getKey().substring(9), false);
 		}
 		else if (prereq.getKey().startsWith("INCLUDESBOOKTYPE="))
 		{
-			runningTotal +=
-					countCampaignByBookType(prereq.getKey().substring(17), true);
+			runningTotal += countCampaignByBookType(prereq.getKey().substring(17), true);
 		}
 		else if (prereq.getKey().startsWith("INCLUDES="))
 		{
-			runningTotal +=
-					countCampaignByName(prereq.getKey().substring(9), source,
-						true);
+			runningTotal += countCampaignByName(prereq.getKey().substring(9), source, true);
 		}
 		else
 		{
@@ -103,8 +92,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 * 
 	 * @return the number of matching campaigns
 	 */
-	private int countCampaignByBookType(String bookType,
-		boolean includeSubCampaigns)
+	private int countCampaignByBookType(String bookType, boolean includeSubCampaigns)
 	{
 		Set<Campaign> matchingCampaigns = new HashSet<>();
 		PersistenceManager pMan = PersistenceManager.getInstance();
@@ -124,14 +112,14 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 			}
 			for (Campaign camp : fullCampList)
 			{
-				for (String listType : camp.getBookTypeList())
+				for (String listType : camp.getSafeListFor(ListKey.BOOK_TYPE))
 				{
 					if (bookType.equalsIgnoreCase(listType))
 					{
 						matchingCampaigns.add(camp);
 						break;
 					}
-				}				
+				}
 			}
 		}
 		return matchingCampaigns.size();
@@ -145,8 +133,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 * @param includeSubCampaigns Should we count included sub campaigns that match
 	 * @return The number of matching campaigns
 	 */
-	private int countCampaignByName(final String key, CDOMObject source,
-		boolean includeSubCampaigns)
+	private int countCampaignByName(final String key, CDOMObject source, boolean includeSubCampaigns)
 	{
 		int total = 0;
 		Campaign campaignToFind = Globals.getCampaignKeyedSilently(key);
@@ -205,8 +192,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 * @param campList The list being built up.
 	 * @param aCampaign The campaign to be added.
 	 */
-	private static void addChildrenRecursively(List<Campaign> campList,
-	                                           Campaign aCampaign)
+	private static void addChildrenRecursively(List<Campaign> campList, Campaign aCampaign)
 	{
 		campList.add(aCampaign);
 		for (Campaign subCampaign : aCampaign.getSubCampaigns())
@@ -219,15 +205,12 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "CAMPAIGN"; //$NON-NLS-1$
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.prereq.PrerequisiteTest#toHtmlString(pcgen.core.prereq.Prerequisite)
-	 */
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
@@ -237,10 +220,8 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 			return prereq.getKey();
 		}
 
-		final String foo = LanguageBundle.getFormattedString(
-				"PreCampaign.toHtml", //$NON-NLS-1$
-				prereq.getOperator().toDisplayString(),
-				prereq.getOperand(), prereq.getKey());
+		final String foo = LanguageBundle.getFormattedString("PreCampaign.toHtml", //$NON-NLS-1$
+			prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey());
 		return foo;
 	}
 

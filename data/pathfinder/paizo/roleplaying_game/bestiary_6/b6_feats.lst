@@ -1,0 +1,4 @@
+SOURCELONG:Bestiary 6	SOURCESHORT:B6	SOURCEWEB:http://paizo.com/products/btpy9r1y	SOURCEDATE:2017-05
+
+CATEGORY=FEAT|Improved Familiar.MOD			COMPANIONLIST:Familiar|Familiar (Coral Capuchin)|PREALIGN:NG,LN,TN,CN,NE|PREVARGTEQ:FamiliarMasterLVL,3
+CATEGORY=FEAT|Improved Familiar.MOD			COMPANIONLIST:Familiar|Familiar (Mockingfey)|PREALIGN:CN|PREVARGTEQ:FamiliarMasterLVL,4

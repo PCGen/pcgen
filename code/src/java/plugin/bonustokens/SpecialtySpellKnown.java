@@ -1,5 +1,4 @@
 /*
- * SpecialtySpellKnown.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 05/10/2013
  */
 package plugin.bonustokens;
 
@@ -28,17 +25,10 @@ import pcgen.rules.context.LoadContext;
 /**
  * Handles the BONUS:SPECIALTYSPELLKNOWN token.
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public final class SpecialtySpellKnown extends BonusObj
 {
-	/**
-	 * Parse the bonus token.
-	 * @param token The token to parse.
-	 * @see pcgen.core.bonus.BonusObj#parseToken(LoadContext, java.lang.String)
-	 * @return True if successfully parsed.
-	 */
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)
 	{
@@ -61,12 +51,6 @@ public final class SpecialtySpellKnown extends BonusObj
 		return true;
 	}
 
-	/**
-	 * Unparse the bonus token.
-	 * @see pcgen.core.bonus.BonusObj#unparseToken(java.lang.Object)
-	 * @param obj The object to unparse
-	 * @return The unparsed string.
-	 */
 	@Override
 	protected String unparseToken(final Object obj)
 	{

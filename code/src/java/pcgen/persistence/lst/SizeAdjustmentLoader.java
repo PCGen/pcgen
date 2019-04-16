@@ -1,5 +1,4 @@
 /*
- * SizeAdjustmentLoader.java
  * Copyright 2010 (C) Tom Parker <thpr@users.sourceforge.net>
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
@@ -17,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 22, 2002, 10:29 PM
  *
- * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -30,45 +27,35 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-/**
- * 
- * @author David Rice &lt;david-pcgen@jcuz.com&gt;
- */
 public final class SizeAdjustmentLoader extends LstLineFileLoader
 {
-	private OverlapLoader<SizeAdjustment> loader = new OverlapLoader<>(
-			SizeAdjustment.class);
+	private OverlapLoader<SizeAdjustment> loader = new OverlapLoader<>(SizeAdjustment.class);
 
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-			throws PersistenceLayerException
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
 	{
 		final int colonLoc = lstLine.indexOf(':');
 		if (colonLoc == -1)
 		{
-			Logging.errorPrint("Invalid Line - does not contain a colon: '"
-					+ lstLine + "' in " + sourceURI);
+			Logging.errorPrint("Invalid Line - does not contain a colon: '" + lstLine + "' in " + sourceURI);
 			return;
 		}
 		else if (colonLoc == 0)
 		{
-			Logging.errorPrint("Invalid Line - starts with a colon: '"
-					+ lstLine + "' in " + sourceURI);
+			Logging.errorPrint("Invalid Line - starts with a colon: '" + lstLine + "' in " + sourceURI);
 			return;
 		}
 		else if (colonLoc == (lstLine.length() - 1))
 		{
-			Logging.errorPrint("Invalid Line - ends with a colon: '" + lstLine
-					+ "' in " + sourceURI);
+			Logging.errorPrint("Invalid Line - ends with a colon: '" + lstLine + "' in " + sourceURI);
 			return;
 		}
 		String key = lstLine.substring(0, colonLoc);
 		String value = lstLine.substring(colonLoc + 1);
 		if (!"SIZENAME".equals(key))
 		{
-			Logging.errorPrint("Invalid Line - "
-					+ "expected 'SIZENAME' key to start the line: '"
-					+ lstLine + "' in " + sourceURI);
+			Logging.errorPrint(
+				"Invalid Line - " + "expected 'SIZENAME' key to start the line: '" + lstLine + "' in " + sourceURI);
 			return;
 		}
 		loader.parseLine(context, value, sourceURI);

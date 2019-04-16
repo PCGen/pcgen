@@ -9,44 +9,52 @@
  * Build and run all tests: gradle clean build slowtest
  * Run the data tests: gradle datatest
  * Run the character integration tests: gradle inttest
- *
- * Author: James Dempsey
  */
 
+// import Ant helper static values to differ system families
+import org.apache.tools.ant.filters.FixCrLfFilter
+import org.apache.tools.ant.taskdefs.condition.Os
+
 plugins {
+    id 'com.gradle.build-scan' version '2.2.1'
+    id 'eclipse'
     id 'application'
     id 'build-dashboard'
     id 'checkstyle'
-    id 'findbugs'
+    id "com.github.spotbugs" version '1.7.1'
     id 'java'
     id 'maven'
     id 'pmd'
-
-    id "de.undercouch.download" version "3.1.1"
-    id 'edu.sc.seis.launch4j' version '1.6.1'
-    id 'com.github.ben-manes.versions' version '0.13.0'
+    id 'idea'
+    id "de.undercouch.download" version '3.4.3'
+    id 'edu.sc.seis.launch4j' version '2.4.5'
+    id 'com.github.ben-manes.versions' version '0.21.0'
+    id "com.dorongold.task-tree" version '1.3.1'
+    id "edu.sc.seis.macAppBundle" version "2.3.0"
 }
 
 group = 'net.sourceforge.pcgen'
 
 description = """PCGen"""
 
-defaultTasks 'clean', 'build'
+defaultTasks 'build'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = "1.11"
+targetCompatibility = "1.11"
 
 ext {
     binDir = "code/bin"
-
-    // Default ignoreTestFailures to false if it is not provided
-    if (!hasProperty('ignoreTestFailures')) {
-        ignoreTestFailures = false;
-    }
-
+    //Folder where the build stuff is placed.
+    outputDir = "$projectDir/output"
+    //Installer is placed here
+    releaseDir = "${buildDir}/release"
 }
 
-mainClassName = 'pcgen.system.Main'
+//The gradle plugin for netbeans sets the 'mainClass' property instead of 'mainClassName'
+//if other IDEs set different properties when trying to execute a given class
+//feel free to add them here.
+mainClassName = project.hasProperty('mainClass') ? mainClass : 'pcgen.system.Main';
+
 applicationDistribution.from('plugins') {
     into "plugins"
 }
@@ -70,13 +78,13 @@ repositories {
     mavenCentral()
     ivy {
         url "http://pcgen.sourceforge.net/mvnrepo"
-        layout "pattern", {
+        patternLayout {
             artifact "[organisation]/jars/[artifact]-[revision].[ext]"
         }
     }
     ivy {
         name "fileRepo"
-        url 'http://librepo.pcgen.org'
+        url 'http://pc-gen.org/librepo/'
     }
     jcenter()
 }
@@ -87,7 +95,7 @@ sourceSets {
             srcDirs 'code/src/java'
         }
         resources {
-            srcDirs = ['code/src/java', 'code/resources' ]
+            srcDirs = ['code/src/java', 'code/resources']
             include '**/*.properties'
             include '**/*.xml'
             include '**/*.gif'
@@ -99,16 +107,28 @@ sourceSets {
         java {
             srcDirs = ['code/src/utest', 'code/src/testcommon']
         }
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
     }
     itest {
         java {
             srcDirs = ['code/src/itest', 'code/src/testcommon']
         }
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+        compileClasspath += sourceSets.test.compileClasspath
+        runtimeClasspath += sourceSets.test.runtimeClasspath
+
     }
     slowtest {
         java {
             srcDirs = ['code/src/test', 'code/src/testcommon']
         }
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+        compileClasspath += sourceSets.test.compileClasspath
+        runtimeClasspath += sourceSets.test.runtimeClasspath
+
     }
 }
 
@@ -136,63 +156,46 @@ compileJava {
     it.dependsOn 'copyMasterSheets'
 }
 
-
 dependencies {
     compile group: 'cobra', name: 'cobra', version:'0.98.4-pcgen'
-
-    compile group: 'commons-lang', name: 'commons-lang', version:'2.6'
-    compile group: 'commons-io', name: 'commons-io', version:'2.5'
-    compile group: 'rhino', name: 'js', version:'1.7R2'
-    compile group: 'commons-logging', name: 'commons-logging', version:'1.2'
-    compile group: 'commons-logging', name: 'commons-logging', version:'1.1.1'
-    compile group: 'org.springframework', name: 'spring-core', version:'4.3.2.RELEASE'
-    compile group: 'org.springframework', name: 'spring-beans', version:'4.3.2.RELEASE'
+    compile group: 'commons-io', name: 'commons-io', version:'2.6'
+    compile group: 'org.springframework', name: 'spring-web', version:'5.1.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version:'5.1.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version:'5.1.6.RELEASE'
     compile group: 'skinlf', name: 'skinlf', version: '1.2.3'
-    compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.1'
-    compile group: 'org.apache.pdfbox', name: 'fontbox', version:'2.0.2'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.9'
+    compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.3'
+    compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.3'
     compile group: 'jep', name: 'jep', version:'2.4.1'
-    compile group: 'org.freemarker', name: 'freemarker', version:'2.3.23'
+    compile group: 'org.freemarker', name: 'freemarker', version:'2.3.28'
     compile group: 'org.jdom', name: 'jdom2', version:'2.0.6'
     compile group: 'xalan', name: 'xalan', version:'2.7.2'
-    compile group: 'xerces', name: 'xercesImpl', version:'2.11.0'
+    compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.8.1'
+    compile group: 'org.mozilla', name: 'rhino', version:'1.7.10'
     compile group: 'xml-apis', name: 'xml-apis', version:'1.4.01'
-    compile group: 'com.incors.plaf', name: 'kunststoff', version:'2.0.2'
-    compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.7.0'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.83'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.95'
-    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
+    compile group: 'org.xmlunit', name: 'xmlunit-core', version:'2.6.2'
 
-    runtime group: 'ch.qos.logback', name: 'logback-classic', version:'1.1.6'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.170'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.200'
 
-    compileOnly group: 'org.jetbrains', name: 'annotations', version:'15.0'
+    compileOnly group: 'org.jetbrains', name: 'annotations', version:'17.0.0'
     compileOnly group: 'com.yuvimasory', name: 'orange-extensions', version: '1.3.0'
-    compileOnly group: 'com.google.code.findbugs', name: 'annotations', version: '3.0.1'
 
-    testCompile group: 'junit', name: 'junit', version:'4.12'
-    testCompile group: 'xmlunit', name: 'xmlunit', version:'1.6'
-    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+    testCompile group: 'org.junit.platform', name: 'junit-platform-runner', version: '1.4.2'
+    testCompile group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.4.2'
+    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-api', version: '5.4.2'
+    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.4.2'
+    testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.4.2'
+    testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.4.2'
 
-    itestCompile sourceSets.main.output
-    itestCompile configurations.testCompile
-    itestCompile sourceSets.test.output
+    testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.1'
 
-    itestRuntime configurations.testRuntime
-
-    slowtestCompile sourceSets.main.output
-    slowtestCompile configurations.testCompile
-    slowtestCompile sourceSets.test.output
-
-    slowtestRuntime configurations.testRuntime
-
-    findbugs 'com.google.code.findbugs:findbugs:3.0.1'
-    findbugs configurations.findbugsPlugins.dependencies
-
-    findbugsPlugins 'com.mebigfatguy.fb-contrib:fb-contrib:6.6.2'
+    testCompile group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.6.2'
 }
 
 ant.importBuild 'build-gradle.xml'
 ant.properties['src.java.dir']="code/src/java"
-ant.properties['build.classes.dir']="build/classes/main"
+ant.properties['build.classes.dir']="build/classes/java/main"
 
 configure('jar-all-plugins') {
     group = BasePlugin.BUILD_GROUP // Or use 'build'
@@ -208,17 +211,24 @@ jar {
     it.dependsOn 'jar-all-plugins'
     manifest {
         attributes 'Implementation-Title': 'PCGen', 'Implementation-Version': version,
-        	'Main-Class': 'pcgen.system.Main', 'Class-Path': classpath
+                'Main-Class': 'pcgen.system.Main', 'Class-Path': classpath
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.directory ? it : zipTree(it) }
     }
 }
 
 task converterJar(type: Jar, dependsOn: jar) {
     manifest {
         attributes 'Implementation-Title': 'PCGen Data Converter', 'Implementation-Version': version,
-        	'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert', 'Class-Path': 'pcgen.jar' + classpath
+                'Main-Class': 'pcgen.gui2.converter.PCGenDataConvert', 'Class-Path': 'pcgen.jar' + classpath
     }
 
-    classifier = 'batch-convert'
+    archiveClassifier.set('batch-convert')
+    from {
+        configurations.runtimeClasspath.collect { it.directory ? it : zipTree(it) }
+    }
+
     from sourceSets.main.output
     include 'none'
 }
@@ -232,170 +242,164 @@ task copyToLibs(type: Copy) {
     from configurations.runtime
 }
 
-task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
-    outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
-
+task copyToOutput(type: Copy, dependsOn: [createExe, copyToLibs, jar,
+                                          converterJar]) {
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
-    from "$buildDir/release/pcgen.exe"
-    from "$projectDir/code/pcgen.sh"
-    into "$projectDir"
+    from "$buildDir/launch4j/pcgen.exe"
+    from "$projectDir/code/pcgen.bat"
+    from("$projectDir/code/pcgen.sh") {
+        filter(FixCrLfFilter, eol:FixCrLfFilter.CrLf.newInstance("lf"))
+        fileMode 0755
+    }
+    into outputDir
+
     rename "(.+)-$version(.+)", '$1$2'
 }
 
-task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
-    outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
-    outputs.dir("$projectDir/libs")
-    inputs.files(fileTree("$buildDir/libs"))
+task qbuild(type: Copy, dependsOn: [copyToOutput, jar]) {
+    description="Copy the executable file into 'output' to create a working environment"
+    from "$buildDir/libs/pcgen-${version}.jar"
 
-    from "${buildDir}/libs"
-    into "$projectDir/libs"
-    exclude "pcgen-*.jar"
+    into outputDir
+
+    rename "(.+)-$version(.+)", '$1$2'
+    mustRunAfter clean
 }
 
-task cleanRoot(type: Delete) {
-    description="Clean up things copied to the root folder by the build"
-    delete "$projectDir/pcgen.jar"
-    delete "$projectDir/pcgen-batch-convert.jar"
-    delete "$projectDir/batch-convert.jar"
-    delete "$projectDir/pcgen.sh"
-    delete "$projectDir/pcgen.exe"
-    delete "$projectDir/libs"
-    delete "$projectDir/autobuild.properties"
-    delete "$projectDir/svn.properties"
+
+task cleanOutput(type: Delete) {
+    description="Clean up things copied to the output folder by the build"
+    delete outputDir
+}
+
+// Alias tasks
+tasks.register("buildonly") {
+    dependsOn 'copyToOutput'
+}
+
+tasks.register("quickbuild") {
+    dependsOn 'copyToOutput', 'test'
 }
 
 build {
-    it.dependsOn 'copyToRoot', 'syncLibsToRoot'
+    it.dependsOn 'copyToOutput'
 }
 
 clean {
     it.dependsOn 'clean-plugins'
-    it.dependsOn 'cleanRoot'
+    it.dependsOn 'cleanOutput'
 }
 
 test {
     exclude 'pcgen/testsupport/**'
-    //	maxParallelForks 4
-    testLogging {
-        exceptionFormat = 'full'
-    }
+    useJUnitPlatform()
 }
 
-task itest(type: Test, dependsOn: jar) {
-    testClassesDir = sourceSets.itest.output.classesDir
+task itest(type: Test, dependsOn: [jar]) {
+    testClassesDirs = sourceSets.itest.output.classesDirs
     classpath = sourceSets.itest.runtimeClasspath
-    systemProperties['jar.path'] = jar.archivePath
-    ignoreFailures=ignoreTestFailures
-    testLogging {
-        exceptionFormat = 'full'
-    }
+    systemProperties['jar.path'] = jar.getArchiveFile().get().getAsFile()
 }
 
 task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
-    testClassesDir = sourceSets.slowtest.output.classesDir
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
-    systemProperties['jar.path'] = jar.archivePath
+    systemProperties['jar.path'] = jar.getArchiveFile().get().getAsFile()
     forkEvery = 1
-    maxHeapSize = "512m"
     // Exclude the two suites to avoid duplicate test runs.
     exclude 'AllJUnitTests.class'
     exclude 'pcgen/core/AllJUnitTests.class'
-    ignoreFailures=ignoreTestFailures
-    testLogging {
-        exceptionFormat = 'full'
-    }
 }
 
 task datatest(type: Test, dependsOn: 'jar') {
-    testClassesDir = sourceSets.slowtest.output.classesDir
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     include 'pcgen/persistence/lst/DataTest.class'
     include 'pcgen/persistence/lst/DataLoadTest.class'
-    ignoreFailures=ignoreTestFailures
-    maxHeapSize = "512m"
-    testLogging {
-        exceptionFormat = 'full'
-    }
 }
 
 task inttest(type: Test, dependsOn: 'jar') {
-    testClassesDir = sourceSets.slowtest.output.classesDir
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/**/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-    }
-
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
-    }
 }
 
 task pfinttest(type: Test, dependsOn: 'jar') {
-    testClassesDir = sourceSets.slowtest.output.classesDir
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/game_pathfinder/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-    }
-
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
-    }
 }
 
 task rsrdinttest(type: Test, dependsOn: 'jar') {
-    testClassesDir = sourceSets.slowtest.output.classesDir
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/game_35e/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-    }
+}
 
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
-    }
+task srdinttest(type: Test, dependsOn: 'jar') {
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
+    classpath = sourceSets.slowtest.runtimeClasspath
+    forkEvery = 1
+    include 'pcgen/inttest/game_3e/*Test.class'
 }
 
 task msrdinttest(type: Test, dependsOn: 'jar') {
-    testClassesDir = sourceSets.slowtest.output.classesDir
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/game_modern/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-    }
-
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
-    }
 }
 
 // Do the lot!
-task all(dependsOn: ['clean', 'build', 'slowtest', 'javadoc', 'allReports']) {
+task all(dependsOn: ['build', 'slowtest', 'javadoc', 'buildNsis', 'allReports']) {
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.14.1'
-}
-
-//Disable failing on javadoc warning
 allprojects {
     tasks.withType(Javadoc) {
         options.addBooleanOption('Xdoclint:none', true)
     }
+    tasks.withType(Test) {
+        maxHeapSize = "512m"
+        maxParallelForks = 1
+        testLogging {
+            exceptionFormat = 'full'
+            events 'failed', 'skipped'
+        }
+    }
+}
+
+dependencyUpdates.resolutionStrategy = {
+    componentSelection { rules ->
+        rules.all { ComponentSelection selection ->
+            if (['atlassian'].any { qualifier ->
+                    selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
+                }) {
+                selection.reject('unofficial release')
+            }
+            if (selection.candidate.version == '2.0.2' && selection.candidate.name == 'xml-apis') {
+                selection.reject('older than current')
+            }
+            if (selection.candidate.version == '2.24' && selection.candidate.name == 'jep') {
+                selection.reject('older than current')
+            }
+        }
+    }
+}
+
+idea {
+    module {
+        testSourceDirs += project.sourceSets.itest.java.srcDirs
+        testSourceDirs += project.sourceSets.slowtest.java.srcDirs
+        testSourceDirs += project.sourceSets.test.java.srcDirs
+    }
+}
+
+wrapper {
+    distributionType = Wrapper.DistributionType.ALL
 }
 
 apply from: 'code/gradle/autobuild.gradle'

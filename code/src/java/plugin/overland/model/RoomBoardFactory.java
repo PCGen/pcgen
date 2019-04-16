@@ -21,26 +21,28 @@ import java.io.File;
 import java.text.NumberFormat;
 import java.text.ParseException;
 
-import org.jdom2.DocType;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.input.SAXBuilder;
-
 import pcgen.util.Logging;
 import plugin.overland.gui.XMLFilter;
 import plugin.overland.util.PairList;
 import plugin.overland.util.RBCost;
 
+import org.jdom2.DocType;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.input.sax.SAXEngine;
+
 /**
  * Factory for RoomBoard. Read from XML files.
- *
- * @author Juliean Galak (method code)
- * @author Vincent Lhote (move to factory)
  */
 public final class RoomBoardFactory
 {
 
 	private static final String DIR_RNBPRICE = "rnbprice"; //$NON-NLS-1$
+
+	private RoomBoardFactory()
+	{
+	}
 
 	public static RoomBoard load(File dataDir)
 	{
@@ -54,13 +56,13 @@ public final class RoomBoardFactory
 		if (path.isDirectory())
 		{
 			File[] dataFiles = path.listFiles(new XMLFilter());
-			SAXBuilder builder = new SAXBuilder();
+			SAXEngine builder = new SAXBuilder();
 
-			for (int i = 0; i < dataFiles.length; i++)
+			for (File dataFile : dataFiles)
 			{
 				try
 				{
-					Document methodSet = builder.build(dataFiles[i]);
+					Document methodSet = builder.build(dataFile);
 					DocType dt = methodSet.getDocType();
 
 					if (dt.getElementName().equals("RNBPRICE")) //$NON-NLS-1$
@@ -68,13 +70,9 @@ public final class RoomBoardFactory
 						//Do work here
 						loadRBData(methodSet, inns, foods, animals);
 					}
-
-					methodSet = null;
-					dt = null;
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
-					Logging.errorPrintLocalised("XML Error with file {0}", dataFiles[i].getName());
+					Logging.errorPrintLocalised("XML Error with file {0}", dataFile.getName());
 					Logging.errorPrint(e.getMessage(), e);
 				}
 			}
@@ -92,9 +90,6 @@ public final class RoomBoardFactory
 	{
 		Element table = methodSet.getRootElement();
 
-		String type;
-		String name;
-		String priceS;
 		float priceF = 999; //999 is the debugging value
 
 		NumberFormat nf = TravelMethodFactory.getNumberFormat(table);
@@ -103,9 +98,9 @@ public final class RoomBoardFactory
 		{
 			Element method = (Element) methodObj;
 
-			type = method.getChild("type").getTextTrim();
-			name = method.getChild("name").getTextTrim();
-			priceS = method.getChild("price").getTextTrim();
+			String type = method.getChild("type").getTextTrim();
+			String name = method.getChild("name").getTextTrim();
+			String priceS = method.getChild("price").getTextTrim();
 
 			try
 			{

@@ -18,18 +18,20 @@
 package plugin.lsttokens.editcontext.ability;
 
 import pcgen.core.Ability;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.ability.AddspelllevelToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegerIntegrationTestCase;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class AddSpellLevelIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Ability>
 {
 
-	static AddspelllevelToken token = new AddspelllevelToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
+	private static AddspelllevelToken token = new AddspelllevelToken();
+	private static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()
@@ -77,5 +79,14 @@ public class AddSpellLevelIntegrationTest extends
 	protected boolean isClearAllowed()
 	{
 		return false;
+	}
+
+	@Override
+	protected Ability construct(LoadContext context, String name)
+	{
+		Ability a = BuildUtilities.getFeatCat().newInstance();
+		a.setName(name);
+		context.getReferenceContext().importObject(a);
+		return a;
 	}
 }

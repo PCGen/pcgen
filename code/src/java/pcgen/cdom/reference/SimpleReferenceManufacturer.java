@@ -23,14 +23,12 @@ import pcgen.cdom.base.Loadable;
  * A SimpleReferenceManufacturer is a ReferenceManufacturer that will construct
  * or reference non-categorized CDOMObjects.
  * 
- * @see pcgen.cdom.reference.ReferenceManufacturer
- * 
  * @param <T>
  *            The Class of object this SimpleReferenceManufacturer can
  *            manufacture
  */
-public class SimpleReferenceManufacturer<T extends Loadable> extends
-		AbstractReferenceManufacturer<T> implements ReferenceManufacturer<T>
+public class SimpleReferenceManufacturer<T extends Loadable> extends AbstractReferenceManufacturer<T>
+		implements ReferenceManufacturer<T>
 {
 	/**
 	 * Constructs a new SimpleReferenceManufacturer that will construct or
@@ -43,5 +41,11 @@ public class SimpleReferenceManufacturer<T extends Loadable> extends
 	public SimpleReferenceManufacturer(ManufacturableFactory<T> factory)
 	{
 		super(factory);
+	}
+
+	@Override
+	public String toString()
+	{
+		return getClass().getSimpleName() + ": " + this.getReferenceDescription();
 	}
 }

@@ -1,0 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Inner Sea Intrigue	SOURCESHORT:ISI	SOURCEWEB:http://paizo.com/products/btpy9l37?Pathfinder-Campaign-Setting-Inner-Sea-Intrigue	SOURCEDATE:2016-06
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 December 2017
+
+# Skill Name		Situational Skill
+Diplomacy.MOD		SITUATION:Influence Other Creatures
+Disguise.MOD		SITUATION:In dim light or darkness
+Perception.MOD		SITUATION:Notice Hidden Creatures
+Sleight of Hand.MOD	SITUATION:In dim light or darkness

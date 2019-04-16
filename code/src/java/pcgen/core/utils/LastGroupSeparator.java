@@ -17,6 +17,7 @@
  */
 package pcgen.core.utils;
 
+import java.util.Objects;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
@@ -28,11 +29,7 @@ public class LastGroupSeparator
 
 	public LastGroupSeparator(String baseString)
 	{
-		if (baseString == null)
-		{
-			throw new IllegalArgumentException(
-					"Choose Separator cannot take null initialization String");
-		}
+		Objects.requireNonNull(baseString, "Choose Separator cannot take null initialization String");
 		startingString = baseString;
 	}
 
@@ -71,15 +68,13 @@ public class LastGroupSeparator
 			{
 				if (expected.isEmpty())
 				{
-					throw new GroupingMismatchException(startingString
-							+ " did not have an open parenthesis "
-							+ "before close: " + temp.toString());
+					throw new GroupingMismatchException(
+						startingString + " did not have an open parenthesis " + "before close: " + temp);
 				}
 				else if (!")".equals(expected.pop()))
 				{
-					throw new GroupingMismatchException(startingString
-							+ " did not have matching parenthesis "
-							+ "inside of brackets: " + temp.toString());
+					throw new GroupingMismatchException(
+						startingString + " did not have matching parenthesis " + "inside of brackets: " + temp);
 				}
 				else if (!expected.isEmpty())
 				{
@@ -103,9 +98,8 @@ public class LastGroupSeparator
 			}
 			return temp.toString();
 		}
-		throw new GroupingMismatchException(startingString
-				+ " reached end of String while attempting to match: "
-				+ expected.pop());
+		throw new GroupingMismatchException(
+			startingString + " reached end of String while attempting to match: " + expected.pop());
 	}
 
 	public String getRoot()

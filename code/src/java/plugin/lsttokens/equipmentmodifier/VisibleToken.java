@@ -26,20 +26,15 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
 /**
- * <code>VisibleToken</code> handles the processing of the VISIBLE tag in the
+ * {@code VisibleToken} handles the processing of the VISIBLE tag in the
  * definition of an Equipment Modifier.
  *
  * (Sat, 24 May 2008) $
- *
- * @author Devon Jones
  */
 public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 		implements CDOMPrimaryToken<EquipmentModifier>
 {
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -47,8 +42,7 @@ public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		EquipmentModifier eqm, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier eqm, String value)
 	{
 		Visibility vis;
 		if (value.equals("QUALIFY"))
@@ -65,7 +59,7 @@ public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 		}
 		else
 		{
-			return new ParseResult.Fail("Can't understand Visibility: " + value, context);
+			return new ParseResult.Fail("Can't understand Visibility: " + value);
 		}
 		context.getObjectContext().put(eqm, ObjectKey.VISIBILITY, vis);
 		return ParseResult.SUCCESS;
@@ -74,8 +68,7 @@ public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier eqm)
 	{
-		Visibility vis = context.getObjectContext().getObject(eqm,
-				ObjectKey.VISIBILITY);
+		Visibility vis = context.getObjectContext().getObject(eqm, ObjectKey.VISIBILITY);
 		if (vis == null)
 		{
 			return null;
@@ -95,11 +88,10 @@ public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 		}
 		else
 		{
-			context.addWriteMessage("Visibility " + vis
-					+ " is not a valid Visibility for a EqMod");
+			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for a EqMod");
 			return null;
 		}
-		return new String[] { visString };
+		return new String[]{visString};
 	}
 
 	@Override

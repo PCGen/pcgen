@@ -1,0 +1,58 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
+
+# ==============================
+# Magical Plants
+# ==============================
+
+# Equipment Name				Type								Cost		Weight	Source Page		Bonus to Situation								Bonus to skill							Modify VAR												Special Property
+Acidic Lemon Tree				TYPE:Magic.MagicalPlant					COST:12000	WT:500	SOURCEPAGE:p.248																																		SPROP:One fruit/day, maximum 7 fruits available, 13 week season, spring.
+Altitude Fern				TYPE:Magic.MagicalPlant					COST:12000	WT:50		SOURCEPAGE:p.248																																		SPROP:Six berries/day, maximum 50 berries available, 13 week season, fall.
+Breezeblown Dandelion			TYPE:Magic.MagicalPlant.Racial.Leshy		COST:10000	WT:5		SOURCEPAGE:p.25																																		SPROP:One dandelion/day, maximum 20 available, 13 week season, spring.
+Fireapple Tree				TYPE:Magic.MagicalPlant					COST:5000	WT:500	SOURCEPAGE:p.248																																		SPROP:Three fruit/week, maximum 3 fruits available, 13 week season, summer.
+Fishweed					TYPE:Magic.MagicalPlant					COST:30000	WT:50		SOURCEPAGE:p.248																																		SPROP:Four leaves/day, maximum 28 leaves available, 13 week season, summer.
+Goodberry Bush				TYPE:Magic.MagicalPlant					COST:8000	WT:50		SOURCEPAGE:p.248																																		SPROP:Six berries/day, maximum 50 berries available, grows year round.
+Grabbing Vines				TYPE:Magic.MagicalPlant					COST:2000	WT:50		SOURCEPAGE:p.248																																		SPROP:One 13 week season determined by date of cultivation.
+Helping Hands Vines			TYPE:Magic.MagicalPlant					COST:12000	WT:50		SOURCEPAGE:p.249																																		SPROP:Two 13-week seasons, summer and fall.
+Palm of Decadent Feasts			TYPE:Magic.MagicalPlant					COST:9600	WT:500	SOURCEPAGE:p.249																																		SPROP:One fruit/year, ripens on the summer solstice.
+Poison Siphon Tree			TYPE:Magic.MagicalPlant					COST:56000	WT:500	SOURCEPAGE:p.249																																		SPROP:One leaf/day, maximum 6 leaves available, two 13 week seasons, spring and fall.
+Portal Oak					TYPE:Magic.MagicalPlant					COST:45000	WT:500	SOURCEPAGE:p.249																																		SPROP:Must grow in pairs, constantly active.
+Restful Birch				TYPE:Magic.MagicalPlant					COST:4000	WT:500	SOURCEPAGE:p.249																																		SPROP:Four pieces of bark/day safely, grows year round.
+Salvation Cactus				TYPE:Magic.MagicalPlant					COST:8000	WT:50		SOURCEPAGE:p.249																																		SPROP:One flower/week, one dose of fluid/day, maximum 4 of each available (cactus dies if all fluid is taken), 13 week season, summer.
+Sheltershrub				TYPE:Magic.MagicalPlant					COST:12000	WT:50		SOURCEPAGE:p.250																																		SPROP:Six berries/day, maximum 50 berries available, two 13 week seasons, summer and winter.
+Tree of Knowledge				TYPE:Magic.MagicalPlant					COST:3000	WT:500	SOURCEPAGE:p.250																																		SPROP:One red apple/day, one yellow apple/week, maximum 7 red and 1 yellow available, 13 week season, spring.
+Tree of Woe					TYPE:Magic.MagicalPlant					COST:20000	WT:500	SOURCEPAGE:p.250																																		SPROP:One victim/month, otherwise potent year round.
+Waterwalk Reeds				TYPE:Magic.MagicalPlant					COST:30000	WT:50		SOURCEPAGE:p.250																																		SPROP:One pod/day, maximum 12 pods available, two 13-week seasons, summer and fall, pods potent for 2 weeks.
+
+# ==============================
+# Wondrous Items
+# ==============================
+
+Belt of Spirit Vines			TYPE:Magic.Wondrous.Belt				COST:15000	WT:2		SOURCEPAGE:p.250
+Bestial Rags (Bat)			TYPE:Magic.Wondrous.Robe				COST:8000	WT:2		SOURCEPAGE:p.251																					BONUS:VAR|ShifterAspectMinutes|5	BONUS:VAR|ShifterBatAspectLVL|2
+Bestial Rags (Bear)			TYPE:Magic.Wondrous.Robe				COST:8000	WT:2		SOURCEPAGE:p.251																					BONUS:VAR|ShifterAspectMinutes|5	BONUS:VAR|ShifterBearAspectLVL|2
+Bestial Rags (Bull)			TYPE:Magic.Wondrous.Robe				COST:8000	WT:2		SOURCEPAGE:p.251																					BONUS:VAR|ShifterAspectMinutes|5	BONUS:VAR|ShifterBullAspectLVL|2
+Bestial Rags (Deinonychus)		TYPE:Magic.Wondrous.Robe				COST:8000	WT:2		SOURCEPAGE:p.251																					BONUS:VAR|ShifterAspectMinutes|5	BONUS:VAR|ShifterDeinonychusAspectLVL|2
+Bestial Rags (Falcon)			TYPE:Magic.Wondrous.Robe				COST:8000	WT:2		SOURCEPAGE:p.251																					BONUS:VAR|ShifterAspectMinutes|5	BONUS:VAR|ShifterFalconAspectLVL|2
+Bestial Rags (Frog)			TYPE:Magic.Wondrous.Robe				COST:8000	WT:2		SOURCEPAGE:p.251																					BONUS:VAR|ShifterAspectMinutes|5	BONUS:VAR|ShifterFrogAspectLVL|2
+Bestial Rags (Lizard)			TYPE:Magic.Wondrous.Robe				COST:8000	WT:2		SOURCEPAGE:p.251																					BONUS:VAR|ShifterAspectMinutes|5	BONUS:VAR|ShifterLizardAspectLVL|2
+Bestial Rags (Monkey)			TYPE:Magic.Wondrous.Robe				COST:8000	WT:2		SOURCEPAGE:p.251																					BONUS:VAR|ShifterAspectMinutes|5	BONUS:VAR|ShifterMonkeyAspectLVL|2
+Bestial Rags (Mouse)			TYPE:Magic.Wondrous.Robe				COST:8000	WT:2		SOURCEPAGE:p.251																					BONUS:VAR|ShifterAspectMinutes|5	BONUS:VAR|ShifterMouseAspectLVL|2
+Bestial Rags (Owl)			TYPE:Magic.Wondrous.Robe				COST:8000	WT:2		SOURCEPAGE:p.251																					BONUS:VAR|ShifterAspectMinutes|5	BONUS:VAR|ShifterOwlAspectLVL|2
+Bestial Rags (Snake)			TYPE:Magic.Wondrous.Robe				COST:8000	WT:2		SOURCEPAGE:p.251																					BONUS:VAR|ShifterAspectMinutes|5	BONUS:VAR|ShifterSnakeAspectLVL|2
+Bestial Rags (Stag)			TYPE:Magic.Wondrous.Robe				COST:8000	WT:2		SOURCEPAGE:p.251																					BONUS:VAR|ShifterAspectMinutes|5	BONUS:VAR|ShifterStagAspectLVL|2
+Bestial Rags (Tiger)			TYPE:Magic.Wondrous.Robe				COST:8000	WT:2		SOURCEPAGE:p.251																					BONUS:VAR|ShifterAspectMinutes|5	BONUS:VAR|ShifterTigerAspectLVL|2
+Bestial Rags (Wolf)			TYPE:Magic.Wondrous.Robe				COST:8000	WT:2		SOURCEPAGE:p.251																					BONUS:VAR|ShifterAspectMinutes|5	BONUS:VAR|ShifterWolfAspectLVL|2
+Bestial Rags (Wolverine)		TYPE:Magic.Wondrous.Robe				COST:8000	WT:2		SOURCEPAGE:p.251																					BONUS:VAR|ShifterAspectMinutes|5	BONUS:VAR|ShifterWolverineAspectLVL|2
+Bottled Sunlight				TYPE:Magic.Wondrous.Consumable.Racial.Leshy	COST:200			SOURCEPAGE:p.25
+Breezeblown Dandelion Flower		TYPE:Magic.Wondrous.Consumable.Racial.Leshy					SOURCEPAGE:p.25
+Coat of Mist				TYPE:Magic.Wondrous.Shirt				COST:8400	WT:3		SOURCEPAGE:p.251	BONUS:SITUATION|Stealth=In areas of fog/mist/smoke/heavy spray|+5																							SPROP:Total concealment up to 5 rnds/day, gaseous form 1/day up to 5 rnds.
+Greensurge Bomb				TYPE:Magic.Wondrous					COST:750	WT:1		SOURCEPAGE:p.251
+Guiding Scarab				TYPE:Magic.Wondrous.Amulet				COST:13000			SOURCEPAGE:p.251	BONUS:SITUATION|Survival=Avoid Getting Lost|5|TYPE=Competence	BONUS:SKILL|Knowledge (geography)|5|TYPE=Competence														SPROP:Divination effect 1/week, sacrifice scarab to find location.
+Harness of Grabbing Vines		TYPE:Magic.Wondrous.Robe.Racial.Gathlain		COST:40000	WT:0.5	SOURCEPAGE:p.13
+Harness of Hovering			TYPE:Magic.Wondrous.Robe.Racial.Gathlain		COST:12000	WT:0.5	SOURCEPAGE:p.13
+Herald Seed					TYPE:Magic.Wondrous.Racial.Gathlain			COST:8000			SOURCEPAGE:p.14
+Propagation Pod				TYPE:Magic.Wondrous.Racial.Ghoran			COST:48000	WT:250	SOURCEPAGE:p.19
+Rootsense Boots				TYPE:Magic.Wondrous.Boot				COST:9000	WT:1		SOURCEPAGE:p.251																																		SPROP:Tremorsense 30 ft when still, +4 to resist bull rush or trip attempts, +4 to escape a grapple or slip bonds.
+Shrinking Berries				TYPE:Magic.Wondrous.Consumable.Racial.Leshy	COST:300			SOURCEPAGE:p.25
+Slippers of the Primordial Wilds	TYPE:Magic.Wondrous.Boot.Racial.Gathlain		COST:24000	WT:0.5	SOURCEPAGE:p.14																																		SPROP:The wearer cannot be tracked or otherwise detected by scent.

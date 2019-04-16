@@ -18,6 +18,7 @@
 package pcgen.output.base;
 
 import pcgen.core.GameMode;
+
 import freemarker.template.TemplateModel;
 
 /**

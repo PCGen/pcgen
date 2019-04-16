@@ -1,0 +1,9 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Beginner Box	SOURCESHORT:BBox	SOURCEWEB:http://paizo.com/products/btpy8osv	SOURCEDATE:2011-10
+
+# Equipment Name							Modifier												Source Page		Special Property													Visible
+Scale Mail (Base).COPY=Poison-Resistant Scale Mail	EQMOD:Material ~ Steel																												VISIBLE:YES
+Light Steel Shield (Base).COPY=Feathered Shield		EQMOD:Material ~ Steel																												VISIBLE:YES
+
+Feathered Shield.MOD						EQMOD:Special Ability ~ Enhancement Cost|3300.Special Ability ~ +1 ~ Shield	SOURCEPAGE:p.49	SPROP:Automatically activates a feather fall spell on you if you fall more than 5 feet.
+Poison-Resistant Scale Mail.MOD				EQMOD:Special Ability ~ Enhancement Cost|2250.Special Ability ~ +1 ~ Armor	SOURCEPAGE:p.49	SPROP:+3 bonus on saving throws against poison

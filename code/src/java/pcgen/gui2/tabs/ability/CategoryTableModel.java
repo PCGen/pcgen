@@ -1,5 +1,4 @@
 /*
- * CategoryTableModel.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,17 +15,16 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 9, 2011, 5:42:00 PM
  */
 package pcgen.gui2.tabs.ability;
 
 import javax.swing.JTable;
 
-import pcgen.facade.core.AbilityCategoryFacade;
+import pcgen.core.AbilityCategory;
 import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ChangeEvent;
 import pcgen.facade.util.event.ChangeListener;
-import pcgen.facade.util.ListFacade;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 
@@ -34,19 +32,15 @@ import pcgen.gui2.filter.FilteredListFacadeTableModel;
  * The model for the bottom left table showing the ability categories and 
  * their pool points.
  * 
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class CategoryTableModel extends
-		FilteredListFacadeTableModel<AbilityCategoryFacade> implements
-		ChangeListener
+public class CategoryTableModel extends FilteredListFacadeTableModel<AbilityCategory> implements ChangeListener
 {
 
 	boolean installed = false;
 	private final JTable categoryTable;
-	
-	public CategoryTableModel(CharacterFacade character,
-							  ListFacade<AbilityCategoryFacade> categories,
-							  Filter<CharacterFacade, AbilityCategoryFacade> filter, JTable theCategoryTable)
+
+	public CategoryTableModel(CharacterFacade character, ListFacade<AbilityCategory> categories,
+		Filter<CharacterFacade, AbilityCategory> filter, JTable theCategoryTable)
 	{
 		super(character);
 		this.categoryTable = theCategoryTable;
@@ -54,7 +48,7 @@ public class CategoryTableModel extends
 		setFilter(filter);
 	}
 
-	public AbilityCategoryFacade getCategory(int index)
+	public AbilityCategory getCategory(int index)
 	{
 		return sortedList.getElementAt(index);
 	}
@@ -78,8 +72,7 @@ public class CategoryTableModel extends
 	@Override
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex)
 	{
-		character.setRemainingSelection(sortedList.getElementAt(rowIndex),
-										(Integer) aValue);
+		character.setRemainingSelection(sortedList.getElementAt(rowIndex), (Integer) aValue);
 	}
 
 	@Override
@@ -109,7 +102,7 @@ public class CategoryTableModel extends
 	}
 
 	@Override
-	protected Object getValueAt(AbilityCategoryFacade category, int column)
+	protected Object getValueAt(AbilityCategory category, int column)
 	{
 		switch (column)
 		{
@@ -127,7 +120,7 @@ public class CategoryTableModel extends
 	@Override
 	public void ItemChanged(ChangeEvent event)
 	{
-		AbilityCategoryFacade facade = null;
+		AbilityCategory facade = null;
 		if (installed)
 		{
 			int selectedRow = categoryTable.getSelectedRow();
@@ -140,13 +133,13 @@ public class CategoryTableModel extends
 		refilter();
 		for (int i = 0; i < getRowCount(); i++)
 		{
-			AbilityCategoryFacade rowCat = getCategory(i);
+			AbilityCategory rowCat = getCategory(i);
 			if (rowCat == data)
 			{
 				fireTableRowsUpdated(i, i);
 			}
 		}
-		
+
 		if (facade != null)
 		{
 			for (int i = 0; i < sortedList.getSize(); i++)

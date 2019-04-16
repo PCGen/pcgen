@@ -1,5 +1,4 @@
 /*
- * PrerequisiteDeityAlign.java
  *
  * Copyright 2004 (C) Frugal <frugal@purplewombat.co.uk>
  *
@@ -16,18 +15,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package plugin.pretokens.writer;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Locale;
 
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
@@ -35,35 +28,23 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
-public class PreDeityAlignWriter extends AbstractPrerequisiteWriter implements
-		PrerequisiteWriterInterface
+public class PreDeityAlignWriter extends AbstractPrerequisiteWriter implements PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
-	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "deityalign";
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
-	 */
-    @Override
+	@Override
 	public PrerequisiteOperator[] operatorsHandled()
 	{
-		return new PrerequisiteOperator[]{PrerequisiteOperator.EQ,
-			PrerequisiteOperator.NEQ};
+		return new PrerequisiteOperator[]{PrerequisiteOperator.EQ, PrerequisiteOperator.NEQ};
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
-	 */
-    @Override
-	public void write(Writer writer, Prerequisite prereq)
-		throws PersistenceLayerException
+	@Override
+	public void write(Writer writer, Prerequisite prereq) throws PersistenceLayerException
 	{
 		checkValidOperator(prereq, operatorsHandled());
 
@@ -74,18 +55,17 @@ public class PreDeityAlignWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PREDEITYALIGN:" + (prereq.isOverrideQualify() ? "Q:":""));
+			writer.write("PREDEITYALIGN:" + (prereq.isOverrideQualify() ? "Q:" : ""));
 			writer.write(prereq.getOperand());
 		}
 		catch (IOException e)
 		{
-			throw new PersistenceLayerException(e.getMessage());
+			throw new PersistenceLayerException(e);
 		}
 	}
 
 	@Override
-	public boolean specialCase(Writer writer, Prerequisite prereq)
-			throws IOException
+	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
 	{
 		//
 		// If this is a PREMULT...
@@ -117,8 +97,7 @@ public class PreDeityAlignWriter extends AbstractPrerequisiteWriter implements
 					}
 				}
 			}
-			if (oper.equals(PrerequisiteOperator.EQ)
-					&& !"1".equals(prereq.getOperand()))
+			if (oper.equals(PrerequisiteOperator.EQ) && !"1".equals(prereq.getOperand()))
 			{
 				return false;
 			}
@@ -127,8 +106,7 @@ public class PreDeityAlignWriter extends AbstractPrerequisiteWriter implements
 				writer.write('!');
 			}
 
-			writer.write("PRE" + kindHandled().toUpperCase() + ":"
-					+ (prereq.isOverrideQualify() ? "Q:" : ""));
+			writer.write("PRE" + kindHandled().toUpperCase(Locale.ENGLISH) + ':' + (prereq.isOverrideQualify() ? "Q:" : ""));
 			boolean first = true;
 			for (Prerequisite p : prereq.getPrerequisites())
 			{

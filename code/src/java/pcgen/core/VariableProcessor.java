@@ -1,5 +1,4 @@
 /*
- * VariableProcessor.java
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 13-Dec-2004
  */
 package pcgen.core;
 
@@ -38,37 +36,37 @@ import pcgen.util.PJEP;
 import pcgen.util.PjepPool;
 
 /**
- * <code>VariableProcessor</code> is the base class for PCGen variable
+ * {@code VariableProcessor} is the base class for PCGen variable
  * processors. These are classes that convert a formula or variable
  * into a value and are used extensively both in defintions of objects
  * and for output to output sheets.
  *
  *
- * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
  */
 public abstract class VariableProcessor
 {
 	/** A simple mathematical operation. */
-	private enum MATH_OP { PLUS, MINUS, MULTIPLY, DIVIDE};
-	
+	private enum MATH_OP
+	{
+		PLUS, MINUS, MULTIPLY, DIVIDE
+	};
+
 	/** The current indenting to be used for debug output of jep evaluations. */
-	protected String jepIndent = "";
+	private String jepIndent = "";
 	protected PlayerCharacter pc;
 
 	private int cachePaused;
 	private int serial;
 
-	private Map<String, CachedVariable<String>> sVariableCache =
-            new HashMap<>();
-	private Map<String, CachedVariable<Float>>  fVariableCache =
-            new HashMap<>();
+	private final Map<String, CachedVariable<String>> sVariableCache = new HashMap<>();
+	private final Map<String, CachedVariable<Float>> fVariableCache = new HashMap<>();
 
 	protected Float convertToFloat(String element, String foo)
 	{
 		Float d = null;
 		try
 		{
-			d = new Float(foo);
+			d = Float.valueOf(foo);
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -81,9 +79,8 @@ public abstract class VariableProcessor
 			retVal = d;
 			if (Logging.isDebugMode())
 			{
-				Logging.debugPrint(new StringBuilder().append(jepIndent)
-					.append("export variable for: '").append(element)
-					.append("' = ").append(d).toString());
+				Logging.debugPrint(new StringBuilder().append(jepIndent).append("export variable for: '")
+					.append(element).append("' = ").append(d).toString());
 			}
 		}
 
@@ -91,7 +88,7 @@ public abstract class VariableProcessor
 	}
 
 	/**
-	 * <code>CachableResult</code> encapsulates a result returned from JEP processing
+	 * {@code CachableResult} encapsulates a result returned from JEP processing
 	 * allowing us to retrieve both the result and its cachability.
 	 */
 	private static class CachableResult
@@ -102,7 +99,7 @@ public abstract class VariableProcessor
 		CachableResult(Float result, boolean cachable)
 		{
 			this.result = result;
-			this.cachable = cachable;
+			this.cachable = cachable; // unreliable!
 		}
 	}
 
@@ -115,8 +112,6 @@ public abstract class VariableProcessor
 		this.pc = pc;
 	}
 
-
-
 	/**
 	 * Evaluates a variable for this character.
 	 * e.g: getVariableValue("3+CHA","CLASS:Cleric") for Turn Undead
@@ -128,28 +123,15 @@ public abstract class VariableProcessor
 	 * @param spellLevelTemp The temporary spell level
 	 * @return The value of the variable
 	 */
-	public Float getVariableValue(
-			final CharacterSpell aSpell,
-			String varString,
-			String src,
-			int spellLevelTemp)
+	public Float getVariableValue(final CharacterSpell aSpell, String varString, String src, int spellLevelTemp)
 	{
-		Float result = getJepOnlyVariableValue(
-				aSpell,
-				varString,
-				src,
-				spellLevelTemp);
-				
+		Float result = getJepOnlyVariableValue(aSpell, varString, src, spellLevelTemp);
+
 		if (null == result)
 		{
-			result = processBrokenParser(
-					aSpell,
-					varString,
-					src,
-					spellLevelTemp);
-			
-			String cacheString =
-					makeCacheString(aSpell == null ? null : aSpell, varString, src, spellLevelTemp);
+			result = processBrokenParser(aSpell, varString, src, spellLevelTemp);
+
+			String cacheString = makeCacheString(aSpell == null ? null : aSpell, varString, src, spellLevelTemp);
 
 			addCachedVariable(cacheString, result);
 		}
@@ -167,16 +149,12 @@ public abstract class VariableProcessor
 	 * @param spellLevelTemp The temporary spell level
 	 * @return The value of the variable, or null if the formula is not JEP
 	 */
-	public Float getJepOnlyVariableValue(
-			final CharacterSpell aSpell,
-			String varString,
-			String src,
-			int spellLevelTemp)
+	public Float getJepOnlyVariableValue(final CharacterSpell aSpell, String varString, String src, int spellLevelTemp)
 	{
 		// First try to just parse it as a number.
 		try
 		{
-			return new Float(varString);
+			return Float.valueOf(varString);
 		}
 		catch (NumberFormatException e)
 		{
@@ -184,8 +162,7 @@ public abstract class VariableProcessor
 			// number, If we got here it wasn't
 		}
 
-		String cacheString =
-				makeCacheString(aSpell == null ? null : aSpell, varString, src, spellLevelTemp);
+		String cacheString = makeCacheString(aSpell == null ? null : aSpell, varString, src, spellLevelTemp);
 
 		Float total = getCachedVariable(cacheString);
 		if (total != null)
@@ -205,11 +182,10 @@ public abstract class VariableProcessor
 		return null;
 	}
 
-	private String makeCacheString(CharacterSpell aSpell, String varString,
-		String src, int spellLevelTemp)
+	private String makeCacheString(CharacterSpell aSpell, String varString, String src, int spellLevelTemp)
 	{
-		StringBuilder cS = new StringBuilder(varString).append("#").append(src);
-		
+		StringBuilder cS = new StringBuilder(varString).append('#').append(src);
+
 		if (aSpell != null)
 		{
 			if (aSpell.getSpell() != null)
@@ -227,7 +203,6 @@ public abstract class VariableProcessor
 		return cS.toString();
 	}
 
-
 	/**
 	 * Evaluate the variable using the old non-JEP variable parser. Use of this
 	 * parser is being phased out.
@@ -238,13 +213,9 @@ public abstract class VariableProcessor
 	 * @param spellLevelTemp The temporary spell level
 	 * @return The value of the variable
 	 */
-	private Float processBrokenParser(
-			final CharacterSpell aSpell,
-			String aString,
-			String src,
-			int spellLevelTemp)
+	private Float processBrokenParser(final CharacterSpell aSpell, String aString, String src, int spellLevelTemp)
 	{
-		Float total = new Float(0.0);
+		Float total = (float) 0.0;
 		aString = aString.toUpperCase();
 		src = src.toUpperCase();
 
@@ -261,12 +232,13 @@ public abstract class VariableProcessor
 			}
 
 			final String bString = aString.substring(x + 1, y);
-			aString = aString.substring(0, x) + getVariableValue(aSpell, bString, src, spellLevelTemp) + aString.substring(y + 1);
+			aString = aString.substring(0, x) + getVariableValue(aSpell, bString, src, spellLevelTemp)
+				+ aString.substring(y + 1);
 		}
 
 		final String delimiter = "+-/*";
 		String valString = "";
-		MATH_OP mode = MATH_OP.PLUS; 
+		MATH_OP mode = MATH_OP.PLUS;
 		MATH_OP nextMode = MATH_OP.PLUS;
 
 		if (aString.startsWith(".IF."))
@@ -286,7 +258,8 @@ public abstract class VariableProcessor
 				if ("GT".equals(cString) || "GTEQ".equals(cString) || "EQ".equals(cString) || "LTEQ".equals(cString)
 					|| "LT".equals(cString))
 				{
-					val1 = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp); // truncat final . character
+					// Truncate final . character
+					val1 = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp); 
 					aTok.nextToken(); // discard next . character
 					bString = "";
 
@@ -313,13 +286,15 @@ public abstract class VariableProcessor
 				}
 				else if ("THEN".equals(cString))
 				{
-					val2 = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp); // truncat final . character
+					// Truncate final . character
+					val2 = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp); 
 					aTok.nextToken(); // discard next . character
 					bString = "";
 				}
 				else if ("ELSE".equals(cString))
 				{
-					valt = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp); // truncat final . character
+					// Truncate final . character
+					valt = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp);
 					aTok.nextToken(); // discard next . character
 					bString = "";
 				}
@@ -382,10 +357,10 @@ public abstract class VariableProcessor
 						break;
 
 					default:
-						Logging.errorPrint("ERROR - badly formed statement:" + aString + ":" + val1.toString() + ":"
-							+ val2.toString() + ":" + comp);
+						Logging.errorPrint("ERROR - badly formed statement:" + aString + ':' + val1.toString() + ':'
+							+ val2.toString() + ':' + comp);
 
-						return new Float(0.0);
+						return (float) 0.0;
 				}
 
 				return total;
@@ -397,12 +372,11 @@ public abstract class VariableProcessor
 			valString += aString.substring(i, i + 1);
 
 			if (
-					// end of string
-					(i == (aString.length() - 1)) ||
-					
-					// have found one of +, -, *, /
-					(delimiter.lastIndexOf(aString.charAt(i)) > -1)
-				)
+			// end of string
+			(i == (aString.length() - 1))
+
+				// have found one of +, -, *, /
+				|| (delimiter.lastIndexOf(aString.charAt(i)) > -1))
 			{
 				if ((valString.length() == 1) && (delimiter.lastIndexOf(aString.charAt(i)) > -1))
 				{
@@ -414,8 +388,7 @@ public abstract class VariableProcessor
 					valString = valString.substring(0, valString.length() - 1);
 				}
 
-
-				final Float tmp= lookupVariable(valString, src, aSpell);
+				final Float tmp = lookupVariable(valString, src, aSpell);
 				if (tmp != null)
 				{
 					valString = tmp.toString();
@@ -423,25 +396,25 @@ public abstract class VariableProcessor
 
 				if (i < aString.length())
 				{
-					if (aString.length() > 0 && aString.charAt(i) == '+')
+					if (!aString.isEmpty() && aString.charAt(i) == '+')
 					{
 						nextMode = MATH_OP.PLUS;
 					}
-					else if (aString.length() > 0 && aString.charAt(i) == '-')
+					else if (!aString.isEmpty() && aString.charAt(i) == '-')
 					{
 						nextMode = MATH_OP.MINUS;
 					}
-					else if (aString.length() > 0 && aString.charAt(i) == '*')
+					else if (!aString.isEmpty() && aString.charAt(i) == '*')
 					{
 						nextMode = MATH_OP.MULTIPLY;
 					}
-					else if (aString.length() > 0 && aString.charAt(i) == '/')
+					else if (!aString.isEmpty() && aString.charAt(i) == '/')
 					{
 						nextMode = MATH_OP.DIVIDE;
 					}
 				}
 
-				if (valString.length() > 0)
+				if (!valString.isEmpty())
 				{
 					float valFloat = 0.0f;
 					try
@@ -477,8 +450,8 @@ public abstract class VariableProcessor
 							break;
 
 						default:
-							Logging.errorPrint("In PlayerCharacter.getVariableValue the mode " + mode
-								+ " is unsupported.");
+							Logging.errorPrint(
+								"In PlayerCharacter.getVariableValue the mode " + mode + " is unsupported.");
 
 							break;
 					}
@@ -492,8 +465,6 @@ public abstract class VariableProcessor
 
 		return total;
 	}
-
-
 
 	/**
 	 * Evaluate the forumla using the JEP parser. This will always be tried before
@@ -523,8 +494,7 @@ public abstract class VariableProcessor
 			{
 				if (Logging.isLoggable(Logging.DEBUG) && formula.startsWith(DEBUG_FORMULA_PREFIX))
 				{
-					Logging.debugPrint(jepIndent + "not a JEP expression: "
-						+ formula);
+					Logging.debugPrint(jepIndent + "not a JEP expression: " + formula);
 				}
 				return null;
 			}
@@ -532,11 +502,7 @@ public abstract class VariableProcessor
 			for (Iterator<String> iter = parser.getSymbolTable().keySet().iterator(); iter.hasNext();)
 			{
 				final String element = iter.next();
-				if (
-					"e".equals(element) ||
-					"FALSE".equals(element) ||
-					"pi".equals(element) ||
-					"TRUE".equals(element))
+				if ("e".equals(element) || "FALSE".equals(element) || "pi".equals(element) || "TRUE".equals(element))
 				{
 					continue;
 				}
@@ -559,32 +525,28 @@ public abstract class VariableProcessor
 			{
 				if (Logging.isLoggable(Logging.DEBUG) && formula.startsWith(DEBUG_FORMULA_PREFIX))
 				{
-					Logging.debugPrint(jepIndent + "Result '" + formula
-						+ "' = " + result);
+					Logging.debugPrint(jepIndent + "Result '" + formula + "' = " + result);
 				}
 				try
 				{
-					return new CachableResult(new Float(result.toString()),
-						parser.isResultCachable());
+					return new CachableResult(Float.valueOf(result.toString()), parser.isResultCachable());
 				}
 				catch (NumberFormatException nfe)
 				{
 					if (Logging.isLoggable(Logging.DEBUG) && formula.startsWith(DEBUG_FORMULA_PREFIX))
 					{
-						Logging.debugPrint(jepIndent + "Result '" + formula
-							+ "' = " + result + " was not a number...");
+						Logging.debugPrint(jepIndent + "Result '" + formula + "' = " + result + " was not a number...");
 					}
 					return null;
 				}
 			}
 			if (parser.hasError())
 			{
-				Logging.errorPrint("Failed to process formala " + formula + " due to error: " + parser.getErrorInfo());
+				Logging.errorPrint("Failed to process formula " + formula + " due to error: " + parser.getErrorInfo());
 			}
 			if (Logging.isLoggable(Logging.DEBUG) && formula.startsWith(DEBUG_FORMULA_PREFIX))
 			{
-				Logging.debugPrint(jepIndent + "Result '" + formula
-					+ "' was null...");
+				Logging.debugPrint(jepIndent + "Result '" + formula + "' was null...");
 			}
 			return null;
 		}
@@ -598,10 +560,7 @@ public abstract class VariableProcessor
 		}
 	}
 
-	abstract Float getInternalVariable(
-			final CharacterSpell aSpell,
-			String valString,
-			final String src);
+	abstract Float getInternalVariable(final CharacterSpell aSpell, String valString, final String src);
 
 	/**
 	 * Get a value for the term as evaluated in the context of the PC that
@@ -626,11 +585,10 @@ public abstract class VariableProcessor
 			final Float value = pc.getVariable(term, true);
 			if (Logging.isDebugMode())
 			{
-				Logging.debugPrint(new StringBuilder().append(jepIndent)
-					.append("variable for: '").append(term).append("' = ")
-					.append(value).toString());
+				Logging.debugPrint(new StringBuilder().append(jepIndent).append("variable for: '").append(term)
+					.append("' = ").append(value).toString());
 			}
-			retVal = new Float(value.doubleValue());
+			retVal = (float) value.doubleValue();
 		}
 
 		if (retVal == null)
@@ -662,12 +620,12 @@ public abstract class VariableProcessor
 		{
 			return null;
 		}
-		
+
 		final CachedVariable<Float> cached = fVariableCache.get(lookup);
 
 		if (cached != null)
 		{
-			if (cached.getSerial()>=getSerial())
+			if (cached.getSerial() >= getSerial())
 			{
 				return cached.getValue();
 			}
@@ -689,12 +647,12 @@ public abstract class VariableProcessor
 			return;
 		}
 		final CachedVariable<Float> cached = new CachedVariable<>();
-		cached.setSerial( getSerial() );
+		cached.setSerial(getSerial());
 		cached.setValue(value);
-//		if (lookup.equals("floor(SCORE/2)-5#STAT:CHA"))
-//		{
-//			Logging.errorPrint("At " + cached.getSerial() + " caching " + lookup + " of " + value);
-//		}
+		//		if (lookup.equals("floor(SCORE/2)-5#STAT:CHA"))
+		//		{
+		//			Logging.errorPrint("At " + cached.getSerial() + " caching " + lookup + " of " + value);
+		//		}
 
 		fVariableCache.put(lookup, cached);
 	}
@@ -724,7 +682,7 @@ public abstract class VariableProcessor
 	 */
 	public boolean isCachePaused()
 	{
-		return cachePaused>0;
+		return cachePaused > 0;
 	}
 
 	/**
@@ -768,7 +726,7 @@ public abstract class VariableProcessor
 
 		if (cached != null)
 		{
-			if (cached.getSerial()>=getSerial())
+			if (cached.getSerial() >= getSerial())
 			{
 				return cached.getValue();
 			}
@@ -791,13 +749,11 @@ public abstract class VariableProcessor
 			return;
 		}
 		final CachedVariable<String> cached = new CachedVariable<>();
-		cached.setSerial( getSerial() );
+		cached.setSerial(getSerial());
 		cached.setValue(value);
 
 		sVariableCache.put(lookup, cached);
 	}
-
-
 
 	/**
 	 * Returns a float value representing a variable used by the

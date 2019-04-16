@@ -1,5 +1,4 @@
 /**
- * TodoManager.java
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 22/04/2011 11:52:44 AM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -27,28 +22,27 @@ import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 
 /**
- * The Class <code>TodoManager</code> tracks an unordered list of user tasks. 
+ * The Class {@code TodoManager} tracks an unordered list of user tasks.
  * Each task is a TodoFacade instance which should have enough information to 
  * direct the user to the field where they can achieve the task.  
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
+@SuppressWarnings("TodoComment")
 public class TodoManager
 {
-	DefaultListFacade<TodoFacade> todoList;
+	private final DefaultListFacade<TodoFacade> todoList;
 
 	TodoManager()
 	{
 		todoList = new DefaultListFacade<>();
 	}
-	
+
 	synchronized ListFacade<TodoFacade> getTodoList()
 	{
 		return todoList;
 	}
-	
+
 	/**
 	 * Add a task to be done to the todo list, if it is not already there.
 	 * @param item The item to be added
@@ -60,7 +54,7 @@ public class TodoManager
 			todoList.addElement(item);
 		}
 	}
-	
+
 	/**
 	 * Remove a task to be done from the todo list.
 	 * @param messageKey The message key of the item to be removed
@@ -69,7 +63,7 @@ public class TodoManager
 	{
 		todoList.removeElement(findTodoByMessage(messageKey, null));
 	}
-	
+
 	/**
 	 * Remove a task to be done from the todo list.
 	 * @param messageKey The message key of the item to be removed
@@ -94,7 +88,7 @@ public class TodoManager
 			{
 				if (messageKey.equals(item.getMessageKey()))
 				{
-					if (fieldName == null || fieldName.equals(item.getFieldName()))
+					if ((fieldName == null) || fieldName.equals(item.getFieldName()))
 					{
 						return item;
 					}
@@ -104,5 +98,5 @@ public class TodoManager
 
 		return null;
 	}
-	
+
 }

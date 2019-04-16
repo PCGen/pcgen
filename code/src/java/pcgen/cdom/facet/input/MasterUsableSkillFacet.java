@@ -25,12 +25,8 @@ import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
 
-/**
- * @author Thomas Parker (thpr [at] yahoo.com)
- */
-public class MasterUsableSkillFacet extends
-		AbstractSourcedListFacet<DataSetID, Skill> implements
-		DataSetInitializedFacet
+public class MasterUsableSkillFacet extends AbstractSourcedListFacet<DataSetID, Skill>
+		implements DataSetInitializedFacet
 {
 
 	private DataSetInitializationFacet dataSetInitializationFacet;
@@ -43,8 +39,7 @@ public class MasterUsableSkillFacet extends
 		{
 			for (Skill sk : context.getReferenceContext().getConstructedCDOMObjects(Skill.class))
 			{
-				if (!sk.getSafe(ObjectKey.EXCLUSIVE)
-					&& sk.getSafe(ObjectKey.USE_UNTRAINED))
+				if (!sk.getSafe(ObjectKey.EXCLUSIVE) && sk.getSafe(ObjectKey.USE_UNTRAINED))
 				{
 					add(id, sk, sk);
 				}
@@ -52,8 +47,7 @@ public class MasterUsableSkillFacet extends
 		}
 	}
 
-	public void setDataSetInitializationFacet(
-		DataSetInitializationFacet dataSetInitializationFacet)
+	public void setDataSetInitializationFacet(DataSetInitializationFacet dataSetInitializationFacet)
 	{
 		this.dataSetInitializationFacet = dataSetInitializationFacet;
 	}

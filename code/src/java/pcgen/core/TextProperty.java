@@ -1,5 +1,4 @@
 /*
- * TextProperty.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  */
 package pcgen.core;
 
@@ -26,9 +24,8 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 
 /**
- * <code>TextProperty</code>.
+ * {@code TextProperty}.
  *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public abstract class TextProperty extends PObject implements Serializable, Comparable<Object>
 {
@@ -52,12 +49,12 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 	{
 		if (obj instanceof TextProperty)
 		{
-			TextProperty tp = (TextProperty)obj;
+			TextProperty tp = (TextProperty) obj;
 			return getKeyName().compareTo(tp.getKeyName());
 		}
 		else if (obj instanceof CDOMObject)
 		{
-			CDOMObject pObj = (CDOMObject)obj;
+			CDOMObject pObj = (CDOMObject) obj;
 			return getKeyName().compareToIgnoreCase(pObj.getKeyName());
 		}
 
@@ -83,21 +80,24 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 		return getParsedText(pc, getText(), varOwner, qualOwner);
 	}
 
-	protected String getParsedText(final PlayerCharacter pc, final String fullDesc, final VariableContainer varOwner, CDOMObject qOwner)
+	protected String getParsedText(final PlayerCharacter pc, final String fullDesc, final VariableContainer varOwner,
+		CDOMObject qOwner)
 	{
-		if (fullDesc==null || fullDesc.equals("")) {
+		if (fullDesc == null || fullDesc.equals(""))
+		{
 			return "";
 		}
 
 		String source = qOwner.getQualifiedKey();
 		String retString = "";
-		if(qualifies(pc, qOwner))
+		if (qualifies(pc, qOwner))
 		{
 			// full desc will look like "description|var1|var2|var3|..."
 			StringTokenizer varTok = new StringTokenizer(fullDesc, "|");
 			// take the description as the first token
 			final String description = varTok.nextToken();
-			if(varTok.hasMoreTokens()) {
+			if (varTok.hasMoreTokens())
+			{
 				// Create an array of all of the variables
 				boolean atLeastOneNonZero = false;
 				int[] varValue = null;
@@ -108,7 +108,7 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 					for (int j = 0; j < varValue.length; ++j)
 					{
 						final String varToken = varTok.nextToken();
-//						final int value = pc.getVariable(varToken, true, true, "", "", 0).intValue();
+						//final int value = pc.getVariable(varToken, true, true, "", "", 0).intValue();
 						final int value = varOwner.getVariableValue(varToken, source, pc).intValue();
 						if (value != 0)
 						{
@@ -146,11 +146,13 @@ public abstract class TextProperty extends PObject implements Serializable, Comp
 					}
 					retString = newAbility.toString();
 				}
-				else {
+				else
+				{
 					retString = "";
 				}
 			}
-			else {
+			else
+			{
 				retString = description;
 			}
 		}

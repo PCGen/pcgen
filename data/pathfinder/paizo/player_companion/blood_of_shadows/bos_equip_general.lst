@@ -1,0 +1,35 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Blood of Shadows	SOURCESHORT:BOS	SOURCEWEB:http://paizo.com/products/btpy9j6s	SOURCEDATE:2016-02
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 April 2016
+
+# ==============================
+# New Magic Items
+# ==============================
+
+# Equipment Name			Output Name					Type																							Cost		Weight	Base Item for EQMOD	Modifier								Source Page
+Eye-Stealing Locket								TYPE:Magic.Wondrous																				COST:24000																SOURCEPAGE:p.26
+Faithful Lantern									TYPE:Magic.Wondrous																				COST:2500	WT:2															SOURCEPAGE:p.21
+Luminous Lockpicks								TYPE:Magic.Wondrous																				COST:6000	WT:2															SOURCEPAGE:p.21
+Mesmerizing Tattoo								TYPE:Magic.Wondrous																				COST:10800																SOURCEPAGE:p.12
+Palelight Torch									TYPE:Magic.Wondrous																				COST:250	WT:1															SOURCEPAGE:p.21
+Penumbra Tattoo									TYPE:Magic.Wondrous																				COST:24000																SOURCEPAGE:p.12
+Radiant Panel									TYPE:Magic.Wondrous																				COST:12000																SOURCEPAGE:p.21
+Rod (Delumination)		OUTPUTNAME:Rod of [NAME]		TYPE:Magic.Rod																					COST:35000	WT:5		BASEITEM:Rod											SOURCEPAGE:p.26
+Rod (Eclipsed/Lesser)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic																			COST:1500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.26
+Rod (Eclipsed)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic																			COST:5500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.26
+Rod (Eclipsed/Greater)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic																			COST:12250	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.26
+Rod (Snuffing/Lesser)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic																			COST:9000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.27
+Rod (Snuffing)			OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic																			COST:32500	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.27
+Rod (Snuffing/Greater)		OUTPUTNAME:Metamagic Rod of [NAME]	TYPE:Magic.Rod.Metamagic																			COST:73000	WT:5		BASEITEM:Rod		EQMOD:Special Ability ~ Uses per Day / 3|CHARGES[3]	SOURCEPAGE:p.27
+Shadowbond Tunic									TYPE:Magic.Wondrous.Shirt																			COST:12000	WT:5															SOURCEPAGE:p.26
+Shawl of Shadowy Disguise							TYPE:Magic.Wondrous.Headgear																			COST:1350	WT:1															SOURCEPAGE:p.27
+Soles of the Silent Stride							TYPE:Magic.Wondrous.Boot																			COST:8250																SOURCEPAGE:p.27
+Swirling Smoke Tattoo								TYPE:Magic.Wondrous																				COST:12500																SOURCEPAGE:p.12
+Tome of Dissolution								TYPE:Magic.Wondrous																				COST:2000	WT:1															SOURCEPAGE:p.27
+Voidlight Lantern									TYPE:Magic.Wondrous																				COST:30000	WT:2															SOURCEPAGE:p.27
+
+Mesmerizing Tattoo.MOD								TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
+Penumbra Tattoo.MOD								TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet
+Swirling Smoke Tattoo.MOD							TYPE:Tattoo Head.Tattoo Shoulders.Tattoo Neck.Tattoo Chest.Tattoo Body.Tattoo Belt.Tattoo Wrist.Tattoo Hands.Tattoo Ring.Tattoo Feet

@@ -17,8 +17,8 @@
  */
 package pcgen.cdom.content;
 
-import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
+import pcgen.base.util.Indirect;
 
 /**
  * DefaultVarValue is actually a shell (unused at runtime). It is leveraged by
@@ -28,20 +28,21 @@ import pcgen.base.util.FormatManager;
 public class DefaultVarValue extends UserContent
 {
 
+	/**
+	 * The FormatManager for which the default variable value is defined.
+	 */
 	private FormatManager<?> formatManager;
 
-	private Modifier<?> modifier;
+	/**
+	 * The Indirect which supplies the default value for the type of object managed by the
+	 * formatManager in this DefaultVarValue.
+	 */
+	private Indirect<?> indirect;
 
 	@Override
 	public String getDisplayName()
 	{
 		return getKeyName();
-	}
-
-	@Override
-	public String getLSTformat()
-	{
-		return getDisplayName();
 	}
 
 	/**
@@ -70,25 +71,25 @@ public class DefaultVarValue extends UserContent
 	}
 
 	/**
-	 * Sets the Modifier to be used as the default Modifier for the format
+	 * Sets the Indirect to be used as the supplier of the default value for the format
 	 * contained by this DefaultVarValue.
 	 * 
-	 * @param modifier
-	 *            the Modifier to be used as the default Modifier for the format
-	 *            contained by this DefaultVarValue
+	 * @param indirect
+	 *            the Indirect to be used as the supplier of the default value for the
+	 *            format contained by this DefaultVarValue
 	 */
-	public void setModifier(Modifier<?> modifier)
+	public void setIndirect(Indirect<?> indirect)
 	{
-		this.modifier = modifier;
+		this.indirect = indirect;
 	}
 
 	/**
-	 * Returns the Modifier containing the default variable value.
+	 * Returns the Indirect containing the default variable value.
 	 * 
-	 * @return the Modifier containing the default variable value
+	 * @return the Indirect containing the default variable value
 	 */
-	public Modifier<?> getModifier()
+	public Indirect<?> getIndirect()
 	{
-		return modifier;
+		return indirect;
 	}
 }

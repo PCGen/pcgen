@@ -1,6 +1,4 @@
 /*
- * MessageWrapper.java
- *
  * Copyright 2004 (C) Frugal <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,25 +14,19 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.core.utils;
 
 /**
  * A Wrapper for messages in the PCGen System
  */
-public class MessageWrapper {
+public class MessageWrapper
+{
 
-	private Object message;
-	private String title;
-	private MessageType messageType;
-	private Object parent;
+	private final Object message;
+	private final String title;
+	private final MessageType messageType;
+	private final Object parent;
 
 	/**
 	 * Constructor
@@ -43,7 +35,8 @@ public class MessageWrapper {
 	 * @param messageType
 	 * @param parent
 	 */
-	public MessageWrapper(final Object message, final String title, final MessageType messageType, final Object parent) {
+	public MessageWrapper(final Object message, final String title, final MessageType messageType, final Object parent)
+	{
 		this.message = message;
 		this.title = title;
 		this.messageType = messageType;
@@ -56,7 +49,8 @@ public class MessageWrapper {
 	 * @param title
 	 * @param messageType
 	 */
-	public MessageWrapper(final Object message, final String title, final MessageType messageType) {
+	public MessageWrapper(final Object message, final String title, final MessageType messageType)
+	{
 		this.message = message;
 		this.title = title;
 		this.messageType = messageType;
@@ -66,28 +60,32 @@ public class MessageWrapper {
 	/**
 	 * @return Returns the message.
 	 */
-	public Object getMessage() {
+	public Object getMessage()
+	{
 		return message;
 	}
 
 	/**
 	 * @return Returns the messageType.
 	 */
-	public MessageType getMessageType() {
+	public MessageType getMessageType()
+	{
 		return messageType;
 	}
 
 	/**
 	 * @return Returns the title.
 	 */
-	public String getTitle() {
+	public String getTitle()
+	{
 		return title;
 	}
 
 	/**
 	 * @return Returns the parent.
 	 */
-	public Object getParent() {
+	public Object getParent()
+	{
 		return parent;
 	}
 

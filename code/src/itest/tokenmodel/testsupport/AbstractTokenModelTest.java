@@ -17,7 +17,8 @@
  */
 package tokenmodel.testsupport;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.fact.FactDefinition;
@@ -29,7 +30,6 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.input.RaceInputFacet;
 import pcgen.cdom.facet.input.TemplateInputFacet;
 import pcgen.cdom.facet.model.ActiveEqModFacet;
-import pcgen.cdom.facet.model.AlignmentFacet;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.cdom.facet.model.CheckFacet;
 import pcgen.cdom.facet.model.ClassFacet;
@@ -44,7 +44,6 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.facet.model.WeaponProfModelFacet;
-import pcgen.core.AbilityCategory;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.Language;
@@ -54,13 +53,11 @@ import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.util.chooser.ChooserFactory;
-import pcgen.util.chooser.RandomChooser;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.ability.MultToken;
@@ -71,76 +68,32 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
 
-public abstract class AbstractTokenModelTest extends TestCase
+import org.junit.jupiter.api.BeforeEach;
+import util.FormatSupport;
+
+public abstract class AbstractTokenModelTest
 {
 
-	protected LoadContext context;
-	protected PlayerCharacter pc;
-	protected CharID id;
-
-	public AbstractTokenModelTest()
-	{
-		super();
-	}
-
-	public AbstractTokenModelTest(String string)
-	{
-		super(string);
-	}
-
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		setUpContext();
-	}
-
-	@Override
-	protected void tearDown() throws Exception
-	{
-		ChooserFactory.popChooserClassname();
-		super.tearDown();
-	}
-
-	protected <T extends Loadable> T create(Class<T> cl, String key)
-	{
-		return context.getReferenceContext().constructCDOMObject(cl, key);
-	}
-
-	protected static final MultToken ABILITY_MULT_TOKEN =
-			new plugin.lsttokens.ability.MultToken();
+	protected static final MultToken ABILITY_MULT_TOKEN = new MultToken();
 	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
 			new plugin.lsttokens.ChooseLst();
 	protected static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN =
 			new plugin.lsttokens.choose.LangToken();
-	private static final VisibleToken ABILITY_VISIBLE_TOKEN =
-			new plugin.lsttokens.ability.VisibleToken();
+	private static final VisibleToken ABILITY_VISIBLE_TOKEN = new VisibleToken();
 	private static final AutoLst AUTO_TOKEN = new plugin.lsttokens.AutoLst();
-	protected static final LangToken AUTO_LANG_TOKEN =
-			new plugin.lsttokens.auto.LangToken();
+	protected static final LangToken AUTO_LANG_TOKEN = new LangToken();
 	private static final ProficiencyToken EQUIP_PROFICIENCY_TOKEN =
-			new plugin.lsttokens.equipment.ProficiencyToken();
-	private static final TypeLst EQUIP_TYPE_TOKEN =
-			new plugin.lsttokens.TypeLst();
-	private static final LangBonusToken LANGBONUS_PRIM =
-			new plugin.primitive.language.LangBonusToken();
+			new ProficiencyToken();
+	private static final TypeLst EQUIP_TYPE_TOKEN = new TypeLst();
+	private static final LangBonusToken LANGBONUS_PRIM = new LangBonusToken();
 	private static final plugin.qualifier.language.PCToken PC_QUAL =
 			new plugin.qualifier.language.PCToken();
+	private static final plugin.modifier.cdom.SetModifierFactory SMF =
+			new plugin.modifier.cdom.SetModifierFactory();
 
-	protected void finishLoad()
-	{
-		context.commit();
-		SourceFileLoader.processFactDefinitions(context);
-		context.getReferenceContext().buildDeferredObjects();
-		context.getReferenceContext().buildDerivedObjects();
-		context.resolveDeferredTokens();
-		assertTrue(context.getReferenceContext().resolveReferences(null));
-		context.resolvePostValidationTokens();
-		context.resolvePostDeferredTokens();
-		context.loadCampaignFacets();
-		pc = new PlayerCharacter();
-		id = pc.getCharID();
-	}
+	protected LoadContext context;
+	protected PlayerCharacter pc;
+	protected CharID id;
 
 	protected PCStat str;
 	protected PCStat cha;
@@ -168,7 +121,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 
 	protected DirectAbilityFacet directAbilityFacet;
 	protected ActiveEqModFacet activeEqModFacet;
-	protected AlignmentFacet alignmentFacet;
 	protected BioSetFacet bioSetFacet;
 	protected CheckFacet checkFacet;
 	protected ClassFacet classFacet;
@@ -186,9 +138,35 @@ public abstract class AbstractTokenModelTest extends TestCase
 	protected TemplateInputFacet templateInputFacet;
 	protected WeaponProfModelFacet weaponProfModelFacet;
 
-	protected void setUpContext() throws PersistenceLayerException
+	@BeforeEach
+	protected void setUp() throws Exception
 	{
-		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
+		setUpContext();
+	}
+
+	protected <T extends Loadable> T create(Class<T> cl, String key)
+	{
+		return context.getReferenceContext().constructCDOMObject(cl, key);
+	}
+
+	protected void finishLoad()
+	{
+		context.commit();
+		SourceFileLoader.processFactDefinitions(context);
+		context.getReferenceContext().buildDeferredObjects();
+		context.getReferenceContext().buildDerivedObjects();
+		context.resolveDeferredTokens();
+		assertTrue(context.getReferenceContext().resolveReferences(null));
+		context.resolvePostValidationTokens();
+		context.resolvePostDeferredTokens();
+		context.loadCampaignFacets();
+		pc = new PlayerCharacter();
+		id = pc.getCharID();
+	}
+
+	protected void setUpContext()
+	{
+		ChooserFactory.useRandomChooser();
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(AUTO_LANG_TOKEN);
 		TokenRegistration.register(ABILITY_VISIBLE_TOKEN);
@@ -200,12 +178,12 @@ public abstract class AbstractTokenModelTest extends TestCase
 		TokenRegistration.register(EQUIP_PROFICIENCY_TOKEN);
 		TokenRegistration.register(LANGBONUS_PRIM);
 		TokenRegistration.register(PC_QUAL);
+		TokenRegistration.register(SMF);
 		TokenRegistration.register(getToken());
 		TokenRegistration.register(plugin.bonustokens.Feat.class);
 
 		directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
 		activeEqModFacet = FacetLibrary.getFacet(ActiveEqModFacet.class);
-		alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
 		bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
 		checkFacet = FacetLibrary.getFacet(CheckFacet.class);
 		classFacet = FacetLibrary.getFacet(ClassFacet.class);
@@ -224,24 +202,34 @@ public abstract class AbstractTokenModelTest extends TestCase
 		templateConsolidationFacet = FacetLibrary.getFacet(TemplateFacet.class);
 		weaponProfModelFacet = FacetLibrary.getFacet(WeaponProfModelFacet.class);
 
-		Globals.createEmptyRace();
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		GameMode gamemode = SettingsHandler.getGame();
 		gamemode.clearLoadContext();
 
-		str = BuildUtilities.createStat("Strength", "STR");
+		context = Globals.getContext();
+		AbstractReferenceContext ref = context.getReferenceContext();
+		BuildUtilities.enableAlignmentFeature(ref);
+
+		BuildUtilities.buildUnselectedRace(context);
+		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
+		
+		FormatSupport.addNoneAsDefault(context,
+			ref.getManufacturer(PCAlignment.class));
+		FormatSupport.addBasicDefaults(context);
+		SourceFileLoader.defineBuiltinVariables(context);
+
+		str = BuildUtilities.createStat("Strength", "STR", "A");
 		str.put(VariableKey.getConstant("LOADSCORE"),
 			FormulaFactory.getFormulaFor("STRSCORE"));
 		str.put(VariableKey.getConstant("OFFHANDLIGHTBONUS"),
 			FormulaFactory.getFormulaFor(2));
-		dex = BuildUtilities.createStat("Dexterity", "DEX");
-		PCStat con = BuildUtilities.createStat("Constitution", "CON");
-		intel = BuildUtilities.createStat("Intelligence", "INT");
-		wis = BuildUtilities.createStat("Wisdom", "WIS");
-		cha = BuildUtilities.createStat("Charisma", "CHA");
+		dex = BuildUtilities.createStat("Dexterity", "DEX", "B");
+		PCStat con = BuildUtilities.createStat("Constitution", "CON", "C");
+		intel = BuildUtilities.createStat("Intelligence", "INT", "D");
+		wis = BuildUtilities.createStat("Wisdom", "WIS", "E");
+		cha = BuildUtilities.createStat("Charisma", "CHA", "F");
 
-		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		lg = BuildUtilities.createAlignment("Lawful Good", "LG");
 		ref.importObject(lg);
 		ln = BuildUtilities.createAlignment("Lawful Neutral", "LN");
@@ -260,7 +248,6 @@ public abstract class AbstractTokenModelTest extends TestCase
 		ref.importObject(cn);
 		ce = BuildUtilities.createAlignment("Chaotic Evil", "CE");
 		ref.importObject(ce);
-		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
 		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 
 		gamemode.setBonusFeatLevels("3|3");
@@ -285,13 +272,12 @@ public abstract class AbstractTokenModelTest extends TestCase
 		gargantuan = BuildUtilities.createSize("Gargantuan", 7);
 		colossal = BuildUtilities.createSize("Colossal", 8);
 
-		context = Globals.getContext();
 		create(Language.class, "Common");
 		BuildUtilities.createFact(context, "ClassType", PCClass.class);
 		FactDefinition<?, String> fd =
 				BuildUtilities.createFact(context, "SpellType", PCClass.class);
 		fd.setSelectable(true);
-		context.getReferenceContext().importObject(AbilityCategory.FEAT);
+		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 		SourceFileLoader.createLangBonusObject(Globals.getContext());
 	}
 
@@ -301,5 +287,4 @@ public abstract class AbstractTokenModelTest extends TestCase
 	{
 		return null;
 	}
-
 }

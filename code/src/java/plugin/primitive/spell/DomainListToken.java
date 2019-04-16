@@ -30,7 +30,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
 
 /**
- * The Class <code>DomainListToken</code> handles the restriction of a spell choice to a spell from a
+ * The Class {@code DomainListToken} handles the restriction of a spell choice to a spell from a
  * domain spell list.
  */
 public class DomainListToken extends AbstractRestrictedSpellPrimitive
@@ -39,15 +39,14 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 	private MasterAvailableSpellFacet masterAvailableSpellFacet;
 
 	@Override
-	public boolean initialize(LoadContext context, Class<Spell> cl,
-			String value, String args)
+	public boolean initialize(LoadContext context, Class<Spell> cl, String value, String args)
 	{
 		if (value == null)
 		{
 			return false;
 		}
 		spelllist = context.getReferenceContext().getCDOMReference(DomainSpellList.class, value);
-		masterAvailableSpellFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);	
+		masterAvailableSpellFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);
 		return initialize(context, args);
 	}
 
@@ -62,9 +61,8 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 	{
 		DomainSpellList list = spelllist.get();
 		DataSetID datasetID = pc.getCharID().getDatasetID();
-		
-		for (AvailableSpell availSpell : masterAvailableSpellFacet
-			.getMatchingSpellsInList(list, datasetID, spell))
+
+		for (AvailableSpell availSpell : masterAvailableSpellFacet.getMatchingSpellsInList(list, datasetID, spell))
 		{
 			int level = availSpell.getLevel();
 			if (level >= 0 && allow(pc, level, "", spell, list))
@@ -95,8 +93,7 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 			{
 				return other.spelllist == null;
 			}
-			return spelllist.equals(other.spelllist)
-					&& equalsRestrictedPrimitive(other);
+			return spelllist.equals(other.spelllist) && equalsRestrictedPrimitive(other);
 		}
 		return false;
 	}
@@ -110,8 +107,8 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 	@Override
 	public CharSequence getPrimitiveLST()
 	{
-		return new StringBuilder().append(getTokenName()).append('=').append(
-				spelllist.getLSTformat(false)).append(getRestrictionLST());
+		return new StringBuilder().append(getTokenName()).append('=').append(spelllist.getLSTformat(false))
+			.append(getRestrictionLST());
 	}
 
 }

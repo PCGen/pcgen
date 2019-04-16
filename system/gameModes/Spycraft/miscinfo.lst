@@ -6,21 +6,13 @@ LEVELMSG:Congratulations Agent, you can advance with that much experience!
 #
 #
 #ALIGNMENTNAME:Alignment
-HPNAME:Vitality Points
-HPABBREV:VP
-ALTHPNAME:Wound Points
-ALTHPABBREV:WP
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
-# ACNAME: and ACABBREV: are required for proper usage.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is reflected
 ACNAME:Defense
-ACABBREV:Def
 
 #
 #misc. Spycraft specific items
 #
-CURRENCYUNIT:Budget Points
 CURRENCYUNITABBREV:BP
 
 #
@@ -34,22 +26,11 @@ BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
 
 # The following determine whether some Class-related variables are displayed
 # on the Classes tab.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense value is displayed.
-# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
-# DISPLAYVARIABLExNAME: determines the variable displayed.  This must match the DEFINE:
-# variable in order to be displayed
-# up to 3 variables can be displayed in this manner
 
-SHOWCLASSDEFENSE:Yes
 
-DISPLAYVARIABLE1TEXT:Budget Points
-DISPLAYVARIABLE1NAME:BudgetPoints
 
-DISPLAYVARIABLE2TEXT:Gadget Points
-DISPLAYVARIABLE2NAME:GadgetPoints
 
-DISPLAYVARIABLE3TEXT:Mission Budget
-DISPLAYVARIABLE3NAME:MissionBudget
+
 
 #
 # Whether or not the game mode displays these tabs
@@ -57,7 +38,7 @@ DISPLAYVARIABLE3NAME:MissionBudget
 #
 TAB:CLASS			NAME:in_class			CONTEXT:tabpages\tabclasses.html
 TAB:DESCRIPTION		NAME:in_descrip			CONTEXT:tabpages\tabdescription.html
-TAB:DOMAINS			NAME:in_domains			CONTEXT:tabpages\tabdomains.html				VISIBLE:NO
+TAB:DOMAINS			NAME:in_domains			CONTEXT:tabpages\tabdomains.html
 TAB:FEATS			NAME:in_feats			CONTEXT:tabpages\tabfeatsandabilities.html
 TAB:INVENTORY		NAME:in_inventory			CONTEXT:tabpages\tabinventory.html
 TAB:RACE			NAME:Department			CONTEXT:tabpages\tabraces.html
@@ -74,7 +55,6 @@ TAB:TEMPMOD			NAME:in_InfoTempMod		CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Spycraft
-MENUTOOLTIP:Use 3.0 character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Spycraft
 #
@@ -197,12 +177,12 @@ BASEDICE:1d12	UP:2d8,2d8,4d6,4d8,8d6,8d8		DOWN:1d8,1d6,1d4,1d3,1d2,1,0
 #
 # Dice rolling methods for character creation
 #
-ROLLMETHOD:3d6						METHOD:3d6
-ROLLMETHOD:4d4						METHOD:4d4
-ROLLMETHOD:4d6 drop lowest				METHOD:roll(4,6,top(3))
-ROLLMETHOD:4d6, reroll 1's				METHOD:roll(4,6,reroll(1))
-ROLLMETHOD:4d6, reroll 1's, drop the lowest	METHOD:roll(4,6,top(3),reroll(1))
-ROLLMETHOD:5d6 drop 2 lowest				METHOD:roll(5,6,top(3))
+ROLLMETHOD:3d6						SORTKEY:A1	METHOD:3d6
+ROLLMETHOD:4d4						SORTKEY:A2	METHOD:4d4
+ROLLMETHOD:4d6 drop lowest				SORTKEY:A3	METHOD:roll(4,6,top(3))
+ROLLMETHOD:4d6, reroll 1's				SORTKEY:A4	METHOD:roll(4,6,reroll(1))
+ROLLMETHOD:4d6, reroll 1's, drop the lowest	SORTKEY:A5	METHOD:roll(4,6,top(3),reroll(1))
+ROLLMETHOD:5d6 drop 2 lowest				SORTKEY:A6	METHOD:roll(5,6,top(3))
 
 # Unit Set
 UNITSET:Imperial	HEIGHTUNIT:ftin	HEIGHTFACTOR:1		HEIGHTPATTERN:#		DISTANCEUNIT:ft.	DISTANCEFACTOR:1	DISTANCEPATTERN:#.##	WEIGHTUNIT:lbs.	WEIGHTFACTOR:1	WEIGHTPATTERN:#.##

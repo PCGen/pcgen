@@ -14,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on June 18, 2005.
- *
- * Current Ver: $Revision: 513 $
  */
 package pcgen.cdom.enumeration;
 
@@ -78,7 +74,6 @@ import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
 
 /**
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  *
  * This is a Typesafe enumeration of legal Object Characteristics of an object.
  * It is designed to act as an index to a specific Objects within a
@@ -119,10 +114,6 @@ public class ObjectKey<T>
 	public static final ObjectKey<SubRegion> SUBREGION = new ObjectKey<>(null);
 
 	public static final ObjectKey<Region> REGION = new ObjectKey<>(null);
-
-	public static final ObjectKey<Boolean> USETEMPLATENAMEFORSUBREGION = new ObjectKey<>(Boolean.FALSE);
-
-	public static final ObjectKey<Boolean> USETEMPLATENAMEFORREGION = new ObjectKey<>(Boolean.FALSE);
 
 	public static final ObjectKey<Gender> GENDER_LOCK = new ObjectKey<>(null);
 
@@ -232,8 +223,8 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<SpellResistance> SR = new ObjectKey<>(SpellResistance.NONE);
 
-	public static final ObjectKey<QualifiedObject<Boolean>> HAS_DEITY_WEAPONPROF = new ObjectKey<>(
-            new QualifiedObject<>(Boolean.FALSE));
+	public static final ObjectKey<QualifiedObject<Boolean>> HAS_DEITY_WEAPONPROF =
+			new ObjectKey<>(new QualifiedObject<>(Boolean.FALSE));
 
 	public static final ObjectKey<SpellProhibitor> CHOICE = new ObjectKey<>(null);
 
@@ -253,12 +244,10 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<CDOMSingleRef<SizeAdjustment>> SIZE;
 
-	public static final ObjectKey<TransitionChoice<Region>> REGION_CHOICE = new ObjectKey<>(null);
-
 	public static final ObjectKey<Boolean> USE_MASTER_SKILL = new ObjectKey<>(Boolean.FALSE);
-	
+
 	public static final ObjectKey<Boolean> DONTADD_HITDIE = new ObjectKey<>(null);
-	
+
 	public static final ObjectKey<Boolean> DONTADD_SKILLPOINTS = new ObjectKey<>(null);
 
 	public static final ObjectKey<KitApply> APPLY_MODE = new ObjectKey<>(KitApply.PERMANENT);
@@ -300,7 +289,7 @@ public class ObjectKey<T>
 	public static final ObjectKey<Boolean> IS_DEFAULT_SIZE = new ObjectKey<>(Boolean.FALSE);
 
 	public static final ObjectKey<Boolean> ROLLED = new ObjectKey<>(Boolean.TRUE);
-	
+
 	public static final ObjectKey<ChooseInformation<?>> CHOOSE_INFO = new ObjectKey<>(null);
 
 	public static final ObjectKey<Destination> DESTINATION = new ObjectKey<>(null);
@@ -308,8 +297,9 @@ public class ObjectKey<T>
 	public static final ObjectKey<CDOMSingleRef<Ability>> FEATEQ_STRING = new ObjectKey<>(null);
 
 	public static final ObjectKey<Boolean> INTERNAL = new ObjectKey<>(Boolean.FALSE);
-	
-	public static final ObjectKey<DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer>> SPELL_PC_INFO = new ObjectKey<>(null);
+
+	public static final ObjectKey<DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer>> SPELL_PC_INFO =
+			new ObjectKey<>(null);
 
 	public static final ObjectKey<ClassSkillList> CLASS_SKILLLIST = new ObjectKey<>(null);
 
@@ -362,6 +352,7 @@ public class ObjectKey<T>
 		return defaultValue;
 	}
 
+	@SuppressWarnings("unchecked")
 	public T cast(Object obj)
 	{
 		return (T) obj;
@@ -399,9 +390,8 @@ public class ObjectKey<T>
 		{
 			int mod = fields[i].getModifiers();
 
-			if (java.lang.reflect.Modifier.isStatic(mod)
-					&& java.lang.reflect.Modifier.isFinal(mod)
-					&& java.lang.reflect.Modifier.isPublic(mod))
+			if (java.lang.reflect.Modifier.isStatic(mod) && java.lang.reflect.Modifier.isFinal(mod)
+				&& java.lang.reflect.Modifier.isPublic(mod))
 			{
 				try
 				{

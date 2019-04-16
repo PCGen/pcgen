@@ -17,11 +17,8 @@
  */
 package plugin.lsttokens.campaign;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractCampaignTokenTestCase;
 
@@ -42,12 +39,6 @@ public class LstexcludeTokenTest extends AbstractCampaignTokenTestCase
 		return '|';
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public ListKey<?> getListKey()
 	{
@@ -62,14 +53,12 @@ public class LstexcludeTokenTest extends AbstractCampaignTokenTestCase
 
 	@Override
 	public void testInvalidInputExcludeNoParen()
-			throws PersistenceLayerException
 	{
 		//Doens't get caught (not really a big deal?)
 	}
 
 	@Override
 	public void testInvalidInputIncludeNoParen()
-			throws PersistenceLayerException
 	{
 		//Doens't get caught (not really a big deal?)
 	}

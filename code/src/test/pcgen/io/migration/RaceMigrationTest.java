@@ -1,5 +1,4 @@
 /*
- * RaceMigrationTest.java
  * Copyright 2014 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,37 +14,31 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18/01/2014
- *
- * $Id$
  */
 package pcgen.io.migration;
 
-import junit.framework.TestCase;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * RaceMigrationTest checks the function of RaceMigration. 
- * 
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class RaceMigrationTest extends TestCase
+public class RaceMigrationTest
 {
 	
 	private String gameMode;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Override
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
-		super.setUp();
 		gameMode = SettingsHandler.getGame().getName();
 		MigrationRule raceRule = new MigrationRule(ObjectType.RACE, "OldKey1");
 		raceRule.setMaxVer("6.0.1");
@@ -67,38 +60,40 @@ public class RaceMigrationTest extends TestCase
 		SystemCollections.addToMigrationRulesList(raceRuleDiffGame, "modern");
 	}
 
-	@Override
+	@AfterEach
 	public void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();
-		super.tearDown();
+		gameMode = null;
 	}
-
 
 	/**
 	 * Test that rules for max version only are applied correctly.  
 	 */
+	@Test
 	public void testMaxVer()
 	{
-		assertEquals("NewKey1", RaceMigration.getNewRaceKey("OldKey1", new int[]{6,0,0}, gameMode));
-		assertEquals("OldKey1", RaceMigration.getNewRaceKey("OldKey1", new int[]{6,0,2}, gameMode));
+		assertEquals("NewKey1", RaceMigration.getNewRaceKey("OldKey1", new int[]{6, 0, 0}, gameMode));
+		assertEquals("OldKey1", RaceMigration.getNewRaceKey("OldKey1", new int[]{6, 0, 2}, gameMode));
 	}
 
 	/**
 	 * Check that migration rules for other game modes don't affect each other.  
 	 */
+	@Test
 	public void testNoCrossGameMode()
 	{
-		assertEquals("OldKey3", RaceMigration.getNewRaceKey("OldKey3", new int[]{6,0,0}, gameMode));
-		assertEquals("OldKey3", RaceMigration.getNewRaceKey("OldKey3", new int[]{5,17,0}, gameMode));
+		assertEquals("OldKey3", RaceMigration.getNewRaceKey("OldKey3", new int[]{6, 0, 0}, gameMode));
+		assertEquals("OldKey3", RaceMigration.getNewRaceKey("OldKey3", new int[]{5, 17, 0}, gameMode));
 	}
 
 	/**
 	 * Test that matches are case insensitive.  
 	 */
+	@Test
 	public void testCaseInsensitive()
 	{
-		assertEquals("NewKey1", RaceMigration.getNewRaceKey("OldKEY1", new int[]{6,0,0}, gameMode));
+		assertEquals("NewKey1", RaceMigration.getNewRaceKey("OldKEY1", new int[]{6, 0, 0}, gameMode));
 	}
 
 }

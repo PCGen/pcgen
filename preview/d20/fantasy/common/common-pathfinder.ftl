@@ -8,7 +8,7 @@
 <!-- Sense and Vision TYPE Abilities --><#t>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Sense[or]TYPE=Vision","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialAbilities , specialAbilities_has_next>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision.HASASPECT.Ability Bonus") = "Y")>
-${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision.ASPECT.Ability Bonus')}&nbsp;<#t>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision.ASPECT.Ability Bonus')} <#t>
 </#if>
 <#t>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision.HASASPECT.Vision") = "Y")>
@@ -21,22 +21,22 @@ ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialAbilities
 </#if>
 </#if>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision.HASASPECT.Ability Benefit") = "Y")>
-&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision.ASPECT.Ability Benefit')}<#t>
+ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sense.TYPE=Vision.ASPECT.Ability Benefit')}<#t>
 </#if>
 , <#t>
 </@loop>
 <!-- End Sense TYPE Abilities -->
-Perception&nbsp;${pcstring('SKILL.Perception.TOTAL.SIGN')}<#lt>
+Perception ${pcstring('SKILL.Perception.TOTAL.SIGN')}<#lt>
 </p>
 
 <!-- auras -->
 <#if (pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Aura","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
 <p>
 <!-- Aura TYPE Abilities -->
-<b>Aura&nbsp;</b><#t>
+<b>Aura </b><#t>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Aura","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialAbilities , specialAbilities_has_next>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura.HASASPECT.Ability Bonus") = "Y")>
-${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura.ASPECT.Ability Bonus')}&nbsp;<#t>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura.ASPECT.Ability Bonus')} <#t>
 </#if>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura.TYPE")?lower_case?contains("spelllike"))>
 <i>${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura')}</i><#t>
@@ -44,7 +44,7 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura.ASP
 ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura')}<#t>
 </#if>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura.HASASPECT.Ability Benefit") = "Y")>
-&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura.ASPECT.Ability Benefit')}<#t>
+ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Aura.ASPECT.Ability Benefit')}<#t>
 </#if>
 <#if (specialAbilities_has_next) >
 ,${' '}<#t>
@@ -63,101 +63,101 @@ ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialAbilities
 
 <!-- armor class -->
 <p>
-<b>AC</b>&nbsp;${pcstring('AC.Total')},&nbsp;<b>touch</b>&nbsp;${pcstring('AC.Touch')},&nbsp;<b>flat-footed</b>&nbsp;${pcstring('AC.Flatfooted')}&nbsp;(<#t>
+<b>AC</b> ${pcstring('AC.Total')}, <b>touch</b> ${pcstring('AC.Touch')}, <b>flat-footed</b> ${pcstring('AC.Flatfooted')} (<#t>
 <#t>
 <#if (pcstring("AC.Armor") = "0")>
 <#else>
-${pcstring('AC.Armor.SIGN')}&nbsp;armor<#t>
+${pcstring('AC.Armor.SIGN')} armor<#t>
 </#if>
 <#if (pcstring("AC.Armor") = "0")>
 <#else>
 <#if (pcvar("AC.Deflection") = 0 && pcvar("AC.Ability") = 0 && pcvar("AC.Dodge") = 0 && pcvar("AC.NaturalArmor") = 0 && pcvar("AC.Size") = 0 && pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
 <#else>
-,&nbsp;<#t>
+, <#t>
 </#if>
 </#if>
 <#t>
 <#if (pcstring("AC.Deflection") = "0")>
 <#else>
-${pcstring('AC.Deflection.SIGN')}&nbsp;deflection<#t>
+${pcstring('AC.Deflection.SIGN')} deflection<#t>
 </#if>
 <#if (pcstring("AC.Deflection") = "0")>
 <#else>
 <#if (pcvar("AC.Ability") = 0 && pcvar("AC.Dodge") = 0 && pcvar("AC.NaturalArmor") = 0 && pcvar("AC.Size") = 0 && pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
 <#else>
-,&nbsp;<#t>
+, <#t>
 </#if>
 </#if>
 <#t>
 <#if (pcstring("AC.Ability") = "0")>
 <#else>
-${pcstring('AC.Ability.SIGN')}&nbsp;Dex<#t>
+${pcstring('AC.Ability.SIGN')} Dex<#t>
 </#if>
 <#if (pcstring("AC.Ability") = "0")>
 <#else>
 <#if (pcvar("AC.Dodge") = 0 && pcvar("AC.NaturalArmor") = 0 && pcvar("AC.Size") = 0 && pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
 <#else>
-,&nbsp;<#t>
+, <#t>
 </#if>
 </#if>
 <#t>
 <#if (pcstring("AC.Dodge") = "0")>
 <#else>
-${pcstring('AC.Dodge.SIGN')}&nbsp;dodge<#t>
+${pcstring('AC.Dodge.SIGN')} dodge<#t>
 </#if>
 <#if (pcstring("AC.Dodge") = "0")>
 <#else>
 <#if (pcvar("AC.NaturalArmor") = 0 && pcvar("AC.Size") = 0 && pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
 <#else>
-,&nbsp;<#t>
+, <#t>
 </#if>
 </#if>
 <#t>
 <#if (pcstring("AC.NaturalArmor") = "0")>
 <#else>
-${pcstring('AC.NaturalArmor.SIGN')}&nbsp;natural<#t>
+${pcstring('AC.NaturalArmor.SIGN')} natural<#t>
 </#if>
 <#if (pcstring("AC.NaturalArmor") = "0")>
 <#else>
 <#if (pcvar("AC.Size") = 0 && pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
 <#else>
-,&nbsp;<#t>
+, <#t>
 </#if>
 </#if>
 <#t>
 <#if (pcstring("AC.Size") = "0")>
 <#else>
-${pcstring('AC.Size.SIGN')}&nbsp;size<#t>
+${pcstring('AC.Size.SIGN')} size<#t>
 </#if>
 <#if (pcstring("AC.Size") = "0")>
 <#else>
 <#if (pcvar("AC.Shield") = 0 && pcvar("AC.Misc") = 0) >
 <#else>
-,&nbsp;<#t>
+, <#t>
 </#if>
 </#if>
 <#t>
 <#if (pcstring("AC.Shield") = "0")>
 <#else>
-${pcstring('AC.Shield.SIGN')}&nbsp;shield<#t>
+${pcstring('AC.Shield.SIGN')} shield<#t>
 </#if>
 <#if (pcstring("AC.Shield") = "0")>
 <#else>
 <#if (pcstring("AC.Misc") = "0")>
 <#else>
-,&nbsp;<#t>
+, <#t>
 </#if>
 </#if>
 <#t>
 <#if (pcstring("AC.Misc") = "0")>
 <#else>
-${pcstring('AC.Misc.SIGN')}&nbsp;misc
+${pcstring('AC.Misc.SIGN')} misc
 </#if>
 )<#lt>
 </p>
 
 <!-- hit points -->
-<b>hp</b>&nbsp;${pcstring('HP')}&nbsp;(${pcstring('HITDICE.MEDIUM')})<#t>
+<b>hp</b> ${pcstring('HP')} (${pcstring('HITDICE.MEDIUM')})<#t>
 <#t>
 <!-- ModifyHP TYPE Abilities --><#t>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=ModifyHP","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialHitPoints , specialHitPoints_has_next>
@@ -165,11 +165,11 @@ ${pcstring('AC.Misc.SIGN')}&nbsp;misc
 ; <#lt>
 </#if>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialHitPoints}.TYPE=ModifyHP.HASASPECT.Ability Bonus") = "Y")>
-${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialHitPoints}.TYPE=ModifyHP.ASPECT.Ability Bonus')}&nbsp;<#t>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialHitPoints}.TYPE=ModifyHP.ASPECT.Ability Bonus')} <#t>
 </#if>
 ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialHitPoints}.TYPE=ModifyHP')}<#t>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialHitPoints}.TYPE=ModifyHP.HASASPECT.Ability Benefit") = "Y")>
-&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialHitPoints}.TYPE=ModifyHP.ASPECT.Ability Benefit')}<#t>
+ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialHitPoints}.TYPE=ModifyHP.ASPECT.Ability Benefit')}<#t>
 </#if>
 <#if (specialHitPoints_has_next) >
 ; <#lt>
@@ -178,11 +178,11 @@ ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialHitPoints
 <!-- End ModifyHP TYPE Abilities -->
 <br>
 <#t>
-<b>Fort</b>&nbsp;${pcstring('CHECK.FORTITUDE.TOTAL')},&nbsp;<b>Ref</b>&nbsp;${pcstring('CHECK.REFLEX.TOTAL')},&nbsp;<b>Will</b>&nbsp;${pcstring('CHECK.2.TOTAL')}<#t>
+<b>Fort</b> ${pcstring('CHECK.FORTITUDE.TOTAL')}, <b>Ref</b> ${pcstring('CHECK.REFLEX.TOTAL')}, <b>Will</b> ${pcstring('CHECK.2.TOTAL')}<#t>
 <#t>
 <!-- SaveBonus TYPE Abilities --><#t>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","ASPECT=SaveBonus","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; savebonus , savebonus_has_next>
-,&nbsp;${pcstring('ABILITYALL.ANY.VISIBLE.${savebonus}.ASPECT=SaveBonus.ASPECT.SaveBonus')}<#t>
+, ${pcstring('ABILITYALL.ANY.VISIBLE.${savebonus}.ASPECT=SaveBonus.ASPECT.SaveBonus')}<#t>
 </@loop>
 <br>
 <!-- End SaveBonus TYPE Abilities -->
@@ -192,14 +192,14 @@ ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialHitPoints
 <!-- Defensive TYPE Abilities -->
 <#if (pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Defensive","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
 <@compress single_line=true>
-<b>Defensive&nbsp;Abilities</b>${" "}<#t>
+<b>Defensive Abilities</b>${" "}<#t>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Defensive","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; defensiveAbilities , defensiveAbilities_has_next>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${defensiveAbilities}.TYPE=Defensive.HASASPECT.Ability Bonus") = "Y")>
-${pcstring('ABILITYALL.Special Ability.VISIBLE.${defensiveAbilities}.TYPE=Defensive.ASPECT.Ability Bonus')}&nbsp;<#t>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${defensiveAbilities}.TYPE=Defensive.ASPECT.Ability Bonus')} <#t>
 </#if>
 ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${defensiveAbilities}.TYPE=Defensive')}<#t>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${defensiveAbilities}.TYPE=Defensive.HASASPECT.Ability Benefit") = "Y")>
-&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${defensiveAbilities}.TYPE=Defensive.ASPECT.Ability Benefit')}<#t>
+ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${defensiveAbilities}.TYPE=Defensive.ASPECT.Ability Benefit')}<#t>
 </#if>
 <#if (defensiveAbilities_has_next) >
 ,${' '}<#t>
@@ -222,10 +222,10 @@ ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${defensiveAbiliti
 <!-- Immunity TYPE Abilities -->
 <@compress single_line=true>
 <#if (pcvar('countdistinct("ABILITIES","TYPE=Immunity","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
-<b>Immune&nbsp;</b><#t>
+<b>Immune </b><#t>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Immunity","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; immunities , immunities_has_next>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity.HASASPECT.Ability Bonus") = "Y")>
-${pcstring('ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity.ASPECT.Ability Bonus')}&nbsp;<#t>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity.ASPECT.Ability Bonus')} <#t>
 </#if>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity.HASASPECT.Immunity") = "Y")>
 ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity.ASPECT.Immunity')}<#t>
@@ -233,7 +233,7 @@ ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE
 ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity')}<#t>
 </#if>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity.HASASPECT.Ability Benefit") = "Y")>
-&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity.ASPECT.Ability Benefit')}<#t>
+ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE=Immunity.ASPECT.Ability Benefit')}<#t>
 </#if>
 <#if (immunities_has_next) >
 ,${" "}
@@ -250,10 +250,10 @@ ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${immunities}.TYPE
 
 <!-- Resistance TYPE Abilities -->
 <#if (pcvar('countdistinct("ABILITIES","TYPE=Resistance","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
-<b>Resist&nbsp;</b>
+<b>Resist </b>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Resistance","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; resistances , resistances_has_next>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance.HASASPECT.Ability Bonus") = "Y")>
-${pcstring('ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance.ASPECT.Ability Bonus')}&nbsp;
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance.ASPECT.Ability Bonus')} 
 </#if>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance.HASASPECT.Resistance") = "Y")>
 ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance.ASPECT.Resistance')}
@@ -261,7 +261,7 @@ ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${resistances}.TYP
 ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance')}
 </#if>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance.HASASPECT.Ability Benefit") = "Y")>
-&nbsp; ${pcstring('ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance.ASPECT.Ability Benefit')}
+  ${pcstring('ABILITYALL.Special Ability.VISIBLE.${resistances}.TYPE=Resistance.ASPECT.Ability Benefit')}
 </#if>
 <#if (resistances_has_next) >
 ,${' '}
@@ -286,14 +286,14 @@ ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${resistances}.TYP
 <!-- Weakness TYPE Abilities -->
 <#if (pcvar('countdistinct("ABILITIES","TYPE=Weakness","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
 <@compress single_line=true>
-<b>Weaknesses&nbsp;</b><#t>
+<b>Weaknesses </b><#t>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Weakness","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; weaknesses , weaknesses_has_next>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${weaknesses}.TYPE=Weakness.HASASPECT.Ability Bonus") = "Y")>
-${pcstring('ABILITYALL.Special Ability.VISIBLE.${weaknesses}.TYPE=Weakness.ASPECT.Ability Bonus')}&nbsp;<#t>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${weaknesses}.TYPE=Weakness.ASPECT.Ability Bonus')} <#t>
 </#if>
 ${pcstring('ABILITYALL.Special Ability.VISIBLE.${weaknesses}.TYPE=Weakness')}<#t>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${weaknesses}.TYPE=Weakness.HASASPECT.Ability Benefit") = "Y")>
-&nbsp; ${pcstring('ABILITYALL.Special Ability.VISIBLE.${weaknesses}.TYPE=Weakness.ASPECT.Ability Benefit')}<#t>
+  ${pcstring('ABILITYALL.Special Ability.VISIBLE.${weaknesses}.TYPE=Weakness.ASPECT.Ability Benefit')}<#t>
 </#if>
 ,${' '}<#t>
 </@loop>
@@ -342,21 +342,21 @@ ${" "}(${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.HIDDEN.0.TYPE=Maneu
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Feat","TYPE=ModifyMovement","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; movementAbilities , movementAbilities_has_next>
 ,${' '}<#t>
 <#if (pcstring("ABILITYALL.Feat.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.HASASPECT.Ability Bonus") = "Y")>
-${pcstring('ABILITYALL.Feat.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.ASPECT.Ability Bonus')}&nbsp;<#t>
+${pcstring('ABILITYALL.Feat.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.ASPECT.Ability Bonus')} <#t>
 </#if>
 ${pcstring('ABILITYALL.Feat.VISIBLE.${movementAbilities}.TYPE=ModifyMovement')}
 <#if (pcstring("ABILITYALL.Feat.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.HASASPECT.Ability Benefit") = "Y")>
-&nbsp;${pcstring('ABILITYALL.Feat.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.ASPECT.Ability Benefit')}<#t>
+ ${pcstring('ABILITYALL.Feat.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.ASPECT.Ability Benefit')}<#t>
 </#if>
 </@loop>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=ModifyMovement","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; movementAbilities , movementAbilities_has_next>
 ,${' '}<#t>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.HASASPECT.Ability Bonus") = "Y")>
-${pcstring('ABILITYALL.Special Ability.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.ASPECT.Ability Bonus')}&nbsp;<#t>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.ASPECT.Ability Bonus')} <#t>
 </#if>
 ${pcstring('ABILITYALL.Special Ability.VISIBLE.${movementAbilities}.TYPE=ModifyMovement')}
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.HASASPECT.Ability Benefit") = "Y")>
-&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.ASPECT.Ability Benefit')}<#t>
+ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${movementAbilities}.TYPE=ModifyMovement.ASPECT.Ability Benefit')}<#t>
 </#if>
 </@loop>
 </@compress>
@@ -369,20 +369,20 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${movementAbilities}.TYPE=ModifyM
 <@loop from=0 to=pcvar('COUNT[EQTYPE.Weapon]-1') ; weap , weap_has_next>
 <#if (pcstring("WEAPON.${weap}.HAND") != "Equipped")>
 <#if (pcstring("WEAPON.${weap}.NAME") = "Swarm")>
-<b>Melee&nbsp;</b><i>${pcstring('TEXT.LOWER.WEAPON.${weap}.NAME.NOSTAR')}&nbsp;</i>&nbsp;(${pcstring('WEAPON.${weap}.DAMAGE')})<#t>
+<b>Melee </b><i>${pcstring('TEXT.LOWER.WEAPON.${weap}.NAME.NOSTAR')} </i> (${pcstring('WEAPON.${weap}.DAMAGE')})<#t>
 <#else>
 <#if (pcboolean("WEAPON.${weap}.ISTYPE.Ranged")) >
-<b>Ranged&nbsp;</b><#t>
+<b>Ranged </b><#t>
 <#else>
-<b>Melee&nbsp;</b><#t>
+<b>Melee </b><#t>
 </#if>
 <#if (pcstring("WEAPON.${weap}.TYPE")?lower_case?contains("magic"))>
-<i>${pcstring('TEXT.LOWER.WEAPON.${weap}.NAME.NOSTAR')}&nbsp;</i><#t>
+<i>${pcstring('TEXT.LOWER.WEAPON.${weap}.NAME.NOSTAR')} </i><#t>
 <#else>
-${pcstring('TEXT.LOWER.WEAPON.${weap}.NAME.NOSTAR')}&nbsp;<#t>
+${pcstring('TEXT.LOWER.WEAPON.${weap}.NAME.NOSTAR')} <#t>
 </#if>
 <#if (pcstring("WEAPON.${weap}.BASEHIT") = pcstring("INVALIDTEXT.TOHIT"))>
-(two&nbsp;handed)&nbsp;${pcstring('WEAPON.${weap}.THHIT')}&nbsp;((two&nbsp;handed)&nbsp;${pcstring('WEAPON.${weap}.THDAMAGE')}<#t>
+(two handed) ${pcstring('WEAPON.${weap}.THHIT')} ((two handed) ${pcstring('WEAPON.${weap}.THDAMAGE')}<#t>
 <#if (pcstring('WEAPON.${weap}.CRIT')?length = 2)>
 <#else>
 /${pcstring('WEAPON.${weap}.CRIT')}<#t>
@@ -393,9 +393,8 @@ ${pcstring('TEXT.LOWER.WEAPON.${weap}.NAME.NOSTAR')}&nbsp;<#t>
 </#if>
 )<#t>
 <#else>
-${pcstring('WEAPON.${weap}.BASEHIT')}&nbsp;<#t>
-
-<#if (pcstring("WEAPON.${weap}.TYPE")?lower_case?contains("ranged")) >
+${pcstring('WEAPON.${weap}.BASEHIT')} <#t>
+<#if (pcboolean("WEAPON.${weap}.ISTYPE.Ranged")) >
 (${pcstring('WEAPON.${weap}.RANGELIST.1.DAMAGE')}<#t>
 <#else>
 (${pcstring('WEAPON.${weap}.DAMAGE')}<#t>
@@ -410,7 +409,7 @@ ${pcstring('WEAPON.${weap}.BASEHIT')}&nbsp;<#t>
 </#if>
 )<#t>
 <#if (pcstring("WEAPON.${weap}.TYPE")?lower_case?contains("ranged") && (pcboolean('VAR.HASFEAT:Point-Blank Shot') || pcboolean('VAR.HASFEAT:Point Blank Shot'))) >
-,&nbsp;within&nbsp;30&nbsp;ft.&nbsp;${pcstring('WEAPON.${weap}.RANGELIST.0.BASEHIT')}&nbsp;(${pcstring('WEAPON.${weap}.RANGELIST.0.DAMAGE')})<#t>
+, within 30 ft. ${pcstring('WEAPON.${weap}.RANGELIST.0.BASEHIT')} (${pcstring('WEAPON.${weap}.RANGELIST.0.DAMAGE')})<#t>
 </#if>
 </#if>
 </#if>
@@ -432,14 +431,14 @@ ${pcstring('WEAPON.${weap}.BASEHIT')}&nbsp;<#t>
 <#if (pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
 <p>
 <@compress single_line=true>
-<b>Special&nbsp;Attacks&nbsp;</b><#t>
+<b>Special Attacks </b><#t>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=SpecialAttack","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialActions , specialActions_has_next>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpecialAttack.HASASPECT.Ability Bonus") = "Y")>
-${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpecialAttack.ASPECT.Ability Bonus')}&nbsp;<#t>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpecialAttack.ASPECT.Ability Bonus')} <#t>
 </#if>
 ${pcstring('TEXT.LOWERCASE.ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpecialAttack')}<#t>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpecialAttack.HASASPECT.Ability Benefit") = "Y")>
-&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpecialAttack.ASPECT.Ability Benefit')}<#t>
+ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpecialAttack.ASPECT.Ability Benefit')}<#t>
 </#if>
 <#if (specialActions_has_next) >
 ,${' '}<#t>
@@ -488,7 +487,7 @@ ${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES')}/${pcstring
 DC ${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')},<#t>
 </#if>
 <#if (pcstring("SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES")?contains("Will"))>
-at&nbsp;will)<#t>
+at will)<#t>
 <#else>
 ${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES')}/${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMEUNIT')})<#t>
 </#if>
@@ -508,11 +507,11 @@ ${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES')}/${pcstring
 <@compress single_line=true>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=SpellLike.DomainPower","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialActions , specialActions_has_next>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpellLike.DomainPower.HASASPECT.Ability Bonus") = "Y")>
-${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpellLike.DomainPower.ASPECT.Ability Bonus')}&nbsp;<#t>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpellLike.DomainPower.ASPECT.Ability Bonus')} <#t>
 </#if>
 ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpellLike.DomainPower')}<#t>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpellLike.DomainPower.HASASPECT.Ability Benefit") = "Y")>
-&nbsp;${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpellLike.DomainPower.ASPECT.Ability Benefit')}<#t>
+ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpellLike.DomainPower.ASPECT.Ability Benefit')}<#t>
 </#if>
 <#if specialActions_has_next >
 ,${' '}<#t>
@@ -538,9 +537,9 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpellLike.
 <#else>
 <p class="spells"><@compress single_line=true>
 <#if (level = 0)>
-0&nbsp;(at&nbsp;will)<#t>
+0 (at will)<#t>
 <#else>
-<@suffixnum num=level/>&nbsp;(${pcstring('SPELLLISTCAST.${class}.${level}')}/day)<#t>
+<@suffixnum num=level/> (${pcstring('SPELLLISTCAST.${class}.${level}')}/day)<#t>
 </#if>
 &mdash;<#t>
 <@loop from=0 to=pcvar('COUNT[SPELLSINBOOK.${class}.0.${level}]-2') ; spell , spell_has_next>
@@ -548,16 +547,16 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialActions}.TYPE=SpellLike.
  <#assign saveinfo = pcstring('SPELLMEM.${class}.0.${level}.${spell}.SAVEINFO')?lower_case /> 
  <#if (saveinfo?contains("none") || saveinfo?contains("harmless") || pcstring("SPELLMEM.${class}.0.${level}.${spell}.RANGE")?lower_case?contains("personal"))>
  <#else>
-&nbsp;(DC&nbsp;${pcstring('SPELLMEM.${class}.0.${level}.${spell}.DC')})<#t>
+ (DC ${pcstring('SPELLMEM.${class}.0.${level}.${spell}.DC')})<#t>
  </#if>
-,&nbsp;<#t>
+, <#t>
 </@loop>
 <@loop from=pcvar('COUNT[SPELLSINBOOK.${class}.0.${level}]-1') to=pcvar('COUNT[SPELLSINBOOK.${class}.0.${level}]-1') ; spell , spell_has_next>
 ${pcstring('SPELLMEM.${class}.0.${level}.${spell}.BONUSSPELL')}<i>${pcstring('TEXT.LOWER.SPELLMEM.${class}.0.${level}.${spell}.NAME')}</i><#t>
  <#assign saveinfo = pcstring('SPELLMEM.${class}.0.${level}.${spell}.SAVEINFO')?lower_case /> 
  <#if (saveinfo?contains("none") || saveinfo?contains("harmless") || pcstring("SPELLMEM.${class}.0.${level}.${spell}.RANGE")?lower_case?contains("personal"))>
  <#else>
-&nbsp;(DC&nbsp;${pcstring('SPELLMEM.${class}.0.${level}.${spell}.DC')})<#t>
+ (DC ${pcstring('SPELLMEM.${class}.0.${level}.${spell}.DC')})<#t>
  </#if>
 </@loop>
 </@compress>
@@ -585,7 +584,7 @@ ${pcstring('SPELLMEM.${class}.0.${level}.${spell}.BONUSSPELL')}<i>${pcstring('TE
  <#else>
 <p class="spells"><@compress single_line=true>
   <#if (level = 0)>
-0${' '}(at&nbsp;will)<#t>
+0${' '}(at will)<#t>
   <#else>
 <@suffixnum num=level /><#t>
   </#if>
@@ -607,7 +606,7 @@ ${' '}(${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.TIMES')})<#t
    <#assign saveinfo = pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.SAVEINFO')?lower_case /> 
    <#if (saveinfo?contains("none") || saveinfo?contains("harmless") || pcstring("SPELLMEM.${class}.${spellbook}.${level}.${spell}.RANGE")?lower_case?contains("personal"))>
    <#else>
- ${' '}(DC&nbsp;${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')})<#t>
+ ${' '}(DC ${pcstring('SPELLMEM.${class}.${spellbook}.${level}.${spell}.DC')})<#t>
    </#if>
    <#if (spell_has_next)>
 ,${' '}<#t>
@@ -654,7 +653,7 @@ ${pcstring('DOMAIN.${domain}')}<#t>
 <p>
 <@loop from=0 to=pcvar('COUNT[NOTES]-1') ; note, note_has_next>
 <#if (pcstring("NOTE.${note}.NAME") = "Before Combat")>
-<b>Before&nbsp;Combat</b>${' '}${pcstring('NOTE.${note}.VALUE')}
+<b>Before Combat</b>${' '}${pcstring('NOTE.${note}.VALUE')}
 </#if>
 </@loop>
 </p>
@@ -662,7 +661,7 @@ ${pcstring('DOMAIN.${domain}')}<#t>
 <p>
 <@loop from=0 to=pcvar('COUNT[NOTES]-1') ; note, note_has_next>
 <#if (pcstring("NOTE.${note}.NAME") = "During Combat")>
-<b>During&nbsp;Combat</b>${' '}${pcstring('NOTE.${note}.VALUE')}
+<b>During Combat</b>${' '}${pcstring('NOTE.${note}.VALUE')}
 </#if>
 </@loop>
 </p>
@@ -699,73 +698,73 @@ ${pcstring('STAT.${stat}')}<#t>
 <br>
 
 <@compress single_line=true>
-<b>Base&nbsp;Atk</b>&nbsp;${pcstring('ATTACK.MELEE.BASE')};&nbsp;<#t>
+<b>Base Atk</b> ${pcstring('ATTACK.MELEE.BASE')}; <#t>
 <#if (pcvar("UseCombatManueverBonus") = 1)>
  <#assign useAPGCombatManuevers = (pcvar("UseAPGCombatManuevers") = 1) />
- <b>CMB</b>&nbsp;${pcstring('VAR.CMB.INTVAL.SIGN')}<#t>
+ <b>CMB</b> ${pcstring('VAR.CMB.INTVAL.SIGN')}<#t>
  <#if (pcvar("CMB") != pcvar("CMB_BullRush")) >
-&nbsp;(${pcstring('VAR.CMB_BullRush.INTVAL.SIGN')}&nbsp;bull&nbsp;rush)<#t>
+ (${pcstring('VAR.CMB_BullRush.INTVAL.SIGN')} bull rush)<#t>
 </#if>
  <#if (useAPGCombatManuevers && pcvar("CMB") != pcvar("CMB_DirtyTricks")) >
-&nbsp;(${pcstring('VAR.CMB_DirtyTricks.INTVAL.SIGN')}&nbsp;dirty&nbsp;tricks)<#t>
+ (${pcstring('VAR.CMB_DirtyTricks.INTVAL.SIGN')} dirty tricks)<#t>
  </#if>
  <#if (pcvar("CMB") != pcvar("CMB_Disarm")) >
-&nbsp;(${pcstring('VAR.CMB_Disarm.INTVAL.SIGN')}&nbsp;disarm)<#t>
+ (${pcstring('VAR.CMB_Disarm.INTVAL.SIGN')} disarm)<#t>
  </#if>
  <#if (useAPGCombatManuevers && pcvar("CMB") != pcvar("CMB_Drag")) >
-&nbsp;(${pcstring('VAR.CMB_Drag.INTVAL.SIGN')}&nbsp;drag)<#t>
+ (${pcstring('VAR.CMB_Drag.INTVAL.SIGN')} drag)<#t>
  </#if>
  <#if (pcvar("CMB") != pcvar("CMB_Grapple")) >
-&nbsp;(${pcstring('VAR.CMB_Grapple.INTVAL.SIGN')}&nbsp;grapple)<#t>
+ (${pcstring('VAR.CMB_Grapple.INTVAL.SIGN')} grapple)<#t>
  </#if>
  <#if (pcvar("CMB") != pcvar("CMB_Overrun")) >
-&nbsp;(${pcstring('VAR.CMB_Overrun.INTVAL.SIGN')}&nbsp;overrun)<#t>
+ (${pcstring('VAR.CMB_Overrun.INTVAL.SIGN')} overrun)<#t>
  </#if>
  <#if (useAPGCombatManuevers && pcvar("CMB") != pcvar("CMB_Reposition"))>
-&nbsp;(${pcstring('VAR.CMB_Reposition.INTVAL.SIGN')}&nbsp;reposition)<#t>
+ (${pcstring('VAR.CMB_Reposition.INTVAL.SIGN')} reposition)<#t>
  </#if>
  <#if (useAPGCombatManuevers && pcvar("CMB") != pcvar("CMB_Steal"))>
-&nbsp;(${pcstring('VAR.CMB_Steal.INTVAL.SIGN')}&nbsp;steal)<#t>
+ (${pcstring('VAR.CMB_Steal.INTVAL.SIGN')} steal)<#t>
  </#if>
  <#if (pcvar("CMB") != pcvar("CMB_Sunder")) >
-&nbsp;(${pcstring('VAR.CMB_Sunder.INTVAL.SIGN')}&nbsp;sunder)<#t>
+ (${pcstring('VAR.CMB_Sunder.INTVAL.SIGN')} sunder)<#t>
  </#if>
  <#if (pcvar("CMB") != pcvar("CMB_Trip")) >
-&nbsp;(${pcstring('VAR.CMB_Trip.INTVAL.SIGN')}&nbsp;trip)<#t>
+ (${pcstring('VAR.CMB_Trip.INTVAL.SIGN')} trip)<#t>
  </#if>
  <#if (pcvar("CMD") > 0) >
-<b>;&nbsp;CMD</b>&nbsp;${pcstring('VAR.CMD.INTVAL')}<#t>
+<b>; CMD</b> ${pcstring('VAR.CMD.INTVAL')}<#t>
   <#if (pcvar("CMD") != pcvar("CMD_BullRush")) >
-&nbsp;(${pcstring('VAR.CMD_BullRush.INTVAL')}&nbsp;vs.&nbsp;bull&nbsp;rush)<#t>
+ (${pcstring('VAR.CMD_BullRush.INTVAL')} vs. bull rush)<#t>
   </#if>
   <#if (useAPGCombatManuevers && pcvar("CMD") != pcvar("CMD_DirtyTricks")) >
-&nbsp;(${pcstring('VAR.CMD_DirtyTricks.INTVAL')}&nbsp;vs.&nbsp;dirty&nbsp;tricks)<#t>
+ (${pcstring('VAR.CMD_DirtyTricks.INTVAL')} vs. dirty tricks)<#t>
   </#if>
   <#if (pcvar("CMD") != pcvar("CMD_Disarm")) >
-&nbsp;(${pcstring('VAR.CMD_Disarm.INTVAL')}&nbsp;vs.&nbsp;disarm)<#t>
+ (${pcstring('VAR.CMD_Disarm.INTVAL')} vs. disarm)<#t>
   </#if>
   <#if (useAPGCombatManuevers && pcvar("CMD") != pcvar("CMD_Drag")) >
-&nbsp;(${pcstring('VAR.CMD_Drag.INTVAL')}&nbsp;vs.&nbsp;drag)<#t>
+ (${pcstring('VAR.CMD_Drag.INTVAL')} vs. drag)<#t>
   </#if>
   <#if (pcvar("CMD") != pcvar("CMD_Grapple")) >
-&nbsp;(${pcstring('VAR.CMD_Grapple.INTVAL')}&nbsp;vs.&nbsp;grapple)<#t>
+ (${pcstring('VAR.CMD_Grapple.INTVAL')} vs. grapple)<#t>
   </#if>
   <#if (pcvar("CMD") != pcvar("CMD_Overrun")) >
-&nbsp;(${pcstring('VAR.CMD_Overrun.INTVAL')}&nbsp;vs.&nbsp;overrun)<#t>
+ (${pcstring('VAR.CMD_Overrun.INTVAL')} vs. overrun)<#t>
   </#if>
   <#if (useAPGCombatManuevers && pcvar("CMD") != pcvar("CMD_Reposition")) >
-&nbsp;(${pcstring('VAR.CMD_Reposition.INTVAL')}&nbsp;vs.&nbsp;reposition)<#t>
+ (${pcstring('VAR.CMD_Reposition.INTVAL')} vs. reposition)<#t>
   </#if>
   <#if (useAPGCombatManuevers && pcvar("CMD") != pcvar("CMD_Steal")) >
-&nbsp;(${pcstring('VAR.CMD_Steal.INTVAL')}&nbsp;vs.&nbsp;steal)<#t>
+ (${pcstring('VAR.CMD_Steal.INTVAL')} vs. steal)<#t>
   </#if>
   <#if (pcvar("CMD") != pcvar("CMD_Sunder")) >
-&nbsp;(${pcstring('VAR.CMD_Sunder.INTVAL')}&nbsp;vs.&nbsp;sunder)<#t>
+ (${pcstring('VAR.CMD_Sunder.INTVAL')} vs. sunder)<#t>
   </#if>
   <#if (pcvar("CantBeTripped") != 0) >
-&nbsp;(can't&nbsp;be&nbsp;tripped)<#t>
+ (can't be tripped)<#t>
   <#elseif (pcvar("CMD") != pcvar("CMD_Trip")) >
-&nbsp;(${pcstring('VAR.CMD_Trip.INTVAL')}&nbsp;vs.&nbsp;trip)<#t>
+ (${pcstring('VAR.CMD_Trip.INTVAL')} vs. trip)<#t>
   </#if>
  </#if>
 <#else>
@@ -783,7 +782,7 @@ ${pcvar('VAR.(STR+BAB+(SIZE-4)+(SIZE-4)+(SIZE-4)+(SIZE-4)+(ATTACK.GRAPPLE.MISC))
 <p>
 <@compress single_line=true>
 <#if (pcvar("COUNT[FEATSALL.VISIBLE]") > 0) >
-<b>Feats&nbsp;</b><#t>
+<b>Feats </b><#t>
 <@loop from=0 to=pcvar('COUNT[FEATSALL.VISIBLE]-1') ; feat , feat_has_next>
 ${pcstring("FEATALL.VISIBLE.${feat}")}<#t>
 <#if (feat_has_next) >
@@ -835,21 +834,21 @@ ${' '}${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Tr
 <#macro communicationBlock>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialAbilities , specialAbilities_has_next>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Communicate.HASASPECT.Ability Bonus") = "Y")>
-${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Communicate.ASPECT.Ability Bonus')}&nbsp;<#t>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Communicate.ASPECT.Ability Bonus')} <#t>
 </#if>
 ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Communicate')}<#t>
 <#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Communicate.HASASPECT.Ability Benefit") = "Y")>
-&nbsp; ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Communicate.ASPECT.Ability Benefit')}<#t>
+  ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Communicate.ASPECT.Ability Benefit')}<#t>
 </#if>
 ,${' '}<#t>
 </@loop>
 <@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Feat","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; specialAbilities , specialAbilities_has_next>
 <#if (pcstring("ABILITYALL.Feat.VISIBLE.${specialAbilities}.TYPE=Communicate.HASASPECT.Ability Bonus") = "Y")>
-${pcstring('ABILITYALL.Feat.VISIBLE.${specialAbilities}.TYPE=Communicate.ASPECT.Ability Bonus')}&nbsp;<#t>
+${pcstring('ABILITYALL.Feat.VISIBLE.${specialAbilities}.TYPE=Communicate.ASPECT.Ability Bonus')} <#t>
 </#if>
 ${pcstring('ABILITYALL.Feat.VISIBLE.${specialAbilities}.TYPE=Communicate')}<#t>
 <#if (pcstring("ABILITYALL.Feat.VISIBLE.${specialAbilities}.TYPE=Communicate.HASASPECT.Ability Benefit") = "Y")>
-&nbsp; ${pcstring('ABILITYALL.Feat.VISIBLE.${specialAbilities}.TYPE=Communicate.ASPECT.Ability Benefit')}<#t>
+  ${pcstring('ABILITYALL.Feat.VISIBLE.${specialAbilities}.TYPE=Communicate.ASPECT.Ability Benefit')}<#t>
 </#if>
 ,${' '}<#t>
 </@loop>
@@ -859,13 +858,13 @@ ${pcstring('ABILITYALL.Feat.VISIBLE.${specialAbilities}.TYPE=Communicate')}<#t>
 <@compress single_line=true>
 <#if pcstring("LANGUAGES")?length = 0 >
  <#if (pcvar('countdistinct("ABILITIES","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
-<b>Communication</b>&nbsp;<#t>
+<b>Communication</b> <#t>
  <@communicationBlock />
 <br><#t>
  </#if>
 <#else>
 <p><#t>
-<b>Languages</b>&nbsp;${pcstring('LANGUAGES')}<#t>
+<b>Languages</b> ${pcstring('LANGUAGES')}<#t>
  <#if (pcvar('countdistinct("ABILITIES","TYPE=Communicate","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
 ,${' '}<#t>
  </#if>
@@ -901,7 +900,7 @@ ${' '}${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialAbilities}.TYPE=Sp
 <!-- Animal Tricks TYPE Abilities -->
 <@compress single_line=true>
 <#if (pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=AnimalTrick","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
-<b>Animal&nbsp;Tricks</b>${' '}${pcstring('ABILITYALLLIST.Special Ability.VISIBLE.TYPE=AnimalTrick')}<br><#t>
+<b>Animal Tricks</b>${' '}${pcstring('ABILITYALLLIST.Special Ability.VISIBLE.TYPE=AnimalTrick')}<br><#t>
 </#if>
 </@compress>
 <!-- End Animal Tricks TYPE Abilities -->
@@ -927,7 +926,7 @@ ${pcstring('ABILITYALL.Afflictions.VISIBLE.${affliction}.TYPE=Affliction')}
 <@compress single_line=true><#-- TODO: Add <#t> at the end of each following line with output to ensure no extra spaces are output. -->
 <!-- Combat Gear --><#t>
 <#if (pcvar('var("COUNT[EQUIPMENT.IS.Consumable]")') > 0)>
-<b>Combat&nbsp;Gear</b>${' '}<#t>
+<b>Combat Gear</b>${' '}<#t>
 <@loop from=0 to=pcvar('COUNT[EQUIPMENT.IS.Consumable]-1') ; equip , equip_has_next> 
 <#if (pcstring("EQTYPE.Consumable.${equip}.TYPE")?lower_case?contains("magic"))>
 <i>${pcstring('TEXT.LOWER.EQTYPE.Consumable.${equip}.NAME')}</i><#t>
@@ -941,7 +940,7 @@ ${' '}(${pcstring('EQTYPE.Consumable.${equip}.QTY')})<#t>
 ,${' '}<#t>
 </#if>
 </@loop>
-;${' '}<b>Other&nbsp;</b><#t>
+;${' '}<b>Other </b><#t>
 </#if>
 <b>Gear</b>${' '}<#t>
 <!-- Armor -->

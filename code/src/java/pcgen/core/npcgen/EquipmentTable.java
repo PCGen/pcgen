@@ -1,5 +1,4 @@
 /*
- * EquipmentTable.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.npcgen;
 
@@ -30,41 +28,41 @@ public class EquipmentTable extends Table
 {
 	private static HashMap<String, EquipmentTable> theTables = null;
 
-	public EquipmentTable( final String anId )
+	public EquipmentTable(final String anId)
 	{
-		super( anId );
+		super(anId);
 	}
-	
+
 	public List<Equipment> getEquipment()
 	{
 		final List<Equipment> ret = new ArrayList<>();
-		
+
 		final TableEntry entry = getEntry();
 		Logging.debugPrint("Table: " + this + " -> " + entry);
 		final List<Object> items = entry.getData();
-		for ( final Object item : items )
+		for (final Object item : items)
 		{
-			final EquipmentItem eqItem = (EquipmentItem)item;
+			final EquipmentItem eqItem = (EquipmentItem) item;
 			ret.addAll(eqItem.getEquipment());
 		}
 		return ret;
 	}
-	
-	public static EquipmentTable get( final String anId )
-	{ 
-		if ( theTables == null )
+
+	public static EquipmentTable get(final String anId)
+	{
+		if (theTables == null)
 		{
 			return null;
 		}
-		return theTables.get( anId );
+		return theTables.get(anId);
 	}
-	
-	public static void addTable( final EquipmentTable aTable )
+
+	public static void addTable(final EquipmentTable aTable)
 	{
-		if ( theTables == null )
+		if (theTables == null)
 		{
 			theTables = new HashMap<>();
 		}
-		theTables.put( aTable.getId(), aTable );
+		theTables.put(aTable.getId(), aTable);
 	}
 }

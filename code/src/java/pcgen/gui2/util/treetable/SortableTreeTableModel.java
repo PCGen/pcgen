@@ -1,5 +1,4 @@
 /*
- * SortableTreeTableModel.java
  * Copyright 2008 (C) Connor Petty <mistercpp2000@gmail.com>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,34 +15,11 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 20, 2008, 8:17:05 PM
  */
 package pcgen.gui2.util.treetable;
 
 import pcgen.gui2.util.SortableModel;
 
-/**
- *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
- */
 public interface SortableTreeTableModel extends TreeTableModel, SortableModel
 {
-
-//    public static class TreeNodeComparator implements Comparator<TreeTableNode>
-//    {
-//
-//        private Comparator<List<?>> comparator;
-//
-//        public TreeNodeComparator(Comparator<List<?>> comparator)
-//        {
-//            this.comparator = comparator;
-//        }
-//
-//    	@Override
-//        public int compare(TreeTableNode o1, TreeTableNode o2)
-//        {
-//            return comparator.compare(o1.getValues(), o2.getValues());
-//        }
-//
-//    }
 }

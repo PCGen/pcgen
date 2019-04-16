@@ -1,0 +1,76 @@
+LINK:  http://paizo.com/starfindersociety/additional
+
+Last updated Thursday, August 16, 2018 
+
+Dead Suns Adventure Path
+The Dead Suns Adventure Path is sanctioned for use in the Starfinder Society Roleplaying Guild.
+Download the Dead Suns Adventure Path rules and Chronicle sheets — (427 kb zip/PDF)
+
+Starfinder Adventure Path: Incident at Absalom Station
+Equipment: Noqual as listed in the sidebar on page 26, but only for ammunition and melee weapons; all items on pages 50-53, except Ungarato.
+
+Starfinder Adventure Path: Temple of the Twelve
+Equipment: All equipment in this book is legal for play. Spells: All spells in this book are legal for play. Misc.: The devastator connection is not legal for play.
+
+Starfinder Adventure Path: Splintered Worlds
+Equipment: All equipment in this book is legal for play except the grave wind necrograft.
+
+Starfinder Adventure Path #4: The Ruined Clouds
+Equipment: All equipment in this book is legal for play. Eohi boots must be worn for 24 hours before the wearer can benefit from their ability. A wearer cannot combine the full attack action associated with the eohi boots with any other class feature that might alter full attacks (such as flashing strikes or soldier’s onslaught.) The suggested alternate versions of the queller are not legal for play.
+
+Starfinder Adventure Path #5: The Thirteenth Gate
+Equipment: All equipment in this book is legal for play except for the Holdall Raiment. Relics do not sell for full resale value, but can be sold for 50% of their value instead of 10%. Relics do not come with ammunition (which must be purchased separately). Disruption equipment have serious downsides when used in environments that are not on the Material Plane (including the Drift) which are repeated here for GM reference:
+
+Disruption pistols and rifles expend twice the usage and have half the range when used on any plane other than the Material Plane. If used in the Drift, they deal damage to the user rather than the target on any attack roll of a natural 1. Disruption grenades work in a way similar to the rifles and pistols. Temporal disruption grenades, on the other hand, slow down the rate of subatomic movement, halting those affected by it for a short period of time but not otherwise damaging those within the blast. The radius of a disruption grenade’s explosion is reduced to 10 feet if it used on any plane other than the Material Plane. If used in the Drift, those caught in the blast radius can roll their saving throws twice and take the better result when attempting to halve the amount of damage taken or negate any secondary effects.
+
+Starfinder Adventure Path #6: Empire of Bones
+This book contains no additional character options.
+
+--Starfinder Rulebooks--
+
+Starfinder Alien Archive
+Equipment: All equipment in this book with a list item level and price is legal for play except 
+  aeon guard armor, aeon guard rifles, maze-core equipment, and the resilient jacket. 
+  Dragonglaives can only be wielded by Large creatures or creatures with Strength modifiers of at least +4.
+Spells: The summon creature spell (page 144) is legal for play. 
+  Players using this spell are encouraged to have ready statblocks for creatures they can summon via this spell.
+
+Starfinder Armory
+The Minor Equipment on page 5 is allowed, but items purchased in this manner have no mechanical benefit to a character.
+
+Weapons: All weapons in this book are legal for play with the following exceptions— all garrotes and vibrogarrotes;
+  warclub; elite living staff; advanced core hammer; all vibrogarrotes; and battle ribbon.
+  The correct price on the isothermal freeze ray is 165,000 credits and the correct distance
+  on the dart cannon is 150 feet. 
+Ammunition: All special ammunition, weapon crystals, and grenades in this book are legal for play. 
+Weapon Manufacturers: All weapon manufacturer modifications are legal for play except Ringworks Arsenal Group. In addition, the combining modifications guidelines on page 55 are not allowed. 
+Weapon Accessories: All weapon modifications except inertial dampeners are legal for play. 
+Weapon Fusions: All weapon fusions except for the charge disrupting, defending, and energetic fusions are legal for play. 
+Special Materials: All special material except djezet are legal for play.
+
+Armor: All armor and powered armor in this book are legal for play. The Brawler Frame has an item level of 9. 
+Armor Upgrades: All armor upgrades except for auto-injectors and computer interface are legal for play. The skill bonus granted by concealed compartments is considered a circumstance bonus.
+
+Biotech: All biotech augmentations are legal for play. The circumstance bonus granted by the clinging hands biotech augmentation does not stack with weapons that have the disarm or grapple weapon special properties. 
+Cybertech: All cybertech augmentations except echolocators are legal for play. 
+Magitech: All magitech augmentations except charming psychoactive eyes, fluttering heart, divining mirror neurons, and force palms are legal for play. 
+Necrografts: All necrograft augmentations except enervating hand and grave wind are legal for play.
+
+Technological Items: All technological items are legal for play. 
+Magic Items: All magic items except improvisation adornment, x-ray serum, techbane rod, mantle of willpower, and all listed artifacts are legal for play. 
+Hybrid Items: All hybrid items except animistic tools, computer idol, vital seed (beast), scrambler gloves, kinetic converter, vampiric charger, and containment grenade are legal for play. 
+Personal Items: All personal items except pheromonal perfume are legal for play. 
+Drugs, Medicinals, and Poisons: All drugs, medicinals, and poisons are legal for play. 
+Other Purchases: All other purchases except starship crews and starship officers, as well as transportation services are legal for play. 
+Vehicles: All vehicles except ultralight turboglider, stealth sub, aerial mining rid, and the ultimatum hover carrier are level for play.
+
+Class Options: All class options are legal for play with the following exceptions—the lightning reload exploit, the pistol whip exploit, the particle wave revelation, and the incompetence spell.
+
+Starfinder Pact Worlds
+Themes: All themes in this book are legal for play. 
+Archetypes: All archetypes in this book are legal for play. Replace the final paragraph of the Arcanamirium sage's Magic Item Scholar ability with the following: "Additionally, you can treat your character level as 1 higher for the purpose of purchasing hybrid or magic items; this does not stack with other abilities that increase your effective level when purchasing items." The biotechnician's discount on biotech augmentations from the industry connections ability does not stack with discounts from boons. For the divine champion archetype, when selecting a connection for the lesser divine power ability, you must select a connection that has your deity listed in the "Associated Deities" header. 
+Feats: All feats in this book are legal for play. 
+Equipment: All equipment in this book is legal for play except for the greater grandchilds cloak armor upgrade and the mature xenolash weapon. 
+Spells: All spells in this book are legal for play except for mental block.
+
+

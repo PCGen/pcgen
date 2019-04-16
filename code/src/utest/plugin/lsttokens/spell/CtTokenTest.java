@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.spell;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.CDOMLoader;
@@ -30,7 +28,7 @@ public class CtTokenTest extends AbstractIntegerTokenTestCase<Spell>
 {
 
 	static CtToken token = new CtToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()
@@ -74,9 +72,4 @@ public class CtTokenTest extends AbstractIntegerTokenTestCase<Spell>
 		return true;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		//Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

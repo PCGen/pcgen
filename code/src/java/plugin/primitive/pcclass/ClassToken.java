@@ -40,8 +40,7 @@ public class ClassToken implements PrimitiveToken<PCClass>, PrimitiveFilter<PCCl
 	private CDOMReference<PCClass> allClasses;
 
 	@Override
-	public boolean initialize(LoadContext context, Class<PCClass> cl,
-		String value, String args)
+	public boolean initialize(LoadContext context, Class<PCClass> cl, String value, String args)
 	{
 		if (args != null)
 		{
@@ -67,7 +66,7 @@ public class ClassToken implements PrimitiveToken<PCClass>, PrimitiveFilter<PCCl
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + pcclass;
+		return getTokenName() + '=' + pcclass;
 	}
 
 	@Override
@@ -104,8 +103,7 @@ public class ClassToken implements PrimitiveToken<PCClass>, PrimitiveFilter<PCCl
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
-			Converter<PCClass, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<PCClass, R> c)
 	{
 		return c.convert(allClasses, this);
 	}

@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.editcontext.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObject>
 		extends AbstractIntegrationTestCase<T>
@@ -65,8 +65,8 @@ public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObje
 		commit(testCampaign, tc, "Languedoc-Roussillon");
 		commit(testCampaign, tc, "Finger Lakes");
 		tc = new TestContext();
-		tc.putText(testCampaign.getURI(), new String[] { "Languedoc-Roussillon"
-				+ getJoinCharacter() + "Finger Lakes" });
+		tc.putText(testCampaign.getURI(), "Languedoc-Roussillon"
+				+ getJoinCharacter() + "Finger Lakes");
 		completeRoundRobin(tc);
 	}
 
@@ -84,7 +84,7 @@ public abstract class AbstractTypeSafeListIntegrationTestCase<T extends CDOMObje
 			commit(testCampaign, tc, "Languedoc-Roussillon");
 			commit(testCampaign, tc, Constants.LST_DOT_CLEAR);
 			tc = new TestContext();
-			tc.putText(testCampaign.getURI(), null);
+			tc.putText(testCampaign.getURI(), (String[]) null);
 			completeRoundRobin(tc);
 		}
 	}

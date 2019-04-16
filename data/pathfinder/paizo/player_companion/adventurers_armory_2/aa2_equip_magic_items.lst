@@ -1,0 +1,28 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 13827 $ $Author: evilpixie87 $ -- Mon Jul 03 04:10:09 2017 -- reformated by prettylst.pl v1.34 (build 422)
+SOURCELONG:Pathfinder Player Companion: Adventurer's Armory 2	SOURCESHORT:AA2	SOURCEWEB:http://paizo.com/products/btpy9tom	SOURCEDATE:2017-06
+#Original Entry: Gwen. T (evilpixie87)
+
+# ==============================
+# Magic Items
+# ==============================
+##Unsure how to limit Gloves of Improvised Might to +5 total enhancement.
+# Equipment Name				Type										Cost		Weight	Source Page		Innate Spells						Special Property
+Gloves of Improvised Might +1		TYPE:Magic.Wondrous.Glove.Enhancement.Weapon.Melee.Thrown	COST:4000	WT:1		SOURCEPAGE:p.23									SPROP:Grants an enhancement bonus of +1 on attack and damage rolls with improvised weapons. Grants any weapon special abilities it possesses to improvised weapons as well. Has no effect on normal weapons unless used in a manner that causes them to be treated as improvised weapons.
+Gloves of Improvised Might +2		TYPE:Magic.Wondrous.Glove.Enhancement.Weapon.Melee.Thrown	COST:16000	WT:1		SOURCEPAGE:p.23									SPROP:Grants an enhancement bonus of +2 on attack and damage rolls with improvised weapons. Grants any weapon special abilities it possesses to improvised weapons as well. Has no effect on normal weapons unless used in a manner that causes them to be treated as improvised weapons.
+Gloves of Improvised Might +3		TYPE:Magic.Wondrous.Glove.Enhancement.Weapon.Melee.Thrown	COST:36000	WT:1		SOURCEPAGE:p.23									SPROP:Grants an enhancement bonus of +3 on attack and damage rolls with improvised weapons. Grants any weapon special abilities it possesses to improvised weapons as well. Has no effect on normal weapons unless used in a manner that causes them to be treated as improvised weapons.
+Gloves of Improvised Might +4		TYPE:Magic.Wondrous.Glove.Enhancement.Weapon.Melee.Thrown	COST:64000	WT:1		SOURCEPAGE:p.23									SPROP:Grants an enhancement bonus of +4 on attack and damage rolls with improvised weapons. Grants any weapon special abilities it possesses to improvised weapons as well. Has no effect on normal weapons unless used in a manner that causes them to be treated as improvised weapons.
+Gloves of Improvised Might +5		TYPE:Magic.Wondrous.Glove.Enhancement.Weapon.Melee.Thrown	COST:100000	WT:1		SOURCEPAGE:p.23									SPROP:Grants an enhancement bonus of +5 on attack and damage rolls with improvised weapons. Grants any weapon special abilities it possesses to improvised weapons as well. Has no effect on normal weapons unless used in a manner that causes them to be treated as improvised weapons.
+Quickmetal Bracers (Adamantine)	TYPE:Magic.Wondrous.Glove						COST:5000	WT:1		SOURCEPAGE:p.23									SPROP:1/day, for 10 rounds, can make held melee weapon overcome damage reduction as though made of adamantine. Manufactured weapon suffer a -2 on attack rolls.
+Quickmetal Bracers (Cold Iron)	TYPE:Magic.Wondrous.Glove						COST:2000	WT:1		SOURCEPAGE:p.23									SPROP:1/day, for 10 rounds, can make held melee weapon overcome damage reduction as though made of cold iron. Manufactured weapon suffer a -2 on attack rolls.
+Quickmetal Bracers (Silver)		TYPE:Magic.Wondrous.Glove						COST:1000	WT:1		SOURCEPAGE:p.23									SPROP:1/day, for 10 rounds, can make held melee weapon overcome damage reduction as though made of silver. Manufactured weapon suffer a -2 on attack rolls.
+Ring of Balanced Grip			TYPE:Magic.Ring								COST:16000	WT:0		SOURCEPAGE:p.23									SPROP:User ignores the nonproficiency penalty for using a particular type of improvised weapon, such as a crowbar or pitchfork; gains +1 enhancement bonus on attack rolls with that item.
+Scrap Collector's Strap			TYPE:Magic.Wondrous							COST:500	WT:0		SOURCEPAGE:p.23
+
+#Added to support kits
+Bead of Blessing				TYPE:Magic.Wondrous							COST:600	WT:0.5	SOURCEPAGE:p.5	SPELLS:Magic Item|TIMES=1|CASTERLEVEL=1|Bless	SPROP:Wearer can cast bless 1/day.
+Oil of Align Weapon (Good)		TYPE:Magic.Potion.Consumable						COST:300	WT:0		SOURCEPAGE:p.17									SPROP:Makes a manufactured weapon good; can bypass the damage reduction of certain creatures.
+Oil of Erase				TYPE:Magic.Potion.Consumable						COST:50	WT:0		SOURCEPAGE:p.5									SPROP:Removes writings of either magical or mundane nature from a scroll or from one or two pages of paper, parchment, or similar surfaces.
+Potion of Keen Senses			TYPE:Magic.Potion.Consumable						COST:50	WT:0		SOURCEPAGE:p.5									SPROP:Gain +2 Perception and low-light vision (or see twice as far if already have low-light vision) for 3 minutes.
+Scroll (Planar Adaptation/Arcane)	TYPE:Magic.Scroll.Arcane.Consumable					COST:1125	WT:0.01	SOURCEPAGE:p.17									SPROP:Grants immunity to the harmful environmental effects of a particular plane of existence, (toxicity, extreme temperatures, lack of air, etc). Grants energy resistance 20 to a single energy type prevalent on that plane.
+Scroll (Planar Adaptation/Divine)	TYPE:Magic.Scroll.Divine.Consumable					COST:700	WT:0.01	SOURCEPAGE:p.17									SPROP:Grants immunity to the harmful environmental effects of a particular plane of existence, (toxicity, extreme temperatures, lack of air, etc). Grants energy resistance 20 to a single energy type prevalent on that plane.

@@ -11,13 +11,13 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class BabmaxattToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "BABMAXATT";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		try

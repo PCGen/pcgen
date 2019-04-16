@@ -1,0 +1,33 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Giant Hunter's Handbook	SOURCESHORT:GHH	SOURCEWEB:http://paizo.com/products/btpy8yw4	SOURCEDATE:2013-07
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 1 March 2017
+
+# ==============================
+# Equipment Kits
+# ==============================
+
+STARTPACK:Fire Giant Hunter's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:300
+GEAR:Caltrops		QTY:5	SIZE:PC
+GEAR:Fire Ward Gel	QTY:2	SIZE:PC
+GEAR:Sarissa		QTY:1	SIZE:PC
+
+STARTPACK:Frost Giant Hunter's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:305
+GEAR:Caltrops		QTY:5	SIZE:PC
+GEAR:Sarissa		QTY:1	SIZE:PC
+GEAR:Tangleburn Bag	QTY:2	SIZE:PC
+
+STARTPACK:Giant Lair Infiltrator's Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:215
+GEAR:Block and Tackle	QTY:1	SIZE:PC
+GEAR:Chain (10 Ft)	QTY:5	SIZE:PC
+GEAR:Climber's Kit	QTY:1	SIZE:PC
+GEAR:Crowbar		QTY:1	SIZE:PC
+GEAR:Pole (10 Ft)		QTY:1	SIZE:PC
+
+# ==============================
+# Kits Added by Traits
+# ==============================
+
+STARTPACK:Trunau Native Kit	TYPE:Character Trait	VISIBLE:NO	TOTALCOST:0
+GEAR:Dagger	QTY:1	SIZE:PC	LOCATION:Carried	EQMOD:Special Quality ~ Masterwork ~ Weapon

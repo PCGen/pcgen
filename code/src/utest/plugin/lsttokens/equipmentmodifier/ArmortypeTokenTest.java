@@ -17,10 +17,15 @@
  */
 package plugin.lsttokens.equipmentmodifier;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Arrays;
 import java.util.List;
-
-import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.processor.ChangeArmorType;
@@ -32,12 +37,14 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class ArmortypeTokenTest extends
 		AbstractCDOMTokenTestCase<EquipmentModifier>
 {
 
 	static ArmortypeToken token = new ArmortypeToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()
@@ -58,42 +65,42 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoResult() throws PersistenceLayerException
+	public void testInvalidInputNoResult()
 	{
 		assertFalse(parse("Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyResult() throws PersistenceLayerException
+	public void testInvalidInputEmptyResult()
 	{
 		assertFalse(parse("Medium|"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptySource() throws PersistenceLayerException
+	public void testInvalidInputEmptySource()
 	{
 		assertFalse(parse("|Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe() throws PersistenceLayerException
+	public void testInvalidInputDoublePipe()
 	{
 		assertFalse(parse("Light||Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoPipe() throws PersistenceLayerException
+	public void testInvalidInputTwoPipe()
 	{
 		assertFalse(parse("Light|Medium|Heavy"));
 		assertNoSideEffects();
@@ -130,14 +137,14 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.removeListFor(ListKey.ARMORTYPE);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
-	public void testUnparseSingle() throws PersistenceLayerException
+	public void testUnparseSingle()
 	{
 		primaryProf.addToListFor(ListKey.ARMORTYPE, new ChangeArmorType(
 				"Light", "Medium"));
@@ -146,7 +153,7 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNullInList() throws PersistenceLayerException
+	public void testUnparseNullInList()
 	{
 		primaryProf.addToListFor(ListKey.ARMORTYPE, null);
 		try
@@ -161,7 +168,7 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseMultiple() throws PersistenceLayerException
+	public void testUnparseMultiple()
 	{
 		primaryProf.addToListFor(ListKey.ARMORTYPE, new ChangeArmorType(
 				"Medium", "Light"));
@@ -177,7 +184,7 @@ public class ArmortypeTokenTest extends
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ListKey objectKey = ListKey.ARMORTYPE;
 		primaryProf.addToListFor(objectKey, new Object());
@@ -193,7 +200,7 @@ public class ArmortypeTokenTest extends
 	}
 
 	@Test
-	public void testUnparseNullSource() throws PersistenceLayerException
+	public void testUnparseNullSource()
 	{
 		try
 		{
@@ -201,14 +208,14 @@ public class ArmortypeTokenTest extends
 					null, "Medium"));
 			assertBadUnparse();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Good here too :)
 		}
 	}
 
 	@Test
-	public void testUnparseNullTarget() throws PersistenceLayerException
+	public void testUnparseNullTarget()
 	{
 		try
 		{
@@ -216,7 +223,7 @@ public class ArmortypeTokenTest extends
 					"Heavy", null));
 			assertBadUnparse();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Good here too :)
 		}

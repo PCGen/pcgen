@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2007-18 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -21,36 +21,44 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
+import pcgen.cdom.base.ClassIdentity;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.GroupingState;
 
 /**
  * A CDOMAllRef is a CDOMReference which is intended to contain all objects of
- * the Class this CDOMAllRef represents.
+ * the ClassIdentity this CDOMAllRef represents.
  * 
  * @param <T>
  *            The Class of the underlying objects contained by this reference
  */
 public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 {
+
+	/**
+	 * The ClassIdentity that represents the objects contained in this CDOMAllRef.
+	 */
+	private final ClassIdentity<T> identity;
+
 	/**
 	 * The objects (presumably all of the objects) of the Class this CDOMAllRef
-	 * represents
+	 * represents.
 	 */
 	private List<T> referencedList = null;
 
 	/**
-	 * Constructs a new CDOMAllRef for the given Class to be represented by this
+	 * Constructs a new CDOMAllRef for the given ClassIdentity to be represented by this
 	 * CDOMAllRef.
 	 * 
-	 * @param objClass
-	 *            The Class of the underlying objects contained by this
-	 *            reference.
+	 * @param classIdentity
+	 *            The ClassIdentity of the underlying objects contained by this CDOMAllRef
 	 */
-	public CDOMAllRef(Class<T> objClass)
+	public CDOMAllRef(ClassIdentity<T> classIdentity)
 	{
-		super(objClass, Constants.LST_ALL + ": " + objClass.getSimpleName());
+		super(Constants.LST_ALL + ": " + classIdentity.getReferenceDescription());
+		identity = Objects.requireNonNull(classIdentity);
 	}
 
 	/**
@@ -62,7 +70,6 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	 * 
 	 * @return A representation of this CDOMAllRef, suitable for storing in an
 	 *         LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -90,37 +97,21 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	{
 		if (referencedList == null)
 		{
-			throw new IllegalStateException(
-					"Cannot ask for contains: Reference has not been resolved");
+			throw new IllegalStateException("Cannot ask for contains: Reference has not been resolved");
 		}
 		return referencedList.contains(item);
 	}
 
-	/**
-	 * Returns true if this CDOMAllRef is equal to the given Object. Equality is
-	 * defined as being another CDOMAllRef object with equal Class represented
-	 * by the reference. This is NOT a deep .equals, in that the actual contents
-	 * of this CDOMReference are not tested.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof CDOMAllRef
-				&& getReferenceClass().equals(
-						((CDOMAllRef<?>) obj).getReferenceClass());
+		return obj instanceof CDOMAllRef && identity.equals(((CDOMAllRef<?>) obj).identity);
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this CDOMAllRef
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
-		return getReferenceClass().hashCode();
+		return identity.hashCode();
 	}
 
 	/**
@@ -149,9 +140,8 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 		}
 		else
 		{
-			throw new IllegalArgumentException("Cannot resolve a "
-					+ getReferenceClass().getSimpleName() + " Reference to a "
-					+ item.getClass().getSimpleName());
+			throw new IllegalArgumentException("Cannot resolve a " + getReferenceClass().getSimpleName()
+				+ " Reference to a " + item.getClass().getSimpleName());
 		}
 	}
 
@@ -211,5 +201,23 @@ public final class CDOMAllRef<T> extends CDOMGroupRef<T>
 	public String getChoice()
 	{
 		return null;
+	}
+
+	@Override
+	public Class<T> getReferenceClass()
+	{
+		return identity.getReferenceClass();
+	}
+
+	@Override
+	public String getReferenceDescription()
+	{
+		return "ALL " + identity.getReferenceDescription();
+	}
+
+	@Override
+	public String getPersistentFormat()
+	{
+		return identity.getPersistentFormat();
 	}
 }

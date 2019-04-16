@@ -29,8 +29,8 @@ public class OutputNameIntegrationTest extends
 		AbstractStringIntegrationTestCase<CDOMObject>
 {
 
-	static OutputnameLst token = new OutputnameLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
+	private static OutputnameLst token = new OutputnameLst();
+	private static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Deity> getCDOMClass()

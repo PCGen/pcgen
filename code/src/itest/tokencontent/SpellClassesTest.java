@@ -17,7 +17,9 @@
  */
 package tokencontent;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
@@ -30,12 +32,14 @@ import pcgen.cdom.facet.SpellListFacet;
 import pcgen.core.PCClass;
 import pcgen.core.spell.Spell;
 import pcgen.gui2.facade.MockUIDelegate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.spell.ClassesToken;
+
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
+import util.TestURI;
 
 public class SpellClassesTest extends AbstractTokenModelTest
 {
@@ -43,7 +47,7 @@ public class SpellClassesTest extends AbstractTokenModelTest
 	private static ClassesToken token = new ClassesToken();
 	private Spell sp;
 	private PCClass dragon;
-	protected AvailableSpellFacet availableSpellFacet = FacetLibrary
+	private AvailableSpellFacet availableSpellFacet = FacetLibrary
 		.getFacet(AvailableSpellFacet.class);
 
 	@Override
@@ -57,12 +61,12 @@ public class SpellClassesTest extends AbstractTokenModelTest
 	}
 
 	@Test
-	public void testDirect() throws PersistenceLayerException
+	public void testDirect()
 	{
 		ParseResult result = token.parseToken(context, sp, "Dragon=1");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();

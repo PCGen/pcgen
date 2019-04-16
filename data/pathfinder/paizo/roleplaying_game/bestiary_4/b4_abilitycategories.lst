@@ -1,0 +1,15 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
+
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object			Type of Object			Display Location
+ABILITYCATEGORY:Beheaded Belching Type		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:BeheadedBelchingType	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Broken Soul Stat Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal				TYPE:BrokenSoulStatBonus	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Broken Soul Stat Penalty		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal				TYPE:BrokenSoulStatPenalty	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Drakainia Spawn Stat Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal				TYPE:DrakainiaSpawnStatBonus	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Juggernaut Domain Choices		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:JuggernautDomain		DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Udaeus Energy Resistance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal				TYPE:UdaeusEnergyResistance	DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Yaoguai Maker's Gift		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability		TYPE:YaoguaiMakersGift		DISPLAYLOCATION:Racial Abilities
+
+
+ABILITYCATEGORY:+2 Profane bonus to Stat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal	CATEGORY:Internal	TYPE:+2 Profane Bonus to Stat	DISPLAYLOCATION:Racial Abilities

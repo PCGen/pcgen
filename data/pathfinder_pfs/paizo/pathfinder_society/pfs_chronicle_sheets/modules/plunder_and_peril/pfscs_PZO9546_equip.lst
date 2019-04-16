@@ -1,0 +1,18 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2014-08
+
+# Equipment Name														Output Name				Type							Cost		Weight	Required Ability										Modifier									Requires Modification?	Source, Long Desc.						Source, Short Desc.	Source Page		Bonus Ability Pool				Combat bonus			Save bonus					Bonus to skill						Clear Special Property	Special Property
+
+# Equipment Name							Type				Cost		Required Ability								Requires Modification?	Source, Long Desc.								Special Property
+Horn of the Tritons.COPY=Horn of the Tritons (Lesser)
+Horn of the Tritons (Lesser).MOD				TYPE:Magic.Wondrous.PFS	COST:6600	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ PZO9546-2	MODS:NO			SOURCELONG:Pathfinder Module: Plunder & Peril (Dangerous Waters)	SPROP:once per day: calm rough waters 40-foot radius, reducing swim DC by 5 (minimum 10); summon up to six combat trained hippocampi equipped for aquatic riding for 2 hours; calm animals and magical beasts that have Int 1 or 2 and have the aquatic or amphibious subtype, in 40-foot radius, Will DC 12. The sound of the horn can be heard by all tritons in a 1-mile radius.
+
+#Aura faint conjuration; CL 6th
+#CONSTRUCTION
+#Requirements Craft Wondrous Item, calm animals, communal mount, slipstream, creator must be a triton;
+#Cost 3,300 gp
+
+#
+# DONE
+#

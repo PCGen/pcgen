@@ -1,5 +1,4 @@
 /*
- * PCGenStatusBar.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 1, 2010, 4:00:24 PM
  */
 package pcgen.gui2;
 
@@ -43,16 +41,15 @@ import pcgen.util.Logging;
  * It will show source loading progress and a corresponding error icon
  * (if there are errors)
  * TODO: add support for concurrent task execution
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class PCGenStatusBar extends JPanel
 {
-	private PCGenFrame frame;
-	private JLabel messageLabel;
-	private JProgressBar progressBar;
-	private JLabel loadStatusLabel;
+	private final PCGenFrame frame;
+	private final JLabel messageLabel;
+	private final JProgressBar progressBar;
+	private final JLabel loadStatusLabel;
 
-	public PCGenStatusBar(PCGenFrame frame)
+	PCGenStatusBar(PCGenFrame frame)
 	{
 		this.frame = frame;
 		this.messageLabel = new JLabel();
@@ -70,7 +67,7 @@ public final class PCGenStatusBar extends JPanel
 		progressBar.setVisible(false);
 		add(progressBar);
 		add(loadStatusLabel);
-		loadStatusLabel.addMouseListener(new LoadStatusMouseAdapter());			
+		loadStatusLabel.addMouseListener(new LoadStatusMouseAdapter());
 	}
 
 	public void setContextMessage(String message)
@@ -88,7 +85,7 @@ public final class PCGenStatusBar extends JPanel
 		return progressBar;
 	}
 
-	public void setSourceLoadErrors(List<LogRecord> errors)
+	void setSourceLoadErrors(List<LogRecord> errors)
 	{
 		if (errors != null && !errors.isEmpty())
 		{
@@ -117,8 +114,8 @@ public final class PCGenStatusBar extends JPanel
 			{
 				loadStatusLabel.setIcon(Icons.Ok16.getImageIcon());
 			}
-			loadStatusLabel.setToolTipText(nerrors + " errors and " + nwarnings +
-					" warnings occurred while loading the sources");
+			loadStatusLabel
+				.setToolTipText(nerrors + " errors and " + nwarnings + " warnings occurred while loading the sources");
 		}
 	}
 
@@ -134,7 +131,7 @@ public final class PCGenStatusBar extends JPanel
 	 * @param task a PCGenTask
 	 * @return a SwingWorker
 	 */
-	public SwingWorker<List<LogRecord>> createWorker(String taskName, PCGenTask task)
+	SwingWorker<List<LogRecord>> createWorker(String taskName, PCGenTask task)
 	{
 		return new StatusWorker(taskName, task, this);
 	}
@@ -152,7 +149,7 @@ public final class PCGenStatusBar extends JPanel
 	 */
 	public void startShowingProgress(final String msg, boolean indeterminate)
 	{
-		if ( !PCGenStatusBar.this.isValid() )
+		if (!PCGenStatusBar.this.isValid())
 		{
 			// Do nothing if called during startup or shutdown
 			return;
@@ -176,7 +173,7 @@ public final class PCGenStatusBar extends JPanel
 		getProgressBar().setString(null);
 		getProgressBar().setVisible(false);
 	}
-	
+
 	/**
 	 * Shows the log window when the load status icon is clicked.
 	 */
@@ -187,6 +184,6 @@ public final class PCGenStatusBar extends JPanel
 		{
 			frame.getActionMap().get(PCGenActionMap.LOG_COMMAND).actionPerformed(null);
 		}
-		
+
 	}
 }

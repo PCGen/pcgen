@@ -17,30 +17,18 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class PreRaceRoundRobin extends AbstractBasicRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreRaceRoundRobin.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreRaceRoundRobin.class);
-	}
-
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreRaceParser());
@@ -59,64 +47,75 @@ public class PreRaceRoundRobin extends AbstractBasicRoundRobin
 		return true;
 	}
 
+	@Test
 	public void testRaceType()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,RACETYPE=Foo");
 	}
 
+	@Test
 	public void testRaceTypeCount()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":2,RACETYPE=Foo");
 	}
 
+	@Test
 	public void testMultipleRaceType()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,RACETYPE=Bar,RACETYPE=Foo");
 	}
 
+	@Test
 	public void testRaceTypeComplex()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":3,Foo,RACETYPE=Foo.Bar");
 	}
 
+	@Test
 	public void testRaceSubType()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,RACESUBTYPE=Foo");
 	}
 
+	@Test
 	public void testRaceSubTypeCount()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":2,RACESUBTYPE=Foo");
 	}
 
+	@Test
 	public void testMultipleRaceSubType()
 	{
 		runRoundRobin("PRE" + getBaseString()
 				+ ":1,RACESUBTYPE=Bar,RACESUBTYPE=Foo");
 	}
 
+	@Test
 	public void testRaceSubTypeComplex()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":3,Foo,RACESUBTYPE=Bar");
 	}
 
+	@Test
 	public void testNegateItem()
 	{
-		this.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
+		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
 				"PREMULT:2,[PRE" + getBaseString() + ":1,Foo],[!PRE"
 						+ getBaseString() + ":1,TYPE=Bar]");
 	}
 
+	@Test
 	public void testNegateItemRaceType()
 	{
-		this.runSimpleRoundRobin("PRE" + getBaseString()
+		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString()
 				+ ":1,Foo,[RACETYPE=Bar]", "PREMULT:2,[PRE" + getBaseString()
 				+ ":1,Foo],[!PRE" + getBaseString() + ":1,RACETYPE=Bar]");
 	}
 
+	@Test
 	public void testNegateItemRaceSubType()
 	{
-		this.runSimpleRoundRobin("PRE" + getBaseString()
+		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString()
 				+ ":1,Foo,[RACESUBTYPE=Bar]", "PREMULT:2,[PRE"
 				+ getBaseString() + ":1,Foo],[!PRE" + getBaseString()
 				+ ":1,RACESUBTYPE=Bar]");

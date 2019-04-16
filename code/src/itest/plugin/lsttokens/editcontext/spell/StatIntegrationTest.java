@@ -22,7 +22,6 @@ import java.net.URISyntaxException;
 import pcgen.core.PCStat;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractItemIntegrationTestCase;
@@ -34,8 +33,8 @@ public class StatIntegrationTest extends
 		AbstractItemIntegrationTestCase<Spell, PCStat>
 {
 
-	static StatToken token = new StatToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static StatToken token = new StatToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	protected String getFirstConstant()
@@ -86,12 +85,4 @@ public class StatIntegrationTest extends
 	{
 		return PCStat.class;
 	}
-
-	@Override
-	protected void construct(LoadContext loadContext, String one)
-	{
-		//Ignore request
-	}
-	
-	
 }

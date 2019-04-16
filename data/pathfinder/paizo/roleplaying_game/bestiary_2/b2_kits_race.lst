@@ -195,7 +195,7 @@ ABILITY:CATEGORY=FEAT|Spell Penetration
 ABILITY:CATEGORY=FEAT|Weapon Focus (Shortspear)
 ABILITY:CATEGORY=FEAT|Weapon Focus (Tail Slap)
 ABILITY:CATEGORY=FEAT|Wind Stance
-GEAR:Shortspear	LOCATION:Equipped	EQMOD:PLUS1W.SHK_BRST
+GEAR:Shortspear	LOCATION:Equipped	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Shocking Burst ~ Weapon
 
 STARTPACK:Agathion (Draconal) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Agathion (Draconal)],[!PRERACE:1,%]	SOURCEPAGE:p.18
 ALIGN:NG
@@ -337,7 +337,7 @@ ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:TYPE.Instrument.Goods	LOCATION:Carried	EQMOD:MWORKT
+GEAR:TYPE.Instrument.Goods	LOCATION:Carried	EQMOD:Special Quality ~ Masterwork ~ Item
 
 STARTPACK:Akata Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Akata],[!PRERACE:1,%]	SOURCEPAGE:p.23
 ALIGN:TN
@@ -408,7 +408,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Toughness
-GEAR:Morningstar	LOCATION:Both Hands	EQMOD:PLUS3W
+GEAR:Morningstar	LOCATION:Both Hands	EQMOD:Special Ability ~ +3 ~ Weapon
 
 STARTPACK:Angel (Movanic Deva) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Movanic Deva)],[!PRERACE:1,%]	SOURCEPAGE:p.28
 ALIGN:NG
@@ -430,7 +430,7 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Toughness
 ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Greatsword	LOCATION:Both Hands	EQMOD:PLUS1W.FLAME
+GEAR:Greatsword	LOCATION:Both Hands	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Flaming ~ Weapon
 
 STARTPACK:Animate Dream Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Animate Dream],[!PRERACE:1,%]	SOURCEPAGE:p.29
 ALIGN:NE
@@ -496,8 +496,8 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Shield Focus
 ABILITY:CATEGORY=FEAT|Stand Still
 GEAR:Full Plate		SIZE:L	LOCATION:Equipped
-GEAR:Shortspear		SIZE:L	LOCATION:Primary Hand	EQMOD:PLUS3W
-GEAR:Shield (Tower)	SIZE:L	LOCATION:Secondary Hand	EQMOD:PLUS1A
+GEAR:Shortspear		SIZE:L	LOCATION:Primary Hand	EQMOD:Special Ability ~ +3 ~ Weapon
+GEAR:Shield (Tower)	SIZE:L	LOCATION:Secondary Hand	EQMOD:Special Ability ~ +1 ~ Armor
 
 STARTPACK:Archon (Star) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Star)],[!PRERACE:1,%]	SOURCEPAGE:p.32
 ALIGN:LG
@@ -529,7 +529,7 @@ ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Stand Still
 GEAR:Full Plate			SIZE:L	LOCATION:Equipped
-GEAR:Starknife			SIZE:L	LOCATION:Primary Hand	EQMOD:PLUS5W.HOLY
+GEAR:Starknife			SIZE:L	LOCATION:Primary Hand	EQMOD:Special Ability ~ +5 ~ Weapon.Special Ability ~ Holy ~ Weapon
 GEAR:Shield (Heavy/Steel)	SIZE:L	LOCATION:Secondary Hand
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Implosion
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Heal (Mass)
@@ -646,7 +646,7 @@ ABILITY:CATEGORY=FEAT|Empower Spell-Like Ability ~ Spell (Order's Wrath)
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Mobility
-GEAR:Longsword	LOCATION:Both Hands	EQMOD:PLUS1W
+GEAR:Longsword	LOCATION:Both Hands	EQMOD:Special Ability ~ +1 ~ Weapon
 
 STARTPACK:Azata (Brijidine) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Brijidine)],[!PRERACE:1,%]	SOURCEPAGE:p.37
 ALIGN:CG
@@ -672,7 +672,7 @@ ABILITY:CATEGORY=FEAT|Lunge
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Staggering Critical
 ABILITY:CATEGORY=FEAT|Toughness
-GEAR:Longsword	SIZE:M	LOCATION:Both Hands	EQMOD:PLUS1W.FLM_BRST.KEEN
+GEAR:Longsword	SIZE:M	LOCATION:Both Hands	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Flaming Burst ~ Weapon.Special Ability ~ Keen ~ Weapon
 
 STARTPACK:Azata (Lyrakien) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Lyrakien)],[!PRERACE:1,%]	SOURCEPAGE:p.38
 ALIGN:CG
@@ -703,8 +703,8 @@ SKILL:TYPE.Craft			RANK:2	COUNT:2
 SKILL:Knowledge (Nobility)	RANK:2
 SKILL:Perception			RANK:2
 ABILITY:CATEGORY=FEAT|Power Attack
-GEAR:Scale Mail		LOCATION:Equipped		EQMOD:MWORKA
-GEAR:Warhammer		LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Scale Mail		LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Warhammer		LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Hammer (Light)	LOCATION:Carried
 
 STARTPACK:Badger Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Badger],[!PRERACE:1,%]	SOURCEPAGE:p.40
@@ -1201,7 +1201,7 @@ ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=FEAT|Hover
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Weapon Focus (Longbow)
-GEAR:Longbow (Composite)	SIZE:L	LOCATION:Carried	EQMOD:PLUS1W.BOWSTR|7
+GEAR:Longbow (Composite)	SIZE:L	LOCATION:Carried	EQMOD:Special Ability ~ +1 ~ Weapon.Special Quality ~ Composite Bow Strength Rating|7
 
 STARTPACK:Daemon (Meladaemon) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Meladaemon)]
 RACE:Daemon (Meladaemon)	!PRERACE:1,%
@@ -1297,7 +1297,7 @@ ABILITY:CATEGORY=FEAT|Lunge
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Quick Draw
 ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Halberd	SIZE:L	LOCATION:Both Hands	EQMOD:PLUS2W.WOUND
+GEAR:Halberd	SIZE:L	LOCATION:Both Hands	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Wounding ~ Weapon
 
 STARTPACK:Daemon (Thanadaemon) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Daemon (Thanadaemon)]
 RACE:Daemon (Thanadaemon)	!PRERACE:1,%
@@ -1322,7 +1322,7 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Lunge
 ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Power Attack
-GEAR:Quarterstaff	SIZE:M	LOCATION:Both Hands	EQMOD:PLUS2W
+GEAR:Quarterstaff	SIZE:M	LOCATION:Both Hands	EQMOD:Special Ability ~ +2 ~ Weapon
 
 STARTPACK:Dark Slayer Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dark Slayer]
 RACE:Dark Slayer	!PRERACE:1,%
@@ -1452,7 +1452,7 @@ ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Enervation)
 ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Dagger	QTY:4	SIZE:L	LOCATION:Equipped	EQMOD:PLUS1W
+GEAR:Dagger	QTY:4	SIZE:L	LOCATION:Equipped	EQMOD:Special Ability ~ +1 ~ Weapon
 
 STARTPACK:Denizen of Leng Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Denizen of Leng]
 RACE:Denizen of Leng	!PRERACE:1,%
@@ -1789,8 +1789,8 @@ ABILITY:CATEGORY=FEAT|Mounted Combat
 ABILITY:CATEGORY=FEAT|Ride-By Attack
 ABILITY:CATEGORY=FEAT|Trample
 ABILITY:CATEGORY=FEAT|Weapon Focus (Longsword)
-GEAR:Full Plate	LOCATION:Equipped	EQMOD:PLUS1A
-GEAR:Longsword	LOCATION:Equipped	EQMOD:PLUS1W.KEEN
+GEAR:Full Plate	LOCATION:Equipped	EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Longsword	LOCATION:Equipped	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Keen ~ Weapon
 
 STARTPACK:Coach of the Silent Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dullahan (Coach of the Silent)]
 RACE:Dullahan (Coach of the Silent)	!PRERACE:1,%
@@ -1808,8 +1808,8 @@ ABILITY:CATEGORY=FEAT|Mounted Combat
 ABILITY:CATEGORY=FEAT|Ride-By Attack
 ABILITY:CATEGORY=FEAT|Trample
 ABILITY:CATEGORY=FEAT|Weapon Focus (Longsword)
-GEAR:Full Plate	LOCATION:Equipped	EQMOD:PLUS1A
-GEAR:Longsword	LOCATION:Equipped	EQMOD:PLUS1W.KEEN
+GEAR:Full Plate	LOCATION:Equipped	EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Longsword	LOCATION:Equipped	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Keen ~ Weapon
 
 ###BLOCK: Dragons
 STARTPACK:Dragon (Brine/Young) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Brine)],[!PRERACE:1,%]	SOURCEPAGE:p.94
@@ -2354,12 +2354,12 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Multiattack
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Vital Strike
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Light Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Bleed
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Inflict Light Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Bleed
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Read Magic
 
 
 STARTPACK:Dragon (Umbral/Adult) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral)],[!PRERACE:1,%]	SOURCEPAGE:p.102
@@ -2389,23 +2389,23 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 ABILITY:CATEGORY=FEAT|Snatch
 ABILITY:CATEGORY=FEAT|Vital Strike
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Serious Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Command Undead
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Web
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Grease
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Light Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Reduce Person
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Bleed
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disrupt Undead
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Frost
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Inflict Serious Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Command Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Web
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Grease
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Inflict Light Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Magic Missile
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Reduce Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Bleed
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Disrupt Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Ray of Frost
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Read Magic
 
 
 STARTPACK:Dragon (Umbral/Ancient) Default	TYPE:Default Monster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dragon (Umbral)],[!PRERACE:1,%]	SOURCEPAGE:p.102
@@ -2442,42 +2442,42 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
 ABILITY:CATEGORY=FEAT|Snatch
 ABILITY:CATEGORY=FEAT|Vital Strike
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Destruction
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Limited Wish
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Harm
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mislead
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Veil
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Command (Greater)
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Slay Living
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Teleport
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Unhallow
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Enervation
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Critical Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Phantasmal Killer
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Unholy Blight
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dispel Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Haste
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Serious Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Lightning Bolt
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Alter Self
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Blur
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Command Undead
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Web
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Grease
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Inflict Light Wounds
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Reduce Person
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Shield
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Splash
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Bleed
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Magic
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Detect Poison
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disrupt Undead
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ghost Sound
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ray of Frost
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Read Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Destruction
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Limited Wish
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Harm
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mislead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Veil
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Command (Greater)
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Slay Living
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Teleport
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Unhallow
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Enervation
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Inflict Critical Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Phantasmal Killer
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Unholy Blight
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Dispel Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Haste
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Inflict Serious Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Lightning Bolt
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Alter Self
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Blur
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Command Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Invisibility
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Web
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Grease
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Inflict Light Wounds
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Magic Missile
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Reduce Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Shield
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Acid Splash
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Bleed
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Magic
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Detect Poison
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Disrupt Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Ghost Sound
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Ray of Frost
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer/Cleric (Arcane)|Read Magic
 
 
 STARTPACK:Dust Digger Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dust Digger]
@@ -2881,7 +2881,7 @@ SKILL:Stealth		RANK:5
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Deceitful
 ABILITY:CATEGORY=FEAT|Improved Initiative
-GEAR:Longsword	LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Longsword	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Fetchling Rogue 1	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fetchling]
 RACE:Fetchling	!PRERACE:1,%
@@ -3019,9 +3019,9 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Quick Draw
 ABILITY:CATEGORY=FEAT|Staggering Critical
 ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Full Plate		SIZE:G	LOCATION:Armor		EQMOD:MWORKA
-GEAR:Longsword		SIZE:G	LOCATION:Both Hands	EQMOD:MWORKW
-GEAR:Spear		QTY:3	SIZE:G	LOCATION:Carried		EQMOD:MWORKW
+GEAR:Full Plate		SIZE:G	LOCATION:Armor		EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Longsword		SIZE:G	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Spear		QTY:3	SIZE:G	LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Giant (Taiga) Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Taiga)]
 RACE:Giant (Taiga)	!PRERACE:1,%
@@ -3064,7 +3064,7 @@ ABILITY:CATEGORY=FEAT|Precise Shot
 ABILITY:CATEGORY=FEAT|Rapid Shot
 GEAR:Leather					SIZE:L	LOCATION:Armor
 GEAR:Longsword					SIZE:L	LOCATION:Primary Hand
-GEAR:Longbow (Composite)			SIZE:L	LOCATION:Carried		EQMOD:MWORKW.BOWSTR|+5
+GEAR:Longbow (Composite)			SIZE:L	LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon.Special Quality ~ Composite Bow Strength Rating|+5
 GEAR:Arrow				QTY:20			LOCATION:Carried
 
 STARTPACK:Gloomwing Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gloomwing]
@@ -3471,7 +3471,8 @@ LANGBONUS:Gnome
 CLASS:Sorcerer	LEVEL:1
 ABILITY:CATEGORY=Favored Class|Sorcerer
 ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
-ABILITY:CATEGORY=Sorcerer Bloodline|Sorcerer Bloodline ~ Elemental (Fire)
+ABILITY:CATEGORY=Special Ability|Sorcerer Bloodline ~ Elemental
+ABILITY:CATEGORY=Special Ability|Sorcerer Elemental Bloodline (Fire)
 SKILL:Bluff				RANK:1
 SKILL:Knowledge (Arcana)	RANK:1
 SKILL:Spellcraft			RANK:1
@@ -3515,7 +3516,7 @@ ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell (Suggestion)
-GEAR:Sword (Bastard)	SIZE:M	LOCATION:Primary Hand	EQMOD:PLUS2W
+GEAR:Sword (Bastard)	SIZE:M	LOCATION:Primary Hand	EQMOD:Special Ability ~ +2 ~ Weapon
 
 STARTPACK:Inevitable (Lhaksharut) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Lhaksharut)]
 RACE:Inevitable (Lhaksharut)	!PRERACE:1,%
@@ -3541,9 +3542,9 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Improved Vital Strike
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Spear		SIZE:H	LOCATION:Equipped	EQMOD:PLUS2W.WOUND
-GEAR:Longsword	SIZE:H	LOCATION:Equipped	EQMOD:PLUS2W.WOUND
-GEAR:Morningstar	SIZE:H	LOCATION:Equipped	EQMOD:PLUS2W.WOUND
+GEAR:Spear		SIZE:H	LOCATION:Equipped	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Wounding ~ Weapon
+GEAR:Longsword	SIZE:H	LOCATION:Equipped	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Wounding ~ Weapon
+GEAR:Morningstar	SIZE:H	LOCATION:Equipped	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Wounding ~ Weapon
 
 STARTPACK:Inevitable (Marut) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Inevitable (Marut)]
 RACE:Inevitable (Marut)	!PRERACE:1,%
@@ -3669,7 +3670,7 @@ ABILITY:CATEGORY=FEAT|Flyby Attack
 ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Mobility
 ABILITY:CATEGORY=FEAT|Wind Stance
-GEAR:Spear	LOCATION:Both Hands	EQMOD:PLUS1W
+GEAR:Spear	LOCATION:Both Hands	EQMOD:Special Ability ~ +1 ~ Weapon
 
 STARTPACK:Kelpie Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kelpie]	SOURCEPAGE:p.172
 RACE:Kelpie	!PRERACE:1,%
@@ -3734,8 +3735,8 @@ ABILITY:CATEGORY=FEAT|Improved Critical (Scimitar)
 ABILITY:CATEGORY=FEAT|Improved Two-Weapon Fighting
 ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
 ABILITY:CATEGORY=FEAT|Weapon Focus (Scimitar)
-GEAR:Scimitar	LOCATION:Primary Hand	EQMOD:PLUS1W
-GEAR:Scimitar	LOCATION:Secondary Hand	EQMOD:PLUS1W
+GEAR:Scimitar	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Scimitar	LOCATION:Secondary Hand	EQMOD:Special Ability ~ +1 ~ Weapon
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Haste
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Death Knell
 SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Invisibility
@@ -3771,8 +3772,8 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Point-Blank Shot
 ABILITY:CATEGORY=FEAT|Precise Shot
 ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Flail	SIZE:H	LOCATION:Primary Hand	EQMOD:MWORKW
-GEAR:Bolas	SIZE:H	LOCATION:Carried		EQMOD:MWORKW
+GEAR:Flail	SIZE:H	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Bolas	SIZE:H	LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Leprechaun Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leprechaun]	SOURCEPAGE:p.177
 RACE:Leprechaun	!PRERACE:1,%
@@ -3850,12 +3851,12 @@ GEAR:Dagger	SIZE:S	LOCATION:Equipped
 STARTPACK:Lycanthrope (Werebear/Human Form)	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.181
 ALIGN:CG
 KIT:Lycanthrope (Werebear Common)
-GEAR:Battleaxe	LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Battleaxe	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Lycanthrope (Werebear/Hybrid Form)	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.181
 ALIGN:LG
 KIT:Lycanthrope (Werebear Common)
-GEAR:Battleaxe	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Battleaxe	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 TEMPLATE:Lycanthrope (Hybrid Form)
 
 STARTPACK:Lycanthrope (Werebear Common)	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0
@@ -3890,7 +3891,7 @@ TEMPLATE:Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Type|Natural Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Kind|Werebear
 GEAR:Chain Shirt			LOCATION:Equipped
-GEAR:Axe (Throwing)	QTY:2	LOCATION:Carried	EQMOD:MWORKW
+GEAR:Axe (Throwing)	QTY:2	LOCATION:Carried	EQMOD:Special Quality ~ Masterwork ~ Weapon
 SPELLS:SPELLBOOK=Prepared Spells|CLASS=Ranger|Detect Poison
 
 # COMMENT:  The Bestiary seems to have made some minor errors here.
@@ -3938,11 +3939,11 @@ TEMPLATE:Lycanthrope (Hybrid Form)
 # COMMENT:    full hit points for the first hit die.
 STARTPACK:Lycanthrope (Weretiger/Human Form)	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.183
 KIT:Lycanthrope (Weretiger Common)
-GEAR:Sword (Short)	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Sword (Short)	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Lycanthrope (Weretiger/Hybrid Form)	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Human],[!PRERACE:1,%]	SOURCEPAGE:p.183
 KIT:Lycanthrope (Weretiger Common)
-GEAR:Sword (Short)	LOCATION:Carried	EQMOD:MWORKW
+GEAR:Sword (Short)	LOCATION:Carried	EQMOD:Special Quality ~ Masterwork ~ Weapon
 TEMPLATE:Lycanthrope (Hybrid Form)
 
 STARTPACK:Lycanthrope (Weretiger Common)	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0
@@ -3976,7 +3977,7 @@ TEMPLATE:Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Type|Natural Lycanthrope
 ABILITY:CATEGORY=Lycanthrope Kind|Weretiger
 GEAR:Studded Leather		LOCATION:Equipped
-GEAR:Dagger			QTY:2	LOCATION:Carried	EQMOD:MWORKW
+GEAR:Dagger			QTY:2	LOCATION:Carried	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Maggot (Giant) Default	TYPE:Default Monster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Maggot (Giant)]
 RACE:Maggot (Giant)	!PRERACE:1,%
@@ -4082,7 +4083,7 @@ SKILL:Spellcraft			RANK:6
 ABILITY:CATEGORY=FEAT|Combat Casting
 ABILITY:CATEGORY=FEAT|Combat Expertise
 ABILITY:CATEGORY=FEAT|Dodge
-GEAR:Falchion	SIZE:L	LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Falchion	SIZE:L	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Merrow (Freshwater) Default	TYPE:Default Monster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Merrow (Freshwater)]	SOURCEPAGE:p.189
 RACE:Merrow (Freshwater)	!PRERACE:1,%
@@ -4423,7 +4424,7 @@ SKILL:Intimidate	RANK:1
 ABILITY:CATEGORY=FEAT|Iron Will
 GEAR:Leather					LOCATION:Equipped
 GEAR:Longsword					LOCATION:Both Hands
-GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:BOWSTR|+2
+GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+2
 GEAR:Arrow				QTY:20	LOCATION:Carried
 
 STARTPACK:Pech Default	TYPE:Default Monster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Pech]	SOURCEPAGE:p.206
@@ -4441,7 +4442,7 @@ SKILL:Stealth				RANK:6
 ABILITY:CATEGORY=FEAT|Cleave
 ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=FEAT|Power Attack
-GEAR:Pick (Heavy)	SIZE:S	LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Pick (Heavy)	SIZE:S	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Peryton Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Peryton]	SOURCEPAGE:p.207
 RACE:Peryton	!PRERACE:1,%
@@ -5028,7 +5029,7 @@ SKILL:Use Magic Device		RANK:5
 ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Dagger	LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Dagger	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Serpentfolk (Degenerate) Default	TYPE:Default Monster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Serpentfolk (Degenerate)]	SOURCEPAGE:p.242
 RACE:Serpentfolk (Degenerate)	!PRERACE:1,%
@@ -5046,7 +5047,7 @@ SKILL:Sense Motive	RANK:1
 ABILITY:CATEGORY=FEAT|Great Fortitude
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Dagger	LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Dagger	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 
 STARTPACK:Seugathi Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Seugathi]	SOURCEPAGE:p.243
 RACE:Seugathi	!PRERACE:1,%
@@ -5064,28 +5065,28 @@ ABILITY:CATEGORY=FEAT|Combat Casting
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Sword (Short)	SIZE:L	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Sword (Short)	SIZE:L	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon
 SELECT:roll("1d20")
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[31]	OPTION:1,1
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[32]	OPTION:2,2
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[33]	OPTION:3,3
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[34]	OPTION:4,4
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[35]	OPTION:5,5
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[36]	OPTION:6,6
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[37]	OPTION:7,7
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[38]	OPTION:8,8
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[39]	OPTION:9,9
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[40]	OPTION:10,10
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[41]	OPTION:11,11
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[42]	OPTION:12,12
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[43]	OPTION:13,13
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[44]	OPTION:14,14
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[45]	OPTION:15,15
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[46]	OPTION:16,16
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[47]	OPTION:17,17
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[48]	OPTION:18,18
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[49]	OPTION:19,19
-GEAR:Wand					LOCATION:Secondary Hand	EQMOD:SPL_CHRG|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[50]	OPTION:20,20
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[31]	OPTION:1,1
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[32]	OPTION:2,2
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[33]	OPTION:3,3
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[34]	OPTION:4,4
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[35]	OPTION:5,5
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[36]	OPTION:6,6
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[37]	OPTION:7,7
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[38]	OPTION:8,8
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[39]	OPTION:9,9
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[40]	OPTION:10,10
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[41]	OPTION:11,11
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[42]	OPTION:12,12
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[43]	OPTION:13,13
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[44]	OPTION:14,14
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[45]	OPTION:15,15
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[46]	OPTION:16,16
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[47]	OPTION:17,17
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[48]	OPTION:18,18
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[49]	OPTION:19,19
+GEAR:Wand					LOCATION:Secondary Hand	EQMOD:Special Ability ~ Spell Effect / Spell Trigger|SPELLNAME[Magic Missile] CASTER[Wizard] SPELLTYPE[Arcane] SPELLLEVEL[1] CASTERLEVEL[5] CHARGES[50]	OPTION:20,20
 
 STARTPACK:Shantak Default	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shantak]	SOURCEPAGE:p.244
 RACE:Shantak	!PRERACE:1,%
@@ -5360,7 +5361,7 @@ SKILL:Stealth		RANK:2
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Weapon Focus (Morningstar)
 GEAR:Leather				SIZE:S	LOCATION:Equipped
-GEAR:Morningstar				SIZE:S	LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Morningstar				SIZE:S	LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Crossbow (Light)			SIZE:S	LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:10	SIZE:S	LOCATION:Carried
 
@@ -5510,7 +5511,7 @@ ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Staggering Critical
 ABILITY:CATEGORY=FEAT|Vital Strike
 GEAR:Elysian Maul of the Titans	SIZE:C	LOCATION:Equipped
-GEAR:Breastplate				SIZE:C	LOCATION:Equipped	EQMOD:PLUS3A
+GEAR:Breastplate				SIZE:C	LOCATION:Equipped	EQMOD:Special Ability ~ +3 ~ Armor
 
 STARTPACK:Titan (Thanatotic) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Titan (Thanatotic)]	SOURCEPAGE:p.267
 RACE:Titan (Thanatotic)	!PRERACE:1,%
@@ -5543,8 +5544,8 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Lightning Reflexes
 ABILITY:CATEGORY=FEAT|Power Attack
 ABILITY:CATEGORY=FEAT|Vital Strike
-GEAR:Battleaxe	SIZE:C	LOCATION:Equipped	EQMOD:PLUS3W.UNHOLY
-GEAR:Full Plate	SIZE:C	LOCATION:Equipped	EQMOD:PLUS3A
+GEAR:Battleaxe	SIZE:C	LOCATION:Equipped	EQMOD:Special Ability ~ +3 ~ Weapon.Special Ability ~ Unholy ~ Weapon
+GEAR:Full Plate	SIZE:C	LOCATION:Equipped	EQMOD:Special Ability ~ +3 ~ Armor
 GEAR:Rock (Huge)			LOCATION:Carried
 
 STARTPACK:Toad (Giant) Default	TYPE:Default Monster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Toad (Giant)]	SOURCEPAGE:p.268
@@ -5602,7 +5603,7 @@ SKILL:Stealth		RANK:3
 SKILL:Survival		RANK:3
 ABILITY:CATEGORY=FEAT|Mounted Combat
 ABILITY:CATEGORY=FEAT|Ride-By Attack
-GEAR:Trident				LOCATION:Equipped	EQMOD:MWORKW
+GEAR:Trident				LOCATION:Equipped	EQMOD:Special Quality ~ Masterwork ~ Weapon
 GEAR:Crossbow (Heavy)			LOCATION:Carried
 GEAR:Bolt (Crossbow)	QTY:10	LOCATION:Carried
 
@@ -5714,7 +5715,7 @@ ABILITY:CATEGORY=FEAT|Iron Will
 ABILITY:CATEGORY=FEAT|Weapon Focus (Rhoka Sword)
 GEAR:Studded Leather				LOCATION:Equipped
 GEAR:Rhoka Sword					LOCATION:Both Hands
-GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:BOWSTR|+4
+GEAR:Longbow (Composite)			LOCATION:Carried		EQMOD:Special Quality ~ Composite Bow Strength Rating|+4
 GEAR:Arrow				QTY:20	LOCATION:Carried
 
 STARTPACK:Vampiric Mist Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vampiric Mist]	SOURCEPAGE:p.277
@@ -5949,7 +5950,7 @@ ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Armor Proficiency (Light)
 ABILITY:CATEGORY=FEAT|Toughness
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Leather			LOCATION:Equipped	EQMOD:PLUS4A
+GEAR:Leather			LOCATION:Equipped	EQMOD:Special Ability ~ +4 ~ Armor
 GEAR:Cloak of Resistance +4	LOCATION:Equipped
 GEAR:Staff of Charming		LOCATION:Equipped
 SPELLS:SPELLBOOK=Known Spells|CLASS=Wizard|Detect Magic
@@ -6109,4 +6110,4 @@ SKILL:Swim			RANK:1
 SKILL:Use Magic Device	RANK:2
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-GEAR:Sword (Short)	LOCATION:Primary Hand	EQMOD:MWORKW
+GEAR:Sword (Short)	LOCATION:Primary Hand	EQMOD:Special Quality ~ Masterwork ~ Weapon

@@ -1,6 +1,4 @@
 /*
- * PreClassTest.java
- *
  * Copyright 2004 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,19 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 15-Jan-2004
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
@@ -37,38 +27,18 @@ import pcgen.core.analysis.SubClassApplication;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.test.PreSubClassTester;
 
-/**
- * @author wardc
- *
- */
-/**
- * @author frugal@purplewombat.co.uk
- *
- */
-public class PreSubClassTest extends AbstractCharacterTestCase
+import org.junit.jupiter.api.Test;
+
+
+class PreSubClassTest extends AbstractCharacterTestCase
 {
 	/**
-	 * Main
-	 * @param args
+	 * Test to ensure that a character with a named class can be found.
+	 *
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreSubClassTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSubClassTest.class);
-	}
-
-	/**
-	 * Test to ensure that a character with a named class can be found
-	 * @throws Exception
-	 */
-	public void testNamedSubClass() throws Exception
+	@Test
+	void testNamedSubClass() throws PrerequisiteException
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -92,10 +62,12 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to make sure subclass still found if multiple classes, only one with subclass
-	 * @throws Exception
+	 * Test to make sure subclass still found if multiple classes, only one with subclass.
+	 *
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
-	public void testCharWithMultipleClasses() throws Exception
+	@Test
+	public void testCharWithMultipleClasses() throws PrerequisiteException
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -122,10 +94,12 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to make sure subclass still found if multiple classes, both with subclass
-	 * @throws Exception
+	 * Test to make sure subclass still found if multiple classes, both with subclass.
+	 *
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
-	public void testCharWithMultipleSubClasses() throws Exception
+	@Test
+	public void testCharWithMultipleSubClasses() throws PrerequisiteException
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -154,10 +128,12 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to ensure that a character without a named subclass cannot be found
-	 * @throws Exception
+	 * Test to ensure that a character without a named subclass cannot be found.
+	 *
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
-	public void testNamedSubClassFail() throws Exception
+	@Test
+	public void testNamedSubClassFail() throws PrerequisiteException
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
@@ -178,10 +154,12 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test to ensure that a character without a named subclass cannot be found
-	 * @throws Exception
+	 * Test to ensure that a character without a named subclass cannot be found.
+	 *
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
-	public void testNamedDifSubClassFail() throws Exception
+	@Test
+	public void testNamedDifSubClassFail() throws PrerequisiteException
 	{
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");

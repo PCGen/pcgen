@@ -28,8 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with REGION Token
  */
-public class RegionToken extends AbstractNonEmptyToken<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>
+public class RegionToken extends AbstractNonEmptyToken<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override
@@ -43,16 +42,15 @@ public class RegionToken extends AbstractNonEmptyToken<PCTemplate> implements
 	{
 		if (value.equalsIgnoreCase("YES"))
 		{
-			context.getObjectContext().put(template,
-					ObjectKey.USETEMPLATENAMEFORREGION, true);
-			context.getObjectContext().put(template, ObjectKey.REGION, null);
+			return new ParseResult.Fail("REGION:YES is prohibited: use specific REGION name");
+		}
+		else if (value.equalsIgnoreCase("NONE"))
+		{
+			return ParseResult.SUCCESS;
 		}
 		else
 		{
-			context.getObjectContext().put(template,
-					ObjectKey.USETEMPLATENAMEFORREGION, null);
-			context.getObjectContext().put(template, ObjectKey.REGION,
-					Region.getConstant(value));
+			context.getObjectContext().put(template, ObjectKey.REGION, Region.getConstant(value));
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -60,25 +58,13 @@ public class RegionToken extends AbstractNonEmptyToken<PCTemplate> implements
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		Boolean useName = context.getObjectContext().getObject(pct,
-				ObjectKey.USETEMPLATENAMEFORREGION);
-		Region region = context.getObjectContext().getObject(pct,
-				ObjectKey.REGION);
-		if (useName != null && useName)
-		{
-			if (region != null)
-			{
-				context.addWriteMessage("Cannot have Template with "
-						+ getTokenName() + " YES and specific value");
-			}
-			return new String[] { "YES" };
-		}
+		Region region = context.getObjectContext().getObject(pct, ObjectKey.REGION);
 		if (region == null)
 		{
 			// Okay, nothing set
 			return null;
 		}
-		return new String[] { region.toString() };
+		return new String[]{region.toString()};
 	}
 
 	@Override

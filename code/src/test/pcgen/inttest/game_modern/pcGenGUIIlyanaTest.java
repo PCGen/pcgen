@@ -1,5 +1,4 @@
 /*
- * pcGenGUIIlyanaTest.java
  * Copyright 2015 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -17,54 +16,20 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created/Reinstated on 09/07/2015
- *
- * $Id$
  */
 package pcgen.inttest.game_modern;
 
 import pcgen.inttest.PcgenFtlTestCase;
-import junit.framework.Test;
-import junit.framework.TestSuite;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests a Modern Tough Hero 3/Strong Hero 3.
  * See the PCG file for details
  */
-@SuppressWarnings("nls")
 public class pcGenGUIIlyanaTest extends PcgenFtlTestCase
 {
-
-	/**
-	 * 
-	 */
-	public pcGenGUIIlyanaTest()
-	{
-		super("msrd_ilyana");
-	}
-
-	/**
-	 * standard JUnit style constructor
-	 * 
-	 * @param name
-	 */
-	public pcGenGUIIlyanaTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(pcGenGUIIlyanaTest.class);
-	}
-
-	/**
-	 * Loads and outputs the character.
-	 * 
-	 * @throws Exception If an error occurs.
-	 */
+	@Test
 	public void testIlyana() throws Exception
 	{
 		runTest("msrd_Ilyana", "Modern");

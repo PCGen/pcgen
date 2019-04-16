@@ -1,5 +1,4 @@
 /*
- * Follower.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
- * Created on July 10, 2002, 11:26 PM
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core.character;
 
@@ -30,13 +23,11 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.core.Race;
 
 /**
- * <code>Follower.java</code>
- * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
+ * {@code Follower.java}
  **/
 public final class Follower implements Comparable<Object>, Cloneable
 {
 	/*
-	 *
 	 * the Structure of each Follower is as follows:
 	 *
 	 * FOLLOWER:name:type:race:HD:/path/to/some.pcg
@@ -46,7 +37,6 @@ public final class Follower implements Comparable<Object>, Cloneable
 	 * String race = race of follower
 	 * int HD = Number of "used" HD
 	 * String fileName = path and file name
-	 *
 	 */
 	private String fileName = Constants.EMPTY_STRING;
 	private String name = Constants.EMPTY_STRING;
@@ -158,17 +148,17 @@ public final class Follower implements Comparable<Object>, Cloneable
 		return usedHD;
 	}
 
-	public void setAdjustment( final int anAdjustment )
+	public void setAdjustment(final int anAdjustment)
 	{
 		theAdjustment = anAdjustment;
 	}
-	
+
 	public int getAdjustment()
 	{
 		return theAdjustment;
 	}
-	
-    @Override
+
+	@Override
 	public int compareTo(final Object obj)
 	{
 		final Follower aF = (Follower) obj;

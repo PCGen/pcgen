@@ -17,42 +17,46 @@
  */
 package pcgen.io;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 
 import pcgen.cdom.content.CNAbility;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.io.testsupport.AbstractSaveRestoreTest;
-import pcgen.persistence.PersistenceLayerException;
+import plugin.exporttokens.deprecated.TemplateToken;
+import plugin.lsttokens.ability.StackToken;
+import plugin.lsttokens.deprecated.TemplateFeatToken;
+import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
+import org.junit.jupiter.api.Test;
+
+class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 {
 
+	@Test
 	public void testTemplateFeat()
 	{
 		//Represents CODE-2547
-		TokenRegistration.register(new plugin.lsttokens.deprecated.TemplateFeatToken());
-		TokenRegistration.register(new plugin.lsttokens.ability.StackToken());
-		TokenRegistration.register(new plugin.exporttokens.deprecated.TemplateToken());
+		TokenRegistration.register(new TemplateFeatToken());
+		TokenRegistration.register(new StackToken());
+		TokenRegistration.register(new TemplateToken());
 		Language lang = context.getReferenceContext().constructCDOMObject(Language.class, "English");
-		Ability a = context.getReferenceContext().constructCDOMObject(Ability.class, "Ab");
-		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
+		Ability a = BuildUtilities.buildAbility(context, BuildUtilities.getFeatCat(), "Ab");
 		PCTemplate pct = context.getReferenceContext().constructCDOMObject(PCTemplate.class, "Templ");
-		try
-		{
+		assertDoesNotThrow(() -> {
 			assertTrue(context.processToken(a, "MULT", "YES"));
 			assertTrue(context.processToken(a, "STACK", "YES"));
 			assertTrue(context.processToken(a, "CHOOSE", "LANG|English"));
 			assertTrue(context.processToken(a, "AUTO", "LANG|%LIST"));
 			assertTrue(context.processToken(pct, "FEAT", "Ab"));
-		}
-		catch (PersistenceLayerException e)
-		{
-			fail (e.getMessage());
-		}
+		});
 		finishLoad();
 		pc.addTemplate(pct);
 		assertTrue(pc.hasLanguage(lang));

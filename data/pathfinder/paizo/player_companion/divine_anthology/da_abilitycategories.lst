@@ -1,0 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+#SOURCELONG:Divine Anthology	SOURCESHORT:DA	SOURCEWEB:http://paizo.com/products/btpy9nvh	SOURCEDATE:2016-10
+
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI		Display Location
+ABILITYCATEGORY:Divine Fighting Technique		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Divine Fighting Technique	PLURAL:Divine Fighting Techniques	DISPLAYLOCATION:Feats
+
+ABILITYCATEGORY:Divine Paragon Boon Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Internal			TYPE:DivineParagonBoonChoice								DISPLAYLOCATION:Class Features

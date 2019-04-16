@@ -1,5 +1,4 @@
 /*
- * MapListener.java
  * Copyright 2012 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,16 +15,11 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Mar 11, 2012, 4:31:21 PM
  */
 package pcgen.facade.util.event;
 
 import java.util.EventListener;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public interface MapListener<K, V> extends EventListener
 {
 
@@ -60,7 +54,7 @@ public interface MapListener<K, V> extends EventListener
 
 	/**
 	 * This is called when the value for a specific key has
-	 * changed in some way. This differs from <code>valueChanged</code>
+	 * changed in some way. This differs from {@code valueChanged}
 	 * in that the value was not replaced but should be refreshed.
 	 * For example if the value was a ReferenceFacade this
 	 * event could indicate that its reference has changed.

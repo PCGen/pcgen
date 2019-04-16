@@ -26,8 +26,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with DEFAULT Token
  */
-public class DefaultToken extends AbstractNonEmptyToken<RuleCheck> implements
-		CDOMPrimaryToken<RuleCheck>
+public class DefaultToken extends AbstractNonEmptyToken<RuleCheck> implements CDOMPrimaryToken<RuleCheck>
 {
 
 	@Override
@@ -37,8 +36,7 @@ public class DefaultToken extends AbstractNonEmptyToken<RuleCheck> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-			RuleCheck rule, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, RuleCheck rule, String value)
 	{
 		Boolean set;
 		char firstChar = value.charAt(0);
@@ -46,8 +44,7 @@ public class DefaultToken extends AbstractNonEmptyToken<RuleCheck> implements
 		{
 			if (value.length() > 1 && !value.equalsIgnoreCase("YES"))
 			{
-				return new ParseResult.Fail("You should use 'YES' as the "
-						+ getTokenName() + ": " + value, context);
+				return new ParseResult.Fail("You should use 'YES' as the " + getTokenName() + ": " + value);
 			}
 			set = Boolean.TRUE;
 		}
@@ -55,15 +52,11 @@ public class DefaultToken extends AbstractNonEmptyToken<RuleCheck> implements
 		{
 			if (firstChar != 'N' && firstChar != 'n')
 			{
-				return new ParseResult.Fail(
-						"You should use 'YES' or 'NO' as the " + getTokenName()
-								+ ": " + value, context);
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 			}
 			if (value.length() > 1 && !value.equalsIgnoreCase("NO"))
 			{
-				return new ParseResult.Fail(
-						"You should use 'YES' or 'NO' as the " + getTokenName()
-								+ ": " + value, context);
+				return new ParseResult.Fail("You should use 'YES' or 'NO' as the " + getTokenName() + ": " + value);
 			}
 			set = Boolean.FALSE;
 		}
@@ -71,14 +64,14 @@ public class DefaultToken extends AbstractNonEmptyToken<RuleCheck> implements
 		return ParseResult.SUCCESS;
 	}
 
-    @Override
+	@Override
 	public String[] unparse(LoadContext context, RuleCheck rule)
 	{
 		boolean set = rule.getDefault();
-		return new String[] { set ? "YES" : "NO" };
+		return new String[]{set ? "YES" : "NO"};
 	}
 
-    @Override
+	@Override
 	public Class<RuleCheck> getTokenClass()
 	{
 		return RuleCheck.class;

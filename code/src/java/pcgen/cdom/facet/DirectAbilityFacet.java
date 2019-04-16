@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractCNASEnforcingFacet;
@@ -30,18 +31,13 @@ import pcgen.cdom.helper.CNAbilitySelection;
  * DirectAbilityFacet is a Facet that tracks the CategorizedAbilitySelection
  * that have been granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class DirectAbilityFacet extends AbstractCNASEnforcingFacet
 {
 
 	public void removeAll(CharID id, Object source)
 	{
-		if (source == null)
-		{
-			throw new IllegalArgumentException(
-				"Attempt to remove object with null source from list");
-		}
+		Objects.requireNonNull(source, "Attempt to remove object with null source from list");
 		List<List<SourcedCNAS>> list = getList(id);
 		if (list == null)
 		{
@@ -49,8 +45,7 @@ public class DirectAbilityFacet extends AbstractCNASEnforcingFacet
 		}
 		List<CNAbilitySelection> removed = new ArrayList<>();
 		List<CNAbilitySelection> added = new ArrayList<>();
-		for (Iterator<List<SourcedCNAS>> listIT = list.iterator(); listIT
-			.hasNext();)
+		for (Iterator<List<SourcedCNAS>> listIT = list.iterator(); listIT.hasNext();)
 		{
 			List<SourcedCNAS> array = listIT.next();
 			int length = array.size();
@@ -89,8 +84,7 @@ public class DirectAbilityFacet extends AbstractCNASEnforcingFacet
 		}
 		for (CNAbilitySelection cnas : removed)
 		{
-			fireDataFacetChangeEvent(id, cnas,
-				DataFacetChangeEvent.DATA_REMOVED);
+			fireDataFacetChangeEvent(id, cnas, DataFacetChangeEvent.DATA_REMOVED);
 		}
 		for (CNAbilitySelection cnas : added)
 		{

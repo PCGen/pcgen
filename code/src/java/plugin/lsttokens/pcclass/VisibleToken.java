@@ -28,8 +28,7 @@ import pcgen.util.enumeration.Visibility;
 /**
  * Class deals with VISIBLE Token
  */
-public class VisibleToken extends AbstractNonEmptyToken<PCClass> implements
-		CDOMPrimaryToken<PCClass>
+public class VisibleToken extends AbstractNonEmptyToken<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 
 	@Override
@@ -39,8 +38,7 @@ public class VisibleToken extends AbstractNonEmptyToken<PCClass> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc,
-		String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, PCClass pcc, String value)
 	{
 		Visibility vis;
 		if (value.equals("NO"))
@@ -53,7 +51,7 @@ public class VisibleToken extends AbstractNonEmptyToken<PCClass> implements
 		}
 		else
 		{
-			return new ParseResult.Fail("Can't understand Visibility: " + value, context);
+			return new ParseResult.Fail("Can't understand Visibility: " + value);
 		}
 		context.getObjectContext().put(pcc, ObjectKey.VISIBILITY, vis);
 		return ParseResult.SUCCESS;
@@ -62,8 +60,7 @@ public class VisibleToken extends AbstractNonEmptyToken<PCClass> implements
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		Visibility vis = context.getObjectContext().getObject(pcc,
-				ObjectKey.VISIBILITY);
+		Visibility vis = context.getObjectContext().getObject(pcc, ObjectKey.VISIBILITY);
 		if (vis == null)
 		{
 			return null;
@@ -79,11 +76,10 @@ public class VisibleToken extends AbstractNonEmptyToken<PCClass> implements
 		}
 		else
 		{
-			context.addWriteMessage("Visibility " + vis
-					+ " is not a valid Visibility for a PCClass");
+			context.addWriteMessage("Visibility " + vis + " is not a valid Visibility for a PCClass");
 			return null;
 		}
-		return new String[] { visString };
+		return new String[]{visString};
 	}
 
 	@Override

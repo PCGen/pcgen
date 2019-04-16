@@ -1,5 +1,4 @@
 /*
- * PCClassLoader.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 22, 2002, 10:29 PM
  *
- * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -40,37 +37,27 @@ import pcgen.persistence.lst.utils.DeferredLine;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-/**
- *
- * @author  David Rice &lt;david-pcgen@jcuz.com&gt;
- */
 public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 {
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, pcgen.cdom.base.CDOMObject, String, SourceEntry)
-	 */
 	@Override
-	public PCClass parseLine(LoadContext context, PCClass target,
-		String lstLine, SourceEntry source) throws PersistenceLayerException
+	public PCClass parseLine(LoadContext context, PCClass target, String lstLine, SourceEntry source)
+		throws PersistenceLayerException
 	{
-		if (lstLine.startsWith("SUBCLASS:")
-			|| lstLine.startsWith("SUBCLASSLEVEL:"))
+		if (lstLine.startsWith("SUBCLASS:") || lstLine.startsWith("SUBCLASSLEVEL:"))
 		{
 			if (target == null)
 			{
-				Logging.errorPrint("Ignoring line: " + lstLine
-					+ " as SUBCLASS* type line appeared before CLASS: line");
+				Logging.errorPrint("Ignoring line: " + lstLine + " as SUBCLASS* type line appeared before CLASS: line");
 				return null;
 			}
 			SubClass subClass = null;
 
 			if (lstLine.startsWith("SUBCLASS:"))
 			{
-				int tabLoc = lstLine.indexOf("\t");
+				int tabLoc = lstLine.indexOf('\t');
 				if (tabLoc == -1)
 				{
-					Logging.errorPrint("Expected SUBCLASS to have "
-						+ "additional Tags in " + source.getURI()
+					Logging.errorPrint("Expected SUBCLASS to have " + "additional Tags in " + source.getURI()
 						+ " (e.g. COST is a required Tag in a SUBCLASS)");
 				}
 				final String n = lstLine.substring(9, tabLoc);
@@ -93,26 +80,26 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				if (subClassList != null)
 				{
 					subClass = subClassList.get(subClassList.size() - 1);
-					subClass.addToListFor(ListKey.SUB_CLASS_LEVEL, new DeferredLine(source, lstLine.substring(14).intern()));
+					subClass.addToListFor(ListKey.SUB_CLASS_LEVEL,
+						new DeferredLine(source, lstLine.substring(14).intern()));
 				}
 			}
 			return target;
 		}
 
-		if (lstLine.startsWith("SUBSTITUTIONCLASS:")
-			|| lstLine.startsWith("SUBSTITUTIONLEVEL:"))
+		if (lstLine.startsWith("SUBSTITUTIONCLASS:") || lstLine.startsWith("SUBSTITUTIONLEVEL:"))
 		{
 			if (target == null)
 			{
-				Logging.errorPrint("Ignoring line: " + lstLine
-					+ " as SUBSTITUTIONCLASS* type line appeared before CLASS: line");
+				Logging.errorPrint(
+					"Ignoring line: " + lstLine + " as SUBSTITUTIONCLASS* type line appeared before CLASS: line");
 				return null;
 			}
 			SubstitutionClass substitutionClass = null;
 
 			if (lstLine.startsWith("SUBSTITUTIONCLASS:"))
 			{
-				int tabLoc = lstLine.indexOf("\t");
+				int tabLoc = lstLine.indexOf('\t');
 				String name;
 				String restOfLine;
 				if (tabLoc > 0)
@@ -141,19 +128,15 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			{
 				if (lstLine.indexOf('\t') == -1)
 				{
-					Logging.errorPrint("Ignoring line: " + lstLine
-						+ " as SUBSTITUTIONLEVEL line was empty");
+					Logging.errorPrint("Ignoring line: " + lstLine + " as SUBSTITUTIONLEVEL line was empty");
 					return null;
 				}
-				List<SubstitutionClass> substitutionClassList = target
-						.getListFor(ListKey.SUBSTITUTION_CLASS);
-				if (substitutionClassList != null
-						&& !substitutionClassList.isEmpty()
-						&& lstLine.length() > 18)
+				List<SubstitutionClass> substitutionClassList = target.getListFor(ListKey.SUBSTITUTION_CLASS);
+				if (substitutionClassList != null && !substitutionClassList.isEmpty() && lstLine.length() > 18)
 				{
-					substitutionClass = substitutionClassList
-							.get(substitutionClassList.size() - 1);
-					substitutionClass.addToListFor(ListKey.SUB_CLASS_LEVEL, new DeferredLine(source, lstLine.substring(18).intern()));
+					substitutionClass = substitutionClassList.get(substitutionClassList.size() - 1);
+					substitutionClass.addToListFor(ListKey.SUB_CLASS_LEVEL,
+						new DeferredLine(source, lstLine.substring(18).intern()));
 				}
 			}
 			return target;
@@ -162,9 +145,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		return parseClassLine(context, lstLine, source, target);
 	}
 
-	private PCClass parseClassLine(LoadContext context, String lstLine,
-			SourceEntry source, PCClass pcClass)
-			throws PersistenceLayerException
+	private PCClass parseClassLine(LoadContext context, String lstLine, SourceEntry source, PCClass pcClass)
+		throws PersistenceLayerException
 	{
 		int tabLoc = lstLine.indexOf(SystemLoader.TAB_DELIM);
 		String lineIdentifier;
@@ -179,13 +161,12 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			lineIdentifier = lstLine.substring(0, tabLoc);
 			restOfLine = lstLine.substring(tabLoc + 1);
 		}
-		
+
 		if (lineIdentifier.startsWith("CLASS:"))
 		{
 			String name = lineIdentifier.substring(6);
 
-			if (pcClass == null || !name.equals(pcClass.getKeyName())
-					&& (name.indexOf(".MOD") < 0))
+			if (pcClass == null || !name.equals(pcClass.getKeyName()) && (name.indexOf(".MOD") < 0))
 			{
 				if (pcClass != null)
 				{
@@ -201,23 +182,20 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			// need to grab PCClass instance for this .MOD minus the .MOD part of the name
 			else if (name.endsWith(".MOD"))
 			{
-				pcClass =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, name.substring(0, name
-						.length() - 4).intern());
+				pcClass = context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+					name.substring(0, name.length() - 4).intern());
 			}
 			parseLineIntoClass(context, pcClass, source, restOfLine);
 		}
-		else 
+		else
 		{
-			parseFullClassLevelLine(context, source, pcClass, lineIdentifier,
-					restOfLine);
+			parseFullClassLevelLine(context, source, pcClass, lineIdentifier, restOfLine);
 		}
 		return pcClass;
 	}
 
-	private void parseFullClassLevelLine(LoadContext context,
-			SourceEntry source, PCClass pcClass, String lineIdentifier,
-			String restOfLine) throws PersistenceLayerException
+	private void parseFullClassLevelLine(LoadContext context, SourceEntry source, PCClass pcClass,
+		String lineIdentifier, String restOfLine) throws PersistenceLayerException
 	{
 		try
 		{
@@ -252,9 +230,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			else
 			{
-				Logging.errorPrint("Invalid Level Identifier: " + thisLevel
-						+ " for " + pcClass.getDisplayName()
-						+ ". Value must be greater than zero");
+				Logging.errorPrint("Invalid Level Identifier: " + thisLevel + " for " + pcClass.getDisplayName()
+					+ ". Value must be greater than zero");
 			}
 		}
 		catch (NumberFormatException nfe)
@@ -262,25 +239,21 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			// I think we can ignore this, as
 			// it's supposed to be the level #
 			// but could be almost anything else
-			Logging.errorPrint("Expected a level value, but got '"
-				+ lineIdentifier + "' instead (as a level line in "
-				+ (pcClass == null ? "no class" : pcClass.getKeyName())
-				+ ") in source " + source.getURI());
+			Logging.errorPrint("Expected a level value, but got '" + lineIdentifier + "' instead (as a level line in "
+				+ (pcClass == null ? "no class" : pcClass.getKeyName()) + ") in source " + source.getURI());
 			Logging.errorPrint("  Rest of line was: " + restOfLine);
 		}
 	}
 
-	public void parseClassLevelLine(LoadContext context, PCClass pcClass,
-			int lvl, SourceEntry source,
-			String restOfLine) throws PersistenceLayerException
+	public void parseClassLevelLine(LoadContext context, PCClass pcClass, int lvl, SourceEntry source,
+		String restOfLine) throws PersistenceLayerException
 	{
 		if (restOfLine == null)
 		{
 			return;
 		}
 		PCClassLevel classlevel = pcClass.getOriginalClassLevel(lvl);
-		final StringTokenizer colToken = new StringTokenizer(restOfLine,
-				SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken = new StringTokenizer(restOfLine, SystemLoader.TAB_DELIM);
 
 		// loop through all the tokens and parse them
 		while (colToken.hasMoreTokens())
@@ -289,46 +262,40 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			int colonLoc = token.indexOf(':');
 			if (colonLoc == -1)
 			{
-				Logging
-						.errorPrint("Invalid Token - does not contain a colon: '"
-								+ token
-								+ "' in Class "
-								+ pcClass.getDisplayName() + " of " + source);
+				Logging.errorPrint("Invalid Token - does not contain a colon: '" + token + "' in Class "
+					+ pcClass.getDisplayName() + " of " + source);
 				continue;
 			}
 			else if (colonLoc == 0)
 			{
-				Logging.errorPrint("Invalid Token - starts with a colon: '"
-						+ token + "' in Class " + pcClass.getDisplayName()
-						+ " of " + source);
+				Logging.errorPrint("Invalid Token - starts with a colon: '" + token + "' in Class "
+					+ pcClass.getDisplayName() + " of " + source);
 				continue;
 			}
 
 			String key = token.substring(0, colonLoc);
-			String value = (colonLoc == token.length() - 1) ? null : token
-					.substring(colonLoc + 1);
+			String value = (colonLoc == token.length() - 1) ? null : token.substring(colonLoc + 1);
 			if (context.processToken(classlevel, key.intern(), value.intern()))
 			{
 				context.commit();
 			}
 			else
- 			{
+			{
 				context.rollback();
 				Logging.replayParsedMessages();
- 			}
+			}
 			Logging.clearParseMessages();
 		}
 	}
 
-	public void parseLineIntoClass(LoadContext context, PCClass pcClass,
-			SourceEntry source, String restOfLine) throws PersistenceLayerException
+	public void parseLineIntoClass(LoadContext context, PCClass pcClass, SourceEntry source, String restOfLine)
+		throws PersistenceLayerException
 	{
 		if (restOfLine == null)
 		{
 			return;
 		}
-		final StringTokenizer colToken =
-				new StringTokenizer(restOfLine, SystemLoader.TAB_DELIM);
+		final StringTokenizer colToken = new StringTokenizer(restOfLine, SystemLoader.TAB_DELIM);
 
 		// loop through all the tokens and parse them
 		while (colToken.hasMoreTokens())
@@ -337,40 +304,34 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			int colonLoc = token.indexOf(':');
 			if (colonLoc == -1)
 			{
-				Logging
-						.errorPrint("Invalid Token - does not contain a colon: '"
-								+ token
-								+ "' in Class "
-								+ pcClass.getDisplayName() + " of " + source);
+				Logging.errorPrint("Invalid Token - does not contain a colon: '" + token + "' in Class "
+					+ pcClass.getDisplayName() + " of " + source);
 				continue;
 			}
 			else if (colonLoc == 0)
 			{
-				Logging.errorPrint("Invalid Token - starts with a colon: '"
-						+ token + "' in Class " + pcClass.getDisplayName()
-						+ " of " + source);
+				Logging.errorPrint("Invalid Token - starts with a colon: '" + token + "' in Class "
+					+ pcClass.getDisplayName() + " of " + source);
 				continue;
 			}
 
 			String key = token.substring(0, colonLoc);
-			String value = (colonLoc == token.length() - 1) ? null : token
-					.substring(colonLoc + 1);
+			String value = (colonLoc == token.length() - 1) ? null : token.substring(colonLoc + 1);
 			if (context.processToken(pcClass, key.intern(), value.intern()))
 			{
 				context.commit();
 			}
 			else
- 			{
+			{
 				context.rollback();
 				Logging.replayParsedMessages();
- 			}
+			}
 			Logging.clearParseMessages();
 		}
 	}
 
-	private void parseRepeatClassLevel(LoadContext context, String restOfLine,
-			SourceEntry source, PCClass pcClass, int iLevel,
-		String colString) throws PersistenceLayerException
+	private void parseRepeatClassLevel(LoadContext context, String restOfLine, SourceEntry source, PCClass pcClass,
+		int iLevel, String colString) throws PersistenceLayerException
 	{
 		//
 		// REPEAT:<level increment>|<consecutive>|<max level>
@@ -392,8 +353,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.errorPrint("Non-Numeric Level Increment info '"
-					+ colString + "' in " + source.getURI(), nfe);
+				Logging.errorPrint("Non-Numeric Level Increment info '" + colString + "' in " + source.getURI(), nfe);
 			}
 		}
 		boolean oldSyntax = false;
@@ -409,7 +369,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			{
 				if (tokenCount > 2)
 				{
-					Logging.errorPrint("MAX= cannot be followed by another item in REPEATLEVEL.  SKIP= must appear before MAX=");
+					Logging.errorPrint(
+						"MAX= cannot be followed by another item in REPEATLEVEL.  SKIP= must appear before MAX=");
 				}
 				String maxString = tokenTwo.substring(4);
 				try
@@ -418,8 +379,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				}
 				catch (NumberFormatException nfe)
 				{
-					Logging.errorPrint("Non-Numeric Max Level info MAX='" + maxLevel
-						+ "' in " + source.getURI(), nfe);
+					Logging.errorPrint("Non-Numeric Max Level info MAX='" + maxLevel + "' in " + source.getURI(), nfe);
 				}
 				consumed = true;
 			}
@@ -435,8 +395,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 				}
 				catch (NumberFormatException nfe)
 				{
-					Logging.errorPrint("Non-Numeric Consecutive Level info '"
-						+ colString + "' in " + source.getURI(), nfe);
+					Logging.errorPrint("Non-Numeric Consecutive Level info '" + colString + "' in " + source.getURI(),
+						nfe);
 				}
 			}
 		}
@@ -458,14 +418,12 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			catch (NumberFormatException nfe)
 			{
-				Logging.errorPrint("Non-Numeric Max Level info '" + colString
-					+ "' in " + source.getURI(), nfe);
+				Logging.errorPrint("Non-Numeric Max Level info '" + colString + "' in " + source.getURI(), nfe);
 			}
 		}
 
 		int count = consecutive - 1; // first one already added by processing of lstLine, so skip it
-		for (int lvl = iLevel + lvlIncrement; lvl <= maxLevel; lvl +=
-				lvlIncrement)
+		for (int lvl = iLevel + lvlIncrement; lvl <= maxLevel; lvl += lvlIncrement)
 		{
 			if ((consecutive == 0) || (count != 0))
 			{
@@ -485,20 +443,16 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		}
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(LoadContext, String)
-	 */
 	@Override
 	protected PCClass getObjectKeyed(LoadContext context, String aKey)
 	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, aKey.startsWith("CLASS:") ? aKey
-		.substring(6) : aKey);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+			aKey.startsWith("CLASS:") ? aKey.substring(6) : aKey);
 	}
 
 	public void loadSubLines(LoadContext context)
 	{
-		Collection<PCClass> allClasses = context.getReferenceContext()
-				.getConstructedCDOMObjects(PCClass.class);
+		Collection<PCClass> allClasses = context.getReferenceContext().getConstructedCDOMObjects(PCClass.class);
 		for (PCClass cl : allClasses)
 		{
 			List<SubClass> subClasses = cl.getListFor(ListKey.SUB_CLASS);
@@ -521,8 +475,7 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		}
 	}
 
-	private void processSubLevelLines(LoadContext context, PCClass cl,
-			PCClass sc)
+	private void processSubLevelLines(LoadContext context, PCClass cl, PCClass sc)
 	{
 		for (DeferredLine dl : sc.getSafeListFor(ListKey.SUB_CLASS_LEVEL))
 		{
@@ -547,22 +500,19 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 			}
 			catch (PersistenceLayerException ple)
 			{
-				Logging.log(Logging.LST_ERROR,
-						"Error parsing " + sc.getClass().getSimpleName() + " line: "
-								+ cl.getKeyName() + " "
-								+ sc.getKeyName() + " " + lstLine, ple);
+				Logging.log(Logging.LST_ERROR, "Error parsing " + sc.getClass().getSimpleName() + " line: "
+					+ cl.getKeyName() + " " + sc.getKeyName() + " " + lstLine, ple);
 			}
 		}
 	}
 
 	@Override
-	public PCClass getCopy(LoadContext context, String baseName,
-			String copyName, CampaignSourceEntry source) throws PersistenceLayerException
+	public PCClass getCopy(LoadContext context, String baseName, String copyName, CampaignSourceEntry source)
+		throws PersistenceLayerException
 	{
 		PCClass copy = super.getCopy(context, baseName, copyName, source);
 		PCClassKeyChange.changeReferences(baseName, copy);
 		return copy;
 	}
-	
-	
+
 }

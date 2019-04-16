@@ -1,5 +1,4 @@
 #
-# Current Ver: $Revision$
 # Last Editor: $Author$
 # Last Edited: $Date$
 #
@@ -8,19 +7,11 @@
 LEVELMSG:Congratulations, you can advance with that much experience!
 #
 #
-ALIGNMENTNAME:Alignment
-HPNAME:Hit Points
-HPABBREV:HP
-ALTHPNAME:Wound
-ALTHPABBREV:WP
 
 # AC tags can be used to display AC info by using appropriate name and abbrev.
-# ACNAME: and ACABBREV: are required for proper usage.
 ACNAME:Armor Class
-ACABBREV:AC
 
 # Whether to allow AutoResizing of Equipment for nonmedium characters in this gamemode
-ALLOWAUTORESIZE:Y
 
 # Stacking bonuses
 BONUSSTACKS:Defense.Dodge.Circumstance.Racial.NotRanged.NotFlatFooted
@@ -28,7 +19,6 @@ BONUSSTACKS:Defense.Dodge.Circumstance.Racial.NotRanged.NotFlatFooted
 #
 #misc. currency specific items
 #
-CURRENCYUNIT:Gold
 CURRENCYUNITABBREV:gp
 
 #
@@ -39,20 +29,10 @@ DEFAULTUNITSET:Imperial
 
 # The following determine whether some Class-related
 # variables are displayed on the Classes tab.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense
 #  value is displayed.
-# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
-# DISPLAYVARIABLExNAME: determines the variable displayed.
-#  This must match the DEFINE: variable in order to be displayed
-# Up to 3 variables can be displayed in this manner
+#
+#
 
-SHOWCLASSDEFENSE:No
-#DISPLAYVARIABLE1TEXT:
-#DISPLAYVARIABLE1NAME:
-#DISPLAYVARIABLE2TEXT:
-#DISPLAYVARIABLE2NAME:
-#DISPLAYVARIABLE3TEXT:
-#DISPLAYVARIABLE3NAME:
 
 #
 # Whether or not the game mode displays these tabs
@@ -76,7 +56,6 @@ TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Pathfinder Society Organized Play
-MENUTOOLTIP:Use Pathfinder Society Organized Play character creation rules
 DISPLAYORDER:1
 ALLOWEDMODES:Pathfinder_PFS
 GAMEMODEKEY:Pathfinder_PFS
@@ -143,8 +122,6 @@ BABMAXATT:4
 BABATTCYC:5
 BABMINVAL:1
 # Epic stuff
-#BABMAXLVL:20
-#CHECKSMAXLVL:20
 
 #Class Types
 CLASSTYPE:PC		CRFORMULA:CL	ISMONSTER:NO	XPPENALTY:NO	CRMOD:-1	CRMODPRIORITY:1
@@ -153,10 +130,10 @@ CLASSTYPE:Monster		CRFORMULA:0		ISMONSTER:YES	XPPENALTY:NO
 CLASSTYPE:Companion	CRFORMULA:NONE	ISMONSTER:YES	XPPENALTY:NO
 
 #AC Types
-ACTYPE:Total				ADD:TOTAL		REMOVE:TouchMisc
+ACTYPE:Total				ADD:TOTAL		REMOVE:TouchMisc|CMD
 # Since TouchMisc should only add to the Touch, and not the total AC I'm deviating from the standard and using Remove in the Total.
-ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:TouchMisc	REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed		REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
-ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|Shield|ShieldEnhancement|NaturalArmor|NaturalArmorEnhancement	ADD:Shield|ShieldEnhancement|PREVARGTEQ:ShieldAddsToTouchAC,1
+ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:TouchMisc|CMD	REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed		REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
+ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|Shield|ShieldEnhancement|NaturalArmor|NaturalArmorEnhancement|CMD	ADD:Shield|ShieldEnhancement|PREVARGTEQ:ShieldAddsToTouchAC,1
 ACTYPE:TouchMisc				ADD:TouchMisc
 ACTYPE:Base					ADD:Base
 ACTYPE:Armor				ADD:Armor|ArmorEnhancement
@@ -169,7 +146,7 @@ ACTYPE:NaturalArmor			ADD:NaturalArmor|NaturalArmorEnhancement
 ACTYPE:NaturalArmorEnhancement	ADD:NaturalArmorEnhancement
 ACTYPE:Dodge				ADD:Dodge
 ACTYPE:Deflection				ADD:Deflection
-ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|ArmorEnhancement|Shield|ShieldEnhancement|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|TouchMisc
+ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|ArmorEnhancement|Shield|ShieldEnhancement|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|TouchMisc|CMD
 ACTYPE:Circumstance			ADD:Circumstance
 ACTYPE:Insight				ADD:Insight
 ACTYPE:Morale				ADD:Morale
@@ -263,7 +240,6 @@ WIELDCATEGORY:OneHandOnly	PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:OneHand
 #
 # Wield Category Steps
 #  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
-WCSTEPSFORMULA:EQUIP.SIZE.INT-PC.SIZE.INT
 
 WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded							ZERO:Light
 WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
@@ -283,9 +259,9 @@ WIELDCATEGORY:OneHandOnlyTooLarge							DOWN:OneHandOnly
 #
 # Dice rolling methods for character creation
 #
-ROLLMETHOD:Standard (4d6 drop lowest)	METHOD:roll(4,6,top(3))
-ROLLMETHOD:Classic (3d6)			METHOD:3d6
-ROLLMETHOD:Heroic (2d6+6)			METHOD:2d6+6
+ROLLMETHOD:Standard (4d6 drop lowest)	SORTKEY:A1	METHOD:roll(4,6,top(3))
+ROLLMETHOD:Classic (3d6)			SORTKEY:A2	METHOD:3d6
+ROLLMETHOD:Heroic (2d6+6)			SORTKEY:A3	METHOD:2d6+6
 
 # Unit Set
 UNITSET:Imperial	HEIGHTUNIT:ftin	HEIGHTFACTOR:1	HEIGHTPATTERN:#	DISTANCEUNIT:ft.	DISTANCEFACTOR:1		DISTANCEPATTERN:#.##	WEIGHTUNIT:lbs.	WEIGHTFACTOR:1	WEIGHTPATTERN:#.##
@@ -335,9 +311,10 @@ DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
 RESIZABLEEQUIPTYPE:Shield|Armor|Resizable
 
 # Character Types:
-CHARACTERTYPE:PC|NPC
+CHARACTERTYPE:PC|NPC|Monster
 
 # With the basic loader giving several offerings, we don't need this, plus it's using the character traits which was replaced by APG.
-DEFAULTDATASET:Pathfinder Society Core Assumption
+#DEFAULTDATASET:Paizo - Pathfinder Roleplaying Game Core Rulebook,Paizo - Pathfinder Roleplaying Game Character Traits Web Enhancement|Pathfinder RPG for Players
+#
 # DONE
 #

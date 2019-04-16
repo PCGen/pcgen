@@ -1,6 +1,5 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from EquipmentModifier.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -38,13 +37,16 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
 import pcgen.util.Delta;
 
-public class EqModCost
+public final class EqModCost
 {
-	private static final String s_CHARGES = "CHARGES";
+	private static final String S_CHARGES = "CHARGES";
 
-	public static BigDecimal addItemCosts(EquipmentModifier eqMod,
-			final PlayerCharacter aPC, final String bonusType, final int qty,
-			final Equipment parent)
+	private EqModCost()
+	{
+	}
+
+	public static BigDecimal addItemCosts(EquipmentModifier eqMod, final PlayerCharacter aPC, final String bonusType,
+		final int qty, final Equipment parent)
 	{
 		double val = 0;
 
@@ -56,8 +58,7 @@ public class EqModCost
 
 			if (bonus.getBonusName().equals(bonusType))
 			{
-				StringTokenizer aTok = new StringTokenizer(bonus.toString()
-						.substring(bonusType.length()), "|", false);
+				StringTokenizer aTok = new StringTokenizer(bonus.toString().substring(bonusType.length()), "|", false);
 				final String bType = aTok.nextToken();
 				aTok = new StringTokenizer(bType.substring(5), ".", false);
 
@@ -99,8 +100,7 @@ public class EqModCost
 		Boolean costdouble = eqMod.get(ObjectKey.COST_DOUBLE);
 		if (costdouble == null)
 		{
-			if (eqMod.isType("MagicalEnhancement")
-					|| eqMod.isType("BaseMaterial"))
+			if (eqMod.isType("MagicalEnhancement") || eqMod.isType("BaseMaterial"))
 			{
 				return false;
 			}
@@ -113,10 +113,8 @@ public class EqModCost
 			for (Prerequisite preReq : eqMod.getPrerequisiteList())
 			{
 				if ("TYPE".equalsIgnoreCase(preReq.getKind())
-						&& ((preReq.getKey()
-								.equalsIgnoreCase("EQMODTYPE=MagicalEnhancement")) || (preReq
-								.getKey()
-								.equalsIgnoreCase("EQMODTYPE.MagicalEnhancement"))))
+					&& ((preReq.getKey().equalsIgnoreCase("EQMODTYPE=MagicalEnhancement"))
+						|| (preReq.getKey().equalsIgnoreCase("EQMODTYPE.MagicalEnhancement"))))
 				{
 					return true;
 				}
@@ -132,14 +130,13 @@ public class EqModCost
 		String costFormula = eqMod.getSafe(FormulaKey.COST).toString();
 		String modChoice = "";
 
-		while (costFormula.indexOf("%SPELLLEVEL") >= 0)
+		while (costFormula.contains("%SPELLLEVEL"))
 		{
 			final int idx = costFormula.indexOf("%SPELLLEVEL");
 
-			if (modChoice.length() == 0)
+			if (modChoice.isEmpty())
 			{
-				final int iLevel = EqModSpellInfo.getSpellInfo(listEntry,
-						"SPELLLEVEL");
+				final int iLevel = EqModSpellInfo.getSpellInfo(listEntry, "SPELLLEVEL");
 
 				if (iLevel == 0)
 				{
@@ -151,8 +148,7 @@ public class EqModCost
 				}
 			}
 
-			costFormula = costFormula.substring(0, idx) + modChoice
-					+ costFormula.substring(idx + 11);
+			costFormula = costFormula.substring(0, idx) + modChoice + costFormula.substring(idx + 11);
 		}
 
 		costFormula = replaceCostSpellCost(costFormula, listEntry);
@@ -164,42 +160,37 @@ public class EqModCost
 		return costFormula;
 	}
 
-	private static String replaceCostCasterLevel(String costFormula,
-			final String listEntry)
+	private static String replaceCostCasterLevel(String costFormula, final String listEntry)
 	{
 		String modChoice = "";
 
-		while (costFormula.indexOf("%CASTERLEVEL") >= 0)
+		while (costFormula.contains("%CASTERLEVEL"))
 		{
 			final int idx = costFormula.indexOf("%CASTERLEVEL");
 
-			if (modChoice.length() == 0)
+			if (modChoice.isEmpty())
 			{
-				final int iCasterLevel = EqModSpellInfo.getSpellInfo(
-						listEntry, "CASTERLEVEL");
+				final int iCasterLevel = EqModSpellInfo.getSpellInfo(listEntry, "CASTERLEVEL");
 				modChoice = Integer.toString(iCasterLevel);
 
 				//
 				// Tack on the item creation multiplier, if there is one
 				//
-				final String castClassKey = EqModSpellInfo
-						.getSpellInfoString(listEntry, "CASTER");
+				final String castClassKey = EqModSpellInfo.getSpellInfoString(listEntry, "CASTER");
 
-				if (castClassKey.length() != 0)
+				if (!castClassKey.isEmpty())
 				{
 					final PCClass castClass = Globals.getContext().getReferenceContext()
-							.silentlyGetConstructedCDOMObject(PCClass.class,
-									castClassKey);
+						.silentlyGetConstructedCDOMObject(PCClass.class, castClassKey);
 
 					if (castClass != null)
 					{
 						final StringBuilder multiple = new StringBuilder(200);
 						String aString = castClass.get(StringKey.ITEMCREATE);
 
-						if (aString != null && aString.length() != 0)
+						if (aString != null && !aString.isEmpty())
 						{
-							final StringTokenizer aTok = new StringTokenizer(
-									aString, "+-*/()", true);
+							final StringTokenizer aTok = new StringTokenizer(aString, "+-*/()", true);
 
 							//
 							// This is to support older versions of the
@@ -209,8 +200,7 @@ public class EqModCost
 							//
 							if (aTok.countTokens() == 1)
 							{
-								multiple.append(iCasterLevel).append('*')
-										.append(aString);
+								multiple.append(iCasterLevel).append('*').append(aString);
 							}
 							else
 							{
@@ -235,50 +225,44 @@ public class EqModCost
 				}
 			}
 
-			costFormula = costFormula.substring(0, idx) + "(" + modChoice + ")"
-					+ costFormula.substring(idx + 12);
+			costFormula = costFormula.substring(0, idx) + "(" + modChoice + ")" + costFormula.substring(idx + 12);
 		}
 
 		return costFormula;
 	}
 
-	private static String replaceCostCharges(String costFormula,
-			final String listEntry)
+	private static String replaceCostCharges(String costFormula, final String listEntry)
 	{
 		String modChoice = "";
 
-		while (costFormula.indexOf("%" + s_CHARGES) >= 0)
+		while (costFormula.contains("%" + S_CHARGES))
 		{
-			final int idx = costFormula.indexOf("%" + s_CHARGES);
+			final int idx = costFormula.indexOf("%" + S_CHARGES);
 
-			if (modChoice.length() == 0)
+			if (modChoice.isEmpty())
 			{
-				modChoice = Integer.toString(EqModSpellInfo.getSpellInfo(
-						listEntry, s_CHARGES));
+				modChoice = Integer.toString(EqModSpellInfo.getSpellInfo(listEntry, S_CHARGES));
 			}
 
-			costFormula = costFormula.substring(0, idx) + modChoice
-					+ costFormula.substring(idx + 8);
+			costFormula = costFormula.substring(0, idx) + modChoice + costFormula.substring(idx + 8);
 		}
 
 		return costFormula;
 	}
 
-	private static String replaceCostSpellCost(String costFormula,
-			final String listEntry)
+	private static String replaceCostSpellCost(String costFormula, final String listEntry)
 	{
 		String modChoice = "";
 
-		while (costFormula.indexOf("%SPELLCOST") >= 0)
+		while (costFormula.contains("%SPELLCOST"))
 		{
 			final int idx = costFormula.indexOf("%SPELLCOST");
 
-			if (modChoice.length() == 0)
+			if (modChoice.isEmpty())
 			{
-				final String spellName = EqModSpellInfo.getSpellInfoString(
-						listEntry, "SPELLNAME");
+				final String spellName = EqModSpellInfo.getSpellInfoString(listEntry, "SPELLNAME");
 				final Spell aSpell = Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(Spell.class, spellName);
+					.silentlyGetConstructedCDOMObject(Spell.class, spellName);
 
 				if (aSpell != null)
 				{
@@ -286,23 +270,21 @@ public class EqModCost
 				}
 			}
 
-			costFormula = costFormula.substring(0, idx) + modChoice
-					+ costFormula.substring(idx + 10);
+			costFormula = costFormula.substring(0, idx) + modChoice + costFormula.substring(idx + 10);
 		}
 
 		return costFormula;
 	}
 
-	private static String replaceCostChoice(String costFormula,
-			final String listEntry)
+	private static String replaceCostChoice(String costFormula, final String listEntry)
 	{
 		String modChoice = "";
 
-		while (costFormula.indexOf("%CHOICE") >= 0)
+		while (costFormula.contains("%CHOICE"))
 		{
 			final int idx = costFormula.indexOf("%CHOICE");
 
-			if (modChoice.length() == 0)
+			if (modChoice.isEmpty())
 			{
 				final int offs = listEntry.lastIndexOf('|');
 				int modValue = 0;
@@ -319,38 +301,33 @@ public class EqModCost
 				modChoice = Integer.toString(modValue);
 			}
 
-			costFormula = costFormula.substring(0, idx) + modChoice
-					+ costFormula.substring(idx + 7);
+			costFormula = costFormula.substring(0, idx) + modChoice + costFormula.substring(idx + 7);
 		}
 
 		return costFormula;
 	}
 
-	private static String replaceCostSpellXPCost(String costFormula,
-			final String listEntry)
+	private static String replaceCostSpellXPCost(String costFormula, final String listEntry)
 	{
 		String modChoice = "";
 
-		while (costFormula.indexOf("%SPELLXPCOST") >= 0)
+		while (costFormula.contains("%SPELLXPCOST"))
 		{
 			final int idx = costFormula.indexOf("%SPELLXPCOST");
 
-			if (modChoice.length() == 0)
+			if (modChoice.isEmpty())
 			{
-				final String spellName = EqModSpellInfo.getSpellInfoString(
-						listEntry, "SPELLNAME");
+				final String spellName = EqModSpellInfo.getSpellInfoString(listEntry, "SPELLNAME");
 				final Spell aSpell = Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(Spell.class, spellName);
+					.silentlyGetConstructedCDOMObject(Spell.class, spellName);
 
 				if (aSpell != null)
 				{
-					modChoice = Integer.toString(aSpell
-							.getSafe(IntegerKey.XP_COST));
+					modChoice = Integer.toString(aSpell.getSafe(IntegerKey.XP_COST));
 				}
 			}
 
-			costFormula = costFormula.substring(0, idx) + modChoice
-					+ costFormula.substring(idx + 12);
+			costFormula = costFormula.substring(0, idx) + modChoice + costFormula.substring(idx + 12);
 		}
 
 		return costFormula;

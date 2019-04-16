@@ -17,13 +17,15 @@
  */
 package plugin.lsttokens.kit.gear;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.core.kit.KitGear;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import org.junit.jupiter.api.Test;
 
 public class MaxCostTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
@@ -57,25 +59,25 @@ public class MaxCostTokenTest extends AbstractKitTokenTestCase<KitGear>
 	}
 
 	@Test
-	public void testInvalidInputFormula() throws PersistenceLayerException
+	public void testInvalidInputFormula()
 	{
 		assertFalse(parse("FormulaProhibited"));
 	}
 
 	@Test
-	public void testInvalidInputZero() throws PersistenceLayerException
+	public void testInvalidInputZero()
 	{
 		assertFalse(parse("0"));
 	}
 
 	@Test
-	public void testInvalidInputNegative() throws PersistenceLayerException
+	public void testInvalidInputNegative()
 	{
 		assertFalse(parse("-1"));
 	}
 
 	@Test
-	public void testInvalidInputDecimal() throws PersistenceLayerException
+	public void testInvalidInputDecimal()
 	{
 		assertFalse(parse("1.5"));
 	}

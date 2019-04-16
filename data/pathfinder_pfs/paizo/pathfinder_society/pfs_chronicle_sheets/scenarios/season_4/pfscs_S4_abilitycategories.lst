@@ -1,0 +1,40 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+#SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.mywebsite.com	SOURCEDATE:2008-01
+
+# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display where?													Display Location
+ABILITYCATEGORY:Chronicle_S04-01	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-01						DISPLAYNAME:PFS Scenario #4-01: Rise of the Goblin Guild						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-02	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-02						DISPLAYNAME:PFS Scenario #4-02: In Wrath's Shadow							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-03	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-03						DISPLAYNAME:PFS Scenario #4-03: The Golemworks Incident						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-04	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-04						DISPLAYNAME:PFS Scenario #4-04: King of the Storval Stairs						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-05	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-05						DISPLAYNAME:PFS Scenario #4-05: The Sanos Abduction							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-06	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-06						DISPLAYNAME:PFS Scenario #4-06: The Green Market							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-07	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-07						DISPLAYNAME:PFS Scenario #4-07: Severing Ties								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-08	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-08						DISPLAYNAME:PFS Scenario #4-08: The Cultist's Kiss							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-09	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-09						DISPLAYNAME:PFS Scenario #4-09: The Blakros Matrimony							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-10	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-10						DISPLAYNAME:PFS Scenario #4-10: Feast of Sigils								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-11	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-11						DISPLAYNAME:PFS Scenario #4-11: The Disappeared								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-12	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-12						DISPLAYNAME:PFS Scenario #4-12: The Refuge of Time							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-13	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-13						DISPLAYNAME:PFS Scenario #4-13: Fortress of the Nail							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-14	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-14						DISPLAYNAME:PFS Scenario #4-14: My Enemy's Enemy							DISPLAYLOCATION:Chronicles
+#ABILITYCATEGORY:Chronicle_S04-15						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-15											DISPLAYNAME:PFS Scenario #4-15: The Cyphermage Dilemma								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-16	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-16						DISPLAYNAME:PFS Scenario #4-16: The Fabric of Reality							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-17	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-17						DISPLAYNAME:PFS Scenario #4-17: Tower of the Ironwood Watch						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-18	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-18						DISPLAYNAME:PFS Scenario #4-18: The Veteran's Vault							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-19	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-19						DISPLAYNAME:PFS Scenario #4-19: The Night March of Kalkamedes					DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-20	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-20						DISPLAYNAME:PFS Scenario #4-20: Words of the Ancients							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-21	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-21						DISPLAYNAME:PFS Scenario #4-21: Way of the Kirin							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-22	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-22						DISPLAYNAME:PFS Scenario #4-22: Halls of Dwarven Lore							DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-23	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-23						DISPLAYNAME:PFS Scenario #4-23: Rivalry's End								DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-24	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-24						DISPLAYNAME:PFS Scenario #4-24: The Price of Friendship						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-25	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-25						DISPLAYNAME:PFS Scenario #4-25: Glories of the Past, Part 3: The Secrets Stones Keep	DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-26	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-26						DISPLAYNAME:PFS Scenario #4-26: The Waking Rune								DISPLAYLOCATION:Chronicles
+#ABILITYCATEGORY:Chronicle_S04-EX						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-EX											DISPLAYNAME:PFS Scenario #4-EX: Day of the Demon										DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-SP	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-SP						DISPLAYNAME:PFS Scenario #4-SP: Race for the Runecarved Key						DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S04-S2	VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S04-S2						DISPLAYNAME:PFS Scenario #4-S2: Ruins of Bonekeep, Level 1: The Silent Grave			DISPLAYLOCATION:Chronicles
+
+ABILITYCATEGORY:Ocher Rhomboid Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Combat			PLURAL:Ocher Rhomboid Feats																DISPLAYLOCATION:Feats
+
+#
+# DONE
+#

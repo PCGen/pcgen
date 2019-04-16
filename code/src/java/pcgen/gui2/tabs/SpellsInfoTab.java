@@ -1,5 +1,4 @@
 /**
- * SpellsInfoTab.java
  * Copyright James Dempsey, 2010
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 29/09/2010 7:16:42 PM
- *
- * $Id: SpellsInfoTab.java 13208 2010-09-29 12:59:43Z jdempsey $
  */
 package pcgen.gui2.tabs;
 
@@ -32,11 +27,9 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>SpellsInfoTab</code> is a placeholder for the yet
+ * The Class {@code SpellsInfoTab} is a placeholder for the yet
  * to be implemented Seplls tab.
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler
@@ -86,13 +79,14 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 			this.preparedTabMap = preparedTab.createModels(character);
 			this.booksTabMap = booksTab.createModels(character);
 		}
-		
+
 		public void restoreModels()
 		{
 			knownTab.restoreModels(knownTabMap);
 			preparedTab.restoreModels(preparedTabMap);
 			booksTab.restoreModels(booksTabMap);
 		}
+
 		public void storeModels()
 		{
 			knownTab.storeModels(knownTabMap);
@@ -100,6 +94,7 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 			booksTab.storeModels(booksTabMap);
 		}
 	}
+
 	@Override
 	public TabTitle getTabTitle()
 	{
@@ -113,7 +108,7 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 		{
 			setSelectedIndex(0);
 		}
-		
+
 	}
 
 }

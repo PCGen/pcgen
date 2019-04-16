@@ -21,8 +21,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeMap;
 
+import pcgen.base.util.ArrayUtilities;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.enumeration.Nature;
@@ -52,11 +54,9 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * @param <T>
  *            The Type of object stored in this AbstractDataFacet
  */
-public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
-		AbstractStorageFacet<IDT>
+public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends AbstractStorageFacet<IDT>
 {
-	private final Map<Integer, DataFacetChangeListener<IDT, ? super T>[]> listeners =
-            new TreeMap<>();
+	private final Map<Integer, DataFacetChangeListener<IDT, ? super T>[]> listeners = new TreeMap<>();
 
 	/**
 	 * Adds a new DataFacetChangeListener to receive DataFacetChangeEvents
@@ -72,8 +72,7 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 *            The DataFacetChangeListener to receive DataFacetChangeEvents
 	 *            from this AbstractDataFacet
 	 */
-	public void addDataFacetChangeListener(
-		DataFacetChangeListener<IDT, ? super T> listener)
+	public void addDataFacetChangeListener(DataFacetChangeListener<IDT, ? super T> listener)
 	{
 		addDataFacetChangeListener(0, listener);
 	}
@@ -96,20 +95,13 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 *            The DataFacetChangeListener to receive DataFacetChangeEvents
 	 *            from this AbstractDataFacet
 	 */
-	public void addDataFacetChangeListener(int priority,
-		DataFacetChangeListener<IDT, ? super T> listener)
+	@SuppressWarnings("unchecked")
+	public void addDataFacetChangeListener(int priority, DataFacetChangeListener<IDT, ? super T> listener)
 	{
-		DataFacetChangeListener<IDT, ? super T>[] dfcl =
-				listeners.get(priority);
-		int newSize = (dfcl == null) ? 1 : (dfcl.length + 1);
-		DataFacetChangeListener<IDT, ? super T>[] newArray =
-				new DataFacetChangeListener[newSize];
-		if (dfcl != null)
-		{
-			System.arraycopy(dfcl, 0, newArray, 1, dfcl.length);
-		}
-		newArray[0] = listener;
-		listeners.put(priority, newArray);
+		DataFacetChangeListener<IDT, ? super T>[] dfcl = listeners.get(priority);
+		dfcl = Optional.ofNullable(dfcl).orElse(new DataFacetChangeListener[0]);
+		listeners.put(priority, ArrayUtilities.prependOnCopy(listener, dfcl,
+			DataFacetChangeListener.class));
 	}
 
 	/**
@@ -124,8 +116,7 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 * @param listener
 	 *            The DataFacetChangeListener to be removed
 	 */
-	public void removeDataFacetChangeListener(
-		DataFacetChangeListener<IDT, ? super T> listener)
+	public void removeDataFacetChangeListener(DataFacetChangeListener<IDT, ? super T> listener)
 	{
 		removeDataFacetChangeListener(0, listener);
 	}
@@ -142,11 +133,9 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 * @param listener
 	 *            The DataFacetChangeListener to be removed
 	 */
-	public void removeDataFacetChangeListener(int priority,
-		DataFacetChangeListener<IDT, ? super T> listener)
+	public void removeDataFacetChangeListener(int priority, DataFacetChangeListener<IDT, ? super T> listener)
 	{
-		DataFacetChangeListener<IDT, ? super T>[] dfcl =
-				listeners.get(priority);
+		DataFacetChangeListener<IDT, ? super T>[] dfcl = listeners.get(priority);
 		if (dfcl == null)
 		{
 			// No worries
@@ -170,16 +159,14 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 			}
 			else
 			{
-				DataFacetChangeListener<IDT, ? super T>[] newArray =
-						new DataFacetChangeListener[newSize];
+				DataFacetChangeListener<IDT, ? super T>[] newArray = new DataFacetChangeListener[newSize];
 				if (foundLoc != 0)
 				{
 					System.arraycopy(dfcl, 0, newArray, 0, foundLoc);
 				}
 				if (foundLoc != newSize)
 				{
-					System.arraycopy(dfcl, foundLoc + 1, newArray, foundLoc,
-						newSize - foundLoc);
+					System.arraycopy(dfcl, foundLoc + 1, newArray, foundLoc, newSize - foundLoc);
 				}
 				listeners.put(priority, newArray);
 			}
@@ -225,11 +212,9 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 *            The optional nature in which the node has been changed.
 	 */
 	@SuppressWarnings("rawtypes")
-	protected void fireDataFacetChangeEvent(IDT id, T node, int type,
-		Category category, Nature nature)
+	protected void fireDataFacetChangeEvent(IDT id, T node, int type, Category category, Nature nature)
 	{
-		for (DataFacetChangeListener<IDT, ? super T>[] dfclArray : listeners
-			.values())
+		for (DataFacetChangeListener<IDT, ? super T>[] dfclArray : listeners.values())
 		{
 			/*
 			 * This list is decremented from the end of the list to the
@@ -246,15 +231,11 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 				{
 					if (category == null)
 					{
-						ccEvent =
-                                new DataFacetChangeEvent<>(id, node,
-                                        this, type);
+						ccEvent = new DataFacetChangeEvent<>(id, node, this, type);
 					}
 					else
 					{
-						ccEvent =
-                                new CategorizedDataFacetChangeEvent<>(id,
-                                        node, this, type, category, nature);
+						ccEvent = new CategorizedDataFacetChangeEvent<>(id, node, this, type, category, nature);
 					}
 				}
 				DataFacetChangeListener dfcl = dfclArray[i];
@@ -275,10 +256,8 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 
 	public DataFacetChangeListener<IDT, ? super T>[] getDataFacetChangeListeners()
 	{
-		List<DataFacetChangeListener<IDT, ? super T>> list =
-                new ArrayList<>();
-		for (DataFacetChangeListener<IDT, ? super T>[] dfclArray : listeners
-			.values())
+		List<DataFacetChangeListener<IDT, ? super T>> list = new ArrayList<>();
+		for (DataFacetChangeListener<IDT, ? super T>[] dfclArray : listeners.values())
 		{
 			Collections.addAll(list, dfclArray);
 		}

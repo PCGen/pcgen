@@ -38,6 +38,10 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Campaign" Copyri
 ABILITYCATEGORY:uca_abilitycategories.lst
 ABILITY:uca_abilities_drawbacks.lst
 ABILITY:uca_abilities_traits.lst
+ABILITY:uca_abilities_retraining.lst
+ABILITY:uca_abilities_retraining_apg.lst|PRECAMPAIGN:1,Advanced Player's Guide
+ABILITY:uca_abilities_retraining_uc.lst|PRECAMPAIGN:1,Ultimate Combat
+ABILITY:uca_abilities_retraining_um.lst|PRECAMPAIGN:1,Ultimate Magic
 COMPANIONMOD:uca_companionmods.lst
 ABILITY:uca_feats.lst
 

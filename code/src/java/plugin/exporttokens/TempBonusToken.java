@@ -15,19 +15,14 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens;
+
+import java.util.StringTokenizer;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-
-import java.util.StringTokenizer;
 
 /**
  * Deals with returning the value of the TEMPBONUS token
@@ -37,21 +32,14 @@ public class TempBonusToken extends Token
 	/** Token name */
 	public static final String TOKENNAME = "TEMPBONUS";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -70,8 +58,7 @@ public class TempBonusToken extends Token
 				// Weird
 			}
 
-			String subToken =
-					(aTok.hasMoreTokens()) ? aTok.nextToken() : "NAME";
+			String subToken = (aTok.hasMoreTokens()) ? aTok.nextToken() : "NAME";
 
 			if ("NAME".equals(subToken))
 			{
@@ -107,6 +94,6 @@ public class TempBonusToken extends Token
 		{
 			return "";
 		}
-		return pc.getNamedTempBonusDescList().get(tempIndex) + "";
+		return pc.getNamedTempBonusDescList().get(tempIndex);
 	}
 }

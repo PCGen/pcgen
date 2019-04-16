@@ -44,7 +44,7 @@ public class GameModePanel extends ConvertSubPanel
 
 	JComboBoxEx gameModeCombo;
 
-	private SpringLayout layout = new SpringLayout();
+	private final SpringLayout layout = new SpringLayout();
 
 	private final CampaignFileLoader campaignFileLoader;
 
@@ -63,21 +63,18 @@ public class GameModePanel extends ConvertSubPanel
 		return false;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.gui2.converter.panel.ConvertSubPanel#returnAllowed()
-	 */
 	@Override
 	public boolean returnAllowed()
 	{
 		return true;
 	}
+
 	@Override
 	public boolean performAnalysis(CDOMObject pc)
 	{
 		File sourceDir = pc.get(ObjectKey.DIRECTORY);
 		String name = sourceDir.getAbsolutePath();
-		if (!name.equals(ConfigurationSettings.getPccFilesDir())
-			&& !name.equals(PCGenSettings.getVendorDataDir())
+		if (!name.equals(ConfigurationSettings.getPccFilesDir()) && !name.equals(PCGenSettings.getVendorDataDir())
 			&& !name.equals(PCGenSettings.getHomebrewDataDir()))
 		{
 			// User has selected another path - we need to load the sources from there.
@@ -86,16 +83,14 @@ public class GameModePanel extends ConvertSubPanel
 			campaignFileLoader.setAlternateSourceFolder(sourceDir);
 			campaignFileLoader.execute();
 		}
-		
+
 		GameMode gameMode = pc.get(ObjectKey.GAME_MODE);
 		if (gameMode != null)
 		{
 			SettingsHandler.setGame(gameMode.getName());
 		}
-//		Globals.emptyLists();
+		//		Globals.emptyLists();
 		Globals.sortPObjectListByName(Globals.getCampaignList());
-
-		Globals.createEmptyRace();
 
 		return saveGameMode(pc);
 	}
@@ -127,16 +122,13 @@ public class GameModePanel extends ConvertSubPanel
 	public void setupDisplay(JPanel panel, final CDOMObject pc)
 	{
 		panel.setLayout(layout);
-		JLabel introLabel =
-				new JLabel("Please select the Game Mode to Convert:");
+		JLabel introLabel = new JLabel("Please select the Game Mode to Convert:");
 		panel.add(introLabel);
-		layout.putConstraint(SpringLayout.NORTH, introLabel, 50,
-			SpringLayout.NORTH, panel);
-		layout.putConstraint(SpringLayout.WEST, introLabel, 25,
-			SpringLayout.WEST, panel);
+		layout.putConstraint(SpringLayout.NORTH, introLabel, 50, SpringLayout.NORTH, panel);
+		layout.putConstraint(SpringLayout.WEST, introLabel, 25, SpringLayout.WEST, panel);
 
 		List<GameMode> games = SystemCollections.getUnmodifiableGameModeList();
-		gameModeCombo = new JComboBoxEx(games.toArray());
+		gameModeCombo = new JComboBoxEx<>(games.toArray());
 		gameModeCombo.addActionListener(new ActionListener()
 		{
 			@Override
@@ -147,9 +139,8 @@ public class GameModePanel extends ConvertSubPanel
 			}
 		});
 		PCGenSettings context = PCGenSettings.getInstance();
-		SettingsHandler.setGame(context
-			.initProperty(PCGenSettings.CONVERT_GAMEMODE, SettingsHandler
-				.getGame().getName()));
+		SettingsHandler
+			.setGame(context.initProperty(PCGenSettings.CONVERT_GAMEMODE, SettingsHandler.getGame().getName()));
 		GameMode currGame = SettingsHandler.getGame();
 		if (pc.get(ObjectKey.GAME_MODE) != null)
 		{
@@ -160,9 +151,7 @@ public class GameModePanel extends ConvertSubPanel
 		saveGameMode(pc);
 
 		panel.add(gameModeCombo);
-		layout.putConstraint(SpringLayout.NORTH, gameModeCombo, 20,
-			SpringLayout.SOUTH, introLabel);
-		layout.putConstraint(SpringLayout.WEST, gameModeCombo, 25,
-			SpringLayout.WEST, panel);
+		layout.putConstraint(SpringLayout.NORTH, gameModeCombo, 20, SpringLayout.SOUTH, introLabel);
+		layout.putConstraint(SpringLayout.WEST, gameModeCombo, 25, SpringLayout.WEST, panel);
 	}
 }

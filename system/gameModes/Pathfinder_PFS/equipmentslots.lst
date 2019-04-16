@@ -1,7 +1,6 @@
 #
-# Current Ver: $Revision: 25481 $
-# Last Editor: $Author: amaitland $
-# Last Edited: $Date: 2014-11-16 20:57:46 -0800 (Sun, 16 Nov 2014) $
+# Last Editor: $Author$
+# Last Edited: $Date$
 #
 # Lists the DEFAULT number of slots for each type
 #
@@ -51,14 +50,14 @@ EQSLOT:Weapon	CONTAINS:Weapon=1											NUMBER:HANDS
 #Wrists: This slot consists of armbands, bracelets, bracers, gauntlets, manacles, shackles, vambraces, and other items that can worn over the wrists.
 
 # Tattoo Slots
-EQSLOT:TattooHead		CONTAINS:TattooHead=1		NUMBER:HEAD
-EQSLOT:TattooShoulders	CONTAINS:TattooShoulders=1	NUMBER:TORSO
-EQSLOT:TattooNeck		CONTAINS:TattooNeck=1		NUMBER:HEAD
-EQSLOT:TattooChest	CONTAINS:TattooChest=1		NUMBER:TORSO
-EQSLOT:TattooBody		CONTAINS:TattooBody=1		NUMBER:TORSO
-EQSLOT:TattooBelt		CONTAINS:TattooBelt=1		NUMBER:TORSO
-EQSLOT:TattooWrist	CONTAINS:TattooWrist=1		NUMBER:HANDS
-EQSLOT:TattooHands	CONTAINS:TattooHands=1		NUMBER:HANDS
-EQSLOT:TattooRing		CONTAINS:TattooRing=2		NUMBER:TORSO
-EQSLOT:TattooFeet		CONTAINS:TattooFeet=1		NUMBER:LEGS
+EQSLOT:Tattoo Head		CONTAINS:Tattoo Head=1		NUMBER:HEAD
+EQSLOT:Tattoo Shoulders		CONTAINS:Tattoo Shoulders=1	NUMBER:TORSO
+EQSLOT:Tattoo Neck		CONTAINS:Tattoo Neck=1		NUMBER:HEAD
+EQSLOT:Tattoo Chest		CONTAINS:Tattoo Chest=1		NUMBER:TORSO
+EQSLOT:Tattoo Body		CONTAINS:Tattoo Body=1		NUMBER:TORSO
+EQSLOT:Tattoo Belt		CONTAINS:Tattoo Belt=1		NUMBER:TORSO
+EQSLOT:Tattoo Wrist		CONTAINS:Tattoo Wrist=1		NUMBER:HANDS
+EQSLOT:Tattoo Hands		CONTAINS:Tattoo Hands=1		NUMBER:HANDS
+EQSLOT:Tattoo Ring		CONTAINS:Tattoo Ring=2		NUMBER:TORSO
+EQSLOT:Tattoo Feet		CONTAINS:Tattoo Feet=1		NUMBER:LEGS
 #

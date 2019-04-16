@@ -19,19 +19,18 @@ package plugin.lsttokens.editcontext.testsupport;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Loadable;
 import pcgen.persistence.PersistenceLayerException;
-import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractListIntegrationTestCase<T extends CDOMObject, TC extends Loadable>
 		extends AbstractIntegrationTestCase<T>
@@ -81,8 +80,8 @@ public abstract class AbstractListIntegrationTestCase<T extends CDOMObject, TC e
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
+	@BeforeEach
 	@Override
-	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -120,8 +119,8 @@ public abstract class AbstractListIntegrationTestCase<T extends CDOMObject, TC e
 			commit(testCampaign, tc, getPrefix() + "TestWP1");
 			commit(testCampaign, tc, getPrefix() + "TestWP2");
 			tc = new TestContext();
-			tc.putText(testCampaign.getURI(), new String[] { getPrefix()
-					+ "TestWP1" + getJoinCharacter() + "TestWP2" });
+			tc.putText(testCampaign.getURI(), getPrefix()
+					+ "TestWP1" + getJoinCharacter() + "TestWP2");
 			completeRoundRobin(tc);
 		}
 	}
@@ -373,10 +372,5 @@ public abstract class AbstractListIntegrationTestCase<T extends CDOMObject, TC e
 			emptyCommit(modCampaign, tc);
 			completeRoundRobin(tc);
 		}
-	}
-
-	protected void construct(LoadContext loadContext, String one)
-	{
-		loadContext.getReferenceContext().constructCDOMObject(getTargetClass(), one);
 	}
 }

@@ -29,31 +29,30 @@ import pcgen.util.Logging;
 public class MaxNonEpicLevelToken implements GameModeLstToken
 {
 
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "MAXNONEPICLEVEL";
 	}
 
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-    	try
-    	{
-    		int i = Integer.parseInt(value);
-    		if (i <= 1)
-    		{
-    			Logging.errorPrint("Max Non Epic Level must be > 1");
-    			return false;
-    		}
-    		gameMode.setMaxNonEpicLevel(i);
-    		return true;
-    	}
-    	catch (NumberFormatException e)
-    	{
-			Logging.errorPrint(getTokenName() + " expected an integer in "
-				+ source + " , got: " + value);
-    		return false;
-    	}
+		try
+		{
+			int i = Integer.parseInt(value);
+			if (i <= 1)
+			{
+				Logging.errorPrint("Max Non Epic Level must be > 1");
+				return false;
+			}
+			gameMode.setMaxNonEpicLevel(i);
+			return true;
+		}
+		catch (NumberFormatException e)
+		{
+			Logging.errorPrint(getTokenName() + " expected an integer in " + source + " , got: " + value);
+			return false;
+		}
 	}
 }

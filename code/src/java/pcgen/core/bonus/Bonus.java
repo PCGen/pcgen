@@ -1,5 +1,4 @@
 /*
- * Bonus.java
  * Copyright 2002 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,16 +14,9 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 13, 2002, 9:19 AM
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core.bonus;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
@@ -38,93 +30,13 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.util.Logging;
 
-/**
- * <code>Bonus</code>
- *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
- */
 public final class Bonus
 {
 	static final String BONUS_UNDEFINED = "*UNDEFINED";
 
-	private Bonus() {
-		// Constructor
-	}
-
-	/**
-	 * Sorts a list of <tt>BonusObj</tt> objects so that dependant bonuses come
-	 * after the bonuses they depend on.
-	 * 
-	 * @param listToSort The <tt>List</tt> of bonuses to sort.
-	 * @return The sorted list.
-	 */
-	public static List<BonusObj> sortBonusList(List<BonusObj> listToSort)
+	private Bonus()
 	{
-		final List<BonusObj> tempList = new ArrayList<>();
-
-		// 'BONUS:blah|blah|Foo' depends on
-		// 'BONUS:VAR|Foo|MyGoo' which depends on
-		// 'BONUS:VAR|MyGoo|2'
-
-		// BONUS: type      | info           | value
-
-		// BONUS:COMBAT     |TOHIT           |STR
-		// BONUS:STAT       |STR             |rage
-		// BONUS:VAR        |rage            |2
-
-		for ( final BonusObj bonus : listToSort )
-		{
-			int iFound = 0;
-			String bonusInfo = bonus.getBonusInfo();
-			for (int ii = 0; ii < tempList.size(); ii++)
-			{
-				final BonusObj tempBonus = tempList.get(ii);
-				if (tempBonus.getDependsOn(bonusInfo))
-				{
-					iFound = ii;
-				}
-			}
-			tempList.add(iFound, bonus);
-		}
-		
-		int iCount = tempList.size();
-		for (int i = 0; i < iCount; )
-		{
-			final BonusObj bonus = tempList.get(i);
-			//
-			// Move to end of list
-			//
-			if (bonus.getDependsOn("JEPFORMULA")) //$NON-NLS-1$
-			{
-				tempList.remove(i);
-				tempList.add(bonus);
-				--iCount;
-			}
-			else
-			{
-				++i;
-			}
-		}
-
-		listToSort = tempList;
-
-		final ArrayList<BonusObj> tempList2 = new ArrayList<>();
-
-		// go through and move all the static bonuses to the front
-		final int aSize = listToSort.size();
-		for (int i = 0; i < aSize; i++)
-		{
-			final BonusObj bonus = listToSort.get(i);
-			if (bonus.isValueStatic())
-			{
-				tempList2.add(0, bonus);
-			}
-			else
-			{
-				tempList2.add(bonus);
-			}
-		}
-		return tempList2;
+		// Constructor
 	}
 
 	/**
@@ -142,9 +54,8 @@ public final class Bonus
 		sep.addGroupingPair('[', ']');
 		sep.addGroupingPair('(', ')');
 
-		if ((bonusString.indexOf(Constants.PIPE) == bonusString
-				.lastIndexOf(Constants.PIPE))
-				&& bonusString.indexOf('%') < 0)
+		if ((bonusString.indexOf(Constants.PIPE) == bonusString.lastIndexOf(Constants.PIPE))
+			&& bonusString.indexOf('%') < 0)
 		{
 			Logging.errorPrint("Illegal bonus format: " + bonusString);
 
@@ -190,7 +101,7 @@ public final class Bonus
 		{
 			bValue = sep.next();
 		}
-		
+
 		if (bValue.startsWith("PRE") || bValue.startsWith("!PRE"))
 		{
 			Logging.errorPrint("Invalid BONUS has no value: " + bonusString);
@@ -198,7 +109,7 @@ public final class Bonus
 		}
 
 		bValue = bValue.toUpperCase();
-		
+
 		BonusObj aBonus = null;
 		try
 		{
@@ -216,8 +127,8 @@ public final class Bonus
 		Formula val = aBonus.setValue(bValue.intern());
 		if (!val.isValid())
 		{
-			Logging.errorPrint("Could not create bonusObj for:" + bonusString
-					+ " since Formula " + bValue + " is not valid: " + val.toString());
+			Logging.errorPrint(
+				"Could not create bonusObj for:" + bonusString + " since Formula " + bValue + " is not valid: " + val);
 			return null;
 		}
 
@@ -232,8 +143,7 @@ public final class Bonus
 
 				try
 				{
-					final PreParserFactory factory = PreParserFactory
-							.getInstance();
+					final PreParserFactory factory = PreParserFactory.getInstance();
 					aBonus.addPrerequisite(factory.parse(aString));
 				}
 				catch (PersistenceLayerException ple)
@@ -266,10 +176,9 @@ public final class Bonus
 
 				if (!result)
 				{
-					Logging.log(Logging.LST_ERROR, new StringBuilder().append(
-							"Could not add type ").append(aString.substring(5))
-							.append(" to bonusType ").append(typeOfBonus)
-							.append(" in Bonus.newBonus").toString());
+					Logging.log(Logging.LST_ERROR,
+						new StringBuilder().append("Could not add type ").append(aString.substring(5))
+							.append(" to bonusType ").append(typeOfBonus).append(" in Bonus.newBonus").toString());
 					Logging.reportSource(Logging.LST_ERROR, context);
 					return null;
 				}
@@ -289,9 +198,8 @@ public final class Bonus
 
 		if (!aTok.hasMoreTokens())
 		{
-			Logging.log(Logging.LST_ERROR, new StringBuilder().append(
-				"Could not parse empty target ").append(
-				" from BONUS:").append(bonusString).toString());
+			Logging.log(Logging.LST_ERROR, new StringBuilder().append("Could not parse empty target ")
+				.append(" from BONUS:").append(bonusString).toString());
 			Logging.reportSource(Logging.LST_ERROR, context);
 			return null;
 		}
@@ -303,9 +211,8 @@ public final class Bonus
 
 			if (!result)
 			{
-				Logging.log(Logging.LST_ERROR, new StringBuilder().append(
-						"Could not parse token ").append(token).append(
-						" from BONUS:").append(bonusString).toString());
+				Logging.log(Logging.LST_ERROR, new StringBuilder().append("Could not parse token ").append(token)
+					.append(" from BONUS:").append(bonusString).toString());
 				Logging.reportSource(Logging.LST_ERROR, context);
 				return null;
 			}

@@ -40,8 +40,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with SKILLLIST Token
  */
-public class SkilllistToken extends AbstractTokenWithSeparator<PCClass>
-		implements CDOMPrimaryToken<PCClass>
+public class SkilllistToken extends AbstractTokenWithSeparator<PCClass> implements CDOMPrimaryToken<PCClass>
 {
 	private static final Class<ClassSkillList> SKILLLIST_CLASS = ClassSkillList.class;
 
@@ -58,25 +57,22 @@ public class SkilllistToken extends AbstractTokenWithSeparator<PCClass>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCClass pcc, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCClass pcc, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		Formula count = FormulaFactory.getFormulaFor(tok.nextToken());
 		if (!count.isValid())
 		{
-			return new ParseResult.Fail("Count in " + getTokenName()
-					+ " was not valid: " + count.toString(), context);
+			return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
 		}
 		if (!count.isStatic() || count.resolveStatic().intValue() <= 0)
 		{
-			return new ParseResult.Fail("Count in " + getTokenName() + " must be > 0", context);
+			return new ParseResult.Fail("Count in " + getTokenName() + " must be > 0");
 		}
 		if (!tok.hasMoreTokens())
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " must have a | separating "
-					+ "count from the list of possible values: " + value, context);
+			return new ParseResult.Fail(
+				getTokenName() + " must have a | separating " + "count from the list of possible values: " + value);
 		}
 		List<CDOMReference<ClassSkillList>> refs = new ArrayList<>();
 
@@ -95,19 +91,15 @@ public class SkilllistToken extends AbstractTokenWithSeparator<PCClass>
 			refs.add(ref);
 		}
 
-		ReferenceChoiceSet<ClassSkillList> rcs = new ReferenceChoiceSet<>(
-				refs);
+		ReferenceChoiceSet<ClassSkillList> rcs = new ReferenceChoiceSet<>(refs);
 		if (!rcs.getGroupingState().isValid())
 		{
-			return new ParseResult.Fail("Non-sensical "
-					+ getTokenName()
-					+ ": Contains ANY and a specific reference: " + value);
+			return new ParseResult.Fail(
+				"Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value);
 		}
-		ChoiceSet<ClassSkillList> cs = new ChoiceSet<>(
-				getTokenName(), rcs);
+		ChoiceSet<ClassSkillList> cs = new ChoiceSet<>(getTokenName(), rcs);
 		cs.setTitle("Select class whose class-skills this class will inherit");
-		TransitionChoice<ClassSkillList> tc = new ConcreteTransitionChoice<>(
-				cs, count);
+		TransitionChoice<ClassSkillList> tc = new ConcreteTransitionChoice<>(cs, count);
 		context.getObjectContext().put(pcc, ObjectKey.SKILLLIST_CHOICE, tc);
 		tc.setRequired(false);
 		return ParseResult.SUCCESS;
@@ -116,8 +108,8 @@ public class SkilllistToken extends AbstractTokenWithSeparator<PCClass>
 	@Override
 	public String[] unparse(LoadContext context, PCClass pcc)
 	{
-		TransitionChoice<ClassSkillList> grantChanges = context
-				.getObjectContext().getObject(pcc, ObjectKey.SKILLLIST_CHOICE);
+		TransitionChoice<ClassSkillList> grantChanges =
+				context.getObjectContext().getObject(pcc, ObjectKey.SKILLLIST_CHOICE);
 		if (grantChanges == null)
 		{
 			// Zero indicates no Token
@@ -127,15 +119,13 @@ public class SkilllistToken extends AbstractTokenWithSeparator<PCClass>
 		Formula count = grantChanges.getCount();
 		if (count == null)
 		{
-			context.addWriteMessage("Unable to find " + getTokenName()
-					+ " Count");
+			context.addWriteMessage("Unable to find " + getTokenName() + " Count");
 			return null;
 		}
 		sb.append(count);
 		sb.append(Constants.PIPE);
-		sb.append(grantChanges.getChoices().getLSTformat().replaceAll(
-				Constants.COMMA, Constants.PIPE));
-		return new String[] { sb.toString() };
+		sb.append(grantChanges.getChoices().getLSTformat().replaceAll(Constants.COMMA, Constants.PIPE));
+		return new String[]{sb.toString()};
 	}
 
 	@Override

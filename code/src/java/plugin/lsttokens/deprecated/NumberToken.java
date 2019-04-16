@@ -37,8 +37,7 @@ public class NumberToken implements CDOMCompatibilityToken<CDOMObject>
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, CDOMObject obj, String value)
 	{
 		if (!value.startsWith("NUMBER|"))
 		{
@@ -50,17 +49,14 @@ public class NumberToken implements CDOMCompatibilityToken<CDOMObject>
 			if (!context.processToken(obj, "TEMPVALUE", value.substring(7)))
 			{
 				Logging.replayParsedMessages();
-				return new ParseResult.Fail(
-					"Internal Error in delegation of CHOOSE:NUMBER to TEMPVALUE",
-					context);
+				return new ParseResult.Fail("Internal Error in delegation of CHOOSE:NUMBER to TEMPVALUE");
 			}
 		}
 		catch (PersistenceLayerException e)
 		{
 			Logging.replayParsedMessages();
 			return new ParseResult.Fail(
-				"Error in delegation of CHOOSE:NUMBER to TEMPVALUE: "
-					+ e.getLocalizedMessage(), context);
+				"Error in delegation of CHOOSE:NUMBER to TEMPVALUE: " + e.getLocalizedMessage());
 		}
 
 		return ParseResult.SUCCESS;

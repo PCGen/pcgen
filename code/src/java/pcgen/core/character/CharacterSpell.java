@@ -1,5 +1,4 @@
 /*
- * CharacterSpell.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * Current Ver: $Revision$
  */
 package pcgen.core.character;
 
@@ -37,9 +32,7 @@ import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.spell.Spell;
 
 /**
- * <code>PCClass</code>.
- *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
+ * {@code PCClass}.
  */
 public final class CharacterSpell implements Comparable<CharacterSpell>
 {
@@ -84,10 +77,10 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 
 		int i = 0;
 
-		for  (SpellInfo s : infoList)
+		for (SpellInfo s : infoList)
 		{
-			if (("".equals(bookName) || bookName.equals(s.getBook()))
-				&& (level == -1 || s.getActualLevel() == level) && (specialty == -1 || sp))
+			if (("".equals(bookName) || bookName.equals(s.getBook())) && (level == -1 || s.getActualLevel() == level)
+				&& (specialty == -1 || sp))
 			{
 				return i;
 			}
@@ -106,7 +99,6 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	{
 		return infoList;
 	}
-
 
 	/**
 	 * Get Owner
@@ -182,13 +174,9 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 
 		for (SpellInfo s : infoList)
 		{
-			if (("".equals(bookName) || bookName.equals(s.getBook()))
-				&& (level == -1 || s.getActualLevel() == level)
-				&& (featList == null
-				|| featList.isEmpty() && (s.getFeatList() == null || s
-					.getFeatList().isEmpty())
-				|| s.getFeatList() != null && featList.toString()
-					.equals(s.getFeatList().toString())))
+			if (("".equals(bookName) || bookName.equals(s.getBook())) && (level == -1 || s.getActualLevel() == level)
+				&& (featList == null || featList.isEmpty() && (s.getFeatList() == null || s.getFeatList().isEmpty())
+					|| s.getFeatList() != null && featList.toString().equals(s.getFeatList().toString())))
 			{
 				return s;
 			}
@@ -252,8 +240,8 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * @param featList
 	 * @return SpellInfo
 	 */
-	public SpellInfo addInfo(final int origLevel, final int level, final int times,
-			final String book, final List<Ability> featList)
+	public SpellInfo addInfo(final int origLevel, final int level, final int times, final String book,
+		final List<Ability> featList)
 	{
 		final SpellInfo si = new SpellInfo(this, origLevel, level, times, book);
 
@@ -274,9 +262,8 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * @param obj the CharacterSpell to compare with
 	 * @return a negative integer, zero, or a positive integer as this object
 	 *         is less than, equal to, or greater than the specified object.
-	 * @see Comparable#compareTo(Object)
 	 */
-    @Override
+	@Override
 	public int compareTo(final CharacterSpell obj)
 	{
 		int compare = spell.compareTo(obj.spell);

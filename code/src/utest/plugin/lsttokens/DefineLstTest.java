@@ -17,9 +17,9 @@
  */
 package plugin.lsttokens;
 
-import java.net.URISyntaxException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import org.junit.Test;
+import java.net.URISyntaxException;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCStat;
@@ -32,12 +32,15 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 public class DefineLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static DefineLst token = new DefineLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -61,34 +64,40 @@ public class DefineLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
-	public CDOMPrimaryToken<CDOMObject> getToken()
+	public CDOMPrimaryToken<CDOMObject> getReadToken()
+	{
+		return token;
+	}
+
+	@Override
+	public CDOMPrimaryToken<CDOMObject> getWriteToken()
 	{
 		return token;
 	}
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputUnlockArg() throws PersistenceLayerException
+	public void testInvalidInputUnlockArg()
 	{
 		assertFalse(parse("UNLOCK.STR|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputNoResult() throws PersistenceLayerException
+	public void testInvalidInputNoResult()
 	{
 		assertFalse(parse("Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputEmptyFormula() throws PersistenceLayerException
+	public void testInvalidInputEmptyFormula()
 	{
 		assertFalse(parse("Medium|"));
 		assertNoSideEffects();
@@ -96,21 +105,20 @@ public class DefineLstTest extends AbstractGlobalTokenTestCase
 
 	@Test
 	public void testInvalidInputEmptyVariable()
-		throws PersistenceLayerException
 	{
 		assertFalse(parse("|Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputDoublePipe() throws PersistenceLayerException
+	public void testInvalidInputDoublePipe()
 	{
 		assertFalse(parse("Light||Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputTwoPipe() throws PersistenceLayerException
+	public void testInvalidInputTwoPipe()
 	{
 		assertFalse(parse("Light|Medium|Heavy"));
 		assertNoSideEffects();

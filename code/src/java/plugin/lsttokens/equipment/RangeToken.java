@@ -21,7 +21,6 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
-import pcgen.core.Globals;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -31,8 +30,7 @@ import pcgen.util.Logging;
 /**
  * Deals with RANGE token
  */
-public class RangeToken extends AbstractIntToken<Equipment> implements
-		CDOMPrimaryToken<Equipment>
+public class RangeToken extends AbstractIntToken<Equipment> implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override
@@ -60,16 +58,13 @@ public class RangeToken extends AbstractIntToken<Equipment> implements
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, Equipment obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, Equipment obj, String value)
 	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(), CControl.EQRANGE))
+		if (ControlUtilities.hasControlToken(context, CControl.EQRANGE))
 		{
-			Logging.errorPrint("RANGE token is deprecated (does not function)"
-				+ " when RANGE CodeControl is used");
+			Logging.errorPrint("RANGE token is deprecated (does not function)" + " when RANGE CodeControl is used");
 		}
 		return super.parseToken(context, obj, value);
 	}
-	
-	
+
 }

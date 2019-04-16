@@ -1,0 +1,5 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Familiar Folio	SOURCESHORT:FF	SOURCEWEB:http://paizo.com/products/btpy9au2?Pathfinder-Player-Companion-Familiar-Folio	SOURCEDATE:2014-12
+
+# Equipment Name		Required Armor Proficiency	Type											Cost		Weight	AC Penalty Check	Modifier															Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus								Modify VAR				Special Property
+Featherleaf Barding	PROFICIENCY:ARMOR|Leather	TYPE:Magic.Armor.Light.ArmorProfLight.Suit.Specific.Nonmetal	COST:10	WT:1		ACCHECK:0		EQMOD:Material ~ Leather.Special Ability ~ Enhancement Cost|6150.Special Ability ~ +1 ~ Armor	MAXDEX:6		SOURCEPAGE:p.21	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor|PREVAREQ:DisableArmorBonus,0	BONUS:VAR|ArmorCheckPenalty|0	SPROP:Designed to fit birds,maximum fly speed 60 feet (average), wearer can fly through branches, brush, and whole tree trunks

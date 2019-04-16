@@ -45,13 +45,13 @@ public class ClassSource implements Identified
 	{
 		return pcclass;
 	}
-	
+
 	@Override
 	public int hashCode()
 	{
 		return pcclass.hashCode() - level;
 	}
-	
+
 	@Override
 	public boolean equals(Object o)
 	{
@@ -66,7 +66,7 @@ public class ClassSource implements Identified
 		}
 		return false;
 	}
-	
+
 	@Override
 	public String toString()
 	{

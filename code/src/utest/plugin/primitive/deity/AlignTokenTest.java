@@ -33,12 +33,14 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+
 public class AlignTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Deity>
 {
 	static ChooseLst token = new ChooseLst();
 	static DeityToken subtoken = new DeityToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	private static final AlignToken ALIGN_TOKEN = new AlignToken();
 
@@ -47,6 +49,7 @@ public class AlignTokenTest extends
 		super("ALIGN", "LG");
 	}
 
+	@BeforeEach
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -89,12 +92,11 @@ public class AlignTokenTest extends
 	}
 
 	public void testPrimitiveIllegalSpelledOut()
-			throws PersistenceLayerException
 	{
 		doPrimitiveIllegalTarget("LawfulGood");
 	}
 
-	public void testPrimitiveIllegalMultiple() throws PersistenceLayerException
+	public void testPrimitiveIllegalMultiple()
 	{
 		doPrimitiveIllegalTarget("LG.NG");
 	}

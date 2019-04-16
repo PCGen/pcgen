@@ -1,5 +1,4 @@
 /*
- * BonusManagerTest.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 31/03/2013 10:09:50 PM
- *
- * $Id$
  */
 package pcgen.core;
 
+
+import static org.junit.Assert.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
@@ -30,26 +27,13 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test class for BonusManager.
- *
- * <br/>
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-
 public class BonusManagerTest extends AbstractCharacterTestCase
 {
-
-	@Override
-	@Before
-	public void setUp() throws Exception
-	{
-		super.setUp();
-	}
 
 	/**
 	 * Validate that the setActiveBonusStack method will correctly calculate the value of 

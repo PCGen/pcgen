@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCBLTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,31 +16,29 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03-Aug-2008 23:31:20
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
 
-public class PCBLTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator {
+public class PCBLTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
+{
 
 	private final String source;
 
-	public PCBLTermEvaluator(
-			String originalText, String source)
+	public PCBLTermEvaluator(String originalText, String source)
 	{
 		this.originalText = originalText;
 		this.source = source;
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc) {
+	public Float resolve(PlayerCharacter pc)
+	{
 
-		if (source.length() == 0) {
+		if (source.isEmpty())
+		{
 			return 0.0f;
 		}
 

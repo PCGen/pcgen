@@ -1,6 +1,4 @@
 /*
- * PreWeaponProficiencyParser.java
- *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package plugin.pretokens.parser;
 
@@ -32,7 +23,6 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 
 /**
  * A prerequisite parser class that handles the parsing of pre weaponprof tokens.
- *
  */
 public class PreWeaponProfParser extends AbstractPrerequisiteListParser
 {
@@ -40,7 +30,7 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"WEAPONPROF"};
@@ -60,10 +50,8 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
@@ -72,7 +60,7 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser
 		return prereq;
 	}
 
-	private void doTypeInvertFixUp(Prerequisite prereq)
+	private static void doTypeInvertFixUp(Prerequisite prereq)
 	{
 		if ("weaponprof".equalsIgnoreCase(prereq.getKind()))
 		{
@@ -82,7 +70,7 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser
 			}
 			else if (prereq.getKey().startsWith("["))
 			{
-				final int length   = prereq.getKey().length() - 1;
+				final int length = prereq.getKey().length() - 1;
 				final int rBracket = prereq.getKey().lastIndexOf(']');
 				final int endIndex = Math.max(length, rBracket);
 
@@ -92,7 +80,6 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser
 				prereq.setOperator(prereq.getOperator().invert());
 			}
 		}
-
 
 		/*
 		 * In case of PREMULT (e.g 'PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)',

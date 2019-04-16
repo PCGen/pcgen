@@ -1,0 +1,22 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Ironfang Invasion, Chapter 2 - Fangs of War	SOURCESHORT:AP116	SOURCEWEB:http://paizo.com/products/btpy9npk	SOURCEDATE:2017-03
+# ORIGINAL ENTRY: Gary Davies and Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 2017-06
+
+# Class Name			Product Identity?	Hit Dice	Type			Max Level	Source Page		Define				Combat bonus						Save bonus												Modify VAR
+CLASS:Chernasardo Warden	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.68	DEFINE:ChernasardoWardenLVL|0	BONUS:COMBAT|BASEAB|CL*3/4|TYPE:Base.REPLACE	BONUS:SAVE|BASE.Fortitude|(CL+1)/3	BONUS:SAVE|BASE.Reflex,BASE.Will|(CL+1)/2	BONUS:VAR|ChernasardoWardenLVL|CL
+# Class Name			Required AL			Required Skill				Required Text																							PRETOTALAB
+CLASS:Chernasardo Warden	PREALIGN:CG,CN,NG,TN	PRESKILL:2,Stealth=5,Survival=5	PRETEXT: You must defeat an evil enemy of a CR 5 levels higher than your character level. This victory must be witnessed by a Chernasardo Ranger.	PRETOTALAB:5
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Chernasardo Warden	STARTSKILLPTS:6	CSKILL:Acrobatics|Bluff|Climb|Disable Device|Disguise|Escape Artist|Handle Animal|Intimidate|Knowledge (Nature)|Perception|Sense Motive|Spellcraft|Stealth|Survival
+###Block: Ability Progression
+1													ABILITY:Chernasardo Warden Class Feature|AUTOMATIC|Chernasardo Warden ~ Weapon and Armor Proficiency
+1													ABILITY:Chernasardo Warden Class Feature|AUTOMATIC|Chernasardo Warden ~ Unchained Heart
+1													ABILITY:Chernasardo Warden Class Feature|AUTOMATIC|Chernasardo Warden ~ Forest Magic
+2													ABILITY:Chernasardo Warden Class Feature|AUTOMATIC|Chernasardo Warden ~ Aligned Class
+3													ABILITY:Chernasardo Warden Class Feature|AUTOMATIC|Chernasardo Warden ~ Guerrilla Tactics|Chernasardo Warden ~ Exploit Weakness|Chernasardo Warden ~ Sneak Attack|Chernasardo Warden ~ Sniping Prowess|Chernasardo Warden ~ Sprite Step
+6													ABILITY:Chernasardo Warden Class Feature|AUTOMATIC|Chernasardo Warden ~ Advanced Tactics|Chernasardo Warden ~ Preemptive Strike|Chernasardo Warden ~ Trick Shot
+9													ABILITY:Chernasardo Warden Class Feature|AUTOMATIC|Chernasardo Warden ~ Second Tactic
+10													ABILITY:Chernasardo Warden Class Feature|AUTOMATIC|Chernasardo Warden ~ Phantom Strike
+# This should be in a Class Feature
+2	BONUS:ABILITYPOOL|Chernasardo_Warden Feat|(ChernasardoWardenLVL+1)/3

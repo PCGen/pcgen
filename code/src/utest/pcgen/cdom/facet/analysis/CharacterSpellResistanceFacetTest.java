@@ -23,13 +23,14 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.analysis.CharacterSpellResistanceFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
+
+import org.junit.jupiter.api.BeforeEach;
 
 public class CharacterSpellResistanceFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Formula>
@@ -40,6 +41,7 @@ public class CharacterSpellResistanceFacetTest extends
 	private Formula[] target;
 	private CDOMObject[] source;
 
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception
 	{

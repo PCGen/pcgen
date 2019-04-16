@@ -14,10 +14,23 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
- package plugin.experience;
+package plugin.experience;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.util.Collection;
+import java.util.List;
+
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
@@ -28,18 +41,6 @@ import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
 import gmgen.pluginmgr.messages.FileMenuSaveMessage;
 import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.util.Collection;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.pluginmgr.InteractivePlugin;
@@ -56,22 +57,19 @@ import plugin.experience.gui.PreferencesExperiencePanel;
  * The {@code ExperienceAdjusterController} handles the functionality of
  * the Adjusting of experience.  This class is called by the {@code GMGenSystem
  * } and will have it's own model and view.<br>
- * Created on February 26, 2003<br>
- * Updated on February 26, 2003
- * @author  Expires 2003
  */
-public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractivePlugin,
-		ActionListener, ChangeListener /*Observer*/
+public class ExperienceAdjusterPlugin extends KeyAdapter
+		implements InteractivePlugin, ActionListener, ChangeListener /*Observer*/
 {
 	/** Log name */
 	public static final String LOG_NAME = "Experience_Adjuster"; //$NON-NLS-1$
 
 	/** The model that holds all the data for this section. */
-	protected ExperienceAdjusterModel eaModel;
+	private ExperienceAdjusterModel eaModel;
 
 	/** The user interface that this class will be using. */
-	protected ExperienceAdjusterView eaView;
-	protected InitHolderList initList;
+	private ExperienceAdjusterView eaView;
+	private InitHolderList initList;
 
 	/** The plugin menu item in the tools menu. */
 	private JMenuItem experienceToolsItem = new JMenuItem();
@@ -83,9 +81,6 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	/** Mnemonic in menu for {@link #IN_NAME} */
 	private static final String IN_NAME_MN = "in_mn_plugin_experience_name"; //$NON-NLS-1$
 
-	/** The version number of the plugin. */
-	protected String version = "01.00.99.01.00";
-
 	private PCGenMessageHandler messageHandler;
 
 	/**
@@ -94,11 +89,11 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	@Override
 	public void start(PCGenMessageHandler mh)
 	{
-    	messageHandler = mh;
+		messageHandler = mh;
 		eaModel = new ExperienceAdjusterModel(getDataDirectory());
 		eaView = new ExperienceAdjusterView(eaModel);
-		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, getLocalizedName(),
-			new PreferencesExperiencePanel()));
+		messageHandler.handleMessage(
+			new RequestAddPreferencesPanelMessage(this, getLocalizedName(), new PreferencesExperiencePanel()));
 		initListeners();
 		update();
 		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, getLocalizedName(), getView()));
@@ -135,7 +130,7 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	{
 		return ExperienceAdjusterPlugin.NAME;
 	}
-	
+
 	private String getLocalizedName()
 	{
 		return LanguageBundle.getString(ExperienceAdjusterPlugin.IN_NAME);
@@ -154,7 +149,7 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	 * Calls the appropriate methods depending on the source of the action.
 	 * @param e the action even that happened.
 	 */
-    @Override
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == eaView.getAddExperienceToCharButton())
@@ -187,11 +182,9 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	 * Adjust the CR
 	 * @param cbt
 	 */
-	public void adjustCR(Combatant cbt)
+	private void adjustCR(Combatant cbt)
 	{
-		String inputValue =
-				JOptionPane.showInputDialog(GMGenSystem.inst, "CR", Float
-					.toString(cbt.getCR()));
+		String inputValue = JOptionPane.showInputDialog(GMGenSystem.inst, "CR", Float.toString(cbt.getCR()));
 
 		if (inputValue != null)
 		{
@@ -212,8 +205,7 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	 */
 	private void handleAddEnemyButton()
 	{
-		AddDefeatedCombatant dialog =
-				new AddDefeatedCombatant(GMGenSystem.inst, true, eaModel);
+		AddDefeatedCombatant dialog = new AddDefeatedCombatant(GMGenSystem.inst, true, eaModel);
 		dialog.setVisible(true);
 		handleGroupBox();
 		update();
@@ -229,13 +221,12 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 		{
 			try
 			{
-				Object[] list = eaView.getCharacterList().getSelectedValues();
+				List list = eaView.getCharacterList().getSelectedValuesList();
 
 				for (final Object aList : list)
 				{
-					eaModel.addExperienceToCharacter(
-							(ExperienceListItem) aList, Integer.parseInt(eaView
-									.getExperienceField().getText()));
+					eaModel.addExperienceToCharacter((ExperienceListItem) aList,
+						Integer.parseInt(eaView.getExperienceField().getText()));
 				}
 			}
 			catch (NumberFormatException e)
@@ -335,7 +326,7 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	{
 		if (eaView.getEnemyList().getSelectedIndex() != -1)
 		{
-			Object[] list = eaView.getEnemyList().getSelectedValues();
+			List list = eaView.getEnemyList().getSelectedValuesList();
 
 			for (final Object aList : list)
 			{

@@ -1,0 +1,10 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: People of the North	SOURCESHORT:POTN	SOURCEWEB:http://paizo.com/products/btpy8v35	SOURCEDATE:2013-01
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 April 2016
+
+# Equipment Name			Type			!PRECHARACTERTYPE
+Pelt of Primal Power.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Saga of the Linnorm Kings.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+Shard of Winter.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

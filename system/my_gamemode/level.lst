@@ -5,7 +5,6 @@
 # Equation used to calculate XP:
 # xp = 500 * level * (level - 1)
 #
-# $Id: level.lst 202 2006-03-14 23:28:28Z nuance $ 
 #
 
 # Modify for level exp changes

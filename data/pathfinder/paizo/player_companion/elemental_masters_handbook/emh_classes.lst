@@ -1,0 +1,36 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Elemental Master's Handbook	SOURCESHORT:EMH	SOURCEWEB:http://paizo.com/products/btpy9uf8?Pathfinder-Player-Companion-Elemental-Masters-Handbook	SOURCEDATE:2017-08
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+
+###Block: Bardic Masterpiece activation
+
+# Class Name
+CLASS:Bard.MOD
+1	TEMPLATE:Masterpiece Activation Elemental Master
+
+# Class Name
+CLASS:Skald.MOD
+1	TEMPLATE:Masterpiece Activation Elemental Master
+
+###Block: Wizard ---------------
+
+# Class Name
+CLASS:Wizard.MOD
+SUBCLASS:Aether				CHOICE:SCHOOL|AetherSchool	KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|AetherSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Aether School
+SUBCLASS:Ice Subschool (Air)		CHOICE:SCHOOL|AirSchool		KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|AirSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Ice Subschool (Air)|Earth Opposition School
+SUBCLASS:Ice Subschool (Water)	CHOICE:SCHOOL|WaterSchool	KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|WaterSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Ice Subschool (Water)|Fire Opposition School
+SUBCLASS:Magma Subschool (Earth)	CHOICE:SCHOOL|EarthSchool	KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|EarthSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Magma Subschool (Earth)|Air Opposition School
+SUBCLASS:Magma Subschool (Fire)	CHOICE:SCHOOL|FireSchool	KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|FireSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Magma Subschool (Fire)|Water Opposition School
+SUBCLASS:Mud Subschool (Earth)	CHOICE:SCHOOL|EarthSchool	KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|EarthSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Mud Subschool (Earth)|Air Opposition School
+SUBCLASS:Mud Subschool (Water)	CHOICE:SCHOOL|WaterSchool	KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|WaterSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Mud Subschool (Water)|Fire Opposition School
+SUBCLASS:Smoke Subschool (Air)	CHOICE:SCHOOL|AirSchool		KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|AirSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Smoke Subschool (Air)|Earth Opposition School
+SUBCLASS:Smoke Subschool (Fire)	CHOICE:SCHOOL|FireSchool	KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	BONUS:VAR|FireSchoolLVL|WizardSchoolLvl	ABILITY:Wizard Class Feature|AUTOMATIC|Smoke Subschool (Fire)|Water Opposition School

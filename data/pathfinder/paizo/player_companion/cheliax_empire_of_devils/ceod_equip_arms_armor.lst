@@ -1,13 +1,14 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
-SOURCELONG:Cheliax, Empire of Devils	SOURCESHORT:CEOD	SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy89ca	SOURCEDATE:2009-08
+SOURCELONG:Pathfinder Companion: Cheliax, Empire of Devils	SOURCESHORT:CEOD	SOURCEWEB:http://paizo.com/products/btpy89ca	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
 ###Block: Armor
-# Equipment Name		Required Armor Proficiency		Type										Cost		Weight	AC Penalty Check	Modifier				Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus			Special Property
-Abrogailian Corset	PROFICIENCY:ARMOR|Studded Leather	TYPE:Armor.Light.ArmorProfLight.Suit.Specific.Nonmetal	COST:25	WT:10		ACCHECK:-1		EQMOD:MAGIC_COST|8000.PLUS3A	MAXDEX:5		SOURCEPAGE:p.20	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor	SPROP:prevent 20 points of damage per day, after that nauseated for 1 round (Fort DC 18 negates)
+# Equipment Name		Required Armor Proficiency		Type										Cost		Weight	AC Penalty Check	Modifier												Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus			Special Property
+Abrogailian Corset	PROFICIENCY:ARMOR|Studded Leather	TYPE:Armor.Light.ArmorProfLight.Suit.Specific.Nonmetal	COST:25	WT:10		ACCHECK:-1		EQMOD:Special Ability ~ Enhancement Cost|8000.Special Ability ~ +3 ~ Armor	MAXDEX:5		SOURCEPAGE:p.20	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor	SPROP:prevent 20 points of damage per day, after that nauseated for 1 round (Fort DC 18 negates)
 
 ###Block: Weapons
-# Equipment Name	Required Weapon Proficiency		Type												Cost		Weight	Crit Mult	Crit Range	Damage	Modifier					Wield Category	Size		Source Page		Special Property
-Barbazu Beard	PROFICIENCY:WEAPON|Barbazu Beard	TYPE:Weapon.Resizable.Melee.Light.Finesseable.Exotic.Standard.Piercing	COST:25	WT:5		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:STEEL					WIELD:Light		SIZE:M	SOURCEPAGE:p.27
-Grudge Blade	PROFICIENCY:WEAPON|Rapier		TYPE:Weapon.Resizable.Melee.Martial.Finesseable.Standard.Piercing.Sword	COST:20	WT:2		CRITMULT:x2	CRITRANGE:3	DAMAGE:1d6	EQMOD:MAGIC_COST|8000.PLUS1W.STEEL	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.20	SPROP:Gain a cumulative +1 bonus (+5 max.) to damage for repeated hits against one target
-Hellcaller's Edge	PROFICIENCY:WEAPON|Greatsword		TYPE:Weapon.Resizable.Melee.Martial.Specific.Slashing.Sword			COST:50	WT:8		CRITMULT:x2	CRITRANGE:2	DAMAGE:2d6	EQMOD:MAGIC_COST|12000.PLUS2W.STEEL	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.21	SPROP:Once per days, summon magical hellfire around you in a 10 ft. radius, 40 ft. high cylinder for 9d6 points of damage (Reflex DC 17 for half). Half the damage is fire.
+# Equipment Name	Required Weapon Proficiency		Type												Cost		Weight	Crit Mult	Crit Range	Damage	Modifier															Wield Category	Size		Source Page		Special Property
+Barbazu Beard	PROFICIENCY:WEAPON|Barbazu Beard	TYPE:Weapon.Resizable.Melee.Light.Finesseable.Exotic.Standard.Piercing	COST:25	WT:5		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:Material ~ Steel													WIELD:Light		SIZE:M	SOURCEPAGE:p.27
+Grudge Blade	PROFICIENCY:WEAPON|Rapier		TYPE:Weapon.Resizable.Melee.Martial.Finesseable.Standard.Piercing.Sword	COST:20	WT:2		CRITMULT:x2	CRITRANGE:3	DAMAGE:1d6	EQMOD:Special Ability ~ Enhancement Cost|8000.Special Ability ~ +1 ~ Weapon.Material ~ Steel	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.20	SPROP:Gain a cumulative +1 bonus (+5 max.) to damage for repeated hits against one target
+Hellcaller's Edge	PROFICIENCY:WEAPON|Greatsword		TYPE:Weapon.Resizable.Melee.Martial.Specific.Slashing.Sword			COST:50	WT:8		CRITMULT:x2	CRITRANGE:2	DAMAGE:2d6	EQMOD:Special Ability ~ Enhancement Cost|12000.Special Ability ~ +2 ~ Weapon.Material ~ Steel	WIELD:TwoHanded	SIZE:M	SOURCEPAGE:p.21	SPROP:Once per days, summon magical hellfire around you in a 10 ft. radius, 40 ft. high cylinder for 9d6 points of damage (Reflex DC 17 for half). Half the damage is fire.

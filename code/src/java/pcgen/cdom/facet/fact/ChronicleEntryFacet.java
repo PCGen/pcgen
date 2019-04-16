@@ -30,15 +30,12 @@ import pcgen.util.Logging;
  * ChronicleEntryFacet is a Facet that tracks the chronicle entries that have 
  * been entered for a Player Character.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class ChronicleEntryFacet extends
-		AbstractListFacet<CharID, ChronicleEntry>
+public class ChronicleEntryFacet extends AbstractListFacet<CharID, ChronicleEntry>
 {
 
-    @Override
+	@Override
 	protected Collection<ChronicleEntry> getCopyForNewOwner(Collection<ChronicleEntry> componentSet)
 	{
 		List<ChronicleEntry> newCopies = new ArrayList<>();
@@ -60,14 +57,11 @@ public class ChronicleEntryFacet extends
 	 * Overrides the default behavior of AbstractListFacet, since we need to
 	 * ensure we are storing all chronicle entries (otherwise duplicate blanks
 	 * are skipped, see CODE-2861)
-	 * 
-	 * @see pcgen.cdom.facet.base.AbstractListFacet#getComponentSet()
 	 */
 	@Override
 	protected List<ChronicleEntry> getComponentSet()
 	{
 		return new ArrayList<>();
 	}
-
 
 }

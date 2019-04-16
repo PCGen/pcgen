@@ -1,5 +1,4 @@
 /*
- * TextTokenTest.java
  * Copyright 2006 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,57 +14,42 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Oct 17, 2006
- *
- * $Id: VarTokenTest.java 201 2006-03-14 23:19:50Z nuance $
- *
  */
 package pcgen.io.exporttoken;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import static org.junit.Assert.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.NumericPCAttribute;
-import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+
 import plugin.exporttokens.TextToken;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>TextTokenTest</code> tests the functioning of the TEXT 
+ * {@code TextTokenTest} tests the functioning of the TEXT
  * token processing code. 
- *
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class TextTokenTest extends AbstractCharacterTestCase
 {
-
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(TextTokenTest.class);
-	}
-
-	/*
-	 * @see TestCase#setUp()
-	 */
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 		PlayerCharacter character = getCharacter();
 		character.setName("The Vitamins are in my Fresh Brussels Sprouts");
-		character.setPCAttribute(PCAttribute.INTERESTS, "one potatoe. two potatoe. mORe");
+		character.setPCAttribute(PCStringKey.INTERESTS, "one potatoe. two potatoe. mORe");
 	}
 
 	/**
 	 * Test the output for positive numbers with fractions.
 	 */
+	@Test
 	public void testTextFormatting()
 	{
 		TextToken tok = new TextToken();
@@ -84,7 +68,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		assertEquals("TEXT.SENTENCE.NAME",
 			"The vitamins are in my fresh brussels sprouts", tok.getToken(
 				"TEXT.SENTENCE.NAME", character, eh));
-		character.setPCAttribute(PCAttribute.NAME, "The Vitamins are in my Fresh Brussels Sprouts");
+		character.setPCAttribute(PCStringKey.NAME, "The Vitamins are in my Fresh Brussels Sprouts");
 		assertEquals("TEXT.SENTENCE.INTERESTS",
 			"One potatoe. Two potatoe. More", tok.getToken(
 				"TEXT.SENTENCE.INTERESTS", character, eh));
@@ -98,6 +82,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the output for negative numbers with fractions.
 	 */
+	@Test
 	public void testNumSuffix()
 	{
 		TextToken tok = new TextToken();
@@ -148,6 +133,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the output for negative numbers with fractions.
 	 */
+	@Test
 	public void testNumSuffixDirect()
 	{
 		TextToken tok = new TextToken();

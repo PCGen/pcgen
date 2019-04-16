@@ -35,7 +35,7 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 	private static int bonusCount = 1;
 
 	// Just process over these magical tokens for now
-    @Override
+	@Override
 	public String process(TokenProcessEvent tpe)
 	{
 		String value = tpe.getValue();
@@ -45,9 +45,8 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 		{
 			int pipeLoc = value.lastIndexOf('|');
 			String preString = value.substring(pipeLoc + 1);
-			if (pipeLoc == -1
-				|| (!preString.startsWith("PRE") && !preString
-					.startsWith("!PRE")) || preString.startsWith("PREAPPLY"))
+			if (pipeLoc == -1 || (!preString.startsWith("PRE") && !preString.startsWith("!PRE"))
+				|| preString.startsWith("PREAPPLY"))
 			{
 				break;
 			}
@@ -56,18 +55,16 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 			result.insert(0, '|');
 			value = value.substring(0, pipeLoc);
 		}
-		
+
 		return processBonus(tpe, tpe.getKey(), value + result);
 	}
 
-	private String process(EditorLoadContext context,
-			ConversionDecider decider, String objectName, String token)
+	private String process(EditorLoadContext context, ConversionDecider decider, String objectName, String token)
 	{
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
 		{
-			Logging.errorPrint("Invalid Token - does not contain a colon: "
-					+ token);
+			Logging.errorPrint("Invalid Token - does not contain a colon: " + token);
 			return null;
 		}
 		else if (colonLoc == 0)
@@ -77,13 +74,11 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 		}
 
 		String key = token.substring(0, colonLoc);
-		String value = (colonLoc == token.length() - 1) ? null : token
-				.substring(colonLoc + 1);
+		String value = (colonLoc == token.length() - 1) ? null : token.substring(colonLoc + 1);
 
 		CDOMObject cdo = new ObjectCache();
 		cdo.setName("BONUS" + bonusCount++);
-		TokenProcessEvent tpe = new TokenProcessEvent(context, decider, key,
-				value, objectName, cdo);
+		TokenProcessEvent tpe = new TokenProcessEvent(context, decider, key, value, objectName, cdo);
 		String error = TokenConverter.process(tpe);
 		context.purge(cdo);
 		TokenConverter.clearConstants();
@@ -118,7 +113,7 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 			if (output == null || output.isEmpty())
 			{
 				// Uh Oh
-				return ("Unable to unparse: " + key + ":" + value);
+				return ("Unable to unparse: " + key + ':' + value);
 			}
 			boolean needTab = false;
 			for (String s : output)
@@ -140,13 +135,13 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 		return null;
 	}
 
-    @Override
+	@Override
 	public Class<? extends CDOMObject> getProcessedClass()
 	{
 		return CDOMObject.class;
 	}
 
-    @Override
+	@Override
 	public String getProcessedToken()
 	{
 		return "BONUS";

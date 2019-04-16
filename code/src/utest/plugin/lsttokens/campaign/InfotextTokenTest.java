@@ -17,9 +17,12 @@
  */
 package plugin.lsttokens.campaign;
 
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
@@ -30,11 +33,13 @@ import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static InfotextToken token = new InfotextToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()
@@ -54,19 +59,13 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 		return token;
 	}
 
-	public ListKey<?> getListKey()
+	public static ListKey<?> getListKey()
 	{
 		return ListKey.INFO_TEXT;
 	}
 
 	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
-	@Test
-	public void testValidInputSimple() throws PersistenceLayerException
+	public void testValidInputSimple()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -81,7 +80,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputNonEnglish() throws PersistenceLayerException
+	public void testValidInputNonEnglish()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -96,7 +95,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputSpace() throws PersistenceLayerException
+	public void testValidInputSpace()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -111,7 +110,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputHyphen() throws PersistenceLayerException
+	public void testValidInputHyphen()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -126,7 +125,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputY() throws PersistenceLayerException
+	public void testValidInputY()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -141,7 +140,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputList() throws PersistenceLayerException
+	public void testValidInputList()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -158,7 +157,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testValidInputMultList() throws PersistenceLayerException
+	public void testValidInputMultList()
 	{
 		ListKey<?> listKey = getListKey();
 		if (listKey != null)
@@ -179,7 +178,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidListEmpty() throws PersistenceLayerException
+	public void testInvalidListEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.getListFor(getListKey()));
@@ -187,7 +186,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	}
 
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
+	public void testInvalidEmpty()
 	{
 		assertFalse(parse(""));
 		assertNull(primaryProf.getListFor(getListKey()));

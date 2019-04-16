@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountSpellsLevelsInBookTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,28 +16,23 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 07-Aug-2008 23:00:55
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
 import java.util.List;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 
-public class PCCountSpellsLevelsInBookTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCountSpellsLevelsInBookTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	final int classNum;
 	final int sbookNum;
 
-	public PCCountSpellsLevelsInBookTermEvaluator(
-			String originalText, int[] nums)
+	public PCCountSpellsLevelsInBookTermEvaluator(String originalText, int[] nums)
 	{
 		this.originalText = originalText;
 		classNum = nums[0];
@@ -57,23 +51,20 @@ public class PCCountSpellsLevelsInBookTermEvaluator
 
 		final PObject pObj = pc.getSpellClassAtIndex(classNum);
 
-		int levelNum = 0;
-
 		if (pObj != null)
 		{
-			for (; levelNum >= 0; ++levelNum)
+			for (int levelNum = 0; levelNum >= 0; ++levelNum)
 			{
-				final List<CharacterSpell> aList =
-						pc.getCharacterSpells(pObj, null, bookName, levelNum);
+				final List<CharacterSpell> aList = pc.getCharacterSpells(pObj, null, bookName, levelNum);
 
-				if (aList.size() < 1)
+				if (aList.isEmpty())
 				{
-					break;
+					return (float) levelNum;
 				}
 			}
 		}
 
-		return (float) levelNum;
+		return 0.0f;
 	}
 
 	@Override

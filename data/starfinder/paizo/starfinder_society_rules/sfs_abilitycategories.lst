@@ -1,0 +1,6 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+# Ability Category		Visible		Editable?		Change Pool?	Fractional values?	Base Pool number			Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Society Rules	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Internal			TYPE:Society Rules						DISPLAYLOCATION:Society Rules
+ABILITYCATEGORY:Society Boon	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO							CATEGORY:Special Ability	TYPE:Society Boon		PLURAL:Society Boons		DISPLAYLOCATION:Society Rules
+ABILITYCATEGORY:Society ID	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:Society_Character_ID	CATEGORY:Internal			TYPE:Society ID		PLURAL:Society ID			DISPLAYLOCATION:Society Rules

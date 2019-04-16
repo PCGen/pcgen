@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 12/01/2008
- *
- * $Id$
  */
 package plugin.lsttokens.equipmentmodifier.choose;
 
@@ -32,22 +28,14 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>EqBuilderEqTypeToken</code> parses the EQ Builder specific choose
+ * {@code EqBuilderEqTypeToken} parses the EQ Builder specific choose
  * string to allow the selection of equipent types.
  *
  * (Tue, 06 May 2008) $
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class EqBuilderEqTypeToken implements
-		CDOMSecondaryToken<EquipmentModifier>
+public class EqBuilderEqTypeToken implements CDOMSecondaryToken<EquipmentModifier>
 {
 
-	/*
-	 * (non-Javadoc)
-	 *
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -61,8 +49,7 @@ public class EqBuilderEqTypeToken implements
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, EquipmentModifier obj,
-		String value)
+	public ParseResult parseToken(LoadContext context, EquipmentModifier obj, String value)
 	{
 		if (value == null)
 		{
@@ -71,54 +58,47 @@ public class EqBuilderEqTypeToken implements
 		}
 		if (value.indexOf(',') != -1)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain , : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not contain , : " + value);
 		}
 		if (value.indexOf('[') != -1)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not contain [] : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not contain [] : " + value);
 		}
 		if (value.charAt(0) == '|')
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not start with | : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not start with | : " + value);
 		}
 		if (value.charAt(value.length() - 1) == '|')
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments may not end with | : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments may not end with | : " + value);
 		}
 		if (value.contains("||"))
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " arguments uses double separator || : " + value, context);
+			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments uses double separator || : " + value);
 		}
 		int pipeLoc = value.indexOf(Constants.PIPE);
 		if (pipeLoc == -1)
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-							+ " must have two or more | delimited arguments : "
-							+ value, context);
+			return new ParseResult.Fail(
+				"CHOOSE:" + getTokenName() + " must have two or more | delimited arguments : " + value);
 		}
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		if (tok.countTokens() != 2)
 		{
-			return new ParseResult.Fail("COUNT:" + getTokenName()
-					+ " requires two arguments: " + value, context);
+			return new ParseResult.Fail("COUNT:" + getTokenName() + " requires two arguments: " + value);
 		}
 		// New format: CHOOSE:EQBUILDER.EQTYPE|COUNT=ALL|TITLE=desired TYPE(s)
 		String first = tok.nextToken();
 		if (!first.startsWith("COUNT="))
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " must have COUNT= as its first argument : " + value, context);
+			return new ParseResult.Fail(
+				"CHOOSE:" + getTokenName() + " must have COUNT= as its first argument : " + value);
 		}
 		String second = tok.nextToken();
 		if (!second.startsWith("TITLE="))
 		{
-			return new ParseResult.Fail("CHOOSE:" + getTokenName()
-					+ " must have TITLE= as its second argument : " + value, context);
+			return new ParseResult.Fail(
+				"CHOOSE:" + getTokenName() + " must have TITLE= as its second argument : " + value);
 		}
 		StringBuilder sb = new StringBuilder(value.length() + 20);
 		sb.append(first).append('|').append(second.substring(6));
@@ -131,8 +111,7 @@ public class EqBuilderEqTypeToken implements
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier eqMod)
 	{
-		String chooseString = context.getObjectContext().getString(eqMod,
-				StringKey.CHOICE_STRING);
+		String chooseString = context.getObjectContext().getString(eqMod, StringKey.CHOICE_STRING);
 		if (chooseString == null)
 		{
 			return null;
@@ -150,7 +129,7 @@ public class EqBuilderEqTypeToken implements
 			}
 			returnString = chooseString.substring(getTokenName().length() + 1);
 		}
-		return new String[] { returnString };
+		return new String[]{returnString};
 	}
 
 	@Override

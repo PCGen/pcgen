@@ -30,11 +30,9 @@ import pcgen.core.SpellProhibitor;
  * SpellProhibitorFacet is a Facet to track SpellProhibitor costs for each
  * PCClass in a Player Character
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class SpellProhibitorFacet extends
-		AbstractScopeFacet<CharID, PCClass, SpellProhibitor> implements
-		DataFacetChangeListener<CharID, PCClass>
+public class SpellProhibitorFacet extends AbstractScopeFacet<CharID, PCClass, SpellProhibitor>
+		implements DataFacetChangeListener<CharID, PCClass>
 {
 	private ClassFacet classFacet;
 
@@ -49,8 +47,6 @@ public class SpellProhibitorFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, PCClass> dfce)
@@ -58,14 +54,12 @@ public class SpellProhibitorFacet extends
 		PCClass pcc = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
 		Object source = dfce.getSource();
-		for (SpellProhibitor prohibit : pcc
-			.getSafeListFor(ListKey.PROHIBITED_SPELLS))
+		for (SpellProhibitor prohibit : pcc.getSafeListFor(ListKey.PROHIBITED_SPELLS))
 		{
 			add(id, pcc, prohibit, source);
 		}
 
-		for (SpellProhibitor prohibit : pcc
-			.getSafeListFor(ListKey.SPELL_PROHIBITOR))
+		for (SpellProhibitor prohibit : pcc.getSafeListFor(ListKey.SPELL_PROHIBITOR))
 		{
 			add(id, pcc, prohibit, source);
 		}

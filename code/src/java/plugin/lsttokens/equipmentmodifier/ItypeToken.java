@@ -49,8 +49,7 @@ public class ItypeToken extends AbstractTokenWithSeparator<EquipmentModifier>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		EquipmentModifier mod, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, EquipmentModifier mod, String value)
 	{
 		context.getObjectContext().removeList(mod, ListKey.ITEM_TYPES);
 
@@ -61,13 +60,11 @@ public class ItypeToken extends AbstractTokenWithSeparator<EquipmentModifier>
 			if ("double".equalsIgnoreCase(typeName))
 			{
 				return new ParseResult.Fail(
-					"IType must not be double. Ignoring occurrence in "
-						+ getTokenName() + Constants.COLON + value, context);
+					"IType must not be double. Ignoring occurrence in " + getTokenName() + Constants.COLON + value);
 			}
 			else
 			{
-				context.getObjectContext().addToList(mod, ListKey.ITEM_TYPES,
-					typeName);
+				context.getObjectContext().addToList(mod, ListKey.ITEM_TYPES, typeName);
 			}
 		}
 		return ParseResult.SUCCESS;
@@ -76,14 +73,12 @@ public class ItypeToken extends AbstractTokenWithSeparator<EquipmentModifier>
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
-		Changes<String> changes = context.getObjectContext().getListChanges(
-				mod, ListKey.ITEM_TYPES);
+		Changes<String> changes = context.getObjectContext().getListChanges(mod, ListKey.ITEM_TYPES);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
 		}
-		return new String[] { StringUtil
-				.join(changes.getAdded(), Constants.DOT) };
+		return new String[]{StringUtil.join(changes.getAdded(), Constants.DOT)};
 	}
 
 	@Override

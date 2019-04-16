@@ -1,15 +1,5 @@
 #!/bin/sh
-cd `dirname $0`
-
-# java.awt.Desktop.browse should be available and setting BROWSER is not needed anymore
-if [ "x$BROWSER" = x ]
-then
-    case "$WINDOWMANAGER" in
-        *kde ) BROWSER=kde-open ;;
-        *gdm ) BROWSER=gnome-open ;;
-        * ) BROWSER=netscape ;;
-    esac
-fi
+set -e
 
 available_memory="unknown"
 default_min_memory=256
@@ -31,11 +21,11 @@ elif [ -x /usr/bin/vm_stat ]; then
 
 	echo "Available memory: $available_memory kB"
 else
-	echo "Could not detect available memory. Will stick to default of $available_memory kB"
+	echo "Could not detect available memory. Will stick to defaults"
 fi
 
 # Test if the value is numeric before performing arithmetic on it
-if [ $available_memory -eq $available_memory 2> /dev/null ]; then
+if [ $available_memory -eq $available_memory ]; then
 
 	# We go with the defaults if memory is too low
 	if [ $available_memory -gt 1048576 ]; then
@@ -51,9 +41,7 @@ if [ $available_memory -eq $available_memory 2> /dev/null ]; then
 fi
 
 # To load all sources takes more than the default 64MB.
-javaargs="-Xms${default_min_memory}m -Xmx${default_max_memory}m"
-pcgenargs=""
-whosearg=java
+javaargs="-Xms${default_min_memory}m -Xmx${default_max_memory}m -Dsun.java2d.dpiaware=false"
 
 while [ "x$1" != x ]
 do
@@ -62,24 +50,18 @@ do
 usage: $0 [java-options] [-- pcgen-options]
     For java options, try 'java -h' and 'java -X -h'.
     Useful java property defines:
-        -DBROWSER=/path/to/browser
         -Dpcgen.filter=/path/to/filter.ini
         -Dpcgen.options=/path/to/options.ini
-    This script recognizes the BROWSER environment variable.
 EOM
         exit 0
         ;;
-    -- ) whosearg=pcgen
+    -- ) shift
+	 break
         ;;
-    * ) if [ "$whosearg" = java ]
-        then
-            javaargs="$javaargs $1"
-        else
-            pcgenargs="$pcgenargs $1"
-        fi
+    * ) javaargs="$javaargs $1"
+	shift
         ;;
     esac
-    shift
 done
 
 # PCGen related properties:
@@ -91,8 +73,8 @@ done
 # files from the "user.dir" directory.
 #
 # Additional properties:
-#     -DBROWSER="$BROWSER"
 #     -Dpcgen.filter=/path/to/filter.ini
 #     -Dpcgen.options=/path/to/options.ini
 
-exec java -DBROWSER="$BROWSER" $javaargs -jar ./pcgen.jar $pcgenargs
+# shellcheck disable=SC2086
+exec java $javaargs -jar ./pcgen.jar -- "$@"

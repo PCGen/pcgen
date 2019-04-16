@@ -1,5 +1,4 @@
 /*
- * PCBooleanFunction.java
  * Copyright 2013 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 21/12/2013
  */
 package pcgen.io.freemarker;
 
@@ -24,6 +22,7 @@ import java.util.List;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+
 import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;
 
@@ -32,7 +31,6 @@ import freemarker.template.TemplateModelException;
  * Freemarker template. It evaluates an export token for the current character and 
  * returns the value as a boolean. e.g. ${pcboolean("WEAPON.0.ISTYPE.Double")} 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PCBooleanFunction implements TemplateMethodModelEx, CharacterExportAction
 {
@@ -56,23 +54,21 @@ public class PCBooleanFunction implements TemplateMethodModelEx, CharacterExport
 	{
 		if (arg0.size() != 1)
 		{
-			throw new TemplateModelException(
-				"Wrong arguments. formula required");
+			throw new TemplateModelException("Wrong arguments. formula required");
 		}
 
 		String tag = arg0.get(0).toString();
 
 		String value = getExportVariable(tag, pc, eh);
-		
+
 		if ("1.0".equals(value) || "1".equals(value) || "Y".equals(value))
 		{
 			return Boolean.TRUE;
 		}
-		
+
 		if (tag.equals(value))
 		{
-			throw new TemplateModelException("Invalid export tag '" + tag
-				+ "'.");
+			throw new TemplateModelException("Invalid export tag '" + tag + "'.");
 		}
 
 		Boolean valueOf = Boolean.valueOf(value);

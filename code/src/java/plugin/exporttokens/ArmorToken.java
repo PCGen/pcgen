@@ -37,16 +37,11 @@ public class ArmorToken extends Token
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		if (tokenSource.startsWith("ARMOR")
-			&& ((tokenSource.charAt(5) == '.') || Character.isDigit(tokenSource
-				.charAt(5))))
+			&& ((tokenSource.charAt(5) == '.') || Character.isDigit(tokenSource.charAt(5))))
 		{
 			return getArmorToken(tokenSource, pc, eh);
 		}
@@ -58,7 +53,6 @@ public class ArmorToken extends Token
 	 * @param pc
 	 * @param eh The ExportHandler to advise if there are no more items.
 	 * @return token
-	 *
 	 */
 	public static String getArmorToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
@@ -77,33 +71,27 @@ public class ArmorToken extends Token
 	{
 		final StringTokenizer aTok = new StringTokenizer(aString, ".");
 		final String[] tokens = new String[aTok.countTokens()];
-
 		for (int i = 0; aTok.hasMoreTokens(); ++i)
 		{
 			tokens[i] = aTok.nextToken();
 		}
-
 		String property = "";
-
 		// When removing old syntax, this if should be removed
 		if (tokens.length > 0)
 		{
 			property = tokens[tokens.length - 1];
 		}
-
 		int equipped = 3;
 		int index = 0;
 		String type = "";
 		String subtype = "";
 		int merge = Constants.MERGE_ALL;
-
 		for (int i = 0; i < tokens.length; ++i)
 		{
 			if ("ARMOR".equals(tokens[i]))
 			{
 				continue;
 			}
-
 			// When removing old syntax, delete this if
 			else if (tokens[i].startsWith("ARMOR"))
 			{
@@ -115,20 +103,16 @@ public class ArmorToken extends Token
 				{
 					index = 0;
 				}
-
-				Logging
-					.errorPrint("Old syntax ARMORx will be replaced for ARMOR.x");
+				Logging.errorPrint("Old syntax ARMORx will be replaced for ARMOR.x");
 			}
 			else if ("ALL".equals(tokens[i]))
 			{
 				equipped = 3;
 			}
-
 			// When removing old syntax, delete this if
 			else if (tokens[i].startsWith("ALL"))
 			{
-				Logging
-					.errorPrint("Old syntax ALLx will be replaced for ALL.x");
+				Logging.errorPrint("Old syntax ALLx will be replaced for ALL.x");
 
 				index = Integer.parseInt(tokens[i].substring(3));
 				equipped = 3;
@@ -137,12 +121,10 @@ public class ArmorToken extends Token
 			{
 				equipped = 1;
 			}
-
 			// When removing old syntax, delete this if
 			else if (tokens[i].startsWith("EQUIPPED"))
 			{
-				Logging
-					.errorPrint("Old syntax EQUIPPEDx will be replaced for EQUIPPED.x");
+				Logging.errorPrint("Old syntax EQUIPPEDx will be replaced for EQUIPPED.x");
 
 				index = Integer.parseInt(tokens[i].substring(8));
 				equipped = 1;
@@ -151,12 +133,10 @@ public class ArmorToken extends Token
 			{
 				equipped = 2;
 			}
-
 			// When removing old syntax, delete this if
 			else if (tokens[i].startsWith("NOT_EQUIPPED"))
 			{
-				Logging
-					.errorPrint("Old syntax NOT_EQUIPPEDx will be replaced for NOT_EQUIPPED.x");
+				Logging.errorPrint("Old syntax NOT_EQUIPPEDx will be replaced for NOT_EQUIPPED.x");
 
 				index = Integer.parseInt(tokens[i].substring(12));
 				equipped = 2;
@@ -175,8 +155,7 @@ public class ArmorToken extends Token
 			}
 			else if (tokens[i].equals("ISTYPE"))
 			{
-				property = tokens[i] + "." + tokens[i + 1];
-
+				property = tokens[i] + '.' + tokens[i + 1];
 				break;
 			}
 			else if (tokens[i].equals("NAME"))
@@ -184,9 +163,8 @@ public class ArmorToken extends Token
 				property = tokens[i];
 				if (i < (tokens.length - 1))
 				{
-					property += "." + tokens[i + 1];
+					property += '.' + tokens[i + 1];
 				}
-
 				break;
 			}
 			else if (i < (tokens.length - 1))
@@ -212,35 +190,29 @@ public class ArmorToken extends Token
 				property = tokens[i];
 			}
 		}
-
 		if ("".equals(type))
 		{
-			return _replaceTokenArmor(index, property, equipped, merge, aPC, eh);
+			return replaceTokenArmor(index, property, equipped, merge, aPC, eh);
 		}
 		else if ("SUIT".equals(type))
 		{
-			return _replaceTokenArmorSuit(index, subtype, property, equipped,
-				merge, aPC, eh);
+			return replaceTokenArmorSuit(index, subtype, property, equipped, merge, aPC, eh);
 		}
 		else if ("SHIRT".equals(type))
 		{
-			return _replaceTokenArmorShirt(index, subtype, property, equipped,
-				merge, aPC, eh);
+			return replaceTokenArmorShirt(index, subtype, property, equipped, merge, aPC, eh);
 		}
 		else if ("SHIELD".equals(type))
 		{
-			return _replaceTokenArmorShield(index, subtype, property, equipped,
-				merge, aPC, eh);
+			return replaceTokenArmorShield(index, subtype, property, equipped, merge, aPC, eh);
 		}
 		else if ("ITEM".equals(type) || "ACITEM".equals(type))
 		{
-			return _replaceTokenArmorItem(index, subtype, property, equipped,
-				merge, aPC, eh);
+			return replaceTokenArmorItem(index, subtype, property, equipped, merge, aPC, eh);
 		}
 		else
 		{
-			return _replaceTokenArmorVarious(index, type, subtype, property,
-				equipped, merge, aPC, eh);
+			return replaceTokenArmorVarious(index, type, subtype, property, equipped, merge, aPC, eh);
 		}
 	}
 
@@ -254,13 +226,11 @@ public class ArmorToken extends Token
 	 * @param eh The ExportHandler to advise if there are no more items.
 	 * @return int
 	 */
-	private static String _replaceTokenArmor(int armor, String property,
-		int equipped, int merge, PlayerCharacter aPC, ExportHandler eh)
+	private static String replaceTokenArmor(int armor, String property, int equipped, int merge, PlayerCharacter aPC,
+		ExportHandler eh)
 	{
-		final List<Equipment> aArrayList =
-				aPC.getEquipmentOfTypeInOutputOrder("Armor", equipped, merge);
-		final List<Equipment> bArrayList =
-				aPC.getEquipmentOfTypeInOutputOrder("Shield", equipped, merge);
+		final List<Equipment> aArrayList = aPC.getEquipmentOfTypeInOutputOrder("Armor", equipped, merge);
+		final List<Equipment> bArrayList = aPC.getEquipmentOfTypeInOutputOrder("Shield", equipped, merge);
 
 		for (Equipment eq : bArrayList)
 		{
@@ -270,7 +240,7 @@ public class ArmorToken extends Token
 		if (armor < aArrayList.size())
 		{
 			final Equipment eq = aArrayList.get(armor);
-			return _writeArmorProperty(eq, property, aPC);
+			return writeArmorProperty(eq, property, aPC);
 		}
 		eh.setNoMoreItems(true);
 		return "";
@@ -287,8 +257,8 @@ public class ArmorToken extends Token
 	 * @param eh The ExportHandler to advise if there are no more items.
 	 * @return int
 	 */
-	private static String _replaceTokenArmorItem(int item, String subtype,
-		String property, int equipped, int merge, PlayerCharacter aPC, ExportHandler eh)
+	private static String replaceTokenArmorItem(int item, String subtype, String property, int equipped, int merge,
+		PlayerCharacter aPC, ExportHandler eh)
 	{
 		// select all pieces of equipment of status==equipped
 		// filter all AC relevant stuff
@@ -297,8 +267,7 @@ public class ArmorToken extends Token
 		for (Equipment eq : aPC.getEquipmentListInOutputOrder(merge))
 		{
 			if (("".equals(subtype) || eq.isType(subtype))
-				&& ((equipped == 3) || ((equipped == 2) && !eq.isEquipped()) || ((equipped == 1) && eq
-					.isEquipped())))
+				&& ((equipped == 3) || ((equipped == 2) && !eq.isEquipped()) || ((equipped == 1) && eq.isEquipped())))
 			{
 				if (eq.altersAC(aPC) && !eq.isArmor() && !eq.isShield())
 				{
@@ -310,7 +279,7 @@ public class ArmorToken extends Token
 		if (item < aArrayList.size())
 		{
 			final Equipment eq = aArrayList.get(item);
-			return _writeArmorProperty(eq, property, aPC);
+			return writeArmorProperty(eq, property, aPC);
 		}
 		eh.setNoMoreItems(true);
 		return "";
@@ -327,17 +296,15 @@ public class ArmorToken extends Token
 	 * @param eh The ExportHandler to advise if there are no more items.
 	 * @return int
 	 */
-	private static String _replaceTokenArmorShield(int shield, String subtype,
-		String property, int equipped, int merge, PlayerCharacter aPC, ExportHandler eh)
+	private static String replaceTokenArmorShield(int shield, String subtype, String property, int equipped, int merge,
+		PlayerCharacter aPC, ExportHandler eh)
 	{
-		final List<Equipment> aArrayList =
-				aPC.getEquipmentOfTypeInOutputOrder("Shield", subtype,
-					equipped, merge);
+		final List<Equipment> aArrayList = aPC.getEquipmentOfTypeInOutputOrder("Shield", subtype, equipped, merge);
 
 		if (shield < aArrayList.size())
 		{
 			final Equipment eq = aArrayList.get(shield);
-			return _writeArmorProperty(eq, property, aPC);
+			return writeArmorProperty(eq, property, aPC);
 		}
 		eh.setNoMoreItems(true);
 		return "";
@@ -354,17 +321,15 @@ public class ArmorToken extends Token
 	 * @param eh The ExportHandler to advise if there are no more items.
 	 * @return int
 	 */
-	private static String _replaceTokenArmorShirt(int shirt, String subtype,
-		String property, int equipped, int merge, PlayerCharacter aPC, ExportHandler eh)
+	private static String replaceTokenArmorShirt(int shirt, String subtype, String property, int equipped, int merge,
+		PlayerCharacter aPC, ExportHandler eh)
 	{
-		final List<Equipment> aArrayList =
-				aPC.getEquipmentOfTypeInOutputOrder("Shirt", subtype, equipped,
-					merge);
+		final List<Equipment> aArrayList = aPC.getEquipmentOfTypeInOutputOrder("Shirt", subtype, equipped, merge);
 
 		if (shirt < aArrayList.size())
 		{
 			final Equipment eq = aArrayList.get(shirt);
-			return _writeArmorProperty(eq, property, aPC);
+			return writeArmorProperty(eq, property, aPC);
 		}
 		eh.setNoMoreItems(true);
 		return "";
@@ -381,12 +346,10 @@ public class ArmorToken extends Token
 	 * @param eh The ExportHandler to advise if there are no more items.
 	 * @return int
 	 */
-	private static String _replaceTokenArmorSuit(int suit, String subtype,
-		String property, int equipped, int merge, PlayerCharacter aPC, ExportHandler eh)
+	private static String replaceTokenArmorSuit(int suit, String subtype, String property, int equipped, int merge,
+		PlayerCharacter aPC, ExportHandler eh)
 	{
-		final List<Equipment> aArrayList =
-				aPC.getEquipmentOfTypeInOutputOrder("Suit", subtype, equipped,
-					merge);
+		final List<Equipment> aArrayList = aPC.getEquipmentOfTypeInOutputOrder("Suit", subtype, equipped, merge);
 
 		//
 		// Temporary hack until someone gets around to fixing it properly
@@ -396,7 +359,7 @@ public class ArmorToken extends Token
 		if (suit < aArrayList.size())
 		{
 			final Equipment eq = aArrayList.get(suit);
-			return _writeArmorProperty(eq, property, aPC);
+			return writeArmorProperty(eq, property, aPC);
 		}
 		eh.setNoMoreItems(true);
 		return "";
@@ -414,14 +377,12 @@ public class ArmorToken extends Token
 	 * @param eh The ExportHandler to advise if there are no more items.
 	 * @return int
 	 */
-	private static String _replaceTokenArmorVarious(int index, String type,
-		String subtype, String property, int equipped, int merge,
-		PlayerCharacter aPC, ExportHandler eh)
+	private static String replaceTokenArmorVarious(int index, String type, String subtype, String property,
+		int equipped, int merge, PlayerCharacter aPC, ExportHandler eh)
 	{
 		final List<Equipment> aArrayList = new ArrayList<>();
 
-		for (Equipment eq : aPC.getEquipmentOfTypeInOutputOrder(type, subtype,
-			equipped, merge))
+		for (Equipment eq : aPC.getEquipmentOfTypeInOutputOrder(type, subtype, equipped, merge))
 		{
 			if (eq.getACMod(aPC).intValue() > 0)
 			{
@@ -436,14 +397,13 @@ public class ArmorToken extends Token
 		if (index < aArrayList.size())
 		{
 			final Equipment eq = aArrayList.get(index);
-			return _writeArmorProperty(eq, property, aPC);
+			return writeArmorProperty(eq, property, aPC);
 		}
 		eh.setNoMoreItems(true);
 		return "";
 	}
 
-	private static String _writeArmorProperty(Equipment eq, String property,
-		PlayerCharacter aPC)
+	private static String writeArmorProperty(Equipment eq, String property, PlayerCharacter aPC)
 	{
 		CharacterDisplay display = aPC.getDisplay();
 		StringBuilder ret = new StringBuilder();
@@ -452,7 +412,7 @@ public class ArmorToken extends Token
 		{
 			if (eq.isEquipped() && !property.equals("NAMENOSTAR"))
 			{
-				ret.append("*");
+				ret.append('*');
 			}
 
 			ret.append(OutputNameFormatting.parseOutputName(eq, aPC));
@@ -463,7 +423,7 @@ public class ArmorToken extends Token
 			// TODO this appears to be the same as above.  Should be refactored
 			if (eq.isEquipped())
 			{
-				ret.append("*");
+				ret.append('*');
 			}
 
 			ret.append(OutputNameFormatting.parseOutputName(eq, aPC));
@@ -483,8 +443,7 @@ public class ArmorToken extends Token
 			}
 			else
 			{
-				ret.append(Delta.toString((int) eq.bonusTo(aPC, "COMBAT", "AC",
-					true)));
+				ret.append(Delta.toString((int) eq.bonusTo(aPC, "COMBAT", "AC", true)));
 			}
 		}
 		else if (property.startsWith("BASEAC"))
@@ -522,7 +481,7 @@ public class ArmorToken extends Token
 		}
 		else if (property.startsWith("ISTYPE"))
 		{
-			if (eq.isType(property.substring(property.indexOf(".") + 1)))
+			if (eq.isType(property.substring(property.indexOf('.') + 1)))
 			{
 				ret.append("TRUE");
 			}
@@ -537,16 +496,15 @@ public class ArmorToken extends Token
 		}
 		else if (property.startsWith("MOVE"))
 		{
-			final StringTokenizer aTok =
-					new StringTokenizer(eq.moveString(), ",", false);
+			final StringTokenizer aTok = new StringTokenizer(eq.moveString(), ",", false);
 			String tempString = "";
 
-			if (("M".equals(display.getSize()) || "S".equals(display.getSize()))
-				&& (aTok.countTokens() > 0))
+			String sizeAbb = aPC.getSizeAdjustment().getKeyName();
+			if (("M".equals(sizeAbb) || "S".equals(sizeAbb)) && (aTok.countTokens() > 0))
 			{
 				tempString = aTok.nextToken();
 
-				if ("S".equals(display.getSize()) && (aTok.countTokens() > 1))
+				if ("S".equals(sizeAbb) && (aTok.countTokens() > 1))
 				{
 					tempString = aTok.nextToken();
 				}
@@ -587,9 +545,7 @@ public class ArmorToken extends Token
 		}
 		else if (property.startsWith("WT"))
 		{
-			ret
-				.append(BigDecimalHelper
-					.trimZeros(eq.getWeight(aPC).toString()));
+			ret.append(BigDecimalHelper.trimZeros(eq.getWeight(aPC).toString()));
 		}
 		return ret.toString();
 	}

@@ -25,12 +25,11 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractBigDecimalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class CostTokenTest extends AbstractBigDecimalTokenTestCase<Equipment>
 {
 	static CostToken token = new CostToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()
@@ -48,12 +47,6 @@ public class CostTokenTest extends AbstractBigDecimalTokenTestCase<Equipment>
 	public CDOMPrimaryToken<Equipment> getToken()
 	{
 		return token;
-	}
-
-	@Override
-	protected ConsolidationRule getConsolidationRule()
-	{
-		return ConsolidationRule.OVERWRITE;
 	}
 
 	@Override

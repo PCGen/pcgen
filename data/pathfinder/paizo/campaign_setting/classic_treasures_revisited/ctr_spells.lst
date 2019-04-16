@@ -1,0 +1,13 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Chronicles: Classic Treasures Revisited	SOURCESHORT:CTR	SOURCEWEB:http://paizo.com/products/btpy8dmn?Pathfinder-Chronicles-Classic-Treasures-Revisited	SOURCEDATE:2010-05
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 9 March 2017
+
+# ==============================
+# New Spells
+# ==============================
+
+# Spell Name	Type		Classes of caster				School			Sub-School		Components	Casting Time	Range			Target Area or Effect												Duration					Save Info		Spell Resistance	Source Page		Description
+Retrieve Item	TYPE:Arcane	CLASSES:Bard,Sorcerer,Wizard=2	SCHOOL:Conjuration	SUBSCHOOL:Calling	COMPS:V,S	CASTTIME:1 round	RANGE:Long		TARGETAREA:Unattended object of 1 lb. or less whose longest dimension is 6 inches or less	DURATION:Permanent until discharged	SAVEINFO:None	SPELLRES:No		SOURCEPAGE:27	DESC:You call a specific nonliving item directly to your hand from a nearby location. First, you must cast the spell on the item while holding it. Thereafter, you can summon the item by speaking a special word (set by you when the spell is cast) and snapping your fingers. The item appears instantly in your hand. If the item is in the possession of another creature, the spell fails.
+Spherescry		TYPE:Arcane	CLASSES:Sorcerer,Wizard=3		SCHOOL:Divination		SUBSCHOOL:Scrying	COMPS:V,S,F	CASTTIME:1 hour	RANGE:See text	TARGETAREA:Shere of annihilation that previously devoured portion of caster's body		DURATION:(CASTERLEVEL) minutes	SAVEINFO:None	SPELLRES:No		SOURCEPAGE:45	DESC:This spell allows remote viewing through spheres that have previously consumed some portion of the spellcaster's body: a single digit of a finger or toe at a minimum. The caster can view and listen to events within a 20-foot radius of the associated sphere; this radius follows the sphere if the sphere moves. Unlike a true scrying spell, no other spells operate through the associated sphere, but spherescry produces no indication of its activity on the target and cannot be discovered by normal methods of magical detection.

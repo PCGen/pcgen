@@ -1,5 +1,4 @@
 /*
- * ChooserDialog.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 06/01/2012 9:23:01 AM
- *
- * $Id$
  */
 package pcgen.gui2.dialog;
 
@@ -52,19 +47,17 @@ import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.chooser.InfoWrapper;
 import pcgen.facade.core.ChooserFacade;
 import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.core.InfoFactory;
-import pcgen.facade.util.event.ReferenceEvent;
-import pcgen.facade.util.event.ReferenceListener;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.event.ReferenceEvent;
+import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
@@ -79,8 +72,10 @@ import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PropertyContext;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
- * The Class <code>ChooserDialog</code> provides a general dialog to allow the 
+ * The Class {@code ChooserDialog} provides a general dialog to allow the
  * user to select from a number of predefined choices. A ChooserFacade instance 
  * must be supplied, this defines the choices available, the text to be displayed 
  * on screen and the actions to be taken when the user confirms their choices. The 
@@ -88,9 +83,7 @@ import pcgen.system.PropertyContext;
  * <p>
  * This class is based heavily on Connor Petty's LanguageChooserDialog class.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class ChooserDialog extends JDialog implements ActionListener, ReferenceListener<Integer>, ListSelectionListener
@@ -146,8 +139,8 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		// Only do this if 1 entry and can add...
 		//
 		ListFacade<InfoFacade> availableList = chooser.getAvailableList();
-		if ((availableList != null) && (availableList.getSize() == 1)
-			&& (listModel.getSize() == 0) && b && !chooser.isUserInput())
+		if ((availableList != null) && (availableList.getSize() == 1) && (listModel.getSize() == 0) && b
+			&& !chooser.isUserInput())
 		{
 			final int method = UIPropertyContext.getSingleChoiceAction();
 
@@ -174,9 +167,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 	private void overridePrefs()
 	{
 		UIPropertyContext baseContext = UIPropertyContext.createContext("tablePrefs");
-		PropertyContext context =
-				baseContext.createChildContext(
-					treeViewModel.getDataView().getPrefsKey());
+		PropertyContext context = baseContext.createChildContext(treeViewModel.getDataView().getPrefsKey());
 		final String VIEW_INDEX_PREFS_KEY = "viewIdx";
 		context.setInt(VIEW_INDEX_PREFS_KEY, treeViewModel.getDefaultTreeViewIndex());
 	}
@@ -217,7 +208,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			Dimension maxDim = new Dimension(Integer.MAX_VALUE, availInput.getPreferredSize().height);
 			availInput.setMaximumSize(maxDim);
 			JPanel availPanel = new JPanel();
-			availPanel.setLayout(new BoxLayout(availPanel, BoxLayout.PAGE_AXIS));		
+			availPanel.setLayout(new BoxLayout(availPanel, BoxLayout.PAGE_AXIS));
 			availPanel.add(Box.createRigidArea(new Dimension(10, 30)));
 			availPanel.add(Box.createVerticalGlue());
 			availPanel.add(new JLabel(LanguageBundle.getString("in_uichooser_value")));
@@ -233,7 +224,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		buttonPane1.add(addButton);
 		buttonPane1.add(new JLabel(Icons.Forward16.getImageIcon()));
 		leftPane.add(buttonPane1, BorderLayout.SOUTH);
-		
+
 		split.setLeftComponent(leftPane);
 
 		JPanel rightPane = new JPanel(new BorderLayout());
@@ -261,7 +252,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		rightPane.add(buttonPane2, BorderLayout.SOUTH);
 
 		split.setRightComponent(rightPane);
-		
+
 		if (chooser.isInfoAvailable())
 		{
 			JSplitPane infoSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
@@ -303,24 +294,22 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 	{
 		if (availTable != null && !e.getValueIsAdjusting())
 		{
-			if (e.getSource() == availTable.getSelectionModel()
-				&& availTable.getSelectedObject() instanceof InfoFacade)
+			if (e.getSource() == availTable.getSelectionModel() && availTable.getSelectedObject() instanceof InfoFacade)
 			{
 				InfoFacade target = (InfoFacade) availTable.getSelectedObject();
 				InfoFactory factory = chooser.getInfoFactory();
-				if (factory != null && target!=null)
+				if (factory != null && target != null)
 				{
 					infoPane.setText(factory.getHTMLInfo(target));
 				}
 			}
-		}		
+		}
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		if (availTable != null
-			&& (e.getActionCommand().equals("ADD") || e.getSource() == availTable))
+		if (availTable != null && (e.getActionCommand().equals("ADD") || e.getSource() == availTable))
 		{
 			List<Object> data = availTable.getSelectedData();
 			if (!data.isEmpty())
@@ -335,8 +324,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			}
 			return;
 		}
-		if (availInput != null
-			&& (e.getActionCommand().equals("ADD") || e.getSource() == availInput))
+		if (availInput != null && (e.getActionCommand().equals("ADD") || e.getSource() == availInput))
 		{
 			String data = availInput.getText();
 			if (StringUtils.isNotBlank(data))
@@ -346,7 +334,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			availInput.setText("");
 			return;
 		}
-		
+
 		if (e.getActionCommand().equals("REMOVE") || e.getSource() == list)
 		{
 			Object value = list.getSelectedValue();
@@ -362,14 +350,11 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		}
 		if (e.getActionCommand().equals("OK"))
 		{
-			if (chooser.isRequireCompleteSelection()
-				&& chooser.getRemainingSelections().get() > 0)
+			if (chooser.isRequireCompleteSelection() && chooser.getRemainingSelections().get() > 0)
 			{
 				JOptionPane.showMessageDialog(this,
-					  LanguageBundle.getFormattedString("in_chooserRequireComplete", //$NON-NLS-1$
-						  chooser.getRemainingSelections().get()), 
-						  chooser.getName(), 
-					  JOptionPane.INFORMATION_MESSAGE);
+					LanguageBundle.getFormattedString("in_chooserRequireComplete", //$NON-NLS-1$
+					chooser.getRemainingSelections().get()), chooser.getName(), JOptionPane.INFORMATION_MESSAGE);
 				return;
 			}
 			else
@@ -394,19 +379,17 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		return committed;
 	}
 
-	private class GeneralTreeViewModel extends DelegatingListFacade<InfoFacade> implements TreeViewModel<InfoFacade>,
-			DataView<InfoFacade>
+	private class GeneralTreeViewModel extends DelegatingListFacade<InfoFacade>
+			implements TreeViewModel<InfoFacade>, DataView<InfoFacade>
 	{
 
 		@Override
 		public ListFacade<? extends TreeView<InfoFacade>> getTreeViews()
 		{
-			DefaultListFacade<TreeView<InfoFacade>> views =
-                    new DefaultListFacade<>();
-			views.addElement(new ChooserTreeView(ChooserTreeViewType.NAME,
-				chooser.getAvailableTableTitle(), chooser));
-			views.addElement(new ChooserTreeView(ChooserTreeViewType.TYPE_NAME,
-				chooser.getAvailableTableTypeNameTitle(), chooser));
+			DefaultListFacade<TreeView<InfoFacade>> views = new DefaultListFacade<>();
+			views.addElement(new ChooserTreeView(ChooserTreeViewType.NAME, chooser.getAvailableTableTitle(), chooser));
+			views.addElement(
+				new ChooserTreeView(ChooserTreeViewType.TYPE_NAME, chooser.getAvailableTableTypeNameTitle(), chooser));
 			return views;
 		}
 
@@ -455,10 +438,10 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 
 	private final class ChooserTreeView implements TreeView<InfoFacade>
 	{
-		
-		private String viewName;
+
+		private final String viewName;
 		private final ChooserFacade chooser;
-		private final ChooserTreeViewType viewType; 
+		private final ChooserTreeViewType viewType;
 
 		private ChooserTreeView(ChooserTreeViewType viewType, String name, ChooserFacade chooser)
 		{
@@ -480,7 +463,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			{
 				case TYPE_NAME:
 					List<TreeViewPath<InfoFacade>> paths = new ArrayList<>();
-					for(String type : chooser.getBranchNames(pobj))
+					for (String type : chooser.getBranchNames(pobj))
 					{
 						paths.add(new TreeViewPath<>(pobj, type));
 					}
@@ -497,5 +480,4 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		}
 	}
 
-	
 }

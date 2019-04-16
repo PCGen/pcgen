@@ -1,5 +1,4 @@
 /*
- * DamageReduction.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 16, 2006
- *
- * Current Ver: $Revision: $
  */
 package pcgen.cdom.content;
 
@@ -26,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -42,11 +36,9 @@ import pcgen.cdom.base.QualifyingObject;
  * over clarity is preferred in the output so that is what the methods attempt
  * to provide.
  * 
- * @author boomer70
  * 
  */
-public class DamageReduction extends ConcretePrereqObject implements
-		QualifyingObject
+public class DamageReduction extends ConcretePrereqObject implements QualifyingObject
 {
 	private final Formula theReduction;
 	private final String theBypass;
@@ -94,8 +86,7 @@ public class DamageReduction extends ConcretePrereqObject implements
 	 */
 	public int getRawReductionValue()
 	{
-		return theReduction.isStatic() ? theReduction.resolveStatic()
-			.intValue() : -1;
+		return theReduction.isStatic() ? theReduction.resolveStatic().intValue() : -1;
 	}
 
 	/**
@@ -173,11 +164,10 @@ public class DamageReduction extends ConcretePrereqObject implements
 	{
 		List<String> list = new ArrayList<>(getBypassList());
 		Collections.sort(list);
-		int hash = 0;
-		for (Iterator<String> i = list.iterator(); i.hasNext();)
-		{
-			hash += i.next().hashCode();
-		}
+
+		int hash = list.stream()
+		    .mapToInt(Object::hashCode)
+		    .sum();
 		return theReduction.hashCode() + hash;
 	}
 

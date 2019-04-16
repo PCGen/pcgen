@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21407 $ $Author: evilmynex $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 # Original RSRD Entry by: PCGen Data Team
@@ -41,9 +42,9 @@ Quarter Hitdie	HITDIE:%/4|CLASS.TYPE=Monster	VISIBLE:NO
 Eighth Hitdie	HITDIE:%/8|CLASS.TYPE=Monster	VISIBLE:NO
 
 ###Block: Alter Self basic size & stat adjustments
-# Template Name		Size		Face/Space	Reach		Req. Known Spell		Stat bonus
-Alter Self (Medium)	SIZE:M	FACE:5	REACH:5	PRESPELL:1,Alter Self	BONUS:STAT|STR|2
-Alter Self (Small)	SIZE:S	FACE:5	REACH:5	PRESPELL:1,Alter Self	BONUS:STAT|DEX|2
+# Template Name		Size		Reach		Req. Known Spell		Stat bonus
+Alter Self (Medium)	SIZE:M	REACH:5	PRESPELL:1,Alter Self	BONUS:STAT|STR|2
+Alter Self (Small)	SIZE:S	REACH:5	PRESPELL:1,Alter Self	BONUS:STAT|DEX|2
 
 ###Block: Righteous Might temporary bonus DR enabler
 # Template Name					Visible		Damage Reduction	Required Ability									Req. Known Spell			Description
@@ -183,8 +184,13 @@ Heroic Level 20			VISIBLE:NO																																																				
 
 ###BLOCK: Conditional
 ###Block: Ability Damage
-# Template Name			Visible	Source Page		Define												Temporary effect description			Temporary Bonus																																																																																TEMPVALUE
-Ability Damaged (Strength)	VISIBLE:NO	SOURCEPAGE:p.555	DEFINE:AbilityDamageStrength|0	DEFINE:AbilityDamagePenaltyStrength|0	TEMPDESC:You have taken Strength damage	TEMPBONUS:ANYPC|COMBAT|TOHIT.Melee,DAMAGE.Melee|-AbilityDamagePenaltyStrength|TYPE=AbilityDamage	TEMPBONUS:ANYPC|SKILL|TYPE.Strength|-AbilityDamagePenaltyStrength|TYPE=AbilityDamage	TEMPBONUS:ANYPC|VAR|AbilityDamageStrength|%CHOICE	TEMPBONUS:ANYPC|VAR|AbilityDamagePenaltyStrength|AbilityDamageStrength/2	TEMPBONUS:ANYPC|VAR|CMB|AbilityDamagePenaltyStrength|TYPE=AbilityDamage|PRESIZEGTEQ:S	TEMPBONUS:ANYPC|VAR|CMD|-AbilityDamagePenaltyStrength|TYPE=AbilityDamage	TEMPVALUE:MIN=1|MAX=20|TITLE=Strength Damage
+# Template Name				Visible	Source Page		Define										Temporary effect description		Temporary Bonus																																																																											TEMPVALUE
+Ability Damaged (Strength)		VISIBLE:NO	SOURCEPAGE:p.555	DEFINE:AbilityDamageSTR|0	DEFINE:AbilityDamagePenaltySTR|0	TEMPDESC:You have taken STR damage	TEMPBONUS:ANYPC|COMBAT|TOHIT.Melee,DAMAGE.Melee|-AbilityDamagePenaltySTR|TYPE=AbilityDamage	TEMPBONUS:ANYPC|SKILL|TYPE.Strength|-AbilityDamagePenaltySTR|TYPE=AbilityDamage	TEMPBONUS:ANYPC|VAR|AbilityDamageSTR|%CHOICE	TEMPBONUS:ANYPC|VAR|AbilityDamagePenaltySTR|AbilityDamageSTR/2	TEMPBONUS:ANYPC|VAR|CMB|AbilityDamagePenaltyStrength|TYPE=AbilityDamage|PRESIZEGTEQ:S	TEMPBONUS:ANYPC|VAR|CMD|-AbilityDamagePenaltyStrength|TYPE=AbilityDamage	TEMPVALUE:MIN=1|MAX=20|TITLE=Strength Damage
+Ability Damaged (Dexterity)		VISIBLE:NO	SOURCEPAGE:p.555	DEFINE:AbilityDamageDEX|0	DEFINE:AbilityDamagePenaltyDEX|0	TEMPDESC:You have taken DEX damage	TEMPBONUS:ANYPC|COMBAT|TOHIT.Ranged|-AbilityDamagePenaltyDEX|TYPE=AbilityDamage	TEMPBONUS:ANYPC|SKILL|TYPE.Dexterity|-AbilityDamagePenaltyDEX|TYPE=AbilityDamage	TEMPBONUS:ANYPC|VAR|AbilityDamageDEX|%CHOICE	TEMPBONUS:ANYPC|VAR|AbilityDamagePenaltyDEX|AbilityDamageDEX/2																															TEMPVALUE:MIN=1|MAX=20|TITLE=Dexterity Damage
+Ability Damaged (Constitution)	VISIBLE:NO	SOURCEPAGE:p.555	DEFINE:AbilityDamageCON|0	DEFINE:AbilityDamagePenaltyCON|0	TEMPDESC:You have taken CON damage	TEMPBONUS:ANYPC|VAR|AbilityDamageCON|%CHOICE																																																																						TEMPVALUE:MIN=1|MAX=20|TITLE=Constitution Damage
+Ability Damaged (Intelligence)	VISIBLE:NO	SOURCEPAGE:p.555	DEFINE:AbilityDamageINT|0	DEFINE:AbilityDamagePenaltyINT|0	TEMPDESC:You have taken INT damage	TEMPBONUS:ANYPC|SKILL|TYPE.Intelligence|-AbilityDamagePenaltyINT|TYPE=AbilityDamage	TEMPBONUS:ANYPC|VAR|AbilityDamageINT|%CHOICE																																																								TEMPVALUE:MIN=1|MAX=20|TITLE=Intelligence Damage
+Ability Damaged (Wisdom)		VISIBLE:NO	SOURCEPAGE:p.555	DEFINE:AbilityDamageWIS|0	DEFINE:AbilityDamagePenaltyWIS|0	TEMPDESC:You have taken WIS damage	TEMPBONUS:ANYPC|SKILL|TYPE.Wisdom|-AbilityDamagePenaltyWIS|TYPE=AbilityDamage	TEMPBONUS:ANYPC|VAR|AbilityDamageWIS|%CHOICE																																																									TEMPVALUE:MIN=1|MAX=20|TITLE=Wisdom Damage
+Ability Damaged (Charisma)		VISIBLE:NO	SOURCEPAGE:p.555	DEFINE:AbilityDamageCHA|0	DEFINE:AbilityDamagePenaltyCHA|0	TEMPDESC:You have taken CHA damage	TEMPBONUS:ANYPC|SKILL|TYPE.Charisma|-AbilityDamagePenaltyCHA|TYPE=AbilityDamage	TEMPBONUS:ANYPC|VAR|AbilityDamageCHA|%CHOICE																																																								TEMPVALUE:MIN=1|MAX=20|TITLE=Charisma Damage
 
 
 ###Block: Ability Drain
@@ -197,8 +203,9 @@ Ability Drained (Wisdom)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:You have temporar
 Ability Drained (Charisma)		VISIBLE:NO	SOURCEPAGE:p.555	TEMPDESC:You have temporarily lost 1 or more Charisma ability score points		TEMPBONUS:ANYPC|STAT|CHA|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Charisma Drain
 
 ###Block: Negative Levels
-# Template Name	Visible	Source Page		Temporary effect description					Temporary Bonus																																									TEMPVALUE
-Energy Drained	VISIBLE:NO	SOURCEPAGE:p.562	TEMPDESC:You have gained one or more negative levels	TEMPBONUS:ANYPC|SAVE|Fortitude,Reflex,Will|-1*(%CHOICE)	TEMPBONUS:ANYPC|COMBAT|TOHIT|-1*(%CHOICE)	TEMPBONUS:ANYPC|HP|CURRENTMAX|-5*(%CHOICE)	TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Negative Levels
+# Template Name	Visible	Source Page		Temporary effect description					Temporary Bonus																																																																TEMPVALUE
+Energy Drained	VISIBLE:NO	SOURCEPAGE:p.562	TEMPDESC:You have gained one or more negative levels	TEMPBONUS:ANYPC|SAVE|Fortitude,Reflex,Will|-1*(%CHOICE)	TEMPBONUS:ANYPC|COMBAT|TOHIT|-1*(%CHOICE)	TEMPBONUS:ANYPC|HP|CURRENTMAX|-5*(%CHOICE)	TEMPBONUS:ANYPC|SKILL|TYPE=Strength,TYPE=Dexterity,TYPE=Intelligence,TYPE=Wisdom,TYPE=Charisma|-1*(%CHOICE)	TEMPBONUS:ANYPC|CASTERLEVEL|ALLSPELLS|-1*(%CHOICE)	TEMPBONUS:ANYPC|VAR|CMB_BAB|-1*(%CHOICE)	TEMPBONUS:ANYPC|VAR|CMD_BAB|-1*(%CHOICE)	TEMPVALUE:MIN=1|MAX=20|TITLE=Negative Levels
+
 
 ###Block: Conditions
 # Template Name	Visible	Source Page		Temporary effect description																																																																																												Temporary Bonus
@@ -220,15 +227,13 @@ Stunned		VISIBLE:NO	SOURCEPAGE:p.568	TEMPDESC:A stunned creature drops everythin
 
 ###Block: Test
 # Template Name	Size		Visible	Template		Choose						Type
-TestChoose				VISIBLE:YES	TEMPLATE:%LIST	CHOOSE:TEMPLATE|TYPE=TestChooseTemplate
-
-
-TestMedium		SIZE:M	VISIBLE:YES											TYPE:TestChooseTemplate
-TestSmall		SIZE:S	VISIBLE:YES											TYPE:TestChooseTemplate
-TestTiny		SIZE:T	VISIBLE:YES											TYPE:TestChooseTemplate
-TestLarge		SIZE:L	VISIBLE:YES											TYPE:TestChooseTemplate
-TestDiminutive	SIZE:D	VISIBLE:YES											TYPE:TestChooseTemplate
-TestHuge		SIZE:H	VISIBLE:YES											TYPE:TestChooseTemplate
+TestChoose				VISIBLE:NO	TEMPLATE:%LIST	CHOOSE:TEMPLATE|TYPE=TestChooseTemplate
+TestMedium		SIZE:M	VISIBLE:NO											TYPE:TestChooseTemplate
+TestSmall		SIZE:S	VISIBLE:NO											TYPE:TestChooseTemplate
+TestTiny		SIZE:T	VISIBLE:NO											TYPE:TestChooseTemplate
+TestLarge		SIZE:L	VISIBLE:NO											TYPE:TestChooseTemplate
+TestDiminutive	SIZE:D	VISIBLE:NO											TYPE:TestChooseTemplate
+TestHuge		SIZE:H	VISIBLE:NO											TYPE:TestChooseTemplate
 
 
 ###BLOCK: Wildshape
@@ -251,16 +256,16 @@ Wild Shape		VISIBLE:YES	TEMPLATE:%LIST	CHOOSE:TEMPLATE|QUALIFIED[TYPE=WildshapeT
 #	now functions as elemental body IV.
 #	now functions as plant shape III.
 ###Block: Shape/Size
-# Template Name				Size		Face/Space	Reach		Visible		Var. Min. Value				Stat bonus								Modify VAR
-Wild Shape (Medium Animal)		SIZE:M	FACE:5	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,1	BONUS:STAT|STR|2							BONUS:VAR|AC_Natural_Armor|2|TYPE=Base
-Wild Shape (Small Animal)		SIZE:S	FACE:5	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,1	BONUS:STAT|DEX|2							BONUS:VAR|AC_Natural_Armor|1|TYPE=Base
-Wild Shape (Tiny Animal)		SIZE:T	FACE:2.5	REACH:0	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,2	BONUS:STAT|DEX|4	BONUS:STAT|STR|-2				BONUS:VAR|AC_Natural_Armor|1|TYPE=Base
-Wild Shape (Large Animal)		SIZE:L	FACE:10	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,2	BONUS:STAT|STR|4	BONUS:STAT|DEX|-2				BONUS:VAR|AC_Natural_Armor|4|TYPE=Base
-Wild Shape (Diminutive Animal)	SIZE:D	FACE:1	REACH:0	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,3	BONUS:STAT|STR|-4	BONUS:STAT|DEX|6				BONUS:VAR|AC_Natural_Armor|1|TYPE=Base
-Wild Shape (Huge Animal)		SIZE:H	FACE:15	REACH:10	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,3	BONUS:STAT|DEX|-4	BONUS:STAT|STR|6				BONUS:VAR|AC_Natural_Armor|6|TYPE=Base
-Wild Shape (Small Magical Beast)	SIZE:S	FACE:5	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,3	BONUS:STAT|STR|4							BONUS:VAR|AC_Natural_Armor|2|TYPE=Base
-Wild Shape (Tiny Magical Beast)	SIZE:T	FACE:2.5	REACH:0	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,4	BONUS:STAT|STR|-2	BONUS:STAT|DEX|8				BONUS:VAR|AC_Natural_Armor|3|TYPE=Base
-Wild Shape (Large Magical Beast)	SIZE:L	FACE:10	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,4	BONUS:STAT|STR|6	BONUS:STAT|DEX|-2	BONUS:STAT|CON|2	BONUS:VAR|AC_Natural_Armor|6|TYPE=Base
+# Template Name				Size		Reach		Visible		Var. Min. Value				Stat bonus								Modify VAR
+Wild Shape (Medium Animal)		SIZE:M	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,1	BONUS:STAT|STR|2							BONUS:VAR|AC_Natural_Armor|2|TYPE=Base
+Wild Shape (Small Animal)		SIZE:S	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,1	BONUS:STAT|DEX|2							BONUS:VAR|AC_Natural_Armor|1|TYPE=Base
+Wild Shape (Tiny Animal)		SIZE:T	REACH:0	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,2	BONUS:STAT|DEX|4	BONUS:STAT|STR|-2				BONUS:VAR|AC_Natural_Armor|1|TYPE=Base
+Wild Shape (Large Animal)		SIZE:L	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,2	BONUS:STAT|STR|4	BONUS:STAT|DEX|-2				BONUS:VAR|AC_Natural_Armor|4|TYPE=Base
+Wild Shape (Diminutive Animal)	SIZE:D	REACH:0	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,3	BONUS:STAT|STR|-4	BONUS:STAT|DEX|6				BONUS:VAR|AC_Natural_Armor|1|TYPE=Base
+Wild Shape (Huge Animal)		SIZE:H	REACH:10	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,3	BONUS:STAT|DEX|-4	BONUS:STAT|STR|6				BONUS:VAR|AC_Natural_Armor|6|TYPE=Base
+Wild Shape (Small Magical Beast)	SIZE:S	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,3	BONUS:STAT|STR|4							BONUS:VAR|AC_Natural_Armor|2|TYPE=Base
+Wild Shape (Tiny Magical Beast)	SIZE:T	REACH:0	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,4	BONUS:STAT|STR|-2	BONUS:STAT|DEX|8				BONUS:VAR|AC_Natural_Armor|3|TYPE=Base
+Wild Shape (Large Magical Beast)	SIZE:L	REACH:5	VISIBLE:EXPORT	PREVARGTEQ:WildShapeProgression,4	BONUS:STAT|STR|6	BONUS:STAT|DEX|-2	BONUS:STAT|CON|2	BONUS:VAR|AC_Natural_Armor|6|TYPE=Base
 
 ###Block: Specific animal, small
 # Template Name						Nb Legs	Nb Hands	Visible		Template					Source Page		Define				Var. Min. Value				Modify VAR						Weapon prof. bonus																	Ability																																																			Bonus Languages		Move					Type							Vision			Natural Attacks
@@ -294,6 +299,7 @@ Wild Shape Medium Animal (Squid)			LEGS:0	HANDS:0	VISIBLE:EXPORT	TEMPLATE:Wild S
 #TODO Stingray should get poison and blindsense on bs 3
 Wild Shape Medium Animal (Stingray)			LEGS:0	HANDS:0	VISIBLE:EXPORT	TEMPLATE:Wild Shape (Medium Animal)	SOURCEPAGE:TODO						PREVARGTEQ:WildShapeProgression,1																												ABILITY:Special Ability|AUTOMATIC|Grab|PREVARGTEQ:WildShapeProgression,2	ABILITY:Internal|AUTOMATIC|Sting																																						MOVE:Swim,40			TYPE:WildshapeTemplate.WildshapeMedium	VISION:Low-Light Vision
 
+Wild Shape Huge Animal (Allosaurus)			LEGS:2			VISIBLE:EXPORT	TEMPLATE:Wild Shape (Huge Animal)	SOURCEPAGE:TODO						PREVARGTEQ:WildShapeProgression,1								BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))													ABILITY:Special Ability|AUTOMATIC|Grab	ABILITY:Special Ability|AUTOMATIC|Scent	ABILITY:Special Ability|AUTOMATIC|Pounce|PREVARGTEQ:WildShapeProgression,1	ABILITY:Special Ability|AUTOMATIC|Rake	ABILITY:Internal|AUTOMATIC|Bite|Talons																MOVE:Walk,50			TYPE:WildshapeTemplate.WildshapeHuge	VISION:Low-Light Vision	NATURALATTACKS:Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8
 
 #Race Bonus Language ~ xxx		VISIBLE:NO		LANGBONUS:
 
@@ -318,3 +324,19 @@ Race Bonus Language ~ Orc								VISIBLE:NO																																					
 Race Bonus Language ~ Sylvan								VISIBLE:NO																																																																																																					LANGBONUS:Sylvan
 Race Bonus Language ~ Terran								VISIBLE:NO																																																																																																					LANGBONUS:Terran
 Race Bonus Language ~ Undercommon							VISIBLE:NO																																																																																																					LANGBONUS:Undercommon
+Race Bonus Language ~ All								VISIBLE:NO																																																																																																					LANGBONUS:ALL
+Bonus Language ~ Any Spoken								VISIBLE:NO																																																																																																					LANGBONUS:TYPE=Spoken
+
+
+
+
+###Block: Combat Templates
+#Template Name			Visible	Source Page	Temporary effect description	Temporary Bonus	TEMPVALUE
+# Template Name			Visible	Source Page		Temporary effect description																																Temporary Bonus																																									TEMPVALUE
+Fighting Defensively		VISIBLE:NO	SOURCEPAGE:X	TEMPDESC:You are fighting defensively when attacking																												TEMPBONUS:ANYPC|COMBAT|TOHIT|-4	TEMPBONUS:ANYPC|VAR|TwoWeaponShield|1|TYPE=Temporary	TEMPBONUS:ANYPC|VAR|FightingDefensivelyAC|2+FightingDefensivelyACBonus|TYPE=Temp1	TEMPBONUS:ANYPC|VAR|FightingDefensivelyACBonus|1|TYPE=Temp2|PRESKILL:1,Tumble=5
+Total Defense			VISIBLE:NO	SOURCEPAGE:X	TEMPDESC:You are defending yourself as a standard action																											TEMPBONUS:ANYPC|VAR|TwoWeaponShield|1|TYPE=Temporary	TEMPBONUS:ANYPC|VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1	TEMPBONUS:ANYPC|VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5
+Combat Expertise trade off	VISIBLE:NO	SOURCEPAGE:X	TEMPDESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class.	TEMPBONUS:PC|COMBAT|AC|min(%CHOICE,BAB)|TYPE=Temporary	TEMPBONUS:PC|COMBAT|TOHIT|max((-1*%CHOICE),(-1*BAB))|TYPE=Temporary																						TEMPVALUE:MIN=1|MAX=5|TITLE=Combat Expertise trade off
+
+###Block: Bloodline Abilities
+# Template Name					Visible	Source Page		Define				Modify VAR						Move
+Celestial Bloodline ~ Wings of Heaven	VISIBLE:NO	SOURCEPAGE:p.74	DEFINE:Maneuverability|0	BONUS:VAR|Maneuverability|4|TYPE=Base	MOVE:Fly,60

@@ -32,7 +32,7 @@ BIO
 			<levels_total>4</levels_total>
 			<levels_ecl>4</levels_ecl>
 			<!-- shortform below should be removed - it can be derived from class info above -->
-			<shortform> Bbn4                   </shortform>
+			<shortform>Bbn4</shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
 		<deity>
@@ -41,7 +41,6 @@ BIO
 			<description>Due to closed content PCGEN cannot provide a list of deities, sorry but you need to homebrew your own list; Please see the Documentation for how to do so - http://www.pcgen-test.org/autobuilds/pcgen-docs/listfilepages/lstfileclass/lfc_lesson14_deities.html</description>
 			<domainlist>Air, Animal, Chaos, Death, Destruction, Earth, Evil, Fire, Good, Healing, Knowledge, Law, Luck, Magic, Plant, Protection, Strength, Sun, Travel, Trickery, War, Water</domainlist>
 			<favoredweapon>ANY</favoredweapon>
-<!-->			<followeralignment></followeralignment>  This is no longer valid and keeps throwing out errors-->
 			<holyitem>None</holyitem>
 			<pantheonlist></pantheonlist>
 			<source>Wizards of the Coast - System Reference Document, srdbasiccharacterclassesi</source>
@@ -1013,23 +1012,32 @@ BIO
 	  ====================================
 	  ====================================-->
 	<class_features>
-
 	<!-- Bard -->
-	<!-- If character is a barbarian -->
-		<rage>
-			<uses_per_day>0</uses_per_day>
-			<description>The Barbarian temporarily gains +4 to Strength, +4 to Constitution, and a +2 morale bonus on Will saves, but suffers a -2 penalty to AC. A fit of rage lasts for a number of rounds equal to 3 + the character's (newly improved) Constitution modifier. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter (unless the barbarian is 20th level, when this limitation no longer applies). The barbarian can only fly into a rage once per encounter, and only a certain number of times per day (determined by level). Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
 
-	<!-- Barbarian of 15th Level -->
-	<!-- If character is a barbarian -->
-		</rage>
-	<!-- Character Rage -->
+
+	<!-- Pathfinder -->
+		<!-- Character Rage -->
+		<!-- If character can Rage -->
+	<rage>
+		<uses_per_day>2</uses_per_day>
+		<uses_per_day.title>Uses per day</uses_per_day.title>
+		<description>The Barbarian gains +4 to Strength, +4 to Constitution, and a +2 morale bonus on Will saves, but suffers a -2 penalty to AC for 4 rounds. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter. The barbarian can only rage once per encounter. Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
+	</rage>
+	<!-- this stuff needs a bit of work to display correct info for both 3e and 3.5e properly. - Tir Gwaith -->
+		<!-- Character Rage -->
+
 	<!-- Turning ability -->
+
 	<!-- 3.0 stunning fist -->
+
 	<!-- 3.5 stunning fist -->
+
 	<!-- 3.0 wholeness of body -->
+
 	<!-- 3.5 wholeness of body -->
+
 	<!-- Psionics -->
+
 
 
 
@@ -1100,52 +1108,50 @@ BIO
 			<capacity>150</capacity>
 		</total>
 		<equipmentsets>
-
-      <equipmentset name="Default Set">
-		<item>
-					<name>Breastplate</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>200</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>ARMOR.MEDIUM.SUIT.STANDARD.METAL</type>
-					<weight>30</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Dagger</name>
-					<carried>2.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>2</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>2</quantity>
-					<size>
-						<long>Tiny</long>
-						<short>T</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.SIMPLE.MELEE.RANGED.PIERCING.STANDARD.THROWN.DAGGER.METAL</type>
-					<weight>1</weight>
-					<bonuslist></bonuslist>
-				</item>
+		<equipmentset name="Default Set">
+			<item>
+				<name>Breastplate</name>
+				<carried>1.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>200</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>1</quantity>
+				<size>
+					<long>Medium</long>
+					<short>M</short>
+				</size>
+				<special_properties></special_properties>
+				<type>ARMOR.MEDIUM.SUIT.STANDARD.METAL</type>
+				<weight>30</weight>
+				<bonuslist></bonuslist>
+			</item>
+			<item>
+				<name>Dagger</name>
+				<carried>2.0</carried>
+				<charges></charges>
+				<charges_used></charges_used>
+				<contents></contents>
+				<cost>2</cost>
+				<equipped>Y</equipped>
+				<location>Equipped</location>
+				<maxcharges>0</maxcharges>
+				<note></note>
+				<quantity>2</quantity>
+				<size>
+					<long>Tiny</long>
+					<short>T</short>
+				</size>
+				<special_properties></special_properties>
+				<type>WEAPON.SIMPLE.MELEE.RANGED.PIERCING.STANDARD.THROWN.DAGGER.METAL</type>
+				<weight>1</weight>
+				<bonuslist></bonuslist>
+			</item>
 			</equipmentset>
-
       </equipmentsets>
 	</equipment>
 	<weight_allowance>
@@ -1188,6 +1194,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Auto feats -->
 		<feat>
 			<name>Armor Proficiency (Light)</name>
@@ -1239,6 +1246,7 @@ BIO
 			<hidden>F</hidden>
 			<virtual>F</virtual>
 		</feat>
+
 		<!-- Virtual Feats -->
 		<!-- End Virtual Feats -->
 		<!-- Hidden feats (all feats less the virtual, automatic and visible ones) -->
@@ -1251,8 +1259,9 @@ BIO
 			ABILITY OBJECTS
 	  ====================================
 	  ====================================-->
+
 	<ability_objects>
-	<!-- Visible Automatic "Special Ability" Ability Objects -->
+		<!-- Visible Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>+1 racial bonus to attack rolls against kobolds and goblinoids (goblins, hobgoblins, and bugbears): Gnomes battle these creatures frequently and practice special techniques for fighting them.</name>
 			<description>+1 racial bonus to attack rolls against kobolds and goblinoids (goblins, hobgoblins, and bugbears): Gnomes battle these creatures frequently and practice special techniques for fighting them.</description>
@@ -1407,7 +1416,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Virtual "Special Ability" Ability Objects -->
+		<!-- Visible Virtual "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>Illiteracy</name>
 			<description></description>
@@ -1419,7 +1428,7 @@ BIO
 			<virtual>T</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Hidden Automatic "Special Ability" Ability Objects -->
+		<!-- Hidden Automatic "Special Ability" Ability Objects -->
 		<ability_object>
 			<name>All Automatic Proficiencies</name>
 			<description></description>
@@ -1453,7 +1462,7 @@ BIO
 			<virtual>F</virtual>
 			<category>Special Ability</category>
 		</ability_object>
-	<!-- Visible Automatic "Internal" Ability Objects -->
+		<!-- Visible Automatic "Internal" Ability Objects -->
 		<ability_object>
 			<name>Default</name>
 			<description></description>
@@ -1494,15 +1503,12 @@ BIO
 			MISCELLANEOUS
 	  ====================================
 	  ====================================-->
-	<!-- Domains -->
+
 	<weapon_proficiencies>Armor Spikes, Axe, Axe (Throwing), Battleaxe, Blowgun, Club, Crossbow (Heavy), Crossbow (Light), Dagger, Dagger (Punching), Dart, Falchion, Flail, Flail (Light), Gauntlet, Gauntlet (Spiked), Glaive, Grapple, Greataxe, Greatclub, Greatsword, Guisarme, Halberd, Halfspear, Hammer (Light), Handaxe, Javelin, Katana, Kusari-gama, Lance, Longbow, Longbow (Composite), Longspear, Longsword, Mace, Mace (Heavy), Mace (Light), Mind Blade, Morningstar, Pick, Quarterstaff, Ranseur, Rapier, Sap, Scimitar, Scythe, Shieldbash, Shortbow, Shortbow (Composite), Shortspear, Sickle, Sling, Spells(Ray), Sword (Bastard), Sword (Short), Trident, Unarmed Strike, Wakizashi, Waraxe (Dwarven), Warhammer</weapon_proficiencies>
 	<languages>Common, Gnome, Orc</languages>
 
 
 	<misc>
-
-
-
 	</misc>
 	<!--
 	  ====================================
@@ -1510,11 +1516,8 @@ BIO
 			COMPANIONS
 	  ====================================
 	  ====================================-->
+
 	<companions>
-
-
-
-
 	</companions>
 	<!--
 	  ====================================
@@ -1525,124 +1528,123 @@ BIO
 	<spells>
 		<!-- ### BEGIN Innate spells ### -->
 	<spells_innate>
-
 		<racial_innate>
-			<spell>
-					<name>Dancing Lights</name>
-					<outputname>Dancing Lights</outputname>
-					<times_memorized>1</times_memorized>
-					<range>Medium (110 ft.)</range>
-					<components>V, S</components>
-					<castingtime>1 action</castingtime>
-					<casterlevel>1</casterlevel>
-					<dc></dc>
-					<duration>1 minute</duration>
-					<effect>Figment torches or other lights.</effect>
-					<target>Up to four illusionary lights, all within a 10-ft.-radius area</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool>Light</subschool>
-						<descriptor></descriptor>
-						<fullschool>Evocation (Light)</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>Wizards of the Coast - System Reference Document, srdspellsd</source>
-						<sourcepage>srdspellsd</sourcepage>
-						<sourceshort>SRD</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Figment torches or other lights.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Ghost Sound</name>
-					<outputname>Ghost Sound</outputname>
-					<times_memorized>1</times_memorized>
-					<range>Close (25 ft.)</range>
-					<components>V, S, M</components>
-					<castingtime>1 action</castingtime>
-					<casterlevel>1</casterlevel>
-					<dc>11</dc>
-					<duration>1 rounds [D]</duration>
-					<effect>Figment sounds.</effect>
-					<target>Illusory sounds</target>
-					<saveinfo>Will disbelief</saveinfo>
-					<school>
-						<school>Illusion</school>
-						<subschool>Figment</subschool>
-						<descriptor></descriptor>
-						<fullschool>Illusion (Figment)</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>Wizards of the Coast - System Reference Document, srdspellsg</source>
-						<sourcepage>srdspellsg</sourcepage>
-						<sourceshort>SRD</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Figment sounds.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Prestidigitation</name>
-					<outputname>Prestidigitation</outputname>
-					<times_memorized>1</times_memorized>
-					<range>10 feet</range>
-					<components>V, S</components>
-					<castingtime>1 action</castingtime>
-					<casterlevel>1</casterlevel>
-					<dc></dc>
-					<duration>1 hour</duration>
-					<effect>Performs minor tricks.</effect>
-					<target>See text</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Universal</school>
-						<subschool></subschool>
-						<descriptor></descriptor>
-						<fullschool>Universal</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>Wizards of the Coast - System Reference Document, srdspellsp</source>
-						<sourcepage>srdspellsp</sourcepage>
-						<sourceshort>SRD</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Performs minor tricks.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Speak with Burrowing Mammals</name>
-					<outputname>Speak with Burrowing Mammals</outputname>
-					<times_memorized>1</times_memorized>
-					<range>Personal</range>
-					<components>V, S</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>1</casterlevel>
-					<dc></dc>
-					<duration>1 minutes</duration>
-					<effect>You can communicate with Burrowing Mammals.</effect>
-					<target>You</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Divination</school>
-						<subschool></subschool>
-						<descriptor></descriptor>
-						<fullschool>Divination</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>Wizards of the Coast - System Reference Document, SpellsS</source>
-						<sourcepage>SpellsS</sourcepage>
-						<sourceshort>SRD</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>You can communicate with Burrowing Mammals.</description>
-					<bonusspell></bonusspell>
-				</spell>
+					<spell>
+						<name>Dancing Lights</name>
+						<outputname>Dancing Lights</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Medium (110 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
+						<dc></dc>
+						<duration>1 minute</duration>
+						<effect>Figment torches or other lights.</effect>
+						<target>Up to four illusionary lights, all within a 10-ft.-radius area</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool>Light</subschool>
+							<descriptor></descriptor>
+							<fullschool>Evocation (Light)</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>Wizards of the Coast - System Reference Document, srdspellsd</source>
+							<sourcepage>srdspellsd</sourcepage>
+							<sourceshort>SRD</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Figment torches or other lights.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Ghost Sound</name>
+						<outputname>Ghost Sound</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (25 ft.)</range>
+						<components>V, S, M</components>
+						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
+						<dc>11</dc>
+						<duration>1 rounds [D]</duration>
+						<effect>Figment sounds.</effect>
+						<target>Illusory sounds</target>
+						<saveinfo>Will disbelief</saveinfo>
+						<school>
+							<school>Illusion</school>
+							<subschool>Figment</subschool>
+							<descriptor></descriptor>
+							<fullschool>Illusion (Figment)</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>Wizards of the Coast - System Reference Document, srdspellsg</source>
+							<sourcepage>srdspellsg</sourcepage>
+							<sourceshort>SRD</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Figment sounds.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Prestidigitation</name>
+						<outputname>Prestidigitation</outputname>
+						<times_memorized>1</times_memorized>
+						<range>10 feet</range>
+						<components>V, S</components>
+						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
+						<dc></dc>
+						<duration>1 hour</duration>
+						<effect>Performs minor tricks.</effect>
+						<target>See text</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Universal</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Universal</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>Wizards of the Coast - System Reference Document, srdspellsp</source>
+							<sourcepage>srdspellsp</sourcepage>
+							<sourceshort>SRD</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Performs minor tricks.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Speak with Burrowing Mammals</name>
+						<outputname>Speak with Burrowing Mammals</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Personal</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>1</casterlevel>
+						<dc></dc>
+						<duration>1 minutes</duration>
+						<effect>You can communicate with Burrowing Mammals.</effect>
+						<target>You</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>Wizards of the Coast - System Reference Document, SpellsS</source>
+							<sourcepage>SpellsS</sourcepage>
+							<sourceshort>SRD</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>You can communicate with Burrowing Mammals.</description>
+						<bonusspell></bonusspell>
+					</spell>
 		</racial_innate>
 
 		<class_innate>
@@ -1656,135 +1658,134 @@ BIO
 		<!-- ### END Known spells ### -->
 		<!-- ### BEGIN memorized spells ### -->
 	<memorized_spells>
-			<!-- ### BEGIN innate memorized spell section -->	
-<!-- ### BEGIN innate memorized spells ### -->
-
+		<!-- ### BEGIN innate memorized spell section -->	
+		<!-- ### BEGIN innate memorized spells ### -->
 		<racial_innate_memorized>
-			<spell>
-					<name>Dancing Lights</name>
-					<outputname>Dancing Lights</outputname>
-					<times_memorized>1</times_memorized>
-					<range>Medium (110 ft.)</range>
-					<components>V, S</components>
-					<castingtime>1 action</castingtime>
-					<casterlevel>1</casterlevel>
-					<dc></dc>
-					<duration>1 minute</duration>
-					<effect>Figment torches or other lights.</effect>
-					<target>Up to four illusionary lights, all within a 10-ft.-radius area</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Evocation</school>
-						<subschool>Light</subschool>
-						<descriptor></descriptor>
-						<fullschool>Evocation (Light)</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>Wizards of the Coast - System Reference Document, srdspellsd</source>
-						<sourcepage>srdspellsd</sourcepage>
-						<sourceshort>SRD</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Figment torches or other lights.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Ghost Sound</name>
-					<outputname>Ghost Sound</outputname>
-					<times_memorized>1</times_memorized>
-					<range>Close (25 ft.)</range>
-					<components>V, S, M</components>
-					<castingtime>1 action</castingtime>
-					<casterlevel>1</casterlevel>
-					<dc>11</dc>
-					<duration>1 rounds [D]</duration>
-					<effect>Figment sounds.</effect>
-					<target>Illusory sounds</target>
-					<saveinfo>Will disbelief</saveinfo>
-					<school>
-						<school>Illusion</school>
-						<subschool>Figment</subschool>
-						<descriptor></descriptor>
-						<fullschool>Illusion (Figment)</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>Wizards of the Coast - System Reference Document, srdspellsg</source>
-						<sourcepage>srdspellsg</sourcepage>
-						<sourceshort>SRD</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Figment sounds.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Prestidigitation</name>
-					<outputname>Prestidigitation</outputname>
-					<times_memorized>1</times_memorized>
-					<range>10 feet</range>
-					<components>V, S</components>
-					<castingtime>1 action</castingtime>
-					<casterlevel>1</casterlevel>
-					<dc></dc>
-					<duration>1 hour</duration>
-					<effect>Performs minor tricks.</effect>
-					<target>See text</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Universal</school>
-						<subschool></subschool>
-						<descriptor></descriptor>
-						<fullschool>Universal</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>Wizards of the Coast - System Reference Document, srdspellsp</source>
-						<sourcepage>srdspellsp</sourcepage>
-						<sourceshort>SRD</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>Performs minor tricks.</description>
-					<bonusspell></bonusspell>
-				</spell>
-			<spell>
-					<name>Speak with Burrowing Mammals</name>
-					<outputname>Speak with Burrowing Mammals</outputname>
-					<times_memorized>1</times_memorized>
-					<range>Personal</range>
-					<components>V, S</components>
-					<castingtime>1 standard action</castingtime>
-					<casterlevel>1</casterlevel>
-					<dc></dc>
-					<duration>1 minutes</duration>
-					<effect>You can communicate with Burrowing Mammals.</effect>
-					<target>You</target>
-					<saveinfo>None</saveinfo>
-					<school>
-						<school>Divination</school>
-						<subschool></subschool>
-						<descriptor></descriptor>
-						<fullschool>Divination</fullschool>
-					</school>
-					<source>
-						<sourcelevel></sourcelevel>
-						<source>Wizards of the Coast - System Reference Document, SpellsS</source>
-						<sourcepage>SpellsS</sourcepage>
-						<sourceshort>SRD</sourceshort>
-					</source>
-					<spell_resistance>No</spell_resistance>
-					<description>You can communicate with Burrowing Mammals.</description>
-					<bonusspell></bonusspell>
-				</spell>
+					<spell>
+						<name>Dancing Lights</name>
+						<outputname>Dancing Lights</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Medium (110 ft.)</range>
+						<components>V, S</components>
+						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
+						<dc></dc>
+						<duration>1 minute</duration>
+						<effect>Figment torches or other lights.</effect>
+						<target>Up to four illusionary lights, all within a 10-ft.-radius area</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Evocation</school>
+							<subschool>Light</subschool>
+							<descriptor></descriptor>
+							<fullschool>Evocation (Light)</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>Wizards of the Coast - System Reference Document, srdspellsd</source>
+							<sourcepage>srdspellsd</sourcepage>
+							<sourceshort>SRD</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Figment torches or other lights.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Ghost Sound</name>
+						<outputname>Ghost Sound</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Close (25 ft.)</range>
+						<components>V, S, M</components>
+						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
+						<dc>11</dc>
+						<duration>1 rounds [D]</duration>
+						<effect>Figment sounds.</effect>
+						<target>Illusory sounds</target>
+						<saveinfo>Will disbelief</saveinfo>
+						<school>
+							<school>Illusion</school>
+							<subschool>Figment</subschool>
+							<descriptor></descriptor>
+							<fullschool>Illusion (Figment)</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>Wizards of the Coast - System Reference Document, srdspellsg</source>
+							<sourcepage>srdspellsg</sourcepage>
+							<sourceshort>SRD</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Figment sounds.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Prestidigitation</name>
+						<outputname>Prestidigitation</outputname>
+						<times_memorized>1</times_memorized>
+						<range>10 feet</range>
+						<components>V, S</components>
+						<castingtime>1 action</castingtime>
+						<casterlevel>1</casterlevel>
+						<dc></dc>
+						<duration>1 hour</duration>
+						<effect>Performs minor tricks.</effect>
+						<target>See text</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Universal</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Universal</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>Wizards of the Coast - System Reference Document, srdspellsp</source>
+							<sourcepage>srdspellsp</sourcepage>
+							<sourceshort>SRD</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>Performs minor tricks.</description>
+						<bonusspell></bonusspell>
+					</spell>
+					<spell>
+						<name>Speak with Burrowing Mammals</name>
+						<outputname>Speak with Burrowing Mammals</outputname>
+						<times_memorized>1</times_memorized>
+						<range>Personal</range>
+						<components>V, S</components>
+						<castingtime>1 standard action</castingtime>
+						<casterlevel>1</casterlevel>
+						<dc></dc>
+						<duration>1 minutes</duration>
+						<effect>You can communicate with Burrowing Mammals.</effect>
+						<target>You</target>
+						<saveinfo>None</saveinfo>
+						<school>
+							<school>Divination</school>
+							<subschool></subschool>
+							<descriptor></descriptor>
+							<fullschool>Divination</fullschool>
+						</school>
+						<source>
+							<sourcelevel></sourcelevel>
+							<source>Wizards of the Coast - System Reference Document, SpellsS</source>
+							<sourcepage>SpellsS</sourcepage>
+							<sourceshort>SRD</sourceshort>
+						</source>
+						<spell_resistance>No</spell_resistance>
+						<description>You can communicate with Burrowing Mammals.</description>
+						<bonusspell></bonusspell>
+					</spell>
 		</racial_innate_memorized>
-
-<!-- ### END innate memorized spells ### -->
-			<!-- ### BEGIN class innate memorized spells ### -->
-			<class_innate_memorized>
+		<!-- ### END innate memorized spells ### -->
+		<!-- ### BEGIN class innate memorized spells ### -->
+		<class_innate_memorized>
 		</class_innate_memorized>
 			<!-- ### END class innate memorized spells ### -->
-<!-- ### END innate memorized spell section -->
-			<!-- ### BEGIN class Spellbook memorized spells ### -->
+		<!-- ### END innate memorized spell section -->
+	
+		<!-- ### BEGIN class Spellbook memorized spells ### -->
 	</memorized_spells>
 <!-- ### END class Spellbook memorized spells ### -->
 	</spells>

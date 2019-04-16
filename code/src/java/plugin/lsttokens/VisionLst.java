@@ -33,7 +33,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Ungranted;
-import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Vision;
 import pcgen.core.prereq.Prerequisite;
@@ -45,20 +44,14 @@ import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>VisionLst</code> handles the processing of the VISION tag in LST
+ * {@code VisionLst} handles the processing of the VISION tag in LST
  * code.
  *
  * (Sun, 15 Jun 2008) $
- *
- * @author Devon Jones
  */
-public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
-	/**
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -72,22 +65,18 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String value)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE);
 		String visionString = aTok.nextToken();
 		if (looksLikeAPrerequisite(visionString))
 		{
-			return new ParseResult.Fail(
-					"Cannot have only PRExxx subtoken in " + getTokenName()
-							+ ": " + value, context);
+			return new ParseResult.Fail("Cannot have only PRExxx subtoken in " + getTokenName() + ": " + value);
 		}
 
 		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<>();
@@ -98,8 +87,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			if (Constants.LST_DOT_CLEAR.equals(visionString))
 			{
-				context.getListContext().removeAllFromList(getTokenName(), obj,
-						Vision.VISIONLIST);
+				context.getListContext().removeAllFromList(getTokenName(), obj, Vision.VISIONLIST);
 				foundClear = true;
 			}
 			else if (visionString.startsWith(Constants.LST_DOT_CLEAR_DOT))
@@ -107,16 +95,13 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				try
 				{
 					Vision vis = Vision.getVision(visionString.substring(7));
-					context.getListContext().removeFromList(getTokenName(),
-							obj, Vision.VISIONLIST,
-							new CDOMDirectSingleRef<>(vis));
+					context.getListContext().removeFromList(getTokenName(), obj, Vision.VISIONLIST,
+						context.getReferenceContext().getCDOMDirectReference(vis));
 				}
 				catch (IllegalArgumentException e)
 				{
 					ComplexParseResult cpr = new ComplexParseResult();
-					cpr.addErrorMessage(
-							"Bad Syntax for Cleared Vision in "
-									+ getTokenName());
+					cpr.addErrorMessage("Bad Syntax for Cleared Vision in " + getTokenName());
 					cpr.addErrorMessage(e.getMessage());
 					return cpr;
 				}
@@ -131,16 +116,14 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				try
 				{
 					Vision vision = Vision.getVision(visionString);
-					AssociatedPrereqObject edge = context.getListContext()
-							.addToList(getTokenName(), obj, Vision.VISIONLIST,
-									new CDOMDirectSingleRef<>(vision));
+					AssociatedPrereqObject edge = context.getListContext().addToList(getTokenName(), obj,
+						Vision.VISIONLIST, context.getReferenceContext().getCDOMDirectReference(vision));
 					edgeList.add(edge);
 				}
 				catch (IllegalArgumentException e)
 				{
 					ComplexParseResult cpr = new ComplexParseResult();
-					cpr.addErrorMessage(
-							"Bad Syntax for Vision in " + getTokenName());
+					cpr.addErrorMessage("Bad Syntax for Vision in " + getTokenName());
 					cpr.addErrorMessage(e.getMessage());
 					return cpr;
 				}
@@ -154,9 +137,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 
 		if (foundClear)
 		{
-			return new ParseResult.Fail(
-					"Cannot use PREREQs when using .CLEAR or .CLEAR. in "
-							+ getTokenName(), context);
+			return new ParseResult.Fail("Cannot use PREREQs when using .CLEAR or .CLEAR. in " + getTokenName());
 		}
 
 		while (true)
@@ -165,8 +146,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			if (prereq == null)
 			{
 				return new ParseResult.Fail(
-						"   (Did you put vision after the " + "PRExxx tags in "
-								+ getTokenName() + ":?)", context);
+					"   (Did you put vision after the " + "PRExxx tags in " + getTokenName() + ":?)");
 			}
 			for (AssociatedPrereqObject edge : edgeList)
 			{
@@ -184,30 +164,25 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		AssociatedChanges<CDOMReference<Vision>> changes = context
-				.getListContext().getChangesInList(getTokenName(), obj,
-						Vision.VISIONLIST);
+		AssociatedChanges<CDOMReference<Vision>> changes =
+				context.getListContext().getChangesInList(getTokenName(), obj, Vision.VISIONLIST);
 		List<String> list = new ArrayList<>();
 		Collection<CDOMReference<Vision>> removedItems = changes.getRemoved();
 		if (changes.includesGlobalClear())
 		{
 			if (removedItems != null && !removedItems.isEmpty())
 			{
-				context.addWriteMessage("Non-sensical relationship in "
-						+ getTokenName()
-						+ ": global .CLEAR and local .CLEAR. performed");
+				context.addWriteMessage(
+					"Non-sensical relationship in " + getTokenName() + ": global .CLEAR and local .CLEAR. performed");
 				return null;
 			}
 			list.add(Constants.LST_DOT_CLEAR);
 		}
 		else if (removedItems != null && !removedItems.isEmpty())
 		{
-			list.add(Constants.LST_DOT_CLEAR_DOT
-					+ ReferenceUtilities
-							.joinLstFormat(removedItems, "|.CLEAR."));
+			list.add(Constants.LST_DOT_CLEAR_DOT + ReferenceUtilities.joinLstFormat(removedItems, "|.CLEAR."));
 		}
-		MapToList<CDOMReference<Vision>, AssociatedPrereqObject> mtl = changes
-				.getAddedAssociations();
+		MapToList<CDOMReference<Vision>, AssociatedPrereqObject> mtl = changes.getAddedAssociations();
 		if (mtl != null && !mtl.isEmpty())
 		{
 			MapToList<Set<Prerequisite>, Vision> m = new HashMapToList<>();
@@ -215,15 +190,13 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			{
 				for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
 				{
-					m.addAllToListFor(new HashSet<>(assoc
-							.getPrerequisiteList()), ab.getContainedObjects());
+					m.addAllToListFor(new HashSet<>(assoc.getPrerequisiteList()), ab.getContainedObjects());
 				}
 			}
 			Set<String> set = new TreeSet<>();
 			for (Set<Prerequisite> prereqs : m.getKeySet())
 			{
-				StringBuilder sb = new StringBuilder(StringUtil.join(m
-						.getListFor(prereqs), Constants.PIPE));
+				StringBuilder sb = new StringBuilder(StringUtil.join(m.getListFor(prereqs), Constants.PIPE));
 				if (prereqs != null && !prereqs.isEmpty())
 				{
 					sb.append(Constants.PIPE);

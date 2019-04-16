@@ -30,10 +30,8 @@ import pcgen.core.Domain;
  * Character by a CDOMObject. This may be a static SpellList or a choice of a
  * SpellLists available to the Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class DomainSpellListFacet implements
-		DataFacetChangeListener<CharID, Domain>
+public class DomainSpellListFacet implements DataFacetChangeListener<CharID, Domain>
 {
 
 	private SpellListFacet spellListFacet;
@@ -51,14 +49,11 @@ public class DomainSpellListFacet implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, Domain> dfce)
 	{
-		DomainSpellList list =
-				dfce.getCDOMObject().get(ObjectKey.DOMAIN_SPELLLIST);
+		DomainSpellList list = dfce.getCDOMObject().get(ObjectKey.DOMAIN_SPELLLIST);
 		//list should never be null??
 		spellListFacet.add(dfce.getCharID(), list, dfce.getCDOMObject());
 	}
@@ -74,8 +69,6 @@ public class DomainSpellListFacet implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, Domain> dfce)

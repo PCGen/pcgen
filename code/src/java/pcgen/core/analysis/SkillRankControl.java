@@ -1,6 +1,5 @@
 /*
  * Copyright 2008 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from Skill.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -21,8 +20,7 @@ package pcgen.core.analysis;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.commons.lang.StringUtils;
+import java.util.Objects;
 
 import pcgen.cdom.base.CDOMObjectUtilities;
 import pcgen.cdom.base.PersistentTransitionChoice;
@@ -43,8 +41,14 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
-public class SkillRankControl
+import org.apache.commons.lang3.StringUtils;
+
+public final class SkillRankControl
 {
+
+	private SkillRankControl()
+	{
+	}
 
 	/**
 	 * Returns the total ranks of a skill rank + bonus ranks (racial, class, etc
@@ -56,6 +60,7 @@ public class SkillRankControl
 	 */
 	public static Float getTotalRank(PlayerCharacter pc, Skill sk)
 	{
+		Objects.requireNonNull(sk);
 		if (pc == null)
 		{
 			Logging.errorPrint("Asked to get total rank for null character. Location was ", new Throwable());
@@ -75,12 +80,11 @@ public class SkillRankControl
 			 * Note: The class grabbed doesn't matter - it is only used for calculating cross-class skill rank cost.
 			 * All classes of a multi-class character are scanned to determine if the skill is a class skill.
 			 */
-			double maxRanks = pc.getMaxRank(sk,
-					pc.getClassList().get(0)).doubleValue();
+			double maxRanks = pc.getMaxRank(sk, pc.getClassList().get(0)).doubleValue();
 			maxRanks = Math.max(maxRanks, baseRanks);
 			ranks = Math.min(maxRanks, ranks);
 		}
-		return new Float(ranks);
+		return (float) ranks;
 	}
 
 	/**
@@ -89,8 +93,7 @@ public class SkillRankControl
 	 * @param aClass
 	 * @param aPC
 	 */
-	public static void setZeroRanks(PCClass aClass, PlayerCharacter aPC,
-			Skill sk)
+	public static void setZeroRanks(PCClass aClass, PlayerCharacter aPC, Skill sk)
 	{
 		if (aClass == null)
 		{
@@ -103,7 +106,7 @@ public class SkillRankControl
 			aPC.removeSkillRankValue(sk, aClass);
 			String aResp = modRanks(-rank, aClass, false, aPC, sk);
 
-			if (aResp.length() != 0)
+			if (!aResp.isEmpty())
 			{
 				// error or debug? XXX
 				Logging.debugPrint(aResp);
@@ -120,8 +123,7 @@ public class SkillRankControl
 	 * @param aPC
 	 * @return message
 	 */
-	public static String modRanks(double rankMod, PCClass aClass,
-			boolean ignorePrereqs, PlayerCharacter aPC, Skill sk)
+	public static String modRanks(double rankMod, PCClass aClass, boolean ignorePrereqs, PlayerCharacter aPC, Skill sk)
 	{
 		int i = 0;
 
@@ -150,8 +152,7 @@ public class SkillRankControl
 				return "You do not have enough skill points.";
 			}
 
-			double maxRank = aPC.getMaxRank(sk, aClass)
-					.doubleValue();
+			double maxRank = aPC.getMaxRank(sk, aClass).doubleValue();
 
 			if (!Globals.checkRule(RuleConstants.SKILLMAX) && (rankMod > 0.0))
 			{
@@ -159,14 +160,12 @@ public class SkillRankControl
 
 				if (ttlRank >= maxRank)
 				{
-					return "Skill rank at maximum (" + maxRank
-							+ ") for your level.";
+					return "Skill rank at maximum (" + maxRank + ") for your level.";
 				}
 
 				if ((ttlRank + rankMod) > maxRank)
 				{
-					return "Raising skill would make it above maximum ("
-							+ maxRank + ") for your level.";
+					return "Raising skill would make it above maximum (" + maxRank + ") for your level.";
 				}
 			}
 		}
@@ -185,12 +184,11 @@ public class SkillRankControl
 
 		Double rank = aPC.getSkillRankForClass(sk, aClass);
 
-		double currentRank = (rank == null) ?  0.0 : rank;
+		double currentRank = (rank == null) ? 0.0 : rank;
 
 		if (CoreUtility.doublesEqual(currentRank, 0.0) && (rankMod < 0.0))
 		{
-			return "No more ranks found for class: " + classKey
-					+ ". Try a different one.";
+			return "No more ranks found for class: " + classKey + ". Try a different one.";
 		}
 
 		rankMod = modRanks2(rankMod, currentRank, aClass, aPC, sk);
@@ -199,16 +197,14 @@ public class SkillRankControl
 		{
 			if (aClass != null)
 			{
-				aPC.setSkillPool(aClass, aClass.getSkillPool(aPC)
-					- (int) (i * rankMod));
+				aPC.setSkillPool(aClass, aClass.getSkillPool(aPC) - (int) (i * rankMod));
 			}
 		}
 
 		return "";
 	}
 
-	public static void replaceClassRank(PlayerCharacter pc, Skill sk,
-			PCClass oldClass, PCClass newClass)
+	public static void replaceClassRank(PlayerCharacter pc, Skill sk, PCClass oldClass, PCClass newClass)
 	{
 		Double rank = pc.getSkillRankForLocalClass(sk, oldClass);
 		if (rank != null)
@@ -218,8 +214,7 @@ public class SkillRankControl
 		}
 	}
 
-	private static double modRanks2(double rankChange, double curRank,
-			PCClass pcc, PlayerCharacter aPC, Skill sk)
+	private static double modRanks2(double rankChange, double curRank, PCClass pcc, PlayerCharacter aPC, Skill sk)
 	{
 		double newRank = curRank + rankChange;
 
@@ -239,14 +234,12 @@ public class SkillRankControl
 		{
 			if (ChooseActivation.hasNewChooseToken(sk))
 			{
-				if (!CoreUtility.doublesEqual(rankChange, 0)
-						&& !CoreUtility.doublesEqual(curRank, (int) newRank))
+				if (!CoreUtility.doublesEqual(rankChange, 0) && !CoreUtility.doublesEqual(curRank, (int) newRank))
 				{
-					ChooserUtilities.modChoices(sk, new ArrayList<Language>(),
-							new ArrayList<Language>(), aPC, true, null);
+					ChooserUtilities.modChoices(sk, new ArrayList<Language>(), new ArrayList<Language>(), aPC, true,
+						null);
 					aPC.setDirty(true);
-					int selectedLanguages = aPC
-							.getSelectCorrectedAssociationCount(sk);
+					int selectedLanguages = aPC.getSelectCorrectedAssociationCount(sk);
 					int maxLanguages = getTotalRank(aPC, sk).intValue();
 					if (selectedLanguages > maxLanguages)
 					{
@@ -274,9 +267,9 @@ public class SkillRankControl
 		{
 			bonus += aPC.getTotalBonusTo("SKILLRANK", "TYPE." + singleType);
 		}
-	
+
 		updateAdds(aPC, sk, bonus);
-	
+
 		return bonus;
 	}
 
@@ -291,9 +284,8 @@ public class SkillRankControl
 			{
 				iCount += aPC.getAssocCount(ptc, AssociationListKey.ADD);
 			}
-	
-			if (CoreUtility.doublesEqual(aPC.getRank(sk).doubleValue() + bonus,
-					0.0))
+
+			if (CoreUtility.doublesEqual(aPC.getRank(sk).doubleValue() + bonus, 0.0))
 			{
 				//
 				// There was a total (because we've applied the ADD's, but now
@@ -337,8 +329,8 @@ public class SkillRankControl
 	 * @param currentLevel The character;s level before the removal.
 	 * @param pointsToRemove The number of points that need to be refunded.
 	 */
-	public static void removeSkillsForTopLevel(PlayerCharacter pc,
-		PCClass classBeingLevelledDown, int currentLevel, int pointsToRemove)
+	public static void removeSkillsForTopLevel(PlayerCharacter pc, PCClass classBeingLevelledDown, int currentLevel,
+		int pointsToRemove)
 	{
 
 		double remaining = pointsToRemove;
@@ -353,7 +345,7 @@ public class SkillRankControl
 			{
 				continue;
 			}
-			
+
 			PCClass aClass = pc.getClassList().isEmpty() ? null : pc.getClassList().get(0);
 			double maxRanks = pc.getMaxRank(skill, aClass).doubleValue();
 			double rankMod = maxRanks - getTotalRank(pc, skill);
@@ -361,7 +353,7 @@ public class SkillRankControl
 			{
 				if (Logging.isLoggable(Logging.INFO))
 				{
-					Logging.log(Logging.INFO, "Removing " + (rankMod*-1) + " ranks from " + skill);
+					Logging.log(Logging.INFO, "Removing " + (rankMod * -1) + " ranks from " + skill);
 				}
 				String err = modRanks(rankMod, classBeingLevelledDown, true, pc, skill);
 				if (StringUtils.isBlank(err))
@@ -374,18 +366,18 @@ public class SkillRankControl
 				}
 			}
 		}
-		
-	    // Deal with any remaining skill points to be refunded
+
+		// Deal with any remaining skill points to be refunded
 		if (remaining != 0.0)
 		{
-		    //  If there are other levels left of the class being removed, 
+			//  If there are other levels left of the class being removed, 
 			// subtract the remainder from the remaining value of the next 
 			// highest level of the class removed.
 			PCLevelInfo targetLevel = null;
-			int level = currentLevel-1;
+			int level = currentLevel - 1;
 			while (level > 0)
 			{
-				PCLevelInfo pcLI = pc.getLevelInfo(level-1);
+				PCLevelInfo pcLI = pc.getLevelInfo(level - 1);
 				if (pcLI.getClassKeyName().equals(classBeingLevelledDown.getKeyName()))
 				{
 					targetLevel = pcLI;
@@ -395,16 +387,15 @@ public class SkillRankControl
 			}
 			if (targetLevel == null && currentLevel > 0)
 			{
-			    //  Otherwise subtract the remainder from the remaining value of 
+				//  Otherwise subtract the remainder from the remaining value of 
 				// the character's highest remaining level.
-				targetLevel = pc.getLevelInfo(currentLevel-2);
+				targetLevel = pc.getLevelInfo(currentLevel - 2);
 			}
 			if (targetLevel != null)
 			{
-				targetLevel.setSkillPointsRemaining(targetLevel
-					.getSkillPointsRemaining() - (int)remaining);
+				targetLevel.setSkillPointsRemaining(targetLevel.getSkillPointsRemaining() - (int) remaining);
 			}
 		}
-		
+
 	}
 }

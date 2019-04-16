@@ -1,5 +1,4 @@
 /*
- * bioSetLoader.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -21,32 +20,31 @@ package pcgen.persistence.lst;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.base.Constants;
-import pcgen.cdom.base.TransitionChoice;
-import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Region;
 import pcgen.core.AgeSet;
 import pcgen.core.BioSet;
 import pcgen.core.GameMode;
-import pcgen.core.Kit;
-import pcgen.core.PObject;
 import pcgen.core.SystemCollections;
-import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-/**
- *
- * @author  Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
- */
+import org.apache.commons.lang3.StringUtils;
+
 public final class BioSetLoader extends LstLineFileLoader
 {
-	private static String regionName = Constants.NONE;
+	/**
+	 * The current Region being processed
+	 */
+	private Optional<Region> region = Optional.empty();
+
 	BioSet bioSet = new BioSet();
+
 	/**
 	 * The age set (bracket) currently being processed. Used by the parseLine
 	 * method to hold state between calls.
@@ -54,95 +52,94 @@ public final class BioSetLoader extends LstLineFileLoader
 	int currentAgeSetIndex = 0;
 
 	/**
-	 * clear the regionName
+	 * Clear the Region.
 	 */
-	public static void clear()
+	public void clear()
 	{
-		regionName = Constants.NONE;
+		region = Optional.empty();
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstFile(LoadContext, URI)
-	 */
 	@Override
-	public void loadLstFile(LoadContext context, URI fileName)
-			throws PersistenceLayerException
+	public void loadLstFile(LoadContext context, URI fileName) throws PersistenceLayerException
 	{
 		currentAgeSetIndex = 0;
-		final GameMode game = SystemCollections.getGameModeNamed(gameMode);
+		GameMode game = SystemCollections.getGameModeNamed(gameMode);
 		bioSet = game.getBioSet();
 		super.loadLstFile(context, fileName);
 		game.setBioSet(bioSet);
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(LoadContext, String, URI)
-	 */
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{
+		if (lstLine.startsWith("#"))
+		{
+			//Is a comment
+			return;
+		}
 		if (lstLine.startsWith("AGESET:"))
 		{
 			String line = lstLine.substring(7);
 			int pipeLoc = line.indexOf('|');
 			if (pipeLoc == -1)
 			{
-				Logging.errorPrint("Found invalid AGESET " + "in Bio Settings "
-						+ sourceURI + ", was expecting a |: " + lstLine);
+				Logging.errorPrint(
+					"Found invalid AGESET " + "in Bio Settings " + sourceURI + ", was expecting a |: " + lstLine);
 				return;
 			}
 			String ageIndexString = line.substring(0, pipeLoc);
 			try
 			{
 				currentAgeSetIndex = Integer.parseInt(ageIndexString);
-				StringTokenizer colToken = new StringTokenizer(line
-						.substring(pipeLoc + 1), SystemLoader.TAB_DELIM);
-				AgeSet ageSet = new AgeSet(colToken.nextToken().intern(),
-						currentAgeSetIndex);
-				while (colToken.hasMoreTokens())
-				{
-					parseTokens(context, ageSet, colToken);
-				}
-
-				ageSet = bioSet.addToAgeMap(regionName, ageSet, sourceURI);
-				Integer oldIndex = bioSet.addToNameMap(ageSet);
-				if (oldIndex != null && oldIndex != currentAgeSetIndex)
-				{
-					Logging.errorPrint("Incompatible Index for AGESET "
-							+ "in Bio Settings " + sourceURI + ": " + oldIndex
-							+ " and " + currentAgeSetIndex + " for "
-							+ ageSet.getName());
-				}
-
 			}
 			catch (NumberFormatException e)
 			{
-				Logging.errorPrint("Illegal Index for AGESET "
-						+ "in Bio Settings " + sourceURI + ": "
-						+ ageIndexString + " was not an integer");
+				Logging.errorPrint("Illegal Index for AGESET " + "in Bio Settings " + sourceURI + ": " + ageIndexString
+					+ " was not an integer");
 			}
+			StringTokenizer colToken = new StringTokenizer(line.substring(pipeLoc + 1), SystemLoader.TAB_DELIM);
+			AgeSet ageSet = new AgeSet();
+			ageSet.setSourceURI(sourceURI);
+			ageSet.setAgeIndex(currentAgeSetIndex);
+			ageSet.setName(colToken.nextToken().intern());
+			while (colToken.hasMoreTokens())
+			{
+				try
+				{
+					LstUtils.processToken(context, ageSet, sourceURI,
+						colToken.nextToken());
+				}
+				catch (PersistenceLayerException e)
+				{
+					Logging.errorPrint(
+						"Error in token parse: " + e.getLocalizedMessage());
+				}
+			}
+
+			ageSet = bioSet.addToAgeMap(region, ageSet, sourceURI);
+			Integer oldIndex = bioSet.addToNameMap(ageSet);
+			if (oldIndex != null && oldIndex != currentAgeSetIndex)
+			{
+				Logging.errorPrint("Incompatible Index for AGESET " + "in Bio Settings " + sourceURI + ": "
+						+ oldIndex + " and " + currentAgeSetIndex + " for " + ageSet.getDisplayName());
+			}
+			
 		}
-		else
+		else if (lstLine.startsWith("REGION:"))
 		{
-			final StringTokenizer colToken = new StringTokenizer(lstLine,
-					SystemLoader.TAB_DELIM);
-			String colString;
-			String raceName = "";
+			region = Optional.of(Region.getConstant(lstLine.substring(7).intern()));
+		}
+		else if (lstLine.startsWith("RACENAME:"))
+		{
+			StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
+			String raceName = colToken.nextToken().substring(9).intern();
 			List<String> preReqList = null;
 
 			while (colToken.hasMoreTokens())
 			{
-				colString = colToken.nextToken();
+				String colString = colToken.nextToken();
 
-				if (colString.startsWith("RACENAME:"))
-				{
-					raceName = colString.substring(9);
-				}
-				else if (colString.startsWith("REGION:"))
-				{
-					regionName = colString.substring(7).intern();
-				}
-				else if (PreParserFactory.isPreReqString(colString))
+				if (PreParserFactory.isPreReqString(colString))
 				{
 					if (preReqList == null)
 					{
@@ -157,86 +154,25 @@ public final class BioSetLoader extends LstLineFileLoader
 
 					if (preReqList != null)
 					{
-						final StringBuilder sBuf = new StringBuilder(100+colString.length());
+						final StringBuilder sBuf = new StringBuilder(100 + colString.length());
 						sBuf.append(colString);
 
 						for (String aPreReqList : preReqList)
 						{
-							sBuf.append('[').append(aPreReqList).append(
-									']');
+							sBuf.append('[').append(aPreReqList).append(']');
 						}
 
 						aString = sBuf.toString();
 					}
 
-					bioSet.addToUserMap(regionName, raceName.intern(), 
-							aString.intern(), currentAgeSetIndex);
+					bioSet.addToUserMap(region, raceName, aString.intern(), currentAgeSetIndex);
 				}
 			}
 		}
-	}
-
-	private void parseTokens(LoadContext context, AgeSet ageSet, StringTokenizer tok)
-	{
-		final PObject dummy = new PObject();
-		try
+		else if (!StringUtils.isEmpty(lstLine))
 		{
-			while (tok.hasMoreTokens())
-			{
-				// in the code below, I use "new String()" to unlink the string from the containing file to save memory,
-				// but I don't intern() the string because it's not fully parsed yet so don't want to add permgen overhead
-				// to a string that's just going to get GC'd eventually
-				//
-				// This pessimization might be removable if we get all impls of CDOMToken.parseToken() to intern. But right
-				// now there are too many of them...
-
-				String currentTok = tok.nextToken();
-				if (currentTok.startsWith("BONUS:"))
-				{
-					if (context.processToken(dummy, "BONUS", new String(currentTok.substring(6))))
-					{
-						context.commit();
-					}
-					else
-					{
-						context.rollback();
-						Logging.errorPrint("Error in BONUS parse: " + currentTok);
-						Logging.replayParsedMessages();
-					}
-				}
-				else if (currentTok.startsWith("KIT:"))
-				{
-					if (context.processToken(dummy, "KIT", new String(currentTok.substring(4))))
-					{
-						context.commit();
-					}
-					else
-					{
-						context.rollback();
-						Logging.errorPrint("Error in KIT parse: " + currentTok);
-						Logging.replayParsedMessages();
-					}
-				}
-				else
-				{
-					Logging.errorPrint("Unexpected token in AGESET: " + currentTok);
-				}
-			}
-			List<BonusObj> bonuses = dummy.getListFor(ListKey.BONUS);
-			if (bonuses != null)
-			{
-				ageSet.addBonuses(bonuses);
-			}
-			List<TransitionChoice<Kit>> kits = dummy.getListFor(ListKey.KIT_CHOICE);
-			if (kits != null)
-			{
-				ageSet.addKits(kits);
-			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint("Error in token parse: "
-					+ e.getLocalizedMessage());
+			Logging.errorPrint("Unable to process line " + lstLine
+				+ "in Bio Settings " + sourceURI);
 		}
 	}
 }

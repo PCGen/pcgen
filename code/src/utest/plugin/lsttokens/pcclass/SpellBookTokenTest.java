@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.pcclass;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.rules.persistence.CDOMLoader;
@@ -30,7 +28,7 @@ public class SpellBookTokenTest extends AbstractYesNoTokenTestCase<PCClass>
 {
 
 	static SpellbookToken token = new SpellbookToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -56,9 +54,4 @@ public class SpellBookTokenTest extends AbstractYesNoTokenTestCase<PCClass>
 		return ObjectKey.SPELLBOOK;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

@@ -19,12 +19,12 @@ package pcgen.persistence.lst;
 
 import java.util.Objects;
 
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.cdom.base.Loadable;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class SimplePrefixLoader<T extends Loadable> extends SimpleLoader<T>
 {
@@ -47,29 +47,27 @@ public class SimplePrefixLoader<T extends Loadable> extends SimpleLoader<T>
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
 		{
-			Logging.errorPrint("Invalid Token - does not contain a colon: '"
-					+ token + "' in " + getLoadClass().getSimpleName());
+			Logging.errorPrint(
+				"Invalid Token - does not contain a colon: '" + token + "' in " + getLoadClass().getSimpleName());
 			return null;
 		}
 		else if (colonLoc == 0)
 		{
-			Logging.errorPrint("Invalid Token - starts with a colon: '" + token
-					+ "' in " + getLoadClass().getSimpleName());
+			Logging.errorPrint(
+				"Invalid Token - starts with a colon: '" + token + "' in " + getLoadClass().getSimpleName());
 			return null;
 		}
 		else if (colonLoc == (token.length() - 1))
 		{
-			Logging.errorPrint("Invalid Token - "
-					+ "ends with a colon (no value): '" + token + "' in "
-					+ getLoadClass().getSimpleName());
+			Logging.errorPrint("Invalid Token - " + "ends with a colon (no value): '" + token + "' in "
+				+ getLoadClass().getSimpleName());
 			return null;
 		}
 		String key = token.substring(0, colonLoc);
 		if (!prefixString.equals(key))
 		{
-			Logging.errorPrint("Invalid Token - expected '" + prefixString
-					+ "' to be the first key in "
-					+ getLoadClass().getSimpleName());
+			Logging.errorPrint("Invalid Token - expected '" + prefixString + "' to be the first key in "
+				+ getLoadClass().getSimpleName());
 			return null;
 		}
 		String firstTokenValue = token.substring(colonLoc + 1);

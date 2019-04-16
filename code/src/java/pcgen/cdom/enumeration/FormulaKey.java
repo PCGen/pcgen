@@ -19,6 +19,7 @@ package pcgen.cdom.enumeration;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
 import pcgen.base.formula.Formula;
@@ -30,7 +31,6 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.analysis.SizeUtilities;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant. It is designed to act as an index to a
  * specific Formula item within a CDOMObject.
@@ -65,8 +65,7 @@ public class FormulaKey implements TypeSafeConstant
 
 	public static final FormulaKey CRMOD = getConstant("CRMOD");
 
-	public static final FormulaKey SELECT = getConstant("SELECT",
-			FormulaFactory.ONE);
+	public static final FormulaKey SELECT = getConstant("SELECT", FormulaFactory.ONE);
 
 	public static final FormulaKey NUMCHOICES = getConstant("NUMCHOICES");
 
@@ -88,8 +87,7 @@ public class FormulaKey implements TypeSafeConstant
 			public Formula getDefault()
 			{
 				SizeAdjustment def = SizeUtilities.getDefaultSizeAdjustment();
-				CDOMDirectSingleRef<SizeAdjustment> ref =
-						CDOMDirectSingleRef.getRef(def);
+				CDOMDirectSingleRef<SizeAdjustment> ref = CDOMDirectSingleRef.getRef(def);
 				return new FixedSizeFormula(ref);
 			}
 
@@ -107,20 +105,12 @@ public class FormulaKey implements TypeSafeConstant
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private FormulaKey(String name, Formula def)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException(
-					"Name for FormulaKey cannot be null");
-		}
-		if (def == null)
-		{
-			throw new IllegalArgumentException(
-					"Formula for FormulaKey cannot be null");
-		}
+		Objects.requireNonNull(name, "Name for FormulaKey cannot be null");
+		Objects.requireNonNull(def, "Formula for FormulaKey cannot be null");
 		ordinal = ordinalCount++;
 		fieldName = name;
 		defaultValue = def;
@@ -210,8 +200,7 @@ public class FormulaKey implements TypeSafeConstant
 		FormulaKey key = typeMap.get(name);
 		if (key == null)
 		{
-			throw new IllegalArgumentException(name
-					+ " is not a previously defined FormulaKey");
+			throw new IllegalArgumentException(name + " is not a previously defined FormulaKey");
 		}
 		return key;
 	}

@@ -52,22 +52,19 @@ public class TableLoader extends LstLineFileLoader
 	private LineProcessor processor = new ExpectStartTable();
 
 	@Override
-	public void loadLstString(LoadContext context, URI uri, String aString)
-		throws PersistenceLayerException
+	public void loadLstString(LoadContext context, URI uri, String aString) throws PersistenceLayerException
 	{
 		//Reset to ensure prior file corruption doesn't leak into a new file
 		processor = new ExpectStartTable();
 		super.loadLstString(context, uri, aString);
 		if (!(processor instanceof ExpectStartTable))
 		{
-			throw new PersistenceLayerException(
-				"Did not find last ENDTABLE: entry in " + uri);
+			throw new PersistenceLayerException("Did not find last ENDTABLE: entry in " + uri);
 		}
 	}
 
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
-		throws PersistenceLayerException
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
 	{
 		//ignore comments
 		if (lstLine.startsWith("#") || lstLine.startsWith("\"#"))
@@ -91,6 +88,7 @@ public class TableLoader extends LstLineFileLoader
 	 * either blank lines or comment lines. Both of those should be ignored
 	 * prior to the line being passed to a LineProcessor.
 	 */
+	@FunctionalInterface
 	public interface LineProcessor
 	{
 		/**
@@ -109,8 +107,8 @@ public class TableLoader extends LstLineFileLoader
 		 * @throws PersistenceLayerException
 		 *             if there is an error during the loading of the given line
 		 */
-		public LineProcessor parseLine(LoadContext context, String lstLine,
-			URI sourceURI) throws PersistenceLayerException;
+		public LineProcessor parseLine(LoadContext context, String lstLine, URI sourceURI)
+			throws PersistenceLayerException;
 	}
 
 	/**
@@ -146,16 +144,14 @@ public class TableLoader extends LstLineFileLoader
 	 *             if there is any non-blank content returned by the
 	 *             ParsingSeparator
 	 */
-	private static void ensureEmpty(String line, ParsingSeparator ps)
-		throws PersistenceLayerException
+	private static void ensureEmpty(String line, ParsingSeparator ps) throws PersistenceLayerException
 	{
 		while (ps.hasNext())
 		{
 			String next = ps.next();
-			if ((next.length() > 0) && (unescape(next).length() > 0))
+			if ((!next.isEmpty()) && (!unescape(next).isEmpty()))
 			{
-				throw new PersistenceLayerException(
-					"Expected Rest of Line to be empty: " + line);
+				throw new PersistenceLayerException("Expected Rest of Line to be empty: " + line);
 			}
 		}
 	}
@@ -185,21 +181,20 @@ public class TableLoader extends LstLineFileLoader
 	{
 
 		@Override
-		public LineProcessor parseLine(LoadContext context, String lstLine,
-			URI sourceURI) throws PersistenceLayerException
+		public LineProcessor parseLine(LoadContext context, String lstLine, URI sourceURI)
+			throws PersistenceLayerException
 		{
 			ParsingSeparator ps = generateCSVSeparator(lstLine);
 			String first = unescape(ps.next());
 			if (first.startsWith("STARTTABLE:"))
 			{
 				ensureEmpty(lstLine, ps);
-				DataTable table = context.getReferenceContext()
-					.constructCDOMObject(DataTable.class, first.substring(11));
+				DataTable table =
+						context.getReferenceContext().constructCDOMObject(DataTable.class, first.substring(11));
 				return new ImportColumnNames(table);
 			}
 			throw new PersistenceLayerException(
-				"Expected STARTTABLE: entry, but found: " + lstLine + " in "
-					+ sourceURI);
+				"Expected STARTTABLE: entry, but found: " + lstLine + " in " + sourceURI);
 		}
 
 	}
@@ -229,8 +224,8 @@ public class TableLoader extends LstLineFileLoader
 		}
 
 		@Override
-		public LineProcessor parseLine(LoadContext context, String lstLine,
-			URI sourceURI) throws PersistenceLayerException
+		public LineProcessor parseLine(LoadContext context, String lstLine, URI sourceURI)
+			throws PersistenceLayerException
 		{
 			ParsingSeparator ps = generateCSVSeparator(lstLine);
 			List<String> columnNames = new ArrayList<String>();
@@ -247,22 +242,19 @@ public class TableLoader extends LstLineFileLoader
 				//Once an empty item was reached, nothing later on can have content
 				if (foundEmpty)
 				{
-					throw new PersistenceLayerException(
-						"Encountered blank Column Name entry in " + lstLine
-							+ " for " + t.getDisplayName() + " in "
-							+ sourceURI);
+					throw new PersistenceLayerException("Encountered blank Column Name entry in " + lstLine + " for "
+						+ t.getDisplayName() + " in " + sourceURI);
 				}
 				if (first && columnName.startsWith("STARTTABLE:"))
 				{
 					throw new PersistenceLayerException(
-						"Encountered STARTTABLE: entry while expecting Column Names for "
-							+ t.getDisplayName() + " in " + sourceURI);
+						"Encountered STARTTABLE: entry while expecting Column Names for " + t.getDisplayName() + " in "
+							+ sourceURI);
 				}
 				if (first && columnName.startsWith("ENDTABLE:"))
 				{
-					throw new PersistenceLayerException(
-						"Encountered ENDTABLE: entry while expecting Column Names for "
-							+ t.getDisplayName() + " in " + sourceURI);
+					throw new PersistenceLayerException("Encountered ENDTABLE: entry while expecting Column Names for "
+						+ t.getDisplayName() + " in " + sourceURI);
 				}
 				columnNames.add(columnName);
 				first = false;
@@ -304,8 +296,8 @@ public class TableLoader extends LstLineFileLoader
 		}
 
 		@Override
-		public LineProcessor parseLine(LoadContext context, String lstLine,
-			URI sourceURI) throws PersistenceLayerException
+		public LineProcessor parseLine(LoadContext context, String lstLine, URI sourceURI)
+			throws PersistenceLayerException
 		{
 			ParsingSeparator ps = generateCSVSeparator(lstLine);
 			boolean first = true;
@@ -322,34 +314,28 @@ public class TableLoader extends LstLineFileLoader
 				//Once an empty item was reached, nothing later on can have content
 				if (foundEmpty)
 				{
-					throw new PersistenceLayerException(
-						"Encountered blank FORMAT entry in " + lstLine + " for "
-							+ t.getDisplayName() + " in " + sourceURI);
+					throw new PersistenceLayerException("Encountered blank FORMAT entry in " + lstLine + " for "
+						+ t.getDisplayName() + " in " + sourceURI);
 				}
 				if (first && formatName.startsWith("STARTTABLE:"))
 				{
-					throw new PersistenceLayerException(
-						"Encountered STARTTABLE: entry while expecting Formats for "
-							+ t.getDisplayName() + " in " + sourceURI);
+					throw new PersistenceLayerException("Encountered STARTTABLE: entry while expecting Formats for "
+						+ t.getDisplayName() + " in " + sourceURI);
 				}
 				if (first && formatName.startsWith("ENDTABLE:"))
 				{
-					throw new PersistenceLayerException(
-						"Encountered ENDTABLE: entry while expecting Formats for "
-							+ t.getDisplayName() + " in " + sourceURI);
+					throw new PersistenceLayerException("Encountered ENDTABLE: entry while expecting Formats for "
+						+ t.getDisplayName() + " in " + sourceURI);
 				}
 				if (columnNames.size() <= i)
 				{
-					throw new PersistenceLayerException("Encountered FORMAT "
-						+ i + " but no such column was named for "
+					throw new PersistenceLayerException("Encountered FORMAT " + i + " but no such column was named for "
 						+ t.getDisplayName() + " in " + sourceURI);
 				}
 				String name = columnNames.get(i++);
 
-				TableColumn column = context.getReferenceContext()
-					.constructNowIfNecessary(TableColumn.class, name);
-				FormatManager<?> format = context.getReferenceContext()
-					.getFormatManager(formatName);
+				TableColumn column = context.getReferenceContext().constructNowIfNecessary(TableColumn.class, name);
+				FormatManager<?> format = context.getReferenceContext().getFormatManager(formatName);
 				if (column.getFormatManager() == null)
 				{
 					column.setFormatManager(format);
@@ -357,10 +343,9 @@ public class TableLoader extends LstLineFileLoader
 				}
 				else if (!column.getFormatManager().equals(format))
 				{
-					throw new PersistenceLayerException("Table column " + name
-						+ " in table " + t.getDisplayName() + " in " + sourceURI
-						+ " had different format than previous column format: "
-						+ format + " in " + column.getSourceURI());
+					throw new PersistenceLayerException("Table column " + name + " in table " + t.getDisplayName()
+						+ " in " + sourceURI + " had different format than previous column format: " + format + " in "
+						+ column.getSourceURI());
 				}
 
 				t.addColumn(column);
@@ -368,10 +353,8 @@ public class TableLoader extends LstLineFileLoader
 			}
 			if (t.getColumnCount() != columnNames.size())
 			{
-				throw new PersistenceLayerException(
-					"Table " + t.getDisplayName()
-						+ " had different quantity of column names and formats "
-						+ " in " + sourceURI);
+				throw new PersistenceLayerException("Table " + t.getDisplayName()
+					+ " had different quantity of column names and formats " + " in " + sourceURI);
 			}
 			return new ImportData(t);
 		}
@@ -403,8 +386,8 @@ public class TableLoader extends LstLineFileLoader
 		}
 
 		@Override
-		public LineProcessor parseLine(LoadContext context, String lstLine,
-			URI sourceURI) throws PersistenceLayerException
+		public LineProcessor parseLine(LoadContext context, String lstLine, URI sourceURI)
+			throws PersistenceLayerException
 		{
 			ParsingSeparator ps = generateCSVSeparator(lstLine);
 			int i = 0;
@@ -417,8 +400,8 @@ public class TableLoader extends LstLineFileLoader
 					if (content.startsWith("STARTTABLE:"))
 					{
 						throw new PersistenceLayerException(
-							"Encountered STARTTABLE: entry before reaching ENDTABLE for "
-								+ t.getDisplayName() + " in " + sourceURI);
+							"Encountered STARTTABLE: entry before reaching ENDTABLE for " + t.getDisplayName() + " in "
+								+ sourceURI);
 					}
 					if (content.startsWith("ENDTABLE:"))
 					{
@@ -426,8 +409,7 @@ public class TableLoader extends LstLineFileLoader
 						if (t.getRowCount() == 0)
 						{
 							throw new PersistenceLayerException(
-								"Table " + t.getDisplayName()
-									+ " had no data in " + sourceURI);
+								"Table " + t.getDisplayName() + " had no data in " + sourceURI);
 						}
 						t.trim();
 						return new ExpectStartTable();

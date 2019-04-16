@@ -1,0 +1,47 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Heroes of the Wild	SOURCESHORT:HOTW	SOURCEWEB:http://paizo.com/products/btpy9cro	SOURCEDATE:2015-04
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 April 2016
+
+# ==============================
+# New Adventuring Kits
+# ==============================
+
+STARTPACK:Arctic Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:27
+GEAR:Candle				QTY:10	SIZE:PC	LOCATION:Carried
+GEAR:Candle Lamp			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Cleats				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Outfit (Cold-Weather)	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Handaxe			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Shovel				QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Signal Whistle		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Pot (Iron)			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Snowshoes			QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Tindertwig			QTY:5		SIZE:PC	LOCATION:Carried
+GEAR:Blanket			QTY:1		SIZE:PC	LOCATION:Carried
+
+STARTPACK:Desert Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:30
+GEAR:Canvas (Sq Yd)		QTY:11	SIZE:PC	LOCATION:Carried
+GEAR:Blain Bane			QTY:3		SIZE:PC	LOCATION:Carried
+GEAR:Outfit (Hot Weather)	QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Signal Whistle		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Scarf (Common)		QTY:1		SIZE:PC	LOCATION:Carried
+GEAR:Waterskin			QTY:4		SIZE:PC	LOCATION:Carried
+
+STARTPACK:Forest Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:25
+GEAR:Bear Trap		QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Camouflage Netting	QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Fishhook		QTY:5	SIZE:PC	LOCATION:Carried
+GEAR:Handaxe		QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Rope (Hemp/50 ft)	QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Twine (50 ft.)	QTY:2	SIZE:PC	LOCATION:Carried
+
+STARTPACK:Tropical Kit	TYPE:Adventuring Kit	APPLY:INSTANT	TOTALCOST:120
+GEAR:Antiplague (Vial)			QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Antitoxin (Vial)			QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Fishhook				QTY:5	SIZE:PC	LOCATION:Carried
+GEAR:Hammock				QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Kukri					QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Vermin Repellent			QTY:1	SIZE:PC	LOCATION:Carried
+GEAR:Water Purification Sponge	QTY:1	SIZE:PC	LOCATION:Carried

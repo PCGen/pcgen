@@ -1,0 +1,18 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Ironfang Invasion, Chapter 1 - Trail of the Hunted	SOURCESHORT:AP115	SOURCEWEB:http://paizo.com/products/btpy9npj	SOURCEDATE:2017-02
+# ORIGINAL ENTRY: Gary Davies
+# ORIGINAL ENTRY DATE: 2017-06
+
+# Equipment Name			Required Weapon Proficiency		Type										Cost		Weight	Range		Size		Source Page		Save bonus					Special Property
+Loping Ointment									TYPE:Goods.Alchemical.Consumable					COST:50	WT:1						SOURCEPAGE:p.74							SPROP:Grants a +10 alchemical bonus to a hobgoblin's speed when he uses the charge, run or withdraw actions.
+
+# New Alchemical Weapons
+# Equipment Name			Required Weapon Proficiency		Type										Cost		Weight	Range		Size		Source Page		Save bonus					Special Property
+Incendiary Catalyst								TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown			COST:40	WT:1		RANGE:10	SIZE:M	SOURCEPAGE:p.74							SPROP:When this incendiary catalyst hits a target he is doused with accelerants that gives him vulnerability to fire (Pathfinder RPG Bestiary 305) for 1 round. Incendiary catalyst does not affect creatures that are already vulnerable to fire, and the target's fire immunity and resistances apply as normal.
+Stench-Gas Bladder								TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown			COST:30	WT:0.5	RANGE:10	SIZE:M	SOURCEPAGE:p.41							SPROP:This thin bladder splits when it hits a target. Any creature struck by a gas bladder must succeed at a DC 14 Fortitude save or be sickened for 1d6 rounds.
+Sting Grenade			PROFICIENCY:WEAPON|Splash Weapon	TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Splash	COST:100	WT:1		RANGE:10	SIZE:M	SOURCEPAGE:p.74							SPROP:This hollow clay container holds black powder, a slow-burning fuse, and rock salt or hard beads of resin or rubber. Lighting the fuse is a move action; 1d3 rounds later, the sting grenade explodes, dealing 2d6 points of nonlethal damage and 1d6 points of fire damage in a 10-foot-radius burst (Reflex DC 15 half).
+
+
+# New Magic Items
+# Equipment Name			Required Weapon Proficiency		Type										Cost		Weight	Range		Size		Source Page		Save bonus					Special Property
+Cloak of Woodland Creatures							TYPE:Magic.Wondrous.Cloak						COST:3500	WT:1						SOURCEPAGE:p.53	BONUS:SAVE|ALL|1|TYPE=Resistance	SPROP:The wearer can remove the cloak at any time and lay it on the ground outdoors. This ends the resistance bonus but summons a number of animals from the cloak. The animals serve the character who summoned them for 10 minutes (or until slain or returned to the cloak's folds). A summoned creature can follow any of the commands described in the Handle Animal skill.

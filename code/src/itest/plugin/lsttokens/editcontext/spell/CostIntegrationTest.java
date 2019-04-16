@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.spell;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
@@ -29,10 +27,12 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.spell.CostToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class CostIntegrationTest extends AbstractIntegrationTestCase<Spell>
 {
-	static CostToken token = new CostToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
+	private static CostToken token = new CostToken();
+	private static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

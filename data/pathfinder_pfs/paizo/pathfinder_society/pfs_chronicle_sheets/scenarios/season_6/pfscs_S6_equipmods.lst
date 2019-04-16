@@ -1,0 +1,12 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2014-08
+
+# Modifier Name									Unique Key							Cost							Visible	Choose		Nb of Charges
+Charges (60)									KEY:Special Ability ~ Charged Item / 60 Maximum	COST:((BASECOST/60)*%CHARGES)-BASECOST	VISIBLE:NO	CHOOSE:NOCHOICE	CHARGES:1|60
+
+
+
+
+#Old KEYs
+Special Ability ~ Charged Item / 60 Maximum.COPY=CHARGED_ITEM_60																VISIBLE:NO

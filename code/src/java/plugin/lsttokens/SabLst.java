@@ -34,8 +34,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
-		CDOMPrimaryToken<CDOMObject>
+public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements CDOMPrimaryToken<CDOMObject>
 {
 
 	@Override
@@ -61,22 +60,19 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	 *            String of special abilities delimited by pipes
 	 */
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		CDOMObject obj, String aString)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, CDOMObject obj, String aString)
 	{
 		if (obj instanceof Ungranted)
 		{
-			return new ParseResult.Fail("Cannot use " + getTokenName()
-				+ " on an Ungranted object type: "
-				+ obj.getClass().getSimpleName(), context);
+			return new ParseResult.Fail(
+				"Cannot use " + getTokenName() + " on an Ungranted object type: " + obj.getClass().getSimpleName());
 		}
 		StringTokenizer tok = new StringTokenizer(aString, Constants.PIPE);
 
 		String firstToken = tok.nextToken();
 		if (looksLikeAPrerequisite(firstToken))
 		{
-			return new ParseResult.Fail("Cannot have only PRExxx subtoken in "
-					+ getTokenName(), context);
+			return new ParseResult.Fail("Cannot have only PRExxx subtoken in " + getTokenName());
 		}
 
 		boolean foundClear = false;
@@ -94,15 +90,12 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 
 		if (looksLikeAPrerequisite(firstToken))
 		{
-			return new ParseResult.Fail(
-					"Cannot use PREREQs when using .CLEAR in "
-							+ getTokenName(), context);
+			return new ParseResult.Fail("Cannot use PREREQs when using .CLEAR in " + getTokenName());
 		}
 
 		if (Constants.LST_DOT_CLEAR.equals(firstToken))
 		{
-			return new ParseResult.Fail("SA tag confused by redundant '.CLEAR'"
-					+ aString, context);
+			return new ParseResult.Fail("SA tag confused by redundant '.CLEAR'" + aString);
 		}
 
 		SpecialAbility sa = new SpecialAbility(firstToken.intern());
@@ -122,8 +115,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			if (Constants.LST_DOT_CLEAR.equals(token))
 			{
-				return new ParseResult.Fail("SA tag confused by '.CLEAR' as a "
-						+ "middle token: " + aString, context);
+				return new ParseResult.Fail("SA tag confused by '.CLEAR' as a " + "middle token: " + aString);
 			}
 			else if (looksLikeAPrerequisite(token))
 			{
@@ -151,8 +143,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		if (foundClear)
 		{
 			return new ParseResult.Fail(
-					"Cannot use PREREQs when using .CLEAR and a Special Ability in "
-							+ getTokenName(), context);
+				"Cannot use PREREQs when using .CLEAR and a Special Ability in " + getTokenName());
 		}
 
 		while (true)
@@ -160,8 +151,8 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			Prerequisite prereq = getPrerequisite(token);
 			if (prereq == null)
 			{
-				return new ParseResult.Fail("   (Did you put Abilities after the "
-						+ "PRExxx tags in " + getTokenName() + ":?)", context);
+				return new ParseResult.Fail(
+					"   (Did you put Abilities after the " + "PRExxx tags in " + getTokenName() + ":?)");
 			}
 			sa.addPrerequisite(prereq);
 			if (!tok.hasMoreTokens())
@@ -177,8 +168,7 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<SpecialAbility> changes = context.getObjectContext()
-				.getListChanges(obj, ListKey.SAB);
+		Changes<SpecialAbility> changes = context.getObjectContext().getListChanges(obj, ListKey.SAB);
 		Collection<SpecialAbility> added = changes.getAdded();
 		List<String> list = new ArrayList<>();
 		if (changes.includesGlobalClear())
@@ -195,12 +185,11 @@ public class SabLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			for (SpecialAbility ab : added)
 			{
 				StringBuilder sb = new StringBuilder();
-				sb.append(ab.getLSTformat());
+				sb.append(ab.getKeyName());
 				if (ab.hasPrerequisites())
 				{
 					sb.append(Constants.PIPE);
-					sb.append(getPrerequisiteString(context, ab
-							.getPrerequisiteList()));
+					sb.append(getPrerequisiteString(context, ab.getPrerequisiteList()));
 				}
 				list.add(sb.toString());
 			}

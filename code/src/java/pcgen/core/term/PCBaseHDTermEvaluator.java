@@ -1,5 +1,4 @@
 /*
- * pcgen.core.term.PCBaseHDTermEvaluator.java
  * Copyright (c) 2014 Stefan Radermacher <zaister@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 07-May-2014 22:45:18
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -27,15 +23,14 @@ package pcgen.core.term;
 import pcgen.core.PlayerCharacter;
 
 /**
- * The Class <code>PCBaseHDTermEvaluator</code> is responsible for calculating
+ * The Class {@code PCBaseHDTermEvaluator} is responsible for calculating
  * the character's unmodified number of racial hit dice, as specified by the 
  * MONSTERCLASS tag in the race definition. 
  * 
  * 
- * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
-public class PCBaseHDTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator {
+public class PCBaseHDTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
+{
 
 	/**
 	 * Instantiates a new PCBaseHDTermEvaluator.
@@ -47,27 +42,18 @@ public class PCBaseHDTermEvaluator
 		this.originalText = expressionString;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.term.TermEvaluator#resolve(pcgen.core.PlayerCharacter)
-	 */
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
 		return pc.getDisplay().getBaseHD();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.term.TermEvaluator#isSourceDependant()
-	 */
 	@Override
 	public boolean isSourceDependant()
 	{
 		return false;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.term.TermEvaluator#isStatic()
-	 */
 	public boolean isStatic()
 	{
 		return false;

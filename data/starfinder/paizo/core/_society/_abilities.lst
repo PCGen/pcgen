@@ -1,0 +1,19 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+###Block: Starfinder Unapproved Factions
+# Ability Name							Type				!PRECHARACTERTYPE
+CATEGORY=Internal|No Faction.MOD				TYPE:SocietyNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Abadarcorp.MOD				TYPE:SocietyNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Android Abolitionist Front.MOD	TYPE:SocietyNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Augmented.MOD				TYPE:SocietyNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Free Captains.MOD				TYPE:SocietyNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Hellknights.MOD				TYPE:SocietyNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Knights of Golarion.MOD			TYPE:SocietyNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Starfinder Society.MOD			TYPE:SocietyNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Stewards.MOD				TYPE:SocietyNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Xenowardens.MOD				TYPE:SocietyNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Corporations.MOD				TYPE:SocietyNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Corpse Fleet.MOD				TYPE:SocietyNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Cults of the Elder Mythos.MOD		TYPE:SocietyNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Golden League.MOD				TYPE:SocietyNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Internal|Skyfire Legion.MOD			TYPE:SocietyNotLegal	!PRECHARACTERTYPE:1,PC

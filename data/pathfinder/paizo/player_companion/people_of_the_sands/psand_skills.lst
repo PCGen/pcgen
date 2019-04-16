@@ -1,0 +1,23 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: People of the Sands	SOURCESHORT:PSand	SOURCEWEB:http://paizo.com/products/btpy92lx	SOURCEDATE:2014-02
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 11 March 2017
+
+# ==============================
+# New Situation Skills
+# ==============================
+
+# Skill Name			Situational Skill
+Acrobatics.MOD			SITUATION:On wet surfaces or terrain
+Acrobatics.MOD			SITUATION:Running jump
+Bluff.MOD				SITUATION:Against sphinxes
+Climb.MOD				SITUATION:On wet surfaces or terrain
+Diplomacy.MOD			SITUATION:To influence sphinxes
+Knowledge (Dungeoneering).MOD	SITUATION:ID vermin
+Knowledge (Nature).MOD		SITUATION:Locate and ID plants
+Perception.MOD			SITUATION:Concealed or Secret Doors (Osirion)
+Perception.MOD			SITUATION:Pentrate disguises
+Perception.MOD			SITUATION:Notice hidden religious iconography or dress
+Sense Motive.MOD			SITUATION:Penetrate lies regarding religion
+Sense Motive.MOD			SITUATION:Understand secret messages about gods

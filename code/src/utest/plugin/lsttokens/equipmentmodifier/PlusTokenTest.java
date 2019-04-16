@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.equipmentmodifier;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.persistence.CDOMLoader;
@@ -31,7 +29,7 @@ public class PlusTokenTest extends
 {
 
 	static PlusToken token = new PlusToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()
@@ -75,9 +73,4 @@ public class PlusTokenTest extends
 		return true;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

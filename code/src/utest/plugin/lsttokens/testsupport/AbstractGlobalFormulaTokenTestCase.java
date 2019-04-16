@@ -17,19 +17,24 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.persistence.PersistenceLayerException;
 
+import org.junit.jupiter.api.Test;
+
 public abstract class AbstractGlobalFormulaTokenTestCase extends
 		AbstractGlobalTokenTestCase
 {
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		assertTrue(parse("Variable1"));
 		assertEquals("Variable1", getFormula().toString());
@@ -47,7 +52,7 @@ public abstract class AbstractGlobalFormulaTokenTestCase extends
 	public abstract FormulaKey getFormulaKey();
 
 	@Test
-	public void testInvalidInputEmpty() throws PersistenceLayerException
+	public void testInvalidInputEmpty()
 	{
 		try
 		{
@@ -91,22 +96,22 @@ public abstract class AbstractGlobalFormulaTokenTestCase extends
 	}
 
 	@Test
-	public void testUnparseNumber() throws PersistenceLayerException
+	public void testUnparseNumber()
 	{
 		setAndUnparseMatch(FormulaFactory.getFormulaFor(1));
 	}
 
 	@Test
-	public void testUnparseFormula() throws PersistenceLayerException
+	public void testUnparseFormula()
 	{
 		setAndUnparseMatch(FormulaFactory.getFormulaFor("Formula"));
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getFormulaKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertNull(getWriteToken().unparse(primaryContext, primaryProf));
 	}
 
 	private void setAndUnparseMatch(Formula val)
@@ -117,7 +122,7 @@ public abstract class AbstractGlobalFormulaTokenTestCase extends
 	protected String[] setAndUnparse(Formula val)
 	{
 		setFormula(val);
-		return getToken().unparse(primaryContext, primaryProf);
+		return getWriteToken().unparse(primaryContext, primaryProf);
 	}
 
 	protected void setFormula(Formula val)

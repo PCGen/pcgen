@@ -57,15 +57,14 @@ public final class SAProcessor implements QualifiedActor<SpecialAbility, Special
 			{
 				List<String> associationList = pc.getAssociationList(object);
 				Collections.sort(associationList);
-				sb.append(StringUtil.joinToStringBuilder(associationList, ", "));
+				sb.append(StringUtil.join(associationList, ", "));
 			}
 		}
 		else
 		{
-			Logging.errorPrint("In SpecialAbility resolution, "
-				+ "Error using object of type: " + source.getClass().getName()
-				+ " because " + "%CHOICE"
-				+ " was requested but the object does not support CHOOSE");
+			Logging.errorPrint(
+				"In SpecialAbility resolution, " + "Error using object of type: " + source.getClass().getName()
+					+ " because " + "%CHOICE" + " was requested but the object does not support CHOOSE");
 			sb.append("<undefined>");
 		}
 

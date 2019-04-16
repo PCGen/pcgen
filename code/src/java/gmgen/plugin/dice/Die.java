@@ -28,15 +28,17 @@ public abstract class Die
 	private final DiceConfig dc;
 
 	/** Random number seed */
-	protected static final Random rand = new Random();
+	protected static final Random RAND = new Random();
 
-	protected Die(final DiceConfig dc) {
+	protected Die(final DiceConfig dc)
+	{
 		this.dc = dc;
 	}
 
 	/** Name of the die in the nds+m format
 	 * @return Name of the die
 	 */
+	@Override
 	public String toString()
 	{
 		return dc.toFormula();

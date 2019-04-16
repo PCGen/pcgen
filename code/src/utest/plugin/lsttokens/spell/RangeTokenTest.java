@@ -17,23 +17,25 @@
  */
 package plugin.lsttokens.spell;
 
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.Test;
+import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.spell.Spell;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
 public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 {
 
 	static RangeToken token = new RangeToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()
@@ -83,19 +85,14 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 		return true;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	protected boolean requiresPreconstruction()
 	{
 		return false;
 	}
 
-	public void testGoodParentheses() throws PersistenceLayerException
+	@Test
+	public void testGoodParentheses()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		List<?> coll;
@@ -106,17 +103,14 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 		assertCleanConstruction();
 	}
 
-	public void testBadParentheses() throws PersistenceLayerException
+	@Test
+	public void testBadParentheses()
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
-		assertFalse("Missing end paren should have been flagged.",
-				parse("(first"));
-		assertFalse("Missing start paren should have been flagged.",
-				parse("first)"));
-		assertFalse("Missing start paren should have been flagged.",
-				parse("(fir)st)"));
-		assertFalse("Out of order parens should have been flagged.",
-				parse(")(fir(st)"));
+		assertFalse(parse("(first"), "Missing end paren should have been flagged.");
+		assertFalse(parse("first)"), "Missing start paren should have been flagged.");
+		assertFalse(parse("(fir)st)"), "Missing start paren should have been flagged.");
+		assertFalse(parse(")(fir(st)"), "Out of order parens should have been flagged.");
 	}
 
 	/*

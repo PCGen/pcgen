@@ -1,6 +1,4 @@
 /*
- * PreLevelMaxTest.java
- *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,14 +14,12 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -35,39 +31,29 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreLevelMaxTest</code> tests that the PRELEVELMAX tag is
+ * {@code PreLevelMaxTest} tests that the PRELEVELMAX tag is
  * working correctly.
- *
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
 public class PreLevelMaxTest extends AbstractCharacterTestCase
 {
 	private PCClass myClass = new PCClass();
 	private Race race = new Race();
 
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreLevelMaxTest.class);
-	}
-
 	/**
-	 * @return Test
+	 * Test that Level works.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreLevelMaxTest.class);
-	}
-
-	/**
-	 * Test that Level works
-	 * @throws Exception
-	 */
-	public void testLevel() throws Exception
+	@Test
+	public void testLevel() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
@@ -89,10 +75,12 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test that HD are counted
-	 * @throws Exception
+	 * Test that HD are counted.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testHD() throws Exception
+	@Test
+	public void testHD() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		character.incrementClassLevel(2, myClass, true);
@@ -115,10 +103,12 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Make sure BONUS:PCLEVEL is not counted
-	 * @throws Exception
+	 * Make sure BONUS:PCLEVEL is not counted.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testPCLevel() throws Exception
+	@Test
+	public void testPCLevel() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
@@ -143,6 +133,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 			character, null));
 	}
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{

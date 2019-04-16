@@ -36,8 +36,7 @@ public class AutoFeatToken extends AbstractNonEmptyToken<CDOMObject>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		CDOMObject obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
 		if (!value.startsWith("FEAT|"))
 		{
@@ -53,8 +52,7 @@ public class AutoFeatToken extends AbstractNonEmptyToken<CDOMObject>
 		}
 		catch (PersistenceLayerException e)
 		{
-			return new ParseResult.Fail("Delegation Error from AUTO:FEAT: "
-				+ e.getLocalizedMessage());
+			return new ParseResult.Fail("Delegation Error from AUTO:FEAT: " + e.getLocalizedMessage());
 		}
 		return ParseResult.SUCCESS;
 	}

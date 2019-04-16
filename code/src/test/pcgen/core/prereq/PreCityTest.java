@@ -1,6 +1,4 @@
 /*
- * PreCityTest.java
- *
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,66 +14,53 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
-import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.PlayerCharacter;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreCityTest</code> tests that the PRECITY tag is
+ * {@code PreCityTest} tests that the PRECITY tag is
  * working correctly.
- *
- *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
-public class PreCityTest extends AbstractCharacterTestCase
+class PreCityTest extends AbstractCharacterTestCase
 {
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreCityTest.class);
-	}
-
 	/**
-	 * @return Test
+	 * Test the PRECITY code.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreCityTest.class);
-	}
-
-	/**
-	 * Test the PRECITY code
-	 * @throws Exception
-	 */
-	public void testCity() throws Exception
+	@Test
+	void testCity() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setPCAttribute(PCAttribute.RESIDENCE, "Klamath");
+		character.setPCAttribute(PCStringKey.RESIDENCE, "Klamath");
 
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRECITY:Klamath");
 
-		assertTrue("Character is from Klamath", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Character is from Klamath");
 
 		prereq = factory.parse("PRECITY:KLAMATH");
 
-		assertTrue("Case is not significant", PrereqHandler.passes(prereq,
-			character, null));
+		assertTrue(PrereqHandler.passes(prereq,
+			character, null), "Case is not significant");
 
 		prereq = factory.parse("PRECITY:Klam");
 
-		assertFalse("Requires a full match", PrereqHandler.passes(prereq,
-			character, null));
+		assertFalse(PrereqHandler.passes(prereq,
+			character, null), "Requires a full match");
 	}
 }

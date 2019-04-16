@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 13-Dec-2004
  */
 package pcgen.core;
 
@@ -25,13 +24,12 @@ import pcgen.core.term.EvaluatorFactory;
 import pcgen.core.term.TermEvaluator;
 
 /**
- * <code>VariableProcessorPC</code> is a processor for variables
+ * {@code VariableProcessorPC} is a processor for variables
  * associated with a character. This class converts formulas or
  * variables into values and is used extensively both in
  * definitions of objects and for output to output sheets.
  *
  *
- * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
  */
 public class VariableProcessorPC extends VariableProcessor
 {
@@ -61,14 +59,11 @@ public class VariableProcessorPC extends VariableProcessor
 	 */
 
 	@Override
-	Float getInternalVariable(
-			final CharacterSpell aSpell,
-			String valString,
-			final String src)
+	Float getInternalVariable(final CharacterSpell aSpell, String valString, final String src)
 	{
-        TermEvaluator evaluator = EvaluatorFactory.PC.getTermEvaluator(valString, src);
+		TermEvaluator evaluator = EvaluatorFactory.PC.getTermEvaluator(valString, src);
 
-        return (evaluator == null) ? null : evaluator.resolve(pc, aSpell);
+		return (evaluator == null) ? null : evaluator.resolve(pc, aSpell);
 	}
 
 }

@@ -27,8 +27,6 @@ import java.util.WeakHashMap;
 
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.cdom.base.Categorized;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
@@ -36,34 +34,20 @@ import pcgen.cdom.reference.UnconstructedEvent;
 import pcgen.cdom.reference.UnconstructedListener;
 import pcgen.util.Logging;
 
-public class TrackingReferenceContext extends RuntimeReferenceContext implements
-		UnconstructedListener
+public final class TrackingReferenceContext extends RuntimeReferenceContext implements UnconstructedListener
 {
 
-	private final DoubleKeyMapToList<CDOMReference<?>, URI, String> track = new DoubleKeyMapToList<>(WeakHashMap.class, HashMap.class);
+	private final DoubleKeyMapToList<CDOMReference<?>, URI, String> track =
+			new DoubleKeyMapToList<>(WeakHashMap.class, HashMap.class);
 
 	private final Set<ReferenceManufacturer<?>> listening = new HashSet<>();
 
-	@Override
-	public <T extends Categorized<T>> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl, Category<T> cat)
+	private TrackingReferenceContext()
 	{
-		ReferenceManufacturer<T> mfg = super.getManufacturer(cl, cat);
-		if (mfg instanceof TrackingManufacturer)
-		{
-			return mfg;
-		}
-		if (!listening.contains(mfg))
-		{
-			mfg.addUnconstructedListener(this);
-			listening.add(mfg);
-		}
-		return new TrackingManufacturer<>(this, mfg);
 	}
 
 	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
-			Class<T> cl)
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(Class<T> cl)
 	{
 		ReferenceManufacturer<T> mfg = super.getManufacturer(cl);
 		if (mfg instanceof TrackingManufacturer)
@@ -79,10 +63,9 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 	}
 
 	@Override
-	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
-		ManufacturableFactory<T> factory)
+	public <T extends Loadable> ReferenceManufacturer<T> getManufacturerFac(ManufacturableFactory<T> factory)
 	{
-		ReferenceManufacturer<T> mfg = super.getManufacturer(factory);
+		ReferenceManufacturer<T> mfg = super.getManufacturerFac(factory);
 		if (mfg instanceof TrackingManufacturer)
 		{
 			return mfg;
@@ -116,8 +99,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 					tokenNames.add(tok);
 				}
 			}
-			Logging.errorPrint("  Was used in " + uri + " in tokens: "
-					+ tokenNames);
+			Logging.errorPrint("  Was used in " + uri + " in tokens: " + tokenNames);
 		}
 	}
 
@@ -147,4 +129,16 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		track.addToListFor(ref, getSourceURI(), src);
 	}
 
+	/**
+	 * Return a new TrackingReferenceContext. This ReferenceContext is initialized as per
+	 * the rules of AbstractReferenceContext.
+	 * 
+	 * @return A new TrackingReferenceContext
+	 */
+	public static TrackingReferenceContext createTrackingReferenceContext()
+	{
+		TrackingReferenceContext context = new TrackingReferenceContext();
+		context.initialize();
+		return context;
+	}
 }

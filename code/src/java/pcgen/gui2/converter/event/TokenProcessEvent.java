@@ -15,7 +15,6 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA
  * 
- * Created on Mar 10, 2006
  */
 package pcgen.gui2.converter.event;
 
@@ -35,14 +34,13 @@ public class TokenProcessEvent extends EventObject
 	private final String value;
 	private final String objectName;
 	private final CDOMObject obj;
-	private StringBuilder result = new StringBuilder();
+	private final StringBuilder result = new StringBuilder();
 	private boolean consumed = false;
 	private List<CDOMObject> injected;
 	private final ConversionDecider decider;
 
-	public TokenProcessEvent(EditorLoadContext lc, ConversionDecider cd,
-			String tokenName, String tokenValue, String name,
-			CDOMObject object)
+	public TokenProcessEvent(EditorLoadContext lc, ConversionDecider cd, String tokenName, String tokenValue,
+		String name, CDOMObject object)
 	{
 		super(object);
 		key = tokenName;

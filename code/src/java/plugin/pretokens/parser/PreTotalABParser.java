@@ -1,6 +1,4 @@
 /*
- * derived from PreAttackParser.java
- *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,13 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17-Dec-2003
- *
- * Current Ver: $Revision: 18181 $
- *
- *
- *
  */
 package plugin.pretokens.parser;
 
@@ -34,16 +25,14 @@ import pcgen.util.Logging;
 
 /**
  * A prerequisite parser class that handles the parsing of pre attack tokens.
- *
  */
-public class PreTotalABParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreTotalABParser extends AbstractPrerequisiteParser implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.
 	 * @return the type of prerequisite handled by this token.
 	 */
-    @Override
+	@Override
 	public String[] kindsHandled()
 	{
 		return new String[]{"TOTALAB"};
@@ -62,10 +51,8 @@ public class PreTotalABParser extends AbstractPrerequisiteParser implements
 	 * @throws PersistenceLayerException
 	 */
 	@Override
-	public Prerequisite parse(String kind,
-	                          String formula,
-	                          boolean invertResult,
-	                          boolean overrideQualify) throws PersistenceLayerException
+	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+		throws PersistenceLayerException
 	{
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
 
@@ -75,8 +62,7 @@ public class PreTotalABParser extends AbstractPrerequisiteParser implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			Logging.errorPrint("Badly formed PRETOTALAB attribute: '" + formula
-				+ "' assuming '1'");
+			Logging.errorPrint("Badly formed PRETOTALAB attribute: '" + formula + "' assuming '1'");
 			prereq.setOperand("1");
 		}
 

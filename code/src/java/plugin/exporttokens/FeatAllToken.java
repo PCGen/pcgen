@@ -16,46 +16,32 @@ import pcgen.io.exporttoken.AbilityToken;
 import pcgen.util.enumeration.View;
 
 /**
- * @author karianna
  * Class deals with FEATALL Token
  */
 public class FeatAllToken extends AbilityToken
 {
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "FEATALL";
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-						   ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		setView(View.ALL);
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		final String fString = aTok.nextToken();
 
-		return getTokenForCategory(tokenSource, pc, eh, aTok, fString,
-			AbilityCategory.FEAT);
+		return getTokenForCategory(tokenSource, pc, eh, aTok, fString, AbilityCategory.FEAT);
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.AbilityToken#getAbilityList(pcgen.core.PlayerCharacter, pcgen.core.AbilityCategory)
-	 */
 	@Override
-	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
-										   final AbilityCategory aCategory)
+	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc, final AbilityCategory aCategory)
 	{
 		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
-		Collection<AbilityCategory> allCats =
-				SettingsHandler.getGame().getAllAbilityCategories();
+		Collection<AbilityCategory> allCats = SettingsHandler.getGame().getAllAbilityCategories();
 		for (AbilityCategory aCat : allCats)
 		{
 			if (aCat.getParentCategory().equals(aCategory))

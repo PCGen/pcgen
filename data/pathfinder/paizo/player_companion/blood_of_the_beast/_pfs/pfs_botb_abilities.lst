@@ -1,0 +1,27 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Blood of the Beast	SOURCESHORT:BOTB	SOURCEWEB:http://paizo.com/products/btpy9oo8?Pathfinder-Player-Companion-Blood-of-the-Beast	SOURCEDATE:2016-12
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 March 2017
+# PFS MODS: Mark Means, 2 Jan 2019
+
+# ==============================
+# New Traits
+# ==============================
+
+# Ability Name				Unique Key						Product Identity?	Category of Ability		Type							Required Ability						Multiple Requirements																																															Required Region			Define			Description																																			Stackable?	Multiple?	Choose							Auto Language	Auto Weapon Prof					Ability															Bonus Ability Pool						Bonus to skill						Modify VAR				Class Skill		Source Page		Aspects
+CATEGORY=Special Ability|Trait ~ Adherent of Ancient Osirion.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Trait ~ Caravan Nomad.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Trait ~ Fortune Found.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Trait ~ Jinx Eater.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Trait ~ Jungle Native.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Trait ~ Naga Emissary.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Trait ~ Prophet of Burrows.MOD	TYPE:PFSLegal	PRETYPE:1,PFSLegal
+
+######################################################
+#Support for Lucky feat
+CATEGORY=Special Ability|Lucky Bonus ~ Defiant Luck Choice.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Lucky Bonus ~ Black Cat.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Lucky Bonus ~ Defiant Luck.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Lucky Bonus ~ Inexplicable Luck.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Lucky Bonus ~ Lucky Halfling.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal

@@ -17,14 +17,21 @@
  */
 package plugin.lsttokens.testsupport;
 
-import java.math.BigDecimal;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
-import org.junit.Test;
+import java.math.BigDecimal;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.jupiter.api.Test;
+
 
 public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		extends AbstractCDOMTokenTestCase<T>
@@ -41,24 +48,16 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	public abstract boolean isClearLegal();
 
 	@Test
-	public void testInvalidInputUnset() throws PersistenceLayerException
+	public void testInvalidInputUnset()
 	{
 		testInvalidInputs(null);
 		assertNoSideEffects();
 	}
 
 	@Test
-	public void testInvalidInputSet() throws PersistenceLayerException
+	public void testInvalidInputSet()
 	{
-		BigDecimal con;
-		if (isPositiveAllowed())
-		{
-			con = new BigDecimal(3);
-		}
-		else
-		{
-			con = new BigDecimal(-3);
-		}
+		BigDecimal con = new BigDecimal(isPositiveAllowed() ? 3 : -3);
 		assertTrue(parse(con.toString()));
 		assertTrue(parseSecondary(con.toString()));
 		assertEquals(con, primaryProf.get(getObjectKey()));
@@ -67,7 +66,6 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	}
 
 	public void testInvalidInputs(BigDecimal val)
-			throws PersistenceLayerException
 	{
 		// Always ensure get is unchanged
 		// since no invalid item should set or reset the value
@@ -109,12 +107,12 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testValidInputs() throws PersistenceLayerException
+	public void testValidInputs()
 	{
 		if (isPositiveAllowed())
 		{
 			assertTrue(parse("4.5"));
-			assertEquals(new BigDecimal(4.5), primaryProf.get(getObjectKey()));
+			assertEquals(new BigDecimal("4.5"), primaryProf.get(getObjectKey()));
 			assertTrue(parse("5"));
 			assertEquals(new BigDecimal(5), primaryProf.get(getObjectKey()));
 			assertTrue(parse("1"));
@@ -171,39 +169,25 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	@Override
 	protected String getLegalValue()
 	{
-		if (isPositiveAllowed())
-		{
-			return "1";
-		}
-		else
-		{
-			return "-1";
-		}
+		return isPositiveAllowed() ? "1" : "-1";
 	}
 
 	@Override
 	protected String getAlternateLegalValue()
 	{
-		if (isPositiveAllowed())
-		{
-			return "2.2";
-		}
-		else
-		{
-			return "-2.2";
-		}
+		return isPositiveAllowed() ? "2.2" : "-2.2";
 	}
 
 	@Test
 	public void testArchitecturePositiveNegative()
 	{
-		assertTrue (isPositiveAllowed() || isNegativeAllowed());
+		assertTrue(isPositiveAllowed() || isNegativeAllowed());
 	}
 
 	@Test
-	public void testUnparseOne() throws PersistenceLayerException
+	public void testUnparseOne()
 	{
-		BigDecimal val = new BigDecimal(4.5);
+		BigDecimal val = new BigDecimal("4.5");
 		if (isPositiveAllowed())
 		{
 			primaryProf.put(getObjectKey(), val);
@@ -218,7 +202,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testUnparseZero() throws PersistenceLayerException
+	public void testUnparseZero()
 	{
 		BigDecimal val = new BigDecimal(0);
 		if (isZeroAllowed())
@@ -235,7 +219,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testUnparseNegative() throws PersistenceLayerException
+	public void testUnparseNegative()
 	{
 		BigDecimal val = new BigDecimal(-2);
 		if (isNegativeAllowed())
@@ -252,7 +236,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testUnparseNull() throws PersistenceLayerException
+	public void testUnparseNull()
 	{
 		primaryProf.put(getObjectKey(), null);
 		assertNull(getToken().unparse(primaryContext, primaryProf));
@@ -260,7 +244,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 
 	@SuppressWarnings("unchecked")
 	@Test
-	public void testUnparseGenericsFail() throws PersistenceLayerException
+	public void testUnparseGenericsFail()
 	{
 		ObjectKey objectKey = getObjectKey();
 		primaryProf.put(objectKey, new Object());
@@ -276,23 +260,23 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	}
 
 	@Test
-	public void testReplacementInputs() throws PersistenceLayerException
+	public void testReplacementInputs()
 	{
 		String[] unparsed;
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 		assertTrue(parse("3.14"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "3.14", unparsed[0]);
+		assertEquals("3.14", unparsed[0]);
 		if (isClearLegal())
 		{
 			assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			assertNull(unparsed);
 		}
 	}
 

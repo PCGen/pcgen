@@ -1,5 +1,4 @@
 /*
- * MapEvent.java
  * Copyright 2012 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,14 +15,9 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Mar 11, 2012, 4:15:57 PM
  */
 package pcgen.facade.util.event;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class MapEvent<K, V> extends FacadeEvent
 {
 
@@ -33,10 +27,10 @@ public class MapEvent<K, V> extends FacadeEvent
 	public static final int VALUE_CHANGED = 3;
 	public static final int VALUE_MODIFIED = 4;
 	public static final int KEYS_CHANGED = 4;
-	private int type;
-	private K key;
-	private V newValue;
-	private V oldValue;
+	private final int type;
+	private final K key;
+	private final V newValue;
+	private final V oldValue;
 
 	/**
 	 * This is a shortcut constructor for an KEYS_CHANGED event

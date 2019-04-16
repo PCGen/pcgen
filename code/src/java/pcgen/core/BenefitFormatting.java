@@ -1,5 +1,4 @@
 /*
- * BenefitFormatting.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core;
 
@@ -26,12 +24,16 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.util.Logging;
 
-public class BenefitFormatting
+public final class BenefitFormatting
 {
+
+	private BenefitFormatting()
+	{
+	}
 
 	public static String getBenefits(PlayerCharacter aPC, List<? extends Object> objList)
 	{
-		if (objList.size() == 0)
+		if (objList.isEmpty())
 		{
 			return "";
 		}
@@ -47,24 +49,22 @@ public class BenefitFormatting
 		}
 		else
 		{
-			Logging
-				.errorPrint("Unable to resolve Description with object of type: "
-					+ b.getClass().getName());
+			Logging.errorPrint("Unable to resolve Description with object of type: " + b.getClass().getName());
 			return "";
 		}
 		List<Description> theBenefits = sampleObject.getListFor(ListKey.BENEFIT);
-		if ( theBenefits == null )
+		if (theBenefits == null)
 		{
 			return Constants.EMPTY_STRING;
 		}
 		final StringBuilder buf = new StringBuilder(250);
 		boolean needSpace = false;
-		for ( final Description desc : theBenefits )
+		for (final Description desc : theBenefits)
 		{
 			final String str = desc.getDescription(aPC, objList);
-			if ( str.length() > 0 )
+			if (!str.isEmpty())
 			{
-				if ( needSpace )
+				if (needSpace)
 				{
 					buf.append(' ');
 				}

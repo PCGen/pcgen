@@ -1,5 +1,4 @@
 /*
- * MovementToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.io.exporttoken;
@@ -26,6 +23,7 @@ package pcgen.io.exporttoken;
 import java.util.StringTokenizer;
 
 import pcgen.base.util.NamedValue;
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
@@ -34,9 +32,6 @@ import pcgen.io.ExportHandler;
 //MOVEMENT.movetype
 public class MovementToken extends AbstractExportToken
 {
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -45,12 +40,8 @@ public class MovementToken extends AbstractExportToken
 
 	//TODO: Move the |MOVEMENT| results into MoveToken, and then Eliminate MovementToken
 	//      Also add .moveType to movement as a switchout replacement for .x
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, CharacterDisplay display,
-		ExportHandler eh)
+	public String getToken(String tokenSource, CharacterDisplay display, ExportHandler eh)
 	{
 		String retString = "";
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -59,7 +50,7 @@ public class MovementToken extends AbstractExportToken
 		if (aTok.hasMoreTokens())
 		{
 			String moveType = aTok.nextToken();
-			retString = getMoveTypeToken(display, moveType);
+			retString = getMoveTypeToken(display, MovementType.getConstant(moveType));
 		}
 		else
 		{
@@ -69,7 +60,7 @@ public class MovementToken extends AbstractExportToken
 		return retString;
 	}
 
-	public static String getMoveTypeToken(CharacterDisplay display, String moveType)
+	public static String getMoveTypeToken(CharacterDisplay display, MovementType moveType)
 	{
 		String retString = "";
 
@@ -102,8 +93,7 @@ public class MovementToken extends AbstractExportToken
 
 	public static String getRateToken(double movement)
 	{
-		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			movement)
+		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(movement)
 			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 }

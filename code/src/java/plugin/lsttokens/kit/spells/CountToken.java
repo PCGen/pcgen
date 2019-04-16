@@ -1,5 +1,4 @@
 /*
- * CountToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 6, 2006
- *
- * Current Ver: $Revision$
  */
 
 package plugin.lsttokens.kit.spells;
@@ -34,8 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * COUNT Token for KitSpells
  */
-public class CountToken extends AbstractNonEmptyToken<KitSpells> implements
-		CDOMPrimaryToken<KitSpells>
+public class CountToken extends AbstractNonEmptyToken<KitSpells> implements CDOMPrimaryToken<KitSpells>
 {
 	/**
 	 * Gets the name of the tag this class will parse.
@@ -60,8 +54,7 @@ public class CountToken extends AbstractNonEmptyToken<KitSpells> implements
 		Formula formula = FormulaFactory.getFormulaFor(value);
 		if (!formula.isValid())
 		{
-			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+			return new ParseResult.Fail("Formula in " + getTokenName() + " was not valid: " + formula.toString());
 		}
 		kitSpells.setCount(formula);
 		return ParseResult.SUCCESS;
@@ -75,6 +68,6 @@ public class CountToken extends AbstractNonEmptyToken<KitSpells> implements
 		{
 			return null;
 		}
-		return new String[] { bd.toString() };
+		return new String[]{bd.toString()};
 	}
 }

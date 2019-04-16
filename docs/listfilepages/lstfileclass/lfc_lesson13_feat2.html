@@ -235,7 +235,7 @@ I cover them below.
   <p class="indent1">
    This tag is one of the exceptions mentioned
 above to the standard PRExxx format rule. This one takes the format
-of PREALIGN:&lt;align1&gt;,align&lt;2&gt;,etc. To pass this PRExxx
+of PREALIGN:&lt;align1&gt;,&lt;align2&gt;,etc. To pass this PRExxx
 you need only meet one of the listed criteria.
   </p>
   <p class="indent1">
@@ -347,7 +347,7 @@ the ones defined in your gamemode files or the tag will fail.
   </p>
   <p class="indent3">
    Would evaluate as true if the character's base
-Fortitude meets or exceeds 5 or their base Reflex meets or exceeds
+Fortitude meets or exceeds 1 or their base Reflex meets or exceeds
 3
   </p>
   <p class="indent2">
@@ -434,7 +434,7 @@ game mode files.
    <code>PREEQUIP:1,Longsword</code>
   </p>
   <p class="indent3">
-   Must have an item with the exact name "Longsword
+   Must have an item with the exact name "Longsword"
 equipped.
   </p>
   <p class="indent2">
@@ -523,7 +523,7 @@ school
   </p>
   <p class="indent2">
    <code>PREFEAT:2,CHECKMULT,Spell Focus,[Spell
-Focus(Evocation)</code>
+Focus(Evocation)]</code>
   </p>
   <p class="indent3">
    Must have two Spell Focus feats, and *not* have
@@ -688,7 +688,7 @@ being created).
   </p>
   <p class="indent1">
    The tag takes the following format:
-PREMULT:#,[&lt;PRExxx&gt;],[&lt;PRExxx&gt;]. The number is the of
+PREMULT:#,[&lt;PRExxx&gt;],[&lt;PRExxx&gt;]. The number is the number of
 the other bracketed PRExxx conditions you need to meet.
   </p>
   <p class="indent1">
@@ -814,7 +814,7 @@ It is PRESIZE&lt;suffix&gt;:&lt;sizeidentifier&gt;
    <code>PRESIZEEQ:L</code>
   </p>
   <p class="indent3">
-   MUst be Large size
+   Must be Large size
   </p>
   <p class="indent2">
    <code>PRESIZEGTEQ:H</code>

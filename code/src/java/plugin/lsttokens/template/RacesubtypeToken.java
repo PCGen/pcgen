@@ -33,8 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with RACESUBTYPE Token
  */
-public class RacesubtypeToken extends AbstractTokenWithSeparator<PCTemplate>
-		implements CDOMPrimaryToken<PCTemplate>
+public class RacesubtypeToken extends AbstractTokenWithSeparator<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override
@@ -60,19 +59,16 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<PCTemplate>
 			if (aType.startsWith(".REMOVE."))
 			{
 				String substring = aType.substring(8);
-				if (substring.length() == 0)
+				if (substring.isEmpty())
 				{
-					return new ParseResult.Fail("Invalid .REMOVE. in " + getTokenName()
-						+ " requires an argument", context);
+					return new ParseResult.Fail("Invalid .REMOVE. in " + getTokenName() + " requires an argument");
 				}
-				context.getObjectContext().addToList(template,
-						ListKey.REMOVED_RACESUBTYPE,
-						RaceSubType.getConstant(substring));
+				context.getObjectContext().addToList(template, ListKey.REMOVED_RACESUBTYPE,
+					RaceSubType.getConstant(substring));
 			}
 			else
 			{
-				context.getObjectContext().addToList(template,
-						ListKey.RACESUBTYPE, RaceSubType.getConstant(aType));
+				context.getObjectContext().addToList(template, ListKey.RACESUBTYPE, RaceSubType.getConstant(aType));
 			}
 		}
 		return ParseResult.SUCCESS;
@@ -81,10 +77,9 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<PCTemplate>
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		Changes<RaceSubType> addedChanges = context.getObjectContext()
-				.getListChanges(pct, ListKey.RACESUBTYPE);
-		Changes<RaceSubType> removedChanges = context.getObjectContext()
-				.getListChanges(pct, ListKey.REMOVED_RACESUBTYPE);
+		Changes<RaceSubType> addedChanges = context.getObjectContext().getListChanges(pct, ListKey.RACESUBTYPE);
+		Changes<RaceSubType> removedChanges =
+				context.getObjectContext().getListChanges(pct, ListKey.REMOVED_RACESUBTYPE);
 		Collection<RaceSubType> added = addedChanges.getAdded();
 		Collection<RaceSubType> removed = removedChanges.getAdded();
 		if (added == null && removed == null)
@@ -117,7 +112,7 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<PCTemplate>
 				needPipe = true;
 			}
 		}
-		return new String[] { sb.toString() };
+		return new String[]{sb.toString()};
 	}
 
 	@Override

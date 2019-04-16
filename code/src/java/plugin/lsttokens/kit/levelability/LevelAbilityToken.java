@@ -1,5 +1,4 @@
 /*
- * LevelAbilityToken.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 6, 2006
- *
- * Current Ver: $Revision$
  */
 
 package plugin.lsttokens.kit.levelability;
@@ -60,28 +55,24 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		KitLevelAbility kitLA, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, KitLevelAbility kitLA, String value)
 	{
 		int equalLoc = value.indexOf('=');
 		if (equalLoc == -1)
 		{
-			return new ParseResult.Fail(getTokenName() + " requires an =: " + value, context);
+			return new ParseResult.Fail(getTokenName() + " requires an =: " + value);
 		}
 		if (equalLoc != value.lastIndexOf('='))
 		{
-			return new ParseResult.Fail(getTokenName() + " requires a single =: "
-					+ value, context);
+			return new ParseResult.Fail(getTokenName() + " requires a single =: " + value);
 		}
 		String className = value.substring(0, equalLoc);
-		if (className.length() == 0)
+		if (className.isEmpty())
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " requires a class name before =: " + value, context);
+			return new ParseResult.Fail(getTokenName() + " requires a class name before =: " + value);
 		}
 		String level = value.substring(equalLoc + 1);
-		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCClass.class,
-				className);
+		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCClass.class, className);
 		try
 		{
 			Integer lvl = Integer.valueOf(level);
@@ -93,9 +84,8 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail(getTokenName()
-					+ " expected an integer.  Tag must be of the form: "
-					+ getTokenName() + ":<int>", context);
+			return new ParseResult.Fail(
+				getTokenName() + " expected an integer.  Tag must be of the form: " + getTokenName() + ":<int>");
 		}
 		kitLA.setClass(cl);
 		return ParseResult.SUCCESS;
@@ -110,7 +100,7 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 			return null;
 		}
 		Integer lvl = kitLA.getLevel();
-		return new String[] { cl.getLSTformat(false) + '=' + lvl };
+		return new String[]{cl.getLSTformat(false) + '=' + lvl};
 	}
 
 	@Override

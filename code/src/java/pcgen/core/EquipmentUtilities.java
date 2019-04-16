@@ -1,5 +1,4 @@
 /*
- * EquipmentUtilities.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,11 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Aug 25, 2005
  *  Refactored from PlayerCharacter, created on April 21, 2001, 2:15 PM
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core;
 
@@ -31,7 +26,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 
 /**
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class EquipmentUtilities
 {
@@ -142,13 +136,12 @@ public final class EquipmentUtilities
 					// Once found, return the actual item from the list
 					return equipment;
 				}
-				CDOMSingleRef<Equipment> baseItem =
-						target.get(ObjectKey.BASE_ITEM);
+				CDOMSingleRef<Equipment> baseItem = target.get(ObjectKey.BASE_ITEM);
 				target = baseItem == null ? null : baseItem.get();
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 }

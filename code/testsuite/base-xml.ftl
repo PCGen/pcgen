@@ -18,9 +18,7 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 #
-# Created on 2013-12-14 08:30:00 AM
 #
-# $Id: $
 -->
 <character>
 	<!--<#t>
@@ -629,17 +627,26 @@
 </#if>	<!-- Bard -->
 
 
-	<#if (pcvar('BARBARIAN') >= 1) >	<!-- If character is a barbarian -->
-		<rage>
-			<uses_per_day><@pcstring tag="VAR.RAGE.INTVAL"/></uses_per_day>
-			<description>The Barbarian temporarily gains +4 to Strength, +4 to Constitution, and a +2 morale bonus on Will saves, but suffers a -2 penalty to AC. A fit of rage lasts for a number of rounds equal to 3 + the character's (newly improved) Constitution modifier. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter (unless the barbarian is 20th level, when this limitation no longer applies). The barbarian can only fly into a rage once per encounter, and only a certain number of times per day (determined by level). Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
+	<!-- Pathfinder -->
+	<#if (pcvar("VAR.RageLVL") >= 1) >	<!-- If character can Rage -->
+	<rage>
+		<uses_per_day>${pcstring('VAR.RageDuration.INTVAL')}</uses_per_day>
+		<uses_per_day.title>Rounds/day</uses_per_day.title>
+	</rage>
+	</#if>	<!-- Character Rage -->
+	<#if (pcvar("VAR.RageTimes") >= 1) >	<!-- If character can Rage -->
+	<rage>
+		<uses_per_day>${pcstring('VAR.RageTimes.INTVAL')}</uses_per_day>
+		<uses_per_day.title>Uses per day</uses_per_day.title>
+		<#if (pcboolean('ABILITYALL.Special Ability.0.TYPE=RageDescription.HASASPECT.RageDescription')) >
+		<description>${pcstring('ABILITYALL.Special Ability.0.TYPE=RageDescription.ASPECT.RageDescription')}</description>
+		<#else>
+		<description>The Barbarian gains +${pcstring('VAR.RageStrBonus.INTVAL')} to Strength, +${pcstring('VAR.RageConBonus.INTVAL')} to Constitution, and a +${pcstring('VAR.RageMorale.INTVAL')} morale bonus on Will saves, but suffers a -${pcstring('VAR.RageACPenalty.INTVAL')} penalty to AC for ${pcvar('VAR.RageConBonus.INTVAL')} rounds. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter. The barbarian can only rage once per encounter. Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
+		</#if>
+	</rage>
+	<!-- this stuff needs a bit of work to display correct info for both 3e and 3.5e properly. - Tir Gwaith -->
+	</#if>	<!-- Character Rage -->
 
-		<#if (pcvar('BARBARIAN') >= 15) >
-			<description>Starting at 15th level, the barbarian's rage bonuses become +6 to Strength, +6 to Constitution, and a +3 morale bonus to Will saves. (The AC penalty remains at -2.)</description>
-	
-		</#if>	<!-- Barbarian of 15th Level -->
-		</rage>
-	</#if><!-- Character Rage -->
 	<!-- Turning ability -->
 	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","ASPECT=TurnType")')-1 ; turncount , turncount_has_next >
 	<#assign turnKind>

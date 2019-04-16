@@ -1,0 +1,10 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets Season 9	SOURCESHORT:PFSCS9	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2016-08
+
+# Equipment Name			Required Ability								Modifier					Source, Long Desc.								Source, Short Desc.	Description																																																														Source Pub. Date
+Glorymane.COPY=Glorymain +4	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-13	EQMOD:Special Ability ~ +4 ~ Shield	SOURCELONG:Pathfinder Society Scenario #9-13: The Lion's Justice	SOURCESHORT:PFS#9-13	DESC:&nl;One of your Pathfinder Society characters has the Pathfinder Society Scenario #9-13: The Lion's Justice chronicle and the Glorymane Resplendent boon. You spent 15,000 gp to upgrade Glorymane. This upgrade increases the shield's enhancement bonus from +2 to +4. Glorymain gains a +4 bonus on attack rolls with its bite attacks, and the damage dealt increases to 2d10.	SOURCEDATE:2018-3
+
+#
+# DONE
+#

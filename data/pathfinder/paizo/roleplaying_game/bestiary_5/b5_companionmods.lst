@@ -1,0 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Bestiary 5	SOURCESHORT:B5	SOURCEWEB:http://paizo.com/products/btpy9g9x	SOURCEDATE:2015-12
+
+# Race of familiar					Type			Ability
+MASTERBONUSRACE:Familiar (Chicken)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Chicken)
+MASTERBONUSRACE:Familiar (Flying Fox)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Flying Fox)
+MASTERBONUSRACE:Familiar (Penguin)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Penguin)
+MASTERBONUSRACE:Familiar (Red Panda)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Red Panda)
+MASTERBONUSRACE:Familiar (Seal)			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Seal)
+MASTERBONUSRACE:Familiar (Trilobite)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Trilobite)
+MASTERBONUSRACE:Familiar (Clockwork Familiar)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Clockwork Familiar)

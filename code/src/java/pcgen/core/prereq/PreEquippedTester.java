@@ -1,5 +1,4 @@
 /*
- * PreEquipped.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,11 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 28, 2003
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core.prereq;
 
@@ -31,22 +25,20 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.character.WieldCategory;
 import pcgen.system.LanguageBundle;
 
-/**
- * @author wardc
- */
-public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
+public abstract class PreEquippedTester extends AbstractPrerequisiteTest
+{
 
 	/**
 	 * Process the tokens and return the number that is not passed.
 	 *
-	 * @param prereq
+	 * @param prereq the prereq
 	 * @param character The pc to use.
 	 * @param equippedType The equipped type to look for (e.g. Equipment.EQUIPPED_TWO_HANDS)
-	 *
-	 * @return the number that did not pass
-	 * @throws PrerequisiteException
+	 * @return the number that did not pass.
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
-	public int passesPreEquipHandleTokens(final Prerequisite prereq, final PlayerCharacter character, final EquipmentLocation equippedType) throws PrerequisiteException
+	public int passesPreEquipHandleTokens(final Prerequisite prereq, final PlayerCharacter character,
+		final EquipmentLocation equippedType) throws PrerequisiteException
 	{
 		// TODO refactor this code with PreEquipTester
 		boolean isEquipped = false;
@@ -54,12 +46,12 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 		if (character.hasEquipment())
 		{
 			String aString = prereq.getKey();
-			for ( Equipment eq : character.getDisplay().getEquippedEquipmentSet() )
+			for (Equipment eq : character.getDisplay().getEquippedEquipmentSet())
 			{
 				//
 				// Only check equipment of the type we are interested in
 				//
-				if  (eq.getLocation() != equippedType)
+				if (eq.getLocation() != equippedType)
 				{
 					continue;
 				}
@@ -73,15 +65,15 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 						break;
 					}
 				}
-				else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE."))	//$NON-NLS-1$ //$NON-NLS-2$
+				else if (aString.startsWith("TYPE=") || aString.startsWith("TYPE.")) //$NON-NLS-1$ //$NON-NLS-2$
 				{
 					isEquipped = eq.isType(aString);
 					break;
 				}
-				else	 //not a TYPE string
+				else //not a TYPE string
 				{
 					String eqName;
-					if (aString.startsWith("BASEITEM="))	//$NON-NLS-1$ //$NON-NLS-2$
+					if (aString.startsWith("BASEITEM=")) //$NON-NLS-1$ 
 					{
 						eqName = eq.getBaseItemName();
 						aString = aString.substring(aString.indexOf(Constants.EQUALS) + 1);
@@ -124,7 +116,8 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 		}
 		else
 		{
-			throw new PrerequisiteException(LanguageBundle.getFormattedString(
+			throw new PrerequisiteException(
+				LanguageBundle.getFormattedString(
 					"PreEquipped.error.invalid_comparison", prereq.toString())); //$NON-NLS-1$
 		}
 

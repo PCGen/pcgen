@@ -15,10 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * VariableHashMap.java
- *
- * Created on November 1, 2002, 1:15 PM
  */
 package pcgen.core.doomsdaybook;
 
@@ -28,18 +24,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <code>VariableHashMap</code> is a collection of variables (key/value 
+ * {@code VariableHashMap} is a collection of variables (key/value
  * pairs) and DataElements optimised for quick lookup and updating. Note
  * there are three structures here, the principle map of variables, a
  * secondary map of DataElement objects and a list of Operation objects.
- *
- *
- * @author devon
  */
 public class VariableHashMap extends HashMap<String, String>
 {
-	private List<Operation> initialize = new ArrayList<>();
-	private Map<String, DataElement> dataElements;
+	private final List<Operation> initialize = new ArrayList<>();
+	private final Map<String, DataElement> dataElements;
 
 	/** Creates a new instance of VariableHashMap */
 	public VariableHashMap()
@@ -92,8 +85,7 @@ public class VariableHashMap extends HashMap<String, String>
 
 		if (value == null)
 		{
-			throw new variableException("Variable " + key
-				+ " does not exist, cannot get value");
+			throw new variableException("Variable " + key + " does not exist, cannot get value");
 		}
 
 		return value;
@@ -111,8 +103,7 @@ public class VariableHashMap extends HashMap<String, String>
 	{
 		if (get(key) == null)
 		{
-			throw new variableException("Variable " + key
-				+ " does not exist, cannot set value");
+			throw new variableException("Variable " + key + " does not exist, cannot set value");
 		}
 
 		put(key, value);
@@ -156,8 +147,7 @@ public class VariableHashMap extends HashMap<String, String>
 
 		if (value == null)
 		{
-			throw new variableException("Variable " + key
-				+ " does not exist, cannot add to value");
+			throw new variableException("Variable " + key + " does not exist, cannot add to value");
 		}
 
 		int val;
@@ -190,8 +180,7 @@ public class VariableHashMap extends HashMap<String, String>
 
 		if (value == null)
 		{
-			throw new variableException("Variable " + key
-				+ " does not exist, cannot divide by value");
+			throw new variableException("Variable " + key + " does not exist, cannot divide by value");
 		}
 
 		int val;
@@ -284,15 +273,13 @@ public class VariableHashMap extends HashMap<String, String>
 	 * @return The new value of the variable.
 	 * @throws variableException When no entry exists for the supplied key.
 	 */
-	public String multiplyVar(String key, int multiply)
-		throws variableException
+	public String multiplyVar(String key, int multiply) throws variableException
 	{
 		String value = get(key);
 
 		if (value == null)
 		{
-			throw new variableException("Variable " + key
-				+ " does not exist, cannot multiply by value");
+			throw new variableException("Variable " + key + " does not exist, cannot multiply by value");
 		}
 
 		int val;
@@ -322,7 +309,7 @@ public class VariableHashMap extends HashMap<String, String>
 
 		if (val.matches("\\$\\{.*?\\}.*"))
 		{
-			String var = val.substring(val.indexOf("${") + 2, val.indexOf("}"));
+			String var = val.substring(val.indexOf("${") + 2, val.indexOf('}'));
 			String value = get(var);
 
 			if (value == null)
@@ -345,15 +332,13 @@ public class VariableHashMap extends HashMap<String, String>
 	 * @return The new value of the variable.
 	 * @throws variableException When no entry exists for the supplied key.
 	 */
-	public String subtractVar(String key, int subtract)
-		throws variableException
+	public String subtractVar(String key, int subtract) throws variableException
 	{
 		String value = get(key);
 
 		if (value == null)
 		{
-			throw new variableException("Variable " + key
-				+ " does not exist, cannot subtract from value");
+			throw new variableException("Variable " + key + " does not exist, cannot subtract from value");
 		}
 
 		int val;

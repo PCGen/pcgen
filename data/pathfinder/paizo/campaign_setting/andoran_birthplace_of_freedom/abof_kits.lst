@@ -1,0 +1,115 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Andoran, Birthplace of Freedom	SOURCESHORT:ABOF	SOURCEDATE:2015-05
+# ORIGINAL ENTRY: James Parker, with Gwen T. (evilpixie87)
+
+STARTPACK:NPC (Corrupt Politician)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,%],[!PRERACE:1,Human]	SOURCEPAGE:p.52
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Charisma
+NAME:Corrupt Politician
+ALIGN:TN
+CLASS:Bard	LEVEL:5
+ABILITY:CATEGORY=Archetype|Bard Archetype ~ Court Bard
+ABILITY:CATEGORY=Favored Class|Bard
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Versatile Performance|Versatile Performance ~ Oratory
+STAT:STR=8|DEX=14|CON=12|INT=13|WIS=10|CHA=18
+SKILL:Bluff				RANK:5
+SKILL:Diplomacy			RANK:5
+SKILL:Disguise			RANK:1
+SKILL:Intimidate			RANK:5
+SKILL:Knowledge (history)	RANK:2
+SKILL:Knowledge (local)		RANK:2
+SKILL:Knowledge (nobility)	RANK:2
+SKILL:Perception			RANK:5
+SKILL:Perform (act)		RANK:1
+SKILL:Perform (oratory)		RANK:4
+SKILL:Sleight of Hand		RANK:2
+SKILL:Stealth			RANK:2
+SKILL:Use Magic Device		RANK:5
+ABILITY:CATEGORY=FEAT|Enforcer
+ABILITY:CATEGORY=FEAT|Lingering Performance
+ABILITY:CATEGORY=FEAT|Skill Focus (Intimidate)
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+GEAR:Padded	LOCATION:Equipped
+GEAR:Sap	LOCATION:Primary Hand	EQMOD:MWORKW
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Enter Image
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Honeyed Tongue
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Suggestion
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Charm Person
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Disguise Self
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Memory Lapse
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Vanish
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Dancing Lights
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Daze
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Ghost Sound
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Message
+SPELLS:SPELLBOOK=Known Spells|CLASS=Bard|Prestidigitation
+
+
+STARTPACK:NPC (Eagle Knight)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,%],[!PRERACE:1,Human]	SOURCEPAGE:p.53
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Dexterity
+NAME:Eagle Knight
+ALIGN:LG
+CLASS:Fighter	LEVEL:3
+ABILITY:CATEGORY=Favored Class|Fighter
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+STAT:STR=13|DEX=15|CON=12|INT=10|WIS=8|CHA=14
+SKILL:Knowledge (history)	RANK:1
+SKILL:Knowledge (local)		RANK:1
+SKILL:Perception			RANK:3
+SKILL:Sense Motive		RANK:2
+SKILL:Stealth			RANK:1
+SKILL:Survival			RANK:1
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Deadly Aim
+ABILITY:CATEGORY=FEAT|Iron Will
+#ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=Fighter Bonus Feat|Power Attack
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (greatsword)
+GEAR:Breastplate			LOCATION:Equipped		EQMOD:MWORKA
+GEAR:Greatsword			LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Longbow (Composite)	LOCATION:Carried		EQMOD:MWORKW.BOWSTR|+1
+GEAR:Arrows (20)			LOCATION:Carried
+GEAR:Holy Symbol			LOCATION:Carried		EQMOD:Holy Symbol (Wooden)
+GEAR:Backpack			LOCATION:Carried
+
+
+STARTPACK:NPC (Lumber Consortium Enforcer)	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,%],[!PRERACE:1,Human]	SOURCEPAGE:p.57
+RACE:Human	!PRERACE:1,%
+ABILITY:CATEGORY=Ability Bonus|+2 Strength
+NAME:Lumber Consortium Enforcer
+ALIGN:NE
+CLASS:Brawler	LEVEL:4
+ABILITY:CATEGORY=Favored Class|Brawler
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Skill Rank
+STAT:STR=18|DEX=13|CON=14|INT=8|WIS=12|CHA=10
+SKILL:Acrobatics			RANK:3
+SKILL:Climb				RANK:1
+SKILL:Intimidate			RANK:3
+SKILL:Perception			RANK:1
+SKILL:Profession (woodcutter)	RANK:1
+SKILL:Ride				RANK:1
+SKILL:Sense Motive		RANK:1
+SKILL:Stealth			RANK:4
+SKILL:Swim				RANK:1
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Enforcer
+ABILITY:CATEGORY=FEAT|Improved Unarmed Strike
+ABILITY:CATEGORY=FEAT|Intimidating Prowess
+ABILITY:CATEGORY=Brawler Bonus Feat|Power Attack
+GEAR:Chain Shirt				LOCATION:Equipped		EQMOD:MWORKA
+GEAR:Longspear				LOCATION:Both Hands	EQMOD:MWORKW
+GEAR:Handaxe				LOCATION:Carried
+GEAR:Javelin			QTY:3	LOCATION:Carried
+GEAR:Cloak of Resistance +1		LOCATION:Equipped

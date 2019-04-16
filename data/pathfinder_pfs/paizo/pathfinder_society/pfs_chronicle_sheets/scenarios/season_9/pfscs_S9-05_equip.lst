@@ -1,0 +1,10 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets Season 9	SOURCESHORT:PFSCS9	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2016-08
+
+# Equipment Name	Type				Cost		Weight	Required Ability								Quality and value																														Description
+Shards of Aucturn	TYPE:Magic.Wondrous.PFS	COST:400	WT:0		PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-05	QUALITY:Aura|faint transmutation	QUALITY:Caster Level|5th	QUALITY:Slot|none	QUALITY:Construction Cost|200	QUALITY:Construction Requirements|Craft Wondrous Item, animate objects, bleed	DESC:This bag contains 56 assorted pieces of debris connected to the distant planet Aucturn. Dumping the bag fills a 10-foot square area with shards, which function as magic caltrops with a +1 bonus on their attack roll. If a creature steps on a shard, it suffers the usual effects of a caltrop injury, and the shards animate into a swarm (rolling their own initiative). The activated shards function as a spider swarm without poison. A creature that takes damage from the swarm must succeed at a DC 11 Fortitude save or take 1d2 points of precision damage from invasive lacerations to whichever ability score is currently the highest. Once activated, the shards attack their target and any other nearby creatures. After 5 rounds, the shards disintegrate.
+
+#
+# DONE
+#

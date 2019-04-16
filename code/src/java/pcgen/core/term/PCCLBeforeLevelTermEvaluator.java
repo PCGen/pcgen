@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCQualifiedCLBeforeLevelTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,33 +16,29 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 04-Aug-2008 17:02:58
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacter;
 
-public class PCCLBeforeLevelTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCLBeforeLevelTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 
 	private final String source;
 	private final int level;
-	
-	public PCCLBeforeLevelTermEvaluator(
-			String originalText, String source, int level)
+
+	public PCCLBeforeLevelTermEvaluator(String originalText, String source, int level)
 	{
 		this.originalText = originalText;
-		this.source       = source;
-		this.level        = level;
+		this.source = source;
+		this.level = level;
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc) {
+	public Float resolve(PlayerCharacter pc)
+	{
 
 		final PCClass aClass = pc.getClassKeyed(source);
 
@@ -56,7 +51,7 @@ public class PCCLBeforeLevelTermEvaluator
 
 			return (float) pc.getDisplay().getLevel(aClass);
 		}
-		
+
 		return 0.0f;
 	}
 

@@ -1,6 +1,4 @@
 /*
- * PreWeaponProfTest.java
- *
  * Copyright 2007 (C) Koen Van Daele <kador@foeffighters.be>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,63 +14,51 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.core.prereq;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.WeaponProf;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
- * <code>PreWeaponProfTest</code> tests that the PREWEAPONPROF tag is
+ * {@code PreWeaponProfTest} tests that the PREWEAPONPROF tag is
  * working correctly.
- *
- *
- * @author Koen Van Daele <kador@foeffighters.be>
  */
 public class PreWeaponProfTest extends AbstractCharacterTestCase
 {
-	
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreWeaponProfTest.class);
-	}
-
 	/**
-	 * @return Test
+	 * Test with a simple weapon proficiency.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreWeaponProfTest.class);
-	}
-	
-	/**
-	 * Test with a simple weapon proficiency
-	 * @throws Exception
-	 */
-	public void testOneOption() throws Exception
+	@Test
+	public void testOneOption() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -86,31 +72,33 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREWEAPONPROF:1,Longsword");
 
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no proficiencies");
 
 		character.addTemplate(pct);
 
-		assertTrue("Character has the Longsword proficiency.", 
-					PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has the Longsword proficiency.");
 		
 		prereq = factory.parse("PREWEAPONPROF:1,Longbow");
 		
-		assertFalse("Character does not have the Longbow proficiency", 
-				PrereqHandler.passes(prereq, character, null));
+		assertFalse(
+				PrereqHandler.passes(prereq, character, null), "Character does not have the Longbow proficiency");
 		
 		prereq = factory.parse("PREWEAPONPROF:1,Dagger");
 		
-		assertTrue("Character has the Dagger proficiency.", 
-				PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has the Dagger proficiency.");
 	}
 
 
 	/**
-	 * Tests to see if a character has a certain number of weaponprofs from a list
-	 * @throws Exception
+	 * Tests to see if a character has a certain number of weaponprofs from a list.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testMultiple() throws Exception
+	@Test
+	public void testMultiple() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCTemplate pct = new PCTemplate();
@@ -123,31 +111,34 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREWEAPONPROF:1,Longsword,Dagger");
 
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no proficiencies");
 
 		character.addTemplate(pct);
 
-		assertTrue("Character has one of Longsword or Dagger proficiency", 
-			PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has one of Longsword or Dagger proficiency");
 
 		prereq = factory.parse("PREWEAPONPROF:2,Longsword,Dagger");
 
-		assertTrue("Character has both Longsword and Dagger proficiency", 
-				PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has both Longsword and Dagger proficiency");
 		
 		prereq = factory.parse("PREWEAPONPROF:3,Longsword,Dagger,Longbow");
 
-		assertFalse("Character has both Longsword and Dagger proficiency but not Longbow", 
-				PrereqHandler.passes(prereq, character, null));
+		assertFalse(
+				PrereqHandler.passes(prereq, character, null),
+				"Character has both Longsword and Dagger proficiency but not Longbow");
 		
 	}
 	
 	/**
-	 * Test a preweaponprof that checks for a number of profs of a certain type
-	 * @throws Exception
+	 * Test a preweaponprof that checks for a number of profs of a certain type.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testType() throws Exception
+	@Test
+	public void testType() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCTemplate pctls = new PCTemplate();
@@ -162,31 +153,33 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREWEAPONPROF:1,TYPE.Martial");
 
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no proficiencies");
 		
 		character.addTemplate(pctls);
 		
-		assertTrue("Character has one Martial Weapon Proficiency", 
-				PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has one Martial Weapon Proficiency");
 		
 		prereq = factory.parse("PREWEAPONPROF:2,TYPE.Martial");
 
-		assertFalse("Character only has one proficiency", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character only has one proficiency");
 		
 		character.addTemplate(pctlb);
 		
-		assertTrue("Character has two Martial Weapon Proficiencies", 
-				PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has two Martial Weapon Proficiencies");
 	
 	}
 	
 	/**
-	 * Test with negation
-	 * @throws Exception
+	 * Test with negation.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testInverse() throws Exception
+	@Test
+	public void testInverse() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCTemplate pct = new PCTemplate();
@@ -199,33 +192,35 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("!PREWEAPONPROF:1,Longsword");
 
-		assertTrue("Character has no proficiencies", PrereqHandler.passes(
-			prereq, character, null));
+		assertTrue(PrereqHandler.passes(
+			prereq, character, null), "Character has no proficiencies");
 
 		character.addTemplate(pct);
 
-		assertFalse("Character has the Longsword proficiency.", 
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse(
+				PrereqHandler.passes(prereq, character, null), "Character has the Longsword proficiency.");
 		
 		prereq = factory.parse("!PREWEAPONPROF:1,Longbow");
 		
-		assertTrue("Character does not have the Longbow proficiency", 
-				PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character does not have the Longbow proficiency");
 		
 		prereq = factory.parse("!PREWEAPONPROF:1,Dagger");
 		
-		assertFalse("Character has the Dagger proficiency.", 
-				PrereqHandler.passes(prereq, character, null));
+		assertFalse(
+				PrereqHandler.passes(prereq, character, null), "Character has the Dagger proficiency.");
 		
 	}
 	
 	/**
 	 * Test the preweaponprof with weaponprofs added by a AUTO:WEAPONPROF tag
 	 * This is probably more an integration test than a unit test
-	 * This test was written to help find the source of bug 1699779
-	 * @throws Exception
+	 * This test was written to help find the source of bug 1699779.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testWeaponProfAddedWithAutoWeaponProf() throws Exception
+	@Test
+	public void testWeaponProfAddedWithAutoWeaponProf() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 
@@ -234,40 +229,42 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREWEAPONPROF:1,Longsword");
 
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
-			prereq, character, null));
+		assertFalse(PrereqHandler.passes(
+			prereq, character, null), "Character has no proficiencies");
 		
 		final Ability martialProf = 
-			TestHelper.makeAbility("Weapon Proficiency (Martial)", AbilityCategory.FEAT, "General");
+			TestHelper.makeAbility("Weapon Proficiency (Martial)", BuildUtilities.getFeatCat(), "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO",
 				"WEAPONPROF|TYPE.Martial");
 		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
-		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), martialProf, null);
 
-		assertTrue("Character has the Longsword proficiency.", 
-					PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has the Longsword proficiency.");
 		
 		prereq = factory.parse("PREWEAPONPROF:1,Longbow");
-		assertTrue("Character has the Longbow proficiency.",
-					PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has the Longbow proficiency.");
 		
 		prereq = factory.parse("PREWEAPONPROF:1,Dagger");
-		assertFalse("Character does not have the Dagger proficiency.",
-					PrereqHandler.passes(prereq, character, null));
+		assertFalse(
+				PrereqHandler.passes(prereq, character, null), "Character does not have the Dagger proficiency.");
 		
 		prereq = factory.parse("PREWEAPONPROF:1,TYPE.Martial");
-		assertTrue("Character has martial weaponprofs.",
-					PrereqHandler.passes(prereq, character, null));
+		assertTrue(
+				PrereqHandler.passes(prereq, character, null), "Character has martial weaponprofs.");
 		
 	}
 	
 	/**
 	 * Test Preweaponprof with a feat that has a bonus tag
-	 * This test was written to help find the source of bug 1699779
-	 * @throws Exception
+	 * This test was written to help find the source of bug 1699779.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testWithFeatThatGrantsBonus() throws Exception
+	@Test
+	public void testWithFeatThatGrantsBonus() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
 		PCTemplate pctls = new PCTemplate();
@@ -294,12 +291,13 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final String barStr =
 			"Bar	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50";
 		featLoader.parseLine(Globals.getContext(), bar, barStr, cse);
-		addAbility(AbilityCategory.FEAT, bar);
+		addAbility(BuildUtilities.getFeatCat(), bar);
 		
-		assertEquals("Character should have 50 bonus hp added.",
-					baseHp+50,
-					character.hitPoints()
-					);
+		assertEquals(
+				baseHp+50,
+					character.hitPoints(),
+				"Character should have 50 bonus hp added."
+		);
 		
 		character.addTemplate(pctls);
 		
@@ -307,20 +305,19 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final String fooStr =
 			"Foo	TYPE:General	DESC:See Text	BONUS:HP|CURRENTMAX|50|PREWEAPONPROF:1,Longsword";
 		featLoader.parseLine(Globals.getContext(), foo, fooStr, cse);
-		addAbility(AbilityCategory.FEAT, foo);
+		addAbility(BuildUtilities.getFeatCat(), foo);
 		
-		assertEquals("Character has the longsword proficiency so the bonus should be added",
-					baseHp+50+50,
-					character.hitPoints()
-					);
+		assertEquals(
+				baseHp+50+50,
+					character.hitPoints(),
+				"Character has the longsword proficiency so the bonus should be added"
+		);
 	
 	}
-	
-	/* (non-Javadoc)
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
+
 	{
 		super.setUp();
 

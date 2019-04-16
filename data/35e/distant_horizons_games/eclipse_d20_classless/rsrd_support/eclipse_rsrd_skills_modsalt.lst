@@ -1,0 +1,30 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision$ $Author$ -- Sat Sep  6 20:29:21 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
+# ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
+# ORIGINAL ENTRY DATE: 2011-01-01
+
+#	ABILITY:Internal|VIRTUAL|Make CSKILL ~ x1|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy(x1),Full Skill Buy(x1)
+
+# Skill Name					Type					Ability
+Alt Rule Skill ~ Acrobatics.MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Acrobatics|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Acrobatics),Full Skill Buy (Alt Rule Skill ~ Acrobatics)
+Alt Rule Skill ~ Appraise.MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Appraise|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Appraise),Full Skill Buy (Alt Rule Skill ~ Appraise)
+Alt Rule Skill ~ Athletics.MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Athletics|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Athletics),Full Skill Buy (Alt Rule Skill ~ Athletics)
+Alt Rule Skill ~ Arcana.MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Arcana|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Arcana),Full Skill Buy (Alt Rule Skill ~ Arcana)
+Alt Rule Skill ~ Concentration.MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Concentration|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Concentration),Full Skill Buy (Alt Rule Skill ~ Concentration)
+Alt Rule Skill ~ Craft.MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Craft|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Craft),Full Skill Buy (Alt Rule Skill ~ Craft)
+Alt Rule Skill ~ Deception.MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Deception|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Deception),Full Skill Buy (Alt Rule Skill ~ Deception)
+Alt Rule Skill ~ Engineering.MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Engineering|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Engineering),Full Skill Buy (Alt Rule Skill ~ Engineering)
+Alt Rule Skill ~ Heal.MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Heal|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Heal),Full Skill Buy (Alt Rule Skill ~ Heal)
+Alt Rule Skill ~ Linguistics.MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Linguistics|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Linguistics),Full Skill Buy (Alt Rule Skill ~ Linguistics)
+Alt Rule Skill ~ Local Knowledge.MOD	TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Local Knowledge|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Local Knowledge),Full Skill Buy (Alt Rule Skill ~ Local Knowledge)
+Alt Rule Skill ~ Perception.MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Perception|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Perception),Full Skill Buy (Alt Rule Skill ~ Perception)
+Alt Rule Skill ~ Perform.MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Perform|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Perform),Full Skill Buy (Alt Rule Skill ~ Perform)
+Alt Rule Skill ~ Persuasion.MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Persuasion|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Persuasion),Full Skill Buy (Alt Rule Skill ~ Persuasion)
+Alt Rule Skill ~ Religion.MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Religion|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Religion),Full Skill Buy (Alt Rule Skill ~ Religion)
+Alt Rule Skill ~ Profession.MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Profession|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Profession),Full Skill Buy (Alt Rule Skill ~ Profession)
+Alt Rule Skill ~ Scholar.MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Scholar|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Scholar),Full Skill Buy (Alt Rule Skill ~ Scholar)
+Alt Rule Skill ~ Socialize.MOD		TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Socialize|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Socialize),Full Skill Buy (Alt Rule Skill ~ Socialize)
+Alt Rule Skill ~ Stealth.MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Stealth|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Stealth),Full Skill Buy (Alt Rule Skill ~ Stealth)
+Alt Rule Skill ~ Survival.MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Survival|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Survival),Full Skill Buy (Alt Rule Skill ~ Survival)
+Alt Rule Skill ~ Thievery.MOD			TYPE:AdeptChoice.NormalSkill	ABILITY:Internal|VIRTUAL|Make CSKILL ~ Alt Rule Skill ~ Thievery|PREABILITY:6,CATEGORY=Skill Buy,Adept Skill Buy (Alt Rule Skill ~ Thievery),Full Skill Buy (Alt Rule Skill ~ Thievery)

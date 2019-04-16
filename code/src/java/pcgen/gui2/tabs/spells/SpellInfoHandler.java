@@ -1,5 +1,4 @@
 /*
- * SpellInfoHandler.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,14 +15,11 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Nov 14, 2011, 5:21:13 PM
  */
 package pcgen.gui2.tabs.spells;
 
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-
-import org.apache.commons.lang.StringUtils;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.SpellSupportFacade.RootNode;
@@ -31,10 +27,8 @@ import pcgen.facade.core.SpellSupportFacade.SpellNode;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeViewTable;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
+import org.apache.commons.lang3.StringUtils;
+
 class SpellInfoHandler implements ListSelectionListener
 {
 
@@ -45,7 +39,7 @@ class SpellInfoHandler implements ListSelectionListener
 	private String currText;
 
 	public SpellInfoHandler(CharacterFacade character, JTreeViewTable<?> table1, JTreeViewTable<?> table2,
-							InfoPane spellsPane)
+		InfoPane spellsPane)
 	{
 		this.spellsPane = spellsPane;
 		this.availableTable = table1;

@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCCountSpellRaceTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 20:27:43
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -28,8 +24,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 
-public class PCCountSpellRaceTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCCountSpellRaceTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	public PCCountSpellRaceTermEvaluator(String originalText)
 	{

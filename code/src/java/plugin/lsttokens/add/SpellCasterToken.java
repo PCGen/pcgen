@@ -44,12 +44,12 @@ import pcgen.core.analysis.BonusAddition;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
-import pcgen.rules.persistence.token.AbstractToken;
+import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class SpellCasterToken extends AbstractToken implements
-		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<PCClass>
+public class SpellCasterToken extends AbstractNonEmptyToken<CDOMObject>
+		implements CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<PCClass>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -72,14 +72,8 @@ public class SpellCasterToken extends AbstractToken implements
 	}
 
 	@Override
-	public ParseResult parseToken(LoadContext context, CDOMObject obj,
-		String value)
+	public ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
-		if (isEmpty(value))
-		{
-			return new ParseResult.Fail("Value in " + getFullName()
-					+ " may not be empty", context);
-		}
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
 		sep.addGroupingPair('(', ')');
@@ -95,20 +89,17 @@ public class SpellCasterToken extends AbstractToken implements
 			count = FormulaFactory.getFormulaFor(activeValue);
 			if (!count.isValid())
 			{
-				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString(), context);
+				return new ParseResult.Fail("Count in " + getTokenName() + " was not valid: " + count.toString());
 			}
 			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{
-				return new ParseResult.Fail("Count in " + getFullName()
-								+ " must be > 0", context);
+				return new ParseResult.Fail("Count in " + getFullName() + " must be > 0");
 			}
 			activeValue = sep.next();
 		}
 		if (sep.hasNext())
 		{
-			return new ParseResult.Fail(getFullName()
-					+ " had too many pipe separated items: " + value, context);
+			return new ParseResult.Fail(getFullName() + " had too many pipe separated items: " + value);
 		}
 		ParseResult pr = checkSeparatorsAndNonEmpty(',', activeValue);
 		if (!pr.passed())
@@ -135,48 +126,39 @@ public class SpellCasterToken extends AbstractToken implements
 			else
 			{
 				foundOther = true;
-				if (token.equals("Arcane") || token.equals("Divine")
-						|| token.equals("Psionic"))
+				if (token.equals("Arcane") || token.equals("Divine") || token.equals("Psionic"))
 				{
 					spelltypes.add(token);
 				}
-				else if (token.startsWith(Constants.LST_TYPE_DOT)
-						|| token.startsWith(Constants.LST_TYPE_EQUAL))
+				else if (token.startsWith(Constants.LST_TYPE_DOT) || token.startsWith(Constants.LST_TYPE_EQUAL))
 				{
-					CDOMReference<PCClass> ref = TokenUtilities
-							.getTypeReference(context, PCCLASS_CLASS, token
-									.substring(5));
+					CDOMReference<PCClass> ref =
+							TokenUtilities.getTypeReference(context, PCCLASS_CLASS, token.substring(5));
 					if (ref == null)
 					{
-						return new ParseResult.Fail(
-							"  Error was encountered while parsing " + getFullName()
-								+ ": " + token + " is not a valid reference: " + value,
-							context);
+						return new ParseResult.Fail("  Error was encountered while parsing " + getFullName() + ": "
+							+ token + " is not a valid reference: " + value);
 					}
 					groups.add(ref);
 				}
 				else
 				{
-					prims.add(context.getReferenceContext()
-							.getCDOMReference(PCCLASS_CLASS, token));
+					prims.add(context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, token));
 				}
 			}
 		}
 
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getFullName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+			return new ParseResult.Fail(
+				"Non-sensical " + getFullName() + ": Contains ANY and a specific reference: " + value);
 		}
 
-		ReferenceChoiceSet<PCClass> grcs = groups.isEmpty() ? null
-				: new ReferenceChoiceSet<>(groups);
-		ReferenceChoiceSet<PCClass> prcs = prims.isEmpty() ? null
-				: new ReferenceChoiceSet<>(prims);
+		ReferenceChoiceSet<PCClass> grcs = groups.isEmpty() ? null : new ReferenceChoiceSet<>(groups);
+		ReferenceChoiceSet<PCClass> prcs = prims.isEmpty() ? null : new ReferenceChoiceSet<>(prims);
 		SelectableSet<PCClass> cs = new SpellCasterChoiceSet(allRef, spelltypes, grcs, prcs);
 		cs.setTitle("Spell Caster Class Choice");
-		PersistentTransitionChoice<PCClass> tc = new ConcretePersistentTransitionChoice<>(
-				cs, count);
+		PersistentTransitionChoice<PCClass> tc = new ConcretePersistentTransitionChoice<>(cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
 		return ParseResult.SUCCESS;
@@ -185,10 +167,9 @@ public class SpellCasterToken extends AbstractToken implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Changes<PersistentTransitionChoice<?>> grantChanges = context
-				.getObjectContext().getListChanges(obj, ListKey.ADD);
-		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges
-				.getAdded();
+		Changes<PersistentTransitionChoice<?>> grantChanges =
+				context.getObjectContext().getListChanges(obj, ListKey.ADD);
+		Collection<PersistentTransitionChoice<?>> addedItems = grantChanges.getAdded();
 		if (addedItems == null || addedItems.isEmpty())
 		{
 			// Zero indicates no Token
@@ -203,21 +184,18 @@ public class SpellCasterToken extends AbstractToken implements
 				Formula f = container.getCount();
 				if (f == null)
 				{
-					context.addWriteMessage("Unable to find " + getFullName()
-							+ " Count");
+					context.addWriteMessage("Unable to find " + getFullName() + " Count");
 					return null;
 				}
 				if (f.isStatic() && f.resolveStatic().doubleValue() <= 0)
 				{
-					context.addWriteMessage("Count in " + getFullName()
-							+ " must be > 0");
+					context.addWriteMessage("Count in " + getFullName() + " must be > 0");
 					return null;
 				}
 				if (!cs.getGroupingState().isValid())
 				{
 					context.addWriteMessage("Non-sensical " + getFullName()
-							+ ": Contains ANY and a specific reference: "
-							+ cs.getLSTformat());
+						+ ": Contains ANY and a specific reference: " + cs.getLSTformat());
 					return null;
 				}
 				StringBuilder sb = new StringBuilder();
@@ -251,8 +229,7 @@ public class SpellCasterToken extends AbstractToken implements
 			pc.setSpellLists(theClass);
 		}
 
-		BonusAddition.applyBonus("PCLEVEL|" + theClass.getKeyName() + "|1", "",
-				pc, owner);
+		BonusAddition.applyBonus("PCLEVEL|" + theClass.getKeyName() + "|1", "", pc, owner);
 
 		pc.calcActiveBonuses();
 		for (PCClass pcClass : pc.getClassSet())
@@ -280,8 +257,7 @@ public class SpellCasterToken extends AbstractToken implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			PCClass choice)
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, PCClass choice)
 	{
 		if (owner instanceof PCClassLevel)
 		{
@@ -293,15 +269,13 @@ public class SpellCasterToken extends AbstractToken implements
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-			PCClass choice)
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, PCClass choice)
 	{
 		PCClass theClass = pc.getClassKeyed(choice.getKeyName());
 
 		if (theClass != null)
 		{
-			BonusAddition.removeBonus("PCLEVEL|" + theClass.getKeyName() + "|1",
-					pc, owner);
+			BonusAddition.removeBonus("PCLEVEL|" + theClass.getKeyName() + "|1", pc, owner);
 			pc.calcActiveBonuses();
 			pc.getClassSet().forEach(pc::calculateKnownSpellsForClassLevel);
 		}

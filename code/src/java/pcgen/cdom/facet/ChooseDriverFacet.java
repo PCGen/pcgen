@@ -32,13 +32,12 @@ import pcgen.util.Logging;
  * ChooseDriverFacet is a Facet that drives the application of a CHOOSE on a
  * CDOMObject.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ChooseDriverFacet
 {
 
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-		.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	private RaceSelectionFacet raceSelectionFacet;
 
@@ -66,21 +65,17 @@ public class ChooseDriverFacet
 				if (ChooseActivation.hasNewChooseToken(obj))
 				{
 					ChooseDriver cd = (ChooseDriver) obj;
-					addAssoc(ChooserUtilities.getChoiceManager(cd, pc), pc,
-						cd, sel);
+					addAssoc(ChooserUtilities.getChoiceManager(cd, pc), pc, cd, sel);
 				}
 			}
 			else
 			{
-				Logging
-					.errorPrint("Object of type "
-						+ obj.getClass()
-						+ " was sent to ChooseDriverFacet, but it is not a ChooseDriver");
+				Logging.errorPrint("Object of type " + obj.getClass()
+					+ " was sent to ChooseDriverFacet, but it is not a ChooseDriver");
 			}
 		}
 
-		private <T> void addAssoc(ChoiceManagerList<T> aMan, PlayerCharacter pc,
-			ChooseDriver obj, T sel)
+		private <T> void addAssoc(ChoiceManagerList<T> aMan, PlayerCharacter pc, ChooseDriver obj, T sel)
 		{
 			aMan.applyChoice(pc, obj, sel);
 		}
@@ -92,8 +87,7 @@ public class ChooseDriverFacet
 		}
 	}
 
-	private class Remover implements
-			ScopeFacetChangeListener<CharID, CDOMObject, Object>
+	private class Remover implements ScopeFacetChangeListener<CharID, CDOMObject, Object>
 	{
 		@Override
 		public void dataAdded(ScopeFacetChangeEvent<CharID, CDOMObject, Object> dfce)
@@ -121,23 +115,19 @@ public class ChooseDriverFacet
 			}
 			else
 			{
-				Logging
-					.errorPrint("Object of type "
-						+ cdo.getClass()
-						+ " was sent to ChooseDriverFacet, but it is not a ChooseDriver");
+				Logging.errorPrint("Object of type " + cdo.getClass()
+					+ " was sent to ChooseDriverFacet, but it is not a ChooseDriver");
 			}
 		}
 
-		private <T> void removeAssoc(ChoiceManagerList<T> aMan, PlayerCharacter pc,
-			ChooseDriver obj, T sel)
+		private <T> void removeAssoc(ChoiceManagerList<T> aMan, PlayerCharacter pc, ChooseDriver obj, T sel)
 		{
 			aMan.removeChoice(pc, obj, sel);
 		}
 
 	}
 
-	public void setDomainSelectionFacet(
-		DomainSelectionFacet domainSelectionFacet)
+	public void setDomainSelectionFacet(DomainSelectionFacet domainSelectionFacet)
 	{
 		this.domainSelectionFacet = domainSelectionFacet;
 	}
@@ -147,8 +137,7 @@ public class ChooseDriverFacet
 		this.raceSelectionFacet = raceSelectionFacet;
 	}
 
-	public void setTemplateSelectionFacet(
-		TemplateSelectionFacet templateSelectionFacet)
+	public void setTemplateSelectionFacet(TemplateSelectionFacet templateSelectionFacet)
 	{
 		this.templateSelectionFacet = templateSelectionFacet;
 	}

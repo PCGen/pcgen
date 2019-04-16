@@ -34,8 +34,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with STARTFEATS Token
  */
-public class StartfeatsToken extends AbstractToken implements
-		CDOMPrimaryToken<Race>
+public class StartfeatsToken extends AbstractToken implements CDOMPrimaryToken<Race>
 {
 
 	@Override
@@ -55,22 +54,19 @@ public class StartfeatsToken extends AbstractToken implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			return new ParseResult.Fail("Error encountered in "
-					+ getTokenName()
-					+ " was expecting value to be an integer, found: " + value, context);
+			return new ParseResult.Fail(
+				"Error encountered in " + getTokenName() + " was expecting value to be an integer, found: " + value);
 		}
 
 		BonusObj bon = Bonus.newBonus(context, "FEAT|POOL|" + bonusValue);
 		if (bon == null)
 		{
-			return new ParseResult.Fail("Internal Error: " + getTokenName()
-					+ " had invalid bonus", context);
+			return new ParseResult.Fail("Internal Error: " + getTokenName() + " had invalid bonus");
 		}
 		Prerequisite prereq = getPrerequisite("PREMULT:1,[PREHD:MIN=1],[PRELEVEL:MIN=1]");
 		if (prereq == null)
 		{
-			return new ParseResult.Fail("Internal Error: " + getTokenName()
-					+ " had invalid prerequisite", context);
+			return new ParseResult.Fail("Internal Error: " + getTokenName() + " had invalid prerequisite");
 		}
 		bon.addPrerequisite(prereq);
 		bon.setTokenSource(getTokenName());
@@ -81,8 +77,7 @@ public class StartfeatsToken extends AbstractToken implements
 	@Override
 	public String[] unparse(LoadContext context, Race race)
 	{
-		Changes<BonusObj> changes = context.getObjectContext().getListChanges(race,
-				ListKey.BONUS);
+		Changes<BonusObj> changes = context.getObjectContext().getListChanges(race, ListKey.BONUS);
 		if (changes == null || changes.isEmpty())
 		{
 			// Empty indicates no token present
@@ -91,8 +86,7 @@ public class StartfeatsToken extends AbstractToken implements
 		// CONSIDER need to deal with removed...
 		Collection<BonusObj> added = changes.getAdded();
 		String tokenName = getTokenName();
-		Collection<String> bonusSet = new WeightedCollection<>(
-				String.CASE_INSENSITIVE_ORDER);
+		Collection<String> bonusSet = new WeightedCollection<>(String.CASE_INSENSITIVE_ORDER);
 		for (BonusObj bonus : added)
 		{
 			if (tokenName.equals(bonus.getTokenSource()))

@@ -15,21 +15,14 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens;
 
-import pcgen.cdom.base.Constants;
+import java.util.StringTokenizer;
+
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
-
-import java.util.StringTokenizer;
 
 //SPECIALABILITY.x
 //SPECIALABILITY.x.DESCRIPTION
@@ -37,21 +30,14 @@ public class SpecialAbilityToken extends Token
 {
 	public static final String TOKENNAME = "SPECIALABILITY";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
@@ -68,56 +54,19 @@ public class SpecialAbilityToken extends Token
 
 			if ("DESCRIPTION".equals(subToken))
 			{
-				return getDescriptionToken(pc, i);
+				return "";
 			}
 		}
 		return getSpecialAbilityToken(pc, i);
 	}
 
-	public static String getSpecialAbilityToken(PlayerCharacter pc,
-		int specialIndex)
+	private static String getSpecialAbilityToken(PlayerCharacter pc, int specialIndex)
 	{
-		if (specialIndex >= 0
-			&& specialIndex < pc.getSpecialAbilityTimesList().size())
+		if (specialIndex >= 0 && specialIndex < pc.getSpecialAbilityTimesList().size())
 		{
 			return pc.getSpecialAbilityTimesList().get(specialIndex);
 		}
 		return "";
 	}
 
-	public static String getDescriptionToken(PlayerCharacter pc,
-		int specialIndex)
-	{
-		if (specialIndex >= 0
-			&& specialIndex < pc.getSpecialAbilityTimesList().size())
-		{
-			if (SettingsHandler.isROG())
-			{
-				if ("EMPTY".equals(pc.getDescriptionLst()))
-				{
-					pc.loadDescriptionFilesInDirectory("descriptions");
-				}
-
-				String description = "";
-				String search =
-						"SA" + ":"
-							+ pc.getSpecialAbilityTimesList().get(specialIndex)
-							+ Constants.LINE_SEPARATOR;
-				int pos = pc.getDescriptionLst().indexOf(search);
-
-				if (pos >= 0)
-				{
-					description =
-							pc.getDescriptionLst().substring(
-								pos + search.length());
-					description =
-							description.substring(0,
-								description.indexOf("####") - 1).trim();
-				}
-
-				return description;
-			}
-		}
-		return "";
-	}
 }

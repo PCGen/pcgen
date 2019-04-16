@@ -1,5 +1,4 @@
 /*
- * EqTypeToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,21 +15,19 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.io.exporttoken;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * Deal with EQTYPE Token
@@ -40,21 +37,14 @@ public class EqTypeToken extends EqToken
 	/** Token Name */
 	public static final String TOKEN_NAME = "EQTYPE";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKEN_NAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh)
+	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);
 		aTok.nextToken();
@@ -62,7 +52,7 @@ public class EqTypeToken extends EqToken
 		//Merge
 		String token = aTok.nextToken();
 		int merge = Constants.MERGE_ALL;
-		if (token.indexOf("MERGE") >= 0)
+		if (token.contains("MERGE"))
 		{
 			merge = returnMergeType(token);
 			token = aTok.nextToken();

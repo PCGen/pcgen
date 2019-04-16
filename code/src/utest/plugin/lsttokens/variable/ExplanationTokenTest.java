@@ -17,9 +17,9 @@
  */
 package plugin.lsttokens.variable;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-import pcgen.base.lang.ObjectUtil;
 import pcgen.cdom.content.DatasetVariable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
@@ -29,13 +29,15 @@ import plugin.lsttokens.testsupport.AbstractTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
+import org.junit.jupiter.api.Test;
+
 public class ExplanationTokenTest extends
 		AbstractTokenTestCase<DatasetVariable>
 {
 
 	private static ExplanationToken token = new ExplanationToken();
 	private static CDOMTokenLoader<DatasetVariable> loader =
-			new CDOMTokenLoader<DatasetVariable>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMPrimaryToken<DatasetVariable> getToken()
@@ -62,7 +64,7 @@ public class ExplanationTokenTest extends
 	}
 
 	@Test
-	public void testDisplayNameRequired() throws PersistenceLayerException
+	public void testDisplayNameRequired()
 	{
 		DatasetVariable dv = new DatasetVariable();
 		ParseResult pr = token.parseToken(primaryContext, dv, "Try Me!");
@@ -91,17 +93,10 @@ public class ExplanationTokenTest extends
 	@Override
 	public void isCDOMEqual(DatasetVariable dv1, DatasetVariable dv2)
 	{
-		assertTrue("Display Name not equal " + dv1 + " and " + dv2, dv1
-			.getDisplayName().equals(dv2.getDisplayName()));
-		assertTrue("Format not equal " + dv1 + " and " + dv2,
-			ObjectUtil.compareWithNull(dv1.getFormat(), dv2.getFormat()));
-		assertTrue("Scope Name not equal " + dv1 + " and " + dv2,
-			ObjectUtil.compareWithNull(dv1.getScopeName(), dv2.getScopeName()));
-		assertTrue("Source URI not equal " + dv1 + " and " + dv2,
-			ObjectUtil.compareWithNull(dv1.getSourceURI(), dv2.getSourceURI()));
-		assertTrue(
-			"Explanation not equal " + dv1 + " and " + dv2,
-			ObjectUtil.compareWithNull(dv1.getExplanation(),
-				dv2.getExplanation()));
+		assertEquals(dv1.getDisplayName(), dv2.getDisplayName(), () -> "Display Name not equal " + dv1 + " and " + dv2);
+		assertEquals(dv1.getFormat(), dv2.getFormat(), () -> "Format not equal " + dv1 + " and " + dv2);
+		assertEquals(dv1.getScope(), dv2.getScope(), () -> "Scope Name not equal " + dv1 + " and " + dv2);
+		assertEquals(dv1.getSourceURI(), dv2.getSourceURI(), () -> "Source URI not equal " + dv1 + " and " + dv2);
+		assertEquals( dv1.getExplanation(), dv2.getExplanation(), () -> "Explanation not equal " + dv1 + " and " + dv2);
 	}
 }

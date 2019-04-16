@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 12/07/2008 18:44:57
- *
- * $Id: $
  */
 package plugin.lsttokens.gamemode;
 
@@ -29,32 +25,25 @@ import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
 /**
- * The Class <code>DefaultdatasetToken</code> is responsible for parsing
+ * The Class {@code DefaultdatasetToken} is responsible for parsing
  * the value of the DEFAULTDATASET tag and processing it against the game mode..
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class DefaultdatasetToken implements GameModeLstToken
 {
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.LstToken#getTokenName()
-	 */
-    @Override
+	@Override
 	public String getTokenName()
 	{
 		return "DEFAULTDATASET";
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.persistence.lst.GameModeLstToken#parse(pcgen.core.GameMode, java.lang.String, java.net.URI)
-	 */
-    @Override
+	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		String[] tokens = value.split("\\|");
-		
+
 		final StringTokenizer aTok = new StringTokenizer(tokens[0], ",", false);
 		gameMode.clearDefaultDataSetList();
 

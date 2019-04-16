@@ -1,5 +1,4 @@
 /*
- * PCGenIdentifier.java
  * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,15 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.cdom.base;
 
+/**
+ * This interface represents an identifier (like a CharID) so that certain classes can use
+ * Generics to have a minimal compile requirement of using an expected identifier rather
+ * than an arbitrary object.
+ */
 public interface PCGenIdentifier
 {
-
+	//Intentionally Empty Interface
 }

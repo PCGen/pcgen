@@ -18,6 +18,7 @@
 package pcgen.persistence.lst;
 
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.persistence.PersistenceLayerException;
@@ -34,8 +35,7 @@ import pcgen.rules.context.LoadContext;
  *            The type of object that this GenericLocalVariableLoader loads from
  *            LST files
  */
-public class GenericLocalVariableLoader<T extends CDOMObject> extends
-		GenericLoader<T>
+public class GenericLocalVariableLoader<T extends CDOMObject> extends GenericLoader<T>
 {
 
 	/**
@@ -56,20 +56,12 @@ public class GenericLocalVariableLoader<T extends CDOMObject> extends
 	public GenericLocalVariableLoader(Class<T> cl, String varScope)
 	{
 		super(cl);
-		if (varScope == null)
-		{
-			throw new IllegalArgumentException("VariableScope cannot be null");
-		}
+		Objects.requireNonNull(varScope, "VariableScope cannot be null");
 		this.varScope = varScope;
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#loadLstFiles(pcgen.rules.context.LoadContext,
-	 *      java.util.List)
-	 */
 	@Override
-	public void loadLstFiles(LoadContext context,
-		List<CampaignSourceEntry> fileList) throws PersistenceLayerException
+	public void loadLstFiles(LoadContext context, List<CampaignSourceEntry> fileList) throws PersistenceLayerException
 	{
 		LoadContext subContext = context.dropIntoContext(varScope);
 		super.loadLstFiles(subContext, fileList);

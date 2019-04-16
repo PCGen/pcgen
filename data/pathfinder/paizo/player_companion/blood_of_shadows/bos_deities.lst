@@ -1,0 +1,15 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Blood of Shadows	SOURCESHORT:BOS	SOURCEWEB:http://paizo.com/products/btpy9j6s	SOURCEDATE:2016-02
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 14 April 2016
+
+# ==============================
+# Deity Subdomain Access
+# ==============================
+
+# Deity Name	Product Identity?	Domains													Source Page
+Nocticula.MOD	NAMEISPI:YES	DOMAINS:Shadow Subdomain (Darkness)|PREALIGN:CN,NE,CE						SOURCEPAGE:p.17
+Norgorber.MOD	NAMEISPI:YES	DOMAINS:Shadow Subdomain (Death)|PREALIGN:TN,LE,NE,CE						SOURCEPAGE:p.17
+Urgathoa.MOD	NAMEISPI:YES	DOMAINS:Shadow Subdomain (Death)|PREALIGN:TN,LE,NE,CE						SOURCEPAGE:p.17
+Zon-Kuthon.MOD	NAMEISPI:YES	DOMAINS:Shadow Subdomain (Darkness),Shadow Subdomain (Death)|PREALIGN:LN,LE,NE	SOURCEPAGE:p.17

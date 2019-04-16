@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCBaseSpellStatTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 03-Aug-2008 22:55:01
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -31,16 +27,15 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 
-public class PCBaseSpellStatTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator {
+public class PCBaseSpellStatTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
+{
 
 	private final String source;
 
-	public PCBaseSpellStatTermEvaluator(
-			String originalText, String source)
+	public PCBaseSpellStatTermEvaluator(String originalText, String source)
 	{
 		this.originalText = originalText;
-		this.source       = source;
+		this.source = source;
 	}
 
 	@Override
@@ -50,8 +45,8 @@ public class PCBaseSpellStatTermEvaluator
 
 		if (pcClass == null)
 		{
-			pcClass = Globals.getContext().getReferenceContext()
-					.silentlyGetConstructedCDOMObject(PCClass.class, source);
+			pcClass =
+					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, source);
 		}
 		//null safe to pass in
 		return (float) getBaseSpellStatBonus(pc, pcClass);
@@ -63,7 +58,7 @@ public class PCBaseSpellStatTermEvaluator
 		{
 			return 0;
 		}
-		
+
 		int baseSpellStat = 0;
 		CDOMSingleRef<PCStat> ssref = pcClass.get(ObjectKey.SPELL_STAT);
 		if (ssref != null)

@@ -1,0 +1,61 @@
+# Sun Jan 20 20:05:07 2019 -- reformated by PCGen PrettyLST v6.08.00
+# Original Entry by: AinvarG, December 30, 2010
+# Revised by: LearnTribe, 16 August 2017
+SOURCELONG:Book of Arcane Magic	SOURCESHORT:boam	SOURCEWEB:http://www.4windsfantasygaming.com	SOURCEDATE:2009-01
+
+###Block: Specific Melee Weapons
+# Equipment Name	Required Weapon Proficiency	Type																	Cost		Weight	Crit Mult	Crit Range	Damage	Modifier			Wield Category	Size		Source Page		Special Property
+Vow-keeper		PROFICIENCY:WEAPON|Dagger	TYPE:Weapon.Melee.Light.Finesseable.Ranged.Thrown.Simple.Standard.Piercing.Slashing.Dagger.BladeLight	COST:82302	WT:1		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d4	EQMOD:PLUS2W.AXIOM	WIELD:Light		SIZE:M	SOURCEPAGE:p.60	SPROP:If the carrier of Vow-keeper makes a vow or promise, they will be forced to carry out that vow or promise, as if under the effects of a geas/quest spell.
+
+###Block: Rings
+# Equipment Name						Type			Cost		Source Page		Bonus to skill									Special Property
+Ring of Fireshape						TYPE:Magic.Ring	COST:8000	SOURCEPAGE:p.61												SPROP:On command, the wearer can affect fires in a 60 ft. burst within a 200 ft radius as the spell fireshape.  The power of this ring can be utilized for up to 12 rounds per day.
+Ring of Good Humor					TYPE:Magic.Ring	COST:2000	SOURCEPAGE:p.61	BONUS:SKILL|Perform (Comedy)|10|TYPE=Competence
+Ring of the Master Thespian				TYPE:Magic.Ring	COST:2000	SOURCEPAGE:p.61	BONUS:SKILL|Perform (Act)|10|TYPE=Competence
+Ring of Parables						TYPE:Magic.Ring	COST:2000	SOURCEPAGE:p.61	BONUS:SKILL|Perform (Oratory)|10|TYPE=Competence
+Ring of Perfect Pitch					TYPE:Magic.Ring	COST:2000	SOURCEPAGE:p.61	BONUS:SKILL|Perform (Sing)|10|TYPE=Competence
+### Not clear if the Ring of the Virtuoso is intended to give +10 to all instrumental skills - seems overpowered when the equivalent other perform rings only enhance one skill
+#Ring of the Virtuoso											TYPE:Magic.Ring	COST:2000	SOURCEPAGE:p.61							BONUS:SKILL|Perform (Keyboard Instruments)|Perform (Percussion Instruments)|Perform (String Instruments)|Perform (Wind Instruments)|10|TYPE=Competence
+Ring of the Virtuoso (Keyboard Instruments)	TYPE:Magic.Ring	COST:2000	SOURCEPAGE:p.61	BONUS:SKILL|Perform (Keyboard Instruments)|10|TYPE=Competence
+Ring of the Virtuoso (Percussion Instruments)	TYPE:Magic.Ring	COST:2000	SOURCEPAGE:p.61	BONUS:SKILL|Perform (Percussion Instruments)|10|TYPE=Competence
+Ring of the Virtuoso (String Instruments)		TYPE:Magic.Ring	COST:2000	SOURCEPAGE:p.61	BONUS:SKILL|Perform (String Instruments)|10|TYPE=Competence
+Ring of the Virtuoso (Wind Instruments)		TYPE:Magic.Ring	COST:2000	SOURCEPAGE:p.61	BONUS:SKILL|Perform (Wind Instruments)|10|TYPE=Competence
+
+###Block: Staves
+# Equipment Name			Type			Cost		Weight	Modifier					Source Page
+Staff of the Polymorpher	TYPE:Magic.Staff	COST:103600	WT:5		EQMOD:CHARGED_STAFF|CHARGES[10]	SOURCEPAGE:p.61
+
+###Block: Wondrous Items
+# Equipment Name				Product Identity?	Type						Cost		Weight	Slot Needed	Required Ability									Modifier					Source Page		Combat bonus				Bonus to skill						Modify VAR													Special Property
+Amulet of Good Fortune						TYPE:Magic.Wondrous.Amulet		COST:18072	WT:.01																				SOURCEPAGE:p.62																													SPROP:Wearer can reroll certain rolls three times per day, as if affected by the spell good fortune.
+Amulet of Lizardskin						TYPE:Magic.Wondrous.Amulet		COST:8000	WT:.01																				SOURCEPAGE:p.62															BONUS:VAR|AC_Natural_Armor|2|TYPE=BaseEnhancement
+
+Boots of Happy Feet						TYPE:Magic.Wondrous.Boot		COST:2000	WT:1		SLOTS:2																		SOURCEPAGE:p.62							BONUS:SKILL|Perform (Dance)|10|TYPE=Competence
+Boots of Perfect Balance					TYPE:Magic.Wondrous.Boot		COST:2000	WT:1		SLOTS:2																		SOURCEPAGE:p.62																													SPROP:Three times per day, on command, the wearer is granted a +10 competence bonus to Acrobatics checks or to Dexterity checks.
+Boots of the Rogue						TYPE:Magic.Wondrous.Boot		COST:2400	WT:1		SLOTS:2																		SOURCEPAGE:p.62																													SPROP:Once per day, the boots grant the wearer one extra move action or one extra attack on the wearer's turn (but not both).
+
+Circlet of Spirit Sight						TYPE:Magic.Wondrous.Headgear		COST:90000	WT:.01																				SOURCEPAGE:p.62																													SPROP:The wearer has the ability to see the natural world in terms of the living spirit in all things.  It can be turned off and on at will and has no maximum duration of use.
+Collar of Constant Lubrication				TYPE:Magic.Wondrous.Amulet		COST:400	WT:.01																				SOURCEPAGE:p.63																													SPROP:Designed for clockwork familiars, this collar keeps the familiar in working order as though the familiar's master had been performing regular maintenance.
+Collar of Protection +1						TYPE:Magic.Wondrous.Amulet		COST:2000	WT:.01																				SOURCEPAGE:p.63	BONUS:COMBAT|AC|1|TYPE=Deflection
+Collar of Protection +2						TYPE:Magic.Wondrous.Amulet		COST:8000	WT:.01																				SOURCEPAGE:p.63	BONUS:COMBAT|AC|2|TYPE=Deflection
+Collar of Protection +3						TYPE:Magic.Wondrous.Amulet		COST:18000	WT:.01																				SOURCEPAGE:p.63	BONUS:COMBAT|AC|3|TYPE=Deflection
+Collar of Protection +4						TYPE:Magic.Wondrous.Amulet		COST:32000	WT:.01																				SOURCEPAGE:p.63	BONUS:COMBAT|AC|4|TYPE=Deflection
+Collar of Protection +5						TYPE:Magic.Wondrous.Amulet		COST:50000	WT:.01																				SOURCEPAGE:p.63	BONUS:COMBAT|AC|5|TYPE=Deflection
+
+Headband of Hindsight						TYPE:Magic.Wondrous.Headband		COST:35785	WT:.01																				SOURCEPAGE:p.63																													SPROP:Three times a day, the wearer can view their immediate area up to 66 hours in the past.
+
+Ierena's Glamered Garter		NAMEISPI:YES	TYPE:Magic.Wondrous			COST:2000	WT:.01																				SOURCEPAGE:p.63																													SPROP:The wearer can create illusory clothing of any type, size, or style desired as a swift action.
+Ierena's Lip Gloss			NAMEISPI:YES	TYPE:Magic.Wondrous.Consumable	COST:4500	WT:.01														EQMOD:CHARGED_ITEM_50|CHARGES[50]	SOURCEPAGE:p.63																													SPROP:Applying the lip gloss to the lips with a finger or small brush grants the user a +2 enhancement bonus to Charisma and a +5 bonus to all Bluff and Diplomacy checks for the next hour.
+
+Magical Quill							TYPE:Magic.Wondrous			COST:1800	WT:.01																				SOURCEPAGE:p.63																													SPROP:Upon command, this magical quill or ink pen begins to record the words spoken by all audible voices within 35 feet.
+
+Perch of Healing							TYPE:Magic.Wondrous			COST:21500	WT:5															EQMOD:USES_PER_DAY_4|CHARGES[4]	SOURCEPAGE:p.64																													SPROP:Up to four times per day, a wizard or sorcerer can activate the perch's power to heal a familiar.
+
+Porfio's Mandolin				NAMEISPI:YES	TYPE:Magic.Wondrous.Instrument	COST:2500	WT:4				PREABILITY:1,CATEGORY=Special Ability,TYPE.Bardic Performance							SOURCEPAGE:p.64							BONUS:SKILL|Perform (String Instruments)|3	BONUS:VAR|BardicPerformanceDuration|6	BONUS:VAR|BardicPerformanceDuration|4	SPROP:When carried by a bard, the mandolin allows the bard extra uses of their Bardic Performance class feature. When they play the mandolin, they also receive a +3 bonus to their Perform (string instruments) skill checks.
+
+Portable Familiar Carrier					TYPE:Magic.Wondrous			COST:16000	WT:15																					SOURCEPAGE:p.64																													SPROP:The carrier is large enough to accommodate most small-sized familiars and smaller. While in the cage, the familiar is protected from most extremes of heat and cold (though it receives no protection from fire- or cold-based damage) and if the cage is dropped, the carrier will float gently to the ground for up to 10 rounds.
+Portable Peep Hole						TYPE:Magic.Wondrous			COST:2000	WT:.01																				SOURCEPAGE:p.64																													SPROP:If placed against a non-magical door, wall or window shutter of wood, iron or stone and no more than 1 ft. thick, the lens allows the holder to peer through and view the scene on the other side.
+
+Soundproof Cube							TYPE:Magic.Wondrous			COST:27000	WT:.01																				SOURCEPAGE:p.64																													SPROP:When commanded to activate, the cube magically soundproofs up to a 40 ft. cube of space for up to 14 hours.
+
+Torq of Awe								TYPE:Magic.Wondrous.Amulet		COST:10000	WT:.01																				SOURCEPAGE:p.64																													SPROP:Grants the wearer a +10 competence bonus to all Intimidate checks four time per day.

@@ -15,14 +15,13 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on October 29, 2006.
  * 
- * $Date: 2006-06-22 21:22:44 -0400 (Thu, 22 Jun 2006) $
  */
 package pcgen.cdom.choiceset;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.util.WeightedCollection;
@@ -74,16 +73,10 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 */
 	public ReferenceChoiceSet(Collection<? extends CDOMReference<T>> col)
 	{
-		super();
-		if (col == null)
-		{
-			throw new IllegalArgumentException(
-					"Choice Collection cannot be null");
-		}
+		Objects.requireNonNull(col, "Choice Collection cannot be null");
 		if (col.isEmpty())
 		{
-			throw new IllegalArgumentException(
-					"Choice Collection cannot be empty");
+			throw new IllegalArgumentException("Choice Collection cannot be empty");
 		}
 		refCollection = new WeightedCollection<>(col);
 	}
@@ -101,11 +94,9 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		WeightedCollection<CDOMReference<?>> sortedSet = new WeightedCollection<>(
-                ReferenceUtilities.REFERENCE_SORTER);
+		WeightedCollection<CDOMReference<?>> sortedSet = new WeightedCollection<>(ReferenceUtilities.REFERENCE_SORTER);
 		sortedSet.addAll(refCollection);
-		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA,
-				useAny);
+		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA, useAny);
 	}
 
 	/**
@@ -120,8 +111,7 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	@Override
 	public Class<T> getChoiceClass()
 	{
-		return refCollection == null ? null : refCollection.iterator().next()
-				.getReferenceClass();
+		return refCollection == null ? null : refCollection.iterator().next().getReferenceClass();
 	}
 
 	/**
@@ -158,24 +148,12 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 		return returnSet;
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this ReferenceChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return refCollection.size();
 	}
 
-	/**
-	 * Returns true if this ReferenceChoiceSet is equal to the given Object.
-	 * Equality is defined as being another ReferenceChoiceSet object with equal
-	 * underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

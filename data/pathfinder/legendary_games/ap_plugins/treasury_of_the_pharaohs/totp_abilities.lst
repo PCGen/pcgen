@@ -1,0 +1,11 @@
+# Wed Apr 12 17:23:26 2017 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: 2$ $Author: Axxroy$ -- Tue Feb 28 10:35 2017 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Treasury of the Pharaohs	SOURCESHORT:TotP	SOURCEWEB:http://www.makeyourgamelegendary.com/	SOURCEDATE:2015-04
+
+###BLOCK: Curses
+# Ability Name	Category of Ability	Type				Description																																									Cost		Source Page
+Embrace of Set	CATEGORY:Afflictions	TYPE:Curse.Affliction	DESC:Curse; Will DC 18 negates; The target of this curse only receives half-healing from magical healing. A target that dies while affected by this curse rises 1 round later as a fast zombie, as described in the Pathfinder Roleplaying Game Bestiary.	COST:0	SOURCEPAGE:p.8
+
+###BLOCK: Poisons
+# Ability Name	Category of Ability	Type				Description																Cost		Source Page
+Asp Poison		CATEGORY:Afflictions	TYPE:Poison.Affliction	DESC:Poison, Injury; Fort DC 15; Freq. 1 round (6); Effect 1d2 Con damage; Cure 2 consecutive saves	COST:0	SOURCEPAGE:p.7

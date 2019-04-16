@@ -25,8 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with REMOVABLE Token
  */
-public class RemovableToken extends AbstractYesNoToken<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>
+public class RemovableToken extends AbstractYesNoToken<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	@Override

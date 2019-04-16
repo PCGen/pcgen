@@ -1,6 +1,5 @@
 /*
  * Copyright 2009 (C) Tom Parker <thpr@users.sourceforge.net>
- * Derived from PCClass.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  * 
  * This library is free software; you can redistribute it and/or modify it under
@@ -28,20 +27,22 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
-import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.prereq.PrereqHandler;
+import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.gui2.facade.Gui2InfoFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 
-public class SubstitutionClassApplication
+public final class SubstitutionClassApplication
 {
 
-	public static void checkForSubstitutionClass(PCClass cl, final int aLevel,
-			final PlayerCharacter aPC)
+	private SubstitutionClassApplication()
 	{
-		List<SubstitutionClass> substitutionClassList = cl
-				.getListFor(ListKey.SUBSTITUTION_CLASS);
+	}
+
+	public static void checkForSubstitutionClass(PCClass cl, final int aLevel, final PlayerCharacter aPC)
+	{
+		List<SubstitutionClass> substitutionClassList = cl.getListFor(ListKey.SUBSTITUTION_CLASS);
 		if (substitutionClassList == null || substitutionClassList.isEmpty())
 		{
 			return;
@@ -57,9 +58,8 @@ public class SubstitutionClassApplication
 		}
 
 		CDOMChooserFacadeImpl<PCClass> chooserFacade =
-                new CDOMChooserFacadeImpl<>(
-                        LanguageBundle.getString("in_SubstLvlChoice"), choiceList, //$NON-NLS-1$
-                        new ArrayList<>(), 1);
+				new CDOMChooserFacadeImpl<>(LanguageBundle.getString("in_SubstLvlChoice"), choiceList, //$NON-NLS-1$
+					new ArrayList<>(), 1);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPC));
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
@@ -74,10 +74,8 @@ public class SubstitutionClassApplication
 		if ((!selectedList.isEmpty()) && selected instanceof SubstitutionClass)
 		{
 			SubstitutionClass sc = (SubstitutionClass) selected;
-			SubstitutionLevelSupport.applyLevelArrayModsToLevel(sc, cl, aLevel,
-					aPC);
-			aPC.setSubstitutionClassName(aPC.getActiveClassLevel(cl, aLevel),
-					sc.getKeyName());
+			SubstitutionLevelSupport.applyLevelArrayModsToLevel(sc, cl, aLevel, aPC);
+			aPC.setSubstitutionClassName(aPC.getActiveClassLevel(cl, aLevel), sc.getKeyName());
 			return;
 		}
 		else
@@ -98,20 +96,21 @@ public class SubstitutionClassApplication
 	 * Build a list of Substitution Classes for the user to choose from. The
 	 * list passed in will be populated.
 	 * 
-	 * @param choiceNames
+	 * @param cl
+	 *            PC Class
+	 * @param choiceList
 	 *            The list of substitution classes to choose from.
 	 * @param level
 	 *            The class level to determine the choices for
 	 * @param aPC
 	 */
-	private static void buildSubstitutionClassChoiceList(PCClass cl,
-			final List<PCClass> choiceList, final int level,
-			final PlayerCharacter aPC)
+	private static void buildSubstitutionClassChoiceList(PCClass cl, final List<PCClass> choiceList, final int level,
+		final PlayerCharacter aPC)
 	{
 
 		for (SubstitutionClass sc : cl.getListFor(ListKey.SUBSTITUTION_CLASS))
 		{
-			if (!PrereqHandler.passesAll(sc.getPrerequisiteList(), aPC, cl))
+			if (!PrereqHandler.passesAll(sc, aPC, cl))
 			{
 				continue;
 			}
@@ -119,8 +118,7 @@ public class SubstitutionClassApplication
 			{
 				continue;
 			}
-			if (!SubstitutionLevelSupport.qualifiesForSubstitutionLevel(cl, sc,
-					aPC, level))
+			if (!SubstitutionLevelSupport.qualifiesForSubstitutionLevel(cl, sc, aPC, level))
 			{
 				continue;
 			}

@@ -47,8 +47,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * Class deals with WEAPONBONUS Token
  */
 public class WeaponbonusToken extends AbstractTokenWithSeparator<PCTemplate>
-		implements CDOMPrimaryToken<PCTemplate>, DeferredToken<PCTemplate>,
-		PersistentChoiceActor<WeaponProf>
+		implements CDOMPrimaryToken<PCTemplate>, DeferredToken<PCTemplate>, PersistentChoiceActor<WeaponProf>
 {
 
 	private static final Class<WeaponProf> WEAPONPROF_CLASS = WeaponProf.class;
@@ -66,8 +65,7 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		PCTemplate template, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, PCTemplate template, String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 		boolean foundAny = false;
@@ -79,27 +77,24 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 			if (Constants.LST_ALL.equals(tokText))
 			{
 				foundAny = true;
-				CDOMReference<WeaponProf> ref = context.getReferenceContext()
-						.getCDOMAllReference(WEAPONPROF_CLASS);
+				CDOMReference<WeaponProf> ref = context.getReferenceContext().getCDOMAllReference(WEAPONPROF_CLASS);
 				context.getObjectContext().addToList(template, ListKey.WEAPONBONUS, ref);
 			}
 			else
 			{
 				foundOther = true;
-				CDOMReference<WeaponProf> ref = TokenUtilities
-						.getTypeOrPrimitive(context, WEAPONPROF_CLASS, tokText);
+				CDOMReference<WeaponProf> ref = TokenUtilities.getTypeOrPrimitive(context, WEAPONPROF_CLASS, tokText);
 				if (ref == null)
 				{
-					return new ParseResult.Fail("  Error was encountered while parsing "
-							+ getTokenName(), context);
+					return new ParseResult.Fail("  Error was encountered while parsing " + getTokenName());
 				}
 				context.getObjectContext().addToList(template, ListKey.WEAPONBONUS, ref);
 			}
 		}
 		if (foundAny && foundOther)
 		{
-			return new ParseResult.Fail("Non-sensical " + getTokenName()
-					+ ": Contains ANY and a specific reference: " + value, context);
+			return new ParseResult.Fail(
+				"Non-sensical " + getTokenName() + ": Contains ANY and a specific reference: " + value);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -107,16 +102,15 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate pct)
 	{
-		Changes<CDOMReference<WeaponProf>> changes = context.getObjectContext()
-				.getListChanges(pct, ListKey.WEAPONBONUS);
+		Changes<CDOMReference<WeaponProf>> changes =
+				context.getObjectContext().getListChanges(pct, ListKey.WEAPONBONUS);
 		Collection<CDOMReference<WeaponProf>> added = changes.getAdded();
 		if (added == null || added.isEmpty())
 		{
 			// Zero indicates no add
 			return null;
 		}
-		return new String[] { ReferenceUtilities.joinLstFormat(added,
-				Constants.PIPE) };
+		return new String[]{ReferenceUtilities.joinLstFormat(added, Constants.PIPE)};
 	}
 
 	@Override
@@ -125,22 +119,17 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 		return PCTemplate.class;
 	}
 
-
 	@Override
 	public boolean process(LoadContext context, PCTemplate obj)
 	{
-		List<CDOMReference<WeaponProf>> weaponbonus =
-				obj.getListFor(ListKey.WEAPONBONUS);
+		List<CDOMReference<WeaponProf>> weaponbonus = obj.getListFor(ListKey.WEAPONBONUS);
 		if (weaponbonus != null)
 		{
-			ReferenceChoiceSet<WeaponProf> rcs =
-					new ReferenceChoiceSet<>(weaponbonus);
-			ChoiceSet<WeaponProf> cs =
-					new ChoiceSet<>(getTokenName(), rcs);
+			ReferenceChoiceSet<WeaponProf> rcs = new ReferenceChoiceSet<>(weaponbonus);
+			ChoiceSet<WeaponProf> cs = new ChoiceSet<>(getTokenName(), rcs);
 			cs.setTitle("Bonus WeaponProf Choice");
 			PersistentTransitionChoice<WeaponProf> tc =
-					new ConcretePersistentTransitionChoice<>(cs,
-							FormulaFactory.ONE);
+					new ConcretePersistentTransitionChoice<>(cs, FormulaFactory.ONE);
 			context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 			tc.setChoiceActor(this);
 		}
@@ -154,8 +143,7 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, WeaponProf choice,
-			PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, WeaponProf choice, PlayerCharacter pc)
 	{
 		pc.addWeaponBonus(owner, choice);
 	}
@@ -166,7 +154,6 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 		return true;
 	}
 
-
 	@Override
 	public String encodeChoice(WeaponProf choice)
 	{
@@ -176,20 +163,17 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 	@Override
 	public WeaponProf decodeChoice(LoadContext context, String s)
 	{
-		return context.getReferenceContext().silentlyGetConstructedCDOMObject(
-			WeaponProf.class, s);
+		return context.getReferenceContext().silentlyGetConstructedCDOMObject(WeaponProf.class, s);
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		WeaponProf choice)
+	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, WeaponProf choice)
 	{
 		pc.addWeaponBonus(owner, choice);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		WeaponProf choice)
+	public void removeChoice(PlayerCharacter pc, CDOMObject owner, WeaponProf choice)
 	{
 		pc.removeWeaponBonus(owner, choice);
 	}

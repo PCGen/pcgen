@@ -1,5 +1,4 @@
 /*
- * PreCheckParserTest.java
  *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
@@ -16,35 +15,30 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18-Dec-2003
- *
- * Current Ver: $Revision$
- *
- *
- *
  */
 package pcgen.persistence.lst.prereq;
 
 import static org.junit.Assert.assertEquals;
 
-import org.junit.Test;
-
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreCheckParser;
 
-/**
- * @author wardc
- */
+import org.junit.jupiter.api.Test;
+
+
 @SuppressWarnings("nls")
 public class PreCheckParserTest extends EnUsLocaleDependentTestCase
 {
+	
 	/**
-	 * @throws Exception
+	 * Test base fort 4 will 7.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testBaseFort4Will7() throws Exception
+	public void testBaseFort4Will7() throws PersistenceLayerException
 	{
 		PreCheckParser parser = new PreCheckParser();
 
@@ -53,17 +47,22 @@ public class PreCheckParserTest extends EnUsLocaleDependentTestCase
 
 		assertEquals(
 			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
-				+ "<prereq kind=\"checkbase\" count-multiples=\"true\" key=\"Fortitude\" operator=\"GTEQ\" operand=\"4\" >\n"
+				+ "<prereq kind=\"checkbase\" count-multiples=\"true\" "
+				+ "key=\"Fortitude\" operator=\"GTEQ\" operand=\"4\" >\n"
 				+ "</prereq>\n"
-				+ "<prereq kind=\"checkbase\" count-multiples=\"true\" key=\"Will\" operator=\"GTEQ\" operand=\"7\" >\n"
+				+ "<prereq kind=\"checkbase\" count-multiples=\"true\" "
+				+ "key=\"Will\" operator=\"GTEQ\" operand=\"7\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test base will 7.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testBaseWill7() throws Exception
+	public void testBaseWill7() throws PersistenceLayerException
 	{
 		PreCheckParser parser = new PreCheckParser();
 
@@ -75,11 +74,14 @@ public class PreCheckParserTest extends EnUsLocaleDependentTestCase
 				+ "</prereq>\n", prereq.toString());
 	}
 
+	
 	/**
-	 * @throws Exception
+	 * Test fort 3.
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void testFort3() throws Exception
+	public void testFort3() throws PersistenceLayerException
 	{
 		PreCheckParser parser = new PreCheckParser();
 

@@ -28,8 +28,8 @@ import pcgen.cdom.enumeration.CharID;
  */
 public class FormulaResolvingFacet
 {
-	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary
-			.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PlayerCharacterTrackingFacet trackingFacet =
+			FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
 
 	public Number resolve(CharID id, Formula f, String source)
 	{

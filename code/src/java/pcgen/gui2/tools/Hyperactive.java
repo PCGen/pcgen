@@ -1,5 +1,4 @@
 /*
- * Hyperactive.java
  * Copyright 2003 (C) Greg Bingleman <byngl@hotmail.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,24 +15,22 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on January 23, 2003, 10:03 PM
  *
- * $Id: Hyperactive.java 1817 2006-12-27 23:54:53Z jdempsey $
  */
 package pcgen.gui2.tools;
 
 import java.io.IOException;
-import pcgen.util.Logging;
 
 import javax.swing.JEditorPane;
 import javax.swing.JOptionPane;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 
+import pcgen.util.Logging;
+
 /**
  * This makes URLs load in a browser when clicked.
  *
- * @author     Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class Hyperactive implements HyperlinkListener
 {
@@ -45,26 +42,18 @@ public final class Hyperactive implements HyperlinkListener
 		{
 			final JEditorPane pane = (JEditorPane) e.getSource();
 
-//			if (e instanceof HTMLFrameHyperlinkEvent)
-//			{
-//				final HTMLFrameHyperlinkEvent evt = (HTMLFrameHyperlinkEvent) e;
-//				final HTMLDocument doc = (HTMLDocument) pane.getDocument();
-//				doc.processHTMLFrameHyperlinkEvent(evt);
-//			}
-//			else
-//			{
 			try
 			{
-				Utility.viewInBrowser(e.getURL());
+				DesktopBrowserLauncher.viewInBrowser(e.getURL());
 			}
 			catch (IOException t)
 			{
-				JOptionPane.showMessageDialog(pane, "<html>An error occurred while opening your browser.<br>" +
-						"Please check PCGen's browser settings.</html>", "Could not open browser", JOptionPane.ERROR_MESSAGE);
-				Logging.errorPrint(
-						"Exception in Hyperactive::hyperlinkUpdate", t);
+				JOptionPane.showMessageDialog(pane,
+					"<html>An error occurred while opening your browser.<br>"
+						+ "Please check PCGen's browser settings.</html>",
+					"Could not open browser", JOptionPane.ERROR_MESSAGE);
+				Logging.errorPrint("Exception in Hyperactive::hyperlinkUpdate", t);
 			}
-//			}
 		}
 	}
 

@@ -1,5 +1,4 @@
 /*
- * EquipmentSelection.java
  * Copyright 2011 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Oct 17, 2011, 8:25:16 PM
  */
 package pcgen.gui2.tabs.equip;
 
@@ -27,15 +25,11 @@ import java.io.IOException;
 
 import pcgen.facade.core.EquipmentFacade;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class EquipmentSelection implements Transferable
 {
 
-	public static final DataFlavor equipmentArrayFlavor = new DataFlavor(DataFlavor.javaJVMLocalObjectMimeType
-			+ ";class=\"" + EquipmentFacade[].class.getName() + "\"", null);
+	public static final DataFlavor EQUIPMENT_ARRAY_FLAVOR = new DataFlavor(
+		DataFlavor.javaJVMLocalObjectMimeType + ";class=\"" + EquipmentFacade[].class.getName() + "\"", null);
 	private EquipmentFacade[] equipment;
 
 	public EquipmentSelection(EquipmentFacade[] equipment)
@@ -46,16 +40,13 @@ public class EquipmentSelection implements Transferable
 	@Override
 	public DataFlavor[] getTransferDataFlavors()
 	{
-		return new DataFlavor[]
-				{
-					equipmentArrayFlavor
-				};
+		return new DataFlavor[]{EQUIPMENT_ARRAY_FLAVOR};
 	}
 
 	@Override
 	public boolean isDataFlavorSupported(DataFlavor flavor)
 	{
-		return equipmentArrayFlavor == flavor;
+		return EQUIPMENT_ARRAY_FLAVOR == flavor;
 	}
 
 	@Override

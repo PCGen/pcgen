@@ -17,29 +17,17 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreDeityParser;
 import plugin.pretokens.writer.PreDeityWriter;
 import plugin.pretokens.writer.PreHasDeityWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class PreDeityRoundRobin extends AbstractBasicRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreDeityRoundRobin.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreDeityRoundRobin.class);
-	}
-
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -61,26 +49,31 @@ public class PreDeityRoundRobin extends AbstractBasicRoundRobin
 		return false;
 	}
 
+	@Test
 	public void testY()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,Y");
 	}
 
+	@Test
 	public void testN()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,N");
 	}
 
+	@Test
 	public void testPantheon()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,PANTHEON.Foo");
 	}
 
+	@Test
 	public void testMultiplePantheon()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,PANTHEON.Bar,PANTHEON.Foo");
 	}
 
+	@Test
 	public void testPantheonComplex()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":3,Foo,PANTHEON.Bar");

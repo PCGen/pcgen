@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.editcontext.race;
 
-import org.junit.Test;
-
 import pcgen.core.Race;
 import pcgen.core.WeaponProf;
 import pcgen.rules.persistence.CDOMLoader;
@@ -27,12 +25,14 @@ import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.race.WeaponbonusToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
+import org.junit.jupiter.api.Test;
+
 public class WeaponbonusIntegrationTest extends
 		AbstractListIntegrationTestCase<Race, WeaponProf>
 {
 
-	static WeaponbonusToken token = new WeaponbonusToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
+	private static WeaponbonusToken token = new WeaponbonusToken();
+	private static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

@@ -34,8 +34,7 @@ import pcgen.rules.context.LoadContext;
  * the exact token name and the ListKey in which the CampaignSourceEntries
  * should be stored.
  */
-public abstract class AbstractBasicCampaignToken extends
-		AbstractTokenWithSeparator<Campaign>
+public abstract class AbstractBasicCampaignToken extends AbstractTokenWithSeparator<Campaign>
 {
 
 	@Override
@@ -45,11 +44,9 @@ public abstract class AbstractBasicCampaignToken extends
 	}
 
 	@Override
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		Campaign campaign, String value)
+	protected ParseResult parseTokenWithSeparator(LoadContext context, Campaign campaign, String value)
 	{
-		CampaignSourceEntry cse =
-				context.getCampaignSourceEntry(campaign, value);
+		CampaignSourceEntry cse = context.getCampaignSourceEntry(campaign, value);
 		if (cse == null)
 		{
 			return ParseResult.INTERNAL_ERROR;
@@ -70,9 +67,7 @@ public abstract class AbstractBasicCampaignToken extends
 
 	public String[] unparse(LoadContext context, Campaign campaign)
 	{
-		Changes<CampaignSourceEntry> cseChanges =
-				context.getObjectContext().getListChanges(campaign,
-					getListKey());
+		Changes<CampaignSourceEntry> cseChanges = context.getObjectContext().getListChanges(campaign, getListKey());
 		Collection<CampaignSourceEntry> added = cseChanges.getAdded();
 		if (added == null)
 		{

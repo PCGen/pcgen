@@ -1,5 +1,4 @@
 /*
- * PluginBuildTest.java
  * Copyright 2007 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,60 +14,52 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Nov 16, 2007
- *
- * $Id$
- *
  */
 package plugin;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import java.util.stream.Collectors;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.framework.TestCase;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
- * <code>PluginBuildTest</code> verifies that the pluginbuild.xml file has all 
+ * {@code PluginBuildTest} verifies that the pluginbuild.xml file has all
  * required data. As a result this unit test is a bit different in structure to 
  * a normal test.  
- *
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class PluginBuildTest extends TestCase
+class PluginBuildTest
 {
 	/**
 	 * Array of exceptions to normal names. Each entry is a pair of
 	 * Java source file name and JAR file name. 
 	 */
-	String [][] exceptions = new String[][] {
-		{ "EqBuilderSpell", "EqBuilder.Spell" },
-		{ "EqBuilderEqType", "EqBuilder.EqType" },
-		{ "GetVar", "Var" },
-		{ "HitdieLst", "Hitdie" },
-		{ "Casttime", "Casttimes" },
-		{ "PreVariable", "PreVar" }
-	};
-	
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
+	private String[][] exceptions;
+
+	@BeforeEach
+	void setUp()
 	{
-		return new TestSuite(PluginBuildTest.class);
+		exceptions = new String[][]{
+			{"EqBuilderSpell", "EqBuilder.Spell"},
+			{"EqBuilderEqType", "EqBuilder.EqType"},
+			{"GetVar", "Var"},
+			{"HitdieLst", "Hitdie"},
+			{"Casttime", "Casttimes"},
+			{"PreVariable", "PreVar"}
+		};
 	}
-	
+
 	/**
 	 * Check for the presence of all 'bonus' token plugins.
 	 */
+	@Test
 	public void testBonusPlugins()
 	{
 		String jarPrefix = "BonusToken-";
@@ -80,21 +71,25 @@ public class PluginBuildTest extends TestCase
 	/**
 	 * Check for the presence of all deprecated token plugins.
 	 */
+	@Test
 	public void testDeprecatedPlugins()
 	{
 		String jarPrefix = "^[a-zA-Z]*-DEPRECATED-";
 		String sourceSuffix = "Lst";
 		File sourceFolder = new File("code/src/java/plugin/lsttokens/deprecated");
-		File jarFolder[] = new File[]{new File("plugins/lstplugins"), new File("plugins/preplugins"), new File("plugins/bonusplugins")};
-		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
+		File[] jarFolder = {new File("plugins/lstplugins"), new File("plugins/preplugins"),
+			new File("plugins/bonusplugins")};
+		assertTrue(
+				sourceFolder.isDirectory(),
+				"Source folder " + sourceFolder.getAbsolutePath() + " should be a directory"
+		);
 		String[] sources = sourceFolder.list();
-		List<String> srcList = new ArrayList<>();
-		srcList.addAll(Arrays.asList(sources));
+		List<String> srcList = new ArrayList<>(Arrays.asList(sources));
 		srcList.remove("PreDefaultMonsterTester.java");
 		srcList.remove("PreDefaultMonsterWriter.java");
 		sources = srcList.toArray(sources);
-		String [][] exceptions = new String[][] {
-			{ "MoveBonus", "Move" }
+		String[][] exceptions = {
+			{"MoveBonus", "Move"}
 		};
 		checkPluginJarsByRegex(jarPrefix, jarFolder, sourceSuffix, sources, exceptions);
 	}
@@ -102,6 +97,7 @@ public class PluginBuildTest extends TestCase
 	/**
 	 * Check for the presence of all export token plugins.
 	 */
+	@Test
 	public void testExportPlugins()
 	{
 		String jarPrefix = "ExportToken-";
@@ -113,6 +109,7 @@ public class PluginBuildTest extends TestCase
 	/**
 	 * Check for the presence of all JEP command plugins.
 	 */
+	@Test
 	public void testJepPlugins()
 	{
 		String jarPrefix = "JepCommand-";
@@ -125,6 +122,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all ability
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstAbilityPlugins()
 	{
 		String jarPrefix = "AbilityLstToken-";
@@ -137,6 +135,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all 'add'
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstAddPlugins()
 	{
 		String jarPrefix = "AddLstToken-";
@@ -149,6 +148,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all 'automatic'
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstAutoPlugins()
 	{
 		String jarPrefix = "AutoLstToken-";
@@ -161,6 +161,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all campaign
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstCampaignPlugins()
 	{
 		String jarPrefix = "CampaignLstToken-";
@@ -173,6 +174,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all campaign
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstInstallableCampaignPlugins()
 	{
 		String jarPrefix = "InstCampaignLstToken-";
@@ -185,6 +187,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all choose
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstChoosePlugins()
 	{
 		String jarPrefix = "ChooseToken-";
@@ -197,6 +200,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all choose
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstEqModChoosePlugins()
 	{
 		String jarPrefix = "EquipmentModifierChooseLstToken-";
@@ -209,6 +213,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all class
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstClassPlugins()
 	{
 		String jarPrefix = "ClassLstToken-";
@@ -221,6 +226,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all class
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstClassLevelPlugins()
 	{
 		String jarPrefix = "ClassLevelLstToken-";
@@ -233,6 +239,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all companion mod
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstCompanionModPlugins()
 	{
 		String jarPrefix = "CompanionModLstToken-";
@@ -245,6 +252,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all deity
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstDietyPlugins()
 	{
 		String jarPrefix = "DeityLstToken-";
@@ -257,6 +265,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all domain
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstDomainPlugins()
 	{
 		String jarPrefix = "DomainLstToken-";
@@ -269,6 +278,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all equipment
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstEquipmentPlugins()
 	{
 		String jarPrefix = "EquipmentLstToken-";
@@ -281,6 +291,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all equipment modifier
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstEquipmentModifierPlugins()
 	{
 		String jarPrefix = "EquipmentModifierLstToken-";
@@ -293,6 +304,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all global
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstGlobalPlugins()
 	{
 		String jarPrefix = "LstToken-";
@@ -305,6 +317,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all kit
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstKitPlugins()
 	{
 		String jarPrefix = "KitLstToken-";
@@ -365,6 +378,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all race
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstRacePlugins()
 	{
 		String jarPrefix = "RaceLstToken-";
@@ -377,6 +391,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all skill
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstSkillPlugins()
 	{
 		String jarPrefix = "SkillLstToken-";
@@ -389,6 +404,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all spell
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstSpellPlugins()
 	{
 		String jarPrefix = "SpellLstToken-";
@@ -401,6 +417,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all sub class
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstSubclassPlugins()
 	{
 		String jarPrefix = "SubClassLstToken-";
@@ -413,6 +430,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all template
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstTemplatePlugins()
 	{
 		String jarPrefix = "TemplateLstToken-";
@@ -425,6 +443,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all weapon proficiency
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstWeaponProfPlugins()
 	{
 		String jarPrefix = "WeaponProfLstToken-";
@@ -437,15 +456,21 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all prerequisite
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testPrePlugins()
 	{
 		String jarPrefix = "PreToken-";
 		File sourceFolder = new File("code/src/java/plugin/pretokens/parser");
 		File jarFolder = new File("plugins/preplugins");
-		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
+		assertTrue(
+				//$NON-NLS-1$
+				sourceFolder.isDirectory(),
+				"Source folder " //$NON-NLS-1$
+						+ sourceFolder.getAbsolutePath()
+						+ " should be a directory"
+		);
 		String[] sources = sourceFolder.list();
-		List<String> srcList = new ArrayList<>();
-		srcList.addAll(Arrays.asList(sources));
+		List<String> srcList = new ArrayList<>(Arrays.asList(sources));
 		srcList.remove("PreSkillTotalParser.java");
 		sources = srcList.toArray(sources);
 		checkPluginJars(jarPrefix, jarFolder, "Parser", sources);
@@ -455,6 +480,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all variable
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testLstVariablePlugins()
 	{
 		String jarPrefix = "VariableLstToken-";
@@ -467,6 +493,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all system (gamemode, miscinfo etc) file
 	 * token parsing plugins.
 	 */
+	@Test
 	public void testSystemLstPlugins()
 	{
 		String jarPrefix = "GameModeLstToken-";
@@ -553,11 +580,6 @@ public class PluginBuildTest extends TestCase
 		jarPrefix = "Paper-";
 		sourceFolder = new File("code/src/java/plugin/lsttokens/paper");
 		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
-
-		jarPrefix = "Sponsor-";
-		sourceFolder = new File("code/src/java/plugin/lsttokens/sponsor");
-		checkPluginJars(jarPrefix, sourceFolder, jarFolder);
-		
 	}
 
 	/**
@@ -588,7 +610,13 @@ public class PluginBuildTest extends TestCase
 	private void checkPluginJars(String jarPrefix, File sourceFolder,
 		File jarFolder, String classSuffix)
 	{
-		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
+		assertTrue(
+				//$NON-NLS-1$
+				sourceFolder.isDirectory(),
+				"Source folder "  //$NON-NLS-1$
+						+ sourceFolder.getAbsolutePath()
+						+ " should be a directory"
+		);
 		String[] sources = sourceFolder.list();
 		checkPluginJars(jarPrefix, jarFolder, classSuffix, sources);
 	}
@@ -606,38 +634,40 @@ public class PluginBuildTest extends TestCase
 	private void checkPluginJars(String jarPrefix, 
 		File jarFolder, String classSuffix, String[] sources)
 	{
-		assertTrue("Jar folder " + jarFolder.getAbsolutePath() + " should be a directory", jarFolder.isDirectory());
-		Set<String> jarSet = new HashSet<>();
+		assertTrue(
+				jarFolder.isDirectory(),
+				"Jar folder " + jarFolder.getAbsolutePath() + " should be a directory"
+		);
+		Collection<String> jarSet;
 		String[] jars = jarFolder.list();
-		for (int i = 0; i < jars.length; i++)
+		jarSet = Arrays.stream(jars)
+		               .filter(jar -> jar.startsWith(jarPrefix))
+		               .map(String::toLowerCase)
+		               .collect(Collectors.toSet());
+		for (String source : sources)
 		{
-			if (jars[i].startsWith(jarPrefix))
-			{
-				jarSet.add(jars[i].toLowerCase());
-			}
-		}
-		for (int i = 0; i < sources.length; i++)
-		{
-			if (sources[i] != null && sources[i].endsWith(".java"))
+			if ((source != null) && source.endsWith(".java"))
 			{
 				//String testString = jarPrefix + sources[i].substring(0, sources[i].length()-5);
-				String testString = sources[i];
+				String testString = source;
 				testString = testString.replaceAll(".java", "");
 				testString = testString.replaceAll("Token", "");
-				if (classSuffix.length() > 0)
+				if (!classSuffix.isEmpty())
 				{
 					testString = testString.replaceAll(classSuffix, "");
 				}
-				for (String exception[] : exceptions)
+				for (String[] exception : exceptions)
 				{
 					testString = testString.replaceAll(exception[0], exception[1]);
 				}
 
 				testString = jarPrefix + testString + ".jar";
 				testString = testString.toLowerCase();
-				assertTrue("Jar for " + sources[i]
-					+ " should be present in jars list as " + testString,
-					jarSet.contains(testString));
+				assertTrue(
+						jarSet.contains(testString),
+						"Jar for " + source
+								+ " should be present in jars list as " + testString
+				);
 			}
 		}
 	}
@@ -647,54 +677,57 @@ public class PluginBuildTest extends TestCase
 	 * file of the same name. An exceptions list is used to track jars 
 	 * which are know to have an name varying from the standard.
 	 *   
-	 * @param jarPrefix The regex text that the jar file name is expected to start with. 
+	 * @param jarRegexPrefix The regex text that the jar file name is expected to start with. 
 	 * @param jarFolder The folder containing the JAR files.
 	 * @param classSuffix The optional suffix on the class name that should be ignored.
 	 * @param sources The array of names of java source files.
 	 * @param exceptions The list of known exceptions to the naming standards.
 	 */
-	private void checkPluginJarsByRegex(String jarRegexPrefix,
-		File jarFolder[], String classSuffix, String[] sources,
-		String[][] exceptions)
+	private static void checkPluginJarsByRegex(String jarRegexPrefix,
+	                                           File[] jarFolder, String classSuffix, String[] sources,
+	                                           String[][] exceptions)
 	{
 		for (File folder : jarFolder)
 		{
-			assertTrue("Jar folder " + folder.getAbsolutePath() + " should be a directory", folder.isDirectory());
+			assertTrue(
+					folder.isDirectory(),
+					"Jar folder " + folder.getAbsolutePath() + " should be a directory"
+			);
 		}
-		Set<String> jarSet = new HashSet<>();
+		Collection<String> jarSet = new HashSet<>();
 		for (File folder : jarFolder)
 		{
 			String[] jars = folder.list();
 			String jarRegexPattern = jarRegexPrefix + ".*";
-			for (int i = 0; i < jars.length; i++)
-			{
-				if (jars[i].matches(jarRegexPattern))
-				{
-					String jarStr = jars[i].replaceFirst(jarRegexPrefix, "");
-					jarSet.add(jarStr.toLowerCase());
-				}
-			}
+			Arrays.stream(jars)
+			      .filter(jar -> jar.matches(jarRegexPattern))
+			      .map(jar -> jar.replaceFirst(jarRegexPrefix, ""))
+			      .map(String::toLowerCase)
+			      .forEach(jarSet::add);
 		}
-		for (int i = 0; i < sources.length; i++)
+		for (String source : sources)
 		{
-			if (sources[i] != null && sources[i].endsWith(".java"))
+			if ((source != null) && source.endsWith(".java"))
 			{
 				//String testString = jarPrefix + sources[i].substring(0, sources[i].length()-5);
-				String testString = sources[i];
+				String testString = source;
 				testString = testString.replaceAll(".java", "");
 				testString = testString.replaceAll("Token", "");
-				if (classSuffix.length() > 0)
+				if (!classSuffix.isEmpty())
 				{
 					testString = testString.replaceAll(classSuffix, "");
 				}
-				for (String exception[] : exceptions)
+				for (String[] exception : exceptions)
 				{
 					testString = testString.replaceAll(exception[0], exception[1]);
 				}
 
-				testString = testString + ".jar";
+				testString += ".jar";
 				testString = testString.toLowerCase();
-				assertTrue("Jar for " + sources[i] + " should be present in jars list", jarSet.contains(testString));
+				assertTrue(
+						jarSet.contains(testString),
+						"Jar for " + source + " should be present in jars list"
+				);
 			}
 		}
 	}

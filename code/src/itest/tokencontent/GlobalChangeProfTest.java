@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.ChangeProf;
 import pcgen.cdom.enumeration.ListKey;
@@ -27,7 +29,10 @@ import pcgen.core.WeaponProf;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ChangeprofLst;
+
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
+import util.TestURI;
 
 public class GlobalChangeProfTest extends AbstractContentTokenTest
 {
@@ -35,6 +40,7 @@ public class GlobalChangeProfTest extends AbstractContentTokenTest
 	private static ChangeprofLst token = new ChangeprofLst();
 	private ChangeProfFacet changeProfFacet;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -52,7 +58,7 @@ public class GlobalChangeProfTest extends AbstractContentTokenTest
 		ParseResult result = token.parseToken(context, source, "Axe=Martial");
 		if (result != ParseResult.SUCCESS)
 		{
-			result.printMessages();
+			result.printMessages(TestURI.getURI());
 			fail("Test Setup Failed");
 		}
 		finishLoad();
@@ -68,8 +74,12 @@ public class GlobalChangeProfTest extends AbstractContentTokenTest
 	protected boolean containsExpected()
 	{
 		ChangeProf changeProf = changeProfFacet.getSet(id).iterator().next();
-		boolean sourceMatch = changeProf.getSource().equals(context.getReferenceContext().getCDOMReference(WeaponProf.class, "Axe"));
-		boolean targetMatch = changeProf.getResult().equals(context.getReferenceContext().getCDOMTypeReference(WeaponProf.class, "Martial"));
+		boolean sourceMatch =
+				changeProf.getSource().equals(context.getReferenceContext()
+					.getCDOMReference(WeaponProf.class, "Axe"));
+		boolean targetMatch =
+				changeProf.getResult().equals(context.getReferenceContext()
+					.getCDOMTypeReference(WeaponProf.class, "Martial"));
 		return sourceMatch && targetMatch;
 	}
 

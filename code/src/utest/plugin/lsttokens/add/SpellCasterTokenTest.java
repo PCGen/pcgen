@@ -17,13 +17,15 @@
  */
 package plugin.lsttokens.add;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.core.PCClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
+
+import org.junit.jupiter.api.Test;
 
 public class SpellCasterTokenTest extends
 		AbstractAddTokenTestCase<PCClass>
@@ -47,24 +49,6 @@ public class SpellCasterTokenTest extends
 	public boolean isAllLegal()
 	{
 		return true;
-	}
-
-	@Override
-	public boolean isTypeLegal()
-	{
-		return true;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
-	@Override
-	public boolean allowsParenAsSub()
-	{
-		return false;
 	}
 
 	@Override
@@ -114,7 +98,7 @@ public class SpellCasterTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputAnySpellType() throws PersistenceLayerException
+	public void testInvalidInputAnySpellType()
 	{
 		if (isAllLegal())
 		{
@@ -125,7 +109,7 @@ public class SpellCasterTokenTest extends
 	}
 
 	@Test
-	public void testInvalidInputSpellTypeAny() throws PersistenceLayerException
+	public void testInvalidInputSpellTypeAny()
 	{
 		if (isAllLegal())
 		{

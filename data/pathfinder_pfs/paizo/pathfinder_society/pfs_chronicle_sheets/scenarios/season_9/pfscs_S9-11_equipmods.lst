@@ -1,0 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets Season 9	SOURCESHORT:PFSCS9	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2016-08
+
+# Modifier Name							Visible	Type granted					Source, Long Desc.									Source, Short Desc.	Required Ability								Ability								Source Pub. Date
+Material ~ Dragonhide.COPY=Material ~ Linnormhide			ITYPE:Linnormhide.Nonmetal.Masterwork	SOURCELONG:Pathfinder Society Scenario #9-11: The Jarlsblood Witch Saga	SOURCESHORT:PFS#9-11	PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S09-11	ABILITY:Special Ability|AUTOMATIC|Immunity To Fire	SOURCEDATE:2018-1
+Material ~ Linnormhide.COPY=Linnormhide			VISIBLE:NO
+
+#
+# DONE
+#

@@ -1,0 +1,56 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: People of the Sands	SOURCESHORT:PSand	SOURCEWEB:http://paizo.com/products/btpy92lx	SOURCEDATE:2014-02
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 11 March 2017
+
+# ==============================
+# Living Monolith Prestige Class
+# ==============================
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																						Modify VAR																																																																			FACT
+CLASS:Living Monolith	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:24	DEFINE:LivingMonolithLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|LivingMonolithLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|LMo
+# Class Name		Required Ability						Required Language				Required Skill												PRETOTALAB
+CLASS:Living Monolith	PREABILITY:2,CATEGORY=FEAT,Endurance,Iron Will	PRELANG:2,Ancient Osiriani,Sphinx	PRESKILL:3,Knowledge (engineering)=4,Knowledge (history)=4,Knowledge (religion)=2	PRETOTALAB:5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Living Monolith	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|Knowledge (engineering)|Knowledge (history)|Knowledge (religion)|Linguistics|Perception|Sense Motive
+###Block: Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Living Monolith ~ Soul Stone
+2	ABILITY:Special Ability|AUTOMATIC|Living Monolith ~ Stone Blood
+3	ABILITY:Special Ability|AUTOMATIC|Living Monolith ~ Fortified Flesh
+4	ABILITY:Special Ability|AUTOMATIC|Living Monolith ~ Stability|Living Monolith ~ Tombsight
+5	ABILITY:Special Ability|AUTOMATIC|Living Monolith ~ Greater Ka Stone|PREVAREQ:MonolithIbStone,0
+6	ABILITY:Special Ability|AUTOMATIC|Living Monolith ~ Attunement to Stone
+7	ABILITY:Special Ability|AUTOMATIC|Living Monolith ~ Summon Sphinx
+8	ABILITY:Special Ability|AUTOMATIC|Living Monolith ~ Communion with Stone
+9	ABILITY:Special Ability|AUTOMATIC|Living Monolith ~ Assumption of Stone
+10	ABILITY:Special Ability|AUTOMATIC|Living Monolith ~ Ageless Stone|Living Monolith ~ Judgment of the Monolith
+10	ABILITY:Special Ability|AUTOMATIC|Living Monolith ~ Master Ka Stone|PREVAREQ:MonolithIbStone,0
+
+# ==============================
+# Thuvian Alchemist Prestige Class
+# ==============================
+
+# Class Name		Product Identity?	Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																						Modify VAR																																																												FACT
+CLASS:Thuvian Alchemist	NAMEISPI:YES	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:26	DEFINE:ThuvianAlchemistLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|TvA
+# Class Name		Required Ability					Required Skill													Req. Spell Type
+CLASS:Thuvian Alchemist	PREABILITY:1,CATEGORY=FEAT,Brew Potion	PRESKILL:4,Craft (alchemy)=5,Knowledge (nature)=5,Profession (herbalist)=5,Spellcraft=5	PRESPELLTYPE:1,Arcane=2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Thuvian Alchemist	STARTSKILLPTS:2	CSKILL:Heal|Knowledge (nature)|Spellcraft|Survival|Use Magic Device
+###Block: Level Progression
+1	ADD:SPELLCASTER|Arcane
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+7	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
+9	ADD:SPELLCASTER|Arcane
+10	ADD:SPELLCASTER|Arcane
+###Block: Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Thuvian Alchemist ~ Healing Solution
+2	ABILITY:Special Ability|AUTOMATIC|Thuvian Alchemist ~ Thuvian Discovery
+3	ABILITY:Special Ability|AUTOMATIC|Thuvian Alchemist ~ Bombs
+5	ABILITY:Special Ability|AUTOMATIC|Thuvian Alchemist ~ Curative Enhancement
+10	ABILITY:Special Ability|AUTOMATIC|Thuvian Alchemist ~ Eternal Youth

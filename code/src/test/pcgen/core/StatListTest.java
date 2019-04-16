@@ -1,5 +1,4 @@
 /*
- * StatListTest.java
  * Copyright 2007 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,15 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 08/12/2007
- *
- * $Id$
  */
 
 package pcgen.core;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
@@ -34,13 +29,14 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+import plugin.lsttokens.testsupport.BuildUtilities;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
- * <code>StatListTest</code> checks the function of the 
+ * {@code StatListTest} checks the function of the
  * StatList class. 
- *
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class StatListTest extends AbstractCharacterTestCase
 {
@@ -49,11 +45,9 @@ public class StatListTest extends AbstractCharacterTestCase
 	Ability bonus;
 	Ability lockedBonus;
 
-	/* (non-Javadoc)
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		PlayerCharacter pc = getCharacter();
@@ -66,13 +60,13 @@ public class StatListTest extends AbstractCharacterTestCase
 		unlocker = new PCTemplate();
 		unlocker.setName("unlocker");
 		unlocker.addToListFor(ListKey.UNLOCKED_STATS, strRef);
-		bonus = TestHelper.makeAbility("Bonus", AbilityCategory.FEAT, "General.Fighter");
+		bonus = TestHelper.makeAbility("Bonus", BuildUtilities.getFeatCat(), "General.Fighter");
 		BonusObj aBonus = Bonus.newBonus(context, "STAT|STR|7|TYPE=Enhancement");
 		if (aBonus != null)
 		{
 			bonus.addToListFor(ListKey.BONUS, aBonus);
 		}
-		lockedBonus = TestHelper.makeAbility("LockedBonus", AbilityCategory.FEAT, "General.Fighter");
+		lockedBonus = TestHelper.makeAbility("LockedBonus", BuildUtilities.getFeatCat(), "General.Fighter");
 		aBonus = Bonus.newBonus(context, "LOCKEDSTAT|STR|3|TYPE=Morale");
 		if (aBonus != null)
 		{
@@ -83,7 +77,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test method for {@link pcgen.core.StatList#getBaseStatFor(java.lang.String)}.
+	 * Test method for {@link pcgen.core.PlayerCharacter#getBaseStatFor(PCStat)}.
 	 */
 	@Test
 	public void testGetBaseStatFor()
@@ -92,14 +86,14 @@ public class StatListTest extends AbstractCharacterTestCase
 		assertEquals("Starting STR should be 6", 6, pc.getBaseStatFor(str));
 
 		// Bonus should not affect base stat
-		addAbility(AbilityCategory.FEAT, bonus);
+		addAbility(BuildUtilities.getFeatCat(), bonus);
 		pc.calcActiveBonuses();
 		assertEquals("Stat should still be base", 6, pc.getBaseStatFor(str));
 		
 		pc.addTemplate(locker);
 		assertEquals("Stat should now be locked", 12, pc.getBaseStatFor(str));
 
-		addAbility(AbilityCategory.FEAT, lockedBonus);
+		addAbility(BuildUtilities.getFeatCat(), lockedBonus);
 		pc.calcActiveBonuses();
 		assertEquals("Stat should still be locked", 12, pc.getBaseStatFor(str));
 		
@@ -108,7 +102,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	}
 
 	/**
-	 * Test method for {@link pcgen.core.StatList#getTotalStatFor(java.lang.String)}.
+	 * Test method for {@link pcgen.core.PlayerCharacter#getTotalStatFor(PCStat)}.
 	 */
 	@Test
 	public void testGetTotalStatFor()
@@ -117,14 +111,14 @@ public class StatListTest extends AbstractCharacterTestCase
 		assertEquals("Starting STR should be 6", 6, pc.getTotalStatFor(str));
 
 		// Bonus should affect total stat
-		addAbility(AbilityCategory.FEAT, bonus);
+		addAbility(BuildUtilities.getFeatCat(), bonus);
 		pc.calcActiveBonuses();
 		assertEquals("Stat should have bonus", 13, pc.getTotalStatFor(str));
 		
 		pc.addTemplate(locker);
 		assertEquals("Stat should now be locked", 12, pc.getTotalStatFor(str));
 
-		addAbility(AbilityCategory.FEAT, lockedBonus);
+		addAbility(BuildUtilities.getFeatCat(), lockedBonus);
 		pc.calcActiveBonuses();
 		assertEquals("Stat should be locked but bonused", 15, pc.getTotalStatFor(str));
 
@@ -135,6 +129,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	/**
 	 * Test out the output of stats where a min value is in place. 
 	 */
+	@Test
 	public void testMinValueStat()
 	{
 		PlayerCharacter pc = getCharacter();

@@ -1,5 +1,4 @@
 /*
- * SpellBook.java
  * Copyright 2006 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Jan 6, 2006
- *
- * $Id$
- *
  */
 package pcgen.core.character;
 
@@ -32,12 +26,9 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 
 /**
- * <code>SpellBook</code> contains details of a prepared spell list or 
+ * {@code SpellBook} contains details of a prepared spell list or
  * a spell book. The term spell book was used as that is the term used
  * throughout the rest of the code.
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class SpellBook implements Cloneable
@@ -69,16 +60,11 @@ public class SpellBook implements Cloneable
 	 */
 	public SpellBook(String name, int type)
 	{
-		super();
 
 		this.name = name;
 		this.type = type;
 	}
 
-	
-	/**
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -93,7 +79,7 @@ public class SpellBook implements Cloneable
 		}
 		return result.toString();
 	}
-	
+
 	/**
 	 * @return Returns the description.
 	 */
@@ -239,7 +225,6 @@ public class SpellBook implements Cloneable
 		return numPagesUsed;
 	}
 
-
 	/**
 	 * Set the number of pages used.
 	 * @param numPagesUsed The number of pages used.
@@ -249,7 +234,6 @@ public class SpellBook implements Cloneable
 		this.numPagesUsed = numPagesUsed;
 	}
 
-
 	/**
 	 * @return Returns the numSpells.
 	 */
@@ -257,7 +241,6 @@ public class SpellBook implements Cloneable
 	{
 		return numSpells;
 	}
-
 
 	/**
 	 * @param numSpells The numSpells to set.
@@ -267,11 +250,8 @@ public class SpellBook implements Cloneable
 		this.numSpells = numSpells;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#clone()
-	 */
 	@Override
-	public Object clone()
+	public SpellBook clone()
 	{
 		SpellBook aClone = null;
 		try
@@ -284,20 +264,19 @@ public class SpellBook implements Cloneable
 		}
 		catch (CloneNotSupportedException e)
 		{
-			ShowMessageDelegate.showMessageDialog(
-				"Clone of SpellBook failed due to " + e.getMessage(),
+			ShowMessageDelegate.showMessageDialog("Clone of SpellBook failed due to " + e.getMessage(),
 				Constants.APPLICATION_NAME, MessageType.ERROR);
 		}
 		return aClone;
 	}
-	
-    @Override
+
+	@Override
 	public int hashCode()
 	{
 		return name.hashCode();
 	}
-	
-    @Override
+
+	@Override
 	public boolean equals(Object o)
 	{
 		if (o == this)
@@ -349,10 +328,8 @@ public class SpellBook implements Cloneable
 					return false;
 				}
 			}
-			return name.equals(other.name) && (type == other.type)
-				&& (numPages == other.numPages)
-				&& (numPagesUsed == other.numPagesUsed)
-				&& (numSpells == other.numSpells);
+			return name.equals(other.name) && (type == other.type) && (numPages == other.numPages)
+				&& (numPagesUsed == other.numPagesUsed) && (numSpells == other.numSpells);
 		}
 		return false;
 	}

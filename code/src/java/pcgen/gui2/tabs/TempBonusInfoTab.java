@@ -1,5 +1,4 @@
 /*
- * TempBonusInfoTab.java
  * Copyright James Dempsey, 2012
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 08/06/2012 7:42:35 PM
- *
- * $Id$
  */
 package pcgen.gui2.tabs;
 
@@ -71,13 +66,8 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>TempBonusInfoTab</code> allows the user to select which
+ * The Class {@code TempBonusInfoTab} allows the user to select which
  * temporary bonus should be applied to their character.
- *
- * <br>
- * -0700 (Sat, 17 May 2014) $
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
@@ -201,8 +191,8 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		private static final long serialVersionUID = -9006249573217208478L;
 
 		@Override
-		public Component getTreeCellRendererComponent(JTree tree, Object value,
-				boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
+		public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded,
+			boolean leaf, int row, boolean focus)
 		{
 			Object obj = ((DefaultMutableTreeNode) value).getUserObject();
 			if ("".equals(obj)) //$NON-NLS-1$
@@ -230,7 +220,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 	private class InfoHandler implements ListSelectionListener
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 		private String text;
 
 		public InfoHandler(CharacterFacade character)
@@ -292,7 +282,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		 */
 		private static final long serialVersionUID = -6640460398947215666L;
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public AddAction(CharacterFacade character)
 		{
@@ -336,7 +326,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		 */
 		private static final long serialVersionUID = 2922387838116495051L;
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public RemoveAction(CharacterFacade character)
 		{
@@ -393,18 +383,17 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		}
 	}
 
-	private static class TempBonusTreeViewModel
-			implements TreeViewModel<TempBonusFacade>, DataView<TempBonusFacade>,
+	private static class TempBonusTreeViewModel implements TreeViewModel<TempBonusFacade>, DataView<TempBonusFacade>,
 			Filter<CharacterFacade, TempBonusFacade>, ListListener<TempBonusFacade>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<TempBonusFacade>> treeViews
-				= new DefaultListFacade<TreeView<TempBonusFacade>>(Arrays.asList(TempBonusTreeView.values()));
+		private static final ListFacade<? extends TreeView<TempBonusFacade>> TREE_VIEWS =
+				new DefaultListFacade<TreeView<TempBonusFacade>>(Arrays.asList(TempBonusTreeView.values()));
 		private final List<DefaultDataViewColumn> columns;
 		private final CharacterFacade character;
 		private final InfoFactory infoFactory;
 		private final boolean isAvailModel;
-		private FilteredListFacade<CharacterFacade, TempBonusFacade> tempBonuses;
+		private final FilteredListFacade<CharacterFacade, TempBonusFacade> tempBonuses;
 
 		public TempBonusTreeViewModel(CharacterFacade character, boolean isAvailModel)
 		{
@@ -419,17 +408,17 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				tempBonuses.setDelegate(character.getAvailableTempBonuses());
 				character.getAvailableTempBonuses().addListListener(this);
 				columns = Arrays.asList(new DefaultDataViewColumn("in_itmFrom", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_itmTarget", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+					new DefaultDataViewColumn("in_itmTarget", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 			else
 			{
 				tempBonuses = null;
 				columns = Arrays.asList(new DefaultDataViewColumn("in_itmFrom", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_itmTarget", String.class, true), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
-						new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+					new DefaultDataViewColumn("in_itmTarget", String.class, true), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_descrip", String.class, false), //$NON-NLS-1$
+					new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 		}
 
@@ -444,7 +433,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		@Override
 		public ListFacade<? extends TreeView<TempBonusFacade>> getTreeViews()
 		{
-			return treeViews;
+			return TREE_VIEWS;
 		}
 
 		@Override
@@ -475,7 +464,8 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		@Override
 		public Object getData(TempBonusFacade obj, int column)
 		{
-			switch(column){
+			switch (column)
+			{
 				case 0:
 					return obj.getOriginType();
 				case 1:
@@ -533,7 +523,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		@Override
 		public String getPrefsKey()
 		{
-			return isAvailModel ? "TempModsTreeAvail" : "TempModsTreeSelected";  //$NON-NLS-1$//$NON-NLS-2$
+			return isAvailModel ? "TempModsTreeAvail" : "TempModsTreeSelected"; //$NON-NLS-1$//$NON-NLS-2$
 		}
 
 	}
@@ -576,18 +566,16 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 				case TARGET_NAME:
 					if (infoFactory != null)
 					{
-						return Collections.singletonList(new TreeViewPath<>(bonus,
-                                infoFactory.getTempBonusTarget(bonus)));
+						return Collections
+							.singletonList(new TreeViewPath<>(bonus, infoFactory.getTempBonusTarget(bonus)));
 					}
-				// No info factory? Treat as a name 
+					// No info factory? Treat as a name 
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<>(bonus));
 				case ORIGIN_NAME:
-					return Collections.singletonList(new TreeViewPath<>(bonus,
-                            bonus.getOriginType()));
+					return Collections.singletonList(new TreeViewPath<>(bonus, bonus.getOriginType()));
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<>(bonus,
-                            bonus.getSourceForNodeDisplay()));
+					return Collections.singletonList(new TreeViewPath<>(bonus, bonus.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}

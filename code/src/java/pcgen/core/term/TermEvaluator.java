@@ -21,9 +21,6 @@ import pcgen.core.spell.Spell;
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created 03-Aug-2008 21:13:54
- *
  */
 public interface TermEvaluator
 {

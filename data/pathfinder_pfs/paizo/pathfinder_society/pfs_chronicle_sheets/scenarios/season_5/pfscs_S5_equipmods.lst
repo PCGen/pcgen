@@ -1,0 +1,12 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2014-08
+
+# Modifier Name										Unique Key								Type		Cost		Visible		Type granted	Required Ability												Required Type	Special Property
+Smine												KEY:Special Quality ~ PFS / Smine's Best ~ Weapon	TYPE:Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Weapon	PREABILITY:1,CATEGORY=Special Ability,PFS Scenario 5-06 ~ Smine's Best ~ applied	PRETYPE:1,Metal	SPROP:+1 on performance combat checks and Intimidate checks made against creatures proficient with that weapon. Increase the weapon's hit point total by 5.
+
+
+
+
+#Old KEYs
+Special Quality ~ PFS / Smine's Best ~ Weapon.COPY=PFS_SMIMES_BEST														VISIBLE:NO

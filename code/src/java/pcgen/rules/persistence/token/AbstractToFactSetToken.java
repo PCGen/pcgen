@@ -30,18 +30,16 @@ import pcgen.util.Logging;
  *            The type of object on which this AbstractToFactSetToken can
  *            operate.
  */
-public abstract class AbstractToFactSetToken<T extends Loadable> extends
-		AbstractNonEmptyToken<T> implements CDOMCompatibilityToken<T>
+public abstract class AbstractToFactSetToken<T extends Loadable> extends AbstractNonEmptyToken<T>
+		implements CDOMCompatibilityToken<T>
 {
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context,
-		T obj, String value)
+	protected ParseResult parseNonEmptyToken(LoadContext context, T obj, String value)
 	{
 		try
 		{
-			if (!context.processToken(obj, "FACTSET", getTokenName() + "|"
-				+ value))
+			if (!context.processToken(obj, "FACTSET", getTokenName() + '|' + value))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Delegation Error to FACTSET");

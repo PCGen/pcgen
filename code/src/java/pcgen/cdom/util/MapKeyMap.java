@@ -1,5 +1,4 @@
 /*
- * MapKeyMap.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 11/09/2008 23:20:54
  *
- * $Id: $
  */
 package pcgen.cdom.util;
 
@@ -46,7 +43,6 @@ import pcgen.cdom.enumeration.MapKey;
  * **NOTE** This class is NOT thread safe.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MapKeyMap
 {
@@ -234,8 +230,8 @@ public class MapKeyMap
 	{
 		return map.getKeySet();
 	}
-	
- 	/**
+
+	/**
 	 * Returns true if this structure contains no Maps.
 	 * 
 	 * @return true if this structure contains no Maps; false otherwise
@@ -245,32 +241,12 @@ public class MapKeyMap
 		return map.isEmpty();
 	}
 
-	/**
-	 * Returns the consistent-with-equals hashCode for this MapKeyMap.
-	 * 
-	 * @return the int
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return map.hashCode();
 	}
 
-	/**
-	 * Returns true if this MapKeyMap is equal to the given Object.
-	 * 
-	 * Note that equality as defined by this method is both a class of MapKeyMap
-	 * and equality of contents of the MapKeyMap.
-	 * 
-	 * @param obj
-	 *            the o
-	 * 
-	 * @return true, if equals
-	 * 
-	 * @see java.lang.Object#equals(Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

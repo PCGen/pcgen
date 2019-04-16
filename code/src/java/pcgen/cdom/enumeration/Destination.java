@@ -1,5 +1,4 @@
 /*
- * from InstallableCampaign.java
  * Copyright 2007 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,25 +14,19 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 27/12/2007
- *
- * $Id: InstallableCampaign.java 8660 2008-12-23 22:08:08Z thpr $
  */
 package pcgen.cdom.enumeration;
 
 /**
- * <code>Destination</code> is the full collection of possible 
+ * {@code Destination} is the full collection of possible
  * install destinations.
  */
 public enum Destination
 {
-	DATA("DATA"), 
-	VENDORDATA("VENDORDATA"),
-	HOMEBREWDATA("HOMEBREWDATA");
+	DATA("DATA"), VENDORDATA("VENDORDATA"), HOMEBREWDATA("HOMEBREWDATA");
 
 	private final String text;
-	
+
 	Destination(String destination)
 	{
 		text = destination;

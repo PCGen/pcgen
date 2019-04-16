@@ -38,11 +38,9 @@ import pcgen.output.publish.OutputDB;
  * FavoredClassFacet is a Facet that tracks the Favored Classes that have been
  * granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class FavoredClassFacet extends
-		AbstractSourcedListFacet<CharID, PCClass> implements
-		DataFacetChangeListener<CharID, CDOMObject>, SetFacet<CharID, PCClass>
+public class FavoredClassFacet extends AbstractSourcedListFacet<CharID, PCClass>
+		implements DataFacetChangeListener<CharID, CDOMObject>, SetFacet<CharID, PCClass>
 {
 
 	private HasAnyFavoredClassFacet hasAnyFavoredClassFacet;
@@ -64,15 +62,12 @@ public class FavoredClassFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
-		List<CDOMReference<? extends PCClass>> list = cdo
-				.getListFor(ListKey.FAVORED_CLASS);
+		List<CDOMReference<? extends PCClass>> list = cdo.getListFor(ListKey.FAVORED_CLASS);
 		if (list != null)
 		{
 			for (CDOMReference<? extends PCClass> ref : list)
@@ -93,8 +88,6 @@ public class FavoredClassFacet extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -144,7 +137,7 @@ public class FavoredClassFacet extends
 	{
 		this.classFacet = classFacet;
 	}
-	
+
 	public void setRaceFacet(RaceFacet raceFacet)
 	{
 		this.raceFacet = raceFacet;

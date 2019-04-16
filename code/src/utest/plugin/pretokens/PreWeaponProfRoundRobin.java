@@ -17,28 +17,17 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreWeaponProfParser;
 import plugin.pretokens.writer.PreWeaponProfWriter;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class PreWeaponProfRoundRobin extends AbstractBasicRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreWeaponProfRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreWeaponProfRoundRobin.class);
-	}
-
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -59,14 +48,16 @@ public class PreWeaponProfRoundRobin extends AbstractBasicRoundRobin
 		return true;
 	}
 
+	@Test
 	public void testDeityWeapon()
 	{
 		this.runRoundRobin("PRE" + getBaseString() + ":1,DEITYWEAPON");
 	}
 
+	@Test
 	public void testNegateItem()
 	{
-		this.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
+		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
 				"PREMULT:1,[PRE" + getBaseString() + ":1,Foo],[!PRE"
 						+ getBaseString() + ":1,TYPE=Bar]");
 	}

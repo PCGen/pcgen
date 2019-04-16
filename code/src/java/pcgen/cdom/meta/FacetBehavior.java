@@ -21,6 +21,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Objects;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
@@ -32,19 +33,16 @@ public final class FacetBehavior
 	public static final FacetBehavior INPUT = new FacetBehavior("Input");
 	public static final FacetBehavior CONDITIONAL = new FacetBehavior("Conditional");
 	public static final FacetBehavior CONDITIONAL_GRANTED = new FacetBehavior("Conditional-Granted");
-//	public static final CorePerspective SELECTION = new CorePerspective("Selection");
-//	public static final CorePerspective CONDITIONAL_SELECTION = new CorePerspective("Conditional Selection");
-	
+	//	public static final CorePerspective SELECTION = new CorePerspective("Selection");
+	//	public static final CorePerspective CONDITIONAL_SELECTION = new CorePerspective("Conditional Selection");
+
 	private static CaseInsensitiveMap<FacetBehavior> map = null;
 
 	private String type;
 
 	private FacetBehavior(String type)
 	{
-		if (type == null)
-		{
-			throw new IllegalArgumentException("Type cannot be null");
-		}
+		Objects.requireNonNull(type, "Type cannot be null");
 		this.type = type;
 	}
 
@@ -54,12 +52,7 @@ public final class FacetBehavior
 		{
 			buildMap();
 		}
-		FacetBehavior key = map.get(type);
-		if (key == null)
-		{
-			key = new FacetBehavior(type);
-			map.put(type, key);
-		}
+		FacetBehavior key = map.computeIfAbsent(type, k -> new FacetBehavior(type));
 		return key;
 	}
 
@@ -71,9 +64,7 @@ public final class FacetBehavior
 		{
 			int mod = field.getModifiers();
 
-			if (Modifier.isStatic(mod)
-					&& Modifier.isFinal(mod)
-					&& Modifier.isPublic(mod))
+			if (Modifier.isStatic(mod) && Modifier.isFinal(mod) && Modifier.isPublic(mod))
 			{
 				try
 				{

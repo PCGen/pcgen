@@ -1,5 +1,4 @@
 /*
- * PreMultTest.java
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,28 +14,24 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Sep 4, 2004
- *
- * $Id$
- *
  */
 package pcgen.core.prereq;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
@@ -44,12 +39,13 @@ import plugin.pretokens.parser.PreAbilityParser;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreSkillParser;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>PreMultTest</code> tests that the PreMult class
+ * {@code PreMultTest} tests that the PreMult class
  * is working correctly.
- *
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class PreMultTest extends AbstractCharacterTestCase
@@ -58,24 +54,9 @@ public class PreMultTest extends AbstractCharacterTestCase
 	private Skill knowledge;
 	private PCClass myClass;
 
-	public static void main(final String[] args)
-	{
-		TestRunner.run(PreMultTest.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreMultTest.class);
-	}
-
-	/* (non-Javadoc)
-	 * @see junit.framework.TestCase#setUp()
-	 */
+	@BeforeEach
     @Override
-	protected void setUp() throws Exception
+    public void setUp() throws Exception
 	{
 		super.setUp();
 		final PlayerCharacter character = getCharacter();
@@ -91,11 +72,9 @@ public class PreMultTest extends AbstractCharacterTestCase
 
 	}
 
-	/* (non-Javadoc)
-	 * @see junit.framework.TestCase#tearDown()
-	 */
+	@AfterEach
     @Override
-	protected void tearDown() throws Exception
+    public void tearDown() throws Exception
 	{
 		knowledge = null;
 
@@ -106,9 +85,12 @@ public class PreMultTest extends AbstractCharacterTestCase
 	 * Test to ensure that a character will fail a test
 	 * if it does not have the correct number of levels
 	 * in the class.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
-	public void testCharWithMultipleSpellClasses() throws Exception
+	@Test
+	public void testCharWithMultipleSpellClasses() throws PersistenceLayerException, PrerequisiteException
 	{
 		LoadContext context = Globals.getContext();
 		final PCClass pcClass = context.getReferenceContext().constructCDOMObject(PCClass.class, "MyClass");
@@ -145,45 +127,48 @@ public class PreMultTest extends AbstractCharacterTestCase
 	 * Test to ensure that a number of feat test will
 	 * correctly require a number of separate feats in
 	 * any combination of two types.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
+	 * @throws PrerequisiteException the prerequisite exception
 	 */
-	public void testMultiFeats() throws Exception
+	@Test
+	public void testMultiFeats() throws PersistenceLayerException, PrerequisiteException
 	{
 		final Ability metamagic1 = new Ability();
 		metamagic1.addToListFor(ListKey.TYPE, Type.getConstant("METAMAGIC"));
 		metamagic1.setName("MM1");
 		metamagic1.put(StringKey.KEY_NAME, "MM1");
-		metamagic1.setCDOMCategory(AbilityCategory.FEAT);
+		metamagic1.setCDOMCategory(BuildUtilities.getFeatCat());
 
 		final Ability metamagic2 = new Ability();
 		metamagic2.addToListFor(ListKey.TYPE, Type.getConstant("METAMAGIC"));
 		metamagic2.setName("MM2");
 		metamagic2.put(StringKey.KEY_NAME, "MM2");
-		metamagic2.setCDOMCategory(AbilityCategory.FEAT);
+		metamagic2.setCDOMCategory(BuildUtilities.getFeatCat());
 
 		final Ability metamagic3 = new Ability();
 		metamagic3.addToListFor(ListKey.TYPE, Type.getConstant("METAMAGIC"));
 		metamagic3.setName("MM3");
 		metamagic3.put(StringKey.KEY_NAME, "MM3");
-		metamagic3.setCDOMCategory(AbilityCategory.FEAT);
+		metamagic3.setCDOMCategory(BuildUtilities.getFeatCat());
 
 		final Ability item1 = new Ability();
 		item1.addToListFor(ListKey.TYPE, Type.getConstant("ItemCreation"));
 		item1.setName("IC1");
 		item1.put(StringKey.KEY_NAME, "IC1");
-		item1.setCDOMCategory(AbilityCategory.FEAT);
+		item1.setCDOMCategory(BuildUtilities.getFeatCat());
 
 		final Ability item2 = new Ability();
 		item2.addToListFor(ListKey.TYPE, Type.getConstant("ItemCreation"));
 		item2.setName("IC2");
 		item2.put(StringKey.KEY_NAME, "IC2");
-		item2.setCDOMCategory(AbilityCategory.FEAT);
+		item2.setCDOMCategory(BuildUtilities.getFeatCat());
 
 		final Ability item3 = new Ability();
 		item3.addToListFor(ListKey.TYPE, Type.getConstant("ItemCreation"));
 		item3.setName("IC3");
 		item3.put(StringKey.KEY_NAME, "IC3");
-		item3.setCDOMCategory(AbilityCategory.FEAT);
+		item3.setCDOMCategory(BuildUtilities.getFeatCat());
 
 		final PlayerCharacter character = getCharacter();
 
@@ -195,46 +180,48 @@ public class PreMultTest extends AbstractCharacterTestCase
 
 		final PreMult test = new PreMult();
 		int passes = test.passes(prereq, character, null);
-		assertEquals("No feats should not pass", 0, passes);
+		assertEquals(0, passes, "No feats should not pass");
 
-		addAbility(AbilityCategory.FEAT, metamagic1);
+		addAbility(BuildUtilities.getFeatCat(), metamagic1);
 		passes = test.passes(prereq, character, null);
-		assertEquals("One feat should not pass", 0, passes);
+		assertEquals(0, passes, "One feat should not pass");
 
-		addAbility(AbilityCategory.FEAT, metamagic2);
+		addAbility(BuildUtilities.getFeatCat(), metamagic2);
 		passes = test.passes(prereq, character, null);
-		assertEquals("Two feats should not pass", 0, passes);
+		assertEquals(0, passes, "Two feats should not pass");
 
-		addAbility(AbilityCategory.FEAT, metamagic3);
+		addAbility(BuildUtilities.getFeatCat(), metamagic3);
 		passes = test.passes(prereq, character, null);
-		assertEquals("Three feats should pass", 1, passes);
+		assertEquals(1, passes, "Three feats should pass");
 
-		removeAbility(AbilityCategory.FEAT, metamagic3);
-		addAbility(AbilityCategory.FEAT, item1);
+		removeAbility(BuildUtilities.getFeatCat(), metamagic3);
+		addAbility(BuildUtilities.getFeatCat(), item1);
 		passes = test.passes(prereq, character, null);
-		assertEquals("Three feats should pass", 1, passes);
+		assertEquals(1, passes, "Three feats should pass");
 
-		addAbility(AbilityCategory.FEAT, item2);
-		addAbility(AbilityCategory.FEAT, item3);
-		addAbility(AbilityCategory.FEAT, metamagic3);
+		addAbility(BuildUtilities.getFeatCat(), item2);
+		addAbility(BuildUtilities.getFeatCat(), item3);
+		addAbility(BuildUtilities.getFeatCat(), metamagic3);
 		passes = test.passes(prereq, character, null);
-		assertEquals("Six feats should pass", 1, passes);
+		assertEquals(1, passes, "Six feats should pass");
 
-		removeAbility(AbilityCategory.FEAT, metamagic3);
-		removeAbility(AbilityCategory.FEAT, item3);
-		removeAbility(AbilityCategory.FEAT, item2);
-		removeAbility(AbilityCategory.FEAT, item1);
-		removeAbility(AbilityCategory.FEAT, metamagic2);
-		removeAbility(AbilityCategory.FEAT, metamagic1);
+		removeAbility(BuildUtilities.getFeatCat(), metamagic3);
+		removeAbility(BuildUtilities.getFeatCat(), item3);
+		removeAbility(BuildUtilities.getFeatCat(), item2);
+		removeAbility(BuildUtilities.getFeatCat(), item1);
+		removeAbility(BuildUtilities.getFeatCat(), metamagic2);
+		removeAbility(BuildUtilities.getFeatCat(), metamagic1);
 	}
 
 	/**
 	 * Test to ensure that a number of skills test will
 	 * correctly require a number of separate skills at
 	 * the required level.
-	 * @throws Exception
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public void testMultiSkills() throws Exception
+	@Test
+	public void testMultiSkills() throws PersistenceLayerException
 	{
 		final PreSkillParser producer = new PreSkillParser();
 
@@ -243,8 +230,8 @@ public class PreMultTest extends AbstractCharacterTestCase
 					false, false);
 		final PlayerCharacter character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse("Should not pass 2 knowledge skill test with 1 skill",
-			passes);
+		assertFalse(
+				passes, "Should not pass 2 knowledge skill test with 1 skill");
 
 		final Skill extraKnow = new Skill();
 		Globals.getContext().unconditionallyProcess(extraKnow, "CLASSES", "MyClass");
@@ -253,6 +240,6 @@ public class PreMultTest extends AbstractCharacterTestCase
 		SkillRankControl.modRanks(5.0, myClass, true, character, extraKnow);
 
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Should pass 2 knowledge skill test with 2 skills", passes);
+		assertTrue(passes, "Should pass 2 knowledge skill test with 2 skills");
 	}
 }

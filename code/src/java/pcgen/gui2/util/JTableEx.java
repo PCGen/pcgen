@@ -1,5 +1,4 @@
 /*
- * JTableEx.java
  * Copyright 2001 (C) Jonas Karlsson <jujutsunerd@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on June 27, 2001, 20:36 PM
  */
 package pcgen.gui2.util;
 
@@ -26,6 +24,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -41,9 +40,8 @@ import pcgen.gui2.util.table.SortableTableRowSorter;
 import pcgen.gui2.util.table.TableCellUtilities;
 
 /**
- *  <code>JTableEx</code> extends JTable to provide auto-tooltips.
+ *  {@code JTableEx} extends JTable to provide auto-tooltips.
  *
- * @author     Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
  */
 public class JTableEx extends JTable
 {
@@ -81,8 +79,7 @@ public class JTableEx extends JTable
 		this(tm, tcm, null);
 	}
 
-	public JTableEx(TableModel tm, TableColumnModel tcm,
-			ListSelectionModel lsm)
+	public JTableEx(TableModel tm, TableColumnModel tcm, ListSelectionModel lsm)
 	{
 		super(tm, tcm, lsm);
 		setFillsViewportHeight(true);
@@ -116,7 +113,7 @@ public class JTableEx extends JTable
 		ActionEvent e = null;
 		// Guaranteed to return a non-null array
 		Object[] listeners = listenerList.getListenerList();
-        // Process the listeners last to first, notifying
+		// Process the listeners last to first, notifying
 		// those that are interested in this event
 		for (int i = listeners.length - 2; i >= 0; i -= 2)
 		{
@@ -138,11 +135,11 @@ public class JTableEx extends JTable
 		listenerList.add(ActionListener.class, listener);
 	}
 
-    public void removeActionListener(ActionListener listener)
-    {
-        listenerList.remove(ActionListener.class, listener);
-    }
-	
+	public void removeActionListener(ActionListener listener)
+	{
+		listenerList.remove(ActionListener.class, listener);
+	}
+
 	@Override
 	public boolean getAutoCreateRowSorter()
 	{
@@ -163,16 +160,15 @@ public class JTableEx extends JTable
 			}
 			else
 			{
-				setRowSorter(new TableRowSorter(model));
+				setRowSorter(new TableRowSorter<>(model));
 			}
 		}
-		firePropertyChange("autoCreateRowSorter", oldValue,
-				autoCreateRowSorter);
+		firePropertyChange("autoCreateRowSorter", oldValue, autoCreateRowSorter);
 	}
 
 	public void sortModel()
 	{
-		RowSorter rowSorter = getRowSorter();
+		RowSorter<?> rowSorter = getRowSorter();
 		if (rowSorter != null)
 		{
 			rowSorter.setSortKeys(getRowSorter().getSortKeys());
@@ -182,10 +178,7 @@ public class JTableEx extends JTable
 	@Override
 	public void setModel(TableModel dataModel)
 	{
-		if (dataModel == null)
-		{
-			throw new IllegalArgumentException("Cannot set a null TableModel");
-		}
+		Objects.requireNonNull(dataModel, "Cannot set a null TableModel");
 		if (this.dataModel != dataModel)
 		{
 			TableModel old = this.dataModel;
@@ -208,7 +201,7 @@ public class JTableEx extends JTable
 				}
 				else
 				{
-					super.setRowSorter(new TableRowSorter(dataModel));
+					super.setRowSorter(new TableRowSorter<>(dataModel));
 				}
 			}
 		}
@@ -222,8 +215,7 @@ public class JTableEx extends JTable
 	 **/
 	public void setColAlign(int col, int alignment)
 	{
-		getColumnModel().getColumn(col).setCellRenderer(
-				new TableCellUtilities.AlignRenderer(alignment));
+		getColumnModel().getColumn(col).setCellRenderer(new TableCellUtilities.AlignRenderer(alignment));
 	}
 
 }

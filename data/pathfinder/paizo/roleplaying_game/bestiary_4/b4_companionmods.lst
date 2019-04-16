@@ -1,0 +1,10 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
+
+# Race of familiar				Type			Ability
+MASTERBONUSRACE:Familiar (Archaeopteryx)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Archaeopteryx)
+MASTERBONUSRACE:Familiar (Dodo)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Dodo)
+MASTERBONUSRACE:Familiar (Platypus)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Platypus)
+MASTERBONUSRACE:Familiar (Sloth)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Sloth)
+MASTERBONUSRACE:Familiar (Tuatara)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Tuatara)
+MASTERBONUSRACE:Familiar (Giant Flea)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Giant Flea)

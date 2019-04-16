@@ -1,3 +1,4 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 #
 # Spycraft PCGen dataset by Eddy Anthony
@@ -7,44 +8,45 @@ SOURCELONG:AEG Spycraft	SOURCESHORT:Spycraft	SOURCEWEB:http://www.crafty-games.c
 
 # Unarmed attacks -------------------------------------------------------------------
 
-# Equipment Name			Output Name				Required Weapon Proficiency		Type										Cost		Weight	Crit Range	Fumble Range	Damage		Range		Size		Source Page		Combat bonus			Special Property
-Brass knuckles								PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Gear.Standard.Melee.Subdual.Glove.Natural			COST:1	WT:0.5			FUMBLERANGE:1						SIZE:S	SOURCEPAGE:p.110	BONUS:COMBAT|DAMAGE.Unarmed|1	SPROP:Damage is Subdual
-Brass knuckles (Non-metal)						PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Gear.Standard.Melee.Subdual.Glove				COST:2	WT:0.5			FUMBLERANGE:1						SIZE:S	SOURCEPAGE:p.110	BONUS:COMBAT|DAMAGE.Unarmed|1	SPROP:Damage is Subdual
+# Equipment Name			Output Name				Required Weapon Proficiency		Type													Cost		Weight	Crit Mult	Crit Range	Fumble Range	Damage		Requires Modification?	Range		Size		Source Page		Combat bonus			Special Property
+Brass knuckles								PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Gear.Standard.Melee.Subdual.Glove.Natural						COST:1	WT:0.5					FUMBLERANGE:1										SIZE:S	SOURCEPAGE:p.110	BONUS:COMBAT|DAMAGE.Unarmed|1	SPROP:Damage is Subdual
+Brass knuckles (Non-metal)						PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Gear.Standard.Melee.Subdual.Glove							COST:2	WT:0.5					FUMBLERANGE:1										SIZE:S	SOURCEPAGE:p.110	BONUS:COMBAT|DAMAGE.Unarmed|1	SPROP:Damage is Subdual
+Unarmed Strike								PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Natural.Melee.Simple.Unarmed.Subdual.Standard.Monk.Bludgeoning	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1				DAMAGE:1d3		MODS:NO					SIZE:M
 
 # Small -----------------------------------------------------------------------------
 
-Bayonet									PROFICIENCY:WEAPON|Bayonet		TYPE:Gear.Standard.Weapon.Melee.Piercing				COST:4	WT:1		CRITRANGE:1	FUMBLERANGE:1	DAMAGE:1d6				SIZE:S	SOURCEPAGE:p.110
-Broken bottle								PROFICIENCY:WEAPON|Broken bottle	TYPE:Gear.Standard.Weapon.Melee.Piercing				COST:0	WT:0.5	CRITRANGE:1	FUMBLERANGE:1-3	DAMAGE:1d4				SIZE:S	SOURCEPAGE:p.110
-Butt (pistol)			OUTPUTNAME:Butt, pistol		PROFICIENCY:WEAPON|Club			TYPE:Gear.Standard.Weapon.Melee.Bludgeoning			COST:0	WT:0		CRITRANGE:1	FUMBLERANGE:1	DAMAGE:1d3+1			SIZE:S	SOURCEPAGE:p.110						SPROP:Damage is Subdual
-Butt (rifle)			OUTPUTNAME:Butt, rifle		PROFICIENCY:WEAPON|Club			TYPE:Gear.Standard.Weapon.Melee.Bludgeoning			COST:0	WT:0		CRITRANGE:2	FUMBLERANGE:1-2	DAMAGE:1d6				SIZE:S	SOURCEPAGE:p.110						SPROP:Damage is Subdual
-Garrote									PROFICIENCY:WEAPON|Garrote		TYPE:Gear.Standard.Weapon.Melee.Subdual				COST:2	WT:0.1	CRITRANGE:0	FUMBLERANGE:1-2	DAMAGE:0				SIZE:S	SOURCEPAGE:p.110
-Hook										PROFICIENCY:WEAPON|Hook			TYPE:Gear.Standard.Weapon.Melee.Piercing				COST:3	WT:1		CRITRANGE:1	FUMBLERANGE:1-2	DAMAGE:1d6				SIZE:S	SOURCEPAGE:p.110
-Knife										PROFICIENCY:WEAPON|Knife		TYPE:Gear.Standard.Weapon.Melee.Ranged.Piercing.Thrown	COST:3	WT:1		CRITRANGE:1	FUMBLERANGE:1	DAMAGE:1d4		RANGE:5	SIZE:S	SOURCEPAGE:p.110
-Punch dagger								PROFICIENCY:WEAPON|Punch dagger	TYPE:Gear.Standard.Weapon.Melee.Piercing				COST:4	WT:2		CRITRANGE:2	FUMBLERANGE:1-2	DAMAGE:1d3+1			SIZE:S	SOURCEPAGE:p.110
-Sap										PROFICIENCY:WEAPON|Sap			TYPE:Gear.Standard.Weapon.Melee.Bludgeoning.Subdual		COST:2	WT:3		CRITRANGE:0	FUMBLERANGE:1	DAMAGE:1d3+2			SIZE:S	SOURCEPAGE:p.110						SPROP:Damage is Subdual
-Stiletto									PROFICIENCY:WEAPON|Knife (Small)	TYPE:Gear.Standard.Weapon.Melee.Piercing				COST:3	WT:1		CRITRANGE:1	FUMBLERANGE:1-2	DAMAGE:1d6				SIZE:S	SOURCEPAGE:p.110
-Survival knife								PROFICIENCY:WEAPON|Knife		TYPE:Gear.Standard.Weapon.Melee.Ranged.Piercing.Thrown	COST:4	WT:3		CRITRANGE:1	FUMBLERANGE:1	DAMAGE:1d6		RANGE:5	SIZE:S	SOURCEPAGE:p.110
-Switchblade									PROFICIENCY:WEAPON|Knife		TYPE:Gear.Standard.Weapon.Melee.Piercing				COST:5	WT:1		CRITRANGE:3	FUMBLERANGE:1-3	DAMAGE:1d4				SIZE:S	SOURCEPAGE:p.110
-Tazer										PROFICIENCY:WEAPON|Tazer		TYPE:Gear.Standard.Weapon.Melee.Ranged.Electric			COST:12	WT:2		CRITRANGE:0	FUMBLERANGE:1	DAMAGE:1d8		RANGE:5	SIZE:S	SOURCEPAGE:p.110
+Bayonet									PROFICIENCY:WEAPON|Bayonet		TYPE:Gear.Standard.Weapon.Melee.Piercing							COST:4	WT:1				CRITRANGE:1	FUMBLERANGE:1	DAMAGE:1d6								SIZE:S	SOURCEPAGE:p.110
+Broken bottle								PROFICIENCY:WEAPON|Broken bottle	TYPE:Gear.Standard.Weapon.Melee.Piercing							COST:0	WT:0.5			CRITRANGE:1	FUMBLERANGE:1-3	DAMAGE:1d4								SIZE:S	SOURCEPAGE:p.110
+Butt (pistol)			OUTPUTNAME:Butt, pistol		PROFICIENCY:WEAPON|Club			TYPE:Gear.Standard.Weapon.Melee.Bludgeoning						COST:0	WT:0				CRITRANGE:1	FUMBLERANGE:1	DAMAGE:1d3+1							SIZE:S	SOURCEPAGE:p.110						SPROP:Damage is Subdual
+Butt (rifle)			OUTPUTNAME:Butt, rifle		PROFICIENCY:WEAPON|Club			TYPE:Gear.Standard.Weapon.Melee.Bludgeoning						COST:0	WT:0				CRITRANGE:2	FUMBLERANGE:1-2	DAMAGE:1d6								SIZE:S	SOURCEPAGE:p.110						SPROP:Damage is Subdual
+Garrote									PROFICIENCY:WEAPON|Garrote		TYPE:Gear.Standard.Weapon.Melee.Subdual							COST:2	WT:0.1			CRITRANGE:0	FUMBLERANGE:1-2	DAMAGE:0								SIZE:S	SOURCEPAGE:p.110
+Hook										PROFICIENCY:WEAPON|Hook			TYPE:Gear.Standard.Weapon.Melee.Piercing							COST:3	WT:1				CRITRANGE:1	FUMBLERANGE:1-2	DAMAGE:1d6								SIZE:S	SOURCEPAGE:p.110
+Knife										PROFICIENCY:WEAPON|Knife		TYPE:Gear.Standard.Weapon.Melee.Ranged.Piercing.Thrown				COST:3	WT:1				CRITRANGE:1	FUMBLERANGE:1	DAMAGE:1d4						RANGE:5	SIZE:S	SOURCEPAGE:p.110
+Punch dagger								PROFICIENCY:WEAPON|Punch dagger	TYPE:Gear.Standard.Weapon.Melee.Piercing							COST:4	WT:2				CRITRANGE:2	FUMBLERANGE:1-2	DAMAGE:1d3+1							SIZE:S	SOURCEPAGE:p.110
+Sap										PROFICIENCY:WEAPON|Sap			TYPE:Gear.Standard.Weapon.Melee.Bludgeoning.Subdual					COST:2	WT:3				CRITRANGE:0	FUMBLERANGE:1	DAMAGE:1d3+2							SIZE:S	SOURCEPAGE:p.110						SPROP:Damage is Subdual
+Stiletto									PROFICIENCY:WEAPON|Knife (Small)	TYPE:Gear.Standard.Weapon.Melee.Piercing							COST:3	WT:1				CRITRANGE:1	FUMBLERANGE:1-2	DAMAGE:1d6								SIZE:S	SOURCEPAGE:p.110
+Survival knife								PROFICIENCY:WEAPON|Knife		TYPE:Gear.Standard.Weapon.Melee.Ranged.Piercing.Thrown				COST:4	WT:3				CRITRANGE:1	FUMBLERANGE:1	DAMAGE:1d6						RANGE:5	SIZE:S	SOURCEPAGE:p.110
+Switchblade									PROFICIENCY:WEAPON|Knife		TYPE:Gear.Standard.Weapon.Melee.Piercing							COST:5	WT:1				CRITRANGE:3	FUMBLERANGE:1-3	DAMAGE:1d4								SIZE:S	SOURCEPAGE:p.110
+Tazer										PROFICIENCY:WEAPON|Tazer		TYPE:Gear.Standard.Weapon.Melee.Ranged.Electric						COST:12	WT:2				CRITRANGE:0	FUMBLERANGE:1	DAMAGE:1d8						RANGE:5	SIZE:S	SOURCEPAGE:p.110
 
 # Medium ----------------------------------------------------------------------------
 
-Axe (medium)			OUTPUTNAME:Axe, medium		PROFICIENCY:WEAPON|Axe			TYPE:Gear.Standard.Weapon.Melee.Slashing				COST:5	WT:7		CRITRANGE:2	FUMBLERANGE:1-3	DAMAGE:1d8				SIZE:M	SOURCEPAGE:p.110
-Baton or club			OUTPUTNAME:Baton/club		PROFICIENCY:WEAPON|Club			TYPE:Gear.Standard.Weapon.Melee.Bludgeoning			COST:4	WT:3		CRITRANGE:1	FUMBLERANGE:1	DAMAGE:1d6		RANGE:10	SIZE:M	SOURCEPAGE:p.110
-Cattle prod									PROFICIENCY:WEAPON|Cattle prod	TYPE:Gear.Standard.Weapon.Melee.Electric				COST:8	WT:5		CRITRANGE:0	FUMBLERANGE:1	DAMAGE:1d10				SIZE:M	SOURCEPAGE:p.110
-Chain										PROFICIENCY:WEAPON|Chain		TYPE:Gear.Standard.Weapon.Melee.Bludgeoning			COST:4	WT:10		CRITRANGE:1	FUMBLERANGE:1-3	DAMAGE:2d4				SIZE:M	SOURCEPAGE:p.110
-Fencing foil								PROFICIENCY:WEAPON|Foil			TYPE:Gear.Standard.Weapon.Melee.Slashing				COST:7	WT:3		CRITRANGE:3	FUMBLERANGE:1-3	DAMAGE:1d6+1			SIZE:M	SOURCEPAGE:p.110
-Lead pipe									PROFICIENCY:WEAPON|Club			TYPE:Gear.Standard.Weapon.Melee.Bludgeoning			COST:4	WT:6		CRITRANGE:1	FUMBLERANGE:1-2	DAMAGE:1d6+1	RANGE:10	SIZE:M	SOURCEPAGE:p.110
-Machete or sword			OUTPUTNAME:Machete/sword	PROFICIENCY:WEAPON|Sword		TYPE:Gear.Standard.Weapon.Melee.Slashing				COST:4	WT:4		CRITRANGE:1	FUMBLERANGE:1-2	DAMAGE:1d8				SIZE:M	SOURCEPAGE:p.110
-Sword cane									PROFICIENCY:WEAPON|Foil			TYPE:Gear.Standard.Weapon.Melee.Slashing				COST:7	WT:4		CRITRANGE:2	FUMBLERANGE:1-2	DAMAGE:1d6				SIZE:M	SOURCEPAGE:p.110
+Axe (medium)			OUTPUTNAME:Axe, medium		PROFICIENCY:WEAPON|Axe			TYPE:Gear.Standard.Weapon.Melee.Slashing							COST:5	WT:7				CRITRANGE:2	FUMBLERANGE:1-3	DAMAGE:1d8								SIZE:M	SOURCEPAGE:p.110
+Baton or club			OUTPUTNAME:Baton/club		PROFICIENCY:WEAPON|Club			TYPE:Gear.Standard.Weapon.Melee.Bludgeoning						COST:4	WT:3				CRITRANGE:1	FUMBLERANGE:1	DAMAGE:1d6						RANGE:10	SIZE:M	SOURCEPAGE:p.110
+Cattle prod									PROFICIENCY:WEAPON|Cattle prod	TYPE:Gear.Standard.Weapon.Melee.Electric							COST:8	WT:5				CRITRANGE:0	FUMBLERANGE:1	DAMAGE:1d10								SIZE:M	SOURCEPAGE:p.110
+Chain										PROFICIENCY:WEAPON|Chain		TYPE:Gear.Standard.Weapon.Melee.Bludgeoning						COST:4	WT:10				CRITRANGE:1	FUMBLERANGE:1-3	DAMAGE:2d4								SIZE:M	SOURCEPAGE:p.110
+Fencing foil								PROFICIENCY:WEAPON|Foil			TYPE:Gear.Standard.Weapon.Melee.Slashing							COST:7	WT:3				CRITRANGE:3	FUMBLERANGE:1-3	DAMAGE:1d6+1							SIZE:M	SOURCEPAGE:p.110
+Lead pipe									PROFICIENCY:WEAPON|Club			TYPE:Gear.Standard.Weapon.Melee.Bludgeoning						COST:4	WT:6				CRITRANGE:1	FUMBLERANGE:1-2	DAMAGE:1d6+1					RANGE:10	SIZE:M	SOURCEPAGE:p.110
+Machete or sword			OUTPUTNAME:Machete/sword	PROFICIENCY:WEAPON|Sword		TYPE:Gear.Standard.Weapon.Melee.Slashing							COST:4	WT:4				CRITRANGE:1	FUMBLERANGE:1-2	DAMAGE:1d8								SIZE:M	SOURCEPAGE:p.110
+Sword cane									PROFICIENCY:WEAPON|Foil			TYPE:Gear.Standard.Weapon.Melee.Slashing							COST:7	WT:4				CRITRANGE:2	FUMBLERANGE:1-2	DAMAGE:1d6								SIZE:M	SOURCEPAGE:p.110
 
 # Large -----------------------------------------------------------------------------
 
-Axe (large)				OUTPUTNAME:Axe, large		PROFICIENCY:WEAPON|Axe			TYPE:Gear.Standard.Weapon.Melee.Slashing				COST:7	WT:20		CRITRANGE:2	FUMBLERANGE:1-3	DAMAGE:1d12				SIZE:L	SOURCEPAGE:p.110
-Baseball bat								PROFICIENCY:WEAPON|Bat			TYPE:Gear.Standard.Weapon.Melee.Bludgeoning			COST:6	WT:9		CRITRANGE:1	FUMBLERANGE:1	DAMAGE:1d10				SIZE:L	SOURCEPAGE:p.110
-Chainsaw									PROFICIENCY:WEAPON|Chainsaw		TYPE:Gear.Standard.Weapon.Melee.Slashing				COST:11	WT:15		CRITRANGE:3	FUMBLERANGE:1-3	DAMAGE:2d8				SIZE:L	SOURCEPAGE:p.110
-Spear										PROFICIENCY:WEAPON|Spear		TYPE:Gear.Standard.Weapon.Melee.Ranged.Piercing.Thrown	COST:6	WT:9		CRITRANGE:1	FUMBLERANGE:1	DAMAGE:1d10		RANGE:20	SIZE:L	SOURCEPAGE:p.110
-Sword (large)			OUTPUTNAME:Sword, large		PROFICIENCY:WEAPON|Sword		TYPE:Gear.Standard.Weapon.Melee.Slashing				COST:6	WT:15		CRITRANGE:1	FUMBLERANGE:1-2	DAMAGE:1d12				SIZE:L	SOURCEPAGE:p.110
+Axe (large)				OUTPUTNAME:Axe, large		PROFICIENCY:WEAPON|Axe			TYPE:Gear.Standard.Weapon.Melee.Slashing							COST:7	WT:20				CRITRANGE:2	FUMBLERANGE:1-3	DAMAGE:1d12								SIZE:L	SOURCEPAGE:p.110
+Baseball bat								PROFICIENCY:WEAPON|Bat			TYPE:Gear.Standard.Weapon.Melee.Bludgeoning						COST:6	WT:9				CRITRANGE:1	FUMBLERANGE:1	DAMAGE:1d10								SIZE:L	SOURCEPAGE:p.110
+Chainsaw									PROFICIENCY:WEAPON|Chainsaw		TYPE:Gear.Standard.Weapon.Melee.Slashing							COST:11	WT:15				CRITRANGE:3	FUMBLERANGE:1-3	DAMAGE:2d8								SIZE:L	SOURCEPAGE:p.110
+Spear										PROFICIENCY:WEAPON|Spear		TYPE:Gear.Standard.Weapon.Melee.Ranged.Piercing.Thrown				COST:6	WT:9				CRITRANGE:1	FUMBLERANGE:1	DAMAGE:1d10						RANGE:20	SIZE:L	SOURCEPAGE:p.110
+Sword (large)			OUTPUTNAME:Sword, large		PROFICIENCY:WEAPON|Sword		TYPE:Gear.Standard.Weapon.Melee.Slashing							COST:6	WT:15				CRITRANGE:1	FUMBLERANGE:1-2	DAMAGE:1d12								SIZE:L	SOURCEPAGE:p.110
 
 #
 # End -------------------------------------------------------------------------------

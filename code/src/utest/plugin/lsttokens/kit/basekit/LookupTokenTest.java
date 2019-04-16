@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.kit.basekit;
 
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import pcgen.core.kit.BaseKit;
 import pcgen.core.kit.KitGear;
@@ -25,6 +25,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
+
+import org.junit.jupiter.api.Test;
 
 public class LookupTokenTest extends AbstractKitTokenTestCase<BaseKit>
 {
@@ -52,19 +54,19 @@ public class LookupTokenTest extends AbstractKitTokenTestCase<BaseKit>
 	}
 
 	@Test
-	public void testInvalidInputTrailing() throws PersistenceLayerException
+	public void testInvalidInputTrailing()
 	{
 		assertFalse(parse("Formula,"));
 	}
 
 	@Test
-	public void testInvalidInputStarting() throws PersistenceLayerException
+	public void testInvalidInputStarting()
 	{
 		assertFalse(parse(",45"));
 	}
 
 	@Test
-	public void testInvalidInputDouble() throws PersistenceLayerException
+	public void testInvalidInputDouble()
 	{
 		assertFalse(parse("Start,,45"));
 	}

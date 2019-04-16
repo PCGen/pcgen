@@ -1,5 +1,4 @@
 /*
- * EquipmentListTest.java
  * Copyright 2006 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,83 +14,41 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 24-Mar-2006
- *
- * $Id: $
- *
  */
 package pcgen.core;
 
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.framework.TestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
- * <code>EquipmentListTest</code> checks the functionality of the EquipmentList class.
- *
- *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * {@code EquipmentListTest} checks the functionality of the EquipmentList class.
  */
-@SuppressWarnings("nls")
-public class EquipmentListTest extends TestCase
+public class EquipmentListTest
 {
 
 	private Equipment eq = null;
-	private static final String originalKey = "OrigKey";
-	private boolean firstTime = true;
+	private static final String ORIGINAL_KEY = "OrigKey";
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
+	@BeforeAll
+	public static void beforeClass()
 	{
-		return new TestSuite(EquipmentListTest.class);
+		TestHelper.makeSizeAdjustments();
 	}
 
-	/**
-	 * Constructs a new <code>EquipmentListTest</code>.
-	 *
-	 * @see PCGenTestCase#PCGenTestCase()
-	 */
-	public EquipmentListTest()
-	{
-		// Constructor
-	}
-
-	/**
-	 * Constructs a new <code>EquipmentListTest</code> with the given
-	 * <var>name</var>.
-	 *
-	 * @param name the test case name
-	 *
-	 * @see PCGenTestCase#PCGenTestCase()
-	 */
-	public EquipmentListTest(final String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
-	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
-		super.setUp();
-
-		if (firstTime)
-		{
-			TestHelper.makeSizeAdjustments();
-			firstTime = false;
-		}
-
 		this.eq = new Equipment();
 		this.eq.setName("Dummy");
 		SizeAdjustment sa = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -101,20 +58,21 @@ public class EquipmentListTest extends TestCase
 		eq.put(ObjectKey.BASESIZE, mediumRef);
 		TestHelper.addType(eq, "WEAPON.MELEE.CHOCOLATE");
 
-		this.eq.put(StringKey.KEY_NAME, originalKey);
+		this.eq.put(StringKey.KEY_NAME, ORIGINAL_KEY);
 	}
 
 	/**
 	 * test the getEquipmentOfType method
 	 */
+	@Test
 	public void testGetEquipmentOfType()
 	{
 		Globals.getContext().getReferenceContext().importObject(eq);
 
 		List<Equipment> results =
 				EquipmentList.getEquipmentOfType("Weapon.Melee", "Magic");
-		assertEquals("Should get a single result", 1, results.size());
-		assertEquals("Should find the DUmmy equipment object.", eq, results
-			.get(0));
+		assertThat("Should get a single result", results.size(), is(1));
+		assertThat("Should find the DUmmy equipment object.", results
+				.get(0), is(eq));
 	}
 }

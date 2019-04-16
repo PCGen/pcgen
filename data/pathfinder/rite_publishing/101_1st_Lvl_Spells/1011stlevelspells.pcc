@@ -74,33 +74,16 @@ URL:RPGNow!|http://www.rpgnow.com/product_info.php?products_id=81393&affiliate_i
 URL:Your Games Now!|http://www.yourgamesnow.com/index.php?main_page=product_info&manufacturers_id=83&products_id=2895&zenid=70130ae95dd8b5c8d1eda7dd479a1894|Get this publication from Your Games Now!
 
 
-#ABILITY:1011stlevelspells_abilities.lst
-#ABILITYCATEGORY:1011stlevelspells_ability_categories.lst
-#BIOSET:1011stlevelspells_biosettings.lst
-#CLASS:1011stlevelspells_classes.lst
-#COMPANIONMOD:1011stlevelspells_companionmods.lst
-#DEITY:1011stlevelspells_deities.lst
-#DOMAIN:1011stlevelspells_domains.lst
-#EQUIPMENT:1011stlevelspells_equipment.lst
-#EQUIPMOD:1011stlevelspells_equipmods.lst
-#FEAT:1011stlevelspells_feats.lst
-#KIT:1011stlevelspells_kits.lst
-#LANGUAGE:1011stlevelspells_languages.lst
-#RACE:1011stlevelspells_races.lst
-#SKILL:1011stlevelspells_skills.lst
 SPELL:1011stlevelspells_spells.lst
-#TEMPLATE:1011stlevelspells_templates.lst
-#WEAPONPROF:1011stlevelspells_weaponprofs.lst
 
-### You can hide TYPEs in the GUI - TYPEs are handy for organization, but some are only used for internal functions.
-#HIDETYPE:EQUIP|SpecialSuppressor
-#HIDETYPE:SKILL|Science
-#HIDETYPE:FEAT|Leadership
-
-#Remove the '#' in front of those lines referring to files that you actually want to load
-#Remember to set the GAMEMODE to the one you really want.
-#Options in the Open Source data are 3e, 35e, Modern, Deadlands, Sidewinder, Spycraft, or Xcrawl.
-
-#If you use this framework to set up a dataset of your own, then you may want to rename the folder and files to something
-#different. Otherwise if you ever should install a newer version of PCGen into your existing directory or needed to re-install
-#your existing installation of PCGen, your changes would get overwritten and thus be lost.
+# ENTRY DATE:
+# LST MONKEY:
+# LICENSE MONKEY:
+# RELEASE REVIEW #
+# BETA:
+# RELEASE:
+# Built for PCGen Version:
+# Updated to work with version: 6.06.01
+# MINVER:6.6
+# MINDEVVER:6.6
+# COMMENTS:

@@ -14,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 03/06/2010 12:09:38 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -48,43 +44,40 @@ import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.SkillDisplay;
+import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
-import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.util.AbstractListFacade;
-import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
+import org.jetbrains.annotations.Nullable;
+
 /**
- * The Class <code>CharacterLevelsFacadeImpl</code> is an implementation of 
+ * The Class {@code CharacterLevelsFacadeImpl} is an implementation of
  * the CharacterLevelsFacade interface for the new user interface. It allows 
  * the user interface to work with the class levels of a character.
  *
- * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class CharacterLevelsFacadeImpl extends
-		AbstractListFacade<CharacterLevelFacade> implements
-		CharacterLevelsFacade, DataFacetChangeListener<CharID, Skill>, BonusChangeListener
+public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevelFacade>
+		implements CharacterLevelsFacade, DataFacetChangeListener<CharID, Skill>, BonusChangeListener
 {
 	private PlayerCharacter theCharacter;
 	private CharacterDisplay charDisplay;
 
-	private UIDelegate delegate;
+	private final UIDelegate delegate;
 
-	private List<ClassFacade> classLevels;
+	private List<PCClass> classLevels;
 	private List<CharacterLevelFacade> charLevels;
 	private final TodoManager todoManager;
 	private CharID charID;
 	private final DataSetFacade dataSetFacade;
-	private CharacterFacadeImpl characterFacadeImpl;
-	
+	private final CharacterFacadeImpl characterFacadeImpl;
+
 	/**
 	 * Create a new CharacterLevelsFacadeImpl instance for a character.
 	 * @param pc The character we are creating the instance for 
@@ -93,8 +86,8 @@ public class CharacterLevelsFacadeImpl extends
 	 * @param dataSetFacade The datasets that the character is using.
 	 * @param characterFacadeImpl The facade managing the character.
 	 */
-	CharacterLevelsFacadeImpl(PlayerCharacter pc, UIDelegate delegate,
-		TodoManager todoManager, DataSetFacade dataSetFacade, CharacterFacadeImpl characterFacadeImpl)
+	CharacterLevelsFacadeImpl(PlayerCharacter pc, UIDelegate delegate, TodoManager todoManager,
+		DataSetFacade dataSetFacade, CharacterFacadeImpl characterFacadeImpl)
 	{
 		this.theCharacter = pc;
 		this.characterFacadeImpl = characterFacadeImpl;
@@ -108,15 +101,14 @@ public class CharacterLevelsFacadeImpl extends
 	/**
 	 * Tidy up character listeners when closing the character. 
 	 */
-	protected void closeCharacter()
+	void closeCharacter()
 	{
 		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 		skillFacet.removeDataFacetChangeListener(this);
 		BonusChangeFacet bcf = FacetLibrary.getFacet(BonusChangeFacet.class);
-		for (SkillFacade skillFacade : dataSetFacade.getSkills())
+		for (Skill skillFacade : dataSetFacade.getSkills())
 		{
-			bcf.removeBonusChangeListener(this, "SKILLRANK", skillFacade
-				.getKeyName().toUpperCase());
+			bcf.removeBonusChangeListener(this, "SKILLRANK", skillFacade.getKeyName().toUpperCase());
 		}
 		theCharacter = null;
 		charDisplay = null;
@@ -136,12 +128,11 @@ public class CharacterLevelsFacadeImpl extends
 		SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
 		skillFacet.addDataFacetChangeListener(this);
 		BonusChangeFacet bcf = FacetLibrary.getFacet(BonusChangeFacet.class);
-		for (SkillFacade skillFacade : dataSetFacade.getSkills())
+		for (Skill skillFacade : dataSetFacade.getSkills())
 		{
-			bcf.addBonusChangeListener(this, "SKILLRANK", skillFacade
-				.getKeyName().toUpperCase());
+			bcf.addBonusChangeListener(this, "SKILLRANK", skillFacade.getKeyName().toUpperCase());
 		}
-		
+
 	}
 
 	@Override
@@ -203,16 +194,16 @@ public class CharacterLevelsFacadeImpl extends
 			PCClass currClass = classMap.get(classKeyName);
 			if (currClass == null)
 			{
-				Logging.errorPrint("No PCClass found for '" + classKeyName +
-						"' in character's class list: " + newClasses);
+				Logging
+					.errorPrint("No PCClass found for '" + classKeyName + "' in character's class list: " + newClasses);
 				return;
 			}
 
 			int clsLvlNum = levelCount.get(classKeyName);
 			levelCount.put(classKeyName, clsLvlNum + 1);
-			
+
 			classLevels.add(currClass);
-			
+
 			CharacterLevelFacadeImpl levelFI = new CharacterLevelFacadeImpl(currClass, classLevels.size());
 			addElement(levelFI);
 			//PCClassLevel classLevel = currClass.getClassLevel(clsLvlNum);
@@ -220,11 +211,8 @@ public class CharacterLevelsFacadeImpl extends
 		updateSkillsTodo();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#getClassTaken(int)
-	 */
 	@Override
-	public ClassFacade getClassTaken(CharacterLevelFacade level)
+	public PCClass getClassTaken(CharacterLevelFacade level)
 	{
 		if (level == null || !(level instanceof CharacterLevelFacadeImpl))
 		{
@@ -244,21 +232,16 @@ public class CharacterLevelsFacadeImpl extends
 
 		final String classKeyName = charDisplay.getLevelInfoClassKeyName(lvlIdx);
 		PCClass aClass = theCharacter.getClassKeyed(classKeyName);
-		
+
 		if (aClass != null)
 		{
 			final int clsLvl = charDisplay.getLevelInfoClassLevel(lvlIdx);
-			PCClassLevel pcl = charDisplay.getActiveClassLevel(aClass, clsLvl-1);
-
-			return pcl;
+			return charDisplay.getActiveClassLevel(aClass, clsLvl - 1);
 		}
-		
+
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#getHPGained(int)
-	 */
 	@Override
 	public int getHPGained(CharacterLevelFacade level)
 	{
@@ -275,9 +258,6 @@ public class CharacterLevelsFacadeImpl extends
 
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#getHPRolled(int)
-	 */
 	@Override
 	public int getHPRolled(CharacterLevelFacade level)
 	{
@@ -290,9 +270,6 @@ public class CharacterLevelsFacadeImpl extends
 		return charDisplay.getHP(classLevel);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#setHPRolled(int, int)
-	 */
 	@Override
 	public void setHPRolled(CharacterLevelFacade level, int hp)
 	{
@@ -306,15 +283,14 @@ public class CharacterLevelsFacadeImpl extends
 
 	PCLevelInfo getLevelInfo(CharacterLevelFacade level)
 	{
-		if (level == null
-			|| !(level instanceof CharacterLevelFacadeImpl))
+		if (level == null || !(level instanceof CharacterLevelFacadeImpl))
 		{
 			return null;
 		}
 
 		return charDisplay.getLevelInfo(getLevelIndex(level));
 	}
-	
+
 	private int getLevelIndex(CharacterLevelFacade level)
 	{
 		CharacterLevelFacadeImpl levelImpl = (CharacterLevelFacadeImpl) level;
@@ -322,12 +298,9 @@ public class CharacterLevelsFacadeImpl extends
 		{
 			return 0;
 		}
-		return levelImpl.getCharacterLevel()-1;
+		return levelImpl.getCharacterLevel() - 1;
 	}
-	
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#getGainedSkillPoints(int)
-	 */
+
 	@Override
 	public int getGainedSkillPoints(CharacterLevelFacade level)
 	{
@@ -342,8 +315,7 @@ public class CharacterLevelsFacadeImpl extends
 	@Override
 	public float getMaxRanks(CharacterLevelFacade level, SkillCost cost, boolean isClassForMaxRanks)
 	{
-		if (cost == null || level == null
-				|| !(level instanceof CharacterLevelFacadeImpl))
+		if (cost == null || level == null || !(level instanceof CharacterLevelFacadeImpl))
 		{
 			return 0.0f;
 		}
@@ -355,135 +327,78 @@ public class CharacterLevelsFacadeImpl extends
 		CharacterLevelFacadeImpl levelImpl = (CharacterLevelFacadeImpl) level;
 		if (costForMaxRanks == SkillCost.CLASS)
 		{
-			return SkillUtilities.maxClassSkillForLevel(
-				levelImpl.getCharacterLevel(), theCharacter).floatValue();
+			return SkillUtilities.maxClassSkillForLevel(levelImpl.getCharacterLevel(), theCharacter).floatValue();
 		}
 		else if (costForMaxRanks == SkillCost.CROSS_CLASS)
 		{
-			return SkillUtilities.maxCrossClassSkillForLevel(
-				levelImpl.getCharacterLevel(), theCharacter).floatValue();
-		} 
+			return SkillUtilities.maxCrossClassSkillForLevel(levelImpl.getCharacterLevel(), theCharacter).floatValue();
+		}
 		else if (costForMaxRanks == SkillCost.EXCLUSIVE)
 		{
 			// We can't test if the skill in question is valid for all classes 
 			// So just assume it is for the time being. A check on the total 
 			// levels for the skill itself will need to be made elsewhere 
-			return SkillUtilities.maxClassSkillForLevel(
-				levelImpl.getCharacterLevel(), theCharacter).floatValue();
-		} 
+			return SkillUtilities.maxClassSkillForLevel(levelImpl.getCharacterLevel(), theCharacter).floatValue();
+		}
 		return Float.NaN;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#getRankCost(int, pcgen.cdom.enumeration.SkillCost)
-	 */
 	@Override
-	public int getRankCost(CharacterLevelFacade level, SkillCost cost)
-	{
-		return cost.getCost();
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#getSkillCost(int, pcgen.core.facade.SkillFacade)
-	 */
-	@Override
-	public SkillCost getSkillCost(CharacterLevelFacade level, SkillFacade skill)
+	public SkillCost getSkillCost(CharacterLevelFacade level, Skill skill)
 	{
 		if (level != null && level instanceof CharacterLevelFacadeImpl && charDisplay != null)
 		{
 			final String classKeyName = charDisplay.getLevelInfoClassKeyName(getLevelIndex(level));
 			PCClass aClass = theCharacter.getClassKeyed(classKeyName);
-			if (skill instanceof Skill)
-			{
-				return theCharacter.getSkillCostForClass((Skill) skill, aClass);
-			}
+			return theCharacter.getSkillCostForClass(skill, aClass);
 		}
-		
+
 		return null;
 	}
 
 	@Override
-	public boolean isClassSkillForMaxRanks(CharacterLevelFacade level, SkillFacade skill)
+	public boolean isClassSkillForMaxRanks(CharacterLevelFacade level, Skill skill)
 	{
 		for (int i = 0; i < charLevels.size(); i++)
 		{
 			CharacterLevelFacade testLevel = getElementAt(i);
-			
+
 			if (getSkillCost(testLevel, skill) == SkillCost.CLASS)
 			{
 				return true;
 			}
-			
+
 			if (testLevel == level)
 			{
 				// Break as we have reached the level to be checked and it hasn't been class yet
 				return false;
 			}
-		}		
+		}
 		return false;
 	}
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#getSkillModifier(int, pcgen.core.facade.SkillFacade)
-	 */
+
 	@Override
-	public int getSkillModifier(CharacterLevelFacade level, SkillFacade skill)
+	public float getSkillRanks(@Nullable CharacterLevelFacade level, @Nullable Skill skill)
 	{
-		if (skill instanceof Skill)
+		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed
+		if (skill == null)
 		{
-			return SkillModifier.modifier((Skill) skill, theCharacter);
+			return 0;
 		}
-		return 0;
+		return SkillRankControl.getTotalRank(theCharacter, skill);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#getSkillRanks(int, pcgen.core.facade.SkillFacade)
-	 */
 	@Override
-	public float getSkillRanks(CharacterLevelFacade level, SkillFacade skill)
-	{
-		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed 
-		if (skill instanceof Skill)
-		{
-			return SkillRankControl.getTotalRank(theCharacter, (Skill) skill);
-		}
-		return 0;
-	}
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#getSkillTotal(int, pcgen.core.facade.SkillFacade)
-	 */
-	@Override
-	public int getSkillTotal(CharacterLevelFacade level, SkillFacade skill)
-	{
-		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed 
-		if (skill instanceof Skill)
-		{
-			Float ranks =  SkillRankControl.getTotalRank(theCharacter, (Skill) skill);
-			Integer mods = SkillModifier.modifier((Skill) skill, theCharacter);
-			return mods.intValue() + ranks.intValue();
-		}
-		
-		return 0;
-	}
-	
-	@Override
-	public SkillBreakdown getSkillBreakdown(CharacterLevelFacade level, SkillFacade skill)
+	public SkillBreakdown getSkillBreakdown(CharacterLevelFacade level, Skill skill)
 	{
 		SkillBreakdown sb = new SkillBreakdown();
 		// TODO Ranks aren't stored by level - have compromised by returning the total. Further discussion needed 
-		if (skill instanceof Skill)
-		{
-			sb.ranks =
-					SkillRankControl.getTotalRank(theCharacter, (Skill) skill);
-			sb.modifier = SkillModifier.modifier((Skill) skill, theCharacter);
-			sb.total = sb.modifier + (int) sb.ranks;
-		}
+		sb.ranks = SkillRankControl.getTotalRank(theCharacter, skill);
+		sb.modifier = SkillModifier.modifier(skill, theCharacter);
+		sb.total = sb.modifier + (int) sb.ranks;
 		return sb;
 	}
-	
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#getSpentSkillPoints(int)
-	 */
+
 	@Override
 	public int getSpentSkillPoints(CharacterLevelFacade level)
 	{
@@ -492,13 +407,9 @@ public class CharacterLevelsFacadeImpl extends
 		{
 			return 0;
 		}
-		return classLevel.getSkillPointsGained(theCharacter)
-			- classLevel.getSkillPointsRemaining();
+		return classLevel.getSkillPointsGained(theCharacter) - classLevel.getSkillPointsRemaining();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#getRemainingSkillPoints(int)
-	 */
 	@Override
 	public int getRemainingSkillPoints(CharacterLevelFacade level)
 	{
@@ -510,20 +421,16 @@ public class CharacterLevelsFacadeImpl extends
 		return classLevel.getSkillPointsRemaining();
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#investSkillPoints(int, pcgen.core.facade.SkillFacade, int)
-	 */
 	@Override
-	public boolean investSkillPoints(CharacterLevelFacade level, SkillFacade skill, int points)
+	public boolean investSkillPoints(CharacterLevelFacade level, Skill skill, int points)
 	{
-		if (points == 0 || level == null
-				|| !(level instanceof CharacterLevelFacadeImpl))
+		if (points == 0 || level == null || !(level instanceof CharacterLevelFacadeImpl))
 		{
-			Logging.errorPrint("Invalid request to investSkillPoints in "
-				+ skill + ". Points: " + points + " level: " + level);
+			Logging.errorPrint(
+				"Invalid request to investSkillPoints in " + skill + ". Points: " + points + " level: " + level);
 			return false;
 		}
-		
+
 		PCLevelInfo classLevel = getLevelInfo(level);
 		int skillPool;
 		if (Globals.getGameModeHasPointPool())
@@ -534,18 +441,14 @@ public class CharacterLevelsFacadeImpl extends
 		{
 			skillPool = classLevel.getSkillPointsRemaining();
 
-			if ((points < 0)
-				&& (((skillPool - points) > classLevel
-					.getSkillPointsGained(theCharacter))
-				|| !classHasRanksIn(skill,
-					((CharacterLevelFacadeImpl) level).getSelectedClass())))
+			if ((points < 0) && (((skillPool - points) > classLevel.getSkillPointsGained(theCharacter))
+				|| !classHasRanksIn(skill, ((CharacterLevelFacadeImpl) level).getSelectedClass())))
 			{
 				level = findLevelWithSpentSkillPoints(points, skill);
 				if (level == null)
 				{
 					delegate.showInfoMessage(Constants.APPLICATION_NAME,
-						LanguageBundle.getFormattedString(
-							"in_iskErr_message_05", skill));
+						LanguageBundle.getFormattedString("in_iskErr_message_05", skill));
 					return false;
 				}
 
@@ -556,57 +459,51 @@ public class CharacterLevelsFacadeImpl extends
 
 		if ((points > 0) && (points > skillPool))
 		{
-			delegate.showInfoMessage(Constants.APPLICATION_NAME, LanguageBundle
-				.getFormattedString("in_iskErr_message_04a", String
-					.valueOf(skillPool)));
+			delegate.showInfoMessage(Constants.APPLICATION_NAME,
+				LanguageBundle.getFormattedString("in_iskErr_message_04a", String.valueOf(skillPool)));
 
 			return false;
 		}
-		
+
 		SkillCost sc = getSkillCost(level, skill);
 		if (sc == null)
 		{
-			Logging.errorPrint("Failed to get skillcost for skill " + skill
-				+ ". Could not process request to invest " + points
-				+ " in the skill");
+			Logging.errorPrint("Failed to get skillcost for skill " + skill + ". Could not process request to invest "
+				+ points + " in the skill");
 			return false;
 		}
 
 		if (sc.equals(SkillCost.EXCLUSIVE))
 		{
-			delegate.showInfoMessage(Constants.APPLICATION_NAME, LanguageBundle
-				.getString("in_iskErr_message_06"));
+			delegate.showInfoMessage(Constants.APPLICATION_NAME, LanguageBundle.getString("in_iskErr_message_06"));
 
 			return false;
 		}
 
 		final double cost = sc.getCost();
 		double rank = points / cost;
-		
-		Skill aSkill = (Skill) skill;
 
-		boolean hasSkill = charDisplay.hasSkill(aSkill);
+		boolean hasSkill = charDisplay.hasSkill(skill);
 		if (!hasSkill)
 		{
-			SkillDisplay.updateSkillsOutputOrder(theCharacter, aSkill);
+			SkillDisplay.updateSkillsOutputOrder(theCharacter, skill);
 		}
-		
+
 		final String classKeyName = charDisplay.getLevelInfoClassKeyName(getLevelIndex(level));
 		PCClass aClass = theCharacter.getClassKeyed(classKeyName);
-		String errMessage = SkillRankControl.modRanks(rank, aClass, false, theCharacter, aSkill);
+		String errMessage = SkillRankControl.modRanks(rank, aClass, false, theCharacter, skill);
 
 		if ("".equals(errMessage)) //$NON-NLS-1$
 		{
 			classLevel.setSkillPointsRemaining(skillPool - points);
 		}
-		
-		if (ChooseActivation.hasNewChooseToken(aSkill)
-			&& characterFacadeImpl != null)
+
+		if (ChooseActivation.hasNewChooseToken(skill) && characterFacadeImpl != null)
 		{
 			characterFacadeImpl.postLevellingUpdates();
 		}
 
-		if (errMessage.length() > 0)
+		if (!errMessage.isEmpty())
 		{
 			delegate.showInfoMessage(Constants.APPLICATION_NAME, errMessage);
 
@@ -620,22 +517,17 @@ public class CharacterLevelsFacadeImpl extends
 	}
 
 	@Override
-	public CharacterLevelFacade findNextLevelForSkill(SkillFacade skill,
-		CharacterLevelFacade baseLevel, float newRank)
+	public CharacterLevelFacade findNextLevelForSkill(Skill skill, CharacterLevelFacade baseLevel, float newRank)
 	{
-		Skill aSkill = (Skill) skill;
-		SkillCost skillCost = getSkillCost(baseLevel, aSkill);
-		float maxRanks = getMaxRanks(baseLevel, skillCost, isClassSkillForMaxRanks(baseLevel, aSkill));
+		SkillCost skillCost = getSkillCost(baseLevel, skill);
+		float maxRanks = getMaxRanks(baseLevel, skillCost, isClassSkillForMaxRanks(baseLevel, skill));
 
-		float currRank = SkillRankControl.getTotalRank(theCharacter, aSkill);
+		float currRank = SkillRankControl.getTotalRank(theCharacter, skill);
 		if (newRank < currRank)
 		{
 			// 1. Selected level (if class had purchased a rank and is not above max ranks)
-			if (classHasRanksIn(skill,
-				((CharacterLevelFacadeImpl) baseLevel).getSelectedClass())
-				&& !Float.isNaN(maxRanks)
-				&& maxRanks >= currRank
-				&& getSpentSkillPoints(baseLevel) > 0)
+			if (classHasRanksIn(skill, ((CharacterLevelFacadeImpl) baseLevel).getSelectedClass())
+				&& !Float.isNaN(maxRanks) && maxRanks >= currRank && getSpentSkillPoints(baseLevel) > 0)
 			{
 				return baseLevel;
 			}
@@ -644,8 +536,7 @@ public class CharacterLevelsFacadeImpl extends
 			// selected level in which the rank to be removed is below max ranks and 
 			// is a class that has bought ranks in the class
 			CharacterLevelFacade levelToRefundSkill =
-					scanForLevelToRefundSkill(aSkill, currRank,
-						(PCClass) getClassTaken(baseLevel));
+					scanForLevelToRefundSkill(skill, currRank, getClassTaken(baseLevel));
 			if (levelToRefundSkill != null)
 			{
 				return levelToRefundSkill;
@@ -654,14 +545,12 @@ public class CharacterLevelsFacadeImpl extends
 			// 3. Scan from level 1 for first level of any class in which the rank 
 			// to be removed is below max ranks and is a class that has bought 
 			// ranks in the class
-			levelToRefundSkill =
-					scanForLevelToRefundSkill(aSkill, currRank, null);
+			levelToRefundSkill = scanForLevelToRefundSkill(skill, currRank, null);
 			return levelToRefundSkill;
 		}
 
 		// Check if current level ok
-		if (!Float.isNaN(maxRanks) && maxRanks >= newRank
-			&& getRemainingSkillPoints(baseLevel) > 0)
+		if (!Float.isNaN(maxRanks) && maxRanks >= newRank && getRemainingSkillPoints(baseLevel) > 0)
 		{
 			return baseLevel;
 		}
@@ -669,37 +558,31 @@ public class CharacterLevelsFacadeImpl extends
 		// Check for class cost on this level or higher
 		int baseLevelIndex = getLevelIndex(baseLevel);
 		CharacterLevelFacade levelToBuySkill =
-				scanForwardforLevelToBuySkill(aSkill, newRank, baseLevelIndex,
-					SkillCost.CLASS);
+				scanForwardforLevelToBuySkill(skill, newRank, baseLevelIndex, SkillCost.CLASS);
 		if (levelToBuySkill != null)
 		{
 			return levelToBuySkill;
 		}
 		// Check for class cost on any level
-		levelToBuySkill =
-				scanForwardforLevelToBuySkill(aSkill, newRank, 0,
-					SkillCost.CLASS);
+		levelToBuySkill = scanForwardforLevelToBuySkill(skill, newRank, 0, SkillCost.CLASS);
 		if (levelToBuySkill != null)
 		{
 			return levelToBuySkill;
 		}
 		// Check for any cost on this level or higher
-		levelToBuySkill =
-				scanForwardforLevelToBuySkill(aSkill, newRank, baseLevelIndex,
-					null);
+		levelToBuySkill = scanForwardforLevelToBuySkill(skill, newRank, baseLevelIndex, null);
 		if (levelToBuySkill != null)
 		{
 			return levelToBuySkill;
 		}
 		// Check for any cost on any level
-		levelToBuySkill =
-				scanForwardforLevelToBuySkill(aSkill, newRank, 0, null);
+		levelToBuySkill = scanForwardforLevelToBuySkill(skill, newRank, 0, null);
 
 		return levelToBuySkill;
 	}
 
-	private CharacterLevelFacade scanForwardforLevelToBuySkill(Skill aSkill, float testRank,
-		int baseLevelIndex, SkillCost costToMatch)
+	private CharacterLevelFacade scanForwardforLevelToBuySkill(Skill aSkill, float testRank, int baseLevelIndex,
+		SkillCost costToMatch)
 	{
 		for (int i = baseLevelIndex; i < charLevels.size(); i++)
 		{
@@ -716,9 +599,7 @@ public class CharacterLevelsFacadeImpl extends
 				//Logging.errorPrint("Skipping level " + testLevel + " as it is not the same cost as " + costToMatch);
 				continue;
 			}
-			float maxRanks =
-					getMaxRanks(testLevel, skillCost,
-						isClassSkillForMaxRanks(testLevel, aSkill));
+			float maxRanks = getMaxRanks(testLevel, skillCost, isClassSkillForMaxRanks(testLevel, aSkill));
 			if (!Float.isNaN(maxRanks) && maxRanks >= testRank)
 			{
 				//Logging.errorPrint("Selected level " + testLevel);
@@ -729,8 +610,7 @@ public class CharacterLevelsFacadeImpl extends
 		return null;
 	}
 
-	private CharacterLevelFacade scanForLevelToRefundSkill(Skill aSkill, float testRank,
-		PCClass classToMatch)
+	private CharacterLevelFacade scanForLevelToRefundSkill(Skill aSkill, float testRank, PCClass classToMatch)
 	{
 		for (int i = 0; i < charLevels.size(); i++)
 		{
@@ -742,8 +622,7 @@ public class CharacterLevelsFacadeImpl extends
 				//Logging.errorPrint("Skipping level " + testLevel + " as it is not the same class as " + classToMatch);
 				continue;
 			}
-			if (!classHasRanksIn(aSkill,
-				((CharacterLevelFacadeImpl) testLevel).getSelectedClass()))
+			if (!classHasRanksIn(aSkill, ((CharacterLevelFacadeImpl) testLevel).getSelectedClass()))
 			{
 				//Logging.errorPrint("Skipping level " + testLevel + " as it does not have ranks in " + aSkill);
 				continue;
@@ -754,9 +633,7 @@ public class CharacterLevelsFacadeImpl extends
 				continue;
 			}
 			SkillCost skillCost = getSkillCost(testLevel, aSkill);
-			float maxRanks =
-					getMaxRanks(testLevel, skillCost,
-						isClassSkillForMaxRanks(testLevel, aSkill));
+			float maxRanks = getMaxRanks(testLevel, skillCost, isClassSkillForMaxRanks(testLevel, aSkill));
 			if (!Float.isNaN(maxRanks) && maxRanks >= testRank)
 			{
 				//Logging.errorPrint("Selected level " + testLevel);
@@ -766,16 +643,16 @@ public class CharacterLevelsFacadeImpl extends
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Find a level which has a certain number of points spent.
 	 * @param points The negative number of points spent required.
 	 * @param skill 
 	 * @return The level with spent points, or null if none match
 	 */
-	private CharacterLevelFacade findLevelWithSpentSkillPoints(int points, SkillFacade skill)
+	private CharacterLevelFacade findLevelWithSpentSkillPoints(int points, Skill skill)
 	{
-		for (int i = charLevels.size()-1; i>= 0; i--)
+		for (int i = charLevels.size() - 1; i >= 0; i--)
 		{
 			CharacterLevelFacadeImpl levelFacade = (CharacterLevelFacadeImpl) charLevels.get(i);
 			PCLevelInfo levelInfo = getLevelInfo(levelFacade);
@@ -789,32 +666,30 @@ public class CharacterLevelsFacadeImpl extends
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Identify if the class has ranks in the skill.
 	 * @param skill The skill to be checked for.
 	 * @param pcClass The class being checked.
 	 * @return true if the character took ranks of the skill in the class.
 	 */
-	private boolean classHasRanksIn(SkillFacade skill, ClassFacade pcClass)
+	private boolean classHasRanksIn(Skill skill, PCClass pcClass)
 	{
-		Double rank = theCharacter.getSkillRankForClass((Skill) skill, (PCClass) pcClass);
+		Double rank = theCharacter.getSkillRankForClass(skill, pcClass);
 		return (rank != null) && (rank > 0.0d);
 	}
 
-	protected void updateSkillsTodo()
+	void updateSkillsTodo()
 	{
 		int remainingPoints = calcRemainingSkillPoints();
 		if (remainingPoints < 0)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(Tab.SKILLS, "Skills",
-				"in_iskTodoTooMany", 1));
+			todoManager.addTodo(new TodoFacadeImpl(Tab.SKILLS, "Skills", "in_iskTodoTooMany", 1));
 			todoManager.removeTodo("in_iskTodoRemain");
 		}
 		else if (remainingPoints > 0)
 		{
-			todoManager.addTodo(new TodoFacadeImpl(Tab.SKILLS, "Skills",
-				"in_iskTodoRemain", 1));
+			todoManager.addTodo(new TodoFacadeImpl(Tab.SKILLS, "Skills", "in_iskTodoRemain", 1));
 			todoManager.removeTodo("in_iskTodoTooMany");
 		}
 		else
@@ -829,32 +704,24 @@ public class CharacterLevelsFacadeImpl extends
 	 */
 	private int calcRemainingSkillPoints()
 	{
-		int numRemaining = 0;
-		for (CharacterLevelFacade clf : charLevels)
-		{
-			numRemaining += getRemainingSkillPoints(clf);
-		}
-		return numRemaining;
+		return charLevels.stream()
+		                 .mapToInt(this::getRemainingSkillPoints)
+		                 .sum();
 	}
 
-
-
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#setGainedSkillPoints(int, int)
-	 */
 	@Override
 	public void setGainedSkillPoints(CharacterLevelFacade level, int points)
 	{
 		int spentSkillPoints = getSpentSkillPoints(level);
 		PCLevelInfo classLevel = getLevelInfo(level);
 		classLevel.setSkillPointsGained(theCharacter, points);
-		classLevel.setSkillPointsRemaining(points-spentSkillPoints);
-		
+		classLevel.setSkillPointsRemaining(points - spentSkillPoints);
+
 		fireSkillPointEvent(this, getLevelIndex(level), false);
 	}
 
 	// ============== Level Management code =========================
-	
+
 	/**
 	 * Register the addition of a new level to the character of the 
 	 * specified class. It is expected that the backing PlayerCharacter object 
@@ -863,105 +730,75 @@ public class CharacterLevelsFacadeImpl extends
 	 */
 	void addLevelOfClass(CharacterLevelFacadeImpl theClassLevel)
 	{
-		ClassFacade theClass = theClassLevel.getSelectedClass();
+		PCClass theClass = theClassLevel.getSelectedClass();
 		classLevels.add(theClass);
 		addElement(theClassLevel);
 		updateSkillsTodo();
 	}
-	
+
 	/**
 	 * Remove the last level gained. It is expected that the backing 
 	 * PlayerCharacter object will be updated by our caller.
 	 */
 	void removeLastLevel()
 	{
-		classLevels.remove(classLevels.size()-1);
-		removeElement(getSize()-1);
+		classLevels.remove(classLevels.size() - 1);
+		removeElement(getSize() - 1);
 		updateSkillsTodo();
 	}
-	
+
 	void classListRefreshRequired()
 	{
 		refreshClassList();
 		fireClassChangedEvent(this, 0, true);
 		fireSkillBonusEvent(this, 0, true);
 	}
-	
+
 	// ============== Listener Management code =========================
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#addClasListener(pcgen.core.facade.CharacterLevelsFacade.ClassListener)
-	 */
 	@Override
 	public void addClassListener(ClassListener listener)
 	{
 		listenerList.add(ClassListener.class, listener);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#addHitPointListener(pcgen.core.facade.CharacterLevelsFacade.HitPointListener)
-	 */
 	@Override
 	public void addHitPointListener(HitPointListener listener)
 	{
 		listenerList.add(HitPointListener.class, listener);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#addSkillBonusListener(pcgen.core.facade.CharacterLevelsFacade.SkillBonusListener)
-	 */
 	@Override
 	public void addSkillBonusListener(SkillBonusListener listener)
 	{
 		listenerList.add(SkillBonusListener.class, listener);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#addSkillPointListener(pcgen.core.facade.CharacterLevelsFacade.SkillPointListener)
-	 */
 	@Override
 	public void addSkillPointListener(SkillPointListener listener)
 	{
 		listenerList.add(SkillPointListener.class, listener);
 	}
-	
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#removeClassListener(pcgen.core.facade.CharacterLevelsFacade.ClassListener)
-	 */
-	@Override
-	public void removeClassListener(ClassListener listener)
-	{
-		listenerList.remove(ClassListener.class, listener);
-	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#removeHitPointListener(pcgen.core.facade.CharacterLevelsFacade.HitPointListener)
-	 */
 	@Override
 	public void removeHitPointListener(HitPointListener listener)
 	{
 		listenerList.remove(HitPointListener.class, listener);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#removeSkillBonusListener(pcgen.core.facade.CharacterLevelsFacade.SkillBonusListener)
-	 */
 	@Override
 	public void removeSkillBonusListener(SkillBonusListener listener)
 	{
 		listenerList.remove(SkillBonusListener.class, listener);
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.CharacterLevelsFacade#removeSkillPointListener(pcgen.core.facade.CharacterLevelsFacade.SkillPointListener)
-	 */
 	@Override
 	public void removeSkillPointListener(SkillPointListener listener)
 	{
 		listenerList.remove(SkillPointListener.class, listener);
 	}
 
-	protected void fireClassChangedEvent(Object source, int baseLevelIndex, boolean stacks)
+	private void fireClassChangedEvent(Object source, int baseLevelIndex, boolean stacks)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		CharacterLevelEvent e = null;
@@ -978,7 +815,7 @@ public class CharacterLevelsFacadeImpl extends
 		}
 	}
 
-	protected void fireHitPointEvent(Object source, int baseLevelIndex, boolean stacks)
+	private void fireHitPointEvent(Object source, int baseLevelIndex, boolean stacks)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		CharacterLevelEvent e = null;
@@ -995,7 +832,7 @@ public class CharacterLevelsFacadeImpl extends
 		}
 	}
 
-	protected void fireSkillPointEvent(Object source, int baseLevelIndex, boolean stacks)
+	private void fireSkillPointEvent(Object source, int baseLevelIndex, boolean stacks)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		CharacterLevelEvent e = null;
@@ -1012,7 +849,7 @@ public class CharacterLevelsFacadeImpl extends
 		}
 	}
 
-	protected void fireSkillBonusEvent(Object source, int baseLevelIndex, boolean stacks)
+	void fireSkillBonusEvent(Object source, int baseLevelIndex, boolean stacks)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		CharacterLevelEvent e = null;

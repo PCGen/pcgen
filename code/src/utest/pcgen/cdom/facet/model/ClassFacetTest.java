@@ -17,20 +17,23 @@
  */
 package pcgen.cdom.facet.model;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
-import junit.framework.TestCase;
-
-import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.facet.model.ClassFacet.ClassInfo;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeEvent;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
@@ -38,7 +41,11 @@ import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 
-public class ClassFacetTest extends TestCase
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class ClassFacetTest
 {
 	private CharID id;
 	private CharID altid;
@@ -85,15 +92,23 @@ public class ClassFacetTest extends TestCase
 
 	}
 
-	@Override
+	@BeforeEach
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
 		facet.addDataFacetChangeListener(classListener);
 		facet.addLevelChangeListener(classListener);
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		id = null;
+		altid = null;
+		facet = null;
+		classListener = null;
 	}
 
 	private void assertEventCount(int a, int r, int l)
@@ -147,7 +162,7 @@ public class ClassFacetTest extends TestCase
 			facet.addClass(id, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -247,7 +262,7 @@ public class ClassFacetTest extends TestCase
 		assertEquals(2, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 1);
 		ClassLevelChangeEvent event = classListener.lastLevelEvent;
-		assertEquals(id, event.getCharID());
+		assertSame(id, event.getCharID());
 		assertEquals(t1, event.getPCClass());
 		assertEquals(0, event.getOldLevel());
 		assertEquals(2, event.getNewLevel());
@@ -256,7 +271,7 @@ public class ClassFacetTest extends TestCase
 		assertEquals(3, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 2);
 		event = classListener.lastLevelEvent;
-		assertEquals(id, event.getCharID());
+		assertSame(id, event.getCharID());
 		assertEquals(t1, event.getPCClass());
 		assertEquals(2, event.getOldLevel());
 		assertEquals(3, event.getNewLevel());
@@ -265,7 +280,7 @@ public class ClassFacetTest extends TestCase
 		assertEquals(1, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 3);
 		event = classListener.lastLevelEvent;
-		assertEquals(id, event.getCharID());
+		assertSame(id, event.getCharID());
 		assertEquals(t1, event.getPCClass());
 		assertEquals(3, event.getOldLevel());
 		assertEquals(1, event.getNewLevel());
@@ -333,7 +348,7 @@ public class ClassFacetTest extends TestCase
 			facet.removeClass(id, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Expected
 		}
@@ -652,7 +667,7 @@ public class ClassFacetTest extends TestCase
 			facet.setLevel(id, null, 2);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -689,13 +704,13 @@ public class ClassFacetTest extends TestCase
 	{
 		PCClass cl = new PCClass();
 		facet.addClass(id, cl);
-		PCClassLevel pcl = new PCClassLevel();
 		try
 		{
+			PCClassLevel pcl = new PCClassLevel();
 			assertFalse(facet.setClassLevel(id, null, pcl));
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -710,13 +725,13 @@ public class ClassFacetTest extends TestCase
 	{
 		PCClass cl = new PCClass();
 		facet.addClass(id, cl);
-		PCClass t1 = new PCClass();
 		try
 		{
+			PCClass t1 = new PCClass();
 			assertFalse(facet.setClassLevel(id, t1, null));
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
@@ -729,10 +744,10 @@ public class ClassFacetTest extends TestCase
 	@Test
 	public void testSetClassLevelNotAdded()
 	{
-		PCClass t1 = new PCClass();
-		PCClassLevel pcl = new PCClassLevel();
 		try
 		{
+			PCClassLevel pcl = new PCClassLevel();
+			PCClass t1 = new PCClass();
 			assertFalse(facet.setClassLevel(id, t1, pcl));
 		}
 		catch (CloneNotSupportedException e)
@@ -747,24 +762,19 @@ public class ClassFacetTest extends TestCase
 	{
 		PCClass cl = new PCClass();
 		facet.addClass(id, cl);
-		PCClass t1 = new PCClass();
-		PCClassLevel pcl = new PCClassLevel();
 		//INTENTIONALLY commented out to show what is "bad"
 		//pcl.put(IntegerKey.LEVEL, 4);
 		try
 		{
+			PCClassLevel pcl = new PCClassLevel();
+			PCClass t1 = new PCClass();
 			facet.setClassLevel(id, t1, pcl);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//yep!
-		}
-		catch (NullPointerException e)
-		{
-			//okay too!
-		}
-		catch (CloneNotSupportedException e)
+		} catch (CloneNotSupportedException e)
 		{
 			fail(e.getMessage());
 		}
@@ -806,7 +816,7 @@ public class ClassFacetTest extends TestCase
 		{
 			assertTrue(facet.setClassLevel(id, t1, pcl));
 			ClassLevelObjectChangeEvent event = classListener.lastLevelObjectEvent;
-			assertEquals(id, event.getCharID());
+			assertSame(id, event.getCharID());
 			assertEquals(t1, event.getPCClass());
 			assertEquals(old, event.getOldLevel());
 			assertEquals(pcl, event.getNewLevel());
@@ -864,7 +874,7 @@ public class ClassFacetTest extends TestCase
 		{
 			assertTrue(facet.setClassLevel(id, t1, pcl));
 			ClassLevelObjectChangeEvent event = classListener.lastLevelObjectEvent;
-			assertEquals(id, event.getCharID());
+			assertSame(id, event.getCharID());
 			assertEquals(t1, event.getPCClass());
 			assertEquals(old, event.getOldLevel());
 			assertEquals(pcl, event.getNewLevel());
@@ -922,7 +932,7 @@ public class ClassFacetTest extends TestCase
 			facet.getClassLevel(id, null, 1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			//Yep!
 		}

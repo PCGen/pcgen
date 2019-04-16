@@ -19,9 +19,15 @@ package pcgen.cdom.format.table;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.NavigableMap;
 import java.util.Objects;
+import java.util.TreeMap;
+import java.util.function.Function;
 
+import pcgen.base.util.ComparableManager;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Loadable;
 
@@ -54,7 +60,7 @@ public class DataTable implements Loadable
 	/**
 	 * The contents of the DataTable.
 	 */
-	private ArrayList<Object[]> dataByRow = new ArrayList<>();
+	private Map<Object, Object[]> dataByRow;
 
 	/**
 	 * Appends a new TableColumn to the DataTable.
@@ -71,17 +77,40 @@ public class DataTable implements Loadable
 	 */
 	public void addColumn(TableColumn column)
 	{
-		if (!dataByRow.isEmpty())
+		if ((dataByRow != null) && !dataByRow.isEmpty())
 		{
-			throw new IllegalStateException(
-				"Column may not be added after rows are added");
+			throw new IllegalStateException("Column may not be added after rows are added");
 		}
 		if (columns.contains(Objects.requireNonNull(column)))
 		{
-			throw new IllegalArgumentException(
-				"Column may not be duplicate: " + column);
+			throw new IllegalArgumentException("Column may not be duplicate: " + column);
+		}
+		if (columns.isEmpty())
+		{
+			//First column
+			FormatManager<?> formatManager = column.getFormatManager();
+			if (formatManager instanceof ComparableManager)
+			{
+				dataByRow = new TreeMap<>(((ComparableManager) formatManager).getComparator());
+			}
+			else
+			{
+				dataByRow = new HashMap<>();
+			}
 		}
 		columns.add(column);
+	}
+
+	/**
+	 * Returns the TableColumn at the given index in this DataTable.
+	 * 
+	 * @param i
+	 *            The index for which the TableColumn in this DataTable should be returned
+	 * @return The TableColumn at the given index in this DataTable
+	 */
+	public TableColumn getColumn(int i)
+	{
+		return columns.get(i);
 	}
 
 	/**
@@ -105,16 +134,14 @@ public class DataTable implements Loadable
 		{
 			TableColumn column = columns.get(i);
 			Object object = data[i];
-			if (!column.getFormatManager().getManagedClass()
-				.isAssignableFrom(object.getClass()))
+			if (!column.getFormatManager().getManagedClass().isAssignableFrom(object.getClass()))
 			{
-				throw new IllegalArgumentException("Item " + i
-					+ " in provided row was incorrect format, found: "
-					+ object.getClass() + " but requried "
-					+ column.getFormatManager().getManagedClass());
+				throw new IllegalArgumentException("Item " + i + " in provided row was incorrect format, found: "
+					+ object.getClass() + " but requried " + column.getFormatManager().getManagedClass());
 			}
 		}
-		dataByRow.add(data);
+		//Cast should be enforced by behavior of addColumn
+		dataByRow.put(data[0], data);
 	}
 
 	/**
@@ -175,18 +202,22 @@ public class DataTable implements Loadable
 	}
 
 	/**
-	 * Returns true if the given object is the lookup value (value in the first
-	 * column) of a row in this DataTable.
+	 * Returns true if the given object is appropriate as a lookup value (value in the
+	 * first column) to get a row in this DataTable using the given LookupType.
 	 * 
+	 * @param lookupType
+	 *            The LookupType used to determine how rows are analyzed to determine if
+	 *            one will be matched for the given lookup value
 	 * @param lookupValue
-	 *            The value to be checked to see if it is a lookup value in a
-	 *            row of this DataTable.
-	 * @return true if the given object is the lookup value (value in the first
-	 *         column) of a row in this DataTable
+	 *            The value to be checked to see if it is a lookup value in a row of this
+	 *            DataTable.
+	 * @return true if the given object is is appropriate as a lookup value (value in the
+	 *         first column) to get a row in this DataTable using the given LookupType
 	 */
-	public boolean hasRow(Object lookupValue)
+	public boolean hasRow(LookupType lookupType, Object lookupValue)
 	{
-		return getRow(lookupValue) != null;
+		//Cast should be enforced by behavior of addColumn
+		return getRow(lookupType, lookupValue) != null;
 	}
 
 	/**
@@ -212,38 +243,36 @@ public class DataTable implements Loadable
 	 */
 	public FormatManager<?> getFormat(String columnName)
 	{
-		for (TableColumn column : columns)
-		{
-			if (column.getName().equals(columnName))
-			{
-				return column.getFormatManager();
-			}
-		}
-		throw new IllegalArgumentException(
-			"Column Name must exist in the DataTable");
+		return columns.stream().filter(column -> column.getName().equals(columnName)).findFirst()
+			.orElseThrow(() -> new IllegalArgumentException("Column Name must exist in the DataTable"))
+			.getFormatManager();
 	}
 
 	/**
-	 * Returns the value in the column of the given name and in the given row
-	 * (zero indexed).
+	 * Returns the value in this DataTable for the row with the lookup value valid (via
+	 * the given LookupType) to the given key and from the column with the given name.
 	 * 
-	 * @param string
-	 *            The name of the column for which the value should be returned
-	 * @param i
-	 *            The index of the row for which the value should be returned
-	 *            (zero indexed)
-	 * @return The value in the column of the given name and in the given row
-	 *         (zero indexed).
+	 * Note that the returned value is value-semantic. Therefore any changes made to that
+	 * object will change the object stored in this DataTable.
+	 * 
+	 * @param lookupType
+	 *            The LookupType used to determine which row is to be chosen
+	 * @param lookupValue
+	 *            The value used to determine (via the given lookupType) the row from
+	 *            which the value will be retrieved
+	 * @param resultingColumn
+	 *            The name of the column from which the value should be retrieved
+	 * @return The value in this DataTable for the row with the lookup value appropriate
+	 *         for the given LookupType, from the column with the given name
 	 */
-	public Object get(String string, int i)
+	public Object lookup(LookupType lookupType, Object lookupValue, String resultingColumn)
 	{
-		int columnNumber = getColumnIndex(string);
-		if (columnNumber == -1)
+		int resultingColumnNumber = getColumnIndex(resultingColumn);
+		if (resultingColumnNumber == -1)
 		{
-			throw new IllegalArgumentException(
-				"Cannot find column named: " + string);
+			throw new IllegalArgumentException("Cannot find column named: " + resultingColumn);
 		}
-		return dataByRow.get(i)[columnNumber];
+		return lookup(lookupType, lookupValue, resultingColumnNumber);
 	}
 
 	private int getColumnIndex(String string)
@@ -261,50 +290,33 @@ public class DataTable implements Loadable
 	}
 
 	/**
-	 * Returns the value in this DataTable for the row with the lookup value
-	 * equal (via .equals()) to the given key and from the column with the given
-	 * name.
+	 * Returns the value in this DataTable for the row with the lookup value valid (via
+	 * the given LookupType) to the given key and from the column with the given index.
 	 * 
-	 * Note that the returned value is value-semantic. Therefore any changes
-	 * made to that object will change the object stored in this DataTable.
+	 * Note that the returned value is value-semantic. Therefore any changes made to that
+	 * object will change the object stored in this DataTable.
 	 * 
-	 * @param key
-	 *            The key used (via .equals()) to determine the row from which
-	 *            the value will be retrieved
-	 * @param resultingColumn
-	 *            The name of the column from which the value should be
-	 *            retrieved
-	 * @return The value in this DataTable for the row with the lookup value
-	 *         equal to the given key and from the column with the given name.
+	 * @param lookupType
+	 *            The LookupType used to determine which row is to be chosen
+	 * @param lookupValue
+	 *            The value used to determine (via the given lookupType) the row from
+	 *            which the value will be retrieved
+	 * @param columnNumber
+	 *            The index of the column from which the value should be retrieved
+	 * @return The value in this DataTable for the row with the lookup value appropriate
+	 *         for the given LookupType, from the column with the given index
 	 */
-	public Object lookupExact(Object key, String resultingColumn)
+	public Object lookup(LookupType lookupType, Object lookupValue, int columnNumber)
 	{
-		int resultingColumnNumber = getColumnIndex(resultingColumn);
-		if (resultingColumnNumber == -1)
-		{
-			throw new IllegalArgumentException(
-				"Cannot find column named: " + resultingColumn);
-		}
-		Object[] row = getRow(key);
-		if (row == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot find row for: " + key + " in first column");
-		}
-		return row[resultingColumnNumber];
+		//Cast should be enforced by behavior of addColumn
+		Object[] row = getRow(lookupType, lookupValue);
+		return row[columnNumber];
 	}
 
-	@SuppressWarnings("PMD.ReturnEmptyArrayRatherThanNull")
-	private Object[] getRow(Object lookupValue)
+	private Object[] getRow(LookupType lookupType, Object lookupValue)
 	{
-		for (Object[] row : dataByRow)
-		{
-			if (lookupValue.equals(row[0]))
-			{
-				return row;
-			}
-		}
-		return null;
+		Function<? super Map<Object, Object[]>, Object[]> p = lookupType.getRowFor(lookupValue);
+		return p.apply(dataByRow);
 	}
 
 	/**
@@ -314,9 +326,7 @@ public class DataTable implements Loadable
 	public void trim()
 	{
 		columns.trimToSize();
-		dataByRow.trimToSize();
 	}
-
 
 	@Override
 	public String getKeyName()
@@ -326,12 +336,6 @@ public class DataTable implements Loadable
 
 	@Override
 	public String getDisplayName()
-	{
-		return name;
-	}
-
-	@Override
-	public String getLSTformat()
 	{
 		return name;
 	}
@@ -359,4 +363,73 @@ public class DataTable implements Loadable
 	{
 		return false;
 	}
+
+	/**
+	 * An Enumeration of the legal lookup types used to determine which row of a table to use.
+	 */
+	public enum LookupType
+	{
+		/**
+		 * Lookup for an exact match in a table.
+		 */
+		EXACT
+		{
+			@Override
+			public <V> Function<? super Map<Object, V>, V> getRowFor(Object lookupValue)
+			{
+				return map -> map.get(lookupValue);
+			}
+
+			@Override
+			public boolean requiresSorting()
+			{
+				return false;
+			}
+		},
+
+		/**
+		 * Lookup for an match in a table of the the last less than or equal to value. In
+		 * effect this would round down in situations where all of the lookup items are
+		 * integers.
+		 */
+		LASTLTEQ
+		{
+			@Override
+			public <V> Function<? super Map<Object, V>, V> getRowFor(Object lookupValue)
+			{
+				return map -> ((NavigableMap<Object, V>) map).floorEntry(lookupValue).getValue();
+			}
+
+			@Override
+			public boolean requiresSorting()
+			{
+				return true;
+			}
+		};
+
+		/**
+		 * Returns a Function that will get the target row for the given lookupValue,
+		 * based on the behavior of the LookupType.
+		 * 
+		 * @param lookupValue
+		 *            The value used to determine which row is to be used
+		 * @return A Function that will get the target row for the given lookupValue
+		 */
+		public abstract <V> Function<? super Map<Object, V>, V> getRowFor(Object lookupValue);
+
+		/**
+		 * Returns true if the LookupType requires comparison of values for sorting (not
+		 * just equality). If the format for the lookup column is not Comparable or does
+		 * not have a ComparableManager, then a LookupType that requries sorting cannot be
+		 * used.
+		 * 
+		 * This allows us to prevent errors on formats which are not comparable for
+		 * purposes of sorting. Used e.g. to prevent the use of LASTLTEQ in lookup
+		 * function when the table is not navigable...
+		 * 
+		 * @return true if the LookupType requires sorting of values; false otherwise
+		 */
+		public abstract boolean requiresSorting();
+	}
+
 }

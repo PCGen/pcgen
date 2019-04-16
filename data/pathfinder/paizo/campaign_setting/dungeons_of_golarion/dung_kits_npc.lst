@@ -1,0 +1,119 @@
+SOURCELONG:Dungeons of Golarion	SOURCESHORT:Dung	SOURCEWEB:https://paizo.com/products/btpy8lv5	SOURCEDATE:2011-07
+
+STARTPACK:Black Claw Elite	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kobold],[!PRERACE:1,%]	SOURCEPAGE:p.7
+RACE:Kobold	!PRERACE:1,%
+NAME:Black Claw Elite
+ALIGN:LE
+STAT:STR=10|DEX=13|CON=10|INT=10|WIS=9|CHA=8
+CLASS:Warrior	LEVEL:4
+SKILL:Craft (Traps)		RANK:4
+SKILL:Perception			RANK:4
+SKILL:Stealth			RANK:4
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+GEAR:Studded Leather						LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Armor
+GEAR:Longsword							LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Shortbow							LOCATION:Carried
+GEAR:Arrows (20)							LOCATION:Carried
+GEAR:Potion of Cure Light Wounds		QTY:2		LOCATION:Carried
+GEAR:Poison (Medium Spider Venom)		QTY:3		LOCATION:Carried
+
+
+STARTPACK:(NPC) Zalsus		TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kobold],[!PRERACE:1,%]	SOURCEPAGE:p.12	NAMEISPI:YES
+RACE:Kobold	!PRERACE:1,%
+NAME:Zalsus
+ALIGN:LE
+STAT:STR=11|DEX=16|CON=12|INT=12|WIS=8|CHA=11
+CLASS:Fighter	LEVEL:7
+SKILL:Craft (Traps)		RANK:7
+SKILL:Intimidate			RANK:7
+SKILL:Stealth			RANK:7
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Precise Shot
+ABILITY:CATEGORY=Fighter Bonus Feat|Rapid Shot
+ABILITY:CATEGORY=Fighter Bonus Feat|Deadly Aim
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Focus (Longbow)
+ABILITY:CATEGORY=Fighter Bonus Feat|Weapon Specialization (Longbow)
+ABILITY:CATEGORY=Weapon Training I|Weapon Training 1 Bows
+GEAR:Chainmail							LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor
+GEAR:Longbow (Composite)					LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Weapon
+GEAR:Shortspear							LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Arrows (20)							LOCATION:Carried
+GEAR:Potion of Barkskin +2			QTY:2		LOCATION:Carried
+GEAR:Potion of Cure Moderate Wounds		QTY:2		LOCATION:Carried
+GEAR:Cloak of Resistance +1					LOCATION:Equipped
+
+
+STARTPACK:Machine Soldier	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Animated Object (Medium)],[!PRERACE:1,%]	SOURCEPAGE:p.50
+RACE:Animated Object (Medium)	!PRERACE:1,%
+NAME:Machine Soldier
+ALIGN:TN
+STAT:STR=18|DEX=15|CON=10|INT=13|WIS=3|CHA=1
+CLASS:Construct	LEVEL:4
+SKILL:Climb				RANK:4
+SKILL:Perception			RANK:4
+SKILL:Sense Motive		RANK:4
+ABILITY:CATEGORY=Special Ability|Animated Object ~ Metal (Mithral)
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Weapon Focus (longsword)
+GEAR:Longsword							LOCATION:Equipped		EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Crossbow (Light)						LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Sword (Short)						LOCATION:Carried		EQMOD:Special Quality ~ Masterwork ~ Weapon
+GEAR:Bolts (Crossbow/10)					LOCATION:Carried
+ABILITY:CATEGORY=Traits|Trait ~ No Traits
+
+
+STARTPACK:(NPC) Feast-o'-Marrow	TYPE:NPC	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ghoul (Ghast)],[!PRERACE:1,%]	SOURCEPAGE:p.61	NAMEISPI:YES
+RACE:Ghoul (Ghast)	!PRERACE:1,%
+NAME:Feast-o'-Marrow
+ALIGN:CE
+STAT:STR=19|DEX=20|CON=10|INT=16|WIS=24|CHA=24
+CLASS:Undead	LEVEL:2
+CLASS:Cleric	LEVEL:13
+DEITY:Urgathoa	DOMAIN:Death|Evil
+ABILITY:CATEGORY=Favored Class|Cleric
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+ABILITY:CATEGORY=Favored Class Bonus|Favored Class Bonus ~ Hit Point
+SKILL:Diplomacy				RANK:10
+SKILL:Intimidate				RANK:10
+SKILL:Knowledge (arcana)		RANK:5
+SKILL:Knowledge (engineering)		RANK:5
+SKILL:Knowledge (religion)		RANK:15
+SKILL:Perception				RANK:15
+SKILL:Spellcraft				RANK:5
+SKILL:Stealth				RANK:10
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Command Undead
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Extend Spell
+ABILITY:CATEGORY=FEAT|Extra Channel
+ABILITY:CATEGORY=FEAT|Improved Critical (scythe)
+ABILITY:CATEGORY=FEAT|Toughness
+ABILITY:CATEGORY=FEAT|Vital Strike
+ABILITY:CATEGORY=Channel Energy|Cleric ~ Channel Negative Energy
+GEAR:Breastplate							LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Armor.Material ~ Mithril ~ Armor / Medium
+GEAR:Scythe								LOCATION:Equipped		EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Unholy ~ Weapon
+GEAR:Cloak of Resistance +2					LOCATION:Equipped
+GEAR:Amulet of Natural Armor +2				LOCATION:Equipped
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Blasphemy|Destruction|Summon Monster VII
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Antilife Shell|Create Undead|Harm|Planar Ally
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Commune|Flame Strike|Magic Weapon (Greater)[Extend Spell]|Slay Living|Spell Resistance
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Air Walk|Freedom of Movement|Planar Ally (Lesser)|Magic Vestment[Extend Spell]|Poison|Unholy Blight
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Animate Dead|Bestow Curse|Contagion|Dispel Magic=2|Meld into Stone|Prayer
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Augury|Bull's Strength|Darkness|Death Knell|Desecrate|Spiritual Weapon|Sound Burst
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bane|Bless|Command|Divine Favor|Protection from Good|Shield of Faith|Sanctuary
+SPELLS:SPELLBOOK=Prepared Spells|CLASS=Cleric|Bleed|Detect Magic|Guidance|Read Magic

@@ -41,8 +41,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with HITDIE Token
  */
-public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
-		CDOMPrimaryToken<PCTemplate>
+public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements CDOMPrimaryToken<PCTemplate>
 {
 
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
@@ -62,8 +61,8 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 			int pipeLoc = lock.indexOf(Constants.PIPE);
 			if (pipeLoc != lock.lastIndexOf(Constants.PIPE))
 			{
-				return new ParseResult.Fail(getTokenName() + " has more than one pipe, "
-						+ "is not of format: <int>[|<prereq>]", context);
+				return new ParseResult.Fail(
+					getTokenName() + " has more than one pipe, " + "is not of format: <int>[|<prereq>]");
 			}
 			// Do not initialize, null is significant
 			CDOMReference<PCClass> owner = null;
@@ -74,36 +73,31 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 				if (lockPre.startsWith("CLASS.TYPE="))
 				{
 					String substring = lock.substring(pipeLoc + 12);
-					if (substring.length() == 0)
+					if (substring.isEmpty())
 					{
 						return new ParseResult.Fail(
-							"Cannot have Empty Type Limitation in " + getTokenName()
-								+ ": " + value, context);
+							"Cannot have Empty Type Limitation in " + getTokenName() + ": " + value);
 					}
 					ParseResult pr = checkForIllegalSeparator('.', substring);
 					if (!pr.passed())
 					{
 						return pr;
 					}
-					owner = context.getReferenceContext().getCDOMTypeReference(PCCLASS_CLASS,
-							substring.split("\\."));
+					owner = context.getReferenceContext().getCDOMTypeReference(PCCLASS_CLASS, substring.split("\\."));
 				}
 				else if (lockPre.startsWith(Constants.LST_CLASS_EQUAL))
 				{
 					String substring = lock.substring(pipeLoc + 7);
-					if (substring.length() == 0)
+					if (substring.isEmpty())
 					{
 						return new ParseResult.Fail(
-							"Cannot have Empty Class Limitation in " + getTokenName()
-								+ ": " + value, context);
+							"Cannot have Empty Class Limitation in " + getTokenName() + ": " + value);
 					}
-					owner = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS,
-							substring);
+					owner = context.getReferenceContext().getCDOMReference(PCCLASS_CLASS, substring);
 				}
 				else
 				{
-					return new ParseResult.Fail("Invalid Limitation in HITDIE: "
-							+ lockPre, context);
+					return new ParseResult.Fail("Invalid Limitation in HITDIE: " + lockPre);
 				}
 				lock = lock.substring(0, pipeLoc);
 			}
@@ -115,9 +109,8 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 				int denom = Integer.parseInt(lock.substring(2));
 				if (denom <= 0)
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " was expecting a Positive Integer "
-							+ "for dividing Lock, was : " + lock.substring(2), context);
+					return new ParseResult.Fail(getTokenName() + " was expecting a Positive Integer "
+						+ "for dividing Lock, was : " + lock.substring(2));
 				}
 				hdm = new HitDieFormula(new DividingFormula(denom));
 			}
@@ -127,10 +120,8 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 				int mult = Integer.parseInt(lock.substring(2));
 				if (mult <= 0)
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " was expecting a Positive "
-							+ "Integer for multiplying Lock, was : "
-							+ lock.substring(2), context);
+					return new ParseResult.Fail(getTokenName() + " was expecting a Positive "
+						+ "Integer for multiplying Lock, was : " + lock.substring(2));
 				}
 				hdm = new HitDieFormula(new MultiplyingFormula(mult));
 			}
@@ -141,10 +132,8 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 				int add = Integer.parseInt(lock.substring(2));
 				if (add <= 0)
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " was expecting a Positive "
-							+ "Integer for adding Lock, was : "
-							+ lock.substring(2), context);
+					return new ParseResult.Fail(getTokenName() + " was expecting a Positive "
+						+ "Integer for adding Lock, was : " + lock.substring(2));
 				}
 				hdm = new HitDieFormula(new AddingFormula(add));
 			}
@@ -156,10 +145,8 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 				int sub = Integer.parseInt(lock.substring(2));
 				if (sub <= 0)
 				{
-					return new ParseResult.Fail(getTokenName()
-							+ " was expecting a Positive "
-							+ "Integer for subtracting Lock, was : "
-							+ lock.substring(2), context);
+					return new ParseResult.Fail(getTokenName() + " was expecting a Positive "
+						+ "Integer for subtracting Lock, was : " + lock.substring(2));
 				}
 				hdm = new HitDieFormula(new SubtractingFormula(sub));
 			}
@@ -171,13 +158,13 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 				int steps = Integer.parseInt(lock.substring(3));
 				if (steps <= 0)
 				{
-					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " up (must be positive)", context);
+					return new ParseResult.Fail(
+						"Invalid Step Count: " + steps + " in " + getTokenName() + " up (must be positive)");
 				}
 				if (steps >= 5)
 				{
-					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " up (too large)", context);
+					return new ParseResult.Fail(
+						"Invalid Step Count: " + steps + " in " + getTokenName() + " up (too large)");
 				}
 
 				hdm = new HitDieStep(steps, new HitDie(12));
@@ -189,8 +176,7 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 				int steps = Integer.parseInt(lock.substring(4));
 				if (steps <= 0)
 				{
-					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName(), context);
+					return new ParseResult.Fail("Invalid Step Count: " + steps + " in " + getTokenName());
 				}
 				hdm = new HitDieStep(steps, null);
 			}
@@ -203,13 +189,13 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 				int steps = Integer.parseInt(lock.substring(5));
 				if (steps <= 0)
 				{
-					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " down (must be positive)", context);
+					return new ParseResult.Fail(
+						"Invalid Step Count: " + steps + " in " + getTokenName() + " down (must be positive)");
 				}
 				if (steps >= 5)
 				{
-					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName() + " down (too large)", context);
+					return new ParseResult.Fail(
+						"Invalid Step Count: " + steps + " in " + getTokenName() + " down (too large)");
 				}
 
 				hdm = new HitDieStep(-steps, new HitDie(4));
@@ -222,8 +208,7 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 				int steps = Integer.parseInt(lock.substring(6));
 				if (steps <= 0)
 				{
-					return new ParseResult.Fail("Invalid Step Count: " + steps + " in "
-							+ getTokenName(), context);
+					return new ParseResult.Fail("Invalid Step Count: " + steps + " in " + getTokenName());
 				}
 				hdm = new HitDieStep(-steps, null);
 			}
@@ -232,23 +217,20 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 				int i = Integer.parseInt(lock);
 				if (i <= 0)
 				{
-					return new ParseResult.Fail("Invalid HitDie: " + i + " in "
-							+ getTokenName(), context);
+					return new ParseResult.Fail("Invalid HitDie: " + i + " in " + getTokenName());
 				}
 				// HITDIE:num --- sets the hit die to num regardless of class.
 				hdm = new HitDieLock(new HitDie(i));
 			}
 
-			Processor<HitDie> mod = owner == null ? hdm
-					: new ContextProcessor<>(hdm, owner);
+			Processor<HitDie> mod = owner == null ? hdm : new ContextProcessor<>(hdm, owner);
 			context.getObjectContext().put(template, ObjectKey.HITDIE, mod);
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage("Invalid Number in " + getTokenName() + ": "
-					+ nfe.getLocalizedMessage());
+			cpr.addErrorMessage("Invalid Number in " + getTokenName() + ": " + nfe.getLocalizedMessage());
 			cpr.addErrorMessage("  Must be an Integer");
 			return cpr;
 		}
@@ -257,13 +239,12 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 	@Override
 	public String[] unparse(LoadContext context, PCTemplate template)
 	{
-		Processor<HitDie> hdcf = context.getObjectContext().getObject(template,
-				ObjectKey.HITDIE);
+		Processor<HitDie> hdcf = context.getObjectContext().getObject(template, ObjectKey.HITDIE);
 		if (hdcf == null)
 		{
 			return null;
 		}
-		return new String[] { hdcf.getLSTformat() };
+		return new String[]{hdcf.getLSTformat()};
 	}
 
 	@Override

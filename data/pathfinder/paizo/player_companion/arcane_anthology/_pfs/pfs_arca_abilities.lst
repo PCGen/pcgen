@@ -1,0 +1,7 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+# CVS $Revision: $ $Author: $ -- Thu May 12 15:10:23 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Arcane Anthology	SOURCESHORT:ArcA	SOURCEWEB:http://paizo.com/products/btpy9i8l	SOURCEDATE:2016-01
+
+# Ability Name										Type			!PRECHARACTERTYPE		Description																																																																																																																		DESC.CLEAR
+CATEGORY=Special Ability|Trait ~ Arodenite Historian.MOD			TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Preparation Ritual ~ Secrets of Jatambe.MOD								DESC:This edition of the Wisdom of Jatembe includes a number of unique rituals and philosophical notes supposedly written by the Old-Mage himself. These secrets allow you to prepare one of the following spells as an arcane spell 1 level higher than its druid spell level: barkskin, call lightning, entangle, forest friend, lesser restoration, plant growth, speak with animals, and speak with plants. At the GM's discretion, additional spells of 6th level or lower from the druid spell list may be available through the preparation rituals of specific copies of this book (which increases the spellbook's price by twice the cost of adding a wizard spell of the same level to the spellbook).	DESC.CLEAR:

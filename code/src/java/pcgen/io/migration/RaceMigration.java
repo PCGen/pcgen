@@ -1,5 +1,4 @@
 /*
- * RaceMigration.java
  * Copyright 2014 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -16,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18/01/2014
  *
- * $Id$
  */
 package pcgen.io.migration;
 
@@ -34,11 +31,14 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * used to allow clean loading of older characters which were saved with race 
  * keys that have now been changed in the data.
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class RaceMigration
 {
 	private static Map<int[], List<MigrationRule>> raceChangesForVer = new HashMap<>();
+
+	private RaceMigration()
+	{
+	}
 
 	/**
 	 * Find the new race key to replace the provided one.
@@ -49,14 +49,8 @@ public final class RaceMigration
 	 */
 	public static String getNewRaceKey(String raceKey, int[] pcgVer, String gameModeName)
 	{
-		List<MigrationRule> raceChangeList = raceChangesForVer.get(pcgVer);
-		if (raceChangeList == null)
-		{
-			raceChangeList =
-					MigrationUtils.getChangeList(pcgVer, gameModeName,
-						ObjectType.RACE);
-			raceChangesForVer.put(pcgVer, raceChangeList);
-		}
+		List<MigrationRule> raceChangeList = raceChangesForVer.computeIfAbsent(pcgVer,
+			v -> MigrationUtils.getChangeList(v, gameModeName, ObjectType.RACE));
 
 		for (MigrationRule rule : raceChangeList)
 		{
@@ -67,6 +61,5 @@ public final class RaceMigration
 		}
 		return raceKey;
 	}
-	
 
 }

@@ -21,6 +21,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.output.base.PCGenObjectWrapper;
 import pcgen.output.model.CNAbilitySelectionModel;
+
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 
@@ -30,13 +31,8 @@ import freemarker.template.TemplateModelException;
  */
 public class CNAbilitySelectionWrapper implements PCGenObjectWrapper
 {
-	/**
-	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
-	public TemplateModel wrap(CharID id, Object o)
-		throws TemplateModelException
+	public TemplateModel wrap(CharID id, Object o) throws TemplateModelException
 	{
 		if (o instanceof CNAbilitySelection)
 		{

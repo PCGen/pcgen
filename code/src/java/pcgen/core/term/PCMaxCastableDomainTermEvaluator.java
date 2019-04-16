@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCMaxCastableTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,9 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 09-Aug-2008 22:55:19
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
@@ -30,8 +26,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 
-public class PCMaxCastableDomainTermEvaluator
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCMaxCastableDomainTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	private final String domainKey;
 
@@ -44,8 +39,8 @@ public class PCMaxCastableDomainTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		Domain domain = Globals.getContext().getReferenceContext()
-				.silentlyGetConstructedCDOMObject(Domain.class, domainKey);
+		Domain domain =
+				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Domain.class, domainKey);
 
 		if (domain == null)
 		{
@@ -57,7 +52,7 @@ public class PCMaxCastableDomainTermEvaluator
 		{
 			return 0.0f;
 		}
-		
+
 		String classKey = source.getPcclass().getKeyName();
 		PCClass spClass = pc.getClassKeyed(classKey);
 		int cutoff = pc.getSpellSupport(spClass).getHighestLevelSpell();

@@ -1,5 +1,4 @@
 /**
- * pcgen.core.term.PCRaceSizeTermEvaluator.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
  * This library is free software; you can redistribute it and/or
@@ -17,18 +16,14 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Created 10-Aug-2008 00:02:50
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.core.PlayerCharacter;
 
-public class PCRaceSizeTermEvaluator 
-		extends BasePCTermEvaluator implements TermEvaluator
+public class PCRaceSizeTermEvaluator extends BasePCTermEvaluator implements TermEvaluator
 {
 	public PCRaceSizeTermEvaluator(String originalText)
 	{

@@ -37,7 +37,9 @@ import pcgen.core.PlayerCharacter;
  */
 public interface PrimitiveChoiceSet<T>
 {
-	PrimitiveChoiceSet INVALID = new PrimitiveChoiceSet(){
+	@SuppressWarnings("rawtypes")
+	static PrimitiveChoiceSet INVALID = new PrimitiveChoiceSet()
+	{
 
 		@Override
 		public Class getChoiceClass()
@@ -61,7 +63,19 @@ public interface PrimitiveChoiceSet<T>
 		public Collection getSet(PlayerCharacter pc)
 		{
 			return Collections.emptyList();
-		}};
+		}
+	};
+
+	/**
+	 * Returns an "Invalid" PrimitiveChoiceSet.
+	 * 
+	 * @return An "Invalid" PrimitiveChoiceSet
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T> PrimitiveChoiceSet<T> getInvalid()
+	{
+		return INVALID;
+	}
 
 	/**
 	 * Returns a Set containing the Objects which this PrimitiveChoiceSet

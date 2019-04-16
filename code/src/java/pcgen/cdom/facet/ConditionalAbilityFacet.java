@@ -34,10 +34,8 @@ import pcgen.cdom.helper.CNAbilitySelection;
  * ConditionallyGrantedAbilityFacet performs the calculation to determine which
  * are active / granted to the Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class ConditionalAbilityFacet extends
-		AbstractSingleSourceListFacet<CNAbilitySelection, Object>
+public class ConditionalAbilityFacet extends AbstractSingleSourceListFacet<CNAbilitySelection, Object>
 {
 	private PrerequisiteFacet prerequisiteFacet;
 

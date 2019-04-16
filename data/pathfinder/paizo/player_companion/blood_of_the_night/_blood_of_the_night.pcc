@@ -7,13 +7,13 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 STATUS:BETA
-PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
+PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary 2,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://www.paizo.com
-SOURCELONG:Blood of the Night
+SOURCELONG:Pathfinder Player Companion: Blood of the Night
 SOURCESHORT:BOTN
-SOURCEWEB:http://paizo.com/products/btpy8v33?Pathfinder-Player-Companion-Blood-of-the-Night
+SOURCEWEB:http://paizo.com/products/btpy8v33
 SOURCEDATE:2012-02
 ISOGL:YES
 

@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.helper;
 
+import java.util.Objects;
+
 import pcgen.base.formula.Formula;
 import pcgen.cdom.list.CompanionList;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -52,16 +54,8 @@ public class FollowerLimit
 	 */
 	public FollowerLimit(CDOMSingleRef<CompanionList> clRef, Formula limit)
 	{
-		if (clRef == null)
-		{
-			throw new IllegalArgumentException(
-					"Reference for FollowerLimit cannot be null");
-		}
-		if (limit == null)
-		{
-			throw new IllegalArgumentException(
-					"Formula for FollowerLimit cannot be null");
-		}
+		Objects.requireNonNull(clRef, "Reference for FollowerLimit cannot be null");
+		Objects.requireNonNull(limit, "Formula for FollowerLimit cannot be null");
 		ref = clRef;
 		formula = limit;
 	}
@@ -90,23 +84,12 @@ public class FollowerLimit
 		return formula;
 	}
 
-	/**
-	 * Returns a consistent-with-equals hashCode for this FollowerLimit
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return ref.hashCode() * 31 + formula.hashCode();
 	}
 
-	/**
-	 * Returns true if the given object is a FollowerLimit with identical
-	 * underlying CompanionList reference and limit Formula.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object o)
 	{

@@ -22,9 +22,6 @@ import java.util.EventObject;
 
 /**
  * To be implemented by listener of {@link TravelMethod} model change
- *
- * @author Vincent Lhote
- *
  */
 public interface TravelMethodListener extends EventListener
 {
@@ -34,9 +31,9 @@ public interface TravelMethodListener extends EventListener
 	void unmodifiedSpeedUpdated(EventObject e);
 
 	void speedUpdated(EventObject e);
-	
+
 	void useDaysChanged(TravelSpeedEvent e);
-	
+
 	/**
 	 * 
 	 * @param e the changed property is the new comment

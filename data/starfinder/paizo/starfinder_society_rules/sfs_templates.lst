@@ -1,0 +1,11 @@
+#  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
+
+# COMMENT: This grants the free initial Champion for one faction.
+# Template Name		Visible	Template				Required Ability								Ability									Type
+Initial Faction Choice			TEMPLATE:CHOOSE:TYPE=Faction
+#
+Acquisitives		VISIBLE:NO						PREABILITY:1,CATEGORY=Internal,Faction ~ Acquisitives		ABILITY:Society Boon|AUTOMATIC|Acquisitives Champion		TYPE:Faction
+Dataphiles			VISIBLE:NO						PREABILITY:1,CATEGORY=Internal,Faction ~ Dataphiles		ABILITY:Society Boon|AUTOMATIC|Dataphiles Champion		TYPE:Faction
+Exo-Guardians		VISIBLE:NO						PREABILITY:1,CATEGORY=Internal,Faction ~ Exo-Guardians	ABILITY:Society Boon|AUTOMATIC|Exo-Guardians Champion		TYPE:Faction
+Second Seekers		VISIBLE:NO						PREABILITY:1,CATEGORY=Internal,Faction ~ Second Seekers	ABILITY:Society Boon|AUTOMATIC|Second Seekers Champion	TYPE:Faction
+Wayfinders			VISIBLE:NO						PREABILITY:1,CATEGORY=Internal,Faction ~ Wayfinders		ABILITY:Society Boon|AUTOMATIC|Wayfinders Champion		TYPE:Faction
