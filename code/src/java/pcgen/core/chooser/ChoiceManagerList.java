@@ -32,12 +32,6 @@ public interface ChoiceManagerList<T>
 {
 
 	/**
-	 * return handled chooser
-	 * @return handled chooser
-	 */
-	public abstract String typeHandled();
-
-	/**
 	 * Get choices
 	 * @param aPc
 	 * @param availableList

@@ -64,12 +64,6 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		preChooserChoices = selectedList.size();
 	}
 
-	@Override
-	public String typeHandled()
-	{
-		throw new UnsupportedOperationException();
-	}
-
 	/**
 	 * Conditionally add the selected item
 	 * 

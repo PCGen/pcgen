@@ -387,7 +387,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 			Filter<CharacterFacade, TempBonusFacade>, ListListener<TempBonusFacade>
 	{
 
-		private static final DefaultListFacade<? extends TreeView<TempBonusFacade>> TREE_VIEWS =
+		private static final ListFacade<? extends TreeView<TempBonusFacade>> TREE_VIEWS =
 				new DefaultListFacade<TreeView<TempBonusFacade>>(Arrays.asList(TempBonusTreeView.values()));
 		private final List<DefaultDataViewColumn> columns;
 		private final CharacterFacade character;

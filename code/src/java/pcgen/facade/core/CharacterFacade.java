@@ -409,11 +409,6 @@ public interface CharacterFacade extends CompanionFacade
 	 */
 	public void removeDomain(DomainFacade domain);
 
-	/**
-	 * @return The maximum number of domains the character can know.
-	 */
-	public ReferenceFacade<Integer> getMaxDomains();
-
 	public ReferenceFacade<Integer> getRemainingDomainSelectionsRef();
 
 	public ListFacade<Handed> getAvailableHands();

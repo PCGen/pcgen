@@ -18,19 +18,11 @@
 
 package pcgen.util;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
-import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Ability;
-import pcgen.core.AbilityCategory;
 import pcgen.core.ArmorProf;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
@@ -53,20 +45,24 @@ import pcgen.core.WeaponProf;
 import pcgen.core.character.CompanionMod;
 import pcgen.core.spell.Spell;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 public final class StringPClassUtil
 {
 
-	private static Map<String, Class<? extends Loadable>> baseMap;
-	private static Map<String, Class<? extends Loadable>> classMap;
-	private static Map<Class<? extends Loadable>, String> stringMap;
-	private static Map<String, Class<? extends Category<?>>> catClassMap;
+	private static final Map<String, Class<? extends Loadable>> baseMap;
+	private static final Map<String, Class<? extends Loadable>> classMap;
+	private static final Map<Class<? extends Loadable>, String> stringMap;
 
 	static
 	{
 		baseMap = new HashMap<>();
 		classMap = new HashMap<>();
 		stringMap = new HashMap<>();
-		catClassMap = new HashMap<>();
 
 		baseMap.put("ALIGNMENT", PCAlignment.class);
 		baseMap.put("CHECK", PCCheck.class);
@@ -121,17 +117,10 @@ public final class StringPClassUtil
 		// Hacks for ServesAs
 		stringMap.put(SubClass.class, "CLASS");
 		stringMap.put(SubstitutionClass.class, "CLASS");
-
-		catClassMap.put("ABILITY", AbilityCategory.class);
 	}
 
 	private StringPClassUtil()
 	{
-	}
-
-	public static Class<? extends Loadable> getClassForBasic(String key)
-	{
-		return baseMap.get(key);
 	}
 
 	public static Class<? extends Loadable> getClassFor(String key)
@@ -147,11 +136,6 @@ public final class StringPClassUtil
 	public static String getStringFor(Class<?> cl)
 	{
 		return stringMap.get(cl);
-	}
-
-	public static Class<? extends Category<?>> getCategoryClassFor(String className)
-	{
-		return catClassMap.get(className);
 	}
 
 	/**
