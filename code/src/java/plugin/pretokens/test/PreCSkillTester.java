@@ -15,10 +15,13 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- */package plugin.pretokens.test;
+ */
+package plugin.pretokens.test;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
@@ -30,18 +33,17 @@ import pcgen.core.Skill;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-public class PreCSkillTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreCSkillTester extends AbstractPrerequisiteTest
 {
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
 		final int reqnumber = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
-		HashMap<Skill, HashSet<Skill>> serveAsSkills = new HashMap<>();
-		Set<Skill> imitators = new HashSet<>();
+		Map<Skill, Set<Skill>> serveAsSkills = new HashMap<>();
+		Collection<Skill> imitators = new HashSet<>();
 		PreCSkillTester.getImitators(serveAsSkills, imitators);
 
 		// Compute the skill name from the Prerequisite
@@ -78,26 +80,17 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 			}
 			if (runningTotal < reqnumber)
 			{
-				BREAKOUT: for (Skill fake : serveAsSkills.keySet())
+				if (serveAsSkills.entrySet()
+				                 .stream()
+				                 .filter(entry -> character.isClassSkill(entry.getKey()))
+				                 .flatMap(entry -> entry.getValue().stream())
+				                 // We already counted this skill in the above
+				                 // calculation.  We DONT want to match it
+				                 // a second time
+				                 .takeWhile(mock -> !skillMatches.contains(mock))
+				                 .anyMatch(mock -> mock.isType(skillKey)))
 				{
-					if (character.isClassSkill(fake))
-					{
-						for (Skill mock : serveAsSkills.get(fake))
-						{
-							if (skillMatches.contains(mock))
-							{
-								// We already counted this skill in the above 
-								// calculation.  We DONT want to match it 
-								// a second time
-								break BREAKOUT;
-							}
-							if (mock.isType(skillKey))
-							{
-								runningTotal++;
-								break BREAKOUT;
-							}
-						}
-					}
+					runningTotal++;
 				}
 			}
 		}
@@ -105,19 +98,16 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 		{
 			Skill skill =
 					Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Skill.class, skillKey);
-			if (skill != null && character.isClassSkill(skill))
+			if ((skill != null) && character.isClassSkill(skill))
 			{
 				runningTotal++;
 			}
 			else
 			{
-				for (Skill mock : imitators)
+				if (imitators.stream()
+				             .anyMatch(mock -> character.isClassSkill(mock) && serveAsSkills.get(mock).contains(skill)))
 				{
-					if (character.isClassSkill(mock) && serveAsSkills.get(mock).contains(skill))
-					{
-						runningTotal++;
-						break;
-					}
+					runningTotal++;
 				}
 			}
 		}
@@ -130,20 +120,20 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 	 * @param serveAsSkills
 	 * @param imitators
 	 */
-	private static void getImitators(HashMap<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators)
+	private static void getImitators(Map<? super Skill, ? super Set<Skill>> serveAsSkills, Collection<? super Skill> imitators)
 	{
 		for (Skill aSkill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
 		{
-			Set<Skill> servesAs = new HashSet<>();
-			for (CDOMReference<Skill> ref : aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL))
-			{
-				servesAs.addAll(ref.getContainedObjects());
-			}
+			HashSet<Skill> servesAs = new HashSet<>();
+			aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL)
+			      .stream()
+			      .map(CDOMReference::getContainedObjects)
+			      .forEach(servesAs::addAll);
 
 			if (!servesAs.isEmpty())
 			{
 				imitators.add(aSkill);
-				serveAsSkills.put(aSkill, (HashSet<Skill>) servesAs);
+				serveAsSkills.put(aSkill, servesAs);
 			}
 		}
 	}
@@ -162,23 +152,23 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		String skillName = prereq.getKey();
-		if (prereq.getSubKey() != null && !prereq.getSubKey().equals("")) //$NON-NLS-1$
+		if ((prereq.getSubKey() != null) && !prereq.getSubKey().isEmpty()) //$NON-NLS-1$
 		{
-			skillName += " (" + prereq.getSubKey() + ')'; //$NON-NLS-1$ 
+			skillName += " (" + prereq.getSubKey() + ')'; //$NON-NLS-1$
 
 		}
 
-		String foo = "";
-		if (prereq.getOperand().equals("1") && prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
+		String htmlString;
+		if (prereq.getOperand().equals("1") && prereq.getOperator() == PrerequisiteOperator.GTEQ)
 		{
-			foo = LanguageBundle.getFormattedString("PreCSkill.single.toHtml", //$NON-NLS-1$
+			htmlString = LanguageBundle.getFormattedString("PreCSkill.single.toHtml", //$NON-NLS-1$
 				skillName);
 		}
 		else
 		{
-			foo = LanguageBundle.getFormattedString("PreCSkill.toHtml", //$NON-NLS-1$
+			htmlString = LanguageBundle.getFormattedString("PreCSkill.toHtml", //$NON-NLS-1$
 				prereq.getOperator().toDisplayString(), prereq.getOperand(), skillName);
 		}
-		return foo;
+		return htmlString;
 	}
 }
