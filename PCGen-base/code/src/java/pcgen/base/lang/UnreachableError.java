@@ -43,14 +43,6 @@ public class UnreachableError extends Error
 	private static final long serialVersionUID = -5431319083877458886L;
 
 	/**
-	 * Create a new UnreachableError with no message and no cause.
-	 */
-	public UnreachableError()
-	{
-		//Allow an UnreachableError with no message
-	}
-
-	/**
 	 * Create a new UnreachableError with the given message.
 	 * 
 	 * @param message
