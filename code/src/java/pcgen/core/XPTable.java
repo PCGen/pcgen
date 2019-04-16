@@ -84,15 +84,10 @@ public final class XPTable extends PObject
 	public boolean validateSequence(String levelValue)
 	{
 		int value = getIntValue(levelValue);
-		for (String key : infoMap.keySet())
-		{
-			int intValue = getIntValue(infoMap.get(key).getLevelString());
-			if (value < intValue)
-			{
-				return false;
-			}
-		}
-		return true;
+		return infoMap.values()
+		              .stream()
+		              .mapToInt(levelInfo -> getIntValue(levelInfo.getLevelString()))
+		              .noneMatch(intValue -> value < intValue);
 	}
 
 	private static int getIntValue(String level)

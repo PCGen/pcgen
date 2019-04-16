@@ -93,27 +93,26 @@ public class EquipmentTableParser
 		}
 
 		// Resolve all links now that all tables should have been read in.
-		for (final EquipmentItem item : theLinkTable.keySet())
-		{
-			final EquipmentTable table = EquipmentTable.get(theLinkTable.get(item));
+		theLinkTable.entrySet().forEach(entry -> {
+			final EquipmentItem item = entry.getKey();
+			final EquipmentTable table = EquipmentTable.get(entry.getValue());
 			if (table == null)
 			{
-				Logging.errorPrint("Could not find linked table " + theLinkTable.get(item) + " for " + item);
-				continue;
+				Logging.errorPrint("Could not find linked table " + entry.getValue() + " for " + item);
+				return;
 			}
 			item.setLookup(table);
-		}
+		});
 
-		for (final EqmodItem item : theEqmodLinkTable.keySet())
-		{
-			final EqmodTable table = EqmodTable.get(theEqmodLinkTable.get(item));
+		theEqmodLinkTable.forEach((item, value) -> {
+			final EqmodTable table = EqmodTable.get(value);
 			if (table == null)
 			{
-				Logging.errorPrint("Could not find linked table " + theEqmodLinkTable.get(item) + " for " + item);
-				continue;
+				Logging.errorPrint("Could not find linked table " + value + " for " + item);
+				return;
 			}
 			item.setLookup(table);
-		}
+		});
 		return ret;
 	}
 

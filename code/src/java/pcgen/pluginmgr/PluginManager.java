@@ -73,14 +73,13 @@ public final class PluginManager implements pcgen.system.PluginLoader
 	public void startAllPlugins()
 	{
 		PCGenMessageHandler dispatcher = msgHandlerMgr.getPostbox();
-		for (InteractivePlugin plugin : pluginMap.keySet())
-		{
-			if (pluginMap.get(plugin))
+		pluginMap.forEach((plugin, value) -> {
+			if (value)
 			{
 				plugin.start(dispatcher);
 				msgHandlerMgr.addMember(plugin);
 			}
-		}
+		});
 	}
 
 	private String getLogName(Class<?> clazz, InteractivePlugin pl)
