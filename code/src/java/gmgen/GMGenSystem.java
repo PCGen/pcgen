@@ -55,7 +55,6 @@ import pcgen.gui2.PCGenActionMap;
 import pcgen.gui2.plaf.MacGUIHandler;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
-import pcgen.gui2.util.SwingWorker;
 import pcgen.pluginmgr.PCGenMessage;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.PluginManager;
@@ -162,7 +161,7 @@ public final class GMGenSystem extends JFrame
 		super(LanguageBundle.getFormattedString("in_gmgen_frameTitle", APPLICATION_NAME)); //$NON-NLS-1$
 		pluginManager = PluginManager.getInstance();
 		messageHandler = pluginManager.getPostbox();
-		new Renderer().start();
+		this.initialize();
 	}
 
 	private void initialize()
@@ -655,22 +654,6 @@ public final class GMGenSystem extends JFrame
 	{
 		Window dialog = new PreferencesDialog(this, true, rootNode);
 		dialog.setVisible(true);
-	}
-
-	private class Renderer extends SwingWorker
-	{
-
-		@Override
-		public Object construct()
-		{
-			return "";
-		}
-
-		@Override
-		public void finished()
-		{
-			GMGenSystem.this.initialize();
-		}
 	}
 
 }
