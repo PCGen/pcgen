@@ -180,7 +180,7 @@ public final class PCGenStatusBar extends JPanel
 	private class LoadStatusMouseAdapter extends MouseAdapter
 	{
 		@Override
-		public void mouseReleased(MouseEvent arg0)
+		public void mouseClicked(MouseEvent arg0)
 		{
 			frame.getActionMap().get(PCGenActionMap.LOG_COMMAND).actionPerformed(null);
 		}
