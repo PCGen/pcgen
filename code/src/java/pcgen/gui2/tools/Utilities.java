@@ -19,20 +19,14 @@
 package pcgen.gui2.tools;
 
 import java.awt.event.InputEvent;
-import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.SwingUtilities;
 
 import org.jetbrains.annotations.Contract;
 
 public final class Utilities
 {
 
-	/** Up direction. */
-	public static final int UP = 14;
-	/** End (far right) direction. */
-	public static final int END = 17;
 	/** Icons for New item. */
 	static final ImageIcon NEW_ICON = Icons.New16.getImageIcon();
 	/** Icons for Close item. */
@@ -58,20 +52,6 @@ public final class Utilities
 
 	private Utilities()
 	{
-	}
-
-	/**
-	 * Work around bug in W32; it returns false even on right-mouse
-	 * clicks.
-	 *
-	 * @param e {@code MouseEvent}, the event
-	 *
-	 * @return {@code boolean}, the condition
-	 */
-	@Contract(pure = true)
-	static boolean isRightMouseButton(MouseEvent e)
-	{
-		return e.isPopupTrigger() || SwingUtilities.isRightMouseButton(e);
 	}
 
 	/**
