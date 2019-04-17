@@ -18,6 +18,7 @@
  */
 package pcgen.gui2.tabs;
 
+import static pcgen.gui2.facade.EquipNode.NodeType.EQUIPMENT;
 import static pcgen.gui2.tabs.equip.EquipmentSelection.EQUIPMENT_ARRAY_FLAVOR;
 
 import java.awt.BorderLayout;
@@ -32,10 +33,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
@@ -347,19 +349,21 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		return new TabTitle(Tab.EQUIPPING);
 	}
 
-	private List<Integer> getMenuTargets(JTable table, MouseEvent e)
+	private static List<EquipNode> getMenuTargets(JTable table, MouseEvent e)
 	{
 		int row = table.rowAtPoint(e.getPoint());
 		if (!table.isRowSelected(row))
 		{
-			table.setRowSelectionInterval(row, row);
+			if ((row >= 0) && (table.getRowCount() > row))
+			{
+				table.setRowSelectionInterval(row, row);
+			}
 		}
-		List<Integer> targets = new ArrayList<>();
-		for (int selRow : table.getSelectedRows())
-		{
-			targets.add(selRow);
-		}
-		return targets;
+		return Arrays.stream(table.getSelectedRows())
+		             .mapToObj(selRow -> table.getModel().getValueAt(selRow, 0))
+		             .filter(value -> value instanceof EquipNode)
+		             .map(value -> (EquipNode) value)
+		             .collect(Collectors.toList());
 	}
 
 	public void setLoadLabel(String text)
@@ -994,12 +998,12 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 	}
 
-	private class OrderPopupMenuHandler extends PopupMouseAdapter
+	private final class OrderPopupMenuHandler extends PopupMouseAdapter
 	{
 
 		private final CharacterFacade character;
 
-		OrderPopupMenuHandler(CharacterFacade character)
+		private OrderPopupMenuHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}
@@ -1007,35 +1011,18 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		@Override
 		public void showPopup(MouseEvent e)
 		{
-			List<Integer> targets = getMenuTargets(equipmentSetTable, e);
+			List<EquipNode> targets = getMenuTargets(equipmentSetTable, e);
 			if (targets.isEmpty())
 			{
 				return;
 			}
 
-			List<EquipNode> upTargets = new ArrayList<>();
-			List<EquipNode> downTargets = new ArrayList<>();
-			List<EquipNode> sortTargets = new ArrayList<>();
-
 			JPopupMenu popupMenu = new JPopupMenu();
-			if (!upTargets.isEmpty() || !downTargets.isEmpty())
-			{
-				popupMenu.add(new MoveEquipUpMenuItem(character, upTargets));
-				popupMenu.add(new MoveEquipDownMenuItem(character, downTargets));
-			}
-			if (!sortTargets.isEmpty())
-			{
-				if (!upTargets.isEmpty() || !downTargets.isEmpty())
-				{
-					popupMenu.addSeparator();
-
-				}
-				popupMenu.add(new SortEquipMenuItem(character, sortTargets));
-			}
-			if (popupMenu.getComponents().length > 0)
-			{
-				popupMenu.show(e.getComponent(), e.getX(), e.getY());
-			}
+			popupMenu.add(new MoveEquipUpMenuItem(character, targets));
+			popupMenu.add(new MoveEquipDownMenuItem(character, targets));
+			popupMenu.addSeparator();
+			popupMenu.add(new SortEquipMenuItem(character, targets));
+			popupMenu.show(e.getComponent(), e.getX(), e.getY());
 		}
 
 		public void install()
@@ -1057,9 +1044,9 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	{
 
 		private final CharacterFacade character;
-		private final List<EquipNode> targets;
+		private final List<? extends EquipNode> targets;
 
-		MoveEquipUpMenuItem(CharacterFacade character, List<EquipNode> targets)
+		MoveEquipUpMenuItem(CharacterFacade character, List<? extends EquipNode> targets)
 		{
 			super(LanguageBundle.getString("in_equipMoveUpMenuCommand")); //$NON-NLS-1$ 
 			this.character = character;
@@ -1125,21 +1112,24 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	/**
 	 * Menu item for moving the selected equipment up a step in their container.
 	 */
-	private class SortEquipMenuItem extends JMenuItem implements ActionListener
+	private static final class SortEquipMenuItem extends JMenuItem implements ActionListener
 	{
 
 		private final CharacterFacade character;
-		private final List<EquipNode> targets;
+		private final List<? extends EquipNode> targets;
 
-		SortEquipMenuItem(CharacterFacade character, List<EquipNode> targets)
+		SortEquipMenuItem(CharacterFacade character, List<? extends EquipNode> targets)
 		{
 			super(LanguageBundle.getString("in_equipSortAscMenuCommand")); //$NON-NLS-1$ 
 			this.character = character;
 			this.targets = targets;
 			setToolTipText(LanguageBundle.getString("in_equipSortAscMenuDesc")); //$NON-NLS-1$
 			setIcon(Icons.FForward16.getImageIcon());
-			setEnabled(!targets.isEmpty());
-
+			setEnabled(false);
+			if (targets.stream().anyMatch(e -> e.getNodeType() != EQUIPMENT))
+			{
+				setEnabled(true);
+			}
 			addActionListener(this);
 		}
 
@@ -1150,10 +1140,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		public void actionPerformed(ActionEvent e)
 		{
 			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
-			for (EquipNode equipNode : targets)
-			{
-				equipSet.sortEquipment(equipNode);
-			}
+			targets.forEach(equipSet::sortEquipment);
 		}
 
 	}

@@ -41,6 +41,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.swing.AbstractAction;
 import javax.swing.Box;
@@ -425,7 +426,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		return new TabTitle(Tab.PURCHASE);
 	}
 
-	private List<EquipmentFacade> getMenuTargets(JTable table, MouseEvent e)
+	private static List<EquipmentFacade> getMenuTargets(JTable table, MouseEvent e)
 	{
 		int row = table.rowAtPoint(e.getPoint());
 		if (!table.isRowSelected(row))
@@ -435,16 +436,11 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				table.setRowSelectionInterval(row, row);
 			}
 		}
-		List<EquipmentFacade> targets = new ArrayList<>();
-		for (int selRow : table.getSelectedRows())
-		{
-			Object value = table.getModel().getValueAt(selRow, 0);
-			if (value instanceof EquipmentFacade)
-			{
-				targets.add((EquipmentFacade) value);
-			}
-		}
-		return targets;
+		return Arrays.stream(table.getSelectedRows())
+		             .mapToObj(selRow -> table.getModel().getValueAt(selRow, 0))
+		             .filter(value -> value instanceof EquipmentFacade)
+		             .map(value -> (EquipmentFacade) value)
+		             .collect(Collectors.toList());
 	}
 
 	private class CurrencyFieldHandler
