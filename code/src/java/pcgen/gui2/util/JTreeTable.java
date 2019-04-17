@@ -20,7 +20,6 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Rectangle;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Comparator;
 import java.util.Enumeration;
@@ -52,6 +51,7 @@ import javax.swing.tree.TreeCellRenderer;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
+import pcgen.gui2.util.event.PopupMouseAdapter;
 import pcgen.gui2.util.table.Row;
 import pcgen.gui2.util.table.SortableTableModel;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;
@@ -63,8 +63,6 @@ import pcgen.util.Logging;
  * This example shows how to create a simple JTreeTable component,
  * by using a JTree as a renderer (and editor) for the cells in a
  * particular column in the JTable.
- *
- *
  **/
 public class JTreeTable extends JTableEx
 {
@@ -858,7 +856,7 @@ public class JTreeTable extends JTableEx
 		addMouseListener(new PopupListener(this, aPopupMenu));
 	}
 
-	private final class PopupListener extends MouseAdapter
+	private static final class PopupListener extends PopupMouseAdapter
 	{
 
 		private JPopupMenu theMenu;
@@ -870,50 +868,30 @@ public class JTreeTable extends JTableEx
 			theMenu = aMenu;
 		}
 
-		/**
-		 * Overridden to potential show the popup menu.
-		 */
 		@Override
-		public void mousePressed(MouseEvent evt)
+		public void showPopup(final MouseEvent evt)
 		{
-			maybeShowPopup(evt);
-		}
+			final TreePath selPath = theTree.getClosestPathForLocation(evt.getX(), evt.getY());
 
-		/**
-		 * Overridden to potentially show the popup menu.
-		 */
-		@Override
-		public void mouseReleased(MouseEvent evt)
-		{
-			maybeShowPopup(evt);
-		}
-
-		private void maybeShowPopup(MouseEvent evt)
-		{
-			if (evt.isPopupTrigger())
+			if (selPath == null)
 			{
-				final TreePath selPath = theTree.getClosestPathForLocation(evt.getX(), evt.getY());
+				return;
+			}
 
-				if (selPath == null)
-				{
-					return;
-				}
-
-				if (theTree.isSelectionEmpty())
-				{
-					theTree.setSelectionPath(selPath);
-					theMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-				}
-				else if (!theTree.isPathSelected(selPath))
-				{
-					theTree.setSelectionPath(selPath);
-					theMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-				}
-				else
-				{
-					theTree.addSelectionPath(selPath);
-					theMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-				}
+			if (theTree.isSelectionEmpty())
+			{
+				theTree.setSelectionPath(selPath);
+				theMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+			}
+			else if (!theTree.isPathSelected(selPath))
+			{
+				theTree.setSelectionPath(selPath);
+				theMenu.show(evt.getComponent(), evt.getX(), evt.getY());
+			}
+			else
+			{
+				theTree.addSelectionPath(selPath);
+				theMenu.show(evt.getComponent(), evt.getX(), evt.getY());
 			}
 		}
 

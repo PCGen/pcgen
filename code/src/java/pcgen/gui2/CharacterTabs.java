@@ -23,7 +23,6 @@ import java.awt.FlowLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,6 +48,7 @@ import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.tabs.InfoTabbedPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.SharedTabPane;
+import pcgen.gui2.util.event.PopupMouseAdapter;
 import pcgen.system.CharacterManager;
 
 import org.apache.commons.lang3.StringUtils;
@@ -98,7 +98,15 @@ public final class CharacterTabs extends SharedTabPane
 		popupMenu.add(actions.get(PCGenActionMap.CLOSE_COMMAND));
 		popupMenu.add(actions.get(PCGenActionMap.SAVE_COMMAND));
 		popupMenu.add(actions.get(PCGenActionMap.SAVEAS_COMMAND));
-		addMouseListener(new PopupListener());
+		addMouseListener(new PopupMouseAdapter()
+		{
+			@Override
+			public void showPopup(final MouseEvent e)
+			{
+				popupMenu.setVisible(true);
+				popupMenu.show(e.getComponent(), e.getX(), e.getY() - popupMenu.getHeight());
+			}
+		});
 	}
 
 	private void addCharacter(CharacterFacade character)
@@ -269,31 +277,4 @@ public final class CharacterTabs extends SharedTabPane
 		}
 
 	}
-
-	private class PopupListener extends MouseAdapter
-	{
-
-		@Override
-		public void mousePressed(MouseEvent e)
-		{
-			maybeShowPopup(e);
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent e)
-		{
-			maybeShowPopup(e);
-		}
-
-		private void maybeShowPopup(MouseEvent e)
-		{
-			if (e.isPopupTrigger())
-			{
-				popupMenu.setVisible(true);
-				popupMenu.show(e.getComponent(), e.getX(), e.getY() - popupMenu.getHeight());
-			}
-		}
-
-	}
-
 }
