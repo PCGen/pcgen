@@ -23,6 +23,7 @@
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
@@ -112,9 +113,10 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 		}
 		if (!isType && !foundSkill)
 		{
-			for (Skill mock : serveAsSkills.keySet())
+			for (final Map.Entry<Skill, Set<Skill>> entry : serveAsSkills.entrySet())
 			{
-				Set<Skill> targets = serveAsSkills.get(mock);
+				Skill mock = entry.getKey();
+				Set<Skill> targets = entry.getValue();
 				for (Skill target : targets)
 				{
 					if (foundSkill)
@@ -144,9 +146,10 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 		}
 		else if (isType && !foundSkill)
 		{
-			for (Skill mock : serveAsSkills.keySet())
+			for (final Map.Entry<Skill, Set<Skill>> entry : serveAsSkills.entrySet())
 			{
-				Set<Skill> targets = serveAsSkills.get(mock);
+				Skill mock = entry.getKey();
+				Set<Skill> targets = entry.getValue();
 				for (Skill target : targets)
 				{
 					if (foundSkill)

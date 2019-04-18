@@ -2910,14 +2910,12 @@ public class CharacterFacadeImpl
 			theCharacter.setPointBuyPoints(availablePool);
 
 			// Make sure all scores are within the valid range
-			for (PCStat stat : statScoreMap.keySet())
-			{
-				WriteableReferenceFacade<Number> score = statScoreMap.get(stat);
+			statScoreMap.forEach((key, score) -> {
 				if (score.get().intValue() < SettingsHandler.getGame().getPurchaseScoreMin(theCharacter))
 				{
-					setStatToPurchaseNeutral(stat, score);
+					setStatToPurchaseNeutral(key, score);
 				}
-			}
+			});
 
 		}
 
