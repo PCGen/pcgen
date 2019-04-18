@@ -304,7 +304,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		setChanged();
 		URI uri = sourceEntry.getURI();
 		notifyObservers(uri);
-		StringBuilder dataBuffer;
+		String dataBuffer;
 		try
 		{
 			dataBuffer = LstFileLoader.readFromURI(uri);
@@ -317,7 +317,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 			setChanged();
 			return;
 		}
-		String aString = dataBuffer.toString();
+		String aString = dataBuffer;
 		if (context != null)
 		{
 			context.setSourceURI(uri);
