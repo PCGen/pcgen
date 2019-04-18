@@ -77,7 +77,6 @@ import pcgen.facade.core.GearBuySellFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.gui2.UIPropertyContext;
-import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilterButton;
 import pcgen.gui2.filter.FilteredTreeViewTable;
@@ -174,16 +173,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				FilterButton<CharacterFacade, EquipmentFacade> customFilter =
 						new FilterButton<>("EqAffordable"); //$NON-NLS-1$
 				customFilter.setText(LanguageBundle.getString("in_igAffordFilter")); //$NON-NLS-1$
-				customFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
-				{
-
-					@Override
-					public boolean accept(CharacterFacade context, EquipmentFacade element)
-					{
-						return context.getInfoFactory().getCost(element) <= context.getFundsRef().get().floatValue();
-					}
-
-				});
+				customFilter.setFilter((context, element) ->
+						context.getInfoFactory().getCost(element) <= context.getFundsRef().get().floatValue());
 				filterBar.addDisplayableFilter(premadeFilter);
 				filterBar.addDisplayableFilter(customFilter);
 			}
@@ -221,7 +212,9 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 			Box box = Box.createHorizontalBox();
 			box.add(Box.createHorizontalStrut(5));
+			sellEquipmentButton.setToolTipText(LanguageBundle.getString("in_ieSellEq_Tooltip"));
 			box.add(sellEquipmentButton);
+			removeEquipmentButton.setToolTipText(LanguageBundle.getString("in_ieRemEq_Tooltip"));
 			box.add(removeEquipmentButton);
 			box.add(Box.createHorizontalGlue());
 			box.setBorder(new EmptyBorder(0, 0, 5, 0));
