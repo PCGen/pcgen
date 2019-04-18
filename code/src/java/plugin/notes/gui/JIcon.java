@@ -27,7 +27,6 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.IOException;
@@ -45,6 +44,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.filechooser.FileSystemView;
 
 import gmgen.GMGenSystem;
+import pcgen.gui2.util.event.PopupMouseAdapter;
 import pcgen.io.PCGFile;
 import pcgen.util.Logging;
 import plugin.notes.NotesPlugin;
@@ -210,11 +210,6 @@ class JIcon extends JPanel
 		}
 	}
 
-	private void buttonActionPerformed(ActionEvent evt)
-	{
-
-	}
-
 	private void buttonFocusGained(FocusEvent evt)
 	{
 
@@ -244,28 +239,8 @@ class JIcon extends JPanel
 		}
 	}
 
-	private void buttonMouseClicked(MouseEvent evt)
-	{
-
-		if (evt.getClickCount() >= 2)
-		{
-			launchFile();
-		}
-	}
-
-	private void buttonMouseReleased(MouseEvent evt)
-	{
-		//GEN-FIRST:event_buttonMouseReleased
-		if (evt.isPopupTrigger())
-		{
-			contextMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-		}
-	}
-
-	//GEN-LAST:event_buttonMouseReleased
 	private void deleteMIActionPerformed(ActionEvent evt)
 	{
-
 		deleteFile();
 	}
 
@@ -298,7 +273,6 @@ class JIcon extends JPanel
 		setBorder(new LineBorder(new Color(0, 0, 0)));
 		button.setBackground((Color) UIManager.getDefaults().get("Button.background"));
 		button.setBorder(null);
-		button.addActionListener(this::buttonActionPerformed);
 
 		button.addFocusListener(new FocusAdapter()
 		{
@@ -324,18 +298,12 @@ class JIcon extends JPanel
 			}
 		});
 
-		button.addMouseListener(new MouseAdapter()
+		button.addMouseListener(new PopupMouseAdapter()
 		{
 			@Override
-			public void mouseClicked(MouseEvent evt)
+			public void showPopup(final MouseEvent evt)
 			{
-				buttonMouseClicked(evt);
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent evt)
-			{
-				buttonMouseReleased(evt);
+				contextMenu.show(evt.getComponent(), evt.getX(), evt.getY());
 			}
 		});
 
