@@ -81,7 +81,7 @@ public class GameModePanel extends ConvertSubPanel
 			Logging.log(Logging.INFO, "Loading campaigns from " + sourceDir);
 			Globals.clearCampaignsForRefresh();
 			campaignFileLoader.setAlternateSourceFolder(sourceDir);
-			campaignFileLoader.execute();
+			campaignFileLoader.run();
 		}
 
 		GameMode gameMode = pc.get(ObjectKey.GAME_MODE);

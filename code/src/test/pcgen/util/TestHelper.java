@@ -169,7 +169,7 @@ public class TestHelper
 	{
 		if (!loaded)
 		{
-			pcgen.system.Main.createLoadPluginTask().execute();
+			pcgen.system.Main.createLoadPluginTask().run();
 			loaded = true;
 		}
 	}
@@ -545,11 +545,11 @@ public class TestHelper
 			.getInstance(testConfigFile));
 		Main.loadProperties(false);
 		PCGenTask loadPluginTask = Main.createLoadPluginTask();
-		loadPluginTask.execute();
+		loadPluginTask.run();
 		GameModeFileLoader gameModeFileLoader = new GameModeFileLoader();
-		gameModeFileLoader.execute();
+		gameModeFileLoader.run();
 		CampaignFileLoader campaignFileLoader = new CampaignFileLoader();
-		campaignFileLoader.execute();
+		campaignFileLoader.run();
 	}
 
 	public static ChronicleEntry buildChronicleEntry(boolean visible, String campaign, String date,

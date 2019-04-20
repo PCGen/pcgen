@@ -51,7 +51,7 @@ public class CampaignFileLoader extends PCGenTask
 	}
 
 	@Override
-	public void execute()
+	public void run()
 	{
 		// Load the initial campaigns
 		if (alternateSourceFolder != null)

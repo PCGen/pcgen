@@ -24,7 +24,7 @@ import javax.swing.event.EventListenerList;
 
 import pcgen.util.Logging;
 
-public abstract class PCGenTask
+public abstract class PCGenTask implements Runnable
 {
 
 	private final EventListenerList listenerList = new EventListenerList();
@@ -42,7 +42,8 @@ public abstract class PCGenTask
 		listenerList.remove(PCGenTaskListener.class, listener);
 	}
 
-	public abstract void execute();
+	@Override
+	public abstract void run();
 
 	public int getMaximum()
 	{

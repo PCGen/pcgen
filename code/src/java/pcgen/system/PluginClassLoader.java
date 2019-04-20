@@ -183,7 +183,7 @@ class PluginClassLoader extends PCGenTask
 	}
 
 	@Override
-	public void execute()
+	public void run()
 	{
 		loadPlugins();
 	}

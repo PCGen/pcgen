@@ -246,7 +246,7 @@ public final class Main
 		{
 			executor.addPCGenTaskListener(splash);
 		}
-		executor.execute();
+		executor.run();
 		if (splash != null)
 		{
 			splash.setMessage(LanguageBundle.getString("in_taskInitUi")); //$NON-NLS-1$
@@ -374,7 +374,7 @@ public final class Main
 		executor.addPCGenTask(createLoadPluginTask());
 		executor.addPCGenTask(new GameModeFileLoader());
 		executor.addPCGenTask(new CampaignFileLoader());
-		executor.execute();
+		executor.run();
 
 		UIDelegate uiDelegate = new ConsoleUIDelegate();
 
