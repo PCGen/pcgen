@@ -25,6 +25,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
@@ -437,7 +438,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 				try
 				{
 					StringBuilder sb;
-					try (BufferedReader br = new BufferedReader(new FileReader(notes)))
+					try (BufferedReader br = new BufferedReader(new FileReader(notes, StandardCharsets.UTF_8)))
 					{
 						sb = new StringBuilder();
 						String newLine;
@@ -503,7 +504,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 				try
 				{
 					StringBuilder sb;
-					try (BufferedReader br = new BufferedReader(new FileReader(notes)))
+					try (BufferedReader br = new BufferedReader(new FileReader(notes, StandardCharsets.UTF_8)))
 					{
 						sb = new StringBuilder();
 						String newLine;
@@ -1224,7 +1225,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 
 				if (pane != null)
 				{
-					FileWriter fw = new FileWriter(notes);
+					FileWriter fw = new FileWriter(notes, StandardCharsets.UTF_8);
 					HTMLWriter hw = new HTMLWriter(fw, notesDoc);
 					hw.write();
 					fw.flush();

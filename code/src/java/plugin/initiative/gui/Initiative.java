@@ -27,6 +27,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -1627,7 +1628,7 @@ public class Initiative extends javax.swing.JPanel
 		XMLOutputter xmlOut = new XMLOutputter();
 		xmlOut.setFormat(Format.getRawFormat().setEncoding("US-ASCII"));
 
-		try (Writer fr = new FileWriter(xml))
+		try (Writer fr = new FileWriter(xml, StandardCharsets.UTF_8))
 		{
 			Document saveDocument = new Document(party);
 			xmlOut.output(saveDocument, fr);

@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
@@ -408,7 +409,7 @@ final class MainAbout extends JPanel
 		{
 			try
 			{
-				lgplArea.read(new InputStreamReader(lgpl), "LICENSE"); //$NON-NLS-1$
+				lgplArea.read(new InputStreamReader(lgpl, StandardCharsets.UTF_8), "LICENSE"); //$NON-NLS-1$
 			}
 			catch (IOException ioe)
 			{
