@@ -18,6 +18,7 @@
  */
 package pcgen.system;
 
+import java.util.Objects;
 import java.util.logging.LogRecord;
 
 import javax.swing.event.EventListenerList;
@@ -34,11 +35,13 @@ public abstract class PCGenTask implements Runnable
 
 	public void addPCGenTaskListener(PCGenTaskListener listener)
 	{
+		Objects.requireNonNull(listener);
 		listenerList.add(PCGenTaskListener.class, listener);
 	}
 
 	public void removePCGenTaskListener(PCGenTaskListener listener)
 	{
+		Objects.requireNonNull(listener);
 		listenerList.remove(PCGenTaskListener.class, listener);
 	}
 
