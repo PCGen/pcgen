@@ -60,12 +60,12 @@ public class HtmlSheetSupport
 		thread.setName("html-sheet-thread");
 		return thread;
 	};
-	private ExecutorService executor = Executors.newSingleThreadExecutor(THREAD_FACTORY);
+	private final ExecutorService executor = Executors.newSingleThreadExecutor(THREAD_FACTORY);
 
 	private WeakReference<CharacterFacade> characterRef;
 	private final File templateFile;
 	private final JEditorPane htmlPane;
-	private ImageCache cache = new ImageCache();
+	private final ImageCache cache = new ImageCache();
 	private FutureTask<HTMLDocument> refresher = null;
 	private boolean installed = false;
 	private String missingSheetMsg;

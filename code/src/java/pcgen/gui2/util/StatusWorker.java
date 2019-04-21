@@ -63,8 +63,7 @@ public class StatusWorker extends SwingWorker<List<LogRecord>, List<LogRecord>> 
 	@Override
 	public void done()
 	{
-		super.done();
-		statusBar.endShowingProgress();
+		SwingUtilities.invokeLater(statusBar::endShowingProgress);
 	}
 
 	@Override

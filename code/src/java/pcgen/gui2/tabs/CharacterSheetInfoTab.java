@@ -60,7 +60,7 @@ import pcgen.util.enumeration.Tab;
  * The Class {@code CharacterSheetInfoTab} is a placeholder for the
  * character sheet tab.
  */
-public class CharacterSheetInfoTab extends FlippingSplitPane implements CharacterInfoTab, DisplayAwareTab
+public final class CharacterSheetInfoTab extends FlippingSplitPane implements CharacterInfoTab, DisplayAwareTab
 {
 	private final TabTitle tabTitle = new TabTitle(Tab.CHARACTERSHEET);
 	private final CharacterSheetPanel csheet;
@@ -296,9 +296,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		/**
 		 * Version for serialisation.
 		 */
-		private static final long serialVersionUID = -2157540968522498242L;
-
-		private final ListListener<TempBonusFacade> listener = new ListListener<TempBonusFacade>()
+		private final ListListener<TempBonusFacade> listener = new ListListener<>()
 		{
 
 			@Override

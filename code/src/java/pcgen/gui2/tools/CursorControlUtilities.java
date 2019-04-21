@@ -20,6 +20,7 @@ package pcgen.gui2.tools;
 
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseListener;
 
 import javax.swing.JComponent;
 import javax.swing.RootPaneContainer;
@@ -31,7 +32,7 @@ public final class CursorControlUtilities
 
 	private static final Cursor DEFAULT_CURSOR = Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR);
 
-	private static final MouseAdapter CLICK_CONSUMER = new MouseAdapter()
+	private static final MouseListener CLICK_CONSUMER = new MouseAdapter()
 	{
 		// Empty class (designed to consume all clicks with no effect)
 	};
