@@ -99,22 +99,12 @@ class PluginClassLoader extends PCGenTask
 					continue;
 				}
 				name = StringUtils.removeEnd(name, ".class").replace('/', '.');
-				int size = (int) entry.getSize();
-				byte[] buffer = new byte[size];
 
-				InputStream in = file.getInputStream(entry);
-				int rb = 0;
-				int chunk;
-				while ((size - rb) > 0)
+				byte[] buffer;
+				try (InputStream in = file.getInputStream(entry))
 				{
-					chunk = in.read(buffer, rb, size - rb);
-					if (chunk == -1)
-					{
-						break;
-					}
-					rb += chunk;
+					buffer = in.readAllBytes();
 				}
-				in.close();
 				loader.storeClassDef(name, buffer);
 				classList.add(name);
 			}
