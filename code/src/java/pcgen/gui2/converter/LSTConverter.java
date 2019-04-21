@@ -299,7 +299,7 @@ public class LSTConverter extends Observable
 
 	private String load(URI uri, Loader loader) throws InterruptedException, PersistenceLayerException
 	{
-		StringBuilder dataBuffer;
+		String dataBuffer;
 		context.setSourceURI(uri);
 		context.setExtractURI(uri);
 		try
@@ -315,7 +315,7 @@ public class LSTConverter extends Observable
 		}
 
 		StringBuilder resultBuffer = new StringBuilder(dataBuffer.length());
-		final String aString = dataBuffer.toString();
+		final String aString = dataBuffer;
 
 		String[] fileLines = aString.split(LstFileLoader.LINE_SEPARATOR_REGEXP);
 		for (int line = 0; line < fileLines.length; line++)

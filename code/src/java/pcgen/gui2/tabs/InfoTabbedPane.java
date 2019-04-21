@@ -100,10 +100,7 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 		if (currentCharacter != null)
 		{
 			Map<CharacterInfoTab, ModelMap> states = stateMap.getMapFor(currentCharacter);
-			for (CharacterInfoTab tab : states.keySet())
-			{
-				tab.storeModels(states.get(tab));
-			}
+			states.forEach(CharacterInfoTab::storeModels);
 		}
 		stateMap.clear();
 		tabSelectionMap.clear();

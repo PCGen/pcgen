@@ -30,6 +30,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.SortedMap;
 
 import pcgen.cdom.base.Constants;
@@ -336,10 +337,10 @@ public final class CustomData
 
 			if (!pbStatCosts.isEmpty())
 			{
-				for (Integer statValue : pbStatCosts.keySet())
+				for (final Map.Entry<Integer, PointBuyCost> entry : pbStatCosts.entrySet())
 				{
-					final PointBuyCost pbc = pbStatCosts.get(statValue);
-					bw.write("STAT:" + statValue + "\t\tCOST:" + Integer.toString(pbc.getBuyCost()));
+					final PointBuyCost pbc = entry.getValue();
+					bw.write("STAT:" + entry.getKey() + "\t\tCOST:" + Integer.toString(pbc.getBuyCost()));
 					final int iCount = pbc.getPrerequisiteCount();
 					if (iCount != 0)
 					{

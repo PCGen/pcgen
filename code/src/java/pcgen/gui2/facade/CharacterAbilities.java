@@ -182,9 +182,7 @@ public class CharacterAbilities
 		}
 
 		// Update map contents
-		for (AbilityCategory category : workingAbilityListMap.keySet())
-		{
-			DefaultListFacade<AbilityFacade> workingListFacade = workingAbilityListMap.get(category);
+		workingAbilityListMap.forEach((category, workingListFacade) -> {
 			DefaultListFacade<AbilityFacade> masterListFacade = abilityListMap.get(category);
 			if (masterListFacade == null)
 			{
@@ -195,7 +193,7 @@ public class CharacterAbilities
 				masterListFacade.updateContentsNoOrder(workingListFacade.getContents());
 			}
 			updateAbilityCategoryTodo(category);
-		}
+		});
 
 		Set<AbilityCategory> origCats = new HashSet<>(abilityListMap.keySet());
 		for (AbilityCategory category : origCats)

@@ -1253,9 +1253,8 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 
-		List<BaseKit> sortedObjects = new ArrayList<>();
-		sortedObjects.addAll(kit.getSafeListFor(ListKey.KIT_TASKS));
-		sortedObjects.sort(Comparator.comparing(o -> o.getObjectName()));
+		List<BaseKit> sortedObjects = new ArrayList<>(kit.getSafeListFor(ListKey.KIT_TASKS));
+		sortedObjects.sort(Comparator.comparing(BaseKit::getObjectName));
 
 		String lastObjectName = EMPTY_STRING;
 		for (BaseKit bk : sortedObjects)
@@ -1352,7 +1351,7 @@ public class Gui2InfoFactory implements InfoFactory
 			Map<BonusObj, TempBonusInfo> bonusMap = pc.getTempBonusMap(originObj.getKeyName(), targetName);
 			boolean first = true;
 			List<BonusObj> bonusList = new ArrayList<>(bonusMap.keySet());
-			bonusList.sort(new BonusComparator());
+			bonusList.sort(BONUS_COMPARATOR);
 			for (BonusObj bonusObj : bonusList)
 			{
 				if (!first)
@@ -1475,20 +1474,9 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	private static class BonusComparator implements Comparator<BonusObj>
-	{
-		@Override
-		public int compare(BonusObj bo1, BonusObj bo2)
-		{
-			String type1 = bo1.getTypeOfBonus();
-			String type2 = bo2.getTypeOfBonus();
-			if (!type1.equals(type2))
-			{
-				return type1.compareTo(type2);
-			}
-			return bo1.getBonusInfo().compareTo(bo2.getBonusInfo());
-		}
-	}
+	private final Comparator<BonusObj> BONUS_COMPARATOR =
+			Comparator.comparing(BonusObj::getTypeOfBonus)
+			.thenComparing(BonusObj::getBonusInfo);
 
 	@Override
 	public String getLevelAdjustment(Race race)

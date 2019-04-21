@@ -465,9 +465,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	// should we also load companions on master load?
 	private boolean autoLoadCompanion = false;
 
-	// Should we sort the gear automatically?
-	private boolean autoSortGear = true;
-
 	// Should we resize the gear automatically?
 	private boolean autoResize = PCGenSettings.getInstance().getBoolean(PCGenSettings.OPTION_AUTO_RESIZE_EQUIP, true);
 
@@ -2791,31 +2788,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public void setAutoResize(boolean autoResize)
 	{
 		this.autoResize = autoResize;
-	}
-
-	/**
-	 * Sets the autoSortGear.
-	 *
-	 * @param autoSortGear
-	 *            The autoSortGear to set
-	 */
-	public void setAutoSortGear(final boolean autoSortGear)
-	{
-		if (this.autoSortGear != autoSortGear)
-		{
-			this.autoSortGear = autoSortGear;
-			setDirty(true);
-		}
-	}
-
-	/**
-	 * Returns the autoSortGear.
-	 *
-	 * @return boolean
-	 */
-	public boolean isAutoSortGear()
-	{
-		return autoSortGear;
 	}
 
 	/**
@@ -7221,7 +7193,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
 		aClone.autoKnownSpells = autoKnownSpells;
 		aClone.autoLoadCompanion = autoLoadCompanion;
-		aClone.autoSortGear = autoSortGear;
 		aClone.outputSheetHTML = outputSheetHTML;
 		aClone.outputSheetPDF = outputSheetPDF;
 		aClone.defaultDomainSource = defaultDomainSource;

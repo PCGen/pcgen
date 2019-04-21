@@ -59,13 +59,12 @@ public abstract class LstLineFileLoader extends Observable
 	 */
 	public void loadLstFile(LoadContext context, URI uri) throws PersistenceLayerException
 	{
-		StringBuilder dataBuffer = LstFileLoader.readFromURI(uri);
-		final String aString = dataBuffer.toString();
+		String dataBuffer = LstFileLoader.readFromURI(uri);
 		if (context != null)
 		{
 			context.setSourceURI(uri);
 		}
-		loadLstString(context, uri, aString);
+		loadLstString(context, uri, dataBuffer);
 	}
 
 	/**

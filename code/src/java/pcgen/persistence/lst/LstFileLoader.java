@@ -19,13 +19,12 @@
  */
 package pcgen.persistence.lst;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
@@ -34,6 +33,9 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
+
+import org.apache.commons.io.input.BOMInputStream;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * This class is a base class for LST file loaders.
@@ -75,7 +77,8 @@ public final class LstFileLoader
 	 *         messages
 	 * @throws PersistenceLayerException 
 	 */
-	public static StringBuilder readFromURI(URI uri) throws PersistenceLayerException
+	@Nullable
+	public static String readFromURI(URI uri) throws PersistenceLayerException
 	{
 		if (uri == null)
 		{
@@ -91,54 +94,18 @@ public final class LstFileLoader
 		catch (MalformedURLException e)
 		{
 			throw new PersistenceLayerException(
-				"LstFileLoader.readFromURI() could not convert parameter to a URL: " + e.getLocalizedMessage());
+				"LstFileLoader.readFromURI() could not convert parameter to a URL: " + e.getLocalizedMessage(), e);
 		}
-		InputStream inputStream = null;
 
-		StringBuilder dataBuffer = null;
 		try
 		{
 			//only load local urls, unless loading of URLs is allowed
 			if (!CoreUtility.isNetURL(url) || SettingsHandler.isLoadURLs())
 			{
-				// try to make a buffer of sufficient size in one go to save on GC
-				int size = 2048;
-				if ("file".equals(url.getProtocol()))
-				{
-					long fileSize = new File(url.getPath()).length();
-					if (fileSize > 0)
-					{
-						// this is an overestimate if the LST has wide 
-						// characters, but it's accurate for ASCII
-						size = (int) fileSize;
-					}
-				}
-				dataBuffer = new StringBuilder(size);
-
-				// Get the URL and open the stream
-				inputStream = url.openStream();
-
-				// Read from the stream
-				final InputStreamReader ir = new InputStreamReader(inputStream, "UTF-8"); //$NON-NLS-1$
-
-				// Buffer the stream content
-				final char[] b = new char[512];
-				int n;
-
-				n = ir.read(b, 0, 1);
-				/*
-				 * Take out the optional BOM: This is a pre-Java 1.6 workaround
-				 * for Sun B-U-G 4508058, see:
-				 * http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4508058
-				 */
-				if (n == 1 && b[0] != '\uFEFF')
-				{
-					dataBuffer.append(b, 0, 1);
-				}
-				while ((n = ir.read(b)) > 0)
-				{
-					dataBuffer.append(b, 0, n);
-				}
+				InputStream inputStream = url.openStream();
+				// Java doesn't handle BOM correctly. See http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4508058
+				var bomInputStream = new BOMInputStream(inputStream);
+				return new String(bomInputStream.readAllBytes(), StandardCharsets.UTF_8);
 			}
 			else
 			{
@@ -148,7 +115,6 @@ public final class LstFileLoader
 				ShowMessageDelegate.showMessageDialog("Preferences are currently set to NOT allow\nloading of "
 					+ "sources from web links. \n" + url + " is a web link", Constants.APPLICATION_NAME,
 					MessageType.ERROR);
-				// aURL = null; //currently unnecessary reassignment 
 			}
 		}
 		catch (IOException ioe)
@@ -156,23 +122,9 @@ public final class LstFileLoader
 			// Don't throw an exception here because a simple
 			// file not found will prevent ANY other files from
 			// being loaded/processed -- NOT what we want
-			Logging.errorPrint("ERROR:" + url + "\n" + "Exception type:" + ioe.getClass().getName() + "\n" + "Message:"
-				+ ioe.getMessage());
+			Logging.errorPrint("ERROR:" + url + '\n' + "Exception type:" + ioe.getClass().getName() + "\n" + "Message:"
+				+ ioe.getMessage(), ioe);
 		}
-		finally
-		{
-			if (inputStream != null)
-			{
-				try
-				{
-					inputStream.close();
-				}
-				catch (IOException e2)
-				{
-					Logging.errorPrint("Can't close inputStream in LstSystemLoader.initFile", e2);
-				}
-			}
-		}
-		return dataBuffer == null ? new StringBuilder() : dataBuffer;
+		return null;
 	}
 }

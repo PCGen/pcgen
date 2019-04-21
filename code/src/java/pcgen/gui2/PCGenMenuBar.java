@@ -85,7 +85,8 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 
 	private JMenu createEditMenu()
 	{
-		JMenu menu = new JMenu(actionMap.get(PCGenActionMap.EDIT_COMMAND));
+		JMenu menu = new JMenu();
+		menu.setText(LanguageBundle.getString("in_mnuEdit"));
 		menu.setMnemonic(KeyEvent.VK_E);
 		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.ADD_KIT_COMMAND)));
 		menu.addSeparator();
@@ -111,7 +112,9 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 
 	private JMenu createSourcesMenu()
 	{
-		JMenu menu = new JMenu(actionMap.get(PCGenActionMap.SOURCES_COMMAND));
+		JMenu menu = new JMenu();
+		menu.setText(LanguageBundle.getString("in_mnuSources"));
+		menu.setToolTipText(LanguageBundle.getString("in_mnuSourcesTip"));
 		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.SOURCES_LOAD_SELECT_COMMAND)));
 		menu.addSeparator();
 		menu.add(new QuickSourceMenu());
@@ -126,29 +129,8 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 
 	private JMenu createToolsMenu()
 	{
-		JMenu menu = new JMenu(actionMap.get(PCGenActionMap.TOOLS_COMMAND));
-
-		JMenu filtersMenu = new JMenu(actionMap.get(PCGenActionMap.FILTERS_COMMAND));
-		filtersMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.KIT_FILTERS_COMMAND)));
-		filtersMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.RACE_FILTERS_COMMAND)));
-		filtersMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.CLASS_FILTERS_COMMAND)));
-		filtersMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.ABILITY_FILTERS_COMMAND)));
-		filtersMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.SKILL_FILTERS_COMMAND)));
-		filtersMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.EQUIPMENT_FILTERS_COMMAND)));
-		filtersMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.SPELL_FILTERS_COMMAND)));
-		filtersMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.TEMPLATE_FILTERS_COMMAND)));
-
-		JMenu generatorsMenu = new JMenu(actionMap.get(PCGenActionMap.GENERATORS_COMMAND));
-		generatorsMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.TREASURE_GENERATORS_COMMAND)));
-		generatorsMenu.addSeparator();
-		generatorsMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.STAT_GENERATORS_COMMAND)));
-		generatorsMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.RACE_GENERATORS_COMMAND)));
-		generatorsMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.CLASS_GENERATORS_COMMAND)));
-		generatorsMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.ABILITY_GENERATORS_COMMAND)));
-		generatorsMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.SKILL_GENERATORS_COMMAND)));
-		generatorsMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.EQUIPMENT_GENERATORS_COMMAND)));
-		generatorsMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.SPELL_GENERATORS_COMMAND)));
-		generatorsMenu.add(new JMenuItem(actionMap.get(PCGenActionMap.TEMPLATE_GENERATORS_COMMAND)));
+		JMenu menu = new JMenu();
+		menu.setText(LanguageBundle.getString("in_mnuTools"));
 		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.PREFERENCES_COMMAND)));
 		menu.addSeparator();
 		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.GMGEN_COMMAND)));
@@ -163,7 +145,8 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 
 	private JMenu createHelpMenu()
 	{
-		JMenu menu = new JMenu(actionMap.get(PCGenActionMap.HELP_COMMAND));
+		JMenu menu = new JMenu();
+		menu.setText(LanguageBundle.getString("in_mnuHelp"));
 		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.HELP_DOCS_COMMAND)));
 		menu.addSeparator();
 		menu.add(new JMenuItem(actionMap.get(PCGenActionMap.HELP_OGL_COMMAND)));
@@ -269,13 +252,17 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 
 	}
 
-	private class QuickSourceMenu extends AbstractRadioListMenu<SourceSelectionFacade>
+	private final class QuickSourceMenu extends AbstractRadioListMenu<SourceSelectionFacade>
 			implements ReferenceListener<SourceSelectionFacade>
 	{
 
-		public QuickSourceMenu()
+		private QuickSourceMenu()
 		{
+
 			super(actionMap.get(PCGenActionMap.SOURCES_LOAD_COMMAND));
+			super.setText(LanguageBundle.getString("in_mnuSourcesLoad"));
+
+
 			ReferenceFacade<SourceSelectionFacade> ref = uiContext.getCurrentSourceSelectionRef();
 			setSelectedItem(ref.get());
 			ListFacade<SourceSelectionFacade> sources = FacadeFactory.getDisplayedSourceSelections();
