@@ -643,9 +643,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			case AGE:
 				didChange = ageFacet.set(id, value);
 				break;
-			default:
-				//Case not caught, should this cause an error?
-				break;
 		}
 
 		if (didChange)
@@ -1133,17 +1130,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	private static Equipment getEquipmentNamed(final String aString, final Collection<Equipment> aList)
 	{
-		Equipment match = null;
 
-		for (Equipment eq : aList)
-		{
-			if (aString.equalsIgnoreCase(eq.getName()))
-			{
-				match = eq;
-			}
-		}
-
-		return match;
+		return aList.stream()
+		            .filter(eq -> aString.equalsIgnoreCase(eq.getName()))
+		            .findFirst()
+		            .orElse(null);
 	}
 
 	/**
