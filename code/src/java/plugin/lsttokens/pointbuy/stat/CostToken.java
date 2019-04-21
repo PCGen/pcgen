@@ -24,10 +24,6 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-/**
- * {@code CostToken}
- * 
- */
 public class CostToken extends AbstractNonEmptyToken<PointBuyCost> implements CDOMPrimaryToken<PointBuyCost>
 {
 
@@ -42,7 +38,7 @@ public class CostToken extends AbstractNonEmptyToken<PointBuyCost> implements CD
 	{
 		try
 		{
-			pbc.setBuyCost(Integer.valueOf(value).intValue());
+			pbc.setBuyCost(Integer.valueOf(value));
 			return ParseResult.SUCCESS;
 		}
 		catch (NumberFormatException nfe)
