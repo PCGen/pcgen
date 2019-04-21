@@ -36,7 +36,7 @@ class PCGenTaskExecutor extends PCGenTask implements PCGenTaskListener
 	}
 
 	@Override
-	public void execute()
+	public void run()
 	{
 		progressMultiplier = Fraction.getFraction(1, tasks.size());
 		while (!tasks.isEmpty())
@@ -44,7 +44,7 @@ class PCGenTaskExecutor extends PCGenTask implements PCGenTaskListener
 			currentTask = tasks.poll();
 			setValues(currentTask.getMessage(), baseProgress.getNumerator(), baseProgress.getDenominator());
 			currentTask.addPCGenTaskListener(this);
-			currentTask.execute();
+			currentTask.run();
 			currentTask.removePCGenTaskListener(this);
 			baseProgress = baseProgress.add(progressMultiplier);
 		}

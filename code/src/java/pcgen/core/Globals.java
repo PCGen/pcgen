@@ -782,7 +782,7 @@ public final class Globals
 			}
 			catch (final IOException ex)
 			{
-				Logging.errorPrint("Could not execute " + postExportCommand + " after exporting " + fileName, ex);
+				Logging.errorPrint("Could not run " + postExportCommand + " after exporting " + fileName, ex);
 			}
 		}
 	}

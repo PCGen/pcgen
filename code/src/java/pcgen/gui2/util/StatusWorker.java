@@ -111,7 +111,7 @@ public class StatusWorker extends SwingWorker<List<LogRecord>, List<LogRecord>> 
 
 		try
 		{
-			task.execute();
+			task.run();
 		}
 		catch (Exception e)
 		{
