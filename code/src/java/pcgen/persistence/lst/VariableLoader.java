@@ -45,7 +45,7 @@ public class VariableLoader extends Observable
 		//Need the IF so that it is not an empty line causing issues
 		if (colToken.hasMoreTokens())
 		{
-			String tok = colToken.nextToken().intern();
+			String tok = colToken.nextToken();
 			if (tok.indexOf(':') == -1)
 			{
 				tok = "GLOBAL:" + tok;
