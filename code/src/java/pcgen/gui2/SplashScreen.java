@@ -36,9 +36,9 @@ import javax.swing.JWindow;
 import javax.swing.SwingUtilities;
 
 import pcgen.gui2.tools.Icons;
-import pcgen.system.PCGenTask;
 import pcgen.system.PCGenTaskEvent;
 import pcgen.system.PCGenTaskListener;
+import pcgen.system.ProgressContainer;
 
 /**
  * PCGen's splash screen which is shown upon startup.
@@ -111,7 +111,7 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 		{
 			dirty = true;
 			SwingUtilities.invokeLater(() -> {
-				PCGenTask task = event.getSource();
+				ProgressContainer task = event.getSource();
 				loadProgress.getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
 				loadingLabel.setText(task.getMessage());
 				dirty = false;
