@@ -122,10 +122,10 @@ public final class Bonus
 			return null;
 		}
 
-		aBonus.putOriginalString(bonusString.intern());
-		aBonus.setBonusName(bonusName.intern());
-		aBonus.setTypeOfBonus(typeOfBonus.intern());
-		Formula val = aBonus.setValue(bValue.intern());
+		aBonus.putOriginalString(bonusString);
+		aBonus.setBonusName(bonusName);
+		aBonus.setTypeOfBonus(typeOfBonus);
+		Formula val = aBonus.setValue(bValue);
 		if (!val.isValid())
 		{
 			Logging.errorPrint(
@@ -173,7 +173,7 @@ public final class Bonus
 						aBonus.setStackingFlag(StackType.STACK);
 					}
 				}
-				final boolean result = aBonus.addType(bonusType.intern());
+				final boolean result = aBonus.addType(bonusType);
 
 				if (!result)
 				{
@@ -188,7 +188,7 @@ public final class Bonus
 
 		if (equalOffset >= 0)
 		{
-			aBonus.setVariable(bonusName.substring(equalOffset + 1).intern());
+			aBonus.setVariable(bonusName.substring(equalOffset + 1));
 		}
 
 		if (!aBonus.requiresRealCaseTarget())

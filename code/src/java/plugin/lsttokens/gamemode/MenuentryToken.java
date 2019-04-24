@@ -20,7 +20,7 @@ public class MenuentryToken implements GameModeLstToken
 	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.setModeName(value.replace('|', '\n').intern());
+		gameMode.setModeName(value.replace('|', '\n'));
 		return true;
 	}
 }
