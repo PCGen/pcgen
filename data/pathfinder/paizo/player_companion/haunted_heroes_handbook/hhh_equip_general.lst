@@ -1,0 +1,10 @@
+SOURCELONG:Haunted Heroes Handbook	SOURCESHORT:HHH	SOURCEWEB:https://paizo.com/products/btpy9nft	SOURCEDATE:2016-08
+
+False Ectoplasm			TYPE:Goods.Tools.Consumable					COST:2		WT:2	SOURCEPAGE:p.11
+Haunt Detector			TYPE:Goods.Tools						COST:25		WT:4	SOURCEPAGE:p.12		SPROP:+2 Perception checks to notice haunts or the presence of creatures with the cold or fire subtypes.
+Mindburn Incense		TYPE:Goods.General						COST:50			SOURCEPAGE:p.11
+Pump Organ			TYPE:Goods.Tools.Instrument.Keyboard				COST:2000	WT:100	SOURCEPAGE:p.11		BONUS:SKILL|Perform (Keyboard Instruments)|2|TYPE=Circumstance
+Quicksilver Barometer		TYPE:Goods.Tools						COST:400	WT:12	SOURCEPAGE:p.13		SPROP: +4 on Survival checks to predict the weather or on Perception checks to notice haunts.
+Repellent Salts			TYPE:Alchemical.Consumable.Weapon.Ranged.Thrown.Fire.Splash	COST:100	WT:.5	SOURCEPAGE:p.13
+Spirit Compass			TYPE:Goods.Tools						COST:20		WT:1	SOURCEPAGE:p.13		SPROP:Use Survival rather than Perception to notice haunts.
+Storm Glass			TYPE:Goods.Tools						COST:80		WT:5	SOURCEPAGE:p.13		SPROP:+2 circumstance bonus on Knowledge (planes) checks to identify outsiders within 60 ft.

@@ -1,0 +1,9 @@
+SOURCELONG:Haunted Heroes Handbook	SOURCESHORT:HHH	SOURCEWEB:https://paizo.com/products/btpy9nft	SOURCEDATE:2016-08
+
+Jar of Haunt Siphoning		TYPE:Magic.Wondrous		COST:6250	WT:1		SOURCEPAGE:p.31		SPROP:Can be opened once every 1d4 rounds to deal 3d6 damage to all haunts within 30 ft. Neutralized haunts become violet mist, can be made into a siphoned haunt grenade.
+Papyrus of Eternal Rest		TYPE:Magic.Wondrous		COST:4000			SOURCEPAGE:p.31		SPROP:Grants owner a gaze, range 30 feet, when wielded in one hand and clearly presented. Haunts and incorporeal undead must succeed at a DC 12 Will save or take 1d6 points of damage and become sickened for 1 round. A successful save prevents the sickened condition, reduces the damage by half. Haunts can’t avoid looking at a papyrus of eternal rest, but incorporeal undead can as normal.
+Psychic Aurascope		TYPE:Magic.Wondrous		COST:8000	WT:4		SOURCEPAGE:p.31
+Shawl of the Lingering		TYPE:Magic.Wondrous.Headgear	COST:3200			SOURCEPAGE:p.31
+
+#Added to help users with bookkeeping
+Siphoned Haunt Grenade		TYPE:Magic.Wondrous.Consumable.Weapon.Ranged.Thrown.Splash	PROFICIENCY:WEAPON|Splash Weapon	WT:1		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6		RANGE:10	SPROP:Every creature within 5 feet of the point where the flask hits takes 1 point of negative energy damage from the splash. On the round following a direct hit, the target takes an additional 1d6 points of damage.
