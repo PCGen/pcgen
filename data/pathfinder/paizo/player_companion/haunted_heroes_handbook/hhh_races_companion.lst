@@ -1,0 +1,4 @@
+SOURCELONG:Haunted Heroes Handbook	SOURCESHORT:HHH	SOURCEWEB:https://paizo.com/products/btpy9nft	SOURCEDATE:2016-08
+
+Familiar (Possessed Hand)			STARTFEATS:1	SIZE:D	MOVE:Walk,40,Climb,40		REACH:0			BONUS:SKILL|Survival|4|TYPE=Racial		BONUS:STAT|STR|2	BONUS:STAT|INT|-8	BONUS:STAT|CHA|4	BONUS:VAR|BlindsenseRange|30|TYPE=Base			BONUS:WEAPONPROF=Claw|DAMAGE|max(0,STR/2)		AUTO:LANG|Common			ABILITY:Special Ability|AUTOMATIC|Cannot Speak|Possessed Hand ~ Grab|Strangle			LEGS:0	HANDS:1	NATURALATTACKS:Claw,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Slashing.Grab,*1,1d1			MONSTERCLASS:Humanoid:1				RACETYPE:Humanoid	RACESUBTYPE:Familiar|FamiliarBase	TYPE:Companion.Familiar								CR:1/2		KIT:1|LG|NG|CG|LN|TN|CN|LE|NE|CE	FACT:BaseSize|D
+
