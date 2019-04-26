@@ -3,6 +3,13 @@ SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.c
 #Original Entry: Douglas Limmer
 #SRD Original Entry: Unknown
 
+### --- Psicrystal Kit (begin) --- ###
+
+STARTPACK:Psicrystal Stats					TYPE:Psicrystal					VISIBLE:QUALIFY	EQUIPBUY:0
+STAT:STR=10|DEX=10|WIS=10|CON=10|INT=10|CHA=10
+
+### --- Psicrystal Kit (end) --- ###
+
 ### --- Monster kits (begin) --- ###
 
 
