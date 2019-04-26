@@ -21,9 +21,13 @@ MASTERBONUSRACE:Familiar (Wallaby)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Fam
 
 # Class of the Master			Type			Ability																			Modify VAR
 FOLLOWER:LeshyStatBonus=1		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Leshy Familiar ~ Stat Bonus
-FOLLOWER:PaladinIsChosenOne=1		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Religious Mentor ~ Familiar	ABILITY:Archetype|AUTOMATIC|Familiar Archetype ~ Emissary
 FOLLOWER:FamiliarBondFeatActive=1	TYPE:Familiar	ABILITY:Archetype|AUTOMATIC|Familiar Archetype ~ Feat-Granted Familiar									BONUS:VAR|FamiliarGrantedBonus_1|-1|PREVAREQ:FamiliarBondFeatActive,1	BONUS:VAR|FamiliarGrantedBonus_2|-2|PREVAREQ:FamiliarBondFeatActive,1	BONUS:VAR|FamiliarGrantedBonus_3|-3|PREVAREQ:FamiliarBondFeatActive,1	BONUS:VAR|FamiliarGrantedBonus_4|-4|PREVAREQ:FamiliarBondFeatActive,1
 FOLLOWER:WisdomPatronFamiliar=1	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Wisdom Patron Familiar
 FOLLOWER:ApplySchoolFamiliar=1	TYPE:Familiar	ABILITY:Archetype|AUTOMATIC|Familiar Archetype ~ School Familiar
 FOLLOWER:DeceptionPatronFamiliar=1	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Deception Patron Familiar
 FOLLOWER:WizardIsSoulBinder=1		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Soulbound Familiar ~ Lost Talents
+
+
+FOLLOWER:PaladinIsChosenOne=1		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Religious Mentor ~ Familiar	ABILITY:Archetype|AUTOMATIC|Familiar Archetype ~ Emissary
+FOLLOWER:ChosenOneLVL=7			TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Change Shape
+
