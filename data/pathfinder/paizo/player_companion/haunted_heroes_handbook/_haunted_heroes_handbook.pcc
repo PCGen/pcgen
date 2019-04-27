@@ -50,16 +50,22 @@ SPELL:hhh_spells.lst
 TEMPLATE:hhh_templates.lst
 
 #As appropriate sources are added, remove hashtag to activate.
+#EXTRAFILE:support/hhh_abilities_class_ap72.lst
 #ABILITY:support/hhh_abilities_class_ap72.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Adventure Path #72
+#EXTRAFILE:support/hhh_abilities_class_botc.lst
 #ABILITY:support/hhh_abilities_class_botc.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Coven
 ABILITY:support/hhh_abilities_class_cop.lst|PRECAMPAIGN:1,INCLUDES=Champions of Purity
 ABILITY:support/hhh_abilities_class_fap.lst|PRECAMPAIGN:1,INCLUDES=Faiths and Philosophies
 ABILITY:support/hhh_abilities_class_ha.lst|PRECAMPAIGN:1,INCLUDES=Horror Adventures
 ABILITY:support/hhh_abilities_class_hhb.lst|PRECAMPAIGN:1,INCLUDES=Healer's Handbook
+#EXTRAFILE:support/hhh_abilities_class_hothc.lst
 #ABILITY:support/hhh_abilities_class_hothc.lst|PRECAMPAIGN:1,INCLUDES=Heroes of the High Cout
 ABILITY:support/hhh_abilities_class_hotw.lst|PRECAMPAIGN:1,INCLUDES=Heroes of the Wild
+#EXTRAFILE:support/hhh_abilities_class_ismc.lst
 #ABILITY:support/hhh_abilities_class_ismc.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Monster Codex
+#EXTRAFILE:support/hhh_abilities_class_pathr.lst
 #ABILITY:support/hhh_abilities_class_pathr.lst|PRECAMPAIGN:1,INCLUDES=Paths of the Righteous
+#EXTRAFILE:support/hhh_abilities_class_planep.lst
 #ABILITY:support/hhh_abilities_class_planep.lst|PRECAMPAIGN:1,INCLUDES=Planes of Power
 ABILITY:support/hhh_abilities_class_uw.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Wilderness
 DEITY:support/hhh_deities_isg_fob.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Gods,INCLUDES=Faiths of Balance
