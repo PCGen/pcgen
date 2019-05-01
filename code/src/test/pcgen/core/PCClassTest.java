@@ -619,7 +619,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 
 		character.setStat(cha, 20);
 		int numSpellCast = character.getSpellSupport(charClass).getCastForLevel(11, character);
-		assertEquals(1, numSpellCast, "Should be able to cast one 11th level spells with feat");
+		assertEquals(1, numSpellCast, "Should be able to cast one 11th level spell with feat");
 		character.setStat(cha, 34);
 		numSpellCast = character.getSpellSupport(charClass).getCastForLevel(11, character);
 		assertEquals(2, numSpellCast, "Should be able to cast two 11th level spells with feat and stat");
