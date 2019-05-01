@@ -29,10 +29,6 @@ import org.jetbrains.annotations.Contract;
 public final class Utilities
 {
 
-	/** Up direction. */
-	public static final int UP = 14;
-	/** End (far right) direction. */
-	public static final int END = 17;
 	/** Icons for New item. */
 	static final ImageIcon NEW_ICON = Icons.New16.getImageIcon();
 	/** Icons for Close item. */
