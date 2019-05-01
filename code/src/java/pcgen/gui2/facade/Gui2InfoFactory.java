@@ -28,6 +28,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -1592,14 +1593,9 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getHTMLInfo(SpellFacade spell)
 	{
-		if (spell == null || !(spell instanceof SpellFacadeImplem))
-		{
-			return EMPTY_STRING;
-		}
-
-		SpellFacadeImplem sfi = (SpellFacadeImplem) spell;
-		CharacterSpell cs = sfi.getCharSpell();
-		SpellInfo si = sfi.getSpellInfo();
+		Objects.requireNonNull(spell);
+		CharacterSpell cs = spell.getCharSpell();
+		SpellInfo si = spell.getSpellInfo();
 		Spell aSpell = cs.getSpell();
 
 		if (aSpell == null)
@@ -1759,7 +1755,7 @@ public class Gui2InfoFactory implements InfoFactory
 					}
 					int level = spellInfo.getActualLevel();
 
-					int count = spellCountMap.containsKey(level) ? spellCountMap.get(level) : 0;
+					int count = spellCountMap.getOrDefault(level, 0);
 					count += spellInfo.getTimes();
 					spellCountMap.put(level, count);
 					if (level > highestSpellLevel)
@@ -1788,7 +1784,7 @@ public class Gui2InfoFactory implements InfoFactory
 				for (int i = 0; i <= highestSpellLevel; ++i)
 				{
 					b.append("<td><font size=-1><center>"); //$NON-NLS-1$
-					b.append(String.valueOf(spellCountMap.get(i) == null ? 0 : spellCountMap.get(i)));
+					b.append(String.valueOf(spellCountMap.getOrDefault(i, 0)));
 					b.append("</center></font></td>"); //$NON-NLS-1$
 				}
 				b.append("</tr></table>"); //$NON-NLS-1$

@@ -129,7 +129,8 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	/**
 	 * @return the charSpell
 	 */
-	CharacterSpell getCharSpell()
+	@Override
+	public CharacterSpell getCharSpell()
 	{
 		return charSpell;
 	}
@@ -137,7 +138,8 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 	/**
 	 * @return the spellInfo
 	 */
-	SpellInfo getSpellInfo()
+	@Override
+	public SpellInfo getSpellInfo()
 	{
 		return spellInfo;
 	}
@@ -148,19 +150,19 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		StringBuilder buff = new StringBuilder();
 		if (spell != null)
 		{
-			buff.append(spell.toString());
+			buff.append(spell);
 		}
 		else if (charSpell != null)
 		{
-			buff.append(charSpell.toString());
+			buff.append(charSpell);
 		}
 		if (charSpell != null && charSpell.getOwner() instanceof Domain)
 		{
-			buff.append(" [").append(charSpell.getOwner().toString()).append("]");
+			buff.append(" [").append(charSpell.getOwner()).append("]");
 		}
 		if (spellInfo != null)
 		{
-			buff.append(spellInfo.toString());
+			buff.append(spellInfo);
 		}
 		return buff.toString();
 	}
