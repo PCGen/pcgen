@@ -18,6 +18,7 @@
 package pcgen.core.character;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import pcgen.core.Ability;
@@ -134,7 +135,7 @@ public final class SpellInfo implements Comparable<SpellInfo>
 		this.numPages = numPages;
 	}
 
-	public void addFeatsToList(final List<Ability> aList)
+	public void addFeatsToList(final Collection<Ability> aList)
 	{
 		if (featList == null)
 		{
