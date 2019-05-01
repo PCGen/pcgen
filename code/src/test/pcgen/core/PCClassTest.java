@@ -546,6 +546,91 @@ public class PCClassTest extends AbstractCharacterTestCase
 		);
 	}
 
+	/**
+	 * Test if SPELLCAST bonus handles high stat bonus spells well
+	 *
+	 * @throws PersistenceLayerException the persistence layer exception
+	 */
+	@Test
+	void testGetBonusSpellSplots() throws PersistenceLayerException
+	{
+		LoadContext context = Globals.getContext();
+		PCClass megaCasterClass = new PCClass();
+		megaCasterClass.setName("MegaCaster");
+		BuildUtilities.setFact(megaCasterClass, "SpellType", "Arcane");
+		context.unconditionallyProcess(megaCasterClass, "SPELLSTAT", "CHA");
+		megaCasterClass.put(ObjectKey.SPELLBOOK, false);
+		megaCasterClass.put(ObjectKey.MEMORIZE_SPELLS, false);
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(1), "KNOWN", "4,2,2,3,4,5");
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(1), "CAST", "3,1,2,3,4,5");
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "KNOWN", "4,2,2,3,4,5,6,7,8,9,10");
+		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
+		Globals.getContext().getReferenceContext().importObject(megaCasterClass);
+
+		finishLoad();
+
+		PlayerCharacter character = getCharacter();
+
+		character.incrementClassLevel(1, megaCasterClass);
+		PCClass charClass =
+				character.getClassKeyed(megaCasterClass.getKeyName());
+
+		String sbook = Globals.getDefaultSpellBook();
+
+		Ability casterFeat = new Ability();
+		FeatLoader featLoader = new FeatLoader();
+		CampaignSourceEntry source;
+		try
+		{
+			source = new CampaignSourceEntry(new Campaign(),
+					new URI("file:/" + getClass().getName() + ".java"));
+		}
+		catch (URISyntaxException e)
+		{
+			throw new UnreachableError(e);
+		}
+		featLoader
+			.parseLine(
+				Globals.getContext(),
+				casterFeat,
+				"CasterBoost	TYPE:General	BONUS:SPELLCAST|CLASS=MegaCaster;LEVEL=11|1", source);
+		casterFeat.setCDOMCategory(BuildUtilities.getFeatCat());
+		context.getReferenceContext().importObject(casterFeat);
+
+		AbstractCharacterTestCase.applyAbility(character, BuildUtilities.getFeatCat(), casterFeat, null);
+		String cast =
+				character.getSpellSupport(charClass).getCastForLevel(11, sbook, true, false, character)
+					+ character.getSpellSupport(charClass).getBonusCastForLevelString(11, sbook, character);
+		assertEquals("1",
+			cast, "Should be able to cast 11th level spells with feat"
+		);
+		assertEquals(11,
+			character.getSpellSupport(charClass).getHighestLevelSpell(character),
+				"Should be able to cast 11th level spells with feat"
+		);
+
+		for (int li = 1; li < 15; ++li) {
+			BonusSpellInfo bsi = new BonusSpellInfo();
+			bsi.setName(Integer.toString(li));
+			bsi.setStatScore(10 + 2 * li);
+			bsi.setStatRange(8);
+			context.getReferenceContext().importObject(bsi);
+		}
+
+		character.setStat(cha, 20);
+		int numSpellCast = character.getSpellSupport(charClass).getCastForLevel(11, character);
+		assertEquals(1, numSpellCast, "Should be able to cast one 11th level spells with feat");
+		character.setStat(cha, 34);
+		numSpellCast = character.getSpellSupport(charClass).getCastForLevel(11, character);
+		assertEquals(2, numSpellCast, "Should be able to cast two 11th level spells with feat and stat");
+		character.setStat(cha, 40);
+		numSpellCast = character.getSpellSupport(charClass).getCastForLevel(11, character);
+		assertEquals(3, numSpellCast, "Should be able to cast three 11th level spells with feat and stat");
+		character.setStat(cha, 46);
+		numSpellCast = character.getSpellSupport(charClass).getCastForLevel(11, character);
+		assertEquals(3, numSpellCast, "Should be able to cast three 11th level spells with feat and stat");
+	}
+
 	@Test
 	void testGetKnownForLevel()
 	{
