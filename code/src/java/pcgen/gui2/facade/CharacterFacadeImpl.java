@@ -2166,7 +2166,11 @@ public class CharacterFacadeImpl
 				currBonusLangs.add(lang);
 			}
 		}
-		int bonusLangRemain = bonusLangMax - currBonusLangs.size();
+		int bonusLangRemain = 0;
+		if (!theCharacter.getRace().getDisplayName().equals("<none selected>"))
+		{
+			bonusLangRemain = bonusLangMax - currBonusLangs.size();
+		}
 		if (!allowBonusLangAfterFirst && !atFirstLvl)
 		{
 			bonusLangRemain = 0;
