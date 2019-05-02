@@ -258,6 +258,7 @@ public class CharacterFacadeImpl
 	private SpellSupportFacadeImpl spellSupportFacade;
 	private CompanionSupportFacadeImpl companionSupportFacade;
 	private TodoManager todoManager;
+	private DefaultListFacade<LanguageChooserFacade> langChoosersList;
 	private boolean allowDebt;
 
 	private int lastExportCharSerial = 0;
@@ -314,6 +315,7 @@ public class CharacterFacadeImpl
 		theCharacter.preparePCForOutput();
 
 		todoManager = new TodoManager();
+		langChoosersList = new DefaultListFacade<>();
 
 		infoFactory = new Gui2InfoFactory(theCharacter);
 		characterAbilities = new CharacterAbilities(theCharacter, delegate, dataSet, todoManager);
@@ -2172,6 +2174,27 @@ public class CharacterFacadeImpl
 		numBonusLang.set(bonusLangRemain);
 		if (bonusLangRemain > 0)
 		{
+
+			boolean containsAddBonus = false;
+			/* Check to see if the chooserList already contains an "add bonus" chooser*/
+			for (LanguageChooserFacade chooser : langChoosersList)
+			{
+				/* If we find one, break, as we don't need to add another.*/
+				if (chooser.getName().equals(LanguageBundle.getString("in_sumLangBonus")))
+				{
+					containsAddBonus = true;
+					break;
+				}
+			}
+			if (!containsAddBonus)
+			{
+				CNAbility cna = theCharacter.getBonusLanguageAbility();
+				/* Add the bonus chooser*/
+				langChoosersList.addElement(
+						new LanguageChooserFacadeImpl(
+								this, LanguageBundle.getString("in_sumLangBonus"), cna)); //$NON-NLS-1$
+			}
+
 			if (allowBonusLangAfterFirst)
 			{
 				todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Languages", "in_sumTodoBonusLanguage", 110));
@@ -2188,6 +2211,18 @@ public class CharacterFacadeImpl
 		{
 			todoManager.removeTodo("in_sumTodoBonusLanguage");
 			todoManager.removeTodo("in_sumTodoBonusLanguageFirstOnly");
+
+			/* Ensure the bonus language chooser is removed, if it exists.*/
+			Iterator<LanguageChooserFacade> itr = langChoosersList.iterator();
+			while (itr.hasNext())
+			{
+				LanguageChooserFacade chooser = itr.next();
+				/* If we find an add bonus chooser, remove it.*/
+				if (chooser.getName().equals(LanguageBundle.getString("in_sumLangBonus")))
+				{
+					itr.remove();
+				}
+			}
 		}
 
 		int numSkillLangSelected = 0;
@@ -2233,19 +2268,20 @@ public class CharacterFacadeImpl
 	@Override
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers()
 	{
-		CNAbility cna = theCharacter.getBonusLanguageAbility();
-		DefaultListFacade<LanguageChooserFacade> chooserList = new DefaultListFacade<>();
-		chooserList.addElement(
-			new LanguageChooserFacadeImpl(this, LanguageBundle.getString("in_sumLangBonus"), cna)); //$NON-NLS-1$
+		if (null == langChoosersList) {
+			langChoosersList = new DefaultListFacade<>();
+		}
 
 		Skill speakLangSkill = dataSet.getSpeakLanguageSkill();
 		if (speakLangSkill != null)
 		{
-			chooserList.addElement(
+			langChoosersList.addElement(
 				new LanguageChooserFacadeImpl(this, LanguageBundle.getString("in_sumLangSkill"), //$NON-NLS-1$
 				speakLangSkill));
 		}
-		return chooserList;
+		System.out.println("getLanguageChoosers");
+
+		return langChoosersList;
 	}
 
 	@Override
@@ -2259,6 +2295,7 @@ public class CharacterFacadeImpl
 
 		List<Language> availLangs = new ArrayList<>();
 		List<Language> selLangs = new ArrayList<>();
+
 		ChoiceManagerList<Language> choiceManager = ChooserUtilities.getChoiceManager(owner, theCharacter);
 		choiceManager.getChoices(theCharacter, availLangs, selLangs);
 		selLangs.remove(lang);
