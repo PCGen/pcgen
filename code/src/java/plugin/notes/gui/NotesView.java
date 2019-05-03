@@ -628,8 +628,6 @@ public class NotesView extends JPanel
 	private int writeNotesDir(ZipOutputStream out, File parentDir, File currentDir, ProgressMonitor pm, int progress)
 		throws IOException
 	{
-		byte[] buffer = new byte[4096];
-		int bytes_read;
 		int returnValue = progress;
 
 		for (File f : currentDir.listFiles())
@@ -645,31 +643,13 @@ public class NotesView extends JPanel
 			}
 			else
 			{
-				FileInputStream in = new FileInputStream(f);
-
-				try
+				try (InputStream in = new FileInputStream(f))
 				{
 					String parentPath = parentDir.getParentFile().getAbsolutePath();
 					ZipEntry entry = new ZipEntry(f.getAbsolutePath().substring(parentPath.length() + 1));
 					out.putNextEntry(entry);
-
-					while ((bytes_read = in.read(buffer)) != -1)
-					{
-						out.write(buffer, 0, bytes_read);
-					}
+					out.write(in.readAllBytes());
 				}
-				finally
-				{
-					try
-					{
-						in.close();
-					}
-					catch (IOException e)
-					{
-						//TODO: Should this really be ignored?
-					}
-				}
-
 				returnValue++;
 			}
 		}
@@ -690,29 +670,25 @@ public class NotesView extends JPanel
 	{
 		File dir = node.getDir();
 
-		ZipOutputStream out = new ZipOutputStream(new FileOutputStream(exportFile));
-		int max = fileCount(dir);
-		ProgressMonitor pm = new ProgressMonitor(GMGenSystem.inst, "Writing out Notes Export", "Writing", 0, max);
-
-		try
+		ProgressMonitor pm = null;
+		try (ZipOutputStream out = new ZipOutputStream(new FileOutputStream(exportFile));)
 		{
+			int max = fileCount(dir);
+			pm = new ProgressMonitor(GMGenSystem.inst, "Writing out Notes Export", "Writing", 0, max);
 			writeNotesDir(out, dir, dir, pm, 0);
 		}
-
-		// Always close the streams, even if exceptions were thrown
+		catch (IOException e)
+		{
+			Logging.debugPrint("error writing notes", e);
+			//TODO: Should this really be ignored?
+		}
 		finally
 		{
-			try
+			if (pm != null)
 			{
-				out.close();
-			}
-			catch (IOException e)
-			{
-				//TODO: Should this really be ignored?
+				pm.close();
 			}
 		}
-
-		pm.close();
 	}
 
 	//CoreUtility methods
