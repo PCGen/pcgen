@@ -18,6 +18,8 @@
  */
 package pcgen.gui2;
 
+import static javax.swing.JOptionPane.CLOSED_OPTION;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GraphicsDevice;
@@ -794,17 +796,21 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		}
 		if (unsavedPCs.size() > 1)
 		{
-			Object[] options = new Object[]{LanguageBundle.getString("in_closeOptSaveAll"), //$NON-NLS-1$
+			Object[] options = {LanguageBundle.getString("in_closeOptSaveAll"), //$NON-NLS-1$
 				LanguageBundle.getString("in_closeOptSaveNone"), //$NON-NLS-1$
 				LanguageBundle.getString("in_closeOptChoose"), //$NON-NLS-1$
 				LanguageBundle.getString("in_cancel") //$NON-NLS-1$
 			};
 			saveAllChoice = JOptionPane.showOptionDialog(this,
 				LanguageBundle.getString("in_closeOptSaveTitle"), //$NON-NLS-1$
-				Constants.APPLICATION_NAME, JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null,
-				options, options[0]);
+				Constants.APPLICATION_NAME,
+					JOptionPane.YES_NO_CANCEL_OPTION,
+					JOptionPane.QUESTION_MESSAGE,
+					null,
+					options,
+					options[0]);
 		}
-		if (saveAllChoice == 3)
+		if (saveAllChoice == 3 || saveAllChoice == CLOSED_OPTION)
 		{
 			// Cancel
 			return false;
