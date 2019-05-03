@@ -101,6 +101,7 @@ import pcgen.gui2.tools.CharacterSelectionListener;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
+import pcgen.gui3.SimpleHtmlPanel;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.system.CharacterManager;
@@ -116,10 +117,6 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
 
 import org.apache.commons.lang3.StringUtils;
-import org.lobobrowser.html.HtmlRendererContext;
-import org.lobobrowser.html.gui.HtmlPanel;
-import org.lobobrowser.html.test.SimpleHtmlRendererContext;
-import org.lobobrowser.html.test.SimpleUserAgentContext;
 
 /**
  * The main window for PCGen. In addition this class is responsible for providing 
@@ -1762,7 +1759,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 
 	}
 
-	public void showOGLDialog()
+	void showOGLDialog()
 	{
 		showLicenseDialog(LanguageBundle.getString("in_oglTitle"), section15); //$NON-NLS-1$
 	}
@@ -1785,9 +1782,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		jPanel.add(jClose);
 		jClose.addActionListener(evt -> aFrame.dispose());
 
-		HtmlPanel htmlPanel = new HtmlPanel();
-		HtmlRendererContext theRendererContext = new SimpleHtmlRendererContext(htmlPanel, new SimpleUserAgentContext());
-		htmlPanel.setHtml(htmlString, "", theRendererContext);
+
+		SimpleHtmlPanel htmlPanel = new SimpleHtmlPanel();
+		htmlPanel.setHtml(htmlString);
 
 		aFrame.getContentPane().setLayout(new BorderLayout());
 		aFrame.getContentPane().add(htmlPanel, BorderLayout.CENTER);
@@ -1821,9 +1818,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		jPanel1.add(jLabel1, BorderLayout.NORTH);
 		jPanel1.add(jLabel2, BorderLayout.SOUTH);
 
-		HtmlPanel htmlPanel = new HtmlPanel();
-		HtmlRendererContext theRendererContext = new SimpleHtmlRendererContext(htmlPanel, new SimpleUserAgentContext());
-		htmlPanel.setHtml(text, "", theRendererContext);
+		SimpleHtmlPanel htmlPanel = new SimpleHtmlPanel();
+		htmlPanel.setHtml(text);
 
 		jPanel3.add(jCheckBox1);
 		jPanel3.add(jClose);

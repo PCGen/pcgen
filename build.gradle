@@ -31,6 +31,12 @@ plugins {
     id 'com.github.ben-manes.versions' version '0.21.0'
     id "com.dorongold.task-tree" version '1.3.1'
     id "edu.sc.seis.macAppBundle" version "2.3.0"
+    id 'org.openjfx.javafxplugin' version '0.0.7'
+}
+
+javafx {
+    version = "12.0.1"
+    modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing' ]
 }
 
 group = 'net.sourceforge.pcgen'
