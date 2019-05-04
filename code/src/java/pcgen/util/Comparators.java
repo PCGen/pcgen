@@ -22,8 +22,6 @@ import java.text.Collator;
 import java.util.Comparator;
 import java.util.Date;
 
-import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.enumeration.StringKey;
 import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.util.treetable.TreeTableNode;
 
@@ -144,15 +142,6 @@ public final class Comparators
 			if (obj1 == null)
 			{
 				key = "";
-			}
-			else if (obj1 instanceof CDOMObject)
-			{
-				CDOMObject co = (CDOMObject) obj1;
-				key = co.get(StringKey.SORT_KEY);
-				if (key == null)
-				{
-					key = co.getDisplayName();
-				}
 			}
 			else if (obj1 instanceof SortKeyAware)
 			{

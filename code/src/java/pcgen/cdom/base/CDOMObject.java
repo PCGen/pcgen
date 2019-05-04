@@ -59,10 +59,11 @@ import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
+import pcgen.util.SortKeyAware;
 
 public abstract class CDOMObject extends ConcretePrereqObject
 		implements Cloneable, BonusContainer, Loadable, Reducible, PCGenScoped, VarHolder,
-		VarContainer
+		VarContainer, SortKeyAware
 {
 
 	/**
@@ -719,12 +720,12 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	}
 
 	/**
-	 * Remove the value associated with the primary and secondary keys 
+	 * Remove the value associated with the primary and secondary keys
 	 * from the map.
-	 *  
+	 *
 	 * @param mapKey The MapKey of the entry we are removing
 	 * @param key2 The secondary key of the entry we are removing
-	 * @return true if the key and its associated value were successfully removed 
+	 * @return true if the key and its associated value were successfully removed
 	 *         from the map; false otherwise
 	 */
 	public final <K, V> boolean removeFromMap(MapKey<K, V> mapKey, K key2)
@@ -1353,5 +1354,16 @@ public abstract class CDOMObject extends ConcretePrereqObject
 	{
 		return getSafeListFor(ListKey.GROUP).stream()
 			.filter(s -> "Unselected".equalsIgnoreCase(s)).findFirst().isPresent();
+	}
+
+	@Override
+	public String getSortKey()
+	{
+		String sortKey = get(StringKey.SORT_KEY);
+		if (sortKey == null)
+		{
+			return getDisplayName();
+		}
+		return sortKey;
 	}
 }
