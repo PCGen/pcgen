@@ -17,7 +17,8 @@
  */
 package plugin.pretokens.test;
 
-import pcgen.base.util.Indirect;
+import java.util.Collection;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Reducible;
 import pcgen.cdom.enumeration.FactKey;
@@ -53,7 +54,8 @@ public class PreFactTester extends AbstractPrerequisiteTest implements Prerequis
 
 		String location = prereq.getCategoryName();
 		String[] locationElements = location.split("\\.");
-		Iterable<Reducible> objModel = (Iterable<Reducible>) OutputDB.getIterable(aPC.getCharID(), locationElements);
+		Collection<Reducible> objModel = (Collection<Reducible>) OutputDB.getCollection(aPC.getCharID(),
+				locationElements);
 		if (objModel == null)
 		{
 			throw new PrerequisiteException("Output System does not have model for: " + location);
@@ -63,15 +65,11 @@ public class PreFactTester extends AbstractPrerequisiteTest implements Prerequis
 		FactKey<?> fk = FactKey.valueOf(factinfo[0]);
 		Object targetVal = fk.getFormatManager().convertIndirect(factinfo[1]);
 
-		int runningTotal = 0;
-		for (Reducible r : objModel)
-		{
-			Indirect<?> cdoVal = r.getCDOMObject().get(fk);
-			if (targetVal.equals(cdoVal))
-			{
-				runningTotal++;
-			}
-		}
+		int runningTotal =
+				(int) objModel.stream()
+				              .map(r -> r.getCDOMObject().get(fk))
+				              .filter(targetVal::equals)
+				              .count();
 
 		runningTotal = prereq.getOperator().compare(runningTotal, number);
 		return countedTotal(prereq, runningTotal);

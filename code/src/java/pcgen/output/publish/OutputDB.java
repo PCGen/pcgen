@@ -17,6 +17,7 @@
  */
 package pcgen.output.publish;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -218,7 +219,7 @@ public final class OutputDB
 	 *         given Strings and the PlayerCharacter identified by the given
 	 *         CharID
 	 */
-	public static Iterable<?> getIterable(CharID id, String... keys)
+	public static Collection<?> getCollection(CharID id, String... keys)
 	{
 		String k1 = keys[0];
 		String k2 = (keys.length > 1) ? keys[1] : "";

@@ -17,9 +17,8 @@
  */
 package plugin.pretokens.test;
 
-import java.util.List;
+import java.util.Collection;
 
-import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Reducible;
 import pcgen.cdom.enumeration.FactSetKey;
@@ -28,14 +27,13 @@ import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteOperator;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.output.publish.OutputDB;
 import pcgen.system.LanguageBundle;
 
 /**
  * The Class {@code PreFactTester} is responsible for testing FACT values on an object.
  */
-public class PreFactSetTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreFactSetTester extends AbstractPrerequisiteTest
 {
 
 	@Override
@@ -56,7 +54,8 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 
 		String location = prereq.getCategoryName();
 		String[] locationElements = location.split("\\.");
-		Iterable<Reducible> objModel = (Iterable<Reducible>) OutputDB.getIterable(aPC.getCharID(), locationElements);
+		Collection<Reducible> objModel = (Collection<Reducible>) OutputDB.getCollection(aPC.getCharID(),
+locationElements);
 		if (objModel == null)
 		{
 			throw new PrerequisiteException("Output System does not have model for: " + location);
@@ -72,26 +71,17 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 		return countedTotal(prereq, runningTotal);
 	}
 
-	private static <T> int getRunningTotal(final Prerequisite prereq, final int number, Iterable<Reducible> objModel,
+	private static <T> int getRunningTotal(final Prerequisite prereq, final int number, Collection<Reducible> objModel,
 		String factval, FactSetKey<T> fk)
 	{
 		T targetVal = fk.getFormatManager().convert(factval);
-		int runningTotal = 0;
-		CDO: for (Reducible r : objModel)
-		{
-			List<Indirect<T>> sets = r.getCDOMObject().getSetFor(fk);
-			for (Indirect<T> indirect : sets)
-			{
-				if (indirect.get().equals(targetVal))
-				{
-					runningTotal++;
-					continue CDO;
-				}
-			}
-		}
+		int runningTotal = (int) objModel.stream()
+		                                 .map(r -> r.getCDOMObject().getSetFor(fk))
+		                                 .filter(sets -> sets.stream()
+		                                                     .anyMatch(indirect -> indirect.get().equals(targetVal)))
+		                                 .count();
 
-		runningTotal = prereq.getOperator().compare(runningTotal, number);
-		return runningTotal;
+		return prereq.getOperator().compare(runningTotal, number);
 	}
 
 	/**
@@ -113,9 +103,8 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 			return prereq.getKey();
 		}
 
-		final String foo = LanguageBundle.getFormattedString("PreFactSet.toHtml", //$NON-NLS-1$
+		return LanguageBundle.getFormattedString("PreFactSet.toHtml", //$NON-NLS-1$
 			prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey());
-		return foo;
 	}
 
 }
