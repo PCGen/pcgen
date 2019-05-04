@@ -110,7 +110,8 @@ ext {
     }
 
 	List result = plainVerNum.replaceAll('-DEV', '').tokenize('.')
-	installerVerNum = result.get(0).toInteger() + "." + result.get(1).toInteger() + "." +  result.get(2).toInteger() + ".0"
+	installerVerNum = result.get(0).toInteger() + "." + result.get(1).toInteger() + "." +
+            result.get(2).take(2).toInteger() + ".0"
 }
 
 task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs, 
