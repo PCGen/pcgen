@@ -2167,7 +2167,7 @@ public class CharacterFacadeImpl
 			}
 		}
 		int bonusLangRemain = 0;
-		if (!theCharacter.getRace().getDisplayName().equals("<none selected>"))
+		if (theCharacter.getRace().isUnselected())
 		{
 			bonusLangRemain = bonusLangMax - currBonusLangs.size();
 		}
@@ -2218,13 +2218,15 @@ public class CharacterFacadeImpl
 
 			/* Ensure the bonus language chooser is removed, if it exists.*/
 			Iterator<LanguageChooserFacade> itr = langChoosersList.iterator();
-			while (itr.hasNext())
+			if (itr.hasNext())
 			{
-				LanguageChooserFacade chooser = itr.next();
-				/* If we find an add bonus chooser, remove it.*/
-				if (chooser.getName().equals(LanguageBundle.getString("in_sumLangBonus")))
+				for (LanguageChooserFacade chooser = itr.next();  itr.hasNext();)
 				{
-					itr.remove();
+					/* If we find an add bonus chooser, remove it.*/
+					if (chooser.getName().equals(LanguageBundle.getString("in_sumLangBonus")))
+					{
+						itr.remove();
+					}
 				}
 			}
 		}
