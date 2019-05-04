@@ -1655,11 +1655,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			}
 			//now that the SourceFileLoader has finished
 			//handle licenses and whatnot
-			StringBuilder sec15 = new StringBuilder(" ");
-			sec15.append(
-				readTextFromFile(ConfigurationSettings.getSystemsDir() + File.separator + "opengaminglicense.10a.txt"));
-			sec15.append(loader.getOGL());
-			section15 = sec15.toString();
+			String sec15 = " "
+					+ readTextFromFile(
+					ConfigurationSettings.getSystemsDir() + File.separator + "opengaminglicense.10a.txt")
+					+ loader.getOGL();
+			section15 = sec15;
 			try
 			{
 				showLicenses();

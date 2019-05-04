@@ -78,9 +78,7 @@ public class StatrangeToken implements CDOMPrimaryToken<PCStat>
 			context.addWriteMessage("Must have both min and max in " + getTokenName() + ": " + min + ' ' + max);
 			return null;
 		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(min).append(',').append(max);
-		return new String[]{sb.toString()};
+		return new String[]{String.valueOf(min) + ',' + max};
 	}
 
 	@Override

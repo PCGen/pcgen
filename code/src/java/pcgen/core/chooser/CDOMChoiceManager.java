@@ -262,6 +262,11 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		}
 	}
 
+	protected String getTitle()
+	{
+		return info.getTitle() + " (" + owner.getDisplayName() + ')';
+	}
+
 	@Override
 	public void removeChoice(PlayerCharacter pc, ChooseDriver obj, T selection)
 	{

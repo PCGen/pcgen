@@ -3699,11 +3699,9 @@ public final class ExportHandler
 
 			if (pTok.hasMoreTokens())
 			{
-				StringBuilder sBuf = new StringBuilder();
-				sBuf.append("In Party.print there is an unhandled case in a ");
-				sBuf.append("switch (the value is ").append(pTok.nextToken());
-				sBuf.append(".");
-				String log = sBuf.toString();
+				String log = "In Party.print there is an unhandled case in a "
+						+ "switch (the value is " + pTok.nextToken()
+						+ ".";
 				Logging.errorPrint(log);
 			}
 		}

@@ -616,49 +616,44 @@ public class XMLCombatant extends Combatant
 		 */
 		public String getHtmlText()
 		{
-			StringBuilder statBuf = new StringBuilder();
 
-			statBuf.append("<html>");
-			statBuf.append(getStatBlockHeader());
-			statBuf.append("<body class='Normal' lang='EN-US'>");
-			statBuf.append(getStatBlockTitle());
-			statBuf.append(getStatBlockCore());
-			statBuf.append("</html>");
-			return statBuf.toString();
+			String statBuf = "<html>"
+					+ getStatBlockHeader()
+					+ "<body class='Normal' lang='EN-US'>"
+					+ getStatBlockTitle()
+					+ getStatBlockCore()
+					+ "</html>";
+			return statBuf;
 		}
 
 		protected String getStatBlockHeader()
 		{
-			StringBuilder statBuf = new StringBuilder();
 
-			statBuf.append("<head><title>");
-			statBuf.append(getName());
-			statBuf.append(" - ");
-			statBuf.append(getPlayer());
-			statBuf.append(" in GMGEN Statblock Format");
-			statBuf.append("</title>");
-			statBuf.append("<style type='text/css'>");
-			statBuf.append("a:link {color: #006699}");
-			statBuf.append("a:visited {color: #006699}");
-			statBuf.append("a:hover {color: #006699}");
-			statBuf.append("a:active {color: #006699}");
-			statBuf.append(".type {color:#555555;font-weight:bold}");
-			statBuf.append(".highlight {color:#FF0000}");
-			statBuf.append(".dialog {color:#006699}");
-			statBuf.append("</style></head>");
-
-			return statBuf.toString();
+			String statBuf = "<head><title>"
+					+ getName()
+					+ " - "
+					+ getPlayer()
+					+ " in GMGEN Statblock Format"
+					+ "</title>"
+					+ "<style type='text/css'>"
+					+ "a:link {color: #006699}"
+					+ "a:visited {color: #006699}"
+					+ "a:hover {color: #006699}"
+					+ "a:active {color: #006699}"
+					+ ".type {color:#555555;font-weight:bold}"
+					+ ".highlight {color:#FF0000}"
+					+ ".dialog {color:#006699}"
+					+ "</style></head>";
+			return statBuf;
 		}
 
 		protected String getStatBlockTitle()
 		{
-			StringBuilder statBuf = new StringBuilder();
 
-			statBuf.append("<p class='gork'><font size='+1'><b>");
-			statBuf.append(getName());
-			statBuf.append("</b></font></p>");
-
-			return statBuf.toString();
+			String statBuf = "<p class='gork'><font size='+1'><b>"
+					+ getName()
+					+ "</b></font></p>";
+			return statBuf;
 		}
 
 		protected String getStatBlockCore()

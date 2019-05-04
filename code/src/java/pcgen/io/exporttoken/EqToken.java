@@ -1247,7 +1247,7 @@ public class EqToken extends Token
 				for (Map.Entry<String, String> me : qualityMap.entrySet())
 				{
 					qualities
-						.add(new StringBuilder().append(me.getKey()).append(": ").append(me.getValue()).toString());
+						.add(me.getKey() + ": " + me.getValue());
 				}
 				return StringUtil.join(qualities, ", ");
 			}

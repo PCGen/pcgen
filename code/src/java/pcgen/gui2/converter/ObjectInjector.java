@@ -158,9 +158,7 @@ public class ObjectInjector
 
 	private String getFileFooter()
 	{
-		StringBuilder sb = new StringBuilder();
-		sb.append("\n#\n#EOF\n#\n");
-		return sb.toString();
+		return "\n#\n#EOF\n#\n";
 	}
 
 	private boolean processWrite(Campaign campaign, TripleKeyMapToList<URI, String, String, String> toWrite,

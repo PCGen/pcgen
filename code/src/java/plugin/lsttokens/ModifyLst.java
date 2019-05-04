@@ -189,11 +189,10 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 		List<String> modifiers = new ArrayList<>();
 		for (VarModifier<?> vm : obj.getModifierArray())
 		{
-			StringBuilder sb = new StringBuilder();
-			sb.append(vm.getVarName());
-			sb.append(Constants.PIPE);
-			sb.append(unparseModifier(vm));
-			modifiers.add(sb.toString());
+			String sb = vm.getVarName()
+					+ Constants.PIPE
+					+ unparseModifier(vm);
+			modifiers.add(sb);
 		}
 		if (modifiers.isEmpty())
 		{

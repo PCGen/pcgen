@@ -169,11 +169,11 @@ public final class WieldCategory implements Loadable
 			int modWield = 0;
 			for (String eqType : eq.typeList())
 			{
-				final StringBuilder sB = new StringBuilder("WEAPONPROF=TYPE.");
-				sB.append(eqType);
 
 				// get the type bonus (ex TYPE.MARTIAL)
-				final int i = (int) pc.getTotalBonusTo(sB.toString(), "WIELDCATEGORY");
+				final int i = (int) pc.getTotalBonusTo("WEAPONPROF=TYPE." + eqType
+						// get the type bonus (ex TYPE.MARTIAL)
+						, "WIELDCATEGORY");
 
 				// get the highest bonus
 				if (i < modWield)

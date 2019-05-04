@@ -84,7 +84,7 @@ public class QualityToken extends AbstractNonEmptyToken<Equipment> implements CD
 		Map<String, String> added = changes.getAdded();
 		for (Map.Entry<String, String> me : added.entrySet())
 		{
-			set.add(new StringBuilder().append(me.getKey()).append(Constants.PIPE).append(me.getValue()).toString());
+			set.add(me.getKey() + Constants.PIPE + me.getValue());
 		}
 		return set.toArray(new String[0]);
 	}
