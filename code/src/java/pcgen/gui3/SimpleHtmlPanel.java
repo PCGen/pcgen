@@ -1,4 +1,4 @@
-package pcgen.gui2;
+package pcgen.gui3;
 
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
@@ -8,11 +8,11 @@ import javafx.scene.web.WebView;
 /**
  * Displays HTML content as a "panel".
  */
-final class SimpleHtmlPanel extends JFXPanel
+public final class SimpleHtmlPanel extends JFXPanel
 {
 	private WebView browser;
 
-	SimpleHtmlPanel()
+	public SimpleHtmlPanel()
 	{
 		Platform.runLater(() -> {
 			browser = new WebView();

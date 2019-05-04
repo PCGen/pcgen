@@ -101,6 +101,7 @@ import pcgen.gui2.tools.CharacterSelectionListener;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
+import pcgen.gui3.SimpleHtmlPanel;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.system.CharacterManager;

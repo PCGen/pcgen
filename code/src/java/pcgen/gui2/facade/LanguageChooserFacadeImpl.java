@@ -210,7 +210,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	}
 
 	@Override
-	public ListFacade<Language> getAvailableList()
+	public ListFacade<Language> getAwvailableList()
 	{
 		buildLanguageList();
 		return availableList;
