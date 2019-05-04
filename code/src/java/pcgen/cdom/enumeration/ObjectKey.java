@@ -328,7 +328,7 @@ public class ObjectKey<T>
 
 		};
 		map.put("BASESIZE", BASESIZE);
-		SIZE = new ObjectKey<CDOMSingleRef<SizeAdjustment>>(null)
+		SIZE = new ObjectKey<>(null)
 		{
 			@Override
 			public CDOMSingleRef<SizeAdjustment> getDefault()
