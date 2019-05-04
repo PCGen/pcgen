@@ -23,7 +23,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -1002,11 +1001,6 @@ public final class Equipment extends PObject
 		final StringBuilder s = new StringBuilder(100);
 		String t = getSpecialProperties(aPC);
 
-		if (t == null)
-		{
-			t = "";
-		}
-
 		getActiveBonuses(aPC).stream().map(BonusObj::toString)
 			.filter(eqBonus -> (!eqBonus.isEmpty()) && !eqBonus.startsWith("EQM")).forEach(eqBonus -> {
 				if (s.length() != 0)
@@ -1864,8 +1858,11 @@ public final class Equipment extends PObject
 
 	public String getSlot()
 	{
-		return SystemCollections.getUnmodifiableEquipSlotList().stream().filter(es -> es.canContainType(getType()))
-			.findFirst().map(EquipSlot::getSlotName).orElse(null);
+		return SystemCollections.getUnmodifiableEquipSlotList().stream()
+		                        .filter(es -> es.canContainType(getType()))
+		                        .findFirst()
+		                        .map(EquipSlot::getSlotName)
+		                        .orElse(null);
 	}
 
 	/**
@@ -1913,7 +1910,7 @@ public final class Equipment extends PObject
 		for (SpecialProperty sprop : getSafeListFor(ListKey.SPECIAL_PROPERTIES))
 		{
 			final String text = sprop.getParsedText(aPC, this, this);
-			if (!"".equals(text))
+			if (text != null && !text.isEmpty())
 			{
 				if (!first)
 				{
@@ -1962,28 +1959,6 @@ public final class Equipment extends PObject
 		}
 
 		return sp.toString();
-	}
-
-	/**
-	 * Gets the uberParent attribute of the Equipment object
-	 * 
-	 * @return The uberParent value
-	 */
-	public Equipment getUberParent()
-	{
-		if (getParent() == null)
-		{
-			return this;
-		}
-
-		Equipment anEquip = getParent();
-
-		while (anEquip.getParent() != null)
-		{
-			anEquip = anEquip.getParent();
-		}
-
-		return anEquip;
 	}
 
 	/**
@@ -2532,12 +2507,9 @@ public final class Equipment extends PObject
 		final boolean bPrimary)
 	{
 
-		StringBuilder sB = new StringBuilder(aType.toUpperCase());
-		sB.append('.');
-		sB.append(aName.toUpperCase());
-		sB.append('.');
-
-		final String aBonusKey = sB.toString();
+		final String aBonusKey = aType.toUpperCase() + '.'
+				+ aName.toUpperCase()
+				+ '.';
 
 		// go through bonus hashmap and zero out all
 		// entries that deal with this bonus request
@@ -2573,10 +2545,10 @@ public final class Equipment extends PObject
 			eqMod.bonusTo(aPC, aType, aName, this);
 		}
 
-		double iBonus = getBonusMap().keySet().stream().filter(key -> key.startsWith(aBonusKey))
-			.mapToDouble(key -> Float.parseFloat(getBonusMap().get(key))).sum();
-
-		return iBonus;
+		return getBonusMap().keySet().stream()
+		                    .filter(key -> key.startsWith(aBonusKey))
+		                    .mapToDouble(key -> Float.parseFloat(getBonusMap().get(key)))
+		                    .sum();
 	}
 
 	/**
@@ -2923,7 +2895,7 @@ public final class Equipment extends PObject
 		setChildType(aString, aFloat);
 		setChildType("Total", bFloat);
 		addContainedEquipment(anEquip);
-		anEquip.setIndexedUnderType(aString);
+		anEquip.indexedUnderType = aString;
 		anEquip.setParent(this);
 
 		// hmm probably not needed; but as it currently isn't hurting
@@ -3337,34 +3309,6 @@ public final class Equipment extends PObject
 	}
 
 	/**
-	 * Remove a list equipment modifiers and their associated information eg:
-	 * Bane|Vermin|Fey.Keen.Vorpal.ABILITYPLUS|CHA=+6 <p> Removes a feature
-	 * from the EqModifiers attribute of the Equipment object
-	 * 
-	 * @param aString
-	 *            The feature to be removed from the EqModifiers attribute
-	 * @param bPrimary
-	 *            The feature to be removed from the EqModifiers attribute
-	 * @param pc
-	 *            The PC carrying the item
-	 */
-	public void removeEqModifiers(final String aString, final boolean bPrimary, PlayerCharacter pc)
-	{
-
-		final StringTokenizer aTok = new StringTokenizer(aString, ".");
-
-		while (aTok.hasMoreTokens())
-		{
-			final String aEqModName = aTok.nextToken();
-
-			if (!aEqModName.equalsIgnoreCase(Constants.NONE))
-			{
-				removeEqModifier(aEqModName, bPrimary, pc);
-			}
-		}
-	}
-
-	/**
 	 * Change the size of an item
 	 * 
 	 * @param pc
@@ -3384,15 +3328,7 @@ public final class Equipment extends PObject
 			put(ObjectKey.SIZE, CDOMDirectSingleRef.getRef(newSize));
 			CDOMSingleRef<Equipment> baseItem = get(ObjectKey.BASE_ITEM);
 
-			Equipment eq;
-			if (baseItem == null)
-			{
-				eq = this;
-			}
-			else
-			{
-				eq = baseItem.get();
-			}
+			Equipment eq = (baseItem == null) ? this : baseItem.get();
 
 			put(ObjectKey.CURRENT_COST, eq.getCostAdjustedForSize(pc, newSize));
 			put(ObjectKey.WEIGHT, eq.getWeightAdjustedForSize(pc, newSize));
@@ -3421,7 +3357,7 @@ public final class Equipment extends PObject
 				}
 
 				BigDecimal multbd = new BigDecimal(mult);
-				if (!Capacity.UNLIMITED.equals(weightCap))
+				if (Capacity.UNLIMITED.compareTo(weightCap) != 0)
 				{
 					// CONSIDER ICK, ICK, direct access bad
 					put(ObjectKey.CONTAINER_WEIGHT_CAPACITY, weightCap.multiply(multbd));
@@ -3432,7 +3368,7 @@ public final class Equipment extends PObject
 					for (Capacity cap : capacity)
 					{
 						BigDecimal content = cap.getCapacity();
-						if (!Capacity.UNLIMITED.equals(content))
+						if (Capacity.UNLIMITED.compareTo(content) != 0)
 						{
 							content = content.multiply(multbd);
 						}
@@ -3672,21 +3608,13 @@ public final class Equipment extends PObject
 	 */
 	String getType(final boolean bPrimary)
 	{
-
-		final List<String> typeList = typeList(bPrimary);
-		final int typeSize = typeList.size();
-		final String aType = typeList.stream().collect(Collectors.joining(".")); // Just a
-		// guess.
-
-		return aType;
+		return String.join(".", typeList(bPrimary));
 	}
 
-	boolean save(final BufferedWriter output)
+	void save(final BufferedWriter output)
 	{
 		FileAccess.write(output, "BASEITEM:" + formatSaveLine('\t', ':'));
 		FileAccess.newLine(output);
-
-		return true;
 	}
 
 	/**
@@ -3883,16 +3811,6 @@ public final class Equipment extends PObject
 			aString.append(EQMOD_DAMAGE).append('|').append(dmg.replace('.', ','));
 		}
 		return aString.toString();
-	}
-
-	/**
-	 * Set the Type this item will be indexed under
-	 *
-	 * @param aType the Type this item is indexed under
-	 */
-	private void setIndexedUnderType(final String aType)
-	{
-		indexedUnderType = aType;
 	}
 
 	/**
@@ -4447,7 +4365,7 @@ public final class Equipment extends PObject
 				}
 			}
 
-			if (("".equals(canContain)) && anyContain)
+			if ((canContain.isEmpty()) && anyContain)
 			{
 				if (!containsChildType("Any"))
 				{
@@ -4467,8 +4385,9 @@ public final class Equipment extends PObject
 	 * @param commonList The list of modifiers common between the two heads
 	 * @param errMsg the error message to print if something goes wrong
 	 */
-	private void removeCommonFromList(final List<EquipmentModifier> altList, final List<EquipmentModifier> commonList,
-		final String errMsg)
+	private static void removeCommonFromList(final List<EquipmentModifier> altList,
+	                                         final List<EquipmentModifier> commonList,
+	                                         final String errMsg)
 	{
 
 		for (int i = altList.size() - 1; i >= 0; --i)
@@ -4499,13 +4418,12 @@ public final class Equipment extends PObject
 	 * 
 	 * @return An array of equipmod lists.
 	 */
-	private List<List<EquipmentModifier>> initSplitModList()
+	private static List<List<EquipmentModifier>> initSplitModList()
 	{
 
-		List<List<EquipmentModifier>> modListArray = IntStream.range(0, EqModFormatCat.values().length)
-			.<List<EquipmentModifier>> mapToObj(i -> new ArrayList<>()).collect(Collectors.toList());
-
-		return modListArray;
+		return IntStream.range(0, EqModFormatCat.values().length)
+			.<List<EquipmentModifier>> mapToObj(i -> new ArrayList<>())
+				.collect(Collectors.toList());
 	}
 
 	/**
@@ -4516,8 +4434,8 @@ public final class Equipment extends PObject
 	 * @param splitModList
 	 *            The array of receiving lists, one for each format cat.
 	 */
-	private void splitModListByFormatCat(final List<EquipmentModifier> modList,
-		final List<List<EquipmentModifier>> splitModList)
+	private static void splitModListByFormatCat(final Collection<EquipmentModifier> modList,
+	                                            final List<List<EquipmentModifier>> splitModList)
 	{
 
 		for (EquipmentModifier aModList : modList)
@@ -4535,47 +4453,6 @@ public final class Equipment extends PObject
 	private void removeContainedEquipment(final int i)
 	{
 		d_containedEquipment.remove(i);
-	}
-
-	/**
-	 * Remove an equipment modifier and specified associated information eg.
-	 * Bane|Vermin|Fey eg. Keen Removes a feature from the EqModifier attribute
-	 * of the Equipment object
-	 * 
-	 * @param aString
-	 *            The feature to be removed from the EqModifier attribute
-	 * @param bPrimary
-	 *            The feature to be removed from the EqModifier attribute
-	 * @param aPC
-	 *            the PC that has the Equipment
-	 */
-	private void removeEqModifier(final String aString, final boolean bPrimary, PlayerCharacter aPC)
-	{
-
-		final StringTokenizer aTok = new StringTokenizer(aString, "|");
-		final String eqModKey = aTok.nextToken();
-		final EquipmentModifier eqMod = getEqModifierKeyed(eqModKey, bPrimary);
-
-		if (eqMod == null)
-		{
-			return;
-		}
-
-		//
-		// Remove the associated choices
-		//
-		while (aTok.hasMoreTokens())
-		{
-			final String x = aTok.nextToken().replace('=', '|');
-
-			getAssociationList(eqMod).stream().filter(aChoice -> aChoice.startsWith(x))
-				.forEach(aChoice -> removeAssociation(eqMod, aChoice));
-		}
-
-		if (!hasAssociations(eqMod))
-		{
-			removeEqModifier(eqMod, bPrimary, aPC);
-		}
 	}
 
 	/**
@@ -4610,12 +4487,9 @@ public final class Equipment extends PObject
 		}
 
 		Set<String> calculatedTypeList = new LinkedHashSet<>();
-		if (initializingList != null)
+		for (Type t : initializingList)
 		{
-			for (Type t : initializingList)
-			{
-				calculatedTypeList.add(t.getComparisonString());
-			}
+			calculatedTypeList.add(t.getComparisonString());
 		}
 		final Collection<String> modTypeList = new ArrayList<>();
 
@@ -4659,7 +4533,7 @@ public final class Equipment extends PObject
 			for (ChangeArmorType cat : eqMod.getSafeListFor(ListKey.ARMORTYPE))
 			{
 				List<String> tempTypeList = cat.applyProcessor(newTypeList);
-				LinkedHashSet<String> tempTypeSet = new LinkedHashSet<>(tempTypeList);
+				Set<String> tempTypeSet = new LinkedHashSet<>(tempTypeList);
 				boolean noMatch = newTypeList.size() != tempTypeList.size() || newTypeList.equals(tempTypeSet);
 				newTypeList = tempTypeSet;
 				if (!noMatch)
@@ -4813,16 +4687,6 @@ public final class Equipment extends PObject
 		{
 			return getName();
 		}
-		return wholeItemName;
-	}
-
-	/**
-	 * Get whole item name
-	 * 
-	 * @return whole item name
-	 */
-	public String getWholeItemName()
-	{
 		return wholeItemName;
 	}
 
@@ -5487,45 +5351,6 @@ public final class Equipment extends PObject
 	}
 
 	/**
-	 * Get Base contained weight
-	 * 
-	 * @param effective Should we recurse child objects?
-	 * @return Base contained weight
-	 */
-	public Float getBaseContainedWeight()
-	{
-
-		Float total = (float) 0;
-
-		if ((getSafe(ObjectKey.CONTAINER_CONSTANT_WEIGHT)) || (getChildCount() == 0))
-		{
-			return total;
-		}
-
-		for (int e = 0; e < getContainedEquipmentCount(); ++e)
-		{
-			final Equipment anEquip = getContainedEquipment(e);
-
-			if (anEquip.getContainedEquipmentCount() > 0)
-			{
-				total = total + anEquip.getBaseWeight().floatValue() + anEquip.getBaseContainedWeight();
-			}
-			else
-			{
-				total += anEquip.getBaseWeight().floatValue() * anEquip.getCarried();
-			}
-		}
-
-		Integer crw = get(IntegerKey.CONTAINER_REDUCE_WEIGHT);
-		if (crw != null && crw != 0)
-		{
-			total *= (crw.floatValue() / 100);
-		}
-
-		return total;
-	}
-
-	/**
 	 * Gets the contained Weight this object recursis all child objects to get
 	 * their contained weight
 	 * 
@@ -5642,19 +5467,15 @@ public final class Equipment extends PObject
 	}
 
 	/**
-	 * Convenience method. <p> <br>
-	 * author: Thomas Behr 27-03-02
-	 * 
 	 * @return a list with all Equipment objects this container holds; if this
 	 *         instance is no container, the list will be empty.
 	 */
 	public Collection<Equipment> getContents()
 	{
 
-		final Collection<Equipment> contents = IntStream.range(0, getContainedEquipmentCount())
-			.mapToObj(this::getContainedEquipment).collect(Collectors.toList());
-
-		return contents;
+		return IntStream.range(0, getContainedEquipmentCount())
+		                .mapToObj(this::getContainedEquipment)
+		                .collect(Collectors.toList());
 	}
 
 	// ---------------------------
@@ -5676,9 +5497,6 @@ public final class Equipment extends PObject
 	}
 
 	/**
-	 * Convenience method. <p> <br>
-	 * author: Thomas Behr 27-03-02
-	 * 
 	 * @return {@code true}, if this instance is a container;
 	 *         {@code false}, otherwise
 	 */
@@ -5913,11 +5731,6 @@ public final class Equipment extends PObject
 		List<String> list = getAssociationList(obj);
 		assocSupt.removeAllAssocs(obj, AssociationListKey.CHOICES);
 		return list;
-	}
-
-	private void removeAssociation(CDOMObject obj, String o)
-	{
-		assocSupt.removeAssoc(obj, AssociationListKey.CHOICES, new FixedStringList(o));
 	}
 
 	public String getFirstAssociation(CDOMObject obj)
@@ -6169,7 +5982,7 @@ public final class Equipment extends PObject
 		if (alterAC != null)
 		{
 			Object o = pc.getLocal(this, alterAC);
-			return ((Boolean) o).booleanValue();
+			return (Boolean) o;
 		}
 
 		return getRawBonusList(pc).stream().anyMatch(bonus -> bonus.getBonusInfo().equalsIgnoreCase("AC"));
@@ -6268,7 +6081,7 @@ public final class Equipment extends PObject
 	@Override
 	public List<String> getChildTypes()
 	{
-		return Arrays.asList(new String[]{"EQUIPMENT.PART"});
+		return Collections.singletonList("EQUIPMENT.PART");
 	}
 
 	@Override
@@ -6276,7 +6089,7 @@ public final class Equipment extends PObject
 	{
 		if ("EQUIPMENT.PART".equals(childType))
 		{
-			return new ArrayList<>(heads);
+			return Collections.unmodifiableList(heads);
 		}
 		return null;
 	}
