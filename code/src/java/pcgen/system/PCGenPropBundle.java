@@ -186,7 +186,7 @@ public final class PCGenPropBundle
 	 */
 	public static String getWWWHome()
 	{
-		return getPropValue("WWWHome", "http://pcgen.sourceforge.net/");
+		return getPropValue("WWWHome", "http://pcgen.org/");
 	}
 
 	/**
