@@ -74,6 +74,7 @@ public final class CControl
 
 	public static final String STATINPUT = "STATINPUT";
 
+	public static final String EQSIZE = "EQSIZE";
 	public static final String BASESAVE = "BASESAVE";
 	public static final String TOTALSAVE = "TOTALSAVE";
 	public static final String MISCSAVE = "MISCSAVE";
