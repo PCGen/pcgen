@@ -46,12 +46,12 @@ public final class AttackInfo
 	{
 		if (modifier.equals("TOTAL"))
 		{
-			if (attackType.equals("RANGED"))
+			if (attackType.equals(AttackType.RANGED))
 			{
 				int total = getTotalToken(pc, attackType);
 				return pc.getAttackString(AttackType.RANGED, total);
 			}
-			else if (attackType.equals("UNARMED"))
+			else if (attackType.equals(AttackType.UNARMED))
 			{
 				int total = getTotalToken(pc, AttackType.MELEE);
 				// TODO: Is this correct for 3.0 also?

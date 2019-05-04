@@ -5,7 +5,7 @@ TYPE:Paizo Publishing.Pathfinder Player Companion
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-STATUS:Alpha
+STATUS:BETA
 PRECAMPAIGN:9,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Intrigue,INCLUDES=Advanced Race Guide,INCLUDES=Advanced Class Guide,INCLUDES=Occult Adventures
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -48,10 +48,12 @@ FORWARDREF:ABILITY=Internal|Combat Trick Tracker
 FORWARDREF:SPELL|Accept Affliction,Angelic Aspect,Angelic Aspect (Lesser),Burst of Radiance,Celestial Healing,Celestial Healing (Greater),Eaglesoul,Hymn of Mercy,Martyr's Bargain,Shield of the Dawnflower,Shield of the Dawnflower (Greater),Touch of Mercy
 
 # Support
+ABILITY:support/botb_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 ABILITY:support/botb_abilities_class_bos.lst|PRECAMPAIGN:1,INCLUDES=Blood of Shadows
 ABILITY:support/botb_abilities_class_mm.lst|PRECAMPAIGN:1,INCLUDES=Magical Marketplace
+ABILITY:support/botb_abilities_class_pu_fap.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained|PRECAMPAIGN:1,INCLUDES=Faiths and Philosophies
 ABILITY:support/botb_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
-ABILITY:support/botb_abilities_class_pu_fap.lst|PRECAMPAIGN:2,INCLUDES=Faiths and Philosophies,INCLUDES=Pathfinder Unchained
+ABILITY:support/botb_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 ABILITY:support/botb_abilities_race_botm.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Moon
 ABILITY:support/botb_abilities_race_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
 ABILITY:support/botb_feats_boa.lst|PRECAMPAIGN:1,INCLUDES=Blood of Angels

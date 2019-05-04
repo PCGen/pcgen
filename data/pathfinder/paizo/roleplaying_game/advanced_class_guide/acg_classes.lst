@@ -275,7 +275,7 @@ CLASS:Skald		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.49	DEFINE:SkaldLVL|0	DE
 # Class Name	Skill Pts/Lvl
 CLASS:Skald		STARTSKILLPTS:4
 # Class Name	Spell Stat		Memorize		Spellbook		Caster level								Use Spell List
-CLASS:Skald		SPELLSTAT:CHA	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Skald|Caster_Level_BL_Stripped_Skald	SPELLLIST:1|Bard
+CLASS:Skald		SPELLSTAT:CHA	MEMORIZE:NO	SPELLBOOK:YES	BONUS:CASTERLEVEL|Skald|Caster_Level_BL_Stripped_Skald	SPELLLIST:1|Bard
 1	ABILITY:Class|AUTOMATIC|Skald
 ###Block: Class Abilities
 1	ABILITY:Skald Class Feature|AUTOMATIC|Skald ~ Weapon and Armor Proficiency

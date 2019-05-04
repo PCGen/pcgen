@@ -5,8 +5,6 @@
 # ORIGINAL ENTRY DATE: 11 March 2017
 
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI				Display Location
-ABILITYCATEGORY:Div Bloodline Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:DivBloodline					PLURAL:Div Bloodline Feats				DISPLAYLOCATION:Feats
-
 ABILITYCATEGORY:Elementalist Oracle Bonus Language	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElementalistOracleLanguage		PLURAL:Elementalist Oracle Bonus Languages	DISPLAYLOCATION:Languages
 ABILITYCATEGORY:Elementalist Oracle Form Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ElementalistOracleElementalForm									DISPLAYLOCATION:Class Features
 

@@ -1,0 +1,14 @@
+SOURCELONG:Magic Tactics Toolbox	SOURCESHORT:MagTT		SOURCEWEB:https://paizo.com/products/btpy9l2u	SOURCEDATE:2016-07
+
+Rod (Gravitic Force)				OUTPUTNAME:Gravitic Force Rod			TYPE:Magic.Rod																		COST:60000	WT:4		SOURCEPAGE:p.13
+Rod (Hindered Healing)				OUTPUTNAME:Rod of Hindered Healing		TYPE:Magic.Rod																		COST:30000	WT:4		SOURCEPAGE:p.14
+Rod (Minor Curses)				OUTPUTNAME:Rod of Minor Curses		TYPE:Magic.Rod.Weapon.Resizable.Melee.Simple.Light.Finesseable.Bludgeoning.Mace.Hammer.Weapon Group Hammers			COST:12000	WT:6		SOURCEPAGE:p.20		PROFICIENCY:WEAPON|Mace (Light)	CRITMULT:x2	CRITRANGE:1		DAMAGE:1d6				EQMOD:Special Ability ~ +1 ~ Weapon.Material ~ Steel			WIELD:Light		MODS:NO			SIZE:M		SPROP:3/day, when the wielder damages a creature with the rod, wielder can force the target to attempt a DC 14 Will save or suffer a minor curse.
+Rod (Perilous Pits)				OUTPUTNAME:Rod of Perilous Pits		TYPE:Magic.Rod																		COST:25000	WT:4		SOURCEPAGE:p.14
+Rod (Spellsight)					OUTPUTNAME:Rod of Spellsight			TYPE:Magic.Rod																		COST:12000	WT:6		SOURCEPAGE:p.14
+Rod (Subtle Menace)				OUTPUTNAME:Rod of Subtle Menace		TYPE:Magic.Rod.Weapon.Resizable.Melee.Simple.Light.Finesseable.Bludgeoning.Mace.Hammer.Weapon Group Hammers			COST:85000	WT:4		SOURCEPAGE:p.17		PROFICIENCY:WEAPON|Mace (Light)	CRITMULT:x2	CRITRANGE:1		DAMAGE:1d6				EQMOD:Special Ability ~ +1 ~ Weapon.Material ~ Steel			WIELD:Light		MODS:NO			SIZE:M		SPROP:The wielder can attempt an Intimidate check in place of a Diplomacy check when gathering information and always counts as larger than its target for the purpose of Intimidate checks.
+Rod (Tangling Ectoplasm)			OUTPUTNAME:Rod of Tangling Ectoplasm	TYPE:Magic.Rod																		COST:18000	WT:5		SOURCEPAGE:p.20		SPROP:3/day, wielder can designate a target within 60 feet. Ectoplasm surrounds the target in a 5-foot radius. Creatures within radius must succeed at a DC 14 Reflex save or be entangled.
+
+Lore Needle						TYPE:Magic.Wondrous.Head		COST:4000			SOURCEPAGE:p.17		SPROP:Up to three times per day when attempting a Knowledge check, apply bonus from another single Knowledge skill wearer is trained in.
+Monster Killer's Folio				TYPE:Magic.Wondrous.Book		COST:60000	WT:4		SOURCEPAGE:p.17		SPROP:+5 on Knowledge checks to identify a creature's special powers or vulnerabilities.	SPELLS:Monster Killer's Folio|CASTERLEVEL=5|Discovery Torch
+Saccadic Focusing Prism				TYPE:Magic.Wondrous			COST:2400	WT:1		SOURCEPAGE:p.18
+Sigil Chalk						TYPE:Magic.Wondrous.Consumable	COST:2000			SOURCEPAGE:p.18		SPROP:5 uses, houur duration; +1 on attacks and skill rolls vs. specific monster type. May discharge after a failure for a +2d6 bonus added to failed roll for possible retroactive success.

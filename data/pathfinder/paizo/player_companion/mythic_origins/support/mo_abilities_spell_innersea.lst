@@ -1,0 +1,15 @@
+###Block: Mythic Spells
+# Mythic Spells - Inner Sea books
+# Ability Name					Category of Ability			Type						Req. Known Spell
+Aroden's Spellbane			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Aroden's Spellbane
+Covetous Aura				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Covetous Aura
+Crusader's Edge				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Crusader's Edge
+Dirge of the Victorious Knights	CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Dirge of the Victorious Knights
+Fleshcurdle					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Fleshcurdle
+Geniekind					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Geniekind
+Gorum's Armor				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Gorum's Armor
+Harrowing					CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Harrowing
+Shield of the Dawnflower	CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Shield of the Dawnflower
+Vermin Shape I				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Vermin Shape I
+Vermin Shape II				CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Vermin Shape II
+Waters of Lamashtu			CATEGORY:Mythic Spell	TYPE:MythicSpellList	PRESPELL:1,Waters of Lamashtu

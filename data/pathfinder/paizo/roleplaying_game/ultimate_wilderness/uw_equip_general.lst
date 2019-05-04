@@ -33,7 +33,7 @@ Tanner's Kit																TYPE:Goods.Tools										COST:10	WT:5		SOURCEPAGE:p
 Tent Cover																	TYPE:Goods.General									COST:15	WT:15		SOURCEPAGE:p.244
 Trekking Pole																TYPE:Goods.General									COST:15	WT:2		SOURCEPAGE:p.244
 Wading Boots																TYPE:Goods.General									COST:50	WT:2		SOURCEPAGE:p.245
-Waist Pouch																	TYPE:Goods.General									COST:0.5	WT:0.5	SOURCEPAGE:p.245
+Waist Pouch																	TYPE:Goods.General.Container				CONTAINS:UNLIM|Any	COST:0.5	WT:0.5	SOURCEPAGE:p.245
 Windup Music Box																TYPE:Goods.General									COST:25	WT:0.5	SOURCEPAGE:p.245
 Wing Hooks																	TYPE:Goods.General.Racial.Gathlain							COST:150	WT:2		SOURCEPAGE:p.13
 
@@ -92,9 +92,9 @@ Riding Bee (Worker/Combat-Trained)													TYPE:Mount.Goods.Transportation.C
 # ==============================
 
 Poison (Blistercap Spore)						OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:1125	WT:0		SOURCEPAGE:p.143	SPROP:Contact; Fort DC 20; Freq 1 rnd (6); Effect 1d2 Dex drain and 1 Con drain/Sickened 1 min; Cure 2 saves
-Poison (Blue Star)							OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:500	WT:0		SOURCEPAGE:p.143	SPROP:Ingested; Fort DC 15; Onset 10 min; Freq 1 min (6); Effect 1d2 Con dmg, –2 penalty on saves vs. poison for 1 week; Cure 2 saves
+Poison (Blue Star)							OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:500	WT:0		SOURCEPAGE:p.143	SPROP:Ingested; Fort DC 15; Onset 10 min; Freq 1 min (6); Effect 1d2 Con dmg, -2 penalty on saves vs. poison for 1 week; Cure 2 saves
 Poison (Cloudthorn Venom)						OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:400	WT:0		SOURCEPAGE:p.144	SPROP:Injury; Fort DC 14; Onset 1d4 rnds; Freq 1 hr (3); Effect 1d3 Str and Dex dmg, unable to feel pain for 1 hour (see text); Cure 1 save
-Poison (Crone's Curse)							OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:600	WT:0		SOURCEPAGE:p.144	SPROP:Inhaled; Fort DC 16; Onset 1d4 hrs; Frequency 1 day (6); Effect 1 Dex and Wis dmg, –4 on saves to resist effects of extreme temps; vulnerable to cold and fire dmg; Cure 2 saves
+Poison (Crone's Curse)							OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:600	WT:0		SOURCEPAGE:p.144	SPROP:Inhaled; Fort DC 16; Onset 1d4 hrs; Frequency 1 day (6); Effect 1 Dex and Wis dmg, -4 on saves to resist effects of extreme temps; vulnerable to cold and fire dmg; Cure 2 saves
 Poison (Draughtcap Fungus)						OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:150	WT:0		SOURCEPAGE:p.144	SPROP:Ingested; Fort DC 16; Onset 4d6 hrs; Freq 1 hr (8); Effect 1d2 Str dmg, dehydration (see text); Cure 2 saves
 Poison (Goblin's Eye)							OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:75	WT:0		SOURCEPAGE:p.144	SPROP:Ingested; Fort DC 13; Onset 1 min; Freq 1 min (6); Effect 1 Con dmg, nauseated 1 min; Cure 1 save
 Poison (Jackalroot Essence)						OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:600	WT:0		SOURCEPAGE:p.144	SPROP:Injury; Fort DC 18; Freq 1 rnd (1d6); Effect uncontrollable laughter (as per hideous laughter); Cure 2 saves
@@ -104,4 +104,4 @@ Poison (Starving Nettle)						OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumabl
 Poison (Styx Sap)								OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:2600	WT:0		SOURCEPAGE:p.145	SPROP:Contact; Fort DC 18; Onset 1d4 min; Freq 10 min (6); Effect 1d4 Wis dmg, loses memories from past 10 minutes; Cure 1 save
 Poison (Third Eye)							OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:900	WT:0		SOURCEPAGE:p.145	SPROP:Contact; Fort DC 17; Onset 1 min; Freq 1 rnd (6); Effect 1d3 Wis dmg, possible confusion; Cure 2 saves
 Poison (Violet Venom)							OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:800	WT:0		SOURCEPAGE:p.145	SPROP:Contact; Fort DC 13; Freq 1 min (6); Effect 1d2 Str and Con dmg; Cure 1 save
-Poison (Witch-Hunter's Sword)						OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:850	WT:0		SOURCEPAGE:p.145	SPROP:Ingested; Fort DC 19; Onset 10 min; Freq 1 hr (8); Effect 1 Int, Wis, and Cha dmg, –5 on concentration, concentration to cast spells or use spell-like abilities (see text); Cure 2 saves
+Poison (Witch-Hunter's Sword)						OUTPUTNAME:[NAME]						TYPE:Goods.Poison.Consumable								COST:850	WT:0		SOURCEPAGE:p.145	SPROP:Ingested; Fort DC 19; Onset 10 min; Freq 1 hr (8); Effect 1 Int, Wis, and Cha dmg, -5 on concentration, concentration to cast spells or use spell-like abilities (see text); Cure 2 saves

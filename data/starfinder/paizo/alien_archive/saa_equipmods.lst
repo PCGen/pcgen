@@ -4,7 +4,7 @@ SOURCELONG:Starfinder Alien Archive	SOURCESHORT:SAA	SOURCEDATE:2017-10
 
 # Default Properties of Weapons
 # Modifier Name	Unique Key			Type		Visible	Source Page		Special Property
-Underwater								VISIBLE:NO				SPROP:A weapon with this special property that is used underwater ignores the –2 penalty to attack rolls and deals full damage.
+Underwater								VISIBLE:NO				SPROP:A weapon with this special property that is used underwater ignores the -2 penalty to attack rolls and deals full damage.
 
 
 # Weapon Fusion

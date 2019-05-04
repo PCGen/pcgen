@@ -180,6 +180,14 @@ CLASS:Phantom	PRERACE:1,Phantom
 CLASS:Phantom	STARTSKILLPTS:2
 
 
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																Save bonus																																																																																																																																				Modify VAR																																																																																																																															FACT
+CLASS:Homunculus Companion	HD:10	TYPE:Monster	MAXLEVEL:20	SOURCEPAGE:p.113	DEFINE:HomunculusLVL|0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|HomunculusLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:Abb|HomC	FACT:ClassType|Monster
+# Class Name	Required Race
+CLASS:Homunculus Companion	PRERACE:1,Homunculus Companion
+# Class Name	Skill Pts/Lvl
+CLASS:Homunculus Companion	STARTSKILLPTS:2
+
+
 # Class Name		Visible	Define																						Modify VAR																																																															FACT
 CLASS:Psychic Detective	VISIBLE:NO	DEFINE:Caster_Level_PsychicDetective|0	DEFINE:CasterLevelBLPsychicDetective|0	DEFINE:Caster_Level_BL_Stripped_PsychicDetective|0	BONUS:VAR|Caster_Level_BL_Stripped_PsychicDetective|Caster_Level_PsychicDetective-CasterLevelBLPsychicDetective	BONUS:VAR|Caster_Level_PsychicDetective|PsychicDetectiveLVL+Caster_Level_Bonus+CasterLevelBLPsychicDetective	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_PsychicDetective|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_PsychicDetective	FACT:SpellType|Arcane
 # Class Name		Spell Stat		Spellbook		Caster level											Use Spell List

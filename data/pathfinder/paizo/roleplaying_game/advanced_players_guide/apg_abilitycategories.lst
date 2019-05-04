@@ -253,8 +253,9 @@ ABILITYCATEGORY:Point Blank Master			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	F
 
 ###Block:
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Base Pool number				Category of Object		Type of Object				Specific choices list					Plural description for UI			Display Location
+ABILITYCATEGORY:Master Chymist Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Special Ability	TYPE:Master Chymist Class Feature									PLURAL:Master Chymist Class Features	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Master Chymist Advanced Mutagen	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:MasterChymistAdvancedMutagen									PLURAL:Master Chymist Advanced Mutagens	DISPLAYLOCATION:Class Features
-
+ABILITYCATEGORY:Draconic Mutagen Choice		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Draconic Mutagen Choice
 
 ABILITYCATEGORY:Select Beast Master Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:Select Beast Master Companion									PLURAL:Select Beast Master Companions	DISPLAYLOCATION:Feats
 
@@ -269,15 +270,3 @@ ABILITYCATEGORY:Temp Eidolon Evolution		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO
 ABILITYCATEGORY:Summoner Class Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		POOL:Pool_Summoner_Class_Selection	CATEGORY:Class			TYPE:Summoner Class Selection																	DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:Multiple Companion Combination	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Internal			TYPE:Multiple Companions																	DISPLAYLOCATION:Class Features
-
-## REMOVE - When Bloodline Conversion Complete
-ABILITYCATEGORY:Aquatic Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:AquaticBloodline			ABILITYLIST:Skill Focus(Swim)				PLURAL:Aquatic Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Boreal Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:BorealBloodline			ABILITYLIST:Skill Focus(Intimidate)			PLURAL:Boreal Bloodline Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Deep Earth Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:DeepEarthBloodline			ABILITYLIST:Skill Focus(Perception)			PLURAL:Deep Earth Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Dreamspun Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:DreamspunBloodline			ABILITYLIST:Skill Focus(Sense Motive)		PLURAL:Dreamspun Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Protean Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:ProteanBloodline			ABILITYLIST:Skill Focus(Craft%)			PLURAL:Protean Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Serpentine Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:SerpentineBloodline		ABILITYLIST:Skill Focus(Bluff)			PLURAL:Serpentine Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Shadow Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:ShadowBloodline			ABILITYLIST:Skill Focus(Stealth)			PLURAL:Shadow Bloodline Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Starsoul Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:StarsoulBloodline			ABILITYLIST:Skill Focus(Perception)			PLURAL:Starsoul Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Stormborn Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:StormbornBloodline			ABILITYLIST:Skill Focus(Fly)				PLURAL:Stormborn Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Verdant Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT			TYPE:VerdantBloodline			ABILITYLIST:Skill Focus(Knowledge (Nature))	PLURAL:Verdant Bloodline Feats		DISPLAYLOCATION:Feats

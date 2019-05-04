@@ -1,0 +1,72 @@
+CAMPAIGN:Cohorts and Companions
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder RPG
+RANK:3
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+STATUS:BETA
+PRECAMPAIGN:5,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Advanced Class Guide
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Cohorts and Companions
+SOURCESHORT:CAC
+SOURCEWEB:http://paizo.com/products/btpy9e1c
+SOURCEDATE:2015-06
+ISOGL:YES
+
+COVER:cohorts_and_companions.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9e1c|Buy this publication from Paizo Publishing!
+DESC:Prepare for your adventures to get twice as exciting with Pathfinder Player Companion: Cohorts and Companions! Double the daring and fun with all-new rules for turning your adventurer into part of a dynamic duo. Whether you’re growing a towering treant to serve as your monstrous cohort or organizing a grand heist with your fellow thieves, Cohorts and Companions gives you the rules you need! New options allow you to make the most of your allies, or even make your allies from scratch! From binding outsiders to winning over artist patrons, this volume has cohorts ideal for any character concept.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Angel, Movanic Deva from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Brownie from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Daemon, Guardian from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian McDowall.
+COPYRIGHT:Daemon, Piscodaemon from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Dark Stalker from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Simon Muth.
+COPYRIGHT:Dragon Horse from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Flumph from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Ian McDowell and Douglas Naismith.
+COPYRIGHT:Hippocampus from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors: Scott Greene and Erica Balsley, based on original material by Gary Gygax.
+COPYRIGHT:Huecuva from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Underworld Oracle.
+COPYRIGHT:Skulk from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Simon Muth.
+COPYRIGHT:Spriggan from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Authors: Scott Greene and Erica Balsley, based on original material by Roger Moore and Gary Gygax.
+COPYRIGHT:Vegepygmy from the Tome of Horrors Copyright 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Player Companion: Cohorts and Companions Copyright 2015, Paizo Inc.; Authors: Brian Duckwitz, Philip Minchin, and Jason Nelson.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Player Companion: Cohorts and Companions" Copyright 2018, PCGen Data Team (Including, but not limited to Gwen T., Paul Grosse, and Andrew Maitland)
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:cac_abilities.lst
+ABILITY:cac_abilities_class.lst
+ABILITY:cac_abilities_companion.lst
+ABILITYCATEGORY:cac_abilitycategories.lst
+COMPANIONMOD:cac_companionmods.lst
+EQUIPMENT:cac_equip_general.lst
+EQUIPMENT:cac_equip_magic_items.lst
+ABILITY:cac_feats.lst
+SPELL:cac_spells.lst
+TEMPLATE:cac_templates.lst
+
+ABILITY:support/cac_abilities_ma.lst|PRECAMPAIGN:1,INCLUDES=Mythic Adventures
+
+# ENTRY DATE: 2018-12
+# LST MONKEY: Gwen T.
+# LICENSE MONKEY: Paul Grosse
+# RELEASE REVIEW #
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.07.10
+# Updated to work with version: -
+# MINVER:6.6
+# MINDEVVER:6.06.1
+# COMMENTS:
+

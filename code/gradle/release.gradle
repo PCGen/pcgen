@@ -27,7 +27,6 @@ import org.apache.tools.ant.filters.FixCrLfFilter
 import org.apache.tools.ant.filters.ReplaceTokens
 
 ext {
-
     // Work out the path to the release notes for our current version.
     plainVerNum = version.replaceAll('-SNAPSHOT', '')
     shortVerNum = plainVerNum.replaceAll(/\./, '')
@@ -109,6 +108,9 @@ ext {
         }
         into ('/data')
     }
+
+	List result = plainVerNum.replaceAll('-DEV', '').tokenize('.')
+	installerVerNum = result.get(0).toInteger() + "." + result.get(1).toInteger() + "." +  result.get(2).toInteger() + ".0"
 }
 
 task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs, 
@@ -165,8 +167,7 @@ launch4j {
     mainClassName = 'pcgen.system.Main'
     icon = "${projectDir}/installers/win-installer/Local/pcgen.ico"
     jdkPreference = 'preferJre'
-    initialHeapSize = 128
-    maxHeapSize = 512
+    maxHeapPercent = 80
     stayAlive = false
     dontWrapJar = true
     bundledJrePath = 'jre'
@@ -252,6 +253,7 @@ task genDataList doLast {
     // The list of publishers - add an entry here to correct a reported missing publisher
     Map<String,String> publisherMap  = new TreeMap<String,String>();
     publisherMap.put("12_to_midnight","12 to Midnight");
+    publisherMap.put("4_winds_fantasy_gaming","4 Winds Fantasy Gaming");
     publisherMap.put("alderac_entertainment_group","Alderac Entertainment Group");
     publisherMap.put("alderac_ent_group","Alderac Entertainment Group");
     publisherMap.put("alea_publishing_group","Alea Publishing Group");
@@ -282,6 +284,7 @@ task genDataList doLast {
     publisherMap.put("gallantry_productions","Gallantry Productions");
     publisherMap.put("goodman_games","Goodman Games");
     publisherMap.put("green_ronin","Green Ronin");
+    publisherMap.put("kobold_press","Kobold Press");
     publisherMap.put("legendary_games","Legendary Games");
     publisherMap.put("lions_den_press","Lions Den Press");
     publisherMap.put("lone_wanderer_entertainment","Lone Wanderer Entertainment");
@@ -298,6 +301,7 @@ task genDataList doLast {
     publisherMap.put("paizo","Paizo Publishing");
     publisherMap.put("parents_basement_games","Parents Basement Games");
     publisherMap.put("pcgen","PCGen OGL");
+    publisherMap.put("pfsrd_publishing","Open Game Network (d20pfsrd)");
     publisherMap.put("pinnacle_entertainment","Pinnacle Entertainment");
     publisherMap.put("reality_deviant","Reality Deviant Publications");
     publisherMap.put("rite","Rite Publishing");
@@ -321,7 +325,6 @@ task genDataList doLast {
     publisherMap.put("wizards_of_the_coast","Wizards of the Coast");
     publisherMap.put("lpj_design","Louis Porter Jr. Design");
     publisherMap.put("total_party_kill_games","Total Party Kill Games");
-    publisherMap.put("4_winds_fantasy_gaming","4 Winds Fantasy Gaming");
     publisherMap.put("starfinder","Starfinder");
     File out =new File("$projectDir/installers/win-installer/includes/data.nsh")
     out.delete()
@@ -417,6 +420,7 @@ task genProjectNsis doLast {
 !define PROJECT_STARTMENU_FOLDER "\$SMPROGRAMS\\SourceForge\\PCGen ${plainVerNum}"
 !define PROJECT_URL "http://pcgen.sourceforge.net/"
 !define PROJECT_VERSION "${plainVerNum}"
+!define INSTALLER_VERSION "${installerVerNum}"
 """)
 
     new File("${projectDir}/installers/win-installer/includes/constants.nsh").write("""

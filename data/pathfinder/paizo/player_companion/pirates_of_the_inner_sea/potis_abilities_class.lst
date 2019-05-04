@@ -75,6 +75,10 @@ Distraction		KEY:Rogue Smuggler ~ Distraction	CATEGORY:Special Ability	TYPE:Spec
 CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Cutlass|TOHIT|DEX|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Cutlass)
 CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Cutlass|TOHIT|-STR|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Cutlass)
 
+###Block: Swashbuckler Weapon Training and Slashing Grace Support
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Weapon Training.MOD																																																																																																																											BONUS:WEAPONPROF=Cutlass|TOHIT,DAMAGE|SwashbucklerWeaponTrainingBonus|TYPE=WeaponTraining|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Cutlass)
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Weapon Training.MOD																																																																																																																											BONUS:WEAPONPROF=Cutlass|CRITRANGEDOUBLE|1|TYPE=WeaponTraining|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Cutlass)
+
 #
 # End
 #

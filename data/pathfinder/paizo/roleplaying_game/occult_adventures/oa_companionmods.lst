@@ -41,3 +41,74 @@ FOLLOWER:PhantomEmotionalFocus_Fear=1		TYPE:Phantom	ABILITY:Special Ability|AUTO
 FOLLOWER:PhantomEmotionalFocus_Hatred=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Hatred
 FOLLOWER:PhantomEmotionalFocus_Jealousy=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Jealousy
 FOLLOWER:PhantomEmotionalFocus_Zeal=1		TYPE:Phantom	ABILITY:Special Ability|AUTOMATIC|Emotional Focus ~ Zeal
+
+###Block: Homunculus Companion
+FOLLOWER:HomunculusMasterLVL=2		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=3		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=5		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=6		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=7		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=9		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=10		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=11		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=13		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=14		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=15		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=17		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=18		TYPE:Homunculus Companion	HD:1
+FOLLOWER:HomunculusMasterLVL=19		TYPE:Homunculus Companion	HD:1
+
+FOLLOWER:HomunculusMasterLVL=1		TYPE:Homunculus Companion	BONUS:VAR|Maneuverability|2
+FOLLOWER:HomunculusMasterLVL=1		TYPE:Homunculus Companion	BONUS:VAR|HasLowlightVision|1|TYPE=Base
+FOLLOWER:HomunculusMasterLVL=1		TYPE:Homunculus Companion	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+FOLLOWER:HomunculusMasterLVL=3		TYPE:Homunculus Companion	BONUS:STAT|STR,DEX|1
+FOLLOWER:HomunculusMasterLVL=4		TYPE:Homunculus Companion	BONUS:SIZEMOD|NUMBER|1
+FOLLOWER:HomunculusMasterLVL=4		TYPE:Homunculus Companion	BONUS:MOVEADD|TYPE.Walk|10
+FOLLOWER:HomunculusMasterLVL=4		TYPE:Homunculus Companion	BONUS:MOVEADD|TYPE.Fly|10
+FOLLOWER:HomunculusMasterLVL=4		TYPE:Homunculus Companion	BONUS:VAR|Maneuverability|1
+FOLLOWER:HomunculusMasterLVL=4		TYPE:Homunculus Companion	BONUS:VAR|ClawSize|1
+FOLLOWER:HomunculusMasterLVL=6		TYPE:Homunculus Companion	BONUS:STAT|STR,DEX|1
+FOLLOWER:HomunculusMasterLVL=9		TYPE:Homunculus Companion	BONUS:STAT|STR,DEX|1	SR:11+mastervar("AlchemistLVL")
+FOLLOWER:HomunculusMasterLVL=12		TYPE:Homunculus Companion	BONUS:STAT|STR,DEX|1
+FOLLOWER:HomunculusMasterLVL=15		TYPE:Homunculus Companion	BONUS:STAT|STR,DEX|1
+FOLLOWER:HomunculusMasterLVL=18		TYPE:Homunculus Companion	BONUS:STAT|STR,DEX|1
+
+FOLLOWER:HomunculusMasterLVL=1		TYPE:Homunculus Companion	AUTO:WEAPONPROF|TYPE=Simple
+FOLLOWER:HomunculusMasterLVL=1		TYPE:Homunculus Companion	BONUS:ABILITYPOOL|Homunculus Companion Custom Skills|2
+FOLLOWER:HomunculusMasterLVL=1		TYPE:Homunculus Companion	AUTO:LANG|Common (cannot speak)|PREVARLT:mastervar("AlchemistLVL"),6
+FOLLOWER:HomunculusMasterLVL=3		TYPE:Homunculus Companion	ABILITY:Special Ability|AUTOMATIC|Evasion
+FOLLOWER:HomunculusMasterLVL=4		TYPE:Homunculus Companion	ABILITY:Internal|AUTOMATIC|Claw
+FOLLOWER:HomunculusMasterLVL=4		TYPE:Homunculus Companion	ABILITY:Special Ability|AUTOMATIC|Homunculus Companion ~ Poison
+FOLLOWER:HomunculusMasterLVL=5		TYPE:Homunculus Companion	BONUS:ABILITYPOOL|Homunculus Companion Ability Increase|1
+FOLLOWER:HomunculusMasterLVL=6		TYPE:Homunculus Companion	AUTO:LANG|Common
+FOLLOWER:HomunculusMasterLVL=10		TYPE:Homunculus Companion	BONUS:ABILITYPOOL|Homunculus Companion Ability Increase|1
+FOLLOWER:HomunculusMasterLVL=15		TYPE:Homunculus Companion	BONUS:ABILITYPOOL|Homunculus Companion Ability Increase|1
+FOLLOWER:HomunculusMasterLVL=15		TYPE:Homunculus Companion	ABILITY:Special Ability|AUTOMATIC|Improved Evasion
+FOLLOWER:HomunculusMasterLVL=20		TYPE:Homunculus Companion	BONUS:ABILITYPOOL|Homunculus Companion Ability Increase|1
+
+
+FOLLOWER:GhostRiderLVL=1	TYPE:Ghost Mount	DEFINE:PhantomMasterLevel|0	BONUS:VAR|PhantomMasterLevel|mastervar("GhostRiderLVL")
+
+###Block: Ability Progression
+# Class of the Master		Type			Ability
+FOLLOWER:GhostRiderLVL=1	TYPE:Ghost Mount	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Darkvision
+FOLLOWER:GhostRiderLVL=1	TYPE:Ghost Mount	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Link
+FOLLOWER:GhostRiderLVL=4	TYPE:Ghost Mount	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Magic Attacks
+FOLLOWER:GhostRiderLVL=5	TYPE:Ghost Mount	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Ability Score Increase
+FOLLOWER:GhostRiderLVL=6	TYPE:Ghost Mount	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Devotion
+FOLLOWER:GhostRiderLVL=1	TYPE:Ghost Mount	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Progression
+
+
+FOLLOWER:GhostRiderLVL=2	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=3	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=5	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=6	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=7	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=9	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=10	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=11	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=13	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=14	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=15	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=17	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=19	TYPE:Ghost Mount	HD:1

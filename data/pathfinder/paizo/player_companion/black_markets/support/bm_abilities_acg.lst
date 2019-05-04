@@ -1,0 +1,130 @@
+SOURCELONG:Black Markets		SOURCESHORT:BM	SOURCEWEB:https://paizo.com/products/btpy9h7x	SOURCEDATE:2015-10
+
+# ==============================
+# Support for Sahir-Afiyun
+# ==============================
+#Adds spells to arcanist spelllist
+Alleviate Addiction (Arcanist)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Arcanist=4		SPELLKNOWN:CLASS|Arcanist=1|Alleviate Addiction
+Lesser Confusion (Arcanist)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Arcanist=4		SPELLKNOWN:CLASS|Arcanist=1|Confusion (Lesser)
+Night Blindness (Arcanist)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Arcanist=4		SPELLKNOWN:CLASS|Arcanist=1|Night Blindness
+Pesh Vigor (Arcanist)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Arcanist=4		SPELLKNOWN:CLASS|Arcanist=1|Pesh Vigor
+Ray of Sickening (Arcanist)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Arcanist=4		SPELLKNOWN:CLASS|Arcanist=1|Ray of Sickening
+Remove Fear (Arcanist)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Arcanist=4		SPELLKNOWN:CLASS|Arcanist=1|Remove Fear
+Sleep (Arcanist)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Arcanist=4		SPELLKNOWN:CLASS|Arcanist=1|Sleep
+Augury (Arcanist)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Arcanist=4		SPELLKNOWN:CLASS|Arcanist=2|Augury
+Calm Emotions (Arcanist)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Arcanist=4		SPELLKNOWN:CLASS|Arcanist=2|Calm Emotions
+Euphoric Cloud (Arcanist)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Arcanist=4		SPELLKNOWN:CLASS|Arcanist=2|Euphoric Cloud
+Contact High (Arcanist)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Arcanist=6		SPELLKNOWN:CLASS|Arcanist=3|Contact High
+Deep Slumber (Arcanist)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Arcanist=6		SPELLKNOWN:CLASS|Arcanist=3|Deep Slumber
+Imbue with Addiction (Arcanist)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Arcanist=6		SPELLKNOWN:CLASS|Arcanist=3|Imbue with Addiction
+Absorbing Inhalation (Arcanist)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Arcanist=8		SPELLKNOWN:CLASS|Arcanist=4|Absorbing Inhalation
+Confusion (Arcanist)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Arcanist=8		SPELLKNOWN:CLASS|Arcanist=4|Confusion
+Divination (Arcanist)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Arcanist=8		SPELLKNOWN:CLASS|Arcanist=4|Divination
+Symbol of Sleep (Arcanist)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL5		PRECLASS:1,Arcanist=10		SPELLKNOWN:CLASS|Arcanist=5|Symbol of Sleep
+#Adds spells to bloodrager spelllist
+Alleviate Addiction (Bloodrager)		CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Bloodrager=7		SPELLKNOWN:CLASS|Bloodrager=1|Alleviate Addiction
+Lesser Confusion (Bloodrager)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Bloodrager=7		SPELLKNOWN:CLASS|Bloodrager=1|Confusion (Lesser)
+Night Blindness (Bloodrager)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Bloodrager=7		SPELLKNOWN:CLASS|Bloodrager=1|Night Blindness
+Pesh Vigor (Bloodrager)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Bloodrager=7		SPELLKNOWN:CLASS|Bloodrager=1|Pesh Vigor
+Ray of Sickening (Bloodrager)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Bloodrager=7		SPELLKNOWN:CLASS|Bloodrager=1|Ray of Sickening
+Remove Fear (Bloodrager)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Bloodrager=7		SPELLKNOWN:CLASS|Bloodrager=1|Remove Fear
+Sleep (Bloodrager)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Bloodrager=7		SPELLKNOWN:CLASS|Bloodrager=1|Sleep
+Augury (Bloodrager)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Bloodrager=7		SPELLKNOWN:CLASS|Bloodrager=2|Augury
+Calm Emotions (Bloodrager)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Bloodrager=7		SPELLKNOWN:CLASS|Bloodrager=2|Calm Emotions
+Euphoric Cloud (Bloodrager)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Bloodrager=7		SPELLKNOWN:CLASS|Bloodrager=2|Euphoric Cloud
+Contact High (Bloodrager)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Bloodrager=10	SPELLKNOWN:CLASS|Bloodrager=3|Contact High
+Deep Slumber (Bloodrager)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Bloodrager=10	SPELLKNOWN:CLASS|Bloodrager=3|Deep Slumber
+Imbue with Addiction (Bloodrager)		CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Bloodrager=10	SPELLKNOWN:CLASS|Bloodrager=3|Imbue with Addiction
+Absorbing Inhalation (Bloodrager)		CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Bloodrager=13	SPELLKNOWN:CLASS|Bloodrager=4|Absorbing Inhalation
+Confusion (Bloodrager)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Bloodrager=13	SPELLKNOWN:CLASS|Bloodrager=4|Confusion
+Divination (Bloodrager)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Bloodrager=13	SPELLKNOWN:CLASS|Bloodrager=4|Divination
+#Adds spells to hunter spelllist
+Alleviate Addiction (Hunter)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Hunter=4		SPELLKNOWN:CLASS|Hunter=1|Alleviate Addiction
+Lesser Confusion (Hunter)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Hunter=4		SPELLKNOWN:CLASS|Hunter=1|Confusion (Lesser)
+Night Blindness (Hunter)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Hunter=4		SPELLKNOWN:CLASS|Hunter=1|Night Blindness
+Pesh Vigor (Hunter)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Hunter=4		SPELLKNOWN:CLASS|Hunter=1|Pesh Vigor
+Ray of Sickening (Hunter)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Hunter=4		SPELLKNOWN:CLASS|Hunter=1|Ray of Sickening
+Remove Fear (Hunter)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Hunter=4		SPELLKNOWN:CLASS|Hunter=1|Remove Fear
+Sleep (Hunter)					CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Hunter=4		SPELLKNOWN:CLASS|Hunter=1|Sleep
+Augury (Hunter)					CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Hunter=4		SPELLKNOWN:CLASS|Hunter=2|Augury
+Calm Emotions (Hunter)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Hunter=4		SPELLKNOWN:CLASS|Hunter=2|Calm Emotions
+Euphoric Cloud (Hunter)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Hunter=4		SPELLKNOWN:CLASS|Hunter=2|Euphoric Cloud
+Contact High (Hunter)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Hunter=7		SPELLKNOWN:CLASS|Hunter=3|Contact High
+Deep Slumber (Hunter)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Hunter=7		SPELLKNOWN:CLASS|Hunter=3|Deep Slumber
+Imbue with Addiction (Hunter)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Hunter=7		SPELLKNOWN:CLASS|Hunter=3|Imbue with Addiction
+Absorbing Inhalation (Hunter)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Hunter=10		SPELLKNOWN:CLASS|Hunter=4|Absorbing Inhalation
+Confusion (Hunter)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Hunter=10		SPELLKNOWN:CLASS|Hunter=4|Confusion
+Divination (Hunter)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Hunter=10		SPELLKNOWN:CLASS|Hunter=4|Divination
+Symbol of Sleep (Hunter)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL5		PRECLASS:1,Hunter=13		SPELLKNOWN:CLASS|Hunter=5|Symbol of Sleep
+#Adds spells to investigator spelllist
+Alleviate Addiction (Investigator)		CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Investigator=4	SPELLKNOWN:CLASS|Investigator=1|Alleviate Addiction
+Lesser Confusion (Investigator)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Investigator=4	SPELLKNOWN:CLASS|Investigator=1|Confusion (Lesser)
+Night Blindness (Investigator)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Investigator=4	SPELLKNOWN:CLASS|Investigator=1|Night Blindness
+Pesh Vigor (Investigator)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Investigator=4	SPELLKNOWN:CLASS|Investigator=1|Pesh Vigor
+Ray of Sickening (Investigator)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Investigator=4	SPELLKNOWN:CLASS|Investigator=1|Ray of Sickening
+Remove Fear (Investigator)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Investigator=4	SPELLKNOWN:CLASS|Investigator=1|Remove Fear
+Sleep (Investigator)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Investigator=4	SPELLKNOWN:CLASS|Investigator=1|Sleep
+Augury (Investigator)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Investigator=4	SPELLKNOWN:CLASS|Investigator=2|Augury
+Calm Emotions (Investigator)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Investigator=4	SPELLKNOWN:CLASS|Investigator=2|Calm Emotions
+Euphoric Cloud (Investigator)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Investigator=4	SPELLKNOWN:CLASS|Investigator=2|Euphoric Cloud
+Contact High (Investigator)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Investigator=7	SPELLKNOWN:CLASS|Investigator=3|Contact High
+Deep Slumber (Investigator)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Investigator=7	SPELLKNOWN:CLASS|Investigator=3|Deep Slumber
+Imbue with Addiction (Investigator)		CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Investigator=7	SPELLKNOWN:CLASS|Investigator=3|Imbue with Addiction
+Absorbing Inhalation (Investigator)		CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Investigator=10	SPELLKNOWN:CLASS|Investigator=4|Absorbing Inhalation
+Confusion (Investigator)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Investigator=10	SPELLKNOWN:CLASS|Investigator=4|Confusion
+Divination (Investigator)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Investigator=10	SPELLKNOWN:CLASS|Investigator=4|Divination
+Symbol of Sleep (Investigator)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL5		PRECLASS:1,Investigator=13	SPELLKNOWN:CLASS|Investigator=5|Symbol of Sleep
+#Adds spells to shaman spelllist
+Alleviate Addiction (Shaman)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Shaman=3		SPELLKNOWN:CLASS|Shaman=1|Alleviate Addiction
+Lesser Confusion (Shaman)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Shaman=3		SPELLKNOWN:CLASS|Shaman=1|Confusion (Lesser)
+Night Blindness (Shaman)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Shaman=3		SPELLKNOWN:CLASS|Shaman=1|Night Blindness
+Pesh Vigor (Shaman)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Shaman=3		SPELLKNOWN:CLASS|Shaman=1|Pesh Vigor
+Ray of Sickening (Shaman)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Shaman=3		SPELLKNOWN:CLASS|Shaman=1|Ray of Sickening
+Remove Fear (Shaman)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Shaman=3		SPELLKNOWN:CLASS|Shaman=1|Remove Fear
+Sleep (Shaman)					CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Shaman=3		SPELLKNOWN:CLASS|Shaman=1|Sleep
+Augury (Shaman)					CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Shaman=3		SPELLKNOWN:CLASS|Shaman=2|Augury
+Calm Emotions (Shaman)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Shaman=3		SPELLKNOWN:CLASS|Shaman=2|Calm Emotions
+Euphoric Cloud (Shaman)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Shaman=3		SPELLKNOWN:CLASS|Shaman=2|Euphoric Cloud
+Contact High (Shaman)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Shaman=5		SPELLKNOWN:CLASS|Shaman=3|Contact High
+Deep Slumber (Shaman)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Shaman=5		SPELLKNOWN:CLASS|Shaman=3|Deep Slumber
+Imbue with Addiction (Shaman)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Shaman=5		SPELLKNOWN:CLASS|Shaman=3|Imbue with Addiction
+Absorbing Inhalation (Shaman)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Shaman=7		SPELLKNOWN:CLASS|Shaman=4|Absorbing Inhalation
+Confusion (Shaman)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Shaman=7		SPELLKNOWN:CLASS|Shaman=4|Confusion
+Divination (Shaman)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Shaman=7		SPELLKNOWN:CLASS|Shaman=4|Divination
+Symbol of Sleep (Shaman)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL5		PRECLASS:1,Shaman=9		SPELLKNOWN:CLASS|Shaman=5|Symbol of Sleep
+#Adds spells to skald spelllist
+Alleviate Addiction (Skald)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Skald=4		SPELLKNOWN:CLASS|Skald=1|Alleviate Addiction
+Lesser Confusion (Skald)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Skald=4		SPELLKNOWN:CLASS|Skald=1|Confusion (Lesser)
+Night Blindness (Skald)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Skald=4		SPELLKNOWN:CLASS|Skald=1|Night Blindness
+Pesh Vigor (Skald)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Skald=4		SPELLKNOWN:CLASS|Skald=1|Pesh Vigor
+Ray of Sickening (Skald)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Skald=4		SPELLKNOWN:CLASS|Skald=1|Ray of Sickening
+Remove Fear (Skald)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Skald=4		SPELLKNOWN:CLASS|Skald=1|Remove Fear
+Sleep (Skald)					CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Skald=4		SPELLKNOWN:CLASS|Skald=1|Sleep
+Augury (Skald)					CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Skald=4		SPELLKNOWN:CLASS|Skald=2|Augury
+Calm Emotions (Skald)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Skald=4		SPELLKNOWN:CLASS|Skald=2|Calm Emotions
+Euphoric Cloud (Skald)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Skald=4		SPELLKNOWN:CLASS|Skald=2|Euphoric Cloud
+Contact High (Skald)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Skald=7		SPELLKNOWN:CLASS|Skald=3|Contact High
+Deep Slumber (Skald)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Skald=7		SPELLKNOWN:CLASS|Skald=3|Deep Slumber
+Imbue with Addiction (Skald)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Skald=7		SPELLKNOWN:CLASS|Skald=3|Imbue with Addiction
+Absorbing Inhalation (Skald)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Skald=10		SPELLKNOWN:CLASS|Skald=4|Absorbing Inhalation
+Confusion (Skald)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Skald=10		SPELLKNOWN:CLASS|Skald=4|Confusion
+Divination (Skald)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Skald=10		SPELLKNOWN:CLASS|Skald=4|Divination
+Symbol of Sleep (Skald)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL5		PRECLASS:1,Skald=13		SPELLKNOWN:CLASS|Skald=5|Symbol of Sleep
+#Adds spells to warpriest spelllist
+Alleviate Addiction (Warpriest)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Warpriest=4		SPELLKNOWN:CLASS|Warpriest=1|Alleviate Addiction
+Lesser Confusion (Warpriest)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Warpriest=4		SPELLKNOWN:CLASS|Warpriest=1|Confusion (Lesser)
+Night Blindness (Warpriest)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Warpriest=4		SPELLKNOWN:CLASS|Warpriest=1|Night Blindness
+Pesh Vigor (Warpriest)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Warpriest=4		SPELLKNOWN:CLASS|Warpriest=1|Pesh Vigor
+Ray of Sickening (Warpriest)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Warpriest=4		SPELLKNOWN:CLASS|Warpriest=1|Ray of Sickening
+Remove Fear (Warpriest)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Warpriest=4		SPELLKNOWN:CLASS|Warpriest=1|Remove Fear
+Sleep (Warpriest)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL1		PRECLASS:1,Warpriest=4		SPELLKNOWN:CLASS|Warpriest=1|Sleep
+Augury (Warpriest)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Warpriest=4		SPELLKNOWN:CLASS|Warpriest=2|Augury
+Calm Emotions (Warpriest)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Warpriest=4		SPELLKNOWN:CLASS|Warpriest=2|Calm Emotions
+Euphoric Cloud (Warpriest)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL2		PRECLASS:1,Warpriest=4		SPELLKNOWN:CLASS|Warpriest=2|Euphoric Cloud
+Contact High (Warpriest)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Warpriest=7		SPELLKNOWN:CLASS|Warpriest=3|Contact High
+Deep Slumber (Warpriest)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Warpriest=7		SPELLKNOWN:CLASS|Warpriest=3|Deep Slumber
+Imbue with Addiction (Warpriest)		CATEGORY:Internal	TYPE:SahirAfiyunSpellL3		PRECLASS:1,Warpriest=7		SPELLKNOWN:CLASS|Warpriest=3|Imbue with Addiction
+Absorbing Inhalation (Warpriest)		CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Warpriest=10		SPELLKNOWN:CLASS|Warpriest=4|Absorbing Inhalation
+Confusion (Warpriest)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Warpriest=10		SPELLKNOWN:CLASS|Warpriest=4|Confusion
+Divination (Warpriest)				CATEGORY:Internal	TYPE:SahirAfiyunSpellL4		PRECLASS:1,Warpriest=10		SPELLKNOWN:CLASS|Warpriest=4|Divination
+Symbol of Sleep (Warpriest)			CATEGORY:Internal	TYPE:SahirAfiyunSpellL5		PRECLASS:1,Warpriest=13		SPELLKNOWN:CLASS|Warpriest=5|Symbol of Sleep

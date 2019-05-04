@@ -1,0 +1,4 @@
+SOURCELONG:Haunted Heroes Handbook	SOURCESHORT:HHH	SOURCEWEB:https://paizo.com/products/btpy9nft	SOURCEDATE:2016-08
+
+#Pact Wizard Support
+Recovery Patron				KEY:Wizard Patron ~ Recovery				CATEGORY:Special Ability	TYPE:PactWizardPatron.SpecialQuality				SPELLKNOWN:CLASS|Wizard=1|Liberating Command|PREVARGTEQ:WizardLVL,2		SPELLKNOWN:CLASS|Wizard=2|Remove Paralysis|PREVARGTEQ:WizardLVL,4		SPELLKNOWN:CLASS|Wizard=3|Sacred Bond|PREVARGTEQ:WizardLVL,6			SPELLKNOWN:CLASS|Wizard=4|Freedom of Movement|PREVARGTEQ:WizardLVL,8			SPELLKNOWN:CLASS|Wizard=5|Cleanse|PREVARGTEQ:WizardLVL,10			SPELLKNOWN:CLASS|Wizard=6|Heroes' Feast|PREVARGTEQ:WizardLVL,12			SPELLKNOWN:CLASS|Wizard=7|Joyful Rapture|PREVARGTEQ:WizardLVL,14		SPELLKNOWN:CLASS|Wizard=8|Protection From Spells|PREVARGTEQ:WizardLVL,16	SPELLKNOWN:CLASS|Wizard=9|Heal (Mass)|PREVARGTEQ:WizardLVL,18

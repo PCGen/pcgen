@@ -32,5 +32,5 @@ Caltrop Bead (Cold Iron)				TYPE:Wondrous.SLOT_None.Magic			COST:80	WT:2								
 Dagger of Repossession.MOD											COST:14702			SOURCELONG:Demon Hunter's Handbook	SOURCESHORT:DHH		SOURCEPAGE:p.29
 Dawnflower's Light					TYPE:Wondrous.SLOT_None.Magic			COST:40000	WT:2												SOURCEPAGE:p.29
 Deadlimb Pins						TYPE:Wondrous.SLOT_None.Magic			COST:60000	WT:1												SOURCEPAGE:p.29
-Thorned Manacles						TYPE:Wondrous.SLOT_Wrist.Magic.Bracers	COST:35600	WT:2												SOURCEPAGE:p.29
+Thorned Manacles						TYPE:Wondrous.SLOT_Wrist.Magic.Bracer	COST:35600	WT:2												SOURCEPAGE:p.29
 Warding Lips						TYPE:Wondrous.SLOT_None.Magic			COST:1900	WT:0												SOURCEPAGE:p.29

@@ -499,37 +499,37 @@ Weapon Of Warning		CATEGORY:Attunement	TYPE:Attunement	PREVARGTEQ:Attunement_Wea
 ###Block: Rules
 # Ability Name						Category of Ability		Type		Description								Stackable?	Multiple?	Choose		Bonus Ability Pool				Modify VAR
 Bypass Background Restrictions			CATEGORY:Special Ability	TYPE:Rules	DESC:Allows the PC to take any Background desired.
-Add additional Background Personality Trait	CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional background personality trait	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|POOL_Background_PersonalityTrait|1
-Add additional Background Ideal			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional background ideal			STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|POOL_Background_Ideal|1
-Add additional Background Bond			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional background bond			STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|POOL_Background_Bond|1
-Add additional Background Flaw			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional background flaw			STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|POOL_Background_Flaw|1
+Add additional Background Personality Trait	CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional background personality trait	STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|POOL_Background_PersonalityTrait|1	COST:0
+Add additional Background Ideal			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional background ideal			STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|POOL_Background_Ideal|1	COST:0
+Add additional Background Bond			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional background bond			STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|POOL_Background_Bond|1	COST:0
+Add additional Background Flaw			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional background flaw			STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|POOL_Background_Flaw|1	COST:0
 
-Add additional Skill Proficiency			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Skill Proficiency			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Skill Proficiency|1
-Add additional Weapon Proficiency			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Weapon Proficiency			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Weapon Proficiency|1
-Add additional Tool Proficiency			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Tool Proficiency			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Tools Proficiency|1
-Add additional Language					CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Language					STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|POOL_Language|1
-Add additional Feat					CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Feat					STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Feat|1
+Add additional Skill Proficiency			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Skill Proficiency			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Skill Proficiency|1	COST:0
+Add additional Weapon Proficiency			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Weapon Proficiency			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Weapon Proficiency|1	COST:0
+Add additional Tool Proficiency			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Tool Proficiency			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Tools Proficiency|1	COST:0
+Add additional Language					CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Language					STACK:YES	MULT:YES	CHOOSE:NOCHOICE								BONUS:VAR|POOL_Language|1	COST:0
+Add additional Feat					CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Feat					STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Feat|1	COST:0
 
 
 # Ability Name		Category of Ability		Type		Modify VAR
-Add Athletics +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Athletics|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Acrobatics +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Acrobatics|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Sleight of Hand +1	CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Sleight_of_Hand|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Stealth +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Stealth|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Arcana +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Arcana|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add History +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_History|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Investigation +1	CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Investigation|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Nature +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Nature|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Religion +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Religion|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Animal Handling +1	CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Animal_Handling|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Insight +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Insight|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Medicine +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Medicine|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Perception +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Perception|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Survival +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Survival|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Deception +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Deception|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Intimidation +1	CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Intimidation|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Performance +1	CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Performance|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
-Add Persuasion +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Persuasion|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.
+Add Athletics +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Athletics|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Acrobatics +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Acrobatics|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Sleight of Hand +1	CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Sleight_of_Hand|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Stealth +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Stealth|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Arcana +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Arcana|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add History +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_History|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Investigation +1	CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Investigation|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Nature +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Nature|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Religion +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Religion|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Animal Handling +1	CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Animal_Handling|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Insight +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Insight|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Medicine +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Medicine|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Perception +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Perception|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Survival +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Survival|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Deception +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Deception|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Intimidation +1	CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Intimidation|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Performance +1	CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Performance|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
+Add Persuasion +1		CATEGORY:Special Ability	TYPE:Rules	BONUS:VAR|GMAward_Persuasion|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	DESC:Adds +1 to the listed skill.	COST:0
 
 
 CATEGORY=Internal|Default.MOD	BONUS:VAR|SkillProf_Athletics|GMAward_Athletics			DEFINE:GMAward_Athletics|0		

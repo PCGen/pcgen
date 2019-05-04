@@ -1,0 +1,4 @@
+SOURCELONG:Haunted Heroes Handbook	SOURCESHORT:HHH	SOURCEWEB:https://paizo.com/products/btpy9nft	SOURCEDATE:2016-08
+
+#Pact Wizard Support
+Protection				KEY:Wizard Patron ~ Protection				CATEGORY:Special Ability	TYPE:PactWizardPatron.SpecialQuality				SPELLKNOWN:CLASS|Wizard=1|Sanctuary|PREVARGTEQ:WizardLVL,2			SPELLKNOWN:CLASS|Wizard=2|Resist Energy|PREVARGTEQ:WizardLVL,4			SPELLKNOWN:CLASS|Wizard=3|Wrathful Mantle|PREVARGTEQ:WizardLVL,6		SPELLKNOWN:CLASS|Wizard=4|Stoneskin|PREVARGTEQ:WizardLVL,8				SPELLKNOWN:CLASS|Wizard=5|Interposing Hand|PREVARGTEQ:WizardLVL,10		SPELLKNOWN:CLASS|Wizard=6|Forbiddance|PREVARGTEQ:WizardLVL,12			SPELLKNOWN:CLASS|Wizard=7|Spell Immunity (Greater)|PREVARGTEQ:WizardLVL,14	SPELLKNOWN:CLASS|Wizard=8|Prismatic Wall|PREVARGTEQ:WizardLVL,16		SPELLKNOWN:CLASS|Wizard=9|Freedom|PREVARGTEQ:WizardLVL,18

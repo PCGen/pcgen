@@ -1,0 +1,835 @@
+SOURCELONG:Inner Sea Gods	SOURCESHORT:ISG	SOURCEDATE:2014-04
+# Original Entry by: Jason D
+
+STARTPACK:Lawgiver Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Lawgiver],[!PRERACE:1,%]	SOURCEPAGE:p.276
+ALIGN:LN
+RACE:Lawgiver	!PRERACE:1,%
+NAME:Lawgiver
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Appraise					RANK:9
+SKILL:Knowledge (Engineering)	RANK:9
+SKILL:Knowledge (Local)			RANK:9
+SKILL:Knowledge (Religion)		RANK:9
+SKILL:Perception				RANK:18
+SKILL:Sense Motive				RANK:18
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Toughness
+LANGBONUS:Draconic|Infernal
+GEAR:Warhammer	SIZE:G	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Axiomatic ~ Weapon
+
+
+STARTPACK:Orsheval Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Orsheval]		SOURCEPAGE:277
+ALIGN:LN
+RACE:Orsheval	!PRERACE:1,%
+NAME:Orsheval
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:3
+SKILL:Appraise					RANK:3
+SKILL:Knowledge (Local)			RANK:3
+SKILL:Knowledge (Nobility)		RANK:3
+SKILL:Knowledge (Planes)		RANK:3
+SKILL:Knowledge (Religion)		RANK:3
+SKILL:Perception				RANK:5
+SKILL:Sense Motive				RANK:5
+SKILL:Swim						RANK:2
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Run
+
+
+STARTPACK:Basileus Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Basileus],[!PRERACE:1,%]	SOURCEPAGE:p.278
+ALIGN:LE
+RACE:Basileus	!PRERACE:1,%
+NAME:Basileus
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+SKILL:Acrobatics				RANK:16
+SKILL:Bluff						RANK:16
+SKILL:Diplomacy					RANK:16
+SKILL:Disguise					RANK:16
+SKILL:Intimidate				RANK:16
+SKILL:Knowledge (Arcana)		RANK:16
+SKILL:Knowledge (History)		RANK:8
+SKILL:Knowledge (Nobility)		RANK:8
+SKILL:Knowledge (Planes)		RANK:16
+SKILL:Perception				RANK:16
+SKILL:Perform (Oratory)			RANK:16
+SKILL:Sense Motive				RANK:16
+SKILL:Sleight of Hand			RANK:16
+SKILL:Spellcraft				RANK:16
+SKILL:Stealth					RANK:16
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Deceitful
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Persuasive
+LANGBONUS:Abyssal|Aklo|Aquan|Common|Elven|Giant|Undercommon
+
+
+STARTPACK:Devil (Accomplice) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Devil (Accomplice)],[!PRERACE:1,%]	SOURCEPAGE:p.279
+ALIGN:LE
+RACE:Devil (Accomplice)	!PRERACE:1,%
+NAME:Accomplice Devil (Hesperian)
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Bluff						RANK:6
+SKILL:Diplomacy					RANK:6
+SKILL:Intimidate				RANK:6
+SKILL:Knowledge (Local)			RANK:6
+SKILL:Knowledge (Planes)		RANK:6
+SKILL:Knowledge (Religion)		RANK:6
+SKILL:Perception				RANK:6
+SKILL:Sense Motive				RANK:6
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+GEAR:Mace (Heavy)	SIZE:M	LOCATION:Primary Hand
+
+
+STARTPACK:The Menotherian Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Menotherian],[!PRERACE:1,%]	SOURCEPAGE:p.280
+ALIGN:CN
+RACE:The Menotherian	!PRERACE:1,%
+NAME:The Menotherian
+STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=10
+SKILL:Acrobatics				RANK:15
+SKILL:Bluff						RANK:15
+SKILL:Diplomacy					RANK:15
+SKILL:Heal						RANK:7
+SKILL:Intimidate				RANK:15
+SKILL:Knowledge (History)		RANK:8
+SKILL:Knowledge (Nature)		RANK:8
+SKILL:Knowledge (Planes)		RANK:8
+SKILL:Perception				RANK:15
+SKILL:Perform (Dance)			RANK:7
+SKILL:Sense Motive				RANK:15
+SKILL:Spellcraft				RANK:7
+SKILL:Stealth					RANK:15
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Step Up
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Sting)
+LANGBONUS:Abyssal|Common|Elven
+
+
+STARTPACK:Vendenopterix Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Vendenopterix],[!PRERACE:1,%]	SOURCEPAGE:p.281
+ALIGN:CN
+RACE:Vendenopterix	!PRERACE:1,%
+NAME:Vendenopterix
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Bluff						RANK:6
+SKILL:Diplomacy					RANK:6
+SKILL:Disguise					RANK:6
+SKILL:Knowledge (Planes)		RANK:3
+SKILL:Perception				RANK:6
+SKILL:Perform (Dance)			RANK:3
+SKILL:Survival					RANK:6
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+
+STARTPACK:Thais Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Thais],[!PRERACE:1,%]	SOURCEPAGE:p.282
+ALIGN:CG
+RACE:Thais	!PRERACE:1,%
+NAME:Thais
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Acrobatics				RANK:17
+SKILL:Bluff						RANK:17
+SKILL:Diplomacy					RANK:17
+SKILL:Disguise					RANK:7
+SKILL:Heal						RANK:7
+SKILL:Intimidate				RANK:8
+SKILL:Knowledge (Local)			RANK:7
+SKILL:Knowledge (Planes)		RANK:7
+SKILL:Knowledge (Religion)		RANK:7
+SKILL:Perception				RANK:17
+SKILL:Perform (Dance)			RANK:17
+SKILL:Profession (Courtesan)	RANK:8
+SKILL:Sense Motive				RANK:17
+SKILL:Sleight of Hand			RANK:17
+SKILL:Stealth					RANK:17
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Mobility
+LANGBONUS:Auran|Celestial|Common|Draconic|Infernal
+GEAR:Halberd	SIZE:L	LOCATION:Both Hands	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Anarchic ~ Weapon.Special Ability ~ Keen ~ Weapon
+
+
+STARTPACK:Ataxian Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Ataxian],[!PRERACE:1,%]	SOURCEPAGE:p.283
+ALIGN:CG
+RACE:Ataxian	!PRERACE:1,%
+NAME:Ataxian
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:4
+SKILL:Handle Animal				RANK:4
+SKILL:Knowledge (Local)			RANK:4
+SKILL:Knowledge (Religion)		RANK:4
+SKILL:Perception				RANK:4
+SKILL:Stealth					RANK:4
+ABILITY:CATEGORY=FEAT|Agile Maneuvers
+ABILITY:CATEGORY=FEAT|Combat Casting
+
+
+STARTPACK:Night Monarch Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Night Monarch],[!PRERACE:1,%]	SOURCEPAGE:p.284
+ALIGN:CG
+RACE:Night Monarch	!PRERACE:1,%
+NAME:Night Monarch
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=10
+SKILL:Diplomacy					RANK:18
+SKILL:Handle Animal				RANK:18
+SKILL:Heal						RANK:18
+SKILL:Knowledge (Geography)		RANK:18
+SKILL:Knowledge (Nature)		RANK:18
+SKILL:Knowledge (Planes)		RANK:18
+SKILL:Knowledge (Religion)		RANK:18
+SKILL:Perception				RANK:18
+SKILL:Sense Motive				RANK:18
+SKILL:Stealth					RANK:18
+SKILL:Survival					RANK:18
+ABILITY:CATEGORY=FEAT|Alertness
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Multiattack
+ABILITY:CATEGORY=FEAT|Snatch
+ABILITY:CATEGORY=FEAT|Wind Stance
+LANGBONUS:Auran|Celestial|Common
+
+
+STARTPACK:Azata (Thyrlien) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Azata (Thyrlien)],[!PRERACE:1,%]	SOURCEPAGE:p.285
+ALIGN:CG
+RACE:Azata (Thyrlien)	!PRERACE:1,%
+NAME:Azata (Thyrlien)
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:6
+SKILL:Knowledge (Planes)		RANK:6
+SKILL:Knowledge (Religion)		RANK:6
+SKILL:Perception				RANK:6
+SKILL:TYPE.Perform				RANK:6
+SKILL:Stealth					RANK:6
+SKILL:Survival					RANK:6
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+LANGBONUS:Infernal
+
+
+STARTPACK:The Grim White Stag Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Grim White Stag],[!PRERACE:1,%]	SOURCEPAGE:p.286
+ALIGN:LG
+RACE:The Grim White Stag	!PRERACE:1,%
+NAME:The Grim White Stag
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:9
+SKILL:Handle Animal				RANK:9
+SKILL:Intimidate				RANK:18
+SKILL:Knowledge (Nature)		RANK:9
+SKILL:Perception				RANK:18
+SKILL:Sense Motive				RANK:9
+SKILL:Stealth					RANK:18
+SKILL:Survival					RANK:9
+SKILL:Swim						RANK:9
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Endurance
+ABILITY:CATEGORY=FEAT|Greater Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Gore)
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Weapon Focus (Gore)
+
+
+STARTPACK:Archon (Stag) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Archon (Stag)],[!PRERACE:1,%]		SOURCEPAGE:p.287
+ALIGN:LG
+RACE:Archon (Stag)	!PRERACE:1,%
+NAME:Archon (Stag)
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:6
+SKILL:Knowledge (Nature)		RANK:6
+SKILL:Knowledge (Religion)		RANK:6
+SKILL:Perception				RANK:6
+SKILL:Stealth					RANK:6
+SKILL:Survival					RANK:6
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Precise Shot
+ABILITY:CATEGORY=FEAT|Rapid Shot
+GEAR:Longbow	SIZE:M	LOCATION:Both Hands	EQMOD:Special Quality ~ Masterwork ~ Weapon
+
+
+STARTPACK:Zentragt Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Zentragt],[!PRERACE:1,%]		SOURCEPAGE:p.289
+ALIGN:LG
+RACE:Zentragt	!PRERACE:1,%
+NAME:Zentragt
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Climb						RANK:6
+SKILL:Intimidate				RANK:6
+SKILL:Knowledge (Planes)		RANK:3
+SKILL:Knowledge (Religion)		RANK:3
+SKILL:Perception				RANK:6
+SKILL:Swim						RANK:6
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
+
+
+STARTPACK:Personification of Fury Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Personification of Fury],[!PRERACE:1,%]	SOURCEPAGE:p.290
+ALIGN:TN
+RACE:Personification of Fury	!PRERACE:1,%
+NAME:Personification of Fury
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:17
+SKILL:Escape Artist				RANK:17
+SKILL:Fly						RANK:8
+SKILL:Knowledge (Nature)		RANK:17
+SKILL:Knowledge (Planes)		RANK:8
+SKILL:Knowledge (Religion)		RANK:17
+SKILL:Perception				RANK:17
+SKILL:Sense Motive				RANK:9
+SKILL:Stealth					RANK:17
+SKILL:Survival					RANK:9
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Slam)
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Power Attack
+LANGBONUS:Sylvan|Terran
+
+
+STARTPACK:Xocothian Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Xocothian],[!PRERACE:1,%]		SOURCEPAGE:p.291
+ALIGN:TN
+RACE:Xocothian	!PRERACE:1,%
+NAME:Xocothian
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Fly						RANK:6
+SKILL:Handle Animal				RANK:6
+SKILL:Knowledge (Nature)		RANK:6
+SKILL:Knowledge (Religion)		RANK:6
+SKILL:Perception				RANK:6
+SKILL:Stealth					RANK:6
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+
+
+STARTPACK:Hand of the Inheritor Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hand of the Inheritor],[!PRERACE:1,%]		SOURCEPAGE:p.292
+ALIGN:LG
+RACE:Hand of the Inheritor	!PRERACE:1,%
+NAME:Hand of the Inheritor
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
+SKILL:Craft (Weapons)			RANK:18
+SKILL:Diplomacy					RANK:9
+SKILL:Heal						RANK:9
+SKILL:Intimidate				RANK:18
+SKILL:Knowledge (Arcana)		RANK:18
+SKILL:Knowledge (History)		RANK:18
+SKILL:Knowledge (Nobility)		RANK:18
+SKILL:Knowledge (Planes)		RANK:18
+SKILL:Knowledge (Religion)		RANK:18
+SKILL:Perception				RANK:18
+SKILL:Sense Motive				RANK:18
+SKILL:Spellcraft				RANK:18
+SKILL:Swim						RANK:18
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Shield Bash
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Shield Master
+ABILITY:CATEGORY=FEAT|Shield Slam
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Weapon Focus (Longsword)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Shieldbash)
+LANGBONUS:Celestial|Common|Draconic|Infernal
+GEAR:Longsword	SIZE:L	LOCATION:Equipped	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Holy ~ Weapon
+GEAR:Heavy Steel Shield (Base)	SIZE:L	LOCATION:Equipped		EQMOD:Special Ability ~ +2 ~ Shield.Special Ability ~ +2 ~ Weapon
+
+
+# COMMENT: The skills in the book don't seem correct -- there are 5 unspent skill points, and the Acrobatics and Fly skills are still higher than listed in the book.
+STARTPACK:Angel (Iophanite) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Angel (Iophanite)],[!PRERACE:1,%]		SOURCEPAGE:p.293
+ALIGN:LG
+RACE:Angel (Iophanite)	!PRERACE:1,%
+NAME:Angel (Iophanite)
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Intimidate				RANK:5
+SKILL:Knowledge (Geography)		RANK:5
+SKILL:Knowledge (Planes)		RANK:5
+SKILL:Knowledge (Religion)		RANK:5
+SKILL:Perception				RANK:5
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+
+STARTPACK:The Old Man Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Old Man],[!PRERACE:1,%]		SOURCEPAGE:p.294
+ALIGN:LN
+RACE:The Old Man	!PRERACE:1,%
+NAME:The Old Man
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:17
+SKILL:Diplomacy					RANK:17
+SKILL:Handle Animal				RANK:8
+SKILL:Heal						RANK:9
+SKILL:Knowledge (History)		RANK:17
+SKILL:Knowledge (Religion)		RANK:8
+SKILL:Perception				RANK:17
+SKILL:Perform (String Instruments)	RANK:17
+SKILL:Ride						RANK:17
+SKILL:Sense Motive				RANK:17
+SKILL:Sleight of Hand			RANK:17
+SKILL:Stealth					RANK:17
+SKILL:Swim						RANK:9
+ABILITY:CATEGORY=FEAT|Agile Maneuvers
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Greater Grapple
+ABILITY:CATEGORY=FEAT|Improved Disarm
+ABILITY:CATEGORY=FEAT|Improved Grapple
+ABILITY:CATEGORY=FEAT|Improved Trip
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Wind Stance
+LANGBONUS:Common|Tien|Vudrani
+
+
+STARTPACK:Pavbagha Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Pavbagha],[!PRERACE:1,%]		SOURCEPAGE:p.295
+ALIGN:LN
+RACE:Pavbagha	!PRERACE:1,%
+NAME:Pavbagha
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:5
+SKILL:Knowledge (History)		RANK:5
+SKILL:Knowledge (Religion)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:Stealth					RANK:5
+SKILL:Swim						RANK:5
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Weapon Focus (Claw)
+
+# COMMENT: Don't know how to add Improved Drag conditionally based on whether the APG is loaded or not. User can add it manually if needed.
+STARTPACK:Yethazmari Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Yethazmari],[!PRERACE:1,%]	SOURCEPAGE:p.296
+ALIGN:CE
+RACE:Yethazmari	!PRERACE:1,%
+NAME:Yethazmari
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+SKILL:Acrobatics				RANK:18
+SKILL:Bluff						RANK:18
+SKILL:Climb						RANK:9
+SKILL:Intimidate				RANK:18
+SKILL:Knowledge (Planes)		RANK:18
+SKILL:Knowledge (Religion)		RANK:9
+SKILL:Perception				RANK:18
+SKILL:Sense Motive				RANK:18
+SKILL:Stealth					RANK:18
+SKILL:Survival					RANK:18
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Flyby Attack
+ABILITY:CATEGORY=FEAT|Hover
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+LANGBONUS:Abyssal|Common|Infernal
+
+
+STARTPACK:Demon (Swaithe) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Demon (Swaithe)],[!PRERACE:1,%]	SOURCEPAGE:p.297
+ALIGN:CE
+RACE:Demon (Swaithe)	!PRERACE:1,%
+NAME:Swaithe Demon
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Handle Animal				RANK:5
+SKILL:Intimidate				RANK:5
+SKILL:Knowledge (Arcana)		RANK:5
+SKILL:Knowledge (Planes)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:Ride						RANK:5
+SKILL:Stealth					RANK:5
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+LANGBONUS:Orc
+
+
+STARTPACK:Arcanotheign Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Arcanotheign],[!PRERACE:1,%]	SOURCEPAGE:p.298
+ALIGN:TN
+RACE:Arcanotheign	!PRERACE:1,%
+NAME:Arcanotheign
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Craft (Alchemy)			RANK:17
+SKILL:Diplomacy					RANK:17
+SKILL:Fly						RANK:17
+SKILL:Heal						RANK:17
+SKILL:Intimidate				RANK:17
+SKILL:Knowledge (Arcana)		RANK:17
+SKILL:Knowledge (History)		RANK:17
+SKILL:Knowledge (Planes)		RANK:17
+SKILL:Knowledge (Religion)		RANK:17
+SKILL:Linguistics				RANK:17
+SKILL:Perception				RANK:17
+SKILL:Perform (Sing)			RANK:17
+SKILL:Sense Motive				RANK:17
+SKILL:Spellcraft				RANK:17
+SKILL:Stealth					RANK:17
+SKILL:Use Magic Device			RANK:17
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Command Undead
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Greater Spell Penetration
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Spell Penetration
+LANGBONUS:Abyssal|Ancient Osiriani|Celestial|Common|Draconic|Infernal|Protean
+
+
+STARTPACK:Burleev Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Burleev],[!PRERACE:1,%]	SOURCEPAGE:p.299
+ALIGN:TN
+RACE:Burleev	!PRERACE:1,%
+NAME:Burleev
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Intimidate				RANK:5
+SKILL:Knowledge (Arcana)		RANK:5
+SKILL:Knowledge (Planes)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:Spellcraft				RANK:5
+SKILL:Use Magic Device			RANK:5
+ABILITY:CATEGORY=FEAT|Combat Casting
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Acid Arrow
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze Monster
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Chill Touch
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Color Spray
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Magic Missile
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Sleep
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Dancing Lights
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Daze
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Disrupt Undead
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Ghost Sound
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Mage Hand
+SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Prestidigitation
+
+
+STARTPACK:The Stabbing Beast Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Stabbing Beast],[!PRERACE:1,%]	SOURCEPAGE:p.300
+ALIGN:NE
+RACE:The Stabbing Beast	!PRERACE:1,%
+NAME:The Stabbing Beast
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Appraise					RANK:8
+SKILL:Bluff						RANK:9
+SKILL:Climb						RANK:8
+SKILL:Craft (Alchemy)			RANK:9
+SKILL:Knowledge (Arcana)		RANK:9
+SKILL:Knowledge (Local)			RANK:9
+SKILL:Knowledge (Nature)		RANK:9
+SKILL:Knowledge (Planes)		RANK:8
+SKILL:Knowledge (Religion)		RANK:8
+SKILL:Perception				RANK:17
+SKILL:Sense Motive				RANK:8
+SKILL:Stealth					RANK:17
+ABILITY:CATEGORY=FEAT|Combat Expertise
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Spring Attack
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+LANGBONUS:Protean
+GEAR:Sword (Short)	SIZE:M	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Keen ~ Weapon
+GEAR:Sword (Short)	SIZE:M	LOCATION:Secondary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Keen ~ Weapon
+
+
+STARTPACK:Karumzek Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Karumzek],[!PRERACE:1,%]	SOURCEPAGE:p.301
+ALIGN:NE
+RACE:Karumzek	!PRERACE:1,%
+NAME:Karumzek
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Craft (Alchemy)			RANK:5
+SKILL:Knowledge (Nature)		RANK:5
+SKILL:Knowledge (Religion)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:Stealth					RANK:5
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Point-Blank Shot
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+
+
+STARTPACK:Tarrasque (Spawn of Rovagug)	TYPE:Default Monster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Tarrasque],[!PRERACE:1,%]		SOURCEPAGE:p.304
+ALIGN:CE
+RACE:Tarrasque	!PRERACE:1,%
+NAME:Tarrasque
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Perception	RANK:30
+ABILITY:CATEGORY=FEAT|Awesome Blow
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Bleeding Critical
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Staggering Critical
+TEMPLATE:Tarrasque (Spawn of Rovagug)
+
+
+STARTPACK:Qlippoth (Thognorok) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Qlippoth (Thognorok)],[!PRERACE:1,%]	SOURCEPAGE:p.305
+ALIGN:CE
+RACE:Qlippoth (Thognorok)	!PRERACE:1,%
+NAME:Thognorok Qlippoth
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Climb						RANK:5
+SKILL:Intimidate				RANK:5
+SKILL:Knowledge (Planes)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:Stealth					RANK:5
+ABILITY:CATEGORY=FEAT|Ability Focus (Acid Web)
+ABILITY:CATEGORY=FEAT|Skill Focus (Stealth)
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+
+
+STARTPACK:Sunlord Thalachos Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Sunlord Thalachos],[!PRERACE:1,%]	SOURCEPAGE:p.300
+ALIGN:NG
+RACE:Sunlord Thalachos	!PRERACE:1,%
+NAME:Sunlord Thalachos
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:15
+SKILL:Diplomacy					RANK:15
+SKILL:Heal						RANK:15
+SKILL:Intimidate				RANK:15
+SKILL:Knowledge (History)		RANK:15
+SKILL:Knowledge (Planes)		RANK:15
+SKILL:Knowledge (Religion)		RANK:15
+SKILL:Perception				RANK:15
+SKILL:Sense Motive				RANK:15
+SKILL:Stealth					RANK:15
+ABILITY:CATEGORY=FEAT|Double Slice
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Greater Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Two-Weapon Fighting
+ABILITY:CATEGORY=FEAT|Weapon Focus (Scimitar)
+GEAR:Scimitar		SIZE:L	LOCATION:Primary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Holy ~ Weapon.Special Ability ~ Flaming ~ Weapon
+GEAR:Scimitar		SIZE:L	LOCATION:Secondary Hand	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Holy ~ Weapon.Special Ability ~ Flaming ~ Weapon
+GEAR:Longbow (Composite)	SIZE:L	LOCATION:Equipped	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Holy ~ Weapon.Special Ability ~ Flaming ~ Weapon.Special Quality ~ Composite Bow Strength Rating|7
+
+
+STARTPACK:Yhohm Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Yhohm],[!PRERACE:1,%]	SOURCEPAGE:p.305
+ALIGN:NG
+RACE:Yhohm	!PRERACE:1,%
+NAME:Yhohm
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=10
+SKILL:Fly						RANK:5
+SKILL:Heal						RANK:5
+SKILL:Knowledge (Religion)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:Perform (Sing)			RANK:5
+SKILL:Stealth					RANK:5
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+
+STARTPACK:The Spirit of Adoration Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Spirit of Adoration],[!PRERACE:1,%]	SOURCEPAGE:p.300
+ALIGN:NG
+RACE:The Spirit of Adoration	!PRERACE:1,%
+NAME:The Spirit of Adoration
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Acrobatics				RANK:8
+SKILL:Bluff						RANK:8
+SKILL:Diplomacy					RANK:8
+SKILL:Disguise					RANK:8
+SKILL:Fly						RANK:8
+SKILL:Handle Animal				RANK:8
+SKILL:Heal						RANK:8
+SKILL:Intimidate				RANK:8
+SKILL:Knowledge (Religion)		RANK:8
+SKILL:Perception				RANK:16
+SKILL:Perform (Dance)			RANK:16
+SKILL:Sense Motive				RANK:16
+SKILL:Spellcraft				RANK:16
+SKILL:Stealth					RANK:16
+SKILL:Use Magic Device			RANK:8
+ABILITY:CATEGORY=FEAT|Blind-Fight
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Mobility
+ABILITY:CATEGORY=FEAT|Skill Focus (Perception)
+ABILITY:CATEGORY=FEAT|Step Up
+ABILITY:CATEGORY=FEAT|Weapon Focus (Glaive)
+ABILITY:CATEGORY=FEAT|Wind Stance
+LANGBONUS:Auran|Common|Ignan|Shadowtongue
+GEAR:Glaive			SIZE:L	LOCATION:Both Hands		EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Dancing ~ Melee
+
+
+STARTPACK:Dapsara Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Dapsara],[!PRERACE:1,%]	SOURCEPAGE:p.305
+ALIGN:NG
+RACE:Dapsara	!PRERACE:1,%
+NAME:Dapsara
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:Acrobatics				RANK:5
+SKILL:Knowledge (History)		RANK:5
+SKILL:Knowledge (Religion)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:TYPE=Perform				RANK:5
+SKILL:Sense Motive				RANK:5
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+
+STARTPACK:The Grand Defender Default	TYPE:Default Monster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Grand Defender],[!PRERACE:1,%]	SOURCEPAGE:p.276
+ALIGN:LG
+RACE:The Grand Defender	!PRERACE:1,%
+NAME:The Grand Defender
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+SKILL:Knowledge (Dungeoneering)	RANK:9
+SKILL:Knowledge (Engineering)	RANK:9
+SKILL:Knowledge (History)		RANK:9
+SKILL:Knowledge (Local)			RANK:9
+SKILL:Knowledge (Nature)		RANK:9
+SKILL:Knowledge (Religion)		RANK:9
+SKILL:Perception				RANK:18
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Great Cleave
+ABILITY:CATEGORY=FEAT|Improved Bull Rush
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Stand Still
+ABILITY:CATEGORY=FEAT|Throw Anything
+ABILITY:CATEGORY=FEAT|Toughness
+LANGBONUS:Ignan|Terran
+GEAR:Warhammer	SIZE:H	LOCATION:Primary Hand
+GEAR:Heavy Steel Shield (Base)	SIZE:H	LOCATION:Equipped		EQMOD:Special Ability ~ +3 ~ Shield
+
+
+STARTPACK:Chalkost Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Chalkost],[!PRERACE:1,%]	SOURCEPAGE:p.305
+ALIGN:LG
+RACE:Chalkost	!PRERACE:1,%
+NAME:Chalkost
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
+SKILL:TYPE=Craft				RANK:5
+SKILL:Disable Device			RANK:5
+SKILL:Knowledge (Dungeoneering)	RANK:5
+SKILL:Knowledge (Engineering)	RANK:5
+SKILL:Knowledge (Religion)		RANK:5
+SKILL:Perception				RANK:5
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Power Attack
+GEAR:Cestus		SIZE:M	LOCATION:Primary Hand		EQMOD:Special Quality ~ Masterwork ~ Weapon
+
+
+STARTPACK:Mother's Maw Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Mother's Maw],[!PRERACE:1,%]	SOURCEPAGE:p.296
+ALIGN:NE
+RACE:Mother's Maw	!PRERACE:1,%
+NAME:Mother's Maw
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Acrobatics				RANK:18
+SKILL:Fly						RANK:18
+SKILL:Intimidate				RANK:18
+SKILL:Knowledge (Planes)		RANK:18
+SKILL:Knowledge (Religion)		RANK:18
+SKILL:Perception				RANK:18
+SKILL:Profession (Cook)			RANK:18
+SKILL:Sense Motive				RANK:18
+SKILL:Stealth					RANK:18
+ABILITY:CATEGORY=FEAT|Cleave
+ABILITY:CATEGORY=FEAT|Critical Focus
+ABILITY:CATEGORY=FEAT|Improved Critical (Bite)
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Iron Will
+ABILITY:CATEGORY=FEAT|Iron Will
+ABILITY:CATEGORY=FEAT|Lightning Reflexes
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Staggering Critical
+LANGBONUS:Abyssal|Common|Infernal|Necril
+
+
+STARTPACK:Sarcovalt Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Sarcovalt],[!PRERACE:1,%]	SOURCEPAGE:p.305
+ALIGN:NE
+RACE:Sarcovalt	!PRERACE:1,%
+NAME:Sarcovalt
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+SKILL:Intimidate				RANK:4
+SKILL:Knowledge (Nature)		RANK:4
+SKILL:Knowledge (Religion)		RANK:4
+SKILL:Perception				RANK:4
+SKILL:Stealth					RANK:4
+SKILL:Survival					RANK:4
+ABILITY:CATEGORY=FEAT|Great Fortitude
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+
+
+STARTPACK:The Prince in Chains Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,The Prince in Chains],[!PRERACE:1,%]	SOURCEPAGE:p.296
+ALIGN:LE
+RACE:The Prince in Chains	!PRERACE:1,%
+NAME:The Prince in Chains
+STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Acrobatics				RANK:15
+SKILL:Climb						RANK:8
+SKILL:Intimidate				RANK:15
+SKILL:Knowledge (Planes)		RANK:15
+SKILL:Knowledge (Religion)		RANK:7
+SKILL:Perception				RANK:15
+SKILL:Stealth					RANK:15
+SKILL:Survival					RANK:15
+ABILITY:CATEGORY=FEAT|Combat Reflexes
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Improved Overrun
+ABILITY:CATEGORY=FEAT|Improved Sunder
+ABILITY:CATEGORY=FEAT|Power Attack
+ABILITY:CATEGORY=FEAT|Run
+ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
+LANGBONUS:Sylvan
+
+
+STARTPACK:Kyton (Lampadarius) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Kyton (Lampadarius)],[!PRERACE:1,%]	SOURCEPAGE:p.305
+ALIGN:LE
+RACE:Kyton (Lampadarius)	!PRERACE:1,%
+NAME:Lapidarius Kyton
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
+SKILL:Heal						RANK:5
+SKILL:Intimidate				RANK:5
+SKILL:Knowledge (Arcana)		RANK:5
+SKILL:Knowledge (Planes)		RANK:5
+SKILL:Perception				RANK:5
+SKILL:Stealth					RANK:5
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Improved Initiative
+ABILITY:CATEGORY=FEAT|Iron Will

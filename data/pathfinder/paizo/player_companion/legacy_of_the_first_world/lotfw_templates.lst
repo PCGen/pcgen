@@ -1,0 +1,12 @@
+SOURCELONG:Pathfinder Player Companion: Legacy of the First World	SOURCESHORT:LOTFW	SOURCEWEB:https://paizo.com/products/btpy9t1t	SOURCEDATE:2015-06
+
+Shamanic Enhancement Strength			VISIBLE:YES		BONUS:STAT|STR|2
+Shamanic Enhancement Dexterity		VISIBLE:YES		BONUS:STAT|DEX|2
+Shamanic Enhancement Constitution		VISIBLE:YES		BONUS:STAT|CON|2
+
+Fey-Touched Creature			SOURCEPAGE:p.10	!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct	BONUS:MISC|CR|1|PREHD:MIN=5	BONUS:VAR|HasLowlightVision|1|TYPE=Base	BONUS:SAVE|Will|2	DR:5/Cold Iron|PREHD:MIN=5,MAX=9	DR:10/Cold Iron|PREHD:MIN=10	SR:CR+5	ABILITY:Internal|AUTOMATIC|Race Traits ~ Fey-Touched Creature
+
+Add Shadow Scion Darkvision				PREVARLT:DarkvisionRange,1	BONUS:VAR|DarkvisionRange|30|TYPE=Base
+Improve Shadow Scion Darkvision			PREVARGTEQ:DarkvisionRange,1	BONUS:VAR|DarkvisionRange|10
+
+Masterpiece Activation LotFW	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Ragadahn's Raqs Beledi|PREMULT:1,[PRESPELL:1,Masterpiece (Ragadahn's Raqs Beledi)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Ragadahn's Raqs Beledi)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Ragadahn's Spiraling Ascent|PREMULT:1,[PRESPELL:1,Masterpiece (Ragadahn's Spiraling Ascent)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Ragadahn's Spiraling Ascent)]

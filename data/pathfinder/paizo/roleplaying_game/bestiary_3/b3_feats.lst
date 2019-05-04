@@ -5,15 +5,15 @@ SOURCELONG:Bestiary 3	SOURCESHORT:B3	SOURCEWEB:http://paizo.com/products/btpy8od
 
 # Feat Name			Allowed Companions
 # Ability Name							Allowed Companions
-CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Kyton (Augur)|PREALIGN:LE|PRECLASS:1,SPELLCASTER.Arcane=7
-CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Dragon (Faerie)|!PREALIGN:LG,LN,LE,NE,TN,CE|PRECLASS:1,SPELLCASTER.Arcane=7
-CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Zoog|PREALIGN:CN|PRECLASS:1,SPELLCASTER.Arcane=5
-CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Sprite|PREALIGN:CN|PRECLASS:1,SPELLCASTER.Arcane=5
-CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Rakshasa (Raktavarna)|PREALIGN:LE|PRECLASS:1,SPELLCASTER.Arcane=7
-CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Oni (Spirit)|PREALIGN:LE|PRECLASS:1,SPELLCASTER.Arcane=7
-CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Div (Doru)|PREALIGN:NE|PRECLASS:1,SPELLCASTER.Arcane=7
-CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Carbuncle|PREALIGN:TN,NG,NE|PRECLASS:1,SPELLCASTER.Arcane=5
-CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Archon (Harbinger)|PREALIGN:LG|PRECLASS:1,SPELLCASTER.Arcane=7
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Kyton (Augur)|PREALIGN:LE,NE,LN|PREVARGTEQ:FamiliarMasterLVL,7
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Dragon (Faerie)|!PREALIGN:LG,LN,LE,NE,TN,CE|PREVARGTEQ:FamiliarMasterLVL,7
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Zoog|PREALIGN:CN,CG,CE,TN|PREVARGTEQ:FamiliarMasterLVL,5
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Sprite|PREALIGN:CN,CG,CE,TN|PREVARGTEQ:FamiliarMasterLVL,5
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Rakshasa (Raktavarna)|PREALIGN:LE,LN,NE|PREVARGTEQ:FamiliarMasterLVL,7
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Oni (Spirit)|PREALIGN:LE,LN,NE|PREVARGTEQ:FamiliarMasterLVL,7
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Div (Doru)|PREALIGN:NE,TN,LE,CE|PREVARGTEQ:FamiliarMasterLVL,7
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Carbuncle|PREALIGN:TN,NG,NE|PREVARGTEQ:FamiliarMasterLVL,5
+CATEGORY=Feat|Improved Familiar.MOD				COMPANIONLIST:Familiar|Archon (Harbinger)|PREALIGN:LG,LN,NG|PREVARGTEQ:FamiliarMasterLVL,7
 
 
 CATEGORY=Special Ability|Arcane Bond ~ Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Flying Squirrel),Familiar (Fox),Familiar (Goat),Familiar (Otter),Familiar (Pig),Familiar (Raccoon)

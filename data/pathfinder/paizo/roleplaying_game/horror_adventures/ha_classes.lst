@@ -1,0 +1,23 @@
+SOURCELONG:Horror Adventures	SOURCESHORT:HA	SOURCEWEB:http://paizo.com/products/btpy9n5a	SOURCEDATE:2016-08
+
+#Undead Phantom
+CLASS:Undead Phantom	MAXLEVEL:20
+CLASS:Undead Phantom	HD:8	TYPE:Monster	PRERACE:1,Undead Phantom
+CLASS:Undead Phantom	FACT:Abb|UnPh	FACT:ClassType|Monster
+CLASS:Undead Phantom	DEFINE:UndeadPhantomLVL|0	BONUS:VAR|UndeadPhantomLVL|CL
+CLASS:Undead Phantom	SOURCEPAGE:p.69	
+CLASS:Undead Phantom	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Undead Phantom	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Undead Phantom	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:PhantomGoodSave_Fortitude,1
+CLASS:Undead Phantom	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:PhantomGoodSave_Fortitude,0
+CLASS:Undead Phantom	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:PhantomGoodSave_Reflex,1
+CLASS:Undead Phantom	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:PhantomGoodSave_Reflex,0
+CLASS:Undead Phantom	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:PhantomGoodSave_Will,1
+CLASS:Undead Phantom	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0|PREVAREQ:PhantomGoodSave_Will,0
+CLASS:Undead Phantom	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1|PREVAREQ:PhantomGoodSave_Fortitude,1
+CLASS:Undead Phantom	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1|PREVAREQ:PhantomGoodSave_Fortitude,0
+CLASS:Undead Phantom	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1|PREVAREQ:PhantomGoodSave_Reflex,1
+CLASS:Undead Phantom	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1|PREVAREQ:PhantomGoodSave_Reflex,0
+CLASS:Undead Phantom	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1|PREVAREQ:PhantomGoodSave_Will,1
+CLASS:Undead Phantom	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1|PREVAREQ:PhantomGoodSave_Will,0
+CLASS:Undead Phantom	STARTSKILLPTS:2

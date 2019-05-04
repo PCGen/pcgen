@@ -106,7 +106,7 @@ Dungeon Ring (Jailers)		OUTPUTNAME:Jailer's Ring	TYPE:Magic.Ring	COST:16000					
 Dungeon Ring (Prisoners)	OUTPUTNAME:Prisoner's Ring	TYPE:Magic.Ring	COST:250										SOURCEPAGE:p.292
 Ring of Arcane Signets							TYPE:Magic.Ring	COST:1000										SOURCEPAGE:p.292
 Ring of Delayed Doom							TYPE:Magic.Ring	COST:45000	EQMOD:Special Ability ~ Charged Item / 9 Maximum	SOURCEPAGE:p.292											SPROP:Whenever your mind or body first becomes subject to any harmful effect that allows a saving throw to resist or mitigate it, you may, as an immediate action, choose to delay the onset of that effect for 1 minute.
-Ring of Forcefangs							TYPE:Magic.Ring	COST:8000										SOURCEPAGE:p.292											SPROP:Negates any force spell or spell-like ability targeted at the wearer. Doing so gives the ring a number of charges equal to the spell level of the incoming force effect, to a maximum of 9 charges. On command, the wearer can use the ring?s charges to cast magic missile, per the spell of the same name, per charge but no more than five missiles per round.
+Ring of Forcefangs							TYPE:Magic.Ring	COST:8000										SOURCEPAGE:p.292											SPROP:Negates any force spell or spell-like ability targeted at the wearer. Doing so gives the ring a number of charges equal to the spell level of the incoming force effect, to a maximum of 9 charges. On command, the wearer can use the ring's charges to cast magic missile, per the spell of the same name, per charge but no more than five missiles per round.
 Ring of Maniacal Devices						TYPE:Magic.Ring	COST:5000										SOURCEPAGE:p.292	BONUS:SKILL|Craft (Traps),Disable Device|5|TYPE=Competence
 Ring of Retribution							TYPE:Magic.Ring	COST:15000										SOURCEPAGE:p.292											SPROP:Once per day, the wearer of this charred bone ring may, as an immediate action, cause it to detonate in a 30-foot-radius burst that deals 10d6 points of fire damage (Reflex DC 14 half ).
 #Ring of Revelation (Lesser)			OUTPUTNAME:Ring of Revelation, Lesser		TYPE:Magic.Ring	COST:10000	SOURCEPAGE:p.293
@@ -224,7 +224,7 @@ Philter of Love	TYPE:Magic.Wondrous	COST:3000	SOURCEPAGE:p.308
 
 ###Block:R
 # Equipment Name			Type					Cost		Weight	Source Page		Modify VAR
-Robes of Arcane Heritage	TYPE:Magic.Wondrous.Robe	COST:16000	WT:1		SOURCEPAGE:p.308	BONUS:VAR|BloodlineLVL|4	BONUS:VAR|BloodlineFeatProgression|-4
+Robe of Arcane Heritage		TYPE:Magic.Wondrous.Robe	COST:16000	WT:1		SOURCEPAGE:p.308	BONUS:VAR|BloodlineLVL|4	BONUS:VAR|BloodlineProgressionLVL|4	BONUS:VAR|BloodlineFeatProgression|-4	BONUS:VAR|EldritchHeritageBloodlineLVL|4
 
 ###Block:S
 # Equipment Name			Type						Contains			Cost		Weight	Source Page		Modify VAR

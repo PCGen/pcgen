@@ -1,0 +1,55 @@
+CAMPAIGN:Blood of the Beast (PFS)
+KEY:PFS ~ Weapon Master's Handbook
+#GAMEMODE:Pathfinder|Pathfinder_PFS
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder Player Companion
+PRECAMPAIGN:1,INCLUDES=Weapon Master's Handbook
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com/
+SOURCELONG:Pathfinder Player Companion: Weapon Master's Handbook
+SOURCESHORT:WMH
+SOURCEWEB:http://paizo.com/products/btpy9hdy
+SOURCEDATE:2015-12
+ISOGL:YES
+
+#COVER:PZO9463_180.jpeg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy9j6s|Buy this publication from Paizo Publishing!
+DESC:Embrace the shadows! Whether from the subterranean wilds of the Darklands or otherworldly realms of absolute shadow, heroes can rise from the darkest places. Pathfinder Player Companion: Blood of Shadows explores the strange paths and subtle abilities empowered by darkness. Discover the secrets of drow, fetchlings, and wayangs--races infused with lightless powers. Within this player-friendly volume are options and secrets for characters of every class, including a penumbral psychic discipline, shadowy rogue talents, and an oracle mystery that plumbs the depths of darkness.
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Pathfinder Player Companion: Blood of Shadows Copyright 2016, Paizo Inc.; Authors: Alexander Augunas, Steven T. Helt, Luis Loza, and Ron Lundeen.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Blood of Shadows" Copyright 2016, PCgen Data team (including but not limited to Gwen T. (evilpixie87))
+
+
+
+#INFOTEXT:To display an Information in the Source Info section on the Source Materials tab, replace the text after 'INFOTEXT:' with your text and remove the '#'
+
+
+#Additional Resources
+#Last Updated Last Updated Wednesday, December 19, 2018
+#
+# Archetypes: All archetypes in this book are legal for play. The Molthuni Arsenal Chaplain does not qualify for the Advanced Weapon Training on pages 18-19.
+# Feats: All feats in the book are legal for play with the following exceptions: Ascetic Form, Ascetic Strike, Ascetic Style, Burrowing Shot, Dwarven Fury, Dwarven Seething, Orc Fury, Orc Rampage, Orc Snarl, Overwatch Style, Overwatch Tactician, Overwatch Vortex, Smash from the Air. Elven Battle Focus functions only for melee weapons. When qualifying for and calculating the benefits of an item mastery feat, a PC uses the base Fortitude save bonus from only one of his classes.
+# Equipment: The magic weapons and special abilities on pages 30-31 are legal for play with the following exceptions: liberating and Cailean fighting tankard. Traits: All traits in this book are legal for play except Aldori Caution.
+# Misc.: The weapon tricks on pages 8-9 are legal for play with the following exceptions: hindering shot, quick brace, and suppressing fire. The divine fighting techniques on pages 10-11 are legal for play; the initial benefit of Iomedae's Inspiring Sword only functions during combat. The advanced weapon training rules on page 18-19 are legal for play. The combat tricks on pages 24-25 and the custom weapon rules on pages 28-29 are not legal for play.
+
+# Data files
+ABILITY:pfs_wmh_abilities.lst
+EQUIPMENT:pfs_wmh_equip.lst
+EQUIPMOD:pfs_wmh_equipmods.lst
+ABILITY:pfs_wmh_feats.lst
+WEAPONPROF:pfs_wmh_profs_weapon.lst
+
+# Support
+ABILITY:support/pfs_wmh_abilities_isc.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Combat
+ABILITY:support/pfs_wmh_abilities_isg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
+ABILITY:support/pfs_wmh_abilities_iswg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea World Guide

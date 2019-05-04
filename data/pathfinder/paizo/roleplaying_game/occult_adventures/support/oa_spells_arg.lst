@@ -31,3 +31,57 @@ Theft Ward.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
 Truespeak.MOD			TYPE:Psychic	CLASSES:Mesmerist=4
 Village Veil.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
 Whispering Lore.MOD		TYPE:Psychic	CLASSES:Medium=1
+
+
+# Psychic Spells:
+blend.MOD				TYPE:Psychic	CLASSES:Psychic=1
+recharge innate magic.MOD	TYPE:Psychic	CLASSES:Psychic=1
+sow thought.MOD			TYPE:Psychic	CLASSES:Psychic=1
+whispering lore.MOD		TYPE:Psychic	CLASSES:Psychic=1
+ancestral regression.MOD	TYPE:Psychic	CLASSES:Psychic=2
+bestow insight.MOD		TYPE:Psychic	CLASSES:Psychic=2
+commune with birds.MOD		TYPE:Psychic	CLASSES:Psychic=2
+jitterbugs.MOD			TYPE:Psychic	CLASSES:Psychic=2
+savage maw.MOD			TYPE:Psychic	CLASSES:Psychic=2
+shadow anchor.MOD			TYPE:Psychic	CLASSES:Psychic=2
+agonizing rebuke.MOD		TYPE:Psychic	CLASSES:Psychic=3
+blood scent.MOD			TYPE:Psychic	CLASSES:Psychic=3
+fearsome duplicate.MOD		TYPE:Psychic	CLASSES:Psychic=3
+minor dream.MOD			TYPE:Psychic	CLASSES:Psychic=3
+nixie's lure.MOD			TYPE:Psychic	CLASSES:Psychic=3
+forgetful slumber.MOD		TYPE:Psychic	CLASSES:Psychic=4
+healing warmth.MOD		TYPE:Psychic	CLASSES:Psychic=4
+minor phantom object.MOD	TYPE:Psychic	CLASSES:Psychic=4
+resilient reservoir.MOD		TYPE:Psychic	CLASSES:Psychic=4
+shadowy haven.MOD			TYPE:Psychic	CLASSES:Psychic=4
+vomit twin.MOD			TYPE:Psychic	CLASSES:Psychic=4
+half-blood extraction.MOD	TYPE:Psychic	CLASSES:Psychic=5
+major phantom object.MOD	TYPE:Psychic	CLASSES:Psychic=5
+truespeak.MOD			TYPE:Psychic	CLASSES:Psychic=5
+village veil.MOD			TYPE:Psychic	CLASSES:Psychic=5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

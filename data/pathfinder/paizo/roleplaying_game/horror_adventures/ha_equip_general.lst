@@ -1,0 +1,29 @@
+SOURCELONG:Horror Adventures	SOURCESHORT:HA	SOURCEWEB:http://paizo.com/products/btpy9n5a	SOURCEDATE:2016-08
+
+#Torture Implements
+Heretic's Fork				TYPE:Goods.Torture			COST:10	WT:1		SOURCEPAGE:p.212
+Iron Maiden					TYPE:Goods.Torture			COST:500	WT:300	SOURCEPAGE:p.212
+Rack						TYPE:Goods.Torture			COST:300	WT:500	SOURCEPAGE:p.212
+Rat Cage					TYPE:Goods.Torture			COST:5	WT:15		SOURCEPAGE:p.212
+Thumbscrew (Common)			TYPE:Goods.Torture			COST:15	WT:1		SOURCEPAGE:p.212
+Thumbscrew (Masterwork)			TYPE:Goods.Torture			COST:50	WT:1		SOURCEPAGE:p.212
+Trephine					TYPE:Goods.Torture			COST:20	WT:1		SOURCEPAGE:p.212
+
+#Alchemical Goods
+Plague Powder (Blinding Sickness)	TYPE:Goods.Alchemical.Consumable	COST:256			SOURCEPAGE:p.213
+Plague Powder (Bloody End)		TYPE:Goods.Alchemical.Consumable	COST:400			SOURCEPAGE:p.213
+Plague Powder (Brain Moss)		TYPE:Goods.Alchemical.Consumable	COST:256			SOURCEPAGE:p.213
+Plague Powder (Bubonic Plague)	TYPE:Goods.Alchemical.Consumable	COST:289			SOURCEPAGE:p.213
+Plague Powder (Cackle Fever)		TYPE:Goods.Alchemical.Consumable	COST:256			SOURCEPAGE:p.213
+Plague Powder (Demon Fever)		TYPE:Goods.Alchemical.Consumable	COST:324			SOURCEPAGE:p.213
+Plague Powder (Devil Chills)		TYPE:Goods.Alchemical.Consumable	COST:196			SOURCEPAGE:p.213
+Plague Powder (Filth Fever)		TYPE:Goods.Alchemical.Consumable	COST:144			SOURCEPAGE:p.213
+Plague Powder (Ghoul Distemper)	TYPE:Goods.Alchemical.Consumable	COST:324			SOURCEPAGE:p.213
+Plague Powder (Leprosy)			TYPE:Goods.Alchemical.Consumable	COST:144			SOURCEPAGE:p.213
+Plague Powder (Mindfire)		TYPE:Goods.Alchemical.Consumable	COST:144			SOURCEPAGE:p.213
+Plague Powder (Red Ache)		TYPE:Goods.Alchemical.Consumable	COST:225			SOURCEPAGE:p.213
+Plague Powder (Shakes)			TYPE:Goods.Alchemical.Consumable	COST:169			SOURCEPAGE:p.213
+Plague Powder (Slimy Doom)		TYPE:Goods.Alchemical.Consumable	COST:196			SOURCEPAGE:p.213
+Plague Powder (Gore Worms)		TYPE:Goods.Alchemical.Consumable	COST:400			SOURCEPAGE:p.213
+Plague Powder (Skin Wastes)		TYPE:Goods.Alchemical.Consumable	COST:400			SOURCEPAGE:p.213
+Reanimating Fluid				TYPE:Goods.Alchemical.Consumable	COST:100			SOURCEPAGE:p.213
