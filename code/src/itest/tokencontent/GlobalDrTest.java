@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.DamageReduction;
@@ -27,6 +29,7 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.DrLst;
 
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
@@ -36,6 +39,7 @@ public class GlobalDrTest extends AbstractContentTokenTest
 	private static DrLst token = new DrLst();
 	private DamageReductionFacet drFacet;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

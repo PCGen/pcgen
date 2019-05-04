@@ -678,7 +678,7 @@ public class FlippingSplitPane extends JSplitPane
 		@Override
 		protected void maybeShowPopup(MouseEvent e)
 		{
-			if (Utilities.isRightMouseButton(e))
+			if (e.isPopupTrigger())
 			{
 				showPopup(e);
 			}

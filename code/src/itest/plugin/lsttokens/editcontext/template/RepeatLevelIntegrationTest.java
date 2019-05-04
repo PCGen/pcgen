@@ -33,8 +33,8 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreLevelWriter;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 public class RepeatLevelIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>
@@ -44,7 +44,7 @@ public class RepeatLevelIntegrationTest extends
 	private static CDOMTokenLoader<PCTemplate> loader =
             new CDOMTokenLoader<>();
 
-	@BeforeClass
+	@BeforeAll
 	public static void ltClassSetUp() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new PreLevelParser());

@@ -257,8 +257,8 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			naturalWeapon.setOutputIndex(0);
 			naturalWeapon.setOutputSubindex(count);
 			// these values need to be locked.
-			naturalWeapon.setQty(new Float(1));
-			naturalWeapon.setNumberCarried(new Float(1));
+			naturalWeapon.setQty(Float.valueOf(1));
+			naturalWeapon.setNumberCarried(1.0f);
 
 			context.getObjectContext().addToList(obj, ListKey.NATURAL_WEAPON, naturalWeapon);
 			count++;

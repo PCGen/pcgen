@@ -11,7 +11,7 @@ ABILITYCATEGORY:Vine Leshy Racial Trait	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO
 ###Block: Class Abilities
 # Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI					Display Location
 ABILITYCATEGORY:Shifter Class Feature	VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Shifter Class Feature			PLURAL:Shifter Class Features.ShifterClassFeatures	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Shifter Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Archetype		TYPE:Shifter Archetype.Shifter Archetype	PLURAL:Shifter Archetypes					DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Shifter Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES					CATEGORY:Archetype		TYPE:Shifter Archetype.ShifterArchetype	PLURAL:Shifter Archetypes					DISPLAYLOCATION:Archetype
 ABILITYCATEGORY:Shifter Aspect Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Shifter Aspect				PLURAL:Shifter Aspect Choices					DISPLAYLOCATION:Class Features
 
 ###Block:Feat Support
@@ -39,7 +39,6 @@ ABILITYCATEGORY:Leafshifter Aspect Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL
 ###Block:Class Option Support Support
 # Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object								Specific choices list			Plural description for UI				Display Location
 ABILITYCATEGORY:Shaman Wood Wandering Hex				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShamanSpiritHex.ShamanWoodHex																			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Verdant Bloodrager Bloodline Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:VerdantBloodRagerBloodline					ABILITYLIST:Special Bloodline Feat	PLURAL:Verdant Bloodrager Bloodline Feats		DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Kineticist Infusion or Wild Talent Wood	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO						CATEGORY:Special Ability	TYPE:Infusion Wild Talent Wood.Utility Wild Talent Wood															DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Leshy Warden Domain Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DruidDomainSelection																				DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Leshy Tender Choice 1				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:LeshyTenderChoice1																					DISPLAYLOCATION:Class Features

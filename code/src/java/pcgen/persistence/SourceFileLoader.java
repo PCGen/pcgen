@@ -229,7 +229,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	}
 
 	@Override
-	public void execute()
+	public void run()
 	{
 		Globals.emptyLists();
 		SettingsHandler.setGame(selectedGame.getName());
@@ -270,8 +270,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		{
 			try
 			{
-				StringBuilder dataBuffer = LstFileLoader.readFromURI(licenseFile.getURI());
-				licenses.add(dataBuffer.toString());
+				String dataBuffer = LstFileLoader.readFromURI(licenseFile.getURI());
+				licenses.add(dataBuffer);
 			}
 			catch (PersistenceLayerException e)
 			{
@@ -300,12 +300,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 */
 	private int countTotalFilesToLoad()
 	{
-		int count = 0;
-		for (ListKey<?> lk : fileLists.getKeySet())
-		{
-			count += fileLists.sizeOfListFor(lk);
-		}
-		return count;
+		return fileLists.getKeySet().stream()
+		                .mapToInt(fileLists::sizeOfListFor)
+		                .sum();
 	}
 
 	private void addCustomFilesToStartOfList()

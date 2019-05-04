@@ -195,8 +195,9 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 				}
 				tempMap.get(type).add(category);
 			}
-			for (String type : tempMap.keySet())
+			for (final Map.Entry<String, List<AbilityCategory>> entry : tempMap.entrySet())
 			{
+				String type = entry.getKey();
 				if (!typeMap.containsKey(type))
 				{
 					tabs.add(new TabInfo(type, character));
@@ -206,7 +207,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 						addTab(type);
 					}
 				}
-				typeMap.get(type).categoryList.updateContents(tempMap.get(type));
+				typeMap.get(type).categoryList.updateContents(entry.getValue());
 			}
 			Iterator<String> oldTypes = typeMap.keySet().iterator();
 			while (oldTypes.hasNext())

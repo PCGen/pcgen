@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -26,14 +29,18 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class PreSpellSchoolTest extends AbstractCharacterTestCase
 {
 
 	private PCClass wiz;
 	private PCClass cle;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		LoadContext context = Globals.getContext();
@@ -81,6 +88,7 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 		finishLoad();
 	}
 
+	@Test
 	public void testSimpleSchool() throws Exception
 	{
 		final Prerequisite prereq = new Prerequisite();
@@ -100,6 +108,7 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
+	@Test
 	public void testTwoClassSchool() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
@@ -123,7 +132,7 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 		assertTrue(passes);
 	}
 
-
+	@Test
 	public void testNotSimpleSchool() throws Exception
 	{
 		final Prerequisite prereq = new Prerequisite();
@@ -143,6 +152,7 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 		assertFalse(passes);
 	}
 
+	@Test
 	public void testNotTwoClassSchool() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();

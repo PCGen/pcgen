@@ -28,6 +28,7 @@ import java.awt.event.MouseListener;
 import java.text.DecimalFormat;
 import java.util.EventObject;
 import java.util.Objects;
+import java.util.stream.IntStream;
 
 import javax.swing.AbstractSpinnerModel;
 import javax.swing.ComboBoxModel;
@@ -514,24 +515,20 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		private void releaseMouse(JSpinner jSpinner)
 		{
-			for (int i = 0; i < jSpinner.getComponentCount(); i++)
-			{
-				Component comp = jSpinner.getComponent(i);
-				if (comp instanceof JButton)
-				{
-					releaseMouse(comp);
-				}
-			}
+			IntStream.range(0, jSpinner.getComponentCount())
+			         .mapToObj(jSpinner::getComponent)
+			         .filter(comp -> comp instanceof JButton)
+			         .forEach(this::releaseMouse);
 		}
 
 		private void releaseMouse(Component component)
 		{
 			MouseListener[] listeners = component.getMouseListeners();
-			for (int i = 0; i < listeners.length; i++)
+			for (MouseListener listener : listeners)
 			{
-				MouseListener listener = listeners[i];
 				listener.mouseReleased(new MouseEvent(component, MouseEvent.MOUSE_RELEASED, System.currentTimeMillis(),
-					0, 0, 0, 1, false));
+						0, 0, 0, 1, false
+				));
 			}
 		}
 

@@ -172,11 +172,8 @@ public final class OutputDB
 	public static Map<String, Object> buildModeDataModel(GameMode mode)
 	{
 		Map<String, Object> input = new HashMap<>();
-		for (Object key : modeModels.keySet())
-		{
-			ModeModelFactory modelFactory = modeModels.get(key);
-			input.put(key.toString(), modelFactory.generate(mode));
-		}
+		modeModels.forEach((key, modelFactory) ->
+				input.put(key.toString(), modelFactory.generate(mode)));
 		return input;
 	}
 

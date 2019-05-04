@@ -26,14 +26,14 @@ import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreLevelWriter;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractTextPropertyIntegrationTestCase<T extends CDOMObject>
 		extends AbstractIntegrationTestCase<T>
 {
 
-	@BeforeClass
+	@BeforeAll
 	public static void localClassSetUp() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new PreLevelParser());

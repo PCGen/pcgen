@@ -17,14 +17,18 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.facet.analysis.MovementFacet;
-import pcgen.core.Movement;
+import pcgen.cdom.facet.analysis.MoveCloneFacet;
+import pcgen.core.MoveClone;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.MovecloneLst;
 
+import org.junit.jupiter.api.BeforeEach;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
@@ -32,13 +36,14 @@ public class GlobalMoveCloneTest extends AbstractContentTokenTest
 {
 
 	private static MovecloneLst token = new MovecloneLst();
-	private MovementFacet moveFacet;
+	private MoveCloneFacet moveCloneFacet;
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		moveFacet = FacetLibrary.getFacet(MovementFacet.class);
+		moveCloneFacet = FacetLibrary.getFacet(MoveCloneFacet.class);
 	}
 
 	@Override
@@ -63,22 +68,16 @@ public class GlobalMoveCloneTest extends AbstractContentTokenTest
 	protected boolean containsExpected()
 	{
 		//Cannot use contains because facet is using instance identity
-		Movement movement = moveFacet.getSet(id).iterator().next();
-		return (movement.getMoveRatesFlag() == 2)
-			&& (movement.getDoubleMovement() == 0.0)
-			&& (movement.getMovementMult(0) == 0.0)
-			&& (movement.getMovementMultOp(0).equals(""))
-			&& movement.getMovementType(0).equals("Walk")
-			&& (movement.getMovementMult(1) == 2.0)
-			&& (movement.getMovementMultOp(1).equals("*"))
-			&& movement.getMovementType(1).equals("Fly")
-			&& (movement.getNumberOfMovements() == 2);
+		MoveClone movement = moveCloneFacet.getSet(id).iterator().next();
+		return movement.getBaseType().equals(MovementType.getConstant("Walk"))
+			&& movement.getCloneType().equals(MovementType.getConstant("Fly"))
+			&& movement.getFormulaString().equals("*2");
 	}
 
 	@Override
 	protected int targetFacetCount()
 	{
-		return moveFacet.getCount(id);
+		return moveCloneFacet.getCount(id);
 	}
 
 	@Override

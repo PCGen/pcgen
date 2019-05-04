@@ -17,6 +17,9 @@
  */
 package tokenmodel.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
@@ -30,6 +33,8 @@ import plugin.lsttokens.choose.NoChoiceToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import util.TestURI;
 
 public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTest
@@ -37,7 +42,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 
 	protected static final plugin.lsttokens.AbilityLst ABILITY_TOKEN =
 			new plugin.lsttokens.AbilityLst();
-	protected static final plugin.lsttokens.deprecated.AutoFeatToken AUTO_FEAT_TOKEN =
+	private static final plugin.lsttokens.deprecated.AutoFeatToken AUTO_FEAT_TOKEN =
 			new plugin.lsttokens.deprecated.AutoFeatToken();
 	private static final plugin.lsttokens.deprecated.ChooseFeatSelectionToken CHOOSE_FEATSELECTION_TOKEN =
 			new plugin.lsttokens.deprecated.ChooseFeatSelectionToken();
@@ -47,14 +52,15 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 	private static final NoChoiceToken CHOOSE_NOCHOICE_TOKEN =
 			new NoChoiceToken();
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(ABILITY_TOKEN);
 	}
 
-	public Ability getMultNo(String s)
+	private Ability getMultNo(String s)
 	{
 		Ability a = BuildUtilities.buildFeat(context, s);
 		ParseResult result = TYPE_TOKEN.parseToken(context, a, "Selectable");
@@ -66,7 +72,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		return a;
 	}
 
-	public Ability getMultYesStackNo(String s, String target)
+	private Ability getMultYesStackNo(String s, String target)
 	{
 		Ability a = BuildUtilities.buildFeat(context, s);
 		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "FEAT|%LIST");
@@ -90,7 +96,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		return a;
 	}
 
-	public Ability getMultYesStackYes(String s, String target)
+	private Ability getMultYesStackYes(String s, String target)
 	{
 		Ability a = BuildUtilities.buildFeat(context, s);
 		ParseResult result = AUTO_FEAT_TOKEN.parseToken(context, a, "FEAT|%LIST");
@@ -120,7 +126,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		return a;
 	}
 
-	public Ability getMultYesStackNoChooseNoChoice(String s)
+	private Ability getMultYesStackNoChooseNoChoice(String s)
 	{
 		Ability a = BuildUtilities.buildFeat(context, s);
 		ParseResult result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
@@ -138,7 +144,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		return a;
 	}
 
-	public Ability getMultYesStackYesChooseNoChoice(String s)
+	private Ability getMultYesStackYesChooseNoChoice(String s)
 	{
 		Ability a = BuildUtilities.buildFeat(context, s);
 		ParseResult result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
@@ -162,6 +168,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		return a;
 	}
 
+	@Test
 	public void testMultNo()
 	{
 		getMultNo("MultNo");
@@ -173,6 +180,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "MultNo"));
 	}
 
+	@Test
 	public void testNaturalParens()
 	{
 		getMultNo("Natural (Parens)");
@@ -184,6 +192,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Natural (Parens)"));
 	}
 
+	@Test
 	public void testMultYes()
 	{
 		getMultNo("Target");
@@ -197,6 +206,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Target"));
 	}
 
+	@Test
 	public void testMultYesTargetParens()
 	{
 		getMultNo("Target (Parens)");
@@ -210,6 +220,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Target (Parens)"));
 	}
 
+	@Test
 	public void testMultYesNC()
 	{
 		getMultYesStackNoChooseNoChoice("MultYesNC");
@@ -221,6 +232,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "MultYesNC"));
 	}
 
+	@Test
 	public void testStackYes()
 	{
 		getMultNo("Target");
@@ -234,6 +246,7 @@ public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTe
 		assertTrue(pc.hasAbilityKeyed(BuildUtilities.getFeatCat(), "Target"));
 	}
 
+	@Test
 	public void testStackYesNC()
 	{
 		getMultYesStackNoChooseNoChoice("MultYesStackYesNC");

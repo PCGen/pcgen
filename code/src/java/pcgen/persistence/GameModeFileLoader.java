@@ -96,7 +96,7 @@ public class GameModeFileLoader extends PCGenTask
 	}
 
 	@Override
-	public void execute()
+	public void run()
 	{
 		String[] gameFiles = GameModeFileLoader.getGameFilesList();
 		if ((gameFiles != null) && (gameFiles.length > 0))

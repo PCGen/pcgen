@@ -1081,7 +1081,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			boolean cellHasFocus)
 		{
 			super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-			if (value instanceof InfoFacade && !character.isQualifiedFor((InfoFacade) value))
+			if ((character != null) && (value instanceof InfoFacade) && !character.isQualifiedFor((InfoFacade) value))
 			{
 				if (index == -1)
 				{// this is a hack to prevent the combobox from overwriting the text color

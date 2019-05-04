@@ -9,7 +9,6 @@ nuget:
 install:
  - cmd: |
     choco install gradle nsis
-
 build_script:
   gradle build --info --no-daemon
 

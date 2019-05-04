@@ -33,7 +33,7 @@ Tanner's Kit																TYPE:Goods.Tools										COST:10	WT:5		SOURCEPAGE:p
 Tent Cover																	TYPE:Goods.General									COST:15	WT:15		SOURCEPAGE:p.244
 Trekking Pole																TYPE:Goods.General									COST:15	WT:2		SOURCEPAGE:p.244
 Wading Boots																TYPE:Goods.General									COST:50	WT:2		SOURCEPAGE:p.245
-Waist Pouch																	TYPE:Goods.General									COST:0.5	WT:0.5	SOURCEPAGE:p.245
+Waist Pouch																	TYPE:Goods.General.Container				CONTAINS:UNLIM|Any	COST:0.5	WT:0.5	SOURCEPAGE:p.245
 Windup Music Box																TYPE:Goods.General									COST:25	WT:0.5	SOURCEPAGE:p.245
 Wing Hooks																	TYPE:Goods.General.Racial.Gathlain							COST:150	WT:2		SOURCEPAGE:p.13
 

@@ -17,6 +17,12 @@
  */
 package plugin.exporttokens;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -27,11 +33,10 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * The Class {@code PortraitTokenTest} checks the function of PortraitToken.
- *
- * <br/>
- * 
  */
 
 public class PortraitTokenTest extends AbstractCharacterTestCase
@@ -43,6 +48,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 	 * Check the generation of a thumbnail file for valid, no scaling conditions.
 	 * @throws Exception Not expected.
 	 */
+	@Test
 	public void testThumb() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -62,6 +68,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 	 * Check the generation of a thumbnail file for valid conditions with scaling required.
 	 * @throws Exception Not expected.
 	 */
+	@Test
 	public void testThumbScaling() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
@@ -83,6 +90,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 	 * Check the generation of a thumbnail file for invalid conditions.
 	 * @throws Exception Not expected.
 	 */
+	@Test
 	public void testThumbInvalid() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();

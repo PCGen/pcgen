@@ -21,7 +21,6 @@ package plugin.exporttokens;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -89,13 +88,12 @@ public class HitDiceToken extends Token
 						hdMap.merge(hitDie, 1, (a, b) -> a + b)
 			);
 
-			Set<Integer> keys = hdMap.keySet();
-			for (int key : keys)
+			for (final Map.Entry<Integer, Integer> entry : hdMap.entrySet())
 			{
-				Integer value = hdMap.get(key);
+				Integer value = entry.getValue();
 				ret.append(del);
 				ret.append('(');
-				ret.append(value).append('d').append(key);
+				ret.append(value).append('d').append((int) entry.getKey());
 				ret.append(')');
 				del = "+";
 			}
@@ -134,18 +132,17 @@ public class HitDiceToken extends Token
 						.map(i -> display.getLevelHitDie(pcClass, i + 1).getDie())
 						.filter(hitDie -> hitDie != 0)
 						.forEach(hitDie -> hdMap.merge(hitDie, 1, (a, b) -> a + b)));
-		Set<Integer> keys = hdMap.keySet();
 
-		if (keys.size() > 1)
+		if (hdMap.size() > 1)
 		{
 			ret.append(getShortToken(display));
 			ret.append(" HD; ");
 		}
-		for (int key : keys)
+		for (final Map.Entry<Integer, Integer> entry : hdMap.entrySet())
 		{
-			Integer value = hdMap.get(key);
+			Integer value = entry.getValue();
 			ret.append(del);
-			ret.append(value).append('d').append(key);
+			ret.append(value).append('d').append((int) entry.getKey());
 			total += value;
 			del = "+";
 		}

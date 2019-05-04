@@ -17,6 +17,8 @@
  */
 package tokenmodel;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Collection;
 
 import pcgen.cdom.base.CDOMObject;

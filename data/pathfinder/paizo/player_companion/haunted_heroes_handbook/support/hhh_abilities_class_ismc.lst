@@ -1,0 +1,6 @@
+SOURCELONG:Haunted Heroes Handbook	SOURCESHORT:HHH	SOURCEWEB:https://paizo.com/products/btpy9nft	SOURCEDATE:2016-08
+
+#Uda Wendo support - may need rework when source is finally added
+Ruins Domain			KEY:Wendo Domain ~ Ruins				CATEGORY:Special Ability	TYPE:WendoDomainChoice			ABILITY:Special Ability|AUTOMATIC|Ruins Domain ~ Ruin Touch					DEFINE:DomainRuinsLVL|0		DEFINE:DomainRuinsDC|0	DEFINE:DomainRuinsTimes|0	BONUS:VAR|DomainRuinsLVL|DomainLVL|TYPE=Domain	BONUS:VAR|DomainRuinsDC|10+(DomainRuinsLVL/2)+WIS|TYPE=Domain	BONUS:VAR|DomainRuinsTimes|DomainPowerTimes|TYPE=Domain		SPELLLEVEL:CLASS|Medium=1|Magic Stone|Medium=2|Stone Call|Medium=3|Meld into Stone|Medium=4|Rusting Grasp|Medium=5|Commune with Nature|Medium=6|Stone Tell
+Vermin Domain (ISMC)		KEY:Wendo Domain ~ Vermin Domain (ISMC)			CATEGORY:Special Ability	TYPE:WendoDomainChoice			ABILITY:Special Ability|AUTOMATIC|Vermin Domain ~ Familiar|Vermin Domain ~ Vermin Friend	DEFINE:DomainVerminLVL|0	DEFINE:DomainVerminDC|0	DEFINE:DomainVerminTimes|0	BONUS:VAR|DomainVerminLVL|DomainLVL|TYPE=Domain	BONUS:VAR|DomainVerminDC|10+(DomainVerminLVL/2)+WIS|TYPE=Domain	BONUS:VAR|DomainVerminTimes|DomainPowerTimes|TYPE=Domain	SPELLLEVEL:CLASS|Medium=1|Jump|Medium=2|Vomit Swarm|Medium=3|Darkvision|Medium=4|Insect Plague|Medium=5|Swarm Skin (spider, crab, centipede, and army ant swarms only)|Medium=6|Whip of Ants
+

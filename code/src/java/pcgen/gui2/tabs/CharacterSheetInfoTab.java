@@ -62,12 +62,6 @@ import pcgen.util.enumeration.Tab;
  */
 public class CharacterSheetInfoTab extends FlippingSplitPane implements CharacterInfoTab, DisplayAwareTab
 {
-
-	/**
-	 * Version for serialisation.
-	 */
-	private static final long serialVersionUID = -4957524684640929994L;
-
 	private final TabTitle tabTitle = new TabTitle(Tab.CHARACTERSHEET);
 	private final CharacterSheetPanel csheet;
 	private final JComboBox sheetBox;

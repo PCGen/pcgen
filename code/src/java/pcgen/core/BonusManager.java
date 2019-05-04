@@ -842,9 +842,9 @@ public class BonusManager
 		}
 		// Sum the included bonuses to the stat to get our result.
 		int total = 0;
-		for (String bKey : bonusMap.keySet())
+		for (final String s : bonusMap.values())
 		{
-			total += Float.parseFloat(bonusMap.get(bKey));
+			total += Float.parseFloat(s);
 		}
 		return total;
 	}

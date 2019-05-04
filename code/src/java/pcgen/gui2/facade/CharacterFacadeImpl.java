@@ -52,7 +52,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.StringKey;
@@ -259,6 +258,7 @@ public class CharacterFacadeImpl
 	private SpellSupportFacadeImpl spellSupportFacade;
 	private CompanionSupportFacadeImpl companionSupportFacade;
 	private TodoManager todoManager;
+	private DefaultListFacade<LanguageChooserFacade> langChoosersList;
 	private boolean allowDebt;
 
 	private int lastExportCharSerial = 0;
@@ -315,6 +315,7 @@ public class CharacterFacadeImpl
 		theCharacter.preparePCForOutput();
 
 		todoManager = new TodoManager();
+		langChoosersList = new DefaultListFacade<>();
 
 		infoFactory = new Gui2InfoFactory(theCharacter);
 		characterAbilities = new CharacterAbilities(theCharacter, delegate, dataSet, todoManager);
@@ -1742,7 +1743,7 @@ public class CharacterFacadeImpl
 	public void setTabName(String name)
 	{
 		tabName.set(name);
-		theCharacter.setPCAttribute(PCAttribute.TABNAME, name);
+		theCharacter.setPCAttribute(PCStringKey.TABNAME, name);
 	}
 
 	@Override
@@ -1798,7 +1799,7 @@ public class CharacterFacadeImpl
 	public void setSkinColor(String color)
 	{
 		skinColor.set(color);
-		theCharacter.setPCAttribute(PCAttribute.SKINCOLOR, color);
+		theCharacter.setPCAttribute(PCStringKey.SKINCOLOR, color);
 	}
 
 	@Override
@@ -1811,7 +1812,7 @@ public class CharacterFacadeImpl
 	public void setHairColor(String color)
 	{
 		hairColor.set(color);
-		theCharacter.setPCAttribute(PCAttribute.HAIRCOLOR, color);
+		theCharacter.setPCAttribute(PCStringKey.HAIRCOLOR, color);
 	}
 
 	@Override
@@ -1964,12 +1965,6 @@ public class CharacterFacadeImpl
 			todoManager.removeTodo("in_domTodoDomainsLeft");
 			todoManager.removeTodo("in_domTodoTooManyDomains");
 		}
-	}
-
-	@Override
-	public ReferenceFacade<Integer> getMaxDomains()
-	{
-		return maxDomains;
 	}
 
 	@Override
@@ -2171,7 +2166,11 @@ public class CharacterFacadeImpl
 				currBonusLangs.add(lang);
 			}
 		}
-		int bonusLangRemain = bonusLangMax - currBonusLangs.size();
+		int bonusLangRemain = 0;
+		if (theCharacter.getRace().isUnselected())
+		{
+			bonusLangRemain = bonusLangMax - currBonusLangs.size();
+		}
 		if (!allowBonusLangAfterFirst && !atFirstLvl)
 		{
 			bonusLangRemain = 0;
@@ -2179,6 +2178,27 @@ public class CharacterFacadeImpl
 		numBonusLang.set(bonusLangRemain);
 		if (bonusLangRemain > 0)
 		{
+
+			boolean containsAddBonus = false;
+			/* Check to see if the chooserList already contains an "add bonus" chooser*/
+			for (LanguageChooserFacade chooser : langChoosersList)
+			{
+				/* If we find one, break, as we don't need to add another.*/
+				if (chooser.getName().equals(LanguageBundle.getString("in_sumLangBonus")))
+				{
+					containsAddBonus = true;
+					break;
+				}
+			}
+			if (!containsAddBonus)
+			{
+				CNAbility cna = theCharacter.getBonusLanguageAbility();
+				/* Add the bonus chooser*/
+				langChoosersList.addElement(
+						new LanguageChooserFacadeImpl(
+								this, LanguageBundle.getString("in_sumLangBonus"), cna)); //$NON-NLS-1$
+			}
+
 			if (allowBonusLangAfterFirst)
 			{
 				todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Languages", "in_sumTodoBonusLanguage", 110));
@@ -2195,6 +2215,20 @@ public class CharacterFacadeImpl
 		{
 			todoManager.removeTodo("in_sumTodoBonusLanguage");
 			todoManager.removeTodo("in_sumTodoBonusLanguageFirstOnly");
+
+			/* Ensure the bonus language chooser is removed, if it exists.*/
+			Iterator<LanguageChooserFacade> itr = langChoosersList.iterator();
+			if (itr.hasNext())
+			{
+				for (LanguageChooserFacade chooser = itr.next();  itr.hasNext();)
+				{
+					/* If we find an add bonus chooser, remove it.*/
+					if (chooser.getName().equals(LanguageBundle.getString("in_sumLangBonus")))
+					{
+						itr.remove();
+					}
+				}
+			}
 		}
 
 		int numSkillLangSelected = 0;
@@ -2240,19 +2274,20 @@ public class CharacterFacadeImpl
 	@Override
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers()
 	{
-		CNAbility cna = theCharacter.getBonusLanguageAbility();
-		DefaultListFacade<LanguageChooserFacade> chooserList = new DefaultListFacade<>();
-		chooserList.addElement(
-			new LanguageChooserFacadeImpl(this, LanguageBundle.getString("in_sumLangBonus"), cna)); //$NON-NLS-1$
+		if (null == langChoosersList) {
+			langChoosersList = new DefaultListFacade<>();
+		}
 
 		Skill speakLangSkill = dataSet.getSpeakLanguageSkill();
 		if (speakLangSkill != null)
 		{
-			chooserList.addElement(
+			langChoosersList.addElement(
 				new LanguageChooserFacadeImpl(this, LanguageBundle.getString("in_sumLangSkill"), //$NON-NLS-1$
 				speakLangSkill));
 		}
-		return chooserList;
+		System.out.println("getLanguageChoosers");
+
+		return langChoosersList;
 	}
 
 	@Override
@@ -2266,6 +2301,7 @@ public class CharacterFacadeImpl
 
 		List<Language> availLangs = new ArrayList<>();
 		List<Language> selLangs = new ArrayList<>();
+
 		ChoiceManagerList<Language> choiceManager = ChooserUtilities.getChoiceManager(owner, theCharacter);
 		choiceManager.getChoices(theCharacter, availLangs, selLangs);
 		selLangs.remove(lang);
@@ -2472,7 +2508,7 @@ public class CharacterFacadeImpl
 	public void setPlayersName(String name)
 	{
 		playersName.set(name);
-		theCharacter.setPCAttribute(PCAttribute.PLAYERSNAME, name);
+		theCharacter.setPCAttribute(PCStringKey.PLAYERSNAME, name);
 	}
 
 	@Override
@@ -2917,14 +2953,12 @@ public class CharacterFacadeImpl
 			theCharacter.setPointBuyPoints(availablePool);
 
 			// Make sure all scores are within the valid range
-			for (PCStat stat : statScoreMap.keySet())
-			{
-				WriteableReferenceFacade<Number> score = statScoreMap.get(stat);
+			statScoreMap.forEach((key, score) -> {
 				if (score.get().intValue() < SettingsHandler.getGame().getPurchaseScoreMin(theCharacter))
 				{
-					setStatToPurchaseNeutral(stat, score);
+					setStatToPurchaseNeutral(key, score);
 				}
-			}
+			});
 
 		}
 
@@ -3074,7 +3108,7 @@ public class CharacterFacadeImpl
 			final double newQty = prevQty + quantity;
 
 			theCharacter.updateEquipmentQty(updatedItem, prevQty, newQty);
-			Float qty = new Float(newQty);
+			Float qty = (float) newQty;
 			updatedItem.setQty(qty);
 			purchasedEquip.setQuantity(equipment, qty.intValue());
 		}
@@ -3086,7 +3120,7 @@ public class CharacterFacadeImpl
 			if (updatedItem != null)
 			{
 				// Set the number carried and add it to the character
-				Float qty = new Float(quantity);
+				Float qty = (float) quantity;
 				updatedItem.setQty(qty);
 				theCharacter.addEquipment(updatedItem);
 			}
@@ -3199,7 +3233,7 @@ public class CharacterFacadeImpl
 			if (newQty <= 0)
 			{
 				// completely remove item
-				updatedItem.setNumberCarried(new Float(0));
+				updatedItem.setNumberCarried((float) 0);
 				updatedItem.setLocation(EquipmentLocation.NOT_CARRIED);
 
 				final Equipment eqParent = updatedItem.getParent();
@@ -3216,14 +3250,14 @@ public class CharacterFacadeImpl
 			{
 				// update item count
 				theCharacter.updateEquipmentQty(updatedItem, prevQty, newQty);
-				Float qty = new Float(newQty);
+				Float qty = (float) newQty;
 				updatedItem.setQty(qty);
 				updatedItem.setNumberCarried(qty);
 				purchasedEquip.setQuantity(equipment, qty.intValue());
 			}
 
 			theCharacter.updateEquipmentQty(updatedItem, prevQty, newQty);
-			Float qty = new Float(newQty);
+			Float qty = (float) newQty;
 			updatedItem.setQty(qty);
 			updatedItem.setNumberCarried(qty);
 		}

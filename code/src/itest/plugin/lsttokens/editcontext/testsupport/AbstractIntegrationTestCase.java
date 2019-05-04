@@ -18,8 +18,10 @@
 package plugin.lsttokens.editcontext.testsupport;
 
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -42,9 +44,8 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import util.TestURI;
 
 public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject & Loadable>
@@ -62,7 +63,7 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 
 	public abstract CDOMPrimaryToken<? super T> getToken();
 
-	@BeforeClass
+	@BeforeAll
 	public static void classSetUp() throws URISyntaxException
 	{
 		OutputDB.reset();
@@ -71,7 +72,7 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 				"file:/Test%20Case%20Modifier"));
 	}
 
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		// Yea, this causes warnings...
@@ -107,16 +108,15 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 	protected void verifyCleanStart()
 	{
 		// Default is not to write out anything
-		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
-		Assert.assertNull(getToken().unparse(secondaryContext, secondaryProf));
+		assertNull(getToken().unparse(primaryContext, primaryProf));
+		assertNull(getToken().unparse(secondaryContext, secondaryProf));
 		// Ensure the graphs are the same at the start
-		assertEquals("The graphs are not the same at test start", primaryProf,
-				secondaryProf
+		assertEquals(primaryProf, secondaryProf, "The graphs are not the same at test start"
 		);
 		// Ensure the graphs are the same at the start
-		assertTrue("The graphs are not the same at test start", primaryContext
+		assertTrue(primaryContext
 				.getListContext().masterListsEqual(
-						secondaryContext.getListContext()));
+						secondaryContext.getListContext()), "The graphs are not the same at test start");
 	}
 
 	protected void commit(CampaignSourceEntry campaign, TestContext tc,
@@ -128,10 +128,10 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 				      .collect(Collectors.joining());
 		URI uri = campaign.getURI();
 		primaryContext.setSourceURI(uri);
-		assertTrue("Parsing of " + unparsedBuilt
-				+ " failed unexpectedly", getLoader().parseLine(primaryContext,
+		assertTrue(getLoader().parseLine(primaryContext,
 				primaryProf, unparsedBuilt, campaign.getURI()
-		));
+		), "Parsing of " + unparsedBuilt
+				+ " failed unexpectedly");
 		tc.putText(uri, str);
 		tc.putCampaign(uri, campaign);
 	}
@@ -158,20 +158,12 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 			if (str == null)
 			{
-				Assert.assertNull("Expecting empty unparsed", unparsed);
+				assertNull(unparsed, "Expecting empty unparsed");
 				getLoader().parseLine(secondaryContext, secondaryProf, null,
 						uri);
 				continue;
 			}
-			Assert.assertNotNull(unparsed);
-			assertEquals(str.size(), unparsed.length);
-
-			for (int i = 0; i < str.size(); i++)
-			{
-				assertEquals("Expected " + i + " item to be equal", str.get(i),
-						unparsed[i]
-				);
-			}
+			assertArrayEquals(str.toArray(), unparsed);
 
 			// Do round Robin
 			String unparsedBuilt = Arrays.stream(unparsed)
@@ -183,15 +175,14 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 		}
 
 		// Ensure the objects are the same
-		assertEquals("Re parse of unparsed string gave a different value",
-				primaryProf, secondaryProf
+		assertEquals(primaryProf, secondaryProf, "Re parse of unparsed string gave a different value"
 		);
 
 		// Ensure the graphs are the same
 		assertTrue(
-				"Re parse of unparsed string gave a different graph",
 				primaryContext.getListContext().masterListsEqual(
-						secondaryContext.getListContext())
+						secondaryContext.getListContext()),
+				"Re parse of unparsed string gave a different graph"
 		);
 
 		// And that it comes back out the same again
@@ -204,31 +195,24 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 					secondaryProf);
 			if (str == null)
 			{
-				Assert.assertNull(unparsed);
+				assertNull(unparsed);
 				continue;
 			}
-			assertEquals(str.size(), unparsed.length);
-
-			for (int i = 0; i < str.size(); i++)
-			{
-				assertEquals("Expected " + i + " item to be equal", str.get(i),
-						unparsed[i]
-				);
-			}
+			assertArrayEquals(str.toArray(), unparsed);
 		}
 
-		assertTrue("First parse context was not valid", primaryContext.getReferenceContext().validate(null));
+		assertTrue(primaryContext.getReferenceContext().validate(null), "First parse context was not valid");
 		assertTrue(
-				"Unprased/reparsed context was not valid",
-				secondaryContext.getReferenceContext().validate(null)
+				secondaryContext.getReferenceContext().validate(null),
+				"Unprased/reparsed context was not valid"
 		);
 		int expectedPrimaryMessageCount = 0;
 		assertEquals(
-				"First parse and unparse/reparse had different number of messages",
-				expectedPrimaryMessageCount, primaryContext.getWriteMessageCount()
+				expectedPrimaryMessageCount, primaryContext.getWriteMessageCount(),
+				"First parse and unparse/reparse had different number of messages"
 		);
-		assertEquals("Unexpected messages in unparse/reparse", 0,
-				secondaryContext.getWriteMessageCount()
+		assertEquals(0, secondaryContext.getWriteMessageCount(),
+				"Unexpected messages in unparse/reparse"
 		);
 	}
 }

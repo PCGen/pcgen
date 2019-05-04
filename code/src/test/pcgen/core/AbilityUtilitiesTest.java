@@ -22,6 +22,10 @@
  */
 package pcgen.core;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -31,39 +35,46 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.Test;
 
-public class AbilityUtilitiesTest extends AbstractCharacterTestCase
+
+class AbilityUtilitiesTest extends AbstractCharacterTestCase
 {
 	/**
 	 * Test method for 'pcgen.core.AbilityUtilities.removeChoicesFromName(String)'
 	 */
+	@Test
 	public void testRemoveChoicesFromName()
 	{
-		assertEquals("Choice is removed from name correctly",
-			"Bare Thing",
-			AbilityUtilities.removeChoicesFromName("Bare Thing (Mad cow)"));
+		assertEquals(
+				"Bare Thing",
+			AbilityUtilities.removeChoicesFromName("Bare Thing (Mad cow)"), "Choice is removed from name correctly"
+		);
 	}
 
 	/**
 	 * Test method for 'pcgen.core.AbilityUtilities.getUndecoratedName(String, ArrayList)'
 	 */
+	@Test
 	public void testGetUndecoratedName()
 	{
 		final List<String> specifics = new ArrayList<>();
 		specifics.add("quxx");
 
 		final String name = "foo (bar, baz)";
-		assertEquals("Got correct undecorated name",
-			"foo",
-			AbilityUtilities.getUndecoratedName(name, specifics));
-		assertEquals("Size of extracted decoration", 2, specifics.size());
-		assertEquals("First extracted decoration is correct", "bar", specifics.get(0));
-		assertEquals("Second extracted decoration is correct", "baz", specifics.get(1));
+		assertEquals(
+				"foo",
+			AbilityUtilities.getUndecoratedName(name, specifics), "Got correct undecorated name"
+		);
+		assertEquals(2, specifics.size(), "Size of extracted decoration");
+		assertEquals("bar", specifics.get(0), "First extracted decoration is correct");
+		assertEquals("baz", specifics.get(1), "Second extracted decoration is correct");
 	}
 	
 	/**
 	 * Verify that getAllAbilities is working correctly
 	 */
+	@Test
 	public void testGetAllAbilities()
 	{		
 		LoadContext context = Globals.getContext();
@@ -82,14 +93,14 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 
 		Collection<Ability> allAbilities = context.getReferenceContext().getManufacturerId(parent).getAllObjects();
-		assertTrue("Parent missing ability 'fencing'", allAbilities.contains(fencing));
-		assertTrue("Parent missing ability 'reading'", allAbilities.contains(reading));
-		assertEquals("Incorrect number of abilities found for parent", 2, allAbilities.size());
+		assertTrue(allAbilities.contains(fencing), "Parent missing ability 'fencing'");
+		assertTrue(allAbilities.contains(reading), "Parent missing ability 'reading'");
+		assertEquals(2, allAbilities.size(), "Incorrect number of abilities found for parent");
 		
 		allAbilities = context.getReferenceContext().getManufacturerId(typeChild).getAllObjects();
-		assertTrue("TypeChild missing ability fencing", allAbilities.contains(fencing));
-		assertFalse("TypeChild shouldn't have ability 'reading'", allAbilities.contains(reading));
-		assertEquals("Incorrect number of abilities found for TypeChild", 1, allAbilities.size());
+		assertTrue(allAbilities.contains(fencing), "TypeChild missing ability fencing");
+		assertFalse(allAbilities.contains(reading), "TypeChild shouldn't have ability 'reading'");
+		assertEquals(1, allAbilities.size(), "Incorrect number of abilities found for TypeChild");
 		
 	}
 }

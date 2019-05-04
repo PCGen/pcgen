@@ -30,12 +30,3 @@ Waterway Caster					CATEGORY:FEAT		TYPE:General																																	
 # ==============================
 
 Masterpiece (Bear's Jig)			CATEGORY:FEAT		TYPE:Masterpiece																		PRESKILL:2,Perform (String Instruments)=11,Perform (Wind Instruments)=11							PREVARGTEQ:MasterpieceLVL,1		DESC:You learn the masterpiece Ancients' Flight																																				SOURCEPAGE:p.13
-
-
-CATEGORY=FEAT|Blind-Fight.MOD							TYPE:NaniteBloodline
-CATEGORY=FEAT|Combat Expertise.MOD						TYPE:NaniteBloodline
-CATEGORY=FEAT|Dodge.MOD								TYPE:NaniteBloodline
-CATEGORY=FEAT|Eldritch Heritage.MOD						TYPE:NaniteBloodline
-CATEGORY=FEAT|Expanded Arcana.MOD						TYPE:NaniteBloodline
-CATEGORY=FEAT|Improved Disarm.MOD						TYPE:NaniteBloodline
-CATEGORY=FEAT|Lightning Reflexes.MOD					TYPE:NaniteBloodline

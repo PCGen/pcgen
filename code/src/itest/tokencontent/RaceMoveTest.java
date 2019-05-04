@@ -17,15 +17,20 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.BaseMovementFacet;
-import pcgen.core.Movement;
 import pcgen.core.Race;
+import pcgen.core.SimpleMovement;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.race.MoveToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
@@ -75,13 +80,9 @@ public class RaceMoveTest extends AbstractTokenModelTest
 	protected boolean containsExpected()
 	{
 		//Cannot use contains because facet is using instance identity
-		Movement movement = baseMoveFacet.getSet(id).iterator().next();
-		return (movement.getMoveRatesFlag() == 0)
-			&& (movement.getDoubleMovement() == 30.0)
-			&& (movement.getMovementMult(0) == 0.0)
-			&& (movement.getMovementMultOp(0).length() == 0)
-			&& movement.getMovementType(0).equals("Fly")
-			&& (movement.getNumberOfMovements() == 1);
+		SimpleMovement movement = baseMoveFacet.getSet(id).iterator().next();
+		return movement.getMovementType().equals(MovementType.getConstant("Fly"))
+			&& (movement.getMovement() == 30);
 	}
 
 	protected int targetFacetCount()

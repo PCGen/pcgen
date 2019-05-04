@@ -684,7 +684,7 @@ Wisdom
     <tr>
      <td align="left" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>&nbsp;Bonus</b></font></td>
      <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.1.TOTALHIT')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.1.TOTALHIT')} (Diadvantage)<br /></b></td>
+     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.1.TOTALHIT')} (Disadvantage)<br /></b></td>
     </tr>
     <tr>
      <td align="left" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>&nbsp;Dam</b></font></td>

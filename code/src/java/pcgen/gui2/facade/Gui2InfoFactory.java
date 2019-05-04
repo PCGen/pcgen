@@ -28,6 +28,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -72,13 +73,13 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
-import pcgen.core.Movement;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
+import pcgen.core.SimpleMovement;
 import pcgen.core.Skill;
 import pcgen.core.SpecialProperty;
 import pcgen.core.SubClass;
@@ -1253,9 +1254,8 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 
-		List<BaseKit> sortedObjects = new ArrayList<>();
-		sortedObjects.addAll(kit.getSafeListFor(ListKey.KIT_TASKS));
-		sortedObjects.sort(Comparator.comparing(o -> o.getObjectName()));
+		List<BaseKit> sortedObjects = new ArrayList<>(kit.getSafeListFor(ListKey.KIT_TASKS));
+		sortedObjects.sort(Comparator.comparing(BaseKit::getObjectName));
 
 		String lastObjectName = EMPTY_STRING;
 		for (BaseKit bk : sortedObjects)
@@ -1352,7 +1352,7 @@ public class Gui2InfoFactory implements InfoFactory
 			Map<BonusObj, TempBonusInfo> bonusMap = pc.getTempBonusMap(originObj.getKeyName(), targetName);
 			boolean first = true;
 			List<BonusObj> bonusList = new ArrayList<>(bonusMap.keySet());
-			bonusList.sort(new BonusComparator());
+			bonusList.sort(BONUS_COMPARATOR);
 			for (BonusObj bonusObj : bonusList)
 			{
 				if (!first)
@@ -1475,20 +1475,9 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	private static class BonusComparator implements Comparator<BonusObj>
-	{
-		@Override
-		public int compare(BonusObj bo1, BonusObj bo2)
-		{
-			String type1 = bo1.getTypeOfBonus();
-			String type2 = bo2.getTypeOfBonus();
-			if (!type1.equals(type2))
-			{
-				return type1.compareTo(type2);
-			}
-			return bo1.getBonusInfo().compareTo(bo2.getBonusInfo());
-		}
-	}
+	private final Comparator<BonusObj> BONUS_COMPARATOR =
+			Comparator.comparing(BonusObj::getTypeOfBonus)
+			.thenComparing(BonusObj::getBonusInfo);
 
 	@Override
 	public String getLevelAdjustment(Race race)
@@ -1604,14 +1593,9 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getHTMLInfo(SpellFacade spell)
 	{
-		if (spell == null || !(spell instanceof SpellFacadeImplem))
-		{
-			return EMPTY_STRING;
-		}
-
-		SpellFacadeImplem sfi = (SpellFacadeImplem) spell;
-		CharacterSpell cs = sfi.getCharSpell();
-		SpellInfo si = sfi.getSpellInfo();
+		Objects.requireNonNull(spell);
+		CharacterSpell cs = spell.getCharSpell();
+		SpellInfo si = spell.getSpellInfo();
 		Spell aSpell = cs.getSpell();
 
 		if (aSpell == null)
@@ -1771,7 +1755,7 @@ public class Gui2InfoFactory implements InfoFactory
 					}
 					int level = spellInfo.getActualLevel();
 
-					int count = spellCountMap.containsKey(level) ? spellCountMap.get(level) : 0;
+					int count = spellCountMap.getOrDefault(level, 0);
 					count += spellInfo.getTimes();
 					spellCountMap.put(level, count);
 					if (level > highestSpellLevel)
@@ -1800,7 +1784,7 @@ public class Gui2InfoFactory implements InfoFactory
 				for (int i = 0; i <= highestSpellLevel; ++i)
 				{
 					b.append("<td><font size=-1><center>"); //$NON-NLS-1$
-					b.append(String.valueOf(spellCountMap.get(i) == null ? 0 : spellCountMap.get(i)));
+					b.append(String.valueOf(spellCountMap.getOrDefault(i, 0)));
 					b.append("</center></font></td>"); //$NON-NLS-1$
 				}
 				b.append("</tr></table>"); //$NON-NLS-1$
@@ -2215,7 +2199,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getMovement(Race race)
 	{
-		List<Movement> movements = race.getListFor(ListKey.BASE_MOVEMENT);
+		List<SimpleMovement> movements = race.getListFor(ListKey.BASE_MOVEMENT);
 		if (movements != null && !movements.isEmpty())
 		{
 			return movements.get(0).toString();

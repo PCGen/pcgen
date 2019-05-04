@@ -99,22 +99,12 @@ class PluginClassLoader extends PCGenTask
 					continue;
 				}
 				name = StringUtils.removeEnd(name, ".class").replace('/', '.');
-				int size = (int) entry.getSize();
-				byte[] buffer = new byte[size];
 
-				InputStream in = file.getInputStream(entry);
-				int rb = 0;
-				int chunk;
-				while ((size - rb) > 0)
+				byte[] buffer;
+				try (InputStream in = file.getInputStream(entry))
 				{
-					chunk = in.read(buffer, rb, size - rb);
-					if (chunk == -1)
-					{
-						break;
-					}
-					rb += chunk;
+					buffer = in.readAllBytes();
 				}
-				in.close();
 				loader.storeClassDef(name, buffer);
 				classList.add(name);
 			}
@@ -124,32 +114,25 @@ class PluginClassLoader extends PCGenTask
 			 * so that class loading occurs in another thread thus allowing both processes to
 			 * operate at the same time.
 			 */
-			dispatcher.execute(new Runnable()
-			{
-
-				@Override
-				public void run()
+			dispatcher.execute(() -> {
+				boolean pluginFound = false;
+				for (final String string : classList)
 				{
-					boolean pluginFound = false;
-					for (final String string : classList)
+					try
 					{
-						try
-						{
-							pluginFound |= processClass(Class.forName(string, true, loader));
-						}
-						catch (ClassNotFoundException | NoClassDefFoundError ex)
-						{
-							Logging.errorPrint("Error occurred while loading plugin: " + pluginJar.getName(), ex);
-						}
+						pluginFound |= processClass(Class.forName(string, true, loader));
 					}
-					if (!pluginFound)
+					catch (ClassNotFoundException | NoClassDefFoundError ex)
 					{
-						Logging.log(Logging.WARNING, "Plugin not found in " + pluginJar.getName());
+						Logging.errorPrint("Error occurred while loading plugin: " + pluginJar.getName(), ex);
 					}
-					progress++;
-					setProgress(progress);
 				}
-
+				if (!pluginFound)
+				{
+					Logging.log(Logging.WARNING, "Plugin not found in " + pluginJar.getName());
+				}
+				progress++;
+				setProgress(progress);
 			});
 		}
 	}
@@ -183,7 +166,7 @@ class PluginClassLoader extends PCGenTask
 	}
 
 	@Override
-	public void execute()
+	public void run()
 	{
 		loadPlugins();
 	}
@@ -193,16 +176,7 @@ class PluginClassLoader extends PCGenTask
 		findJarFiles(pluginDir);
 		setMaximum(jarFiles.size());
 		loadClasses();
-		Future<?> future = dispatcher.submit(new Runnable()
-		{
-
-			@Override
-			public void run()
-			{
-				dispatcher.shutdown();
-			}
-
-		});
+		Future<?> future = dispatcher.submit(dispatcher::shutdown);
 		try
 		{
 			//This is done to cause this thread to wait until the shutdown task
@@ -211,7 +185,7 @@ class PluginClassLoader extends PCGenTask
 		}
 		catch (ExecutionException | InterruptedException ex)
 		{
-			//Do nothing
+			Logging.debugPrint("exception during shutdown", ex);
 		}
 	}
 

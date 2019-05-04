@@ -52,7 +52,7 @@ public abstract class VariableProcessor
 	};
 
 	/** The current indenting to be used for debug output of jep evaluations. */
-	protected String jepIndent = "";
+	private String jepIndent = "";
 	protected PlayerCharacter pc;
 
 	private int cachePaused;
@@ -66,7 +66,7 @@ public abstract class VariableProcessor
 		Float d = null;
 		try
 		{
-			d = new Float(foo);
+			d = Float.valueOf(foo);
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -154,7 +154,7 @@ public abstract class VariableProcessor
 		// First try to just parse it as a number.
 		try
 		{
-			return new Float(varString);
+			return Float.valueOf(varString);
 		}
 		catch (NumberFormatException e)
 		{
@@ -215,7 +215,7 @@ public abstract class VariableProcessor
 	 */
 	private Float processBrokenParser(final CharacterSpell aSpell, String aString, String src, int spellLevelTemp)
 	{
-		Float total = new Float(0.0);
+		Float total = (float) 0.0;
 		aString = aString.toUpperCase();
 		src = src.toUpperCase();
 
@@ -360,7 +360,7 @@ public abstract class VariableProcessor
 						Logging.errorPrint("ERROR - badly formed statement:" + aString + ':' + val1.toString() + ':'
 							+ val2.toString() + ':' + comp);
 
-						return new Float(0.0);
+						return (float) 0.0;
 				}
 
 				return total;
@@ -529,7 +529,7 @@ public abstract class VariableProcessor
 				}
 				try
 				{
-					return new CachableResult(new Float(result.toString()), parser.isResultCachable());
+					return new CachableResult(Float.valueOf(result.toString()), parser.isResultCachable());
 				}
 				catch (NumberFormatException nfe)
 				{
@@ -588,7 +588,7 @@ public abstract class VariableProcessor
 				Logging.debugPrint(new StringBuilder().append(jepIndent).append("variable for: '").append(term)
 					.append("' = ").append(value).toString());
 			}
-			retVal = new Float(value.doubleValue());
+			retVal = (float) value.doubleValue();
 		}
 
 		if (retVal == null)

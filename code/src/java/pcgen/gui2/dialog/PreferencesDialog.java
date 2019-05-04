@@ -417,19 +417,15 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 	@Override
 	public void applyPreferences()
 	{
-		for (String key : pluginMap.keySet())
-		{
-			pluginMap.get(key).applyPreferences();
-		}
+		pluginMap.values()
+		         .forEach(PluginRef::applyPreferences);
 	}
 
 	@Override
 	public void initPreferences()
 	{
-		for (String key : pluginMap.keySet())
-		{
-			pluginMap.get(key).initPreferences();
-		}
+		pluginMap.values()
+		         .forEach(PluginRef::initPreferences);
 	}
 
 	@Override
@@ -447,10 +443,8 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
-		for (String key : pluginMap.keySet())
-		{
-			mainPanel.add(pluginMap.get(key));
-		}
+		pluginMap.values()
+		         .forEach(pluginRef -> mainPanel.add(pluginRef));
 
 		jScrollPane1.setViewportView(mainPanel);
 		add(jScrollPane1, BorderLayout.CENTER);

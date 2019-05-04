@@ -1069,6 +1069,10 @@ CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BonusFeats|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_SpellBook|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_Familiar|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BondedObject|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BonusFeat5|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BonusFeat10|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BonusFeat15|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BonusFeat20|0
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ClassSkills=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ArcaneSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ArcaneSchool=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_WeaponProficiencies=True
@@ -1079,6 +1083,10 @@ CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusFeats|1|TYPE=Boolean|P
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_SpellBook|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_SpellBook=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_Familiar|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_Familiar=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BondedObject|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_BondedObject=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusFeat5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_BonusFeat5=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusFeat10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_BonusFeat10=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusFeat15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_BonusFeat15=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusFeat20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_BonusFeat20=True
 # Old Style
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ArcaneSchool|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_WeaponProficiencies|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardWeaponProficiencies
@@ -1087,6 +1095,10 @@ CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ArcaneBond|1|TYPE=Boolean|P
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_Cantrips|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardCantrips
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusFeats|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeats
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_SpellBook|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardSpellBook
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusFeat5|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeat5
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusFeat10|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeat10
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusFeat15|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeat15
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusFeat20|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeat20
 
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_AbjurationOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_AbjurationOppositionSchool=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ConjurationOppositionSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ConjurationOppositionSchool=True
@@ -1113,12 +1125,19 @@ CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_EnchantingSmile|1|TYPE=Bo
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_EnergyAbsorption|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_EnergyAbsorption=True
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_ExtendedIllusion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ExtendedIllusion=True
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_ForceMissile|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ForceMissile=True
+CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_Forwarned|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_Forwarned=True
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_GraveTouch|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_GraveTouch=True
+CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_HandOfTheApprentice|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_HandOfTheApprentice=True
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_IntenseSpells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_IntenseSpells=True
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_InvisibilityField|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_InvisibilityField=True
+CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_LifeSight|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_LifeSight=True
+CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_MetamagicMastery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_MetamagicMastery=True
+CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_PhysicalEnhancement|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_PhysicalEnhancement=True
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_PowerOverUndead|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_PowerOverUndead=True
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_ProtectiveWard|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ProtectiveWard=True
+CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_Resistance|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_Resistance=True
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_ScryingAdept|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ScryingAdept=True
+CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_SummonersCharm|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_SummonersCharm=True
 CATEGORY=Class|Wizard.MOD										BONUS:VAR|Wizard_CF_TelekineticFist|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_TelekineticFist=True
 
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_AbjurationOppositionSchool|0
@@ -1144,10 +1163,17 @@ CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_EnchantingSmile|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_EnergyAbsorption|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ExtendedIllusion|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ForceMissile|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_Forwarned|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_GraveTouch|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_HandOfTheApprentice|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_IntenseSpells|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_InvisibilityField|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_LifeSight|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_MetamagicMastery|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_PhysicalEnhancement|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_PowerOverUndead|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ProtectiveWard|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_Resistance|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ScryingAdept|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_SummonersCharm|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_TelekineticFist|0

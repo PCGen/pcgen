@@ -17,6 +17,9 @@
  */
 package tokenmodel.testsupport;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.Campaign;
@@ -27,7 +30,7 @@ import pcgen.core.PCStat;
 import pcgen.core.character.CompanionMod;
 import pcgen.output.channel.compat.AlignmentCompat;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		extends AbstractAddListTokenTest<T>

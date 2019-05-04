@@ -17,6 +17,8 @@
  */
 package plugin.exporttokens;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
@@ -29,8 +31,8 @@ import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
 import pcgen.util.TestHelper;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * CampaignHistoryTokenTest validates the functions of the 
@@ -47,8 +49,8 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 	/**
 	 * @throws java.lang.Exception
 	 */
+	@BeforeEach
 	@Override
-	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

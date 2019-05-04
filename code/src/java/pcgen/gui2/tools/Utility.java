@@ -317,7 +317,7 @@ public final class Utility
 		int dimension = Math.min(cropRect.width, cropRect.height);
 		cropRect.setSize(dimension, dimension);
 
-		// Now adjust the origin point so the box is within the image 
+		// Now adjust the origin point so the box is within the image
 		if ((cropRect.x + cropRect.width) > image.getWidth())
 		{
 			cropRect.x = image.getWidth() - cropRect.width;
@@ -326,28 +326,6 @@ public final class Utility
 		{
 			cropRect.y = image.getHeight() - cropRect.height;
 		}
-	}
-
-	/**
-	 * This method is used to set the name of the application for the window manager
-	 *
-	 * @param title Title to use
-	 */
-	public static void setApplicationTitle(String title)
-	{
-		// macOS
-		System.setProperty("com.apple.mrj.application.apple.menu.about.name", title);
-		System.setProperty("apple.awt.application.name", title);
-	}
-
-	public static void configurePlatformUI()
-	{
-		System.setProperty("com.apple.macos.useScreenMenuBar", "true");
-		System.setProperty("apple.laf.useScreenMenuBar", "true");
-		System.setProperty("com.apple.macos.use-file-dialog-packages", "true");
-		System.setProperty("com.apple.mrj.application.growbox.intrudes", "false");
-		System.setProperty("com.apple.mrj.application.live-resize", "true");
-		System.setProperty("apple.awt.brushMetalLook", "true");
 	}
 
 	/**

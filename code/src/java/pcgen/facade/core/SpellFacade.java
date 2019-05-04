@@ -17,6 +17,9 @@
  */
 package pcgen.facade.core;
 
+import pcgen.core.character.CharacterSpell;
+import pcgen.core.character.SpellInfo;
+
 public interface SpellFacade extends InfoFacade
 {
 
@@ -36,5 +39,9 @@ public interface SpellFacade extends InfoFacade
 	 * @return The tme it takes to cast the spell.
 	 */
 	public String getCastTime();
+
+	public CharacterSpell getCharSpell();
+
+	public SpellInfo getSpellInfo();
 
 }

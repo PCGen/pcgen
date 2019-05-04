@@ -33,8 +33,8 @@ import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreHDWriter;
 import plugin.pretokens.writer.PreLevelWriter;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 		extends AbstractIntegrationTestCase<T>
@@ -54,7 +54,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 	public abstract boolean doesOverwrite();
 
 	@Override
-	@Before
+	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

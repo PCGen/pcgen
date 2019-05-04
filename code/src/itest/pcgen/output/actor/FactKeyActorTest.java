@@ -27,18 +27,16 @@ import pcgen.core.Race;
 import pcgen.output.publish.OutputDB;
 import pcgen.output.testsupport.AbstractOutputTestCase;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-public class FactKeyActorTest extends AbstractOutputTestCase
+class FactKeyActorTest extends AbstractOutputTestCase
 {
 
 	private static final RaceFacet DF = new RaceFacet();
 
-	private static boolean classSetUpRun = false;
-
-	@BeforeClass
-	public static void classSetUp()
+	@BeforeAll
+	static void classSetUp()
 	{
 		OutputDB.reset();
 		DF.init();

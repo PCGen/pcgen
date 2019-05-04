@@ -592,20 +592,17 @@ public final class Logging
 	{
 		Map<Thread, StackTraceElement[]> allThreads = Thread.getAllStackTraces();
 		StringBuilder b = new StringBuilder();
-		for (Thread t : allThreads.keySet())
-		{
+		allThreads.forEach((key, traces) -> {
 			b.append("Thread: ");
-			b.append(t.getName());
+			b.append(key.getName());
 			b.append(", stacktrace:\n");
-			StackTraceElement[] traces = allThreads.get(t);
 			for (StackTraceElement element : traces)
 			{
 				b.append("  ");
 				b.append(element.toString());
 				b.append('\n');
 			}
-
-		}
+		});
 		System.out.println("==== Thread listing ====");
 		System.out.println(b);
 		System.out.println("===== end listing  =====");

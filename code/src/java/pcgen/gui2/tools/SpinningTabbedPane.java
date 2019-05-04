@@ -887,7 +887,7 @@ public class SpinningTabbedPane extends JTabbedPane
 		@Override
 		public void mousePressed(@NotNull MouseEvent e)
 		{
-			if (Utilities.isRightMouseButton(e))
+			if (e.isPopupTrigger())
 			{
 				final int x = e.getX();
 				final int y = e.getY();

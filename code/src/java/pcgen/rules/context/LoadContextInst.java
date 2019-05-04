@@ -447,7 +447,7 @@ abstract class LoadContextInst implements LoadContext
 		{
 			stateful = new ObjectCache();
 		}
-		return processToken(stateful, s.substring(0, colonLoc).intern(), s.substring(colonLoc + 1).intern());
+		return processToken(stateful, s.substring(0, colonLoc), s.substring(colonLoc + 1));
 	}
 
 	@Override

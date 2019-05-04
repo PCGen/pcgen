@@ -25,5 +25,5 @@ Dragonform Armor										PROFICIENCY:ARMOR|Leather	TYPE:Armor.Magic.Light.Armor
 # New Magic Weapons
 # ==============================
 
-Dragon's Tail					PROFICIENCY:WEAPON|Guisarme						TYPE:Weapon.Magic.Resizable.Melee.TwoHanded.Martial.Reach.Specific.Slashing.Polearm	COST:9	WT:12					CRITMULT:x3	CRITRANGE:1	DAMAGE:2d4	EQMOD:Special Ability ~ Bane ~ Weapon|Dragons.Special Ability ~ Enhancement Cost|14000.Special Ability ~ +2 ~ Weapon.Material ~ Steel.Special Quality ~ Trip	WIELD:TwoHanded						REACHMULT:2		SIZE:M	SOURCEPAGE:p.30
+Dragon's Tail					PROFICIENCY:WEAPON|Guisarme						TYPE:Weapon.Magic.Resizable.Melee.TwoHanded.Martial.Reach.Specific.Slashing.Polearm	COST:9	WT:12					CRITMULT:x3	CRITRANGE:1	DAMAGE:2d4	EQMOD:Special Ability ~ Bane ~ Weapon|Dragon Bane.Special Ability ~ Enhancement Cost|14000.Special Ability ~ +2 ~ Weapon.Material ~ Steel.Special Quality ~ Trip	WIELD:TwoHanded						REACHMULT:2		SIZE:M	SOURCEPAGE:p.30
 Net of Snaring					PROFICIENCY:WEAPON|Net							TYPE:Weapon.Magic.Resizable.Exotic.Ranged.Specific.Thrown					COST:20	WT:6											EQMOD:Special Ability ~ Distance ~ Ranged.Special Ability ~ +1 ~ Weapon																WIELD:OneHandOnly				RANGE:10				SIZE:M	SOURCEPAGE:p.31

@@ -26,6 +26,7 @@ import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.text.Format;
 import java.text.MessageFormat;
 import java.time.Instant;
@@ -93,7 +94,7 @@ public final class Tips
 						// Set<String>
 						try
 						{
-							BufferedReader reader = new BufferedReader(new FileReader(tipsFile));
+							BufferedReader reader = new BufferedReader(new FileReader(tipsFile, StandardCharsets.UTF_8));
 							addTips(tips, reader);
 							reader.close();
 						}
@@ -132,7 +133,7 @@ public final class Tips
 		BufferedWriter bw = null;
 		try
 		{
-			bw = new BufferedWriter(new FileWriter(pot));
+			bw = new BufferedWriter(new FileWriter(pot, StandardCharsets.UTF_8));
 			writePOT(tips, bw);
 			log("Wrote {0}", potFilename);
 		}
@@ -256,7 +257,7 @@ public final class Tips
 		BufferedReader translationReader = null;
 		try
 		{
-			translationReader = new BufferedReader(new FileReader(translation));
+			translationReader = new BufferedReader(new FileReader(translation, StandardCharsets.UTF_8));
 			String line = translationReader.readLine();
 			String key = null;
 			StringBuilder str = new StringBuilder();
@@ -339,8 +340,10 @@ public final class Tips
 					{
 						File newFile = new File(subfile, translationName);
 						log("Found {0}, creating {1}", tipsFile, newFile);
-						try(BufferedReader reader = new BufferedReader(new FileReader(tipsFile));
-							Writer bw = new BufferedWriter(new FileWriter(newFile)))
+						try(BufferedReader reader = new BufferedReader(new FileReader(tipsFile,
+								StandardCharsets.UTF_8
+						));
+						    Writer bw = new BufferedWriter(new FileWriter(newFile, StandardCharsets.UTF_8)))
 						{
 
 							String readLine = reader.readLine();

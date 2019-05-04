@@ -22,7 +22,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -35,7 +34,6 @@ import java.util.stream.Collectors;
 
 import javax.swing.JFrame;
 
-import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.content.BaseDice;
@@ -43,6 +41,7 @@ import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
@@ -52,14 +51,10 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.facade.core.ChooserFacade;
 import pcgen.gui2.facade.Gui2InfoFactory;
 import pcgen.rules.context.AbstractReferenceContext;
-import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.RuntimeLoadContext;
-import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
-import pcgen.util.SortKeyAware;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.VisionType;
@@ -95,9 +90,6 @@ public final class Globals
 	/** whether or not the GUI is used (false for command line) */
 	private static boolean useGUI = true;
 
-	/** default location for options.ini on a Mac */
-	static final String DEFAULT_MAC_OPTIONS_PATH = System.getProperty("user.home") + "/Library/Preferences/pcgen";
-
 	private static final Comparator<CDOMObject> P_OBJECT_COMP =
 			(o1, o2) -> o1.getKeyName().compareToIgnoreCase(o2.getKeyName());
 
@@ -129,8 +121,6 @@ public final class Globals
 
 	// Optimizations used by any code needing empty arrays.  All empty arrays
 	// of the same type are idempotent.
-	/** EMPTY_STRING_ARRAY*/
-	public static final String[] EMPTY_STRING_ARRAY = new String[0];
 
 	private Globals()
 	{
@@ -191,15 +181,11 @@ public final class Globals
 	 */
 	public static Campaign getCampaignKeyedSilently(final String aKey)
 	{
-		for (final Campaign campaign : CAMPAIGN_LIST)
-		{
-			if (campaign.getKeyName().equalsIgnoreCase(aKey))
-			{
-				return campaign;
-			}
-		}
+		return CAMPAIGN_LIST.stream()
+		                    .filter(campaign -> campaign.getKeyName().equalsIgnoreCase(aKey))
+		                    .findFirst()
+		                    .orElse(null);
 
-		return null;
 	}
 
 	/**
@@ -288,15 +274,11 @@ public final class Globals
 	 */
 	public static EquipSlot getEquipSlotByName(final String aName)
 	{
-		for (final EquipSlot es : SystemCollections.getUnmodifiableEquipSlotList())
-		{
-			if (es.getSlotName().equals(aName))
-			{
-				return es;
-			}
-		}
-
-		return null;
+		return SystemCollections.getUnmodifiableEquipSlotList()
+		                        .stream()
+		                        .filter(es -> es.getSlotName().equals(aName))
+		                        .findFirst()
+		                        .orElse(null);
 	}
 
 	/**
@@ -740,6 +722,7 @@ public final class Globals
 
 		RaceType.clearConstants();
 		CNAbilityFactory.reset();
+		MovementType.clearConstants();
 	}
 
 	/**
@@ -799,7 +782,7 @@ public final class Globals
 			}
 			catch (final IOException ex)
 			{
-				Logging.errorPrint("Could not execute " + postExportCommand + " after exporting " + fileName, ex);
+				Logging.errorPrint("Could not run " + postExportCommand + " after exporting " + fileName, ex);
 			}
 		}
 	}
@@ -1246,35 +1229,4 @@ public final class Globals
 	{
 		return SettingsHandler.getGame().getContext();
 	}
-
-	private static final LoadContext GLOBAL_CONTEXT = new RuntimeLoadContext(
-		RuntimeReferenceContext.createRuntimeReferenceContext(), new ConsolidatedListCommitStrategy());
-
-	public static LoadContext getGlobalContext()
-	{
-		return GLOBAL_CONTEXT;
-	}
-
-	@SuppressWarnings("unchecked")
-	public static <T> List<T> getSortedList(Object[] available,
-		FormatManager<T> formatManager)
-	{
-		List<T> list = new ArrayList<>();
-		Arrays.stream(available).forEach(o -> list.add((T) o));
-		Class<T> underlying = formatManager.getManagedClass();
-		if (SortKeyAware.class.isAssignableFrom(underlying))
-		{
-			((List<SortKeyAware>) list).sort(SortKeyAware.SORT_KEY_COMPARATOR);
-		}
-		else if (PObject.class.isAssignableFrom(underlying))
-		{
-			((List<PObject>) list).sort(P_OBJECT_NAME_COMP);
-		}
-		else if (Comparable.class.isAssignableFrom(underlying))
-		{
-			list.sort(null);
-		}
-		return list;
-	}
-
 }

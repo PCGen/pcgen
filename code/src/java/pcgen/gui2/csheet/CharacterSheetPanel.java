@@ -26,6 +26,7 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -153,7 +154,7 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 					{
 						final String errorMsg =
 								String.format("<html><body>Unable to process sheet<br>%s</body></html>", e);
-						try (InputStream instream = new ByteArrayInputStream(errorMsg.getBytes()))
+						try (InputStream instream = new ByteArrayInputStream(errorMsg.getBytes(StandardCharsets.UTF_8)))
 						{
 							doc = theDocBuilder.parse(instream);
 						}
@@ -186,7 +187,7 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 			character.export(handler, buf);
 
 			final String genText = out.toString().replace(COLOR_TAG, cssColor.getCssfile());
-			ByteArrayInputStream instream = new ByteArrayInputStream(genText.getBytes());
+			ByteArrayInputStream instream = new ByteArrayInputStream(genText.getBytes(StandardCharsets.UTF_8));
 
 			URI root = new URI("file", ConfigurationSettings.getPreviewDir().replaceAll("\\\\", "/"), null);
 			return theDocBuilder.parse(new InputSourceImpl(instream, root.toString(), "UTF-8"));

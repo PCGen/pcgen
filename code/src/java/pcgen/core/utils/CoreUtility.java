@@ -116,12 +116,10 @@ public final class CoreUtility
 	{
 		switch (url.getProtocol().toLowerCase(Locale.ENGLISH))
 		{
-			case "http":
-			case "ftp":
-			case "https":
-				return true;
-			default:
+			case "file":
 				return false;
+			default:
+				return true;
 		}
 	}
 
@@ -156,41 +154,6 @@ public final class CoreUtility
 
 		return new String(a);
 	}
-
-	// this method is unused at the release of 5.13.3 alpha
-	//
-	// /**
-	// * Stick a comma between every character of a string.
-	// * @param oldString
-	// * @return String
-	// */
-	// public static String commaDelimit(final String oldString)
-	// {
-	// final int oldStringLength = oldString.length();
-	// final StringBuilder newString = new StringBuilder(oldStringLength);
-	//
-	// for (int i = 0; i < oldStringLength; ++i)
-	// {
-	// if (i != 0)
-	// {
-	// newString.append(',');
-	// }
-	//
-	// newString.append(oldString.charAt(i));
-	// }
-	//
-	// return newString.toString();
-	// }
-	//
-	// /**
-	// * Simple passthrough, calls join(stringArray, ',') to do the work.
-	// * @param stringArray
-	// * @return String
-	// */
-	// public static String commaDelimit(final Collection<String> stringArray)
-	// {
-	// return join(stringArray, ", ");
-	// }
 
 	/**
 	 * Compare two doubles within a given epsilon.
@@ -320,22 +283,6 @@ public final class CoreUtility
 
 		return index;
 	}
-
-	// /**
-	// * Concatenates the List into a String using the separator
-	// * as the delimitor.
-	// *
-	// * Note the actual delimitor is the separator + " "
-	// *
-	// * @param strings An ArrayList of strings
-	// * @param separator The separating character
-	// * @return A 'separator' separated String
-	// */
-	// public static String join(final Collection<?> strings, final char
-	// separator)
-	// {
-	// return join(strings, separator + " ");
-	// }
 
 	/**
 	 * Return the english suffix for a given ordinal value

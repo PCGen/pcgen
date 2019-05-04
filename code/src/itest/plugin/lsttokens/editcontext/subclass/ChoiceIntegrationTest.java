@@ -30,7 +30,7 @@ import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.subclass.ChoiceToken;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ChoiceIntegrationTest extends
 		AbstractIntegrationTestCase<SubClass>

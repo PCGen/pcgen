@@ -191,15 +191,9 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 		{
 			return false;
 		}
-		for (SpellInfo s : infoList)
-		{
-			if (s.getActualLevel() == level)
-			{
-				return true;
-			}
-		}
 
-		return false;
+		return infoList.stream()
+		               .anyMatch(spellInfo -> spellInfo.getActualLevel() == level);
 	}
 
 	public boolean hasSpellInfoFor(String bookName)

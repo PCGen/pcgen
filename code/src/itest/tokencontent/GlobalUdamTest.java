@@ -17,6 +17,8 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Collections;
 
 import pcgen.cdom.base.CDOMObject;
@@ -26,7 +28,8 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.UdamLst;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import tokencontent.testsupport.AbstractContentTokenTest;
 import util.TestURI;
 
@@ -36,8 +39,9 @@ public class GlobalUdamTest extends AbstractContentTokenTest
 	private static UdamLst token = new UdamLst();
 	private UnarmedDamageFacet unarmedDamageFacet;
 
+	@BeforeEach
 	@Override
-	protected void setUp() throws Exception
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		unarmedDamageFacet = FacetLibrary.getFacet(UnarmedDamageFacet.class);

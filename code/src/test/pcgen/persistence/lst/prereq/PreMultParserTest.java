@@ -18,26 +18,26 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /*** Test
 	 * [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
  */
 @SuppressWarnings("nls")
-public class PreMultParserTest extends EnUsLocaleDependentTestCase
+class PreMultParserTest extends EnUsLocaleDependentTestCase
 {
 
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp()
 	{
 		TestHelper.loadPlugins();
 	}

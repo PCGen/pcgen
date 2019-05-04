@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -146,7 +147,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				Writer changeLogWriter;
 				try
 				{
-					changeLogWriter = new FileWriter(changeLogFile);
+					changeLogWriter = new FileWriter(changeLogFile, StandardCharsets.UTF_8);
 
 					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 					String startTime = simpleDateFormat.format(new Date());

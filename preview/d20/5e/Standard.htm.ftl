@@ -447,58 +447,6 @@ Wisdom
     </tr>
    </table>
 <!-- STOP Saving Throws Table -->
-<!-- START Melee and Range Attack Table -->
-   <table width="100%" summary="Melee ~ Ranged Attacks">
-    <tr>
-     <td align="center"></td>
-     <td align="center" width="60" valign="bottom" class="font6">TOTAL</td>
-     <td align="center"></td>
-     <td align="center" width="60" valign="bottom" class="font6">BASE ATTACK</td>
-     <td align="center"></td>
-     <td align="center" width="25" valign="bottom" class="font6">STAT</td>
-     <td align="center"></td>
-     <td align="center" width="25" valign="bottom" class="font6">SIZE</td>
-     <td align="center"></td>
-     <td align="center" width="25" valign="bottom" class="font6 epic">EPIC</td>
-     <td align="center" class="epic"></td>
-     <td align="center" width="25" valign="bottom" class="font6">MISC</td>
-     <td align="center"></td>
-     <td align="center" width="25" valign="bottom" class="font6">TEMP</td>
-    </tr>
-    <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>MELEE</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.MELEE.TOTAL')}</b></td>
-     <td align="center" class="font7"><b>=</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.MELEE')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.MELEE.STAT')}</b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.MELEE.SIZE')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10 epic"><b>${pcstring('VAR.charbonusto("COMBAT","EPICAB").INTVAL')}<br /></b></td>
-     <td align="center" class="font7 epic"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.MELEE.MISC')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="tempborder"><br /></td>
-    </tr>
-    <tr>
-     <td align="center" bgcolor="black"><font style="font-size:10pt" color="white"><b>RANGED</b></font><font style="font-size:5pt" color="white"><br />ATTACK BONUS</font></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.RANGED.TOTAL')}</b></td>
-     <td align="center" class="font7"><b>=</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.RANGED')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.RANGED.STAT')}</b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.RANGED.SIZE')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="border10 epic"><b>${pcstring('VAR.charbonusto("COMBAT","EPICAB").INTVAL')}<br /></b></td>
-     <td align="center" class="font7 epic"><b>+</b></td>
-     <td align="center" class="border10"><b>${pcstring('ATTACK.RANGED.MISC')}<br /></b></td>
-     <td align="center" class="font7"><b>+</b></td>
-     <td align="center" class="tempborder"><br /></td>
-    </tr>
-    <tr><td></td></tr>
-   </table>
    <table width="100%" summary="Saving Throws">
      <tr>
 	   <td align="left" valign="top" class="border8"><div class="font6">CONDITIONAL MODIFIERS:</div>
@@ -684,7 +632,7 @@ Wisdom
     <tr>
      <td align="left" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>&nbsp;Bonus</b></font></td>
      <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.1.TOTALHIT')}<br /></b></td>
-     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.1.TOTALHIT')} (Diadvantage)<br /></b></td>
+     <td align="center" bgcolor="white" class="border7"><b>${pcstring('WEAPON.${weap}.RANGELIST.1.TOTALHIT')} (Disadvantage)<br /></b></td>
     </tr>
     <tr>
      <td align="left" bgcolor="black" class="border"><font style="font-size:8pt" color="white"><b>&nbsp;Dam</b></font></td>

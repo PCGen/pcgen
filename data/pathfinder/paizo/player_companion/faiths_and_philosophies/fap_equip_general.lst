@@ -9,8 +9,8 @@ SOURCELONG:Pathfinder Player Companion: Faiths & Philosophies	SOURCESHORT:FAP	SO
 # ==============================
 
 # Equipment Name			Product Identity?	Required Weapon Proficiency	Required Shield Proficiency		Type																	Cost		Weight	AC Penalty Check	Crit Mult	Crit Range	Damage	Modifier																Wield Category	Range		Size		Source Page		% of Spell Failure	Combat bonus
-Gloves of Personal Purity															TYPE:Magic.Wondrous.Gloves													COST:1000																																				SOURCEPAGE:p.30
-Hand Wraps of Blinding Ki															TYPE:Magic.Wondrous.Gloves													COST:10000	WT:1																																			SOURCEPAGE:p.30
+Gloves of Personal Purity															TYPE:Magic.Wondrous.Glove													COST:1000																																				SOURCEPAGE:p.30
+Hand Wraps of Blinding Ki															TYPE:Magic.Wondrous.Glove													COST:10000	WT:1																																			SOURCEPAGE:p.30
 Kalistocrat's Coins		NAMEISPI:YES												TYPE:Magic.Wondrous														COST:1100																																				SOURCEPAGE:p.30
 Leshy Mulch Manual (Fungus)															TYPE:Magic.Wondrous														COST:1875	WT:5																																			SOURCEPAGE:p.30
 Leshy Mulch Manual (Gourd)															TYPE:Magic.Wondrous														COST:1125	WT:5																																			SOURCEPAGE:p.30

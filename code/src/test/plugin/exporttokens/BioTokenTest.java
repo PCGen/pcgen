@@ -17,62 +17,69 @@
  */
 package plugin.exporttokens;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.cdom.enumeration.NotePCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code BioTokenTest} is ...
  */
 public class BioTokenTest extends AbstractCharacterTestCase
 {
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 		PlayerCharacter character = getCharacter();
 
-		character.setPCAttribute(NotePCAttribute.BIO, "Test bio entry\n2nd line\nThird line\nlast one");
+		character.setPCAttribute(PCStringKey.BIO, "Test bio entry\n2nd line\nThird line\nlast one");
 	}
 
 	/**
 	 * Test the bio export
 	 * @throws Exception  Signals that an I/O exception has occurred.
 	 */
+	@Test
 	public void testBioExport() throws Exception
 	{
 		FileAccess.setCurrentOutputFilter("xml");
 		PlayerCharacter character = getCharacter();
 		assertEquals(
-			"Default Bio",
-			"<para>Test bio entry</para><para>2nd line</para><para>Third line</para><para>last one</para>",
-			evaluateToken("BIO", character));
+				"<para>Test bio entry</para><para>2nd line</para><para>Third line</para><para>last one</para>",
+			evaluateToken("BIO", character), "Default Bio"
+		);
 
 		assertEquals(
-			"New Style Bio start and end",
-			"<para>[b]Test bio entry[/b]</para><para>[b]2nd line[/b]</para><para>[b]Third line[/b]"
+				"<para>[b]Test bio entry[/b]</para><para>[b]2nd line[/b]</para><para>[b]Third line[/b]"
 			+ "</para><para>[b]last one[/b]</para>",
-			evaluateToken("BIO.[b].[/b]", character));
+			evaluateToken("BIO.[b].[/b]", character), "New Style Bio start and end"
+		);
 
 		assertEquals(
-			"New Style Bio start only",
-			"<para>**Test bio entry</para><para>**2nd line</para><para>**Third line</para><para>**last one</para>",
-			evaluateToken("BIO.**", character));
+				"<para>**Test bio entry</para><para>**2nd line</para><para>**Third line</para><para>**last one</para>",
+			evaluateToken("BIO.**", character), "New Style Bio start only"
+		);
 
 		assertEquals(
-			"New Style Bio start only",
-			"<para>Test bio entry,</para><para>2nd line,</para><para>Third line,</para><para>last one,</para>",
-			evaluateToken("BIO..,", character));
+				"<para>Test bio entry,</para><para>2nd line,</para><para>Third line,</para><para>last one,</para>",
+			evaluateToken("BIO..,", character), "New Style Bio start only"
+		);
 
 		FileAccess.setCurrentOutputFilter("foo.htm");
-		character.setPCAttribute(NotePCAttribute.BIO, "Test bio <br/>entry\n2nd line\nThird line\nlast one");
+		character.setPCAttribute(PCStringKey.BIO, "Test bio <br/>entry\n2nd line\nThird line\nlast one");
 
 		String expected =
 				"<p>[b]Test bio &lt;br/&gt;entry[/b]</p>\n<p>[b]2nd line[/b]</p>"
@@ -83,7 +90,7 @@ public class BioTokenTest extends AbstractCharacterTestCase
 		actual = evaluateToken("BIO..,", character);
 		expected =
 				"<p>Test bio &lt;br/&gt;entry,</p>\n<p>2nd line,</p>\n<p>Third line,</p>\n<p>last one,</p>";
-		assertEquals("New Style Bio start only", expected, actual);
+		assertEquals(expected, actual, "New Style Bio start only");
 	}
 
 	/**
@@ -94,7 +101,7 @@ public class BioTokenTest extends AbstractCharacterTestCase
 	 * @return the string
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	private String evaluateToken(String token, PlayerCharacter pc)
+	private static String evaluateToken(String token, PlayerCharacter pc)
 		throws IOException
 	{
 		StringWriter retWriter = new StringWriter();

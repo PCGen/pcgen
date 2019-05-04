@@ -17,6 +17,8 @@
  */
 package tokenmodel;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.facet.model.WeaponProfModelFacet;
 import pcgen.core.WeaponProf;

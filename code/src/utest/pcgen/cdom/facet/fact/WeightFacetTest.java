@@ -60,14 +60,14 @@ public class WeightFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testWeightSetZeroValid()
 	{
-		facet.setWeight(id, 0);
+		facet.set(id, 0);
 		assertEquals(0, facet.getWeight(id));
 	}
 
 	@Test
 	public void testWeightSetNegative()
 	{
-		facet.setWeight(id, -250);
+		facet.set(id, -250);
 		/*
 		 * TODO Some form of error here?
 		 */
@@ -76,9 +76,9 @@ public class WeightFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testRemoveWeight()
 	{
-		facet.setWeight(id, 25);
+		facet.set(id, 25);
 		assertEquals(25, facet.getWeight(id));
-		facet.removeWeight(id);
+		facet.remove(id);
 		assertEquals(0, facet.getWeight(id));
 	}
 

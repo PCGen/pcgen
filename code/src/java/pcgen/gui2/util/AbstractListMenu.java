@@ -22,6 +22,7 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
+import java.util.Objects;
 
 import javax.swing.Action;
 import javax.swing.JCheckBoxMenuItem;
@@ -39,12 +40,12 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 	private int oldSize = 0;
 	private int offset = 0;
 
-	public AbstractListMenu(Action action)
+	protected AbstractListMenu(Action action)
 	{
 		this(action, null);
 	}
 
-	public AbstractListMenu(Action action, ListFacade<E> listModel)
+	private AbstractListMenu(Action action, ListFacade<E> listModel)
 	{
 		super(action);
 		setListModel(listModel);
@@ -136,27 +137,22 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 	 */
 	protected abstract JMenuItem createMenuItem(E item, int index);
 
-	protected void checkEnabled()
+	private void checkEnabled()
 	{
 		setEnabled(getMenuComponentCount() != 0);
 	}
 
-	protected static class CheckBoxMenuItem extends JCheckBoxMenuItem
+	protected static final class CheckBoxMenuItem extends JCheckBoxMenuItem
 	{
 
 		private final Object item;
 
 		public CheckBoxMenuItem(Object item, boolean selected, ItemListener listener)
 		{
-			this.item = item;
+			super(Objects.requireNonNull(item).toString());
+			this.item = Objects.requireNonNull(item);
 			setSelected(selected);
-			addItemListener(listener);
-		}
-
-		@Override
-		public String getText()
-		{
-			return item.toString();
+			addItemListener(Objects.requireNonNull(listener));
 		}
 
 		@Override
@@ -164,15 +160,6 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 		{
 			return new Object[]{item};
 		}
-
-		@Override
-		public Point getToolTipLocation(MouseEvent event)
-		{
-			Dimension size = getSize();
-			double halfheight = size.getHeight() / 2;
-			return new Point((int) size.getWidth(), (int) halfheight);
-		}
-
 	}
 
 }
