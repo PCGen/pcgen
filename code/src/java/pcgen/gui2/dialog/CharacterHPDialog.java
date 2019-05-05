@@ -49,7 +49,6 @@ import pcgen.facade.core.CharacterLevelsFacade;
 import pcgen.facade.core.CharacterLevelsFacade.CharacterLevelEvent;
 import pcgen.facade.core.CharacterLevelsFacade.HitPointListener;
 import pcgen.facade.util.ReferenceFacade;
-import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.table.IntegerEditor;
@@ -122,16 +121,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 		box.add(new JLabel("Total Hp:"));
 		box.add(Box.createHorizontalStrut(3));
 
-		final ReferenceListener<Integer> hpListener = new ReferenceListener<Integer>()
-		{
-
-			@Override
-			public void referenceChanged(ReferenceEvent<Integer> e)
-			{
-				totalHp.setText(e.getNewReference().toString());
-			}
-
-		};
+		final ReferenceListener<Integer> hpListener = e -> totalHp.setText(e.getNewReference().toString());
 		ReferenceFacade<Integer> hpRef = character.getTotalHPRef();
 		totalHp.setText(hpRef.get().toString());
 		hpRef.addReferenceListener(hpListener);
