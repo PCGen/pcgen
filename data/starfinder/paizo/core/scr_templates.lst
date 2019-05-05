@@ -8,9 +8,9 @@ Bleachling					VISIBLE:NO																																		SUBRACE:Bleachling
 Feychild					VISIBLE:NO																																		SUBRACE:Feychild
 
 #
-SIZE ~ Tiny			SIZE:T	VISIBLE:NO
-SIZE ~ Small		SIZE:S	VISIBLE:NO
-SIZE ~ Medium		SIZE:M	VISIBLE:NO
+SIZE ~ Tiny			MODIFY:PCSize|SET|T	VISIBLE:NO
+SIZE ~ Small		MODIFY:PCSize|SET|S	VISIBLE:NO
+SIZE ~ Medium		MODIFY:PCSize|SET|M	VISIBLE:NO
 
 
 
