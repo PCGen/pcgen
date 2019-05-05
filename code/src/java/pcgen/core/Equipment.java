@@ -1188,7 +1188,7 @@ public final class Equipment extends PObject
 		//
 		// Put size in name if not the same as the base item
 		//
-		SizeAdjustment thisSize = getSafe(ObjectKey.SIZE).get();
+		SizeAdjustment thisSize = getSizeAdjustment();
 		if (!getSafe(ObjectKey.BASESIZE).get().equals(thisSize))
 		{
 			itemName.append(thisSize.getDisplayName());
@@ -1825,7 +1825,7 @@ public final class Equipment extends PObject
 	 */
 	public String getSize()
 	{
-		return getSafe(ObjectKey.SIZE).get().getKeyName();
+		return getSizeAdjustment().getKeyName();
 	}
 
 	public SizeAdjustment getSizeAdjustment()
@@ -2830,8 +2830,8 @@ public final class Equipment extends PObject
 			sbuf.append(sep).append("KEY").append(endPart).append(this.getKeyName());
 		}
 
-		SizeAdjustment thisSize = getSafe(ObjectKey.SIZE).get();
-		if (!thisSize.equals(base.getSafe(ObjectKey.SIZE).get()))
+		SizeAdjustment thisSize = getSizeAdjustment();
+		if (!thisSize.equals(base.getSizeAdjustment()))
 		{
 			sbuf.append(sep).append("SIZE").append(endPart).append(thisSize.getKeyName());
 		}
@@ -3043,7 +3043,7 @@ public final class Equipment extends PObject
 		if (csr != null)
 		{
 			SizeAdjustment customSize = csr.get();
-			if (!getSafe(ObjectKey.SIZE).get().equals(customSize))
+			if (!getSizeAdjustment().equals(customSize))
 			{
 				resizeItem(pc, customSize);
 			}
@@ -3483,7 +3483,7 @@ public final class Equipment extends PObject
 	 */
 	public int sizeInt()
 	{
-		SizeAdjustment size = getSafe(ObjectKey.SIZE).get();
+		SizeAdjustment size = getSizeAdjustment();
 		return size.get(IntegerKey.SIZEORDER);
 	}
 
@@ -4132,15 +4132,13 @@ public final class Equipment extends PObject
 	private BigDecimal getWeightAdjustedForSize(final PlayerCharacter aPC, final SizeAdjustment newSA)
 	{
 
-		if (this.isVirtual())
+		if (this.virtualItem)
 		{
 			return BigDecimal.ZERO;
 		}
 
-		final SizeAdjustment currSA = getSafe(ObjectKey.SIZE).get();
-
 		BigDecimal weight = getBaseWeight();
-		if ((newSA == null) || (currSA == null))
+		if ((newSA == null) || (getSizeAdjustment() == null))
 		{
 			return weight;
 		}
@@ -4148,7 +4146,7 @@ public final class Equipment extends PObject
 		if (aPC != null)
 		{
 			final double mult = aPC.getSizeBonusTo(newSA, "ITEMWEIGHT", typeList(), 1.0)
-				/ aPC.getSizeBonusTo(currSA, "ITEMWEIGHT", typeList(), 1.0);
+				/ aPC.getSizeBonusTo(getSizeAdjustment(), "ITEMWEIGHT", typeList(), 1.0);
 			weight = weight.multiply(new BigDecimal(mult));
 		}
 
@@ -4177,7 +4175,7 @@ public final class Equipment extends PObject
 		if ((getRawBonusList(aPC) != null) && isArmor())
 		{
 			double mult = 1.0;
-			final SizeAdjustment currSA = baseEq.getSafe(ObjectKey.SIZE).get();
+			final SizeAdjustment currSA = baseEq.getSizeAdjustment();
 
 			if ((newSA != null) && aPC != null)
 			{
@@ -4901,9 +4899,7 @@ public final class Equipment extends PObject
 		String thisName = getName();
 		String upName = thisName.toUpperCase();
 
-		// Get the full name of the current size
-		SizeAdjustment sa1 = getSafe(ObjectKey.SIZE).get();
-		String upThisSize = sa1.getDisplayName().toUpperCase();
+		String upThisSize = getSizeAdjustment().getDisplayName().toUpperCase();
 
 		int start = upName.indexOf(upThisSize);
 		int end = start + upThisSize.length();
@@ -5748,7 +5744,7 @@ public final class Equipment extends PObject
 		}
 		if (!"special".equalsIgnoreCase(aDamage) && !"-".equals(aDamage))
 		{
-			return Globals.adjustDamage(aDamage, getSafe(ObjectKey.SIZE).get(), aSize);
+			return Globals.adjustDamage(aDamage, getSizeAdjustment(), aSize);
 		}
 
 		return aDamage;
