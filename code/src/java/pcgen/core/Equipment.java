@@ -4177,7 +4177,7 @@ public final class Equipment extends PObject
 		if ((getRawBonusList(aPC) != null) && isArmor())
 		{
 			double mult = 1.0;
-			final SizeAdjustment currSA = baseEq.getSizeAdjustment();
+			final SizeAdjustment currSA = baseEq.getSizeAdjustment(aPC.getCharID());
 
 			if ((newSA != null) && aPC != null)
 			{
@@ -4206,8 +4206,8 @@ public final class Equipment extends PObject
 					if (iOffs > 10)
 					{
 						/*
-						 * TODO This is bad behavior to alter this list, 
-						 * which - theoretically - shouldn't be altered 
+						 * TODO This is bad behavior to alter this list,
+						 * which - theoretically - shouldn't be altered
 						 * after data load.  However, given .REPLACE
 						 * potential in BONUS objects, I can't find
 						 * another quick solution to this problem
@@ -4228,10 +4228,10 @@ public final class Equipment extends PObject
 
 					if (iOffs > 10)
 					{
-						Integer acCombatBonus = Integer.valueOf(aString.substring(10, iOffs));
-						double d = acCombatBonus.doubleValue() * mult;
+						int acCombatBonus = Integer.parseInt(aString.substring(10, iOffs));
+						double d = acCombatBonus * mult;
 						acCombatBonus = (int) d;
-						aString = aString.substring(0, 10) + acCombatBonus.toString() + aString.substring(iOffs);
+						aString = aString.substring(0, 10) + acCombatBonus + aString.substring(iOffs);
 						/*
 						 * TODO This is bad behavior to alter this list, 
 						 * which - theoretically - shouldn't be altered 
@@ -4282,13 +4282,17 @@ public final class Equipment extends PObject
 	private boolean checkContainerCapacity(final SortedSet<String> aTypeList, final Float aQuant)
 	{
 
-		return Capacity.ANY.equals(get(ObjectKey.TOTAL_CAPACITY)) || !("".equals(pickChildType(aTypeList, aQuant)));
+		return Capacity.ANY.equals(get(ObjectKey.TOTAL_CAPACITY)) || !(
+				pickChildType(aTypeList, aQuant) != null && pickChildType(
+						aTypeList,
+						aQuant
+				).isEmpty());
 	}
 
-	private List<EquipmentModifier> cloneEqModList(Equipment other, boolean primary)
+	private Collection<EquipmentModifier> cloneEqModList(Equipment other, boolean primary)
 	{
 
-		final List<EquipmentModifier> clonedList = new ArrayList<>();
+		final Collection<EquipmentModifier> clonedList = new ArrayList<>();
 
 		for (EquipmentModifier eqMod : getEqModifierList(primary))
 		{
@@ -4397,7 +4401,7 @@ public final class Equipment extends PObject
 	 *            
 	 * @return true if the Equipement can hold quantToAdd more of the item
 	 */
-	private String pickChildType(final SortedSet<String> aTypeList, final Float quantToAdd)
+	private String pickChildType(final Collection<String> aTypeList, final Float quantToAdd)
 	{
 
 		Capacity totalCap = get(ObjectKey.TOTAL_CAPACITY);
@@ -4438,7 +4442,7 @@ public final class Equipment extends PObject
 				}
 			}
 
-			if (("".equals(canContain)) && anyContain)
+			if ((canContain.isEmpty()) && anyContain)
 			{
 				if (!containsChildType("Any"))
 				{
