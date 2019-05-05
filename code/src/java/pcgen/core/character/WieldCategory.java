@@ -43,7 +43,6 @@ public final class WieldCategory implements Loadable
 	private int handsRequired;
 	private boolean isFinessable;
 	private int sizeDifference;
-	private final Map<Integer, Float> damageMultiplier = new HashMap<>();
 	private final Map<Integer, CDOMSingleRef<WieldCategory>> wcSteps = new HashMap<>();
 	private final List<QualifiedObject<CDOMSingleRef<WieldCategory>>> categorySwitches = new ArrayList<>();
 
@@ -122,15 +121,6 @@ public final class WieldCategory implements Loadable
 	public void setWieldCategoryStep(int location, CDOMSingleRef<WieldCategory> stepCat)
 	{
 		CDOMSingleRef<WieldCategory> previous = wcSteps.put(location, stepCat);
-		if (previous != null)
-		{
-			// overwrite warning?
-		}
-	}
-
-	public void addDamageMult(int numHands, float mult)
-	{
-		Float previous = damageMultiplier.put(numHands, mult);
 		if (previous != null)
 		{
 			// overwrite warning?
