@@ -1106,7 +1106,7 @@ public class EncounterPlugin extends MouseAdapter implements InteractivePlugin, 
 		}
 
 		// Don't allow weapons that are too large for PC
-		if (eqI.isWeaponTooLargeForPC(pc))
+		if (eqI.isWeaponOutsizedForPC(pc))
 		{
 			return false;
 		}
