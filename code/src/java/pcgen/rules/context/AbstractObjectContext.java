@@ -727,20 +727,10 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 				patternClearSet.getListFor(extractURI, cdo, lk), globalClearSet.containsInList(extractURI, cdo, lk));
 		}
 
-		public URI getExtractURI()
-		{
-			return extractURI;
-		}
-
 		@Override
 		public void setExtractURI(URI extractURI)
 		{
 			this.extractURI = extractURI;
-		}
-
-		public URI getSourceURI()
-		{
-			return sourceURI;
 		}
 
 		@Override
@@ -749,7 +739,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 			this.sourceURI = sourceURI;
 		}
 
-		public void decommit()
+		private void decommit()
 		{
 			positiveMap.clear();
 			negativeMap.clear();
