@@ -29,8 +29,6 @@ import java.util.Map;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
-import pcgen.base.util.DoubleKeyMapToList;
-import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
@@ -238,8 +236,6 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Category<SubClass>> SUBCLASS_CATEGORY = new ObjectKey<>(null);
 
-	public static final ObjectKey<Nature> ABILITY_NATURE = new ObjectKey<>(Nature.NORMAL);
-
 	public static final ObjectKey<CDOMSingleRef<SizeAdjustment>> BASESIZE;
 
 	public static final ObjectKey<CDOMSingleRef<SizeAdjustment>> SIZE;
@@ -294,12 +290,7 @@ public class ObjectKey<T>
 
 	public static final ObjectKey<Destination> DESTINATION = new ObjectKey<>(null);
 
-	public static final ObjectKey<CDOMSingleRef<Ability>> FEATEQ_STRING = new ObjectKey<>(null);
-
 	public static final ObjectKey<Boolean> INTERNAL = new ObjectKey<>(Boolean.FALSE);
-
-	public static final ObjectKey<DoubleKeyMapToList<Spell, CDOMList<Spell>, Integer>> SPELL_PC_INFO =
-			new ObjectKey<>(null);
 
 	public static final ObjectKey<ClassSkillList> CLASS_SKILLLIST = new ObjectKey<>(null);
 
