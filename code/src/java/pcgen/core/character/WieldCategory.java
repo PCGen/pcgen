@@ -139,6 +139,7 @@ public final class WieldCategory implements Loadable
 
 	public WieldCategory getWieldCategoryStep(int steps)
 	{
+		assert steps != 0;
 		CDOMSingleRef<WieldCategory> wcRef = wcSteps.get(steps);
 		return wcRef == null ? null : wcRef.get();
 	}
