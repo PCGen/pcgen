@@ -32,17 +32,18 @@ import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FormulaResolvingFacet;
-import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
+import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeEvent;
 import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeListener;
+import pcgen.cdom.facet.analysis.ResultFacet;
 import pcgen.cdom.facet.base.AbstractDataFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.analysis.SizeUtilities;
@@ -63,10 +64,11 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 	private FormulaResolvingFacet formulaResolvingFacet;
 	private BonusCheckingFacet bonusCheckingFacet;
 	private LevelFacet levelFacet;
+	private ResultFacet resultFacet;
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
-	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+	private LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
 	/**
 	 * Returns the integer indicating the racial size for the Player Character
@@ -80,11 +82,12 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 	 */
 	public int racialSizeInt(CharID id)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
-		String baseSizeControl = pc.getControl(CControl.BASESIZE);
+		String baseSizeControl = ControlUtilities.getControlToken(
+			loadContextFacet.get(id.getDatasetID()).get(), CControl.BASESIZE);
 		if (baseSizeControl != null)
 		{
-			SizeAdjustment baseSize = (SizeAdjustment) pc.getGlobal(baseSizeControl);
+			SizeAdjustment baseSize = (SizeAdjustment) resultFacet
+					.getGlobalVariable(id, baseSizeControl);
 			return baseSize.get(IntegerKey.SIZEORDER);
 		}
 		else
@@ -100,11 +103,12 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 
 	private int calcRacialSizeInt(CharID id)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
-		String baseSizeControl = pc.getControl(CControl.BASESIZE);
+		String baseSizeControl = ControlUtilities.getControlToken(
+			loadContextFacet.get(id.getDatasetID()).get(), CControl.BASESIZE);
 		if (baseSizeControl != null)
 		{
-			SizeAdjustment baseSize = (SizeAdjustment) pc.getGlobal(baseSizeControl);
+			SizeAdjustment baseSize = (SizeAdjustment) resultFacet
+				.getGlobalVariable(id, baseSizeControl);
 			return baseSize.get(IntegerKey.SIZEORDER);
 		}
 		else
@@ -406,6 +410,11 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 	public void setLevelFacet(LevelFacet levelFacet)
 	{
 		this.levelFacet = levelFacet;
+	}
+
+	public void setResultFacet(ResultFacet resultFacet)
+	{
+		this.resultFacet = resultFacet;
 	}
 
 	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)
