@@ -689,7 +689,7 @@
 	<!-- END Facet Definitions -->
 
 	<!--  Scope Definitions -->
-	<bean id="globalLegalScope" class="pcgen.cdom.formula.scope.GlobalScope"/>
+	<bean id="globalLegalScope" class="pcgen.cdom.formula.scope.GlobalPCScope"/>
 	<bean id="saveLegalScope" class="pcgen.cdom.formula.scope.SaveScope">
 		<property name="parent" ref="globalLegalScope"/>
 	</bean>

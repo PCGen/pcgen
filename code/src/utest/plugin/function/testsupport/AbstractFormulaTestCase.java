@@ -41,7 +41,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.MonitorableVariableStore;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
@@ -177,7 +177,7 @@ public abstract class AbstractFormulaTestCase
 	protected ScopeInstance getGlobalScopeInst()
 	{
 		return getFormulaManager().getScopeInstanceFactory()
-			.getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
+			.getGlobalInstance(GlobalPCScope.GLOBAL_SCOPE_NAME);
 	}
 
 	protected FormulaManager getFormulaManager()

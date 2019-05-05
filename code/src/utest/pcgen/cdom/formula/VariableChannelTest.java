@@ -31,7 +31,7 @@ import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SolverManager;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.formula.testsupport.AbstractModifier;
 import pcgen.facade.util.event.ReferenceEvent;
@@ -58,7 +58,7 @@ public class VariableChannelTest extends AbstractFormulaTestCase
 		FormulaUtilities.loadBuiltInOperators(getOperatorLibrary());
 
 		manager = context.getVariableContext().generateSolverManager(getVariableStore());
-		globalScope = context.getVariableContext().getScope(GlobalScope.GLOBAL_SCOPE_NAME);
+		globalScope = context.getVariableContext().getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		ScopeInstanceFactory sif = getFormulaManager().getScopeInstanceFactory();
 		globalInstance = sif.getGlobalInstance(globalScope.getName());
 	}

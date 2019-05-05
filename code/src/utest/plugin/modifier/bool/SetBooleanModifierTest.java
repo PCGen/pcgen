@@ -24,7 +24,7 @@ import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.modifier.testsupport.EvalManagerUtilities;
@@ -34,7 +34,7 @@ import org.junit.jupiter.api.Test;
 public class SetBooleanModifierTest
 {
 
-	private final PCGenScope varScope = new GlobalScope();
+	private final PCGenScope varScope = new GlobalPCScope();
 	private FormatManager<Boolean> booleanManager = new BooleanManager();
 
 	@Test

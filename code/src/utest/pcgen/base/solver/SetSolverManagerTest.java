@@ -54,7 +54,7 @@ import pcgen.cdom.content.ProcessCalculation;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.formula.scope.EquipmentScope;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.formula.scope.SkillScope;
 import pcgen.core.Skill;
@@ -72,7 +72,7 @@ import org.junit.jupiter.api.Test;
 class SetSolverManagerTest
 {
 
-	private final PCGenScope globalScope = new GlobalScope();
+	private final PCGenScope globalScope = new GlobalPCScope();
 	private TrackingVariableCache vc;
 	private ScopeManagerInst vsLib;
 	private VariableManager sl;
@@ -190,7 +190,7 @@ class SetSolverManagerTest
 		manager.createChannel(varIDa);
 		vc.put(varIDa, 3);
 		ScopeInstance globalInst =
-				siFactory.getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
+				siFactory.getGlobalInstance(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		VariableID varIDq = sl.getVariableID(globalInst, "SkillVar");
 		manager.createChannel(varIDq);
 		VariableID varIDr = sl.getVariableID(globalInst, "ResultVar");

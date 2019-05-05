@@ -28,7 +28,7 @@ import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.solver.FormulaSetupFactory;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.cdom.formula.scope.PCGenScope;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
@@ -38,7 +38,7 @@ import org.junit.jupiter.api.Test;
 public class SetNumberModifierTest
 {
 
-	private final PCGenScope varScope = new GlobalScope();
+	private final PCGenScope varScope = new GlobalPCScope();
 	FormatManager<Number> numManager = new NumberManager();
 
 	@Test
