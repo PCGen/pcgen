@@ -20,36 +20,10 @@ package pcgen.gui2.tools;
 
 import java.awt.event.InputEvent;
 
-import javax.swing.ImageIcon;
-
 import org.jetbrains.annotations.Contract;
 
 public final class Utilities
 {
-
-	/** Icons for New item. */
-	static final ImageIcon NEW_ICON = Icons.New16.getImageIcon();
-	/** Icons for Close item. */
-	static final ImageIcon CLOSE_ICON = Icons.Close16.getImageIcon();
-	/** Icons for Locked item. */
-	static final ImageIcon LOCK_ICON = Icons.Bookmarks16.getImageIcon();
-	/** Icons for Up item. */
-	static final ImageIcon UP_ICON = Icons.Up16.getImageIcon();
-	/** Icons for Left item. */
-	static final ImageIcon LEFT_ICON = Icons.Back16.getImageIcon();
-	/** Icons for Down item. */
-	static final ImageIcon DOWN_ICON = Icons.Down16.getImageIcon();
-	/** Icons for Right item. */
-	static final ImageIcon RIGHT_ICON = Icons.Forward16.getImageIcon();
-	/** Icons for Top item. */
-	static final ImageIcon TOP_ICON = Icons.UUp16.getImageIcon();
-	/** Icons for Beginning item. */
-	static final ImageIcon BEGINNING_ICON = Icons.BBack16.getImageIcon();
-	/** Icons for Bottom item. */
-	static final ImageIcon BOTTOM_ICON = Icons.DDown16.getImageIcon();
-	/** Icons for End item. */
-	static final ImageIcon END_ICON = Icons.FForward16.getImageIcon();
-
 	private Utilities()
 	{
 	}
