@@ -40,11 +40,13 @@ import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import util.FormatSupport;
+import util.GameModeSupport;
 
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
@@ -172,7 +174,7 @@ public abstract class AbstractCharacterTestCase
 		ref.importObject(ce);
 		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 
-		GameModeFileLoader.addDefaultWieldCategories(context);
+		GameModeSupport.addDefaultWieldCategories(context);
 		
 		ref.importObject(str);
 		ref.importObject(dex);

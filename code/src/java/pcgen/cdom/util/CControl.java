@@ -104,6 +104,11 @@ public final class CControl
 	public static final String WEIGHTMULTIPLIER = "WEIGHTMULTIPLIER";
 
 	/**
+	 * Code control to take WieldCategory (Steps, etc) away from the old calculation system
+	 */
+	public static final String WIELDCAT = "WIELDCAT";
+
+	/**
 	 * Code Control for the Alignment Input Channel.
 	 */
 	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", "Alignment", Optional.of("ALIGNMENTFEATURE"), "ALIGNMENT", true, true);
