@@ -302,7 +302,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				boolean alternateStartup = false;
 				alternateStartup |= maybeLoadCampaign();
 				alternateStartup |= maybeLoadOrCreateCharacter();
-				alternateStartup |= maybeStartInNPCGen();
 				alternateStartup |= maybeStartInGMGen();
 				alternateStartup |= maybeAutoLoadSources();
 
@@ -460,16 +459,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 					openCharacter(file, dataset);
 				}
 			});
-			return true;
-		}
-
-		private boolean maybeStartInNPCGen()
-		{
-			if (!Main.shouldStartInNPCGen())
-			{
-				return false;
-			}
-			//TODO: finish this
 			return true;
 		}
 
@@ -1197,25 +1186,20 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		statusBar.startShowingProgress(msg, false);
 		statusBar.getProgressBar().getModel().setRangeProperties(0, 1, 0, 2, false);
 		statusBar.getProgressBar().setString(LanguageBundle.getString("in_loadPcOpening"));
-		SwingUtilities.invokeLater(new Runnable()
-		{
-			@Override
-			public void run()
-			{
+		SwingUtilities.invokeLater(() -> {
 
-				try
-				{
-					CharacterManager.openCharacter(pcgFile, PCGenFrame.this, reference);
-					statusBar.getProgressBar().getModel().setRangeProperties(1, 1, 0, 2, false);
-				}
-				catch (Exception e)
-				{
-					Logging.errorPrint("Error loading character: " + pcgFile.getName(), e);
-				}
-				finally
-				{
-					statusBar.endShowingProgress();
-				}
+			try
+			{
+				CharacterManager.openCharacter(pcgFile, PCGenFrame.this, reference);
+				statusBar.getProgressBar().getModel().setRangeProperties(1, 1, 0, 2, false);
+			}
+			catch (Exception e)
+			{
+				Logging.errorPrint("Error loading character: " + pcgFile.getName(), e);
+			}
+			finally
+			{
+				statusBar.endShowingProgress();
 			}
 		});
 	}
@@ -1259,39 +1243,27 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				try
 				{
 					sourceLoader.join();
-					SwingUtilities.invokeAndWait(new Runnable()
-					{
-						@Override
-						public void run()
-						{
-							final String msg =
-									LanguageBundle.getFormattedString("in_loadPcLoadingFile", pcgFile.getName());
-							statusBar.startShowingProgress(msg, false);
-							statusBar.getProgressBar().getModel().setRangeProperties(0, 1, 0, 2, false);
-							statusBar.getProgressBar().setString(LanguageBundle.getString("in_loadPcOpening"));
-						}
+					SwingUtilities.invokeAndWait(() -> {
+						final String msg =
+								LanguageBundle.getFormattedString("in_loadPcLoadingFile", pcgFile.getName());
+						statusBar.startShowingProgress(msg, false);
+						statusBar.getProgressBar().getModel().setRangeProperties(0, 1, 0, 2, false);
+						statusBar.getProgressBar().setString(LanguageBundle.getString("in_loadPcOpening"));
 					});
-					SwingUtilities.invokeLater(new Runnable()
-					{
-
-						@Override
-						public void run()
+					SwingUtilities.invokeLater(() -> {
+						try
 						{
-							try
-							{
-								CharacterManager.openCharacter(pcgFile, PCGenFrame.this, currentDataSetRef.get());
-								statusBar.getProgressBar().getModel().setRangeProperties(1, 1, 0, 2, false);
-							}
-							catch (Exception e)
-							{
-								Logging.errorPrint("Error loading character: " + pcgFile.getName(), e);
-							}
-							finally
-							{
-								statusBar.endShowingProgress();
-							}
+							CharacterManager.openCharacter(pcgFile, PCGenFrame.this, currentDataSetRef.get());
+							statusBar.getProgressBar().getModel().setRangeProperties(1, 1, 0, 2, false);
 						}
-
+						catch (Exception e)
+						{
+							Logging.errorPrint("Error loading character: " + pcgFile.getName(), e);
+						}
+						finally
+						{
+							statusBar.endShowingProgress();
+						}
 					});
 				}
 				catch (InterruptedException ex)
@@ -1358,16 +1330,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 						try
 						{
 							sourceLoader.join();
-							SwingUtilities.invokeLater(new Runnable()
-							{
-
-								@Override
-								public void run()
-								{
-									CharacterManager.openParty(pcpFile, PCGenFrame.this, currentDataSetRef.get());
-								}
-
-							});
+							SwingUtilities.invokeLater(() -> CharacterManager.openParty(pcpFile, PCGenFrame.this, currentDataSetRef.get()));
 						}
 						catch (InterruptedException ex)
 						{
