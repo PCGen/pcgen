@@ -88,12 +88,6 @@ public abstract class AbstractListContext
 		edits.clearAllMasterLists(tokenName, owner);
 	}
 
-	public <T extends CDOMObject> void clearMasterList(String tokenName, CDOMObject owner,
-		CDOMReference<? extends CDOMList<T>> list)
-	{
-		edits.clearMasterList(tokenName, owner, list);
-	}
-
 	public <T extends CDOMObject> AssociatedPrereqObject addToList(String tokenName, CDOMObject owner,
 		CDOMReference<? extends CDOMList<? super T>> list, CDOMReference<T> allowed)
 	{
