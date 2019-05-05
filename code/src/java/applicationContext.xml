@@ -690,24 +690,25 @@
 	<!-- END Facet Definitions -->
 
 	<!--  Scope Definitions -->
-	<bean id="globalLegalScope" class="pcgen.cdom.formula.scope.GlobalPCScope"/>
+	<bean id="globalEQScope" class="pcgen.cdom.formula.scope.GlobalEQScope"/>
+	<bean id="globalPCScope" class="pcgen.cdom.formula.scope.GlobalPCScope"/>
 	<bean id="saveLegalScope" class="pcgen.cdom.formula.scope.SaveScope">
-		<property name="parent" ref="globalLegalScope"/>
+		<property name="parent" ref="globalPCScope"/>
 	</bean>
 	<bean id="sizeLegalScope" class="pcgen.cdom.formula.scope.SizeScope">
-		<property name="parent" ref="globalLegalScope"/>
+		<property name="parent" ref="globalPCScope"/>
 	</bean>
 	<bean id="skillLegalScope" class="pcgen.cdom.formula.scope.SkillScope">
-		<property name="parent" ref="globalLegalScope"/>
+		<property name="parent" ref="globalPCScope"/>
 	</bean>
 	<bean id="statLegalScope" class="pcgen.cdom.formula.scope.StatScope">
-		<property name="parent" ref="globalLegalScope"/>
+		<property name="parent" ref="globalPCScope"/>
 	</bean>
 	<bean id="raceLegalScope" class="pcgen.cdom.formula.scope.RaceScope">
-		<property name="parent" ref="globalLegalScope"/>
+		<property name="parent" ref="globalPCScope"/>
 	</bean>
 	<bean id="equipLegalScope" class="pcgen.cdom.formula.scope.EquipmentScope">
-		<property name="parent" ref="globalLegalScope"/>
+		<property name="parent" ref="globalPCScope"/>
 	</bean>
 	<bean id="equipPartLegalScope" class="pcgen.cdom.formula.scope.EquipmentPartScope">
 		<property name="parent" ref="equipLegalScope"/>
