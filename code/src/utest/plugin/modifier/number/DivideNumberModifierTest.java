@@ -25,7 +25,7 @@ import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.cdom.formula.scope.PCGenScope;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
@@ -35,7 +35,7 @@ import org.junit.jupiter.api.Test;
 public class DivideNumberModifierTest
 {
 
-	private final PCGenScope varScope = new GlobalScope();
+	private final PCGenScope varScope = new GlobalPCScope();
 	private final FormatManager<Number> numManager = new NumberManager();
 
 	@Test

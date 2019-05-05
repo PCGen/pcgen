@@ -38,7 +38,7 @@ import pcgen.base.util.BasicIndirect;
 import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.formula.ManagerKey;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.core.Skill;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.enumeration.Visibility;
@@ -160,7 +160,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	{
 		VariableLibrary vl = getVariableLibrary();
 		LegalScope globalScope =
-				context.getVariableContext().getScope(GlobalScope.GLOBAL_SCOPE_NAME);
+				context.getVariableContext().getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		vl.assertLegalVariableID("SkillVar", globalScope,
 			context.getManufacturer("SKILL"));
 
@@ -184,7 +184,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 		Skill skillalt = new Skill();
 		skillalt.setName("SkillAlt");
 		ScopeInstance globalInst = getFormulaManager().getScopeInstanceFactory()
-			.getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
+			.getGlobalInstance(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		VariableID varIDq = vl.getVariableID(globalInst, "SkillVar");
 		getVariableStore().put(varIDq, skill);
 		context.getReferenceContext().importObject(skill);

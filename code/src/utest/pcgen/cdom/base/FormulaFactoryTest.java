@@ -9,7 +9,7 @@ import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.formula.inst.ScopeManagerInst;
 import pcgen.base.solver.FormulaSetupFactory;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.cdom.formula.scope.PCGenScope;
 
 import org.junit.jupiter.api.AfterEach;
@@ -28,7 +28,7 @@ class FormulaFactoryTest
 	{
 		arrayManager = new ArrayFormatManager<>(FormatUtilities.NUMBER_MANAGER,
 			'\n', ',');
-		varScope = new GlobalScope();
+		varScope = new GlobalPCScope();
 		FormulaSetupFactory formulaSetupFactory = new FormulaSetupFactory();
 		ScopeManagerInst legalScopeManager = new ScopeManagerInst();
 		formulaSetupFactory
