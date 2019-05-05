@@ -28,6 +28,7 @@ import pcgen.base.formula.function.LengthFunction;
 import pcgen.base.formula.function.MaxFunction;
 import pcgen.base.formula.function.MinFunction;
 import pcgen.base.formula.function.RoundFunction;
+import pcgen.base.formula.function.SliceFunction;
 import pcgen.base.formula.function.ValueFunction;
 import pcgen.base.formula.operator.array.ArrayAdd;
 import pcgen.base.formula.operator.array.ArrayEquals;
@@ -89,6 +90,7 @@ public final class FormulaUtilities
 		functionLib.addFunction(new MaxFunction());
 		functionLib.addFunction(new MinFunction());
 		functionLib.addFunction(new RoundFunction());
+		functionLib.addFunction(new SliceFunction());
 		functionLib.addFunction(new ValueFunction());
 		return functionLib;
 	}
