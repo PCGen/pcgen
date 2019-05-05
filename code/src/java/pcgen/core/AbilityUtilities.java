@@ -17,7 +17,6 @@
  */
 package pcgen.core;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -74,16 +73,6 @@ public final class AbilityUtilities
 		 * association is added. - thpr
 		 */
 		aPC.calcActiveBonuses();
-	}
-
-	public static void adjustPool(final Ability ability, final PlayerCharacter aPC, final boolean addIt)
-	{
-		double abilityCount = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-		if (addIt)
-		{
-			abilityCount *= -1;
-		}
-		aPC.adjustAbilities(AbilityCategory.FEAT, BigDecimal.valueOf(abilityCount));
 	}
 
 	/**
