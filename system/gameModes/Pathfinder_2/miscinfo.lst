@@ -252,11 +252,11 @@ WIELDCATEGORY:TwoHandsOnlyTooLarge		HANDS:999
 # Wield Category Steps
 #  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
 
-# WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded							ZERO:Light
+# WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded							
 # WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
 # WIELDCATEGORY:OneHanded		UP:TwoHanded			DOWN:Light
 # WIELDCATEGORY:TwoHanded							DOWN:OneHanded|Light
-# WIELDCATEGORY:TooLarge							DOWN:TwoHanded|OneHanded|Light	ZERO:TwoHanded
+# WIELDCATEGORY:TooLarge							DOWN:TwoHanded|OneHanded|Light	
 # 
 # WIELDCATEGORY:TwoHandsOnly	UP:TwoHandsOnlyTooLarge	DOWN:TwoHandsOnlyTooSmall
 # WIELDCATEGORY:OneHandOnlyOnly	UP:OneHandOnlyTooLarge	DOWN:OneHandOnlyTooSmall
