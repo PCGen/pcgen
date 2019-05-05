@@ -185,7 +185,7 @@ public class DelegatingDataSet implements DataSetFacade
 		@Override
 		public void keyModified(MapEvent<AbilityCategory, ListFacade<AbilityFacade>> e)
 		{
-			fireKeyModified(this, e.getKey(), abilitiesMap.get(e.getKey()), e);
+			fireKeyModified(this, e.getKey(), abilitiesMap.get(e.getKey()));
 		}
 
 		@Override
@@ -202,7 +202,7 @@ public class DelegatingDataSet implements DataSetFacade
 		@Override
 		public void valueModified(MapEvent<AbilityCategory, ListFacade<AbilityFacade>> e)
 		{
-			fireValueModified(this, e.getKey(), abilitiesMap.get(e.getKey()), e);
+			fireValueModified(this, e.getKey(), abilitiesMap.get(e.getKey()));
 		}
 
 		private void populateMap()

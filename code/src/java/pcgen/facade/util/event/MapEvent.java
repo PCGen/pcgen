@@ -26,7 +26,7 @@ public class MapEvent<K, V> extends FacadeEvent
 	public static final int KEY_MODIFIED = 2;
 	public static final int VALUE_CHANGED = 3;
 	public static final int VALUE_MODIFIED = 4;
-	public static final int KEYS_CHANGED = 4;
+	private static final int KEYS_CHANGED = 4;
 	private final int type;
 	private final K key;
 	private final V newValue;
@@ -38,17 +38,12 @@ public class MapEvent<K, V> extends FacadeEvent
 	 */
 	public MapEvent(Object source)
 	{
-		this(source, KEYS_CHANGED, null, null, null, null);
+		this(source, KEYS_CHANGED, null, null, null);
 	}
 
 	public MapEvent(Object source, int type, K key, V oldValue, V newValue)
 	{
-		this(source, type, key, oldValue, newValue, null);
-	}
-
-	public MapEvent(Object source, int type, K key, V oldValue, V newValue, FacadeEvent cause)
-	{
-		super(source, cause);
+		super(source);
 		this.type = type;
 		this.key = key;
 		this.oldValue = oldValue;
