@@ -46,9 +46,4 @@ public class PCCountMiscCompanionsTermEvaluator extends BasePCDTermEvaluator imp
 	{
 		return false;
 	}
-
-	public boolean isStatic()
-	{
-		return false;
-	}
 }
