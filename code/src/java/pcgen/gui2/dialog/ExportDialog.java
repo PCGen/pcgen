@@ -591,14 +591,16 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			boolean exception = true;
 			try
 			{
-				if (!((Boolean) get()))
+				if ((Boolean) get())
 				{
-					pcgenFrame.showErrorMessage("Could not export " + name,
-						"Error occurred while exporting. See log for details.");
+					exception = false;
 				}
 				else
 				{
-					exception = false;
+					pcgenFrame.showErrorMessage(
+							"Could not export " + name,
+							"Error occurred while exporting. See log for details."
+					);
 				}
 			}
 			catch (InterruptedException ex)
@@ -607,7 +609,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			}
 			catch (ExecutionException ex)
 			{
-				Logging.errorPrint("Could not export " + name, ex.getCause());
+				Logging.errorPrint("Could not export " + name, ex);
 				pcgenFrame.showErrorMessage("Could not export " + name,
 					"Error occurred while exporting. See log for details.");
 			}
@@ -674,13 +676,9 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 				progressBar.setVisible(false);
 				refreshFiles();
 			}
-			catch (InterruptedException ex)
+			catch (InterruptedException | ExecutionException ex)
 			{
 				Logging.errorPrint("failed to search files", ex);
-			}
-			catch (ExecutionException ex)
-			{
-				Logging.errorPrint("failed to search files", ex.getCause());
 			}
 		}
 
