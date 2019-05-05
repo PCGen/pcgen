@@ -93,6 +93,11 @@ public final class CControl
 	public static final String PCSIZE = "PCSIZE";
 
 	/**
+	 * Code control to take # of weapon hands off of WieldCategory
+	 */
+	public static final String WEAPONHANDS = "WEAPONHANDS";
+
+	/**
 	 * Code Control for the Alignment Input Channel.
 	 */
 	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", "Alignment", Optional.of("ALIGNMENTFEATURE"), "ALIGNMENT", true, true);

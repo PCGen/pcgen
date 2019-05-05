@@ -5026,7 +5026,7 @@ public final class Equipment extends PObject
 	 * @param pc The PlayerCharacter wielding the weapon.
 	 * @return true if the weapon can be used one handed.
 	 */
-	public boolean isWeaponOneHanded(final PlayerCharacter pc)
+	public boolean isWeaponOneHanded(PlayerCharacter pc)
 	{
 
 		if (pc == null && !isWeapon())
@@ -5035,7 +5035,20 @@ public final class Equipment extends PObject
 		}
 
 		WieldCategory wCat = getEffectiveWieldCategory(pc);
-		return wCat != null && wCat.getHandsRequired() == 1;
+		return wCat != null && getHandsRequired(pc, wCat) == 1;
+	}
+
+	private int getHandsRequired(PlayerCharacter pc, WieldCategory wCat)
+	{
+		String handsControl = pc.getControl(CControl.WEAPONHANDS);
+		if (handsControl != null)
+		{
+			return ((Number) pc.getGlobal(handsControl)).intValue();
+		}
+		else
+		{
+			return wCat.getHandsRequired();
+		}
 	}
 
 	/**
@@ -5045,7 +5058,7 @@ public final class Equipment extends PObject
 	 * @param pc The PlayerCharacter wielding the weapon.
 	 * @return true if the weapon is too large or too small.
 	 */
-	public boolean isWeaponOutsizedForPC(final PlayerCharacter pc)
+	public boolean isWeaponOutsizedForPC(PlayerCharacter pc)
 	{
 
 		if (pc == null || !isWeapon())
@@ -5054,26 +5067,12 @@ public final class Equipment extends PObject
 		}
 
 		final WieldCategory wCat = getEffectiveWieldCategory(pc);
-
-		return wCat != null && (wCat.getHandsRequired() > 2 || wCat.getHandsRequired() < 0);
-	}
-
-	/**
-	 * Tests is the weapon is too large for the PC to use.
-	 * 
-	 * @param pc The PlayerCharacter wielding the weapon
-	 * @return true if the weapon is too large.
-	 */
-	public boolean isWeaponTooLargeForPC(final PlayerCharacter pc)
-	{
-
-		if (pc == null || !isWeapon())
+		if (wCat == null)
 		{
 			return false;
 		}
-
-		WieldCategory wieldCategory = getEffectiveWieldCategory(pc);
-		return wieldCategory != null && wieldCategory.getHandsRequired() > 2;
+		int handsRequired = getHandsRequired(pc, wCat);
+		return (handsRequired > 2 || handsRequired < 0);
 	}
 
 	/**
@@ -5083,7 +5082,7 @@ public final class Equipment extends PObject
 	 *            The PlayerCharacter wielding the weapon.
 	 * @return true if the weapon is two-handed for the specified pc
 	 */
-	public boolean isWeaponTwoHanded(final PlayerCharacter pc)
+	public boolean isWeaponTwoHanded(PlayerCharacter pc)
 	{
 
 		if (pc == null || !isWeapon())
@@ -5092,7 +5091,7 @@ public final class Equipment extends PObject
 		}
 
 		WieldCategory wieldCategory = getEffectiveWieldCategory(pc);
-		return wieldCategory != null && wieldCategory.getHandsRequired() == 2;
+		return wieldCategory != null && getHandsRequired(pc, wieldCategory) == 2;
 	}
 
 	/**
@@ -5175,7 +5174,7 @@ public final class Equipment extends PObject
 					iHands = 2;
 				}
 			}
-			while (wCat.getHandsRequired() < iHands)
+			while (getHandsRequired(aPC, wCat) < iHands)
 			{
 				wCat = wCat.getWieldCategoryStep(1);
 			}
