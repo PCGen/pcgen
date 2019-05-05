@@ -54,18 +54,11 @@ import org.apache.commons.lang3.StringUtils;
 public class HtmlSheetSupport
 {
 
-	private static final ThreadFactory THREAD_FACTORY = new ThreadFactory()
-	{
-
-		@Override
-		public Thread newThread(Runnable r)
-		{
-			Thread thread = new Thread(r);
-			thread.setDaemon(true);
-			thread.setName("html-sheet-thread");
-			return thread;
-		}
-
+	private static final ThreadFactory THREAD_FACTORY = r -> {
+		Thread thread = new Thread(r);
+		thread.setDaemon(true);
+		thread.setName("html-sheet-thread");
+		return thread;
 	};
 	private ExecutorService executor = Executors.newSingleThreadExecutor(THREAD_FACTORY);
 
@@ -154,28 +147,15 @@ public class HtmlSheetSupport
 			try
 			{
 				final HTMLDocument doc = get();
-				SwingUtilities.invokeAndWait(new Runnable()
-				{
-
-					@Override
-					public void run()
-					{
-						htmlPane.setDocument(doc);
-					}
-
-				});
+				SwingUtilities.invokeAndWait(() -> htmlPane.setDocument(doc));
 			}
 			catch (InvocationTargetException ex)
 			{
-				throw new UnreachableError();
+				throw new UnreachableError(ex);
 			}
-			catch (InterruptedException ex)
+			catch (InterruptedException | ExecutionException ex)
 			{
 				Logging.errorPrint(templateFile.getName(), ex);
-			}
-			catch (ExecutionException ex)
-			{
-				Logging.errorPrint(templateFile.getName(), ex.getCause());
 			}
 
 		}

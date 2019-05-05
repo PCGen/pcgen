@@ -409,13 +409,9 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 				setPreviewPanel(new PreviewPanel(renderer.getUserAgent(), null, renderer));
 				pageBox.setModel(createPagesModel(renderer.getNumberOfPages()));
 			}
-			catch (InterruptedException ex)
+			catch (InterruptedException | ExecutionException ex)
 			{
 				Logging.errorPrint("Could not load sheet", ex);
-			}
-			catch (ExecutionException ex)
-			{
-				Logging.errorPrint("Could not load sheet", ex.getCause());
 			}
 		}
 
@@ -465,13 +461,9 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 				model.setSelectedItem(null);
 				sheetBox.setModel(model);
 			}
-			catch (InterruptedException ex)
+			catch (InterruptedException | ExecutionException ex)
 			{
 				Logging.errorPrint("could not load sheets", ex);
-			}
-			catch (ExecutionException ex)
-			{
-				Logging.errorPrint("could not load sheets", ex.getCause());
 			}
 		}
 

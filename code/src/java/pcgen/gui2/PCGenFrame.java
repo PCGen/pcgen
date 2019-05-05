@@ -312,33 +312,22 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				if (!alternateStartup)
 				{
 					//Do a default startup
-					SwingUtilities.invokeLater(new Runnable()
-					{
-
-						@Override
-						public void run()
+					SwingUtilities.invokeLater(() -> {
+						if (TipOfTheDay.showTipOfTheDay())
 						{
-							if (TipOfTheDay.showTipOfTheDay())
-							{
-								showTipsOfTheDay();
-							}
-
-							if (!SourceSelectionDialog.skipSourceSelection())
-							{
-								showSourceSelectionDialog();
-							}
+							showTipsOfTheDay();
 						}
 
+						if (!SourceSelectionDialog.skipSourceSelection())
+						{
+							showSourceSelectionDialog();
+						}
 					});
 				}
 			}
-			catch (InterruptedException ex)
+			catch (InterruptedException | InvocationTargetException ex)
 			{
 				Logging.errorPrint("Unexepected exception", ex);
-			}
-			catch (InvocationTargetException ex)
-			{
-				Logging.errorPrint("Unexepected exception", ex.getCause());
 			}
 		}
 
