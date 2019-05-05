@@ -49,7 +49,7 @@ public class PreSizeTester extends AbstractPrerequisiteTest implements Prerequis
 	{
 		final int targetSize = getTargetSizeInt(prereq.getOperand());
 
-		final int runningTotal = prereq.getOperator().compare(equipment.sizeInt(), targetSize);
+		final int runningTotal = prereq.getOperator().compare(equipment.sizeInt(pc.getCharID()), targetSize);
 
 		return countedTotal(prereq, runningTotal);
 	}

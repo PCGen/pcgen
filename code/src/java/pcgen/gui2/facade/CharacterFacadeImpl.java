@@ -3325,7 +3325,7 @@ public class CharacterFacadeImpl
 	{
 		final Equipment equip = (Equipment) equipment;
 		final SizeAdjustment newSize = theCharacter.getSizeAdjustment();
-		if (equip.getSizeAdjustment() == newSize || !Globals.canResizeHaveEffect(equip, null))
+		if (equip.getSizeAdjustment(theCharacter.getCharID()) == newSize || !Globals.canResizeHaveEffect(equip, null))
 		{
 			return equipment;
 		}
@@ -3349,7 +3349,7 @@ public class CharacterFacadeImpl
 			return potential;
 		}
 
-		final String newName = equip.createNameForAutoResize(newSize);
+		final String newName = equip.createNameForAutoResize(newSize, theCharacter.getCharID());
 		potential =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Equipment.class, newName);
 

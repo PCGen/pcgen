@@ -41,7 +41,7 @@ final class CharacterUtils
 	{
 		return !eq.isType("Magic")
 				&& (CoreUtility.doublesEqual(eq.getCost(aPC).doubleValue(), 0.0))
-				&& pcSizeAdj.equals(eq.getSizeAdjustment());
+				&& pcSizeAdj.equals(eq.getSizeAdjustment(aPC.getCharID()));
 	}
 
 	static void selectClothes(final PlayerCharacter aPC)
@@ -94,7 +94,7 @@ final class CharacterUtils
 						//
 						// Need to resize to fit?
 						//
-						if (!pcSizeAdj.equals(eq.getSizeAdjustment()))
+						if (!pcSizeAdj.equals(eq.getSizeAdjustment(aPC.getCharID())))
 						{
 							eq.resizeItem(aPC, pcSizeAdj);
 						}

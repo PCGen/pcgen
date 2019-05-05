@@ -710,12 +710,12 @@ public class WeaponToken extends Token
 	 */
 	public static String getHeft(PlayerCharacter pc, Equipment eq)
 	{
-		String retString = "";
-		if (pc.sizeInt() > eq.sizeInt())
+		String retString;
+		if (pc.sizeInt() > eq.sizeInt(pc.getCharID()))
 		{
 			retString = "LIGHT";
 		}
-		else if (pc.sizeInt() == eq.sizeInt())
+		else if (pc.sizeInt() == eq.sizeInt(pc.getCharID()))
 		{
 			retString = "MEDIUM";
 		}
@@ -2676,7 +2676,7 @@ public class WeaponToken extends Token
 		}
 		else
 		{
-			int eqSize = eq.sizeInt();
+			int eqSize = eq.sizeInt(pc.getCharID());
 			int iMod = eqSize;
 			iMod += (int) pc.getTotalBonusTo("WEAPONPROF=" + profKey, "DAMAGESIZE");
 			iMod += (int) pc.getTotalBonusTo("COMBAT", "DAMAGESIZE");

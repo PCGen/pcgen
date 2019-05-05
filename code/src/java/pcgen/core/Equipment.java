@@ -44,6 +44,7 @@ import java.util.stream.IntStream;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
+import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.FixedStringList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -68,6 +69,7 @@ import pcgen.cdom.processor.ChangeArmorType;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.EqModCost;
@@ -214,10 +216,7 @@ public final class Equipment extends PObject
 	{
 		if (!appliedBonusName.isEmpty())
 		{
-			final StringBuilder aString = new StringBuilder(100);
-			aString.append(" [").append(appliedBonusName).append("]");
-
-			return aString.toString();
+			return " [" + appliedBonusName + "]";
 		}
 
 		return "";
@@ -1126,14 +1125,7 @@ public final class Equipment extends PObject
 			modList.removeAll(baseEquipment.getEqModifierList(true));
 			altModList.removeAll(baseEquipment.getEqModifierList(false));
 		}
-		for (Iterator<EquipmentModifier> it = modList.iterator(); it.hasNext();)
-		{
-			EquipmentModifier eqMod = it.next();
-			if (eqMod.getSafe(ObjectKey.VISIBILITY).equals(Visibility.HIDDEN))
-			{
-				it.remove();
-			}
-		}
+		modList.removeIf(eqMod -> eqMod.getSafe(ObjectKey.VISIBILITY) == Visibility.HIDDEN);
 		extractListFromCommon(commonList, modList);
 		removeCommonFromList(altModList, commonList, "eqMod expected but not found: ");
 		// Remove masterwork from the list if magic is present
@@ -1830,7 +1822,22 @@ public final class Equipment extends PObject
 
 	public SizeAdjustment getSizeAdjustment()
 	{
-		return getSafe(ObjectKey.SIZE).get();
+		throw new UnreachableError("");
+	}
+
+	public SizeAdjustment getSizeAdjustment(CharID charID)
+	{
+		String sizeAdjFromControl = ControlUtilities.getControlToken(
+				Globals.getContext(), CControl.EQSIZE
+		);
+		if (sizeAdjFromControl == null)
+		{
+			return getSafe(ObjectKey.SIZE).get();
+		}
+		else
+		{
+			return (SizeAdjustment)this.getLocalVariable(charID, sizeAdjFromControl);
+		}
 	}
 
 	/**
@@ -2532,12 +2539,9 @@ public final class Equipment extends PObject
 		final boolean bPrimary)
 	{
 
-		StringBuilder sB = new StringBuilder(aType.toUpperCase());
-		sB.append('.');
-		sB.append(aName.toUpperCase());
-		sB.append('.');
-
-		final String aBonusKey = sB.toString();
+		final String aBonusKey = aType.toUpperCase() + '.'
+				+ aName.toUpperCase()
+				+ '.';
 
 		// go through bonus hashmap and zero out all
 		// entries that deal with this bonus request
@@ -2573,10 +2577,10 @@ public final class Equipment extends PObject
 			eqMod.bonusTo(aPC, aType, aName, this);
 		}
 
-		double iBonus = getBonusMap().keySet().stream().filter(key -> key.startsWith(aBonusKey))
-			.mapToDouble(key -> Float.parseFloat(getBonusMap().get(key))).sum();
-
-		return iBonus;
+		return getBonusMap().keySet().stream()
+		                    .filter(key -> key.startsWith(aBonusKey))
+		                    .mapToDouble(key -> Float.parseFloat(getBonusMap().get(key)))
+		                    .sum();
 	}
 
 	/**
@@ -2857,9 +2861,9 @@ public final class Equipment extends PObject
 			sbuf.append(sep).append("SPROP").append(endPart).append(string3);
 		}
 
-		if (!costMod.equals(BigDecimal.ZERO))
+		if (costMod.compareTo(BigDecimal.ZERO) != 0)
 		{
-			sbuf.append(sep).append("COSTMOD").append(endPart).append(costMod.toString());
+			sbuf.append(sep).append("COSTMOD").append(endPart).append(costMod);
 		}
 
 		return sbuf.toString();
@@ -3043,7 +3047,7 @@ public final class Equipment extends PObject
 		if (csr != null)
 		{
 			SizeAdjustment customSize = csr.get();
-			if (!getSizeAdjustment().equals(customSize))
+			if (!getSizeAdjustment(pc.getCharID()).equals(customSize))
 			{
 				resizeItem(pc, customSize);
 			}
@@ -3374,9 +3378,10 @@ public final class Equipment extends PObject
 	 */
 	public void resizeItem(final PlayerCharacter pc, SizeAdjustment newSize)
 	{
+		Objects.requireNonNull(pc);
 		setBase();
 
-		final int iOldSize = sizeInt();
+		final int iOldSize = sizeInt(pc.getCharID());
 		int iNewSize = newSize.get(IntegerKey.SIZEORDER);
 
 		if (iNewSize != iOldSize)
@@ -3397,12 +3402,12 @@ public final class Equipment extends PObject
 			put(ObjectKey.CURRENT_COST, eq.getCostAdjustedForSize(pc, newSize));
 			put(ObjectKey.WEIGHT, eq.getWeightAdjustedForSize(pc, newSize));
 			adjustACForSize(pc, eq, newSize);
-			String dam = eq.getDamageAdjustedForSize(newSize, true);
+			String dam = eq.getDamageAdjustedForSize(newSize, true, pc.getCharID());
 			if (dam != null && !dam.isEmpty())
 			{
 				getEquipmentHead(1).put(StringKey.DAMAGE, dam);
 			}
-			String adam = eq.getDamageAdjustedForSize(newSize, false);
+			String adam = eq.getDamageAdjustedForSize(newSize, false, pc.getCharID());
 			if (adam != null && !adam.isEmpty())
 			{
 				getEquipmentHead(2).put(StringKey.DAMAGE, adam);
@@ -3432,7 +3437,7 @@ public final class Equipment extends PObject
 					for (Capacity cap : capacity)
 					{
 						BigDecimal content = cap.getCapacity();
-						if (!Capacity.UNLIMITED.equals(content))
+						if (!(Capacity.UNLIMITED.compareTo(content) == 0))
 						{
 							content = content.multiply(multbd);
 						}
@@ -3481,9 +3486,9 @@ public final class Equipment extends PObject
 	 * 
 	 * @return size as int
 	 */
-	public int sizeInt()
+	public int sizeInt(CharID charID)
 	{
-		SizeAdjustment size = getSizeAdjustment();
+		SizeAdjustment size = getSizeAdjustment(charID);
 		return size.get(IntegerKey.SIZEORDER);
 	}
 
@@ -4138,17 +4143,14 @@ public final class Equipment extends PObject
 		}
 
 		BigDecimal weight = getBaseWeight();
-		if ((newSA == null) || (getSizeAdjustment() == null))
+		if ((newSA == null) || (getSizeAdjustment(aPC.getCharID()) == null))
 		{
 			return weight;
 		}
 
-		if (aPC != null)
-		{
-			final double mult = aPC.getSizeBonusTo(newSA, "ITEMWEIGHT", typeList(), 1.0)
-				/ aPC.getSizeBonusTo(getSizeAdjustment(), "ITEMWEIGHT", typeList(), 1.0);
-			weight = weight.multiply(new BigDecimal(mult));
-		}
+		final double mult = aPC.getSizeBonusTo(newSA, "ITEMWEIGHT", typeList(), 1.0)
+			/ aPC.getSizeBonusTo(getSizeAdjustment(aPC.getCharID()), "ITEMWEIGHT", typeList(), 1.0);
+		weight = weight.multiply(new BigDecimal(mult));
 
 		return weight;
 	}
@@ -4887,7 +4889,7 @@ public final class Equipment extends PObject
 	 * @return The generated Name
 	 */
 
-	public String createNameForAutoResize(SizeAdjustment newSize)
+	public String createNameForAutoResize(SizeAdjustment newSize, CharID charID)
 	{
 		// Make sure newSize is not null
 		if (newSize == null)
@@ -4899,7 +4901,7 @@ public final class Equipment extends PObject
 		String thisName = getName();
 		String upName = thisName.toUpperCase();
 
-		String upThisSize = getSizeAdjustment().getDisplayName().toUpperCase();
+		String upThisSize = getSizeAdjustment(charID).getDisplayName().toUpperCase();
 
 		int start = upName.indexOf(upThisSize);
 		int end = start + upThisSize.length();
@@ -5127,11 +5129,11 @@ public final class Equipment extends PObject
 			{
 				// In this case we have a 3.5 style equipments size.
 				// We need to map to a 3.0 style
-				sizeDiff = wCat.getObjectSizeInt(this) - pcSize;
+				sizeDiff = wCat.getObjectSizeInt(this, aPC.getCharID()) - pcSize;
 			}
 			else
 			{
-				sizeDiff = sizeInt() - pcSize;
+				sizeDiff = sizeInt(aPC.getCharID()) - pcSize;
 			}
 
 			if (sizeDiff > 1)
@@ -5165,7 +5167,7 @@ public final class Equipment extends PObject
 
 			if (iHands == Constants.HANDS_SIZE_DEPENDENT)
 			{
-				if (aPC.sizeInt() > sizeInt())
+				if (aPC.sizeInt() > sizeInt(aPC.getCharID()))
 				{
 					iHands = 1;
 				}
@@ -5282,7 +5284,7 @@ public final class Equipment extends PObject
 			dam = getWeaponInfo("DAMAGE", bPrimary);
 		}
 
-		final int iSize = sizeInt();
+		final int iSize = sizeInt(apc.getCharID());
 		int iMod = iSize + (int) bonusTo(apc, "EQMWEAPON", "DAMAGESIZE", bPrimary);
 		iMod += (int) bonusTo(apc, "WEAPON", "DAMAGESIZE", bPrimary);
 
@@ -5300,7 +5302,7 @@ public final class Equipment extends PObject
 			}
 		}
 		SizeAdjustment sa = ref.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER).get(iMod);
-		return adjustDamage(dam, sa);
+		return adjustDamage(dam, sa, apc.getCharID());
 	}
 
 	/**
@@ -5735,7 +5737,7 @@ public final class Equipment extends PObject
 	 * @param aSize   The size to adjust for
 	 * @return     The adjusted damage
 	 */
-	private String adjustDamage(final String aDamage, final SizeAdjustment aSize)
+	private String adjustDamage(final String aDamage, final SizeAdjustment aSize, CharID charID)
 	{
 		if (aDamage == null)
 		{
@@ -5743,7 +5745,7 @@ public final class Equipment extends PObject
 		}
 		if (!"special".equalsIgnoreCase(aDamage) && !"-".equals(aDamage))
 		{
-			return Globals.adjustDamage(aDamage, getSizeAdjustment(), aSize);
+			return Globals.adjustDamage(aDamage, getSizeAdjustment(charID), aSize);
 		}
 
 		return aDamage;
@@ -5759,7 +5761,7 @@ public final class Equipment extends PObject
 	 *           get the damage for the secondary head
 	 * @return     The damageAdjustedForSize value
 	 */
-	private String getDamageAdjustedForSize(final SizeAdjustment aSize, final boolean bPrimary)
+	private String getDamageAdjustedForSize(final SizeAdjustment aSize, final boolean bPrimary, CharID charID)
 	{
 		int headnum = bPrimary ? 1 : 2;
 		EquipmentHead head = getEquipmentHeadReference(headnum);
@@ -5776,7 +5778,7 @@ public final class Equipment extends PObject
 		{
 			dam = getWeaponInfo("DAMAGE", bPrimary);
 		}
-		return adjustDamage(dam, aSize);
+		return adjustDamage(dam, aSize, charID);
 	}
 
 	public String getWeaponInfo(final String infoType, final boolean bPrimary)

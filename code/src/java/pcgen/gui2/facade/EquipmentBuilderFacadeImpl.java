@@ -85,7 +85,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		this.character = character;
 		this.delegate = delegate;
 
-		sizeRef = new DefaultReferenceFacade<>(equip.getSizeAdjustment());
+		sizeRef = new DefaultReferenceFacade<>(equip.getSizeAdjustment(character.getCharID()));
 
 		final String sBaseKey = equip.getBaseItemKeyName();
 		baseEquipment =

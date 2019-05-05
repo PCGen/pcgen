@@ -29,6 +29,7 @@ import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -970,9 +971,9 @@ public class EqToken extends Token
 	 * @param eq
 	 * @return SizeLong Token
 	 */
-	public static String getSizeLongToken(Equipment eq)
+	private static String getSizeLongToken(Equipment eq, CharID charID)
 	{
-		return eq.getSizeAdjustment().getDisplayName();
+		return eq.getSizeAdjustment(charID).getDisplayName();
 	}
 
 	/**
@@ -1263,7 +1264,7 @@ public class EqToken extends Token
 		}
 		else if ("SIZELONG".equals(token))
 		{
-			retString = getSizeLongToken(eq);
+			retString = getSizeLongToken(eq, pc.getCharID());
 		}
 		else if ("DAMAGE".equals(token))
 		{

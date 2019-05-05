@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 import pcgen.cdom.base.Loadable;
+import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -139,9 +140,9 @@ public final class WieldCategory implements Loadable
 		categorySwitches.add(qo);
 	}
 
-	public int getObjectSizeInt(Equipment eq)
+	public int getObjectSizeInt(Equipment eq, CharID charID)
 	{
-		return eq.sizeInt() + sizeDifference;
+		return eq.sizeInt(charID) + sizeDifference;
 	}
 
 	/**
@@ -163,8 +164,8 @@ public final class WieldCategory implements Loadable
 
 		// Check if we have a bonus that changes the weapons effective size
 		// for wield purposes.
-		SizeAdjustment oldEqSa = eq.getSizeAdjustment();
-		if (pc.sizeInt() != eq.sizeInt())
+		SizeAdjustment oldEqSa = eq.getSizeAdjustment(pc.getCharID());
+		if (pc.sizeInt() != eq.sizeInt(pc.getCharID()))
 		{
 			int aBump = 0;
 			aBump += (int) pc.getTotalBonusTo("WIELDCATEGORY", eq.getWieldName());
@@ -190,7 +191,7 @@ public final class WieldCategory implements Loadable
 
 			if (aBump != 0)
 			{
-				final int newSizeInt = eq.sizeInt() + aBump;
+				final int newSizeInt = eq.sizeInt(pc.getCharID()) + aBump;
 				AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 				SizeAdjustment sadj = ref.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER).get(newSizeInt);
 				eq.put(ObjectKey.SIZE, CDOMDirectSingleRef.getRef(sadj));

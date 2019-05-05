@@ -72,13 +72,13 @@ public class PreSizeTest extends AbstractCharacterTestCase
 
 		assertEquals("Item one is expected size",
 			3,
-			eq1.sizeInt());
+			eq1.sizeInt(character.getCharID()));
 		assertEquals("Item two is expected size",
 			4,
-			eq2.sizeInt());
+			eq2.sizeInt(character.getCharID()));
 		assertEquals("Item three is expected size",
 			5,
-			eq3.sizeInt());
+			eq3.sizeInt(character.getCharID()));
 
 		Prerequisite prereq;
 
