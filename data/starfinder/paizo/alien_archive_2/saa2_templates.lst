@@ -1,6 +1,6 @@
 
-Sapling		MODIFY:PCSize|SET|S		VISIBLE:NO		SUBRACE:Sapling
-Oakling		MODIFY:PCSize|SET|M		VISIBLE:NO		SUBRACE:Oakling
+Sapling		MODIFY:PCSize|SET|S|PRIORITY=100		VISIBLE:NO		SUBRACE:Sapling
+Oakling		MODIFY:PCSize|SET|M|PRIORITY=100		VISIBLE:NO		SUBRACE:Oakling
 Blind Vlaka					VISIBLE:NO
 Deaf Vlaka					VISIBLE:NO
 Hearing and Sighted Vlaka		VISIBLE:NO
