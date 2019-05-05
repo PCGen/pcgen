@@ -79,9 +79,4 @@ public class AbilityAllToken extends AbilityToken
 		return listOfAbilities;
 	}
 
-	@Override
-	protected Nature getTargetNature()
-	{
-		return null;
-	}
 }
