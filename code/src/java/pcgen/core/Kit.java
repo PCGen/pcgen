@@ -207,7 +207,7 @@ public final class Kit extends PObject implements Comparable<Object>
 		BigDecimal totalCost = null;
 		if (f != null)
 		{
-			totalCost = new BigDecimal(f.resolve(aPC, "").doubleValue());
+			totalCost = BigDecimal.valueOf(f.resolve(aPC, "").doubleValue());
 		}
 		return totalCost;
 	}
