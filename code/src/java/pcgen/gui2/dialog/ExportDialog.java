@@ -405,7 +405,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		}
 		if (pdf)
 		{
-			new PDFExporter(outFile, extension, name).execute();
+			new PDFExporter(outFile, name).execute();
 		}
 		else
 		{
@@ -554,7 +554,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		}
 	}
 
-	private class PDFExporter extends SwingWorker<Object, Object>
+	private final class PDFExporter extends SwingWorker<Object, Object>
 	{
 
 		private final File saveFile;
@@ -569,9 +569,9 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		}
 
 		@Override
-		protected Object doInBackground() throws Exception
+		protected Object doInBackground()
 		{
-			Boolean result = false;
+			boolean result;
 			if (partyBox.isSelected())
 			{
 				PartyFacade party = CharacterManager.getCharacters();

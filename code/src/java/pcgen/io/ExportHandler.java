@@ -3577,14 +3577,6 @@ public final class ExportHandler
 	}
 
 	/**
-	 * @return Returns the inLabel flag.
-	 */
-	public boolean getInLabel()
-	{
-		return inLabel;
-	}
-
-	/**
 	 * @return Returns the existsOnly flag.
 	 */
 	public boolean getExistsOnly()
@@ -3598,14 +3590,6 @@ public final class ExportHandler
 	public void setNoMoreItems(boolean noMoreItems)
 	{
 		this.noMoreItems = noMoreItems;
-	}
-
-	/**
-	 * @return Returns the manualWhitespace flag.
-	 */
-	public boolean isManualWhitespace()
-	{
-		return manualWhitespace;
 	}
 
 	/**
