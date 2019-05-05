@@ -30,15 +30,19 @@ import pcgen.cdom.facet.BonusChangeFacet.BonusChangeEvent;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeListener;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
+import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FormulaResolvingFacet;
+import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeEvent;
 import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeListener;
 import pcgen.cdom.facet.base.AbstractDataFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.util.CControl;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
+import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.analysis.SizeUtilities;
@@ -62,6 +66,8 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
+	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+
 	/**
 	 * Returns the integer indicating the racial size for the Player Character
 	 * identified by the given CharID.
@@ -74,40 +80,62 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 	 */
 	public int racialSizeInt(CharID id)
 	{
-		SizeFacetInfo info = getInfo(id);
-		if (info == null)
+		PlayerCharacter pc = trackingFacet.getPC(id);
+		String baseSizeControl = pc.getControl(CControl.BASESIZE);
+		if (baseSizeControl != null)
 		{
-			return SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
+			SizeAdjustment baseSize = (SizeAdjustment) pc.getGlobal(baseSizeControl);
+			return baseSize.get(IntegerKey.SIZEORDER);
 		}
-		return info.racialSizeInt;
+		else
+		{
+			SizeFacetInfo info = getInfo(id);
+			if (info == null)
+			{
+				return SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
+			}
+			return info.racialSizeInt;
+		}
 	}
 
 	private int calcRacialSizeInt(CharID id)
 	{
-		SizeFacetInfo info = getConstructingInfo(id);
-
-		int iSize = SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
-		Race race = raceFacet.get(id);
-		if (race != null)
+		PlayerCharacter pc = trackingFacet.getPC(id);
+		String baseSizeControl = pc.getControl(CControl.BASESIZE);
+		if (baseSizeControl != null)
 		{
-			// get the base size for the race
-			Formula size = race.getSafe(FormulaKey.SIZE);
-			iSize = formulaResolvingFacet.resolve(id, size, "").intValue();
+			SizeAdjustment baseSize = (SizeAdjustment) pc.getGlobal(baseSizeControl);
+			return baseSize.get(IntegerKey.SIZEORDER);
+		}
+		else
+		{
+			SizeFacetInfo info = getConstructingInfo(id);
 
-			// now check and see if a template has set the
-			// size of the character in question
-			// with something like SIZE:L
-			for (PCTemplate template : templateFacet.getSet(id))
+			int iSize = SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
+			Race race = raceFacet.get(id);
+			if (race != null)
 			{
-				Formula sizeFormula = template.get(FormulaKey.SIZE);
-				if (sizeFormula != null)
+				// get the base size for the race
+				Formula size = race.getSafe(FormulaKey.SIZE);
+				iSize = formulaResolvingFacet.resolve(id, size, "").intValue();
+
+				// now check and see if a template has set the
+				// size of the character in question
+				// with something like SIZE:L
+				for (PCTemplate template : templateFacet.getSet(id))
 				{
-					iSize = formulaResolvingFacet.resolve(id, sizeFormula, template.getKeyName()).intValue();
+					Formula sizeFormula = template.get(FormulaKey.SIZE);
+					if (sizeFormula != null)
+					{
+						iSize = formulaResolvingFacet
+							.resolve(id, sizeFormula, template.getKeyName())
+							.intValue();
+					}
 				}
 			}
+			info.racialSizeInt = iSize;
+			return iSize;
 		}
-		info.racialSizeInt = iSize;
-		return iSize;
 	}
 
 	/**
