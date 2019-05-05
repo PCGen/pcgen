@@ -310,11 +310,11 @@ WIELDCATEGORY:Unusable				HANDS:999
 # Wield Category Steps
 #  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
 
-WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded							ZERO:Light
+WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded							
 WIELDCATEGORY:Light	
 WIELDCATEGORY:OneHanded					
 WIELDCATEGORY:TwoHanded							
-WIELDCATEGORY:TooLarge							DOWN:TwoHanded|OneHanded|Light	ZERO:TwoHanded
+WIELDCATEGORY:TooLarge							DOWN:TwoHanded|OneHanded|Light	
 
 WIELDCATEGORY:TwoHandsOnly	UP:TwoHandsOnlyTooLarge	DOWN:TwoHandsOnlyTooSmall
 WIELDCATEGORY:OneHandOnlyOnly	UP:OneHandOnlyTooLarge	DOWN:OneHandOnlyTooSmall

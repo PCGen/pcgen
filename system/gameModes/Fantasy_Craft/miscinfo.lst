@@ -188,9 +188,9 @@ WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
 #  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
 
 WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
-WIELDCATEGORY:OneHanded		UP:TwoHanded								ZERO:OneHanded
+WIELDCATEGORY:OneHanded		UP:TwoHanded								
 WIELDCATEGORY:TwoHanded							DOWN:OneHanded
-WIELDCATEGORY:TooLarge							DOWN:TwoHanded|OneHanded	ZERO:TwoHanded
+WIELDCATEGORY:TooLarge							DOWN:TwoHanded|OneHanded	
 
 
 
