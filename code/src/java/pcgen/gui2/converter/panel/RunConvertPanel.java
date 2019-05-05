@@ -32,10 +32,10 @@ import java.io.Writer;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
+import java.time.Clock;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.Observable;
@@ -149,10 +149,12 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 				{
 					changeLogWriter = new FileWriter(changeLogFile, StandardCharsets.UTF_8);
 
-					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-					String startTime = simpleDateFormat.format(new Date());
-					changeLogWriter.append("PCGen Data Converter v" + PCGenPropBundle.getVersionNumber()
-						+ " - conversion started at " + startTime + "\n");
+					String startTime = LocalDateTime.now(Clock.systemUTC()).toString();
+					changeLogWriter.append("PCGen Data Converter v")
+					               .append(PCGenPropBundle.getVersionNumber())
+					               .append(" - conversion started at ")
+					               .append(startTime)
+					               .append("\n");
 					changeLogWriter.append("Outputting files to " + outDir.getAbsolutePath() + "\n");
 				}
 				catch (IOException e1)

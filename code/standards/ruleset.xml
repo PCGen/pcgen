@@ -167,7 +167,6 @@
         <exclude name="OverrideBothEqualsAndHashcode"/>
         <exclude name="ProperCloneImplementation"/>
         <exclude name="ReturnEmptyArrayRatherThanNull"/>
-        <exclude name="SimpleDateFormatNeedsLocale"/>
         <exclude name="SingleMethodSingleton"/>
         <exclude name="UseEqualsToCompareStrings"/>
         <exclude name="UseLocaleWithCaseConversions"/>

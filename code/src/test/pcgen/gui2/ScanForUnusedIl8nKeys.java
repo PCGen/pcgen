@@ -30,9 +30,11 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.Clock;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
@@ -40,7 +42,6 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.time.DateFormatUtils;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -155,7 +156,7 @@ class ScanForUnusedIl8nKeys
 		Writer writer = new BufferedWriter(new PrintWriter(cleanPropsFile, StandardCharsets.UTF_8));
 		writer.write("# " + PROPERTIES_FILE
 			+ " with all unused keys removed as at "
-			+ DateFormatUtils.ISO_8601_EXTENDED_DATETIME_TIME_ZONE_FORMAT.format(new Date())
+			+ LocalDateTime.now(Clock.systemUTC())
 			+ "\n");
 		boolean lastLineBlank = false;
 		for (String line : lines)
@@ -194,8 +195,8 @@ class ScanForUnusedIl8nKeys
 		Writer writer = new BufferedWriter(new FileWriter(unusedPropsFile, StandardCharsets.UTF_8));
 		writer.write("# " + PROPERTIES_FILE
 			+ " with all used keys removed as at "
-			+ DateFormatUtils.ISO_8601_EXTENDED_DATETIME_TIME_ZONE_FORMAT.format(new Date())
-			+ "\n");
+			+ LocalDateTime.now(Clock.systemUTC())
+			+ '\n');
 		boolean lastLineBlank = false;
 		for (String line : lines)
 		{
