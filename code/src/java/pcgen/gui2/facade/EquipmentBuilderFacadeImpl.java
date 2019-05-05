@@ -276,7 +276,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			}
 
 			equip.put(ObjectKey.WEIGHT_MOD, BigDecimal.ZERO);
-			equip.put(ObjectKey.WEIGHT_MOD, newWeight.subtract(new BigDecimal(equip.getWeightAsDouble(character))));
+			equip.put(ObjectKey.WEIGHT_MOD, newWeight.subtract(BigDecimal.valueOf(equip.getWeightAsDouble(character))));
 			return true;
 		}
 		catch (Exception e)
