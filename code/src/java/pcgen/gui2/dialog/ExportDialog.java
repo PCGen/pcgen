@@ -22,16 +22,20 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Desktop;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
+import java.util.stream.Collectors;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -71,11 +75,8 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.IOFileFilter;
-import org.apache.commons.io.filefilter.SuffixFileFilter;
-import org.apache.commons.io.filefilter.TrueFileFilter;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
@@ -97,7 +98,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 
 	public static void showExportDialog(PCGenFrame parent)
 	{
-		ExportDialog dialog = new ExportDialog(parent);
+		Window dialog = new ExportDialog(parent);
 		Utility.setComponentRelativeLocation(parent, dialog);
 		dialog.setVisible(true);
 	}
@@ -472,7 +473,6 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		if (outputSheetDirectory == null)
 		{
 			osDir = new File(ConfigurationSettings.getOutputSheetsDir());
-			outputSheetDirectory = "";
 		}
 		else
 		{
@@ -633,7 +633,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 	{
 
 		@Override
-		protected Collection<File> doInBackground() throws Exception
+		protected Collection<File> doInBackground() throws IOException
 		{
 			File dir;
 			String outputSheetDirectory = SettingsHandler.getGame().getOutputSheetDirectory();
@@ -641,7 +641,6 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			{
 				Logging.errorPrint("OUTPUTSHEET|DIRECTORY not defined for game mode " + SettingsHandler.getGame());
 				dir = new File(ConfigurationSettings.getOutputSheetsDir());
-				outputSheetDirectory = "";
 			}
 			else
 			{
@@ -651,7 +650,6 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 					Logging.errorPrint(
 						"Unable to find game mode outputsheets at " + dir.getCanonicalPath() + ". Trying base.");
 					dir = new File(ConfigurationSettings.getOutputSheetsDir());
-					outputSheetDirectory = "";
 				}
 			}
 			if (!dir.isDirectory())
@@ -659,8 +657,10 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 				Logging.errorPrint("Unable to find outputsheets folder at " + dir.getCanonicalPath() + ".");
 				return Collections.emptyList();
 			}
-			IOFileFilter fileFilter = FileFilterUtils.notFileFilter(new SuffixFileFilter(".fo"));
-			return FileUtils.listFiles(dir, fileFilter, TrueFileFilter.INSTANCE);
+			return Files.list(dir.toPath())
+			            .filter(f -> !f.endsWith(".fo"))
+			            .map(Path::toFile)
+					    .collect(Collectors.toList());
 		}
 
 		@Override

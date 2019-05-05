@@ -50,7 +50,6 @@ import pcgen.system.ConfigurationSettings;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -93,14 +92,9 @@ public class VariableReport
 
 		for (Entry<ReportFormat, String> reportRequest : reportNameMap.entrySet())
 		{
-			Writer file = new FileWriter(new File(reportRequest.getValue()), StandardCharsets.UTF_8);
-			try
+			try (Writer file = new FileWriter(new File(reportRequest.getValue()), StandardCharsets.UTF_8))
 			{
 				outputReport(gameModeVarMap, gameModeVarCountMap, reportRequest.getKey(), file);
-			}
-			finally
-			{
-				IOUtils.closeQuietly(file);
 			}
 		}
 	}
