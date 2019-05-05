@@ -32,6 +32,7 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.BonusContainer;
@@ -70,9 +71,9 @@ public class BonusManager
 
 	private Map<BonusObj, Object> activeBonusBySource = new IdentityHashMap<>();
 
-	private Map<BonusObj, TempBonusInfo> tempBonusBySource = new IdentityHashMap<>();
+	private final Map<BonusObj, TempBonusInfo> tempBonusBySource = new IdentityHashMap<>();
 
-	private Set<String> tempBonusFilters = new TreeSet<>();
+	private final Set<String> tempBonusFilters = new TreeSet<>();
 
 	private final PlayerCharacter pc;
 	private Map<String, String> checkpointMap;
@@ -240,7 +241,7 @@ public class BonusManager
 
 	public double getTotalBonusTo(String bonusName, String bonusInfo)
 	{
-		final String prefix = new StringBuilder(bonusName).append('.').append(bonusInfo).toString();
+		final String prefix = bonusName + '.' + bonusInfo;
 
 		return sumActiveBonusMap(prefix);
 	}
@@ -313,8 +314,7 @@ public class BonusManager
 		//
 		// We do a first pass of just the "static" bonuses
 		// as they require less computation and no recursion
-		List<BonusObj> bonusListCopy = new ArrayList<>();
-		bonusListCopy.addAll(getActiveBonusList());
+		Collection<BonusObj> bonusListCopy = new ArrayList<>(getActiveBonusList());
 		for (BonusObj bonus : bonusListCopy)
 		{
 			if (!bonus.isValueStatic())
@@ -402,8 +402,8 @@ public class BonusManager
 	 * @param targetMap
 	 *            The map of bonuses (stack+non-stack) being built up which will be populated with the total bonus.
 	 */
-	private void totalBonusesForType(Map<String, String> nonStackMap, Map<String, String> stackMap,
-		String fullyQualifiedBonusType, Map<String, String> targetMap)
+	private static void totalBonusesForType(Map<String, String> nonStackMap, Map<String, String> stackMap,
+	                                        String fullyQualifiedBonusType, Map<String, String> targetMap)
 	{
 		if (fullyQualifiedBonusType != null)
 		{
@@ -429,9 +429,9 @@ public class BonusManager
 
 	public String listBonusesFor(String bonusName, String bonusInfo)
 	{
-		final String prefix = new StringBuilder(bonusName).append('.').append(bonusInfo).toString();
+		final String prefix = bonusName + '.' + bonusInfo;
 		final StringBuilder buf = new StringBuilder();
-		final List<String> aList = new ArrayList<>();
+		final Collection<String> aList = new ArrayList<>();
 
 		// final List<TypedBonus> bonuses = theBonusMap.get(prefix);
 		// if ( bonuses == null )
@@ -442,14 +442,11 @@ public class BonusManager
 		// TypedBonus.totalBonusesByType(bonuses);
 		// return CoreUtility.commaDelimit(bonusStrings);
 
-		final Set<String> keys = new TreeSet<>();
-		for (String fullyQualifiedBonusType : activeBonusMap.keySet())
-		{
-			if (fullyQualifiedBonusType.startsWith(prefix))
-			{
-				keys.add(fullyQualifiedBonusType);
-			}
-		}
+		final Set<String> keys = activeBonusMap.keySet()
+		                                       .stream()
+		                                       .filter(fullyQualifiedBonusType ->
+				                                       fullyQualifiedBonusType.startsWith(prefix))
+		                                       .collect(Collectors.toSet());
 		for (String fullyQualifiedBonusType : keys)
 		{
 			// make a list of keys that end with .REPLACE
@@ -628,8 +625,10 @@ public class BonusManager
 	 * @param stackingBonusMap
 	 *            The map of stacking (i.e. total all) bonuses being built up.
 	 */
-	private void setActiveBonusStack(double bonus, String fullyQualifiedBonusType, Map<String, String> nonStackbonusMap,
-		Map<String, String> stackingBonusMap)
+	private static void setActiveBonusStack(double bonus,
+	                                        String fullyQualifiedBonusType,
+	                                        Map<String, String> nonStackbonusMap,
+	                                        Map<String, String> stackingBonusMap)
 	{
 		if (fullyQualifiedBonusType != null)
 		{
@@ -737,8 +736,9 @@ public class BonusManager
 	 * @param bonusMap
 	 *            The map of bonuses being built.
 	 */
-	private void putActiveBonusMap(final String fullyQualifiedBonusType, final String bonusValue,
-		Map<String, String> bonusMap)
+	private static void putActiveBonusMap(final String fullyQualifiedBonusType,
+	                                      final String bonusValue,
+	                                      Map<String, String> bonusMap)
 	{
 		//
 		// This is a bad idea...will add whatever the bonus is to ALL skills
@@ -903,53 +903,7 @@ public class BonusManager
 		tempBonusBySource.remove(bonus);
 	}
 
-	public Set<String> getTempBonusDisplayNames()
-	{
-		final Set<String> ret = new TreeSet<>();
-		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource.entrySet())
-		{
-			ret.add(BonusDisplay.getBonusDisplayName(me.getValue()));
-		}
-		return ret;
-	}
-
-	public List<BonusObj> getTempBonusList(String aCreator, String aTarget)
-	{
-		final List<BonusObj> aList = new ArrayList<>();
-
-		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource.entrySet())
-		{
-			BonusObj bonus = me.getKey();
-			final Object aTO = me.getValue().target;
-			final Object aCO = me.getValue().source;
-
-			String targetName = Constants.EMPTY_STRING;
-			String creatorName = Constants.EMPTY_STRING;
-
-			if (aCO instanceof CDOMObject)
-			{
-				creatorName = ((CDOMObject) aCO).getKeyName();
-			}
-
-			if (aTO instanceof PlayerCharacter)
-			{
-				targetName = ((PlayerCharacter) aTO).getName();
-			}
-			else if (aTO instanceof CDOMObject)
-			{
-				targetName = ((CDOMObject) aTO).getKeyName();
-			}
-
-			if (creatorName.equals(aCreator) && targetName.equals(aTarget))
-			{
-				aList.add(bonus);
-			}
-		}
-
-		return aList;
-	}
-
-	public List<String> getNamedTempBonusList()
+	List<String> getNamedTempBonusList()
 	{
 		final List<String> aList = new ArrayList<>();
 		Map<BonusObj, TempBonusInfo> filteredTempBonusList = getFilteredTempBonusList();
@@ -1021,7 +975,7 @@ public class BonusManager
 		return aList;
 	}
 
-	public Map<BonusObj, TempBonusInfo> getFilteredTempBonusList()
+	private Map<BonusObj, TempBonusInfo> getFilteredTempBonusList()
 	{
 		final Map<BonusObj, TempBonusInfo> ret = new IdentityHashMap<>();
 		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource.entrySet())
@@ -1051,15 +1005,13 @@ public class BonusManager
 		tempBonusFilters.remove(bonusStr);
 	}
 
-	public Map<BonusObj, Object> getTempBonuses()
+	private Map<BonusObj, Object> getTempBonuses()
 	{
 		Map<BonusObj, Object> map = new IdentityHashMap<>();
-		for (Map.Entry<BonusObj, TempBonusInfo> me : getFilteredTempBonusList().entrySet())
-		{
-			final BonusObj bonus = me.getKey();
+		getFilteredTempBonusList().forEach((bonus, value) -> {
 			pc.setApplied(bonus, false);
 
-			Object source = me.getValue().source;
+			Object source = value.source;
 			CDOMObject cdomsource = (source instanceof CDOMObject) ? (CDOMObject) source : null;
 			if (bonus.qualifies(pc, cdomsource))
 			{
@@ -1070,7 +1022,7 @@ public class BonusManager
 			{
 				map.put(bonus, source);
 			}
-		}
+		});
 		return map;
 	}
 
@@ -1304,7 +1256,7 @@ public class BonusManager
 		}
 	}
 
-	public double calcBonusesWithCost(List<BonusObj> list)
+	double calcBonusesWithCost(Iterable<BonusObj> list)
 	{
 		double totalBonus = 0;
 
@@ -1357,14 +1309,8 @@ public class BonusManager
 
 	public boolean hasTempBonusesApplied(CDOMObject mod)
 	{
-		for (TempBonusInfo tbi : tempBonusBySource.values())
-		{
-			if (tbi.source.equals(mod))
-			{
-				return true;
-			}
-		}
-		return false;
+		return tempBonusBySource.values().stream()
+		                        .anyMatch(tbi -> tbi.source.equals(mod));
 	}
 
 	private Map<BonusObj, Object> getAllActiveBonuses()
