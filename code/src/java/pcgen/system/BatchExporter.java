@@ -26,9 +26,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.nio.file.Path;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
@@ -47,7 +49,6 @@ import pcgen.persistence.SourceFileLoader;
 import pcgen.util.Logging;
 import pcgen.util.fop.FopTask;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.output.TeeOutputStream;
 import org.apache.commons.lang3.StringUtils;
@@ -215,9 +216,9 @@ public class BatchExporter
 				PCGenSettings.OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_GENERATE_TEMP_FILE_WITH_PDF, false);
 		String outFileName = FilenameUtils.removeExtension(outFile.getAbsolutePath());
 		File tempFile = new File(outFileName + (isTransformTemplate ? ".xml" : ".fo"));
-		try (BufferedOutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile));
-				ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream();
-				OutputStream exportOutput = useTempFile
+		try (OutputStream fileStream = new BufferedOutputStream(new FileOutputStream(outFile));
+		     ByteArrayOutputStream byteOutputStream = new ByteArrayOutputStream();
+		     OutputStream exportOutput = useTempFile
 					//Output to both the byte stream and to the temp file.
 					? new TeeOutputStream(byteOutputStream, new FileOutputStream(tempFile)) : byteOutputStream)
 		{
@@ -225,13 +226,13 @@ public class BatchExporter
 			if (isTransformTemplate)
 			{
 				exportCharacter(character, exportOutput);
-				ByteArrayInputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
+				InputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
 				task = FopTask.newFopTask(inputStream, templateFile, fileStream);
 			}
 			else
 			{
 				exportCharacter(character, templateFile, exportOutput);
-				ByteArrayInputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
+				InputStream inputStream = new ByteArrayInputStream(byteOutputStream.toByteArray());
 				task = FopTask.newFopTask(inputStream, null, fileStream);
 			}
 			character.setDefaultOutputSheet(true, templateFile);
@@ -243,12 +244,7 @@ public class BatchExporter
 				return false;
 			}
 		}
-		catch (final IOException e)
-		{
-			Logging.errorPrint("BatchExporter.exportCharacterToPDF failed", e); //$NON-NLS-1$
-			return false;
-		}
-		catch (final ExportException e)
+		catch (final IOException | ExportException e)
 		{
 			Logging.errorPrint("BatchExporter.exportCharacterToPDF failed", e); //$NON-NLS-1$
 			return false;
@@ -361,12 +357,7 @@ public class BatchExporter
 			}
 			task.run();
 		}
-		catch (final IOException e)
-		{
-			Logging.errorPrint("BatchExporter.exportPartyToPDF failed", e);
-			return false;
-		}
-		catch (final ExportException e)
+		catch (final IOException | ExportException e)
 		{
 			Logging.errorPrint("BatchExporter.exportPartyToPDF failed", e);
 			return false;
@@ -390,11 +381,6 @@ public class BatchExporter
 		{
 			party.export(new ExportHandler(templateFile), bw);
 			return true;
-		}
-		catch (final UnsupportedEncodingException e)
-		{
-			Logging.errorPrint("Unable to create output file " + outFile.getAbsolutePath(), e);
-			return false;
 		}
 		catch (final IOException e)
 		{
@@ -517,8 +503,9 @@ public class BatchExporter
 
 	private static File getXMLTemplate(CharacterFacade character)
 	{
-		File template = FileUtils.getFile(ConfigurationSettings.getSystemsDir(), "gameModes",
-			character.getDataSet().getGameMode().getName(), "base.xml.ftl");
+		Path path = Path.of(ConfigurationSettings.getSystemsDir(), "gameModes",
+				character.getDataSet().getGameMode().getName(), "base.xml.ftl");
+		File template = new File(path.toUri());
 		if (!template.exists())
 		{
 			template = new File(ConfigurationSettings.getOutputSheetsDir(), "base.xml.ftl");

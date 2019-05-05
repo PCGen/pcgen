@@ -19,11 +19,12 @@ package plugin;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -185,27 +186,23 @@ class FacetDefinitionTest
 		String packageName =
 				sourceFolder.getPath().replace(File.separatorChar, '.')
 					.replace("code.src.java.", "");
-		String contextData =
-				FileUtils.readFileToString(new File(APP_CONTEXT_FILE), "UTF-8");
 
-		for (Iterator<File> facetSourceFileIter =
-				FileUtils.iterateFiles(sourceFolder, new String[]{"java"},
-					false); facetSourceFileIter.hasNext();)
+		String contextData = Files.readString(Path.of(APP_CONTEXT_FILE), StandardCharsets.UTF_8);
+
+
+		Files.walk(sourceFolder.toPath()).iterator().forEachRemaining(srcFile ->
 		{
-			File srcFile = facetSourceFileIter.next();
-			String testString = srcFile.getName();
+			String testString = srcFile.toString();
 			testString = testString.replaceAll(".java", "");
-			if (exceptions.contains(testString))
+			if (!exceptions.contains(testString))
 			{
-				//System.out.println("Skipping " + srcFile);
-				continue;
+				testString = "class=\"" + packageName + "." + testString + "\"";
+				Assertions.assertTrue(
+						contextData.contains(testString),
+						"Unable to find Spring definition for " + srcFile
+				);
 			}
-			testString = "class=\"" + packageName + "." + testString + "\"";
-			Assertions.assertTrue(
-					contextData.contains(testString),
-					"Unable to find Spring definition for " + srcFile
-			);
-		}
+		});
 	}
 
 }
