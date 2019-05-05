@@ -562,8 +562,6 @@ public class GameModeFileLoader extends PCGenTask
 		{
 			light.setHandsRequired(1);
 			light.setFinessable(true);
-			light.addDamageMult(1, 1.0f);
-			light.addDamageMult(2, 1.0f);
 			Prerequisite p = prereqParser.parse("PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1");
 			QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<>(tooSmallRef);
 			qo.addPrerequisite(p);
@@ -587,7 +585,6 @@ public class GameModeFileLoader extends PCGenTask
 		{
 			twoHanded.setFinessable(false);
 			twoHanded.setHandsRequired(2);
-			twoHanded.addDamageMult(2, 1.5f);
 			Prerequisite p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-3");
 			QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<>(tooSmallRef);
 			qo.addPrerequisite(p);
@@ -611,8 +608,6 @@ public class GameModeFileLoader extends PCGenTask
 		{
 			oneHanded.setHandsRequired(1);
 			oneHanded.setFinessable(false);
-			oneHanded.addDamageMult(1, 1.0f);
-			oneHanded.addDamageMult(2, 1.5f);
 			Prerequisite p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2");
 			QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<>(tooSmallRef);
 			qo.addPrerequisite(p);
@@ -645,7 +640,6 @@ public class GameModeFileLoader extends PCGenTask
 		{
 			tooSmall.setFinessable(false);
 			tooSmall.setHandsRequired(2);
-			tooSmall.addDamageMult(2, 1.5f);
 			Prerequisite p = prereqParser.parse("PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-3");
 			QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<>(tooSmallRef);
 			qo.addPrerequisite(p);
