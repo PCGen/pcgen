@@ -623,22 +623,6 @@ public final class TokenLibrary implements PluginLoader
 		}
 	}
 
-	static class PreTokenIterator extends TokenLibrary.AbstractTokenIterator<CDOMObject, PrerequisiteParserInterface>
-	{
-
-		public PreTokenIterator(String key)
-		{
-			super(CDOMOBJECT_CLASS, key);
-		}
-
-		@Override
-		protected PrerequisiteParserInterface grabToken(TokenFamily family, Class<?> cl, String key)
-		{
-			return family.getPrerequisiteToken(key);
-		}
-
-	}
-
 	/**
 	 * Add a CLASS via a BONUS.
 	 *
