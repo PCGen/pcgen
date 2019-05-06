@@ -44,7 +44,7 @@ public class AbstractPrerequisiteWriter
 		for (int i = 0; i < comparators.length; i++)
 		{
 			PrerequisiteOperator comparator = comparators[i];
-			if (prereq.getOperator().equals(comparators[i]))
+			if (prereq.getOperator() == comparators[i])
 			{
 				return;
 			}
@@ -61,33 +61,7 @@ public class AbstractPrerequisiteWriter
 			kind = "<NULL>";
 		}
 		throw new PersistenceLayerException("Cannot write token: LST syntax only supports "
-			+ comparatorString.toString() + " operators for PRE" + kind.toUpperCase() + ": " + prereq.toString());
-	}
-
-	protected boolean checkForPremultOfKind(final Prerequisite prereq, final String kind, final boolean multiplesOnly)
-	{
-		//
-		// PREMULT ?
-		//
-		if (prereq.getKind() == null)
-		{
-			//
-			// Are all the sub-prereqs the desired kind?
-			//
-			for (Prerequisite element : prereq.getPrerequisites())
-			{
-				if (!kind.equalsIgnoreCase(element.getKind()))
-				{
-					return false;
-				}
-				if (multiplesOnly && !element.isCountMultiples())
-				{
-					return false;
-				}
-			}
-			return true;
-		}
-		return false;
+			+ comparatorString + " operators for PRE" + kind.toUpperCase() + ": " + prereq);
 	}
 
 	/**
@@ -101,14 +75,7 @@ public class AbstractPrerequisiteWriter
 	 */
 	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
 	{
-		try
-		{
-			return false;
-		}
-		catch (Exception e)
-		{
-			throw new IOException();
-		}
+		return false;
 	}
 
 	protected PrerequisiteOperator getConsolidateMethod(String handled, Prerequisite prereq, boolean ranked)
