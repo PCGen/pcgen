@@ -18,8 +18,6 @@
 package pcgen.cdom.enumeration;
 
 import java.lang.reflect.Field;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Objects;
 
 import pcgen.base.enumeration.TypeSafeConstant;
@@ -196,20 +194,6 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 			throw new IllegalArgumentException(name + " is not a previously defined Type");
 		}
 		return type;
-	}
-
-	/**
-	 * Returns a Collection of all of the Constants in this Class.
-	 * 
-	 * This collection maintains a reference to the Constants in this Class, so
-	 * if a new Constant is created, the Collection returned by this method will
-	 * be modified. (Beware of ConcurrentModificationExceptions)
-	 * 
-	 * @return a Collection of all of the Constants in this Class.
-	 */
-	public static Collection<Type> getAllConstants()
-	{
-		return Collections.unmodifiableCollection(TYPE_MAP.values());
 	}
 
 	@Override
