@@ -896,7 +896,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 			{
 				if (origFile.exists())
 				{
-					Files.copy(origFile.toPath(), Path.of(dir.getAbsolutePath(), ((File) origFile).getName()));
+					Files.copy(origFile.toPath(), Path.of(dir.getAbsolutePath(), origFile.getName()));
 				}
 			}
 		}
