@@ -36,7 +36,7 @@ spotbugs {
 	toolVersion = '3.1.12'
 }
 
-//Unable to determine how to do this with SpotBugs - this is consistent with their docs, but dumps stack
+//See https://github.com/gradle/gradle-native/issues/742 for why this is broken.
 //tasks.withType(com.github.spotbugs.SpotBugsTask) {
 //	reports {
 //		xml.enabled = false
