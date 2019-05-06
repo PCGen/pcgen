@@ -80,12 +80,6 @@ public class CompanionListIntegrationTest extends
 		return '|';
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public boolean isClearDotLegal()
 	{
@@ -117,7 +111,7 @@ public class CompanionListIntegrationTest extends
 	}
 
 	@Test
-	public void testRoundRobinDiffAdjustment() throws PersistenceLayerException
+	void testRoundRobinDiffAdjustment() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP2");
