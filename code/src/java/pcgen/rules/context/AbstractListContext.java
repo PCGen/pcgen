@@ -49,20 +49,10 @@ public abstract class AbstractListContext
 
 	private final TrackingListCommitStrategy edits = new TrackingListCommitStrategy();
 
-	URI getSourceURI()
-	{
-		return edits.getSourceURI();
-	}
-
 	void setSourceURI(URI sourceURI)
 	{
 		edits.setSourceURI(sourceURI);
 		getCommitStrategy().setSourceURI(sourceURI);
-	}
-
-	URI getExtractURI()
-	{
-		return edits.getExtractURI();
 	}
 
 	void setExtractURI(URI extractURI)
@@ -86,12 +76,6 @@ public abstract class AbstractListContext
 	public void clearAllMasterLists(String tokenName, CDOMObject owner)
 	{
 		edits.clearAllMasterLists(tokenName, owner);
-	}
-
-	public <T extends CDOMObject> void clearMasterList(String tokenName, CDOMObject owner,
-		CDOMReference<? extends CDOMList<T>> list)
-	{
-		edits.clearMasterList(tokenName, owner, list);
 	}
 
 	public <T extends CDOMObject> AssociatedPrereqObject addToList(String tokenName, CDOMObject owner,
@@ -459,12 +443,6 @@ public abstract class AbstractListContext
 				}
 			}
 			return new AssociatedCollectionChanges<>(map, rmap, masterClearSet.containsInList(swl, lo));
-		}
-
-		public <T extends CDOMObject> void clearMasterList(String tokenName, CDOMObject owner,
-			CDOMReference<? extends CDOMList<T>> list)
-		{
-			masterClearSet.addToListFor(list, new OwnerURI(sourceURI, owner));
 		}
 
 		@Override
