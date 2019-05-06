@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.list;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;

@@ -24,7 +24,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -36,7 +35,6 @@ import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.ClassIdentity;
@@ -62,7 +60,6 @@ import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.core.Domain;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.output.channel.compat.HandedCompat;
@@ -203,20 +200,9 @@ public abstract class AbstractReferenceContext
 		return silentlyGetConstructedCDOMObject(c, val);
 	}
 
-	public <T extends Loadable> Indirect<T> getIndirect(Class<T> c, String val)
-	{
-		return getCDOMReference(c, val);
-	}
-
 	public <T extends Loadable> T silentlyGetConstructedCDOMObject(Class<T> c, String val)
 	{
 		return getManufacturer(c).getActiveObject(val);
-	}
-
-	@SuppressWarnings("unchecked")
-	protected <T> Class<T> getGenericClass(T obj)
-	{
-		return (Class<T>) obj.getClass();
 	}
 
 	public <T extends Loadable> void importObject(T orig)
@@ -252,18 +238,6 @@ public abstract class AbstractReferenceContext
 		// {
 		return getManufacturer(c).getAllObjects();
 		// }
-	}
-
-	public Set<Object> getAllConstructedObjects()
-	{
-		Set<Object> set = new HashSet<>();
-		for (ReferenceManufacturer<?> ref : getAllManufacturers())
-		{
-			set.addAll(ref.getAllObjects());
-		}
-		// Collection otherSet = categorized.getAllConstructedCDOMObjects();
-		// set.addAll(otherSet);
-		return set;
 	}
 
 	public <T extends Loadable> boolean containsConstructedCDOMObject(Class<T> c, String s)
@@ -377,11 +351,6 @@ public abstract class AbstractReferenceContext
 		return ref;
 	}
 
-	URI getExtractURI()
-	{
-		return extractURI;
-	}
-
 	void setExtractURI(URI extractURI)
 	{
 		this.extractURI = extractURI;
@@ -451,20 +420,6 @@ public abstract class AbstractReferenceContext
 		{
 			returnList = generateList(cl, Comparator.comparing(o -> o.getSafe(key)));
 			sortedMap.put(cl, key, new WeakReference<>(returnList));
-		}
-		return Collections.unmodifiableList(returnList);
-	}
-
-	public <T extends CDOMObject> List<T> getSortOrderedList(Class<T> cl)
-	{
-		List<T> returnList;
-		Comparator<CDOMObject> comp = Globals.P_OBJECT_NAME_COMP;
-		//We arbitrarily use the sort order comparator as the second key
-		WeakReference<List<?>> wr = sortedMap.get(cl, comp);
-		if ((wr == null) || ((returnList = (List<T>) wr.get()) == null))
-		{
-			returnList = generateList(cl, comp);
-			sortedMap.put(cl, comp, new WeakReference<>(returnList));
 		}
 		return Collections.unmodifiableList(returnList);
 	}
