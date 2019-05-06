@@ -54,9 +54,9 @@ public class ReferenceDependency
 	 *            The Collection for which all of the included references should be added
 	 *            to this ReferenceDependency
 	 */
-	public void putAll(Collection<Indirect<?>> collection)
+	public void putAll(Iterable<Indirect<?>> collection)
 	{
-		collection.stream().forEach(this::put);
+		collection.forEach(this::put);
 	}
 
 	/**
