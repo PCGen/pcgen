@@ -22,12 +22,10 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.OrderedPairManager;
-import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.scope.GlobalPCScope;
-import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.ModifierFactory;
+
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
 import org.junit.jupiter.api.Test;
@@ -36,7 +34,6 @@ import org.junit.jupiter.api.Test;
 class SetOrderedPairModifierTest
 {
 
-	private final PCGenScope varScope = new GlobalPCScope();
 	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
 
 	@Test
@@ -45,7 +42,7 @@ class SetOrderedPairModifierTest
 		try
 		{
 			SetModifierFactory m = new SetModifierFactory();
-			m.getModifier(null, new ManagerFactory(){}, null, null, null);
+			m.getModifier(null, null);
 			fail("Expected SetModifier with null set value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -59,7 +56,7 @@ class SetOrderedPairModifierTest
 	{
 		ModifierFactory<OrderedPair> factory = new SetModifierFactory();
 		FormulaModifier<OrderedPair> modifier =
-				factory.getModifier("3,2", new ManagerFactory(){}, null, varScope, opManager);
+				factory.getModifier("3,2", opManager);
 		modifier.addAssociation("PRIORITY=5");
 		assertEquals(5L <<32, modifier.getPriority());
 		assertEquals(opManager, modifier.getVariableFormat());

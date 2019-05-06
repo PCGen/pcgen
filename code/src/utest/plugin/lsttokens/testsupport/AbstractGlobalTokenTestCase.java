@@ -193,11 +193,11 @@ public abstract class AbstractGlobalTokenTestCase
 		{
 			pr = getReadToken().parseToken(primaryContext, primaryProf, str);
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			Logging.addParseMessage(
 				Logging.LST_ERROR,
-				"Token generated an IllegalArgumentException: "
+				"Token generated an " + e.getClass().getSimpleName() + ": "
 					+ e.getLocalizedMessage());
 			pr = new ParseResult.Fail("Token processing failed");
 		}

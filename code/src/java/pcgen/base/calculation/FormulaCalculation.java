@@ -21,6 +21,8 @@ import java.util.Objects;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.formula.inst.NEPFormula;
 
 /**
@@ -96,5 +98,11 @@ public final class FormulaCalculation<T> extends AbstractNEPCalculation<T>
 	public String toString()
 	{
 		return getClass().getSimpleName() + ": " + getInstructions();
+	}
+
+	@Override
+	public void isValid(FormulaSemantics semantics) throws SemanticsException
+	{
+		formula.isValid(semantics);
 	}
 }
