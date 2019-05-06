@@ -67,7 +67,7 @@ import pcgen.system.LanguageBundle;
  * 
  * 
  */
-public final class PurchaseModeFrame extends JDialog
+final class PurchaseModeFrame extends JDialog
 {
 	private static final long serialVersionUID = -5244500546425680322L;
 	private static final String TITLE = LanguageBundle.getString("in_Prefs_purModConf"); //$NON-NLS-1$
