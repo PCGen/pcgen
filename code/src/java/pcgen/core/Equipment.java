@@ -4145,18 +4145,29 @@ public final class Equipment extends PObject
 
 		if (aPC != null)
 		{
-			final double mult = aPC.getSizeBonusTo(newSA, "ITEMWEIGHT", typeList(), 1.0)
-				/ aPC.getSizeBonusTo(getSizeAdjustment(), "ITEMWEIGHT", typeList(), 1.0);
+			final double mult = getWeightMultiplier(aPC, newSA);
 			weight = weight.multiply(new BigDecimal(mult));
 		}
 
 		return weight;
 	}
 
+	private double getWeightMultiplier(final PlayerCharacter aPC,
+		final SizeAdjustment newSA)
+	{
+		String multiplierVar = aPC.getControl(CControl.WEIGHTMULTIPLIER);
+		if (multiplierVar == null)
+		{
+			return aPC.getSizeBonusTo(newSA, "ITEMWEIGHT", typeList(), 1.0)
+					/ aPC.getSizeBonusTo(getSizeAdjustment(), "ITEMWEIGHT", typeList(), 1.0);
+		}
+		return ((Number) getLocalVariable(aPC.getCharID(), multiplierVar)).doubleValue();
+	}
+
 	/**
-	 * Add a piece of Equipement
+	 * Add a piece of Equipment
 	 * 
-	 * @param e the Equipement to add
+	 * @param e the Equipment to add
 	 */
 	private void addContainedEquipment(final Equipment e)
 	{
