@@ -113,7 +113,7 @@ ext {
 	installerVerNum = result.get(0).toInteger() + "." + result.get(1).toInteger() + "." +  result.get(2).toInteger() + ".0"
 }
 
-task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs, 
+task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs,
         jar, converterJar]) {
     description="Assemble the required files for all PCGen installations"
     //doFirst {
@@ -218,7 +218,7 @@ task downloadJRE doLast {
                                 def name = simLib.name - '.$extension'
                                 def zipFile = file("${projectDir}/jre/${os}/${simLib.name}")
                                 def outputDir = "${projectDir}/jre/${os}/jre_${arch}/"
-                                
+
                                 from zipTree(zipFile)
                                 into outputDir
                                 eachFile { fcd ->
@@ -240,7 +240,7 @@ task downloadJRE doLast {
                                 def name = simLib.name - '.$extension'
                                 def zipFile = file("${projectDir}/jre/${os}/${simLib.name}")
                                 def outputDir = "${projectDir}/jre/${os}/jre_${arch}/"
-                                
+
                                 from tarTree(zipFile)
                                 into outputDir
                                 eachFile { fcd ->
@@ -367,7 +367,7 @@ task genDataList doLast {
     ignoreList.add("_universal");
     ignoreList.add("_images");
     ignoreList.add("publisher_logos");
-    new File("${projectDir}/data").eachDir{ 
+    new File("${projectDir}/data").eachDir{
         if (ignoreList.contains(it.name))
         {
             return
@@ -599,4 +599,3 @@ task copyMacSystemResources(type: Copy, dependsOn: copyMacPreviewResources) {
 createApp {
 	it.dependsOn 	"copyMacSystemResources"
 }
-

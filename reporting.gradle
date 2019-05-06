@@ -36,13 +36,12 @@ spotbugs {
 	toolVersion = '3.1.12'
 }
 
-//Unable to determine how to do this with SpotBugs - this is consistent with their docs, but dumps stack
-//tasks.withType(com.github.spotbugs.SpotBugsTask) {
-//	reports {
-//		xml.enabled = false
-//		html.enabled = true
-//		html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
-//	}
-//}
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
+	reports {
+		xml.enabled = false
+		html.enabled = true
+		html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
+	}
+}
 
 task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'spotbugsMain'] }
