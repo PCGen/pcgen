@@ -39,9 +39,6 @@ import org.xml.sax.SAXException;
 public class ReadXML
 {
 
-	/** The name of the table. */
-	private String tableName;
-
 	/** The table as a Vector. */
 	private final VectorTable vt;
 
@@ -61,7 +58,6 @@ public class ReadXML
 	private ReadXML()
 	{
 		vt = new VectorTable();
-		tableName = "";
 	}
 
 	/**
@@ -109,8 +105,6 @@ public class ReadXML
 			DocumentBuilder db = dbf.newDocumentBuilder();
 			/* The document used for XML parsing. */
 			final Document document = db.parse(table);
-			tableName = document.getElementsByTagName("lookuptable").item(0).getAttributes().getNamedItem("name")
-				.getNodeValue();
 
 			/* The rows of the table. */
 			final int rows = document.getElementsByTagName("row").getLength();
