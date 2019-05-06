@@ -388,11 +388,6 @@ class TravelMethodImplementation implements TravelMethod
 		listenerList.remove(TravelMethodListener.class, l);
 	}
 
-	public TravelMethodListener[] getMultListeners()
-	{
-		return listenerList.getListeners(TravelMethodListener.class);
-	}
-
 	protected void fireMultChanged(Object source)
 	{
 		if (terrainsModel.getSelectedItem() == null || routesModel.getSelectedItem() == null)
