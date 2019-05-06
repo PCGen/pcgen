@@ -55,10 +55,4 @@ public class VFeatToken extends AbilityToken
 		return listOfAbilities;
 	}
 
-	@Override
-	protected Nature getTargetNature()
-	{
-		return Nature.VIRTUAL;
-	}
-
 }

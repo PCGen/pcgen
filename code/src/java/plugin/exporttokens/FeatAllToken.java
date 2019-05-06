@@ -63,10 +63,4 @@ public class FeatAllToken extends AbilityToken
 		return listOfAbilities;
 	}
 
-	@Override
-	protected Nature getTargetNature()
-	{
-		return null;
-	}
-
 }
