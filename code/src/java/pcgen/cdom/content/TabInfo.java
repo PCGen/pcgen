@@ -17,7 +17,6 @@
  */
 package pcgen.cdom.content;
 
-import java.io.File;
 import java.net.URI;
 import java.util.Collection;
 import java.util.Collections;
@@ -35,7 +34,6 @@ public class TabInfo implements Loadable
 	private String tabName = "";
 	private Tab tabID;
 	private boolean isVisible = true;
-	private File helpFile;
 	private Set<Integer> hiddenColumns;
 	private String helpContext;
 
@@ -49,11 +47,6 @@ public class TabInfo implements Loadable
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
-	}
-
-	public void setTab(Tab tab)
-	{
-		tabID = tab;
 	}
 
 	@Override
@@ -81,11 +74,6 @@ public class TabInfo implements Loadable
 	public void setTabName(String name)
 	{
 		tabName = name;
-	}
-
-	public String getTabName()
-	{
-		return tabName;
 	}
 
 	public String getResolvedName()
@@ -144,11 +132,6 @@ public class TabInfo implements Loadable
 		hiddenColumns.add(column);
 	}
 
-	public boolean isColumnVisible(int column)
-	{
-		return (hiddenColumns == null) || !hiddenColumns.contains(column);
-	}
-
 	public Collection<Integer> getHiddenColumns()
 	{
 		if (hiddenColumns == null)
@@ -156,16 +139,6 @@ public class TabInfo implements Loadable
 			return Collections.emptyList();
 		}
 		return Collections.unmodifiableSet(hiddenColumns);
-	}
-
-	public void setHelpContext(File context)
-	{
-		helpFile = context;
-	}
-
-	public File getHelpContext()
-	{
-		return helpFile;
 	}
 
 	public String getRawHelpContext()

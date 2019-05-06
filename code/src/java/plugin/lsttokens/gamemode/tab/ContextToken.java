@@ -56,7 +56,6 @@ public class ContextToken implements CDOMPrimaryToken<TabInfo>
 				+ ti.getClass() + ' ' + ti.getDisplayName() + " from " + ti.getSourceURI());
 			return ParseResult.SUCCESS;
 		}
-		ti.setHelpContext(helpFile);
 		ti.setRawHelpContext(value);
 		return ParseResult.SUCCESS;
 	}
