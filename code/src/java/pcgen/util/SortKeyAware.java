@@ -17,25 +17,14 @@
  */
 package pcgen.util;
 
-import java.util.Comparator;
-
 /**
  * The Class {@code SortKeyAware} identifies a class which can return its
  * sort key. That is the text to be used for sorting, which may be different 
  * from the text used to display the item.
- *
- * 
  */
 @FunctionalInterface
 public interface SortKeyAware
 {
-
-	/**
-	 * A "Default" Comparator for SortKeyAware objects.
-	 */
-	public static final Comparator<SortKeyAware> SORT_KEY_COMPARATOR =
-			(o1, o2) -> o1.getSortKey().compareTo(o2.getSortKey());
-
 	/**
 	 * @return The sort key for this object.
 	 */
