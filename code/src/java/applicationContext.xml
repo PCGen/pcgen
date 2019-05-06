@@ -702,6 +702,9 @@
 	<bean id="statLegalScope" class="pcgen.cdom.formula.scope.StatScope">
 		<property name="parent" ref="globalLegalScope"/>
 	</bean>
+	<bean id="raceLegalScope" class="pcgen.cdom.formula.scope.RaceScope">
+		<property name="parent" ref="globalLegalScope"/>
+	</bean>
 	<bean id="equipLegalScope" class="pcgen.cdom.formula.scope.EquipmentScope">
 		<property name="parent" ref="globalLegalScope"/>
 	</bean>
