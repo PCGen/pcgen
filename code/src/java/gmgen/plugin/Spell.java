@@ -27,8 +27,6 @@ import org.jdom2.Element;
 
 public class Spell extends Event
 {
-	protected String aName;
-
 	/**
 	 *  Creates new Spell
 	 *

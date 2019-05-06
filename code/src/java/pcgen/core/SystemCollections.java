@@ -84,69 +84,10 @@ public final class SystemCollections
 	 */
 	public static GameMode getGameModeNamed(final String aString)
 	{
-		for (GameMode gameMode : GAME_MODE_LIST)
-		{
-			if (gameMode.getName().equalsIgnoreCase(aString))
-			{
-				return gameMode;
-			}
-		}
-
-		return null;
-	}
-
-	/**
-	 * Return a game mode matching the display name.
-	 * @param aString
-	 * @return GameMode
-	 */
-	public static GameMode getGameModeWithDisplayName(final String aString)
-	{
-		for (GameMode gameMode : GAME_MODE_LIST)
-		{
-			if (gameMode.getDisplayName().equalsIgnoreCase(aString))
-			{
-				return gameMode;
-			}
-		}
-
-		return null;
-	}
-
-	/**
-	 * Returns an <b>unmodifiable</b> birtplace list.
-	 * @return an <b>unmodifiable</b> birtplace list.
-	 */
-	public static List<String> getUnmodifiableBirthplaceList()
-	{
-		List<String> birthplaceList = BIRTHPLACE_MAP.get(SettingsHandler.getGame().getName());
-		if (birthplaceList == null)
-		{
-			birthplaceList = BIRTHPLACE_MAP.get("*");
-		}
-		if (birthplaceList == null)
-		{
-			birthplaceList = Collections.emptyList();
-		}
-		return Collections.unmodifiableList(birthplaceList);
-	}
-
-	/**
-	 * Return an <b>unmodifiable</b> version of the city list.
-	 * @return an <b>unmodifiable</b> version of the city list.
-	 */
-	public static List<String> getUnmodifiableCityList()
-	{
-		List<String> cityList = CITY_MAP.get(SettingsHandler.getGame().getName());
-		if (cityList == null)
-		{
-			cityList = CITY_MAP.get("*");
-		}
-		if (cityList == null)
-		{
-			cityList = Collections.emptyList();
-		}
-		return Collections.unmodifiableList(cityList);
+		return GAME_MODE_LIST.stream()
+		                     .filter(gameMode -> gameMode.getName().equalsIgnoreCase(aString))
+		                     .findFirst()
+		                     .orElse(null);
 	}
 
 	/**
@@ -175,7 +116,7 @@ public final class SystemCollections
 	 * current gamemode.
 	 * @return an <b>unmodifiable</b> version of the body structure list.
 	 */
-	public static List<String> getUnmodifiableBodyStructureList()
+	static List<String> getUnmodifiableBodyStructureList()
 	{
 		// Try getting a body structure for the currently selected gamemode
 		List<String> bodyStructures = BODY_STRUCTURE_MAP.get(SettingsHandler.getGame().getName());
@@ -231,132 +172,6 @@ public final class SystemCollections
 		return Collections.unmodifiableList(GAME_MODE_DISPLAY_LIST);
 	}
 
-	/**
-	 * Return an <b>unmodifiable</b> version of the hairstyle list.
-	 * @return an <b>unmodifiable</b> version of the hairstyle list.
-	 */
-	public static List<String> getUnmodifiableHairStyleList()
-	{
-		List<String> hairStyleList = HAIR_STYLE_MAP.get(SettingsHandler.getGame().getName());
-		if (hairStyleList == null)
-		{
-			hairStyleList = HAIR_STYLE_MAP.get("*");
-		}
-		if (hairStyleList == null)
-		{
-			hairStyleList = Collections.emptyList();
-		}
-		return Collections.unmodifiableList(hairStyleList);
-	}
-
-	/**
-	 * Return an <b>unmodifiable</b> version of the interests list.
-	 * @return an <b>unmodifiable</b> version of the interests list.
-	 */
-	public static List<String> getUnmodifiableInterestsList()
-	{
-		List<String> interestsList = INTERESTS_MAP.get(SettingsHandler.getGame().getName());
-		if (interestsList == null)
-		{
-			interestsList = INTERESTS_MAP.get("*");
-		}
-		if (interestsList == null)
-		{
-			interestsList = Collections.emptyList();
-		}
-		return Collections.unmodifiableList(interestsList);
-	}
-
-	/**
-	 * Return an <b>unmodifiable</b> version of the location list.
-	 * @return an <b>unmodifiable</b> version of the location list.
-	 */
-	public static List<String> getUnmodifiableLocationList()
-	{
-		List<String> locationList = LOCATION_MAP.get(SettingsHandler.getGame().getName());
-		if (locationList == null)
-		{
-			locationList = LOCATION_MAP.get("*");
-		}
-		if (locationList == null)
-		{
-			locationList = Collections.emptyList();
-		}
-		return Collections.unmodifiableList(locationList);
-	}
-
-	/**
-	 * Return an <b>unmodifiable</b> version of the phobia list.
-	 * @return an <b>unmodifiable</b> version of the phobia list.
-	 */
-	public static List<String> getUnmodifiablePhobiaList()
-	{
-		List<String> phobiaList = PHOBIA_MAP.get(SettingsHandler.getGame().getName());
-		if (phobiaList == null)
-		{
-			phobiaList = PHOBIA_MAP.get("*");
-		}
-		if (phobiaList == null)
-		{
-			phobiaList = Collections.emptyList();
-		}
-		return Collections.unmodifiableList(phobiaList);
-	}
-
-	/**
-	 * Return an <b>unmodifiable</b> version of the phrase list.
-	 * @return an <b>unmodifiable</b> version of the phrase list.
-	 */
-	public static List<String> getUnmodifiablePhraseList()
-	{
-		Set<String> phraseSet = PHRASE_MAP.get(SettingsHandler.getGame().getName());
-		if (phraseSet == null)
-		{
-			phraseSet = PHRASE_MAP.get("*");
-		}
-		if (phraseSet == null)
-		{
-			return Collections.emptyList();
-		}
-		return new ArrayList<>(phraseSet);
-	}
-
-	/**
-	 * Return an <b>unmodifiable</b> version of the speech list.
-	 * @return  an <b>unmodifiable</b> version of the speech list.
-	 */
-	public static List<String> getUnmodifiableSpeechList()
-	{
-		List<String> speechList = SPEECH_MAP.get(SettingsHandler.getGame().getName());
-		if (speechList == null)
-		{
-			speechList = SPEECH_MAP.get("*");
-		}
-		if (speechList == null)
-		{
-			speechList = Collections.emptyList();
-		}
-		return Collections.unmodifiableList(speechList);
-	}
-
-	/**
-	 * Return an <b>unmodifiable</b> version of the trait list.
-	 * @return an <b>unmodifiable</b> version of the trait list.
-	 */
-	public static List<String> getUnmodifiableTraitList()
-	{
-		Set<String> traitList = TRAIT_MAP.get(SettingsHandler.getGame().getName());
-		if (traitList == null)
-		{
-			traitList = TRAIT_MAP.get("*");
-		}
-		if (traitList == null)
-		{
-			return Collections.emptyList();
-		}
-		return new ArrayList<>(traitList);
-	}
-
 	//BirthplaceList
 
 	/**
@@ -366,12 +181,7 @@ public final class SystemCollections
 	 */
 	public static void addToBirthplaceList(final String birthplace, final String gameMode)
 	{
-		List<String> birthplaceList = BIRTHPLACE_MAP.get(gameMode);
-		if (birthplaceList == null)
-		{
-			birthplaceList = new ArrayList<>();
-			BIRTHPLACE_MAP.put(gameMode, birthplaceList);
-		}
+		List<String> birthplaceList = BIRTHPLACE_MAP.computeIfAbsent(gameMode, k -> new ArrayList<>());
 		if (!birthplaceList.contains(birthplace))
 		{
 			birthplaceList.add(birthplace);
@@ -387,12 +197,7 @@ public final class SystemCollections
 	 */
 	public static void addToCityList(final String city, final String gameMode)
 	{
-		List<String> cityList = CITY_MAP.get(gameMode);
-		if (cityList == null)
-		{
-			cityList = new ArrayList<>();
-			CITY_MAP.put(gameMode, cityList);
-		}
+		List<String> cityList = CITY_MAP.computeIfAbsent(gameMode, k -> new ArrayList<>());
 		if (!cityList.contains(city))
 		{
 			cityList.add(city);
@@ -408,12 +213,7 @@ public final class SystemCollections
 	 */
 	public static void addToEquipSlotsList(final EquipSlot equipmentSlot, final String gameMode)
 	{
-		List<EquipSlot> equipSlotList = EQUIP_SLOT_MAP.get(gameMode);
-		if (equipSlotList == null)
-		{
-			equipSlotList = new ArrayList<>();
-			EQUIP_SLOT_MAP.put(gameMode, equipSlotList);
-		}
+		List<EquipSlot> equipSlotList = EQUIP_SLOT_MAP.computeIfAbsent(gameMode, k -> new ArrayList<>());
 		if (!equipSlotList.contains(equipmentSlot))
 		{
 			equipSlotList.add(equipmentSlot);
@@ -427,12 +227,7 @@ public final class SystemCollections
 	 */
 	public static void addToBodyStructureList(final String bodyStructure, final String gameMode)
 	{
-		List<String> bodyStructureList = BODY_STRUCTURE_MAP.get(gameMode);
-		if (bodyStructureList == null)
-		{
-			bodyStructureList = new ArrayList<>();
-			BODY_STRUCTURE_MAP.put(gameMode, bodyStructureList);
-		}
+		List<String> bodyStructureList = BODY_STRUCTURE_MAP.computeIfAbsent(gameMode, k -> new ArrayList<>());
 		if (!bodyStructureList.contains(bodyStructure))
 		{
 			bodyStructureList.add(bodyStructure);
@@ -446,12 +241,7 @@ public final class SystemCollections
 	 */
 	public static void addToMigrationRulesList(final MigrationRule migrationRule, final String gameMode)
 	{
-		List<MigrationRule> migrationRuleList = MIGRATION_RULE_MAP.get(gameMode);
-		if (migrationRuleList == null)
-		{
-			migrationRuleList = new ArrayList<>();
-			MIGRATION_RULE_MAP.put(gameMode, migrationRuleList);
-		}
+		List<MigrationRule> migrationRuleList = MIGRATION_RULE_MAP.computeIfAbsent(gameMode, k -> new ArrayList<>());
 		if (!migrationRuleList.contains(migrationRule))
 		{
 			migrationRuleList.add(migrationRule);
@@ -479,12 +269,7 @@ public final class SystemCollections
 	 */
 	public static void addToHairStyleList(final String hairStyle, final String gameMode)
 	{
-		List<String> hairStyleList = HAIR_STYLE_MAP.get(gameMode);
-		if (hairStyleList == null)
-		{
-			hairStyleList = new ArrayList<>();
-			HAIR_STYLE_MAP.put(gameMode, hairStyleList);
-		}
+		List<String> hairStyleList = HAIR_STYLE_MAP.computeIfAbsent(gameMode, k -> new ArrayList<>());
 		if (!hairStyleList.contains(hairStyle))
 		{
 			hairStyleList.add(hairStyle);
@@ -501,12 +286,7 @@ public final class SystemCollections
 	 */
 	public static void addToInterestsList(final String interest, final String gameMode)
 	{
-		List<String> interestsList = INTERESTS_MAP.get(gameMode);
-		if (interestsList == null)
-		{
-			interestsList = new ArrayList<>();
-			INTERESTS_MAP.put(gameMode, interestsList);
-		}
+		List<String> interestsList = INTERESTS_MAP.computeIfAbsent(gameMode, k -> new ArrayList<>());
 		if (!interestsList.contains(interest))
 		{
 			interestsList.add(interest);
@@ -522,12 +302,7 @@ public final class SystemCollections
 	 */
 	public static void addToLocationList(final String location, final String gameMode)
 	{
-		List<String> locationList = LOCATION_MAP.get(gameMode);
-		if (locationList == null)
-		{
-			locationList = new ArrayList<>();
-			LOCATION_MAP.put(gameMode, locationList);
-		}
+		List<String> locationList = LOCATION_MAP.computeIfAbsent(gameMode, k -> new ArrayList<>());
 		if (!locationList.contains(location))
 		{
 			locationList.add(location);
@@ -543,12 +318,7 @@ public final class SystemCollections
 	 */
 	public static void addToPhobiaList(final String phobia, final String gameMode)
 	{
-		List<String> phobiaList = PHOBIA_MAP.get(gameMode);
-		if (phobiaList == null)
-		{
-			phobiaList = new ArrayList<>();
-			PHOBIA_MAP.put(gameMode, phobiaList);
-		}
+		List<String> phobiaList = PHOBIA_MAP.computeIfAbsent(gameMode, k -> new ArrayList<>());
 		if (!phobiaList.contains(phobia))
 		{
 			phobiaList.add(phobia);
@@ -564,12 +334,7 @@ public final class SystemCollections
 	 */
 	public static void addToPhraseList(final String phrase, final String gameMode)
 	{
-		Set<String> phraseList = PHRASE_MAP.get(gameMode);
-		if (phraseList == null)
-		{
-			phraseList = new HashSet<>();
-			PHRASE_MAP.put(gameMode, phraseList);
-		}
+		Set<String> phraseList = PHRASE_MAP.computeIfAbsent(gameMode, k -> new HashSet<>());
 		phraseList.add(phrase);
 	}
 
@@ -582,12 +347,7 @@ public final class SystemCollections
 	 */
 	public static void addToSpeechList(final String speech, final String gameMode)
 	{
-		List<String> speechList = SPEECH_MAP.get(gameMode);
-		if (speechList == null)
-		{
-			speechList = new ArrayList<>();
-			SPEECH_MAP.put(gameMode, speechList);
-		}
+		List<String> speechList = SPEECH_MAP.computeIfAbsent(gameMode, k -> new ArrayList<>());
 		if (!speechList.contains(speech))
 		{
 			speechList.add(speech);
@@ -603,21 +363,8 @@ public final class SystemCollections
 	 */
 	public static void addToTraitList(final String trait, final String gameMode)
 	{
-		Set<String> traitList = TRAIT_MAP.get(gameMode);
-		if (traitList == null)
-		{
-			traitList = new HashSet<>();
-			TRAIT_MAP.put(gameMode, traitList);
-		}
+		Set<String> traitList = TRAIT_MAP.computeIfAbsent(gameMode, k -> new HashSet<>());
 		traitList.add(trait);
-	}
-
-	/**
-	 * Empty the equipment slots list.
-	 */
-	public static void clearEquipSlotsMap()
-	{
-		EQUIP_SLOT_MAP.clear();
 	}
 
 	/**
