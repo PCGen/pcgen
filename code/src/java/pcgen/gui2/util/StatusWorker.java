@@ -88,14 +88,6 @@ public class StatusWorker extends SwingWorker<List<LogRecord>, List<LogRecord>> 
 		errors.add(event.getErrorRecord());
 	}
 
-	/**
-	 * @return records for all errors reported by the task
-	 */
-	public List<LogRecord> getErrors()
-	{
-		return Collections.unmodifiableList(errors);
-	}
-
 	@Override
 	protected List<LogRecord> doInBackground()
 	{
