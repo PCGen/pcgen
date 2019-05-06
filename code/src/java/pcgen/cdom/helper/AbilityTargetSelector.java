@@ -77,17 +77,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements Qu
 		source = token;
 	}
 
-	/**
-	 * Returns the key for the Ability in this AbilitySelection.
-	 * 
-	 * @return The key for the Ability in this AbilitySelection.
-	 */
-	public String getAbilityKey()
-	{
-		return ability.get().getKeyName();
-	}
-
-	/**
+	/*
 	 * Returns the Category for the Ability in this AbilitySelection.
 	 * 
 	 * @return The Category for the Ability in this AbilitySelection.
@@ -95,27 +85,6 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements Qu
 	public CDOMSingleRef<AbilityCategory> getAbilityCategory()
 	{
 		return category;
-	}
-
-	/**
-	 * Returns the "full" Key required to fully resolve both the Ability and the
-	 * selection for this AbilitySelection. The choice is encoded in parenthesis
-	 * after the ability key.
-	 * 
-	 * Note: This is primarily used for compatibility with "old" (5.x) style
-	 * core objects and generally use of this method is discouraged.
-	 * 
-	 * @return The "full" Key required to fully resolve both the Ability and the
-	 *         selection for this AbilitySelection.
-	 */
-	public String getFullAbilityKey()
-	{
-		StringBuilder sb = new StringBuilder(50);
-		sb.append(getAbilityKey());
-		sb.append('(');
-		sb.append(Constants.LST_PERCENT_LIST);
-		sb.append(')');
-		return sb.toString();
 	}
 
 	/**
@@ -150,16 +119,6 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements Qu
 	public Nature getNature()
 	{
 		return nature;
-	}
-
-	/**
-	 * Returns the Ability that this AbilitySelection represents
-	 * 
-	 * @return The Ability that this AbilitySelection represents
-	 */
-	public Ability getAbility()
-	{
-		return ability.get();
 	}
 
 	@Override
