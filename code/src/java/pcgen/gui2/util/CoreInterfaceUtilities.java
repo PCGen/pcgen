@@ -21,7 +21,7 @@ import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.facade.util.ReferenceFacade;
-import pcgen.facade.util.VetoableReferenceFacade;
+import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -33,7 +33,7 @@ public final class CoreInterfaceUtilities
 	/**
 	 * The LoadContextFacet.
 	 */
-	private static LoadContextFacet LOAD_CONTEXT_FACET =
+	private static final LoadContextFacet LOAD_CONTEXT_FACET =
 			FacetLibrary.getFacet(LoadContextFacet.class);
 
 	private CoreInterfaceUtilities()
@@ -52,14 +52,14 @@ public final class CoreInterfaceUtilities
 	 *            should be returned
 	 * @return The ReferenceFacade for the channel defined by a given CodeControl
 	 */
-	public static <T> VetoableReferenceFacade<T> getReferenceFacade(CharID id,
+	public static <T> WriteableReferenceFacade<T> getReferenceFacade(CharID id,
 		CControl codeControl)
 	{
 		LoadContext context = LOAD_CONTEXT_FACET.get(id.getDatasetID()).get();
 		String channelName =
 				ControlUtilities.getControlToken(context, codeControl);
-		return (VetoableReferenceFacade<T>) context.getVariableContext()
-			.getGlobalChannel(id, channelName);
+		return (WriteableReferenceFacade<T>) context.getVariableContext()
+		                                            .getGlobalChannel(id, channelName);
 	}
 
 	/**
