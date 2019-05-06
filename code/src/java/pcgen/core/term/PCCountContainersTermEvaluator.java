@@ -45,7 +45,7 @@ public class PCCountContainersTermEvaluator extends BasePCTermEvaluator implemen
 
 		for (Equipment eq : eList)
 		{
-			if (eq.acceptsChildren())
+			if (eq.isContainer())
 			{
 				aList.add(eq);
 			}

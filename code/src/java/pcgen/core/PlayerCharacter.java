@@ -7635,7 +7635,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (addAll && mergeItem && (existingSet != null))
 		{
-			newQty = tempQty + getEquippedQty(eSet, eqI).floatValue();
+			newQty = tempQty + getEquippedQty(eSet, eqI);
 			existingSet.setQty(newQty);
 			eqI.setQty(newQty);
 			eqI.setNumberCarried(newQty);

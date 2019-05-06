@@ -23,7 +23,6 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -2197,7 +2196,7 @@ public final class Equipment extends PObject
 	 * 
 	 * @return true if the Equipment can take children.
 	 */
-	public boolean acceptsChildren()
+	public boolean isContainer()
 	{
 		return get(ObjectKey.CONTAINER_WEIGHT_CAPACITY) != null;
 	}
@@ -3599,7 +3598,7 @@ public final class Equipment extends PObject
 		final StringBuilder tempStringBuilder = new StringBuilder(getChildCount() * 20);
 
 		// Make sure there's no bug here.
-		if (pc != null && acceptsChildren() && (getContainedWeight(pc, true) >= 0.0f))
+		if (pc != null && isContainer() && (getContainedWeight(pc, true) >= 0.0f))
 		{
 			tempStringBuilder
 				.append(Globals.getGameModeUnitSet().displayWeightInUnitSet(getContainedWeight(pc, true).doubleValue()))
@@ -5675,18 +5674,6 @@ public final class Equipment extends PObject
 		return containerCapacityString;
 	}
 
-	/**
-	 * Convenience method. <p> <br>
-	 * author: Thomas Behr 27-03-02
-	 * 
-	 * @return {@code true}, if this instance is a container;
-	 *         {@code false}, otherwise
-	 */
-	public boolean isContainer()
-	{
-		return acceptsChildren();
-	}
-
 	private List<EquipmentHead> heads = new ArrayList<>();
 
 	public EquipmentHead getEquipmentHead(int index)
@@ -6169,7 +6156,7 @@ public final class Equipment extends PObject
 		if (alterAC != null)
 		{
 			Object o = pc.getLocal(this, alterAC);
-			return ((Boolean) o).booleanValue();
+			return (Boolean) o;
 		}
 
 		return getRawBonusList(pc).stream().anyMatch(bonus -> bonus.getBonusInfo().equalsIgnoreCase("AC"));
@@ -6268,7 +6255,7 @@ public final class Equipment extends PObject
 	@Override
 	public List<String> getChildTypes()
 	{
-		return Arrays.asList(new String[]{"EQUIPMENT.PART"});
+		return Collections.singletonList("EQUIPMENT.PART");
 	}
 
 	@Override
