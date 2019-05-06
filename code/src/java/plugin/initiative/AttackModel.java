@@ -627,24 +627,6 @@ public class AttackModel extends PObjectModel
 	}
 
 	/**
-	 * <p>Gets the to-hit string at the specified attack index.</p>
-	 * 
-	 * @param index
-	 * @return The to-hit string.
-	 */
-	public String getToHit(int index)
-	{
-		String returnValue = null;
-
-		if ((toHit != null) && (toHit.size() > index))
-		{
-			returnValue = toHit.get(index);
-		}
-
-		return returnValue;
-	}
-
-	/**
 	 * <p>Sets the weapon type.</p>
 	 * @param string
 	 */
