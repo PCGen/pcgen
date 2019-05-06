@@ -17,12 +17,9 @@
  */
 package pcgen.cdom.facet.base;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
 
 import pcgen.cdom.base.PCGenIdentifier;
 
@@ -55,40 +52,6 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 		Map<S2, A> map = getConstructingCachedMap(id, obj1);
 		A old = map.put(obj2, association);
 		return old == null;
-	}
-
-	public void remove(IDT id, S1 obj1, S2 obj2)
-	{
-		Map<S1, Map<S2, A>> map = getCachedMap(id);
-		if (map != null)
-		{
-			Map<S2, A> subMap = map.get(obj1);
-			if (subMap != null)
-			{
-				subMap.remove(obj2);
-				if (subMap.isEmpty())
-				{
-					map.remove(obj1);
-				}
-			}
-		}
-	}
-
-	public Map<S1, Map<S2, A>> removeAll(IDT id)
-	{
-		@SuppressWarnings("unchecked")
-		Map<S1, Map<S2, A>> componentMap = (Map<S1, Map<S2, A>>) removeCache(id);
-		if (componentMap == null)
-		{
-			return Collections.emptyMap();
-		}
-		return componentMap;
-	}
-
-	public boolean isEmpty(IDT id)
-	{
-		Map<S1, Map<S2, A>> map = getCachedMap(id);
-		return map == null || map.isEmpty();
 	}
 
 	@SuppressWarnings("unchecked")
@@ -130,35 +93,6 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 				getConstructingCachedMap(destination, me.getKey()).putAll(me.getValue());
 			}
 		}
-	}
-
-	public Collection<S1> getObjects(IDT id)
-	{
-		Map<S1, Map<S2, A>> map = getCachedMap(id);
-		if (map == null)
-		{
-			return Collections.emptyList();
-		}
-		Set<S1> set = Collections.newSetFromMap(getComponentMap());
-		set.addAll(map.keySet());
-		return set;
-	}
-
-	public Collection<S2> getSubObjects(IDT id, S1 obj1)
-	{
-		Map<S1, Map<S2, A>> map = getCachedMap(id);
-		if (map == null)
-		{
-			return Collections.emptyList();
-		}
-		Map<S2, A> subMap = map.get(obj1);
-		if (subMap == null)
-		{
-			return Collections.emptyList();
-		}
-		Set<S2> set = Collections.newSetFromMap(getSubComponentMap());
-		set.addAll(subMap.keySet());
-		return set;
 	}
 
 }
