@@ -112,8 +112,8 @@ public class SortedProperties extends Properties
 	}
 
 	/**
-	 * Convert the supplied string into a property key, escaping any 
-	 * terminator characters within the string.  
+	 * Convert the supplied string into a property key, escaping any
+	 * terminator characters within the string.
 	 * @param rawKey The text to be converted
 	 * @return The valid properties key
 	 */
