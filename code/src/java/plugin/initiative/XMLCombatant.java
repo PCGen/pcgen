@@ -242,26 +242,6 @@ public class XMLCombatant extends Combatant
 
 	/**
 	 * <p>
-	 * Sets an attribute value
-	 * </p>
-	 *
-	 * @param name Name of the attribute
-	 * @param value VAlue of the attribute
-	 */
-	public void setAttribute(String name, int value)
-	{
-		try
-		{
-			combatant.getChild("Attributes").getChild(name).setAttribute("value", Integer.toString(value));
-		}
-		catch (Exception e)
-		{
-			Logging.errorPrint(e.getMessage(), e);
-		}
-	}
-
-	/**
-	 * <p>
 	 * Sets the challenge rating
 	 * </p>
 	 *
@@ -322,18 +302,6 @@ public class XMLCombatant extends Combatant
 			}
 		}
 		return retString;
-	}
-
-	/**
-	 * <p>
-	 * Gets the XML element attribute of the XMLCombatant
-	 * </p>
-	 *
-	 * @return    The XML element
-	 */
-	public Element getElement()
-	{
-		return combatant;
 	}
 
 	/**
