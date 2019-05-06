@@ -96,6 +96,12 @@ public final class CControl
 	 * Code control to take # of weapon hands off of WieldCategory
 	 */
 	public static final String WEAPONHANDS = "WEAPONHANDS";
+	
+	/**
+	 * Code control to indicate the weight multiplier due to size difference from base
+	 * size on Equipment.
+	 */
+	public static final String WEIGHTMULTIPLIER = "WEIGHTMULTIPLIER";
 
 	/**
 	 * Code Control for the Alignment Input Channel.
