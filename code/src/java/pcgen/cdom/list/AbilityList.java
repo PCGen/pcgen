@@ -97,30 +97,6 @@ public class AbilityList extends CDOMListObject<Ability>
 		return ref;
 	}
 
-	/**
-	 * Returns a Collection of references to all of the "master" AbilityList
-	 * objects retrieved through the getAbilityListReference method.
-	 * 
-	 * This method is value-semantic in that ownership of the returned
-	 * Collection is transferred to the class calling this method. Modification
-	 * of the returned Collection will not modify the "master" AbilityList
-	 * collection and modification of the "master" AbilityList collection
-	 * through subsequent calls of getAbilityListReference will not modify the
-	 * returned Collection.
-	 * 
-	 * This method will not return null, even if getAbilityListReference was
-	 * never called.
-	 * 
-	 * @return A Collection of references to all of the "master" AbilityList
-	 *         objects retrieved through the getAbilityListReference method.
-	 */
-	public static Collection<CDOMReference<AbilityList>> getAbilityLists()
-	{
-		List<CDOMReference<AbilityList>> list = new ArrayList<>();
-		MASTER_MAP.getKeySet().stream().map(MASTER_MAP::values).forEach(list::addAll);
-		return list;
-	}
-
 	public CDOMSingleRef<AbilityCategory> getCategory()
 	{
 		return category;
