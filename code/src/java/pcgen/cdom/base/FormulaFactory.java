@@ -335,7 +335,7 @@ public final class FormulaFactory
 		{
 			return new SimpleFormula<>(fmtManager.convert(expression), fmtManager);
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// Okay, not simple :P
 			return new ComplexNEPFormula<>(expression, fmtManager);
