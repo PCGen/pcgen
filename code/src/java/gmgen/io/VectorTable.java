@@ -315,22 +315,6 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Doesn't do much
-	 * @param x the {@code index} of the item in the table to be stored.
-	 * @return an {@code array} that consists of the specified item from
-	 *         the table.
-	 */
-	public Object[] toArray(int x)
-	{
-		if (rows.isEmpty())
-		{
-			return null;
-		}
-
-		return ((Collection<Object>) rows.get(x)).toArray();
-	}
-
-	/**
 	 * Gets the {@code name} of the table that this class is holding.
 	 * @return the {@code name}.
 	 */
