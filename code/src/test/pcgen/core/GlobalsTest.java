@@ -411,13 +411,9 @@ class GlobalsTest
 		d6.addToUpList(new RollInfo("8d6"));
 		d6.addToUpList(new RollInfo("12d6"));
 		Globals.getContext().getReferenceContext().importObject(d6);
-		SizeAdjustment small = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				SizeAdjustment.class, "S");
-		SizeAdjustment medium = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				SizeAdjustment.class, "M");
 		assertEquals(
 				"1d4",
-				Globals.adjustDamage("1d6", medium, small),
+				Globals.adjustDamage("1d6", -1),
 				"reduction of damage due to smaller size"
 		);
 	}

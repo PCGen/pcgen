@@ -2651,7 +2651,7 @@ public class WeaponToken extends Token
 				}
 			}
 
-			damString = Globals.adjustDamage(damString, eqSize, iMod);
+			damString = Globals.adjustDamage(damString, iMod - eqSize);
 		}
 		return damString;
 	}
@@ -2672,7 +2672,7 @@ public class WeaponToken extends Token
 			int iMod = pc.sizeInt();
 			iMod += (int) pc.getTotalBonusTo("WEAPONPROF=" + profKey, "DAMAGESIZE");
 			iMod += (int) pc.getTotalBonusTo("COMBAT", "DAMAGESIZE");
-			retString = Globals.adjustDamage(retString, eqSize, iMod);
+			retString = Globals.adjustDamage(retString, iMod - eqSize);
 		}
 		else
 		{
@@ -2680,7 +2680,7 @@ public class WeaponToken extends Token
 			int iMod = eqSize;
 			iMod += (int) pc.getTotalBonusTo("WEAPONPROF=" + profKey, "DAMAGESIZE");
 			iMod += (int) pc.getTotalBonusTo("COMBAT", "DAMAGESIZE");
-			retString = Globals.adjustDamage(retString, eqSize, iMod);
+			retString = Globals.adjustDamage(retString, iMod - eqSize);
 		}
 
 		return retString;

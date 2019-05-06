@@ -3396,12 +3396,12 @@ public final class Equipment extends PObject
 			put(ObjectKey.CURRENT_COST, eq.getCostAdjustedForSize(pc, newSize));
 			put(ObjectKey.WEIGHT, eq.getWeightAdjustedForSize(pc, newSize));
 			adjustACForSize(pc, eq, newSize);
-			String dam = eq.getDamageAdjustedForSize(newSize, true);
+			String dam = eq.getDamageAdjustedForSize(iNewSize, true);
 			if (dam != null && !dam.isEmpty())
 			{
 				getEquipmentHead(1).put(StringKey.DAMAGE, dam);
 			}
-			String adam = eq.getDamageAdjustedForSize(newSize, false);
+			String adam = eq.getDamageAdjustedForSize(iNewSize, false);
 			if (adam != null && !adam.isEmpty())
 			{
 				getEquipmentHead(2).put(StringKey.DAMAGE, adam);
@@ -5309,8 +5309,7 @@ public final class Equipment extends PObject
 				iMod = maxIndex;
 			}
 		}
-		SizeAdjustment sa = ref.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER).get(iMod);
-		return adjustDamage(dam, sa);
+		return adjustDamage(dam, iMod);
 	}
 
 	/**
@@ -5733,7 +5732,7 @@ public final class Equipment extends PObject
 	 * @param aSize   The size to adjust for
 	 * @return     The adjusted damage
 	 */
-	private String adjustDamage(final String aDamage, final SizeAdjustment aSize)
+	private String adjustDamage(final String aDamage, int newSizeInt)
 	{
 		if (aDamage == null)
 		{
@@ -5741,7 +5740,7 @@ public final class Equipment extends PObject
 		}
 		if (!"special".equalsIgnoreCase(aDamage) && !"-".equals(aDamage))
 		{
-			return Globals.adjustDamage(aDamage, getSizeAdjustment(), aSize);
+			return Globals.adjustDamage(aDamage, newSizeInt - sizeInt());
 		}
 
 		return aDamage;
@@ -5757,7 +5756,7 @@ public final class Equipment extends PObject
 	 *           get the damage for the secondary head
 	 * @return     The damageAdjustedForSize value
 	 */
-	private String getDamageAdjustedForSize(final SizeAdjustment aSize, final boolean bPrimary)
+	private String getDamageAdjustedForSize(int newSizeInt, final boolean bPrimary)
 	{
 		int headnum = bPrimary ? 1 : 2;
 		EquipmentHead head = getEquipmentHeadReference(headnum);
@@ -5774,7 +5773,7 @@ public final class Equipment extends PObject
 		{
 			dam = getWeaponInfo("DAMAGE", bPrimary);
 		}
-		return adjustDamage(dam, aSize);
+		return adjustDamage(dam, newSizeInt);
 	}
 
 	public String getWeaponInfo(final String infoType, final boolean bPrimary)
