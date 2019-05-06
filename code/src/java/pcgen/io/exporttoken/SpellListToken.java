@@ -38,7 +38,6 @@ public abstract class SpellListToken extends Token
 	protected static final int SPELLTAG_DC = 5;
 	protected static final int SPELLTAG_DCSTAT = 6;
 	protected static final int SPELLTAG_MEMORIZE = 7;
-	protected static final int SPELLTAG_CONCENTRATION = 8;
 
 	// ================== Inner class =======================
 	/**
