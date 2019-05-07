@@ -23,11 +23,9 @@ import static org.junit.jupiter.api.Assertions.fail;
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.NumberManager;
-import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.scope.GlobalPCScope;
-import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.ModifierFactory;
+
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
 import org.junit.jupiter.api.Test;
@@ -35,7 +33,6 @@ import org.junit.jupiter.api.Test;
 public class MultiplyNumberModifierTest
 {
 
-	private final PCGenScope varScope = new GlobalPCScope();
 	private final FormatManager<Number> numManager = new NumberManager();
 
 	@Test
@@ -44,7 +41,7 @@ public class MultiplyNumberModifierTest
 		try
 		{
 			ModifierFactory m = new MultiplyModifierFactory();
-			m.getModifier(null, new ManagerFactory(){}, null, null, null);
+			m.getModifier(null, null);
 				fail("Expected MultiplyModifier with null multiply value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -198,7 +195,7 @@ public class MultiplyNumberModifierTest
 	{
 		MultiplyModifierFactory factory = new MultiplyModifierFactory();
 		FormulaModifier<Number> modifier =
-				factory.getModifier("6.5", new ManagerFactory(){}, null, varScope, numManager);
+				factory.getModifier("6.5", numManager);
 		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertEquals(numManager, modifier.getVariableFormat());

@@ -21,6 +21,8 @@ import pcgen.base.calculation.AbstractNEPCalculation;
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.util.Indirect;
 
 /**
@@ -89,5 +91,14 @@ public final class IndirectCalculation<T> extends AbstractNEPCalculation<T>
 	public void getDependencies(DependencyManager fdm)
 	{
 		//CONSIDER: How does DependencyManager want to know about Indirect?
+	}
+
+	@Override
+	public void isValid(FormulaSemantics semantics) throws SemanticsException
+	{
+		/*
+		 * Since this is direct (already has a reference to the object), it has no
+		 * semantic issues (barring someone violating Generics)
+		 */
 	}
 }

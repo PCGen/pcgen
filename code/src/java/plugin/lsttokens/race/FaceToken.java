@@ -70,7 +70,10 @@ public class FaceToken extends AbstractNonEmptyToken<LimitedVarHolder>
 		FormulaModifier<OrderedPair> modifier;
 		try
 		{
-			modifier = context.getVariableContext().getModifier(MOD_IDENTIFICATION, value, scope, formatManager);
+			modifier =
+					context.getVariableContext().getModifier(MOD_IDENTIFICATION,
+						value, context.getVariableContext().getFormulaManager(),
+						scope, formatManager);
 		}
 		catch (IllegalArgumentException iae)
 		{

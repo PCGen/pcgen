@@ -461,7 +461,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 		return edits.cloneConstructedCDOMObject(obj, newName);
 	}
 
-	private static class SimpleCDOMObject extends CDOMObject
+	public static class DummyCDOMObject extends CDOMObject
 	{
 		@Override
 		public boolean isType(String str)
@@ -499,7 +499,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 			CDOMObject negative = negativeMap.get(source, cdo);
 			if (negative == null)
 			{
-				negative = new SimpleCDOMObject();
+				negative = new DummyCDOMObject();
 				negativeMap.put(source, cdo, negative);
 			}
 			return negative;
@@ -523,7 +523,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 			CDOMObject positive = positiveMap.get(source, cdo);
 			if (positive == null)
 			{
-				positive = new SimpleCDOMObject();
+				positive = new DummyCDOMObject();
 				positiveMap.put(source, cdo, positive);
 			}
 			return positive;

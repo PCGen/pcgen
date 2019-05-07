@@ -325,7 +325,7 @@ public final class FormulaFactory
 	 *            The expression to be interpreted by the formula parser
 	 * @return The NEPFormula representing the given expression
 	 */
-	private static <T> NEPFormula<T> getNEPFormulaFor(FormatManager<T> fmtManager, String expression)
+	public static <T> NEPFormula<T> getNEPFormulaFor(FormatManager<T> fmtManager, String expression)
 	{
 		if (expression == null || expression.isEmpty())
 		{
@@ -335,7 +335,7 @@ public final class FormulaFactory
 		{
 			return new SimpleFormula<>(fmtManager.convert(expression), fmtManager);
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// Okay, not simple :P
 			return new ComplexNEPFormula<>(expression, fmtManager);
@@ -357,7 +357,7 @@ public final class FormulaFactory
 	 * @param managerFactory
 	 *            The ManagerFactory to be used for building the FormulaSemantics
 	 * @param formulaManager
-	 *            The FormulaManager to be used for validating the NEPExpression
+	 *            The FormulaManager to be used for validating the NEPFormula
 	 * @param varScope
 	 *            The PCGenScope in which the NEPFormula is established and
 	 *            checked
@@ -378,8 +378,11 @@ public final class FormulaFactory
 		}
 		catch (SemanticsException e)
 		{
-			throw new IllegalArgumentException("Cannot create a Formula from: " + expression + ", due to: "
-				+ e.getLocalizedMessage() + " with format " + formatManager.getIdentifierType(), e);
+			throw new IllegalArgumentException(
+				"Cannot validate Formula built from: " + formula.toString()
+					+ ", with format " + formatManager.getIdentifierType()
+					+ ", due to: " + e.getLocalizedMessage(),
+				e);
 		}
 		return formula;
 	}
