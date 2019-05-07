@@ -1,3 +1,5 @@
+import java.time.LocalDateTime
+
 /*
  * PCGen autobuild generation tasks. This file specifies the way in which the
  * autobuild site is generated and the outputs from other tasks that are to be
@@ -12,7 +14,7 @@ ext {
         destAutobuildDir = "${buildDir}/autobuilds/"
     }
 
-    buildTimestamp = new Date().format('yyyy-MM-dd HH:mm, Z')
+    buildTimestamp = LocalDateTime.now(Clock.systemUTC())
 }
 
 task copyDocs(type: Sync) {
@@ -30,7 +32,7 @@ task copySite(type: Copy) {
     outputs.upToDateWhen { false }
     from "${projectDir}/code/gradle/site"
     into "${destAutobuildDir}"
-    expand(copyright: '2018', version: version, timestamp: buildTimestamp,
+    expand(copyright: Calendar.instance.get(Calendar.YEAR), version: version, timestamp: buildTimestamp,
         simpleVersion: version.replaceAll('-SNAPSHOT', '').replaceAll(/\./, ''))
 }
 

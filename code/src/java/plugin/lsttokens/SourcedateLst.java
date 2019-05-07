@@ -22,6 +22,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -57,7 +58,7 @@ public class SourcedateLst extends AbstractNonEmptyToken<CDOMObject>
 
 	private static Date getDate(String value)
 	{
-		DateFormat df = new SimpleDateFormat("yyyy-MM"); //$NON-NLS-1$
+		DateFormat df = new SimpleDateFormat("yyyy-MM", Locale.ROOT); //$NON-NLS-1$
 		Date theDate;
 		try
 		{
@@ -72,9 +73,9 @@ public class SourcedateLst extends AbstractNonEmptyToken<CDOMObject>
 			}
 			catch (ParseException e)
 			{
-				DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy");
 				try
 				{
+					DateFormat formatter = new SimpleDateFormat("E MMM dd HH:mm:ss Z yyyy", Locale.ROOT);
 					theDate = formatter.parse(value);
 				}
 				catch (ParseException ipe)

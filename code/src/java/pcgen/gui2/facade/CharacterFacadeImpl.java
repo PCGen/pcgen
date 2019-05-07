@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.ConcurrentModificationException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -2145,7 +2144,6 @@ public class CharacterFacadeImpl
 	 */
 	void refreshLanguageList()
 	{
-		long startTime = new Date().getTime();
 		List<Language> sortedLanguages = new ArrayList<>(charDisplay.getLanguageSet());
 		Collections.sort(sortedLanguages);
 		languages.updateContents(sortedLanguages);
@@ -2260,9 +2258,6 @@ public class CharacterFacadeImpl
 		{
 			todoManager.removeTodo("in_sumTodoSkillLanguageTooMany");
 		}
-
-		long endTime = new Date().getTime();
-		Logging.log(Logging.DEBUG, "refreshLanguageList took " + (endTime - startTime) + " ms.");
 	}
 
 	@Override
@@ -2274,7 +2269,7 @@ public class CharacterFacadeImpl
 	@Override
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers()
 	{
-		if (null == langChoosersList) {
+		if (langChoosersList == null) {
 			langChoosersList = new DefaultListFacade<>();
 		}
 
