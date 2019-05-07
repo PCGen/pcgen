@@ -739,7 +739,7 @@ public class CharacterDisplay
 		return skillFacet.getSet(id)
 		                 .stream()
 		                 .filter(po -> po.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
-		                 .collect(Collectors.toList());
+		                 .collect(Collectors.toUnmodifiableList());
 	}
 
 	/**

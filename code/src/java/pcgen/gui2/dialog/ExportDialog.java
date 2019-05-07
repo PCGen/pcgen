@@ -660,7 +660,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			return Files.list(dir.toPath())
 			            .filter(f -> !f.endsWith(".fo"))
 			            .map(Path::toFile)
-					    .collect(Collectors.toList());
+					    .collect(Collectors.toUnmodifiableList());
 		}
 
 		@Override

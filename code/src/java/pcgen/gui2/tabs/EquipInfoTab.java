@@ -363,10 +363,10 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		             .mapToObj(selRow -> table.getModel().getValueAt(selRow, 0))
 		             .filter(value -> value instanceof EquipNode)
 		             .map(value -> (EquipNode) value)
-		             .collect(Collectors.toList());
+		             .collect(Collectors.toUnmodifiableList());
 	}
 
-	public void setLoadLabel(String text)
+	private void setLoadLabel(String text)
 	{
 		// bold / highlight text based on encumbrance value
 		Font font = loadLabel.getFont();

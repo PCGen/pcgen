@@ -357,9 +357,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		{
 			return Collections.emptyList();
 		}
-		List<InfoFacade> availableList = new ArrayList<>();
-		availableList.addAll(characterMetaMagicFeats);
-		return availableList;
+		return new ArrayList<>(characterMetaMagicFeats);
 	}
 
 	@Override
@@ -445,8 +443,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 			JOptionPane.showMessageDialog(null,
 				LanguageBundle.getFormattedString("InfoPreparedSpells.add.list.fail", spellList), //$NON-NLS-1$
 				Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
-
-			return;
 		}
 	}
 
@@ -463,14 +459,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		if (pc.delSpellBook(spellList))
 		{
 			pc.setDirty(true);
-			for (Iterator<SpellNode> iterator = preparedSpellLists.iterator(); iterator.hasNext();)
-			{
-				SpellNode listNode = iterator.next();
-				if (spellList.equals(listNode.getRootNode().getName()))
-				{
-					iterator.remove();
-				}
-			}
+			preparedSpellLists.removeIf(listNode -> spellList.equals(listNode.getRootNode().getName()));
 
 			for (Iterator<SpellNode> iterator = preparedSpellNodes.iterator(); iterator.hasNext();)
 			{
@@ -484,8 +473,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		else
 		{
 			Logging.errorPrint("delBookButton:failed "); //$NON-NLS-1$
-
-			return;
 		}
 	}
 

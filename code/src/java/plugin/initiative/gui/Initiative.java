@@ -21,6 +21,7 @@
 package plugin.initiative.gui;
 
 import java.awt.Component;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -687,7 +688,7 @@ public class Initiative extends javax.swing.JPanel
 			{
 				Combatant cbt = (Combatant) iH;
 				cbt.heal(heal);
-				combatantUpdated(cbt);
+				combatantUpdated();
 				writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") Gained " + heal + " Healing: "
 					+ cbt.getHP().getCurrent() + '/' + cbt.getHP().getMax());
 			}
@@ -785,7 +786,7 @@ public class Initiative extends javax.swing.JPanel
 				}
 			}
 		}
-		combatantUpdated(cbt);
+		combatantUpdated();
 	}
 
 	/**
@@ -881,7 +882,7 @@ public class Initiative extends javax.swing.JPanel
 					cbt.nonLethalDamage(true);
 				}
 			}
-			combatantUpdated(cbt);
+			combatantUpdated();
 		}
 	}
 
@@ -919,7 +920,7 @@ public class Initiative extends javax.swing.JPanel
 		{
 			Combatant cbt = (Combatant) iH;
 			cbt.subdualDamage(damage);
-			combatantUpdated(cbt);
+			combatantUpdated();
 
 			writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") Took " + damage + " Subdual Damage: "
 				+ cbt.getHP().getCurrent() + '(' + cbt.getHP().getSubdual() + "s)/" + cbt.getHP().getMax());
@@ -1066,7 +1067,7 @@ public class Initiative extends javax.swing.JPanel
 				Combatant cbt = (Combatant) iH;
 				cbt.kill();
 				combatantDied(cbt);
-				combatantUpdated(cbt);
+				combatantUpdated();
 			}
 		}
 
@@ -1293,21 +1294,17 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	private void performAttack(AttackModel attack, InitHolder combatant)
 	{
-		Vector combatants = new Vector(initList.size());
-
-		combatants
-			.addAll(
-				initList.stream()
+		Vector combatants = initList.stream()
 					.filter(anInitList -> (anInitList instanceof PcgCombatant) && (anInitList != combatant)
 						&& ((anInitList.getStatus() != State.Dead) || showDead.isSelected()))
-					.collect(Collectors.toList()));
+					.collect(Collectors.toCollection(Vector::new));
 
 		AttackDialog dlg = new AttackDialog(attack, combatants);
 		dlg.setModal(true);
 		dlg.setVisible(true);
 
 		final List<Integer> dmgList = dlg.getDamageList();
-		final List targetList = dlg.getDamagedCombatants();
+		final List<InitHolder> targetList = dlg.getDamagedCombatants();
 
 		if ((dmgList != null) && (targetList != null) && (!dmgList.isEmpty()) && (!targetList.isEmpty()))
 		{
@@ -1322,16 +1319,16 @@ public class Initiative extends javax.swing.JPanel
 
 					if (subdualType == PreferencesDamagePanel.DAMAGE_SUBDUAL)
 					{
-						doSubdual(dmgList.get(i), (InitHolder) targetList.get(i));
+						doSubdual(dmgList.get(i), targetList.get(i));
 					}
 					else if (subdualType == PreferencesDamagePanel.DAMAGE_NON_LETHAL)
 					{
-						doNonLethal(dmgList.get(i), (InitHolder) targetList.get(i));
+						doNonLethal(dmgList.get(i), targetList.get(i));
 					}
 				}
 				else
 				{
-					doDamage(dmgList.get(i), (InitHolder) targetList.get(i));
+					doDamage(dmgList.get(i), targetList.get(i));
 				}
 			}
 
@@ -1353,18 +1350,18 @@ public class Initiative extends javax.swing.JPanel
 	/**  Raises the selected combatants from the dead */
 	private void raiseCombatant()
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = (InitHolder) selectedList.remove(0);
+			InitHolder iH = selectedList.remove(0);
 
 			if (iH instanceof Combatant)
 			{
 				Combatant cbt = (Combatant) iH;
 				writeToCombatTabWithRound(iH.getName() + " (" + cbt.getPlayer() + ") Raised");
 				cbt.raise();
-				combatantUpdated(cbt);
+				combatantUpdated();
 			}
 		}
 
@@ -1375,17 +1372,17 @@ public class Initiative extends javax.swing.JPanel
 	/**  Refocuses the selected combatants */
 	private void refocusCombatant()
 	{
-		final List selectedList = getSelected();
+		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = (InitHolder) selectedList.remove(0);
+			InitHolder iH = selectedList.remove(0);
 
 			if (iH instanceof Combatant)
 			{
 				Combatant cbt = (Combatant) iH;
 				cbt.init.refocus();
-				combatantUpdated(cbt);
+				combatantUpdated();
 				writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") Refocused");
 			}
 		}
@@ -1522,7 +1519,7 @@ public class Initiative extends javax.swing.JPanel
 				Combatant cbt = (Combatant) iH;
 				cbt.init.check(0);
 				writeToCombatTabWithRound(cbt.getName() + " (" + cbt.getPlayer() + ") Rerolled");
-				combatantUpdated(cbt);
+				combatantUpdated();
 			}
 		}
 
@@ -1711,7 +1708,7 @@ public class Initiative extends javax.swing.JPanel
 				Combatant cbt = (Combatant) iH;
 				writeToCombatTabWithRound(iH.getName() + " (" + cbt.getPlayer() + ") Stabilized");
 				cbt.stabilize();
-				combatantUpdated(cbt);
+				combatantUpdated();
 			}
 		}
 
@@ -1727,7 +1724,7 @@ public class Initiative extends javax.swing.JPanel
 		if (!selectedList.isEmpty())
 		{
 			InitHolder iH = selectedList.remove(0);
-			StartEvent dialog = new StartEvent(JOptionPane.getFrameForComponent(this), true, this, iH.getPlayer(),
+			Window dialog = new StartEvent(JOptionPane.getFrameForComponent(this), true, this, iH.getPlayer(),
 				iH.getInitiative().getCurrentInitiative());
 			dialog.setVisible(true);
 			refreshTable();
@@ -1738,7 +1735,7 @@ public class Initiative extends javax.swing.JPanel
 		initList.sort();
 		refreshTable();
 
-		StartEvent dialog = new StartEvent(JOptionPane.getFrameForComponent(this), true, this);
+		Window dialog = new StartEvent(JOptionPane.getFrameForComponent(this), true, this);
 		dialog.setVisible(true);
 		refreshTable();
 	}
@@ -1822,11 +1819,9 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	/**
-	 * <p>
 	 * Fired when the selection in the {@code combatantTable} changes;
 	 * if any rows are selected, it synchronizes the tab view with the first
 	 * selected row.
-	 * </p>
 	 *
 	 * @param e
 	 *            {@code ListSelectionEvent} which fired this method
@@ -1850,7 +1845,7 @@ public class Initiative extends javax.swing.JPanel
 	private List getColumnOrder()
 	{
 		TableColumnModel colModel = combatantTable.getColumnModel();
-		final List colOrder = new ArrayList();
+		final List<Object> colOrder = new ArrayList<>();
 
 		for (int i = 0; i < colModel.getColumnCount(); i++)
 		{
@@ -2094,7 +2089,7 @@ public class Initiative extends javax.swing.JPanel
 
 			State oldStatus = cbt.getStatus();
 			cbt.bleed();
-			combatantUpdated(cbt);
+			combatantUpdated();
 			State newStatus = cbt.getStatus();
 
 			if ((oldStatus != newStatus) && (newStatus == State.Dead))
@@ -2735,15 +2730,14 @@ public class Initiative extends javax.swing.JPanel
 	{
 		if (iH instanceof Combatant)
 		{
-			combatantUpdated((Combatant) iH);
+			combatantUpdated();
 		}
 	}
 
 	/**
 	 * Send a message stating that the combatant has been updated
-	 * @param cbt
 	 */
-	private void combatantUpdated(Combatant cbt)
+	private void combatantUpdated()
 	{
 		messageHandler.handleMessage(new CombatantHasBeenUpdatedMessage(GMGenSystem.inst));
 	}
@@ -2762,7 +2756,7 @@ public class Initiative extends javax.swing.JPanel
 		 */
 		private TypeEditor(String[] items)
 		{
-			super(new JComboBox(items));
+			super(new JComboBox<>(items));
 		}
 	}
 

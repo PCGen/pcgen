@@ -57,6 +57,7 @@ import gmgen.plugin.PcgCombatant;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.Skill;
+import pcgen.util.Logging;
 import plugin.initiative.OpposedSkillBasicModel;
 import plugin.initiative.OpposedSkillModel;
 import plugin.initiative.OpposedSkillTypeModel;
@@ -160,8 +161,15 @@ class OpposedCheckDialog extends JDialog
 	 */
 	private void initializeLists(List<InitHolder> rollingGroup, List<InitHolder> availableGroup)
 	{
-		skillNames.addAll(Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class).stream()
-			.map(PObject::toString).collect(Collectors.toList()));
+		skillNames.addAll(
+			Globals
+					.getContext()
+					.getReferenceContext()
+					.getConstructedCDOMObjects(Skill.class)
+					.stream()
+					.map(PObject::toString)
+					.collect(Collectors.toUnmodifiableList())
+		);
 		ivjAvailableModel = new OpposedSkillTypeModel(availableGroup);
 		ivjRollingSkillModel = new OpposedSkillModel(rollingGroup);
 		ivjOpposedSkillModel = new OpposedSkillModel();
@@ -452,7 +460,7 @@ class OpposedCheckDialog extends JDialog
 	{
 		if (rollingComboBox == null)
 		{
-			rollingComboBox = new JComboBox(skillNames.toArray());
+			rollingComboBox = new JComboBox<>(skillNames.toArray());
 			rollingComboBox.setSelectedIndex(-1);
 			rollingComboBox.addActionListener(this::rollingComboBoxActionPerformed);
 
@@ -617,14 +625,8 @@ class OpposedCheckDialog extends JDialog
 			{
 				return false;
 			}
-			for (final DataFlavor flavor : flavors)
-			{
-				if (combatantFlavor.equals(flavor))
-				{
-					return true;
-				}
-			}
-			return false;
+			return Arrays.stream(flavors)
+			             .anyMatch(flavor -> combatantFlavor.equals(flavor));
 		}
 
 		@Override
@@ -651,7 +653,7 @@ class OpposedCheckDialog extends JDialog
 				}
 				catch (final UnsupportedFlavorException | IOException e)
 				{
-					e.printStackTrace();
+					Logging.errorPrint("error in exportDone", e);
 				}
 			}
 			sourceModel = null;

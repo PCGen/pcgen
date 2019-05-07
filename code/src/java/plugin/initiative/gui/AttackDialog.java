@@ -49,6 +49,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.text.DefaultFormatter;
 
 import gmgen.GMGenSystem;
+import gmgen.plugin.InitHolder;
 import gmgen.plugin.PcgCombatant;
 import pcgen.core.RollingMethods;
 import plugin.initiative.AttackModel;
@@ -71,7 +72,7 @@ public class AttackDialog extends JDialog
 	 * <p>List of targets, one for each successful attack.  Each one matches a damage value in
 	 * m_damagelist</p>
 	 */
-	private List m_targetList = null;
+	private List<InitHolder> m_targetList = null;
 
 	/** <p>This dialog's attack model; that is, the attack object this dialog will resolve.</p> */
 	private AttackModel m_attack = null;
@@ -146,7 +147,7 @@ public class AttackDialog extends JDialog
 	 *
 	 * @return Chosen combatant.
 	 */
-	public List getDamagedCombatants()
+	List<InitHolder> getDamagedCombatants()
 	{
 		return m_targetList;
 	}
@@ -185,10 +186,10 @@ public class AttackDialog extends JDialog
 	/**
 	 * Handles actions from the Ok button.  Sets the damage list and hides the dialog.
 	 */
-	protected void handleOk()
+	private void handleOk()
 	{
 		m_damageList = new ArrayList<>(m_tableModel.getRowCount());
-		m_targetList = new ArrayList(m_tableModel.getRowCount());
+		m_targetList = new ArrayList<>(m_tableModel.getRowCount());
 
 		for (int i = 0; i < m_table.getRowCount(); i++)
 		{

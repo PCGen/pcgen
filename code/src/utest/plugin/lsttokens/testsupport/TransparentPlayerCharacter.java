@@ -241,6 +241,6 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	{
 		return abilitySet.stream()
 		                 .filter(cna -> cna.getAbilityCategory().equals(cat))
-		                 .collect(Collectors.toList());
+		                 .collect(Collectors.toUnmodifiableList());
 	}
 }

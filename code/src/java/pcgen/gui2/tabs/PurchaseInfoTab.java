@@ -433,7 +433,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		             .mapToObj(selRow -> table.getModel().getValueAt(selRow, 0))
 		             .filter(value -> value instanceof EquipmentFacade)
 		             .map(value -> (EquipmentFacade) value)
-		             .collect(Collectors.toList());
+		             .collect(Collectors.toUnmodifiableList());
 	}
 
 	private class CurrencyFieldHandler
