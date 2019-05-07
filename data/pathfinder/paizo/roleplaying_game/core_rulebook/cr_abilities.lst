@@ -476,6 +476,11 @@ Add Language		SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQual
 +1 Deflection Bonus	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	BONUS:COMBAT|AC|1|TYPE=Deflection.STACK	STACK:YES	CHOOSE:NOCHOICE	COST:0	DESC:GM Award of Natural Armor	MULT:YES
 +1 Natural Armor	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	BONUS:COMBAT|AC|1|TYPE=NaturalArmorEnhancement.STACK	STACK:YES	CHOOSE:NOCHOICE	COST:0	DESC:GM Award of Deflection Bonus	MULT:YES
 
+###Block: GM Awards for speed
++5 ft walk speed	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:MOVEADD|TYPE.Walk|5	COST:0	DESC:GM Award of 5ft of movement speed
+-5 ft walk speed	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:MOVEADD|TYPE.Walk|-5	COST:0	DESC:GM Penalty of 5ft of movement speed
+
+
 ###Block: House Rules / Homebrew Support
 # Ability Name					Category of Ability	Type				Define						Description																Modify VAR								Cost
 Rule - Bypass the Trait Restrictions	CATEGORY:Internal		TYPE:OptionalRules	DEFINE:BypassTraitRestriction|0		DESC:This allows the PC to bypass the restrictions on taking only 1 trait from any given category.	BONUS:VAR|BypassTraitRestriction|1|TYPE=Rule		COST:0
