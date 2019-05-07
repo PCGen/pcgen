@@ -129,7 +129,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 	public void testBasic()
 	{
 		FactDefinition<?, String> fd = new FactDefinition<>();
-		fd.setName("SKILL.Stuff");
+		fd.setName("SKILL Stuff");
 		fd.setFactName("Stuff");
 		fd.setUsableLocation(Skill.class);
 		fd.setFormatManager(STRING_MANAGER);
@@ -165,7 +165,7 @@ public class GetFactFunctionTest extends AbstractFormulaTestCase
 			context.getManufacturer("SKILL"));
 
 		FactDefinition<?, String> fd = new FactDefinition<>();
-		fd.setName("SKILL.Stuff");
+		fd.setName("SKILL Stuff");
 		fd.setFactName("Stuff");
 		fd.setUsableLocation(Skill.class);
 		fd.setFormatManager(STRING_MANAGER);
