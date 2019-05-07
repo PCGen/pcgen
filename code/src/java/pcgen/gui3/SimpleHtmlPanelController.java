@@ -19,24 +19,20 @@
 package pcgen.gui3;
 
 import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-import javafx.scene.Scene;
+import javafx.fxml.FXML;
 import javafx.scene.web.WebView;
 
 /**
  * Displays HTML content as a "panel".
  */
-public final class SimpleHtmlPanel extends JFXPanel
+public final class SimpleHtmlPanelController
 {
+	@FXML
 	private WebView browser;
 
-	public SimpleHtmlPanel()
-	{
-		Platform.runLater(() -> {
-			browser = new WebView();
-			browser.setContextMenuEnabled(true);
-			this.setScene(new Scene(browser));
-		});
+	@FXML // This method is called by the FXMLLoader when initialization is complete
+	void initialize() {
+
 	}
 
 	public void setHtml(String html)
