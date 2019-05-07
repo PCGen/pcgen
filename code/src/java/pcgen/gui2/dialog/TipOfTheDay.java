@@ -41,13 +41,15 @@ import javax.swing.JScrollPane;
 
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIPropertyContext;
-import pcgen.gui2.tools.Hyperactive;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FontManipulation;
-import pcgen.gui2.util.JLabelPane;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.SimpleHtmlPanelController;
 import pcgen.system.LanguageBundle;
+
+import javafx.application.Platform;
 
 public final class TipOfTheDay extends JDialog implements ActionListener
 {
@@ -61,7 +63,8 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	private static final String HTML_END = "</body></html>";
 	private JCheckBox chkShowTips;
 	// the pane to display the text
-	private JLabelPane tipText;
+	private final JFXPanelFromResource<SimpleHtmlPanelController> tipText = new JFXPanelFromResource<>(SimpleHtmlPanelController.class,
+			"SimpleHtmlPanel.fxml");
 	private final TipOfTheDayHandler tipHandler;
 
 	/** Creates new TipOfTheDay */
@@ -132,10 +135,8 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		FontManipulation.xxlarge(lblDidYouKnow);
 		lblDidYouKnow.setOpaque(true);
 
-		tipText = new JLabelPane();
 		tipText.setBorder(null);
 		tipText.setFocusable(false);
-		tipText.addHyperlinkListener(new Hyperactive());
 
 		final JScrollPane pane = new JScrollPane(tipText);
 		pane.setBorder(null);
@@ -239,8 +240,9 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	{
 		try
 		{
-			tipText.setText(HTML_START + LanguageBundle.getFormattedString("in_tod_tipDisplay", //$NON-NLS-1$
-				Integer.toString(tipHandler.getLastNumber() + 1), tip) + HTML_END);
+			String text = HTML_START + LanguageBundle.getFormattedString("in_tod_tipDisplay", //$NON-NLS-1$
+					Integer.toString(tipHandler.getLastNumber() + 1), tip) + HTML_END;
+			Platform.runLater(() -> tipText.getController().setHtml(text));
 			repaint();
 		}
 		catch (Exception exc)
