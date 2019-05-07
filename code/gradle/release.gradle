@@ -24,7 +24,6 @@ apply from: "code/gradle/releaseUtils.groovy"
 apply plugin: 'java'
 
 import org.apache.tools.ant.filters.FixCrLfFilter
-import org.apache.tools.ant.filters.ReplaceTokens
 
 ext {
     // Work out the path to the release notes for our current version.
@@ -110,8 +109,8 @@ ext {
     }
 
 	List result = plainVerNum.replaceAll('-DEV', '').tokenize('.')
-	installerVerNum = result.get(0).toInteger() + "." + result.get(1).toInteger() + "." +  result.get(2).toInteger() + ".0"
-}
+	installerVerNum = result[0].toInteger() + "." + result[1].toInteger() + "." + result[2].take(2).toInteger() + ".0"
+	}
 
 task layoutNsisBase(type: Copy, dependsOn: [createExe, copyToLibs, 
         jar, converterJar]) {
@@ -215,7 +214,6 @@ task downloadJRE doLast {
                         fileTree(dir: "${projectDir}/jre/${os}/").include("*.${extension}").each { simLib ->
                             copy {
                                 println "Unzip $simLib.name"
-                                def name = simLib.name - '.$extension'
                                 def zipFile = file("${projectDir}/jre/${os}/${simLib.name}")
                                 def outputDir = "${projectDir}/jre/${os}/jre_${arch}/"
                                 
