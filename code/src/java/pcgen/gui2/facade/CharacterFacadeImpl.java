@@ -33,6 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -4000,12 +4001,12 @@ public class CharacterFacadeImpl
 		int minCharges = equip.getMinCharges();
 		int maxCharges = equip.getMaxCharges();
 
-		String selectedValue = delegate.showInputDialog(equip.toString(),
+		Optional<String> selectedValue = delegate.showInputDialog(equip.toString(),
 			LanguageBundle.getFormattedString("in_igNumCharges", //$NON-NLS-1$
 				Integer.toString(minCharges), Integer.toString(maxCharges)),
 			Integer.toString(equip.getRemainingCharges()));
 
-		if (selectedValue == null)
+		if (selectedValue.isEmpty())
 		{
 			return -1;
 		}
@@ -4013,7 +4014,7 @@ public class CharacterFacadeImpl
 		int charges;
 		try
 		{
-			charges = Integer.parseInt(selectedValue.trim());
+			charges = Integer.parseInt(selectedValue.get().trim());
 		}
 		catch (NumberFormatException e)
 		{
@@ -4048,17 +4049,17 @@ public class CharacterFacadeImpl
 
 		for (Equipment equip : notedEquip)
 		{
-			String note = getNote(equip);
-			if (note == null)
+			Optional<String> note = getNote(equip);
+			if (note.isEmpty())
 			{
 				return;
 			}
-			equip.setNote(note);
+			equip.setNote(note.get());
 			purchasedEquip.modifyElement(equip);
 		}
 	}
 
-	private String getNote(Equipment equip)
+	private Optional<String> getNote(Equipment equip)
 	{
 
 		return delegate.showInputDialog(equip.toString(),
