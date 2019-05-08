@@ -2997,7 +2997,7 @@ BIO
 		<feat>
 			<name>Power Attack</name>
 			<description>You can make exceptionally deadly melee attacks by sacrificing accuracy for strength.</description>
-			<type>COMBAT.ATTACKOPTION.BOREALBLOODLINE.SAURIANSHAMANBONUS.DJINNIBLOODLINE.EFREETIBLOODLINE.MARIDBLOODLINE.SHAITANBLOODLINE.ABYSSALBLOODLINE.DRACONICBLOODLINE.ELEMENTALBLOODLINE</type>
+			<type>COMBAT.ATTACKOPTION.SAURIANSHAMANBONUS</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -3027,7 +3027,7 @@ BIO
 		<feat>
 			<name>Weapon Focus (Heavy Flail)</name>
 			<description>You are especially good at using your chosen weapon.</description>
-			<type>COMBAT.WEAPONFOCUS.ORACLEWEAPONMASTERY.DESTINEDBLOODLINE</type>
+			<type>COMBAT.WEAPONFOCUS.ORACLEWEAPONMASTERY</type>
 			<associated>Heavy Flail</associated>
 			<count>1</count>
 			<auto>F</auto>

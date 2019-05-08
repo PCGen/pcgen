@@ -24,7 +24,6 @@ apply from: "code/gradle/releaseUtils.groovy"
 apply plugin: 'java'
 
 import org.apache.tools.ant.filters.FixCrLfFilter
-import org.apache.tools.ant.filters.ReplaceTokens
 
 ext {
     // Work out the path to the release notes for our current version.
@@ -209,7 +208,6 @@ task downloadJRE doLast {
                     fileTree(dir: "${projectDir}/jre/").include("*.${extension}").each { simLib ->
                         copy {
                             println "Unzip $simLib.name"
-                            def name = simLib.name - '.$extension'
                             def zipFile = file("${projectDir}/jre/${simLib.name}")
                             def outputDir = "${projectDir}/jre/jre_${arch}/"
                             from zipTree(zipFile)

@@ -3612,7 +3612,7 @@ BIO
 		<feat>
 			<name>Combat Expertise</name>
 			<description>You can increase your defense at the expense of your accuracy.</description>
-			<type>COMBAT.ATTACKOPTION.MODIFYAC.DREAMSPUNBLOODLINE.DRUIDSHAMANSERPENT.INFERNALBLOODLINE</type>
+			<type>COMBAT.ATTACKOPTION.MODIFYAC.DRUIDSHAMANSERPENT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -3622,7 +3622,7 @@ BIO
 		<feat>
 			<name>Dodge</name>
 			<description>Your training and reflexes allow you to react swiftly to avoid an opponent&#39;s attack.</description>
-			<type>COMBAT.AQUATICBLOODLINE.SHADOWBLOODLINE.STARSOULBLOODLINE.STORMBORNBLOODLINE.DRUIDSHAMANLION.CELESTIALBLOODLINE.ELEMENTALBLOODLINE.FEYBLOODLINE</type>
+			<type>COMBAT.DRUIDSHAMANLION</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -3632,7 +3632,7 @@ BIO
 		<feat>
 			<name>Fleet</name>
 			<description>You are faster than most.</description>
-			<type>GENERAL.VERDANTBLOODLINE</type>
+			<type>GENERAL</type>
 			<associated></associated>
 			<count>1</count>
 			<auto>F</auto>
@@ -3652,7 +3652,7 @@ BIO
 		<feat>
 			<name>Quick Draw</name>
 			<description>You can draw weapons faster than most.</description>
-			<type>COMBAT.SHADOWBLOODLINE</type>
+			<type>COMBAT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -3672,7 +3672,7 @@ BIO
 		<feat>
 			<name>Weapon Finesse</name>
 			<description>You are trained in using your agility in melee combat, as opposed to brute strength.</description>
-			<type>COMBAT.SHADOWBLOODLINE.CELESTIALBLOODLINE.ELEMENTALBLOODLINE</type>
+			<type>COMBAT</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
