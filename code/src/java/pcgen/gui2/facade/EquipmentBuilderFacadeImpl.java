@@ -24,6 +24,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -443,14 +444,14 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			Integer max = eqMod.get(IntegerKey.MAX_CHARGES);
 			for (;;)
 			{
-				String selectedValue = delegate.showInputDialog(Constants.APPLICATION_NAME,
+				Optional<String> selectedValue = delegate.showInputDialog(Constants.APPLICATION_NAME,
 					LanguageBundle.getFormattedString("in_csdChargesMessage", min, max), Integer.toString(max));
 
-				if (selectedValue != null)
+				if (selectedValue.isPresent())
 				{
 					try
 					{
-						final String aString = selectedValue.trim();
+						final String aString = selectedValue.get().trim();
 						charges = Integer.parseInt(aString);
 
 						if (charges < min)

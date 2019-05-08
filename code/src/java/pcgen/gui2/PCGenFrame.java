@@ -1607,11 +1607,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	}
 
 	@Override
-	public String showInputDialog(String title, String message, String initialValue)
+	public Optional<String> showInputDialog(String title, String message, String initialValue)
 	{
 		Object ret = JOptionPane.showInputDialog(this, message, title, JOptionPane.QUESTION_MESSAGE, null, null,
 			initialValue);
-		return ret == null ? null : String.valueOf(ret);
+		return Optional.ofNullable(ret).map(String::valueOf);
 	}
 
 	@Override
