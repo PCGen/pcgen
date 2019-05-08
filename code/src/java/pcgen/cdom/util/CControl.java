@@ -104,6 +104,12 @@ public final class CControl
 	public static final String WEIGHTMULTIPLIER = "WEIGHTMULTIPLIER";
 
 	/**
+	 * Code Control to indicate the cost modifier due to the size difference from base
+	 * size on Equipment
+	 */
+	public static final String COSTMULTIPLIER = "COSTMULTIPLIER";
+
+	/**
 	 * Code Control for the Alignment Input Channel.
 	 */
 	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", "Alignment", Optional.of("ALIGNMENTFEATURE"), "ALIGNMENT", true, true);
