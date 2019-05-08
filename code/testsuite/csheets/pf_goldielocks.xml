@@ -1352,7 +1352,7 @@ BIO
 		<feat>
 			<name>Combat Casting</name>
 			<description>You are adept at spellcasting when threatened or distracted.</description>
-			<type>GENERAL.ABERRANTBLOODLINE.ARCANEBLOODLINE.UNDEADBLOODLINE</type>
+			<type>GENERAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -1422,7 +1422,7 @@ BIO
 		<feat>
 			<name>Extend Spell</name>
 			<description>You can make your spells last twice as long.</description>
-			<type>METAMAGIC.CELESTIALBLOODLINE.INFERNALBLOODLINE</type>
+			<type>METAMAGIC</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>

@@ -2051,7 +2051,7 @@ BIO
 		<feat>
 			<name>Persuasive</name>
 			<description>You are skilled at swaying attitudes and intimidating others into your way of thinking.</description>
-			<type>GENERAL.DREAMSPUNBLOODLINE.SERPENTINEBLOODLINE</type>
+			<type>GENERAL</type>
 			<associated></associated>
 			<count>0</count>
 			<auto>F</auto>
@@ -2071,7 +2071,7 @@ BIO
 		<feat>
 			<name>Spell Focus (Enchantment)</name>
 			<description>Any spells you cast of your chosen school of magic are more difficult to resist.</description>
-			<type>GENERAL.PROTEANBLOODLINE.ARCANEBLOODLINE.UNDEADBLOODLINE</type>
+			<type>GENERAL</type>
 			<associated>Enchantment</associated>
 			<count>1</count>
 			<auto>F</auto>
