@@ -57,7 +57,6 @@ class PluginClassLoader extends PCGenTask
 	private final ExecutorService dispatcher = Executors.newSingleThreadExecutor(r -> {
 		Thread thread = new Thread(r, "Plugin-loading-thread");
 		thread.setDaemon(true);
-		thread.setPriority(Thread.NORM_PRIORITY);
 		return thread;
 	});
 	private final LinkedList<File> jarFiles = new LinkedList<>();

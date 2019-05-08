@@ -346,7 +346,6 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 				{
 					Thread thread = new Thread(r);
 					thread.setDaemon(true);
-					thread.setPriority(Thread.NORM_PRIORITY);
 					thread.setName("tab-info-thread"); //$NON-NLS-1$
 					return thread;
 				}
