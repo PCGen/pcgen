@@ -163,7 +163,6 @@ compileJava {
 }
 
 dependencies {
-    compile group: 'cobra', name: 'cobra', version:'0.98.4-pcgen'
     compile group: 'commons-io', name: 'commons-io', version:'2.6'
     compile group: 'org.springframework', name: 'spring-web', version:'5.1.6.RELEASE'
     compile group: 'org.springframework', name: 'spring-core', version:'5.1.6.RELEASE'
@@ -177,7 +176,6 @@ dependencies {
     compile group: 'org.jdom', name: 'jdom2', version:'2.0.6'
     compile group: 'xalan', name: 'xalan', version:'2.7.2'
     compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.8.1'
-    compile group: 'org.mozilla', name: 'rhino', version:'1.7.10'
     compile group: 'xml-apis', name: 'xml-apis', version:'1.4.01'
     compile group: 'org.xmlunit', name: 'xmlunit-core', version:'2.6.2'
 
