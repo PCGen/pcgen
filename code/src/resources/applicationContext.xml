@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
 	default-init-method="init"
 	default-lazy-init="false">
-	
+
 	<!--  Facet Definitions -->
 	<!-- A -->
 	<bean id="abilitySelectionApplication" class="pcgen.cdom.facet.AbilitySelectionApplication" />
@@ -473,7 +473,7 @@
 	<bean id="primaryWeaponFacet" class="pcgen.cdom.facet.PrimaryWeaponFacet"/>
 	<bean id="prohibitedSchoolFacet" class="pcgen.cdom.facet.input.ProhibitedSchoolFacet"/>
 	<bean id="portraitThumbnailRectFacet" class="pcgen.cdom.facet.fact.PortraitThumbnailRectFacet"/>
-	
+
 	<!-- Q -->
 	<bean id="qualifyFacet" class="pcgen.cdom.facet.analysis.QualifyFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
