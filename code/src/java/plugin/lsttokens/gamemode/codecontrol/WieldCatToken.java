@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 (C) Thomas Parker <thpr@users.sourceforge.net>
+ * Copyright 2019 (C) Thomas Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free

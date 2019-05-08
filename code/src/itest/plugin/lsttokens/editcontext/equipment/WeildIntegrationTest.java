@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2019 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
