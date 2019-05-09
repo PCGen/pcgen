@@ -36,7 +36,7 @@ plugins {
 
 javafx {
     version = "12.0.1"
-    modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing' ]
+    modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml' ]
 }
 
 group = 'net.sourceforge.pcgen'
@@ -101,12 +101,14 @@ sourceSets {
             srcDirs 'code/src/java'
         }
         resources {
-            srcDirs = ['code/src/java', 'code/resources']
+            // first path is deprecated. New resources belong in resources.
+            srcDirs = ['code/src/java', 'code/src/resources']
             include '**/*.properties'
             include '**/*.xml'
             include '**/*.gif'
             include '**/*.png'
             include '**/*.jpg'
+            include '**/*.fxml'
         }
     }
     test {
