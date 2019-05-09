@@ -70,34 +70,13 @@ public abstract class IOHandler
 
 	private void internalRead(final PlayerCharacter aPC, final String path, final boolean validate)
 	{
-		InputStream in = null;
-
-		try
+		try (InputStream inputStream = new FileInputStream(path))
 		{
-			in = new FileInputStream(path);
-			read(aPC, in, validate);
+			read(aPC, inputStream, validate);
 		}
 		catch (IOException ex)
 		{
 			Logging.errorPrint("Exception in IOHandler::read when reading", ex);
-		}
-		finally
-		{
-			if (in != null)
-			{
-				try
-				{
-					in.close();
-				}
-				catch (IOException e)
-				{
-					Logging.errorPrint("Exception in IOHandler::read", e);
-				}
-				catch (NullPointerException e)
-				{
-					Logging.errorPrint("Could not create file inputStream IOHandler::read", e);
-				}
-			}
 		}
 	}
 

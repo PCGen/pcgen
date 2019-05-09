@@ -174,12 +174,11 @@ public final class CharacterManager
 	{
 		@SuppressWarnings("rawtypes")
 		List campaigns = ListFacades.wrap(dataset.getCampaigns());
-		final PCGIOHandler ioHandler = new PCGIOHandler();
-		final PlayerCharacter newPC;
 		try
 		{
-			newPC = new PlayerCharacter(campaigns);
+			final PlayerCharacter newPC = new PlayerCharacter(campaigns);
 			newPC.setFileName(file.getAbsolutePath());
+			final PCGIOHandler ioHandler = new PCGIOHandler();
 			ioHandler.read(newPC, file.getAbsolutePath());
 			// Ensure any custom equipment held by the character is added to the dataset's list
 			dataset.refreshEquipment();
@@ -347,7 +346,7 @@ public final class CharacterManager
 	{
 		if (!PCGFile.isPCGenCharacterFile(pcgFile))
 		{
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("invalid file: " + pcgFile);
 		}
 
 		final PCGIOHandler ioHandler = new PCGIOHandler();
@@ -499,7 +498,7 @@ public final class CharacterManager
 	public static CharacterFacade getCharacterMatching(CharacterStubFacade companion)
 	{
 		File compFile = companion.getFileRef().get();
-		if (compFile == null || StringUtils.isEmpty(compFile.getName()))
+		if (StringUtils.isEmpty(compFile.getName()))
 		{
 			String compName = companion.getNameRef().get();
 			for (final CharacterFacade character : getCharacters())
