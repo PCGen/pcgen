@@ -6231,6 +6231,13 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
+		<jar jarfile="${systemlstplugins.dir}/GameMode-CodeControlToken-WIELDCAT.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
+			<fileset dir="${build.classes.dir}">
+				<patternset>
+					<include name="plugin/lsttokens/gamemode/codecontrol/WieldCatToken.class" />
+				</patternset>
+			</fileset>
+		</jar>
 		<!-- GameMode: EqSizePenalty tokens-->
 		<jar jarfile="${systemlstplugins.dir}/GameMode-EqSizePenaltyToken-BONUS.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">

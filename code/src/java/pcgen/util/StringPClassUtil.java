@@ -43,6 +43,7 @@ import pcgen.core.SubClass;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.WeaponProf;
 import pcgen.core.character.CompanionMod;
+import pcgen.core.character.WieldCategory;
 import pcgen.core.spell.Spell;
 
 import java.util.Collection;
@@ -82,6 +83,7 @@ public final class StringPClassUtil
 		baseMap.put("CLASSSPELLLIST", ClassSpellList.class);
 		baseMap.put("CLASSSKILLLIST", ClassSkillList.class);
 		baseMap.put("DOMAINSPELLLIST", DomainSpellList.class);
+		baseMap.put("WIELDCATEGORY", WieldCategory.class);
 
 		classMap.putAll(baseMap);
 		classMap.put("COMPANIONMOD", CompanionMod.class);
@@ -113,6 +115,7 @@ public final class StringPClassUtil
 		stringMap.put(ClassSpellList.class, "CLASSSPELLLIST");
 		stringMap.put(ClassSkillList.class, "CLASSSKILLLIST");
 		stringMap.put(DomainSpellList.class, "DOMAINSPELLLIST");
+		stringMap.put(WieldCategory.class, "WIELDCATEGORY");
 
 		// Hacks for ServesAs
 		stringMap.put(SubClass.class, "CLASS");

@@ -2167,9 +2167,9 @@ public final class Equipment extends PObject
 	}
 
 	/**
-	 * Get weild
+	 * Get wield
 	 * 
-	 * @return weild
+	 * @return wield
 	 */
 	public String getWieldName()
 	{
