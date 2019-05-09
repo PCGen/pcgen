@@ -3819,10 +3819,20 @@ public final class Equipment extends PObject
 
 		if (aPC != null)
 		{
-			final double saDbl = aPC.getSizeBonusTo(saSize, "ITEMCOST", typeList(), 1.0);
-			final double saBaseDbl = aPC.getSizeBonusTo(saBase, "ITEMCOST", typeList(), 1.0);
-			final double mult = saDbl / saBaseDbl;
-			c = c.multiply(new BigDecimal(mult));
+			String costMultiplierVar = aPC.getControl(CControl.COSTMULTIPLIER);
+			if (costMultiplierVar == null)
+			{
+				final double saDbl = aPC.getSizeBonusTo(saSize, "ITEMCOST", typeList(), 1.0);
+				final double saBaseDbl = aPC.getSizeBonusTo(saBase, "ITEMCOST", typeList(), 1.0);
+				final double mult = saDbl / saBaseDbl;
+				c = c.multiply(BigDecimal.valueOf(mult));
+			}
+			else
+			{
+				final double mult = ((Number) getLocalVariable(aPC.getCharID(), costMultiplierVar)).doubleValue();
+				c = c.multiply(BigDecimal.valueOf(mult));
+
+			}
 		}
 
 		//
