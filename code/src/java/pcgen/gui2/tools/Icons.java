@@ -49,7 +49,6 @@ public enum Icons
 	stock_revert("-16.png"), stock_save("-16.png"), stock_spellcheck("-16.png"), stock_text_align_center("-16.png"),
 	stock_text_align_left("-16.png"), stock_text_align_right("-16.png"), stock_text_bold("-16.png"),
 	stock_text_italic("-16.png"), stock_text_underline("-16.png"),
-	ennie_award_2003(".gif"), ennie_award_2005(".gif"),
 	menu_mode_rgb(".png");
 
 	/** Path to icons file */

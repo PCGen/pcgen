@@ -854,7 +854,7 @@ public final class PCGenActionMap extends ActionMap
 	private class AboutHelpAction extends PCGenAction
 	{
 
-		public AboutHelpAction()
+		private AboutHelpAction()
 		{
 			super("mnuHelpAbout", HELP_ABOUT_COMMAND, Icons.About16);
 		}
@@ -864,7 +864,6 @@ public final class PCGenActionMap extends ActionMap
 		{
 			frame.showAboutDialog();
 		}
-
 	}
 
 
