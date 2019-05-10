@@ -415,12 +415,6 @@ public class JTreeViewTable<T> extends JTreeTable
 			resetComponents();
 		}
 
-		public void setTableColumnsEnabled(boolean enabled)
-		{
-			this.tableColumnsEnabled = enabled;
-			resetComponents();
-		}
-
 		@Override
 		public void elementsChanged(ListEvent<TreeView<T>> e)
 		{

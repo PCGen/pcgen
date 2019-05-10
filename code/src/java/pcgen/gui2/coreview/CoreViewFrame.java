@@ -18,7 +18,6 @@
 package pcgen.gui2.coreview;
 
 import java.awt.Dimension;
-import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -60,7 +59,7 @@ public class CoreViewFrame extends JFrame
 	private final JComboBoxEx<CorePerspective> perspectiveChooser;
 	private final JTreeViewTable<CoreViewNodeFacade> viewTable;
 
-	public CoreViewFrame(Frame frame, CharacterFacade character)
+	public CoreViewFrame(CharacterFacade character)
 	{
 		viewTable = new JTreeViewTable<>();
 
@@ -73,11 +72,11 @@ public class CoreViewFrame extends JFrame
 
 		PerspectiveActionListener pal = new PerspectiveActionListener(coreViewTreeViewModel);
 		perspectiveChooser.addActionListener(pal);
-		initialize(character);
+		initialize();
 		perspectiveChooser.setSelectedItem(perspectiveChooser.getItemAt(0));
 	}
 
-	public void initialize(CharacterFacade character)
+	public void initialize()
 	{
 		GridBagLayout gridbag = new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();

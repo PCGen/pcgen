@@ -40,11 +40,6 @@ public abstract class BigDecimalFieldHandler implements PropertyChangeListener, 
 		this.ref = ref;
 	}
 
-	public JFormattedTextField getFormattedTextField()
-	{
-		return field;
-	}
-
 	/**
 	 * Attach the handler to the screen field. e.g. When the character is
 	 * made active.

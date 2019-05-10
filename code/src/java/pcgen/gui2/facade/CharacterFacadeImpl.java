@@ -1649,7 +1649,7 @@ public class CharacterFacadeImpl
 
 		int poolPointsUsed = poolPointsTotal - theCharacter.getSkillPoints();
 
-		poolPointText.set(Integer.toString(poolPointsUsed) + " / " + Integer.toString(poolPointsTotal)); //$NON-NLS-1$
+		poolPointText.set(poolPointsUsed + " / " + poolPointsTotal); //$NON-NLS-1$
 	}
 
 	@Override

@@ -55,7 +55,7 @@ public class JTableEx extends JTable
 	/**
 	 * Constructor
 	 */
-	public JTableEx()
+	JTableEx()
 	{
 		this(null, null, null);
 	}
@@ -205,17 +205,6 @@ public class JTableEx extends JTable
 				}
 			}
 		}
-	}
-
-	/**
-	 * set horizontal alignment of column
-	 * and attach a new cell renderer
-	 * @param col
-	 * @param alignment
-	 **/
-	public void setColAlign(int col, int alignment)
-	{
-		getColumnModel().getColumn(col).setCellRenderer(new TableCellUtilities.AlignRenderer(alignment));
 	}
 
 }

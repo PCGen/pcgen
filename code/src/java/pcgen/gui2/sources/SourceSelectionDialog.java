@@ -207,16 +207,6 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 		}
 	}
 
-	void setDeleteEnabled(boolean enable)
-	{
-		deleteButton.setEnabled(enable);
-	}
-
-	void setLoadEnabled(boolean enable)
-	{
-		loadButton.setEnabled(enable);
-	}
-
 	@Override
 	public void valueChanged(ListSelectionEvent e)
 	{
