@@ -32,7 +32,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * This is the applicatiojn logic for the "Splash Screen" when loading PCGEn
+ * This is the application logic for the "Splash Screen" when loading PCGEn
  * It isn't directly the controller for the UI, but interacts the view
  * and interacts with the controller.
  * Once we're 100% on JavaFX can possibly be replaced with the native Preloader,
