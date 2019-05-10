@@ -75,12 +75,15 @@ public final class PCGenUIManager
 
 	public static void closePCGen()
 	{
-		if (!pcgenFrame.closeAllCharacters())
+		if (pcgenFrame != null)
 		{
-			return;
-		}
+			if (!pcgenFrame.closeAllCharacters())
+			{
+				return;
+			}
 
-		pcgenFrame.dispose();
+			pcgenFrame.dispose();
+		}
 		Main.shutdown();
 	}
 
