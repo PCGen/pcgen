@@ -126,14 +126,6 @@ SubSectionEnd
 
 SubSection /e "PlugIns" Section3
 
-	Section "Skins"
-
-	SectionIn 1 2 3
-	SetOutPath "$INSTDIR\${APPDIR}\libs"
-	File /r "${SrcDir}\PCGen_${SIMPVER}_opt\plugin\skin\libs\*.*"
-
-	SectionEnd
-
 	Section "PDF"
 
 	SectionIn 1 2 3

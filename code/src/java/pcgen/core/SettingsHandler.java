@@ -137,7 +137,6 @@ public final class SettingsHandler
 	private static boolean showSkillModifier = false;
 	private static boolean showSkillRanks = false;
 	private static boolean showWarningAtFirstLevelUp = true;
-	private static String skinLFThemePack = null;
 	private static boolean alwaysOverwrite = false;
 	private static String defaultOSType = ""; //$NON-NLS-1$
 
@@ -921,7 +920,6 @@ public final class SettingsHandler
 		setShowSkillModifier(getPCGenOption("showSkillModifier", true)); //$NON-NLS-1$
 		setShowSkillRanks(getPCGenOption("showSkillRanks", true)); //$NON-NLS-1$
 		setShowWarningAtFirstLevelUp(getPCGenOption("showWarningAtFirstLevelUp", true)); //$NON-NLS-1$
-		setSkinLFThemePack(getPCGenOption("skinLFThemePack", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setSpellMarketPriceAdjusted(getPCGenOption("spellMarketPriceAdjusted", false)); //$NON-NLS-1$
 		setTabPlacement(getOptionTabPlacement("tabPlacement", SwingConstants.BOTTOM)); //$NON-NLS-1$
 		setUseHigherLevelSlotsDefault(getPCGenOption("useHigherLevelSlotsDefault", false)); //$NON-NLS-1$
@@ -1022,15 +1020,6 @@ public final class SettingsHandler
 		else
 		{
 			setPCGenOption("game", ""); //$NON-NLS-1$ //$NON-NLS-2$
-		}
-
-		try
-		{
-			setPCGenOption("skinLFThemePack", getSkinLFThemePack()); //$NON-NLS-1$
-		}
-		catch (NullPointerException e)
-		{
-			//TODO: Should this really be ignored???  XXX
 		}
 
 		if (getPccFilesLocation() != null)
@@ -1604,16 +1593,6 @@ public final class SettingsHandler
 	public static boolean isShowWarningAtFirstLevelUp()
 	{
 		return showWarningAtFirstLevelUp;
-	}
-
-	public static void setSkinLFThemePack(final String argSkinLFThemePack)
-	{
-		skinLFThemePack = argSkinLFThemePack;
-	}
-
-	public static String getSkinLFThemePack()
-	{
-		return skinLFThemePack;
 	}
 
 	public static void setTabPlacement(final int anInt)
