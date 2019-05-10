@@ -20,15 +20,15 @@ package plugin.dicebag.gui;
 import java.awt.Component;
 import java.io.File;
 import java.util.StringTokenizer;
+import java.util.concurrent.CompletableFuture;
 
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
-import gmgen.GMGenSystem;
 import pcgen.core.SettingsHandler;
 import plugin.dicebag.DiceBagPlugin;
+
+import javafx.application.Platform;
+import javafx.stage.FileChooser;
 
 /**
  * <p>
@@ -78,41 +78,38 @@ public class DiceBagPluginController
 	 */
 	static File chooseSaveFile(DiceBagModel bag)
 	{
-		File returnValue = null;
-		JFileChooser save = new JFileChooser();
-		String fileExt = "dbg";
-		FileFilter ff = new FileNameExtensionFilter("GMGen Dice Bag", fileExt);
-		save.addChoosableFileFilter(ff);
-		save.setFileFilter(ff);
+		FileChooser fileChooser = new FileChooser();
+		FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter(
+				"GMGen Dice Bag", "*.dbg"
 
-		if (bag.getFilePath() != null)
+		);
+		fileChooser.getExtensionFilters().add(extensionFilter);
+		fileChooser.setSelectedExtensionFilter(extensionFilter);
+
+		String bagPath = bag.getFilePath();
+		if (bagPath != null)
 		{
-			save.setSelectedFile(new File(bag.getFilePath()));
+			File bagFile = new File(bagPath);
+			fileChooser.setInitialDirectory(bagFile.getParentFile());
+			fileChooser.setInitialFileName(bagFile.getName());
 		}
 		else
 		{
 			String sFile = SettingsHandler.getGMGenOption(DiceBagPlugin.LOG_NAME + ".LastFile",
-				System.getProperty("user.dir"));
-			save.setCurrentDirectory(new File(sFile));
+					System.getProperty("user.dir"));
+			fileChooser.setInitialDirectory(new File(sFile));
 		}
 
-		if (save.showSaveDialog(GMGenSystem.inst) == JFileChooser.APPROVE_OPTION)
+		File file = CompletableFuture.supplyAsync(() ->
+				fileChooser.showSaveDialog(null), Platform::runLater).join();
+
+		if (file != null)
 		{
-			SettingsHandler.setGMGenOption(DiceBagPlugin.LOG_NAME + ".LastFile", save.getSelectedFile().getParent());
-
-			String fileName = save.getSelectedFile().getName();
-			String dirName = save.getSelectedFile().getParent();
-			String ext = "";
-
-			if (!fileName.contains(".dbg"))
-			{
-				ext = ".dbg";
-			}
-
-			returnValue = new File(dirName + File.separator + fileName + ext);
+			SettingsHandler.setGMGenOption(DiceBagPlugin.LOG_NAME + ".LastFile", file.getParent());
+			return file;
 		}
 
-		return returnValue;
+		return null;
 	}
 
 	/**
@@ -130,47 +127,35 @@ public class DiceBagPluginController
 	 * Displays a file-open dialog box and processes the selected values.
 	 * </p>
 	 *
-	 * @return {@code boolean} indicating success/failure of operation.
 	 */
-	public boolean fileOpen()
+	public void fileOpen()
 	{
-		boolean returnValue = false;
 		String sFile =
 				SettingsHandler.getGMGenOption(DiceBagPlugin.LOG_NAME + ".LastFile", System.getProperty("user.dir"));
-		JFileChooser open = new JFileChooser();
+		FileChooser fileChooser = new FileChooser();
+		FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter(
+				"GMGen Dice Bag", "*.dbg"
+
+		);
+		fileChooser.getExtensionFilters().add(extensionFilter);
+		fileChooser.setSelectedExtensionFilter(extensionFilter);
 
 		if (sFile != null)
 		{
 			File defaultFile = new File(sFile);
-
-			if (defaultFile.exists())
-			{
-				open.setCurrentDirectory(defaultFile);
-			}
+			fileChooser.setInitialDirectory(defaultFile.getParentFile());
+			fileChooser.setInitialFileName(defaultFile.getName());
 		}
 
-		String fileExt = "dbg";
-		FileFilter ff = new FileNameExtensionFilter("GMGen Dice Bag", fileExt);
-		open.addChoosableFileFilter(ff);
-		open.setFileFilter(ff);
+		File selectedFile = CompletableFuture.supplyAsync(() ->
+				fileChooser.showOpenDialog(null), Platform::runLater).join();
 
-		if (open.showOpenDialog(GMGenSystem.inst) == JFileChooser.APPROVE_OPTION)
+		if (selectedFile != null)
 		{
-			openFile(open.getSelectedFile());
-			returnValue = true;
+			SettingsHandler.setGMGenOption(DiceBagPlugin.LOG_NAME + ".LastFile", selectedFile.getParent());
+			theModel.loadDiceBag(selectedFile);
 		}
 
-		return returnValue;
-	}
-
-	/**
-	 * Open a file
-	 * @param file
-	 */
-	private void openFile(File file)
-	{
-		SettingsHandler.setGMGenOption(DiceBagPlugin.LOG_NAME + ".LastFile", file.getParent());
-		theModel.loadDiceBag(file);
 	}
 
 	/**

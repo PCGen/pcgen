@@ -22,10 +22,10 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.util.concurrent.CompletableFuture;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -35,6 +35,9 @@ import javax.swing.border.TitledBorder;
 import gmgen.util.LogUtilities;
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
+
+import javafx.application.Platform;
+import javafx.stage.DirectoryChooser;
 
 /**
  * Panel that tracks the misc preferences
@@ -165,19 +168,20 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 	}
 
 	/**
-	 * <p>
 	 * Handles browsing for a directory.
-	 * </p>
 	 *
 	 * @param e
 	 */
-	protected void browseButtonActionPerformed(ActionEvent e)
+	private void browseButtonActionPerformed(ActionEvent e)
 	{
-		JFileChooser dlg = new JFileChooser(getDataDir());
-		dlg.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-		if (dlg.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
+		DirectoryChooser directoryChooser = new DirectoryChooser();
+		directoryChooser.setInitialDirectory(new File(getDataDir()));
+		File directory = CompletableFuture.supplyAsync(() ->
+				directoryChooser.showDialog(null), Platform::runLater).join();
+
+		if (directory != null)
 		{
-			setDataDir(dlg.getSelectedFile().getAbsolutePath());
+			setDataDir(directory.getAbsolutePath());
 		}
 	}
 }
