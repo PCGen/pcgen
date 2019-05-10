@@ -42,6 +42,7 @@ public final class JFXPanelFromResource<T> extends JFXPanel
 	 */
 	public JFXPanelFromResource(Class<T> klass, String resourceName)
 	{
+		fxmlLoader.setLocation(klass.getResource(resourceName));
 		Platform.runLater(() -> {
 			fxmlLoader.setLocation(klass.getResource(resourceName));
 			try

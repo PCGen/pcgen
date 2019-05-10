@@ -16,26 +16,35 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-package pcgen.gui3;
+package pcgen.gui3.preloader;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.web.WebView;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.image.ImageView;
 
 /**
  * Displays HTML content as a "panel".
  */
-public final class SimpleHtmlPanelController
+public final class PCGenPreloaderController
 {
 	@FXML
-	private WebView browser;
+	private ProgressBar loadProgress;
 
-	/**
-	 * Sets the "model" for for the SimpleHtmlPanel.
-	 * @param html the HTML content to load
-	 */
-	public void setHtml(String html)
+	@FXML
+	private ImageView imageView;
+
+	@FXML
+	private Label loadingLabel;
+
+	public void setProgress(String message, double progress)
 	{
-		Platform.runLater(() -> browser.getEngine().loadContent(html));
+		Platform.runLater(() -> {
+			loadingLabel.setText(message);
+			loadProgress.setProgress(progress);
+		});
 	}
+
+
 }
