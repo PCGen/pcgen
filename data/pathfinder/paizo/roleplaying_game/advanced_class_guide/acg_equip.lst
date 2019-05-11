@@ -37,7 +37,7 @@ Manacles (Huge).MOD	TYPE:Manacles
 # WORKARAOUND: use an SPROP comment
 # NEEDS OS WORK?: Needs adjustment similar to monk's flurry of blows
 # Equipment Name			Required Weapon Proficiency		Type													Cost		Weight	Crit Mult	Crit Range	Damage	Wield Category	Requires Modification?	Size		Source Page		Weapon prop. bonus													Special Property
-Brawler's Flurry			PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Resizable.Melee.Special.Unarmed.Bludgeoning.Finesseable.Close	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	DAMAGE:0	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.23	BONUS:WEAPON|ATTACKS|BrawlersFlurryExtraAttacks	BONUS:WEAPON|TOHIT|BrawlersFlurryAttackPenalty	SPROP:Use unarmed damage
+Brawler's Flurry			PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Resizable.Melee.Special.Unarmed.Bludgeoning.Finesseable.Close	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1		WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.23	BONUS:WEAPON|ATTACKS|BrawlersFlurryExtraAttacks	BONUS:WEAPON|TOHIT|BrawlersFlurryAttackPenalty	SPROP:Use unarmed damage
 
 
 ### Block: Swashbuckler's Finesse support
