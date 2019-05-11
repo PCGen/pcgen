@@ -53,7 +53,7 @@ public enum Icons
 	menu_mode_rgb(".png");
 
 	/** Path to icons file */
-	private static final String RESOURCE_URL = "/pcgen/resources/images/";
+	private static final String RESOURCE_URL = "/pcgen/images/";
 
 	/** Image cache */
 	private static final EnumMap<Icons, ImageIcon> ICON_MAP = new EnumMap<>(Icons.class);
