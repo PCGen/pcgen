@@ -258,8 +258,8 @@ CLASS:Magaambyan Arcanist	STARTSKILLPTS:2	CSKILL:Diplomacy|Handle Animal|Heal|TY
 ###Mammoth Rider
 # Class Name			Hit Dice	Type			Max Level	Source Page		Define					Combat bonus																	Save bonus																							Modify VAR																																																																	FACT
 CLASS:Mammoth Rider	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.128	DEFINE:MammothRiderLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC"))/3	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+2)/2		BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|MammothRiderLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Mam
-# Class Name			Requirements
-CLASS:Mammoth Rider	PRETOTALAB:6	PRESKILL:3,Handle Animal=9,Ride=9,Survival=5	PREVARGTEQ:AnimalCompanionLVL,6
+# Class Name			Requirements								//TODO: Consolidate this all into Animal Companion LVL var. 6.09.
+CLASS:Mammoth Rider	PRETOTALAB:6	PRESKILL:3,Handle Animal=9,Ride=9,Survival=5	PREMULT:1,[PREVARGTEQ:AnimalCompanionLVL,6],[PREVARGTEQ:CavalierMountLVL,6],[PREVARGTEQ:SpecialMountLVL,6]
 # Class Name			Skill Pts/Lvl		Class Skill
 CLASS:Mammoth Rider	CSKILL:Handle Animal|Heal|Intimidate|Ride|Survival	STARTSKILLPTS:4
 ###Block: Normal Level Progression
