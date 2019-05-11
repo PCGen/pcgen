@@ -616,3 +616,4 @@ Use Magic Device												CATEGORY:Class Skill																																
 ###
 
 Tracker ~ Range Penalty	CATEGORY:Internal		BONUS:COMBAT|RANGEPENALTY|RangePenaltyValue	DEFINE:RangePenaltyValue|0	
+
