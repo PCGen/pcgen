@@ -40,7 +40,7 @@ Bayonet																			PROFICIENCY:WEAPON|Bayonet			TYPE:Weapon.Resizable.Mel
 
 # Simple Ranged Weapons
 Bullets (Groaning/10)										OUTPUTNAME:Bullets, Groaning (10)									TYPE:Ammunition.Standard.Bullet																COST:2	WT:5		BASEQTY:10																	EQMOD:Material ~ Steel												MODS:YES										SOURCEPAGE:front cover																													SPROP:Eerie moan audible within 500 ft of flight path
-Stingchuck																			PROFICIENCY:WEAPON|Stingchuck			TYPE:Ammunition.Standard.Bludgeoning															COST:0	WT:9		BASEQTY:1		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4																														SOURCEPAGE:front cover
+Stingchuck																			PROFICIENCY:WEAPON|Stingchuck			TYPE:Weapon.Resizable.Melee.Ranged.Thrown.OneHanded.Standard.Bludgeoning									COST:0	WT:9		BASEQTY:1		CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4																														SOURCEPAGE:front cover
 
 # Martial Light Melee Weapons
 Blade Boot																			PROFICIENCY:WEAPON|Blade Boot			TYPE:Weapon.Martial.Melee.Light.Finesseable.Standard.Dagger.Piercing.Clothing									COST:25	WT:2					CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:Material ~ Steel									WIELD:Light													SOURCEPAGE:front cover																													SPROP:Considered offhand for attacks
