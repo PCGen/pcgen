@@ -1,6 +1,6 @@
 
 
-Uplifted Bear	SORTKEY:A_PlayableRace		STARTFEATS:1	FACT:BaseSize|L			MOVE:Walk,40,Climb,20		LANGBONUS:TYPE=Spoken		BONUS:STAT|CON,WIS|2		BONUS:STAT|DEX|-2		AUTO:LANG|Common		ABILITY:Race|AUTOMATIC|Uplifted Bear	RACETYPE:Humanoid							TYPE:Uplifted Bear		SOURCEPAGE:p.17		KIT:1|Playable Race Defaults		
+Uplifted Bear	SORTKEY:A_PlayableRace		STARTFEATS:1	FACT:BaseSize|L			MOVE:Walk,40,Climb,20		LANGBONUS:TYPE=Spoken		BONUS:STAT|STR,INT|2		BONUS:STAT|WIS|-2		AUTO:LANG|Common		ABILITY:Race|AUTOMATIC|Uplifted Bear	RACETYPE:Humanoid							TYPE:Uplifted Bear		SOURCEPAGE:p.17		KIT:1|Playable Race Defaults		
 Bolida		SORTKEY:A_PlayableRace		STARTFEATS:1	FACT:BaseSize|M			MOVE:Walk,30,Burrow,30		LANGBONUS:TYPE=Spoken		BONUS:STAT|STR,CON|2		BONUS:STAT|DEX|-2		AUTO:LANG|Common		ABILITY:Race|AUTOMATIC|Bolida			RACETYPE:Humanoid							TYPE:Vermin				SOURCEPAGE:p.21		KIT:1|Playable Race Defaults		
 Damai			SORTKEY:A_PlayableRace		STARTFEATS:1	FACT:BaseSize|M			MOVE:Walk,30			LANGBONUS:TYPE=Spoken		BONUS:STAT|CHA,DEX|2		BONUS:STAT|WIS|-2		AUTO:LANG|Common		ABILITY:Race|AUTOMATIC|Damai			RACETYPE:Humanoid		RACESUBTYPE:Damai			TYPE:Humanoid			SOURCEPAGE:p.33		KIT:1|Playable Race Defaults		MODIFY:RaceType_Humanoid|SET|True
 Embri			SORTKEY:A_PlayableRace		STARTFEATS:1	FACT:BaseSize|M			MOVE:Walk,30			LANGBONUS:TYPE=Spoken		BONUS:STAT|CON,INT|2		BONUS:STAT|CHA|-2		AUTO:LANG|Common		ABILITY:Race|AUTOMATIC|Embri			RACETYPE:Humanoid							TYPE:Abberation			SOURCEPAGE:p.49		KIT:1|Playable Race Defaults		
