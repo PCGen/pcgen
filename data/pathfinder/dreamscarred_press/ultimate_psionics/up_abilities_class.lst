@@ -34,6 +34,10 @@ Cannibalize Suit			KEY:Aegis ~ Cannibalize Suit	CATEGORY:Special Ability	TYPE:Ae
 Perfect Merger			KEY:Aegis ~ Perfect Merger	CATEGORY:Special Ability	TYPE:AegisClassFeatures.SpecialQuality.Supernatural																		DESC:Your suit cannot be dispelled or removed against your will.  You can spend two uses of your reconfigure ability to alter all the customizations on your astral suit.  Once per day, you can dismiss your suit to heal all of your hit points, but the suit cannot be reformed for 10 minutes afterwards.																																																																																																																		SOURCEPAGE:p.30
 Use Magic Device Class Skill						CATEGORY:Internal																																																																																																																																																																																										CSKILL:Use Magic Device
 
+CATEGORY=Special Ability|Aegis ~ Form Astral Suit.MOD		ABILITY:Special Ability|AUTOMATIC|Aegis ~ Astral Skin|PREEQUIP:1,Astral Skin
+CATEGORY=Special Ability|Aegis ~ Form Astral Suit.MOD		ABILITY:Special Ability|AUTOMATIC|Aegis ~ Astral Armor|PREEQUIP:1,Astral Armor	
+CATEGORY=Special Ability|Aegis ~ Form Astral Suit.MOD		ABILITY:Special Ability|AUTOMATIC|Aegis ~ Astral Juggernaut|PREEQUIP:1,Astral Juggernaut
+
 ###Block: Aegis astral suit types
 # Ability Name	Unique Key				Category of Ability		Type									Description																																																				Ability																																												Source Page
 Astral Skin		KEY:Aegis ~ Astral Skin		CATEGORY:Special Ability	TYPE:AegisClassFeatures.SpecialQuality.AstralSuitType	DESC:Treat like psychoactive skin.  Gain the following customizations for free: speed (2), nimble	DESC:evasion|PREVARGT:AstralSuitLVL,1	DESC:improved evasion|PREVARGT:AstralSuitLVL,11																						ABILITY:Astral Suit Customization|VIRTUAL|Aegis ~ Nimble|Aegis ~ Speed|Aegis ~ Speed 2	ABILITY:Astral Suit Customization|VIRTUAL|Aegis ~ Evasion|PREVARGT:AstralSuitLVL,1	ABILITY:Astral Suit Customization|VIRTUAL|Aegis ~ Improved Evasion|PREVARGT:AstralSuitLVL,11	SOURCEPAGE:p.28
