@@ -225,6 +225,7 @@ public final class Main
 		initPrintPreviewFonts();
 
 		new JFXPanel();
+
 		PCGenPreloader splash = null;
 
 		boolean showSplash = Boolean.parseBoolean(ConfigurationSettings.initSystemProperty("showSplash", "true"));

@@ -91,16 +91,17 @@ import pcgen.gui2.dialog.EquipCustomizerDialog;
 import pcgen.gui2.dialog.PostLevelUpDialog;
 import pcgen.gui2.dialog.RadioChooserDialog;
 import pcgen.gui2.dialog.SpellChoiceDialog;
-import pcgen.gui2.dialog.TipOfTheDay;
 import pcgen.gui2.sources.SourceSelectionDialog;
 import pcgen.gui2.tabs.InfoTabbedPane;
 import pcgen.gui2.tools.CharacterSelectionListener;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.SimpleHtmlPanelController;
 import pcgen.gui3.dialog.AboutDialog;
+import pcgen.gui3.dialog.TipOfTheDayController;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.system.CharacterManager;
@@ -316,7 +317,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				{
 					//Do a default startup
 					SwingUtilities.invokeLater(() -> {
-						if (TipOfTheDay.showTipOfTheDay())
+						if (TipOfTheDayHandler.shouldShowTipOfTheDay())
 						{
 							showTipsOfTheDay();
 						}
@@ -1406,11 +1407,13 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	/**
 	 * display the tips of the day dialog to the user
 	 */
-	public void showTipsOfTheDay()
+	static void showTipsOfTheDay()
 	{
-		TipOfTheDay tips = new TipOfTheDay(this);
-		Utility.setComponentRelativeLocation(this, tips);
-		tips.setVisible(true);
+		var totd = new JFXPanelFromResource<>(
+				TipOfTheDayController.class,
+				"TipOfTheDay.fxml"
+		);
+		totd.showAsStage(LanguageBundle.getString("in_tod_title"));
 	}
 
 	/**

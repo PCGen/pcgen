@@ -295,7 +295,7 @@ public final class PCGenActionMap extends ActionMap
 			{
 				dialog = new JFXPanelFromResource<>(CalculatorDialogController.class, "CalculatorDialog.fxml");
 			}
-			dialog.showAsStage();
+			dialog.showAsStage(LanguageBundle.getString("mnuToolsCalculator"));
 		}
 	}
 
@@ -845,7 +845,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			frame.showTipsOfTheDay();
+			PCGenFrame.showTipsOfTheDay();
 		}
 
 	}
