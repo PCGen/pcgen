@@ -117,7 +117,15 @@ public class SolverViewFrame extends JFrame
 			tableModel.setSteps(Collections.emptyList());
 			return;
 		}
-		ScopeInstance scope = scopeFacet.get(activeIdentifier, LegalScope.getFullName(selectedScope), activeObject);
+		ScopeInstance scope;
+		if (activeObject == null)
+		{
+			scope = scopeFacet.getGlobalScope(activeIdentifier);
+		}
+		else
+		{
+			scope = scopeFacet.get(activeIdentifier, LegalScope.getFullName(selectedScope), activeObject);
+		}
 		if (loadContextFacet.get(activeIdentifier.getDatasetID()).get().getVariableContext()
 			.isLegalVariableID(scope.getLegalScope(), varNameText))
 		{
