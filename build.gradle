@@ -101,14 +101,7 @@ sourceSets {
             srcDirs 'code/src/java'
         }
         resources {
-            // first path is deprecated. New resources belong in resources.
-            srcDirs = ['code/src/java', 'code/src/resources']
-            include '**/*.properties'
-            include '**/*.xml'
-            include '**/*.gif'
-            include '**/*.png'
-            include '**/*.jpg'
-            include '**/*.fxml'
+            srcDirs = ['code/src/resources']
         }
     }
     test {
