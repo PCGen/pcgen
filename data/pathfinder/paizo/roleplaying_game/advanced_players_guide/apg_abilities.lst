@@ -48,7 +48,6 @@ Magical Talent		KEY:Trait ~ Magical Talent		CATEGORY:Special Ability	TYPE:Trait.
 Mathematical Prodigy	KEY:Trait ~ Mathematical Prodigy	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.MagicTrait				PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Mathematical Prodigy],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.MagicTrait]	DESC:Mathematics has always come easily for you, and you have always been able to "see the math" in the physical and magical world. You gain a +1 trait bonus on Knowledge (Arcana) and Knowledge (Engineering) checks, and %1 is always a class skill for you.|%LIST																																				STACK:NO	MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Knowledge (Arcana)|Knowledge (Engineering)																									BONUS:SKILL|Knowledge (Arcana),Knowledge (Engineering)|1|TYPE=Trait								CSKILL:LIST			SOURCEPAGE:p.329
 Skeptic			KEY:Trait ~ Skeptic			CATEGORY:Special Ability	TYPE:Trait.BasicTrait.MagicTrait				PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Skeptic],[PREVAREQ:BypassTraitRestriction,1],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.MagicTrait]			DESC:Growing up, you were always around magical effects to the extent that you realized that much of it was smoke and mirrors. You gain a +2 trait bonus on all saving throws against illusions.																																																																																																														SOURCEPAGE:p.329	ASPECT:SaveBonus|+2 trait bonus on all saving throws against illusions.
 
-
 Magical Lineage		KEY:Magical Lineage ~ Metamagic	CATEGORY:FEAT			TYPE:Metamagic				VISIBLE:EXPORT																																																																																																																																						ADDSPELLLEVEL:-1
 
 ###Block: Temp Workaround till CODE Fix, or Formula System implemented
@@ -65,6 +64,14 @@ CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ab
 CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Cleric|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Cleric)
 CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Oracle|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Oracle)
 
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Arcanist|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Arcanist)		
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Bloodrager|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Bloodrager)	
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Hunter|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Hunter)		
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Investigator|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Investigator)	
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Shaman|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Shaman)		
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Skald|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Skald)		
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Warpriest|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Warpriest)		
+
 # Straight bonuses
 Sorcerer								KEY:Magical Knack ~ Sorcerer		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Sorcerer|min(2,(TL-(var("CL=Sorcerer")+var("BL=Sorcerer"))))
 Wizard								KEY:Magical Knack ~ Wizard		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Wizard|min(2,(TL-(var("CL=Wizard")+var("BL=Wizard"))))
@@ -79,6 +86,14 @@ Witch									KEY:Magical Knack ~ Witch		CATEGORY:Special Ability															
 Oracle								KEY:Magical Knack ~ Oracle		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Oracle|min(2,(TL-(var("CL=Oracle")+var("BL=Oracle"))))
 # UM
 Magus									KEY:Magical Knack ~ Magus		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Magus|min(2,(TL-(var("CL=Magus")+var("BL=Magus"))))
+# ACG
+Arcanist								KEY:Magical Knack ~ Arcanist		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Arcanist|min(2,(TL-(var("CL=Arcanist")+var("BL=Arcanist"))))
+Bloodrager								KEY:Magical Knack ~ Bloodrager	CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Bloodrager|min(2,(TL-(var("CL=Bloodrager")+var("BL=Bloodrager"))))
+Hunter								KEY:Magical Knack ~ Hunter		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Hunter|min(2,(TL-(var("CL=Hunter")+var("BL=Hunter"))))
+Investigator							KEY:Magical Knack ~ Investigator	CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Investigator|min(2,(TL-(var("CL=Investigator")+var("BL=Investigator"))))
+Shaman								KEY:Magical Knack ~ Shaman		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Shaman|min(2,(TL-(var("CL=Shaman")+var("BL=Shaman"))))
+Skald									KEY:Magical Knack ~ Skald		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Skald|min(2,(TL-(var("CL=Skald")+var("BL=Skald"))))
+Warpriest								KEY:Magical Knack ~ Warpriest		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Warpriest|min(2,(TL-(var("CL=Warpriest")+var("BL=Warpriest"))))
 
 ### END TEMP WORKAROUND
 
