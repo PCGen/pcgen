@@ -38,7 +38,6 @@ public final class JFXPanelFromResource<T> extends JFXPanel
 {
 
 	private final FXMLLoader fxmlLoader = new FXMLLoader();
-	private Stage stage = null;
 
 	/**
 	 * @param klass the class that contains the resource load
@@ -49,7 +48,6 @@ public final class JFXPanelFromResource<T> extends JFXPanel
 		fxmlLoader.setLocation(klass.getResource(resourceName));
 		fxmlLoader.setResources(LanguageBundle.getBundle());
 		Platform.runLater(() -> {
-			fxmlLoader.setLocation(klass.getResource(resourceName));
 			try
 			{
 				Scene scene = fxmlLoader.load();
@@ -69,16 +67,15 @@ public final class JFXPanelFromResource<T> extends JFXPanel
 		return fxmlLoader.getController();
 	}
 
+	// instead of living in JFXPanelFromResource, we should either have StageLoaders,
+	// a utility class, or something else
 	public void showAsStage()
 	{
-		Objects.requireNonNull(getScene());
 		Platform.runLater(() -> {
-			stage = new Stage();
-			stage.setScene(getScene());
-			stage.sizeToScene();
-			stage.showAndWait();
+			Stage dialog = new Stage();
+			dialog.setScene(getScene());
+			dialog.sizeToScene();
+			dialog.show();
 		});
 	}
-
-
 }

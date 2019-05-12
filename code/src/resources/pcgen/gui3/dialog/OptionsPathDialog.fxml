@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Scene?><?import javafx.scene.control.Button?><?import javafx.scene.control.Label?><?import javafx.scene.control.RadioButton?><?import javafx.scene.layout.AnchorPane?><?import javafx.scene.layout.BorderPane?><?import javafx.scene.layout.VBox?><?import javafx.scene.text.Text?>
+
+<?import javafx.scene.control.ToggleGroup?>
+<Scene xmlns="http://javafx.com/javafx/11.0.1"
+       xmlns:fx="http://javafx.com/fxml/1"
+       fx:controller="pcgen.gui3.dialog.OptionsPathDialogController"
+       fx:id="scene">
+    <AnchorPane>
+        <BorderPane>
+            <top>
+                <Text BorderPane.alignment="CENTER" text="%in_OptionsPathDialog_selectDirectory"/>
+            </top>
+            <center>
+                <fx:define>
+                    <ToggleGroup fx:id="selectedDir"/>
+                </fx:define>
+                <VBox BorderPane.alignment="CENTER">
+                    <Text text="%in_OptionsPathDialog_existing_file_warning"/>
+                    <RadioButton mnemonicParsing="false"
+                                 text="%in_OptionsPathDialog_custom_dir_install_dir"
+                                 toggleGroup="$selectedDir"
+                                 onAction="#onInstallDir"
+                    />
+                    <RadioButton fx:id="osSpecific" mnemonicParsing="false" toggleGroup="$selectedDir" onAction="#onOSSpecific"/><!--operating system specific</b>-->
+                    <RadioButton mnemonicParsing="false" text="%in_OptionsPathDialog_home_dir_install_dir" toggleGroup="$selectedDir" onAction="#onHomeDir"/>
+                    <Label fx:id="selectedDirectoryLabel"/>
+                    <Button mnemonicParsing="false" text="%in_OptionsPathDialog_select_dir" onAction="#selectCustomDir"/>
+                </VBox>
+            </center>
+            <bottom>
+                <Button mnemonicParsing="false" text="%in_ok" onAction="#selectOK"/>
+            </bottom>
+        </BorderPane>
+    </AnchorPane>
+</Scene>
