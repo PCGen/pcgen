@@ -657,7 +657,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 				Logging.errorPrint("Unable to find outputsheets folder at " + dir.getCanonicalPath() + ".");
 				return Collections.emptyList();
 			}
-			return Files.list(dir.toPath())
+			return Files.walk(dir.toPath())
 			            .filter(f -> !f.endsWith(".fo"))
 			            .map(Path::toFile)
 					    .collect(Collectors.toList());
