@@ -938,7 +938,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		}
 
 		File file = CompletableFuture.supplyAsync(() ->
-				fileChooser.showOpenDialog(null), Platform::runLater).join();
+				fileChooser.showSaveDialog(null), Platform::runLater).join();
 
 		if (file != null)
 		{
