@@ -27,15 +27,11 @@ import java.util.Map;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
-import pcgen.util.SkinLFResourceChecker;
-
-import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
 
 /**
  * {@code UIFactory}.
@@ -43,7 +39,6 @@ import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
 public final class LookAndFeelManager
 {
 
-	private static final boolean HAS_SKIN_LAF = SkinLFResourceChecker.hasMissingResources();
 	private static final String SYSTEM_LAF_CLASS = UIManager.getSystemLookAndFeelClassName();
 	private static final String CROSS_LAF_CLASS = UIManager.getCrossPlatformLookAndFeelClassName();
 	private static final LookAndFeelHandler[] LAF_HANDLERS;
@@ -79,10 +74,6 @@ public final class LookAndFeelManager
 		Arrays.sort(lafInfo, lafcomp);
 
 		int length = lafInfo.length;
-		if (HAS_SKIN_LAF)
-		{
-			length++;
-		}
 		LAF_HANDLERS = new LookAndFeelHandler[length];
 		for (int i = 0; i < lafInfo.length; i++)
 		{
@@ -108,20 +99,10 @@ public final class LookAndFeelManager
 			LAF_HANDLERS[i] = handler;
 			LAF_MAP.put(name, handler);
 		}
-		if (HAS_SKIN_LAF)
-		{
-			String name = "Skinned";
-			String tooltip = "Sets the look to skinned";
-			LookAndFeelHandler skinhandler = new LookAndFeelHandler(name, null, tooltip);
-			//the Skin LAF always goes last
-			LAF_HANDLERS[lafInfo.length] = skinhandler;
-			LAF_MAP.put(name, skinhandler);
-		}
 		UIManager.setInstalledLookAndFeels(lafInfo);
 	}
 
 	private static String selectedTheme = null;
-	private static String currentTheme = null;
 	private static String currentLAF = null;
 
 	private LookAndFeelManager()
@@ -179,41 +160,6 @@ public final class LookAndFeelManager
 		ConfigurationSettings.setSystemProperty("selectedThemePack", selectedTheme);
 	}
 
-	private static void setSkinLAF()
-	{
-		try
-		{
-			LookAndFeel laf = createSkinLAF(selectedTheme);
-			UIManager.setLookAndFeel(laf);
-
-			ConfigurationSettings.setSystemProperty("lookAndFeel", "Skinned");
-			ConfigurationSettings.setSystemProperty("selectedThemePack", selectedTheme);
-			currentTheme = selectedTheme;
-			currentLAF = "Skinned";
-		}
-		catch (Exception ex)
-		{
-			if ("Skinned".equals(currentLAF))
-			{
-				try
-				{
-					//fall back to old theme
-					LookAndFeel laf = createSkinLAF(currentTheme);
-					UIManager.setLookAndFeel(laf);
-				}
-				catch (Exception ex1)
-				{
-					setLookAndFeel("Java");
-				}
-			}
-			else
-			{
-				setLookAndFeel(currentLAF);
-			}
-		}
-
-	}
-
 	public static void setLookAndFeel(String name)
 	{
 		LookAndFeelHandler handler = LAF_MAP.get(name);
@@ -223,42 +169,16 @@ public final class LookAndFeelManager
 			return;
 		}
 		String className = handler.getClassName();
-
-		if (className != null)
+		try
 		{
-			try
-			{
-				UIManager.setLookAndFeel(className);
-				ConfigurationSettings.setSystemProperty("lookAndFeel", name);
-				currentLAF = name;
-			}
-			catch (Exception ex)
-			{
-				setLookAndFeel(currentLAF);
-			}
+			UIManager.setLookAndFeel(className);
+			ConfigurationSettings.setSystemProperty("lookAndFeel", name);
+			currentLAF = name;
 		}
-		else if (HAS_SKIN_LAF)
+		catch (Exception ex)
 		{
-			setSkinLAF();
+			setLookAndFeel(currentLAF);
 		}
-		else
-		{
-			Logging.errorPrint("Skin LAF library is missing! Setting to default LAF");
-
-			setLookAndFeel("Java");
-		}
-	}
-
-	/**
-	 * Apply a skin to PCGen GUI
-	 *
-	 * @param themePath a string describing the path to a theme file
-	 * @return a LookAndFeel instance
-	 */
-	private static LookAndFeel createSkinLAF(String themePath) throws Exception
-	{
-		SkinLookAndFeel.setSkin(SkinLookAndFeel.loadThemePack(themePath));
-		return new SkinLookAndFeel();
 	}
 
 	public static class LookAndFeelHandler extends AbstractAction
