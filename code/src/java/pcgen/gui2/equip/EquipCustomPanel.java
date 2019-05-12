@@ -164,8 +164,8 @@ public class EquipCustomPanel extends FlippingSplitPane
 
 		for (EquipmentHead head : validHeads)
 		{
-			availEqmodModelMap.put(head, new EquipModTreeViewModel(character, builder, head, true));
-			selectedEqmodModelMap.put(head, new EquipModTreeViewModel(character, builder, head, false));
+			availEqmodModelMap.put(head, new EquipModTreeViewModel(builder, head, true));
+			selectedEqmodModelMap.put(head, new EquipModTreeViewModel(builder, head, false));
 		}
 	}
 
@@ -536,8 +536,8 @@ public class EquipCustomPanel extends FlippingSplitPane
 		private final EquipmentBuilderFacade builder;
 		private final EquipmentHead head;
 
-		public EquipModTreeViewModel(CharacterFacade character, EquipmentBuilderFacade builder, EquipmentHead head,
-			boolean isAvailModel)
+		private EquipModTreeViewModel(EquipmentBuilderFacade builder, EquipmentHead head,
+		                              boolean isAvailModel)
 		{
 			this.builder = builder;
 			this.head = head;

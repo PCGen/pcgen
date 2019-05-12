@@ -1142,13 +1142,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		private final String name;
 		private final SpellBook book;
 
-		public RootNodeImpl(String text)
-		{
-			this.name = text;
-			this.book = null;
-		}
-
-		public RootNodeImpl(SpellBook book)
+		private RootNodeImpl(SpellBook book)
 		{
 			this.book = book;
 			this.name = book.getName();

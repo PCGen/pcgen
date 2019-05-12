@@ -52,10 +52,6 @@ public abstract class DeferredCharacterComboBoxModel<E> extends FacadeListModel<
 	private ReferenceFacade<E> reference = null;
 	protected Object selectedItem = null;
 
-	public DeferredCharacterComboBoxModel()
-	{
-	}
-
 	public DeferredCharacterComboBoxModel(ListFacade<E> list, ReferenceFacade<E> ref)
 	{
 		setListFacade(list);

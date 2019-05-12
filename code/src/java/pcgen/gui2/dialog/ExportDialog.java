@@ -560,7 +560,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		private final File saveFile;
 		private final String name;
 
-		public PDFExporter(File saveFile, String extension, String name)
+		private PDFExporter(File saveFile, String extension, String name)
 		{
 			this.saveFile = saveFile;
 			this.name = name;

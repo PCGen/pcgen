@@ -20,9 +20,7 @@ package pcgen.gui2.util;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Vector;
 
-import javax.swing.ComboBoxModel;
 import javax.swing.JComboBox;
 
 /**
@@ -57,18 +55,6 @@ public class JComboBoxEx<E> extends JComboBox<E>
 	}
 
 	/**
-	 * Creates a {@code JComboBoxEx} that takes it's items
-	 * from an existing {@code ComboBoxModel}.
-	 *
-	 * @param aModel the {@code ComboBoxModel} that provides
-	 * the displayed list of items
-	 */
-	public JComboBoxEx(ComboBoxModel<E> aModel)
-	{
-		super(aModel);
-	}
-
-	/**
 	 * Creates a {@code JComboBoxEx} that contains the
 	 * elements in the specified array. By default the first item
 	 * in the array (and therefore the data model) becomes
@@ -78,20 +64,6 @@ public class JComboBoxEx<E> extends JComboBox<E>
 	 * box
 	 */
 	public JComboBoxEx(E[] items)
-	{
-		super(items);
-	}
-
-	/**
-	 * Creates a {@code JComboBoxEx} that contains the
-	 * elements in the specified {@code Vector}. By default
-	 * the first item in the vector and therefore the data model)
-	 * becomes selected.
-	 *
-	 * @param items an array of vectors to insert into the combo
-	 * box
-	 */
-	public JComboBoxEx(Vector<E> items)
 	{
 		super(items);
 	}
@@ -153,25 +125,6 @@ public class JComboBoxEx<E> extends JComboBox<E>
 	}
 
 	/**
-	 * Returns {@code true} if the combo box automatically
-	 * sorts when items change.  If {@code false}, then call
-	 * {@link #sortItems()} to sort items.  This is an
-	 * optimization choice.  The default is {@code false}.
-	 *
-	 * <strong>This only affects combo box methods.</strong> If
-	 * you modify what an item returns for {@code toString()}
-	 * by manipulating the item, you need to call
-	 * {@code sortItems()} manually.
-	 *
-	 * @return {@code true} if the combo box automatically
-	 * sorts when items change.
-	 */
-	public boolean getAutoSort()
-	{
-		return autoSort;
-	}
-
-	/**
 	 * Sets the {@code Comparator} used to sort items.  The
 	 * default is {@code StringIgnoreCaseComparator} (since
 	 * combo boxes display string items to the user).
@@ -182,18 +135,6 @@ public class JComboBoxEx<E> extends JComboBox<E>
 	public void setComparator(Comparator<Object> comparator)
 	{
 		this.comparator = comparator;
-	}
-
-	/**
-	 * Returns the {@code Comparator} used to sort items.
-	 * The default is {@code StringIgnoreCaseComparator}
-	 * (since combo boxes display string items to the user).
-	 *
-	 * @return the {@code Comparator} used to sort items
-	 */
-	public Comparator<Object> getComparator()
-	{
-		return comparator;
 	}
 
 	@Override

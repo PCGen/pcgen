@@ -97,16 +97,6 @@ public class TabTitle
 		support.firePropertyChange(prop, propertyTable.put(prop, value), value);
 	}
 
-	public void setEnabled(boolean enable)
-	{
-		putValue(ENABLED, enable);
-	}
-
-	public boolean isEnabled()
-	{
-		return (Boolean) getValue(ENABLED);
-	}
-
 	public Tab getTab()
 	{
 		return (Tab) getValue(TAB);

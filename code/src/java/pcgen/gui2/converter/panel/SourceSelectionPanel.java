@@ -95,11 +95,6 @@ public class SourceSelectionPanel extends ConvertSubPanel
 		}
 	}
 
-	public String getPath()
-	{
-		return path.getAbsolutePath();
-	}
-
 	@Override
 	public boolean performAnalysis(CDOMObject pc)
 	{

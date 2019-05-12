@@ -136,11 +136,6 @@ public final class PCGenStatusBar extends JPanel
 		return new StatusWorker(taskName, task, this);
 	}
 
-	public PCGenFrame getFrame()
-	{
-		return frame;
-	}
-
 	/**
 	 * Shows the progress bar, in indeterminate mode
 	 * 
