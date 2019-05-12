@@ -391,7 +391,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			frame.createNewCharacter();
+			frame.createNewCharacter(null);
 		}
 
 		private class SourceListener implements ReferenceListener<Object>

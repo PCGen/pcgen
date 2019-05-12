@@ -224,7 +224,7 @@ public class DiceBagPluginView implements Observer
 	 */
 	private int askSaveBag(DiceBagModel bag, int option)
 	{
-		int returnValue = JOptionPane.CANCEL_OPTION;
+		int returnValue;
 
 		if (bag.isChanged())
 		{

@@ -28,7 +28,6 @@ import javax.swing.AbstractAction;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -58,6 +57,8 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.enumeration.Tab;
 
+import javafx.stage.FileChooser;
+
 @SuppressWarnings("serial")
 public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTab
 {
@@ -74,7 +75,6 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 	private final JTextField spellSheetField;
 	private final InfoPane spellsPane;
 	private final InfoPane classPane;
-	private JFileChooser fileChooser = null;
 	private JButton previewSpellsButton;
 	private JButton exportSpellsButton;
 
@@ -258,23 +258,21 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 	 */
 	private void selectSpellSheetButton()
 	{
-		if (fileChooser == null)
-		{
-			fileChooser = new JFileChooser();
-		}
-
-		fileChooser.setDialogTitle(LanguageBundle.getString("InfoSpells.select.output.sheet")); //$NON-NLS-1$
-		fileChooser.setCurrentDirectory(new File(ConfigurationSettings.getOutputSheetsDir()));
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle(LanguageBundle.getString("InfoSpells.select.output.sheet"));
+		fileChooser.setInitialDirectory(new File(ConfigurationSettings.getOutputSheetsDir()));
 		if (PCGenSettings.getSelectedSpellSheet() != null)
 		{
-			fileChooser.setSelectedFile(new File(PCGenSettings.getSelectedSpellSheet()));
+			fileChooser.setInitialFileName(PCGenSettings.getSelectedSpellSheet());
 		}
-		if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
+		File selectedFile = fileChooser.showOpenDialog(null);
+
+		if (selectedFile != null)
 		{
 			PCGenSettings.getInstance().setProperty(PCGenSettings.SELECTED_SPELL_SHEET_PATH,
-				fileChooser.getSelectedFile().getAbsolutePath());
-			spellSheetField.setText(fileChooser.getSelectedFile().getName());
-			spellSheetField.setToolTipText(fileChooser.getSelectedFile().getName());
+				selectedFile.getAbsolutePath());
+			spellSheetField.setText(selectedFile.getName());
+			spellSheetField.setToolTipText(selectedFile.getName());
 		}
 	}
 
