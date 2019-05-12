@@ -43,11 +43,11 @@ public interface GroupingCollection<T>
 	/**
 	 * Runs the given Consumer on any relevant objects in this GroupingCollection.
 	 * 
-	 * @param owner
+	 * @param target
 	 *            the PCGenScoped object to check to see if it, or any child, is valid
 	 * @param consumer
 	 *            The Consumer to be run on any relevant objects in this
 	 *            GroupingCollection
 	 */
-	public void process(PCGenScoped owner, Consumer<PCGenScoped> consumer);
+	public void process(PCGenScoped target, Consumer<PCGenScoped> consumer);
 }
