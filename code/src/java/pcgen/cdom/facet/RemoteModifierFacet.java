@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Consumer;
 
@@ -34,6 +35,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.VarScopedFacet;
 import pcgen.cdom.formula.PCGenScoped;
 import pcgen.cdom.formula.local.DefinedWrappingModifier;
+import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.formula.local.RemoteWrappingModifier;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.context.LoadContext;
@@ -106,25 +108,28 @@ public class RemoteModifierFacet extends AbstractAssociationFacet<CharID, Remote
 	{
 		PCGenScope sourceScope = (PCGenScope) sourceInstance.getLegalScope();
 		LoadContext context = loadContextFacet.get(id.getDatasetID()).get();
+		Optional<FormatManager<?>> sourceFormatManager = sourceScope.getFormatManager(context);
+		PCGenScope targetScope = (PCGenScope) targetInstance.getLegalScope();
+		Optional<FormatManager<?>> targetFormatManager = targetScope.getFormatManager(context);
 		Modifier<T> returnValue;
-		try
+		if (sourceFormatManager.isPresent() && targetFormatManager.isPresent())
 		{
-			FormatManager<?> sourceFormatManager = sourceScope.getFormatManager(context);
-			PCGenScope targetScope = (PCGenScope) targetInstance.getLegalScope();
-			FormatManager<?> targetFormatManager = targetScope.getFormatManager(context);
-			returnValue =
-					new RemoteWrappingModifier<>(modifier, source, sourceFormatManager, target, targetFormatManager);
+			returnValue = new RemoteWrappingModifier<>(modifier, source,
+				sourceFormatManager.get(), target, targetFormatManager.get());
 		}
-		catch (UnsupportedOperationException e)
+		else if (sourceFormatManager.isPresent())
 		{
-			/*
-			 * Assume this failure is from sourceScope.getFormatManager, as it will fail
-			 * if the source is a GlobalModifier, so source() cannot be used... but we
-			 * still want to define target().
-			 */
-			PCGenScope targetScope = (PCGenScope) targetInstance.getLegalScope();
-			FormatManager<?> targetFormatManager = targetScope.getFormatManager(context);
-			returnValue = new DefinedWrappingModifier<>(modifier, "target", target, targetFormatManager);
+			returnValue = new DefinedWrappingModifier<>(modifier, "source",
+				source, sourceFormatManager.get());
+		}
+		else if (sourceFormatManager.isPresent())
+		{
+			returnValue = new DefinedWrappingModifier<>(modifier, "target",
+				target, targetFormatManager.get());
+		}
+		else
+		{
+			returnValue = new ModifierDecoration<>(modifier);
 		}
 		return returnValue;
 	}

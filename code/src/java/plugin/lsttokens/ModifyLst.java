@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import pcgen.base.calculation.FormulaModifier;
@@ -169,20 +170,16 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 	{
 		FormulaManager formulaManager =
 				context.getVariableContext().getFormulaManager();
-		FormatManager<?> formatManager;
-		try
+		Optional<FormatManager<?>> formatManager = scope.getFormatManager(context);
+		if (formatManager.isEmpty())
 		{
-			formatManager = scope.getFormatManager(context);
-		}
-		catch (UnsupportedOperationException e)
-		{
-			return formulaManager;
 			//Okay, we won't add this()
+			return formulaManager;
 		}
 		//Note: Passing new Object() as DefinedValue is a dummy
 		FunctionLibrary functionLibrary = new DefinedWrappingLibrary(
 			formulaManager.get(FormulaManager.FUNCTION), "this", new Object(),
-			formatManager);
+			formatManager.get());
 		return formulaManager.getWith(FormulaManager.FUNCTION, functionLibrary);
 	}
 
