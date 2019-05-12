@@ -42,6 +42,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Objects;
 import java.util.Vector;
 import java.util.concurrent.CompletableFuture;
 import java.util.zip.ZipEntry;
@@ -217,7 +218,7 @@ public class NotesView extends JPanel
 	 *@param  name           name of the action to get
 	 *@return                the action
 	 */
-	private Action getActionByName(JTextComponent textComponent, String name)
+	private static Action getActionByName(JTextComponent textComponent, String name)
 	{
 		// TODO: This should be static in a GUIUtilities file
 		for (Action a : textComponent.getActions())
@@ -386,13 +387,13 @@ public class NotesView extends JPanel
 		String sFile = SettingsHandler.getGMGenOption(OPTION_NAME_LASTFILE, "");
 		File defaultFile = new File(sFile);
 		fileChooser.setInitialDirectory(defaultFile.getParentFile());
-
 		FileChooser.ExtensionFilter extensionFilter = getFileType();
 		fileChooser.getExtensionFilters().add(extensionFilter);
 		fileChooser.setSelectedExtensionFilter(extensionFilter);
 
+
 		File file = CompletableFuture.supplyAsync(() ->
-				fileChooser.showSaveDialog(null), Platform::runLater).join();
+		fileChooser.showSaveDialog(null), Platform::runLater).join();
 
 		try
 		{
@@ -432,15 +433,15 @@ public class NotesView extends JPanel
 	 *@param  count  File to count the children of
 	 *@return        count of all files in this dir
 	 */
-	private int fileCount(File count)
+	private static int fileCount(File count)
 	{
-		// TODO: Shouldn't this really be a static method in MiscUtils?
+		// TODO: Shouldn't this really be in FileUtils?
 		int num = 0;
-		for (File f : count.listFiles())
+		for (File f : Objects.requireNonNull(count.listFiles()))
 		{
 			if (f.isDirectory())
 			{
-				num = num + fileCount(f);
+				num += fileCount(f);
 			}
 			else
 			{
@@ -457,7 +458,7 @@ public class NotesView extends JPanel
 	 *
 	 *@param  button  Button to highlight
 	 */
-	private void highlightButton(JButton button)
+	private static void highlightButton(JButton button)
 	{
 		button.setBorder(new BevelBorder(BevelBorder.LOWERED));
 	}
@@ -499,24 +500,15 @@ public class NotesView extends JPanel
 	 *@param  entry            Description of the Parameter
 	 *@exception  IOException  read or write error
 	 */
-	private void unzip(ZipInputStream zin, String entry, File homeDir) throws IOException
+	private static void unzip(ZipInputStream zin, String entry, File homeDir) throws IOException
 	{
-		// TODO: This function really should be in MiscUtils as a static
+		// TODO: This function really should be in FileUtils
 		File outFile = new File(homeDir.getPath() + File.separator + entry);
 		File parentDir = outFile.getParentFile();
 		parentDir.mkdirs();
 		outFile.createNewFile();
 
-		FileOutputStream out = new FileOutputStream(outFile);
-		byte[] b = new byte[512];
-		int len = 0;
-
-		while ((len = zin.read(b)) != -1)
-		{
-			out.write(b, 0, len);
-		}
-
-		out.close();
+		Files.copy(zin, outFile.toPath());
 	}
 
 	//Methods for dealing with button appearance
@@ -604,7 +596,11 @@ public class NotesView extends JPanel
 	 *@return                  current progress
 	 *@exception  IOException  write or read failed for some reason
 	 */
-	private int writeNotesDir(ZipOutputStream out, File parentDir, File currentDir, ProgressMonitor pm, int progress)
+	private static int writeNotesDir(ZipOutputStream out,
+	                                 File parentDir,
+	                                 File currentDir,
+	                                 ProgressMonitor pm,
+	                                 int progress)
 		throws IOException
 	{
 		int returnValue = progress;
@@ -645,7 +641,7 @@ public class NotesView extends JPanel
 	 *@param  node             node to export
 	 *@exception  IOException  file write failed for some reason
 	 */
-	private void writeNotesFile(File exportFile, NotesTreeNode node) throws IOException
+	private static void writeNotesFile(File exportFile, NotesTreeNode node) throws IOException
 	{
 		File dir = node.getDir();
 
@@ -688,7 +684,7 @@ public class NotesView extends JPanel
 	/**
 	 *  obtains an Image for input
 	 *
-	 *@param  startDir  Directory to open JFielChooser to
+	 *@param  startDir  Directory to open
 	 *@param  exts      Extensions to search for
 	 *@param  desc      Description for files
 	 *@return           File pointing to the selected image
