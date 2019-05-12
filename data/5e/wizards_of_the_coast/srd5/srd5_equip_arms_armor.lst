@@ -29,7 +29,7 @@ Shield								PROFICIENCY:SHIELD|Shield	TYPE:Shield						COST:10	WT:6					ABILIT
 
 # Simple Melee Weapons
 # Equipment Name	Unique Key			Required Weapon Proficiency		Type																				Contains				Cost		Weight	Crit Range	Damage	Modifier			Wield Category	Range		Size						Quality and value										Special Property		FACT
-Club			KEY:Club			PROFICIENCY:WEAPON|Club			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning.Light.Monk.Simple												COST:0.1	WT:2		CRITRANGE:1	DAMAGE:1d4										SIZE:M
+Club			KEY:Club			PROFICIENCY:WEAPON|Club			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning.Light.Monk.Simple.MonkWeaponSpecial												COST:0.1	WT:2		CRITRANGE:1	DAMAGE:1d4										SIZE:M
 Dagger		KEY:Dagger			PROFICIENCY:WEAPON|Dagger		TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Finesse.Piercing.Finesse.Light.Thrown.Ranged.Increment3.Monk.Simple						COST:2	WT:1		CRITRANGE:1	DAMAGE:1d4								RANGE:20	SIZE:M					QUALITY:RangeLongMult|3	QUALITY:ShortRange|20	QUALITY:LongRange|60					FACT:ShortRange|20	FACT:LongRange|60	FACT:RangeLongMult|3
 Unarmed Strike	KEY:Unarmed Strike	PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Monk.Resizable.Melee.Bludgeoning.Unarmed.Weapon_Melee.Simple													COST:0	WT:0		CRITRANGE:1	DAMAGE:1d4										SIZE:M
 #MODIFY:RangeLongMult|SET|3
@@ -40,9 +40,9 @@ Javelin		KEY:Javelin			PROFICIENCY:WEAPON|Javelin		TYPE:Weapon.Resizable.Melee.M
 #MODIFY:RangeLongMult|SET|3
 Light Hammer	KEY:Light Hammer		PROFICIENCY:WEAPON|Light Hammer	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Thrown.Bludgeoning.Light.Thrown.Ranged.Increment3.Monk.Simple							COST:2	WT:2		CRITRANGE:1	DAMAGE:1d4								RANGE:20	SIZE:M					QUALITY:RangeLongMult|3	QUALITY:ShortRange|20	QUALITY:LongRange|60					FACT:ShortRange|20	FACT:LongRange|60	FACT:RangeLongMult|3
 #MODIFY:RangeLongMult|SET|3
-Mace			KEY:Mace			PROFICIENCY:WEAPON|Mace			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning.Monk.Simple													COST:5	WT:4		CRITRANGE:1	DAMAGE:1d6					WIELD:OneHanded			SIZE:M
-Quarterstaff	KEY:Quarterstaff		PROFICIENCY:WEAPON|Quarterstaff	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning.Versatile.Monk.Simple											COST:.2	WT:4		CRITRANGE:1	DAMAGE:1d6	EQMOD:VERSATILE_D8						SIZE:M
-Sickle		KEY:Sickle			PROFICIENCY:WEAPON|Sickle		TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Slashing.Light.Monk.Simple												COST:1	WT:2		CRITRANGE:1	DAMAGE:1d4										SIZE:M
+Mace			KEY:Mace			PROFICIENCY:WEAPON|Mace			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning.Monk.Simple.MonkWeaponSpecial													COST:5	WT:4		CRITRANGE:1	DAMAGE:1d6					WIELD:OneHanded			SIZE:M
+Quarterstaff	KEY:Quarterstaff		PROFICIENCY:WEAPON|Quarterstaff	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning.Versatile.Monk.Simple.MonkWeaponSpecial											COST:.2	WT:4		CRITRANGE:1	DAMAGE:1d6	EQMOD:VERSATILE_D8						SIZE:M
+Sickle		KEY:Sickle			PROFICIENCY:WEAPON|Sickle		TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Slashing.Light.Monk.Simple.MonkWeaponSpecial												COST:1	WT:2		CRITRANGE:1	DAMAGE:1d4										SIZE:M
 Spear			KEY:Spear			PROFICIENCY:WEAPON|Spear		TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Thrown.Piercing.Thrown.Ranged.Versatile.Increment3.Monk.Simple							COST:1	WT:3		CRITRANGE:1	DAMAGE:1d6								RANGE:20	SIZE:M					QUALITY:RangeLongMult|3	QUALITY:ShortRange|20	QUALITY:LongRange|60					FACT:ShortRange|20	FACT:LongRange|60	FACT:RangeLongMult|3
 #MODIFY:RangeLongMult|SET|3
 #Unarmed Strike		KEY:Unarmed Strike		PROFICIENCY:WEAPON|Unarmed Strike		TYPE:Weapon.Resizable.Melee.Natural.Simple.Unarmed.Weapon_Melee.Bludgeoning													COST:0	WT:0		CRITRANGE:1	DAMAGE:1										SIZE:M
