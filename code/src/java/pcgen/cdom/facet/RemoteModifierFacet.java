@@ -89,7 +89,7 @@ public class RemoteModifierFacet extends AbstractAssociationFacet<CharID, Remote
 	}
 
 	private <MT> void processAdd(CharID id, RemoteModifier<MT> remoteModifier,
-		VarScoped targetObject, PCGenScoped modSource)
+		PCGenScoped targetObject, PCGenScoped modSource)
 	{
 		ScopeInstance modSourceInstance = scopeFacet.get(id, modSource);
 		VarModifier<MT> varModifier = remoteModifier.getVarModifier();
@@ -98,7 +98,7 @@ public class RemoteModifierFacet extends AbstractAssociationFacet<CharID, Remote
 			varModifier, target, getModifier(id, formulaModifier, modSource,
 				modSourceInstance, target, scopeFacet.get(id, target)),
 			scopeFacet.get(id, target));
-		remoteModifier.getGrouping().process(modSource, consumer);
+		remoteModifier.getGrouping().process(targetObject, consumer);
 	}
 
 	private <T> Modifier<T> getModifier(CharID id, FormulaModifier<T> modifier, VarScoped source,

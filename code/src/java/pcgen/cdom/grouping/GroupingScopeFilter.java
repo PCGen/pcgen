@@ -78,12 +78,12 @@ public class GroupingScopeFilter<T> implements GroupingCollection<T>
 	}
 
 	@Override
-	public void process(PCGenScoped owner, Consumer<PCGenScoped> consumer)
+	public void process(PCGenScoped target, Consumer<PCGenScoped> consumer)
 	{
-		Optional<String> localScopeName = owner.getLocalScopeName();
+		Optional<String> localScopeName = target.getLocalScopeName();
 		if (localScopeName.isPresent() && localScopeName.get().equalsIgnoreCase(scopeName))
 		{
-			underlying.process(owner, consumer);
+			underlying.process(target, consumer);
 		}
 	}
 
