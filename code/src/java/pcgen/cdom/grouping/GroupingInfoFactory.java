@@ -16,13 +16,10 @@
 package pcgen.cdom.grouping;
 
 import java.util.Arrays;
-import java.util.Objects;
 import java.util.Stack;
 
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.scope.PCGenScope;
-import pcgen.rules.context.LoadContext;
 
 /**
  * A GroupingInfoFactory is designed to construct GroupingInfo objects given a PCGenScope
@@ -32,12 +29,6 @@ import pcgen.rules.context.LoadContext;
  */
 public class GroupingInfoFactory
 {
-	/**
-	 * The LoadContext in which this GroupingInfoFactory operates. Necessary to interpret
-	 * scope names.
-	 */
-	private final LoadContext context;
-
 	/**
 	 * Any characters expected in the future parsing of the instructions.
 	 */
@@ -64,19 +55,6 @@ public class GroupingInfoFactory
 	private GroupingInfo<?> activeInfo;
 
 	/**
-	 * Constructs a new GroupingInfoFactory that will interpret scope and instructions
-	 * relative to the given LoadContext.
-	 * 
-	 * @param context
-	 *            The LoadContext this GroupingInfoFactory will used to analyze scope and
-	 *            instructions
-	 */
-	public GroupingInfoFactory(LoadContext context)
-	{
-		this.context = Objects.requireNonNull(context);
-	}
-
-	/**
 	 * Processes the given scope and instructions to generate a GroupingInfo.
 	 * 
 	 * @param scope
@@ -94,14 +72,7 @@ public class GroupingInfoFactory
 		depth = 0;
 		expected.clear();
 		fullTokenizer = new GroupingTokenizer(instructions);
-		FormatManager<?> formatManager = scope.getFormatManager(context);
-		return continueTypeSafeProcessing(scope, formatManager);
-	}
-
-	private <T> GroupingInfo<T> continueTypeSafeProcessing(
-		PCGenScope scope, FormatManager<T> formatManager) throws GroupingStateException
-	{
-		GroupingInfo<T> topInfo = new GroupingInfo<>();
+		GroupingInfo<?> topInfo = new GroupingInfo<>();
 		topInfo.setScope(scope);
 		activeInfo = topInfo;
 		consumeGrouping();
