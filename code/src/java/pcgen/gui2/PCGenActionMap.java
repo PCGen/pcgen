@@ -33,7 +33,6 @@ import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.coreview.CoreViewFrame;
-import pcgen.gui2.dialog.CalculatorDialog;
 import pcgen.gui2.dialog.DataInstaller;
 import pcgen.gui2.dialog.DebugDialog;
 import pcgen.gui2.dialog.ExportDialog;
@@ -44,6 +43,8 @@ import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.PCGenAction;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.dialog.CalculatorDialogController;
 import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
@@ -277,10 +278,10 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class CalculatorAction extends PCGenAction
+	private static final class CalculatorAction extends PCGenAction
 	{
 
-		private CalculatorDialog dialog = null;
+		private JFXPanelFromResource<CalculatorDialogController> dialog;
 
 		private CalculatorAction()
 		{
@@ -292,12 +293,10 @@ public final class PCGenActionMap extends ActionMap
 		{
 			if (dialog == null)
 			{
-				dialog = new CalculatorDialog(frame);
+				dialog = new JFXPanelFromResource<>(CalculatorDialogController.class, "CalculatorDialog.fxml");
 			}
-			Utility.setComponentRelativeLocation(frame, dialog);
-			dialog.setVisible(true);
+			dialog.showAsStage();
 		}
-
 	}
 
 	private class CoreViewAction extends CharacterAction
