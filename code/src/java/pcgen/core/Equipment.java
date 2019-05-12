@@ -5063,7 +5063,7 @@ public final class Equipment extends PObject
 		String handsControl = pc.getControl(CControl.WEAPONHANDS);
 		if (handsControl != null)
 		{
-			return ((Number) pc.getGlobal(handsControl)).intValue();
+			return ((Number) getLocalVariable(pc.getCharID(), handsControl)).intValue();
 		}
 		else
 		{
