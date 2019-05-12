@@ -864,7 +864,6 @@ public final class PCGenActionMap extends ActionMap
 		{
 			frame.showAboutDialog();
 		}
-
 	}
 
 

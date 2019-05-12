@@ -88,7 +88,6 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.gui2.dialog.AboutDialog;
 import pcgen.gui2.dialog.ChooserDialog;
 import pcgen.gui2.dialog.EquipCustomizerDialog;
 import pcgen.gui2.dialog.PostLevelUpDialog;
@@ -103,6 +102,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.SimpleHtmlPanelController;
+import pcgen.gui3.dialog.AboutDialog;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.system.CharacterManager;
@@ -1800,9 +1800,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		aFrame.setVisible(true);
 	}
 
-	public void showAboutDialog()
+	void showAboutDialog()
 	{
-		new AboutDialog(this).setVisible(true);
+		new AboutDialog();
 	}
 
 	@Override

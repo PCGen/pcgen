@@ -186,4 +186,9 @@ public final class LanguageBundle
 			return MessageFormat.format(getString("in_multiply"), d); //$NON-NLS-1$
 		}
 	}
+
+	public static ResourceBundle getBundle()
+	{
+		return bundle;
+	}
 }
