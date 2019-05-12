@@ -43,6 +43,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Observer;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.LogRecord;
 
@@ -53,7 +54,6 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -65,8 +65,6 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 import javax.swing.WindowConstants;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Campaign;
@@ -88,7 +86,6 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.gui2.dialog.AboutDialog;
 import pcgen.gui2.dialog.ChooserDialog;
 import pcgen.gui2.dialog.EquipCustomizerDialog;
 import pcgen.gui2.dialog.PostLevelUpDialog;
@@ -103,6 +100,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.SimpleHtmlPanelController;
+import pcgen.gui3.dialog.AboutDialog;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.system.CharacterManager;
@@ -118,6 +116,9 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
 
 import javafx.application.Platform;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -141,12 +142,14 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	private final DefaultReferenceFacade<CharacterFacade> currentCharacterRef;
 	private final DefaultReferenceFacade<DataSetFacade> currentDataSetRef;
 	private final FilenameListener filenameListener;
-	//Since creating a new JFileChooser requires a bit of overhead we reuse the same one every time
-	private final JFileChooser chooser;
 	private JDialog sourceSelectionDialog = null;
 	private SourceLoadWorker sourceLoader = null;
 	private String section15 = null;
 	private String lastCharacterPath = null;
+	/**
+	 * This is a bit of a hack until we're full on JavaFX for showing dialogs
+	 */
+	private Window javaFXStage;
 
 	public PCGenFrame(UIContext uiContext)
 	{
@@ -159,7 +162,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		this.characterTabs = new CharacterTabs(this);
 		this.statusBar = new PCGenStatusBar(this);
 		this.filenameListener = new FilenameListener();
-		this.chooser = new JFileChooser();
 		Observer messageObserver = new ShowMessageGuiObserver(this);
 		ShowMessageDelegate.getInstance().addObserver(messageObserver);
 		ChooserFactory.setDelegate(this);
@@ -167,6 +169,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		initComponents();
 		pack();
 		initSettings();
+		Platform.runLater(() ->
+			javaFXStage = new Stage()
+		);
 	}
 
 	private void initComponents()
@@ -833,29 +838,29 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		PartyFacade party = CharacterManager.getCharacters();
 		PCGenSettings context = PCGenSettings.getInstance();
 		String parentPath = context.getProperty(PCGenSettings.PCP_SAVE_PATH);
-		chooser.setCurrentDirectory(new File(parentPath));
-		File file = party.getFileRef().get();
+		File oldFile = party.getFileRef().get();
 
-		chooser.setSelectedFile(file);
-		chooser.resetChoosableFileFilters();
-		FileFilter filter = new FileNameExtensionFilter("Pcp files only", "pcp");
-		chooser.addChoosableFileFilter(filter);
-		chooser.setFileFilter(filter);
-		int ret = chooser.showSaveDialog(this);
-		if (ret != JFileChooser.APPROVE_OPTION)
+
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Save PCGen Party");
+		fileChooser.setInitialDirectory(new File(parentPath));
+
+		FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter(
+				"party files only", "*.pcp"
+		);
+		fileChooser.getExtensionFilters().add(extensionFilter);
+		fileChooser.setSelectedExtensionFilter(extensionFilter);
+		if (oldFile != null)
+		{
+			fileChooser.setInitialFileName(oldFile.getName());
+		}
+
+		File file = CompletableFuture.supplyAsync(() ->
+				fileChooser.showSaveDialog(null), Platform::runLater).join();
+
+		if (file == null)
 		{
 			return false;
-		}
-		file = chooser.getSelectedFile();
-		if (!file.getName().endsWith(Constants.EXTENSION_PARTY_FILE))
-		{
-			file = new File(file.getParent(), file.getName() + Constants.EXTENSION_PARTY_FILE);
-		}
-		if (file.isDirectory())
-		{
-			showErrorMessage(
-				Constants.APPLICATION_NAME, LanguageBundle.getString("in_savePcDirOverwrite")); //$NON-NLS-1$
-			return showSavePartyChooser();
 		}
 		if (file.exists())
 		{
@@ -915,27 +920,27 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		{
 			parentPath = context.getProperty(PCGenSettings.PCG_SAVE_PATH);
 		}
-		chooser.setCurrentDirectory(new File(parentPath));
-		File file = character.getFileRef().get();
-		File prevFile = file;
-		if (file == null || StringUtils.isEmpty(file.getName()))
-		{
-			file = new File(parentPath, character.getNameRef().get() + Constants.EXTENSION_CHARACTER_FILE);
-		}
-		chooser.setSelectedFile(file);
 
-		chooser.resetChoosableFileFilters();
-		FileFilter filter = new FileNameExtensionFilter("Pcg files only", "pcg");
-		chooser.addChoosableFileFilter(filter);
-		chooser.setFileFilter(filter);
-		int ret = chooser.showSaveDialog(this);
-		if (ret == JFileChooser.APPROVE_OPTION)
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Save PCGen Character File");
+		FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter(
+				"character files only", '*' + Constants.EXTENSION_CHARACTER_FILE
+		);
+		fileChooser.getExtensionFilters().add(extensionFilter);
+		fileChooser.setSelectedExtensionFilter(extensionFilter);
+
+		File prevFile = character.getFileRef().get();
+		if (prevFile == null || StringUtils.isEmpty(prevFile.getName()))
 		{
-			file = chooser.getSelectedFile();
-			if (!file.getName().endsWith(Constants.EXTENSION_CHARACTER_FILE))
-			{
-				file = new File(file.getParent(), file.getName() + Constants.EXTENSION_CHARACTER_FILE);
-			}
+			fileChooser.setInitialDirectory(new File(parentPath));
+			fileChooser.setInitialFileName(character.getNameRef().get() + Constants.EXTENSION_CHARACTER_FILE);
+		}
+
+		File file = CompletableFuture.supplyAsync(() ->
+				fileChooser.showOpenDialog(null), Platform::runLater).join();
+
+		if (file != null)
+		{
 			UIDelegate delegate = character.getUIDelegate();
 			if (file.isDirectory())
 			{
@@ -967,7 +972,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 					return showSaveCharacterChooser(character);
 				}
 
-				lastCharacterPath = chooser.getCurrentDirectory().toString();
+				lastCharacterPath = file.getParent();
 				return true;
 			}
 			catch (Exception e)
@@ -1003,7 +1008,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				}
 				else
 				{
-					createNewCharacter();
+					createNewCharacter(null);
 				}
 			}
 		}
@@ -1012,48 +1017,51 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 
 	void showOpenCharacterChooser()
 	{
-		PCGenSettings context = PCGenSettings.getInstance();
+		PropertyContext context = PCGenSettings.getInstance();
 		String path = lastCharacterPath;
 		if (path == null)
 		{
 			path = context.getProperty(PCGenSettings.PCG_SAVE_PATH);
 		}
-		chooser.setCurrentDirectory(new File(path));
-		chooser.setSelectedFile(new File("")); //$NON-NLS-1$
 
-		chooser.resetChoosableFileFilters();
-		FileFilter filter = new FileNameExtensionFilter("Pcg files only", "pcg");
-		chooser.addChoosableFileFilter(filter);
-		chooser.setFileFilter(filter);
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Open PCGen Character");
+		fileChooser.setInitialDirectory(new File(path));
 
-		int ret = chooser.showOpenDialog(this);
-		if (ret == JFileChooser.APPROVE_OPTION)
+		FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter(
+				"character files only", '*' + Constants.EXTENSION_CHARACTER_FILE
+		);
+		fileChooser.getExtensionFilters().add(extensionFilter);
+		fileChooser.setSelectedExtensionFilter(extensionFilter);
+
+		File file = CompletableFuture.supplyAsync(() ->
+				fileChooser.showOpenDialog(null), Platform::runLater).join();
+		if (file != null)
 		{
-			File file = chooser.getSelectedFile();
+			lastCharacterPath = file.getAbsoluteFile().getParent();
 			loadCharacterFromFile(file);
-			lastCharacterPath = chooser.getCurrentDirectory().toString();
 		}
 	}
 
 	void showOpenPartyChooser()
 	{
-		PCGenSettings context = PCGenSettings.getInstance();
-		chooser.setCurrentDirectory(new File(context.getProperty(PCGenSettings.PCP_SAVE_PATH)));
-		chooser.resetChoosableFileFilters();
-		chooser.setFileFilter(new FileNameExtensionFilter("Pcp files only", "pcp"));
+		PropertyContext context = PCGenSettings.getInstance();
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Open PCGen Party File");
+		fileChooser.setInitialDirectory(new File(context.getProperty(PCGenSettings.PCP_SAVE_PATH)));
 
-		int returnVal = chooser.showOpenDialog(this);
+		FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter(
+				"party files only", "*.pcp"
+		);
+		fileChooser.getExtensionFilters().add(extensionFilter);
+		fileChooser.setSelectedExtensionFilter(extensionFilter);
 
-		if (returnVal == JFileChooser.APPROVE_OPTION)
+		File file = CompletableFuture.supplyAsync(() ->
+				fileChooser.showOpenDialog(null), Platform::runLater).join();
+		if (file != null)
 		{
-			File file = chooser.getSelectedFile();
 			loadPartyFromFile(file);
 		}
-	}
-
-	public void createNewCharacter()
-	{
-		createNewCharacter(null);
 	}
 
 	/**
@@ -1061,7 +1069,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	 * then sets the character as the currently selected character
 	 * @param file the File for this character
 	 */
-	private void createNewCharacter(File file)
+	void createNewCharacter(File file)
 	{
 		DataSetFacade data = getLoadedDataSetRef().get();
 		CharacterFacade character = CharacterManager.createNewCharacter(this, data);
@@ -1800,9 +1808,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		aFrame.setVisible(true);
 	}
 
-	public void showAboutDialog()
+	void showAboutDialog()
 	{
-		new AboutDialog(this).setVisible(true);
+		new AboutDialog();
 	}
 
 	@Override

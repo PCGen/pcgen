@@ -24,12 +24,12 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.concurrent.CompletableFuture;
 
+import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -40,6 +40,10 @@ import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
+import pcgen.system.PropertyContext;
+
+import javafx.application.Platform;
+import javafx.stage.DirectoryChooser;
 
 /**
  * The Class {@code SourceSelectionPanel} gathers the source
@@ -128,41 +132,24 @@ public class SourceSelectionPanel extends ConvertSubPanel
 
 		JButton button = new JButton("Browse...");
 		button.setMnemonic('r');
-		button.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent arg0)
+		button.addActionListener(arg0 -> {
+			DirectoryChooser directoryChooser = new DirectoryChooser();
+			directoryChooser.setInitialDirectory(SourceFolder.OTHER.getFile());
+			directoryChooser.showDialog(null);
+			directoryChooser.setTitle("Please select the Source Directory to Convert");
+
+			File file = CompletableFuture.supplyAsync(() ->
+					directoryChooser.showDialog(null), Platform::runLater).join();
+			if (file != null)
 			{
-				JFileChooser chooser = new JFileChooser(SourceFolder.OTHER.getFile());
-				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				chooser.setDialogType(JFileChooser.OPEN_DIALOG);
-				chooser.setSelectedFile(path);
-				while (true)
-				{
-					int open = chooser.showOpenDialog(null);
-					if (open == JFileChooser.APPROVE_OPTION)
-					{
-						File fileToOpen = chooser.getSelectedFile();
-						if (fileToOpen.isDirectory())
-						{
-							path = fileToOpen;
-							SourceFolder.OTHER.setFile(fileToOpen);
-							pc.put(ObjectKey.DIRECTORY, path);
-							PCGenSettings context = PCGenSettings.getInstance();
-							context.setProperty(PCGenSettings.CONVERT_INPUT_PATH, path.getAbsolutePath());
-							JRadioButton button = radioButtons[SourceFolder.OTHER.ordinal()];
-							button.setSelected(true);
-							button.setText(buildFolderText(SourceFolder.OTHER, fileToOpen.getAbsolutePath()));
-							break;
-						}
-						JOptionPane.showMessageDialog(null, "Selection must be a valid Directory");
-						chooser.setSelectedFile(path);
-					}
-					else if (open == JFileChooser.CANCEL_OPTION)
-					{
-						break;
-					}
-				}
+				this.path = file;
+				SourceFolder.OTHER.setFile(file);
+				pc.put(ObjectKey.DIRECTORY, path);
+				PropertyContext context = PCGenSettings.getInstance();
+				context.setProperty(PCGenSettings.CONVERT_INPUT_PATH, path.getAbsolutePath());
+				AbstractButton button1 = radioButtons[SourceFolder.OTHER.ordinal()];
+				button1.setSelected(true);
+				button1.setText(buildFolderText(SourceFolder.OTHER, file.getAbsolutePath()));
 			}
 		});
 
@@ -286,7 +273,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 	 * @param path The path to be shown.
 	 * @return The new html label text
 	 */
-	private String buildFolderText(SourceFolder folder, String path)
+	private static String buildFolderText(SourceFolder folder, String path)
 	{
 		return "<html><b>" + folder.getTitle() + ":</b> " + path + "</html>";
 	}

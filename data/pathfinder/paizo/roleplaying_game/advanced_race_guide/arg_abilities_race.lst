@@ -1674,3 +1674,78 @@ Gutter Rat		KEY:Human Racial Subtype ~ Gutter Rat		CATEGORY:Special Ability	TYPE
 Imperious Human	KEY:Human Racial Subtype ~ Imperious Human	CATEGORY:Special Ability	TYPE:Human Racial Subtype.SpecialQuality		DESC:Hailing from either an empire, an emerging nation, or a controlling city-state, these humans are arrogant expansionists, absorbing others to their causes and culture. Replace the skilled racial trait with silver tongued and the bonus feat racial trait with eye for talent.																																														TEMPLATE:Imperious Human	ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Eye for Talent	ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Silver Tongued																									SOURCEPAGE:p.
 Trailblazer		KEY:Human Racial Subtype ~ Trailblazer		CATEGORY:Special Ability	TYPE:Human Racial Subtype.SpecialQuality		DESC:Adaptive and inventive, these humans must have quick wits and a dose of heroic luck to survive in the lands they settle. Replace the skilled racial trait with heart of the wilderness and the bonus feat racial trait with heroic. At the GM's discretion, you can swap out the heart of the wilderness racial trait for either heart of the mountains, heart of the sea, heart of the snows, or heart of the sun, depending on the type of terrain these humans are settling.														TEMPLATE:Trailblazer																																														SOURCEPAGE:p.
 Versatile Human	KEY:Human Racial Subtype ~ Versatile Human	CATEGORY:Special Ability	TYPE:Human Racial Subtype.SpecialQuality		DESC:While they lack some of the training of other humans, the natural talents of versatile humans more than make up for this lack. Replace the +2 bonus to any ability score, the skilled racial trait, and the bonus feat racial trait with dual talent.																																																			TEMPLATE:Versatile Human	ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Dual Talent																																			SOURCEPAGE:p.
+
+
+###Block: Adoptive Race
+Aasimar		KEY:Adopted Race ~ Aasimar			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=AasimarTrait		ABILITY:Traits|VIRTUAL|%LIST
+Catfolk		KEY:Adopted Race ~ Catfolk			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=CatfolkTrait		ABILITY:Traits|VIRTUAL|%LIST
+Changeling		KEY:Adopted Race ~ Changeling			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=ChangelingTrait	ABILITY:Traits|VIRTUAL|%LIST
+Dhampir		KEY:Adopted Race ~ Dhampir			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=DhampirTrait		ABILITY:Traits|VIRTUAL|%LIST
+Duergar		KEY:Adopted Race ~ Duergar			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=DuergarTrait		ABILITY:Traits|VIRTUAL|%LIST
+Drow			KEY:Adopted Race ~ Drow				CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=DrowTrait		ABILITY:Traits|VIRTUAL|%LIST
+Fetchling		KEY:Adopted Race ~ Fetchling			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=FetchlingTrait		ABILITY:Traits|VIRTUAL|%LIST
+Goblin		KEY:Adopted Race ~ Goblin			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=GoblinTrait		ABILITY:Traits|VIRTUAL|%LIST
+Hobgoblin		KEY:Adopted Race ~ Hobgoblin			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=HobgoblinTrait		ABILITY:Traits|VIRTUAL|%LIST
+Ifrit			KEY:Adopted Race ~ Ifrit			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=IfritTrait		ABILITY:Traits|VIRTUAL|%LIST
+Kobold		KEY:Adopted Race ~ Kobold			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=KoboldTrait		ABILITY:Traits|VIRTUAL|%LIST
+Orc			KEY:Adopted Race ~ Orc				CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=OrcTrait			ABILITY:Traits|VIRTUAL|%LIST
+Oread			KEY:Adopted Race ~ Oread			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=OreadTrait		ABILITY:Traits|VIRTUAL|%LIST
+Ratfolk		KEY:Adopted Race ~ Ratfolk			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=RatfolkTrait		ABILITY:Traits|VIRTUAL|%LIST
+Sylph			KEY:Adopted Race ~ Sylph			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=SylphTrait		ABILITY:Traits|VIRTUAL|%LIST
+Tengu			KEY:Adopted Race ~ Tengu			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=TenguTrait		ABILITY:Traits|VIRTUAL|%LIST
+Tiefling		KEY:Adopted Race ~ Tiefling			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=TieflingTrait		ABILITY:Traits|VIRTUAL|%LIST
+Undine		KEY:Adopted Race ~ Undine			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=UndineTrait		ABILITY:Traits|VIRTUAL|%LIST
+Gillman		KEY:Adopted Race ~ Gillman			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=GillmanTrait		ABILITY:Traits|VIRTUAL|%LIST
+Grippli		KEY:Adopted Race ~ Grippli			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=GrippliTrait		ABILITY:Traits|VIRTUAL|%LIST
+Kitsune		KEY:Adopted Race ~ Kitsune			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=KitsuneTrait		ABILITY:Traits|VIRTUAL|%LIST
+Merfolk		KEY:Adopted Race ~ Merfolk			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=MerfolkTrait		ABILITY:Traits|VIRTUAL|%LIST
+Nagaji		KEY:Adopted Race ~ Nagaji			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=NagajiTrait		ABILITY:Traits|VIRTUAL|%LIST
+Samsaran		KEY:Adopted Race ~ Samsaran			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=SamsaranTrait		ABILITY:Traits|VIRTUAL|%LIST
+Strix			KEY:Adopted Race ~ Strix			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=StrixTrait		ABILITY:Traits|VIRTUAL|%LIST
+Suli			KEY:Adopted Race ~ Suli				CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=SuliTrait		ABILITY:Traits|VIRTUAL|%LIST
+Svirfneblin		KEY:Adopted Race ~ Svirfneblin		CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=SvirfneblinTrait	ABILITY:Traits|VIRTUAL|%LIST
+Vanara		KEY:Adopted Race ~ Vanara			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=VanaraTrait		ABILITY:Traits|VIRTUAL|%LIST
+Vishkanya		KEY:Adopted Race ~ Vishkanya			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=VishkanyaTrait		ABILITY:Traits|VIRTUAL|%LIST
+Wayang		KEY:Adopted Race ~ Wayang			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=WayangTrait		ABILITY:Traits|VIRTUAL|%LIST
+Gathlain		KEY:Adopted Race ~ Gathlain			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=GathlainTrait		ABILITY:Traits|VIRTUAL|%LIST
+Trox			KEY:Adopted Race ~ Trox				CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=TroxTrait		ABILITY:Traits|VIRTUAL|%LIST
+Wyrwood		KEY:Adopted Race ~ Wyrwood			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=WyrwoodTrait		ABILITY:Traits|VIRTUAL|%LIST
+Wyvaran		KEY:Adopted Race ~ Wyvaran			CATEGORY:Special Ability	TYPE:AdoptiveRace		DESC:No Selection		MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=WyvaranTrait		ABILITY:Traits|VIRTUAL|%LIST
+
+###Block: Placeholder
+No Race Trait Available	KEY:No Race Trait Available	CATEGORY:Special Ability
+#
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:AasimarTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:CatfolkTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:ChangelingTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:DhampirTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:DrowTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:DuergarTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:FetchlingTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:GathlainTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:GillmanTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:GoblinTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:GrippliTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:HobgoblinTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:IfritTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:KitsuneTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:KoboldTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:MerfolkTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:NagajiTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:OrcTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:OreadTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:RatfolkTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:SamsaranTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:StrixTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:SuliTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:SvirfneblinTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:SylphTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:TenguTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:TieflingTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:TroxTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:UndineTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:VanaraTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:VishkanyaTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:WayangTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:WyrwoodTrait
+CATEGORY=Special Ability|No Race Trait Available.MOD	TYPE:WyvaranTrait

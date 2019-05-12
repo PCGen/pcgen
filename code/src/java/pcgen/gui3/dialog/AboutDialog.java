@@ -16,46 +16,49 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-package pcgen.gui3.preloader;
+package pcgen.gui3.dialog;
 
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
-import pcgen.system.PCGenTaskEvent;
-import pcgen.system.PCGenTaskListener;
-import pcgen.system.ProgressContainer;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 /**
- * This is the application logic for the "Splash Screen" when loading PCGEn
- * It isn't directly the controller for the UI, but interacts the view
- * and interacts with the controller.
- * Once we're 100% on JavaFX can possibly be replaced with the native Preloader,
- * but requires thought.
+ * This is the application logic for the "About Dialog"
  *
  * @see pcgen.gui3.JFXPanelFromResource
  */
-public class PCGenPreloader implements PCGenTaskListener
+public class AboutDialog
 {
 
 	private final FXMLLoader loader = new FXMLLoader();
 	private Stage primaryStage;
 
 
-	public PCGenPreloader()
+	public AboutDialog()
 	{
-		loader.setLocation(getClass().getResource("PCGenPreloader.fxml"));
+		loader.setResources(LanguageBundle.getBundle());
+		loader.setLocation(getClass().getResource("AboutDialog.fxml"));
 		Platform.runLater(() -> {
 			primaryStage = new Stage();
 			final Scene scene;
 			try
 			{
 				scene = loader.load();
+				scene.addEventHandler(KeyEvent.KEY_PRESSED, keyEvent -> {
+					if(keyEvent.getCode()== KeyCode.ESCAPE)
+					{
+						primaryStage.close();
+					}
+				});
 			} catch (IOException e)
 			{
 				Logging.errorPrint("failed to load preloader", e);
@@ -63,41 +66,20 @@ public class PCGenPreloader implements PCGenTaskListener
 			}
 
 			primaryStage.setScene(scene);
-			primaryStage.show();
+			primaryStage.sizeToScene();
+			primaryStage.showAndWait();
 		});
 	}
+
 
 	/**
 	 * @return the controller for the preloader
 	 */
-	public PCGenPreloaderController getController()
+	public AboutDialogController getController()
 	{
 		return CompletableFuture
-				.supplyAsync(loader::<PCGenPreloaderController>getController,
-						Platform::runLater)
+				.supplyAsync(loader::<AboutDialogController>getController)
 				.join();
 	}
 
-	@Override
-	public void progressChanged(final PCGenTaskEvent event)
-	{
-		ProgressContainer task = event.getSource();
-		getController().setProgress(task.getMessage(), task.getProgress() / (double)task.getMaximum());
-	}
-
-	@Override
-	public void errorOccurred(final PCGenTaskEvent event)
-	{
-		Logging.errorPrint("ignore this for now. Eventually do something useful");
-		throw new UnsupportedOperationException("Not supported yet.");
-
-	}
-
-	/**
-	 * indicates that preloading is done. splash screen should "go away"
-	 */
-	public void done()
-	{
-		Platform.runLater(() -> primaryStage.close());
-	}
 }

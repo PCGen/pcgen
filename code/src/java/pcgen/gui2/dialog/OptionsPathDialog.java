@@ -26,12 +26,12 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.concurrent.CompletableFuture;
 
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -43,6 +43,8 @@ import javax.swing.WindowConstants;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.ConfigurationSettings.SettingsFilesPath;
 
+import javafx.application.Platform;
+import javafx.stage.DirectoryChooser;
 import org.apache.commons.lang3.SystemUtils;
 
 public final class OptionsPathDialog extends JDialog
@@ -176,15 +178,14 @@ public final class OptionsPathDialog extends JDialog
 			String command = e.getActionCommand();
 			if (command.equals("custom"))
 			{
-				JFileChooser fc = new JFileChooser(dirField.getText());
+				DirectoryChooser directoryChooser = new DirectoryChooser();
+				directoryChooser.setInitialDirectory(new File(dirField.getText()));
 
-				fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+				File dir = CompletableFuture.supplyAsync(() ->
+						directoryChooser.showDialog(null), Platform::runLater).join();
 
-				final int rVal = fc.showOpenDialog(null);
-
-				if (rVal == JFileChooser.APPROVE_OPTION)
+				if (dir != null)
 				{
-					File dir = fc.getSelectedFile();
 					if (dir.listFiles().length > 0)
 					{
 						int confirm = JOptionPane.showConfirmDialog(rootPane,
@@ -195,7 +196,7 @@ public final class OptionsPathDialog extends JDialog
 							return;
 						}
 					}
-					selectedDir = String.valueOf(fc.getSelectedFile());
+					selectedDir = dir.getAbsolutePath();
 					dirField.setText(selectedDir);
 				}
 			}

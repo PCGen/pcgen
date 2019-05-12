@@ -20,7 +20,6 @@ package plugin.notes.gui;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Cursor;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.dnd.DropTargetAdapter;
@@ -43,7 +42,9 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Objects;
 import java.util.Vector;
+import java.util.concurrent.CompletableFuture;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -55,7 +56,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -74,8 +74,6 @@ import javax.swing.event.TreeModelListener;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.event.UndoableEditEvent;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultEditorKit;
@@ -100,7 +98,6 @@ import gmgen.GMGenSystemView;
 import gmgen.gui.ExtendedHTMLDocument;
 import gmgen.gui.ExtendedHTMLEditorKit;
 import gmgen.gui.FlippingSplitPane;
-import gmgen.gui.ImageFileChooserPreview;
 import gmgen.util.LogReceiver;
 import gmgen.util.LogUtilities;
 import pcgen.cdom.base.Constants;
@@ -110,6 +107,9 @@ import pcgen.gui2.tools.Icons;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import plugin.notes.NotesPlugin;
+
+import javafx.application.Platform;
+import javafx.stage.FileChooser;
 
 /**
  *  This class is the main view for the Notes Plugin. Mostof the work is done
@@ -218,7 +218,7 @@ public class NotesView extends JPanel
 	 *@param  name           name of the action to get
 	 *@return                the action
 	 */
-	private Action getActionByName(JTextComponent textComponent, String name)
+	private static Action getActionByName(JTextComponent textComponent, String name)
 	{
 		// TODO: This should be static in a GUIUtilities file
 		for (Action a : textComponent.getActions())
@@ -232,11 +232,10 @@ public class NotesView extends JPanel
 		return null;
 	}
 
-	private static FileFilter getFileType()
+	private static FileChooser.ExtensionFilter getFileType()
 	{
-		return new FileNameExtensionFilter(LanguageBundle.getString("in_plugin_notes_file"),
-			NotesPlugin.EXTENSION_NOTES);
-
+		return new FileChooser.ExtensionFilter(LanguageBundle.getString("in_plugin_notes_file"),
+				'*' + NotesPlugin.EXTENSION_NOTES);
 	}
 
 	/**
@@ -247,21 +246,18 @@ public class NotesView extends JPanel
 	{
 		// TODO fix
 		String sFile = SettingsHandler.getGMGenOption(OPTION_NAME_LASTFILE, System.getProperty("user.dir"));
+
+		FileChooser fileChooser = new FileChooser();
+
 		File defaultFile = new File(sFile);
-		JFileChooser chooser = new JFileChooser();
-		chooser.setCurrentDirectory(defaultFile);
-		chooser.addChoosableFileFilter(getFileType());
-		chooser.setFileFilter(getFileType());
-		chooser.setMultiSelectionEnabled(true);
-		Component component = GMGenSystem.inst;
-		Cursor originalCursor = component.getCursor();
-		component.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-
-		int option = chooser.showOpenDialog(GMGenSystem.inst);
-
-		if (option == JFileChooser.APPROVE_OPTION)
+		fileChooser.setInitialDirectory(defaultFile);
+		FileChooser.ExtensionFilter extensionFilter = getFileType();
+		fileChooser.getExtensionFilters().add(extensionFilter);
+		fileChooser.setSelectedExtensionFilter(extensionFilter);
+		Iterable<File> selectedFiles = fileChooser.showOpenMultipleDialog(null);
+		if (selectedFiles != null)
 		{
-			for (File noteFile : chooser.getSelectedFiles())
+			for (File noteFile : selectedFiles)
 			{
 				SettingsHandler.setGMGenOption(OPTION_NAME_LASTFILE, noteFile.toString());
 
@@ -272,7 +268,6 @@ public class NotesView extends JPanel
 			}
 		}
 
-		GMGenSystem.inst.setCursor(originalCursor);
 		refreshTree();
 	}
 
@@ -388,28 +383,24 @@ public class NotesView extends JPanel
 	 */
 	private void exportFile(NotesTreeNode node)
 	{
-		JFileChooser fLoad = new JFileChooser();
+		FileChooser fileChooser = new FileChooser();
 		String sFile = SettingsHandler.getGMGenOption(OPTION_NAME_LASTFILE, "");
-		new File(sFile);
+		File defaultFile = new File(sFile);
+		fileChooser.setInitialDirectory(defaultFile.getParentFile());
+		FileChooser.ExtensionFilter extensionFilter = getFileType();
+		fileChooser.getExtensionFilters().add(extensionFilter);
+		fileChooser.setSelectedExtensionFilter(extensionFilter);
 
-		FileFilter ff = getFileType();
-		fLoad.addChoosableFileFilter(ff);
-		fLoad.setFileFilter(ff);
 
-		int returnVal = fLoad.showSaveDialog(this);
+		File file = CompletableFuture.supplyAsync(() ->
+		fileChooser.showSaveDialog(null), Platform::runLater).join();
 
 		try
 		{
-			if (returnVal == JFileChooser.APPROVE_OPTION)
+			if (file != null)
 			{
-				String fileName = fLoad.getSelectedFile().getName();
-				String dirName = fLoad.getSelectedFile().getParent();
-
-				String extension = EXTENSION;
-				if (fileName.indexOf(extension) < 0)
-				{
-					fileName += extension;
-				}
+				String fileName = file.getName();
+				String dirName = file.getParent();
 
 				File expFile = new File(dirName + File.separator + fileName);
 
@@ -442,15 +433,15 @@ public class NotesView extends JPanel
 	 *@param  count  File to count the children of
 	 *@return        count of all files in this dir
 	 */
-	private int fileCount(File count)
+	private static int fileCount(File count)
 	{
-		// TODO: Shouldn't this really be a static method in MiscUtils?
+		// TODO: Shouldn't this really be in FileUtils?
 		int num = 0;
-		for (File f : count.listFiles())
+		for (File f : Objects.requireNonNull(count.listFiles()))
 		{
 			if (f.isDirectory())
 			{
-				num = num + fileCount(f);
+				num += fileCount(f);
 			}
 			else
 			{
@@ -467,7 +458,7 @@ public class NotesView extends JPanel
 	 *
 	 *@param  button  Button to highlight
 	 */
-	private void highlightButton(JButton button)
+	private static void highlightButton(JButton button)
 	{
 		button.setBorder(new BevelBorder(BevelBorder.LOWERED));
 	}
@@ -509,24 +500,15 @@ public class NotesView extends JPanel
 	 *@param  entry            Description of the Parameter
 	 *@exception  IOException  read or write error
 	 */
-	private void unzip(ZipInputStream zin, String entry, File homeDir) throws IOException
+	private static void unzip(ZipInputStream zin, String entry, File homeDir) throws IOException
 	{
-		// TODO: This function really should be in MiscUtils as a static
+		// TODO: This function really should be in FileUtils
 		File outFile = new File(homeDir.getPath() + File.separator + entry);
 		File parentDir = outFile.getParentFile();
 		parentDir.mkdirs();
 		outFile.createNewFile();
 
-		FileOutputStream out = new FileOutputStream(outFile);
-		byte[] b = new byte[512];
-		int len = 0;
-
-		while ((len = zin.read(b)) != -1)
-		{
-			out.write(b, 0, len);
-		}
-
-		out.close();
+		Files.copy(zin, outFile.toPath());
 	}
 
 	//Methods for dealing with button appearance
@@ -614,7 +596,11 @@ public class NotesView extends JPanel
 	 *@return                  current progress
 	 *@exception  IOException  write or read failed for some reason
 	 */
-	private int writeNotesDir(ZipOutputStream out, File parentDir, File currentDir, ProgressMonitor pm, int progress)
+	private static int writeNotesDir(ZipOutputStream out,
+	                                 File parentDir,
+	                                 File currentDir,
+	                                 ProgressMonitor pm,
+	                                 int progress)
 		throws IOException
 	{
 		int returnValue = progress;
@@ -655,7 +641,7 @@ public class NotesView extends JPanel
 	 *@param  node             node to export
 	 *@exception  IOException  file write failed for some reason
 	 */
-	private void writeNotesFile(File exportFile, NotesTreeNode node) throws IOException
+	private static void writeNotesFile(File exportFile, NotesTreeNode node) throws IOException
 	{
 		File dir = node.getDir();
 
@@ -696,30 +682,26 @@ public class NotesView extends JPanel
 	}
 
 	/**
-	 *  obtains an Image for input using a custom JFileChooser dialog
+	 *  obtains an Image for input
 	 *
-	 *@param  startDir  Directory to open JFielChooser to
+	 *@param  startDir  Directory to open
 	 *@param  exts      Extensions to search for
 	 *@param  desc      Description for files
 	 *@return           File pointing to the selected image
 	 */
-	private File getImageFromChooser(String startDir, String[] exts, String desc)
+	private static File getImageFromChooser(String startDir, String[] exts, String desc)
 	{
-		JFileChooser jImageDialog = new JFileChooser();
-		jImageDialog.setCurrentDirectory(new File(startDir));
-		jImageDialog.setAccessory(new ImageFileChooserPreview(jImageDialog));
-		jImageDialog.setDialogType(JFileChooser.CUSTOM_DIALOG);
-		jImageDialog.setFileFilter(new FileNameExtensionFilter(desc, exts));
-		jImageDialog.setDialogTitle("Select an Image to Insert");
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setInitialDirectory(new File(startDir));
+		fileChooser.setTitle("Select an Image to Insert");
 
-		int optionSelected = jImageDialog.showDialog(this, "Insert");
+		FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter(desc, exts);
+		fileChooser.getExtensionFilters().add(extensionFilter);
+		fileChooser.setSelectedExtensionFilter(extensionFilter);
 
-		if (optionSelected == JFileChooser.APPROVE_OPTION)
-		{
-			return jImageDialog.getSelectedFile();
-		}
+		return CompletableFuture.supplyAsync(() ->
+				fileChooser.showSaveDialog(null), Platform::runLater).join();
 
-		return null;
 	}
 
 	private void notesTreeNodesChanged()
