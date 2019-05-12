@@ -27,7 +27,7 @@ CLASS:Hellknight	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Heavy)	PREALIGN:L
 CLASS:Hellknight	STARTSKILLPTS:2	CSKILL:Intimidate|Knowledge (Local)|Perception|Ride|Sense Motive
 ###Block: Level Progression
 1									BONUS:VAR|AuraLawLVL|TL-AlignmentAuraLVL				ABILITY:Special Ability|AUTOMATIC|Aura of Law
-1	BONUS:ABILITYPOOL|Hellknight Order|1		BONUS:VAR|HKSmiteTimes|(CL+2)/3					ABILITY:Special Ability|AUTOMATIC|Detect Chaos ~ HK|Smite Chaos ~ HK
+1	BONUS:ABILITYPOOL|Hellknight Order|1|TYPE=Base	BONUS:VAR|HKSmiteTimes|(CL+2)/3					ABILITY:Special Ability|AUTOMATIC|Detect Chaos ~ HK|Smite Chaos ~ HK
 2																			ABILITY:Special Ability|AUTOMATIC|Discern Lies ~ HK|PREVARGT:3+CHA,0
 2									BONUS:VAR|HellknightArmorLVL|CL					ABILITY:Special Ability|AUTOMATIC|Hellknight Armor ~ HK
 3	BONUS:ABILITYPOOL|Hellknight Force of Will 1|1	BONUS:VAR|HKDiscipline|CL/3	BONUS:VAR|HKForceOfWill|CL/3	ABILITY:Special Ability|AUTOMATIC|Discipline ~ HK|Force of Will ~ HK

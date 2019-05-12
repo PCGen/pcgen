@@ -173,7 +173,7 @@ CLASS:Hellknight	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Heavy)	PREALIGN:L
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hellknight	STARTSKILLPTS:2	CSKILL:Intimidate|Knowledge (Local)|Perception|Ride|Sense Motive
 ###Block: Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Aura of Law|Detect Chaos ~ HK|Smite Chaos ~ HK									BONUS:ABILITYPOOL|Hellknight Order|1		BONUS:VAR|AlignmentAuraLVL|HellknightLVL	BONUS:VAR|HKSmiteTimes|(CL+2)/3
+1	ABILITY:Special Ability|AUTOMATIC|Aura of Law|Detect Chaos ~ HK|Smite Chaos ~ HK									BONUS:ABILITYPOOL|Hellknight Order|1|TYPE=Base	BONUS:VAR|AlignmentAuraLVL|HellknightLVL	BONUS:VAR|HKSmiteTimes|(CL+2)/3
 2	ABILITY:Special Ability|AUTOMATIC|Discern Lies ~ HK|PREVARGT:3+CHA,0	ABILITY:Special Ability|AUTOMATIC|Hellknight Armor ~ HK									BONUS:VAR|HellknightArmorLVL|CL
 3	ABILITY:Special Ability|AUTOMATIC|Discipline ~ HK|Force of Will ~ HK											BONUS:ABILITYPOOL|Hellknight Force of Will 1|1	BONUS:VAR|HKDiscipline|CL/3			BONUS:VAR|HKForceOfWill|CL/3
 6																							BONUS:ABILITYPOOL|Hellknight Force of Will 2|1
@@ -189,7 +189,7 @@ CLASS:Hellknight Signifer	PREALIGN:LG,LN,LE	PREABILITY:1,CATEGORY=FEAT,Armor Pro
 # Class Name				Skill Pts/Lvl		Class Skill
 CLASS:Hellknight Signifer	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Linguistics|TYPE=Knowledge|TYPE=Profession|Sense Motive|Spellcraft	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Heavy
 ###Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Aura of Law|Hellknight Signifer ~ Catechesis|Hellknight Signifer ~ Signifer Mask	BONUS:ABILITYPOOL|Hellknight Order|1		BONUS:VAR|AlignmentAuraLVL|HellknightSigniferLVL
+1	ABILITY:Special Ability|AUTOMATIC|Aura of Law|Hellknight Signifer ~ Catechesis|Hellknight Signifer ~ Signifer Mask	BONUS:ABILITYPOOL|Hellknight Order|1|TYPE=Base	BONUS:VAR|AlignmentAuraLVL|HellknightSigniferLVL
 2	ABILITY:Special Ability|AUTOMATIC|Hellknight Signifer ~ Arcane Armor Expertise
 3	ABILITY:Special Ability|AUTOMATIC|Hellknight Signifer ~ Signifer Armor Training
 4	ABILITY:Special Ability|AUTOMATIC|Hellknight Signifer ~ Assiduous Gaze
