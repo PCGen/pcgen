@@ -253,35 +253,34 @@ WEAPONCATEGORY:Starship Weapons
 # Non-proficient penalty
 WEAPONNONPROFPENALTY:-4
 
+# Number of hands required to wield weapon categories
 # MUST KEEP "Light" for the Unarmed Attack to Work
 
-WIELDCATEGORY:Wieldable	
-WIELDCATEGORY:TooSmall	
-WIELDCATEGORY:TooLarge	
-
-WIELDCATEGORY:None	
-WIELDCATEGORY:Light	
-WIELDCATEGORY:OneHanded	
-WIELDCATEGORY:TwoHanded	
-WIELDCATEGORY:OneHandOnly
-WIELDCATEGORY:TwoHandsOnly	
+WIELDCATEGORY:None				HANDS:0
+WIELDCATEGORY:Light				HANDS:1
+WIELDCATEGORY:OneHanded				HANDS:1					
+WIELDCATEGORY:TwoHanded				HANDS:2					
+WIELDCATEGORY:OneHandOnly			HANDS:1
+WIELDCATEGORY:TwoHandsOnly			HANDS:2
 
 
 
-WIELDCATEGORY:Starship_1			
-WIELDCATEGORY:Starship_2			
-WIELDCATEGORY:Starship_3			
-WIELDCATEGORY:Starship_4			
-WIELDCATEGORY:Starship_5			
+WIELDCATEGORY:Starship_1			HANDS:1
+WIELDCATEGORY:Starship_2			HANDS:2
+WIELDCATEGORY:Starship_3			HANDS:3
+WIELDCATEGORY:Starship_4			HANDS:4
+WIELDCATEGORY:Starship_5			HANDS:5
 
 
 
 #
-WIELDCATEGORY:TwoHandsOnlyTooSmall		
-WIELDCATEGORY:TwoHandsOnlyTooLarge		
-WIELDCATEGORY:OneHandOnlyTooSmall		
-WIELDCATEGORY:OneHandOnlyTooLarge		
-WIELDCATEGORY:Unusable				
+WIELDCATEGORY:TwoHandsOnlyTooSmall		HANDS:999
+WIELDCATEGORY:TwoHandsOnlyTooLarge		HANDS:999
+WIELDCATEGORY:OneHandOnlyTooSmall		HANDS:999
+WIELDCATEGORY:OneHandOnlyTooLarge		HANDS:999
+WIELDCATEGORY:TooSmall				HANDS:999
+WIELDCATEGORY:TooLarge				HANDS:999
+WIELDCATEGORY:Unusable				HANDS:999
 
 # Rule - Small and Medium can weild weapons without Penalty or Change, however, Tiny or Large is -4, smaller or larger can't use
 
