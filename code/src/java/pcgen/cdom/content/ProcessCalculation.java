@@ -23,6 +23,8 @@ import pcgen.base.calculation.AbstractNEPCalculation;
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -101,5 +103,14 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 	public void getDependencies(DependencyManager fdm)
 	{
 		//Since this is direct (already has the object), it has no dependencies
+	}
+
+	@Override
+	public void isValid(FormulaSemantics semantics) throws SemanticsException
+	{
+		/*
+		 * Since this is direct (already has the object), it has no semantic issues
+		 * (barring someone violating Generics)
+		 */
 	}
 }

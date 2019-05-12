@@ -24,51 +24,13 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * WeightFacet is a Facet that tracks the Player Character's weight. Note that
  * this weight is the actual character weight, not the character plus the
  * character's equipment.
- * 
  */
 public class WeightFacet extends AbstractItemFacet<CharID, Integer>
 {
-	/*
-	 * TODO There seems to be some inlining that can occur here - what really is
-	 * the value of setWeight() vs. set() or removeWeight() vs. remove()?
-	 * 
-	 * The getWeight() I understand since it protects against null
-	 */
-
-	/**
-	 * Sets the weight of the Player Character represented by the given CharID
-	 * to the given value.
-	 * 
-	 * @param id
-	 *            The CharID representing the Player Character for which the
-	 *            weight will be set
-	 * @param weight
-	 *            The weight to set for the Player Character represented by the
-	 *            given CharID
-	 * @return
-	 * 			  true if the weight was set; false otherwise
-	 */
-	public boolean setWeight(CharID id, int weight)
-	{
-		return set(id, weight);
-	}
-
-	/**
-	 * Removes the weight for the Player Character represented by the given
-	 * CharID.
-	 * 
-	 * @param id
-	 *            The CharID representing the Player Character for which the
-	 *            weight will be removed
-	 */
-	public void removeWeight(CharID id)
-	{
-		remove(id);
-	}
 
 	/**
 	 * Returns the weight for the Player Character represented by the given
-	 * CharID
+	 * CharID. Null safe.
 	 * 
 	 * @param id
 	 *            The CharID of the Player Character for which the weight will
@@ -79,6 +41,6 @@ public class WeightFacet extends AbstractItemFacet<CharID, Integer>
 	public int getWeight(CharID id)
 	{
 		Integer weight = get(id);
-		return weight == null ? 0 : weight;
+		return (weight == null) ? 0 : weight;
 	}
 }

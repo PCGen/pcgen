@@ -15,11 +15,6 @@ ABILITYCATEGORY:Vishkanya Perform Skill Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDIT
 ABILITYCATEGORY:Umbral Scion Spell				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Umbral Scion Spell							PLURAL:Umbral Scion Spells				DISPLAYLOCATION:Feats
 
 
-###Block: Class Bonus Feat Categories
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object		Specific choices list					Plural description for UI		Display Location
-ABILITYCATEGORY:Imperious Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:ImperiousBloodline	ABILITYLIST:Skill Focus(Perform (Oratory))	PLURAL:Imperious Bloodline Feats	DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Kobold Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:FEAT		TYPE:KoboldBloodline									PLURAL:Kobold Bloodline Feats		DISPLAYLOCATION:Feats
-
 ###Block: Core Races ability categories
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
 ABILITYCATEGORY:Bond of the Land Terrain		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:GnomeBondTerrain			PLURAL:Bond of the Land Terrain Choices	DISPLAYLOCATION:Racial Abilities

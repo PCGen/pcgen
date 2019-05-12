@@ -101,7 +101,7 @@ public final class BioSetLoader extends LstLineFileLoader
 			AgeSet ageSet = new AgeSet();
 			ageSet.setSourceURI(sourceURI);
 			ageSet.setAgeIndex(currentAgeSetIndex);
-			ageSet.setName(colToken.nextToken().intern());
+			ageSet.setName(colToken.nextToken());
 			while (colToken.hasMoreTokens())
 			{
 				try
@@ -127,12 +127,12 @@ public final class BioSetLoader extends LstLineFileLoader
 		}
 		else if (lstLine.startsWith("REGION:"))
 		{
-			region = Optional.of(Region.getConstant(lstLine.substring(7).intern()));
+			region = Optional.of(Region.getConstant(lstLine.substring(7)));
 		}
 		else if (lstLine.startsWith("RACENAME:"))
 		{
 			StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
-			String raceName = colToken.nextToken().substring(9).intern();
+			String raceName = colToken.nextToken().substring(9);
 			List<String> preReqList = null;
 
 			while (colToken.hasMoreTokens())
@@ -165,7 +165,7 @@ public final class BioSetLoader extends LstLineFileLoader
 						aString = sBuf.toString();
 					}
 
-					bioSet.addToUserMap(region, raceName, aString.intern(), currentAgeSetIndex);
+					bioSet.addToUserMap(region, raceName, aString, currentAgeSetIndex);
 				}
 			}
 		}

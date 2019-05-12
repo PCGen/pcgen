@@ -19,7 +19,7 @@ package plugin.lsttokens.editcontext.pcclass.level;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Domain;

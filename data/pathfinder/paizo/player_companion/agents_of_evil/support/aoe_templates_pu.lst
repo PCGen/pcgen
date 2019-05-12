@@ -1,0 +1,4 @@
+SOURCELONG:Agents of Evil		SOURCESHORT:AoE	SOURCEWEB:https://paizo.com/products/btpy9he0	SOURCEDATE:2015-12
+
+Devil Imposter Fire Resistance	!PREABILITY:1,CATEGORY=Unchained Eidolon Evolution,Unchained Evolution ~ Resistance	ABILITY:Unchained Eidolon Evolution|AUTOMATIC|Unchained Evolution ~ Resistance	ABILITY:Unchained Eidolon Resistance|AUTOMATIC|Eidolon Resistance to fire	BONUS:VAR|Pool_EidolonResistance|-1
+Devil Imposter Fire Immunity	PREABILITY:1,CATEGORY=Unchained Eidolon Evolution,Unchained Evolution ~ Resistance	ABILITY:Unchained Eidolon Evolution|AUTOMATIC|Unchained Evolution ~ Immunity	ABILITY:Unchained Eidolon Immunity|AUTOMATIC|Eidolon Immunity to fire	BONUS:VAR|Pool_EidolonImmunity|-1	BONUS:VAR|RemoveEidolonResistanceForImmunity|1

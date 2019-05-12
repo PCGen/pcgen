@@ -185,17 +185,6 @@ public class FontManipulation
 	}
 
 	/**
-	 * For italic font.
-	 * 
-	 * @param f
-	 *            base font
-	 */
-	public static Font italic(Font f)
-	{
-		return f.deriveFont(Font.ITALIC);
-	}
-
-	/**
 	 * For bold italic font.
 	 * 
 	 * @param f

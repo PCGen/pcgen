@@ -68,14 +68,6 @@ public interface EquipmentBuilderFacade
 	public EquipmentFacade getEquipment();
 
 	/**
-	 * Is the modifier able to be added to the item of equipment?
-	 * @param eqMod The equipment modifier to be checked.
-	 * @param head The equipment head that is being modified.
-	 * @return True if it can be added, false if not.
-	 */
-	public boolean canAddModifier(EquipmentModifier eqMod, EquipmentHead head);
-
-	/**
 	 * Can this item of equipment be resized?
 	 * @return true if the item can be resized
 	 */

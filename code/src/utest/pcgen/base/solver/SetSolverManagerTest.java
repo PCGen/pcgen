@@ -54,7 +54,7 @@ import pcgen.cdom.content.ProcessCalculation;
 import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.local.ModifierDecoration;
 import pcgen.cdom.formula.scope.EquipmentScope;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.formula.scope.SkillScope;
 import pcgen.core.Skill;
@@ -72,7 +72,7 @@ import org.junit.jupiter.api.Test;
 class SetSolverManagerTest
 {
 
-	private final PCGenScope globalScope = new GlobalScope();
+	private final PCGenScope globalScope = new GlobalPCScope();
 	private TrackingVariableCache vc;
 	private ScopeManagerInst vsLib;
 	private VariableManager sl;
@@ -139,8 +139,7 @@ class SetSolverManagerTest
 		vc.reset();
 
 		ModifierFactory am1 = new plugin.modifier.set.AddModifierFactory<>();
-		FormulaModifier mod = am1.getModifier("France,England", managerFactory, null,
-			globalScope, arrayManager);
+		FormulaModifier mod = am1.getModifier("France,England", arrayManager);
 		mod.addAssociation("PRIORITY=2000");
 		manager.addModifier(regions, new ModifierDecoration<>(mod), scopeInst);
 		array = vc.get(regions);
@@ -153,8 +152,7 @@ class SetSolverManagerTest
 		vc.reset();
 
 		ModifierFactory am2 = new plugin.modifier.set.AddModifierFactory<>();
-		mod = am2.getModifier("Greece,England", managerFactory, null, globalScope,
-			arrayManager);
+		mod = am2.getModifier("Greece,England", arrayManager);
 		mod.addAssociation("PRIORITY=3000");
 		manager.addModifier(regions, new ModifierDecoration<>(mod), scopeInst);
 		array = vc.get(regions);
@@ -190,7 +188,7 @@ class SetSolverManagerTest
 		manager.createChannel(varIDa);
 		vc.put(varIDa, 3);
 		ScopeInstance globalInst =
-				siFactory.getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
+				siFactory.getGlobalInstance(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		VariableID varIDq = sl.getVariableID(globalInst, "SkillVar");
 		manager.createChannel(varIDq);
 		VariableID varIDr = sl.getVariableID(globalInst, "ResultVar");
@@ -199,19 +197,18 @@ class SetSolverManagerTest
 		ModifierFactory am1 = new plugin.modifier.number.SetModifierFactory();
 		ModifierFactory amString = new plugin.modifier.string.SetModifierFactory();
 		FormulaModifier mod2 =
-				am1.getModifier("2", managerFactory, fm, globalScope, numberManager);
+				am1.getModifier("2", numberManager);
 		mod2.addAssociation("PRIORITY=2000");
 		FormulaModifier mod3 =
-				am1.getModifier("3", managerFactory, fm, globalScope, numberManager);
+				am1.getModifier("3", numberManager);
 		mod3.addAssociation("PRIORITY=2000");
 		FormulaModifier mod4 =
-				am1.getModifier("4", managerFactory, fm, globalScope, numberManager);
+				am1.getModifier("4", numberManager);
 		mod4.addAssociation("PRIORITY=3000");
 		String formula = "getOther(\"PC.SKILL\",SkillVar,LocalVar)";
 		context.getReferenceContext().importObject(skill);
 		context.getReferenceContext().importObject(skillalt);
-		FormulaModifier modf = am1.getModifier(formula, new MyManagerFactory(context), fm,
-			globalScope, numberManager);
+		FormulaModifier modf = am1.getModifier(formula, numberManager);
 		modf.addAssociation("PRIORITY=2000");
 		
 		NEPCalculation calc1 = new ProcessCalculation<>(skill,

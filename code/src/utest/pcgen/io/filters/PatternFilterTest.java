@@ -17,18 +17,17 @@
  */
 package pcgen.io.filters;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.io.EntityEncoder;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 /**
  * PatternFilterTest checks the functioning of the PatternFilter class.
- * 
- * 
  */
-public class PatternFilterTest
+class PatternFilterTest
 {
 
 	@Test

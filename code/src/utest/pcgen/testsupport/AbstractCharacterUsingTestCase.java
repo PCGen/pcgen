@@ -42,8 +42,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import util.FormatSupport;
 
 /*
@@ -195,14 +195,14 @@ public abstract class AbstractCharacterUsingTestCase
 		SourceFileLoader.createLangBonusObject(context);
 	}
 	
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		Globals.emptyLists();
 	}
 
-	@After
-	protected void tearDown() throws Exception
+	@AfterEach
+	public void tearDown() throws Exception
 	{
 		Globals.emptyLists();
 	}

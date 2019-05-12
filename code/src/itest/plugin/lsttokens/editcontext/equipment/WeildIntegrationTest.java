@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2007 Tom Parker <thpr@users.sourceforge.net>
+ * Copyright (c) 2019 Tom Parker <thpr@users.sourceforge.net>
  * 
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free
@@ -20,10 +20,10 @@ package plugin.lsttokens.editcontext.equipment;
 import java.net.URISyntaxException;
 
 import pcgen.core.Equipment;
-import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.equipment.WieldToken;
@@ -32,7 +32,8 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreVariableParser;
 import plugin.pretokens.writer.PreVariableWriter;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import util.GameModeSupport;
 
 public class WeildIntegrationTest extends
 		AbstractIntegrationTestCase<Equipment>
@@ -46,8 +47,8 @@ public class WeildIntegrationTest extends
 		super.setUp();
 		TokenRegistration.register(new PreVariableParser());
 		TokenRegistration.register(new PreVariableWriter());
-		GameModeFileLoader.addDefaultWieldCategories(primaryContext);
-		GameModeFileLoader.addDefaultWieldCategories(secondaryContext);
+		GameModeSupport.addDefaultWieldCategories(primaryContext);
+		GameModeSupport.addDefaultWieldCategories(secondaryContext);
 	}
 
 	@Override

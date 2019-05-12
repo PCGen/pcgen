@@ -18,6 +18,8 @@
 
 package pcgen.core.analysis;
 
+import static org.junit.Assert.assertEquals;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
@@ -40,6 +42,8 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * The Class {@code SpellLevelTest} checks the SpellLevel class.
  * 
@@ -55,6 +59,7 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 	 *
 	 * @throws Exception 
 	 */
+	@Test
 	public void testGetPCBasedBonusKnownSpells() throws Exception
 	{
 		LoadContext context = Globals.getContext();

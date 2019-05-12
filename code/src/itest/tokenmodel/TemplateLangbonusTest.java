@@ -17,6 +17,10 @@
  */
 package tokenmodel;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.StartingLanguageFacet;
 import pcgen.core.Language;
@@ -25,7 +29,7 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.template.LangbonusToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 

@@ -772,7 +772,7 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 		if (adjustForPCSize)
 		{
 			int defSize = SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
-			aDamage = Globals.adjustDamage(aDamage, defSize, pcSize);
+			aDamage = Globals.adjustDamage(aDamage, pcSize - defSize);
 		}
 
 		//

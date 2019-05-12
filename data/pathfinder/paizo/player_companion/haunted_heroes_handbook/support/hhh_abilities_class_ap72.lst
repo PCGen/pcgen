@@ -1,0 +1,4 @@
+SOURCELONG:Haunted Heroes Handbook	SOURCESHORT:HHH	SOURCEWEB:https://paizo.com/products/btpy9nft	SOURCEDATE:2016-08
+
+#Pact Wizard Support
+Fate					KEY:Wizard Patron ~ Fate				CATEGORY:Special Ability	TYPE:PactWizardPatron.SpecialQuality				SPELLKNOWN:CLASS|Wizard=1|Doom|PREVARGTEQ:WizardLVL,2				SPELLKNOWN:CLASS|Wizard=2|Anticipate Peril|PREVARGTEQ:WizardLVL,4		SPELLKNOWN:CLASS|Wizard=3|Helping Hand|PREVARGTEQ:WizardLVL,6			SPELLKNOWN:CLASS|Wizard=4|Blessing of Fervor|PREVARGTEQ:WizardLVL,8			SPELLKNOWN:CLASS|Wizard=5|Forbid Action (Greater)|PREVARGTEQ:WizardLVL,10	SPELLKNOWN:CLASS|Wizard=6|Contingency|PREVARGTEQ:WizardLVL,12			SPELLKNOWN:CLASS|Wizard=7|Jolting Portent|PREVARGTEQ:WizardLVL,14		SPELLKNOWN:CLASS|Wizard=8|Maze|PREVARGTEQ:WizardLVL,16				SPELLKNOWN:CLASS|Wizard=9|Wish|PREVARGTEQ:WizardLVL,18

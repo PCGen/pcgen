@@ -1,0 +1,89 @@
+CAMPAIGN:Haunted Heroes Handbook
+GAMEMODE:Pathfinder|Pathfinder_PFS
+TYPE:Paizo Publishing.Pathfinder Player Companion
+RANK:3
+STATUS:BETA
+GENRE:Fantasy
+BOOKTYPE:Supplement
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:8,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Equipment,INCLUDES=Advanced Class Guide,INCLUDES=Occult Adventures
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Haunted Heroes Handbook
+SOURCESHORT:HHH
+SOURCEWEB:https://paizo.com/products/btpy9nft
+SOURCEDATE:2016-08
+ISOGL:YES
+
+COVER:haunted_heroes_handbook.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|https://paizo.com/products/btpy9nft|Buy this publication from Paizo Publishing!
+DESC:Is Your Mind Your Own? It's one thing to face foes like ravenous beasts, fire-breathing dragons, and marauding monsters, but what about ghosts that can hop from body to body? How do you face a fiend that's using an innocent pawn as a proxy for its evil? Are there ways being haunted could be turned to your advantage? Prepare yourself for the answers to these questions and more as you explore what it's like to be a haunted hero!
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Demon, Shadow from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Neville White.
+COPYRIGHT:Pathfinder Player Companion: Haunted Heroes Handbook Copyright 2016, Paizo Inc.; Authors: Alexander Augunas, Thurston Hillman, Isabelle Lee, Stephen Rowe, and Christopher Wasko.
+COPYRIGHT:PCGen dataset conversion for "Player Companion: Haunted Heroes Handbook" Copyright 2019, PCgen Data team (including but not limited to Gwen T. (evilpixie87), Paul Grosse and Andrew Maitland)
+
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+ABILITY:hhh_abilities.lst
+ABILITY:hhh_abilities_class.lst
+ABILITY:hhh_abilities_companion.lst
+ABILITYCATEGORY:hhh_abilitycategories.lst
+COMPANIONMOD:hhh_companionmods.lst
+DEITY:hhh_deities.lst
+DOMAIN:hhh_domains.lst
+EQUIPMENT:hhh_equip_general.lst
+EQUIPMENT:hhh_equip_magic_items.lst
+ABILITY:hhh_feats.lst
+RACE:hhh_races_companion.lst
+SKILL:hhh_skills.lst
+SPELL:hhh_spells.lst
+TEMPLATE:hhh_templates.lst
+
+#As appropriate sources are added, remove hashtag to activate.
+#EXTRAFILE:support/hhh_abilities_class_ap72.lst
+#ABILITY:support/hhh_abilities_class_ap72.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Adventure Path #72
+#EXTRAFILE:support/hhh_abilities_class_botc.lst
+#ABILITY:support/hhh_abilities_class_botc.lst|PRECAMPAIGN:1,INCLUDES=Blood of the Coven
+ABILITY:support/hhh_abilities_class_cop.lst|PRECAMPAIGN:1,INCLUDES=Champions of Purity
+ABILITY:support/hhh_abilities_class_fap.lst|PRECAMPAIGN:1,INCLUDES=Faiths and Philosophies
+ABILITY:support/hhh_abilities_class_ha.lst|PRECAMPAIGN:1,INCLUDES=Horror Adventures
+ABILITY:support/hhh_abilities_class_hhb.lst|PRECAMPAIGN:1,INCLUDES=Healer's Handbook
+#EXTRAFILE:support/hhh_abilities_class_hothc.lst
+#ABILITY:support/hhh_abilities_class_hothc.lst|PRECAMPAIGN:1,INCLUDES=Heroes of the High Cout
+ABILITY:support/hhh_abilities_class_hotw.lst|PRECAMPAIGN:1,INCLUDES=Heroes of the Wild
+#EXTRAFILE:support/hhh_abilities_class_ismc.lst
+#ABILITY:support/hhh_abilities_class_ismc.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Monster Codex
+#EXTRAFILE:support/hhh_abilities_class_pathr.lst
+#ABILITY:support/hhh_abilities_class_pathr.lst|PRECAMPAIGN:1,INCLUDES=Paths of the Righteous
+#EXTRAFILE:support/hhh_abilities_class_planep.lst
+#ABILITY:support/hhh_abilities_class_planep.lst|PRECAMPAIGN:1,INCLUDES=Planes of Power
+ABILITY:support/hhh_abilities_class_uw.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Wilderness
+DEITY:support/hhh_deities_isg_fob.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Gods,INCLUDES=Faiths of Balance
+
+
+
+# ENTRY DATE: 2019-01
+# LST MONKEY: Gwen T. (evilpixie87)
+# RELEASE REVIEW #
+# LICENSE: Paul Grosse
+# BETA: Andrew Maitland - 2019-04-25
+# RELEASE:
+# Built for PCGen Version: 6.07.08
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.1
+# COMMENTS:
+
+#
+# End
+#

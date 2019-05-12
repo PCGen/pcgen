@@ -70,11 +70,11 @@ public class StartupPanel extends ConvertSubPanel
 	{
 		new Thread(() -> {
 			PCGenTask loadPluginTask = Main.createLoadPluginTask();
-			loadPluginTask.execute();
+			loadPluginTask.run();
 			progressBar.setValue(1);
-			gameModeFileLoader.execute();
+			gameModeFileLoader.run();
 			progressBar.setValue(2);
-			campaignFileLoader.execute();
+			campaignFileLoader.run();
 			progressBar.setValue(3);
 
 			message.add(new JLabel("Initialization complete, press next button to continue..."));

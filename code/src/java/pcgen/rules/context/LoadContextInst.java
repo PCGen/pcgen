@@ -38,7 +38,7 @@ import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.DataSetInitializationFacet;
 import pcgen.cdom.facet.FacetInitialization;
 import pcgen.cdom.facet.FacetLibrary;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.grouping.GroupingCollection;
 import pcgen.cdom.grouping.GroupingInfo;
@@ -447,7 +447,7 @@ abstract class LoadContextInst implements LoadContext
 		{
 			stateful = new ObjectCache();
 		}
-		return processToken(stateful, s.substring(0, colonLoc).intern(), s.substring(colonLoc + 1).intern());
+		return processToken(stateful, s.substring(0, colonLoc), s.substring(colonLoc + 1));
 	}
 
 	@Override
@@ -530,7 +530,7 @@ abstract class LoadContextInst implements LoadContext
 	{
 		if (legalScope == null)
 		{
-			legalScope = var.getScope(GlobalScope.GLOBAL_SCOPE_NAME);
+			legalScope = var.getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		}
 		return legalScope;
 	}

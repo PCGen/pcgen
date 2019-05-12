@@ -19,8 +19,8 @@ package pcgen.util;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.Clock;
+import java.time.LocalDateTime;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
 import java.util.regex.Pattern;
@@ -32,8 +32,6 @@ import java.util.regex.Pattern;
 public final class SourceLogFormatter extends Formatter
 {
 	private static final char SEPERATOR = ' ';
-	private final SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss.S");
-	private final Date date = new Date();
 	private static final Pattern JAVA_EXT_PATTERN = Pattern.compile("\\.java");
 
 	@Override
@@ -41,11 +39,10 @@ public final class SourceLogFormatter extends Formatter
 	{
 		StringBuilder sb = new StringBuilder();
 
-		date.setTime(record.getMillis());
-		sb.append(df.format(date));
+		sb.append(LocalDateTime.now(Clock.systemUTC()));
 
 		sb.append(SEPERATOR);
-		sb.append(String.valueOf(record.getLevel()));
+		sb.append(record.getLevel());
 		sb.append(SEPERATOR);
 		sb.append(Thread.currentThread().getName());
 		sb.append(SEPERATOR);

@@ -23,7 +23,7 @@ import java.util.Iterator;
 import gmgen.plugin.InitHolder;
 import gmgen.plugin.InitHolderList;
 import gmgen.plugin.PcgCombatant;
-import gmgen.pluginmgr.messages.FileMenuSaveMessage;
+
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.facade.core.CharacterFacade;
@@ -68,10 +68,6 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 		{
 			handleOpenPCGRequestMessage((RequestOpenPlayerCharacterMessage) message);
 		}
-		else if (message instanceof FileMenuSaveMessage)
-		{
-			handleSaveMessage((FileMenuSaveMessage) message);
-		}
 		else if (message instanceof RequestFileOpenedMessageForCurrentlyOpenedPCsMessage)
 		{
 			handleFetchOpenPCGRequestMessage();
@@ -106,10 +102,6 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 				break;
 			}
 		}
-	}
-
-	private void handleSaveMessage(FileMenuSaveMessage message)
-	{
 	}
 
 	private void handleInitHolderListSendMessage(TransmitInitiativeValuesBetweenComponentsMessage message)

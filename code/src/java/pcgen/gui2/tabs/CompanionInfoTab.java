@@ -27,6 +27,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -97,8 +98,6 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
-
-import org.apache.commons.io.FileUtils;
 
 /**
  * This component allows a user to manage a character's companions (animal,
@@ -312,10 +311,9 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 
 		public LoadButtonAndSheetHandler()
 		{
-			File sheet =
-					FileUtils.getFile(
+			File sheet = Path.of(
 						ConfigurationSettings.getPreviewDir(),
-						"companions", "compact_companion.htm"); //$NON-NLS-1$ //$NON-NLS-2$
+						"companions", "compact_companion.htm").toFile(); //$NON-NLS-1$ //$NON-NLS-2$
 			this.sheetSupport = new HtmlSheetSupport(infoPane, sheet.getAbsolutePath());
 			this.selectedRow = -1;
 			this.selectionModel = companionsTable.getSelectionModel();
@@ -380,7 +378,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 				{
 					if (switchTabs)
 					{
-						frame.setSelectedCharacter(character);
+						frame.setCharacter(character);
 						return;
 					}
 					else

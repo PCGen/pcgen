@@ -21,10 +21,8 @@ package plugin.notes.gui;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Cursor;
-import java.awt.Point;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
-import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetAdapter;
 import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
@@ -37,8 +35,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.List;
@@ -89,7 +90,6 @@ import javax.swing.text.html.HTML;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeModel;
-import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
@@ -111,8 +111,6 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import plugin.notes.NotesPlugin;
 
-import org.apache.commons.io.FileUtils;
-
 /**
  *  This class is the main view for the Notes Plugin. Mostof the work is done
  *  here and in the NotesTreeNode Class.
@@ -127,21 +125,12 @@ public class NotesView extends JPanel
 
 	private static final String OPTION_NAME_LASTFILE = NotesPlugin.LOG_NAME + ".LastFile"; //$NON-NLS-1$
 
-	/**  Drop Target for the Edit Area */
-	private DropTarget editAreaDT;
-
-	/**  Drop Target for the File Bar */
-	private DropTarget filesBarDT;
-
-	/**  Drop Target for the Tree */
-	private DropTarget treeDT;
-
 	/**  Insert OL Action for JTextPane */
-	private ExtendedHTMLEditorKit.InsertListAction actionListOrdered =
+	private final Action actionListOrdered =
 			new ExtendedHTMLEditorKit.InsertListAction("InsertOLItem", HTML.Tag.OL);
 
 	/**  Insert UL Action for JTextPane */
-	private ExtendedHTMLEditorKit.InsertListAction actionListUnordered =
+	private final Action actionListUnordered =
 			new ExtendedHTMLEditorKit.InsertListAction("InsertULItem", HTML.Tag.UL);
 
 	// End of variables declaration//GEN-END:variables
@@ -628,8 +617,6 @@ public class NotesView extends JPanel
 	private int writeNotesDir(ZipOutputStream out, File parentDir, File currentDir, ProgressMonitor pm, int progress)
 		throws IOException
 	{
-		byte[] buffer = new byte[4096];
-		int bytes_read;
 		int returnValue = progress;
 
 		for (File f : currentDir.listFiles())
@@ -645,31 +632,13 @@ public class NotesView extends JPanel
 			}
 			else
 			{
-				FileInputStream in = new FileInputStream(f);
-
-				try
+				try (InputStream in = new FileInputStream(f))
 				{
 					String parentPath = parentDir.getParentFile().getAbsolutePath();
 					ZipEntry entry = new ZipEntry(f.getAbsolutePath().substring(parentPath.length() + 1));
 					out.putNextEntry(entry);
-
-					while ((bytes_read = in.read(buffer)) != -1)
-					{
-						out.write(buffer, 0, bytes_read);
-					}
+					out.write(in.readAllBytes());
 				}
-				finally
-				{
-					try
-					{
-						in.close();
-					}
-					catch (IOException e)
-					{
-						//TODO: Should this really be ignored?
-					}
-				}
-
 				returnValue++;
 			}
 		}
@@ -690,29 +659,25 @@ public class NotesView extends JPanel
 	{
 		File dir = node.getDir();
 
-		ZipOutputStream out = new ZipOutputStream(new FileOutputStream(exportFile));
-		int max = fileCount(dir);
-		ProgressMonitor pm = new ProgressMonitor(GMGenSystem.inst, "Writing out Notes Export", "Writing", 0, max);
-
-		try
+		ProgressMonitor pm = null;
+		try (ZipOutputStream out = new ZipOutputStream(new FileOutputStream(exportFile));)
 		{
+			int max = fileCount(dir);
+			pm = new ProgressMonitor(GMGenSystem.inst, "Writing out Notes Export", "Writing", 0, max);
 			writeNotesDir(out, dir, dir, pm, 0);
 		}
-
-		// Always close the streams, even if exceptions were thrown
+		catch (IOException e)
+		{
+			Logging.debugPrint("error writing notes", e);
+			//TODO: Should this really be ignored?
+		}
 		finally
 		{
-			try
+			if (pm != null)
 			{
-				out.close();
-			}
-			catch (IOException e)
-			{
-				//TODO: Should this really be ignored?
+				pm.close();
 			}
 		}
-
-		pm.close();
 	}
 
 	//CoreUtility methods
@@ -1404,8 +1369,6 @@ public class NotesView extends JPanel
 
 	private void initDnDComponents()
 	{
-		filesBarDT = new DropTarget(filesBar, new DropBarListener());
-		treeDT = new DropTarget(notesTree, new DropTreeListener());
 	}
 
 	private void initEditingComponents()
@@ -1531,7 +1494,7 @@ public class NotesView extends JPanel
 	 *@exception  BadLocationException  if the file does not exist
 	 *@exception  RuntimeException      cause
 	 */
-	private void insertLocalImage(File whatImage) throws IOException, BadLocationException, RuntimeException
+	private void insertLocalImage(File whatImage) throws IOException, BadLocationException
 	{
 		File image = whatImage;
 		if (whatImage == null)
@@ -1542,11 +1505,11 @@ public class NotesView extends JPanel
 			//null possible if user cancelled
 			if (newImage != null && newImage.exists())
 			{
-				image = new File(dir.getAbsolutePath() + File.separator + newImage.getName());
+				image = Path.of(dir.getAbsolutePath(), newImage.getName()).toFile();
 
 				if (!image.exists())
 				{
-					FileUtils.copyFile(newImage, image);
+					Files.copy(newImage.toPath(), image.toPath());
 				}
 			}
 		}
@@ -1632,7 +1595,6 @@ public class NotesView extends JPanel
 			JViewport vp = new JViewport();
 			vp.setView(editor);
 			jScrollPane2.setViewport(vp);
-			editAreaDT = new DropTarget(editor, new DropEditorListener());
 			editor.addCaretListener(this::editorCaretUpdate);
 			editor.addKeyListener(new java.awt.event.KeyListener()
 			{
@@ -1908,7 +1870,7 @@ public class NotesView extends JPanel
 		 *@param  dtde  DropTargetDropEvent
 		 *@return       drop successful or not
 		 */
-		boolean handleDropJavaFileListAsImage(DropTargetDropEvent dtde)
+		private boolean handleDropJavaFileListAsImage(DropTargetDropEvent dtde)
 		{
 			dtde.acceptDrop(dtde.getDropAction());
 
@@ -1923,11 +1885,11 @@ public class NotesView extends JPanel
 				{
 					if (newFile.exists())
 					{
-						File destFile = new File(dir.getAbsolutePath() + File.separator + newFile.getName());
+						File destFile = Path.of(dir.getAbsolutePath(), newFile.getName()).toFile();
 
 						if (!isImageFile(destFile) || !destFile.exists())
 						{
-							FileUtils.copyFile(newFile, destFile);
+							Files.copy(newFile.toPath(), destFile.toPath());
 						}
 
 						editor.setCaretPosition(editor.viewToModel(dtde.getLocation()));
@@ -1950,70 +1912,17 @@ public class NotesView extends JPanel
 		 *
 		 *@param  image  File to insert
 		 */
-		void handleImageDropInsertion(File image)
+		private void handleImageDropInsertion(File image)
 		{
-			for (String s : extsIMG)
+			if (Arrays.stream(extsIMG).anyMatch(s -> image.getName().endsWith(s)))
 			{
-				if (image.getName().endsWith(s))
+				try
 				{
-					try
-					{
-						insertLocalImage(image);
-					}
-					catch (Exception e)
-					{
-						Logging.errorPrint(e.getMessage(), e);
-					}
-
-					break;
-				}
-			}
-		}
-	}
-
-	/**
-	 *  Drop listener for the Tree
-	 */
-	public class DropTreeListener extends DropListener
-	{
-		/**
-		 *  implements drop.if we accept it, pass the event to the currently selected
-		 *  node
-		 *
-		 *@param  dtde  Description of the Parameter
-		 */
-		@Override
-		public void drop(DropTargetDropEvent dtde)
-		{
-			Point p = dtde.getLocation();
-			TreePath path = notesTree.getPathForLocation(p.x, p.y);
-
-			if (path == null)
-			{
-				dtde.rejectDrop();
-
-				return;
-			}
-
-			Object obj = path.getLastPathComponent();
-
-			if (obj instanceof NotesTreeNode)
-			{
-				NotesTreeNode node = (NotesTreeNode) obj;
-
-				if (dtde.isDataFlavorSupported(DataFlavor.javaFileListFlavor))
+					insertLocalImage(image);
+				} catch (Exception e)
 				{
-					dtde.dropComplete(node.handleDropJavaFileList(dtde));
-					refreshTreeNodes();
+					Logging.errorPrint(e.getMessage(), e);
 				}
-				else
-				{
-					dtde.rejectDrop();
-				}
-			}
-			else
-			{
-				dtde.rejectDrop();
 			}
 		}
 	}

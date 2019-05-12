@@ -97,7 +97,7 @@ public class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo>
 			checkPenalty = 0;
 		}
 
-		info.addLoadMultiplier(tokens[0].toUpperCase(), new Float(mult), moveFormula, checkPenalty);
+		info.addLoadMultiplier(tokens[0].toUpperCase(), (float) mult, moveFormula, checkPenalty);
 		return ParseResult.SUCCESS;
 	}
 

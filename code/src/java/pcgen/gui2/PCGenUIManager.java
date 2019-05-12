@@ -26,6 +26,7 @@ import pcgen.gui2.plaf.MacGUIHandler;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.system.Main;
 
+import javafx.application.Platform;
 import org.apache.commons.lang3.SystemUtils;
 
 /**
@@ -58,6 +59,7 @@ public final class PCGenUIManager
 
 	public static void startGUI()
 	{
+		Platform.setImplicitExit(false);
 		SwingUtilities.invokeLater(pcgenFrame::startPCGenFrame);
 	}
 
@@ -73,12 +75,15 @@ public final class PCGenUIManager
 
 	public static void closePCGen()
 	{
-		if (!pcgenFrame.closeAllCharacters())
+		if (pcgenFrame != null)
 		{
-			return;
-		}
+			if (!pcgenFrame.closeAllCharacters())
+			{
+				return;
+			}
 
-		pcgenFrame.dispose();
+			pcgenFrame.dispose();
+		}
 		Main.shutdown();
 	}
 

@@ -29,7 +29,7 @@ final class TermUtil
 		Float d = null;
 		try
 		{
-			d = new Float(aNumber);
+			d = Float.valueOf(aNumber);
 		}
 		catch (NumberFormatException ignored)
 		{

@@ -52,12 +52,6 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	}
 
 	@Override
-	public String typeHandled()
-	{
-		throw new UnsupportedOperationException();
-	}
-
-	@Override
 	public boolean conditionallyApply(PlayerCharacter pc, String item)
 	{
 		throw new UnsupportedOperationException();

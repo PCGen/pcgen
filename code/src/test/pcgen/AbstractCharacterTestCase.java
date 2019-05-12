@@ -4,6 +4,9 @@
  */
 package pcgen;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.math.BigDecimal;
 import java.util.Collection;
 
@@ -37,18 +40,20 @@ import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import junit.framework.TestCase;
-import org.junit.Assert;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import util.FormatSupport;
+import util.GameModeSupport;
 
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
  * Object.
  */
 @SuppressWarnings("nls")
-public abstract class AbstractCharacterTestCase extends TestCase
+public abstract class AbstractCharacterTestCase
 {
 	private PlayerCharacter character = null;
 	protected PCStat str;
@@ -81,10 +86,9 @@ public abstract class AbstractCharacterTestCase extends TestCase
 	 * Object.
 	 * @throws Exception
 	 */
-	@Override
+	@BeforeEach
 	protected void setUp() throws Exception
 	{
-		super.setUp();
 		final GameMode gamemode = new GameMode("3.5");
 		gamemode.setBonusFeatLevels("3|3");
 		ControlTestSupport.enableFeature(gamemode.getModeContext(), CControl.ALIGNMENTFEATURE);
@@ -170,7 +174,7 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		ref.importObject(ce);
 		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 
-		GameModeFileLoader.addDefaultWieldCategories(context);
+		GameModeSupport.addDefaultWieldCategories(context);
 		
 		ref.importObject(str);
 		ref.importObject(dex);
@@ -218,15 +222,15 @@ public abstract class AbstractCharacterTestCase extends TestCase
 		context.resolveDeferredTokens();
 		ref.buildDeferredObjects();
 		ref.buildDerivedObjects();
-		Assert.assertTrue(ref.validate(null));
-		Assert.assertTrue(ref.resolveReferences(null));
+		assertTrue(ref.validate(null));
+		assertTrue(ref.resolveReferences(null));
 		context.resolvePostDeferredTokens();
 		context.loadCampaignFacets();
 		character = new PlayerCharacter();
 	}
 
 
-	@Override
+	@AfterEach
 	protected void tearDown() throws Exception
 	{
 		character = null;
@@ -291,7 +295,7 @@ public abstract class AbstractCharacterTestCase extends TestCase
 	{
 		if (a.getCDOMCategory() == null)
 		{
-			Assert.fail("Attempt to apply an Ability " + a.getKeyName()
+			fail("Attempt to apply an Ability " + a.getKeyName()
 				+ " that never received a Category");
 		}
 		CNAbility cna = CNAbilityFactory.getCNAbility(cat, Nature.NORMAL, a);
@@ -305,7 +309,7 @@ public abstract class AbstractCharacterTestCase extends TestCase
 	{
 		if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			Assert.fail("addAbility takes Mult:NO Abilities");
+			fail("addAbility takes Mult:NO Abilities");
 		}
 		applyAbility(character, cat, a, null);
 	}
@@ -314,7 +318,7 @@ public abstract class AbstractCharacterTestCase extends TestCase
 	{
 		if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			Assert.fail("addAbility takes Mult:NO Abilities");
+			fail("addAbility takes Mult:NO Abilities");
 		}
 		CNAbility cna = CNAbilityFactory.getCNAbility(cat, Nature.NORMAL, a);
 		character.removeAbility(new CNAbilitySelection(cna, null),
@@ -326,4 +330,5 @@ public abstract class AbstractCharacterTestCase extends TestCase
 	{
 		return applyAbility(pc, cat, a, string);
 	}
+
 }

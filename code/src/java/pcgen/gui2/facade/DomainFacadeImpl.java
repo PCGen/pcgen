@@ -57,16 +57,6 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements DomainF
 		super(domain, aPrereqList);
 	}
 
-	/**
-	 * Constructor 
-	 * @param domain
-	 * @param prereq
-	 */
-	public DomainFacadeImpl(final Domain domain, Prerequisite prereq)
-	{
-		super(domain, prereq);
-	}
-
 	@Override
 	public String getKeyName()
 	{

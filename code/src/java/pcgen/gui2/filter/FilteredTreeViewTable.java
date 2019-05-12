@@ -158,9 +158,4 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 		refilter();
 	}
 
-	public boolean isSearchEnabled()
-	{
-		return searchMode;
-	}
-
 }

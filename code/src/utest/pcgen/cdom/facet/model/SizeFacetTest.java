@@ -19,6 +19,7 @@ package pcgen.cdom.facet.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,7 +32,9 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.BonusCheckingFacet;
+import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FormulaResolvingFacet;
+import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
@@ -39,6 +42,8 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.LoadContext;
+
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -63,10 +68,12 @@ class SizeFacetTest
 	private Map<CharID, Double> bonusInfo;
 	private static SizeAdjustment t, s, m, l, h;
 
+	private static LoadContext context;
+
 	@BeforeEach
 	void setUp() throws Exception
 	{
-		DataSetID cid = DataSetID.getID();
+		DataSetID cid = context.getDataSetID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
 		facet = getMockFacet();
@@ -80,7 +87,10 @@ class SizeFacetTest
 	static void staticSetUp()
 	{
 		SettingsHandler.getGame().clearLoadContext();
-		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
+		context = Globals.getContext();
+		AbstractReferenceContext ref = context.getReferenceContext();
+		FacetLibrary.getFacet(LoadContextFacet.class).set(context.getDataSetID(),
+			new WeakReference<>(context));
 		t = BuildUtilities.createSize("Tiny", 0);
 		ref.importObject(t);
 		s = BuildUtilities.createSize("Small", 1);

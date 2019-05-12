@@ -40,11 +40,6 @@ public abstract class BigDecimalFieldHandler implements PropertyChangeListener, 
 		this.ref = ref;
 	}
 
-	public JFormattedTextField getFormattedTextField()
-	{
-		return field;
-	}
-
 	/**
 	 * Attach the handler to the screen field. e.g. When the character is
 	 * made active.
@@ -70,7 +65,7 @@ public abstract class BigDecimalFieldHandler implements PropertyChangeListener, 
 	public void referenceChanged(ReferenceEvent<BigDecimal> e)
 	{
 		BigDecimal newVal = e.getNewReference();
-		BigDecimal oldVal = new BigDecimal(((Number) field.getValue()).doubleValue());
+		BigDecimal oldVal = BigDecimal.valueOf(((Number) field.getValue()).doubleValue());
 		if (oldVal.compareTo(newVal) != 0)
 		{
 			field.setValue(newVal);
@@ -82,7 +77,7 @@ public abstract class BigDecimalFieldHandler implements PropertyChangeListener, 
 	@Override
 	public void propertyChange(PropertyChangeEvent evt)
 	{
-		valueChanged(new BigDecimal(((Number) field.getValue()).doubleValue()));
+		valueChanged(BigDecimal.valueOf(((Number) field.getValue()).doubleValue()));
 	}
 
 }

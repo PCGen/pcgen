@@ -463,19 +463,6 @@ public class SpellSupportForPCClass
 		final String allSpellLevel = ";LEVEL.All";
 		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", source.getKeyName());
 		pcLevel += (int) aPC.getTotalBonusTo("PCLEVEL", "TYPE." + source.getSpellType());
-		if (getNumFromCastList(pcLevel, spellLevel, aPC) < 0)
-		{
-			// can't cast spells of this level
-			// however, character might have a bonus spell slot e.g. from
-			// certain feats
-			return (int) aPC.getTotalBonusTo("SPELLCAST", classKeyName + levelSpellLevel);
-		}
-		total += (int) aPC.getTotalBonusTo("SPELLCAST", classKeyName + levelSpellLevel);
-		total += (int) aPC.getTotalBonusTo("SPELLCAST", "TYPE." + source.getSpellType() + levelSpellLevel);
-		total += (int) aPC.getTotalBonusTo("SPELLCAST", "CLASS.Any" + levelSpellLevel);
-		total += (int) aPC.getTotalBonusTo("SPELLCAST", classKeyName + allSpellLevel);
-		total += (int) aPC.getTotalBonusTo("SPELLCAST", "TYPE." + source.getSpellType() + allSpellLevel);
-		total += (int) aPC.getTotalBonusTo("SPELLCAST", "CLASS.Any" + allSpellLevel);
 		PCStat aStat = source.bonusSpellStat();
 		String statString = Constants.NONE;
 		if (aStat != null)
@@ -484,8 +471,37 @@ public class SpellSupportForPCClass
 			statString = aStat.getKeyName();
 		}
 		final int bonusStat = (int) aPC.getTotalBonusTo("STAT", "CAST." + statString)
-			+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLSTAT")
-			+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS=" + source.getKeyName());
+				+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLSTAT")
+				+ (int) aPC.getTotalBonusTo("STAT", "BASESPELLSTAT;CLASS=" + source.getKeyName());
+		if (getNumFromCastList(pcLevel, spellLevel, aPC) < 0)
+		{
+			// can't cast spells of this level
+			// however, character might have a bonus spell slot e.g. from
+			// certain feats
+			total = (int) aPC.getTotalBonusTo("SPELLCAST", classKeyName + levelSpellLevel);
+			if (total > 0) {
+				// Bonus slots benefits from high spellcasting stat as well (see http://www.d20srd.org/srd/epic/feats.htm#improvedSpellCapacity)
+				BonusSpellInfo bsi = Globals.getContext().getReferenceContext()
+						.silentlyGetConstructedCDOMObject(BonusSpellInfo.class, String.valueOf(spellLevel));
+				if ((bsi != null) && bsi.isValid())
+				{
+					int base = bsi.getStatScore();
+					stat += bonusStat;
+					if (stat >= base)
+					{
+						int range = bsi.getStatRange();
+						total += Math.max(0, (stat - base + range) / range);
+					}
+				}
+			}
+			return total;
+		}
+		total += (int) aPC.getTotalBonusTo("SPELLCAST", classKeyName + levelSpellLevel);
+		total += (int) aPC.getTotalBonusTo("SPELLCAST", "TYPE." + source.getSpellType() + levelSpellLevel);
+		total += (int) aPC.getTotalBonusTo("SPELLCAST", "CLASS.Any" + levelSpellLevel);
+		total += (int) aPC.getTotalBonusTo("SPELLCAST", classKeyName + allSpellLevel);
+		total += (int) aPC.getTotalBonusTo("SPELLCAST", "TYPE." + source.getSpellType() + allSpellLevel);
+		total += (int) aPC.getTotalBonusTo("SPELLCAST", "CLASS.Any" + allSpellLevel);
 		if (limitByStat)
 		{
 			PCStat ss = source.baseSpellStat();

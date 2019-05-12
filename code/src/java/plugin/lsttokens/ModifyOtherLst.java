@@ -21,19 +21,25 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringJoiner;
 
+import pcgen.base.formula.base.FormulaManager;
+import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.text.ParsingSeparator;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.VarContainer;
 import pcgen.cdom.base.VarHolder;
 import pcgen.cdom.content.RemoteModifier;
 import pcgen.cdom.content.VarModifier;
+import pcgen.cdom.formula.local.RemoteWrappingLibrary;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.grouping.GroupingCollection;
+import pcgen.rules.context.AbstractObjectContext.DummyCDOMObject;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMInterfaceToken;
 import pcgen.rules.persistence.token.ParseResult;
+
 import plugin.lsttokens.ModifyLst.ModifyException;
 
 /**
@@ -54,11 +60,6 @@ public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, VarHolder obj, String value)
 	{
-		/*
-		 * TODO CODE-3299 Need to check the object type of the VarHolder to make sure it
-		 * is legal. Note it's (usually) a proxy, so a @ReadOnly method needs to be used
-		 * to support the analysis.
-		 */
 		ParsingSeparator sep = new ParsingSeparator(value, '|');
 		sep.addGroupingPair('[', ']');
 		sep.addGroupingPair('(', ')');
@@ -94,7 +95,7 @@ public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 		try
 		{
 			VarModifier<?> vm = ModifyLst.parseModifyInfo(subContext, sb.toString(),
-				scope, getTokenName(), 2);
+				scope, generateFormulaManager(context, scope), getTokenName(), 2);
 			obj.addRemoteModifier(new RemoteModifier<>(group, vm));
 		}
 		catch (ModifyException e)
@@ -102,6 +103,19 @@ public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 			return new ParseResult.Fail(e.getMessage());
 		}
 		return ParseResult.SUCCESS;
+	}
+
+	private final FormulaManager generateFormulaManager(LoadContext context, PCGenScope scope)
+	{
+		FormulaManager formulaManager =
+				context.getVariableContext().getFormulaManager();
+		FunctionLibrary functionManager = formulaManager.get(FormulaManager.FUNCTION);
+		FormatManager<?> sourceFormatManager = scope.getFormatManager(context);
+		FormatManager<?> targetFormatManager = scope.getFormatManager(context);
+		functionManager =
+				new RemoteWrappingLibrary(functionManager, new DummyCDOMObject(),
+					sourceFormatManager, new DummyCDOMObject(), targetFormatManager);
+		return formulaManager.getWith(FormulaManager.FUNCTION, functionManager);
 	}
 
 	@Override

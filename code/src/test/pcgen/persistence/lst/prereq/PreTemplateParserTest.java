@@ -22,32 +22,25 @@
  */
 package pcgen.persistence.lst.prereq;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreTemplateParser;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests PRETEMPLATE parsing
  */
-@SuppressWarnings("nls")
-public class PreTemplateParserTest extends EnUsLocaleDependentTestCase
+class PreTemplateParserTest extends EnUsLocaleDependentTestCase
 {
 
-	
-	/**
-	 * Test 990007 1.
-	 *
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
 	@Test
-	public void test990007_1() throws PersistenceLayerException
+	void testPositive() throws PersistenceLayerException
 	{
-		PreTemplateParser parser = new PreTemplateParser();
+		PrerequisiteParserInterface parser = new PreTemplateParser();
 
 		Prerequisite prereq =
 				parser.parse("TEMPLATE", "1,Half-Dragon", false, false);
@@ -64,9 +57,9 @@ public class PreTemplateParserTest extends EnUsLocaleDependentTestCase
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
 	@Test
-	public void test990007_2() throws PersistenceLayerException
+	void testInvertResult() throws PersistenceLayerException
 	{
-		PreTemplateParser parser = new PreTemplateParser();
+		PrerequisiteParserInterface parser = new PreTemplateParser();
 
 		Prerequisite prereq =
 				parser.parse("TEMPLATE", "1,Half-Dragon", true, false);

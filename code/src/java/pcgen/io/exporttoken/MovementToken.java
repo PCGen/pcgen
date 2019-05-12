@@ -23,6 +23,7 @@ package pcgen.io.exporttoken;
 import java.util.StringTokenizer;
 
 import pcgen.base.util.NamedValue;
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
@@ -49,7 +50,7 @@ public class MovementToken extends AbstractExportToken
 		if (aTok.hasMoreTokens())
 		{
 			String moveType = aTok.nextToken();
-			retString = getMoveTypeToken(display, moveType);
+			retString = getMoveTypeToken(display, MovementType.getConstant(moveType));
 		}
 		else
 		{
@@ -59,7 +60,7 @@ public class MovementToken extends AbstractExportToken
 		return retString;
 	}
 
-	public static String getMoveTypeToken(CharacterDisplay display, String moveType)
+	public static String getMoveTypeToken(CharacterDisplay display, MovementType moveType)
 	{
 		String retString = "";
 

@@ -20,11 +20,15 @@ package pcgen.rules.context;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Supplier;
 
 import pcgen.base.calculation.FormulaModifier;
+import pcgen.base.calculation.IgnoreVariables;
+import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FormulaFunction;
 import pcgen.base.formula.base.FormulaManager;
+import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
@@ -33,6 +37,7 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableFunctionLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.formula.inst.FormulaUtilities;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.formula.inst.ScopeManagerInst;
@@ -48,6 +53,7 @@ import pcgen.base.util.ComplexResult;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
+import pcgen.cdom.formula.ManagerKey;
 import pcgen.cdom.formula.PluginFunctionLibrary;
 import pcgen.cdom.formula.VariableChannel;
 import pcgen.cdom.formula.VariableChannelFactory;
@@ -57,7 +63,9 @@ import pcgen.cdom.formula.VariableWrapperFactory;
 import pcgen.cdom.formula.VariableWrapperFactoryInst;
 import pcgen.cdom.formula.scope.LegalScopeUtilities;
 import pcgen.cdom.formula.scope.PCGenScope;
-import pcgen.rules.persistence.MasterModifierFactory;
+import pcgen.cdom.helper.ReferenceDependency;
+import pcgen.rules.persistence.TokenLibrary;
+import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.util.Logging;
 
 /**
@@ -116,14 +124,6 @@ public class VariableContext implements VariableChannelFactory,
 	 */
 	private final VariableManager variableManager =
 			new VariableManager(legalScopeManager, myValueStore);
-
-	/**
-	 * The MasterModifierFactory for this VariableContext.
-	 * 
-	 * Lazy instantiation to avoid trying to pull the "Global" scope before it is loaded
-	 * from plugins.
-	 */
-	private MasterModifierFactory modFactory = null;
 
 	/**
 	 * The naive FormulaManager for this VariableContext. This serves only as a base item
@@ -199,19 +199,6 @@ public class VariableContext implements VariableChannelFactory,
 		return formulaSetupFactory.generate();
 	}
 
-	/*
-	 * Lazy instantiation to avoid trying to pull the "Global" scope before it is loaded
-	 * from plugins
-	 */
-	private MasterModifierFactory getModFactory()
-	{
-		if (modFactory == null)
-		{
-			modFactory = new MasterModifierFactory(getFormulaManager());
-		}
-		return modFactory;
-	}
-
 	/**
 	 * Returns a FormulaModifier based on the given information.
 	 * 
@@ -226,10 +213,42 @@ public class VariableContext implements VariableChannelFactory,
 	 *            by the FormulaModifier
 	 * @return a FormulaModifier based on the given information
 	 */
-	public <T> FormulaModifier<T> getModifier(String modType, String instructions, PCGenScope varScope,
+	public <T> FormulaModifier<T> getModifier(String modType,
+		String instructions, FormulaManager formulaManager, PCGenScope varScope,
 		FormatManager<T> formatManager)
 	{
-		return getModFactory().getModifier(modType, instructions, managerFactory, varScope, formatManager);
+		Class<T> varClass = formatManager.getManagedClass();
+		ModifierFactory<T> factory = TokenLibrary.getModifier(varClass, modType);
+		if (factory == null)
+		{
+			throw new IllegalArgumentException(
+				"Requested unknown ModifierType: " + varClass.getSimpleName() + " " + modType);
+		}
+		FormulaModifier<T> modifier =
+				factory.getModifier(instructions, formatManager);
+		
+		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(formulaManager, varScope);
+		semantics = semantics.getWith(FormulaSemantics.INPUT_FORMAT, Optional.of(formatManager));
+		try
+		{
+			modifier.isValid(semantics);
+		}
+		catch (SemanticsException e)
+		{
+			throw new IllegalArgumentException("Invalid Semantics on Formula: "
+				+ modType + " ... " + e.getLocalizedMessage());
+		}
+
+		/*
+		 * getDependencies needs to be called during LST load, so that object references are captured
+		 */
+		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager, null);
+		fdm = fdm.getWith(DependencyManager.SCOPE, Optional.of(varScope));
+		fdm = fdm.getWith(DependencyManager.VARSTRATEGY, Optional.of(new IgnoreVariables()));
+		fdm = fdm.getWith(ManagerKey.REFERENCES, new ReferenceDependency());
+		modifier.getDependencies(fdm);
+		modifier.addReferences(fdm.get(ManagerKey.REFERENCES).getReferences());
+		return modifier;
 	}
 
 	/**

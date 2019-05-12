@@ -52,10 +52,8 @@ import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.enumeration.NotePCAttribute;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillFilter;
@@ -530,15 +528,6 @@ final class PCGVer2Parser implements PCGParser
 	}
 
 	/**
-	 * Auto sort gear (Y/N)
-	 * @param line Line of saved data to be processed.
-	 **/
-	private void parseAutoSortGearLine(String line)
-	{
-		thePC.setAutoSortGear(line.endsWith(IOConstants.VALUE_Y));
-	}
-
-	/**
 	 * Ignore cost for gear (Y/N)
 	 * @param line Line of saved data to be processed.
 	 **/
@@ -610,13 +599,13 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseBirthdayLine(String line)
 	{
-		thePC.setPCAttribute(PCAttribute.BIRTHDAY,
+		thePC.setPCAttribute(PCStringKey.BIRTHDAY,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_BIRTHDAY.length() + 1)));
 	}
 
 	private void parseBirthplaceLine(String line)
 	{
-		thePC.setPCAttribute(PCAttribute.BIRTHPLACE,
+		thePC.setPCAttribute(PCStringKey.BIRTHPLACE,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_BIRTHPLACE.length() + 1)));
 	}
 
@@ -720,7 +709,6 @@ final class PCGVer2Parser implements PCGParser
 		 * AUTOSPELLS:Y or N
 		 * LOADCOMPANIONS:Y or N
 		 * USETEMPMODS:Y or N
-		 * AUTOSORTGEAR:Y or N
 		 * SKILLSOUTPUTORDER:0
 		 */
 		if (cache.containsKey(IOConstants.TAG_POOLPOINTS))
@@ -774,11 +762,6 @@ final class PCGVer2Parser implements PCGParser
 		if (cache.containsKey(IOConstants.TAG_PDFOUTPUTSHEET))
 		{
 			parsePDFOutputSheetLine(cache.get(IOConstants.TAG_PDFOUTPUTSHEET).get(0));
-		}
-
-		if (cache.containsKey(IOConstants.TAG_AUTOSORTGEAR))
-		{
-			parseAutoSortGearLine(cache.get(IOConstants.TAG_AUTOSORTGEAR).get(0));
 		}
 
 		if (cache.containsKey(IOConstants.TAG_IGNORECOST))
@@ -1443,7 +1426,7 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseCatchPhraseLine(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.CATCHPHRASE,
+		thePC.setPCAttribute(PCStringKey.CATCHPHRASE,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_CATCHPHRASE.length() + 1)));
 	}
 
@@ -1461,7 +1444,7 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseCharacterDescLine(final String line)
 	{
-		thePC.setPCAttribute(NotePCAttribute.DESCRIPTION,
+		thePC.setPCAttribute(PCStringKey.DESCRIPTION,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_CHARACTERDESC.length() + 1)));
 	}
 
@@ -1484,13 +1467,13 @@ final class PCGVer2Parser implements PCGParser
 	 */
 	private void parseCharacterNameLine(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.NAME,
+		thePC.setPCAttribute(PCStringKey.NAME,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_CHARACTERNAME.length() + 1)));
 	}
 
 	private void parseCityLine(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.RESIDENCE,
+		thePC.setPCAttribute(PCStringKey.RESIDENCE,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_CITY.length() + 1)));
 	}
 
@@ -2925,13 +2908,13 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseHairColorLine(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.HAIRCOLOR,
+		thePC.setPCAttribute(PCStringKey.HAIRCOLOR,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_HAIRCOLOR.length() + 1)));
 	}
 
 	private void parseHairStyleLine(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.HAIRSTYLE,
+		thePC.setPCAttribute(PCStringKey.HAIRSTYLE,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_HAIRSTYLE.length() + 1)));
 	}
 
@@ -2970,7 +2953,7 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseInterestsLine(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.INTERESTS,
+		thePC.setPCAttribute(PCStringKey.INTERESTS,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_INTERESTS.length() + 1)));
 	}
 
@@ -3051,7 +3034,7 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseLocationLine(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.LOCATION,
+		thePC.setPCAttribute(PCStringKey.LOCATION,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_LOCATION.length() + 1)));
 	}
 
@@ -3372,25 +3355,25 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parsePersonalityTrait1Line(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.PERSONALITY1,
+		thePC.setPCAttribute(PCStringKey.PERSONALITY1,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_PERSONALITYTRAIT1.length() + 1)));
 	}
 
 	private void parsePersonalityTrait2Line(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.PERSONALITY2,
+		thePC.setPCAttribute(PCStringKey.PERSONALITY2,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_PERSONALITYTRAIT2.length() + 1)));
 	}
 
 	private void parsePhobiasLine(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.PHOBIAS,
+		thePC.setPCAttribute(PCStringKey.PHOBIAS,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_PHOBIAS.length() + 1)));
 	}
 
 	private void parsePlayerNameLine(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.PLAYERSNAME,
+		thePC.setPCAttribute(PCStringKey.PLAYERSNAME,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_PLAYERNAME.length() + 1)));
 	}
 
@@ -3518,7 +3501,7 @@ final class PCGVer2Parser implements PCGParser
 	//this method is obsolete, but left in for backward-compatibility, replaced by parseCityLine()
 	private void parseResidenceLine(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.RESIDENCE,
+		thePC.setPCAttribute(PCStringKey.RESIDENCE,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_RESIDENCE.length() + 1)));
 		thePC.setDirty(true); // trigger a save prompt so that the PCG will be updated
 	}
@@ -3715,13 +3698,13 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseSkinColorLine(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.SKINCOLOR,
+		thePC.setPCAttribute(PCStringKey.SKINCOLOR,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_SKINCOLOR.length() + 1)));
 	}
 
 	private void parseSpeechPatternLine(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.SPEECHTENDENCY,
+		thePC.setPCAttribute(PCStringKey.SPEECHTENDENCY,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_SPEECHPATTERN.length() + 1)));
 	}
 
@@ -4263,7 +4246,7 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseTabNameLine(final String line)
 	{
-		thePC.setPCAttribute(PCAttribute.TABNAME,
+		thePC.setPCAttribute(PCStringKey.TABNAME,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_TABNAME.length() + 1)));
 	}
 
@@ -4705,7 +4688,7 @@ final class PCGVer2Parser implements PCGParser
 	 */
 	private void parseCharacterBioLine(final String line)
 	{
-		thePC.setPCAttribute(NotePCAttribute.BIO,
+		thePC.setPCAttribute(PCStringKey.BIO,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_CHARACTERBIO.length() + 1)));
 	}
 
@@ -4952,7 +4935,7 @@ final class PCGVer2Parser implements PCGParser
 			{
 				try
 				{
-					itemQuantity = new Float(element.getText());
+					itemQuantity = Float.valueOf(element.getText());
 				}
 				catch (NumberFormatException nfe)
 				{

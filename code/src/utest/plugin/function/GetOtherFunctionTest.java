@@ -38,7 +38,7 @@ import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.formula.visitor.SemanticsVisitor;
 import pcgen.cdom.formula.ManagerKey;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.core.Skill;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.VariableContext;
@@ -147,7 +147,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		VariableLibrary vl = getVariableLibrary();
 		VariableContext variableContext = context.getVariableContext();
 		LegalScope skillScope = variableContext.getScope("PC.SKILL");
-		LegalScope globalScope = variableContext.getScope(GlobalScope.GLOBAL_SCOPE_NAME);
+		LegalScope globalScope = variableContext.getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		vl.assertLegalVariableID("LocalVar", skillScope, numberManager);
 		vl.assertLegalVariableID("SkillVar", globalScope, context.getManufacturer("SKILL"));
 
@@ -171,7 +171,7 @@ public class GetOtherFunctionTest extends AbstractFormulaTestCase
 		VariableID varIDa = vl.getVariableID(scopeInsta, "LocalVar");
 		getVariableStore().put(varIDa, 3);
 		ScopeInstance globalInst =
-				scopeInstanceFactory.getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
+				scopeInstanceFactory.getGlobalInstance(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		VariableID varIDq = vl.getVariableID(globalInst, "SkillVar");
 		getVariableStore().put(varIDq, skill);
 		context.getReferenceContext().importObject(skill);

@@ -76,17 +76,6 @@ public class TreeViewPath<E>
 	}
 
 	/**
-	 * Returns an ordered array of Objects containing the components of this
-	 * TreePath. The first element (index 0) is the root.
-	 *
-	 * @return an array of Objects representing the TreePath
-	 */
-	public Object[] getPath()
-	{
-		return path.clone();
-	}
-
-	/**
 	 * Returns the number of elements in the path.
 	 *
 	 * @return an int giving a count of items the path

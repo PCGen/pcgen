@@ -17,24 +17,23 @@
  */
 package translation.util;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * JUnit Tests for {@link translation.util.Tips}.
  */
-@SuppressWarnings("nls")
-public class TipsTest
+class TipsTest
 {
 
-	private final String tip = "For each method, write a test method";
+	private static final String tip = "For each method, write a test method";
 
 	/**
 	 * Test method for {@link translation.util.Tips#addTip(Collection, String)}.

@@ -17,29 +17,28 @@
  */
 package plugin.lsttokens.gamemode.migrate;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * MaxVerTokenTest checks the function of the MaxVerToken class.
- * 
  */
-public class MaxVerTokenTest
+class MaxVerTokenTest
 {
 	private MigrationRule migrationRule;
 	private MaxVerToken token;
 	private String gameModeName;
 
-	@Before
-	public void setUp() throws Exception
+	@BeforeEach
+	void setUp() throws Exception
 	{
 		migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");
 		token = new MaxVerToken();
@@ -52,8 +51,8 @@ public class MaxVerTokenTest
 	@Test
 	public void testParseValidVer()
 	{
-		assertTrue("Parse should have been successful", token.parse(migrationRule, "6.01.03", gameModeName));
-		assertEquals("MaxVer", "6.01.03", migrationRule.getMaxVer());
+		assertTrue(token.parse(migrationRule, "6.01.03", gameModeName), "Parse should have been successful");
+		assertEquals("6.01.03", migrationRule.getMaxVer(), "MaxVer");
 	}
 	
 	@Test
@@ -63,17 +62,18 @@ public class MaxVerTokenTest
 				{"5.17.12", "6.0.0", "6.0.1 RC2", "6.0.1-RC2", "6.01.02", "6.01.02-dev"};
 		for (String verString : goodVersions)
 		{
-			assertTrue("Valid version " + verString
-				+ " should have been accepted", token.parse(migrationRule, verString, gameModeName));
-			assertEquals("MaxVer", verString, migrationRule.getMaxVer());
+			assertTrue(token.parse(migrationRule, verString, gameModeName), "Valid version " + verString
+				+ " should have been accepted");
+			assertEquals(verString, migrationRule.getMaxVer(), "MaxVer");
 		}
 	}
 
 	@Test
 	public void testParseInvalidVerEmpty()
 	{
-		assertFalse("Empty version should not have been accepted", token.parse(migrationRule, "", gameModeName));
-		assertNull("MaxVer", migrationRule.getMaxVer());
+		assertFalse(token.parse(migrationRule, "", gameModeName),
+				"Empty version should not have been accepted");
+		assertNull(migrationRule.getMaxVer(), "MaxVer");
 	}
 
 	@Test
@@ -83,10 +83,10 @@ public class MaxVerTokenTest
 				{"text", "a.b.c", "6.1", "6_0_1", "6.0.1d", "3.rc2", "6.0.1RC2"};
 		for (String verString : badVersions)
 		{
-			assertFalse("Invalid version " + verString
-				+ " should not have been accepted",
-				token.parse(migrationRule, verString, gameModeName));
-			assertNull("MaxVer", migrationRule.getMaxVer());
+			assertFalse(token.parse(migrationRule, verString, gameModeName),
+					"Invalid version " + verString
+							+ " should not have been accepted");
+			assertNull(migrationRule.getMaxVer(), "MaxVer");
 		}
 	}
 

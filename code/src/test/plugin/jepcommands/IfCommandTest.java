@@ -17,20 +17,20 @@
  */
 package plugin.jepcommands;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.number.IsCloseTo.closeTo;
-import static org.junit.Assert.assertThat;
 
 import java.util.Stack;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
 
 /**
  * {@code IfCommandTest} tests the functioning of the jep if plugin
  */
-public class IfCommandTest
+class IfCommandTest
 {
     private static void runIf(final Stack stack, final PostfixMathCommandI pCommand)
     {

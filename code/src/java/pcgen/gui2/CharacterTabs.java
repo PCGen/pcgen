@@ -23,7 +23,6 @@ import java.awt.FlowLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,7 +40,6 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
@@ -50,6 +48,7 @@ import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.tabs.InfoTabbedPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.SharedTabPane;
+import pcgen.gui2.util.event.PopupMouseAdapter;
 import pcgen.system.CharacterManager;
 
 import org.apache.commons.lang3.StringUtils;
@@ -99,7 +98,15 @@ public final class CharacterTabs extends SharedTabPane
 		popupMenu.add(actions.get(PCGenActionMap.CLOSE_COMMAND));
 		popupMenu.add(actions.get(PCGenActionMap.SAVE_COMMAND));
 		popupMenu.add(actions.get(PCGenActionMap.SAVEAS_COMMAND));
-		addMouseListener(new PopupListener());
+		addMouseListener(new PopupMouseAdapter()
+		{
+			@Override
+			public void showPopup(final MouseEvent e)
+			{
+				popupMenu.setVisible(true);
+				popupMenu.show(e.getComponent(), e.getX(), e.getY() - popupMenu.getHeight());
+			}
+		});
 	}
 
 	private void addCharacter(CharacterFacade character)
@@ -130,7 +137,7 @@ public final class CharacterTabs extends SharedTabPane
 	{
 		int index = getSelectedIndex();
 		CharacterFacade character = index != -1 ? characters.get(index) : null;
-		frame.setSelectedCharacter(character);
+		frame.setCharacter(character);
 		if (character != null)
 		{
 			infoTabbedPane.setCharacter(character);
@@ -162,7 +169,7 @@ public final class CharacterTabs extends SharedTabPane
 			listenerMap.remove(character).removeListeners();
 		}
 		characters.clear();
-		for (CharacterFacade character : (ListFacade<CharacterFacade>) e.getSource())
+		for (CharacterFacade character : (Iterable<CharacterFacade>) e.getSource())
 		{
 			addCharacter(character);
 		}
@@ -270,31 +277,4 @@ public final class CharacterTabs extends SharedTabPane
 		}
 
 	}
-
-	private class PopupListener extends MouseAdapter
-	{
-
-		@Override
-		public void mousePressed(MouseEvent e)
-		{
-			maybeShowPopup(e);
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent e)
-		{
-			maybeShowPopup(e);
-		}
-
-		private void maybeShowPopup(MouseEvent e)
-		{
-			if (e.isPopupTrigger())
-			{
-				popupMenu.setVisible(true);
-				popupMenu.show(e.getComponent(), e.getX(), e.getY() - popupMenu.getHeight());
-			}
-		}
-
-	}
-
 }

@@ -17,24 +17,22 @@
  */
 package plugin.modifier.number;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.NumberManager;
-import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.scope.GlobalScope;
-import pcgen.cdom.formula.scope.PCGenScope;
+
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 public class DivideNumberModifierTest
 {
 
-	private final PCGenScope varScope = new GlobalScope();
 	private final FormatManager<Number> numManager = new NumberManager();
 
 	@Test
@@ -43,7 +41,7 @@ public class DivideNumberModifierTest
 		try
 		{
 			DivideModifierFactory m = new DivideModifierFactory();
-			m.getModifier(null, new ManagerFactory(){}, null, null, null);
+			m.getModifier(null, null);
 			fail("Expected DivideModifierFactory with null divide value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -197,7 +195,7 @@ public class DivideNumberModifierTest
 	{
 		DivideModifierFactory factory = new DivideModifierFactory();
 		FormulaModifier<Number> modifier =
-				factory.getModifier("4.3", new ManagerFactory(){}, null, varScope, numManager);
+				factory.getModifier("4.3", numManager);
 		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertEquals(numManager, modifier.getVariableFormat());

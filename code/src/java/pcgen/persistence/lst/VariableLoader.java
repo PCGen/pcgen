@@ -45,7 +45,7 @@ public class VariableLoader extends Observable
 		//Need the IF so that it is not an empty line causing issues
 		if (colToken.hasMoreTokens())
 		{
-			String tok = colToken.nextToken().intern();
+			String tok = colToken.nextToken();
 			if (tok.indexOf(':') == -1)
 			{
 				tok = "GLOBAL:" + tok;
@@ -101,7 +101,7 @@ public class VariableLoader extends Observable
 		URI uri = sourceEntry.getURI();
 		notifyObservers(uri);
 
-		StringBuilder dataBuffer;
+		String dataBuffer;
 
 		try
 		{
@@ -116,7 +116,7 @@ public class VariableLoader extends Observable
 			return;
 		}
 
-		String aString = dataBuffer.toString();
+		String aString = dataBuffer;
 		if (context != null)
 		{
 			context.setSourceURI(uri);
@@ -163,7 +163,6 @@ public class VariableLoader extends Observable
 					if (Logging.isDebugMode())
 					{
 						Logging.errorPrint(LanguageBundle.getString("Errors.LstFileLoader.Ignoring"), t);
-						t.printStackTrace();
 					}
 				}
 			}

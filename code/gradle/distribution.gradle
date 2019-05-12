@@ -1,3 +1,5 @@
+import java.time.LocalDateTime
+
 /*
  * PCGen distributable generation tasks. This file specifies the
  * archives included in the PCGen autobuild and PCGen releases. It
@@ -9,7 +11,7 @@
 ext {
     zipRootFolder = "pcgen"
 
-    buildTimestamp = new Date().format('yyyy-MM-dd HH:mm, Z')
+    buildTimestamp = LocalDateTime.now(Clock.systemUTC())
 
     autobuildSpec = copySpec{}
 
@@ -82,7 +84,7 @@ ext {
 
     jreImage = copySpec {
         from('.') {
-            include 'jre/**'
+            include 'jre/windows/**'
         }
     }
 }

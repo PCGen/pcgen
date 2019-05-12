@@ -22,38 +22,28 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.EnumMap;
-import java.util.EnumSet;
 import java.util.List;
-import java.util.Map;
 
-import javax.swing.AbstractAction;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EmptyBorder;
 
-import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.BiographyField;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.facade.core.CharacterFacade;
-import pcgen.facade.util.ListFacade;
-import pcgen.facade.util.event.ListEvent;
-import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
@@ -61,8 +51,6 @@ import pcgen.gui2.tabs.models.FormattedFieldHandler;
 import pcgen.gui2.tabs.models.TextFieldHandler;
 import pcgen.gui2.util.ScrollablePanel;
 import pcgen.system.LanguageBundle;
-
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code BiographyInfoPane} is a panel within the Description
@@ -77,9 +65,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static final String ALL_COMMAND = "ALL"; //$NON-NLS-1$
 	private static final String NONE_COMMAND = "NONE"; //$NON-NLS-1$
 	static final JTextField TEMPLATE_TEXT_FIELD = new JTextField("PrototypeDisplayText"); //$NON-NLS-1$;
-	/** The fields that we always display */
-	private static final EnumSet<BiographyField> DEFAULT_BIO_FIELDS =
-			EnumSet.range(BiographyField.NAME, BiographyField.WEIGHT);
 
 	private final TabTitle title = new TabTitle(LanguageBundle.getString("in_descBiography"), null); //$NON-NLS-1$
 	private final JButton allButton;
@@ -151,21 +136,19 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	{
 		ModelMap models = new ModelMap();
 		models.put(ItemHandler.class, new ItemHandler(character));
-		models.put(AddCustomAction.class, new AddCustomAction(character));
 		return models;
 	}
 
 	@Override
 	public void restoreModels(ModelMap models)
 	{
-		models.get(ItemHandler.class).install(this);
-		addCustomItemButton.setAction(models.get(AddCustomAction.class));
+		models.get(ItemHandler.class).install();
 	}
 
 	@Override
 	public void storeModels(ModelMap models)
 	{
-		models.get(ItemHandler.class).uninstall(this);
+		models.get(ItemHandler.class).uninstall();
 	}
 
 	@Override
@@ -174,19 +157,13 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		return title;
 	}
 
-	private class ItemHandler implements ListListener<BiographyField>
+	private class ItemHandler
 	{
 
-		private final ListFacade<BiographyField> customFields;
 		private final List<BioItem> bioItems = new ArrayList<>();
-		private final Map<BiographyField, BioItem> customFieldMap = new EnumMap<>(BiographyField.class);
 		private final CharacterFacade character;
-		private BiographyInfoPane detailsPane;
 		private final ActionListener bioListener = event -> bioItems.stream()
 			.forEach(item -> item
-				.setExportable(event.getActionCommand().equals(ALL_COMMAND)));
-		private final ActionListener customListner = event -> customFieldMap
-			.values().stream().forEach(item -> item
 				.setExportable(event.getActionCommand().equals(ALL_COMMAND)));
 
 		public ItemHandler(CharacterFacade character2)
@@ -212,101 +189,43 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			bioItems.add(new HeightItem(character));
 			bioItems.add(new WeightItem(character));
 
-			customFields = character.getDescriptionFacade().getCustomBiographyFields();
-
-			for (BiographyField field : customFields)
-			{
-				BioItem item;
-				if (field == BiographyField.REGION)
-				{
-					item = new RegionItem(character);
-				}
-				else
-				{
-					item = new BiographyFieldBioItem(field, character);
-				}
-				customFieldMap.put(field, item);
-			}
+			bioItems.add(new BiographyFieldBioItem(BiographyField.SPEECH_PATTERN, PCStringKey.SPEECHTENDENCY, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.BIRTHDAY, PCStringKey.BIRTHDAY, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.LOCATION, PCStringKey.LOCATION, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.CITY, PCStringKey.CITY, character));
+			bioItems.add(new RegionItem(character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.BIRTHPLACE, PCStringKey.BIRTHPLACE, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.PERSONALITY_TRAIT_1, PCStringKey.PERSONALITY1, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.PERSONALITY_TRAIT_2, PCStringKey.PERSONALITY2, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.PHOBIAS, PCStringKey.PHOBIAS, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.INTERESTS, PCStringKey.INTERESTS, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.CATCH_PHRASE, PCStringKey.CATCHPHRASE, character));
 		}
 
-		public void install(BiographyInfoPane parent)
+		public void install()
 		{
-			detailsPane = parent;
 			itemsPanel.removeAll();
 
 			allButton.addActionListener(bioListener);
-			allButton.addActionListener(customListner);
 			noneButton.addActionListener(bioListener);
-			noneButton.addActionListener(customListner);
 			for (BioItem bioItem : bioItems)
 			{
 				bioItem.addComponents(itemsPanel);
 				bioItem.install();
 			}
-			for (BioItem bioItem : customFieldMap.values())
-			{
-				bioItem.addComponents(itemsPanel);
-				bioItem.install();
-			}
 
-			customFields.addListListener(this);
 			detailsScroll.setPreferredSize(itemsPanel.getPreferredSize());
 			detailsScroll.invalidate();
 		}
 
-		public void uninstall(BiographyInfoPane parent)
+		public void uninstall()
 		{
 			allButton.removeActionListener(bioListener);
-			allButton.removeActionListener(customListner);
 			noneButton.removeActionListener(bioListener);
-			noneButton.removeActionListener(customListner);
 			for (BioItem bioItem : bioItems)
 			{
 				bioItem.uninstall();
 			}
-			for (BioItem bioItem : customFieldMap.values())
-			{
-				bioItem.uninstall();
-			}
-			detailsPane = null;
-			customFields.removeListListener(this);
-		}
-
-		@Override
-		public void elementAdded(ListEvent<BiographyField> e)
-		{
-			BiographyField field = e.getElement();
-			BioItem bioItem = new BiographyFieldBioItem(field, character);
-			customFieldMap.put(field, bioItem);
-			bioItem.addComponents(itemsPanel);
-			bioItem.install();
-			detailsPane.validate();
-			detailsScroll.setPreferredSize(itemsPanel.getPreferredSize());
-			detailsScroll.repaint();
-		}
-
-		@Override
-		public void elementRemoved(ListEvent<BiographyField> e)
-		{
-			BiographyField field = e.getElement();
-			BioItem bioItem = customFieldMap.remove(field);
-			bioItem.uninstall();
-			detailsPane.invalidate();
-		}
-
-		@Override
-		public void elementsChanged(ListEvent<BiographyField> e)
-		{
-			BiographyInfoPane parent = detailsPane;
-			uninstall(parent);
-			install(parent);
-			detailsPane.invalidate();
-		}
-
-		@Override
-		public void elementModified(ListEvent<BiographyField> e)
-		{
-			// Ignored.
 		}
 	}
 
@@ -621,7 +540,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	{
 		public HairStyleItem(final CharacterFacade character)
 		{
-			super(BiographyField.HAIR_STYLE, character); //$NON-NLS-1$
+			super(BiographyField.HAIR_STYLE, PCStringKey.HAIRSTYLE, character); //$NON-NLS-1$
 		}
 	}
 
@@ -633,7 +552,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class BiographyFieldBioItem extends BioItem
 	{
 
-		public BiographyFieldBioItem(final BiographyField field, final CharacterFacade character)
+		public BiographyFieldBioItem(BiographyField field, PCStringKey attribute, CharacterFacade character)
 		{
 			super(field.getIl8nKey(), field, character);
 			setTextFieldHandler(
@@ -642,77 +561,11 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 					@Override
 					protected void textChanged(String text)
 					{
-						character.getDescriptionFacade().setBiographyField(field, text);
+						character.getDescriptionFacade().setBiographyField(attribute, text);
 					}
 
 				});
 		}
 
 	}
-
-	/**
-	 * The Class {@code AddAction} acts on a user pressing the Add Custom
-	 * Details button.
-	 */
-	private class AddCustomAction extends AbstractAction
-	{
-
-		private final CharacterFacade character;
-
-		public AddCustomAction(CharacterFacade character)
-		{
-			super(LanguageBundle.getString("in_descAddDetail")); //$NON-NLS-1$
-			this.character = character;
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			// Build list of choices
-			List<BiographyField> availFields = new ArrayList<>(Arrays.asList(BiographyField.values()));
-			availFields.removeAll(DEFAULT_BIO_FIELDS);
-			for (BiographyField field : character.getDescriptionFacade().getCustomBiographyFields())
-			{
-				availFields.remove(field);
-			}
-			if (availFields.isEmpty())
-			{
-				JOptionPane.showMessageDialog(JOptionPane.getFrameForComponent(addCustomItemButton),
-					LanguageBundle.getString("in_descNoMoreDetails"), //$NON-NLS-1$
-					Constants.APPLICATION_NAME, JOptionPane.INFORMATION_MESSAGE);
-				return;
-			}
-
-			String[] fieldNames = new String[availFields.size()];
-			int i = 0;
-			for (BiographyField biographyField : availFields)
-			{
-				fieldNames[i++] = LanguageBundle.getString(biographyField.getIl8nKey());
-			}
-
-			// Show dialog to choose fields
-			String s = (String) JOptionPane.showInputDialog(JOptionPane.getFrameForComponent(addCustomItemButton),
-				LanguageBundle.getString("in_descAddFieldMsg"), //$NON-NLS-1$
-				LanguageBundle.getString("in_descAddFieldTitle"), //$NON-NLS-1$
-				JOptionPane.QUESTION_MESSAGE, null, fieldNames, fieldNames[0]);
-
-			// Check if a selection was made
-			if (StringUtils.isEmpty(s))
-			{
-				return;
-			}
-
-			// Add the chosen field to the character
-			for (BiographyField field : availFields)
-			{
-				if (s.equals(LanguageBundle.getString(field.getIl8nKey())))
-				{
-					character.getDescriptionFacade().addCustomBiographyField(field);
-					break;
-				}
-			}
-		}
-
-	}
-
 }

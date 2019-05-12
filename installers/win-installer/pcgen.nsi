@@ -201,7 +201,7 @@ Section "Java 64 Bit" Section5
         ;Use the right java version
         DetailPrint "Java extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
-        File /r "${SrcDir}\..\..\jre\jre_x64\*.*"
+        File /r "${SrcDir}\..\..\jre\windows\jre_x64\*.*"
 	File /r "${SrcDir}\..\..\code\pcgen_JREx64.bat"
         DetailPrint "Java extraction complete!"
 SectionEnd
@@ -212,7 +212,7 @@ Section "Java 32 Bit" Section6
         ;Use the right java version
         DetailPrint "Java extraction..."
         SetOutPath "$INSTDIR\${APPDIR}\jre"
-        File /r "${SrcDir}\..\..\jre\jre_x32\*.*"
+        File /r "${SrcDir}\..\..\jre\windows\jre_x32\*.*"
 	File /r "${SrcDir}\..\..\code\pcgen_JREx32.bat"
         DetailPrint "Java extraction complete!"
 SectionEnd
@@ -225,7 +225,7 @@ Section -FinishSection
 	WriteUninstaller "$INSTDIR\uninstall-${APPDIR}.exe"
 
 	DetailPrint "Calculating installation size..."
-	${GetSize} "$INSTDIR" "/S=0K" $0 $1 $2
+	${GetSize} "$INSTDIR\${APPDIR}" "/S=0K" $0 $1 $2
  	IntFmt $0 "0x%08X" $0
  	WriteRegDWORD HKLM "${ARP}" "EstimatedSize" "$0"
 	DetailPrint "Done!"

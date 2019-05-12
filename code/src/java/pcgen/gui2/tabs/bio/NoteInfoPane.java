@@ -67,8 +67,8 @@ public class NoteInfoPane extends JPanel implements CharacterInfoTab
 		this.noteField = new JTextArea(8, 20);
 		this.title = new TabTitle(name, null);
 		this.removeButton = new JButton(LanguageBundle.getString("in_descDelNote")); //$NON-NLS-1$
-		nameField.setEditable(!note.isRequired());
-		removeButton.setEnabled(!note.isRequired());
+		nameField.setEditable(note.getPCStringKey().isEmpty());
+		removeButton.setEnabled(note.getPCStringKey().isEmpty());
 		initComponents();
 	}
 

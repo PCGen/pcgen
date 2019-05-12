@@ -531,6 +531,7 @@ CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Diplomacy|Escape Artist|Fly|TYPE=Kn
 10	ADD:SPELLCASTER|Arcane
 ###Block: Progression
 1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Weapon and Armor Proficiency
+1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Spells per Day
 1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Blood of Dragons|Dragon Disciple ~ Natural Armor Increase
 2	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Ability Boost|Dragon Disciple ~ Dragon Bite|Dragon Disciple ~ Bloodline Feat
 3	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Breath Weapon

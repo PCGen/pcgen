@@ -17,6 +17,10 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.enumeration.ListKey;
@@ -33,7 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.spell.ClassesToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
@@ -43,7 +47,7 @@ public class SpellClassesTest extends AbstractTokenModelTest
 	private static ClassesToken token = new ClassesToken();
 	private Spell sp;
 	private PCClass dragon;
-	protected AvailableSpellFacet availableSpellFacet = FacetLibrary
+	private AvailableSpellFacet availableSpellFacet = FacetLibrary
 		.getFacet(AvailableSpellFacet.class);
 
 	@Override

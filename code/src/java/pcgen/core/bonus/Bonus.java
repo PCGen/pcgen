@@ -17,6 +17,8 @@
  */
 package pcgen.core.bonus;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.Locale;
 import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
@@ -68,11 +70,11 @@ public final class Bonus
 		{
 			//Throw away old level value if present
 			Integer.parseInt(bonusName);
-			bonusName = sep.next().toUpperCase();
+			bonusName = sep.next().toUpperCase(Locale.ENGLISH);
 		}
 		catch (NumberFormatException exc)
 		{
-			bonusName = bonusName.toUpperCase();
+			bonusName = bonusName.toUpperCase(Locale.ENGLISH);
 		}
 
 		int equalOffset = -1;
@@ -88,7 +90,6 @@ public final class Bonus
 			}
 			if (bEntry == null)
 			{
-				typeOfBonus = Bonus.BONUS_UNDEFINED;
 				Logging.errorPrint("Unrecognized bonus: " + bonusString);
 				return null;
 			}
@@ -108,23 +109,23 @@ public final class Bonus
 			return null;
 		}
 
-		bValue = bValue.toUpperCase();
+		bValue = bValue.toUpperCase(Locale.ENGLISH);
 
 		BonusObj aBonus = null;
 		try
 		{
-			aBonus = bEntry.newInstance();
+			aBonus = bEntry.getConstructor().newInstance();
 		}
-		catch (Exception exc)
+		catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException exc)
 		{
-			Logging.errorPrint("Could not create bonusObj for:" + bonusString);
+			Logging.errorPrint("Could not create bonusObj for:" + bonusString, exc);
 			return null;
 		}
 
-		aBonus.putOriginalString(bonusString.intern());
-		aBonus.setBonusName(bonusName.intern());
-		aBonus.setTypeOfBonus(typeOfBonus.intern());
-		Formula val = aBonus.setValue(bValue.intern());
+		aBonus.putOriginalString(bonusString);
+		aBonus.setBonusName(bonusName);
+		aBonus.setTypeOfBonus(typeOfBonus);
+		Formula val = aBonus.setValue(bValue);
 		if (!val.isValid())
 		{
 			Logging.errorPrint(
@@ -134,7 +135,7 @@ public final class Bonus
 
 		while (sep.hasNext())
 		{
-			final String aString = sep.next().toUpperCase();
+			final String aString = sep.next().toUpperCase(Locale.ENGLISH);
 
 			if (PreParserFactory.isPreReqString(aString))
 			{
@@ -172,13 +173,13 @@ public final class Bonus
 						aBonus.setStackingFlag(StackType.STACK);
 					}
 				}
-				final boolean result = aBonus.addType(bonusType.intern());
+				final boolean result = aBonus.addType(bonusType);
 
 				if (!result)
 				{
 					Logging.log(Logging.LST_ERROR,
-						new StringBuilder().append("Could not add type ").append(aString.substring(5))
-							.append(" to bonusType ").append(typeOfBonus).append(" in Bonus.newBonus").toString());
+							"Could not add type " + aString.substring(5) +
+									" to bonusType " + typeOfBonus + " in Bonus.newBonus");
 					Logging.reportSource(Logging.LST_ERROR, context);
 					return null;
 				}
@@ -187,19 +188,18 @@ public final class Bonus
 
 		if (equalOffset >= 0)
 		{
-			aBonus.setVariable(bonusName.substring(equalOffset + 1).intern());
+			aBonus.setVariable(bonusName.substring(equalOffset + 1));
 		}
 
 		if (!aBonus.requiresRealCaseTarget())
 		{
-			bonusInfo = bonusInfo.toUpperCase();
+			bonusInfo = bonusInfo.toUpperCase(Locale.ENGLISH);
 		}
 		StringTokenizer aTok = new StringTokenizer(bonusInfo, ",");
 
 		if (!aTok.hasMoreTokens())
 		{
-			Logging.log(Logging.LST_ERROR, new StringBuilder().append("Could not parse empty target ")
-				.append(" from BONUS:").append(bonusString).toString());
+			Logging.log(Logging.LST_ERROR, "Could not parse empty target from BONUS:" + bonusString);
 			Logging.reportSource(Logging.LST_ERROR, context);
 			return null;
 		}
@@ -211,8 +211,8 @@ public final class Bonus
 
 			if (!result)
 			{
-				Logging.log(Logging.LST_ERROR, new StringBuilder().append("Could not parse token ").append(token)
-					.append(" from BONUS:").append(bonusString).toString());
+				Logging.log(Logging.LST_ERROR, "Could not parse token " + token +
+						" from BONUS:" + bonusString);
 				Logging.reportSource(Logging.LST_ERROR, context);
 				return null;
 			}

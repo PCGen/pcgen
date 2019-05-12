@@ -33,7 +33,6 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
 import pcgen.gui2.util.event.DynamicTableColumnModelListener;
-import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
 
 public class JDynamicTable extends JTableEx
@@ -119,11 +118,6 @@ public class JDynamicTable extends JTableEx
 				scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, null);
 			}
 		}
-	}
-
-	protected DynamicTableColumnModel createDefaultDynamicTableColumnModel()
-	{
-		return new DefaultDynamicTableColumnModel(getColumnModel(), 1);
 	}
 
 	private JCheckBoxMenuItem createMenuItem(TableColumn column)

@@ -51,7 +51,7 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.scope.EquipmentPartScope;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.cdom.inst.GlobalModifiers;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
@@ -229,7 +229,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	}
 
 	@Override
-	public void execute()
+	public void run()
 	{
 		Globals.emptyLists();
 		SettingsHandler.setGame(selectedGame.getName());
@@ -270,8 +270,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		{
 			try
 			{
-				StringBuilder dataBuffer = LstFileLoader.readFromURI(licenseFile.getURI());
-				licenses.add(dataBuffer.toString());
+				String dataBuffer = LstFileLoader.readFromURI(licenseFile.getURI());
+				licenses.add(dataBuffer);
 			}
 			catch (PersistenceLayerException e)
 			{
@@ -300,12 +300,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 */
 	private int countTotalFilesToLoad()
 	{
-		int count = 0;
-		for (ListKey<?> lk : fileLists.getKeySet())
-		{
-			count += fileLists.sizeOfListFor(lk);
-		}
-		return count;
+		return fileLists.getKeySet().stream()
+		                .mapToInt(fileLists::sizeOfListFor)
+		                .sum();
 	}
 
 	private void addCustomFilesToStartOfList()
@@ -714,7 +711,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 	private static void defineVariable(VariableContext varContext, FormatManager<?> formatManager, String varName)
 	{
-		LegalScope varScope = varContext.getScope(GlobalScope.GLOBAL_SCOPE_NAME);
+		LegalScope varScope = varContext.getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		varContext.assertLegalVariableID(varName, varScope, formatManager);
 	}
 

@@ -78,9 +78,9 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements Prere
 		}
 		if (!foundSkill)
 		{
-			for (Skill mock : serveAsSkills.keySet())
+			for (final Map.Entry<Skill, Set<Skill>> entry : serveAsSkills.entrySet())
 			{
-				Set<Skill> targets = serveAsSkills.get(mock);
+				Set<Skill> targets = entry.getValue();
 				for (Skill target : targets)
 				{
 					if (foundSkill)
@@ -92,7 +92,8 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements Prere
 					{
 						foundSkill = true;
 						foundMatch = true;
-						int theTotal = getRunningTotal(mock, character, prereq, foundMatch, runningTotal, requiredRanks,
+						int theTotal = getRunningTotal(
+								entry.getKey(), character, prereq, foundMatch, runningTotal, requiredRanks,
 							situation);
 						runningTotal += theTotal;
 

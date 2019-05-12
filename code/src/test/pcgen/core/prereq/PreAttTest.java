@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -29,6 +32,9 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code PreAttTest} tests that the PREATT tag is
@@ -43,6 +49,7 @@ public class PreAttTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testAtt() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -73,6 +80,7 @@ public class PreAttTest extends AbstractCharacterTestCase
 			.passes(prereq, character, null));
 	}
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{

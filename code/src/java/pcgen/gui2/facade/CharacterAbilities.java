@@ -129,22 +129,6 @@ public class CharacterAbilities
 		grantedAbilityFacet.addDataFacetChangeListener(grantedAbilityChangeHandler);
 	}
 
-	void removeAbilityFromLists(AbilityCategory cat, Ability ability, Nature nature)
-	{
-		removeCategorisedAbility(cat, ability, nature);
-
-		boolean stillActive = cat.isVisibleTo(View.VISIBLE_DISPLAY);
-		if (!stillActive && activeCategories.containsElement(cat))
-		{
-			activeCategories.removeElement(cat);
-		}
-		else
-		{
-			adviseSelectionChangeLater(cat);
-		}
-		updateAbilityCategoryLater(cat);
-	}
-
 	/**
 	 * Rebuild the ability lists for the character to include the character's 
 	 * current abilities.
@@ -182,9 +166,7 @@ public class CharacterAbilities
 		}
 
 		// Update map contents
-		for (AbilityCategory category : workingAbilityListMap.keySet())
-		{
-			DefaultListFacade<AbilityFacade> workingListFacade = workingAbilityListMap.get(category);
+		workingAbilityListMap.forEach((category, workingListFacade) -> {
 			DefaultListFacade<AbilityFacade> masterListFacade = abilityListMap.get(category);
 			if (masterListFacade == null)
 			{
@@ -195,7 +177,7 @@ public class CharacterAbilities
 				masterListFacade.updateContentsNoOrder(workingListFacade.getContents());
 			}
 			updateAbilityCategoryTodo(category);
-		}
+		});
 
 		Set<AbilityCategory> origCats = new HashSet<>(abilityListMap.keySet());
 		for (AbilityCategory category : origCats)
@@ -314,20 +296,6 @@ public class CharacterAbilities
 		{
 			addElement(workingAbilityListMap, sel);
 		}
-	}
-
-	private void removeCategorisedAbility(AbilityCategory cat, Ability ability, Nature nature)
-	{
-		CNAbilitySelection cas;
-		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
-		{
-			cas = new CNAbilitySelection(CNAbilityFactory.getCNAbility(cat, nature, ability), "");
-		}
-		else
-		{
-			cas = new CNAbilitySelection(CNAbilityFactory.getCNAbility(cat, nature, ability));
-		}
-		removeElement(cas);
 	}
 
 	/**
@@ -576,24 +544,6 @@ public class CharacterAbilities
 	}
 
 	/**
-	 * After any other processing has finished, refresh the todo information. 
-	 * This occurs as category totals are updated after we are notified of the 
-	 * abilities being added or removed.
-	 * @param category The ability category that may have changed.
-	 */
-	private void updateAbilityCategoryLater(final Category<Ability> category)
-	{
-		SwingUtilities.invokeLater(new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				updateAbilityCategoryTodo(category);
-			}
-		});
-	}
-
-	/**
 	 * Signal that any ability that could have choices has been modified. This 
 	 * ensures that the choice display is up to date.
 	 * @param category The ability category being refreshed.
@@ -672,18 +622,6 @@ public class CharacterAbilities
 		if (!listFacade.containsElement(ability))
 		{
 			listFacade.addElement(ability);
-		}
-	}
-
-	private void removeElement(CNAbilitySelection cnas)
-	{
-		CNAbility cas = cnas.getCNAbility();
-		Ability ability = cas.getAbility();
-		AbilityCategory cat = (AbilityCategory) cas.getAbilityCategory();
-		DefaultListFacade<AbilityFacade> listFacade = abilityListMap.get(cat);
-		if (listFacade != null)
-		{
-			listFacade.removeElement(ability);
 		}
 	}
 

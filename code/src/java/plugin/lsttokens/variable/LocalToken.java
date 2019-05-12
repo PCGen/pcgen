@@ -22,7 +22,7 @@ import pcgen.base.formula.exception.LegalVariableException;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DatasetVariable;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.VariableContext;
@@ -117,7 +117,7 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable> implement
 	public String[] unparse(LoadContext context, DatasetVariable dv)
 	{
 		PCGenScope scope = dv.getScope();
-		if (scope == null || scope.getName().equals(GlobalScope.GLOBAL_SCOPE_NAME))
+		if (scope == null || scope.getName().equals(GlobalPCScope.GLOBAL_SCOPE_NAME))
 		{
 			//Global variable
 			return null;

@@ -19,6 +19,8 @@
  */
 package pcgen.system;
 
+import java.util.Optional;
+
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.ChooserFacade;
 import pcgen.facade.core.EquipmentBuilderFacade;
@@ -82,9 +84,9 @@ public class ConsoleUIDelegate implements UIDelegate
 	}
 
 	@Override
-	public String showInputDialog(String title, String message, String initialValue)
+	public Optional<String> showInputDialog(String title, String message, String initialValue)
 	{
-		return null;
+		return Optional.empty();
 	}
 
 	@Override

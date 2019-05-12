@@ -23,6 +23,10 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
@@ -32,6 +36,9 @@ import pcgen.core.Race;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class PreSizeTest extends AbstractCharacterTestCase
 {
 	Race race = new Race();
@@ -39,6 +46,7 @@ public class PreSizeTest extends AbstractCharacterTestCase
 	Equipment eq2;
 	Equipment eq3;
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{
@@ -56,6 +64,7 @@ public class PreSizeTest extends AbstractCharacterTestCase
 		eq3 = EquipmentList.getEquipmentFromName("Item Three", character);
 	}
 
+	@Test
 	public void testEquipmentPreSize() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();

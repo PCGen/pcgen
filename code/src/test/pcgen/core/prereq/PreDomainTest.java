@@ -17,6 +17,9 @@
  */
 package pcgen.core.prereq;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -31,6 +34,9 @@ import pcgen.output.channel.compat.AlignmentCompat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 /**
  * {@code PreDomainTest} tests that the PREDOMAIN tag is
  * working correctly.
@@ -44,6 +50,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	 *
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
+	@Test
 	public void testDeity() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -75,6 +82,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	 * Test with multiple options.
 	 * @throws PersistenceLayerException 
 	 */
+	@Test
 	public void testMultiple() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -119,6 +127,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	 * Test for any domain.
 	 * @throws PersistenceLayerException 
 	 */
+	@Test
 	public void testAny() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
@@ -152,6 +161,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 		
 	}
 
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{

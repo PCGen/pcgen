@@ -18,6 +18,7 @@
 package pcgen.facade.core;
 
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.NoteItem;
 import pcgen.facade.util.ListFacade;
@@ -90,21 +91,9 @@ public interface DescriptionFacade
 
 	/**
 	 * Update the value of a text only biography field.
-	 * @param field The field to be updated. 
+	 * @param attribute The attribute to be updated. 
 	 * @param newValue The new value of the field.
 	 */
-	public void setBiographyField(BiographyField field, String newValue);
-
-	/**
-	 * @return The custom BiographyFields held for this character.
-	 */
-	public ListFacade<BiographyField> getCustomBiographyFields();
-
-	/**
-	 * Add a new field to the list of fields that will be displayed for 
-	 * this character.
-	 * @param field The BiographyField to be displayed.
-	 */
-	public void addCustomBiographyField(BiographyField field);
+	public void setBiographyField(PCStringKey attribute, String newValue);
 
 }

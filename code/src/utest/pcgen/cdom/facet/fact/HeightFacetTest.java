@@ -60,14 +60,14 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testHeightSetZeroValid()
 	{
-		facet.setHeight(id, 0);
+		facet.set(id, 0);
 		assertEquals(0, facet.getHeight(id));
 	}
 
 	@Test
 	public void testHeightSetNegative()
 	{
-		facet.setHeight(id, -250);
+		facet.set(id, -250);
 		/*
 		 * TODO Some form of error here?
 		 */
@@ -76,9 +76,9 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testRemoveHeight()
 	{
-		facet.setHeight(id, 25);
+		facet.set(id, 25);
 		assertEquals(25, facet.getHeight(id));
-		facet.removeHeight(id);
+		facet.remove(id);
 		assertEquals(0, facet.getHeight(id));
 	}
 

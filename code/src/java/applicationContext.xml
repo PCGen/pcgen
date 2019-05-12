@@ -412,11 +412,15 @@
 		<property name="monsterCSkillFacet" ref="monsterCSkillFacet"/>
 		<property name="classFacet" ref="classFacet"/>
 	</bean>
+	<bean id="moveCloneFacet" class="pcgen.cdom.facet.analysis.MoveCloneFacet">
+		<property name="consolidationFacet" ref="consolidationFacet"/>
+	</bean>
 	<bean id="movementFacet" class="pcgen.cdom.facet.analysis.MovementFacet">
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 	</bean>
 	<bean id="movementResultFacet" class="pcgen.cdom.facet.analysis.MovementResultFacet">
 		<property name="movementFacet" ref="movementFacet"/>
+		<property name="moveCloneFacet" ref="moveCloneFacet"/>
 		<property name="baseMovementFacet" ref="baseMovementFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="deityFacet" ref="deityFacet"/>
@@ -535,6 +539,7 @@
 		<property name="templateFacet" ref="templateFacet"/>
 		<property name="raceFacet" ref="raceFacet"/>
 		<property name="levelFacet" ref="levelFacet"/>
+		<property name="resultFacet" ref="resultFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet" />
 	</bean>
 	<bean id="skillFacet" class="pcgen.cdom.facet.model.SkillFacet">
@@ -685,21 +690,25 @@
 	<!-- END Facet Definitions -->
 
 	<!--  Scope Definitions -->
-	<bean id="globalLegalScope" class="pcgen.cdom.formula.scope.GlobalScope"/>
+	<bean id="globalEQScope" class="pcgen.cdom.formula.scope.GlobalEQScope"/>
+	<bean id="globalPCScope" class="pcgen.cdom.formula.scope.GlobalPCScope"/>
 	<bean id="saveLegalScope" class="pcgen.cdom.formula.scope.SaveScope">
-		<property name="parent" ref="globalLegalScope"/>
+		<property name="parent" ref="globalPCScope"/>
 	</bean>
 	<bean id="sizeLegalScope" class="pcgen.cdom.formula.scope.SizeScope">
-		<property name="parent" ref="globalLegalScope"/>
+		<property name="parent" ref="globalPCScope"/>
 	</bean>
 	<bean id="skillLegalScope" class="pcgen.cdom.formula.scope.SkillScope">
-		<property name="parent" ref="globalLegalScope"/>
+		<property name="parent" ref="globalPCScope"/>
 	</bean>
 	<bean id="statLegalScope" class="pcgen.cdom.formula.scope.StatScope">
-		<property name="parent" ref="globalLegalScope"/>
+		<property name="parent" ref="globalPCScope"/>
+	</bean>
+	<bean id="raceLegalScope" class="pcgen.cdom.formula.scope.RaceScope">
+		<property name="parent" ref="globalPCScope"/>
 	</bean>
 	<bean id="equipLegalScope" class="pcgen.cdom.formula.scope.EquipmentScope">
-		<property name="parent" ref="globalLegalScope"/>
+		<property name="parent" ref="globalPCScope"/>
 	</bean>
 	<bean id="equipPartLegalScope" class="pcgen.cdom.formula.scope.EquipmentPartScope">
 		<property name="parent" ref="equipLegalScope"/>

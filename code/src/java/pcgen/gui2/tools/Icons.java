@@ -40,7 +40,7 @@ public enum Icons
 	PrintPreview16(".gif"), Properties16(".gif"), Redo16(".gif"), Refresh16(".gif"), Remove16(".gif"),
 	RemovePreferences16(".gif"), RemoveZoom16(".gif"), Replace16(".gif"), Save16(".gif"), SaveAll16(".gif"),
 	SaveAs16(".gif"), Search16(".gif"), SendMail16(".gif"), SplashPcgen(".gif"), SplashPcgen_Alpha(".png"),
-	SplashPcgen_Beta(".png"), SplashPcgen_Ennie(".png"), Stop16(".gif"), TipOfTheDay16(".gif"), TipOfTheDay24(".gif"),
+	SplashPcgen_Beta(".png"), Stop16(".gif"), TipOfTheDay16(".gif"), TipOfTheDay24(".gif"),
 	UUp16(".gif"), UUp24(".gif"), Undo16(".gif"), Up16(".gif"), XButton_Click(".gif"), XButton_Roll(".gif"),
 	XButton_Stat(".gif"), Zoom16(".gif"), ZoomHighlightBlue16(".gif"), ZoomIn16(".gif"), ZoomOut16(".gif"),
 	gmgen_icon(".png"), stock_broken_image("-16.png"), stock_color("-16.png"), stock_copy("-16.png"),

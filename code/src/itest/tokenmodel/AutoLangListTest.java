@@ -17,6 +17,10 @@
  */
 package tokenmodel;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbilityFactory;
@@ -32,7 +36,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.MultToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 

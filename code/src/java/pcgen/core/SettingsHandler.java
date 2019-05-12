@@ -134,7 +134,6 @@ public final class SettingsHandler
 	private static String selectedSpellSheet = ""; //$NON-NLS-1$
 	private static boolean showHPDialogAtLevelUp = true;
 	private static boolean showStatDialogAtLevelUp = true;
-	private static boolean showToolBar = true;
 	private static boolean showSkillModifier = false;
 	private static boolean showSkillRanks = false;
 	private static boolean showWarningAtFirstLevelUp = true;
@@ -919,7 +918,6 @@ public final class SettingsHandler
 		setInputUnconstructedMessages(getPCGenOption("inputUnconstructedMessages", false));
 		setShowStatDialogAtLevelUp(getPCGenOption("showStatDialogAtLevelUp", true)); //$NON-NLS-1$
 		setShowTipOfTheDay(getPCGenOption("showTipOfTheDay", true)); //$NON-NLS-1$
-		setShowToolBar(getPCGenOption("showToolBar", true)); //$NON-NLS-1$
 		setShowSkillModifier(getPCGenOption("showSkillModifier", true)); //$NON-NLS-1$
 		setShowSkillRanks(getPCGenOption("showSkillRanks", true)); //$NON-NLS-1$
 		setShowWarningAtFirstLevelUp(getPCGenOption("showWarningAtFirstLevelUp", true)); //$NON-NLS-1$
@@ -1161,7 +1159,6 @@ public final class SettingsHandler
 		setPCGenOption("showHPDialogAtLevelUp", getShowHPDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showStatDialogAtLevelUp", getShowStatDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showTipOfTheDay", getShowTipOfTheDay()); //$NON-NLS-1$
-		setPCGenOption("showToolBar", isShowToolBar()); //$NON-NLS-1$
 		setPCGenOption("showSkillModifier", getShowSkillModifier()); //$NON-NLS-1$
 		setPCGenOption("showSkillRanks", getShowSkillRanks()); //$NON-NLS-1$
 		setPCGenOption("showSingleBoxPerBundle", getShowSingleBoxPerBundle()); //$NON-NLS-1$
@@ -1965,16 +1962,6 @@ public final class SettingsHandler
 	private static boolean isSaveCustomInLst()
 	{
 		return saveCustomInLst;
-	}
-
-	private static void setShowToolBar(final boolean argShowToolBar)
-	{
-		showToolBar = argShowToolBar;
-	}
-
-	private static boolean isShowToolBar()
-	{
-		return showToolBar;
 	}
 
 	public static void setShowSkillModifier(final boolean argShowSkillMod)

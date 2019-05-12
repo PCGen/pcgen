@@ -1,0 +1,66 @@
+CAMPAIGN:Blood and Steel - Book 2 - The Ninja
+KEY:Blood and Steel - Book 2 - The Ninja
+RANK:5
+BOOKTYPE:Supplement
+PRECAMPAIGN:6,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Equipment
+GAMEMODE:Pathfinder
+STATUS:BETA
+TYPE:PFSRD Publishing.Supplement
+SOURCELONG:The Ninja
+SOURCESHORT:TN
+SOURCEDATE:2017-09
+PUBNAMELONG:d20pfsrd.com Publishing
+PUBNAMESHORT:PP
+ISOGL:YES
+
+# COVER should be cover_gameMode_pub_book.file
+COVER:PZOPDFD20BASB2E_180.jpeg
+# LOGO should be logo_pub.file
+LOGO:d20pfsrd-publishing300x120_compact.png
+URL:WEBSITE|https://www.opengamingstore.com/collections/d20pfsrd-com-publishing|Visit d20pfsrd.com Publishing' website
+URL:d20pfsrd.com Publishing.com|https://www.opengamingstore.com/products/blood-steel-book-2-the-ninja|Buy this source from Open Gaming Store
+URL:Paizo|https://paizo.com/products/btpy9w8a?Blood-Steel-Book-2-The-Ninja|Buy this source from Paizo
+
+COPYRIGHT:Open Game License v 1.0a, Copyright 2000, Wizards of the Coast, Inc.;
+COPYRIGHT:System Reference Document, Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:System Reference Document, Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Advanced Player’s Guide, Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn.
+COPYRIGHT:Pathfinder RPG Core Rulebook, Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook, Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook, Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook, Copyright 2011, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Occult Adventures, Copyright 2015, Paizo Inc.; Authors: John Bennett, Logan Bonner, Robert Brookes, Jason Bulmahn, Ross Byers, John Compton, Adam Daigle, Jim Groves, Thurston Hillman, Eric Hindley, Brandon Hodge, Ben McFarland, Erik Mona, Jason Nelson, Tom Phillips, Stephen Radney-MacFarland, Thomas M. Reid, Alex Riggs, Robert Schwalb, Mark Seifter, Russ Taylor, and Steve Townshend.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Combat, Copyright 2011, Paizo Publishing, LLC; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
+COPYRIGHT:The Book of Experimental Might, Copyright 2008, Monte J. Cook; All rights reserved.
+COPYRIGHT:Tome of Horrors, Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
+COPYRIGHT:Demon, Shadow from the Tome of Horrors Complete, Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Neville White.
+COPYRIGHT:Marid from the Tome of Horrors III, Copyright 2005, Necromancer Games, Inc.; Author: Scott Greene.
+COPYRIGHT:Poltergeist from the Tome of Horrors Complete, Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Lewis Pulsipher.
+COPYRIGHT:Blood & Steel, Book 2: The Ninja, Copyright 2017, D20PFSRD Publishing,; Author: Kalen Tessmann
+COPYRIGHT:PCGen dataset conversion for "Blood & Steel, Book 2: The Ninja" Copyright 2018, PCGen Data team (Including, but not limited to Bahamut Dragon, Gwen T., Paul Grosse and Andrew Maitland)
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+ABILITY:tn_abilities.lst
+ABILITY:tn_abilities_feat.lst
+
+# Completed Files
+EQUIPMENT:tn_equip.lst
+WEAPONPROF:tn_profs_weapon.lst
+
+HIDETYPE:SKILL|BASE|Strength|Dexterity|Intelligence|Wisdom|Charisma
+HIDETYPE:EQUIP|Ninja
+
+INFOTEXT:Supports 6.07.08
+# ENTRY DATE: 2018-10
+# LST MONKEY: BahamutDragon & Gwen T.
+# RELEASE REVIEW #
+# LICENSE: Paul Grosse
+# BETA: Andrew Maitland
+# RELEASE:
+# Built for PCGen Version: 6.07.08
+# Updated to work with version: -
+# MINVER:6.7
+# MINDEVVER:6.07.08
+# COMMENTS:

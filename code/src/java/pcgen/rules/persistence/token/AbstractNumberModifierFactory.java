@@ -22,20 +22,17 @@ import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.FormulaCalculation;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.calculation.NEPCalculation;
-import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ProcessCalculation;
-import pcgen.cdom.formula.scope.PCGenScope;
 
 public abstract class AbstractNumberModifierFactory<T> implements ModifierFactory<T>, BasicCalculation<T>
 {
 
 	@Override
-	public FormulaModifier<T> getModifier(String instructions, ManagerFactory managerFactory,
-		FormulaManager formulaManager, PCGenScope varScope, FormatManager<T> formatManager)
+	public FormulaModifier<T> getModifier(String instructions, 
+		FormatManager<T> formatManager)
 	{
 		try
 		{
@@ -43,8 +40,7 @@ public abstract class AbstractNumberModifierFactory<T> implements ModifierFactor
 		}
 		catch (NumberFormatException e)
 		{
-			final NEPFormula<T> f = FormulaFactory.getValidFormula(instructions, managerFactory, formulaManager,
-				varScope, formatManager);
+			final NEPFormula<T> f = FormulaFactory.getNEPFormulaFor(formatManager, instructions);
 			NEPCalculation<T> calc = new FormulaCalculation<>(f, this);
 			return new CalculationModifier<>(calc, formatManager);
 		}

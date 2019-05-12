@@ -17,9 +17,9 @@
  */
 package pcgen.cdom.facet;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -28,8 +28,9 @@ import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeListener;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 public class SkillRankFacetTest
 {
 	private CharID id;
@@ -55,7 +56,7 @@ public class SkillRankFacetTest
 		}
 
 	}
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		DataSetID cid = DataSetID.getID();
@@ -94,15 +95,9 @@ public class SkillRankFacetTest
 	@Test
 	public void testAddCharIDNull()
 	{
-		try
-		{
+		assertThrows(NullPointerException.class, () -> {
 			facet.set(null, s1, cl1, 4.0);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Yep!
-		}
+		});
 		testRankUnsetZero();
 		testUnsetEmpty();
 		assertEventCount(0);
@@ -111,15 +106,9 @@ public class SkillRankFacetTest
 	@Test
 	public void testAddSkillNull()
 	{
-		try
-		{
+		assertThrows(NullPointerException.class, () -> {
 			facet.set(id, null, cl1, 4.0);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Yep!
-		}
+		});
 		testRankUnsetZero();
 		testUnsetEmpty();
 		assertEventCount(0);
@@ -247,15 +236,9 @@ public class SkillRankFacetTest
 	@Test
 	public void testRemoveCharIDNull()
 	{
-		try
-		{
+		assertThrows(NullPointerException.class, () -> {
 			facet.remove(null, s1, cl1);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Yep!
-		}
+		});
 		testRankUnsetZero();
 		testUnsetEmpty();
 		assertEventCount(0);
@@ -264,15 +247,9 @@ public class SkillRankFacetTest
 	@Test
 	public void testRemoveSkillNull()
 	{
-		try
-		{
+		assertThrows(NullPointerException.class, () -> {
 			facet.remove(id, null, cl1);
-			fail();
-		}
-		catch (NullPointerException e)
-		{
-			// Yep!
-		}
+		});
 		testRankUnsetZero();
 		testUnsetEmpty();
 		assertEventCount(0);

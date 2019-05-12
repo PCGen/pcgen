@@ -17,6 +17,10 @@
  */
 package pcgen.inttest;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,9 +36,8 @@ import pcgen.cdom.base.Constants;
 import pcgen.system.Main;
 import pcgen.util.TestHelper;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.xmlunit.builder.DiffBuilder;
 import org.xmlunit.builder.Input;
 import org.xmlunit.diff.Diff;
@@ -48,13 +51,13 @@ public abstract class PcgenFtlTestCase
 {
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception
 	{
 		LocaleDependentTestCase.before(Locale.US);
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws Exception
 	{
 		LocaleDependentTestCase.after();
@@ -99,9 +102,9 @@ public abstract class PcgenFtlTestCase
 					+ Constants.EXTENSION_CHARACTER_FILE;
 
 			String outputFile = outputFileFile.getCanonicalPath();
-			Assert.assertTrue("Export of " + character + " failed.",
+			assertTrue(
 					Main.loadCharacterAndExport(characterFile, "code/testsuite/base-xml.ftl",
-							outputFile, TEST_CONFIG_FILE));
+							outputFile, TEST_CONFIG_FILE), "Export of " + character + " failed.");
 
 			// Read in the actual XML produced by PCGen
 			actual = readFile(new File(outputFile));
@@ -117,7 +120,7 @@ public abstract class PcgenFtlTestCase
 		Diff myDiff = DiffBuilder.compare(Input.fromString(expected))
 		                         .withTest(Input.fromString(actual)).build();
 
-		Assert.assertFalse(myDiff.toString(), myDiff.hasDifferences());
+		assertFalse(myDiff.hasDifferences(), myDiff.toString());
 	}
 
 	/**
@@ -148,7 +151,7 @@ public abstract class PcgenFtlTestCase
 		catch (IOException e)
 		{
 			br.close();
-			Assert.fail();
+			fail();
 		}
 		return output.toString();
 	}

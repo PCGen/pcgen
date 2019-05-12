@@ -7029,7 +7029,7 @@ ABILITY:CATEGORY=FEAT|Extend Spell
 ABILITY:CATEGORY=FEAT|Silent Spell
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 ABILITY:CATEGORY=FEAT|Blind-Fight							FREE:YES
-ABILITY:CATEGORY=Undead Bloodline Feat|Still Spell
+ABILITY:CATEGORY=Sorcerer Bloodline Feat|Sorcerer Bloodline Feat ~ Still Spell
 STAT:STR=10|DEX=14|CON=10|INT=12|WIS=14|CHA=16
 LANGBONUS:Abyssal|Draconic
 GEAR:Cloak of Resistance +3			LOCATION:Equipped

@@ -20,6 +20,7 @@ package plugin.exporttokens;
 
 import java.util.StringTokenizer;
 
+import pcgen.cdom.enumeration.MovementType;
 import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
@@ -101,7 +102,7 @@ public class BaseMovementToken extends AbstractExportToken
 			{
 				flag = "TRUE".equalsIgnoreCase(aTok.nextToken());
 			}
-			retString = getBaseMovementToken(display, moveType, load, flag);
+			retString = getBaseMovementToken(display, MovementType.getConstant(moveType), load, flag);
 		}
 		return retString;
 	}
@@ -114,7 +115,7 @@ public class BaseMovementToken extends AbstractExportToken
 	 * @param displayFlag
 	 * @return The base movement token
 	 */
-	public static String getBaseMovementToken(CharacterDisplay display, String moveType, Load load, boolean displayFlag)
+	public static String getBaseMovementToken(CharacterDisplay display, MovementType moveType, Load load, boolean displayFlag)
 	{
 		if (!display.hasMovement(moveType))
 		{
@@ -123,7 +124,7 @@ public class BaseMovementToken extends AbstractExportToken
 		int baseMovement = display.getBaseMovement(moveType, load);
 		if (displayFlag)
 		{
-			return moveType + ' ' + Globals.getGameModeUnitSet().displayDistanceInUnitSet(baseMovement)
+			return moveType.toString() + ' ' + Globals.getGameModeUnitSet().displayDistanceInUnitSet(baseMovement)
 				+ Globals.getGameModeUnitSet().getDistanceUnit();
 		}
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(baseMovement);

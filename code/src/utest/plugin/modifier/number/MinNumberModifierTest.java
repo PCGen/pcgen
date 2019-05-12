@@ -17,22 +17,21 @@
  */
 package plugin.modifier.number;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.NumberManager;
-import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.scope.GlobalScope;
-import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.ModifierFactory;
+
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class MinNumberModifierTest
 {
-	private final PCGenScope varScope = new GlobalScope();
 	FormatManager<Number> numManager = new NumberManager();
 
 
@@ -42,8 +41,8 @@ public class MinNumberModifierTest
 		try
 		{
 			ModifierFactory m = new MinModifierFactory();
-			m.getModifier(null, new ManagerFactory(){}, null, null, null);
-			Assert.fail("Expected MaxModifier with null compare value to fail");
+			m.getModifier(null, null);
+			fail("Expected MaxModifier with null compare value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
@@ -55,140 +54,140 @@ public class MinNumberModifierTest
 	public void testProcessNegative1()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(-3, modifier.process(-2, -3));
+		assertEquals(-3, modifier.process(-2, -3));
 	}
 
 	@Test
 	public void testProcessNegative2()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(-4, modifier.process(-4, -2));
+		assertEquals(-4, modifier.process(-4, -2));
 	}
 
 	@Test
 	public void testProcessPositive1()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(2, modifier.process(2, 3));
+		assertEquals(2, modifier.process(2, 3));
 	}
 
 	@Test
 	public void testProcessPositive2()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(3, modifier.process(4, 3));
+		assertEquals(3, modifier.process(4, 3));
 	}
 
 	@Test
 	public void testProcessZero1()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(0, modifier.process(0, 3));
+		assertEquals(0, modifier.process(0, 3));
 	}
 
 	@Test
 	public void testProcessZero2()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(0, modifier.process(4, 0));
+		assertEquals(0, modifier.process(4, 0));
 	}
 
 	@Test
 	public void testProcessZero3()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(-3, modifier.process(0, -3));
+		assertEquals(-3, modifier.process(0, -3));
 	}
 
 	@Test
 	public void testProcessZero4()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(-4, modifier.process(-4, 0));
+		assertEquals(-4, modifier.process(-4, 0));
 	}
 
 	@Test
 	public void testProcessMixed1()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(-7, modifier.process(5, -7));
+		assertEquals(-7, modifier.process(5, -7));
 	}
 
 	@Test
 	public void testProcessMixed2()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(-4, modifier.process(-4, 3));
+		assertEquals(-4, modifier.process(-4, 3));
 	}
 
 	@Test
 	public void testProcessDoubleNegative1()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(-3.4, modifier.process(-2.3, -3.4));
+		assertEquals(-3.4, modifier.process(-2.3, -3.4));
 	}
 
 	@Test
 	public void testProcessDoubleNegative2()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(-4.3, modifier.process(-4.3, -2.4));
+		assertEquals(-4.3, modifier.process(-4.3, -2.4));
 	}
 
 	@Test
 	public void testProcessDoublePositive1()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(2.6, modifier.process(2.6, 3.5));
+		assertEquals(2.6, modifier.process(2.6, 3.5));
 	}
 
 	@Test
 	public void testProcessDoublePositive2()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(3.1, modifier.process(4.4, 3.1));
+		assertEquals(3.1, modifier.process(4.4, 3.1));
 	}
 
 	@Test
 	public void testProcessDoubleZero1()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(0.0, modifier.process(0.0, 3.1));
+		assertEquals(0.0, modifier.process(0.0, 3.1));
 	}
 
 	@Test
 	public void testProcessDoubleZero2()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(0.0, modifier.process(4.2, 0.0));
+		assertEquals(0.0, modifier.process(4.2, 0.0));
 	}
 
 	@Test
 	public void testProcessDoubleZero3()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(-3.4, modifier.process(0.0, -3.4));
+		assertEquals(-3.4, modifier.process(0.0, -3.4));
 	}
 
 	@Test
 	public void testProcessDoubleZero4()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(-4.3, modifier.process(-4.3, 0.0));
+		assertEquals(-4.3, modifier.process(-4.3, 0.0));
 	}
 
 	@Test
 	public void testProcessDoubleMixed1()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(-7.2, modifier.process(5.3, -7.2));
+		assertEquals(-7.2, modifier.process(5.3, -7.2));
 	}
 
 	@Test
 	public void testProcessDoubleMixed2()
 	{
 		BasicCalculation modifier = new MinModifierFactory();
-		Assert.assertEquals(-4.2, modifier.process(-4.2, 3.1));
+		assertEquals(-4.2, modifier.process(-4.2, 3.1));
 	}
 
 	@Test
@@ -196,11 +195,11 @@ public class MinNumberModifierTest
 	{
 		MinModifierFactory factory = new MinModifierFactory();
 		FormulaModifier<Number> modifier =
-				factory.getModifier("6.5", new ManagerFactory(){}, null, varScope, numManager);
+				factory.getModifier("6.5", numManager);
 		modifier.addAssociation("PRIORITY=35");
-		Assert.assertEquals((35L << 32) + factory.getInherentPriority(), modifier.getPriority());
-		Assert.assertEquals(numManager, modifier.getVariableFormat());
-		Assert.assertEquals(4.3, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
-		Assert.assertEquals(6.5, modifier.process(EvalManagerUtilities.getInputEM(9.3)));
+		assertEquals((35L << 32) + factory.getInherentPriority(), modifier.getPriority());
+		assertEquals(numManager, modifier.getVariableFormat());
+		assertEquals(4.3, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
+		assertEquals(6.5, modifier.process(EvalManagerUtilities.getInputEM(9.3)));
 	}
 }

@@ -17,12 +17,18 @@
  */
 package pcgen.io.exporttoken;
 
+import static org.junit.Assert.assertEquals;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.NumericPCAttribute;
-import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+
 import plugin.exporttokens.TextToken;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * {@code TextTokenTest} tests the functioning of the TEXT
@@ -30,18 +36,20 @@ import plugin.exporttokens.TextToken;
  */
 public class TextTokenTest extends AbstractCharacterTestCase
 {
+	@BeforeEach
     @Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 		PlayerCharacter character = getCharacter();
 		character.setName("The Vitamins are in my Fresh Brussels Sprouts");
-		character.setPCAttribute(PCAttribute.INTERESTS, "one potatoe. two potatoe. mORe");
+		character.setPCAttribute(PCStringKey.INTERESTS, "one potatoe. two potatoe. mORe");
 	}
 
 	/**
 	 * Test the output for positive numbers with fractions.
 	 */
+	@Test
 	public void testTextFormatting()
 	{
 		TextToken tok = new TextToken();
@@ -60,7 +68,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		assertEquals("TEXT.SENTENCE.NAME",
 			"The vitamins are in my fresh brussels sprouts", tok.getToken(
 				"TEXT.SENTENCE.NAME", character, eh));
-		character.setPCAttribute(PCAttribute.NAME, "The Vitamins are in my Fresh Brussels Sprouts");
+		character.setPCAttribute(PCStringKey.NAME, "The Vitamins are in my Fresh Brussels Sprouts");
 		assertEquals("TEXT.SENTENCE.INTERESTS",
 			"One potatoe. Two potatoe. More", tok.getToken(
 				"TEXT.SENTENCE.INTERESTS", character, eh));
@@ -74,6 +82,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the output for negative numbers with fractions.
 	 */
+	@Test
 	public void testNumSuffix()
 	{
 		TextToken tok = new TextToken();
@@ -124,6 +133,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	/**
 	 * Test the output for negative numbers with fractions.
 	 */
+	@Test
 	public void testNumSuffixDirect()
 	{
 		TextToken tok = new TextToken();

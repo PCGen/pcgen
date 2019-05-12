@@ -48,6 +48,7 @@ import pcgen.rules.persistence.token.CDOMWriteToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -73,6 +74,7 @@ public abstract class AbstractGlobalTokenTestCase
 	@BeforeEach
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
+		TokenRegistration.clearTokens();
 		TokenRegistration.register(getReadToken());
 		TokenRegistration.register(getWriteToken());
 		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
@@ -85,6 +87,12 @@ public abstract class AbstractGlobalTokenTestCase
 				getCDOMClass(), "TestObj");
 		additionalSetup(primaryContext);
 		additionalSetup(secondaryContext);
+	}
+
+	@AfterEach
+	public void tearDown()
+	{
+		TokenRegistration.clearTokens();
 	}
 
 	public abstract <T extends CDOMObject> Class<T> getCDOMClass();
@@ -185,11 +193,11 @@ public abstract class AbstractGlobalTokenTestCase
 		{
 			pr = getReadToken().parseToken(primaryContext, primaryProf, str);
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			Logging.addParseMessage(
 				Logging.LST_ERROR,
-				"Token generated an IllegalArgumentException: "
+				"Token generated an " + e.getClass().getSimpleName() + ": "
 					+ e.getLocalizedMessage());
 			pr = new ParseResult.Fail("Token processing failed");
 		}

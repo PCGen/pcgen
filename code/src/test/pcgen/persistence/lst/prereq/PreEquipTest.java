@@ -28,7 +28,7 @@ import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreEquipParser;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("nls")
 public class PreEquipTest extends EnUsLocaleDependentTestCase

@@ -8,8 +8,6 @@
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Specific choices list			Plural description for UI			Display Location
 ABILITYCATEGORY:Drow Spirit					VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO						CATEGORY:Special Ability	TYPE:ElfMagic																		DISPLAYLOCATION:Racial Abilities
 
-ABILITYCATEGORY:Shadow Bloodrager Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:ShadowBloodragerBloodline		ABILITYLIST:Special Bloodline Feat	PLURAL:Shadow Bloodrager Bloodline Feats	DISPLAYLOCATION:Feats
-
 ABILITYCATEGORY:Shadow Mystery Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ShadowRevelation.GeneralRevelation							PLURAL:Shadow Mystery Revelations		DISPLAYLOCATION:Class Features
 
 ABILITYCATEGORY:BoS Bonus Teamwork Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:FEAT			TYPE:Teamwork											PLURAL:BoS Bonus Teamwork Feats		DISPLAYLOCATION:Feats

@@ -9,4 +9,6 @@ SOURCELONG:Healer's Handbook	SOURCESHORT:HH	SOURCEWEB:http://paizo.com/products/
 CLASS:Bard.MOD
 1	TEMPLATE:Masterpiece Activation HH
 
+CLASS:Skald.MOD
+1	TEMPLATE:Masterpiece Activation HH
 

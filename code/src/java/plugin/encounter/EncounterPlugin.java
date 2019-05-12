@@ -38,22 +38,13 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.ListModel;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.io.ReadXML;
-import gmgen.io.VectorTable;
-import gmgen.plugin.InitHolderList;
-import gmgen.plugin.PcgCombatant;
-import gmgen.plugin.dice.Dice;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.HandsFacet;
 import pcgen.cdom.inst.PCClassLevel;
@@ -77,6 +68,16 @@ import pcgen.pluginmgr.messages.TransmitInitiativeValuesBetweenComponentsMessage
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import plugin.encounter.gui.EncounterView;
+
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.io.ReadXML;
+import gmgen.io.VectorTable;
+import gmgen.plugin.InitHolderList;
+import gmgen.plugin.PcgCombatant;
+import gmgen.plugin.dice.Dice;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
 /**
  * This class controls the various classes that are
@@ -377,7 +378,7 @@ public class EncounterPlugin extends MouseAdapter implements InteractivePlugin, 
 				}
 
 				handleEquipment(aPC);
-				aPC.setPCAttribute(PCAttribute.PLAYERSNAME, "Enemy");
+				aPC.setPCAttribute(PCStringKey.PLAYERSNAME, "Enemy");
 				theList.add(new PcgCombatant(aPC, "Enemy", messageHandler));
 			}
 
@@ -727,7 +728,7 @@ public class EncounterPlugin extends MouseAdapter implements InteractivePlugin, 
 	{
 		for (Equipment eq : aPC.getDisplay().getEquipmentSet())
 		{
-			addEquipToTarget(aPC, eqSet, "", eq.clone(), new Float(1));
+			addEquipToTarget(aPC, eqSet, "", eq.clone(), 1.0f);
 		}
 	}
 
@@ -1105,7 +1106,7 @@ public class EncounterPlugin extends MouseAdapter implements InteractivePlugin, 
 		}
 
 		// Don't allow weapons that are too large for PC
-		if (eqI.isWeaponTooLargeForPC(pc))
+		if (eqI.isWeaponOutsizedForPC(pc))
 		{
 			return false;
 		}

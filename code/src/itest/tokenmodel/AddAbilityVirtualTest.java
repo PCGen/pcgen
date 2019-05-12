@@ -17,6 +17,10 @@
  */
 package tokenmodel;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Collection;
 
 import pcgen.cdom.base.CDOMObject;
@@ -36,7 +40,7 @@ import plugin.lsttokens.choose.NoChoiceToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractAddListTokenTest;
 import tokenmodel.testsupport.AssocCheck;
 import tokenmodel.testsupport.NoAssociations;

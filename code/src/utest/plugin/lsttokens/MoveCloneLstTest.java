@@ -17,8 +17,9 @@
  */
 package plugin.lsttokens;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
@@ -30,6 +31,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 import org.junit.jupiter.api.Test;
+
 public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 {
 	static CDOMPrimaryToken<CDOMObject> token = new MovecloneLst();

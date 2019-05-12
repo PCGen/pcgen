@@ -17,8 +17,8 @@
  */
 package pcgen.io;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
@@ -27,7 +27,7 @@ import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.choose.ClassToken;
 import plugin.lsttokens.template.FavoredclassToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class TemplateTargetSaveRestoreTest extends
 		AbstractGlobalTargetedSaveRestoreTest<PCTemplate>
@@ -71,10 +71,10 @@ public class TemplateTargetSaveRestoreTest extends
 		runRoundRobin(getPreEqualityCleanup());
 		assertTrue(pc.getDisplay().getFavoredClasses().contains(monclass));
 		assertTrue(reloadedPC.getDisplay().getFavoredClasses()
-			.contains(monclass));
+		                                .contains(monclass));
 		reloadedPC.removeTemplate(monster);
 		reloadedPC.setDirty(true);
 		assertFalse(reloadedPC.getDisplay().getFavoredClasses()
-			.contains(monclass));
+		                                 .contains(monclass));
 	}
 }

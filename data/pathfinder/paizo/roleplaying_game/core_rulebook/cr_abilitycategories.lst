@@ -269,20 +269,3 @@ ABILITYCATEGORY:GM Penalized Spell Cast			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:
 
 # Homebrew Support
 ABILITYCATEGORY:Human Subrace					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Internal				TYPE:HumanSubrace																								DISPLAYLOCATION:Racial Abilities
-
-## REMOVE - When Bloodline Conversion Complete
-ABILITYCATEGORY:Aberrant Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:AberrantBloodline					ABILITYLIST:Skill Focus(Knowledge (Dungeoneering))			PLURAL:Aberrant Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Abyssal Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:AbyssalBloodline					ABILITYLIST:Skill Focus(Knowledge (Planes))				PLURAL:Abyssal Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Arcane Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:ArcaneBloodline					ABILITYLIST:Skill Focus(Knowledge (Arcana))				PLURAL:Arcane Bloodline Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Celestial Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:CelestialBloodline					ABILITYLIST:Skill Focus(Knowledge (Religion))				PLURAL:Celestial Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Destined Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:DestinedBloodline					ABILITYLIST:Skill Focus(Knowledge (History))				PLURAL:Destined Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Draconic Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:DraconicBloodline					ABILITYLIST:Skill Focus(Knowledge (Arcana))|Skill Focus (Fly)	PLURAL:Draconic Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Elemental Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:ElementalBloodline					ABILITYLIST:Skill Focus(Knowledge (Planes))				PLURAL:Elemental Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Fey Bloodline Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:FeyBloodline						ABILITYLIST:Skill Focus(Knowledge (Nature))				PLURAL:Fey Bloodline Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Infernal Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:InfernalBloodline					ABILITYLIST:Skill Focus(Knowledge (Planes))				PLURAL:Infernal Bloodline Feats		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Undead Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:FEAT				TYPE:UndeadBloodline					ABILITYLIST:Skill Focus(Knowledge (Religion))				PLURAL:Undead Bloodline Feats			DISPLAYLOCATION:Feats
-
-
-###Block: Rapid Reload
-ABILITYCATEGORY:Rapid Reload Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:INTERNAL				TYPE:Rapid Reload Selection				DISPLAYLOCATION:Feats
-

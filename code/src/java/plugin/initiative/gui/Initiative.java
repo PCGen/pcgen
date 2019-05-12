@@ -22,10 +22,12 @@ package plugin.initiative.gui;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -73,6 +75,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.gui2.util.event.PopupMouseAdapter;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.system.LanguageBundle;
@@ -1625,7 +1628,7 @@ public class Initiative extends javax.swing.JPanel
 		XMLOutputter xmlOut = new XMLOutputter();
 		xmlOut.setFormat(Format.getRawFormat().setEncoding("US-ASCII"));
 
-		try (Writer fr = new FileWriter(xml))
+		try (Writer fr = new FileWriter(xml, StandardCharsets.UTF_8))
 		{
 			Document saveDocument = new Document(party);
 			xmlOut.output(saveDocument, fr);
@@ -2166,26 +2169,6 @@ public class Initiative extends javax.swing.JPanel
 		// TODO:  Method does nothing?
 	}
 
-	private void combatantTableMousePressed(java.awt.event.MouseEvent evt)
-	{
-
-		if (evt.isPopupTrigger())
-		{
-			initTablePopup();
-			tablePopup.show(evt.getComponent(), evt.getX(), evt.getY());
-		}
-	}
-
-	private void combatantTableMouseReleased(java.awt.event.MouseEvent evt)
-	{
-
-		if (evt.isPopupTrigger())
-		{
-			initTablePopup();
-			tablePopup.show(evt.getComponent(), evt.getX(), evt.getY());
-		}
-	}
-
 	private void combatantTablePropertyChange(java.beans.PropertyChangeEvent evt)
 	{
 
@@ -2391,18 +2374,13 @@ public class Initiative extends javax.swing.JPanel
 		jSplitPane1.setDividerLocation(400);
 		jSplitPane1.setOneTouchExpandable(true);
 		jSplitPane1.setPreferredSize(new java.awt.Dimension(800, 405));
-		combatantTable.addMouseListener(new java.awt.event.MouseAdapter()
+		combatantTable.addMouseListener(new PopupMouseAdapter()
 		{
 			@Override
-			public void mousePressed(java.awt.event.MouseEvent e)
+			public void showPopup(final MouseEvent evt)
 			{
-				combatantTableMousePressed(e);
-			}
-
-			@Override
-			public void mouseReleased(java.awt.event.MouseEvent e)
-			{
-				combatantTableMouseReleased(e);
+				initTablePopup();
+				tablePopup.show(evt.getComponent(), evt.getX(), evt.getY());
 			}
 		});
 
@@ -2545,18 +2523,13 @@ public class Initiative extends javax.swing.JPanel
 		initTableColumns();
 
 		JTableHeader header = combatantTable.getTableHeader();
-		header.addMouseListener(new java.awt.event.MouseAdapter()
+		header.addMouseListener(new PopupMouseAdapter()
 		{
 			@Override
-			public void mousePressed(java.awt.event.MouseEvent e)
+			public void showPopup(final MouseEvent evt)
 			{
-				combatantTableMousePressed(e);
-			}
-
-			@Override
-			public void mouseReleased(java.awt.event.MouseEvent e)
-			{
-				combatantTableMouseReleased(e);
+				initTablePopup();
+				tablePopup.show(evt.getComponent(), evt.getX(), evt.getY());
 			}
 		});
 		columnList = getColumnOrder();

@@ -26,9 +26,9 @@ import pcgen.gui2.util.table.Row;
 /**
  *
  */
+@FunctionalInterface
 public interface SortableModel
 {
 	void sortModel(Comparator<Row> comparator);
 
-	Class<?> getColumnClass(int column);
 }

@@ -17,7 +17,6 @@
  */
 package pcgen.util;
 
-import java.awt.Toolkit;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -48,7 +47,6 @@ import org.apache.commons.lang3.SystemUtils;
 public final class Logging
 {
 	private static boolean debugMode = false;
-	private static final Toolkit S_TOOLKIT = Toolkit.getDefaultToolkit();
 
 	/** Log level for error output. */
 	public static final Level ERROR = Level.SEVERE;
@@ -231,13 +229,8 @@ public final class Logging
 	 */
 	public static void errorPrintLocalised(final String aKey)
 	{
-		if (debugMode)
-		{
-			S_TOOLKIT.beep();
-		}
-
 		final String msg = LanguageBundle.getString(aKey);
-		System.err.println(msg);
+		errorPrint(msg);
 	}
 
 	/**
@@ -254,17 +247,8 @@ public final class Logging
 	 */
 	public static void errorPrintLocalised(final String aKey, Object... varargs)
 	{
-		if (debugMode)
-		{
-			S_TOOLKIT.beep();
-		}
-
 		final String msg = LanguageBundle.getFormattedString(aKey, varargs);
-		Logger l = getLogger();
-		if (l.isLoggable(ERROR))
-		{
-			l.log(ERROR, msg);
-		}
+		errorPrint(msg);
 	}
 
 	/**
@@ -285,11 +269,6 @@ public final class Logging
 	 */
 	public static void deprecationPrint(final String s, final LoadContext context)
 	{
-		if (debugMode)
-		{
-			S_TOOLKIT.beep();
-		}
-
 		Logger l = getLogger();
 		if (l.isLoggable(LST_WARNING) && SettingsHandler.outputDeprecationMessages())
 		{
@@ -353,11 +332,6 @@ public final class Logging
 	 */
 	public static void errorPrint(final String s)
 	{
-		if (debugMode)
-		{
-			S_TOOLKIT.beep();
-		}
-
 		Logger l = getLogger();
 		if (l.isLoggable(ERROR))
 		{
@@ -374,11 +348,6 @@ public final class Logging
 	 */
 	public static void errorPrint(final String s, final Object... params)
 	{
-		if (debugMode)
-		{
-			S_TOOLKIT.beep();
-		}
-
 		Logger l = getLogger();
 		if (l.isLoggable(ERROR))
 		{
@@ -394,11 +363,6 @@ public final class Logging
 	 */
 	public static void errorPrint(final String s, final LoadContext context)
 	{
-		if (debugMode)
-		{
-			S_TOOLKIT.beep();
-		}
-
 		Logger l = getLogger();
 		if (l.isLoggable(ERROR))
 		{
@@ -421,11 +385,6 @@ public final class Logging
 	 */
 	public static void errorPrint(final String s, final URI sourceURI)
 	{
-		if (debugMode)
-		{
-			S_TOOLKIT.beep();
-		}
-
 		Logger l = getLogger();
 		if (l.isLoggable(ERROR))
 		{
@@ -452,7 +411,7 @@ public final class Logging
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(baos);
 		thr.printStackTrace(ps);
-		errorPrint(s + '\n' + baos.toString());
+		errorPrint(s + '\n' + baos);
 	}
 
 	/**
@@ -518,7 +477,7 @@ public final class Logging
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		PrintStream ps = new PrintStream(baos);
 		thr.printStackTrace(ps);
-		errorPrint(LanguageBundle.getString(s) + '\n' + baos.toString());
+		errorPrint(LanguageBundle.getString(s) + '\n' + baos);
 	}
 
 	/**
@@ -533,18 +492,16 @@ public final class Logging
 	 * Generate the memory report string
 	 * @return the memory report string
 	 */
-	public static String memoryReportStr()
+	private static String memoryReportStr()
 	{
 		Runtime rt = Runtime.getRuntime();
 		NumberFormat numFmt = NumberFormat.getNumberInstance();
-		StringBuilder sb = new StringBuilder("Memory: ");
-		sb.append(numFmt.format(rt.totalMemory() / 1024.0));
-		sb.append("Kb total, ");
-		sb.append(numFmt.format(rt.freeMemory() / 1024.0));
-		sb.append("Kb free, ");
-		sb.append(numFmt.format(rt.maxMemory() / 1024.0));
-		sb.append("Kb max.");
-		return sb.toString();
+		return "Memory: " + numFmt.format(rt.totalMemory() / 1024.0)
+				+ "Kb total, "
+				+ numFmt.format(rt.freeMemory() / 1024.0)
+				+ "Kb free, "
+				+ numFmt.format(rt.maxMemory() / 1024.0)
+				+ "Kb max.";
 	}
 
 	/**
@@ -568,7 +525,7 @@ public final class Logging
 			}
 		}
 		// name The name of the logger
-		String name = (caller == null/*just in case*/) ? "" : caller.getClassName();
+		String name = (caller == null) ? "<null>" : caller.getClassName();
 
 		Logger l = null;
 		final int maxRetries = 15;
@@ -592,20 +549,17 @@ public final class Logging
 	{
 		Map<Thread, StackTraceElement[]> allThreads = Thread.getAllStackTraces();
 		StringBuilder b = new StringBuilder();
-		for (Thread t : allThreads.keySet())
-		{
+		allThreads.forEach((key, traces) -> {
 			b.append("Thread: ");
-			b.append(t.getName());
+			b.append(key.getName());
 			b.append(", stacktrace:\n");
-			StackTraceElement[] traces = allThreads.get(t);
 			for (StackTraceElement element : traces)
 			{
 				b.append("  ");
-				b.append(element.toString());
+				b.append(element);
 				b.append('\n');
 			}
-
-		}
+		});
 		System.out.println("==== Thread listing ====");
 		System.out.println(b);
 		System.out.println("===== end listing  =====");
@@ -667,7 +621,7 @@ public final class Logging
 		Logger.getLogger("plugin").setLevel(level);
 	}
 
-	private static LinkedList<QueuedMessage> queuedMessages = new LinkedList<>();
+	private static final LinkedList<QueuedMessage> queuedMessages = new LinkedList<>();
 
 	public static void addParseMessage(Level lvl, String msg)
 	{
@@ -713,13 +667,13 @@ public final class Logging
 		queuedMessages.clear();
 	}
 
-	private static class QueuedMessage
+	private static final class QueuedMessage
 	{
 		public final Level level;
 		public final String message;
-		public final StackTraceElement[] stackTrace;
+		private final StackTraceElement[] stackTrace;
 
-		public QueuedMessage(Level lvl, String msg)
+		private QueuedMessage(Level lvl, String msg)
 		{
 			level = lvl;
 			message = msg;
@@ -730,7 +684,7 @@ public final class Logging
 		 * Temporary constructor for use with ParseResult conversion.
 		 * See addParseMessage above.
 		 */
-		public QueuedMessage(Level lvl, String msg, StackTraceElement[] stack)
+		private QueuedMessage(Level lvl, String msg, StackTraceElement[] stack)
 		{
 			level = lvl;
 			message = msg;

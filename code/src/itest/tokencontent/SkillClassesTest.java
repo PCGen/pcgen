@@ -17,6 +17,9 @@
  */
 package tokencontent;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.Type;
@@ -30,7 +33,8 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.skill.ClassesToken;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import util.TestURI;
 
@@ -43,6 +47,7 @@ public class SkillClassesTest extends AbstractTokenModelTest
 	protected DomainInputFacet domainInputFacet = FacetLibrary
 		.getFacet(DomainInputFacet.class);
 
+	@BeforeEach
 	@Override
 	protected void setUp() throws Exception
 	{

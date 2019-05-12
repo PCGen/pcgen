@@ -26,10 +26,10 @@ import java.util.Objects;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
+import pcgen.io.ExportUtilities;
 import pcgen.output.publish.OutputDB;
 import pcgen.util.Logging;
 
-import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 import org.apache.commons.lang3.StringUtils;
@@ -80,7 +80,7 @@ public final class PCGenPropBundle
 		//Safe as d_properties was constructed earlier in this block
 		try
 		{
-			TemplateModel wrappedVersion = ObjectWrapper.DEFAULT_WRAPPER.wrap(getVersionNumber());
+			TemplateModel wrappedVersion = ExportUtilities.getObjectWrapper().wrap(getVersionNumber());
 			OutputDB.addGlobalModel("version", wrappedVersion);
 		}
 		catch (TemplateModelException e)
@@ -186,7 +186,7 @@ public final class PCGenPropBundle
 	 */
 	public static String getWWWHome()
 	{
-		return getPropValue("WWWHome", "http://pcgen.sourceforge.net/");
+		return getPropValue("WWWHome", "http://pcgen.org/");
 	}
 
 	/**

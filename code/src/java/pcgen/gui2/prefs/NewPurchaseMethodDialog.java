@@ -19,7 +19,6 @@ package pcgen.gui2.prefs;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.WindowAdapter;
@@ -55,17 +54,6 @@ class NewPurchaseMethodDialog extends JDialog
 	 * @param modal
 	 */
 	public NewPurchaseMethodDialog(JDialog parent, boolean modal)
-	{
-		super(parent, modal);
-		initComponents();
-		Utility.setComponentRelativeLocation(parent, this);
-	}
-
-	/** Creates new form JDialog
-	 * @param parent
-	 * @param modal
-	 */
-	private NewPurchaseMethodDialog(Frame parent, boolean modal)
 	{
 		super(parent, modal);
 		initComponents();

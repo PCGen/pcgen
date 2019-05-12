@@ -18,6 +18,8 @@
  */
 package pcgen.facade.core;
 
+import java.util.Optional;
+
 import pcgen.system.PropertyContext;
 
 /**
@@ -103,7 +105,7 @@ public interface UIDelegate
 	 * @param initialValue The starting value of the dialog.
 	 * @return The entered value, or null if cancelled.
 	 */
-	String showInputDialog(String title, String message, String initialValue);
+	Optional<String> showInputDialog(String title, String message, String initialValue);
 
 	/**
 	 * Present a dialog to the user to allow them to build up a custom 

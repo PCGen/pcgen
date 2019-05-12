@@ -17,7 +17,7 @@
  */
 package actor.choose;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import pcgen.cdom.base.CategorizedChooser;
 import pcgen.core.Ability;
@@ -26,9 +26,9 @@ import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.choose.AbilityToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * The Class {@code AbilityTokenTest} verifies the AbilityToken
@@ -42,7 +42,7 @@ public class AbilityTokenTest
 
 	private LoadContext context;
 
-	@Before
+	@BeforeEach
 	public void setUp()
 	{
 		Globals.emptyLists();
@@ -50,7 +50,7 @@ public class AbilityTokenTest
 		context.getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}
 
-	@After
+	@AfterEach
 	public void tearDown()
 	{
 		Globals.emptyLists();

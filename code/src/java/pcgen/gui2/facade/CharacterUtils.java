@@ -21,7 +21,6 @@ package pcgen.gui2.facade;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
@@ -42,7 +41,7 @@ final class CharacterUtils
 	{
 		return !eq.isType("Magic")
 				&& (CoreUtility.doublesEqual(eq.getCost(aPC).doubleValue(), 0.0))
-				&& pcSizeAdj.equals(eq.getSafe(ObjectKey.SIZE));
+				&& pcSizeAdj.equals(eq.getSizeAdjustment());
 	}
 
 	static void selectClothes(final PlayerCharacter aPC)
@@ -95,7 +94,7 @@ final class CharacterUtils
 						//
 						// Need to resize to fit?
 						//
-						if (!pcSizeAdj.equals(eq.getSafe(ObjectKey.SIZE)))
+						if (!pcSizeAdj.equals(eq.getSizeAdjustment()))
 						{
 							eq.resizeItem(aPC, pcSizeAdj);
 						}

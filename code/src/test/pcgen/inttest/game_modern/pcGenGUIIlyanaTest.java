@@ -21,7 +21,7 @@ package pcgen.inttest.game_modern;
 
 import pcgen.inttest.PcgenFtlTestCase;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests a Modern Tough Hero 3/Strong Hero 3.

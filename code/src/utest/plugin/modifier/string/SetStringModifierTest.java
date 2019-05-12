@@ -17,25 +17,22 @@
  */
 package plugin.modifier.string;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.StringManager;
-import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.scope.GlobalScope;
-import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.ModifierFactory;
+
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class SetStringModifierTest
 {
 
-	private final PCGenScope varScope = new GlobalScope();
-	FormatManager<String> stringManager = new StringManager();
+	private FormatManager<String> stringManager = new StringManager();
 
 	@Test
 	public void testInvalidConstruction()
@@ -43,7 +40,7 @@ public class SetStringModifierTest
 		try
 		{
 			SetModifierFactory m = new SetModifierFactory();
-			m.getModifier(null, new ManagerFactory(){}, null, null, null);
+			m.getModifier(null, null);
 			fail("Expected SetModifier with null set value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -57,7 +54,7 @@ public class SetStringModifierTest
 	{
 		ModifierFactory<String> factory = new SetModifierFactory();
 		FormulaModifier<String> modifier =
-				factory.getModifier("MyString", new ManagerFactory(){}, null, varScope, stringManager);
+				factory.getModifier("MyString", stringManager);
 		modifier.addAssociation("PRIORITY=5");
 		assertEquals(5L <<32, modifier.getPriority());
 		assertEquals(stringManager, modifier.getVariableFormat());
