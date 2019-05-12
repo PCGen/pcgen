@@ -4,11 +4,9 @@ ALIGNMENTFEATURE:YES
 # This is a YES/NO code control to enable "Domain" throughout a game mode
 DOMAINFEATURE:YES
 
-WEAPONHANDS:EQHands
-#EQSIZE:EqSize
 
-# CRITMULT:
-# CRITRANGE:
+# CRITMULT
+# CRITRANGE
 # Legs deactivated PRELEGS - Which is currently used for BONUS:LOADMULT - need to do a table.
 #LEGS:Race_Legs
 #CREATUREHANDS:Race_Hands
@@ -36,11 +34,9 @@ FACE:Face
 # EQBASEACMOD
 # EQACMOD
 # ALTERSAC
-# ACVAR:TOTAL|
-# ACVAR:ARMOR|
+# ACVARTOTAL
+# ACVARARMOR
 # 
-
-# ACVAR:TOUCH|MyNewVarForTouchAC
 # EQREACH
 #PCREACH:Race_Reach
 # 
