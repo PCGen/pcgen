@@ -19,7 +19,7 @@
 package pcgen.gui3;
 
 import java.io.IOException;
-import java.util.Objects;
+import java.net.URL;
 
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
@@ -38,7 +38,6 @@ public final class JFXPanelFromResource<T> extends JFXPanel
 {
 
 	private final FXMLLoader fxmlLoader = new FXMLLoader();
-	private Stage stage = null;
 
 	/**
 	 * @param klass the class that contains the resource load
@@ -46,10 +45,11 @@ public final class JFXPanelFromResource<T> extends JFXPanel
 	 */
 	public JFXPanelFromResource(Class<T> klass, String resourceName)
 	{
-		fxmlLoader.setLocation(klass.getResource(resourceName));
+		URL resource = klass.getResource(resourceName);
+		Logging.debugPrint(String.format("location for %s (%s) is %s", resourceName, klass, resource));
+		fxmlLoader.setLocation(resource);
 		fxmlLoader.setResources(LanguageBundle.getBundle());
 		Platform.runLater(() -> {
-			fxmlLoader.setLocation(klass.getResource(resourceName));
 			try
 			{
 				Scene scene = fxmlLoader.load();
@@ -69,16 +69,14 @@ public final class JFXPanelFromResource<T> extends JFXPanel
 		return fxmlLoader.getController();
 	}
 
-	public void showAsStage()
+	public void showAsStage(String title)
 	{
-		Objects.requireNonNull(getScene());
 		Platform.runLater(() -> {
-			stage = new Stage();
+			Stage stage = new Stage();
+			stage.setTitle(title);
 			stage.setScene(getScene());
 			stage.sizeToScene();
 			stage.showAndWait();
 		});
 	}
-
-
 }
