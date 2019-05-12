@@ -659,7 +659,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		 * hint here since we are using WeakReferences as a container for
 		 * references to ensure those that are not used are not resolved.
 		 */
-		System.gc();
+		System.gc(); // NOPMD
 	}
 
 	/**
