@@ -575,7 +575,7 @@ abstract class LoadContextInst implements LoadContext
 	{
 		try
 		{
-			GroupingInfo<?> info = new GroupingInfoFactory(this).process(scope, groupingName);
+			GroupingInfo<?> info = new GroupingInfoFactory().process(scope, groupingName);
 			return ChoiceSetLoadUtilities.getDynamicGroup(this, info);
 		}
 		catch (GroupingStateException e)
