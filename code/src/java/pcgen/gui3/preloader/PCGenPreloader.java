@@ -73,7 +73,8 @@ public class PCGenPreloader implements PCGenTaskListener
 	public PCGenPreloaderController getController()
 	{
 		return CompletableFuture
-				.supplyAsync(loader::<PCGenPreloaderController>getController)
+				.supplyAsync(loader::<PCGenPreloaderController>getController,
+						Platform::runLater)
 				.join();
 	}
 
