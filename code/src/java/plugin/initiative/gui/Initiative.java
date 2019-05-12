@@ -151,11 +151,6 @@ public class Initiative extends javax.swing.JPanel
 
 	private final PCGenMessageHandler messageHandler;
 
-	/*
-	 *  History:
-	 *  March 20, 2003: Cleanup for Version 1.0
-	 */
-
 	/**  Creates new form Initiative */
 	public Initiative()
 	{
@@ -1003,8 +998,7 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	/**
-	 *  Initialization of the bulk of preferences.  sets the defaults
-	 *  if this is the first time you have used this version
+	 *  Initialization of the bulk of preferences.
 	 */
 	private void initPrefs()
 	{
@@ -1013,12 +1007,6 @@ public class Initiative extends javax.swing.JPanel
 		if (!prefsSet)
 		{
 			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".arePrefsSet", true);
-		}
-
-		Double version = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".Version", 0.0);
-
-		if ((version < 1.0) || !prefsSet)
-		{
 			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells", true);
 			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doDeath", true);
 			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", true);
@@ -1047,8 +1035,6 @@ public class Initiative extends javax.swing.JPanel
 			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnWidth.9", 50);
 			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".NumberOfColumns", 10);
 			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".DividerLocation", 450);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".SubVersion", 1.0);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".Version", 1.0);
 		}
 	}
 
