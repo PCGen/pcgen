@@ -5,12 +5,6 @@ ALIGNMENTFEATURE:YES
 DOMAINFEATURE:YES
 
 WEAPONHANDS:EQHands
-
-# Size of the Race Currently
-PCSIZE:RaceSize
-# Size of the base Race
-BASESIZE:RaceSize
-
 #EQSIZE:EqSize
 
 # CRITMULT:
@@ -64,5 +58,3 @@ STATINPUT:STATSCORE
 # MAGICSAVE:Save_MagicBonus
 STATMODSAVE:Save_StatBonus
 # RACESAVE:Save_
-
-
