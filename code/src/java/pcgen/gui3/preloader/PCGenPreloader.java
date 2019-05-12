@@ -19,7 +19,7 @@
 package pcgen.gui3.preloader;
 
 import java.io.IOException;
-import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CompletableFuture;
 
 import pcgen.system.PCGenTaskEvent;
 import pcgen.system.PCGenTaskListener;
@@ -45,7 +45,6 @@ public class PCGenPreloader implements PCGenTaskListener
 
 	private final FXMLLoader loader = new FXMLLoader();
 	private Stage primaryStage;
-	private final CountDownLatch waitForLoad = new CountDownLatch(1);
 
 
 	public PCGenPreloader()
@@ -57,7 +56,6 @@ public class PCGenPreloader implements PCGenTaskListener
 			try
 			{
 				scene = loader.load();
-				waitForLoad.countDown();
 			} catch (IOException e)
 			{
 				Logging.errorPrint("failed to load preloader", e);
@@ -74,14 +72,9 @@ public class PCGenPreloader implements PCGenTaskListener
 	 */
 	public PCGenPreloaderController getController()
 	{
-		try
-		{
-			waitForLoad.await();
-		} catch (InterruptedException e)
-		{
-			Logging.errorPrint("waiting for load was interupted");
-		}
-		return (PCGenPreloaderController)loader.getController();
+		return CompletableFuture
+				.supplyAsync(loader::<PCGenPreloaderController>getController)
+				.join();
 	}
 
 	@Override
