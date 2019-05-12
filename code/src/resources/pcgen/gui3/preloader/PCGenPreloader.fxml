@@ -18,21 +18,17 @@
   * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
   -->
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
 <?import javafx.scene.Scene?>
-<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.Image?><?import pcgen.gui3.component.PCGenStatusBar?>
 <Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
        fx:controller="pcgen.gui3.preloader.PCGenPreloaderController">
     <AnchorPane prefHeight="200" prefWidth="200">
         <BorderPane>
             <center>
-                <ImageView fx:id="imageView" fitHeight="230" fitWidth="420">
+                <ImageView fitHeight="230" fitWidth="420">
                     <Image url="@SplashPcgen_Ennie.png"
                            backgroundLoading="true"
                            preserveRatio="true"
@@ -40,11 +36,7 @@
                 </ImageView>
             </center>
             <bottom>
-                <HBox>
-                    <Label fx:id="loadingLabel" labelFor="$loadProgress" BorderPane.alignment="BOTTOM_LEFT"/>
-                    <Region HBox.hgrow="always"/>
-                    <ProgressBar fx:id="loadProgress" progress="0.0" BorderPane.alignment="BOTTOM_RIGHT"/>
-                </HBox>
+                <PCGenStatusBar fx:id="pcGenStatusBar" />
             </bottom>
         </BorderPane>
     </AnchorPane>

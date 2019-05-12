@@ -16,22 +16,32 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-package pcgen.gui3.preloader;
+package pcgen.gui3.component;
 
-import pcgen.gui3.component.PCGenStatusBar;
-
-import javafx.fxml.FXML;
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
 
 /**
- * Displays HTML content as a "panel".
+ * Status bar model. Allows for a percent done and a message
  */
-public final class PCGenPreloaderController
+class PCGenStatusBarModel
 {
-	@FXML
-	private PCGenStatusBar pcGenStatusBar;
+	/**
+	 * must be a value between 0.0 and 1.0 or -1 (for indeterminate).
+	 */
+	private final Property<Number> percentDone = new SimpleDoubleProperty();
 
-	public void setProgress(String message, double progress)
+	private final Property<String> message = new SimpleStringProperty();
+
+	Property<Number> percentDoneProperty()
 	{
-		pcGenStatusBar.setProgress(message, progress);
+		return percentDone;
 	}
+
+	Property<String> messageProperty()
+	{
+		return message;
+	}
+
 }

@@ -244,7 +244,7 @@ public final class Main
 		executor.run();
 		if (splash != null)
 		{
-			splash.getController().setProgress(LanguageBundle.getString("in_taskInitUi"), 100.0d);
+			splash.getController().setProgress(LanguageBundle.getString("in_taskInitUi"), 1.0d);
 		}
 		FacadeFactory.initialize();
 		PCGenUIManager.initializeGUI();
