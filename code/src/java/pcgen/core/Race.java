@@ -18,6 +18,7 @@
 package pcgen.core;
 
 import java.util.List;
+import java.util.Optional;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ChooseDriver;
@@ -96,4 +97,11 @@ public final class Race extends PObject implements ChooseDriver, LimitedVarHolde
 	{
 		return "RACE";
 	}
+
+	@Override
+	public Optional<String> getLocalScopeName()
+	{
+		return Optional.of("PC.RACE");
+	}
+
 }
