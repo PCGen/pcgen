@@ -312,7 +312,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		TestHelper.addType(arrow, "Ammunition.Standard.Arrow.Individual");
 		
 		
-		// Weild categories
+		// Wield categories
 		WieldCategory twoHanded = context.getReferenceContext().silentlyGetConstructedCDOMObject(
 				WieldCategory.class, "TwoHanded");
 		twoHanded.setSizeDifference(1);
@@ -323,9 +323,9 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		eqMod.put(StringKey.KEY_NAME, "PLUS1W");
 		TestHelper.addType(eqMod, "Ammunition.Weapon");
 		eqMod.put(IntegerKey.PLUS, 1);
-		eqMod.addToListFor(ListKey.ITEM_TYPES, "Enhancement");
-		eqMod.addToListFor(ListKey.ITEM_TYPES, "Magic");
-		eqMod.addToListFor(ListKey.ITEM_TYPES, "Plus1");
+		eqMod.addToListFor(ListKey.ITEM_TYPES, Type.getConstant("Enhancement"));
+		eqMod.addToListFor(ListKey.ITEM_TYPES, Type.MAGIC);
+		eqMod.addToListFor(ListKey.ITEM_TYPES, Type.getConstant("Plus1"));
 		aBonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
 		
 		if (aBonus != null)
@@ -338,9 +338,9 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		eqMod.put(StringKey.KEY_NAME, "PLUS2W");
 		TestHelper.addType(eqMod, "Ammunition.Weapon");
 		eqMod.put(IntegerKey.PLUS, 2);
-		eqMod.addToListFor(ListKey.ITEM_TYPES, "Enhancement");
-		eqMod.addToListFor(ListKey.ITEM_TYPES, "Magic");
-		eqMod.addToListFor(ListKey.ITEM_TYPES, "Plus2");
+		eqMod.addToListFor(ListKey.ITEM_TYPES, Type.getConstant("Enhancement"));
+		eqMod.addToListFor(ListKey.ITEM_TYPES, Type.MAGIC);
+		eqMod.addToListFor(ListKey.ITEM_TYPES, Type.getConstant("Plus2"));
 		aBonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|2|TYPE=Enhancement");
 		
 		if (aBonus != null)
@@ -352,7 +352,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		eqMod.setName("Masterwork");
 		eqMod.put(StringKey.KEY_NAME, "MWORKW");
 		TestHelper.addType(eqMod, "Ammunition.Weapon");
-		eqMod.addToListFor(ListKey.ITEM_TYPES, "Masterwork");
+		eqMod.addToListFor(ListKey.ITEM_TYPES, Type.MASTERWORK);
 		aBonus = Bonus.newBonus(context, "WEAPON|TOHIT|1|TYPE=Enhancement");
 		
 		if (aBonus != null)

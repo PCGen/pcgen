@@ -27,6 +27,7 @@ import pcgen.cdom.content.ACControl;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
@@ -101,7 +102,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		masterwork.setName("Masterwork");
 		masterwork.put(StringKey.KEY_NAME, "MWORKA");
 		TestHelper.addType(masterwork, "Armor.Shield");
-		masterwork.addToListFor(ListKey.ITEM_TYPES, "Masterwork");
+		masterwork.addToListFor(ListKey.ITEM_TYPES, Type.MASTERWORK);
 		aBonus = Bonus.newBonus(context, "EQMARMOR|ACCHECK|1|TYPE=Enhancement");
 		
 		if (aBonus != null)
@@ -115,9 +116,9 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		plus1.put(StringKey.KEY_NAME, "PLUS1A");
 		TestHelper.addType(plus1, "Armor.Shield");
 		plus1.put(IntegerKey.PLUS, 1);
-		plus1.addToListFor(ListKey.ITEM_TYPES, "Enhancement");
-		plus1.addToListFor(ListKey.ITEM_TYPES, "Magic");
-		plus1.addToListFor(ListKey.ITEM_TYPES, "Plus1");
+		plus1.addToListFor(ListKey.ITEM_TYPES, Type.getConstant("Enhancement"));
+		plus1.addToListFor(ListKey.ITEM_TYPES, Type.MAGIC);
+		plus1.addToListFor(ListKey.ITEM_TYPES, Type.getConstant("Plus1"));
 		aBonus = Bonus.newBonus(context, "COMBAT|AC|1|TYPE=Armor.REPLACE");
 		
 		if (aBonus != null)
