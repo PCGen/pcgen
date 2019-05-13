@@ -499,6 +499,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			// Verify weapons are melee or ranged
 			verifyWeaponsMeleeOrRanged(context);
 
+			context.loadCampaignFacets();
+
 			//  Auto-gen additional equipment
 			if (PCGenSettings.OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_AUTOCREATE_MW_MAGIC_EQUIP, false))
 			{
@@ -515,7 +517,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			 * This needs to happen after auto equipment generation and after
 			 * context.setLoaded, not in finishLoad
 			 */
-			context.loadCampaignFacets();
 
 			dataset = new DataSet(context, selectedGame, new DefaultListFacade<>(selectedCampaigns));
 			//			//  Show the licenses
