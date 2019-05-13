@@ -90,7 +90,7 @@ public final class GameMode implements Comparable<Object>
 	private String name = "";
 	private String spellBaseDC = "0";
 	private String spellBaseConcentration = "";
-	private String weaponCategories = "";
+	private List<Type> weaponCategories = new ArrayList<>();
 	private String weaponTypes = "";
 	private String weaponReachFormula = "";
 	private Map<Integer, Integer> xpAwardsMap = new HashMap<>();
@@ -620,9 +620,9 @@ public final class GameMode implements Comparable<Object>
 	 * Get the weapon categories.
 	 * @return the weapon categories
 	 */
-	public String getWeaponCategories()
+	public List<Type> getWeaponCategories()
 	{
-		return weaponCategories;
+		return Collections.unmodifiableList(weaponCategories);
 	}
 
 	/**
@@ -763,9 +763,9 @@ public final class GameMode implements Comparable<Object>
 	 * Add a Weapon Category.
 	 * @param aString
 	 */
-	public void addWeaponCategory(final String aString)
+	public void addWeaponCategory(Type category)
 	{
-		weaponCategories += ('|' + aString);
+		weaponCategories.add(category);
 	}
 
 	/**
