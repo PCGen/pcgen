@@ -6276,4 +6276,9 @@ public final class Equipment extends PObject
 		}
 		return null;
 	}
+
+	public boolean isType(Type type, boolean bPrimary)
+	{
+		return isType(type.toString(), bPrimary);
+	}
 }
