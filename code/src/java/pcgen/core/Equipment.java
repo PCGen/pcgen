@@ -4015,8 +4015,6 @@ public final class Equipment extends PObject
 					myParser.addVariable("BASEQTY", getSafe(IntegerKey.BASE_QUANTITY));
 				}
 
-				String typeMatched;
-
 				// Look for an expression for all of this item's types
 				// If there is more than 1, use the most expensive.
 				String costExpr;
@@ -4025,8 +4023,8 @@ public final class Equipment extends PObject
 
 				for (int idx = 0; idx < itemTypes.size(); ++idx)
 				{
-					typeMatched = itemTypes.get(idx);
-					costExpr = SettingsHandler.getGame().getPlusCalculation(typeMatched);
+					String typeMatched = itemTypes.get(idx);
+					costExpr = SettingsHandler.getGame().getPlusCalculation(Type.getConstant(typeMatched));
 
 					if (costExpr != null)
 					{
@@ -4047,8 +4045,7 @@ public final class Equipment extends PObject
 				//
 				// No cost formula found, check for catch-all definition
 				//
-				typeMatched = "ANY";
-				costExpr = SettingsHandler.getGame().getPlusCalculation(typeMatched);
+				costExpr = SettingsHandler.getGame().getPlusCalculation(Type.ANY);
 
 				if (costExpr != null)
 				{

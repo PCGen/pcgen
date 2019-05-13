@@ -37,6 +37,7 @@ import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.content.ACControl;
 import pcgen.cdom.content.RollMethod;
 import pcgen.cdom.content.TabInfo;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.TransparentReference;
 import pcgen.core.character.WieldCategory;
@@ -75,7 +76,7 @@ public final class GameMode implements Comparable<Object>
 	private HashMapToList<String, ACControl> ACTypeAddMap = new HashMapToList<>();
 	@Deprecated
 	private HashMapToList<String, ACControl> ACTypeRemoveMap = new HashMapToList<>();
-	private Map<String, String> plusCalcs;
+	private Map<Type, String> plusCalcs;
 	private Map<String, String> spellRangeMap = new HashMap<>();
 	private String acName = "";
 	private String currencyUnitAbbrev = "";
@@ -472,13 +473,13 @@ public final class GameMode implements Comparable<Object>
 	 * @param type
 	 * @return plus calculation
 	 */
-	String getPlusCalculation(final String type)
+	String getPlusCalculation(Type type)
 	{
 		String aString = null;
 
 		if (plusCalcs != null)
 		{
-			aString = plusCalcs.get(type.toUpperCase());
+			aString = plusCalcs.get(type);
 		}
 
 		return aString;
@@ -748,19 +749,14 @@ public final class GameMode implements Comparable<Object>
 	 * Add Plus calculation.
 	 * @param aString
 	 */
-	public void addPlusCalculation(final String aString)
+	public void addPlusCalculation(Type type, String formula)
 	{
-		final int idx = aString.indexOf('|');
-
-		if (idx > 0)
+		if (plusCalcs == null)
 		{
-			if (plusCalcs == null)
-			{
-				plusCalcs = new HashMap<>();
-			}
-
-			plusCalcs.put(aString.substring(0, idx).toUpperCase(), aString.substring(idx + 1));
+			plusCalcs = new HashMap<>();
 		}
+
+		plusCalcs.put(type, formula);
 	}
 
 	/**
