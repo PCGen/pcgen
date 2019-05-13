@@ -44,6 +44,7 @@ import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
 import pcgen.core.utils.CoreUtility;
@@ -593,7 +594,7 @@ public final class Globals
 		}
 
 		final List<String> resizeTypeList = SettingsHandler.getGame().getResizableTypeList().stream()
-			.map(String::toUpperCase).collect(Collectors.toList());
+			.map(Type::toString).map(String::toUpperCase).collect(Collectors.toList());
 		return typeList.stream().map(String::toUpperCase).anyMatch(resizeTypeList::contains);
 	}
 
