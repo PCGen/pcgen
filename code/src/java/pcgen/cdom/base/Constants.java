@@ -185,22 +185,6 @@ public interface Constants
 	String SYSTEM_GMGEN = "GMGen"; //$NON-NLS-1$
 
 	/********************************************************************
-	 * What equipment to auto generate
-	 ********************************************************************/
-
-	/** Auto-generate the racial equipment. */
-	int AUTOGEN_RACIAL = 1;
-
-	/** Auto-generate the masterwork equipment. */
-	int AUTOGEN_MASTERWORK = 2;
-
-	/** Auto-generate the magic equipment. */
-	int AUTOGEN_MAGIC = 3;
-
-	/** Auto-generate equipment made from exotic materials. */
-	int AUTOGEN_EXOTIC_MATERIAL = 4;
-
-	/********************************************************************
 	 * Character stat generation methods
 	 ********************************************************************/
 

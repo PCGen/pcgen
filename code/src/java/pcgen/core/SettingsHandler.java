@@ -57,10 +57,6 @@ import org.apache.commons.lang3.SystemUtils;
  **/
 public final class SettingsHandler
 {
-	private static boolean autogenExoticMaterial = false;
-	private static boolean autogenMagic = false;
-	private static boolean autogenMasterwork = false;
-	private static boolean autogenRacial = false;
 
 	//
 	// For EqBuilder
@@ -170,61 +166,6 @@ public final class SettingsHandler
 	public static String getDefaultOSType()
 	{
 		return defaultOSType;
-	}
-
-	public static void setAutogen(final int idx, final boolean bFlag)
-	{
-		switch (idx)
-		{
-			case Constants.AUTOGEN_RACIAL:
-				setAutogenRacial(bFlag);
-
-				break;
-
-			case Constants.AUTOGEN_MASTERWORK:
-				setAutogenMasterwork(bFlag);
-
-				break;
-
-			case Constants.AUTOGEN_MAGIC:
-				setAutogenMagic(bFlag);
-
-				break;
-
-			case Constants.AUTOGEN_EXOTIC_MATERIAL:
-				setAutogenExoticMaterial(bFlag);
-
-				break;
-
-			default:
-				break;
-		}
-	}
-
-	public static boolean getAutogen(final int idx)
-	{
-		if (!wantToLoadMasterworkAndMagic())
-		{
-			switch (idx)
-			{
-				case Constants.AUTOGEN_RACIAL:
-					return isAutogenRacial();
-
-				case Constants.AUTOGEN_MASTERWORK:
-					return isAutogenMasterwork();
-
-				case Constants.AUTOGEN_MAGIC:
-					return isAutogenMagic();
-
-				case Constants.AUTOGEN_EXOTIC_MATERIAL:
-					return isAutogenExoticMaterial();
-
-				default:
-					break;
-			}
-		}
-
-		return false;
 	}
 
 	/**
@@ -805,10 +746,6 @@ public final class SettingsHandler
 			SourceFormat.values()[getPCGenOption("sourceDisplay", SourceFormat.LONG.ordinal())]); //$NON-NLS-1$
 
 		setAlwaysOverwrite(getPCGenOption("alwaysOverwrite", false)); //$NON-NLS-1$
-		setAutogenExoticMaterial(getPCGenOption("autoGenerateExoticMaterial", false)); //$NON-NLS-1$
-		setAutogenMagic(getPCGenOption("autoGenerateMagic", false)); //$NON-NLS-1$
-		setAutogenMasterwork(getPCGenOption("autoGenerateMasterwork", false)); //$NON-NLS-1$
-		setAutogenRacial(getPCGenOption("autoGenerateRacial", false)); //$NON-NLS-1$
 		setCreatePcgBackup(getPCGenOption("createPcgBackup", true));
 		setCustomizerSplit1(getPCGenOption("customizer.split1", -1)); //$NON-NLS-1$
 		setCustomizerSplit2(getPCGenOption("customizer.split2", -1)); //$NON-NLS-1$
@@ -1063,10 +1000,6 @@ public final class SettingsHandler
 		setRuleChecksInOptions("ruleChecks"); //$NON-NLS-1$
 
 		setPCGenOption("alwaysOverwrite", getAlwaysOverwrite()); //$NON-NLS-1$
-		setPCGenOption("autoGenerateExoticMaterial", isAutogenExoticMaterial()); //$NON-NLS-1$
-		setPCGenOption("autoGenerateMagic", isAutogenMagic()); //$NON-NLS-1$
-		setPCGenOption("autoGenerateMasterwork", isAutogenMasterwork()); //$NON-NLS-1$
-		setPCGenOption("autoGenerateRacial", isAutogenRacial()); //$NON-NLS-1$
 		setPCGenOption("createPcgBackup", getCreatePcgBackup()); //$NON-NLS-1$
 		setPCGenOption("customizer.split1", getCustomizerSplit1()); //$NON-NLS-1$
 		setPCGenOption("customizer.split2", getCustomizerSplit2()); //$NON-NLS-1$
@@ -1693,26 +1626,6 @@ public final class SettingsHandler
 			+ Constants.LINE_SEPARATOR;
 	}
 
-	static boolean isAutogenExoticMaterial()
-	{
-		return autogenExoticMaterial;
-	}
-
-	static boolean isAutogenMagic()
-	{
-		return autogenMagic;
-	}
-
-	static boolean isAutogenMasterwork()
-	{
-		return autogenMasterwork;
-	}
-
-	static boolean isAutogenRacial()
-	{
-		return autogenRacial;
-	}
-
 	static void setPreviewTabShown(final boolean showPreviewTab)
 	{
 		previewTabShown = showPreviewTab;
@@ -1721,26 +1634,6 @@ public final class SettingsHandler
 	static boolean isPreviewTabShown()
 	{
 		return previewTabShown;
-	}
-
-	private static void setAutogenExoticMaterial(final boolean aBool)
-	{
-		autogenExoticMaterial = aBool;
-	}
-
-	private static void setAutogenMagic(final boolean aBool)
-	{
-		autogenMagic = aBool;
-	}
-
-	private static void setAutogenMasterwork(final boolean aBool)
-	{
-		autogenMasterwork = aBool;
-	}
-
-	private static void setAutogenRacial(final boolean aBool)
-	{
-		autogenRacial = aBool;
 	}
 
 	private static Properties getFilterSettings()
