@@ -77,8 +77,8 @@ import org.xml.sax.InputSource;
 
 /**
  * Main panel of the random name generator.
- * 
  */
+@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 public class NameGenPanel extends JPanel
 {
 	private final Preferences namePrefs = Preferences.userNodeForPackage(NameGenPanel.class);

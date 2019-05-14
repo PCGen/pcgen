@@ -86,7 +86,7 @@ import pcgen.system.LanguageBundle;
  *
  * @see pcgen.gui2.tabs.CharacterInfoTab
  */
-@SuppressWarnings("serial")
+@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceHashtableWithMap", "serial"})
 public class AbilityChooserTab extends FlippingSplitPane implements StateEditable, TodoHandler
 {
 

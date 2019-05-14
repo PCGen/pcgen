@@ -62,6 +62,7 @@ import plugin.initiative.AttackModel;
  * dialog displays a {@code JComboBox} which displays attackable combatants.  Changing
  * selections changes the AC value and re-calculates the attack rolls.</p>
  */
+@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 public class AttackDialog extends JDialog
 {
 	/** <p>List of resulting damage values, one for each successful attack.</p> */

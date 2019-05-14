@@ -85,6 +85,7 @@ import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
  * } is a plugin for the {@code GMGenSystem}, is called by the
  * {@code PluginLoader} and will create a model and a view for this plugin.
  */
+@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 public class EncounterPlugin extends MouseAdapter implements InteractivePlugin, ActionListener, ItemListener
 {
 	/** Directory where Data for this plug-in is expected to be. */
