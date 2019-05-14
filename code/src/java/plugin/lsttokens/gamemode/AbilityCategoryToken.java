@@ -54,21 +54,6 @@ public class AbilityCategoryToken implements GameModeLstToken
 		return true;
 	}
 
-	public boolean parse(LoadContext context, String line, URI source)
-	{
-		final AbilityCategoryLoader loader = new AbilityCategoryLoader();
-		try
-		{
-			loader.parseLine(context, line, source);
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint(e.getMessage());
-			return false;
-		}
-		return true;
-	}
-
 	/**
 	 * Returns the name of the token this class handles.
 	 */
