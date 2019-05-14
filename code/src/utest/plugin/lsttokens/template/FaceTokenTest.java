@@ -426,7 +426,7 @@ public class FaceTokenTest
 		WeakReference<String> wr = new WeakReference<>(s);
 		assertTrue(parse(s));
 		s = null;
-		System.gc();
+		System.gc(); // NOPMD
 		assertNull(wr.get(), "retained");
 	}
 
@@ -470,7 +470,7 @@ public class FaceTokenTest
 		context.commit();
 		assertTrue(pr.passed());
 		context = null;
-		System.gc();
+		System.gc(); // NOPMD
 		assertNull(wr.get(), "retained");
 	}
 }

@@ -86,7 +86,7 @@ public final class SimpleWrapperLibrary
 			{
 				return ow.wrap(toWrap);
 			}
-			catch (TemplateModelException e)
+			catch (TemplateModelException ignored)
 			{
 				//No worries, Try the next one
 			}

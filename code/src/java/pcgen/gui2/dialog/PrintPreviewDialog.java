@@ -409,13 +409,9 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 				setPreviewPanel(new PreviewPanel(renderer.getUserAgent(), null, renderer));
 				pageBox.setModel(createPagesModel(renderer.getNumberOfPages()));
 			}
-			catch (InterruptedException ex)
+			catch (InterruptedException | ExecutionException ex)
 			{
 				Logging.errorPrint("Could not load sheet", ex);
-			}
-			catch (ExecutionException ex)
-			{
-				Logging.errorPrint("Could not load sheet", ex.getCause());
 			}
 		}
 
@@ -441,7 +437,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		}
 
 		@Override
-		protected Object[] doInBackground() throws Exception
+		protected Object[] doInBackground()
 		{
 			IOFileFilter pdfFilter = FileFilterUtils.asFileFilter(this);
 			IOFileFilter suffixFilter = FileFilterUtils.notFileFilter(new SuffixFileFilter(".fo"));
@@ -452,8 +448,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 			File dir = new File(ConfigurationSettings.getOutputSheetsDir());
 			Collection<File> files = FileUtils.listFiles(dir, fileFilter, dirFilter);
 			URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
-			Object[] uriList = files.stream().map(v -> osPath.relativize(v.toURI())).toArray();
-			return uriList;
+			return files.stream().map(v -> osPath.relativize(v.toURI())).toArray();
 		}
 
 		@Override
@@ -465,13 +460,9 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 				model.setSelectedItem(null);
 				sheetBox.setModel(model);
 			}
-			catch (InterruptedException ex)
+			catch (InterruptedException | ExecutionException ex)
 			{
 				Logging.errorPrint("could not load sheets", ex);
-			}
-			catch (ExecutionException ex)
-			{
-				Logging.errorPrint("could not load sheets", ex.getCause());
 			}
 		}
 

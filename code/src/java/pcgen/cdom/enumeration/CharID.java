@@ -83,4 +83,10 @@ public final class CharID implements TypeSafeConstant, PCGenIdentifier
 		id.myFacetCache = AbstractStorageFacet.peekAtCache(id);
 		return id;
 	}
+
+	@Override
+	public DataSetID getDataSetID()
+	{
+		return this.datasetID;
+	}
 }

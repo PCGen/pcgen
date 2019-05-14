@@ -53,7 +53,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 
 		if (colToken.hasMoreTokens())
 		{
-			anAbility.setName(colToken.nextToken().intern());
+			anAbility.setName(colToken.nextToken());
 			anAbility.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 			anAbility.setSourceURI(source.getURI());
 			List<String> additionalTokens = new ArrayList<>();

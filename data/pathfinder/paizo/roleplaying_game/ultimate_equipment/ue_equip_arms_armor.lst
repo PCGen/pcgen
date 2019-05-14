@@ -41,7 +41,7 @@ Scale Mail.MOD																											COST:50	WT:30																										
 Agile Breastplate.MOD																										COST:400	WT:25																																									SOURCEPAGE:p.10
 Breastplate.MOD																											COST:200	WT:30																																									SOURCEPAGE:p.10
 Chainmail.MOD																											COST:150	WT:40																																									SOURCEPAGE:p.10
-Four-mirror Armor.MOD																										COST:45	WT:45																																SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.11
+Four-mirror Armor.MOD																										COST:125	WT:45																																SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.11
 Lamellar (Steel).MOD																										COST:150	WT:35																																SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.12
 Mountain Pattern Armor						PROFICIENCY:ARMOR|Mountain Pattern Armor	TYPE:Armor.Medium.ArmorProfMedium.Suit.Standard						COST:250	WT:40		ACCHECK:-4		EQMOD:Material ~ Steel																					MAXDEX:3		SOURCELONG:Ultimate Equipment	SOURCESHORT:UE		SOURCEPAGE:p.13	SPELLFAILURE:30																															BONUS:COMBAT|AC|6|TYPE=Armor|PREVAREQ:DisableArmorBonus,0
 Banded Mail.MOD																											COST:250	WT:35																																									SOURCEPAGE:p.10

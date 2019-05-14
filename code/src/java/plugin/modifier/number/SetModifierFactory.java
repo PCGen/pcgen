@@ -21,12 +21,9 @@ import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.FormulaCalculation;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.calculation.NEPCalculation;
-import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.AbstractFixedSetModifierFactory;
 
 /**
@@ -51,8 +48,8 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 	}
 
 	@Override
-	public FormulaModifier<Number> getModifier(String instructions, ManagerFactory managerFactory,
-		FormulaManager formulaManager, PCGenScope varScope, FormatManager<Number> formatManager)
+	public FormulaModifier<Number> getModifier(String instructions, 
+		FormatManager<Number> formatManager)
 	{
 		if (!formatManager.getManagedClass().equals(getVariableFormat()))
 		{
@@ -64,8 +61,7 @@ public class SetModifierFactory extends AbstractFixedSetModifierFactory<Number>
 		}
 		catch (NumberFormatException e)
 		{
-			final NEPFormula<Number> f = FormulaFactory.getValidFormula(instructions, managerFactory, formulaManager,
-				varScope, formatManager);
+			final NEPFormula<Number> f = FormulaFactory.getNEPFormulaFor(formatManager, instructions);
 			NEPCalculation<Number> calc = new FormulaCalculation<>(f, this);
 			return new CalculationModifier<>(calc, formatManager);
 		}

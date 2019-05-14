@@ -643,9 +643,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			case AGE:
 				didChange = ageFacet.set(id, value);
 				break;
-			default:
-				//Case not caught, should this cause an error?
-				break;
 		}
 
 		if (didChange)
@@ -1133,17 +1130,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	private static Equipment getEquipmentNamed(final String aString, final Collection<Equipment> aList)
 	{
-		Equipment match = null;
 
-		for (Equipment eq : aList)
-		{
-			if (aString.equalsIgnoreCase(eq.getName()))
-			{
-				match = eq;
-			}
-		}
-
-		return match;
+		return aList.stream()
+		            .filter(eq -> aString.equalsIgnoreCase(eq.getName()))
+		            .findFirst()
+		            .orElse(null);
 	}
 
 	/**
@@ -7644,7 +7635,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (addAll && mergeItem && (existingSet != null))
 		{
-			newQty = tempQty + getEquippedQty(eSet, eqI).floatValue();
+			newQty = tempQty + getEquippedQty(eSet, eqI);
 			existingSet.setQty(newQty);
 			eqI.setQty(newQty);
 			eqI.setNumberCarried(newQty);
@@ -10115,16 +10106,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public int racialSizeInt()
 	{
-		String baseSizeControl = getControl(CControl.BASESIZE);
-		if (baseSizeControl != null)
-		{
-			SizeAdjustment baseSize = (SizeAdjustment) getGlobal(baseSizeControl);
-			return baseSize.get(IntegerKey.SIZEORDER);
-		}
-		else
-		{
-			return sizeFacet.racialSizeInt(id);
-		}
+		return sizeFacet.racialSizeInt(id);
 	}
 
 	public String getGenderString()

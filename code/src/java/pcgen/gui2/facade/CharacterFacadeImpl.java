@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.ConcurrentModificationException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -34,6 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -258,6 +258,7 @@ public class CharacterFacadeImpl
 	private SpellSupportFacadeImpl spellSupportFacade;
 	private CompanionSupportFacadeImpl companionSupportFacade;
 	private TodoManager todoManager;
+	private DefaultListFacade<LanguageChooserFacade> langChoosersList;
 	private boolean allowDebt;
 
 	private int lastExportCharSerial = 0;
@@ -314,6 +315,7 @@ public class CharacterFacadeImpl
 		theCharacter.preparePCForOutput();
 
 		todoManager = new TodoManager();
+		langChoosersList = new DefaultListFacade<>();
 
 		infoFactory = new Gui2InfoFactory(theCharacter);
 		characterAbilities = new CharacterAbilities(theCharacter, delegate, dataSet, todoManager);
@@ -1647,7 +1649,7 @@ public class CharacterFacadeImpl
 
 		int poolPointsUsed = poolPointsTotal - theCharacter.getSkillPoints();
 
-		poolPointText.set(Integer.toString(poolPointsUsed) + " / " + Integer.toString(poolPointsTotal)); //$NON-NLS-1$
+		poolPointText.set(poolPointsUsed + " / " + poolPointsTotal); //$NON-NLS-1$
 	}
 
 	@Override
@@ -2143,7 +2145,6 @@ public class CharacterFacadeImpl
 	 */
 	void refreshLanguageList()
 	{
-		long startTime = new Date().getTime();
 		List<Language> sortedLanguages = new ArrayList<>(charDisplay.getLanguageSet());
 		Collections.sort(sortedLanguages);
 		languages.updateContents(sortedLanguages);
@@ -2164,7 +2165,11 @@ public class CharacterFacadeImpl
 				currBonusLangs.add(lang);
 			}
 		}
-		int bonusLangRemain = bonusLangMax - currBonusLangs.size();
+		int bonusLangRemain = 0;
+		if (theCharacter.getRace().isUnselected())
+		{
+			bonusLangRemain = bonusLangMax - currBonusLangs.size();
+		}
 		if (!allowBonusLangAfterFirst && !atFirstLvl)
 		{
 			bonusLangRemain = 0;
@@ -2172,6 +2177,27 @@ public class CharacterFacadeImpl
 		numBonusLang.set(bonusLangRemain);
 		if (bonusLangRemain > 0)
 		{
+
+			boolean containsAddBonus = false;
+			/* Check to see if the chooserList already contains an "add bonus" chooser*/
+			for (LanguageChooserFacade chooser : langChoosersList)
+			{
+				/* If we find one, break, as we don't need to add another.*/
+				if (chooser.getName().equals(LanguageBundle.getString("in_sumLangBonus")))
+				{
+					containsAddBonus = true;
+					break;
+				}
+			}
+			if (!containsAddBonus)
+			{
+				CNAbility cna = theCharacter.getBonusLanguageAbility();
+				/* Add the bonus chooser*/
+				langChoosersList.addElement(
+						new LanguageChooserFacadeImpl(
+								this, LanguageBundle.getString("in_sumLangBonus"), cna)); //$NON-NLS-1$
+			}
+
 			if (allowBonusLangAfterFirst)
 			{
 				todoManager.addTodo(new TodoFacadeImpl(Tab.SUMMARY, "Languages", "in_sumTodoBonusLanguage", 110));
@@ -2188,6 +2214,20 @@ public class CharacterFacadeImpl
 		{
 			todoManager.removeTodo("in_sumTodoBonusLanguage");
 			todoManager.removeTodo("in_sumTodoBonusLanguageFirstOnly");
+
+			/* Ensure the bonus language chooser is removed, if it exists.*/
+			Iterator<LanguageChooserFacade> itr = langChoosersList.iterator();
+			if (itr.hasNext())
+			{
+				for (LanguageChooserFacade chooser = itr.next();  itr.hasNext();)
+				{
+					/* If we find an add bonus chooser, remove it.*/
+					if (chooser.getName().equals(LanguageBundle.getString("in_sumLangBonus")))
+					{
+						itr.remove();
+					}
+				}
+			}
 		}
 
 		int numSkillLangSelected = 0;
@@ -2219,9 +2259,6 @@ public class CharacterFacadeImpl
 		{
 			todoManager.removeTodo("in_sumTodoSkillLanguageTooMany");
 		}
-
-		long endTime = new Date().getTime();
-		Logging.log(Logging.DEBUG, "refreshLanguageList took " + (endTime - startTime) + " ms.");
 	}
 
 	@Override
@@ -2233,19 +2270,20 @@ public class CharacterFacadeImpl
 	@Override
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers()
 	{
-		CNAbility cna = theCharacter.getBonusLanguageAbility();
-		DefaultListFacade<LanguageChooserFacade> chooserList = new DefaultListFacade<>();
-		chooserList.addElement(
-			new LanguageChooserFacadeImpl(this, LanguageBundle.getString("in_sumLangBonus"), cna)); //$NON-NLS-1$
+		if (langChoosersList == null) {
+			langChoosersList = new DefaultListFacade<>();
+		}
 
 		Skill speakLangSkill = dataSet.getSpeakLanguageSkill();
 		if (speakLangSkill != null)
 		{
-			chooserList.addElement(
+			langChoosersList.addElement(
 				new LanguageChooserFacadeImpl(this, LanguageBundle.getString("in_sumLangSkill"), //$NON-NLS-1$
 				speakLangSkill));
 		}
-		return chooserList;
+		System.out.println("getLanguageChoosers");
+
+		return langChoosersList;
 	}
 
 	@Override
@@ -2259,6 +2297,7 @@ public class CharacterFacadeImpl
 
 		List<Language> availLangs = new ArrayList<>();
 		List<Language> selLangs = new ArrayList<>();
+
 		ChoiceManagerList<Language> choiceManager = ChooserUtilities.getChoiceManager(owner, theCharacter);
 		choiceManager.getChoices(theCharacter, availLangs, selLangs);
 		selLangs.remove(lang);
@@ -3962,12 +4001,12 @@ public class CharacterFacadeImpl
 		int minCharges = equip.getMinCharges();
 		int maxCharges = equip.getMaxCharges();
 
-		String selectedValue = delegate.showInputDialog(equip.toString(),
+		Optional<String> selectedValue = delegate.showInputDialog(equip.toString(),
 			LanguageBundle.getFormattedString("in_igNumCharges", //$NON-NLS-1$
 				Integer.toString(minCharges), Integer.toString(maxCharges)),
 			Integer.toString(equip.getRemainingCharges()));
 
-		if (selectedValue == null)
+		if (selectedValue.isEmpty())
 		{
 			return -1;
 		}
@@ -3975,7 +4014,7 @@ public class CharacterFacadeImpl
 		int charges;
 		try
 		{
-			charges = Integer.parseInt(selectedValue.trim());
+			charges = Integer.parseInt(selectedValue.get().trim());
 		}
 		catch (NumberFormatException e)
 		{
@@ -4010,17 +4049,17 @@ public class CharacterFacadeImpl
 
 		for (Equipment equip : notedEquip)
 		{
-			String note = getNote(equip);
-			if (note == null)
+			Optional<String> note = getNote(equip);
+			if (note.isEmpty())
 			{
 				return;
 			}
-			equip.setNote(note);
+			equip.setNote(note.get());
 			purchasedEquip.modifyElement(equip);
 		}
 	}
 
-	private String getNote(Equipment equip)
+	private Optional<String> getNote(Equipment equip)
 	{
 
 		return delegate.showInputDialog(equip.toString(),

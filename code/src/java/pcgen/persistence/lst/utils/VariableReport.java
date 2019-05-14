@@ -27,6 +27,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -49,7 +50,6 @@ import pcgen.system.ConfigurationSettings;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -92,14 +92,9 @@ public class VariableReport
 
 		for (Entry<ReportFormat, String> reportRequest : reportNameMap.entrySet())
 		{
-			Writer file = new FileWriter(new File(reportRequest.getValue()));
-			try
+			try (Writer file = new FileWriter(new File(reportRequest.getValue()), StandardCharsets.UTF_8))
 			{
 				outputReport(gameModeVarMap, gameModeVarCountMap, reportRequest.getKey(), file);
-			}
-			finally
-			{
-				IOUtils.closeQuietly(file);
 			}
 		}
 	}
@@ -240,7 +235,7 @@ public class VariableReport
 	private void processLstFile(List<VarDefine> varList, Map<String, Integer> varCountMap, File file)
 		throws FileNotFoundException, IOException
 	{
-		try (BufferedReader br = new BufferedReader(new FileReader(file)))
+		try (BufferedReader br = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8)))
 		{
 			Map<String, String> varUseMap = new HashMap<>();
 			String line = br.readLine();

@@ -166,8 +166,8 @@ WEAPONCATEGORY:Black Powder
 WEAPONNONPROFPENALTY:-4
 
 WIELDCATEGORY:Light		HANDS:0		
-WIELDCATEGORY:OneHanded		HANDS:1					SIZEDIFF:0	DAMAGEMULT:1=1,2=1
-WIELDCATEGORY:TwoHanded		HANDS:2					SIZEDIFF:0	DAMAGEMULT:2=1
+WIELDCATEGORY:OneHanded		HANDS:1					SIZEDIFF:0
+WIELDCATEGORY:TwoHanded		HANDS:2					SIZEDIFF:0
 WIELDCATEGORY:TooLarge		HANDS:999
 WIELDCATEGORY:Unusable		HANDS:999
 WIELDCATEGORY:None		HANDS:0
@@ -188,9 +188,9 @@ WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
 #  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
 
 WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
-WIELDCATEGORY:OneHanded		UP:TwoHanded								ZERO:OneHanded
+WIELDCATEGORY:OneHanded		UP:TwoHanded								
 WIELDCATEGORY:TwoHanded							DOWN:OneHanded
-WIELDCATEGORY:TooLarge							DOWN:TwoHanded|OneHanded	ZERO:TwoHanded
+WIELDCATEGORY:TooLarge							DOWN:TwoHanded|OneHanded	
 
 
 

@@ -21,6 +21,8 @@ import java.util.Objects;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.util.FormatManager;
 
 /**
@@ -135,5 +137,11 @@ public final class CalculationModifier<T> extends AbstractPCGenModifier<T>
 	{
 		return getClass().getSimpleName() + ": " + toDo + " ["
 			+ formatManager.getIdentifierType() + "]";
+	}
+
+	@Override
+	public void isValid(FormulaSemantics semantics) throws SemanticsException
+	{
+		toDo.isValid(semantics);
 	}
 }

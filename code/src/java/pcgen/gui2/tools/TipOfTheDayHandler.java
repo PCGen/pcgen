@@ -22,9 +22,10 @@ package pcgen.gui2.tools;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -34,6 +35,7 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.persistence.lst.LstFileLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
+import pcgen.system.PropertyContext;
 import pcgen.util.Logging;
 
 import org.apache.commons.lang3.StringUtils;
@@ -43,7 +45,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public final class TipOfTheDayHandler
 {
-	private static final UIPropertyContext PROPERTY_CONTEXT = UIPropertyContext.createContext("TipOfTheDay");
+	private static final PropertyContext PROPERTY_CONTEXT = UIPropertyContext.createContext("TipOfTheDay");
 
 	private static TipOfTheDayHandler INSTANCE = null;
 
@@ -85,7 +87,7 @@ public final class TipOfTheDayHandler
 			+ SettingsHandler.getGame().getName() + File.separator;
 		final String tipsDefaultPath = systemDir + File.separator + "gameModes" + File.separator //$NON-NLS-1$
 			+ "default" + File.separator; //$NON-NLS-1$
-		String[] tipFiles = new String[]{tipsFilePath + tipsFileName, tipsDefaultPath + tipsFileName,
+		String[] tipFiles = {tipsFilePath + tipsFileName, tipsDefaultPath + tipsFileName,
 			tipsFilePath + tipsFileNameDefault, tipsDefaultPath + tipsFileNameDefault};
 
 		boolean loaded = false;
@@ -115,16 +117,19 @@ public final class TipOfTheDayHandler
 
 	}
 
-	private void loadTipFile(String tipsFilePath) throws FileNotFoundException, IOException
+	private void loadTipFile(String tipsFilePath) throws IOException
 	{
 		final File tipsFile = new File(tipsFilePath);
 
-		final BufferedReader tipsReader =
-				new BufferedReader(new InputStreamReader(new FileInputStream(tipsFile), "UTF-8"));
-		final int length = (int) tipsFile.length();
-		final char[] inputLine = new char[length];
-		tipsReader.read(inputLine, 0, length);
-		tipsReader.close();
+		final char[] inputLine;
+		try (Reader tipsReader = new BufferedReader(new InputStreamReader(new FileInputStream(tipsFile),
+				StandardCharsets.UTF_8
+		)))
+		{
+			final int length = (int) tipsFile.length();
+			inputLine = new char[length];
+			tipsReader.read(inputLine, 0, length);
+		}
 
 		final StringTokenizer aTok = new StringTokenizer(new String(inputLine), "\r\n", false);
 
@@ -174,6 +179,11 @@ public final class TipOfTheDayHandler
 		}
 
 		return "";
+	}
+
+	public static boolean shouldShowTipOfTheDay()
+	{
+		return PROPERTY_CONTEXT.getBoolean("showTipOfTheDay", true);
 	}
 
 }

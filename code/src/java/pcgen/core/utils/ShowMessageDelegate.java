@@ -30,12 +30,6 @@ public final class ShowMessageDelegate extends Observable
 	{
 	}
 
-	public static void showMessageDialog(final Object message, final String title, final MessageType messageType,
-		final Object parent)
-	{
-		showMessageDialog(new MessageWrapper(message, title, messageType, parent));
-	}
-
 	public static void showMessageDialog(final Object message, final String title, final MessageType messageType)
 	{
 		showMessageDialog(new MessageWrapper(message, title, messageType));

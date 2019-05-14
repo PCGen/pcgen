@@ -48,13 +48,9 @@ public class GenericLoader<T extends CDOMObject> extends LstObjectFileLoader<T>
 					"Class for GenericLoader must have public zero-argument constructor");
 			}
 		}
-		catch (SecurityException e)
+		catch (SecurityException | NoSuchMethodException e)
 		{
-			throw new IllegalArgumentException("Class for GenericLoader must have public zero-argument constructor");
-		}
-		catch (NoSuchMethodException e)
-		{
-			throw new IllegalArgumentException("Class for GenericLoader must have zero-argument constructor");
+			throw new IllegalArgumentException("Class for GenericLoader must have public zero-argument constructor", e);
 		}
 		baseClass = cl;
 	}
@@ -70,7 +66,6 @@ public class GenericLoader<T extends CDOMObject> extends LstObjectFileLoader<T>
 			try
 			{
 				po = baseClass.newInstance();
-				newConstructionActions(context, po);
 			}
 			catch (InstantiationException | IllegalAccessException e)
 			{
@@ -86,7 +81,7 @@ public class GenericLoader<T extends CDOMObject> extends LstObjectFileLoader<T>
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 		if (colToken.hasMoreTokens())
 		{
-			po.setName(colToken.nextToken().intern());
+			po.setName(colToken.nextToken());
 			po.put(ObjectKey.SOURCE_CAMPAIGN, source.getCampaign());
 			po.setSourceURI(source.getURI());
 			if (isnew)
@@ -104,11 +99,6 @@ public class GenericLoader<T extends CDOMObject> extends LstObjectFileLoader<T>
 		// One line each; finish the object and return null
 		completeObject(context, source, po);
 		return null;
-	}
-
-	protected void newConstructionActions(LoadContext context, T po)
-	{
-		//Nothing by default
 	}
 
 	@Override

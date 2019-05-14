@@ -722,7 +722,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				return;
 			}
-			BigDecimal modVal = new BigDecimal(((Number) value).doubleValue());
+			BigDecimal modVal = BigDecimal.valueOf(((Number) value).doubleValue());
 			character.adjustFunds(modVal);
 		}
 
@@ -751,7 +751,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				return;
 			}
-			BigDecimal modVal = new BigDecimal(((Number) value).doubleValue() * -1);
+			BigDecimal modVal = BigDecimal.valueOf(((Number) value).doubleValue() * -1);
 			character.adjustFunds(modVal);
 		}
 

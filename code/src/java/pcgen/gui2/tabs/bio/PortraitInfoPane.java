@@ -28,17 +28,15 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseWheelEvent;
 import java.awt.image.BufferedImage;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
 
 import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
 import javax.swing.DefaultBoundedRangeModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -59,6 +57,9 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
+import javafx.application.Platform;
+import javafx.stage.FileChooser;
+
 @SuppressWarnings("serial")
 public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 {
@@ -70,7 +71,6 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 	private final JButton loadButton;
 	private final JButton clearButton;
 	private final JSlider zoomSlider;
-	private JFileChooser chooser = null;
 
 	public PortraitInfoPane()
 	{
@@ -151,13 +151,12 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		return TAB_TITLE;
 	}
 
-	private class LoadAction extends AbstractAction implements PropertyChangeListener
+	private static final class LoadAction extends AbstractAction
 	{
 
 		private final CharacterFacade character;
-		private final ImagePreviewer previewer = new ImagePreviewer();
 
-		public LoadAction(CharacterFacade character)
+		private LoadAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_loadPortrait"));
 			this.character = character;
@@ -166,35 +165,27 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			if (chooser == null)
+			FileChooser fileChooser = new FileChooser();
+			fileChooser.setInitialDirectory(new File(PCGenSettings.getPortraitsDir()));
+			fileChooser.setTitle(LanguageBundle.getString("in_loadPortrait"));
+
+			// TODO: set extension filter - list of supported images
+
+			File file = CompletableFuture.supplyAsync(() ->
+					fileChooser.showSaveDialog(null), Platform::runLater).join();
+			if (file != null)
 			{
-				chooser = new JFileChooser(PCGenSettings.getPortraitsDir());
-			}
-			chooser.setAccessory(previewer);
-			chooser.addPropertyChangeListener(this);
-			int ret = chooser.showOpenDialog(PortraitInfoPane.this);
-			chooser.removePropertyChangeListener(this);
-			BufferedImage image = previewer.getImage();
-			if (ret == JFileChooser.APPROVE_OPTION && image != null)
-			{
-				character.setPortrait(chooser.getSelectedFile());
+				character.setPortrait(file);
 			}
 		}
-
-		@Override
-		public void propertyChange(PropertyChangeEvent evt)
-		{
-			previewer.setImage(chooser.getSelectedFile());
-		}
-
 	}
 
-	private class ClearAction extends AbstractAction
+	private static final class ClearAction extends AbstractAction
 	{
 
 		private final CharacterFacade character;
 
-		public ClearAction(CharacterFacade character)
+		private ClearAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_clearPortrait")); //$NON-NLS-1$
 			this.character = character;

@@ -24,6 +24,8 @@ import java.util.StringTokenizer;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.GameMode;
 import pcgen.core.QualifiedObject;
 import pcgen.core.character.WieldCategory;
@@ -52,7 +54,7 @@ public class WieldCategoryLoader
 		{
 			Logging.errorPrint("Error Initializing PreParserFactory");
 			Logging.errorPrint("  " + ple.getMessage(), ple);
-			throw new UnreachableError();
+			throw new UnreachableError(ple);
 		}
 	}
 
@@ -101,16 +103,34 @@ public class WieldCategoryLoader
 			}
 			else if (colString.startsWith("PREVAR"))
 			{
-				//TODO ensure preKey is null
-				// a PREVARxx formula used to switch
-				// weapon categories based on size
-				preKey = colString;
+				if (ControlUtilities.hasControlToken(context, CControl.WIELDCAT))
+				{
+					Logging.errorPrint(
+						"PREVAR is disabled when WIELDCAT control is used: "
+							+ colString);
+				}
+				else
+				{
+					//TODO ensure preKey is null
+					// a PREVARxx formula used to switch
+					// weapon categories based on size
+					preKey = colString;
+				}
 			}
 			else if (key.equals("SWITCH"))
 			{
-				//TODO ensure preVal is null
-				// If matches PRE, switch category to this
-				preVal = context.getReferenceContext().getCDOMReference(WieldCategory.class, colString.substring(7));
+				if (ControlUtilities.hasControlToken(context, CControl.WIELDCAT))
+				{
+					Logging.errorPrint(
+						"SWITCH is disabled when WIELDCAT control is used: "
+							+ key);
+				}
+				else
+				{
+					//TODO ensure preVal is null
+					// If matches PRE, switch category to this
+					preVal = context.getReferenceContext().getCDOMReference(WieldCategory.class, colString.substring(7));
+				}
 			}
 			else
 			{

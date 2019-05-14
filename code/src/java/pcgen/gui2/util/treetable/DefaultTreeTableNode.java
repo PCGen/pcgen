@@ -66,11 +66,6 @@ public class DefaultTreeTableNode extends DefaultMutableTreeNode implements Tree
 		data.set(column, value);
 	}
 
-	protected List<Object> getValues()
-	{
-		return data;
-	}
-
 	protected void setValues(List<?> values)
 	{
 		this.data = new ArrayList<>(values);

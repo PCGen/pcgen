@@ -335,8 +335,8 @@ Surgeon's Tools.COPY=Surgeon's Tools (Small)
 Surgeon's Tools (Small).MOD																																WT:1.25													SOURCEPAGE:p.79
 Symptom Kit.MOD																									TYPE:Goods.Tools					COST:25	WT:5														SOURCEPAGE:p.79
 Thieves' Tools.MOD																																															SOURCEPAGE:p.79
-Thieves' Tools.COPY=Thieves' Tools (Masterwork)
-Thieves' Tools (Masterwork).MOD																													COST:100	WT:2														SOURCEPAGE:p.79																				BONUS:SKILL|Disable Device|2|TYPE=Circumstance
+Thieves' Tools.COPY=Thieves' Tools (Masterwork)																				
+Thieves' Tools (Masterwork).MOD																						TYPE:Masterwork					COST:100	WT:2														SOURCEPAGE:p.79
 Traveling Spellbook.COPY=Traveling Formula Book																																											SOURCEPAGE:p.79
 Traveling Spellbook.MOD																																															SOURCEPAGE:p.79
 Veterinarian's Kit																								TYPE:Goods.Tools					COST:25	WT:1														SOURCEPAGE:p.79										BONUS:SITUATION|Heal=Animal|3|TYPE=Circumstance			BONUS:SKILL|Heal|1|TYPE=Circumstance

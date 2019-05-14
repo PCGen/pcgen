@@ -36,5 +36,6 @@ public interface InequalityTester
 	 *            The location of the objects, to assist with debugging
 	 * @return A String indicating how the items are not equal; null if equal
 	 */
+	@SuppressWarnings("PMD.JUnit4TestShouldUseTestAnnotation")
 	public String testEquality(Object o1, Object o2, String location);
 }

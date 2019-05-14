@@ -18,13 +18,14 @@
  */
 package pcgen.system;
 
+import java.util.Objects;
 import java.util.logging.LogRecord;
 
 import javax.swing.event.EventListenerList;
 
 import pcgen.util.Logging;
 
-public abstract class PCGenTask
+public abstract class PCGenTask implements Runnable, ProgressContainer
 {
 
 	private final EventListenerList listenerList = new EventListenerList();
@@ -34,39 +35,47 @@ public abstract class PCGenTask
 
 	public void addPCGenTaskListener(PCGenTaskListener listener)
 	{
+		Objects.requireNonNull(listener);
 		listenerList.add(PCGenTaskListener.class, listener);
 	}
 
 	public void removePCGenTaskListener(PCGenTaskListener listener)
 	{
+		Objects.requireNonNull(listener);
 		listenerList.remove(PCGenTaskListener.class, listener);
 	}
 
-	public abstract void execute();
+	@Override
+	public abstract void run();
 
+	@Override
 	public int getMaximum()
 	{
 		return maximum;
 	}
 
+	@Override
 	public int getProgress()
 	{
 		return progress;
 	}
 
+	@Override
 	public String getMessage()
 	{
 		return message;
 	}
 
-	protected void setValues(int progress, int maximum)
+	@Override
+	public void setValues(int progress, int maximum)
 	{
 		this.progress = progress;
 		this.maximum = maximum;
 		fireProgressChangedEvent();
 	}
 
-	protected void setValues(String message, int progress, int maximum)
+	@Override
+	public void setValues(String message, int progress, int maximum)
 	{
 		this.progress = progress;
 		this.maximum = maximum;
@@ -74,26 +83,30 @@ public abstract class PCGenTask
 		fireProgressChangedEvent();
 	}
 
-	protected void setProgress(int progress)
+	@Override
+	public void setProgress(int progress)
 	{
 		this.progress = progress;
 		fireProgressChangedEvent();
 	}
 
-	protected void setProgress(String message, int progress)
+	@Override
+	public void setProgress(String message, int progress)
 	{
 		this.message = message;
 		this.progress = progress;
 		fireProgressChangedEvent();
 	}
 
-	protected void setMaximum(int maximum)
+	@Override
+	public void setMaximum(int maximum)
 	{
 		this.maximum = maximum;
 		fireProgressChangedEvent();
 	}
 
-	protected void fireProgressChangedEvent()
+	@Override
+	public void fireProgressChangedEvent()
 	{
 		PCGenTaskEvent taskEvent = null;
 		// Guaranteed to return a non-null array

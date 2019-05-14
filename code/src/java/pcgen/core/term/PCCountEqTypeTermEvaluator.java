@@ -55,7 +55,7 @@ public class PCCountEqTypeTermEvaluator extends BasePCTermEvaluator implements T
 			final List<Equipment> equipList = pc.getEquipmentListInOutputOrder(merge);
 			for (Equipment eq : equipList)
 			{
-				if (eq.acceptsChildren())
+				if (eq.isContainer())
 				{
 					aList.add(eq);
 				}

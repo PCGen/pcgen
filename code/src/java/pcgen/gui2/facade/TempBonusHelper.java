@@ -401,30 +401,6 @@ public class TempBonusHelper
 		return selectedList.get(0);
 	}
 
-	static class BonusInfo
-	{
-
-		private final String bonusValue;
-		private final String repeatValue;
-
-		public BonusInfo(String value, String repeat)
-		{
-			bonusValue = value;
-			repeatValue = repeat;
-		}
-
-		public String getBonusValue()
-		{
-			return bonusValue;
-		}
-
-		public String getRepeatValue()
-		{
-			return repeatValue;
-		}
-
-	}
-
 	/**
 	 * The Class {@code CharacterInfoFacade} presents a character as an InfoFacade.
 	 */

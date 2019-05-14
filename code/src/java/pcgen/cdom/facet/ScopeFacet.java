@@ -24,7 +24,7 @@ import pcgen.base.formula.base.ScopeInstanceFactory;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 
 /**
  * ScopeFacet stores the relationship from a Character, LegalScope, and
@@ -44,7 +44,7 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 	 */
 	public ScopeInstance getGlobalScope(CharID id)
 	{
-		return get(id).getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
+		return get(id).getGlobalInstance(GlobalPCScope.GLOBAL_SCOPE_NAME);
 	}
 
 	/**

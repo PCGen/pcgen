@@ -19,6 +19,7 @@ package plugin.dicebag.gui;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -252,7 +253,7 @@ class DiceBagModel extends Observable
 
 			XMLOutputter xmlOut = new XMLOutputter();
 			xmlOut.setFormat(Format.getPrettyFormat());
-			FileWriter fr = new FileWriter(file);
+			FileWriter fr = new FileWriter(file, StandardCharsets.UTF_8);
 			xmlOut.output(doc, fr);
 			fr.flush();
 			fr.close();

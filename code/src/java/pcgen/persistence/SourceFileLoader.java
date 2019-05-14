@@ -51,7 +51,7 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.scope.EquipmentPartScope;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.cdom.inst.GlobalModifiers;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
@@ -229,7 +229,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	}
 
 	@Override
-	public void execute()
+	public void run()
 	{
 		Globals.emptyLists();
 		SettingsHandler.setGame(selectedGame.getName());
@@ -659,7 +659,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		 * hint here since we are using WeakReferences as a container for
 		 * references to ensure those that are not used are not resolved.
 		 */
-		System.gc();
+		System.gc(); // NOPMD
 	}
 
 	/**
@@ -711,7 +711,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 	private static void defineVariable(VariableContext varContext, FormatManager<?> formatManager, String varName)
 	{
-		LegalScope varScope = varContext.getScope(GlobalScope.GLOBAL_SCOPE_NAME);
+		LegalScope varScope = varContext.getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		varContext.assertLegalVariableID(varName, varScope, formatManager);
 	}
 

@@ -1,0 +1,4 @@
+SOURCELONG:Haunted Heroes Handbook	SOURCESHORT:HHH	SOURCEWEB:https://paizo.com/products/btpy9nft	SOURCEDATE:2016-08
+
+#Pact Wizard Support
+Aurora					KEY:Wizard Patron ~ Aurora				CATEGORY:Special Ability	TYPE:PactWizardPatron.SpecialQuality				SPELLKNOWN:CLASS|Wizard=1|Color Spray|PREVARGTEQ:WizardLVL,2			SPELLKNOWN:CLASS|Wizard=2|Hypnotic Pattern|PREVARGTEQ:WizardLVL,4		SPELLKNOWN:CLASS|Wizard=3|Wall of Nausea|PREVARGTEQ:WizardLVL,6			SPELLKNOWN:CLASS|Wizard=4|Rainbow Pattern|PREVARGTEQ:WizardLVL,8			SPELLKNOWN:CLASS|Wizard=5|Blazing Rainbow|PREVARGTEQ:WizardLVL,10		SPELLKNOWN:CLASS|Wizard=6|Programmed Image|PREVARGTEQ:WizardLVL,12		SPELLKNOWN:CLASS|Wizard=7|Prismatic Spray|PREVARGTEQ:WizardLVL,14		SPELLKNOWN:CLASS|Wizard=8|Prismatic Wall|PREVARGTEQ:WizardLVL,16		SPELLKNOWN:CLASS|Wizard=9|Polar Midnight|PREVARGTEQ:WizardLVL,18

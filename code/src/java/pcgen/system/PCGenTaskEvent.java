@@ -26,21 +26,21 @@ public class PCGenTaskEvent extends EventObject
 
 	private LogRecord errorRecord;
 
-	PCGenTaskEvent(PCGenTask source)
+	PCGenTaskEvent(ProgressContainer source)
 	{
 		this(source, null);
 	}
 
-	PCGenTaskEvent(PCGenTask source, LogRecord errorRecord)
+	PCGenTaskEvent(ProgressContainer source, LogRecord errorRecord)
 	{
 		super(source);
 		this.errorRecord = errorRecord;
 	}
 
 	@Override
-	public PCGenTask getSource()
+	public ProgressContainer getSource()
 	{
-		return (PCGenTask) super.getSource();
+		return (ProgressContainer) super.getSource();
 	}
 
 	public LogRecord getErrorRecord()

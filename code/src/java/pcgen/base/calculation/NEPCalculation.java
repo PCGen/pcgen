@@ -19,6 +19,8 @@ package pcgen.base.calculation;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
 
 /**
  * A NEPCalculation is designed to be passed into a CalculationModifier. This
@@ -73,4 +75,16 @@ public interface NEPCalculation<T> extends CalculationInfo<T>
 	 * @return A String identifying the formula used for calculation
 	 */
 	public String getInstructions();
+
+	/**
+	 * Processes this NEPCalculation to determine if it is valid within the rules provided
+	 * by the given FormulaSemantics.
+	 * 
+	 * @param semantics
+	 *            The FormulaSemantics holding information about the context in which the
+	 *            NEPCalculation is to be resolved
+	 * @throws SemanticsException
+	 *             If there is a Semantics issue with the NEPCalculation
+	 */
+	public void isValid(FormulaSemantics semantics) throws SemanticsException;
 }

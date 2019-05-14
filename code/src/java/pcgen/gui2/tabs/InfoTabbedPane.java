@@ -346,7 +346,6 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 				{
 					Thread thread = new Thread(r);
 					thread.setDaemon(true);
-					thread.setPriority(Thread.NORM_PRIORITY);
 					thread.setName("tab-info-thread"); //$NON-NLS-1$
 					return thread;
 				}
@@ -443,26 +442,16 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 			{
 				try
 				{
-					SwingUtilities.invokeAndWait(new Runnable()
-					{
-
-						@Override
-						public void run()
+					SwingUtilities.invokeAndWait(() -> {
+						if (!executed)
 						{
-							if (!executed)
-							{
-								restoreTab(infoTab, models);
-							}
+							restoreTab(infoTab, models);
 						}
-
 					});
 				}
-				catch (InterruptedException ex)
+				catch (InterruptedException | InvocationTargetException ex)
 				{
-				}
-				catch (InvocationTargetException ex)
-				{
-					Logging.errorPrint(null, ex.getCause());
+					Logging.errorPrint("exception in InfoTabbedPane", ex);
 				}
 				finally
 				{

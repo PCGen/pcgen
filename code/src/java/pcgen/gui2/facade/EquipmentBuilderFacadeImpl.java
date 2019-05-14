@@ -19,10 +19,12 @@ package pcgen.gui2.facade;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -42,6 +44,7 @@ import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.EquipmentBuilderFacade;
 import pcgen.facade.core.EquipmentFacade;
 import pcgen.facade.core.InfoFacade;
+import pcgen.facade.core.SpellBuilderFacade;
 import pcgen.facade.core.UIDelegate;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DefaultReferenceFacade;
@@ -212,7 +215,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		}
 
 		equip.removeListFor(ListKey.SPECIAL_PROPERTIES);
-		if (!aString.equals(""))
+		if (!aString.isEmpty())
 		{
 			equip.addToListFor(ListKey.SPECIAL_PROPERTIES, SpecialProperty.createFromLst(aString));
 		}
@@ -276,7 +279,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			}
 
 			equip.put(ObjectKey.WEIGHT_MOD, BigDecimal.ZERO);
-			equip.put(ObjectKey.WEIGHT_MOD, newWeight.subtract(new BigDecimal(equip.getWeightAsDouble(character))));
+			equip.put(ObjectKey.WEIGHT_MOD, newWeight.subtract(BigDecimal.valueOf(equip.getWeightAsDouble(character))));
 			return true;
 		}
 		catch (Exception e)
@@ -362,12 +365,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	}
 
 	@Override
-	public boolean canAddModifier(EquipmentModifier eqMod, EquipmentHead head)
-	{
-		return equip.canAddModifier(character, eqMod, head.isPrimary());
-	}
-
-	@Override
 	public boolean isResizable()
 	{
 		return Globals.canResizeHaveEffect(equip, equip.typeList());
@@ -402,7 +399,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	{
 		String choiceValue = eqMod.getSafe(StringKey.CHOICE_STRING).substring(15);
 
-		SpellBuilderFacadeImpl spellBuilderFI = new SpellBuilderFacadeImpl(choiceValue, character, equip);
+		SpellBuilderFacade spellBuilderFI = new SpellBuilderFacadeImpl(choiceValue, character, equip);
 		if (!delegate.showCustomSpellDialog(spellBuilderFI))
 		{
 			return false;
@@ -420,10 +417,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		int casterLevel = spellBuilderFI.getCasterLevelRef().get();
 		ListFacade<AbilityFacade> metamagicFeatsList = spellBuilderFI.getSelectedMetamagicFeats();
 		Object[] metamagicFeats = new Object[metamagicFeatsList.getSize()];
-		for (int i = 0; i < metamagicFeats.length; i++)
-		{
-			metamagicFeats[i] = metamagicFeatsList.getElementAt(i);
-		}
+		Arrays.setAll(metamagicFeats, metamagicFeatsList::getElementAt);
 
 		int charges = getNumCharges(eqMod);
 
@@ -450,14 +444,14 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			Integer max = eqMod.get(IntegerKey.MAX_CHARGES);
 			for (;;)
 			{
-				String selectedValue = delegate.showInputDialog(Constants.APPLICATION_NAME,
+				Optional<String> selectedValue = delegate.showInputDialog(Constants.APPLICATION_NAME,
 					LanguageBundle.getFormattedString("in_csdChargesMessage", min, max), Integer.toString(max));
 
-				if (selectedValue != null)
+				if (selectedValue.isPresent())
 				{
 					try
 					{
-						final String aString = selectedValue.trim();
+						final String aString = selectedValue.get().trim();
 						charges = Integer.parseInt(aString);
 
 						if (charges < min)

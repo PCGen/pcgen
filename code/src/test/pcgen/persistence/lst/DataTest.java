@@ -258,11 +258,11 @@ class DataTest
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance(TEST_CONFIG_FILE));
 		Main.loadProperties(false);
 		PCGenTask loadPluginTask = Main.createLoadPluginTask();
-		loadPluginTask.execute();
+		loadPluginTask.run();
 		PCGenTask gameModeFileLoader = new GameModeFileLoader();
-		gameModeFileLoader.execute();
+		gameModeFileLoader.run();
 		PCGenTask campaignFileLoader = new CampaignFileLoader();
-		campaignFileLoader.execute();
+		campaignFileLoader.run();
 	}
 }
 

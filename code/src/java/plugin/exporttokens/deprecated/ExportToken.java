@@ -18,8 +18,9 @@
  */
 package plugin.exporttokens.deprecated;
 
-import java.text.DateFormat;
-import java.util.Date;
+import java.time.Clock;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
@@ -52,11 +53,11 @@ public class ExportToken extends Token
 
 		if ("EXPORT.DATE".equals(tokenSource))
 		{
-			exportString = DateFormat.getDateInstance().format(new Date());
+			exportString = LocalDate.now(Clock.systemUTC()).toString();
 		}
 		else if ("EXPORT.TIME".equals(tokenSource))
 		{
-			exportString = DateFormat.getTimeInstance().format(new Date());
+			exportString = LocalTime.now(Clock.systemUTC()).toString();
 		}
 		else if ("EXPORT.VERSION".equals(tokenSource))
 		{

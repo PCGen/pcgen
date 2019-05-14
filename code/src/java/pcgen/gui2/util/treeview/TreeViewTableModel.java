@@ -108,10 +108,6 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel implements Sor
 	protected ListFacade<E> model = null;
 	protected TreeView<? super E> selectedView = null;
 
-	protected TreeViewTableModel()
-	{
-	}
-
 	public TreeViewTableModel(DataView<E> dataView)
 	{
 		this.dataview = dataView;

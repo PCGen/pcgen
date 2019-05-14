@@ -1,0 +1,5 @@
+SOURCELONG:Haunted Heroes Handbook	SOURCESHORT:HHH	SOURCEWEB:https://paizo.com/products/btpy9nft	SOURCEDATE:2016-08
+
+Familiar (Possessed Hand)		CATEGORY:Internal			BONUS:SKILL|Sleight of Hand|FamiliarGrantedBonus_3|TYPE=Familiar
+
+Grab			KEY:Possessed Hand ~ Grab		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary							DESC:A possessed hand can use its grab ability on a creature of up to Medium size.																																																																													ABILITY:Special Ability|AUTOMATIC|Grab ~ Claw

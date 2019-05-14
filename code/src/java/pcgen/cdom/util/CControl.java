@@ -93,6 +93,28 @@ public final class CControl
 	public static final String PCSIZE = "PCSIZE";
 
 	/**
+	 * Code control to take # of weapon hands off of WieldCategory
+	 */
+	public static final String WEAPONHANDS = "WEAPONHANDS";
+	
+	/**
+	 * Code control to indicate the weight multiplier due to size difference from base
+	 * size on Equipment.
+	 */
+	public static final String WEIGHTMULTIPLIER = "WEIGHTMULTIPLIER";
+
+	/**
+	 * Code control to take WieldCategory (Steps, etc) away from the old calculation system
+	 */
+	public static final String WIELDCAT = "WIELDCAT";
+
+	/**
+	 * Code Control to indicate the cost modifier due to the size difference from base
+	 * size on Equipment
+	 */
+	public static final String COSTMULTIPLIER = "COSTMULTIPLIER";
+
+	/**
 	 * Code Control for the Alignment Input Channel.
 	 */
 	public static final CControl ALIGNMENTINPUT = new CControl("ALIGNMENTINPUT", "Alignment", Optional.of("ALIGNMENTFEATURE"), "ALIGNMENT", true, true);

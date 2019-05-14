@@ -85,3 +85,30 @@ FOLLOWER:HomunculusMasterLVL=10		TYPE:Homunculus Companion	BONUS:ABILITYPOOL|Hom
 FOLLOWER:HomunculusMasterLVL=15		TYPE:Homunculus Companion	BONUS:ABILITYPOOL|Homunculus Companion Ability Increase|1
 FOLLOWER:HomunculusMasterLVL=15		TYPE:Homunculus Companion	ABILITY:Special Ability|AUTOMATIC|Improved Evasion
 FOLLOWER:HomunculusMasterLVL=20		TYPE:Homunculus Companion	BONUS:ABILITYPOOL|Homunculus Companion Ability Increase|1
+
+
+FOLLOWER:GhostRiderLVL=1	TYPE:Ghost Mount	DEFINE:PhantomMasterLevel|0	BONUS:VAR|PhantomMasterLevel|mastervar("GhostRiderLVL")
+
+###Block: Ability Progression
+# Class of the Master		Type			Ability
+FOLLOWER:GhostRiderLVL=1	TYPE:Ghost Mount	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Darkvision
+FOLLOWER:GhostRiderLVL=1	TYPE:Ghost Mount	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Link
+FOLLOWER:GhostRiderLVL=4	TYPE:Ghost Mount	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Magic Attacks
+FOLLOWER:GhostRiderLVL=5	TYPE:Ghost Mount	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Ability Score Increase
+FOLLOWER:GhostRiderLVL=6	TYPE:Ghost Mount	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Devotion
+FOLLOWER:GhostRiderLVL=1	TYPE:Ghost Mount	ABILITY:Special Ability|AUTOMATIC|Phantom Companion ~ Progression
+
+
+FOLLOWER:GhostRiderLVL=2	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=3	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=5	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=6	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=7	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=9	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=10	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=11	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=13	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=14	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=15	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=17	TYPE:Ghost Mount	HD:1
+FOLLOWER:GhostRiderLVL=19	TYPE:Ghost Mount	HD:1

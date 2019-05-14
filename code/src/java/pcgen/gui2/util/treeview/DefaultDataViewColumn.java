@@ -27,7 +27,6 @@ public class DefaultDataViewColumn implements DataViewColumn
 	private Class<?> dataclass;
 	private Visibility visibility;
 	private boolean editable;
-	private boolean cache;
 
 	public DefaultDataViewColumn(String name, Class<?> dataclass)
 	{
@@ -56,7 +55,6 @@ public class DefaultDataViewColumn implements DataViewColumn
 		}
 		this.dataclass = dataclass;
 		this.editable = editable;
-		this.cache = cache;
 		if (visible)
 		{
 			this.visibility = Visibility.INITIALLY_VISIBLE;

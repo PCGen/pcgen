@@ -159,6 +159,8 @@ public class EquipmentModels
 		unequipButton.setAction(unequipAction);
 		moveUpButton.setAction(moveUpAction);
 		moveDownButton.setAction(moveDownAction);
+		moveDownAction.install();
+		moveUpAction.install();
 		equipAction.install();
 		unequipAction.install();
 

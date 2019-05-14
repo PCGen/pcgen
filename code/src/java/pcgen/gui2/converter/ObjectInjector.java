@@ -21,10 +21,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
-import java.text.DateFormat;
+import java.nio.charset.StandardCharsets;
+import java.time.Clock;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
@@ -133,7 +134,7 @@ public class ObjectInjector
 
 	private void writeFile(File f, List<String> lines) throws IOException
 	{
-		FileWriter writer = new FileWriter(f);
+		FileWriter writer = new FileWriter(f, StandardCharsets.UTF_8);
 		writer.write(getFileHeader());
 		for (String line : lines)
 		{
@@ -150,8 +151,7 @@ public class ObjectInjector
 		sb.append("# This file was automatically created ");
 		sb.append("during dataset conversion by PCGen ");
 		sb.append(PCGenPropBundle.getVersionNumber());
-		DateFormat df = DateFormat.getDateInstance(DateFormat.LONG);
-		sb.append(" on ").append(df.format(new Date()));
+		sb.append(" on ").append(LocalDateTime.now(Clock.systemUTC()));
 		sb.append("\n# This file does not contain SOURCE information\n");
 		return sb.toString();
 	}
@@ -208,8 +208,7 @@ public class ObjectInjector
 		{
 			mre.printStackTrace();
 		}
-		DateFormat df = DateFormat.getDateInstance(DateFormat.LONG);
-		sb.append(" on ").append(df.format(new Date()));
+		sb.append(" on ").append(LocalDateTime.now(Clock.systemUTC()));
 		sb.append("\n#\n");
 		return sb.toString();
 	}

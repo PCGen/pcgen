@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.base;
 
+import pcgen.cdom.enumeration.DataSetID;
+
 /**
  * This interface represents an identifier (like a CharID) so that certain classes can use
  * Generics to have a minimal compile requirement of using an expected identifier rather
@@ -24,5 +26,8 @@ package pcgen.cdom.base;
  */
 public interface PCGenIdentifier
 {
-	//Intentionally Empty Interface
+	/**
+	 * @return the owned DataSetID under which variable was created.
+	 */
+	public DataSetID getDataSetID();
 }

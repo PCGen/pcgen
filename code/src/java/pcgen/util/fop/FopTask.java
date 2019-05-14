@@ -23,6 +23,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Date;
 
 import javax.xml.transform.ErrorListener;
@@ -182,7 +184,7 @@ public final class FopTask implements Runnable
 		{
 			userAgent.setProducer("PC Gen Character Generator");
 			userAgent.setAuthor(System.getProperty("user.name"));
-			userAgent.setCreationDate(new Date());
+			userAgent.setCreationDate(Date.from(LocalDateTime.now().toInstant(ZoneOffset.ofHours(0))));
 
 			userAgent.getEventBroadcaster().addEventListener(new FOPEventListener());
 

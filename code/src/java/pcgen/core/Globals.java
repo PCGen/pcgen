@@ -40,7 +40,6 @@ import pcgen.cdom.content.BaseDice;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FactSetKey;
-import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.MovementType;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -510,8 +509,12 @@ public final class Globals
 	 * @param finalSize
 	 * @return adjusted damage
 	 */
-	public static String adjustDamage(final String aDamage, final int baseSize, final int finalSize)
+	public static String adjustDamage(String aDamage, int sizeDiff)
 	{
+		if (aDamage.isEmpty())
+		{
+			return aDamage;
+		}
 		final AbstractReferenceContext ref = getContext().getReferenceContext();
 		BaseDice bd = ref.silentlyGetConstructedCDOMObject(BaseDice.class, aDamage);
 		int multiplier = 0;
@@ -538,11 +541,11 @@ public final class Globals
 		else
 		{
 			List<RollInfo> steps = null;
-			if (baseSize < finalSize)
+			if (sizeDiff > 0)
 			{
 				steps = bd.getUpSteps();
 			}
-			else if (baseSize > finalSize)
+			else if (sizeDiff < 0)
 			{
 				steps = bd.getDownSteps();
 			}
@@ -551,7 +554,7 @@ public final class Globals
 				// Not a warning?
 				return aDamage;
 			}
-			final int difference = Math.abs(baseSize - finalSize);
+			final int difference = Math.abs(sizeDiff);
 
 			final int index;
 			if (steps.size() > difference)
@@ -782,7 +785,7 @@ public final class Globals
 			}
 			catch (final IOException ex)
 			{
-				Logging.errorPrint("Could not execute " + postExportCommand + " after exporting " + fileName, ex);
+				Logging.errorPrint("Could not run " + postExportCommand + " after exporting " + fileName, ex);
 			}
 		}
 	}
@@ -1086,24 +1089,6 @@ public final class Globals
 		}
 
 		return Integer.parseInt(sml.get(level - 1));
-	}
-
-	/**
-	 * Reduce/increase damage for modified size as per DMG p.162
-	 * @param aDamage
-	 * @param baseSize
-	 * @param newSize
-	 * @return String
-	 */
-	public static String adjustDamage(final String aDamage, final SizeAdjustment baseSize, final SizeAdjustment newSize)
-	{
-		if (aDamage.isEmpty())
-		{
-			return aDamage;
-		}
-		final int baseIndex = baseSize.get(IntegerKey.SIZEORDER);
-		final int newIndex = newSize.get(IntegerKey.SIZEORDER);
-		return adjustDamage(aDamage, baseIndex, newIndex);
 	}
 
 	public static double calcEncumberedMove(final Load load, final double unencumberedMove)

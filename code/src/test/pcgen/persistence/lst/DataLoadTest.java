@@ -116,7 +116,7 @@ public class DataLoadTest implements PCGenTaskListener
 				new SourceFileLoader(sourceSelection, uiDelegate);
 		errors = new ArrayList<>();
 		loader.addPCGenTaskListener(this);
-		loader.execute();
+		loader.run();
 		GameMode selectedGame = SystemCollections
 			.getGameModeNamed(sourceSelection.getGameMode().get().getName());
 		selectedGame.clearLoadContext();
@@ -163,11 +163,11 @@ public class DataLoadTest implements PCGenTaskListener
 			.getInstance(TEST_CONFIG_FILE));
 		Main.loadProperties(false);
 		PCGenTask loadPluginTask = Main.createLoadPluginTask();
-		loadPluginTask.execute();
+		loadPluginTask.run();
 		PCGenTask gameModeFileLoader = new GameModeFileLoader();
-		gameModeFileLoader.execute();
+		gameModeFileLoader.run();
 		PCGenTask campaignFileLoader = new CampaignFileLoader();
-		campaignFileLoader.execute();
+		campaignFileLoader.run();
 	}
 
 	private static List<SourceSelectionFacade> getBasicSources()

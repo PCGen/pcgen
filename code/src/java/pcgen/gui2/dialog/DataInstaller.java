@@ -32,10 +32,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -261,23 +263,16 @@ public class DataInstaller extends JFrame
 					ShowMessageDelegate.showMessageDialog(
 						LanguageBundle.getFormattedString("in_diNoInstallFile", dataSet.getName()), TITLE,
 						MessageType.WARNING);
-					in.close();
 					return false;
 				}
 
 				// Parse the install file
 				InputStream inStream = in.getInputStream(installEntry);
-				BufferedReader reader = new BufferedReader(new InputStreamReader(inStream, "UTF-8")); //$NON-NLS-1$
-
-				StringBuilder installInfo = new StringBuilder();
-				String line;
-				while ((line = reader.readLine()) != null)
-				{
-					installInfo.append(line).append("\n");
-				}
+				BufferedReader reader = new BufferedReader(new InputStreamReader(inStream, StandardCharsets.UTF_8)); //$NON-NLS-1$
+				String installInfo = reader.lines().collect(Collectors.joining("\n"));
 
 				final InstallLoader loader = new InstallLoader();
-				loader.loadLstString(null, dataSet.toURI(), installInfo.toString());
+				loader.loadLstString(null, dataSet.toURI(), installInfo);
 				campaign = loader.getCampaign();
 			}
 			catch (IOException e)
@@ -520,15 +515,9 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	private void copyInputStream(InputStream in, OutputStream out) throws IOException
+	private static void copyInputStream(InputStream in, OutputStream out) throws IOException
 	{
-		byte[] buffer = new byte[1024];
-		int len;
-
-		while ((len = in.read(buffer)) >= 0)
-		{
-			out.write(buffer, 0, len);
-		}
+		in.transferTo(out);
 
 		in.close();
 		out.close();
@@ -543,7 +532,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return the corrected file name.
 	 */
-	private String correctFileName(File destDir, String fileName)
+	private static String correctFileName(File destDir, String fileName)
 	{
 		if (fileName.toLowerCase().startsWith(DATA_FOLDER))
 		{
@@ -565,7 +554,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return true, if successful
 	 */
-	private boolean createDirectories(Iterable<String> directories, File destDir)
+	private static boolean createDirectories(Iterable<String> directories, File destDir)
 	{
 		for (String dirname : directories)
 		{
@@ -595,7 +584,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return true, if all files created ok
 	 */
-	private boolean createFiles(File dataSet, File destDir, Iterable<String> files)
+	private static boolean createFiles(File dataSet, File destDir, Iterable<String> files)
 	{
 		String corrFilename = "";
 		try (ZipFile in = new ZipFile(dataSet))
@@ -724,7 +713,9 @@ public class DataInstaller extends JFrame
 	* @return true, if populate file and dir lists
 	*/
 	@SuppressWarnings("rawtypes")
-	private boolean populateFileAndDirLists(File dataSet, Collection<String> directories, Collection<String> files)
+	private static boolean populateFileAndDirLists(File dataSet,
+	                                               Collection<String> directories,
+	                                               Collection<String> files)
 	{
 		// Navigate through the zip file, processing each file
 		// Open the ZIP file

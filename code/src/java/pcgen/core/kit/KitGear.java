@@ -29,7 +29,6 @@ import pcgen.base.formula.Formula;
 import pcgen.base.util.NamedFormula;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
-import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.EqModRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
@@ -260,7 +259,7 @@ public final class KitGear extends BaseKit
 		{
 			// We need setBase() called.  The only way to do that is to resize.
 			// We will set the size to itself.
-			theEquipment.resizeItem(aPC, theEquipment.getSafe(ObjectKey.SIZE).get());
+			theEquipment.resizeItem(aPC, theEquipment.getSizeAdjustment());
 		}
 
 		//

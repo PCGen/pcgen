@@ -1,0 +1,13 @@
+SOURCELONG:Haunted Heroes Handbook	SOURCESHORT:HHH	SOURCEWEB:https://paizo.com/products/btpy9nft	SOURCEDATE:2016-08
+
+# ==============================
+# Traits
+# ==============================
+
+Guiding Spirit				KEY:Trait ~ Guiding Spirit		CATEGORY:Special Ability	TYPE:Trait.BasicTrait.MagicTrait	PREMULT:1,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.MagicTrait],[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Guiding Spirit]			SOURCEPAGE:p.18	DESC:Once per day as a swift action, you can look to your guiding spirit for advice. The next time you roll a d20 in that same round, roll twice and pick the better result. If one of these two rolls is a natural 20, you can use this ability again that same day.
+Rivethun Adherent	DESCISPI:YES	KEY:Trait ~ Rivethun Adherent		CATEGORY:Special Ability	TYPE:Trait.BasicTrait.MagicTrait	PREMULT:1,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.MagicTrait],[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Rivethun Adherent]		SOURCEPAGE:p.18	DESC:While you suffer a physical ailment, such as disease, poison, or ability damage to Strength, Dexterity, or Constitution (but not including hit point damage), you gain a +2 trait bonus on Will saving throws. While you suffer a mental ailment, including insanity, any charm or compulsion effect, or ability damage to Intelligence, Wisdom, or Charisma, you gain a +2 trait bonus on Fortitude saving throws.
+Spiritual Attachment			KEY:Trait ~ Spiritual Attachment	CATEGORY:Special Ability	TYPE:Trait.BasicTrait.MagicTrait	PREMULT:1,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.MagicTrait],[PREVAREQ:BypassTraitRestriction,1],[PREABILITY:1,CATEGORY=Special Ability,Trait ~ Spiritual Attachment]		SOURCEPAGE:p.18	DESC:You gain a +4 trait bonus on checks to notice haunts, and when interacting with someone who is possessed by an incorporeal undead creature, you gain a +2 trait bonus on Bluff, Diplomacy, Intimidate, and Sense Motive checks against that target.
+
+#Feat Support
+Hand's Knowledge			KEY:Feat Support ~ Hand's Knowledge	CATEGORY:Internal		TYPE:HandsKnowledgeChoice		MULT:YES	CHOOSE:SKILL|Knowledge%									CSKILL:LIST
+Hand's Skill				KEY:Feat Support ~ Hand's Skill		CATEGORY:Internal		TYPE:HandsSkillChoice			MULT:YES	CHOOSE:SKILL|Disable Device|Escape Artist|Heal|Sleight of Hand|Use Magic Device		CSKILL:LIST

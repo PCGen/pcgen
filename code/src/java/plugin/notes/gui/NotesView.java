@@ -20,11 +20,8 @@ package plugin.notes.gui;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Cursor;
-import java.awt.Point;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
-import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetAdapter;
 import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
@@ -37,12 +34,17 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Objects;
 import java.util.Vector;
+import java.util.concurrent.CompletableFuture;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -54,7 +56,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -73,8 +74,6 @@ import javax.swing.event.TreeModelListener;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.event.UndoableEditEvent;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultEditorKit;
@@ -89,7 +88,6 @@ import javax.swing.text.html.HTML;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeModel;
-import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
@@ -100,7 +98,6 @@ import gmgen.GMGenSystemView;
 import gmgen.gui.ExtendedHTMLDocument;
 import gmgen.gui.ExtendedHTMLEditorKit;
 import gmgen.gui.FlippingSplitPane;
-import gmgen.gui.ImageFileChooserPreview;
 import gmgen.util.LogReceiver;
 import gmgen.util.LogUtilities;
 import pcgen.cdom.base.Constants;
@@ -111,7 +108,8 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import plugin.notes.NotesPlugin;
 
-import org.apache.commons.io.FileUtils;
+import javafx.application.Platform;
+import javafx.stage.FileChooser;
 
 /**
  *  This class is the main view for the Notes Plugin. Mostof the work is done
@@ -127,21 +125,12 @@ public class NotesView extends JPanel
 
 	private static final String OPTION_NAME_LASTFILE = NotesPlugin.LOG_NAME + ".LastFile"; //$NON-NLS-1$
 
-	/**  Drop Target for the Edit Area */
-	private DropTarget editAreaDT;
-
-	/**  Drop Target for the File Bar */
-	private DropTarget filesBarDT;
-
-	/**  Drop Target for the Tree */
-	private DropTarget treeDT;
-
 	/**  Insert OL Action for JTextPane */
-	private ExtendedHTMLEditorKit.InsertListAction actionListOrdered =
+	private final Action actionListOrdered =
 			new ExtendedHTMLEditorKit.InsertListAction("InsertOLItem", HTML.Tag.OL);
 
 	/**  Insert UL Action for JTextPane */
-	private ExtendedHTMLEditorKit.InsertListAction actionListUnordered =
+	private final Action actionListUnordered =
 			new ExtendedHTMLEditorKit.InsertListAction("InsertULItem", HTML.Tag.UL);
 
 	// End of variables declaration//GEN-END:variables
@@ -229,7 +218,7 @@ public class NotesView extends JPanel
 	 *@param  name           name of the action to get
 	 *@return                the action
 	 */
-	private Action getActionByName(JTextComponent textComponent, String name)
+	private static Action getActionByName(JTextComponent textComponent, String name)
 	{
 		// TODO: This should be static in a GUIUtilities file
 		for (Action a : textComponent.getActions())
@@ -243,11 +232,10 @@ public class NotesView extends JPanel
 		return null;
 	}
 
-	private static FileFilter getFileType()
+	private static FileChooser.ExtensionFilter getFileType()
 	{
-		return new FileNameExtensionFilter(LanguageBundle.getString("in_plugin_notes_file"),
-			NotesPlugin.EXTENSION_NOTES);
-
+		return new FileChooser.ExtensionFilter(LanguageBundle.getString("in_plugin_notes_file"),
+				'*' + NotesPlugin.EXTENSION_NOTES);
 	}
 
 	/**
@@ -258,21 +246,18 @@ public class NotesView extends JPanel
 	{
 		// TODO fix
 		String sFile = SettingsHandler.getGMGenOption(OPTION_NAME_LASTFILE, System.getProperty("user.dir"));
+
+		FileChooser fileChooser = new FileChooser();
+
 		File defaultFile = new File(sFile);
-		JFileChooser chooser = new JFileChooser();
-		chooser.setCurrentDirectory(defaultFile);
-		chooser.addChoosableFileFilter(getFileType());
-		chooser.setFileFilter(getFileType());
-		chooser.setMultiSelectionEnabled(true);
-		Component component = GMGenSystem.inst;
-		Cursor originalCursor = component.getCursor();
-		component.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-
-		int option = chooser.showOpenDialog(GMGenSystem.inst);
-
-		if (option == JFileChooser.APPROVE_OPTION)
+		fileChooser.setInitialDirectory(defaultFile);
+		FileChooser.ExtensionFilter extensionFilter = getFileType();
+		fileChooser.getExtensionFilters().add(extensionFilter);
+		fileChooser.setSelectedExtensionFilter(extensionFilter);
+		Iterable<File> selectedFiles = fileChooser.showOpenMultipleDialog(null);
+		if (selectedFiles != null)
 		{
-			for (File noteFile : chooser.getSelectedFiles())
+			for (File noteFile : selectedFiles)
 			{
 				SettingsHandler.setGMGenOption(OPTION_NAME_LASTFILE, noteFile.toString());
 
@@ -283,7 +268,6 @@ public class NotesView extends JPanel
 			}
 		}
 
-		GMGenSystem.inst.setCursor(originalCursor);
 		refreshTree();
 	}
 
@@ -399,28 +383,24 @@ public class NotesView extends JPanel
 	 */
 	private void exportFile(NotesTreeNode node)
 	{
-		JFileChooser fLoad = new JFileChooser();
+		FileChooser fileChooser = new FileChooser();
 		String sFile = SettingsHandler.getGMGenOption(OPTION_NAME_LASTFILE, "");
-		new File(sFile);
+		File defaultFile = new File(sFile);
+		fileChooser.setInitialDirectory(defaultFile.getParentFile());
+		FileChooser.ExtensionFilter extensionFilter = getFileType();
+		fileChooser.getExtensionFilters().add(extensionFilter);
+		fileChooser.setSelectedExtensionFilter(extensionFilter);
 
-		FileFilter ff = getFileType();
-		fLoad.addChoosableFileFilter(ff);
-		fLoad.setFileFilter(ff);
 
-		int returnVal = fLoad.showSaveDialog(this);
+		File file = CompletableFuture.supplyAsync(() ->
+		fileChooser.showSaveDialog(null), Platform::runLater).join();
 
 		try
 		{
-			if (returnVal == JFileChooser.APPROVE_OPTION)
+			if (file != null)
 			{
-				String fileName = fLoad.getSelectedFile().getName();
-				String dirName = fLoad.getSelectedFile().getParent();
-
-				String extension = EXTENSION;
-				if (fileName.indexOf(extension) < 0)
-				{
-					fileName += extension;
-				}
+				String fileName = file.getName();
+				String dirName = file.getParent();
 
 				File expFile = new File(dirName + File.separator + fileName);
 
@@ -453,15 +433,15 @@ public class NotesView extends JPanel
 	 *@param  count  File to count the children of
 	 *@return        count of all files in this dir
 	 */
-	private int fileCount(File count)
+	private static int fileCount(File count)
 	{
-		// TODO: Shouldn't this really be a static method in MiscUtils?
+		// TODO: Shouldn't this really be in FileUtils?
 		int num = 0;
-		for (File f : count.listFiles())
+		for (File f : Objects.requireNonNull(count.listFiles()))
 		{
 			if (f.isDirectory())
 			{
-				num = num + fileCount(f);
+				num += fileCount(f);
 			}
 			else
 			{
@@ -478,7 +458,7 @@ public class NotesView extends JPanel
 	 *
 	 *@param  button  Button to highlight
 	 */
-	private void highlightButton(JButton button)
+	private static void highlightButton(JButton button)
 	{
 		button.setBorder(new BevelBorder(BevelBorder.LOWERED));
 	}
@@ -520,24 +500,15 @@ public class NotesView extends JPanel
 	 *@param  entry            Description of the Parameter
 	 *@exception  IOException  read or write error
 	 */
-	private void unzip(ZipInputStream zin, String entry, File homeDir) throws IOException
+	private static void unzip(ZipInputStream zin, String entry, File homeDir) throws IOException
 	{
-		// TODO: This function really should be in MiscUtils as a static
+		// TODO: This function really should be in FileUtils
 		File outFile = new File(homeDir.getPath() + File.separator + entry);
 		File parentDir = outFile.getParentFile();
 		parentDir.mkdirs();
 		outFile.createNewFile();
 
-		FileOutputStream out = new FileOutputStream(outFile);
-		byte[] b = new byte[512];
-		int len = 0;
-
-		while ((len = zin.read(b)) != -1)
-		{
-			out.write(b, 0, len);
-		}
-
-		out.close();
+		Files.copy(zin, outFile.toPath());
 	}
 
 	//Methods for dealing with button appearance
@@ -625,11 +596,13 @@ public class NotesView extends JPanel
 	 *@return                  current progress
 	 *@exception  IOException  write or read failed for some reason
 	 */
-	private int writeNotesDir(ZipOutputStream out, File parentDir, File currentDir, ProgressMonitor pm, int progress)
+	private static int writeNotesDir(ZipOutputStream out,
+	                                 File parentDir,
+	                                 File currentDir,
+	                                 ProgressMonitor pm,
+	                                 int progress)
 		throws IOException
 	{
-		byte[] buffer = new byte[4096];
-		int bytes_read;
 		int returnValue = progress;
 
 		for (File f : currentDir.listFiles())
@@ -645,31 +618,13 @@ public class NotesView extends JPanel
 			}
 			else
 			{
-				FileInputStream in = new FileInputStream(f);
-
-				try
+				try (InputStream in = new FileInputStream(f))
 				{
 					String parentPath = parentDir.getParentFile().getAbsolutePath();
 					ZipEntry entry = new ZipEntry(f.getAbsolutePath().substring(parentPath.length() + 1));
 					out.putNextEntry(entry);
-
-					while ((bytes_read = in.read(buffer)) != -1)
-					{
-						out.write(buffer, 0, bytes_read);
-					}
+					out.write(in.readAllBytes());
 				}
-				finally
-				{
-					try
-					{
-						in.close();
-					}
-					catch (IOException e)
-					{
-						//TODO: Should this really be ignored?
-					}
-				}
-
 				returnValue++;
 			}
 		}
@@ -686,33 +641,29 @@ public class NotesView extends JPanel
 	 *@param  node             node to export
 	 *@exception  IOException  file write failed for some reason
 	 */
-	private void writeNotesFile(File exportFile, NotesTreeNode node) throws IOException
+	private static void writeNotesFile(File exportFile, NotesTreeNode node) throws IOException
 	{
 		File dir = node.getDir();
 
-		ZipOutputStream out = new ZipOutputStream(new FileOutputStream(exportFile));
-		int max = fileCount(dir);
-		ProgressMonitor pm = new ProgressMonitor(GMGenSystem.inst, "Writing out Notes Export", "Writing", 0, max);
-
-		try
+		ProgressMonitor pm = null;
+		try (ZipOutputStream out = new ZipOutputStream(new FileOutputStream(exportFile));)
 		{
+			int max = fileCount(dir);
+			pm = new ProgressMonitor(GMGenSystem.inst, "Writing out Notes Export", "Writing", 0, max);
 			writeNotesDir(out, dir, dir, pm, 0);
 		}
-
-		// Always close the streams, even if exceptions were thrown
+		catch (IOException e)
+		{
+			Logging.debugPrint("error writing notes", e);
+			//TODO: Should this really be ignored?
+		}
 		finally
 		{
-			try
+			if (pm != null)
 			{
-				out.close();
-			}
-			catch (IOException e)
-			{
-				//TODO: Should this really be ignored?
+				pm.close();
 			}
 		}
-
-		pm.close();
 	}
 
 	//CoreUtility methods
@@ -731,30 +682,26 @@ public class NotesView extends JPanel
 	}
 
 	/**
-	 *  obtains an Image for input using a custom JFileChooser dialog
+	 *  obtains an Image for input
 	 *
-	 *@param  startDir  Directory to open JFielChooser to
+	 *@param  startDir  Directory to open
 	 *@param  exts      Extensions to search for
 	 *@param  desc      Description for files
 	 *@return           File pointing to the selected image
 	 */
-	private File getImageFromChooser(String startDir, String[] exts, String desc)
+	private static File getImageFromChooser(String startDir, String[] exts, String desc)
 	{
-		JFileChooser jImageDialog = new JFileChooser();
-		jImageDialog.setCurrentDirectory(new File(startDir));
-		jImageDialog.setAccessory(new ImageFileChooserPreview(jImageDialog));
-		jImageDialog.setDialogType(JFileChooser.CUSTOM_DIALOG);
-		jImageDialog.setFileFilter(new FileNameExtensionFilter(desc, exts));
-		jImageDialog.setDialogTitle("Select an Image to Insert");
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setInitialDirectory(new File(startDir));
+		fileChooser.setTitle("Select an Image to Insert");
 
-		int optionSelected = jImageDialog.showDialog(this, "Insert");
+		FileChooser.ExtensionFilter extensionFilter = new FileChooser.ExtensionFilter(desc, exts);
+		fileChooser.getExtensionFilters().add(extensionFilter);
+		fileChooser.setSelectedExtensionFilter(extensionFilter);
 
-		if (optionSelected == JFileChooser.APPROVE_OPTION)
-		{
-			return jImageDialog.getSelectedFile();
-		}
+		return CompletableFuture.supplyAsync(() ->
+				fileChooser.showSaveDialog(null), Platform::runLater).join();
 
-		return null;
 	}
 
 	private void notesTreeNodesChanged()
@@ -1404,8 +1351,6 @@ public class NotesView extends JPanel
 
 	private void initDnDComponents()
 	{
-		filesBarDT = new DropTarget(filesBar, new DropBarListener());
-		treeDT = new DropTarget(notesTree, new DropTreeListener());
 	}
 
 	private void initEditingComponents()
@@ -1531,7 +1476,7 @@ public class NotesView extends JPanel
 	 *@exception  BadLocationException  if the file does not exist
 	 *@exception  RuntimeException      cause
 	 */
-	private void insertLocalImage(File whatImage) throws IOException, BadLocationException, RuntimeException
+	private void insertLocalImage(File whatImage) throws IOException, BadLocationException
 	{
 		File image = whatImage;
 		if (whatImage == null)
@@ -1542,11 +1487,11 @@ public class NotesView extends JPanel
 			//null possible if user cancelled
 			if (newImage != null && newImage.exists())
 			{
-				image = new File(dir.getAbsolutePath() + File.separator + newImage.getName());
+				image = Path.of(dir.getAbsolutePath(), newImage.getName()).toFile();
 
 				if (!image.exists())
 				{
-					FileUtils.copyFile(newImage, image);
+					Files.copy(newImage.toPath(), image.toPath());
 				}
 			}
 		}
@@ -1632,7 +1577,6 @@ public class NotesView extends JPanel
 			JViewport vp = new JViewport();
 			vp.setView(editor);
 			jScrollPane2.setViewport(vp);
-			editAreaDT = new DropTarget(editor, new DropEditorListener());
 			editor.addCaretListener(this::editorCaretUpdate);
 			editor.addKeyListener(new java.awt.event.KeyListener()
 			{
@@ -1908,7 +1852,7 @@ public class NotesView extends JPanel
 		 *@param  dtde  DropTargetDropEvent
 		 *@return       drop successful or not
 		 */
-		boolean handleDropJavaFileListAsImage(DropTargetDropEvent dtde)
+		private boolean handleDropJavaFileListAsImage(DropTargetDropEvent dtde)
 		{
 			dtde.acceptDrop(dtde.getDropAction());
 
@@ -1923,11 +1867,11 @@ public class NotesView extends JPanel
 				{
 					if (newFile.exists())
 					{
-						File destFile = new File(dir.getAbsolutePath() + File.separator + newFile.getName());
+						File destFile = Path.of(dir.getAbsolutePath(), newFile.getName()).toFile();
 
 						if (!isImageFile(destFile) || !destFile.exists())
 						{
-							FileUtils.copyFile(newFile, destFile);
+							Files.copy(newFile.toPath(), destFile.toPath());
 						}
 
 						editor.setCaretPosition(editor.viewToModel(dtde.getLocation()));
@@ -1950,70 +1894,17 @@ public class NotesView extends JPanel
 		 *
 		 *@param  image  File to insert
 		 */
-		void handleImageDropInsertion(File image)
+		private void handleImageDropInsertion(File image)
 		{
-			for (String s : extsIMG)
+			if (Arrays.stream(extsIMG).anyMatch(s -> image.getName().endsWith(s)))
 			{
-				if (image.getName().endsWith(s))
+				try
 				{
-					try
-					{
-						insertLocalImage(image);
-					}
-					catch (Exception e)
-					{
-						Logging.errorPrint(e.getMessage(), e);
-					}
-
-					break;
-				}
-			}
-		}
-	}
-
-	/**
-	 *  Drop listener for the Tree
-	 */
-	public class DropTreeListener extends DropListener
-	{
-		/**
-		 *  implements drop.if we accept it, pass the event to the currently selected
-		 *  node
-		 *
-		 *@param  dtde  Description of the Parameter
-		 */
-		@Override
-		public void drop(DropTargetDropEvent dtde)
-		{
-			Point p = dtde.getLocation();
-			TreePath path = notesTree.getPathForLocation(p.x, p.y);
-
-			if (path == null)
-			{
-				dtde.rejectDrop();
-
-				return;
-			}
-
-			Object obj = path.getLastPathComponent();
-
-			if (obj instanceof NotesTreeNode)
-			{
-				NotesTreeNode node = (NotesTreeNode) obj;
-
-				if (dtde.isDataFlavorSupported(DataFlavor.javaFileListFlavor))
+					insertLocalImage(image);
+				} catch (Exception e)
 				{
-					dtde.dropComplete(node.handleDropJavaFileList(dtde));
-					refreshTreeNodes();
+					Logging.errorPrint(e.getMessage(), e);
 				}
-				else
-				{
-					dtde.rejectDrop();
-				}
-			}
-			else
-			{
-				dtde.rejectDrop();
 			}
 		}
 	}

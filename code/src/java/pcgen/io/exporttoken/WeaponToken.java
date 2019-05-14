@@ -36,6 +36,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.util.CControl;
@@ -2651,7 +2652,7 @@ public class WeaponToken extends Token
 				}
 			}
 
-			damString = Globals.adjustDamage(damString, eqSize, iMod);
+			damString = Globals.adjustDamage(damString, iMod - eqSize);
 		}
 		return damString;
 	}
@@ -2672,7 +2673,7 @@ public class WeaponToken extends Token
 			int iMod = pc.sizeInt();
 			iMod += (int) pc.getTotalBonusTo("WEAPONPROF=" + profKey, "DAMAGESIZE");
 			iMod += (int) pc.getTotalBonusTo("COMBAT", "DAMAGESIZE");
-			retString = Globals.adjustDamage(retString, eqSize, iMod);
+			retString = Globals.adjustDamage(retString, iMod - eqSize);
 		}
 		else
 		{
@@ -2680,7 +2681,7 @@ public class WeaponToken extends Token
 			int iMod = eqSize;
 			iMod += (int) pc.getTotalBonusTo("WEAPONPROF=" + profKey, "DAMAGESIZE");
 			iMod += (int) pc.getTotalBonusTo("COMBAT", "DAMAGESIZE");
-			retString = Globals.adjustDamage(retString, eqSize, iMod);
+			retString = Globals.adjustDamage(retString, iMod - eqSize);
 		}
 
 		return retString;
@@ -2767,12 +2768,10 @@ public class WeaponToken extends Token
 	private static String weaponCategories(Equipment eq)
 	{
 		StringBuilder wc = new StringBuilder(10);
-		StringTokenizer aTok = new StringTokenizer(SettingsHandler.getGame().getWeaponCategories(), "|", false);
+		List<Type> categories = SettingsHandler.getGame().getWeaponCategories();
 
-		while (aTok.hasMoreTokens())
+		for (Type type : categories)
 		{
-			String type = aTok.nextToken();
-
 			if (eq.isType(type, true))
 			{
 				if (wc.length() != 0)

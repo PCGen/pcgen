@@ -23,11 +23,9 @@ import static org.junit.jupiter.api.Assertions.fail;
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.format.NumberManager;
-import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
-import pcgen.cdom.formula.scope.GlobalScope;
-import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.ModifierFactory;
+
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
 import org.junit.jupiter.api.Test;
@@ -35,7 +33,6 @@ import org.junit.jupiter.api.Test;
 
 class AddNumberModifierTest
 {
-	private final PCGenScope varScope = new GlobalScope();
 	private FormatManager<Number> numManager = new NumberManager();
 
 	@Test
@@ -44,7 +41,7 @@ class AddNumberModifierTest
 		try
 		{
 			ModifierFactory m = new AddModifierFactory();
-			m.getModifier(null, new ManagerFactory(){}, null, null, null);
+			m.getModifier(null, null);
 			fail("Expected AddModifier with null adder to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -198,7 +195,7 @@ class AddNumberModifierTest
 	{
 		AddModifierFactory factory = new AddModifierFactory();
 		FormulaModifier<Number> modifier =
-				factory.getModifier("6.5", new ManagerFactory(){}, null, varScope, numManager);
+				factory.getModifier("6.5", numManager);
 		modifier.addAssociation("PRIORITY=35");
 		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertEquals(numManager, modifier.getVariableFormat());

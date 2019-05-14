@@ -24,11 +24,11 @@ import static org.junit.jupiter.api.Assertions.fail;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.character.WieldCategory;
-import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -37,6 +37,7 @@ import plugin.pretokens.parser.PreVariableParser;
 import plugin.pretokens.writer.PreVariableWriter;
 
 import org.junit.jupiter.api.Test;
+import util.GameModeSupport;
 
 public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
@@ -178,7 +179,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		super.additionalSetup(context);
 		try
 		{
-			GameModeFileLoader.addDefaultWieldCategories(context);
+			GameModeSupport.addDefaultWieldCategories(context);
 		}
 		catch (PersistenceLayerException e)
 		{

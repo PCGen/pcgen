@@ -70,4 +70,10 @@ public final class DataSetID implements TypeSafeConstant, PCGenIdentifier
 		id.myFacetCache = AbstractStorageFacet.peekAtCache(id);
 		return id;
 	}
+
+	@Override
+	public DataSetID getDataSetID()
+	{
+		return this;
+	}
 }

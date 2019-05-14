@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.gamemode.wieldcategory;
 
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.character.WieldCategory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -35,6 +37,11 @@ public class SizediffToken extends AbstractNonEmptyToken<WieldCategory> implemen
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, WieldCategory wc, String value)
 	{
+		if (ControlUtilities.hasControlToken(context, CControl.WIELDCAT))
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " is disabled when WIELDCAT control is used: " + value);
+		}
 		try
 		{
 			wc.setSizeDifference(Integer.parseInt(value));

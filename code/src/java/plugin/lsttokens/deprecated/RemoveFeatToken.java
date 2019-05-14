@@ -279,7 +279,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject>
 		pc.adjustMoveRates();
 
 		double cost = cna.getAbility().getSafe(ObjectKey.SELECTION_COST).doubleValue();
-		pc.adjustAbilities(AbilityCategory.FEAT, new BigDecimal(-cost));
+		pc.adjustAbilities(AbilityCategory.FEAT, BigDecimal.valueOf(-cost));
 	}
 
 	private static <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacter pc, ChooseDriver obj, String choice)

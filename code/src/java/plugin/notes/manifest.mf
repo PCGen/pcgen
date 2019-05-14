@@ -1,4 +1,4 @@
 Manifest-Version: 1.2
-Class-Path: lib/jdom.jar lib/skinlf.jar lib/jaxp.jar
+Class-Path: lib/jdom.jar lib/jaxp.jar
 Created-By: NetBeans IDE
 

@@ -25,6 +25,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
@@ -48,8 +51,6 @@ import gmgen.gui.ExtendedHTMLEditorKit;
 import pcgen.cdom.base.Constants;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
-
-import org.apache.commons.io.FileUtils;
 
 /**
  * This defines the preferences tree
@@ -437,7 +438,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 				try
 				{
 					StringBuilder sb;
-					try (BufferedReader br = new BufferedReader(new FileReader(notes)))
+					try (BufferedReader br = new BufferedReader(new FileReader(notes, StandardCharsets.UTF_8)))
 					{
 						sb = new StringBuilder();
 						String newLine;
@@ -503,7 +504,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 				try
 				{
 					StringBuilder sb;
-					try (BufferedReader br = new BufferedReader(new FileReader(notes)))
+					try (BufferedReader br = new BufferedReader(new FileReader(notes, StandardCharsets.UTF_8)))
 					{
 						sb = new StringBuilder();
 						String newLine;
@@ -889,16 +890,13 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 
 		try
 		{
-			List fileList = ((List) t.getTransferData(DataFlavor.javaFileListFlavor));
+			List<File> fileList = ((List<File>) t.getTransferData(DataFlavor.javaFileListFlavor));
 
-			for (Object aFileList : fileList)
+			for (File origFile : fileList)
 			{
-				File newFile = (File) aFileList;
-
-				if (newFile.exists())
+				if (origFile.exists())
 				{
-
-					FileUtils.copyFile(newFile, new File(dir.getAbsolutePath() + File.separator + newFile.getName()));
+					Files.copy(origFile.toPath(), Path.of(dir.getAbsolutePath(), origFile.getName()));
 				}
 			}
 		}
@@ -986,17 +984,9 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 
 				if (nodeDir.exists())
 				{
-					for (int i = 0; i < childDirs.size(); i++)
-					{
-						File childDir = childDirs.get(i);
-
-						if (nodeDir.getName().equals(childDir.getName()))
-						{
-							removeDirs.add(childDir);
-
-							continue;
-						}
-					}
+					childDirs.stream()
+					         .filter(childDir -> nodeDir.getName().equals(childDir.getName()))
+					         .forEach(removeDirs::add);
 				}
 				else
 				{
@@ -1004,16 +994,10 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 				}
 			}
 
-			for (File childDir : childDirs)
-			{
-				if (!removeDirs.contains(childDir))
-				{
-					if (include(childDir))
-					{
-						add(new NotesTreeNode(childDir.getName(), childDir, tree));
-					}
-				}
-			}
+			childDirs.stream()
+			         .filter(childDir -> !removeDirs.contains(childDir))
+			         .filter(this::include)
+			         .forEach(childDir -> add(new NotesTreeNode(childDir.getName(), childDir, tree)));
 
 			Enumeration<MutableTreeNode> newNodes = children();
 
@@ -1224,7 +1208,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 
 				if (pane != null)
 				{
-					FileWriter fw = new FileWriter(notes);
+					FileWriter fw = new FileWriter(notes, StandardCharsets.UTF_8);
 					HTMLWriter hw = new HTMLWriter(fw, notesDoc);
 					hw.write();
 					fw.flush();

@@ -27,7 +27,6 @@ import java.util.EventObject;
 
 import javax.swing.CellRendererPane;
 import javax.swing.JComponent;
-import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.JTree;
 import javax.swing.ListSelectionModel;
@@ -51,7 +50,6 @@ import javax.swing.tree.TreeCellRenderer;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
-import pcgen.gui2.util.event.PopupMouseAdapter;
 import pcgen.gui2.util.table.Row;
 import pcgen.gui2.util.table.SortableTableModel;
 import pcgen.gui2.util.treetable.SortableTreeTableModel;
@@ -840,61 +838,6 @@ public class JTreeTable extends JTableEx
 		public void removeCellEditorListener(CellEditorListener l)
 		{
 		}
-
-	}
-
-	/**
-	 * Associates a popup menu with the tree table.
-	 *
-	 * <p>This handles showing the popup based on a right click and also handles
-	 * any menu accelerators.
-	 *
-	 * @param aPopupMenu Menu to associate.
-	 */
-	public void addPopupMenu(final JPopupMenu aPopupMenu)
-	{
-		addMouseListener(new PopupListener(this, aPopupMenu));
-	}
-
-	private static final class PopupListener extends PopupMouseAdapter
-	{
-
-		private JPopupMenu theMenu;
-		private JTree theTree;
-
-		private PopupListener(final JTreeTable treeTable, final JPopupMenu aMenu)
-		{
-			theTree = treeTable.getTree();
-			theMenu = aMenu;
-		}
-
-		@Override
-		public void showPopup(final MouseEvent evt)
-		{
-			final TreePath selPath = theTree.getClosestPathForLocation(evt.getX(), evt.getY());
-
-			if (selPath == null)
-			{
-				return;
-			}
-
-			if (theTree.isSelectionEmpty())
-			{
-				theTree.setSelectionPath(selPath);
-				theMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-			}
-			else if (!theTree.isPathSelected(selPath))
-			{
-				theTree.setSelectionPath(selPath);
-				theMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-			}
-			else
-			{
-				theTree.addSelectionPath(selPath);
-				theMenu.show(evt.getComponent(), evt.getX(), evt.getY());
-			}
-		}
-
 	}
 
 }
