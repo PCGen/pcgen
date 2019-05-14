@@ -68,14 +68,4 @@ public class SystemAttribute
 		return value;
 	}
 
-	public int check()
-	{
-		return check(0);
-	}
-
-	public int check(final int mod)
-	{
-		return die.roll() + this.getModifier() + mod;
-	}
-
 }
