@@ -47,17 +47,16 @@ public class ACCheckToken extends Token
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
-		return Delta.toString(getACCheckToken(tokenSource, pc));
+		return Delta.toString(getACCheckToken(pc));
 	}
 
 	/**
 	 * TODO: Rip the processing of this token out of PlayerCharacter
 	 * 
-	 * @param tokenSource
-	 * @param pc - The PC to calculate the ACCHECK for 
+	 * @param pc - The PC to calculate the ACCHECK for
 	 * @return THe ACCHECK Penalty
 	 */
-	public static int getACCheckToken(String tokenSource, PlayerCharacter pc)
+	private static int getACCheckToken(PlayerCharacter pc)
 	{
 		String acCheckVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.PCACCHECK);
 		if (acCheckVar == null)
