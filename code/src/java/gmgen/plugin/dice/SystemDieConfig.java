@@ -41,7 +41,7 @@ public class SystemDieConfig implements DiceConfig
 		}
 	}
 
-	public SystemDieConfig(final int n, final int sides, final int bias, final Random random)
+	public SystemDieConfig(final int n, final int sides, final int bias)
 	{
 		this.n = n;
 		this.sides = sides;
