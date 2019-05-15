@@ -35,8 +35,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
-import javax.swing.SwingConstants;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -77,10 +75,6 @@ public final class SettingsHandler
 	/** That browserPath is set to null is intentional. */
 	private static String browserPath = null; //Intentional null
 
-	/**
-	 *  See @javax.swing.SwingConstants.
-	 */
-	private static int chaTabPlacement = SwingConstants.TOP;
 	private static Dimension customizerDimension = null;
 	private static Point customizerLeftUpperCorner = null;
 	private static int customizerSplit1 = -1;
@@ -139,10 +133,6 @@ public final class SettingsHandler
 	private static boolean alwaysOverwrite = false;
 	private static String defaultOSType = ""; //$NON-NLS-1$
 
-	/**
-	 *  See @javax.swing.SwingConstants
-	 */
-	private static int tabPlacement = SwingConstants.BOTTOM;
 	private static final String TMP_PATH = System.getProperty("java.io.tmpdir"); //$NON-NLS-1$
 	private static final File TEMP_PATH = new File(getTmpPath());
 	private static boolean useHigherLevelSlotsDefault = false;
@@ -275,16 +265,6 @@ public final class SettingsHandler
 	public static String getBrowserPath()
 	{
 		return browserPath;
-	}
-
-	public static void setChaTabPlacement(final int argChaTabPlacement)
-	{
-		chaTabPlacement = argChaTabPlacement;
-	}
-
-	public static int getChaTabPlacement()
-	{
-		return chaTabPlacement;
 	}
 
 	/**
@@ -737,12 +717,7 @@ public final class SettingsHandler
 	{
 		return maxWandSpellLevel;
 	}
-
-	public static void setNameDisplayStyle(final int style)
-	{
-		nameDisplayStyle = style;
-	}
-
+	
 	public static int getNameDisplayStyle()
 	{
 		return nameDisplayStyle;
@@ -834,7 +809,6 @@ public final class SettingsHandler
 		setAutogenMagic(getPCGenOption("autoGenerateMagic", false)); //$NON-NLS-1$
 		setAutogenMasterwork(getPCGenOption("autoGenerateMasterwork", false)); //$NON-NLS-1$
 		setAutogenRacial(getPCGenOption("autoGenerateRacial", false)); //$NON-NLS-1$
-		setChaTabPlacement(getOptionTabPlacement("chaTabPlacement", SwingConstants.TOP)); //$NON-NLS-1$
 		setCreatePcgBackup(getPCGenOption("createPcgBackup", true));
 		setCustomizerSplit1(getPCGenOption("customizer.split1", -1)); //$NON-NLS-1$
 		setCustomizerSplit2(getPCGenOption("customizer.split2", -1)); //$NON-NLS-1$
@@ -909,7 +883,6 @@ public final class SettingsHandler
 		setShowSkillRanks(getPCGenOption("showSkillRanks", true)); //$NON-NLS-1$
 		setShowWarningAtFirstLevelUp(getPCGenOption("showWarningAtFirstLevelUp", true)); //$NON-NLS-1$
 		setSpellMarketPriceAdjusted(getPCGenOption("spellMarketPriceAdjusted", false)); //$NON-NLS-1$
-		setTabPlacement(getOptionTabPlacement("tabPlacement", SwingConstants.BOTTOM)); //$NON-NLS-1$
 		setUseHigherLevelSlotsDefault(getPCGenOption("useHigherLevelSlotsDefault", false)); //$NON-NLS-1$
 		setWantToLoadMasterworkAndMagic(getPCGenOption("loadMasterworkAndMagicFromLst", false)); //$NON-NLS-1$
 		setWeaponProfPrintout(getPCGenOption("weaponProfPrintout", Constants.DEFAULT_PRINTOUT_WEAPONPROF));
@@ -1094,7 +1067,6 @@ public final class SettingsHandler
 		setPCGenOption("autoGenerateMagic", isAutogenMagic()); //$NON-NLS-1$
 		setPCGenOption("autoGenerateMasterwork", isAutogenMasterwork()); //$NON-NLS-1$
 		setPCGenOption("autoGenerateRacial", isAutogenRacial()); //$NON-NLS-1$
-		setPCGenOption("chaTabPlacement", convertTabPlacementToString(chaTabPlacement)); //$NON-NLS-1$
 		setPCGenOption("createPcgBackup", getCreatePcgBackup()); //$NON-NLS-1$
 		setPCGenOption("customizer.split1", getCustomizerSplit1()); //$NON-NLS-1$
 		setPCGenOption("customizer.split2", getCustomizerSplit2()); //$NON-NLS-1$
@@ -1141,7 +1113,6 @@ public final class SettingsHandler
 		setPCGenOption("showWarningAtFirstLevelUp", isShowWarningAtFirstLevelUp()); //$NON-NLS-1$
 		setPCGenOption("sourceDisplay", Globals.getSourceDisplay().ordinal()); //$NON-NLS-1$
 		setPCGenOption("spellMarketPriceAdjusted", isSpellMarketPriceAdjusted()); //$NON-NLS-1$
-		setPCGenOption("tabPlacement", convertTabPlacementToString(tabPlacement)); //$NON-NLS-1$
 		setPCGenOption("useHigherLevelSlotsDefault", isUseHigherLevelSlotsDefault()); //$NON-NLS-1$
 		setPCGenOption("weaponProfPrintout", SettingsHandler.getWeaponProfPrintout()); //$NON-NLS-1$
 		setPCGenOption("outputDeprecationMessages", outputDeprecationMessages()); //$NON-NLS-1$
@@ -1582,16 +1553,6 @@ public final class SettingsHandler
 		return showWarningAtFirstLevelUp;
 	}
 
-	public static void setTabPlacement(final int anInt)
-	{
-		tabPlacement = anInt;
-	}
-
-	public static int getTabPlacement()
-	{
-		return tabPlacement;
-	}
-
 	/**
 	 * Returns the path to the temporary output location (for previews).
 	 *
@@ -1656,11 +1617,6 @@ public final class SettingsHandler
 	public static boolean hideMonsterClasses()
 	{
 		return hideMonsterClasses;
-	}
-
-	public static void readGUIOptionsProperties()
-	{
-		setNameDisplayStyle(getPCGenOption("nameDisplayStyle", Constants.DISPLAY_STYLE_NAME)); //$NON-NLS-1$
 	}
 
 	/**
@@ -1792,56 +1748,6 @@ public final class SettingsHandler
 		return FILTERSETTINGS;
 	}
 
-	private static int getOptionTabPlacement(final String optionName, final int defaultValue)
-	{
-		final String aString = getPCGenOption(optionName, convertTabPlacementToString(defaultValue));
-		int iVal;
-
-		try
-		{
-			iVal = Integer.parseInt(aString);
-
-			switch (iVal)
-			{
-				case SwingConstants.TOP:
-				case SwingConstants.LEFT:
-				case SwingConstants.BOTTOM:
-				case SwingConstants.RIGHT:
-					break;
-
-				default:
-					iVal = defaultValue;
-
-					break;
-			}
-		}
-		catch (NumberFormatException exc)
-		{
-			if ("TOP".equals(aString)) //$NON-NLS-1$
-			{
-				iVal = SwingConstants.TOP;
-			}
-			else if ("LEFT".equals(aString)) //$NON-NLS-1$
-			{
-				iVal = SwingConstants.LEFT;
-			}
-			else if ("BOTTOM".equals(aString)) //$NON-NLS-1$
-			{
-				iVal = SwingConstants.BOTTOM;
-			}
-			else if ("RIGHT".equals(aString)) //$NON-NLS-1$
-			{
-				iVal = SwingConstants.RIGHT;
-			}
-			else
-			{
-				iVal = defaultValue;
-			}
-		}
-
-		return iVal;
-	}
-
 	/**
 	 * Puts all properties into the {@code Properties} object,
 	 * ({@code options}). This is called by
@@ -1963,25 +1869,6 @@ public final class SettingsHandler
 	private static String getTmpPath()
 	{
 		return TMP_PATH;
-	}
-
-	private static String convertTabPlacementToString(final int placement)
-	{
-		switch (placement)
-		{
-			case SwingConstants.BOTTOM:
-				return "BOTTOM"; //$NON-NLS-1$
-
-			case SwingConstants.LEFT:
-				return "LEFT"; //$NON-NLS-1$
-
-			case SwingConstants.RIGHT:
-				return "RIGHT"; //$NON-NLS-1$
-
-			case SwingConstants.TOP:
-			default:
-				return "TOP"; //$NON-NLS-1$
-		}
 	}
 
 	/*
