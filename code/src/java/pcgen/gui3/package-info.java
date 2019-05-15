@@ -16,7 +16,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-/*
+/**
  * Contains code for a JavaFX based UI.
  * Includes transition code to switch from Swing.
  */

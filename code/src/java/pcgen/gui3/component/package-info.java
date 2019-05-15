@@ -16,22 +16,13 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-package pcgen.gui3.preloader;
-
-import pcgen.gui3.component.PCGenStatusBar;
-
-import javafx.fxml.FXML;
-
 /**
- * Displays HTML content as a "panel".
+ * Reusable pieces of infrastructure for GUIs
+ * Nothing here should have a Stage or a Scene attached
  */
-public final class PCGenPreloaderController
-{
-	@FXML
-	private PCGenStatusBar pcGenStatusBar;
 
-	public void setProgress(String message, double progress)
-	{
-		pcGenStatusBar.setProgress(message, progress);
-	}
-}
+@DefaultAnnotation(NonNull.class)
+package pcgen.gui3.component;
+
+import edu.umd.cs.findbugs.annotations.DefaultAnnotation;
+import edu.umd.cs.findbugs.annotations.NonNull;
