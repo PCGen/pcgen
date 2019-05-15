@@ -42,6 +42,7 @@ import pcgen.util.CollectionMaps;
 import pcgen.util.ListMap;
 import pcgen.util.Logging;
 
+@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 public class TreeViewTableModel<E> extends AbstractTreeTableModel implements SortableTreeTableModel
 {
 

@@ -25,9 +25,7 @@ import java.util.Vector;
 
 import pcgen.gui2.util.table.Row;
 
-/**
- *
- */
+@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 public class DefaultSortableTreeTableNode extends DefaultTreeTableNode implements SortableTreeTableNode
 {
 

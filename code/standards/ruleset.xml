@@ -29,8 +29,6 @@
         <exclude name="PositionLiteralsFirstInCaseInsensitiveComparisons"/>
         <exclude name="PositionLiteralsFirstInComparisons"/>
         <exclude name="PreserveStackTrace"/>
-        <exclude name="ReplaceHashtableWithMap"/>
-        <exclude name="ReplaceVectorWithList"/>
         <exclude name="SwitchStmtsShouldHaveDefault"/>
         <exclude name="SystemPrintln"/>
         <exclude name="UnusedFormalParameter"/>
