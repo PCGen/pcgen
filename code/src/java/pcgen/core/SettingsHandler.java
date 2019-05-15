@@ -63,11 +63,10 @@ public final class SettingsHandler
 	//
 	// For EqBuilder
 	//
-	private static IntegerProperty maxPotionSpellLevel =
+	private static final IntegerProperty maxPotionSpellLevel =
 			new SimpleIntegerProperty(Constants.DEFAULT_MAX_POTION_SPELL_LEVEL);
-	private static IntegerProperty maxWandSpellLevel =
+	private static final IntegerProperty maxWandSpellLevel =
 			new SimpleIntegerProperty(Constants.DEFAULT_MAX_WAND_SPELL_LEVEL);
-	private static boolean spellMarketPriceAdjusted = false;
 
 	// Map of RuleCheck keys and their settings
 	private static final Map<String, String> ruleCheckMap = new HashMap<>();
@@ -807,7 +806,6 @@ public final class SettingsHandler
 		setShowSkillModifier(getPCGenOption("showSkillModifier", true)); //$NON-NLS-1$
 		setShowSkillRanks(getPCGenOption("showSkillRanks", true)); //$NON-NLS-1$
 		setShowWarningAtFirstLevelUp(getPCGenOption("showWarningAtFirstLevelUp", true)); //$NON-NLS-1$
-		setSpellMarketPriceAdjusted(getPCGenOption("spellMarketPriceAdjusted", false)); //$NON-NLS-1$
 		setUseHigherLevelSlotsDefault(getPCGenOption("useHigherLevelSlotsDefault", false)); //$NON-NLS-1$
 		setWantToLoadMasterworkAndMagic(getPCGenOption("loadMasterworkAndMagicFromLst", false)); //$NON-NLS-1$
 		setWeaponProfPrintout(getPCGenOption("weaponProfPrintout", Constants.DEFAULT_PRINTOUT_WEAPONPROF));
@@ -1032,7 +1030,6 @@ public final class SettingsHandler
 		setPCGenOption("showSingleBoxPerBundle", getShowSingleBoxPerBundle()); //$NON-NLS-1$
 		setPCGenOption("showWarningAtFirstLevelUp", isShowWarningAtFirstLevelUp()); //$NON-NLS-1$
 		setPCGenOption("sourceDisplay", Globals.getSourceDisplay().ordinal()); //$NON-NLS-1$
-		setPCGenOption("spellMarketPriceAdjusted", isSpellMarketPriceAdjusted()); //$NON-NLS-1$
 		setPCGenOption("useHigherLevelSlotsDefault", isUseHigherLevelSlotsDefault()); //$NON-NLS-1$
 		setPCGenOption("weaponProfPrintout", SettingsHandler.getWeaponProfPrintout()); //$NON-NLS-1$
 		setPCGenOption("outputDeprecationMessages", outputDeprecationMessages()); //$NON-NLS-1$
@@ -1734,16 +1731,6 @@ public final class SettingsHandler
 	public static boolean getShowSkillRanks()
 	{
 		return showSkillRanks;
-	}
-
-	private static void setSpellMarketPriceAdjusted(final boolean aBool)
-	{
-		spellMarketPriceAdjusted = aBool;
-	}
-
-	private static boolean isSpellMarketPriceAdjusted()
-	{
-		return spellMarketPriceAdjusted;
 	}
 
 	private static String getTmpPath()
