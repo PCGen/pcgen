@@ -40,7 +40,6 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
-import javax.swing.JTabbedPane;
 import javax.swing.JTree;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
@@ -115,7 +114,6 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	private PCGenPrefsPanel displayOptionsPanel;
 	private PCGenPrefsPanel levelUpPanel;
 	private PCGenPrefsPanel lookAndFeelPanel;
-	//	private PCGenPrefsPanel tabsPanel;
 
 	// PCGen panels
 	private PCGenPrefsPanel equipmentPanel;
@@ -155,9 +153,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		{
 			pluginsPanel = new PreferencesPluginsPanel();
 		}
-		JTabbedPane tpane = new JTabbedPane();
-		tpane.add(pluginsPanel.toString(), pluginsPanel);
-		settingsPanel.add(tpane, LanguageBundle.getString("in_Prefs_plugins")); //$NON-NLS-1$
+		settingsPanel.add(pluginsPanel, LanguageBundle.getString("in_Prefs_plugins")); //$NON-NLS-1$
 		rootNode.add(pluginNode);
 	}
 
@@ -267,8 +263,6 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		addPanelToTree(appearanceNode, levelUpPanel);
 		lookAndFeelPanel = new LookAndFeelPanel(this);
 		addPanelToTree(appearanceNode, lookAndFeelPanel);
-		//		tabsPanel = new TabsPanel();
-		//		addPanelToTree(appearanceNode, tabsPanel);
 		rootNode.add(appearanceNode);
 
 		pcGenNode = new DefaultMutableTreeNode(Constants.APPLICATION_NAME);
