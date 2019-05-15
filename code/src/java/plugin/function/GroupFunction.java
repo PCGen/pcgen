@@ -92,19 +92,25 @@ public class GroupFunction implements FormulaFunction
 		String scopeName = ((ASTQuotString) args[0]).getText();
 		LoadContext context = semantics.get(ManagerKey.CONTEXT);
 		PCGenScope scope = context.getVariableContext().getScope(scopeName);
-		FormatManager<?> formatManager = scope.getFormatManager(context);
-
+		Optional<FormatManager<?>> possibleFormatManager = scope.getFormatManager(context);
+		if (possibleFormatManager.isEmpty())
+		{
+			throw new SemanticsFailureException(
+				"Parse Error: Invalid first argument: Scope: " + scopeName
+					+ " does not support Groups (no format)");
+		}
+		FormatManager<?> formatManager = possibleFormatManager.get();
 		if (!(formatManager instanceof ReferenceManufacturer))
 		{
 			throw new SemanticsFailureException(
-				"Parse Error: Invalid first argument: Format: " + scopeName
+				"Parse Error: Invalid first argument: Scope: " + scopeName
 					+ " does not support Groups");
 		}
 		if (!(PCGenScoped.class
 			.isAssignableFrom(formatManager.getManagedClass())))
 		{
 			throw new SemanticsFailureException(
-				"Parse Error: Invalid first argument: Format: " + scopeName
+				"Parse Error: Invalid first argument: Scope: " + scopeName
 					+ " must be Scoped");
 		}
 
@@ -125,7 +131,7 @@ public class GroupFunction implements FormulaFunction
 		@SuppressWarnings("unchecked")
 		ReferenceManufacturer<? extends PCGenScoped> refMfg =
 				(ReferenceManufacturer<? extends PCGenScoped>) scope
-					.getFormatManager(context);
+					.getFormatManager(context).get();
 
 		String groupingName = (String) args[1].jjtAccept(visitor,
 			manager.getWith(EvaluationManager.ASSERTED,

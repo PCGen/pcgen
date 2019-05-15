@@ -58,8 +58,8 @@ public class RaceScope implements PCGenScope
 	}
 
 	@Override
-	public FormatManager<Race> getFormatManager(LoadContext context)
+	public Optional<FormatManager<?>> getFormatManager(LoadContext context)
 	{
-		return context.getReferenceContext().getManufacturer(Race.class);
+		return Optional.of(context.getReferenceContext().getManufacturer(Race.class));
 	}
 }

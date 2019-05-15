@@ -37,5 +37,5 @@ public interface PCGenScope extends LegalScope
 	 *            The LoadContext used to resolve the actual FormatManager
 	 * @return The FormatManager used to process objects that are within this PCGenScope
 	 */
-	public FormatManager<?> getFormatManager(LoadContext context);
+	public Optional<FormatManager<?>> getFormatManager(LoadContext context);
 }

@@ -58,8 +58,8 @@ public class EquipmentScope implements PCGenScope
 	}
 
 	@Override
-	public FormatManager<?> getFormatManager(LoadContext context)
+	public Optional<FormatManager<?>> getFormatManager(LoadContext context)
 	{
-		throw new UnsupportedOperationException("Equipment Part does not have a format");
+		return Optional.empty();
 	}
 }

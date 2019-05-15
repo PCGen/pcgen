@@ -73,9 +73,8 @@ public class DynamicScope implements PCGenScope
 	}
 
 	@Override
-	public FormatManager<Dynamic> getFormatManager(LoadContext context)
+	public Optional<FormatManager<?>> getFormatManager(LoadContext context)
 	{
-		return formatManager;
+		return Optional.of(formatManager);
 	}
-
 }
