@@ -20,6 +20,7 @@ package pcgen.gui3.component;
 
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
@@ -32,7 +33,15 @@ class PCGenStatusBarModel
 	 */
 	private final Property<Number> percentDone = new SimpleDoubleProperty();
 
+	/**
+	 * message text shown on the left.
+	 */
 	private final Property<String> message = new SimpleStringProperty();
+
+	/**
+	 * message text shown on the progress bar itself
+	 */
+	private final Property<String> progressText = new SimpleObjectProperty<>();
 
 	Property<Number> percentDoneProperty()
 	{
@@ -42,6 +51,11 @@ class PCGenStatusBarModel
 	Property<String> messageProperty()
 	{
 		return message;
+	}
+
+	Property<String> progressText()
+	{
+		return progressText;
 	}
 
 }

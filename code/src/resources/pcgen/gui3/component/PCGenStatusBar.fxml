@@ -18,11 +18,14 @@
   * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
   -->
 
-<?import javafx.scene.control.ProgressBar?><?import javafx.scene.layout.BorderPane?><?import javafx.scene.layout.HBox?><?import javafx.scene.layout.Region?><?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ProgressBar?><?import javafx.scene.layout.BorderPane?><?import javafx.scene.layout.HBox?><?import javafx.scene.layout.Region?><?import javafx.scene.text.Text?><?import javafx.scene.layout.StackPane?><?import javafx.scene.control.Label?>
 <fx:root xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml"
          type="HBox">
     <Text fx:id="loadingLabel" BorderPane.alignment="BOTTOM_LEFT"/>
     <Region HBox.hgrow="always"/>
-    <ProgressBar fx:id="loadProgress" progress="0.0" BorderPane.alignment="BOTTOM_RIGHT"/>
+    <StackPane>
+        <ProgressBar fx:id="loadProgress" progress="0.0" BorderPane.alignment="BOTTOM_RIGHT"/>
+        <Label fx:id="progressText" labelFor="$loadProgress"  />
+    </StackPane>
 </fx:root>

@@ -25,6 +25,7 @@ import pcgen.system.LanguageBundle;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
@@ -38,8 +39,12 @@ public class PCGenStatusBar extends HBox
 
 	@FXML
 	private Text loadingLabel;
+
 	@FXML
 	private ProgressBar loadProgress;
+
+	@FXML
+	private Label progressText;
 
 	public PCGenStatusBar() throws IOException
 	{
@@ -56,13 +61,20 @@ public class PCGenStatusBar extends HBox
 	{
 		loadingLabel.textProperty().bind(model.messageProperty());
 		loadProgress.progressProperty().bind(model.percentDoneProperty());
+		progressText.textProperty().bind(model.progressText());
 	}
 
 	public void setProgress(String message, double progress)
 	{
+		setProgress(message, progress, String.format("%.0f%%", progress * 100));
+	}
+
+	public void setProgress(String message, double progress, String progressText)
+	{
 		Platform.runLater(() -> {
 			model.messageProperty().setValue(message);
 			model.percentDoneProperty().setValue(progress);
+			model.progressText().setValue(progressText);
 		});
 	}
 
