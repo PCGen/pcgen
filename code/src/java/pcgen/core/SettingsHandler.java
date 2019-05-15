@@ -137,7 +137,6 @@ public final class SettingsHandler
 	private static final File TEMP_PATH = new File(getTmpPath());
 	private static boolean useHigherLevelSlotsDefault = false;
 	private static boolean wantToLoadMasterworkAndMagic = false;
-	private static int nameDisplayStyle = Constants.DISPLAY_STYLE_NAME;
 	private static boolean weaponProfPrintout = Constants.DEFAULT_PRINTOUT_WEAPONPROF;
 	private static String postExportCommandStandard = ""; //$NON-NLS-1$
 	private static String postExportCommandPDF = ""; //$NON-NLS-1$
@@ -717,12 +716,6 @@ public final class SettingsHandler
 	{
 		return maxWandSpellLevel;
 	}
-	
-	public static int getNameDisplayStyle()
-	{
-		return nameDisplayStyle;
-	}
-
 	public static SortedProperties getOptions()
 	{
 		return OPTIONS;
@@ -1093,7 +1086,6 @@ public final class SettingsHandler
 		setPCGenOption("looknFeel", getLookAndFeel()); //$NON-NLS-1$
 		setPCGenOption("maxPotionSpellLevel", getMaxPotionSpellLevel()); //$NON-NLS-1$
 		setPCGenOption("maxWandSpellLevel", getMaxWandSpellLevel()); //$NON-NLS-1$
-		setPCGenOption("nameDisplayStyle", getNameDisplayStyle()); //$NON-NLS-1$
 		setPCGenOption("postExportCommandStandard", SettingsHandler.getPostExportCommandStandard()); //$NON-NLS-1$
 		setPCGenOption("postExportCommandPDF", SettingsHandler.getPostExportCommandPDF()); //$NON-NLS-1$
 		setPCGenOption("prereqFailColor", "0x" + Integer.toHexString(getPrereqFailColor())); //$NON-NLS-1$ //$NON-NLS-2$

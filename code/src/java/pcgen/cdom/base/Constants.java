@@ -237,35 +237,6 @@ public interface Constants
 	int CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT = 2;
 
 	/********************************************************************
-	 * How to display the PC's name
-	 ********************************************************************/
-
-	/**
-	 * A constant used to define the style of name that will be used for
-	 * this PC.  This option selects the plain unadorned name. */
-	int DISPLAY_STYLE_NAME = 0;
-
-	/**
-	 * A constant used to define the style of name that will be used for
-	 * this PC.  This option selects  */
-	int DISPLAY_STYLE_NAME_CLASS = 1;
-
-	/**
-	 * A constant used to define the style of name that will be used for
-	 * this PC.  This option appends the PC's race to its name.  */
-	int DISPLAY_STYLE_NAME_RACE = 2;
-
-	/**
-	 * A constant used to define the style of name that will be used for
-	 * this PC.  This option appends the PC's class to its name. */
-	int DISPLAY_STYLE_NAME_RACE_CLASS = 3;
-
-	/**
-	 * A constant used to define the style of name that will be used for
-	 * this PC.  This option appends the PC's race  and class to its name. */
-	int DISPLAY_STYLE_NAME_FULL = 4;
-
-	/********************************************************************
 	 * How to roll hitpoints
 	 ********************************************************************/
 
