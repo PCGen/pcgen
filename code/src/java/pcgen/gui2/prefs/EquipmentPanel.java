@@ -45,7 +45,7 @@ import pcgen.system.PCGenSettings;
  * 
  */
 @SuppressWarnings("serial")
-public class EquipmentPanel extends PCGenPrefsPanel
+public final class EquipmentPanel extends PCGenPrefsPanel
 {
 	private static final String IN_EQUIPMENT =
 			LanguageBundle.getString("in_Prefs_equipment"); //$NON-NLS-1$
@@ -54,8 +54,6 @@ public class EquipmentPanel extends PCGenPrefsPanel
 	private static final int SPELLLVLMIN = 0;
 	private static final int SPELLLVLMAX = 9;
 
-	private static final String IN_ALLOW_METAMAGIC =
-			LanguageBundle.getString("in_Prefs_allowMetamagic"); //$NON-NLS-1$
 	private static final String IN_ANY_AUTO_EQUIP =
 			LanguageBundle.getString("in_Prefs_anyAutoEquip"); //$NON-NLS-1$
 	private static final String IN_AUTO_EQUIP =
@@ -75,7 +73,6 @@ public class EquipmentPanel extends PCGenPrefsPanel
 	private static final String IN_WAND_MAX =
 			LanguageBundle.getString("in_Prefs_wandMax"); //$NON-NLS-1$
 
-	private final JCheckBox allowMetamagicInEqBuilder = new JCheckBox();
 	private final JCheckBox autoMethod1 = new JCheckBox();
 	private final JCheckBox autoMethod2 = new JCheckBox();
 	private final JCheckBox autoMethod3 = new JCheckBox();
@@ -106,11 +103,6 @@ public class EquipmentPanel extends PCGenPrefsPanel
 		c.anchor = GridBagConstraints.LINE_START;
 		c.insets = new Insets(2, 2, 2, 2);
 		exclusiveGroup = new ButtonGroup();
-
-		Utility.buildConstraints(c, 0, 0, GridBagConstraints.REMAINDER, 1, 0, 0);
-		allowMetamagicInEqBuilder.setText(IN_ALLOW_METAMAGIC);
-		gridbag.setConstraints(allowMetamagicInEqBuilder, c);
-		this.add(allowMetamagicInEqBuilder);
 
 		Utility.buildConstraints(c, 0, 1, 2, 1, 0, 0);
 		label = new JLabel(IN_POTION_MAX);
@@ -194,7 +186,6 @@ public class EquipmentPanel extends PCGenPrefsPanel
 	@Override
 	public void setOptionsBasedOnControls()
 	{
-		SettingsHandler.setMetamagicAllowedInEqBuilder(allowMetamagicInEqBuilder.isSelected());
 		SettingsHandler.setMaxPotionSpellLevel(potionModel.getNumber().intValue());
 		SettingsHandler.setMaxWandSpellLevel(wandModel.getNumber().intValue());
 		SettingsHandler.setWantToLoadMasterworkAndMagic(false); // Turn it off temporarily so we can set the values
@@ -211,7 +202,6 @@ public class EquipmentPanel extends PCGenPrefsPanel
 	@Override
 	public void applyOptionValuesToControls()
 	{
-		allowMetamagicInEqBuilder.setSelected(SettingsHandler.isMetamagicAllowedInEqBuilder());
 		potionModel.setValue(SettingsHandler.getMaxPotionSpellLevel());
 		wandModel.setValue(SettingsHandler.getMaxWandSpellLevel());
 

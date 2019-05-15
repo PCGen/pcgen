@@ -69,7 +69,6 @@ public final class SettingsHandler
 	//
 	private static int maxPotionSpellLevel = Constants.DEFAULT_MAX_POTION_SPELL_LEVEL;
 	private static int maxWandSpellLevel = Constants.DEFAULT_MAX_WAND_SPELL_LEVEL;
-	private static boolean allowMetamagicInCustomizer = false;
 	private static boolean spellMarketPriceAdjusted = false;
 
 	// Map of RuleCheck keys and their settings
@@ -739,16 +738,6 @@ public final class SettingsHandler
 		return maxWandSpellLevel;
 	}
 
-	public static void setMetamagicAllowedInEqBuilder(final boolean aBool)
-	{
-		allowMetamagicInCustomizer = aBool;
-	}
-
-	public static boolean isMetamagicAllowedInEqBuilder()
-	{
-		return allowMetamagicInCustomizer;
-	}
-
 	public static void setNameDisplayStyle(final int style)
 	{
 		nameDisplayStyle = style;
@@ -873,7 +862,6 @@ public final class SettingsHandler
 		setLookAndFeel(getPCGenOption("looknFeel", 1)); //$NON-NLS-1$
 		setMaxPotionSpellLevel(getPCGenOption("maxPotionSpellLevel", 3)); //$NON-NLS-1$
 		setMaxWandSpellLevel(getPCGenOption("maxWandSpellLevel", 4)); //$NON-NLS-1$
-		setMetamagicAllowedInEqBuilder(getPCGenOption("allowMetamagicInCustomizer", false)); //$NON-NLS-1$
 		setPccFilesLocation(new File(expandRelativePath(getPCGenOption("pccFilesLocation", //$NON-NLS-1$
 			System.getProperty("user.dir") + File.separator + "data")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setGmgenPluginDir(
@@ -1101,7 +1089,6 @@ public final class SettingsHandler
 
 		setRuleChecksInOptions("ruleChecks"); //$NON-NLS-1$
 
-		setPCGenOption("allowMetamagicInCustomizer", isMetamagicAllowedInEqBuilder()); //$NON-NLS-1$
 		setPCGenOption("alwaysOverwrite", getAlwaysOverwrite()); //$NON-NLS-1$
 		setPCGenOption("autoGenerateExoticMaterial", isAutogenExoticMaterial()); //$NON-NLS-1$
 		setPCGenOption("autoGenerateMagic", isAutogenMagic()); //$NON-NLS-1$
