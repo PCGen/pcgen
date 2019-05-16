@@ -1489,40 +1489,6 @@ public class CharacterFacadeImpl
 		}
 
 		final int baseScore = charDisplay.getStat(pcStat);
-		// Deal with a point pool based game mode where you buy skills and feats as well as stats
-		if (Globals.getGameModeHasPointPool())
-		{
-			if (pcPlayerLevels > 0)
-			{
-				int poolMod =
-						getPurchaseCostForStat(theCharacter, score) - getPurchaseCostForStat(theCharacter, baseScore);
-				//
-				// Adding to stat
-				//
-				if (poolMod > 0)
-				{
-					if (poolMod > theCharacter.getSkillPoints())
-					{
-						delegate.showErrorMessage(Constants.APPLICATION_NAME,
-							LanguageBundle.getFormattedString("in_sumStatPoolEmpty", Globals //$NON-NLS-1$
-								.getGameModePointPoolName()));
-						return;
-					}
-				}
-				else if (poolMod < 0)
-				{
-					if (theCharacter.getStatIncrease(pcStat, true) < Math.abs(score - baseScore))
-					{
-						delegate.showErrorMessage(Constants.APPLICATION_NAME,
-							LanguageBundle.getString("in_sumStatStartedHigher")); //$NON-NLS-1$
-						return;
-					}
-				}
-
-				theCharacter.adjustAbilities(AbilityCategory.FEAT, new BigDecimal(-poolMod));
-				showPointPool();
-			}
-		}
 
 		theCharacter.setStat(pcStat, score);
 		facade.set(score);
@@ -1622,28 +1588,6 @@ public class CharacterFacadeImpl
 	public boolean isStatRollEnabled()
 	{
 		return (charLevelsFacade.getSize() == 0);
-	}
-
-	/**
-	 * Update the  
-	 */
-	private void showPointPool()
-	{
-		if (poolPointText == null)
-		{
-			return;
-		}
-
-		int poolPointsTotal = 0;
-
-		for (PCLevelInfo pcl : charDisplay.getLevelInfo())
-		{
-			poolPointsTotal += pcl.getSkillPointsGained(theCharacter);
-		}
-
-		int poolPointsUsed = poolPointsTotal - theCharacter.getSkillPoints();
-
-		poolPointText.set(poolPointsUsed + " / " + poolPointsTotal); //$NON-NLS-1$
 	}
 
 	@Override

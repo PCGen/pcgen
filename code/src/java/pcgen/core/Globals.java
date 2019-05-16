@@ -310,24 +310,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get the game mode point pool name
-	 * @return game mode point pool name
-	 */
-	public static String getGameModePointPoolName()
-	{
-		return SettingsHandler.getGame().getPointPoolName();
-	}
-
-	/**
-	 * TRUE if the game mode has a point pool
-	 * @return TRUE if the game mode has a point pool
-	 */
-	public static boolean getGameModeHasPointPool()
-	{
-		return !getGameModePointPoolName().isEmpty();
-	}
-
-	/**
 	 * Get game mode unit set
 	 * @return game mode unit set
 	 */

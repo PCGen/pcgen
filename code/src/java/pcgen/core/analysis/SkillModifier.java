@@ -120,23 +120,6 @@ public final class SkillModifier
 	public static int getStatMod(Skill sk, PlayerCharacter pc)
 	{
 		CDOMSingleRef<PCStat> stat = sk.get(ObjectKey.KEY_STAT);
-		if (stat == null)
-		{
-			int statMod = 0;
-			if (Globals.getGameModeHasPointPool())
-			{
-				ArrayList<Type> typeList = new ArrayList<>();
-				SkillInfoUtilities.getKeyStatList(pc, sk, typeList);
-				for (int i = 0; i < typeList.size(); ++i)
-				{
-					statMod += pc.getTotalBonusTo("SKILL", "TYPE." + typeList.get(i));
-				}
-			}
-			return statMod;
-		}
-		else
-		{
-			return pc.getStatModFor(stat.get());
-		}
+		return stat == null ? 0 : pc.getStatModFor(stat.get());
 	}
 }

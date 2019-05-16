@@ -109,8 +109,6 @@ public final class GameMode implements Comparable<Object>
 	private int skillCost_CrossClass = 2;
 	private int skillCost_Exclusive = 0;
 
-	private String pointPoolName = "";
-
 	private int nonProfPenalty = -4;
 
 	private double squareSize = 5;
@@ -1028,24 +1026,6 @@ public final class GameMode implements Comparable<Object>
 	public int getSkillCost_Exclusive()
 	{
 		return skillCost_Exclusive;
-	}
-
-	/**
-	 * Set the point pool name.
-	 * @param argPoolName
-	 */
-	public void setPointPoolName(final String argPoolName)
-	{
-		pointPoolName = argPoolName;
-	}
-
-	/**
-	 * Get the point pool name.
-	 * @return point pool name
-	 */
-	String getPointPoolName()
-	{
-		return pointPoolName;
 	}
 
 	/**

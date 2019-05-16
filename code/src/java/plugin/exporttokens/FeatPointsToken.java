@@ -49,7 +49,7 @@ public class FeatPointsToken extends Token
 	 * @param pc - The PC to get the FEat points for
 	 * @return The number of feat points remaining
 	 */
-	public static double getFeatPointsToken(PlayerCharacter pc)
+	private static double getFeatPointsToken(PlayerCharacter pc)
 	{
 		if (!CoreUtility.doublesEqual(pc.getRemainingFeatPoolPoints(), 0))
 		{

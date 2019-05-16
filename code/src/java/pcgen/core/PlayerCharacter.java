@@ -1962,15 +1962,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				}
 			}
 		}
-		if (Globals.getGameModeHasPointPool())
-		{
-			returnValue += (int) getRemainingFeatPoints(false); // DO NOT CALL
-			// getFeats() here! It
-			// will set up a
-			// recursive loop and
-			// result in a stack
-			// overflow!
-		}
 		return returnValue;
 	}
 
@@ -7842,10 +7833,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public double getRemainingFeatPoolPoints()
 	{
-		if (Globals.getGameModeHasPointPool())
-		{
-			return getSkillPoints();
-		}
 		return getRemainingFeatPoints(true);
 	}
 

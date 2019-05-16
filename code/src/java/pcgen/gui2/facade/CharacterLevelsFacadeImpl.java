@@ -433,28 +433,21 @@ public class CharacterLevelsFacadeImpl extends AbstractListFacade<CharacterLevel
 
 		PCLevelInfo classLevel = getLevelInfo(level);
 		int skillPool;
-		if (Globals.getGameModeHasPointPool())
-		{
-			skillPool = theCharacter.getSkillPoints();
-		}
-		else
-		{
-			skillPool = classLevel.getSkillPointsRemaining();
+		skillPool = classLevel.getSkillPointsRemaining();
 
-			if ((points < 0) && (((skillPool - points) > classLevel.getSkillPointsGained(theCharacter))
-				|| !classHasRanksIn(skill, ((CharacterLevelFacadeImpl) level).getSelectedClass())))
+		if ((points < 0) && (((skillPool - points) > classLevel.getSkillPointsGained(theCharacter))
+			|| !classHasRanksIn(skill, ((CharacterLevelFacadeImpl) level).getSelectedClass())))
+		{
+			level = findLevelWithSpentSkillPoints(points, skill);
+			if (level == null)
 			{
-				level = findLevelWithSpentSkillPoints(points, skill);
-				if (level == null)
-				{
-					delegate.showInfoMessage(Constants.APPLICATION_NAME,
-						LanguageBundle.getFormattedString("in_iskErr_message_05", skill));
-					return false;
-				}
-
-				classLevel = getLevelInfo(level);
-				skillPool = classLevel.getSkillPointsRemaining();
+				delegate.showInfoMessage(Constants.APPLICATION_NAME,
+					LanguageBundle.getFormattedString("in_iskErr_message_05", skill));
+				return false;
 			}
+
+			classLevel = getLevelInfo(level);
+			skillPool = classLevel.getSkillPointsRemaining();
 		}
 
 		if ((points > 0) && (points > skillPool))

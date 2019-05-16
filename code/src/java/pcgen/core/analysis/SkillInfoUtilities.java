@@ -21,6 +21,7 @@ package pcgen.core.analysis;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Supplier;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -47,77 +48,25 @@ public final class SkillInfoUtilities
 	 */
 	public static String getKeyStatFromStats(PlayerCharacter pc, Skill sk)
 	{
-		CDOMSingleRef<PCStat> stat = sk.get(ObjectKey.KEY_STAT);
-		if (stat == null)
-		{
-			if (Globals.getGameModeHasPointPool())
-			{
-				List<PCStat> statList = SkillInfoUtilities.getKeyStatList(pc, sk, null);
-				StringBuilder sb = new StringBuilder(50);
-				boolean needSlash = false;
-				for (PCStat s : statList)
-				{
-					if (needSlash)
-					{
-						sb.append('/');
-					}
-					sb.append(s.getKeyName());
-				}
-				return sb.toString();
-			}
-			else
-			{
-				return "";
-			}
-		}
-		else
-		{
-			return stat.get().getKeyName();
-		}
+		Supplier<PCStat> stat = sk.get(ObjectKey.KEY_STAT);
+		return stat == null ? "" : stat.get().getKeyName();
 	}
 
 	/**
 	 * Get a list of PCStat's that apply a SKILL bonus to this skill. Generates
 	 * (optionally, if typeList is non-null) a list of String's types
-	 * 
+	 *
 	 * @param typeList
 	 * @return List of stats that apply
 	 */
 	public static List<PCStat> getKeyStatList(PlayerCharacter pc, Skill sk, List<Type> typeList)
 	{
-		List<PCStat> aList = new ArrayList<>();
-		if (Globals.getGameModeHasPointPool())
-		{
-			for (Type aType : sk.getTrueTypeList(false))
-			{
-				for (PCStat stat : pc.getDisplay().getStatSet())
-				{
-					//
-					// Get a list of all BONUS:SKILL|TYPE.<type>|x for this
-					// skill that would come from current stat
-					//
-					List<BonusObj> bonusList = BonusUtilities.getBonusFromList(stat.getSafeListFor(ListKey.BONUS),
-						"SKILL", "TYPE." + aType);
-					if (!bonusList.isEmpty())
-					{
-						for (int iCount = bonusList.size() - 1; iCount >= 0; --iCount)
-						{
-							aList.add(stat);
-						}
-						if ((typeList != null) && !typeList.contains(aType))
-						{
-							typeList.add(aType);
-						}
-					}
-				}
-			}
-		}
-		return aList;
+		return new ArrayList<>();
 	}
 
 	/**
 	 * Get an iterator for the sub types
-	 * 
+	 *
 	 * @return iterator for the sub types
 	 */
 	public static Iterator<Type> getSubtypeIterator(Skill sk)
