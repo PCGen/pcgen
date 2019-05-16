@@ -22,20 +22,15 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.JCheckBox;
 import javax.swing.JLabel;
-import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
-import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
-import pcgen.system.PCGenSettings;
 
 /**
  * The Class {@code EquipmentPanel} is responsible for
@@ -54,35 +49,15 @@ public final class EquipmentPanel extends PCGenPrefsPanel
 	private static final int SPELLLVLMIN = 0;
 	private static final int SPELLLVLMAX = 9;
 
-	private static final String IN_ANY_AUTO_EQUIP =
-			LanguageBundle.getString("in_Prefs_anyAutoEquip"); //$NON-NLS-1$
-	private static final String IN_AUTO_EQUIP =
-			LanguageBundle.getString("in_Prefs_autoEquip"); //$NON-NLS-1$
-	private static final String IN_AUTO_EQUIP_RACE =
-			LanguageBundle.getString("in_Prefs_autoEquipRace"); //$NON-NLS-1$
-	private static final String IN_AUTO_EQUIP_MASTERWORK =
-			LanguageBundle.getString("in_Prefs_autoEquipMasterwork"); //$NON-NLS-1$
-	private static final String IN_AUTO_EQUIP_MAGIC =
-			LanguageBundle.getString("in_Prefs_autoEquipMagic"); //$NON-NLS-1$
-	private static final String IN_AUTO_EQUIP_EXOTIC =
-			LanguageBundle.getString("in_Prefs_autoEquipExotic"); //$NON-NLS-1$
-	private static final String IN_NO_AUTO_EQUIP =
-			LanguageBundle.getString("in_Prefs_noAutoEquip"); //$NON-NLS-1$
 	private static final String IN_POTION_MAX =
 			LanguageBundle.getString("in_Prefs_potionMax"); //$NON-NLS-1$
 	private static final String IN_WAND_MAX =
 			LanguageBundle.getString("in_Prefs_wandMax"); //$NON-NLS-1$
 
-	private final JCheckBox autoMethod1 = new JCheckBox();
-	private final JCheckBox autoMethod2 = new JCheckBox();
-	private final JCheckBox autoMethod3 = new JCheckBox();
-	private final JCheckBox autoMethod4 = new JCheckBox();
 	private final JSpinner potionMaxLevel = new JSpinner();
 	private final SpinnerNumberModel potionModel;
 	private final JSpinner wandMaxLevel = new JSpinner();
 	private final SpinnerNumberModel wandModel;
-	private final JRadioButton autoEquipCreate;
-	private final JRadioButton noAutoEquipCreate;
 
 	/**
 	 * Instantiates a new equipment panel.
@@ -92,7 +67,6 @@ public final class EquipmentPanel extends PCGenPrefsPanel
 		GridBagLayout gridbag = new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
-		ButtonGroup exclusiveGroup;
 		Border etched = null;
 		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_EQUIPMENT);
 
@@ -102,7 +76,6 @@ public final class EquipmentPanel extends PCGenPrefsPanel
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.anchor = GridBagConstraints.LINE_START;
 		c.insets = new Insets(2, 2, 2, 2);
-		exclusiveGroup = new ButtonGroup();
 
 		Utility.buildConstraints(c, 0, 1, 2, 1, 0, 0);
 		label = new JLabel(IN_POTION_MAX);
@@ -128,51 +101,8 @@ public final class EquipmentPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(wandMaxLevel, c);
 		this.add(wandMaxLevel);
 
-		Utility.buildConstraints(c, 0, 3, GridBagConstraints.REMAINDER, 1, 0, 0);
-		label = new JLabel(IN_ANY_AUTO_EQUIP);
-		gridbag.setConstraints(label, c);
-		this.add(label);
-
-		Utility.buildConstraints(c, 1, 4, GridBagConstraints.REMAINDER, 1, 0, 0);
-		noAutoEquipCreate = new JRadioButton(IN_NO_AUTO_EQUIP);
-		gridbag.setConstraints(noAutoEquipCreate, c);
-		this.add(noAutoEquipCreate);
-		exclusiveGroup.add(noAutoEquipCreate);
-
-		Utility.buildConstraints(c, 1, 5, GridBagConstraints.REMAINDER, 1, 0, 0);
-		autoEquipCreate = new JRadioButton(IN_AUTO_EQUIP);
-		gridbag.setConstraints(autoEquipCreate, c);
-		this.add(autoEquipCreate);
-		exclusiveGroup.add(autoEquipCreate);
-
 		Utility.buildConstraints(c, 0, 6, 1, 1, 0, 0);
 		label = new JLabel(BLANK_TEXT);
-		gridbag.setConstraints(label, c);
-		this.add(label);
-
-		Utility.buildConstraints(c, 1, 6, GridBagConstraints.REMAINDER, 1, 0, 0);
-		autoMethod1.setText(IN_AUTO_EQUIP_RACE);
-		gridbag.setConstraints(autoMethod1, c);
-		this.add(autoMethod1);
-
-		Utility.buildConstraints(c, 1, 7, GridBagConstraints.REMAINDER, 1, 0, 0);
-		autoMethod2.setText(IN_AUTO_EQUIP_MASTERWORK);
-		gridbag.setConstraints(autoMethod2, c);
-		this.add(autoMethod2);
-
-		Utility.buildConstraints(c, 1, 8, GridBagConstraints.REMAINDER, 1, 0, 0);
-		autoMethod3.setText(IN_AUTO_EQUIP_MAGIC);
-		gridbag.setConstraints(autoMethod3, c);
-		this.add(autoMethod3);
-
-		Utility.buildConstraints(c, 1, 9, GridBagConstraints.REMAINDER, 1, 0, 0);
-		autoMethod4.setText(IN_AUTO_EQUIP_EXOTIC);
-		gridbag.setConstraints(autoMethod4, c);
-		this.add(autoMethod4);
-
-		Utility.buildConstraints(c, 0, 20, 10, 1, 1, 1);
-		c.fill = GridBagConstraints.BOTH;
-		label = new JLabel();
 		gridbag.setConstraints(label, c);
 		this.add(label);
 	}
@@ -188,15 +118,6 @@ public final class EquipmentPanel extends PCGenPrefsPanel
 	{
 		SettingsHandler.setMaxPotionSpellLevel(potionModel.getNumber().intValue());
 		SettingsHandler.setMaxWandSpellLevel(wandModel.getNumber().intValue());
-		SettingsHandler.setWantToLoadMasterworkAndMagic(false); // Turn it off temporarily so we can set the values
-		SettingsHandler.setAutogen(Constants.AUTOGEN_RACIAL, autoMethod1.isSelected());
-		SettingsHandler.setAutogen(Constants.AUTOGEN_MASTERWORK, autoMethod2.isSelected());
-		SettingsHandler.setAutogen(Constants.AUTOGEN_MAGIC, autoMethod3.isSelected());
-		SettingsHandler.setAutogen(Constants.AUTOGEN_EXOTIC_MATERIAL, autoMethod4.isSelected());
-
-		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate.isSelected()); // Now set it properly
-		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_AUTOCREATE_MW_MAGIC_EQUIP,
-			autoEquipCreate.isSelected());
 	}
 
 	@Override
@@ -204,23 +125,6 @@ public final class EquipmentPanel extends PCGenPrefsPanel
 	{
 		potionModel.setValue(SettingsHandler.getMaxPotionSpellLevel());
 		wandModel.setValue(SettingsHandler.getMaxWandSpellLevel());
-
-		if (PCGenSettings.OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_AUTOCREATE_MW_MAGIC_EQUIP, false))
-		{
-			autoEquipCreate.setSelected(true);
-		}
-		else
-		{
-			noAutoEquipCreate.setSelected(true);
-		}
-		// Turn off temporarily so we get current setting
-		SettingsHandler.setWantToLoadMasterworkAndMagic(false); 
-		autoMethod1.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_RACIAL));
-		autoMethod2.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_MASTERWORK));
-		autoMethod3.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_MAGIC));
-		autoMethod4.setSelected(SettingsHandler.getAutogen(Constants.AUTOGEN_EXOTIC_MATERIAL));
-		// Reset its state now we are done
-		SettingsHandler.setWantToLoadMasterworkAndMagic(noAutoEquipCreate.isSelected());
 	}
 
 }
