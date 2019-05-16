@@ -58,11 +58,6 @@ public final class WieldCategory implements Loadable
 		sourceURI = source;
 	}
 
-	public void setKeyName(String key)
-	{
-		setName(key);
-	}
-
 	@Override
 	public String getKeyName()
 	{
