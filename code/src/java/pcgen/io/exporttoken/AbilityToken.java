@@ -747,14 +747,6 @@ public class AbilityToken extends Token
 	}
 
 	/**
-	 * @return the visibility
-	 */
-	protected View getView()
-	{
-		return view;
-	}
-
-	/**
 	 * @param v the view to set
 	 */
 	protected void setView(View v)
