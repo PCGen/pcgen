@@ -136,8 +136,6 @@ public interface CharacterFacade extends CompanionFacade
 
 	public void removeAbility(AbilityCategory category, AbilityFacade ability);
 
-	public boolean hasAbility(AbilityCategory category, AbilityFacade ability);
-
 	/**
 	 * Note: This method should never return null. If the character does not possess
 	 * any abilities in the parameter category, this method should create a new

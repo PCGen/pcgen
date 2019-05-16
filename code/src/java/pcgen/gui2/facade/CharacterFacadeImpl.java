@@ -676,12 +676,6 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public boolean hasAbility(AbilityCategory category, AbilityFacade ability)
-	{
-		return characterAbilities.hasAbility(category, ability);
-	}
-
-	@Override
 	public Nature getAbilityNature(AbilityFacade ability)
 	{
 		if (ability == null || !(ability instanceof Ability))
