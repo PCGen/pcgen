@@ -62,10 +62,4 @@ public class AbilityAutoToken extends AbilityToken
 		return listOfAbilities;
 	}
 
-	@Override
-	protected Nature getTargetNature()
-	{
-		return Nature.AUTOMATIC;
-	}
-
 }
