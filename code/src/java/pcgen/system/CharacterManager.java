@@ -408,17 +408,10 @@ public final class CharacterManager
 			{
 				((CharacterFacadeImpl) character).save();
 			}
-			catch (final NullPointerException e)
+			catch (final NullPointerException | IOException e)
 			{
 				Logging.errorPrint("Could not save " + character.getNameRef().get(), e);
 				delegate.showErrorMessage(Constants.APPLICATION_NAME, "Could not save " + character.getNameRef().get());
-				return false;
-			}
-			catch (final IOException e)
-			{
-				Logging.errorPrint("Could not save " + character.getNameRef().get(), e);
-				delegate.showErrorMessage(Constants.APPLICATION_NAME,
-					"Could not save " + character.getNameRef().get() + " due to the error:\n" + e.getMessage());
 				return false;
 			}
 		}

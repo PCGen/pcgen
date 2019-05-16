@@ -2518,7 +2518,7 @@ public class CharacterFacadeImpl
 	 * part of the CharacterFacade and should only be used by the 
 	 * ChracterManager class.
 	 * 
-	 * @throws NullPointerException 
+	 * @throws NullPointerException
 	 * @throws IOException If the write fails
 	 */
 	public void save() throws NullPointerException, IOException
