@@ -49,20 +49,10 @@ public abstract class AbstractListContext
 
 	private final TrackingListCommitStrategy edits = new TrackingListCommitStrategy();
 
-	URI getSourceURI()
-	{
-		return edits.getSourceURI();
-	}
-
 	void setSourceURI(URI sourceURI)
 	{
 		edits.setSourceURI(sourceURI);
 		getCommitStrategy().setSourceURI(sourceURI);
-	}
-
-	URI getExtractURI()
-	{
-		return edits.getExtractURI();
 	}
 
 	void setExtractURI(URI extractURI)
@@ -332,11 +322,6 @@ public abstract class AbstractListContext
 			{
 				return false;
 			}
-		}
-
-		public URI getExtractURI()
-		{
-			return extractURI;
 		}
 
 		@Override
