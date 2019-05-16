@@ -494,10 +494,6 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 			{
 				InfoTabbedPane.this.setToolTipTextAt(index, (String) evt.getNewValue());
 			}
-			else if (TabTitle.ENABLED.equals(propName))
-			{
-				InfoTabbedPane.this.setEnabledAt(index, (Boolean) evt.getNewValue());
-			}
 			else if (TodoFacade.SWITCH_TABS.equals(propName))
 			{
 				String destString = (String) evt.getNewValue();
