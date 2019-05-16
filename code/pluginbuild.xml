@@ -5687,13 +5687,6 @@ jar-all-plugins - Generate the plugin jar files
 				</patternset>
 			</fileset>
 		</jar>
-		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-POINTPOOLNAME.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/lsttokens/gamemode/PointpoolnameToken.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${systemlstplugins.dir}/GameModeLstToken-PREVIEWDIR.jar" manifest="${src.java.dir}/plugin/lsttokens/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

@@ -27,12 +27,9 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
-import pcgen.core.bonus.BonusObj;
-import pcgen.core.bonus.BonusUtilities;
 
 public final class SkillInfoUtilities
 {

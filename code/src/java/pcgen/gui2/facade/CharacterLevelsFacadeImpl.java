@@ -34,7 +34,6 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.inst.PCClassLevel;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;

@@ -19,13 +19,11 @@
  */
 package pcgen.core.analysis;
 
-import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
