@@ -45,6 +45,8 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import org.apache.commons.lang3.SystemUtils;
 
 /**
@@ -61,8 +63,10 @@ public final class SettingsHandler
 	//
 	// For EqBuilder
 	//
-	private static int maxPotionSpellLevel = Constants.DEFAULT_MAX_POTION_SPELL_LEVEL;
-	private static int maxWandSpellLevel = Constants.DEFAULT_MAX_WAND_SPELL_LEVEL;
+	private static IntegerProperty maxPotionSpellLevel =
+			new SimpleIntegerProperty(Constants.DEFAULT_MAX_POTION_SPELL_LEVEL);
+	private static IntegerProperty maxWandSpellLevel =
+			new SimpleIntegerProperty(Constants.DEFAULT_MAX_WAND_SPELL_LEVEL);
 	private static boolean spellMarketPriceAdjusted = false;
 
 	// Map of RuleCheck keys and their settings
@@ -638,25 +642,16 @@ public final class SettingsHandler
 		return looknFeel;
 	}
 
-	public static void setMaxPotionSpellLevel(final int anInt)
+	public static IntegerProperty maxWandSpellLevel()
 	{
-		maxPotionSpellLevel = anInt;
+		return maxWandSpellLevel;
 	}
 
-	public static int getMaxPotionSpellLevel()
+	public static IntegerProperty maxPotionSpellLevel()
 	{
 		return maxPotionSpellLevel;
 	}
 
-	public static void setMaxWandSpellLevel(final int anInt)
-	{
-		maxWandSpellLevel = anInt;
-	}
-
-	public static int getMaxWandSpellLevel()
-	{
-		return maxWandSpellLevel;
-	}
 	public static SortedProperties getOptions()
 	{
 		return OPTIONS;
@@ -764,8 +759,8 @@ public final class SettingsHandler
 			LanguageBundle.getString("SettingsHandler.114"))); //$NON-NLS-1$
 		setLastTipShown(getPCGenOption("lastTipOfTheDayTipShown", -1)); //$NON-NLS-1$
 		setLookAndFeel(getPCGenOption("looknFeel", 1)); //$NON-NLS-1$
-		setMaxPotionSpellLevel(getPCGenOption("maxPotionSpellLevel", 3)); //$NON-NLS-1$
-		setMaxWandSpellLevel(getPCGenOption("maxWandSpellLevel", 4)); //$NON-NLS-1$
+		maxWandSpellLevel.set(getPCGenOption("maxWandSpellLevel", 4));
+		maxPotionSpellLevel.set(getPCGenOption("maxPotionSpellLevel", 3));
 		setPccFilesLocation(new File(expandRelativePath(getPCGenOption("pccFilesLocation", //$NON-NLS-1$
 			System.getProperty("user.dir") + File.separator + "data")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setGmgenPluginDir(
@@ -1017,8 +1012,8 @@ public final class SettingsHandler
 		setPCGenOption("loadMasterworkAndMagicFromLst", wantToLoadMasterworkAndMagic()); //$NON-NLS-1$
 		setPCGenOption("loadURLs", loadURLs); //$NON-NLS-1$
 		setPCGenOption("looknFeel", getLookAndFeel()); //$NON-NLS-1$
-		setPCGenOption("maxPotionSpellLevel", getMaxPotionSpellLevel()); //$NON-NLS-1$
-		setPCGenOption("maxWandSpellLevel", getMaxWandSpellLevel()); //$NON-NLS-1$
+		setPCGenOption("maxPotionSpellLevel", maxPotionSpellLevel().get()); //$NON-NLS-1$
+		setPCGenOption("maxWandSpellLevel", maxWandSpellLevel().get()); //$NON-NLS-1$
 		setPCGenOption("postExportCommandStandard", SettingsHandler.getPostExportCommandStandard()); //$NON-NLS-1$
 		setPCGenOption("postExportCommandPDF", SettingsHandler.getPostExportCommandPDF()); //$NON-NLS-1$
 		setPCGenOption("prereqFailColor", "0x" + Integer.toHexString(getPrereqFailColor())); //$NON-NLS-1$ //$NON-NLS-2$
