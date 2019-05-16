@@ -156,15 +156,10 @@ public class KitTemplate extends BaseKit
 		return sb.toString();
 	}
 
-	public void addTemplate(CDOMSingleRef<PCTemplate> ref, List<CDOMSingleRef<PCTemplate>> subList)
+	public void addTemplate(CDOMSingleRef<PCTemplate> ref, Collection<CDOMSingleRef<PCTemplate>> subList)
 	{
 		templateList.initializeListFor(ref);
 		templateList.addAllToListFor(ref, subList);
-	}
-
-	public Collection<CDOMSingleRef<PCTemplate>> getTemplates()
-	{
-		return templateList.getKeySet();
 	}
 
 	public boolean isEmpty()
