@@ -134,7 +134,7 @@ public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements CDO
 			}
 		}
 		list.addAll(set);
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	@Override

@@ -74,7 +74,7 @@ public class AllowDupesToken extends AbstractNonEmptyToken<Campaign> implements 
 		{
 			returnSet.add(StringPClassUtil.getStringFor(cl));
 		}
-		return returnSet.toArray(new String[returnSet.size()]);
+		return returnSet.toArray(new String[0]);
 	}
 
 	@Override

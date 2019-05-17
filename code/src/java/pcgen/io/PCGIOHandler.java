@@ -135,7 +135,7 @@ public final class PCGIOHandler extends IOHandler
 
 		pcToBeRead.setImporting(true);
 
-		final String[] pcgLines = lines.toArray(new String[lines.size()]);
+		final String[] pcgLines = lines.toArray(new String[0]);
 		if (isPCGVersion2)
 		{
 			final PCGParser parser = new PCGVer2Parser(pcToBeRead);

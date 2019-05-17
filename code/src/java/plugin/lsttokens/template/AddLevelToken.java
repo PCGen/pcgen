@@ -128,7 +128,7 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements 
 			list.add(sb.toString());
 		}
 
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	@Override

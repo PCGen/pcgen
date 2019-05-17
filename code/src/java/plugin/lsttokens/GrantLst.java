@@ -112,7 +112,7 @@ public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements 
 			List<String> scopeList = map.getListFor(scope);
 			set.add(scope + Constants.PIPE + StringUtils.join(scopeList, Constants.PIPE));
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override

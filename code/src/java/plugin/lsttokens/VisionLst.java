@@ -210,7 +210,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return null;
 		}
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	@Override

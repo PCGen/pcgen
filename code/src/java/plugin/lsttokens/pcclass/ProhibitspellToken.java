@@ -152,7 +152,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass> impl
 			}
 			list.add(sb.toString());
 		}
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	private <T> char getJoinChar(ProhibitedSpellType pst, Collection<String> spValues)

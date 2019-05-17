@@ -303,7 +303,7 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 		public synchronized BonusChangeListener[] getBonusChangeListeners(String type, String name)
 		{
 			List<BonusChangeListener> listFor = listeners.getListFor(type, name);
-			return (listFor.toArray(new BonusChangeListener[listFor.size()]));
+			return (listFor.toArray(new BonusChangeListener[0]));
 		}
 
 		/**

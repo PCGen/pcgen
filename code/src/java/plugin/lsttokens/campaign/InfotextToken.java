@@ -73,7 +73,7 @@ public class InfotextToken extends AbstractNonEmptyToken<Campaign>
 			//Okay, no info text
 			return null;
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override

@@ -93,6 +93,6 @@ public class LookupToken extends AbstractToken implements CDOMPrimaryToken<KitGe
 		{
 			list.add(nf.getName() + ',' + nf.getFormula().toString());
 		}
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 }

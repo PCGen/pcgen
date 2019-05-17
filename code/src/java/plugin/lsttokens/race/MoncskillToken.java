@@ -256,7 +256,7 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race>
 			// Zero indicates no add or clear
 			return null;
 		}
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	@Override

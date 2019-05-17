@@ -339,7 +339,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject>
 				addStrings.add(sb.toString());
 			}
 		}
-		return addStrings.toArray(new String[addStrings.size()]);
+		return addStrings.toArray(new String[0]);
 	}
 
 	@Override

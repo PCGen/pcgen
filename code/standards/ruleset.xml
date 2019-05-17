@@ -179,7 +179,6 @@
         <exclude name="InefficientStringBuffering"/>
         <exclude name="InsufficientStringBufferDeclaration"/>
         <exclude name="IntegerInstantiation"/>
-        <exclude name="OptimizableToArrayCall"/>
         <exclude name="RedundantFieldInitializer"/>
         <exclude name="SimplifyStartsWith"/>
         <exclude name="StringToString"/>

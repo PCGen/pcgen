@@ -1232,7 +1232,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				return null;
 			}
 
-			EquipmentFacade[] equipArray = data.toArray(new EquipmentFacade[data.size()]);
+			EquipmentFacade[] equipArray = data.toArray(new EquipmentFacade[0]);
 			return new EquipmentSelection(equipArray);
 		}
 

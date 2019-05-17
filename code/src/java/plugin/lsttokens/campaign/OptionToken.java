@@ -76,7 +76,7 @@ public class OptionToken extends AbstractNonEmptyToken<Campaign> implements CDOM
 			String value = changes.getAdded().get(property);
 			set.add(new StringBuilder().append(property).append(Constants.EQUALS).append(value).toString());
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override

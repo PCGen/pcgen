@@ -77,7 +77,7 @@ public class TargetareaToken extends AbstractNonEmptyToken<Spell> implements CDO
 		{
 			return null;
 		}
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	@Override
