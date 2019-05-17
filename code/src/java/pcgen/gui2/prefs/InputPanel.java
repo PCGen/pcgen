@@ -17,21 +17,9 @@
  */
 package pcgen.gui2.prefs;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-
-import javax.swing.BorderFactory;
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.border.Border;
-import javax.swing.border.TitledBorder;
-
-import pcgen.core.SettingsHandler;
-import pcgen.gui2.tools.Utility;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.ResettableController;
-import pcgen.gui3.preferences.EquipmentPreferencesPanelController;
+import pcgen.gui3.preferences.InputPreferencesPanelController;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -39,7 +27,7 @@ import pcgen.system.LanguageBundle;
  * displaying input related preferences and allowing the 
  * preferences to be edited by the user.
  */
-public class InputPanel extends PCGenPrefsPanel
+public final class InputPanel extends PCGenPrefsPanel
 {
 	private static final String IN_INPUT =
 			LanguageBundle.getString("in_Prefs_input"); //$NON-NLS-1$
@@ -52,7 +40,7 @@ public class InputPanel extends PCGenPrefsPanel
 	{
 		this.panel =
 				new JFXPanelFromResource<>(
-						EquipmentPreferencesPanelController.class,
+						InputPreferencesPanelController.class,
 						"InputPreferencesPanel.fxml"
 				);
 		this.add(panel);
