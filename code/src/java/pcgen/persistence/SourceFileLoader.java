@@ -1170,7 +1170,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 
 		@Override
-		public void close() throws SecurityException
+		public void close()
 		{
 			// Nothing to do
 		}
