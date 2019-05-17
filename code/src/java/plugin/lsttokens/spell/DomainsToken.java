@@ -314,7 +314,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements C
 			}
 			else
 			{
-				return list.toArray(new String[list.size()]);
+				return list.toArray(new String[0]);
 			}
 		}
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
@@ -356,7 +356,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements C
 			}
 			list.add(sb.toString());
 		}
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	@Override

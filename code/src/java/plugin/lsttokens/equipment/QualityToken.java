@@ -86,7 +86,7 @@ public class QualityToken extends AbstractNonEmptyToken<Equipment> implements CD
 		{
 			set.add(new StringBuilder().append(me.getKey()).append(Constants.PIPE).append(me.getValue()).toString());
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override

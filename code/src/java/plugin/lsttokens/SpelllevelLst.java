@@ -225,7 +225,7 @@ public class SpelllevelLst extends AbstractSpellListToken implements CDOMPrimary
 		{
 			return null;
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override

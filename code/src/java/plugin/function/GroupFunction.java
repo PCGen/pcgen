@@ -146,7 +146,7 @@ public class GroupFunction implements FormulaFunction
 					"GROUP=" + groupingName);
 		List<PCGenScoped> available = new ArrayList<>();
 		all.stream().forEach(object -> group.process(object, available::add));
-		return all.toArray(new PCGenScoped[all.size()]);
+		return all.toArray(new PCGenScoped[0]);
 	}
 
 	@Override

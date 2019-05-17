@@ -147,7 +147,7 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject>
 			sb.append(tc.getChoices().getLSTformat().replaceAll(Constants.COMMA, Constants.PIPE));
 			set.add(sb.toString());
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override

@@ -219,7 +219,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID>
 
 		public synchronized AssociationChangeListener[] getAssociationChangeListeners()
 		{
-			return (listeners.toArray(new AssociationChangeListener[listeners.size()]));
+			return (listeners.toArray(new AssociationChangeListener[0]));
 		}
 
 		/**

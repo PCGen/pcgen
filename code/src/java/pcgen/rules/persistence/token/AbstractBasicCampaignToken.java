@@ -79,7 +79,7 @@ public abstract class AbstractBasicCampaignToken extends AbstractTokenWithSepara
 		{
 			set.add(cse.getLSTformat());
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override

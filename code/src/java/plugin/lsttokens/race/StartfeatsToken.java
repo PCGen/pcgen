@@ -99,7 +99,7 @@ public class StartfeatsToken extends AbstractToken implements CDOMPrimaryToken<R
 			// This is okay - just no BONUSes from this token
 			return null;
 		}
-		return bonusSet.toArray(new String[bonusSet.size()]);
+		return bonusSet.toArray(new String[0]);
 	}
 
 	@Override

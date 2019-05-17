@@ -261,6 +261,6 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends 
 		{
 			Collections.addAll(list, dfclArray);
 		}
-		return list.toArray(new DataFacetChangeListener[list.size()]);
+		return list.toArray(new DataFacetChangeListener[0]);
 	}
 }

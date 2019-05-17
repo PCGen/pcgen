@@ -243,7 +243,7 @@ public class ClassSkillsToken extends AbstractNonEmptyToken<PCClass> implements 
 				addStrings.add(sb.toString());
 			}
 		}
-		return addStrings.toArray(new String[addStrings.size()]);
+		return addStrings.toArray(new String[0]);
 	}
 
 	@Override

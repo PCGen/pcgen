@@ -410,7 +410,7 @@ public final class ExportHandler
 	 */
 	public void write(Collection<PlayerCharacter> PCs, BufferedWriter out)
 	{
-		write(PCs.toArray(new PlayerCharacter[PCs.size()]), out);
+		write(PCs.toArray(new PlayerCharacter[0]), out);
 	}
 
 	/**

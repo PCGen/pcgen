@@ -158,7 +158,7 @@ public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 			//Legal
 			return null;
 		}
-		return modifiers.toArray(new String[modifiers.size()]);
+		return modifiers.toArray(new String[0]);
 	}
 
 	@Override

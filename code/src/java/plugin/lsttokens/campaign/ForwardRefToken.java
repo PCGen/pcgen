@@ -123,7 +123,7 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign> implem
 			sb.append(key).append(Constants.PIPE).append(ReferenceUtilities.joinLstFormat(set, Constants.COMMA));
 			returnSet.add(sb.toString());
 		}
-		return returnSet.toArray(new String[returnSet.size()]);
+		return returnSet.toArray(new String[0]);
 	}
 
 	@Override

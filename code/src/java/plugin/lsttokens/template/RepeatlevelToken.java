@@ -265,7 +265,7 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate> imp
 		{
 			return null;
 		}
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	@Override

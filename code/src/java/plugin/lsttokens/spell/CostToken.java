@@ -91,7 +91,7 @@ public class CostToken extends AbstractNonEmptyToken<Spell> implements CDOMPrima
 		{
 			return null;
 		}
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	@Override

@@ -103,7 +103,7 @@ public class InfoLst extends AbstractNonEmptyToken<CDOMObject>
 			MessageFormat value = changes.getAdded().get(key);
 			set.add(new StringBuilder().append(key).append(Constants.PIPE).append(value.toPattern()).toString());
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override

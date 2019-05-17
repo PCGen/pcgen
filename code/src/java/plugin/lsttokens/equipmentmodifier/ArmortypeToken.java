@@ -94,7 +94,7 @@ public class ArmortypeToken extends AbstractTokenWithSeparator<EquipmentModifier
 		{
 			set.add(cat.getLSTformat());
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override

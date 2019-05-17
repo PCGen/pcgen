@@ -141,7 +141,7 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject> impleme
 			sb.append(key).append(Constants.PIPE).append(ReferenceUtilities.joinLstFormat(set, Constants.PIPE));
 			returnSet.add(sb.toString());
 		}
-		return returnSet.toArray(new String[returnSet.size()]);
+		return returnSet.toArray(new String[0]);
 	}
 
 	@Override

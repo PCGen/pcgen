@@ -154,7 +154,7 @@ public class LangbonusToken extends AbstractTokenWithSeparator<Race> implements 
 			// Zero indicates no add or global clear
 			return null;
 		}
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	@Override
