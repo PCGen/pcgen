@@ -43,7 +43,7 @@ public final class JFXPanelFromResource<T> extends JFXPanel
 	 * @param klass the class that contains the resource load
 	 * @param resourceName the relative filename of the FXML file to load.
 	 */
-	public JFXPanelFromResource(Class<T> klass, String resourceName)
+	public JFXPanelFromResource(Class<? extends T> klass, String resourceName)
 	{
 		URL resource = klass.getResource(resourceName);
 		Logging.debugPrint(String.format("location for %s (%s) is %s", resourceName, klass, resource));
