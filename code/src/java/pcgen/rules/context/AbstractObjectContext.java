@@ -48,21 +48,11 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 {
 	private final TrackingObjectCommitStrategy edits = new TrackingObjectCommitStrategy();
 
-	URI getSourceURI()
-	{
-		return edits.getSourceURI();
-	}
-
 	@Override
 	public void setSourceURI(URI sourceURI)
 	{
 		edits.setSourceURI(sourceURI);
 		getCommitStrategy().setSourceURI(sourceURI);
-	}
-
-	URI getExtractURI()
-	{
-		return edits.getExtractURI();
 	}
 
 	@Override
