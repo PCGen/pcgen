@@ -113,7 +113,6 @@ public final class AbilityUtilities
 	 * @throws GroupingMismatchException If there are mismatched brackets
 	 */
 	public static String getUndecoratedName(final String name, final Collection<String> specifics)
-		throws GroupingMismatchException
 	{
 		LastGroupSeparator lgs = new LastGroupSeparator(name);
 		String subName = lgs.process();
