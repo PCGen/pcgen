@@ -60,9 +60,8 @@ class PortraitPane extends JComponent
 		Insets insets = getInsets();
 		if (scale < 1)
 		{
-			int width, height;
-			width = (int) (scale * portrait.getWidth());
-			height = (int) (scale * portrait.getHeight());
+			int width = (int) (scale * portrait.getWidth());
+			int height = (int) (scale * portrait.getHeight());
 			g.drawImage(portrait, insets.left, insets.top, width, height, this);
 		}
 		else
