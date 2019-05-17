@@ -255,7 +255,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		addPanelToTree(appearanceNode, displayOptionsPanel);
 		levelUpPanel = new LevelUpPanel();
 		addPanelToTree(appearanceNode, levelUpPanel);
-		lookAndFeelPanel = new LookAndFeelPanel(this);
+		lookAndFeelPanel = new LookAndFeelPanel();
 		addPanelToTree(appearanceNode, lookAndFeelPanel);
 		rootNode.add(appearanceNode);
 

@@ -17,7 +17,6 @@
  */
 package pcgen.gui2.prefs;
 
-import java.awt.Dialog;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -50,7 +49,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 	/**
 	 * Instantiates a new look and feel panel.
 	 */
-	public LookAndFeelPanel(Dialog parent)
+	public LookAndFeelPanel()
 	{
 
 		JLabel label;
