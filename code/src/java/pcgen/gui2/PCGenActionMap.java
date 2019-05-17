@@ -34,7 +34,6 @@ import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.coreview.CoreViewFrame;
 import pcgen.gui2.dialog.DataInstaller;
-import pcgen.gui2.dialog.DebugDialog;
 import pcgen.gui2.dialog.ExportDialog;
 import pcgen.gui2.dialog.KitSelectionDialog;
 import pcgen.gui2.dialog.PrintPreviewDialog;
@@ -45,6 +44,7 @@ import pcgen.gui2.tools.PCGenAction;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.dialog.CalculatorDialogController;
+import pcgen.gui3.dialog.DebugDialog;
 import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
@@ -255,7 +255,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class DebugAction extends PCGenAction
+	private static final class DebugAction extends PCGenAction
 	{
 
 		private DebugDialog dialog = null;
@@ -270,10 +270,8 @@ public final class PCGenActionMap extends ActionMap
 		{
 			if (dialog == null)
 			{
-				dialog = new DebugDialog(frame);
+				dialog = new DebugDialog();
 			}
-			Utility.setComponentRelativeLocation(frame, dialog);
-			dialog.setVisible(true);
 		}
 
 	}
