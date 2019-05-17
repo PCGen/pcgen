@@ -125,6 +125,7 @@ public class AbilityFromClassChoiceSet implements PrimitiveChoiceSet<CNAbilitySe
 	 * @return A Set containing the Objects which this AbilityFromClassChoiceSet
 	 *         contains.
 	 */
+	@SuppressWarnings("PMD.UnusedLocalVariable")
 	@Override
 	public Set<CNAbilitySelection> getSet(PlayerCharacter pc)
 	{

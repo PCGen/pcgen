@@ -532,7 +532,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		//			return;
 		//		}
 		File gameModeDir = new File(ConfigurationSettings.getSystemsDir(), "gameModes");
-		File specificGameModeDir = new File(gameModeDir, gamemode.getFolderName());
 
 		// Sort the campaigns
 		sortCampaignsByRank(aSelectedCampaignsList);

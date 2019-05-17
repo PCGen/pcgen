@@ -2016,7 +2016,7 @@ final class PCGVer2Parser implements PCGParser
 
 			for (int i = 0; i < level; ++i)
 			{
-				PCLevelInfo levelInfo = thePC.addLevelInfo(aPCClass.getKeyName());
+				thePC.addLevelInfo(aPCClass.getKeyName());
 				aPCClass.addLevel(false, false, thePC, true);
 
 			}

@@ -98,7 +98,6 @@ class JIcon extends JPanel
 	{
 		// TODO: this blows, it's hardcoded.  This needs to be in a properties file.
 		// XXX ideally this should be use mime type
-		String ext = file.getName().replaceFirst(".*\\.", "");
 		String labelText = ' ' + file.getName() + ' ';
 
 		if (file.getName().length() > 18)

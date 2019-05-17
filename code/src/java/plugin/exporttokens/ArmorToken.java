@@ -10,7 +10,6 @@ import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
-import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.Token;
@@ -405,7 +404,6 @@ public class ArmorToken extends Token
 
 	private static String writeArmorProperty(Equipment eq, String property, PlayerCharacter aPC)
 	{
-		CharacterDisplay display = aPC.getDisplay();
 		StringBuilder ret = new StringBuilder();
 
 		if (property.startsWith("NAME"))
