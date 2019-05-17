@@ -1,4 +1,9 @@
 SOURCELONG:Bestiary 6	SOURCESHORT:B6	SOURCEWEB:http://paizo.com/products/btpy9r1y	SOURCEDATE:2017-05
 
-CATEGORY=FEAT|Improved Familiar.MOD			COMPANIONLIST:Familiar|Familiar (Coral Capuchin)|PREALIGN:NG,LN,TN,CN,NE|PREVARGTEQ:FamiliarMasterLVL,3
-CATEGORY=FEAT|Improved Familiar.MOD			COMPANIONLIST:Familiar|Familiar (Mockingfey)|PREALIGN:CN|PREVARGTEQ:FamiliarMasterLVL,4
+###Block: Familiar Choices
+CATEGORY=Internal|Improved Familiar List.MOD												ABILITY:Internal|AUTOMATIC|Improved Familiar List (4th Level)|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,4],[PREVARGTEQ:Caster_Level_Highest__Arcane,4],[PREVARGTEQ:ImprovedFamiliarQualifierLVL,4]
+
+CATEGORY=Internal|Improved Familiar List (3rd Level).MOD			COMPANIONLIST:Familiar|Familiar (Coral Capuchin)|PREALIGN:NG,LN,TN,CN,NE
+
+Improved Familiar List (4th Level)					CATEGORY:Internal
+CATEGORY=Internal|Improved Familiar List (4th Level).MOD			COMPANIONLIST:Familiar|Familiar (Mockingfey)|PREALIGN:CN

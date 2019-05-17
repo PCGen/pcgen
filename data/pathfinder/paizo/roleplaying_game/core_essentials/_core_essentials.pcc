@@ -74,3 +74,19 @@ TEMPLATE:ce_templates.lst
 ARMORPROF:ce_profs_armor.lst
 WEAPONPROF:ce_profs_weapon.lst
 
+# Familiars
+ABILITY:ce_abilities_familiar_apg.lst|PRECAMPAIGN:1,Advanced Player's Guide|!PRECAMPAIGN:1,Ultimate Magic
+ABILITY:ce_abilities_familiar_cr.lst
+ABILITY:ce_abilities_familiar_race_cr.lst
+ABILITY:ce_abilities_familiar_race_um.lst|PRECAMPAIGN:1,Ultimate Magic
+ABILITY:ce_abilities_familiar_um.lst|PRECAMPAIGN:1,Ultimate Magic
+ABILITYCATEGORY:ce_abilitycategories_familiar.lst
+COMPANIONMOD:ce_companionmods_familiar_apg.lst|PRECAMPAIGN:1,Advanced Player's Guide|!PRECAMPAIGN:1,Ultimate Magic
+COMPANIONMOD:ce_companionmods_familiar_cr.lst
+COMPANIONMOD:ce_companionmods_familiar_um.lst|PRECAMPAIGN:1,Ultimate Magic
+KIT:ce_kits_familiar_cr.lst
+KIT:ce_kits_familiar_um.lst|PRECAMPAIGN:1,Ultimate Magic
+RACE:ce_races_familiar_apg.lst|PRECAMPAIGN:1,Advanced Player's Guide
+RACE:ce_races_familiar_cr.lst
+RACE:ce_races_familiar_um.lst|PRECAMPAIGN:1,Ultimate Magic
+TEMPLATE:ce_templates_familiar_cr.lst

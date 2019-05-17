@@ -93,17 +93,6 @@ FOLLOWER:CavalierMountLVL=19	TYPE:Cavalier Mount																																
 FOLLOWER:CavalierMountLVL=20	TYPE:Cavalier Mount	HD:1																																																								BONUS:ABILITYPOOL|Companion Stat Increase|1													BONUS:VAR|MasterLevel|1
 #
 
-
-###Block: Race of familiar					Type
-# Race of familiar						Type			Ability
-MASTERBONUSRACE:Familiar (Centipede (House))		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Centipede (House))
-MASTERBONUSRACE:Familiar (Crab (Giant King))		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Crab (Giant King))
-MASTERBONUSRACE:Familiar (Fox)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Fox)
-MASTERBONUSRACE:Familiar (Octopus)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Octopus)
-MASTERBONUSRACE:Familiar (Scorpion (Greensting))	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Scorpion (Greensting))
-MASTERBONUSRACE:Familiar (Spider (Scarlet))		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Spider (Scarlet))
-
-
 ###Block: COMPANION ADD-ON FOR RANGER BEAST MASTER
 # Class of the Master			Type					Hit Dice	Ability												Define							Bonus Ability Pool					Stat bonus			Modify VAR															Main Race Type
 FOLLOWER:AnimalCompanionLVLA=1	TYPE:Animal Companion				ABILITY:Special Ability|AUTOMATIC|Animal Tricks and Training			DEFINE:MasterLevel|0	DEFINE:BonusTricks|0													BONUS:VAR|MasterLevel|1	BONUS:VAR|BonusTricks|1									RACETYPE:Animal

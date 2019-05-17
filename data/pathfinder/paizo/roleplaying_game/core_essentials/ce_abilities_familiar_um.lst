@@ -1,0 +1,21 @@
+
+SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+
+###Block: Familiar Choices
+# Ability Name						Allowed Companions
+CATEGORY=Internal|Standard Familiar List.MOD	COMPANIONLIST:Familiar|Familiar (Blue-Ringed Octopus),Familiar (Centipede (House)),Familiar (Crab (Giant King)),Familiar (Donkey Rat),Familiar (Fox),Familiar (Goat),Familiar (Hedgehog),Familiar (Pig),Familiar (Scorpion (Greensting)),Familiar (Spider (Scarlet)),Familiar (Thrush),Familiar (Turtle)
+
+###Block: Familiar Bonuses
+# Ability Name						Category of Ability	Combat bonus									Save bonus									Bonus to skill								Modify VAR
+Familiar Granted Bonus (Blue-Ringed Octopus)	CATEGORY:Internal																							BONUS:SKILL|Swim|FamiliarGrantedBonus_3|TYPE=Familiar
+Familiar Granted Bonus (Donkey Rat)			CATEGORY:Internal													BONUS:SAVE|Fortitude|FamiliarGrantedBonus_2|TYPE=Familiar
+Familiar Granted Bonus (Fox)				CATEGORY:Internal													BONUS:SAVE|Reflex|FamiliarGrantedBonus_2|TYPE=Familiar
+Familiar Granted Bonus (Goat)				CATEGORY:Internal																							BONUS:SKILL|Survival|FamiliarGrantedBonus_3|TYPE=Familiar
+Familiar Granted Bonus (Scorpion (Greensting))	CATEGORY:Internal		BONUS:COMBAT|INITIATIVE|FamiliarGrantedBonus_4|TYPE=Familiar
+Familiar Granted Bonus (Hedgehog)			CATEGORY:Internal													BONUS:SAVE|Will|FamiliarGrantedBonus_2|TYPE=Familiar
+Familiar Granted Bonus (Centipede (House))	CATEGORY:Internal																							BONUS:SKILL|Stealth|FamiliarGrantedBonus_3|TYPE=Familiar
+Familiar Granted Bonus (Crab (Giant King))	CATEGORY:Internal																																	BONUS:VAR|CMB_Grapple|FamiliarGrantedBonus_2|TYPE=Familiar
+Familiar Granted Bonus (Pig)				CATEGORY:Internal																							BONUS:SKILL|Diplomacy|FamiliarGrantedBonus_3|TYPE=Familiar
+Familiar Granted Bonus (Spider (Scarlet))		CATEGORY:Internal																							BONUS:SKILL|Climb|FamiliarGrantedBonus_3|TYPE=Familiar
+Familiar Granted Bonus (Thrush)			CATEGORY:Internal																							BONUS:SKILL|Diplomacy|FamiliarGrantedBonus_3|TYPE=Familiar
+Familiar Granted Bonus (Turtle)			CATEGORY:Internal																																	BONUS:VAR|AC_Natural_Armor|FamiliarGrantedBonus_1|TYPE=Base.STACK

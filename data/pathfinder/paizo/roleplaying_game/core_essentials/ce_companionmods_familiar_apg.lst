@@ -1,0 +1,11 @@
+
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+
+###Block:Familiar Bonuses to Master
+# Race of familiar						Type			Ability
+MASTERBONUSRACE:Familiar (Centipede (House))		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Centipede (House))
+MASTERBONUSRACE:Familiar (Crab (Giant King))		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Crab (Giant King))
+MASTERBONUSRACE:Familiar (Fox)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Fox)
+MASTERBONUSRACE:Familiar (Octopus)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Octopus)
+MASTERBONUSRACE:Familiar (Scorpion (Greensting))	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Scorpion (Greensting))
+MASTERBONUSRACE:Familiar (Spider (Scarlet))		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Spider (Scarlet))

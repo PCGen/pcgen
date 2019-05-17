@@ -1,0 +1,36 @@
+
+SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
+
+# ------------------------------
+# Familiar Racial Traits
+# ------------------------------
+
+###Block: Blue-Ringed Octopus
+# Ability Name	Unique Key					Category of Ability		Type						Description																												Ability						Modify VAR												Source Page
+Ink Cloud		KEY:Blue-Ringed Octopus ~ Ink Cloud	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:While within water, an octopus can emit a 5-foot-radius sphere of ink once per minute as a swift action. This ink provides total concealment and persists for 1 minute.																					SOURCEPAGE:p.117
+Jet			KEY:Blue-Ringed Octopus ~ Jet		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:The octopus can jet 60 feet in a straight line as a full-round action.  This does not provoke attacks of opportunity.																													SOURCEPAGE:p.117
+Poison		KEY:Blue-Ringed Octopus ~ Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Bite - injury; save Fort DC %1; frequency 1/round for 6 rounds; effect 1 Str; cure 1 save.|PoisonSaveDC											ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|PoisonSaveDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)	SOURCEPAGE:p.117
+
+###Block: Greensting Scorpion
+# Ability Name	Unique Key					Category of Ability		Type						Define		Description																				Ability						Modify VAR												Source Page
+Poison		KEY:Greensting Scorpion ~ Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:PoisonDC|0	DESC:Sting - injury; save Fort DC %1; frequency 1/round for 6 rounds; effect sickened for 1 round; cure 1 save.|PoisonSaveDC	ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|PoisonSaveDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)	SOURCEPAGE:p.118
+
+###Block: Hedgehog
+# Ability Name	Unique Key				Category of Ability		Type						Description																																																															Source Page
+Spiny Defense	KEY:Hedgehog ~ Spiny Defense	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:As a move action, a hedgehog can roll itself up into a spiny ball. While rolled up, it gains a +1 enhancement bonus to its existing natural armor, and any creature attempting to grapple the hedgehog takes 1d3 damage on making a grapple check. While rolled up, a hedgehog cannot take any action other than leaving this state. The hedgehog can leave this state as a move action.	SOURCEPAGE:p.119
+
+###Block: House Centipede
+# Ability Name	Unique Key				Category of Ability		Type						Description																			Ability						Modify VAR												Source Page
+Poison		KEY:House Centipede ~ Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Bite - injury; save Fort DC %1; frequency 1/round for 2 rounds; effect daze 1 round; cure 1 save.|PoisonSaveDC	ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|PoisonSaveDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)	SOURCEPAGE:p.119
+
+###Block: King Crab
+# Ability Name	Unique Key					Category of Ability		Type					Description																								Source Page
+Water Dependency	KEY:King Crab ~ Water Dependency	CATEGORY:Special Ability	TYPE:Weakness.Extraordinary	DESC:This crab can survive out of the water for %1 hours.  Beyond this limit, a crab runs the risk of suffocation, as if it were drowning.|CONSCORE	SOURCEPAGE:p.119
+
+###Block: Scarlet Spider
+# Ability Name	Unique Key				Category of Ability		Type						Description																		Ability						Modify VAR												Source Page
+Poison		KEY:Scarlet Spider ~ Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:Bite - injury; save Fort DC %1; frequency 1/round for 4 rounds; effect 1 Str; cure 1 save.|PoisonSaveDC	ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|PoisonSaveDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)	SOURCEPAGE:p.120
+
+###Block: Turtle
+# Ability Name	Unique Key				Category of Ability		Type						Description																																												Source Page
+Shell Retreat	KEY:Turtle ~ Shell Retreat	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:A turtle can retreat within its shell as a swift action, gaining a +2 enhancement bonus to its existing natural armor. While in its shell, a turtle cannot take any action except to end the retreat. The turtle can end its retreat with a free action on its turn.	SOURCEPAGE:p.120

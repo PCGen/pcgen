@@ -107,3 +107,9 @@ WEAPONPROF:b2_profs_weapon.lst
 ABILITY:b2_abilities_race_arg.lst
 ABILITYCATEGORY:b2_abilitycategories_arg.lst
 RACE:b2_races_arg.lst
+
+# Familiars
+ABILITY:b2_abilities_familiar_race.lst
+ABILITY:b2_abilities_familiar.lst
+COMPANIONMOD:b2_companionmods_familiar.lst
+RACE:b2_races_familiar.lst
