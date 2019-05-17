@@ -21,7 +21,6 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,32 +45,7 @@ public final class LookAndFeelManager
 
 	static
 	{
-		Comparator<LookAndFeelInfo> lafcomp = (o1, o2) -> {
-			//System laf goes first
-			if (o1.getClassName().equals(SYSTEM_LAF_CLASS))
-			{
-				return -1;
-			}
-			if (o2.getClassName().equals(SYSTEM_LAF_CLASS))
-			{
-				return 1;
-			}
-			//Cross Platfrom laf goes second
-			if (o1.getClassName().equals(CROSS_LAF_CLASS))
-			{
-				return -1;
-			}
-			if (o2.getClassName().equals(CROSS_LAF_CLASS))
-			{
-				return 1;
-			}
-			//the rest don't matter
-			return 0;
-		};
-
 		LookAndFeelInfo[] lafInfo = UIManager.getInstalledLookAndFeels();
-		//Sort them so that they are in a UI friendly order
-		Arrays.sort(lafInfo, lafcomp);
 
 		int length = lafInfo.length;
 		LAF_HANDLERS = new LookAndFeelHandler[length];
