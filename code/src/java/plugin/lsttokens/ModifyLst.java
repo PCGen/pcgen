@@ -219,7 +219,7 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 		sb.append(Constants.PIPE);
 		sb.append(modifier.getInstructions());
 		Collection<String> assocs = modifier.getAssociationInstructions();
-		if (assocs != null && assocs.size() > 0)
+		if (assocs != null && !assocs.isEmpty())
 		{
 			sb.append(Constants.PIPE);
 			sb.append(StringUtil.join(assocs, Constants.PIPE));
