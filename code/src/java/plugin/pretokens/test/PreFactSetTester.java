@@ -51,7 +51,7 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 		catch (NumberFormatException exceptn)
 		{
 			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreFactSet.error", prereq.toString())); //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PreFactSet.error", prereq.toString()), exceptn); //$NON-NLS-1$
 		}
 
 		String location = prereq.getCategoryName();

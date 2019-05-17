@@ -49,7 +49,7 @@ public class PreKitTester extends AbstractDisplayPrereqTest implements Prerequis
 		catch (NumberFormatException exceptn)
 		{
 			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreKit.error", prereq.toString())); //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PreKit.error", prereq.toString()), exceptn); //$NON-NLS-1$
 		}
 
 		String kitKey = prereq.getKey().toUpperCase();

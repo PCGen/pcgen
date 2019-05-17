@@ -50,7 +50,7 @@ public class PreTemplateTester extends AbstractDisplayPrereqTest implements Prer
 		catch (NumberFormatException exceptn)
 		{
 			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreTemplate.error", prereq.toString())); //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PreTemplate.error", prereq.toString()), exceptn); //$NON-NLS-1$
 		}
 
 		if (display.hasTemplates())

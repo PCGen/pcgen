@@ -31,16 +31,15 @@ final class PCGParseException extends Exception
 	private final String errorMessage;
 	private final String errorMethod;
 
-	/**
-	 * Constructor
-	 * @param errorMethod
-	 * @param errorLine
-	 * @param errorMessage
-	 */
 	PCGParseException(String errorMethod, String errorLine, String errorMessage)
 	{
+		this(errorMethod, errorLine, errorMessage, null);
+	}
+
+	PCGParseException(String errorMethod, String errorLine, String errorMessage, Throwable cause)
+	{
 		super("Method: " + errorMethod + Constants.LINE_SEPARATOR + "Line: " + errorLine + Constants.LINE_SEPARATOR
-			+ "Message: " + errorMessage);
+			+ "Message: " + errorMessage, cause);
 
 		this.errorMethod = errorMethod;
 		this.errorLine = errorLine;

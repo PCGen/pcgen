@@ -83,7 +83,7 @@ public class PreHandsParser extends AbstractPrerequisiteParser implements Prereq
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage());
+				"Unable to parse the prerequisite :'" + kind + ':' + formula + "'. " + pe.getLocalizedMessage(), pe);
 		}
 		return prereq;
 	}

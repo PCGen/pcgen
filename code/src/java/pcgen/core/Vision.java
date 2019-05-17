@@ -180,7 +180,8 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 				catch (NumberFormatException nfe)
 				{
 					throw new IllegalArgumentException(
-						"Invalid Vision: " + visionType + ". Vision Distance with Foot character ' was not an integer");
+						"Invalid Vision: " + visionType + ". Vision Distance with Foot character ' was not an "
+								+ "integer", nfe);
 				}
 			}
 			distance = FormulaFactory.getFormulaFor(dist);

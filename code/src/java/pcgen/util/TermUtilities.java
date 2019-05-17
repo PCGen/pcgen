@@ -172,12 +172,11 @@ public final class TermUtilities
 		}
 		catch (NumberFormatException n)
 		{
-			StringBuilder sB = new StringBuilder();
-			sB.append("Invalid string following ");
-			sB.append(expressionString.substring(0, fixed));
-			sB.append(" in ");
-			sB.append(expressionString);
-			throw new TermEvaulatorException(sB.toString());
+			String sB = "Invalid string following "
+					+ expressionString.substring(0, fixed)
+					+ " in "
+					+ expressionString;
+			throw new TermEvaulatorException(sB, n);
 		}
 		return nums;
 	}

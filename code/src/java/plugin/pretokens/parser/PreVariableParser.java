@@ -106,7 +106,7 @@ public class PreVariableParser extends AbstractPrerequisiteParser implements Pre
 		catch (PrerequisiteException pe)
 		{
 			throw new PersistenceLayerException(
-				"Unable to parse prerequisite 'PRE" + kind + ':' + formula + "'. " + pe.getLocalizedMessage());
+				"Unable to parse prerequisite 'PRE" + kind + ':' + formula + "'. " + pe.getLocalizedMessage(), pe);
 		}
 
 		if (invertResult)

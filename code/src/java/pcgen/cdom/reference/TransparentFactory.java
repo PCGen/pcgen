@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.reference;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
 
 import pcgen.base.lang.UnreachableError;
@@ -102,12 +103,12 @@ public class TransparentFactory<T extends Loadable> implements ManufacturableFac
 	{
 		try
 		{
-			return refClass.newInstance();
+			return refClass.getConstructor().newInstance();
 		}
-		catch (InstantiationException | IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e)
 		{
 			throw new UnreachableError(
-				"Class was tested at " + "construction to ensure it had a public, " + "zero-argument constructor");
+				"Class was tested at " + "construction to ensure it had a public, " + "zero-argument constructor", e);
 		}
 	}
 

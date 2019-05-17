@@ -461,7 +461,7 @@ final class PCGVer2Parser implements PCGParser
 			final String message =
 					LanguageBundle.getFormattedString("Exceptions.PCGenParser.WrongNumAttributes", //$NON-NLS-1$
 				seenStats.size(), Globals.getContext().getReferenceContext().getConstructedObjectCount(PCStat.class));
-			throw new PCGParseException("parseStatLines", "N/A", message); //$NON-NLS-1$//$NON-NLS-2$
+			throw new PCGParseException("parseStatLines", "N/A", message, null); //$NON-NLS-1$//$NON-NLS-2$
 		}
 	}
 
@@ -1406,7 +1406,7 @@ final class PCGVer2Parser implements PCGParser
 				 *
 				 * Thomas Behr 14-08-02
 				 */
-				throw new PCGParseException("parseCampaignLines", line, pcgpex.getMessage()); //$NON-NLS-1$
+				throw new PCGParseException("parseCampaignLines", line, pcgpex.getMessage(), pcgpex);
 			}
 
 			for (PCGElement element : tokens.getElements())
@@ -1867,7 +1867,7 @@ final class PCGVer2Parser implements PCGParser
 			 *
 			 * Thomas Behr 14-08-02
 			 */
-			throw new PCGParseException("parseClassLine", line, pcgpex.getMessage()); //$NON-NLS-1$
+			throw new PCGParseException("parseClassLine", line, pcgpex.getMessage(), pcgpex); //$NON-NLS-1$
 		}
 
 		PCClass aPCClass = null;
@@ -2323,7 +2323,7 @@ final class PCGVer2Parser implements PCGParser
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PCGParseException("parseExperienceLine", line, nfe.getMessage()); //$NON-NLS-1$
+			throw new PCGParseException("parseExperienceLine", line, nfe.getMessage(), nfe); //$NON-NLS-1$
 		}
 	}
 
@@ -4206,7 +4206,7 @@ final class PCGVer2Parser implements PCGParser
 			 *
 			 * Thomas Behr 09-09-02
 			 */
-			throw new PCGParseException("parseStatLine", line, pcgpex.getMessage()); //$NON-NLS-1$
+			throw new PCGParseException("parseStatLine", line, pcgpex.getMessage(), pcgpex); //$NON-NLS-1$
 		}
 
 		final Iterator<PCGElement> it = tokens.getElements().iterator();
@@ -4228,19 +4228,19 @@ final class PCGVer2Parser implements PCGParser
 				}
 				catch (NumberFormatException nfe)
 				{
-					throw new PCGParseException("parseStatLine", line, nfe.getMessage()); //$NON-NLS-1$
+					throw new PCGParseException("parseStatLine", line, nfe.getMessage(), nfe); //$NON-NLS-1$
 				}
 			}
 			else
 			{
 				final String message = "Invalid attribute specification. " + "Cannot load character.";
-				throw new PCGParseException("parseStatLine", line, message); //$NON-NLS-1$
+				throw new PCGParseException("parseStatLine", line, message, null); //$NON-NLS-1$
 			}
 		}
 		else
 		{
 			final String message = "Invalid attribute specification. " + "Cannot load character.";
-			throw new PCGParseException("parseStatLine", line, message); //$NON-NLS-1$
+			throw new PCGParseException("parseStatLine", line, message, null); //$NON-NLS-1$
 		}
 	}
 
@@ -4480,7 +4480,7 @@ final class PCGVer2Parser implements PCGParser
 				else
 				{
 					// Something in the first 3 digits was not an integer
-					throw new PCGParseException("parseVersionLine", line, "Invalid PCGen version."); //$NON-NLS-1$
+					throw new PCGParseException("parseVersionLine", line, "Invalid PCGen version.", e); //$NON-NLS-1$
 				}
 			}
 		}

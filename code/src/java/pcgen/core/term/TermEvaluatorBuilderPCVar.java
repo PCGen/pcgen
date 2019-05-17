@@ -560,7 +560,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			StringBuilder sB = new StringBuilder();
 			sB.append("MAXCASTABLE is not usable in ");
 			sB.append(src);
-			throw new TermEvaulatorException(sB.toString());
+			throw new TermEvaulatorException(sB.toString(), null);
 		}
 	},
 
@@ -805,14 +805,13 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			}
 			catch (NumberFormatException e)
 			{
-				StringBuilder sB = new StringBuilder();
-				sB.append("Badly formed formula ");
-				sB.append(expressionString);
-				sB.append(" in ");
-				sB.append(src);
-				sB.append(" should have an integer following ");
-				sB.append(matchedSection);
-				throw new TermEvaulatorException(sB.toString());
+				String sB = "Badly formed formula "
+						+ expressionString
+						+ " in "
+						+ src
+						+ " should have an integer following "
+						+ matchedSection;
+				throw new TermEvaulatorException(sB, e);
 			}
 
 			return new PCCLBeforeLevelTermEvaluator(expressionString, src.substring(6), i);

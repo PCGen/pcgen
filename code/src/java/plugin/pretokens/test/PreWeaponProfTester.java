@@ -73,7 +73,7 @@ public class PreWeaponProfTester extends AbstractDisplayPrereqTest
 		catch (NumberFormatException exceptn)
 		{
 			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreFeat.error", prereq.toString())); //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PreFeat.error", prereq.toString()), exceptn); //$NON-NLS-1$
 		}
 
 		final String aString = prereq.getKey();

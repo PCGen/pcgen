@@ -28,7 +28,6 @@
         <exclude name="OneDeclarationPerLine"/>
         <exclude name="PositionLiteralsFirstInCaseInsensitiveComparisons"/>
         <exclude name="PositionLiteralsFirstInComparisons"/>
-        <exclude name="PreserveStackTrace"/>
         <exclude name="SwitchStmtsShouldHaveDefault"/>
         <exclude name="SystemPrintln"/>
         <exclude name="UnusedFormalParameter"/>
