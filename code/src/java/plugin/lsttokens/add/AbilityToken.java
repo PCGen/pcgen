@@ -400,10 +400,6 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject>
 	@Override
 	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, CNAbilitySelection choice)
 	{
-		// String featName = choice.getAbilityKey();
-		// Ability aFeat = pc.getAbilityKeyed(AbilityCategory.FEAT,
-		// Ability.Nature.NORMAL, featName);
-		// pc.addAssoc(owner, AssociationListKey.ADDED_ABILITY, aFeat);
 	}
 
 	@Override
