@@ -29,60 +29,34 @@ import javax.swing.border.TitledBorder;
 
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.ResettableController;
+import pcgen.gui3.preferences.EquipmentPreferencesPanelController;
 import pcgen.system.LanguageBundle;
 
 /**
  * The Class {@code InputPanel} is responsible for
  * displaying input related preferences and allowing the 
  * preferences to be edited by the user.
- * 
- * 
  */
-@SuppressWarnings("serial")
 public class InputPanel extends PCGenPrefsPanel
 {
-	private static final String IN_INPUT = LanguageBundle.getString("in_Prefs_input");
-
-	private static final String IN_PRINT_DEPRECATION = LanguageBundle.getString("in_Prefs_printDeprecation");
-	private static final String IN_PRINT_UNCONSTRUCTED = LanguageBundle.getString("in_Prefs_printUnconstructed");
-
-	private JCheckBox printDeprecationMessages = new JCheckBox();
-	private JCheckBox printUnconstructedDetail = new JCheckBox();
+	private static final String IN_INPUT =
+			LanguageBundle.getString("in_Prefs_input"); //$NON-NLS-1$
+	private final JFXPanelFromResource<ResettableController> panel;
 
 	/**
 	 * Instantiates a new input panel.
 	 */
 	public InputPanel()
 	{
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
-		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_INPUT);
+		this.panel =
+				new JFXPanelFromResource<>(
+						EquipmentPreferencesPanelController.class,
+						"InputPreferencesPanel.fxml"
+				);
+		this.add(panel);
 
-		title1.setTitleJustification(TitledBorder.LEFT);
-		this.setBorder(title1);
-		gridbag = new GridBagLayout();
-		this.setLayout(gridbag);
-		c = new GridBagConstraints();
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.WEST;
-		c.insets = new Insets(2, 2, 2, 2);
-
-		Utility.buildConstraints(c, 0, 0, 3, 1, 0, 0);
-		printDeprecationMessages = new JCheckBox(IN_PRINT_DEPRECATION, SettingsHandler.outputDeprecationMessages());
-		gridbag.setConstraints(printDeprecationMessages, c);
-		this.add(printDeprecationMessages);
-
-		Utility.buildConstraints(c, 0, 1, 3, 1, 0, 0);
-		printUnconstructedDetail = new JCheckBox(IN_PRINT_UNCONSTRUCTED, SettingsHandler.inputUnconstructedMessages());
-		gridbag.setConstraints(printUnconstructedDetail, c);
-		this.add(printUnconstructedDetail);
-
-		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
-		c.fill = GridBagConstraints.BOTH;
-		JLabel label = new JLabel(" ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
 	}
 
 	@Override
@@ -94,15 +68,13 @@ public class InputPanel extends PCGenPrefsPanel
 	@Override
 	public void setOptionsBasedOnControls()
 	{
-		SettingsHandler.setOutputDeprecationMessages(printDeprecationMessages.isSelected());
-		SettingsHandler.setInputUnconstructedMessages(printUnconstructedDetail.isSelected());
+		panel.getController().apply();
 	}
 
 	@Override
 	public void applyOptionValuesToControls()
 	{
-		printDeprecationMessages.setSelected(SettingsHandler.outputDeprecationMessages());
-		printUnconstructedDetail.setSelected(SettingsHandler.inputUnconstructedMessages());
+		panel.getController().reset();
 	}
 
 }

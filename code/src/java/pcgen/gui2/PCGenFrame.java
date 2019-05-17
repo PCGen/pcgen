@@ -1753,7 +1753,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 
 		var htmlPanel = new JFXPanelFromResource<>(SimpleHtmlPanelController.class, "SimpleHtmlPanel.fxml");
 		String finalHtmlString = htmlString;
-		Platform.runLater(() -> htmlPanel.getController().setHtml(finalHtmlString));
+		htmlPanel.getController().setHtml(finalHtmlString);
 
 		aFrame.getContentPane().setLayout(new BorderLayout());
 		aFrame.getContentPane().add(htmlPanel, BorderLayout.CENTER);
@@ -1788,7 +1788,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		jPanel1.add(jLabel2, BorderLayout.SOUTH);
 
 		var htmlPanel = new JFXPanelFromResource<>(SimpleHtmlPanelController.class, "SimpleHtmlPanel.fxml");
-		Platform.runLater(() -> htmlPanel.getController().setHtml(text));
+		htmlPanel.getController().setHtml(text);
 
 		jPanel3.add(jCheckBox1);
 		jPanel3.add(jClose);
