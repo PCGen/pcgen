@@ -22,8 +22,9 @@
   * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
   -->
 
+<?import javafx.scene.layout.StackPane?>
 <Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pcgen.gui3.SimpleHtmlPanelController">
-    <AnchorPane>
+    <StackPane>
         <WebView fx:id="browser"/>
-    </AnchorPane>
+    </StackPane>
 </Scene>
