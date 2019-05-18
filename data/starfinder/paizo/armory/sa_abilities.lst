@@ -1,6 +1,6 @@
 #  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 # Ability Name				Define
-﻿CATEGORY=Internal|Default.MOD	DEFINE:AugmentedLVL|0
+CATEGORY=Internal|Default.MOD	DEFINE:AugmentedLVL|0
 
 ###Block:
 # Ability Name							Unique Key									SORTKEY				Category of Ability	Type																			Required Ability												Required Class			Required Class Skill	Multiple Requirements																				Required Non-Monster Lvl	Define						Description																																																																																																																																																																																																																																																																																Ability																																																																																																																																																																																																																																																																					Bonus Ability Pool			Bonus to skill											Bonus to skill rank							Modify VAR										Cost		Source Page		List of Known Class Spells by Level																							FACT
