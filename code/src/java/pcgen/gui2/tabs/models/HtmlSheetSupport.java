@@ -20,19 +20,21 @@ package pcgen.gui2.tabs.models;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.InvocationTargetException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.ThreadFactory;
 
 import javax.swing.JEditorPane;
 import javax.swing.SwingUtilities;
+import javax.swing.text.Document;
 import javax.swing.text.EditorKit;
 import javax.swing.text.html.HTMLDocument;
 
@@ -43,7 +45,7 @@ import pcgen.util.Logging;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class HtmlSheetSupport
+public final class HtmlSheetSupport
 {
 
 	private static final ThreadFactory THREAD_FACTORY = r -> {
@@ -52,7 +54,7 @@ public class HtmlSheetSupport
 		thread.setName("html-sheet-thread");
 		return thread;
 	};
-	private ExecutorService executor = Executors.newSingleThreadExecutor(THREAD_FACTORY);
+	private final Executor executor = Executors.newSingleThreadExecutor(THREAD_FACTORY);
 
 	private WeakReference<CharacterFacade> characterRef;
 	private final File templateFile;
@@ -120,10 +122,10 @@ public class HtmlSheetSupport
 		this.missingSheetMsg = missingSheetMsg;
 	}
 
-	private class Refresher extends FutureTask<HTMLDocument>
+	private final class Refresher extends FutureTask<HTMLDocument>
 	{
 
-		public Refresher()
+		private Refresher()
 		{
 			super(new DocumentBuilder());
 		}
@@ -137,7 +139,7 @@ public class HtmlSheetSupport
 			}
 			try
 			{
-				final HTMLDocument doc = get();
+				final Document doc = get();
 				SwingUtilities.invokeAndWait(() -> htmlPane.setDocument(doc));
 			}
 			catch (InvocationTargetException ex)
@@ -161,7 +163,7 @@ public class HtmlSheetSupport
 		{
 			StringWriter writer = new StringWriter();
 			characterRef.get().export(new ExportHandler(templateFile), new BufferedWriter(writer));
-			StringReader reader = new StringReader(writer.toString());
+			Reader reader = new StringReader(writer.toString());
 			EditorKit kit = htmlPane.getEditorKit();
 			HTMLDocument doc = new HTMLDocument();
 
