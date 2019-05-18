@@ -100,4 +100,14 @@ public class PCGenPreloader implements PCGenTaskListener
 	{
 		Platform.runLater(() -> primaryStage.close());
 	}
+
+	/**
+	 * Primarily exists for testing.
+	 * New features should be added to this class.
+	 * @return the stage associated with the preloader
+	 */
+	public Stage getStage()
+	{
+		return primaryStage;
+	}
 }
