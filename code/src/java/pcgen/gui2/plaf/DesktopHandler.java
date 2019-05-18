@@ -27,13 +27,13 @@ import java.awt.desktop.QuitResponse;
 import pcgen.gui2.PCGenUIManager;
 
 /**
- * {@code MacGUI} initializes Mac-specific GUI elements.
+ * DesktopHandler handles desktop-initiated events
  */
-public final class MacGUIHandler
+public final class DesktopHandler
 {
-	private static MacGUIHandler theAdapter;
+	private static boolean initialized = false;
 
-	private MacGUIHandler()
+	private DesktopHandler()
 	{
 	}
 
@@ -43,15 +43,12 @@ public final class MacGUIHandler
 	 */
 	public static void initialize()
 	{
-		if (theAdapter != null)
+		if (initialized)
 		{
-			// we have already initialized.
 			return;
 		}
+		initialized = true;
 
-		// set up the Application menu
-		theAdapter = new MacGUIHandler();
-		MacGUIHandler.initialize();
 		Desktop theDesktop = Desktop.getDesktop();
 		theDesktop.setAboutHandler(new OSXAboutHandler());
 		theDesktop.setPreferencesHandler(new OSXPreferencesHandler());
