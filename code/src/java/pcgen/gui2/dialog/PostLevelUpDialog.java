@@ -198,7 +198,7 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 			};
 
 			data = new Object[numLevels + 1][5];
-			classLevelMap = new HashMap<PCClass, MutableInt>();
+			classLevelMap = new HashMap<>();
 			int gainedTotal = 0;
 			int rolledTotal = 0;
 			int pointTotal = 0;

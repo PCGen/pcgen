@@ -66,7 +66,7 @@ public class CollectionModel implements TemplateSequenceModel
 		Objects.requireNonNull(id, "CharID may not be null");
 		Objects.requireNonNull(c, "Collection may not be null");
 		this.id = id;
-		this.list = new ArrayList<Object>(c);
+		this.list = new ArrayList<>(c);
 	}
 
 	@Override

@@ -46,7 +46,7 @@ import pcgen.util.Logging;
 public class TreeViewTableModel<E> extends AbstractTreeTableModel implements SortableTreeTableModel
 {
 
-	private final ListListener<E> listListener = new ListListener<E>()
+	private final ListListener<E> listListener = new ListListener<>()
 	{
 
 		@Override

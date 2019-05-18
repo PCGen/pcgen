@@ -390,7 +390,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private class FilterHandler implements ListSelectionListener
 	{
 
-		private final Filter<CharacterFacade, Skill> cFilter = new Filter<CharacterFacade, Skill>()
+		private final Filter<CharacterFacade, Skill> cFilter = new Filter<>()
 		{
 
 			@Override
@@ -407,7 +407,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		};
 
-		private final Filter<CharacterFacade, Skill> gainedFilter = new Filter<CharacterFacade, Skill>()
+		private final Filter<CharacterFacade, Skill> gainedFilter = new Filter<>()
 		{
 
 			@Override

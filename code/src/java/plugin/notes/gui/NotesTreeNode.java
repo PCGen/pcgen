@@ -73,7 +73,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * An enumeration that is always empty. This is used when an enumeration of a
 	 * leaf node's children is requested.
 	 */
-	public static final Enumeration<MutableTreeNode> EMPTY_ENUMERATION = new Enumeration<MutableTreeNode>()
+	public static final Enumeration<MutableTreeNode> EMPTY_ENUMERATION = new Enumeration<>()
 	{
 
 		@Override

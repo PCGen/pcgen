@@ -128,7 +128,7 @@ class InfoGuidePane extends JComponent implements UIResource
 
 	private void initListeners()
 	{
-		frame.getSelectedCharacterRef().addReferenceListener(new ReferenceListener<CharacterFacade>()
+		frame.getSelectedCharacterRef().addReferenceListener(new ReferenceListener<>()
 		{
 
 			@Override
@@ -138,14 +138,17 @@ class InfoGuidePane extends JComponent implements UIResource
 				if (show)
 				{
 					tipPane.setText(
-						LanguageBundle.getFormattedString("in_si_tip", TipOfTheDayHandler.getInstance().getNextTip()));
+							LanguageBundle.getFormattedString(
+									"in_si_tip",
+									TipOfTheDayHandler.getInstance().getNextTip()
+							));
 				}
 				setVisible(show);
 			}
 
 		});
 		uiContext.getCurrentSourceSelectionRef()
-			.addReferenceListener(new ReferenceListener<SourceSelectionFacade>()
+			.addReferenceListener(new ReferenceListener<>()
 			{
 
 				@Override

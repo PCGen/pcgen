@@ -32,7 +32,7 @@ public class SortedListFacade<E> extends AbstractListFacade<E> implements ListLi
 
 	private ListFacade<E> delegate = null;
 	private Comparator<? super E> comparator;
-	private final Comparator<Integer> indexComparator = new Comparator<Integer>()
+	private final Comparator<Integer> indexComparator = new Comparator<>()
 	{
 
 		@Override

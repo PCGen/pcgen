@@ -309,7 +309,7 @@ public class ObjectKey<T>
 	static
 	{
 		buildMap();
-		BASESIZE = new ObjectKey<CDOMSingleRef<SizeAdjustment>>(null)
+		BASESIZE = new ObjectKey<>(null)
 		{
 			@Override
 			public CDOMSingleRef<SizeAdjustment> getDefault()

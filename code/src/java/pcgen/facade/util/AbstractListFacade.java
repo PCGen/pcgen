@@ -68,7 +68,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	{
 		if (iteratorWrapper == null)
 		{
-			iteratorWrapper = new AbstractList<E>()
+			iteratorWrapper = new AbstractList<>()
 			{
 
 				@Override

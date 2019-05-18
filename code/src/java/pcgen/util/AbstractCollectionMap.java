@@ -99,13 +99,13 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>> exten
 	{
 		if (values == null)
 		{
-			values = new AbstractCollection<V>()
+			values = new AbstractCollection<>()
 			{
 
 				@Override
 				public Iterator<V> iterator()
 				{
-					return new Iterator<V>()
+					return new Iterator<>()
 					{
 
 						private Iterator<C> ci = values().iterator();
