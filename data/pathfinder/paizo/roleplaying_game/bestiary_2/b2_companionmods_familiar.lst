@@ -1,0 +1,7 @@
+
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+###Block:Familiar Bonuses to Master
+# Race of familiar				Type			Ability
+MASTERBONUSRACE:Familiar (Compsognathus)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Compsognathus)
+MASTERBONUSRACE:Familiar (Snapping Turtle)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Snapping Turtle)

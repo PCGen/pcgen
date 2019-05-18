@@ -49,33 +49,6 @@ FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount	HD:1
 # Class of the Master		Type				Main Race Type			Template
 FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount	RACETYPE:Animal/Magical Beast	TEMPLATE:Celestial Creature
 
-###Block: Familiar
-# Class of the Master	Type			Ability									Copy Masters BAB		Copy Masters Checks	HP formula based on Master				Use Masters skills?	Define												Modify VAR																		Main Race Type
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar											COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/FamiliarHPDivisor)	USEMASTERSKILL:YES	DEFINE:MasterLevel|0	DEFINE:FamiliarHPDivisor|0	DEFINE:CompanionHD|0	BONUS:VAR|MasterLevel|MASTERVAR("FamiliarLVL")	BONUS:VAR|FamiliarHPDivisor|2	BONUS:VAR|CompanionHD|MasterLevel	RACETYPE:Animal/Magical Beast
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Companion ~ Familiar
-
-###Block: Specific Familiars
-# Class of the Master	Type			Required Race			Apply Kit
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Raven)	KIT:1|Raven Familiar Language
-
-###Block:Familiar Bonuses to Master
-# Race of familiar				Type			Ability
-MASTERBONUSRACE:Familiar (Bat)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Bat)
-MASTERBONUSRACE:Familiar (Cat)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Cat)
-MASTERBONUSRACE:Familiar (Hawk)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Hawk)
-MASTERBONUSRACE:Familiar (Lizard)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Lizard)
-MASTERBONUSRACE:Familiar (Monkey)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Monkey)
-MASTERBONUSRACE:Familiar (Owl)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Owl)
-MASTERBONUSRACE:Familiar (Rat)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Rat)
-MASTERBONUSRACE:Familiar (Raven)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Raven)
-MASTERBONUSRACE:Familiar (Viper)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Viper)
-MASTERBONUSRACE:Familiar (Toad)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Toad)
-MASTERBONUSRACE:Familiar (Weasel)		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Weasel)
-
-# Race of familiar				Type			Ability
-MASTERBONUSRACE:Familiar (Compsognathus)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Compsognathus)
-#
-
 # Class of the Master		Type				Copy Masters BAB		Copy Masters Checks	HP formula based on Master
 FOLLOWER:ShadowCompanionLVL=1	TYPE:Shadow Companion	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)
 

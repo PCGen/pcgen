@@ -1062,6 +1062,8 @@ CATEGORY=Class|Sorcerer.MOD								BONUS:VAR|Sorcerer_CF_EschewMaterials|1|TYPE=
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ClassSkills|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ArcaneSchool|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_WeaponProficiencies|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_Spells|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BonusLanguages|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ScribeScroll|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ArcaneBond|0
 CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_Cantrips|0
@@ -1076,6 +1078,8 @@ CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BonusFeat20|0
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ClassSkills=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ArcaneSchool|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ArcaneSchool=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_WeaponProficiencies=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_Spells=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusLanguages|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_BonusLanguages=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ScribeScroll|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ScribeScroll=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ArcaneBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ArcaneBond=True
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_Cantrips|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_Cantrips=True

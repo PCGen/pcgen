@@ -1758,10 +1758,6 @@ Horrific Appearance									KEY:Cythnigot ~ Horrific Appearance					CATEGORY:Spe
 Spores											KEY:Cythnigot ~ Spores							CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	DEFINE:CythnigotSporesDC|0				DESC:Any creature bitten by a Cythnigot must make a DC %1 Fortitude save or become infested by the creature's otherworldly spores.  These spores cause twitching spikes and hideous pallid growths of hair-like fibers to erupt from the bite wound and to writhe and wrap around the target's limbs.  A creatures suffering from these spores is entangled, and can attempt a new DC %1 Fortitude save in later rounds as a standard action to rip the tendrils free and escape the entangled condition.  The effects of multiple Cythnigot bites on a creature do not stack.  Plant creatures take a -4 penalty on saves against this effect.  This is a disease effect.|CythnigotSporesDC																																																																										ABILITY:Ability Focus|AUTOMATIC|Spores												BONUS:VAR|CythnigotSporesDC|10+TL/2+CON	BONUS:VAR|CythnigotSporesDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Spores)							SOURCEPAGE:p.220	ASPECT:Ability Benefit|(bite)
 
 
-###Block: Adding new familiar(s) to the base familiar list
-# Ability Name							Allowed Companions
-CATEGORY=Special Ability|Arcane Bond ~ Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Compsognathus)
-
 
 ###Block: Adding Domain Spells to the Cleric list (Domain Spells ability category)
 # COMMENT: This is commented out because it was only partially implemented.
