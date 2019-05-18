@@ -41,8 +41,9 @@ import pcgen.facade.core.UIDelegate;
 import pcgen.gui2.PCGenUIManager;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.converter.TokenConverter;
-import pcgen.gui2.dialog.OptionsPathDialog;
 import pcgen.gui2.dialog.RandomNameDialog;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.dialog.OptionsPathDialogController;
 import pcgen.gui3.preloader.PCGenPreloader;
 import pcgen.io.ExportHandler;
 import pcgen.persistence.CampaignFileLoader;
@@ -293,6 +294,10 @@ public final class Main
 
 	public static void loadProperties(boolean useGui)
 	{
+		var panel = new JFXPanelFromResource<>(
+				OptionsPathDialogController.class,
+				"OptionsPathDialog.fxml"
+		);
 		if ((settingsDir == null)
 			&& (ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH) == null))
 		{
@@ -301,8 +306,7 @@ public final class Main
 				Logging.errorPrint("No settingsDir specified via -s in batch mode and no default exists.");
 				System.exit(1);
 			}
-			String filePath = OptionsPathDialog.promptSettingsPath();
-			ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH, filePath);
+			panel.showAndBlock("Directory for options.ini location");
 		}
 		PropertyContextFactory.setDefaultFactory(settingsDir);
 
