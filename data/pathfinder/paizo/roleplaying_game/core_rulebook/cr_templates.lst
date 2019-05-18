@@ -30,11 +30,6 @@ Timeless Body ~ Venerable	VISIBLE:NO																				PREAGESET:1,Venerable
 Augment Summoning		VISIBLE:YES	BONUS:STAT|STR,CON|4
 
 
-Raven Familiar Language	VISIBLE:NO					ADD:LANGUAGE|TYPE=Spoken	ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak One Language
-# Data-611 Fix - Backing Out
-#Raven Familiar Language	VISIBLE:NO						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak One Language	LANGBONUS:TYPE=Spoken	BONUS:VAR|AdditionalLanguage|1|!PRESTAT:1,INT=13
-
-
 ###Block: Fractional Hit Die Adjustments for Monster classes
 # Template Name	Hit Dice Size			Visible
 Half Hitdie		HITDIE:%/2|CLASS.TYPE=Monster	VISIBLE:NO

@@ -83,9 +83,6 @@ WEAPONPROF:um_profs_weapon.lst
 
 HIDETYPE:FEAT|RevelationTargetOneOnly|FeatSkillFocusCraft|CrossbloodlineFeat|FeatSkillFocusPerform
 
-#Support
-ABILITY:support/um_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
-
 #MOVE TO CORE ESSENTIALS
 ABILITY:um_abilities_companion.lst
 CLASS:um_classes_companion.lst

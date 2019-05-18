@@ -2,14 +2,16 @@
 # CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
 
-
+###Block: Familiar Choices
 # Ability Name				Allowed Companions
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Almiraj|PREVARGTEQ:FamiliarMasterLVL,5
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Beheaded|PREALIGN:NE,LE,CE,TN|PREVARGTEQ:FamiliarMasterLVL,3
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Drake (Shadow)|PREALIGN:LE,NE,CE|PREVARGTEQ:FamiliarMasterLVL,7
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Isitoq|PREALIGN:LE,NE,CE|PREVARGTEQ:FamiliarMasterLVL,5
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Nycar|PREALIGN:CN,CG,CE,TN|PREVARGTEQ:FamiliarMasterLVL,7
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Pipefox|PREVARGTEQ:FamiliarMasterLVL,7
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Pooka|PREALIGN:NG,CG,TN,CN,NE,CE|PREVARGTEQ:FamiliarMasterLVL,7
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Psychopomp (Nosoi)|PREALIGN:TN,NG,NE,LN,CN|PREVARGTEQ:FamiliarMasterLVL,7
-CATEGORY=Feat|Improved Familiar.MOD	COMPANIONLIST:Familiar|Ratling|PREALIGN:CE,NE,CN|PREVARGTEQ:FamiliarMasterLVL,7
+CATEGORY=Internal|Improved Familiar List (3rd Level).MOD	COMPANIONLIST:Familiar|Beheaded|PREALIGN:NE,LE,CE,TN
+
+CATEGORY=Internal|Improved Familiar List (5th Level).MOD	COMPANIONLIST:Familiar|Almiraj
+CATEGORY=Internal|Improved Familiar List (5th Level).MOD	COMPANIONLIST:Familiar|Isitoq|PREALIGN:LE,NE,CE
+
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Drake (Shadow)|PREALIGN:LE,NE,CE
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Nycar|PREALIGN:CN,CG,CE,TN
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Pipefox
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Pooka|PREALIGN:NG,CG,TN,CN,NE,CE
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Psychopomp (Nosoi)|PREALIGN:TN,NG,NE,LN,CN
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Ratling|PREALIGN:CE,NE,CN

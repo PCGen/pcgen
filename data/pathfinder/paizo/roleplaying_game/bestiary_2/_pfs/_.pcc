@@ -109,6 +109,8 @@ EQUIPMENT:pfs_b2_equip_arms_armor.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 2
 EQUIPMENT:pfs_b2_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 2
 LANGUAGE:pfs_ce_languages.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 2
 
+ABILITY:pfs_b2_abilities_familiar.lst|PRECAMPAIGN:1,INCLUDES=Bestiary 2
+
 # TODO: All languages found in this book are available for a character to learn with the linguistics skill.
 # PCGen shows all the languages for INT bonus languages.
 

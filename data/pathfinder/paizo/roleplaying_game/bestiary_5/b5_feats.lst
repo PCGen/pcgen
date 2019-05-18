@@ -1,8 +1,8 @@
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Bestiary 5	SOURCESHORT:B5	SOURCEWEB:http://paizo.com/products/btpy9g9x	SOURCEDATE:2015-12
 
+###Block: Familiar Choices
 # Ability Name				Allowed Companions
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Clockwork Familiar),Familiar (Aether Wysp),Familiar (Air Wysp),Familiar (Earth Wysp),Familiar (Fire Wysp),Familiar (Water Wysp)|PREVARGTEQ:FamiliarMasterLVL,7
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Liminal Sprite)|PREALIGN:CG,CN,CE,NG|PREVARGTEQ:FamiliarMasterLVL,7
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Esipil)|PREALIGN:CN,TN,CG,CE|PREVARGTEQ:FamiliarMasterLVL,7
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Xiao)|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,7],[PREVARGTEQ:Caster_Level_Highest__Arcane,7],[PREVARGTEQ:ImprovedFamiliarQualifierLVL,7]
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Clockwork Familiar),Familiar (Aether Wysp),Familiar (Air Wysp),Familiar (Earth Wysp),Familiar (Fire Wysp),Familiar (Water Wysp),Familiar (Xiao)
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Liminal Sprite)|PREALIGN:CG,CN,CE,NG
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Esipil)|PREALIGN:CN,TN,CG,CE
