@@ -261,7 +261,7 @@ public class SkillTreeViewModel
 
 	}
 
-	private final TreeView<Skill> COST_NAME = new TreeView<Skill>()
+	private final TreeView<Skill> COST_NAME = new TreeView<>()
 	{
 
 		@Override
@@ -285,7 +285,7 @@ public class SkillTreeViewModel
 		}
 
 	};
-	private final TreeView<Skill> COST_TYPE_NAME = new TreeView<Skill>()
+	private final TreeView<Skill> COST_TYPE_NAME = new TreeView<>()
 	{
 
 		@Override

@@ -42,7 +42,7 @@ public final class ListFacades
 
 	public static <T> List<T> wrap(final ListFacade<T> list)
 	{
-		return new AbstractList<T>()
+		return new AbstractList<>()
 		{
 
 			@Override

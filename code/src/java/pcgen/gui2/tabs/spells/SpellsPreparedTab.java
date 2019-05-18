@@ -83,7 +83,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 	{
 		super("SpellsPrepared");
 		this.availableTable = new FilteredTreeViewTable<>();
-		this.selectedTable = new JTreeViewTable<SuperNode>()
+		this.selectedTable = new JTreeViewTable<>()
 		{
 
 			@Override

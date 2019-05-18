@@ -1248,7 +1248,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable> implemen
 	@Override
 	public Indirect<T> convertIndirect(String key)
 	{
-		return isResolved ? new BasicIndirect<T>(this, getActiveObject(key)) : getReference(key);
+		return isResolved ? new BasicIndirect<>(this, getActiveObject(key)) : getReference(key);
 	}
 
 	@Override

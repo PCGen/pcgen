@@ -45,7 +45,7 @@ public final class CoreUtility
 
 	private static final double EPSILON = 0.0001d;
 
-	public static final Comparator<Equipment> EQUIPMENT_COMPARATOR = new Comparator<Equipment>()
+	public static final Comparator<Equipment> EQUIPMENT_COMPARATOR = new Comparator<>()
 	{
 		@Override
 		public int compare(final Equipment obj1, final Equipment obj2)
