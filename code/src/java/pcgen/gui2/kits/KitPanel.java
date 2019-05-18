@@ -154,7 +154,7 @@ public class KitPanel extends FlippingSplitPane
 	private class KitFilterHandler
 	{
 
-		private final Filter<Object, Kit> qFilter = new Filter<Object, Kit>()
+		private final Filter<Object, Kit> qFilter = new Filter<>()
 		{
 			@Override
 			public boolean accept(Object context, Kit element)
@@ -251,7 +251,7 @@ public class KitPanel extends FlippingSplitPane
 	{
 
 		private static final DefaultListFacade<? extends TreeView<Kit>> TREE_VIEWS =
-				new DefaultListFacade<TreeView<Kit>>(Arrays.asList(KitTreeView.values()));
+				new DefaultListFacade<>(Arrays.asList(KitTreeView.values()));
 		private final List<DefaultDataViewColumn> columns;
 		private final CharacterFacade character;
 		private final boolean isAvailModel;

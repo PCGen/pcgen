@@ -529,7 +529,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 	{
 
 		private static final DefaultListFacade<? extends TreeView<EquipmentModifier>> TREE_VIEWS =
-				new DefaultListFacade<TreeView<EquipmentModifier>>(Arrays.asList(EquipModTreeView.values()));
+				new DefaultListFacade<>(Arrays.asList(EquipModTreeView.values()));
 		private final List<DefaultDataViewColumn> columns;
 		private final boolean isAvailModel;
 		private final FilteredListFacade<EquipmentBuilderFacade, EquipmentModifier> equipMods;
