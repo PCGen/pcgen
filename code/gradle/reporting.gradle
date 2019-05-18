@@ -25,7 +25,7 @@ pmd {
 	ruleSetFiles = files('code/standards/ruleset.xml')
 	consoleOutput = true
 	sourceSets = []
-	toolVersion = "6.10.0"
+	toolVersion = "6.11.0"
 }
 
 spotbugs {
