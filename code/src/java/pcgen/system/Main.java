@@ -226,32 +226,17 @@ public final class Main
 
 		new JFXPanel();
 
-		PCGenPreloader splash = null;
-
-		boolean showSplash = Boolean.parseBoolean(ConfigurationSettings.initSystemProperty("showSplash", "true"));
-		if (showSplash)
-		{
-			splash = new PCGenPreloader();
-		}
+		PCGenPreloader splash = new PCGenPreloader();
 		PCGenTaskExecutor executor = new PCGenTaskExecutor();
 		executor.addPCGenTask(createLoadPluginTask());
 		executor.addPCGenTask(new GameModeFileLoader());
 		executor.addPCGenTask(new CampaignFileLoader());
-		if (splash != null)
-		{
-			executor.addPCGenTaskListener(splash);
-		}
+		executor.addPCGenTaskListener(splash);
 		executor.run();
-		if (splash != null)
-		{
-			splash.getController().setProgress(LanguageBundle.getString("in_taskInitUi"), 1.0d);
-		}
+		splash.getController().setProgress(LanguageBundle.getString("in_taskInitUi"), 1.0d);
 		FacadeFactory.initialize();
 		PCGenUIManager.initializeGUI();
-		if (splash != null)
-		{
-			splash.done();
-		}
+		splash.done();
 		PCGenUIManager.startGUI();
 	}
 
