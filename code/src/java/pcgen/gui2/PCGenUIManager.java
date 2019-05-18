@@ -18,13 +18,17 @@
 package pcgen.gui2;
 
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import gmgen.GMGenSystem;
 import pcgen.gui2.dialog.PreferencesDialog;
 import pcgen.gui2.facade.GMGenMessageHandler;
 import pcgen.gui2.plaf.MacGUIHandler;
+import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.system.Main;
+import pcgen.util.Logging;
 
 import javafx.application.Platform;
 import org.apache.commons.lang3.SystemUtils;
@@ -53,8 +57,17 @@ public final class PCGenUIManager
 		}
 		pcgenFrame = new PCGenFrame(new UIContext());
 		PluginManager pluginMgr = PluginManager.getInstance();
-		GMGenMessageHandler handler = new GMGenMessageHandler(pcgenFrame, pluginMgr.getPostbox());
+		PCGenMessageHandler handler = new GMGenMessageHandler(pcgenFrame, pluginMgr.getPostbox());
 		pluginMgr.addMember(handler);
+		String className = UIManager.getSystemLookAndFeelClassName();
+		try
+		{
+			UIManager.setLookAndFeel(className);
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e)
+		{
+			Logging.errorPrint("system look and feel not found", e);
+		}
+
 	}
 
 	public static void startGUI()

@@ -43,7 +43,6 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.converter.TokenConverter;
 import pcgen.gui2.dialog.OptionsPathDialog;
 import pcgen.gui2.dialog.RandomNameDialog;
-import pcgen.gui2.plaf.LookAndFeelManager;
 import pcgen.gui3.preloader.PCGenPreloader;
 import pcgen.io.ExportHandler;
 import pcgen.persistence.CampaignFileLoader;
@@ -264,7 +263,6 @@ public final class Main
 			Locale.setDefault(new Locale(language, country));
 		}
 		LanguageBundle.init();
-		LookAndFeelManager.initLookAndFeel();
 	}
 
 	/**
