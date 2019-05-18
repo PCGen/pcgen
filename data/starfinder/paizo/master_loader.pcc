@@ -1,0 +1,51 @@
+# CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
+CAMPAIGN:Starfinder RPG Core Supplements
+KEY:Starfinder RPG Core Supplements
+GAMEMODE:Starfinder
+TYPE:Paizo Publishing
+RANK:3
+STATUS:RELEASE
+GENRE:Fantasy
+BOOKTYPE:MultiSet
+SETTING:Pathfinder
+SHOWINMENU:YES
+!PRECAMPAIGN:1,BOOKTYPE=Core Rules,BOOKTYPE=MultiSet,[Starfinder RPG Core Supplements]
+PUBNAMELONG:Paizo Inc.
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Starfinder Core
+SOURCESHORT:SC
+PUBNAMEWEB:http://www.paizo.com
+SOURCEDATE:2017-09
+ISOGL:YES
+
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+INFOTEXT:Hi, this is AN ALPHA RELEASE - This Set is Released to the PUBLIC as-is, without any guarantee of functionality. The PCGen team welcomes all feedback, to make this a stable BETA release in the upcoming weeks.
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+COPYRIGHT:Open Game License v 1.0a &copy; 2000, Wizards of the Coast, Inc.System Reference Document &copy; 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.Starfinder Core Rulebook &copy; 2017, Paizo Inc.; Authors: Logan Bonner, Jason Bulmahn, Amanda Hamon Kunz, Jason Keeley, Robert G. McCreary, Stephen Radney-MacFarland, Mark Seifter, Owen K.C. Stephens, and James L. Sutter, with Alexander Augunas, Judy Bauer, John Compton, Adam Daigle, Crystal Frasier, Lissa Guillet, Thurston Hillman, Erik Mona, Mark Moreland, Jessica Price, F. Wesley Schneider, Amber E. Scott, and Josh Vogt.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Starfinder Core Rulebook" & "Starfinder Game System Support" Copyright 2017, PCGen Data team (Including, but not limited to Andrew Maitland (LegacyKing), Gwen T. Thebich (), Gary Davies, and Paul Grosse).
+COPYRIGHT:PCGen Starfinder Playtesters - Andrew Maitland (LegacyKing), Gwen T. (EvilPixie87), Jodie T. Noblit, Elizabeth Mysliwiek, Luke Kinsky, Chis Moses, Dominik D., Maurizio Damonte, Rob Reed, and Gary Davies.
+
+COVER:*/_images/starfinder/PZO7101E_cover.png
+LOGO:*/_images/logo/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+
+#Do Not Remove Comment
+#EXTRAFILE:OGL.txt
+
+PCC:@/starfinder/paizo/alien_archive/_starfinder_alien_archive.pcc
+PCC:@/starfinder/paizo/alien_archive_2/_starfinder_alien_archive_2.pcc
+PCC:@/starfinder/paizo/armory/_starfinder_armory.pcc
+PCC:@/starfinder/paizo/core/_starfinder_core_rulebook.pcc
+PCC:@/starfinder/paizo/pact_worlds/_starfinder_pact_worlds.pcc
+
+
+
+# ENTRY DATE: 2017-03
+# LST MONKEY: PCGen Team
+# LICENSE MONKEY: N/A
+# RELEASE REVIEW #
+# BETA:
+# RELEASE:
