@@ -75,9 +75,6 @@ public final class GMGenSystem extends JFrame
 		implements ChangeListener, MenuListener, ActionListener, PCGenMessageHandler
 {
 
-	// Serial UID
-	private static final long serialVersionUID = -7372446160499882872L;
-
 	// menu elements used with CommonMenuText.name(...)
 	private static final String MNU_SAVE = "mnuSave"; //$NON-NLS-1$
 	private static final String MNU_OPEN = "mnuOpen"; //$NON-NLS-1$
@@ -120,7 +117,6 @@ public final class GMGenSystem extends JFrame
 	private JMenuItem pasteEditItem;
 	private JMenuItem preferencesEditItem;
 	private JMenuItem exitFileItem;
-	private JMenuItem versionToolsItem;
 
 	/**
 	 * The new menu item in the file menu.
@@ -136,12 +132,6 @@ public final class GMGenSystem extends JFrame
 	 * The save menu item in the file menu.
 	 */
 	public JMenuItem saveFileItem;
-
-	// Separators
-	private JSeparator editSeparator1;
-	private JSeparator fileSeparator1;
-	private JSeparator fileSeparator2;
-	private JSeparator toolsSeparator1;
 
 	// Tree for the preferences dialog
 	private final PreferencesRootTreeNode rootNode = new PreferencesRootTreeNode();
@@ -244,7 +234,7 @@ public final class GMGenSystem extends JFrame
 		/*
 		 * Preferences on the Macintosh is in the application menu.
 		 */
-		editMenu.add(editSeparator1);
+		editMenu.add(new JSeparator());
 		CommonMenuText.name(preferencesEditItem, PCGenActionMap.MNU_TOOLS_PREFERENCES);
 		editMenu.add(preferencesEditItem);
 		preferencesEditItem.setEnabled(true);
@@ -255,14 +245,6 @@ public final class GMGenSystem extends JFrame
 			preferencesEditItem.removeActionListener(aListenerArray);
 		}
 		preferencesEditItem.addActionListener(this::mPreferencesActionPerformed);
-	}
-
-	/**
-	 * Exits GMGen, the Mac way.
-	 */
-	public void exitFormMac()
-	{
-		this.setVisible(false);
 	}
 
 	/**
@@ -312,15 +294,6 @@ public final class GMGenSystem extends JFrame
 	public void handleToolsMenu()
 	{
 		// TODO
-	}
-
-	/**
-	 * launches the preferences dialog on a mac.
-	 */
-	public void mPreferencesActionPerformedMac()
-	{
-		PreferencesDialog dialog = new PreferencesDialog(this, true, rootNode);
-		dialog.setVisible(true);
 	}
 
 	/**
@@ -450,24 +423,14 @@ public final class GMGenSystem extends JFrame
 		copyEditItem.setEnabled(false);
 		pasteEditItem.setEnabled(false);
 		preferencesEditItem.setEnabled(true);
-		versionToolsItem.setEnabled(false);
 	}
 
 	// Create tools menu
 	private void createToolsMenu()
 	{
 		toolsMenu = new JMenu();
-		toolsSeparator1 = new JSeparator();
-		versionToolsItem = new JMenuItem();
-
 		CommonMenuText.name(toolsMenu, PCGenActionMap.MNU_TOOLS);
 		toolsMenu.addMenuListener(this);
-
-		CommonMenuText.name(versionToolsItem, "mnuGetNew"); //$NON-NLS-1$
-		toolsMenu.add(versionToolsItem);
-
-		toolsMenu.add(toolsSeparator1);
-
 		systemMenuBar.add(toolsMenu);
 	}
 
@@ -478,7 +441,6 @@ public final class GMGenSystem extends JFrame
 		cutEditItem = new JMenuItem();
 		copyEditItem = new JMenuItem();
 		pasteEditItem = new JMenuItem();
-		editSeparator1 = new JSeparator();
 		preferencesEditItem = new JMenuItem();
 
 		// EDIT MENU
@@ -494,7 +456,7 @@ public final class GMGenSystem extends JFrame
 		CommonMenuText.name(pasteEditItem, MNU_PASTE);
 		editMenu.add(pasteEditItem);
 
-		editMenu.add(editSeparator1);
+		editMenu.add(new JSeparator());
 
 		CommonMenuText.name(preferencesEditItem, PCGenActionMap.MNU_TOOLS_PREFERENCES);
 		editMenu.add(preferencesEditItem);
@@ -517,9 +479,7 @@ public final class GMGenSystem extends JFrame
 		fileMenu = new JMenu();
 		newFileItem = new JMenuItem();
 		openFileItem = new JMenuItem();
-		fileSeparator1 = new JSeparator();
 		saveFileItem = new JMenuItem();
-		fileSeparator2 = new JSeparator();
 		exitFileItem = new JMenuItem();
 
 		CommonMenuText.name(fileMenu, PCGenActionMap.MNU_FILE);
@@ -527,7 +487,7 @@ public final class GMGenSystem extends JFrame
 
 		createFileNewMenuItem();
 		createFileOpenMenuItem();
-		fileMenu.add(fileSeparator1);
+		fileMenu.add(new JSeparator());
 		createFileSaveMenuItem();
 
 		// Exit is quit on the Macintosh is in the application menu.
@@ -562,7 +522,7 @@ public final class GMGenSystem extends JFrame
 
 	private void exitForMacOSX()
 	{
-		fileMenu.add(fileSeparator2);
+		fileMenu.add(new JSeparator());
 		CommonMenuText.name(exitFileItem, MNU_EXIT);
 		fileMenu.add(exitFileItem);
 		exitFileItem.addActionListener(this);
