@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21407 $ $Author: evilmynex $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
@@ -46,10 +47,10 @@ FOLLOWER:SpecialMountLVL=17	TYPE:Special Mount	HD:1
 FOLLOWER:SpecialMountLVL=18	TYPE:Special Mount	HD:1
 FOLLOWER:SpecialMountLVL=20	TYPE:Special Mount	HD:1
 ###Block:
-# Class of the Master		Type				Main Race Type			Template
-FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount	RACETYPE:Animal/Magical Beast	TEMPLATE:Celestial Creature
+# Class of the Master		Type				Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Main Race Type			Template
+FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount														RACETYPE:Animal/Magical Beast	TEMPLATE:Celestial Creature
 
-# Class of the Master		Type				Copy Masters BAB		Copy Masters Checks	HP formula based on Master
+# Class of the Master		Type				Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Main Race Type			Template
 FOLLOWER:ShadowCompanionLVL=1	TYPE:Shadow Companion	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)
 
 ###Block: Standard Companions

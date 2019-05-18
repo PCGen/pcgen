@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 
 SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
 
@@ -12,6 +13,7 @@ SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/
 ###Block: Familiar Choices
 
 # COMMENT: For the brownie, I'm assuming neutral means TN.  I could be wrong.
+# Ability Name								Allowed Companions
 CATEGORY=Internal|Improved Familiar List (5th Level).MOD	COMPANIONLIST:Familiar|Familiar (Brownie)|PREALIGN:TN,NE,NG,CN,LN
 CATEGORY=Internal|Improved Familiar List (5th Level).MOD	COMPANIONLIST:Familiar|Familiar (Elemental (Ice/Small)),Familiar (Elemental (Lightning/Small)),Familiar (Elemental (Magma/Small)),Familiar (Elemental (Mud/Small))
 

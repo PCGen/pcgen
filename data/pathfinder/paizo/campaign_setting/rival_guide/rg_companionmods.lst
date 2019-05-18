@@ -1,3 +1,5 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Rival Guide	SOURCESHORT:RG	SOURCEWEB:https://paizo.com/products/btpy8kc	SOURCEDATE:2011-05
 
-FOLLOWER:VampiricAnimalCompanion=1		TYPE:Animal Companion		TEMPLATE:Vampiric Animal Companion
+# Class of the Master			Type				Template
+FOLLOWER:VampiricAnimalCompanion=1	TYPE:Animal Companion	TEMPLATE:Vampiric Animal Companion

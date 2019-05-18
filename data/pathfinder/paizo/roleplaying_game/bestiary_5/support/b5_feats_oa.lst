@@ -1,8 +1,9 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Bestiary 5	SOURCESHORT:B5	SOURCEWEB:http://paizo.com/products/btpy9g9x	SOURCEDATE:2015-12
 
 ###Block: Familiar Choices
-# Ability Name				Allowed Companions
+# Ability Name								Allowed Companions
 CATEGORY=Internal|Improved Familiar List (5th Level).MOD	COMPANIONLIST:Familiar|Familiar (Brain Mole)|PREALIGN:NG,CG,TN,CN,NE,CE
 
 CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Chuspiki)|PREALIGN:CG,CN,CE

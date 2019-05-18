@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Bestiary 6	SOURCESHORT:B6	SOURCEWEB:http://paizo.com/products/btpy9r1y	SOURCEDATE:2017-05
 
 #Animal Companions
@@ -64,18 +65,18 @@ STAT:STR=11|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 STARTPACK:Familiar ~ Coral Capuchin	TYPE:Improved Familiar	VISIBLE:NO	SOURCEPAGE:p.66
 ALIGN:TN
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Sleight of Hand			RANK:1
-SKILL:Stealth				RANK:1
+SKILL:Sleight of Hand	RANK:1
+SKILL:Stealth		RANK:1
 ABILITY:CATEGORY=FEAT|Weapon Finesse
 
 
 STARTPACK:Familiar ~ Mockingfey	TYPE:Improved Familiar	VISIBLE:NO	SOURCEPAGE:p.189
 ALIGN:CN
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-SKILL:Acrobatics				RANK:3
-SKILL:Disguise				RANK:3
-SKILL:Fly					RANK:1
-SKILL:Perception				RANK:3
-SKILL:Stealth				RANK:2
+SKILL:Acrobatics	RANK:3
+SKILL:Disguise	RANK:3
+SKILL:Fly		RANK:1
+SKILL:Perception	RANK:3
+SKILL:Stealth	RANK:2
 ABILITY:CATEGORY=FEAT|Flyby Attack
 ABILITY:CATEGORY=FEAT|Weapon Finesse

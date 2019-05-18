@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
@@ -6,7 +7,7 @@
 ###--------------------------------------------###
 
 
-# Ability Name					Define						Modify VAR
+# Ability Name						Define						Modify VAR
 CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_DefensiveTraining|0
 CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Greed|0
 CATEGORY=Internal|Racial Traits ~ Dwarf.MOD	DEFINE:Dwarf_Trait_Hatred|0
@@ -663,7 +664,7 @@ CATEGORY=Class|Monk.MOD																										BONUS:VAR|Monk_CF_Proficiencies
 ###Block:
 
 # Paladin
-# Ability Name			Define												Modify VAR
+# Ability Name			Define																	Modify VAR
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_ClassSkills|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_WeaponProficiencies|0
 CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_WeaponProficiencySimple|0
@@ -701,60 +702,60 @@ CATEGORY=Class|Paladin.MOD	DEFINE:Paladin_CF_CodeOfConduct|0
 
 CATEGORY=Class|Paladin.MOD	DEFINE:AllowHolyAvenger|0	DEFINE:HolyAvengerCL|0	DEFINE:HolyAvengerSR|0	DEFINE:Paladin_AuraRange|0	BONUS:VAR|AlignmentAuraLVL|PaladinLVL	BONUS:VAR|AllowHolyAvenger|1	BONUS:VAR|HolyAvengerCL|PaladinLVL	BONUS:VAR|HolyAvengerSR|5+PaladinLVL	BONUS:VAR|Paladin_AuraRange|10|TYPE=Base
 
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ClassSkills=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_WeaponProficiencies=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_WeaponProficiencySimple,Paladin_CF_WeaponProficiencyMartial|1|TYPE=Boolean|PREVARGTEQ:Paladin_CF_WeaponProficiencies,1
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_WeaponProficiencySimple|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_WeaponProficiencySimple=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_WeaponProficiencyMartial|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_WeaponProficiencyMartial=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ArmorProficiencies=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ArmorProficiencyHeavy,Paladin_CF_ArmorProficiencyMedium,Paladin_CF_ArmorProficiencyLight|1|TYPE=Boolean|PREVARGTEQ:Paladin_CF_ArmorProficiencies,1
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ArmorProficiencyHeavy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ArmorProficiencyHeavy=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ArmorProficiencyMedium|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ArmorProficiencyMedium=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ArmorProficiencyLight|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ArmorProficiencyLight=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ShieldProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ShieldProficiency=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ClassSkills=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_WeaponProficiencies=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_WeaponProficiencySimple,Paladin_CF_WeaponProficiencyMartial|1|TYPE=Boolean|PREVARGTEQ:Paladin_CF_WeaponProficiencies,1
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_WeaponProficiencySimple|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_WeaponProficiencySimple=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_WeaponProficiencyMartial|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_WeaponProficiencyMartial=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_ArmorProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ArmorProficiencies=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_ArmorProficiencyHeavy,Paladin_CF_ArmorProficiencyMedium,Paladin_CF_ArmorProficiencyLight|1|TYPE=Boolean|PREVARGTEQ:Paladin_CF_ArmorProficiencies,1
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_ArmorProficiencyHeavy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ArmorProficiencyHeavy=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_ArmorProficiencyMedium|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ArmorProficiencyMedium=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_ArmorProficiencyLight|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ArmorProficiencyLight=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_ShieldProficiency|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ShieldProficiency=True
 
 
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfGood|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfGood=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_DetectEvil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DetectEvil=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_SmiteEvil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_SmiteEvil=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_DivineGrace|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DivineGrace=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_LayOnHands|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_LayOnHands=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfCourage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfCourage=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_DivineHealth|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DivineHealth=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy3=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy6=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy9=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy12=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy15=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy18=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ChannelPositiveEnergy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ChannelPositiveEnergy=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Spells=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_DivineBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DivineBond=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_BondedMount|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_BondedMount=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_BondedWeapon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_BondedWeapon=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfResolve|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfResolve=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfJustice|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfJustice=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfFaith|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfFaith=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfRighteousness|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfRighteousness=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_HolyChampion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_HolyChampion=True
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_CodeOfConduct|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_CodeOfConduct=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_AuraOfGood|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfGood=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_DetectEvil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DetectEvil=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_SmiteEvil|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_SmiteEvil=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_DivineGrace|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DivineGrace=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_LayOnHands|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_LayOnHands=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_AuraOfCourage|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfCourage=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_DivineHealth|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DivineHealth=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_Mercy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_Mercy3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy3=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_Mercy6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy6=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_Mercy9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy9=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_Mercy12|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy12=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_Mercy15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy15=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_Mercy18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Mercy18=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_ChannelPositiveEnergy|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_ChannelPositiveEnergy=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_Spells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_Spells=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_DivineBond|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_DivineBond=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_BondedMount|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_BondedMount=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_BondedWeapon|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_BondedWeapon=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_AuraOfResolve|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfResolve=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_AuraOfJustice|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfJustice=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_AuraOfFaith|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfFaith=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_AuraOfRighteousness|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_AuraOfRighteousness=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_HolyChampion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_HolyChampion=True
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_CodeOfConduct|1|TYPE=Boolean|PREFACT:1,ABILITIES,Paladin_CF_CodeOfConduct=True
 # Old Style
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfGood|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfGood
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_DetectEvil|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectEvil
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_SmiteEvil|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinSmiteEvil
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_DivineGrace|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineGrace
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_LayOnHands|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinLayOnHands
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfCourage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfCourage
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_DivineHealth|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineHealth
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_Mercy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinMercy
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_ChannelPositiveEnergy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinChannelPositiveEnergy
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_DivineBond|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineBond
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfResolve|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfResolve
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfJustice|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfJustice
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfFaith|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfFaith
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_AuraOfRighteousness|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfRighteousness
-CATEGORY=Class|Paladin.MOD														BONUS:VAR|Paladin_CF_HolyChampion|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinHolyChampion
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_AuraOfGood|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfGood
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_DetectEvil|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDetectEvil
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_SmiteEvil|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinSmiteEvil
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_DivineGrace|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineGrace
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_LayOnHands|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinLayOnHands
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_AuraOfCourage|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfCourage
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_DivineHealth|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineHealth
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_Mercy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinMercy
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_ChannelPositiveEnergy|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinChannelPositiveEnergy
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_DivineBond|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinDivineBond
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_AuraOfResolve|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfResolve
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_AuraOfJustice|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfJustice
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_AuraOfFaith|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfFaith
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_AuraOfRighteousness|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinAuraOfRighteousness
+CATEGORY=Class|Paladin.MOD																			BONUS:VAR|Paladin_CF_HolyChampion|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinHolyChampion
 
 ###
 #	Ranger

@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Occult Adventures	SOURCESHORT:OA	SOURCEWEB:http://paizo.com/products/btpy9a0h	SOURCEDATE:2015-07
 
@@ -1341,7 +1342,7 @@ Occultist Spell ~ Transformation.MOD										OUTPUTNAME:Transformation				CLASS
 # spell immunity (greater communal) not found; .MOD skipped.
 
 #0-Level Psychic Spells:
-# Spell Name					Classes of caster
+# Spell Name					Type			Classes of caster
 Arcane mark.MOD					TYPE:Psychic	CLASSES:Psychic=0
 bleed.MOD						TYPE:Psychic	CLASSES:Psychic=0
 dancing lights.MOD				TYPE:Psychic	CLASSES:Psychic=0
@@ -2128,42 +2129,42 @@ wish.MOD						TYPE:Psychic	CLASSES:Psychic=9
 #Isolate.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
 
 # Psychic Detective
-Arcane mark.MOD					CLASSES:Psychic Detective=0
-bleed.MOD						CLASSES:Psychic Detective=0
-dancing lights.MOD				CLASSES:Psychic Detective=0
-daze.MOD						CLASSES:Psychic Detective=0
-detect magic.MOD					CLASSES:Psychic Detective=0
-detect poison.MOD					CLASSES:Psychic Detective=0
-detect psychic significance.MOD		CLASSES:Psychic Detective=0
-flare.MOD						CLASSES:Psychic Detective=0
-ghost sound.MOD					CLASSES:Psychic Detective=0
-grave words.MOD					CLASSES:Psychic Detective=0
-haunted fey aspect.MOD				CLASSES:Psychic Detective=0
-know direction.MOD				CLASSES:Psychic Detective=0
-light.MOD						CLASSES:Psychic Detective=0
-lullaby.MOD						CLASSES:Psychic Detective=0
-mage hand.MOD					CLASSES:Psychic Detective=0
-mending.MOD						CLASSES:Psychic Detective=0
-message.MOD						CLASSES:Psychic Detective=0
-open/close.MOD					CLASSES:Psychic Detective=0
-prestidigitation.MOD				CLASSES:Psychic Detective=0
-read magic.MOD					CLASSES:Psychic Detective=0
-resistance.MOD					CLASSES:Psychic Detective=0
-sift.MOD						CLASSES:Psychic Detective=0
-stabilize.MOD					CLASSES:Psychic Detective=0
-telekinetic projectile.MOD			CLASSES:Psychic Detective=0
-virtue.MOD						CLASSES:Psychic Detective=0
+Arcane mark.MOD								CLASSES:Psychic Detective=0
+bleed.MOD									CLASSES:Psychic Detective=0
+dancing lights.MOD							CLASSES:Psychic Detective=0
+daze.MOD									CLASSES:Psychic Detective=0
+detect magic.MOD								CLASSES:Psychic Detective=0
+detect poison.MOD								CLASSES:Psychic Detective=0
+detect psychic significance.MOD					CLASSES:Psychic Detective=0
+flare.MOD									CLASSES:Psychic Detective=0
+ghost sound.MOD								CLASSES:Psychic Detective=0
+grave words.MOD								CLASSES:Psychic Detective=0
+haunted fey aspect.MOD							CLASSES:Psychic Detective=0
+know direction.MOD							CLASSES:Psychic Detective=0
+light.MOD									CLASSES:Psychic Detective=0
+lullaby.MOD									CLASSES:Psychic Detective=0
+mage hand.MOD								CLASSES:Psychic Detective=0
+mending.MOD									CLASSES:Psychic Detective=0
+message.MOD									CLASSES:Psychic Detective=0
+open/close.MOD								CLASSES:Psychic Detective=0
+prestidigitation.MOD							CLASSES:Psychic Detective=0
+read magic.MOD								CLASSES:Psychic Detective=0
+resistance.MOD								CLASSES:Psychic Detective=0
+sift.MOD									CLASSES:Psychic Detective=0
+stabilize.MOD								CLASSES:Psychic Detective=0
+telekinetic projectile.MOD						CLASSES:Psychic Detective=0
+virtue.MOD									CLASSES:Psychic Detective=0
 #Psychic Detective=1|
-Detect Chaos.MOD					CLASSES:Psychic Detective=1
-Detect Good.MOD					CLASSES:Psychic Detective=1
-Detect Law.MOD					CLASSES:Psychic Detective=1
-Find Traps.MOD					CLASSES:Psychic Detective=1
+Detect Chaos.MOD								CLASSES:Psychic Detective=1
+Detect Good.MOD								CLASSES:Psychic Detective=1
+Detect Law.MOD								CLASSES:Psychic Detective=1
+Find Traps.MOD								CLASSES:Psychic Detective=1
 # Psychic Detective=3|
-Calm Spirit.MOD					CLASSES:Psychic Detective=3
-Daylight.MOD					CLASSES:Psychic Detective=3
+Calm Spirit.MOD								CLASSES:Psychic Detective=3
+Daylight.MOD								CLASSES:Psychic Detective=3
 # Psychic Detective=4|
-Modify Memory.MOD					CLASSES:Psychic Detective=4
+Modify Memory.MOD								CLASSES:Psychic Detective=4
 # Psychic Detective=6
-Banishment.MOD					CLASSES:Psychic Detective=6
-Moment of Prescience.MOD			CLASSES:Psychic Detective=6
-Scrying (Greater).MOD				CLASSES:Psychic Detective=6
+Banishment.MOD								CLASSES:Psychic Detective=6
+Moment of Prescience.MOD						CLASSES:Psychic Detective=6
+Scrying (Greater).MOD							CLASSES:Psychic Detective=6

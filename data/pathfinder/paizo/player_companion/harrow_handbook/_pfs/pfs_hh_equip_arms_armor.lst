@@ -1,3 +1,5 @@
-SOURCELONG:Pathfinder Player Companion: The Harrow Handbook		SOURCESHORT:HH	SOURCEWEB:http://paizo.com/products/btpy95zm	SOURCEDATE:2014-07
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: The Harrow Handbook	SOURCESHORT:HH	SOURCEWEB:http://paizo.com/products/btpy95zm	SOURCEDATE:2014-07
 
+# Equipment Name		Type			!PRECHARACTERTYPE
 Snakebite Dagger.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC

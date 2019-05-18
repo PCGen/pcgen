@@ -1,4 +1,6 @@
-SOURCELONG:Inner Sea Temples	SOURCESHORT:ISTem	SOURCEDATE:2015-11
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: Inner Sea Temples	SOURCESHORT:ISTem	SOURCEWEB:https://paizo.com/products/btpy9op7	SOURCEDATE:2015-11
 
-Clay Whippoorwill				TYPE:Goods.Tools.Instrument.Wind.Resizable			COST:20000	WT:2			SOURCEPAGE:p.42		SPROP:Doubles range of secret Nightsong language
-Soul Candle					TYPE:Goods.General.Consumable.Light Source			COST:1				SOURCEPAGE:p.42		SPROP:Goes out when within 5 feet of a haunt or undead.
+# Equipment Name	Type								Cost		Weight	Source Page		Special Property
+Clay Whippoorwill	TYPE:Goods.Tools.Instrument.Wind.Resizable	COST:20000	WT:2		SOURCEPAGE:p.42	SPROP:Doubles range of secret Nightsong language
+Soul Candle		TYPE:Goods.General.Consumable.Light Source	COST:1			SOURCEPAGE:p.42	SPROP:Goes out when within 5 feet of a haunt or undead.

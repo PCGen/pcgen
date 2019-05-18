@@ -1,4 +1,6 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #SOURCELONG:Monster Hunter's Handbook		SOURCESHORT:MHH	SOURCEWEB:http://paizo.com/products/btpy9s7z	SOURCEDATE:2017-04
 
-ABILITYCATEGORY:Monster Challenger Trait Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MonsterChallengerTraitChoice		PLURAL:Monster Challenger Trait Choices		DISPLAYLOCATION:Misc
-ABILITYCATEGORY:Disciple of the Pike Training		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DiscipleOfThePikeTraining										DISPLAYLOCATION:Class Features
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI			Display Location
+ABILITYCATEGORY:Monster Challenger Trait Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:MonsterChallengerTraitChoice	PLURAL:Monster Challenger Trait Choices	DISPLAYLOCATION:Misc
+ABILITYCATEGORY:Disciple of the Pike Training	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DiscipleOfThePikeTraining								DISPLAYLOCATION:Class Features

@@ -1,7 +1,9 @@
-SOURCELONG:Dungeons of Golarion	SOURCESHORT:Dung	SOURCEWEB:https://paizo.com/products/btpy8lv5	SOURCEDATE:2011-07
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Dungeons of Golarion	SOURCESHORT:DUNG	SOURCEWEB:https://paizo.com/products/btpy8lv5	SOURCEDATE:2011-07
 
-Add Darkvision				PREVARLT:DarkvisionRange,1	BONUS:VAR|DarkvisionRange|60|TYPE=Base
-Double Darkvision				PREVARGTEQ:DarkvisionRange,1	BONUS:VAR|DarkvisionRange|60
+# Template Name	Challenge Rating	Damage Reduction			Template								Source Page		Required AL		Prohibited Race						Required Stat	Required Template				Var. Min. Value			Var. Must Be Lower		Bonus to skill																	Stat bonus											Modify VAR						Class Skill							Ability									Add Levels
+Add Darkvision																																														PREVARLT:DarkvisionRange,1																																BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Double Darkvision																																									PREVARGTEQ:DarkvisionRange,1																																					BONUS:VAR|DarkvisionRange|60
 
-Dream Eater			CR:2		!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct	PRESTAT:1,INT=3	PREALIGN:LE,NE,CE		SOURCEPAGE:p.42		ABILITY:Internal|AUTOMATIC|Racial Traits ~ Dream Eater		TEMPLATE:CHOOSE:Add Darkvision|Double Darkvision	BONUS:STAT|STR|6	BONUS:STAT|CON,CHA|4	BONUS:STAT|DEX,INT,WIS|2	BONUS:SKILL|Perception,Stealth|4|TYPE=Racial	BONUS:SKILL|Knowledge (religion),Knowledge (planes)|8|TYPE=Racial		CSKILL:Knowledge (religion)|Knowledge (planes)
-Gallowdead			CR:2		PRETEMPLATE:1,Skeletal Champion										SOURCEPAGE:p.21		ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gallowdead		ADDLEVEL:Undead|2		DR:10/Bludgeoning		DR:10/Magic
+Dream Eater		CR:2								TEMPLATE:CHOOSE:Add Darkvision|Double Darkvision	SOURCEPAGE:p.42	PREALIGN:LE,NE,CE	!PRERACE:1,RACETYPE=Undead,RACETYPE=Construct	PRESTAT:1,INT=3																	BONUS:SKILL|Perception,Stealth|4|TYPE=Racial	BONUS:SKILL|Knowledge (religion),Knowledge (planes)|8|TYPE=Racial	BONUS:STAT|STR|6	BONUS:STAT|CON,CHA|4	BONUS:STAT|DEX,INT,WIS|2								CSKILL:Knowledge (religion)|Knowledge (planes)	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Dream Eater
+Gallowdead		CR:2			DR:10/Bludgeoning	DR:10/Magic										SOURCEPAGE:p.21															PRETEMPLATE:1,Skeletal Champion																																																									ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gallowdead		ADDLEVEL:Undead|2

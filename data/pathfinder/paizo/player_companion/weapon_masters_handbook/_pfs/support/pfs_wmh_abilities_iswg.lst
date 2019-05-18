@@ -1,11 +1,12 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 ###Block: Combat Tricks
-# Ability Name		Unique Key						Category of Ability		Type							Description																																														Source Page
-CATEGORY=Special Ability|Combat Trick ~ Aldori Dueling Mastery.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Combat Trick ~ Demon Hunter.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Combat Trick ~ Desperate Battler.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Combat Trick ~ Flagbearer.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Combat Trick ~ Focused Discipline.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Combat Trick ~ Hamatulatsu.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Combat Trick ~ Shrewd Tactician.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
-CATEGORY=Special Ability|Combat Trick ~ Taldan Duelist.MOD	PRETYPE:1,PFSLegal	TYPE:PFSNotLegal
+# Ability Name										Type			Required Type
+CATEGORY=Special Ability|Combat Trick ~ Aldori Dueling Mastery.MOD	TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Combat Trick ~ Demon Hunter.MOD			TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Combat Trick ~ Desperate Battler.MOD		TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Combat Trick ~ Flagbearer.MOD			TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Combat Trick ~ Focused Discipline.MOD		TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Combat Trick ~ Hamatulatsu.MOD			TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Combat Trick ~ Shrewd Tactician.MOD		TYPE:PFSNotLegal	PRETYPE:1,PFSLegal
+CATEGORY=Special Ability|Combat Trick ~ Taldan Duelist.MOD			TYPE:PFSNotLegal	PRETYPE:1,PFSLegal

@@ -1,31 +1,29 @@
-SOURCELONG:Black Markets		SOURCESHORT:BM	SOURCEWEB:https://paizo.com/products/btpy9h7x	SOURCEDATE:2015-10
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Black Markets	SOURCESHORT:BM	SOURCEWEB:https://paizo.com/products/btpy9h7x	SOURCEDATE:2015-10
 
 # ==============================
 # Goods
 # ==============================
 
-Alchemical Tar Paper		TYPE:Goods.Tools.Traps			COST:50		WT:.5	SOURCEPAGE:p.20
-Autosniper			TYPE:Goods.Tools.Traps			COST:250	WT:1	SOURCEPAGE:p.20
-Flask Launcher			TYPE:Goods.Tools.Traps			COST:300	WT:9	SOURCEPAGE:p.20
-Net Rigging			TYPE:Goods.Tools.Traps			COST:250	WT:40	SOURCEPAGE:p.20
-Poison Latch Needle		TYPE:Goods.Tools.Traps			COST:200		SOURCEPAGE:p.21
-Pull-Cord Grenade		TYPE:Goods.Tools.Traps			COST:150	WT:2	SOURCEPAGE:p.21
+# Equipment Name			Type						Cost		Weight	Source Page		Special Property
+Alchemical Tar Paper		TYPE:Goods.Tools.Traps			COST:50	WT:.5		SOURCEPAGE:p.20
+Autosniper				TYPE:Goods.Tools.Traps			COST:250	WT:1		SOURCEPAGE:p.20
+Flask Launcher			TYPE:Goods.Tools.Traps			COST:300	WT:9		SOURCEPAGE:p.20
+Net Rigging				TYPE:Goods.Tools.Traps			COST:250	WT:40		SOURCEPAGE:p.20
+Poison Latch Needle		TYPE:Goods.Tools.Traps			COST:200			SOURCEPAGE:p.21
+Pull-Cord Grenade			TYPE:Goods.Tools.Traps			COST:150	WT:2		SOURCEPAGE:p.21
 
 # ==============================
 # Poisons
 # ==============================
 
-Poison (Abyssal Arsenic)	TYPE:Goods.Poison.Consumable		COST:420		SOURCEPAGE:p.12		SPROP:Ingested; Fort DC 13; Onset 10 min; Freq 1 min (4); Effect 1d2 Con dmg; Cure 2 consecutive saves; Spell Effect disfiguring touch (Will DC 13)
-Poison (Burning Heart)		TYPE:Goods.Poison.Consumable		COST:150		SOURCEPAGE:p.12		SPROP:Ingested; Fort DC 14; Onset 10 min; Freq 1 min (6); Effect 1d2 Str dmg; Cure 1 save; Spell Effect touch of combustion (ARG) (Reflex DC 11); Note-target can attempt one save to cure a lycanthropy affliction contracted in the past hour
-Poison (Dust of Eox)		TYPE:Goods.Poison.Consumable		COST:1150		SOURCEPAGE:p.12		SPROP:Ingested; Fort DC 13; Onset 10 min; Freq 1 min (6); Effect 1d3 Str dmg; Cure 2 consecutive saves; Spell Effect dispel magic
-Poison (Entropic Dust)		TYPE:Goods.Poison.Consumable		COST:1500		SOURCEPAGE:p.12		SPROP:Inhaled; Fort DC 18; Freq 1 rd (6); Effect 1d2 Cha dmg, victim needs concentration chack (DC 18) to channel positive energy or lay on hands; Cure 1 save
-Poison (Lazurite Flakes)	TYPE:Goods.Poison.Consumable		COST:5400		SOURCEPAGE:p.12		SPROP:Ingested; Fort DC 18; Onset 10 min; Freq 1 min (8); Effect 1d2 Con dmg, humanoid who dies while poisoned rises as an uncontrolled ghoul at the next midnight; Cure 2 consecutive saves
-Poison (Liquid Influence)	TYPE:Goods.Poison.Consumable		COST:900		SOURCEPAGE:p.12		SPROP:Ingested; Fort DC 13; Onset 10 min; Freq 1 min (6); Effect 1d3 Wis dmg; Cure 2 consecutive saves; Spell Effect suggestion (Will DC 14)
-Poison (Quick Rot)		TYPE:Goods.Poison.Consumable		COST:450		SOURCEPAGE:p.12		SPROP:Injury; Fort DC 14; Freq 1 rd (4); Effect 1d2 Con dmg, until the Con damage is healed, victim gains the stench monster ability (DC 14 or sickened for 1d6+4 min, victim not immune; Cure 1 save
-Poison (Xensh Spores)		TYPE:Goods.Poison.Consumable		COST:1200		SOURCEPAGE:p.12		SPROP:Inhaled; Fort DC 16; Onset 10 min; Freq 1 hr (6); Effect 1d2 Dex dmg, until the Dex damage is healed, the victim regains only half the normal amount of hit points from channeled energy and conjuration (healing) spells; Cure 2 consecutive saves
+Poison (Abyssal Arsenic)	TYPE:Goods.Poison.Consumable		COST:420			SOURCEPAGE:p.12	SPROP:Ingested; Fort DC 13; Onset 10 min; Freq 1 min (4); Effect 1d2 Con dmg; Cure 2 consecutive saves; Spell Effect disfiguring touch (Will DC 13)
+Poison (Burning Heart)		TYPE:Goods.Poison.Consumable		COST:150			SOURCEPAGE:p.12	SPROP:Ingested; Fort DC 14; Onset 10 min; Freq 1 min (6); Effect 1d2 Str dmg; Cure 1 save; Spell Effect touch of combustion (ARG) (Reflex DC 11); Note-target can attempt one save to cure a lycanthropy affliction contracted in the past hour
+Poison (Dust of Eox)		TYPE:Goods.Poison.Consumable		COST:1150			SOURCEPAGE:p.12	SPROP:Ingested; Fort DC 13; Onset 10 min; Freq 1 min (6); Effect 1d3 Str dmg; Cure 2 consecutive saves; Spell Effect dispel magic
+Poison (Entropic Dust)		TYPE:Goods.Poison.Consumable		COST:1500			SOURCEPAGE:p.12	SPROP:Inhaled; Fort DC 18; Freq 1 rd (6); Effect 1d2 Cha dmg, victim needs concentration chack (DC 18) to channel positive energy or lay on hands; Cure 1 save
+Poison (Lazurite Flakes)	TYPE:Goods.Poison.Consumable		COST:5400			SOURCEPAGE:p.12	SPROP:Ingested; Fort DC 18; Onset 10 min; Freq 1 min (8); Effect 1d2 Con dmg, humanoid who dies while poisoned rises as an uncontrolled ghoul at the next midnight; Cure 2 consecutive saves
+Poison (Liquid Influence)	TYPE:Goods.Poison.Consumable		COST:900			SOURCEPAGE:p.12	SPROP:Ingested; Fort DC 13; Onset 10 min; Freq 1 min (6); Effect 1d3 Wis dmg; Cure 2 consecutive saves; Spell Effect suggestion (Will DC 14)
+Poison (Quick Rot)		TYPE:Goods.Poison.Consumable		COST:450			SOURCEPAGE:p.12	SPROP:Injury; Fort DC 14; Freq 1 rd (4); Effect 1d2 Con dmg, until the Con damage is healed, victim gains the stench monster ability (DC 14 or sickened for 1d6+4 min, victim not immune; Cure 1 save
+Poison (Xensh Spores)		TYPE:Goods.Poison.Consumable		COST:1200			SOURCEPAGE:p.12	SPROP:Inhaled; Fort DC 16; Onset 10 min; Freq 1 hr (6); Effect 1d2 Dex dmg, until the Dex damage is healed, the victim regains only half the normal amount of hit points from channeled energy and conjuration (healing) spells; Cure 2 consecutive saves
 
-Drug (Pesh)			TYPE:TYPE:Goods.Drug.Consumable		COST:15			SOURCEPAGE:p.19		SPROP:Ingested or inhaled; Addiction moderate, Fortitude DC 20; Effect 1 hr; +1d2 alchemical bonus to Strength, –2 penalty on saves against illusions and mind-affecting effects; Effect after 1 hr; 1d2 hours of fatigue; Damage 1d2 Con and 1d2 Wis damage; [POWER COMPONENT] Doses 1; Spells enchantment school; Effect +1 caster level for the purpose of duration
-
-
-
-
+Drug (Pesh)				TYPE:TYPE:Goods.Drug.Consumable	COST:15			SOURCEPAGE:p.19	SPROP:Ingested or inhaled; Addiction moderate, Fortitude DC 20; Effect 1 hr; +1d2 alchemical bonus to Strength, –2 penalty on saves against illusions and mind-affecting effects; Effect after 1 hr; 1d2 hours of fatigue; Damage 1d2 Con and 1d2 Wis damage; [POWER COMPONENT] Doses 1; Spells enchantment school; Effect +1 caster level for the purpose of duration

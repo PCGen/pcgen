@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Bestiary 5	SOURCESHORT:B5	SOURCEWEB:http://paizo.com/products/btpy9g9x	SOURCEDATE:2015-12
 
@@ -26,9 +27,9 @@ Companion Advancement (Wolliped)		KEY:Companion Advancement ~ Wolliped		CATEGORY
 Racial Traits ~ Chicken												CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|TYPE=ChickenRacialTrait
 Racial Traits ~ Flying Fox											CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|TYPE=FlyingFoxRacialTrait|Scent
 Racial Traits ~ Penguin												CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|TYPE=PenguinRacialTrait|Hold Breath
-Racial Traits ~ Red Panda												CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|Scent
+Racial Traits ~ Red Panda											CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|Scent
 Racial Traits ~ Seal												CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|Can't Be Tripped|Hold Breath
-Racial Traits ~ Trilobite												CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|TYPE=TrilobiteRacialTrait|Water Dependency	ABILITY:FEAT|VIRTUAL|Weapon Finesse
+Racial Traits ~ Trilobite											CATEGORY:Internal																																																						ABILITY:Special Ability|AUTOMATIC|TYPE=TrilobiteRacialTrait|Water Dependency	ABILITY:FEAT|VIRTUAL|Weapon Finesse
 
 Familiar (Chicken)												CATEGORY:Internal																																																																									BONUS:HP|CURRENTMAX|FamiliarGrantedBonus_3|TYPE=Familiar
 Familiar (Flying Fox)												CATEGORY:Internal																																																																																			BONUS:SAVE|Fortitude|FamiliarGrantedBonus_2|TYPE=Familiar
@@ -40,7 +41,7 @@ Familiar (Clockwork Familiar)											CATEGORY:Internal																							
 
 ##Familiar Special Abilities
 #Chicken
-Drift							KEY:Chicken ~ Drift					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ChickenRacialTrait												DESC:A chicken flies in short bursts, and can't use its fly speed to hover. When it flies, it must end its move action by landing or perching on a solid surface.																																																																																			SOURCEPAGE:p.112
+Drift							KEY:Chicken ~ Drift					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.ChickenRacialTrait												DESC:A chicken flies in short bursts, and can't use its fly speed to hover. When it flies, it must end its move action by landing or perching on a solid surface.																																																																																				SOURCEPAGE:p.112
 
 #Flying Fox
 Disease Resistant					KEY:Flying Fox ~ Disease Resistant			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.FlyingFoxRacialTrait											DESC:Flying foxes are resistant to disease. They receive a +4 racial bonus on saving throws against disease.																																																																																												SOURCEPAGE:p.112	ASPECT:SaveBonus|+4 on saves vs. disease

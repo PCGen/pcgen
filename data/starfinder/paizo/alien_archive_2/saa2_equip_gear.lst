@@ -1,4 +1,6 @@
-Dreamsnuff		QUALITY:Level|8		COST:1500		TYPE:Goods.Chemical.Drug		SOURCEPAGE:p.45
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
+# Equipment Name	Type					Cost		Weight	Source Page		Modify VAR		Quality and value
+Dreamsnuff		TYPE:Goods.Chemical.Drug	COST:1500			SOURCEPAGE:p.45				QUALITY:Level|8
 
 #TECHNOLOGICAL ITEMS
-Plasma diverter		TYPE:Goods.TechItem.General		QUALITY:Level|6		COST:4300		BONUS:VAR|Bulk|1		QUALITY:Bulk|1		WT:1		SOURCEPAGE:p.101
+Plasma diverter	TYPE:Goods.TechItem.General	COST:4300	WT:1		SOURCEPAGE:p.101	BONUS:VAR|Bulk|1	QUALITY:Level|6	QUALITY:Bulk|1

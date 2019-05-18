@@ -1,3 +1,5 @@
-SOURCELONG:Dungeons of Golarion	SOURCESHORT:Dung	SOURCEWEB:https://paizo.com/products/btpy8lv5	SOURCEDATE:2011-07
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Dungeons of Golarion	SOURCESHORT:DUNG	SOURCEWEB:https://paizo.com/products/btpy8lv5	SOURCEDATE:2011-07
 
+# Language		Product Identity?	Type
 Thassilonian	NAMEISPI:YES	TYPE:Spoken.Written.Read

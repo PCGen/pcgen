@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Thu May 22 08:41:39 2014 -- reformated by prettylst.pl v1.51 (build 23662)
 SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
 #Original Entry: Douglas Limmer
@@ -5,7 +6,7 @@ SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.c
 
 ### --- Psicrystal Kit (begin) --- ###
 
-STARTPACK:Psicrystal Stats					TYPE:Psicrystal					VISIBLE:QUALIFY	EQUIPBUY:0
+STARTPACK:Psicrystal Stats	TYPE:Psicrystal	VISIBLE:QUALIFY	EQUIPBUY:0
 STAT:STR=10|DEX=10|WIS=10|CON=10|INT=10|CHA=10
 
 ### --- Psicrystal Kit (end) --- ###

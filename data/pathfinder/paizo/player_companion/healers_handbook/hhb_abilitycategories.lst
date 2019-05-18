@@ -1,10 +1,12 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 # ORIGINAL ENTRY: Brad Grinstead
 # ORIGINAL ENTRY DATE: 6 January 2018
 
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
 
-ABILITYCATEGORY:Soul-Searcher's Save Bonus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoulSearcherSaveBonus		PLURAL:Soul-Searcher's Save Bonuses		DISPLAYLOCATION:Traits
+# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Soul-Searcher's Save Bonus	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SoulSearcherSaveBonus	PLURAL:Soul-Searcher's Save Bonuses	DISPLAYLOCATION:Traits
 
 ###Block: Oracle Revelations ability categories
-ABILITYCATEGORY:Succor Mystery Revelation		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SuccorRevelation.GeneralRevelation		PLURAL:Succor Mystery Revelations		DISPLAYLOCATION:Class Features
-
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object					Plural description for UI		Display Location
+ABILITYCATEGORY:Succor Mystery Revelation	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:SuccorRevelation.GeneralRevelation	PLURAL:Succor Mystery Revelations	DISPLAYLOCATION:Class Features

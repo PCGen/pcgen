@@ -1,8 +1,9 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Monster Codex	SOURCESHORT:MC	SOURCEWEB:http://paizo.com/products/btpy9926?Pathfinder-Roleplaying-Game-Monster-Codex	SOURCEDATE:2014-11
 
 # Ability Name											Unique Key				Output Name			Category of Ability		Type						Description																														Ability																	Aspects
-Racial Traits ~ Bat (Sootwing)																		CATEGORY:Internal																																								ABILITY:Special Ability|AUTOMATIC|Bat (Sootwing) ~ Disease|Bat (Sootwing) ~ Paralysis|Channel Resistance
+Racial Traits ~ Bat (Sootwing)																	CATEGORY:Internal																																								ABILITY:Special Ability|AUTOMATIC|Bat (Sootwing) ~ Disease|Bat (Sootwing) ~ Paralysis|Channel Resistance
 Racial Traits ~ Seru																			CATEGORY:Internal																																								ABILITY:Special Ability|AUTOMATIC|Seru ~ Poison|Seru ~ Spit Venom|Scent|Telepathy
 
 #Bat (Sootwing)

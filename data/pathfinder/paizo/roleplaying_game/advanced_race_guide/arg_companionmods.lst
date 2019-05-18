@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 20122 $ $Author: zaister $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
 # Original Entry by: Scott Meyer
@@ -16,8 +17,8 @@ FOLLOWER:ExoticPetLVL=9	TYPE:Exotic Pet																															DEFINESTAT
 MASTERBONUSRACE:Familiar (Monkey)	TYPE:Exotic Pet	BONUS:SKILL|Acrobatics|3
 MASTERBONUSRACE:Familiar (Parrot)	TYPE:Exotic Pet	BONUS:SKILL|Appraise|3
 
-# Class of the Master	Type			Required Race			Apply Kit
-FOLLOWER:ExoticPetLVL=1	TYPE:Exotic Pet	PRERACE:1,Familiar (Parrot)	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Speak One Language
+# Class of the Master	Type			Ability											Required Race
+FOLLOWER:ExoticPetLVL=1	TYPE:Exotic Pet	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Speak One Language	PRERACE:1,Familiar (Parrot)
 
 ###Block: Plant Companion
 # Class of the Master		Type				Hit Dice	Ability																					Define							Bonus Ability Pool					Stat bonus			Modify VAR															Main Race Type
@@ -44,9 +45,9 @@ FOLLOWER:PlantCompanionLVL=20	TYPE:Plant Companion	HD:1																									
 
 
 ###Block:Demonic Familiar (Demonic Apostle)
-# Class of the Master	Type			Required Race			Apply Kit				Template				Required Ability
-FOLLOWER:FamiliarLVL=3	TYPE:Familiar											TEMPLATE:Fiendish Creature	PREABILITY:1,CATEGORY=Special Ability,Fiendish Familiar ~ Fiendish Vessel
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Parrot)	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Speak One Language
+# Class of the Master	Type			Ability											Required Race			Template				Required Ability
+FOLLOWER:FamiliarLVL=3	TYPE:Familiar																		TEMPLATE:Fiendish Creature	PREABILITY:1,CATEGORY=Special Ability,Fiendish Familiar ~ Fiendish Vessel
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Speak One Language	PRERACE:1,Familiar (Parrot)
 
 ###Block:Familiar Bonuses to Master
 # Race of familiar			Type				Bonus to HP			Save bonus			Bonus to skill

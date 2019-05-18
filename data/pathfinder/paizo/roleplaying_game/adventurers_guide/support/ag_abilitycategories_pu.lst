@@ -1,3 +1,5 @@
-ABILITYCATEGORY:Student of Perfection Bonus Feat Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StudentOfPerfectionBonusFeat																					DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Student of Perfection Ki Power				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StudentOfPerfectionKiPower													PLURAL:Ki Powers						DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Perfection Stat Bonus					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:PerfectionStatBonus																						DISPLAYLOCATION:Class Features
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object				Plural description for UI	Display Location
+ABILITYCATEGORY:Student of Perfection Bonus Feat Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StudentOfPerfectionBonusFeat						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Student of Perfection Ki Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:StudentOfPerfectionKiPower	PLURAL:Ki Powers			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Perfection Stat Bonus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:PerfectionStatBonus							DISPLAYLOCATION:Class Features

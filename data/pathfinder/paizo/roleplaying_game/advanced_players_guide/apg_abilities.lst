@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21722 $ $Author: zaister $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
@@ -64,13 +65,13 @@ CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ab
 CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Cleric|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Cleric)
 CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Oracle|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Oracle)
 
-CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Arcanist|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Arcanist)		
-CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Bloodrager|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Bloodrager)	
-CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Hunter|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Hunter)		
-CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Investigator|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Investigator)	
-CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Shaman|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Shaman)		
-CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Skald|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Skald)		
-CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Warpriest|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Warpriest)		
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Arcanist|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Arcanist)
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Bloodrager|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Bloodrager)
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Hunter|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Hunter)
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Investigator|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Investigator)
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Shaman|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Shaman)
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Skald|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Skald)
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Warpriest|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Warpriest)
 
 # Straight bonuses
 Sorcerer								KEY:Magical Knack ~ Sorcerer		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Sorcerer|min(2,(TL-(var("CL=Sorcerer")+var("BL=Sorcerer"))))
@@ -332,12 +333,12 @@ Spark			KEY:Arcane Talent ~ Spark			CATEGORY:Internal		TYPE:ArcaneTalentSelectio
 Spark			CATEGORY:Spell-Like Ability	TYPE:ClassAbility.SpellLike.SpecialQuality	VISIBLE:YES	DEFINE:Spark_Times|0	DEFINE:Spark_LVL|0	SPELLS:Innate|TIMES=Spark_Times|TIMEUNIT=Day|CASTERLEVEL=Spark_LVL|Spark|PREVAREQ:DisableSpellSpark,0|PREVARGTEQ:Spark_Times,1	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=Spark_LVL|Spark|PREVAREQ:DisableSpellSpark,0|PREVARLTEQ:Spark_Times,0	DESC:Blank	BONUS:VAR|Spark_LVL|TL|TYPE=Base
 
 ###BLOCK: GM AWARD
-# Ability Name			SORTKEY		Category of Ability		Type					Define						Description					Multiple?	Choose								Ability																																																		Combat bonus						Bonus to skill					Cost		Aspects
-+1 Trait				SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality								DESC:GM awarded PC with +1 Trait.	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Trait	ABILITY:Special Ability|VIRTUAL|%LIST																																																												COST:0
+# Ability Name			SORTKEY		Category of Ability		Type					Define						Description					Multiple?	Choose								Ability																																																		Combat bonus						Bonus to skill					Modify VAR							Cost		Aspects
++1 Trait				SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuality								DESC:GM awarded PC with +1 Trait.	MULT:YES	CHOOSE:ABILITYSELECTION|Special Ability|TYPE=Trait	ABILITY:Special Ability|VIRTUAL|%LIST																																																																				COST:0
 
 
 # Feat Support
-Aspect ~ Steel Soul					CATEGORY:Internal			TYPE:DwarfHardy																																																																																															ASPECT:SaveBonus|+2 vs. poison; +4 vs. spells, and spell-like abilities
+Aspect ~ Steel Soul					CATEGORY:Internal			TYPE:DwarfHardy																																																																																																							ASPECT:SaveBonus|+2 vs. poison; +4 vs. spells, and spell-like abilities
 
 
 
@@ -345,8 +346,8 @@ Aspect ~ Steel Soul					CATEGORY:Internal			TYPE:DwarfHardy																					
 CATEGORY=Internal|Default.MOD														DEFINE:TempBonus_AspectOfTheFalcon|0																		ABILITY:Internal|AUTOMATIC|SPELL ~ Aspect of the Falcon|PREVARGT:TempBonus_AspectOfTheFalcon,0
 SPELL ~ Aspect of the Falcon				CATEGORY:Internal																																ABILITY:FEAT|AUTOMATIC|Improved Critical(Longbow)|Improved Critical(Shortbow)|Improved Critical(Longbow)|Improved Critical(Crossbow (Light))|Improved Critical(Crossbow (Heavy))|Improved Critical(Crossbow (Hand))|Improved Critical(Crossbow (Repeating Light))|Improved Critical(Crossbow (Repeating Heavy))	BONUS:COMBAT|TOHIT.Ranged|1|TYPE=Competence	BONUS:SKILL|Perception|3|TYPE=Competence
 
-CATEGORY=Internal|Default.MOD	DEFINE:EidolonBypassHDCap|0
-Rule - Bypass Eidolon HD Cap	CATEGORY:Internal	TYPE:Rule.Rules.OptionalRules	BONUS:VAR|EidolonBypassHDCap|1|TYPE=Boolean	
+CATEGORY=Internal|Default.MOD														DEFINE:EidolonBypassHDCap|0
+Rule - Bypass Eidolon HD Cap				CATEGORY:Internal			TYPE:Rule.Rules.OptionalRules																																																																																											BONUS:VAR|EidolonBypassHDCap|1|TYPE=Boolean
 
 
 #

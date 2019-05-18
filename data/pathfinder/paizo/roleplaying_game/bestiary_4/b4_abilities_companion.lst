@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
@@ -29,7 +30,7 @@ Anchor								KEY:Companion (Seahorse) ~ Anchor					CATEGORY:Special Ability	TYP
 #####Familiars
 Racial Traits ~ Archaeopteryx															CATEGORY:Internal																																																																															ABILITY:Special Ability|AUTOMATIC|Archaeopteryx ~ Weak Flier|Flight Maneuverability
 Racial Traits ~ Dodo																CATEGORY:Internal
-Racial Traits ~ Platypus																CATEGORY:Internal																																																																															ABILITY:Special Ability|AUTOMATIC|Platypus ~ Electrolocation|Platypus ~ Poison|Platypus ~ Semiaquatic
+Racial Traits ~ Platypus															CATEGORY:Internal																																																																															ABILITY:Special Ability|AUTOMATIC|Platypus ~ Electrolocation|Platypus ~ Poison|Platypus ~ Semiaquatic
 Racial Traits ~ Sloth																CATEGORY:Internal																																																																															ABILITY:Special Ability|AUTOMATIC|Scent
 Racial Traits ~ Tuatara																CATEGORY:Internal
 

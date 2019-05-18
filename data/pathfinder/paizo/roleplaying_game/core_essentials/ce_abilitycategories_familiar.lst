@@ -1,5 +1,7 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 
 ###Block: Class Features
-ABILITYCATEGORY:Familiar Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Familiar Class Feature.FamiliarClassFeatures					PLURAL:Familiar Class Features			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Familiar Alertness Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:Familiar Alertness Choice.FamiliarAlertnessChoice				PLURAL:Familiar Alertness Choice			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Imp Consular Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Internal			TYPE:Imp Consular Choice									PLURAL:Familiar Alertness Choice			DISPLAYLOCATION:Class Features
+# Ability Category				Visible		Editable?		Change Pool?	Category of Object		Type of Object								Plural description for UI		Display Location
+ABILITYCATEGORY:Familiar Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Familiar Class Feature.FamiliarClassFeatures		PLURAL:Familiar Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Familiar Alertness Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:Familiar Alertness Choice.FamiliarAlertnessChoice	PLURAL:Familiar Alertness Choice	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Imp Consular Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Internal			TYPE:Imp Consular Choice						PLURAL:Familiar Alertness Choice	DISPLAYLOCATION:Class Features

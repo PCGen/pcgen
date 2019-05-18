@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21663 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Pathfinder Unchained	SOURCESHORT:PU	SOURCEWEB:http://paizo.com/products/btpy97vo	SOURCEDATE:2015-04
@@ -50,8 +51,8 @@ ABILITYCATEGORY:Variant Multiclass				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	
 ABILITYCATEGORY:Signature Skill 5 Ranks			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO								CATEGORY:Special Ability	TYPE:Signature Skill 05					PLURAL:Signature Skills					DISPLAYLOCATION:Feats
 
 ###Block: Unchained Archetype Support
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Base Pool number				Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Unchained Monk Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO												CATEGORY:Archetype		TYPE:Unchained Monk Archetype	PLURAL:Unchained Monk Archetypes	DISPLAYLOCATION:Archetype
+# Ability Category				Visible		Editable?		Change Pool?	Category of Object	Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Unchained Monk Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Archetype	TYPE:Unchained Monk Archetype	PLURAL:Unchained Monk Archetypes	DISPLAYLOCATION:Archetype
 
 ###Block: Automatic Bonus Progression
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Base Pool number				Category of Object		Type of Object				Plural description for UI		Display Location

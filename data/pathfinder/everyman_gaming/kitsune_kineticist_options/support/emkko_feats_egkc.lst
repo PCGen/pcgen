@@ -1,3 +1,5 @@
-SOURCELONG:Everyman Minis: Kitsune Kineticist Options		SOURCESHORT:EMKKO		SOURCEWEB:http://www.everymangaming.com/		SOURCEDATE:2018-04
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Everyman Minis: Kitsune Kineticist Options	SOURCESHORT:EMKKO	SOURCEWEB:http://www.everymangaming.com/	SOURCEDATE:2018-04
 
-CATEGORY=FEAT|Extra Remedial Shapechanging.MOD		TYPE:SecretFeatKitsuneClan
+# Ability Name						Type
+CATEGORY=FEAT|Extra Remedial Shapechanging.MOD	TYPE:SecretFeatKitsuneClan

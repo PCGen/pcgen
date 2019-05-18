@@ -1,9 +1,10 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21574 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Template name
-# Template Name					Visible	Source Page		Define							Modify VAR							Bonus Languages
-Truespeaker						VISIBLE:NO	SOURCEPAGE:p.85																	LANGBONUS:ALL
+# Template Name	Visible	Source Page		Bonus Languages
+Truespeaker		VISIBLE:NO	SOURCEPAGE:p.85	LANGBONUS:ALL
 
 ###Block:
 # Template Name			Template																																																																																																									Define																																			Modify VAR																																Removable?

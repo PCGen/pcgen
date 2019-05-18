@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 12957 $ $Author: jbaril $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/products/btpy92zi	SOURCEDATE:2014-08
@@ -274,7 +275,7 @@ CLASS:Shaman	SPELLSTAT:WIS	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVE
 CLASS:Skald		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.49	DEFINE:SkaldLVL|0	DEFINE:Caster_Level_Skald|0	DEFINE:CasterLevelBLSkald|0	DEFINE:Caster_Level_BL_Stripped_Skald|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SkaldLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Skald|Caster_Level_Skald-CasterLevelBLSkald	BONUS:VAR|Caster_Level_Skald|SkaldLVL+Caster_Level_Bonus+CasterLevelBLSkald	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Skald|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Skald	ROLE:Skill		FACT:ClassType|PC	FACT:Abb|Ska	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl
 CLASS:Skald		STARTSKILLPTS:4
-# Class Name	Spell Stat		Memorize		Spellbook		Caster level								Use Spell List
+# Class Name	Spell Stat		Memorize	Spellbook		Caster level								Use Spell List
 CLASS:Skald		SPELLSTAT:CHA	MEMORIZE:NO	SPELLBOOK:YES	BONUS:CASTERLEVEL|Skald|Caster_Level_BL_Stripped_Skald	SPELLLIST:1|Bard
 1	ABILITY:Class|AUTOMATIC|Skald
 ###Block: Class Abilities

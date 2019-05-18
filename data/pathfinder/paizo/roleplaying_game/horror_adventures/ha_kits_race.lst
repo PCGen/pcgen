@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Horror Adventures	SOURCESHORT:HA	SOURCEWEB:http://paizo.com/products/btpy9n5a	SOURCEDATE:2016-08
 
 STARTPACK:Hive Larva Swarm Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Hive Larva Swarm],[!PRERACE:1,%]	SOURCEPAGE:p.236
@@ -35,10 +36,10 @@ ALIGN:NE
 RACE:Hive Warrior	!PRERACE:1,%
 NAME:Hive Warrior
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
-SKILL:Climb			RANK:8
-SKILL:Perception		RANK:8
-SKILL:Stealth		RANK:8
-SKILL:Survival		RANK:8
+SKILL:Climb		RANK:8
+SKILL:Perception	RANK:8
+SKILL:Stealth	RANK:8
+SKILL:Survival	RANK:8
 ABILITY:CATEGORY=FEAT|Combat Reflexes
 ABILITY:CATEGORY=FEAT|Improved Initiative
 ABILITY:CATEGORY=FEAT|Multiattack

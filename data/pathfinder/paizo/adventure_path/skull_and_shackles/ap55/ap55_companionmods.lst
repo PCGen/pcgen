@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	SOURCEWEB:http://paizo.com/products/btpy8rcc?Pathfinder-Adventure-Path-55-The-Wormwood-Mutiny	SOURCEDATE:2012-04
 # ORIGINAL ENTRY: Vincent Lhote
@@ -11,8 +12,8 @@ SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	
 #Seal	Seal	Master gains a +3 bonus on Swim checks
 
 ###Block: Specific Familiars
-# Class of the Master	Type			Required Race			Apply Kit
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Parrot)	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Speak One Language
+# Class of the Master	Type			Ability											Required Race
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Speak One Language	PRERACE:1,Familiar (Parrot)
 #
 
 ###Block:Familiar Bonuses to Master

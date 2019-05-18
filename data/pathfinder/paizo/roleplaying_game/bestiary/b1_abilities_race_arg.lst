@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21544 $ $Author: nuance $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
@@ -18,18 +19,18 @@ CATEGORY=Internal|Racial Traits ~ Aasimar.MOD					ABILITY:Aasimar Racial Trait|A
 CATEGORY=Internal|Racial Traits ~ Aasimar.MOD					ABILITY:Aasimar Racial Trait|AUTOMATIC|Aasimar ~ Celestial Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialLanguage
 
 ###Block: Default Aasimar Abilities (POOL=5)
-# Ability Name					Unique Key					Category of Ability		Type																Multiple Requirements																							Define			Description																						Auto Language		Ability																					Bonus to skill																Stat bonus					Modify VAR															Vision			Source Page
-Stats							KEY:Aasimar ~ Stats			CATEGORY:Special Ability	TYPE:RacialTraits.AasimarRacialTrait.AasimarRacialDefault.SpecialQuality																																		DESC:+2 Wisdom, +2 Charisma: Aasimars are insightful, confident, and personable.																																																						BONUS:STAT|WIS,CHA|2|TYPE=Racial																					SOURCEPAGE:p.7
-Skilled						KEY:Aasimar ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.AasimarRacialTrait.AasimarRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Aasimar ~ Skilled],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSkilled]									DESC:Aasimars have a +2 racial bonus on Diplomacy and Perception checks.|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace																												BONUS:SKILL|Diplomacy,Perception|2|TYPE=Racial|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace																											SOURCEPAGE:p.7
-Spell-Like Ability				KEY:Aasimar ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SpellLike.AasimarRacialTrait.AasimarRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Aasimar ~ Spell-Like Ability],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSLA]				DEFINE:Daylight_Times|0	DESC:Aasimars can use daylight %1/day as a spell-like ability.|Daylight_Times|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace					ABILITY:SLA|AUTOMATIC|Daylight|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace																																BONUS:VAR|Daylight_CasterLevel|TL	BONUS:VAR|Daylight_Times|1										SOURCEPAGE:p.7
+# Ability Name						Unique Key					Category of Ability		Type																Multiple Requirements																							Define			Description																						Auto Language		Ability																					Bonus to skill																Stat bonus					Modify VAR															Vision			Source Page
+Stats								KEY:Aasimar ~ Stats			CATEGORY:Special Ability	TYPE:RacialTraits.AasimarRacialTrait.AasimarRacialDefault.SpecialQuality																																		DESC:+2 Wisdom, +2 Charisma: Aasimars are insightful, confident, and personable.																																																						BONUS:STAT|WIS,CHA|2|TYPE=Racial																					SOURCEPAGE:p.7
+Skilled							KEY:Aasimar ~ Skilled			CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.AasimarRacialTrait.AasimarRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Aasimar ~ Skilled],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSkilled]									DESC:Aasimars have a +2 racial bonus on Diplomacy and Perception checks.|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace																												BONUS:SKILL|Diplomacy,Perception|2|TYPE=Racial|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace																											SOURCEPAGE:p.7
+Spell-Like Ability					KEY:Aasimar ~ Spell-Like Ability	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.SpellLike.AasimarRacialTrait.AasimarRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Aasimar ~ Spell-Like Ability],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSLA]				DEFINE:Daylight_Times|0	DESC:Aasimars can use daylight %1/day as a spell-like ability.|Daylight_Times|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace					ABILITY:SLA|AUTOMATIC|Daylight|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarSubrace																																BONUS:VAR|Daylight_CasterLevel|TL	BONUS:VAR|Daylight_Times|1										SOURCEPAGE:p.7
 
-Darkvision						KEY:Aasimar ~ Darkvision		CATEGORY:Special Ability	TYPE:RacialTrait.SensesTrait.Standard.AasimarRacialTrait.AasimarRacialDefault.RacialVision	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Aasimar ~ Darkvision],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarDarkvision]								DESC:See in the dark up to 60 ft.																																																																																				VISION:Darkvision (60')	SOURCEPAGE:p.7
-Celestial Resistance				KEY:Aasimar ~ Celestial Resistance	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.AasimarRacialTrait.AasimarRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Aasimar ~ Celestial Resistance],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialResistance]					DESC:Aasimars have acid resistance 5, cold resistance 5, and electricity resistance 5.													ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Resistance to Cold|Resistance to Electricity																														BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|5|TYPE=Resistance					SOURCEPAGE:p.7
-Celestial Language				KEY:Aasimar ~ Celestial Language	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.AasimarRacialTrait.AasimarRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Aasimar ~ Celestial Language],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialLanguage]						DESC:Aasimars speak Celestial.																		AUTO:LANG|Celestial																																																																			SOURCEPAGE:p.7
+Darkvision							KEY:Aasimar ~ Darkvision		CATEGORY:Special Ability	TYPE:RacialTrait.SensesTrait.Standard.AasimarRacialTrait.AasimarRacialDefault.RacialVision	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Aasimar ~ Darkvision],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarDarkvision]								DESC:See in the dark up to 60 ft.																																																																																				VISION:Darkvision (60')	SOURCEPAGE:p.7
+Celestial Resistance					KEY:Aasimar ~ Celestial Resistance	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.AasimarRacialTrait.AasimarRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Aasimar ~ Celestial Resistance],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialResistance]					DESC:Aasimars have acid resistance 5, cold resistance 5, and electricity resistance 5.													ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Resistance to Cold|Resistance to Electricity																														BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|5|TYPE=Resistance					SOURCEPAGE:p.7
+Celestial Language					KEY:Aasimar ~ Celestial Language	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.AasimarRacialTrait.AasimarRacialDefault		PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Aasimar ~ Celestial Language],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AasimarCelestialLanguage]						DESC:Aasimars speak Celestial.																		AUTO:LANG|Celestial																																																																			SOURCEPAGE:p.7
 
 #Racial Traits ~ Drow
-# Ability Name					Unique Key					Category of Ability		Type																Multiple Requirements																							Define			Description																						Auto Language		Ability																					Bonus to skill																Stat bonus					Modify VAR															Vision			Source Page
-Racial Traits ~ Drow										CATEGORY:Internal
+# Ability Name						Unique Key					Category of Ability		Type																Multiple Requirements																							Define			Description																						Auto Language		Ability																					Bonus to skill																Stat bonus					Modify VAR															Vision			Source Page
+Racial Traits ~ Drow											CATEGORY:Internal
 CATEGORY=Internal|Racial Traits ~ Drow.MOD																																																																																					ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowDarkvision
 CATEGORY=Internal|Racial Traits ~ Drow.MOD																																																																																					ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Drow Immunities|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowImmunities
 CATEGORY=Internal|Racial Traits ~ Drow.MOD																																																																																					ABILITY:Drow Racial Trait|AUTOMATIC|Drow ~ Keen Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DrowKeenSenses
@@ -84,7 +85,7 @@ Skilled		KEY:Goblin ~ Skilled	CATEGORY:Special Ability	TYPE:RacialTraits.Special
 
 #Racial Traits ~ Hobgoblin
 # Ability Name						Category of Ability	Ability
-Racial Traits ~ Hobgoblin					CATEGORY:Internal
+Racial Traits ~ Hobgoblin				CATEGORY:Internal
 CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD					ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HobgoblinDarkvision
 CATEGORY=Internal|Racial Traits ~ Hobgoblin.MOD					ABILITY:Hobgoblin Racial Trait|AUTOMATIC|Hobgoblin ~ Sneaky|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HobgoblinSneaky
 
@@ -122,7 +123,7 @@ Weakness		KEY:Kobold ~ Weakness		CATEGORY:Special Ability	TYPE:KoboldRacialTrait
 # Ability Name						Category of Ability	Ability
 #Racial Traits ~ Orc
 # Ability Name					Category of Ability	Ability
-Racial Traits ~ Orc					CATEGORY:Internal
+Racial Traits ~ Orc				CATEGORY:Internal
 CATEGORY=Internal|Racial Traits ~ Orc.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcDarkvision
 CATEGORY=Internal|Racial Traits ~ Orc.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Light Sensitivity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcLightSensitivity
 CATEGORY=Internal|Racial Traits ~ Orc.MOD					ABILITY:Orc Racial Trait|AUTOMATIC|Orc ~ Ferocity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.OrcFerocity
@@ -141,8 +142,8 @@ Ferocity			KEY:Orc ~ Ferocity		CATEGORY:Special Ability	TYPE:SpecialQuality.Extr
 # Ability Name							Category of Ability	Ability
 
 #Racial Traits ~ Tengu
-# Ability Name					Category of Ability	Template					Ability																				Bonus Ability Pool
-Racial Traits ~ Tengu				CATEGORY:Internal
+# Ability Name						Category of Ability	Template					Ability																				Bonus Ability Pool
+Racial Traits ~ Tengu					CATEGORY:Internal
 CATEGORY=Internal|Racial Traits ~ Tengu.MOD											ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Low-Light Vision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguLowLightVision
 CATEGORY=Internal|Racial Traits ~ Tengu.MOD											ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Sneaky|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguSneaky
 CATEGORY=Internal|Racial Traits ~ Tengu.MOD											ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Gifted Linguist|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguGiftedLinguist
@@ -150,7 +151,7 @@ CATEGORY=Internal|Racial Traits ~ Tengu.MOD											ABILITY:Tengu Racial Trait
 CATEGORY=Internal|Racial Traits ~ Tengu.MOD											ABILITY:Tengu Racial Trait|AUTOMATIC|Tengu ~ Natural Attack|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TenguNaturalAttack
 
 CATEGORY=Internal|Racial Traits ~ Tengu.MOD											ABILITY:Internal|AUTOMATIC|Default Language ~ Tengu|PREABILITY:1,CATEGORY=Internal,Setting Language ~ Default			BONUS:ABILITYPOOL|Setting Specific Language|1|TYPE=Base
-Default Language ~ Tengu			CATEGORY:Internal		TEMPLATE:Default Language ~ Tengu
+Default Language ~ Tengu				CATEGORY:Internal		TEMPLATE:Default Language ~ Tengu
 
 
 
@@ -167,31 +168,31 @@ Tengu Language Selections						CATEGORY:Special Ability																									
 
 
 ###Block: Set up Tiefling default abilities
-# Ability Name		Category of Ability		Type				Template				Ability																																																																																																												Bonus Ability Pool				FACT
-Racial Traits ~ Tiefling	CATEGORY:Internal												BONUS:ABILITYPOOL|Tiefling Subrace|1|TYPE=Base	ABILITY:Tiefling Subrace|AUTOMATIC|Tiefling ~ Placeholder	BONUS:ABILITYPOOL|Race Size Selection|1	FACT:RaceSizeAllowed_Medium|true	FACT:RaceSizeAllowed_Small|true
-CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Stats|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingStats
-CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
-CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Spell-Like Ability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
-CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingDarkvision
-CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishResistance
-CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Sorcery|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishSorcery
-CATEGORY=Internal|Racial Traits ~ Tiefling.MOD	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishLanguage
+# Ability Name						Category of Ability		Type				Visible	Template				Ability																							Bonus Ability Pool												Cost		FACT
+Racial Traits ~ Tiefling				CATEGORY:Internal														ABILITY:Tiefling Subrace|AUTOMATIC|Tiefling ~ Placeholder															BONUS:ABILITYPOOL|Tiefling Subrace|1|TYPE=Base	BONUS:ABILITYPOOL|Race Size Selection|1			FACT:RaceSizeAllowed_Medium|true	FACT:RaceSizeAllowed_Small|true
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD																	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Stats|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingStats
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD																	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSkilled
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD																	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Spell-Like Ability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingSLA
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD																	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingDarkvision
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD																	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishResistance
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD																	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Sorcery|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishSorcery
+CATEGORY=Internal|Racial Traits ~ Tiefling.MOD																	ABILITY:Tiefling Racial Trait|AUTOMATIC|Tiefling ~ Fiendish Language|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishLanguage
 
-Tiefling ~ Placeholder	CATEGORY:Special Ability	TYPE:TieflingSubrace	VISIBLE:NO
-Tiefling			CATEGORY:Special Ability	TYPE:TieflingSubrace	TEMPLATE:Tiefling (Base)	COST:1
+Tiefling ~ Placeholder					CATEGORY:Special Ability	TYPE:TieflingSubrace	VISIBLE:NO
+Tiefling							CATEGORY:Special Ability	TYPE:TieflingSubrace			TEMPLATE:Tiefling (Base)																																								COST:1
 
 ###Block: Default Tiefling Abilities (POOL=6)
-# Ability Name		Unique Key					Category of Ability		Type															Visible	Multiple Requirements																							Description																							Auto Language		Ability																Bonus Ability Pool				Stat bonus																			Modify VAR																					Source Page
-Stats				KEY:Tiefling ~ Stats			CATEGORY:Special Ability	TYPE:TieflingRacialTrait											VISIBLE:NO																																																																															BONUS:STAT|DEX,INT|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial
+# Ability Name		Unique Key					Category of Ability		Type															Visible	Multiple Requirements																							Define							Description																							Auto Language		Ability																Bonus Ability Pool				Stat bonus																			Modify VAR																															Source Page
+Stats				KEY:Tiefling ~ Stats			CATEGORY:Special Ability	TYPE:TieflingRacialTrait											VISIBLE:NO																																																																																							BONUS:STAT|DEX,INT|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial
 
-Darkvision			KEY:Tiefling ~ Darkvision		CATEGORY:Special Ability	TYPE:TieflingRacialTrait.TieflingRacialDefault.RacialVision								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Darkvision],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingDarkvision]																																																																												BONUS:VAR|DarkvisionRange|60|TYPE=Base																SOURCEPAGE:p.169
-Fiendish Resistance	KEY:Tiefling ~ Fiendish Resistance	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.TieflingRacialTrait.TieflingRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Fiendish Resistance],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishResistance]	DESC:Tieflings have cold resistance 5, electricity resistance 5, and fire resistance 5.														ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|Resistance to Electricity|Resistance to Fire																												BONUS:VAR|FireResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|TieflingFiendishResistanceBonusBase|TYPE=Resistance	SOURCEPAGE:p.169	DEFINE:TieflingFiendishResistanceBonusBase|0	BONUS:VAR|TieflingFiendishResistanceBonusBase|5|TYPE=Base
+Darkvision			KEY:Tiefling ~ Darkvision		CATEGORY:Special Ability	TYPE:TieflingRacialTrait.TieflingRacialDefault.RacialVision								PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Darkvision],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingDarkvision]																																																																																				BONUS:VAR|DarkvisionRange|60|TYPE=Base																										SOURCEPAGE:p.169
+Fiendish Resistance	KEY:Tiefling ~ Fiendish Resistance	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.TieflingRacialTrait.TieflingRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Fiendish Resistance],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishResistance]	DEFINE:TieflingFiendishResistanceBonusBase|0	DESC:Tieflings have cold resistance 5, electricity resistance 5, and fire resistance 5.														ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|Resistance to Electricity|Resistance to Fire																												BONUS:VAR|FireResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|TieflingFiendishResistanceBonusBase|TYPE=Resistance	BONUS:VAR|TieflingFiendishResistanceBonusBase|5|TYPE=Base	SOURCEPAGE:p.169
 # COMMENT: Tricky to implement.
-Fiendish Sorcery		KEY:Tiefling ~ Fiendish Sorcery	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.TieflingRacialTrait.TieflingRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Fiendish Sorcery],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishSorcery]		DESC:Tiefling sorcerers with the Abyssal or Infernal bloodlines treat their Charisma score as 2 points higher for all sorcerer class abilities.																													BONUS:STAT|BASESPELLSTAT;Class=Sorcerer|2|PREABILITY:1,CATEGORY=Sorcerer Bloodline,Abyssal Bloodline,Infernal Bloodline	BONUS:VAR|BloodlinePowerTimes|1|PREABILITY:1,CATEGORY=Sorcerer Bloodline,Abyssal Bloodline,Infernal Bloodline				SOURCEPAGE:p.169
-Fiendish Language		KEY:Tiefling ~ Fiendish Language	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.TieflingRacialTrait.TieflingRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Fiendish Language],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishLanguage]		DESC:Tieflings speak either Abyssal or Infernal.																																					BONUS:ABILITYPOOL|Tiefling Language|1																																											SOURCEPAGE:p.169
+Fiendish Sorcery		KEY:Tiefling ~ Fiendish Sorcery	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.TieflingRacialTrait.TieflingRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Fiendish Sorcery],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishSorcery]										DESC:Tiefling sorcerers with the Abyssal or Infernal bloodlines treat their Charisma score as 2 points higher for all sorcerer class abilities.																													BONUS:STAT|BASESPELLSTAT;Class=Sorcerer|2|PREABILITY:1,CATEGORY=Sorcerer Bloodline,Abyssal Bloodline,Infernal Bloodline	BONUS:VAR|BloodlinePowerTimes|1|PREABILITY:1,CATEGORY=Sorcerer Bloodline,Abyssal Bloodline,Infernal Bloodline														SOURCEPAGE:p.169
+Fiendish Language		KEY:Tiefling ~ Fiendish Language	CATEGORY:Special Ability	TYPE:RacialTraits.SpecialQuality.Extraordinary.TieflingRacialTrait.TieflingRacialDefault			PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Tiefling ~ Fiendish Language],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.TieflingFiendishLanguage]										DESC:Tieflings speak either Abyssal or Infernal.																																					BONUS:ABILITYPOOL|Tiefling Language|1																																																					SOURCEPAGE:p.169
 #Block: Language Choices for Tiefling
-Abyssal			KEY:Tiefling ~ Abyssal Language	CATEGORY:Special Ability	TYPE:TieflingLanguageTrait																																																															AUTO:LANG|Abyssal
-Infernal			KEY:Tiefling ~ Infernal Language	CATEGORY:Special Ability	TYPE:TieflingLanguageTrait																																																															AUTO:LANG|Infernal
+Abyssal			KEY:Tiefling ~ Abyssal Language	CATEGORY:Special Ability	TYPE:TieflingLanguageTrait																																																																							AUTO:LANG|Abyssal
+Infernal			KEY:Tiefling ~ Infernal Language	CATEGORY:Special Ability	TYPE:TieflingLanguageTrait																																																																							AUTO:LANG|Infernal
 
 ###Block: Altered by each Subrace
 # Ability Name		Unique Key					Category of Ability		Type																	Multiple Requirements																				Define					Innate Spells														Description																			Bonus to skill										Modify VAR										Source Page
@@ -252,8 +253,8 @@ Legless		KEY:Merfolk ~ Legless			CATEGORY:Special Ability	TYPE:RacialTraits.Spec
 # Ability Name								Category of Ability	Ability
 
 #Racial Traits ~ Svirfneblin
-# Ability Name						Category of Ability	Ability
-Racial Traits ~ Svirfneblin				CATEGORY:Internal
+# Ability Name							Category of Ability	Ability
+Racial Traits ~ Svirfneblin					CATEGORY:Internal
 CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Defensive Training|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinDefensiveTraining
 CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinSenses
 CATEGORY=Internal|Racial Traits ~ Svirfneblin.MOD					ABILITY:Svirfneblin Racial Trait|AUTOMATIC|Svirfneblin ~ Fortunate|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SvirfneblinFortunate

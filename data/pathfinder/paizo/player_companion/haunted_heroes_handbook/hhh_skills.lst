@@ -1,7 +1,9 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Haunted Heroes Handbook	SOURCESHORT:HHH	SOURCEWEB:https://paizo.com/products/btpy9nft	SOURCEDATE:2016-08
 
-Diplomacy.MOD			SITUATION:Influence Elementals
-Diplomacy.MOD			SITUATION:Influence Fey
-Diplomacy.MOD			SITUATION:Influence Non-native Outsiders
-Diplomacy.MOD			SITUATION:Influence Undead
-Diplomacy.MOD			SITUATION:Influence Unwholesome Spirits
+# Skill Name	Situational Skill
+Diplomacy.MOD	SITUATION:Influence Elementals
+Diplomacy.MOD	SITUATION:Influence Fey
+Diplomacy.MOD	SITUATION:Influence Non-native Outsiders
+Diplomacy.MOD	SITUATION:Influence Undead
+Diplomacy.MOD	SITUATION:Influence Unwholesome Spirits

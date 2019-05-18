@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21528 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
@@ -7,7 +8,7 @@ SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/st
 ## Block: Base Classes
 ##
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																		Modify VAR																																																																																																																																	FACT
+# Class Name	Hit Dice	Type			Max Level	Source Page		Define																													Combat bonus																	Save bonus																																		Modify VAR																																																																																																																																	FACT
 CLASS:Alchemist	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:AlchemistLVL|0	DEFINE:Caster_Level_Alchemist|0	DEFINE:CasterLevelBLAlchemist|0	DEFINE:Caster_Level_BL_Stripped_Alchemist|0	DEFINE:CasterLevelBL_x_Alchemist|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|AlchemistLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|Caster_Level_BL_Stripped_Alchemist|Caster_Level_Alchemist-CasterLevelBLAlchemist	BONUS:VAR|Caster_Level_Alchemist|CL+Caster_Level_Bonus+CasterLevelBLAlchemist	BONUS:VAR|CasterLevelBL_x_Alchemist|charbonusto("PCLEVEL","Alchemist")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Alchemist|TYPE=Base	BONUS:VAR|Caster_Level_Total__Arcane|Caster_Level_Alchemist	FACT:ClassType|PC	FACT:Abb|Alc	FACT:SpellType|Arcane
 # Class Name	Skill Pts/Lvl
 CLASS:Alchemist	STARTSKILLPTS:4

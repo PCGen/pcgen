@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Ultimate Magic	SOURCESHORT:UM	SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s	SOURCEDATE:2011-05
@@ -117,21 +118,21 @@ ABILITYCATEGORY:Sorcerer Bloodline Bonus Spell	VISIBLE:QUALIFY	EDITABLE:YES	EDIT
 ABILITYCATEGORY:Wildblooded Bloodline Mutation	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Wildblooded Bloodline	PLURAL:Wildblooded Bloodline Mutations	DISPLAYLOCATION:Class Features
 
 ###Block: Wildblooded Sorcerer Ability Categories
-# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Base Pool number								Category of Object		Type of Object						Specific choices list																																																																Plural description for UI		Display Location
-ABILITYCATEGORY:Sacred Cistern				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Sorcerer_EmpyrealSacredCistern_ChannelingSelectionPool	CATEGORY:Special Ability	TYPE:Sorcerer Channel Energy Selection																																																																					PLURAL:Sacred Cistern			DISPLAYLOCATION:Class Features
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Base Pool number								Category of Object		Type of Object						Specific choices list					Plural description for UI		Display Location
+ABILITYCATEGORY:Sacred Cistern				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Sorcerer_EmpyrealSacredCistern_ChannelingSelectionPool	CATEGORY:Special Ability	TYPE:Sorcerer Channel Energy Selection										PLURAL:Sacred Cistern			DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Magus Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO																CATEGORY:Special Ability	TYPE:MagusClassFeatures.Magus Class Feature																																																																				PLURAL:Magus Class Features		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Forbidden Rites Domain			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability	TYPE:ForbiddenRiteSDomain																																																																							PLURAL:Forbidden Rites Domains	DISPLAYLOCATION:Class Features
-
-
-ABILITYCATEGORY:Inquisition					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability	TYPE:Inquisition																																																																									PLURAL:Inquisitions			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Domain Alternative ~ Inquisition	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability	TYPE:AltClassInquisition																																																																							PLURAL:Inquisitions			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Magus Class Feature				VISIBLE:QUALIFY	EDITABLE:NO		EDITPOOL:NO																CATEGORY:Special Ability	TYPE:MagusClassFeatures.Magus Class Feature									PLURAL:Magus Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Forbidden Rites Domain			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability	TYPE:ForbiddenRiteSDomain												PLURAL:Forbidden Rites Domains	DISPLAYLOCATION:Class Features
 
 
-ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 1	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability									ABILITYLIST:Unsanctioned Knowledge ~ Level 1																																																																		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 2	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability									ABILITYLIST:Unsanctioned Knowledge ~ Level 2																																																																		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 3	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability									ABILITYLIST:Unsanctioned Knowledge ~ Level 3																																																																		DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 4	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability									ABILITYLIST:Unsanctioned Knowledge ~ Level 4																																																																		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Inquisition					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability	TYPE:Inquisition														PLURAL:Inquisitions			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Domain Alternative ~ Inquisition	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability	TYPE:AltClassInquisition												PLURAL:Inquisitions			DISPLAYLOCATION:Class Features
+
+
+ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 1	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability									ABILITYLIST:Unsanctioned Knowledge ~ Level 1							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 2	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability									ABILITYLIST:Unsanctioned Knowledge ~ Level 2							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 3	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability									ABILITYLIST:Unsanctioned Knowledge ~ Level 3							DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Unsanctioned Knowledge ~ Level 4	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO																CATEGORY:Special Ability									ABILITYLIST:Unsanctioned Knowledge ~ Level 4							DISPLAYLOCATION:Feats
 #
 # End
 #

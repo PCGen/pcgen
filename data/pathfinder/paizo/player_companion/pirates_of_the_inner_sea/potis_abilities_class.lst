@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 16794 $ $Author: amaitland $ -- Mon Feb  9 18:51:00 2015 -- reformated by PCGen PrettyLST v6.04.01
 SOURCELONG:Pathfinder Player Companion: Pirates of the Inner Sea	SOURCESHORT:POTIS	SOURCEWEB:http://paizo.com/products/btpy8qif	SOURCEDATE:2012-04
@@ -76,8 +77,9 @@ CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPRO
 CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Finesse.MOD	BONUS:WEAPONPROF=Cutlass|TOHIT|-STR|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Cutlass)
 
 ###Block: Swashbuckler Weapon Training and Slashing Grace Support
-CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Weapon Training.MOD																																																																																																																											BONUS:WEAPONPROF=Cutlass|TOHIT,DAMAGE|SwashbucklerWeaponTrainingBonus|TYPE=WeaponTraining|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Cutlass)
-CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Weapon Training.MOD																																																																																																																											BONUS:WEAPONPROF=Cutlass|CRITRANGEDOUBLE|1|TYPE=WeaponTraining|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Cutlass)
+# Ability Name											Weapon prof. bonus
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Weapon Training.MOD	BONUS:WEAPONPROF=Cutlass|TOHIT,DAMAGE|SwashbucklerWeaponTrainingBonus|TYPE=WeaponTraining|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Cutlass)
+CATEGORY=Special Ability|Swashbuckler ~ Swashbuckler Weapon Training.MOD	BONUS:WEAPONPROF=Cutlass|CRITRANGEDOUBLE|1|TYPE=WeaponTraining|PREABILITY:1,CATEGORY=FEAT,Slashing Grace (Cutlass)
 
 #
 # End

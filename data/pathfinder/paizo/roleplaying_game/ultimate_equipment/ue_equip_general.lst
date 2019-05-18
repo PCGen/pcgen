@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 14380 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Equipment	SOURCESHORT:UE	SOURCEWEB:http://paizo.com/products/btpy8tmc?Pathfinder-Roleplaying-Game-Ultimate-Equipment	SOURCEDATE:2012-08
@@ -248,98 +249,98 @@ Scribe (Map)			TYPE:Service		COST:10	SOURCEPAGE:p.99
 Valet (Per Day)			TYPE:Service		COST:1	SOURCEPAGE:p.99
 
 ###Block: Tools and Skill Kits
-# Equipment Name										Unique Key							Output Name						Type							Cost		Weight	Base Item for EQMOD		Modifier						Source Page		Ability								Bonus to Situation							Bonus to skill									Visible
-Abacus.MOD																										TYPE:Goods.Tools					COST:2	WT:2														SOURCEPAGE:p.76
-Alchemist's Lab.MOD																																															SOURCEPAGE:p.76
-Alchemy Crafting Kit																								TYPE:Goods.Tools.CraftToolsAlchemist	COST:25	WT:5														SOURCEPAGE:p.76
-Antidote Kit																									TYPE:Goods.Tools					COST:100	WT:3														SOURCEPAGE:p.76
-Anvil (Blacksmith).MOD																								TYPE:Goods.Tools					COST:5	WT:100													SOURCEPAGE:p.76
-Anvil (Farrier).MOD																								TYPE:Goods.Tools					COST:5	WT:50														SOURCEPAGE:p.76
-Anvil (Goldsmith/Silversmith).MOD																						TYPE:Goods.Tools					COST:5	WT:10														SOURCEPAGE:p.76
-Artisan's Tools.MOD																																															SOURCEPAGE:p.76
+# Equipment Name										Unique Key							Output Name						Type							Cost		Weight	Base Item for EQMOD		Modifier						Requires Modification?	Source Page		Ability								Bonus to Situation							Bonus to skill									Visible
+Abacus.MOD																										TYPE:Goods.Tools					COST:2	WT:2																		SOURCEPAGE:p.76
+Alchemist's Lab.MOD																																																			SOURCEPAGE:p.76
+Alchemy Crafting Kit																								TYPE:Goods.Tools.CraftToolsAlchemist	COST:25	WT:5																		SOURCEPAGE:p.76
+Antidote Kit																									TYPE:Goods.Tools					COST:100	WT:3																		SOURCEPAGE:p.76
+Anvil (Blacksmith).MOD																								TYPE:Goods.Tools					COST:5	WT:100																	SOURCEPAGE:p.76
+Anvil (Farrier).MOD																								TYPE:Goods.Tools					COST:5	WT:50																		SOURCEPAGE:p.76
+Anvil (Goldsmith/Silversmith).MOD																						TYPE:Goods.Tools					COST:5	WT:10																		SOURCEPAGE:p.76
+Artisan's Tools.MOD																																																			SOURCEPAGE:p.76
 Artisan's Tools.COPY=Artisan's Tools, Masterwork				KEY:Artisan's Tools (Masterwork)			OUTPUTNAME:Masterwork Artisan's Tools
-Artisan's Tools (Masterwork).MOD																																						EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.76
-Balancing Pole.MOD																								TYPE:Goods.Tools					COST:0.8	WT:12														SOURCEPAGE:p.76
-Bear Trap.MOD																									TYPE:Goods.Tools					COST:2	WT:10														SOURCEPAGE:p.76
-Bellows.MOD																										TYPE:Goods.Tools					COST:1	WT:3														SOURCEPAGE:p.76
-Climber's Kit.MOD																																																SOURCEPAGE:p.76
-Disguise Kit.MOD																																																SOURCEPAGE:p.76
-Footprint Book.MOD																								TYPE:Goods.Tools.Book				COST:50	WT:3														SOURCEPAGE:p.76
-Forger's Kit																									TYPE:Goods.Tools					COST:200	WT:6														SOURCEPAGE:p.77										BONUS:SITUATION|Linguistics=Forgery|2|TYPE=Circumstance
-Formula Book.MOD																																																SOURCEPAGE:p.77
-Fortune-Teller's Deck (Common).MOD																						TYPE:Goods.Tools					COST:1	WT:0.5													SOURCEPAGE:p.77
-Fortune-Teller's Deck (Quality).MOD																						TYPE:Goods.Tools					COST:25	WT:1														SOURCEPAGE:p.77																				BONUS:SKILL|Profession (Fortune-Teller)|1|TYPE=Circumstance
-Fortune-Teller's Deck (Masterwork).MOD																					TYPE:Goods.Tools					COST:50	WT:1														SOURCEPAGE:p.77																				BONUS:SKILL|Profession (Fortune-Teller)|2|TYPE=Circumstance
-Healer's Kit.MOD																																																SOURCEPAGE:p.77
-Juggler's Kit																									TYPE:Goods.Tools					COST:15	WT:10														SOURCEPAGE:p.77																				BONUS:SKILL|Perform (Act),Perform (Comedy)|1|TYPE=Circumstance
-Leeching Kit.MOD																									TYPE:Goods.Tools					COST:5	WT:5														SOURCEPAGE:p.77
-Map Maker's Kit.MOD																								TYPE:Goods.Tools					COST:10	WT:2														SOURCEPAGE:p.78
-Masterwork Tool																									TYPE:Goods.Tools.Masterwork Tool		COST:50	WT:1														SOURCEPAGE:p.78	MODS:REQUIRED
-Scale (Merchant's).MOD																																															SOURCEPAGE:p.78
-Midwife's Kit																									TYPE:Goods.Tools					COST:10	WT:2														SOURCEPAGE:p.78
-Musical Instrument (Harpsichord).MOD																																												SOURCEPAGE:p.78
-Musical Instrument (Piano).MOD																																													SOURCEPAGE:p.78
-Musical Instrument (Pipe Organ).MOD																																													SOURCEPAGE:p.78
-Musical Instrument (Bells).MOD																																													SOURCEPAGE:p.78
-Musical Instrument (Chimes).MOD																																													SOURCEPAGE:p.78
-Musical Instrument (Drums).MOD																																													SOURCEPAGE:p.78
-Musical Instrument (Gong).MOD																																														SOURCEPAGE:p.78
-Musical Instrument (Fiddle).MOD																																													SOURCEPAGE:p.78
-Musical Instrument (Harp).MOD																																														SOURCEPAGE:p.78
-Musical Instrument (Lute).MOD																																														SOURCEPAGE:p.78
-Musical Instrument (Mandolin).MOD																																													SOURCEPAGE:p.78
-Musical Instrument (Flute).MOD																																													SOURCEPAGE:p.78
-Musical Instrument (Pan Pipes).MOD																																													SOURCEPAGE:p.78
-Musical Instrument (Recorder).MOD																																													SOURCEPAGE:p.78
-Musical Instrument (Trumpet).MOD																																													SOURCEPAGE:p.78
-Harpsichord (Base).COPY=Musical Instrument, Masterwork Harpsichord	KEY:Musical Instrument (Harpsichord/Masterwork)	OUTPUTNAME:Masterwork Harpsichord													BASEITEM:Harpsichord (Base)																																									VISIBLE:YES
-Musical Instrument (Harpsichord/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Piano (Base).COPY=Musical Instrument, Masterwork Piano			KEY:Musical Instrument (Piano/Masterwork)		OUTPUTNAME:Masterwork Piano														BASEITEM:Piano (Base)																																										VISIBLE:YES
-Musical Instrument (Piano/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Pipe Organ (Base).COPY=Musical Instrument, Masterwork Pipe Organ		KEY:Musical Instrument (Pipe Organ/Masterwork)	OUTPUTNAME:Masterwork Pipe Organ													BASEITEM:Pipe Organ (Base)																																									VISIBLE:YES
-Musical Instrument (Pipe Organ/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Bells (Base).COPY=Musical Instrument, Masterwork Bells			KEY:Musical Instrument (Bells/Masterwork)		OUTPUTNAME:Masterwork Bells														BASEITEM:Bells (Base)																																										VISIBLE:YES
-Musical Instrument (Bells/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Chimes (Base).COPY=Musical Instrument, Masterwork Chimes			KEY:Musical Instrument (Chimes/Masterwork)	OUTPUTNAME:Masterwork Chimes														BASEITEM:Chimes (Base)																																										VISIBLE:YES
-Musical Instrument (Chimes/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Drums (Base).COPY=Musical Instrument, Masterwork Drums			KEY:Musical Instrument (Drums/Masterwork)		OUTPUTNAME:Masterwork Drums														BASEITEM:Drums (Base)																																										VISIBLE:YES
-Musical Instrument (Drums/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Gong (Base).COPY=Musical Instrument, Masterwork Gong				KEY:Musical Instrument (Gong/Masterwork)		OUTPUTNAME:Masterwork Gong														BASEITEM:Gong (Base)																																										VISIBLE:YES
-Musical Instrument (Gong/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Fiddle (Base).COPY=Musical Instrument, Masterwork Fiddle			KEY:Musical Instrument (Fiddle/Masterwork)	OUTPUTNAME:Masterwork Fiddle														BASEITEM:Fiddle (Base)																																										VISIBLE:YES
-Musical Instrument (Fiddle/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Harp (Base).COPY=Musical Instrument, Masterwork Harp				KEY:Musical Instrument (Harp/Masterwork)		OUTPUTNAME:Masterwork Harp														BASEITEM:Harp (Base)																																										VISIBLE:YES
-Musical Instrument (Harp/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Lute (Base).COPY=Musical Instrument, Masterwork Lute				KEY:Musical Instrument (Lute/Masterwork)		OUTPUTNAME:Masterwork Lute														BASEITEM:Lute (Base)																																										VISIBLE:YES
-Musical Instrument (Lute/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Mandolin (Base).COPY=Musical Instrument, Masterwork Mandolin		KEY:Musical Instrument (Mandolin/Masterwork)	OUTPUTNAME:Masterwork Mandolin													BASEITEM:Mandolin (Base)																																									VISIBLE:YES
-Musical Instrument (Mandolin/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Flute (Base).COPY=Musical Instrument, Masterwork Flute			KEY:Musical Instrument (Flute/Masterwork)		OUTPUTNAME:Masterwork Flute														BASEITEM:Flute (Base)																																										VISIBLE:YES
-Musical Instrument (Flute/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Pan Pipes (Base).COPY=Musical Instrument, Masterwork Pan Pipes		KEY:Musical Instrument (Pan Pipes/Masterwork)	OUTPUTNAME:Masterwork Pan Pipes													BASEITEM:Pan Pipes (Base)																																									VISIBLE:YES
-Musical Instrument (Pan Pipes/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Recorder (Base).COPY=Musical Instrument, Masterwork Recorder		KEY:Musical Instrument (Recorder/Masterwork)	OUTPUTNAME:Masterwork Recorder													BASEITEM:Recorder (Base)																																									VISIBLE:YES
-Musical Instrument (Recorder/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Trumpet (Base).COPY=Musical Instrument, Masterwork Trumpet			KEY:Musical Instrument (Trumpet/Masterwork)	OUTPUTNAME:Masterwork Trumpet														BASEITEM:Trumpet (Base)																																										VISIBLE:YES
-Musical Instrument (Trumpet/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item	SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
-Parasol																										TYPE:Goods.Tools					COST:1	WT:2														SOURCEPAGE:p.78
-Parasol (Umbrella)																								TYPE:Goods.Tools					COST:2	WT:3														SOURCEPAGE:p.78
-Alchemist's Lab (Portable).MOD															OUTPUTNAME:Alchemist's Lab, Portable	TYPE:Goods.Tools.CraftToolsAlchemist	COST:75	WT:20														SOURCEPAGE:p.79
-Portable Altar																									TYPE:Goods.Tools					COST:250	WT:40														SOURCEPAGE:p.79
-Portrait Book.MOD																									TYPE:Goods.Tools.Book				COST:10	WT:3														SOURCEPAGE:p.79
-Spell Component Pouch.MOD																																														SOURCEPAGE:p.79
-Spellbook.MOD																																																SOURCEPAGE:p.79
-Stretcher																										TYPE:Goods.Tools					COST:1	WT:10														SOURCEPAGE:p.79
-Surgeon's Tools																									TYPE:Goods.Tools					COST:20	WT:5														SOURCEPAGE:p.79
+Artisan's Tools (Masterwork).MOD																																						EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.76
+Balancing Pole.MOD																								TYPE:Goods.Tools					COST:0.8	WT:12																		SOURCEPAGE:p.76
+Bear Trap.MOD																									TYPE:Goods.Tools					COST:2	WT:10																		SOURCEPAGE:p.76
+Bellows.MOD																										TYPE:Goods.Tools					COST:1	WT:3																		SOURCEPAGE:p.76
+Climber's Kit.MOD																																																				SOURCEPAGE:p.76
+Disguise Kit.MOD																																																				SOURCEPAGE:p.76
+Footprint Book.MOD																								TYPE:Goods.Tools.Book				COST:50	WT:3																		SOURCEPAGE:p.76
+Forger's Kit																									TYPE:Goods.Tools					COST:200	WT:6																		SOURCEPAGE:p.77										BONUS:SITUATION|Linguistics=Forgery|2|TYPE=Circumstance
+Formula Book.MOD																																																				SOURCEPAGE:p.77
+Fortune-Teller's Deck (Common).MOD																						TYPE:Goods.Tools					COST:1	WT:0.5																	SOURCEPAGE:p.77
+Fortune-Teller's Deck (Quality).MOD																						TYPE:Goods.Tools					COST:25	WT:1																		SOURCEPAGE:p.77																				BONUS:SKILL|Profession (Fortune-Teller)|1|TYPE=Circumstance
+Fortune-Teller's Deck (Masterwork).MOD																					TYPE:Goods.Tools					COST:50	WT:1																		SOURCEPAGE:p.77																				BONUS:SKILL|Profession (Fortune-Teller)|2|TYPE=Circumstance
+Healer's Kit.MOD																																																				SOURCEPAGE:p.77
+Juggler's Kit																									TYPE:Goods.Tools					COST:15	WT:10																		SOURCEPAGE:p.77																				BONUS:SKILL|Perform (Act),Perform (Comedy)|1|TYPE=Circumstance
+Leeching Kit.MOD																									TYPE:Goods.Tools					COST:5	WT:5																		SOURCEPAGE:p.77
+Map Maker's Kit.MOD																								TYPE:Goods.Tools					COST:10	WT:2																		SOURCEPAGE:p.78
+Masterwork Tool																									TYPE:Goods.Tools.Masterwork Tool		COST:50	WT:1														MODS:REQUIRED		SOURCEPAGE:p.78
+Scale (Merchant's).MOD																																																			SOURCEPAGE:p.78
+Midwife's Kit																									TYPE:Goods.Tools					COST:10	WT:2																		SOURCEPAGE:p.78
+Musical Instrument (Harpsichord).MOD																																																SOURCEPAGE:p.78
+Musical Instrument (Piano).MOD																																																	SOURCEPAGE:p.78
+Musical Instrument (Pipe Organ).MOD																																																	SOURCEPAGE:p.78
+Musical Instrument (Bells).MOD																																																	SOURCEPAGE:p.78
+Musical Instrument (Chimes).MOD																																																	SOURCEPAGE:p.78
+Musical Instrument (Drums).MOD																																																	SOURCEPAGE:p.78
+Musical Instrument (Gong).MOD																																																		SOURCEPAGE:p.78
+Musical Instrument (Fiddle).MOD																																																	SOURCEPAGE:p.78
+Musical Instrument (Harp).MOD																																																		SOURCEPAGE:p.78
+Musical Instrument (Lute).MOD																																																		SOURCEPAGE:p.78
+Musical Instrument (Mandolin).MOD																																																	SOURCEPAGE:p.78
+Musical Instrument (Flute).MOD																																																	SOURCEPAGE:p.78
+Musical Instrument (Pan Pipes).MOD																																																	SOURCEPAGE:p.78
+Musical Instrument (Recorder).MOD																																																	SOURCEPAGE:p.78
+Musical Instrument (Trumpet).MOD																																																	SOURCEPAGE:p.78
+Harpsichord (Base).COPY=Musical Instrument, Masterwork Harpsichord	KEY:Musical Instrument (Harpsichord/Masterwork)	OUTPUTNAME:Masterwork Harpsichord													BASEITEM:Harpsichord (Base)																																													VISIBLE:YES
+Musical Instrument (Harpsichord/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Piano (Base).COPY=Musical Instrument, Masterwork Piano			KEY:Musical Instrument (Piano/Masterwork)		OUTPUTNAME:Masterwork Piano														BASEITEM:Piano (Base)																																														VISIBLE:YES
+Musical Instrument (Piano/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Pipe Organ (Base).COPY=Musical Instrument, Masterwork Pipe Organ		KEY:Musical Instrument (Pipe Organ/Masterwork)	OUTPUTNAME:Masterwork Pipe Organ													BASEITEM:Pipe Organ (Base)																																													VISIBLE:YES
+Musical Instrument (Pipe Organ/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Bells (Base).COPY=Musical Instrument, Masterwork Bells			KEY:Musical Instrument (Bells/Masterwork)		OUTPUTNAME:Masterwork Bells														BASEITEM:Bells (Base)																																														VISIBLE:YES
+Musical Instrument (Bells/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Chimes (Base).COPY=Musical Instrument, Masterwork Chimes			KEY:Musical Instrument (Chimes/Masterwork)	OUTPUTNAME:Masterwork Chimes														BASEITEM:Chimes (Base)																																														VISIBLE:YES
+Musical Instrument (Chimes/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Drums (Base).COPY=Musical Instrument, Masterwork Drums			KEY:Musical Instrument (Drums/Masterwork)		OUTPUTNAME:Masterwork Drums														BASEITEM:Drums (Base)																																														VISIBLE:YES
+Musical Instrument (Drums/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Gong (Base).COPY=Musical Instrument, Masterwork Gong				KEY:Musical Instrument (Gong/Masterwork)		OUTPUTNAME:Masterwork Gong														BASEITEM:Gong (Base)																																														VISIBLE:YES
+Musical Instrument (Gong/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Fiddle (Base).COPY=Musical Instrument, Masterwork Fiddle			KEY:Musical Instrument (Fiddle/Masterwork)	OUTPUTNAME:Masterwork Fiddle														BASEITEM:Fiddle (Base)																																														VISIBLE:YES
+Musical Instrument (Fiddle/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Harp (Base).COPY=Musical Instrument, Masterwork Harp				KEY:Musical Instrument (Harp/Masterwork)		OUTPUTNAME:Masterwork Harp														BASEITEM:Harp (Base)																																														VISIBLE:YES
+Musical Instrument (Harp/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Lute (Base).COPY=Musical Instrument, Masterwork Lute				KEY:Musical Instrument (Lute/Masterwork)		OUTPUTNAME:Masterwork Lute														BASEITEM:Lute (Base)																																														VISIBLE:YES
+Musical Instrument (Lute/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Mandolin (Base).COPY=Musical Instrument, Masterwork Mandolin		KEY:Musical Instrument (Mandolin/Masterwork)	OUTPUTNAME:Masterwork Mandolin													BASEITEM:Mandolin (Base)																																													VISIBLE:YES
+Musical Instrument (Mandolin/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Flute (Base).COPY=Musical Instrument, Masterwork Flute			KEY:Musical Instrument (Flute/Masterwork)		OUTPUTNAME:Masterwork Flute														BASEITEM:Flute (Base)																																														VISIBLE:YES
+Musical Instrument (Flute/Masterwork).MOD																																					EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Pan Pipes (Base).COPY=Musical Instrument, Masterwork Pan Pipes		KEY:Musical Instrument (Pan Pipes/Masterwork)	OUTPUTNAME:Masterwork Pan Pipes													BASEITEM:Pan Pipes (Base)																																													VISIBLE:YES
+Musical Instrument (Pan Pipes/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Recorder (Base).COPY=Musical Instrument, Masterwork Recorder		KEY:Musical Instrument (Recorder/Masterwork)	OUTPUTNAME:Masterwork Recorder													BASEITEM:Recorder (Base)																																													VISIBLE:YES
+Musical Instrument (Recorder/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Trumpet (Base).COPY=Musical Instrument, Masterwork Trumpet			KEY:Musical Instrument (Trumpet/Masterwork)	OUTPUTNAME:Masterwork Trumpet														BASEITEM:Trumpet (Base)																																														VISIBLE:YES
+Musical Instrument (Trumpet/Masterwork).MOD																																				EQMOD:Special Quality ~ Masterwork ~ Item					SOURCEPAGE:p.78	ABILITY:Equipment|AUTOMATIC|Equipment ~ Perform Bonus
+Parasol																										TYPE:Goods.Tools					COST:1	WT:2																		SOURCEPAGE:p.78
+Parasol (Umbrella)																								TYPE:Goods.Tools					COST:2	WT:3																		SOURCEPAGE:p.78
+Alchemist's Lab (Portable).MOD															OUTPUTNAME:Alchemist's Lab, Portable	TYPE:Goods.Tools.CraftToolsAlchemist	COST:75	WT:20																		SOURCEPAGE:p.79
+Portable Altar																									TYPE:Goods.Tools					COST:250	WT:40																		SOURCEPAGE:p.79
+Portrait Book.MOD																									TYPE:Goods.Tools.Book				COST:10	WT:3																		SOURCEPAGE:p.79
+Spell Component Pouch.MOD																																																		SOURCEPAGE:p.79
+Spellbook.MOD																																																				SOURCEPAGE:p.79
+Stretcher																										TYPE:Goods.Tools					COST:1	WT:10																		SOURCEPAGE:p.79
+Surgeon's Tools																									TYPE:Goods.Tools					COST:20	WT:5																		SOURCEPAGE:p.79
 Surgeon's Tools.COPY=Surgeon's Tools (Small)
-Surgeon's Tools (Small).MOD																																WT:1.25													SOURCEPAGE:p.79
-Symptom Kit.MOD																									TYPE:Goods.Tools					COST:25	WT:5														SOURCEPAGE:p.79
-Thieves' Tools.MOD																																															SOURCEPAGE:p.79
-Thieves' Tools.COPY=Thieves' Tools (Masterwork)																				
-Thieves' Tools (Masterwork).MOD																						TYPE:Masterwork					COST:100	WT:2														SOURCEPAGE:p.79
-Traveling Spellbook.COPY=Traveling Formula Book																																											SOURCEPAGE:p.79
-Traveling Spellbook.MOD																																															SOURCEPAGE:p.79
-Veterinarian's Kit																								TYPE:Goods.Tools					COST:25	WT:1														SOURCEPAGE:p.79										BONUS:SITUATION|Heal=Animal|3|TYPE=Circumstance			BONUS:SKILL|Heal|1|TYPE=Circumstance
+Surgeon's Tools (Small).MOD																																WT:1.25																	SOURCEPAGE:p.79
+Symptom Kit.MOD																									TYPE:Goods.Tools					COST:25	WT:5																		SOURCEPAGE:p.79
+Thieves' Tools.MOD																																																			SOURCEPAGE:p.79
+Thieves' Tools.COPY=Thieves' Tools (Masterwork)
+Thieves' Tools (Masterwork).MOD																						TYPE:Masterwork					COST:100	WT:2																		SOURCEPAGE:p.79
+Traveling Spellbook.COPY=Traveling Formula Book																																															SOURCEPAGE:p.79
+Traveling Spellbook.MOD																																																			SOURCEPAGE:p.79
+Veterinarian's Kit																								TYPE:Goods.Tools					COST:25	WT:1																		SOURCEPAGE:p.79										BONUS:SITUATION|Heal=Animal|3|TYPE=Circumstance			BONUS:SKILL|Heal|1|TYPE=Circumstance
 
 ###Block: Adventuring Gear
 # Equipment Name									Unique Key					Output Name						Type																							Contains									Cost		Weight	Base Item for EQMOD				Base Quantity	Requires Modification?	Source Page		Bonus to Situation																		Bonus to skill							Quality and value																			Special Property																																																																																					Visible

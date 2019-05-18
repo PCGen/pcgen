@@ -1,5 +1,7 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
 
 ###Block: Familiar Templates
-Familiar Type	KEY:Familiar ~ Augmented Animal	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal	VISIBLE:NO	SOURCEPAGE:p.82
-Familiar Speaks One Language	VISIBLE:NO					ADD:LANGUAGE|TYPE=Spoken	SOURCEPAGE:p.82
+# Template Name			Unique Key					Visible	Source Page		Add					Main Race Type		Race Subtype
+Familiar Type			KEY:Familiar ~ Augmented Animal	VISIBLE:NO	SOURCEPAGE:p.82						RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal
+Familiar Speaks One Language							VISIBLE:NO	SOURCEPAGE:p.82	ADD:LANGUAGE|TYPE=Spoken

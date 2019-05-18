@@ -1,12 +1,19 @@
+#  Sat Nov 24 09:48:31 2018 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 
-# Name
+
+# Name						Explanation								VALUE
 DEFAULTVARIABLEVALUE:ORDEREDPAIR|0,0
 DEFAULTVARIABLEVALUE:NUMBER|0
 DEFAULTVARIABLEVALUE:DICE|0
 DEFAULTVARIABLEVALUE:BOOLEAN|False
 DEFAULTVARIABLEVALUE:STRING|
 DEFAULTVARIABLEVALUE:ALIGNMENT|None
+
+# User Defined Functions
+FUNCTION:d20Mod					EXPLANATION:For Ability Score Calculation of Bonus	VALUE:floor((arg(0)-10)/2)
+
+
 
 
 

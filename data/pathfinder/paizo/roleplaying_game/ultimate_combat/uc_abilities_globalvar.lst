@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 
@@ -207,7 +208,7 @@ CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)|PRE
 CATEGORY=Class|Samurai.MOD	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|PREVAREQ:Samurai_CF_SamuraiShieldProficiency,0
 
 ###Block:
-# Ability Name			Define								Modify VAR
+# Ability Name			Define
 CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_ClassSkills|0
 CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_WeaponProficiencies|0
 CATEGORY=Class|Samurai.MOD	DEFINE:Samurai_CF_ArmorProficiency|0

@@ -1,10 +1,11 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Thu May 12 14:50:48 2016 -- reformated by PCGen PrettyLST v6.06.00
 # SOURCELONG:Ranged Tactics Toolbox	SOURCESHORT:RTT	SOURCEWEB:http://paizo.com/products/btpy99s6?Pathfinder-Player-Companion-Ranged-Tactics-Toolbox	SOURCEDATE:2014-10
 # ORIGINAL ENTRY: Gwen T. (evilpixie87)
 # ORIGINAL ENTRY DATE: 26 April 2016
 
 ####COMMENT:Need to add "AlchemistBombModifier" to Alchemist Discovery types in future iterations of PCGen
-# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI		Display Location
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
 ABILITYCATEGORY:Rogue Bomber Discovery	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:AlchemistBombModifier	PLURAL:Rogue Bomber Discoveries	DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Magus Ranger Trap		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RangerTrap		PLURAL:Magus Ranger Traps		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Magus Ranger Trap		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:RangerTrap			PLURAL:Magus Ranger Traps		DISPLAYLOCATION:Class Features

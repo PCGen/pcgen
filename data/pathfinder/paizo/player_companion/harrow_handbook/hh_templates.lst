@@ -1,3 +1,5 @@
-SOURCELONG:Pathfinder Player Companion: The Harrow Handbook		SOURCESHORT:HH	SOURCEWEB:http://paizo.com/products/btpy95zm	SOURCEDATE:2014-07
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Pathfinder Player Companion: The Harrow Handbook	SOURCESHORT:HH	SOURCEWEB:http://paizo.com/products/btpy95zm	SOURCEDATE:2014-07
 
+# Template Name					Visible	Ability
 Masterpiece Activation Harrow Handbook	VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Illusion's Decree|PREMULT:1,[PRESPELL:1,Masterpiece (Illusion's Decree)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Illusion's Decree)]	ABILITY:Special Ability|AUTOMATIC|Masterpiece ~ Tales of Twisting Steel|PREMULT:1,[PRESPELL:1,Masterpiece (Tales of Twisting Steel)],[PREABILITY:1,CATEGORY=FEAT,Masterpiece (Tales of Twisting Steel)]

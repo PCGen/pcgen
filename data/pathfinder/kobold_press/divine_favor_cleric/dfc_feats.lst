@@ -1,8 +1,10 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 # ENTRY DATE: 2015-01
 # LST MONKEY: Stefan Radermacher
 SOURCELONG:Divine Favor: The Cleric	SOURCESHORT:DFC	SOURCEWEB:http://www.koboldquarterly.com/kqstore/index.php?main_page=product_info&cPath=6&products_id=146	SOURCEDATE:2011-10
 
 # Feat Name				Type
+# Ability Name						Type
 CATEGORY=FEAT|Acrobatic.MOD				TYPE:AsceticBonusFeat
 CATEGORY=FEAT|Agile Maneuvers.MOD			TYPE:AsceticBonusFeat
 CATEGORY=FEAT|Alertness.MOD				TYPE:AsceticBonusFeat

@@ -1,6 +1,8 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 
-Sapling		SIZE:S		VISIBLE:NO		SUBRACE:Sapling
-Oakling		SIZE:M		VISIBLE:NO		SUBRACE:Oakling
-Blind Vlaka					VISIBLE:NO
-Deaf Vlaka					VISIBLE:NO
-Hearing and Sighted Vlaka		VISIBLE:NO
+# Template Name			Size		Visible	Subrace
+Sapling				SIZE:S	VISIBLE:NO	SUBRACE:Sapling
+Oakling				SIZE:M	VISIBLE:NO	SUBRACE:Oakling
+Blind Vlaka						VISIBLE:NO
+Deaf Vlaka						VISIBLE:NO
+Hearing and Sighted Vlaka			VISIBLE:NO

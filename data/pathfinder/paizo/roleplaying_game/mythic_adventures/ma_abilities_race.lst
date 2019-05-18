@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 
 ###Block: Specific Mythic Race - Where we assign the Mythic Rank and abilities.
 # Ability Name			Category of Ability	Template		Ability											Modify VAR
@@ -277,46 +278,46 @@ Standard Version	CATEGORY:Internal		TYPE:RaceVersion
 # Ability Name								Ability																Bonus Ability Pool
 CATEGORY=Internal|Racial Traits ~ Aboleth.MOD			ABILITY:Internal|AUTOMATIC|Mythic Aboleth|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Barghest (Greater).MOD	ABILITY:Internal|AUTOMATIC|Mythic Barghest (Greater)|PREABILITY:1,CATEGORY=Internal,Mythic Version	BONUS:ABILITYPOOL|Race Version|1
-CATEGORY=Internal|Racial Traits ~ Cockatrice.MOD			ABILITY:Internal|AUTOMATIC|Mythic Cockatrice|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
+CATEGORY=Internal|Racial Traits ~ Cockatrice.MOD		ABILITY:Internal|AUTOMATIC|Mythic Cockatrice|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Cyclops (Great).MOD		ABILITY:Internal|AUTOMATIC|Mythic Cyclops (Great)|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
-CATEGORY=Internal|Racial Traits ~ Demon (Marilith).MOD		ABILITY:Internal|AUTOMATIC|Mythic Demon (Marilith)|PREABILITY:1,CATEGORY=Internal,Mythic Version	BONUS:ABILITYPOOL|Race Version|1
+CATEGORY=Internal|Racial Traits ~ Demon (Marilith).MOD	ABILITY:Internal|AUTOMATIC|Mythic Demon (Marilith)|PREABILITY:1,CATEGORY=Internal,Mythic Version	BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Demon (Nalfeshnee).MOD	ABILITY:Internal|AUTOMATIC|Mythic Demon (Nalfeshnee)|PREABILITY:1,CATEGORY=Internal,Mythic Version	BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Demon (Vrock).MOD		ABILITY:Internal|AUTOMATIC|Mythic Demon (Vrock)|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Devil (Bone).MOD		ABILITY:Internal|AUTOMATIC|Mythic Devil (Bone)|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
-CATEGORY=Internal|Racial Traits ~ Devil (Ice).MOD			ABILITY:Internal|AUTOMATIC|Mythic Devil (Ice)|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
+CATEGORY=Internal|Racial Traits ~ Devil (Ice).MOD		ABILITY:Internal|AUTOMATIC|Mythic Devil (Ice)|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Dragon (Black).MOD		ABILITY:Internal|AUTOMATIC|Mythic Dragon (Black)|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Dragon (Blue).MOD		ABILITY:Internal|AUTOMATIC|Mythic Dragon (Blue)|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Dragon (Green).MOD		ABILITY:Internal|AUTOMATIC|Mythic Dragon (Green)|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Dragon (Red).MOD		ABILITY:Internal|AUTOMATIC|Mythic Dragon (Red)|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Dragon (White).MOD		ABILITY:Internal|AUTOMATIC|Mythic Dragon (White)|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Elemental (Air).MOD		ABILITY:Internal|AUTOMATIC|Mythic Elemental (Air)|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
-CATEGORY=Internal|Racial Traits ~ Elemental (Earth).MOD		ABILITY:Internal|AUTOMATIC|Mythic Elemental (Earth)|PREABILITY:1,CATEGORY=Internal,Mythic Version	BONUS:ABILITYPOOL|Race Version|1
-CATEGORY=Internal|Racial Traits ~ Elemental (Fire).MOD		ABILITY:Internal|AUTOMATIC|Mythic Elemental (Fire)|PREABILITY:1,CATEGORY=Internal,Mythic Version	BONUS:ABILITYPOOL|Race Version|1
-CATEGORY=Internal|Racial Traits ~ Elemental (Water).MOD		ABILITY:Internal|AUTOMATIC|Mythic Elemental (Water)|PREABILITY:1,CATEGORY=Internal,Mythic Version	BONUS:ABILITYPOOL|Race Version|1
-CATEGORY=Internal|Racial Traits ~ Ettin.MOD				ABILITY:Internal|AUTOMATIC|Mythic Ettin|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
+CATEGORY=Internal|Racial Traits ~ Elemental (Earth).MOD	ABILITY:Internal|AUTOMATIC|Mythic Elemental (Earth)|PREABILITY:1,CATEGORY=Internal,Mythic Version	BONUS:ABILITYPOOL|Race Version|1
+CATEGORY=Internal|Racial Traits ~ Elemental (Fire).MOD	ABILITY:Internal|AUTOMATIC|Mythic Elemental (Fire)|PREABILITY:1,CATEGORY=Internal,Mythic Version	BONUS:ABILITYPOOL|Race Version|1
+CATEGORY=Internal|Racial Traits ~ Elemental (Water).MOD	ABILITY:Internal|AUTOMATIC|Mythic Elemental (Water)|PREABILITY:1,CATEGORY=Internal,Mythic Version	BONUS:ABILITYPOOL|Race Version|1
+CATEGORY=Internal|Racial Traits ~ Ettin.MOD			ABILITY:Internal|AUTOMATIC|Mythic Ettin|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Gargoyle.MOD			ABILITY:Internal|AUTOMATIC|Mythic Gargoyle|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Giant (Fire).MOD		ABILITY:Internal|AUTOMATIC|Mythic Giant (Fire)|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Giant (Hill).MOD		ABILITY:Internal|AUTOMATIC|Mythic Giant (Hill)|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Golem (Flesh).MOD		ABILITY:Internal|AUTOMATIC|Mythic Golem (Flesh)|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Griffon.MOD			ABILITY:Internal|AUTOMATIC|Mythic Griffon|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
-CATEGORY=Internal|Racial Traits ~ Hell Hound.MOD			ABILITY:Internal|AUTOMATIC|Mythic Hell Hound|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
-CATEGORY=Internal|Racial Traits ~ Hydra.MOD				ABILITY:Internal|AUTOMATIC|Mythic Hydra|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
-CATEGORY=Internal|Racial Traits ~ Lamia.MOD				ABILITY:Internal|AUTOMATIC|Mythic Lamia|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
-CATEGORY=Internal|Racial Traits ~ Lich.MOD				ABILITY:Internal|AUTOMATIC|Mythic Lich|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
+CATEGORY=Internal|Racial Traits ~ Hell Hound.MOD		ABILITY:Internal|AUTOMATIC|Mythic Hell Hound|PREABILITY:1,CATEGORY=Internal,Mythic Version		BONUS:ABILITYPOOL|Race Version|1
+CATEGORY=Internal|Racial Traits ~ Hydra.MOD			ABILITY:Internal|AUTOMATIC|Mythic Hydra|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
+CATEGORY=Internal|Racial Traits ~ Lamia.MOD			ABILITY:Internal|AUTOMATIC|Mythic Lamia|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
+CATEGORY=Internal|Racial Traits ~ Lich.MOD			ABILITY:Internal|AUTOMATIC|Mythic Lich|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Manticore.MOD			ABILITY:Internal|AUTOMATIC|Mythic Manticore|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Medusa.MOD			ABILITY:Internal|AUTOMATIC|Mythic Medusa|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Minotaur.MOD			ABILITY:Internal|AUTOMATIC|Mythic Minotaur|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
-CATEGORY=Internal|Racial Traits ~ Mummy.MOD				ABILITY:Internal|AUTOMATIC|Mythic Mummy|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
-CATEGORY=Internal|Racial Traits ~ Ogre.MOD				ABILITY:Internal|AUTOMATIC|Mythic Ogre|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
+CATEGORY=Internal|Racial Traits ~ Mummy.MOD			ABILITY:Internal|AUTOMATIC|Mythic Mummy|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
+CATEGORY=Internal|Racial Traits ~ Ogre.MOD			ABILITY:Internal|AUTOMATIC|Mythic Ogre|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Owlbear.MOD			ABILITY:Internal|AUTOMATIC|Mythic Owlbear|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Phoenix.MOD			ABILITY:Internal|AUTOMATIC|Mythic Phoenix|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Rakasha.MOD			ABILITY:Internal|AUTOMATIC|Mythic Rakasha|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Skeleton.MOD			ABILITY:Internal|AUTOMATIC|Mythic Skeleton|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Sphinx.MOD			ABILITY:Internal|AUTOMATIC|Mythic Sphinx|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Treant.MOD			ABILITY:Internal|AUTOMATIC|Mythic Treant|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
-CATEGORY=Internal|Racial Traits ~ Troll.MOD				ABILITY:Internal|AUTOMATIC|Mythic Troll|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
+CATEGORY=Internal|Racial Traits ~ Troll.MOD			ABILITY:Internal|AUTOMATIC|Mythic Troll|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Vampire.MOD			ABILITY:Internal|AUTOMATIC|Mythic Vampire|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
-CATEGORY=Internal|Racial Traits ~ Worg.MOD				ABILITY:Internal|AUTOMATIC|Mythic Worg|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
+CATEGORY=Internal|Racial Traits ~ Worg.MOD			ABILITY:Internal|AUTOMATIC|Mythic Worg|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Worg (Winter Wolf).MOD	ABILITY:Internal|AUTOMATIC|Mythic Worg (Winter Wolf)|PREABILITY:1,CATEGORY=Internal,Mythic Version	BONUS:ABILITYPOOL|Race Version|1
 CATEGORY=Internal|Racial Traits ~ Wyvern.MOD			ABILITY:Internal|AUTOMATIC|Mythic Wyvern|PREABILITY:1,CATEGORY=Internal,Mythic Version			BONUS:ABILITYPOOL|Race Version|1
 

@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
@@ -443,7 +444,7 @@ MASTERBONUSRACE:Black Blade	TYPE:Black Blade
 
 ###Block: Beast-Bonded Witch feat tranfer
 # COMMENT: I'm assuming 10 feats is enough.
-# Class of the Master			Type			Number of Feats
+# Class of the Master			Type			Number of Feats	Modify VAR
 FOLLOWER:BeastBondedFeatTransfer=1	TYPE:Familiar	BONUS:FEAT|POOL|1
 FOLLOWER:BeastBondedFeatTransfer=2	TYPE:Familiar	BONUS:FEAT|POOL|1
 FOLLOWER:BeastBondedFeatTransfer=3	TYPE:Familiar	BONUS:FEAT|POOL|1
@@ -457,11 +458,11 @@ FOLLOWER:BeastBondedFeatTransfer=10	TYPE:Familiar	BONUS:FEAT|POOL|1
 
 
 #
-FOLLOWER:EidolonCompanionLVLA=1	TYPE:Eidolon 1												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLA")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon1EP")
-FOLLOWER:EidolonCompanionLVLB=1	TYPE:Eidolon 2												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLB")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon2EP")
-FOLLOWER:EidolonCompanionLVLC=1	TYPE:Eidolon 3												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLC")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon3EP")
-FOLLOWER:EidolonCompanionLVLD=1	TYPE:Eidolon 4												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLD")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon4EP")
-FOLLOWER:EidolonCompanionLVLE=1	TYPE:Eidolon 5												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLE")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon5EP")
-FOLLOWER:EidolonCompanionLVLF=1	TYPE:Eidolon 6												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLF")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon6EP")
-FOLLOWER:EidolonCompanionLVLG=1	TYPE:Eidolon 7												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLG")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon7EP")
-FOLLOWER:EidolonCompanionLVLH=1	TYPE:Eidolon 8												BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLH")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon8EP")
+FOLLOWER:EidolonCompanionLVLA=1	TYPE:Eidolon 1				BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLA")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon1EP")
+FOLLOWER:EidolonCompanionLVLB=1	TYPE:Eidolon 2				BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLB")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon2EP")
+FOLLOWER:EidolonCompanionLVLC=1	TYPE:Eidolon 3				BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLC")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon3EP")
+FOLLOWER:EidolonCompanionLVLD=1	TYPE:Eidolon 4				BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLD")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon4EP")
+FOLLOWER:EidolonCompanionLVLE=1	TYPE:Eidolon 5				BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLE")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon5EP")
+FOLLOWER:EidolonCompanionLVLF=1	TYPE:Eidolon 6				BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLF")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon6EP")
+FOLLOWER:EidolonCompanionLVLG=1	TYPE:Eidolon 7				BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLG")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon7EP")
+FOLLOWER:EidolonCompanionLVLH=1	TYPE:Eidolon 8				BONUS:VAR|EidolonSize|mastervar("EidolonCompanionLVLH")	BONUS:VAR|EidolonEvolution|mastervar("Eidolon8EP")

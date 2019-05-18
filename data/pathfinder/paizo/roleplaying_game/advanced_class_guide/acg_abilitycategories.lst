@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 12957 $ $Author: jbaril $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 #SOURCELONG:Advanced Class Guide	SOURCESHORT:ACG	SOURCEWEB:http://paizo.com/products/btpy95d1	SOURCEDATE:2013-11
@@ -30,14 +31,14 @@ ABILITYCATEGORY:Swashbuckler Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO	
 ABILITYCATEGORY:Warpriest Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Archetype	TYPE:WarpriestArchetype		PLURAL:Warpriest Archetypes		DISPLAYLOCATION:Archetype
 
 ###Block: Class Ability Categories
-# Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object				Type of Object				Plural description for UI			Display Location
-ABILITYCATEGORY:Arcanist Exploit			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:ArcanistExploit			PLURAL:Arcanist Exploits			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Arcanist Bloodline			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal					TYPE:ArcanistBloodline			PLURAL:Arcanist Bloodlines			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Arcanist Bloodline Development	VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Arcanist Bloodline Development
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object				Type of Object					Plural description for UI			Display Location
+ABILITYCATEGORY:Arcanist Exploit				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:ArcanistExploit				PLURAL:Arcanist Exploits			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Arcanist Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal					TYPE:ArcanistBloodline				PLURAL:Arcanist Bloodlines			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Arcanist Bloodline Development		VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Arcanist Bloodline Development
 #ABILITYCATEGORY:Arcanist Draconic Bloodline	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistDraconicBloodline	PLURAL:Arcanist Draconic Bloodlines		DISPLAYLOCATION:Class Features
 #ABILITYCATEGORY:Arcanist Elemental Bloodline	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ArcanistElementalBloodline	PLURAL:Arcanist Elemental Bloodlines	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Arcanist School			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:ArcanistSchool										DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Arcanist School Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:ArcanistSchoolChoice									DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Arcanist School				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:ArcanistSchool											DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Arcanist School Power			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:ArcanistSchoolChoice										DISPLAYLOCATION:Class Features
 
 # New
 ABILITYCATEGORY:Bloodrager Bloodline			VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Bloodrager Bloodline
@@ -47,10 +48,10 @@ ABILITYCATEGORY:Bloodrager Bloodline Power		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOO
 
 # OLD
 #ABILITYCATEGORY:Bloodrager Bloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:BloodragerBloodline		PLURAL:Bloodrager Bloodlines			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Hunter Animal Focus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:HunterAnimalFocusAbility		PLURAL:Hunter Animal Foci			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Hunter Animal Companion Status	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:HunterAnimalCompanionStatus	PLURAL:Hunter Animal Companion Statuses	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Investigator Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:InvestigatorTalent			PLURAL:Investigator Talents			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Skald Versatile Performance	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:SkaldVersatilePerformance	PLURAL:Skald Versatile Performances		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Hunter Animal Focus				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:HunterAnimalFocusAbility			PLURAL:Hunter Animal Foci			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Hunter Animal Companion Status		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:HunterAnimalCompanionStatus		PLURAL:Hunter Animal Companion Statuses	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Investigator Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:InvestigatorTalent				PLURAL:Investigator Talents			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Skald Versatile Performance		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:SkaldVersatilePerformance		PLURAL:Skald Versatile Performances		DISPLAYLOCATION:Class Features
 
 ###Block: Class Bonus Feat Categories
 # Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Base Pool number				Category of Object				Type of Object					Specific choices list						Plural description for UI				Display Location
@@ -144,81 +145,81 @@ ABILITYCATEGORY:Swashbuckler Bonus Feat Selection		VISIBLE:QUALIFY	EDITABLE:YES	
 
 
 ###Block: Feat categories
-# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Base Pool number					Category of Object		Type of Object						Specific choices list				Plural description for UI					Display Location
-ABILITYCATEGORY:Raging Blood Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:RagingBloodBloodline																				DISPLAYLOCATION:Feats
+# Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Base Pool number					Category of Object			Type of Object						Specific choices list				Plural description for UI					Display Location
+ABILITYCATEGORY:Raging Blood Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:RagingBloodBloodline																				DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Firearm Proficiency Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_FirearmChoice				CATEGORY:Special Ability	TYPE:FirearmProfChoice																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Firearm Proficiency Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_FirearmChoice				CATEGORY:Special Ability		TYPE:FirearmProfChoice																					DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Rapid Reload						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:FEAT											ABILITYLIST:Rapid Reload												DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Rapid Reload						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:FEAT												ABILITYLIST:Rapid Reload												DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Temp Eldritch Scrapper Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Temp_Eldritch_Scrapper_Feat	CATEGORY:FEAT			TYPE:Combat							ABILITYLIST:Arcane Strike|Combat Casting										DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Temp Eldritch Scrapper Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Temp_Eldritch_Scrapper_Feat	CATEGORY:FEAT				TYPE:Combat							ABILITYLIST:Arcane Strike|Combat Casting										DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Packmaster Companion Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_PackmasterCompanion			CATEGORY:Special Ability	TYPE:PackmasterCompanionChoice										PLURAL:Packmaster Companion Choices				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Boon Companion Select Packmaster Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:Boon Companion Select Packmaster Companion								PLURAL:Boon Companion Select Packmaster Companions	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Packmaster Companion Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_PackmasterCompanion			CATEGORY:Special Ability		TYPE:PackmasterCompanionChoice										PLURAL:Packmaster Companion Choices				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Boon Companion Select Packmaster Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal				TYPE:Boon Companion Select Packmaster Companion								PLURAL:Boon Companion Select Packmaster Companions	DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Level 4 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice4		CATEGORY:Internal			TYPE:Level 4 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Level 8 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice8		CATEGORY:Internal			TYPE:Level 8 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Level 12 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice12	CATEGORY:Internal			TYPE:Level 12 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Level 16 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice16	CATEGORY:Internal			TYPE:Level 16 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Level 20 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice20	CATEGORY:Internal			TYPE:Level 20 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Level 4 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice4		CATEGORY:Internal				TYPE:Level 4 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Level 8 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice8		CATEGORY:Internal				TYPE:Level 8 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Level 12 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice12	CATEGORY:Internal				TYPE:Level 12 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Level 16 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice16	CATEGORY:Internal				TYPE:Level 16 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Level 20 Primal Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_BarbarianPrimalistChoice20	CATEGORY:Internal				TYPE:Level 20 Primal Choice											PLURAL:Primal Choices						DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Contact Specialist Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Contact Specialist Feat											PLURAL:Contact Specialist Feats				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Contact Specialist Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:Contact Specialist Feat											PLURAL:Contact Specialist Feats				DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Style Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Feat			TYPE:Style														PLURAL:Style Feats						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Style Feat						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Feat				TYPE:Style														PLURAL:Style Feats						DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Hex Selection						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:Hex Selection												PLURAL:Hex Selections						DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Hex Selection						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal				TYPE:Hex Selection												PLURAL:Hex Selections						DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Speaker for the Past Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Speaker for the Past Revelation																		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Speaker for the Past Revelation			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:Speaker for the Past Revelation																		DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Witch Channel Energy				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Witch_Channeling			CATEGORY:Special Ability	TYPE:WitchChannelEnergySelection										PLURAL:Channel Energy						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Witch Channel Energy				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		POOL:Pool_Witch_Channeling			CATEGORY:Special Ability		TYPE:WitchChannelEnergySelection										PLURAL:Channel Energy						DISPLAYLOCATION:Class Features
 
 
 # ==============================
 # Archetype Support
 # ==============================
 
-ABILITYCATEGORY:Inspired Investigator Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:InspiredInvestigatorTalent										PLURAL:Inspired Investigator Talent				DISPLAYLOCATION:Class Abilities
-ABILITYCATEGORY:Blade Adept Blade Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:AdeptBladeChoice																					DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Blade Adept Arcana					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal			TYPE:BladeAdeptArcana																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Inspired Investigator Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:InspiredInvestigatorTalent										PLURAL:Inspired Investigator Talent				DISPLAYLOCATION:Class Abilities
+ABILITYCATEGORY:Blade Adept Blade Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal				TYPE:AdeptBladeChoice																					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Blade Adept Arcana					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Internal				TYPE:BladeAdeptArcana																					DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Blood Arcanist Bloodline				VISIBLE:NO		EDITABLE:NO		EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Blood Arcanist Bloodline
-ABILITYCATEGORY:Elemental Master Type				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:ArcanistElement												PLURAL:Elemental Master Types					DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Arcanist Savant School				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:ArcanistSavantSchool											PLURAL:Arcanist Savant Schools				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Arcanist Savant Opposition School		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:ArcanistSavantOppositionSchool										PLURAL:Arcanist Savant Opposition Schools			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Savant Necromancer Channeling			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:NecromanticSavantChanneling										PLURAL:Necromancer Channeling Choices			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Nature Fang Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:LesserSlayerTalent												PLURAL:Nature Fang Talents					DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Advanced Nature Fang Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:SlayerTalent													PLURAL:Advanced Nature Fang Talent				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Mutation Warrior Discovery			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Mutation Warrior Discovery										PLURAL:Mutation Warrior Discoveries				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Divine Hunter Companion Template		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Divine Hunter Companion											PLURAL:Divine Hunter Companion Templates			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Verminous Hunter Vermin Focus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:HunterVerminFocusAbility											PLURAL:Verminous Hunter Vermin Foci				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Verminous Hunter Vermin Companion Status	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:HunterVerminCompanionStatus										PLURAL:Verminous Hunter Vermin Companion Statuses	DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Sanctified Slayer Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:LesserSlayerTalent												PLURAL:Sanctified Slayer Talents				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Wildcat Maneuver Training 2			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Wildcat Maneuver Training 2																			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Wildcat Maneuver Training 3			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Wildcat Maneuver Training 3																			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Wildcat Maneuver Training 4			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Wildcat Maneuver Training 4																			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Champion of the Faith Alignment Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Champion of the Faith Alignment Choice								PLURAL:Champion of the Faith Alignment Choices		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Disenchanter Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Disenchanter Bonus Feat											PLURAL:Disenchanter Bonus Feats				DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Divine Commander Teamwork Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT			TYPE:Teamwork													PLURAL:Divine Commander Teamwork Feats			DISPLAYLOCATION:Feats
-ABILITYCATEGORY:Divine Commander Blessed Mount Template	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Divine Commander Blessed Mount Template								PLURAL:Divine Commander Blessed Mount Templates		DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Forgepriest Bonus Feat Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Forgepriest Bonus Feat Type										PLURAL:Forgepriest Bonus Feat Types				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Forgepriest Bonus Item Creation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT			TYPE:ItemCreation													PLURAL:Forgepriest Bonus Item Creation Feats		DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Elemental Master Type				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:ArcanistElement												PLURAL:Elemental Master Types					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Arcanist Savant School				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:ArcanistSavantSchool											PLURAL:Arcanist Savant Schools				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Arcanist Savant Opposition School		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:ArcanistSavantOppositionSchool										PLURAL:Arcanist Savant Opposition Schools			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Savant Necromancer Channeling			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:NecromanticSavantChanneling										PLURAL:Necromancer Channeling Choices			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Nature Fang Talent					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:LesserSlayerTalent												PLURAL:Nature Fang Talents					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Advanced Nature Fang Talent			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:SlayerTalent													PLURAL:Advanced Nature Fang Talent				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Mutation Warrior Discovery			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:Mutation Warrior Discovery										PLURAL:Mutation Warrior Discoveries				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Divine Hunter Companion Template		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:Divine Hunter Companion											PLURAL:Divine Hunter Companion Templates			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Verminous Hunter Vermin Focus			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:HunterVerminFocusAbility											PLURAL:Verminous Hunter Vermin Foci				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Verminous Hunter Vermin Companion Status	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:HunterVerminCompanionStatus										PLURAL:Verminous Hunter Vermin Companion Statuses	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Sanctified Slayer Talent				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:LesserSlayerTalent												PLURAL:Sanctified Slayer Talents				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wildcat Maneuver Training 2			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:Wildcat Maneuver Training 2																			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wildcat Maneuver Training 3			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:Wildcat Maneuver Training 3																			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Wildcat Maneuver Training 4			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:Wildcat Maneuver Training 4																			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Champion of the Faith Alignment Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:Champion of the Faith Alignment Choice								PLURAL:Champion of the Faith Alignment Choices		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Disenchanter Bonus Feat				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:Disenchanter Bonus Feat											PLURAL:Disenchanter Bonus Feats				DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Divine Commander Teamwork Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT				TYPE:Teamwork													PLURAL:Divine Commander Teamwork Feats			DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Divine Commander Blessed Mount Template	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:Divine Commander Blessed Mount Template								PLURAL:Divine Commander Blessed Mount Templates		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Forgepriest Bonus Feat Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:Forgepriest Bonus Feat Type										PLURAL:Forgepriest Bonus Feat Types				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Forgepriest Bonus Item Creation Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:FEAT				TYPE:ItemCreation													PLURAL:Forgepriest Bonus Item Creation Feats		DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Crossbow Training Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Internal											ABILITYLIST:Crossbow Training Selection	PLURAL:Crossbow Training Selections				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Savant Flexible Enhancement Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Savant Flexible Enhancement Bonus																		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Crossbow Training Selection			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Internal												ABILITYLIST:Crossbow Training Selection	PLURAL:Crossbow Training Selections				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Savant Flexible Enhancement Bonus		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability		TYPE:Savant Flexible Enhancement Bonus																		DISPLAYLOCATION:Class Features
 
 ###Block:
-# Ability Category			Visible		Editable?		Change Pool?	Fractional values?	Category of Object	Type of Object		Display Location
-ABILITYCATEGORY:Evolved Companion	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:Evolved Companion	DISPLAYLOCATION:Feats
+# Ability Category						Visible		Editable?		Change Pool?	Fractional values?	Category of Object				Type of Object						Display Location
+ABILITYCATEGORY:Evolved Companion				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal					TYPE:Evolved Companion					DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Bloodrager Bloodline Feat	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal		TYPE:Bloodrager Bloodline Feat	DISPLAYLOCATION:Feats
+ABILITYCATEGORY:Bloodrager Bloodline Feat			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal					TYPE:Bloodrager Bloodline Feat			DISPLAYLOCATION:Feats
 
-ABILITYCATEGORY:Bloodrager Draconic Bloodline Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Bloodrager Draconic Bloodline		TYPE:Bloodrager Draconic Bloodline Choice																					DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Bloodrager Elemental Bloodline Type			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Bloodrager Elemental Bloodline		TYPE:Bloodrager Elemental Bloodline Choice																				DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Bloodrager Elemental Bloodline				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO								CATEGORY:Bloodrager Elemental Bloodline																				DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bloodrager Draconic Bloodline Type	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Bloodrager Draconic Bloodline	TYPE:Bloodrager Draconic Bloodline Choice		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bloodrager Elemental Bloodline Type	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Bloodrager Elemental Bloodline	TYPE:Bloodrager Elemental Bloodline Choice	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bloodrager Elemental Bloodline		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Bloodrager Elemental Bloodline									DISPLAYLOCATION:Class Features
 
-ABILITYCATEGORY:Raging Blood Feat Bloodline				VISIBLE:NO	CATEGORY:Raging Blood Feat Bloodline
+ABILITYCATEGORY:Raging Blood Feat Bloodline		VISIBLE:NO												CATEGORY:Raging Blood Feat Bloodline
 
 
-ABILITYCATEGORY:Mutation Warrior Mutagen Selection		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO									CATEGORY:Special Ability	TYPE:Mutation Warrior Mutagen Selection																		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Mutation Warrior Mutagen Selection	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:Mutation Warrior Mutagen Selection		DISPLAYLOCATION:Class Features
 
 
 #

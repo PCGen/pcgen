@@ -1,4 +1,5 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 # Entry by GrimaceJD (Jason D)
-# Ability Category								Visible			Editable?			Change Pool?		Fractional values?	Base Pool number			Category of Object					Type of Object						Specific choices list									Plural description for UI	Display Location
-ABILITYCATEGORY:Unbreakable Resilience		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:UnbreakableStats																				DISPLAYLOCATION:Mythic Abilities
-ABILITYCATEGORY:Impeccable Intuition		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability		TYPE:ImpeccableChoices																		PLURAL:Mythic Paths		DISPLAYLOCATION:Mythic Abilities
+# Ability Category				Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object		Plural description for UI	Display Location
+ABILITYCATEGORY:Unbreakable Resilience	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:UnbreakableStats						DISPLAYLOCATION:Mythic Abilities
+ABILITYCATEGORY:Impeccable Intuition	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:ImpeccableChoices	PLURAL:Mythic Paths		DISPLAYLOCATION:Mythic Abilities

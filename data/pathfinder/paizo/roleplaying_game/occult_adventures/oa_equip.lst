@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # update to add SPROP descriptions, add some CHARGES and BONUS, add splash weapon props, fix alchemical TYPE entries
 # todo: TYPE needs to be changed to fit in with existing gear instead of creating a new one, CHARGES 5 need fixing (set to 3 workaround)
@@ -123,7 +124,7 @@ Talisman of Warrior's Courage, Greater		KEY:Talisman of Warrior's Courage (Great
 Talisman of Warrior's Courage, Lesser		KEY:Talisman of Warrior's Courage (Lesser)		TYPE:Magic.Wondrous.LesserMinor			COST:450	WT:1											SOURCEPAGE:p.264									SPROP:The first time that the wearer would gain the frightened or panicked condition, he gains the shaken condition instead.
 Thaumaturgic Powder					KEY:Thaumaturgic powder						TYPE:Magic.Wondrous.GreaterMinor			COST:4000	WT:0											SOURCEPAGE:p.264									SPROP:The scribed circle acts as the perfectly scribed special diagram of a magic circle against chaos, evil, good, or law and bars extradimensional movement as if the user had attached dimensional anchor to the magic circle.
 Tin Cap							KEY:Tin cap								TYPE:Magic.Wondrous.LesserMedium			COST:15000	WT:2											SOURCEPAGE:p.265
-Tome of Origami Animals					KEY:Tome of Origami Animals					TYPE:Magic.Wondrous.LesserMedium			COST:13500	WT:15											SOURCEPAGE:p.265		EQMOD:CHARGED_ITEM_50|CHARGES[50]
+Tome of Origami Animals					KEY:Tome of Origami Animals					TYPE:Magic.Wondrous.LesserMedium			COST:13500	WT:15		EQMOD:CHARGED_ITEM_50|CHARGES[50]				SOURCEPAGE:p.265
 Waxen Image							KEY:Waxen image							TYPE:Magic.Wondrous.Lesser Minor Wondrous Item	COST:500	WT:.5											SOURCEPAGE:p.265
 
 # Cursed

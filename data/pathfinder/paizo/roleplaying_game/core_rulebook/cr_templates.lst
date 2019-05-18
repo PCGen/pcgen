@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21407 $ $Author: evilmynex $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
@@ -26,8 +27,8 @@ Timeless Body ~ Venerable	VISIBLE:NO																				PREAGESET:1,Venerable
 #Armor Training workaround	VISIBLE:NO	BONUS:MISC|MAXDEX|ArmorTraining|PREEQUIP:1,TYPE=Armor
 
 ###Block: Augment Summoning template
-# Template Name		Visible	Stat bonus			Add					Ability
-Augment Summoning		VISIBLE:YES	BONUS:STAT|STR,CON|4
+# Template Name	Visible	Stat bonus
+Augment Summoning	VISIBLE:YES	BONUS:STAT|STR,CON|4
 
 
 ###Block: Fractional Hit Die Adjustments for Monster classes

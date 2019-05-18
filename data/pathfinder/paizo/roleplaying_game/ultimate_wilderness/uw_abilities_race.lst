@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Mon Nov 20 15:13:47 2017 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/products/btpy9ujo	SOURCEDATE:2017-11
@@ -32,7 +33,7 @@ Leshy Traits	KEY:Traits Output ~ Leshy (PC)	CATEGORY:Special Ability	TYPE:Specia
 
 ###Block: Racial Abilities
 # Ability Name						Category of Ability	Define							Ability
-Racial Traits ~ Gathlain					CATEGORY:Internal
+Racial Traits ~ Gathlain				CATEGORY:Internal
 CATEGORY=Internal|Racial Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceAbilityScores|0		ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Ability Scores|PREVAREQ:Gathlain_ReplaceAbilityScores,0
 CATEGORY=Internal|Racial Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceSize|0				ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Size|PREVAREQ:Gathlain_ReplaceSize,0
 CATEGORY=Internal|Racial Traits ~ Gathlain.MOD					DEFINE:Gathlain_ReplaceSpeed|0			ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Speed|PREVAREQ:Gathlain_ReplaceSpeed,0
@@ -115,8 +116,8 @@ Spelleater			KEY:Ghoran ~ Spelleater			CATEGORY:Special Ability	TYPE:RacialTrait
 # ==============================
 
 ###Block: Racial Abilities
-# Ability Name						Category of Ability	Define							Ability
-Racial Traits ~ Vine Leshy				CATEGORY:Internal
+# Ability Name							Category of Ability	Define							Ability
+Racial Traits ~ Vine Leshy					CATEGORY:Internal
 CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceAbilityScores|0		ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Ability Scores|PREVAREQ:VineLeshy_ReplaceAbilityScores,0
 CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceType|0			ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Type|PREVAREQ:VineLeshy_ReplaceType,0
 CATEGORY=Internal|Racial Traits ~ Vine Leshy.MOD					DEFINE:VineLeshy_ReplaceSize|0			ABILITY:Vine Leshy Racial Trait|AUTOMATIC|Vine Leshy ~ Size|PREVAREQ:VineLeshy_ReplaceSize,0

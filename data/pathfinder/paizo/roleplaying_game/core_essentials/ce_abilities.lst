@@ -1,8 +1,9 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 ###Block: Caster Level Tracking
-# Ability Name			Define										Ability								Modify VAR
+# Ability Name			Define							Ability								Modify VAR
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest|0
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Arcane|0
 CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Divine|0
@@ -13,11 +14,11 @@ CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Total|0
 
 
 # Combined to get Highest Arcane or Divine caster level
-CATEGORY=Internal|Default.MOD																					BONUS:VAR|Caster_Level_Highest|max(Caster_Level_Highest__Arcane,Caster_Level_Highest__Divine)
+CATEGORY=Internal|Default.MOD																		BONUS:VAR|Caster_Level_Highest|max(Caster_Level_Highest__Arcane,Caster_Level_Highest__Divine)
 
 
 # Comment: PC and NPCs are usually playable races that follow age rules, Monsters don't normally follow age rules.
-CATEGORY=Internal|Default.MOD	DEFINE:UseAgeRules|0	DEFINE:AgeProgression|0				ABILITY:Internal|AUTOMATIC|Age|PREVAREQ:UseAgeRules,1	BONUS:VAR|UseAgeRules|1|TYPE=Bool|PRECHARACTERTYPE:1,PC,NPC
+CATEGORY=Internal|Default.MOD	DEFINE:UseAgeRules|0	DEFINE:AgeProgression|0	ABILITY:Internal|AUTOMATIC|Age|PREVAREQ:UseAgeRules,1	BONUS:VAR|UseAgeRules|1|TYPE=Bool|PRECHARACTERTYPE:1,PC,NPC
 
 ###Block: Age Adjustments
 # Ability Name			Category of Ability	Define						Ability											Modify VAR

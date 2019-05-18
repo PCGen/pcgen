@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 # Created January, 2015 Tom Parker
 # This file represents a conversion mechanism for items that were previously
@@ -10,26 +11,26 @@
 # MUST include these entries (or something near equivalent [additional
 # SELECT-ability would be legal]) in one of the DATACONTROL files.
 
-# Name						Dataformat		Selectable		Visible
-FACTDEF:RACE|BaseSize					DATAFORMAT:SIZEADJUSTMENT	REQUIRED:YES				VISIBLE:YES							EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
+# Name						Dataformat				Required		Selectable		Visible	Explanation
+FACTDEF:RACE|BaseSize				DATAFORMAT:SIZEADJUSTMENT	REQUIRED:YES				VISIBLE:YES	EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
 
-FACTDEF:ABILITY|AppliedName			DATAFORMAT:String				VISIBLE:YES
+FACTDEF:ABILITY|AppliedName			DATAFORMAT:String									VISIBLE:YES
 
-FACTDEF:CLASS|Abb					DATAFORMAT:String				VISIBLE:YES
-FACTDEF:CLASS|ClassType				DATAFORMAT:String				VISIBLE:YES
-FACTDEF:CLASS|SpellType				DATAFORMAT:String	SELECTABLE:YES	VISIBLE:YES
+FACTDEF:CLASS|Abb					DATAFORMAT:String									VISIBLE:YES
+FACTDEF:CLASS|ClassType				DATAFORMAT:String									VISIBLE:YES
+FACTDEF:CLASS|SpellType				DATAFORMAT:String						SELECTABLE:YES	VISIBLE:YES
 
-FACTDEF:DEITY|Symbol				DATAFORMAT:String				VISIBLE:YES
-FACTDEF:DEITY|Worshippers			DATAFORMAT:String				VISIBLE:YES
-FACTDEF:DEITY|Title				DATAFORMAT:String				VISIBLE:YES
-FACTDEF:DEITY|Appearance			DATAFORMAT:String				VISIBLE:YES
+FACTDEF:DEITY|Symbol				DATAFORMAT:String									VISIBLE:YES
+FACTDEF:DEITY|Worshippers			DATAFORMAT:String									VISIBLE:YES
+FACTDEF:DEITY|Title				DATAFORMAT:String									VISIBLE:YES
+FACTDEF:DEITY|Appearance			DATAFORMAT:String									VISIBLE:YES
 
-FACTDEF:EQUIPMENT|RateOfFire			DATAFORMAT:String				VISIBLE:YES
+FACTDEF:EQUIPMENT|RateOfFire			DATAFORMAT:String									VISIBLE:YES
 
-FACTDEF:TEMPLATE|AppliedName			DATAFORMAT:String				VISIBLE:YES
+FACTDEF:TEMPLATE|AppliedName			DATAFORMAT:String									VISIBLE:YES
 
-FACTSETDEF:DEITY|Pantheon			DATAFORMAT:String	SELECTABLE:YES	VISIBLE:YES
-FACTSETDEF:DEITY|Race				DATAFORMAT:String				VISIBLE:YES
+FACTSETDEF:DEITY|Pantheon			DATAFORMAT:String						SELECTABLE:YES	VISIBLE:YES
+FACTSETDEF:DEITY|Race				DATAFORMAT:String									VISIBLE:YES
 
 DEFAULTVARIABLEVALUE:ORDEREDPAIR|0,0
 DEFAULTVARIABLEVALUE:NUMBER|0

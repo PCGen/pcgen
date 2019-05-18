@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21544 $ $Author: nuance $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 
@@ -6,23 +7,23 @@
 Racial Traits ~ Aboleth			CATEGORY:Internal
 Racial Traits ~ Barghest (Greater)	CATEGORY:Internal
 Racial Traits ~ Cockatrice		CATEGORY:Internal
-Racial Traits ~ Cyclops (Great)		CATEGORY:Internal
+Racial Traits ~ Cyclops (Great)	CATEGORY:Internal
 Racial Traits ~ Demon (Marilith)	CATEGORY:Internal
 Racial Traits ~ Demon (Nalfeshnee)	CATEGORY:Internal
 Racial Traits ~ Demon (Vrock)		CATEGORY:Internal
 Racial Traits ~ Devil (Bone)		CATEGORY:Internal
 Racial Traits ~ Devil (Ice)		CATEGORY:Internal
-Racial Traits ~ Dragon (Black)		CATEGORY:Internal
+Racial Traits ~ Dragon (Black)	CATEGORY:Internal
 Racial Traits ~ Dragon (Blue)		CATEGORY:Internal
-Racial Traits ~ Dragon (Green)		CATEGORY:Internal
+Racial Traits ~ Dragon (Green)	CATEGORY:Internal
 Racial Traits ~ Dragon (Red)		CATEGORY:Internal
-Racial Traits ~ Dragon (White)		CATEGORY:Internal
-Racial Traits ~ Elemental (Air)		CATEGORY:Internal
+Racial Traits ~ Dragon (White)	CATEGORY:Internal
+Racial Traits ~ Elemental (Air)	CATEGORY:Internal
 Racial Traits ~ Elemental (Earth)	CATEGORY:Internal
 Racial Traits ~ Elemental (Fire)	CATEGORY:Internal
 Racial Traits ~ Elemental (Water)	CATEGORY:Internal
 Racial Traits ~ Ettin			CATEGORY:Internal
-Racial Traits ~ Gargoyle			CATEGORY:Internal
+Racial Traits ~ Gargoyle		CATEGORY:Internal
 Racial Traits ~ Giant (Fire)		CATEGORY:Internal
 Racial Traits ~ Giant (Hill)		CATEGORY:Internal
 Racial Traits ~ Golem (Flesh)		CATEGORY:Internal
@@ -31,15 +32,15 @@ Racial Traits ~ Hell Hound		CATEGORY:Internal
 Racial Traits ~ Hydra			CATEGORY:Internal
 Racial Traits ~ Lamia			CATEGORY:Internal
 Racial Traits ~ Lich			CATEGORY:Internal
-Racial Traits ~ Manticore			CATEGORY:Internal
+Racial Traits ~ Manticore		CATEGORY:Internal
 Racial Traits ~ Medusa			CATEGORY:Internal
-Racial Traits ~ Minotaur			CATEGORY:Internal
+Racial Traits ~ Minotaur		CATEGORY:Internal
 Racial Traits ~ Mummy			CATEGORY:Internal
 Racial Traits ~ Ogre			CATEGORY:Internal
 Racial Traits ~ Owlbear			CATEGORY:Internal
 Racial Traits ~ Phoenix			CATEGORY:Internal
 Racial Traits ~ Rakasha			CATEGORY:Internal
-Racial Traits ~ Skeleton			CATEGORY:Internal
+Racial Traits ~ Skeleton		CATEGORY:Internal
 Racial Traits ~ Sphinx			CATEGORY:Internal
 Racial Traits ~ Treant			CATEGORY:Internal
 Racial Traits ~ Troll			CATEGORY:Internal

@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21252 $ $Author: evilmynex $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Pathfinder Companion: Qadira, Gateway to the East	SOURCESHORT:QGTTE	SOURCEWEB:http://paizo.com/products/btpy88zq	SOURCEDATE:2009-08
@@ -5,6 +6,6 @@ SOURCELONG:Pathfinder Companion: Qadira, Gateway to the East	SOURCESHORT:QGTTE	S
 # COMMENT: Is the War-Kilt only meant to get a bonus during a special circumstance???
 
 ###Block: Wondrous Items
-# Equipment Name		Product Identity?	Type					Cost		Weight	Source Page		Bonus to skill								Special Property																																																									Temporary Bonus
-War-Kilt of Sarenrae	NAMEISPI:YES	TYPE:Magic.Wondrous.Belt	COST:13000	WT:5		SOURCEPAGE:p.23	BONUS:SKILL|Acrobatics,Perform (Dance)|2|TYPE=Competence	SPROP:Once per day, when an adjacent foe attempts to take a 5-foot step away from you, you may make a 5-foot step as an immediate action so long as you end up adjacent to that foe. If you take this step, you cannot take a 5-foot step during your next turn. If you take an action to move during your next turn, subtract 5 feet from your total movement.	TEMPBONUS:PC|COMBAT|AC|2|TYPE=NaturalArmor.STACK
-Healy Myrrh						TYPE:Magic.Wondrous.Consumable		COST:50	WT:0		SOURCEPAGE:p.19											SPROP:When you burn this powerful resin, it fills 8,000 cubic feet with faint smoke that persists for 8 full hours. Any creatures resting or receiving long-term care in the area while the healy myrrh is active regain 1 additional hit point per level. Multiple uses of healy myrrh in a 24-hour period do not stack.
+# Equipment Name		Product Identity?	Type						Cost		Weight	Source Page		Bonus to skill								Special Property																																																									Temporary Bonus
+War-Kilt of Sarenrae	NAMEISPI:YES	TYPE:Magic.Wondrous.Belt		COST:13000	WT:5		SOURCEPAGE:p.23	BONUS:SKILL|Acrobatics,Perform (Dance)|2|TYPE=Competence	SPROP:Once per day, when an adjacent foe attempts to take a 5-foot step away from you, you may make a 5-foot step as an immediate action so long as you end up adjacent to that foe. If you take this step, you cannot take a 5-foot step during your next turn. If you take an action to move during your next turn, subtract 5 feet from your total movement.	TEMPBONUS:PC|COMBAT|AC|2|TYPE=NaturalArmor.STACK
+Healy Myrrh						TYPE:Magic.Wondrous.Consumable	COST:50	WT:0		SOURCEPAGE:p.19											SPROP:When you burn this powerful resin, it fills 8,000 cubic feet with faint smoke that persists for 8 full hours. Any creatures resting or receiving long-term care in the area while the healy myrrh is active regain 1 additional hit point per level. Multiple uses of healy myrrh in a 24-hour period do not stack.

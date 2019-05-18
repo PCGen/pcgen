@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 20448 $ $Author: amaitland $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
@@ -147,23 +148,23 @@ Bottle of Messages				TYPE:Magic.Wondrous.Consumable		COST:300	WT:1		SOURCEPAGE:
 Bracelet of Mercy					TYPE:Magic.Wondrous.Bracelet			COST:15000	WT:0.01	SOURCEPAGE:p.301
 
 ###Block:C
-# Equipment Name					Type						Cost		Weight	Modifier			Source Page		Bonus to skill
+# Equipment Name					Type					Cost		Weight	Modifier			Source Page		Bonus to skill
 Campfire Bead					TYPE:Magic.Wondrous		COST:720							SOURCEPAGE:p.302
-Catching Cape					TYPE:Magic.Wondrous.Cape		COST:200	WT:3						SOURCEPAGE:p.302
-Cauldron of Brewing				TYPE:Magic.Wondrous			COST:3000	WT:5						SOURCEPAGE:p.302	BONUS:SKILL|Craft (Alchemy)|5|TYPE=Competence
-Cauldron of Flying				TYPE:Magic.Wondrous			COST:40000	WT:100					SOURCEPAGE:p.302
-Cauldron of Plenty				TYPE:Magic.Wondrous			COST:15000	WT:25						SOURCEPAGE:p.302
-Cauldron of Resurrection			TYPE:Magic.Wondrous			COST:33000	WT:35						SOURCEPAGE:p.303
-Cauldron of Seeing				TYPE:Magic.Wondrous			COST:42000	WT:5						SOURCEPAGE:p.303
-Cauldron of Seeing (See Invisibility)	TYPE:Magic.Wondrous			COST:50000	WT:5						SOURCEPAGE:p.303
-Cauldron of Seeing (Detect Thoughts)	TYPE:Magic.Wondrous			COST:51000	WT:5						SOURCEPAGE:p.303
-Cauldron of Seeing (Telepathy)		TYPE:Magic.Wondrous			COST:70000	WT:5						SOURCEPAGE:p.303
-Cauldron of Seeing (True Seeing)		TYPE:Magic.Wondrous			COST:80000	WT:5						SOURCEPAGE:p.303
-Cauldron of the Dead				TYPE:Magic.Wondrous			COST:30000	WT:35						SOURCEPAGE:p.303
-Clamor Box						TYPE:Magic.Wondrous			COST:2000	WT:2						SOURCEPAGE:p.303
-Construct Channel Brick				TYPE:Magic.Wondrous			COST:10000	WT:1						SOURCEPAGE:p.303
-Cowardly Crouching Cloak			TYPE:Magic.Wondrous.Cape		COST:1800	WT:4		EQMOD:Material ~ Cloth	SOURCEPAGE:p.303
-Crystal of Healing Hands			TYPE:Magic.Wondrous.Neck		COST:12000	WT:1						SOURCEPAGE:p.303
+Catching Cape					TYPE:Magic.Wondrous.Cape	COST:200	WT:3						SOURCEPAGE:p.302
+Cauldron of Brewing				TYPE:Magic.Wondrous		COST:3000	WT:5						SOURCEPAGE:p.302	BONUS:SKILL|Craft (Alchemy)|5|TYPE=Competence
+Cauldron of Flying				TYPE:Magic.Wondrous		COST:40000	WT:100					SOURCEPAGE:p.302
+Cauldron of Plenty				TYPE:Magic.Wondrous		COST:15000	WT:25						SOURCEPAGE:p.302
+Cauldron of Resurrection			TYPE:Magic.Wondrous		COST:33000	WT:35						SOURCEPAGE:p.303
+Cauldron of Seeing				TYPE:Magic.Wondrous		COST:42000	WT:5						SOURCEPAGE:p.303
+Cauldron of Seeing (See Invisibility)	TYPE:Magic.Wondrous		COST:50000	WT:5						SOURCEPAGE:p.303
+Cauldron of Seeing (Detect Thoughts)	TYPE:Magic.Wondrous		COST:51000	WT:5						SOURCEPAGE:p.303
+Cauldron of Seeing (Telepathy)		TYPE:Magic.Wondrous		COST:70000	WT:5						SOURCEPAGE:p.303
+Cauldron of Seeing (True Seeing)		TYPE:Magic.Wondrous		COST:80000	WT:5						SOURCEPAGE:p.303
+Cauldron of the Dead				TYPE:Magic.Wondrous		COST:30000	WT:35						SOURCEPAGE:p.303
+Clamor Box						TYPE:Magic.Wondrous		COST:2000	WT:2						SOURCEPAGE:p.303
+Construct Channel Brick				TYPE:Magic.Wondrous		COST:10000	WT:1						SOURCEPAGE:p.303
+Cowardly Crouching Cloak			TYPE:Magic.Wondrous.Cape	COST:1800	WT:4		EQMOD:Material ~ Cloth	SOURCEPAGE:p.303
+Crystal of Healing Hands			TYPE:Magic.Wondrous.Neck	COST:12000	WT:1						SOURCEPAGE:p.303
 
 ###Block:D
 # Equipment Name	Type									Cost		Weight	Source Page		Bonus to skill
@@ -223,8 +224,8 @@ Necromancer's Athame	TYPE:Magic.Wondrous		COST:20000	WT:2		SOURCEPAGE:p.308
 Philter of Love	TYPE:Magic.Wondrous	COST:3000	SOURCEPAGE:p.308
 
 ###Block:R
-# Equipment Name			Type					Cost		Weight	Source Page		Modify VAR
-Robe of Arcane Heritage		TYPE:Magic.Wondrous.Robe	COST:16000	WT:1		SOURCEPAGE:p.308	BONUS:VAR|BloodlineLVL|4	BONUS:VAR|BloodlineProgressionLVL|4	BONUS:VAR|BloodlineFeatProgression|-4	BONUS:VAR|EldritchHeritageBloodlineLVL|4
+# Equipment Name		Type					Cost		Weight	Source Page		Modify VAR
+Robe of Arcane Heritage	TYPE:Magic.Wondrous.Robe	COST:16000	WT:1		SOURCEPAGE:p.308	BONUS:VAR|BloodlineLVL|4	BONUS:VAR|BloodlineProgressionLVL|4	BONUS:VAR|BloodlineFeatProgression|-4	BONUS:VAR|EldritchHeritageBloodlineLVL|4
 
 ###Block:S
 # Equipment Name			Type						Contains			Cost		Weight	Source Page		Modify VAR

@@ -1,3 +1,5 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Cohorts and Companions	SOURCESHORT:CAC	SOURCEWEB:http://paizo.com/products/btpy9e1c	SOURCEDATE:2015-06
 
-FOLLOWER:CompanionIsConstruct=1	TYPE:Animal Companion		TEMPLATE:Construct Companion
+# Class of the Master			Type				Template
+FOLLOWER:CompanionIsConstruct=1	TYPE:Animal Companion	TEMPLATE:Construct Companion

@@ -1,3 +1,5 @@
-ABILITYCATEGORY:Geneturge Connection Power		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		CATEGORY:Class Feature		TYPE:Geneturge Connection Power		DISPLAYLOCATION:Character
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
+# Ability Category					Visible		Editable?		Change Pool?	Category of Object	Type of Object				Display Location
+ABILITYCATEGORY:Geneturge Connection Power	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Class Feature	TYPE:Geneturge Connection Power	DISPLAYLOCATION:Character
 
-ABILITYCATEGORY:Shock and Awe Fighting Style		VISIBLE:QUALIFY		EDITABLE:YES		EDITPOOL:NO		CATEGORY:Class Feature		TYPE:Shock and Awe FIGHTING STYLE		DISPLAYLOCATION:Character
+ABILITYCATEGORY:Shock and Awe Fighting Style	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Class Feature	TYPE:Shock and Awe FIGHTING STYLE	DISPLAYLOCATION:Character

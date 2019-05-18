@@ -1,3 +1,5 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 
 # Taken for the Melee Tactics Toolbox
-Machete	PROFICIENCY:WEAPON|Machete	TYPE:Weapon.Resizable.Melee.Martial.Light.Standard.Slashing	COST:10	WT:2	CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	EQMOD:Material ~ Steel	WIELD:Light	SIZE:M	SOURCEPAGE:p.19	SOURCESHORT:MTT	SPROP:+1 circumstance bonus on Survival checks in the wild.
+# Equipment Name	Required Weapon Proficiency	Type										Cost		Weight	Crit Mult	Crit Range	Damage	Modifier			Wield Category	Size		Source, Short Desc.	Source Page		Special Property
+Machete		PROFICIENCY:WEAPON|Machete	TYPE:Weapon.Resizable.Melee.Martial.Light.Standard.Slashing	COST:10	WT:2		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d6	EQMOD:Material ~ Steel	WIELD:Light		SIZE:M	SOURCESHORT:MTT		SOURCEPAGE:p.19	SPROP:+1 circumstance bonus on Survival checks in the wild.

@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php	SOURCEDATE:2013-12
@@ -7,10 +8,10 @@ SOURCELONG:Ultimate Psionics	SOURCESHORT:UP	SOURCEWEB:http://dreamscarredpress.c
 ###Block: Astral suits
 # NEEDS CODE/DATA WORK: Astral Armor and Astral Juggernaut should override other worn armor.
 # WORKAROUND: Right now, they take a slot.
-# Equipment Name	Required Armor Proficiency	Type									Cost		Weight	AC Penalty Check	Modifier							Maximum DEX Bonus	Source Page		% of Spell Failure	Ability																				Combat bonus								Bonus Equip Mods							Bonus Armor Mods
-Astral Skin		PROFICIENCY:ARMOR|Astral Suit	TYPE:Skin.AstralSuit						COST:0	WT:0																SOURCEPAGE:p.28					ABILITY:Special Ability|AUTOMATIC|Aegis ~ Astral Skin|PREABILITY:1,CATEGORY=Special Ability,Aegis~ Form Astral Suit		
-Astral Armor	PROFICIENCY:ARMOR|Astral Suit	TYPE:Armor.Medium.ArmorProfMedium.Suit.AstralSuit	COST:-150	WT:40		ACCHECK:-5		EQMOD:Special Quality ~ Masterwork ~ Armor	MAXDEX:2		SOURCEPAGE:p.29	SPELLFAILURE:30		ABILITY:Special Ability|AUTOMATIC|Aegis ~ Astral Armor|PREABILITY:1,CATEGORY=Special Ability,Aegis ~ Form Astral Suit		BONUS:COMBAT|AC|6|TYPE=Armor						BONUS:EQM|WEIGHTADD|-10|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|ACCHECK|1|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|ACCHECK|1|PREABILITY:1,CATEGORY=Special Ability,Aegis ~ Flexible Suit	BONUS:EQMARMOR|MAXDEX|1|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|SPELLFAILURE|-5|PREVARGT:AstralSuitLVL,7
-Astral Juggernaut	PROFICIENCY:ARMOR|Astral Suit	TYPE:Armor.Heavy.ArmorProfHeavy.Suit.AstralSuit		COST:-150	WT:50		ACCHECK:-7		EQMOD:Special Quality ~ Masterwork ~ Armor	MAXDEX:0		SOURCEPAGE:p.29	SPELLFAILURE:40		ABILITY:Special Ability|AUTOMATIC|Aegis ~ Astral Juggernaut|PREABILITY:1,CATEGORY=Special Ability,Aegis ~ Form Astral Suit	BONUS:COMBAT|AC|8+if(AstralSuitLVL>=6,1,0)|TYPE=Armor											BONUS:EQMARMOR|ACCHECK|1|PREVARGT:AstralSuitLVL,6	BONUS:EQMARMOR|ACCHECK|1|PREABILITY:1,CATEGORY=Special Ability,Aegis ~ Flexible Suit	BONUS:EQMARMOR|MAXDEX|1|PREVARGT:AstralSuitLVL,6	BONUS:EQMARMOR|SPELLFAILURE|-5|PREVARGT:AstralSuitLVL,6
+# Equipment Name	Required Armor Proficiency	Type									Cost		Weight	AC Penalty Check	Modifier							Maximum DEX Bonus	Source Page		% of Spell Failure	Ability																				Combat bonus							Bonus Equip Mods							Bonus Armor Mods
+Astral Skin		PROFICIENCY:ARMOR|Astral Suit	TYPE:Skin.AstralSuit						COST:0	WT:0																SOURCEPAGE:p.28					ABILITY:Special Ability|AUTOMATIC|Aegis ~ Astral Skin|PREABILITY:1,CATEGORY=Special Ability,Aegis~ Form Astral Suit
+Astral Armor	PROFICIENCY:ARMOR|Astral Suit	TYPE:Armor.Medium.ArmorProfMedium.Suit.AstralSuit	COST:-150	WT:40		ACCHECK:-5		EQMOD:Special Quality ~ Masterwork ~ Armor	MAXDEX:2		SOURCEPAGE:p.29	SPELLFAILURE:30		ABILITY:Special Ability|AUTOMATIC|Aegis ~ Astral Armor|PREABILITY:1,CATEGORY=Special Ability,Aegis ~ Form Astral Suit		BONUS:COMBAT|AC|6|TYPE=Armor					BONUS:EQM|WEIGHTADD|-10|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|ACCHECK|1|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|ACCHECK|1|PREABILITY:1,CATEGORY=Special Ability,Aegis ~ Flexible Suit	BONUS:EQMARMOR|MAXDEX|1|PREVARGT:AstralSuitLVL,7	BONUS:EQMARMOR|SPELLFAILURE|-5|PREVARGT:AstralSuitLVL,7
+Astral Juggernaut	PROFICIENCY:ARMOR|Astral Suit	TYPE:Armor.Heavy.ArmorProfHeavy.Suit.AstralSuit		COST:-150	WT:50		ACCHECK:-7		EQMOD:Special Quality ~ Masterwork ~ Armor	MAXDEX:0		SOURCEPAGE:p.29	SPELLFAILURE:40		ABILITY:Special Ability|AUTOMATIC|Aegis ~ Astral Juggernaut|PREABILITY:1,CATEGORY=Special Ability,Aegis ~ Form Astral Suit	BONUS:COMBAT|AC|8+if(AstralSuitLVL>=6,1,0)|TYPE=Armor										BONUS:EQMARMOR|ACCHECK|1|PREVARGT:AstralSuitLVL,6	BONUS:EQMARMOR|ACCHECK|1|PREABILITY:1,CATEGORY=Special Ability,Aegis ~ Flexible Suit	BONUS:EQMARMOR|MAXDEX|1|PREVARGT:AstralSuitLVL,6	BONUS:EQMARMOR|SPELLFAILURE|-5|PREVARGT:AstralSuitLVL,6
 
 ###Block: Astral suit weapons
 # Equipment Name	Output Name		Required Weapon Proficiency		Type								Cost		Weight	Crit Mult	Crit Range	Damage	Source Page
@@ -129,28 +130,28 @@ Cognizance Crystal (17)	TYPE:Psionic.Crystal	COST:81000	WT:1		SOURCEPAGE:p.398	S
 
 
 ###Block: Crystalline Focus Items
-# Equipment Name			Type					Cost		Weight	Source Page		Special Property
-Crystal Bow +1			TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind bolt is increased by +1, up to +5
-Crystal Bow +2			TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind bolt is increased by +2, up to +5
-Crystal Bow +3			TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind bolt is increased by +3, up to +5
-Crystal Gauntlets +1		TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of empowered unarmed strikes is increased by +1, up to +5
-Crystal Gauntlets +2		TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of empowered unarmed strikes is increased by +2, up to +5
-Crystal Gauntlets +3		TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of empowered unarmed strikes is increased by +3, up to +5
-Crystal Grip +1			TYPE:Psionic.CrystallineFocus	COST:5600	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind shield is increased by +1, up to +5
-Crystal Grip +2			TYPE:Psionic.CrystallineFocus	COST:22400	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind shield is increased by +2, up to +5
-Crystal Grip +3			TYPE:Psionic.CrystallineFocus	COST:50400	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind shield is increased by +3, up to +5
-Crystal Hilt (Light) +1		TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +1, up to +5
-Crystal Hilt (Light) +2		TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +2, up to +5
-Crystal Hilt (Light) +3		TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +3, up to +5
-Crystal Hilt (One-Handed) +1	TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +1, up to +5
-Crystal Hilt (One-Handed) +2	TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +2, up to +5
-Crystal Hilt (One-Handed) +3	TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +3, up to +5
-Crystal Hilt (Two-Handed) +1	TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +1, up to +5
-Crystal Hilt (Two-Handed) +2	TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +2, up to +5
-Crystal Hilt (Two-Handed) +3	TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.399	SPROP:enhancement of mind blade is increased by +3, up to +5
-Crystal Spaulders +1		TYPE:Psionic.CrystallineFocus	COST:5600	WT:2		SOURCEPAGE:p.400	SPROP:enhancement of mind armor is increased by +1, up to +5	BONUS:COMBAT|AC|1|TYPE=ArmorEnhancement.STACK|PREEQUIP:1,TYPE=AstralSuit,TYPE=Mind Armor	BONUS:VAR|CustomPoints|1
-Crystal Spaulders +2		TYPE:Psionic.CrystallineFocus	COST:22400	WT:2		SOURCEPAGE:p.400	SPROP:enhancement of mind armor is increased by +2, up to +5	BONUS:COMBAT|AC|2|TYPE=ArmorEnhancement.STACK|PREEQUIP:1,TYPE=AstralSuit,TYPE=Mind Armor	BONUS:VAR|CustomPoints|2
-Crystal Spaulders +3		TYPE:Psionic.CrystallineFocus	COST:50400	WT:2		SOURCEPAGE:p.400	SPROP:enhancement of mind armor is increased by +3, up to +5	BONUS:COMBAT|AC|3|TYPE=ArmorEnhancement.STACK|PREEQUIP:1,TYPE=AstralSuit,TYPE=Mind Armor	BONUS:VAR|CustomPoints|3
+# Equipment Name			Type					Cost		Weight	Source Page		Combat bonus													Modify VAR				Special Property
+Crystal Bow +1			TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of mind bolt is increased by +1, up to +5
+Crystal Bow +2			TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of mind bolt is increased by +2, up to +5
+Crystal Bow +3			TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of mind bolt is increased by +3, up to +5
+Crystal Gauntlets +1		TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of empowered unarmed strikes is increased by +1, up to +5
+Crystal Gauntlets +2		TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of empowered unarmed strikes is increased by +2, up to +5
+Crystal Gauntlets +3		TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of empowered unarmed strikes is increased by +3, up to +5
+Crystal Grip +1			TYPE:Psionic.CrystallineFocus	COST:5600	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of mind shield is increased by +1, up to +5
+Crystal Grip +2			TYPE:Psionic.CrystallineFocus	COST:22400	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of mind shield is increased by +2, up to +5
+Crystal Grip +3			TYPE:Psionic.CrystallineFocus	COST:50400	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of mind shield is increased by +3, up to +5
+Crystal Hilt (Light) +1		TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of mind blade is increased by +1, up to +5
+Crystal Hilt (Light) +2		TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of mind blade is increased by +2, up to +5
+Crystal Hilt (Light) +3		TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of mind blade is increased by +3, up to +5
+Crystal Hilt (One-Handed) +1	TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of mind blade is increased by +1, up to +5
+Crystal Hilt (One-Handed) +2	TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of mind blade is increased by +2, up to +5
+Crystal Hilt (One-Handed) +3	TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of mind blade is increased by +3, up to +5
+Crystal Hilt (Two-Handed) +1	TYPE:Psionic.CrystallineFocus	COST:11200	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of mind blade is increased by +1, up to +5
+Crystal Hilt (Two-Handed) +2	TYPE:Psionic.CrystallineFocus	COST:44800	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of mind blade is increased by +2, up to +5
+Crystal Hilt (Two-Handed) +3	TYPE:Psionic.CrystallineFocus	COST:100800	WT:2		SOURCEPAGE:p.399																					SPROP:enhancement of mind blade is increased by +3, up to +5
+Crystal Spaulders +1		TYPE:Psionic.CrystallineFocus	COST:5600	WT:2		SOURCEPAGE:p.400	BONUS:COMBAT|AC|1|TYPE=ArmorEnhancement.STACK|PREEQUIP:1,TYPE=AstralSuit,TYPE=Mind Armor	BONUS:VAR|CustomPoints|1	SPROP:enhancement of mind armor is increased by +1, up to +5
+Crystal Spaulders +2		TYPE:Psionic.CrystallineFocus	COST:22400	WT:2		SOURCEPAGE:p.400	BONUS:COMBAT|AC|2|TYPE=ArmorEnhancement.STACK|PREEQUIP:1,TYPE=AstralSuit,TYPE=Mind Armor	BONUS:VAR|CustomPoints|2	SPROP:enhancement of mind armor is increased by +2, up to +5
+Crystal Spaulders +3		TYPE:Psionic.CrystallineFocus	COST:50400	WT:2		SOURCEPAGE:p.400	BONUS:COMBAT|AC|3|TYPE=ArmorEnhancement.STACK|PREEQUIP:1,TYPE=AstralSuit,TYPE=Mind Armor	BONUS:VAR|CustomPoints|3	SPROP:enhancement of mind armor is increased by +3, up to +5
 
 
 ###Block: Psicrowns

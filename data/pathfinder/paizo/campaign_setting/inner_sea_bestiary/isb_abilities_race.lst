@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Inner Sea Bestiary	SOURCESHORT:ISB	SOURCEWEB:http://paizo.com/products/btpy8v2x	SOURCEDATE:2013-06
@@ -171,7 +172,7 @@ Bleed Damage		KEY:Termagent ~ Bleed Damage		CATEGORY:Special Ability	TYPE:Specia
 
 ###Block: Lashunta Abilities
 # Ability Name					Category of Ability	Ability
-Racial Traits ~ Lashunta				CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Lashunta ~ Default
+Racial Traits ~ Lashunta			CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Lashunta ~ Default
 Lashunta ~ Default				CATEGORY:Internal
 CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ +2 Intelligence
 CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Sexual Dimorphism
@@ -181,13 +182,13 @@ CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOM
 CATEGORY=Internal|Lashunta ~ Default.MOD					ABILITY:Lashunta Racial Trait|AUTOMATIC|Lashunta ~ Languages
 
 ###Block: Default Traits
-# Ability Name	Unique Key					Category of Ability		Type									Innate Spells																			Description																																																				Stat bonus																															Source Page
-+2 Intelligence	KEY:Lashunta ~ +2 Intelligence	CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																								DESC:Lashunta are almost universally intelligent and eager to learn.																																										BONUS:STAT|INT|2|TYPE=Racial																												SOURCEPAGE:p.10
-Sexual Dimorphism	KEY:Lashunta ~ Sexual Dimorphism	CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																								DESC:Male and female lashunta have very different body and personality types, more so than most humanoid species. Male lashunta are muscular (+2 Strength) and often brash and unobservant (-2 Wisdom). Female lashunta, though beautiful and commanding (+2 Charisma), lack the males' rugged builds (-2 Constitution).	BONUS:STAT|STR|2|TYPE=Racial|PREGENDER:Male	BONUS:STAT|WIS|-2|TYPE=Racial|PREGENDER:Male	BONUS:STAT|CHA|2|TYPE=Racial|PREGENDER:Female	BONUS:STAT|CON|-2|TYPE=Racial|PREGENDER:Female	SOURCEPAGE:p.10
+# Ability Name	Unique Key					Category of Ability		Type										Innate Spells																			Description																																																				Stat bonus																															Source Page
++2 Intelligence	KEY:Lashunta ~ +2 Intelligence	CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																									DESC:Lashunta are almost universally intelligent and eager to learn.																																										BONUS:STAT|INT|2|TYPE=Racial																												SOURCEPAGE:p.10
+Sexual Dimorphism	KEY:Lashunta ~ Sexual Dimorphism	CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																									DESC:Male and female lashunta have very different body and personality types, more so than most humanoid species. Male lashunta are muscular (+2 Strength) and often brash and unobservant (-2 Wisdom). Female lashunta, though beautiful and commanding (+2 Charisma), lack the males' rugged builds (-2 Constitution).	BONUS:STAT|STR|2|TYPE=Racial|PREGENDER:Male	BONUS:STAT|WIS|-2|TYPE=Racial|PREGENDER:Male	BONUS:STAT|CHA|2|TYPE=Racial|PREGENDER:Female	BONUS:STAT|CON|-2|TYPE=Racial|PREGENDER:Female	SOURCEPAGE:p.10
 Lashunta Magic	KEY:Lashunta ~ Lashunta Magic		CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality.Supernatural	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Daze,10+CHA|Mage Hand	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=TL|Detect Thoughts	DESC:A lashunta with an Intelligence score of 11 or higher gains the following spell-like abilities: At will- daze, mane hand; 1/day-detect thoughts. The caster level for these effects is equal to the lashunta's character level.																																															SOURCEPAGE:p.10
 Limited Telepathy	KEY:Lashunta ~ Limited Telepathy	CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality.Supernatural																						DESC:A lashunta is able to mentally communicate with any creature within 30 feet with whom she shares a language. This is otherwise identical to telepathy (Pathfinder RPG Bestiary 305).																																																							SOURCEPAGE:p.10
-Knowledgeable	KEY:Lashunta ~ Knowledgeable		CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																								DESC:A lashunta gains a +2 racial bonus to any one Knowledge skill.																																																																										SOURCEPAGE:p.10
-Languages		KEY:Lashunta ~ Languages		CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																								DESC:Lashunta begin play speaking Elven and Lashunta. Lashunta with high Intelligence scores can choose any languages (except secret languages, such as Druidic).																																																											SOURCEPAGE:p.10
+Knowledgeable	KEY:Lashunta ~ Knowledgeable		CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																									DESC:A lashunta gains a +2 racial bonus to any one Knowledge skill.																																																																										SOURCEPAGE:p.10
+Languages		KEY:Lashunta ~ Languages		CATEGORY:Special Ability	TYPE:Lashunta Racial Trait.SpecialQuality																									DESC:Lashunta begin play speaking Elven and Lashunta. Lashunta with high Intelligence scores can choose any languages (except secret languages, such as Druidic).																																																											SOURCEPAGE:p.10
 
 ###Block: Lashunta Knowledge Bonus
 # Ability Name	Unique Key					Category of Ability		Type					Visible		Stackable?	Multiple?	Choose				Bonus to skill

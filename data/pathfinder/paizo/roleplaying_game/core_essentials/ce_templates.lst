@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21407 $ $Author: evilmynex $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
@@ -1014,7 +1015,7 @@ Plant				VISIBLE:NO																																																													
 
 
 ###Block: Creature Subtypes
-# Template Name	Visible	Ability					Race Subtype			Type				MODIFY
+# Template Name	Visible	Ability					Race Subtype			Type
 Air			VISIBLE:NO							RACESUBTYPE:Air
 Angel			VISIBLE:NO							RACESUBTYPE:Angel
 Aquatic		VISIBLE:NO	ABILITY:Class Skill|AUTOMATIC|Swim	RACESUBTYPE:Aquatic

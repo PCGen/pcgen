@@ -1,3 +1,5 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Haunted Heroes Handbook	SOURCESHORT:HHH	SOURCEWEB:https://paizo.com/products/btpy9nft	SOURCEDATE:2016-08
 
-Naderi.MOD		DOMAINS:Nobility (Naderi)|PREALIGN:LN,NG,TN,NE,CN			SOURCEPAGE:p.9
+# Deity Name	Domains								Source Page
+Naderi.MOD		DOMAINS:Nobility (Naderi)|PREALIGN:LN,NG,TN,NE,CN	SOURCEPAGE:p.9

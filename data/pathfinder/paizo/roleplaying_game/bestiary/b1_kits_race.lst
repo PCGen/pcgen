@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 20125 $ $Author: zaister $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary	SOURCESHORT:B1	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8auu	SOURCEDATE:2009-10
@@ -7028,7 +7029,7 @@ ABILITY:CATEGORY=FEAT|Eschew Materials
 ABILITY:CATEGORY=FEAT|Extend Spell
 ABILITY:CATEGORY=FEAT|Silent Spell
 ABILITY:CATEGORY=FEAT|Weapon Finesse
-ABILITY:CATEGORY=FEAT|Blind-Fight							FREE:YES
+ABILITY:CATEGORY=FEAT|Blind-Fight									FREE:YES
 ABILITY:CATEGORY=Sorcerer Bloodline Feat|Sorcerer Bloodline Feat ~ Still Spell
 STAT:STR=10|DEX=14|CON=10|INT=12|WIS=14|CHA=16
 LANGBONUS:Abyssal|Draconic

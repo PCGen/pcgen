@@ -1,3 +1,4 @@
+#  Sat Nov 24 09:48:31 2018 -- reformated by PCGen PrettyLST v6.08.00
 #  Sun Sep 23 13:50:08 2018 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Starfinder Pact Worlds	SOURCESHORT:SPW	SOURCEDATE:2018-03
 # Original Entry by: Iridios
@@ -5,12 +6,12 @@ SOURCELONG:Starfinder Pact Worlds	SOURCESHORT:SPW	SOURCEDATE:2018-03
 ###Technological Items###
 # Equipment Name				Type							Cost		Weight	Source Page		Bonus to Situation											Modify VAR			Quality and value														Special Property
 Radiation badge				TYPE:Goods.PersonalItem.TechItem.General	COST:100	WT:0.1	SOURCEPAGE:p.199															BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|-	QUALITY:Charge Usage|See text
-Tool kit (Climbing)			TYPE:Goods.PersonalItem.TechItem.Tools	COST:200	WT:0.1	SOURCEPAGE:p.199	BONUS:SITUATION|Athletics=Climbing|4|TYPE=Circumstance					BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|-	QUALITY:Charge Usage|-
-Tool kit (Demolition)			TYPE:Goods.PersonalItem.TechItem.Tools	COST:200	WT:0.1	SOURCEPAGE:p.199	BONUS:SITUATION|Engineering=Arming or Disarming Explosives|4|TYPE=Circumstance	BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|-	QUALITY:Charge Usage|-
-Tool kit (Linguistics)			TYPE:Goods.PersonalItem.TechItem.Tools	COST:200	WT:0.1	SOURCEPAGE:p.199	BONUS:SITUATION|Culture=Decipher Writing|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|-	QUALITY:Charge Usage|-
-Tool kit (Weather Station)		TYPE:Goods.PersonalItem.TechItem.Tools	COST:200	WT:0.1	SOURCEPAGE:p.199	BONUS:SITUATION|Survival=Predict Weather|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|-	QUALITY:Charge Usage|-
-Tool kit (Starship Repair)		TYPE:Goods.PersonalItem.TechItem.Tools	COST:200	WT:0.1	SOURCEPAGE:p.199	BONUS:SITUATION|Engineering=Repair Starship|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|-	QUALITY:Charge Usage|-
-Tool kit (Survivalist)			TYPE:Goods.PersonalItem.TechItem.Tools	COST:200	WT:0.1	SOURCEPAGE:p.199	BONUS:SITUATION|Survival=Endure Weather or Live Off the Land|4|TYPE=Circumstance	BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|-	QUALITY:Charge Usage|-
+Tool kit (Climbing)			TYPE:Goods.PersonalItem.TechItem.Tools	COST:200	WT:0.1	SOURCEPAGE:p.199	BONUS:SITUATION|Athletics=Climbing|4|TYPE=Circumstance					BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|-	QUALITY:Charge Usage|
+Tool kit (Demolition)			TYPE:Goods.PersonalItem.TechItem.Tools	COST:200	WT:0.1	SOURCEPAGE:p.199	BONUS:SITUATION|Engineering=Arming or Disarming Explosives|4|TYPE=Circumstance	BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|-	QUALITY:Charge Usage|
+Tool kit (Linguistics)			TYPE:Goods.PersonalItem.TechItem.Tools	COST:200	WT:0.1	SOURCEPAGE:p.199	BONUS:SITUATION|Culture=Decipher Writing|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|-	QUALITY:Charge Usage|
+Tool kit (Weather Station)		TYPE:Goods.PersonalItem.TechItem.Tools	COST:200	WT:0.1	SOURCEPAGE:p.199	BONUS:SITUATION|Survival=Predict Weather|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|-	QUALITY:Charge Usage|
+Tool kit (Starship Repair)		TYPE:Goods.PersonalItem.TechItem.Tools	COST:200	WT:0.1	SOURCEPAGE:p.199	BONUS:SITUATION|Engineering=Repair Starship|4|TYPE=Circumstance				BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|-	QUALITY:Charge Usage|
+Tool kit (Survivalist)			TYPE:Goods.PersonalItem.TechItem.Tools	COST:200	WT:0.1	SOURCEPAGE:p.199	BONUS:SITUATION|Survival=Endure Weather or Live Off the Land|4|TYPE=Circumstance	BONUS:VAR|BulkLight|1	QUALITY:Level|1	QUALITY:Bulk|L	QUALITY:Charge Capacity|-	QUALITY:Charge Usage|
 Magboots					TYPE:Goods.TechItem.General			COST:750	WT:1		SOURCEPAGE:p.199	BONUS:SITUATION|Athletics=Climbing Metal Surfaces|5|TYPE=Circumstance			BONUS:VAR|Bulk|1		QUALITY:Level|2	QUALITY:Bulk|1	QUALITY:Charge Capacity|20	QUALITY:Charge Usage|1/hour	SPROP:+2 circumstance bonus to KAC against bull rush and trip combat maneuvers (PW.198)
 Magniscope					TYPE:Goods.TechItem.General			COST:2000	WT:0.1	SOURCEPAGE:p.199															BONUS:VAR|BulkLight|1	QUALITY:Level|4	QUALITY:Bulk|L	QUALITY:Charge Capacity|20	QUALITY:Charge Usage|1/hour	SPROP:You gain a +1 circumstance bonus to vision-based Perception checks against objects 30 feet or farther from you. (PW.199)
 Purifying puck				TYPE:Goods.TechItem.General			COST:2000	WT:0.1	SOURCEPAGE:p.199															BONUS:VAR|BulkLight|1	QUALITY:Level|4	QUALITY:Bulk|L	QUALITY:Charge Capacity|40	QUALITY:Charge Usage|1/round
@@ -35,4 +36,3 @@ Frictionless gel				TYPE:Goods.TechItem.General			COST:450	WT:0.1	SOURCEPAGE:p.1
 ###Trade Goods###
 
 ###Food and Drink###
-

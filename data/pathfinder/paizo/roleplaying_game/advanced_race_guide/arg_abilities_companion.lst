@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Advanced Race Guide	SOURCESHORT:ARG	SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide	SOURCEDATE:2012-06
@@ -59,50 +60,50 @@ Companion Advancement (Puffball)			KEY:Companion Advancement ~ Puffball		CATEGOR
 Companion Advancement (Sapling Treant)		KEY:Companion Advancement ~ Sapling Treant	CATEGORY:Special Ability	TYPE:CompanionAdvancement	VISIBLE:DISPLAY	PRERACE:1,Companion (Sapling Treant)	ABILITY:Special Ability|AUTOMATIC|Sapling Treant ~ Double Damage		BONUS:SIZEMOD|NUMBER|1|PREVARGTEQ:MasterLevel,4	BONUS:STAT|STR|8|PREVARGTEQ:MasterLevel,4	BONUS:STAT|CON|4|PREVARGTEQ:MasterLevel,4	BONUS:STAT|DEX|-2|PREVARGTEQ:MasterLevel,4	BONUS:VAR|AC_Natural_Armor|2|TYPE=Base.STACK|PREVARGTEQ:MasterLevel,4
 
 ###Block: Wild Caller Eidolon ability mods
-# Ability Name											Unique Key				Category of Ability		Type									Required Var. value			Stackable?	Multiple?	Choose													Bonus to skill
-CATEGORY=Special Ability|Evolution ~ Magic Attacks.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Skilled.MOD																								PREVAREQ:IsWildCallerEidolon,0
-Skilled												KEY:WCEvolution ~ Skilled	CATEGORY:Special Ability	TYPE:SpecialQuality.EvolutionChoice.Extraordinary	PREVAREQ:IsWildCallerEidolon,1	STACK:NO	MULT:YES	CHOOSE:SKILL|Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Survival|Swim	BONUS:SKILL|LIST|8|TYPE=Racial
-CATEGORY=Special Ability|Evolution ~ Energy Attack Acid.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Energy Attack Cold.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Energy Attack Fire.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Energy Attack Electricity.MOD																					PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Immune Acid.MOD																								PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Immune Cold.MOD																								PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Immune Fire.MOD																								PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Immune Electricity.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Immune Sonic.MOD																								PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Weapon Simple.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Weapon Martial.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ DR Lawful.MOD																								PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ DR Good.MOD																								PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ DR Chaotic.MOD																								PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ DR Evil.MOD																								PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Frightful Presence.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Breath Weapon (Cone of Acid).MOD																					PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Breath Weapon (Cone of Cold).MOD																					PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Breath Weapon (Cone of Electricity).MOD																				PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Breath Weapon (Cone of Fire).MOD																					PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Breath Weapon (Line of Acid).MOD																					PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Breath Weapon (Line of Cold).MOD																					PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Breath Weapon (Line of Fire).MOD																					PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Breath Weapon (Line of Electricity).MOD																				PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ SR.MOD																									PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Unnatural Aura.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Channel Resistance.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Head.MOD																									PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Undead Appearance.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Dimension Door.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Incorporeal Form.MOD																							PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Lifesense.MOD																								PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ No Breath.MOD																								PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Basic Magic.MOD																								PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Minor Magic.MOD																								PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Major Magic.MOD																								PREVAREQ:IsWildCallerEidolon,0
-CATEGORY=Special Ability|Evolution ~ Ultimate Magic.MOD																							PREVAREQ:IsWildCallerEidolon,0
+# Ability Name											Unique Key				Category of Ability		Type									Visible	Required Var. value			Description																																																			Stackable?	Multiple?	Choose													Bonus to skill				Cost		Source Page
+CATEGORY=Special Ability|Evolution ~ Magic Attacks.MOD																									PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Skilled.MOD																										PREVAREQ:IsWildCallerEidolon,0
+Skilled												KEY:WCEvolution ~ Skilled	CATEGORY:Special Ability	TYPE:SpecialQuality.EvolutionChoice.Extraordinary			PREVAREQ:IsWildCallerEidolon,1																																																					STACK:NO	MULT:YES	CHOOSE:SKILL|Acrobatics|Climb|Escape Artist|Fly|Intimidate|Perception|Survival|Swim	BONUS:SKILL|LIST|8|TYPE=Racial
+CATEGORY=Special Ability|Evolution ~ Energy Attack Acid.MOD																									PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Energy Attack Cold.MOD																									PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Energy Attack Fire.MOD																									PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Energy Attack Electricity.MOD																							PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Immune Acid.MOD																										PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Immune Cold.MOD																										PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Immune Fire.MOD																										PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Immune Electricity.MOD																									PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Immune Sonic.MOD																										PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Weapon Simple.MOD																									PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Weapon Martial.MOD																									PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ DR Lawful.MOD																										PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ DR Good.MOD																										PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ DR Chaotic.MOD																										PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ DR Evil.MOD																										PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Frightful Presence.MOD																									PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Cone of Acid).MOD																							PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Cone of Cold).MOD																							PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Cone of Electricity).MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Cone of Fire).MOD																							PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Line of Acid).MOD																							PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Line of Cold).MOD																							PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Line of Fire).MOD																							PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Breath Weapon (Line of Electricity).MOD																						PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ SR.MOD																											PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Unnatural Aura.MOD																									PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Channel Resistance.MOD																									PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Head.MOD																											PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Undead Appearance.MOD																									PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Dimension Door.MOD																									PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Incorporeal Form.MOD																									PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Lifesense.MOD																										PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ No Breath.MOD																										PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Basic Magic.MOD																										PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Minor Magic.MOD																										PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Major Magic.MOD																										PREVAREQ:IsWildCallerEidolon,0
+CATEGORY=Special Ability|Evolution ~ Ultimate Magic.MOD																									PREVAREQ:IsWildCallerEidolon,0
 
 
 # New Evolutions
 #2-Point Evolutions
-Shadow Blend	SOURCEPAGE:p.111	KEY:Evolution ~ Shadow Blend	CATEGORY:Special Ability	TYPE:SpecialQuality.EvolutionChoice.Supernatural	VISIBLE:YES	DESC:In any condition of illumination other than bright light, the eidolon disappears into the shadows, giving it concealment (20%% miss chance). If it has the shadow form evolution, it instead gains total concealment (50%% miss chance). The eidolon can suspend or resume this ability as a free action.	COST:2
-Shadow Form		SOURCEPAGE:p.111	KEY:Evolution ~ Shadow Form	CATEGORY:Special Ability	TYPE:SpecialQuality.EvolutionChoice.Supernatural	VISIBLE:YES	DESC:The eidolon's body becomes shadowy and more indistinct. This shadow form grants the eidolon constant concealment (20%% miss chance), and its melee attacks affect incorporeal creatures as if it had the ghost touch weapon property. The eidolon's melee attacks deal only half damage to corporeal creatures.	COST:2
+Shadow Blend											KEY:Evolution ~ Shadow Blend	CATEGORY:Special Ability	TYPE:SpecialQuality.EvolutionChoice.Supernatural	VISIBLE:YES							DESC:In any condition of illumination other than bright light, the eidolon disappears into the shadows, giving it concealment (20%% miss chance). If it has the shadow form evolution, it instead gains total concealment (50%% miss chance). The eidolon can suspend or resume this ability as a free action.																										COST:2	SOURCEPAGE:p.111
+Shadow Form												KEY:Evolution ~ Shadow Form	CATEGORY:Special Ability	TYPE:SpecialQuality.EvolutionChoice.Supernatural	VISIBLE:YES							DESC:The eidolon's body becomes shadowy and more indistinct. This shadow form grants the eidolon constant concealment (20%% miss chance), and its melee attacks affect incorporeal creatures as if it had the ghost touch weapon property. The eidolon's melee attacks deal only half damage to corporeal creatures.																									COST:2	SOURCEPAGE:p.111

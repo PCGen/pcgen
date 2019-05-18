@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 20121 $ $Author: zaister $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
@@ -489,7 +490,7 @@ Tiny Reliquary (worth 500 gp)								KEY:Tiny Reliquary (500 gp)				OUTPUTNAME:T
 
 
 ###Block: Poisons
-# Equipment Name				Unique Key					SORTKEY						Output Name					Type					Cost		Weight	Source Page		Quality and value	Special Property																						Information
+# Equipment Name				Unique Key					SORTKEY						Output Name					Type					Cost		Weight	Source Page		Quality and value	Special Property																						INFO
 Poison, Arsenic				KEY:Poison (Arsenic)			SORTKEY:Poison, Arsenic				OUTPUTNAME:Arsenic			TYPE:Goods.Poison.Consumable	COST:120	WT:0		SOURCEPAGE:p.558	QUALITY:Plural|No	SPROP:Ingested; Fort DC 13; Onset 10 min; Freq 1 min (4); Effect 1d2 Con dmg; Cure 1 save										INFO:Poison Type|poison, ingested	INFO:Poison Save|Fortitude DC 13	INFO:Poison Onset|10 minutes.	INFO:Poison Frequency|1/minute for 4 minutes	INFO:Poison Effect|1d2 Con damage	INFO:Poison Cure|1 save
 Poison, Belladonna			KEY:Poison (Belladonna)			SORTKEY:Poison, Belladonna			OUTPUTNAME:Belladonna			TYPE:Goods.Poison.Consumable	COST:100	WT:0		SOURCEPAGE:p.558	QUALITY:Plural|No	SPROP:Ingested; Fort DC 14; Onset 10 min; Freq 1 min (6); Effect 1d2 Str dmg (plus attempt lycanthropy cure if within 1 hour); Cure 1 save	INFO:Poison Type|poison, ingested	INFO:Poison Save|Fortitude DC 14	INFO:Poison Onset|10 minutes	INFO:Poison Frequency|1/minute for 6 minutes	INFO:Poison Effect|1d2 Str damage, target can attempt one save to cure a lycanthropy affliction contracted in the past hour	INFO:Poison Cure|1 save
 Poison, Black Adder Venom		KEY:Poison (Black Adder Venom)	SORTKEY:Poison, Black Adder Venom		OUTPUTNAME:Black Adder Venom		TYPE:Goods.Poison.Consumable	COST:120	WT:0		SOURCEPAGE:p.558	QUALITY:Plural|No	SPROP:Injury; Fort DC 11; Freq 1 rnd (6); Effect 1d2 Con dmg; Cure 1 save												INFO:Poison Type|poison, injury	INFO:Poison Save|Fortitude DC 11	INFO:Poison Frequency|1/round for 6 rounds	INFO:Poison Effect|1d2 Con damage	INFO:Poison Cure|1 save

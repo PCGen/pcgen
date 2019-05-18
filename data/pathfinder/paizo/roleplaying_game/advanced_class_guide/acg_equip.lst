@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Feb  3 13:47:16 2016 -- reformated by PCGen PrettyLST v6.06.00
 # COMMENT: Some non-defined weapons commented out; may be wrong names, may not exist
@@ -36,15 +37,15 @@ Manacles (Huge).MOD	TYPE:Manacles
 # COMMENT: Can the weapon's damage be modified?
 # WORKARAOUND: use an SPROP comment
 # NEEDS OS WORK?: Needs adjustment similar to monk's flurry of blows
-# Equipment Name			Required Weapon Proficiency		Type													Cost		Weight	Crit Mult	Crit Range	Damage	Wield Category	Requires Modification?	Size		Source Page		Weapon prop. bonus													Special Property
-Brawler's Flurry			PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Resizable.Melee.Special.Unarmed.Bludgeoning.Finesseable.Close	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1		WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.23	BONUS:WEAPON|ATTACKS|BrawlersFlurryExtraAttacks	BONUS:WEAPON|TOHIT|BrawlersFlurryAttackPenalty	SPROP:Use unarmed damage
+# Equipment Name			Required Weapon Proficiency		Type													Cost		Weight	Crit Mult	Crit Range	Wield Category	Requires Modification?	Size		Source Page		Weapon prop. bonus													Special Property
+Brawler's Flurry			PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Resizable.Melee.Special.Unarmed.Bludgeoning.Finesseable.Close	COST:0	WT:0		CRITMULT:x2	CRITRANGE:1	WIELD:Light		MODS:NO			SIZE:M	SOURCEPAGE:p.23	BONUS:WEAPON|ATTACKS|BrawlersFlurryExtraAttacks	BONUS:WEAPON|TOHIT|BrawlersFlurryAttackPenalty	SPROP:Use unarmed damage
 
 
 ### Block: Swashbuckler's Finesse support
 # These should be moved to their various sources
 
 # CR
-Dagger (Base).MOD									TYPE:Weapon Group Melee Light Piercing																													BONUS:WEAPON|TOHIT|-SwashbucklersFinesseToHit									SPROP:+% to melee attacks from Swashbuckler's Finesse [not reflected on combat block]|SwashbucklersFinesseToHit
+Dagger (Base).MOD									TYPE:Weapon Group Melee Light Piercing																											BONUS:WEAPON|TOHIT|-SwashbucklersFinesseToHit									SPROP:+% to melee attacks from Swashbuckler's Finesse [not reflected on combat block]|SwashbucklersFinesseToHit
 Dagger (Punching).MOD								TYPE:Weapon Group Melee Light Piercing
 Pick (Light).MOD									TYPE:Weapon Group Melee Light Piercing
 Spiked Armor.MOD									TYPE:Weapon Group Melee Light Piercing

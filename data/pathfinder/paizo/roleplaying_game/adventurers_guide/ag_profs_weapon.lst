@@ -1,16 +1,17 @@
-Aldori Dueling Sword	NAMEISPI:YES	TYPE:Exotic.Melee.OneHanded.Slashing.MeleeSlashing
-Elven Leafblade					TYPE:Exotic.Melee.Light.Piercing.Slashing.Elven.Finesseable
-Elven Thornblade					TYPE:Exotic.Melee.OneHanded.Piercing.Slashing.Elven.Finesseable
-Sawtooth Sabre					TYPE:Exotic.Melee.OneHanded.Slashing.Sword
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
+# Weapon Name			Product Identity?	Type
+Aldori Dueling Sword		NAMEISPI:YES	TYPE:Exotic.Melee.OneHanded.Slashing.MeleeSlashing
+Elven Leafblade						TYPE:Exotic.Melee.Light.Piercing.Slashing.Elven.Finesseable
+Elven Thornblade						TYPE:Exotic.Melee.OneHanded.Piercing.Slashing.Elven.Finesseable
+Sawtooth Sabre						TYPE:Exotic.Melee.OneHanded.Slashing.Sword
 
-Aldori Dueling Sword.MOD			TYPE:Bladeheavy.Weapon Group Blades Heavy
-Elven Leafblade.MOD				TYPE:Bladelight.Weapon Group Blades Light
-Elven Thornblade					TYPE:Bladeheavy.Weapon Group Blades Heavy
-Sawtooth Sabre					TYPE:Bladeheavy.Weapon Group Blades Heavy
+Aldori Dueling Sword.MOD				TYPE:Bladeheavy.Weapon Group Blades Heavy
+Elven Leafblade.MOD					TYPE:Bladelight.Weapon Group Blades Light
+Elven Thornblade						TYPE:Bladeheavy.Weapon Group Blades Heavy
+Sawtooth Sabre						TYPE:Bladeheavy.Weapon Group Blades Heavy
 
-Halberd.MOD						TYPE:HKOotNail
-Lance.MOD						TYPE:HKOotNail
-Longsword.MOD					TYPE:HKOotRack
-Whip.MOD						TYPE:HKOotRack.HKOotScourge
-Mace (Heavy).MOD					TYPE:HKOotScourge
-
+Halberd.MOD							TYPE:HKOotNail
+Lance.MOD							TYPE:HKOotNail
+Longsword.MOD						TYPE:HKOotRack
+Whip.MOD							TYPE:HKOotRack.HKOotScourge
+Mace (Heavy).MOD						TYPE:HKOotScourge

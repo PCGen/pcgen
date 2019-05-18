@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Thu Nov 26 22:25:37 2015 -- reformated by PCGen PrettyLST v6.05.01
 SOURCELONG:Occult Adventures	SOURCESHORT:OA	SOURCEWEB:http://paizo.com/products/btpy9a0h	SOURCEDATE:2015-07
@@ -180,11 +181,11 @@ CLASS:Phantom	PRERACE:1,Phantom
 CLASS:Phantom	STARTSKILLPTS:2
 
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																Save bonus																																																																																																																																				Modify VAR																																																																																																																															FACT
-CLASS:Homunculus Companion	HD:10	TYPE:Monster	MAXLEVEL:20	SOURCEPAGE:p.113	DEFINE:HomunculusLVL|0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|HomunculusLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:Abb|HomC	FACT:ClassType|Monster
-# Class Name	Required Race
+# Class Name			Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																																																Modify VAR																																																																		FACT
+CLASS:Homunculus Companion	HD:10		TYPE:Monster	MAXLEVEL:20	SOURCEPAGE:p.113	DEFINE:HomunculusLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|HomunculusLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:Abb|HomC	FACT:ClassType|Monster
+# Class Name			Required Race
 CLASS:Homunculus Companion	PRERACE:1,Homunculus Companion
-# Class Name	Skill Pts/Lvl
+# Class Name			Skill Pts/Lvl
 CLASS:Homunculus Companion	STARTSKILLPTS:2
 
 

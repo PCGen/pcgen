@@ -1,7 +1,9 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 SOURCELONG:Haunted Heroes Handbook	SOURCESHORT:HHH	SOURCEWEB:https://paizo.com/products/btpy9nft	SOURCEDATE:2016-08
 
-Asmodeus.MOD		DOMAINS:Trickery (Asmodeus)|PREALIGN:LN,LE,NE				SOURCEPAGE:p.8
-Cayden Cailean.MOD	DOMAINS:Chaos (Cayden Cailean)|PREALIGN:NG,CG,CN			SOURCEPAGE:p.8
-Irori.MOD		DOMAINS:Healing (Irori)|PREALIGN:LG,LN,TN,NG				SOURCEPAGE:p.8
-Pharasma.MOD		DOMAINS:Repose (Pharasma)|PREALIGN:LN,NG,TN,NE,CN			SOURCEPAGE:p.9
-Urgathoa.MOD		DOMAINS:Death (Urgathoa)|PREALIGN:TN,LE,NE,CE				SOURCEPAGE:p.9
+# Deity Name		Domains								Source Page
+Asmodeus.MOD		DOMAINS:Trickery (Asmodeus)|PREALIGN:LN,LE,NE		SOURCEPAGE:p.8
+Cayden Cailean.MOD	DOMAINS:Chaos (Cayden Cailean)|PREALIGN:NG,CG,CN	SOURCEPAGE:p.8
+Irori.MOD			DOMAINS:Healing (Irori)|PREALIGN:LG,LN,TN,NG		SOURCEPAGE:p.8
+Pharasma.MOD		DOMAINS:Repose (Pharasma)|PREALIGN:LN,NG,TN,NE,CN	SOURCEPAGE:p.9
+Urgathoa.MOD		DOMAINS:Death (Urgathoa)|PREALIGN:TN,LE,NE,CE		SOURCEPAGE:p.9

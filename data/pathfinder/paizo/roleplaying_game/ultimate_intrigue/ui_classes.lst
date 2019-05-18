@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 30 20:50:52 2017 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Ultimate Intrigue	SOURCESHORT:UI	SOURCEDATE:2016-04
@@ -54,7 +55,7 @@ CLASS:VWarlock	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEV
 
 # Class Name	Type			Max Level	Visible	FACT
 CLASS:VCabalist	TYPE:Support	MAXLEVEL:20	VISIBLE:NO	FACT:SpellType|Arcane
-# Class Name	Spell Stat		Automatically Known Spell Levels	Spellbook		Caster level			Use Spell List
+# Class Name	Spell Stat		Automatically Known Spell Levels	Spellbook		Caster level				Use Spell List
 CLASS:VCabalist	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|VCabalist|CL	SPELLLIST:1|Witch
 ###Block: Spell progression
 1	CAST:3,1
@@ -77,4 +78,3 @@ CLASS:VCabalist	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLE
 18	CAST:5,5,5,5,5,4,3
 19	CAST:5,5,5,5,5,5,4
 20	CAST:5,5,5,5,5,5,5
-

@@ -1,3 +1,5 @@
-SOURCELONG:Everyman Minis: Kitsune Kineticist Options		SOURCESHORT:EMKKO		SOURCEWEB:http://www.everymangaming.com/		SOURCEDATE:2018-04
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
+SOURCELONG:Everyman Minis: Kitsune Kineticist Options	SOURCESHORT:EMKKO	SOURCEWEB:http://www.everymangaming.com/	SOURCEDATE:2018-04
 
-Quick Change			KEY:Wild Talent ~ Quick Change SLA		CATEGORY:Special Ability	TYPE:SpecialQuality.Wild Talent.Utility Wild Talent.Utility Wild Talent Universal	PREVARGTEQ:KineticistLVL_Base,2	PREABILITY:1,CATEGORY=FEAT,Kinetic Kyubi	DEFINE:KineticKyubiSLACount|0	DESC:Element universal; Type utility (Sp); Level 2; Burn 1; You can cast Quick Change as a spell-like ability (DC %1).|12+CON		BONUS:VAR|KineticKyubiSLACount|1	SPELLS:Kinetic Kyubi|CASTERLEVEL=KineticistLVL_Base|Quick Change,12+CON
+# Ability Name	Unique Key					Category of Ability		Type														Required Ability					Var. Min. Value				Define				Innate Spells										Description																				Modify VAR
+Quick Change	KEY:Wild Talent ~ Quick Change SLA	CATEGORY:Special Ability	TYPE:SpecialQuality.Wild Talent.Utility Wild Talent.Utility Wild Talent Universal	PREABILITY:1,CATEGORY=FEAT,Kinetic Kyubi	PREVARGTEQ:KineticistLVL_Base,2	DEFINE:KineticKyubiSLACount|0	SPELLS:Kinetic Kyubi|CASTERLEVEL=KineticistLVL_Base|Quick Change,12+CON	DESC:Element universal; Type utility (Sp); Level 2; Burn 1; You can cast Quick Change as a spell-like ability (DC %1).|12+CON	BONUS:VAR|KineticKyubiSLACount|1

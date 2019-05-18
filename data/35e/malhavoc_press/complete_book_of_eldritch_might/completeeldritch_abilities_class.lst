@@ -1,19 +1,20 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision$ $Author$ -- Thu Aug  7 11:38:58 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might	SOURCESHORT:BoEMC	SOURCEWEB:http://www.montecook.com	SOURCEDATE:2004-01
 # ~ Original Entry by: Felipe Diniz
 
 # ~ Bard (Monte Cook's)	HD:6		TYPE:Base.PC	ABB:Brd(MC)		MAXLEVEL:20	SOURCEPAGE:p.5	WEAPONBONUS:Longbow|Longsword|Rapier|Sap|Shortbow|Sword (Short)|Whip	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Ability Name				Unique Key								Category of Ability		Type									Define				Description													Modify VAR
-Armored Casting				KEY:Armored Casting ~ Light					CATEGORY:Special Ability	TYPE:SpecialQuality											DESC:May wear light armor without incurring the normal arcane spell failure chance.
+# Ability Name				Unique Key								Category of Ability		Type						Define				Description													Modify VAR
+Armored Casting				KEY:Armored Casting ~ Light					CATEGORY:Special Ability	TYPE:SpecialQuality								DESC:May wear light armor without incurring the normal arcane spell failure chance.
 Weave Notes					KEY:Weave Notes ~ Bard (Monte Cook's)			CATEGORY:Special Ability	TYPE:SpecialQuality
 Weave Melodies				KEY:Weave Melodies ~ Bard (Monte Cook's)			CATEGORY:Special Ability	TYPE:SpecialQuality
 Weave Chords				KEY:Weave Chords ~ Bard (Monte Cook's)			CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # ~ Diplomancer
 Charm						KEY:Charm ~ Diplomancer						CATEGORY:Special Ability	TYPE:SpecialQuality
-Enchantment Affinity			KEY:Enchantment Affinity ~ Diplomancer			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				DEFINE:EnchantAffinity|0	DESC: +%1|EnchantAffinity										BONUS:VAR|EnchantAffinity|1
+Enchantment Affinity			KEY:Enchantment Affinity ~ Diplomancer			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DEFINE:EnchantAffinity|0	DESC: +%1|EnchantAffinity										BONUS:VAR|EnchantAffinity|1
 Magical Seduction/Attractiveness	KEY:Magical Seduction/Attractiveness ~ Diplomancer	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Protection from Evocations		KEY:Protection from Evocations ~ Diplomancer		CATEGORY:Special Ability										DEFINE:ProtectionEvocations|0	DESC: +%1|ProtectionEvocations									BONUS:VAR|ProtectionEvocations|1
+Protection from Evocations		KEY:Protection from Evocations ~ Diplomancer		CATEGORY:Special Ability							DEFINE:ProtectionEvocations|0	DESC: +%1|ProtectionEvocations									BONUS:VAR|ProtectionEvocations|1
 Insight into Secrets			KEY:Insight into Secrets ~ Diplomancer			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Charisma Gift				KEY:Charisma Gift ~ Diplomancer				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Word Cunning				KEY:Word Cunning ~ Diplomancer				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -45,10 +46,10 @@ Internal Explosion				KEY:Internal Explosion ~ Embermage			CATEGORY:Special Abil
 
 # ~ Graven One
 Flesh Rune						KEY:Flesh Rune ~ Graven One				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
-Graven Image					KEY:Graven Image ~ Graven One				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike													DEFINE:GravenImageHD|0								DESC: %1HD|GravenImageHD
+Graven Image					KEY:Graven Image ~ Graven One				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike										DEFINE:GravenImageHD|0								DESC: %1HD|GravenImageHD
 
 # ~ Knight of the Chord
-Armor Song						KEY:Armor Song ~ Knight of the Chord		CATEGORY:Special Ability	TYPE:SpecialQuality																									DESC: (Medium)|PREVARLT:KnightoftheChordLvl,5	DESC: (Heavy)|PREVARGTEQ:KnightoftheChordLvl,5
+Armor Song						KEY:Armor Song ~ Knight of the Chord		CATEGORY:Special Ability	TYPE:SpecialQuality																						DESC: (Medium)|PREVARLT:KnightoftheChordLvl,5	DESC: (Heavy)|PREVARGTEQ:KnightoftheChordLvl,5
 Battle Dance					KEY:Battle Dance ~ Knight of the Chord		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Singblade						KEY:Singblade ~ Knight of the Chord			CATEGORY:Special Ability	TYPE:SpecialQuality
 Sonic Protection					KEY:Sonic Protection ~ Knight of the Chord	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
@@ -57,12 +58,12 @@ Song of Smiting					KEY:Song of Smiting ~ Knight of the Chord		CATEGORY:Special 
 # ~ Mirror Master
 Mirror Thoughts					KEY:Mirror Thoughts ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Mirrored Eyes					KEY:Mirrored Eyes ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Bonus Spells					KEY:Bonus Spells ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality																									DESC:(1st and 2nd)	DESC:(3rd and 4th)|PREVARGTEQ:MirrorMasterLvl,4	DESC:(5th)|PREVARGTEQ:MirrorMasterLvl,6	DESC:(6th)|PREVARGTEQ:MirrorMasterLvl,8	DESC:(7th)|PREVARGTEQ:MirrorMasterLvl,10
+Bonus Spells					KEY:Bonus Spells ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality																						DESC:(1st and 2nd)	DESC:(3rd and 4th)|PREVARGTEQ:MirrorMasterLvl,4	DESC:(5th)|PREVARGTEQ:MirrorMasterLvl,6	DESC:(6th)|PREVARGTEQ:MirrorMasterLvl,8	DESC:(7th)|PREVARGTEQ:MirrorMasterLvl,10
 Piercing Gaze					KEY:Piercing Gaze ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
-Mirror Step						KEY:Mirror Step ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																								DESC:(Teleport)|PREVARGTEQ:MirrorMasterLvl,8	DESC:(Plane Shift)|PREVARGTEQ:MirrorMasterLvl,10
+Mirror Step						KEY:Mirror Step ~ Mirror Master			CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike																					DESC:(Teleport)|PREVARGTEQ:MirrorMasterLvl,8	DESC:(Plane Shift)|PREVARGTEQ:MirrorMasterLvl,10
 
 # ~ Song Mage
-Song Magic						KEY:Song Magic ~ Song Mage				CATEGORY:Special Ability	TYPE:SpecialQuality														DEFINE:SongMagic|0								DESC: (%1/day)|SongMagic
+Song Magic						KEY:Song Magic ~ Song Mage				CATEGORY:Special Ability	TYPE:SpecialQuality											DEFINE:SongMagic|0								DESC: (%1/day)|SongMagic
 Song as Sustenance				KEY:Song as Sustenance ~ Song Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Songshield						KEY:Songshield ~ Song Mage				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Divine Music					KEY:Divine Music ~ Song Mage				CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
@@ -77,7 +78,7 @@ Clarity of Music					KEY:Clarity of Music ~ Song Mage			CATEGORY:Special Ability
 Spell Appearance Change				KEY:Spell Appearance Change ~ Starlight Mage	CATEGORY:Special Ability	TYPE:SpecialQuality
 Handle Starlight					KEY:Handle Starlight ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary
 Radiance						KEY:Radiance ~ Starlight Mage				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
-Summon Starlight					KEY:Summon Starlight ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike													DEFINE:SummonStarlight|0							DESC: %1/day|SummonStarlight																																																								BONUS:VAR|SummonStarlight|CL
+Summon Starlight					KEY:Summon Starlight ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike										DEFINE:SummonStarlight|0							DESC: %1/day|SummonStarlight																																																								BONUS:VAR|SummonStarlight|CL
 Nightscrying					KEY:Nightscrying ~ Starlight Mage			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural
 Starlight Shield					KEY:Starlight Shield ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
 Starlight Weapon					KEY:Starlight Weapon ~ Starlight Mage		CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike

@@ -1,2 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 
-Machete			TYPE:Martial.Light.Melee.Bladelight.Weapon Group Blades Light.SwordLike.Tengu
+# Weapon Name	Type
+Machete		TYPE:Martial.Light.Melee.Bladelight.Weapon Group Blades Light.SwordLike.Tengu

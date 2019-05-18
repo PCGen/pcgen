@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Monster Focus: Zombies	SOURCESHORT:MFZ	SOURCEWEB:http://minotaurrpg.com/monster-focus/zombies/	SOURCEDATE:2013-04
@@ -13,7 +14,7 @@ Pox Stone		TYPE:Goods.Alchemical.Consumable		COST:50	WT:0.5	SOURCEPAGE:p.2
 Shatter Vial	TYPE:Goods.Alchemical.Vial.Consumable	COST:20	WT:1		SOURCEPAGE:p.2
 
 ###Block: Magic Weapons
-# Equipment Name		Required Weapon Proficiency	Type										Cost		Weight	Crit Mult	Crit Range	Damage	Modifier																			Wield Category	Size		Source Page		Special Property
+# Equipment Name		Required Weapon Proficiency	Type										Cost		Weight	Crit Mult	Crit Range	Damage	Modifier																				Wield Category	Size		Source Page		Special Property
 Sword of Final Rest	PROFICIENCY:WEAPON|Longsword	TYPE:Weapon.Resizable.Melee.Martial.Specific.Slashing.Sword	COST:15	WT:4		CRITMULT:x2	CRITRANGE:2	DAMAGE:1d8	EQMOD:Special Ability ~ Bane ~ Weapon|Undead Bane.Special Ability ~ Enhancement Cost|20700.Special Ability ~ +1 ~ Weapon	WIELD:OneHanded	SIZE:M	SOURCEPAGE:p.3	SPROP:1/day emit 30-ft. line of light that destroys up to 20 HD of undead (Will DC 19 negates).
 
 ###Block: Staves

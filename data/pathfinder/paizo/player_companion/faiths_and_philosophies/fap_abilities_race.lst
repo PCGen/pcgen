@@ -1,3 +1,4 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Pathfinder Player Companion: Faiths & Philosophies	SOURCESHORT:FAP	SOURCEWEB:http://paizo.com/products/btpy8yw8	SOURCEDATE:2013-08
@@ -8,9 +9,9 @@ SOURCELONG:Pathfinder Player Companion: Faiths & Philosophies	SOURCESHORT:FAP	SO
 # Copy of dwarf caiman from AP55 (for Druid Crocodile domain)
 # ==============================
 
-# Ability Name			Unique Key					Category of Ability		Type									Description																				Ability													Bonus to skill		Source Page
-Racial Traits ~ Dwarf Caiman							CATEGORY:Internal																																	ABILITY:Special Ability|AUTOMATIC|Dwarf Caiman ~ Hold Breath|Dwarf Caiman ~ Sprint
+# Ability Name			Unique Key					Category of Ability		Type										Description																				Ability													Bonus to skill		Source Page
+Racial Traits ~ Dwarf Caiman							CATEGORY:Internal																																		ABILITY:Special Ability|AUTOMATIC|Dwarf Caiman ~ Hold Breath|Dwarf Caiman ~ Sprint
 Hold Breath				KEY:Dwarf Caiman ~ Hold Breath	CATEGORY:Special Ability	TYPE:Racial Trait.Dwarf Caiman Racial Trait.SpecialQuality	DESC:A dwarf caiman can hold its breath for a number of rounds equal to 4 x its Constitution score before it risks drowning.																			SOURCEPAGE:p.
 Sprint				KEY:Dwarf Caiman ~ Sprint		CATEGORY:Special Ability	TYPE:Racial Trait.Dwarf Caiman Racial Trait.SpecialQuality	DESC:Once per minute, a dwarf caiman may sprint, increasing its land speed to 20 feet for 1 round.																							SOURCEPAGE:p.
 
-Familiar (Dwarf Caiman)								CATEGORY:Internal																																															BONUS:SKILL|Stealth|3
+Familiar (Dwarf Caiman)								CATEGORY:Internal																																																BONUS:SKILL|Stealth|3

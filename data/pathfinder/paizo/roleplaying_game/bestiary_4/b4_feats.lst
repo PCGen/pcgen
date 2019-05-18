@@ -1,9 +1,10 @@
+#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: 21640 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Bestiary 4	SOURCESHORT:B4	SOURCEWEB:http://paizo.com/products/btpy91ds?Pathfinder-Roleplaying-Game-Bestiary-4	SOURCEDATE:2013-10
 
 ###Block: Familiar Choices
-# Ability Name				Allowed Companions
+# Ability Name								Allowed Companions
 CATEGORY=Internal|Improved Familiar List (3rd Level).MOD	COMPANIONLIST:Familiar|Beheaded|PREALIGN:NE,LE,CE,TN
 
 CATEGORY=Internal|Improved Familiar List (5th Level).MOD	COMPANIONLIST:Familiar|Almiraj
