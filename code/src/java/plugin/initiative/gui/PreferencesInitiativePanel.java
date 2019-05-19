@@ -22,27 +22,24 @@ package plugin.initiative.gui;
 
 import java.awt.BorderLayout;
 
-import javax.swing.BoxLayout;
-import javax.swing.JCheckBox;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
+
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
+import javafx.scene.layout.VBox;
 
 /**
  * Panel that tracks the miscellaneous preferences.
  */
 public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 {
-	private static final long serialVersionUID = -2518295310535094440L;
-
 	private static final String SETTING_ROLL_PC_INITIATIVES = ".rollPCInitiatives"; //$NON-NLS-1$
 
-	private JPanel performancePanel;
-	private JPanel mainPanel;
-	private JCheckBox rollPCInitiatives;
+	private CheckBox rollPCInitiatives;
 
 	/** Creates new form PreferencesMiscPanel */
 	public PreferencesInitiativePanel()
@@ -69,7 +66,7 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 	 *
 	 * @param b
 	 */
-	private void setRollPCInitiatives(boolean b)
+	private void setRollPCInitiatives(final boolean b)
 	{
 		rollPCInitiatives.setSelected(b);
 	}
@@ -92,22 +89,21 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 
 	private void initComponents()
 	{
+
+		rollPCInitiatives = new CheckBox();
+
+		rollPCInitiatives.setText(LanguageBundle.getString("in_plugin_initiative_rollPcInit"));
+
+		VBox vbox = new VBox();
+		vbox.getChildren().add(rollPCInitiatives);
+
+		JFXPanel outside = new JFXPanel();
+		Platform.runLater(() ->  {
+			Scene scene = new Scene(vbox);
+			outside.setScene(scene);
+		});
+
 		setLayout(new BorderLayout());
-
-		mainPanel = new JPanel();
-		rollPCInitiatives = new JCheckBox();
-
-		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-
-		performancePanel = new JPanel();
-		performancePanel.setLayout(new BoxLayout(performancePanel, BoxLayout.Y_AXIS));
-		rollPCInitiatives.setText(LanguageBundle.getString("in_plugin_initiative_rollPcInit")); //$NON-NLS-1$
-		performancePanel.add(rollPCInitiatives);
-
-		mainPanel.add(performancePanel);
-
-		JScrollPane jScrollPane1 = new JScrollPane();
-		jScrollPane1.setViewportView(mainPanel);
-		add(jScrollPane1, BorderLayout.CENTER);
+		add(outside, BorderLayout.CENTER);
 	}
 }
