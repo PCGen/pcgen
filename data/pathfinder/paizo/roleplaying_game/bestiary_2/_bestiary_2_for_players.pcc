@@ -1,5 +1,6 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
-CAMPAIGN:Bestiary 2
+CAMPAIGN:Bestiary 2 (Player Options Only)
+KEY:Bestiary 2 ~ Player Options Only
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
 RANK:1
@@ -8,8 +9,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
-PRECAMPAIGN:1,INCLUDES=Bestiary
-!PRECAMPAIGN:1,INCLUDES=Bestiary 2 ~ Player Options Only
+!PRECAMPAIGN:1,INCLUDES=Bestiary 2
 !PRECAMPAIGN:1,Pathfinder RPG Core Supplements,Pathfinder RPG for Game Masters
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -94,16 +94,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Bestiary 2" Copyright 201
 #Do Not Remove Comment
 #EXTRAFILE:OGL.txt
 
-
-ABILITYCATEGORY:b2_abilitycategories.lst
-ABILITY:b2_abilities_race.lst
-EQUIPMENT:b2_equip_arms_armor.lst
-EQUIPMENT:b2_equip_general.lst
-KIT:b2_kits_race.lst
-RACE:b2_races.lst
-SKILL:b2_skills.lst
-TEMPLATE:b2_templates.lst
-WEAPONPROF:b2_profs_weapon.lst
 
 # Separate out races used by ARG to simplify dependencies
 ABILITY:b2_abilities_race_arg.lst
