@@ -40,13 +40,19 @@ ext {
             include 'docs/**'
         }
     }
-
+    
     programDistsImage = copySpec {
         from("$buildDir/libs") {
             include 'pcgen-*.jar'
             // Use a regular expression to map the file name
             rename "(.+)-$version(.+)", '$1$2'
         }
+        from("$buildDir/launch4j") {
+            include 'pcgen.exe'
+        }
+    }
+
+    programScriptImage = copySpec {
         from('.') {
             include 'pcgen_low_mem.bat'
             include 'plugins/**'
@@ -63,9 +69,6 @@ ext {
                     file.setMode(0755)
                 }
             }
-        }
-        from("$buildDir/launch4j") {
-            include 'pcgen.exe'
         }
     }
 
@@ -96,6 +99,7 @@ task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput'
         with dataDistsImage
         with docsDistsImage
         with programDistsImage
+        with programScriptImage
         with libsDistsImage
         with autobuildSpec
         with charactersImage
@@ -136,6 +140,7 @@ task programZip(type: Zip, dependsOn: 'converterJar') {
     classifier = 'program'
     into(zipRootFolder) {
         with programDistsImage
+        with programScriptImage
         with autobuildSpec
     }
 }
