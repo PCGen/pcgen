@@ -404,7 +404,7 @@ public class KitPanel extends FlippingSplitPane
 				case TYPE_NAME:
 					TreeViewPath<Kit> path =
 							createTreeViewPath(pobj, (Object[]) pobj.getDisplayType().split("\\.")); //$NON-NLS-1$
-					return Arrays.asList(path);
+					return Collections.singletonList(path);
 				case SOURCE_NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getSource()));
 				default:
