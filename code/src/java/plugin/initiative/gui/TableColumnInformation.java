@@ -85,17 +85,9 @@ public class TableColumnInformation
 	/** An arraylist of {@code ColStructs} */
 	private List<ColStruct> columns = null;
 
-	/**
-	 * <p>
-	 * A constructor, specifying how many columns the table
-	 * will initially have.
-	 * </p>
-	 * 
-	 * @param initialCapacity
-	 */
-	public TableColumnInformation(int initialCapacity)
+	public TableColumnInformation()
 	{
-		columns = new ArrayList<>(initialCapacity);
+		columns = new ArrayList<>();
 	}
 
 	/**
