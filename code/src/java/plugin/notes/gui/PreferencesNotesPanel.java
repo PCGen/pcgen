@@ -18,41 +18,37 @@
 package plugin.notes.gui;
 
 import java.awt.BorderLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
 import java.io.File;
-import java.util.concurrent.CompletableFuture;
-
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.border.TitledBorder;
 
 import gmgen.util.LogUtilities;
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
 
 import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBase;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.DirectoryChooser;
 
 /**
  * Panel that tracks the misc preferences
  */
-public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
+public final class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 {
 
 	private static final String OPTION_NAME_NOTES_DATA = "Notes.DataDir"; //$NON-NLS-1$
 	private static final String OPTION_NAME_LOG = "Logging.On"; //$NON-NLS-1$
 
-	private JPanel dirPanel;
-	private JPanel loggingPanel;
-	private JTextField dataDirField;
-	private JCheckBox logging;
-	private JButton browseButton;
+	private Text dataDirField;
+	private CheckBox logging;
+	private final JFXPanel jfxPanel = new JFXPanel();
 
 	/** Creates new form PreferencesNotesPanel */
 	public PreferencesNotesPanel()
@@ -79,11 +75,7 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 	}
 
 	/**
-	 * <p>
 	 * Sets the current data directory setting
-	 * </p>
-	 *
-	 * @param dir
 	 */
 	private void setDataDir(String dir)
 	{
@@ -119,65 +111,40 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 
 	private void initComponents()
 	{
-		setLayout(new BorderLayout());
+		VBox vbox = new VBox();
 
-		dirPanel = new JPanel();
-		loggingPanel = new JPanel();
-		dataDirField = new JTextField();
-		logging = new JCheckBox();
-		browseButton = new JButton(LanguageBundle.getString("...")); //$NON-NLS-1$
+		dataDirField = new Text();
+		logging = new CheckBox();
+		ButtonBase browseButton = new Button(LanguageBundle.getString("...")); //$NON-NLS-1$
 
-		browseButton.addActionListener(this::browseButtonActionPerformed);
+		browseButton.setOnAction(this::browseButtonActionPerformed);
 
-		JPanel borderPanel = new JPanel();
-		borderPanel.setLayout(new GridBagLayout());
+		Node locationLabel = new Label(LanguageBundle.getString("in_plugin_notes_dataLocation")); //$NON-NLS-1$
 
-		dirPanel = new JPanel(new GridBagLayout());
-		dirPanel.setBorder(new TitledBorder(LanguageBundle.getString("in_plugin_notes_sourceDir"))); //$NON-NLS-1$
-
-		JLabel locationLabel = new JLabel(LanguageBundle.getString("in_plugin_notes_dataLocation")); //$NON-NLS-1$
-
-		GridBagConstraints c = new GridBagConstraints();
-		dirPanel.add(locationLabel, c);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 1.0;
-		dirPanel.add(dataDirField, c);
-		c.fill = GridBagConstraints.NONE;
-		c.weightx = 0.0;
-		dirPanel.add(browseButton, c);
-
-		loggingPanel = new JPanel();
-		loggingPanel.setLayout(new BorderLayout());
-		loggingPanel.setBorder(new TitledBorder(LanguageBundle.getString("in_plugin_notes_client"))); //$NON-NLS-1$
+		vbox.getChildren().add(locationLabel);
+		vbox.getChildren().add(dataDirField);
+		vbox.getChildren().add(browseButton);
 
 		logging.setText(LanguageBundle.getString("in_plugin_notes_logGameData")); //$NON-NLS-1$
+		vbox.getChildren().add(logging);
 
-		loggingPanel.add(logging, BorderLayout.CENTER);
+		Platform.runLater(() -> {
+			Scene scene = new Scene(vbox);
+			jfxPanel.setScene(scene);
+		});
 
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.weightx = 1.0;
-		c.gridx = GridBagConstraints.REMAINDER;
-		borderPanel.add(dirPanel, c);
-		borderPanel.add(loggingPanel, c);
-		c.weighty = 1.0;
-		c.fill = GridBagConstraints.VERTICAL;
-		borderPanel.add(new JPanel(), c);
-		JScrollPane jScrollPane1 = new JScrollPane();
-		jScrollPane1.setViewportView(borderPanel);
-		add(jScrollPane1, BorderLayout.CENTER);
+		setLayout(new BorderLayout());
+		add(jfxPanel, BorderLayout.CENTER);
 	}
 
 	/**
 	 * Handles browsing for a directory.
-	 *
-	 * @param e
 	 */
-	private void browseButtonActionPerformed(ActionEvent e)
+	private void browseButtonActionPerformed(ActionEvent ignored)
 	{
 		DirectoryChooser directoryChooser = new DirectoryChooser();
 		directoryChooser.setInitialDirectory(new File(getDataDir()));
-		File directory = CompletableFuture.supplyAsync(() ->
-				directoryChooser.showDialog(null), Platform::runLater).join();
+		File directory = directoryChooser.showDialog(jfxPanel.getScene().getWindow());
 
 		if (directory != null)
 		{
