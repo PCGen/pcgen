@@ -33,7 +33,7 @@ import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.formula.PCGenScoped;
 import pcgen.cdom.formula.VariableChangeEvent;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.facade.util.event.ReferenceEvent;
@@ -95,7 +95,7 @@ public class BridgeListenerTest
 		CharID id = CharID.getID(dsID);
 		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
 		BridgeListener bridge = new BridgeListener(id, target);
-		GlobalScope scope = new GlobalScope();
+		GlobalPCScope scope = new GlobalPCScope();
 		ScopeInstance instance =
 				new SimpleScopeInstance(Optional.empty(), scope, owner);
 		TransparentFormatManager<PCTemplate> formatManager =
@@ -128,7 +128,7 @@ public class BridgeListenerTest
 		CharID id = CharID.getID(dsID);
 		AbstractSourcedListFacet<CharID, PCGenScoped> target = new Target();
 		BridgeListener bridge = new BridgeListener(id, target);
-		GlobalScope scope = new GlobalScope();
+		GlobalPCScope scope = new GlobalPCScope();
 		ScopeInstance instance =
 				new SimpleScopeInstance(Optional.empty(), scope, owner);
 		TransparentFormatManager<PCTemplate[]> formatManager =

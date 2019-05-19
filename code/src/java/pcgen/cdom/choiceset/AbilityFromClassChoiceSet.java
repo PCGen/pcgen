@@ -157,7 +157,7 @@ public class AbilityFromClassChoiceSet implements PrimitiveChoiceSet<CNAbilitySe
 				}
 			}
 		}
-		return null;
+		return set;
 	}
 
 	/**

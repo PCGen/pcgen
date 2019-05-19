@@ -105,18 +105,6 @@ public class FlippingSplitPane extends JSplitPane
 
 	/**
 	 * Creates a new {@code FlippingSplitPane}.  Panes begin as unlocked, and
-	 * otherwise take the defaults of {@link JSplitPane#JSplitPane(int, boolean)}.
-	 */
-	public FlippingSplitPane(int newOrientation, boolean newContinuousLayout, String prefsKey)
-	{
-		super(newOrientation, newContinuousLayout);
-
-		this.prefsKey = prefsKey;
-		initComponent();
-	}
-
-	/**
-	 * Creates a new {@code FlippingSplitPane}.  Panes begin as unlocked, and
 	 * otherwise take the defaults of {@link JSplitPane#JSplitPane(int, Component,
 	 * Component)}.
 	 */

@@ -36,7 +36,6 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
-import java.util.prefs.Preferences;
 
 import javax.swing.BoxLayout;
 import javax.swing.ComboBoxModel;
@@ -77,11 +76,10 @@ import org.xml.sax.InputSource;
 
 /**
  * Main panel of the random name generator.
- * 
  */
+@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 public class NameGenPanel extends JPanel
 {
-	private final Preferences namePrefs = Preferences.userNodeForPackage(NameGenPanel.class);
 	private final Map<String, List<RuleSet>> categories = new HashMap<>();
 	private JButton generateButton;
 	private JButton jButton1;
@@ -126,9 +124,7 @@ public class NameGenPanel extends JPanel
 	/** Creates new form NameGenPanel */
 	public NameGenPanel()
 	{
-		initComponents();
-		initPrefs();
-		loadData(new File("."));
+		this(new File("."));
 	}
 
 	/**
@@ -139,7 +135,6 @@ public class NameGenPanel extends JPanel
 	public NameGenPanel(File dataPath)
 	{
 		initComponents();
-		initPrefs();
 		loadData(dataPath);
 	}
 
@@ -176,29 +171,6 @@ public class NameGenPanel extends JPanel
 
 			return null;
 		}
-	}
-
-	/**
-	 *  Initialization of the bulk of preferences.  sets the defaults
-	 *  if this is the first time you have used this version
-	 */
-	private void initPrefs()
-	{
-		boolean prefsSet = namePrefs.getBoolean("arePrefsSet", false);
-
-		if (!prefsSet)
-		{
-			namePrefs.putBoolean("arePrefsSet", true);
-		}
-
-		double version = namePrefs.getDouble("Version", 0);
-
-		if ((version < 0.5) || !prefsSet)
-		{
-			namePrefs.putDouble("Version", 0.5);
-		}
-
-		namePrefs.putDouble("SubVersion", 0);
 	}
 
 	private void setMeaningText(String meaning)

@@ -26,6 +26,7 @@
 package pcgen.gui2.util;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.logging.LogRecord;
 
@@ -44,7 +45,7 @@ public class StatusWorker extends SwingWorker<List<LogRecord>, List<LogRecord>> 
 	private final PCGenTask task;
 	private final PCGenStatusBar statusBar;
 	private boolean dirty = false;
-	private List<LogRecord> errors = new ArrayList<>();
+	private final List<LogRecord> errors = new ArrayList<>();
 
 	/**
 	 * @param statusMsg - text to display in status bar
@@ -72,16 +73,11 @@ public class StatusWorker extends SwingWorker<List<LogRecord>, List<LogRecord>> 
 		if (!dirty)
 		{
 			dirty = true;
-			SwingUtilities.invokeLater(new Runnable()
-			{
-				@Override
-				public void run()
-				{
-					statusBar.getProgressBar().getModel().setRangeProperties(task.getProgress(), 1, 0,
-						task.getMaximum(), true);
-					statusBar.getProgressBar().setString(task.getMessage());
-					dirty = false;
-				}
+			SwingUtilities.invokeLater(() -> {
+				statusBar.getProgressBar().getModel().setRangeProperties(task.getProgress(), 1, 0,
+					task.getMaximum(), true);
+				statusBar.getProgressBar().setString(task.getMessage());
+				dirty = false;
 			});
 		}
 	}
@@ -97,7 +93,7 @@ public class StatusWorker extends SwingWorker<List<LogRecord>, List<LogRecord>> 
 	 */
 	public List<LogRecord> getErrors()
 	{
-		return errors;
+		return Collections.unmodifiableList(errors);
 	}
 
 	@Override
@@ -121,6 +117,6 @@ public class StatusWorker extends SwingWorker<List<LogRecord>, List<LogRecord>> 
 		task.removePCGenTaskListener(this);
 
 		SwingUtilities.invokeLater(() -> statusBar.setContextMessage(oldMessage));
-		return errors;
+		return Collections.unmodifiableList(errors);
 	}
 }

@@ -73,7 +73,7 @@ public class CopyrightToken extends AbstractNonEmptyToken<Campaign>
 			//Okay, no copyright info
 			return null;
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override

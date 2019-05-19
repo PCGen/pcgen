@@ -91,7 +91,7 @@ public class InfoVarsLst extends AbstractTokenWithSeparator<CDOMObject> implemen
 			set.add(new StringBuilder().append(key).append(Constants.PIPE)
 				.append(StringUtil.join(value, Constants.PIPE)).toString());
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override

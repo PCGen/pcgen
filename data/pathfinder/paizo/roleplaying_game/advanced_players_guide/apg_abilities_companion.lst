@@ -186,15 +186,6 @@ Eidolon Size ~ Large	CATEGORY:Internal												TEMPLATE:SIZE_L	ABILITY:Intern
 Eidolon Size ~ Huge	CATEGORY:Internal												TEMPLATE:SIZE_H																																										BONUS:STAT|DEX|-2	BONUS:STAT|STR|8	BONUS:STAT|CON|4	BONUS:VAR|EidolonSizeIncrease|1
 Eidolon Size ~ Small	CATEGORY:Internal												TEMPLATE:SIZE_S	ABILITY:Internal|AUTOMATIC|Eidolon Size Tracker																																		BONUS:STAT|STR|-4	BONUS:STAT|DEX|2	BONUS:STAT|CON|-2	BONUS:VAR|EidolonSizeDecrease|1
 
-###Block: Familiar Bonuses granted to Master
-# Ability Name				Category of Ability	Combat bonus									Save bonus									Bonus to skill								Modify VAR
-Familiar (Centipede (House))		CATEGORY:Internal																							BONUS:SKILL|Stealth|FamiliarGrantedBonus_3|TYPE=Familiar
-Familiar (Crab (Giant King))		CATEGORY:Internal																																	BONUS:VAR|CMB Grapple|FamiliarGrantedBonus_2|TYPE=Familiar
-Familiar (Fox)				CATEGORY:Internal													BONUS:SAVE|Reflex|FamiliarGrantedBonus_2|TYPE=Familiar
-Familiar (Octopus)			CATEGORY:Internal																							BONUS:SKILL|Swim|FamiliarGrantedBonus_3|TYPE=Familiar
-Familiar (Scorpion (Greensting))	CATEGORY:Internal		BONUS:COMBAT|INITIATIVE|FamiliarGrantedBonus_4|TYPE=Familiar
-Familiar (Spider (Scarlet))		CATEGORY:Internal																							BONUS:SKILL|Climb|FamiliarGrantedBonus_3|TYPE=Familiar
-
 
 
 

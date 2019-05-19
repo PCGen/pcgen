@@ -150,12 +150,11 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements C
 	@Override
 	public T decodeChoice(LoadContext context, String persistentFormat)
 	{
-		String choiceStr = persistentFormat;
 		if (choiceActor instanceof CategorizedChooser)
 		{
-			return ((CategorizedChooser<T>) choiceActor).decodeChoice(context, choiceStr, category.get());
+			return ((CategorizedChooser<T>) choiceActor).decodeChoice(context, persistentFormat, category.get());
 		}
-		return choiceActor.decodeChoice(context, choiceStr);
+		return choiceActor.decodeChoice(context, persistentFormat);
 	}
 
 	@Override

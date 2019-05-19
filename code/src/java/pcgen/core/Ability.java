@@ -81,7 +81,7 @@ public final class Ability extends PObject implements Categorized<Ability>, Abil
 		StringJoiner txt = new StringJoiner("\t");
 		txt.add(getDisplayName());
 		txt.add("CATEGORY:" + getCategory());
-		Globals.getContext().unparse(this).forEach(item -> txt.add(item));
+		Globals.getContext().unparse(this).forEach(txt::add);
 		txt.add(PrerequisiteWriter.prereqsToString(this));
 		return txt.toString();
 	}

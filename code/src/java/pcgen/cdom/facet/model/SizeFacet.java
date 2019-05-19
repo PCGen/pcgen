@@ -30,13 +30,18 @@ import pcgen.cdom.facet.BonusChangeFacet.BonusChangeEvent;
 import pcgen.cdom.facet.BonusChangeFacet.BonusChangeListener;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.CDOMObjectConsolidationFacet;
+import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.FormulaResolvingFacet;
+import pcgen.cdom.facet.LoadContextFacet;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeEvent;
 import pcgen.cdom.facet.analysis.LevelFacet.LevelChangeListener;
+import pcgen.cdom.facet.analysis.ResultFacet;
 import pcgen.cdom.facet.base.AbstractDataFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
@@ -59,8 +64,11 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 	private FormulaResolvingFacet formulaResolvingFacet;
 	private BonusCheckingFacet bonusCheckingFacet;
 	private LevelFacet levelFacet;
+	private ResultFacet resultFacet;
 
 	private CDOMObjectConsolidationFacet consolidationFacet;
+
+	private LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
 	/**
 	 * Returns the integer indicating the racial size for the Player Character
@@ -74,40 +82,64 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 	 */
 	public int racialSizeInt(CharID id)
 	{
-		SizeFacetInfo info = getInfo(id);
-		if (info == null)
+		String baseSizeControl = ControlUtilities.getControlToken(
+			loadContextFacet.get(id.getDatasetID()).get(), CControl.BASESIZE);
+		if (baseSizeControl != null)
 		{
-			return SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
+			SizeAdjustment baseSize = (SizeAdjustment) resultFacet
+					.getGlobalVariable(id, baseSizeControl);
+			return baseSize.get(IntegerKey.SIZEORDER);
 		}
-		return info.racialSizeInt;
+		else
+		{
+			SizeFacetInfo info = getInfo(id);
+			if (info == null)
+			{
+				return SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
+			}
+			return info.racialSizeInt;
+		}
 	}
 
 	private int calcRacialSizeInt(CharID id)
 	{
-		SizeFacetInfo info = getConstructingInfo(id);
-
-		int iSize = SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
-		Race race = raceFacet.get(id);
-		if (race != null)
+		String baseSizeControl = ControlUtilities.getControlToken(
+			loadContextFacet.get(id.getDatasetID()).get(), CControl.BASESIZE);
+		if (baseSizeControl != null)
 		{
-			// get the base size for the race
-			Formula size = race.getSafe(FormulaKey.SIZE);
-			iSize = formulaResolvingFacet.resolve(id, size, "").intValue();
+			SizeAdjustment baseSize = (SizeAdjustment) resultFacet
+				.getGlobalVariable(id, baseSizeControl);
+			return baseSize.get(IntegerKey.SIZEORDER);
+		}
+		else
+		{
+			SizeFacetInfo info = getConstructingInfo(id);
 
-			// now check and see if a template has set the
-			// size of the character in question
-			// with something like SIZE:L
-			for (PCTemplate template : templateFacet.getSet(id))
+			int iSize = SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
+			Race race = raceFacet.get(id);
+			if (race != null)
 			{
-				Formula sizeFormula = template.get(FormulaKey.SIZE);
-				if (sizeFormula != null)
+				// get the base size for the race
+				Formula size = race.getSafe(FormulaKey.SIZE);
+				iSize = formulaResolvingFacet.resolve(id, size, "").intValue();
+
+				// now check and see if a template has set the
+				// size of the character in question
+				// with something like SIZE:L
+				for (PCTemplate template : templateFacet.getSet(id))
 				{
-					iSize = formulaResolvingFacet.resolve(id, sizeFormula, template.getKeyName()).intValue();
+					Formula sizeFormula = template.get(FormulaKey.SIZE);
+					if (sizeFormula != null)
+					{
+						iSize = formulaResolvingFacet
+							.resolve(id, sizeFormula, template.getKeyName())
+							.intValue();
+					}
 				}
 			}
+			info.racialSizeInt = iSize;
+			return iSize;
 		}
-		info.racialSizeInt = iSize;
-		return iSize;
 	}
 
 	/**
@@ -378,6 +410,11 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment>
 	public void setLevelFacet(LevelFacet levelFacet)
 	{
 		this.levelFacet = levelFacet;
+	}
+
+	public void setResultFacet(ResultFacet resultFacet)
+	{
+		this.resultFacet = resultFacet;
 	}
 
 	public void setConsolidationFacet(CDOMObjectConsolidationFacet consolidationFacet)

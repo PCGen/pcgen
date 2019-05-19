@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+
+<!--
+  * Copyright 2019 (C) Eitan Adler <lists@eitanadler.com>
+  *
+  * This library is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU Lesser General Public
+  * License as published by the Free Software Foundation; either
+  * version 2.1 of the License, or (at your option) any later version.
+  *
+  * This library is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+  * Lesser General Public License for more details.
+  *
+  * You should have received a copy of the GNU Lesser General Public
+  * License along with this library; if not, write to the Free Software
+  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+  -->
+
+<?import javafx.scene.web.WebView?>
+<Scene xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pcgen.gui3.dialog.TipOfTheDayController">
+    <AnchorPane prefHeight="200" prefWidth="200">
+        <BorderPane>
+         <left>
+            <ImageView pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                <Image url="@TipOfTheDay24.gif" />
+            </ImageView>
+         </left>
+         <top>
+            <Label id="didYouKnowLabel" text="%in_tod_didyouknow" BorderPane.alignment="CENTER" />
+         </top>
+         <bottom>
+             <HBox BorderPane.alignment="CENTER">
+                 <CheckBox fx:id="showTips" text="%in_tod_showTips" />
+                 <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                 <Button text="%in_tod_prevTip" onAction="#onPrevTip" />
+                 <Button text="%in_tod_nextTip" onAction="#onNextTip" />
+                 <Button text="%in_close" onAction="#onClose" cancelButton="true" defaultButton="true" />
+             </HBox>
+         </bottom>
+         <center>
+             <!--
+                Can't use <fx:include fx:id="tipPanel" source="/pcgen/gui3/SimpleHtmlPanel.fxml" />
+                since the SimpleHtmlPanel is a scene. Instead, both would have to fx:include the same
+                webview. In the event that either becomes more complex and shares config/code it
+                would be worth it.
+             -->
+             <ScrollPane BorderPane.alignment="CENTER">
+                 <WebView fx:id="browser"/>
+             </ScrollPane>
+         </center>
+        </BorderPane>
+        <stylesheets>
+            <URL value="@TipOfTheDay.css" />
+        </stylesheets>
+    </AnchorPane>
+</Scene>

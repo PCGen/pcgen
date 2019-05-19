@@ -33,9 +33,7 @@ import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.coreview.CoreViewFrame;
-import pcgen.gui2.dialog.CalculatorDialog;
 import pcgen.gui2.dialog.DataInstaller;
-import pcgen.gui2.dialog.DebugDialog;
 import pcgen.gui2.dialog.ExportDialog;
 import pcgen.gui2.dialog.KitSelectionDialog;
 import pcgen.gui2.dialog.PrintPreviewDialog;
@@ -44,6 +42,9 @@ import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.PCGenAction;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.dialog.CalculatorDialogController;
+import pcgen.gui3.dialog.DebugDialog;
 import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
@@ -176,7 +177,7 @@ public final class PCGenActionMap extends ActionMap
 	private class EditAction extends PCGenAction
 	{
 
-		public EditAction()
+		private EditAction()
 		{
 			super(MNU_EDIT);
 		}
@@ -186,7 +187,7 @@ public final class PCGenActionMap extends ActionMap
 	private class AddKitAction extends CharacterAction
 	{
 
-		public AddKitAction()
+		private AddKitAction()
 		{
 			super("mnuEditAddKit");
 			setEnabled(false);
@@ -205,7 +206,7 @@ public final class PCGenActionMap extends ActionMap
 	private class EquipmentSetAction extends PCGenAction
 	{
 
-		public EquipmentSetAction()
+		private EquipmentSetAction()
 		{
 			super("mnuEditEquipmentSet");
 		}
@@ -215,7 +216,7 @@ public final class PCGenActionMap extends ActionMap
 	private class TempBonusAction extends PCGenAction
 	{
 
-		public TempBonusAction()
+		private TempBonusAction()
 		{
 			super("mnuEditTempBonus");
 		}
@@ -225,7 +226,7 @@ public final class PCGenActionMap extends ActionMap
 	private class PreferencesAction extends PCGenAction
 	{
 
-		public PreferencesAction()
+		private PreferencesAction()
 		{
 			super(MNU_TOOLS_PREFERENCES, Icons.Preferences16);
 		}
@@ -241,7 +242,7 @@ public final class PCGenActionMap extends ActionMap
 	private static class GMGenAction extends PCGenAction
 	{
 
-		public GMGenAction()
+		private GMGenAction()
 		{
 			super("mnuToolsGMGen", GMGEN_COMMAND, null, Icons.gmgen_icon, GMGenSystem.APPLICATION_NAME);
 		}
@@ -254,12 +255,12 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class DebugAction extends PCGenAction
+	private static final class DebugAction extends PCGenAction
 	{
 
 		private DebugDialog dialog = null;
 
-		public DebugAction()
+		private DebugAction()
 		{
 			super("mnuToolsLog", LOG_COMMAND, "F10");
 		}
@@ -269,20 +270,18 @@ public final class PCGenActionMap extends ActionMap
 		{
 			if (dialog == null)
 			{
-				dialog = new DebugDialog(frame);
+				dialog = new DebugDialog();
 			}
-			Utility.setComponentRelativeLocation(frame, dialog);
-			dialog.setVisible(true);
 		}
 
 	}
 
-	private class CalculatorAction extends PCGenAction
+	private static final class CalculatorAction extends PCGenAction
 	{
 
-		private CalculatorDialog dialog = null;
+		private JFXPanelFromResource<CalculatorDialogController> dialog;
 
-		public CalculatorAction()
+		private CalculatorAction()
 		{
 			super("mnuToolsCalculator", CALCULATOR_COMMAND, "F11");
 		}
@@ -292,18 +291,16 @@ public final class PCGenActionMap extends ActionMap
 		{
 			if (dialog == null)
 			{
-				dialog = new CalculatorDialog(frame);
+				dialog = new JFXPanelFromResource<>(CalculatorDialogController.class, "CalculatorDialog.fxml");
 			}
-			Utility.setComponentRelativeLocation(frame, dialog);
-			dialog.setVisible(true);
+			dialog.showAsStage(LanguageBundle.getString("mnuToolsCalculator"));
 		}
-
 	}
 
 	private class CoreViewAction extends CharacterAction
 	{
 
-		public CoreViewAction()
+		private CoreViewAction()
 		{
 			super("mnuToolsCoreView", COREVIEW_COMMAND, "Shift-F11");
 		}
@@ -312,7 +309,7 @@ public final class PCGenActionMap extends ActionMap
 		public void actionPerformed(ActionEvent e)
 		{
 			CharacterFacade cf = frame.getSelectedCharacterRef().get();
-			CoreViewFrame cvf = new CoreViewFrame(frame, cf);
+			CoreViewFrame cvf = new CoreViewFrame(cf);
 			cvf.setVisible(true);
 		}
 
@@ -321,7 +318,7 @@ public final class PCGenActionMap extends ActionMap
 	private class SolverViewAction extends CharacterAction
 	{
 
-		public SolverViewAction()
+		private SolverViewAction()
 		{
 			super("mnuToolsSolverView", SOLVERVIEW_COMMAND, "Ctrl-F11");
 		}
@@ -338,7 +335,7 @@ public final class PCGenActionMap extends ActionMap
 	private class LoggingLevelAction extends PCGenAction
 	{
 
-		public LoggingLevelAction()
+		private LoggingLevelAction()
 		{
 			super("mnuLoggingLevel");
 		}
@@ -351,7 +348,7 @@ public final class PCGenActionMap extends ActionMap
 	private class InstallDataAction extends PCGenAction
 	{
 
-		public InstallDataAction()
+		private InstallDataAction()
 		{
 			super("mnuSourcesInstallData");
 		}
@@ -368,7 +365,7 @@ public final class PCGenActionMap extends ActionMap
 	private class FileAction extends PCGenAction
 	{
 
-		public FileAction()
+		private FileAction()
 		{
 			super(MNU_FILE);
 		}
@@ -380,7 +377,7 @@ public final class PCGenActionMap extends ActionMap
 
 		private final ReferenceFacade<?> ref;
 
-		public NewAction()
+		private NewAction()
 		{
 			super("mnuFileNew", NEW_COMMAND, "shortcut N", Icons.New16);
 			ref = frame.getLoadedDataSetRef();
@@ -391,7 +388,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			frame.createNewCharacter();
+			frame.createNewCharacter(null);
 		}
 
 		private class SourceListener implements ReferenceListener<Object>
@@ -410,7 +407,7 @@ public final class PCGenActionMap extends ActionMap
 	private class OpenAction extends PCGenAction
 	{
 
-		public OpenAction()
+		private OpenAction()
 		{
 			super("mnuFileOpen", OPEN_COMMAND, "shortcut O", Icons.Open16);
 		}
@@ -426,7 +423,7 @@ public final class PCGenActionMap extends ActionMap
 	private class OpenRecentAction extends PCGenAction
 	{
 
-		public OpenRecentAction()
+		private OpenRecentAction()
 		{
 			super("mnuOpenRecent");
 		}
@@ -436,7 +433,7 @@ public final class PCGenActionMap extends ActionMap
 	private class CloseAction extends CharacterAction
 	{
 
-		public CloseAction()
+		private CloseAction()
 		{
 			super("mnuFileClose", CLOSE_COMMAND, "shortcut W", Icons.Close16);
 		}
@@ -452,7 +449,7 @@ public final class PCGenActionMap extends ActionMap
 	private class CloseAllAction extends CharacterAction
 	{
 
-		public CloseAllAction()
+		private CloseAllAction()
 		{
 			super("mnuFileCloseAll", CLOSEALL_COMMAND, Icons.CloseAll16);
 		}
@@ -470,7 +467,7 @@ public final class PCGenActionMap extends ActionMap
 
 		private final FileRefListener fileListener = new FileRefListener();
 
-		public SaveAction()
+		private SaveAction()
 		{
 			super("mnuFileSave", SAVE_COMMAND, "shortcut S", Icons.Save16);
 			ReferenceFacade<CharacterFacade> ref = frame.getSelectedCharacterRef();
@@ -530,7 +527,7 @@ public final class PCGenActionMap extends ActionMap
 	private class SaveAsAction extends CharacterAction
 	{
 
-		public SaveAsAction()
+		private SaveAsAction()
 		{
 			super("mnuFileSaveAs", SAVEAS_COMMAND, "shift-shortcut S", Icons.SaveAs16);
 		}
@@ -546,7 +543,7 @@ public final class PCGenActionMap extends ActionMap
 	private class SaveAllAction extends CharacterAction
 	{
 
-		public SaveAllAction()
+		private SaveAllAction()
 		{
 			super("mnuFileSaveAll", SAVEALL_COMMAND, Icons.SaveAll16);
 		}
@@ -562,7 +559,7 @@ public final class PCGenActionMap extends ActionMap
 	private class RevertAction extends CharacterAction
 	{
 
-		public RevertAction()
+		private RevertAction()
 		{
 			super("mnuFileRevertToSaved", REVERT_COMMAND, "shortcut R");
 		}
@@ -578,7 +575,7 @@ public final class PCGenActionMap extends ActionMap
 	private class PartyAction extends PCGenAction
 	{
 
-		public PartyAction()
+		private PartyAction()
 		{
 			super("mnuFileParty");
 		}
@@ -588,7 +585,7 @@ public final class PCGenActionMap extends ActionMap
 	private class OpenPartyAction extends PCGenAction
 	{
 
-		public OpenPartyAction()
+		private OpenPartyAction()
 		{
 			super("mnuFilePartyOpen", OPEN_PARTY_COMMAND, Icons.Open16);
 		}
@@ -604,7 +601,7 @@ public final class PCGenActionMap extends ActionMap
 	private class ClosePartyAction extends PCGenAction
 	{
 
-		public ClosePartyAction()
+		private ClosePartyAction()
 		{
 			super("mnuFilePartyClose", CLOSE_PARTY_COMMAND, Icons.Close16);
 		}
@@ -620,7 +617,7 @@ public final class PCGenActionMap extends ActionMap
 	private class SavePartyAction extends CharacterAction
 	{
 
-		public SavePartyAction()
+		private SavePartyAction()
 		{
 			super("mnuFilePartySave", SAVE_PARTY_COMMAND, Icons.Save16);
 		}
@@ -639,7 +636,7 @@ public final class PCGenActionMap extends ActionMap
 	private class SaveAsPartyAction extends CharacterAction
 	{
 
-		public SaveAsPartyAction()
+		private SaveAsPartyAction()
 		{
 			super("mnuFilePartySaveAs", SAVEAS_PARTY_COMMAND, Icons.SaveAs16);
 		}
@@ -655,7 +652,7 @@ public final class PCGenActionMap extends ActionMap
 	private class PrintAction extends CharacterAction
 	{
 
-		public PrintAction()
+		private PrintAction()
 		{
 			super("mnuFilePrint", PRINT_COMMAND, "shortcut P", Icons.Print16);
 		}
@@ -671,7 +668,7 @@ public final class PCGenActionMap extends ActionMap
 	private class ExportAction extends CharacterAction
 	{
 
-		public ExportAction()
+		private ExportAction()
 		{
 			super("mnuFileExport", EXPORT_COMMAND, "shift-shortcut P", Icons.Export16);
 		}
@@ -687,7 +684,7 @@ public final class PCGenActionMap extends ActionMap
 	private class ExitAction extends PCGenAction
 	{
 
-		public ExitAction()
+		private ExitAction()
 		{
 			super("mnuFileExit", EXIT_COMMAND, "shortcut Q");
 		}
@@ -703,7 +700,7 @@ public final class PCGenActionMap extends ActionMap
 	private class LoadSourcesSelectAction extends PCGenAction
 	{
 
-		public LoadSourcesSelectAction()
+		private LoadSourcesSelectAction()
 		{
 			super("mnuSourcesLoadSelect", SOURCES_LOAD_COMMAND, "shortcut L");
 		}
@@ -719,7 +716,7 @@ public final class PCGenActionMap extends ActionMap
 	private class ReloadSourcesAction extends PCGenAction implements ReferenceListener<SourceSelectionFacade>
 	{
 
-		public ReloadSourcesAction()
+		private ReloadSourcesAction()
 		{
 			super("mnuSourcesReload", SOURCES_RELOAD_COMMAND, "shift-shortcut R");
 			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef =
@@ -756,7 +753,7 @@ public final class PCGenActionMap extends ActionMap
 	private class UnloadSourcesAction extends PCGenAction implements ReferenceListener<SourceSelectionFacade>
 	{
 
-		public UnloadSourcesAction()
+		private UnloadSourcesAction()
 		{
 			super("mnuSourcesUnload", SOURCES_UNLOAD_COMMAND, "shortcut U");
 			ReferenceFacade<SourceSelectionFacade> currentSourceSelectionRef =
@@ -787,7 +784,7 @@ public final class PCGenActionMap extends ActionMap
 	private class HelpAction extends PCGenAction
 	{
 
-		public HelpAction()
+		private HelpAction()
 		{
 			super("mnuHelp", HELP_COMMAND);
 		}
@@ -797,7 +794,7 @@ public final class PCGenActionMap extends ActionMap
 	private class DocsHelpAction extends PCGenAction
 	{
 
-		public DocsHelpAction()
+		private DocsHelpAction()
 		{
 			super("mnuHelpDocumentation", HELP_DOCS_COMMAND, "F1", Icons.Help16);
 		}
@@ -822,7 +819,7 @@ public final class PCGenActionMap extends ActionMap
 	private class OGLHelpAction extends PCGenAction
 	{
 
-		public OGLHelpAction()
+		private OGLHelpAction()
 		{
 			super("mnuHelpOGL", HELP_OGL_COMMAND);
 		}
@@ -838,7 +835,7 @@ public final class PCGenActionMap extends ActionMap
 	private class TipOfTheDayHelpAction extends PCGenAction
 	{
 
-		public TipOfTheDayHelpAction()
+		private TipOfTheDayHelpAction()
 		{
 			super("mnuHelpTipOfTheDay", HELP_TIPOFTHEDAY_COMMAND, Icons.TipOfTheDay16);
 		}
@@ -846,7 +843,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			frame.showTipsOfTheDay();
+			PCGenFrame.showTipsOfTheDay();
 		}
 
 	}
@@ -854,7 +851,7 @@ public final class PCGenActionMap extends ActionMap
 	private class AboutHelpAction extends PCGenAction
 	{
 
-		public AboutHelpAction()
+		private AboutHelpAction()
 		{
 			super("mnuHelpAbout", HELP_ABOUT_COMMAND, Icons.About16);
 		}
@@ -864,7 +861,6 @@ public final class PCGenActionMap extends ActionMap
 		{
 			frame.showAboutDialog();
 		}
-
 	}
 
 
@@ -873,27 +869,22 @@ public final class PCGenActionMap extends ActionMap
 
 		private final ReferenceFacade<?> ref;
 
-		public CharacterAction(String prop)
+		private CharacterAction(String prop)
 		{
 			this(prop, null, null, null);
 		}
 
-		public CharacterAction(String prop, Icons icon)
-		{
-			this(prop, null, null, icon);
-		}
-
-		public CharacterAction(String prop, String command, String accelerator)
+		private CharacterAction(String prop, String command, String accelerator)
 		{
 			this(prop, command, accelerator, null);
 		}
 
-		public CharacterAction(String prop, String command, Icons icon)
+		private CharacterAction(String prop, String command, Icons icon)
 		{
 			this(prop, command, null, icon);
 		}
 
-		public CharacterAction(String prop, String command, String accelerator, Icons icon)
+		private CharacterAction(String prop, String command, String accelerator, Icons icon)
 		{
 			super(prop, command, accelerator, icon);
 			ref = frame.getSelectedCharacterRef();

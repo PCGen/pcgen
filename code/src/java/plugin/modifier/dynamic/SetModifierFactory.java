@@ -20,12 +20,9 @@ package plugin.modifier.dynamic;
 import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.calculation.NEPCalculation;
-import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.content.IndirectCalculation;
-import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.inst.Dynamic;
 import pcgen.rules.persistence.token.AbstractSetModifierFactory;
 
@@ -37,8 +34,8 @@ public class SetModifierFactory extends AbstractSetModifierFactory<Dynamic>
 {
 
 	@Override
-	public FormulaModifier<Dynamic> getModifier(String instructions, ManagerFactory managerFactory,
-		FormulaManager ignored, PCGenScope varScope, FormatManager<Dynamic> formatManager)
+	public FormulaModifier<Dynamic> getModifier(String instructions,
+		FormatManager<Dynamic> formatManager)
 	{
 		if (!getVariableFormat().isAssignableFrom(formatManager.getManagedClass()))
 		{

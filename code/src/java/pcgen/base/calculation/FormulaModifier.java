@@ -21,6 +21,8 @@ import java.util.Collection;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 
@@ -135,4 +137,16 @@ public interface FormulaModifier<T>
 	 * @return A String identifying the formula used for FormulaModifier
 	 */
 	public String getInstructions();
+
+	/**
+	 * Processes this FormulaModifier to determine if it is valid within the rules provided
+	 * by the given FormulaSemantics.
+	 * 
+	 * @param semantics
+	 *            The FormulaSemantics holding information about the context in which the
+	 *            FormulaModifier is to be resolved
+	 * @throws SemanticsException
+	 *             If there is a Semantics issue with the FormulaModifier
+	 */
+	public void isValid(FormulaSemantics semantics) throws SemanticsException;
 }

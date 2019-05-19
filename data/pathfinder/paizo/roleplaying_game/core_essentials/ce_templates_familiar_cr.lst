@@ -1,0 +1,5 @@
+SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+
+###Block: Familiar Templates
+Familiar Type	KEY:Familiar ~ Augmented Animal	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal	VISIBLE:NO	SOURCEPAGE:p.82
+Familiar Speaks One Language	VISIBLE:NO					ADD:LANGUAGE|TYPE=Spoken	SOURCEPAGE:p.82

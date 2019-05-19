@@ -129,7 +129,7 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 				sb.append(Constants.PIPE);
 				sb.append(curl.getUrlDesc());
 			}
-			return list.toArray(new String[list.size()]);
+			return list.toArray(new String[0]);
 		}
 		return null;
 	}

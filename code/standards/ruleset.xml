@@ -23,15 +23,12 @@
         <exclude name="ConstantsInInterface"/>
         <exclude name="ForLoopCanBeForeach"/>
         <exclude name="GuardLogStatement"/>
-        <exclude name="JUnit4TestShouldUseTestAnnotation"/>
         <exclude name="LooseCoupling"/>
         <exclude name="MethodReturnsInternalArray"/>
         <exclude name="OneDeclarationPerLine"/>
         <exclude name="PositionLiteralsFirstInCaseInsensitiveComparisons"/>
         <exclude name="PositionLiteralsFirstInComparisons"/>
         <exclude name="PreserveStackTrace"/>
-        <exclude name="ReplaceHashtableWithMap"/>
-        <exclude name="ReplaceVectorWithList"/>
         <exclude name="SwitchStmtsShouldHaveDefault"/>
         <exclude name="SystemPrintln"/>
         <exclude name="UnusedFormalParameter"/>
@@ -42,12 +39,6 @@
         <!-- This is excluded because it's a tradeoff: it creates a warning to use it, which then has to be addressed -->
         <exclude name="UseVarargs"/>
         <exclude name="JUnitAssertionsShouldIncludeMessage"/>
-        <exclude name="JUnitTestsShouldIncludeAssert"/>
-        <exclude name="JUnitTestContainsTooManyAsserts"/>
-        <exclude name="JUnit4TestShouldUseBeforeAnnotation"/>
-        <exclude name="JUnit4TestShouldUseAfterAnnotation"/>
-        <exclude name="JUnit4SuitesShouldUseSuiteAnnotation"/>
-        <exclude name="JUnitUseExpected"/>
         <exclude name="AvoidUsingHardCodedIP"/>
         <exclude name="UseAssertTrueInsteadOfAssertEquals"/>
         <exclude name="UseAssertEqualsInsteadOfAssertTrue"/>
@@ -100,8 +91,6 @@
         <exclude name="IdenticalCatchBranches"/>
         <exclude name="TooManyStaticImports" />
         <exclude name="ShortMethodName"/>
-        <!-- AllJunitTests needs to be fixed -->
-        <exclude name="NoPackage"/>
     </rule>
     <rule ref="category/java/design.xml">
         <exclude name="AvoidCatchingGenericException"/>
@@ -123,6 +112,7 @@
         <exclude name="ImmutableField"/>
         <exclude name="LawOfDemeter"/>
         <exclude name="LogicInversion"/>
+        <exclude name="LoosePackageCoupling"/>
         <exclude name="NcssCount"/>
         <exclude name="NPathComplexity"/>
         <exclude name="SignatureDeclareThrowsException"/>
@@ -153,7 +143,6 @@
         <exclude name="CompareObjectsWithEquals"/>
         <exclude name="ConstructorCallsOverridableMethod"/>
         <exclude name="DataflowAnomalyAnalysis"/>
-        <exclude name="DoNotCallGarbageCollectionExplicitly"/>
         <exclude name="DoNotCallSystemExit"/>
         <exclude name="EmptyCatchBlock"/>
         <exclude name="EmptyIfStmt"/>
@@ -167,7 +156,6 @@
         <exclude name="OverrideBothEqualsAndHashcode"/>
         <exclude name="ProperCloneImplementation"/>
         <exclude name="ReturnEmptyArrayRatherThanNull"/>
-        <exclude name="SimpleDateFormatNeedsLocale"/>
         <exclude name="SingleMethodSingleton"/>
         <exclude name="UseEqualsToCompareStrings"/>
         <exclude name="UseLocaleWithCaseConversions"/>
@@ -191,7 +179,6 @@
         <exclude name="InefficientStringBuffering"/>
         <exclude name="InsufficientStringBufferDeclaration"/>
         <exclude name="IntegerInstantiation"/>
-        <exclude name="OptimizableToArrayCall"/>
         <exclude name="RedundantFieldInitializer"/>
         <exclude name="SimplifyStartsWith"/>
         <exclude name="StringToString"/>

@@ -17,7 +17,6 @@
  */
 package pcgen.gui2.converter;
 
-import java.awt.CardLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -25,7 +24,6 @@ import java.util.List;
 import java.util.logging.Level;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 import pcgen.gui2.converter.panel.CampaignPanel;
@@ -50,8 +48,6 @@ import org.apache.commons.lang3.SystemUtils;
 public final class PCGenDataConvert extends JFrame
 {
 	private static final long serialVersionUID = 3921586726890440663L;
-
-	private final JPanel contentPanel = new JPanel(new CardLayout());
 
 	private static PropertyContextFactory configFactory;
 

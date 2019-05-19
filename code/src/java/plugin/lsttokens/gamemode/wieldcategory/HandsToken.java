@@ -17,6 +17,8 @@
  */
 package plugin.lsttokens.gamemode.wieldcategory;
 
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.character.WieldCategory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -35,6 +37,11 @@ public class HandsToken extends AbstractNonEmptyToken<WieldCategory> implements 
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, WieldCategory wc, String value)
 	{
+		if (ControlUtilities.hasControlToken(context, CControl.WEAPONHANDS))
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " is disabled when WEAPONHANDS control is used: " + value);
+		}
 		//TODO zero and 999 are magical values :(
 		try
 		{

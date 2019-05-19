@@ -64,32 +64,6 @@ public class AbstractPrerequisiteWriter
 			+ comparatorString.toString() + " operators for PRE" + kind.toUpperCase() + ": " + prereq.toString());
 	}
 
-	protected boolean checkForPremultOfKind(final Prerequisite prereq, final String kind, final boolean multiplesOnly)
-	{
-		//
-		// PREMULT ?
-		//
-		if (prereq.getKind() == null)
-		{
-			//
-			// Are all the sub-prereqs the desired kind?
-			//
-			for (Prerequisite element : prereq.getPrerequisites())
-			{
-				if (!kind.equalsIgnoreCase(element.getKind()))
-				{
-					return false;
-				}
-				if (multiplesOnly && !element.isCountMultiples())
-				{
-					return false;
-				}
-			}
-			return true;
-		}
-		return false;
-	}
-
 	/**
 	 * Meant to be over-ridden
 	 * TODO  Does this and its overriding methods need to throw IOException?

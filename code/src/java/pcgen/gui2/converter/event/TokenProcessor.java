@@ -20,6 +20,7 @@ package pcgen.gui2.converter.event;
 
 import java.util.EventListener;
 
+@FunctionalInterface
 public interface TokenProcessor extends EventListener
 {
 	public String process(TokenProcessEvent tpe);

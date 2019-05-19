@@ -137,7 +137,7 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 			Formula followerNumber = fl.getValue();
 			returnSet.add(followerType + Constants.PIPE + followerNumber.toString());
 		}
-		return returnSet.toArray(new String[returnSet.size()]);
+		return returnSet.toArray(new String[0]);
 	}
 
 	@Override

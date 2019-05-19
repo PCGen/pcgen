@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.ConcurrentModificationException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -34,6 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -673,12 +673,6 @@ public class CharacterFacadeImpl
 	public void setRemainingSelection(AbilityCategory category, int remaining)
 	{
 		characterAbilities.setRemainingSelection(category, remaining);
-	}
-
-	@Override
-	public boolean hasAbility(AbilityCategory category, AbilityFacade ability)
-	{
-		return characterAbilities.hasAbility(category, ability);
 	}
 
 	@Override
@@ -1649,7 +1643,7 @@ public class CharacterFacadeImpl
 
 		int poolPointsUsed = poolPointsTotal - theCharacter.getSkillPoints();
 
-		poolPointText.set(Integer.toString(poolPointsUsed) + " / " + Integer.toString(poolPointsTotal)); //$NON-NLS-1$
+		poolPointText.set(poolPointsUsed + " / " + poolPointsTotal); //$NON-NLS-1$
 	}
 
 	@Override
@@ -2145,7 +2139,6 @@ public class CharacterFacadeImpl
 	 */
 	void refreshLanguageList()
 	{
-		long startTime = new Date().getTime();
 		List<Language> sortedLanguages = new ArrayList<>(charDisplay.getLanguageSet());
 		Collections.sort(sortedLanguages);
 		languages.updateContents(sortedLanguages);
@@ -2260,9 +2253,6 @@ public class CharacterFacadeImpl
 		{
 			todoManager.removeTodo("in_sumTodoSkillLanguageTooMany");
 		}
-
-		long endTime = new Date().getTime();
-		Logging.log(Logging.DEBUG, "refreshLanguageList took " + (endTime - startTime) + " ms.");
 	}
 
 	@Override
@@ -2274,7 +2264,7 @@ public class CharacterFacadeImpl
 	@Override
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers()
 	{
-		if (null == langChoosersList) {
+		if (langChoosersList == null) {
 			langChoosersList = new DefaultListFacade<>();
 		}
 
@@ -2528,7 +2518,7 @@ public class CharacterFacadeImpl
 	 * part of the CharacterFacade and should only be used by the 
 	 * ChracterManager class.
 	 * 
-	 * @throws NullPointerException 
+	 * @throws NullPointerException
 	 * @throws IOException If the write fails
 	 */
 	public void save() throws NullPointerException, IOException
@@ -4005,12 +3995,12 @@ public class CharacterFacadeImpl
 		int minCharges = equip.getMinCharges();
 		int maxCharges = equip.getMaxCharges();
 
-		String selectedValue = delegate.showInputDialog(equip.toString(),
+		Optional<String> selectedValue = delegate.showInputDialog(equip.toString(),
 			LanguageBundle.getFormattedString("in_igNumCharges", //$NON-NLS-1$
 				Integer.toString(minCharges), Integer.toString(maxCharges)),
 			Integer.toString(equip.getRemainingCharges()));
 
-		if (selectedValue == null)
+		if (selectedValue.isEmpty())
 		{
 			return -1;
 		}
@@ -4018,7 +4008,7 @@ public class CharacterFacadeImpl
 		int charges;
 		try
 		{
-			charges = Integer.parseInt(selectedValue.trim());
+			charges = Integer.parseInt(selectedValue.get().trim());
 		}
 		catch (NumberFormatException e)
 		{
@@ -4053,17 +4043,17 @@ public class CharacterFacadeImpl
 
 		for (Equipment equip : notedEquip)
 		{
-			String note = getNote(equip);
-			if (note == null)
+			Optional<String> note = getNote(equip);
+			if (note.isEmpty())
 			{
 				return;
 			}
-			equip.setNote(note);
+			equip.setNote(note.get());
 			purchasedEquip.modifyElement(equip);
 		}
 	}
 
-	private String getNote(Equipment equip)
+	private Optional<String> getNote(Equipment equip)
 	{
 
 		return delegate.showInputDialog(equip.toString(),

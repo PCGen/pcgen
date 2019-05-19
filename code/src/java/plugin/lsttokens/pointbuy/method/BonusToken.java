@@ -74,7 +74,7 @@ public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements
 			// This is okay - just no BONUSes from this token
 			return null;
 		}
-		return bonusSet.toArray(new String[bonusSet.size()]);
+		return bonusSet.toArray(new String[0]);
 	}
 
 	@Override

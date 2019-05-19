@@ -20,15 +20,7 @@ package pcgen.core.doomsdaybook;
 public class DataValue
 {
 	private DataSubValue subvalue;
-	private String value;
-
-	/**
-	 * Constructor
-	 */
-	public DataValue()
-	{
-		value = "";
-	}
+	private final String value;
 
 	/**
 	 * Constructor
@@ -51,15 +43,6 @@ public class DataValue
 			return subvalue.get(key);
 		}
 		return null;
-	}
-
-	/**
-	 * Set value
-	 * @param value
-	 */
-	public void setValue(String value)
-	{
-		this.value = value;
 	}
 
 	/**

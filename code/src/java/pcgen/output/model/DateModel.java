@@ -17,10 +17,11 @@
  */
 package pcgen.output.model;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Date;
 
 import freemarker.template.TemplateDateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * A DateModel wraps a Date object into a TemplateScalarModel
@@ -30,7 +31,7 @@ public class DateModel implements TemplateDateModel
 	/**
 	 * The underlying Date object
 	 */
-	private final Date date;
+	private final LocalDateTime date;
 
 	/**
 	 * Constructs a new DateModel with the given underlying Date
@@ -38,15 +39,15 @@ public class DateModel implements TemplateDateModel
 	 * @param d
 	 *            The Date this DateModel wraps
 	 */
-	public DateModel(Date d)
+	public DateModel(LocalDateTime d)
 	{
 		this.date = d;
 	}
 
 	@Override
-	public Date getAsDate() throws TemplateModelException
+	public Date getAsDate()
 	{
-		return date;
+		return Date.from(date.toInstant(ZoneOffset.ofHours(0)));
 	}
 
 	@Override

@@ -346,7 +346,6 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 				{
 					Thread thread = new Thread(r);
 					thread.setDaemon(true);
-					thread.setPriority(Thread.NORM_PRIORITY);
 					thread.setName("tab-info-thread"); //$NON-NLS-1$
 					return thread;
 				}
@@ -494,10 +493,6 @@ public final class InfoTabbedPane extends JTabbedPane implements CharacterSelect
 			else if (TabTitle.TOOLTIP.equals(propName))
 			{
 				InfoTabbedPane.this.setToolTipTextAt(index, (String) evt.getNewValue());
-			}
-			else if (TabTitle.ENABLED.equals(propName))
-			{
-				InfoTabbedPane.this.setEnabledAt(index, (Boolean) evt.getNewValue());
 			}
 			else if (TodoFacade.SWITCH_TABS.equals(propName))
 			{

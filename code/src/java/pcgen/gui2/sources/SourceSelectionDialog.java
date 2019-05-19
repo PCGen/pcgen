@@ -207,16 +207,6 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 		}
 	}
 
-	void setDeleteEnabled(boolean enable)
-	{
-		deleteButton.setEnabled(enable);
-	}
-
-	void setLoadEnabled(boolean enable)
-	{
-		loadButton.setEnabled(enable);
-	}
-
 	@Override
 	public void valueChanged(ListSelectionEvent e)
 	{
@@ -415,7 +405,7 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 
 		public SourceSelectionFacade[] getDisplayedSources()
 		{
-			return displayedSources.toArray(new SourceSelectionFacade[displayedSources.size()]);
+			return displayedSources.toArray(new SourceSelectionFacade[0]);
 		}
 
 		@Override

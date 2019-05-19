@@ -247,7 +247,7 @@ public class ClassSkillsLevelToken extends AbstractNonEmptyToken<PCClassLevel>
 				addStrings.add(sb.toString());
 			}
 		}
-		return addStrings.toArray(new String[addStrings.size()]);
+		return addStrings.toArray(new String[0]);
 	}
 
 	@Override

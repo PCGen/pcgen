@@ -177,11 +177,11 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		// Add in any relevant restrictions from preferences on crafting
 		if (requiredType == Type.POTION)
 		{
-			maxSpellLevel = Math.min(maxSpellLevel, SettingsHandler.getMaxPotionSpellLevel());
+			maxSpellLevel = Math.min(maxSpellLevel, SettingsHandler.maxPotionSpellLevel().get());
 		}
 		else if (requiredType == Type.WAND)
 		{
-			maxSpellLevel = Math.min(maxSpellLevel, SettingsHandler.getMaxWandSpellLevel());
+			maxSpellLevel = Math.min(maxSpellLevel, SettingsHandler.maxWandSpellLevel().get());
 		}
 	}
 

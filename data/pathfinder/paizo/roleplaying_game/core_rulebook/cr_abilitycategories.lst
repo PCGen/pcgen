@@ -48,8 +48,6 @@ ABILITYCATEGORY:Pathfinder Chronicler Class Feature	VISIBLE:QUALIFY	EDITABLE:YES
 ABILITYCATEGORY:Shadowdancer Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Shadowdancer Class Feature.ShadowdancerClassFeatures				PLURAL:Shadowdancer Class Features			DISPLAYLOCATION:Class Features
 # Companion Class
 ABILITYCATEGORY:Companion Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Companion Class Feature.CompanionClassFeatures					PLURAL:Companion Class Features			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Familiar Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Familiar Class Feature.FamiliarClassFeatures					PLURAL:Familiar Class Features			DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Familiar Alertness Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:Familiar Alertness Choice.FamiliarAlertnessChoice				PLURAL:Familiar Alertness Choice			DISPLAYLOCATION:Class Features
 
 ###Block: Character Traits
 # Ability Category		Visible		Editable?		Change Pool?	Fractional values?	Base Pool number	Category of Object		Type of Object	Plural description for UI		Display Location

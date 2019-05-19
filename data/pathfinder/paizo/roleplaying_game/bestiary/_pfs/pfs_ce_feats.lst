@@ -22,28 +22,3 @@ CATEGORY=FEAT|Quicken Spell-Like Ability ~ Spell.MOD		TYPE:PFSNotLegal	!PRECHARA
 CATEGORY=FEAT|Snatch.MOD						TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 CATEGORY=FEAT|Wingover.MOD						TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
 
-
-# ORIGINAL ENTRY: Douglas Limmer
-# ORIGINAL ENTRY DATE: Unknown
-
-# COMMENT: I'm assuming that, for aligned outsider familiars, the character's
-# COMMENT:   alignment must match the familiar's, and that the class level must
-# COMMENT:   be 7.  This is not explicitly stated in all cases.
-
-
-###Block:
-#Feat Name
-# Feat Name			Allowed Companions
-# Ability Name				Allowed Companions
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Paracletus)|PREALIGN:TN,NE,NG,CN,LN|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,7],[PREVARGTEQ:Caster_Level_Highest__Arcane,7]
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Silvanshee)|PREALIGN:NG,TN,LN,CN|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,7],[PREVARGTEQ:Caster_Level_Highest__Arcane,7]
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Cassisian)|PREALIGN:NG,TN,LN,CN|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,7],[PREVARGTEQ:Caster_Level_Highest__Arcane,7]
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Lyrakien)|PREALIGN:CG,CN,NG|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,7],[PREVARGTEQ:Caster_Level_Highest__Arcane,7]
-
-# COMMENT: For the brownie, I'm assuming neutral means TN.  I could be wrong.
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Brownie)|PREALIGN:TN,NE,NG,CN,LN|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,5],[PREVARGTEQ:Caster_Level_Highest__Arcane,5]
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Cacodaemon)|PREALIGN:NE,LE,CE,TN|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,7],[PREVARGTEQ:Caster_Level_Highest__Arcane,7]
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Elemental (Ice/Small)),Familiar (Elemental (Lightning/Small)),Familiar (Elemental (Magma/Small)),Familiar (Elemental (Mud/Small))|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,5],[PREVARGTEQ:Caster_Level_Highest__Arcane,5]
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Arbiter)|PREALIGN:LN,LG,LE,TN|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,7],[PREVARGTEQ:Caster_Level_Highest__Arcane,7]
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Voidworm)|PREALIGN:CN,CE,CG,TN|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,7],[PREVARGTEQ:Caster_Level_Highest__Arcane,7]
-CATEGORY=FEAT|Improved Familiar.MOD	COMPANIONLIST:Familiar|Familiar (Cythnigot)|PREALIGN:CE,CN,NE|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,7],[PREVARGTEQ:Caster_Level_Highest__Arcane,7]

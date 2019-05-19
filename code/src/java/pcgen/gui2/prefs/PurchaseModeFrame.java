@@ -86,12 +86,6 @@ public final class PurchaseModeFrame extends JDialog
 	private int statMin = PurchaseModeFrame.STANDARD_MIN_PURCHASE_SCORE;
 	private int statMax = PurchaseModeFrame.STANDARD_MAX_PURCHASE_SCORE;
 
-	/** Creates new form PurchaseModeFrame */
-	private PurchaseModeFrame()
-	{
-		initComponents();
-	}
-
 	/** Creates new form PurchaseModeFrame
 	 * @param parent
 	 * */

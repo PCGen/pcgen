@@ -466,7 +466,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return null;
 		}
-		return returnSet.toArray(new String[returnSet.size()]);
+		return returnSet.toArray(new String[0]);
 	}
 
 	@Override

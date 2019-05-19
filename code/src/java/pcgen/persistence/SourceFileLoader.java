@@ -51,7 +51,7 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.formula.scope.EquipmentPartScope;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.cdom.inst.GlobalModifiers;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
@@ -65,7 +65,6 @@ import pcgen.core.Deity;
 import pcgen.core.Description;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
-import pcgen.core.EquipmentList;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
@@ -495,12 +494,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			// Verify weapons are melee or ranged
 			verifyWeaponsMeleeOrRanged(context);
 
-			//  Auto-gen additional equipment
-			if (PCGenSettings.OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_AUTOCREATE_MW_MAGIC_EQUIP, false))
-			{
-				EquipmentList.autoGenerateEquipment();
-			}
-
 			for (Campaign campaign : selectedCampaigns)
 			{
 				sourcesSet.add(SourceFormat.getFormattedString(campaign, SourceFormat.MEDIUM, true));
@@ -659,7 +652,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		 * hint here since we are using WeakReferences as a container for
 		 * references to ensure those that are not used are not resolved.
 		 */
-		System.gc();
+		System.gc(); // NOPMD
 	}
 
 	/**
@@ -711,7 +704,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 	private static void defineVariable(VariableContext varContext, FormatManager<?> formatManager, String varName)
 	{
-		LegalScope varScope = varContext.getScope(GlobalScope.GLOBAL_SCOPE_NAME);
+		LegalScope varScope = varContext.getScope(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		varContext.assertLegalVariableID(varName, varScope, formatManager);
 	}
 
@@ -828,25 +821,15 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 		final BufferedReader br = CustomData.getCustomEquipmentReader();
 
-		// Why is this here?  This implies it is somehow
-		// order-independent and should precede the opening of
-		// the file.  This is almost assuredly a bug of some
-		// kind waiting to happen.  Aha!  Just look at what is
-		// in the "finally" clause below.  --bko XXX
-		EquipmentList.setAutoGeneration(true);
-
-		/*
-		 * if (br == null) { return; }
-		 */
 		try
 		{
-			while (br != null)
+			if (br != null)
 			{
 				String aLine = br.readLine();
 
 				if (aLine == null)
 				{
-					break;
+					return;
 				}
 
 				if (aLine.startsWith("BASEITEM:"))
@@ -855,7 +838,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 					if (idx < 10)
 					{
-						continue;
+						return;
 					}
 
 					final String baseItemKey = aLine.substring(9, idx);
@@ -884,22 +867,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		{
 			logError("Error when loading custom items", e);
 		}
-		finally
-		{
-			EquipmentList.setAutoGeneration(false);
-
-			try
-			{
-				if (br != null)
-				{
-					br.close();
-				}
-			}
-			catch (IOException ex)
-			{
-				logError("Error when closing infile after loading custom items", ex);
-			}
-		}
 	}
 
 	/**
@@ -911,7 +878,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 *             if a weapon is neither melee or ranged, indicating the name
 	 *             of the weapon that caused the error
 	 */
-	private void verifyWeaponsMeleeOrRanged(LoadContext context) throws PersistenceLayerException
+	private static void verifyWeaponsMeleeOrRanged(LoadContext context) throws PersistenceLayerException
 	{
 		//
 		// Check all the weapons to see if they are either Melee or Ranged, to avoid

@@ -1118,48 +1118,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return b.toString();
 	}
 
-	/**
-	 * @param equipMod
-	 * @return Object
-	 */
-	protected String getCostValue(EquipmentModifier equipMod)
-	{
-		int iPlus = equipMod.getSafe(IntegerKey.PLUS);
-		StringBuilder eCost = new StringBuilder(20);
-
-		if (iPlus != 0)
-		{
-			eCost.append("Plus:").append(iPlus);
-		}
-
-		Formula baseCost = equipMod.getSafe(FormulaKey.BASECOST);
-
-		if (!"0".equals(baseCost.toString()))
-		{
-			if (eCost.length() != 0)
-			{
-				eCost.append(", ");
-			}
-
-			eCost.append("Precost:").append(baseCost);
-		}
-
-		Formula cost = equipMod.getSafe(FormulaKey.BASECOST);
-
-		if (!"0".equals(cost.toString()))
-		{
-			if (eCost.length() != 0)
-			{
-				eCost.append(", ");
-			}
-
-			eCost.append("Cost:").append(cost);
-		}
-
-		String sRet = eCost.toString();
-		return sRet;
-	}
-
 	@Override
 	public String getHTMLInfo(PCTemplate template)
 	{

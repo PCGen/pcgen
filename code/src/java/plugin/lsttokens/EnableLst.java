@@ -53,7 +53,7 @@ public class EnableLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			//This is correct - NEPFormula unparses to its instructions with toString()
 			items.add(info.getInfoName() + Constants.PIPE + info.getFormula());
 		}
-		return items.toArray(new String[items.size()]);
+		return items.toArray(new String[0]);
 	}
 
 	@Override

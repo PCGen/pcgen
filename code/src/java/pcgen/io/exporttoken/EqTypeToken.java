@@ -64,7 +64,7 @@ public class EqTypeToken extends EqToken
 		{
 			for (Equipment eq : pc.getEquipmentListInOutputOrder(merge))
 			{
-				if (eq.acceptsChildren())
+				if (eq.isContainer())
 				{
 					eqList.add(eq);
 				}

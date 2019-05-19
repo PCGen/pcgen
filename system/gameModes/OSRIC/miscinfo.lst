@@ -186,9 +186,9 @@ WEAPONNONPROFPENALTY:-4
 # Number of hands required to wield weapon categories
 #									Object Size difference
 # 											Damage multiplier: hands = multiplier
-WIELDCATEGORY:Light		HANDS:1		FINESSABLE:Yes		SIZEDIFF:-1	DAMAGEMULT:1=1,2=1
-WIELDCATEGORY:OneHanded		HANDS:1					SIZEDIFF:0	DAMAGEMULT:1=1,2=1.5
-WIELDCATEGORY:TwoHanded		HANDS:2					SIZEDIFF:1	DAMAGEMULT:2=1.5
+WIELDCATEGORY:Light		HANDS:1		FINESSABLE:Yes		SIZEDIFF:-1
+WIELDCATEGORY:OneHanded		HANDS:1					SIZEDIFF:0
+WIELDCATEGORY:TwoHanded		HANDS:2					SIZEDIFF:1
 WIELDCATEGORY:TooSmall		HANDS:999
 WIELDCATEGORY:TooLarge		HANDS:999
 WIELDCATEGORY:Unusable		HANDS:999
@@ -216,11 +216,11 @@ WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
 # Wield Category Steps
 #  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
 
-WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded					ZERO:Light
+WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded					
 WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
 WIELDCATEGORY:OneHanded		UP:TwoHanded			DOWN:Light
 WIELDCATEGORY:TwoHanded						DOWN:OneHanded|Light
-WIELDCATEGORY:TooLarge						DOWN:TwoHanded|OneHanded|Light	ZERO:TwoHanded
+WIELDCATEGORY:TooLarge						DOWN:TwoHanded|OneHanded|Light	
 
 #
 # Dice rolling methods for character creation

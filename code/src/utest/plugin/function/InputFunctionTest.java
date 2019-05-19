@@ -29,7 +29,7 @@ import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.cdom.formula.VariableChannel;
-import pcgen.cdom.formula.scope.GlobalScope;
+import pcgen.cdom.formula.scope.GlobalPCScope;
 import pcgen.output.channel.ChannelUtilities;
 import plugin.function.testsupport.AbstractFormulaTestCase;
 import plugin.function.testsupport.TestUtilities;
@@ -100,7 +100,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	{
 		ScopeInstanceFactory instFactory = scopeFacet.get(id);
 		ScopeInstance globalInstance =
-				instFactory.getGlobalInstance(GlobalScope.GLOBAL_SCOPE_NAME);
+				instFactory.getGlobalInstance(GlobalPCScope.GLOBAL_SCOPE_NAME);
 		context.getVariableContext().assertLegalVariableID(ChannelUtilities.createVarName("STR"),
 			globalInstance.getLegalScope(), numberManager);
 		VariableChannel<Number> strChannel = (VariableChannel<Number>) context

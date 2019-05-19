@@ -37,7 +37,6 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
-import pcgen.core.SizeAdjustment;
 import pcgen.core.analysis.SizeUtilities;
 
 /**
@@ -111,15 +110,11 @@ public class UnarmedDamageFacet extends AbstractSourcedListFacet<CharID, List<St
 	public String getUDamForRace(CharID id)
 	{
 		Race race = raceFacet.get(id);
-		int iSize = formulaResolvingFacet.resolve(id, race.getSafe(FormulaKey.SIZE), race.getQualifiedKey()).intValue();
-		SizeAdjustment defAdj = SizeUtilities.getDefaultSizeAdjustment();
-		SizeAdjustment sizAdj = Globals.getContext().getReferenceContext()
-			.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER).get(iSize);
-		if (sizAdj != null)
-		{
-			return Globals.adjustDamage("1d3", defAdj, sizAdj);
-		}
-		return "1d3";
+		int iSize = formulaResolvingFacet
+			.resolve(id, race.getSafe(FormulaKey.SIZE), race.getQualifiedKey())
+			.intValue();
+		int baseIndex = SizeUtilities.getDefaultSizeAdjustment().get(IntegerKey.SIZEORDER);
+		return Globals.adjustDamage("1d3", iSize - baseIndex);
 	}
 
 	/**

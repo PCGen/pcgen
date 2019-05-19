@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Kit;
@@ -77,13 +78,9 @@ public class KitTemplate extends BaseKit
 	@Override
 	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
 	{
-		HashMapToList<PCTemplate, PCTemplate> selectedMap = buildSelectedTemplateMap(aPC, false);
+		MapToList<PCTemplate, PCTemplate> selectedMap = buildSelectedTemplateMap(aPC, false);
 
-		if (!selectedMap.isEmpty())
-		{
-			return true;
-		}
-		return false;
+		return !selectedMap.isEmpty();
 	}
 
 	/**
@@ -159,15 +156,10 @@ public class KitTemplate extends BaseKit
 		return sb.toString();
 	}
 
-	public void addTemplate(CDOMSingleRef<PCTemplate> ref, List<CDOMSingleRef<PCTemplate>> subList)
+	public void addTemplate(CDOMSingleRef<PCTemplate> ref, Collection<CDOMSingleRef<PCTemplate>> subList)
 	{
 		templateList.initializeListFor(ref);
 		templateList.addAllToListFor(ref, subList);
-	}
-
-	public Collection<CDOMSingleRef<PCTemplate>> getTemplates()
-	{
-		return templateList.getKeySet();
 	}
 
 	public boolean isEmpty()

@@ -18,16 +18,14 @@
 package pcgen.gui2.converter.panel;
 
 import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -41,6 +39,8 @@ import pcgen.gui2.converter.event.ProgressEvent;
 import pcgen.gui2.converter.event.TaskStrategyMessage;
 import pcgen.system.PCGenSettings;
 
+import javafx.application.Platform;
+import javafx.stage.DirectoryChooser;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
 
@@ -111,40 +111,34 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 		Component label = new JLabel("Please select the Directory where Converted files should be written: ");
 		AbstractButton button = new JButton("Browse...");
 		button.setMnemonic('r');
-		button.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent arg0)
+		button.addActionListener(arg0 -> {
+			DirectoryChooser directoryChooser = new DirectoryChooser();
+			directoryChooser.setInitialDirectory(path);
+
+			while (true)
 			{
-				JFileChooser chooser = new JFileChooser();
-				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				chooser.setDialogType(JFileChooser.OPEN_DIALOG);
-				chooser.setCurrentDirectory(path.getParentFile());
-				chooser.setSelectedFile(path);
-				while (true)
+				File fileToOpen = CompletableFuture.supplyAsync(() ->
+						directoryChooser.showDialog(null), Platform::runLater).join();
+				if (fileToOpen != null)
 				{
-					int open = chooser.showOpenDialog(null);
-					if (open == JFileChooser.APPROVE_OPTION)
+					assert fileToOpen.isDirectory();
+					if (fileToOpen.canRead() && fileToOpen.canWrite())
 					{
-						File fileToOpen = chooser.getSelectedFile();
-						if (fileToOpen.isDirectory() && fileToOpen.canRead() && fileToOpen.canWrite())
-						{
-							path = fileToOpen;
-							pc.put(ObjectKey.WRITE_DIRECTORY, path);
-							fileLabel.setText(path.getAbsolutePath());
-							PCGenSettings context = PCGenSettings.getInstance();
-							context.setProperty(PCGenSettings.CONVERT_OUTPUT_SAVE_PATH, path.getAbsolutePath());
-							showWarning();
-							break;
-						}
-						JOptionPane.showMessageDialog(null,
-							"Selection must be a valid " + "(readable & writeable) Directory");
-						chooser.setCurrentDirectory(path.getParentFile());
-					}
-					else if (open == JFileChooser.CANCEL_OPTION)
-					{
+						path = fileToOpen;
+						pc.put(ObjectKey.WRITE_DIRECTORY, path);
+						fileLabel.setText(path.getAbsolutePath());
+						PCGenSettings context = PCGenSettings.getInstance();
+						context.setProperty(PCGenSettings.CONVERT_OUTPUT_SAVE_PATH, path.getAbsolutePath());
+						showWarning();
 						break;
 					}
+					JOptionPane.showMessageDialog(null,
+						"Selection must be a valid " + "(readable & writeable) Directory");
+					directoryChooser.setInitialDirectory(path.getParentFile());
+				}
+				else
+				{
+					break;
 				}
 			}
 		});

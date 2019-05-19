@@ -141,9 +141,8 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	 */
 	private void buildObjectLangList()
 	{
-		final List<Language> availLangs = new ArrayList<>();
 		ChooseInformation<Language> chooseInfo = (ChooseInformation<Language>) source.getChooseInfo();
-		availLangs.addAll(chooseInfo.getSet(theCharacter));
+		final List<Language> availLangs = new ArrayList<>(chooseInfo.getSet(theCharacter));
 
 		List<? extends Language> selLangs = chooseInfo.getChoiceActor().getCurrentlySelected(source, theCharacter);
 		if (selLangs == null)

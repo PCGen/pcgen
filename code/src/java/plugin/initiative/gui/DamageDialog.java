@@ -75,7 +75,7 @@ public class DamageDialog extends javax.swing.JDialog
 	 * Check damage field
 	 * @throws NumberFormatException
 	 */
-	private void checkDamageField() throws NumberFormatException
+	private void checkDamageField()
 	{
 		try
 		{

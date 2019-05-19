@@ -34,7 +34,7 @@ import pcgen.util.Logging;
 public final class LanguageBundle
 {
 	/** Key primarily for use in IDE il8n tools. */
-	private static final String BUNDLE_NAME = "pcgen.resources.lang"; //$NON-NLS-1$
+	private static final String BUNDLE_NAME = "pcgen.lang"; //$NON-NLS-1$
 
 	/** Undefined Property */
 	private static final String UNDEFINED = " not defined."; //$NON-NLS-1$
@@ -133,15 +133,8 @@ public final class LanguageBundle
 		}
 		Logging.log(Logging.INFO, MessageFormat.format("Initialising language bundle with locale {0}.", //$NON-NLS-1$
 			Locale.getDefault()));
-		try
-		{
-			bundle = ResourceBundle.getBundle(BUNDLE_NAME + ".LanguageBundle"); //$NON-NLS-1$
-		}
-		catch (MissingResourceException mrex)
-		{
-			bundle = null;
-			Logging.errorPrint("Can't find language bundle", mrex); //$NON-NLS-1$
-		}
+
+		bundle = ResourceBundle.getBundle(BUNDLE_NAME + ".LanguageBundle"); //$NON-NLS-1$
 	}
 
 	/**
@@ -185,5 +178,10 @@ public final class LanguageBundle
 		{
 			return MessageFormat.format(getString("in_multiply"), d); //$NON-NLS-1$
 		}
+	}
+
+	public static ResourceBundle getBundle()
+	{
+		return bundle;
 	}
 }

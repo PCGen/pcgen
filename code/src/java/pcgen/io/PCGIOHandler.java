@@ -24,12 +24,14 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -37,6 +39,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
@@ -132,7 +135,7 @@ public final class PCGIOHandler extends IOHandler
 
 		pcToBeRead.setImporting(true);
 
-		final String[] pcgLines = lines.toArray(new String[lines.size()]);
+		final String[] pcgLines = lines.toArray(new String[0]);
 		if (isPCGVersion2)
 		{
 			final PCGParser parser = new PCGVer2Parser(pcToBeRead);
@@ -294,34 +297,16 @@ public final class PCGIOHandler extends IOHandler
 		createBackupForFile(outFile);
 
 		// Now save the character
-		BufferedWriter bw = null;
 
-		try
+		try (FileWriter fileWriter = new FileWriter(outFile, StandardCharsets.UTF_8);
+		     Writer bw = new BufferedWriter(fileWriter))
 		{
-			FileOutputStream out = new FileOutputStream(outFile);
-			bw = new BufferedWriter(new OutputStreamWriter(out, StandardCharsets.UTF_8));
-			bw.write(pcgString);
-			bw.flush();
-
 			pcToBeWritten.setDirty(false);
+			bw.write(pcgString);
 		}
 		catch (IOException ioe)
 		{
 			Logging.errorPrint("Exception in PCGIOHandler::write", ioe);
-		}
-		finally
-		{
-			try
-			{
-				if (bw != null)
-				{
-					bw.close();
-				}
-			}
-			catch (IOException e)
-			{
-				Logging.errorPrint("Couldn't close file in PCGIOHandler.write", e);
-			}
 		}
 	}
 
@@ -522,9 +507,9 @@ public final class PCGIOHandler extends IOHandler
 	public List<File> readCharacterFileList(File partyFile)
 	{
 		List<String> lines;
-		try
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(partyFile, StandardCharsets.UTF_8)))
 		{
-			lines = FileUtils.readLines(partyFile, "UTF-8");
+			lines = bufferedReader.lines().collect(Collectors.toList());
 		}
 		catch (IOException ex)
 		{
@@ -592,34 +577,14 @@ public final class PCGIOHandler extends IOHandler
 	 */
 	public SourceSelectionFacade readSources(File pcgFile)
 	{
-		InputStream in = null;
 
-		try
+		try (InputStream in = new FileInputStream(pcgFile))
 		{
-			in = new FileInputStream(pcgFile);
 			return internalReadSources(in);
 		}
 		catch (IOException ex)
 		{
 			Logging.errorPrint("Exception in IOHandler::read when reading", ex);
-		}
-		finally
-		{
-			if (in != null)
-			{
-				try
-				{
-					in.close();
-				}
-				catch (IOException e)
-				{
-					Logging.errorPrint("Exception in IOHandler::readSources", e);
-				}
-				catch (NullPointerException e)
-				{
-					Logging.errorPrint("Could not create file inputStream IOHandler::readSources", e);
-				}
-			}
 		}
 		return null;
 	}
@@ -633,7 +598,7 @@ public final class PCGIOHandler extends IOHandler
 		// Verify it is ver2
 		boolean isPCGVersion2 = isPCGCersion2(lines);
 
-		final String[] pcgLines = lines.toArray(new String[lines.size()]);
+		final String[] pcgLines = lines.toArray(new String[0]);
 
 		if (isPCGVersion2)
 		{

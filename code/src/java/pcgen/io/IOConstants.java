@@ -407,8 +407,6 @@ interface IOConstants
 
 	/** SYNERGY */
 	String TAG_SYNERGY = "SYNERGY";
-	/** TABLABEL */
-	String TAG_TABLABEL = "TABLABEL";
 	/** TABNAME */
 	String TAG_TABNAME = "TABNAME";
 

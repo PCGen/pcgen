@@ -43,7 +43,7 @@ import java.util.Set;
  * PO Template and PO files are message catalog used in gettext.
  * The duplicates from the tips files should appear only once in the PO Template files.
  *
- * @see <a href="http://www.gnu.org/software/gettext/manual/gettext.html">GNU gettext manual</a>
+ * @see <a href="https://www.gnu.org/software/gettext/manual/gettext.html">GNU gettext manual</a>
  */
 public final class Tips
 {

@@ -83,15 +83,8 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 			return false;
 		}
 
-		for (Prerequisite prereq : getPrerequisiteList())
-		{
-			if (PrerequisiteUtilities.hasPreReqKindOf(prereq, matchType))
-			{
-				return true;
-			}
-		}
-
-		return false;
+		return getPrerequisiteList().stream()
+		                            .anyMatch(prereq -> PrerequisiteUtilities.hasPreReqKindOf(prereq, matchType));
 	}
 
 	/**

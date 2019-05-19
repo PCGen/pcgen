@@ -378,7 +378,7 @@ public class ExperienceAdjusterPlugin extends KeyAdapter
 	{
 		experienceToolsItem.setMnemonic(LanguageBundle.getMnemonic(ExperienceAdjusterPlugin.IN_NAME_MN));
 		experienceToolsItem.setText(getLocalizedName());
-		experienceToolsItem.addActionListener(this::toolMenuItem);
+		experienceToolsItem.addActionListener(ExperienceAdjusterPlugin::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, experienceToolsItem));
 	}
 
@@ -401,7 +401,7 @@ public class ExperienceAdjusterPlugin extends KeyAdapter
 	 * Tool menu item
 	 * @param evt
 	 */
-	private void toolMenuItem(ActionEvent evt)
+	private static void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 

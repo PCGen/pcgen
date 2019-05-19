@@ -114,7 +114,7 @@ public final class EvaluatorFactory
 		}
 		pSt.append(")");
 
-		return new TermEvaluatorBuilderPCStat(pSt.toString(), s.toArray(new String[s.size()]), false);
+		return new TermEvaluatorBuilderPCStat(pSt.toString(), s.toArray(new String[0]), false);
 	}
 
 	private TermEvaluator makeTermEvaluator(String term, String source)

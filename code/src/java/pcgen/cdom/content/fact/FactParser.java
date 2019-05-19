@@ -110,7 +110,7 @@ public class FactParser<T extends CDOMObject, F> extends AbstractNonEmptyToken<T
 		{
 			results.add(fact.getUnconverted());
 		}
-		return results.toArray(new String[results.size()]);
+		return results.toArray(new String[0]);
 	}
 
 }

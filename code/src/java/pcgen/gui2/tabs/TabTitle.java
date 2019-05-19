@@ -34,7 +34,6 @@ import pcgen.util.enumeration.Tab;
 public class TabTitle
 {
 
-	static final String ENABLED = "enabled"; //$NON-NLS-1$
 	public static final String TITLE = "title"; //$NON-NLS-1$
 	static final String ICON = "icon"; //$NON-NLS-1$
 	static final String TOOLTIP = "tooltip"; //$NON-NLS-1$
@@ -95,16 +94,6 @@ public class TabTitle
 	public void putValue(String prop, Object value)
 	{
 		support.firePropertyChange(prop, propertyTable.put(prop, value), value);
-	}
-
-	public void setEnabled(boolean enable)
-	{
-		putValue(ENABLED, enable);
-	}
-
-	public boolean isEnabled()
-	{
-		return (Boolean) getValue(ENABLED);
 	}
 
 	public Tab getTab()

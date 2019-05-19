@@ -470,17 +470,20 @@ public final class ChoiceSetLoadUtilities
 		GroupingInfo<G> info)
 	{
 		Class<G> groupingClass = info.getManagedClass(context);
-		GroupingDefinition<G> groupingDefinition =
-				TokenLibrary.getGrouping(groupingClass, info.getCharacteristic());
-		if (groupingDefinition == null)
+		String groupType = info.getCharacteristic();
+		if (info.getCharacteristic() == null)
 		{
-			/*
-			 * If the given information was not a known GroupingDefintion, we suspect it
-			 * is a key, since object names should be usable directly. Therefore, try
-			 * processing it as a Key.
-			 */
-			groupingDefinition = TokenLibrary.getGrouping(groupingClass, "KEY");
+			if ("ALL".equals(info.getValue()))
+			{
+				groupType = "ALL";
+			}
+			else
+			{
+				groupType = "KEY";
+			}
 		}
+		GroupingDefinition<G> groupingDefinition =
+				TokenLibrary.getGrouping(groupingClass, groupType);
 		GroupingCollection<G> collection = groupingDefinition.process(context, info);
 		return new GroupingScopeFilter<>(info.getScope(), collection);
 	}

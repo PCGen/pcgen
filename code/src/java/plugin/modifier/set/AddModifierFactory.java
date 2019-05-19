@@ -26,11 +26,10 @@ import pcgen.base.calculation.AbstractPCGenModifier;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.formula.base.FormulaSemantics;
+import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
-import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.rules.persistence.token.ModifierFactory;
 
 /**
@@ -62,8 +61,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	}
 
 	@Override
-	public FormulaModifier<T[]> getModifier(String instructions, ManagerFactory managerFactory, FormulaManager ignored,
-		PCGenScope varScope, FormatManager<T[]> formatManager)
+	public FormulaModifier<T[]> getModifier(String instructions, FormatManager<T[]> formatManager)
 	{
 		Indirect<T[]> indirect = formatManager.convertIndirect(instructions);
 		return new AddIndirectArrayModifier(formatManager, indirect);
@@ -111,6 +109,15 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		{
 			//Since this already knows the toSet objects, it has no dependencies
 		}
+
+		@Override
+		public void isValid(FormulaSemantics semantics) throws SemanticsException
+		{
+			/*
+			 * Since this is direct (already has the object), it has no semantic issues
+			 * (barring someone violating Generics)
+			 */
+		}
 	}
 
 	/**
@@ -147,6 +154,15 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		public void getDependencies(DependencyManager fdm)
 		{
 			//CONSIDER: How does DependencyManager want to know about Indirect?
+		}
+
+		@Override
+		public void isValid(FormulaSemantics semantics) throws SemanticsException
+		{
+			/*
+			 * Since this is direct (already has a reference to the object), it has no
+			 * semantic issues (barring someone violating Generics)
+			 */
 		}
 	}
 

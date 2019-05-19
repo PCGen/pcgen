@@ -89,7 +89,7 @@ public class VariableToken extends AbstractTokenWithSeparator<Campaign> implemen
 		{
 			set.add(cse.getLSTformat());
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override

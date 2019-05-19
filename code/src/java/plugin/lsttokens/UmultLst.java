@@ -92,7 +92,7 @@ public class UmultLst extends AbstractIntToken<CDOMObject> implements CDOMPrimar
 		{
 			return null;
 		}
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	@Override

@@ -35,8 +35,6 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.StringTokenizer;
 
-import javax.swing.SwingConstants;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -47,6 +45,8 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import org.apache.commons.lang3.SystemUtils;
 
 /**
@@ -59,17 +59,14 @@ import org.apache.commons.lang3.SystemUtils;
  **/
 public final class SettingsHandler
 {
-	private static boolean autogenExoticMaterial = false;
-	private static boolean autogenMagic = false;
-	private static boolean autogenMasterwork = false;
-	private static boolean autogenRacial = false;
 
 	//
 	// For EqBuilder
 	//
-	private static int maxPotionSpellLevel = Constants.DEFAULT_MAX_POTION_SPELL_LEVEL;
-	private static int maxWandSpellLevel = Constants.DEFAULT_MAX_WAND_SPELL_LEVEL;
-	private static boolean allowMetamagicInCustomizer = false;
+	private static IntegerProperty maxPotionSpellLevel =
+			new SimpleIntegerProperty(Constants.DEFAULT_MAX_POTION_SPELL_LEVEL);
+	private static IntegerProperty maxWandSpellLevel =
+			new SimpleIntegerProperty(Constants.DEFAULT_MAX_WAND_SPELL_LEVEL);
 	private static boolean spellMarketPriceAdjusted = false;
 
 	// Map of RuleCheck keys and their settings
@@ -78,10 +75,6 @@ public final class SettingsHandler
 	/** That browserPath is set to null is intentional. */
 	private static String browserPath = null; //Intentional null
 
-	/**
-	 *  See @javax.swing.SwingConstants.
-	 */
-	private static int chaTabPlacement = SwingConstants.TOP;
 	private static Dimension customizerDimension = null;
 	private static Point customizerLeftUpperCorner = null;
 	private static int customizerSplit1 = -1;
@@ -137,19 +130,13 @@ public final class SettingsHandler
 	private static boolean showSkillModifier = false;
 	private static boolean showSkillRanks = false;
 	private static boolean showWarningAtFirstLevelUp = true;
-	private static String skinLFThemePack = null;
 	private static boolean alwaysOverwrite = false;
 	private static String defaultOSType = ""; //$NON-NLS-1$
 
-	/**
-	 *  See @javax.swing.SwingConstants
-	 */
-	private static int tabPlacement = SwingConstants.BOTTOM;
 	private static final String TMP_PATH = System.getProperty("java.io.tmpdir"); //$NON-NLS-1$
 	private static final File TEMP_PATH = new File(getTmpPath());
 	private static boolean useHigherLevelSlotsDefault = false;
 	private static boolean wantToLoadMasterworkAndMagic = false;
-	private static int nameDisplayStyle = Constants.DISPLAY_STYLE_NAME;
 	private static boolean weaponProfPrintout = Constants.DEFAULT_PRINTOUT_WEAPONPROF;
 	private static String postExportCommandStandard = ""; //$NON-NLS-1$
 	private static String postExportCommandPDF = ""; //$NON-NLS-1$
@@ -182,61 +169,6 @@ public final class SettingsHandler
 	public static String getDefaultOSType()
 	{
 		return defaultOSType;
-	}
-
-	public static void setAutogen(final int idx, final boolean bFlag)
-	{
-		switch (idx)
-		{
-			case Constants.AUTOGEN_RACIAL:
-				setAutogenRacial(bFlag);
-
-				break;
-
-			case Constants.AUTOGEN_MASTERWORK:
-				setAutogenMasterwork(bFlag);
-
-				break;
-
-			case Constants.AUTOGEN_MAGIC:
-				setAutogenMagic(bFlag);
-
-				break;
-
-			case Constants.AUTOGEN_EXOTIC_MATERIAL:
-				setAutogenExoticMaterial(bFlag);
-
-				break;
-
-			default:
-				break;
-		}
-	}
-
-	public static boolean getAutogen(final int idx)
-	{
-		if (!wantToLoadMasterworkAndMagic())
-		{
-			switch (idx)
-			{
-				case Constants.AUTOGEN_RACIAL:
-					return isAutogenRacial();
-
-				case Constants.AUTOGEN_MASTERWORK:
-					return isAutogenMasterwork();
-
-				case Constants.AUTOGEN_MAGIC:
-					return isAutogenMagic();
-
-				case Constants.AUTOGEN_EXOTIC_MATERIAL:
-					return isAutogenExoticMaterial();
-
-				default:
-					break;
-			}
-		}
-
-		return false;
 	}
 
 	/**
@@ -277,16 +209,6 @@ public final class SettingsHandler
 	public static String getBrowserPath()
 	{
 		return browserPath;
-	}
-
-	public static void setChaTabPlacement(final int argChaTabPlacement)
-	{
-		chaTabPlacement = argChaTabPlacement;
-	}
-
-	public static int getChaTabPlacement()
-	{
-		return chaTabPlacement;
 	}
 
 	/**
@@ -720,44 +642,14 @@ public final class SettingsHandler
 		return looknFeel;
 	}
 
-	public static void setMaxPotionSpellLevel(final int anInt)
-	{
-		maxPotionSpellLevel = anInt;
-	}
-
-	public static int getMaxPotionSpellLevel()
-	{
-		return maxPotionSpellLevel;
-	}
-
-	public static void setMaxWandSpellLevel(final int anInt)
-	{
-		maxWandSpellLevel = anInt;
-	}
-
-	public static int getMaxWandSpellLevel()
+	public static IntegerProperty maxWandSpellLevel()
 	{
 		return maxWandSpellLevel;
 	}
 
-	public static void setMetamagicAllowedInEqBuilder(final boolean aBool)
+	public static IntegerProperty maxPotionSpellLevel()
 	{
-		allowMetamagicInCustomizer = aBool;
-	}
-
-	public static boolean isMetamagicAllowedInEqBuilder()
-	{
-		return allowMetamagicInCustomizer;
-	}
-
-	public static void setNameDisplayStyle(final int style)
-	{
-		nameDisplayStyle = style;
-	}
-
-	public static int getNameDisplayStyle()
-	{
-		return nameDisplayStyle;
+		return maxPotionSpellLevel;
 	}
 
 	public static SortedProperties getOptions()
@@ -842,11 +734,6 @@ public final class SettingsHandler
 			SourceFormat.values()[getPCGenOption("sourceDisplay", SourceFormat.LONG.ordinal())]); //$NON-NLS-1$
 
 		setAlwaysOverwrite(getPCGenOption("alwaysOverwrite", false)); //$NON-NLS-1$
-		setAutogenExoticMaterial(getPCGenOption("autoGenerateExoticMaterial", false)); //$NON-NLS-1$
-		setAutogenMagic(getPCGenOption("autoGenerateMagic", false)); //$NON-NLS-1$
-		setAutogenMasterwork(getPCGenOption("autoGenerateMasterwork", false)); //$NON-NLS-1$
-		setAutogenRacial(getPCGenOption("autoGenerateRacial", false)); //$NON-NLS-1$
-		setChaTabPlacement(getOptionTabPlacement("chaTabPlacement", SwingConstants.TOP)); //$NON-NLS-1$
 		setCreatePcgBackup(getPCGenOption("createPcgBackup", true));
 		setCustomizerSplit1(getPCGenOption("customizer.split1", -1)); //$NON-NLS-1$
 		setCustomizerSplit2(getPCGenOption("customizer.split2", -1)); //$NON-NLS-1$
@@ -872,9 +759,8 @@ public final class SettingsHandler
 			LanguageBundle.getString("SettingsHandler.114"))); //$NON-NLS-1$
 		setLastTipShown(getPCGenOption("lastTipOfTheDayTipShown", -1)); //$NON-NLS-1$
 		setLookAndFeel(getPCGenOption("looknFeel", 1)); //$NON-NLS-1$
-		setMaxPotionSpellLevel(getPCGenOption("maxPotionSpellLevel", 3)); //$NON-NLS-1$
-		setMaxWandSpellLevel(getPCGenOption("maxWandSpellLevel", 4)); //$NON-NLS-1$
-		setMetamagicAllowedInEqBuilder(getPCGenOption("allowMetamagicInCustomizer", false)); //$NON-NLS-1$
+		maxWandSpellLevel.set(getPCGenOption("maxWandSpellLevel", 4));
+		maxPotionSpellLevel.set(getPCGenOption("maxPotionSpellLevel", 3));
 		setPccFilesLocation(new File(expandRelativePath(getPCGenOption("pccFilesLocation", //$NON-NLS-1$
 			System.getProperty("user.dir") + File.separator + "data")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setGmgenPluginDir(
@@ -921,9 +807,7 @@ public final class SettingsHandler
 		setShowSkillModifier(getPCGenOption("showSkillModifier", true)); //$NON-NLS-1$
 		setShowSkillRanks(getPCGenOption("showSkillRanks", true)); //$NON-NLS-1$
 		setShowWarningAtFirstLevelUp(getPCGenOption("showWarningAtFirstLevelUp", true)); //$NON-NLS-1$
-		setSkinLFThemePack(getPCGenOption("skinLFThemePack", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setSpellMarketPriceAdjusted(getPCGenOption("spellMarketPriceAdjusted", false)); //$NON-NLS-1$
-		setTabPlacement(getOptionTabPlacement("tabPlacement", SwingConstants.BOTTOM)); //$NON-NLS-1$
 		setUseHigherLevelSlotsDefault(getPCGenOption("useHigherLevelSlotsDefault", false)); //$NON-NLS-1$
 		setWantToLoadMasterworkAndMagic(getPCGenOption("loadMasterworkAndMagicFromLst", false)); //$NON-NLS-1$
 		setWeaponProfPrintout(getPCGenOption("weaponProfPrintout", Constants.DEFAULT_PRINTOUT_WEAPONPROF));
@@ -1024,15 +908,6 @@ public final class SettingsHandler
 			setPCGenOption("game", ""); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		try
-		{
-			setPCGenOption("skinLFThemePack", getSkinLFThemePack()); //$NON-NLS-1$
-		}
-		catch (NullPointerException e)
-		{
-			//TODO: Should this really be ignored???  XXX
-		}
-
 		if (getPccFilesLocation() != null)
 		{
 			setPCGenOption(
@@ -1112,13 +987,7 @@ public final class SettingsHandler
 
 		setRuleChecksInOptions("ruleChecks"); //$NON-NLS-1$
 
-		setPCGenOption("allowMetamagicInCustomizer", isMetamagicAllowedInEqBuilder()); //$NON-NLS-1$
 		setPCGenOption("alwaysOverwrite", getAlwaysOverwrite()); //$NON-NLS-1$
-		setPCGenOption("autoGenerateExoticMaterial", isAutogenExoticMaterial()); //$NON-NLS-1$
-		setPCGenOption("autoGenerateMagic", isAutogenMagic()); //$NON-NLS-1$
-		setPCGenOption("autoGenerateMasterwork", isAutogenMasterwork()); //$NON-NLS-1$
-		setPCGenOption("autoGenerateRacial", isAutogenRacial()); //$NON-NLS-1$
-		setPCGenOption("chaTabPlacement", convertTabPlacementToString(chaTabPlacement)); //$NON-NLS-1$
 		setPCGenOption("createPcgBackup", getCreatePcgBackup()); //$NON-NLS-1$
 		setPCGenOption("customizer.split1", getCustomizerSplit1()); //$NON-NLS-1$
 		setPCGenOption("customizer.split2", getCustomizerSplit2()); //$NON-NLS-1$
@@ -1143,9 +1012,8 @@ public final class SettingsHandler
 		setPCGenOption("loadMasterworkAndMagicFromLst", wantToLoadMasterworkAndMagic()); //$NON-NLS-1$
 		setPCGenOption("loadURLs", loadURLs); //$NON-NLS-1$
 		setPCGenOption("looknFeel", getLookAndFeel()); //$NON-NLS-1$
-		setPCGenOption("maxPotionSpellLevel", getMaxPotionSpellLevel()); //$NON-NLS-1$
-		setPCGenOption("maxWandSpellLevel", getMaxWandSpellLevel()); //$NON-NLS-1$
-		setPCGenOption("nameDisplayStyle", getNameDisplayStyle()); //$NON-NLS-1$
+		setPCGenOption("maxPotionSpellLevel", maxPotionSpellLevel().get()); //$NON-NLS-1$
+		setPCGenOption("maxWandSpellLevel", maxWandSpellLevel().get()); //$NON-NLS-1$
 		setPCGenOption("postExportCommandStandard", SettingsHandler.getPostExportCommandStandard()); //$NON-NLS-1$
 		setPCGenOption("postExportCommandPDF", SettingsHandler.getPostExportCommandPDF()); //$NON-NLS-1$
 		setPCGenOption("prereqFailColor", "0x" + Integer.toHexString(getPrereqFailColor())); //$NON-NLS-1$ //$NON-NLS-2$
@@ -1165,7 +1033,6 @@ public final class SettingsHandler
 		setPCGenOption("showWarningAtFirstLevelUp", isShowWarningAtFirstLevelUp()); //$NON-NLS-1$
 		setPCGenOption("sourceDisplay", Globals.getSourceDisplay().ordinal()); //$NON-NLS-1$
 		setPCGenOption("spellMarketPriceAdjusted", isSpellMarketPriceAdjusted()); //$NON-NLS-1$
-		setPCGenOption("tabPlacement", convertTabPlacementToString(tabPlacement)); //$NON-NLS-1$
 		setPCGenOption("useHigherLevelSlotsDefault", isUseHigherLevelSlotsDefault()); //$NON-NLS-1$
 		setPCGenOption("weaponProfPrintout", SettingsHandler.getWeaponProfPrintout()); //$NON-NLS-1$
 		setPCGenOption("outputDeprecationMessages", outputDeprecationMessages()); //$NON-NLS-1$
@@ -1606,26 +1473,6 @@ public final class SettingsHandler
 		return showWarningAtFirstLevelUp;
 	}
 
-	public static void setSkinLFThemePack(final String argSkinLFThemePack)
-	{
-		skinLFThemePack = argSkinLFThemePack;
-	}
-
-	public static String getSkinLFThemePack()
-	{
-		return skinLFThemePack;
-	}
-
-	public static void setTabPlacement(final int anInt)
-	{
-		tabPlacement = anInt;
-	}
-
-	public static int getTabPlacement()
-	{
-		return tabPlacement;
-	}
-
 	/**
 	 * Returns the path to the temporary output location (for previews).
 	 *
@@ -1690,11 +1537,6 @@ public final class SettingsHandler
 	public static boolean hideMonsterClasses()
 	{
 		return hideMonsterClasses;
-	}
-
-	public static void readGUIOptionsProperties()
-	{
-		setNameDisplayStyle(getPCGenOption("nameDisplayStyle", Constants.DISPLAY_STYLE_NAME)); //$NON-NLS-1$
 	}
 
 	/**
@@ -1771,26 +1613,6 @@ public final class SettingsHandler
 			+ Constants.LINE_SEPARATOR;
 	}
 
-	static boolean isAutogenExoticMaterial()
-	{
-		return autogenExoticMaterial;
-	}
-
-	static boolean isAutogenMagic()
-	{
-		return autogenMagic;
-	}
-
-	static boolean isAutogenMasterwork()
-	{
-		return autogenMasterwork;
-	}
-
-	static boolean isAutogenRacial()
-	{
-		return autogenRacial;
-	}
-
 	static void setPreviewTabShown(final boolean showPreviewTab)
 	{
 		previewTabShown = showPreviewTab;
@@ -1801,79 +1623,9 @@ public final class SettingsHandler
 		return previewTabShown;
 	}
 
-	private static void setAutogenExoticMaterial(final boolean aBool)
-	{
-		autogenExoticMaterial = aBool;
-	}
-
-	private static void setAutogenMagic(final boolean aBool)
-	{
-		autogenMagic = aBool;
-	}
-
-	private static void setAutogenMasterwork(final boolean aBool)
-	{
-		autogenMasterwork = aBool;
-	}
-
-	private static void setAutogenRacial(final boolean aBool)
-	{
-		autogenRacial = aBool;
-	}
-
 	private static Properties getFilterSettings()
 	{
 		return FILTERSETTINGS;
-	}
-
-	private static int getOptionTabPlacement(final String optionName, final int defaultValue)
-	{
-		final String aString = getPCGenOption(optionName, convertTabPlacementToString(defaultValue));
-		int iVal;
-
-		try
-		{
-			iVal = Integer.parseInt(aString);
-
-			switch (iVal)
-			{
-				case SwingConstants.TOP:
-				case SwingConstants.LEFT:
-				case SwingConstants.BOTTOM:
-				case SwingConstants.RIGHT:
-					break;
-
-				default:
-					iVal = defaultValue;
-
-					break;
-			}
-		}
-		catch (NumberFormatException exc)
-		{
-			if ("TOP".equals(aString)) //$NON-NLS-1$
-			{
-				iVal = SwingConstants.TOP;
-			}
-			else if ("LEFT".equals(aString)) //$NON-NLS-1$
-			{
-				iVal = SwingConstants.LEFT;
-			}
-			else if ("BOTTOM".equals(aString)) //$NON-NLS-1$
-			{
-				iVal = SwingConstants.BOTTOM;
-			}
-			else if ("RIGHT".equals(aString)) //$NON-NLS-1$
-			{
-				iVal = SwingConstants.RIGHT;
-			}
-			else
-			{
-				iVal = defaultValue;
-			}
-		}
-
-		return iVal;
 	}
 
 	/**
@@ -1997,25 +1749,6 @@ public final class SettingsHandler
 	private static String getTmpPath()
 	{
 		return TMP_PATH;
-	}
-
-	private static String convertTabPlacementToString(final int placement)
-	{
-		switch (placement)
-		{
-			case SwingConstants.BOTTOM:
-				return "BOTTOM"; //$NON-NLS-1$
-
-			case SwingConstants.LEFT:
-				return "LEFT"; //$NON-NLS-1$
-
-			case SwingConstants.RIGHT:
-				return "RIGHT"; //$NON-NLS-1$
-
-			case SwingConstants.TOP:
-			default:
-				return "TOP"; //$NON-NLS-1$
-		}
 	}
 
 	/*

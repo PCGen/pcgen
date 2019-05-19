@@ -23,31 +23,25 @@ import java.awt.BorderLayout;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.AbstractButton;
 import javax.swing.BoxLayout;
-import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
-import javax.swing.border.TitledBorder;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- */
 class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 {
 	private static final Map<String, PluginRef> PLUGIN_MAP = new HashMap<>();
 
 	private JPanel mainPanel;
-	private JScrollPane jScrollPane1;
 
 	/** Creates new form PreferencesDamagePanel */
-	public PreferencesPluginsPanel()
+	PreferencesPluginsPanel()
 	{
 		initComponents();
 		initPreferences();
@@ -74,87 +68,49 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 
 	private void initComponents()
 	{
-		jScrollPane1 = new JScrollPane();
+		JScrollPane jScrollPane1 = new JScrollPane();
 		mainPanel = new JPanel();
 
 		setLayout(new BorderLayout());
 
-		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
 
 		PreferencesPluginsPanel.PLUGIN_MAP.forEach((key, pluginRef) -> mainPanel.add(pluginRef));
 
 		jScrollPane1.setViewportView(mainPanel);
 		add(jScrollPane1, BorderLayout.CENTER);
-		add(new JLabel(LanguageBundle.getString("in_Prefs_restartInfo")), BorderLayout.SOUTH);
+		add(new JLabel(LanguageBundle.getString("in_Prefs_restartInfo")), BorderLayout.PAGE_END);
 	}
 
 	private static final class PluginRef extends JPanel
 	{
 		private final String pluginName;
-		private final String pluginTitle;
-		private final String defaultSystem;
-		private JCheckBox checkBox;
-		private JRadioButton pcgenButton;
-		private JRadioButton gmgenButton;
+		private AbstractButton checkBox;
 
-		private PluginRef(String pluginName, String pluginTitle, String defaultSystem)
+		private PluginRef(String pluginName)
 		{
 			this.pluginName = pluginName;
-			this.pluginTitle = pluginTitle;
-			this.defaultSystem = defaultSystem;
 			initComponents();
 		}
 
 		private void initComponents()
 		{
 			checkBox = new JCheckBox();
-			pcgenButton = new JRadioButton();
-			gmgenButton = new JRadioButton();
-			ButtonGroup pluginGroup = new ButtonGroup();
 
-			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(
-				new TitledBorder(null, pluginTitle, TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION));
-
+			setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 			checkBox.setText(LanguageBundle.getString(pcgen.gui2.dialog.PreferencesDialog.LB_PREFS_PLUGINS_RUN));
 			add(checkBox);
-
-			pcgenButton
-				.setText(LanguageBundle.getString(pcgen.gui2.dialog.PreferencesDialog.LB_PREFS_PLUGIN_PCGEN_WIN));
-			pluginGroup.add(pcgenButton);
-			add(pcgenButton);
-
-			gmgenButton
-				.setText(LanguageBundle.getString(pcgen.gui2.dialog.PreferencesDialog.LB_PREFS_PLUGIN_GMGEN_WIN));
-			pluginGroup.add(gmgenButton);
-			add(gmgenButton);
 		}
 
 		public void initPreferences()
 		{
 			checkBox.setSelected(SettingsHandler.getGMGenOption(pluginName + ".Load", true));
-			String system = SettingsHandler.getGMGenOption(pluginName + ".System", defaultSystem);
-			if (system.equals(Constants.SYSTEM_PCGEN))
-			{
-				pcgenButton.setSelected(true);
-			}
-			else
-			{
-				gmgenButton.setSelected(true);
-			}
 		}
 
 		public void applyPreferences()
 		{
 			SettingsHandler.setGMGenOption(pluginName + ".Load", checkBox.isSelected());
-			if (pcgenButton.isSelected())
-			{
-				SettingsHandler.setGMGenOption(pluginName + ".System", Constants.SYSTEM_PCGEN);
-			}
-			else
-			{
-				SettingsHandler.setGMGenOption(pluginName + ".System", Constants.SYSTEM_GMGEN);
-			}
+			SettingsHandler.setGMGenOption(pluginName + ".System", Constants.SYSTEM_GMGEN);
 		}
 	}
 }

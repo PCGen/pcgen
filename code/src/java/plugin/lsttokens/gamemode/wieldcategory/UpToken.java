@@ -21,6 +21,8 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.character.WieldCategory;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -43,6 +45,11 @@ public class UpToken extends AbstractTokenWithSeparator<WieldCategory> implement
 	@Override
 	protected ParseResult parseTokenWithSeparator(LoadContext context, WieldCategory wc, String value)
 	{
+		if (ControlUtilities.hasControlToken(context, CControl.WIELDCAT))
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " is disabled when WIELDCAT control is used: " + value);
+		}
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE);
 		int count = 1;
 		while (st.hasMoreTokens())

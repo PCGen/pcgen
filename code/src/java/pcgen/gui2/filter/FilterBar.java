@@ -88,13 +88,6 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 		filter.setFilterHandler(filterHandler);
 	}
 
-	public void removeDisplayableFilter(DisplayableFilter<C, E> filter)
-	{
-		filterPanel.remove(filter.getFilterComponent());
-		filters.remove(filter);
-		filter.setFilterHandler(null);
-	}
-
 	@Override
 	public Component getFilterComponent()
 	{

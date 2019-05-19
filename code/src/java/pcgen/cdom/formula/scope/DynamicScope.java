@@ -30,9 +30,9 @@ import pcgen.rules.context.LoadContext;
 public class DynamicScope implements PCGenScope
 {
 	/**
-	 * The parent PCGenScope for all DynamicScope objects is the GlobalScope.
+	 * The parent PCGenScope for all DynamicScope objects is the GlobalPCScope.
 	 */
-	private static final Optional<PCGenScope> PARENT_SCOPE = Optional.of(SpringHelper.getBean(GlobalScope.class));
+	private static final Optional<PCGenScope> PARENT_SCOPE = Optional.of(SpringHelper.getBean(GlobalPCScope.class));
 
 	/**
 	 * The DynamicCategory indicating the objects contained by this DynamicScope.
@@ -73,9 +73,8 @@ public class DynamicScope implements PCGenScope
 	}
 
 	@Override
-	public FormatManager<Dynamic> getFormatManager(LoadContext context)
+	public Optional<FormatManager<?>> getFormatManager(LoadContext context)
 	{
-		return formatManager;
+		return Optional.of(formatManager);
 	}
-
 }

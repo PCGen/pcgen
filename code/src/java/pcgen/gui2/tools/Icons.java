@@ -40,7 +40,7 @@ public enum Icons
 	PrintPreview16(".gif"), Properties16(".gif"), Redo16(".gif"), Refresh16(".gif"), Remove16(".gif"),
 	RemovePreferences16(".gif"), RemoveZoom16(".gif"), Replace16(".gif"), Save16(".gif"), SaveAll16(".gif"),
 	SaveAs16(".gif"), Search16(".gif"), SendMail16(".gif"), SplashPcgen(".gif"), SplashPcgen_Alpha(".png"),
-	SplashPcgen_Beta(".png"), SplashPcgen_Ennie(".png"), Stop16(".gif"), TipOfTheDay16(".gif"), TipOfTheDay24(".gif"),
+	SplashPcgen_Beta(".png"), Stop16(".gif"), TipOfTheDay16(".gif"),
 	UUp16(".gif"), UUp24(".gif"), Undo16(".gif"), Up16(".gif"), XButton_Click(".gif"), XButton_Roll(".gif"),
 	XButton_Stat(".gif"), Zoom16(".gif"), ZoomHighlightBlue16(".gif"), ZoomIn16(".gif"), ZoomOut16(".gif"),
 	gmgen_icon(".png"), stock_broken_image("-16.png"), stock_color("-16.png"), stock_copy("-16.png"),
@@ -49,11 +49,10 @@ public enum Icons
 	stock_revert("-16.png"), stock_save("-16.png"), stock_spellcheck("-16.png"), stock_text_align_center("-16.png"),
 	stock_text_align_left("-16.png"), stock_text_align_right("-16.png"), stock_text_bold("-16.png"),
 	stock_text_italic("-16.png"), stock_text_underline("-16.png"),
-	ennie_award_2003(".gif"), ennie_award_2005(".gif"),
 	menu_mode_rgb(".png");
 
 	/** Path to icons file */
-	private static final String RESOURCE_URL = "/pcgen/resources/images/";
+	private static final String RESOURCE_URL = "/pcgen/images/";
 
 	/** Image cache */
 	private static final EnumMap<Icons, ImageIcon> ICON_MAP = new EnumMap<>(Icons.class);

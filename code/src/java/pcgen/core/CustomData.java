@@ -29,9 +29,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.SortedMap;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.StringKey;
@@ -267,14 +267,7 @@ public final class CustomData
 
 		ensureCustomDirExists();
 
-		final BufferedWriter bw = getCustomEquipmentWriter();
-
-		if (bw == null)
-		{
-			return;
-		}
-
-		try
+		try(BufferedWriter bw = getCustomEquipmentWriter())
 		{
 			bw.write(AUTO_GEN_WARN_LINE_1);
 			bw.newLine();
@@ -293,17 +286,6 @@ public final class CustomData
 		{
 			Logging.errorPrint("Error in writeCustomItems", e);
 		}
-		finally
-		{
-			try
-			{
-				bw.close();
-			}
-			catch (IOException ex)
-			{
-				Logging.errorPrint("Error in writeCustomItems while closing", ex);
-			}
-		}
 	}
 
 	/**
@@ -313,7 +295,7 @@ public final class CustomData
 	{
 		ensureCustomDirExists();
 		final BufferedWriter bw = getPurchaseModeWriter();
-		final SortedMap<Integer, PointBuyCost> pbStatCosts = SettingsHandler.getGame().getPointBuyStatCostMap();
+		final Map<Integer, PointBuyCost> pbStatCosts = SettingsHandler.getGame().getPointBuyStatCostMap();
 
 		if (bw == null || pbStatCosts == null)
 		{
@@ -427,7 +409,7 @@ public final class CustomData
 		try
 		{
 			//return new BufferedReader(new FileReader(path));
-			return new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"));
+			return new BufferedReader(new InputStreamReader(new FileInputStream(path), StandardCharsets.UTF_8));
 		}
 		catch (IOException e)
 		{

@@ -410,7 +410,7 @@ public final class ExportHandler
 	 */
 	public void write(Collection<PlayerCharacter> PCs, BufferedWriter out)
 	{
-		write(PCs.toArray(new PlayerCharacter[PCs.size()]), out);
+		write(PCs.toArray(new PlayerCharacter[0]), out);
 	}
 
 	/**
@@ -626,12 +626,12 @@ public final class ExportHandler
 		}
 	}
 
-	private String replaceVariables(String expr, Map<Object, Object> variables)
+	private static String replaceVariables(String expr, Map<Object, Object> variables)
 	{
 		List<Object> keys = new ArrayList<>(variables.keySet());
 		keys.sort(new VariableComparator());
 
-		for (final Object anObject : variables.keySet())
+		for (final Object anObject : keys)
 		{
 			if (anObject != null)
 			{

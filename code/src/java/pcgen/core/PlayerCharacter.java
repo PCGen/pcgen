@@ -7635,7 +7635,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (addAll && mergeItem && (existingSet != null))
 		{
-			newQty = tempQty + getEquippedQty(eSet, eqI).floatValue();
+			newQty = tempQty + getEquippedQty(eSet, eqI);
 			existingSet.setQty(newQty);
 			eqI.setQty(newQty);
 			eqI.setNumberCarried(newQty);
@@ -10106,16 +10106,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public int racialSizeInt()
 	{
-		String baseSizeControl = getControl(CControl.BASESIZE);
-		if (baseSizeControl != null)
-		{
-			SizeAdjustment baseSize = (SizeAdjustment) getGlobal(baseSizeControl);
-			return baseSize.get(IntegerKey.SIZEORDER);
-		}
-		else
-		{
-			return sizeFacet.racialSizeInt(id);
-		}
+		return sizeFacet.racialSizeInt(id);
 	}
 
 	public String getGenderString()

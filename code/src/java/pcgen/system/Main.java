@@ -39,12 +39,12 @@ import pcgen.core.CustomData;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.facade.core.UIDelegate;
 import pcgen.gui2.PCGenUIManager;
-import pcgen.gui2.SplashScreen;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.converter.TokenConverter;
 import pcgen.gui2.dialog.OptionsPathDialog;
 import pcgen.gui2.dialog.RandomNameDialog;
 import pcgen.gui2.plaf.LookAndFeelManager;
+import pcgen.gui3.preloader.PCGenPreloader;
 import pcgen.io.ExportHandler;
 import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;
@@ -57,6 +57,7 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.util.Logging;
 import pcgen.util.PJEP;
 
+import javafx.embed.swing.JFXPanel;
 import net.sourceforge.argparse4j.ArgumentParsers;
 import net.sourceforge.argparse4j.impl.Arguments;
 import net.sourceforge.argparse4j.inf.ArgumentParser;
@@ -75,7 +76,6 @@ public final class Main
 
 	// TODO: move startup modes into an extensible class based system
 	private static boolean startGMGen;
-	private static boolean startNPCGen;
 	private static boolean startNameGen;
 	private static String settingsDir;
 	private static String campaignMode;
@@ -92,11 +92,6 @@ public final class Main
 	public static boolean shouldStartInGMGen()
 	{
 		return startGMGen;
-	}
-
-	public static boolean shouldStartInNPCGen()
-	{
-		return startNPCGen;
 	}
 
 	public static boolean shouldStartInCharacterSheet()
@@ -209,7 +204,6 @@ public final class Main
 		}
 
 		startGMGen = args.getBoolean("gmgen");
-		startNPCGen = args.getBoolean("npc");
 		settingsDir = args.getString("settingsdir");
 		campaignMode = args.getString("campaignmode");
 		characterSheet = args.get("D");
@@ -230,13 +224,14 @@ public final class Main
 		loadProperties(true);
 		initPrintPreviewFonts();
 
+		new JFXPanel();
+
+		PCGenPreloader splash = null;
+
 		boolean showSplash = Boolean.parseBoolean(ConfigurationSettings.initSystemProperty("showSplash", "true"));
-		//TODO: allow commandline override of splash property
-		SplashScreen splash = null;
 		if (showSplash)
 		{
-			splash = new SplashScreen();
-			splash.setVisible(true);
+			splash = new PCGenPreloader();
 		}
 		PCGenTaskExecutor executor = new PCGenTaskExecutor();
 		executor.addPCGenTask(createLoadPluginTask());
@@ -249,13 +244,13 @@ public final class Main
 		executor.run();
 		if (splash != null)
 		{
-			splash.setMessage(LanguageBundle.getString("in_taskInitUi")); //$NON-NLS-1$
+			splash.getController().setProgress(LanguageBundle.getString("in_taskInitUi"), 1.0d);
 		}
 		FacadeFactory.initialize();
 		PCGenUIManager.initializeGUI();
 		if (splash != null)
 		{
-			splash.dispose();
+			splash.done();
 		}
 		PCGenUIManager.startGUI();
 	}
@@ -443,9 +438,6 @@ public final class Main
 				parser.addMutuallyExclusiveGroup().description("start up on a specific mode");
 
 		startupMode.addArgument("-G", "--gmgen").help("GMGen mode").type(Boolean.class).action(Arguments.storeTrue());
-
-		startupMode.addArgument("-N", "--npc").help("NPC generation mode").type(Boolean.class)
-			.action(Arguments.storeTrue());
 
 		startupMode.addArgument("--name-generator").help("run the name generator").type(Boolean.class)
 			.action(Arguments.storeTrue());

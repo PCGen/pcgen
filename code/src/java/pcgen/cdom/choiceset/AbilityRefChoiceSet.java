@@ -126,10 +126,7 @@ public class AbilityRefChoiceSet implements PrimitiveChoiceSet<CNAbilitySelectio
 	public String getLSTformat(boolean useAny)
 	{
 		Set<CDOMReference<?>> sortedSet = new TreeSet<>(ReferenceUtilities.REFERENCE_SORTER);
-		for (CDOMReference<Ability> ar : abilityRefSet)
-		{
-			sortedSet.add(ar);
-		}
+		sortedSet.addAll(abilityRefSet);
 		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA, useAny);
 	}
 

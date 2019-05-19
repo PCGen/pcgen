@@ -12,7 +12,7 @@ SOURCELONG:Skull and Shackles, Chapter 1 - The Wormwood Mutiny	SOURCESHORT:AP55	
 
 ###Block: Specific Familiars
 # Class of the Master	Type			Required Race			Apply Kit
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Parrot)	KIT:1|Raven Familiar Language
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Familiar (Parrot)	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Speak One Language
 #
 
 ###Block:Familiar Bonuses to Master

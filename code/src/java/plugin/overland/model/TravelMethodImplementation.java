@@ -579,13 +579,6 @@ class TravelMethodImplementation implements TravelMethod
 			return mult;
 		}
 
-		/**
-		 * @return the comment
-		 */
-		public Localized getComment()
-		{
-			return comment;
-		}
 	}
 
 	static class Choice extends Named

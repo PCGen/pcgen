@@ -302,7 +302,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements CDOM
 		{
 			return null;
 		}
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	private Collection<? extends String> processAdds(LoadContext context,

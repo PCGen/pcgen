@@ -20,12 +20,6 @@ package pcgen.core.term;
 
 public class TermEvaulatorException extends Exception
 {
-	/**
-	 * Creates a new instance of {@code TermEvaulatorException} without detail message.
-	 */
-	public TermEvaulatorException()
-	{
-	}
 
 	/**
 	 * Constructs an instance of {@code TermEvaulatorException} with the specified detail message.

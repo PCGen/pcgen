@@ -218,6 +218,7 @@ public class Event implements InitHolder
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
+	@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 	@Override
 	public Vector<Object> getRowVector(List<String> columnOrder)
 	{

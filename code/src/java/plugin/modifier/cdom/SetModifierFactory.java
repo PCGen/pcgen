@@ -18,15 +18,13 @@
 package plugin.modifier.cdom;
 
 import pcgen.base.calculation.CalculationModifier;
+import pcgen.base.calculation.FormulaCalculation;
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.calculation.NEPCalculation;
-import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
-import pcgen.cdom.content.IndirectCalculation;
-import pcgen.cdom.formula.scope.PCGenScope;
+import pcgen.cdom.base.FormulaFactory;
 import pcgen.rules.persistence.token.AbstractSetModifierFactory;
 
 /**
@@ -37,16 +35,16 @@ public class SetModifierFactory extends AbstractSetModifierFactory<CDOMObject>
 {
 
 	@Override
-	public FormulaModifier<CDOMObject> getModifier(String instructions, ManagerFactory managerFactory,
-		FormulaManager ignored, PCGenScope varScope, FormatManager<CDOMObject> formatManager)
+	public FormulaModifier<CDOMObject> getModifier(String instructions,
+		FormatManager<CDOMObject> formatManager)
 	{
 		if (!getVariableFormat().isAssignableFrom(formatManager.getManagedClass()))
 		{
 			throw new IllegalArgumentException(
 				"FormatManager must manage " + getVariableFormat().getName() + " or a child of that class");
 		}
-		Indirect<CDOMObject> n = formatManager.convertIndirect(instructions);
-		NEPCalculation<CDOMObject> calc = new IndirectCalculation<>(n, this);
+		NEPFormula<CDOMObject> formula = FormulaFactory.getNEPFormulaFor(formatManager, instructions);
+		NEPCalculation<CDOMObject> calc = new FormulaCalculation<>(formula, this);
 		return new CalculationModifier<>(calc, formatManager);
 	}
 

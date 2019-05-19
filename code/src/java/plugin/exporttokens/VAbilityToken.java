@@ -61,9 +61,4 @@ public class VAbilityToken extends AbilityToken
 		return listOfAbilities;
 	}
 
-	@Override
-	protected Nature getTargetNature()
-	{
-		return Nature.VIRTUAL;
-	}
 }

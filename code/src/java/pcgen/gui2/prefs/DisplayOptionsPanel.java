@@ -112,7 +112,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 
 		for (Map.Entry<String, JComponent> entry : options.entrySet())
 		{
-			line = addDisplayOption(line, c, gridbag, this, entry.getKey(), entry.getValue());
+			line = addDisplayOption(line, c, this, entry.getKey(), entry.getValue());
 		}
 
 		Utility.buildConstraints(c, 0, line, GridBagConstraints.REMAINDER, 1, 1, 1);
@@ -122,8 +122,8 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	private int addDisplayOption(final int line, final GridBagConstraints constraints, final GridBagLayout gridbag,
-		final JPanel panel, final String labelText, final JComponent c)
+	private int addDisplayOption(final int line, final GridBagConstraints constraints,
+	                             final JPanel panel, final String labelText, final JComponent c)
 	{
 		if (c instanceof JCheckBox)
 		{

@@ -253,9 +253,9 @@ public class DataSet implements DataSetFacade
 	 */
 	private void createGearBuySellSchemes()
 	{
-		BigDecimal fullPrice = new BigDecimal(100.0);
-		BigDecimal halfPrice = new BigDecimal(50.0);
-		BigDecimal tenPercent = new BigDecimal(10.0);
+		BigDecimal fullPrice = new BigDecimal("100.0");
+		BigDecimal halfPrice = new BigDecimal("50.0");
+		BigDecimal tenPercent = new BigDecimal("10.0");
 		BigDecimal free = BigDecimal.ZERO;
 		gearBuySellSchemes = new DefaultListFacade<>();
 		// TODO i18n this

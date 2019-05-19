@@ -30,9 +30,10 @@ public final class LegalScopeUtilities
 
 	public static void loadLegalScopeLibrary(ScopeManagerInst library)
 	{
-		library.registerScope(SpringHelper.getBean(GlobalScope.class));
+		library.registerScope(SpringHelper.getBean(GlobalPCScope.class));
 		library.registerScope(SpringHelper.getBean(EquipmentScope.class));
 		library.registerScope(SpringHelper.getBean(EquipmentPartScope.class));
+		library.registerScope(SpringHelper.getBean(RaceScope.class));
 		library.registerScope(SpringHelper.getBean(SaveScope.class));
 		library.registerScope(SpringHelper.getBean(SizeScope.class));
 		library.registerScope(SpringHelper.getBean(SkillScope.class));

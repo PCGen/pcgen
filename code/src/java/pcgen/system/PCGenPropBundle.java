@@ -22,7 +22,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.MissingResourceException;
-import java.util.Objects;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
@@ -49,14 +48,7 @@ public final class PCGenPropBundle
 	 */
 	static
 	{
-		try
-		{
-			d_properties = ResourceBundle.getBundle("pcgen/resources/prop/PCGenProp");
-		}
-		catch (MissingResourceException mre)
-		{
-			d_properties = null;
-		}
+		d_properties = ResourceBundle.getBundle("pcgen.system.prop.PCGenProp");
 
 		try
 		{
@@ -186,7 +178,7 @@ public final class PCGenPropBundle
 	 */
 	public static String getWWWHome()
 	{
-		return getPropValue("WWWHome", "http://pcgen.sourceforge.net/");
+		return getPropValue("WWWHome", "http://pcgen.org/");
 	}
 
 	/**
@@ -203,23 +195,14 @@ public final class PCGenPropBundle
 		// Make sure the value is retrievable (no NullPointerExceptions)				
 		if (propName != null)
 		{
-			if (d_properties != null)
+			try
 			{
-				try
-				{
-					result = d_properties.getString(propName);
-				}
-				catch (MissingResourceException mre)
-				{
-					// ignore; will handle later
-				}
+				result = d_properties.getString(propName);
 			}
-		}
-
-		// Set a missing string if the value is missing		
-		if (result == null)
-		{
-			result = Objects.requireNonNullElseGet(fallback, () -> "Missing property " + propName);
+			catch (MissingResourceException mre)
+			{
+				result = "Missing property " + propName;
+			}
 		}
 
 		return result;
