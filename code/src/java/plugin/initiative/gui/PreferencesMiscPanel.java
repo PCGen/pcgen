@@ -112,7 +112,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 	@Override
 	public String toString()
 	{
-		return LanguageBundle.getString("in_plugin_init_misc"); //$NON-NLS-1$
+		return LanguageBundle.getString("in_plugin_init_size"); //$NON-NLS-1$
 	}
 
 	/**
@@ -146,7 +146,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 		gridBagConstraints.insets = new java.awt.Insets(8, 17, 0, 0);
 		add(jSeparator1, gridBagConstraints);
 
-		jLabel2.setText(LanguageBundle.getString("in_plugin_init_misc")); //$NON-NLS-1$
+		jLabel2.setText(LanguageBundle.getString("in_plugin_init_size")); //$NON-NLS-1$
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 0;
