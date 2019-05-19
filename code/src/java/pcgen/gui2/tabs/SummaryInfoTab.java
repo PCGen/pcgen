@@ -1675,13 +1675,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			}
 			return super.getComponentAfter(aContainer, aComponent);
 		}
-
-		@Override
-		public Component getComponentBefore(Container aContainer, Component aComponent)
-		{
-			return super.getComponentBefore(aContainer, aComponent);
-		}
-
 	}
 
 }
