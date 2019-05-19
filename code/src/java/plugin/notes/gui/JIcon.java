@@ -49,8 +49,6 @@ import pcgen.io.PCGFile;
 import pcgen.util.Logging;
 import plugin.notes.NotesPlugin;
 
-import org.apache.commons.lang3.SystemUtils;
-
 /**
  *  JIcon is a small form that uses an image, a button and some text to
  *  represent a file. You can launch files in supported operating systems from
@@ -61,7 +59,6 @@ class JIcon extends JPanel
 	private final File launch;
 	private final NotesPlugin plugin;
 
-	// Variables declaration - do not modify
 	private JButton button;
 	private JLabel label;
 	private JPopupMenu contextMenu;
@@ -137,9 +134,9 @@ class JIcon extends JPanel
 					comp.updateUI();
 				}
 			}
-			catch (Exception e)
+			catch (RuntimeException e)
 			{
-				e.printStackTrace();
+				Logging.errorPrint("delete file failed", e);
 			}
 		}
 	}
@@ -155,55 +152,18 @@ class JIcon extends JPanel
 		}
 		else
 		{
-			boolean opened = false;
-
-			// Use desktop if available
 			if (Desktop.isDesktopSupported())
 			{
-				Desktop d = Desktop.getDesktop();
-				if (d.isSupported(Desktop.Action.OPEN))
+				Desktop desktop = Desktop.getDesktop();
+				if (desktop.isSupported(Desktop.Action.OPEN))
 				{
 					try
 					{
-						d.open(launch);
-						opened = true;
+						desktop.open(launch);
 					}
 					catch (IOException e)
 					{
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			}
-
-			if (!opened)
-			{
-				if (SystemUtils.IS_OS_UNIX)
-				{
-					String openCmd = SystemUtils.IS_OS_MAC_OSX ? "/usr/bin/open" : "xdg-open";
-					String filePath = launch.getAbsolutePath();
-					String[] args = {openCmd, filePath};
-					Logging.debugPrintLocalised("Runtime.getRuntime().exec: [{0}] [{1}]", args[0], args[1]);
-
-					try
-					{
-						Runtime.getRuntime().exec(args);
-					}
-					catch (IOException e)
-					{
-						Logging.errorPrint(e.getMessage(), e);
-					}
-				}
-				else if (SystemUtils.IS_OS_WINDOWS)
-				{
-					try
-					{
-						String start = ("rundll32 url.dll,FileProtocolHandler file://" + launch.getAbsoluteFile());
-						Runtime.getRuntime().exec(start);
-					}
-					catch (Exception e)
-					{
-						Logging.errorPrint(e.getMessage(), e);
+						Logging.errorPrint("failed to launch file", e);
 					}
 				}
 			}
