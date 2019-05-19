@@ -20,6 +20,7 @@ package pcgen.gui3;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.concurrent.CompletableFuture;
 
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
@@ -66,7 +67,7 @@ public final class JFXPanelFromResource<T> extends JFXPanel
 	 */
 	public T getController()
 	{
-		return fxmlLoader.getController();
+		return CompletableFuture.<T>supplyAsync(fxmlLoader::getController, Platform::runLater).join();
 	}
 
 	public void showAsStage(String title)
