@@ -44,7 +44,6 @@ import java.util.zip.ZipFile;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JEditorPane;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -65,6 +64,8 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.SimpleHtmlPanelController;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.InstallLoader;
 import pcgen.system.ConfigurationSettings;
@@ -80,15 +81,9 @@ import javafx.scene.control.ButtonType;
 /**
  * {@code DataInstaller} is responsible for managing the installation of
  * a data set including the selection of the set and the install options.
- * 
- * 
  */
 public class DataInstaller extends JFrame
 {
-
-	/** Version for serialisation */
-	private static final long serialVersionUID = -7429544164441235718L;
-
 	/**
 	 * The listener for receiving and processing action events from installer 
 	 * buttons. 
@@ -323,7 +318,7 @@ public class DataInstaller extends JFrame
 
 			// Display the info
 			dataSetSel.setText(dataSet.getAbsolutePath());
-			dataSetDetails.setText(FacadeFactory.getCampaignInfoFactory().getHTMLInfo(campaign));
+			dataSetDetails.getController().setHtml(FacadeFactory.getCampaignInfoFactory().getHTMLInfo(campaign));
 			if (campaign.get(ObjectKey.DESTINATION) == null)
 			{
 				locDataButton.setSelected(false);
@@ -371,7 +366,7 @@ public class DataInstaller extends JFrame
 	private JButton selectButton;
 
 	/** The data set detail display component. */
-	private JEditorPane dataSetDetails;
+	private JFXPanelFromResource<SimpleHtmlPanelController> dataSetDetails;
 
 	/** The button for the data location. */
 	private JRadioButton locDataButton;
@@ -664,9 +659,11 @@ public class DataInstaller extends JFrame
 
 		// Data set details row
 		Utility.buildConstraints(gbc, 0, 1, 4, 1, 1.0, 1.0);
-		dataSetDetails = new JEditorPane("text/html", "<html></html>");
+		dataSetDetails = new JFXPanelFromResource<>(
+				SimpleHtmlPanelController.class,
+				"SimpleHtmlPanel.fxml"
+		);
 		dataSetDetails.setPreferredSize(new Dimension(400, 200));
-		dataSetDetails.setEditable(false);
 		dataSetDetails.setBackground(getBackground());
 		gbc.fill = GridBagConstraints.BOTH;
 		JScrollPane jScrollPane = new JScrollPane();
