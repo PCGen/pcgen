@@ -89,7 +89,8 @@ ext {
     }
 }
 
-task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput', 'downloadJRE']) {
+task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput', \
+'downloadJRE']) {
     classifier = 'full'
     into(zipRootFolder) {
         with dataDistsImage
@@ -99,6 +100,19 @@ task fullZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', 'copyToOutput'
         with autobuildSpec
         with charactersImage
         with jreImage
+    }
+}
+
+task testZip(type: Zip, dependsOn: ['converterJar', 'copyToLibs', \
+'copyToOutput']) {
+    classifier = 'test'
+    into(zipRootFolder) {
+        with dataDistsImage
+        with docsDistsImage
+        with programDistsImage
+        with libsDistsImage
+        with autobuildSpec
+        with charactersImage
     }
 }
 
