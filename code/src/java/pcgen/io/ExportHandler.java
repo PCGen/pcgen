@@ -40,6 +40,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -213,10 +214,7 @@ public final class ExportHandler
 	 */
 	public void write(PlayerCharacter aPC, BufferedWriter out) throws ExportException
 	{
-		if (templateFile == null)
-		{
-			throw new IllegalStateException("Template file must not be null");
-		}
+		Objects.requireNonNull(templateFile);
 
 		if (exportEngine == ExportEngine.FREEMARKER)
 		{
@@ -229,15 +227,12 @@ public final class ExportHandler
 		// Set an output filter based on the type of template in use.
 		FileAccess.setCurrentOutputFilter(templateFile.getName());
 
-		BufferedReader br = null;
-		try
+		try(FileInputStream fis = new FileInputStream(templateFile);
+		    InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
+			BufferedReader br = new BufferedReader(isr);)
 		{
-			FileInputStream fis = new FileInputStream(templateFile);
-			InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
-			br = new BufferedReader(isr);
-
 			// A Buffer to hold the result of the preparation
-			StringBuilder template = prepareTemplate(br);
+			CharSequence template = prepareTemplate(br);
 
 			// Create a tokenizer based on EOL characters
 			// 03-Nov-2008 Karianna, changed to use line separator instead of /r/n
@@ -262,36 +257,6 @@ public final class ExportHandler
 		{
 			Logging.errorPrint("Error in ExportHandler::write", exc);
 		}
-		finally
-		{
-			// Close off the reader
-			if (br != null)
-			{
-				try
-				{
-					br.close();
-				}
-				catch (IOException e)
-				{
-					Logging.errorPrint("Error closing off the character sheet template in ExportHandler::write", e);
-				}
-			}
-
-			if (out != null)
-			{
-				try
-				{
-					out.flush();
-				}
-				catch (IOException e)
-				{
-					Logging.errorPrint("Error flushing the output in ExportHandler::write", e);
-				}
-			}
-		}
-
-		// TODO Not sure
-		csheetTag2 = "\\";
 	}
 
 	/**
@@ -303,7 +268,6 @@ public final class ExportHandler
 	 */
 	private void exportCharacterUsingFreemarker(PlayerCharacter aPC, Writer outputWriter) throws ExportException
 	{
-
 		try
 		{
 			// Set Directory for templates
@@ -576,7 +540,6 @@ public final class ExportHandler
 	public static void addToTokenMap(Token newToken)
 	{
 		Token test = TOKEN_MAP.put(newToken.getTokenName(), newToken);
-
 		if (test != null)
 		{
 			Logging.errorPrint("More than one Output Token has the same Token Name: '" + newToken.getTokenName() + "'");
@@ -3302,12 +3265,12 @@ public final class ExportHandler
 		// Set an output filter based on the type of template in use.
 		FileAccess.setCurrentOutputFilter(templateFile.getName());
 
-		BufferedReader br = null;
 
-		try
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(
+				new FileInputStream(templateFile),
+				StandardCharsets.UTF_8
+		));)
 		{
-			br = new BufferedReader(new InputStreamReader(new FileInputStream(templateFile), StandardCharsets.UTF_8));
-
 			boolean betweenPipes = false;
 			StringBuilder textBetweenPipes = new StringBuilder();
 
@@ -3382,27 +3345,9 @@ public final class ExportHandler
 
 				aLine = br.readLine();
 			}
-		}
-		catch (IOException exc)
+		} catch (IOException exc)
 		{
 			Logging.errorPrint("Error in ExportHandler::write", exc);
-		}
-		finally
-		{
-			if (br != null)
-			{
-				try
-				{
-					br.close();
-				}
-				catch (IOException ignore)
-				{
-					if (Logging.isDebugMode())
-					{
-						Logging.debugPrint("Couldn't close file in ExportHandler::write", ignore);
-					}
-				}
-			}
 		}
 	}
 
