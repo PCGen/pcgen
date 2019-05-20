@@ -37,6 +37,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -47,7 +48,6 @@ import javax.swing.JEditorPane;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -72,6 +72,10 @@ import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
+
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 
 /**
  * {@code DataInstaller} is responsible for managing the installation of
@@ -434,21 +438,28 @@ public class DataInstaller extends JFrame
 			StringBuilder msg = new StringBuilder();
 			for (String filename : nonStandardFiles)
 			{
-				msg.append(' ').append(filename).append("\n");
+				msg.append(' ').append(filename).append('\n');
 			}
-			DIWarningDialog dialog = new DIWarningDialog(this, msg.toString(),
-				LanguageBundle.getFormattedString("in_diNonStandardFiles"));
-			dialog.setVisible(true);
-			int result = dialog.getResponse();
-			if (result == JOptionPane.CANCEL_OPTION)
+
+			Alert diWarningDialog = new Alert(Alert.AlertType.CONFIRMATION);
+			ButtonType noButton = new ButtonType(LanguageBundle.getString("in_no"), ButtonBar.ButtonData.NO);
+			// default for confirm is yes/cancel
+			diWarningDialog.getButtonTypes().add(noButton);
+			diWarningDialog.setTitle(LanguageBundle.getString("in_dataInstaller"));
+			diWarningDialog.setHeaderText(LanguageBundle.getString("in_diNonStandardFiles"));
+			diWarningDialog.setContentText(msg.toString());
+			Optional<ButtonType> warningResult = diWarningDialog.showAndWait();
+			if (warningResult.isPresent())
 			{
-				return false;
-			}
-			if (result == JOptionPane.NO_OPTION)
-			{
-				for (String filename : nonStandardFiles)
+				ButtonType buttonType = warningResult.get();
+				if (buttonType.equals(ButtonType.CANCEL))
 				{
-					files.remove(filename);
+					return false;
+				}
+				if (buttonType.equals(ButtonType.NO))
+				{
+					files.removeAll(nonStandardFiles);
+					return false;
 				}
 			}
 		}
@@ -465,7 +476,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return true, if successful
 	 */
-	private boolean checkOverwriteOK(Collection<String> files, File destDir)
+	private static boolean checkOverwriteOK(Collection<String> files, File destDir)
 	{
 		Collection<String> existingFiles = new ArrayList<>();
 		Collection<String> existingFilesCorr = new ArrayList<>();
@@ -486,19 +497,26 @@ public class DataInstaller extends JFrame
 			{
 				msg.append(' ').append(filename).append("\n");
 			}
-			DIWarningDialog dialog =
-					new DIWarningDialog(this, msg.toString(), LanguageBundle.getFormattedString("in_diOverwriteFiles"));
-			dialog.setVisible(true);
-			int result = dialog.getResponse();
-			if (result == JOptionPane.CANCEL_OPTION)
+
+			Alert diWarningDialog = new Alert(Alert.AlertType.CONFIRMATION);
+			ButtonType noButton = new ButtonType(LanguageBundle.getString("in_no"), ButtonBar.ButtonData.NO);
+			// default for confirm is yes/cancel
+			diWarningDialog.getButtonTypes().add(noButton);
+			diWarningDialog.setTitle(LanguageBundle.getString("in_dataInstaller"));
+			diWarningDialog.setHeaderText(LanguageBundle.getString("in_diOverwriteFiles"));
+			diWarningDialog.setContentText(msg.toString());
+			Optional<ButtonType> warningResult = diWarningDialog.showAndWait();
+			if (warningResult.isPresent())
 			{
-				return false;
-			}
-			if (result == JOptionPane.NO_OPTION)
-			{
-				for (String filename : existingFiles)
+				ButtonType buttonType = warningResult.get();
+				if (buttonType.equals(ButtonType.CANCEL))
 				{
-					files.remove(filename);
+					return false;
+				}
+				if (buttonType.equals(ButtonType.NO))
+				{
+					files.removeAll(existingFiles);
+					return false;
 				}
 			}
 		}
