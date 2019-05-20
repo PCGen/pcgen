@@ -1,6 +1,7 @@
 35e = 3.5 edition
 3e = 3rd edition
 pf = PFRPG = Pathfinder
+sf = Starfinder
 none = no game mode or game mode unknown
 msrd = Modern
 zen = zen_test
