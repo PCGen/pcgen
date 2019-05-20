@@ -116,10 +116,8 @@ public final class VariableChannel<T> extends AbstractReferenceFacade<T>
 	{
 		T oldValue = varStore.get(varID);
 		return CollectionUtils.emptyIfNull(vetoList)
-			.stream()
-			.filter(f -> f.apply(oldValue, proposedValue))
-			.findAny()
-			.isPresent();
+		                      .stream()
+		                      .anyMatch(f -> f.apply(oldValue, proposedValue));
 	}
 
 	/**

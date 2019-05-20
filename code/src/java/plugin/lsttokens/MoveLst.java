@@ -21,7 +21,6 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -106,7 +105,7 @@ public class MoveLst extends AbstractTokenWithSeparator<CDOMObject>
 			return null;
 		}
 		return new String[]{
-			set.stream().collect(Collectors.joining(Constants.COMMA))};
+				String.join(Constants.COMMA, set)};
 	}
 
 	@Override

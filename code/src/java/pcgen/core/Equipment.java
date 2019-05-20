@@ -3668,7 +3668,7 @@ public final class Equipment extends PObject
 
 		final List<String> typeList = typeList(bPrimary);
 		final int typeSize = typeList.size();
-		final String aType = typeList.stream().collect(Collectors.joining(".")); // Just a
+		final String aType = String.join(".", typeList); // Just a
 		// guess.
 
 		return aType;

@@ -167,10 +167,10 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 					else if ((percentageSignPosition >= 0))
 					{
 						List<Type> mockTypes = target.getTrueTypeList(true);
-						for (Type mockType : mockTypes)
+						for (Type ignored : mockTypes)
 						{
 							foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition, foundSkill, target);
-							foundSkill = (foundMatch) ? true : false;
+							foundSkill = foundMatch;
 							runningTotal =
 									getRunningTotal(mock, character, prereq, foundMatch, runningTotal, requiredRanks);
 							if (foundSkill)

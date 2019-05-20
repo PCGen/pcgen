@@ -162,7 +162,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		private final List<BioItem> bioItems = new ArrayList<>();
 		private final CharacterFacade character;
-		private final ActionListener bioListener = event -> bioItems.stream()
+		private final ActionListener bioListener = event -> bioItems
 			.forEach(item -> item
 				.setExportable(event.getActionCommand().equals(ALL_COMMAND)));
 

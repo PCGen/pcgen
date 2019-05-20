@@ -177,7 +177,7 @@ public class HitDiceToken extends Token
 										hitDie -> 1,
 										(a, b) -> a + b,
 										LinkedHashMap::new)))
-				.mapToInt(hdMap -> hdMap.entrySet().stream().mapToInt(Map.Entry::getValue).sum())
+				.mapToInt(hdMap -> hdMap.values().stream().mapToInt(i -> i).sum())
 				.sum();
 
 		return String.valueOf(dice);

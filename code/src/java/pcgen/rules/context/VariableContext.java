@@ -308,7 +308,7 @@ public class VariableContext implements VariableChannelFactory,
 		ComplexResult<Boolean> result = solverFactory.validateDefaults();
 		if (!result.get())
 		{
-			result.getMessages().stream().forEach(Logging::errorPrint);
+			result.getMessages().forEach(Logging::errorPrint);
 		}
 	}
 

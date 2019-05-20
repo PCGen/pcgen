@@ -56,7 +56,7 @@ public class ReferenceDependency
 	 */
 	public void putAll(Collection<Indirect<?>> collection)
 	{
-		collection.stream().forEach(this::put);
+		collection.forEach(this::put);
 	}
 
 	/**
