@@ -114,7 +114,7 @@ public class LastGroupSeparator
 	public static class GroupingMismatchException extends IllegalStateException
 	{
 
-		public GroupingMismatchException(String base)
+		private GroupingMismatchException(String base)
 		{
 			super(base);
 		}

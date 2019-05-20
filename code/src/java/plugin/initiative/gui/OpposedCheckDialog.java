@@ -27,7 +27,6 @@ import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.HeadlessException;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
@@ -141,7 +140,6 @@ class OpposedCheckDialog extends JDialog
 	 * @throws HeadlessException if running without a gui
 	 */
 	OpposedCheckDialog(Frame owner, List<InitHolder> rollingGroup, List<InitHolder> availableGroup)
-		throws HeadlessException
 	{
 		super(owner);
 		initializeLists(rollingGroup, availableGroup);
