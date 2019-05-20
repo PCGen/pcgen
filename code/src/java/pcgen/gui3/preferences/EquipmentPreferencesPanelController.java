@@ -44,6 +44,19 @@ public class EquipmentPreferencesPanelController implements ResettableController
 	@FXML
 	void initialize()
 	{
+		var potionValueFactory =
+				new SpinnerValueFactory.IntegerSpinnerValueFactory(model.getMaxPotionLevelBounds().min,
+						model.getMaxWandLevelBounds().max,
+						SettingsHandler.maxPotionSpellLevel().getValue(), 1
+				);
+		potionSpinner.setValueFactory(potionValueFactory);
+		var wandValueFactory =
+				new SpinnerValueFactory.IntegerSpinnerValueFactory(model.getMaxWandLevelBounds().min,
+						model.getMaxWandLevelBounds().max,
+						SettingsHandler.maxWandSpellLevel().getValue(), 1
+				);
+		wandSpinner.setValueFactory(wandValueFactory);
+
 		// TODO: consider adding an apply button that sets values rather than using binding directly
 		model.maxPotionLevelProperty().bind(potionSpinner.valueProperty());
 		model.maxWandLevelProperty().bind(wandSpinner.valueProperty());
@@ -56,11 +69,8 @@ public class EquipmentPreferencesPanelController implements ResettableController
 
 	@Override
 	public void reset()  {
-		// TODO shouldn't the constants come from the model?
-		potionSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 9,
-				SettingsHandler.maxPotionSpellLevel().getValue(), 1));
-		wandSpinner.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 9,
-				SettingsHandler.maxWandSpellLevel().getValue(), 1));
+		potionSpinner.getValueFactory().setValue(SettingsHandler.maxPotionSpellLevel().getValue());
+		wandSpinner.getValueFactory().setValue(SettingsHandler.maxWandSpellLevel().getValue());
 	}
 
 	@Override
