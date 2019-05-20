@@ -1208,6 +1208,7 @@ public final class GameMode implements Comparable<Object>
 	 * @param aPC
 	 * @return purchase mode base score
 	 */
+	@SuppressWarnings("PMD.OneDeclarationPerLine")
 	public int getPurchaseModeBaseStatScore(final PlayerCharacter aPC)
 	{
 		int minVal = getPurchaseScoreMin(aPC);

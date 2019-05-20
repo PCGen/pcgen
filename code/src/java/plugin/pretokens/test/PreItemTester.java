@@ -38,6 +38,7 @@ public class PreItemTester extends AbstractDisplayPrereqTest implements Prerequi
 {
 
 	// TODO Refactor this with all the equipment tests.
+	@SuppressWarnings("PMD.OneDeclarationPerLine")
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 		throws PrerequisiteException

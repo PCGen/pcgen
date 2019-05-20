@@ -1144,17 +1144,16 @@ public class OverPanel extends javax.swing.JPanel
 	private void updateTopUI()
 	{
 		//First, retrieve the costs of everything
-		int i1, i2, i3;
 
-		i1 = cmbFood.getSelectedIndex();
+		int i1 = cmbFood.getSelectedIndex();
 
 		float food = i1 >= 0 ? rb.getFoods().get(i1).getCost() : 0;
 
-		i2 = cmbInn.getSelectedIndex();
+		int i2 = cmbInn.getSelectedIndex();
 
 		float inn = i2 >= 0 ? rb.getInns().get(i2).getCost() : 0;
 
-		i3 = cmbAnimal.getSelectedIndex();
+		int i3 = cmbAnimal.getSelectedIndex();
 
 		float animal = i3 >= 0 ? rb.getAnimals().get(i3).getCost() : 0;
 

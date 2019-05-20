@@ -992,6 +992,7 @@ public final class PurchaseModeFrame extends JDialog
 			currentValues = newValues;
 		}
 
+		@SuppressWarnings("PMD.OneDeclarationPerLine")
 		private void keepNewValues()
 		{
 			// set the current values into the settings

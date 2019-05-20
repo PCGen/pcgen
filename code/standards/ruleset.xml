@@ -25,7 +25,6 @@
         <exclude name="GuardLogStatement"/>
         <exclude name="LooseCoupling"/>
         <exclude name="MethodReturnsInternalArray"/>
-        <exclude name="OneDeclarationPerLine"/>
         <exclude name="PositionLiteralsFirstInCaseInsensitiveComparisons"/>
         <exclude name="PositionLiteralsFirstInComparisons"/>
         <exclude name="PreserveStackTrace"/>
