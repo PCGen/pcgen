@@ -172,7 +172,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 			// TODO: set extension filter - list of supported images
 
 			File file = CompletableFuture.supplyAsync(() ->
-					fileChooser.showSaveDialog(null), Platform::runLater).join();
+					fileChooser.showOpenDialog(null), Platform::runLater).join();
 			if (file != null)
 			{
 				character.setPortrait(file);
