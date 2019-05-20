@@ -13,7 +13,6 @@
 
 // import Ant helper static values to differ system families
 import org.apache.tools.ant.filters.FixCrLfFilter
-import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
     id 'com.gradle.build-scan' version '2.3'
@@ -186,8 +185,10 @@ dependencies {
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.4.2'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.4.2'
     testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.4.2'
-
     testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.1'
+    testCompile group: 'org.testfx', name: 'testfx-junit5', version: '4.0.15-alpha'
+    testCompile group: 'org.testfx', name: 'openjfx-monocle', version: 'jdk-12.0.1+2'
+
 
     testCompile group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.6.2'
 }
@@ -368,6 +369,14 @@ allprojects {
             exceptionFormat = 'full'
             events 'failed', 'skipped'
         }
+        jvmArgs += [
+                '-Djava.awt.headless=true',
+                '-Dtestfx.robot=glass',
+                '-Dtestfx.headless=true',
+                '-Dprism.order=sw',
+                '-Dprism.verbose=true',
+                '-Djavafx.macosx.embedded=true',
+        ]
     }
 }
 

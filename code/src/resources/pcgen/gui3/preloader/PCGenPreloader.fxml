@@ -28,7 +28,7 @@
     <AnchorPane prefHeight="200" prefWidth="200">
         <BorderPane>
             <center>
-                <ImageView fitHeight="230" fitWidth="420">
+                <ImageView fitHeight="230" fitWidth="420" id="styleImage">
                     <Image url="@SplashPcgen_Ennie.png"
                            backgroundLoading="true"
                            preserveRatio="true"
