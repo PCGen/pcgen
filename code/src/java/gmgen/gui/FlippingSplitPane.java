@@ -705,7 +705,7 @@ public class FlippingSplitPane extends JSplitPane
 			}
 
 			// A handy shortcut
-			else if (pcgen.gui2.tools.Utilities.isShiftLeftMouseButton(e))
+			else if (pcgen.gui2.tools.Utility.isShiftLeftMouseButton(e))
 			{
 				if (!isLocked())
 				{
