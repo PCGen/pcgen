@@ -35,7 +35,7 @@ import org.apache.commons.lang3.SystemUtils;
 /**
  * Provide an utility method to open files with {@link Desktop}.
  */
-public final class  DesktopBrowserLauncher
+public final class DesktopBrowserLauncher
 {
 
 	private static final Desktop DESKTOP = Desktop.getDesktop();
