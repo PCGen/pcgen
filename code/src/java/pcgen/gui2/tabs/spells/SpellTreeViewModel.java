@@ -136,7 +136,7 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 			{
 				path = new TreeViewPath<>(node);
 			}
-			return Arrays.asList(path);
+			return Collections.singletonList(path);
 		}
 
 	}
