@@ -236,7 +236,7 @@ public class VariableContext implements VariableChannelFactory,
 		catch (SemanticsException e)
 		{
 			throw new IllegalArgumentException("Invalid Semantics on Formula: "
-				+ modType + " ... " + e.getLocalizedMessage());
+				+ modType + " ... " + e.getLocalizedMessage(), e);
 		}
 
 		/*

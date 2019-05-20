@@ -48,7 +48,7 @@ public class PreAttackTester extends AbstractPrerequisiteTest implements Prerequ
 		{
 			throw new PrerequisiteException(
 				LanguageBundle.getFormattedString(
-					"PreAttack.error.badly_formed_attribute", prereq.getOperand())); //$NON-NLS-1$
+					"PreAttack.error.badly_formed_attribute", prereq.getOperand()), exc); //$NON-NLS-1$
 		}
 
 		return countedTotal(prereq, runningTotal);

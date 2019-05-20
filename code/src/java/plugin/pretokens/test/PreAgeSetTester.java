@@ -47,7 +47,7 @@ public class PreAgeSetTester extends AbstractDisplayPrereqTest implements Prereq
 		{
 			throw new PrerequisiteException(
 				LanguageBundle.getFormattedString(
-					"PreAgeSet.error.badly_formed_attribute", prereq.getOperand())); //$NON-NLS-1$
+					"PreAgeSet.error.badly_formed_attribute", prereq.getOperand()), e); //$NON-NLS-1$
 		}
 
 		if (anInt == -1)

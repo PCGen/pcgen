@@ -52,7 +52,7 @@ public class PreArmorProfTester extends AbstractDisplayPrereqTest implements Pre
 		{
 			throw new PrerequisiteException(
 				LanguageBundle.getFormattedString(
-					"Prereq.error", "PREARMOR", prereq.toString())); //$NON-NLS-1$ //$NON-NLS-2$
+					"Prereq.error", "PREARMOR", prereq.toString()), exceptn); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		final String aString = prereq.getKey();

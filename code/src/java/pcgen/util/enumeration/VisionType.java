@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pcgen.base.lang.CaseInsensitiveString;
+import pcgen.base.lang.UnreachableError;
 
 public final class VisionType
 {
@@ -74,7 +75,7 @@ public final class VisionType
 					}
 				} catch (IllegalArgumentException | IllegalAccessException e)
 				{
-					throw new AssertionError();
+					throw new UnreachableError(e);
 				}
 			}
 		}

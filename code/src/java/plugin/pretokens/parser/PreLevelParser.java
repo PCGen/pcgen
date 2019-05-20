@@ -81,7 +81,7 @@ public class PreLevelParser extends AbstractPrerequisiteParser
 			{
 				throw new PersistenceLayerException(
 					"PRELEVEL must be either 'MIN=x', 'MAX=y' or " + "'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
-						+ formula + "' is not valid: " + hdVal + " is not an integer");
+						+ formula + "' is not valid: " + hdVal + " is not an integer", nfe);
 			}
 			if (token.equals("MIN"))
 			{

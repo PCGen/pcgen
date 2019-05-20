@@ -75,14 +75,7 @@ public class AbstractPrerequisiteWriter
 	 */
 	public boolean specialCase(Writer writer, Prerequisite prereq) throws IOException
 	{
-		try
-		{
-			return false;
-		}
-		catch (Exception e)
-		{
-			throw new IOException();
-		}
+		return false;
 	}
 
 	protected PrerequisiteOperator getConsolidateMethod(String handled, Prerequisite prereq, boolean ranked)

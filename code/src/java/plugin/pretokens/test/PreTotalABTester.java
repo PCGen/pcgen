@@ -46,8 +46,7 @@ public class PreTotalABTester extends AbstractPrerequisiteTest implements Prereq
 		{
 			throw new PrerequisiteException(
 				LanguageBundle.getFormattedString(
-					"PreAttack.error.badly_formed_attribute",  //$NON-NLS-1$
-				       	prereq.getOperand()));
+					"PreAttack.error.badly_formed_attribute", prereq.getOperand()), exc);
 		}
 
 		return countedTotal(prereq, runningTotal);

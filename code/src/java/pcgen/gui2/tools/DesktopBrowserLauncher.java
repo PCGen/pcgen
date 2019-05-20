@@ -63,6 +63,7 @@ public final class  DesktopBrowserLauncher
 	 * @param url URL to display in browser.
 	 * @throws IOException if the URL is bad or the browser can not be launched
 	 */
+	@SuppressWarnings({"ThrowInsideCatchBlockWhichIgnoresCaughtException", "PMD.PreserveStackTrace"})
 	public static void viewInBrowser(URL url) throws IOException
 	{
 		try

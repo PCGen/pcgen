@@ -83,7 +83,7 @@ public class PreDeityTester extends AbstractDisplayPrereqTest implements Prerequ
 				{
 					throw new PrerequisiteException(
 						LanguageBundle.getFormattedString(
-							"PreDeity.error.bad_coparator", prereq.toString())); //$NON-NLS-1$
+							"PreDeity.error.bad_coparator", prereq.toString()), e); //$NON-NLS-1$
 				}
 			}
 		}

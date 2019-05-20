@@ -47,7 +47,8 @@ public class PreHandsTester extends AbstractPrerequisiteTest implements Prerequi
 		catch (NumberFormatException nfe)
 		{
 			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreHands.error.badly_formed", prereq.getOperand())); //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PreHands.error.badly_formed", prereq.getOperand()), nfe); //$NON
+			// -NLS-1$
 		}
 		return countedTotal(prereq, runningTotal);
 	}
