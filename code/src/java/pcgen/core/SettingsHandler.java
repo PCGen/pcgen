@@ -100,7 +100,7 @@ public final class SettingsHandler
 	private static int gearTab_BuyRate = Constants.DEFAULT_GEAR_TAB_BUY_RATE;
 	private static Point leftUpperCorner = null;
 	private static int windowState = Frame.NORMAL;
-	private static int looknFeel = 1; // default to Java L&F
+
 	private static final SortedProperties OPTIONS = new SortedProperties();
 	private static final Properties FILEPATHS = new Properties();
 	private static final String FILE_LOCATION = Globals.getFilepathsPath();
@@ -630,16 +630,6 @@ public final class SettingsHandler
 		return loadURLs;
 	}
 
-	public static void setLookAndFeel(final int argLookAndFeel)
-	{
-		looknFeel = argLookAndFeel;
-	}
-
-	public static int getLookAndFeel()
-	{
-		return looknFeel;
-	}
-
 	public static IntegerProperty maxWandSpellLevel()
 	{
 		return maxWandSpellLevel;
@@ -756,7 +746,6 @@ public final class SettingsHandler
 		setInvalidToHitText(getPCGenOption("invalidToHitText", //$NON-NLS-1$
 			LanguageBundle.getString("SettingsHandler.114"))); //$NON-NLS-1$
 		setLastTipShown(getPCGenOption("lastTipOfTheDayTipShown", -1)); //$NON-NLS-1$
-		setLookAndFeel(getPCGenOption("looknFeel", 1)); //$NON-NLS-1$
 		maxWandSpellLevel.set(getPCGenOption("maxWandSpellLevel", 4));
 		maxPotionSpellLevel.set(getPCGenOption("maxPotionSpellLevel", 3));
 		setPccFilesLocation(new File(expandRelativePath(getPCGenOption("pccFilesLocation", //$NON-NLS-1$
@@ -1006,7 +995,6 @@ public final class SettingsHandler
 		setPCGenOption("invalidToHitText", getInvalidToHitText()); //$NON-NLS-1$
 		setPCGenOption("lastTipOfTheDayTipShown", getLastTipShown()); //$NON-NLS-1$
 		setPCGenOption("loadURLs", loadURLs); //$NON-NLS-1$
-		setPCGenOption("looknFeel", getLookAndFeel()); //$NON-NLS-1$
 		setPCGenOption("maxPotionSpellLevel", maxPotionSpellLevel().get()); //$NON-NLS-1$
 		setPCGenOption("maxWandSpellLevel", maxWandSpellLevel().get()); //$NON-NLS-1$
 		setPCGenOption("postExportCommandStandard", SettingsHandler.getPostExportCommandStandard()); //$NON-NLS-1$
