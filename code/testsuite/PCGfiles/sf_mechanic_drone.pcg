@@ -1,0 +1,159 @@
+PCGVERSION:2.0
+
+# System Information
+CAMPAIGN:Starfinder RPG Core Supplements
+VERSION:6.09.00-DEV
+ROLLMETHOD:1|EXPRESSION:10
+PURCHASEPOINTS:N
+CHARACTERTYPE:PC
+PREVIEWSHEET:Standard.htm.ftl
+POOLPOINTS:0
+POOLPOINTSAVAIL:-1
+GAMEMODE:Starfinder
+AUTOSPELLS:Y
+USEHIGHERKNOWN:N
+USEHIGHERPREPPED:N
+LOADCOMPANIONS:N
+USETEMPMODS:Y
+SKILLSOUTPUTORDER:0
+SKILLFILTER:2
+IGNORECOST:N
+ALLOWDEBT:N
+AUTORESIZEGEAR:Y
+
+# Character Bio
+CHARACTERNAME:R2-D2
+TABNAME:01-Test Mechanic Drone
+PLAYERNAME:Andrew
+HEIGHT:0
+WEIGHT:0
+AGE:0
+GENDER:Neuter
+HANDED:Right
+SKINCOLOR:
+EYECOLOR:
+HAIRCOLOR:
+HAIRSTYLE:
+LOCATION:
+CITY:
+BIRTHDAY:
+BIRTHPLACE:
+PERSONALITYTRAIT1:
+PERSONALITYTRAIT2:
+SPEECHPATTERN:
+PHOBIAS:
+INTERESTS:
+CATCHPHRASE:
+PORTRAIT:
+
+# Character Attributes
+STAT:STR|SCORE:12
+STAT:DEX|SCORE:14
+STAT:CON|SCORE:10
+STAT:INT|SCORE:6
+STAT:WIS|SCORE:10
+STAT:CHA|SCORE:6
+ALIGN:NG
+RACE:Drone
+
+# Character Class(es)
+CLASS:Drone|LEVEL:1|SKILLPOOL:-1|SPELLBASE:None|CANCASTPERDAY:
+CLASSABILITIESLEVEL:Drone=1|HITPOINTS:1|SKILLSGAINED:0|SKILLSREMAINING:0
+
+# Character Experience
+EXPERIENCE:0
+EXPERIENCETABLE:Standard
+
+# Character Templates
+TEMPLATESAPPLIED:[NAME:SIZE ~ Small]
+TEMPLATESAPPLIED:[NAME:Small]
+
+# Character Region
+REGION:None
+
+# Character Skills
+
+# Character Languages
+
+
+# Character Feats
+FEATPOOL:0.0
+
+# Character Abilities
+ABILITY:DRONE Skill Unit|TYPE:NORMAL|CATEGORY:Internal|KEY:DRONE Skill Unit ~ Computers|TYPE:Drone Skill Unit
+USERPOOL:DRONE Skill Unit|POOLPOINTS:0.0
+ABILITY:Drone Chassis Selection|TYPE:NORMAL|CATEGORY:Internal|KEY:Drone Chassis ~ Stealth|TYPE:Drone Chassis Selection
+USERPOOL:Drone Chassis Selection|POOLPOINTS:0.0
+ABILITY:Drone Feat|TYPE:NORMAL|CATEGORY:Internal|KEY:Drone Feat ~ Far Shot|TYPE:Drone Feat
+ABILITY:Drone Feat|TYPE:NORMAL|CATEGORY:Internal|KEY:Drone Feat ~ Iron Will|TYPE:Drone Feat
+ABILITY:Drone Feat|TYPE:NORMAL|CATEGORY:Internal|KEY:Drone Feat ~ Skill Focus|TYPE:Drone Feat
+ABILITY:Drone Feat|TYPE:NORMAL|CATEGORY:Internal|KEY:Drone Feat ~ Suppressive Fire|TYPE:Drone Feat
+USERPOOL:Drone Feat|POOLPOINTS:0.0
+ABILITY:Drone Mod|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Drone Mod ~ Excavator|TYPE:Drone Mod.Class Feature.Extraordinary|DESC:Your drone gains a burrow speed equal to half its land speed. It can use this speed to move through clay, dirt, earth, and sand. It does not leave a hole behind, nor is its passage marked on the surface.
+ABILITY:Drone Mod|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Drone Mod ~ Flight System|APPLIEDTO:|TYPE:Drone Mod.Class Feature.Extraordinary|DESC:Your drone gains a fly speed equal to half its land speed with average maneuverability for up to 10 minutes per day. This duration need not be continuous, but it must be used in 1-minute increments. You can select this mod a second time; in this case, the drone's fly speed increases to its full land speed, and there is no limit on the amount of time it can fly.
+ABILITY:Drone Mod|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Drone Mod ~ Invisibility Field|TYPE:Drone Mod.Class Feature.Extraordinary|DESC:Once per day as a standard action, your drone can turn invisible for 10 minutes, as per the invisibility spell. If it makes an attack during this time, the invisibility ends. Your drone can spend 2 Resolve Points to use this ability again on the same day. Your drone must have the reactive camouflage mod to select this.
+ABILITY:Drone Mod|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Drone Mod ~ Manipulator Arms|TYPE:Drone Mod.Class Feature.Extraordinary|DESC:Your drone is equipped with two robotic arms with simple hands. They can perform most functions that your arms can perform (such as opening doors, typing on a keypad, wielding a weapon, or attempting skill checks that require manual dexterity), but attacks made with them take a -4 penalty.
+ABILITY:Drone Mod|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Drone Mod ~ Melee Weapon Arm|APPLIEDTO:|TYPE:Drone Mod.Class Feature.Extraordinary|DESC:Your drone is equipped with a robotic arm to which you can affix a one-handed melee weapon, allowing your drone to wield that weapon and attack with it. This weapon cannot be disarmed. Wielding a two-handed melee weapon requires two melee weapon arms. If you do not already have a weapon to equip, you must purchase it separately. Swapping out a weapon in a melee weapon arm requires use of your custom rig and 1 hour of work. You can select this mod multiple times, each time adding an additional melee weapon arm to the drone.
+USERPOOL:Drone Mod|POOLPOINTS:0.0
+ABILITY:Initial Drone Proficiency|TYPE:NORMAL|CATEGORY:Class Feature|KEY:Initial Drone Proficiency ~ Small Arms|TYPE:Initial Drone Proficiency
+USERPOOL:Initial Drone Proficiency|POOLPOINTS:0.0
+ABILITY:Skill Focus|TYPE:NORMAL|CATEGORY:FEAT|KEY:Skill Focus|APPLIEDTO:Computers|TYPE:General.SkillFocus|DESC:You are particularly adept at a certain skill.
+USERPOOL:Skill Focus|POOLPOINTS:0.0
+
+# Character Weapon proficiencies
+WEAPONPROF:[WEAPON:Anchor pistol (emergent)|WEAPON:Anchor pistol (flux)|WEAPON:Anchor pistol (inductive)|WEAPON:Anchor pistol (voltaic)|WEAPON:Arc pistol (aurora)|WEAPON:Arc pistol (static)|WEAPON:Arc pistol (storm)|WEAPON:Bone pistol (crypt-class)|WEAPON:Bone pistol (grave-class)|WEAPON:Bone pistol (sepulcher-class)]
+WEAPONPROF:[WEAPON:Bone pistol (vault-class)|WEAPON:Cavitation pistol (hydrodynamic)|WEAPON:Cavitation pistol (inertial)|WEAPON:Cavitation pistol (thermodynamic)|WEAPON:Cavitation pistol (vapor)|WEAPON:Compliance ray (flare)|WEAPON:Compliance ray (flash)|WEAPON:Compliance ray (starburst)|WEAPON:Compliance ray (strobe)|WEAPON:Compliance ray (sunspot)]
+WEAPONPROF:[WEAPON:Decoupler (bruiser)|WEAPON:Decoupler (pusher)|WEAPON:Decoupler (screamer)|WEAPON:Dirge pistol (anharmonic)|WEAPON:Dirge pistol (harmonic)|WEAPON:Dirge pistol (parametric)|WEAPON:Dirge pistol (radial)|WEAPON:Dirge pistol (resonant)|WEAPON:Disintegrator pistol (decimator)|WEAPON:Disintegrator pistol (eradicator)]
+WEAPONPROF:[WEAPON:Disintegrator pistol (executioner)|WEAPON:Disintegrator pistol (liquidator)|WEAPON:Dragon pistol (drake)|WEAPON:Dragon pistol (true)|WEAPON:Dragon pistol (wyrmling)|WEAPON:Dragon pistol (wyvern)|WEAPON:Flame pistol|WEAPON:Flame pistol (blaze)|WEAPON:Flame pistol (inferno)|WEAPON:Flame pistol (solar flare)]
+WEAPONPROF:[WEAPON:Flare gun (survival)|WEAPON:Forked pistol (10-notch)|WEAPON:Forked pistol (6-notch)|WEAPON:Forked pistol (8-notch)|WEAPON:Forked pistol (9-notch)|WEAPON:Graviton pistol (chiral)|WEAPON:Graviton pistol (linear)|WEAPON:Graviton pistol (tensor)|WEAPON:Graviton pistol (vector)|WEAPON:Gyrojet pistol (advanced)]
+WEAPONPROF:[WEAPON:Gyrojet pistol (elite)|WEAPON:Gyrojet pistol (tactical)|WEAPON:Hail pistol (absolute-zero)|WEAPON:Hail pistol (gelid)|WEAPON:Hail pistol (subzero)|WEAPON:Hail pistol (ultracold)|WEAPON:Handcannon (bombast)|WEAPON:Handcannon (braggadocio)|WEAPON:Handcannon (bravado)|WEAPON:Handcannon (gasconade)]
+WEAPONPROF:[WEAPON:Handcannon (swagger)|WEAPON:Handcoil (capital)|WEAPON:Handcoil (explorer)|WEAPON:Handcoil (fighter)|WEAPON:Handcoil (pilot)|WEAPON:Injector pistol (elite)|WEAPON:Injector pistol (medic)|WEAPON:Injector pistol (poacher)|WEAPON:Injector pistol (subjugation)|WEAPON:Injector pistol (zoologist)]
+WEAPONPROF:[WEAPON:Ionizer (chromic)|WEAPON:Ionizer (cupric)|WEAPON:Ionizer (ferric)|WEAPON:Ionizer (stannic)|WEAPON:Laser pistol (aphelion)|WEAPON:Laser pistol (azimuth)|WEAPON:Laser pistol (corona)|WEAPON:Laser pistol (parallax)|WEAPON:Laser pistol (perihelion)|WEAPON:Laser pistol (zenith)]
+WEAPONPROF:[WEAPON:Lens pistol (cylindrical)|WEAPON:Lens pistol (electron)|WEAPON:Lens pistol (lenticular)|WEAPON:Lens pistol (sunglass)|WEAPON:Lightning pistol (ribbon)|WEAPON:Lightning pistol (rocket)|WEAPON:Lightning pistol (sheet)|WEAPON:Lightning pistol (smooth-channel)|WEAPON:Needler pistol|WEAPON:Nightarch needler (advanced)]
+WEAPONPROF:[WEAPON:Nightarch needler (elite)|WEAPON:Nightarch needler (paragon)|WEAPON:Nightarch needler (tactical)|WEAPON:Perforator pistol (diffraction)|WEAPON:Perforator pistol (linear)|WEAPON:Perforator pistol (phased)|WEAPON:Perforator pistol (refraction)|WEAPON:Persuader|WEAPON:Plasma claw (biodynamic)|WEAPON:Plasma claw (electrocellular)]
+WEAPONPROF:[WEAPON:Plasma claw (organic)|WEAPON:Plasma claw (synthecite)|WEAPON:Plasma pistol (blue star)|WEAPON:Plasma pistol (red star)|WEAPON:Plasma pistol (white star)|WEAPON:Plasma pistol (yellow star)|WEAPON:Plasma ring (dual-valve)|WEAPON:Plasma ring (multichannel)|WEAPON:Plasma ring (single-valve)|WEAPON:Pulsecaster (pistol)]
+WEAPONPROF:[WEAPON:Radshot (electromagnetic)|WEAPON:Radshot (neutron)|WEAPON:Radshot (rapid-decay)|WEAPON:Resonant pistol (lattice)|WEAPON:Resonant pistol (matrix)|WEAPON:Rotating pistol (advanced)|WEAPON:Rotating pistol (elite)|WEAPON:Rotating pistol (tactical)|WEAPON:Scorchgun (C-band)|WEAPON:Scorchgun (K-band)]
+WEAPONPROF:[WEAPON:Scorchgun (microwave)|WEAPON:Scorchgun (S-band)|WEAPON:Scorchgun (X-band)|WEAPON:Semi-auto pistol (advanced)|WEAPON:Semi-auto pistol (elite)|WEAPON:Semi-auto pistol (paragon)|WEAPON:Semi-auto pistol (tactical)|WEAPON:Shadow pistol (caliginous)|WEAPON:Shadow pistol (sable)|WEAPON:Shadow pistol (tenebrous)]
+WEAPONPROF:[WEAPON:Shadow pistol (umbral)|WEAPON:Shellgun (blaze)|WEAPON:Shellgun (bombard)|WEAPON:Shellgun (fury)|WEAPON:Shield projector (defender)|WEAPON:Shield projector (guardian)|WEAPON:Shield projector (sentry)|WEAPON:Shield projector (warden)|WEAPON:Shoulder laser (aphelion)|WEAPON:Shoulder laser (azimuth)]
+WEAPONPROF:[WEAPON:Shoulder laser (corona)|WEAPON:Shoulder laser (perihelion)|WEAPON:Shrieking larva|WEAPON:Sonic pistol (banshee)|WEAPON:Sonic pistol (HFD)|WEAPON:Sonic pistol (LFD)|WEAPON:Sonic pistol (thunderstrike)|WEAPON:Sonic suppressor (hush)|WEAPON:Sonic suppressor (murmur)|WEAPON:Sonic suppressor (repose)]
+WEAPONPROF:[WEAPON:Sonic suppressor (whisper)|WEAPON:Sting pistol (ant)|WEAPON:Sting pistol (hornet)|WEAPON:Sting pistol (wasp)|WEAPON:Sting pistol (yellow jacket)|WEAPON:Subduer (frost)|WEAPON:Subduer (glacier)|WEAPON:Subduer (rime)|WEAPON:Subduer (sleet)|WEAPON:Tetrad rings (advanced)]
+WEAPONPROF:[WEAPON:Tetrad rings (elite)|WEAPON:Tetrad rings (tactical)|WEAPON:Wave modulator I|WEAPON:Wave modulator II|WEAPON:Wave modulator III|WEAPON:Wave modulator IV|WEAPON:Wave modulator V|WEAPON:Wave modulator VI|WEAPON:Wave modulator VII|WEAPON:Zero pistol (avalanche-class)]
+WEAPONPROF:[WEAPON:Zero pistol (blizzard-class)|WEAPON:Zero pistol (frostbite-class)|WEAPON:Zero pistol (hailstorm-class)]
+
+# Character Equipment
+MONEY:0
+EQUIPSET:Default Set|ID:0.1|USETEMPMODS:Y
+CALCEQUIPSET:0.1
+
+# Temporary Bonuses
+
+# EquipSet Temp Bonuses
+
+# Character Deity/Domain
+
+# Character Spells Information
+
+# Character Description/Bio/History
+CHARACTERBIO:
+CHARACTERDESC:
+CHARACTERCOMP:
+CHARACTERASSET:
+CHARACTERMAGIC:
+CHARACTERDMNOTES:
+
+# Kits
+KIT:Drone ~ Stealth
+
+# Character Master/Follower
+MASTER:Yo-yo|TYPE:Drone|HITDICE:0|FILE:sf_mechanic.pcg|ADJUSTMENT:0
+
+# Character Notes Tab
+
+# Age Set Selections
+AGESET:0:0:0:0:0:0:0:0:0:0
+
+# Campaign History
+
+# Suppressed Biography Fields
+SUPPRESSBIOFIELDS:
+

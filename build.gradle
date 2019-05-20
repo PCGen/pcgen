@@ -325,6 +325,13 @@ task inttest(type: Test, dependsOn: 'jar') {
     include 'pcgen/inttest/**/*Test.class'
 }
 
+task sfinttest(type: Test, dependsOn: 'jar') {
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
+    classpath = sourceSets.slowtest.runtimeClasspath
+    forkEvery = 1
+    include 'pcgen/inttest/game_starfinder/*Test.class'
+}
+
 task pfinttest(type: Test, dependsOn: 'jar') {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
