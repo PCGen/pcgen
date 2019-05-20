@@ -2756,7 +2756,7 @@ public class Initiative extends javax.swing.JPanel
 		 */
 		private TypeEditor(String[] items)
 		{
-			super(new JComboBox(items));
+			super(new JComboBox<>(items));
 		}
 	}
 
@@ -2764,7 +2764,7 @@ public class Initiative extends javax.swing.JPanel
 	 * A table cell renderer
 	 */
 	@SuppressWarnings("ALL")
-	public static class TypeRenderer extends JComboBox implements TableCellRenderer
+	public static class TypeRenderer extends JComboBox<String> implements TableCellRenderer
 	{
 
 		/**

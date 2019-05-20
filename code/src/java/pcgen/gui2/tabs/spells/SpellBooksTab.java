@@ -74,7 +74,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 	private final FilterButton<CharacterFacade, SuperNode> qFilterButton;
 	private final InfoPane spellsPane;
 	private final InfoPane classPane;
-	private final JComboBox defaultBookCombo;
+	private final JComboBox<String> defaultBookCombo;
 
 	public SpellBooksTab()
 	{
@@ -97,7 +97,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		this.qFilterButton = new FilterButton<>("SpellBooksQualified");
 		this.spellsPane = new InfoPane(LanguageBundle.getString("InfoSpells.spell.info"));
 		this.classPane = new InfoPane(LanguageBundle.getString("InfoSpells.class.info"));
-		this.defaultBookCombo = new JComboBox();
+		this.defaultBookCombo = new JComboBox<>();
 		initComponents();
 	}
 

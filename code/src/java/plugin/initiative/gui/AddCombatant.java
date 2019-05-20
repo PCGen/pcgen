@@ -43,7 +43,7 @@ public class AddCombatant extends AbstractDialog
 	/** The initiative component */
 	public Initiative initiative;
 
-	private javax.swing.JComboBox typeCombo;
+	private javax.swing.JComboBox<String> typeCombo;
 
 	private javax.swing.JLabel nameLabel;
 	private javax.swing.JLabel conLabel;
@@ -176,7 +176,7 @@ public class AddCombatant extends AbstractDialog
 		numberSlider = Utils.buildSlider(1, 20);
 		hpSlider = Utils.buildSlider(1, 100, 5, 25);
 
-		typeCombo = new javax.swing.JComboBox();
+		typeCombo = new javax.swing.JComboBox<>();
 
 		jSeparator1 = new javax.swing.JSeparator();
 

@@ -111,7 +111,7 @@ public class EquipmentModels
 	private final EquipFilterHandler filterHandler;
 	private EquipView selectedView;
 	private EquipmentTableModel selectedModel;
-	private final JComboBox equipViewBox;
+	private final JComboBox<String> equipViewBox;
 	private final JTableEx equipmentTable;
 	private final JTreeTable equipmentSetTable;
 	private final JButton equipButton;
@@ -120,7 +120,7 @@ public class EquipmentModels
 	private final JButton moveDownButton;
 	private final DisplayableFilter<? super CharacterFacade, ? super EquipmentFacade> filter;
 
-	public EquipmentModels(CharacterFacade character, JComboBox equipBox, JTableEx eqTable,
+	public EquipmentModels(CharacterFacade character, JComboBox<String> equipBox, JTableEx eqTable,
 		DisplayableFilter<? super CharacterFacade, ? super EquipmentFacade> filter, JTreeTable eqSetTable,
 		JButton equipButton, JButton unequipButton, JButton moveUpButton, JButton moveDownButton)
 	{
@@ -641,7 +641,7 @@ public class EquipmentModels
 			{
 				comboBox.removeActionListener(this);
 			}
-			comboBox = new JComboBox<>(equipMap.getListFor(equipment).toArray());
+			comboBox = new JComboBox(equipMap.getListFor(equipment).toArray());
 			comboBox.setSelectedItem(value);
 			comboBox.addActionListener(this);
 			return comboBox;

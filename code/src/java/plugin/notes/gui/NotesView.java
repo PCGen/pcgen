@@ -176,7 +176,7 @@ public class NotesView extends JPanel
 	private JButton rightJustifyButton;
 	private JButton saveButton;
 	private JButton underlineButton;
-	private JComboBox sizeCB;
+	private JComboBox<String> sizeCB;
 	private JPanel filePane;
 	private JPanel jPanel1;
 	private JPanel jPanel2;
@@ -1084,7 +1084,7 @@ public class NotesView extends JPanel
 		copyButton = new JButton();
 		pasteButton = new JButton();
 		formatBar = new JToolBar();
-		sizeCB = new JComboBox();
+		sizeCB = new JComboBox<>();
 		boldButton = new JButton();
 		italicButton = new JButton();
 		underlineButton = new JButton();

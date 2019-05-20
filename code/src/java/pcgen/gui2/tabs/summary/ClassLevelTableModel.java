@@ -66,10 +66,10 @@ public class ClassLevelTableModel extends AbstractTableModel implements ListList
 	private CharacterFacade character;
 	private Editor editor = new Editor();
 	private Editor renderer = new Editor();
-	private JComboBox classComboBox;
+	private JComboBox<String> classComboBox;
 	private JTable classTable;
 
-	public ClassLevelTableModel(CharacterFacade character, JTable table, JComboBox comboBox)
+	public ClassLevelTableModel(CharacterFacade character, JTable table, JComboBox<String> comboBox)
 	{
 		super();
 		this.character = character;

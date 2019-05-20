@@ -53,13 +53,13 @@ public class EncounterView extends JPanel
 	private JButton generateEncounter;
 	private JButton removeCreature;
 	private JButton transferToTracker;
-	private JComboBox environment;
+	private JComboBox<String> environment;
 	private JLabel encounterLevel;
 
 	private JLabel numberLabel;
 	private JLabel targetLabel;
-	private JList encounterCreatures;
-	private JList libraryCreatures;
+	private JList<String> encounterCreatures;
+	private JList<String> libraryCreatures;
 	private JTextField numberOfCreatures;
 	private JTextField targetEncounterLevel;
 
@@ -82,7 +82,7 @@ public class EncounterView extends JPanel
 	 * getEncounterCreatures
 	 * @return encounterCreatures
 	 */
-	public JList getEncounterCreatures()
+	public JList<String> getEncounterCreatures()
 	{
 		return encounterCreatures;
 	}
@@ -91,7 +91,7 @@ public class EncounterView extends JPanel
 	 * Get environment
 	 * @return environment
 	 */
-	public JComboBox getEnvironment()
+	public JComboBox<String> getEnvironment()
 	{
 		return environment;
 	}
@@ -109,7 +109,7 @@ public class EncounterView extends JPanel
 	 * Get library creatures
 	 * @return library creatures
 	 */
-	public JList getLibraryCreatures()
+	public JList<String> getLibraryCreatures()
 	{
 		return libraryCreatures;
 	}
@@ -204,19 +204,19 @@ public class EncounterView extends JPanel
 		numberLabel = new JLabel();
 		numberOfCreatures = new JTextField();
 		JLabel jLabel3 = new JLabel();
-		environment = new JComboBox();
+		environment = new JComboBox<>();
 		generateEncounter = new JButton();
 		transferToTracker = new JButton();
 		Container jPanel4 = new JPanel();
 		Container jPanel2 = new JPanel();
 		JScrollPane jScrollPane1 = new JScrollPane();
-		libraryCreatures = new JList();
+		libraryCreatures = new JList<>();
 		JPanel jPanel6 = new JPanel();
 		JPanel jPanel3 = new JPanel();
 		addCreature = new JButton();
 		removeCreature = new JButton();
 		JScrollPane jScrollPane2 = new JScrollPane();
-		encounterCreatures = new JList();
+		encounterCreatures = new JList<>();
 		Container jPanel5 = new JPanel();
 		JLabel jLabel4 = new JLabel();
 		encounterLevel = new JLabel();

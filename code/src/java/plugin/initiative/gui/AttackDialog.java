@@ -81,15 +81,15 @@ public class AttackDialog extends JDialog
 	private AttackTableModel m_tableModel = null;
 
 	/** <p>{@code JComboBox} for Armor class types.</p> */
-	private JComboBox m_acTypeCombo;
+	private JComboBox<String> m_acTypeCombo;
 
 	/**
 	 * Cell editor for target column
 	 */
-	private JComboBox m_targets = null;
+	private JComboBox<String> m_targets = null;
 
 	/** <p>{@code JComboBox} for combatants.</p> */
-	private JComboBox m_targetsCombo;
+	private JComboBox<String> m_targetsCombo;
 
 	/** <p>Text field for the armor class</p> */
 	private JFormattedTextField m_field;
@@ -360,16 +360,16 @@ public class AttackDialog extends JDialog
 
 		if ((m_combatants != null) && (!m_combatants.isEmpty()))
 		{
-			m_targets = new JComboBox(m_combatants);
+			m_targets = new JComboBox<>(m_combatants);
 			m_table.setDefaultEditor(PcgCombatant.class, new DefaultCellEditor(m_targets));
 
 			//If we have combatants, initialize the top panel and populate
 			//the JComboBox
-			m_targetsCombo = new JComboBox(m_combatants);
+			m_targetsCombo = new JComboBox<>(m_combatants);
 			m_targetsCombo.addActionListener(this::handleTargetAction);
 			top.add(new JLabel("Attack Character: "));
 			top.add(m_targetsCombo);
-			m_acTypeCombo = new JComboBox();
+			m_acTypeCombo = new JComboBox<>();
 			m_acTypeCombo.addItem("Total");
 			m_acTypeCombo.addItem("Flatfooted");
 			m_acTypeCombo.addItem("Touch");
