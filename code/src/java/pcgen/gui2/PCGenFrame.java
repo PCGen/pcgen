@@ -1606,8 +1606,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			return choiceHandler.get().makeChoice(chooserFacade);
 		}
 
-		if (chooserFacade.isPreferRadioSelection() && chooserFacade.getAvailableList().getSize() <= 20
-			&& chooserFacade.getRemainingSelections().get() == 1)
+		if (chooserFacade.isPreferRadioSelection() && chooserFacade.getRemainingSelections().get() == 1)
 		{
 			RadioChooserDialog dialog = new RadioChooserDialog(this, chooserFacade);
 			Utility.setComponentRelativeLocation(this, dialog);
