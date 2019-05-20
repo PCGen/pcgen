@@ -20,11 +20,7 @@ package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,8 +37,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTree;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.SwingConstants;
-import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -71,9 +65,13 @@ import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui2.prefs.SourcesPanel;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.preferences.CenteredLabelPanelController;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
+
+import javafx.embed.swing.JFXPanel;
 
 /**
  *  PCGen preferences dialog
@@ -189,27 +187,14 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	}
 
-	private static JPanel buildEmptyPanel(String title, String messageText)
+	private static JFXPanel buildEmptyPanel(String messageText)
 	{
-		JPanel panel = new JPanel();
-		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, title);
-
-		title1.setTitleJustification(TitledBorder.LEFT);
-		panel.setBorder(title1);
-		GridBagLayout gridbag = new GridBagLayout();
-		panel.setLayout(gridbag);
-		GridBagConstraints c = new GridBagConstraints();
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.CENTER;
-		c.insets = new Insets(2, 2, 2, 2);
-
-		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
-		c.fill = GridBagConstraints.BOTH;
-		Component label = new JLabel(messageText, SwingConstants.CENTER);
-		gridbag.setConstraints(label, c);
-		panel.add(label);
-
+		final var panel =
+				new JFXPanelFromResource<>(
+						CenteredLabelPanelController.class,
+						"CenteredLabelPanel.fxml"
+				);
+		panel.getController().setText(messageText);
 		return panel;
 	}
 
@@ -231,7 +216,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 		// Build the selection tree
 		characterNode = new DefaultMutableTreeNode(IN_CHARACTER);
-		settingsPanel.add(buildEmptyPanel("", LanguageBundle.getString("in_Prefs_charTip")), IN_CHARACTER);
+		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_Prefs_charTip")), IN_CHARACTER);
 
 		characterStatsPanel = new CharacterStatsPanel(this);
 		addPanelToTree(characterNode, characterStatsPanel);
@@ -246,7 +231,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		rootNode.add(characterNode);
 
 		appearanceNode = new DefaultMutableTreeNode(IN_APPERANCE);
-		settingsPanel.add(buildEmptyPanel("", LanguageBundle.getString("in_Prefs_appearanceTip")), IN_APPERANCE);
+		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_Prefs_appearanceTip")), IN_APPERANCE);
 
 		colorsPanel = new ColorsPanel();
 		addPanelToTree(appearanceNode, colorsPanel);
@@ -257,7 +242,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		rootNode.add(appearanceNode);
 
 		pcGenNode = new DefaultMutableTreeNode(Constants.APPLICATION_NAME);
-		settingsPanel.add(buildEmptyPanel("", LanguageBundle.getString("in_Prefs_pcgenTip")),
+		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_Prefs_pcgenTip")),
 			Constants.APPLICATION_NAME);
 
 		equipmentPanel = new EquipmentPanel();
@@ -276,7 +261,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 		String in_gamemode = LanguageBundle.getString("in_mnuSettingsCampaign");
 		gameModeNode = new DefaultMutableTreeNode(in_gamemode);
-		settingsPanel.add(buildEmptyPanel("", LanguageBundle.getString("in_mnuSettingsCampaignTip")), in_gamemode);
+		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_mnuSettingsCampaignTip")), in_gamemode);
 
 		copySettingsPanel = new CopySettingsPanel();
 		addPanelToTree(gameModeNode, copySettingsPanel);
