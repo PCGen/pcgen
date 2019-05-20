@@ -126,7 +126,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements Prere
 				servesAs.addAll(ref.getContainedObjects());
 			}
 
-			if (servesAs.size() > 0)
+			if (!servesAs.isEmpty())
 			{
 				serveAsSkills.put(aSkill, servesAs);
 			}
