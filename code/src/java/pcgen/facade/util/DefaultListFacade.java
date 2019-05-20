@@ -43,7 +43,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 	@Override
 	public Iterator<E> iterator()
 	{
-		return new Iterator<E>()
+		return new Iterator<>()
 		{
 
 			private final ListIterator<E> iterator = elementList.listIterator();

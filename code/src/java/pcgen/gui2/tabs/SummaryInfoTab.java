@@ -888,7 +888,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			//initialize character type model
 			characterTypeModel =
-					new CharacterComboBoxModel<String>(dataset.getCharacterTypes(), character.getCharacterTypeRef())
+					new CharacterComboBoxModel<>(dataset.getCharacterTypes(), character.getCharacterTypeRef())
 					{
 
 						@Override
@@ -901,7 +901,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			//initialize gender model
 			genderModel =
-					new CharacterComboBoxModel<Gender>(character.getAvailableGenders(), character.getGenderRef())
+					new CharacterComboBoxModel<>(character.getAvailableGenders(), character.getGenderRef())
 					{
 
 						@Override
@@ -914,7 +914,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			//initialize handed model
 			handsModel =
-					new CharacterComboBoxModel<Handed>(character.getAvailableHands(), character.getHandedRef())
+					new CharacterComboBoxModel<>(character.getAvailableHands(), character.getHandedRef())
 					{
 
 						@Override
@@ -929,7 +929,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			{
 				//initialize alignment model
 				alignmentModel =
-						new CharacterComboBoxModel<PCAlignment>(dataset.getAlignments(), character.getAlignmentRef())
+						new CharacterComboBoxModel<>(dataset.getAlignments(), character.getAlignmentRef())
 						{
 
 							@Override
@@ -944,7 +944,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			if (character.isFeatureEnabled(CControl.DOMAINFEATURE))
 			{
 				//initialize deity model
-				deityModel = new CharacterComboBoxModel<Deity>(dataset.getDeities(), character.getDeityRef())
+				deityModel = new CharacterComboBoxModel<>(dataset.getDeities(), character.getDeityRef())
 				{
 
 					@Override
@@ -957,7 +957,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			}
 
 			//initialize race model
-			raceModel = new DeferredCharacterComboBoxModel<Race>(dataset.getRaces(), character.getRaceRef())
+			raceModel = new DeferredCharacterComboBoxModel<>(dataset.getRaces(), character.getRaceRef())
 			{
 
 				@Override
@@ -969,8 +969,10 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			};
 
 			//initialize age category model
-			ageCatModel = new CharacterComboBoxModel<String>(character.getAgeCategories(),
-				character.getAgeCategoryRef())
+			ageCatModel = new CharacterComboBoxModel<>(
+					character.getAgeCategories(),
+					character.getAgeCategoryRef()
+			)
 			{
 
 				@Override
@@ -982,7 +984,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			};
 
 			//initialize XP table model
-			xpTableModel = new CharacterComboBoxModel<String>(dataset.getXPTableNames(), character.getXPTableNameRef())
+			xpTableModel = new CharacterComboBoxModel<>(dataset.getXPTableNames(), character.getXPTableNameRef())
 			{
 
 				@Override

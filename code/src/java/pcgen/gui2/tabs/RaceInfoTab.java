@@ -489,7 +489,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 
 		private static final DefaultListFacade<? extends TreeView<Race>> TREE_VIEWS =
-				new DefaultListFacade<TreeView<Race>>(Arrays.asList(RaceTreeView.values()));
+				new DefaultListFacade<>(Arrays.asList(RaceTreeView.values()));
 		private final CharacterFacade character;
 		private final boolean isAvailModel;
 		private final DataView<Race> dataView;

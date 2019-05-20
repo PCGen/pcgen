@@ -2,7 +2,7 @@
 
 <!--
    - Code quality rule set for use with the PCGen Java code.
-   - See https://pmd.github.io/pmd-6.0.0/pmd_rules_java.html
+   - See https://pmd.github.io/pmd-6.11.0/pmd_rules_java.html
    - for descriptions of the rules applied. 
  -->
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -40,6 +40,8 @@
         <exclude name="UseAssertTrueInsteadOfAssertEquals"/>
         <exclude name="UseAssertEqualsInsteadOfAssertTrue"/>
         <exclude name="UseAssertSameInsteadOfAssertTrue"/>
+        <exclude name="ForLoopVariableCount"/>
+        <exclude name="AvoidReassigningLoopVariables"/>
     </rule>
     <rule ref="category/java/codestyle.xml">
         <exclude name="AbstractNaming"/>
@@ -163,6 +165,7 @@
         <exclude name="DoNotUseThreads"/>
         <exclude name="NonThreadSafeSingleton"/>
         <exclude name="UseConcurrentHashMap"/>
+        <exclude name="UnsynchronizedStaticFormatter"/>
     </rule>
     <rule ref="category/java/performance.xml">
         <exclude name="AppendCharacterWithChar"/>

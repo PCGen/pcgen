@@ -447,7 +447,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private class QualifiedFilterHandler
 	{
 
-		private final Filter<Object, DomainFacade> domainFilter = new Filter<Object, DomainFacade>()
+		private final Filter<Object, DomainFacade> domainFilter = new Filter<>()
 		{
 			@Override
 			public boolean accept(Object context, DomainFacade element)
@@ -456,7 +456,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			}
 
 		};
-		private final Filter<Object, Deity> deityFilter = new Filter<Object, Deity>()
+		private final Filter<Object, Deity> deityFilter = new Filter<>()
 		{
 			@Override
 			public boolean accept(Object context, Deity element)
@@ -602,7 +602,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	private static class DomainTableModel extends FilteredListFacadeTableModel<DomainFacade>
 	{
 
-		private final ListListener<DomainFacade> listListener = new ListListener<DomainFacade>()
+		private final ListListener<DomainFacade> listListener = new ListListener<>()
 		{
 			@Override
 			public void elementAdded(ListEvent<DomainFacade> e)

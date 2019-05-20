@@ -80,7 +80,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 		super("SpellBooks");
 		this.availableTable = new FilteredTreeViewTable<>();
-		this.selectedTable = new JTreeViewTable<SuperNode>()
+		this.selectedTable = new JTreeViewTable<>()
 		{
 
 			@Override
