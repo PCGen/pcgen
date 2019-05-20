@@ -135,7 +135,6 @@ public final class SettingsHandler
 	private static final String TMP_PATH = System.getProperty("java.io.tmpdir"); //$NON-NLS-1$
 	private static final File TEMP_PATH = new File(getTmpPath());
 	private static boolean useHigherLevelSlotsDefault = false;
-	private static boolean wantToLoadMasterworkAndMagic = false;
 	private static boolean weaponProfPrintout = Constants.DEFAULT_PRINTOUT_WEAPONPROF;
 	private static String postExportCommandStandard = ""; //$NON-NLS-1$
 	private static String postExportCommandPDF = ""; //$NON-NLS-1$
@@ -807,7 +806,6 @@ public final class SettingsHandler
 		setShowSkillRanks(getPCGenOption("showSkillRanks", true)); //$NON-NLS-1$
 		setShowWarningAtFirstLevelUp(getPCGenOption("showWarningAtFirstLevelUp", true)); //$NON-NLS-1$
 		setUseHigherLevelSlotsDefault(getPCGenOption("useHigherLevelSlotsDefault", false)); //$NON-NLS-1$
-		setWantToLoadMasterworkAndMagic(getPCGenOption("loadMasterworkAndMagicFromLst", false)); //$NON-NLS-1$
 		setWeaponProfPrintout(getPCGenOption("weaponProfPrintout", Constants.DEFAULT_PRINTOUT_WEAPONPROF));
 
 		// Load up all the RuleCheck stuff from the options.ini file
@@ -1007,7 +1005,6 @@ public final class SettingsHandler
 		setPCGenOption("invalidDmgText", getInvalidDmgText()); //$NON-NLS-1$
 		setPCGenOption("invalidToHitText", getInvalidToHitText()); //$NON-NLS-1$
 		setPCGenOption("lastTipOfTheDayTipShown", getLastTipShown()); //$NON-NLS-1$
-		setPCGenOption("loadMasterworkAndMagicFromLst", wantToLoadMasterworkAndMagic()); //$NON-NLS-1$
 		setPCGenOption("loadURLs", loadURLs); //$NON-NLS-1$
 		setPCGenOption("looknFeel", getLookAndFeel()); //$NON-NLS-1$
 		setPCGenOption("maxPotionSpellLevel", maxPotionSpellLevel().get()); //$NON-NLS-1$
@@ -1496,11 +1493,6 @@ public final class SettingsHandler
 		SettingsHandler.useHigherLevelSlotsDefault = useHigherLevelSlotsDefault;
 	}
 
-	public static void setWantToLoadMasterworkAndMagic(final boolean bFlag)
-	{
-		wantToLoadMasterworkAndMagic = bFlag;
-	}
-
 	public static void setWeaponProfPrintout(final boolean argPreference)
 	{
 		weaponProfPrintout = argPreference;
@@ -1595,11 +1587,6 @@ public final class SettingsHandler
 	{
 		return getFilterSettings().getProperty("pcgen.filters." + optionName, //$NON-NLS-1$
 			getOptions().getProperty("pcgen.filters." + optionName, "")); //$NON-NLS-1$ //$NON-NLS-2$
-	}
-
-	public static boolean wantToLoadMasterworkAndMagic()
-	{
-		return wantToLoadMasterworkAndMagic;
 	}
 
 	private static String getPropertiesFileHeader(final String description)
