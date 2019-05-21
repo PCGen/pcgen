@@ -25,6 +25,7 @@ import java.awt.SystemColor;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -636,7 +637,7 @@ public final class SettingsHandler
 		//$NON-NLS-1$
 		Double dh = getPCGenOption("customizer.windowHeight", 0.0); //$NON-NLS-1$
 
-		if (!CoreUtility.doublesEqual(dw.doubleValue(), 0.0) && !CoreUtility.doublesEqual(dh.doubleValue(), 0.0))
+		if (!CoreUtility.doublesEqual(dw, 0.0) && !CoreUtility.doublesEqual(dh, 0.0))
 		{
 			setCustomizerDimension(new Dimension(dw.intValue(), dh.intValue()));
 		}
@@ -647,7 +648,7 @@ public final class SettingsHandler
 		dw = getPCGenOption("kitSelector.windowWidth", 0.0); //$NON-NLS-1$
 		dh = getPCGenOption("kitSelector.windowHeight", 0.0); //$NON-NLS-1$
 
-		if (!CoreUtility.doublesEqual(dw.doubleValue(), 0.0) && !CoreUtility.doublesEqual(dh.doubleValue(), 0.0))
+		if (!CoreUtility.doublesEqual(dw, 0.0) && !CoreUtility.doublesEqual(dh, 0.0))
 		{
 			setKitSelectorDimension(new Dimension(dw.intValue(), dh.intValue()));
 		}
@@ -991,7 +992,7 @@ public final class SettingsHandler
 
 	public static int getPCGenOption(final String optionName, final int defaultValue)
 	{
-		return Integer.decode(getPCGenOption(optionName, String.valueOf(defaultValue))).intValue();
+		return Integer.decode(getPCGenOption(optionName, String.valueOf(defaultValue)));
 	}
 
 	public static String getPCGenOption(final String optionName, final String defaultValue)
@@ -1148,12 +1149,7 @@ public final class SettingsHandler
 	 **/
 	public static void setRuleCheck(final String aKey, final boolean aBool)
 	{
-		String aVal = "N"; //$NON-NLS-1$
-
-		if (aBool)
-		{
-			aVal = "Y"; //$NON-NLS-1$
-		}
+		String aVal = (aBool) ? "Y" : "N";
 
 		ruleCheckMap.put(aKey, aVal);
 	}
@@ -1168,11 +1164,7 @@ public final class SettingsHandler
 		if (ruleCheckMap.containsKey(aKey))
 		{
 			final String aVal = ruleCheckMap.get(aKey);
-
-			if (aVal.equals("Y")) //$NON-NLS-1$
-			{
-				return true;
-			}
+			return aVal.equals("Y");
 		}
 
 		return false;
@@ -1481,11 +1473,8 @@ public final class SettingsHandler
 		// Globals.getOptionsPath() will _always_ return a string
 		final String optionsLocation = Globals.getOptionsPath();
 
-		FileInputStream in = null;
-
-		try
+		try(InputStream in = new FileInputStream(optionsLocation))
 		{
-			in = new FileInputStream(optionsLocation);
 			getOptions().load(in);
 		}
 		catch (IOException e)
@@ -1496,36 +1485,6 @@ public final class SettingsHandler
 				Logging.debugPrint(LanguageBundle.getString("SettingsHandler.no.options.file")); //$NON-NLS-1$
 			}
 		}
-		finally
-		{
-			try
-			{
-				if (in != null)
-				{
-					in.close();
-				}
-			}
-			catch (IOException ex)
-			{
-				//Not much to do about it...
-				Logging.errorPrint(
-					LanguageBundle.getString("SettingsHandler.can.not.close.options.file"), ex); //$NON-NLS-1$
-			}
-		}
-	}
-
-	/**
-	 * retrieve filter settings
-	 *
-	 * <br>author: Thomas Behr 19-02-02
-	 *
-	 * @param optionName   the name of the property to retrieve
-	 * @return filter settings
-	 */
-	public static String retrieveFilterSettings(final String optionName)
-	{
-		return getFilterSettings().getProperty("pcgen.filters." + optionName, //$NON-NLS-1$
-			getOptions().getProperty("pcgen.filters." + optionName, "")); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	private static String getPropertiesFileHeader(final String description)
@@ -1580,7 +1539,7 @@ public final class SettingsHandler
 	 *
 	 * @return the default {@code Dimension} to set the screen size to
 	 */
-	public static boolean getPCGenOption(final String optionName, final boolean defaultValue)
+	private static boolean getPCGenOption(final String optionName, final boolean defaultValue)
 	{
 		final String option = getPCGenOption(optionName, defaultValue ? "true" : "false"); //$NON-NLS-1$ //$NON-NLS-2$
 
