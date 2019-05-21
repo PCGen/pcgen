@@ -189,10 +189,13 @@ public final class LanguagePanel extends PCGenPrefsPanel
 	@Override
 	public void setOptionsBasedOnControls()
 	{
-		String languageShortString = (String)languageChoiceGroup.getSelectedToggle().getUserData();
+		if (languageChoiceGroup.getSelectedToggle() != null)
+		{
+			String languageShortString = (String) languageChoiceGroup.getSelectedToggle().getUserData();
 
-		ConfigurationSettings.setLanguage(languageShortString);
-		ConfigurationSettings.setCountry(languageShortString.toUpperCase(Locale.ENGLISH));
+			ConfigurationSettings.setLanguage(languageShortString);
+			ConfigurationSettings.setCountry(languageShortString.toUpperCase(Locale.ENGLISH));
+		}
 
 		SettingsHandler.getGame().selectUnitSet(unitSetType.getValue());
 	}
@@ -202,7 +205,7 @@ public final class LanguagePanel extends PCGenPrefsPanel
 	@Override
 	public boolean needsRestart()
 	{
-		if (originalLanguage != languageChoiceGroup.getSelectedToggle().getUserData())
+		if (languageChoiceGroup.getSelectedToggle() != null && originalLanguage != languageChoiceGroup.getSelectedToggle().getUserData())
 		{
 			return true;
 		}
