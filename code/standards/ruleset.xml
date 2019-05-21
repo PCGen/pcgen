@@ -2,7 +2,7 @@
 
 <!--
    - Code quality rule set for use with the PCGen Java code.
-   - See https://pmd.github.io/pmd-6.11.0/pmd_rules_java.html
+   - See https://pmd.github.io/pmd-6.14.0/pmd_rules_java.html
    - for descriptions of the rules applied. 
  -->
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
