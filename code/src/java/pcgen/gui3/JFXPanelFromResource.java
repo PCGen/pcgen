@@ -33,6 +33,7 @@ import javafx.stage.Stage;
 
 /**
  * Displays HTML content as a "panel".
+ *
  * @param <T> The class of the controller
  */
 public final class JFXPanelFromResource<T> extends JFXPanel implements Controllable<T>
@@ -41,7 +42,7 @@ public final class JFXPanelFromResource<T> extends JFXPanel implements Controlla
 	private final FXMLLoader fxmlLoader = new FXMLLoader();
 
 	/**
-	 * @param klass the class that contains the resource load
+	 * @param klass        the class that contains the resource load
 	 * @param resourceName the relative filename of the FXML file to load.
 	 */
 	public JFXPanelFromResource(Class<? extends T> klass, String resourceName)
@@ -76,7 +77,24 @@ public final class JFXPanelFromResource<T> extends JFXPanel implements Controlla
 			stage.setTitle(title);
 			stage.setScene(getScene());
 			stage.sizeToScene();
-			stage.showAndWait();
+			stage.show();
 		});
 	}
+
+	public void showAndBlock(String title)
+	{
+		CompletableFuture<Integer> lock = new CompletableFuture<>();
+		Platform.runLater(() -> {
+			Stage stage = new Stage();
+			stage.setTitle(title);
+			stage.setScene(getScene());
+			stage.sizeToScene();
+			stage.showAndWait();
+			Logging.errorPrint("passed wait");
+			lock.completeAsync(() -> 0);
+
+		});
+		lock.join();
+	}
+
 }
