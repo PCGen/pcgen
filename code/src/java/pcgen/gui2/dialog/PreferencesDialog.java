@@ -49,15 +49,13 @@ import javax.swing.tree.TreeSelectionModel;
 import pcgen.cdom.base.Constants;
 import pcgen.gui2.prefs.CharacterStatsPanel;
 import pcgen.gui2.prefs.ColorsPanel;
+import pcgen.gui2.prefs.ConvertedJavaFXPanel;
 import pcgen.gui2.prefs.CopySettingsPanel;
 import pcgen.gui2.prefs.DefaultsPanel;
 import pcgen.gui2.prefs.DisplayOptionsPanel;
-import pcgen.gui2.prefs.EquipmentPanel;
 import pcgen.gui2.prefs.HitPointsPanel;
 import pcgen.gui2.prefs.HouseRulesPanel;
-import pcgen.gui2.prefs.InputPanel;
 import pcgen.gui2.prefs.LanguagePanel;
-import pcgen.gui2.prefs.LevelUpPanel;
 import pcgen.gui2.prefs.LocationPanel;
 import pcgen.gui2.prefs.MonsterPanel;
 import pcgen.gui2.prefs.OutputPanel;
@@ -67,6 +65,9 @@ import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.preferences.CenteredLabelPanelController;
+import pcgen.gui3.preferences.EquipmentPreferencesPanelController;
+import pcgen.gui3.preferences.InputPreferencesPanelController;
+import pcgen.gui3.preferences.LevelUpPreferencesPanelController;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -78,8 +79,6 @@ import javafx.embed.swing.JFXPanel;
  */
 public final class PreferencesDialog extends AbstractPreferencesDialog
 {
-	private static final long serialVersionUID = 5042379023317257550L;
-
 	// Resource strings
 	private static final String IN_APPERANCE = LanguageBundle.getString("in_Prefs_appearance"); //$NON-NLS-1$
 	private static final String IN_CHARACTER = LanguageBundle.getString("in_Prefs_character"); //$NON-NLS-1$
@@ -237,7 +236,10 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		addPanelToTree(appearanceNode, colorsPanel);
 		displayOptionsPanel = new DisplayOptionsPanel();
 		addPanelToTree(appearanceNode, displayOptionsPanel);
-		levelUpPanel = new LevelUpPanel();
+		levelUpPanel = new ConvertedJavaFXPanel<>(
+				LevelUpPreferencesPanelController.class,
+				"LevelUpPreferencesPanel.fxml",
+				"in_Prefs_levelUp");
 		addPanelToTree(appearanceNode, levelUpPanel);
 		rootNode.add(appearanceNode);
 
@@ -245,13 +247,21 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_Prefs_pcgenTip")),
 			Constants.APPLICATION_NAME);
 
-		equipmentPanel = new EquipmentPanel();
+		equipmentPanel = new ConvertedJavaFXPanel<>(
+				EquipmentPreferencesPanelController.class,
+				"EquipmentPreferencesPanel.fxml",
+				"in_Prefs_equipment"
+		);
 		addPanelToTree(pcGenNode, equipmentPanel);
 		languagePanel = new LanguagePanel();
 		addPanelToTree(pcGenNode, languagePanel);
 		locationPanel = new LocationPanel();
 		addPanelToTree(pcGenNode, locationPanel);
-		inputPanel = new InputPanel();
+		inputPanel = new ConvertedJavaFXPanel<>(
+				InputPreferencesPanelController.class,
+				"InputPreferencesPanel.fxml",
+				"in_Prefs_input"
+		);
 		addPanelToTree(pcGenNode, inputPanel);
 		outputPanel = new OutputPanel();
 		addPanelToTree(pcGenNode, outputPanel);

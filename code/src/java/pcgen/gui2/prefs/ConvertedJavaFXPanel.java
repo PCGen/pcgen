@@ -1,5 +1,5 @@
 /*
- * Copyright 2010(C) James Dempsey
+ * Copyright 2019 (C) Eitan Adler <lists@eitanadler.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -8,52 +8,41 @@
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
+
 package pcgen.gui2.prefs;
 
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.ResettableController;
-import pcgen.gui3.preferences.LevelUpPreferencesPanelController;
 import pcgen.system.LanguageBundle;
 
-/**
- * The Class {@code LevelUpPanel} is responsible for displaying leveling up related preferences and allowing the
- * preferences to be edited by the user.
- */
-@SuppressWarnings("serial")
-public final class LevelUpPanel extends PCGenPrefsPanel
+public final class ConvertedJavaFXPanel<T extends ResettableController> extends PCGenPrefsPanel
 {
-	private static final String IN_LEVEL_UP = LanguageBundle.getString("in_Prefs_levelUp");
-
+	private final String titleTextKey;
 	private final JFXPanelFromResource<ResettableController> panel;
 
-	public LevelUpPanel()
+	public ConvertedJavaFXPanel(Class<T> klass, String resource, String titleTextKey)
 	{
-
+		this.titleTextKey = titleTextKey;
 		this.panel =
 				new JFXPanelFromResource<>(
-						LevelUpPreferencesPanelController.class,
-						"LevelUpPreferencesPanel.fxml"
+						klass,
+						resource
 				);
 		this.add(panel);
+
 	}
 
 	@Override
 	public String getTitle()
 	{
-		return IN_LEVEL_UP;
-	}
-
-	@Override
-	public void setOptionsBasedOnControls()
-	{
-		panel.getController().apply();
+		return LanguageBundle.getString(titleTextKey);
 	}
 
 	@Override
@@ -62,4 +51,9 @@ public final class LevelUpPanel extends PCGenPrefsPanel
 		panel.getController().reset();
 	}
 
+	@Override
+	public void setOptionsBasedOnControls()
+	{
+		panel.getController().apply();
+	}
 }
