@@ -19,6 +19,7 @@
 package pcgen.pluginmgr;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -56,14 +57,8 @@ public final class PluginManager implements pcgen.system.PluginLoader
 	/**
 	 * A Comparator to sort interactive plugins by their priority.
 	 */
-	public static final Comparator<InteractivePlugin> PLUGIN_PRIORITY_SORTER = new Comparator<>()
-	{
-		@Override
-		public int compare(InteractivePlugin arg0, InteractivePlugin arg1)
-		{
-			return Integer.compare(arg0.getPriority(), arg1.getPriority());
-		}
-	};
+	private static final Comparator<InteractivePlugin> PLUGIN_PRIORITY_SORTER =
+			Comparator.comparingInt(InteractivePlugin::getPriority);
 
 	public List<PluginInfo> getPluginInfoList()
 	{
@@ -82,7 +77,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		});
 	}
 
-	private String getLogName(Class<?> clazz, InteractivePlugin pl)
+	private static String getLogName(Class<?> clazz, InteractivePlugin pl)
 	{
 		String logName = null;
 		try
@@ -112,9 +107,10 @@ public final class PluginManager implements pcgen.system.PluginLoader
 	}
 
 	@Override
-	public void loadPlugin(Class<?> clazz) throws Exception
+	public void loadPlugin(Class<?> clazz)
+			throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException
 	{
-		InteractivePlugin pl = (InteractivePlugin) clazz.newInstance();
+		InteractivePlugin pl = (InteractivePlugin) clazz.getConstructor().newInstance();
 
 		String logName = getLogName(clazz, pl);
 		String plName = pl.getPluginName();
