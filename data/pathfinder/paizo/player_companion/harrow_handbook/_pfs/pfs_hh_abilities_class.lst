@@ -1,4 +1,4 @@
 SOURCELONG:Pathfinder Player Companion: The Harrow Handbook		SOURCESHORT:HH	SOURCEWEB:http://paizo.com/products/btpy95zm	SOURCEDATE:2014-07
 
-Spellblight ~ Harrow Vexed.MOD	TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
-Rogue Talent ~ Grig Jig.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Afflictions|Spellblight ~ Harrow Vexed.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
+CATEGORY=Special Ability|Rogue Talent ~ Grig Jig.MOD		TYPE:PFSNotLegal	!PRECHARACTERTYPE:1,PC
