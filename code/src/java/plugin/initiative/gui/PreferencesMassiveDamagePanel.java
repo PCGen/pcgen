@@ -23,13 +23,11 @@ package plugin.initiative.gui;
 import java.awt.BorderLayout;
 
 import pcgen.core.SettingsHandler;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 
-import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -291,13 +289,7 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 		ScrollPane scrollPane = new ScrollPane();
 		scrollPane.setContent(mainPanel);
 
-		JFXPanel jfxPanel = new JFXPanel();
-		Platform.runLater(() -> {
-			Scene scene = new Scene(scrollPane);
-			jfxPanel.setScene(scene);
-		});
-
-		add(jfxPanel);
+		add(GuiUtility.wrapParentAsJFXPanel(scrollPane));
 	}
 
 	private void massiveActionPerformed(ActionEvent evt)

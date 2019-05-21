@@ -20,12 +20,10 @@ package plugin.experience.gui;
 import java.awt.BorderLayout;
 
 import pcgen.core.SettingsHandler;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import plugin.experience.ExperienceAdjusterPlugin;
 
-import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleGroup;
@@ -95,7 +93,6 @@ public final class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 
 	private void initComponents()
 	{
-		JFXPanel mainPanel = new JFXPanel();
 		TitledPane titlePane = new TitledPane();
 		titlePane.setText(LanguageBundle.getString("in_plugin_xp_calc"));
 		titlePane.setCollapsible(false);
@@ -115,11 +112,6 @@ public final class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 		vbox.getChildren().add(experienceRB1);
 		vbox.getChildren().add(experienceRB2);
 
-
-		Platform.runLater(() -> {
-			Scene scene = new Scene(vbox);
-			mainPanel.setScene(scene);
-		});
-		add(mainPanel, BorderLayout.CENTER);
+		add(GuiUtility.wrapParentAsJFXPanel(vbox), BorderLayout.CENTER);
 	}
 }

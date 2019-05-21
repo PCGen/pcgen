@@ -23,12 +23,10 @@ package plugin.initiative.gui;
 import java.awt.BorderLayout;
 
 import pcgen.core.SettingsHandler;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
 
-import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.layout.VBox;
 
@@ -93,19 +91,12 @@ public final class PreferencesPerformancePanel extends gmgen.gui.PreferencesPane
 	private void initComponents()
 	{
 		VBox vbox = new VBox();
-		JFXPanel jfxPanel = new JFXPanel();
 
 		refreshOnStateChange = new CheckBox();
 		refreshOnStateChange.setText(LanguageBundle.getString("in_plugin_init_refreshOnChange")); //$NON-NLS-1$
 
 		vbox.getChildren().add(refreshOnStateChange);
-
-		Platform.runLater(() -> {
-			Scene scene = new Scene(vbox);
-			jfxPanel.setScene(scene);
-		});
-
-		add(jfxPanel, BorderLayout.CENTER);
+		add(GuiUtility.wrapParentAsJFXPanel(vbox), BorderLayout.CENTER);
 		setLayout(new BorderLayout());
 	}
 }
