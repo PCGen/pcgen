@@ -52,7 +52,7 @@ import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import gmgen.util.LogUtilities;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.PCGenActionMap;
-import pcgen.gui2.plaf.MacGUIHandler;
+import pcgen.gui2.plaf.DesktopHandler;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
 import pcgen.pluginmgr.PCGenMessage;
@@ -156,11 +156,7 @@ public final class GMGenSystem extends JFrame
 
 	private void initialize()
 	{
-		if (SystemUtils.IS_OS_MAC_OSX)
-		{
-			MacGUIHandler.initialize();
-		}
-
+		DesktopHandler.initialize();
 		inst = this;
 		initLogger();
 		createMenuBar();
