@@ -32,7 +32,6 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
@@ -41,7 +40,6 @@ import javax.swing.text.JTextComponent;
 
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.ConfigurationSettings.SettingsFilesPath;
@@ -60,8 +58,6 @@ public class LocationPanel extends PCGenPrefsPanel
 {
 	private static final String IN_LOCATION = LanguageBundle.getString("in_Prefs_location");
 
-	private static final String IN_BROWSER_PATH = LanguageBundle.getString("in_Prefs_browserPath");
-	private static final String IN_CLEAR_BROWSER_PATH = LanguageBundle.getString("in_Prefs_clearBrowserPath");
 	private static final String IN_CHOOSE = "...";
 
 	private final ButtonGroup groupFilesDir;
@@ -70,8 +66,6 @@ public class LocationPanel extends PCGenPrefsPanel
 	private final JRadioButton usersFilesDirRadio;
 	private final JCheckBox pcgenCreateBackupCharacter = new JCheckBox();
 
-	private final JButton browserPathButton;
-	private final JButton clearBrowserPathButton;
 	private final JButton pcgenCharacterDirButton;
 	private final JButton pcgenCustomDirButton;
 	private final JButton pcgenVendorDataDirButton;
@@ -85,7 +79,6 @@ public class LocationPanel extends PCGenPrefsPanel
 	private final JButton pcgenSystemDirButton;
 	private final JButton pcgenBackupCharacterDirButton;
 
-	private final JTextField browserPath;
 	private final JTextField pcgenCharacterDir;
 	private final JTextField pcgenCustomDir;
 	private final JTextField pcgenVendorDataDir;
@@ -118,29 +111,6 @@ public class LocationPanel extends PCGenPrefsPanel
 		constraints.fill = GridBagConstraints.HORIZONTAL;
 		constraints.anchor = GridBagConstraints.WEST;
 		constraints.insets = new Insets(2, 2, 2, 2);
-
-		Utility.buildConstraints(constraints, 0, 0, 1, 1, 0, 0);
-		JLabel label = new JLabel(IN_BROWSER_PATH + ": ");
-		gridbag.setConstraints(label, constraints);
-		this.add(label);
-		Utility.buildConstraints(constraints, 1, 0, 1, 1, 1, 0);
-		browserPath = new JTextField(String.valueOf(PCGenSettings.getBrowserPath()));
-
-		// sage_sam 9 April 2003
-		browserPath.addFocusListener(textFieldListener);
-		gridbag.setConstraints(browserPath, constraints);
-		this.add(browserPath);
-		Utility.buildConstraints(constraints, 2, 0, 1, 1, 0, 0);
-		browserPathButton = new JButton(IN_CHOOSE);
-		gridbag.setConstraints(browserPathButton, constraints);
-		this.add(browserPathButton);
-		browserPathButton.addActionListener(prefsButtonHandler);
-
-		Utility.buildConstraints(constraints, 1, 1, 1, 1, 0, 0);
-		clearBrowserPathButton = new JButton(IN_CLEAR_BROWSER_PATH);
-		gridbag.setConstraints(clearBrowserPathButton, constraints);
-		this.add(clearBrowserPathButton);
-		clearBrowserPathButton.addActionListener(prefsButtonHandler);
 
 		Utility.buildConstraints(constraints, 0, 2, 1, 1, 0, 0);
 		JLabel in_prefs_pcgenCharacterDir = new JLabel(LanguageBundle.getString("in_Prefs_pcgenCharacterDir") + ": ");
@@ -428,8 +398,6 @@ public class LocationPanel extends PCGenPrefsPanel
 	@Override
 	public void setOptionsBasedOnControls()
 	{
-		// Location -- added 10 April 2000 by sage_sam
-		PCGenSettings.getInstance().setProperty(PCGenSettings.BROWSER_PATH, browserPath.getText());
 		PCGenSettings.getInstance().setProperty(PCGenSettings.PCG_SAVE_PATH, pcgenCharacterDir.getText());
 		PCGenSettings.getInstance().setProperty(PCGenSettings.CHAR_PORTRAITS_PATH, pcgenPortraitsDir.getText());
 		PCGenSettings.getInstance().setProperty(PCGenSettings.CUSTOM_DATA_DIR, pcgenCustomDir.getText());
@@ -486,30 +454,6 @@ public class LocationPanel extends PCGenPrefsPanel
 			if (source == null)
 			{
 				// Do nothing
-			}
-			else if (source == browserPathButton)
-			{
-				DesktopBrowserLauncher.selectDefaultBrowser();
-				browserPath.setText(String.valueOf(PCGenSettings.getBrowserPath()));
-			}
-			else if (source == clearBrowserPathButton)
-			{
-				// If none is set, there is nothing to clear
-				if (PCGenSettings.getBrowserPath() == null)
-				{
-					return;
-				}
-
-				final int choice =
-						JOptionPane.showConfirmDialog(null, LanguageBundle.getString("in_Prefs_clearBrowserWarn"),
-							LanguageBundle.getString("in_Prefs_clearBrowserTitle"), JOptionPane.YES_NO_OPTION);
-
-				if (choice == JOptionPane.YES_OPTION)
-				{
-					PCGenSettings.getInstance().setProperty(PCGenSettings.BROWSER_PATH, "");
-				}
-
-				browserPath.setText(String.valueOf(PCGenSettings.getBrowserPath()));
 			}
 			else if (source == pcgenCharacterDirButton)
 			{

@@ -71,9 +71,6 @@ public final class SettingsHandler
 	// Map of RuleCheck keys and their settings
 	private static final Map<String, String> ruleCheckMap = new HashMap<>();
 
-	/** That browserPath is set to null is intentional. */
-	private static String browserPath = null; //Intentional null
-
 	private static Dimension customizerDimension = null;
 	private static Point customizerLeftUpperCorner = null;
 	private static int customizerSplit1 = -1;
@@ -186,26 +183,6 @@ public final class SettingsHandler
 	public static File getBackupPcgPath()
 	{
 		return backupPcgPath;
-	}
-
-	/**
-	 * Sets the external browser path to use.
-	 *
-	 * @param  path  the {@code String} representing the path
-	 **/
-	public static void setBrowserPath(final String path)
-	{
-		browserPath = path;
-	}
-
-	/**
-	 * Returns the external browser path to use.
-	 *
-	 * @return    the {@code browserPath} property
-	 */
-	public static String getBrowserPath()
-	{
-		return browserPath;
 	}
 
 	/**
@@ -646,32 +623,18 @@ public final class SettingsHandler
 
 	public static void getOptionsFromProperties(final PlayerCharacter aPC)
 	{
-		Dimension d = new Dimension(0, 0);
-
-		final String tempBrowserPath = getPCGenOption("browserPath", ""); //$NON-NLS-1$ //$NON-NLS-2$
-
-		if (!"".equals(tempBrowserPath)) //$NON-NLS-1$
-		{
-			setBrowserPath(tempBrowserPath);
-		}
-		else
-		{
-			setBrowserPath(null);
-		}
-
 		setLeftUpperCorner(new Point(getPCGenOption("windowLeftUpperCorner.X", -1.0).intValue(), //$NON-NLS-1$
 			getPCGenOption("windowLeftUpperCorner.Y", -1.0).intValue())); //$NON-NLS-1$
 
 		setWindowState(getPCGenOption("windowState", Frame.NORMAL)); //$NON-NLS-1$
 
-		Double dw = getPCGenOption("windowWidth", 0.0); //$NON-NLS-1$
-		Double dh = getPCGenOption("windowHeight", 0.0); //$NON-NLS-1$
-
 		setCustomizerLeftUpperCorner(new Point(getPCGenOption(
 			"customizer.windowLeftUpperCorner.X", -1.0).intValue(), //$NON-NLS-1$
 			getPCGenOption("customizer.windowLeftUpperCorner.Y", -1.0).intValue())); //$NON-NLS-1$
-		dw = getPCGenOption("customizer.windowWidth", 0.0); //$NON-NLS-1$
-		dh = getPCGenOption("customizer.windowHeight", 0.0); //$NON-NLS-1$
+		//$NON-NLS-1$
+		Double dw = getPCGenOption("customizer.windowWidth", 0.0); //$NON-NLS-1$
+		//$NON-NLS-1$
+		Double dh = getPCGenOption("customizer.windowHeight", 0.0); //$NON-NLS-1$
 
 		if (!CoreUtility.doublesEqual(dw.doubleValue(), 0.0) && !CoreUtility.doublesEqual(dh.doubleValue(), 0.0))
 		{
@@ -871,15 +834,6 @@ public final class SettingsHandler
 		else
 		{
 			getOptions().setProperty("gmgen.files.gmgenPluginDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
-		}
-
-		if (getBrowserPath() != null)
-		{
-			setPCGenOption("browserPath", getBrowserPath()); //$NON-NLS-1$
-		}
-		else
-		{
-			setPCGenOption("browserPath", ""); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		if (getGame() != null)
