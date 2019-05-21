@@ -79,9 +79,7 @@ public class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
 				"CHOOSE:" + getTokenName() + " found invalid CATEGORY: " + cat + " in value: " + value);
 		}
 
-		StringBuilder sb = new StringBuilder(value.length() + 20);
-		sb.append(getTokenName()).append('|').append(value);
-		context.getObjectContext().put(obj, StringKey.CHOICE_STRING, sb.toString());
+		context.getObjectContext().put(obj, StringKey.CHOICE_STRING, getTokenName() + '|' + value);
 		return ParseResult.SUCCESS;
 	}
 

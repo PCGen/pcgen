@@ -123,9 +123,7 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements 
 		List<String> list = new ArrayList<>();
 		for (LevelCommandFactory lcf : added)
 		{
-			StringBuilder sb = new StringBuilder();
-			sb.append(lcf.getLSTformat()).append(Constants.PIPE).append(lcf.getLevelCount().toString());
-			list.add(sb.toString());
+			list.add(lcf.getLSTformat() + Constants.PIPE + lcf.getLevelCount().toString());
 		}
 
 		return list.toArray(new String[0]);

@@ -531,7 +531,7 @@ public class WeaponToken extends Token
 				for (Map.Entry<String, String> me : qualityMap.entrySet())
 				{
 					qualities
-						.add(new StringBuilder().append(me.getKey()).append(": ").append(me.getValue()).toString());
+						.add(me.getKey() + ": " + me.getValue());
 				}
 				return StringUtil.join(qualities, ", ");
 			}
@@ -796,11 +796,10 @@ public class WeaponToken extends Token
 		{
 			return critMult1.toString();
 		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(critMult1);
-		sb.append('/');
-		sb.append(critMult2);
-		return sb.toString();
+		String sb = String.valueOf(critMult1)
+				+ '/'
+				+ critMult2;
+		return sb;
 	}
 
 	/**

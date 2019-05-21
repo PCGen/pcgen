@@ -92,9 +92,7 @@ public class MonsterclassToken extends AbstractNonEmptyToken<Race>
 		{
 			return null;
 		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(lcf.getLSTformat()).append(Constants.COLON).append(lcf.getLevelCount().toString());
-		return new String[]{sb.toString()};
+		return new String[]{lcf.getLSTformat() + Constants.COLON + lcf.getLevelCount().toString()};
 	}
 
 	@Override

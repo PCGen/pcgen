@@ -101,7 +101,7 @@ public class InfoLst extends AbstractNonEmptyToken<CDOMObject>
 		for (CaseInsensitiveString key : changes.getAdded().keySet())
 		{
 			MessageFormat value = changes.getAdded().get(key);
-			set.add(new StringBuilder().append(key).append(Constants.PIPE).append(value.toPattern()).toString());
+			set.add(key + Constants.PIPE + value.toPattern());
 		}
 		return set.toArray(new String[0]);
 	}

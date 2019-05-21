@@ -119,9 +119,7 @@ public class ForwardRefToken extends AbstractTokenWithSeparator<Campaign> implem
 		{
 			set.clear();
 			set.addAll(map.getListFor(key));
-			StringBuilder sb = new StringBuilder();
-			sb.append(key).append(Constants.PIPE).append(ReferenceUtilities.joinLstFormat(set, Constants.COMMA));
-			returnSet.add(sb.toString());
+			returnSet.add(key + Constants.PIPE + ReferenceUtilities.joinLstFormat(set, Constants.COMMA));
 		}
 		return returnSet.toArray(new String[0]);
 	}

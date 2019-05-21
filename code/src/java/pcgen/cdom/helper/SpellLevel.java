@@ -34,11 +34,10 @@ public class SpellLevel implements Comparable<SpellLevel>
 	@Override
 	public String toString()
 	{
-		StringBuilder sb = new StringBuilder(25);
-		sb.append(pcclass);
-		sb.append(" ");
-		sb.append(level);
-		return sb.toString();
+		String sb = pcclass
+				+ " "
+				+ level;
+		return sb;
 	}
 
 	/**
@@ -47,12 +46,11 @@ public class SpellLevel implements Comparable<SpellLevel>
 	 */
 	public String encodeChoice()
 	{
-		StringBuilder sb = new StringBuilder(40);
-		sb.append("CLASS.");
-		sb.append(pcclass.getKeyName());
-		sb.append(";LEVEL.");
-		sb.append(level);
-		return sb.toString();
+		String sb = "CLASS."
+				+ pcclass.getKeyName()
+				+ ";LEVEL."
+				+ level;
+		return sb;
 	}
 
 	public static SpellLevel decodeChoice(LoadContext context, String persistentFormat)

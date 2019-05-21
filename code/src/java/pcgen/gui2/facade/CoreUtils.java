@@ -188,12 +188,11 @@ final class CoreUtils
 			{
 				source = ((CDOMObject) object);
 			}
-			StringBuilder sb = new StringBuilder();
-			sb.append("<html>");
-			sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(pc, source, source.getPrerequisiteList(), false));
-			sb.append(AllowUtilities.getAllowInfo(pc, source));
-			sb.append("</html>");
-			return sb.toString();
+			String sb = "<html>"
+					+ PrerequisiteUtilities.preReqHTMLStringsForList(pc, source, source.getPrerequisiteList(), false)
+					+ AllowUtilities.getAllowInfo(pc, source)
+					+ "</html>";
+			return sb;
 		}
 		return "";
 	}

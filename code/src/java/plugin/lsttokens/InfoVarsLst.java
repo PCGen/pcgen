@@ -88,8 +88,8 @@ public class InfoVarsLst extends AbstractTokenWithSeparator<CDOMObject> implemen
 		for (CaseInsensitiveString key : changes.getAdded().keySet())
 		{
 			String[] value = changes.getAdded().get(key);
-			set.add(new StringBuilder().append(key).append(Constants.PIPE)
-				.append(StringUtil.join(value, Constants.PIPE)).toString());
+			set.add(key + Constants.PIPE
+					+ StringUtil.join(value, Constants.PIPE));
 		}
 		return set.toArray(new String[0]);
 	}

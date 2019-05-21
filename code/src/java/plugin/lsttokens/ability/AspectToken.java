@@ -168,7 +168,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements CDOMP
 			{
 				Aspect q = aspects.get(i);
 				set.add(
-					new StringBuilder().append(q.getName()).append(Constants.PIPE).append(q.getPCCText()).toString());
+						q.getName() + Constants.PIPE + q.getPCCText());
 			}
 		}
 		return set.toArray(new String[0]);

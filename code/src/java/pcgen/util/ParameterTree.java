@@ -146,9 +146,7 @@ public class ParameterTree
 					// root of the generated tree doesn't contain an operator, so
 					// the paren expression should be tacked onto it.
 					final String parenExp = source.substring(pM.end() - 1, end);
-					final StringBuilder rNodeContents = new StringBuilder();
-					rNodeContents.append(t.getContents()).append(parenExp);
-					t.setContents(rNodeContents.toString());
+					t.setContents(t.getContents() + parenExp);
 				}
 			}
 

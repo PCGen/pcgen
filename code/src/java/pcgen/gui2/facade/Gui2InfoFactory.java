@@ -992,7 +992,7 @@ public class Gui2InfoFactory implements InfoFactory
 			Set<String> qualities = new TreeSet<>();
 			for (Map.Entry<String, String> me : qualityMap.entrySet())
 			{
-				qualities.add(new StringBuilder(50).append(me.getKey()).append(": ").append(me.getValue()).toString());
+				qualities.add(me.getKey() + ": " + me.getValue());
 			}
 
 			b.appendLineBreak();
@@ -1035,11 +1035,8 @@ public class Gui2InfoFactory implements InfoFactory
 
 		Equipment equip = (Equipment) equipFacade;
 
-		final StringBuilder title = new StringBuilder(50);
-		title.append(OutputNameFormatting.piString(equipMod));
-
 		final HtmlInfoBuilder b = new HtmlInfoBuilder(null, false);
-		b.appendTitleElement(title.toString());
+		b.appendTitleElement(OutputNameFormatting.piString(equipMod));
 		b.appendLineBreak();
 
 		b.appendI18nElement("in_igInfoLabelTextType", //$NON-NLS-1$
@@ -1457,12 +1454,11 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getPreReqHTML(Race race)
 	{
-		StringBuilder sb = new StringBuilder();
-		sb.append("<html>");
-		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, race.getPrerequisiteList(), false));
-		sb.append(AllowUtilities.getAllowInfo(pc, race));
-		sb.append("</html>");
-		return sb.toString();
+		String sb = "<html>"
+				+ PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, race.getPrerequisiteList(), false)
+				+ AllowUtilities.getAllowInfo(pc, race)
+				+ "</html>";
+		return sb;
 	}
 
 	@Override
@@ -1540,12 +1536,11 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getPreReqHTML(PCTemplate template)
 	{
-		StringBuilder sb = new StringBuilder();
-		sb.append("<html>");
-		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, template.getPrerequisiteList(), false));
-		sb.append(AllowUtilities.getAllowInfo(pc, template));
-		sb.append("</html>");
-		return sb.toString();
+		String sb = "<html>"
+				+ PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, template.getPrerequisiteList(), false)
+				+ AllowUtilities.getAllowInfo(pc, template)
+				+ "</html>";
+		return sb;
 	}
 
 	@Override

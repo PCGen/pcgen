@@ -100,11 +100,10 @@ public class EqBuilderEqTypeToken implements CDOMSecondaryToken<EquipmentModifie
 			return new ParseResult.Fail(
 				"CHOOSE:" + getTokenName() + " must have TITLE= as its second argument : " + value);
 		}
-		StringBuilder sb = new StringBuilder(value.length() + 20);
-		sb.append(first).append('|').append(second.substring(6));
-		sb.append("|TYPE=EQTYPES");
 		// Old format: CHOOSE:COUNT=ALL|desired TYPE(s)|TYPE=EQTYPES
-		context.getObjectContext().put(obj, StringKey.CHOICE_STRING, sb.toString());
+		String sb = first + '|' + second.substring(6)
+				+ "|TYPE=EQTYPES";
+		context.getObjectContext().put(obj, StringKey.CHOICE_STRING, sb);
 		return ParseResult.SUCCESS;
 	}
 

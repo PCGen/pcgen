@@ -657,41 +657,37 @@ public class PcgCombatant extends Combatant
 
 		protected String getStatBlockHeader()
 		{
-			StringBuilder statBuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 
-			statBuf.append("<head><title>");
-			statBuf.append(pcOut.getName()); //|NAME|
-			statBuf.append(" - ");
-			statBuf.append(display.getPlayersName()); //|PLAYERNAME|
-			statBuf.append("(");
-			statBuf.append(pc.getCostPool()); //|POOL.COST|
-			statBuf.append(" Points) in GMGEN Statblock Format");
-			statBuf.append("</title>");
-			statBuf.append("<style type='text/css'>");
-			statBuf.append("a:link {color: #006699}");
-			statBuf.append("a:visited {color: #006699}");
-			statBuf.append("a:hover {color: #006699}");
-			statBuf.append("a:active {color: #006699}");
-			statBuf.append(".type {color:#555555;font-weight:bold}");
-			statBuf.append(".highlight {color:#FF0000}");
-			statBuf.append(".dialog {color:#006699}");
-			statBuf.append("</style></head>");
-
-			return statBuf.toString();
+			String statBuf = "<head><title>"
+					+ pcOut.getName() //|NAME|
+					+ " - "
+					+ display.getPlayersName() //|PLAYERNAME|
+					+ "("
+					+ pc.getCostPool() //|POOL.COST|
+					+ " Points) in GMGEN Statblock Format"
+					+ "</title>"
+					+ "<style type='text/css'>"
+					+ "a:link {color: #006699}"
+					+ "a:visited {color: #006699}"
+					+ "a:hover {color: #006699}"
+					+ "a:active {color: #006699}"
+					+ ".type {color:#555555;font-weight:bold}"
+					+ ".highlight {color:#FF0000}"
+					+ ".dialog {color:#006699}"
+					+ "</style></head>";
+			return statBuf;
 		}
 
 		protected String getStatBlockLinePossessions()
 		{
-			StringBuilder statBuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
 
-			statBuf.append("<p><font class='type'>Possessions:</font>&nbsp;");
-			statBuf.append(pcOut.getEquipmentList());
-			//|FOR.0,(COUNT[EQUIPMENT]+1),1,&nbsp;\EQ.%.QTY\&nbsp;\EQ.%.NAME\, ,COMMA,1|
-			statBuf.append("</p>");
-
-			return statBuf.toString();
+			String statBuf = "<p><font class='type'>Possessions:</font>&nbsp;"
+					+ pcOut.getEquipmentList()
+					//|FOR.0,(COUNT[EQUIPMENT]+1),1,&nbsp;\EQ.%.QTY\&nbsp;\EQ.%.NAME\, ,COMMA,1|
+					+ "</p>";
+			return statBuf;
 		}
 
 		String getStatBlockLineSkills()
