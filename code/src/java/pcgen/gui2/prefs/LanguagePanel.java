@@ -24,15 +24,13 @@ import java.util.stream.Collectors;
 
 import pcgen.core.SettingsHandler;
 import pcgen.core.UnitSet;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.embed.swing.JFXPanel;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -112,8 +110,6 @@ public final class LanguagePanel extends PCGenPrefsPanel
 		}
 
 		VBox vbox = new VBox();
-		final JFXPanel panel = new JFXPanel();
-
 
 		for (LanguageChoice languageChoice: LanguageChoice.values())
 		{
@@ -141,12 +137,7 @@ public final class LanguagePanel extends PCGenPrefsPanel
 		Node restartInfo = new Text(LanguageBundle.getString("in_Prefs_restartInfo"));
 		vbox.getChildren().add(restartInfo);
 
-		Platform.runLater(() -> {
-			Scene scene = new Scene(vbox);
-			panel.setScene(scene);
-		});
-
-		this.add(panel);
+		this.add(GuiUtility.wrapParentAsJFXPanel(vbox));
 	}
 
 

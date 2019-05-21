@@ -24,13 +24,11 @@ import java.awt.BorderLayout;
 
 import gmgen.gui.PreferencesPanel;
 import pcgen.core.SettingsHandler;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
 
-import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
@@ -396,12 +394,7 @@ public final class PreferencesDamagePanel extends PreferencesPanel
 
 		ScrollPane scrollPane = new ScrollPane();
 		scrollPane.setContent(mainPanel);
-		JFXPanel jfxPanel = new JFXPanel();
-		Platform.runLater(() -> {
-			Scene scene = new Scene(scrollPane);
-			jfxPanel.setScene(scene);
-		});
 
-		add(jfxPanel, BorderLayout.CENTER);
+		add(GuiUtility.wrapParentAsJFXPanel(scrollPane), BorderLayout.CENTER);
 	}
 }
