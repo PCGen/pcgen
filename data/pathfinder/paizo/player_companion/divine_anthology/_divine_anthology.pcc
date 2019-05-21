@@ -56,7 +56,7 @@ ABILITY:support/da_abilities_class_ui.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Intrig
 DEITY:support/da_deities_deg.lst|PRECAMPAIGN:1,INCLUDES=Dragon Empires Gazetteer
 DEITY:support/da_deities_deg_ma_oa.lst|PRECAMPAIGN:3,INCLUDES=Dragon Empires Gazetteer,INCLUDES=Mythic Adventures,INCLUDES=Occult Adventures
 DEITY:support/da_deities_deg_oa.lst|PRECAMPAIGN:2,INCLUDES=Dragon Empires Gazetteer,INCLUDES=Occult Adventures
-DEITY:support/da_deities_deg_ui.lst|PRECAMPAIGN:2,INCLUDES=Dragon Empires Gazetteer,INCLUDES=Ultimate Intrigue
+DEITY:support/da_deities_deg_ui.lst|PRECAMPAIGN:1,INCLUDES=Dragon Empires Gazetteer|PRECAMPAIGN:1,INCLUDES=Ultimate Intrigue
 DEITY:support/da_deities_isg.lst|PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
 DEITY:support/da_deities_isg_oa.lst|PRECAMPAIGN:2,INCLUDES=Inner Sea Gods,INCLUDES=Occult Adventures
 DEITY:support/da_deities_isg_ui.lst|PRECAMPAIGN:2,INCLUDES=Inner Sea Gods,INCLUDES=Ultimate Intrigue
