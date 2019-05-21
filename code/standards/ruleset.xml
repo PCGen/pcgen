@@ -25,7 +25,9 @@
         <exclude name="GuardLogStatement"/>
         <exclude name="LooseCoupling"/>
         <exclude name="MethodReturnsInternalArray"/>
+        <!-- its better to throw a NPE and add explicit checks. Nulls should be rare -->
         <exclude name="PositionLiteralsFirstInCaseInsensitiveComparisons"/>
+        <!-- its better to throw a NPE and add explicit checks. Nulls should be rare -->
         <exclude name="PositionLiteralsFirstInComparisons"/>
         <exclude name="SwitchStmtsShouldHaveDefault"/>
         <exclude name="SystemPrintln"/>
