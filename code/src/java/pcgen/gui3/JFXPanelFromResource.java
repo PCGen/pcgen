@@ -35,7 +35,7 @@ import javafx.stage.Stage;
  * Displays HTML content as a "panel".
  * @param <T> The class of the controller
  */
-public final class JFXPanelFromResource<T> extends JFXPanel
+public final class JFXPanelFromResource<T> extends JFXPanel implements Controllable<T>
 {
 
 	private final FXMLLoader fxmlLoader = new FXMLLoader();
@@ -57,14 +57,13 @@ public final class JFXPanelFromResource<T> extends JFXPanel
 				this.setScene(scene);
 			} catch (IOException e)
 			{
-				Logging.errorPrint("failed to load stream fxml", e);
+				Logging.errorPrint(String.format("failed to load stream fxml (%s/%s/%s)",
+						resourceName, klass, resource), e);
 			}
 		});
 	}
 
-	/**
-	 * @return controller for the loaded FXML file
-	 */
+	@Override
 	public T getController()
 	{
 		return CompletableFuture.<T>supplyAsync(fxmlLoader::getController, Platform::runLater).join();
