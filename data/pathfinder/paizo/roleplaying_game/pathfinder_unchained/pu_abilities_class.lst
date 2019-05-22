@@ -617,6 +617,9 @@ Weapon Choice					KEY:Unchained Rogue ~ Finesse Training Choice	CATEGORY:Special
 ###Block: Archetype Support
 # Ability Name			Define				Modify VAR
 CATEGORY=Internal|Default.MOD	DEFINE:RogueTalentTaken|0	BONUS:VAR|RogueTalentTaken|count("ABILITIES","CATEGORY=Special Ability","TYPE=Unchained Rogue Talent")
+CATEGORY=Special Ability|Sneak Attack.MOD	TYPE:Unchained Rogue Class Feature
+
+
 # COMMENT: This supports the Tiered System to Bring Back Abilities at the next tier if an Archetype replaced them.
 # ABILITY:Internal|AUTOMATIC|Unchained Rogue Archetype Support|PREVAREQ:Rogue_CF_Archetype
 #Unchained Rogue Archetype Support	CATEGORY:Internal							ABILITY:Special Ability|AUTOMATIC|Unchained Rogue ~ Finesse Training|PREMULT:1,[PREMULT:2,[PREVAREQ:Rogue_CF_FinesseTraining1,1
