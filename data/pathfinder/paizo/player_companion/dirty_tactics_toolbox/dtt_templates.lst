@@ -11,7 +11,7 @@ Asmodean Viper Familiar Language	VISIBLE:NO																							ADD:LANGUAGE|T
 Kraken Caller Language			VISIBLE:NO																																							LANGBONUS:Aquan
 
 
-Accomplished Sneak Attacker		VISIBLE:NO	DEFINE:SneakAttackStatic|0											CHOOSE:TEMPLATE|TYPE=SneakAttackCheck
+Accomplished Sneak Attacker	VISIBLE:NO	CHOOSE:TEMPLATE|QUALIFIED[TYPE=SneakAttackCheck]	DEFINE:SneakAttackStatic|0
 SA_1													PREVAREQ:SneakAttack,1	BONUS:VAR|SneakAttackStatic|1																												TYPE:SneakAttackCheck
 SA_2													PREVAREQ:SneakAttack,2	BONUS:VAR|SneakAttackStatic|2																												TYPE:SneakAttackCheck
 SA_3													PREVAREQ:SneakAttack,3	BONUS:VAR|SneakAttackStatic|3																												TYPE:SneakAttackCheck
