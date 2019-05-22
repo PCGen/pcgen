@@ -18,9 +18,6 @@
 package pcgen.core;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.Point;
 import java.awt.SystemColor;
 import java.io.File;
 import java.io.FileInputStream;
@@ -72,15 +69,9 @@ public final class SettingsHandler
 	// Map of RuleCheck keys and their settings
 	private static final Map<String, String> ruleCheckMap = new HashMap<>();
 
-	private static Dimension customizerDimension = null;
-	private static Point customizerLeftUpperCorner = null;
-	private static int customizerSplit1 = -1;
-	private static int customizerSplit2 = -1;
 	private static boolean enforceSpendingBeforeLevelUp = false;
 	private static final Properties FILTERSETTINGS = new Properties();
 	public static GameMode game = new GameMode("default");
-	private static Dimension kitSelectorDimension = null;
-	private static Point kitSelectorLeftUpperCorner = null;
 	private static boolean loadURLs = false;
 	private static boolean hpMaxAtFirstLevel = true;
 	private static boolean hpMaxAtFirstClassLevel = true;
@@ -96,8 +87,6 @@ public final class SettingsHandler
 	private static boolean gearTab_AllowDebt = false;
 	private static int gearTab_SellRate = Constants.DEFAULT_GEAR_TAB_SELL_RATE;
 	private static int gearTab_BuyRate = Constants.DEFAULT_GEAR_TAB_BUY_RATE;
-	private static Point leftUpperCorner = null;
-	private static int windowState = Frame.NORMAL;
 
 	private static final SortedProperties OPTIONS = new SortedProperties();
 	private static final Properties FILEPATHS = new Properties();
@@ -204,46 +193,6 @@ public final class SettingsHandler
 	public static boolean getCreatePcgBackup()
 	{
 		return createPcgBackup;
-	}
-
-	public static void setCustomizerDimension(final Dimension d)
-	{
-		customizerDimension = d;
-	}
-
-	public static Dimension getCustomizerDimension()
-	{
-		return customizerDimension;
-	}
-
-	public static void setCustomizerLeftUpperCorner(final Point argLeftUpperCorner)
-	{
-		customizerLeftUpperCorner = argLeftUpperCorner;
-	}
-
-	public static Point getCustomizerLeftUpperCorner()
-	{
-		return customizerLeftUpperCorner;
-	}
-
-	public static void setCustomizerSplit1(final int split)
-	{
-		customizerSplit1 = split;
-	}
-
-	public static int getCustomizerSplit1()
-	{
-		return customizerSplit1;
-	}
-
-	public static void setCustomizerSplit2(final int split)
-	{
-		customizerSplit2 = split;
-	}
-
-	public static int getCustomizerSplit2()
-	{
-		return customizerSplit2;
 	}
 
 	/**
@@ -358,15 +307,14 @@ public final class SettingsHandler
 		guiUsesOutputNameSpells = argUseOutputNameSpells;
 	}
 
-	public static void setGame(final String g)
+	public static void setGame(final String key)
 	{
-		final GameMode newMode = SystemCollections.getGameModeNamed(g);
+		final GameMode newMode = SystemCollections.getGameModeNamed(key);
 
 		if (newMode != null)
 		{
 			game = newMode;
 		}
-		String key = g;
 		// new key for game mode specific options are pcgen.options.gameMode.X.optionName
 		// but offer downward compatible support to read in old version for unitSet from 5.8.0
 		String unitSetName = getOptions().getProperty("pcgen.options.gameMode." + key + ".unitSetName",
@@ -557,26 +505,6 @@ public final class SettingsHandler
 		return invalidToHitText;
 	}
 
-	public static void setKitSelectorDimension(final Dimension d)
-	{
-		kitSelectorDimension = d;
-	}
-
-	public static Dimension getKitSelectorDimension()
-	{
-		return kitSelectorDimension;
-	}
-
-	public static void setKitSelectorLeftUpperCorner(final Point argLeftUpperCorner)
-	{
-		kitSelectorLeftUpperCorner = argLeftUpperCorner;
-	}
-
-	public static Point getKitSelectorLeftUpperCorner()
-	{
-		return kitSelectorLeftUpperCorner;
-	}
-
 	public static void setLastTipShown(final int argLastTipShown)
 	{
 		lastTipShown = argLastTipShown;
@@ -585,16 +513,6 @@ public final class SettingsHandler
 	public static int getLastTipShown()
 	{
 		return lastTipShown;
-	}
-
-	public static void setLeftUpperCorner(final Point argLeftUpperCorner)
-	{
-		leftUpperCorner = argLeftUpperCorner;
-	}
-
-	public static Point getLeftUpperCorner()
-	{
-		return leftUpperCorner;
 	}
 
 	public static void setLoadURLs(final boolean aBool)
@@ -624,36 +542,6 @@ public final class SettingsHandler
 
 	public static void getOptionsFromProperties(final PlayerCharacter aPC)
 	{
-		setLeftUpperCorner(new Point(getPCGenOption("windowLeftUpperCorner.X", -1.0).intValue(), //$NON-NLS-1$
-			getPCGenOption("windowLeftUpperCorner.Y", -1.0).intValue())); //$NON-NLS-1$
-
-		setWindowState(getPCGenOption("windowState", Frame.NORMAL)); //$NON-NLS-1$
-
-		setCustomizerLeftUpperCorner(new Point(getPCGenOption(
-			"customizer.windowLeftUpperCorner.X", -1.0).intValue(), //$NON-NLS-1$
-			getPCGenOption("customizer.windowLeftUpperCorner.Y", -1.0).intValue())); //$NON-NLS-1$
-		//$NON-NLS-1$
-		Double dw = getPCGenOption("customizer.windowWidth", 0.0); //$NON-NLS-1$
-		//$NON-NLS-1$
-		Double dh = getPCGenOption("customizer.windowHeight", 0.0); //$NON-NLS-1$
-
-		if (!CoreUtility.doublesEqual(dw, 0.0) && !CoreUtility.doublesEqual(dh, 0.0))
-		{
-			setCustomizerDimension(new Dimension(dw.intValue(), dh.intValue()));
-		}
-
-		setKitSelectorLeftUpperCorner(
-			new Point(getPCGenOption("kitSelector.windowLeftUpperCorner.X", -1.0).intValue(), //$NON-NLS-1$
-			getPCGenOption("kitSelector.windowLeftUpperCorner.Y", -1.0).intValue())); //$NON-NLS-1$
-		dw = getPCGenOption("kitSelector.windowWidth", 0.0); //$NON-NLS-1$
-		dh = getPCGenOption("kitSelector.windowHeight", 0.0); //$NON-NLS-1$
-
-		if (!CoreUtility.doublesEqual(dw, 0.0) && !CoreUtility.doublesEqual(dh, 0.0))
-		{
-			setKitSelectorDimension(new Dimension(dw.intValue(), dh.intValue()));
-		}
-
-		//
 		// Read in the buy/sell percentages for the gear tab
 		// If not in the .ini file and ignoreCost is set, then use 0%
 		// Otherwise set buy to 100% and sell to %50
@@ -675,10 +563,6 @@ public final class SettingsHandler
 			}
 		}
 
-		Globals.initCustColumnWidth(
-			CoreUtility.split(getOptions().getProperty("pcgen.options.custColumnWidth", ""), //$NON-NLS-1$//$NON-NLS-2$
-			','));
-
 		loadURLs = getPCGenOption("loadURLs", false); //$NON-NLS-1$
 
 		Globals.setSourceDisplay(
@@ -686,8 +570,6 @@ public final class SettingsHandler
 
 		setAlwaysOverwrite(getPCGenOption("alwaysOverwrite", false)); //$NON-NLS-1$
 		setCreatePcgBackup(getPCGenOption("createPcgBackup", true));
-		setCustomizerSplit1(getPCGenOption("customizer.split1", -1)); //$NON-NLS-1$
-		setCustomizerSplit2(getPCGenOption("customizer.split2", -1)); //$NON-NLS-1$
 		setDefaultOSType(getPCGenOption("defaultOSType", null)); //$NON-NLS-1$
 		setEnforceSpendingBeforeLevelUp(getPCGenOption("enforceSpendingBeforeLevelUp", false)); //$NON-NLS-1$
 		setGearTab_AllowDebt(getPCGenOption("GearTab.allowDebt", false)); //$NON-NLS-1$
@@ -856,54 +738,6 @@ public final class SettingsHandler
 			setPCGenOption("pccFilesLocation", ""); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		if (getLeftUpperCorner() != null)
-		{
-			setPCGenOption("windowLeftUpperCorner.X", getLeftUpperCorner().getX()); //$NON-NLS-1$
-			setPCGenOption("windowLeftUpperCorner.Y", getLeftUpperCorner().getY()); //$NON-NLS-1$
-		}
-
-		setPCGenOption("windowState", getWindowState()); //$NON-NLS-1$
-
-		if (Globals.getRootFrame() != null)
-		{
-			setPCGenOption("windowWidth", Globals.getRootFrame().getSize().getWidth()); //$NON-NLS-1$
-			setPCGenOption("windowHeight", Globals.getRootFrame().getSize().getHeight()); //$NON-NLS-1$
-		}
-
-		if (getCustomizerLeftUpperCorner() != null)
-		{
-			setPCGenOption("customizer.windowLeftUpperCorner.X", getCustomizerLeftUpperCorner().getX()); //$NON-NLS-1$
-			setPCGenOption("customizer.windowLeftUpperCorner.Y", getCustomizerLeftUpperCorner().getY()); //$NON-NLS-1$
-		}
-
-		if (getCustomizerDimension() != null)
-		{
-			setPCGenOption("customizer.windowWidth", getCustomizerDimension().getWidth()); //$NON-NLS-1$
-			setPCGenOption("customizer.windowHeight", getCustomizerDimension().getHeight()); //$NON-NLS-1$
-		}
-
-		if (getKitSelectorLeftUpperCorner() != null)
-		{
-			setPCGenOption(
-				"kitSelector.windowLeftUpperCorner.X", getKitSelectorLeftUpperCorner().getX()); //$NON-NLS-1$
-			setPCGenOption(
-				"kitSelector.windowLeftUpperCorner.Y", getKitSelectorLeftUpperCorner().getY()); //$NON-NLS-1$
-		}
-
-		if (getKitSelectorDimension() != null)
-		{
-			setPCGenOption("kitSelector.windowWidth", getKitSelectorDimension().getWidth()); //$NON-NLS-1$
-			setPCGenOption("kitSelector.windowHeight", getKitSelectorDimension().getHeight()); //$NON-NLS-1$
-		}
-
-		//
-		// Remove old-style option values
-		//
-		setPCGenOption("allStatsValue", null);
-		setPCGenOption("purchaseMethodName", null);
-		setPCGenOption("rollMethod", null);
-		setPCGenOption("rollMethodExpression", null);
-
 		for (int idx = 0; idx < SystemCollections.getUnmodifiableGameModeList().size(); idx++)
 		{
 			final GameMode gameMode = SystemCollections.getUnmodifiableGameModeList().get(idx);
@@ -927,8 +761,6 @@ public final class SettingsHandler
 
 		setPCGenOption("alwaysOverwrite", getAlwaysOverwrite()); //$NON-NLS-1$
 		setPCGenOption("createPcgBackup", getCreatePcgBackup()); //$NON-NLS-1$
-		setPCGenOption("customizer.split1", getCustomizerSplit1()); //$NON-NLS-1$
-		setPCGenOption("customizer.split2", getCustomizerSplit2()); //$NON-NLS-1$
 		setPCGenOption("defaultOSType", getDefaultOSType()); //$NON-NLS-1$
 		setPCGenOption("GearTab.allowDebt", getGearTab_AllowDebt()); //$NON-NLS-1$
 		setPCGenOption("GearTab.autoResize", getGearTab_AutoResize()); //$NON-NLS-1$
@@ -1745,28 +1577,6 @@ public final class SettingsHandler
 		}
 
 		return path;
-	}
-
-	/**
-	 * <p>Returns the window state.  This corresponds to the values returned/accepted
-	 * by {@code Frame.getExtendedState} and {@code Frame.setExtendedState}.</p>
-	 *
-	 * @return Returns the windowState.
-	 */
-	public static int getWindowState()
-	{
-		return windowState;
-	}
-
-	/**
-	 * <p>Sets the window state.  This corresponds to the values returned/accepted
-	 * by {@code Frame.getExtendedState} and {@code Frame.setExtendedState}.</p>
-	 *
-	 * @param argWindowState The argWindowState to set.
-	 */
-	public static void setWindowState(final int argWindowState)
-	{
-		SettingsHandler.windowState = argWindowState;
 	}
 
 	/**
