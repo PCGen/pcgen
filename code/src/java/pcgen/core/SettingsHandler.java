@@ -1514,12 +1514,12 @@ public final class SettingsHandler
 	 * @param optionName
 	 * @param optionValue
 	 */
-	public static void setPCGenOption(final String optionName, final boolean optionValue)
+	private static void setPCGenOption(final String optionName, final boolean optionValue)
 	{
 		setPCGenOption(optionName, optionValue ? "true" : "false"); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
-	public static void setPCGenOption(final String optionName, final double optionValue)
+	private static void setPCGenOption(final String optionName, final double optionValue)
 	{
 		setPCGenOption(optionName, String.valueOf(optionValue));
 	}
@@ -1656,11 +1656,8 @@ public final class SettingsHandler
 	 **/
 	private static void readFilePaths()
 	{
-		FileInputStream in = null;
-
-		try
+		try(InputStream in = new FileInputStream(FILE_LOCATION))
 		{
-			in = new FileInputStream(FILE_LOCATION);
 			getFilepathProp().load(in);
 		}
 		catch (IOException e)
@@ -1669,22 +1666,6 @@ public final class SettingsHandler
 			if (Logging.isDebugMode())
 			{
 				Logging.debugPrint(LanguageBundle.getString("SettingsHandler.will.create.filepaths.ini")); //$NON-NLS-1$
-			}
-		}
-		finally
-		{
-			try
-			{
-				if (in != null)
-				{
-					in.close();
-				}
-			}
-			catch (IOException ex)
-			{
-				//Not much to do about it...
-				Logging.errorPrint(
-					LanguageBundle.getString("SettingsHandler.can.not.close.filepaths.ini"), ex); //$NON-NLS-1$
 			}
 		}
 	}
@@ -1699,11 +1680,8 @@ public final class SettingsHandler
 		// Globals.getFilterPath() will _always_ return a string
 		final String filterLocation = Globals.getFilterPath();
 
-		FileInputStream in = null;
-
-		try
+		try(InputStream in = new FileInputStream(filterLocation))
 		{
-			in = new FileInputStream(filterLocation);
 			getFilterSettings().load(in);
 		}
 		catch (IOException e)
@@ -1712,22 +1690,6 @@ public final class SettingsHandler
 			if (Logging.isDebugMode())
 			{
 				Logging.debugPrint(LanguageBundle.getString("SettingsHandler.will.create.filter.ini")); //$NON-NLS-1$
-			}
-		}
-		finally
-		{
-			try
-			{
-				if (in != null)
-				{
-					in.close();
-				}
-			}
-			catch (IOException ex)
-			{
-				//Not much to do about it...
-				Logging.errorPrint(
-					LanguageBundle.getString("SettingsHandler.can.not.close.filter.ini"), ex); //$NON-NLS-1$
 			}
 		}
 	}
