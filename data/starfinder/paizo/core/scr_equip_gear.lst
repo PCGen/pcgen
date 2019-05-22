@@ -199,7 +199,9 @@ Gem								TYPE:Goods.Trade									COST:0							SOURCEPAGE:p.232															
 Grain								TYPE:Goods.Trade									COST:1	WT:1						SOURCEPAGE:p.232																														BONUS:VAR|Bulk|1		QUALITY:Bulk|1
 Textiles (Common)						TYPE:Goods.Trade									COST:1	WT:0.1					SOURCEPAGE:p.232																														BONUS:VAR|BulkLight|1	QUALITY:Bulk|L
 Textiles (Fine)						TYPE:Goods.Trade									COST:100	WT:0.1					SOURCEPAGE:p.232																														BONUS:VAR|BulkLight|1	QUALITY:Bulk|L
-UPB (1000)							TYPE:Goods.Trade									COST:1000	WT:1						SOURCEPAGE:p.233																														BONUS:VAR|Bulk|1		QUALITY:Bulk|1
+UPB								TYPE:Goods.Trade									COST:1	WT:0.01					SOURCEPAGE:p.233																														BONUS:VAR|BulkLight|0.1	QUALITY:Bulk|L
+UPB (100)							TYPE:Goods.Trade									COST:100	WT:0.1	BASEQTY:100			SOURCEPAGE:p.233																														BONUS:VAR|BulkLight|1	QUALITY:Bulk|L
+UPB (1000)							TYPE:Goods.Trade									COST:1000	WT:1		BASEQTY:1000		SOURCEPAGE:p.233																														BONUS:VAR|Bulk|1		QUALITY:Bulk|1
 
 ###Food and Drink###
 Field Ration (per week)					TYPE:Goods.Food.Consumable							COST:1	WT:1						SOURCEPAGE:p.233																														BONUS:VAR|Bulk|1		QUALITY:Bulk|1
