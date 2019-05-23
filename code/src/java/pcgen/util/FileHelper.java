@@ -30,7 +30,6 @@ public final class FileHelper
 	/** Private constructor to disable instantiation. */
 	private FileHelper()
 	{
-		super();
 	}
 
 	/**
@@ -59,7 +58,7 @@ public final class FileHelper
 		}
 
 		// Cope with files on different drives in Windows.
-		if (!findRoot(testFile).equals(findRoot(relativeCanon)))
+		if (!testFile.toPath().getRoot().equals(relativeCanon.toPath().getRoot()))
 		{
 			return relativeCanon.getAbsolutePath();
 		}
@@ -86,7 +85,7 @@ public final class FileHelper
 						"Unable to get path for " + relative + " relative to " + base + ". Using absolute path.");
 					return relative.getAbsolutePath();
 				}
-				String pieceToKeep = relativePath.substring(testPath.length() + 1, relativePath.length());
+				String pieceToKeep = relativePath.substring(testPath.length() + 1);
 
 				return dots.append(pieceToKeep).toString();
 			}
@@ -99,22 +98,10 @@ public final class FileHelper
 		return dots + relativePath;
 	}
 
-	private static String findRoot(File file)
-	{
-		File test = file;
-
-		while (test.getParentFile() != null)
-		{
-			test = test.getParentFile();
-		}
-
-		return test.getAbsolutePath();
-	}
-
 	private static String stripOffRoot(File relative)
 	{
-		String root = findRoot(relative);
+		String root = relative.toPath().getRoot().toString();
 
-		return relative.getAbsolutePath().substring(root.length(), relative.getAbsolutePath().length());
+		return relative.getAbsolutePath().substring(root.length());
 	}
 }
