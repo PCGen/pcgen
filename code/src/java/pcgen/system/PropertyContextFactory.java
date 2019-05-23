@@ -22,6 +22,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -79,11 +81,9 @@ public class PropertyContextFactory
 			context = new PropertyContext(name);
 			contextMap.put(name, context);
 		}
-		FileInputStream in = null;
 		boolean loaded = false;
-		try
+		try(InputStream in = new FileInputStream(file))
 		{
-			in = new FileInputStream(file);
 			context.properties.load(in);
 			loaded = true;
 			context.afterPropertiesLoaded();
@@ -92,21 +92,7 @@ public class PropertyContextFactory
 		{
 			Logging.errorPrint("Error occurred while reading properties", ex);
 		}
-		finally
-		{
-			try
-			{
-				if (in != null)
-				{
-					in.close();
-				}
-			}
-			catch (IOException ex)
-			{
-				//Not much to do about it...
-				Logging.errorPrint("Failed to close input stream for file: " + context.getName(), ex); //$NON-NLS-1$
-			}
-		}
+
 		if (!loaded)
 		{
 			Logging.errorPrint("Failed to load " + name + ", either the file is unreadable or it "
@@ -139,31 +125,14 @@ public class PropertyContextFactory
 			Logging.errorPrint("WARNING: Could not update settings file: " + file.getAbsolutePath());
 			return;
 		}
-		FileOutputStream out = null;
-		try
+		try(OutputStream out = new FileOutputStream(file))
 		{
 			context.beforePropertiesSaved();
-			out = new FileOutputStream(file);
 			context.properties.store(out, null);
 		}
-		catch (Exception ex)
+		catch (IOException ex)
 		{
 			Logging.errorPrint("Error occurred while storing properties", ex);
-		}
-		finally
-		{
-			try
-			{
-				if (out != null)
-				{
-					out.close();
-				}
-			}
-			catch (IOException ex)
-			{
-				//Not much to do about it...
-				Logging.errorPrint("Failed to close output stream for file: " + context.getName(), ex); //$NON-NLS-1$
-			}
 		}
 	}
 
