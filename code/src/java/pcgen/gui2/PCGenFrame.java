@@ -289,7 +289,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	 * by setting it visible and then performing other startup actions
 	 * as the user's preferences dictate.
 	 */
-	public void startPCGenFrame()
+	void startPCGenFrame()
 	{
 		setVisible(true);
 		new StartupWorker().start();

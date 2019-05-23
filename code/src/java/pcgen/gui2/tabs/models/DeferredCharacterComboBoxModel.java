@@ -119,16 +119,6 @@ public abstract class DeferredCharacterComboBoxModel<E> extends FacadeListModel<
 			return;
 		}
 
-		// Focus was really lost; commit the update but do it after the focus is lost
-		final Runnable doUpdate = new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				commitSelectedItem(selectedItem);
-			}
-		};
-
-		SwingUtilities.invokeLater(doUpdate);
+		SwingUtilities.invokeLater(() -> commitSelectedItem(selectedItem));
 	}
 }
