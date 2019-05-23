@@ -30,6 +30,7 @@ import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Vector;
 import java.util.stream.Collectors;
 
@@ -38,7 +39,6 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import javax.swing.JFileChooser;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JSeparator;
@@ -46,8 +46,6 @@ import javax.swing.JTable;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 import javax.swing.event.ListSelectionEvent;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
@@ -90,6 +88,10 @@ import plugin.initiative.SaveModel;
 import plugin.initiative.SpellModel;
 import plugin.initiative.XMLCombatant;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.stage.FileChooser;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
@@ -163,6 +165,16 @@ public class Initiative extends javax.swing.JPanel
 		initLast();
 		addTableListener();
 		jSplitPane1.setOneTouchExpandable(true);
+	}
+
+	/**
+	 * Ensures that the path specified exists.
+	 *
+	 * @param  path  the {@code File} representing the path
+	 */
+	private static void ensurePathExists(final File path)
+	{
+		path.mkdirs();
 	}
 
 	/**
@@ -1629,58 +1641,53 @@ public class Initiative extends javax.swing.JPanel
 	/**  Calls up a file save dialog, and if a file is selected/created, will then save the combatants out to disk. */
 	public void saveToFile()
 	{
-		JFileChooser fLoad = new JFileChooser();
+		FileChooser fileChooser = new FileChooser();
 		File defaultFile = new File(PCGenSettings.getPcgDir());
-
 		if (defaultFile.exists())
 		{
-			fLoad.setCurrentDirectory(defaultFile);
+			fileChooser.setInitialFileName(String.valueOf(defaultFile));
 		}
+		FileChooser.ExtensionFilter fileFilter =
+				new FileChooser.ExtensionFilter("GMGen Initiative/Encounter Export", "gmi", "init");
+		fileChooser.getExtensionFilters().add(fileFilter);
+		fileChooser.setSelectedExtensionFilter(fileFilter);
 
-		String[] fileExt = {"gmi", "init"};
-		FileFilter sff = new FileNameExtensionFilter("GMGen Initiative/Encounter Export", fileExt);
-		fLoad.addChoosableFileFilter(sff);
-		fLoad.setFileFilter(sff);
-
-		final int returnVal = fLoad.showSaveDialog(this);
-
-		try
+		// todo: fix root window
+		File xml = fileChooser.showSaveDialog(null);
+		if (xml != null)
 		{
-			if (returnVal == JFileChooser.APPROVE_OPTION)
+			try
 			{
-				String fileName = fLoad.getSelectedFile().getName();
-				String ext = "";
-
-				if (!fileName.endsWith(".gmi"))
-				{
-					ext = ".gmi";
-				}
-
-				File xml = new File(fLoad.getSelectedFile().getParent() + File.separator + fileName + ext);
-
 				if (xml.exists())
 				{
-					int choice = JOptionPane.showConfirmDialog(this, "File Exists, Overwrite?", "File Exists",
-						JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-
-					if (choice == JOptionPane.YES_OPTION)
+					Dialog<ButtonType> alert = new Alert(Alert.AlertType.CONFIRMATION);
+					// todo: i18n
+					alert.setTitle("File Exists");
+					alert.setHeaderText("File Exists, Overwrite?");
+					alert.setContentText(xml.toString() + " exists");
+					Optional<ButtonType> confirmChoice = alert.showAndWait();
+					if (confirmChoice.isPresent() && confirmChoice.get() == ButtonType.OK)
 					{
-						SettingsHandler.ensurePathExists(xml.getParentFile());
+						xml.getParentFile().mkdirs();
 						saveToDocument(xml);
 					}
 				}
 				else
 				{
-					SettingsHandler.ensurePathExists(xml.getParentFile());
+					xml.getParentFile().mkdirs();
 					saveToDocument(xml);
 				}
 			}
-		}
-		catch (Exception e)
-		{
-			JOptionPane.showMessageDialog(this, "Error Writing File");
-			Logging.errorPrint("Error Writing File");
-			Logging.errorPrint(e.getMessage(), e);
+			catch (IOException e)
+			{
+				Dialog<ButtonType> errorDialog = new Alert(Alert.AlertType.ERROR);
+				errorDialog.setTitle("Error Writing File");
+				// todo: make a specific "exception" or "scrolling" dialog
+				errorDialog.setContentText(e.getMessage());
+				errorDialog.showAndWait();
+				Logging.errorPrint("Error Writing File");
+				Logging.errorPrint(e.getMessage(), e);
+			}
 		}
 	}
 

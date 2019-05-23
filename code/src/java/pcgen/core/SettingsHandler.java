@@ -1031,19 +1031,6 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Ensures that the path specified exists.
-	 *
-	 * @param  path  the {@code File} representing the path
-	 */
-	public static void ensurePathExists(final File path)
-	{
-		if (path != null && !path.exists())
-		{
-			path.mkdirs();
-		}
-	}
-
-	/**
 	 * Sets the path to the portrait files.
 	 *
 	 * @param  path  the {@code File} representing the path
