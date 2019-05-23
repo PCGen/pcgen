@@ -18,26 +18,17 @@
   * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
   -->
 
-<?import javafx.scene.Scene?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.control.Tooltip?>
-<?import java.net.URL?>
-<?import javafx.scene.control.cell.MapValueFactory?>
+<?import javafx.scene.Scene?><?import javafx.scene.control.Button?><?import javafx.scene.control.TableColumn?><?import javafx.scene.control.TableView?><?import javafx.scene.control.TextArea?><?import javafx.scene.layout.BorderPane?><?import javafx.scene.control.Tooltip?><?import java.net.URL?><?import javafx.scene.control.cell.MapValueFactory?>
 
+<?import javafx.scene.layout.StackPane?><?import javafx.scene.layout.VBox?><?import javafx.scene.layout.AnchorPane?>
 <Scene xmlns="http://javafx.com/javafx/11.0.1"
        xmlns:fx="http://javafx.com/fxml/1"
        fx:controller="pcgen.gui3.dialog.DebugDialogController">
-    <BorderPane prefHeight="428.0" prefWidth="620.0">
-        <top>
+    <AnchorPane>
+        <VBox>
             <BorderPane>
                 <center>
-                    <TextArea BorderPane.alignment="CENTER"
-                              fx:id="logText"
-                              editable="false"/>
+                    <TextArea BorderPane.alignment="CENTER" fx:id="logText" editable="false"/>
                 </center>
                 <bottom>
                     <Button text="%in_mnuToolsClear"
@@ -46,45 +37,43 @@
                             onAction="#clearLogs"/>
                 </bottom>
             </BorderPane>
-        </top>
-        <bottom>
             <BorderPane>
-                <top>
+                <center>
                     <TableView fx:id="memoryTable" BorderPane.alignment="CENTER" id="memoryTable">
                         <columns>
                             <TableColumn id="memoryType" text="">
                                 <cellValueFactory>
-                                    <MapValueFactory key="memoryType" />
+                                    <MapValueFactory key="memoryType"/>
                                 </cellValueFactory>
                             </TableColumn>
                             <TableColumn id="memoryInitial" text="Initial">
                                 <cellValueFactory>
-                                    <MapValueFactory key="memoryInitial" />
+                                    <MapValueFactory key="memoryInitial"/>
                                 </cellValueFactory>
                             </TableColumn>
                             <TableColumn id="memoryUsed" text="Used">
                                 <cellValueFactory>
-                                    <MapValueFactory key="memoryUsed" />
+                                    <MapValueFactory key="memoryUsed"/>
                                 </cellValueFactory>
                             </TableColumn>
                             <TableColumn id="memoryCommitted" text="Committed">
                                 <cellValueFactory>
-                                    <MapValueFactory key="memoryCommitted" />
+                                    <MapValueFactory key="memoryCommitted"/>
                                 </cellValueFactory>
                             </TableColumn>
                             <TableColumn id="memoryMax" text="Max">
                                 <cellValueFactory>
-                                    <MapValueFactory key="memoryMax" />
+                                    <MapValueFactory key="memoryMax"/>
                                 </cellValueFactory>
                             </TableColumn>
                             <TableColumn id="memoryPercentUsed" text="\% Used">
                                 <cellValueFactory>
-                                    <MapValueFactory key="memoryPercentUsed" />
+                                    <MapValueFactory key="memoryPercentUsed"/>
                                 </cellValueFactory>
                             </TableColumn>
                         </columns>
                     </TableView>
-                </top>
+                </center>
                 <bottom>
                     <Button onAction="#runGC"
                             text="%in_mnuToolsGC"
@@ -94,9 +83,9 @@
                     </Button>
                 </bottom>
             </BorderPane>
-        </bottom>
+        </VBox>
         <stylesheets>
-            <URL value="@DebugDialog.css" />
+            <URL value="@DebugDialog.css"/>
         </stylesheets>
-    </BorderPane>
+    </AnchorPane>
 </Scene>
