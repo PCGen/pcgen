@@ -20,7 +20,6 @@ package translation.util;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
@@ -92,21 +91,16 @@ public final class Tips
 						log("Found {0}", tipsFile);
 						// for each non comment line of the file, put its content in a
 						// Set<String>
-						try
+						try (BufferedReader reader = new BufferedReader(new FileReader(
+								tipsFile,
+								StandardCharsets.UTF_8
+						)))
 						{
-							BufferedReader reader = new BufferedReader(new FileReader(tipsFile, StandardCharsets.UTF_8));
 							addTips(tips, reader);
-							reader.close();
-						}
-						catch (FileNotFoundException e)
-						{
-							logError("Warning: file found then not found {0}, ignoring " + "this file", tipsFile);
-							e.printStackTrace();
 						}
 						catch (IOException e)
 						{
-							logError("Warning: IO error reading {0}, ignoring this file", tipsFile);
-							e.printStackTrace();
+							logError("Warning: file found then not found {0}, ignoring " + "this file", e, tipsFile);
 						}
 
 					}
@@ -130,32 +124,14 @@ public final class Tips
 		// create parent if necessary
 		pot.getParentFile().mkdirs();
 
-		BufferedWriter bw = null;
-		try
+		try (Writer bw = new BufferedWriter(new FileWriter(pot, StandardCharsets.UTF_8)))
 		{
-			bw = new BufferedWriter(new FileWriter(pot, StandardCharsets.UTF_8));
 			writePOT(tips, bw);
 			log("Wrote {0}", potFilename);
 		}
 		catch (IOException e)
 		{
-			logError("IO error while writing {0}", pot);
-			e.printStackTrace();
-		}
-		finally
-		{
-			try
-			{
-				if (bw != null)
-				{
-					bw.close();
-				}
-			}
-			catch (IOException e)
-			{
-				logError("IO error while closing {0}", pot);
-				e.printStackTrace();
-			}
+			logError("IO error while writing {0}", e, pot);
 		}
 	}
 
@@ -197,8 +173,7 @@ public final class Tips
 		}
 		catch (IOException e)
 		{
-			logError("Warning: IO error reading a line, ignoring it");
-			e.printStackTrace();
+			logError("Warning: IO error reading a line, ignoring it", e);
 		}
 	}
 
@@ -254,10 +229,8 @@ public final class Tips
 		int statTranslated = 0;
 		// load stuff from the PO catalog file
 		Map<String, String> tipsTranslated = new HashMap<>();
-		BufferedReader translationReader = null;
-		try
+		try (BufferedReader translationReader = new BufferedReader(new FileReader(translation, StandardCharsets.UTF_8)))
 		{
-			translationReader = new BufferedReader(new FileReader(translation, StandardCharsets.UTF_8));
 			String line = translationReader.readLine();
 			String key = null;
 			StringBuilder str = new StringBuilder();
@@ -306,23 +279,9 @@ public final class Tips
 		}
 		catch (IOException e)
 		{
-			e.printStackTrace();
+			logError("io error", e);
 		}
-		finally
-		{
-			if (translationReader != null)
-			{
-				try
-				{
-					translationReader.close();
-				}
-				catch (IOException e)
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
+
 		log("Translated tips: {0}", statTranslated);
 		log("Untranslated tips: {0}", statUntranslated);
 
@@ -373,8 +332,7 @@ public final class Tips
 						}
 						catch (IOException e)
 						{
-							// TODO Auto-generated catch block
-							e.printStackTrace();
+							logError("io error", e);
 						}
 
 					}
@@ -415,7 +373,7 @@ public final class Tips
 	{
 		if (args.length == 0)
 		{
-			logError("Missing argument");
+			logError("Missing argument", null);
 			usage();
 			return;
 		}
@@ -446,7 +404,7 @@ public final class Tips
 		}
 		else
 		{
-			logError("Unknown command");
+			logError("Unknown command", null);
 			usage();
 		}
 	}
@@ -467,6 +425,7 @@ public final class Tips
 	 * @param o arguments
 	 * @see MessageFormat#format(String, Object...)
 	 */
+	@SuppressWarnings({"UseOfSystemOutOrSystemErr", "PMD.AvoidPrintStackTrace"})
 	private static void log(String string, Object... o)
 	{
 		System.out.println(MessageFormat.format(string, o));
@@ -478,8 +437,13 @@ public final class Tips
 	 * @param o arguments
 	 * @see MessageFormat#format(String, Object...)
 	 */
-	private static void logError(String string, Object... o)
+	@SuppressWarnings({"CallToPrintStackTrace", "UseOfSystemOutOrSystemErr", "PMD.AvoidPrintStackTrace"})
+	private static void logError(String string, Throwable e, Object... o)
 	{
 		System.err.println(MessageFormat.format(string, o));
+		if (e != null)
+		{
+			e.printStackTrace();
+		}
 	}
 }

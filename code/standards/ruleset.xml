@@ -17,7 +17,6 @@
         <exclude name="AccessorClassGeneration"/>
         <exclude name="AccessorMethodGeneration"/>
         <exclude name="ArrayIsStoredDirectly"/>
-        <exclude name="AvoidPrintStackTrace"/>
         <exclude name="AvoidReassigningParameters"/>
         <exclude name="AvoidStringBufferField"/>
         <exclude name="ConstantsInInterface"/>

@@ -39,6 +39,7 @@ import pcgen.core.Campaign;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.PCGenPropBundle;
+import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
 public class ObjectInjector
@@ -204,7 +205,7 @@ public class ObjectInjector
 		}
 		catch (MissingResourceException mre)
 		{
-			mre.printStackTrace();
+			Logging.errorPrint(mre.getMessage(), mre);
 		}
 		sb.append(" on ").append(LocalDateTime.now(Clock.systemUTC()));
 		sb.append("\n#\n");

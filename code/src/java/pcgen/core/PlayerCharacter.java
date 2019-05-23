@@ -8856,8 +8856,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 		catch (CloneNotSupportedException e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logging.errorPrint(e.getLocalizedMessage(), e);
 		}
 	}
 
@@ -9266,8 +9265,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 		catch (CloneNotSupportedException e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logging.errorPrint(e.getLocalizedMessage(), e);
 		}
 	}
 

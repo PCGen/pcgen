@@ -270,8 +270,7 @@ public class TravelMethodFactory
 			}
 			catch (ParseException exception)
 			{
-				// TODO Auto-generated catch block
-				exception.printStackTrace();
+				Logging.errorPrint("ParseException failure", exception);
 			}
 		}
 		return n;
