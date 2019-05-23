@@ -26,25 +26,23 @@ import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
-import javax.swing.JEditorPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 import gmgen.plugin.Spell;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.SimpleHtmlPanelController;
 import plugin.initiative.SpellModel;
 
 /**
- * <p>
  * Dialog which casts a spell, creating a durationed event in the
  * initiative tracker.
- * </p>
  */
-@SuppressWarnings("serial")
-public class CastSpell extends StartEvent
+public final class CastSpell extends StartEvent
 {
-	protected JEditorPane descText;
-	protected JPanel descPanel;
-	protected JScrollPane descScroll;
+	private JFXPanelFromResource<SimpleHtmlPanelController> descText;
+	private JPanel descPanel;
+	private JScrollPane descScroll;
 
 	/**
 	 *  Creates new form CastSpell - used when you do know who your frame is
@@ -53,7 +51,7 @@ public class CastSpell extends StartEvent
 	 *@param  modal       is modal?
 	 *@param  initiative  Initiative panel
 	 */
-	public CastSpell(Frame parent, boolean modal, Initiative initiative)
+	CastSpell(Frame parent, boolean modal, Initiative initiative)
 	{
 		super(parent, modal, initiative);
 	}
@@ -68,7 +66,7 @@ public class CastSpell extends StartEvent
 	 *@param  player      player name
 	 *@param  init        player's initiative
 	 */
-	public CastSpell(Frame parent, boolean modal, Initiative initiative, String player, int init)
+	CastSpell(Frame parent, boolean modal, Initiative initiative, String player, int init)
 	{
 		super(parent, modal, initiative, player, init);
 	}
@@ -82,13 +80,16 @@ public class CastSpell extends StartEvent
 	 *
 	 * @param model A non-null spell model.
 	 */
-	public void setSpellModel(SpellModel model)
+	void setSpellModel(SpellModel model)
 	{
 		StringBuilder text = new StringBuilder();
 
 		if (descPanel.getComponents().length == 0)
 		{
-			descText = new JEditorPane("text/html", "<html></html>");
+			descText = new JFXPanelFromResource<>(
+					SimpleHtmlPanelController.class,
+					"SimpleHtmlPanel.fxml"
+			);
 			descScroll = new JScrollPane(descText);
 			descPanel.add(descScroll, BorderLayout.CENTER);
 		}
@@ -102,7 +103,7 @@ public class CastSpell extends StartEvent
 		text.append("<b>Target/Area: </b>" + model.getTarget() + ' ');
 		text.append("<b>Desc: </b>" + model.getDesc() + ' ');
 		text.append("</font></body></html>");
-		descText.setText(text.toString());
+		descText.getController().setHtml(text.toString());
 		descPanel.setPreferredSize(new Dimension(mainPanel.getWidth() - 16, 75));
 		descPanel.setMaximumSize(new Dimension(mainPanel.getWidth() - 16, 75));
 		descPanel.setMinimumSize(new Dimension(mainPanel.getWidth() - 16, 75));
@@ -115,7 +116,7 @@ public class CastSpell extends StartEvent
 	 * <p>Sets the spell name</p>
 	 * @param spellName
 	 */
-	public void setSpellName(String spellName)
+	void setSpellName(String spellName)
 	{
 		tName.setText(spellName);
 	}
@@ -124,7 +125,7 @@ public class CastSpell extends StartEvent
 	protected void save()
 	{
 		initiative.initList.add(new Spell(tName.getText(), tPlayer.getText(), tEffect.getText(),
-			((Integer) lDuration.getValue()).intValue(), ((Integer) lInit.getValue()).intValue(),
+				(Integer) lDuration.getValue(), (Integer) lInit.getValue(),
 			cbAlert.isSelected()));
 		initiative.writeToCombatTabWithRound(tPlayer.getText() + " Cast " + tName.getText());
 		initiative.refreshTable();
