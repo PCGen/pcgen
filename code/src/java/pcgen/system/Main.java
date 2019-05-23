@@ -294,10 +294,6 @@ public final class Main
 
 	public static void loadProperties(boolean useGui)
 	{
-		var panel = new JFXPanelFromResource<>(
-				OptionsPathDialogController.class,
-				"OptionsPathDialog.fxml"
-		);
 		if ((settingsDir == null)
 			&& (ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH) == null))
 		{
@@ -306,6 +302,10 @@ public final class Main
 				Logging.errorPrint("No settingsDir specified via -s in batch mode and no default exists.");
 				System.exit(1);
 			}
+			var panel = new JFXPanelFromResource<>(
+					OptionsPathDialogController.class,
+					"OptionsPathDialog.fxml"
+			);
 			panel.showAndBlock("Directory for options.ini location");
 		}
 		PropertyContextFactory.setDefaultFactory(settingsDir);
