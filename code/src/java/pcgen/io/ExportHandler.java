@@ -169,9 +169,6 @@ public final class ExportHandler
 	/** TODO What is this used for? */
 	private boolean checkBefore;
 
-	/** TODO What is this used for? */
-	private boolean inLabel;
-
 	/** The templating engine we will be using for this export. */
 	private ExportEngine exportEngine;
 
@@ -1162,7 +1159,6 @@ public final class ExportHandler
 					valString = valString.substring(0, valString.length() - 1);
 				}
 
-				if (i < str.length())
 				{
 					// Deal with .TRUNC
 					if (valString.endsWith(".TRUNC"))
@@ -1834,7 +1830,6 @@ public final class ExportHandler
 			// then there is nothing to replace so return 0
 			if ("%".equals(aString))
 			{
-				inLabel = false;
 				canWrite = true;
 				return 0;
 			}
@@ -2747,11 +2742,9 @@ public final class ExportHandler
 
 		if (found)
 		{
-			inLabel = true;
 			return 0;
 		}
 		canWrite = false;
-		inLabel = true;
 
 		Logging.debugPrint("Return 0 (don't write/no replacement) for an undetermined filter token.");
 		return 0;
@@ -3522,14 +3515,6 @@ public final class ExportHandler
 	}
 
 	/**
-	 * @return Returns the inLabel flag.
-	 */
-	public boolean getInLabel()
-	{
-		return inLabel;
-	}
-
-	/**
 	 * @return Returns the existsOnly flag.
 	 */
 	public boolean getExistsOnly()
@@ -3543,14 +3528,6 @@ public final class ExportHandler
 	public void setNoMoreItems(boolean noMoreItems)
 	{
 		this.noMoreItems = noMoreItems;
-	}
-
-	/**
-	 * @return Returns the manualWhitespace flag.
-	 */
-	public boolean isManualWhitespace()
-	{
-		return manualWhitespace;
 	}
 
 	/**
