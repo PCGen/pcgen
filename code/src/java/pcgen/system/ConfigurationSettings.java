@@ -151,11 +151,6 @@ public final class ConfigurationSettings extends PropertyContext
 		return getDirectory(SETTINGS_FILES_PATH);
 	}
 
-	public static String initSystemProperty(String key, String defaultValue)
-	{
-		return getInstance().initProperty(key, defaultValue);
-	}
-
 	public static String getSystemProperty(String key)
 	{
 		return getInstance().getProperty(key);
