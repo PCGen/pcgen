@@ -118,7 +118,7 @@ public class HtmlSheetSupport
 		}
 		if (refresher != null && !refresher.isDone())
 		{
-			refresher.cancel(false);
+			refresher.cancel(true);
 		}
 		refresher = new Refresher();
 		executor.execute(refresher);
