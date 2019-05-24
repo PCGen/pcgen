@@ -23,13 +23,12 @@ package plugin.initiative.gui;
 import java.awt.BorderLayout;
 
 import pcgen.core.SettingsHandler;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
 
-import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 /**
@@ -94,16 +93,10 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 
 		rollPCInitiatives.setText(LanguageBundle.getString("in_plugin_initiative_rollPcInit"));
 
-		VBox vbox = new VBox();
+		Pane vbox = new VBox();
 		vbox.getChildren().add(rollPCInitiatives);
 
-		JFXPanel outside = new JFXPanel();
-		Platform.runLater(() ->  {
-			Scene scene = new Scene(vbox);
-			outside.setScene(scene);
-		});
-
 		setLayout(new BorderLayout());
-		add(outside, BorderLayout.CENTER);
+		add(GuiUtility.wrapParentAsJFXPanel(vbox), BorderLayout.CENTER);
 	}
 }
