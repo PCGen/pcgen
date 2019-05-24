@@ -20,7 +20,6 @@
         <exclude name="AvoidPrintStackTrace"/>
         <exclude name="AvoidReassigningParameters"/>
         <exclude name="AvoidStringBufferField"/>
-        <exclude name="ConstantsInInterface"/>
         <exclude name="ForLoopCanBeForeach"/>
         <exclude name="GuardLogStatement"/>
         <exclude name="LooseCoupling"/>
