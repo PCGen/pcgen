@@ -92,7 +92,6 @@ public final class SettingsHandler
 	private static String invalidDmgText;
 	private static String invalidToHitText;
 	private static boolean gearTab_IgnoreCost = false;
-	private static boolean gearTab_AutoResize = false;
 	private static boolean gearTab_AllowDebt = false;
 	private static int gearTab_SellRate = Constants.DEFAULT_GEAR_TAB_SELL_RATE;
 	private static int gearTab_BuyRate = Constants.DEFAULT_GEAR_TAB_BUY_RATE;
@@ -406,16 +405,6 @@ public final class SettingsHandler
 		return gearTab_AllowDebt;
 	}
 
-	public static void setGearTab_AutoResize(final boolean autoResize)
-	{
-		gearTab_AutoResize = autoResize;
-	}
-
-	public static boolean getGearTab_AutoResize()
-	{
-		return gearTab_AutoResize;
-	}
-
 	public static void setGearTab_BuyRate(final int argBuyRate)
 	{
 		gearTab_BuyRate = argBuyRate;
@@ -691,7 +680,6 @@ public final class SettingsHandler
 		setDefaultOSType(getPCGenOption("defaultOSType", null)); //$NON-NLS-1$
 		setEnforceSpendingBeforeLevelUp(getPCGenOption("enforceSpendingBeforeLevelUp", false)); //$NON-NLS-1$
 		setGearTab_AllowDebt(getPCGenOption("GearTab.allowDebt", false)); //$NON-NLS-1$
-		setGearTab_AutoResize(getPCGenOption("GearTab.autoResize", false)); //$NON-NLS-1$
 		setGearTab_BuyRate(buyRate);
 		setGearTab_IgnoreCost(getPCGenOption("GearTab.ignoreCost", false)); //$NON-NLS-1$
 		setGearTab_SellRate(sellRate);
@@ -931,7 +919,6 @@ public final class SettingsHandler
 		setPCGenOption("customizer.split2", getCustomizerSplit2()); //$NON-NLS-1$
 		setPCGenOption("defaultOSType", getDefaultOSType()); //$NON-NLS-1$
 		setPCGenOption("GearTab.allowDebt", getGearTab_AllowDebt()); //$NON-NLS-1$
-		setPCGenOption("GearTab.autoResize", getGearTab_AutoResize()); //$NON-NLS-1$
 		setPCGenOption("GearTab.buyRate", getGearTab_BuyRate()); //$NON-NLS-1$
 		setPCGenOption("GearTab.ignoreCost", getGearTab_IgnoreCost()); //$NON-NLS-1$
 		setPCGenOption("GearTab.sellRate", getGearTab_SellRate()); //$NON-NLS-1$
