@@ -123,14 +123,18 @@ class InfoGuidePane extends JComponent implements UIResource
 	private void initListeners()
 	{
 		frame.getSelectedCharacterRef().addReferenceListener(e -> {
-			boolean show = e.getNewReference() == null;
-			if (show)
+			if (e.getNewReference() == null)
 			{
+				this.setVisible(true);
 				tipPane.getController().setHtml(
 						LanguageBundle.getFormattedString(
 								"in_si_tip",
 								TipOfTheDayHandler.getInstance().getNextTip()
 						));
+			}
+			else
+			{
+				this.setVisible(false);
 			}
 		});
 
