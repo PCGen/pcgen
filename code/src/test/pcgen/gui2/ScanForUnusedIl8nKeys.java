@@ -41,7 +41,6 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -54,29 +53,27 @@ class ScanForUnusedIl8nKeys
 {
 
 	private static final String CODE_PATH = "code/src/java/";
-	private static final String PROPERTIES_PATH = "pcgen/resources/lang/";
+	private static final String RESOURCES_PATH = "code/src/resources/";
+	private static final String TEST_RESOURCES_PATH = "code/src/testResources/";
+	private static final String PROPERTIES_PATH = "pcgen/lang/";
 	private static final String PROPERTIES_FILE = "LanguageBundle.properties";
 	private static final String NEW_PROPERTIES_FILE = "cleaned.properties";
 	private static final String UNUSED_PROPERTIES_FILE = "unused.properties";
-	private static final String[] PACKAGES = {"pcgen/gui2",
-		"pcgen/core", "pcgen/system", "gmgen", "plugin", "pcgen/io",
-		"pcgen/persistence", "pcgen/cdom", "pcgen/rules/context", "pcgen/util", };
-	
-	@Disabled
+
 	@Test
 	void scanForUnusedKeys() throws Exception
 	{
 		//Read in bundle, grab all keys
 		Properties p = new Properties();
-		p.load(new FileInputStream(CODE_PATH + PROPERTIES_PATH + PROPERTIES_FILE));
+		p.load(new FileInputStream(RESOURCES_PATH + PROPERTIES_PATH + PROPERTIES_FILE));
 		Set<String> keys =
-				p.entrySet().stream()
-				 .map(e -> (String) e.getKey())
+				p.keySet().stream()
+				 .map(o -> (String) o)
 				 .collect(Collectors.toCollection(TreeSet::new));
 
 		// Grab a list of files to be scanned
 		List<File> fileList = buildFileList();
-		
+
 		// Scan each file marking each found entry
 		Set<String> missingKeys = new TreeSet<>(keys);
 		actionWhitelistedKeys(missingKeys);
@@ -92,13 +89,13 @@ class ScanForUnusedIl8nKeys
 			+ ((missingKeys.size() * 100.0) / keys.size()) + "%");
 
 		// Output a new set
-		outputCleanedProperties(new File(CODE_PATH + PROPERTIES_PATH
-			+ PROPERTIES_FILE), new File(CODE_PATH + PROPERTIES_PATH
+		outputCleanedProperties(new File(RESOURCES_PATH + PROPERTIES_PATH
+			+ PROPERTIES_FILE), new File(TEST_RESOURCES_PATH + PROPERTIES_PATH
 			+ NEW_PROPERTIES_FILE), missingKeys);
 
 		// Output the unused file
-		outputUnusedProperties(new File(CODE_PATH + PROPERTIES_PATH
-			+ PROPERTIES_FILE), new File(CODE_PATH + PROPERTIES_PATH
+		outputUnusedProperties(new File(RESOURCES_PATH + PROPERTIES_PATH
+			+ PROPERTIES_FILE), new File(TEST_RESOURCES_PATH + PROPERTIES_PATH
 			+ UNUSED_PROPERTIES_FILE), missingKeys);
 	}
 
@@ -189,36 +186,40 @@ class ScanForUnusedIl8nKeys
 	private static void outputUnusedProperties(File inputPropsFile, File unusedPropsFile,
 	                                           Collection<String> unusedKeys) throws IOException
 	{
-		BufferedReader reader = new BufferedReader(new FileReader(inputPropsFile, StandardCharsets.UTF_8));
-		List<String> lines = reader.lines().collect(Collectors.toList());
-		Writer writer = new BufferedWriter(new FileWriter(unusedPropsFile, StandardCharsets.UTF_8));
-		writer.write("# " + PROPERTIES_FILE
-			+ " with all used keys removed as at "
-			+ LocalDateTime.now(Clock.systemUTC())
-			+ '\n');
-		boolean lastLineBlank = false;
-		for (String line : lines)
+		List<String> lines;
+		try (BufferedReader reader = new BufferedReader(new FileReader(inputPropsFile, StandardCharsets.UTF_8)))
 		{
-			boolean found;
-			if (lastLineBlank && line.trim().isEmpty())
+			lines = reader.lines().collect(Collectors.toList());
+		}
+		try (Writer writer = new BufferedWriter(new FileWriter(unusedPropsFile, StandardCharsets.UTF_8)))
+		{
+			writer.write("# " + PROPERTIES_FILE
+					+ " with all used keys removed as at "
+					+ LocalDateTime.now(Clock.systemUTC())
+					+ '\n');
+			boolean lastLineBlank = false;
+			for (String line : lines)
 			{
-				continue;
-			}
-			else if (line.trim().startsWith("#") || line.trim().isEmpty())
-			{
-				found = true;
-			}
-			else
-			{
-				found = unusedKeys.stream().anyMatch(key -> line.startsWith(key + "="));
-			}
-			if (found)
-			{
-				lastLineBlank = line.trim().isEmpty();
-				writer.write(line + "\n");
+				boolean found;
+				if (lastLineBlank && line.trim().isEmpty())
+				{
+					continue;
+				}
+				else if (line.trim().startsWith("#") || line.trim().isEmpty())
+				{
+					found = true;
+				}
+				else
+				{
+					found = unusedKeys.stream().anyMatch(key -> line.startsWith(key + "="));
+				}
+				if (found)
+				{
+					lastLineBlank = line.trim().isEmpty();
+					writer.write(line + "\n");
+				}
 			}
 		}
-		writer.close();
 	}
 
 	/**
@@ -229,15 +230,21 @@ class ScanForUnusedIl8nKeys
 	{
 		List<File> allFiles = new ArrayList<>();
 
-		for (String pkg : PACKAGES)
-		{
-			List<File> collect = Files.walk(Paths.get(CODE_PATH + pkg))
-			                          .filter(Files::isRegularFile)
-			                          .filter(e -> e.endsWith(".java"))
-			                          .map(Path::toFile)
-			                          .collect(Collectors.toList());
-			allFiles.addAll(collect);
-		}
+		System.out.println("current working directory" + System.getProperty("user.dir"));
+		List<File> collect = Files.walk(Paths.get(CODE_PATH))
+		                          .filter(Files::isRegularFile)
+		                          .filter(e -> e.toString().endsWith(".java"))
+		                          .map(Path::toFile)
+		                          .collect(Collectors.toList());
+		allFiles.addAll(collect);
+
+		List<File> collect2 = Files.walk(Paths.get(RESOURCES_PATH))
+		                          .filter(Files::isRegularFile)
+		                          .filter(e -> e.toString().endsWith(".fxml"))
+		                          .map(Path::toFile)
+		                          .collect(Collectors.toList());
+		allFiles.addAll(collect2);
+		System.out.println("size is " + allFiles.size());
 		return allFiles;
 	}
 

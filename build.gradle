@@ -110,10 +110,17 @@ sourceSets {
         }
         compileClasspath += sourceSets.main.output
         runtimeClasspath += sourceSets.main.output
+        resources {
+            srcDirs = ['code/src/testResources']
+        }
+
     }
     itest {
         java {
             srcDirs = ['code/src/itest', 'code/src/testcommon']
+        }
+        resources {
+            srcDirs = ['code/src/testResources']
         }
         compileClasspath += sourceSets.main.output
         runtimeClasspath += sourceSets.main.output
@@ -124,6 +131,9 @@ sourceSets {
     slowtest {
         java {
             srcDirs = ['code/src/test', 'code/src/testcommon']
+        }
+        resources {
+            srcDirs = ['code/src/testResources']
         }
         compileClasspath += sourceSets.main.output
         runtimeClasspath += sourceSets.main.output
