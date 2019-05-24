@@ -19,7 +19,6 @@
 package gmgen;
 
 import java.awt.BorderLayout;
-import java.awt.Frame;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -84,12 +83,6 @@ public final class GMGenSystem extends JFrame
 	private static final String MNU_COPY = "mnuCopy"; //$NON-NLS-1$
 	private static final String MNU_PASTE = "mnuPaste"; //$NON-NLS-1$
 
-	// Settings keys
-	private static final String SETTING_WINDOW_STATE = "WindowState"; //$NON-NLS-1$
-	private static final String SETTING_WINDOW_HEIGHT = "WindowHeight"; //$NON-NLS-1$
-	private static final String SETTING_WINDOW_WIDTH = "WindowWidth"; //$NON-NLS-1$
-	private static final String WINDOW_Y = "WindowY"; //$NON-NLS-1$
-	private static final String SETTING_WINDOW_X = "WindowX"; //$NON-NLS-1$
 	private static final String SETTING_LOGGING_ON = "Logging.On"; //$NON-NLS-1$
 
 	/**
@@ -164,7 +157,6 @@ public final class GMGenSystem extends JFrame
 		pluginManager.addMember(this);
 		PluginManager.getInstance().startAllPlugins();
 		initComponents();
-		initSettings();
 		messageHandler.handleMessage(new RequestFileOpenedMessageForCurrentlyOpenedPCsMessage(this));
 		messageHandler.handleMessage(new FocusOrStateChangeOccurredMessage(this, editMenu));
 		inst.setVisible(true);
@@ -274,7 +266,6 @@ public final class GMGenSystem extends JFrame
 		}
 		else if (message instanceof GMGenBeingClosedMessage)
 		{
-			setCloseSettings();
 			// Karianna 07/03/2008 - Added a call to exitForm passing in no
 			// window event
 			// TODO This sequence of calls simply hides GMGen as opposed to
@@ -354,33 +345,6 @@ public final class GMGenSystem extends JFrame
 		saveFileItem.setEnabled(false);
 		clearEditMenu();
 		messageHandler.handleMessage(new FocusOrStateChangeOccurredMessage(this, editMenu));
-	}
-
-	// Sets a bunch of properties based on the status of GMGen at close.
-	private void setCloseSettings()
-	{
-		SettingsHandler.setGMGenOption(SETTING_WINDOW_X, this.getX());
-		SettingsHandler.setGMGenOption(WINDOW_Y, this.getY());
-		SettingsHandler.setGMGenOption(SETTING_WINDOW_WIDTH, this.getSize().width);
-		SettingsHandler.setGMGenOption(SETTING_WINDOW_HEIGHT, this.getSize().height);
-
-		// Maximized state of the window
-		if ((getExtendedState() & Frame.MAXIMIZED_BOTH) != 0)
-		{
-			SettingsHandler.setGMGenOption(SETTING_WINDOW_STATE, Frame.MAXIMIZED_BOTH);
-		}
-		else if ((getExtendedState() & Frame.MAXIMIZED_HORIZ) != 0)
-		{
-			SettingsHandler.setGMGenOption(SETTING_WINDOW_STATE, Frame.MAXIMIZED_HORIZ);
-		}
-		else if ((getExtendedState() & Frame.MAXIMIZED_VERT) != 0)
-		{
-			SettingsHandler.setGMGenOption(SETTING_WINDOW_STATE, Frame.MAXIMIZED_VERT);
-		}
-		else
-		{
-			SettingsHandler.setGMGenOption(SETTING_WINDOW_STATE, Frame.NORMAL);
-		}
 	}
 
 	// Sets all the panes on the GUI in the correct order.
@@ -584,26 +548,6 @@ public final class GMGenSystem extends JFrame
 	{
 		boolean logging = SettingsHandler.getGMGenOption(SETTING_LOGGING_ON, false);
 		LogUtilities.inst().setLogging(logging);
-	}
-
-	// Initializes the settings, and implements their commands.
-	private void initSettings()
-	{
-		int iWinX = SettingsHandler.getGMGenOption(SETTING_WINDOW_X, 0);
-		int iWinY = SettingsHandler.getGMGenOption(WINDOW_Y, 0);
-		setLocation(iWinX, iWinY);
-
-		int iWinWidth = SettingsHandler.getGMGenOption(SETTING_WINDOW_WIDTH, 750);
-		int iWinHeight = SettingsHandler.getGMGenOption(SETTING_WINDOW_HEIGHT, 580);
-		setSize(iWinWidth, iWinHeight);
-
-		int windowState = SettingsHandler.getGMGenOption(SETTING_WINDOW_STATE, Frame.NORMAL);
-
-		if (windowState != Frame.NORMAL)
-		{
-			setExtendedState(windowState);
-		}
-
 	}
 
 	private void mPreferencesActionPerformed(ActionEvent event)
