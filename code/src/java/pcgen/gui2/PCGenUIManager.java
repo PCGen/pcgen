@@ -24,7 +24,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import gmgen.GMGenSystem;
 import pcgen.gui2.dialog.PreferencesDialog;
 import pcgen.gui2.facade.GMGenMessageHandler;
-import pcgen.gui2.plaf.DesktopHandler;
+import pcgen.gui3.application.DesktopHandler;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.system.Main;

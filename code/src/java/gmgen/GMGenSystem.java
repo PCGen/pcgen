@@ -51,7 +51,7 @@ import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import gmgen.util.LogUtilities;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.PCGenActionMap;
-import pcgen.gui2.plaf.DesktopHandler;
+import pcgen.gui3.application.DesktopHandler;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
 import pcgen.pluginmgr.PCGenMessage;
