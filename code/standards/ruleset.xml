@@ -181,8 +181,10 @@
         <exclude name="InefficientStringBuffering"/>
         <exclude name="InsufficientStringBufferDeclaration"/>
         <exclude name="IntegerInstantiation"/>
-        <exclude name="RedundantFieldInitializer"/>
+        <!-- Excluded due to minimal perf gain and loss of code
+	     clarity (added length check)-->
         <exclude name="SimplifyStartsWith"/>
+        <exclude name="RedundantFieldInitializer"/>
         <exclude name="StringToString"/>
         <exclude name="TooFewBranchesForASwitchStatement"/>
         <exclude name="UnnecessaryWrapperObjectCreation"/>
