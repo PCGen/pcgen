@@ -92,7 +92,7 @@ public final class PJEP extends JEP
 			}
 			catch (InstantiationException | IllegalAccessException e)
 			{
-				e.printStackTrace();
+				Logging.errorPrint(e.getLocalizedMessage(), e);
 			}
 		}
 

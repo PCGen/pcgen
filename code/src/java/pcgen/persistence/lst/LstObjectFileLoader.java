@@ -398,7 +398,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 					if (Logging.isDebugMode())
 					{
 						Logging.errorPrint(LanguageBundle.getString("Errors.LstFileLoader.Ignoring"), t);
-						t.printStackTrace();
 					}
 				}
 			}

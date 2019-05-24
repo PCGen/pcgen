@@ -43,6 +43,7 @@ import javax.swing.table.AbstractTableModel;
 
 import pcgen.core.RollingMethods;
 import pcgen.gui2.tools.Icons;
+import pcgen.util.Logging;
 
 /**
  * <p>The internal frame view class for the DiceBag.</p>
@@ -517,8 +518,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 				}
 				catch (NumberFormatException ex)
 				{
-					System.err.println("Invalid command passed to BagListener.");
-					ex.printStackTrace();
+					Logging.errorPrint("Invalid command passed to BagListener.", ex);
 				}
 			}
 		}

@@ -50,8 +50,7 @@ public class TabToken implements GameModeLstToken
 		}
 		catch (Exception e)
 		{
-			e.printStackTrace();
-			Logging.errorPrint(e.getMessage());
+			Logging.errorPrint(e.getMessage(), e);
 			return false;
 		}
 	}

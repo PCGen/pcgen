@@ -108,7 +108,7 @@ public class TokenSupport
 				}
 				catch (IllegalArgumentException e)
 				{
-					e.printStackTrace();
+					Logging.errorPrint("IllegalArgumentException", e);
 					Logging.addParseMessage(Logging.LST_ERROR,
 						"Token generated an IllegalArgumentException: " + e.getLocalizedMessage());
 					parse = new ParseResult.Fail("Token processing failed");
@@ -155,7 +155,7 @@ public class TokenSupport
 		}
 		catch (IllegalArgumentException e)
 		{
-			e.printStackTrace();
+			Logging.errorPrint(e.getLocalizedMessage(), e);
 			Logging.addParseMessage(Logging.LST_ERROR,
 				"Token generated an IllegalArgumentException: " + e.getLocalizedMessage());
 			parse = new ParseResult.Fail("Token processing failed");

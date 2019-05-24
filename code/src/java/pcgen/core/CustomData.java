@@ -42,10 +42,6 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
-/**
- * {@code CustomData}
- *
- */
 public final class CustomData
 {
 	private static final String AUTO_GEN_WARN_LINE_1 =
@@ -322,7 +318,7 @@ public final class CustomData
 				for (final Map.Entry<Integer, PointBuyCost> entry : pbStatCosts.entrySet())
 				{
 					final PointBuyCost pbc = entry.getValue();
-					bw.write("STAT:" + entry.getKey() + "\t\tCOST:" + Integer.toString(pbc.getBuyCost()));
+					bw.write("STAT:" + entry.getKey() + "\t\tCOST:" + pbc.getBuyCost());
 					final int iCount = pbc.getPrerequisiteCount();
 					if (iCount != 0)
 					{
@@ -337,7 +333,7 @@ public final class CustomData
 							}
 							catch (Exception e1)
 							{
-								e1.printStackTrace();
+								Logging.errorPrint("failed to write", e1);
 							}
 						}
 						bw.write(writer.toString());
