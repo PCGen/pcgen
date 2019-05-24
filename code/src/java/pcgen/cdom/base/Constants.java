@@ -24,9 +24,9 @@ import java.text.DecimalFormat;
 /**
  * This interface holds all global constants.
  *
- * (The reason for an interface rather than a class
- * is that an interface uses a little less memory.)
+ * Grandfathered as an interface. Not to be implemented.
  */
+@SuppressWarnings("PMD.ConstantsInInterface")
 public interface Constants
 {
 
