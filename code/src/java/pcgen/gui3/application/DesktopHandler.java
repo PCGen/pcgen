@@ -1,4 +1,6 @@
 /*
+ * Copyright 2019 (C) Eitan Adler <lists@eitanadler.com>
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -13,15 +15,14 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.gui2.plaf;
+
+package pcgen.gui3.application;
 
 import java.awt.Desktop;
+import java.awt.Desktop.Action;
 import java.awt.desktop.AboutEvent;
-import java.awt.desktop.AboutHandler;
 import java.awt.desktop.PreferencesEvent;
-import java.awt.desktop.PreferencesHandler;
 import java.awt.desktop.QuitEvent;
-import java.awt.desktop.QuitHandler;
 import java.awt.desktop.QuitResponse;
 
 import pcgen.gui2.PCGenUIManager;
@@ -49,13 +50,27 @@ public final class DesktopHandler
 		}
 		initialized = true;
 
+		if (!Desktop.isDesktopSupported())
+		{
+			return;
+		}
+
 		Desktop theDesktop = Desktop.getDesktop();
-		theDesktop.setAboutHandler(new OSXAboutHandler());
-		theDesktop.setPreferencesHandler(new OSXPreferencesHandler());
-		theDesktop.setQuitHandler(new OSXQuitHandler());
+		if (theDesktop.isSupported(Action.APP_ABOUT))
+		{
+			theDesktop.setAboutHandler(new AboutHandler());
+		}
+		if (theDesktop.isSupported(Action.APP_PREFERENCES))
+		{
+			theDesktop.setPreferencesHandler(new PreferencesHandler());
+		}
+		if (theDesktop.isSupported(Action.APP_QUIT_HANDLER))
+		{
+			theDesktop.setQuitHandler(new QuitHandler());
+		}
 	}
 
-	private static class OSXAboutHandler implements AboutHandler
+	private static class AboutHandler implements java.awt.desktop.AboutHandler
 	{
 		@Override
 		public void handleAbout(final AboutEvent aboutEvent)
@@ -64,7 +79,7 @@ public final class DesktopHandler
 		}
 	}
 
-	private static class OSXPreferencesHandler implements PreferencesHandler
+	private static class PreferencesHandler implements java.awt.desktop.PreferencesHandler
 	{
 		@Override
 		public void handlePreferences(final PreferencesEvent preferencesEvent)
@@ -73,7 +88,7 @@ public final class DesktopHandler
 		}
 	}
 
-	private static class OSXQuitHandler implements QuitHandler
+	private static class QuitHandler implements java.awt.desktop.QuitHandler
 	{
 		@Override
 		public void handleQuitRequestWith(final QuitEvent quitEvent, final QuitResponse quitResponse)
@@ -81,5 +96,4 @@ public final class DesktopHandler
 			PCGenUIManager.closePCGen();
 		}
 	}
-
 }
