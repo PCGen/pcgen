@@ -165,22 +165,11 @@ public class PCGTrackerPlugin implements InteractivePlugin, java.awt.event.Actio
 		theView.getLoadedList().repaint();
 	}
 
-	public void handleClose()
+	private void handleClose()
 	{
-		/*
-		 * TODO This method seems like a "dead" chain of events - the PCs are
-		 * fetched, but nothing happens. As best I can tell, none of these
-		 * methods have side effects (that is good), but that means this method
-		 * does nothing. - thpr 10/26/06
-		 */
 		if (!model.isEmpty())
 		{
 			GMGenSystemView.getTabPane().setSelectedComponent(theView);
-		}
-
-		for (int i = 0; i < model.size(); i++)
-		{
-			model.get(i);
 		}
 	}
 
