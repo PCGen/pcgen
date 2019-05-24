@@ -13,6 +13,7 @@
         PMD rules customised for PCGen's code.
     </description>
     <rule ref="category/java/bestpractices.xml">
+        <!-- there is nothing wrong with such abstract classes without abstract methods-->
         <exclude name="AbstractClassWithoutAbstractMethod"/>
         <exclude name="AccessorClassGeneration"/>
         <exclude name="AccessorMethodGeneration"/>
