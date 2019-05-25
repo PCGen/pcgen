@@ -34,6 +34,7 @@ import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
@@ -44,7 +45,6 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
-import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
@@ -56,8 +56,6 @@ import javax.swing.SwingWorker;
 import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
@@ -75,6 +73,9 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.stage.FileChooser;
 import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.commons.lang3.BooleanUtils;
@@ -268,7 +269,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 
 	private void doExport()
 	{
-		export(SheetFilter.PDF == exportBox.getSelectedItem());
+		export(exportBox.getSelectedItem() == SheetFilter.PDF);
 	}
 
 	private void setWorking(boolean working)
@@ -282,8 +283,8 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 	private void export(boolean pdf)
 	{
 		UIPropertyContext context = UIPropertyContext.createContext("ExportDialog");
-		final JFileChooser fcExport = new JFileChooser();
-		fcExport.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		FileChooser fileChooser = new FileChooser();
+
 		File baseDir = null;
 		{
 			String path;
@@ -304,33 +305,31 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		{
 			baseDir = SystemUtils.getUserHome();
 		}
-		fcExport.setCurrentDirectory(baseDir);
+		fileChooser.setInitialDirectory(baseDir);
+
 
 		URI uri = fileList.getSelectedValue();
 		String extension = ExportUtilities.getOutputExtension(uri.toString(), pdf);
+		FileChooser.ExtensionFilter fileFilter;
 		if (pdf)
 		{
-			FileFilter fileFilter = new FileNameExtensionFilter("PDF Documents (*.pdf)", "pdf");
-			fcExport.addChoosableFileFilter(fileFilter);
-			fcExport.setFileFilter(fileFilter);
+			fileFilter = new FileChooser.ExtensionFilter("PDF Documents", "*.pdf");
 		}
 		else if ("htm".equalsIgnoreCase(extension) || "html".equalsIgnoreCase(extension))
 		{
-			FileFilter fileFilter = new FileNameExtensionFilter("HTML Documents (*.htm, *.html)", "htm", "html");
-			fcExport.addChoosableFileFilter(fileFilter);
-			fcExport.setFileFilter(fileFilter);
+			fileFilter = new FileChooser.ExtensionFilter("HTML Documents", "*.html", "*.htm");
 		}
 		else if ("xml".equalsIgnoreCase(extension))
 		{
-			FileFilter fileFilter = new FileNameExtensionFilter("XML Documents (*.xml)", "xml");
-			fcExport.addChoosableFileFilter(fileFilter);
-			fcExport.setFileFilter(fileFilter);
+			fileFilter = new FileChooser.ExtensionFilter("XML Documents", "*.xml");
 		}
 		else
 		{
 			String desc = extension + " Files (*." + extension + ")";
-			fcExport.addChoosableFileFilter(new FileNameExtensionFilter(desc, extension));
+			fileFilter = new FileChooser.ExtensionFilter(desc, "*." + extension);
 		}
+		fileChooser.getExtensionFilters().add(fileFilter);
+		fileChooser.setSelectedExtensionFilter(fileFilter);
 		String name;
 		File path;
 		if (!partyBox.isSelected())
@@ -356,21 +355,15 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			path = new File(PCGenSettings.getPcgDir());
 			name = "Entire Party";
 		}
-		if (pdf)
-		{
-			fcExport.setSelectedFile(new File(path, name + ".pdf"));
-		}
-		else
-		{
-			fcExport.setSelectedFile(new File(path, name + "." + extension));
-		}
-		fcExport.setDialogTitle("Export " + name);
-		if (fcExport.showSaveDialog(this) != JFileChooser.APPROVE_OPTION)
+
+		fileChooser.setTitle("Export " + name);
+
+		final File outFile = fileChooser.showSaveDialog(null);
+		if (outFile == null)
 		{
 			return;
 		}
 
-		final File outFile = fcExport.getSelectedFile();
 		if (pdf)
 		{
 			context.setProperty(PDF_EXPORT_DIR_PROP, outFile.getParent());
@@ -380,25 +373,13 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			context.setProperty(HTML_EXPORT_DIR_PROP, outFile.getParent());
 		}
 
-		if (StringUtils.isEmpty(outFile.getName()))
-		{
-			pcgenFrame.showErrorMessage("PCGen", "You must set a filename.");
-			return;
-		}
-
-		if (outFile.isDirectory())
-		{
-			pcgenFrame.showErrorMessage("PCGen", "You cannot overwrite a directory with a file.");
-			return;
-		}
-
 		if (outFile.exists() && !SettingsHandler.getAlwaysOverwrite())
 		{
-			int reallyClose = JOptionPane.showConfirmDialog(this,
-				"The file " + outFile.getName() + " already exists, are you sure you want to overwrite it?",
-				"Confirm overwriting " + outFile.getName(), JOptionPane.YES_NO_OPTION);
-
-			if (reallyClose != JOptionPane.YES_OPTION)
+			Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+			alert.setTitle("Confirm overwriting " + outFile.getName());
+			alert.setContentText("The file " + outFile.getName() + " already exists, are you sure you want to overwrite it?");
+			Optional<ButtonType> buttonType = alert.showAndWait();
+			if (!buttonType.orElse(ButtonType.NO).equals(ButtonType.YES))
 			{
 				return;
 			}
