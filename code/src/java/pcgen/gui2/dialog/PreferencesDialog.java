@@ -49,7 +49,7 @@ import javax.swing.tree.TreeSelectionModel;
 import pcgen.cdom.base.Constants;
 import pcgen.gui2.prefs.CharacterStatsPanel;
 import pcgen.gui2.prefs.ColorsPanel;
-import pcgen.gui2.prefs.ConvertedJavaFXPanel;
+import pcgen.gui3.preferences.ConvertedJavaFXPanel;
 import pcgen.gui2.prefs.CopySettingsPanel;
 import pcgen.gui2.prefs.DefaultsPanel;
 import pcgen.gui2.prefs.HitPointsPanel;

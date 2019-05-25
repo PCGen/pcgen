@@ -8,7 +8,7 @@
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
@@ -16,8 +16,9 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-package pcgen.gui2.prefs;
+package pcgen.gui3.preferences;
 
+import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.ResettableController;
 import pcgen.system.LanguageBundle;
