@@ -26,10 +26,12 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
@@ -93,7 +95,7 @@ public final class SourcesPanel extends PCGenPrefsPanel
 
 		Node label = new Text(LanguageBundle.getString("in_Prefs_sourceDisplay"));
 		vbox.getChildren().add(label);
-		var choices = FXCollections.observableList(List.of(LanguageBundle.getString("in_Prefs_sdLong"),
+		var choices = FXCollections.observableArrayList(List.of(LanguageBundle.getString("in_Prefs_sdLong"),
 				LanguageBundle.getString("in_Prefs_sdMedium"),
 				LanguageBundle.getString("in_Prefs_sdShort"),
 				LanguageBundle.getString("in_Prefs_sdPage"),
@@ -123,6 +125,7 @@ public final class SourcesPanel extends PCGenPrefsPanel
 		allowMultiLineObjectsSelect.setText(
 			LanguageBundle.getString("in_Prefs_allowMultiLineObjectsSelect"));
 		vbox.getChildren().add(allowMultiLineObjectsSelect);
+		this.add(GuiUtility.wrapParentAsJFXPanel(vbox));
 	}
 
 	@Override
@@ -206,39 +209,42 @@ public final class SourcesPanel extends PCGenPrefsPanel
 		allowMultiLineObjectsSelect
 			.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SOURCES_ALLOW_MULTI_LINE));
 
-		switch (Globals.getSourceDisplay())
-		{
-			case LONG:
-				sourceOptions.getSelectionModel().select(0);
+		Platform.runLater(() -> {
+			switch (Globals.getSourceDisplay())
+			{
+				case LONG:
+					sourceOptions.getSelectionModel().select(0);
 
-				break;
+					break;
 
-			case MEDIUM:
-				sourceOptions.getSelectionModel().select(1);
+				case MEDIUM:
+					sourceOptions.getSelectionModel().select(1);
 
-				break;
+					break;
 
-			case SHORT:
-				sourceOptions.getSelectionModel().select(2);
+				case SHORT:
+					sourceOptions.getSelectionModel().select(2);
 
-				break;
+					break;
 
-			case PAGE:
-				sourceOptions.getSelectionModel().select(3);
+				case PAGE:
+					sourceOptions.getSelectionModel().select(3);
 
-				break;
+					break;
 
-			case WEB:
-				sourceOptions.getSelectionModel().select(4);
+				case WEB:
+					sourceOptions.getSelectionModel().select(4);
 
-				break;
+					break;
 
-			default:
-				Logging.errorPrint("In PreferencesDialog.applyOptionValuesToControls " + "(source display) the option "
-					+ Globals.getSourceDisplay() + " is unsupported.");
+				default:
+					Logging.errorPrint(
+							"In PreferencesDialog.applyOptionValuesToControls " + "(source display) the option "
+									+ Globals.getSourceDisplay() + " is unsupported.");
 
-				break;
-		}
+					break;
+			}
+		});
 	}
 
 }
