@@ -52,7 +52,6 @@ import pcgen.gui2.prefs.ColorsPanel;
 import pcgen.gui2.prefs.ConvertedJavaFXPanel;
 import pcgen.gui2.prefs.CopySettingsPanel;
 import pcgen.gui2.prefs.DefaultsPanel;
-import pcgen.gui2.prefs.DisplayOptionsPanel;
 import pcgen.gui2.prefs.HitPointsPanel;
 import pcgen.gui2.prefs.HouseRulesPanel;
 import pcgen.gui2.prefs.LanguagePanel;
@@ -65,6 +64,7 @@ import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.preferences.CenteredLabelPanelController;
+import pcgen.gui3.preferences.DisplayOptionsPreferencesPanelController;
 import pcgen.gui3.preferences.EquipmentPreferencesPanelController;
 import pcgen.gui3.preferences.InputPreferencesPanelController;
 import pcgen.gui3.preferences.LevelUpPreferencesPanelController;
@@ -234,7 +234,11 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 		colorsPanel = new ColorsPanel();
 		addPanelToTree(appearanceNode, colorsPanel);
-		displayOptionsPanel = new DisplayOptionsPanel();
+		displayOptionsPanel = new ConvertedJavaFXPanel<>(
+				DisplayOptionsPreferencesPanelController.class,
+				"DisplayOptionsPreferencesPanel.fxml",
+				"in_Prefs_displayOpts"
+		);
 		addPanelToTree(appearanceNode, displayOptionsPanel);
 		levelUpPanel = new ConvertedJavaFXPanel<>(
 				LevelUpPreferencesPanelController.class,
