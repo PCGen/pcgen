@@ -18,31 +18,37 @@
 package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.Frame;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.GridLayout;
+import java.net.URL;
 
-import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
-import javax.swing.border.TitledBorder;
 
 import pcgen.facade.core.ChooserFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.util.ListFacade;
-import pcgen.gui2.tools.Utility;
-import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 /**
  * The Class {@code RadioChooserDialog} provides a dialog with a variable
@@ -52,16 +58,13 @@ import pcgen.system.LanguageBundle;
  * when the user confirms their choices. The chooser is generally displayed 
  * via a call to UIDelgate.showGeneralChooser.
  */
-@SuppressWarnings("serial")
-public class RadioChooserDialog extends JDialog implements ActionListener
+public class RadioChooserDialog extends JDialog
 {
 
 	private final ChooserFacade chooser;
 	private boolean committed;
-	private ButtonGroup avaGroup = null;
-	private JRadioButton[] avaRadioButton = null;
-	private JPanel buttonPanel;
-	private JRadioButton selectedButton;
+	private RadioButton[] avaRadioButton;
+	private ToggleGroup toggleGroup;
 
 	/**
 	 * Create a new instance of RadioChooserDialog for selecting from the data 
@@ -73,157 +76,146 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 	{
 		super(frame, true);
 		this.chooser = chooser;
+		committed = false;
 
 		initComponents();
-		pack();
 	}
 
 	private void initComponents()
 	{
+		Pane outerPane = new VBox();
+		JFXPanel jfxPanel = new JFXPanel();
+		jfxPanel.setLayout(new BorderLayout());
+
 		setTitle(LanguageBundle.getString("in_chooserSelectOne")); //$NON-NLS-1$
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		Container pane = getContentPane();
-		pane.setLayout(new BorderLayout());
-		JLabel titleLabel = new JLabel(chooser.getName());
-		FontManipulation.title(titleLabel);
-		titleLabel.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
-		pane.add(titleLabel, BorderLayout.NORTH);
 
-		buildButtonPanel();
+		Node titleLabel = new Text(chooser.getName());
+		titleLabel.getStyleClass().add("chooserTitle");
+		URL applicationCss = getClass().getResource("/pcgen/gui3/application.css");
+		String asString = applicationCss.toExternalForm();
+		outerPane.getStylesheets().add(asString);
+		outerPane.getChildren().add(titleLabel);
+		toggleGroup = new ToggleGroup();
 
-		pane.add(buttonPanel, BorderLayout.CENTER);
+		outerPane.getChildren().add(buildButtonPanel());
 
-		JPanel bottomPane = new JPanel(new FlowLayout());
-		JButton button = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
-		button.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok")); //$NON-NLS-1$
-		button.setActionCommand("OK");
-		button.addActionListener(this);
-		bottomPane.add(button);
-		button = new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
-		button.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
-		button.setActionCommand("CANCEL");
-		button.addActionListener(this);
-		bottomPane.add(button);
-		pane.add(bottomPane, BorderLayout.SOUTH);
+		this.getContentPane().setLayout(new GridLayout());
+		this.getContentPane().add(jfxPanel, BorderLayout.CENTER);
+
+		ButtonBar buttonBar = new ButtonBar();
+		Button ok = new Button(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
+		ok.setOnAction(this::onOK);
+		ButtonBar.setButtonData(ok, ButtonBar.ButtonData.OK_DONE);
+		buttonBar.getButtons().add(ok);
+		Button cancel = new Button(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
+		cancel.setOnAction(this::onCancel);
+		ButtonBar.setButtonData(ok, ButtonBar.ButtonData.CANCEL_CLOSE);
+		buttonBar.getButtons().add(cancel);
+		outerPane.getChildren().add(buttonBar);
+		Platform.runLater(() -> {
+			Scene scene = new Scene(outerPane);
+			jfxPanel.setScene(scene);
+			SwingUtilities.invokeLater(this::pack);
+		});
 	}
 
 	/**
 	 * Create the panel of radio buttons.
+	 * @return pane with radio buttons
 	 */
-	private void buildButtonPanel()
+	private Pane buildButtonPanel()
 	{
 		ListFacade<InfoFacade> availableList = chooser.getAvailableList();
-		int row = 0;
-		avaRadioButton = new JRadioButton[availableList.getSize()];
-		avaGroup = new ButtonGroup();
+		int count = 0;
+		avaRadioButton = new RadioButton[availableList.getSize()];
 
 		// Create the buttons
 		for (InfoFacade infoFacade : availableList)
 		{
-			avaRadioButton[row] = new JRadioButton(infoFacade.toString(), false);
-			avaGroup.add(avaRadioButton[row]);
-			avaRadioButton[row].addActionListener(this);
-			++row;
+			avaRadioButton[count] = new RadioButton(infoFacade.toString());
+			avaRadioButton[count].setToggleGroup(toggleGroup);
+			avaRadioButton[count].setUserData(count);
+			++count;
 		}
 
-		int numRows = row;
-		if (numRows > 0)
+		if (count > 0)
 		{
 			avaRadioButton[0].setSelected(true);
-			selectedButton = avaRadioButton[0];
 		}
 
-		// Layout the buttons
-		GridBagLayout gridbag = new GridBagLayout();
-		buttonPanel = new JPanel();
-		TitledBorder title = BorderFactory.createTitledBorder(null, "");
-		buttonPanel.setBorder(title);
-		buttonPanel.setLayout(gridbag);
-
-		GridBagConstraints c = new GridBagConstraints();
-		c.fill = GridBagConstraints.HORIZONTAL;
-
-		if (numRows > 11)
+		if (count > 10)
 		{
-			buildTwoColLayout(numRows, c, gridbag);
+			return buildTwoColLayout();
 		}
-		else
-		{
-			for (int i = 0; i < numRows; ++i)
-			{
-				int cr = i;
-				c.anchor = GridBagConstraints.WEST;
-				Utility.buildConstraints(c, 0, cr, 2, 1, 1, 0);
-				gridbag.setConstraints(avaRadioButton[i], c);
-				buttonPanel.add(avaRadioButton[i]);
-			}
-		}
+		return buildNormalColLayout();
 	}
 
 	/**
-	 * Build up tow columns of buttons arranged in column order e.g. 1-6 then 7-12 
-	 * @param numButtons The number of buttons to be placed.
-	 * @param c The GridBagConstraints for the panel.
-	 * @param gridbag The layout of the panel.
+	 * Build up two columns of buttons arranged in column order e.g. 1-6 then 7-12
+	 * @return pane with radio buttons
 	 */
-	private void buildTwoColLayout(int numButtons, GridBagConstraints c, GridBagLayout gridbag)
+	private Pane buildTwoColLayout()
 	{
-		int numRows = numButtons - numButtons / 2;
-		for (int i = 0; i < numRows; ++i)
+		GridPane boxPane = new GridPane();
+		int numButtons = avaRadioButton.length;
+		int numRows = numButtons - (numButtons / 2);
+		for (int row = 0; row < numRows; ++row)
 		{
-			int cr = i;
-			c.anchor = GridBagConstraints.WEST;
-			Utility.buildConstraints(c, 0, cr, 2, 1, 1, 0);
-			gridbag.setConstraints(avaRadioButton[i], c);
-			buttonPanel.add(avaRadioButton[i]);
-
-			if (i + numRows < numButtons)
+			boxPane.add(avaRadioButton[row], 0, row);
+			if ((row + numRows) < numButtons)
 			{
-				c.anchor = GridBagConstraints.EAST;
-				Utility.buildConstraints(c, 3, cr, 2, 1, 1, 0);
-				gridbag.setConstraints(avaRadioButton[i + numRows], c);
-				buttonPanel.add(avaRadioButton[i + numRows]);
+				boxPane.add(avaRadioButton[row + numRows], 1, row);
 			}
 		}
+		return boxPane;
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e)
+	/**
+	 * Build up a single columns of buttons
+	 * @return pane with radio buttons
+	 */
+	private Pane buildNormalColLayout()
 	{
-		if (e.getSource() instanceof JRadioButton)
+		GridPane boxPane = new GridPane();
+		int numButtons = avaRadioButton.length;
+		for (int row = 0; row < numButtons; ++row)
 		{
-			// A new radio button was selected - remember it
-			selectedButton = (JRadioButton) e.getSource();
+			boxPane.add(avaRadioButton[row], 0, row);
+		}
+		return boxPane;
+	}
+
+
+	private void onOK(final ActionEvent ignored)
+	{
+		Toggle selectedToggle = toggleGroup.getSelectedToggle();
+		Logging.debugPrint("selected toggle is " + selectedToggle);
+		if (selectedToggle != null)
+		{
+			Integer whichItemId = (Integer)selectedToggle.getUserData();
+			InfoFacade selectedItem = chooser.getAvailableList().getElementAt(whichItemId);
+			chooser.addSelected(selectedItem);
+		}
+		if (chooser.isRequireCompleteSelection() && (chooser.getRemainingSelections().get() > 0))
+		{
+			Dialog<ButtonType> alert = new Alert(Alert.AlertType.INFORMATION);
+			alert.setTitle(chooser.getName());
+			alert.setContentText(LanguageBundle.getFormattedString("in_chooserRequireComplete",
+					chooser.getRemainingSelections().get()));
+			alert.showAndWait();
 			return;
 		}
-		if (e.getActionCommand().equals("OK"))
-		{
-			for (int i = 0; i < avaRadioButton.length; i++)
-			{
-				if (selectedButton == avaRadioButton[i])
-				{
-					chooser.addSelected(chooser.getAvailableList().getElementAt(i));
-					break;
-				}
-			}
-			if (chooser.isRequireCompleteSelection() && chooser.getRemainingSelections().get() > 0)
-			{
-				JOptionPane.showMessageDialog(
-					this, LanguageBundle.getFormattedString("in_chooserRequireComplete", //$NON-NLS-1$
-					chooser.getRemainingSelections().get()), chooser.getName(), JOptionPane.INFORMATION_MESSAGE);
-				return;
-			}
-			else
-			{
-				chooser.commit();
-			}
-		}
-		else
-		{
-			chooser.rollback();
-		}
-		committed = e.getActionCommand().equals("OK");
-		dispose();
+		chooser.commit();
+		committed = true;
+		this.dispose();
+	}
+
+	private void onCancel(final ActionEvent ignored)
+	{
+		committed = false;
+		chooser.rollback();
+		this.dispose();
 	}
 
 	/**

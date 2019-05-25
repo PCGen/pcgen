@@ -46,7 +46,8 @@ public class PreSubClassTester extends AbstractDisplayPrereqTest implements Prer
 		catch (NumberFormatException nfe)
 		{
 			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreSubClass.error.badly_formed", prereq.toString())); //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PreSubClass.error.badly_formed", prereq.toString()), nfe); //$NON
+			// -NLS-1$
 		}
 
 		final String thisClass = prereq.getKey();

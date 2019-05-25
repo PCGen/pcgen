@@ -274,15 +274,15 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 			}
 		}
 
-		private class TabInfo
+		@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceHashtableWithMap", "serial"})
+		private final class TabInfo
 		{
-
 			public final String title;
-			public final Hashtable<Object, Object> tabData;
-			public final DefaultListFacade<AbilityCategory> categoryList;
-			public final DefaultListFacade<AbilityCategory> fullCategoryList;
+			private final Hashtable<Object, Object> tabData;
+			private final DefaultListFacade<AbilityCategory> categoryList;
+			private final DefaultListFacade<AbilityCategory> fullCategoryList;
 
-			public TabInfo(String title, CharacterFacade character)
+			private TabInfo(String title, CharacterFacade character)
 			{
 				this.title = title;
 				this.categoryList = new DefaultListFacade<>();

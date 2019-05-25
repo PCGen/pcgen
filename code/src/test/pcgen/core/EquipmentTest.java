@@ -110,8 +110,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 				+ "BONUS:WEAPON|TOHIT|1|TYPE=Enhancement	ASSIGNTOALL:YES",
 				source);
 
-		SettingsHandler.getGame().addPlusCalculation(
-			"WEAPON|(2000*PLUS*PLUS)+(2000*ALTPLUS*ALTPLUS)");
+		SettingsHandler.getGame().addPlusCalculation(Type.WEAPON,
+			"(2000*PLUS*PLUS)+(2000*ALTPLUS*ALTPLUS)");
 		
 		finishLoad();
 	}

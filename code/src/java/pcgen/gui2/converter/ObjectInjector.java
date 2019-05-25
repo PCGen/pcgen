@@ -39,6 +39,7 @@ import pcgen.core.Campaign;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.PCGenPropBundle;
+import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
 public class ObjectInjector
@@ -158,9 +159,7 @@ public class ObjectInjector
 
 	private String getFileFooter()
 	{
-		StringBuilder sb = new StringBuilder();
-		sb.append("\n#\n#EOF\n#\n");
-		return sb.toString();
+		return "\n#\n#EOF\n#\n";
 	}
 
 	private boolean processWrite(Campaign campaign, TripleKeyMapToList<URI, String, String, String> toWrite,
@@ -206,7 +205,7 @@ public class ObjectInjector
 		}
 		catch (MissingResourceException mre)
 		{
-			mre.printStackTrace();
+			Logging.errorPrint(mre.getMessage(), mre);
 		}
 		sb.append(" on ").append(LocalDateTime.now(Clock.systemUTC()));
 		sb.append("\n#\n");

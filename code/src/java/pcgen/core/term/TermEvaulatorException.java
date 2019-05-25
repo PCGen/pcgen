@@ -20,20 +20,23 @@ package pcgen.core.term;
 
 public class TermEvaulatorException extends Exception
 {
-	/**
-	 * Creates a new instance of {@code TermEvaulatorException} without detail message.
-	 */
-	public TermEvaulatorException()
+
+	public TermEvaulatorException(String msg)
 	{
+		super(msg);
 	}
 
 	/**
 	 * Constructs an instance of {@code TermEvaulatorException} with the specified detail message.
 	 * @param msg the detail message.
+	 * @param  cause the cause (which is saved for later retrieval by the
+	 *         {@link #getCause()} method).  (A {@code null} value is
+	 *         permitted, and indicates that the cause is nonexistent or
+	 *         unknown.)
 	 */
-	public TermEvaulatorException(String msg)
+	public TermEvaulatorException(String msg, Throwable cause)
 	{
-		super(msg);
+		super(msg, cause);
 	}
 
 }

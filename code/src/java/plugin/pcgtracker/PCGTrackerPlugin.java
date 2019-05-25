@@ -20,8 +20,6 @@ package plugin.pcgtracker;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.io.File;
 
 import javax.swing.JFileChooser;
@@ -33,7 +31,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
-import gmgen.gui.ImagePreview;
 import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
 import gmgen.pluginmgr.messages.FileMenuOpenMessage;
 import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
@@ -56,6 +53,8 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import plugin.pcgtracker.gui.PCGTrackerView;
 
+import javafx.stage.FileChooser;
+
 /**
  * The {@code ExperienceAdjusterController} handles the functionality of
  * the Adjusting of experience.  This class is called by the {@code GMGenSystem}
@@ -65,7 +64,6 @@ public class PCGTrackerPlugin implements InteractivePlugin, java.awt.event.Actio
 {
 	public static final String LOG_NAME = "PCG_Tracker"; //$NON-NLS-1$
 
-	private static final String OPTION_NAME_SYSTEM = LOG_NAME + ".System"; //$NON-NLS-1$
 	private static final String OPTION_NAME_LOADORDER = LOG_NAME + ".LoadOrder"; //$NON-NLS-1$
 
 	private static final String FILENAME_PCP = "pcp"; //$NON-NLS-1$
@@ -167,22 +165,11 @@ public class PCGTrackerPlugin implements InteractivePlugin, java.awt.event.Actio
 		theView.getLoadedList().repaint();
 	}
 
-	public void handleClose()
+	private void handleClose()
 	{
-		/*
-		 * TODO This method seems like a "dead" chain of events - the PCs are
-		 * fetched, but nothing happens. As best I can tell, none of these
-		 * methods have side effects (that is good), but that means this method
-		 * does nothing. - thpr 10/26/06
-		 */
 		if (!model.isEmpty())
 		{
 			GMGenSystemView.getTabPane().setSelectedComponent(theView);
-		}
-
-		for (int i = 0; i < model.size(); i++)
-		{
-			model.get(i);
 		}
 	}
 
@@ -280,10 +267,6 @@ public class PCGTrackerPlugin implements InteractivePlugin, java.awt.event.Actio
 				}
 			}
 		}
-		else
-		{
-			/* this means the file is invalid */
-		}
 
 		GMGenSystem.inst.setCursor(originalCursor);
 	}
@@ -316,10 +299,9 @@ public class PCGTrackerPlugin implements InteractivePlugin, java.awt.event.Actio
 	 * @param aPC The PlayerCharacter to save
 	 * @param saveas boolean if {@code true}, ask for file name
 	 *
-	 * @return {@code true} if saved; {@code false} if save as cancelled
 	 */
 	// TODO use pcgen save methods rather than implementing it again
-	private boolean savePC(PlayerCharacter aPC, boolean saveas)
+	private static void savePC(PlayerCharacter aPC, boolean saveas)
 	{
 		boolean newPC = false;
 		File prevFile;
@@ -330,7 +312,6 @@ public class PCGTrackerPlugin implements InteractivePlugin, java.awt.event.Actio
 		{
 			prevFile = new File(PCGenSettings.getPcgDir(),
 				aPC.getDisplay().getDisplayName() + Constants.EXTENSION_CHARACTER_FILE);
-			aPCFileName = prevFile.getAbsolutePath();
 			newPC = true;
 		}
 		else
@@ -340,57 +321,41 @@ public class PCGTrackerPlugin implements InteractivePlugin, java.awt.event.Actio
 
 		if (saveas || newPC)
 		{
-			JFileChooser fc = ImagePreview.decorateWithImagePreview(new JFileChooser());
-			String[] pcgs = {FILENAME_PCG};
-			FileFilter ff = new FileNameExtensionFilter(LanguageBundle.getString("in_pcgen_file_char"), pcgs);
-			fc.setFileFilter(ff);
-			fc.setSelectedFile(prevFile);
+			FileChooser fileChooser = new FileChooser();
+			// TODO: i18n
+			fileChooser.setTitle("Initiative Export");
+			FileChooser.ExtensionFilter pcgFilter = new FileChooser.ExtensionFilter(
+					LanguageBundle.getString("in_pcgen_file_char"), "*.pcg"
+			);
+			fileChooser.getExtensionFilters().add(pcgFilter);
+			fileChooser.setSelectedExtensionFilter(pcgFilter);
 
-			PropertyChangeListener listener = new FilenameChangeListener(aPCFileName, fc);
+			fileChooser.setInitialDirectory(new File(prevFile.getParent()));
+			fileChooser.setInitialFileName(prevFile.getName());
 
-			fc.addPropertyChangeListener(listener);
+			// TODO: correctly set owner window
+			File newFile = fileChooser.showSaveDialog(null);
 
-			int returnVal = fc.showSaveDialog(GMGenSystem.inst);
-			fc.removePropertyChangeListener(listener);
-
-			if (returnVal == JFileChooser.APPROVE_OPTION)
+			if (newFile == null)
 			{
-				file = fc.getSelectedFile();
-
-				if (!PCGFile.isPCGenCharacterFile(file))
-				{
-					file = new File(file.getParent(), file.getName() + Constants.EXTENSION_CHARACTER_FILE);
-				}
-
-				if (file.isDirectory())
-				{
-					JOptionPane.showMessageDialog(null, LanguageBundle.getString("in_savePcDirOverwrite"), //$NON-NLS-1$
-						Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
-
-					return false;
-				}
-
-				if (file.exists() && (newPC || !file.getName().equals(prevFile.getName())))
-				{
-					int reallyClose = JOptionPane.showConfirmDialog(GMGenSystem.inst,
-						LanguageBundle.getFormattedString("in_savePcConfirmOverMsg", //$NON-NLS-1$
-							file.getName()),
-						LanguageBundle.getFormattedString("in_savePcConfirmOverTitle", file.getName()), //$NON-NLS-1$
-						JOptionPane.YES_NO_OPTION);
-
-					if (reallyClose != JOptionPane.YES_OPTION)
-					{
-						return false;
-					}
-				}
-
-				aPC.setFileName(file.getAbsolutePath());
+				return;
 			}
-			else
-			{ // not saving
 
-				return false;
+			if (newFile.exists() && (newPC || !newFile.getName().equals(prevFile.getName())))
+			{
+				int reallyClose = JOptionPane.showConfirmDialog(GMGenSystem.inst,
+					LanguageBundle.getFormattedString("in_savePcConfirmOverMsg", //$NON-NLS-1$
+							newFile.getName()),
+					LanguageBundle.getFormattedString("in_savePcConfirmOverTitle", newFile.getName()), //$NON-NLS-1$
+					JOptionPane.YES_NO_OPTION);
+
+				if (reallyClose != JOptionPane.YES_OPTION)
+				{
+					return;
+				}
 			}
+
+			aPC.setFileName(newFile.getAbsolutePath());
 		}
 
 		else
@@ -412,10 +377,8 @@ public class PCGTrackerPlugin implements InteractivePlugin, java.awt.event.Actio
 			Logging.errorPrint(formattedString);
 			Logging.errorPrint(ex.getMessage(), ex);
 
-			return false;
 		}
 
-		return true;
 	}
 
 	private static void toolMenuItem(ActionEvent evt)
@@ -437,55 +400,6 @@ public class PCGTrackerPlugin implements InteractivePlugin, java.awt.event.Actio
 		charToolsItem.setText(LanguageBundle.getString("in_plugin_pcgtracker_name")); //$NON-NLS-1$
 		charToolsItem.addActionListener(PCGTrackerPlugin::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, charToolsItem));
-	}
-
-	/**
-	 * Property change listener for the event "selected file
-	 * changed".  Ensures that the filename doesn't get changed
-	 * when a directory is selected.
-	 *
-	 * @author Dmitry Jemerov &lt;yole@spb.cityline.ru&gt;
-	 */
-	static final class FilenameChangeListener implements PropertyChangeListener
-	{
-		private JFileChooser fileChooser;
-		private String lastSelName;
-
-		FilenameChangeListener(String aFileName, JFileChooser aFileChooser)
-		{
-			lastSelName = aFileName;
-			fileChooser = aFileChooser;
-		}
-
-		@Override
-		public void propertyChange(PropertyChangeEvent evt)
-		{
-			String propName = evt.getPropertyName();
-
-			if (propName.equals(JFileChooser.SELECTED_FILE_CHANGED_PROPERTY))
-			{
-				onSelectedFileChange(evt);
-			}
-			else if (propName.equals(JFileChooser.DIRECTORY_CHANGED_PROPERTY))
-			{
-				onDirectoryChange();
-			}
-		}
-
-		private void onDirectoryChange()
-		{
-			fileChooser.setSelectedFile(new File(fileChooser.getCurrentDirectory(), lastSelName));
-		}
-
-		private void onSelectedFileChange(PropertyChangeEvent evt)
-		{
-			File newSelFile = (File) evt.getNewValue();
-
-			if ((newSelFile != null) && !newSelFile.isDirectory())
-			{
-				lastSelName = newSelFile.getName();
-			}
-		}
 	}
 
 	/**

@@ -20,11 +20,6 @@ package pcgen.core;
 
 import pcgen.cdom.base.Ungranted;
 
-/**
- * {@code ArmorProf}.
- *
- * DO NOT DELETE (waiting for use)
- */
 public final class ArmorProf extends PObject implements Comparable<Object>, Ungranted
 {
 	/**

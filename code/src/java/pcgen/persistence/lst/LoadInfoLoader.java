@@ -26,6 +26,7 @@ import java.net.URI;
 import pcgen.core.system.LoadInfo;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 {
@@ -46,8 +47,7 @@ public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 		}
 		catch (PersistenceLayerException e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logging.errorPrint("failure in LoadInfoLoader", e);
 		}
 		return loadable;
 	}

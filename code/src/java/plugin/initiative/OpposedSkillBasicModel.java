@@ -42,7 +42,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	 * A "wrapper" class for the combatants
 	 * </p>
 	 */
-	protected class InitWrapper
+	protected static class InitWrapper
 	{
 
 		PcgCombatant initiative = null;
@@ -59,7 +59,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	}
 
 	/** Columns for the table */
-	protected TableColumnInformation columns = new TableColumnInformation(10);
+	protected TableColumnInformation columns = new TableColumnInformation();
 	/** Combatants */
 	protected TreeMap combatants = new TreeMap();
 

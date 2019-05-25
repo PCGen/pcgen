@@ -270,7 +270,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 
 		public synchronized SkillRankChangeListener[] getSkillRankChangeListeners()
 		{
-			return (listeners.toArray(new SkillRankChangeListener[listeners.size()]));
+			return (listeners.toArray(new SkillRankChangeListener[0]));
 		}
 
 		/**

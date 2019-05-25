@@ -142,12 +142,11 @@ public class CampaignSourceEntry implements SourceEntry
 	@Override
 	public String toString()
 	{
-		StringBuilder sBuff = new StringBuilder();
-		sBuff.append("Campaign: ");
-		sBuff.append(campaign.getDisplayName());
-		sBuff.append("; SourceFile: ");
-		sBuff.append(getURI());
-		return sBuff.toString();
+		String sBuff = "Campaign: "
+				+ campaign.getDisplayName()
+				+ "; SourceFile: "
+				+ getURI();
+		return sBuff;
 	}
 
 	public static CampaignSourceEntry getNewCSE(Campaign campaign2, URI sourceUri, String value)

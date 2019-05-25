@@ -251,16 +251,6 @@ public class TemplateToken extends Token
 	}
 
 	/**
-	 * Get value of NAME sub token
-	 * @param template
-	 * @return value of NAME sub token
-	 */
-	public static String getNameToken(PCTemplate template)
-	{
-		return template.toString();
-	}
-
-	/**
 	 * Get value of OUTPUTNAME sub token
 	 * @param template
 	 * @return value of OUTPUTNAME sub token

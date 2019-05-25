@@ -112,8 +112,7 @@ public class TokenConverter
 		}
 		catch (Exception ex)
 		{
-			Logging.errorPrint("Parse of " + tpe.getKey() + ':' + tpe.getValue() + " failed");
-			ex.printStackTrace();
+			Logging.errorPrint("Parse of " + tpe.getKey() + ':' + tpe.getValue() + " failed", ex);
 		}
 		return tpe.isConsumed() ? null : error;
 	}

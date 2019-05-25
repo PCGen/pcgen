@@ -112,12 +112,11 @@ public class ExchangelevelToken extends AbstractTokenWithSeparator<PCClass> impl
 		{
 			return null;
 		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(le.getExchangeClass().getLSTformat(false)).append(Constants.PIPE);
-		sb.append(le.getMinDonatingLevel()).append(Constants.PIPE);
-		sb.append(le.getMaxDonatedLevels()).append(Constants.PIPE);
-		sb.append(le.getDonatingLowerLevelBound());
-		return new String[]{sb.toString()};
+		String sb = le.getExchangeClass().getLSTformat(false) + Constants.PIPE
+				+ le.getMinDonatingLevel() + Constants.PIPE
+				+ le.getMaxDonatedLevels() + Constants.PIPE
+				+ le.getDonatingLowerLevelBound();
+		return new String[]{sb};
 	}
 
 	@Override

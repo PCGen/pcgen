@@ -18,11 +18,9 @@
 
 package pcgen.gui3.preloader;
 
-import javafx.application.Platform;
+import pcgen.gui3.component.PCGenStatusBar;
+
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.image.ImageView;
 
 /**
  * Displays HTML content as a "panel".
@@ -30,21 +28,10 @@ import javafx.scene.image.ImageView;
 public final class PCGenPreloaderController
 {
 	@FXML
-	private ProgressBar loadProgress;
-
-	@FXML
-	private ImageView imageView;
-
-	@FXML
-	private Label loadingLabel;
+	private PCGenStatusBar pcGenStatusBar;
 
 	public void setProgress(String message, double progress)
 	{
-		Platform.runLater(() -> {
-			loadingLabel.setText(message);
-			loadProgress.setProgress(progress);
-		});
+		pcGenStatusBar.setProgress(message, progress);
 	}
-
-
 }

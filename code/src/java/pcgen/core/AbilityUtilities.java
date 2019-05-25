@@ -17,7 +17,6 @@
  */
 package pcgen.core;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -76,16 +75,6 @@ public final class AbilityUtilities
 		aPC.calcActiveBonuses();
 	}
 
-	public static void adjustPool(final Ability ability, final PlayerCharacter aPC, final boolean addIt)
-	{
-		double abilityCount = ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
-		if (addIt)
-		{
-			abilityCount *= -1;
-		}
-		aPC.adjustAbilities(AbilityCategory.FEAT, BigDecimal.valueOf(abilityCount));
-	}
-
 	/**
 	 * Extracts the choiceless form of a name, for example, with all choices removed
 	 *
@@ -113,7 +102,6 @@ public final class AbilityUtilities
 	 * @throws GroupingMismatchException If there are mismatched brackets
 	 */
 	public static String getUndecoratedName(final String name, final Collection<String> specifics)
-		throws GroupingMismatchException
 	{
 		LastGroupSeparator lgs = new LastGroupSeparator(name);
 		String subName = lgs.process();

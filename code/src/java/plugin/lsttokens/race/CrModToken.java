@@ -108,9 +108,9 @@ public class CrModToken extends AbstractNonEmptyToken<Race> implements CDOMPrima
 		Map<String, Integer> added = changes.getAdded();
 		for (Map.Entry<String, Integer> me : added.entrySet())
 		{
-			set.add(new StringBuilder().append(me.getKey()).append(Constants.PIPE).append(me.getValue()).toString());
+			set.add(me.getKey() + Constants.PIPE + me.getValue());
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	/**

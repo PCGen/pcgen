@@ -13,7 +13,6 @@
 
 // import Ant helper static values to differ system families
 import org.apache.tools.ant.filters.FixCrLfFilter
-import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
     id 'com.gradle.build-scan' version '2.3'
@@ -21,7 +20,7 @@ plugins {
     id 'application'
     id 'build-dashboard'
     id 'checkstyle'
-    id "com.github.spotbugs" version '1.7.1'
+    id "com.github.spotbugs" version '2.0.0'
     id 'java'
     id 'maven'
     id 'pmd'
@@ -32,6 +31,7 @@ plugins {
     id "com.dorongold.task-tree" version '1.3.1'
     id "edu.sc.seis.macAppBundle" version "2.3.0"
     id 'org.openjfx.javafxplugin' version '0.0.7'
+    id 'org.beryx.runtime' version '1.1.6'
 }
 
 javafx {
@@ -110,10 +110,17 @@ sourceSets {
         }
         compileClasspath += sourceSets.main.output
         runtimeClasspath += sourceSets.main.output
+        resources {
+            srcDirs = ['code/src/testResources']
+        }
+
     }
     itest {
         java {
             srcDirs = ['code/src/itest', 'code/src/testcommon']
+        }
+        resources {
+            srcDirs = ['code/src/testResources']
         }
         compileClasspath += sourceSets.main.output
         runtimeClasspath += sourceSets.main.output
@@ -124,6 +131,9 @@ sourceSets {
     slowtest {
         java {
             srcDirs = ['code/src/test', 'code/src/testcommon']
+        }
+        resources {
+            srcDirs = ['code/src/testResources']
         }
         compileClasspath += sourceSets.main.output
         runtimeClasspath += sourceSets.main.output
@@ -186,8 +196,10 @@ dependencies {
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.4.2'
     testImplementation group: 'org.junit.jupiter', name:  'junit-jupiter-params', version: '5.4.2'
     testRuntime group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.4.2'
-
     testImplementation group: 'org.hamcrest', name: 'hamcrest', version: '2.1'
+    testCompile group: 'org.testfx', name: 'testfx-junit5', version: '4.0.15-alpha'
+    testCompile group: 'org.testfx', name: 'openjfx-monocle', version: 'jdk-12.0.1+2'
+
 
     testCompile group: 'org.xmlunit', name: 'xmlunit-matchers', version:'2.6.2'
 }
@@ -215,6 +227,27 @@ jar {
     from {
         configurations.runtimeClasspath.collect { it.directory ? it : zipTree(it) }
     }
+}
+
+runtime {
+    options = ['--compress', '2']
+    modules = [
+    'jdk.httpserver',
+    'java.rmi',
+    'java.desktop',
+    'java.xml',
+    'java.sql',
+    'jdk.unsupported',
+    'java.prefs',
+    'java.logging',
+    'java.naming',
+    'jdk.xml.dom',
+    'jdk.unsupported.desktop',
+    'java.datatransfer',
+    'java.scripting',
+    'jdk.jfr',
+    'jdk.jsobject',
+    ]
 }
 
 task converterJar(type: Jar, dependsOn: jar) {
@@ -325,6 +358,13 @@ task inttest(type: Test, dependsOn: 'jar') {
     include 'pcgen/inttest/**/*Test.class'
 }
 
+task sfinttest(type: Test, dependsOn: 'jar') {
+    testClassesDirs = sourceSets.slowtest.output.classesDirs
+    classpath = sourceSets.slowtest.runtimeClasspath
+    forkEvery = 1
+    include 'pcgen/inttest/game_starfinder/*Test.class'
+}
+
 task pfinttest(type: Test, dependsOn: 'jar') {
     testClassesDirs = sourceSets.slowtest.output.classesDirs
     classpath = sourceSets.slowtest.runtimeClasspath
@@ -368,6 +408,14 @@ allprojects {
             exceptionFormat = 'full'
             events 'failed', 'skipped'
         }
+        jvmArgs += [
+                '-Djava.awt.headless=true',
+                '-Dtestfx.robot=glass',
+                '-Dtestfx.headless=true',
+                '-Dprism.order=sw',
+                '-Dprism.verbose=true',
+                '-Djavafx.macosx.embedded=true',
+        ]
     }
 }
 

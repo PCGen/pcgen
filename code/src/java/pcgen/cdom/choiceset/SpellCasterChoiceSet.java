@@ -53,7 +53,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements Primitiv
 	 * contains spell types and spells [primitives], then this empty
 	 * PrimitiveChoiceSet will be used.)
 	 */
-	private static final PrimitiveChoiceSet<PCClass> EMPTY_CHOICE_SET = new PrimitiveChoiceSet<PCClass>()
+	private static final PrimitiveChoiceSet<PCClass> EMPTY_CHOICE_SET = new PrimitiveChoiceSet<>()
 	{
 
 		@Override

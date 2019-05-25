@@ -111,8 +111,6 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>, Chooser<Stri
 			// Don't unparse anything that isn't owned by this SecondaryToken
 			return null;
 		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(tc.getLSTformat());
 		// TODO oops
 		// String title = choices.getTitle();
 		// if (!title.equals(getDefaultTitle()))
@@ -120,7 +118,15 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>, Chooser<Stri
 		// sb.append("|TITLE=");
 		// sb.append(title);
 		// }
-		return new String[]{sb.toString()};
+		return new String[]{tc.getLSTformat()
+				// TODO oops
+				// String title = choices.getTitle();
+				// if (!title.equals(getDefaultTitle()))
+				// {
+				// sb.append("|TITLE=");
+				// sb.append(title);
+				// }
+		};
 	}
 
 	@Override

@@ -234,7 +234,7 @@ public class GroupingInfo<T>
 	@SuppressWarnings("unchecked")
 	public Class<T> getManagedClass(LoadContext context)
 	{
-		return (Class<T>) scope.getFormatManager(context).getManagedClass();
+		return (Class<T>) scope.getFormatManager(context).get().getManagedClass();
 	}
 
 }

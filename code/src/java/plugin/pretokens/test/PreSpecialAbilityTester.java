@@ -44,7 +44,7 @@ public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements
 		{
 			throw new PrerequisiteException(
 				LanguageBundle.getFormattedString(
-					"PreSpecialAbility.error.bad_operand", prereq.toString())); //$NON-NLS-1$
+					"PreSpecialAbility.error.bad_operand", prereq.toString()), exceptn); //$NON-NLS-1$
 		}
 
 		final String aString = prereq.getKey().toUpperCase();

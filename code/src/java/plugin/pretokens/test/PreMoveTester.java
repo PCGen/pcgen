@@ -50,7 +50,7 @@ public class PreMoveTester extends AbstractDisplayPrereqTest
 			catch (NumberFormatException e)
 			{
 				throw new PrerequisiteException(
-					LanguageBundle.getFormattedString("PreMove.error.bad_operand", prereq.toString())); //$NON-NLS-1$
+					LanguageBundle.getFormattedString("PreMove.error.bad_operand", prereq.toString()), e);
 			}
 
 			int speed = (int) display.getMovementOfType(MovementType.getConstant(moveType));

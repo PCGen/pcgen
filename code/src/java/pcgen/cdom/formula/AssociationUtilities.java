@@ -48,7 +48,7 @@ public final class AssociationUtilities
 			catch (NumberFormatException e)
 			{
 				throw new IllegalArgumentException(
-					"Priority must be an integer: " + assocValue + " was not an integer");
+					"Priority must be an integer: " + assocValue + " was not an integer", e);
 			}
 			if (priorityNumber < 0)
 			{

@@ -165,7 +165,6 @@ public final class PCGVer2Creator
 		 * UNLIMITEDPOOLCHECKED:Y or N
 		 * POOLPOINTS:>numeric value 0-?<
 		 * GAMEMODE:DnD
-		 * TABLABEL:0
 		 * AUTOSPELLS:Y or N
 		 * AUTOCOMPANIONS:Y or N
 		 *
@@ -186,7 +185,6 @@ public final class PCGVer2Creator
 		//appendUnlimitedPoolCheckedLine(buffer);
 		appendPoolPointsLine(buffer);
 		appendGameModeLine(buffer);
-		appendTabLabelLine(buffer);
 		appendAutoSpellsLine(buffer);
 		appendUseHigherSpellSlotsLines(buffer);
 		appendLoadCompanionLine(buffer);
@@ -1646,13 +1644,6 @@ public final class PCGVer2Creator
 		buffer.append(IOConstants.LINE_SEP);
 		buffer.append(IOConstants.TAG_POOLPOINTSAVAIL).append(':');
 		buffer.append(thePC.getPointBuyPoints());
-		buffer.append(IOConstants.LINE_SEP);
-	}
-
-	private static void appendTabLabelLine(StringBuilder buffer)
-	{
-		buffer.append(IOConstants.TAG_TABLABEL).append(':');
-		buffer.append(SettingsHandler.getNameDisplayStyle());
 		buffer.append(IOConstants.LINE_SEP);
 	}
 

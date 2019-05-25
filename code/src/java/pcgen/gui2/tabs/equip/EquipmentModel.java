@@ -190,26 +190,19 @@ public class EquipmentModel
 
 	private void realignRowHeights()
 	{
-		SwingUtilities.invokeLater(new Runnable()
-		{
-
-			@Override
-			public void run()
+		SwingUtilities.invokeLater(() -> {
+			JTree tree = treeTable.getTree();
+			for (int row = 0; row < tree.getRowCount(); row++)
 			{
-				JTree tree = treeTable.getTree();
-				for (int row = 0; row < tree.getRowCount(); row++)
+				Rectangle bounds = tree.getRowBounds(row);
+				if (bounds != null)
 				{
-					Rectangle bounds = tree.getRowBounds(row);
-					if (bounds != null)
+					if (treeTable.getRowHeight(row) != bounds.height)
 					{
-						if (treeTable.getRowHeight(row) != bounds.height)
-						{
-							treeTable.setRowHeight(row, bounds.height);
-						}
+						treeTable.setRowHeight(row, bounds.height);
 					}
 				}
 			}
-
 		});
 	}
 

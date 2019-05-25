@@ -62,7 +62,8 @@ public class IntegerEditor extends DefaultCellEditor
 
 	JFormattedTextField ftf;
 	NumberFormat integerFormat;
-	private Integer minimum, maximum;
+	private final Integer minimum;
+	private final Integer maximum;
 	private boolean DEBUG = false;
 
 	public IntegerEditor(int min, int max)

@@ -203,11 +203,10 @@ public final class BioSet extends PObject implements NonInteractive
 	@Override
 	public String toString()
 	{
-		final StringBuilder sb = new StringBuilder(100);
-		sb.append("AgeMap: ").append(ageMap).append("\n");
-		sb.append("UserMap: ").append(userMap).append("\n");
 
-		return sb.toString();
+		String sb = "AgeMap: " + ageMap + "\n"
+				+ "UserMap: " + userMap + "\n";
+		return sb;
 	}
 
 	private static String replaceString(final String argInput, final String replacement, final int value)

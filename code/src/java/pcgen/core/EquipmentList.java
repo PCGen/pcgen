@@ -18,21 +18,13 @@
 package pcgen.core;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 import java.util.StringTokenizer;
 
-import pcgen.cdom.enumeration.FormulaKey;
-import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.core.analysis.EquipmentChoiceDriver;
-import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.utils.CoreUtility;
-import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 
@@ -43,31 +35,12 @@ import pcgen.util.Logging;
 public final class EquipmentList
 {
 
-	/** this is determined by preferences */
-	private static boolean autoGeneration = false;
-
 	/**
 	 * Private to ensure utility object can't be instantiated.
 	 */
 	private EquipmentList()
 	{
 		// Empty Constructor
-	}
-
-	private static boolean isAutoGeneration()
-	{
-		return autoGeneration;
-	}
-
-	/**
-	 * Set whether magic equipment auto generation should be on.
-	 *
-	 * @param auto
-	 *          true if it should be on
-	 */
-	public static void setAutoGeneration(final boolean auto)
-	{
-		autoGeneration = auto;
 	}
 
 	/**
@@ -160,7 +133,7 @@ public final class EquipmentList
 			while (aTok.hasMoreTokens())
 			{
 				final String cString = aTok.nextToken();
-				bonuses[idx++] = Delta.decode(cString).intValue();
+				bonuses[idx++] = Delta.decode(cString);
 			}
 
 			aName = aName.substring(0, i).trim();
@@ -415,236 +388,33 @@ public final class EquipmentList
 		return typeList;
 	}
 
-	/**
-	 * Automatically add equipment types as requested by user.
-	 *          TODO
-	 */
-	public static void autoGenerateEquipment()
-	{
-		setAutoGeneration(true);
-
-		autogenerateRacialEquipment();
-
-		autogenerateMasterWorkEquipment();
-
-		autogenerateMagicEquipment();
-
-		autogenerateExoticMaterialsEquipment();
-
-		setAutoGeneration(false);
-	}
-
-	private static void autogenerateExoticMaterialsEquipment()
-	{
-		if (SettingsHandler.isAutogenExoticMaterial())
-		{
-			for (Equipment eq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
-			{
-				//
-				// Only apply to non-magical Armor, Shield and Weapon
-				//
-				if (eq.isMagic() || eq.isUnarmed() || eq.isMasterwork()
-					|| (!eq.isAmmunition() && !eq.isArmor() && !eq.isShield() && !eq.isWeapon()))
-				{
-					continue;
-				}
-
-				final EquipmentModifier eqDarkwood = getQualifiedModifierNamed("Darkwood", eq);
-				final EquipmentModifier eqAdamantine = getQualifiedModifierNamed("Adamantine", eq);
-				final EquipmentModifier eqMithral = getQualifiedModifierNamed("Mithral", eq);
-
-				createItem(eq, eqDarkwood, null, null, null);
-				createItem(eq, eqAdamantine, null, null, null);
-				createItem(eq, eqMithral, null, null, null);
-			}
-		}
-	}
-
-	private static void autogenerateMagicEquipment()
-	{
-		if (SettingsHandler.isAutogenMagic())
-		{
-			for (int iPlus = 1; iPlus <= 5; iPlus++)
-			{
-				final String aBonus = Delta.toString(iPlus);
-
-				for (Equipment eq : Globals.getContext().getReferenceContext()
-					.getConstructedCDOMObjects(Equipment.class))
-				{
-					// Only apply to non-magical
-					// Armor, Shield and Weapon
-					if (eq.isMagic() || eq.isMasterwork()
-						|| (!eq.isAmmunition() && !eq.isArmor() && !eq.isShield() && !eq.isWeapon()))
-					{
-						continue;
-					}
-
-					// Items must be masterwork before
-					// you can assign magic to them
-					EquipmentModifier eqMod = getQualifiedModifierNamed("Masterwork", eq);
-
-					if (eqMod == null)
-					{
-						Logging.debugPrint(
-							"Could not generate a Masterwork " + eq + " as the equipment modifier could not be found.");
-						continue;
-					}
-
-					// Get list of choices
-					final EquipmentChoice equipChoice =
-							EquipmentChoiceDriver.buildEquipmentChoice(0, eq, eqMod, false, false, 0, null);
-
-					// Iterate over list, creating an item for each choice.
-					final Iterator<Object> equipIter = equipChoice.getChoiceIterator(true);
-					for (; equipIter.hasNext();)
-					{
-						final String mwChoice = String.valueOf(equipIter.next());
-						eq = eq.clone();
-						eq.addEqModifier(eqMod, true, null, mwChoice, equipChoice);
-
-						if (eq.isWeapon() && eq.isDouble())
-						{
-							eq.addEqModifier(eqMod, false, null, mwChoice, equipChoice);
-						}
-
-						eqMod = getQualifiedModifierNamed(aBonus, eq);
-
-						if (eqMod == null)
-						{
-							Logging.debugPrint("Could not generate a " + aBonus + " " + eq
-								+ " as the equipment modifier could not be found.");
-							continue;
-						}
-						createItem(eq, eqMod, null, null, null);
-					}
-				}
-			}
-		}
-	}
-
-	private static void autogenerateMasterWorkEquipment()
-	{
-		if (SettingsHandler.isAutogenMasterwork())
-		{
-			for (Equipment eq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
-			{
-				//
-				// Only apply to non-magical Armor, Shield and Weapon
-				//
-				if (eq.isMagic() || eq.isUnarmed() || eq.isMasterwork()
-					|| (!eq.isAmmunition() && !eq.isArmor() && !eq.isShield() && !eq.isWeapon()))
-				{
-					continue;
-				}
-
-				final EquipmentModifier eqMasterwork = getQualifiedModifierNamed("Masterwork", eq);
-				if (eqMasterwork == null)
-				{
-					continue;
-				}
-
-				// Get list of choices (extract code from EquipmentModifier.getChoice)
-				final EquipmentChoice equipChoice =
-						EquipmentChoiceDriver.buildEquipmentChoice(0, eq, eqMasterwork, false, false, 0, null);
-
-				// Iterate over list, creating an item for each choice.
-				final Iterator<Object> equipIter = equipChoice.getChoiceIterator(true);
-				for (; equipIter.hasNext();)
-				{
-					final String choice = String.valueOf(equipIter.next());
-					createItem(eq, eqMasterwork, null, choice, equipChoice);
-				}
-			}
-		}
-	}
-
-	private static void autogenerateRacialEquipment()
-	{
-		if (SettingsHandler.isAutogenRacial())
-		{
-
-			Set<Integer> gensizesid = new HashSet<>();
-			//
-			// Go through all loaded races and flag whether or not to make equipment
-			// sized for them.  Karianna, changed the array length by 1 as Collosal
-			// creatures weren't being catered for (and therefore an OutOfBounds exception
-			// was being thrown) - Bug 937586
-			//
-			AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-			for (final Race race : ref.getConstructedCDOMObjects(Race.class))
-			{
-				/*
-				 * SIZE: in Race LST files enforces that the formula is fixed,
-				 * so no isStatic() check needed here
-				 */
-				final int iSize = race.getSafe(FormulaKey.SIZE).resolveStatic().intValue();
-				gensizesid.add(iSize);
-			}
-
-			SizeAdjustment defaultSize = SizeUtilities.getDefaultSizeAdjustment();
-			Set<SizeAdjustment> gensizes = new HashSet<>();
-			for (Integer i : gensizesid)
-			{
-				gensizes.add(ref.getSortedList(SizeAdjustment.class, IntegerKey.SIZEORDER).get(i));
-			}
-			// skip over default size
-			gensizes.remove(defaultSize);
-
-			PlayerCharacter dummyPc = new PlayerCharacter();
-			for (Equipment eq : ref.getConstructedCDOMObjects(Equipment.class))
-			{
-				//
-				// Only apply to Armor, Shield and resizable items
-				//
-				if (!Globals.canResizeHaveEffect(eq, null))
-				{
-					continue;
-				}
-
-				for (SizeAdjustment sa : gensizes)
-				{
-					createItem(eq, sa, dummyPc);
-				}
-			}
-		}
-	}
-
 	private static EquipmentModifier getModifierNamed(final String aName)
 	{
-		for (EquipmentModifier eqMod : Globals.getContext().getReferenceContext()
-			.getConstructedCDOMObjects(EquipmentModifier.class))
-		{
-			if (eqMod.getDisplayName().equals(aName))
-			{
-				return eqMod;
-			}
-		}
+		return Globals.getContext()
+		              .getReferenceContext()
+		              .getConstructedCDOMObjects(EquipmentModifier.class)
+		              .stream()
+		              .filter(eqMod -> eqMod.getDisplayName().equals(aName))
+		              .findFirst()
+		              .orElse(null);
 
-		return null;
 	}
 
 	private static EquipmentModifier getQualifiedModifierNamed(final String aName, final Equipment eq)
 	{
-		for (EquipmentModifier eqMod : Globals.getContext().getReferenceContext()
-			.getConstructedCDOMObjects(EquipmentModifier.class))
-		{
-			if (eqMod.getDisplayName().startsWith(aName))
-			{
-				for (String t : eq.typeList())
-				{
-					if (eqMod.isType(t))
-					{
-						// Type matches, passes prereqs?
-						if (PrereqHandler.passesAll(eqMod, eq, null))
-						{
-							return eqMod;
-						}
-					}
-				}
-			}
-		}
+		// Type matches, passes prereqs?
+		return Globals.getContext()
+		              .getReferenceContext()
+		              .getConstructedCDOMObjects(EquipmentModifier.class)
+		              .stream()
+		              .filter(eqMod -> eqMod.getDisplayName().startsWith(aName))
+		              .filter(eqMod -> eq.typeList()
+		                                 .stream()
+		                                 .filter(eqMod::isType)
+		                                 .anyMatch(t -> PrereqHandler.passesAll(eqMod, eq, null)))
+		              .findFirst()
+		              .orElse(null);
 
-		return null;
 	}
 
 	/**
@@ -673,11 +443,6 @@ public final class EquipmentList
 		}
 	}
 
-	private static void createItem(final Equipment eq, final SizeAdjustment sa, final PlayerCharacter aPC)
-	{
-		createItem(eq, null, sa, aPC, "", null);
-	}
-
 	private static void createItem(final Equipment eq, final EquipmentModifier eqMod, final PlayerCharacter aPC,
 		final String choice, final EquipmentChoice equipChoice)
 	{
@@ -697,7 +462,7 @@ public final class EquipmentList
 			// Armor without an armor bonus is an exception
 			//
 			if (!eq.getSafe(ObjectKey.MOD_CONTROL).getModifiersAllowed()
-				|| (eq.isArmor() && (eq.getACMod(aPC).intValue() == 0)
+				|| (eq.isArmor() && (eq.getACMod(aPC) == 0)
 					&& ((eqMod != null) && !eqMod.getDisplayName().equalsIgnoreCase("MASTERWORK"))))
 			{
 				return;
@@ -739,16 +504,7 @@ public final class EquipmentList
 				return;
 			}
 
-			final Type newType;
-
-			if (isAutoGeneration())
-			{
-				newType = Type.AUTO_GEN;
-			}
-			else
-			{
-				newType = Type.CUSTOM;
-			}
+			final Type newType = Type.CUSTOM;
 
 			if (!eq.isType(newType.toString()))
 			{

@@ -137,8 +137,7 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass> implem
 					{
 						meleeValue = value;
 					}
-					set.add(new StringBuilder().append(attackType.getIdentifier()).append(Constants.PIPE).append(value)
-						.toString());
+					set.add(attackType.getIdentifier() + Constants.PIPE + value);
 				}
 			}
 		}

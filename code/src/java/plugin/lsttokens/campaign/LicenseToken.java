@@ -91,7 +91,7 @@ public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements CDO
 			//Okay, no license info
 			return null;
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override

@@ -323,11 +323,10 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 					try
 					{
 						AbilitySelector as = (AbilitySelector) csa;
-						StringBuilder sb = new StringBuilder();
-						sb.append(as.getAbilityCategory().getLSTformat(false)).append(Constants.PIPE);
-						sb.append(as.getNature()).append(Constants.PIPE);
-						sb.append(as.getLstFormat());
-						returnSet.add(sb.toString());
+						String sb = as.getAbilityCategory().getLSTformat(false) + Constants.PIPE
+								+ as.getNature() + Constants.PIPE
+								+ as.getLstFormat();
+						returnSet.add(sb);
 					}
 					catch (PersistenceLayerException e)
 					{
@@ -346,11 +345,10 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				CDOMDirectSingleRef<AbilityList> dr = (CDOMDirectSingleRef<AbilityList>) ref;
 				AbilityList al = dr.get();
-				StringBuilder sb = new StringBuilder();
-				sb.append(al.getCategory().getLSTformat(false)).append(Constants.PIPE);
-				sb.append(al.getNature()).append(Constants.PIPE);
-				sb.append(Constants.LST_DOT_CLEAR);
-				returnSet.add(sb.toString());
+				String sb = al.getCategory().getLSTformat(false) + Constants.PIPE
+						+ al.getNature() + Constants.PIPE
+						+ Constants.LST_DOT_CLEAR;
+				returnSet.add(sb);
 			}
 			MapToList<CDOMReference<Ability>, AssociatedPrereqObject> mtl = changes.getAddedAssociations();
 			if (mtl != null)
@@ -466,7 +464,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			return null;
 		}
-		return returnSet.toArray(new String[returnSet.size()]);
+		return returnSet.toArray(new String[0]);
 	}
 
 	@Override

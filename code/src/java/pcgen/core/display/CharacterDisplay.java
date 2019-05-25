@@ -1268,124 +1268,12 @@ public class CharacterDisplay
 	{
 		final String custom = getSafeStringFor(PCStringKey.TABNAME);
 
-		if (!Constants.EMPTY_STRING.equals(custom))
+		if (custom != null && !custom.isEmpty())
 		{
 			return custom;
 		}
 
-		final StringBuilder displayName = new StringBuilder(100).append(getName());
-
-		// TODO - i18n
-		switch (SettingsHandler.getNameDisplayStyle())
-		{
-			case Constants.DISPLAY_STYLE_NAME:
-				break;
-
-			case Constants.DISPLAY_STYLE_NAME_CLASS:
-				displayName.append(" the ").append(getDisplayClassName());
-
-				break;
-
-			case Constants.DISPLAY_STYLE_NAME_RACE:
-				displayName.append(" the ").append(getDisplayRaceName());
-
-				break;
-
-			case Constants.DISPLAY_STYLE_NAME_RACE_CLASS:
-				displayName.append(" the ").append(getDisplayRaceName()).append(' ').append(getDisplayClassName());
-
-				break;
-
-			case Constants.DISPLAY_STYLE_NAME_FULL:
-				return getFullDisplayName();
-
-			default:
-				break; // custom broken
-		}
-
-		return displayName.toString();
-	}
-
-	/**
-	 * Returns a very descriptive name for the character.
-	 * 
-	 * The format is [name] the [level]th level [race name] [classes]
-	 * 
-	 * @return A descriptive string name for the character.
-	 */
-	public String getFullDisplayName()
-	{
-		final int levels = getTotalLevels();
-		final String displayClass;
-
-		// If you aren't multi-classed, don't display redundant class level
-		// information in addition to the total PC level
-		displayClass = (classFacet.getCount(id) > 1) ? getFullDisplayClassName() : getDisplayClassName();
-
-		return getName() + " the " + levels + getOrdinal(levels) + " level " + getDisplayRaceName() + ' '
-			+ displayClass;
-	}
-
-	private static String getOrdinal(final int cardinal)
-	{
-		switch (cardinal)
-		{
-			case 1:
-				return "st";
-
-			case 2:
-				return "nd";
-
-			case 3:
-				return "rd";
-
-			default:
-				return "th";
-		}
-	}
-
-	private String getDisplayClassName()
-	{
-		ArrayList<PCClass> classList = getClassList();
-		return (classFacet.isEmpty(id) ? "Nobody" : getDisplayClassName(classList.get(classList.size() - 1)));
-	}
-
-	private String getDisplayRaceName()
-	{
-		Race race = getRace();
-		if (race.isUnselected())
-		{
-			return "Nothing";
-		}
-		return getRace().toString();
-	}
-
-	private String getFullDisplayClassName()
-	{
-		if (classFacet.isEmpty(id))
-		{
-			return "Nobody";
-		}
-
-		final StringBuilder buf = new StringBuilder(50);
-
-		boolean first = true;
-		for (PCClass c : getClassSet())
-		{
-			if (!first)
-			{
-				buf.append('/');
-				first = false;
-			}
-			buf.append(getFullDisplayClassName(c));
-		}
-
-		return buf.toString();
-	}
-
-	public String getFullDisplayClassName(PCClass pcClass)
-	{
-		return getDisplayClassName(pcClass) + " " + getLevel(pcClass);
+		return getName();
 	}
 
 	public String getDisplayClassName(PCClass pcClass)

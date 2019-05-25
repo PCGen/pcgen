@@ -96,7 +96,7 @@ public class LogoToken extends AbstractTokenWithSeparator<Campaign>
 		{
 			set.add(cse.getLSTformat());
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override

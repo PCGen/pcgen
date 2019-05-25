@@ -121,10 +121,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 		{
 			for (CDOMReference<PCTemplate> ref : po.getSafeListFor(ListKey.REMOVE_TEMPLATES))
 			{
-				for (PCTemplate pct : ref.getContainedObjects())
-				{
-					list.add(pct);
-				}
+				list.addAll(ref.getContainedObjects());
 			}
 		}
 		return list;

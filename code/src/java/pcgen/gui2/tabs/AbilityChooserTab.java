@@ -86,7 +86,7 @@ import pcgen.system.LanguageBundle;
  *
  * @see pcgen.gui2.tabs.CharacterInfoTab
  */
-@SuppressWarnings("serial")
+@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceHashtableWithMap", "serial"})
 public class AbilityChooserTab extends FlippingSplitPane implements StateEditable, TodoHandler
 {
 
@@ -155,7 +155,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 				new FilterButton<>("AbilityGained", true);
 		gainedFilterButton.setText(LanguageBundle.getString("in_gained")); //$NON-NLS-1$
 		gainedFilterButton.setEnabled(true);
-		gainedFilterButton.setFilter(new Filter<CharacterFacade, AbilityCategory>()
+		gainedFilterButton.setFilter(new Filter<>()
 		{
 			@Override
 			public boolean accept(CharacterFacade context, AbilityCategory element)
@@ -683,7 +683,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	private class AbilityFilterHandler
 	{
 
-		private final Filter<CharacterFacade, AbilityFacade> qFilter = new Filter<CharacterFacade, AbilityFacade>()
+		private final Filter<CharacterFacade, AbilityFacade> qFilter = new Filter<>()
 		{
 			@Override
 			public boolean accept(CharacterFacade context, AbilityFacade element)

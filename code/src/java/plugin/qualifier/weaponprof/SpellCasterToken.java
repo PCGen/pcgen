@@ -52,9 +52,7 @@ public class SpellCasterToken implements QualifierToken<WeaponProf>, PrimitiveFi
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		StringBuilder sb = new StringBuilder();
-		sb.append(getTokenName()).append('[').append(pcs.getLSTformat(useAny)).append(']');
-		return sb.toString();
+		return getTokenName() + '[' + pcs.getLSTformat(useAny) + ']';
 	}
 
 	@Override

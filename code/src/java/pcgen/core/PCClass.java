@@ -1291,8 +1291,7 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 		}
 		catch (CloneNotSupportedException ce)
 		{
-			// TODO Auto-generated catch block
-			ce.printStackTrace();
+			Logging.errorPrint("failed to clone", ce);
 		}
 
 		for (VariableKey vk : otherClass.getVariableKeys())
@@ -1400,8 +1399,7 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 			}
 			catch (CloneNotSupportedException e)
 			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				Logging.errorPrint(e.getLocalizedMessage(), e);
 			}
 		}
 	}

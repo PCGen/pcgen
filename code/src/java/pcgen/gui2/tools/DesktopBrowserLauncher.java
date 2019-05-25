@@ -26,21 +26,20 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import javax.swing.JFileChooser;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
-import pcgen.system.PCGenSettings;
-
-import org.apache.commons.lang3.SystemUtils;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 
 /**
  * Provide an utility method to open files with {@link Desktop}.
  */
-public final class  DesktopBrowserLauncher
+public final class DesktopBrowserLauncher
 {
 
 	private static final Desktop DESKTOP = Desktop.getDesktop();
-	private static final Boolean IS_BROWSE_SUPPORTED =
-			Desktop.isDesktopSupported() && DESKTOP.isSupported(Action.BROWSE);
 
 	private DesktopBrowserLauncher()
 	{
@@ -63,6 +62,7 @@ public final class  DesktopBrowserLauncher
 	 * @param url URL to display in browser.
 	 * @throws IOException if the URL is bad or the browser can not be launched
 	 */
+	@SuppressWarnings({"ThrowInsideCatchBlockWhichIgnoresCaughtException", "PMD.PreserveStackTrace"})
 	public static void viewInBrowser(URL url) throws IOException
 	{
 		try
@@ -83,46 +83,18 @@ public final class  DesktopBrowserLauncher
 	 */
 	private static void viewInBrowser(URI uri) throws IOException
 	{
-		// Windows tends to lock up or not actually
-		// display anything unless we've specified a
-		// default browser, so at least make the user
-		// aware that (s)he needs one. If they don't
-		// pick one and it doesn't work, at least they
-		// might know enough to try selecting one the
-		// next time.
-		if (!IS_BROWSE_SUPPORTED && SystemUtils.IS_OS_WINDOWS
-				&& (PCGenSettings.getBrowserPath() == null))
+		if (Desktop.isDesktopSupported() && DESKTOP.isSupported(Action.BROWSE))
 		{
-			selectDefaultBrowser();
+			DESKTOP.browse(uri);
+		} else
+		{
+			Dialog<ButtonType> alert = new Alert(Alert.AlertType.WARNING);
+			Logging.debugPrint("unable to browse to " + uri);
+			alert.setTitle(LanguageBundle.getString("in_err_browser_err"));
+			alert.setContentText(LanguageBundle.getFormattedString("in_err_browser_uri", uri));
+			alert.showAndWait();
 		}
 
-		DESKTOP.browse(uri);
 	}
 
-	/**
-	 * Sets the default browser.
-	 */
-	public static void selectDefaultBrowser()
-	{
-		final JFileChooser fc = new JFileChooser();
-		fc.setDialogTitle("Find and select your preferred html browser.");
-
-		if (SystemUtils.IS_OS_MAC || SystemUtils.IS_OS_MAC_OSX)
-		{
-			fc.putClientProperty("JFileChooser.appBundleIsTraversable", "never");
-		}
-
-		if (PCGenSettings.getBrowserPath() != null)
-		{
-			fc.setCurrentDirectory(new File(PCGenSettings.getBrowserPath()));
-		}
-
-		final int returnVal = fc.showOpenDialog(null);
-
-		if (returnVal == JFileChooser.APPROVE_OPTION)
-		{
-			final File file = fc.getSelectedFile();
-			PCGenSettings.OPTIONS_CONTEXT.setProperty(PCGenSettings.BROWSER_PATH, file.getAbsolutePath());
-		}
-	}
 }

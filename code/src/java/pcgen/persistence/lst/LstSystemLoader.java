@@ -31,10 +31,6 @@ import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.SystemLoader;
 
-/**
- * ???
- * @deprecated
- */
 @Deprecated
 public final class LstSystemLoader implements SystemLoader
 {

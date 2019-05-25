@@ -37,17 +37,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JEditorPane;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -65,6 +64,8 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.SimpleHtmlPanelController;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.InstallLoader;
 import pcgen.system.ConfigurationSettings;
@@ -73,18 +74,16 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+
 /**
  * {@code DataInstaller} is responsible for managing the installation of
  * a data set including the selection of the set and the install options.
- * 
- * 
  */
 public class DataInstaller extends JFrame
 {
-
-	/** Version for serialisation */
-	private static final long serialVersionUID = -7429544164441235718L;
-
 	/**
 	 * The listener for receiving and processing action events from installer 
 	 * buttons. 
@@ -319,7 +318,7 @@ public class DataInstaller extends JFrame
 
 			// Display the info
 			dataSetSel.setText(dataSet.getAbsolutePath());
-			dataSetDetails.setText(FacadeFactory.getCampaignInfoFactory().getHTMLInfo(campaign));
+			dataSetDetails.getController().setHtml(FacadeFactory.getCampaignInfoFactory().getHTMLInfo(campaign));
 			if (campaign.get(ObjectKey.DESTINATION) == null)
 			{
 				locDataButton.setSelected(false);
@@ -367,7 +366,7 @@ public class DataInstaller extends JFrame
 	private JButton selectButton;
 
 	/** The data set detail display component. */
-	private JEditorPane dataSetDetails;
+	private JFXPanelFromResource<SimpleHtmlPanelController> dataSetDetails;
 
 	/** The button for the data location. */
 	private JRadioButton locDataButton;
@@ -434,21 +433,28 @@ public class DataInstaller extends JFrame
 			StringBuilder msg = new StringBuilder();
 			for (String filename : nonStandardFiles)
 			{
-				msg.append(' ').append(filename).append("\n");
+				msg.append(' ').append(filename).append('\n');
 			}
-			DIWarningDialog dialog = new DIWarningDialog(this, msg.toString(),
-				LanguageBundle.getFormattedString("in_diNonStandardFiles"));
-			dialog.setVisible(true);
-			int result = dialog.getResponse();
-			if (result == JOptionPane.CANCEL_OPTION)
+
+			Alert diWarningDialog = new Alert(Alert.AlertType.CONFIRMATION);
+			ButtonType noButton = new ButtonType(LanguageBundle.getString("in_no"), ButtonBar.ButtonData.NO);
+			// default for confirm is yes/cancel
+			diWarningDialog.getButtonTypes().add(noButton);
+			diWarningDialog.setTitle(LanguageBundle.getString("in_dataInstaller"));
+			diWarningDialog.setHeaderText(LanguageBundle.getString("in_diNonStandardFiles"));
+			diWarningDialog.setContentText(msg.toString());
+			Optional<ButtonType> warningResult = diWarningDialog.showAndWait();
+			if (warningResult.isPresent())
 			{
-				return false;
-			}
-			if (result == JOptionPane.NO_OPTION)
-			{
-				for (String filename : nonStandardFiles)
+				ButtonType buttonType = warningResult.get();
+				if (buttonType.equals(ButtonType.CANCEL))
 				{
-					files.remove(filename);
+					return false;
+				}
+				if (buttonType.equals(ButtonType.NO))
+				{
+					files.removeAll(nonStandardFiles);
+					return false;
 				}
 			}
 		}
@@ -465,7 +471,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return true, if successful
 	 */
-	private boolean checkOverwriteOK(Collection<String> files, File destDir)
+	private static boolean checkOverwriteOK(Collection<String> files, File destDir)
 	{
 		Collection<String> existingFiles = new ArrayList<>();
 		Collection<String> existingFilesCorr = new ArrayList<>();
@@ -486,19 +492,26 @@ public class DataInstaller extends JFrame
 			{
 				msg.append(' ').append(filename).append("\n");
 			}
-			DIWarningDialog dialog =
-					new DIWarningDialog(this, msg.toString(), LanguageBundle.getFormattedString("in_diOverwriteFiles"));
-			dialog.setVisible(true);
-			int result = dialog.getResponse();
-			if (result == JOptionPane.CANCEL_OPTION)
+
+			Alert diWarningDialog = new Alert(Alert.AlertType.CONFIRMATION);
+			ButtonType noButton = new ButtonType(LanguageBundle.getString("in_no"), ButtonBar.ButtonData.NO);
+			// default for confirm is yes/cancel
+			diWarningDialog.getButtonTypes().add(noButton);
+			diWarningDialog.setTitle(LanguageBundle.getString("in_dataInstaller"));
+			diWarningDialog.setHeaderText(LanguageBundle.getString("in_diOverwriteFiles"));
+			diWarningDialog.setContentText(msg.toString());
+			Optional<ButtonType> warningResult = diWarningDialog.showAndWait();
+			if (warningResult.isPresent())
 			{
-				return false;
-			}
-			if (result == JOptionPane.NO_OPTION)
-			{
-				for (String filename : existingFiles)
+				ButtonType buttonType = warningResult.get();
+				if (buttonType.equals(ButtonType.CANCEL))
 				{
-					files.remove(filename);
+					return false;
+				}
+				if (buttonType.equals(ButtonType.NO))
+				{
+					files.removeAll(existingFiles);
+					return false;
 				}
 			}
 		}
@@ -646,9 +659,11 @@ public class DataInstaller extends JFrame
 
 		// Data set details row
 		Utility.buildConstraints(gbc, 0, 1, 4, 1, 1.0, 1.0);
-		dataSetDetails = new JEditorPane("text/html", "<html></html>");
+		dataSetDetails = new JFXPanelFromResource<>(
+				SimpleHtmlPanelController.class,
+				"SimpleHtmlPanel.fxml"
+		);
 		dataSetDetails.setPreferredSize(new Dimension(400, 200));
-		dataSetDetails.setEditable(false);
 		dataSetDetails.setBackground(getBackground());
 		gbc.fill = GridBagConstraints.BOTH;
 		JScrollPane jScrollPane = new JScrollPane();

@@ -213,10 +213,8 @@ public final class Equipment extends PObject
 	{
 		if (!appliedBonusName.isEmpty())
 		{
-			final StringBuilder aString = new StringBuilder(100);
-			aString.append(" [").append(appliedBonusName).append("]");
 
-			return aString.toString();
+			return " [" + appliedBonusName + "]";
 		}
 
 		return "";
@@ -893,10 +891,9 @@ public final class Equipment extends PObject
 
 		// make string (BASECOST/X) which will be substituted into
 		// the cost string which is then converted to a number
-		StringBuilder sB = new StringBuilder("(BASECOST/");
-		sB.append(getSafe(IntegerKey.BASE_QUANTITY));
-		sB.append(")");
-		String s = mat.replaceAll(sB.toString());
+		String sB = "(BASECOST/" + getSafe(IntegerKey.BASE_QUANTITY)
+				+ ")";
+		String s = mat.replaceAll(sB);
 
 		String v = getVariableValue(s, "", primaryHead, aPC).toString();
 		return v;
@@ -2531,12 +2528,9 @@ public final class Equipment extends PObject
 		final boolean bPrimary)
 	{
 
-		StringBuilder sB = new StringBuilder(aType.toUpperCase());
-		sB.append('.');
-		sB.append(aName.toUpperCase());
-		sB.append('.');
-
-		final String aBonusKey = sB.toString();
+		final String aBonusKey = aType.toUpperCase() + '.'
+				+ aName.toUpperCase()
+				+ '.';
 
 		// go through bonus hashmap and zero out all
 		// entries that deal with this bonus request
@@ -4015,8 +4009,6 @@ public final class Equipment extends PObject
 					myParser.addVariable("BASEQTY", getSafe(IntegerKey.BASE_QUANTITY));
 				}
 
-				String typeMatched;
-
 				// Look for an expression for all of this item's types
 				// If there is more than 1, use the most expensive.
 				String costExpr;
@@ -4025,8 +4017,8 @@ public final class Equipment extends PObject
 
 				for (int idx = 0; idx < itemTypes.size(); ++idx)
 				{
-					typeMatched = itemTypes.get(idx);
-					costExpr = SettingsHandler.getGame().getPlusCalculation(typeMatched);
+					String typeMatched = itemTypes.get(idx);
+					costExpr = SettingsHandler.getGame().getPlusCalculation(Type.getConstant(typeMatched));
 
 					if (costExpr != null)
 					{
@@ -4047,8 +4039,7 @@ public final class Equipment extends PObject
 				//
 				// No cost formula found, check for catch-all definition
 				//
-				typeMatched = "ANY";
-				costExpr = SettingsHandler.getGame().getPlusCalculation(typeMatched);
+				costExpr = SettingsHandler.getGame().getPlusCalculation(Type.ANY);
 
 				if (costExpr != null)
 				{
@@ -5207,11 +5198,11 @@ public final class Equipment extends PObject
 			int modWield = 0;
 			for (String eqType : typeList())
 			{
-				final StringBuilder sB = new StringBuilder("WEAPONPROF=TYPE.");
-				sB.append(eqType);
 
 				// get the type bonus (ex TYPE.MARTIAL)
-				final int i = (int) aPC.getTotalBonusTo(sB.toString(), "WIELDCATEGORY");
+				final int i = (int) aPC.getTotalBonusTo("WEAPONPROF=TYPE." + eqType
+						// get the type bonus (ex TYPE.MARTIAL)
+						, "WIELDCATEGORY");
 
 				// get the highest bonus
 				if (i < modWield)
@@ -6275,5 +6266,10 @@ public final class Equipment extends PObject
 			return new ArrayList<>(heads);
 		}
 		return null;
+	}
+
+	public boolean isType(Type type, boolean bPrimary)
+	{
+		return isType(type.toString(), bPrimary);
 	}
 }

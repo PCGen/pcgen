@@ -137,11 +137,9 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject> impleme
 		{
 			set.clear();
 			set.addAll(map.getListFor(key));
-			StringBuilder sb = new StringBuilder();
-			sb.append(key).append(Constants.PIPE).append(ReferenceUtilities.joinLstFormat(set, Constants.PIPE));
-			returnSet.add(sb.toString());
+			returnSet.add(key + Constants.PIPE + ReferenceUtilities.joinLstFormat(set, Constants.PIPE));
 		}
-		return returnSet.toArray(new String[returnSet.size()]);
+		return returnSet.toArray(new String[0]);
 	}
 
 	@Override

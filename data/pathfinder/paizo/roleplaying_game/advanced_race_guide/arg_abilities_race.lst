@@ -472,8 +472,8 @@ Dissolution's Child					KEY:Wayang ~ Dissolution's Child	CATEGORY:Special Abilit
 # Ability Name						Unique Key					Category of Ability		Type										Multiple Requirements																					Description																																																													Ability																			Cost		Source Page
 Racial Traits ~ Gathlain											CATEGORY:Internal
 
-CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																																																																												ABILITY:Special Ability|AUTOMATIC|Gathlain ~ Gathlain Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GathlainMagic
-CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																																																																												ABILITY:Special Ability|AUTOMATIC|Gathlain ~ Natural Armor|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NaturalArmor
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																																																																												ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Gathlain Magic|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GathlainMagic
+CATEGORY=Internal|Racial Traits ~ Gathlain.MOD																																																																																																												ABILITY:Gathlain Racial Trait|AUTOMATIC|Gathlain ~ Natural Armor|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NaturalArmor
 
 ###Block: Default Gathlain Abilities
 # Ability Name					Unique Key				Category of Ability		Type											Innate Spells								Description																												Ability																					Modify VAR						Source Page
@@ -485,21 +485,21 @@ Natural Armor					KEY:Gathlain ~ Natural Armor	CATEGORY:Special Ability	TYPE:Gat
 # Ability Name					Unique Key				Category of Ability		Type											Innate Spells								Description																												Ability																					Modify VAR						Source Page
 Racial Traits ~ Trox									CATEGORY:Internal
 
-CATEGORY=Internal|Racial Traits ~ Trox.MOD																																																													ABILITY:Special Ability|AUTOMATIC|Trox ~ Burrow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxBurrow
-CATEGORY=Internal|Racial Traits ~ Trox.MOD																																																													ABILITY:Special Ability|AUTOMATIC|Trox ~ Frenzy|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxFrenzy
-CATEGORY=Internal|Racial Traits ~ Trox.MOD																																																													ABILITY:Special Ability|AUTOMATIC|Trox ~ Grabbing Appendages|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxGrabbingAppendages
+CATEGORY=Internal|Racial Traits ~ Trox.MOD																																																													ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Burrow|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxBurrow
+CATEGORY=Internal|Racial Traits ~ Trox.MOD																																																													ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Frenzy|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxFrenzy
+CATEGORY=Internal|Racial Traits ~ Trox.MOD																																																													ABILITY:Trox Racial Trait|AUTOMATIC|Trox ~ Grabbing Appendages|!PREABILITY:1,CATEGORY=Special Ability,TYPE.TroxGrabbingAppendages
 
 ###Block: Default Trox Abilities
 # Ability Name						Unique Key					Category of Ability		Type									Description																																	Move			Ability																		Source Page
 Burrow							KEY:Trox ~ Burrow				CATEGORY:Special Ability	TYPE:Trox Racial Trait.SpecialQuality.TroxRacialDefault	DESC:Trox have a burrow speed of 20 feet.																												MOVE:Burrow,30																				SOURCEPAGE:p.234
 Frenzy							KEY:Trox ~ Frenzy				CATEGORY:Special Ability	TYPE:Trox Racial Trait.SpecialQuality.TroxRacialDefault	DESC:Once per day when a trox takes damage, it flies into a frenzy for 1 minute, gaining a +2 racial bonus to Constitution and Strength, but a -2 penalty to their AC.																												SOURCEPAGE:p.234
-Grabbing Appendages					KEY:Trox ~ Grabbing Appendages	CATEGORY:Special Ability	TYPE:Trox Racial Trait.SpecialQuality.TroxRacialDefault	DESC:A trox's smaller arms are useful for little more than aiding it with grappling. Trox gain Improved Grapple as a bonus feat, and can maintain a grapple and still make attacks with their main arms.																							SOURCEPAGE:p.234
+Grabbing Appendages					KEY:Trox ~ Grabbing Appendages	CATEGORY:Special Ability	TYPE:Trox Racial Trait.SpecialQuality.TroxRacialDefault	DESC:A trox's smaller arms are useful for little more than aiding it with grappling. Trox gain Improved Grapple as a bonus feat, and can maintain a grapple and still make attacks with their main arms.																							SOURCEPAGE:p.234	ABILITY:FEAT|AUTOMATIC|Improved Grapple
 
 
 #Racial Traits ~ Wyrwood
 # Ability Name						Unique Key					Category of Ability		Type									Description																																	Move			Ability																		Source Page
 Racial Traits ~ Wyrwood											CATEGORY:Internal
-CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD																																																										ABILITY:Special Ability|AUTOMATIC|Wyrwood ~ Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyrwoodSenses
+CATEGORY=Internal|Racial Traits ~ Wyrwood.MOD																																																										ABILITY:Wyrwood Racial Trait|AUTOMATIC|Wyrwood ~ Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.WyrwoodSenses
 
 ###Block: Default Wyrwood Abilities
 # Ability Name	Unique Key			Category of Ability		Type										Description												Modify VAR													Source Page

@@ -529,7 +529,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 	{
 
 		private static final DefaultListFacade<? extends TreeView<EquipmentModifier>> TREE_VIEWS =
-				new DefaultListFacade<TreeView<EquipmentModifier>>(Arrays.asList(EquipModTreeView.values()));
+				new DefaultListFacade<>(Arrays.asList(EquipModTreeView.values()));
 		private final List<DefaultDataViewColumn> columns;
 		private final boolean isAvailModel;
 		private final FilteredListFacade<EquipmentBuilderFacade, EquipmentModifier> equipMods;
@@ -550,11 +550,11 @@ public class EquipCustomPanel extends FlippingSplitPane
 				ListFacade<EquipmentModifier> eqModList = builder.getAvailList(head);
 				equipMods.setDelegate(eqModList);
 				builder.getAvailList(head).addListListener(this);
-				columns = Arrays.asList(new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+				columns = Collections.singletonList(new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 			else
 			{
-				columns = Arrays.asList(new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
+				columns = Collections.singletonList(new DefaultDataViewColumn("in_source", String.class, false)); //$NON-NLS-1$
 			}
 		}
 
@@ -677,7 +677,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 				case TYPE_NAME:
 					TreeViewPath<EquipmentModifier> path =
 							createTreeViewPath(pobj, (Object[]) pobj.getDisplayType().split("\\.")); //$NON-NLS-1$
-					return Arrays.asList(path);
+					return Collections.singletonList(path);
 				case SOURCE_NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getSourceForNodeDisplay()));
 				default:

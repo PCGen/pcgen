@@ -57,7 +57,7 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements Prereq
 		catch (NumberFormatException exception)
 		{
 			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreAbility.error", prereq.toString())); //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PreAbility.error", prereq.toString()), exception); //$NON-NLS-1$
 		}
 
 		String categoryName = prereq.getCategoryName();

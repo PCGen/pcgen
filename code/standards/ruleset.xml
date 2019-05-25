@@ -2,7 +2,7 @@
 
 <!--
    - Code quality rule set for use with the PCGen Java code.
-   - See https://pmd.github.io/pmd-6.0.0/pmd_rules_java.html
+   - See https://pmd.github.io/pmd-6.14.0/pmd_rules_java.html
    - for descriptions of the rules applied. 
  -->
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -13,31 +13,27 @@
         PMD rules customised for PCGen's code.
     </description>
     <rule ref="category/java/bestpractices.xml">
+        <!-- there is nothing wrong with such abstract classes without abstract methods-->
         <exclude name="AbstractClassWithoutAbstractMethod"/>
         <exclude name="AccessorClassGeneration"/>
         <exclude name="AccessorMethodGeneration"/>
         <exclude name="ArrayIsStoredDirectly"/>
-        <exclude name="AvoidPrintStackTrace"/>
         <exclude name="AvoidReassigningParameters"/>
         <exclude name="AvoidStringBufferField"/>
-        <exclude name="ConstantsInInterface"/>
         <exclude name="ForLoopCanBeForeach"/>
         <exclude name="GuardLogStatement"/>
         <exclude name="LooseCoupling"/>
         <exclude name="MethodReturnsInternalArray"/>
-        <exclude name="OneDeclarationPerLine"/>
+        <!-- its better to throw a NPE and add explicit checks. Nulls should be rare -->
         <exclude name="PositionLiteralsFirstInCaseInsensitiveComparisons"/>
+        <!-- its better to throw a NPE and add explicit checks. Nulls should be rare -->
         <exclude name="PositionLiteralsFirstInComparisons"/>
-        <exclude name="PreserveStackTrace"/>
-        <exclude name="ReplaceHashtableWithMap"/>
-        <exclude name="ReplaceVectorWithList"/>
         <exclude name="SwitchStmtsShouldHaveDefault"/>
         <exclude name="SystemPrintln"/>
         <exclude name="UnusedFormalParameter"/>
         <exclude name="UnusedLocalVariable"/>
         <exclude name="UnusedPrivateField"/>
         <exclude name="UnusedPrivateMethod"/>
-        <exclude name="UseCollectionIsEmpty"/>
         <!-- This is excluded because it's a tradeoff: it creates a warning to use it, which then has to be addressed -->
         <exclude name="UseVarargs"/>
         <exclude name="JUnitAssertionsShouldIncludeMessage"/>
@@ -45,6 +41,8 @@
         <exclude name="UseAssertTrueInsteadOfAssertEquals"/>
         <exclude name="UseAssertEqualsInsteadOfAssertTrue"/>
         <exclude name="UseAssertSameInsteadOfAssertTrue"/>
+        <exclude name="ForLoopVariableCount"/>
+        <exclude name="AvoidReassigningLoopVariables"/>
     </rule>
     <rule ref="category/java/codestyle.xml">
         <exclude name="AbstractNaming"/>
@@ -168,6 +166,7 @@
         <exclude name="DoNotUseThreads"/>
         <exclude name="NonThreadSafeSingleton"/>
         <exclude name="UseConcurrentHashMap"/>
+        <exclude name="UnsynchronizedStaticFormatter"/>
     </rule>
     <rule ref="category/java/performance.xml">
         <exclude name="AppendCharacterWithChar"/>
@@ -181,9 +180,10 @@
         <exclude name="InefficientStringBuffering"/>
         <exclude name="InsufficientStringBufferDeclaration"/>
         <exclude name="IntegerInstantiation"/>
-        <exclude name="OptimizableToArrayCall"/>
-        <exclude name="RedundantFieldInitializer"/>
+        <!-- Excluded due to minimal perf gain and loss of code
+	     clarity (added length check)-->
         <exclude name="SimplifyStartsWith"/>
+        <exclude name="RedundantFieldInitializer"/>
         <exclude name="StringToString"/>
         <exclude name="TooFewBranchesForASwitchStatement"/>
         <exclude name="UnnecessaryWrapperObjectCreation"/>

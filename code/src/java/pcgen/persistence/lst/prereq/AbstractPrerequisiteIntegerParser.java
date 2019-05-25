@@ -40,7 +40,7 @@ public abstract class AbstractPrerequisiteIntegerParser extends AbstractPrerequi
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PersistenceLayerException("'" + formula + "' is not a valid integer");
+			throw new PersistenceLayerException("'" + formula + "' is not a valid integer", nfe);
 		}
 
 		if (invertResult)

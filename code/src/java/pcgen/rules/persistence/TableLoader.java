@@ -228,7 +228,7 @@ public class TableLoader extends LstLineFileLoader
 			throws PersistenceLayerException
 		{
 			ParsingSeparator ps = generateCSVSeparator(lstLine);
-			List<String> columnNames = new ArrayList<String>();
+			List<String> columnNames = new ArrayList<>();
 			boolean first = true;
 			boolean foundEmpty = false;
 			while (ps.hasNext())

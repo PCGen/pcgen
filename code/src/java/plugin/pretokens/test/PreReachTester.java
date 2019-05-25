@@ -46,7 +46,7 @@ public class PreReachTester extends AbstractDisplayPrereqTest implements Prerequ
 		catch (NumberFormatException nfe)
 		{
 			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreReach.error.badly_formed", prereq.getOperand())); //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PreReach.error.badly_formed", prereq.getOperand()), nfe);
 		}
 		return countedTotal(prereq, runningTotal);
 	}

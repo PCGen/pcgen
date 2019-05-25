@@ -22,24 +22,22 @@ package plugin.initiative.gui;
 
 import java.awt.BorderLayout;
 
-import javax.swing.BoxLayout;
-import javax.swing.JCheckBox;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-
 import pcgen.core.SettingsHandler;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
+
+import javafx.scene.control.CheckBox;
+import javafx.scene.layout.VBox;
 
 /**
  * Panel that tracks the misc preferences
  */
-public class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel
+public final class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel
 {
 	private static final String OPTION_NAME = InitiativePlugin.LOG_NAME + ".refreshOnStateChange"; //$NON-NLS-1$
 
-	private JPanel mainPanel;
-	private JCheckBox refreshOnStateChange;
+	private CheckBox refreshOnStateChange;
 
 	/** Creates new form PreferencesMiscPanel */
 	public PreferencesPerformancePanel()
@@ -92,19 +90,13 @@ public class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel
 
 	private void initComponents()
 	{
-		setLayout(new BorderLayout());
+		VBox vbox = new VBox();
 
-		mainPanel = new JPanel();
-		refreshOnStateChange = new JCheckBox();
-
-		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-
+		refreshOnStateChange = new CheckBox();
 		refreshOnStateChange.setText(LanguageBundle.getString("in_plugin_init_refreshOnChange")); //$NON-NLS-1$
 
-		mainPanel.add(refreshOnStateChange);
-
-		JScrollPane jScrollPane1 = new JScrollPane();
-		jScrollPane1.setViewportView(mainPanel);
-		add(jScrollPane1, BorderLayout.CENTER);
+		vbox.getChildren().add(refreshOnStateChange);
+		add(GuiUtility.wrapParentAsJFXPanel(vbox), BorderLayout.CENTER);
+		setLayout(new BorderLayout());
 	}
 }

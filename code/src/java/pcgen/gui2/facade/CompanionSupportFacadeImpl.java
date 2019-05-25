@@ -103,7 +103,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	 */
 	private void addMasterListeners(ReferenceFacade<String> nameRef, ReferenceFacade<File> fileRef)
 	{
-		nameRef.addReferenceListener(new ReferenceListener<String>()
+		nameRef.addReferenceListener(new ReferenceListener<>()
 		{
 
 			@Override
@@ -124,7 +124,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			}
 
 		});
-		fileRef.addReferenceListener(new ReferenceListener<File>()
+		fileRef.addReferenceListener(new ReferenceListener<>()
 		{
 
 			@Override

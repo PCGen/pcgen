@@ -100,6 +100,8 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 
 	public static final Type MASTERWORK = getConstant("Masterwork");
 
+  public static final Type ANY = getConstant("ANY");
+
 	static
 	{
 		buildMap();

@@ -676,12 +676,6 @@ public class CharacterFacadeImpl
 	}
 
 	@Override
-	public boolean hasAbility(AbilityCategory category, AbilityFacade ability)
-	{
-		return characterAbilities.hasAbility(category, ability);
-	}
-
-	@Override
 	public Nature getAbilityNature(AbilityFacade ability)
 	{
 		if (ability == null || !(ability instanceof Ability))
@@ -2524,10 +2518,9 @@ public class CharacterFacadeImpl
 	 * part of the CharacterFacade and should only be used by the 
 	 * ChracterManager class.
 	 * 
-	 * @throws NullPointerException 
 	 * @throws IOException If the write fails
 	 */
-	public void save() throws NullPointerException, IOException
+	public void save() throws IOException
 	{
 		GameMode mode = dataSet.getGameMode();
 		List<Campaign> campaigns = ListFacades.wrap(dataSet.getCampaigns());

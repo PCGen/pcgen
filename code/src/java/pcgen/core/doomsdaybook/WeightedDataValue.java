@@ -23,13 +23,7 @@ package pcgen.core.doomsdaybook;
  */
 public class WeightedDataValue extends DataValue
 {
-	private int weight;
-
-	/** Creates a new instance of WeightedDataValue */
-	public WeightedDataValue()
-	{
-		weight = 1;
-	}
+	private final int weight;
 
 	/**
 	 * Constructor
@@ -40,15 +34,6 @@ public class WeightedDataValue extends DataValue
 	public WeightedDataValue(String value, int weight)
 	{
 		super(value);
-		this.weight = weight;
-	}
-
-	/**
-	 * Set weight.
-	 * @param weight
-	 */
-	public void setWeight(int weight)
-	{
 		this.weight = weight;
 	}
 

@@ -202,47 +202,6 @@ Ultimate Magic ~ Stinking Cloud (1/day)					KEY:Evolution ~ Ultimate Stinking Cl
 Ultimate Magic ~ Tongues (1/day)						KEY:Evolution ~ Ultimate Tongues 1				CATEGORY:Special Ability	TYPE:SpellLike.EidUltimateMagic																			PRESTAT:1,CHA=13	PREVARGTEQ:MasterLevel,11																										SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(HD-2,1))|Tongues,10+HD/2+CHA																																																																																																																																																																																																																																																																																																																																																																																								SOURCEPAGE:p.78
 Ultimate Magic ~ Water Breathing (1/day)					KEY:Evolution ~ Ultimate Water Breathing 1		CATEGORY:Special Ability	TYPE:SpellLike.EidUltimateMagic																			PRESTAT:1,CHA=13	PREVARGTEQ:MasterLevel,11																										SPELLS:Innate|TIMES=1|CASTERLEVEL=(max(HD-2,1))|Water Breathing,10+HD/2+CHA																																																																																																																																																																																																																																																																																																																																																																																							SOURCEPAGE:p.78
 
-###Block: Familiar abilities
-#Block: Blue-Ringed Octopus
-# Ability Name	Unique Key					Category of Ability		Type						Define		Description																																																															Ability						Modify VAR												Source Page
-Ink Cloud		KEY:Blue-Ringed Octopus ~ Ink Cloud	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				DESC:While within water, an octopus can emit a 5-foot-radius sphere of ink once per minute as a swift action. This ink provides total concealment and persists for 1 minute.																																																								SOURCEPAGE:p.117
-Jet			KEY:Blue-Ringed Octopus ~ Jet		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				DESC:The octopus can jet 60 feet in a straight line as a full-round action.  This does not provoke attacks of opportunity.																																																																SOURCEPAGE:p.117
-Poison		KEY:Blue-Ringed Octopus ~ Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				DESC:Bite - injury; save Fort DC %1; frequency 1/round for 6 rounds; effect 1 Str; cure 1 save.|PoisonSaveDC																																														ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|PoisonSaveDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)	SOURCEPAGE:p.117
-
-#Block: Greensting Scorpion
-Poison		KEY:Greensting Scorpion ~ Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DEFINE:PoisonDC|0	DESC:Sting - injury; save Fort DC %1; frequency 1/round for 6 rounds; effect sickened for 1 round; cure 1 save.|PoisonSaveDC																																												ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|PoisonSaveDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)	SOURCEPAGE:p.118
-
-#Block: Hedgehog
-Spiny Defense	KEY:Hedgehog ~ Spiny Defense		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				DESC:As a move action, a hedgehog can roll itself up into a spiny ball. While rolled up, it gains a +1 enhancement bonus to its existing natural armor, and any creature attempting to grapple the hedgehog takes 1d3 damage on making a grapple check. While rolled up, a hedgehog cannot take any action other than leaving this state. The hedgehog can leave this state as a move action.																					SOURCEPAGE:p.119
-
-#Block: House Centipede
-Poison		KEY:House Centipede ~ Poison		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				DESC:Bite - injury; save Fort DC %1; frequency 1/round for 2 rounds; effect daze 1 round; cure 1 save.|PoisonSaveDC																																													ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|PoisonSaveDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)	SOURCEPAGE:p.119
-
-#Block: King Crab
-Water Dependency	KEY:King Crab ~ Water Dependency	CATEGORY:Special Ability	TYPE:Weakness.Extraordinary					DESC:This crab can survive out of the water for %1 hours.  Beyond this limit, a crab runs the risk of suffocation, as if it were drowning.|CONSCORE																																																												SOURCEPAGE:p.119
-
-#Block: Scarlet Spider
-Poison		KEY:Scarlet Spider ~ Poison		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary				DESC:Bite - injury; save Fort DC %1; frequency 1/round for 4 rounds; effect 1 Str; cure 1 save.|PoisonSaveDC																																														ABILITY:Ability Focus|AUTOMATIC|Poison	BONUS:VAR|PoisonSaveDC|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)	SOURCEPAGE:p.120
-
-#Block: Turtle
-Shell Retreat	KEY:Turtle ~ Shell Retreat		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary				DESC:A turtle can retreat within its shell as a swift action, gaining a +2 enhancement bonus to its existing natural armor. While in its shell, a turtle cannot take any action except to end the retreat. The turtle can end its retreat with a free action on its turn.																																								SOURCEPAGE:p.120
-
-###Block: Familiar Bonuses granted to Master
-# Ability Name				Category of Ability	Combat bonus									Save bonus									Bonus to skill								Modify VAR
-Familiar (Blue-Ringed Octopus)	CATEGORY:Internal																							BONUS:SKILL|Swim|FamiliarGrantedBonus_3|TYPE=Familiar
-Familiar (Donkey Rat)			CATEGORY:Internal													BONUS:SAVE|Fortitude|FamiliarGrantedBonus_2|TYPE=Familiar
-Familiar (Fox)				CATEGORY:Internal													BONUS:SAVE|Reflex|FamiliarGrantedBonus_2|TYPE=Familiar
-Familiar (Goat)				CATEGORY:Internal																							BONUS:SKILL|Survival|FamiliarGrantedBonus_3|TYPE=Familiar
-Familiar (Scorpion (Greensting))	CATEGORY:Internal		BONUS:COMBAT|INITIATIVE|FamiliarGrantedBonus_4|TYPE=Familiar
-Familiar (Hedgehog)			CATEGORY:Internal													BONUS:SAVE|Will|FamiliarGrantedBonus_2|TYPE=Familiar
-Familiar (Centipede (House))		CATEGORY:Internal																							BONUS:SKILL|Stealth|FamiliarGrantedBonus_3|TYPE=Familiar
-Familiar (Crab (Giant King))		CATEGORY:Internal																																	BONUS:VAR|CMB_Grapple|FamiliarGrantedBonus_2|TYPE=Familiar
-Familiar (Pig)				CATEGORY:Internal																							BONUS:SKILL|Diplomacy|FamiliarGrantedBonus_3|TYPE=Familiar
-Familiar (Spider (Scarlet))		CATEGORY:Internal																							BONUS:SKILL|Climb|FamiliarGrantedBonus_3|TYPE=Familiar
-Familiar (Thrush)				CATEGORY:Internal																							BONUS:SKILL|Diplomacy|FamiliarGrantedBonus_3|TYPE=Familiar
-Familiar (Turtle)				CATEGORY:Internal																																	BONUS:VAR|AC_Natural_Armor|FamiliarGrantedBonus_1|TYPE=Base.STACK
-
-
 ###Block: Temp Bonus Support - Evolution Surge
 # 1-point evolutions
 # Ability Name			Unique Key								Category of Ability		Type										Required Ability											Restricted Ability											Required Stat	Var. Min. Value																		Var. Must Be Lower																Define										Description																																																																																																																																																																																																																																																																																																		Stackable?	Multiple?	Choose				Ability																			Bonus Ability Pool						Modify VAR																																											Cost		Source Page

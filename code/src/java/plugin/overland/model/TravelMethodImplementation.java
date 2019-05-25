@@ -514,8 +514,8 @@ class TravelMethodImplementation implements TravelMethod
 		{
 			super(name);
 			this.way = way;
-			paces = new ArrayList<Pace>();
-			choices = new ArrayList<Choice>();
+			paces = new ArrayList<>();
+			choices = new ArrayList<>();
 		}
 
 		/**
@@ -579,13 +579,6 @@ class TravelMethodImplementation implements TravelMethod
 			return mult;
 		}
 
-		/**
-		 * @return the comment
-		 */
-		public Localized getComment()
-		{
-			return comment;
-		}
 	}
 
 	static class Choice extends Named

@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.facet;
 
+import java.util.Optional;
+
 import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
@@ -74,12 +76,13 @@ public class ModifierFacet implements DataFacetChangeListener<CharID, PCGenScope
 		PCGenScope legalScope = (PCGenScope) source.getLegalScope();
 		LoadContext context = loadContextFacet.get(id.getDatasetID()).get();
 		Modifier<T> returnValue;
-		try
+		Optional<FormatManager<?>> formatManager = legalScope.getFormatManager(context);
+		if (formatManager.isPresent())
 		{
-			FormatManager<?> formatManager = legalScope.getFormatManager(context);
-			returnValue = new DefinedWrappingModifier<>(modifier, "this", thisValue, formatManager);
+			returnValue = new DefinedWrappingModifier<>(modifier, "this",
+				thisValue, formatManager.get());
 		}
-		catch (UnsupportedOperationException e)
+		else
 		{
 			returnValue = new ModifierDecoration<>(modifier);
 		}

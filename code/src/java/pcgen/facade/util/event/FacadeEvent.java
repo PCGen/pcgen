@@ -23,19 +23,10 @@ import java.util.EventObject;
 /**
  * This is simply a marker class for facade based events
  */
-public class FacadeEvent extends EventObject
+class FacadeEvent extends EventObject
 {
-	private final FacadeEvent cause;
-
-	public FacadeEvent(Object source, FacadeEvent cause)
+	FacadeEvent(Object source)
 	{
 		super(source);
-		this.cause = cause;
 	}
-
-	public FacadeEvent getCause()
-	{
-		return cause;
-	}
-
 }

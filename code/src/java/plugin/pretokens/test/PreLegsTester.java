@@ -43,7 +43,7 @@ public class PreLegsTester extends AbstractDisplayPrereqTest implements Prerequi
 		catch (NumberFormatException nfe)
 		{
 			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreLegs.error.bad_operand", prereq.getOperand())); //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PreLegs.error.bad_operand", prereq.getOperand()), nfe); //$NON-NLS-1$
 		}
 		return countedTotal(prereq, runningTotal);
 	}

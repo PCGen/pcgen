@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -139,8 +140,7 @@ public class LSTConverter extends Observable
 			}
 			catch (PersistenceLayerException e)
 			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				Logging.errorPrint(e.getMessage(), e);
 			}
 			dataDefFileList.addAll(campaign.getSafeListFor(ListKey.FILE_DATACTRL));
 
@@ -155,7 +155,6 @@ public class LSTConverter extends Observable
 		}
 		catch (PersistenceLayerException e)
 		{
-			// TODO Auto-generated catch block
 			Logging.errorPrint("LSTConverter.initCampaigns failed", e);
 		}
 
@@ -227,15 +226,18 @@ public class LSTConverter extends Observable
 					String result = load(uri, loader);
 					if (result != null)
 					{
-						Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
-						out.write(result);
-						out.close();
+						try (Writer out = new BufferedWriter(new OutputStreamWriter(
+								new FileOutputStream(outFile),
+								StandardCharsets.UTF_8
+						)))
+						{
+							out.write(result);
+						}
 					}
 				}
 				catch (PersistenceLayerException | IOException | InterruptedException e)
 				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					Logging.errorPrint(e.getLocalizedMessage(), e);
 				}
 			}
 		}

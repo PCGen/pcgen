@@ -71,7 +71,7 @@ public class PreDamageReductionParser extends AbstractPrerequisiteParser impleme
 		}
 		catch (NumberFormatException exc)
 		{
-			throw new PersistenceLayerException("Badly formed passesPreDR/number of DRs attribute: " + tok);
+			throw new PersistenceLayerException("Badly formed passesPreDR/number of DRs attribute: " + tok, exc);
 		}
 
 		// Parse all of the tokens in the input list
@@ -89,7 +89,7 @@ public class PreDamageReductionParser extends AbstractPrerequisiteParser impleme
 				}
 				catch (NumberFormatException nfe)
 				{
-					throw new PersistenceLayerException("Badly formed passesPreDR value: " + formula);
+					throw new PersistenceLayerException("Badly formed passesPreDR value: " + formula, nfe);
 				}
 			}
 			else

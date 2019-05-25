@@ -670,7 +670,7 @@ public class FlippingSplitPane extends JSplitPane
 			{
 				showPopup(e);
 			}
-			else if (Utilities.isShiftLeftMouseButton(e))
+			else if (Utility.isShiftLeftMouseButton(e))
 			{
 				if (!isLocked())
 				{

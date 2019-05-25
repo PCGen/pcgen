@@ -2,6 +2,7 @@ package plugin.lsttokens.gamemode;
 
 import java.net.URI;
 
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
@@ -20,7 +21,7 @@ public class WeaponcategoryToken implements GameModeLstToken
 	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		gameMode.addWeaponCategory(value);
+		gameMode.addWeaponCategory(Type.getConstant(value));
 		return true;
 	}
 }

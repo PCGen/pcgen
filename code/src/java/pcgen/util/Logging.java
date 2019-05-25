@@ -43,7 +43,7 @@ import org.apache.commons.lang3.SystemUtils;
  * This contains logging functions. It is a proxy for the 
  * Java logging API.
  */
-@SuppressWarnings("PMD.MoreThanOneLogger")
+@SuppressWarnings({"PMD.MoreThanOneLogger", "UseOfSystemOutOrSystemErr", "PMD.AvoidPrintStackTrace"})
 public final class Logging
 {
 	private static boolean debugMode = false;
@@ -475,8 +475,10 @@ public final class Logging
 	public static void errorPrintLocalised(final String s, final Throwable thr)
 	{
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
-		PrintStream ps = new PrintStream(baos);
-		thr.printStackTrace(ps);
+		try (PrintStream ps = new PrintStream(baos))
+		{
+			thr.printStackTrace(ps);
+		}
 		errorPrint(LanguageBundle.getString(s) + '\n' + baos);
 	}
 

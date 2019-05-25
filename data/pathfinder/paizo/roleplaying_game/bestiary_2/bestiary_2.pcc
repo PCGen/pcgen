@@ -7,7 +7,9 @@ STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:2,INCLUDES=Advanced Player's Guide,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Bestiary
+!PRECAMPAIGN:1,INCLUDES=Bestiary 2 ~ Player Options Only
 !PRECAMPAIGN:1,Pathfinder RPG Core Supplements,Pathfinder RPG for Game Masters
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
@@ -107,3 +109,9 @@ WEAPONPROF:b2_profs_weapon.lst
 ABILITY:b2_abilities_race_arg.lst
 ABILITYCATEGORY:b2_abilitycategories_arg.lst
 RACE:b2_races_arg.lst
+
+# Familiars
+ABILITY:b2_abilities_familiar_race.lst
+ABILITY:b2_abilities_familiar.lst
+COMPANIONMOD:b2_companionmods_familiar.lst
+RACE:b2_races_familiar.lst

@@ -84,11 +84,11 @@ public class ArrowIcon implements Icon
 	private void paintTriangle(Graphics g, int x, int y, int triangleSize, int triangleDir, boolean isEnabled)
 	{
 		Color oldColor = g.getColor();
-		int mid, i, j;
+		int i;
 
-		j = 0;
+		int j = 0;
 		triangleSize = Math.max(triangleSize, 2);
-		mid = (triangleSize / 2) - 1;
+		int mid = (triangleSize / 2) - 1;
 
 		g.translate(x, y);
 		if (isEnabled)

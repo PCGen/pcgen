@@ -248,7 +248,7 @@ public class BonusManager
 
 	public String getSpellBonusType(String bonusName, String bonusInfo)
 	{
-		String prefix = new StringBuilder(bonusName).append('.').append(bonusInfo).toString();
+		String prefix = bonusName + '.' + bonusInfo;
 		prefix = prefix.toUpperCase();
 
 		for (String fullyQualifedBonusType : activeBonusMap.keySet())

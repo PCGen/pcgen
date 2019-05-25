@@ -242,6 +242,7 @@ public final class RollingMethods
 		 * rolls the dice on the randomizer, and pushes the result back onto the stack.
 		 * Logging is performed if it is turned on.</p>
 		 */
+		@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 		@Override
 		public void run(final Stack stack) throws ParseException
 		{

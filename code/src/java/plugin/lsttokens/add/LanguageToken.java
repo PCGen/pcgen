@@ -178,7 +178,7 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject>
 				// assoc.getAssociation(AssociationKey.CHOICE_MAXCOUNT);
 			}
 		}
-		return addStrings.toArray(new String[addStrings.size()]);
+		return addStrings.toArray(new String[0]);
 	}
 
 	@Override

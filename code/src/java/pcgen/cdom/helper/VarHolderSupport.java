@@ -65,7 +65,7 @@ public class VarHolderSupport implements VarHolder, VarContainer
 	public VarModifier<?>[] getModifierArray()
 	{
 		return (modifierList == null) ? VarModifier.EMPTY_VARMODIFIER
-			: modifierList.toArray(new VarModifier[modifierList.size()]);
+			: modifierList.toArray(new VarModifier[0]);
 	}
 
 	@Override
@@ -82,7 +82,7 @@ public class VarHolderSupport implements VarHolder, VarContainer
 	public RemoteModifier<?>[] getRemoteModifierArray()
 	{
 		return (remoteModifierList == null) ? RemoteModifier.EMPTY_REMOTEMODIFIER
-			: remoteModifierList.toArray(new RemoteModifier[remoteModifierList.size()]);
+			: remoteModifierList.toArray(new RemoteModifier[0]);
 	}
 
 	@Override
@@ -99,7 +99,7 @@ public class VarHolderSupport implements VarHolder, VarContainer
 	public String[] getGrantedVariableArray()
 	{
 		return (grantedVars == null) ? StringUtil.EMPTY_STRING_ARRAY
-			: grantedVars.toArray(new String[grantedVars.size()]);
+			: grantedVars.toArray(new String[0]);
 	}
 
 }

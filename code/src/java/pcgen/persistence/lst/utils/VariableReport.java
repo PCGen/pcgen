@@ -408,17 +408,16 @@ public class VariableReport
 		@Override
 		public String toString()
 		{
-			StringBuilder builder = new StringBuilder(100);
-			builder.append("VarDefine [varName=");
-			builder.append(varName);
-			builder.append(", definingObject=");
-			builder.append(definingObject);
-			builder.append(", definingFile=");
-			builder.append(definingFile);
-			builder.append(", use=");
-			builder.append(use);
-			builder.append(']');
-			return builder.toString();
+			String builder = "VarDefine [varName="
+					+ varName
+					+ ", definingObject="
+					+ definingObject
+					+ ", definingFile="
+					+ definingFile
+					+ ", use="
+					+ use
+					+ ']';
+			return builder;
 		}
 
 		/**

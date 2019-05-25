@@ -1,0 +1,15 @@
+
+SOURCELONG:Advanced Player's Guide	SOURCESHORT:APG	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1	SOURCEDATE:2010-08
+
+###Block: Familiar Choices
+# Ability Name						Allowed Companions
+CATEGORY=Internal|Standard Familiar List.MOD	COMPANIONLIST:Familiar|Familiar (Octopus),Familiar (Centipede (House)),Familiar (Crab (Giant King)),Familiar (Fox),Familiar (Scorpion (Greensting)),Familiar (Spider (Scarlet))
+
+###Block: Familiar Bonuses
+# Ability Name						Category of Ability	Combat bonus									Save bonus									Bonus to skill								Modify VAR
+Familiar Granted Bonus (Centipede (House))	CATEGORY:Internal																							BONUS:SKILL|Stealth|FamiliarGrantedBonus_3|TYPE=Familiar
+Familiar Granted Bonus (Crab (Giant King))	CATEGORY:Internal																																	BONUS:VAR|CMB Grapple|FamiliarGrantedBonus_2|TYPE=Familiar
+Familiar Granted Bonus (Fox)				CATEGORY:Internal													BONUS:SAVE|Reflex|FamiliarGrantedBonus_2|TYPE=Familiar
+Familiar Granted Bonus (Octopus)			CATEGORY:Internal																							BONUS:SKILL|Swim|FamiliarGrantedBonus_3|TYPE=Familiar
+Familiar Granted Bonus (Scorpion (Greensting))	CATEGORY:Internal		BONUS:COMBAT|INITIATIVE|FamiliarGrantedBonus_4|TYPE=Familiar
+Familiar Granted Bonus (Spider (Scarlet))		CATEGORY:Internal																							BONUS:SKILL|Climb|FamiliarGrantedBonus_3|TYPE=Familiar

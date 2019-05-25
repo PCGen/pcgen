@@ -37,7 +37,6 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.ListModel;
 import javax.swing.text.JTextComponent;
 
 import pcgen.gui2.tools.Icons;
@@ -89,15 +88,6 @@ public class EncounterView extends JPanel
 	}
 
 	/**
-	 * Set encounter Model
-	 * @param model
-	 */
-	public void setEncounterModel(ListModel model)
-	{
-		encounterCreatures.setModel(model);
-	}
-
-	/**
 	 * Get environment
 	 * @return environment
 	 */
@@ -122,15 +112,6 @@ public class EncounterView extends JPanel
 	public JList getLibraryCreatures()
 	{
 		return libraryCreatures;
-	}
-
-	/**
-	 * Set library model
-	 * @param model
-	 */
-	public void setLibraryModel(ListModel model)
-	{
-		libraryCreatures.setModel(model);
 	}
 
 	/**
@@ -250,7 +231,6 @@ public class EncounterView extends JPanel
 		jPanel1.add(targetLabel, gridBagConstraints);
 
 		targetEncounterLevel.setText(Integer.toString(1));
-		targetEncounterLevel.addActionListener(this::targetEncounterLevelActionPerformed);
 
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -268,7 +248,6 @@ public class EncounterView extends JPanel
 		jPanel1.add(numberLabel, gridBagConstraints);
 
 		numberOfCreatures.setText(Integer.toString(0));
-		numberOfCreatures.addActionListener(this::numberOfCreaturesActionPerformed);
 
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -355,15 +334,5 @@ public class EncounterView extends JPanel
 		jPanel4.add(jPanel5, BorderLayout.SOUTH);
 
 		add(jPanel4, BorderLayout.CENTER);
-	}
-
-	private void numberOfCreaturesActionPerformed(ActionEvent evt)
-	{
-		// Add your handling code here:
-	}
-
-	private void targetEncounterLevelActionPerformed(ActionEvent evt)
-	{
-		// Add your handling code here:
 	}
 }

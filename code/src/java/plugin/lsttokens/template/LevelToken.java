@@ -168,7 +168,7 @@ public class LevelToken extends AbstractTokenWithSeparator<PCTemplate> implement
 		{
 			return null;
 		}
-		return ret.toArray(new String[ret.size()]);
+		return ret.toArray(new String[0]);
 	}
 
 	@Override

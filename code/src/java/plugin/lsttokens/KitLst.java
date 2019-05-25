@@ -141,13 +141,12 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject>
 		Set<String> set = new TreeSet<>();
 		for (TransitionChoice<Kit> tc : added)
 		{
-			StringBuilder sb = new StringBuilder();
-			sb.append(tc.getCount());
-			sb.append(Constants.PIPE);
-			sb.append(tc.getChoices().getLSTformat().replaceAll(Constants.COMMA, Constants.PIPE));
-			set.add(sb.toString());
+			String sb = tc.getCount()
+					+ Constants.PIPE
+					+ tc.getChoices().getLSTformat().replaceAll(Constants.COMMA, Constants.PIPE);
+			set.add(sb);
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override

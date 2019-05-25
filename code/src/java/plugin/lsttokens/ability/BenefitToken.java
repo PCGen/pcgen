@@ -154,7 +154,7 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability> implements CDOM
 		{
 			return null;
 		}
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	@Override
