@@ -217,7 +217,7 @@ Replace Incorporeal Bonded Manifestation		KEY:Fated Guide ~ Replace Incorporeal 
 # Spiritualist Phantom Emotional Focus
 # ==============================
 
-Remorse							KEY:Phantom Emotional Focus ~ Remorse				CATEGORY:Special Ability	TYPE:Phantom Emotional Focus																																												SOURCEPAGE:p.19	DESC:Spirits of creatures that died with heavy weights upon their consciences manifest with the remorse emotional focus. These phantoms, whose forms are often darkened by shadows, force foes to experience their regret and self-loathing.				ABILITY:FEAT|VIRTUAL|Skill Focus (Perception)|Skill Focus (Sense Motive)		BONUS:VAR|PhantomEmotionalFocus_Remorse|1
+Remorse							KEY:Phantom Emotional Focus ~ Remorse				CATEGORY:Special Ability	TYPE:Phantom Emotional Focus																DEFINE:PhantomEmotionalFocus_Remorse|0																							SOURCEPAGE:p.19	DESC:Spirits of creatures that died with heavy weights upon their consciences manifest with the remorse emotional focus. These phantoms, whose forms are often darkened by shadows, force foes to experience their regret and self-loathing.				ABILITY:FEAT|VIRTUAL|Skill Focus (Perception)|Skill Focus (Sense Motive)		BONUS:VAR|PhantomEmotionalFocus_Remorse|1
 
 # ==============================
 # Paladin Archetype
