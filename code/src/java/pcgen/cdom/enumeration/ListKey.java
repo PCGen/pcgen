@@ -174,7 +174,7 @@ public final class ListKey<T>
 	public static final ListKey<Type> PROHIBITED_ITEM = new ListKey<>();
 	public static final ListKey<Type> ITEM = new ListKey<>();
 	public static final ListKey<Integer> HITDICE_ADVANCEMENT = new ListKey<>();
-	public static final ListKey<String> ITEM_TYPES = new ListKey<>();
+	public static final ListKey<Type> ITEM_TYPES = new ListKey<>();
 	public static final ListKey<CDOMSingleRef<EquipmentModifier>> REPLACED_KEYS = new ListKey<>();
 	public static final ListKey<SpecialProperty> SPECIAL_PROPERTIES = new ListKey<>();
 	public static final ListKey<ChangeArmorType> ARMORTYPE = new ListKey<>();

@@ -96,7 +96,11 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 
 	public static final Type ARMOR = getConstant("Armor");
 
-	public static final Type ANY = getConstant("ANY");
+	public static final Type MAGIC = getConstant("Magic");
+
+	public static final Type MASTERWORK = getConstant("Masterwork");
+
+  public static final Type ANY = getConstant("ANY");
 
 	static
 	{

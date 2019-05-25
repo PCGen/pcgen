@@ -22,6 +22,7 @@ import java.util.StringTokenizer;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.EquipmentModifier;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -64,7 +65,7 @@ public class ItypeToken extends AbstractTokenWithSeparator<EquipmentModifier>
 			}
 			else
 			{
-				context.getObjectContext().addToList(mod, ListKey.ITEM_TYPES, typeName);
+				context.getObjectContext().addToList(mod, ListKey.ITEM_TYPES, Type.getConstant(typeName));
 			}
 		}
 		return ParseResult.SUCCESS;
@@ -73,7 +74,7 @@ public class ItypeToken extends AbstractTokenWithSeparator<EquipmentModifier>
 	@Override
 	public String[] unparse(LoadContext context, EquipmentModifier mod)
 	{
-		Changes<String> changes = context.getObjectContext().getListChanges(mod, ListKey.ITEM_TYPES);
+		Changes<Type> changes = context.getObjectContext().getListChanges(mod, ListKey.ITEM_TYPES);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;

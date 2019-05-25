@@ -1221,7 +1221,7 @@ public final class Equipment extends PObject
 		// Look for a modifier named "masterwork" (assumption: this is marked as
 		// "assigntoall")
 		EquipmentModifier eqMaster = commonList.stream()
-			.filter(eqMod -> "MASTERWORK".equalsIgnoreCase(eqMod.getDisplayName()) || eqMod.isIType("Masterwork"))
+			.filter(eqMod -> "MASTERWORK".equalsIgnoreCase(eqMod.getDisplayName()) || eqMod.isIType(Type.MASTERWORK))
 			.findFirst().orElse(null);
 
 		if (eqMaster == null)
@@ -3923,7 +3923,7 @@ public final class Equipment extends PObject
 
 			for (EquipmentModifier eqMod : eqModList)
 			{
-				if (eqMod.isType("MagicalEnhancement") || (eqMod.isIType("Magic")))
+				if (eqMod.isType("MagicalEnhancement") || (eqMod.isIType(Type.MAGIC)))
 				{
 					return eqMod;
 				}
@@ -4673,16 +4673,16 @@ public final class Equipment extends PObject
 			modTypeList.removeAll(removedTypeList);
 			calculatedTypeList = newTypeList;
 
-			for (String aType : eqMod.getSafeListFor(ListKey.ITEM_TYPES))
+			for (Type type : eqMod.getSafeListFor(ListKey.ITEM_TYPES))
 			{
-				aType = aType.toUpperCase();
+				String aType = type.toString().toUpperCase();
 
 				// If it's BOTH & MELEE, we cannot add RANGED or THROWN to
 				// it
 				// BOTH is only used after the split of a Thrown weapon in 2
 				// (melee and ranged)
 				if (calculatedTypeList.contains("BOTH") && calculatedTypeList.contains("MELEE")
-					&& ("RANGED".equals(aType) || "THROWN".equals(aType)))
+					&& (Type.RANGED.equals(type) || Type.THROWN.equals(type)))
 				{
 					continue;
 				}
