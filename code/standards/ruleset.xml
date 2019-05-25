@@ -138,6 +138,7 @@
         <exclude name="AvoidFieldNameMatchingMethodName"/>
         <exclude name="AvoidFieldNameMatchingTypeName"/>
         <exclude name="AvoidLiteralsInIfCondition"/>
+        <!-- we don't use seralization -->
         <exclude name="BeanMembersShouldSerialize"/>
         <exclude name="CloneThrowsCloneNotSupportedException"/>
         <exclude name="CompareObjectsWithEquals"/>
@@ -151,6 +152,7 @@
         <exclude name="InstantiationToGetClass"/>
         <exclude name="LoggerIsNotStaticFinal"/>
         <exclude name="MissingBreakInSwitch"/>
+        <!-- we don't use seralization -->
         <exclude name="MissingSerialVersionUID"/>
         <exclude name="NullAssignment"/>
         <exclude name="OverrideBothEqualsAndHashcode"/>
