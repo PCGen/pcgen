@@ -18,26 +18,20 @@
  */
 package pcgen.gui2.dialog;
 
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTree;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.border.TitledBorder;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -68,9 +62,8 @@ import pcgen.gui3.preferences.DisplayOptionsPreferencesPanelController;
 import pcgen.gui3.preferences.EquipmentPreferencesPanelController;
 import pcgen.gui3.preferences.InputPreferencesPanelController;
 import pcgen.gui3.preferences.LevelUpPreferencesPanelController;
-import pcgen.pluginmgr.PluginManager;
+import pcgen.gui3.preferences.PreferencesPluginsPanel;
 import pcgen.system.LanguageBundle;
-import pcgen.system.PCGenSettings;
 
 import javafx.embed.swing.JFXPanel;
 
@@ -106,7 +99,6 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	private PCGenPrefsPanel colorsPanel;
 	private PCGenPrefsPanel displayOptionsPanel;
 	private PCGenPrefsPanel levelUpPanel;
-	private PCGenPrefsPanel lookAndFeelPanel;
 
 	// PCGen panels
 	private PCGenPrefsPanel equipmentPanel;
@@ -373,107 +365,5 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	{
 		setOptionsBasedOnControls();
 		applyPluginPreferences();
-	}
-}
-
-class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
-{
-	private final HashMap<String, PluginRef> pluginMap = new HashMap<>();
-
-	private JPanel mainPanel;
-	private JScrollPane jScrollPane1;
-
-	/** Creates new form PreferencesDamagePanel */
-	PreferencesPluginsPanel()
-	{
-		for (PluginManager.PluginInfo info : PluginManager.getInstance().getPluginInfoList())
-		{
-			addPanel(info.logName, info.pluginName, Constants.SYSTEM_GMGEN);
-		}
-		initComponents();
-		initPreferences();
-	}
-
-	@Override
-	public void applyPreferences()
-	{
-		pluginMap.values()
-		         .forEach(PluginRef::applyPreferences);
-	}
-
-	@Override
-	public void initPreferences()
-	{
-		pluginMap.values()
-		         .forEach(PluginRef::initPreferences);
-	}
-
-	@Override
-	public String toString()
-	{
-		return LanguageBundle.getString("in_Prefs_pluginsTitle"); //$NON-NLS-1$
-	}
-
-	private void initComponents()
-	{
-		jScrollPane1 = new JScrollPane();
-		mainPanel = new JPanel();
-
-		setLayout(new BorderLayout());
-
-		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
-
-		pluginMap.values()
-		         .forEach(pluginRef -> mainPanel.add(pluginRef));
-
-		jScrollPane1.setViewportView(mainPanel);
-		add(jScrollPane1, BorderLayout.CENTER);
-		add(new JLabel(LanguageBundle.getString("in_Prefs_restartInfo")), BorderLayout.PAGE_END); //$NON-NLS-1$
-	}
-
-	private void addPanel(String pluginName, String pluginTitle, String defaultSystem)
-	{
-		if (!pluginMap.containsKey(pluginName))
-		{
-			PluginRef pluginRef = new PluginRef(pluginName, pluginTitle, defaultSystem);
-			pluginMap.put(pluginName, pluginRef);
-		}
-	}
-
-	private static class PluginRef extends JPanel
-	{
-		private final String pluginName;
-		private final String pluginTitle;
-		private JCheckBox checkBox;
-
-		private PluginRef(String pluginName, String pluginTitle, String defaultSystem)
-		{
-			this.pluginName = pluginName;
-			this.pluginTitle = pluginTitle;
-			initComponents();
-		}
-
-		private void initComponents()
-		{
-			checkBox = new JCheckBox();
-
-			setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-			setBorder(
-				new TitledBorder(null, pluginTitle, TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION));
-
-			checkBox.setText(LanguageBundle.getString(PreferencesDialog.LB_PREFS_PLUGINS_RUN));
-			add(checkBox);
-		}
-
-		public void initPreferences()
-		{
-			checkBox.setSelected(PCGenSettings.GMGEN_OPTIONS_CONTEXT.initBoolean(pluginName + ".Load", true));
-		}
-
-		public void applyPreferences()
-		{
-			PCGenSettings.GMGEN_OPTIONS_CONTEXT.setBoolean(pluginName + ".Load", checkBox.isSelected());
-			PCGenSettings.GMGEN_OPTIONS_CONTEXT.setProperty(pluginName + ".System", Constants.SYSTEM_GMGEN);
-		}
 	}
 }
