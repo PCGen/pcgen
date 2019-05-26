@@ -3,7 +3,7 @@
 
 # COMMENT: This will serve the same purpose as Pathfinder, trying to limit it's super use though
 # Ability Name			Category of Ability	Type			Define																																																																																																																												Ability													Bonus to HP				Bonus to skill													Modify VAR																																	Vision					Aspects
-Default				CATEGORY:Internal					DEFINE:Resolve_PCLvl|0	DEFINE:Damage_OperativeWeapon|0																																																																																																																				ABILITY:Internal|AUTOMATIC|Movement									BONUS:HP|CURRENTMAX|RaceHP																BONUS:VAR|StarfinderSystem|1	BONUS:VAR|Resolve|max(1,Resolve_PCLvl+KeyAbilityBonus)	BONUS:VAR|Resolve_PCLvl|max(1,TL/2)	BONUS:VAR|SkillCap_Level|TL	BONUS:VAR|SkillCap_Acrobatics|SkillCap_Level
+Default				CATEGORY:Internal					DEFINE:Resolve_PCLvl|0	DEFINE:Damage_OperativeWeapon|0																																																																																																																				ABILITY:Internal|AUTOMATIC|Movement									BONUS:HP|CURRENTMAX|RaceHP														BONUS:VAR|StarfinderSystem|1	BONUS:VAR|Resolve|max(1,Resolve_PCLvl+KeyAbilityBonus)	BONUS:VAR|Resolve_PCLvl|max(1,EffectiveLVL/2)	BONUS:VAR|SkillCap_Level|EffectiveLVL	BONUS:VAR|SkillCap_Acrobatics|SkillCap_Level
 CATEGORY=Internal|Default.MOD								DEFINE:SkillCap_Athletics|0																																																																																																																																																											BONUS:VAR|SkillCap_Athletics|SkillCap_Level
 CATEGORY=Internal|Default.MOD								DEFINE:SkillCap_Bluff|0																																																																																																																																																												BONUS:VAR|SkillCap_Bluff|SkillCap_Level
 CATEGORY=Internal|Default.MOD								DEFINE:SkillCap_Computers|0																																																																																																																																																											BONUS:VAR|SkillCap_Computers|SkillCap_Level
@@ -60,7 +60,7 @@ CATEGORY=Internal|Default.MOD								DEFINE:SkillCap_SenseMotive|0														
 CATEGORY=Internal|Default.MOD								DEFINE:SkillCap_SleightofHand|0																																																																																																																																																										BONUS:VAR|SkillCap_SleightofHand|SkillCap_Level
 CATEGORY=Internal|Default.MOD								DEFINE:SkillCap_Stealth|0																																																																																																																																																											BONUS:VAR|SkillCap_Stealth|SkillCap_Level
 CATEGORY=Internal|Default.MOD								DEFINE:SkillCap_Survival|0																																																																																																																																																											BONUS:VAR|SkillCap_Survival|SkillCap_Level
-CATEGORY=Internal|Default.MOD								DEFINE:EffectiveLVL|0
+CATEGORY=Internal|Default.MOD								DEFINE:EffectiveLVL|0			BONUS:VAR|EffectiveLVL|TL|TYPE=Base
 CATEGORY=Internal|Default.MOD								DEFINE:DisplayUnarmedOff|0																																																																																																																																																											BONUS:VAR|DisplayUnarmedOff|1|TYPE=Base|!PREWEAPONPROF:1,Unarmed
 CATEGORY=Internal|Default.MOD								DEFINE:PC_Hands|0
 CATEGORY=Internal|Default.MOD								DEFINE:DroneCompanionLVL|0
@@ -793,7 +793,7 @@ SIZE AND TYPE			KEY:Vesk Default ~ SIZE AND TYPE						SORTKEY:v1a	CATEGORY:Racia
 ARMOR SAVANT			KEY:Vesk Default ~ ARMOR SAVANT						SORTKEY:v1b	CATEGORY:Racial Trait	TYPE:Racial Trait.Vesk Racial Trait		DESC:Vesk use armor in a way that complements their uniquely sturdy physiology. When wearing armor, they gain a +1 racial bonus to AC. When they're wearing heavy armor, their armor check penalty is 1 less severe than normal.																																																																																				BONUS:COMBAT|AC|1|TYPE=RaceAC|PREEQUIP:1,TYPE=Armor	BONUS:MISC|ACCHECK|1|PREEQUIP:1,TYPE=Heavy_Armor																																																				SOURCEPAGE:p.52
 FEARLESS				KEY:Vesk Default ~ FEARLESS							SORTKEY:v1c	CATEGORY:Racial Trait	TYPE:Racial Trait.Vesk Racial Trait		DESC:Vesk receive a +2 racial bonus to saving throws against fear effects.																																																																																																																																																																																		SOURCEPAGE:p.52	ASPECT:BonusSave|+2 racial bonus to saving throws against fear effects.
 LOW-LIGHT VISION			KEY:Vesk Default ~ LOW-LIGHT VISION						SORTKEY:v1d	CATEGORY:Racial Trait	TYPE:Racial Trait.Vesk Racial Trait		DESC:Vesk can see in dim light as if it were normal light. For more details, see page 264.																																																																																																																																																					BONUS:VAR|HasLowLightVision|1|TYPE=Base																				SOURCEPAGE:p.52
-NATURAL WEAPONS			KEY:Vesk Default ~ NATURAL WEAPONS						SORTKEY:v1e	CATEGORY:Racial Trait	TYPE:Racial Trait.Vesk Racial Trait		DESC:[NOT IMPLEMENTED]Vesk are always considered armed. They can deal 1d3 lethal damage with unarmed strikes and the attack doesn't count as archaic. Vesk gain a unique weapon specialization with their natural weapons at 3rd level, allowing them to add 1-1/2 x their character level to their damage rolls for their natural weapons (instead of just adding their character level, as usual)																																																																																																																		BONUS:WEAPONPROF=Unarmed|DAMAGE|TL+floor(TL/2)					SOURCEPAGE:p.52
+NATURAL WEAPONS			KEY:Vesk Default ~ NATURAL WEAPONS						SORTKEY:v1e	CATEGORY:Racial Trait	TYPE:Racial Trait.Vesk Racial Trait		DESC:[NOT IMPLEMENTED]Vesk are always considered armed. They can deal 1d3 lethal damage with unarmed strikes and the attack doesn't count as archaic. Vesk gain a unique weapon specialization with their natural weapons at 3rd level, allowing them to add 1-1/2 x their character level to their damage rolls for their natural weapons (instead of just adding their character level, as usual)																																																																																																																		BONUS:WEAPONPROF=Unarmed|DAMAGE|EffectiveLVL+floor(EffectiveLVL/2)					SOURCEPAGE:p.52
 
 # Ysoki
 SIZE AND TYPE			KEY:Ysoki Default ~ SIZE AND TYPE						SORTKEY:y1	CATEGORY:Racial Trait	TYPE:Racial Trait.Ysoki Racial Trait	DESC:Ysoki are Small humanoids with the ysoki subtype.																																																																																																																																																																																					SOURCEPAGE:p.54
@@ -827,25 +827,25 @@ Weapon Prof ~ Special Weapons			CATEGORY:Proficiency	TYPE:Proficiency.Special We
 ###BLOCK-------------------------------------------------------------------------------------------------------------
 # Weapon Focus
 # Ability Name					Category of Ability	Type								Modify VAR
-Weapon Focus ~ Basic Melee Weapons		CATEGORY:Proficiency	TYPE:Weapon Focus.Weapon Focus Basic Melee	BONUS:VAR|ToHit_BasicMeleeWeapon|1+(BAB<=(TL-3))|TYPE=Base
-Weapon Focus ~ Grenades				CATEGORY:Proficiency	TYPE:Weapon Focus.Weapon Focus Grenades		BONUS:VAR|ToHit_Grenades|1+(BAB<=(TL-3))|TYPE=Base
-Weapon Focus ~ Small Arms			CATEGORY:Proficiency	TYPE:Weapon Focus.Weapon Focus Small Arms		BONUS:VAR|ToHit_SmallArms|1+(BAB<=(TL-3))|TYPE=Base
-Weapon Focus ~ Sniper Weapons			CATEGORY:Proficiency	TYPE:Weapon Focus.Weapon Focus Sniper Weapons	BONUS:VAR|ToHit_SniperWeapon|1+(BAB<=(TL-3))|TYPE=Base
-Weapon Focus ~ Advanced Melee Weapons	CATEGORY:Proficiency	TYPE:Weapon Focus.Weapon Focus Advanced Melee	BONUS:VAR|ToHit_AdvancedMeleeWeapon|1+(BAB<=(TL-3))|TYPE=Base
-Weapon Focus ~ Longarms				CATEGORY:Proficiency	TYPE:Weapon Focus.Weapon Focus Longarms		BONUS:VAR|ToHit_Longarms|1+(BAB<=(TL-3))|TYPE=Base
-Weapon Focus ~ Heavy Weapons			CATEGORY:Proficiency	TYPE:Weapon Focus.Weapon Focus Heavy Weapons	BONUS:VAR|ToHit_HeavyWeapons|1+(BAB<=(TL-3))|TYPE=Base
+Weapon Focus ~ Basic Melee Weapons		CATEGORY:Proficiency	TYPE:Weapon Focus.Weapon Focus Basic Melee	BONUS:VAR|ToHit_BasicMeleeWeapon|1+(BAB<=(EffectiveLVL-3))|TYPE=Base
+Weapon Focus ~ Grenades				CATEGORY:Proficiency	TYPE:Weapon Focus.Weapon Focus Grenades		BONUS:VAR|ToHit_Grenades|1+(BAB<=(EffectiveLVL-3))|TYPE=Base
+Weapon Focus ~ Small Arms			CATEGORY:Proficiency	TYPE:Weapon Focus.Weapon Focus Small Arms		BONUS:VAR|ToHit_SmallArms|1+(BAB<=(EffectiveLVL-3))|TYPE=Base
+Weapon Focus ~ Sniper Weapons			CATEGORY:Proficiency	TYPE:Weapon Focus.Weapon Focus Sniper Weapons	BONUS:VAR|ToHit_SniperWeapon|1+(BAB<=(EffectiveLVL-3))|TYPE=Base
+Weapon Focus ~ Advanced Melee Weapons	CATEGORY:Proficiency	TYPE:Weapon Focus.Weapon Focus Advanced Melee	BONUS:VAR|ToHit_AdvancedMeleeWeapon|1+(BAB<=(EffectiveLVL-3))|TYPE=Base
+Weapon Focus ~ Longarms				CATEGORY:Proficiency	TYPE:Weapon Focus.Weapon Focus Longarms		BONUS:VAR|ToHit_Longarms|1+(BAB<=(EffectiveLVL-3))|TYPE=Base
+Weapon Focus ~ Heavy Weapons			CATEGORY:Proficiency	TYPE:Weapon Focus.Weapon Focus Heavy Weapons	BONUS:VAR|ToHit_HeavyWeapons|1+(BAB<=(EffectiveLVL-3))|TYPE=Base
 
 ###BLOCK-------------------------------------------------------------------------------------------------------------
 # Weapon Specialization
 # You gain specialization in that weapon type, which means you add your character level to damage with the selected weapon type,
 # or half your character level for small arms or operative melee weapons. You can never have specialization in grenades.
 # Ability Name						Category of Ability	Type											Modify VAR
-Weapon Specialization ~ Basic Melee Weapons	CATEGORY:Proficiency	TYPE:Weapon Specialization.Weapon Specialization Basic Melee	BONUS:VAR|Damage_BasicMeleeWeapon|TL|TYPE=Base	BONUS:VAR|Damage_OperativeWeapon|TL/2|TYPE=Base
-Weapon Specialization ~ Small Arms			CATEGORY:Proficiency	TYPE:Weapon Specialization.Weapon Specialization Small Arms		BONUS:VAR|Damage_SmallArms|TL/2|TYPE=Base
-Weapon Specialization ~ Sniper Weapons		CATEGORY:Proficiency	TYPE:Weapon Specialization.Weapon Specialization Sniper Weapons	BONUS:VAR|Damage_SniperWeapons|TL|TYPE=Base
-Weapon Specialization ~ Advanced Melee Weapons	CATEGORY:Proficiency	TYPE:Weapon Specialization.Weapon Specialization Advanced Melee	BONUS:VAR|Damage_AdvancedMeleeWeapon|TL|TYPE=Base
-Weapon Specialization ~ Longarms			CATEGORY:Proficiency	TYPE:Weapon Specialization.Weapon Specialization Longarms		BONUS:VAR|Damage_Longarms|TL|TYPE=Base
-Weapon Specialization ~ Heavy Weapons		CATEGORY:Proficiency	TYPE:Weapon Specialization.Weapon Specialization Heavy Weapons	BONUS:VAR|Damage_HeavyWeapons|TL|TYPE=Base
+Weapon Specialization ~ Basic Melee Weapons	CATEGORY:Proficiency	TYPE:Weapon Specialization.Weapon Specialization Basic Melee	BONUS:VAR|Damage_BasicMeleeWeapon|EffectiveLVL|TYPE=Base	BONUS:VAR|Damage_OperativeWeapon|EffectiveLVL/2|TYPE=Base
+Weapon Specialization ~ Small Arms			CATEGORY:Proficiency	TYPE:Weapon Specialization.Weapon Specialization Small Arms		BONUS:VAR|Damage_SmallArms|EffectiveLVL/2|TYPE=Base
+Weapon Specialization ~ Sniper Weapons		CATEGORY:Proficiency	TYPE:Weapon Specialization.Weapon Specialization Sniper Weapons	BONUS:VAR|Damage_SniperWeapons|EffectiveLVL|TYPE=Base
+Weapon Specialization ~ Advanced Melee Weapons	CATEGORY:Proficiency	TYPE:Weapon Specialization.Weapon Specialization Advanced Melee	BONUS:VAR|Damage_AdvancedMeleeWeapon|EffectiveLVL|TYPE=Base
+Weapon Specialization ~ Longarms			CATEGORY:Proficiency	TYPE:Weapon Specialization.Weapon Specialization Longarms		BONUS:VAR|Damage_Longarms|EffectiveLVL|TYPE=Base
+Weapon Specialization ~ Heavy Weapons		CATEGORY:Proficiency	TYPE:Weapon Specialization.Weapon Specialization Heavy Weapons	BONUS:VAR|Damage_HeavyWeapons|EffectiveLVL|TYPE=Base
 
 
 ###BLOCK-------------------------------------------------------------------------------------------------------------
