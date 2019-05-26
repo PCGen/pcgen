@@ -1,4 +1,3 @@
-#  Sat May 18 14:56:38 2019 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 # This file does not need to be referenced by a set of data or game mode
 # unless that data uses a data control file (DATACONTROL: in a PCC file)
@@ -9,27 +8,27 @@
 
 # This MUST be included if you enable the datacontrol file....
 
-# Name						Dataformat				Required		Selectable		Visible	Explanation
-FACTDEF:ABILITY|AppliedName			DATAFORMAT:String									VISIBLE:YES
+# Name						Dataformat		Selectable		Visible
+FACTDEF:ABILITY|AppliedName			DATAFORMAT:String				VISIBLE:YES
 
-FACTDEF:CLASS|Abb					DATAFORMAT:String									VISIBLE:YES
-FACTDEF:CLASS|ClassType				DATAFORMAT:String									VISIBLE:YES
-FACTDEF:CLASS|SpellType				DATAFORMAT:String						SELECTABLE:YES	VISIBLE:YES
+FACTDEF:CLASS|Abb					DATAFORMAT:String				VISIBLE:YES
+FACTDEF:CLASS|ClassType				DATAFORMAT:String				VISIBLE:YES
+FACTDEF:CLASS|SpellType				DATAFORMAT:String	SELECTABLE:YES	VISIBLE:YES
 
-FACTDEF:DEITY|Symbol				DATAFORMAT:String									VISIBLE:YES
-FACTDEF:DEITY|Worshippers			DATAFORMAT:String									VISIBLE:YES
-FACTDEF:DEITY|Title				DATAFORMAT:String									VISIBLE:YES
-FACTDEF:DEITY|Appearance			DATAFORMAT:String									VISIBLE:YES
+FACTDEF:DEITY|Symbol				DATAFORMAT:String				VISIBLE:YES
+FACTDEF:DEITY|Worshippers			DATAFORMAT:String				VISIBLE:YES
+FACTDEF:DEITY|Title				DATAFORMAT:String				VISIBLE:YES
+FACTDEF:DEITY|Appearance			DATAFORMAT:String				VISIBLE:YES
 
-FACTDEF:EQUIPMENT|RateOfFire			DATAFORMAT:String									VISIBLE:YES
+FACTDEF:EQUIPMENT|RateOfFire			DATAFORMAT:String				VISIBLE:YES
 
-FACTDEF:TEMPLATE|AppliedName			DATAFORMAT:String									VISIBLE:YES
+FACTDEF:TEMPLATE|AppliedName			DATAFORMAT:String				VISIBLE:YES
 
-FACTSETDEF:DEITY|Pantheon			DATAFORMAT:String						SELECTABLE:YES	VISIBLE:YES
-FACTSETDEF:DEITY|Race				DATAFORMAT:String									VISIBLE:YES
+FACTSETDEF:DEITY|Pantheon			DATAFORMAT:String	SELECTABLE:YES	VISIBLE:YES
+FACTSETDEF:DEITY|Race				DATAFORMAT:String				VISIBLE:YES
 
 
-FACTDEF:RACE|BaseSize				DATAFORMAT:SIZEADJUSTMENT	REQUIRED:YES				VISIBLE:YES	EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
+FACTDEF:RACE|BaseSize				DATAFORMAT:SIZEADJUSTMENT	REQUIRED:YES				VISIBLE:YES							EXPLANATION:All Races must have a Size - in the case of multiple sizes, use the SMALLEST allowed.
 
 
 DEFAULTVARIABLEVALUE:ORDEREDPAIR|0,0
@@ -37,4 +36,5 @@ DEFAULTVARIABLEVALUE:NUMBER|0
 DEFAULTVARIABLEVALUE:BOOLEAN|False
 DEFAULTVARIABLEVALUE:STRING|
 DEFAULTVARIABLEVALUE:DICE|0
+DEFAULTVARIABLEVALUE:HANDED|Right
 # No Alignment for this Game System
