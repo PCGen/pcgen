@@ -110,7 +110,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	public DomainInfoTab()
 	{
-		super("Domain");
+		super();
 		this.deityTable = new FilteredTreeViewTable<>();
 		this.domainTable = new JDynamicTable();
 		this.domainRowHeaderTable = TableUtils.createDefaultTable();
@@ -152,7 +152,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		box.add(Box.createHorizontalGlue());
 		panel.add(box, BorderLayout.SOUTH);
 
-		FlippingSplitPane splitPane = new FlippingSplitPane("DomainTop");
+		FlippingSplitPane splitPane = new FlippingSplitPane();
 		splitPane.setLeftComponent(panel);
 
 		panel = new JPanel(new BorderLayout());
@@ -182,7 +182,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		splitPane.setRightComponent(panel);
 		setTopComponent(splitPane);
-		splitPane = new FlippingSplitPane("DomainBottom");
+		splitPane = new FlippingSplitPane();
 		splitPane.setLeftComponent(deityInfo);
 		splitPane.setRightComponent(domainInfo);
 		setBottomComponent(splitPane);

@@ -71,8 +71,6 @@ import pcgen.system.LanguageBundle;
  */
 public class FlippingSplitPane extends JSplitPane
 {
-	private static final long serialVersionUID = -6343545558990369582L;
-
 	/**
 	 * Icon for Center item in popup menu.
 	 */
@@ -450,21 +448,6 @@ public class FlippingSplitPane extends JSplitPane
 		FlippingSplitPane.maybeSetLockedComponent(getRightComponent(), this.locked);
 	}
 
-	//     private class KeyboardShiftHomeAction extends AbstractAction
-	//     {
-	//         public void actionPerformed(ActionEvent e)
-	// 	{
-	// 	    centerDividerLocations();
-	//         }
-	//     }
-	//     private class KeyboardShiftEndAction extends AbstractAction
-	//     {
-	//         public void actionPerformed(ActionEvent e)
-	// 	{
-	// 	    resetToPreferredSizes();
-	//         }
-	//     }
-
 	/**
 	 * {@code setupExtensions} installs the mouse listener for the popup menu,
 	 * and fixes some egregious defaults in {@code JSplitPane}.
@@ -477,14 +460,6 @@ public class FlippingSplitPane extends JSplitPane
 		{
 			((BasicSplitPaneUI) anUi).getDivider().addMouseListener(new PopupListener());
 		}
-
-		// 	// See source for JSplitPane for this junk.
-		// 	ActionMap map = (ActionMap) UIManager.get("SplitPane.actionMap");
-		// 	map.put("selectCenter", new KeyboardShiftHomeAction()); // XXX
-		// 	map.put("selectReset", new KeyboardShiftEndAction()); // XXX
-		// 	SwingUtilities.replaceUIActionMap(this, map);
-		// This is *so* much better than squishing the top/left
-		// component into oblivion.
 		setResizeWeight(0.5);
 	}
 

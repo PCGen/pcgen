@@ -121,7 +121,6 @@ public class EquipCustomPanel extends FlippingSplitPane
 	 */
 	public EquipCustomPanel(CharacterFacade character, EquipmentBuilderFacade builder)
 	{
-		super("customEquip");
 		this.character = character;
 		this.builder = builder;
 		validHeads = new DefaultListFacade<>(builder.getEquipmentHeads());
@@ -201,7 +200,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		bannerBox.add(Box.createHorizontalGlue());
 		upperPanel.add(bannerBox, BorderLayout.NORTH);
 
-		FlippingSplitPane topPane = new FlippingSplitPane("equipCustTop");
+		FlippingSplitPane topPane = new FlippingSplitPane();
 		upperPanel.add(topPane, BorderLayout.CENTER);
 
 		JPanel availPanel = new JPanel(new BorderLayout());
@@ -280,7 +279,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		selPanel.add(box, BorderLayout.SOUTH);
 
 		topPane.setRightComponent(selPanel);
-		FlippingSplitPane bottomPane = new FlippingSplitPane("equipCustBottom");
+		FlippingSplitPane bottomPane = new FlippingSplitPane();
 		bottomPane.setLeftComponent(equipModInfoPane);
 		bottomPane.setRightComponent(equipInfoPane);
 		setBottomComponent(bottomPane);

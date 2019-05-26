@@ -78,7 +78,6 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 
 	public SpellBooksTab()
 	{
-		super("SpellBooks");
 		this.availableTable = new FilteredTreeViewTable<>();
 		this.selectedTable = new JTreeViewTable<>()
 		{
@@ -121,7 +120,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		filterBar.addDisplayableFilter(qFilterButton);
 
-		FlippingSplitPane upperPane = new FlippingSplitPane("SpellBooksTop");
+		FlippingSplitPane upperPane = new FlippingSplitPane();
 		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTable, filterBar);
 		Box box = Box.createVerticalBox();
 		box.add(Box.createVerticalStrut(5));
@@ -162,7 +161,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		upperPane.setResizeWeight(0);
 		setTopComponent(upperPane);
 
-		FlippingSplitPane bottomPane = new FlippingSplitPane("SpellBooksBottom");
+		FlippingSplitPane bottomPane = new FlippingSplitPane();
 		bottomPane.setLeftComponent(spellsPane);
 		bottomPane.setRightComponent(classPane);
 		setBottomComponent(bottomPane);
