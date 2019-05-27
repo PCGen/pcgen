@@ -36,6 +36,7 @@ import javax.swing.tree.DefaultTreeModel;
 import gmgen.GMGenSystem;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.dialog.AbstractPreferencesDialog;
+import pcgen.gui2.tools.FlippingSplitPane;
 
 public class PreferencesDialog extends AbstractPreferencesDialog
 {

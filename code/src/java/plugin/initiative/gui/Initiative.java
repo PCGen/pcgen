@@ -55,7 +55,6 @@ import javax.swing.text.DefaultFormatter;
 import javax.swing.text.NumberFormatter;
 
 import gmgen.GMGenSystem;
-import gmgen.gui.FlippingSplitPane;
 import gmgen.plugin.Combatant;
 import gmgen.plugin.Event;
 import gmgen.plugin.InfoCharacterDetails;
@@ -73,6 +72,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.util.event.PopupMouseAdapter;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.PluginManager;
