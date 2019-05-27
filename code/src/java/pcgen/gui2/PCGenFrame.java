@@ -58,9 +58,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
-import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
@@ -119,6 +117,7 @@ import pcgen.util.chooser.RandomChooser;
 
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -1488,49 +1487,19 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	@Override
 	public boolean showWarningConfirm(String title, String message)
 	{
-		JComponent msgComp = getComponentForMessage(message);
-		int ret = JOptionPane.showConfirmDialog(this, msgComp, title, JOptionPane.YES_NO_OPTION,
-			JOptionPane.WARNING_MESSAGE);
-		return ret == JOptionPane.YES_OPTION;
-	}
-
-	/**
-	 * Create a component to display the message within the bounds of the 
-	 * screen. If the message is too big for the screen a suitably sized 
-	 * scroll pane will be returned.
-	 * @param message The text of the message.
-	 * @return The component containing the text.
-	 */
-	private JComponent getComponentForMessage(String message)
-	{
-		JLabel jLabel = new JLabel(message);
-		JScrollPane scroller = new JScrollPane(jLabel);
-		Dimension size = jLabel.getPreferredSize();
-		final int decorationHeight = 80;
-		final int decorationWidth = 70;
-		Rectangle screenBounds = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
-		boolean scrollerNeeded = false;
-		if (size.height > screenBounds.height - decorationHeight)
-		{
-			size.height = screenBounds.height - decorationHeight;
-			scrollerNeeded = true;
-		}
-		if (size.width > screenBounds.width - decorationWidth)
-		{
-			size.width = screenBounds.width - decorationWidth;
-			scrollerNeeded = true;
-		}
-		else if (scrollerNeeded)
-		{
-			scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		}
-		scroller.setPreferredSize(size);
-		return scrollerNeeded ? scroller : jLabel;
+		Alert alert = CompletableFuture.supplyAsync(() -> new Alert(Alert.AlertType.CONFIRMATION),
+				Platform::runLater).join();
+		alert.setTitle(title);
+		alert.setContentText(message);
+		Optional<ButtonType> buttonType = CompletableFuture.supplyAsync(
+				alert::showAndWait,
+				Platform::runLater).join();
+		return buttonType.orElse(ButtonType.NO).equals(ButtonType.OK);
 	}
 
 	private boolean showMessageConfirm(String title, String message)
 	{
-		JComponent msgComp = getComponentForMessage(message);
+		JComponent msgComp = new JLabel(message);
 		int ret = JOptionPane.showConfirmDialog(this, msgComp, title, JOptionPane.YES_NO_OPTION);
 		return ret == JOptionPane.YES_OPTION;
 	}
@@ -1539,40 +1508,43 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	public void showErrorMessage(String title, String message)
 	{
 		GuiAssertions.assertIsNotJavaFXThread();
-		Alert alert = new Alert(Alert.AlertType.ERROR);
+		Alert alert = CompletableFuture.supplyAsync(() -> new Alert(Alert.AlertType.ERROR), Platform::runLater).join();
 		alert.setTitle(title);
 		alert.setContentText(message);
-		alert.showAndWait();
+		CompletableFuture.supplyAsync(alert::showAndWait, Platform::runLater).join();
 	}
 
 	@Override
 	public void showInfoMessage(String title, String message)
 	{
 		GuiAssertions.assertIsNotJavaFXThread();
-		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		Alert alert =
+				CompletableFuture.supplyAsync(() -> new Alert(Alert.AlertType.INFORMATION), Platform::runLater).join();
 		alert.setTitle(title);
 		alert.setContentText(message);
-		alert.showAndWait();
+		CompletableFuture.supplyAsync(alert::showAndWait, Platform::runLater).join();
 	}
 
 	@Override
 	public void showWarningMessage(String title, String message)
 	{
 		GuiAssertions.assertIsNotJavaFXThread();
-		Alert alert = new Alert(Alert.AlertType.WARNING);
+		Alert alert =
+				CompletableFuture.supplyAsync(() -> new Alert(Alert.AlertType.WARNING), Platform::runLater).join();
 		alert.setTitle(title);
 		alert.setContentText(message);
-		alert.showAndWait();
+		CompletableFuture.supplyAsync(alert::showAndWait, Platform::runLater).join();
 	}
 
 	@Override
 	public Optional<String> showInputDialog(String title, String message, String initialValue)
 	{
 		GuiAssertions.assertIsNotJavaFXThread();
-		TextInputDialog dialog = new TextInputDialog(initialValue);
+		TextInputDialog dialog =
+				CompletableFuture.supplyAsync(() -> new TextInputDialog(initialValue), Platform::runLater).join();
 		dialog.setTitle(title);
 		dialog.setContentText(message);
-		return dialog.showAndWait();
+		return CompletableFuture.supplyAsync(dialog::showAndWait, Platform::runLater).join();
 	}
 
 	@Override
