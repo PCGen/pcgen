@@ -100,9 +100,6 @@
                     </GridPane>
                 </AnchorPane>
             </Tab>
-            <Tab text="%in_abt_license">
-                <TextArea fx:id="licenseArea" text="%in_abt_lib_l2f" wrapText="true"/>
-            </Tab>
             <Tab text="%in_abt_libraries">
                 <TextArea fx:id="librariesArea" wrapText="true"/>
             </Tab>

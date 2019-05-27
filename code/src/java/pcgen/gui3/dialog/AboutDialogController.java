@@ -1,5 +1,4 @@
-/*
- * Copyright 2019 (C) Eitan Adler <lists@eitanadler.com>
+/* * Copyright 2019 (C) Eitan Adler <lists@eitanadler.com>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -134,7 +133,6 @@ public class AboutDialogController
 
 		String s = LanguageBundle.getString("in_abt_lib_apache"); //$NON-NLS-1$
 		s += LanguageBundle.getString("in_abt_lib_jdom"); //$NON-NLS-1$
-		s += LanguageBundle.getString("in_abt_lib_l2f"); //$NON-NLS-1$
 		librariesArea.setText(s);
 
 		String releaseDateStr = PCGenPropBundle.getReleaseDate();
