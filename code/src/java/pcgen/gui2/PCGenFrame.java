@@ -98,6 +98,7 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
+import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.SimpleHtmlPanelController;
 import pcgen.gui3.dialog.AboutDialog;
@@ -1537,6 +1538,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	@Override
 	public void showErrorMessage(String title, String message)
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		Alert alert = new Alert(Alert.AlertType.ERROR);
 		alert.setTitle(title);
 		alert.setContentText(message);
@@ -1546,6 +1548,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	@Override
 	public void showInfoMessage(String title, String message)
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		alert.setTitle(title);
 		alert.setContentText(message);
@@ -1555,6 +1558,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	@Override
 	public void showWarningMessage(String title, String message)
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		Alert alert = new Alert(Alert.AlertType.WARNING);
 		alert.setTitle(title);
 		alert.setContentText(message);
@@ -1564,6 +1568,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	@Override
 	public Optional<String> showInputDialog(String title, String message, String initialValue)
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		TextInputDialog dialog = new TextInputDialog(initialValue);
 		dialog.setTitle(title);
 		dialog.setContentText(message);

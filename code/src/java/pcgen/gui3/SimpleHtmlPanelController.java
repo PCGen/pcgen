@@ -36,6 +36,7 @@ public final class SimpleHtmlPanelController
 	 */
 	public void setHtml(String html)
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		Platform.runLater(() -> browser.getEngine().loadContent(html));
 	}
 }

@@ -20,6 +20,7 @@ package pcgen.gui3.dialog;
 
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.TipOfTheDayHandler;
+import pcgen.gui3.GuiAssertions;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PropertyContext;
 
@@ -101,6 +102,7 @@ public class TipOfTheDayController
 
 	private void showTip(final String tip)
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		Platform.runLater(() -> {
 			browser.getEngine().loadContent(buildTipText(tip));
 		});

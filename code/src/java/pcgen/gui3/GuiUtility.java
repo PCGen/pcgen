@@ -39,6 +39,7 @@ public final class GuiUtility
 	 */
 	public static JFXPanel wrapParentAsJFXPanel(Parent parent)
 	{
+		GuiAssertions.assertIsSwingThread();
 		JFXPanel jfxPanel = new JFXPanel();
 		Platform.runLater(() -> {
 			Scene scene = new Scene(parent);
