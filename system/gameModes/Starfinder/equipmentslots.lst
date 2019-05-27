@@ -15,6 +15,21 @@ EQSLOT:Armor		CONTAINS:Armor=1								NUMBER:TORSO
 EQSLOT:PoweredArmor	CONTAINS:PoweredArmor=1							NUMBER:TORSO
 EQSLOT:Solarian Weapon Crystal	CONTAINS:Solarian Weapon Crystal=1							NUMBER:CrystalSlot
 
+EQSLOT:Torso	CONTAINS:Clothing=1										NUMBER:TORSO
+EQSLOT:Weapon	CONTAINS:Weapon=1											NUMBER:HANDS
+
+
+EQSLOT:Cybernetic_Misc		CONTAINS:Cybernetic_misc=20								NUMBER:TORSO
+EQSLOT:Cybernetic_Leg		CONTAINS:Cybernetic_Leg=2								NUMBER:TORSO
+EQSLOT:Cybernetic_Arm		CONTAINS:Cybernetic_Arm=2								NUMBER:TORSO
+EQSLOT:Cybernetic_Lungs		CONTAINS:Cybernetic_Lungs=1								NUMBER:TORSO			
+EQSLOT:Cybernetic_Throat	CONTAINS:Cybernetic_Throat=1								NUMBER:TORSO				
+EQSLOT:Cybernetic_Brain		CONTAINS:Cybernetic_Brain=1								NUMBER:TORSO			
+EQSLOT:Cybernetic_Eyes		CONTAINS:Cybernetic_Eyes=2								NUMBER:TORSO		
+EQSLOT:Cybernetic_Skin		CONTAINS:Cybernetic_Skin=1								NUMBER:TORSO		
+EQSLOT:Cybernetic_Heart		CONTAINS:Cybernetic_Heart=1								NUMBER:TORSO				
+EQSLOT:Cybernetic_Spinal	CONTAINS:Cybernetic_Spinal=1								NUMBER:TORSO		
+EQSLOT:Cybernetic_Hand		CONTAINS:Cybernetic_Hand=2								NUMBER:TORSO			
 
 
 # 
@@ -32,8 +47,6 @@ EQSLOT:Solarian Weapon Crystal	CONTAINS:Solarian Weapon Crystal=1							NUMBER:C
 #EQSLOT:Shoulders	CONTAINS:Cape,Shoulders,Cloak=1								NUMBER:TORSO
 #EQSLOT:Wrist	CONTAINS:Armwear,Bracer,Wrist,Bracelet=1							NUMBER:HANDS
 #
-EQSLOT:Torso	CONTAINS:Clothing=1										NUMBER:TORSO
-EQSLOT:Weapon	CONTAINS:Weapon=1											NUMBER:HANDS
 #
 # If you wanted to increase the number of RINGs a set of Fingers could hold
 # You'd change the EQSLOT:Fingers to CONTAINS:RING=2
