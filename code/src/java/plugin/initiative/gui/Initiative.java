@@ -168,16 +168,6 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	/**
-	 * Ensures that the path specified exists.
-	 *
-	 * @param  path  the {@code File} representing the path
-	 */
-	private static void ensurePathExists(final File path)
-	{
-		path.mkdirs();
-	}
-
-	/**
 	 * Sets the active Initiative to be the passed in value
 	 *
 	 * @param init - The new Active Initiative value
@@ -197,15 +187,6 @@ public class Initiative extends javax.swing.JPanel
 		}
 
 		refreshTable();
-	}
-
-	/**  Sets current situation for some objects as the default locations, as the program exits */
-	public void setExitPrefs()
-	{
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ShowDead", showDead.isSelected());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ShowEvents", showEvents.isSelected());
-		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".DividerLocation",
-			jSplitPane1.getDividerLocation());
 	}
 
 	/**
@@ -970,9 +951,6 @@ public class Initiative extends javax.swing.JPanel
 	/**  Finishes the initialization, by implementing the last portions of the user's preferences */
 	private void initLast()
 	{
-		int iDividerLocation = SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".DividerLocation", 400);
-		jSplitPane1.setDividerLocation(iDividerLocation);
-
 		//Spell Tracking On
 		if (SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells", true))
 		{
@@ -1047,7 +1025,6 @@ public class Initiative extends javax.swing.JPanel
 			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnName.9", "Type");
 			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".ColumnWidth.9", 50);
 			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".NumberOfColumns", 10);
-			SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".DividerLocation", 450);
 		}
 	}
 

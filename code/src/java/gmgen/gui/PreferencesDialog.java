@@ -34,18 +34,11 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
 import gmgen.GMGenSystem;
-import pcgen.core.SettingsHandler;
 import pcgen.gui2.dialog.AbstractPreferencesDialog;
 import pcgen.gui2.tools.FlippingSplitPane;
 
 public class PreferencesDialog extends AbstractPreferencesDialog
 {
-	private static final String OPTION_NAME_DIVIDER = "PreferencesDialog.PrefsDividerLocation"; //$NON-NLS-1$
-	private static final String OPTION_NAME_X = "PreferencesDialog.PrefsWindowX"; //$NON-NLS-1$
-	private static final String OPTION_NAME_Y = "PreferencesDialog.PrefsWindowY"; //$NON-NLS-1$
-	private static final String OPTION_NAME_WIDTH = "PreferencesDialog.PrefsWindowWidth"; //$NON-NLS-1$
-	private static final String OPTION_NAME_HEIGHT = "PreferencesDialog.PrefsWindowHeight"; //$NON-NLS-1$
-
 	private static final String EMPTY = PreferencesDialog.class.getName();
 
 	private FlippingSplitPane jSplitPane1;
@@ -67,7 +60,6 @@ public class PreferencesDialog extends AbstractPreferencesDialog
 		this.root = root;
 		prefsTree.setModel(new DefaultTreeModel(root));
 		// TODO expand all leaf in prefsTree
-		initLast();
 		initPreferences();
 	}
 
@@ -104,21 +96,6 @@ public class PreferencesDialog extends AbstractPreferencesDialog
 		applyPreferences();
 	}
 
-	/**
-	 *  Closes the dialog. Saves prefs before closing.
-	 */
-	@Override
-	protected void close()
-	{
-		SettingsHandler.setGMGenOption(OPTION_NAME_DIVIDER, jSplitPane1.getDividerLocation());
-
-		SettingsHandler.setGMGenOption(OPTION_NAME_X, this.getX());
-		SettingsHandler.setGMGenOption(OPTION_NAME_Y, this.getY());
-		SettingsHandler.setGMGenOption(OPTION_NAME_WIDTH, this.getSize().width);
-		SettingsHandler.setGMGenOption(OPTION_NAME_HEIGHT, this.getSize().height);
-		super.close();
-	}
-
 	@Override
 	protected JComponent getCenter()
 	{
@@ -146,21 +123,6 @@ public class PreferencesDialog extends AbstractPreferencesDialog
 		jSplitPane1.setRightComponent(prefsPane);
 
 		return jSplitPane1;
-	}
-
-	/** Moves and resizes the preferences dialog based on your last opening of it */
-	private void initLast()
-	{
-		int iDividerLocation = SettingsHandler.getGMGenOption(OPTION_NAME_DIVIDER, 118);
-		jSplitPane1.setDividerLocation(iDividerLocation);
-
-		int iWinX = SettingsHandler.getGMGenOption(OPTION_NAME_X, 0);
-		int iWinY = SettingsHandler.getGMGenOption(OPTION_NAME_Y, 0);
-		this.setLocation(iWinX, iWinY);
-
-		int iWinWidth = SettingsHandler.getGMGenOption(OPTION_NAME_WIDTH, 550);
-		int iWinHeight = SettingsHandler.getGMGenOption(OPTION_NAME_HEIGHT, 385);
-		this.setSize(iWinWidth, iWinHeight);
 	}
 
 	/** Sets all the widgets to reflect the current preferences */
