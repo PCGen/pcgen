@@ -29,6 +29,7 @@ RACE:*/_universal/races.lst
 DATACONTROL:modernbasics__datacontrols.lst
 
 ### GM Moved
+ALIGNMENT:modernbasics_align.lst
 SAVE:modernbasics__saves.lst
 STAT:modernbasics__stats.lst
 SIZE:modernbasics__sizes.lst
