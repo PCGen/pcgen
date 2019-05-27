@@ -41,7 +41,6 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.EquipmentUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
@@ -925,11 +924,6 @@ public class EqToken extends Token
 	 */
 	public static double getCheckboxesDoubleToken(Equipment eq)
 	{
-		if (SettingsHandler.getShowSingleBoxPerBundle())
-		{
-			return getQtyDoubleToken(eq);
-		}
-
 		return getQtyDoubleToken(eq) * eq.getSafe(IntegerKey.BASE_QUANTITY);
 	}
 
