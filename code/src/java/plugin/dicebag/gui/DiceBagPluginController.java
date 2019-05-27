@@ -205,7 +205,7 @@ public class DiceBagPluginController
 		StringTokenizer tok = new StringTokenizer(lastFiles, "|");
 		boolean noLoads = true;
 
-		for (int i = 0; tok.hasMoreTokens(); i++)
+		while (tok.hasMoreTokens())
 		{
 			String fileName = tok.nextToken();
 			File file = new File(fileName);

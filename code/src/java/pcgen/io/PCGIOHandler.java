@@ -504,7 +504,8 @@ public final class PCGIOHandler extends IOHandler
 	 * @param partyFile a .pcp party file
 	 * @return a list of files containing the characters in this party
 	 */
-	public List<File> readCharacterFileList(File partyFile)
+	@SuppressWarnings("PMD.UnusedLocalVariable")
+	public static List<File> readCharacterFileList(File partyFile)
 	{
 		List<String> lines;
 		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(partyFile, StandardCharsets.UTF_8)))

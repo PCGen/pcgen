@@ -929,7 +929,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		}
 
 		SpellInfo spellInfo = charSpell.getSpellInfoFor(bookName, level, metamagicFeats);
-		boolean isKnown = Globals.getDefaultSpellBook().equals(bookName);
 		SpellFacadeImplem spellImplem = new SpellFacadeImplem(pc, charSpell.getSpell(), charSpell, spellInfo);
 		SpellNodeImpl node = new SpellNodeImpl(spellImplem, spell.getSpellcastingClass(),
 			String.valueOf(spellInfo.getActualLevel()), getRootNode(bookName));
@@ -1245,7 +1244,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 				Constants.APPLICATION_NAME, LanguageBundle.getString("in_spellNoSheet")); //$NON-NLS-1$
 			return;
 		}
-		String ext = template.substring(template.lastIndexOf('.'));
 
 		// Get the name of the file to output to.
 		JFileChooser fcExport = new JFileChooser();

@@ -434,10 +434,8 @@ public class PCClass extends PObject implements InfoFacade, Cloneable
 			SubstitutionClassApplication.checkForSubstitutionClass(this, newLevel, aPC);
 		}
 
-		for (PCClass pcClass : aPC.getClassSet())
-		{
-			aPC.calculateKnownSpellsForClassLevel(this);
-		}
+		aPC.getClassSet()
+		   .forEach(aPC::calculateKnownSpellsForClassLevel);
 	}
 
 	/**

@@ -6767,13 +6767,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			for (int i = 0; i < numberOfLevels; ++i)
 			{
-				int currentLevel = getLevel(pcClassClone);
-				final PCLevelInfo playerCharacterLevelInfo = addLevelInfo(pcClassClone.getKeyName());
+				addLevelInfo(pcClassClone.getKeyName());
 
 				// if we fail to add the level, remove and return
 				if (!pcClassClone.addLevel(false, bSilent, this, bypassPrereqs))
 				{
-					PCClassLevel failedpcl = getActiveClassLevel(pcClassClone, currentLevel + 1);
 					removeLevelInfo(pcClassClone.getKeyName());
 					return;
 				}

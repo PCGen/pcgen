@@ -2224,7 +2224,6 @@ public final class PCGVer2Creator
 		//for (BonusManager.TempBonusInfo tbi : thePC.getTempBonusMap().values())
 		for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : sortedbonus)
 		{
-			BonusObj bonus = me.getKey();
 			TempBonusInfo tbi = me.getValue();
 			Object creObj = tbi.source;
 			Object tarObj = tbi.target;

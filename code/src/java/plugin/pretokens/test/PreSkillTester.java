@@ -43,6 +43,7 @@ import pcgen.system.LanguageBundle;
 public class PreSkillTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
+	@SuppressWarnings("unused")
 	@Override
 	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
 	{
@@ -170,7 +171,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements Prerequi
 						for (Type mockType : mockTypes)
 						{
 							foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition, foundSkill, target);
-							foundSkill = (foundMatch) ? true : false;
+							foundSkill = foundMatch;
 							runningTotal =
 									getRunningTotal(mock, character, prereq, foundMatch, runningTotal, requiredRanks);
 							if (foundSkill)

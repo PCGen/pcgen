@@ -31,7 +31,6 @@
         <exclude name="SwitchStmtsShouldHaveDefault"/>
         <exclude name="SystemPrintln"/>
         <exclude name="UnusedFormalParameter"/>
-        <exclude name="UnusedLocalVariable"/>
         <exclude name="UnusedPrivateField"/>
         <exclude name="UnusedPrivateMethod"/>
         <!-- This is excluded because it's a tradeoff: it creates a warning to use it, which then has to be addressed -->
