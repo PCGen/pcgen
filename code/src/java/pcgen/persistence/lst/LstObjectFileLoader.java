@@ -288,11 +288,11 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		{
 			String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.LoadError", //$NON-NLS-1$
 				uri, ple.getMessage());
-			Logging.errorPrint(message);
+			Logging.errorPrint(message, ple);
 			setChanged();
 			return;
 		}
-		String aString = dataBuffer;
+		String aString = Objects.requireNonNull(dataBuffer);
 		if (context != null)
 		{
 			context.setSourceURI(uri);
