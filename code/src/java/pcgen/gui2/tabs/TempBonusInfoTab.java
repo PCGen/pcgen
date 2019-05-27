@@ -90,7 +90,6 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 	 */
 	public TempBonusInfoTab()
 	{
-		super("TempBonus");
 		this.availableTable = new FilteredTreeViewTable<>();
 		this.selectedTable = new FilteredTreeViewTable<>();
 		this.addButton = new JButton();
@@ -102,7 +101,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 
 	private void initComponents()
 	{
-		FlippingSplitPane topPane = new FlippingSplitPane("TempBonusTop");
+		FlippingSplitPane topPane = new FlippingSplitPane();
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);
 

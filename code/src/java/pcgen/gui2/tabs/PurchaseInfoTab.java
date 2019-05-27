@@ -135,7 +135,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	 */
 	public PurchaseInfoTab()
 	{
-		super("Purchase"); //$NON-NLS-1$
 		this.availableTable = new FilteredTreeViewTable<>();
 		this.purchasedTable = new FilteredTreeViewTable<>();
 		this.equipmentRenderer = new EquipmentRenderer();
@@ -160,7 +159,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private void initComponents()
 	{
 		setOrientation(VERTICAL_SPLIT);
-		FlippingSplitPane splitPane = new FlippingSplitPane("PurchaseTop"); //$NON-NLS-1$
+		FlippingSplitPane splitPane = new FlippingSplitPane(); //$NON-NLS-1$
 		splitPane.setOrientation(HORIZONTAL_SPLIT);
 		{ // Top Left panel
 			FilterBar<CharacterFacade, EquipmentFacade> filterBar = new FilterBar<>();
@@ -222,7 +221,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			splitPane.setRightComponent(panel);
 		}
 		setTopComponent(splitPane);
-		splitPane = new FlippingSplitPane("PurchaseBottom"); //$NON-NLS-1$
+		splitPane = new FlippingSplitPane(); //$NON-NLS-1$
 		splitPane.setOrientation(HORIZONTAL_SPLIT);
 		{// Bottom Left Panel
 			JPanel panel = new JPanel();

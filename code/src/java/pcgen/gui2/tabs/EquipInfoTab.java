@@ -126,7 +126,6 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 	public EquipInfoTab()
 	{
-		super("Equip");
 		//TODO: remove this when optimized sorting is implemented
 		this.equipmentTable = new JDynamicTable()
 		{
@@ -185,7 +184,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		removeSetButton.setMargin(new Insets(0, 0, 0, 0));
 
 		setOrientation(HORIZONTAL_SPLIT);
-		FlippingSplitPane splitPane = new FlippingSplitPane(VERTICAL_SPLIT, "EquipMain");
+		FlippingSplitPane splitPane = new FlippingSplitPane(VERTICAL_SPLIT);
 
 		JPanel panel = new JPanel(new BorderLayout());
 

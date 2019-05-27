@@ -25,7 +25,7 @@ import javax.swing.ImageIcon;
 /**
  * Utility Code for manipulating the GUI
  */
-final class Utilities
+public final class Utilities
 {
 
 	private Utilities()
@@ -42,7 +42,7 @@ final class Utilities
 	 *
 	 * @return {@code ImageIcon}, the icon or {@code null} on failure
 	 */
-	static ImageIcon getImageIcon(final String location)
+	public static ImageIcon getImageIcon(final String location)
 	{
 		return getImageIcon(location, null);
 	}

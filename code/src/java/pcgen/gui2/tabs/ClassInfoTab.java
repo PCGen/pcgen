@@ -102,7 +102,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	public ClassInfoTab()
 	{
-		super("Class");
+		super();
 		this.availableTable = new FilteredTreeViewTable<>();
 		this.classTable = TableUtils.createDefaultTable();
 		this.addButton = new JButton();
@@ -118,7 +118,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	private void initComponents()
 	{
-		FlippingSplitPane topPane = new FlippingSplitPane("ClassTop");
+		FlippingSplitPane topPane = new FlippingSplitPane();
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);
 

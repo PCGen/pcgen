@@ -79,7 +79,6 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	public TemplateInfoTab()
 	{
-		super("Template");
 		this.availableTable = new FilteredTreeViewTable<>();
 		this.selectedTable = new FilteredTreeViewTable<>();
 		this.addButton = new JButton();
@@ -92,7 +91,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	private void initComponents()
 	{
-		FlippingSplitPane topPane = new FlippingSplitPane("TemplateTop");
+		FlippingSplitPane topPane = new FlippingSplitPane();
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);
 

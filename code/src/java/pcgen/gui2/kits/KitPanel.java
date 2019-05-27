@@ -83,7 +83,6 @@ public class KitPanel extends FlippingSplitPane
 	 */
 	public KitPanel(CharacterFacade character)
 	{
-		super("kit");
 		this.character = character;
 		this.availableTable = new FilteredTreeViewTable<>();
 		this.selectedTable = new FilteredTreeViewTable<>();
@@ -100,7 +99,7 @@ public class KitPanel extends FlippingSplitPane
 	private void initComponents()
 	{
 		renderer.setCharacter(character);
-		FlippingSplitPane topPane = new FlippingSplitPane("kitTop");
+		FlippingSplitPane topPane = new FlippingSplitPane();
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);
 
