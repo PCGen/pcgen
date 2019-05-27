@@ -18,6 +18,8 @@
 
 package pcgen.gui3.preferences;
 
+import pcgen.gui3.GuiAssertions;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
@@ -29,6 +31,7 @@ public class CenteredLabelPanelController
 
 	public void setText(String text)
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		Platform.runLater(() -> {
 			label.setText(text);
 		});

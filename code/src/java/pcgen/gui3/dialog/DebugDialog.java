@@ -20,6 +20,7 @@ package pcgen.gui3.dialog;
 
 import java.io.IOException;
 
+import pcgen.gui3.GuiAssertions;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -39,6 +40,7 @@ public class DebugDialog
 
 	public DebugDialog()
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		loader.setResources(LanguageBundle.getBundle());
 		loader.setLocation(getClass().getResource("DebugDialog.fxml"));
 		Platform.runLater(() -> {

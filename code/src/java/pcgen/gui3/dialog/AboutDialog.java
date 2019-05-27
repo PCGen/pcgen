@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
 import pcgen.gui3.Controllable;
+import pcgen.gui3.GuiAssertions;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -79,6 +80,7 @@ public class AboutDialog implements Controllable<AboutDialogController>
 	@Override
 	public AboutDialogController getController()
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		return CompletableFuture
 				.supplyAsync(loader::<AboutDialogController>getController)
 				.join();

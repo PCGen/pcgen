@@ -83,6 +83,7 @@ public final class JFXPanelFromResource<T> extends JFXPanel implements Controlla
 
 	public void showAndBlock(String title)
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		CompletableFuture<Integer> lock = new CompletableFuture<>();
 		Platform.runLater(() -> {
 			Stage stage = new Stage();

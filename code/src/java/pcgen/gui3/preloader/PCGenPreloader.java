@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
 import pcgen.gui3.Controllable;
+import pcgen.gui3.GuiAssertions;
 import pcgen.system.PCGenTaskEvent;
 import pcgen.system.PCGenTaskListener;
 import pcgen.system.ProgressContainer;
@@ -50,6 +51,7 @@ public class PCGenPreloader implements PCGenTaskListener, Controllable<PCGenPrel
 
 	public PCGenPreloader()
 	{
+		GuiAssertions.assertIsNotOnGUIThread();
 		loader.setLocation(getClass().getResource("PCGenPreloader.fxml"));
 		Platform.runLater(() -> {
 			primaryStage = new Stage();
@@ -74,6 +76,7 @@ public class PCGenPreloader implements PCGenTaskListener, Controllable<PCGenPrel
 	@Override
 	public PCGenPreloaderController getController()
 	{
+		GuiAssertions.assertIsNotOnGUIThread();
 		return CompletableFuture
 				.supplyAsync(loader::<PCGenPreloaderController>getController,
 						Platform::runLater)
