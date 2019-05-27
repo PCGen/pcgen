@@ -166,7 +166,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		selScrollPane.setPreferredSize(new Dimension(530, 300));
 
 		FlippingSplitPane topPane =
-				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, availPanel, skillPanel, "SkillTop");
+				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, availPanel, skillPanel);
 		setTopComponent(topPane);
 
 		FlippingSplitPane bottomPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT);

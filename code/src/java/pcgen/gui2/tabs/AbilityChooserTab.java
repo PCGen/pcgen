@@ -146,7 +146,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		box.setBorder(new EmptyBorder(0, 0, 5, 0));
 		selPanel.add(box, BorderLayout.SOUTH);
 		FlippingSplitPane topPane =
-				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, availPanel, selPanel, "abilityTop");
+				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, availPanel, selPanel);
 
 		setTopComponent(topPane);
 
