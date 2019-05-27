@@ -81,11 +81,11 @@ import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
-import pcgen.gui2.tools.PrefTableColumnModel;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JDynamicTable;
 import pcgen.gui2.util.JTreeTable;
 import pcgen.gui2.util.event.PopupMouseAdapter;
+import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Load;
@@ -268,26 +268,44 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 	private DynamicTableColumnModel createEquipmentColumnModel()
 	{
-		PrefTableColumnModel model = new PrefTableColumnModel("EquipList", 1);
+		DefaultDynamicTableColumnModel model = new DefaultDynamicTableColumnModel(1);
 
 		TableColumn column = new TableColumn(0);
 		column.setHeaderValue(LanguageBundle.getString("in_nameLabel")); //$NON-NLS-1$
-		model.addColumn(column, true, 150);
+		column.setPreferredWidth(150);
+		model.addColumn(column);
+		model.setVisible(column, true);
+
 		column = new TableColumn(1);
 		column.setHeaderValue(LanguageBundle.getString("in_type")); //$NON-NLS-1$
-		model.addColumn(column, true, 75);
+		column.setPreferredWidth(75);
+		model.addColumn(column);
+		model.setVisible(column, true);
+
 		column = new TableColumn(2);
 		column.setHeaderValue(LanguageBundle.getString("in_equipLocationAbbrev")); //$NON-NLS-1$
-		model.addColumn(column, true, 75);
+		column.setPreferredWidth(75);
+		model.addColumn(column);
+		model.setVisible(column, true);
+
 		column = new TableColumn(3);
 		column.setHeaderValue(LanguageBundle.getString("in_equipQuantityAbbrev")); //$NON-NLS-1$
-		model.addColumn(column, true, 75);
+		column.setPreferredWidth(75);
+		model.addColumn(column);
+		model.setVisible(column, true);
+
 		column = new TableColumn(4);
 		column.setHeaderValue(LanguageBundle.getString("in_equipWeightAbbrev")); //$NON-NLS-1$
-		model.addColumn(column, true, 75);
+		column.setPreferredWidth(75);
+		model.addColumn(column);
+		model.setVisible(column, true);
+
 		column = new TableColumn(5);
 		column.setHeaderValue(LanguageBundle.getString("in_descrip")); //$NON-NLS-1$
-		model.addColumn(column, false, 75);
+		column.setPreferredWidth(75);
+		model.addColumn(column);
+		model.setVisible(column, false);
+
 		return model;
 	}
 

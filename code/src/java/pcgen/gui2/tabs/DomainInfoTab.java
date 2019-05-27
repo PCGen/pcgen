@@ -74,9 +74,9 @@ import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
 import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.InfoPane;
-import pcgen.gui2.tools.PrefTableColumnModel;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JDynamicTable;
+import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
 import pcgen.gui2.util.table.TableUtils;
 import pcgen.gui2.util.treeview.DataView;
@@ -191,16 +191,20 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	public DynamicTableColumnModel createDomainColumnModel()
 	{
-		PrefTableColumnModel model = new PrefTableColumnModel("DomainList", 1);
+		DefaultDynamicTableColumnModel model = new DefaultDynamicTableColumnModel(1);
 		TableColumn column = new TableColumn(0);
 		column.setHeaderValue(LanguageBundle.getString("in_domains")); //$NON-NLS-1$
-		model.addColumn(column, true, 150);
+		column.setPreferredWidth(150);
+		model.addColumn(column);
+		model.setVisible(column, true);
 		column = new TableColumn(1);
 		column.setHeaderValue(LanguageBundle.getString("in_descrip")); //$NON-NLS-1$
-		model.addColumn(column, false, 150);
+		column.setPreferredWidth(150);
+		model.setVisible(column, false);
 		column = new TableColumn(2);
 		column.setHeaderValue(LanguageBundle.getString("in_source")); //$NON-NLS-1$
-		model.addColumn(column, true, 150);
+		column.setPreferredWidth(150);
+		model.setVisible(column, false);
 		return model;
 	}
 
