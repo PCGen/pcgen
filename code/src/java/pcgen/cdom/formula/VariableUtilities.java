@@ -36,7 +36,7 @@ import pcgen.rules.context.VariableContext;
 /**
  * VariableUtilities are a class for monitoring events on variables.
  */
-public class VariableUtilities
+public final class VariableUtilities
 {
 
 	/**
@@ -54,7 +54,11 @@ public class VariableUtilities
 	 * The VariableStoreFacet.
 	 */
 	private static final VariableStoreFacet RESULT_FACET = FacetLibrary.getFacet(VariableStoreFacet.class);
-	
+
+	private VariableUtilities()
+	{
+	}
+
 	/**
 	 * Returns the VariableID for a variable on the PlayerCharacter represented by the
 	 * given CharID.

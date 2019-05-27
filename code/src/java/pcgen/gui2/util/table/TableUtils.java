@@ -27,8 +27,12 @@ import javax.swing.JTable;
 import javax.swing.JToggleButton;
 import javax.swing.table.TableColumn;
 
-public class TableUtils
+public final class TableUtils
 {
+
+	private TableUtils()
+	{
+	}
 
 	public static JTable createDefaultTable()
 	{

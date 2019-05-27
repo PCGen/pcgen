@@ -38,6 +38,7 @@ import pcgen.core.analysis.SizeUtilities;
  * *Important*: This should NOT be used to store items from the DEFINE: token,
  * as those are Variables that should be stored using VariableKey
  */
+@SuppressWarnings("PMD.ClassWithOnlyPrivateConstructorsShouldBeFinal")
 public class FormulaKey implements TypeSafeConstant
 {
 

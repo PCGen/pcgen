@@ -32,8 +32,12 @@ import pcgen.util.Logging;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class AbilityTreeViews
+public final class AbilityTreeViews
 {
+
+	private AbilityTreeViews()
+	{
+	}
 
 	public static List<TreeView<AbilityFacade>> createTreeViewList(CharacterFacade character)
 	{

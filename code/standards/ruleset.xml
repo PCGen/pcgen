@@ -33,9 +33,10 @@
         <exclude name="UnusedFormalParameter"/>
         <exclude name="UnusedPrivateField"/>
         <exclude name="UnusedPrivateMethod"/>
-        <!-- This is excluded because it's a tradeoff: it creates a warning to use it, which then has to be addressed -->
+        <!-- it's a tradeoff: it creates a warning to use it, which then has to be addressed -->
         <exclude name="UseVarargs"/>
         <exclude name="JUnitAssertionsShouldIncludeMessage"/>
+        <!-- no networking code, but has false positives -->
         <exclude name="AvoidUsingHardCodedIP"/>
         <exclude name="UseAssertTrueInsteadOfAssertEquals"/>
         <exclude name="UseAssertEqualsInsteadOfAssertTrue"/>
@@ -44,28 +45,38 @@
         <exclude name="AvoidReassigningLoopVariables"/>
     </rule>
     <rule ref="category/java/codestyle.xml">
+        <!-- deprecated -->
         <exclude name="AbstractNaming"/>
+        <!-- flags classes that rely on default ctor -->
         <exclude name="AtLeastOneConstructor"/>
+        <!-- we don't use them, but don't disallow them -->
         <exclude name="AvoidFinalLocalVariable"/>
+        <!-- deprecated -->
         <exclude name="AvoidPrefixingMethodParameters"/>
         <exclude name="AvoidProtectedFieldInFinalClass"/>
         <exclude name="AvoidProtectedMethodInFinalClassNotExtending"/>
+        <!-- we have enough exceptions as to make this noise -->
         <exclude name="BooleanGetMethodName"/>
         <exclude name="CallSuperInConstructor"/>
         <exclude name="ClassNamingConventions"/>
+        <!-- adding comment to address Java's poor choice is noisy and not checkable -->
         <exclude name="CommentDefaultAccessModifier"/>
         <exclude name="ConfusingTernary"/>
+        <!-- we want minimal access. -->
         <exclude name="DefaultPackage"/>
+        <!-- default "do nothing" behavior is reasonable -->
         <exclude name="EmptyMethodInAbstractClassShouldBeAbstract"/>
         <exclude name="FieldDeclarationsShouldBeAtStartOfClass"/>
         <exclude name="ForLoopShouldBeWhileLoop"/>
+        <!-- we use longer names (e.g. 'IDT') -->
         <exclude name="GenericsNaming"/>
-        <!-- This is excluded because and this generates "noise pollution" around the usage of final, our semantic usage is as a trigger it is necessary, not when it's possible -->
+        <!-- Generates "noise pollution" around the usage of final, our semantic usage is as a trigger it is necessary, not when it's possible -->
         <exclude name="LocalVariableCouldBeFinal"/>
         <exclude name="LongVariable"/>
-        <!-- This is excluded because and this generates "noise pollution" around the usage of final, our semantic usage is as a trigger it is necessary, not when it's possible -->
+        <!-- generates "noise pollution" around the usage of final, our semantic usage is as a trigger it is necessary, not when it's possible -->
         <exclude name="MethodArgumentCouldBeFinal"/>
         <exclude name="MethodNamingConventions"/>
+        <!-- bad rule leading to confusing code -->
         <exclude name="OnlyOneReturn"/>
         <exclude name="PrematureDeclaration"/>
         <exclude name="ShortClassName"/>
@@ -98,9 +109,9 @@
         <exclude name="AvoidDeeplyNestedIfStmts"/>
         <exclude name="AvoidThrowingNullPointerException"/>
         <exclude name="AvoidThrowingRawExceptionTypes"/>
-        <exclude name="ClassWithOnlyPrivateConstructorsShouldBeFinal"/>
         <exclude name="CollapsibleIfStatements"/>
         <exclude name="CouplingBetweenObjects"/>
+        <!-- useless metric -->
         <exclude name="CyclomaticComplexity"/>
         <exclude name="DataClass"/>
         <exclude name="ExcessiveClassLength"/>
@@ -127,7 +138,6 @@
         <exclude name="TooManyFields"/>
         <exclude name="TooManyMethods"/>
         <exclude name="UseObjectForClearerAPI"/>
-        <exclude name="UseUtilityClass"/>
         <exclude name="UselessOverridingMethod"/>
     </rule>
     <rule ref="category/java/errorprone.xml">
@@ -184,7 +194,6 @@
         <exclude name="InefficientEmptyStringCheck"/>
         <exclude name="InefficientStringBuffering"/>
         <exclude name="InsufficientStringBufferDeclaration"/>
-        <exclude name="IntegerInstantiation"/>
         <!-- Excluded due to minimal perf gain and loss of code
              clarity (added length check)-->
         <exclude name="SimplifyStartsWith"/>
