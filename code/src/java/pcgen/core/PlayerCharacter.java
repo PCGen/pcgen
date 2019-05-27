@@ -1245,22 +1245,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 		return bonus;
 	}
-
-	/**
-	 * Checks whether a PC is allowed to level up. A PC is not allowed to level
-	 * up if the "Enforce Spending" option is set and he still has unallocated
-	 * skill points and/or feat slots remaining. This can be used to enforce
-	 * correct spending of these resources when creating high-level multiclass
-	 * characters.
-	 *
-	 * @return true if the PC can level up
-	 */
-	public boolean canLevelUp()
-	{
-		return !SettingsHandler.getEnforceSpendingBeforeLevelUp()
-			|| (getSkillPoints() <= 0 && getRemainingFeatPoolPoints() <= 0);
-	}
-
 	/**
 	 * Sets the filename of the character.
 	 *

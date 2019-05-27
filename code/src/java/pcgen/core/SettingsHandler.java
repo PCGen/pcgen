@@ -69,7 +69,6 @@ public final class SettingsHandler
 	// Map of RuleCheck keys and their settings
 	private static final Map<String, String> ruleCheckMap = new HashMap<>();
 
-	private static boolean enforceSpendingBeforeLevelUp = false;
 	private static final Properties FILTERSETTINGS = new Properties();
 	public static GameMode game = new GameMode("default");
 	private static boolean loadURLs = false;
@@ -189,21 +188,6 @@ public final class SettingsHandler
 	public static boolean getCreatePcgBackup()
 	{
 		return createPcgBackup;
-	}
-
-	/**
-	 * Sets whether PCgen will enforce the spending of all unallocated feats and skill points
-	 * before allowing the character to level up.
-	 * @param argEnforceSpendingBeforeLevelUp Should spending be enforced?
-	 */
-	private static void setEnforceSpendingBeforeLevelUp(final boolean argEnforceSpendingBeforeLevelUp)
-	{
-		enforceSpendingBeforeLevelUp = argEnforceSpendingBeforeLevelUp;
-	}
-
-	public static boolean getEnforceSpendingBeforeLevelUp()
-	{
-		return enforceSpendingBeforeLevelUp;
 	}
 
 	public static String getFilePaths()
@@ -519,7 +503,6 @@ public final class SettingsHandler
 		setAlwaysOverwrite(getPCGenOption("alwaysOverwrite", false)); //$NON-NLS-1$
 		setCreatePcgBackup(getPCGenOption("createPcgBackup", true));
 		setDefaultOSType(getPCGenOption("defaultOSType", null)); //$NON-NLS-1$
-		setEnforceSpendingBeforeLevelUp(getPCGenOption("enforceSpendingBeforeLevelUp", false)); //$NON-NLS-1$
 		setGearTab_AllowDebt(getPCGenOption("GearTab.allowDebt", false)); //$NON-NLS-1$
 		setGearTab_BuyRate(buyRate);
 		setGearTab_IgnoreCost(getPCGenOption("GearTab.ignoreCost", false)); //$NON-NLS-1$
@@ -718,7 +701,6 @@ public final class SettingsHandler
 		setPCGenOption("saveCustomInLst", isSaveCustomInLst()); //$NON-NLS-1$
 		setPCGenOption("saveOutputSheetWithPC", getSaveOutputSheetWithPC()); //$NON-NLS-1$
 		setPCGenOption("printSpellsWithPC", getPrintSpellsWithPC()); //$NON-NLS-1$
-		setPCGenOption("enforceSpendingBeforeLevelUp", getEnforceSpendingBeforeLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showHPDialogAtLevelUp", getShowHPDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showStatDialogAtLevelUp", getShowStatDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showTipOfTheDay", getShowTipOfTheDay()); //$NON-NLS-1$
