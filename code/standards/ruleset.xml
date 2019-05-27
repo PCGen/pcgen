@@ -2,7 +2,7 @@
 
 <!--
    - Code quality rule set for use with the PCGen Java code.
-   - See https://pmd.github.io/pmd-6.14.0/pmd_rules_java.html
+   - See https://pmd.github.io/latest/pmd_rules_java.html
    - for descriptions of the rules applied. 
  -->
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -71,6 +71,7 @@
         <exclude name="PrematureDeclaration"/>
         <exclude name="ShortClassName"/>
         <exclude name="ShortVariable"/>
+        <!-- Deprecated -->
         <exclude name="SuspiciousConstantFieldName"/>
         <exclude name="UnnecessaryConstructor"/>
         <exclude name="UnnecessaryFullyQualifiedName"/>
@@ -83,6 +84,7 @@
         <!-- This is excluded because we use "useless" parenthesis for readability -->
         <exclude name="UselessParentheses"/>
         <exclude name="UselessQualifiedThis"/>
+        <!-- Deprecated -->
         <exclude name="VariableNamingConventions"/>
         <exclude name="FieldNamingConventions"/>
         <exclude name="LinguisticNaming" />
@@ -113,7 +115,9 @@
         <exclude name="LawOfDemeter"/>
         <exclude name="LogicInversion"/>
         <exclude name="LoosePackageCoupling"/>
+        <!-- Deprecated -->
         <exclude name="NcssCount"/>
+        <!-- Deprecated -->
         <exclude name="NPathComplexity"/>
         <exclude name="SignatureDeclareThrowsException"/>
         <exclude name="SimplifyBooleanReturns"/>
@@ -138,6 +142,7 @@
         <exclude name="AvoidFieldNameMatchingMethodName"/>
         <exclude name="AvoidFieldNameMatchingTypeName"/>
         <exclude name="AvoidLiteralsInIfCondition"/>
+        <!-- we don't use seralization -->
         <exclude name="BeanMembersShouldSerialize"/>
         <exclude name="CloneThrowsCloneNotSupportedException"/>
         <exclude name="CompareObjectsWithEquals"/>
@@ -151,6 +156,7 @@
         <exclude name="InstantiationToGetClass"/>
         <exclude name="LoggerIsNotStaticFinal"/>
         <exclude name="MissingBreakInSwitch"/>
+        <!-- we don't use seralization -->
         <exclude name="MissingSerialVersionUID"/>
         <exclude name="NullAssignment"/>
         <exclude name="OverrideBothEqualsAndHashcode"/>
@@ -181,7 +187,7 @@
         <exclude name="InsufficientStringBufferDeclaration"/>
         <exclude name="IntegerInstantiation"/>
         <!-- Excluded due to minimal perf gain and loss of code
-	     clarity (added length check)-->
+             clarity (added length check)-->
         <exclude name="SimplifyStartsWith"/>
         <exclude name="RedundantFieldInitializer"/>
         <exclude name="StringToString"/>
