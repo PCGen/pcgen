@@ -217,11 +217,6 @@ public final class SettingsHandler
 		setGMGenOption(optionName, String.valueOf(optionValue));
 	}
 
-	public static void setGMGenOption(final String optionName, final double optionValue)
-	{
-		setGMGenOption(optionName, String.valueOf(optionValue));
-	}
-
 	public static void setGMGenOption(final String optionName, final String optionValue)
 	{
 		getOptions().setProperty("gmgen.options." + optionName, optionValue); //$NON-NLS-1$
@@ -246,11 +241,6 @@ public final class SettingsHandler
 	public static int getGMGenOption(final String optionName, final int defaultValue)
 	{
 		return Integer.decode(getGMGenOption(optionName, String.valueOf(defaultValue)));
-	}
-
-	public static Double getGMGenOption(final String optionName, final double defaultValue)
-	{
-		return Double.valueOf(getGMGenOption(optionName, Double.toString(defaultValue)));
 	}
 
 	public static String getGMGenOption(final String optionName, final String defaultValue)
