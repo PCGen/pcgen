@@ -104,8 +104,10 @@ public final class LstFileLoader
 			{
 				InputStream inputStream = url.openStream();
 				// Java doesn't handle BOM correctly. See http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4508058
-				var bomInputStream = new BOMInputStream(inputStream);
-				return new String(bomInputStream.readAllBytes(), StandardCharsets.UTF_8);
+				try (var bomInputStream = new BOMInputStream(inputStream))
+				{
+					return new String(bomInputStream.readAllBytes(), StandardCharsets.UTF_8);
+				}
 			}
 			else
 			{
