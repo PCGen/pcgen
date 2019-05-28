@@ -293,6 +293,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	 */
 	void startPCGenFrame()
 	{
+		GuiAssertions.assertIsSwingThread();
 		setVisible(true);
 		new StartupWorker().start();
 	}
@@ -455,6 +456,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				key = UIPropertyContext.createFilePropertyKey(file, key);
 				UIPropertyContext.getInstance().setInt(key, InfoTabbedPane.CHARACTER_SHEET_TAB);
 			}
+			GuiAssertions.assertIsNotSwingThread();
 			SwingUtilities.invokeAndWait(() -> {
 				if (!file.exists())
 				{
@@ -1074,6 +1076,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	 */
 	void createNewCharacter(File file)
 	{
+		GuiAssertions.assertIsSwingThread();
 		DataSetFacade data = getLoadedDataSetRef().get();
 		CharacterFacade character = CharacterManager.createNewCharacter(this, data);
 		//This is called before the we set it as the selected character so
