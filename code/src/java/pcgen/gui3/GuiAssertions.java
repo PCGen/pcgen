@@ -68,6 +68,16 @@ public final class GuiAssertions
 		}
 	}
 
+	public static void assertIsNotSwingThread()
+	{
+		if (SwingUtilities.isEventDispatchThread())
+		{
+			throw new WrongThreadException(
+					"expected NOT to be on swing thread - actually on: " + Thread.currentThread().getName());
+		}
+	}
+
+
 	public static void assertIsNotOnGUIThread()
 	{
 		if (Platform.isFxApplicationThread() || SwingUtilities.isEventDispatchThread())

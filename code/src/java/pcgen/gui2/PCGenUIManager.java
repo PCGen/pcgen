@@ -24,6 +24,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import gmgen.GMGenSystem;
 import pcgen.gui2.dialog.PreferencesDialog;
 import pcgen.gui2.facade.GMGenMessageHandler;
+import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.application.DesktopHandler;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.PluginManager;
@@ -68,6 +69,7 @@ public final class PCGenUIManager
 
 	public static void startGUI()
 	{
+		GuiAssertions.assertIsNotOnGUIThread();
 		Platform.setImplicitExit(false);
 		SwingUtilities.invokeLater(pcgenFrame::startPCGenFrame);
 	}
