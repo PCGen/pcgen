@@ -66,8 +66,6 @@ public class OutputPanel extends PCGenPrefsPanel
 	private static final String IN_OUTPUT = LanguageBundle.getString("in_Prefs_output");
 
 	private static final String IN_ALWAYS_OVERWRITE = LanguageBundle.getString("in_Prefs_alwaysOverwrite");
-	private static final String IN_INVALID_TO_HIT_TEXT = LanguageBundle.getString("in_Prefs_invalidToHitText");
-	private static final String IN_INVALID_DMG_TEXT = LanguageBundle.getString("in_Prefs_invalidDmgText");
 	private static final String IN_OUTPUT_SHEET_EQ_SET = LanguageBundle.getString("in_Prefs_templateEqSet");
 	private static final String IN_PAPER_TYPE = LanguageBundle.getString("in_Prefs_paperType");
 	private static final String IN_POST_EXPORT_COMAND_STANDARD =
@@ -106,8 +104,6 @@ public class OutputPanel extends PCGenPrefsPanel
 
 	private final JTextField postExportCommandStandard;
 	private final JTextField postExportCommandPDF;
-	private final JTextField invalidToHitText;
-	private final JTextField invalidDmgText;
 	private final JCheckBox alwaysOverwrite;
 	private final JCheckBox showSingleBoxPerBundle;
 
@@ -270,24 +266,6 @@ public class OutputPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(skillFilter, c);
 		this.add(skillFilter);
 
-		Utility.buildConstraints(c, 0, 12, 1, 1, 0, 0);
-		label = new JLabel(IN_INVALID_TO_HIT_TEXT);
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 1, 12, 2, 1, 0, 0);
-		invalidToHitText = new JTextField(String.valueOf(SettingsHandler.getInvalidToHitText()));
-		gridbag.setConstraints(invalidToHitText, c);
-		this.add(invalidToHitText);
-
-		Utility.buildConstraints(c, 0, 13, 1, 1, 0, 0);
-		label = new JLabel(IN_INVALID_DMG_TEXT);
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 1, 13, GridBagConstraints.REMAINDER, 1, 0, 0);
-		invalidDmgText = new JTextField(String.valueOf(SettingsHandler.getInvalidDmgText()));
-		gridbag.setConstraints(invalidDmgText, c);
-		this.add(invalidDmgText);
-
 		Utility.buildConstraints(c, 0, 14, 3, 1, 0, 0);
 		alwaysOverwrite = new JCheckBox(IN_ALWAYS_OVERWRITE, SettingsHandler.getAlwaysOverwrite());
 		gridbag.setConstraints(alwaysOverwrite, c);
@@ -363,8 +341,6 @@ public class OutputPanel extends PCGenPrefsPanel
 		SettingsHandler.setPrintSpellsWithPC(printSpellsWithPC.isSelected());
 		SettingsHandler.setPostExportCommandStandard(postExportCommandStandard.getText());
 		SettingsHandler.setPostExportCommandPDF(postExportCommandPDF.getText());
-		SettingsHandler.setInvalidToHitText(invalidToHitText.getText());
-		SettingsHandler.setInvalidDmgText(invalidDmgText.getText());
 		PCGenSettings.OPTIONS_CONTEXT.setInt(PCGenSettings.OPTION_SKILL_FILTER,
 			((SkillFilter) skillFilter.getSelectedItem()).getValue());
 

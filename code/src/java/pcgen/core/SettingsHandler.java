@@ -80,8 +80,6 @@ public final class SettingsHandler
 	private static int hpPercent = Constants.DEFAULT_HP_PERCENT;
 	private static boolean ignoreMonsterHDCap = false;
 
-	private static String invalidDmgText;
-	private static String invalidToHitText;
 	private static boolean gearTab_IgnoreCost = false;
 	private static boolean gearTab_AllowDebt = false;
 	private static int gearTab_SellRate = Constants.DEFAULT_GEAR_TAB_SELL_RATE;
@@ -455,32 +453,6 @@ public final class SettingsHandler
 		return ignoreMonsterHDCap;
 	}
 
-	/**
-	 * @param string The invalidDmgText to set.
-	 */
-	public static void setInvalidDmgText(final String string)
-	{
-		SettingsHandler.invalidDmgText = string;
-	}
-
-	public static String getInvalidDmgText()
-	{
-		return invalidDmgText;
-	}
-
-	/**
-	 * @param string The invalidToHitText to set.
-	 */
-	public static void setInvalidToHitText(final String string)
-	{
-		SettingsHandler.invalidToHitText = string;
-	}
-
-	public static String getInvalidToHitText()
-	{
-		return invalidToHitText;
-	}
-
 	public static void setLastTipShown(final int argLastTipShown)
 	{
 		lastTipShown = argLastTipShown;
@@ -561,10 +533,6 @@ public final class SettingsHandler
 		setHPPercent(getPCGenOption("hpPercent", 100)); //$NON-NLS-1$
 		setHPRollMethod(getPCGenOption("hpRollMethod", Constants.HP_STANDARD)); //$NON-NLS-1$
 		setIgnoreMonsterHDCap(getPCGenOption("ignoreMonsterHDCap", false)); //$NON-NLS-1$
-		setInvalidDmgText(getPCGenOption("invalidDmgText", //$NON-NLS-1$
-			LanguageBundle.getString("SettingsHandler.114"))); //$NON-NLS-1$
-		setInvalidToHitText(getPCGenOption("invalidToHitText", //$NON-NLS-1$
-			LanguageBundle.getString("SettingsHandler.114"))); //$NON-NLS-1$
 		setLastTipShown(getPCGenOption("lastTipOfTheDayTipShown", -1)); //$NON-NLS-1$
 		maxWandSpellLevel.set(getPCGenOption("maxWandSpellLevel", 4));
 		maxPotionSpellLevel.set(getPCGenOption("maxPotionSpellLevel", 3));
@@ -738,8 +706,6 @@ public final class SettingsHandler
 		setPCGenOption("hpPercent", getHPPercent()); //$NON-NLS-1$
 		setPCGenOption("hpRollMethod", getHPRollMethod()); //$NON-NLS-1$
 		setPCGenOption("ignoreMonsterHDCap", isIgnoreMonsterHDCap()); //$NON-NLS-1$
-		setPCGenOption("invalidDmgText", getInvalidDmgText()); //$NON-NLS-1$
-		setPCGenOption("invalidToHitText", getInvalidToHitText()); //$NON-NLS-1$
 		setPCGenOption("lastTipOfTheDayTipShown", getLastTipShown()); //$NON-NLS-1$
 		setPCGenOption("loadURLs", loadURLs); //$NON-NLS-1$
 		setPCGenOption("maxPotionSpellLevel", maxPotionSpellLevel().get()); //$NON-NLS-1$
