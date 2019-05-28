@@ -67,7 +67,7 @@ public final class JFXPanelFromResource<T> extends JFXPanel implements Controlla
 	@Override
 	public T getController()
 	{
-		return CompletableFuture.<T>supplyAsync(fxmlLoader::getController, Platform::runLater).join();
+		return GuiUtility.runOnJavaFXThreadNow(fxmlLoader::getController);
 	}
 
 	public void showAsStage(String title)

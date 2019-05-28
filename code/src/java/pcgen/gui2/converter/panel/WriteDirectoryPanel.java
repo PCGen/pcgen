@@ -22,7 +22,6 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
 
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
@@ -37,9 +36,9 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Campaign;
 import pcgen.gui2.converter.event.ProgressEvent;
 import pcgen.gui2.converter.event.TaskStrategyMessage;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.PCGenSettings;
 
-import javafx.application.Platform;
 import javafx.stage.DirectoryChooser;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
@@ -117,8 +116,8 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 
 			while (true)
 			{
-				File fileToOpen = CompletableFuture.supplyAsync(() ->
-						directoryChooser.showDialog(null), Platform::runLater).join();
+				File fileToOpen = GuiUtility.runOnJavaFXThreadNow(() ->
+						directoryChooser.showDialog(null));
 				if (fileToOpen != null)
 				{
 					assert fileToOpen.isDirectory();
