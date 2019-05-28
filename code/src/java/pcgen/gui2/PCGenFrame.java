@@ -97,8 +97,10 @@ import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
 import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.GuiUtility;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.SimpleHtmlPanelController;
+import pcgen.gui3.component.PCGenToolBar;
 import pcgen.gui3.dialog.AboutDialog;
 import pcgen.gui3.dialog.TipOfTheDayController;
 import pcgen.io.PCGFile;
@@ -116,9 +118,11 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
 
 import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.ToolBar;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -186,8 +190,13 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		root.setInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT, createInputMap(actionMap));
 
 		characterTabs.add(new InfoGuidePane(this, uiContext));
+
 		setJMenuBar(pcGenMenuBar);
-		add(new PCGenToolBar(this), BorderLayout.NORTH);
+		PCGenToolBar pcGenToolBar = new PCGenToolBar(this);
+		ToolBar toolBar = pcGenToolBar.buildMenu();
+		JFXPanel wrappedToolBar = GuiUtility.wrapParentAsJFXPanel(toolBar);
+
+		add(wrappedToolBar, BorderLayout.NORTH);
 		add(characterTabs, BorderLayout.CENTER);
 		add(statusBar, BorderLayout.SOUTH);
 		updateTitle();
@@ -1020,8 +1029,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 
 	}
 
-	void showOpenCharacterChooser()
+	public void showOpenCharacterChooser()
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		PropertyContext context = PCGenSettings.getInstance();
 		String path = lastCharacterPath;
 		if (path == null)
@@ -1074,7 +1084,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	 * then sets the character as the currently selected character
 	 * @param file the File for this character
 	 */
-	void createNewCharacter(File file)
+	public void createNewCharacter(File file)
 	{
 		GuiAssertions.assertIsSwingThread();
 		DataSetFacade data = getLoadedDataSetRef().get();

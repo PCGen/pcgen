@@ -76,6 +76,7 @@ public final class PCGenUIManager
 
 	public static void displayPreferencesDialog()
 	{
+		GuiAssertions.assertIsSwingThread();
 		PreferencesDialog.show(pcgenFrame);
 	}
 
