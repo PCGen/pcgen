@@ -22,14 +22,9 @@ import static javax.swing.JOptionPane.CLOSED_OPTION;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.Rectangle;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -203,85 +198,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		setIconImage(Icons.PCGenApp.getImageIcon().getImage());
 	}
 
-	/**
-	 * This checks to make sure that the given rectangle will be visible
-	 * on the current graphics environment
-	 */
-	private boolean checkBounds(Rectangle rect)
-	{
-		if (rect.isEmpty())
-		{
-			return false;
-		}
-		GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
-
-		for (GraphicsDevice device : env.getScreenDevices())
-		{
-			Rectangle bounds = device.getDefaultConfiguration().getBounds();
-			if (bounds.contains(rect) || bounds.intersects(rect))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
 	private void initSettings()
 	{
-		final UIPropertyContext frameContext = UIPropertyContext.createContext("PCGenFrame");
-
-		Rectangle screenBounds = getGraphicsConfiguration().getBounds();
-
 		setSize(1060, 725); //this is the default frame dimensions
-		setLocationRelativeTo(null); //center the frame
-		if (!screenBounds.contains(getBounds()))
-		{
-			setSize((5 * screenBounds.width) / 6, (5 * screenBounds.height) / 6);
-			setLocationRelativeTo(null); //center the frame
-		}
-		Rectangle frameBounds = getBounds();
-		frameBounds.x = frameContext.initInt("bounds.x", frameBounds.x);
-		frameBounds.y = frameContext.initInt("bounds.y", frameBounds.x);
-		frameBounds.width = frameContext.initInt("bounds.width", frameBounds.width);
-		frameBounds.height = frameContext.initInt("bounds.height", frameBounds.height);
 
-		int extendedState = frameContext.initInt("extendedState", NORMAL);
-		if (extendedState == ICONIFIED)
-		{
-			extendedState = NORMAL;
-			frameContext.setInt("extendedState", NORMAL);
-		}
-		setExtendedState(extendedState);
-		if (checkBounds(frameBounds))
-		{
-			setBounds(frameBounds);
-		}
-		addPropertyChangeListener("extendedState", frameContext);
-		addComponentListener(new ComponentAdapter()
-		{
-
-			@Override
-			public void componentResized(ComponentEvent e)
-			{
-				updateBounds();
-			}
-
-			@Override
-			public void componentMoved(ComponentEvent e)
-			{
-				updateBounds();
-			}
-
-			private void updateBounds()
-			{
-				Rectangle bounds = getBounds();
-				frameContext.setInt("bounds.x", bounds.x);
-				frameContext.setInt("bounds.y", bounds.y);
-				frameContext.setInt("bounds.width", bounds.width);
-				frameContext.setInt("bounds.height", bounds.height);
-			}
-
-		});
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(new WindowAdapter()
 		{
