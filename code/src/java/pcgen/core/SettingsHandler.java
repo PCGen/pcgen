@@ -90,7 +90,6 @@ public final class SettingsHandler
 	private static final SortedProperties OPTIONS = new SortedProperties();
 	private static final Properties FILEPATHS = new Properties();
 	private static final String FILE_LOCATION = Globals.getFilepathsPath();
-	private static File pccFilesLocation = null;
 	private static File backupPcgPath = null;
 	private static boolean createPcgBackup = true;
 	private static File portraitsPath = new File(Globals.getDefaultPath());
@@ -199,7 +198,7 @@ public final class SettingsHandler
 	 * before allowing the character to level up.
 	 * @param argEnforceSpendingBeforeLevelUp Should spending be enforced?
 	 */
-	public static void setEnforceSpendingBeforeLevelUp(final boolean argEnforceSpendingBeforeLevelUp)
+	private static void setEnforceSpendingBeforeLevelUp(final boolean argEnforceSpendingBeforeLevelUp)
 	{
 		enforceSpendingBeforeLevelUp = argEnforceSpendingBeforeLevelUp;
 	}
@@ -219,7 +218,7 @@ public final class SettingsHandler
 		return getFilepathProp().getProperty("pcgen.filepaths", def_type); //$NON-NLS-1$
 	}
 
-	public static Properties getFilepathProp()
+	private static Properties getFilepathProp()
 	{
 		return FILEPATHS;
 	}
@@ -230,12 +229,6 @@ public final class SettingsHandler
 	 * ({@code options}). This is called by
 	 * {@code writeOptionsProperties}, which then saves the
 	 * {@code options} into a file.
-	 * <p>
-	 * I am guessing that named object properties are faster to access
-	 * than using the {@code getProperty} method, and that this is
-	 * why settings are stored as static properties of {@code Global},
-	 * but converted into a {@code Properties} object for
-	 * storage and retrieval.
 	 * @param optionName
 	 * @param optionValue
 	 */
@@ -263,12 +256,6 @@ public final class SettingsHandler
 	 * Set most of this objects static properties from the loaded {@code options}.
 	 * Called by readOptionsProperties. Most of the static properties are
 	 * set as a side effect, with the main screen size being returned.
-	 * <p>
-	 * I am guessing that named object properties are faster to access
-	 * than using the {@code getProperty} method, and that this is
-	 * why settings are stored as static properties of {@code Global},
-	 * but converted into a {@code Properties} object for
-	 * storage and retrieval.
 	 * @param optionName
 	 * @param defaultValue
 	 *
@@ -581,8 +568,6 @@ public final class SettingsHandler
 		setLastTipShown(getPCGenOption("lastTipOfTheDayTipShown", -1)); //$NON-NLS-1$
 		maxWandSpellLevel.set(getPCGenOption("maxWandSpellLevel", 4));
 		maxPotionSpellLevel.set(getPCGenOption("maxPotionSpellLevel", 3));
-		setPccFilesLocation(new File(expandRelativePath(getPCGenOption("pccFilesLocation", //$NON-NLS-1$
-			System.getProperty("user.dir") + File.separator + "data")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setGmgenPluginDir(
 			new File(expandRelativePath(getOptions().getProperty("gmgen.files.gmgenPluginDir", //$NON-NLS-1$
 			System.getProperty("user.dir") + File.separator + "plugins")))); //$NON-NLS-1$ //$NON-NLS-2$
@@ -716,16 +701,6 @@ public final class SettingsHandler
 			setPCGenOption("game", ""); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		if (getPccFilesLocation() != null)
-		{
-			setPCGenOption(
-				"pccFilesLocation", retractRelativePath(getPccFilesLocation().getAbsolutePath())); //$NON-NLS-1$
-		}
-		else
-		{
-			setPCGenOption("pccFilesLocation", ""); //$NON-NLS-1$ //$NON-NLS-2$
-		}
-
 		for (int idx = 0; idx < SystemCollections.getUnmodifiableGameModeList().size(); idx++)
 		{
 			final GameMode gameMode = SystemCollections.getUnmodifiableGameModeList().get(idx);
@@ -792,7 +767,7 @@ public final class SettingsHandler
 		setPCGenOption("inputUnconstructedMessages", inputUnconstructedMessages()); //$NON-NLS-1$
 	}
 
-	public static void setPCGenOption(final String optionName, final int optionValue)
+	private static void setPCGenOption(final String optionName, final int optionValue)
 	{
 		setPCGenOption(optionName, String.valueOf(optionValue));
 	}
@@ -809,7 +784,7 @@ public final class SettingsHandler
 		}
 	}
 
-	public static int getPCGenOption(final String optionName, final int defaultValue)
+	private static int getPCGenOption(final String optionName, final int defaultValue)
 	{
 		return Integer.decode(getPCGenOption(optionName, String.valueOf(defaultValue)));
 	}
@@ -827,26 +802,6 @@ public final class SettingsHandler
 		}
 
 		return new File(selectedCharacterPDFOutputSheet).getParentFile().getAbsolutePath();
-	}
-
-	/**
-	 * Where to load the data (lst) files from
-	 * @param argPccFilesLocation
-	 */
-	public static void setPccFilesLocation(final File argPccFilesLocation)
-	{
-		pccFilesLocation = argPccFilesLocation;
-	}
-
-	/**
-	 * Where to load the data (lst) files from
-	 * @deprecated Use ConfigurationSettings.getPccFilesDir() instead.
-	 * @return pcc files location
-	 */
-	@Deprecated
-	public static File getPccFilesLocation()
-	{
-		return pccFilesLocation;
 	}
 
 	/**
@@ -1303,12 +1258,6 @@ public final class SettingsHandler
 	 * ({@code options}). This is called by
 	 * {@code writeOptionsProperties}, which then saves the
 	 * {@code options} into a file.
-	 * <p>
-	 * I am guessing that named object properties are faster to access
-	 * than using the {@code getProperty} method, and that this is
-	 * why settings are stored as static properties of {@code Global},
-	 * but converted into a {@code Properties} object for
-	 * storage and retrieval.
 	 * @param optionName
 	 * @param optionValue
 	 */
@@ -1317,21 +1266,10 @@ public final class SettingsHandler
 		setPCGenOption(optionName, optionValue ? "true" : "false"); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
-	private static void setPCGenOption(final String optionName, final double optionValue)
-	{
-		setPCGenOption(optionName, String.valueOf(optionValue));
-	}
-
 	/**
 	 * Set most of this objects static properties from the loaded {@code options}.
 	 * Called by readOptionsProperties. Most of the static properties are
 	 * set as a side effect, with the main screen size being returned.
-	 * <p>
-	 * I am guessing that named object properties are faster to access
-	 * than using the {@code getProperty} method, and that this is
-	 * why settings are stored as static properties of {@code Global},
-	 * but converted into a {@code Properties} object for
-	 * storage and retrieval.
 	 * @param optionName
 	 * @param defaultValue
 	 *
@@ -1342,11 +1280,6 @@ public final class SettingsHandler
 		final String option = getPCGenOption(optionName, defaultValue ? "true" : "false"); //$NON-NLS-1$ //$NON-NLS-2$
 
 		return "true".equalsIgnoreCase(option); //$NON-NLS-1$
-	}
-
-	private static Double getPCGenOption(final String optionName, final double defaultValue)
-	{
-		return Double.valueOf(getPCGenOption(optionName, Double.toString(defaultValue)));
 	}
 
 	/**
