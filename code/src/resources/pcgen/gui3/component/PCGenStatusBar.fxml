@@ -25,7 +25,7 @@
     <Text fx:id="loadingLabel" BorderPane.alignment="BOTTOM_LEFT"/>
     <Region HBox.hgrow="always"/>
     <StackPane>
-        <ProgressBar fx:id="loadProgress" progress="0.0" BorderPane.alignment="BOTTOM_RIGHT"/>
+        <ProgressBar fx:id="loadProgress" BorderPane.alignment="BOTTOM_RIGHT"/>
         <Label fx:id="progressText" labelFor="$loadProgress"  />
     </StackPane>
 </fx:root>
