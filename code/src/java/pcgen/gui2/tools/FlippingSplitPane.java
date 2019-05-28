@@ -120,8 +120,7 @@ public class FlippingSplitPane extends JSplitPane
 	 * otherwise take the defaults of {@link JSplitPane#JSplitPane(int, Component,
 	 * Component)}.
 	 */
-	public FlippingSplitPane(int newOrientation, Component newLeftComponent, Component newRightComponent,
-		String prefsKey)
+	public FlippingSplitPane(int newOrientation, Component newLeftComponent, Component newRightComponent)
 	{
 		super(newOrientation, newLeftComponent, newRightComponent);
 
@@ -134,7 +133,7 @@ public class FlippingSplitPane extends JSplitPane
 	 * Component, Component)}.
 	 */
 	public FlippingSplitPane(int newOrientation, boolean newContinuousLayout, Component newLeftComponent,
-		Component newRightComponent, String prefsKey)
+	                         Component newRightComponent)
 	{
 		super(newOrientation, newContinuousLayout, newLeftComponent, newRightComponent);
 

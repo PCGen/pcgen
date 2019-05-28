@@ -322,7 +322,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		});
 
 		// Build the split pane
-		splitPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, settingsScroll, settingsPanel, "Prefs");
+		splitPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, settingsScroll, settingsPanel);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 
