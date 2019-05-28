@@ -213,9 +213,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements PrimitiveToken
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		StringBuilder sb = new StringBuilder();
-		sb.append(getPrimitiveLST());
-		return sb.toString();
+		return String.valueOf(getPrimitiveLST());
 	}
 
 	public abstract CharSequence getPrimitiveLST();

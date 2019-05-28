@@ -54,6 +54,7 @@ import pcgen.core.analysis.SizeUtilities;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.UnarmedDamageDisplay;
 import pcgen.io.ExportHandler;
+import pcgen.system.LanguageBundle;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
@@ -66,23 +67,23 @@ public class WeaponToken extends Token
 	/** Token Name */
 	public static final String TOKENNAME = "WEAPON";
 	/** PC Bonus = 0 */
-	public static final int WPTYPEBONUS_PC = 0;
+	private static final int WPTYPEBONUS_PC = 0;
 	/** Equipment Bonus = 1 */
-	public static final int WPTYPEBONUS_EQ = 1;
+	private static final int WPTYPEBONUS_EQ = 1;
 	/** Feat Bonus = 2 */
-	public static final int WPTYPEBONUS_FEAT = 2;
+	private static final int WPTYPEBONUS_FEAT = 2;
 	/** Template Bonus = 3 */
-	public static final int WPTYPEBONUS_TEMPLATE = 3;
+	private static final int WPTYPEBONUS_TEMPLATE = 3;
 	/** Damage Mode normal = 0 */
-	public static final int DAMAGEMODE_NORMAL = 0;
+	private static final int DAMAGEMODE_NORMAL = 0;
 	/** Damage Mode basic = 1 */
-	public static final int DAMAGEMODE_BASIC = 1;
+	private static final int DAMAGEMODE_BASIC = 1;
 	/** Damage Mode offhand = 2 */
-	public static final int DAMAGEMODE_OFFHAND = 2;
+	private static final int DAMAGEMODE_OFFHAND = 2;
 	/** Damage Mode twohands = 3 */
-	public static final int DAMAGEMODE_TWOHANDS = 3;
+	private static final int DAMAGEMODE_TWOHANDS = 3;
 	/** Damage Mode double = 4 */
-	public static final int DAMAGEMODE_DOUBLE = 4;
+	private static final int DAMAGEMODE_DOUBLE = 4;
 
 	// This defines if I should return the values
 	// based on weapon's location or not.
@@ -90,23 +91,23 @@ public class WeaponToken extends Token
 	// of the weapon and calculates all data
 	// with that setting
 	/** total hit = 0 */
-	public static final int HITMODE_TOTALHIT = 0;
+	private static final int HITMODE_TOTALHIT = 0;
 	/** One weapon = 1 */
-	public static final int HITMODE_BASEHIT = 1;
+	private static final int HITMODE_BASEHIT = 1;
 	/** Two weapons, this is primary, off-hand heavy = 2 */
-	public static final int HITMODE_TWPHITH = 2;
+	private static final int HITMODE_TWPHITH = 2;
 	/** Two weapons, this is primary, off-hand light = 3 */
-	public static final int HITMODE_TWPHITL = 3;
+	private static final int HITMODE_TWPHITL = 3;
 	/** Two weapons, this is off-hand (heavy) = 4 */
-	public static final int HITMODE_TWOHIT = 4;
+	private static final int HITMODE_TWOHIT = 4;
 	/** Two weapons, this is off-hand (heavy) = 4 */
-	public static final int HITMODE_TWFOHH = 4;
+	private static final int HITMODE_TWFOHH = 4;
 	/** Two weapons, this is off-hand (light) = 5 */
-	public static final int HITMODE_TWFOHL = 5;
+	private static final int HITMODE_TWFOHL = 5;
 	/** One weapon, off-hand = 6 */
-	public static final int HITMODE_OHHIT = 6;
+	private static final int HITMODE_OHHIT = 6;
 	/** One weapon, both-hands = 7 */
-	public static final int HITMODE_THHIT = 7;
+	private static final int HITMODE_THHIT = 7;
 
 	@Override
 	public String getTokenName()
@@ -204,7 +205,7 @@ public class WeaponToken extends Token
 	 * @param tokenSource The original source of the export token (for error reporting.)
 	 * @return The output for the token for the weapon and character.
 	 */
-	public String getWeaponToken(PlayerCharacter pc, Equipment eq, StringTokenizer aTok, String tokenSource)
+	protected String getWeaponToken(PlayerCharacter pc, Equipment eq, StringTokenizer aTok, String tokenSource)
 	{
 		String token = "";
 		if (aTok.hasMoreTokens())
@@ -531,7 +532,7 @@ public class WeaponToken extends Token
 				for (Map.Entry<String, String> me : qualityMap.entrySet())
 				{
 					qualities
-						.add(new StringBuilder().append(me.getKey()).append(": ").append(me.getValue()).toString());
+						.add(me.getKey() + ": " + me.getValue());
 				}
 				return StringUtil.join(qualities, ", ");
 			}
@@ -558,7 +559,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return is light sub token
 	 */
-	public static String getIsLightToken(PlayerCharacter pc, Equipment eq)
+	private static String getIsLightToken(PlayerCharacter pc, Equipment eq)
 	{
 		return eq.isWeaponLightForPC(pc) ? "TRUE" : "FALSE";
 	}
@@ -570,7 +571,7 @@ public class WeaponToken extends Token
 	 * @param star
 	 * @return name sub token
 	 */
-	public static String getNameToken(Equipment eq, PlayerCharacter pc, boolean star)
+	private static String getNameToken(Equipment eq, PlayerCharacter pc, boolean star)
 	{
 		StringBuilder sb = new StringBuilder();
 		if (eq.isEquipped() && star)
@@ -589,7 +590,7 @@ public class WeaponToken extends Token
 	 * @param pc
 	 * @return out put name token
 	 */
-	public static String getOutputNameToken(Equipment eq, PlayerCharacter pc)
+	private static String getOutputNameToken(Equipment eq, PlayerCharacter pc)
 	{
 		StringBuilder sb = new StringBuilder();
 		if (eq.isEquipped())
@@ -607,7 +608,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return long name sub token
 	 */
-	public static String getLongNameToken(Equipment eq)
+	private static String getLongNameToken(Equipment eq)
 	{
 		StringBuilder sb = new StringBuilder();
 		if (eq.isEquipped())
@@ -626,7 +627,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return Attacks sub token
 	 */
-	public static int getAttacksToken(PlayerCharacter pc, Equipment eq)
+	private static int getAttacksToken(PlayerCharacter pc, Equipment eq)
 	{
 		return (int) eq.bonusTo(pc, "WEAPON", "ATTACKS", true);
 	}
@@ -637,7 +638,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return ammunition count sub token
 	 */
-	public static int getAmmunitionCountToken(PlayerCharacter pc, Equipment eq)
+	private static int getAmmunitionCountToken(PlayerCharacter pc, Equipment eq)
 	{
 		int ammoCount = 0;
 		String containerCapacity = eq.getContainerCapacityString().toUpperCase();
@@ -664,7 +665,7 @@ public class WeaponToken extends Token
 	 * @param ammo
 	 * @return the ammunition token
 	 */
-	public static String getAmmunitionToken(PlayerCharacter pc, Equipment eq, int ammo)
+	private static String getAmmunitionToken(PlayerCharacter pc, Equipment eq, int ammo)
 	{
 		Equipment ammoUser = getAmmoUser(pc, eq, ammo);
 
@@ -680,7 +681,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return contents count sub token
 	 */
-	public static int getContentsCountToken(Equipment eq)
+	private static int getContentsCountToken(Equipment eq)
 	{
 		return eq.getContainedEquipmentCount();
 	}
@@ -691,7 +692,7 @@ public class WeaponToken extends Token
 	 * @param content
 	 * @return Get Contents token
 	 */
-	public static String getContentsToken(Equipment eq, int content)
+	private static String getContentsToken(Equipment eq, int content)
 	{
 		if (content > -1)
 		{
@@ -709,7 +710,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return heft token
 	 */
-	public static String getHeft(PlayerCharacter pc, Equipment eq)
+	private static String getHeft(PlayerCharacter pc, Equipment eq)
 	{
 		String retString = "";
 		if (pc.sizeInt() > eq.sizeInt())
@@ -733,7 +734,7 @@ public class WeaponToken extends Token
 	 * @param type
 	 * @return is type token
 	 */
-	public static String getIsTypeToken(Equipment eq, String type)
+	private static String getIsTypeToken(Equipment eq, String type)
 	{
 		return isTypeToken(eq, type) ? "TRUE" : "FALSE";
 	}
@@ -744,7 +745,7 @@ public class WeaponToken extends Token
 	 * @param type
 	 * @return is type token
 	 */
-	public static boolean isTypeToken(Equipment eq, String type)
+	private static boolean isTypeToken(Equipment eq, String type)
 	{
 		return eq.isType(type);
 	}
@@ -755,7 +756,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return MULT token
 	 */
-	public static String getMultToken(PlayerCharacter pc, Equipment eq)
+	private static String getMultToken(PlayerCharacter pc, Equipment eq)
 	{
 		String critMultVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.CRITMULT);
 		if (critMultVar != null)
@@ -796,11 +797,10 @@ public class WeaponToken extends Token
 		{
 			return critMult1.toString();
 		}
-		StringBuilder sb = new StringBuilder();
-		sb.append(critMult1);
-		sb.append('/');
-		sb.append(critMult2);
-		return sb.toString();
+		String sb = String.valueOf(critMult1)
+				+ '/'
+				+ critMult2;
+		return sb;
 	}
 
 	/**
@@ -832,7 +832,7 @@ public class WeaponToken extends Token
 	 * @param aPC
 	 * @return range list token
 	 */
-	public static String getRangeListToken(Equipment eq, int range, PlayerCharacter aPC)
+	private static String getRangeListToken(Equipment eq, int range, PlayerCharacter aPC)
 	{
 		List<String> rangeList = getRangeList(eq, true, aPC);
 
@@ -851,7 +851,7 @@ public class WeaponToken extends Token
 	 * @param units
 	 * @return range token
 	 */
-	public static String getRangeToken(Equipment eq, PlayerCharacter pc, boolean units)
+	private static String getRangeToken(Equipment eq, PlayerCharacter pc, boolean units)
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(Globals.getGameModeUnitSet().displayDistanceInUnitSet(EqToken.getRange(pc, eq)));
@@ -868,7 +868,7 @@ public class WeaponToken extends Token
 	 * @param pc
 	 * @return the size mod token
 	 */
-	public static int getSizeModToken(PlayerCharacter pc)
+	private static int getSizeModToken(PlayerCharacter pc)
 	{
 		return (int) pc.getSizeAdjustmentBonusTo("TOHIT", "TOHIT");
 	}
@@ -878,7 +878,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return category token
 	 */
-	public static String getCategoryToken(Equipment eq)
+	private static String getCategoryToken(Equipment eq)
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(weaponCategories(eq));
@@ -929,7 +929,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return type token
 	 */
-	public static String getTypeToken(Equipment eq)
+	private static String getTypeToken(Equipment eq)
 	{
 		String types = weaponTypes(eq, true);
 
@@ -946,7 +946,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return hand token
 	 */
-	public static String getHandToken(Equipment eq)
+	private static String getHandToken(Equipment eq)
 	{
 		String location = eq.getLocation().getString();
 		return location.replaceAll(".*\\(", "").replaceAll("\\(.*", "").replaceAll("\\).*", "");
@@ -958,7 +958,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return Magic damage token
 	 */
-	public static int getMagicDamageToken(PlayerCharacter pc, Equipment eq)
+	private static int getMagicDamageToken(PlayerCharacter pc, Equipment eq)
 	{
 		String profName = getProfName(eq);
 		int magicdamage =
@@ -973,7 +973,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return magic to hit token
 	 */
-	public static int getMagicHitToken(PlayerCharacter pc, Equipment eq)
+	private static int getMagicHitToken(PlayerCharacter pc, Equipment eq)
 	{
 		String profName = getProfName(eq);
 		int magichit =
@@ -988,7 +988,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return misc token
 	 */
-	public static int getMiscToken(PlayerCharacter pc, Equipment eq)
+	private static int getMiscToken(PlayerCharacter pc, Equipment eq)
 	{
 		String profName = getProfName(eq);
 		int miscBonus = ((int) pc.getTotalBonusTo("WEAPONPROF=" + profName, "TOHIT")
@@ -1004,7 +1004,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return feat damage token
 	 */
-	public static int getFeatDamageToken(PlayerCharacter pc, Equipment eq)
+	private static int getFeatDamageToken(PlayerCharacter pc, Equipment eq)
 	{
 		String profName = getProfName(eq);
 		int featBonus =
@@ -1020,7 +1020,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return Get feat to hit token
 	 */
-	public static int getFeatHitToken(PlayerCharacter pc, Equipment eq)
+	private static int getFeatHitToken(PlayerCharacter pc, Equipment eq)
 	{
 		String profName = getProfName(eq);
 		int featBonus =
@@ -1035,7 +1035,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return template damage token
 	 */
-	public static int getTemplateDamageToken(PlayerCharacter pc, Equipment eq)
+	private static int getTemplateDamageToken(PlayerCharacter pc, Equipment eq)
 	{
 		String profName = getProfName(eq);
 		int templateBonus = (int) pc.getTemplateBonusTo("WEAPON", "DAMAGE")
@@ -1050,7 +1050,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return to hit token
 	 */
-	public static int getTemplateHitToken(PlayerCharacter pc, Equipment eq)
+	private static int getTemplateHitToken(PlayerCharacter pc, Equipment eq)
 	{
 		String profName = getProfName(eq);
 		int templateBonus = (int) pc.getTemplateBonusTo("WEAPON", "TOHIT")
@@ -1064,20 +1064,9 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return size token
 	 */
-	public static String getSizeToken(Equipment eq)
+	private static String getSizeToken(Equipment eq)
 	{
 		return eq.getSize();
-	}
-
-	/**
-	 * Get the SPROP token
-	 * @param pc
-	 * @param eq
-	 * @return SPROP token
-	 */
-	public static String getSpropToken(PlayerCharacter pc, Equipment eq)
-	{
-		return getSpropToken(pc, eq, -1, -1);
 	}
 
 	/**
@@ -1088,7 +1077,7 @@ public class WeaponToken extends Token
 	 * @param ammo
 	 * @return SPROP token
 	 */
-	public static String getSpropToken(PlayerCharacter pc, Equipment eq, int content, int ammo)
+	private static String getSpropToken(PlayerCharacter pc, Equipment eq, int content, int ammo)
 	{
 		String sprop = eq.getSpecialProperties(pc);
 
@@ -1153,7 +1142,7 @@ public class WeaponToken extends Token
 	 * @param eq	the equipment
 	 * @return reach token
 	 */
-	public static String getReachToken(PlayerCharacter pc, Equipment eq)
+	private static String getReachToken(PlayerCharacter pc, Equipment eq)
 	{
 		String eqReach = pc.getControl("EQREACH");
 		int sum;
@@ -1178,7 +1167,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return  weight in set token
 	 */
-	public static String getWTToken(PlayerCharacter pc, Equipment eq)
+	private static String getWTToken(PlayerCharacter pc, Equipment eq)
 	{
 		return Globals.getGameModeUnitSet().displayWeightInUnitSet(eq.getWeight(pc).doubleValue());
 	}
@@ -1189,7 +1178,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return number of attacks token
 	 */
-	public static int getNumAttacksToken(PlayerCharacter pc, Equipment eq)
+	private static int getNumAttacksToken(PlayerCharacter pc, Equipment eq)
 	{
 		String melee = getMeleeAttackString(pc);
 		String unarmed = getUnarmedAttackString(pc);
@@ -1247,7 +1236,7 @@ public class WeaponToken extends Token
 	 * @param eq
 	 * @return critical token
 	 */
-	public static String getCritToken(PlayerCharacter pc, Equipment eq)
+	private static String getCritToken(PlayerCharacter pc, Equipment eq)
 	{
 		StringBuilder sb = new StringBuilder();
 		String critRangeVar = ControlUtilities.getControlToken(Globals.getContext(), CControl.CRITRANGE);
@@ -1305,19 +1294,6 @@ public class WeaponToken extends Token
 	 * Get damage token
 	 * @param pc
 	 * @param eq
-	 * @param bonusOnly
-	 * @param base
-	 * @return damage token
-	 */
-	public static String getDamageToken(PlayerCharacter pc, Equipment eq, boolean bonusOnly, boolean base)
-	{
-		return getDamageToken(pc, eq, -1, -1, -1, bonusOnly, base);
-	}
-
-	/**
-	 * Get damage token
-	 * @param pc
-	 * @param eq
 	 * @param range
 	 * @param content
 	 * @param ammo
@@ -1325,8 +1301,8 @@ public class WeaponToken extends Token
 	 * @param base
 	 * @return damage token
 	 */
-	public static String getDamageToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
-		boolean bonusOnly, boolean base)
+	private static String getDamageToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                     boolean bonusOnly, boolean base)
 	{
 		boolean isDouble = (eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
 		boolean isDoubleSplit = (eq.isType("Head1") || eq.isType("Head2"));
@@ -1389,26 +1365,14 @@ public class WeaponToken extends Token
 	 * Get basic damage token
 	 * @param pc
 	 * @param eq
-	 * @param bonusOnly
-	 * @return basic damage token
-	 */
-	public static String getBasicDamageToken(PlayerCharacter pc, Equipment eq, boolean bonusOnly)
-	{
-		return getBasicDamageToken(pc, eq, -1, -1, -1, bonusOnly);
-	}
-
-	/**
-	 * Get basic damage token
-	 * @param pc
-	 * @param eq
 	 * @param range
 	 * @param content
 	 * @param ammo
 	 * @param bonusOnly
 	 * @return basic damage token
 	 */
-	public static String getBasicDamageToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
-		boolean bonusOnly)
+	private static String getBasicDamageToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                          boolean bonusOnly)
 	{
 		int damageMode = DAMAGEMODE_BASIC;
 		int hands = 1;
@@ -1419,26 +1383,14 @@ public class WeaponToken extends Token
 	 * Get two handed damage token
 	 * @param pc
 	 * @param eq
-	 * @param bonusOnly
-	 * @return two handed damage token
-	 */
-	public static String getTHDamageToken(PlayerCharacter pc, Equipment eq, boolean bonusOnly)
-	{
-		return getTHDamageToken(pc, eq, -1, -1, -1, bonusOnly);
-	}
-
-	/**
-	 * Get two handed damage token
-	 * @param pc
-	 * @param eq
 	 * @param range
 	 * @param content
 	 * @param ammo
 	 * @param bonusOnly
 	 * @return two handed damage token
 	 */
-	public static String getTHDamageToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
-		boolean bonusOnly)
+	private static String getTHDamageToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                       boolean bonusOnly)
 	{
 		int damageMode = DAMAGEMODE_TWOHANDS;
 		int hands = 2;
@@ -1449,41 +1401,18 @@ public class WeaponToken extends Token
 	 * Get Off hand damage token
 	 * @param pc
 	 * @param eq
-	 * @param bonusOnly
-	 * @return Off hand damage token
-	 */
-	public static String getOHDamageToken(PlayerCharacter pc, Equipment eq, boolean bonusOnly)
-	{
-		return getOHDamageToken(pc, eq, -1, -1, -1, bonusOnly);
-	}
-
-	/**
-	 * Get Off hand damage token
-	 * @param pc
-	 * @param eq
 	 * @param range
 	 * @param content
 	 * @param ammo
 	 * @param bonusOnly
 	 * @return Off hand damage token
 	 */
-	public static String getOHDamageToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
-		boolean bonusOnly)
+	private static String getOHDamageToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                       boolean bonusOnly)
 	{
 		int damageMode = DAMAGEMODE_OFFHAND;
 		int hands = 0;
 		return getDamage(pc, eq, range, content, ammo, bonusOnly, hands, damageMode, false);
-	}
-
-	/**
-	 * Get total hit token
-	 * @param pc
-	 * @param eq
-	 * @return total hit token
-	 */
-	public static String getTotalHitToken(PlayerCharacter pc, Equipment eq)
-	{
-		return getTotalHitToken(pc, eq, -1, -1, -1, -1);
 	}
 
 	/**
@@ -1496,8 +1425,8 @@ public class WeaponToken extends Token
 	 * @param attackNum
 	 * @return total hit token
 	 */
-	public static String getTotalHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
-		int attackNum)
+	private static String getTotalHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                       int attackNum)
 	{
 		CharacterDisplay display = pc.getDisplay();
 		boolean isDouble = (eq.isDouble() && (eq.getLocation() == EquipmentLocation.EQUIPPED_TWO_HANDS));
@@ -1597,25 +1526,14 @@ public class WeaponToken extends Token
 	 * Get base hit token
 	 * @param pc
 	 * @param eq
-	 * @return base hit token
-	 */
-	public static String getBaseHitToken(PlayerCharacter pc, Equipment eq)
-	{
-		return getBaseHitToken(pc, eq, -1, -1, -1, -1);
-	}
-
-	/**
-	 * Get base hit token
-	 * @param pc
-	 * @param eq
 	 * @param range
 	 * @param content
 	 * @param ammo
 	 * @param attackNum
 	 * @return base hit token
 	 */
-	public static String getBaseHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
-		int attackNum)
+	private static String getBaseHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                      int attackNum)
 	{
 		int hitMode = HITMODE_BASEHIT;
 		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
@@ -1625,25 +1543,14 @@ public class WeaponToken extends Token
 	 * Get two weapon heavy off hand token
 	 * @param pc
 	 * @param eq
-	 * @return two weapon heavy off hand token
-	 */
-	public static String getTwpHitHToken(PlayerCharacter pc, Equipment eq)
-	{
-		return getTwpHitHToken(pc, eq, -1, -1, -1, -1);
-	}
-
-	/**
-	 * Get two weapon heavy off hand token
-	 * @param pc
-	 * @param eq
 	 * @param range
 	 * @param content
 	 * @param ammo
 	 * @param attackNum
 	 * @return two weapon heavy off hand token
 	 */
-	public static String getTwpHitHToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
-		int attackNum)
+	private static String getTwpHitHToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                      int attackNum)
 	{
 		int hitMode = HITMODE_TWPHITH;
 		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
@@ -1653,39 +1560,16 @@ public class WeaponToken extends Token
 	 * Get two weapon light off hand token
 	 * @param pc
 	 * @param eq
-	 * @return two weapon light off hand token
-	 */
-	public static String getTwpHitLToken(PlayerCharacter pc, Equipment eq)
-	{
-		return getTwpHitLToken(pc, eq, -1, -1, -1, -1);
-	}
-
-	/**
-	 * Get two weapon light off hand token
-	 * @param pc
-	 * @param eq
 	 * @param range
 	 * @param content
 	 * @param ammo
 	 * @param attackNum
 	 * @return two weapon light off hand token
 	 */
-	public static String getTwpHitLToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
-		int attackNum)
+	private static String getTwpHitLToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                      int attackNum)
 	{
-		int hitMode = HITMODE_TWPHITL;
-		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
-	}
-
-	/**
-	 * Get two hit token
-	 * @param pc
-	 * @param eq
-	 * @return two hit token
-	 */
-	public static String getTwoHitToken(PlayerCharacter pc, Equipment eq)
-	{
-		return getTwoHitToken(pc, eq, -1, -1, -1, -1);
+		return getToHit(pc, eq, range, content, ammo, HITMODE_TWPHITL, attackNum);
 	}
 
 	/**
@@ -1698,22 +1582,10 @@ public class WeaponToken extends Token
 	 * @param attackNum
 	 * @return two hit token
 	 */
-	public static String getTwoHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
-		int attackNum)
+	private static String getTwoHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                     int attackNum)
 	{
-		int hitMode = HITMODE_TWOHIT;
-		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
-	}
-
-	/**
-	 * Get Off Hand Hit Token
-	 * @param pc
-	 * @param eq
-	 * @return Off Hand Hit Token
-	 */
-	public static String getOHHitToken(PlayerCharacter pc, Equipment eq)
-	{
-		return getOHHitToken(pc, eq, -1, -1, -1, -1);
+		return getToHit(pc, eq, range, content, ammo, HITMODE_TWOHIT, attackNum);
 	}
 
 	/**
@@ -1726,22 +1598,11 @@ public class WeaponToken extends Token
 	 * @param attackNum
 	 * @return Off Hand Hit Toke
 	 */
-	public static String getOHHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
-		int attackNum)
+	private static String getOHHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                    int attackNum)
 	{
 		int hitMode = HITMODE_OHHIT;
 		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
-	}
-
-	/**
-	 * Get the TH Hit Token
-	 * @param pc
-	 * @param eq
-	 * @return the TH Hit Token
-	 */
-	public static String getTHHitToken(PlayerCharacter pc, Equipment eq)
-	{
-		return getTHHitToken(pc, eq, -1, -1, -1, -1);
 	}
 
 	/**
@@ -1754,8 +1615,8 @@ public class WeaponToken extends Token
 	 * @param attackNum
 	 * @return the TH Hit Token
 	 */
-	public static String getTHHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
-		int attackNum)
+	private static String getTHHitToken(PlayerCharacter pc, Equipment eq, int range, int content, int ammo,
+	                                    int attackNum)
 	{
 		int hitMode = HITMODE_THHIT;
 		return getToHit(pc, eq, range, content, ammo, hitMode, attackNum);
@@ -1774,13 +1635,13 @@ public class WeaponToken extends Token
 			if ((!isDouble && !isDoubleSplit && (hitMode != HITMODE_THHIT)) || (isDoubleSplit
 				&& (hitMode == HITMODE_BASEHIT || hitMode == HITMODE_OHHIT || hitMode == HITMODE_TWPHITH)))
 			{
-				return SettingsHandler.getInvalidToHitText();
+				return LanguageBundle.getString("SettingsHandler.not.applicable");
 			}
 		}
 
 		if (eq.isMelee() && eq.isWeaponOutsizedForPC(pc) && !eq.isNatural())
 		{
-			return SettingsHandler.getInvalidToHitText();
+			return LanguageBundle.getString("SettingsHandler.not.applicable");
 		}
 
 		int weaponBaseBonus = (int) eq.bonusTo(pc, "WEAPON", "WEAPONBAB", true);
@@ -2349,13 +2210,13 @@ public class WeaponToken extends Token
 			if (!isDouble && !isDoubleSplit && (damageMode != DAMAGEMODE_NORMAL) && (damageMode != DAMAGEMODE_TWOHANDS)
 				&& (damageMode != DAMAGEMODE_DOUBLE))
 			{
-				return SettingsHandler.getInvalidDmgText();
+				return LanguageBundle.getString("SettingsHandler.not.applicable");
 			}
 		}
 
 		if (eq.isMelee() && eq.isWeaponOutsizedForPC(pc) && !eq.isNatural())
 		{
-			return SettingsHandler.getInvalidDmgText();
+			return LanguageBundle.getString("SettingsHandler.not.applicable");
 		}
 
 		if (eq.isWeaponLightForPC(pc) && (hands == 2))
@@ -2931,7 +2792,7 @@ public class WeaponToken extends Token
 	 * @param aPC
 	 * @return The range list
 	 */
-	public static List<String> getRangeList(Equipment eq, boolean addShortRange, final PlayerCharacter aPC)
+	private static List<String> getRangeList(Equipment eq, boolean addShortRange, final PlayerCharacter aPC)
 	{
 		final List<String> aList = new ArrayList<>();
 		final int baseRange = EqToken.getRange(aPC, eq);
@@ -2986,7 +2847,7 @@ public class WeaponToken extends Token
 		return sb.toString();
 	}
 
-	public static StringBuilder getCritRangeHead(PlayerCharacter pc, EquipmentHead head, String critRangeVar)
+	static StringBuilder getCritRangeHead(PlayerCharacter pc, EquipmentHead head, String critRangeVar)
 	{
 		StringBuilder sb = new StringBuilder();
 		Integer range = (Integer) head.getLocalVariable(pc.getCharID(), critRangeVar);

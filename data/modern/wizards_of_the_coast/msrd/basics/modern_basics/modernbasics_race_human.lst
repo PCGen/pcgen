@@ -3,7 +3,7 @@ SOURCELONG:Modern System Reference Document - Basics	SOURCESHORT:MSRD	SOURCEWEB:
 # Original Entry by: Paul King
 
 # Race Name	Favored Class			Skills/Level		Starting Feats	Size		Move			Face/Space	Reach		Bonus Languages		Main Race Type	Type			Challenge Rating	Source Page
-Human		FAVCLASS:HIGHESTLEVELCLASS	XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5	LANGBONUS:TYPE=Spoken	RACETYPE:Humanoid	TYPE:Humanoid	CR:1/2		SOURCEPAGE:msrdcreatures
+Human		FAVCLASS:HIGHESTLEVELCLASS	XTRASKILLPTSPERLVL:1	STARTFEATS:2	SIZE:M	MOVE:Walk,30	FACE:5,5	REACH:5	LANGBONUS:TYPE=Spoken	RACETYPE:Humanoid	TYPE:Humanoid	CR:1/2		SOURCEPAGE:msrdcreatures	FACT:BaseSize|M
 
 #
 # End

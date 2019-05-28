@@ -52,6 +52,7 @@ public interface InitHolder
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
+	@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 	public Vector<Object> getRowVector(List<String> columnOrder);
 
 	/**

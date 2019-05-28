@@ -58,8 +58,8 @@ public class SizeScope implements PCGenScope
 	}
 
 	@Override
-	public FormatManager<SizeAdjustment> getFormatManager(LoadContext context)
+	public Optional<FormatManager<?>> getFormatManager(LoadContext context)
 	{
-		return context.getReferenceContext().getManufacturer(SizeAdjustment.class);
+		return Optional.of(context.getReferenceContext().getManufacturer(SizeAdjustment.class));
 	}
 }

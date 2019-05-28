@@ -71,9 +71,7 @@ public class TempValueLst extends AbstractTokenWithSeparator<CDOMObject> impleme
 		{
 			return new ParseResult.Fail(getTokenName() + " third argument was not TITLE=");
 		}
-		StringBuilder sb = new StringBuilder(value.length() + 20);
-		sb.append(value);
-		context.getObjectContext().put(obj, StringKey.TEMPVALUE, sb.toString());
+		context.getObjectContext().put(obj, StringKey.TEMPVALUE, value);
 		return ParseResult.SUCCESS;
 	}
 

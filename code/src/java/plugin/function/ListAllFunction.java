@@ -115,7 +115,7 @@ public class ListAllFunction implements FormulaFunction
 			catch (IllegalArgumentException e)
 			{
 				throw new SemanticsFailureException(
-					"Parse Error: Invalid View: " + viewName);
+					"Parse Error: Invalid View: " + viewName, e);
 			}
 		}
 		return context.getReferenceContext()

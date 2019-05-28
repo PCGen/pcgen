@@ -22,7 +22,6 @@ package pcgen.core;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
 
@@ -71,16 +70,14 @@ public class SpellProgressionCache implements Cloneable
 	 *            applies.
 	 * @param aList
 	 *            The known spell progression for the given class level.
-	 * @return The previously set KNOWN spell progression for the given class
-	 *         level; null if no KNOWN spell progression was previously set.
 	 */
-	public List<Formula> setKnown(int iLevel, List<Formula> aList)
+	public void setKnown(int iLevel, List<Formula> aList)
 	{
 		if (knownProgression == null)
 		{
 			knownProgression = new Progression();
 		}
-		return knownProgression.setProgression(iLevel, aList);
+		knownProgression.setProgression(iLevel, aList);
 	}
 
 	/**
@@ -95,25 +92,6 @@ public class SpellProgressionCache implements Cloneable
 	public boolean hasKnownProgression()
 	{
 		return knownProgression != null && knownProgression.hasProgression();
-	}
-
-	/**
-	 * Returns the known spell progression for this SpellProgression.
-	 * 
-	 * **WARNING** This method exposes the internal contents of this
-	 * SpellProgression object. This method is therefore reference-semantic, and
-	 * the returned Map and the Lists contained within the Map should be
-	 * considered owned by this SpellProgression. The returned Map and Lists it
-	 * contains should not be altered.
-	 * 
-	 * CONSIDER How to get rid of this - it makes this Object accidentally
-	 * mutable. - thpr 11/8/06
-	 * 
-	 * @return The known spell progression for this SpellProgression object.
-	 */
-	public Map<Integer, List<Formula>> getKnownProgression()
-	{
-		return knownProgression == null ? null : knownProgression.getProgression();
 	}
 
 	/**
@@ -174,17 +152,14 @@ public class SpellProgressionCache implements Cloneable
 	 * @param aList
 	 *            The known specialty spell progression for the given class
 	 *            level.
-	 * @return The previously set KNOWN SPECIALTY spell progression for the
-	 *         given class level; null if no KNOWN SPECIALTY spell progression
-	 *         was previously set.
 	 */
-	public List<Formula> setSpecialtyKnown(int aLevel, List<Formula> aList)
+	public void setSpecialtyKnown(int aLevel, List<Formula> aList)
 	{
 		if (specialtyKnownProgression == null)
 		{
 			specialtyKnownProgression = new Progression();
 		}
-		return specialtyKnownProgression.setProgression(aLevel, aList);
+		specialtyKnownProgression.setProgression(aLevel, aList);
 	}
 
 	/**
@@ -198,26 +173,6 @@ public class SpellProgressionCache implements Cloneable
 	public boolean hasSpecialtyKnownProgression()
 	{
 		return specialtyKnownProgression != null && specialtyKnownProgression.hasProgression();
-	}
-
-	/**
-	 * Returns the known specialty spell progression for this SpellProgression.
-	 * 
-	 * **WARNING** This method exposes the internal contents of this
-	 * SpellProgression object. This method is therefore reference-semantic, and
-	 * the returned Map and the Lists contained within the Map should be
-	 * considered owned by this SpellProgression. The returned Map and Lists it
-	 * contains should not be altered.
-	 * 
-	 * CONSIDER How to get rid of this - it makes this Object accidentally
-	 * mutable. - thpr 11/8/06
-	 * 
-	 * @return The known specialty spell progression for this SpellProgression
-	 *         object.
-	 */
-	public Map<Integer, List<Formula>> getSpecialtyKnownMap()
-	{
-		return specialtyKnownProgression == null ? null : specialtyKnownProgression.getProgression();
 	}
 
 	/**
@@ -277,25 +232,6 @@ public class SpellProgressionCache implements Cloneable
 	public boolean hasCastProgression()
 	{
 		return castProgression != null && castProgression.hasProgression();
-	}
-
-	/**
-	 * Returns the CAST spell progression for this SpellProgression.
-	 * 
-	 * **WARNING** This method exposes the internal contents of this
-	 * SpellProgression object. This method is therefore reference-semantic, and
-	 * the returned Map and the Lists contained within the Map should be
-	 * considered owned by this SpellProgression. The returned Map and Lists it
-	 * contains should not be altered.
-	 * 
-	 * CONSIDER How to get rid of this - it makes this Object accidentally
-	 * mutable. - thpr 11/8/06
-	 * 
-	 * @return The CAST spell progression for this SpellProgression object.
-	 */
-	public Map<Integer, List<Formula>> getCastProgression()
-	{
-		return castProgression == null ? null : castProgression.getProgression();
 	}
 
 	/**
@@ -521,7 +457,7 @@ public class SpellProgressionCache implements Cloneable
 		 * @return The previously set spell progression for the given class
 		 *         level; null if no spell progression was previously set.
 		 */
-		public List<Formula> setProgression(int iLevel, List<Formula> aList)
+		private List<Formula> setProgression(int iLevel, List<Formula> aList)
 		{
 			if (iLevel < 1)
 			{
@@ -547,7 +483,7 @@ public class SpellProgressionCache implements Cloneable
 			return progressionMap.put(iLevel, new ArrayList<>(aList));
 		}
 
-		public int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus)
+		private int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus)
 		{
 			for (Entry<Integer, List<Formula>> me : progressionMap.entrySet())
 			{
@@ -578,32 +514,9 @@ public class SpellProgressionCache implements Cloneable
 		 * @return True if this Progression contains a spell progression; false
 		 *         otherwise.
 		 */
-		public boolean hasProgression()
+		private boolean hasProgression()
 		{
 			return progressionMap != null;
-		}
-
-		/**
-		 * Returns the spell progression for this Progression.
-		 * 
-		 * **WARNING** This method exposes the internal contents of this
-		 * Progression object. This method is therefore reference-semantic, and
-		 * the returned Map and the Lists contained within the Map should be
-		 * considered owned by this Progression. The returned Map and Lists it
-		 * contains should not be altered.
-		 * 
-		 * CONSIDER How to get rid of this - it makes this Object accidentally
-		 * mutable. - thpr 11/8/06
-		 * 
-		 * @return The spell progression for this Progression object.
-		 */
-		public Map<Integer, List<Formula>> getProgression()
-		{
-			if (progressionMap == null)
-			{
-				return null;
-			}
-			return progressionMap;
 		}
 
 		/**
@@ -622,7 +535,7 @@ public class SpellProgressionCache implements Cloneable
 		 * @return The spell progression for the given class level, or null if
 		 *         there is no spell progression for the given class level.
 		 */
-		public List<Formula> getProgressionForLevel(int classLevel)
+		private List<Formula> getProgressionForLevel(int classLevel)
 		{
 			List<Formula> spellProgression = null;
 			boolean found = false;
@@ -669,7 +582,7 @@ public class SpellProgressionCache implements Cloneable
 		 * 
 		 * @return The highest possible spell level in this Progression.
 		 */
-		public int getHighestSpellLevel()
+		private int getHighestSpellLevel()
 		{
 			if (progressionMap != null)
 			{

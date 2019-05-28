@@ -79,8 +79,8 @@ public abstract class VariableProcessor
 			retVal = d;
 			if (Logging.isDebugMode())
 			{
-				Logging.debugPrint(new StringBuilder().append(jepIndent).append("export variable for: '")
-					.append(element).append("' = ").append(d).toString());
+				Logging.debugPrint(jepIndent + "export variable for: '"
+						+ element + "' = " + d);
 			}
 		}
 
@@ -585,8 +585,8 @@ public abstract class VariableProcessor
 			final Float value = pc.getVariable(term, true);
 			if (Logging.isDebugMode())
 			{
-				Logging.debugPrint(new StringBuilder().append(jepIndent).append("variable for: '").append(term)
-					.append("' = ").append(value).toString());
+				Logging.debugPrint(jepIndent + "variable for: '" + term
+						+ "' = " + value);
 			}
 			retVal = (float) value.doubleValue();
 		}

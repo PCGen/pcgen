@@ -120,9 +120,7 @@ public final class OutputNameFormatting
 
 		if (po.getSafe(ObjectKey.NAME_PI))
 		{
-			final StringBuilder sb = new StringBuilder(aString.length() + 30);
-			sb.append("<b><i>").append(aString).append("</i></b>");
-			return sb.toString();
+			return "<b><i>" + aString + "</i></b>";
 		}
 
 		return aString;

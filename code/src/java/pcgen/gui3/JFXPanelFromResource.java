@@ -20,6 +20,7 @@ package pcgen.gui3;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.concurrent.CompletableFuture;
 
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
@@ -32,18 +33,19 @@ import javafx.stage.Stage;
 
 /**
  * Displays HTML content as a "panel".
+ *
  * @param <T> The class of the controller
  */
-public final class JFXPanelFromResource<T> extends JFXPanel
+public final class JFXPanelFromResource<T> extends JFXPanel implements Controllable<T>
 {
 
 	private final FXMLLoader fxmlLoader = new FXMLLoader();
 
 	/**
-	 * @param klass the class that contains the resource load
+	 * @param klass        the class that contains the resource load
 	 * @param resourceName the relative filename of the FXML file to load.
 	 */
-	public JFXPanelFromResource(Class<T> klass, String resourceName)
+	public JFXPanelFromResource(Class<? extends T> klass, String resourceName)
 	{
 		URL resource = klass.getResource(resourceName);
 		Logging.debugPrint(String.format("location for %s (%s) is %s", resourceName, klass, resource));
@@ -56,17 +58,16 @@ public final class JFXPanelFromResource<T> extends JFXPanel
 				this.setScene(scene);
 			} catch (IOException e)
 			{
-				Logging.errorPrint("failed to load stream fxml", e);
+				Logging.errorPrint(String.format("failed to load stream fxml (%s/%s/%s)",
+						resourceName, klass, resource), e);
 			}
 		});
 	}
 
-	/**
-	 * @return controller for the loaded FXML file
-	 */
+	@Override
 	public T getController()
 	{
-		return fxmlLoader.getController();
+		return CompletableFuture.<T>supplyAsync(fxmlLoader::getController, Platform::runLater).join();
 	}
 
 	public void showAsStage(String title)
@@ -76,7 +77,25 @@ public final class JFXPanelFromResource<T> extends JFXPanel
 			stage.setTitle(title);
 			stage.setScene(getScene());
 			stage.sizeToScene();
-			stage.showAndWait();
+			stage.show();
 		});
 	}
+
+	public void showAndBlock(String title)
+	{
+		GuiAssertions.assertIsNotJavaFXThread();
+		CompletableFuture<Integer> lock = new CompletableFuture<>();
+		Platform.runLater(() -> {
+			Stage stage = new Stage();
+			stage.setTitle(title);
+			stage.setScene(getScene());
+			stage.sizeToScene();
+			stage.showAndWait();
+			Logging.errorPrint("passed wait");
+			lock.completeAsync(() -> 0);
+
+		});
+		lock.join();
+	}
+
 }

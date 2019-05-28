@@ -52,15 +52,15 @@ class GlobalsTest
 	public void testPreviewTab()
 	{
 		// Expect to be initialised false
-		assertThat("Initialised False", SettingsHandler.isPreviewTabShown(), is(false));
+		assertThat("Initialised False", SettingsHandler.isIgnoreMonsterHDCap(), is(false));
 
 		// Set true, expect to get true back
-		SettingsHandler.setPreviewTabShown(true);
-		assertThat("Show update to True", SettingsHandler.isPreviewTabShown(), is(true));
+		SettingsHandler.setIgnoreMonsterHDCap(true);
+		assertThat("Show update to True", SettingsHandler.isIgnoreMonsterHDCap(), is(true));
 
 		// Set false again to prove it toggles properly
-		SettingsHandler.setPreviewTabShown(false);
-		assertThat("Show update to False", SettingsHandler.isPreviewTabShown(), is(false));
+		SettingsHandler.setIgnoreMonsterHDCap(false);
+		assertThat("Show update to False", SettingsHandler.isIgnoreMonsterHDCap(), is(false));
 	}
 
 //	/**

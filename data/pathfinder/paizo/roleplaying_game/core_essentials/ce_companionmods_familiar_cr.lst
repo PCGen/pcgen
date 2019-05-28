@@ -1,0 +1,22 @@
+SOURCELONG:Core Rulebook	SOURCESHORT:CR	SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj	SOURCEDATE:2009-08
+
+###Block: Familiars
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar											COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/FamiliarHPDivisor)	USEMASTERSKILL:YES	DEFINE:MasterLevel|0	DEFINE:FamiliarHPDivisor|0	DEFINE:CompanionHD|0	BONUS:VAR|MasterLevel|MASTERVAR("FamiliarLVL")	BONUS:VAR|FamiliarHPDivisor|2|TYPE=Base	BONUS:VAR|CompanionHD|MasterLevel
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Companion ~ Familiar
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar ~ Augmented Animal|PRERACE:1,TYPE=Animal
+
+###Block: Specific Familiars
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar	PRERACE:1,Raven	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Speak One Language
+
+###Block:Familiar Bonuses to Master
+MASTERBONUSRACE:Bat		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Bat)
+MASTERBONUSRACE:Cat		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Cat)
+MASTERBONUSRACE:Hawk		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Hawk)
+MASTERBONUSRACE:Lizard		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Lizard)
+MASTERBONUSRACE:Monkey		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Monkey)
+MASTERBONUSRACE:Owl		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Owl)
+MASTERBONUSRACE:Rat		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Rat)
+MASTERBONUSRACE:Raven		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Raven)
+MASTERBONUSRACE:Viper		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Viper)
+MASTERBONUSRACE:Toad		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Toad)
+MASTERBONUSRACE:Weasel		TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar Granted Bonus (Weasel)

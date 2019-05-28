@@ -102,7 +102,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 	public SkillInfoTab()
 	{
-		super("Skill");
+		super();
 		this.skillTable = new FilteredTreeViewTable<>();
 		this.skillpointTable = new JTable();
 		this.infoPane = new InfoPane();
@@ -166,10 +166,10 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		selScrollPane.setPreferredSize(new Dimension(530, 300));
 
 		FlippingSplitPane topPane =
-				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, availPanel, skillPanel, "SkillTop");
+				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, availPanel, skillPanel);
 		setTopComponent(topPane);
 
-		FlippingSplitPane bottomPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, "SkillBottom");
+		FlippingSplitPane bottomPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		bottomPane.setLeftComponent(tablePanel);
 		tablePanel.setPreferredSize(new Dimension(650, 100));
 		bottomPane.setRightComponent(infoPane);
@@ -390,7 +390,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private class FilterHandler implements ListSelectionListener
 	{
 
-		private final Filter<CharacterFacade, Skill> cFilter = new Filter<CharacterFacade, Skill>()
+		private final Filter<CharacterFacade, Skill> cFilter = new Filter<>()
 		{
 
 			@Override
@@ -407,7 +407,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		};
 
-		private final Filter<CharacterFacade, Skill> gainedFilter = new Filter<CharacterFacade, Skill>()
+		private final Filter<CharacterFacade, Skill> gainedFilter = new Filter<>()
 		{
 
 			@Override

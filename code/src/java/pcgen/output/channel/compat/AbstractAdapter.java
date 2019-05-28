@@ -38,7 +38,7 @@ public class AbstractAdapter<T>
 
 	/**
 	 * Adds a ReferenceListener to this AbstractAdapter.
-	 * 
+	 *
 	 * @param listener
 	 *            The ReferenceListener to be added to this AbstractAdapter
 	 */
@@ -49,7 +49,7 @@ public class AbstractAdapter<T>
 
 	/**
 	 * Removes a ReferenceListener from this AbstractAdapter.
-	 * 
+	 *
 	 * @param listener
 	 *            The ReferenceListener to be removed from this AbstractAdapter
 	 */

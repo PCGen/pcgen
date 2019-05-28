@@ -405,7 +405,7 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 
 		public SourceSelectionFacade[] getDisplayedSources()
 		{
-			return displayedSources.toArray(new SourceSelectionFacade[displayedSources.size()]);
+			return displayedSources.toArray(new SourceSelectionFacade[0]);
 		}
 
 		@Override
@@ -517,7 +517,7 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 				}
 
 			});
-			FlippingSplitPane mainPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, "quickSrcMain");
+			FlippingSplitPane mainPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 			mainPane.setTopComponent(new JScrollPane(sourceList));
 
 			linkAction.install();

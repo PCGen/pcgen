@@ -157,15 +157,10 @@ public class ConvertPanel extends JPanel
 
 	private void proceedToNextPanel()
 	{
-		Thread t = new Thread(new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				CursorControlUtilities.startWaitCursor(basePanel);
-				runNextPanel();
-				CursorControlUtilities.stopWaitCursor(basePanel);
-			}
+		Thread t = new Thread(() -> {
+			CursorControlUtilities.startWaitCursor(basePanel);
+			runNextPanel();
+			CursorControlUtilities.stopWaitCursor(basePanel);
 		});
 		t.start();
 	}

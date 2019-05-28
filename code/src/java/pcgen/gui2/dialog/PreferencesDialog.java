@@ -18,34 +18,20 @@
  */
 package pcgen.gui2.dialog;
 
-import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.ButtonGroup;
-import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
-import javax.swing.JTabbedPane;
 import javax.swing.JTree;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.SwingConstants;
-import javax.swing.border.Border;
-import javax.swing.border.TitledBorder;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -57,40 +43,39 @@ import javax.swing.tree.TreeSelectionModel;
 import pcgen.cdom.base.Constants;
 import pcgen.gui2.prefs.CharacterStatsPanel;
 import pcgen.gui2.prefs.ColorsPanel;
+import pcgen.gui3.preferences.ConvertedJavaFXPanel;
 import pcgen.gui2.prefs.CopySettingsPanel;
 import pcgen.gui2.prefs.DefaultsPanel;
-import pcgen.gui2.prefs.DisplayOptionsPanel;
-import pcgen.gui2.prefs.EquipmentPanel;
 import pcgen.gui2.prefs.HitPointsPanel;
 import pcgen.gui2.prefs.HouseRulesPanel;
-import pcgen.gui2.prefs.InputPanel;
 import pcgen.gui2.prefs.LanguagePanel;
-import pcgen.gui2.prefs.LevelUpPanel;
 import pcgen.gui2.prefs.LocationPanel;
-import pcgen.gui2.prefs.LookAndFeelPanel;
 import pcgen.gui2.prefs.MonsterPanel;
 import pcgen.gui2.prefs.OutputPanel;
 import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui2.prefs.SourcesPanel;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
-import pcgen.pluginmgr.PluginManager;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.preferences.CenteredLabelPanelController;
+import pcgen.gui3.preferences.DisplayOptionsPreferencesPanelController;
+import pcgen.gui3.preferences.EquipmentPreferencesPanelController;
+import pcgen.gui3.preferences.InputPreferencesPanelController;
+import pcgen.gui3.preferences.LevelUpPreferencesPanelController;
+import pcgen.gui3.preferences.PreferencesPluginsPanel;
 import pcgen.system.LanguageBundle;
-import pcgen.system.PCGenSettings;
+
+import javafx.embed.swing.JFXPanel;
 
 /**
  *  PCGen preferences dialog
  */
 public final class PreferencesDialog extends AbstractPreferencesDialog
 {
-	private static final long serialVersionUID = 5042379023317257550L;
-
 	// Resource strings
 	private static final String IN_APPERANCE = LanguageBundle.getString("in_Prefs_appearance"); //$NON-NLS-1$
 	private static final String IN_CHARACTER = LanguageBundle.getString("in_Prefs_character"); //$NON-NLS-1$
 	public static final String LB_PREFS_PLUGINS_RUN = "in_Prefs_pluginsRun"; //$NON-NLS-1$
-	public static final String LB_PREFS_PLUGIN_PCGEN_WIN = "in_Prefs_pluginPcgenWin"; //$NON-NLS-1$
-	public static final String LB_PREFS_PLUGIN_GMGEN_WIN = "in_Prefs_pluginGMGenWin"; //$NON-NLS-1$
 
 	private DefaultTreeModel settingsModel;
 	private FlippingSplitPane splitPane;
@@ -114,8 +99,6 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	private PCGenPrefsPanel colorsPanel;
 	private PCGenPrefsPanel displayOptionsPanel;
 	private PCGenPrefsPanel levelUpPanel;
-	private PCGenPrefsPanel lookAndFeelPanel;
-	//	private PCGenPrefsPanel tabsPanel;
 
 	// PCGen panels
 	private PCGenPrefsPanel equipmentPanel;
@@ -155,13 +138,11 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		{
 			pluginsPanel = new PreferencesPluginsPanel();
 		}
-		JTabbedPane tpane = new JTabbedPane();
-		tpane.add(pluginsPanel.toString(), pluginsPanel);
-		settingsPanel.add(tpane, LanguageBundle.getString("in_Prefs_plugins")); //$NON-NLS-1$
+		settingsPanel.add(pluginsPanel, LanguageBundle.getString("in_Prefs_plugins")); //$NON-NLS-1$
 		rootNode.add(pluginNode);
 	}
 
-	public void applyPluginPreferences()
+	private void applyPluginPreferences()
 	{
 		pluginsPanel.applyPreferences();
 	}
@@ -197,30 +178,14 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	}
 
-	private static JPanel buildEmptyPanel(String title, String messageText)
+	private static JFXPanel buildEmptyPanel(String messageText)
 	{
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
-		JLabel label;
-		JPanel panel = new JPanel();
-		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, title);
-
-		title1.setTitleJustification(TitledBorder.LEFT);
-		panel.setBorder(title1);
-		gridbag = new GridBagLayout();
-		panel.setLayout(gridbag);
-		c = new GridBagConstraints();
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.CENTER;
-		c.insets = new Insets(2, 2, 2, 2);
-
-		Utility.buildConstraints(c, 5, 20, 1, 1, 1, 1);
-		c.fill = GridBagConstraints.BOTH;
-		label = new JLabel(messageText, SwingConstants.CENTER);
-		gridbag.setConstraints(label, c);
-		panel.add(label);
-
+		final var panel =
+				new JFXPanelFromResource<>(
+						CenteredLabelPanelController.class,
+						"CenteredLabelPanel.fxml"
+				);
+		panel.getController().setText(messageText);
 		return panel;
 	}
 
@@ -242,7 +207,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 		// Build the selection tree
 		characterNode = new DefaultMutableTreeNode(IN_CHARACTER);
-		settingsPanel.add(buildEmptyPanel("", LanguageBundle.getString("in_Prefs_charTip")), IN_CHARACTER);
+		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_Prefs_charTip")), IN_CHARACTER);
 
 		characterStatsPanel = new CharacterStatsPanel(this);
 		addPanelToTree(characterNode, characterStatsPanel);
@@ -257,31 +222,42 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		rootNode.add(characterNode);
 
 		appearanceNode = new DefaultMutableTreeNode(IN_APPERANCE);
-		settingsPanel.add(buildEmptyPanel("", LanguageBundle.getString("in_Prefs_appearanceTip")), IN_APPERANCE);
+		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_Prefs_appearanceTip")), IN_APPERANCE);
 
 		colorsPanel = new ColorsPanel();
 		addPanelToTree(appearanceNode, colorsPanel);
-		displayOptionsPanel = new DisplayOptionsPanel();
+		displayOptionsPanel = new ConvertedJavaFXPanel<>(
+				DisplayOptionsPreferencesPanelController.class,
+				"DisplayOptionsPreferencesPanel.fxml",
+				"in_Prefs_displayOpts"
+		);
 		addPanelToTree(appearanceNode, displayOptionsPanel);
-		levelUpPanel = new LevelUpPanel();
+		levelUpPanel = new ConvertedJavaFXPanel<>(
+				LevelUpPreferencesPanelController.class,
+				"LevelUpPreferencesPanel.fxml",
+				"in_Prefs_levelUp");
 		addPanelToTree(appearanceNode, levelUpPanel);
-		lookAndFeelPanel = new LookAndFeelPanel(this);
-		addPanelToTree(appearanceNode, lookAndFeelPanel);
-		//		tabsPanel = new TabsPanel();
-		//		addPanelToTree(appearanceNode, tabsPanel);
 		rootNode.add(appearanceNode);
 
 		pcGenNode = new DefaultMutableTreeNode(Constants.APPLICATION_NAME);
-		settingsPanel.add(buildEmptyPanel("", LanguageBundle.getString("in_Prefs_pcgenTip")),
+		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_Prefs_pcgenTip")),
 			Constants.APPLICATION_NAME);
 
-		equipmentPanel = new EquipmentPanel();
+		equipmentPanel = new ConvertedJavaFXPanel<>(
+				EquipmentPreferencesPanelController.class,
+				"EquipmentPreferencesPanel.fxml",
+				"in_Prefs_equipment"
+		);
 		addPanelToTree(pcGenNode, equipmentPanel);
 		languagePanel = new LanguagePanel();
 		addPanelToTree(pcGenNode, languagePanel);
 		locationPanel = new LocationPanel();
 		addPanelToTree(pcGenNode, locationPanel);
-		inputPanel = new InputPanel();
+		inputPanel = new ConvertedJavaFXPanel<>(
+				InputPreferencesPanelController.class,
+				"InputPreferencesPanel.fxml",
+				"in_Prefs_input"
+		);
 		addPanelToTree(pcGenNode, inputPanel);
 		outputPanel = new OutputPanel();
 		addPanelToTree(pcGenNode, outputPanel);
@@ -291,7 +267,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 		String in_gamemode = LanguageBundle.getString("in_mnuSettingsCampaign");
 		gameModeNode = new DefaultMutableTreeNode(in_gamemode);
-		settingsPanel.add(buildEmptyPanel("", LanguageBundle.getString("in_mnuSettingsCampaignTip")), in_gamemode);
+		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_mnuSettingsCampaignTip")), in_gamemode);
 
 		copySettingsPanel = new CopySettingsPanel();
 		addPanelToTree(gameModeNode, copySettingsPanel);
@@ -346,7 +322,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		});
 
 		// Build the split pane
-		splitPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, settingsScroll, settingsPanel, "Prefs");
+		splitPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, settingsScroll, settingsPanel);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 
@@ -389,144 +365,5 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	{
 		setOptionsBasedOnControls();
 		applyPluginPreferences();
-
-		// We need to update the menus/toolbar since
-		// some of those depend on the options
-		//PCGen_Frame1.enableDisableMenuItems();
-	}
-}
-
-class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
-{
-	private final HashMap<String, PluginRef> pluginMap = new HashMap<>();
-
-	private JPanel mainPanel;
-	private JScrollPane jScrollPane1;
-
-	/** Creates new form PreferencesDamagePanel */
-	public PreferencesPluginsPanel()
-	{
-		for (PluginManager.PluginInfo info : PluginManager.getInstance().getPluginInfoList())
-		{
-			addPanel(info.logName, info.pluginName, Constants.SYSTEM_GMGEN);
-		}
-		initComponents();
-		initPreferences();
-	}
-
-	@Override
-	public void applyPreferences()
-	{
-		pluginMap.values()
-		         .forEach(PluginRef::applyPreferences);
-	}
-
-	@Override
-	public void initPreferences()
-	{
-		pluginMap.values()
-		         .forEach(PluginRef::initPreferences);
-	}
-
-	@Override
-	public String toString()
-	{
-		return LanguageBundle.getString("in_Prefs_pluginsTitle"); //$NON-NLS-1$
-	}
-
-	private void initComponents()
-	{
-		jScrollPane1 = new JScrollPane();
-		mainPanel = new JPanel();
-
-		setLayout(new BorderLayout());
-
-		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-
-		pluginMap.values()
-		         .forEach(pluginRef -> mainPanel.add(pluginRef));
-
-		jScrollPane1.setViewportView(mainPanel);
-		add(jScrollPane1, BorderLayout.CENTER);
-		add(new JLabel(LanguageBundle.getString("in_Prefs_restartInfo")), BorderLayout.SOUTH); //$NON-NLS-1$
-	}
-
-	private void addPanel(String pluginName, String pluginTitle, String defaultSystem)
-	{
-		if (!pluginMap.containsKey(pluginName))
-		{
-			PluginRef pluginRef = new PluginRef(pluginName, pluginTitle, defaultSystem);
-			pluginMap.put(pluginName, pluginRef);
-		}
-	}
-
-	private static class PluginRef extends JPanel
-	{
-		private final String pluginName;
-		private final String pluginTitle;
-		private final String defaultSystem;
-		private JCheckBox checkBox;
-		private JRadioButton pcgenButton;
-		private JRadioButton gmgenButton;
-
-		public PluginRef(String pluginName, String pluginTitle, String defaultSystem)
-		{
-			this.pluginName = pluginName;
-			this.pluginTitle = pluginTitle;
-			this.defaultSystem = defaultSystem;
-			initComponents();
-		}
-
-		private void initComponents()
-		{
-			checkBox = new JCheckBox();
-			pcgenButton = new JRadioButton();
-			gmgenButton = new JRadioButton();
-			ButtonGroup pluginGroup = new ButtonGroup();
-
-			setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-			setBorder(
-				new TitledBorder(null, pluginTitle, TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION));
-
-			checkBox.setText(LanguageBundle.getString(PreferencesDialog.LB_PREFS_PLUGINS_RUN));
-			add(checkBox);
-
-			pcgenButton.setText(LanguageBundle.getString(PreferencesDialog.LB_PREFS_PLUGIN_PCGEN_WIN));
-			pcgenButton.setEnabled(false);
-			pluginGroup.add(pcgenButton);
-			add(pcgenButton);
-
-			gmgenButton.setText(LanguageBundle.getString(PreferencesDialog.LB_PREFS_PLUGIN_GMGEN_WIN));
-			pluginGroup.add(gmgenButton);
-			add(gmgenButton);
-		}
-
-		public void initPreferences()
-		{
-			checkBox.setSelected(PCGenSettings.GMGEN_OPTIONS_CONTEXT.initBoolean(pluginName + ".Load", true));
-			//String system = PCGenSettings.GMGEN_OPTIONS_CONTEXT.initProperty(pluginName + ".System", defaultSystem);
-			String system = Constants.SYSTEM_GMGEN;
-			if (system.equals(Constants.SYSTEM_PCGEN))
-			{
-				pcgenButton.setSelected(true);
-			}
-			else
-			{
-				gmgenButton.setSelected(true);
-			}
-		}
-
-		public void applyPreferences()
-		{
-			PCGenSettings.GMGEN_OPTIONS_CONTEXT.setBoolean(pluginName + ".Load", checkBox.isSelected());
-			if (pcgenButton.isSelected())
-			{
-				PCGenSettings.GMGEN_OPTIONS_CONTEXT.setProperty(pluginName + ".System", Constants.SYSTEM_PCGEN);
-			}
-			else
-			{
-				PCGenSettings.GMGEN_OPTIONS_CONTEXT.setProperty(pluginName + ".System", Constants.SYSTEM_GMGEN);
-			}
-		}
 	}
 }

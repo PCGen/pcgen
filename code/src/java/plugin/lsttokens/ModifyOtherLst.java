@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.StringJoiner;
 
 import pcgen.base.formula.base.FormulaManager;
@@ -31,7 +32,7 @@ import pcgen.cdom.base.VarContainer;
 import pcgen.cdom.base.VarHolder;
 import pcgen.cdom.content.RemoteModifier;
 import pcgen.cdom.content.VarModifier;
-import pcgen.cdom.formula.local.RemoteWrappingLibrary;
+import pcgen.cdom.formula.local.DefinedWrappingLibrary;
 import pcgen.cdom.formula.scope.PCGenScope;
 import pcgen.cdom.grouping.GroupingCollection;
 import pcgen.rules.context.AbstractObjectContext.DummyCDOMObject;
@@ -110,11 +111,26 @@ public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 		FormulaManager formulaManager =
 				context.getVariableContext().getFormulaManager();
 		FunctionLibrary functionManager = formulaManager.get(FormulaManager.FUNCTION);
-		FormatManager<?> sourceFormatManager = scope.getFormatManager(context);
-		FormatManager<?> targetFormatManager = scope.getFormatManager(context);
-		functionManager =
-				new RemoteWrappingLibrary(functionManager, new DummyCDOMObject(),
-					sourceFormatManager, new DummyCDOMObject(), targetFormatManager);
+		boolean modified = false;
+		Optional<FormatManager<?>> sourceFormatManager = scope.getFormatManager(context);
+		if (sourceFormatManager.isPresent())
+		{
+			functionManager = new DefinedWrappingLibrary(functionManager,
+				"source", new DummyCDOMObject(), sourceFormatManager.get());
+			modified = true;
+		}
+		Optional<FormatManager<?>> targetFormatManager = scope.getFormatManager(context);
+		if (targetFormatManager.isPresent())
+		{
+			functionManager = new DefinedWrappingLibrary(functionManager,
+				"target", new DummyCDOMObject(), targetFormatManager.get());
+			modified = true;
+		}
+		if (!modified)
+		{
+			//Fine then :P
+			return formulaManager;
+		}
 		return formulaManager.getWith(FormulaManager.FUNCTION, functionManager);
 	}
 
@@ -142,7 +158,7 @@ public class ModifyOtherLst extends AbstractNonEmptyToken<VarHolder>
 			//Legal
 			return null;
 		}
-		return modifiers.toArray(new String[modifiers.size()]);
+		return modifiers.toArray(new String[0]);
 	}
 
 	@Override

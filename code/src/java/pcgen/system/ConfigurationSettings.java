@@ -29,7 +29,6 @@ public final class ConfigurationSettings extends PropertyContext
 	private static final String USER_COUNTRY = "country";
 	public static final String SETTINGS_FILES_PATH = "settingsPath";
 	public static final String SYSTEMS_DIR = "systemsPath";
-	public static final String THEME_PACK_DIR = "themesPath";
 	public static final String OUTPUT_SHEETS_DIR = "osPath";
 	private static final String PLUGINS_DIR = "pluginsPath";
 	public static final String PREVIEW_DIR = "previewPath";
@@ -48,7 +47,6 @@ public final class ConfigurationSettings extends PropertyContext
 		//Initialize defaults
 		setProperty(USER_LANGUAGE, SystemUtils.USER_LANGUAGE);
 		setProperty(USER_COUNTRY, SystemUtils.USER_COUNTRY);
-		setProperty(THEME_PACK_DIR, "@lib/lnf/themes".replace('/', File.separatorChar));
 		setProperty(SYSTEMS_DIR, "@system");
 		setProperty(OUTPUT_SHEETS_DIR, "@outputsheets");
 		setProperty(PLUGINS_DIR, "@plugins");
@@ -60,7 +58,6 @@ public final class ConfigurationSettings extends PropertyContext
 	@Override
 	protected void beforePropertiesSaved()
 	{
-		relativize(THEME_PACK_DIR);
 		relativize(SYSTEMS_DIR);
 		relativize(OUTPUT_SHEETS_DIR);
 		relativize(PLUGINS_DIR);
@@ -111,11 +108,6 @@ public final class ConfigurationSettings extends PropertyContext
 		return instance;
 	}
 
-	public static String getThemePackDir()
-	{
-		return getDirectory(THEME_PACK_DIR);
-	}
-
 	public static String getSystemsDir()
 	{
 		return getDirectory(SYSTEMS_DIR);
@@ -149,11 +141,6 @@ public final class ConfigurationSettings extends PropertyContext
 	public static String getSettingsDir()
 	{
 		return getDirectory(SETTINGS_FILES_PATH);
-	}
-
-	public static String initSystemProperty(String key, String defaultValue)
-	{
-		return getInstance().initProperty(key, defaultValue);
 	}
 
 	public static String getSystemProperty(String key)

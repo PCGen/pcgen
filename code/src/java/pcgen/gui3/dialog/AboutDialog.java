@@ -21,6 +21,8 @@ package pcgen.gui3.dialog;
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
+import pcgen.gui3.Controllable;
+import pcgen.gui3.GuiAssertions;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -36,7 +38,7 @@ import javafx.stage.Stage;
  *
  * @see pcgen.gui3.JFXPanelFromResource
  */
-public class AboutDialog
+public class AboutDialog implements Controllable<AboutDialogController>
 {
 
 	private final FXMLLoader loader = new FXMLLoader();
@@ -75,8 +77,10 @@ public class AboutDialog
 	/**
 	 * @return the controller for the preloader
 	 */
+	@Override
 	public AboutDialogController getController()
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		return CompletableFuture
 				.supplyAsync(loader::<AboutDialogController>getController)
 				.join();

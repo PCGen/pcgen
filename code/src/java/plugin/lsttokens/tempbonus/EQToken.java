@@ -82,7 +82,7 @@ public class EQToken extends AbstractTokenWithSeparator<CDOMObject> implements C
 			String bonusText = eb.bonus.getLSTformat();
 			bonusSet.add(eb.conditions + Constants.PIPE + bonusText);
 		}
-		return bonusSet.toArray(new String[bonusSet.size()]);
+		return bonusSet.toArray(new String[0]);
 	}
 
 	@Override

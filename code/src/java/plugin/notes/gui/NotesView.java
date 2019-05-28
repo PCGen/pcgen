@@ -97,12 +97,12 @@ import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
 import gmgen.gui.ExtendedHTMLDocument;
 import gmgen.gui.ExtendedHTMLEditorKit;
-import gmgen.gui.FlippingSplitPane;
 import gmgen.util.LogReceiver;
 import gmgen.util.LogUtilities;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.CommonMenuText;
+import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
@@ -115,6 +115,7 @@ import javafx.stage.FileChooser;
  *  This class is the main view for the Notes Plugin. Mostof the work is done
  *  here and in the NotesTreeNode Class.
  */
+@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 public class NotesView extends JPanel
 {
 

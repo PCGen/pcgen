@@ -88,25 +88,6 @@ public final class FacadeFactory
 		initDisplayedSources();
 	}
 
-	public static void refresh()
-	{
-		List<GameMode> modes = SystemCollections.getUnmodifiableGameModeList();
-		List<GameModeDisplay> modeDisplays = SystemCollections.getUnmodifiableGameModeDisplayList();
-		List<Campaign> camps = Globals.getCampaignList();
-		gamemodes.setContents(modes);
-		gamemodedisplays.setContents(modeDisplays);
-		campaigns.setContents(camps);
-		quickSources.clearContents();
-		displayedSources.clearContents();
-		customSources.clearContents();
-		campaignMap.clear();
-		campaignListMap.clear();
-		initCampaigns();
-		initGameModes(modes);
-		initCustomSourceSelections();
-		initDisplayedSources();
-	}
-
 	private static void initCampaigns()
 	{
 		for (final Campaign campaign : campaigns)

@@ -20,6 +20,8 @@
  */
 package pcgen.io;
 
+import static freemarker.template.Configuration.VERSION_2_3_20;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -40,6 +42,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -94,7 +97,6 @@ import pcgen.util.enumeration.View;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import freemarker.template.Version;
 
 /**
  * This class deals with exporting a PC to various types of output sheets 
@@ -167,9 +169,6 @@ public final class ExportHandler
 	/** TODO What is this used for? */
 	private boolean checkBefore;
 
-	/** TODO What is this used for? */
-	private boolean inLabel;
-
 	/** The templating engine we will be using for this export. */
 	private ExportEngine exportEngine;
 
@@ -213,10 +212,7 @@ public final class ExportHandler
 	 */
 	public void write(PlayerCharacter aPC, BufferedWriter out) throws ExportException
 	{
-		if (templateFile == null)
-		{
-			throw new IllegalStateException("Template file must not be null");
-		}
+		Objects.requireNonNull(templateFile);
 
 		if (exportEngine == ExportEngine.FREEMARKER)
 		{
@@ -229,15 +225,12 @@ public final class ExportHandler
 		// Set an output filter based on the type of template in use.
 		FileAccess.setCurrentOutputFilter(templateFile.getName());
 
-		BufferedReader br = null;
-		try
+		try(FileInputStream fis = new FileInputStream(templateFile);
+		    InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
+			BufferedReader br = new BufferedReader(isr);)
 		{
-			FileInputStream fis = new FileInputStream(templateFile);
-			InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
-			br = new BufferedReader(isr);
-
 			// A Buffer to hold the result of the preparation
-			StringBuilder template = prepareTemplate(br);
+			CharSequence template = prepareTemplate(br);
 
 			// Create a tokenizer based on EOL characters
 			// 03-Nov-2008 Karianna, changed to use line separator instead of /r/n
@@ -262,36 +255,6 @@ public final class ExportHandler
 		{
 			Logging.errorPrint("Error in ExportHandler::write", exc);
 		}
-		finally
-		{
-			// Close off the reader
-			if (br != null)
-			{
-				try
-				{
-					br.close();
-				}
-				catch (IOException e)
-				{
-					Logging.errorPrint("Error closing off the character sheet template in ExportHandler::write", e);
-				}
-			}
-
-			if (out != null)
-			{
-				try
-				{
-					out.flush();
-				}
-				catch (IOException e)
-				{
-					Logging.errorPrint("Error flushing the output in ExportHandler::write", e);
-				}
-			}
-		}
-
-		// TODO Not sure
-		csheetTag2 = "\\";
 	}
 
 	/**
@@ -303,13 +266,11 @@ public final class ExportHandler
 	 */
 	private void exportCharacterUsingFreemarker(PlayerCharacter aPC, Writer outputWriter) throws ExportException
 	{
-
 		try
 		{
 			// Set Directory for templates
-			Configuration cfg = new Configuration();
+			Configuration cfg = new Configuration(VERSION_2_3_20);
 			cfg.setDirectoryForTemplateLoading(templateFile.getParentFile());
-			cfg.setIncompatibleImprovements(new Version("2.3.20"));
 
 			// load template
 			Template template = cfg.getTemplate(templateFile.getName());
@@ -410,7 +371,7 @@ public final class ExportHandler
 	 */
 	public void write(Collection<PlayerCharacter> PCs, BufferedWriter out)
 	{
-		write(PCs.toArray(new PlayerCharacter[PCs.size()]), out);
+		write(PCs.toArray(new PlayerCharacter[0]), out);
 	}
 
 	/**
@@ -576,7 +537,6 @@ public final class ExportHandler
 	public static void addToTokenMap(Token newToken)
 	{
 		Token test = TOKEN_MAP.put(newToken.getTokenName(), newToken);
-
 		if (test != null)
 		{
 			Logging.errorPrint("More than one Output Token has the same Token Name: '" + newToken.getTokenName() + "'");
@@ -1199,7 +1159,6 @@ public final class ExportHandler
 					valString = valString.substring(0, valString.length() - 1);
 				}
 
-				if (i < str.length())
 				{
 					// Deal with .TRUNC
 					if (valString.endsWith(".TRUNC"))
@@ -1871,7 +1830,6 @@ public final class ExportHandler
 			// then there is nothing to replace so return 0
 			if ("%".equals(aString))
 			{
-				inLabel = false;
 				canWrite = true;
 				return 0;
 			}
@@ -2784,11 +2742,9 @@ public final class ExportHandler
 
 		if (found)
 		{
-			inLabel = true;
 			return 0;
 		}
 		canWrite = false;
-		inLabel = true;
 
 		Logging.debugPrint("Return 0 (don't write/no replacement) for an undetermined filter token.");
 		return 0;
@@ -3302,12 +3258,12 @@ public final class ExportHandler
 		// Set an output filter based on the type of template in use.
 		FileAccess.setCurrentOutputFilter(templateFile.getName());
 
-		BufferedReader br = null;
 
-		try
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(
+				new FileInputStream(templateFile),
+				StandardCharsets.UTF_8
+		));)
 		{
-			br = new BufferedReader(new InputStreamReader(new FileInputStream(templateFile), StandardCharsets.UTF_8));
-
 			boolean betweenPipes = false;
 			StringBuilder textBetweenPipes = new StringBuilder();
 
@@ -3382,27 +3338,9 @@ public final class ExportHandler
 
 				aLine = br.readLine();
 			}
-		}
-		catch (IOException exc)
+		} catch (IOException exc)
 		{
 			Logging.errorPrint("Error in ExportHandler::write", exc);
-		}
-		finally
-		{
-			if (br != null)
-			{
-				try
-				{
-					br.close();
-				}
-				catch (IOException ignore)
-				{
-					if (Logging.isDebugMode())
-					{
-						Logging.debugPrint("Couldn't close file in ExportHandler::write", ignore);
-					}
-				}
-			}
 		}
 	}
 
@@ -3577,14 +3515,6 @@ public final class ExportHandler
 	}
 
 	/**
-	 * @return Returns the inLabel flag.
-	 */
-	public boolean getInLabel()
-	{
-		return inLabel;
-	}
-
-	/**
 	 * @return Returns the existsOnly flag.
 	 */
 	public boolean getExistsOnly()
@@ -3598,14 +3528,6 @@ public final class ExportHandler
 	public void setNoMoreItems(boolean noMoreItems)
 	{
 		this.noMoreItems = noMoreItems;
-	}
-
-	/**
-	 * @return Returns the manualWhitespace flag.
-	 */
-	public boolean isManualWhitespace()
-	{
-		return manualWhitespace;
 	}
 
 	/**
@@ -3754,11 +3676,9 @@ public final class ExportHandler
 
 			if (pTok.hasMoreTokens())
 			{
-				StringBuilder sBuf = new StringBuilder();
-				sBuf.append("In Party.print there is an unhandled case in a ");
-				sBuf.append("switch (the value is ").append(pTok.nextToken());
-				sBuf.append(".");
-				String log = sBuf.toString();
+				String log = "In Party.print there is an unhandled case in a "
+						+ "switch (the value is " + pTok.nextToken()
+						+ ".";
 				Logging.errorPrint(log);
 			}
 		}

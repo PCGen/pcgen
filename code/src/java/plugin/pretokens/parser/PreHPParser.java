@@ -65,7 +65,8 @@ public class PreHPParser extends AbstractPrerequisiteParser implements Prerequis
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PersistenceLayerException("PREHP formula must be an integer '" + formula + "' is not valid.");
+			throw new PersistenceLayerException("PREHP formula must be an integer '" + formula + "' is not valid.",
+					nfe);
 		}
 
 		if (invertResult)

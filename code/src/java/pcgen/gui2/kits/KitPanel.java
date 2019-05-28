@@ -83,7 +83,6 @@ public class KitPanel extends FlippingSplitPane
 	 */
 	public KitPanel(CharacterFacade character)
 	{
-		super("kit");
 		this.character = character;
 		this.availableTable = new FilteredTreeViewTable<>();
 		this.selectedTable = new FilteredTreeViewTable<>();
@@ -100,7 +99,7 @@ public class KitPanel extends FlippingSplitPane
 	private void initComponents()
 	{
 		renderer.setCharacter(character);
-		FlippingSplitPane topPane = new FlippingSplitPane("kitTop");
+		FlippingSplitPane topPane = new FlippingSplitPane();
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);
 
@@ -154,7 +153,7 @@ public class KitPanel extends FlippingSplitPane
 	private class KitFilterHandler
 	{
 
-		private final Filter<Object, Kit> qFilter = new Filter<Object, Kit>()
+		private final Filter<Object, Kit> qFilter = new Filter<>()
 		{
 			@Override
 			public boolean accept(Object context, Kit element)
@@ -251,7 +250,7 @@ public class KitPanel extends FlippingSplitPane
 	{
 
 		private static final DefaultListFacade<? extends TreeView<Kit>> TREE_VIEWS =
-				new DefaultListFacade<TreeView<Kit>>(Arrays.asList(KitTreeView.values()));
+				new DefaultListFacade<>(Arrays.asList(KitTreeView.values()));
 		private final List<DefaultDataViewColumn> columns;
 		private final CharacterFacade character;
 		private final boolean isAvailModel;
@@ -404,7 +403,7 @@ public class KitPanel extends FlippingSplitPane
 				case TYPE_NAME:
 					TreeViewPath<Kit> path =
 							createTreeViewPath(pobj, (Object[]) pobj.getDisplayType().split("\\.")); //$NON-NLS-1$
-					return Arrays.asList(path);
+					return Collections.singletonList(path);
 				case SOURCE_NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getSource()));
 				default:

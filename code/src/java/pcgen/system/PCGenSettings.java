@@ -51,11 +51,9 @@ public final class PCGenSettings extends PropertyContext
 	public static final String OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS = "showOutputNameForOtherItems";
 	public static final String OPTION_AUTOLOAD_SOURCES_AT_START = "autoloadSourcesAtStart";
 	public static final String OPTION_AUTOLOAD_SOURCES_WITH_PC = "autoloadSourcesWithPC";
-	public static final String OPTION_AUTOCREATE_MW_MAGIC_EQUIP = "autoCreateMagicMwEquip";
 	public static final String OPTION_ALLOW_OVERRIDE_DUPLICATES = "allowOverrideDuplicates";
 	public static final String OPTION_SKILL_FILTER = "skillsOutputFilter";
 	public static final String OPTION_GENERATE_TEMP_FILE_WITH_PDF = "generateTempFileWithPdf";
-	public static final String BROWSER_PATH = "browserPath";
 	/**
 	 * The key for the path to the character files.
 	 */
@@ -133,11 +131,6 @@ public final class PCGenSettings extends PropertyContext
 		return getInstance().getProperty(BACKUP_PCG_PATH);
 	}
 
-	public static String getBrowserPath()
-	{
-		return OPTIONS_CONTEXT.getProperty(BROWSER_PATH);
-	}
-
 	public static boolean getCreatePcgBackup()
 	{
 		return OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_CREATE_PCG_BACKUP, true);
@@ -158,12 +151,12 @@ public final class PCGenSettings extends PropertyContext
 		return getDirectory(CUSTOM_DATA_DIR);
 	}
 
-	public static String getSystemProperty(String key)
+	private static String getSystemProperty(String key)
 	{
 		return getInstance().getProperty(key);
 	}
 
-	public static Object setSystemProperty(String key, String value)
+	private static Object setSystemProperty(String key, String value)
 	{
 		return getInstance().setProperty(key, value);
 	}

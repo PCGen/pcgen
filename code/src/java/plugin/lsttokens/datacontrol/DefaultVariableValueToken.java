@@ -109,10 +109,9 @@ public class DefaultVariableValueToken extends AbstractNonEmptyToken<DefaultVarV
 	@Override
 	public String[] unparse(LoadContext context, DefaultVarValue dvv)
 	{
-		StringBuilder sb = new StringBuilder();
-		sb.append(dvv.getFormatManager().getIdentifierType());
-		sb.append(Constants.PIPE);
-		sb.append(dvv.getIndirect().getUnconverted());
-		return new String[]{sb.toString()};
+		String sb = dvv.getFormatManager().getIdentifierType()
+				+ Constants.PIPE
+				+ dvv.getIndirect().getUnconverted();
+		return new String[]{sb};
 	}
 }

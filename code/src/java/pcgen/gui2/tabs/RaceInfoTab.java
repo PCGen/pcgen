@@ -86,7 +86,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	public RaceInfoTab()
 	{
-		super("Race");
+		super();
 		this.raceTable = new FilteredTreeViewTable<>();
 		this.selectedTable = new FilteredTreeViewTable<>();
 		this.infoPane = new InfoPane(LanguageBundle.getString("in_irRaceInfo")); //$NON-NLS-1$
@@ -100,7 +100,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	private void initComponents()
 	{
-		FlippingSplitPane topPane = new FlippingSplitPane("RaceTop");
+		FlippingSplitPane topPane = new FlippingSplitPane();
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);
 
@@ -489,7 +489,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	{
 
 		private static final DefaultListFacade<? extends TreeView<Race>> TREE_VIEWS =
-				new DefaultListFacade<TreeView<Race>>(Arrays.asList(RaceTreeView.values()));
+				new DefaultListFacade<>(Arrays.asList(RaceTreeView.values()));
 		private final CharacterFacade character;
 		private final boolean isAvailModel;
 		private final DataView<Race> dataView;

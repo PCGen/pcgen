@@ -80,9 +80,8 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 	public SpellsKnownTab()
 	{
-		super("SpellsKnown");
 		this.availableTable = new FilteredTreeViewTable<>();
-		this.selectedTable = new JTreeViewTable<SuperNode>()
+		this.selectedTable = new JTreeViewTable<>()
 		{
 
 			@Override
@@ -125,7 +124,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		filterBar.addDisplayableFilter(qFilterButton);
 
-		FlippingSplitPane upperPane = new FlippingSplitPane("SpellsKnownTop");
+		FlippingSplitPane upperPane = new FlippingSplitPane();
 		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTable, filterBar);
 		Box box = Box.createVerticalBox();
 		box.add(Box.createVerticalStrut(2));
@@ -197,7 +196,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		upperPane.setResizeWeight(0);
 		setTopComponent(upperPane);
 
-		FlippingSplitPane bottomPane = new FlippingSplitPane("SpellsKnownBottom");
+		FlippingSplitPane bottomPane = new FlippingSplitPane();
 		bottomPane.setLeftComponent(spellsPane);
 		bottomPane.setRightComponent(classPane);
 		setBottomComponent(bottomPane);

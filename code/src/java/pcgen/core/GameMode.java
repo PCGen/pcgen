@@ -151,7 +151,7 @@ public final class GameMode implements Comparable<Object>
 	private int maxDieSize = 12;
 	private int minDieSize = 4;
 
-	private List<String> resizableTypeList = new ArrayList<>();
+	private List<Type> resizableTypeList = new ArrayList<>();
 	private List<String> characterTypeList = new ArrayList<>();
 	private List<String> monsterRoleList = new ArrayList<>();
 	private String monsterRoleDefault = "";
@@ -1208,6 +1208,7 @@ public final class GameMode implements Comparable<Object>
 	 * @param aPC
 	 * @return purchase mode base score
 	 */
+	@SuppressWarnings("PMD.OneDeclarationPerLine")
 	public int getPurchaseModeBaseStatScore(final PlayerCharacter aPC)
 	{
 		int minVal = getPurchaseScoreMin(aPC);
@@ -1833,7 +1834,7 @@ public final class GameMode implements Comparable<Object>
 	 * be resized by the automatic resize feature.
 	 * @return the resizableTypeList
 	 */
-	List<String> getResizableTypeList()
+	List<Type> getResizableTypeList()
 	{
 		return Collections.unmodifiableList(resizableTypeList);
 	}
@@ -1844,7 +1845,7 @@ public final class GameMode implements Comparable<Object>
 	 *
 	 * @param resizableTypeList the resizableTypeList to set
 	 */
-	public void setResizableTypeList(List<String> resizableTypeList)
+	public void setResizableTypeList(List<Type> resizableTypeList)
 	{
 		this.resizableTypeList = resizableTypeList;
 	}

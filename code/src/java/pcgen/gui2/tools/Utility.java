@@ -26,6 +26,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.image.RenderedImage;
@@ -370,5 +371,19 @@ public final class Utility
 			return (JTabbedPane) c;
 		}
 		return getTabbedPaneFor(c.getParent());
+	}
+
+	/**
+	 * {@code isShiftLeftMouseButton} detects SHIFT-BUTTON1
+	 * events for flipping pane shortcuts.
+	 *
+	 * @param e {@code MouseEvent}, the event
+	 *
+	 * @return {@code boolean}, the condition
+	 */
+	@Contract(pure = true)
+	public static boolean isShiftLeftMouseButton(InputEvent e)
+	{
+		return ((e.getModifiersEx() & InputEvent.BUTTON1_DOWN_MASK) == InputEvent.BUTTON1_DOWN_MASK) && e.isShiftDown();
 	}
 }

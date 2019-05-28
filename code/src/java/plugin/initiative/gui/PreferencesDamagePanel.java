@@ -20,26 +20,28 @@
  */
 package plugin.initiative.gui;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.border.TitledBorder;
+import java.awt.BorderLayout;
 
 import gmgen.gui.PreferencesPanel;
 import pcgen.core.SettingsHandler;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
 
+import javafx.scene.Node;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TitledPane;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+
 /**
  * Preference panel for damage related settings.
- * 
  */
-public class PreferencesDamagePanel extends PreferencesPanel
+public final class PreferencesDamagePanel extends PreferencesPanel
 {
-	private static final long serialVersionUID = -7745121219014841051L;
-
 	private static final String SETTING_DAMAGE_DYING = ".Damage.Dying"; //$NON-NLS-1$
 	private static final String SETTING_DAMAGE_DYING_START = ".Damage.Dying.Start"; //$NON-NLS-1$
 	private static final String SETTING_DAMAGE_DEATH = ".Damage.Death"; //$NON-NLS-1$
@@ -48,56 +50,45 @@ public class PreferencesDamagePanel extends PreferencesPanel
 	private static final String SETTING_DAMAGE_DISABLED = ".Damage.Disabled"; //$NON-NLS-1$
 
 	// XXX Can replace those constants with enums that have a value for saving purpose
-	public static final int DAMAGE_DYING_END = 1;
-	public static final int DAMAGE_DYING_INITIATIVE = 2;
+	static final int DAMAGE_DYING_END = 1;
+	static final int DAMAGE_DYING_INITIATIVE = 2;
 
-	public static final int DAMAGE_DISABLED_ZERO = 1;
-	public static final int DAMAGE_DISABLED_CON = 2;
+	private static final int DAMAGE_DISABLED_ZERO = 1;
+	private static final int DAMAGE_DISABLED_CON = 2;
 
-	public static final int DAMAGE_DEATH_NEG_TEN = 1;
-	public static final int DAMAGE_DEATH_NEG_CON = 2;
+	private static final int DAMAGE_DEATH_NEG_TEN = 1;
+	private static final int DAMAGE_DEATH_NEG_CON = 2;
 
-	public static final int DAMAGE_STABLE_PERCENT = 1;
-	public static final int DAMAGE_STABLE_SAVE = 2;
-	public static final int DAMAGE_STABLE_NONE = 3;
+	static final int DAMAGE_STABLE_PERCENT = 1;
+	static final int DAMAGE_STABLE_SAVE = 2;
+	private static final int DAMAGE_STABLE_NONE = 3;
 
-	public static final int DAMAGE_SUBDUAL = 1;
-	public static final int DAMAGE_NON_LETHAL = 2;
+	static final int DAMAGE_SUBDUAL = 1;
+	static final int DAMAGE_NON_LETHAL = 2;
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.ButtonGroup deathGroup;
-	private javax.swing.ButtonGroup disabledGroup;
-	private javax.swing.ButtonGroup dyingGroup;
-	private javax.swing.ButtonGroup nonLethalGroup;
-	private javax.swing.ButtonGroup stableGroup;
-	private javax.swing.JCheckBox dyingCB1;
-	private javax.swing.JPanel mainPanel;
-	private javax.swing.JPanel jPanel3;
-	private javax.swing.JPanel jPanel4;
-	private javax.swing.JPanel jPanel5;
-	private javax.swing.JPanel dyingPanel;
-	private javax.swing.JRadioButton deathRB1;
-	private javax.swing.JRadioButton deathRB2;
-	private javax.swing.JRadioButton disabledRBZero;
-	private javax.swing.JRadioButton disabledRBCon;
-	private javax.swing.JRadioButton dyingRB1;
-	private javax.swing.JRadioButton dyingRB2;
-	private javax.swing.JRadioButton nonLethalRB1;
-	private javax.swing.JRadioButton nonLethalRB2;
-	private javax.swing.JRadioButton stableRB1;
-	private javax.swing.JRadioButton stableRB2;
-	private javax.swing.JRadioButton stableRB3;
-	private javax.swing.JScrollPane jScrollPane1;
-	private JPanel disabledPanel;
+	private CheckBox dyingCB1;
+	private RadioButton deathRB1;
+	private RadioButton deathRB2;
+	private RadioButton disabledRBZero;
+	private RadioButton disabledRBCon;
+	private RadioButton dyingRB1;
+	private RadioButton dyingRB2;
+	private RadioButton nonLethalRB1;
+	private RadioButton nonLethalRB2;
+	private RadioButton stableRB1;
+	private RadioButton stableRB2;
+	private RadioButton stableRB3;
 
-	/** Creates new form PreferencesDamagePanel */
+	/**
+	 * Creates new form PreferencesDamagePanel
+	 */
 	public PreferencesDamagePanel()
 	{
 		initComponents();
 		initPreferences();
 	}
 
-	public void setDeath(int death)
+	private void setDeath(int death)
 	{
 		if (death == DAMAGE_DEATH_NEG_TEN)
 		{
@@ -109,7 +100,7 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		}
 	}
 
-	public int getDeath()
+	private int getDeath()
 	{
 		int returnVal = 0;
 
@@ -154,7 +145,7 @@ public class PreferencesDamagePanel extends PreferencesPanel
 	}
 
 	// End of variables declaration//GEN-END:variables
-	public void setDying(int dying)
+	private void setDying(int dying)
 	{
 		if (dying == DAMAGE_DYING_END)
 		{
@@ -166,7 +157,7 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		}
 	}
 
-	public int getDying()
+	private int getDying()
 	{
 		int returnVal = 0;
 
@@ -182,12 +173,12 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		return returnVal;
 	}
 
-	public void setDyingStart(boolean dyingStart)
+	private void setDyingStart(boolean dyingStart)
 	{
 		dyingCB1.setSelected(dyingStart);
 	}
 
-	public void setStable(int stable)
+	private void setStable(int stable)
 	{
 		if (stable == DAMAGE_STABLE_PERCENT)
 		{
@@ -203,7 +194,7 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		}
 	}
 
-	public int getStable()
+	private int getStable()
 	{
 		int returnVal = 0;
 
@@ -268,12 +259,20 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		setDying(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DYING, DAMAGE_DYING_END));
 		setDyingStart(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DYING_START, true));
 		setDeath(
-			SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DEATH, DAMAGE_DEATH_NEG_TEN));
+				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DEATH,
+						DAMAGE_DEATH_NEG_TEN));
 		setStable(
-			SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_STABLE, DAMAGE_STABLE_PERCENT));
-		setSubdual(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_SUBDUAL2, DAMAGE_SUBDUAL));
+				SettingsHandler.getGMGenOption(
+						InitiativePlugin.LOG_NAME + SETTING_DAMAGE_STABLE,
+						DAMAGE_STABLE_PERCENT
+				));
+		setSubdual(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_SUBDUAL2,
+				DAMAGE_SUBDUAL));
 		setDisabled(
-			SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DISABLED, DAMAGE_DISABLED_ZERO));
+				SettingsHandler.getGMGenOption(
+						InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DISABLED,
+						DAMAGE_DISABLED_ZERO
+				));
 	}
 
 	@Override
@@ -287,130 +286,115 @@ public class PreferencesDamagePanel extends PreferencesPanel
 	 */
 	private void initComponents()
 	{
-		deathGroup = new javax.swing.ButtonGroup();
-		stableGroup = new javax.swing.ButtonGroup();
-		nonLethalGroup = new javax.swing.ButtonGroup();
-		dyingGroup = new javax.swing.ButtonGroup();
-		disabledGroup = new javax.swing.ButtonGroup();
-		jScrollPane1 = new javax.swing.JScrollPane();
-		mainPanel = new javax.swing.JPanel();
-		dyingPanel = new javax.swing.JPanel();
-		disabledPanel = new JPanel();
-		dyingRB1 = new javax.swing.JRadioButton();
-		dyingRB2 = new javax.swing.JRadioButton();
-		dyingCB1 = new javax.swing.JCheckBox();
-		jPanel3 = new javax.swing.JPanel();
-		deathRB1 = new javax.swing.JRadioButton();
-		deathRB2 = new javax.swing.JRadioButton();
-		jPanel4 = new javax.swing.JPanel();
-		stableRB1 = new javax.swing.JRadioButton();
-		stableRB2 = new javax.swing.JRadioButton();
-		stableRB3 = new javax.swing.JRadioButton();
-		jPanel5 = new javax.swing.JPanel();
-		nonLethalRB1 = new javax.swing.JRadioButton();
-		nonLethalRB2 = new javax.swing.JRadioButton();
-		disabledRBCon = new JRadioButton();
-		disabledRBZero = new JRadioButton();
+		ToggleGroup deathGroup = new ToggleGroup();
+		ToggleGroup stableGroup = new ToggleGroup();
+		ToggleGroup nonLethalGroup = new ToggleGroup();
+		ToggleGroup dyingGroup = new ToggleGroup();
+		ToggleGroup disabledGroup = new ToggleGroup();
+		VBox dyingPanel = new VBox();
+		VBox disabledPanel = new VBox();
+		dyingRB1 = new RadioButton();
+		dyingRB2 = new RadioButton();
+		dyingCB1 = new CheckBox();
+		VBox jPanel3 = new VBox();
+		deathRB1 = new RadioButton();
+		deathRB2 = new RadioButton();
+		VBox jPanel4 = new VBox();
+		stableRB1 = new RadioButton();
+		stableRB2 = new RadioButton();
+		stableRB3 = new RadioButton();
+		VBox jPanel5 = new VBox();
+		nonLethalRB1 = new RadioButton();
+		nonLethalRB2 = new RadioButton();
+		disabledRBCon = new RadioButton();
+		disabledRBZero = new RadioButton();
 
-		setLayout(new java.awt.BorderLayout());
+		setLayout(new BorderLayout());
 
-		mainPanel.setLayout(new GridBagLayout());
-		GridBagConstraints c = new GridBagConstraints();
-		c.gridx = GridBagConstraints.REMAINDER;
-		c.weightx = 1.0;
-		c.fill = GridBagConstraints.HORIZONTAL;
-
-		dyingPanel.setLayout(new javax.swing.BoxLayout(dyingPanel, javax.swing.BoxLayout.Y_AXIS));
-
-		dyingPanel.setBorder(new TitledBorder(
-			null, LanguageBundle.getString("in_plugin_initiative_dying"), //$NON-NLS-1$
-			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 		dyingRB1.setSelected(true);
 		dyingRB1.setText(LanguageBundle.getString("in_plugin_initiative_dying_end")); //$NON-NLS-1$
-		dyingGroup.add(dyingRB1);
-		dyingPanel.add(dyingRB1);
+		dyingRB1.setToggleGroup(dyingGroup);
+		dyingPanel.getChildren().add(dyingRB1);
+		Node titledDyingPanel = new TitledPane(
+				LanguageBundle.getString("in_plugin_initiative_dying"),
+				dyingPanel
+		);
 
 		dyingRB2.setText(LanguageBundle.getString("in_plugin_initiative_dying_own")); //$NON-NLS-1$
-		dyingGroup.add(dyingRB2);
-		dyingPanel.add(dyingRB2);
+		dyingRB2.setToggleGroup(dyingGroup);
+		dyingPanel.getChildren().add(dyingRB2);
 
 		dyingCB1.setSelected(true);
 		dyingCB1.setText(LanguageBundle.getString("in_plugin_initiative_dying_start")); //$NON-NLS-1$
-		dyingPanel.add(dyingCB1);
+		dyingPanel.getChildren().add(dyingCB1);
 
-		mainPanel.add(dyingPanel, c);
-
-		//DISABLED OPTION
-		disabledPanel.setLayout(new javax.swing.BoxLayout(disabledPanel, javax.swing.BoxLayout.Y_AXIS));
-
-		disabledPanel.setBorder(new javax.swing.border.TitledBorder(null,
-			LanguageBundle.getString("in_plugin_initiative_disabled"), //$NON-NLS-1$
-			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 		disabledRBZero.setSelected(true);
 		disabledRBZero.setText(LanguageBundle.getString("in_plugin_initiative_disabled_zero")); //$NON-NLS-1$
-		disabledGroup.add(disabledRBZero);
-		disabledPanel.add(disabledRBZero);
+		disabledRBZero.setToggleGroup(disabledGroup);
+		disabledPanel.getChildren().add(disabledRBZero);
+		Node titledDisabledPanel =
+				new TitledPane(LanguageBundle.getString("in_plugin_initiative_disabled"), disabledPanel);
 
 		disabledRBCon.setText(LanguageBundle.getString("in_plugin_initiative_disabled_mincon")); //$NON-NLS-1$
-		disabledGroup.add(disabledRBCon);
-		disabledPanel.add(disabledRBCon);
-		mainPanel.add(disabledPanel, c);
-		//END DISABLED OPTION
+		disabledRBCon.setToggleGroup(disabledGroup);
+		disabledPanel.getChildren().add(disabledRBCon);
 
-		jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.Y_AXIS));
-
-		jPanel3.setBorder(new javax.swing.border.TitledBorder(null,
-			LanguageBundle.getString("in_plugin_initiative_death"), //$NON-NLS-1$
-			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 		deathRB1.setSelected(true);
 		deathRB1.setText(LanguageBundle.getString("in_plugin_initiative_death_minten")); //$NON-NLS-1$
-		deathGroup.add(deathRB1);
-		jPanel3.add(deathRB1);
+		deathRB1.setToggleGroup(deathGroup);
+		jPanel3.getChildren().add(deathRB1);
+		Node titledInitPanel =
+				new TitledPane(
+						LanguageBundle.getString("in_plugin_initiative_disabled"),
+						jPanel3
+				);
 
 		deathRB2.setText(LanguageBundle.getString("in_plugin_initiative_death_negcon")); //$NON-NLS-1$
-		deathGroup.add(deathRB2);
-		jPanel3.add(deathRB2);
+		deathRB2.setToggleGroup(deathGroup);
+		jPanel3.getChildren().add(deathRB2);
 
-		mainPanel.add(jPanel3, c);
-
-		jPanel4.setLayout(new javax.swing.BoxLayout(jPanel4, javax.swing.BoxLayout.Y_AXIS));
-
-		jPanel4.setBorder(new javax.swing.border.TitledBorder(null,
-			LanguageBundle.getString("in_plugin_initiative_stabilize_auto"), //$NON-NLS-1$
-			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 		stableRB1.setSelected(true);
 		stableRB1.setText(LanguageBundle.getString("in_plugin_initiative_stabilize_tenpercent")); //$NON-NLS-1$
-		stableGroup.add(stableRB1);
-		jPanel4.add(stableRB1);
+		stableRB1.setToggleGroup(stableGroup);
+		jPanel4.getChildren().add(stableRB1);
 
 		stableRB2.setText(LanguageBundle.getString("in_plugin_initiative_stabilize_fort")); //$NON-NLS-1$
-		stableGroup.add(stableRB2);
-		jPanel4.add(stableRB2);
+		stableRB2.setToggleGroup(stableGroup);
+		jPanel4.getChildren().add(stableRB2);
 
 		stableRB3.setText(LanguageBundle.getString("in_plugin_initiative_stabilize_none")); //$NON-NLS-1$
-		stableGroup.add(stableRB3);
-		jPanel4.add(stableRB3);
+		stableRB3.setToggleGroup(stableGroup);
+		jPanel4.getChildren().add(stableRB3);
 
-		mainPanel.add(jPanel4, c);
+		Node titledStablePanel = new TitledPane(
+				LanguageBundle.getString("in_plugin_initiative_stabilize_auto"),
+				jPanel4
+		);
 
-		jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.Y_AXIS));
-
-		jPanel5.setBorder(new javax.swing.border.TitledBorder(null,
-			LanguageBundle.getString("in_plugin_initiative_subdualnl"), //$NON-NLS-1$
-			javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 		nonLethalRB1.setSelected(true);
 		nonLethalRB1.setText(LanguageBundle.getString("in_plugin_initiative_subdual")); //$NON-NLS-1$
-		nonLethalGroup.add(nonLethalRB1);
-		jPanel5.add(nonLethalRB1);
+		nonLethalRB1.setToggleGroup(nonLethalGroup);
+		jPanel5.getChildren().add(nonLethalRB1);
 
 		nonLethalRB2.setText(LanguageBundle.getString("in_plugin_initiative_nonlethal")); //$NON-NLS-1$
-		nonLethalGroup.add(nonLethalRB2);
-		jPanel5.add(nonLethalRB2);
+		nonLethalRB2.setToggleGroup(nonLethalGroup);
+		jPanel5.getChildren().add(nonLethalRB2);
 
-		mainPanel.add(jPanel5, c);
+		Node titledSubDualPanel = new TitledPane(
+				LanguageBundle.getString("in_plugin_initiative_subdualnl"),
+				jPanel5
+		);
 
-		jScrollPane1.setViewportView(mainPanel);
+		Pane mainPanel = new VBox();
+		mainPanel.getChildren().add(titledDyingPanel);
+		mainPanel.getChildren().add(titledDisabledPanel);
+		mainPanel.getChildren().add(titledInitPanel);
+		mainPanel.getChildren().add(titledStablePanel);
+		mainPanel.getChildren().add(titledSubDualPanel);
 
-		add(jScrollPane1, java.awt.BorderLayout.CENTER);
+		ScrollPane scrollPane = new ScrollPane();
+		scrollPane.setContent(mainPanel);
+
+		add(GuiUtility.wrapParentAsJFXPanel(scrollPane), BorderLayout.CENTER);
 	}
 }

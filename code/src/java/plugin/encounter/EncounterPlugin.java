@@ -38,6 +38,15 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.ListModel;
 
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.io.ReadXML;
+import gmgen.io.VectorTable;
+import gmgen.plugin.InitHolderList;
+import gmgen.plugin.PcgCombatant;
+import gmgen.plugin.dice.Dice;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -69,22 +78,13 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import plugin.encounter.gui.EncounterView;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.io.ReadXML;
-import gmgen.io.VectorTable;
-import gmgen.plugin.InitHolderList;
-import gmgen.plugin.PcgCombatant;
-import gmgen.plugin.dice.Dice;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-
 /**
  * This class controls the various classes that are
  * involved in the functionality of the Encounter Generator.  This {@code class
  * } is a plugin for the {@code GMGenSystem}, is called by the
  * {@code PluginLoader} and will create a model and a view for this plugin.
  */
+@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 public class EncounterPlugin extends MouseAdapter implements InteractivePlugin, ActionListener, ItemListener
 {
 	/** Directory where Data for this plug-in is expected to be. */
@@ -354,46 +354,39 @@ public class EncounterPlugin extends MouseAdapter implements InteractivePlugin, 
 		Globals.setRootFrame(GMGenSystem.inst);
 		theModel.setPCs(theModel.size());
 
-		try
+		for (i = 0; i < theModel.size(); i++)
 		{
-			for (i = 0; i < theModel.size(); i++)
+			aPC = theModel.getPCs()[i];
+			aPC.setImporting(false);
+
+			if (!handleRace(aPC, i))
 			{
-				aPC = theModel.getPCs()[i];
-				aPC.setImporting(false);
-
-				if (!handleRace(aPC, i))
-				{
-					continue;
-				}
-
-				LevelCommandFactory lcf = aPC.getDisplay().getRace().get(ObjectKey.MONSTER_CLASS);
-
-				if (lcf != null)
-				{
-					handleMonster(aPC, lcf);
-				}
-				else
-				{
-					handleNonMonster(aPC);
-				}
-
-				handleEquipment(aPC);
-				aPC.setPCAttribute(PCStringKey.PLAYERSNAME, "Enemy");
-				theList.add(new PcgCombatant(aPC, "Enemy", messageHandler));
+				continue;
 			}
 
-			JOptionPane.showMessageDialog(null,
-				"You will now be returned to PCGen so that you can finalise your selected combatants.\n"
-				+ "Once they are finalised, return to the GMGen Initiative tab to begin the combat!",
-				"Combatant Setup Complete", JOptionPane.INFORMATION_MESSAGE);
+			LevelCommandFactory lcf = aPC.getDisplay().getRace().get(ObjectKey.MONSTER_CLASS);
 
-			messageHandler.handleMessage(new TransmitInitiativeValuesBetweenComponentsMessage(this, theList));
-			removeAll();
+			if (lcf != null)
+			{
+				handleMonster(aPC, lcf);
+			}
+			else
+			{
+				handleNonMonster(aPC);
+			}
+
+			handleEquipment(aPC);
+			aPC.setPCAttribute(PCStringKey.PLAYERSNAME, "Enemy");
+			theList.add(new PcgCombatant(aPC, "Enemy", messageHandler));
 		}
-		catch (Throwable e)
-		{
-			e.printStackTrace();
-		}
+
+		JOptionPane.showMessageDialog(null,
+			"You will now be returned to PCGen so that you can finalise your selected combatants.\n"
+			+ "Once they are finalised, return to the GMGen Initiative tab to begin the combat!",
+			"Combatant Setup Complete", JOptionPane.INFORMATION_MESSAGE);
+
+		messageHandler.handleMessage(new TransmitInitiativeValuesBetweenComponentsMessage(this, theList));
+		removeAll();
 
 		Globals.setRootFrame(oldRoot);
 	}

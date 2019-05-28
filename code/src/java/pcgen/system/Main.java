@@ -41,9 +41,9 @@ import pcgen.facade.core.UIDelegate;
 import pcgen.gui2.PCGenUIManager;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.converter.TokenConverter;
-import pcgen.gui2.dialog.OptionsPathDialog;
 import pcgen.gui2.dialog.RandomNameDialog;
-import pcgen.gui2.plaf.LookAndFeelManager;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.dialog.OptionsPathDialogController;
 import pcgen.gui3.preloader.PCGenPreloader;
 import pcgen.io.ExportHandler;
 import pcgen.persistence.CampaignFileLoader;
@@ -226,32 +226,17 @@ public final class Main
 
 		new JFXPanel();
 
-		PCGenPreloader splash = null;
-
-		boolean showSplash = Boolean.parseBoolean(ConfigurationSettings.initSystemProperty("showSplash", "true"));
-		if (showSplash)
-		{
-			splash = new PCGenPreloader();
-		}
+		PCGenPreloader splash = new PCGenPreloader();
 		PCGenTaskExecutor executor = new PCGenTaskExecutor();
 		executor.addPCGenTask(createLoadPluginTask());
 		executor.addPCGenTask(new GameModeFileLoader());
 		executor.addPCGenTask(new CampaignFileLoader());
-		if (splash != null)
-		{
-			executor.addPCGenTaskListener(splash);
-		}
+		executor.addPCGenTaskListener(splash);
 		executor.run();
-		if (splash != null)
-		{
-			splash.getController().setProgress(LanguageBundle.getString("in_taskInitUi"), 100.0d);
-		}
+		splash.getController().setProgress(LanguageBundle.getString("in_taskInitUi"), 1.0d);
 		FacadeFactory.initialize();
 		PCGenUIManager.initializeGUI();
-		if (splash != null)
-		{
-			splash.done();
-		}
+		splash.done();
 		PCGenUIManager.startGUI();
 	}
 
@@ -264,7 +249,6 @@ public final class Main
 			Locale.setDefault(new Locale(language, country));
 		}
 		LanguageBundle.init();
-		LookAndFeelManager.initLookAndFeel();
 	}
 
 	/**
@@ -318,8 +302,11 @@ public final class Main
 				Logging.errorPrint("No settingsDir specified via -s in batch mode and no default exists.");
 				System.exit(1);
 			}
-			String filePath = OptionsPathDialog.promptSettingsPath();
-			ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH, filePath);
+			var panel = new JFXPanelFromResource<>(
+					OptionsPathDialogController.class,
+					"OptionsPathDialog.fxml"
+			);
+			panel.showAndBlock("Directory for options.ini location");
 		}
 		PropertyContextFactory.setDefaultFactory(settingsDir);
 

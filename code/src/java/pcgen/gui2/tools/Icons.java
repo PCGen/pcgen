@@ -22,6 +22,8 @@ import java.util.EnumMap;
 
 import javax.swing.ImageIcon;
 
+import javafx.scene.image.Image;
+
 public enum Icons
 {
 
@@ -96,4 +98,14 @@ public enum Icons
 		return image;
 	}
 
+	public Image asJavaFX()
+	{
+		String fileName = RESOURCE_URL + name() + extension;
+		final URL iconURL = getClass().getResource(fileName);
+		if (iconURL == null)
+		{
+			throw new RuntimeException("invalid image: " + fileName);
+		}
+		return new Image(iconURL.toExternalForm());
+	}
 }

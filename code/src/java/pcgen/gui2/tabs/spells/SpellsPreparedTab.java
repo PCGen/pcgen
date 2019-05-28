@@ -81,9 +81,8 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 
 	public SpellsPreparedTab()
 	{
-		super("SpellsPrepared");
 		this.availableTable = new FilteredTreeViewTable<>();
-		this.selectedTable = new JTreeViewTable<SuperNode>()
+		this.selectedTable = new JTreeViewTable<>()
 		{
 
 			@Override
@@ -128,7 +127,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		filterBar.addDisplayableFilter(qFilterButton);
 
-		FlippingSplitPane upperPane = new FlippingSplitPane("SpellsPreparedTop");
+		FlippingSplitPane upperPane = new FlippingSplitPane();
 		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTable, filterBar);
 		Box box = Box.createVerticalBox();
 		box.add(Box.createVerticalStrut(5));
@@ -176,7 +175,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		upperPane.setResizeWeight(0);
 		setTopComponent(upperPane);
 
-		FlippingSplitPane bottomPane = new FlippingSplitPane("SpellsPreparedBottom");
+		FlippingSplitPane bottomPane = new FlippingSplitPane();
 		bottomPane.setLeftComponent(spellsPane);
 		bottomPane.setRightComponent(classPane);
 		setBottomComponent(bottomPane);

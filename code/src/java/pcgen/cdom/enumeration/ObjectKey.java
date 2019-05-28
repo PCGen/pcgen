@@ -88,6 +88,7 @@ import pcgen.util.enumeration.Visibility;
  * @param <T>
  *            The class of object stored by this ObjectKey.
  */
+@SuppressWarnings("PMD.ClassWithOnlyPrivateConstructorsShouldBeFinal")
 public class ObjectKey<T>
 {
 
@@ -309,7 +310,7 @@ public class ObjectKey<T>
 	static
 	{
 		buildMap();
-		BASESIZE = new ObjectKey<CDOMSingleRef<SizeAdjustment>>(null)
+		BASESIZE = new ObjectKey<>(null)
 		{
 			@Override
 			public CDOMSingleRef<SizeAdjustment> getDefault()

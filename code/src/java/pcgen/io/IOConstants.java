@@ -19,10 +19,10 @@
 package pcgen.io;
 
 /**
- * {@code IOConstants}
- *
+ * Set of constants for Tags. Not to be implemented.
+ * Grandfathered as an interface. Not to be implemented.
  */
-@SuppressWarnings("nls")
+@SuppressWarnings("PMD.ConstantsInInterface")
 interface IOConstants
 {
 	/** Unix-style line separator.  Used for cross platform compatability */
@@ -407,8 +407,6 @@ interface IOConstants
 
 	/** SYNERGY */
 	String TAG_SYNERGY = "SYNERGY";
-	/** TABLABEL */
-	String TAG_TABLABEL = "TABLABEL";
 	/** TABNAME */
 	String TAG_TABNAME = "TABNAME";
 

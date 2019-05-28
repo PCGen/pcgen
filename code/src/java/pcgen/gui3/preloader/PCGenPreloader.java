@@ -21,6 +21,8 @@ package pcgen.gui3.preloader;
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
+import pcgen.gui3.Controllable;
+import pcgen.gui3.GuiAssertions;
 import pcgen.system.PCGenTaskEvent;
 import pcgen.system.PCGenTaskListener;
 import pcgen.system.ProgressContainer;
@@ -40,7 +42,7 @@ import javafx.stage.Stage;
  *
  * @see pcgen.gui3.JFXPanelFromResource
  */
-public class PCGenPreloader implements PCGenTaskListener
+public class PCGenPreloader implements PCGenTaskListener, Controllable<PCGenPreloaderController>
 {
 
 	private final FXMLLoader loader = new FXMLLoader();
@@ -49,6 +51,7 @@ public class PCGenPreloader implements PCGenTaskListener
 
 	public PCGenPreloader()
 	{
+		GuiAssertions.assertIsNotOnGUIThread();
 		loader.setLocation(getClass().getResource("PCGenPreloader.fxml"));
 		Platform.runLater(() -> {
 			primaryStage = new Stage();
@@ -70,8 +73,10 @@ public class PCGenPreloader implements PCGenTaskListener
 	/**
 	 * @return the controller for the preloader
 	 */
+	@Override
 	public PCGenPreloaderController getController()
 	{
+		GuiAssertions.assertIsNotOnGUIThread();
 		return CompletableFuture
 				.supplyAsync(loader::<PCGenPreloaderController>getController,
 						Platform::runLater)
@@ -98,6 +103,17 @@ public class PCGenPreloader implements PCGenTaskListener
 	 */
 	public void done()
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		Platform.runLater(() -> primaryStage.close());
+	}
+
+	/**
+	 * Primarily exists for testing.
+	 * New features should be added to this class.
+	 * @return the stage associated with the preloader
+	 */
+	public Stage getStage()
+	{
+		return primaryStage;
 	}
 }

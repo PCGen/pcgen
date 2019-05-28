@@ -23,8 +23,8 @@
        xmlns:fx="http://javafx.com/fxml/1"
        fx:controller="pcgen.gui3.dialog.AboutDialogController">
     <AnchorPane>
-        <TabPane>
-            <Tab text="%in_abt_credits">
+        <TabPane id="viewtabs">
+            <Tab id="abt_credits" text="%in_abt_credits">
                 <AnchorPane>
                     <GridPane>
                         <Label text="%in_abt_version"
@@ -100,13 +100,13 @@
                     </GridPane>
                 </AnchorPane>
             </Tab>
-            <Tab text="%in_abt_license">
-                <TextArea fx:id="licenseArea" text="%in_abt_lib_l2f" wrapText="true"/>
+            <Tab id="abt_license" text="%in_abt_license">
+                <TextArea fx:id="licenseArea" wrapText="true"/>
             </Tab>
-            <Tab text="%in_abt_libraries">
+            <Tab id="abt_libraries" text="%in_abt_libraries">
                 <TextArea fx:id="librariesArea" wrapText="true"/>
             </Tab>
-            <Tab text="%in_abt_awards">
+            <Tab id="abt_awards" text="%in_abt_awards">
                 <GridPane>
                     <Label text="%in_abt_awards_2005_ennie" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
                     <ImageView fitHeight="150.0"

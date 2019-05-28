@@ -91,7 +91,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		{
 			return new String[]{};
 		}
-		return descriptors.toArray(new String[descriptors.size()]);
+		return descriptors.toArray(new String[0]);
 	}
 
 	@Override

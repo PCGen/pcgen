@@ -102,7 +102,7 @@ public class SpropToken extends AbstractTokenWithSeparator<Equipment> implements
 				getTokenName() + " was expecting non-empty changes to include " + "added items or global clear");
 			return null;
 		}
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	@Override

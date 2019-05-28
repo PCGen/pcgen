@@ -76,7 +76,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 	@SuppressWarnings("serial")
 	public CharacterSheetInfoTab()
 	{
-		super("CharSheet");
+		super();
 		this.csheet = new CharacterSheetPanel();
 		this.sheetBox = new JComboBox<>();
 		this.equipSetTable = TableUtils.createDefaultTable();
@@ -105,7 +105,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		});
 		box.add(sheetBox);
 		panel.add(box, BorderLayout.NORTH);
-		FlippingSplitPane subPane = new FlippingSplitPane("CharSheetLeft");
+		FlippingSplitPane subPane = new FlippingSplitPane();
 		subPane.setOrientation(VERTICAL_SPLIT);
 		equipSetTable.getTableHeader().setReorderingAllowed(false);
 		JScrollPane pane = TableUtils.createRadioBoxSelectionPane(equipSetTable, equipSetRowTable);
@@ -298,7 +298,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		 */
 		private static final long serialVersionUID = -2157540968522498242L;
 
-		private final ListListener<TempBonusFacade> listener = new ListListener<TempBonusFacade>()
+		private final ListListener<TempBonusFacade> listener = new ListListener<>()
 		{
 
 			@Override

@@ -78,7 +78,7 @@ public final class SpellLevel
 			}
 		}
 
-		return list.toArray(new Integer[list.size()]);
+		return list.toArray(new Integer[0]);
 	}
 
 	/**

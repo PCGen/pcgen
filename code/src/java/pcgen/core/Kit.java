@@ -20,6 +20,7 @@ package pcgen.core;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
 
@@ -45,7 +46,7 @@ import pcgen.util.enumeration.Visibility;
 /**
  * {@code Kit}.
  */
-public final class Kit extends PObject implements Comparable<Object>
+public final class Kit extends PObject
 {
 	private int selectValue = -1;
 
@@ -118,30 +119,14 @@ public final class Kit extends PObject implements Comparable<Object>
 
 	/**
 	 * The method that actually adds the various items in this Kit to the PC.
-	 * Does not take account of Kit Number.
-	 *
-	 * @param  pc           The Player Character object that we will be applying
-	 *                      the kit to.
-	 * @param  thingsToAdd  The list of things that will be added by this kit
-	 *                      wrapped in KitWrapper objects
-	 */
-	public void processKit(final PlayerCharacter pc, final List<BaseKit> thingsToAdd)
-	{
-		processKit(pc, thingsToAdd, -1);
-	}
-
-	/**
-	 * The method that actually adds the various items in this Kit to the PC.
 	 * Takes account of Kit Number
 	 *
 	 * @param  pc           The Player Character object that we will be applying
 	 *                      the kit to.
 	 * @param  thingsToAdd  The list of things that will be added by this kit
 	 *                      wrapped in KitWrapper objects
-	 * @param  kitNo        An integer that will be used to set the kit number
-	 *                      in items of equipment added by this kit
 	 */
-	public void processKit(final PlayerCharacter pc, final List<BaseKit> thingsToAdd, final int kitNo)
+	public void processKit(final PlayerCharacter pc, final Collection<BaseKit> thingsToAdd)
 	{
 		BigDecimal totalCostToBeCharged = getTotalCostToBeCharged(pc);
 		if (totalCostToBeCharged != null)
@@ -378,10 +363,9 @@ public final class Kit extends PObject implements Comparable<Object>
 
 	private String getPreReqHTMLStrings(PlayerCharacter aPC)
 	{
-		StringBuilder sb = new StringBuilder();
-		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this, getPrerequisiteList(), false));
-		sb.append(AllowUtilities.getAllowInfo(aPC, this));
-		return sb.toString();
+		String sb = PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this, getPrerequisiteList(), false)
+				+ AllowUtilities.getAllowInfo(aPC, this);
+		return sb;
 	}
 
 	public static void applyKit(final Kit aKit, final PlayerCharacter aPC)
@@ -410,7 +394,7 @@ public final class Kit extends PObject implements Comparable<Object>
 				}
 			}
 		}
-		aKit.processKit(aPC, thingsToAdd, 0);
+		aKit.processKit(aPC, thingsToAdd);
 	}
 
 	public KitTable getTable(String name)

@@ -19,20 +19,16 @@
 package plugin.initiative;
 
 import java.awt.Component;
-import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.util.Collection;
 
-import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
-import gmgen.gui.ImagePreview;
 import gmgen.plugin.InitHolder;
 import gmgen.plugin.InitHolderList;
 import gmgen.plugin.PcgCombatant;
@@ -40,7 +36,6 @@ import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
 import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
 import gmgen.pluginmgr.messages.FileMenuOpenMessage;
 import gmgen.pluginmgr.messages.FileMenuSaveMessage;
-import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
 import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import gmgen.util.LogUtilities;
@@ -64,6 +59,8 @@ import plugin.initiative.gui.PreferencesInitiativePanel;
 import plugin.initiative.gui.PreferencesMassiveDamagePanel;
 import plugin.initiative.gui.PreferencesPerformancePanel;
 
+import javafx.stage.FileChooser;
+
 /**
  * The {@code ExperienceAdjusterController} handles the functionality of
  * the Adjusting of experience. This class is called by the {@code GMGenSystem}
@@ -79,10 +76,10 @@ public class InitiativePlugin implements InteractivePlugin
 	private Initiative theView;
 
 	/** The plugin menu item in the tools menu. */
-	private JMenuItem initToolsItem = new JMenuItem();
+	private final JMenuItem initToolsItem = new JMenuItem();
 
 	/** The English name of the plugin. */
-	private String name = "Initiative";
+	private static final String name = "Initiative";
 
 	private PCGenMessageHandler messageHandler;
 
@@ -143,57 +140,45 @@ public class InitiativePlugin implements InteractivePlugin
 	/**
 	 * Handles the clicking of the <b>Add </b> button on the GUI.
 	 */
-	public void fileOpen()
+	private void fileOpen()
 	{
-		JFileChooser chooser = ImagePreview.decorateWithImagePreview(new JFileChooser());
+		FileChooser fileChooser = new FileChooser();
+		// TODO: i18n
+		fileChooser.setTitle("Initiative Export");
+		FileChooser.ExtensionFilter pcgenFilter = new FileChooser.ExtensionFilter(
+				"PCGen File", "*.pcp", "*.pcg"
+		);
+		FileChooser.ExtensionFilter initFilter = new FileChooser.ExtensionFilter(
+				"PCGen File", "*.gmi", "*.init"
+		);
+		fileChooser.getExtensionFilters().add(pcgenFilter);
+		fileChooser.getExtensionFilters().add(initFilter);
+		fileChooser.setSelectedExtensionFilter(initFilter);
 		File defaultFile = new File(PCGenSettings.getPcgDir());
+		fileChooser.setInitialDirectory(defaultFile);
 
-		if (defaultFile.exists())
+		// TODO: set to parent once converted to JavaFX
+		Collection<File> pcFiles = fileChooser.showOpenMultipleDialog(null);
+		if (pcFiles == null)
 		{
-			chooser.setCurrentDirectory(defaultFile);
+			return;
 		}
 
-		// TODO should probably handle zip pcg
-		String[] pcgs = {"pcg", "pcp"};
-		String[] init = {"gmi", "init"};
-		FileFilter ff = new FileNameExtensionFilter("Initiative Export", init);
-		chooser.addChoosableFileFilter(ff);
-		chooser.addChoosableFileFilter(new FileNameExtensionFilter("PCGen File", pcgs));
-		chooser.removeChoosableFileFilter(chooser.getAcceptAllFileFilter());
-		chooser.setFileFilter(ff);
-		chooser.setMultiSelectionEnabled(true);
-		Cursor originalCursor = theView.getCursor();
-		theView.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-
-		int option = chooser.showOpenDialog(theView);
-
-		if (option == JFileChooser.APPROVE_OPTION)
+		for (File pcFile : pcFiles)
 		{
-			File[] pcFiles = chooser.getSelectedFiles();
-
-			for (File pcFile : pcFiles)
+			if (PCGFile.isPCGenCharacterOrPartyFile(pcFile))
 			{
-				if (PCGFile.isPCGenCharacterOrPartyFile(pcFile))
-				{
-					messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(this, pcFile, false));
+				messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(this, pcFile, false));
 
-					//loadPCG(pcFiles[i]);
-				}
-				else if (pcFile.toString().endsWith(".init") || pcFile.toString().endsWith(".gmi"))
-				{
-					loadINIT(pcFile);
-				}
+				//loadPCG(pcFiles[i]);
 			}
-			/* loop through selected files */
-
-			theView.refreshTable();
-		}
-		else
-		{
-			/* this means the file is invalid */
+			else if (pcFile.toString().endsWith(".init") || pcFile.toString().endsWith(".gmi"))
+			{
+				loadINIT(pcFile);
+			}
 		}
 
-		theView.setCursor(originalCursor);
+		theView.refreshTable();
 	}
 
 	/**
@@ -276,10 +261,6 @@ public class InitiativePlugin implements InteractivePlugin
 		else if (message instanceof PlayerCharacterWasClosedMessage)
 		{
 			handlePCClosedMessage((PlayerCharacterWasClosedMessage) message);
-		}
-		else if (message instanceof GMGenBeingClosedMessage)
-		{
-			handleWindowClosedMessage((GMGenBeingClosedMessage) message);
 		}
 		else if (message instanceof FocusOrStateChangeOccurredMessage)
 		{
@@ -400,18 +381,6 @@ public class InitiativePlugin implements InteractivePlugin
 		{
 			initToolsItem.setEnabled(true);
 		}
-	}
-
-	/**
-	 * <p>
-	 * Handles window closing by saving preferences.
-	 * </p>
-	 *
-	 * @param message
-	 */
-	private void handleWindowClosedMessage(GMGenBeingClosedMessage message)
-	{
-		theView.setExitPrefs();
 	}
 
 	/**

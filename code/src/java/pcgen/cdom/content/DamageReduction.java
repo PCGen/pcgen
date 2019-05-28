@@ -173,10 +173,9 @@ public class DamageReduction extends ConcretePrereqObject implements QualifyingO
 
 	public String getLSTformat()
 	{
-		StringBuilder result = new StringBuilder();
-		result.append(theReduction);
-		result.append('/');
-		result.append(theBypass);
-		return result.toString();
+		String result = String.valueOf(theReduction)
+				+ '/'
+				+ theBypass;
+		return result;
 	}
 }

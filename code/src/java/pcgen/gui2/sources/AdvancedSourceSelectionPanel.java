@@ -135,8 +135,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 
 	private void initComponents()
 	{
-		FlippingSplitPane mainPane = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT, "advSrcMain");
-		FlippingSplitPane topPane = new FlippingSplitPane("advSrcTop");
+		FlippingSplitPane mainPane = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT);
+		FlippingSplitPane topPane = new FlippingSplitPane();
 		topPane.setResizeWeight(0.6);
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.add(new JLabel(LanguageBundle.getString("in_src_gameLabel")), BorderLayout.WEST); //$NON-NLS-1$
@@ -646,16 +646,16 @@ class AdvancedSourceSelectionPanel extends JPanel
 					if (format != null && setting != null)
 					{
 						return Collections
-							.singletonList(new TreeViewPath<Campaign>(pobj, publisher, format, setting));
+							.singletonList(new TreeViewPath<>(pobj, publisher, format, setting));
 					}
 					if (format != null)
 					{
-						return Collections.singletonList(new TreeViewPath<Campaign>(pobj, publisher, format));
+						return Collections.singletonList(new TreeViewPath<>(pobj, publisher, format));
 					}
 				case PUBLISHER_SETTING_NAME:
 					if (setting != null)
 					{
-						return Collections.singletonList(new TreeViewPath<Campaign>(pobj, publisher, setting));
+						return Collections.singletonList(new TreeViewPath<>(pobj, publisher, setting));
 					}
 				case PUBLISHER_NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj, publisher));

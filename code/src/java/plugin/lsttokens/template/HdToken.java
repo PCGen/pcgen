@@ -189,7 +189,7 @@ public class HdToken extends AbstractTokenWithSeparator<PCTemplate> implements C
 		{
 			return null;
 		}
-		return ret.toArray(new String[ret.size()]);
+		return ret.toArray(new String[0]);
 	}
 
 	@Override

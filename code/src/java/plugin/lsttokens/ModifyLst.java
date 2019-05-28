@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import pcgen.base.calculation.FormulaModifier;
@@ -138,7 +139,7 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 		{
 			throw new ModifyException(
 				tokenName + " Modifier " + modIdentification + " had value "
-					+ modInstructions + " but it was not valid: " + e.getMessage());
+					+ modInstructions + " but it was not valid: " + e.getMessage(), e);
 		}
 
 		Set<Object> associationsVisited = Collections.newSetFromMap(new CaseInsensitiveMap<>());
@@ -169,20 +170,16 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 	{
 		FormulaManager formulaManager =
 				context.getVariableContext().getFormulaManager();
-		FormatManager<?> formatManager;
-		try
+		Optional<FormatManager<?>> formatManager = scope.getFormatManager(context);
+		if (formatManager.isEmpty())
 		{
-			formatManager = scope.getFormatManager(context);
-		}
-		catch (UnsupportedOperationException e)
-		{
-			return formulaManager;
 			//Okay, we won't add this()
+			return formulaManager;
 		}
 		//Note: Passing new Object() as DefinedValue is a dummy
 		FunctionLibrary functionLibrary = new DefinedWrappingLibrary(
 			formulaManager.get(FormulaManager.FUNCTION), "this", new Object(),
-			formatManager);
+			formatManager.get());
 		return formulaManager.getWith(FormulaManager.FUNCTION, functionLibrary);
 	}
 
@@ -192,18 +189,17 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 		List<String> modifiers = new ArrayList<>();
 		for (VarModifier<?> vm : obj.getModifierArray())
 		{
-			StringBuilder sb = new StringBuilder();
-			sb.append(vm.getVarName());
-			sb.append(Constants.PIPE);
-			sb.append(unparseModifier(vm));
-			modifiers.add(sb.toString());
+			String sb = vm.getVarName()
+					+ Constants.PIPE
+					+ unparseModifier(vm);
+			modifiers.add(sb);
 		}
 		if (modifiers.isEmpty())
 		{
 			//Legal
 			return null;
 		}
-		return modifiers.toArray(new String[modifiers.size()]);
+		return modifiers.toArray(new String[0]);
 	}
 
 	/**
@@ -222,7 +218,7 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 		sb.append(Constants.PIPE);
 		sb.append(modifier.getInstructions());
 		Collection<String> assocs = modifier.getAssociationInstructions();
-		if (assocs != null && assocs.size() > 0)
+		if (assocs != null && !assocs.isEmpty())
 		{
 			sb.append(Constants.PIPE);
 			sb.append(StringUtil.join(assocs, Constants.PIPE));
@@ -246,7 +242,7 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 	 * Exception to indicate something went wrong in the static processing of the 3
 	 * arguments + associations on a modification token.
 	 */
-	public static class ModifyException extends Exception
+	static final class ModifyException extends Exception
 	{
 
 		/**
@@ -255,11 +251,15 @@ public class ModifyLst extends AbstractNonEmptyToken<VarHolder>
 		 * @param message
 		 *            The message indicating the error encountered
 		 */
-		public ModifyException(String message)
+		private ModifyException(String message)
 		{
 			super(message);
 		}
-		
+
+		private ModifyException(String message, Throwable cause)
+		{
+			super(message, cause);
+		}
 	}
 
 }

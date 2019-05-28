@@ -22,15 +22,13 @@ import java.awt.Component;
 
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 /**
  *  This class is the main {@code JPanel} for the whole application. It is
  *  a {@code JTabbedPane} so that it can hold many tabs for each section of
  *  functionality.<br>
  */
-public class GMGenSystemView extends JPanel implements ChangeListener
+public class GMGenSystemView extends JPanel
 {
 
 	/**
@@ -51,7 +49,6 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 		 */
 		tabbedPane = new JTabbedPane();
 		initComponents();
-		tabbedPane.addChangeListener(this);
 	}
 
 	/**
@@ -84,17 +81,6 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 	void showPane()
 	{
 		add(tabbedPane, java.awt.BorderLayout.CENTER);
-	}
-
-	/**
-	 *  Updates the current pane value for further use.
-	 *
-	 *@param  e  an event that made the change change.
-	 */
-	@Override
-	public void stateChanged(ChangeEvent e)
-	{
-		// defaults to empty
 	}
 
 	/**

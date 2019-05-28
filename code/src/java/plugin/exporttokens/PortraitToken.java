@@ -174,7 +174,8 @@ public class PortraitToken extends AbstractExportToken
 		int type = (img.getTransparency() == Transparency.OPAQUE) ? BufferedImage.TYPE_INT_RGB
 			: BufferedImage.TYPE_INT_ARGB;
 		BufferedImage ret = img;
-		int w, h;
+		int w;
+		int h;
 		if (higherQuality)
 		{
 			// Use multi-step technique: start with original size, then

@@ -217,7 +217,7 @@ public class TemplateLst extends AbstractToken implements CDOMPrimaryToken<CDOMO
 			// Possible if none triggered
 			return null;
 		}
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	@Override

@@ -24,7 +24,7 @@ public interface LoadableFacade
 	public enum LoadingState
 	{
 
-		NOT_LOADED, LOADING, LOADED, LOADED_WITH_ERRORS
+		LOADED, LOADED_WITH_ERRORS
 	}
 
 	public boolean isModifiable();

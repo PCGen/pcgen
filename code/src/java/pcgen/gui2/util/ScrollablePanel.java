@@ -17,10 +17,6 @@
  *
  */
 
-/*
- * TODO To change the template for this generated file go to
- * Window - Preferences - Java - Code Style - Code Templates
- */
 package pcgen.gui2.util;
 
 import java.awt.Dimension;
@@ -32,8 +28,6 @@ import javax.swing.Scrollable;
 /**
  * The Class {@code ScrollablePanel} provides a panel which can be
  * dynamically built up and displayed in a JScrollPane.  
- *
- * 
  */
 public class ScrollablePanel extends JPanel implements Scrollable
 {

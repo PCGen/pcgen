@@ -1,0 +1,6 @@
+
+SOURCELONG:Bestiary 2	SOURCESHORT:B2	SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/pathfinder/pathfinderRPG/v5748btpy8hif	SOURCEDATE:2010-12
+
+###Block: Familiar Bonus Abilities
+#Snapping Turtle
+Shell					KEY:Snapping Turtle ~ Shell	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:As a move action, a snapping turtle can pull its extremities and head into its shell.  It cannot move or attack as long as it remains in this state, but its armor bonus from natural armor increases by +4 as long as it does.																																										SOURCEPAGE:p.273	TEMPBONUS:PC|COMBAT|AC|4|TYPE=NaturalArmor.STACK

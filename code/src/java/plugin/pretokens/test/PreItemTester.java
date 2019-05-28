@@ -38,6 +38,7 @@ public class PreItemTester extends AbstractDisplayPrereqTest implements Prerequi
 {
 
 	// TODO Refactor this with all the equipment tests.
+	@SuppressWarnings("PMD.OneDeclarationPerLine")
 	@Override
 	public int passes(final Prerequisite prereq, final CharacterDisplay display, CDOMObject source)
 		throws PrerequisiteException
@@ -50,7 +51,7 @@ public class PreItemTester extends AbstractDisplayPrereqTest implements Prerequi
 		catch (NumberFormatException e)
 		{
 			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreItem.error.bad_operand", prereq.toString())); //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PreItem.error.bad_operand", prereq.toString()), e); //$NON-NLS-1$
 		}
 
 		int runningTotal = 0;

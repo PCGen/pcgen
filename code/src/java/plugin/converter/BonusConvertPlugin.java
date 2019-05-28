@@ -129,8 +129,7 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 		}
 		catch (PersistenceLayerException e)
 		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Logging.errorPrint(e.getLocalizedMessage(), e);
 		}
 		return null;
 	}

@@ -55,6 +55,7 @@ public class InitHolderList extends ArrayList<InitHolder>
 	 *          table object.
 	 * @return The Vector that contains a table row.
 	 */
+	@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 	public Vector<Object> getRowVector(int i, List<String> columnOrder)
 	{
 		return this.get(i).getRowVector(columnOrder);

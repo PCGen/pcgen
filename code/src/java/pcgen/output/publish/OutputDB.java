@@ -50,18 +50,18 @@ public final class OutputDB
 	/**
 	 * The Map of string names to output models (that are dynamic based on a PC)
 	 */
-	private static DoubleKeyMap<Object, Object, ModelFactory> outModels =
+	private static final DoubleKeyMap<Object, Object, ModelFactory> outModels =
 			new DoubleKeyMap<>(CaseInsensitiveMap.class, CaseInsensitiveMap.class);
 
 	/**
 	 * The map of string names to models for global items (not PC dependent)
 	 */
-	private static Map<Object, TemplateModel> globalModels = new CaseInsensitiveMap<>();
+	private static final Map<Object, TemplateModel> globalModels = new CaseInsensitiveMap<>();
 
 	/**
 	 * The Map of string names to output models for the Game Mode
 	 */
-	private static Map<Object, ModeModelFactory> modeModels = new CaseInsensitiveMap<>();
+	private static final Map<Object, ModeModelFactory> modeModels = new CaseInsensitiveMap<>();
 
 	/**
 	 * Registers a new ModelFactory to be used in output
@@ -267,7 +267,7 @@ public final class OutputDB
 	 */
 	public static Map<Object, TemplateModel> getGlobal()
 	{
-		CaseInsensitiveMap<TemplateModel> map = new CaseInsensitiveMap<>();
+		Map<Object, TemplateModel> map = new CaseInsensitiveMap<>();
 		map.putAll(globalModels);
 		return map;
 	}

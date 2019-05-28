@@ -299,12 +299,11 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		}
 		PersistenceManager pman = PersistenceManager.getInstance();
 		List<URI> oldList = setSourcesForPrereqTesting(testList, pman);
-		StringBuilder sb = new StringBuilder();
-		sb.append(PrerequisiteUtilities.preReqHTMLStringsForList(null, null, campaign.getPrerequisiteList(), false));
-		sb.append(AllowUtilities.getAllowInfo(null, campaign));
 		pman.setChosenCampaignSourcefiles(oldList);
 
-		return sb.toString();
+		String sb = PrerequisiteUtilities.preReqHTMLStringsForList(null, null, campaign.getPrerequisiteList(), false)
+				+ AllowUtilities.getAllowInfo(null, campaign);
+		return sb;
 	}
 
 }

@@ -47,10 +47,10 @@ import org.jdom2.input.SAXBuilder;
  * Builds a Travel Method instance from an XML document.
  * 
  */
-public class TravelMethodFactory
+public final class TravelMethodFactory
 {
 	/** Default locale for number parsing */
-	public static final Locale DEFAULT_LOCALE = Locale.UK;
+	private static final Locale DEFAULT_LOCALE = Locale.UK;
 
 	/** directory where the XML and DTD is stored, under the plugin specific directory */
 	private static final String DIR_TRAVELMETHODS = "travel_methods"; //$NON-NLS-1$
@@ -77,8 +77,13 @@ public class TravelMethodFactory
 	private static final String XML_ATTRIBUTE_ID = "id"; //$NON-NLS-1$
 	private static final String XML_ATTRIBUTE_NUMBERFORMAT = "numberFormat"; //$NON-NLS-1$
 
+	private TravelMethodFactory()
+	{
+	}
+
 	// ### Factory methods ###
 
+	@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 	public static Vector<TravelMethod> load(File datadir)
 	{
 		//Create a new list for the travel methods
@@ -269,8 +274,7 @@ public class TravelMethodFactory
 			}
 			catch (ParseException exception)
 			{
-				// TODO Auto-generated catch block
-				exception.printStackTrace();
+				Logging.errorPrint("ParseException failure", exception);
 			}
 		}
 		return n;

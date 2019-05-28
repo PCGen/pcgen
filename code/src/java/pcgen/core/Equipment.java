@@ -213,10 +213,8 @@ public final class Equipment extends PObject
 	{
 		if (!appliedBonusName.isEmpty())
 		{
-			final StringBuilder aString = new StringBuilder(100);
-			aString.append(" [").append(appliedBonusName).append("]");
 
-			return aString.toString();
+			return " [" + appliedBonusName + "]";
 		}
 
 		return "";
@@ -893,10 +891,9 @@ public final class Equipment extends PObject
 
 		// make string (BASECOST/X) which will be substituted into
 		// the cost string which is then converted to a number
-		StringBuilder sB = new StringBuilder("(BASECOST/");
-		sB.append(getSafe(IntegerKey.BASE_QUANTITY));
-		sB.append(")");
-		String s = mat.replaceAll(sB.toString());
+		String sB = "(BASECOST/" + getSafe(IntegerKey.BASE_QUANTITY)
+				+ ")";
+		String s = mat.replaceAll(sB);
 
 		String v = getVariableValue(s, "", primaryHead, aPC).toString();
 		return v;
@@ -1224,7 +1221,7 @@ public final class Equipment extends PObject
 		// Look for a modifier named "masterwork" (assumption: this is marked as
 		// "assigntoall")
 		EquipmentModifier eqMaster = commonList.stream()
-			.filter(eqMod -> "MASTERWORK".equalsIgnoreCase(eqMod.getDisplayName()) || eqMod.isIType("Masterwork"))
+			.filter(eqMod -> "MASTERWORK".equalsIgnoreCase(eqMod.getDisplayName()) || eqMod.isIType(Type.MASTERWORK))
 			.findFirst().orElse(null);
 
 		if (eqMaster == null)
@@ -2531,12 +2528,9 @@ public final class Equipment extends PObject
 		final boolean bPrimary)
 	{
 
-		StringBuilder sB = new StringBuilder(aType.toUpperCase());
-		sB.append('.');
-		sB.append(aName.toUpperCase());
-		sB.append('.');
-
-		final String aBonusKey = sB.toString();
+		final String aBonusKey = aType.toUpperCase() + '.'
+				+ aName.toUpperCase()
+				+ '.';
 
 		// go through bonus hashmap and zero out all
 		// entries that deal with this bonus request
@@ -3673,11 +3667,8 @@ public final class Equipment extends PObject
 	{
 
 		final List<String> typeList = typeList(bPrimary);
-		final int typeSize = typeList.size();
-		final String aType = typeList.stream().collect(Collectors.joining(".")); // Just a
-		// guess.
 
-		return aType;
+		return String.join(".", typeList); // just a guess
 	}
 
 	boolean save(final BufferedWriter output)
@@ -3929,7 +3920,7 @@ public final class Equipment extends PObject
 
 			for (EquipmentModifier eqMod : eqModList)
 			{
-				if (eqMod.isType("MagicalEnhancement") || (eqMod.isIType("Magic")))
+				if (eqMod.isType("MagicalEnhancement") || (eqMod.isIType(Type.MAGIC)))
 				{
 					return eqMod;
 				}
@@ -4679,16 +4670,16 @@ public final class Equipment extends PObject
 			modTypeList.removeAll(removedTypeList);
 			calculatedTypeList = newTypeList;
 
-			for (String aType : eqMod.getSafeListFor(ListKey.ITEM_TYPES))
+			for (Type type : eqMod.getSafeListFor(ListKey.ITEM_TYPES))
 			{
-				aType = aType.toUpperCase();
+				String aType = type.toString().toUpperCase();
 
 				// If it's BOTH & MELEE, we cannot add RANGED or THROWN to
 				// it
 				// BOTH is only used after the split of a Thrown weapon in 2
 				// (melee and ranged)
 				if (calculatedTypeList.contains("BOTH") && calculatedTypeList.contains("MELEE")
-					&& ("RANGED".equals(aType) || "THROWN".equals(aType)))
+					&& (Type.RANGED.equals(type) || Type.THROWN.equals(type)))
 				{
 					continue;
 				}
@@ -5204,11 +5195,11 @@ public final class Equipment extends PObject
 			int modWield = 0;
 			for (String eqType : typeList())
 			{
-				final StringBuilder sB = new StringBuilder("WEAPONPROF=TYPE.");
-				sB.append(eqType);
 
 				// get the type bonus (ex TYPE.MARTIAL)
-				final int i = (int) aPC.getTotalBonusTo(sB.toString(), "WIELDCATEGORY");
+				final int i = (int) aPC.getTotalBonusTo("WEAPONPROF=TYPE." + eqType
+						// get the type bonus (ex TYPE.MARTIAL)
+						, "WIELDCATEGORY");
 
 				// get the highest bonus
 				if (i < modWield)

@@ -44,7 +44,7 @@ public class PreHPTester extends AbstractPrerequisiteTest implements Prerequisit
 		catch (NumberFormatException nfe)
 		{
 			throw new PrerequisiteException(
-				LanguageBundle.getFormattedString("PreHP.error.bad_operand", prereq.getOperand())); //$NON-NLS-1$
+				LanguageBundle.getFormattedString("PreHP.error.bad_operand", prereq.getOperand()), nfe); //$NON-NLS-1$
 		}
 		return countedTotal(prereq, runningTotal);
 	}

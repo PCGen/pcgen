@@ -58,18 +58,17 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.util.JComboBoxEx;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.dialog.NewPurchaseMethodDialogController;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.system.LanguageBundle;
 
 /**
  * The Class {@code PurchaseModeFrame} is responsible for displaying
  * the character stats purchase mode (aka point buy) configuration dialog.  
- * 
- * 
  */
 public final class PurchaseModeFrame extends JDialog
 {
-	private static final long serialVersionUID = -5244500546425680322L;
 	private static final String TITLE = LanguageBundle.getString("in_Prefs_purModConf"); //$NON-NLS-1$
 	private static final int STANDARD_MIN_PURCHASE_SCORE = 8;
 	private static final int STANDARD_MAX_PURCHASE_SCORE = 18;
@@ -101,19 +100,25 @@ public final class PurchaseModeFrame extends JDialog
 	//
 	private void addMethodButtonActionPerformed()
 	{
-		NewPurchaseMethodDialog npmd = new NewPurchaseMethodDialog(this, true);
-		npmd.setVisible(true);
+		var npmd = new JFXPanelFromResource<>(
+				NewPurchaseMethodDialogController.class,
+				"NewPurchaseMethodDialog.fxml"
+		);
 
-		if (!npmd.getWasCancelled())
+		// todo: i18n
+		npmd.showAndBlock("New Purchase Method");
+		npmd.getController().isCancelled();
+
+		if (!npmd.getController().isCancelled())
 		{
-			final String methodName = npmd.getEnteredName();
+			final String methodName = npmd.getController().getEnteredName();
 
 			if (SettingsHandler.getGame().getModeContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(PointBuyMethod.class, methodName) == null)
 			{
 				PointBuyMethod pbm = new PointBuyMethod();
 				pbm.setName(methodName);
-				pbm.setPointFormula(Integer.toString(npmd.getEnteredPoints()));
+				pbm.setPointFormula(Integer.toString(npmd.getController().getEnteredPoints()));
 				currentPurchaseMethods.addItem(pbm);
 				currentPurchaseMethods.setSelectedItem(pbm);
 			}
@@ -992,6 +997,7 @@ public final class PurchaseModeFrame extends JDialog
 			currentValues = newValues;
 		}
 
+		@SuppressWarnings("PMD.OneDeclarationPerLine")
 		private void keepNewValues()
 		{
 			// set the current values into the settings

@@ -88,7 +88,7 @@ public class PrePCLevelParser extends AbstractPrerequisiteParser implements Prer
 				{
 					throw new PersistenceLayerException("PREPCLEVEL must be either 'MIN=x', 'MAX=y' or "
 						+ "'MIN=x,MAX=y' where 'x' and 'y' are integers. '" + formula + "' is not valid: " + hdVal
-						+ " is not an integer");
+						+ " is not an integer", nfe);
 				}
 				if (token.equals("MIN"))
 				{

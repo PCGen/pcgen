@@ -76,7 +76,7 @@ public class OverPanel extends javax.swing.JPanel
 	private javax.swing.JComboBox cmbAnimal;
 	private javax.swing.JComboBox cmbFood;
 	private javax.swing.JComboBox cmbInn;
-	private JComboBox cmbFile;
+	private JComboBox<TravelMethod> cmbFile;
 	private javax.swing.JLabel jLabel11;
 	private javax.swing.JLabel jLabel15;
 	private javax.swing.JLabel jLabel16;
@@ -136,6 +136,7 @@ public class OverPanel extends javax.swing.JPanel
 	private RoomBoard rb;
 
 	/** holds the travel methods */
+	@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 	private Vector<TravelMethod> tms;
 
 	// ### Constructors ###
@@ -933,7 +934,7 @@ public class OverPanel extends javax.swing.JPanel
 		nf.setMaximumFractionDigits(2); //This will display other numbers
 		gp.setMaximumFractionDigits(3); //This will correctly display currency
 
-		aModel = new DefaultComboBoxModel(tms);
+		aModel = new DefaultComboBoxModel<>(tms);
 		cmbFile.setModel(aModel);
 		cmbFile.addItemListener(new ItemListener()
 		{
@@ -1143,17 +1144,16 @@ public class OverPanel extends javax.swing.JPanel
 	private void updateTopUI()
 	{
 		//First, retrieve the costs of everything
-		int i1, i2, i3;
 
-		i1 = cmbFood.getSelectedIndex();
+		int i1 = cmbFood.getSelectedIndex();
 
 		float food = i1 >= 0 ? rb.getFoods().get(i1).getCost() : 0;
 
-		i2 = cmbInn.getSelectedIndex();
+		int i2 = cmbInn.getSelectedIndex();
 
 		float inn = i2 >= 0 ? rb.getInns().get(i2).getCost() : 0;
 
-		i3 = cmbAnimal.getSelectedIndex();
+		int i3 = cmbAnimal.getSelectedIndex();
 
 		float animal = i3 >= 0 ? rb.getAnimals().get(i3).getCost() : 0;
 

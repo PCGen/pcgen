@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
@@ -43,13 +44,13 @@ public class ResizableEquipTypeToken implements GameModeLstToken
 	@Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		List<String> typelist = new ArrayList<>();
+		List<Type> typelist = new ArrayList<>();
 		final StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE, false);
 
 		while (aTok.hasMoreTokens())
 		{
 			final String aString = aTok.nextToken();
-			typelist.add(aString);
+			typelist.add(Type.getConstant(aString));
 		}
 		gameMode.setResizableTypeList(typelist);
 		return true;

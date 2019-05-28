@@ -24,9 +24,9 @@ import java.text.DecimalFormat;
 /**
  * This interface holds all global constants.
  *
- * (The reason for an interface rather than a class
- * is that an interface uses a little less memory.)
+ * Grandfathered as an interface. Not to be implemented.
  */
+@SuppressWarnings("PMD.ConstantsInInterface")
 public interface Constants
 {
 
@@ -185,22 +185,6 @@ public interface Constants
 	String SYSTEM_GMGEN = "GMGen"; //$NON-NLS-1$
 
 	/********************************************************************
-	 * What equipment to auto generate
-	 ********************************************************************/
-
-	/** Auto-generate the racial equipment. */
-	int AUTOGEN_RACIAL = 1;
-
-	/** Auto-generate the masterwork equipment. */
-	int AUTOGEN_MASTERWORK = 2;
-
-	/** Auto-generate the magic equipment. */
-	int AUTOGEN_MAGIC = 3;
-
-	/** Auto-generate equipment made from exotic materials. */
-	int AUTOGEN_EXOTIC_MATERIAL = 4;
-
-	/********************************************************************
 	 * Character stat generation methods
 	 ********************************************************************/
 
@@ -235,35 +219,6 @@ public interface Constants
 	 * valid choice available - add single choice to selected list and then
 	 * close. */
 	int CHOOSER_SINGLE_CHOICE_METHOD_SELECT_EXIT = 2;
-
-	/********************************************************************
-	 * How to display the PC's name
-	 ********************************************************************/
-
-	/**
-	 * A constant used to define the style of name that will be used for
-	 * this PC.  This option selects the plain unadorned name. */
-	int DISPLAY_STYLE_NAME = 0;
-
-	/**
-	 * A constant used to define the style of name that will be used for
-	 * this PC.  This option selects  */
-	int DISPLAY_STYLE_NAME_CLASS = 1;
-
-	/**
-	 * A constant used to define the style of name that will be used for
-	 * this PC.  This option appends the PC's race to its name.  */
-	int DISPLAY_STYLE_NAME_RACE = 2;
-
-	/**
-	 * A constant used to define the style of name that will be used for
-	 * this PC.  This option appends the PC's class to its name. */
-	int DISPLAY_STYLE_NAME_RACE_CLASS = 3;
-
-	/**
-	 * A constant used to define the style of name that will be used for
-	 * this PC.  This option appends the PC's race  and class to its name. */
-	int DISPLAY_STYLE_NAME_FULL = 4;
 
 	/********************************************************************
 	 * How to roll hitpoints

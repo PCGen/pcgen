@@ -61,9 +61,7 @@ public class StringToken implements CDOMSecondaryToken<EquipmentModifier>
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName() + " arguments uses double separator || : " + value);
 		}
-		StringBuilder sb = new StringBuilder(value.length() + 20);
-		sb.append(getTokenName()).append('|').append(value);
-		context.getObjectContext().put(obj, StringKey.CHOICE_STRING, sb.toString());
+		context.getObjectContext().put(obj, StringKey.CHOICE_STRING, getTokenName() + '|' + value);
 		return ParseResult.SUCCESS;
 	}
 

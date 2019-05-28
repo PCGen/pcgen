@@ -17,15 +17,7 @@
  */
 package pcgen.gui2.prefs;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-
-import javax.swing.BorderFactory;
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.border.Border;
-import javax.swing.border.TitledBorder;
+import java.util.List;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -34,11 +26,19 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.UIPropertyContext;
-import pcgen.gui2.tools.Utility;
-import pcgen.gui2.util.JComboBoxEx;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
+
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.scene.Node;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TitledPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 /**
  * The Class {@code SourcesPanel} is responsible for
@@ -47,121 +47,85 @@ import pcgen.util.Logging;
  * 
  * 
  */
-@SuppressWarnings("serial")
-public class SourcesPanel extends PCGenPrefsPanel
+public final class SourcesPanel extends PCGenPrefsPanel
 {
-	private static final String IN_SOURCES = LanguageBundle.getString("in_Prefs_sources"); //$NON-NLS-1$
+	private static final String IN_SOURCES = LanguageBundle.getString("in_Prefs_sources");
 
-	private final JCheckBox campLoad = new JCheckBox();
-	private final JCheckBox charCampLoad = new JCheckBox();
-	private final JCheckBox allowOptsInSource = new JCheckBox();
-	private final JCheckBox saveCustom = new JCheckBox();
-	private final JCheckBox showOGL = new JCheckBox();
-	private final JCheckBox showMature = new JCheckBox();
-	private JComboBoxEx sourceOptions = new JComboBoxEx<>();
-	private final JCheckBox loadURL = new JCheckBox();
-	private final JCheckBox allowOverride = new JCheckBox();
-	private final JCheckBox skipSourceSelect = new JCheckBox();
-	private final JCheckBox useAdvancedSourceSelect = new JCheckBox();
-	private final JCheckBox allowMultiLineObjectsSelect = new JCheckBox();
+	private final CheckBox campLoad = new CheckBox();
+	private final CheckBox charCampLoad = new CheckBox();
+	private final CheckBox allowOptsInSource = new CheckBox();
+	private final CheckBox saveCustom = new CheckBox();
+	private final CheckBox showOGL = new CheckBox();
+	private final CheckBox showMature = new CheckBox();
+	private final ComboBox<String> sourceOptions = new ComboBox<>();
+	private final CheckBox loadURL = new CheckBox();
+	private final CheckBox allowOverride = new CheckBox();
+	private final CheckBox skipSourceSelect = new CheckBox();
+	private final CheckBox useAdvancedSourceSelect = new CheckBox();
+	private final CheckBox allowMultiLineObjectsSelect = new CheckBox();
 
 	/**
 	 * Instantiates a new monster panel.
 	 */
 	public SourcesPanel()
 	{
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
-		JLabel label;
-		Border etched = null;
-		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_SOURCES);
 
-		title1.setTitleJustification(TitledBorder.LEADING);
-		this.setBorder(title1);
-		this.setLayout(gridbag);
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.LINE_START;
-		c.insets = new Insets(2, 2, 2, 2);
+		TitledPane outerPane = new TitledPane();
+		outerPane.setText(IN_SOURCES);
+		VBox vbox = new VBox();
+		outerPane.setContent(vbox);
 
-		Utility.buildConstraints(c, 0, 0, GridBagConstraints.REMAINDER, 1, 0, 0);
-		campLoad.setText(LanguageBundle.getString("in_Prefs_autoLoadAtStart")); //$NON-NLS-1$
-		gridbag.setConstraints(campLoad, c);
-		this.add(campLoad);
+		campLoad.setText(LanguageBundle.getString("in_Prefs_autoLoadAtStart"));
+		vbox.getChildren().add(campLoad);
 
-		Utility.buildConstraints(c, 0, 1, GridBagConstraints.REMAINDER, 1, 0, 0);
-		charCampLoad.setText(LanguageBundle.getString("in_Prefs_autoLoadWithPC")); //$NON-NLS-1$
-		gridbag.setConstraints(charCampLoad, c);
-		this.add(charCampLoad);
+		charCampLoad.setText(LanguageBundle.getString("in_Prefs_autoLoadWithPC"));
+		vbox.getChildren().add(charCampLoad);
 
-		Utility.buildConstraints(c, 0, 2, GridBagConstraints.REMAINDER, 1, 0, 0);
-		allowOptsInSource.setText(LanguageBundle.getString("in_Prefs_allowOptionInSource")); //$NON-NLS-1$
-		gridbag.setConstraints(allowOptsInSource, c);
-		this.add(allowOptsInSource);
+		allowOptsInSource.setText(LanguageBundle.getString("in_Prefs_allowOptionInSource"));
+		vbox.getChildren().add(allowOptsInSource);
 
-		Utility.buildConstraints(c, 0, 3, GridBagConstraints.REMAINDER, 1, 0, 0);
-		saveCustom.setText(LanguageBundle.getString("in_Prefs_saveCustom")); //$NON-NLS-1$
-		gridbag.setConstraints(saveCustom, c);
-		this.add(saveCustom);
+		saveCustom.setText(LanguageBundle.getString("in_Prefs_saveCustom"));
+		vbox.getChildren().add(saveCustom);
 
-		Utility.buildConstraints(c, 0, 4, GridBagConstraints.REMAINDER, 1, 0, 0);
-		showOGL.setText(LanguageBundle.getString("in_Prefs_displayOGL")); //$NON-NLS-1$
-		gridbag.setConstraints(showOGL, c);
-		this.add(showOGL);
+		showOGL.setText(LanguageBundle.getString("in_Prefs_displayOGL"));
+		vbox.getChildren().add(showOGL);
 
-		Utility.buildConstraints(c, 0, 7, GridBagConstraints.REMAINDER, 1, 0, 0);
-		showMature.setText(LanguageBundle.getString("in_Prefs_displayMature")); //$NON-NLS-1$
-		gridbag.setConstraints(showMature, c);
-		this.add(showMature);
+		showMature.setText(LanguageBundle.getString("in_Prefs_displayMature"));
+		vbox.getChildren().add(showMature);
 
-		Utility.buildConstraints(c, 0, 8, 1, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_sourceDisplay")); //$NON-NLS-1$
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 3, 8, 1, 1, 0, 0);
-		sourceOptions = new JComboBoxEx<>(new String[]{LanguageBundle.getString("in_Prefs_sdLong"),
-			LanguageBundle.getString("in_Prefs_sdMedium"), LanguageBundle.getString("in_Prefs_sdShort"),
-			LanguageBundle.getString("in_Prefs_sdPage"), LanguageBundle.getString("in_Prefs_sdWeb")});
-		gridbag.setConstraints(sourceOptions, c);
-		this.add(sourceOptions);
+		Node label = new Text(LanguageBundle.getString("in_Prefs_sourceDisplay"));
+		vbox.getChildren().add(label);
+		var choices = FXCollections.observableArrayList(List.of(LanguageBundle.getString("in_Prefs_sdLong"),
+				LanguageBundle.getString("in_Prefs_sdMedium"),
+				LanguageBundle.getString("in_Prefs_sdShort"),
+				LanguageBundle.getString("in_Prefs_sdPage"),
+				LanguageBundle.getString("in_Prefs_sdWeb")));
+		sourceOptions.setItems(choices);
+		vbox.getChildren().add(sourceOptions);
 
-		Utility.buildConstraints(c, 0, 9, GridBagConstraints.REMAINDER, 1, 0, 0);
-		loadURL.setText(LanguageBundle.getString("in_Prefs_loadURLs")); //$NON-NLS-1$
-		gridbag.setConstraints(loadURL, c);
-		this.add(loadURL);
-		loadURL.addActionListener(evt -> {
-			if (((JCheckBox) evt.getSource()).isSelected())
+		loadURL.setText(LanguageBundle.getString("in_Prefs_loadURLs"));
+		vbox.getChildren().add(loadURL);
+		loadURL.setOnAction(evt -> {
+			if (loadURL.isSelected())
 			{
-				ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_Prefs_urlBlocked"), //$NON-NLS-1$
+				ShowMessageDelegate.showMessageDialog(LanguageBundle.getString("in_Prefs_urlBlocked"),
 					Constants.APPLICATION_NAME, MessageType.WARNING);
 			}
 		});
 
-		Utility.buildConstraints(c, 0, 10, GridBagConstraints.REMAINDER, 1, 0, 0);
-		allowOverride.setText(LanguageBundle.getString("in_Prefs_allowOverride")); //$NON-NLS-1$
-		gridbag.setConstraints(allowOverride, c);
-		this.add(allowOverride);
+		allowOverride.setText(LanguageBundle.getString("in_Prefs_allowOverride"));
+		vbox.getChildren().add(allowOverride);
 
-		Utility.buildConstraints(c, 0, 11, GridBagConstraints.REMAINDER, 1, 0, 0);
-		skipSourceSelect.setText(LanguageBundle.getString("in_Prefs_skipSourceSelect")); //$NON-NLS-1$
-		gridbag.setConstraints(skipSourceSelect, c);
-		this.add(skipSourceSelect);
+		skipSourceSelect.setText(LanguageBundle.getString("in_Prefs_skipSourceSelect"));
+		vbox.getChildren().add(skipSourceSelect);
 
-		Utility.buildConstraints(c, 0, 12, GridBagConstraints.REMAINDER, 1, 0, 0);
-		useAdvancedSourceSelect.setText(LanguageBundle.getString("in_Prefs_useAdvancedSourceSelect")); //$NON-NLS-1$
-		gridbag.setConstraints(useAdvancedSourceSelect, c);
-		this.add(useAdvancedSourceSelect);
+		useAdvancedSourceSelect.setText(LanguageBundle.getString("in_Prefs_useAdvancedSourceSelect"));
+		vbox.getChildren().add(useAdvancedSourceSelect);
 
-		Utility.buildConstraints(c, 0, 13, GridBagConstraints.REMAINDER, 1, 0, 0);
 		allowMultiLineObjectsSelect.setText(
-			LanguageBundle.getString("in_Prefs_allowMultiLineObjectsSelect")); //$NON-NLS-1$
-		gridbag.setConstraints(allowMultiLineObjectsSelect, c);
-		this.add(allowMultiLineObjectsSelect);
-
-		Utility.buildConstraints(c, 5, 20, GridBagConstraints.REMAINDER, 1, 1, 1);
-		c.fill = GridBagConstraints.BOTH;
-		label = new JLabel();
-		gridbag.setConstraints(label, c);
-		this.add(label);
+			LanguageBundle.getString("in_Prefs_allowMultiLineObjectsSelect"));
+		vbox.getChildren().add(allowMultiLineObjectsSelect);
+		this.add(GuiUtility.wrapParentAsJFXPanel(vbox));
 	}
 
 	@Override
@@ -192,7 +156,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SOURCES_ALLOW_MULTI_LINE,
 			allowMultiLineObjectsSelect.isSelected());
 
-		switch (sourceOptions.getSelectedIndex())
+		switch (sourceOptions.getSelectionModel().getSelectedIndex())
 		{
 			case 0:
 				Globals.setSourceDisplay(SourceFormat.LONG);
@@ -216,7 +180,7 @@ public class SourcesPanel extends PCGenPrefsPanel
 
 			default:
 				Logging.errorPrint("In PreferencesDialog.setOptionsBasedOnControls " + "(sourceOptions) the index "
-					+ sourceOptions.getSelectedIndex() + " is unsupported.");
+					+ sourceOptions.getSelectionModel().getSelectedIndex() + " is unsupported.");
 
 				break;
 		}
@@ -245,39 +209,42 @@ public class SourcesPanel extends PCGenPrefsPanel
 		allowMultiLineObjectsSelect
 			.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SOURCES_ALLOW_MULTI_LINE));
 
-		switch (Globals.getSourceDisplay())
-		{
-			case LONG:
-				sourceOptions.setSelectedIndex(0);
+		Platform.runLater(() -> {
+			switch (Globals.getSourceDisplay())
+			{
+				case LONG:
+					sourceOptions.getSelectionModel().select(0);
 
-				break;
+					break;
 
-			case MEDIUM:
-				sourceOptions.setSelectedIndex(1);
+				case MEDIUM:
+					sourceOptions.getSelectionModel().select(1);
 
-				break;
+					break;
 
-			case SHORT:
-				sourceOptions.setSelectedIndex(2);
+				case SHORT:
+					sourceOptions.getSelectionModel().select(2);
 
-				break;
+					break;
 
-			case PAGE:
-				sourceOptions.setSelectedIndex(3);
+				case PAGE:
+					sourceOptions.getSelectionModel().select(3);
 
-				break;
+					break;
 
-			case WEB:
-				sourceOptions.setSelectedIndex(4);
+				case WEB:
+					sourceOptions.getSelectionModel().select(4);
 
-				break;
+					break;
 
-			default:
-				Logging.errorPrint("In PreferencesDialog.applyOptionValuesToControls " + "(source display) the option "
-					+ Globals.getSourceDisplay() + " is unsupported.");
+				default:
+					Logging.errorPrint(
+							"In PreferencesDialog.applyOptionValuesToControls " + "(source display) the option "
+									+ Globals.getSourceDisplay() + " is unsupported.");
 
-				break;
-		}
+					break;
+			}
+		});
 	}
 
 }

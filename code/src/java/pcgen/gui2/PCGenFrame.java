@@ -22,14 +22,9 @@ import static javax.swing.JOptionPane.CLOSED_OPTION;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.Rectangle;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -58,9 +53,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
-import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
@@ -98,8 +91,11 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
+import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.GuiUtility;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.SimpleHtmlPanelController;
+import pcgen.gui3.component.PCGenToolBar;
 import pcgen.gui3.dialog.AboutDialog;
 import pcgen.gui3.dialog.TipOfTheDayController;
 import pcgen.io.PCGFile;
@@ -117,6 +113,11 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
 
 import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.ToolBar;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -184,93 +185,23 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		root.setInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT, createInputMap(actionMap));
 
 		characterTabs.add(new InfoGuidePane(this, uiContext));
+
 		setJMenuBar(pcGenMenuBar);
-		add(new PCGenToolBar(this), BorderLayout.NORTH);
+		PCGenToolBar pcGenToolBar = new PCGenToolBar(this);
+		ToolBar toolBar = pcGenToolBar.buildMenu();
+		JFXPanel wrappedToolBar = GuiUtility.wrapParentAsJFXPanel(toolBar);
+
+		add(wrappedToolBar, BorderLayout.NORTH);
 		add(characterTabs, BorderLayout.CENTER);
 		add(statusBar, BorderLayout.SOUTH);
 		updateTitle();
 		setIconImage(Icons.PCGenApp.getImageIcon().getImage());
 	}
 
-	/**
-	 * This checks to make sure that the given rectangle will be visible
-	 * on the current graphics environment
-	 */
-	private boolean checkBounds(Rectangle rect)
-	{
-		if (rect.isEmpty())
-		{
-			return false;
-		}
-		GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
-
-		for (GraphicsDevice device : env.getScreenDevices())
-		{
-			Rectangle bounds = device.getDefaultConfiguration().getBounds();
-			if (bounds.contains(rect) || bounds.intersects(rect))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
 	private void initSettings()
 	{
-		final UIPropertyContext frameContext = UIPropertyContext.createContext("PCGenFrame");
-
-		Rectangle screenBounds = getGraphicsConfiguration().getBounds();
-
 		setSize(1060, 725); //this is the default frame dimensions
-		setLocationRelativeTo(null); //center the frame
-		if (!screenBounds.contains(getBounds()))
-		{
-			setSize((5 * screenBounds.width) / 6, (5 * screenBounds.height) / 6);
-			setLocationRelativeTo(null); //center the frame
-		}
-		Rectangle frameBounds = getBounds();
-		frameBounds.x = frameContext.initInt("bounds.x", frameBounds.x);
-		frameBounds.y = frameContext.initInt("bounds.y", frameBounds.x);
-		frameBounds.width = frameContext.initInt("bounds.width", frameBounds.width);
-		frameBounds.height = frameContext.initInt("bounds.height", frameBounds.height);
 
-		int extendedState = frameContext.initInt("extendedState", NORMAL);
-		if (extendedState == ICONIFIED)
-		{
-			extendedState = NORMAL;
-			frameContext.setInt("extendedState", NORMAL);
-		}
-		setExtendedState(extendedState);
-		if (checkBounds(frameBounds))
-		{
-			setBounds(frameBounds);
-		}
-		addPropertyChangeListener("extendedState", frameContext);
-		addComponentListener(new ComponentAdapter()
-		{
-
-			@Override
-			public void componentResized(ComponentEvent e)
-			{
-				updateBounds();
-			}
-
-			@Override
-			public void componentMoved(ComponentEvent e)
-			{
-				updateBounds();
-			}
-
-			private void updateBounds()
-			{
-				Rectangle bounds = getBounds();
-				frameContext.setInt("bounds.x", bounds.x);
-				frameContext.setInt("bounds.y", bounds.y);
-				frameContext.setInt("bounds.width", bounds.width);
-				frameContext.setInt("bounds.height", bounds.height);
-			}
-
-		});
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		addWindowListener(new WindowAdapter()
 		{
@@ -289,8 +220,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	 * by setting it visible and then performing other startup actions
 	 * as the user's preferences dictate.
 	 */
-	public void startPCGenFrame()
+	void startPCGenFrame()
 	{
+		GuiAssertions.assertIsSwingThread();
 		setVisible(true);
 		new StartupWorker().start();
 	}
@@ -453,6 +385,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				key = UIPropertyContext.createFilePropertyKey(file, key);
 				UIPropertyContext.getInstance().setInt(key, InfoTabbedPane.CHARACTER_SHEET_TAB);
 			}
+			GuiAssertions.assertIsNotSwingThread();
 			SwingUtilities.invokeAndWait(() -> {
 				if (!file.exists())
 				{
@@ -1016,8 +949,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 
 	}
 
-	void showOpenCharacterChooser()
+	public void showOpenCharacterChooser()
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		PropertyContext context = PCGenSettings.getInstance();
 		String path = lastCharacterPath;
 		if (path == null)
@@ -1070,8 +1004,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	 * then sets the character as the currently selected character
 	 * @param file the File for this character
 	 */
-	void createNewCharacter(File file)
+	public void createNewCharacter(File file)
 	{
+		GuiAssertions.assertIsSwingThread();
 		DataSetFacade data = getLoadedDataSetRef().get();
 		CharacterFacade character = CharacterManager.createNewCharacter(this, data);
 		//This is called before the we set it as the selected character so
@@ -1098,28 +1033,22 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	{
 		if (!PCGFile.isPCGenCharacterFile(pcgFile))
 		{
-			JOptionPane.showMessageDialog(this,
-				LanguageBundle.getFormattedString("in_loadPcInvalid", pcgFile), //$NON-NLS-1$
-				LanguageBundle.getString("in_loadPcFailTtile"), //$NON-NLS-1$
-				JOptionPane.ERROR_MESSAGE);
+			this.showErrorMessage(LanguageBundle.getFormattedString("in_loadPcInvalid", pcgFile),
+					LanguageBundle.getFormattedString("in_loadPcInvalid", pcgFile)	);
 			return;
 		}
 		if (!pcgFile.canRead())
 		{
-			JOptionPane.showMessageDialog(this,
-				LanguageBundle.getFormattedString("in_loadPcNoRead", pcgFile), //$NON-NLS-1$
-				LanguageBundle.getString("in_loadPcFailTtile"), //$NON-NLS-1$
-				JOptionPane.ERROR_MESSAGE);
+			this.showErrorMessage(LanguageBundle.getFormattedString("in_loadPcFailTtile"),
+					LanguageBundle.getFormattedString("in_loadPcNoRead", pcgFile)	);
 			return;
 		}
 
 		SourceSelectionFacade sources = CharacterManager.getRequiredSourcesForCharacter(pcgFile, this);
 		if (sources == null)
 		{
-			JOptionPane.showMessageDialog(this,
-				LanguageBundle.getFormattedString("in_loadPcNoSources", pcgFile), //$NON-NLS-1$
-				LanguageBundle.getString("in_loadPcFailTtile"), //$NON-NLS-1$
-				JOptionPane.ERROR_MESSAGE);
+			this.showErrorMessage(LanguageBundle.getFormattedString("in_loadPcNoSources", pcgFile),
+					LanguageBundle.getString("in_loadPcFailTtile"));
 		}
 		else if (!sources.getCampaigns().isEmpty())
 		{
@@ -1130,7 +1059,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			boolean gameModesSame = checkGameModeEquality(sources, currentSourceSelection.get());
 			if (!dontLoadSources && !sourcesSame && gameModesSame)
 			{
-				Object[] btnNames = new Object[]{LanguageBundle.getString("in_loadPcDiffSourcesLoaded"),
+				Object[] btnNames = {LanguageBundle.getString("in_loadPcDiffSourcesLoaded"),
 					LanguageBundle.getString("in_loadPcDiffSourcesCharacter"), LanguageBundle.getString("in_cancel")};
 				int choice = JOptionPane.showOptionDialog(this,
 					LanguageBundle.getFormattedString("in_loadPcDiffSources",
@@ -1180,10 +1109,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		else
 		{
 			// No character sources and no sources loaded.
-			JOptionPane.showMessageDialog(this,
-				LanguageBundle.getFormattedString("in_loadPcNoSources", pcgFile), //$NON-NLS-1$
-				LanguageBundle.getString("in_loadPcFailTtile"), //$NON-NLS-1$
-				JOptionPane.ERROR_MESSAGE);
+			this.showErrorMessage(LanguageBundle.getFormattedString("in_loadPcNoSources", pcgFile),
+					LanguageBundle.getString("in_loadPcFailTtile"));
 		}
 	}
 
@@ -1215,7 +1142,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		});
 	}
 
-	private String getFormattedCampaigns(SourceSelectionFacade sources)
+	private static String getFormattedCampaigns(SourceSelectionFacade sources)
 	{
 		StringBuilder campList = new StringBuilder(100);
 		campList.append("<UL>");
@@ -1231,7 +1158,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 					LanguageBundle.getFormattedString("in_loadPcDiffSourcesExcessSources", String.valueOf(numExtra)));
 				break;
 			}
-			campList.append(facade.toString());
+			campList.append(facade);
 			campList.append("</li>");
 			count++;
 		}
@@ -1245,76 +1172,63 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	 */
 	private void loadSourcesThenCharacter(final File pcgFile)
 	{
-		new Thread()
-		{
-
-			@Override
-			public void run()
+		new Thread(() -> {
+			try
 			{
-				try
-				{
-					sourceLoader.join();
-					SwingUtilities.invokeAndWait(() -> {
-						final String msg =
-								LanguageBundle.getFormattedString("in_loadPcLoadingFile", pcgFile.getName());
-						statusBar.startShowingProgress(msg, false);
-						statusBar.getProgressBar().getModel().setRangeProperties(0, 1, 0, 2, false);
-						statusBar.getProgressBar().setString(LanguageBundle.getString("in_loadPcOpening"));
-					});
-					SwingUtilities.invokeLater(() -> {
-						try
-						{
-							CharacterManager.openCharacter(pcgFile, PCGenFrame.this, currentDataSetRef.get());
-							statusBar.getProgressBar().getModel().setRangeProperties(1, 1, 0, 2, false);
-						}
-						catch (Exception e)
-						{
-							Logging.errorPrint("Error loading character: " + pcgFile.getName(), e);
-						}
-						finally
-						{
-							statusBar.endShowingProgress();
-						}
-					});
-				}
-				catch (InterruptedException ex)
-				{
-					//Do nothing
-				}
-				catch (InvocationTargetException e1)
-				{
-					Logging.errorPrint("Error showing progress bar.", e1);
-				}
+				sourceLoader.join();
+				SwingUtilities.invokeAndWait(() -> {
+					final String msg =
+							LanguageBundle.getFormattedString("in_loadPcLoadingFile", pcgFile.getName());
+					statusBar.startShowingProgress(msg, false);
+					statusBar.getProgressBar().getModel().setRangeProperties(0, 1, 0, 2, false);
+					statusBar.getProgressBar().setString(LanguageBundle.getString("in_loadPcOpening"));
+				});
+				SwingUtilities.invokeLater(() -> {
+					try
+					{
+						CharacterManager.openCharacter(pcgFile, PCGenFrame.this, currentDataSetRef.get());
+						statusBar.getProgressBar().getModel().setRangeProperties(1, 1, 0, 2, false);
+					}
+					catch (Exception e)
+					{
+						Logging.errorPrint("Error loading character: " + pcgFile.getName(), e);
+					}
+					finally
+					{
+						statusBar.endShowingProgress();
+					}
+				});
 			}
-
-		}.start();
+			catch (InterruptedException ex)
+			{
+				//Do nothing
+			}
+			catch (InvocationTargetException e1)
+			{
+				Logging.errorPrint("Error showing progress bar.", e1);
+			}
+		}).start();
 	}
 
 	public void loadPartyFromFile(final File pcpFile)
 	{
 		if (!PCGFile.isPCGenPartyFile(pcpFile))
 		{
-			JOptionPane.showMessageDialog(this,
-				LanguageBundle.getFormattedString("in_loadPartyInvalid", pcpFile), //$NON-NLS-1$
-				LanguageBundle.getString("in_loadPartyFailTtile"), //$NON-NLS-1$
-				JOptionPane.ERROR_MESSAGE);
+			this.showErrorMessage(LanguageBundle.getString("in_loadPartyFailTtile"),
+					LanguageBundle.getFormattedString("in_loadPartyInvalid", pcpFile)	);
 			return;
 		}
 		if (!pcpFile.canRead())
 		{
-			JOptionPane.showMessageDialog(this,
-				LanguageBundle.getFormattedString("in_loadPartyNoRead", pcpFile), //$NON-NLS-1$
-				LanguageBundle.getString("in_loadPartyFailTtile"), //$NON-NLS-1$
-				JOptionPane.ERROR_MESSAGE);
+			this.showErrorMessage(LanguageBundle.getString("in_loadPartyFailTtile"),
+					LanguageBundle.getFormattedString("in_loadPartyNoRead", pcpFile)	);
 			return;
 		}
 		SourceSelectionFacade sources = CharacterManager.getRequiredSourcesForParty(pcpFile, this);
 		if (sources == null)
 		{
-			JOptionPane.showMessageDialog(this,
-				LanguageBundle.getFormattedString("in_loadPartyNoSources", pcpFile), //$NON-NLS-1$
-				LanguageBundle.getString("in_loadPartyFailTtile"), //$NON-NLS-1$
-				JOptionPane.ERROR_MESSAGE);
+			this.showErrorMessage(LanguageBundle.getString("in_loadPartyFailTtile"),
+					LanguageBundle.getFormattedString("in_loadPartyNoSources", pcpFile)	);
 		}
 		else if (!sources.getCampaigns().isEmpty())
 		{
@@ -1332,30 +1246,22 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			}
 			else if (loadSourceSelection(sources))
 			{
-				new Thread()
-				{
-
-					@Override
-					public void run()
+				new Thread(() -> {
+					try
 					{
-						try
-						{
-							sourceLoader.join();
-							SwingUtilities.invokeLater(() -> CharacterManager.openParty(pcpFile, PCGenFrame.this, currentDataSetRef.get()));
-						}
-						catch (InterruptedException ex)
-						{
-							//Do nothing
-						}
+						sourceLoader.join();
+						SwingUtilities.invokeLater(() -> CharacterManager.openParty(pcpFile, PCGenFrame.this, currentDataSetRef.get()));
 					}
-
-				}.start();
+					catch (InterruptedException ex)
+					{
+						//Do nothing
+					}
+				}).start();
 			}
 			else
 			{
-				JOptionPane.showMessageDialog(this, LanguageBundle.getString("in_loadPcIncompatSource"), //$NON-NLS-1$
-					LanguageBundle.getString("in_loadPartyFailTtile"), //$NON-NLS-1$
-					JOptionPane.ERROR_MESSAGE);
+				this.showErrorMessage(LanguageBundle.getString("in_loadPartyFailTtile"),
+						LanguageBundle.getString("in_loadPcIncompatSource")	);
 			}
 		}
 	}
@@ -1514,49 +1420,19 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	@Override
 	public boolean showWarningConfirm(String title, String message)
 	{
-		JComponent msgComp = getComponentForMessage(message);
-		int ret = JOptionPane.showConfirmDialog(this, msgComp, title, JOptionPane.YES_NO_OPTION,
-			JOptionPane.WARNING_MESSAGE);
-		return ret == JOptionPane.YES_OPTION;
-	}
-
-	/**
-	 * Create a component to display the message within the bounds of the 
-	 * screen. If the message is too big for the screen a suitably sized 
-	 * scroll pane will be returned.
-	 * @param message The text of the message.
-	 * @return The component containing the text.
-	 */
-	private JComponent getComponentForMessage(String message)
-	{
-		JLabel jLabel = new JLabel(message);
-		JScrollPane scroller = new JScrollPane(jLabel);
-		Dimension size = jLabel.getPreferredSize();
-		final int decorationHeight = 80;
-		final int decorationWidth = 70;
-		Rectangle screenBounds = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
-		boolean scrollerNeeded = false;
-		if (size.height > screenBounds.height - decorationHeight)
-		{
-			size.height = screenBounds.height - decorationHeight;
-			scrollerNeeded = true;
-		}
-		if (size.width > screenBounds.width - decorationWidth)
-		{
-			size.width = screenBounds.width - decorationWidth;
-			scrollerNeeded = true;
-		}
-		else if (scrollerNeeded)
-		{
-			scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		}
-		scroller.setPreferredSize(size);
-		return scrollerNeeded ? scroller : jLabel;
+		Alert alert = CompletableFuture.supplyAsync(() -> new Alert(Alert.AlertType.CONFIRMATION),
+				Platform::runLater).join();
+		alert.setTitle(title);
+		alert.setContentText(message);
+		Optional<ButtonType> buttonType = CompletableFuture.supplyAsync(
+				alert::showAndWait,
+				Platform::runLater).join();
+		return buttonType.orElse(ButtonType.NO).equals(ButtonType.OK);
 	}
 
 	private boolean showMessageConfirm(String title, String message)
 	{
-		JComponent msgComp = getComponentForMessage(message);
+		JComponent msgComp = new JLabel(message);
 		int ret = JOptionPane.showConfirmDialog(this, msgComp, title, JOptionPane.YES_NO_OPTION);
 		return ret == JOptionPane.YES_OPTION;
 	}
@@ -1564,30 +1440,44 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	@Override
 	public void showErrorMessage(String title, String message)
 	{
-		JComponent msgComp = getComponentForMessage(message);
-		JOptionPane.showMessageDialog(this, msgComp, title, JOptionPane.ERROR_MESSAGE);
+		GuiAssertions.assertIsNotJavaFXThread();
+		Alert alert = CompletableFuture.supplyAsync(() -> new Alert(Alert.AlertType.ERROR), Platform::runLater).join();
+		alert.setTitle(title);
+		alert.setContentText(message);
+		CompletableFuture.supplyAsync(alert::showAndWait, Platform::runLater).join();
 	}
 
 	@Override
 	public void showInfoMessage(String title, String message)
 	{
-		JComponent msgComp = getComponentForMessage(message);
-		JOptionPane.showMessageDialog(this, msgComp, title, JOptionPane.INFORMATION_MESSAGE);
+		GuiAssertions.assertIsNotJavaFXThread();
+		Alert alert =
+				CompletableFuture.supplyAsync(() -> new Alert(Alert.AlertType.INFORMATION), Platform::runLater).join();
+		alert.setTitle(title);
+		alert.setContentText(message);
+		CompletableFuture.supplyAsync(alert::showAndWait, Platform::runLater).join();
 	}
 
 	@Override
 	public void showWarningMessage(String title, String message)
 	{
-		JComponent msgComp = getComponentForMessage(message);
-		JOptionPane.showMessageDialog(this, msgComp, title, JOptionPane.WARNING_MESSAGE);
+		GuiAssertions.assertIsNotJavaFXThread();
+		Alert alert =
+				CompletableFuture.supplyAsync(() -> new Alert(Alert.AlertType.WARNING), Platform::runLater).join();
+		alert.setTitle(title);
+		alert.setContentText(message);
+		CompletableFuture.supplyAsync(alert::showAndWait, Platform::runLater).join();
 	}
 
 	@Override
 	public Optional<String> showInputDialog(String title, String message, String initialValue)
 	{
-		Object ret = JOptionPane.showInputDialog(this, message, title, JOptionPane.QUESTION_MESSAGE, null, null,
-			initialValue);
-		return Optional.ofNullable(ret).map(String::valueOf);
+		GuiAssertions.assertIsNotJavaFXThread();
+		TextInputDialog dialog =
+				CompletableFuture.supplyAsync(() -> new TextInputDialog(initialValue), Platform::runLater).join();
+		dialog.setTitle(title);
+		dialog.setContentText(message);
+		return CompletableFuture.supplyAsync(dialog::showAndWait, Platform::runLater).join();
 	}
 
 	@Override
@@ -1606,8 +1496,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			return choiceHandler.get().makeChoice(chooserFacade);
 		}
 
-		if (chooserFacade.isPreferRadioSelection() && chooserFacade.getAvailableList().getSize() <= 20
-			&& chooserFacade.getRemainingSelections().get() == 1)
+		if (chooserFacade.isPreferRadioSelection() && chooserFacade.getRemainingSelections().get() == 1)
 		{
 			RadioChooserDialog dialog = new RadioChooserDialog(this, chooserFacade);
 			Utility.setComponentRelativeLocation(this, dialog);
@@ -1656,11 +1545,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			}
 			//now that the SourceFileLoader has finished
 			//handle licenses and whatnot
-			StringBuilder sec15 = new StringBuilder(" ");
-			sec15.append(
-				readTextFromFile(ConfigurationSettings.getSystemsDir() + File.separator + "opengaminglicense.10a.txt"));
-			sec15.append(loader.getOGL());
-			section15 = sec15.toString();
+			String sec15 = " "
+					+ readTextFromFile(
+					ConfigurationSettings.getSystemsDir() + File.separator + "opengaminglicense.10a.txt")
+					+ loader.getOGL();
+			section15 = sec15;
 			try
 			{
 				showLicenses();
@@ -1753,7 +1642,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 
 		var htmlPanel = new JFXPanelFromResource<>(SimpleHtmlPanelController.class, "SimpleHtmlPanel.fxml");
 		String finalHtmlString = htmlString;
-		Platform.runLater(() -> htmlPanel.getController().setHtml(finalHtmlString));
+		htmlPanel.getController().setHtml(finalHtmlString);
 
 		aFrame.getContentPane().setLayout(new BorderLayout());
 		aFrame.getContentPane().add(htmlPanel, BorderLayout.CENTER);
@@ -1788,7 +1677,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		jPanel1.add(jLabel2, BorderLayout.SOUTH);
 
 		var htmlPanel = new JFXPanelFromResource<>(SimpleHtmlPanelController.class, "SimpleHtmlPanel.fxml");
-		Platform.runLater(() -> htmlPanel.getController().setHtml(text));
+		htmlPanel.getController().setHtml(text);
 
 		jPanel3.add(jCheckBox1);
 		jPanel3.add(jClose);

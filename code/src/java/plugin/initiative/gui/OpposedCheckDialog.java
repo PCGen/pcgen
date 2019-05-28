@@ -27,7 +27,6 @@ import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.HeadlessException;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
@@ -57,6 +56,7 @@ import gmgen.plugin.PcgCombatant;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
 import pcgen.core.Skill;
+import pcgen.util.Logging;
 import plugin.initiative.OpposedSkillBasicModel;
 import plugin.initiative.OpposedSkillModel;
 import plugin.initiative.OpposedSkillTypeModel;
@@ -141,7 +141,6 @@ class OpposedCheckDialog extends JDialog
 	 * @throws HeadlessException if running without a gui
 	 */
 	OpposedCheckDialog(Frame owner, List<InitHolder> rollingGroup, List<InitHolder> availableGroup)
-		throws HeadlessException
 	{
 		super(owner);
 		initializeLists(rollingGroup, availableGroup);
@@ -651,7 +650,7 @@ class OpposedCheckDialog extends JDialog
 				}
 				catch (final UnsupportedFlavorException | IOException e)
 				{
-					e.printStackTrace();
+					Logging.errorPrint("failure in exportDone", e);
 				}
 			}
 			sourceModel = null;

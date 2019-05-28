@@ -588,14 +588,6 @@ public class AbilityToken extends Token
 		return retString;
 	}
 
-	/**
-	 * @return The nature of the abilities being listed.
-	 */
-	protected Nature getTargetNature()
-	{
-		return Nature.NORMAL;
-	}
-
 	private String getAssociationString(PlayerCharacter pc, List<CNAbility> abilities, String key)
 	{
 		int index = Integer.parseInt(key);
@@ -744,14 +736,6 @@ public class AbilityToken extends Token
 			}
 		}
 		return listOfAbilities;
-	}
-
-	/**
-	 * @return the visibility
-	 */
-	protected View getView()
-	{
-		return view;
 	}
 
 	/**

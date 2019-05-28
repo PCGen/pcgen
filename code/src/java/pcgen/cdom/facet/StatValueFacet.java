@@ -216,7 +216,7 @@ public class StatValueFacet extends AbstractScopeFacet<CharID, PCStat, Number>
 		catch (NullPointerException e)
 		{
 			throw new IllegalArgumentException("Attempt to get channel " + channelName
-				+ " for a STAT was unsuccessful. Was a CHANNEL defined in the Variable file?");
+				+ " for a STAT was unsuccessful. Was a CHANNEL defined in the Variable file?", e);
 		}
 	}
 

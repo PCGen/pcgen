@@ -135,7 +135,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	 */
 	public PurchaseInfoTab()
 	{
-		super("Purchase"); //$NON-NLS-1$
 		this.availableTable = new FilteredTreeViewTable<>();
 		this.purchasedTable = new FilteredTreeViewTable<>();
 		this.equipmentRenderer = new EquipmentRenderer();
@@ -160,7 +159,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private void initComponents()
 	{
 		setOrientation(VERTICAL_SPLIT);
-		FlippingSplitPane splitPane = new FlippingSplitPane("PurchaseTop"); //$NON-NLS-1$
+		FlippingSplitPane splitPane = new FlippingSplitPane(); //$NON-NLS-1$
 		splitPane.setOrientation(HORIZONTAL_SPLIT);
 		{ // Top Left panel
 			FilterBar<CharacterFacade, EquipmentFacade> filterBar = new FilterBar<>();
@@ -222,7 +221,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			splitPane.setRightComponent(panel);
 		}
 		setTopComponent(splitPane);
-		splitPane = new FlippingSplitPane("PurchaseBottom"); //$NON-NLS-1$
+		splitPane = new FlippingSplitPane(); //$NON-NLS-1$
 		splitPane.setOrientation(HORIZONTAL_SPLIT);
 		{// Bottom Left Panel
 			JPanel panel = new JPanel();
@@ -354,8 +353,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		models.put(CurrencyFieldHandler.class, new CurrencyFieldHandler(character));
 
-		CharacterComboBoxModel<GearBuySellFacade> buySellModel = new CharacterComboBoxModel<GearBuySellFacade>(
-			character.getDataSet().getGearBuySellSchemes(), character.getGearBuySellRef())
+		CharacterComboBoxModel<GearBuySellFacade> buySellModel = new CharacterComboBoxModel<>(
+				character.getDataSet().getGearBuySellSchemes(), character.getGearBuySellRef())
 		{
 
 			@Override
@@ -882,7 +881,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	{
 
 		private final ListFacade<? extends TreeView<EquipmentFacade>> treeviews =
-				new DefaultListFacade<TreeView<EquipmentFacade>>(Arrays.asList(EquipmentTreeView.values()));
+				new DefaultListFacade<>(Arrays.asList(EquipmentTreeView.values()));
 		private final List<DefaultDataViewColumn> columns =
 				Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
 					new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, true), //$NON-NLS-1$
@@ -980,7 +979,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	{
 
 		private final ListFacade<? extends TreeView<EquipmentFacade>> treeviews =
-				new DefaultListFacade<TreeView<EquipmentFacade>>(Arrays.asList(EquipmentTreeView.values()));
+				new DefaultListFacade<>(Arrays.asList(EquipmentTreeView.values()));
 		private final List<DefaultDataViewColumn> columns =
 				Arrays.asList(new DefaultDataViewColumn("in_igEqModelColCost", Float.class, true), //$NON-NLS-1$
 					new DefaultDataViewColumn("in_igEqModelColWeight", Float.class, false), //$NON-NLS-1$
@@ -1232,7 +1231,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				return null;
 			}
 
-			EquipmentFacade[] equipArray = data.toArray(new EquipmentFacade[data.size()]);
+			EquipmentFacade[] equipArray = data.toArray(new EquipmentFacade[0]);
 			return new EquipmentSelection(equipArray);
 		}
 

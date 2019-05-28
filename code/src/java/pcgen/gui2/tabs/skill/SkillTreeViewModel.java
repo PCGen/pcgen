@@ -20,6 +20,7 @@ package pcgen.gui2.tabs.skill;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import javax.swing.ListSelectionModel;
@@ -256,12 +257,12 @@ public class SkillTreeViewModel
 				default:
 					throw new InternalError();
 			}
-			return Arrays.asList(path);
+			return Collections.singletonList(path);
 		}
 
 	}
 
-	private final TreeView<Skill> COST_NAME = new TreeView<Skill>()
+	private final TreeView<Skill> COST_NAME = new TreeView<>()
 	{
 
 		@Override
@@ -281,11 +282,11 @@ public class SkillTreeViewModel
 				CharacterLevelFacade level = levels.getElementAt(index);
 				path.add(levels.getSkillCost(level, pobj));
 			}
-			return Arrays.asList(createTreeViewPath(pobj, path.toArray()));
+			return Collections.singletonList(createTreeViewPath(pobj, path.toArray()));
 		}
 
 	};
-	private final TreeView<Skill> COST_TYPE_NAME = new TreeView<Skill>()
+	private final TreeView<Skill> COST_TYPE_NAME = new TreeView<>()
 	{
 
 		@Override
@@ -306,7 +307,7 @@ public class SkillTreeViewModel
 				path.add(levels.getSkillCost(level, pobj));
 			}
 			path.add(getDisplayType(pobj));
-			return Arrays.asList(createTreeViewPath(pobj, path.toArray()));
+			return Collections.singletonList(createTreeViewPath(pobj, path.toArray()));
 		}
 
 	};

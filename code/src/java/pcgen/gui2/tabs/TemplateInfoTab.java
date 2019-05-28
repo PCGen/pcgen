@@ -79,7 +79,6 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	public TemplateInfoTab()
 	{
-		super("Template");
 		this.availableTable = new FilteredTreeViewTable<>();
 		this.selectedTable = new FilteredTreeViewTable<>();
 		this.addButton = new JButton();
@@ -92,7 +91,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 	private void initComponents()
 	{
-		FlippingSplitPane topPane = new FlippingSplitPane("TemplateTop");
+		FlippingSplitPane topPane = new FlippingSplitPane();
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);
 
@@ -315,7 +314,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 	private class QualifiedFilterHandler
 	{
 
-		private final Filter<CharacterFacade, PCTemplate> qFilter = new Filter<CharacterFacade, PCTemplate>()
+		private final Filter<CharacterFacade, PCTemplate> qFilter = new Filter<>()
 		{
 			@Override
 			public boolean accept(CharacterFacade context, PCTemplate element)
@@ -433,7 +432,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 	{
 
 		private static final DefaultListFacade<? extends TreeView<PCTemplate>> TREE_VIEWS =
-				new DefaultListFacade<TreeView<PCTemplate>>(Arrays.asList(TemplateTreeView.values()));
+				new DefaultListFacade<>(Arrays.asList(TemplateTreeView.values()));
 		private final CharacterFacade character;
 		private final boolean isAvailModel;
 		private final TemplateDataView dataView;

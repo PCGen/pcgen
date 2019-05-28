@@ -139,7 +139,7 @@ public class LookupFunction implements FormulaFunction
 			}
 			catch (IllegalArgumentException e)
 			{
-				throw new SemanticsFailureException("Parse Error: Invalid lookup type: " + lookupTypeName);
+				throw new SemanticsFailureException("Parse Error: Invalid lookup type: " + lookupTypeName, e);
 			}
 		}
 		return cf.getComponentManager().get();

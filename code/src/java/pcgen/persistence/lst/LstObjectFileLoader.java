@@ -21,6 +21,7 @@ package pcgen.persistence.lst;
 
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -44,36 +45,25 @@ import pcgen.util.Logging;
  * Objects loaded by implementations of this class inherit the core
  * MOD/COPY/FORGET funcationality needed for core CDOMObjects used
  * to directly create characters.
- *
- * <p>
- *
  */
 public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observable
 {
 	/** The String that separates fields in the file. */
-	public static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
-	/** The String that separates individual objects */
-	public static final String LINE_SEPARATOR = "\r\n"; //$NON-NLS-1$
-
-	/** Tag used to include an object */
-	public static final String INCLUDE_TAG = "INCLUDE"; //$NON-NLS-1$
-
-	/** Tag used to exclude an object */
-	public static final String EXCLUDE_TAG = "EXCLUDE"; //$NON-NLS-1$
+	private static final String FIELD_SEPARATOR = "\t"; //$NON-NLS-1$
 
 	/** The suffix used to indicate this is a copy operation */
-	public static final String COPY_SUFFIX = ".COPY"; //$NON-NLS-1$
+	private static final String COPY_SUFFIX = ".COPY"; //$NON-NLS-1$
 	/** The suffix used to indicate this is a mod operation */
-	public static final String MOD_SUFFIX = ".MOD"; //$NON-NLS-1$
+	private static final String MOD_SUFFIX = ".MOD"; //$NON-NLS-1$
 	/** The suffix used to indicate this is a forget operation */
-	public static final String FORGET_SUFFIX = ".FORGET"; //$NON-NLS-1$
+	private static final String FORGET_SUFFIX = ".FORGET"; //$NON-NLS-1$
 
-	private List<ModEntry> copyLineList = new ArrayList<>();
-	private List<String> forgetLineList = new ArrayList<>();
-	private List<List<ModEntry>> modEntryList = new ArrayList<>();
+	private final Collection<ModEntry> copyLineList = new ArrayList<>();
+	private final Collection<String> forgetLineList = new ArrayList<>();
+	private final Collection<List<ModEntry>> modEntryList = new ArrayList<>();
 	private boolean processComplete = true;
 	/** A list of objects that will not be included. */
-	protected List<String> excludedObjects = new ArrayList<>();
+	private final Collection<String> excludedObjects = new ArrayList<>();
 
 	/**
 	 * This method loads the given list of LST files.
@@ -177,15 +167,11 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		}
 	}
 
-	protected void storeObject(LoadContext context, T pObj)
+	private void storeObject(LoadContext context, T pObj)
 	{
 		final T currentObj = getMatchingObject(context, pObj);
 
-		if (!context.consolidate() || currentObj == null || !pObj.equals(currentObj))
-		{
-			addGlobalObject(pObj);
-		}
-		else
+		if (context.consolidate() && currentObj != null && pObj.equals(currentObj))
 		{
 			//Yes, this is instance equality, NOT .equals!!!!!
 			if (currentObj != pObj)
@@ -201,7 +187,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 					if ((pObjDate != null) && ((currentObjDate == null) || ((pObjDate.compareTo(currentObjDate) > 0))))
 					{
 						performForget(context, currentObj);
-						addGlobalObject(pObj);
 					}
 					else
 					{
@@ -221,16 +206,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 				}
 			}
 		}
-	}
-
-	/**
-	 * Adds an object to the global repository.
-	 * 
-	 * @param cdo The object to add.
-	 * 
-	 */
-	protected void addGlobalObject(final CDOMObject cdo)
-	{
 	}
 
 	/**
@@ -313,11 +288,11 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		{
 			String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.LoadError", //$NON-NLS-1$
 				uri, ple.getMessage());
-			Logging.errorPrint(message);
+			Logging.errorPrint(message, ple);
 			setChanged();
 			return;
 		}
-		String aString = dataBuffer;
+		String aString = Objects.requireNonNull(dataBuffer);
 		if (context != null)
 		{
 			context.setSourceURI(uri);
@@ -423,7 +398,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 					if (Logging.isDebugMode())
 					{
 						Logging.errorPrint(LanguageBundle.getString("Errors.LstFileLoader.Ignoring"), t);
-						t.printStackTrace();
 					}
 				}
 			}
@@ -457,7 +431,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * @param context TODO
 	 * @param objToForget containing the object to forget
 	 */
-	protected void performForget(LoadContext context, T objToForget)
+	private void performForget(LoadContext context, T objToForget)
 	{
 		context.getReferenceContext().forget(objToForget);
 	}
@@ -709,7 +683,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		 * 
 		 * @throws IllegalArgumentException if aSource or aLstLine is null.
 		 */
-		public ModEntry(final CampaignSourceEntry aSource, final String aLstLine, final int aLineNumber)
+		private ModEntry(final CampaignSourceEntry aSource, final String aLstLine, final int aLineNumber)
 		{
 			super();
 
@@ -746,7 +720,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		 *
 		 * @return The line number of the original file for this MOD entry
 		 */
-		public int getLineNumber()
+		private int getLineNumber()
 		{
 			return lineNumber;
 		}

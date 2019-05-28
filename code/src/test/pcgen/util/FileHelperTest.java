@@ -138,10 +138,9 @@ class FileHelperTest
 	/**
 	 * Validate windows only relative paths on the same drive. 
 	 * Note the tests only run on Windows machines.
-	 * @throws Exception In some failure conditions.
 	 */
 	@Test
-	public void testWindowsDriveSame() throws Exception
+	public void testWindowsDriveSame()
 	{
 		final File base = new File("C:\\Temp\\foo.txt"); 
 		final File sameDir = new File("C:\\Temp\\bar\\baz.txt");
@@ -156,10 +155,9 @@ class FileHelperTest
 	/**
 	 * Validate windows only relative paths on different drives. 
 	 * Note the tests only run on Windows machines.
-	 * @throws Exception In some failure conditions.
 	 */
 	@Test
-	public void testWindowsDriveDifferent() throws Exception
+	public void testWindowsDriveDifferent()
 	{
 		final File base = new File("C:\\Temp\\foo.txt"); 
 		final File sameDir = new File("D:\\Temp\\bar.txt");

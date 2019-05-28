@@ -86,7 +86,7 @@ public class PreHDParser extends AbstractPrerequisiteParser implements Prerequis
 				{
 					throw new PersistenceLayerException(
 						"PREHD must be either 'MIN=x', 'MAX=y' or " + "'MIN=x,MAX=y' where 'x' and 'y' are integers. '"
-							+ formula + "' is not valid: " + hdVal + " is not an integer");
+							+ formula + "' is not valid: " + hdVal + " is not an integer", nfe);
 				}
 				if (token.equals("MIN"))
 				{
@@ -175,7 +175,7 @@ public class PreHDParser extends AbstractPrerequisiteParser implements Prerequis
 			{
 				throw new PersistenceLayerException(
 					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '" + formula
-						+ "' is not valid: " + hd1String + " is not an integer");
+						+ "' is not valid: " + hd1String + " is not an integer", nfe);
 			}
 			try
 			{
@@ -185,7 +185,7 @@ public class PreHDParser extends AbstractPrerequisiteParser implements Prerequis
 			{
 				throw new PersistenceLayerException(
 					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '" + formula
-						+ "' is not valid: " + hd2String + " is not an integer");
+						+ "' is not valid: " + hd2String + " is not an integer", nfe);
 			}
 
 			Prerequisite minPrereq = new Prerequisite();
@@ -222,7 +222,7 @@ public class PreHDParser extends AbstractPrerequisiteParser implements Prerequis
 			{
 				throw new PersistenceLayerException(
 					"PREHD must be either 'x+' or 'x-y' where 'x' and 'y' are integers. '" + formula
-						+ "' is not valid: " + hdString + " is not an integer");
+						+ "' is not valid: " + hdString + " is not an integer", nfe);
 			}
 		}
 	}

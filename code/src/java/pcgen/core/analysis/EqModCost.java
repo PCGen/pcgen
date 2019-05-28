@@ -27,6 +27,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.Type;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
@@ -105,7 +106,7 @@ public final class EqModCost
 				return false;
 			}
 
-			if (eqMod.isIType("MAGIC"))
+			if (eqMod.isIType(Type.MAGIC))
 			{
 				return true;
 			}

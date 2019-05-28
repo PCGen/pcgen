@@ -135,18 +135,18 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject> implem
 			// Zero indicates no Token (and no global clear, so nothing to do)
 			return null;
 		}
-		TreeMapToList<String, String> map = new TreeMapToList<String, String>();
+		TreeMapToList<String, String> map = new TreeMapToList<>();
 		for (CDOMReference<?> ref : changes.getAdded())
 		{
 			map.addToListFor(ref.getPersistentFormat(), ref.getLSTformat(false));
 		}
-		List<String> returnList = new ArrayList<String>();
+		List<String> returnList = new ArrayList<>();
 		for (String mapKey : map.getKeySet())
 		{
-			Set<String> set = new TreeSet<String>(map.getListFor(mapKey));
+			Set<String> set = new TreeSet<>(map.getListFor(mapKey));
 			returnList.add(mapKey + '|' + StringUtil.join(set, Constants.PIPE));
 		}
-		return returnList.toArray(new String[returnList.size()]);
+		return returnList.toArray(new String[0]);
 	}
 
 	@Override

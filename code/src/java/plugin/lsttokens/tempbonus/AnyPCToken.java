@@ -70,7 +70,7 @@ public class AnyPCToken extends AbstractTokenWithSeparator<CDOMObject> implement
 		{
 			bonusSet.add(bonus.getLSTformat());
 		}
-		return bonusSet.toArray(new String[bonusSet.size()]);
+		return bonusSet.toArray(new String[0]);
 	}
 
 	@Override

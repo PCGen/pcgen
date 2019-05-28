@@ -46,8 +46,8 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.UIPropertyContext;
-import pcgen.gui2.tools.PrefTableColumnModel;
 import pcgen.gui2.util.event.DynamicTableColumnModelListener;
+import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
@@ -140,16 +140,20 @@ public class JTreeViewTable<T> extends JTreeTable
 			columns = Collections.emptyList();
 		}
 
-		PrefTableColumnModel model =
-				new PrefTableColumnModel(this.viewModel.getDataView().getPrefsKey(), columns.size() + 1);
+		DefaultDynamicTableColumnModel model =
+				new DefaultDynamicTableColumnModel(columns.size() + 1);
 		TableColumn viewColumn = new TableColumn();
 		viewColumn.setHeaderValue(startingView.getViewName());
 		viewColumn.setIdentifier(TREE_VIEW_COL_PREFS_KEY);
-		model.addColumn(viewColumn, true, 150);
+		viewColumn.setPreferredWidth(150);
+		model.addColumn(viewColumn);
+		model.setVisible(viewColumn, true);
 
 		for (TableColumn column : columns)
 		{
-			model.addColumn(column, true, 75);
+			column.setPreferredWidth(75);
+			model.addColumn(column);
+			model.setVisible(column, true);
 		}
 
 		columns = listMap.get(Visibility.INITIALLY_VISIBLE);
@@ -157,7 +161,9 @@ public class JTreeViewTable<T> extends JTreeTable
 		{
 			for (TableColumn column : columns)
 			{
-				model.addColumn(column, true, 75);
+				column.setPreferredWidth(75);
+				model.addColumn(column);
+				model.setVisible(column, true);
 			}
 		}
 
@@ -166,7 +172,9 @@ public class JTreeViewTable<T> extends JTreeTable
 		{
 			for (TableColumn column : columns)
 			{
-				model.addColumn(column, false, 75);
+				column.setPreferredWidth(75);
+				model.addColumn(column);
+				model.setVisible(column, false);
 			}
 		}
 		return model;

@@ -264,8 +264,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 
 	protected String getTitle()
 	{
-		return new StringBuilder(50).append(info.getTitle()).append(" (").append(owner.getDisplayName()).append(')')
-			.toString();
+		return info.getTitle() + " (" + owner.getDisplayName() + ')';
 	}
 
 	@Override

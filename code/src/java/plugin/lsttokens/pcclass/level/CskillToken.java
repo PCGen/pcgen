@@ -167,7 +167,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClassLevel> implem
 		{
 			return null;
 		}
-		return list.toArray(new String[list.size()]);
+		return list.toArray(new String[0]);
 	}
 
 	@Override

@@ -21,62 +21,50 @@
 package plugin.initiative.gui;
 
 import java.awt.BorderLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-
-import javax.swing.BoxLayout;
-import javax.swing.ButtonGroup;
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JScrollPane;
-import javax.swing.border.TitledBorder;
 
 import pcgen.core.SettingsHandler;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
-import plugin.initiative.InitiativePlugin;
+
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TitledPane;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.VBox;
 
 public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 {
 
-	private static final String OPTION_NAME_TYPE = InitiativePlugin.LOG_NAME
-			+ ".Damage.Massive.Type"; //$NON-NLS-1$
-	private static final String OPTION_NAME_EFFECT = InitiativePlugin.LOG_NAME
-			+ ".Damage.Massive.Effect"; //$NON-NLS-1$
-	private static final String OPTION_NAME_USESIZE = InitiativePlugin.LOG_NAME
-			+ ".Damage.Massive.SizeMod"; //$NON-NLS-1$
+	private static final String OPTION_NAME_TYPE = "Initiative.Damage.Massive.Type"; //$NON-NLS-1$
+	private static final String OPTION_NAME_EFFECT = "Initiative.Damage.Massive.Effect"; //$NON-NLS-1$
+	private static final String OPTION_NAME_USESIZE = "Initiative.Damage.Massive.SizeMod"; //$NON-NLS-1$
 
-	public static final int MASSIVE_OFF = 1;
-	public static final int MASSIVE_DND = 2;
-	public static final int MASSIVE_D20_MODERN = 3;
-	public static final int MASSIVE_HOUSE_HALF = 4;
-	public static final int MASSIVE_EFFECT_KILL = 1;
-	public static final int MASSIVE_EFFECT_NEGATIVE = 2;
-	public static final int MASSIVE_EFFECT_HALF_TOTAL = 3;
-	public static final int MASSIVE_EFFECT_HALF_CURRENT = 4;
+	private static final int MASSIVE_OFF = 1;
+	static final int MASSIVE_DND = 2;
+	static final int MASSIVE_D20_MODERN = 3;
+	static final int MASSIVE_HOUSE_HALF = 4;
+	static final int MASSIVE_EFFECT_KILL = 1;
+	static final int MASSIVE_EFFECT_NEGATIVE = 2;
+	static final int MASSIVE_EFFECT_HALF_TOTAL = 3;
+	static final int MASSIVE_EFFECT_HALF_CURRENT = 4;
 
-	private JPanel mainPanel;
+	private RadioButton massive1;
+	private RadioButton massive2;
+	private RadioButton massive3;
+	private RadioButton massive4;
 
-	private JPanel massivePanel;
-	private ButtonGroup massiveDamageGroup;
-	private JRadioButton massive1;
-	private JRadioButton massive2;
-	private JRadioButton massive3;
-	private JRadioButton massive4;
+	private RadioButton effect1;
+	private RadioButton effect2;
+	private RadioButton effect3;
+	private RadioButton effect4;
 
-	private JPanel effectPanel;
-	private ButtonGroup effectGroup;
-	private JRadioButton effect1;
-	private JRadioButton effect2;
-	private JRadioButton effect3;
-	private JRadioButton effect4;
-
-	private JPanel miscPanel;
-	private JCheckBox sizeCheck;
-	private JLabel sizeLabel1;
-	private JLabel sizeLabel2;
+	private CheckBox sizeCheck;
+	private Label sizeLabel1;
+	private Label sizeLabel2;
 
 	public PreferencesMassiveDamagePanel()
 	{
@@ -201,150 +189,140 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 
 	private void initComponents()
 	{
-		mainPanel = new JPanel();
+		ToggleGroup massiveDamageGroup = new ToggleGroup();
+		massive1 = new RadioButton();
+		massive1.setToggleGroup(massiveDamageGroup);
+		massive2 = new RadioButton();
+		massive2.setToggleGroup(massiveDamageGroup);
+		massive3 = new RadioButton();
+		massive3.setToggleGroup(massiveDamageGroup);
+		massive4 = new RadioButton();
+		massive3.setToggleGroup(massiveDamageGroup);
 
-		massiveDamageGroup = new ButtonGroup();
-		massivePanel = new JPanel();
-		massive1 = new JRadioButton();
-		massive2 = new JRadioButton();
-		massive3 = new JRadioButton();
-		massive4 = new JRadioButton();
+		ToggleGroup effectGroup = new ToggleGroup();
+		effect1 = new RadioButton();
+		effect1.setToggleGroup(effectGroup);
+		effect2 = new RadioButton();
+		effect2.setToggleGroup(effectGroup);
+		effect3 = new RadioButton();
+		effect3.setToggleGroup(effectGroup);
+		effect4 = new RadioButton();
+		effect4.setToggleGroup(effectGroup);
 
-		effectPanel = new JPanel();
-		effectGroup = new ButtonGroup();
-		effect1 = new JRadioButton();
-		effect2 = new JRadioButton();
-		effect3 = new JRadioButton();
-		effect4 = new JRadioButton();
 
-		miscPanel = new JPanel();
-		sizeCheck = new JCheckBox();
-		sizeLabel1 = new JLabel();
-		sizeLabel2 = new JLabel();
+		VBox sizePanel = new VBox();
+		sizeCheck = new CheckBox();
+		sizeLabel1 = new Label();
+		sizeLabel2 = new Label();
 
 		setLayout(new BorderLayout());
 
-		mainPanel.setLayout(new GridBagLayout());
-		GridBagConstraints c = new GridBagConstraints();
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.gridx = GridBagConstraints.REMAINDER;
-		c.weightx = 1.0;
+		VBox massivePanel = new VBox();
 
-		massivePanel.setLayout(new BoxLayout(massivePanel, BoxLayout.Y_AXIS));
-
-		massivePanel.setBorder(
-			new TitledBorder(null, LanguageBundle.getString("in_plugin_init_massive_massive"), //$NON-NLS-1$
-			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION));
 		massive1.setSelected(true);
 		massive1.setText(LanguageBundle.getString("in_plugin_init_massive_noTrack")); //$NON-NLS-1$
-		massiveDamageGroup.add(massive1);
-		massive1.addActionListener(this::massiveActionPerformed);
+		massive1.setOnAction(this::massiveActionPerformed);
 
-		massivePanel.add(massive1);
+		massivePanel.getChildren().add(massive1);
 
 		massive2.setText(LanguageBundle.getString("in_plugin_init_massive_50damage")); //$NON-NLS-1$
-		massiveDamageGroup.add(massive2);
-		massive2.addActionListener(this::massiveActionPerformed);
+		massive2.setOnAction(this::massiveActionPerformed);
 
-		massivePanel.add(massive2);
+		massivePanel.getChildren().add(massive2);
 
 		massive3.setText(LanguageBundle.getString("in_plugin_init_massive_ConDamage")); //$NON-NLS-1$
-		massiveDamageGroup.add(massive3);
-		massive3.addActionListener(this::massiveActionPerformed);
+		massive3.setOnAction(this::massiveActionPerformed);
 
-		massivePanel.add(massive3);
+		massivePanel.getChildren().add(massive3);
 
 		massive4.setText(LanguageBundle.getString("in_plugin_init_massive_Half")); //$NON-NLS-1$
-		massiveDamageGroup.add(massive4);
-		massive4.addActionListener(this::massiveActionPerformed);
+		massive4.setOnAction(this::massiveActionPerformed);
 
-		massivePanel.add(massive4);
+		massivePanel.getChildren().add(massive4);
 
-		mainPanel.add(massivePanel, c);
 
-		effectPanel.setLayout(new BoxLayout(effectPanel, BoxLayout.Y_AXIS));
+		Node massivePanelWithTitle =
+				new TitledPane(LanguageBundle.getString("in_plugin_init_massive_failure"), massivePanel);
 
-		effectPanel.setBorder(
-			new TitledBorder(null, LanguageBundle.getString("in_plugin_init_massive_failure"), //$NON-NLS-1$
-			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION));
+
+		VBox effectPanel = new VBox();
+
 		effect1.setSelected(true);
 		effect1.setText(LanguageBundle.getString("in_plugin_init_massive_kill")); //$NON-NLS-1$
-		effectGroup.add(effect1);
-		effect1.setEnabled(false);
-		effectPanel.add(effect1);
+		effect1.setDisable(true);
+		effectPanel.getChildren().add(effect1);
 
 		effect2.setText(LanguageBundle.getString("in_plugin_init_massive_minusOne")); //$NON-NLS-1$
-		effectGroup.add(effect2);
-		effect2.setEnabled(false);
-		effectPanel.add(effect2);
+		effect2.setDisable(true);
+		effectPanel.getChildren().add(effect2);
 
 		effect3.setText(LanguageBundle.getString("in_plugin_init_massive_halfTotal")); //$NON-NLS-1$
-		effectGroup.add(effect3);
-		effect3.setEnabled(false);
-		effectPanel.add(effect3);
+		effect3.setDisable(true);
+		effectPanel.getChildren().add(effect3);
 
 		effect4.setText(LanguageBundle.getString("in_plugin_init_massive_halfCurrent")); //$NON-NLS-1$
-		effectGroup.add(effect4);
-		effect4.setEnabled(false);
-		effectPanel.add(effect4);
+		effect4.setDisable(true);
+		effectPanel.getChildren().add(effect4);
 
-		mainPanel.add(effectPanel, c);
+		Node effectPanelWithTitle =
+				new TitledPane(LanguageBundle.getString("in_plugin_init_massive_failure"), effectPanel);
 
-		miscPanel.setLayout(new BoxLayout(miscPanel, BoxLayout.Y_AXIS));
-
-		miscPanel.setBorder(new TitledBorder(null, LanguageBundle.getString("in_plugin_init_misc"), //$NON-NLS-1$
-			TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION));
 		sizeCheck.setSelected(true);
 		sizeCheck.setText(LanguageBundle.getString("in_plugin_init_massive_size")); //$NON-NLS-1$
-		sizeCheck.setEnabled(false);
-		miscPanel.add(sizeCheck);
+		sizeCheck.setDisable(true);
+		sizePanel.getChildren().add(sizeCheck);
 
 		sizeLabel1.setText(LanguageBundle.getString("in_plugin_init_massive_sizeL")); //$NON-NLS-1$
-		sizeLabel1.setEnabled(false);
-		miscPanel.add(sizeLabel1);
+		sizePanel.getChildren().add(sizeLabel1);
 
 		sizeLabel2.setText(LanguageBundle.getString("in_plugin_init_massive_sizeS")); //$NON-NLS-1$
-		sizeLabel2.setEnabled(false);
-		miscPanel.add(sizeLabel2);
+		sizePanel.getChildren().add(sizeLabel2);
 
-		mainPanel.add(miscPanel, c);
+		Node sizePanelWithTitle =
+				new TitledPane(LanguageBundle.getString("in_plugin_init_size"), sizePanel);
 
-		JScrollPane jScrollPane1 = new JScrollPane();
-		jScrollPane1.setViewportView(mainPanel);
-		add(jScrollPane1, BorderLayout.CENTER);
+		VBox mainPanel = new VBox();
+		mainPanel.getChildren().add(massivePanelWithTitle);
+		mainPanel.getChildren().add(effectPanelWithTitle);
+		mainPanel.getChildren().add(sizePanelWithTitle);
+
+		ScrollPane scrollPane = new ScrollPane();
+		scrollPane.setContent(mainPanel);
+
+		add(GuiUtility.wrapParentAsJFXPanel(scrollPane));
 	}
 
 	private void massiveActionPerformed(ActionEvent evt)
 	{
 		if (evt.getSource() == massive1)
 		{
-			effect1.setEnabled(false);
-			effect2.setEnabled(false);
-			effect3.setEnabled(false);
-			effect4.setEnabled(false);
-			sizeCheck.setEnabled(false);
-			sizeLabel1.setEnabled(false);
-			sizeLabel2.setEnabled(false);
+			effect1.setDisable(true);
+			effect2.setDisable(true);
+			effect3.setDisable(true);
+			effect4.setDisable(true);
+			sizeCheck.setDisable(true);
+			sizeLabel1.setDisable(true);
+			sizeLabel2.setDisable(true);
 		}
 		else if (evt.getSource() == massive2)
 		{
-			effect1.setEnabled(true);
-			effect2.setEnabled(true);
-			effect3.setEnabled(true);
-			effect4.setEnabled(true);
-			sizeCheck.setEnabled(true);
-			sizeLabel1.setEnabled(true);
-			sizeLabel2.setEnabled(true);
+			effect1.setDisable(false);
+			effect2.setDisable(false);
+			effect3.setDisable(false);
+			effect4.setDisable(false);
+			sizeCheck.setDisable(false);
+			sizeLabel1.setDisable(false);
+			sizeLabel2.setDisable(false);
 		}
 		else if ((evt.getSource() == massive3) || (evt.getSource() == massive4))
 		{
-			effect1.setEnabled(true);
-			effect2.setEnabled(true);
-			effect3.setEnabled(true);
-			effect4.setEnabled(true);
-			sizeCheck.setEnabled(false);
-			sizeLabel1.setEnabled(false);
-			sizeLabel2.setEnabled(false);
+			effect1.setDisable(false);
+			effect2.setDisable(false);
+			effect3.setDisable(false);
+			effect4.setDisable(false);
+			sizeCheck.setDisable(true);
+			sizeLabel1.setDisable(true);
+			sizeLabel2.setDisable(true);
 		}
 	}
 }

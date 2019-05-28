@@ -76,7 +76,7 @@ public class PccToken extends AbstractTokenWithSeparator<Campaign> implements CD
 		{
 			set.add(uri.getLSTformat());
 		}
-		return set.toArray(new String[set.size()]);
+		return set.toArray(new String[0]);
 	}
 
 	@Override
