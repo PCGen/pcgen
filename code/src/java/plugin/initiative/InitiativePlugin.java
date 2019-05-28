@@ -36,7 +36,6 @@ import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
 import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
 import gmgen.pluginmgr.messages.FileMenuOpenMessage;
 import gmgen.pluginmgr.messages.FileMenuSaveMessage;
-import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
 import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import gmgen.util.LogUtilities;
@@ -263,10 +262,6 @@ public class InitiativePlugin implements InteractivePlugin
 		{
 			handlePCClosedMessage((PlayerCharacterWasClosedMessage) message);
 		}
-		else if (message instanceof GMGenBeingClosedMessage)
-		{
-			handleWindowClosedMessage((GMGenBeingClosedMessage) message);
-		}
 		else if (message instanceof FocusOrStateChangeOccurredMessage)
 		{
 			handleStateChangedMessage((FocusOrStateChangeOccurredMessage) message);
@@ -386,18 +381,6 @@ public class InitiativePlugin implements InteractivePlugin
 		{
 			initToolsItem.setEnabled(true);
 		}
-	}
-
-	/**
-	 * <p>
-	 * Handles window closing by saving preferences.
-	 * </p>
-	 *
-	 * @param message
-	 */
-	private void handleWindowClosedMessage(GMGenBeingClosedMessage message)
-	{
-		theView.setExitPrefs();
 	}
 
 	/**
