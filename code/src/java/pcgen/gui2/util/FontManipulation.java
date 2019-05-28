@@ -38,8 +38,12 @@ import java.awt.Font;
  * <li>xx-small
  * </ul>
  */
-public class FontManipulation
+public final class FontManipulation
 {
+
+	private FontManipulation()
+	{
+	}
 
 	public static Font title(Font f)
 	{

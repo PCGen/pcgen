@@ -50,14 +50,16 @@ import pcgen.util.Logging;
 /**
  * The Class {@code TempBonusHelper} splits out processing for temporary
  * bonuses from CnaracterFacadeImpl.
- *
- * 
  */
-public class TempBonusHelper
+public final class TempBonusHelper
 {
 
 	/** An empty string. */
 	private static final String EMPTY_STRING = ""; //$NON-NLS-1$
+
+	private TempBonusHelper()
+	{
+	}
 
 	/**
 	 * Get the target of the temporary bonus. This may present a chooser to the 

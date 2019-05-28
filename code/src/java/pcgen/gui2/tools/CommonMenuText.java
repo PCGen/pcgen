@@ -29,10 +29,14 @@ import pcgen.system.LanguageBundle;
  * Used by pcgen and gmgen.
  *
  */
-public class CommonMenuText
+public final class CommonMenuText
 {
 	private static final String MNEMONIC_SUFFIX = LanguageBundle.KEY_PREFIX + "mn_"; //$NON-NLS-1$
 	private static final String TIP_SUFFIX = "Tip"; //$NON-NLS-1$
+
+	private CommonMenuText()
+	{
+	}
 
 	/**
 	 * @param a the action to change the text, short description and mnemonic

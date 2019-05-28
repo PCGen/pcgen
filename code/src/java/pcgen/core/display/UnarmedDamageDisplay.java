@@ -27,6 +27,10 @@ import pcgen.util.Delta;
 public final class UnarmedDamageDisplay
 {
 
+	private UnarmedDamageDisplay()
+	{
+	}
+
 	/**
 	 * Get the unarmed damage string for this PC as adjusted by the booleans
 	 * passed in.

@@ -43,6 +43,10 @@ public final class TemplateModifier
 	private static DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
 	private static StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
 
+	private TemplateModifier()
+	{
+	}
+
 	/**
 	 * Generate a string that represents the changes this Template will apply.
 	 * 
