@@ -26,7 +26,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractButton;
 import javax.swing.BoxLayout;
@@ -47,19 +46,17 @@ import pcgen.system.LanguageBundle;
  */
 public class EncounterView extends JPanel
 {
-	private static final long serialVersionUID = 6127095703012846620L;
-
 	private JButton addCreature;
 	private JButton generateEncounter;
 	private JButton removeCreature;
 	private JButton transferToTracker;
-	private JComboBox environment;
+	private JComboBox<Object> environment;
 	private JLabel encounterLevel;
 
 	private JLabel numberLabel;
 	private JLabel targetLabel;
-	private JList encounterCreatures;
-	private JList libraryCreatures;
+	private JList<Object> encounterCreatures;
+	private JList<Object> libraryCreatures;
 	private JTextField numberOfCreatures;
 	private JTextField targetEncounterLevel;
 
@@ -82,7 +79,7 @@ public class EncounterView extends JPanel
 	 * getEncounterCreatures
 	 * @return encounterCreatures
 	 */
-	public JList getEncounterCreatures()
+	public JList<Object> getEncounterCreatures()
 	{
 		return encounterCreatures;
 	}
@@ -91,7 +88,7 @@ public class EncounterView extends JPanel
 	 * Get environment
 	 * @return environment
 	 */
-	public JComboBox getEnvironment()
+	public JComboBox<Object> getEnvironment()
 	{
 		return environment;
 	}
@@ -109,7 +106,7 @@ public class EncounterView extends JPanel
 	 * Get library creatures
 	 * @return library creatures
 	 */
-	public JList getLibraryCreatures()
+	public JList<Object> getLibraryCreatures()
 	{
 		return libraryCreatures;
 	}
@@ -186,17 +183,11 @@ public class EncounterView extends JPanel
 		return transferToTracker;
 	}
 
-	private void generateEncounterActionPerformed(ActionEvent evt)
-	{
-		// Add your handling code here:
-	}
-
 	/** This method is called from within the constructor to
 	 * initialize the form.
 	 */
 	private void initComponents()
 	{
-		GridBagConstraints gridBagConstraints;
 
 		Container jPanel1 = new JPanel();
 		targetLabel = new JLabel();
@@ -204,19 +195,19 @@ public class EncounterView extends JPanel
 		numberLabel = new JLabel();
 		numberOfCreatures = new JTextField();
 		JLabel jLabel3 = new JLabel();
-		environment = new JComboBox();
+		environment = new JComboBox<>();
 		generateEncounter = new JButton();
 		transferToTracker = new JButton();
 		Container jPanel4 = new JPanel();
 		Container jPanel2 = new JPanel();
 		JScrollPane jScrollPane1 = new JScrollPane();
-		libraryCreatures = new JList();
+		libraryCreatures = new JList<>();
 		JPanel jPanel6 = new JPanel();
 		JPanel jPanel3 = new JPanel();
 		addCreature = new JButton();
 		removeCreature = new JButton();
 		JScrollPane jScrollPane2 = new JScrollPane();
-		encounterCreatures = new JList();
+		encounterCreatures = new JList<>();
 		Container jPanel5 = new JPanel();
 		JLabel jLabel4 = new JLabel();
 		encounterLevel = new JLabel();
@@ -226,7 +217,7 @@ public class EncounterView extends JPanel
 		jPanel1.setLayout(new GridBagLayout());
 
 		targetLabel.setText(LanguageBundle.getString("in_plugin_encounter_targetEL")); //$NON-NLS-1$
-		gridBagConstraints = new GridBagConstraints();
+		GridBagConstraints gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		jPanel1.add(targetLabel, gridBagConstraints);
 
@@ -273,7 +264,6 @@ public class EncounterView extends JPanel
 		jPanel1.add(environment, gridBagConstraints);
 
 		generateEncounter.setText(LanguageBundle.getString("in_plugin_encounter_newEncounter")); //$NON-NLS-1$
-		generateEncounter.addActionListener(this::generateEncounterActionPerformed);
 
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;

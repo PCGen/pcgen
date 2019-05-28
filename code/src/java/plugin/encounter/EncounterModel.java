@@ -31,7 +31,7 @@ import pcgen.core.Race;
  * This {@code class} holds all the necessary data in order to have
  * functionality for the Encounter Generator.<br>
  */
-public class EncounterModel extends DefaultListModel
+public class EncounterModel extends DefaultListModel<Object>
 {
 
 	/** All the characters or creatures in combat. */
