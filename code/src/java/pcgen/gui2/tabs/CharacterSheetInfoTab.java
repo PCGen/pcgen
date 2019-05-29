@@ -18,22 +18,19 @@
 package pcgen.gui2.tabs;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.io.File;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
 
 import javax.swing.Box;
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListCellRenderer;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.event.ListDataEvent;
 
 import pcgen.core.GameMode;
 import pcgen.facade.core.CharacterFacade;
@@ -49,12 +46,20 @@ import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.util.DisplayAwareTab;
-import pcgen.gui2.util.event.ListDataAdapter;
 import pcgen.gui2.util.table.TableUtils;
+import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
+
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.scene.control.ComboBox;
+import javafx.util.StringConverter;
 
 /**
  * The Class {@code CharacterSheetInfoTab} is a placeholder for the
@@ -64,11 +69,13 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 {
 	private final TabTitle tabTitle = new TabTitle(Tab.CHARACTERSHEET);
 	private final CharacterSheetPanel csheet;
-	private final JComboBox sheetBox;
+	private final ComboBox<File> sheetBox;
+	private final ObservableList<File> sheetBoxItems;
 	private final JTable equipSetTable;
 	private final JTable tempBonusTable;
 	private final JTable tempBonusRowTable;
 	private final JTable equipSetRowTable;
+
 
 	/**
 	 * Create a new instance of CharacterSheetInfoTab
@@ -76,9 +83,8 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 	@SuppressWarnings("serial")
 	public CharacterSheetInfoTab()
 	{
-		super();
 		this.csheet = new CharacterSheetPanel();
-		this.sheetBox = new JComboBox<>();
+		this.sheetBox = new ComboBox<>();
 		this.equipSetTable = TableUtils.createDefaultTable();
 		this.equipSetRowTable = TableUtils.createDefaultTable();
 		this.tempBonusTable = TableUtils.createDefaultTable();
@@ -88,22 +94,33 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		JPanel panel = new JPanel(new BorderLayout());
 		Box box = Box.createHorizontalBox();
 		box.add(new JLabel(LanguageBundle.getString("in_character_sheet_label"))); //$NON-NLS-1$
-		sheetBox.setRenderer(new DefaultListCellRenderer()
-		{
 
+		// todo: make this into a proper component
+		sheetBox.setConverter(new StringConverter<>()
+		{
 			@Override
-			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,
-				boolean cellHasFocus)
+			public String toString(final File file)
 			{
-				if (value instanceof File)
+				if (file == null)
 				{
-					value = ((File) value).getName();
+					return "";
 				}
-				return super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+				return file.getName();
 			}
 
+			@Override
+			public File fromString(final String input)
+			{
+				if (input == null)
+				{
+					return null;
+				}
+				return new File(input);
+			}
 		});
-		box.add(sheetBox);
+		sheetBoxItems = FXCollections.observableArrayList();
+
+		box.add(GuiUtility.wrapParentAsJFXPanel(sheetBox));
 		panel.add(box, BorderLayout.NORTH);
 		FlippingSplitPane subPane = new FlippingSplitPane();
 		subPane.setOrientation(VERTICAL_SPLIT);
@@ -122,6 +139,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 
 		csheet.setPreferredSize(new Dimension(600, 300));
 		setRightComponent(csheet);
+
 	}
 
 	@Override
@@ -167,17 +185,17 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		csheet.refresh();
 	}
 
-	private class BoxHandler extends ListDataAdapter
+	private final class BoxHandler
 	{
 
 		/**
 		 * Prefs key for the character sheet for a game mode.
 		 */
 		private final CharacterFacade character;
-		private final ComboBoxModel model;
 
-		public BoxHandler(CharacterFacade character)
+		private BoxHandler(CharacterFacade character)
 		{
+			GuiAssertions.assertIsNotJavaFXThread();
 			this.character = character;
 			GameMode game = character.getDataSet().getGameMode();
 			String previewDir = ConfigurationSettings.getPreviewDir();
@@ -185,11 +203,21 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			if (sheetDir.exists() && sheetDir.isDirectory())
 			{
 				File[] files = sheetDir.listFiles(pathname -> pathname.isFile() && !pathname.isHidden());
-				Arrays.sort(files, (f1, f2) -> {
-					// TODO I18N Use a Collator
-					return f1.toString().compareToIgnoreCase(f2.toString());
-				});
-				model = new DefaultComboBoxModel<>(files);
+				if (files == null)
+				{
+					sheetBoxItems.clear();
+				}
+				else
+				{
+					List<File> fileAsList =
+							Arrays.stream(files)
+		                          .filter(e -> e.getName().endsWith("ftl"))
+		                          .sorted(Comparator.comparing(file -> file.toString()
+		                                                                 .toLowerCase(Locale.getDefault())))
+		                          .collect(Collectors.toList());
+					sheetBoxItems.setAll(fileAsList);
+				}
+
 
 				File file = null;
 				String previewSheet = character.getPreviewSheetRef().toString();
@@ -209,31 +237,30 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 				{
 					file = new File(sheetDir, game.getDefaultCharSheet());
 				}
-				model.setSelectedItem(file);
+				File finalFile = file;
+				Platform.runLater(() -> sheetBox.getSelectionModel().select(finalFile));
 			}
 			else
 			{
-				model = new DefaultComboBoxModel<>();
+				sheetBoxItems.clear();
 			}
-			model.addListDataListener(this);
 		}
 
 		public void install()
 		{
-			sheetBox.setModel(model);
-			csheet.setCharacterSheet((File) model.getSelectedItem());
+			GuiAssertions.assertIsNotJavaFXThread();
+			sheetBox.setOnAction(this::onSelectedCharSheet);
+			sheetBox.setItems(sheetBoxItems);
+			Platform.runLater(() -> csheet.setCharacterSheet(sheetBox.getSelectionModel().getSelectedItem()));
 		}
 
-		@Override
-		public void listDataChanged(ListDataEvent e)
+		private void onSelectedCharSheet(final ActionEvent actionEvent)
 		{
-			if (e.getIndex0() == -1 && e.getIndex1() == -1)
-			{
-				File outputSheet = (File) sheetBox.getSelectedItem();
-				csheet.setCharacterSheet(outputSheet);
-				csheet.refresh();
-				character.setPreviewSheet(outputSheet.getName());
-			}
+			GuiAssertions.assertIsJavaFXThread();
+			File outputSheet = sheetBox.getSelectionModel().getSelectedItem();
+			csheet.setCharacterSheet(outputSheet);
+			csheet.refresh();
+			character.setPreviewSheet(outputSheet.getName());
 		}
 
 	}
