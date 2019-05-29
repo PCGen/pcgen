@@ -167,7 +167,7 @@ public final class LevelInfo
 			ranks = 0.0d;
 		}
 
-		return new BigDecimal(ranks);
+		return new BigDecimal(String.valueOf(ranks));
 	}
 
 }

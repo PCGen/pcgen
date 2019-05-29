@@ -2640,7 +2640,7 @@ final class PCGVer2Parser implements PCGParser
 			}
 			else
 			{
-				thePC.setUserPoolBonus(AbilityCategory.FEAT, new BigDecimal(featPool));
+				thePC.setUserPoolBonus(AbilityCategory.FEAT, new BigDecimal(String.valueOf(featPool)));
 			}
 		}
 		catch (NumberFormatException nfe)
