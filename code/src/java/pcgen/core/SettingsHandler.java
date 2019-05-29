@@ -90,7 +90,6 @@ public final class SettingsHandler
 	private static final String FILE_LOCATION = Globals.getFilepathsPath();
 	private static File backupPcgPath = null;
 	private static boolean createPcgBackup = true;
-	private static File portraitsPath = new File(Globals.getDefaultPath());
 
 	private static File gmgenPluginDir = new File(Globals.getDefaultPath() + File.separator + "plugins"); //$NON-NLS-1$
 	private static int prereqQualifyColor = Constants.DEFAULT_PREREQ_QUALIFY_COLOUR;
@@ -541,8 +540,6 @@ public final class SettingsHandler
 			System.getProperty("user.dir") + File.separator + "plugins")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setBackupPcgPath(
 			new File(expandRelativePath(getOptions().getProperty("pcgen.files.characters.backup", "")))); //$NON-NLS-1$
-		setPortraitsPath(new File(expandRelativePath(getOptions().getProperty("pcgen.files.portraits", //$NON-NLS-1$
-			Globals.getDefaultPcgPath()))));
 		setPostExportCommandStandard(getPCGenOption("postExportCommandStandard", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setPostExportCommandPDF(getPCGenOption("postExportCommandPDF", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setPrereqFailColor(getPCGenOption("prereqFailColor", Color.red.getRGB())); //$NON-NLS-1$
@@ -630,8 +627,6 @@ public final class SettingsHandler
 			getOptions().setProperty("pcgen.files.characters.backup", ""); //$NON-NLS-1$
 		}
 
-		getOptions().setProperty(
-			"pcgen.files.portraits", retractRelativePath(getPortraitsPath().getAbsolutePath())); //$NON-NLS-1$
 		getOptions().setProperty(
 			"pcgen.files.selectedSpellOutputSheet", retractRelativePath(getSelectedSpellSheet())); //$NON-NLS-1$
 		getOptions().setProperty("pcgen.files.selectedCharacterHTMLOutputSheet", //$NON-NLS-1$
@@ -768,26 +763,6 @@ public final class SettingsHandler
 		}
 
 		return new File(selectedCharacterPDFOutputSheet).getParentFile().getAbsolutePath();
-	}
-
-	/**
-	 * Sets the path to the portrait files.
-	 *
-	 * @param  path  the {@code File} representing the path
-	 */
-	public static void setPortraitsPath(final File path)
-	{
-		portraitsPath = path;
-	}
-
-	/**
-	 * @deprecated Use PCGenSettings.getPortraitsDir()
-	 * @return the portraits directory
-	 */
-	@Deprecated
-	public static File getPortraitsPath()
-	{
-		return portraitsPath;
 	}
 
 	public static void setPostExportCommandStandard(final String argPreference)
