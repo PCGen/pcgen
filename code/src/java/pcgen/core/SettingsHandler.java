@@ -27,7 +27,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -90,7 +89,6 @@ public final class SettingsHandler
 	private static final String FILE_LOCATION = Globals.getFilepathsPath();
 	private static File backupPcgPath = null;
 	private static boolean createPcgBackup = true;
-	private static File portraitsPath = new File(Globals.getDefaultPath());
 
 	private static File gmgenPluginDir = new File(Globals.getDefaultPath() + File.separator + "plugins"); //$NON-NLS-1$
 	private static int prereqQualifyColor = Constants.DEFAULT_PREREQ_QUALIFY_COLOUR;
@@ -108,8 +106,6 @@ public final class SettingsHandler
 	private static String selectedSpellSheet = ""; //$NON-NLS-1$
 	private static boolean showHPDialogAtLevelUp = true;
 	private static boolean showStatDialogAtLevelUp = true;
-	private static boolean showSkillModifier = false;
-	private static boolean showSkillRanks = false;
 	private static boolean showWarningAtFirstLevelUp = true;
 	private static boolean alwaysOverwrite = false;
 	private static String defaultOSType = ""; //$NON-NLS-1$
@@ -213,12 +209,7 @@ public final class SettingsHandler
 		{
 			def_type = "mac_user";
 		}
-		return getFilepathProp().getProperty("pcgen.filepaths", def_type); //$NON-NLS-1$
-	}
-
-	private static Properties getFilepathProp()
-	{
-		return FILEPATHS;
+		return FILEPATHS.getProperty("pcgen.filepaths", def_type); //$NON-NLS-1$
 	}
 
 
@@ -541,8 +532,6 @@ public final class SettingsHandler
 			System.getProperty("user.dir") + File.separator + "plugins")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setBackupPcgPath(
 			new File(expandRelativePath(getOptions().getProperty("pcgen.files.characters.backup", "")))); //$NON-NLS-1$
-		setPortraitsPath(new File(expandRelativePath(getOptions().getProperty("pcgen.files.portraits", //$NON-NLS-1$
-			Globals.getDefaultPcgPath()))));
 		setPostExportCommandStandard(getPCGenOption("postExportCommandStandard", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setPostExportCommandPDF(getPCGenOption("postExportCommandPDF", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setPrereqFailColor(getPCGenOption("prereqFailColor", Color.red.getRGB())); //$NON-NLS-1$
@@ -576,8 +565,6 @@ public final class SettingsHandler
 		setInputUnconstructedMessages(getPCGenOption("inputUnconstructedMessages", false));
 		setShowStatDialogAtLevelUp(getPCGenOption("showStatDialogAtLevelUp", true)); //$NON-NLS-1$
 		setShowTipOfTheDay(getPCGenOption("showTipOfTheDay", true)); //$NON-NLS-1$
-		setShowSkillModifier(getPCGenOption("showSkillModifier", true)); //$NON-NLS-1$
-		setShowSkillRanks(getPCGenOption("showSkillRanks", true)); //$NON-NLS-1$
 		setShowWarningAtFirstLevelUp(getPCGenOption("showWarningAtFirstLevelUp", true)); //$NON-NLS-1$
 		setUseHigherLevelSlotsDefault(getPCGenOption("useHigherLevelSlotsDefault", false)); //$NON-NLS-1$
 		setWeaponProfPrintout(getPCGenOption("weaponProfPrintout", Constants.DEFAULT_PRINTOUT_WEAPONPROF));
@@ -630,8 +617,6 @@ public final class SettingsHandler
 			getOptions().setProperty("pcgen.files.characters.backup", ""); //$NON-NLS-1$
 		}
 
-		getOptions().setProperty(
-			"pcgen.files.portraits", retractRelativePath(getPortraitsPath().getAbsolutePath())); //$NON-NLS-1$
 		getOptions().setProperty(
 			"pcgen.files.selectedSpellOutputSheet", retractRelativePath(getSelectedSpellSheet())); //$NON-NLS-1$
 		getOptions().setProperty("pcgen.files.selectedCharacterHTMLOutputSheet", //$NON-NLS-1$
@@ -722,8 +707,6 @@ public final class SettingsHandler
 		setPCGenOption("showHPDialogAtLevelUp", getShowHPDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showStatDialogAtLevelUp", getShowStatDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showTipOfTheDay", getShowTipOfTheDay()); //$NON-NLS-1$
-		setPCGenOption("showSkillModifier", getShowSkillModifier()); //$NON-NLS-1$
-		setPCGenOption("showSkillRanks", getShowSkillRanks()); //$NON-NLS-1$
 		setPCGenOption("showSingleBoxPerBundle", getShowSingleBoxPerBundle()); //$NON-NLS-1$
 		setPCGenOption("showWarningAtFirstLevelUp", isShowWarningAtFirstLevelUp()); //$NON-NLS-1$
 		setPCGenOption("sourceDisplay", Globals.getSourceDisplay().ordinal()); //$NON-NLS-1$
@@ -768,26 +751,6 @@ public final class SettingsHandler
 		}
 
 		return new File(selectedCharacterPDFOutputSheet).getParentFile().getAbsolutePath();
-	}
-
-	/**
-	 * Sets the path to the portrait files.
-	 *
-	 * @param  path  the {@code File} representing the path
-	 */
-	public static void setPortraitsPath(final File path)
-	{
-		portraitsPath = path;
-	}
-
-	/**
-	 * @deprecated Use PCGenSettings.getPortraitsDir()
-	 * @return the portraits directory
-	 */
-	@Deprecated
-	public static File getPortraitsPath()
-	{
-		return portraitsPath;
 	}
 
 	public static void setPostExportCommandStandard(final String argPreference)
@@ -1214,11 +1177,6 @@ public final class SettingsHandler
 		}
 	}
 
-	private static Properties getFilterSettings()
-	{
-		return FILTERSETTINGS;
-	}
-
 	/**
 	 * Puts all properties into the {@code Properties} object,
 	 * ({@code options}). This is called by
@@ -1256,10 +1214,10 @@ public final class SettingsHandler
 	{
 		String value = ""; //$NON-NLS-1$
 
-		for (Iterator<String> i = ruleCheckMap.keySet().iterator(); i.hasNext();)
+		for (final Map.Entry<String, String> entry : ruleCheckMap.entrySet())
 		{
-			final String aKey = i.next();
-			final String aVal = ruleCheckMap.get(aKey);
+			final String aKey = entry.getKey();
+			final String aVal = entry.getValue();
 
 			if (value.isEmpty())
 			{
@@ -1283,26 +1241,6 @@ public final class SettingsHandler
 	private static boolean isSaveCustomInLst()
 	{
 		return saveCustomInLst;
-	}
-
-	public static void setShowSkillModifier(final boolean argShowSkillMod)
-	{
-		showSkillModifier = argShowSkillMod;
-	}
-
-	public static boolean getShowSkillModifier()
-	{
-		return showSkillModifier;
-	}
-
-	public static void setShowSkillRanks(final boolean argShowSkillRanks)
-	{
-		showSkillRanks = argShowSkillRanks;
-	}
-
-	public static boolean getShowSkillRanks()
-	{
-		return showSkillRanks;
 	}
 
 	private static String getTmpPath()
@@ -1355,7 +1293,7 @@ public final class SettingsHandler
 	{
 		try(InputStream in = new FileInputStream(FILE_LOCATION))
 		{
-			getFilepathProp().load(in);
+			FILEPATHS.load(in);
 		}
 		catch (IOException e)
 		{
@@ -1379,7 +1317,7 @@ public final class SettingsHandler
 
 		try(InputStream in = new FileInputStream(filterLocation))
 		{
-			getFilterSettings().load(in);
+			FILTERSETTINGS.load(in);
 		}
 		catch (IOException e)
 		{
