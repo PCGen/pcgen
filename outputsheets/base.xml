@@ -307,9 +307,7 @@
 		<dodge>|AC.Dodge|</dodge>
 		<dodge_bonus>|AC.Dodge|</dodge_bonus>
 		<class_bonus>|AC.ClassDefense|</class_bonus>
-|IIF(isgamemode("Modern").OR.isgamemode("Darwins_World_2").OR.isgamemode("Sidewinder"))|
 		<equipment_bonus>|AC.Equipment|</equipment_bonus>
-|ENDIF|
 		<misc>|AC.Misc|</misc>
 		<insight>|AC.Insight|</insight>
 		<morale>|AC.Morale|</morale>
@@ -614,12 +612,10 @@ Immune
 |ENDFOR|
 						<!-- Commenting this out (will need a test as well)
 			3.0 uses "Subdual", 3.5 uses "nonlethal".  We'll need a separate node for both.	-->
-|IIF(isgamemode("3e"))|
 |IIF(VAR.Unarmed>0)|
 			<type>(subdual or normal)</type>
 |ELSE|
 			<type>(subdual only)</type>
-|ENDIF|
 |ELSE|
 |IIF(VAR.UnarmedLethal>0)|
 			<type>(lethal or nonlethal)</type>
