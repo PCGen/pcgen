@@ -21,8 +21,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -35,20 +33,14 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * A dialog with a Ok, a cancel and eventually an apply button.
+ * A dialog with a Ok, a cancel and apply button.
  */
 public abstract class AbstractDialog extends JDialog
 {
-
-	private static final long serialVersionUID = -6457261103398090360L;
-
 	// TODO provide a UIManager or L&F derivated value
 	protected static final int GAP = 12;
 
-	/** The OK button */
-	private JButton okButton;
-
-	public AbstractDialog(Frame f, String title, boolean modal)
+	protected AbstractDialog(Frame f, String title, boolean modal)
 	{
 		super(f, title, modal);
 		initialize();
@@ -56,41 +48,21 @@ public abstract class AbstractDialog extends JDialog
 
 	private void initialize()
 	{
-		okButton = new JButton(LanguageBundle.getString(getOkKey()));
+		/** The OK button */
+		JButton okButton = new JButton(LanguageBundle.getString(getOkKey()));
 		okButton.setMnemonic(LanguageBundle.getMnemonic(getOkMnKey()));
-		okButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				okButtonActionPerformed();
-			}
-		});
+		okButton.addActionListener(evt -> okButtonActionPerformed());
 
-		JButton cancelButton = new JButton(LanguageBundle.getString(getCancelKey()));
-		cancelButton.setMnemonic(LanguageBundle.getMnemonic(getCancelMnKey()));
-		cancelButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cancelButtonActionPerformed();
-			}
-		});
+		JButton cancelButton = new JButton(LanguageBundle.getString("in_cancel"));
+		cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel"));
+		cancelButton.addActionListener(evt -> cancelButtonActionPerformed());
 
 		JButton bApply = null;
 		if (includeApplyButton())
 		{
 			bApply = new JButton(LanguageBundle.getString("in_apply")); //$NON-NLS-1$
 			bApply.setMnemonic(LanguageBundle.getMnemonic("in_mn_apply")); //$NON-NLS-1$
-			bApply.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					applyButtonActionPerformed();
-				}
-			});
+			bApply.addActionListener(evt -> applyButtonActionPerformed());
 		}
 
 		// initialize button panel
@@ -142,52 +114,8 @@ public abstract class AbstractDialog extends JDialog
 		getContentPane().add(getCenter(), BorderLayout.CENTER);
 		getContentPane().add(buttonPanel, BorderLayout.SOUTH);
 
-		if (shouldSetOkAsDefault())
-		{
-			setOkAsDefault();
-		}
-
-		if (shouldInstallEsc())
-		{
-			Utility.installEscapeCloseOperation(this);
-		}
-	}
-
-	/**
-	 * Set the ok default button as default. Use for dialog that need some field to be entered before allowing ok to be
-	 * the default, like a username/password dialog.
-	 */
-	protected void setOkAsDefault()
-	{
 		getRootPane().setDefaultButton(okButton);
-	}
-
-	/**
-	 * {@code true} if the ok button should be set as default during init
-	 * @return {@code true} by default
-	 */
-	protected boolean shouldSetOkAsDefault()
-	{
-		return true;
-	}
-
-	/**
-	 * Indicate if Esc should be installed as close window (not cancel) during init
-	 * @return {@code true} by default
-	 */
-	protected boolean shouldInstallEsc()
-	{
-		return true;
-	}
-
-	protected String getCancelMnKey()
-	{
-		return "in_mn_cancel"; //$NON-NLS-1$
-	}
-
-	protected String getCancelKey()
-	{
-		return "in_cancel"; //$NON-NLS-1$
+		Utility.installEscapeCloseOperation(this);
 	}
 
 	protected String getOkMnKey()
@@ -210,7 +138,7 @@ public abstract class AbstractDialog extends JDialog
 	/**
 	 * Defaults to calling apply and closing.
 	 */
-	public void okButtonActionPerformed()
+	private void okButtonActionPerformed()
 	{
 		applyButtonActionPerformed();
 		close();
