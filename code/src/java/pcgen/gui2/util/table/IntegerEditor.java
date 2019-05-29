@@ -32,7 +32,6 @@ package pcgen.gui2.util.table;
 
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.text.NumberFormat;
@@ -49,10 +48,6 @@ import javax.swing.SwingUtilities;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.NumberFormatter;
 
-/*
- * IntegerEditor is used by TableFTFEditDemo.java.
- */
-
 /**
  * Implements a cell editor that uses a formatted text field
  * to edit Integer values.
@@ -60,18 +55,17 @@ import javax.swing.text.NumberFormatter;
 public class IntegerEditor extends DefaultCellEditor
 {
 
-	JFormattedTextField ftf;
-	NumberFormat integerFormat;
+	private final JFormattedTextField ftf;
+	private final NumberFormat integerFormat;
 	private final Integer minimum;
 	private final Integer maximum;
-	private boolean DEBUG = false;
 
 	public IntegerEditor(int min, int max)
 	{
 		super(new JFormattedTextField());
 		ftf = (JFormattedTextField) getComponent();
-		minimum = Integer.valueOf(min);
-		maximum = Integer.valueOf(max);
+		minimum = min;
+		maximum = max;
 
 		//Set up the editor for the integer cells.
 		integerFormat = NumberFormat.getIntegerInstance();
@@ -140,14 +134,10 @@ public class IntegerEditor extends DefaultCellEditor
 		}
 		else if (o instanceof Number)
 		{
-			return Integer.valueOf(((Number) o).intValue());
+			return ((Number) o).intValue();
 		}
 		else
 		{
-			if (DEBUG)
-			{
-				System.out.println("getCellEditorValue: o isn't a Number");
-			}
 			try
 			{
 				return integerFormat.parseObject(o.toString());
@@ -198,7 +188,6 @@ public class IntegerEditor extends DefaultCellEditor
 	 */
 	protected boolean userSaysRevert()
 	{
-		Toolkit.getDefaultToolkit().beep();
 		ftf.selectAll();
 		Object[] options = {"Edit", "Revert"};
 		int answer = JOptionPane.showOptionDialog(SwingUtilities.getWindowAncestor(ftf),
