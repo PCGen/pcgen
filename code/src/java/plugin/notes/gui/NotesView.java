@@ -20,11 +20,6 @@ package plugin.notes.gui;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.Transferable;
-import java.awt.dnd.DropTargetAdapter;
-import java.awt.dnd.DropTargetDragEvent;
-import java.awt.dnd.DropTargetDropEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -38,7 +33,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.List;
@@ -1572,8 +1566,6 @@ public class NotesView extends JPanel
 			NotesTreeNode node = (NotesTreeNode) obj;
 			editor = node.getTextPane();
 			root.checkCache();
-			// TODO: Uh-oh -- never call gc manually without strong reason
-			//			Runtime.getRuntime().gc();
 
 			JViewport vp = new JViewport();
 			vp.setView(editor);
@@ -1703,213 +1695,6 @@ public class NotesView extends JPanel
 		performTextPaneAction("font-underline", evt);
 	}
 
-	/**
-	 *  This is an abstract drop listener. Extend this to listen for drop events
-	 *  for a particular Component
-	 */
-	public abstract class DropListener extends DropTargetAdapter
-	{
-		/**
-		 *  Checks to see if dragEnter is supported for the actions on this event
-		 *  Accepts only javaFileListFlavor data flavors
-		 *
-		 *@param  dtde  DropTargetDragEvent
-		 */
-		@Override
-		public void dragEnter(DropTargetDragEvent dtde)
-		{
-			if (dtde.isDataFlavorSupported(DataFlavor.javaFileListFlavor))
-			{
-				dtde.acceptDrag(dtde.getDropAction());
-			}
-			else
-			{
-				dtde.rejectDrag();
-			}
-		}
-
-		/**
-		 *  Accepts a drag over if the data flavor is javaFileListFlavor, otherwise
-		 *  rejects it.
-		 *
-		 *@param  dtde  DropTargetDragEvent
-		 */
-		@Override
-		public void dragOver(DropTargetDragEvent dtde)
-		{
-			if (dtde.isDataFlavorSupported(DataFlavor.javaFileListFlavor))
-			{
-				dtde.acceptDrag(dtde.getDropAction());
-			}
-			else
-			{
-				dtde.rejectDrag();
-			}
-		}
-
-		/**
-		 *  implements a drop. you need to implements this in your class.
-		 *
-		 *@param  dtde  DropTargetDropEvent
-		 */
-		@Override
-		public abstract void drop(DropTargetDropEvent dtde);
-
-	}
-
-	/**
-	 *  Drop listener for the File bar on the bottom of the Notes screen
-	 */
-	public class DropBarListener extends DropListener
-	{
-		/**
-		 *  implements drop.if we accept it, pass the event to the currently selected
-		 *  node
-		 *
-		 *@param  dtde  DropTargetDropEvent
-		 */
-		@Override
-		public void drop(DropTargetDropEvent dtde)
-		{
-			Object obj = notesTree.getLastSelectedPathComponent();
-
-			if (obj instanceof NotesTreeNode)
-			{
-				NotesTreeNode node = (NotesTreeNode) obj;
-
-				if (dtde.isDataFlavorSupported(DataFlavor.javaFileListFlavor))
-				{
-					dtde.dropComplete(node.handleDropJavaFileList(dtde));
-					refreshTreeNodes();
-				}
-				else
-				{
-					dtde.rejectDrop();
-				}
-			}
-			else
-			{
-				dtde.rejectDrop();
-			}
-		}
-	}
-
-	/**
-	 *  Drop listener for the Editor pane on the notes screen
-	 */
-	public class DropEditorListener extends DropListener
-	{
-		/**
-		 *  Determines if a file passed in is an image or not (based on extension
-		 *
-		 *@param  image  File to check
-		 *@return        true if image, false if not
-		 */
-		boolean isImageFile(File image)
-		{
-			for (String anExtsIMG : extsIMG)
-			{
-				if (image.getName().endsWith(anExtsIMG))
-				{
-					return true;
-				}
-			}
-
-			return false;
-		}
-
-		/**
-		 *  implements drop. if we accept it, pass the event to the handler
-		 *
-		 *@param  dtde  Description of the Parameter
-		 */
-		@Override
-		public void drop(DropTargetDropEvent dtde)
-		{
-			Object obj = notesTree.getLastSelectedPathComponent();
-
-			if (obj instanceof NotesTreeNode)
-			{
-				if (dtde.isDataFlavorSupported(DataFlavor.javaFileListFlavor))
-				{
-					dtde.dropComplete(handleDropJavaFileListAsImage(dtde));
-					refreshTreeNodes();
-				}
-				else
-				{
-					dtde.rejectDrop();
-				}
-			}
-			else
-			{
-				dtde.rejectDrop();
-			}
-		}
-
-		/**
-		 *  handles a drop. if the drop is an image, it will insert the image to the
-		 *  proper place in the editor window.
-		 *
-		 *@param  dtde  DropTargetDropEvent
-		 *@return       drop successful or not
-		 */
-		private boolean handleDropJavaFileListAsImage(DropTargetDropEvent dtde)
-		{
-			dtde.acceptDrop(dtde.getDropAction());
-
-			Transferable t = dtde.getTransferable();
-
-			try
-			{
-				List<File> fileList = ((List<File>) t.getTransferData(DataFlavor.javaFileListFlavor));
-				File dir = getCurrentDir();
-
-				for (File newFile : fileList)
-				{
-					if (newFile.exists())
-					{
-						File destFile = Path.of(dir.getAbsolutePath(), newFile.getName()).toFile();
-
-						if (!isImageFile(destFile) || !destFile.exists())
-						{
-							Files.copy(newFile.toPath(), destFile.toPath());
-						}
-
-						editor.setCaretPosition(editor.viewToModel(dtde.getLocation()));
-						handleImageDropInsertion(destFile);
-					}
-				}
-			}
-			catch (Exception e)
-			{
-				Logging.errorPrint(e.getMessage(), e);
-
-				return false;
-			}
-
-			return true;
-		}
-
-		/**
-		 *  Inserts a dropped image into the editor pane
-		 *
-		 *@param  image  File to insert
-		 */
-		private void handleImageDropInsertion(File image)
-		{
-			if (Arrays.stream(extsIMG).anyMatch(s -> image.getName().endsWith(s)))
-			{
-				try
-				{
-					insertLocalImage(image);
-				} catch (Exception e)
-				{
-					Logging.errorPrint(e.getMessage(), e);
-				}
-			}
-		}
-	}
-
 	public class NotesLogReciever implements LogReceiver
 	{
 		NotesTreeNode log;
@@ -1935,9 +1720,7 @@ public class NotesView extends JPanel
 
 			NotesTreeNode node = getChildNode(owner, log);
 
-			// TODO add option
 			DateFormat dateFmt =
-					//					new SimpleDateFormat("MM-dd-yyyy hh.mm.ss a z");
 					DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
 			node.appendText("<br>" + Constants.LINE_SEPARATOR + "<b>" + dateFmt.format(Calendar.getInstance().getTime())
 				+ "</b> " + message);
