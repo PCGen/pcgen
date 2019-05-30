@@ -2258,7 +2258,8 @@ public class CharacterFacadeImpl
 	@Override
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers()
 	{
-		if (langChoosersList == null) {
+		if (langChoosersList == null)
+		{
 			langChoosersList = new DefaultListFacade<>();
 		}
 

@@ -89,13 +89,13 @@ public final class HandedCompat
 	 * 
 	 * @param id
 	 *            The CharID representing the PC for which the Handed should be set
-	 * @param deity
+	 * @param handed
 	 *            The Handed which should be set
 	 */
-	public static void setCurrentHandedness(CharID id, Handed Handed)
+	public static void setCurrentHandedness(CharID id, Handed handed)
 	{
 		String channelName = ControlUtilities
 			.getControlToken(Globals.getContext(), CControl.HANDEDINPUT);
-		ChannelUtilities.setGlobalChannel(id, channelName, Handed);
+		ChannelUtilities.setGlobalChannel(id, channelName, handed);
 	}
 }
