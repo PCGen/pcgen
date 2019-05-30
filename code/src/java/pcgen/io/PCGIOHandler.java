@@ -340,7 +340,7 @@ public final class PCGIOHandler extends IOHandler
 			double baseFeatPool = parser.getBaseFeatPool();
 			double featPoolBonus = currentPC.getRemainingFeatPoints(true);
 			baseFeatPool -= featPoolBonus;
-			currentPC.setUserPoolBonus(AbilityCategory.FEAT, new BigDecimal(baseFeatPool));
+			currentPC.setUserPoolBonus(AbilityCategory.FEAT, new BigDecimal(String.valueOf(baseFeatPool)));
 		}
 
 		for (CNAbility aFeat : currentPC.getPoolAbilities(AbilityCategory.FEAT, Nature.NORMAL))
