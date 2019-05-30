@@ -667,7 +667,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * This class is an entry mapping a mod to its source.
 	 * Once created, instances of this class are immutable.
 	 */
-	public static class ModEntry
+	public static final class ModEntry
 	{
 		private CampaignSourceEntry source = null;
 		private String lstLine = null;

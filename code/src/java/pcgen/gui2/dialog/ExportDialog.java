@@ -383,7 +383,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		}
 		if (pdf)
 		{
-			new PDFExporter(outFile, extension, name).execute();
+			new PDFExporter(outFile, name).execute();
 		}
 		else
 		{
@@ -526,13 +526,13 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		}
 	}
 
-	private class PDFExporter extends SwingWorker<Boolean, Boolean>
+	private final class PDFExporter extends SwingWorker<Boolean, Boolean>
 	{
 
 		private final File saveFile;
 		private final String name;
 
-		private PDFExporter(File saveFile, String extension, String name)
+		private PDFExporter(File saveFile, String name)
 		{
 			this.saveFile = saveFile;
 			this.name = name;
@@ -598,7 +598,6 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 				}
 			}
 		}
-
 	}
 
 	private static Collection<File> getAllTemplates()
