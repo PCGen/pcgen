@@ -143,8 +143,8 @@ public abstract class Combatant implements InitHolder
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
-	@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 	@Override
+	@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList", "PMD.UseArrayListInsteadOfVector"})
 	public Vector<Object> getRowVector(final List<String> columnOrder)
 	{
 		Vector<Object> rowVector = new Vector<>();

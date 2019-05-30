@@ -201,7 +201,6 @@
         <exclude name="StringToString"/>
         <exclude name="TooFewBranchesForASwitchStatement"/>
         <exclude name="UnnecessaryWrapperObjectCreation"/>
-        <exclude name="UseArrayListInsteadOfVector"/>
         <exclude name="UseIndexOfChar"/>
         <exclude name="UseStringBufferForStringAppends"/>
         <exclude name="UselessStringValueOf"/>
