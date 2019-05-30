@@ -157,8 +157,8 @@ public final class KitAbilities extends BaseKit
 		boolean tooManyAbilities = false;
 		// Don't allow choosing of more than allotted number of abilities
 		int maxChoices = minCost > 0.0d
-			? aPC.getAvailableAbilityPool(category).divide(new BigDecimal(String.valueOf(minCost))).intValue() :
-				numberOfChoices;
+			? aPC.getAvailableAbilityPool(category).divide(new BigDecimal(String.valueOf(minCost))).intValue()
+				: numberOfChoices;
 		if (!isFree() && numberOfChoices > maxChoices)
 		{
 			numberOfChoices = maxChoices;

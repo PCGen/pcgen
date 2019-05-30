@@ -178,8 +178,8 @@ public final class Bonus
 				if (!result)
 				{
 					Logging.log(Logging.LST_ERROR,
-							"Could not add type " + aString.substring(5) +
-									" to bonusType " + typeOfBonus + " in Bonus.newBonus");
+							"Could not add type " + aString.substring(5)
+									+ " to bonusType " + typeOfBonus + " in Bonus.newBonus");
 					Logging.reportSource(Logging.LST_ERROR, context);
 					return null;
 				}
@@ -211,8 +211,8 @@ public final class Bonus
 
 			if (!result)
 			{
-				Logging.log(Logging.LST_ERROR, "Could not parse token " + token +
-						" from BONUS:" + bonusString);
+				Logging.log(Logging.LST_ERROR, "Could not parse token " + token
+						+ " from BONUS:" + bonusString);
 				Logging.reportSource(Logging.LST_ERROR, context);
 				return null;
 			}

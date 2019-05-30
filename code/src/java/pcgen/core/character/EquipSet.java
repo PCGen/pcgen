@@ -625,7 +625,8 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 * Retrieve the preferred location for a natural weapon. Will return null
 	 * for non natural weapon equipment items.
 	 *
-	 * @param equipment The equipment item to be checked.
+	 * @param pc which PlayerCharacter has the item
+	 * @param item The equipment item to be checked.
 	 * @return The preferred natural equip node, or null if not applicable.
 	 */
 	public EquipNode getNatWeaponLoc(PlayerCharacter pc, Equipment item)

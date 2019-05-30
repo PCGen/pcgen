@@ -303,7 +303,7 @@ public class CharacterAbilities
 	 * if the request cannot be allowed. Updates to the displayed lists are 
 	 * handled by events (see initForCharacter).
 	 * 
-	 * @param categoryFacade The category in which the ability s bing added.
+	 * @param category The category in which the ability s bing added.
 	 * @param abilityFacade The ability to be added.
 	 */
 	public void addAbility(AbilityCategory category, AbilityFacade abilityFacade)
@@ -351,7 +351,7 @@ public class CharacterAbilities
 	 * informed if the request cannot be allowed. Updates to the displayed 
 	 * lists are handled by events (see initForCharacter).
 	 * 
-	 * @param categoryFacade The category from which the ability is being removed.
+	 * @param theCategory The category from which the ability is being removed.
 	 * @param abilityFacade The ability to be removed.
 	 */
 	public void removeAbility(AbilityCategory theCategory, AbilityFacade abilityFacade)

@@ -5485,7 +5485,6 @@ public final class Equipment extends PObject
 	/**
 	 * Get Base contained weight
 	 * 
-	 * @param effective Should we recurse child objects?
 	 * @return Base contained weight
 	 */
 	public Float getBaseContainedWeight()
