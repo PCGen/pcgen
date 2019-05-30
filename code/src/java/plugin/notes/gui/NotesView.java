@@ -108,7 +108,7 @@ import javafx.stage.FileChooser;
  *  This class is the main view for the Notes Plugin. Mostof the work is done
  *  here and in the NotesTreeNode Class.
  */
-@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
+@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList", "PMD.UseArrayListInsteadOfVector"})
 public class NotesView extends JPanel
 {
 

@@ -21,8 +21,6 @@ package gmgen.plugin;
 import java.util.List;
 import java.util.Vector;
 
-/**
- */
 public class Effect extends Event
 {
 
@@ -51,7 +49,7 @@ public class Effect extends Event
 	 *@param  columnOrder  The current table's column order
 	 *@return              The Row Vector
 	 */
-	@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
+	@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList", "PMD.UseArrayListInsteadOfVector"})
 	@Override
 	public Vector<Object> getRowVector(List<String> columnOrder)
 	{

@@ -77,7 +77,7 @@ import org.xml.sax.InputSource;
 /**
  * Main panel of the random name generator.
  */
-@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
+@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList", "PMD.UseArrayListInsteadOfVector"})
 public class NameGenPanel extends JPanel
 {
 	private final Map<String, List<RuleSet>> categories = new HashMap<>();

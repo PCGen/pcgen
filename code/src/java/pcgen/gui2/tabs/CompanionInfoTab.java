@@ -103,7 +103,7 @@ import pcgen.util.enumeration.Tab;
  * This component allows a user to manage a character's companions (animal,
  * familiar, cohort, mount, etc).
  */
-@SuppressWarnings("serial")
+@SuppressWarnings("PMD.UseArrayListInsteadOfVector")
 public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler, DisplayAwareTab
 {
 

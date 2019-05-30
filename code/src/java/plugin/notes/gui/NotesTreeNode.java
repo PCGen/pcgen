@@ -54,8 +54,8 @@ import pcgen.util.Logging;
 
 /**
  * This defines the preferences tree
- *
  */
+@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList", "PMD.UseArrayListInsteadOfVector"})
 public class NotesTreeNode implements MutableTreeNode, DocumentListener
 {
 
@@ -117,7 +117,6 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * than Vector due to the TreeNode interface which uses Enumeration as 
 	 * the return type of children();
 	 */
-	@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 	protected Vector<MutableTreeNode> children;
 
 	/** true if the node is able to have children. */
