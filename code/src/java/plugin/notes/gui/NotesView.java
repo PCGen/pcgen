@@ -44,7 +44,6 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Objects;
 import java.util.Vector;
-import java.util.concurrent.CompletableFuture;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -104,11 +103,11 @@ import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import plugin.notes.NotesPlugin;
 
-import javafx.application.Platform;
 import javafx.stage.FileChooser;
 
 /**
@@ -393,8 +392,7 @@ public class NotesView extends JPanel
 		fileChooser.setSelectedExtensionFilter(extensionFilter);
 
 
-		File file = CompletableFuture.supplyAsync(() ->
-		fileChooser.showSaveDialog(null), Platform::runLater).join();
+		File file = GuiUtility.runOnJavaFXThreadNow(() -> fileChooser.showSaveDialog(null));
 
 		try
 		{
@@ -700,8 +698,8 @@ public class NotesView extends JPanel
 		fileChooser.getExtensionFilters().add(extensionFilter);
 		fileChooser.setSelectedExtensionFilter(extensionFilter);
 
-		return CompletableFuture.supplyAsync(() ->
-				fileChooser.showSaveDialog(null), Platform::runLater).join();
+		return GuiUtility.runOnJavaFXThreadNow(() ->
+				fileChooser.showSaveDialog(null));
 
 	}
 

@@ -18,6 +18,9 @@
 
 package pcgen.gui3;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Supplier;
+
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Parent;
@@ -46,5 +49,11 @@ public final class GuiUtility
 			jfxPanel.setScene(scene);
 		});
 		return jfxPanel;
+	}
+
+	public static <T> T runOnJavaFXThreadNow(Supplier<T> supplier)
+	{
+		GuiAssertions.assertIsNotJavaFXThread();
+		return CompletableFuture.supplyAsync(supplier, Platform::runLater).join();
 	}
 }
