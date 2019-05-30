@@ -873,12 +873,6 @@ public class CharacterFacadeImpl
 			return false;
 		}
 
-		if (!theCharacter.canLevelUp())
-		{
-			delegate.showErrorMessage(Constants.APPLICATION_NAME, LanguageBundle.getString("in_Enforce_rejectLevelUp"));
-			return false;
-		}
-
 		final PCClass aClass = theCharacter.getClassKeyed(theClass.getKeyName());
 
 		// Check if the subclass (if any) is qualified for
