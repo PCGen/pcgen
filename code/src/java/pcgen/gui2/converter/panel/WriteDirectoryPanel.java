@@ -19,9 +19,13 @@ package pcgen.gui2.converter.panel;
 
 import java.awt.Component;
 import java.io.File;
-import java.io.FilenameFilter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
@@ -38,29 +42,20 @@ import pcgen.gui2.converter.event.ProgressEvent;
 import pcgen.gui2.converter.event.TaskStrategyMessage;
 import pcgen.gui3.GuiUtility;
 import pcgen.system.PCGenSettings;
+import pcgen.util.Logging;
 
 import javafx.stage.DirectoryChooser;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
 
 public class WriteDirectoryPanel extends ConvertSubPanel
 {
 
-	private File path = null;
+	private File path;
 
 	private final SpringLayout layout = new SpringLayout();
 
 	private final JLabel fileLabel;
 	private final JLabel warningLabel;
-
-	private final FilenameFilter pccFileFilter = (parentDir, fileName) -> {
-
-		if (StringUtils.endsWithIgnoreCase(fileName, ".pcc"))
-		{
-			return true;
-		}
-		return new File(parentDir, fileName).isDirectory();
-	};
 
 	private List<Campaign> campaignList;
 
@@ -131,8 +126,10 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 						showWarning();
 						break;
 					}
-					JOptionPane.showMessageDialog(null,
-						"Selection must be a valid " + "(readable & writeable) Directory");
+					JOptionPane.showMessageDialog(
+							null,
+							"Selection must be a valid " + "(readable & writeable) Directory"
+					);
 					directoryChooser.setInitialDirectory(path.getParentFile());
 				}
 				else
@@ -148,9 +145,11 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 		showWarning();
 		layout.putConstraint(SpringLayout.NORTH, label, 50, SpringLayout.NORTH, panel);
 		layout.putConstraint(SpringLayout.NORTH, fileLabel, 75 + label.getPreferredSize().height, SpringLayout.NORTH,
-			panel);
+				panel
+		);
 		layout.putConstraint(SpringLayout.NORTH, button, 75 + label.getPreferredSize().height, SpringLayout.NORTH,
-			panel);
+				panel
+		);
 		layout.putConstraint(SpringLayout.WEST, label, 25, SpringLayout.WEST, panel);
 		layout.putConstraint(SpringLayout.WEST, fileLabel, 25, SpringLayout.WEST, panel);
 		layout.putConstraint(SpringLayout.EAST, button, -50, SpringLayout.EAST, panel);
@@ -190,42 +189,36 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 
 	private List<Campaign> getExistingPccs()
 	{
-		List<File> existingFiles = new ArrayList<>();
-		findPCCFiles(path, existingFiles);
+		List<Path> existingFiles = findPCCFiles(path);
 
 		List<Campaign> matchingCampaigns = new ArrayList<>();
 
 		for (Campaign camp : campaignList)
 		{
 			File campFile = new File(camp.getSourceURI());
-			for (File file : existingFiles)
+			if (existingFiles.stream()
+			                 .anyMatch(file -> file.getFileName().toString().equals(campFile.getName())))
 			{
-				if (file.getName().equals(campFile.getName()))
-				{
-					matchingCampaigns.add(camp);
-					break;
-				}
+				matchingCampaigns.add(camp);
 			}
 		}
 
 		return matchingCampaigns;
 	}
 
-	private void findPCCFiles(File aDirectory, List<File> existingFiles)
+	private static List<Path> findPCCFiles(File aDirectory)
 	{
-		if (aDirectory.isDirectory())
+		try
 		{
-			for (File file : aDirectory.listFiles(pccFileFilter))
-			{
-				if (file.isDirectory())
-				{
-					findPCCFiles(file, existingFiles);
-					continue;
-				}
-				existingFiles.add(file);
-			}
+			return Files.walk(aDirectory.toPath())
+			            .filter(file -> file.getFileName().toString().endsWith("pcc"))
+			            .collect(Collectors.toUnmodifiableList());
 		}
-
+		catch (IOException e)
+		{
+			Logging.errorPrint("failed to walk " + aDirectory, e);
+			return Collections.emptyList();
+		}
 	}
 
 }
