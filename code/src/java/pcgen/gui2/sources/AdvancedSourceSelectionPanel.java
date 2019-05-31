@@ -77,6 +77,7 @@ import pcgen.gui2.util.treeview.DefaultDataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.gui3.utilty.ColorUtilty;
 import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
@@ -679,7 +680,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		 */
 		public CampaignRenderer()
 		{
-			setTextNonSelectionColor(UIPropertyContext.getQualifiedColor());
+			setTextNonSelectionColor(ColorUtilty.colorToAWTColor(UIPropertyContext.getQualifiedColor()));
 		}
 
 		@Override
@@ -696,7 +697,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 				testCampaigns.add(campaign);
 				if (!FacadeFactory.passesPrereqs(testCampaigns))
 				{
-					setForeground(UIPropertyContext.getNotQualifiedColor());
+					setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));
 				}
 			}
 			return this;

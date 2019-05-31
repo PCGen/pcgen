@@ -31,6 +31,7 @@ import pcgen.facade.core.SpellSupportFacade.SpellNode;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
 import pcgen.gui2.util.FontManipulation;
+import pcgen.gui3.utilty.ColorUtilty;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -63,7 +64,7 @@ public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 			PCClass pcClass = spellNode.getSpellcastingClass();
 			if (!character.isQualifiedFor(spell, pcClass))
 			{
-				setForeground(UIPropertyContext.getNotQualifiedColor());
+				setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));
 			}
 		}
 		if (obj instanceof InfoFacade && ((InfoFacade) obj).isNamePI())

@@ -62,6 +62,7 @@ import pcgen.gui2.util.treeview.DefaultDataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.gui3.utilty.ColorUtilty;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
@@ -201,7 +202,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 			super.getTreeCellRendererComponent(tree, obj, sel, expanded, leaf, row, focus);
 			if (value instanceof TempBonusFacade && !character.isQualifiedFor((TempBonusFacade) value))
 			{
-				setForeground(UIPropertyContext.getNotQualifiedColor());
+				setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));
 			}
 			if (value instanceof InfoFacade && ((InfoFacade) value).isNamePI())
 			{
