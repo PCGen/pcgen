@@ -21,6 +21,7 @@ package pcgen.gui2.tabs.models;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.TreeColumnCellRenderer;
+import pcgen.gui3.utilty.ColorUtilty;
 
 public abstract class CharacterTreeCellRenderer extends TreeColumnCellRenderer
 {
@@ -29,7 +30,7 @@ public abstract class CharacterTreeCellRenderer extends TreeColumnCellRenderer
 
 	public CharacterTreeCellRenderer()
 	{
-		setTextNonSelectionColor(UIPropertyContext.getQualifiedColor());
+		setTextNonSelectionColor(ColorUtilty.colorToAWTColor(UIPropertyContext.getQualifiedColor()));
 	}
 
 	public void setCharacter(CharacterFacade character)

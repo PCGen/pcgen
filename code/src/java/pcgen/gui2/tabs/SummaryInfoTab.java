@@ -102,6 +102,7 @@ import pcgen.gui2.util.ManagedField;
 import pcgen.gui2.util.SignIcon;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.SimpleTextIcon;
+import pcgen.gui3.utilty.ColorUtilty;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
@@ -1088,11 +1089,12 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 				if (index == -1)
 				{// this is a hack to prevent the combobox from overwriting the text color
 					setText("");
-					setIcon(new SimpleTextIcon(list, value.toString(), UIPropertyContext.getNotQualifiedColor()));
+					setIcon(new SimpleTextIcon(list, value.toString(),
+							ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor())));
 				}
 				else
 				{
-					setForeground(UIPropertyContext.getNotQualifiedColor());
+					setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));
 				}
 			}
 			return this;
@@ -1113,11 +1115,12 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 				if (index == -1)
 				{// this is a hack to prevent the combobox from overwriting the text color
 					setText("");
-					setIcon(new SimpleTextIcon(list, value.toString(), UIPropertyContext.getNotQualifiedColor()));
+					setIcon(new SimpleTextIcon(list, value.toString(),
+							ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor())));
 				}
 				else
 				{
-					setForeground(UIPropertyContext.getNotQualifiedColor());
+					setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));
 				}
 			}
 			return this;

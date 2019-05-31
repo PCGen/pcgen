@@ -99,6 +99,7 @@ import pcgen.gui2.util.treeview.DefaultDataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.gui3.utilty.ColorUtilty;
 import pcgen.system.CharacterManager;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
@@ -1151,7 +1152,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			Object equipObj = ((DefaultMutableTreeNode) value).getUserObject();
 			if (equipObj instanceof EquipmentFacade && !character.isQualifiedFor((EquipmentFacade) equipObj))
 			{
-				setForeground(UIPropertyContext.getNotQualifiedColor());
+				setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));
 			}
 			return this;
 		}

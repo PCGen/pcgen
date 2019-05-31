@@ -19,6 +19,8 @@ package pcgen.cdom.enumeration;
 
 import pcgen.gui2.UIPropertyContext;
 
+import javafx.scene.paint.Color;
+
 /**
  * Represents the Campaign Statuses available in PCGen.
  * 
@@ -37,9 +39,9 @@ public enum Status
 		}
 
 		@Override
-		public int getColor()
+		public Color getColor()
 		{
-			return UIPropertyContext.getSourceStatusReleaseColor().getRGB() & 0x00FFFFFF;
+			return UIPropertyContext.getSourceStatusReleaseColor();
 		}
 	},
 
@@ -52,9 +54,9 @@ public enum Status
 		}
 
 		@Override
-		public int getColor()
+		public Color getColor()
 		{
-			return UIPropertyContext.getSourceStatusAlphaColor().getRGB() & 0x00FFFFFF;
+			return UIPropertyContext.getSourceStatusAlphaColor();
 		}
 	},
 
@@ -67,9 +69,9 @@ public enum Status
 		}
 
 		@Override
-		public int getColor()
+		public Color getColor()
 		{
-			return UIPropertyContext.getSourceStatusBetaColor().getRGB() & 0x00FFFFFF;
+			return UIPropertyContext.getSourceStatusBetaColor();
 		}
 	},
 
@@ -82,9 +84,9 @@ public enum Status
 		}
 
 		@Override
-		public int getColor()
+		public Color getColor()
 		{
-			return UIPropertyContext.getSourceStatusTestColor().getRGB() & 0x00FFFFFF;
+			return UIPropertyContext.getSourceStatusTestColor();
 		}
 	};
 
@@ -93,6 +95,6 @@ public enum Status
 		return Release;
 	}
 
-	public abstract int getColor();
+	public abstract Color getColor();
 
 }

@@ -18,13 +18,15 @@
  */
 package pcgen.gui2;
 
-import java.awt.Color;
 import java.io.File;
 
 import pcgen.cdom.base.Constants;
 import pcgen.facade.core.CharacterFacade;
+import pcgen.gui3.utilty.ColorUtilty;
 import pcgen.system.PropertyContext;
+import pcgen.util.Logging;
 
+import javafx.scene.paint.Color;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -67,10 +69,11 @@ public final class UIPropertyContext extends PropertyContext
 
 	private UIPropertyContext()
 	{
-		super("UIConfig.ini");
+		/* We changed the format of the color and the old format does not match in format. */
+		super("UIConfig.v2.ini");
 		setColor(CUSTOM_ITEM_COLOR, Color.BLUE);
 		setColor(NOT_QUALIFIED_COLOR, Color.RED);
-		setColor(AUTOMATIC_COLOR, Color.decode("0xB2B200"));
+		setColor(AUTOMATIC_COLOR, Color.valueOf("0xB2B200"));
 		setColor(VIRTUAL_COLOR, Color.MAGENTA);
 		setColor(QUALIFIED_COLOR, Color.BLACK);
 
@@ -101,25 +104,31 @@ public final class UIPropertyContext extends PropertyContext
 		return instance;
 	}
 
-	public Color getColor(String key)
+
+	private Color getColor(String key)
 	{
 		String prop = getProperty(key);
 		if (prop == null)
 		{
+			Logging.debugPrint("null color for " + key);
 			return null;
 		}
-		return new Color(Integer.parseInt(prop, 16));
+
+		Logging.debugPrint("color for " + key + " = " + prop);
+		return Color.valueOf(prop);
 	}
 
-	public void setColor(String key, Color color)
+	private void setColor(String key, Color color)
 	{
-		setProperty(key, Integer.toString(color.getRGB(), 16));
+		Logging.debugPrint("setting color " + key + " to " + color);
+		setProperty(key, ColorUtilty.colorToRGBString(color));
 	}
 
 	private Color initColor(String key, Color defaultValue)
 	{
-		String prop = initProperty(key, Integer.toString(defaultValue.getRGB(), 16));
-		return new Color(Integer.parseInt(prop, 16));
+		String prop = initProperty(key, ColorUtilty.colorToRGBString(defaultValue));
+		Logging.debugPrint("init color " + key + " to " + prop);
+		return Color.valueOf(prop);
 	}
 
 	public static Color getCustomItemColor()
@@ -137,7 +146,7 @@ public final class UIPropertyContext extends PropertyContext
 		return getInstance().getColor(QUALIFIED_COLOR);
 	}
 
-	public static void setNotQualifiedColor(Color color)
+	public static void setNotQualifiedColor(Color  color)
 	{
 		getInstance().setColor(NOT_QUALIFIED_COLOR, color);
 	}
@@ -147,7 +156,7 @@ public final class UIPropertyContext extends PropertyContext
 		return getInstance().getColor(NOT_QUALIFIED_COLOR);
 	}
 
-	public static void setAutomaticColor(Color color)
+	public static void setAutomaticColor(Color  color)
 	{
 		getInstance().setColor(AUTOMATIC_COLOR, color);
 	}
@@ -157,7 +166,7 @@ public final class UIPropertyContext extends PropertyContext
 		return getInstance().getColor(AUTOMATIC_COLOR);
 	}
 
-	public static void setVirtualColor(Color color)
+	public static void setVirtualColor(Color  color)
 	{
 		getInstance().setColor(VIRTUAL_COLOR, color);
 	}
@@ -167,24 +176,24 @@ public final class UIPropertyContext extends PropertyContext
 		return getInstance().getColor(VIRTUAL_COLOR);
 	}
 
-	public static void setSourceStatusReleaseColor(Color color)
+	public static void setSourceStatusReleaseColor(Color  color)
 	{
 		getInstance().setColor(SOURCE_STATUS_RELEASE_COLOR, color);
 	}
 
 	public static Color getSourceStatusReleaseColor()
 	{
-		return getInstance().initColor(SOURCE_STATUS_RELEASE_COLOR, Color.black);
+		return getInstance().initColor(SOURCE_STATUS_RELEASE_COLOR, Color.BLACK);
 	}
 
-	public static void setSourceStatusAlphaColor(Color color)
+	public static void setSourceStatusAlphaColor(Color  color)
 	{
 		getInstance().setColor(SOURCE_STATUS_ALPHA_COLOR, color);
 	}
 
 	public static Color getSourceStatusAlphaColor()
 	{
-		return getInstance().initColor(SOURCE_STATUS_ALPHA_COLOR, Color.red);
+		return getInstance().initColor(SOURCE_STATUS_ALPHA_COLOR, Color.RED);
 	}
 
 	public static void setSourceStatusBetaColor(Color color)
@@ -194,17 +203,17 @@ public final class UIPropertyContext extends PropertyContext
 
 	public static Color getSourceStatusBetaColor()
 	{
-		return getInstance().initColor(SOURCE_STATUS_BETA_COLOR, new Color(128, 0, 0));
+		return getInstance().initColor(SOURCE_STATUS_BETA_COLOR, new Color(128.0d / 255.0d, 0, 0, 1.0));
 	}
 
-	public static void setSourceStatusTestColor(Color color)
+	public static void setSourceStatusTestColor(Color  color)
 	{
 		getInstance().setColor(SOURCE_STATUS_TEST_COLOR, color);
 	}
 
 	public static Color getSourceStatusTestColor()
 	{
-		return getInstance().initColor(SOURCE_STATUS_TEST_COLOR, Color.magenta);
+		return getInstance().initColor(SOURCE_STATUS_TEST_COLOR, Color.MAGENTA);
 	}
 
 	public static int getSingleChoiceAction()
