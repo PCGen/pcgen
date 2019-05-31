@@ -22,14 +22,9 @@ import javax.swing.JPanel;
 /**
  * The abstract class {@code PCGenPrefsPanel} defines the
  * interface for a panel in the Preferences dialog.
- * 
- * 
  */
-@SuppressWarnings("serial")
 public abstract class PCGenPrefsPanel extends JPanel
 {
-
-	static final String BLANK_TEXT = "    "; //$NON-NLS-1$
 
 	/**
 	 * Returns the title of the panel.
