@@ -26,7 +26,7 @@ import pcgen.system.LanguageBundle;
 public final class ConvertedJavaFXPanel<T extends ResettableController> extends PCGenPrefsPanel
 {
 	private final String titleTextKey;
-	private final JFXPanelFromResource<ResettableController> panel;
+	private final JFXPanelFromResource<T> panel;
 
 	public ConvertedJavaFXPanel(Class<T> klass, String resource, String titleTextKey)
 	{
@@ -56,5 +56,10 @@ public final class ConvertedJavaFXPanel<T extends ResettableController> extends 
 	public void setOptionsBasedOnControls()
 	{
 		panel.getController().apply();
+	}
+
+	public T getController()
+	{
+		return this.panel.getController();
 	}
 }
