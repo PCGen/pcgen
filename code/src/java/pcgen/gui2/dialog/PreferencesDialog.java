@@ -43,8 +43,6 @@ import javax.swing.tree.TreeSelectionModel;
 import pcgen.cdom.base.Constants;
 import pcgen.gui2.prefs.CharacterStatsPanel;
 import pcgen.gui2.prefs.ColorsPanel;
-import pcgen.gui3.preferences.ConvertedJavaFXPanel;
-import pcgen.gui2.prefs.CopySettingsPanel;
 import pcgen.gui2.prefs.DefaultsPanel;
 import pcgen.gui2.prefs.HitPointsPanel;
 import pcgen.gui2.prefs.HouseRulesPanel;
@@ -58,6 +56,8 @@ import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.preferences.CenteredLabelPanelController;
+import pcgen.gui3.preferences.ConvertedJavaFXPanel;
+import pcgen.gui3.preferences.CopySettingsPanelController;
 import pcgen.gui3.preferences.DisplayOptionsPreferencesPanelController;
 import pcgen.gui3.preferences.EquipmentPreferencesPanelController;
 import pcgen.gui3.preferences.InputPreferencesPanelController;
@@ -97,19 +97,13 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	// Appearance panels
 	private PCGenPrefsPanel colorsPanel;
-	private PCGenPrefsPanel displayOptionsPanel;
-	private PCGenPrefsPanel levelUpPanel;
 
-	// PCGen panels
-	private PCGenPrefsPanel equipmentPanel;
 	private LanguagePanel languagePanel;
 	private PCGenPrefsPanel locationPanel;
-	private PCGenPrefsPanel inputPanel;
 	private PCGenPrefsPanel outputPanel;
 	private PCGenPrefsPanel sourcesPanel;
 
-	// "Copy Settings"
-	private CopySettingsPanel copySettingsPanel;
+	private CopySettingsPanelController copySettingsPanelController;
 
 	//Plugins
 	private PreferencesPluginsPanel pluginsPanel;
@@ -166,15 +160,12 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	private void applyOptionValuesToControls()
 	{
-		for (PCGenPrefsPanel prefsPanel : panelList)
-		{
-			prefsPanel.applyOptionValuesToControls();
-		}
+		panelList.forEach(PCGenPrefsPanel::applyOptionValuesToControls);
 
 		// Copy Settings
-		copySettingsPanel.registerAffectedPanel(characterStatsPanel);
-		copySettingsPanel.registerAffectedPanel(defaultsPanel);
-		copySettingsPanel.registerAffectedPanel(languagePanel);
+		copySettingsPanelController.registerAffectedPanel(characterStatsPanel);
+		copySettingsPanelController.registerAffectedPanel(defaultsPanel);
+		copySettingsPanelController.registerAffectedPanel(languagePanel);
 
 	}
 
@@ -226,16 +217,17 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 		colorsPanel = new ColorsPanel();
 		addPanelToTree(appearanceNode, colorsPanel);
-		displayOptionsPanel = new ConvertedJavaFXPanel<>(
+		PCGenPrefsPanel displayOptionsPanel = new ConvertedJavaFXPanel<>(
 				DisplayOptionsPreferencesPanelController.class,
 				"DisplayOptionsPreferencesPanel.fxml",
 				"in_Prefs_displayOpts"
 		);
 		addPanelToTree(appearanceNode, displayOptionsPanel);
-		levelUpPanel = new ConvertedJavaFXPanel<>(
+		PCGenPrefsPanel levelUpPanel = new ConvertedJavaFXPanel<>(
 				LevelUpPreferencesPanelController.class,
 				"LevelUpPreferencesPanel.fxml",
-				"in_Prefs_levelUp");
+				"in_Prefs_levelUp"
+		);
 		addPanelToTree(appearanceNode, levelUpPanel);
 		rootNode.add(appearanceNode);
 
@@ -243,7 +235,8 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_Prefs_pcgenTip")),
 			Constants.APPLICATION_NAME);
 
-		equipmentPanel = new ConvertedJavaFXPanel<>(
+		// PCGen panels
+		PCGenPrefsPanel equipmentPanel = new ConvertedJavaFXPanel<>(
 				EquipmentPreferencesPanelController.class,
 				"EquipmentPreferencesPanel.fxml",
 				"in_Prefs_equipment"
@@ -253,7 +246,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		addPanelToTree(pcGenNode, languagePanel);
 		locationPanel = new LocationPanel();
 		addPanelToTree(pcGenNode, locationPanel);
-		inputPanel = new ConvertedJavaFXPanel<>(
+		PCGenPrefsPanel inputPanel = new ConvertedJavaFXPanel<>(
 				InputPreferencesPanelController.class,
 				"InputPreferencesPanel.fxml",
 				"in_Prefs_input"
@@ -269,8 +262,14 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		gameModeNode = new DefaultMutableTreeNode(in_gamemode);
 		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_mnuSettingsCampaignTip")), in_gamemode);
 
-		copySettingsPanel = new CopySettingsPanel();
-		addPanelToTree(gameModeNode, copySettingsPanel);
+		ConvertedJavaFXPanel<CopySettingsPanelController> convertedCopySettingsPanel = new ConvertedJavaFXPanel<>(
+				CopySettingsPanelController.class,
+				"CopySettingsPanel.fxml",
+				"in_Prefs_copy"
+		);
+		// "Copy Settings"
+		this.copySettingsPanelController = convertedCopySettingsPanel.getController();
+		addPanelToTree(gameModeNode, convertedCopySettingsPanel);
 		rootNode.add(gameModeNode);
 
 		DefaultMutableTreeNode pluginNode =

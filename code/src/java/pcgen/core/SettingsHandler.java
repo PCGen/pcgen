@@ -43,7 +43,9 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import org.apache.commons.lang3.SystemUtils;
 
 /**
@@ -69,7 +71,7 @@ public final class SettingsHandler
 	private static final Map<String, String> ruleCheckMap = new HashMap<>();
 
 	private static final Properties FILTERSETTINGS = new Properties();
-	public static GameMode game = new GameMode("default");
+	private static final ObjectProperty<GameMode> game = new SimpleObjectProperty<>(new GameMode("default"));
 	private static boolean loadURLs = false;
 	private static boolean hpMaxAtFirstLevel = true;
 	private static boolean hpMaxAtFirstClassLevel = true;
@@ -272,35 +274,45 @@ public final class SettingsHandler
 
 		if (newMode != null)
 		{
-			game = newMode;
+			game.setValue(newMode);
 		}
 		// new key for game mode specific options are pcgen.options.gameMode.X.optionName
 		// but offer downward compatible support to read in old version for unitSet from 5.8.0
 		String unitSetName = getOptions().getProperty("pcgen.options.gameMode." + key + ".unitSetName",
-			getOptions().getProperty("pcgen.options.unitSetName." + key, game.getDefaultUnitSet()));
-		if (!game.selectUnitSet(unitSetName))
+			getOptions().getProperty("pcgen.options.unitSetName." + key, game.get().getDefaultUnitSet()));
+		if (!game.get().selectUnitSet(unitSetName))
 		{
-			if (!game.selectDefaultUnitSet())
+			if (!game.get().selectDefaultUnitSet())
 			{
-				game.selectUnitSet(Constants.STANDARD_UNITSET_NAME);
+				game.get().selectUnitSet(Constants.STANDARD_UNITSET_NAME);
 			}
 		}
-		game.setDefaultXPTableName(getPCGenOption(
+		game.get().setDefaultXPTableName(getPCGenOption(
 			"gameMode." + key + ".xpTableName", "")); //$NON-NLS-1$ //$NON-NLS-2$
-		game.setDefaultCharacterType(getPCGenOption(
+		game.get().setDefaultCharacterType(getPCGenOption(
 			"gameMode." + key + ".characterType", "")); //$NON-NLS-1$ //$NON-NLS-2$
 
-		AbilityCategory featTemplate = game.getFeatTemplate();
+		AbilityCategory featTemplate = game.get().getFeatTemplate();
 		if (featTemplate != null)
 		{
 			AbilityCategory.FEAT.copyFields(featTemplate);
 		}
-		getChosenCampaignFiles(game);
+		getChosenCampaignFiles(game.get());
 	}
 
-	public static GameMode getGame()
+	public static ObjectProperty<GameMode> getGameAsProperty()
 	{
 		return game;
+	}
+
+	/**
+	 *
+	 * @deprecated use getGameAsProperty
+	 */
+	@Deprecated
+	public static GameMode getGame()
+	{
+		return game.get();
 	}
 
 	public static void setGearTab_AllowDebt(final boolean allowDebt)

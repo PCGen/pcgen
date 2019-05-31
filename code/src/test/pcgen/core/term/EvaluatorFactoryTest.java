@@ -11454,7 +11454,7 @@ class EvaluatorFactoryTest
 	public static void initGameModes()
 	{
 		SettingsHandler.setGame(SettingsHandler.getPCGenOption("game", "35e")); //$NON-NLS-1$
-		SettingsHandler.game.clearLoadContext();
+		SettingsHandler.getGameAsProperty().get().clearLoadContext();
 
 		BuildUtilities.buildUnselectedRace(Globals.getContext());
 		AbstractReferenceContext rc = Globals.getContext().getReferenceContext();

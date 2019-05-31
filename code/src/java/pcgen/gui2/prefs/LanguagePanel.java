@@ -24,10 +24,12 @@ import java.util.stream.Collectors;
 
 import pcgen.core.SettingsHandler;
 import pcgen.core.UnitSet;
+import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.GuiUtility;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -144,6 +146,7 @@ public final class LanguagePanel extends PCGenPrefsPanel
 	@Override
 	public void applyOptionValuesToControls()
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		String origLanguage = ConfigurationSettings.getLanguage();
 		if ((origLanguage == null) || origLanguage.isEmpty())
 		{
@@ -165,10 +168,12 @@ public final class LanguagePanel extends PCGenPrefsPanel
 		{
 			currentUnitSet = "";
 		}
-		if (!unitSetType.getItems().isEmpty())
-		{
-			unitSetType.setValue(currentUnitSet);
-		}
+		Platform.runLater(() -> {
+			if (!unitSetType.getItems().isEmpty())
+			{
+				unitSetType.setValue(currentUnitSet);
+			}
+		});
 	}
 
 	@Override
