@@ -174,7 +174,7 @@ public final class PCGenActionMap extends ActionMap
 		put(HELP_ABOUT_COMMAND, new AboutHelpAction());
 	}
 
-	private class EditAction extends PCGenAction
+	private final class EditAction extends PCGenAction
 	{
 
 		private EditAction()
@@ -184,7 +184,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class AddKitAction extends CharacterAction
+	private final class AddKitAction extends CharacterAction
 	{
 
 		private AddKitAction()
@@ -203,7 +203,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class EquipmentSetAction extends PCGenAction
+	private final class EquipmentSetAction extends PCGenAction
 	{
 
 		private EquipmentSetAction()
@@ -213,7 +213,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class TempBonusAction extends PCGenAction
+	private final class TempBonusAction extends PCGenAction
 	{
 
 		private TempBonusAction()
@@ -223,7 +223,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class PreferencesAction extends PCGenAction
+	private final class PreferencesAction extends PCGenAction
 	{
 
 		private PreferencesAction()
@@ -297,7 +297,7 @@ public final class PCGenActionMap extends ActionMap
 		}
 	}
 
-	private class CoreViewAction extends CharacterAction
+	private final class CoreViewAction extends CharacterAction
 	{
 
 		private CoreViewAction()
@@ -315,7 +315,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class SolverViewAction extends CharacterAction
+	private final class SolverViewAction extends CharacterAction
 	{
 
 		private SolverViewAction()
@@ -332,7 +332,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class LoggingLevelAction extends PCGenAction
+	private final class LoggingLevelAction extends PCGenAction
 	{
 
 		private LoggingLevelAction()
@@ -345,7 +345,7 @@ public final class PCGenActionMap extends ActionMap
 	/**
 	 * The tools menu action to open the install data dialog.
 	 */
-	private class InstallDataAction extends PCGenAction
+	private final class InstallDataAction extends PCGenAction
 	{
 
 		private InstallDataAction()
@@ -362,7 +362,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class FileAction extends PCGenAction
+	private final class FileAction extends PCGenAction
 	{
 
 		private FileAction()
@@ -372,7 +372,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class NewAction extends PCGenAction
+	private final class NewAction extends PCGenAction
 	{
 
 		private final ReferenceFacade<?> ref;
@@ -391,7 +391,7 @@ public final class PCGenActionMap extends ActionMap
 			frame.createNewCharacter(null);
 		}
 
-		private class SourceListener implements ReferenceListener<Object>
+		private final class SourceListener implements ReferenceListener<Object>
 		{
 
 			@Override
@@ -404,7 +404,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class OpenAction extends PCGenAction
+	private final class OpenAction extends PCGenAction
 	{
 
 		private OpenAction()
@@ -420,7 +420,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class OpenRecentAction extends PCGenAction
+	private final class OpenRecentAction extends PCGenAction
 	{
 
 		private OpenRecentAction()
@@ -430,7 +430,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class CloseAction extends CharacterAction
+	private final class CloseAction extends CharacterAction
 	{
 
 		private CloseAction()
@@ -446,7 +446,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class CloseAllAction extends CharacterAction
+	private final class CloseAllAction extends CharacterAction
 	{
 
 		private CloseAllAction()
@@ -462,7 +462,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class SaveAction extends PCGenAction implements ReferenceListener<CharacterFacade>
+	private final class SaveAction extends PCGenAction implements ReferenceListener<CharacterFacade>
 	{
 
 		private final FileRefListener fileListener = new FileRefListener();
@@ -511,7 +511,7 @@ public final class PCGenActionMap extends ActionMap
 			}
 		}
 
-		private class FileRefListener implements ReferenceListener<File>
+		private final class FileRefListener implements ReferenceListener<File>
 		{
 
 			@Override
@@ -524,7 +524,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class SaveAsAction extends CharacterAction
+	private final class SaveAsAction extends CharacterAction
 	{
 
 		private SaveAsAction()
@@ -540,7 +540,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class SaveAllAction extends CharacterAction
+	private final class SaveAllAction extends CharacterAction
 	{
 
 		private SaveAllAction()
@@ -556,7 +556,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class RevertAction extends CharacterAction
+	private final class RevertAction extends CharacterAction
 	{
 
 		private RevertAction()
@@ -572,7 +572,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class PartyAction extends PCGenAction
+	private final class PartyAction extends PCGenAction
 	{
 
 		private PartyAction()
@@ -582,7 +582,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class OpenPartyAction extends PCGenAction
+	private final class OpenPartyAction extends PCGenAction
 	{
 
 		private OpenPartyAction()
@@ -598,7 +598,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class ClosePartyAction extends PCGenAction
+	private final class ClosePartyAction extends PCGenAction
 	{
 
 		private ClosePartyAction()
@@ -614,7 +614,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class SavePartyAction extends CharacterAction
+	private final class SavePartyAction extends CharacterAction
 	{
 
 		private SavePartyAction()
@@ -633,7 +633,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class SaveAsPartyAction extends CharacterAction
+	private final class SaveAsPartyAction extends CharacterAction
 	{
 
 		private SaveAsPartyAction()
@@ -649,7 +649,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class PrintAction extends CharacterAction
+	private final class PrintAction extends CharacterAction
 	{
 
 		private PrintAction()
@@ -665,7 +665,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class ExportAction extends CharacterAction
+	private final class ExportAction extends CharacterAction
 	{
 
 		private ExportAction()
@@ -681,7 +681,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class ExitAction extends PCGenAction
+	private final class ExitAction extends PCGenAction
 	{
 
 		private ExitAction()
@@ -697,7 +697,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class LoadSourcesSelectAction extends PCGenAction
+	private final class LoadSourcesSelectAction extends PCGenAction
 	{
 
 		private LoadSourcesSelectAction()
@@ -713,7 +713,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class ReloadSourcesAction extends PCGenAction implements ReferenceListener<SourceSelectionFacade>
+	private final class ReloadSourcesAction extends PCGenAction implements ReferenceListener<SourceSelectionFacade>
 	{
 
 		private ReloadSourcesAction()
@@ -750,7 +750,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class UnloadSourcesAction extends PCGenAction implements ReferenceListener<SourceSelectionFacade>
+	private final class UnloadSourcesAction extends PCGenAction implements ReferenceListener<SourceSelectionFacade>
 	{
 
 		private UnloadSourcesAction()
@@ -781,7 +781,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class HelpAction extends PCGenAction
+	private final class HelpAction extends PCGenAction
 	{
 
 		private HelpAction()
@@ -791,7 +791,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class DocsHelpAction extends PCGenAction
+	private final class DocsHelpAction extends PCGenAction
 	{
 
 		private DocsHelpAction()
@@ -816,7 +816,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class OGLHelpAction extends PCGenAction
+	private final class OGLHelpAction extends PCGenAction
 	{
 
 		private OGLHelpAction()
@@ -832,7 +832,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class TipOfTheDayHelpAction extends PCGenAction
+	private final class TipOfTheDayHelpAction extends PCGenAction
 	{
 
 		private TipOfTheDayHelpAction()
@@ -848,7 +848,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private class AboutHelpAction extends PCGenAction
+	private final class AboutHelpAction extends PCGenAction
 	{
 
 		private AboutHelpAction()
@@ -892,7 +892,7 @@ public final class PCGenActionMap extends ActionMap
 			setEnabled(ref.get() != null);
 		}
 
-		private class CharacterListener implements ReferenceListener<Object>
+		private final class CharacterListener implements ReferenceListener<Object>
 		{
 
 			@Override
