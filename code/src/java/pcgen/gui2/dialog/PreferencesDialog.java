@@ -49,9 +49,9 @@ import pcgen.gui2.prefs.LocationPanel;
 import pcgen.gui2.prefs.MonsterPanel;
 import pcgen.gui2.prefs.OutputPanel;
 import pcgen.gui2.prefs.PCGenPrefsPanel;
-import pcgen.gui2.prefs.SourcesPanel;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.preferences.CenteredLabelPanelController;
 import pcgen.gui3.preferences.ColorsPreferencesPanelController;
@@ -63,6 +63,7 @@ import pcgen.gui3.preferences.HitPointsPreferencesController;
 import pcgen.gui3.preferences.InputPreferencesPanelController;
 import pcgen.gui3.preferences.LevelUpPreferencesPanelController;
 import pcgen.gui3.preferences.PreferencesPluginsPanel;
+import pcgen.gui3.preferences.SourcesPreferencesPanelController;
 import pcgen.system.LanguageBundle;
 
 import javafx.embed.swing.JFXPanel;
@@ -97,7 +98,6 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	private LanguagePanel languagePanel;
 	private PCGenPrefsPanel locationPanel;
 	private PCGenPrefsPanel outputPanel;
-	private PCGenPrefsPanel sourcesPanel;
 
 	private CopySettingsPanelController copySettingsPanelController;
 
@@ -139,6 +139,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	private void setOptionsBasedOnControls()
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		boolean needsRestart = false;
 		for (PCGenPrefsPanel prefsPanel : panelList)
 		{
@@ -259,7 +260,12 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		addPanelToTree(pcGenNode, inputPanel);
 		outputPanel = new OutputPanel();
 		addPanelToTree(pcGenNode, outputPanel);
-		sourcesPanel = new SourcesPanel();
+		ConvertedJavaFXPanel< SourcesPreferencesPanelController > sourcesPanel =
+				new ConvertedJavaFXPanel<>(
+				SourcesPreferencesPanelController.class,
+				"SourcesPreferencesPanel.fxml",
+				"in_Prefs_sources"
+		);
 		addPanelToTree(pcGenNode, sourcesPanel);
 		rootNode.add(pcGenNode);
 
