@@ -44,7 +44,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.gui2.prefs.CharacterStatsPanel;
 import pcgen.gui2.prefs.ColorsPanel;
 import pcgen.gui2.prefs.DefaultsPanel;
-import pcgen.gui2.prefs.HitPointsPanel;
 import pcgen.gui2.prefs.HouseRulesPanel;
 import pcgen.gui2.prefs.LanguagePanel;
 import pcgen.gui2.prefs.LocationPanel;
@@ -60,6 +59,7 @@ import pcgen.gui3.preferences.ConvertedJavaFXPanel;
 import pcgen.gui3.preferences.CopySettingsPanelController;
 import pcgen.gui3.preferences.DisplayOptionsPreferencesPanelController;
 import pcgen.gui3.preferences.EquipmentPreferencesPanelController;
+import pcgen.gui3.preferences.HitPointsPreferencesController;
 import pcgen.gui3.preferences.InputPreferencesPanelController;
 import pcgen.gui3.preferences.LevelUpPreferencesPanelController;
 import pcgen.gui3.preferences.PreferencesPluginsPanel;
@@ -90,7 +90,6 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	// Character panels
 	private PCGenPrefsPanel characterStatsPanel;
-	private PCGenPrefsPanel hitPointsPanel;
 	private PCGenPrefsPanel houseRulesPanel;
 	private PCGenPrefsPanel monsterPanel;
 	private PCGenPrefsPanel defaultsPanel;
@@ -202,7 +201,11 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 		characterStatsPanel = new CharacterStatsPanel(this);
 		addPanelToTree(characterNode, characterStatsPanel);
-		hitPointsPanel = new HitPointsPanel();
+		PCGenPrefsPanel hitPointsPanel = new ConvertedJavaFXPanel<>(
+				HitPointsPreferencesController.class,
+				"HitPointsPreferencesPanel.fxml",
+				"in_Prefs_hp"
+		);
 		addPanelToTree(characterNode, hitPointsPanel);
 		houseRulesPanel = new HouseRulesPanel();
 		addPanelToTree(characterNode, houseRulesPanel);
