@@ -23,12 +23,10 @@
 <Scene xmlns="http://javafx.com/javafx"
        xmlns:fx="http://javafx.com/fxml"
        fx:controller="pcgen.gui3.preferences.InputPreferencesPanelController">
-    <TitledPane collapsible="false" text="%in_Prefs_input">
-        <VBox>
-            <Label labelFor="$formatDeprecation" text="%in_Prefs_printDeprecation"/>
-            <CheckBox fx:id="formatDeprecation"/>
-            <Label labelFor="$detailUnconstructed" text="%in_Prefs_printUnconstructed"/>
-            <CheckBox fx:id="detailUnconstructed"/>
-        </VBox>
-    </TitledPane>
+    <VBox>
+        <Label labelFor="$formatDeprecation" text="%in_Prefs_printDeprecation"/>
+        <CheckBox fx:id="formatDeprecation"/>
+        <Label labelFor="$detailUnconstructed" text="%in_Prefs_printUnconstructed"/>
+        <CheckBox fx:id="detailUnconstructed"/>
+    </VBox>
 </Scene>

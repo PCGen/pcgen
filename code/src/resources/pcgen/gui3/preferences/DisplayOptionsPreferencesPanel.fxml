@@ -23,15 +23,13 @@
 <Scene xmlns="http://javafx.com/javafx"
        xmlns:fx="http://javafx.com/fxml"
        fx:controller="pcgen.gui3.preferences.DisplayOptionsPreferencesPanelController">
-    <TitledPane collapsible="false" text="%in_Prefs_displayOpts">
-        <VBox>
-            <CheckBox fx:id="showSkillModifier" text="%in_Prefs_showSkillModifierBreakdown"/>
-            <CheckBox fx:id="showSkillRanks" text="%in_Prefs_showSkillRanksBreakdown"/>
-            <CheckBox fx:id="useOutputNamesEquipment" text="%in_Prefs_useOutputNamesEquipment"/>
-            <CheckBox fx:id="useOutputNamesSpells" text="%in_Prefs_useOutputNamesSpells"/>
-            <CheckBox fx:id="useOutputNamesOther" text="%in_Prefs_useOutputNamesOther"/>
-            <Label labelFor="$cmbChoiceMethods" text="%in_Prefs_singleChoiceOption"/>
-            <ComboBox fx:id="cmbChoiceMethods"/>
-        </VBox>
-    </TitledPane>
+    <VBox>
+        <CheckBox fx:id="showSkillModifier" text="%in_Prefs_showSkillModifierBreakdown"/>
+        <CheckBox fx:id="showSkillRanks" text="%in_Prefs_showSkillRanksBreakdown"/>
+        <CheckBox fx:id="useOutputNamesEquipment" text="%in_Prefs_useOutputNamesEquipment"/>
+        <CheckBox fx:id="useOutputNamesSpells" text="%in_Prefs_useOutputNamesSpells"/>
+        <CheckBox fx:id="useOutputNamesOther" text="%in_Prefs_useOutputNamesOther"/>
+        <Label labelFor="$cmbChoiceMethods" text="%in_Prefs_singleChoiceOption"/>
+        <ComboBox fx:id="cmbChoiceMethods"/>
+    </VBox>
 </Scene>
