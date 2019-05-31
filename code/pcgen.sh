@@ -7,7 +7,7 @@ default_max_memory=512
 
 # Linux /proc/meminfo
 if [ -e "/proc/meminfo" ]; then
-	available_memory=$(grep MemFree: /proc/meminfo | awk '{ print $2; }')
+	available_memory=$(grep MemAvailable: /proc/meminfo | awk '{ print $2; }')
 	echo "Available memory: $available_memory kB"
 
 # BSD (thus MacOSX) memory command line should be in /usr/bin/vm_stat
