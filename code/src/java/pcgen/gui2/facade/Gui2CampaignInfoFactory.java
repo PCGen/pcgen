@@ -36,6 +36,7 @@ import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.facade.core.CampaignInfoFactory;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.gui2.util.HtmlInfoBuilder;
+import pcgen.gui3.utilty.ColorUtilty;
 import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.system.LanguageBundle;
@@ -114,10 +115,11 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		infoText.appendLineBreak();
 		// Add the data set release status
 		Status status = aCamp.getSafe(ObjectKey.STATUS);
-		infoText.appendI18nElement("in_infStatus", //$NON-NLS-1$
-			"<font color=\"#" + Integer.toHexString(status.getColor()) + "\">" //$NON-NLS-1$ //$NON-NLS-2$
-				+ status + "</font>"); //$NON-NLS-1$
-		infoText.appendLineBreak();
+		infoText.appendI18nElement(
+				"in_infStatus", //$NON-NLS-1$
+				String.format("<font color=\"#%s\">%s</font>", ColorUtilty.colorToRGBString(
+						status.getColor()), status)
+		).appendLineBreak();
 		String descr = aCamp.get(StringKey.DESCRIPTION);
 		if (descr != null)
 		{

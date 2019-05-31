@@ -42,7 +42,6 @@ import javax.swing.tree.TreeSelectionModel;
 
 import pcgen.cdom.base.Constants;
 import pcgen.gui2.prefs.CharacterStatsPanel;
-import pcgen.gui2.prefs.ColorsPanel;
 import pcgen.gui2.prefs.DefaultsPanel;
 import pcgen.gui2.prefs.HouseRulesPanel;
 import pcgen.gui2.prefs.LanguagePanel;
@@ -55,6 +54,7 @@ import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.preferences.CenteredLabelPanelController;
+import pcgen.gui3.preferences.ColorsPreferencesPanelController;
 import pcgen.gui3.preferences.ConvertedJavaFXPanel;
 import pcgen.gui3.preferences.CopySettingsPanelController;
 import pcgen.gui3.preferences.DisplayOptionsPreferencesPanelController;
@@ -93,9 +93,6 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	private PCGenPrefsPanel houseRulesPanel;
 	private PCGenPrefsPanel monsterPanel;
 	private PCGenPrefsPanel defaultsPanel;
-
-	// Appearance panels
-	private PCGenPrefsPanel colorsPanel;
 
 	private LanguagePanel languagePanel;
 	private PCGenPrefsPanel locationPanel;
@@ -218,7 +215,12 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		appearanceNode = new DefaultMutableTreeNode(IN_APPERANCE);
 		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_Prefs_appearanceTip")), IN_APPERANCE);
 
-		colorsPanel = new ColorsPanel();
+		PCGenPrefsPanel colorsPanel = new ConvertedJavaFXPanel<>(
+				ColorsPreferencesPanelController.class,
+				"ColorsPreferencesPanel.fxml",
+				"in_Prefs_color"
+		);
+
 		addPanelToTree(appearanceNode, colorsPanel);
 		PCGenPrefsPanel displayOptionsPanel = new ConvertedJavaFXPanel<>(
 				DisplayOptionsPreferencesPanelController.class,

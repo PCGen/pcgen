@@ -77,6 +77,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FacadeListModel;
 import pcgen.gui2.util.JTableEx;
 import pcgen.gui2.util.table.TableUtils;
+import pcgen.gui3.utilty.ColorUtilty;
 import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
@@ -612,7 +613,7 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 					SourceSelectionFacade selection = (SourceSelectionFacade) value;
 					if (selection.isModifiable())
 					{
-						setForeground(UIPropertyContext.getCustomItemColor());
+						setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getCustomItemColor()));
 					}
 					if (selection.getLoadingState() == LoadingState.LOADED_WITH_ERRORS)
 					{

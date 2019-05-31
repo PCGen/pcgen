@@ -75,6 +75,7 @@ import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.DefaultDataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
+import pcgen.gui3.utilty.ColorUtilty;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -784,15 +785,15 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 				Nature nature = character.getAbilityNature(ability);
 				if (nature == Nature.VIRTUAL)
 				{
-					setForeground(UIPropertyContext.getVirtualColor());
+					setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getVirtualColor()));
 				}
 				else if (!character.isQualifiedFor(ability))
 				{
-					setForeground(UIPropertyContext.getNotQualifiedColor());
+					setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));
 				}
 				else if (nature == Nature.AUTOMATIC)
 				{
-					setForeground(UIPropertyContext.getAutomaticColor());
+					setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getAutomaticColor()));
 				}
 			}
 			return this;

@@ -26,6 +26,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import pcgen.facade.core.InfoFacade;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.FontManipulation;
+import pcgen.gui3.utilty.ColorUtilty;
 import pcgen.system.LanguageBundle;
 
 @SuppressWarnings("serial")
@@ -44,7 +45,7 @@ public class QualifiedTreeCellRenderer extends CharacterTreeCellRenderer
 		super.getTreeCellRendererComponent(tree, obj, sel, expanded, leaf, row, focus);
 		if (obj instanceof InfoFacade && character != null && !character.isQualifiedFor((InfoFacade) obj))
 		{
-			setForeground(UIPropertyContext.getNotQualifiedColor());
+			setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));
 		}
 		if (obj instanceof InfoFacade && ((InfoFacade) obj).isNamePI())
 		{
