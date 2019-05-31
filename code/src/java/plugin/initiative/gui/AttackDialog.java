@@ -27,8 +27,9 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.StringTokenizer;
+import java.util.Optional;
 import java.util.Vector;
+import java.util.stream.IntStream;
 
 import javax.swing.AbstractAction;
 import javax.swing.Box;
@@ -40,7 +41,6 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -51,7 +51,12 @@ import javax.swing.text.DefaultFormatter;
 import gmgen.GMGenSystem;
 import gmgen.plugin.PcgCombatant;
 import pcgen.core.RollingMethods;
+import pcgen.gui3.GuiUtility;
 import plugin.initiative.AttackModel;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ChoiceDialog;
 
 /**
  *
@@ -81,7 +86,7 @@ public class AttackDialog extends JDialog
 	private AttackTableModel m_tableModel = null;
 
 	/** <p>{@code JComboBox} for Armor class types.</p> */
-	private JComboBox m_acTypeCombo;
+	private JComboBox<String> m_acTypeCombo;
 
 	/**
 	 * Cell editor for target column
@@ -369,7 +374,7 @@ public class AttackDialog extends JDialog
 			m_targetsCombo.addActionListener(this::handleTargetAction);
 			top.add(new JLabel("Attack Character: "));
 			top.add(m_targetsCombo);
-			m_acTypeCombo = new JComboBox();
+			m_acTypeCombo = new JComboBox<>();
 			m_acTypeCombo.addItem("Total");
 			m_acTypeCombo.addItem("Flatfooted");
 			m_acTypeCombo.addItem("Touch");
@@ -391,7 +396,7 @@ public class AttackDialog extends JDialog
 			{
 				if ((evt.getPropertyName() != null) && evt.getPropertyName().equals("value"))
 				{
-					m_tableModel.setArmorClass(((Integer) m_field.getValue()).intValue());
+					m_tableModel.setArmorClass((Integer) m_field.getValue());
 				}
 			}
 		});
@@ -448,14 +453,14 @@ public class AttackDialog extends JDialog
 		 * efficient but saves me a lot of typing.  Use fields COLUMN_INDEX_XYZ as the second index.
 		 * You can use columnFromKey(COLUMN_KEY_XYZ) to get the first (column number) index.
 		 * This array is used to initialize the names of the columns and for returning values from
-		 * {@code getColumClass} and <code>isCellEditable</code>.
+		 * {@code getColumClass} and {@code isCellEditable}.
 		 */
 		/*
 		 * CONSIDER Could this be a List<Blah> where Blah is a type-safe immutable object?
 		 * Seems that might be a way to clean this up to be more understandable - would also 
 		 * prevent some object use (Boolean) - thpr 10/27/06
 		 */
-		private Object[][] columns = {{"Bonus", Integer.class, null, Boolean.FALSE, COLUMN_KEY_BONUS},
+		private final Object[][] columns = {{"Bonus", Integer.class, null, Boolean.FALSE, COLUMN_KEY_BONUS},
 			{"Fudge", Integer.class, 0, Boolean.TRUE, COLUMN_KEY_FUDGE},
 			{"Increment", Integer.class, m_attack.getRangeAsInt(), Boolean.FALSE, COLUMN_KEY_INCREMENT},
 			{"Range", Integer.class, null, Boolean.TRUE, COLUMN_KEY_RANGE},
@@ -498,7 +503,7 @@ public class AttackDialog extends JDialog
 		/**
 		 * @param string
 		 */
-		public void setAcType(String string)
+		private void setAcType(String string)
 		{
 			m_acType = string;
 
@@ -525,7 +530,7 @@ public class AttackDialog extends JDialog
 		@Override
 		public boolean isCellEditable(int row, int column)
 		{
-			return ((Boolean) columns[column][COLUMN_INDEX_EDITABLE]).booleanValue();
+			return (Boolean) columns[column][COLUMN_INDEX_EDITABLE];
 		}
 
 		@Override
@@ -561,7 +566,7 @@ public class AttackDialog extends JDialog
 		/**
 		 * Iterates through all rows in the table and calls {@code rollAttack(row)}.
 		 */
-		public void rollAttacks()
+		private void rollAttacks()
 		{
 			for (int i = 0; i < getRowCount(); i++)
 			{
@@ -582,7 +587,7 @@ public class AttackDialog extends JDialog
 
 			if ((getValueAt(row, column) != null) && getValueAt(row, column) instanceof Integer)
 			{
-				returnValue = ((Integer) getValueAt(row, column)).intValue();
+				returnValue = (Integer) getValueAt(row, column);
 			}
 
 			return returnValue;
@@ -716,39 +721,33 @@ public class AttackDialog extends JDialog
 			//COLUMN_KEY_DMGTOT
 			if ((column == columnFromKey(COLUMN_KEY_HIT)) || (column == columnFromKey(COLUMN_KEY_CRIT)))
 			{
-				if (((Boolean) getValueAt(row, columnFromKey(COLUMN_KEY_HIT))).booleanValue())
+				if ((Boolean) getValueAt(row, columnFromKey(COLUMN_KEY_HIT)))
 				{
 					int numberOfRolls = 1;
 					String damageString = (String) getValueAt(row, columnFromKey(COLUMN_KEY_DMG));
 
 					if (damageString.indexOf('/') >= 0)
 					{
-						StringTokenizer tok = new StringTokenizer(damageString, "/");
-						String[] heads = new String[tok.countTokens()];
+						List<String> heads = List.of(damageString.split("/"));
+						ObservableList<String> observableHeads = FXCollections.observableArrayList(heads);
 
-						for (int i = 0; tok.hasMoreTokens(); i++)
-						{
-							heads[i] = tok.nextToken();
-						}
-
-						damageString = (String) JOptionPane.showInputDialog(AttackDialog.this,
-							"This weapon appears to have more than one possible damage "
-								+ "die listed.  Please choose one:",
-							"Multiple Damage Dice", JOptionPane.QUESTION_MESSAGE, null, heads, heads[1]);
-						setValueAt(damageString, row, columnFromKey(COLUMN_KEY_DMG));
+						ChoiceDialog<String> choiceDialog = new ChoiceDialog<>();
+						choiceDialog.getItems().setAll(observableHeads);
+						choiceDialog.setContentText("This weapon appears to have more than one possible damage "
+										+ "die listed.  Please choose one:");
+						choiceDialog.setSelectedItem(heads.get(1));
+						Optional<String> which = GuiUtility.runOnJavaFXThreadNow(choiceDialog::showAndWait);
+						which.ifPresent(chosenString -> setValueAt(chosenString, row, columnFromKey(COLUMN_KEY_DMG)));
 					}
 
-					if (((Boolean) getValueAt(row, columnFromKey(COLUMN_KEY_CRIT))).booleanValue())
+					if ((Boolean) getValueAt(row, columnFromKey(COLUMN_KEY_CRIT)))
 					{
 						numberOfRolls = Integer.parseInt(m_attack.getCritMultiple(row));
 					}
 
-					int dmg = 0;
-
-					for (int i = 0; i < numberOfRolls; i++)
-					{
-						dmg += RollingMethods.roll(damageString);
-					}
+					int dmg = IntStream.range(0, numberOfRolls)
+					                   .map(i -> RollingMethods.roll(damageString))
+					                   .sum();
 
 					setValueAt(dmg, row, columnFromKey(COLUMN_KEY_DMGTOT));
 				}
@@ -770,7 +769,7 @@ public class AttackDialog extends JDialog
 			setValueAt(RollingMethods.roll("1d20"), row, columnFromKey(COLUMN_KEY_ROLL));
 
 			if ((getIntAt(row, columnFromKey(COLUMN_KEY_ROLL)) >= m_attack.getCritRangeMin(row))
-				&& ((Boolean) getValueAt(row, columnFromKey(COLUMN_KEY_HIT))).booleanValue())
+				&& (Boolean) getValueAt(row, columnFromKey(COLUMN_KEY_HIT)))
 			{
 				setValueAt(RollingMethods.roll("1d20"), row, columnFromKey(COLUMN_KEY_CRITROLL));
 			}
