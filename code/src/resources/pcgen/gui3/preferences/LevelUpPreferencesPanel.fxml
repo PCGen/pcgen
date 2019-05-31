@@ -23,12 +23,10 @@
 <Scene xmlns="http://javafx.com/javafx"
        xmlns:fx="http://javafx.com/fxml"
        fx:controller="pcgen.gui3.preferences.LevelUpPreferencesPanelController">
-    <TitledPane collapsible="false" text="%in_Prefs_levelUp">
-        <VBox>
-            <Label labelFor="$statWindow" text="%in_Prefs_statWindow"/>
-            <CheckBox fx:id="statWindow"/>
-            <Label labelFor="$warnFirstLevelUp" text="%in_Prefs_warnFirstLevelUp"/>
-            <CheckBox fx:id="warnFirstLevelUp"/>
-        </VBox>
-    </TitledPane>
+    <VBox>
+        <Label labelFor="$statWindow" text="%in_Prefs_statWindow"/>
+        <CheckBox fx:id="statWindow"/>
+        <Label labelFor="$warnFirstLevelUp" text="%in_Prefs_warnFirstLevelUp"/>
+        <CheckBox fx:id="warnFirstLevelUp"/>
+    </VBox>
 </Scene>

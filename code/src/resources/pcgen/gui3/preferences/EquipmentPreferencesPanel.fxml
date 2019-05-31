@@ -23,12 +23,10 @@
 <Scene xmlns="http://javafx.com/javafx"
        xmlns:fx="http://javafx.com/fxml"
        fx:controller="pcgen.gui3.preferences.EquipmentPreferencesPanelController">
-    <TitledPane collapsible="false" text="%in_Prefs_equipment">
-        <VBox>
-            <Label labelFor="$wandSpinner" text="%in_Prefs_wandMax"/>
-            <Spinner fx:id="wandSpinner"/>
-            <Label labelFor="$potionSpinner" text="%in_Prefs_potionMax"/>
-            <Spinner fx:id="potionSpinner"/>
-        </VBox>
-    </TitledPane>
+    <VBox>
+        <Label labelFor="$wandSpinner" text="%in_Prefs_wandMax"/>
+        <Spinner fx:id="wandSpinner"/>
+        <Label labelFor="$potionSpinner" text="%in_Prefs_potionMax"/>
+        <Spinner fx:id="potionSpinner"/>
+    </VBox>
 </Scene>
