@@ -70,6 +70,12 @@ public final class JFXPanelFromResource<T> extends JFXPanel implements Controlla
 		return GuiUtility.runOnJavaFXThreadNow(fxmlLoader::getController);
 	}
 
+	public T getControllerFromJavaFXThread()
+	{
+		GuiAssertions.assertIsJavaFXThread();
+		return fxmlLoader.getController();
+	}
+
 	public void showAsStage(String title)
 	{
 		Platform.runLater(() -> {

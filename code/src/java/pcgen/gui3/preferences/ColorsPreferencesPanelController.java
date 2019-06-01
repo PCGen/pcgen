@@ -22,7 +22,6 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.ResettableController;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.ColorPicker;
 
@@ -53,18 +52,16 @@ public class ColorsPreferencesPanelController implements ResettableController
 	@Override
 	public void reset()
 	{
-		GuiAssertions.assertIsNotJavaFXThread();
-		Platform.runLater(() -> {
-			prereqQualifyColor.setValue(UIPropertyContext.getQualifiedColor());
-			prereqFailColor.setValue(UIPropertyContext.getNotQualifiedColor());
-			featAutoColor.setValue(UIPropertyContext.getAutomaticColor());
-			featVirtualColor.setValue(UIPropertyContext.getVirtualColor());
+		GuiAssertions.assertIsJavaFXThread();
+		prereqQualifyColor.setValue(UIPropertyContext.getQualifiedColor());
+		prereqFailColor.setValue(UIPropertyContext.getNotQualifiedColor());
+		featAutoColor.setValue(UIPropertyContext.getAutomaticColor());
+		featVirtualColor.setValue(UIPropertyContext.getVirtualColor());
 
-			sourceStatusRelease.setValue(UIPropertyContext.getSourceStatusReleaseColor());
-			sourceStatusAlpha.setValue(UIPropertyContext.getSourceStatusAlphaColor());
-			sourceStatusBeta.setValue(UIPropertyContext.getSourceStatusBetaColor());
-			sourceStatusTest.setValue(UIPropertyContext.getSourceStatusTestColor());
-		});
+		sourceStatusRelease.setValue(UIPropertyContext.getSourceStatusReleaseColor());
+		sourceStatusAlpha.setValue(UIPropertyContext.getSourceStatusAlphaColor());
+		sourceStatusBeta.setValue(UIPropertyContext.getSourceStatusBetaColor());
+		sourceStatusTest.setValue(UIPropertyContext.getSourceStatusTestColor());
 	}
 
 	@Override
