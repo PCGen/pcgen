@@ -8,13 +8,12 @@
   <module name="SuppressionFilter">
     <property name="file" value="${samedir}/checkstyle-suppressions.xml"/>
   </module>
+  <module name="SuppressWarningsFilter"/>
   <module name="TreeWalker">
     <property name="severity" value="error"/>
+    <module name="SuppressWarningsHolder"/>
     <module name="UpperEll"/>
     <module name="IllegalImport"/>
-  </module>
-  <module name="TreeWalker">
-    <property name="severity" value="warning"/>
     <module name="JavadocMethod">
       <property name="scope" value="public"/>
       <property name="allowMissingJavadoc" value="true" />
@@ -23,18 +22,7 @@
       <property name="allowMissingReturnTag" value="true"/>
       <property name="allowMissingPropertyJavadoc" value="true"/>
     </module>
-    <module name="JavadocVariable">
-      <property name="scope" value="public"/>
-    </module>
-    <module name="ConstantName"/>
-    <module name="LocalFinalVariableName"/>
-    <module name="LocalVariableName"/>
-    <module name="MemberName"/>
-    <module name="MethodName"/>
     <module name="PackageName"/>
-    <module name="ParameterName"/>
-    <module name="StaticVariableName"/>
-    <module name="TypeName"/>
     <module name="AvoidStarImport"/>
     <module name="RedundantImport"/>
     <module name="UnusedImports"/>
@@ -60,9 +48,6 @@
     <module name="FinalClass"/>
     <module name="HideUtilityClassConstructor"/>
     <module name="ArrayTypeStyle"/>
-    <module name="TodoComment">
-      <property name="severity" value="info"/>
-    </module>
   </module>
   <module name="NewlineAtEndOfFile"/>
   <module name="Translation"/>

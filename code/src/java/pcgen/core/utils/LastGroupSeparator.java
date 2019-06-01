@@ -111,7 +111,7 @@ public class LastGroupSeparator
 		return root.toString();
 	}
 
-	public static class GroupingMismatchException extends IllegalStateException
+	public static final class GroupingMismatchException extends IllegalStateException
 	{
 
 		private GroupingMismatchException(String base)

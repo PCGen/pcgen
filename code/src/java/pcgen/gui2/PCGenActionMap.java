@@ -239,7 +239,7 @@ public final class PCGenActionMap extends ActionMap
 
 	}
 
-	private static class GMGenAction extends PCGenAction
+	private static final class GMGenAction extends PCGenAction
 	{
 
 		private GMGenAction()

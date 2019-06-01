@@ -78,8 +78,7 @@ import pcgen.system.LanguageBundle;
  *
  * 
  */
-@SuppressWarnings("serial")
-public class EquipCustomPanel extends FlippingSplitPane
+public final class EquipCustomPanel extends FlippingSplitPane
 {
 
 	private final FilteredTreeViewTable<Object, EquipmentModifier> availableTable;
@@ -523,7 +522,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		}
 	}
 
-	private static class EquipModTreeViewModel implements TreeViewModel<EquipmentModifier>, DataView<EquipmentModifier>,
+	private static final class EquipModTreeViewModel implements TreeViewModel<EquipmentModifier>, DataView<EquipmentModifier>,
 			Filter<EquipmentBuilderFacade, EquipmentModifier>, ListListener<EquipmentModifier>
 	{
 

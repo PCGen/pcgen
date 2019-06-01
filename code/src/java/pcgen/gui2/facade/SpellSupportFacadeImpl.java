@@ -99,6 +99,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * 
  */
+@SuppressWarnings("checkstyle:FinalClass")
 public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentListListener, ListListener<EquipmentFacade>
 {
 	private final PlayerCharacter pc;
