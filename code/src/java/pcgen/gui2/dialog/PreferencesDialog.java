@@ -98,7 +98,6 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	private LanguagePanel languagePanel;
 	private PCGenPrefsPanel locationPanel;
-	private PCGenPrefsPanel outputPanel;
 
 	private CopySettingsPanelController copySettingsPanelController;
 
@@ -263,9 +262,9 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 				"in_Prefs_input"
 		);
 		addPanelToTree(pcGenNode, inputPanel);
-		outputPanel = new OutputPanel();
+		PCGenPrefsPanel outputPanel = new OutputPanel();
 		addPanelToTree(pcGenNode, outputPanel);
-		ConvertedJavaFXPanel< SourcesPreferencesPanelController > sourcesPanel =
+		ConvertedJavaFXPanel<SourcesPreferencesPanelController> sourcesPanel =
 				new ConvertedJavaFXPanel<>(
 				SourcesPreferencesPanelController.class,
 				"SourcesPreferencesPanel.fxml",
