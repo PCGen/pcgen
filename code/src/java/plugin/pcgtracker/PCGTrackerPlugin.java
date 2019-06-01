@@ -21,13 +21,11 @@ import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.util.List;
 
-import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
@@ -39,6 +37,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui3.GuiUtility;
 import pcgen.io.PCGFile;
 import pcgen.io.PCGIOHandler;
 import pcgen.pluginmgr.InteractivePlugin;
@@ -238,37 +237,34 @@ public class PCGTrackerPlugin implements InteractivePlugin, java.awt.event.Actio
 	/**
 	 * Handles the clicking of the <b>Add</b> button on the GUI.
 	 */
-	public void handleOpen()
+	private void handleOpen()
 	{
-		File defaultFile = new File(PCGenSettings.getPcgDir());
-		JFileChooser chooser = new JFileChooser();
-		chooser.setCurrentDirectory(defaultFile);
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setInitialDirectory(new File(PCGenSettings.getPcgDir()));
 
-		String[] pcgs = {FILENAME_PCG, FILENAME_PCP};
-		FileFilter ff = new FileNameExtensionFilter(LanguageBundle.getString("in_pcgen_file"),
+		FileChooser.ExtensionFilter pcgenFilter = new FileChooser.ExtensionFilter(
+				LanguageBundle.getString("in_pcgen_file"), "*.pcp", "*.pcg"
+		);
+		fileChooser.getExtensionFilters().add(pcgenFilter);
+		fileChooser.setSelectedExtensionFilter(pcgenFilter);
 
-			pcgs);
-		chooser.addChoosableFileFilter(ff);
-		chooser.setFileFilter(ff);
-		chooser.setMultiSelectionEnabled(true);
-		Component component = GMGenSystem.inst;
-		Cursor originalCursor = component.getCursor();
-		component.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-
-		int option = chooser.showOpenDialog(GMGenSystem.inst);
-
-		if (option == JFileChooser.APPROVE_OPTION)
+		List<File> selectedFiles = GuiUtility.runOnJavaFXThreadNow(() -> fileChooser.showOpenMultipleDialog(null));
+		if (selectedFiles == null)
 		{
-			for (File selectedFile : chooser.getSelectedFiles())
+			return;
+		}
+		Cursor originalCursor = GMGenSystem.inst.getCursor();
+		GMGenSystem.inst.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+
+		for (File selectedFile : selectedFiles)
+		{
+			if (PCGFile.isPCGenCharacterOrPartyFile(selectedFile))
 			{
-				if (PCGFile.isPCGenCharacterOrPartyFile(selectedFile))
-				{
-					messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(this, selectedFile, false));
-				}
+				messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(this, selectedFile, false));
 			}
 		}
-
 		GMGenSystem.inst.setCursor(originalCursor);
+
 	}
 
 	/**

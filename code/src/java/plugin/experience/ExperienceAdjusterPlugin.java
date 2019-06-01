@@ -287,18 +287,7 @@ public class ExperienceAdjusterPlugin extends KeyAdapter
 	 */
 	private void handleExportButton()
 	{
-		/*if(c.size() != 0) {
-		 JFileChooser chooser = new JFileChooser();
-		 String[] txts = new String[] {"txt"};
-		 chooser.addChoosableFileFilter(new SimpleFileFilter(txts, "Text Format (*.txt)"));
-		 chooser.removeChoosableFileFilter(chooser.getAcceptAllFileFilter());
-		 int option = chooser.showSaveDialog(eaView);
-		 if(option == JFileChooser.APPROVE_OPTION) {
-		 eaModel.export( chooser.getSelectedFile() );
-		 } else {
-		 // this means the file is invalid
-		 }
-		 }*/
+		Logging.errorPrint("unsupported operation");
 	}
 
 	/**
