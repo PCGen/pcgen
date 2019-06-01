@@ -20,6 +20,8 @@ package pcgen.gui3;
 
 import javax.swing.SwingUtilities;
 
+import pcgen.util.Logging;
+
 import javafx.application.Platform;
 
 /**
@@ -86,6 +88,21 @@ public final class GuiAssertions
 					"expected NOT to be on gui thread - actually on: " + Thread.currentThread().getName());
 		}
 	}
+
+	/**
+	 * This should be rarely used. Instead assert which thread you're actually supposed to be on.
+	 */
+	public static void assertIsOnGUIThread()
+	{
+		Logging.debugPrint("asserting unknown gui thread: actually on: " + Thread.currentThread().getName());
+		if (!Platform.isFxApplicationThread() && !SwingUtilities.isEventDispatchThread())
+		{
+			throw new WrongThreadException(
+					"expected to be on gui thread - actually on: " + Thread.currentThread().getName());
+		}
+	}
+
+
 
 
 }
