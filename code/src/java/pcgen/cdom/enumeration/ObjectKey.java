@@ -88,7 +88,7 @@ import pcgen.util.enumeration.Visibility;
  * @param <T>
  *            The class of object stored by this ObjectKey.
  */
-@SuppressWarnings("PMD.ClassWithOnlyPrivateConstructorsShouldBeFinal")
+@SuppressWarnings({"PMD.ClassWithOnlyPrivateConstructorsShouldBeFinal", "checkstyle:FinalClass"})
 public class ObjectKey<T>
 {
 
