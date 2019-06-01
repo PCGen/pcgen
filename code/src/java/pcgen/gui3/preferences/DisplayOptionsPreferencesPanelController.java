@@ -20,10 +20,10 @@ package pcgen.gui3.preferences;
 
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.UIPropertyContext;
+import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.ResettableController;
 import pcgen.system.PCGenSettings;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -58,7 +58,8 @@ public class DisplayOptionsPreferencesPanelController implements ResettableContr
 	@Override
 	public void reset()
 	{
-		Platform.runLater(() -> cmbChoiceMethods.getSelectionModel().select(UIPropertyContext.getSingleChoiceAction()));
+		GuiAssertions.assertIsJavaFXThread();
+		cmbChoiceMethods.getSelectionModel().select(UIPropertyContext.getSingleChoiceAction());
 		showSkillModifier.setSelected(
 				PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN, false));
 		showSkillRanks.setSelected(

@@ -107,7 +107,7 @@ public final class CopySettingsPanelController implements ResettableController
 				.getPCGenOption("InfoCharacterSheet." + gmFrom.getName() + ".CurrentSheet", currentICS);
 		SettingsHandler.setPCGenOption("InfoCharacterSheet." + gmTo.getName() + ".CurrentSheet", fromGmICS);
 
-		// Refresh the affected settings panels
+		GuiAssertions.assertIsNotJavaFXThread();
 		affectedPanels.forEach(PCGenPrefsPanel::applyOptionValuesToControls);
 
 		// Let the user know it is done
