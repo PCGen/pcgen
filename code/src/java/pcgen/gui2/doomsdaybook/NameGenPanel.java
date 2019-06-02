@@ -158,7 +158,7 @@ public class NameGenPanel extends JPanel
 				rule = (Rule) cbStructure.getSelectedItem();
 			}
 
-			ArrayList<DataValue> aName = rule.getData();
+			List<DataValue> aName = rule.getData();
 			setNameText(aName);
 			setMeaningText(aName);
 			setPronounciationText(aName);
@@ -264,7 +264,7 @@ public class NameGenPanel extends JPanel
 				this.lastRule = rule;
 			}
 
-			ArrayList<DataValue> aName = rule.getLastData();
+			List<DataValue> aName = rule.getLastData();
 
 			setNameText(aName);
 			setMeaningText(aName);

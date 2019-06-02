@@ -18,10 +18,11 @@
 package pcgen.core.doomsdaybook;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CRRule implements DataElement
 {
-	ArrayList<DataValue> retList = new ArrayList<>();
+	private final List<DataValue> retList = new ArrayList<>();
 
 	/** Creates a new instance of SpaceRule */
 	public CRRule()
@@ -30,13 +31,7 @@ public class CRRule implements DataElement
 	}
 
 	@Override
-	public ArrayList<DataValue> getData()
-	{
-		return retList;
-	}
-
-	@Override
-	public ArrayList<DataValue> getData(int choice)
+	public List<DataValue> getData()
 	{
 		return retList;
 	}
@@ -48,7 +43,7 @@ public class CRRule implements DataElement
 	}
 
 	@Override
-	public ArrayList<DataValue> getLastData()
+	public List<DataValue> getLastData()
 	{
 		return retList;
 	}
@@ -65,9 +60,4 @@ public class CRRule implements DataElement
 		return 1;
 	}
 
-	@Override
-	public void trimToSize()
-	{
-		// TODO:  Method doesn't do anything?
-	}
 }

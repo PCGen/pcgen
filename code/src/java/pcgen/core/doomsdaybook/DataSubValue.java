@@ -20,18 +20,18 @@ package pcgen.core.doomsdaybook;
 /**
  * DataSubValue 
  */
-public class DataSubValue
+class DataSubValue
 {
 	private DataSubValue next;
-	private String key;
-	private String value;
+	private final String key;
+	private final String value;
 
 	/**
 	 * Constructor
 	 * @param key
 	 * @param value
 	 */
-	public DataSubValue(String key, String value)
+	DataSubValue(String key, String value)
 	{
 		this.key = key;
 		this.value = value;

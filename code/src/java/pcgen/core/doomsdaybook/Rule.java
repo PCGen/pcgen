@@ -18,35 +18,17 @@
 package pcgen.core.doomsdaybook;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import pcgen.util.Logging;
 
 public class Rule extends ArrayList<String> implements DataElement
 {
-	ArrayList<DataValue> retList = new ArrayList<>();
-	String id;
-	String title;
-	VariableHashMap allVars;
-	int weight;
-
-	/**
-	 * Creates a new instance of Rule
-	 * @param allVars
-	 */
-	public Rule(VariableHashMap allVars)
-	{
-		this(allVars, "", "", 1);
-	}
-
-	public Rule(VariableHashMap allVars, int weight)
-	{
-		this(allVars, "", "", weight);
-	}
-
-	public Rule(VariableHashMap allVars, String title, String id)
-	{
-		this(allVars, title, id, 1);
-	}
+	private final List<DataValue> retList = new ArrayList<>();
+	private String id;
+	private String title;
+	private final VariableHashMap allVars;
+	private int weight;
 
 	public Rule(VariableHashMap allVars, String title, String id, int weight)
 	{
@@ -57,7 +39,7 @@ public class Rule extends ArrayList<String> implements DataElement
 	}
 
 	@Override
-	public ArrayList<DataValue> getData() throws Exception
+	public List<DataValue> getData() throws Exception
 	{
 		retList.clear();
 
@@ -68,12 +50,6 @@ public class Rule extends ArrayList<String> implements DataElement
 		}
 
 		return retList;
-	}
-
-	@Override
-	public ArrayList<DataValue> getData(int choice) throws Exception
-	{
-		return getData();
 	}
 
 	public void setId(String id)
@@ -88,7 +64,7 @@ public class Rule extends ArrayList<String> implements DataElement
 	}
 
 	@Override
-	public ArrayList<DataValue> getLastData() throws Exception
+	public List<DataValue> getLastData() throws Exception
 	{
 		retList.clear();
 
