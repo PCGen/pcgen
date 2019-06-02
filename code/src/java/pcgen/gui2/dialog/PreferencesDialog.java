@@ -47,7 +47,6 @@ import pcgen.gui2.prefs.LocationPanel;
 import pcgen.gui2.prefs.MonsterPanel;
 import pcgen.gui2.prefs.OutputPanel;
 import pcgen.gui2.prefs.PCGenPrefsPanel;
-import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.GuiUtility;
@@ -81,7 +80,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	public static final String LB_PREFS_PLUGINS_RUN = "in_Prefs_pluginsRun"; //$NON-NLS-1$
 
 	private DefaultTreeModel settingsModel;
-	private FlippingSplitPane splitPane;
+	private JSplitPane splitPane;
 
 	private JPanel settingsPanel;
 
@@ -338,7 +337,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		});
 
 		// Build the split pane
-		splitPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, settingsScroll, settingsPanel);
+		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, settingsScroll, settingsPanel);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 
