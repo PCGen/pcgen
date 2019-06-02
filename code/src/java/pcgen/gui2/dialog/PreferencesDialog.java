@@ -41,7 +41,6 @@ import javax.swing.tree.TreeSelectionModel;
 
 import pcgen.cdom.base.Constants;
 import pcgen.gui2.prefs.CharacterStatsPanel;
-import pcgen.gui2.prefs.DefaultsPanel;
 import pcgen.gui2.prefs.HouseRulesPanel;
 import pcgen.gui2.prefs.LanguagePanel;
 import pcgen.gui2.prefs.LocationPanel;
@@ -57,6 +56,7 @@ import pcgen.gui3.preferences.CenteredLabelPanelController;
 import pcgen.gui3.preferences.ColorsPreferencesPanelController;
 import pcgen.gui3.preferences.ConvertedJavaFXPanel;
 import pcgen.gui3.preferences.CopySettingsPanelController;
+import pcgen.gui3.preferences.DefaultsPreferencesPanelController;
 import pcgen.gui3.preferences.DisplayOptionsPreferencesPanelController;
 import pcgen.gui3.preferences.EquipmentPreferencesPanelController;
 import pcgen.gui3.preferences.HitPointsPreferencesController;
@@ -212,7 +212,10 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		addPanelToTree(characterNode, houseRulesPanel);
 		monsterPanel = new MonsterPanel();
 		addPanelToTree(characterNode, monsterPanel);
-		defaultsPanel = new DefaultsPanel();
+		defaultsPanel = new ConvertedJavaFXPanel<>(
+				DefaultsPreferencesPanelController.class,
+				"DefaultsPreferencesPanel.fxml",
+				"in_Prefs_defaults");
 		addPanelToTree(characterNode, defaultsPanel);
 		rootNode.add(characterNode);
 
