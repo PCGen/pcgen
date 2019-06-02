@@ -26,7 +26,6 @@ import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
@@ -52,6 +51,7 @@ import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.GuiUtility;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.preferences.CenteredLabelPanelController;
 import pcgen.gui3.preferences.ColorsPreferencesPanelController;
@@ -67,6 +67,8 @@ import pcgen.gui3.preferences.SourcesPreferencesPanelController;
 import pcgen.system.LanguageBundle;
 
 import javafx.embed.swing.JFXPanel;
+import javafx.scene.control.Alert;
+
 
 /**
  *  PCGen preferences dialog
@@ -149,9 +151,10 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 		if (needsRestart)
 		{
-			JOptionPane.showMessageDialog(
-				getParent(), LanguageBundle.getString("in_Prefs_restartRequired"), //$NON-NLS-1$
-				Constants.APPLICATION_NAME, JOptionPane.INFORMATION_MESSAGE);
+			Alert alert = GuiUtility.runOnJavaFXThreadNow(() -> new Alert(Alert.AlertType.INFORMATION));
+			alert.setTitle(Constants.APPLICATION_NAME);
+			alert.setContentText(LanguageBundle.getString("in_Prefs_restartRequired"));
+			GuiUtility.runOnJavaFXThreadNow(alert::showAndWait);
 		}
 	}
 
