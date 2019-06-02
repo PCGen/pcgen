@@ -20,11 +20,11 @@ package pcgen.system;
 
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -47,8 +47,6 @@ import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.gui2.facade.Gui2CampaignInfoFactory;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
-
-import org.apache.commons.lang3.ArrayUtils;
 
 public final class FacadeFactory
 {
@@ -160,16 +158,9 @@ public final class FacadeFactory
 
 	private static void initDisplayedSources()
 	{
-		String[] hiddenElements =
-				PCGenSettings.getInstance().getStringArray("hiddenSources", ArrayUtils.EMPTY_STRING_ARRAY);
-		for (int i = 0; i < quickSources.getSize(); i++)
-		{
-			SourceSelectionFacade selection = quickSources.getElementAt(i);
-			if (!ArrayUtils.contains(hiddenElements, selection.toString()))
-			{
-				displayedSources.addElement(selection);
-			}
-		}
+		IntStream.range(0, quickSources.getSize())
+		         .mapToObj(i -> quickSources.getElementAt(i))
+		         .forEach(selection -> displayedSources.addElement(selection));
 	}
 
 	private static void initCustomSourceSelections()
@@ -258,20 +249,6 @@ public final class FacadeFactory
 			sources.add(csel.toString());
 		}
 		SOURCES_CONTEXT.setStringArray("selectionNames", sources);
-	}
-
-	public static void setDisplayedSources(SourceSelectionFacade[] sources)
-	{
-		displayedSources.setContents(Arrays.asList(sources));
-		ArrayList<String> hiddenElements = new ArrayList<>();
-		for (SourceSelectionFacade selection : quickSources)
-		{
-			if (!ArrayUtils.contains(sources, selection))
-			{
-				hiddenElements.add(selection.toString());
-			}
-		}
-		PCGenSettings.getInstance().setStringArray("hiddenSources", hiddenElements);
 	}
 
 	public static SourceSelectionFacade createSourceSelection(GameMode gameMode,

@@ -47,7 +47,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
@@ -75,8 +74,6 @@ import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.tools.InfoPaneLinkAction;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FacadeListModel;
-import pcgen.gui2.util.JTableEx;
-import pcgen.gui2.util.table.TableUtils;
 import pcgen.gui3.utilty.ColorUtilty;
 import pcgen.system.FacadeFactory;
 import pcgen.system.LanguageBundle;
@@ -92,7 +89,6 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 	private static final String CANCEL_COMMAND = "Cancel"; //$NON-NLS-1$
 	private static final String SAVE_COMMAND = "Save"; //$NON-NLS-1$
 	private static final String DELETE_COMMAND = "Delete"; //$NON-NLS-1$
-	private static final String HIDEUNHIDE_COMMAND = "Hide"; //$NON-NLS-1$
 	private static final String INSTALLDATA_COMMAND = "Install"; //$NON-NLS-1$
 	private final PCGenFrame frame;
 	private final QuickSourceSelectionPanel basicPanel;
@@ -101,7 +97,6 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 	private final JPanel buttonPanel;
 	private final JButton loadButton;
 	private final JButton cancelButton;
-	private final JButton hideunhideButton;
 	private final JButton deleteButton;
 	private final JButton installDataButton;
 	private final JButton saveButton;
@@ -121,8 +116,6 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 		this.cancelButton = new JButton();
 		CommonMenuText.name(cancelButton, "cancel"); //$NON-NLS-1$
 
-		this.hideunhideButton = new JButton();
-		CommonMenuText.name(hideunhideButton, "hideunhide"); //$NON-NLS-1$
 		this.deleteButton = new JButton();
 		CommonMenuText.name(deleteButton, "delete"); //$NON-NLS-1$
 		this.installDataButton = new JButton();
@@ -159,14 +152,12 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 		cancelButton.setActionCommand(CANCEL_COMMAND);
 		deleteButton.setActionCommand(DELETE_COMMAND);
 		saveButton.setActionCommand(SAVE_COMMAND);
-		hideunhideButton.setActionCommand(HIDEUNHIDE_COMMAND);
 		installDataButton.setActionCommand(INSTALLDATA_COMMAND);
 
 		loadButton.addActionListener(this);
 		cancelButton.addActionListener(this);
 		saveButton.addActionListener(this);
 		deleteButton.addActionListener(this);
-		hideunhideButton.addActionListener(this);
 		installDataButton.addActionListener(this);
 
 		Box buttons = Box.createHorizontalBox();
@@ -222,8 +213,6 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 	private void setBasicButtons()
 	{
 		buttonPanel.removeAll();
-		buttonPanel.add(hideunhideButton);
-		buttonPanel.add(Box.createHorizontalStrut(5));
 		buttonPanel.add(deleteButton);
 		buttonPanel.revalidate();
 	}
@@ -260,16 +249,7 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 			ListFacade<SourceSelectionFacade> sources = new SortedListFacade<>(Comparators.toStringIgnoreCaseCollator(),
 				FacadeFactory.getCustomSourceSelections());
 			sourcesList.setModel(new FacadeListModel<>(sources));
-			sourcesList.addListSelectionListener(new ListSelectionListener()
-			{
-
-				@Override
-				public void valueChanged(ListSelectionEvent lse)
-				{
-					nameField.setText(sourcesList.getSelectedValue().toString());
-				}
-
-			});
+			sourcesList.addListSelectionListener(lse -> nameField.setText(sourcesList.getSelectedValue().toString()));
 			JPanel panel = new JPanel(new BorderLayout());
 			panel.add(new JScrollPane(sourcesList), BorderLayout.CENTER);
 			panel.add(nameField, BorderLayout.SOUTH);
@@ -314,27 +294,6 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 			setVisible(false);
 			DataInstaller di = new DataInstaller();
 			di.setVisible(true);
-		}
-		else if (command.equals(HIDEUNHIDE_COMMAND))
-		{
-			SourcesTableModel model = new SourcesTableModel();
-			JTableEx table = new JTableEx(model);
-			JTable rowTable = TableUtils.createDefaultTable();
-			JScrollPane pane = TableUtils.createCheckBoxSelectionPane(table, rowTable);
-			table.setShowGrid(false);
-			table.setFocusable(false);
-			table.setRowSelectionAllowed(false);
-			rowTable.setRowSelectionAllowed(false);
-
-			pane.setPreferredSize(new Dimension(300, 200));
-
-			int ret = JOptionPane.showOptionDialog(this, pane, "Select Sources to be visible",
-				JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, null, null);
-			if (ret == JOptionPane.OK_OPTION)
-			{
-				FacadeFactory.setDisplayedSources(model.getDisplayedSources());
-			}
-			model.dispose();
 		}
 		else
 		{//must be the cancel command
