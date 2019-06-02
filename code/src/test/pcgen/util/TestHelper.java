@@ -31,8 +31,7 @@ import java.io.OutputStreamWriter;
 import java.lang.reflect.Field;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Arrays;
-import java.util.List;
+import java.nio.charset.StandardCharsets;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.UnreachableError;
@@ -87,12 +86,16 @@ import org.apache.commons.lang3.SystemUtils;
  * Helps Junit tests
  */
 @SuppressWarnings("nls")
-public class TestHelper
+public final class TestHelper
 {
 	private static boolean loaded = false;
-	private static LstObjectFileLoader<Equipment> eqLoader = new GenericLoader<>(Equipment.class);
-	private static LstObjectFileLoader<Ability>   abLoader = new AbilityLoader();
-	private static CampaignSourceEntry source = null;
+	private static final LstObjectFileLoader<Equipment> eqLoader = new GenericLoader<>(Equipment.class);
+	private static final LstObjectFileLoader<Ability>   abLoader = new AbilityLoader();
+	private static CampaignSourceEntry source;
+
+	private TestHelper()
+	{
+	}
 
 	/**
 	 * Make some size adjustments
@@ -187,7 +190,7 @@ public class TestHelper
 			Class<?> clazz = aClass;
 			while (true)
 			{
-				for (final Field f : Arrays.asList(clazz.getDeclaredFields()))
+				for (final Field f : clazz.getDeclaredFields())
 				{
 					if (f.getName().equals(fieldName))
 					{
@@ -290,7 +293,7 @@ public class TestHelper
 
 		try
 		{
-			if (null == source)
+			if (source == null)
 			{
 				try
 				{
@@ -441,7 +444,7 @@ public class TestHelper
 
 	public static void addType(CDOMObject cdo, String string)
 	{
-		List<String> stringList = Arrays.asList(string.split("\\."));
+		String[] stringList = string.split("\\.");
 		for (String s : stringList)
 		{
 			cdo.addToListFor(ListKey.TYPE, Type.getConstant(s));
@@ -472,23 +475,20 @@ public class TestHelper
 	{
 		// Set the pcc location to "data"
 		String pccLoc = "data";
-		try
+		// Read in options.ini and override the pcc location if it exists
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(
+				new FileInputStream("config.ini"), StandardCharsets.UTF_8)))
 		{
-			// Read in options.ini and override the pcc location if it exists
-			BufferedReader br =
-					new BufferedReader(new InputStreamReader(
-						new FileInputStream("config.ini"), "UTF-8"));
 			while (br.ready())
 			{
 				String line = br.readLine();
 				if (line != null
-					&& line.startsWith("pccFilesPath="))
+						&& line.startsWith("pccFilesPath="))
 				{
 					pccLoc = line.substring(13);
 					break;
 				}
 			}
-			br.close();
 		}
 		catch (IOException e)
 		{
@@ -502,26 +502,25 @@ public class TestHelper
 	 * @param configFileName The name of the new config file.
 	 * @param configFolder The folder in which other settings files will be saved.
 	 * @param pccLoc The location of the data folder.
-	 * @return The file that was created.
 	 * @throws IOException If the file cannot be written.
 	 */
-	public static File createDummySettingsFile(String configFileName,
-		String configFolder, String pccLoc) throws IOException
+	public static void createDummySettingsFile(String configFileName,
+	                                           String configFolder, String pccLoc) throws IOException
 	{
 		File configFile = new File(configFileName);
-		BufferedWriter bw =
-				new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
-					configFile), "UTF-8"));
-		bw.write("settingsPath=" + configFolder + "\r\n");
-		if (pccLoc != null)
+		configFile.deleteOnExit();
+		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(
+				configFile), StandardCharsets.UTF_8)))
 		{
-			System.out.println("Using PCC Location of '" + pccLoc + "'.");
-			bw.write("pccFilesPath=" + pccLoc + "\r\n");
+			bw.write("settingsPath=" + configFolder + "\r\n");
+			if (pccLoc != null)
+			{
+				System.out.println("Using PCC Location of '" + pccLoc + "'.");
+				bw.write("pccFilesPath=" + pccLoc + "\r\n");
+			}
+			bw.write("customPath=testsuite\\\\customdata\r\n");
 		}
-		bw.write("customPath=testsuite\\\\customdata\r\n");
-		bw.close();
 
-		return configFile;
 	}
 	
 	public static void loadGameModes(String testConfigFile)
