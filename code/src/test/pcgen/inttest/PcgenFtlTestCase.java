@@ -79,7 +79,6 @@ public abstract class PcgenFtlTestCase
 		outputFolder.mkdirs();
 		String outputFileName = character + ".xml";
 		File outputFileFile = new File(outputFolder, outputFileName);
-		outputFileFile.delete();
 
 		String pccLoc = TestHelper.findDataFolder();
 
