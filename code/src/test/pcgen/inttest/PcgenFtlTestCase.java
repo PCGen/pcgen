@@ -90,31 +90,24 @@ public abstract class PcgenFtlTestCase
 		 * Override the pcc location, game mode and several other properties in
 		 * the options.ini file
 		 */
-		try
-		{
-			String configFolder = "testsuite";
-			TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
-					pccLoc);
+		String configFolder = "testsuite";
+		TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
+				pccLoc);
 
-			// Fire off PCGen, which will produce an XML file
-			String characterFile = "code/testsuite/PCGfiles/" + character
-					+ Constants.EXTENSION_CHARACTER_FILE;
+		// Fire off PCGen, which will produce an XML file
+		String characterFile = "code/testsuite/PCGfiles/" + character
+				+ Constants.EXTENSION_CHARACTER_FILE;
 
-			String outputFile = outputFileFile.getCanonicalPath();
-			assertTrue(
-					Main.loadCharacterAndExport(characterFile, "code/testsuite/base-xml.ftl",
-							outputFile, TEST_CONFIG_FILE), "Export of " + character + " failed.");
+		String outputFile = outputFileFile.getCanonicalPath();
+		assertTrue(
+				Main.loadCharacterAndExport(characterFile, "code/testsuite/base-xml.ftl",
+						outputFile, TEST_CONFIG_FILE), "Export of " + character + " failed.");
 
-			// Read in the actual XML produced by PCGen
-			actual = readFile(new File(outputFile));
-			// Read in the expected XML
-			expected = readFile(
-					new File("code/testsuite/csheets/" + character + ".xml"));
-		}
-		finally
-		{
-			new File(TEST_CONFIG_FILE).delete();
-		}
+		// Read in the actual XML produced by PCGen
+		actual = readFile(new File(outputFile));
+		// Read in the expected XML
+		expected = readFile(
+				new File("code/testsuite/csheets/" + character + ".xml"));
 
 		Diff myDiff = DiffBuilder.compare(Input.fromString(expected))
 		                         .withTest(Input.fromString(actual)).build();
