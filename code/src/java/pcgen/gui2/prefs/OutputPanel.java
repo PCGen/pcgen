@@ -74,8 +74,6 @@ public class OutputPanel extends PCGenPrefsPanel
 	private static final String IN_REMOVE_TEMP = LanguageBundle.getString("in_Prefs_removeTemp");
 	private static final String IN_SAVE_OUTPUT_SHEET_WITH_PC =
 			LanguageBundle.getString("in_Prefs_saveOutputSheetWithPC");
-	private static final String IN_SHOW_SINGLE_BOX_PER_BUNDLE =
-			LanguageBundle.getString("in_Prefs_showSingleBoxPerBundle");
 	private static final String IN_WEAPON_PROF_PRINTOUT = LanguageBundle.getString("in_Prefs_weaponProfPrintout");
 	private static final String IN_SKILL_FILTER = LanguageBundle.getString("in_Prefs_skillFilterLabel");
 	private static final String IN_CHOOSE = LanguageBundle.getString("...");
@@ -105,7 +103,6 @@ public class OutputPanel extends PCGenPrefsPanel
 	private final JTextField postExportCommandStandard;
 	private final JTextField postExportCommandPDF;
 	private final JCheckBox alwaysOverwrite;
-	private final JCheckBox showSingleBoxPerBundle;
 
 	private String[] paperNames = null;
 
@@ -271,12 +268,6 @@ public class OutputPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(alwaysOverwrite, c);
 		this.add(alwaysOverwrite);
 
-		Utility.buildConstraints(c, 0, 15, 3, 1, 0, 0);
-		showSingleBoxPerBundle = new JCheckBox(IN_SHOW_SINGLE_BOX_PER_BUNDLE, SettingsHandler.getShowSingleBoxPerBundle());
-		gridbag.setConstraints(showSingleBoxPerBundle, c);
-		this.add(showSingleBoxPerBundle);
-
-		Utility.buildConstraints(c, 0, 16, 1, 1, 0, 0);
 		label = new JLabel(LanguageBundle.getString("in_Prefs_exportChoice")); // $NON-NSL-1$
 		gridbag.setConstraints(label, c);
 		this.add(label);
@@ -326,11 +317,6 @@ public class OutputPanel extends PCGenPrefsPanel
 		if (SettingsHandler.getAlwaysOverwrite() || alwaysOverwrite.isSelected())
 		{
 			SettingsHandler.setAlwaysOverwrite(alwaysOverwrite.isSelected());
-		}
-
-		if (SettingsHandler.getShowSingleBoxPerBundle() || showSingleBoxPerBundle.isSelected())
-		{
-			SettingsHandler.setShowSingleBoxPerBundle(showSingleBoxPerBundle.isSelected());
 		}
 
 		context.setProperty(UIPropertyContext.DEFAULT_HTML_OUTPUT_SHEET, outputSheetHTMLDefault.getText());

@@ -122,7 +122,6 @@ public final class SettingsHandler
 	private static boolean guiUsesOutputNameSpells = false;
 	private static int lastTipShown = -1;
 	private static boolean showTipOfTheDay = true;
-	private static boolean showSingleBoxPerBundle = false;
 
 	private SettingsHandler()
 	{
@@ -545,7 +544,6 @@ public final class SettingsHandler
 			expandRelativePath(getOptions().getProperty("pcgen.files.selectedPartyPDFOutputSheet", //$NON-NLS-1$
 				""))); //$NON-NLS-1$
 		setShowHPDialogAtLevelUp(getPCGenOption("showHPDialogAtLevelUp", true)); //$NON-NLS-1$
-		setShowSingleBoxPerBundle(getPCGenOption("showSingleBoxPerBundle", false)); //$NON-NLS-1$
 		setOutputDeprecationMessages(getPCGenOption("outputDeprecationMessages", true));
 		setInputUnconstructedMessages(getPCGenOption("inputUnconstructedMessages", false));
 		setShowStatDialogAtLevelUp(getPCGenOption("showStatDialogAtLevelUp", true)); //$NON-NLS-1$
@@ -691,7 +689,6 @@ public final class SettingsHandler
 		setPCGenOption("showHPDialogAtLevelUp", getShowHPDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showStatDialogAtLevelUp", getShowStatDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showTipOfTheDay", getShowTipOfTheDay()); //$NON-NLS-1$
-		setPCGenOption("showSingleBoxPerBundle", getShowSingleBoxPerBundle()); //$NON-NLS-1$
 		setPCGenOption("showWarningAtFirstLevelUp", isShowWarningAtFirstLevelUp()); //$NON-NLS-1$
 		setPCGenOption("sourceDisplay", Globals.getSourceDisplay().ordinal()); //$NON-NLS-1$
 		setPCGenOption("useHigherLevelSlotsDefault", isUseHigherLevelSlotsDefault()); //$NON-NLS-1$
@@ -1326,24 +1323,6 @@ public final class SettingsHandler
 		}
 
 		return path;
-	}
-
-	/**
-	 * @return The showSingleBoxPerBundle value.
-	 */
-	public static boolean getShowSingleBoxPerBundle()
-	{
-		return showSingleBoxPerBundle;
-	}
-
-	/**
-	 * Set the showSingleBoxPerBundle value.
-	 * 
-	 * @param b The new showSingleBoxPerBundle value.
-	 */
-	public static void setShowSingleBoxPerBundle(boolean b)
-	{
-		showSingleBoxPerBundle = b;
 	}
 
 	private static boolean outputDeprecationMessages = true;
