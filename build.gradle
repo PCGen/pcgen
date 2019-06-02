@@ -419,6 +419,9 @@ allprojects {
     }
 }
 
+dependencyUpdates {
+    revision='release'
+}
 dependencyUpdates.resolutionStrategy = {
     componentSelection { rules ->
         rules.all { ComponentSelection selection ->
@@ -427,12 +430,22 @@ dependencyUpdates.resolutionStrategy = {
                 }) {
                 selection.reject('unofficial release')
             }
+            boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm', 'preview', 'b', 'ea'].any { qualifier ->
+                selection.candidate.version ==~ /(?i).*[.-]$qualifier[.\d-+]*/
+            }
+            if (rejected) {
+                selection.reject('Release candidate')
+            }
             if (selection.candidate.version == '2.0.2' && selection.candidate.name == 'xml-apis') {
                 selection.reject('older than current')
             }
             if (selection.candidate.version == '2.24' && selection.candidate.name == 'jep') {
                 selection.reject('older than current')
             }
+            if (selection.candidate.version == '1.8.0_20' && selection.candidate.name == 'openjfx-monocle') {
+                selection.reject('older than current')
+            }
+
         }
     }
 }
