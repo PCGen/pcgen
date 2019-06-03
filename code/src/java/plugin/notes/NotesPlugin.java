@@ -87,7 +87,7 @@ public class NotesPlugin implements InteractivePlugin
 	{
 		messageHandler = mh;
 		String name = NAME;
-		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, name, new PreferencesNotesPanel()));
+		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, new PreferencesNotesPanel()));
 		theView = new NotesView(getDataDirectory(), this);
 		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, name, getView()));
 		initMenus();

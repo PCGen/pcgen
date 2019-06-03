@@ -23,6 +23,7 @@ package plugin.initiative.gui;
 import java.awt.BorderLayout;
 
 import pcgen.core.SettingsHandler;
+import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 
@@ -36,7 +37,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 
-public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
+public class PreferencesMassiveDamagePanel extends PCGenPrefsPanel
 {
 
 	private static final String OPTION_NAME_TYPE = "Initiative.Damage.Massive.Type"; //$NON-NLS-1$
@@ -69,11 +70,11 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 	public PreferencesMassiveDamagePanel()
 	{
 		initComponents();
-		initPreferences();
+		this.applyOptionValuesToControls();
 	}
 
 	@Override
-	public void applyPreferences()
+	public void setOptionsBasedOnControls()
 	{
 		SettingsHandler.setGMGenOption(OPTION_NAME_TYPE, getType());
 		SettingsHandler.setGMGenOption(OPTION_NAME_EFFECT, getEffect());
@@ -81,17 +82,17 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 	}
 
 	@Override
-	public void initPreferences()
+	public String getTitle()
+	{
+		return LanguageBundle.getString("in_plugin_init_massive_massive");
+	}
+
+	@Override
+	public void applyOptionValuesToControls()
 	{
 		setType(SettingsHandler.getGMGenOption(OPTION_NAME_TYPE, MASSIVE_OFF));
 		setEffect(SettingsHandler.getGMGenOption(OPTION_NAME_EFFECT, MASSIVE_EFFECT_KILL));
 		setSizeMod(SettingsHandler.getGMGenOption(OPTION_NAME_USESIZE, true));
-	}
-
-	@Override
-	public String toString()
-	{
-		return LanguageBundle.getString("in_plugin_init_massive_massive"); //$NON-NLS-1$
 	}
 
 	private void setEffect(int choice)
@@ -324,5 +325,12 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 			sizeLabel1.setDisable(true);
 			sizeLabel2.setDisable(true);
 		}
+	}
+
+	// TODO: get rid of this
+	@Override
+	public String toString()
+	{
+		return this.getTitle();
 	}
 }

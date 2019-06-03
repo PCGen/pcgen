@@ -23,12 +23,13 @@ package plugin.initiative.gui;
 import javax.swing.SwingConstants;
 
 import pcgen.core.SettingsHandler;
+import pcgen.gui2.prefs.PCGenPrefsPanel;
 import plugin.initiative.InitiativePlugin;
 
 /**
  *  Dialog for editing preferences.
  */
-public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
+public class PreferencesTrackingPanel extends PCGenPrefsPanel
 {
 	// End of variables declaration//GEN-END:variables
 	private Initiative initiative;
@@ -114,7 +115,7 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 	}
 
 	@Override
-	public void applyPreferences()
+	public void setOptionsBasedOnControls()
 	{
 		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells", isSpellCheckBoxChecked());
 		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + ".doDeath", isDeathCheckBoxChecked());
@@ -124,18 +125,13 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 	}
 
 	@Override
-	public void initPreferences()
+	public void applyOptionValuesToControls()
 	{
 		setSpellCheckBoxChecked(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doSpells", true));
 		setDeathCheckBoxChecked(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doDeath", true));
 		setHPCheckBoxChecked(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + ".doHP", true));
 	}
 
-	@Override
-	public String toString()
-	{
-		return "Tracking";
-	}
 
 	/**
 	 *  This method is called from within the constructor to initialize the form.
@@ -238,4 +234,17 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 		add(hpCheckBox, gridBagConstraints);
 	}
 	//GEN-END:initComponents
+
+	// TODO: get rid of this
+	@Override
+	public String toString()
+	{
+		return "Tracking";
+	}
+
+	@Override
+	public String getTitle()
+	{
+		return "Tracking";
+	}
 }

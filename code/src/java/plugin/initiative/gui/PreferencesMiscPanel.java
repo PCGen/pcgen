@@ -15,21 +15,20 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  PreferencesTrackingPanel.java
  */
 package plugin.initiative.gui;
 
 import javax.swing.SwingConstants;
 
 import pcgen.core.SettingsHandler;
+import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
 
 /**
  *  Panel that tracks the misc preferences
  */
-public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
+public class PreferencesMiscPanel extends PCGenPrefsPanel
 {
 	private static final String OPTION_NAME_MAXNUM = InitiativePlugin.LOG_NAME + ".dbMaxNum"; //$NON-NLS-1$
 	private static final String OPTION_NAME_DBMAXHP = InitiativePlugin.LOG_NAME + ".dbMaxHP"; //$NON-NLS-1$
@@ -94,7 +93,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 	}
 
 	@Override
-	public void applyPreferences()
+	public void setOptionsBasedOnControls()
 	{
 		SettingsHandler.setGMGenOption(OPTION_NAME_DBMAXHP, getMaxHP());
 		SettingsHandler.setGMGenOption(OPTION_NAME_MAXNUM, getNumber());
@@ -103,14 +102,14 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 	}
 
 	@Override
-	public void initPreferences()
+	public void applyOptionValuesToControls()
 	{
 		setMaxHP(SettingsHandler.getGMGenOption(OPTION_NAME_DBMAXHP, 100));
 		setNumber(SettingsHandler.getGMGenOption(OPTION_NAME_MAXNUM, 20));
 	}
 
 	@Override
-	public String toString()
+	public String getTitle()
 	{
 		return LanguageBundle.getString("in_plugin_init_size"); //$NON-NLS-1$
 	}
@@ -200,4 +199,12 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 		add(tbNumber, gridBagConstraints);
 	}
 	//GEN-END:initComponents
+
+	// TODO: get rid of this
+	@Override
+	public String toString()
+	{
+		return LanguageBundle.getString("in_plugin_init_size"); //$NON-NLS-1$
+	}
+
 }

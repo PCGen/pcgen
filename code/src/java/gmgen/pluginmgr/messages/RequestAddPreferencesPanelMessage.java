@@ -19,7 +19,7 @@
  */
 package gmgen.pluginmgr.messages;
 
-import gmgen.gui.PreferencesPanel;
+import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
@@ -32,19 +32,16 @@ import pcgen.pluginmgr.PCGenMessage;
 @SuppressWarnings("serial")
 public class RequestAddPreferencesPanelMessage extends PCGenMessage
 {
-	private final String name;
-	private final PreferencesPanel prefsPanel;
+	private final PCGenPrefsPanel prefsPanel;
 
 	/**
 	 * Create a new instance of RequestAddPreferencesPanelMessage
 	 * @param source The object requesting to add a panel.
-	 * @param name The name of the panel.
 	 * @param prefsPanel The panel to be added.
 	 */
-	public RequestAddPreferencesPanelMessage(Object source, String name, PreferencesPanel prefsPanel)
+	public RequestAddPreferencesPanelMessage(Object source, PCGenPrefsPanel prefsPanel)
 	{
 		super(source);
-		this.name = name;
 		this.prefsPanel = prefsPanel;
 	}
 
@@ -53,13 +50,13 @@ public class RequestAddPreferencesPanelMessage extends PCGenMessage
 	 */
 	public String getName()
 	{
-		return name;
+		return prefsPanel.getTitle();
 	}
 
 	/**
 	 * @return the prefsPanel
 	 */
-	public PreferencesPanel getPrefsPanel()
+	public PCGenPrefsPanel getPrefsPanel()
 	{
 		return prefsPanel;
 	}
