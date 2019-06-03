@@ -264,24 +264,26 @@ public class OutputPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(skillFilter, c);
 		this.add(skillFilter);
 
-		Utility.buildConstraints(c, 0, 14, 3, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 12, 3, 1, 0, 0);
 		alwaysOverwrite = new JCheckBox(IN_ALWAYS_OVERWRITE, SettingsHandler.getAlwaysOverwrite());
 		gridbag.setConstraints(alwaysOverwrite, c);
 		this.add(alwaysOverwrite);
 
+
+		Utility.buildConstraints(c, 0, 13, 3, 1, 0, 0);
 		label = new JLabel(LanguageBundle.getString("in_Prefs_exportChoice")); // $NON-NSL-1$
 		gridbag.setConstraints(label, c);
 		this.add(label);
 
-		Utility.buildConstraints(c, 1, 16, GridBagConstraints.REMAINDER, 1, 0, 0);
+		Utility.buildConstraints(c, 1, 13, GridBagConstraints.REMAINDER, 1, 0, 0);
 		gridbag.setConstraints(exportChoice, c);
 		this.add(exportChoice);
 
-		Utility.buildConstraints(c, 0, 17, 3, 1, 0, 0);
+		Utility.buildConstraints(c, 0, 14, 3, 1, 0, 0);
 		gridbag.setConstraints(generateTempFileWithPdf, c);
 		this.add(generateTempFileWithPdf);
 
-		Utility.buildConstraints(c, 0, 20, 3, 1, 1, 1);
+		Utility.buildConstraints(c, 0, 15, 3, 1, 1, 1);
 		c.fill = GridBagConstraints.BOTH;
 		label = new JLabel(" ");
 		gridbag.setConstraints(label, c);
