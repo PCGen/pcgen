@@ -9,16 +9,15 @@
 
 
 ###Block: Familiar Choices
-
-# COMMENT: For the brownie, I'm assuming neutral means TN.  I could be wrong.
 # Ability Name								Allowed Companions
 CATEGORY=Internal|Improved Familiar List (5th Level).MOD	COMPANIONLIST:Familiar|Familiar (Brownie)|PREALIGN:TN,NE,NG,CN,LN
-CATEGORY=Internal|Improved Familiar List (5th Level).MOD	COMPANIONLIST:Familiar|Familiar (Elemental (Ice/Small)),Familiar (Elemental (Lightning/Small)),Familiar (Elemental (Magma/Small)),Familiar (Elemental (Mud/Small))
+CATEGORY=Internal|Improved Familiar List (5th Level).MOD	COMPANIONLIST:Familiar|Familiar (Elemental (Ice/Small)),Familiar (Elemental (Lightning/Small)),Familiar (Elemental (Magma/Small)),Familiar (Elemental (Mud/Small))|PREALIGN:TN,NE,NG,CN,LN
 
 CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Paracletus)|PREALIGN:TN,NE,NG,CN,LN
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Silvanshee),Familiar (Cassisian)|PREALIGN:NG,TN,LN,CN
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Lyrakien)|PREALIGN:CG,CN,NG
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Cacodaemon)|PREALIGN:NE,LE,CE,TN
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Arbiter)|PREALIGN:LN,LG,LE,TN
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Voidworm)|PREALIGN:CN,CE,CG,TN
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Cythnigot)|PREALIGN:CE,CN,NE
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Silvanshee)|PREALIGN:LG,NG,CG,LN,TN,CN
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Cassisian)|PREALIGN:LG,LN,NG,TN
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Lyrakien)|PREALIGN:CG,NG,CN,TN
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Cacodaemon)
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Arbiter)|PREALIGN:LN,LG,LE,NG,TN,NE
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Voidworm)|PREALIGN:CN,CG,CE,NG,TN,NE
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD	COMPANIONLIST:Familiar|Familiar (Cythnigot)|PREALIGN:CE,CN,NE,TN
