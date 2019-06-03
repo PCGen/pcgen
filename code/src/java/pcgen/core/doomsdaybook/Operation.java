@@ -23,16 +23,16 @@ package pcgen.core.doomsdaybook;
  * on a variable. These are actions such as setting, adding or 
  * multiplying the variable's current value.
  */
-public class Operation implements Comparable
+class Operation implements Comparable<Object>
 {
 	/** The identifying key of the variable the operation is to affect. */
-	private String key = "";
+	private final String key;
 	/** The name of the operation. */
-	private String name = "";
+	private final String name;
 	/** The type of action to take on the variable. */
-	private String type = "";
+	private final String type;
 	/** The value to be used in the operation. */
-	private String value = "";
+	private final String value;
 
 	/**
 	 * Create a new Operation instance.
@@ -42,7 +42,7 @@ public class Operation implements Comparable
 	 * @param value The value to be used in the operation.
 	 * @param name The name of the operation.
 	 */
-	public Operation(String type, String key, String value, String name)
+	private Operation(String type, String key, String value, String name)
 	{
 		this.type = type;
 		this.key = key;
