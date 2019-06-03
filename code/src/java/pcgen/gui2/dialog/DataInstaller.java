@@ -82,7 +82,7 @@ import javafx.stage.FileChooser;
  * {@code DataInstaller} is responsible for managing the installation of
  * a data set including the selection of the set and the install options.
  */
-public class DataInstaller extends JFrame
+public final class DataInstaller extends JFrame
 {
 	/**
 	 * The listener for receiving and processing action events from installer 
@@ -408,7 +408,8 @@ public class DataInstaller extends JFrame
 		initComponents();
 
 		setIconImage(Icons.PCGenApp.getImageIcon().getImage());
-		Utility.centerComponent(this, false);
+		this.pack();
+		this.setLocationRelativeTo(null);
 	}
 
 	/**

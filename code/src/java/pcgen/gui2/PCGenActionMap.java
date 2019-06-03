@@ -41,7 +41,6 @@ import pcgen.gui2.solverview.SolverViewFrame;
 import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.PCGenAction;
-import pcgen.gui2.tools.Utility;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.dialog.CalculatorDialogController;
 import pcgen.gui3.dialog.DebugDialog;
@@ -197,7 +196,7 @@ public final class PCGenActionMap extends ActionMap
 		public void actionPerformed(ActionEvent e)
 		{
 			KitSelectionDialog kitDialog = new KitSelectionDialog(frame, frame.getSelectedCharacterRef().get());
-			Utility.setComponentRelativeLocation(frame, kitDialog);
+			kitDialog.setLocationRelativeTo(frame);
 			kitDialog.setVisible(true);
 		}
 

@@ -46,7 +46,6 @@ import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.dialog.LanguageChooserDialog;
 import pcgen.gui2.tabs.Utilities;
-import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.gui3.utilty.ColorUtilty;
@@ -264,7 +263,7 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 				Frame frame = JOptionPane.getFrameForComponent(table);
 				LanguageChooserFacade chooser = choosers.getElementAt(table.getEditingRow() - languages.getSize());
 				LanguageChooserDialog dialog = new LanguageChooserDialog(frame, chooser);
-				Utility.setComponentRelativeLocation(frame, dialog);
+				dialog.setLocationRelativeTo(frame);
 				dialog.setVisible(true);
 			}
 			else

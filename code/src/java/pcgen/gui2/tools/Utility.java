@@ -19,11 +19,8 @@
 package pcgen.gui2.tools;
 
 import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.FontMetrics;
-import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
-import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.InputEvent;
@@ -38,7 +35,6 @@ import javax.swing.JDialog;
 import javax.swing.JRootPane;
 import javax.swing.JTabbedPane;
 import javax.swing.KeyStroke;
-import javax.swing.SwingUtilities;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.Nullable;
@@ -139,139 +135,6 @@ public final class Utility
 	public static void buildRelativeConstraints(GridBagConstraints gbc, int gw, int gh, double wx, double wy)
 	{
 		buildConstraints(gbc, GridBagConstraints.RELATIVE, GridBagConstraints.RELATIVE, gw, gh, wx, wy);
-	}
-
-	/**
-	 * Centers a {@code Component} to the screen.
-	 *
-	 * @param dialog JDialog dialog to center
-	 */
-	public static void centerComponent(Component dialog)
-	{
-		// since the Toolkit.getScreenSize() method is broken in the Linux implementation
-		// of Java 5  (it returns double the screen size under xinerama), this method is
-		// encapsulated to accomodate this with a hack.
-		// TODO: remove the hack, once Java fixed this.
-		// final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		final Rectangle screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice()
-			.getDefaultConfiguration().getBounds();
-
-		final Dimension dialogSize = dialog.getSize();
-
-		if (dialogSize.height > screenSize.height)
-		{
-			dialogSize.height = screenSize.height;
-		}
-
-		if (dialogSize.width > screenSize.width)
-		{
-			dialogSize.width = screenSize.width;
-		}
-		dialog.setSize(dialogSize);
-
-		dialog.setLocation(screenSize.x + ((screenSize.width - dialogSize.width) / 2),
-			screenSize.y + ((screenSize.height - dialogSize.height) / 2));
-	}
-
-	/**
-	 * Update the size of the dialog to ensure it will fit on the screen.
-	 *
-	 * @param dialog The dialog to be resized.
-	 */
-	public static void resizeComponentToScreen(Component dialog)
-	{
-		// Get the maximum window size to account for taskbars etc
-		Rectangle screenBounds = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
-
-		final Dimension dialogSize = dialog.getSize();
-
-		if (dialogSize.height > screenBounds.height)
-		{
-			dialogSize.height = screenBounds.height;
-		}
-
-		if (dialogSize.width > screenBounds.width)
-		{
-			dialogSize.width = screenBounds.width;
-		}
-		dialog.setSize(dialogSize);
-	}
-
-	/**
-	 * Centres the dialog over the component ensuring that the dialog will be
-	 * within the usable area of the screen (i.e. excluding native task bars,
-	 * menus bars etc).
-	 *
-	 * @param parent The component over which the dialog should be centred.
-	 * @param dialog The dialog to be positioned.
-	 */
-	public static void setComponentRelativeLocation(Component parent, Component dialog)
-	{
-		// First make sure it is not too big
-		resizeComponentToScreen(dialog);
-
-		// Get the maximum window size to account for taskbars etc
-		Rectangle screenBounds = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
-		Point centreOfParent = new Point(parent.getWidth() / 2, parent.getHeight() / 2);
-		SwingUtilities.convertPointToScreen(centreOfParent, parent);
-		// Default to centre of parent
-		Point location =
-				new Point(centreOfParent.x - (dialog.getWidth() / 2), centreOfParent.y - (dialog.getHeight() / 2));
-		// Adjust so it fits on the screen
-		if ((location.x + dialog.getWidth()) > (screenBounds.width + screenBounds.x))
-		{
-			location.x -= (location.x + dialog.getWidth()) - (screenBounds.width + screenBounds.x);
-		}
-		if (location.x < screenBounds.x)
-		{
-			location.x = screenBounds.x;
-		}
-		if ((location.y + dialog.getHeight()) > (screenBounds.height + screenBounds.y))
-		{
-			location.y -= (location.y + dialog.getHeight()) - (screenBounds.height + screenBounds.y);
-		}
-		if (location.y < screenBounds.y)
-		{
-			location.y = screenBounds.y;
-		}
-		dialog.setLocation(location);
-	}
-
-	/**
-	 * Centers a {@code JFrame} to the screen.
-	 *
-	 * @param frame   JFrame frame to center
-	 * @param isPopup boolean is the frame a popup dialog?
-	 */
-	public static void centerComponent(Component frame, boolean isPopup)
-	{
-		// since the Toolkit.getScreenSize() method is broken in the Linux implementation
-		// of Java 5  (it returns double the screen size under xinerama), this method is
-		// encapsulated to accomodate this with a hack.
-		// TODO: remove the hack, once Java fixed this.
-		// final Dimension screenSize = getScreenSize(Toolkit.getDefaultToolkit());
-		final Rectangle screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice()
-			.getDefaultConfiguration().getBounds();
-
-		if (isPopup)
-		{
-			frame.setSize(screenSize.width / 2, screenSize.height / 2);
-		}
-
-		final Dimension frameSize = frame.getSize();
-
-		if (frameSize.height > screenSize.height)
-		{
-			frameSize.height = screenSize.height;
-		}
-
-		if (frameSize.width > screenSize.width)
-		{
-			frameSize.width = screenSize.width;
-		}
-
-		frame.setLocation(screenSize.x + ((screenSize.width - frameSize.width) / 2),
-			screenSize.y + ((screenSize.height - frameSize.height) / 2));
 	}
 
 
@@ -382,7 +245,7 @@ public final class Utility
 	 * @return {@code boolean}, the condition
 	 */
 	@Contract(pure = true)
-	public static boolean isShiftLeftMouseButton(InputEvent e)
+	static boolean isShiftLeftMouseButton(InputEvent e)
 	{
 		return ((e.getModifiersEx() & InputEvent.BUTTON1_DOWN_MASK) == InputEvent.BUTTON1_DOWN_MASK) && e.isShiftDown();
 	}
