@@ -404,6 +404,7 @@ allprojects {
     tasks.withType(Test) {
         maxHeapSize = "512m"
         maxParallelForks = 1
+        enableAssertions = true
         testLogging {
             exceptionFormat = 'full'
             events 'failed', 'skipped'
@@ -460,6 +461,10 @@ idea {
 
 wrapper {
     distributionType = Wrapper.DistributionType.ALL
+}
+
+run {
+    enableAssertions = true
 }
 
 apply from: 'code/gradle/autobuild.gradle'
