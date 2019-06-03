@@ -37,7 +37,6 @@ import javax.swing.tree.DefaultTreeModel;
 import gmgen.GMGenSystem;
 import pcgen.gui2.dialog.AbstractPreferencesDialog;
 import pcgen.gui2.prefs.PCGenPrefsPanel;
-import pcgen.gui2.tools.FlippingSplitPane;
 
 public class PreferencesDialog extends AbstractPreferencesDialog
 {
@@ -101,7 +100,7 @@ public class PreferencesDialog extends AbstractPreferencesDialog
 	@Override
 	protected JComponent getCenter()
 	{
-		jSplitPane1 = new FlippingSplitPane();
+		jSplitPane1 = new JSplitPane();
 		prefsTree = new javax.swing.JTree();
 		prefsTree.setRootVisible(false);
 		prefsTree.setShowsRootHandles(true);
