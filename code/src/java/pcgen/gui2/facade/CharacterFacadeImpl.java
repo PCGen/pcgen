@@ -154,7 +154,6 @@ import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.util.CoreInterfaceUtilities;
-import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
@@ -3853,20 +3852,16 @@ public class CharacterFacadeImpl
 			return true;
 		}
 
-		HtmlInfoBuilder warningMsg = new HtmlInfoBuilder();
+		StringBuilder warningMsg = new StringBuilder();
 
 		warningMsg.append(LanguageBundle.getString("in_kitWarnStart")); //$NON-NLS-1$
-		warningMsg.appendLineBreak();
-		warningMsg.append("<UL>"); //$NON-NLS-1$
+		warningMsg.append('\n');
 		for (String string : warnings)
 		{
-			warningMsg.appendLineBreak();
-			warningMsg.append("<li>"); //$NON-NLS-1$
+			warningMsg.append('\n');
 			warningMsg.append(string);
-			warningMsg.append("</li>"); //$NON-NLS-1$
 		}
-		warningMsg.append("</UL>"); //$NON-NLS-1$
-		warningMsg.appendLineBreak();
+		warningMsg.append('\n');
 		warningMsg.append(LanguageBundle.getString("in_kitWarnEnd")); //$NON-NLS-1$
 
 		return delegate.showWarningConfirm(kit.getDisplayName(), warningMsg.toString());
