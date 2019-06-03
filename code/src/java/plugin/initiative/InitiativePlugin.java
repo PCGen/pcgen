@@ -91,13 +91,13 @@ public class InitiativePlugin implements InteractivePlugin
 	{
 		messageHandler = mh;
 		theView = new Initiative();
-		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, name, new PreferencesDamagePanel()));
+		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, new PreferencesDamagePanel()));
 		messageHandler
-			.handleMessage(new RequestAddPreferencesPanelMessage(this, name, new PreferencesMassiveDamagePanel()));
+			.handleMessage(new RequestAddPreferencesPanelMessage(this, new PreferencesMassiveDamagePanel()));
 		messageHandler
-			.handleMessage(new RequestAddPreferencesPanelMessage(this, name, new PreferencesInitiativePanel()));
+			.handleMessage(new RequestAddPreferencesPanelMessage(this, new PreferencesInitiativePanel()));
 		messageHandler
-			.handleMessage(new RequestAddPreferencesPanelMessage(this, name, new PreferencesPerformancePanel()));
+			.handleMessage(new RequestAddPreferencesPanelMessage(this, new PreferencesPerformancePanel()));
 
 		theView.setLog(LogUtilities.inst());
 		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, name, getView()));

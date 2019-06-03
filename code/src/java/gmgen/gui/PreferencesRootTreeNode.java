@@ -26,24 +26,26 @@ import java.util.List;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import pcgen.gui2.prefs.PCGenPrefsPanel;
+
 /** This defines the preferences tree
  *
  */
 public class PreferencesRootTreeNode extends DefaultMutableTreeNode
 {
-	private final List<PreferencesPanel> panelList = new ArrayList<>();
+	private final List<PCGenPrefsPanel> panelList = new ArrayList<>();
 
 	public PreferencesRootTreeNode()
 	{
 		super("Hide me"); //$NON-NLS-1$
 	}
 
-	List<PreferencesPanel> getPanelList()
+	List<PCGenPrefsPanel> getPanelList()
 	{
 		return Collections.unmodifiableList(panelList);
 	}
 
-	public void addPanel(final String plugin, final PreferencesPanel panel)
+	public void addPanel(final String plugin, final PCGenPrefsPanel panel)
 	{
 		DefaultMutableTreeNode pluginNode = getPluginNode(plugin);
 		pluginNode.add(new DefaultMutableTreeNode(panel));
@@ -59,7 +61,6 @@ public class PreferencesRootTreeNode extends DefaultMutableTreeNode
 				if (obj instanceof DefaultMutableTreeNode)
 				{
 					DefaultMutableTreeNode mnode = (DefaultMutableTreeNode) obj;
-
 					if (plugin.equals(mnode.getUserObject().toString()))
 					{
 						return mnode;

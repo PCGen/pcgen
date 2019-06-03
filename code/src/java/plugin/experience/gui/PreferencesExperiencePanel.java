@@ -20,6 +20,7 @@ package plugin.experience.gui;
 import java.awt.BorderLayout;
 
 import pcgen.core.SettingsHandler;
+import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import plugin.experience.ExperienceAdjusterPlugin;
@@ -29,7 +30,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 
-public final class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
+public final class PreferencesExperiencePanel extends PCGenPrefsPanel
 {
 	public static final int EXPERIENCE_3 = 1;
 	public static final int EXPERIENCE_35 = 2;
@@ -44,7 +45,7 @@ public final class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 	public PreferencesExperiencePanel()
 	{
 		initComponents();
-		initPreferences();
+		this.applyOptionValuesToControls();
 	}
 
 	public void setExperience(int exp)
@@ -74,13 +75,13 @@ public final class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 	}
 
 	@Override
-	public void applyPreferences()
+	public void setOptionsBasedOnControls()
 	{
 		SettingsHandler.setGMGenOption(OPTION_NAME_EXP_TYPE, getExperience());
 	}
 
 	@Override
-	public void initPreferences()
+	public void applyOptionValuesToControls()
 	{
 		setExperience(SettingsHandler.getGMGenOption(OPTION_NAME_EXP_TYPE, EXPERIENCE_35));
 	}
@@ -113,5 +114,11 @@ public final class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 		vbox.getChildren().add(experienceRB2);
 
 		add(GuiUtility.wrapParentAsJFXPanel(vbox), BorderLayout.CENTER);
+	}
+
+	@Override
+	public String getTitle()
+	{
+		return LanguageBundle.getString("in_plugin_experience_name");
 	}
 }

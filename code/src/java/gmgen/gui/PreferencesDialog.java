@@ -28,6 +28,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.UIManager;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -35,13 +36,14 @@ import javax.swing.tree.DefaultTreeModel;
 
 import gmgen.GMGenSystem;
 import pcgen.gui2.dialog.AbstractPreferencesDialog;
+import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui2.tools.FlippingSplitPane;
 
 public class PreferencesDialog extends AbstractPreferencesDialog
 {
 	private static final String EMPTY = PreferencesDialog.class.getName();
 
-	private FlippingSplitPane jSplitPane1;
+	private JSplitPane jSplitPane1;
 	private javax.swing.JTree prefsTree;
 	private final PreferencesRootTreeNode root;
 	private JPanel prefsPane;
@@ -68,7 +70,7 @@ public class PreferencesDialog extends AbstractPreferencesDialog
 	 */
 	public void applyPreferences()
 	{
-		root.getPanelList().forEach(PreferencesPanel::applyPreferences);
+		root.getPanelList().forEach(PCGenPrefsPanel::setOptionsBasedOnControls);
 	}
 
 	private void PrefsTreeActionPerformed()
@@ -79,9 +81,9 @@ public class PreferencesDialog extends AbstractPreferencesDialog
 		{
 			DefaultMutableTreeNode node = (DefaultMutableTreeNode) obj;
 			Object uobj = node.getUserObject();
-			if (uobj instanceof PreferencesPanel)
+			if (uobj instanceof PCGenPrefsPanel)
 			{
-				cardLayout.show(prefsPane, uobj.toString());
+				cardLayout.show(prefsPane, ((PCGenPrefsPanel) uobj).getTitle());
 			}
 			else
 			{
@@ -112,6 +114,7 @@ public class PreferencesDialog extends AbstractPreferencesDialog
 			@Override
 			public void windowClosing(java.awt.event.WindowEvent e)
 			{
+				dispose();
 				close();
 			}
 		});
@@ -130,15 +133,15 @@ public class PreferencesDialog extends AbstractPreferencesDialog
 	{
 		// add panel to card layout
 		root.getPanelList().forEach(panel -> {
-			panel.initPreferences();
+			panel.applyOptionValuesToControls();
 			// add panel to card layout
 			JPanel jp = new JPanel(new BorderLayout());
-			JLabel comp = new JLabel(panel.toString());
+			JLabel comp = new JLabel(panel.getTitle());
 			comp.setFont(UIManager.getFont("TitledBorder.font"));
 			jp.add(comp, BorderLayout.NORTH);
 			jp.add(panel, BorderLayout.CENTER);
 
-			prefsPane.add(jp, panel.toString());
+			prefsPane.add(jp, panel.getTitle());
 		});
 	}
 }

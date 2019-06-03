@@ -15,14 +15,13 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  PreferencesTrackingPanel.java
  */
 package plugin.initiative.gui;
 
 import java.awt.BorderLayout;
 
 import pcgen.core.SettingsHandler;
+import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
@@ -33,7 +32,7 @@ import javafx.scene.layout.VBox;
 /**
  * Panel that tracks the misc preferences
  */
-public final class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel
+public final class PreferencesPerformancePanel extends PCGenPrefsPanel
 {
 	private static final String OPTION_NAME = InitiativePlugin.LOG_NAME + ".refreshOnStateChange"; //$NON-NLS-1$
 
@@ -43,17 +42,17 @@ public final class PreferencesPerformancePanel extends gmgen.gui.PreferencesPane
 	public PreferencesPerformancePanel()
 	{
 		initComponents();
-		initPreferences();
+		this.applyOptionValuesToControls();
 	}
 
 	@Override
-	public void applyPreferences()
+	public void setOptionsBasedOnControls()
 	{
 		SettingsHandler.setGMGenOption(OPTION_NAME, getRefreshOnStateChange());
 	}
 
 	@Override
-	public void initPreferences()
+	public void applyOptionValuesToControls()
 	{
 		setRefreshOnStateChange(SettingsHandler.getGMGenOption(OPTION_NAME, true));
 	}
@@ -83,7 +82,7 @@ public final class PreferencesPerformancePanel extends gmgen.gui.PreferencesPane
 	}
 
 	@Override
-	public String toString()
+	public String getTitle()
 	{
 		return LanguageBundle.getString("in_plugin_init_performance"); //$NON-NLS-1$
 	}
@@ -96,7 +95,13 @@ public final class PreferencesPerformancePanel extends gmgen.gui.PreferencesPane
 		refreshOnStateChange.setText(LanguageBundle.getString("in_plugin_init_refreshOnChange")); //$NON-NLS-1$
 
 		vbox.getChildren().add(refreshOnStateChange);
-		add(GuiUtility.wrapParentAsJFXPanel(vbox), BorderLayout.CENTER);
 		setLayout(new BorderLayout());
+		add(GuiUtility.wrapParentAsJFXPanel(vbox), BorderLayout.CENTER);
+	}
+	// TODO: get rid of this
+	@Override
+	public String toString()
+	{
+		return this.getTitle();
 	}
 }

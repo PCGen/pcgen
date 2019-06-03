@@ -15,14 +15,13 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  PreferencesTrackingPanel.java
  */
 package plugin.initiative.gui;
 
 import java.awt.BorderLayout;
 
 import pcgen.core.SettingsHandler;
+import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
@@ -34,27 +33,32 @@ import javafx.scene.layout.VBox;
 /**
  * Panel that tracks the miscellaneous preferences.
  */
-public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
+public class PreferencesInitiativePanel extends PCGenPrefsPanel
 {
 	private static final String SETTING_ROLL_PC_INITIATIVES = ".rollPCInitiatives"; //$NON-NLS-1$
 
 	private CheckBox rollPCInitiatives;
 
-	/** Creates new form PreferencesMiscPanel */
 	public PreferencesInitiativePanel()
 	{
 		initComponents();
-		initPreferences();
+		this.applyOptionValuesToControls();
 	}
 
 	@Override
-	public void applyPreferences()
+	public void setOptionsBasedOnControls()
 	{
 		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + SETTING_ROLL_PC_INITIATIVES, getRollPCInitiatives());
 	}
 
 	@Override
-	public void initPreferences()
+	public String getTitle()
+	{
+		return LanguageBundle.getString("in_plugin_initiative");
+	}
+
+	@Override
+	public void applyOptionValuesToControls()
 	{
 		setRollPCInitiatives(
 			SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_ROLL_PC_INITIATIVES, true));
@@ -80,12 +84,6 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 		return rollPCInitiatives.isSelected();
 	}
 
-	@Override
-	public String toString()
-	{
-		return LanguageBundle.getString("in_plugin_initiative"); //$NON-NLS-1$
-	}
-
 	private void initComponents()
 	{
 
@@ -98,5 +96,12 @@ public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 
 		setLayout(new BorderLayout());
 		add(GuiUtility.wrapParentAsJFXPanel(vbox), BorderLayout.CENTER);
+	}
+
+	// TODO: get rid of this
+	@Override
+	public String toString()
+	{
+		return this.getTitle();
 	}
 }

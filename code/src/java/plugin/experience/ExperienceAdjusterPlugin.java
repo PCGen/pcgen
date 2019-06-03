@@ -93,7 +93,7 @@ public class ExperienceAdjusterPlugin extends KeyAdapter
 		eaModel = new ExperienceAdjusterModel(getDataDirectory());
 		eaView = new ExperienceAdjusterView(eaModel);
 		messageHandler.handleMessage(
-			new RequestAddPreferencesPanelMessage(this, getLocalizedName(), new PreferencesExperiencePanel()));
+			new RequestAddPreferencesPanelMessage(this, new PreferencesExperiencePanel()));
 		initListeners();
 		update();
 		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, getLocalizedName(), getView()));
