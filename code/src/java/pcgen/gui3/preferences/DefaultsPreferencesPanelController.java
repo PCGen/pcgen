@@ -77,16 +77,9 @@ public class DefaultsPreferencesPanelController implements ResettableController
 
 	}
 
-	@FXML
-	void initialize()
-	{
-		this.reset();
-	}
-
 	@Override
 	public void reset()
 	{
-
 		/*
 		 * much of this data should be driven by a
 		 * model and the controller should actually be getting

@@ -30,7 +30,6 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -131,6 +130,7 @@ public class SourcesPreferencesPanelController implements ResettableController
 	@Override
 	public void reset()
 	{
+		GuiAssertions.assertIsJavaFXThread();
 		campLoad.setSelected(
 				PCGenSettings.OPTIONS_CONTEXT.initBoolean(PCGenSettings.OPTION_AUTOLOAD_SOURCES_AT_START, false));
 		charCampLoad.setSelected(
@@ -151,42 +151,39 @@ public class SourcesPreferencesPanelController implements ResettableController
 		allowMultiLineObjectsSelect
 				.setSelected(PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SOURCES_ALLOW_MULTI_LINE));
 
-		GuiAssertions.assertIsNotJavaFXThread();
-		Platform.runLater(() -> {
-			switch (Globals.getSourceDisplay())
-			{
-				case LONG:
-					sourceOptions.getSelectionModel().select(0);
+		switch (Globals.getSourceDisplay())
+		{
+			case LONG:
+				sourceOptions.getSelectionModel().select(0);
 
-					break;
+				break;
 
-				case MEDIUM:
-					sourceOptions.getSelectionModel().select(1);
+			case MEDIUM:
+				sourceOptions.getSelectionModel().select(1);
 
-					break;
+				break;
 
-				case SHORT:
-					sourceOptions.getSelectionModel().select(2);
+			case SHORT:
+				sourceOptions.getSelectionModel().select(2);
 
-					break;
+				break;
 
-				case PAGE:
-					sourceOptions.getSelectionModel().select(3);
+			case PAGE:
+				sourceOptions.getSelectionModel().select(3);
 
-					break;
+				break;
 
-				case WEB:
-					sourceOptions.getSelectionModel().select(4);
+			case WEB:
+				sourceOptions.getSelectionModel().select(4);
 
-					break;
+				break;
 
-				default:
-					Logging.errorPrint(
-							"In PreferencesDialog.applyOptionValuesToControls " + "(source display) the option "
-									+ Globals.getSourceDisplay() + " is unsupported.");
+			default:
+				Logging.errorPrint(
+						"In PreferencesDialog.applyOptionValuesToControls " + "(source display) the option "
+								+ Globals.getSourceDisplay() + " is unsupported.");
 
-					break;
-			}
-		});
+				break;
+		}
 	}
 }

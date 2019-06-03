@@ -23,21 +23,12 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
-import javax.swing.JTree;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.event.TreeSelectionEvent;
-import javax.swing.event.TreeSelectionListener;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeCellRenderer;
-import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreePath;
-import javax.swing.tree.TreeSelectionModel;
+import javax.swing.SwingUtilities;
 
 import pcgen.cdom.base.Constants;
 import pcgen.gui2.prefs.CharacterStatsPanel;
@@ -68,6 +59,9 @@ import pcgen.system.LanguageBundle;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.control.Alert;
 
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeView;
 
 /**
  *  PCGen preferences dialog
@@ -79,14 +73,11 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	private static final String IN_CHARACTER = LanguageBundle.getString("in_Prefs_character"); //$NON-NLS-1$
 	public static final String LB_PREFS_PLUGINS_RUN = "in_Prefs_pluginsRun"; //$NON-NLS-1$
 
-	private DefaultTreeModel settingsModel;
 	private JSplitPane splitPane;
 
 	private JPanel settingsPanel;
 
-	private JScrollPane settingsScroll;
-
-	private JTree settingsTree;
+	private TreeView<String>  settingsTree;
 
 	private List<PCGenPrefsPanel> panelList;
 
@@ -101,16 +92,12 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	private CopySettingsPanelController copySettingsPanelController;
 
-	//Plugins
-	private PreferencesPluginsPanel pluginsPanel;
-
 	private PreferencesDialog(JFrame parent, boolean modal)
 	{
 		super(parent, Constants.APPLICATION_NAME, modal);
 
 		applyOptionValuesToControls();
-		settingsTree.setSelectionRow(1);
-
+		settingsTree.getSelectionModel().select(1);
 		pack();
 		Utility.setComponentRelativeLocation(getParent(), this);
 	}
@@ -120,21 +107,6 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		PreferencesDialog prefsDialog;
 		prefsDialog = new PreferencesDialog(frame, true);
 		prefsDialog.setVisible(true);
-	}
-
-	private void addPluginPanes(DefaultMutableTreeNode rootNode, DefaultMutableTreeNode pluginNode)
-	{
-		if (pluginsPanel == null)
-		{
-			pluginsPanel = new PreferencesPluginsPanel();
-		}
-		settingsPanel.add(pluginsPanel, LanguageBundle.getString("in_Prefs_plugins")); //$NON-NLS-1$
-		rootNode.add(pluginNode);
-	}
-
-	private void applyPluginPreferences()
-	{
-		pluginsPanel.applyPreferences();
 	}
 
 	private void setOptionsBasedOnControls()
@@ -181,11 +153,11 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	@Override
 	protected JComponent getCenter()
 	{
-		DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("Root");
-		DefaultMutableTreeNode characterNode;
-		DefaultMutableTreeNode pcGenNode;
-		DefaultMutableTreeNode appearanceNode;
-		DefaultMutableTreeNode gameModeNode;
+		TreeItem<String> rootNode = new TreeItem<>("Root");
+		TreeItem<String> characterNode;
+		TreeItem<String> pcGenNode;
+		TreeItem<String> appearanceNode;
+		TreeItem<String> gameModeNode;
 
 		panelList = new ArrayList<>(15);
 
@@ -195,7 +167,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		settingsPanel.setPreferredSize(new Dimension(780, 420));
 
 		// Build the selection tree
-		characterNode = new DefaultMutableTreeNode(IN_CHARACTER);
+		characterNode = new TreeItem<>(IN_CHARACTER);
 		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_Prefs_charTip")), IN_CHARACTER);
 
 		characterStatsPanel = new CharacterStatsPanel(this);
@@ -215,9 +187,9 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 				"DefaultsPreferencesPanel.fxml",
 				"in_Prefs_defaults");
 		addPanelToTree(characterNode, defaultsPanel);
-		rootNode.add(characterNode);
+		rootNode.getChildren().add(characterNode);
 
-		appearanceNode = new DefaultMutableTreeNode(IN_APPERANCE);
+		appearanceNode = new TreeItem<>(IN_APPERANCE);
 		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_Prefs_appearanceTip")), IN_APPERANCE);
 
 		PCGenPrefsPanel colorsPanel = new ConvertedJavaFXPanel<>(
@@ -239,9 +211,9 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 				"in_Prefs_levelUp"
 		);
 		addPanelToTree(appearanceNode, levelUpPanel);
-		rootNode.add(appearanceNode);
+		rootNode.getChildren().add(appearanceNode);
 
-		pcGenNode = new DefaultMutableTreeNode(Constants.APPLICATION_NAME);
+		pcGenNode = new TreeItem<>(Constants.APPLICATION_NAME);
 		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_Prefs_pcgenTip")),
 			Constants.APPLICATION_NAME);
 
@@ -271,10 +243,10 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 				"in_Prefs_sources"
 		);
 		addPanelToTree(pcGenNode, sourcesPanel);
-		rootNode.add(pcGenNode);
+		rootNode.getChildren().add(pcGenNode);
 
 		String in_gamemode = LanguageBundle.getString("in_mnuSettingsCampaign");
-		gameModeNode = new DefaultMutableTreeNode(in_gamemode);
+		gameModeNode = new TreeItem<>(in_gamemode);
 		settingsPanel.add(buildEmptyPanel(LanguageBundle.getString("in_mnuSettingsCampaignTip")), in_gamemode);
 
 		ConvertedJavaFXPanel<CopySettingsPanelController> convertedCopySettingsPanel = new ConvertedJavaFXPanel<>(
@@ -285,58 +257,41 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		// "Copy Settings"
 		this.copySettingsPanelController = convertedCopySettingsPanel.getController();
 		addPanelToTree(gameModeNode, convertedCopySettingsPanel);
-		rootNode.add(gameModeNode);
+		rootNode.getChildren().add(gameModeNode);
 
-		DefaultMutableTreeNode pluginNode =
-				new DefaultMutableTreeNode(LanguageBundle.getString("in_Prefs_plugins")); //$NON-NLS-1$
+		TreeItem<String> pluginNode =
+				new TreeItem<>(LanguageBundle.getString("in_Prefs_plugins")); //$NON-NLS-1$
+		PCGenPrefsPanel pluginPanel = new PreferencesPluginsPanel();
+		addPanelToTree(pluginNode, pluginPanel);
 
-		addPluginPanes(rootNode, pluginNode);
+		settingsTree = new TreeView<>();
+		settingsTree.setRoot(rootNode);
 
-		settingsModel = new DefaultTreeModel(rootNode);
-		settingsTree = new JTree(settingsModel);
+		settingsTree.showRootProperty().set(false);
+		settingsTree.selectionModelProperty().get().setSelectionMode(SelectionMode.SINGLE);
 
-		settingsTree.setBorder(BorderFactory.createEmptyBorder(0, 3, 0, 0));
+		settingsTree.getRoot().getChildren().forEach(child -> child.setExpanded(true));
 
-		settingsTree.setRootVisible(false);
-		settingsTree.setShowsRootHandles(true);
-		settingsTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-		settingsScroll = new JScrollPane(settingsTree, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
-			ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-
-		// Turn off the icons
-		DefaultTreeCellRenderer renderer = new DefaultTreeCellRenderer();
-		renderer.setLeafIcon(null);
-		renderer.setOpenIcon(null);
-		renderer.setClosedIcon(null);
-		settingsTree.setCellRenderer(renderer);
-
-		// Expand all of the branch nodes
-		settingsTree.expandPath(new TreePath(characterNode.getPath()));
-		settingsTree.expandPath(new TreePath(pcGenNode.getPath()));
-		settingsTree.expandPath(new TreePath(appearanceNode.getPath()));
-		settingsTree.expandPath(new TreePath(gameModeNode.getPath()));
-		settingsTree.expandPath(new TreePath(pluginNode.getPath()));
-
+		settingsTree.getRoot().setExpanded(true);
 		// Add the listener which switches panels when a node of the tree is selected
-		settingsTree.addTreeSelectionListener(new TreeSelectionListener()
-		{
-			@Override
-			public void valueChanged(TreeSelectionEvent e)
-			{
-				DefaultMutableTreeNode node = (DefaultMutableTreeNode) settingsTree.getLastSelectedPathComponent();
+		settingsTree.selectionModelProperty().get().selectedItemProperty().addListener((observable, oldValue,
+		                                                                                  newValue) -> {
+			newValue.getValue();
+			CardLayout cl = (CardLayout) (settingsPanel.getLayout());
 
-				if (node == null)
-				{
-					return;
-				}
+			// this actually gets called by both swing and JavaFX threads.
+			// It appears to be fine to 'invokelater' regardless of the thread
+			// but this is certainly weird
+			// assert we're on a GUI thread mostly to be clear about what we're expecting
+			GuiAssertions.assertIsOnGUIThread();
+			SwingUtilities.invokeLater(() ->
+				cl.show(settingsPanel, newValue.getValue()));
 
-				CardLayout cl = (CardLayout) (settingsPanel.getLayout());
-				cl.show(settingsPanel, String.valueOf(node));
-			}
 		});
 
 		// Build the split pane
-		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, settingsScroll, settingsPanel);
+		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, GuiUtility.wrapParentAsJFXPanel(settingsTree),
+				settingsPanel);
 		splitPane.setOneTouchExpandable(true);
 		splitPane.setDividerSize(10);
 
@@ -351,10 +306,11 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	 * @param parent The node to add the panel to.
 	 * @param prefsPanel The panel to be added.
 	 */
-	private void addPanelToTree(DefaultMutableTreeNode parent, PCGenPrefsPanel prefsPanel)
+	private void addPanelToTree(TreeItem<String> parent, PCGenPrefsPanel prefsPanel)
 	{
 		panelList.add(prefsPanel);
-		parent.add(new DefaultMutableTreeNode(prefsPanel.getTitle()));
+
+		parent.getChildren().add(new TreeItem<>(prefsPanel.getTitle()));
 		JScrollPane rightScroll = new JScrollPane(prefsPanel);
 		settingsPanel.add(rightScroll, prefsPanel.getTitle());
 	}
@@ -378,6 +334,5 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	public void applyButtonActionPerformed()
 	{
 		setOptionsBasedOnControls();
-		applyPluginPreferences();
 	}
 }
