@@ -26,20 +26,17 @@ import pcgen.system.LanguageBundle;
  */
 public abstract class AbstractPreferencesDialog extends AbstractDialog
 {
-
-	private static final long serialVersionUID = 5806276119355582867L;
-
 	private static final String LB_TITLE = "in_Prefs_title"; //$NON-NLS-1$
+
 
 	/**
 	 * Set the title ([applicationName] Preferences like but localized) and center the dialog on the parent.
 	 * @param parent
-	 * @param applicationName application name for the preference 
-	 * @param modal
+	 * @param applicationName application name for the preference
 	 */
-	protected AbstractPreferencesDialog(JFrame parent, String applicationName, boolean modal)
+	protected AbstractPreferencesDialog(JFrame parent, String applicationName)
 	{
-		super(parent, LanguageBundle.getFormattedString(AbstractPreferencesDialog.LB_TITLE, applicationName), modal);
+		super(parent, LanguageBundle.getFormattedString(AbstractPreferencesDialog.LB_TITLE, applicationName), true);
 	}
 
 	@Override

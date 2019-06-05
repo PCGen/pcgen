@@ -42,8 +42,10 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import org.apache.commons.lang3.SystemUtils;
@@ -66,6 +68,9 @@ public final class SettingsHandler
 			new SimpleIntegerProperty(Constants.DEFAULT_MAX_POTION_SPELL_LEVEL);
 	private static final IntegerProperty maxWandSpellLevel =
 			new SimpleIntegerProperty(Constants.DEFAULT_MAX_WAND_SPELL_LEVEL);
+
+	// do settings need a restart
+	private static final BooleanProperty settingsNeedRestart = new SimpleBooleanProperty(false);
 
 	// Map of RuleCheck keys and their settings
 	private static final Map<String, String> ruleCheckMap = new HashMap<>();
@@ -457,6 +462,11 @@ public final class SettingsHandler
 	public static IntegerProperty maxPotionSpellLevel()
 	{
 		return maxPotionSpellLevel;
+	}
+
+	public static BooleanProperty settingsNeedRestartProperty()
+	{
+		return settingsNeedRestart;
 	}
 
 	public static SortedProperties getOptions()

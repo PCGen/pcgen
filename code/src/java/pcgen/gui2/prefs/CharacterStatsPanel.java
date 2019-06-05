@@ -75,13 +75,9 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 
 	/**
 	 * Instantiates a new character stats panel.
-	 * 
-	 * @param parent the parent dialog
 	 */
-	public CharacterStatsPanel(JDialog parent)
+	public CharacterStatsPanel()
 	{
-		this.parent = parent;
-
 		initComponents();
 
 		addAbilitiesPanelListeners();
