@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import javax.swing.Box;
@@ -195,7 +196,7 @@ public class CharacterSheetInfoTab extends JSplitPane implements CharacterInfoTa
 		private BoxHandler(CharacterFacade character)
 		{
 			GuiAssertions.assertIsNotJavaFXThread();
-			this.character = character;
+			this.character = Objects.requireNonNull(character);
 			// This is the model for ComboBox
 			this.sheetBoxItems = FXCollections.observableArrayList();
 			GameMode game = character.getDataSet().getGameMode();
@@ -250,14 +251,18 @@ public class CharacterSheetInfoTab extends JSplitPane implements CharacterInfoTa
 		{
 			GuiAssertions.assertIsNotJavaFXThread();
 			sheetBox.setOnAction(this::onSelectedCharSheet);
-			sheetBox.setItems(sheetBoxItems);
-			Platform.runLater(() -> csheet.setCharacterSheet(sheetBox.getSelectionModel().getSelectedItem()));
+
+			Platform.runLater(() -> {
+				csheet.setCharacterSheet(sheetBox.getSelectionModel().getSelectedItem());
+				sheetBox.setItems(sheetBoxItems);
+			});
 		}
 
 		private void onSelectedCharSheet(final ActionEvent actionEvent)
 		{
 			GuiAssertions.assertIsJavaFXThread();
 			File outputSheet = sheetBox.getSelectionModel().getSelectedItem();
+			Objects.requireNonNull(outputSheet);
 			csheet.setCharacterSheet(outputSheet);
 			csheet.refresh();
 			character.setPreviewSheet(outputSheet.getName());
