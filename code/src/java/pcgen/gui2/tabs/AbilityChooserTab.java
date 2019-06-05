@@ -65,7 +65,6 @@ import pcgen.gui2.tabs.ability.AbilityTreeViews;
 import pcgen.gui2.tabs.ability.CategoryTableModel;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
 import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
-import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeTable;
@@ -88,7 +87,7 @@ import pcgen.system.LanguageBundle;
  * @see pcgen.gui2.tabs.CharacterInfoTab
  */
 @SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceHashtableWithMap", "serial"})
-public class AbilityChooserTab extends FlippingSplitPane implements StateEditable, TodoHandler
+public class AbilityChooserTab extends JSplitPane implements StateEditable, TodoHandler
 {
 
 	private final FilteredTreeViewTable<CharacterFacade, AbilityFacade> availableTreeViewPanel;
@@ -146,8 +145,8 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		box.add(Box.createHorizontalGlue());
 		box.setBorder(new EmptyBorder(0, 0, 5, 0));
 		selPanel.add(box, BorderLayout.SOUTH);
-		FlippingSplitPane topPane =
-				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, availPanel, selPanel);
+		JSplitPane topPane =
+				new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, availPanel, selPanel);
 
 		setTopComponent(topPane);
 
@@ -170,7 +169,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 		filterPanel.add(categoryBar, BorderLayout.NORTH);
 		filterPanel.add(new JScrollPane(categoryTable), BorderLayout.CENTER);
 
-		FlippingSplitPane bottomPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+		JSplitPane bottomPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		bottomPane.setLeftComponent(filterPanel);
 		bottomPane.setRightComponent(infoPane);
 		setBottomComponent(bottomPane);

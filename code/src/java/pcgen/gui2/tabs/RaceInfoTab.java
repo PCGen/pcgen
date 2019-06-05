@@ -30,6 +30,7 @@ import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -53,7 +54,6 @@ import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
 import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
-import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.treeview.CachedDataView;
@@ -68,10 +68,8 @@ import pcgen.util.enumeration.Tab;
 
 /**
  * The Class {@code RaceInfoTab} is the component used in the Race tab.
- * -0800 (Wed, 16 Feb 2011) $
  */
-@SuppressWarnings("serial")
-public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
+public class RaceInfoTab extends JSplitPane implements CharacterInfoTab
 {
 
 	private static final TabTitle TITLE = new TabTitle(Tab.RACE);
@@ -100,7 +98,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	private void initComponents()
 	{
-		FlippingSplitPane topPane = new FlippingSplitPane();
+		JSplitPane topPane = new JSplitPane();
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);
 

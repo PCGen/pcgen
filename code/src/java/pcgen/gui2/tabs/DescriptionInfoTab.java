@@ -34,6 +34,7 @@ import javax.swing.JButton;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
@@ -48,7 +49,6 @@ import pcgen.gui2.tabs.bio.BiographyInfoPane;
 import pcgen.gui2.tabs.bio.CampaignHistoryInfoPane;
 import pcgen.gui2.tabs.bio.NoteInfoPane;
 import pcgen.gui2.tabs.bio.PortraitInfoPane;
-import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
@@ -57,14 +57,14 @@ import pcgen.util.enumeration.Tab;
  * implemented description tab.
  */
 @SuppressWarnings("serial")
-public class DescriptionInfoTab extends FlippingSplitPane implements CharacterInfoTab
+public class DescriptionInfoTab extends JSplitPane implements CharacterInfoTab
 {
 
 	private final TabTitle tabTitle = new TabTitle(Tab.DESCRIPTION);
 	private final PortraitInfoPane portraitPane;
 	private final BiographyInfoPane bioPane;
 	private final CampaignHistoryInfoPane histPane;
-	private final JList pageList;
+	private final JList<PageItem> pageList;
 	private final JButton addButton;
 	private final JPanel pagePanel;
 
@@ -387,7 +387,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			{
 				return;
 			}
-			PageItem item = (PageItem) pageList.getSelectedValue();
+			PageItem item = pageList.getSelectedValue();
 			if (item == null)
 			{
 				return;

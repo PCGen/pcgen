@@ -63,7 +63,6 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.filter.FilterBar;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
-import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.tools.InfoPaneLinkAction;
@@ -136,8 +135,8 @@ class AdvancedSourceSelectionPanel extends JPanel
 
 	private void initComponents()
 	{
-		FlippingSplitPane mainPane = new FlippingSplitPane(JSplitPane.VERTICAL_SPLIT);
-		FlippingSplitPane topPane = new FlippingSplitPane();
+		JSplitPane mainPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		JSplitPane topPane = new JSplitPane();
 		topPane.setResizeWeight(0.6);
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.add(new JLabel(LanguageBundle.getString("in_src_gameLabel")), BorderLayout.WEST); //$NON-NLS-1$
