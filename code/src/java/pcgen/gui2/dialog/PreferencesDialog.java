@@ -38,7 +38,6 @@ import pcgen.gui2.prefs.LocationPanel;
 import pcgen.gui2.prefs.MonsterPanel;
 import pcgen.gui2.prefs.OutputPanel;
 import pcgen.gui2.prefs.PCGenPrefsPanel;
-import pcgen.gui2.tools.Utility;
 import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.GuiUtility;
 import pcgen.gui3.JFXPanelFromResource;
@@ -99,7 +98,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		applyOptionValuesToControls();
 		settingsTree.getSelectionModel().select(1);
 		pack();
-		Utility.setComponentRelativeLocation(getParent(), this);
+		this.setLocationRelativeTo(getParent());
 	}
 
 	public static void show(JFrame frame)

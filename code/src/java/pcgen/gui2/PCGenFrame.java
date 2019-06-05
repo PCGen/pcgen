@@ -1330,7 +1330,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		{
 			sourceSelectionDialog = new SourceSelectionDialog(this, uiContext);
 		}
-		Utility.setComponentRelativeLocation(this, sourceSelectionDialog);
+		sourceSelectionDialog.setLocationRelativeTo(this);
 		sourceSelectionDialog.setVisible(true);
 	}
 
@@ -1492,14 +1492,14 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		if (chooserFacade.isPreferRadioSelection() && chooserFacade.getRemainingSelections().get() == 1)
 		{
 			RadioChooserDialog dialog = new RadioChooserDialog(this, chooserFacade);
-			Utility.setComponentRelativeLocation(this, dialog);
+			dialog.setLocationRelativeTo(this);
 			dialog.setVisible(true);
 			return dialog.isCommitted();
 		}
 		else
 		{
 			ChooserDialog dialog = new ChooserDialog(this, chooserFacade);
-			Utility.setComponentRelativeLocation(this, dialog);
+			dialog.setLocationRelativeTo(this);
 			dialog.setVisible(true);
 			return dialog.isCommitted();
 		}
@@ -1642,7 +1642,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		aFrame.getContentPane().add(jPanel, BorderLayout.SOUTH);
 		aFrame.setSize(new Dimension(700, 500));
 		aFrame.setLocationRelativeTo(this);
-		Utility.setComponentRelativeLocation(this, aFrame);
+		aFrame.setLocationRelativeTo(this);
 		aFrame.getRootPane().setDefaultButton(jClose);
 		Utility.installEscapeCloseOperation(aFrame);
 		aFrame.setVisible(true);
@@ -1689,7 +1689,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		aFrame.getContentPane().add(jPanel3, BorderLayout.SOUTH);
 
 		aFrame.setSize(new Dimension(456, 176));
-		Utility.setComponentRelativeLocation(this, aFrame);
+		aFrame.setLocationRelativeTo(this);
 		aFrame.setVisible(true);
 	}
 
@@ -1702,7 +1702,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	public CustomEquipResult showCustomEquipDialog(CharacterFacade character, EquipmentBuilderFacade equipBuilder)
 	{
 		EquipCustomizerDialog eqDialog = new EquipCustomizerDialog(this, character, equipBuilder);
-		Utility.setComponentRelativeLocation(this, eqDialog);
+		eqDialog.setLocationRelativeTo(this);
 		eqDialog.setVisible(true);
 		CustomEquipResult result = eqDialog.isCancelled() ? CustomEquipResult.CANCELLED
 			: eqDialog.isPurchase() ? CustomEquipResult.PURCHASE : CustomEquipResult.OK;
@@ -1713,7 +1713,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	public boolean showCustomSpellDialog(SpellBuilderFacade spellBuilderFI)
 	{
 		SpellChoiceDialog spellDialog = new SpellChoiceDialog(this, spellBuilderFI);
-		Utility.setComponentRelativeLocation(this, spellDialog);
+		spellDialog.setLocationRelativeTo(this);
 		spellDialog.setVisible(true);
 		return !spellDialog.isCancelled();
 	}

@@ -101,7 +101,7 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 
 		Frame frame = JOptionPane.getFrameForComponent(parent);
 		PostLevelUpDialog dialog = new PostLevelUpDialog(frame, character, oldLevel);
-		Utility.setComponentRelativeLocation(frame, dialog);
+		dialog.setLocationRelativeTo(frame);
 		dialog.setVisible(true);
 	}
 
