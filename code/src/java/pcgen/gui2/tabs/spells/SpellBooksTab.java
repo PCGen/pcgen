@@ -29,6 +29,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTree;
 import javax.swing.tree.TreePath;
 
@@ -49,7 +50,6 @@ import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
-import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeViewTable;
@@ -61,8 +61,7 @@ import pcgen.util.enumeration.Tab;
 
 import org.apache.commons.lang3.StringUtils;
 
-@SuppressWarnings("serial")
-public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
+public class SpellBooksTab extends JSplitPane implements CharacterInfoTab
 {
 
 	private final TabTitle tabTitle = new TabTitle(Tab.SPELLBOOKS);
@@ -120,7 +119,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		filterBar.addDisplayableFilter(qFilterButton);
 
-		FlippingSplitPane upperPane = new FlippingSplitPane();
+		JSplitPane upperPane = new JSplitPane();
 		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTable, filterBar);
 		Box box = Box.createVerticalBox();
 		box.add(Box.createVerticalStrut(5));
@@ -161,7 +160,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		upperPane.setResizeWeight(0);
 		setTopComponent(upperPane);
 
-		FlippingSplitPane bottomPane = new FlippingSplitPane();
+		JSplitPane bottomPane = new JSplitPane();
 		bottomPane.setLeftComponent(spellsPane);
 		bottomPane.setRightComponent(classPane);
 		setBottomComponent(bottomPane);

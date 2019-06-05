@@ -29,6 +29,7 @@ import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTree;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -52,7 +53,6 @@ import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
-import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.FontManipulation;
@@ -70,7 +70,7 @@ import pcgen.util.enumeration.Tab;
  * The Class {@code TempBonusInfoTab} allows the user to select which
  * temporary bonus should be applied to their character.
  */
-public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfoTab
+public class TempBonusInfoTab extends JSplitPane implements CharacterInfoTab
 {
 
 	/**
@@ -102,7 +102,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 
 	private void initComponents()
 	{
-		FlippingSplitPane topPane = new FlippingSplitPane();
+		JSplitPane topPane = new JSplitPane();
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);
 

@@ -35,6 +35,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
@@ -59,7 +60,6 @@ import pcgen.gui2.filter.FilteredListFacade;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
-import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.FontManipulation;
@@ -78,7 +78,7 @@ import pcgen.system.LanguageBundle;
  *
  * 
  */
-public final class EquipCustomPanel extends FlippingSplitPane
+public final class EquipCustomPanel extends JSplitPane
 {
 
 	private final FilteredTreeViewTable<Object, EquipmentModifier> availableTable;
@@ -199,7 +199,7 @@ public final class EquipCustomPanel extends FlippingSplitPane
 		bannerBox.add(Box.createHorizontalGlue());
 		upperPanel.add(bannerBox, BorderLayout.NORTH);
 
-		FlippingSplitPane topPane = new FlippingSplitPane();
+		JSplitPane topPane = new JSplitPane();
 		upperPanel.add(topPane, BorderLayout.CENTER);
 
 		JPanel availPanel = new JPanel(new BorderLayout());
@@ -278,7 +278,7 @@ public final class EquipCustomPanel extends FlippingSplitPane
 		selPanel.add(box, BorderLayout.SOUTH);
 
 		topPane.setRightComponent(selPanel);
-		FlippingSplitPane bottomPane = new FlippingSplitPane();
+		JSplitPane bottomPane = new JSplitPane();
 		bottomPane.setLeftComponent(equipModInfoPane);
 		bottomPane.setRightComponent(equipInfoPane);
 		setBottomComponent(bottomPane);

@@ -55,6 +55,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTextPane;
 import javax.swing.JToolBar;
 import javax.swing.JTree;
@@ -94,7 +95,6 @@ import gmgen.util.LogUtilities;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.CommonMenuText;
-import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
@@ -176,7 +176,7 @@ public class NotesView extends JPanel
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private JScrollPane jScrollPane1;
 	private JScrollPane jScrollPane2;
-	private FlippingSplitPane jSplitPane1;
+	private JSplitPane jSplitPane1;
 	private JTextPane editor;
 	private JToolBar alignmentBar;
 	private JToolBar clipboardBar;
@@ -1057,7 +1057,7 @@ public class NotesView extends JPanel
 	private void initComponents()
 	{
 		//GEN-BEGIN:initComponents
-		jSplitPane1 = new FlippingSplitPane();
+		jSplitPane1 = new JSplitPane();
 		jScrollPane1 = new JScrollPane();
 		notesTree = new JTree();
 		jPanel1 = new JPanel();

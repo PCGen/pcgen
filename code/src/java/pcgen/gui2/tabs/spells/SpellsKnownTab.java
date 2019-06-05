@@ -30,6 +30,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 
 import pcgen.core.PCClass;
@@ -45,7 +46,6 @@ import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
-import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.JTreeViewTable;
@@ -60,7 +60,7 @@ import pcgen.util.enumeration.Tab;
 import javafx.stage.FileChooser;
 
 @SuppressWarnings("serial")
-public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTab
+public class SpellsKnownTab extends JSplitPane implements CharacterInfoTab
 {
 
 	private final TabTitle tabTitle = new TabTitle(Tab.KNOWN_SPELLS);
@@ -124,7 +124,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		filterBar.addDisplayableFilter(qFilterButton);
 
-		FlippingSplitPane upperPane = new FlippingSplitPane();
+		JSplitPane upperPane = new JSplitPane();
 		JPanel availPanel = FilterUtilities.configureFilteredTreeViewPane(availableTable, filterBar);
 		Box box = Box.createVerticalBox();
 		box.add(Box.createVerticalStrut(2));
@@ -196,7 +196,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		upperPane.setResizeWeight(0);
 		setTopComponent(upperPane);
 
-		FlippingSplitPane bottomPane = new FlippingSplitPane();
+		JSplitPane bottomPane = new JSplitPane();
 		bottomPane.setLeftComponent(spellsPane);
 		bottomPane.setRightComponent(classPane);
 		setBottomComponent(bottomPane);

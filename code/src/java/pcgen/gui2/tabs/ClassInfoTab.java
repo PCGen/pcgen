@@ -38,6 +38,7 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
+import javax.swing.JSplitPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.SpinnerNumberModel;
@@ -65,7 +66,6 @@ import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
 import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
-import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.table.TableUtils;
@@ -79,7 +79,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 @SuppressWarnings("serial")
-public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
+public class ClassInfoTab extends JSplitPane implements CharacterInfoTab
 {
 
 	/**
@@ -118,7 +118,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	private void initComponents()
 	{
-		FlippingSplitPane topPane = new FlippingSplitPane();
+		JSplitPane topPane = new JSplitPane();
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);
 

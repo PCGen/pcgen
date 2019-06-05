@@ -44,6 +44,7 @@ import javax.swing.JEditorPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JSplitPane;
 import javax.swing.JTable;
 import javax.swing.JTree;
 import javax.swing.ListSelectionModel;
@@ -79,7 +80,6 @@ import pcgen.gui2.filter.FilteredListFacade;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.models.HtmlSheetSupport;
-import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.DisplayAwareTab;
 import pcgen.gui2.util.JTableEx;
@@ -104,7 +104,7 @@ import pcgen.util.enumeration.Tab;
  * familiar, cohort, mount, etc).
  */
 @SuppressWarnings("PMD.UseArrayListInsteadOfVector")
-public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler, DisplayAwareTab
+public class CompanionInfoTab extends JSplitPane implements CharacterInfoTab, TodoHandler, DisplayAwareTab
 {
 
 	private final JTreeTable companionsTable;

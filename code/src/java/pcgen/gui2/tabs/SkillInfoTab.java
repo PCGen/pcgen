@@ -75,7 +75,6 @@ import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.models.HtmlSheetSupport;
 import pcgen.gui2.tabs.skill.SkillPointTableModel;
 import pcgen.gui2.tabs.skill.SkillTreeViewModel;
-import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.event.ListDataAdapter;
 import pcgen.gui2.util.table.TableCellUtilities;
@@ -87,8 +86,7 @@ import pcgen.util.enumeration.Tab;
 /**
  * This component allows the user to manage a character's skills.
  */
-@SuppressWarnings("serial")
-public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
+public class SkillInfoTab extends JSplitPane implements CharacterInfoTab, TodoHandler
 {
 
 	private final FilteredTreeViewTable<CharacterFacade, Skill> skillTable;
@@ -98,11 +96,10 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private final FilterButton<CharacterFacade, Skill> cFilterButton;
 	private final FilterButton<CharacterFacade, Skill> trainedFilterButton;
 	private final JEditorPane htmlPane;
-	private final JComboBox skillFilterBox;
+	private final JComboBox<SkillFilter> skillFilterBox;
 
 	public SkillInfoTab()
 	{
-		super();
 		this.skillTable = new FilteredTreeViewTable<>();
 		this.skillpointTable = new JTable();
 		this.infoPane = new InfoPane();
@@ -165,11 +162,11 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		skillPanel.add(selScrollPane, BorderLayout.CENTER);
 		selScrollPane.setPreferredSize(new Dimension(530, 300));
 
-		FlippingSplitPane topPane =
-				new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, availPanel, skillPanel);
+		JSplitPane topPane =
+				new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, true, availPanel, skillPanel);
 		setTopComponent(topPane);
 
-		FlippingSplitPane bottomPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+		JSplitPane bottomPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 		bottomPane.setLeftComponent(tablePanel);
 		tablePanel.setPreferredSize(new Dimension(650, 100));
 		bottomPane.setRightComponent(infoPane);
