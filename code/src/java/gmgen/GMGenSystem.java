@@ -158,6 +158,7 @@ public final class GMGenSystem extends JFrame
 		messageHandler.handleMessage(new RequestFileOpenedMessageForCurrentlyOpenedPCsMessage(this));
 		messageHandler.handleMessage(new FocusOrStateChangeOccurredMessage(this, editMenu));
 		inst.setVisible(true);
+		pack();
 	}
 
 	/**

@@ -68,4 +68,10 @@ public final class ConvertedJavaFXPanel<T extends ResettableController> extends 
 	{
 		return this.panel.getController();
 	}
+
+	@Override
+	public String toString()
+	{
+		return getTitle();
+	}
 }

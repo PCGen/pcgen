@@ -43,6 +43,7 @@ import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui3.preferences.ConvertedJavaFXPanel;
 import pcgen.pluginmgr.InteractivePlugin;
 import pcgen.pluginmgr.PCGenMessage;
 import pcgen.pluginmgr.PCGenMessageHandler;
@@ -51,7 +52,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import plugin.experience.gui.AddDefeatedCombatant;
 import plugin.experience.gui.ExperienceAdjusterView;
-import plugin.experience.gui.PreferencesExperiencePanel;
+import plugin.experience.gui3.PreferencesExperiencesPanelController;
 
 /**
  * The {@code ExperienceAdjusterController} handles the functionality of
@@ -92,8 +93,12 @@ public class ExperienceAdjusterPlugin extends KeyAdapter
 		messageHandler = mh;
 		eaModel = new ExperienceAdjusterModel(getDataDirectory());
 		eaView = new ExperienceAdjusterView(eaModel);
+		var preferencesExperiencePanel = new ConvertedJavaFXPanel<>(
+				PreferencesExperiencesPanelController.class,
+				"PreferencesExperiencesPanel.fxml",
+		"in_plugin_experience_name");
 		messageHandler.handleMessage(
-			new RequestAddPreferencesPanelMessage(this, new PreferencesExperiencePanel()));
+			new RequestAddPreferencesPanelMessage(this, preferencesExperiencePanel));
 		initListeners();
 		update();
 		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, getLocalizedName(), getView()));
