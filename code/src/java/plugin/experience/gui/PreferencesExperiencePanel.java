@@ -26,9 +26,9 @@ import pcgen.system.LanguageBundle;
 import plugin.experience.ExperienceAdjusterPlugin;
 
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public final class PreferencesExperiencePanel extends PCGenPrefsPanel
 {
@@ -94,9 +94,7 @@ public final class PreferencesExperiencePanel extends PCGenPrefsPanel
 
 	private void initComponents()
 	{
-		TitledPane titlePane = new TitledPane();
-		titlePane.setText(LanguageBundle.getString("in_plugin_xp_calc"));
-		titlePane.setCollapsible(false);
+		Text text = new Text(LanguageBundle.getString("in_plugin_xp_calc"));
 
 		ToggleGroup experienceGroup = new ToggleGroup();
 
@@ -110,6 +108,7 @@ public final class PreferencesExperiencePanel extends PCGenPrefsPanel
 		experienceRB2.setText(LanguageBundle.getString("in_plugin_xp_byPC"));
 
 		VBox vbox = new VBox();
+		vbox.getChildren().add(text);
 		vbox.getChildren().add(experienceRB1);
 		vbox.getChildren().add(experienceRB2);
 

@@ -68,8 +68,8 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 	{
 		JPanel mainPanel = new JPanel();
 
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
+		GridBagLayout gridbag;
+		GridBagConstraints c;
 		JLabel label;
 		Border etched = null;
 		TitledBorder title1 = BorderFactory.createTitledBorder(etched, IN_HOUSE_RULES);
