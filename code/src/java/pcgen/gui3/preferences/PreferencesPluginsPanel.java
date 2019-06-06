@@ -23,7 +23,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pcgen.cdom.base.Constants;
-import pcgen.gui2.dialog.PreferencesDialog;
 import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui3.GuiUtility;
 import pcgen.pluginmgr.PluginManager;
@@ -39,6 +38,8 @@ import javafx.scene.text.Text;
 
 public final class PreferencesPluginsPanel extends PCGenPrefsPanel
 {
+	private static final String LB_PREFS_PLUGINS_RUN = "in_Prefs_pluginsRun"; //$NON-NLS-1$
+
 	private final Map<String, PluginRef> pluginMap = new HashMap<>();
 
 	private VBox mainPanel;
@@ -119,17 +120,17 @@ public final class PreferencesPluginsPanel extends PCGenPrefsPanel
 
 		private void initComponents()
 		{
-			checkBox = new CheckBox(LanguageBundle.getString(PreferencesDialog.LB_PREFS_PLUGINS_RUN));
+			checkBox = new CheckBox(LanguageBundle.getString(LB_PREFS_PLUGINS_RUN));
 			TitledPane titledPane = new TitledPane(pluginTitle, checkBox);
 			getChildren().add(titledPane);
 		}
 
-		public void initPreferences()
+		private void initPreferences()
 		{
 			checkBox.setSelected(PCGenSettings.GMGEN_OPTIONS_CONTEXT.initBoolean(pluginName + ".Load", true));
 		}
 
-		public void applyPreferences()
+		private void applyPreferences()
 		{
 			PCGenSettings.GMGEN_OPTIONS_CONTEXT.setBoolean(pluginName + ".Load", checkBox.isSelected());
 			PCGenSettings.GMGEN_OPTIONS_CONTEXT.setProperty(pluginName + ".System", Constants.SYSTEM_GMGEN);

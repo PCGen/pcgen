@@ -194,23 +194,21 @@ public final class LanguagePanel extends PCGenPrefsPanel
 		}
 
 		SettingsHandler.getGame().selectUnitSet(unitSetType.getValue());
+		setNeedsRestart();
 	}
 
 
 
-	@Override
-	public boolean needsRestart()
+	private void setNeedsRestart()
 	{
 		if (languageChoiceGroup.getSelectedToggle() != null && originalLanguage != languageChoiceGroup.getSelectedToggle().getUserData())
 		{
-			return true;
+			SettingsHandler.settingsNeedRestartProperty().set(true);
 		}
-		if (originalUnitSet != unitSetType.getValue())
+		if (!originalUnitSet.equals(unitSetType.getValue()))
 		{
-			return true;
+			SettingsHandler.settingsNeedRestartProperty().set(true);
 		}
-
-		return false;
 	}
 
 }

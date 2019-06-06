@@ -34,8 +34,6 @@ import javax.swing.JSeparator;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import gmgen.gui.PreferencesDialog;
-import gmgen.gui.PreferencesRootTreeNode;
 import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
 import gmgen.pluginmgr.messages.EditMenuCopySelectionMessage;
 import gmgen.pluginmgr.messages.EditMenuCutSelectionMessage;
@@ -49,9 +47,11 @@ import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import gmgen.util.LogUtilities;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.PCGenActionMap;
+import pcgen.gui2.dialog.PreferencesDialog;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui3.application.DesktopHandler;
+import pcgen.gui3.preferences.GMGenPreferencesModel;
 import pcgen.pluginmgr.PCGenMessage;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.PluginManager;
@@ -125,7 +125,7 @@ public final class GMGenSystem extends JFrame
 	public JMenuItem saveFileItem;
 
 	// Tree for the preferences dialog
-	private final PreferencesRootTreeNode rootNode = new PreferencesRootTreeNode();
+	private final GMGenPreferencesModel rootNode = new GMGenPreferencesModel();
 
 	private final PCGenMessageHandler messageHandler;
 
@@ -500,7 +500,7 @@ public final class GMGenSystem extends JFrame
 
 	private void mPreferencesActionPerformed(ActionEvent event)
 	{
-		Window dialog = new PreferencesDialog(this, true, rootNode);
+		Window dialog = new PreferencesDialog(this, rootNode);
 		dialog.setVisible(true);
 	}
 
