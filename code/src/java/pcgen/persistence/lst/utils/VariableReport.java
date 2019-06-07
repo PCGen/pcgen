@@ -153,8 +153,7 @@ public class VariableReport
 
 	private List<Campaign> getCampaignsForGameMode(GameMode game)
 	{
-		List<String> gameModeList = new ArrayList<>();
-		gameModeList.addAll(game.getAllowedModes());
+		List<String> gameModeList = new ArrayList<>(game.getAllowedModes());
 
 		// Only add those campaigns in the user's chosen folder and game mode
 		List<Campaign> allCampaigns = Globals.getCampaignList();

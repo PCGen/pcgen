@@ -575,9 +575,7 @@ public final class Equipment extends PObject
 		final boolean bPrimary)
 	{
 
-		final List<BonusObj> aList = new ArrayList<>();
-
-		aList.addAll(BonusUtilities.getBonusFromList(getBonusList(pc), aType, aName));
+		final List<BonusObj> aList = new ArrayList<>(BonusUtilities.getBonusFromList(getBonusList(pc), aType, aName));
 
 		getEqModifierList(bPrimary).stream()
 			.map(eqMod -> BonusUtilities.getBonusFromList(eqMod.getBonusList(this), aType, aName))

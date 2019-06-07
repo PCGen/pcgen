@@ -45,7 +45,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 {
 
 	@SuppressWarnings("rawtypes")
-	private static final Class ARRAY_CLASS = new Object[0].getClass();
+	private static final Class ARRAY_CLASS = Object[].class;
 
 	@SuppressWarnings("unchecked")
 	@Override
