@@ -384,8 +384,7 @@ public abstract class AbstractPrerequisiteListParser extends AbstractPrerequisit
 		}
 		else
 		{
-			List<String> parts = new ArrayList<>();
-			parts.addAll(Arrays.asList(tokens));
+			List<String> parts = new ArrayList<>(Arrays.asList(tokens));
 			parts.remove(parts.size() - 1);
 			reqKey = StringUtils.join(parts, "=");
 		}

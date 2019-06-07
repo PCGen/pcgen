@@ -173,8 +173,7 @@ public class EqToken extends Token
 			}
 
 			// Get the list of equipment
-			eqList = new ArrayList<>();
-			eqList.addAll(pc.getEquipmentListInOutputOrder(merge));
+			eqList = new ArrayList<>(pc.getEquipmentListInOutputOrder(merge));
 
 			//Begin Not code...
 			while (aTok.hasMoreTokens())

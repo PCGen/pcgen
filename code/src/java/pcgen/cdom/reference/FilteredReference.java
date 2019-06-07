@@ -104,8 +104,7 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 	@Override
 	public Collection<T> getContainedObjects()
 	{
-		Set<T> choices = new HashSet<>();
-		choices.addAll(baseSet.getContainedObjects());
+		Set<T> choices = new HashSet<>(baseSet.getContainedObjects());
 		RETAIN: for (Iterator<T> it = choices.iterator(); it.hasNext();)
 		{
 			T choice = it.next();

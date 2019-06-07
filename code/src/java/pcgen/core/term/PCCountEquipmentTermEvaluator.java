@@ -43,10 +43,9 @@ public class PCCountEquipmentTermEvaluator extends BasePCTermEvaluator implement
 	public Float resolve(PlayerCharacter pc)
 	{
 
-		List<Equipment> aList = new ArrayList<>();
 		final List<Equipment> equipList = pc.getEquipmentListInOutputOrder(merge);
 
-        aList.addAll(equipList);
+		List<Equipment> aList = new ArrayList<>(equipList);
 
 		// This is new, it's to deal with the fact that the code uses an array
 		// now instead of the deprecated StringTokeniser class.  We can have
