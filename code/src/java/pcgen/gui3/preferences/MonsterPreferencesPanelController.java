@@ -8,7 +8,7 @@
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
@@ -16,17 +16,28 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-package pcgen.gui3;
+package pcgen.gui3.preferences;
 
-public interface ResettableController
+import pcgen.core.SettingsHandler;
+import pcgen.gui3.ResettableController;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
+
+public class MonsterPreferencesPanelController implements ResettableController
 {
-	/**
-	 * This is used for "apply" and "ok".
-	 */
-	void apply();
+	@FXML
+	private CheckBox ignoreMonsterHDCap;
 
-	/**
-	 * This is used for the "cancel" operation.
-	 */
-	void reset();
+	@Override
+	public void apply()
+	{
+		SettingsHandler.setIgnoreMonsterHDCap(ignoreMonsterHDCap.isSelected());
+	}
+
+	@Override
+	public void reset()
+	{
+		ignoreMonsterHDCap.setSelected(SettingsHandler.isIgnoreMonsterHDCap());
+	}
 }
