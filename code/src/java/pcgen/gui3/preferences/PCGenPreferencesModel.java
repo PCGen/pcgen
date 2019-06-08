@@ -23,7 +23,6 @@ import pcgen.gui2.prefs.CharacterStatsPanel;
 import pcgen.gui2.prefs.HouseRulesPanel;
 import pcgen.gui2.prefs.LanguagePanel;
 import pcgen.gui2.prefs.LocationPanel;
-import pcgen.gui2.prefs.MonsterPanel;
 import pcgen.gui2.prefs.OutputPanel;
 import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui3.JFXPanelFromResource;
@@ -107,7 +106,10 @@ public final class PCGenPreferencesModel
 		characterNode.getChildren().add(new TreeItem<>(hitPointsPanel));
 		PCGenPrefsPanel houseRulesPanel = new HouseRulesPanel();
 		characterNode.getChildren().add(new TreeItem<>(houseRulesPanel));
-		PCGenPrefsPanel monsterPanel = new MonsterPanel();
+		PCGenPrefsPanel monsterPanel = new ConvertedJavaFXPanel<>(
+				MonsterPreferencesPanelController.class,
+				"MonsterPreferencesPanel.fxml",
+				"in_Prefs_monsters");
 		characterNode.getChildren().add(new TreeItem<>(monsterPanel));
 		PCGenPrefsPanel defaultsPanel = new ConvertedJavaFXPanel<>(
 				DefaultsPreferencesPanelController.class,
