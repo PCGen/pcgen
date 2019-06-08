@@ -101,6 +101,8 @@ import pcgen.gui2.util.ManagedField;
 import pcgen.gui2.util.SignIcon;
 import pcgen.gui2.util.SignIcon.Sign;
 import pcgen.gui2.util.SimpleTextIcon;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.SimpleHtmlPanelController;
 import pcgen.gui3.utilty.ColorUtilty;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
@@ -153,7 +155,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private final JButton removeLevelsButton;
 	private final JButton hpButton;
 	private final JLabel totalHPLabel;
-	private final JEditorPane infoPane;
+	private final JFXPanelFromResource<SimpleHtmlPanelController> infoPane;
 	private final JLabel statTotalLabel;
 	private final JLabel statTotal;
 	private final JLabel modTotalLabel;
@@ -202,7 +204,10 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		this.expsubtractButton = new JButton();
 		this.hpButton = new JButton();
 		this.totalHPLabel = new JLabel();
-		this.infoPane = new JEditorPane();
+		this.infoPane = new JFXPanelFromResource<>(
+				SimpleHtmlPanelController.class,
+				"SimpleHtmlPanel.fxml"
+		);
 		this.statTotalLabel = new JLabel();
 		this.statTotal = new JLabel();
 		this.modTotalLabel = new JLabel();
@@ -329,8 +334,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		statsPanel.add(statTotalPanel);
 
 		middlePanel.add(statsPanel);
-
-		InfoPaneHandler.initializeEditorPane(infoPane);
 
 		pane = new JScrollPane(infoPane);
 		setPanelTitle(pane, LanguageBundle.getString("in_sumStats")); //$NON-NLS-1$

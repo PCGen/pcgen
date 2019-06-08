@@ -37,7 +37,6 @@ import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListSelectionModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JEditorPane;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -80,6 +79,8 @@ import pcgen.gui2.util.event.ListDataAdapter;
 import pcgen.gui2.util.table.TableCellUtilities;
 import pcgen.gui2.util.table.TableCellUtilities.SpinnerEditor;
 import pcgen.gui2.util.table.TableCellUtilities.SpinnerRenderer;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.SimpleHtmlPanelController;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
@@ -95,10 +96,10 @@ public class SkillInfoTab extends JSplitPane implements CharacterInfoTab, TodoHa
 	private final TabTitle tabTitle;
 	private final FilterButton<CharacterFacade, Skill> cFilterButton;
 	private final FilterButton<CharacterFacade, Skill> trainedFilterButton;
-	private final JEditorPane htmlPane;
 	private final JComboBox<SkillFilter> skillFilterBox;
+	private final JFXPanelFromResource<SimpleHtmlPanelController> htmlPane;
 
-	public SkillInfoTab()
+	SkillInfoTab()
 	{
 		this.skillTable = new FilteredTreeViewTable<>();
 		this.skillpointTable = new JTable();
@@ -106,7 +107,10 @@ public class SkillInfoTab extends JSplitPane implements CharacterInfoTab, TodoHa
 		this.cFilterButton = new FilterButton<>("SkillQualified");
 		this.trainedFilterButton = new FilterButton<>("SkillTrained");
 		this.tabTitle = new TabTitle(Tab.SKILLS);
-		this.htmlPane = new JEditorPane();
+		this.htmlPane = new JFXPanelFromResource<>(
+				SimpleHtmlPanelController.class,
+				"SimpleHtmlPanel.fxml"
+		);;
 		this.skillFilterBox = new JComboBox<>();
 		initComponents();
 	}
@@ -148,11 +152,6 @@ public class SkillInfoTab extends JSplitPane implements CharacterInfoTab, TodoHa
 		SkillPointTableModel.initializeTable(skillpointTable);
 		tableScrollPane = new JScrollPane(skillpointTable);
 		tablePanel.add(tableScrollPane, constraints);
-
-		htmlPane.setOpaque(false);
-		htmlPane.setEditable(false);
-		htmlPane.setFocusable(false);
-		htmlPane.setContentType("text/html"); //$NON-NLS-1$
 
 		skillFilterBox.setRenderer(new DefaultListCellRenderer());
 

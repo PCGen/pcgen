@@ -20,7 +20,6 @@ package pcgen.gui2.tabs.models;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.StringReader;
 import java.io.StringWriter;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.InvocationTargetException;
@@ -31,13 +30,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.ThreadFactory;
 
-import javax.swing.JEditorPane;
 import javax.swing.SwingUtilities;
-import javax.swing.text.EditorKit;
-import javax.swing.text.html.HTMLDocument;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.facade.core.CharacterFacade;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.SimpleHtmlPanelController;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
 
@@ -56,12 +54,12 @@ public class HtmlSheetSupport
 
 	private WeakReference<CharacterFacade> characterRef;
 	private final File templateFile;
-	private final JEditorPane htmlPane;
-	private FutureTask<HTMLDocument> refresher = null;
+	private final JFXPanelFromResource<SimpleHtmlPanelController> htmlPane;
+	private FutureTask<String> refresher = null;
 	private boolean installed = false;
 	private String missingSheetMsg;
 
-	public HtmlSheetSupport(JEditorPane htmlPane, String infoSheetFile)
+	public HtmlSheetSupport(JFXPanelFromResource<SimpleHtmlPanelController> htmlPane, String infoSheetFile)
 	{
 		if (!StringUtils.isEmpty(infoSheetFile))
 		{
@@ -74,7 +72,7 @@ public class HtmlSheetSupport
 		this.htmlPane = htmlPane;
 	}
 
-	public HtmlSheetSupport(CharacterFacade character, JEditorPane htmlPane, String infoSheetFile)
+	public HtmlSheetSupport(CharacterFacade character, JFXPanelFromResource<SimpleHtmlPanelController> htmlPane, String infoSheetFile)
 	{
 		this(htmlPane, infoSheetFile);
 		setCharacter(character);
@@ -100,7 +98,7 @@ public class HtmlSheetSupport
 	{
 		if (templateFile == null)
 		{
-			htmlPane.setText(missingSheetMsg);
+			htmlPane.getController().setHtml(missingSheetMsg);
 			return;
 		}
 		if (characterRef == null || characterRef.get() == null)
@@ -120,10 +118,10 @@ public class HtmlSheetSupport
 		this.missingSheetMsg = missingSheetMsg;
 	}
 
-	private class Refresher extends FutureTask<HTMLDocument>
+	private final class Refresher extends FutureTask<String>
 	{
 
-		public Refresher()
+		private Refresher()
 		{
 			super(new DocumentBuilder());
 		}
@@ -137,8 +135,8 @@ public class HtmlSheetSupport
 			}
 			try
 			{
-				final HTMLDocument doc = get();
-				SwingUtilities.invokeAndWait(() -> htmlPane.setDocument(doc));
+				final String doc = get();
+				SwingUtilities.invokeAndWait(() -> htmlPane.getController().setHtml(doc));
 			}
 			catch (InvocationTargetException ex)
 			{
@@ -153,22 +151,17 @@ public class HtmlSheetSupport
 
 	}
 
-	private class DocumentBuilder implements Callable<HTMLDocument>
+	private class DocumentBuilder implements Callable<String>
 	{
 
 		@Override
-		public HTMLDocument call() throws Exception
+		public String call() throws Exception
 		{
-			StringWriter writer = new StringWriter();
-			characterRef.get().export(new ExportHandler(templateFile), new BufferedWriter(writer));
-			StringReader reader = new StringReader(writer.toString());
-			EditorKit kit = htmlPane.getEditorKit();
-			HTMLDocument doc = new HTMLDocument();
-
-			doc.setBase(templateFile.getParentFile().toURI().toURL());
-			doc.putProperty("IgnoreCharsetDirective", true);
-			kit.read(reader, doc, 0);
-			return doc;
+			try (StringWriter writer = new StringWriter())
+			{
+				characterRef.get().export(new ExportHandler(templateFile), new BufferedWriter(writer));
+				return writer.toString();
+			}
 		}
 
 	}
