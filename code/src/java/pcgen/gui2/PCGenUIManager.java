@@ -21,15 +21,11 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import gmgen.GMGenSystem;
 import pcgen.cdom.base.Constants;
 import pcgen.gui2.dialog.PreferencesDialog;
-import pcgen.gui2.facade.GMGenMessageHandler;
 import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.application.DesktopHandler;
 import pcgen.gui3.preferences.PCGenPreferencesModel;
-import pcgen.pluginmgr.PCGenMessageHandler;
-import pcgen.pluginmgr.PluginManager;
 import pcgen.system.Main;
 import pcgen.util.Logging;
 
@@ -55,9 +51,6 @@ public final class PCGenUIManager
 	{
 		DesktopHandler.initialize();
 		pcgenFrame = new PCGenFrame(new UIContext());
-		PluginManager pluginMgr = PluginManager.getInstance();
-		PCGenMessageHandler handler = new GMGenMessageHandler(pcgenFrame, pluginMgr.getPostbox());
-		pluginMgr.addMember(handler);
 		String className = UIManager.getSystemLookAndFeelClassName();
 		try
 		{
@@ -102,17 +95,4 @@ public final class PCGenUIManager
 		}
 		Main.shutdown();
 	}
-
-	static void displayGmGen()
-	{
-		if (GMGenSystem.inst == null)
-		{
-			new GMGenSystem();
-		}
-		else
-		{
-			GMGenSystem.inst.setVisible(true);
-		}
-	}
-
 }
