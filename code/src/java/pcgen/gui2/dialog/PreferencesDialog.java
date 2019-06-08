@@ -46,16 +46,17 @@ import javafx.scene.control.TreeView;
 /**
  *  PCGen preferences dialog
  */
-public final class PreferencesDialog extends AbstractPreferencesDialog
+public final class PreferencesDialog extends AbstractDialog
 {
+	private static final String LB_TITLE = "in_Prefs_title"; //$NON-NLS-1$
 
 	private TreeView<PCGenPrefsPanel> settingsTree;
 	private final TreeItem<PCGenPrefsPanel> root;
 	private JSplitPane splitPane;
 
-	public PreferencesDialog(JFrame parent, TreeItem<PCGenPrefsPanel> model)
+	public PreferencesDialog(JFrame parent, TreeItem<PCGenPrefsPanel> model, String applicationName)
 	{
-		super(parent, Constants.APPLICATION_NAME);
+		super(parent, LanguageBundle.getFormattedString(LB_TITLE, applicationName), true);
 		this.root = Objects.requireNonNull(model);
 		initCenter();
 
@@ -168,4 +169,11 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	{
 		setOptionsBasedOnControls();
 	}
+
+	@Override
+	protected boolean includeApplyButton()
+	{
+		return true;
+	}
+
 }

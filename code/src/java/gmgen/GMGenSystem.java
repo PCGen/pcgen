@@ -45,6 +45,7 @@ import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
 import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import gmgen.util.LogUtilities;
+import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.PCGenActionMap;
 import pcgen.gui2.dialog.PreferencesDialog;
@@ -501,7 +502,7 @@ public final class GMGenSystem extends JFrame
 
 	private void mPreferencesActionPerformed(ActionEvent event)
 	{
-		Window dialog = new PreferencesDialog(this, rootNode);
+		Window dialog = new PreferencesDialog(this, rootNode, Constants.SYSTEM_GMGEN);
 		dialog.setVisible(true);
 	}
 
