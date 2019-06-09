@@ -58,7 +58,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
 import javax.swing.JTable;
 import javax.swing.JTree;
 import javax.swing.SwingConstants;
@@ -87,6 +86,7 @@ import pcgen.gui2.tabs.models.BigDecimalFieldHandler;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
+import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.SignIcon;
@@ -109,7 +109,7 @@ import pcgen.util.enumeration.Tab;
  * equipment.
  */
 @SuppressWarnings("serial")
-public class PurchaseInfoTab extends JSplitPane implements CharacterInfoTab
+public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
 
 	private static final Set<String> PRIMARY_TYPES = new HashSet<>();
@@ -160,7 +160,7 @@ public class PurchaseInfoTab extends JSplitPane implements CharacterInfoTab
 	private void initComponents()
 	{
 		setOrientation(VERTICAL_SPLIT);
-		JSplitPane splitPane = new JSplitPane();
+		FlippingSplitPane splitPane = new FlippingSplitPane(); //$NON-NLS-1$
 		splitPane.setOrientation(HORIZONTAL_SPLIT);
 		{ // Top Left panel
 			FilterBar<CharacterFacade, EquipmentFacade> filterBar = new FilterBar<>();
@@ -222,6 +222,7 @@ public class PurchaseInfoTab extends JSplitPane implements CharacterInfoTab
 			splitPane.setRightComponent(panel);
 		}
 		setTopComponent(splitPane);
+		splitPane = new FlippingSplitPane(); //$NON-NLS-1$
 		splitPane.setOrientation(HORIZONTAL_SPLIT);
 		{// Bottom Left Panel
 			JPanel panel = new JPanel();

@@ -69,6 +69,7 @@ import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.dialog.DataInstaller;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
 import pcgen.gui2.tools.CommonMenuText;
+import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.tools.InfoPaneLinkAction;
 import pcgen.gui2.tools.Utility;
@@ -476,7 +477,7 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 				}
 
 			});
-			JSplitPane mainPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT);
+			FlippingSplitPane mainPane = new FlippingSplitPane(JSplitPane.HORIZONTAL_SPLIT);
 			mainPane.setTopComponent(new JScrollPane(sourceList));
 
 			linkAction.install();
