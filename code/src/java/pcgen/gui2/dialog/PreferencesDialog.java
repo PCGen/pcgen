@@ -145,13 +145,6 @@ public final class PreferencesDialog extends AbstractDialog
 	}
 
 
-	@Override
-	public void cancelButtonActionPerformed()
-	{
-		forEachLeaf(root, PCGenPrefsPanel::setOptionsBasedOnControls);
-		super.cancelButtonActionPerformed();
-	}
-
 	private static <T> void forEachLeaf(TreeItem<? extends T> parent, Consumer<T> func)
 	{
 		if (parent.isLeaf())
