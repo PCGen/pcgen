@@ -28,6 +28,7 @@ import java.util.List;
 import javax.swing.AbstractAction;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
@@ -88,8 +89,8 @@ public class JTreeViewTable<T> extends JTreeTable
 	 */
 	private static final String VIEW_INDEX_PREFS_KEY = "viewIdx";
 
-	private final JTableMenuButton cornerButton;
-	private DynamicTableColumnModel dynamicColumnModel = null;
+	private final JButton cornerButton;
+	private DynamicTableColumnModel dynamicColumnModel;
 	protected TreeViewTableModel<T> treetableModel;
 	private TreeViewModel<T> viewModel;
 	protected CornerButtonPopupMenu cornerPopupMenu = new CornerButtonPopupMenu();
@@ -140,12 +141,13 @@ public class JTreeViewTable<T> extends JTreeTable
 			columns = Collections.emptyList();
 		}
 
-		DefaultDynamicTableColumnModel model =
+			DynamicTableColumnModel model =
 				new DefaultDynamicTableColumnModel(columns.size() + 1);
 		TableColumn viewColumn = new TableColumn();
 		viewColumn.setHeaderValue(startingView.getViewName());
 		viewColumn.setIdentifier(TREE_VIEW_COL_PREFS_KEY);
 		viewColumn.setPreferredWidth(150);
+
 		model.addColumn(viewColumn);
 		model.setVisible(viewColumn, true);
 
