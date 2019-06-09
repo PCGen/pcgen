@@ -49,7 +49,6 @@ import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
 import pcgen.gui2.tabs.models.FormattedFieldHandler;
 import pcgen.gui2.tabs.models.TextFieldHandler;
-import pcgen.gui2.util.ScrollablePanel;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -80,7 +79,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	{
 		this.allButton = new JButton();
 		this.noneButton = new JButton();
-		this.itemsPanel = new ScrollablePanel(20);
+		this.itemsPanel = new JPanel();
 		initComponents();
 	}
 
