@@ -55,8 +55,8 @@ public class CalculatorDialogController
 		{
 			VariableProcessor vp = currentPC.getVariableProcessor();
 			vp.pauseCache();
-			outputText.setText(outputText.getText() +
-					currentPC.getNameRef() + ": " + formula + " = " + currentPC.getVariable(formula, true) + '\n');
+			outputText.setText(outputText.getText()
+					+ currentPC.getNameRef() + ": " + formula + " = " + currentPC.getVariable(formula, true) + '\n');
 			vp.restartCache();
 		}
 		else

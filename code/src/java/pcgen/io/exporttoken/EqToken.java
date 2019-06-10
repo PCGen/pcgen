@@ -41,7 +41,6 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.EquipmentUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
@@ -174,8 +173,7 @@ public class EqToken extends Token
 			}
 
 			// Get the list of equipment
-			eqList = new ArrayList<>();
-			eqList.addAll(pc.getEquipmentListInOutputOrder(merge));
+			eqList = new ArrayList<>(pc.getEquipmentListInOutputOrder(merge));
 
 			//Begin Not code...
 			while (aTok.hasMoreTokens())
@@ -925,11 +923,6 @@ public class EqToken extends Token
 	 */
 	public static double getCheckboxesDoubleToken(Equipment eq)
 	{
-		if (SettingsHandler.getShowSingleBoxPerBundle())
-		{
-			return getQtyDoubleToken(eq);
-		}
-
 		return getQtyDoubleToken(eq) * eq.getSafe(IntegerKey.BASE_QUANTITY);
 	}
 

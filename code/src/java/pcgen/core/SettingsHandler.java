@@ -27,7 +27,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -43,8 +42,12 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import org.apache.commons.lang3.SystemUtils;
 
 /**
@@ -66,12 +69,14 @@ public final class SettingsHandler
 	private static final IntegerProperty maxWandSpellLevel =
 			new SimpleIntegerProperty(Constants.DEFAULT_MAX_WAND_SPELL_LEVEL);
 
+	// do settings need a restart
+	private static final BooleanProperty settingsNeedRestart = new SimpleBooleanProperty(false);
+
 	// Map of RuleCheck keys and their settings
 	private static final Map<String, String> ruleCheckMap = new HashMap<>();
 
-	private static boolean enforceSpendingBeforeLevelUp = false;
 	private static final Properties FILTERSETTINGS = new Properties();
-	public static GameMode game = new GameMode("default");
+	private static final ObjectProperty<GameMode> game = new SimpleObjectProperty<>(new GameMode("default"));
 	private static boolean loadURLs = false;
 	private static boolean hpMaxAtFirstLevel = true;
 	private static boolean hpMaxAtFirstClassLevel = true;
@@ -90,7 +95,6 @@ public final class SettingsHandler
 	private static final String FILE_LOCATION = Globals.getFilepathsPath();
 	private static File backupPcgPath = null;
 	private static boolean createPcgBackup = true;
-	private static File portraitsPath = new File(Globals.getDefaultPath());
 
 	private static File gmgenPluginDir = new File(Globals.getDefaultPath() + File.separator + "plugins"); //$NON-NLS-1$
 	private static int prereqQualifyColor = Constants.DEFAULT_PREREQ_QUALIFY_COLOUR;
@@ -108,8 +112,6 @@ public final class SettingsHandler
 	private static String selectedSpellSheet = ""; //$NON-NLS-1$
 	private static boolean showHPDialogAtLevelUp = true;
 	private static boolean showStatDialogAtLevelUp = true;
-	private static boolean showSkillModifier = false;
-	private static boolean showSkillRanks = false;
 	private static boolean showWarningAtFirstLevelUp = true;
 	private static boolean alwaysOverwrite = false;
 	private static String defaultOSType = ""; //$NON-NLS-1$
@@ -125,7 +127,6 @@ public final class SettingsHandler
 	private static boolean guiUsesOutputNameSpells = false;
 	private static int lastTipShown = -1;
 	private static boolean showTipOfTheDay = true;
-	private static boolean showSingleBoxPerBundle = false;
 
 	private SettingsHandler()
 	{
@@ -191,21 +192,6 @@ public final class SettingsHandler
 		return createPcgBackup;
 	}
 
-	/**
-	 * Sets whether PCgen will enforce the spending of all unallocated feats and skill points
-	 * before allowing the character to level up.
-	 * @param argEnforceSpendingBeforeLevelUp Should spending be enforced?
-	 */
-	private static void setEnforceSpendingBeforeLevelUp(final boolean argEnforceSpendingBeforeLevelUp)
-	{
-		enforceSpendingBeforeLevelUp = argEnforceSpendingBeforeLevelUp;
-	}
-
-	public static boolean getEnforceSpendingBeforeLevelUp()
-	{
-		return enforceSpendingBeforeLevelUp;
-	}
-
 	public static String getFilePaths()
 	{
 		String def_type = "user";
@@ -213,12 +199,7 @@ public final class SettingsHandler
 		{
 			def_type = "mac_user";
 		}
-		return getFilepathProp().getProperty("pcgen.filepaths", def_type); //$NON-NLS-1$
-	}
-
-	private static Properties getFilepathProp()
-	{
-		return FILEPATHS;
+		return FILEPATHS.getProperty("pcgen.filepaths", def_type); //$NON-NLS-1$
 	}
 
 
@@ -236,11 +217,6 @@ public final class SettingsHandler
 	}
 
 	public static void setGMGenOption(final String optionName, final int optionValue)
-	{
-		setGMGenOption(optionName, String.valueOf(optionValue));
-	}
-
-	public static void setGMGenOption(final String optionName, final double optionValue)
 	{
 		setGMGenOption(optionName, String.valueOf(optionValue));
 	}
@@ -271,11 +247,6 @@ public final class SettingsHandler
 		return Integer.decode(getGMGenOption(optionName, String.valueOf(defaultValue)));
 	}
 
-	public static Double getGMGenOption(final String optionName, final double defaultValue)
-	{
-		return Double.valueOf(getGMGenOption(optionName, Double.toString(defaultValue)));
-	}
-
 	public static String getGMGenOption(final String optionName, final String defaultValue)
 	{
 		return getOptions().getProperty("gmgen.options." + optionName, defaultValue); //$NON-NLS-1$
@@ -297,35 +268,45 @@ public final class SettingsHandler
 
 		if (newMode != null)
 		{
-			game = newMode;
+			game.setValue(newMode);
 		}
 		// new key for game mode specific options are pcgen.options.gameMode.X.optionName
 		// but offer downward compatible support to read in old version for unitSet from 5.8.0
 		String unitSetName = getOptions().getProperty("pcgen.options.gameMode." + key + ".unitSetName",
-			getOptions().getProperty("pcgen.options.unitSetName." + key, game.getDefaultUnitSet()));
-		if (!game.selectUnitSet(unitSetName))
+			getOptions().getProperty("pcgen.options.unitSetName." + key, game.get().getDefaultUnitSet()));
+		if (!game.get().selectUnitSet(unitSetName))
 		{
-			if (!game.selectDefaultUnitSet())
+			if (!game.get().selectDefaultUnitSet())
 			{
-				game.selectUnitSet(Constants.STANDARD_UNITSET_NAME);
+				game.get().selectUnitSet(Constants.STANDARD_UNITSET_NAME);
 			}
 		}
-		game.setDefaultXPTableName(getPCGenOption(
+		game.get().setDefaultXPTableName(getPCGenOption(
 			"gameMode." + key + ".xpTableName", "")); //$NON-NLS-1$ //$NON-NLS-2$
-		game.setDefaultCharacterType(getPCGenOption(
+		game.get().setDefaultCharacterType(getPCGenOption(
 			"gameMode." + key + ".characterType", "")); //$NON-NLS-1$ //$NON-NLS-2$
 
-		AbilityCategory featTemplate = game.getFeatTemplate();
+		AbilityCategory featTemplate = game.get().getFeatTemplate();
 		if (featTemplate != null)
 		{
 			AbilityCategory.FEAT.copyFields(featTemplate);
 		}
-		getChosenCampaignFiles(game);
+		getChosenCampaignFiles(game.get());
 	}
 
-	public static GameMode getGame()
+	public static ObjectProperty<GameMode> getGameAsProperty()
 	{
 		return game;
+	}
+
+	/**
+	 *
+	 * @deprecated use getGameAsProperty
+	 */
+	@Deprecated
+	public static GameMode getGame()
+	{
+		return game.get();
 	}
 
 	public static void setGearTab_AllowDebt(final boolean allowDebt)
@@ -483,6 +464,11 @@ public final class SettingsHandler
 		return maxPotionSpellLevel;
 	}
 
+	public static BooleanProperty settingsNeedRestartProperty()
+	{
+		return settingsNeedRestart;
+	}
+
 	public static SortedProperties getOptions()
 	{
 		return OPTIONS;
@@ -519,7 +505,6 @@ public final class SettingsHandler
 		setAlwaysOverwrite(getPCGenOption("alwaysOverwrite", false)); //$NON-NLS-1$
 		setCreatePcgBackup(getPCGenOption("createPcgBackup", true));
 		setDefaultOSType(getPCGenOption("defaultOSType", null)); //$NON-NLS-1$
-		setEnforceSpendingBeforeLevelUp(getPCGenOption("enforceSpendingBeforeLevelUp", false)); //$NON-NLS-1$
 		setGearTab_AllowDebt(getPCGenOption("GearTab.allowDebt", false)); //$NON-NLS-1$
 		setGearTab_BuyRate(buyRate);
 		setGearTab_IgnoreCost(getPCGenOption("GearTab.ignoreCost", false)); //$NON-NLS-1$
@@ -541,8 +526,6 @@ public final class SettingsHandler
 			System.getProperty("user.dir") + File.separator + "plugins")))); //$NON-NLS-1$ //$NON-NLS-2$
 		setBackupPcgPath(
 			new File(expandRelativePath(getOptions().getProperty("pcgen.files.characters.backup", "")))); //$NON-NLS-1$
-		setPortraitsPath(new File(expandRelativePath(getOptions().getProperty("pcgen.files.portraits", //$NON-NLS-1$
-			Globals.getDefaultPcgPath()))));
 		setPostExportCommandStandard(getPCGenOption("postExportCommandStandard", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setPostExportCommandPDF(getPCGenOption("postExportCommandPDF", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		setPrereqFailColor(getPCGenOption("prereqFailColor", Color.red.getRGB())); //$NON-NLS-1$
@@ -571,13 +554,10 @@ public final class SettingsHandler
 			expandRelativePath(getOptions().getProperty("pcgen.files.selectedPartyPDFOutputSheet", //$NON-NLS-1$
 				""))); //$NON-NLS-1$
 		setShowHPDialogAtLevelUp(getPCGenOption("showHPDialogAtLevelUp", true)); //$NON-NLS-1$
-		setShowSingleBoxPerBundle(getPCGenOption("showSingleBoxPerBundle", false)); //$NON-NLS-1$
 		setOutputDeprecationMessages(getPCGenOption("outputDeprecationMessages", true));
 		setInputUnconstructedMessages(getPCGenOption("inputUnconstructedMessages", false));
 		setShowStatDialogAtLevelUp(getPCGenOption("showStatDialogAtLevelUp", true)); //$NON-NLS-1$
 		setShowTipOfTheDay(getPCGenOption("showTipOfTheDay", true)); //$NON-NLS-1$
-		setShowSkillModifier(getPCGenOption("showSkillModifier", true)); //$NON-NLS-1$
-		setShowSkillRanks(getPCGenOption("showSkillRanks", true)); //$NON-NLS-1$
 		setShowWarningAtFirstLevelUp(getPCGenOption("showWarningAtFirstLevelUp", true)); //$NON-NLS-1$
 		setUseHigherLevelSlotsDefault(getPCGenOption("useHigherLevelSlotsDefault", false)); //$NON-NLS-1$
 		setWeaponProfPrintout(getPCGenOption("weaponProfPrintout", Constants.DEFAULT_PRINTOUT_WEAPONPROF));
@@ -630,8 +610,6 @@ public final class SettingsHandler
 			getOptions().setProperty("pcgen.files.characters.backup", ""); //$NON-NLS-1$
 		}
 
-		getOptions().setProperty(
-			"pcgen.files.portraits", retractRelativePath(getPortraitsPath().getAbsolutePath())); //$NON-NLS-1$
 		getOptions().setProperty(
 			"pcgen.files.selectedSpellOutputSheet", retractRelativePath(getSelectedSpellSheet())); //$NON-NLS-1$
 		getOptions().setProperty("pcgen.files.selectedCharacterHTMLOutputSheet", //$NON-NLS-1$
@@ -718,13 +696,9 @@ public final class SettingsHandler
 		setPCGenOption("saveCustomInLst", isSaveCustomInLst()); //$NON-NLS-1$
 		setPCGenOption("saveOutputSheetWithPC", getSaveOutputSheetWithPC()); //$NON-NLS-1$
 		setPCGenOption("printSpellsWithPC", getPrintSpellsWithPC()); //$NON-NLS-1$
-		setPCGenOption("enforceSpendingBeforeLevelUp", getEnforceSpendingBeforeLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showHPDialogAtLevelUp", getShowHPDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showStatDialogAtLevelUp", getShowStatDialogAtLevelUp()); //$NON-NLS-1$
 		setPCGenOption("showTipOfTheDay", getShowTipOfTheDay()); //$NON-NLS-1$
-		setPCGenOption("showSkillModifier", getShowSkillModifier()); //$NON-NLS-1$
-		setPCGenOption("showSkillRanks", getShowSkillRanks()); //$NON-NLS-1$
-		setPCGenOption("showSingleBoxPerBundle", getShowSingleBoxPerBundle()); //$NON-NLS-1$
 		setPCGenOption("showWarningAtFirstLevelUp", isShowWarningAtFirstLevelUp()); //$NON-NLS-1$
 		setPCGenOption("sourceDisplay", Globals.getSourceDisplay().ordinal()); //$NON-NLS-1$
 		setPCGenOption("useHigherLevelSlotsDefault", isUseHigherLevelSlotsDefault()); //$NON-NLS-1$
@@ -768,26 +742,6 @@ public final class SettingsHandler
 		}
 
 		return new File(selectedCharacterPDFOutputSheet).getParentFile().getAbsolutePath();
-	}
-
-	/**
-	 * Sets the path to the portrait files.
-	 *
-	 * @param  path  the {@code File} representing the path
-	 */
-	public static void setPortraitsPath(final File path)
-	{
-		portraitsPath = path;
-	}
-
-	/**
-	 * @deprecated Use PCGenSettings.getPortraitsDir()
-	 * @return the portraits directory
-	 */
-	@Deprecated
-	public static File getPortraitsPath()
-	{
-		return portraitsPath;
 	}
 
 	public static void setPostExportCommandStandard(final String argPreference)
@@ -1214,11 +1168,6 @@ public final class SettingsHandler
 		}
 	}
 
-	private static Properties getFilterSettings()
-	{
-		return FILTERSETTINGS;
-	}
-
 	/**
 	 * Puts all properties into the {@code Properties} object,
 	 * ({@code options}). This is called by
@@ -1256,10 +1205,10 @@ public final class SettingsHandler
 	{
 		String value = ""; //$NON-NLS-1$
 
-		for (Iterator<String> i = ruleCheckMap.keySet().iterator(); i.hasNext();)
+		for (final Map.Entry<String, String> entry : ruleCheckMap.entrySet())
 		{
-			final String aKey = i.next();
-			final String aVal = ruleCheckMap.get(aKey);
+			final String aKey = entry.getKey();
+			final String aVal = entry.getValue();
 
 			if (value.isEmpty())
 			{
@@ -1283,26 +1232,6 @@ public final class SettingsHandler
 	private static boolean isSaveCustomInLst()
 	{
 		return saveCustomInLst;
-	}
-
-	public static void setShowSkillModifier(final boolean argShowSkillMod)
-	{
-		showSkillModifier = argShowSkillMod;
-	}
-
-	public static boolean getShowSkillModifier()
-	{
-		return showSkillModifier;
-	}
-
-	public static void setShowSkillRanks(final boolean argShowSkillRanks)
-	{
-		showSkillRanks = argShowSkillRanks;
-	}
-
-	public static boolean getShowSkillRanks()
-	{
-		return showSkillRanks;
 	}
 
 	private static String getTmpPath()
@@ -1355,7 +1284,7 @@ public final class SettingsHandler
 	{
 		try(InputStream in = new FileInputStream(FILE_LOCATION))
 		{
-			getFilepathProp().load(in);
+			FILEPATHS.load(in);
 		}
 		catch (IOException e)
 		{
@@ -1379,7 +1308,7 @@ public final class SettingsHandler
 
 		try(InputStream in = new FileInputStream(filterLocation))
 		{
-			getFilterSettings().load(in);
+			FILTERSETTINGS.load(in);
 		}
 		catch (IOException e)
 		{
@@ -1404,24 +1333,6 @@ public final class SettingsHandler
 		}
 
 		return path;
-	}
-
-	/**
-	 * @return The showSingleBoxPerBundle value.
-	 */
-	public static boolean getShowSingleBoxPerBundle()
-	{
-		return showSingleBoxPerBundle;
-	}
-
-	/**
-	 * Set the showSingleBoxPerBundle value.
-	 * 
-	 * @param b The new showSingleBoxPerBundle value.
-	 */
-	public static void setShowSingleBoxPerBundle(boolean b)
-	{
-		showSingleBoxPerBundle = b;
 	}
 
 	private static boolean outputDeprecationMessages = true;

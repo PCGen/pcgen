@@ -38,7 +38,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Observer;
 import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.LogRecord;
 
@@ -789,8 +788,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			fileChooser.setInitialFileName(oldFile.getName());
 		}
 
-		File file = CompletableFuture.supplyAsync(() ->
-				fileChooser.showSaveDialog(null), Platform::runLater).join();
+		File file = GuiUtility.runOnJavaFXThreadNow(() ->
+				fileChooser.showSaveDialog(null));
 
 		if (file == null)
 		{
@@ -870,8 +869,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 			fileChooser.setInitialFileName(character.getNameRef().get() + Constants.EXTENSION_CHARACTER_FILE);
 		}
 
-		File file = CompletableFuture.supplyAsync(() ->
-				fileChooser.showSaveDialog(null), Platform::runLater).join();
+		File file = GuiUtility.runOnJavaFXThreadNow(() ->
+				fileChooser.showSaveDialog(null));
 
 		if (file != null)
 		{
@@ -969,8 +968,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		fileChooser.getExtensionFilters().add(extensionFilter);
 		fileChooser.setSelectedExtensionFilter(extensionFilter);
 
-		File file = CompletableFuture.supplyAsync(() ->
-				fileChooser.showOpenDialog(null), Platform::runLater).join();
+		File file = GuiUtility.runOnJavaFXThreadNow(() ->
+				fileChooser.showOpenDialog(null));
 		if (file != null)
 		{
 			lastCharacterPath = file.getAbsoluteFile().getParent();
@@ -991,8 +990,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		fileChooser.getExtensionFilters().add(extensionFilter);
 		fileChooser.setSelectedExtensionFilter(extensionFilter);
 
-		File file = CompletableFuture.supplyAsync(() ->
-				fileChooser.showOpenDialog(null), Platform::runLater).join();
+		File file = GuiUtility.runOnJavaFXThreadNow(() ->
+				fileChooser.showOpenDialog(null));
 		if (file != null)
 		{
 			loadPartyFromFile(file);
@@ -1331,7 +1330,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		{
 			sourceSelectionDialog = new SourceSelectionDialog(this, uiContext);
 		}
-		Utility.setComponentRelativeLocation(this, sourceSelectionDialog);
+		sourceSelectionDialog.setLocationRelativeTo(this);
 		sourceSelectionDialog.setVisible(true);
 	}
 
@@ -1420,13 +1419,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	@Override
 	public boolean showWarningConfirm(String title, String message)
 	{
-		Alert alert = CompletableFuture.supplyAsync(() -> new Alert(Alert.AlertType.CONFIRMATION),
-				Platform::runLater).join();
+		Alert alert = GuiUtility.runOnJavaFXThreadNow(() -> new Alert(Alert.AlertType.CONFIRMATION));
 		alert.setTitle(title);
 		alert.setContentText(message);
-		Optional<ButtonType> buttonType = CompletableFuture.supplyAsync(
-				alert::showAndWait,
-				Platform::runLater).join();
+		Optional<ButtonType> buttonType = GuiUtility.runOnJavaFXThreadNow(alert::showAndWait);
 		return buttonType.orElse(ButtonType.NO).equals(ButtonType.OK);
 	}
 
@@ -1441,43 +1437,40 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	public void showErrorMessage(String title, String message)
 	{
 		GuiAssertions.assertIsNotJavaFXThread();
-		Alert alert = CompletableFuture.supplyAsync(() -> new Alert(Alert.AlertType.ERROR), Platform::runLater).join();
+		Alert alert = GuiUtility.runOnJavaFXThreadNow(() -> new Alert(Alert.AlertType.ERROR));
 		alert.setTitle(title);
 		alert.setContentText(message);
-		CompletableFuture.supplyAsync(alert::showAndWait, Platform::runLater).join();
+		GuiUtility.runOnJavaFXThreadNow(alert::showAndWait);
 	}
 
 	@Override
 	public void showInfoMessage(String title, String message)
 	{
 		GuiAssertions.assertIsNotJavaFXThread();
-		Alert alert =
-				CompletableFuture.supplyAsync(() -> new Alert(Alert.AlertType.INFORMATION), Platform::runLater).join();
+		Alert alert = GuiUtility.runOnJavaFXThreadNow(() -> new Alert(Alert.AlertType.INFORMATION));
 		alert.setTitle(title);
 		alert.setContentText(message);
-		CompletableFuture.supplyAsync(alert::showAndWait, Platform::runLater).join();
+		GuiUtility.runOnJavaFXThreadNow(alert::showAndWait);
 	}
 
 	@Override
 	public void showWarningMessage(String title, String message)
 	{
 		GuiAssertions.assertIsNotJavaFXThread();
-		Alert alert =
-				CompletableFuture.supplyAsync(() -> new Alert(Alert.AlertType.WARNING), Platform::runLater).join();
+		Alert alert = GuiUtility.runOnJavaFXThreadNow(() -> new Alert(Alert.AlertType.WARNING));
 		alert.setTitle(title);
 		alert.setContentText(message);
-		CompletableFuture.supplyAsync(alert::showAndWait, Platform::runLater).join();
+		GuiUtility.runOnJavaFXThreadNow(alert::showAndWait);
 	}
 
 	@Override
 	public Optional<String> showInputDialog(String title, String message, String initialValue)
 	{
 		GuiAssertions.assertIsNotJavaFXThread();
-		TextInputDialog dialog =
-				CompletableFuture.supplyAsync(() -> new TextInputDialog(initialValue), Platform::runLater).join();
+		TextInputDialog dialog = GuiUtility.runOnJavaFXThreadNow(() -> new TextInputDialog(initialValue));
 		dialog.setTitle(title);
 		dialog.setContentText(message);
-		return CompletableFuture.supplyAsync(dialog::showAndWait, Platform::runLater).join();
+		return GuiUtility.runOnJavaFXThreadNow(dialog::showAndWait);
 	}
 
 	@Override
@@ -1499,14 +1492,14 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		if (chooserFacade.isPreferRadioSelection() && chooserFacade.getRemainingSelections().get() == 1)
 		{
 			RadioChooserDialog dialog = new RadioChooserDialog(this, chooserFacade);
-			Utility.setComponentRelativeLocation(this, dialog);
+			dialog.setLocationRelativeTo(this);
 			dialog.setVisible(true);
 			return dialog.isCommitted();
 		}
 		else
 		{
 			ChooserDialog dialog = new ChooserDialog(this, chooserFacade);
-			Utility.setComponentRelativeLocation(this, dialog);
+			dialog.setLocationRelativeTo(this);
 			dialog.setVisible(true);
 			return dialog.isCommitted();
 		}
@@ -1649,7 +1642,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		aFrame.getContentPane().add(jPanel, BorderLayout.SOUTH);
 		aFrame.setSize(new Dimension(700, 500));
 		aFrame.setLocationRelativeTo(this);
-		Utility.setComponentRelativeLocation(this, aFrame);
+		aFrame.setLocationRelativeTo(this);
 		aFrame.getRootPane().setDefaultButton(jClose);
 		Utility.installEscapeCloseOperation(aFrame);
 		aFrame.setVisible(true);
@@ -1696,7 +1689,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		aFrame.getContentPane().add(jPanel3, BorderLayout.SOUTH);
 
 		aFrame.setSize(new Dimension(456, 176));
-		Utility.setComponentRelativeLocation(this, aFrame);
+		aFrame.setLocationRelativeTo(this);
 		aFrame.setVisible(true);
 	}
 
@@ -1709,7 +1702,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	public CustomEquipResult showCustomEquipDialog(CharacterFacade character, EquipmentBuilderFacade equipBuilder)
 	{
 		EquipCustomizerDialog eqDialog = new EquipCustomizerDialog(this, character, equipBuilder);
-		Utility.setComponentRelativeLocation(this, eqDialog);
+		eqDialog.setLocationRelativeTo(this);
 		eqDialog.setVisible(true);
 		CustomEquipResult result = eqDialog.isCancelled() ? CustomEquipResult.CANCELLED
 			: eqDialog.isPurchase() ? CustomEquipResult.PURCHASE : CustomEquipResult.OK;
@@ -1720,7 +1713,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	public boolean showCustomSpellDialog(SpellBuilderFacade spellBuilderFI)
 	{
 		SpellChoiceDialog spellDialog = new SpellChoiceDialog(this, spellBuilderFI);
-		Utility.setComponentRelativeLocation(this, spellDialog);
+		spellDialog.setLocationRelativeTo(this);
 		spellDialog.setVisible(true);
 		return !spellDialog.isCancelled();
 	}

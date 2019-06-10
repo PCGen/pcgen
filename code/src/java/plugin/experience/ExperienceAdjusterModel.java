@@ -29,7 +29,7 @@ import gmgen.plugin.State;
 import gmgen.util.LogUtilities;
 import pcgen.core.SettingsHandler;
 import pcgen.util.Logging;
-import plugin.experience.gui.PreferencesExperiencePanel;
+import plugin.experience.gui3.PreferencesExperiencesPanelController;
 
 /**
  * This {@code class} holds all the necessary data in order to have
@@ -133,14 +133,14 @@ public class ExperienceAdjusterModel extends Observable
 	void addExperienceToParty()
 	{
 		int expType = SettingsHandler.getGMGenOption(ExperienceAdjusterPlugin.LOG_NAME + ".ExperienceType",
-			PreferencesExperiencePanel.EXPERIENCE_35);
+				PreferencesExperiencesPanelController.EXPERIENCE_35);
 		LogUtilities.inst().logMessage(ExperienceAdjusterPlugin.LOG_NAME,
 			"Party Awarded " + getPartyExperience() + " Total Experience Split as:");
 
 		for (int i = 0; i < party.size(); i++)
 		{
 			Combatant cbt = party.get(i).getCombatant();
-			if (expType == PreferencesExperiencePanel.EXPERIENCE_3)
+			if (expType == PreferencesExperiencesPanelController.EXPERIENCE_3)
 			{
 				cbt.setXP(cbt.getXP() + (getPartyTotalExperience() / party.size()));
 				LogUtilities.inst().logMessage(ExperienceAdjusterPlugin.LOG_NAME,
@@ -335,8 +335,8 @@ public class ExperienceAdjusterModel extends Observable
 	void updatePartyExperience()
 	{
 		int expType = SettingsHandler.getGMGenOption(ExperienceAdjusterPlugin.LOG_NAME + ".ExperienceType",
-			PreferencesExperiencePanel.EXPERIENCE_35);
-		if (expType == PreferencesExperiencePanel.EXPERIENCE_3)
+				PreferencesExperiencesPanelController.EXPERIENCE_35);
+		if (expType == PreferencesExperiencesPanelController.EXPERIENCE_3)
 		{
 			partyExperience = getPartyTotalExperience();
 		}

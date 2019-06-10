@@ -22,7 +22,6 @@ import static pcgen.gui2.facade.EquipNode.NodeType.EQUIPMENT;
 import static pcgen.gui2.tabs.equip.EquipmentSelection.EQUIPMENT_ARRAY_FLAVOR;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.Insets;
@@ -87,10 +86,12 @@ import pcgen.gui2.util.JTreeTable;
 import pcgen.gui2.util.event.PopupMouseAdapter;
 import pcgen.gui2.util.table.DefaultDynamicTableColumnModel;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
+import pcgen.gui3.utilty.ColorUtilty;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Tab;
 
+import javafx.scene.paint.Color;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -412,7 +413,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		loadLabel.setText(text);
 		loadLabel.setFont(font);
-		loadLabel.setForeground(color);
+		loadLabel.setForeground(ColorUtilty.colorToAWTColor(color));
 	}
 
 	@Override
@@ -694,11 +695,11 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 			if (value instanceof EquipmentFacade && !character.isQualifiedFor((EquipmentFacade) value))
 			{
-				setForeground(UIPropertyContext.getNotQualifiedColor());
+				setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));
 			}
 			else if (!isSelected)
 			{
-				setForeground(UIPropertyContext.getQualifiedColor());
+				setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getQualifiedColor()));
 			}
 			return this;
 		}

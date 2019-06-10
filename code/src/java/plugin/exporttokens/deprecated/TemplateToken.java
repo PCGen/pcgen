@@ -272,8 +272,7 @@ public class TemplateToken extends Token
 		List<SpecialAbility> saList = new ArrayList<>();
 		saList.addAll(display.getResolvedUserSpecialAbilities(template));
 		saList.addAll(display.getResolvedSpecialAbilities(template));
-		List<PCTemplate> subList = new ArrayList<>();
-		subList.addAll(template.getConditionalTemplates(display.getTotalLevels(), display.totalHitDice()));
+		List<PCTemplate> subList = new ArrayList<>(template.getConditionalTemplates(display.getTotalLevels(), display.totalHitDice()));
 		for (PCTemplate subt : subList)
 		{
 			saList.addAll(display.getResolvedUserSpecialAbilities(subt));

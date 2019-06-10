@@ -20,14 +20,13 @@ package plugin.dicebag.gui;
 import java.awt.Component;
 import java.io.File;
 import java.util.StringTokenizer;
-import java.util.concurrent.CompletableFuture;
 
 import javax.swing.JOptionPane;
 
 import pcgen.core.SettingsHandler;
+import pcgen.gui3.GuiUtility;
 import plugin.dicebag.DiceBagPlugin;
 
-import javafx.application.Platform;
 import javafx.stage.FileChooser;
 
 /**
@@ -100,8 +99,8 @@ public class DiceBagPluginController
 			fileChooser.setInitialDirectory(new File(sFile));
 		}
 
-		File file = CompletableFuture.supplyAsync(() ->
-				fileChooser.showSaveDialog(null), Platform::runLater).join();
+		File file = GuiUtility.runOnJavaFXThreadNow(() ->
+				fileChooser.showSaveDialog(null));
 
 		if (file != null)
 		{
@@ -147,8 +146,7 @@ public class DiceBagPluginController
 			fileChooser.setInitialFileName(defaultFile.getName());
 		}
 
-		File selectedFile = CompletableFuture.supplyAsync(() ->
-				fileChooser.showOpenDialog(null), Platform::runLater).join();
+		File selectedFile = GuiUtility.runOnJavaFXThreadNow(() -> fileChooser.showOpenDialog(null));
 
 		if (selectedFile != null)
 		{

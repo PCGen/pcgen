@@ -68,13 +68,15 @@ public class EquipmentPreferencesPanelController implements ResettableController
 	// for now, do this to make some progress.
 
 	@Override
-	public void reset()  {
+	public void reset()
+	{
 		potionSpinner.getValueFactory().setValue(SettingsHandler.maxPotionSpellLevel().getValue());
 		wandSpinner.getValueFactory().setValue(SettingsHandler.maxWandSpellLevel().getValue());
 	}
 
 	@Override
-	public void apply()  {
+	public void apply()
+	{
 		SettingsHandler.maxPotionSpellLevel().set(model.maxPotionLevelProperty().get());
 		SettingsHandler.maxWandSpellLevel().set(model.maxWandLevelProperty().get());
 	}

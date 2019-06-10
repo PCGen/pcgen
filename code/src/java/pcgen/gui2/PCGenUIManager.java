@@ -22,10 +22,12 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 import gmgen.GMGenSystem;
+import pcgen.cdom.base.Constants;
 import pcgen.gui2.dialog.PreferencesDialog;
 import pcgen.gui2.facade.GMGenMessageHandler;
 import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.application.DesktopHandler;
+import pcgen.gui3.preferences.PCGenPreferencesModel;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.system.Main;
@@ -77,7 +79,9 @@ public final class PCGenUIManager
 	public static void displayPreferencesDialog()
 	{
 		GuiAssertions.assertIsSwingThread();
-		PreferencesDialog.show(pcgenFrame);
+		PreferencesDialog prefsDialog;
+		prefsDialog = new PreferencesDialog(pcgenFrame, PCGenPreferencesModel.buildRoot(), Constants.APPLICATION_NAME);
+		prefsDialog.setVisible(true);
 	}
 
 	public static void displayAboutDialog()

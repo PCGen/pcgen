@@ -24,7 +24,6 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.concurrent.CompletableFuture;
 
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
@@ -38,11 +37,11 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.gui2.converter.event.ProgressEvent;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FontManipulation;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
 import pcgen.system.PropertyContext;
 
-import javafx.application.Platform;
 import javafx.stage.DirectoryChooser;
 
 /**
@@ -138,8 +137,8 @@ public class SourceSelectionPanel extends ConvertSubPanel
 			directoryChooser.showDialog(null);
 			directoryChooser.setTitle("Please select the Source Directory to Convert");
 
-			File file = CompletableFuture.supplyAsync(() ->
-					directoryChooser.showDialog(null), Platform::runLater).join();
+			File file = GuiUtility.runOnJavaFXThreadNow(
+					() -> directoryChooser.showDialog(null));
 			if (file != null)
 			{
 				this.path = file;

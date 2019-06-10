@@ -40,16 +40,6 @@ public final class RandomUtil
 	}
 
 	/**
-	 * Get a random int
-	 * 
-	 * @return random int
-	 */
-	public static int getRandomInt()
-	{
-		return random.nextInt();
-	}
-
-	/**
 	 * Get a random integer between 0 (inclusive) and the given value
 	 * (exclusive).
 	 * 

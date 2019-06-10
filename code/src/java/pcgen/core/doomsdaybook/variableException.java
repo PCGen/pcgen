@@ -22,21 +22,14 @@ package pcgen.core.doomsdaybook;
  * {@code variableException} is an exception raised when a problem
  * occurs when processing a variable.
  */
-public class variableException extends Exception
+class variableException extends Exception
 {
-	/**
-	 * Creates a new instance of {@code variableException} without detail message.
-	 */
-	public variableException()
-	{
-		// Empty Constructor
-	}
 
 	/**
 	 * Constructs an instance of {@code variableException} with the specified detail message.
 	 * @param msg the detail message.
 	 */
-	public variableException(String msg)
+	variableException(String msg)
 	{
 		super(msg);
 	}

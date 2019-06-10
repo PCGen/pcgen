@@ -43,7 +43,7 @@ import org.apache.commons.lang3.StringUtils;
  * 
  */
 @SuppressWarnings("serial")
-public class RandomNameDialog extends JDialog
+public final class RandomNameDialog extends JDialog
 {
 	private final NameGenPanel nameGenPanel;
 	private boolean cancelled;
@@ -61,10 +61,7 @@ public class RandomNameDialog extends JDialog
 		initUserInterface();
 		pack();
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
-		if (frame != null)
-		{
-			Utility.setComponentRelativeLocation(frame, this);
-		}
+		this.setLocationRelativeTo(frame);
 		cancelled = false;
 
 		Utility.installEscapeCloseOperation(this);

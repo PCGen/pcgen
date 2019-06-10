@@ -78,7 +78,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 	{
 		Frame frame = JOptionPane.getFrameForComponent(parent);
 		CharacterHPDialog dialog = new CharacterHPDialog(frame, character);
-		Utility.setComponentRelativeLocation(frame, dialog);
+		dialog.setLocationRelativeTo(frame);
 		dialog.setVisible(true);
 	}
 

@@ -24,9 +24,9 @@ import javafx.beans.property.SimpleIntegerProperty;
 /**
  * model for equipment preferences
  */
-class EquipmentPreferencesModel
+final class EquipmentPreferencesModel
 {
-	static class Bounds
+	static final class Bounds
 	{
 		private Bounds(final int min, final int max)
 		{

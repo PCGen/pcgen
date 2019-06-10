@@ -575,9 +575,7 @@ public final class Equipment extends PObject
 		final boolean bPrimary)
 	{
 
-		final List<BonusObj> aList = new ArrayList<>();
-
-		aList.addAll(BonusUtilities.getBonusFromList(getBonusList(pc), aType, aName));
+		final List<BonusObj> aList = new ArrayList<>(BonusUtilities.getBonusFromList(getBonusList(pc), aType, aName));
 
 		getEqModifierList(bPrimary).stream()
 			.map(eqMod -> BonusUtilities.getBonusFromList(eqMod.getBonusList(this), aType, aName))
@@ -3413,7 +3411,7 @@ public final class Equipment extends PObject
 					mult = pc.getSizeBonusTo(newSize, "ITEMCAPACITY", eq.typeList(), 1.0);
 				}
 
-				BigDecimal multbd = new BigDecimal(mult);
+				BigDecimal multbd = new BigDecimal(String.valueOf(mult));
 				if (!Capacity.UNLIMITED.equals(weightCap))
 				{
 					// CONSIDER ICK, ICK, direct access bad
@@ -4143,7 +4141,7 @@ public final class Equipment extends PObject
 		if (aPC != null)
 		{
 			final double mult = getWeightMultiplier(aPC, newSA);
-			weight = weight.multiply(new BigDecimal(mult));
+			weight = weight.multiply(new BigDecimal(String.valueOf(mult)));
 		}
 
 		return weight;
@@ -5485,7 +5483,6 @@ public final class Equipment extends PObject
 	/**
 	 * Get Base contained weight
 	 * 
-	 * @param effective Should we recurse child objects?
 	 * @return Base contained weight
 	 */
 	public Float getBaseContainedWeight()

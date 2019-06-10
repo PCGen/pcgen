@@ -18,7 +18,6 @@
  */
 package pcgen.gui2.util.table;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -40,13 +39,10 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableCellRenderer;
 
-/**
- *
- */
 public final class TableCellUtilities
 {
 
-	private static final DefaultTableCellRenderer DUMMY_RENDERER = new DefaultTableCellRenderer();
+	private static final TableCellRenderer DUMMY_RENDERER = new DefaultTableCellRenderer();
 
 	private TableCellUtilities()
 	{
@@ -54,20 +50,17 @@ public final class TableCellUtilities
 
 	public static void setToRowBackground(Component c, JTable table, int row)
 	{
-		DUMMY_RENDERER.getTableCellRendererComponent(table, null, false, false, row, 0);
-		Color bg = DUMMY_RENDERER.getBackground();
-		// We have to create a new color object because Nimbus returns
-		// a color of type DerivedColor, which behaves strange, not sure
-		// why.
-		c.setBackground(new Color(bg.getRed(), bg.getGreen(), bg.getBlue()));
+		Component tableCellRendererComponent =
+				DUMMY_RENDERER.getTableCellRendererComponent(table, null, false, false, row, 0);
+		c.setBackground(tableCellRendererComponent.getBackground());
 	}
 
 	public static class RadioButtonEditor extends AbstractCellEditor implements ActionListener, TableCellEditor
 	{
 
-		private JRadioButton button;
+		private final JRadioButton button;
 
-		public RadioButtonEditor()
+		RadioButtonEditor()
 		{
 			this.button = new JRadioButton();
 			button.setHorizontalAlignment(SwingConstants.CENTER);
@@ -87,7 +80,7 @@ public final class TableCellUtilities
 			boolean selected = false;
 			if (value instanceof Boolean)
 			{
-				selected = ((Boolean) value).booleanValue();
+				selected = (Boolean) value;
 			}
 			else if (value instanceof String)
 			{
@@ -110,17 +103,12 @@ public final class TableCellUtilities
 
 		protected final JSpinner spinner;
 
-		public SpinnerEditor()
-		{
-			this(new JSpinner());
-		}
-
 		public SpinnerEditor(SpinnerModel model)
 		{
 			this(new JSpinner(model));
 		}
 
-		public SpinnerEditor(JSpinner spinner)
+		private SpinnerEditor(JSpinner spinner)
 		{
 			this.spinner = spinner;
 			spinner.addChangeListener(this);
@@ -162,13 +150,13 @@ public final class TableCellUtilities
 
 	}
 
-	public static class ToggleButtonRenderer extends JComponent implements TableCellRenderer
+	public static final class ToggleButtonRenderer extends JComponent implements TableCellRenderer
 	{
 
-		private JToggleButton button;
-		private DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+		private final JToggleButton button;
+		private final DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
 
-		public ToggleButtonRenderer(JToggleButton button)
+		ToggleButtonRenderer(JToggleButton button)
 		{
 			this.button = button;
 			button.setHorizontalAlignment(SwingConstants.CENTER);
@@ -187,7 +175,7 @@ public final class TableCellUtilities
 				return renderer;
 			}
 			setBackground(renderer.getBackground());
-			button.setSelected(((Boolean) value).booleanValue());
+			button.setSelected((Boolean) value);
 			return this;
 		}
 

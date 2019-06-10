@@ -50,6 +50,7 @@ import pcgen.gui2.facade.EquipNode;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JTreeTable;
+import pcgen.gui3.utilty.ColorUtilty;
 
 /**
  * The parent model for the selected panel. Maps the various equipment sets for
@@ -273,7 +274,7 @@ public class EquipmentModel
 				EquipmentFacade equip = null;
 				if (!selected)
 				{
-					setForeground(UIPropertyContext.getQualifiedColor());
+					setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getQualifiedColor()));
 				}
 				if (isEquipNode && ((EquipNode) value).getNodeType() == EquipNode.NodeType.EQUIPMENT)
 				{
@@ -290,7 +291,7 @@ public class EquipmentModel
 
 					if (!character.isQualifiedFor(equip))
 					{
-						setForeground(UIPropertyContext.getNotQualifiedColor());
+						setForeground(ColorUtilty.colorToAWTColor(UIPropertyContext.getNotQualifiedColor()));
 					}
 				}
 			}

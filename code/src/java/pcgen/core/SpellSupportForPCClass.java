@@ -479,7 +479,8 @@ public class SpellSupportForPCClass
 			// however, character might have a bonus spell slot e.g. from
 			// certain feats
 			total = (int) aPC.getTotalBonusTo("SPELLCAST", classKeyName + levelSpellLevel);
-			if (total > 0) {
+			if (total > 0)
+			{
 				// Bonus slots benefits from high spellcasting stat as well (see http://www.d20srd.org/srd/epic/feats.htm#improvedSpellCapacity)
 				BonusSpellInfo bsi = Globals.getContext().getReferenceContext()
 						.silentlyGetConstructedCDOMObject(BonusSpellInfo.class, String.valueOf(spellLevel));

@@ -93,6 +93,7 @@
         <exclude name="UseUnderscoresInNumericLiterals" />
         <!-- This is excluded because we use "useless" parenthesis for readability -->
         <exclude name="UselessParentheses"/>
+        <!-- not our style -->
         <exclude name="UselessQualifiedThis"/>
         <!-- Deprecated -->
         <exclude name="VariableNamingConventions"/>
@@ -146,7 +147,6 @@
         <exclude name="AvoidBranchingStatementAsLastInLoop"/>
         <exclude name="AvoidCatchingNPE"/>
         <exclude name="AvoidCatchingThrowable"/>
-        <exclude name="AvoidDecimalLiteralsInBigDecimalConstructor"/>
         <exclude name="AvoidDuplicateLiterals"/>
         <exclude name="AvoidFieldNameMatchingMethodName"/>
         <exclude name="AvoidFieldNameMatchingTypeName"/>
@@ -201,7 +201,6 @@
         <exclude name="StringToString"/>
         <exclude name="TooFewBranchesForASwitchStatement"/>
         <exclude name="UnnecessaryWrapperObjectCreation"/>
-        <exclude name="UseArrayListInsteadOfVector"/>
         <exclude name="UseIndexOfChar"/>
         <exclude name="UseStringBufferForStringAppends"/>
         <exclude name="UselessStringValueOf"/>

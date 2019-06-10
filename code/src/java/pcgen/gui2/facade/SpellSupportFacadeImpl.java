@@ -29,7 +29,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 import pcgen.base.lang.StringUtil;
@@ -82,6 +81,7 @@ import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
 import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.gui2.util.HtmlInfoBuilder;
+import pcgen.gui3.GuiUtility;
 import pcgen.io.ExportUtilities;
 import pcgen.system.BatchExporter;
 import pcgen.system.LanguageBundle;
@@ -90,6 +90,7 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
 
+import javafx.stage.FileChooser;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -99,6 +100,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * 
  */
+@SuppressWarnings("checkstyle:FinalClass")
 public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentListListener, ListListener<EquipmentFacade>
 {
 	private final PlayerCharacter pc;
@@ -1245,35 +1247,19 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 			return;
 		}
 
-		// Get the name of the file to output to.
-		JFileChooser fcExport = new JFileChooser();
-		fcExport.setCurrentDirectory(new File(PCGenSettings.getPcgDir()));
-		fcExport
-			.setDialogTitle(
-				LanguageBundle.getString("InfoSpells.export.spells.for") + charDisplay.getDisplayName()); //$NON-NLS-1$
-
-		if (fcExport.showSaveDialog(null) != JFileChooser.APPROVE_OPTION)
+		FileChooser fxExport = new FileChooser();
+		fxExport.setTitle(LanguageBundle.getString("InfoSpells.export.spells.for") + charDisplay.getDisplayName());
+		fxExport.setInitialDirectory(new File(PCGenSettings.getPcgDir()));
+		File file = GuiUtility.runOnJavaFXThreadNow(() -> fxExport.showSaveDialog(null));
+		if (file == null)
 		{
-			return;
-		}
-		final String aFileName = fcExport.getSelectedFile().getAbsolutePath();
-		if (aFileName.length() < 1)
-		{
-			delegate.showErrorMessage(Constants.APPLICATION_NAME,
-				LanguageBundle.getString("InfoSpells.must.set.filename")); //$NON-NLS-1$ 
 			return;
 		}
 
 		try
 		{
+			final String aFileName = file.getAbsolutePath();
 			final File outFile = new File(aFileName);
-
-			if (outFile.isDirectory())
-			{
-				delegate.showErrorMessage(Constants.APPLICATION_NAME,
-					LanguageBundle.getString("InfoSpells.can.not.overwrite.directory")); //$NON-NLS-1$ 
-				return;
-			}
 
 			if (outFile.exists())
 			{

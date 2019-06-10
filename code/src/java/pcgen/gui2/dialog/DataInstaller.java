@@ -44,7 +44,6 @@ import java.util.zip.ZipFile;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -52,7 +51,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import pcgen.cdom.enumeration.Destination;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -64,6 +62,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui3.GuiUtility;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.SimpleHtmlPanelController;
 import pcgen.persistence.PersistenceLayerException;
@@ -77,12 +76,13 @@ import pcgen.util.Logging;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.stage.FileChooser;
 
 /**
  * {@code DataInstaller} is responsible for managing the installation of
  * a data set including the selection of the set and the install options.
  */
-public class DataInstaller extends JFrame
+public final class DataInstaller extends JFrame
 {
 	/**
 	 * The listener for receiving and processing action events from installer 
@@ -203,15 +203,19 @@ public class DataInstaller extends JFrame
 			}
 			else if (source.equals(selectButton))
 			{
-				JFileChooser chooser = new JFileChooser(currFolder);
-				chooser.setDialogTitle(LanguageBundle.getString("in_diChooserTitle")); //$NON-NLS-1$
-				chooser.setFileFilter(new FileNameExtensionFilter("Data Sets (*.pcz,*.zip)", "zip", "pcz"));
-				int result = chooser.showOpenDialog(DataInstaller.this);
-				if (result != JFileChooser.APPROVE_OPTION)
+				FileChooser fileChooser = new FileChooser();
+				fileChooser.setInitialDirectory(currFolder);
+				fileChooser.setTitle(LanguageBundle.getString("in_diChooserTitle"));
+				FileChooser.ExtensionFilter dataSetFilter = new FileChooser.ExtensionFilter(
+						"Data Sets", "*.pcz", "*.zip"
+				);
+				fileChooser.getExtensionFilters().add(dataSetFilter);
+				fileChooser.setSelectedExtensionFilter(dataSetFilter);
+				File dataset = GuiUtility.runOnJavaFXThreadNow(() -> fileChooser.showOpenDialog(null));
+				if (dataset == null)
 				{
 					return;
 				}
-				File dataset = chooser.getSelectedFile();
 				currFolder = dataset.getParentFile();
 				readDataSet(dataset);
 			}
@@ -404,7 +408,8 @@ public class DataInstaller extends JFrame
 		initComponents();
 
 		setIconImage(Icons.PCGenApp.getImageIcon().getImage());
-		Utility.centerComponent(this, false);
+		this.pack();
+		this.setLocationRelativeTo(null);
 	}
 
 	/**

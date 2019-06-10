@@ -40,7 +40,6 @@ import javax.swing.AbstractCellEditor;
 import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JEditorPane;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -92,6 +91,8 @@ import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.SimpleHtmlPanelController;
 import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
@@ -103,17 +104,17 @@ import pcgen.util.enumeration.Tab;
  * This component allows a user to manage a character's companions (animal,
  * familiar, cohort, mount, etc).
  */
-@SuppressWarnings("serial")
+@SuppressWarnings("PMD.UseArrayListInsteadOfVector")
 public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler, DisplayAwareTab
 {
 
 	private final JTreeTable companionsTable;
-	private final JEditorPane infoPane;
+	private final JFXPanelFromResource<SimpleHtmlPanelController> infoPane;
 	private final JButton loadButton;
 	private CompanionDialog companionDialog = null;
 	private Object selectedElement;
 
-	public CompanionInfoTab()
+	CompanionInfoTab()
 	{
 		this.companionsTable = new JTreeTable()
 		{
@@ -124,7 +125,10 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 
 		};
-		this.infoPane = new JEditorPane();
+		this.infoPane = new JFXPanelFromResource<>(
+				SimpleHtmlPanelController.class,
+				"SimpleHtmlPanel.fxml"
+		);
 		this.loadButton = new JButton();
 		initComponents();
 	}
@@ -161,10 +165,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		companionsTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		setLeftComponent(new JScrollPane(companionsTable));
 		JPanel rightPane = new JPanel(new BorderLayout());
-		infoPane.setOpaque(false);
-		infoPane.setEditable(false);
-		infoPane.setFocusable(true);
-		infoPane.setContentType("text/html"); //$NON-NLS-1$
 		rightPane.add(new JScrollPane(infoPane), BorderLayout.CENTER);
 		JPanel buttonPane = new JPanel(new FlowLayout());
 		buttonPane.add(loadButton);
@@ -359,14 +359,14 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			}
 		}
 
-		void showCompanion(boolean switchTabs)
+		private void showCompanion(boolean switchTabs)
 		{
 			CompanionFacade companion = getSelectedCompanion();
 			if (companion == null)
 			{
 				if (!switchTabs)
 				{
-					infoPane.setText(""); //$NON-NLS-1$
+					infoPane.getController().setHtml(""); //$NON-NLS-1$
 				}
 				return;
 			}
@@ -396,7 +396,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			else
 			{
 				// Display a message telling the user to open the companion.
-				infoPane.setText(LanguageBundle.getString("in_companionLoadCompanionMessage")); //$NON-NLS-1$
+				infoPane.getController().setHtml(LanguageBundle.getString("in_companionLoadCompanionMessage"));
 			}
 		}
 
@@ -592,7 +592,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 				String type = (String) selectedElement;
 				companionDialog.setCharacter(character);
 				companionDialog.setCompanionType(type);
-				Utility.setComponentRelativeLocation(CompanionInfoTab.this, companionDialog);
+				companionDialog.setLocationRelativeTo(CompanionInfoTab.this);
 				companionDialog.setVisible(true);
 				CharacterFacade comp = companionDialog.getNewCompanion();
 				if (comp != null)
@@ -978,10 +978,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				children.sort(Comparators.toStringIgnoreCaseCollator());
 				int[] indexes = new int[getChildCount()];
-				for (int i = 0; i < indexes.length; i++)
-				{
-					indexes[i] = i;
-				}
+				Arrays.setAll(indexes, i -> i);
 				nodesChanged(this, indexes);
 			}
 

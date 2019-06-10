@@ -23,6 +23,7 @@ import java.awt.event.ActionEvent;
 import java.util.List;
 
 import javax.swing.AbstractAction;
+import javax.swing.JButton;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
@@ -62,9 +63,9 @@ public class JDynamicTable extends JTableEx
 		}
 
 	};
-	private final JTableMenuButton cornerButton;
+	private final JButton cornerButton;
 	private DynamicTableColumnModel dynamicColumnModel = null;
-	private JPopupMenu menu = new JPopupMenu();
+	private final JPopupMenu menu = new JPopupMenu();
 
 	public JDynamicTable()
 	{

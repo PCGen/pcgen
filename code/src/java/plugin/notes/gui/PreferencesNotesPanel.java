@@ -22,6 +22,7 @@ import java.io.File;
 
 import gmgen.util.LogUtilities;
 import pcgen.core.SettingsHandler;
+import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.system.LanguageBundle;
 
 import javafx.application.Platform;
@@ -40,7 +41,7 @@ import javafx.stage.DirectoryChooser;
 /**
  * Panel that tracks the misc preferences
  */
-public final class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
+public final class PreferencesNotesPanel extends PCGenPrefsPanel
 {
 
 	private static final String OPTION_NAME_NOTES_DATA = "Notes.DataDir"; //$NON-NLS-1$
@@ -54,11 +55,11 @@ public final class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 	public PreferencesNotesPanel()
 	{
 		initComponents();
-		initPreferences();
+		this.setOptionsBasedOnControls();
 	}
 
 	@Override
-	public void applyPreferences()
+	public void applyOptionValuesToControls()
 	{
 		SettingsHandler.setGMGenOption(OPTION_NAME_NOTES_DATA, getDataDir());
 		SettingsHandler.setGMGenOption(OPTION_NAME_LOG, isLogging());
@@ -66,7 +67,7 @@ public final class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 	}
 
 	@Override
-	public void initPreferences()
+	public void setOptionsBasedOnControls()
 	{
 		// XXX change to another default?
 		setDataDir(SettingsHandler.getGMGenOption(OPTION_NAME_NOTES_DATA,
@@ -150,5 +151,11 @@ public final class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 		{
 			setDataDir(directory.getAbsolutePath());
 		}
+	}
+
+	@Override
+	public String getTitle()
+	{
+		return LanguageBundle.getString("in_plugin_notes_name");
 	}
 }

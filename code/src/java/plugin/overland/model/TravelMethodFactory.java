@@ -83,7 +83,7 @@ public final class TravelMethodFactory
 
 	// ### Factory methods ###
 
-	@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
+	@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList", "PMD.UseArrayListInsteadOfVector"})
 	public static Vector<TravelMethod> load(File datadir)
 	{
 		//Create a new list for the travel methods

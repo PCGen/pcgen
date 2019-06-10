@@ -105,7 +105,7 @@ public class CoreViewFrame extends JFrame
 		setTitle("Core Debug View");
 		getContentPane().setSize(500, 400);
 		pack();
-		Utility.centerComponent(this, true);
+		this.setLocationRelativeTo(null);
 	}
 
 	private final class PerspectiveActionListener implements ActionListener

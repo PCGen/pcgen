@@ -33,11 +33,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JSeparator;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 
-import gmgen.gui.PreferencesDialog;
-import gmgen.gui.PreferencesRootTreeNode;
 import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
 import gmgen.pluginmgr.messages.EditMenuCopySelectionMessage;
 import gmgen.pluginmgr.messages.EditMenuCutSelectionMessage;
@@ -49,11 +45,14 @@ import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
 import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import gmgen.util.LogUtilities;
+import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.PCGenActionMap;
-import pcgen.gui3.application.DesktopHandler;
+import pcgen.gui2.dialog.PreferencesDialog;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui3.application.DesktopHandler;
+import pcgen.gui3.preferences.GMGenPreferencesModel;
 import pcgen.pluginmgr.PCGenMessage;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.PluginManager;
@@ -71,7 +70,7 @@ import org.apache.commons.lang3.SystemUtils;
  * It holds the controller for every tab as well as the menu bar.
  */
 public final class GMGenSystem extends JFrame
-		implements ChangeListener, MenuListener, ActionListener, PCGenMessageHandler
+		implements ChangeListener, ActionListener, PCGenMessageHandler
 {
 
 	// menu elements used with CommonMenuText.name(...)
@@ -127,7 +126,7 @@ public final class GMGenSystem extends JFrame
 	public JMenuItem saveFileItem;
 
 	// Tree for the preferences dialog
-	private final PreferencesRootTreeNode rootNode = new PreferencesRootTreeNode();
+	private final GMGenPreferencesModel rootNode = new GMGenPreferencesModel();
 
 	private final PCGenMessageHandler messageHandler;
 
@@ -160,6 +159,7 @@ public final class GMGenSystem extends JFrame
 		messageHandler.handleMessage(new RequestFileOpenedMessageForCurrentlyOpenedPCsMessage(this));
 		messageHandler.handleMessage(new FocusOrStateChangeOccurredMessage(this, editMenu));
 		inst.setVisible(true);
+		pack();
 	}
 
 	/**
@@ -274,53 +274,6 @@ public final class GMGenSystem extends JFrame
 		}
 	}
 
-	/**
-	 * Handles the clicking on the tool menu.
-	 *
-	 */
-	public void handleToolsMenu()
-	{
-		// TODO
-	}
-
-	/**
-	 * Handles a menu canceled event.
-	 *
-	 * @param e
-	 *            menu canceled event
-	 */
-	@Override
-	public void menuCanceled(MenuEvent e)
-	{
-		// TODO
-	}
-
-	/**
-	 * Handles a menu de-selected event.
-	 *
-	 * @param e
-	 *            Menu Deselected event
-	 */
-	@Override
-	public void menuDeselected(MenuEvent e)
-	{
-		// TODO
-	}
-
-	/**
-	 * Listens for menus to be clicked and calls the appropriate handlers.
-	 *
-	 * @param e
-	 *            the menu event that happened.
-	 */
-	@Override
-	public void menuSelected(MenuEvent e)
-	{
-		if (e.getSource() == toolsMenu)
-		{
-			handleToolsMenu();
-		}
-	}
 
 	/**
 	 * Calls the necessary methods if an item on the GUI or model has changed.
@@ -390,7 +343,6 @@ public final class GMGenSystem extends JFrame
 	{
 		toolsMenu = new JMenu();
 		CommonMenuText.name(toolsMenu, PCGenActionMap.MNU_TOOLS);
-		toolsMenu.addMenuListener(this);
 		systemMenuBar.add(toolsMenu);
 	}
 
@@ -405,7 +357,6 @@ public final class GMGenSystem extends JFrame
 
 		// EDIT MENU
 		CommonMenuText.name(editMenu, PCGenActionMap.MNU_EDIT);
-		editMenu.addMenuListener(this);
 
 		CommonMenuText.name(cutEditItem, MNU_CUT);
 		editMenu.add(cutEditItem);
@@ -443,7 +394,6 @@ public final class GMGenSystem extends JFrame
 		exitFileItem = new JMenuItem();
 
 		CommonMenuText.name(fileMenu, PCGenActionMap.MNU_FILE);
-		fileMenu.addMenuListener(this);
 
 		createFileNewMenuItem();
 		createFileOpenMenuItem();
@@ -552,7 +502,7 @@ public final class GMGenSystem extends JFrame
 
 	private void mPreferencesActionPerformed(ActionEvent event)
 	{
-		Window dialog = new PreferencesDialog(this, true, rootNode);
+		Window dialog = new PreferencesDialog(this, rootNode, Constants.SYSTEM_GMGEN);
 		dialog.setVisible(true);
 	}
 

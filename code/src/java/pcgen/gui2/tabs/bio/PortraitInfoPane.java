@@ -30,7 +30,6 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.CompletableFuture;
 
 import javax.imageio.ImageIO;
 import javax.swing.AbstractAction;
@@ -53,11 +52,11 @@ import pcgen.gui2.tabs.CharacterInfoTab;
 import pcgen.gui2.tabs.TabTitle;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
-import javafx.application.Platform;
 import javafx.stage.FileChooser;
 
 @SuppressWarnings("serial")
@@ -171,8 +170,8 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 
 			// TODO: set extension filter - list of supported images
 
-			File file = CompletableFuture.supplyAsync(() ->
-					fileChooser.showOpenDialog(null), Platform::runLater).join();
+			File file = GuiUtility.runOnJavaFXThreadNow(() ->
+					fileChooser.showOpenDialog(null));
 			if (file != null)
 			{
 				character.setPortrait(file);

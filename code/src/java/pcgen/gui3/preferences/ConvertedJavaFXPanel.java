@@ -19,14 +19,17 @@
 package pcgen.gui3.preferences;
 
 import pcgen.gui2.prefs.PCGenPrefsPanel;
+import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.ResettableController;
 import pcgen.system.LanguageBundle;
 
+import javafx.application.Platform;
+
 public final class ConvertedJavaFXPanel<T extends ResettableController> extends PCGenPrefsPanel
 {
 	private final String titleTextKey;
-	private final JFXPanelFromResource<ResettableController> panel;
+	private final JFXPanelFromResource<T> panel;
 
 	public ConvertedJavaFXPanel(Class<T> klass, String resource, String titleTextKey)
 	{
@@ -49,12 +52,26 @@ public final class ConvertedJavaFXPanel<T extends ResettableController> extends 
 	@Override
 	public void applyOptionValuesToControls()
 	{
-		panel.getController().reset();
+		GuiAssertions.assertIsNotJavaFXThread();
+		Platform.runLater(() ->
+			panel.getControllerFromJavaFXThread().reset()
+		);
 	}
 
 	@Override
 	public void setOptionsBasedOnControls()
 	{
 		panel.getController().apply();
+	}
+
+	public T getController()
+	{
+		return this.panel.getController();
+	}
+
+	@Override
+	public String toString()
+	{
+		return getTitle();
 	}
 }

@@ -95,7 +95,7 @@ public class SkillpointsToken extends Token
 			aTotalSkillPoints += (classNum >= 0) ? getUsedSkillPoints(pc, classNum) : getUsedSkillPoints(pc);
 		}
 
-		return BigDecimalHelper.trimZeros(new BigDecimal(aTotalSkillPoints));
+		return BigDecimalHelper.trimZeros(new BigDecimal(String.valueOf(aTotalSkillPoints)));
 	}
 
 	/**

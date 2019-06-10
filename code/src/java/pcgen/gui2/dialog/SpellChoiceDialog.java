@@ -69,7 +69,6 @@ public class SpellChoiceDialog extends JDialog implements ActionListener
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		initComponents();
 		pack();
-		Utility.resizeComponentToScreen(this);
 	}
 
 	private void initComponents()

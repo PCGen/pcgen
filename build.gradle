@@ -28,10 +28,10 @@ plugins {
     id "de.undercouch.download" version '3.4.3'
     id 'edu.sc.seis.launch4j' version '2.4.6'
     id 'com.github.ben-manes.versions' version '0.21.0'
-    id "com.dorongold.task-tree" version '1.3.1'
+    id "com.dorongold.task-tree" version '1.4'
     id "edu.sc.seis.macAppBundle" version "2.3.0"
     id 'org.openjfx.javafxplugin' version '0.0.7'
-    id 'org.beryx.runtime' version '1.1.6'
+    id 'org.beryx.runtime' version '1.1.7'
 }
 
 javafx {
@@ -407,6 +407,7 @@ allprojects {
     tasks.withType(Test) {
         maxHeapSize = "512m"
         maxParallelForks = 1
+        enableAssertions = true
         testLogging {
             exceptionFormat = 'full'
             events 'failed', 'skipped'
@@ -422,6 +423,9 @@ allprojects {
     }
 }
 
+dependencyUpdates {
+    revision='release'
+}
 dependencyUpdates.resolutionStrategy = {
     componentSelection { rules ->
         rules.all { ComponentSelection selection ->
@@ -430,12 +434,22 @@ dependencyUpdates.resolutionStrategy = {
                 }) {
                 selection.reject('unofficial release')
             }
+            boolean rejected = ['alpha', 'beta', 'rc', 'cr', 'm', 'preview', 'b', 'ea'].any { qualifier ->
+                selection.candidate.version ==~ /(?i).*[.-]$qualifier[.\d-+]*/
+            }
+            if (rejected) {
+                selection.reject('Release candidate')
+            }
             if (selection.candidate.version == '2.0.2' && selection.candidate.name == 'xml-apis') {
                 selection.reject('older than current')
             }
             if (selection.candidate.version == '2.24' && selection.candidate.name == 'jep') {
                 selection.reject('older than current')
             }
+            if (selection.candidate.version == '1.8.0_20' && selection.candidate.name == 'openjfx-monocle') {
+                selection.reject('older than current')
+            }
+
         }
     }
 }
@@ -450,6 +464,10 @@ idea {
 
 wrapper {
     distributionType = Wrapper.DistributionType.ALL
+}
+
+run {
+    enableAssertions = true
 }
 
 apply from: 'code/gradle/autobuild.gradle'

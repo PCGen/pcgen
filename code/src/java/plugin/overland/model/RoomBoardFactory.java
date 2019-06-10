@@ -70,7 +70,8 @@ public final class RoomBoardFactory
 						//Do work here
 						loadRBData(methodSet, inns, foods, animals);
 					}
-				} catch (Exception e)
+				}
+				catch (Exception e)
 				{
 					Logging.errorPrintLocalised("XML Error with file {0}", dataFile.getName());
 					Logging.errorPrint(e.getMessage(), e);

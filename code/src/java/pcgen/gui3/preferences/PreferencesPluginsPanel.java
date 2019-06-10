@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pcgen.cdom.base.Constants;
-import pcgen.gui2.dialog.PreferencesDialog;
+import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui3.GuiUtility;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.system.LanguageBundle;
@@ -36,8 +36,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
-public final class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
+public final class PreferencesPluginsPanel extends PCGenPrefsPanel
 {
+	private static final String LB_PREFS_PLUGINS_RUN = "in_Prefs_pluginsRun"; //$NON-NLS-1$
+
 	private final Map<String, PluginRef> pluginMap = new HashMap<>();
 
 	private VBox mainPanel;
@@ -47,24 +49,9 @@ public final class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 	{
 		for (PluginManager.PluginInfo info : PluginManager.getInstance().getPluginInfoList())
 		{
-			addPanel(info.logName, info.pluginName, Constants.SYSTEM_GMGEN);
+			addPanel(info.logName, info.pluginName);
 		}
 		initComponents();
-		initPreferences();
-	}
-
-	@Override
-	public void applyPreferences()
-	{
-		pluginMap.values()
-		         .forEach(PluginRef::applyPreferences);
-	}
-
-	@Override
-	public void initPreferences()
-	{
-		pluginMap.values()
-		         .forEach(PluginRef::initPreferences);
 	}
 
 	@Override
@@ -86,16 +73,36 @@ public final class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 		mainPanel.getChildren().add(new Text(LanguageBundle.getString("in_Prefs_restartInfo")));
 		ScrollPane scrollPane = new ScrollPane(mainPanel);
 		scrollPane.setContent(mainPanel);
-		add(GuiUtility.wrapParentAsJFXPanel(scrollPane));
+		this.add(GuiUtility.wrapParentAsJFXPanel(scrollPane));
 	}
 
-	private void addPanel(String pluginName, String pluginTitle, String defaultSystem)
+	private void addPanel(String pluginName, String pluginTitle)
 	{
 		if (!pluginMap.containsKey(pluginName))
 		{
-			PluginRef pluginRef = new PluginRef(pluginName, pluginTitle, defaultSystem);
+			PluginRef pluginRef = new PluginRef(pluginName, pluginTitle, Constants.SYSTEM_GMGEN);
 			pluginMap.put(pluginName, pluginRef);
 		}
+	}
+
+	@Override
+	public String getTitle()
+	{
+		return LanguageBundle.getString("in_Prefs_plugins");
+	}
+
+	@Override
+	public void applyOptionValuesToControls()
+	{
+		pluginMap.values()
+		         .forEach(PluginRef::initPreferences);
+	}
+
+	@Override
+	public void setOptionsBasedOnControls()
+	{
+		pluginMap.values()
+		         .forEach(PluginRef::applyPreferences);
 	}
 
 	private static final class PluginRef extends Pane
@@ -113,17 +120,17 @@ public final class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 
 		private void initComponents()
 		{
-			checkBox = new CheckBox(LanguageBundle.getString(PreferencesDialog.LB_PREFS_PLUGINS_RUN));
+			checkBox = new CheckBox(LanguageBundle.getString(LB_PREFS_PLUGINS_RUN));
 			TitledPane titledPane = new TitledPane(pluginTitle, checkBox);
 			getChildren().add(titledPane);
 		}
 
-		public void initPreferences()
+		private void initPreferences()
 		{
 			checkBox.setSelected(PCGenSettings.GMGEN_OPTIONS_CONTEXT.initBoolean(pluginName + ".Load", true));
 		}
 
-		public void applyPreferences()
+		private void applyPreferences()
 		{
 			PCGenSettings.GMGEN_OPTIONS_CONTEXT.setBoolean(pluginName + ".Load", checkBox.isSelected());
 			PCGenSettings.GMGEN_OPTIONS_CONTEXT.setProperty(pluginName + ".System", Constants.SYSTEM_GMGEN);

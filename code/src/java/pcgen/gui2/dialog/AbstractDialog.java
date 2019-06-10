@@ -18,186 +18,61 @@
 package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Frame;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import javax.swing.Box;
-import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
 
-import pcgen.gui2.tools.Utility;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+
 /**
- * A dialog with a Ok, a cancel and eventually an apply button.
+ * A dialog with a Ok, a cancel and apply button.
  */
 public abstract class AbstractDialog extends JDialog
 {
-
-	private static final long serialVersionUID = -6457261103398090360L;
-
-	// TODO provide a UIManager or L&F derivated value
 	protected static final int GAP = 12;
 
-	/** The OK button */
-	private JButton okButton;
-
-	public AbstractDialog(Frame f, String title, boolean modal)
+	protected AbstractDialog(Frame owner, String title, boolean modal)
 	{
-		super(f, title, modal);
+		super(owner, title, modal);
 		initialize();
 	}
 
 	private void initialize()
 	{
-		okButton = new JButton(LanguageBundle.getString(getOkKey()));
-		okButton.setMnemonic(LanguageBundle.getMnemonic(getOkMnKey()));
-		okButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				okButtonActionPerformed();
-			}
-		});
+		ButtonBar buttonBar = new ButtonBar();
+		Button okButton = new Button(LanguageBundle.getString(getOkKey()));
+		okButton.setOnAction(evt -> okButtonActionPerformed());
+		okButton.setDefaultButton(true);
+		buttonBar.getButtons().add(okButton);
+		ButtonBar.setButtonData(okButton, ButtonBar.ButtonData.OK_DONE);
 
-		JButton cancelButton = new JButton(LanguageBundle.getString(getCancelKey()));
-		cancelButton.setMnemonic(LanguageBundle.getMnemonic(getCancelMnKey()));
-		cancelButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cancelButtonActionPerformed();
-			}
-		});
+		Button cancelButton = new Button(LanguageBundle.getString("in_cancel"));
+		cancelButton.setOnAction(evt -> close());
+		cancelButton.setCancelButton(true);
+		buttonBar.getButtons().add(cancelButton);
+		ButtonBar.setButtonData(cancelButton, ButtonBar.ButtonData.CANCEL_CLOSE);
 
-		JButton bApply = null;
 		if (includeApplyButton())
 		{
-			bApply = new JButton(LanguageBundle.getString("in_apply")); //$NON-NLS-1$
-			bApply.setMnemonic(LanguageBundle.getMnemonic("in_mn_apply")); //$NON-NLS-1$
-			bApply.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					applyButtonActionPerformed();
-				}
-			});
-		}
-
-		// initialize button panel
-		JPanel buttonPanel = new JPanel();
-
-		buttonPanel.setBorder(UIManager.getBorder("OptionPane.border")); //$NON-NLS-1$
-		buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-
-		// offer identical width for Preferred size if needed
-		boolean sameSize = UIManager.getBoolean("OptionPane.sameSizeButtons"); //$NON-NLS-1$
-		if (sameSize)
-		{
-			int max = Math.max(okButton.getPreferredSize().width, cancelButton.getPreferredSize().width);
-			if (includeApplyButton())
-			{
-				max = Math.max(max, bApply.getPreferredSize().width);
-				bApply.setPreferredSize(new Dimension(max, bApply.getPreferredSize().height));
-			}
-			okButton.setPreferredSize(new Dimension(max, okButton.getPreferredSize().height));
-			cancelButton.setPreferredSize(new Dimension(max, cancelButton.getPreferredSize().height));
-		}
-		// add button, respecting OptionPane.isYesLast
-		boolean isYesLast = UIManager.getBoolean("OptionPane.isYesLast"); //$NON-NLS-1$
-		int padding = UIManager.getInt("OptionPane.buttonPadding"); //$NON-NLS-1$
-		if (isYesLast)
-		{
-			if (includeApplyButton())
-			{
-				buttonPanel.add(bApply);
-				buttonPanel.add(Box.createHorizontalStrut(padding));
-			}
-			buttonPanel.add(cancelButton);
-			buttonPanel.add(Box.createHorizontalStrut(padding));
-			buttonPanel.add(okButton);
-		}
-		else
-		{
-			buttonPanel.add(okButton);
-			buttonPanel.add(Box.createHorizontalStrut(padding));
-			if (includeApplyButton())
-			{
-				buttonPanel.add(bApply);
-				buttonPanel.add(Box.createHorizontalStrut(padding));
-			}
-			buttonPanel.add(cancelButton);
+			Button applyButton = new Button(LanguageBundle.getString("in_apply"));
+			applyButton.setOnAction(evt -> applyButtonActionPerformed());
+			buttonBar.getButtons().add(applyButton);
+			ButtonBar.setButtonData(okButton, ButtonBar.ButtonData.APPLY);
 		}
 
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(getCenter(), BorderLayout.CENTER);
-		getContentPane().add(buttonPanel, BorderLayout.SOUTH);
-
-		if (shouldSetOkAsDefault())
-		{
-			setOkAsDefault();
-		}
-
-		if (shouldInstallEsc())
-		{
-			Utility.installEscapeCloseOperation(this);
-		}
-	}
-
-	/**
-	 * Set the ok default button as default. Use for dialog that need some field to be entered before allowing ok to be
-	 * the default, like a username/password dialog.
-	 */
-	protected void setOkAsDefault()
-	{
-		getRootPane().setDefaultButton(okButton);
-	}
-
-	/**
-	 * {@code true} if the ok button should be set as default during init
-	 * @return {@code true} by default
-	 */
-	protected boolean shouldSetOkAsDefault()
-	{
-		return true;
-	}
-
-	/**
-	 * Indicate if Esc should be installed as close window (not cancel) during init
-	 * @return {@code true} by default
-	 */
-	protected boolean shouldInstallEsc()
-	{
-		return true;
-	}
-
-	protected String getCancelMnKey()
-	{
-		return "in_mn_cancel"; //$NON-NLS-1$
-	}
-
-	protected String getCancelKey()
-	{
-		return "in_cancel"; //$NON-NLS-1$
-	}
-
-	protected String getOkMnKey()
-	{
-		return "in_mn_ok"; //$NON-NLS-1$
+		getContentPane().add(GuiUtility.wrapParentAsJFXPanel(buttonBar), BorderLayout.SOUTH);
 	}
 
 	protected String getOkKey()
 	{
-		return "in_ok"; //$NON-NLS-1$
+		return "in_ok";
 	}
 
 	protected abstract JComponent getCenter();
@@ -210,17 +85,9 @@ public abstract class AbstractDialog extends JDialog
 	/**
 	 * Defaults to calling apply and closing.
 	 */
-	public void okButtonActionPerformed()
+	private void okButtonActionPerformed()
 	{
 		applyButtonActionPerformed();
-		close();
-	}
-
-	/**
-	 * Defaults to closing the window
-	 */
-	public void cancelButtonActionPerformed()
-	{
 		close();
 	}
 

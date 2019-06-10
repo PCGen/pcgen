@@ -25,7 +25,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 
 import javax.swing.AbstractAction;
-import javax.swing.ImageIcon;
 import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
@@ -34,7 +33,6 @@ import javax.swing.JSplitPane;
 import javax.swing.plaf.SplitPaneUI;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
 
-import gmgen.gui.Utilities;
 import pcgen.gui2.util.event.PopupMouseAdapter;
 import pcgen.system.LanguageBundle;
 
@@ -72,27 +70,6 @@ import pcgen.system.LanguageBundle;
  */
 public class FlippingSplitPane extends JSplitPane
 {
-	/**
-	 * Icon for Center item in popup menu.
-	 */
-	private static final ImageIcon CENTER_ICON = Utilities.getImageIcon("resources/MediaStop16.gif");
-
-	/**
-	 * Icon for Flip item in popup menu.
-	 */
-	private static final ImageIcon FLIP_ICON = Utilities.getImageIcon("resources/Refresh16.gif");
-
-	/**
-	 * Icon for Reset item in popup menu.
-	 */
-	private static final ImageIcon RESET_ICON = Utilities.getImageIcon("resources/Redo16.gif");
-
-	/**
-	 * Icon for Lock/Unlock item in popup menu
-	 */
-	private static final ImageIcon LOCK_ICON = Utilities.getImageIcon("resources/Bookmarks16.gif");
-
-
 	private final LockAction lockAction = new LockAction();
 	private JPopupMenu popupMenu;
 
@@ -466,7 +443,6 @@ public class FlippingSplitPane extends JSplitPane
 
 		public LockAction()
 		{
-			putValue(SMALL_ICON, FlippingSplitPane.LOCK_ICON);
 			configureProps();
 		}
 
@@ -540,7 +516,6 @@ public class FlippingSplitPane extends JSplitPane
 		{
 			super(LanguageBundle.getString("in_center"));
 			setMnemonic(LanguageBundle.getMnemonic("in_mn_center"));
-			setIcon(FlippingSplitPane.CENTER_ICON);
 
 			addActionListener(this);
 		}
@@ -593,7 +568,6 @@ public class FlippingSplitPane extends JSplitPane
 			super(LanguageBundle.getString("in_flip"));
 
 			setMnemonic(LanguageBundle.getMnemonic("in_mn_flip"));
-			setIcon(FlippingSplitPane.FLIP_ICON);
 
 			addActionListener(this);
 		}
@@ -713,7 +687,6 @@ public class FlippingSplitPane extends JSplitPane
 		{
 			super(LanguageBundle.getString("in_reset"));
 			setMnemonic(LanguageBundle.getMnemonic("in_mn_reset"));
-			setIcon(FlippingSplitPane.RESET_ICON);
 
 			addActionListener(this);
 		}

@@ -30,7 +30,6 @@ import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
@@ -41,11 +40,13 @@ import javax.swing.text.JTextComponent;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.ConfigurationSettings.SettingsFilesPath;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 
+import javafx.stage.DirectoryChooser;
 import org.apache.commons.lang3.SystemUtils;
 
 /**
@@ -550,27 +551,16 @@ public class LocationPanel extends PCGenPrefsPanel
 		 */
 		private File askForPath(final File currentPath, final String dialogTitle, final JTextField textField)
 		{
-
-			JFileChooser fc = new JFileChooser(currentPath);
-
-			fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-			fc.setDialogTitle(dialogTitle);
-
-			if (SystemUtils.IS_OS_MAC)
+			DirectoryChooser directoryChooser = new DirectoryChooser();
+			directoryChooser.setInitialDirectory(currentPath);
+			directoryChooser.setTitle(dialogTitle);
+			File returnFile = GuiUtility.runOnJavaFXThreadNow(() -> directoryChooser.showDialog(null));
+			if (returnFile == null)
 			{
-				// On MacOS X, do not traverse file bundles
-				fc.putClientProperty("JFileChooser.appBundleIsTraversable", "never");
+				returnFile = currentPath;
 			}
 
-			final int returnVal = fc.showOpenDialog(getParent());
-
-			File returnFile = currentPath;
-			if (returnVal == JFileChooser.APPROVE_OPTION)
-			{
-				returnFile = fc.getSelectedFile();
-			}
-
-			textField.setText(String.valueOf(returnFile));
+			textField.setText(returnFile.toString());
 
 			return returnFile;
 		}

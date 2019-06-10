@@ -1245,22 +1245,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 		return bonus;
 	}
-
-	/**
-	 * Checks whether a PC is allowed to level up. A PC is not allowed to level
-	 * up if the "Enforce Spending" option is set and he still has unallocated
-	 * skill points and/or feat slots remaining. This can be used to enforce
-	 * correct spending of these resources when creating high-level multiclass
-	 * characters.
-	 *
-	 * @return true if the PC can level up
-	 */
-	public boolean canLevelUp()
-	{
-		return !SettingsHandler.getEnforceSpendingBeforeLevelUp()
-			|| (getSkillPoints() <= 0 && getRemainingFeatPoolPoints() <= 0);
-	}
-
 	/**
 	 * Sets the filename of the character.
 	 *
@@ -3204,9 +3188,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		addUniqueAbilitiesToMap(aHashMap, getAbilityList(AbilityCategory.FEAT, Nature.VIRTUAL));
-		List<Ability> aggregateFeatList = new ArrayList<>();
 		addUniqueAbilitiesToMap(aHashMap, getAbilityList(AbilityCategory.FEAT, Nature.AUTOMATIC));
-		aggregateFeatList.addAll(aHashMap.values());
+		List<Ability> aggregateFeatList = new ArrayList<>(aHashMap.values());
 		return getPObjectWithCostBonusTo(aggregateFeatList, aType.toUpperCase(), aName.toUpperCase());
 	}
 
@@ -7952,7 +7935,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public List<Ability> getAggregateAbilityListNoDuplicates(final AbilityCategory aCategory)
 	{
-		List<Ability> aggregate = new ArrayList<>();
 		final Map<String, Ability> aHashMap = new HashMap<>();
 
 		for (Ability aFeat : getAbilityList(aCategory, Nature.NORMAL))
@@ -7966,7 +7948,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		addUniqueAbilitiesToMap(aHashMap, getAbilityList(aCategory, Nature.VIRTUAL));
 		addUniqueAbilitiesToMap(aHashMap, getAbilityList(aCategory, Nature.AUTOMATIC));
 
-		aggregate.addAll(aHashMap.values());
+		List<Ability> aggregate = new ArrayList<>(aHashMap.values());
 		return aggregate;
 	}
 

@@ -243,12 +243,6 @@ public final class AddDefeatedCombatant extends AbstractDialog
 	}
 
 	@Override
-	protected String getOkMnKey()
-	{
-		return "in_mn_add"; //$NON-NLS-1$
-	}
-
-	@Override
 	protected String getOkKey()
 	{
 		return "in_add"; //$NON-NLS-1$

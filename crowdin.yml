@@ -1,0 +1,4 @@
+files:
+  - source: code/src/resources/pcgen/lang/LanguageBundle.properties
+    translation: >-
+      /code/src/resources/pcgen/lang/%file_name%_%two_letters_code%.%file_extension%

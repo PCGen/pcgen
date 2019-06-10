@@ -42,7 +42,8 @@ public class LevelUpPreferencesPanelController implements ResettableController
 	}
 
 	@Override
-	public void reset()  {
+	public void reset()
+	{
 		statWindow.selectedProperty().set(SettingsHandler.getShowStatDialogAtLevelUp());
 		warnFirstLevelUp.selectedProperty().set(
 				PCGenSettings.OPTIONS_CONTEXT.getBoolean(
@@ -50,7 +51,8 @@ public class LevelUpPreferencesPanelController implements ResettableController
 	}
 
 	@Override
-	public void apply()  {
+	public void apply()
+	{
 		SettingsHandler.setShowStatDialogAtLevelUp(statWindow.isSelected());
 		PCGenSettings.OPTIONS_CONTEXT.setBoolean(PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP,
 				warnFirstLevelUp.isSelected());

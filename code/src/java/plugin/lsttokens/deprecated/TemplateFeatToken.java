@@ -156,7 +156,7 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 			double cost = choice.getCNAbility().getAbility().getSafe(ObjectKey.SELECTION_COST).doubleValue();
 			if (cost > 0.0001)
 			{
-				pc.adjustAbilities(AbilityCategory.FEAT, new BigDecimal(cost));
+				pc.adjustAbilities(AbilityCategory.FEAT, new BigDecimal(String.valueOf(cost)));
 			}
 			pc.addAbility(choice, UserSelection.getInstance(), UserSelection.getInstance());
 		}

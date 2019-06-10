@@ -18,16 +18,11 @@
  */
 package plugin.notes.gui;
 
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.Transferable;
-import java.awt.dnd.DropTargetDropEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Enumeration;
@@ -35,6 +30,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Vector;
+import java.util.stream.Collectors;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
@@ -54,8 +50,8 @@ import pcgen.util.Logging;
 
 /**
  * This defines the preferences tree
- *
  */
+@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList", "PMD.UseArrayListInsteadOfVector"})
 public class NotesTreeNode implements MutableTreeNode, DocumentListener
 {
 
@@ -64,9 +60,6 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 */
 	private static final String DOCROOT = "docroot"; //$NON-NLS-1$
 
-	/**
-	 * ?
-	 */
 	private static final String DATA_HTML = "data.html"; //$NON-NLS-1$
 
 	/**
@@ -117,11 +110,10 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * than Vector due to the TreeNode interface which uses Enumeration as 
 	 * the return type of children();
 	 */
-	@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
 	protected Vector<MutableTreeNode> children;
 
 	/** true if the node is able to have children. */
-	private boolean allowsChildren = true;
+	private final boolean allowsChildren = true;
 
 	/** is this node dirty (has notesDoc been edited, but is unsaved). */
 	protected boolean dirty = false;
@@ -261,19 +253,10 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 */
 	public List<File> getFiles()
 	{
-		ArrayList<File> list = new ArrayList<>();
-		for (File child : dir.listFiles())
-		{
-			if (!child.isDirectory())
-			{
-				if (!child.getName().equals(DATA_HTML))
-				{
-					list.add(child);
-				}
-			}
-		}
-
-		return list;
+		return Arrays.stream(dir.listFiles())
+		             .filter(child -> !child.isDirectory())
+		             .filter(child -> !child.getName().equals(DATA_HTML))
+		             .collect(Collectors.toUnmodifiableList());
 	}
 
 	/**
@@ -312,34 +295,6 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	public boolean isLeaf()
 	{
 		return (getChildCount() == 0);
-	}
-
-	/**
-	 * Gets the nodeAncestor attribute of the NotesTreeNode object
-	 *
-	 * @param node
-	 *          Description of the Parameter
-	 * @return The nodeAncestor value
-	 */
-	public boolean isNodeAncestor(TreeNode node)
-	{
-		if (node == null)
-		{
-			return false;
-		}
-
-		TreeNode ancestor = this;
-
-		do
-		{
-			if (ancestor == node)
-			{
-				return true;
-			}
-		}
-		while ((ancestor = ancestor.getParent()) != null);
-
-		return false;
 	}
 
 	/**
@@ -393,81 +348,6 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	public TreeNode getParent()
 	{
 		return parent;
-	}
-
-	/**
-	 * Gets a JTextPane that contains the content of the "data.html" in this
-	 * directory (or the modified document if it has been modified), or is empty
-	 * if that file does not exist. This function takes in an external JTextPan
-	 * that it populates in excruciatingly slow speed.
-	 *
-	 * @param editor
-	 *          Editor pane you want to populate
-	 * @return The populated Pane
-	 */
-	public JTextPane getTextPane(JTextPane editor)
-	{
-		boolean repopulate = false;
-		cacheCounter = 10;
-
-		if (notesDoc != null)
-		{
-			//setDocument causes an event to fire, which makes the document dirty -
-			// these semaphores prevent that
-			ignoreUpdateSemaphore = true;
-		}
-
-		if (pane == null)
-		{
-			pane = editor;
-			repopulate = true;
-
-			ExtendedHTMLEditorKit htmlKit = new ExtendedHTMLEditorKit();
-			pane.setEditorKit(htmlKit);
-			notesDoc = (ExtendedHTMLDocument) (htmlKit.createDefaultDocument());
-			notesDoc.putProperty(DOCROOT, dir.getAbsolutePath() + File.separator + DATA_HTML);
-		}
-
-		pane.setDocument(notesDoc);
-
-		if (repopulate)
-		{
-			File notes = new File(dir.getAbsolutePath() + File.separator + DATA_HTML);
-
-			if (notes.exists())
-			{
-				try
-				{
-					StringBuilder sb;
-					try (BufferedReader br = new BufferedReader(new FileReader(notes, StandardCharsets.UTF_8)))
-					{
-						sb = new StringBuilder();
-						String newLine;
-
-						do
-						{
-							newLine = br.readLine();
-
-							if (newLine != null)
-							{
-								sb.append(newLine).append(Constants.LINE_SEPARATOR);
-							}
-						}
-						while (newLine != null);
-
-					}
-					pane.setText(sb.toString());
-				}
-				catch (Exception e)
-				{
-					Logging.errorPrint(e.getMessage(), e);
-				}
-			}
-
-			notesDoc.addDocumentListener(this);
-		}
-
-		return pane;
 	}
 
 	/**
@@ -874,42 +754,6 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	}
 
 	//Listener functions
-
-	/**
-	 * handles a drop of a java file list
-	 *
-	 * @param dtde
-	 *          drop target drop even - a java dile list has been dropped on
-	 *          something that represents this node.
-	 * @return returns true if the drop takes place, false if not
-	 */
-	public boolean handleDropJavaFileList(DropTargetDropEvent dtde)
-	{
-		dtde.acceptDrop(dtde.getDropAction());
-
-		Transferable t = dtde.getTransferable();
-
-		try
-		{
-			List<File> fileList = ((List<File>) t.getTransferData(DataFlavor.javaFileListFlavor));
-
-			for (File origFile : fileList)
-			{
-				if (origFile.exists())
-				{
-					Files.copy(origFile.toPath(), Path.of(dir.getAbsolutePath(), origFile.getName()));
-				}
-			}
-		}
-		catch (Exception e)
-		{
-			Logging.errorPrint(e.getMessage(), e);
-
-			return false;
-		}
-
-		return true;
-	}
 
 	/**
 	 * Inserts a new MutableTreeNode into this node as a child.

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  * Copyright 2019 (C) Eitan Adler <lists@eitanadler.com>
+  *
+  * This library is free software; you can redistribute it and/or
+  * modify it under the terms of the GNU Lesser General Public
+  * License as published by the Free Software Foundation; either
+  * version 2.1 of the License, or (at your option) any later version.
+  *
+  * This library is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+  * Lesser General Public License for more details.
+  *
+  * You should have received a copy of the GNU Lesser General Public
+  * License along with this library; if not, write to the Free Software
+  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+  -->
+
+<?import java.lang.String?><?import javafx.collections.FXCollections?><?import javafx.scene.control.CheckBox?><?import javafx.scene.control.ComboBox?><?import javafx.scene.layout.VBox?><?import javafx.scene.Scene?><?import javafx.scene.control.Label?><?import javafx.scene.control.ChoiceBox?>
+<Scene xmlns="http://javafx.com/javafx"
+       xmlns:fx="http://javafx.com/fxml"
+       fx:controller="pcgen.gui3.preferences.SourcesPreferencesPanelController">
+    <VBox>
+        <CheckBox fx:id="campLoad" text="%in_Prefs_autoLoadAtStart" />
+        <CheckBox fx:id="charCampLoad" text="%in_Prefs_autoLoadWithPC" />
+        <CheckBox fx:id="allowOptsInSource" text="%in_Prefs_allowOptionInSource" />
+        <CheckBox fx:id="saveCustom" text="%in_Prefs_saveCustom" />
+        <CheckBox fx:id="showOGL" text="%in_Prefs_displayOGL" />
+        <CheckBox fx:id="showMature" text="%in_Prefs_displayMature" />
+        <Label labelFor="$sourceOptions" text="%in_Prefs_sourceDisplay" />
+        <ChoiceBox fx:id="sourceOptions" />
+        <CheckBox fx:id="loadURL" text="%in_Prefs_loadURLs" />
+        <CheckBox fx:id="allowOverride" text="%in_Prefs_allowOverride" />
+        <CheckBox fx:id="skipSourceSelect" text="%in_Prefs_skipSourceSelect" />
+        <CheckBox fx:id="useAdvancedSourceSelect" text="%in_Prefs_useAdvancedSourceSelect" />
+        <CheckBox fx:id="allowMultiLineObjectsSelect" text="%in_Prefs_allowMultiLineObjectsSelect" />
+    </VBox>
+</Scene>

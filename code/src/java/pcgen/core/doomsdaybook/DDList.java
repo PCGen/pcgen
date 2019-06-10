@@ -18,24 +18,17 @@
 package pcgen.core.doomsdaybook;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import gmgen.plugin.dice.Dice;
 
 public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 {
-	ArrayList<DataValue> retList = new ArrayList<>();
-	String id;
-	String title;
-	VariableHashMap allVars;
-	int weight;
-
-	/** Creates a new instance of List
-	 * @param allVars
-	 */
-	public DDList(VariableHashMap allVars)
-	{
-		this(allVars, "", "", 1);
-	}
+	private final List<DataValue> retList = new ArrayList<>();
+	private String id;
+	private String title;
+	private final VariableHashMap allVars;
+	private int weight;
 
 	/**
 	 * Constructor
@@ -55,7 +48,7 @@ public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 	 * @param id
 	 * @param weight
 	 */
-	public DDList(VariableHashMap allVars, String title, String id, int weight)
+	private DDList(VariableHashMap allVars, String title, String id, int weight)
 	{
 		this.allVars = allVars;
 		this.title = title;
@@ -64,7 +57,7 @@ public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 	}
 
 	@Override
-	public ArrayList<DataValue> getData()
+	public List<DataValue> getData()
 	{
 		retList.clear();
 
@@ -75,7 +68,7 @@ public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 		{
 			modifier = Integer.parseInt(allVars.getVal(getId() + "modifier"));
 		}
-		catch (Exception e)
+		catch (NumberFormatException | variableException e)
 		{
 			modifier = 0;
 		}
@@ -85,36 +78,6 @@ public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 		int choice = die.roll();
 		choice += modifier;
 		choice = (choice < 0) ? rangeTop : choice;
-
-		//select the detail to return
-		int aWeight = 0;
-
-		// Iterate through the list of choices until the weights (from each DataValue)
-		// are greater the num chosen as the 'choice'
-		for (WeightedDataValue chkValue : this)
-		{
-			int valueWeight = chkValue.getWeight();
-
-			if (valueWeight > 0)
-			{
-				aWeight += valueWeight;
-
-				if (aWeight >= choice)
-				{
-					retList.add(chkValue);
-
-					break;
-				}
-			}
-		}
-
-		return retList;
-	}
-
-	@Override
-	public ArrayList<DataValue> getData(int choice)
-	{
-		retList.clear();
 
 		//select the detail to return
 		int aWeight = 0;
@@ -157,7 +120,7 @@ public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 	}
 
 	@Override
-	public ArrayList<DataValue> getLastData()
+	public List<DataValue> getLastData()
 	{
 		return retList;
 	}
@@ -166,14 +129,11 @@ public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 	 * Get the range
 	 * @return the range
 	 */
-	public int getRange()
+	private int getRange()
 	{
-		int rangeTop = 0;
-
-		for (WeightedDataValue value : this)
-		{
-			rangeTop += value.getWeight();
-		}
+		int rangeTop = this.stream()
+		                   .mapToInt(WeightedDataValue::getWeight)
+		                   .sum();
 
 		if (rangeTop <= 0)
 		{ //the die will nullpointer if it is not at least 1
@@ -196,15 +156,6 @@ public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 	public String getTitle()
 	{
 		return title;
-	}
-
-	/**
-	 * Set the weight
-	 * @param weight
-	 */
-	public void setWeight(int weight)
-	{
-		this.weight = weight;
 	}
 
 	@Override

@@ -48,13 +48,15 @@ public class InputPreferencesPanelController implements ResettableController
 	}
 
 	@Override
-	public void reset()  {
+	public void reset()
+	{
 		detailUnconstructed.setSelected(SettingsHandler.inputUnconstructedMessages());
 		formatDeprecation.setSelected(SettingsHandler.outputDeprecationMessages());
 	}
 
 	@Override
-	public void apply()  {
+	public void apply()
+	{
 		SettingsHandler.setInputUnconstructedMessages(detailUnconstructed.isSelected());
 		SettingsHandler.setOutputDeprecationMessages(formatDeprecation.isSelected());
 	}

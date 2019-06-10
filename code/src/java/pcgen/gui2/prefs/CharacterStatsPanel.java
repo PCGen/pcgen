@@ -75,13 +75,9 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 
 	/**
 	 * Instantiates a new character stats panel.
-	 * 
-	 * @param parent the parent dialog
 	 */
-	public CharacterStatsPanel(JDialog parent)
+	public CharacterStatsPanel()
 	{
-		this.parent = parent;
-
 		initComponents();
 
 		addAbilitiesPanelListeners();
@@ -364,9 +360,8 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 			});
 		}
 
-		Utility.centerComponent(pmsFrame);
-
-		// ensure the frame is visible (in case user selects menu item again).
+		pmsFrame.pack();
+		pmsFrame.setLocationRelativeTo(null);
 		pmsFrame.setVisible(true);
 	}
 

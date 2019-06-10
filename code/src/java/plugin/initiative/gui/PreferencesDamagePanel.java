@@ -22,8 +22,8 @@ package plugin.initiative.gui;
 
 import java.awt.BorderLayout;
 
-import gmgen.gui.PreferencesPanel;
 import pcgen.core.SettingsHandler;
+import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
@@ -40,7 +40,7 @@ import javafx.scene.layout.VBox;
 /**
  * Preference panel for damage related settings.
  */
-public final class PreferencesDamagePanel extends PreferencesPanel
+public final class PreferencesDamagePanel extends PCGenPrefsPanel
 {
 	private static final String SETTING_DAMAGE_DYING = ".Damage.Dying"; //$NON-NLS-1$
 	private static final String SETTING_DAMAGE_DYING_START = ".Damage.Dying.Start"; //$NON-NLS-1$
@@ -85,7 +85,7 @@ public final class PreferencesDamagePanel extends PreferencesPanel
 	public PreferencesDamagePanel()
 	{
 		initComponents();
-		initPreferences();
+		this.applyOptionValuesToControls();
 	}
 
 	private void setDeath(int death)
@@ -243,7 +243,7 @@ public final class PreferencesDamagePanel extends PreferencesPanel
 	}
 
 	@Override
-	public void applyPreferences()
+	public void setOptionsBasedOnControls()
 	{
 		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DYING, getDying());
 		SettingsHandler.setGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DYING_START, dyingCB1.isSelected());
@@ -254,7 +254,13 @@ public final class PreferencesDamagePanel extends PreferencesPanel
 	}
 
 	@Override
-	public void initPreferences()
+	public String getTitle()
+	{
+		return LanguageBundle.getString("in_plugin_initiative_damage");
+	}
+
+	@Override
+	public void applyOptionValuesToControls()
 	{
 		setDying(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DYING, DAMAGE_DYING_END));
 		setDyingStart(SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DYING_START, true));
@@ -273,12 +279,6 @@ public final class PreferencesDamagePanel extends PreferencesPanel
 						InitiativePlugin.LOG_NAME + SETTING_DAMAGE_DISABLED,
 						DAMAGE_DISABLED_ZERO
 				));
-	}
-
-	@Override
-	public String toString()
-	{
-		return LanguageBundle.getString("in_plugin_initiative_damage");
 	}
 
 	/**
@@ -396,5 +396,12 @@ public final class PreferencesDamagePanel extends PreferencesPanel
 		scrollPane.setContent(mainPanel);
 
 		add(GuiUtility.wrapParentAsJFXPanel(scrollPane), BorderLayout.CENTER);
+	}
+
+	// TODO: get rid of this
+	@Override
+	public String toString()
+	{
+		return this.getTitle();
 	}
 }

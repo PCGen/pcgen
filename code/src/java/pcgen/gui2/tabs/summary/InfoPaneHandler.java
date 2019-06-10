@@ -18,8 +18,6 @@
  */
 package pcgen.gui2.tabs.summary;
 
-import javax.swing.JEditorPane;
-
 import pcgen.core.GameMode;
 import pcgen.core.PCStat;
 import pcgen.facade.core.CharacterFacade;
@@ -29,6 +27,8 @@ import pcgen.facade.util.event.ListListener;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.tabs.models.HtmlSheetSupport;
+import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.SimpleHtmlPanelController;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -41,15 +41,15 @@ import pcgen.system.LanguageBundle;
 public class InfoPaneHandler implements ReferenceListener<Object>, ListListener<CharacterLevelFacade>
 {
 
-	private HtmlSheetSupport support;
-	private CharacterFacade character;
+	private final HtmlSheetSupport support;
+	private final CharacterFacade character;
 
 	/**
 	 * Create a new info pane handler instance for a character.
 	 * @param character The character the pane is to display information for.
 	 * @param htmlPane the pane that displays the information
 	 */
-	public InfoPaneHandler(CharacterFacade character, JEditorPane htmlPane)
+	public InfoPaneHandler(CharacterFacade character, JFXPanelFromResource<SimpleHtmlPanelController> htmlPane)
 	{
 		this.character = character;
 		GameMode game = character.getDataSet().getGameMode();
@@ -57,22 +57,6 @@ public class InfoPaneHandler implements ReferenceListener<Object>, ListListener<
 		support.setMissingSheetMsg(LanguageBundle.getFormattedString("in_sumNoInfoSheet", //$NON-NLS-1$
 			character.getDataSet().getGameMode().getName()));
 		registerListeners();
-	}
-
-	/**
-	 * Initialise our display component. Any expected UI behaviour/
-	 * configuration is enforced here. Note that this is a utility function for
-	 * use by SummaryInfoTab. While there is a handler for each character 
-	 * displayed, there is only a single instance of each display component. 
-	 * 
-	 * @param htmlPane The editor panel that will display the sheet.
-	 */
-	public static void initializeEditorPane(JEditorPane htmlPane)
-	{
-		htmlPane.setOpaque(false);
-		htmlPane.setEditable(false);
-		htmlPane.setFocusable(false);
-		htmlPane.setContentType("text/html"); //$NON-NLS-1$
 	}
 
 	/**

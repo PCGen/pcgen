@@ -20,11 +20,6 @@ package plugin.notes.gui;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.Transferable;
-import java.awt.dnd.DropTargetAdapter;
-import java.awt.dnd.DropTargetDragEvent;
-import java.awt.dnd.DropTargetDropEvent;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -38,13 +33,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Enumeration;
-import java.util.List;
 import java.util.Objects;
 import java.util.Vector;
-import java.util.concurrent.CompletableFuture;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -52,6 +45,7 @@ import java.util.zip.ZipOutputStream;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.BoxLayout;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
@@ -71,8 +65,6 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.TreeModelEvent;
 import javax.swing.event.TreeModelListener;
-import javax.swing.event.TreeSelectionEvent;
-import javax.swing.event.TreeSelectionListener;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
@@ -104,18 +96,18 @@ import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 import plugin.notes.NotesPlugin;
 
-import javafx.application.Platform;
 import javafx.stage.FileChooser;
 
 /**
  *  This class is the main view for the Notes Plugin. Mostof the work is done
  *  here and in the NotesTreeNode Class.
  */
-@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList"})
+@SuppressWarnings({"UseOfObsoleteCollectionType", "PMD.ReplaceVectorWithList", "PMD.UseArrayListInsteadOfVector"})
 public class NotesView extends JPanel
 {
 
@@ -393,8 +385,7 @@ public class NotesView extends JPanel
 		fileChooser.setSelectedExtensionFilter(extensionFilter);
 
 
-		File file = CompletableFuture.supplyAsync(() ->
-		fileChooser.showSaveDialog(null), Platform::runLater).join();
+		File file = GuiUtility.runOnJavaFXThreadNow(() -> fileChooser.showSaveDialog(null));
 
 		try
 		{
@@ -700,8 +691,8 @@ public class NotesView extends JPanel
 		fileChooser.getExtensionFilters().add(extensionFilter);
 		fileChooser.setSelectedExtensionFilter(extensionFilter);
 
-		return CompletableFuture.supplyAsync(() ->
-				fileChooser.showSaveDialog(null), Platform::runLater).join();
+		return GuiUtility.runOnJavaFXThreadNow(() ->
+				fileChooser.showSaveDialog(null));
 
 	}
 
@@ -1123,14 +1114,7 @@ public class NotesView extends JPanel
 		newButton.setToolTipText("New Node");
 		newButton.setBorder(new EtchedBorder());
 		newButton.setEnabled(false);
-		newButton.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				newButtonActionPerformed();
-			}
-		});
+		newButton.addActionListener(evt -> newButtonActionPerformed());
 
 		fileBar.add(newButton);
 
@@ -1138,14 +1122,7 @@ public class NotesView extends JPanel
 		saveButton.setToolTipText("Save Node");
 		saveButton.setBorder(new EtchedBorder());
 		saveButton.setEnabled(false);
-		saveButton.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				saveButtonActionPerformed();
-			}
-		});
+		saveButton.addActionListener(evt -> saveButtonActionPerformed());
 
 		fileBar.add(saveButton);
 
@@ -1153,14 +1130,7 @@ public class NotesView extends JPanel
 		exportButton.setToolTipText("Export");
 		exportButton.setBorder(new EtchedBorder());
 		exportButton.setEnabled(false);
-		exportButton.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				exportButtonActionPerformed();
-			}
-		});
+		exportButton.addActionListener(evt -> exportButtonActionPerformed());
 
 		fileBar.add(exportButton);
 
@@ -1168,14 +1138,7 @@ public class NotesView extends JPanel
 		revertButton.setToolTipText("Revert to Saved");
 		revertButton.setBorder(new EtchedBorder());
 		revertButton.setEnabled(false);
-		revertButton.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				revertButtonActionPerformed();
-			}
-		});
+		revertButton.addActionListener(evt -> revertButtonActionPerformed());
 
 		fileBar.add(revertButton);
 
@@ -1183,14 +1146,7 @@ public class NotesView extends JPanel
 		deleteButton.setToolTipText("Delete Node");
 		deleteButton.setBorder(new EtchedBorder());
 		deleteButton.setEnabled(false);
-		deleteButton.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				deleteButtonActionPerformed();
-			}
-		});
+		deleteButton.addActionListener(evt -> deleteButtonActionPerformed());
 
 		fileBar.add(deleteButton);
 
@@ -1250,14 +1206,7 @@ public class NotesView extends JPanel
 		colorButton.setIcon(Icons.menu_mode_rgb.getImageIcon());
 		colorButton.setToolTipText("Color");
 		colorButton.setBorder(new EtchedBorder());
-		colorButton.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				colorButtonActionPerformed();
-			}
-		});
+		colorButton.addActionListener(evt -> colorButtonActionPerformed());
 
 		formatBar.add(colorButton);
 
@@ -1275,14 +1224,7 @@ public class NotesView extends JPanel
 
 		imageButton.setIcon(Icons.stock_insert_graphic.getImageIcon());
 		imageButton.setBorder(new EtchedBorder());
-		imageButton.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				imageButtonActionPerformed();
-			}
-		});
+		imageButton.addActionListener(evt -> imageButtonActionPerformed());
 
 		formatBar.add(imageButton);
 
@@ -1317,27 +1259,13 @@ public class NotesView extends JPanel
 
 		fileLeft.setText("<");
 		fileLeft.setBorder(new EtchedBorder());
-		fileLeft.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				fileLeftActionPerformed();
-			}
-		});
+		fileLeft.addActionListener(evt -> fileLeftActionPerformed());
 
 		filePane.add(fileLeft);
 
 		fileRight.setText(">");
 		fileRight.setBorder(new EtchedBorder());
-		fileRight.addActionListener(new java.awt.event.ActionListener()
-		{
-			@Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				fileRightActionPerformed();
-			}
-		});
+		fileRight.addActionListener(evt -> fileRightActionPerformed());
 
 		filePane.add(fileRight);
 
@@ -1374,7 +1302,7 @@ public class NotesView extends JPanel
 		fontVector.add("36");
 		fontVector.add("48");
 
-		DefaultComboBoxModel cbModel = new DefaultComboBoxModel(fontVector);
+		ComboBoxModel cbModel = new DefaultComboBoxModel<>(fontVector);
 		sizeCB.setModel(cbModel);
 		sizeCB.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 
@@ -1396,7 +1324,7 @@ public class NotesView extends JPanel
 		stdButton(pasteButton);
 	}
 
-	private void initFileBar(List<File> files)
+	private void initFileBar(Collection<File> files)
 	{
 		filePane.removeAll();
 		filesBar.removeAll();
@@ -1429,14 +1357,7 @@ public class NotesView extends JPanel
 
 		TreeModel model = new DefaultTreeModel(root);
 		notesTree.setModel(model);
-		notesTree.addTreeSelectionListener(new TreeSelectionListener()
-		{
-			@Override
-			public void valueChanged(TreeSelectionEvent evt)
-			{
-				notesTreeActionPerformed();
-			}
-		});
+		notesTree.addTreeSelectionListener(evt -> notesTreeActionPerformed());
 		notesTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		notesTree.setEditable(true);
 		model.addTreeModelListener(new TreeModelListener()
@@ -1572,8 +1493,6 @@ public class NotesView extends JPanel
 			NotesTreeNode node = (NotesTreeNode) obj;
 			editor = node.getTextPane();
 			root.checkCache();
-			// TODO: Uh-oh -- never call gc manually without strong reason
-			//			Runtime.getRuntime().gc();
 
 			JViewport vp = new JViewport();
 			vp.setView(editor);
@@ -1703,213 +1622,6 @@ public class NotesView extends JPanel
 		performTextPaneAction("font-underline", evt);
 	}
 
-	/**
-	 *  This is an abstract drop listener. Extend this to listen for drop events
-	 *  for a particular Component
-	 */
-	public abstract class DropListener extends DropTargetAdapter
-	{
-		/**
-		 *  Checks to see if dragEnter is supported for the actions on this event
-		 *  Accepts only javaFileListFlavor data flavors
-		 *
-		 *@param  dtde  DropTargetDragEvent
-		 */
-		@Override
-		public void dragEnter(DropTargetDragEvent dtde)
-		{
-			if (dtde.isDataFlavorSupported(DataFlavor.javaFileListFlavor))
-			{
-				dtde.acceptDrag(dtde.getDropAction());
-			}
-			else
-			{
-				dtde.rejectDrag();
-			}
-		}
-
-		/**
-		 *  Accepts a drag over if the data flavor is javaFileListFlavor, otherwise
-		 *  rejects it.
-		 *
-		 *@param  dtde  DropTargetDragEvent
-		 */
-		@Override
-		public void dragOver(DropTargetDragEvent dtde)
-		{
-			if (dtde.isDataFlavorSupported(DataFlavor.javaFileListFlavor))
-			{
-				dtde.acceptDrag(dtde.getDropAction());
-			}
-			else
-			{
-				dtde.rejectDrag();
-			}
-		}
-
-		/**
-		 *  implements a drop. you need to implements this in your class.
-		 *
-		 *@param  dtde  DropTargetDropEvent
-		 */
-		@Override
-		public abstract void drop(DropTargetDropEvent dtde);
-
-	}
-
-	/**
-	 *  Drop listener for the File bar on the bottom of the Notes screen
-	 */
-	public class DropBarListener extends DropListener
-	{
-		/**
-		 *  implements drop.if we accept it, pass the event to the currently selected
-		 *  node
-		 *
-		 *@param  dtde  DropTargetDropEvent
-		 */
-		@Override
-		public void drop(DropTargetDropEvent dtde)
-		{
-			Object obj = notesTree.getLastSelectedPathComponent();
-
-			if (obj instanceof NotesTreeNode)
-			{
-				NotesTreeNode node = (NotesTreeNode) obj;
-
-				if (dtde.isDataFlavorSupported(DataFlavor.javaFileListFlavor))
-				{
-					dtde.dropComplete(node.handleDropJavaFileList(dtde));
-					refreshTreeNodes();
-				}
-				else
-				{
-					dtde.rejectDrop();
-				}
-			}
-			else
-			{
-				dtde.rejectDrop();
-			}
-		}
-	}
-
-	/**
-	 *  Drop listener for the Editor pane on the notes screen
-	 */
-	public class DropEditorListener extends DropListener
-	{
-		/**
-		 *  Determines if a file passed in is an image or not (based on extension
-		 *
-		 *@param  image  File to check
-		 *@return        true if image, false if not
-		 */
-		boolean isImageFile(File image)
-		{
-			for (String anExtsIMG : extsIMG)
-			{
-				if (image.getName().endsWith(anExtsIMG))
-				{
-					return true;
-				}
-			}
-
-			return false;
-		}
-
-		/**
-		 *  implements drop. if we accept it, pass the event to the handler
-		 *
-		 *@param  dtde  Description of the Parameter
-		 */
-		@Override
-		public void drop(DropTargetDropEvent dtde)
-		{
-			Object obj = notesTree.getLastSelectedPathComponent();
-
-			if (obj instanceof NotesTreeNode)
-			{
-				if (dtde.isDataFlavorSupported(DataFlavor.javaFileListFlavor))
-				{
-					dtde.dropComplete(handleDropJavaFileListAsImage(dtde));
-					refreshTreeNodes();
-				}
-				else
-				{
-					dtde.rejectDrop();
-				}
-			}
-			else
-			{
-				dtde.rejectDrop();
-			}
-		}
-
-		/**
-		 *  handles a drop. if the drop is an image, it will insert the image to the
-		 *  proper place in the editor window.
-		 *
-		 *@param  dtde  DropTargetDropEvent
-		 *@return       drop successful or not
-		 */
-		private boolean handleDropJavaFileListAsImage(DropTargetDropEvent dtde)
-		{
-			dtde.acceptDrop(dtde.getDropAction());
-
-			Transferable t = dtde.getTransferable();
-
-			try
-			{
-				List<File> fileList = ((List<File>) t.getTransferData(DataFlavor.javaFileListFlavor));
-				File dir = getCurrentDir();
-
-				for (File newFile : fileList)
-				{
-					if (newFile.exists())
-					{
-						File destFile = Path.of(dir.getAbsolutePath(), newFile.getName()).toFile();
-
-						if (!isImageFile(destFile) || !destFile.exists())
-						{
-							Files.copy(newFile.toPath(), destFile.toPath());
-						}
-
-						editor.setCaretPosition(editor.viewToModel(dtde.getLocation()));
-						handleImageDropInsertion(destFile);
-					}
-				}
-			}
-			catch (Exception e)
-			{
-				Logging.errorPrint(e.getMessage(), e);
-
-				return false;
-			}
-
-			return true;
-		}
-
-		/**
-		 *  Inserts a dropped image into the editor pane
-		 *
-		 *@param  image  File to insert
-		 */
-		private void handleImageDropInsertion(File image)
-		{
-			if (Arrays.stream(extsIMG).anyMatch(s -> image.getName().endsWith(s)))
-			{
-				try
-				{
-					insertLocalImage(image);
-				} catch (Exception e)
-				{
-					Logging.errorPrint(e.getMessage(), e);
-				}
-			}
-		}
-	}
-
 	public class NotesLogReciever implements LogReceiver
 	{
 		NotesTreeNode log;
@@ -1935,9 +1647,7 @@ public class NotesView extends JPanel
 
 			NotesTreeNode node = getChildNode(owner, log);
 
-			// TODO add option
 			DateFormat dateFmt =
-					//					new SimpleDateFormat("MM-dd-yyyy hh.mm.ss a z");
 					DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
 			node.appendText("<br>" + Constants.LINE_SEPARATOR + "<b>" + dateFmt.format(Calendar.getInstance().getTime())
 				+ "</b> " + message);

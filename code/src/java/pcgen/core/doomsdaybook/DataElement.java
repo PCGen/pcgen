@@ -17,7 +17,7 @@
  */
 package pcgen.core.doomsdaybook;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface DataElement
 {
@@ -28,16 +28,7 @@ public interface DataElement
 	 * @return ArrayList
 	 * @throws Exception the exception
 	 */
-	public ArrayList<DataValue> getData() throws Exception;
-
-	/**
-	 * Get data.
-	 *
-	 * @param choice the choice
-	 * @return ArrayList
-	 * @throws Exception the exception
-	 */
-	public ArrayList<DataValue> getData(int choice) throws Exception;
+	public List<DataValue> getData() throws Exception;
 
 	/**
 	 * Get id
@@ -51,7 +42,7 @@ public interface DataElement
 	 * @return last data
 	 * @throws Exception the exception
 	 */
-	public ArrayList<DataValue> getLastData() throws Exception;
+	public List<DataValue> getLastData() throws Exception;
 
 	/**
 	 * Get title
@@ -64,9 +55,4 @@ public interface DataElement
 	 * @return weight
 	 */
 	public int getWeight();
-
-	/**
-	 * trim to size
-	 */
-	public void trimToSize();
 }

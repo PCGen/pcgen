@@ -19,35 +19,28 @@ package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.Box;
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.kits.KitPanel;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.LanguageBundle;
+
+import javafx.scene.control.Button;
 
 /**
  * The Class {@code KitSelectionDialog} provides a pop-up dialog that allows
  * the user to add kits to a character. Kits are prepared groups of equipment and 
  * other rules items.  
- *
- * 
  */
-@SuppressWarnings("serial")
-public class KitSelectionDialog extends JDialog implements ActionListener
+public final class KitSelectionDialog extends JDialog
 {
 	private final KitPanel kitPanel;
-	private final JPanel buttonPanel;
-	private final JButton closeButton;
 
 	/**
 	 * Create a new instance of KitSelectionDialog
@@ -58,14 +51,10 @@ public class KitSelectionDialog extends JDialog implements ActionListener
 	{
 		super(frame, true);
 		setTitle(LanguageBundle.getString("in_mnuEditAddKit")); //$NON-NLS-1$
-		this.buttonPanel = new JPanel();
-		this.closeButton = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
-		this.closeButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
 		this.kitPanel = new KitPanel(character);
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		initComponents();
 		pack();
-		Utility.resizeComponentToScreen(this);
 	}
 
 	private void initComponents()
@@ -75,23 +64,21 @@ public class KitSelectionDialog extends JDialog implements ActionListener
 
 		pane.add(kitPanel, BorderLayout.CENTER);
 
-		closeButton.addActionListener(this);
+		Button closeButton = new Button(LanguageBundle.getString("in_close"));
+		closeButton.setOnAction(this::onClose);
 
 		Box buttons = Box.createHorizontalBox();
-		buttons.add(buttonPanel);
-		buttons.add(Box.createHorizontalGlue());
-		buttons.add(closeButton);
-		buttons.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-		pane.add(buttons, BorderLayout.SOUTH);
+		buttons.add(GuiUtility.wrapParentAsJFXPanel(closeButton));
+		pane.add(buttons, BorderLayout.PAGE_END);
 
 		Utility.installEscapeCloseOperation(this);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e)
+	private void onClose(final javafx.event.ActionEvent actionEvent)
 	{
-		//must be the ok command
-		setVisible(false);
+		setVisible(true);
+		dispose();
 	}
+
 
 }

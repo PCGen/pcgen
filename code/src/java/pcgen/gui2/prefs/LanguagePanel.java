@@ -24,10 +24,12 @@ import java.util.stream.Collectors;
 
 import pcgen.core.SettingsHandler;
 import pcgen.core.UnitSet;
+import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.GuiUtility;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -144,6 +146,7 @@ public final class LanguagePanel extends PCGenPrefsPanel
 	@Override
 	public void applyOptionValuesToControls()
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		String origLanguage = ConfigurationSettings.getLanguage();
 		if ((origLanguage == null) || origLanguage.isEmpty())
 		{
@@ -165,10 +168,12 @@ public final class LanguagePanel extends PCGenPrefsPanel
 		{
 			currentUnitSet = "";
 		}
-		if (!unitSetType.getItems().isEmpty())
-		{
-			unitSetType.setValue(currentUnitSet);
-		}
+		Platform.runLater(() -> {
+			if (!unitSetType.getItems().isEmpty())
+			{
+				unitSetType.setValue(currentUnitSet);
+			}
+		});
 	}
 
 	@Override
@@ -189,23 +194,21 @@ public final class LanguagePanel extends PCGenPrefsPanel
 		}
 
 		SettingsHandler.getGame().selectUnitSet(unitSetType.getValue());
+		setNeedsRestart();
 	}
 
 
 
-	@Override
-	public boolean needsRestart()
+	private void setNeedsRestart()
 	{
 		if (languageChoiceGroup.getSelectedToggle() != null && originalLanguage != languageChoiceGroup.getSelectedToggle().getUserData())
 		{
-			return true;
+			SettingsHandler.settingsNeedRestartProperty().set(true);
 		}
-		if (originalUnitSet != unitSetType.getValue())
+		if (!originalUnitSet.equals(unitSetType.getValue()))
 		{
-			return true;
+			SettingsHandler.settingsNeedRestartProperty().set(true);
 		}
-
-		return false;
 	}
 
 }

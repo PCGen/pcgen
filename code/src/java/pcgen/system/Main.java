@@ -54,6 +54,9 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.rules.persistence.TokenLibrary;
+import pcgen.system.application.DeadlockDetectorTask;
+import pcgen.system.application.LoggingUncaughtExceptionHandler;
+import pcgen.system.application.PCGenLoggingDeadlockHandler;
 import pcgen.util.Logging;
 import pcgen.util.PJEP;
 
@@ -133,7 +136,10 @@ public final class Main
 		Logging.log(Level.INFO, "Starting PCGen v" + PCGenPropBundle.getVersionNumber() //$NON-NLS-1$
 			+ PCGenPropBundle.getAutobuildString());
 
-		Thread.setDefaultUncaughtExceptionHandler(new PCGenUncaughtExceptionHandler());
+		Thread.setDefaultUncaughtExceptionHandler(new LoggingUncaughtExceptionHandler());
+		DeadlockDetectorTask deadlockDetectorTask = new DeadlockDetectorTask(new PCGenLoggingDeadlockHandler());
+		deadlockDetectorTask.initialize();
+
 		logSystemProps();
 		configFactory = new PropertyContextFactory(getConfigPath());
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
@@ -449,16 +455,4 @@ public final class Main
 		return parser;
 	}
 
-	/**
-	 * The Class {@code PCGenUncaughtExceptionHandler} reports any
-	 * exceptions that are not otherwise handled by the program.
-	 */
-	private static class PCGenUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler
-	{
-		@Override
-		public void uncaughtException(Thread t, Throwable e)
-		{
-			Logging.errorPrint("Uncaught error on thread  " + t + " - ignoring", e);
-		}
-	}
 }

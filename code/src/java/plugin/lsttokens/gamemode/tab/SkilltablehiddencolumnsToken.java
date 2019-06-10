@@ -73,8 +73,7 @@ public class SkilltablehiddencolumnsToken extends AbstractTokenWithSeparator<Tab
 			return null;
 		}
 		Collection<Integer> columns = ti.getHiddenColumns();
-		TreeSet<Integer> set = new TreeSet<>();
-		set.addAll(columns);
+		TreeSet<Integer> set = new TreeSet<>(columns);
 		return new String[]{StringUtil.join(set, Constants.COMMA)};
 	}
 

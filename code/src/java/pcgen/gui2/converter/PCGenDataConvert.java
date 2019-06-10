@@ -34,7 +34,6 @@ import pcgen.gui2.converter.panel.SourceSelectionPanel;
 import pcgen.gui2.converter.panel.StartupPanel;
 import pcgen.gui2.converter.panel.SummaryPanel;
 import pcgen.gui2.converter.panel.WriteDirectoryPanel;
-import pcgen.gui2.tools.Utility;
 import pcgen.persistence.CampaignFileLoader;
 import pcgen.persistence.GameModeFileLoader;
 import pcgen.system.ConfigurationSettings;
@@ -87,7 +86,7 @@ public final class PCGenDataConvert extends JFrame
 
 		frame.getContentPane().add(installPanel);
 		frame.pack();
-		Utility.centerComponent(frame, false);
+		frame.setLocationRelativeTo(null);
 		return frame;
 	}
 

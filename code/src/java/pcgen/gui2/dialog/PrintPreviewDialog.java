@@ -89,7 +89,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 	public static void showPrintPreviewDialog(PCGenFrame frame)
 	{
 		JDialog dialog = new PrintPreviewDialog(frame);
-		Utility.setComponentRelativeLocation(frame, dialog);
+		dialog.setLocationRelativeTo(frame);
 		dialog.setVisible(true);
 	}
 
@@ -326,7 +326,6 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 			super(NumberFormat.getPercentInstance());
 			addPropertyChangeListener("value", this);
 			//We steal the border from the LAF's editor
-			//Note: this doesn't work for Nimbus
 			JComponent oldEditor = (JComponent) comboBox.getEditor().getEditorComponent();
 			setBorder(oldEditor.getBorder());
 		}

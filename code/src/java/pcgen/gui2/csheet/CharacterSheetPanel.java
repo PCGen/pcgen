@@ -31,6 +31,7 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.PCGenStatusBar;
 import pcgen.gui2.tools.CharacterSelectionListener;
+import pcgen.gui3.GuiAssertions;
 import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.system.LanguageBundle;
@@ -53,12 +54,12 @@ public final class CharacterSheetPanel extends JFXPanel implements CharacterSele
 	private WebView browser;
 	private CharacterFacade character;
 	private ExportHandler handler;
-	private static final String COLOR_TAG = "preview_color.css";
 
-	private Executor executor = Executors.newSingleThreadExecutor();
+	private final Executor executor = Executors.newSingleThreadExecutor();
 
 	public CharacterSheetPanel()
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		Platform.runLater(() -> {
 			browser = new WebView();
 			browser.setContextMenuEnabled(true);
@@ -110,9 +111,7 @@ public final class CharacterSheetPanel extends JFXPanel implements CharacterSele
 				}
 			}
 
-			// TODO: use 'user css' maybe?
-			final String finalContent = content.replace(COLOR_TAG, "preview_color_blue.css");
-
+			final String finalContent = content;
 			Platform.runLater(() -> {
 				try
 				{
@@ -134,5 +133,4 @@ public final class CharacterSheetPanel extends JFXPanel implements CharacterSele
 		this.character = character;
 		refresh();
 	}
-	//			URI root = new URI("file", ConfigurationSettings.getPreviewDir().replaceAll("\\\\", "/"), null);
 }

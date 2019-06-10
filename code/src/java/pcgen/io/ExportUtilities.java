@@ -90,7 +90,8 @@ public final class ExportUtilities
 	/**
 	 * Returns an ObjectWrapper of sufficiently high version for pcgen
 	 */
-	public static ObjectWrapper getObjectWrapper() {
+	public static ObjectWrapper getObjectWrapper()
+	{
 		DefaultObjectWrapperBuilder defaultObjectWrapperBuilder = new DefaultObjectWrapperBuilder(
 				new Version("2.3.28"));
 		return defaultObjectWrapperBuilder.build();
