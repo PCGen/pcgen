@@ -28,7 +28,6 @@ import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
@@ -48,6 +47,7 @@ import pcgen.gui2.filter.FilteredListFacade;
 import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
+import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.treeview.DataView;
@@ -65,7 +65,7 @@ import pcgen.system.LanguageBundle;
  * 
  */
 @SuppressWarnings("serial")
-public class KitPanel extends JSplitPane
+public class KitPanel extends FlippingSplitPane
 {
 
 	private final FilteredTreeViewTable<Object, Kit> availableTable;
@@ -99,7 +99,7 @@ public class KitPanel extends JSplitPane
 	private void initComponents()
 	{
 		renderer.setCharacter(character);
-		JSplitPane topPane = new JSplitPane();
+		FlippingSplitPane topPane = new FlippingSplitPane();
 		setTopComponent(topPane);
 		setOrientation(VERTICAL_SPLIT);
 

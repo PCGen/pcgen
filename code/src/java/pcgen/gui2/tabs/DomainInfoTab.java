@@ -35,7 +35,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
@@ -73,6 +72,7 @@ import pcgen.gui2.filter.FilteredTreeViewTable;
 import pcgen.gui2.filter.SearchFilterPanel;
 import pcgen.gui2.tabs.models.CharacterTreeCellRenderer.Handler;
 import pcgen.gui2.tabs.models.QualifiedTreeCellRenderer;
+import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.gui2.util.JDynamicTable;
@@ -93,7 +93,7 @@ import pcgen.util.enumeration.Tab;
  * This component handles deity and domain selection for a character.
  */
 @SuppressWarnings("serial")
-public class DomainInfoTab extends JSplitPane implements CharacterInfoTab, TodoHandler
+public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
 {
 
 	private final FilteredTreeViewTable<Object, Deity> deityTable;
@@ -153,7 +153,7 @@ public class DomainInfoTab extends JSplitPane implements CharacterInfoTab, TodoH
 		box.add(Box.createHorizontalGlue());
 		panel.add(box, BorderLayout.SOUTH);
 
-		JSplitPane splitPane = new JSplitPane();
+		FlippingSplitPane splitPane = new FlippingSplitPane();
 		splitPane.setLeftComponent(panel);
 
 		panel = new JPanel(new BorderLayout());
@@ -183,7 +183,7 @@ public class DomainInfoTab extends JSplitPane implements CharacterInfoTab, TodoH
 
 		splitPane.setRightComponent(panel);
 		setTopComponent(splitPane);
-		splitPane = new JSplitPane();
+		splitPane = new FlippingSplitPane();
 		splitPane.setLeftComponent(deityInfo);
 		splitPane.setRightComponent(domainInfo);
 		setBottomComponent(splitPane);

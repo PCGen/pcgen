@@ -31,7 +31,6 @@ import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
 import javax.swing.JTable;
 
 import pcgen.core.GameMode;
@@ -46,6 +45,7 @@ import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.csheet.CharacterSheetPanel;
 import pcgen.gui2.filter.Filter;
 import pcgen.gui2.filter.FilteredListFacadeTableModel;
+import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.util.DisplayAwareTab;
 import pcgen.gui2.util.table.TableUtils;
 import pcgen.gui3.GuiAssertions;
@@ -66,7 +66,7 @@ import javafx.util.StringConverter;
  * The Class {@code CharacterSheetInfoTab} is a placeholder for the
  * character sheet tab.
  */
-public class CharacterSheetInfoTab extends JSplitPane implements CharacterInfoTab, DisplayAwareTab
+public class CharacterSheetInfoTab extends FlippingSplitPane implements CharacterInfoTab, DisplayAwareTab
 {
 	private final TabTitle tabTitle = new TabTitle(Tab.CHARACTERSHEET);
 	private final CharacterSheetPanel csheet;
@@ -121,7 +121,7 @@ public class CharacterSheetInfoTab extends JSplitPane implements CharacterInfoTa
 
 		box.add(GuiUtility.wrapParentAsJFXPanel(sheetBox));
 		panel.add(box, BorderLayout.NORTH);
-		JSplitPane subPane = new JSplitPane();
+		FlippingSplitPane subPane = new FlippingSplitPane();
 		subPane.setOrientation(VERTICAL_SPLIT);
 		equipSetTable.getTableHeader().setReorderingAllowed(false);
 		JScrollPane pane = TableUtils.createRadioBoxSelectionPane(equipSetTable, equipSetRowTable);

@@ -51,7 +51,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
 import javax.swing.JTable;
 import javax.swing.JTree;
 import javax.swing.RowSorter;
@@ -78,6 +77,7 @@ import pcgen.gui2.tabs.equip.EquipmentModels;
 import pcgen.gui2.tabs.equip.EquipmentModels.EquipView;
 import pcgen.gui2.tabs.equip.EquipmentSelection;
 import pcgen.gui2.tabs.models.CharacterComboBoxModel;
+import pcgen.gui2.tools.FlippingSplitPane;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.InfoPane;
 import pcgen.gui2.util.FontManipulation;
@@ -100,7 +100,7 @@ import org.apache.commons.lang3.StringUtils;
  * character. Each set of distribution information is called an EquipSet.
  * Multiple EquipSets can be managed to reflect different configurations.
  */
-public class EquipInfoTab extends JSplitPane implements CharacterInfoTab, TodoHandler
+public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
 {
 
 	private static final DataFlavor EQUIP_NODE_ARRAY_FLAVOR =
@@ -185,7 +185,7 @@ public class EquipInfoTab extends JSplitPane implements CharacterInfoTab, TodoHa
 		removeSetButton.setMargin(new Insets(0, 0, 0, 0));
 
 		setOrientation(HORIZONTAL_SPLIT);
-		JSplitPane splitPane = new JSplitPane(VERTICAL_SPLIT);
+		FlippingSplitPane splitPane = new FlippingSplitPane(VERTICAL_SPLIT);
 
 		JPanel panel = new JPanel(new BorderLayout());
 
