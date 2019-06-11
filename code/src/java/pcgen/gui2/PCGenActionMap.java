@@ -858,7 +858,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			frame.showAboutDialog();
+			PCGenFrame.showAboutDialog();
 		}
 	}
 
