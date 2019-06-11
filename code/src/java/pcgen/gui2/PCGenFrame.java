@@ -21,7 +21,6 @@ package pcgen.gui2;
 import static javax.swing.JOptionPane.CLOSED_OPTION;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -44,7 +43,6 @@ import java.util.logging.LogRecord;
 import javax.swing.Action;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
-import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
@@ -88,14 +86,13 @@ import pcgen.gui2.tabs.InfoTabbedPane;
 import pcgen.gui2.tools.CharacterSelectionListener;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.TipOfTheDayHandler;
-import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.ShowMessageGuiObserver;
 import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.GuiUtility;
 import pcgen.gui3.JFXPanelFromResource;
-import pcgen.gui3.SimpleHtmlPanelController;
 import pcgen.gui3.component.PCGenToolBar;
 import pcgen.gui3.dialog.AboutDialog;
+import pcgen.gui3.dialog.RememberingChoiceDialog;
 import pcgen.gui3.dialog.TipOfTheDayController;
 import pcgen.io.PCGFile;
 import pcgen.persistence.SourceFileLoader;
@@ -1615,85 +1612,44 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		showLicenseDialog(LanguageBundle.getString("in_oglTitle"), section15); //$NON-NLS-1$
 	}
 
-	private void showLicenseDialog(String title, String htmlString)
+	private static void showLicenseDialog(String title, String htmlString)
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		if (htmlString == null)
 		{
 			htmlString = LanguageBundle.getString("in_licNoInfo"); //$NON-NLS-1$
 		}
-		final PropertyContext context = PCGenSettings.OPTIONS_CONTEXT;
-		final JDialog aFrame = new JDialog(this, title, true);
-		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
-		jClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
-		final JPanel jPanel = new JPanel();
-		final JCheckBox jCheckBox = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
-		jPanel.add(jCheckBox);
-		jCheckBox.setSelected(context.getBoolean(PCGenSettings.OPTION_SHOW_LICENSE));
-		jCheckBox.addItemListener(evt -> context.setBoolean(PCGenSettings.OPTION_SHOW_LICENSE, jCheckBox.isSelected()));
-		jPanel.add(jClose);
-		jClose.addActionListener(evt -> aFrame.dispose());
-
-		var htmlPanel = new JFXPanelFromResource<>(SimpleHtmlPanelController.class, "SimpleHtmlPanel.fxml");
-		String finalHtmlString = htmlString;
-		htmlPanel.getController().setHtml(finalHtmlString);
-
-		aFrame.getContentPane().setLayout(new BorderLayout());
-		aFrame.getContentPane().add(htmlPanel, BorderLayout.CENTER);
-		aFrame.getContentPane().add(jPanel, BorderLayout.SOUTH);
-		aFrame.setSize(new Dimension(700, 500));
-		aFrame.setLocationRelativeTo(this);
-		aFrame.setLocationRelativeTo(this);
-		aFrame.getRootPane().setDefaultButton(jClose);
-		Utility.installEscapeCloseOperation(aFrame);
-		aFrame.setVisible(true);
+		Alert alert = RememberingChoiceDialog.create(
+				title,
+				"",
+				htmlString,
+				"in_licShowOnLoad",
+				PCGenSettings.OPTIONS_CONTEXT,
+				PCGenSettings.OPTION_SHOW_LICENSE
+				);
+		GuiUtility.runOnJavaFXThreadNow(alert::showAndWait);
 	}
 
-	private void showMatureDialog(String text)
+	private static void showMatureDialog(final String text)
 	{
-		Logging.errorPrint("Warning: The following datasets contains mature themes. User discretion is advised.");
-		Logging.errorPrint(text);
-
-		final JDialog aFrame = new JDialog(this, LanguageBundle.getString("in_matureTitle"), true);
-
-		final JPanel jPanel1 = new JPanel();
-		final JPanel jPanel3 = new JPanel();
-		final JLabel jLabel1 = new JLabel(LanguageBundle.getString("in_matureWarningLine1"), //$NON-NLS-1$
-			SwingConstants.CENTER);
-		final JLabel jLabel2 = new JLabel(LanguageBundle.getString("in_matureWarningLine2"), //$NON-NLS-1$
-			SwingConstants.CENTER);
-		final JCheckBox jCheckBox1 = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
-		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
-		jClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
-
-		jPanel1.setLayout(new BorderLayout());
-		jPanel1.add(jLabel1, BorderLayout.NORTH);
-		jPanel1.add(jLabel2, BorderLayout.SOUTH);
-
-		var htmlPanel = new JFXPanelFromResource<>(SimpleHtmlPanelController.class, "SimpleHtmlPanel.fxml");
-		htmlPanel.getController().setHtml(text);
-
-		jPanel3.add(jCheckBox1);
-		jPanel3.add(jClose);
-
-		final PropertyContext context = PCGenSettings.OPTIONS_CONTEXT;
-		jCheckBox1.setSelected(context.getBoolean(PCGenSettings.OPTION_SHOW_MATURE_ON_LOAD));
-
-		jClose.addActionListener(evt -> aFrame.dispose());
-
-		jCheckBox1.addItemListener(evt ->
-				context.setBoolean(PCGenSettings.OPTION_SHOW_MATURE_ON_LOAD, jCheckBox1.isSelected()));
-
-		aFrame.getContentPane().setLayout(new BorderLayout());
-		aFrame.getContentPane().add(jPanel1, BorderLayout.NORTH);
-		aFrame.getContentPane().add(htmlPanel, BorderLayout.CENTER);
-		aFrame.getContentPane().add(jPanel3, BorderLayout.SOUTH);
-
-		aFrame.setSize(new Dimension(456, 176));
-		aFrame.setLocationRelativeTo(this);
-		aFrame.setVisible(true);
+		Logging.log(Logging.WARNING, "The following datasets contains mature themes. User discretion is advised.");
+		Logging.log(Logging.WARNING, text);
+		// todo: combine into a single l18n string
+		String matureWarning = LanguageBundle.getString("in_matureWarningLine1")
+				+ '\n'
+				+ LanguageBundle.getString("in_matureWarningLine2");
+		Alert alert = RememberingChoiceDialog.create(
+				LanguageBundle.getString("in_matureTitle"),
+				matureWarning,
+				text,
+				"in_Prefs_displayMature",
+				PCGenSettings.OPTIONS_CONTEXT,
+				PCGenSettings.OPTION_SHOW_MATURE_ON_LOAD
+		);
+		GuiUtility.runOnJavaFXThreadNow(alert::showAndWait);
 	}
 
-	void showAboutDialog()
+	static void showAboutDialog()
 	{
 		new AboutDialog();
 	}
