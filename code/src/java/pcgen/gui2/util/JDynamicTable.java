@@ -170,9 +170,9 @@ public class JDynamicTable extends JTableEx
 	{
 
 		private boolean visible;
-		private TableColumn column;
+		private final TableColumn column;
 
-		public MenuAction(TableColumn column, boolean visible)
+		private MenuAction(TableColumn column, boolean visible)
 		{
 			super(column.getHeaderValue().toString());
 			this.visible = visible;
