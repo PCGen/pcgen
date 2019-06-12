@@ -5,11 +5,6 @@
  * Usage: gradle allReports
  */
 
-buildScan {
-	termsOfServiceUrl = 'https://gradle.com/terms-of-service';
-	termsOfServiceAgree = 'yes'
-}
-
 checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
 	configProperties = [samedir: "${rootDir}/code/standards"]

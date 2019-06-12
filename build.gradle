@@ -15,7 +15,6 @@
 import org.apache.tools.ant.filters.FixCrLfFilter
 
 plugins {
-    id 'com.gradle.build-scan' version '2.3'
     id 'eclipse'
     id 'application'
     id 'build-dashboard'
