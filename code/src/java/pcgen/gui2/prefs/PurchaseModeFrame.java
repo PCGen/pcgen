@@ -58,10 +58,16 @@ import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
+import pcgen.gui3.GuiUtility;
 import pcgen.gui3.JFXPanelFromResource;
+import pcgen.gui3.component.OKCloseButtonBar;
 import pcgen.gui3.dialog.NewPurchaseMethodDialogController;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.system.LanguageBundle;
+
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.Tooltip;
 
 /**
  * The Class {@code PurchaseModeFrame} is responsible for displaying
@@ -378,27 +384,20 @@ public final class PurchaseModeFrame extends JDialog
 		bagConstraints.weightx = 1.0;
 		getContentPane().add(statusBar, bagConstraints);
 
-		Container jPanel3 = new JPanel();
-		jPanel3.setLayout(new FlowLayout(FlowLayout.RIGHT));
+		OKCloseButtonBar buttonBar = new OKCloseButtonBar(
+				evt -> okButtonActionPerformed(),
+				evt -> cancelButtonActionPerformed()
+		);
 
-		okButton.setText(LanguageBundle.getString("in_Prefs_OK")); //$NON-NLS-1$
-		okButton.setToolTipText(LanguageBundle.getString("in_Prefs_OKTip")); //$NON-NLS-1$
+		Button resetButton = new Button();
+		resetButton.setText(LanguageBundle.getString("in_Prefs_Reset"));
+		resetButton.setOnAction(evt -> resetButtonActionPerformed());
+		resetButton.setTooltip(new Tooltip(LanguageBundle.getString("in_Prefs_ResetTip")));
+		ButtonBar.setButtonData(resetButton, ButtonBar.ButtonData.BACK_PREVIOUS);
+		buttonBar.getButtons().add(resetButton);
+		buttonBar.getOkButton().setTooltip(new Tooltip(LanguageBundle.getString("in_Prefs_OKTip")));
 		okButton.addActionListener(evt -> okButtonActionPerformed());
-
-		jPanel3.add(okButton);
-
-		AbstractButton resetButton = new JButton();
-		resetButton.setText(LanguageBundle.getString("in_Prefs_Reset")); //$NON-NLS-1$
-		resetButton.setToolTipText(LanguageBundle.getString("in_Prefs_ResetTip")); //$NON-NLS-1$
-		resetButton.addActionListener(evt -> resetButtonActionPerformed());
-
-		jPanel3.add(resetButton);
-		AbstractButton cancelButton = new JButton();
-		cancelButton.setText(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
-		cancelButton.setToolTipText(LanguageBundle.getString("in_Prefs_CancelTip")); //$NON-NLS-1$
-		cancelButton.addActionListener(evt -> cancelButtonActionPerformed());
-
-		jPanel3.add(cancelButton);
+		buttonBar.getCancelButton().setTooltip(new Tooltip(LanguageBundle.getString("in_Prefs_CancelTip")));
 
 		/////////////////////////////////////////////////
 		bagConstraints = new GridBagConstraints();
@@ -407,7 +406,7 @@ public final class PurchaseModeFrame extends JDialog
 		bagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		bagConstraints.anchor = GridBagConstraints.EAST;
 		bagConstraints.weightx = 1.0;
-		getContentPane().add(jPanel3, bagConstraints);
+		getContentPane().add(GuiUtility.wrapParentAsJFXPanel(buttonBar), bagConstraints);
 
 		jScrollPane1.setViewportBorder(new BevelBorder(BevelBorder.LOWERED));
 		jScrollPane1.setPreferredSize(new Dimension(100, 200));

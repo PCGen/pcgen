@@ -19,38 +19,30 @@ package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.EquipmentBuilderFacade;
 import pcgen.gui2.equip.EquipCustomPanel;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui3.GuiUtility;
+import pcgen.gui3.component.OKCloseButtonBar;
 import pcgen.system.LanguageBundle;
+
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
 
 /**
  * The Class {@code EquipCustomizerDialog} provides a pop-up dialog that allows
  * the user to build up custom equipment items by adding equipment modifiers and
  * setting the name, cost etc.  
- *
- * 
  */
-@SuppressWarnings("serial")
-public class EquipCustomizerDialog extends JDialog implements ActionListener
+public final class EquipCustomizerDialog extends JDialog
 {
 	private final EquipCustomPanel equipCustomPanel;
-	private final JPanel buttonPanel;
-	private final JButton buyButton;
-	private final JButton okButton;
-	private final JButton cancelButton;
 	private boolean purchase;
 	private boolean cancelled;
 
@@ -62,14 +54,7 @@ public class EquipCustomizerDialog extends JDialog implements ActionListener
 	public EquipCustomizerDialog(JFrame frame, CharacterFacade character, EquipmentBuilderFacade builder)
 	{
 		super(frame, true);
-		setTitle(LanguageBundle.getString("in_itemCustomizer")); //$NON-NLS-1$
-		this.buttonPanel = new JPanel();
-		this.buyButton = new JButton(LanguageBundle.getString("in_buy")); //$NON-NLS-1$
-		this.buyButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_buy")); //$NON-NLS-1$
-		this.okButton = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
-		this.okButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok")); //$NON-NLS-1$
-		this.cancelButton = new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
-		this.cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
+		setTitle(LanguageBundle.getString("in_itemCustomizer"));
 
 		this.equipCustomPanel = new EquipCustomPanel(character, builder);
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
@@ -84,31 +69,37 @@ public class EquipCustomizerDialog extends JDialog implements ActionListener
 
 		pane.add(equipCustomPanel, BorderLayout.CENTER);
 
-		buyButton.addActionListener(this);
-		okButton.addActionListener(this);
-		cancelButton.addActionListener(this);
+		ButtonBar buttonBar = new OKCloseButtonBar(
+				this::doOK,
+				this::doCancel
+		);
 
-		Box buttons = Box.createHorizontalBox();
-		buttons.add(buttonPanel);
-		buttons.add(Box.createHorizontalGlue());
-		buttons.add(buyButton);
-		buttons.add(Box.createHorizontalStrut(10));
-		buttons.add(okButton);
-		buttons.add(Box.createHorizontalStrut(10));
-		buttons.add(cancelButton);
-		buttons.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-		pane.add(buttons, BorderLayout.SOUTH);
+		Button buyButton = new Button(LanguageBundle.getString("in_buy"));
+		buttonBar.getButtons().add(buyButton);
 
+		pane.add(GuiUtility.wrapParentAsJFXPanel(buttonBar), BorderLayout.PAGE_END);
 		Utility.installEscapeCloseOperation(this);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e)
+	private void doOK(javafx.event.ActionEvent event)
 	{
-		purchase = e.getSource() == buyButton;
-		cancelled = e.getSource() == cancelButton;
+		purchase = false;
+		cancelled = false;
+		dispose();
+	}
 
-		setVisible(false);
+	private void doCancel(javafx.event.ActionEvent event)
+	{
+		purchase = false;
+		cancelled = true;
+		dispose();
+	}
+
+	private void doBuy(javafx.event.ActionEvent event)
+	{
+		purchase = true;
+		cancelled = false;
+		dispose();
 	}
 
 	/**
