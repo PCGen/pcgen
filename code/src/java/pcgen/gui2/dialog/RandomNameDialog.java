@@ -18,31 +18,26 @@
 package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.doomsdaybook.NameGenPanel;
 import pcgen.gui2.tools.Utility;
+import pcgen.gui3.GuiUtility;
+import pcgen.gui3.component.OKCloseButtonBar;
 import pcgen.system.LanguageBundle;
 
+import javafx.scene.control.ButtonBar;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code RandomNameDialog} is a dialog in which the user can
  * generate a random name for their character.
- *
- * 
  */
-@SuppressWarnings("serial")
 public final class RandomNameDialog extends JDialog
 {
 	private final NameGenPanel nameGenPanel;
@@ -73,34 +68,12 @@ public final class RandomNameDialog extends JDialog
 
 		getContentPane().add(nameGenPanel, BorderLayout.CENTER);
 
-		// Build the control panel (OK/Cancel buttons)
-		JPanel controlPanel = new JPanel();
-		controlPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+		ButtonBar buttonBar = new OKCloseButtonBar(
+				evt -> okButtonActionPerformed(),
+				evt -> cancelButtonActionPerformed()
+		);
 
-		JButton okButton = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
-		okButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok")); //$NON-NLS-1$
-		controlPanel.add(okButton);
-		okButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				okButtonActionPerformed();
-			}
-		});
-
-		JButton cancelButton = new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
-		cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
-		controlPanel.add(cancelButton);
-		cancelButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cancelButtonActionPerformed();
-			}
-		});
-		getContentPane().add(controlPanel, BorderLayout.SOUTH);
+		getContentPane().add(GuiUtility.wrapParentAsJFXPanel(buttonBar), BorderLayout.PAGE_END);
 	}
 
 	private void okButtonActionPerformed()
