@@ -19,13 +19,8 @@
 package pcgen.gui2.util;
 
 import java.awt.Container;
-import java.awt.event.ActionEvent;
 import java.util.List;
 
-import javax.swing.AbstractAction;
-import javax.swing.JButton;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
 import javax.swing.ScrollPaneConstants;
@@ -35,6 +30,14 @@ import javax.swing.table.TableColumnModel;
 
 import pcgen.gui2.util.event.DynamicTableColumnModelListener;
 import pcgen.gui2.util.table.DynamicTableColumnModel;
+import pcgen.gui3.GuiUtility;
+
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckMenuItem;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
+import org.controlsfx.control.action.Action;
 
 public class JDynamicTable extends JTableEx
 {
@@ -47,7 +50,7 @@ public class JDynamicTable extends JTableEx
 		{
 			int index = event.getToIndex();
 			TableColumn column = dynamicColumnModel.getAvailableColumns().get(index);
-			menu.insert(createMenuItem(column), index);
+			menu.getItems().add(index, createMenuItem(column));
 			cornerButton.setVisible(true);
 		}
 
@@ -55,21 +58,21 @@ public class JDynamicTable extends JTableEx
 		public void availableColumnRemove(TableColumnModelEvent event)
 		{
 
-			menu.remove(event.getFromIndex());
-			if (menu.getComponentCount() == 0)
+			menu.getItems().remove(event.getFromIndex());
+			if (menu.getItems().isEmpty())
 			{
 				cornerButton.setVisible(false);
 			}
 		}
 
 	};
-	private final JButton cornerButton;
+	private final Button cornerButton;
 	private DynamicTableColumnModel dynamicColumnModel = null;
-	private final JPopupMenu menu = new JPopupMenu();
+	private final ContextMenu menu = new ContextMenu();
 
 	public JDynamicTable()
 	{
-		this.cornerButton = new JTableMenuButton(this, menu);
+		this.cornerButton = new JTableMenuButton(menu);
 	}
 
 	@Override
@@ -92,7 +95,9 @@ public class JDynamicTable extends JTableEx
 					return;
 				}
 				scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-				scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER, cornerButton);
+				scrollPane.setCorner(
+						ScrollPaneConstants.UPPER_TRAILING_CORNER,
+						GuiUtility.wrapParentAsJFXPanel(cornerButton));
 			}
 		}
 	}
@@ -121,12 +126,12 @@ public class JDynamicTable extends JTableEx
 		}
 	}
 
-	private JCheckBoxMenuItem createMenuItem(TableColumn column)
+	private MenuItem createMenuItem(TableColumn column)
 	{
-		JCheckBoxMenuItem item = new JCheckBoxMenuItem();
+		CheckMenuItem item = new CheckMenuItem();
 		boolean visible = dynamicColumnModel.isVisible(column);
 		item.setSelected(visible);
-		item.setAction(new MenuAction(column, visible));
+		item.setOnAction(new MenuAction(column, visible));
 		return item;
 	}
 
@@ -151,12 +156,12 @@ public class JDynamicTable extends JTableEx
 		columnModel.addDynamicTableColumnModelListener(listener);
 		super.setColumnModel(columnModel);
 		List<TableColumn> columns = columnModel.getAvailableColumns();
-		menu.removeAll();
+		menu.getItems().clear();
 		if (!columns.isEmpty())
 		{
 			for (TableColumn column : columns)
 			{
-				menu.add(createMenuItem(column));
+				menu.getItems().add(createMenuItem(column));
 			}
 			cornerButton.setVisible(true);
 		}
@@ -166,7 +171,7 @@ public class JDynamicTable extends JTableEx
 		}
 	}
 
-	private class MenuAction extends AbstractAction
+	private final class MenuAction extends Action
 	{
 
 		private boolean visible;
@@ -175,14 +180,15 @@ public class JDynamicTable extends JTableEx
 		private MenuAction(TableColumn column, boolean visible)
 		{
 			super(column.getHeaderValue().toString());
+			super.setEventHandler(this::actionPerformed);
 			this.visible = visible;
 			this.column = column;
 		}
 
-		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			dynamicColumnModel.setVisible(column, visible = !visible);
+			visible = !visible;
+			dynamicColumnModel.setVisible(column, visible);
 		}
 
 	}
