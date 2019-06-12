@@ -58,6 +58,7 @@ import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.gui3.GuiUtility;
+import pcgen.gui3.component.OKCloseButtonBar;
 import pcgen.system.LanguageBundle;
 
 import javafx.scene.control.Button;
@@ -152,16 +153,10 @@ public final class LanguageChooserDialog extends JDialog implements ReferenceLis
 
 		split.setRightComponent(rightPane);
 		pane.add(split, BorderLayout.CENTER);
-		ButtonBar buttonBar = new ButtonBar();
-		Button okButton = new Button(LanguageBundle.getString("in_ok"));
-		okButton.setOnAction(this::doOK);
-		okButton.setDefaultButton(true);
-		Button closeButton = new Button(LanguageBundle.getString("in_cancel"));
-		closeButton.setCancelButton(true);
-		closeButton.setOnAction(this::doRollback);
-		buttonBar.getButtons().add(okButton);
-		buttonBar.getButtons().add(closeButton);
-
+		ButtonBar buttonBar = new OKCloseButtonBar(
+				this::doOK,
+				this::doRollback
+		);
 		pane.add(GuiUtility.wrapParentAsJFXPanel(buttonBar), BorderLayout.PAGE_END);
 	}
 
