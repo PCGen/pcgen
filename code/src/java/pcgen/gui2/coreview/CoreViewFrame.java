@@ -28,6 +28,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -40,7 +41,6 @@ import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DelegatingListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.gui2.tools.Utility;
-import pcgen.gui2.util.JComboBoxEx;
 import pcgen.gui2.util.JTreeViewTable;
 import pcgen.gui2.util.treeview.DataView;
 import pcgen.gui2.util.treeview.DataViewColumn;
@@ -56,14 +56,14 @@ import org.apache.commons.lang3.StringUtils;
 public class CoreViewFrame extends JFrame
 {
 
-	private final JComboBoxEx<CorePerspective> perspectiveChooser;
+	private final JComboBox<CorePerspective> perspectiveChooser;
 	private final JTreeViewTable<CoreViewNodeFacade> viewTable;
 
 	public CoreViewFrame(CharacterFacade character)
 	{
 		viewTable = new JTreeViewTable<>();
 
-		perspectiveChooser = new JComboBoxEx<>();
+		perspectiveChooser = new JComboBox<>();
 		for (CorePerspective pers : CorePerspective.getAllConstants())
 		{
 			perspectiveChooser.addItem(pers);
