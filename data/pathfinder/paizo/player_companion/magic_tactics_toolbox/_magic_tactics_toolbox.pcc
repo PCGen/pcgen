@@ -6,7 +6,12 @@ STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:6,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Magic,INCLUDES=Advanced Class Guide,INCLUDES=Occult Adventures
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
+PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
@@ -48,9 +53,11 @@ TEMPLATE:magtt_templates.lst
 
 #FORWARDREF:DEITY|Andirifkhu,Graffiacane,Magdh
 FORWARDREF:ABILITY=Special Ability|Witch Hex ~ Cursed Wound
+FORWARDREF:CLASSSPELLLIST|Occultist,Psychic,Spiritualist,Mesmerist,Medium
 
 ABILITY:support/magtt_abilities_class_dh.lst|PRECAMPAIGN:1,INCLUDES=Dungeoneer's Handbook
 ABILITY:support/magtt_abilities_class_dtt.lst|PRECAMPAIGN:1,INCLUDES=Dirty Tactics Toolbox
+ABILITY:support/magtt_abilities_class_oa.lst|PRECAMPAIGN:1,INCLUDES=Occult Adventures
 TEMPLATE:support/magtt_templates_dtt.lst|PRECAMPAIGN:1,INCLUDES=Dirty Tactics Toolbox
 
 # ENTRY DATE: 2018-12
