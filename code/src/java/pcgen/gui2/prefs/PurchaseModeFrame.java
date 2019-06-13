@@ -18,7 +18,6 @@
 package pcgen.gui2.prefs;
 
 import java.awt.Container;
-import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
@@ -92,12 +91,9 @@ public final class PurchaseModeFrame extends JDialog
 	private int statMax = PurchaseModeFrame.STANDARD_MAX_PURCHASE_SCORE;
 
 	/** Creates new form PurchaseModeFrame
-	 * @param parent
-	 * */
-	PurchaseModeFrame(Dialog parent)
+	 */
+	PurchaseModeFrame()
 	{
-		super(parent);
-
 		initComponents();
 	}
 
@@ -1066,7 +1062,8 @@ public final class PurchaseModeFrame extends JDialog
 			int cost = 0;
 			for (int i = 0; i < currentValues.length; i++)
 			{
-				currentValues[i][1] = cost++;
+				currentValues[i][1] = cost;
+				cost++;
 			}
 		}
 	}
