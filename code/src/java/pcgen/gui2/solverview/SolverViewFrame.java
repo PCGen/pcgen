@@ -28,6 +28,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -51,12 +52,11 @@ import pcgen.cdom.facet.model.VarScopedFacet;
 import pcgen.cdom.formula.PCGenScoped;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.tools.Utility;
-import pcgen.gui2.util.JComboBoxEx;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.CharacterManager;
 import pcgen.system.LanguageBundle;
 
-public class SolverViewFrame extends JFrame
+public final class SolverViewFrame extends JFrame
 {
 
 	private final ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
@@ -64,16 +64,16 @@ public class SolverViewFrame extends JFrame
 	private final VarScopedFacet varScopedFacet = FacetLibrary.getFacet(VarScopedFacet.class);
 	private final LoadContextFacet loadContextFacet = FacetLibrary.getFacet(LoadContextFacet.class);
 
-	private final JComboBoxEx<LegalScopeWrapper> scopeChooser;
+	private final JComboBox<LegalScopeWrapper> scopeChooser;
 	private LegalScope selectedScope;
 
 	private final JTextField varName;
 	private String varNameText = "                               ";
 
-	private final JComboBoxEx<ObjectNameDisplayer> objectChooser;
+	private final JComboBox<ObjectNameDisplayer> objectChooser;
 	private VarScoped activeObject;
 
-	private final JComboBoxEx<PCRef> identifierChooser;
+	private final JComboBox<PCRef> identifierChooser;
 	private CharID activeIdentifier;
 
 	private JTable viewTable;
@@ -82,7 +82,7 @@ public class SolverViewFrame extends JFrame
 
 	public SolverViewFrame()
 	{
-		identifierChooser = new JComboBoxEx<>();
+		identifierChooser = new JComboBox<>();
 		for (CharacterFacade pcf : CharacterManager.getCharacters())
 		{
 			String pcname = pcf.getNameRef().get();
@@ -91,10 +91,10 @@ public class SolverViewFrame extends JFrame
 		}
 		identifierChooser.addActionListener(new IdentifierActionListener());
 
-		objectChooser = new JComboBoxEx<>();
+		objectChooser = new JComboBox<>();
 		objectChooser.addActionListener(new ObjectActionListener());
 
-		scopeChooser = new JComboBoxEx<>();
+		scopeChooser = new JComboBox<>();
 		scopeChooser.addActionListener(new ScopeActionListener());
 
 		varName = new JTextField();

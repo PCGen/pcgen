@@ -36,6 +36,7 @@ import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -57,7 +58,6 @@ import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.gui2.util.JComboBoxEx;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.dialog.NewPurchaseMethodDialogController;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -72,15 +72,15 @@ public final class PurchaseModeFrame extends JDialog
 	private static final String TITLE = LanguageBundle.getString("in_Prefs_purModConf"); //$NON-NLS-1$
 	private static final int STANDARD_MIN_PURCHASE_SCORE = 8;
 	private static final int STANDARD_MAX_PURCHASE_SCORE = 18;
-	private JButton removeMethodButton = null;
-	private JComboBoxEx currentPurchaseMethods = null;
+	private JButton removeMethodButton;
+	private JComboBox currentPurchaseMethods;
 	private JLabel statusBar;
 
 	private JScrollPane jScrollPane1;
 	private JTextField purchaseMethodPointsEdit;
 	private JTextField purchaseScoreMaxEdit;
 	private JTextField purchaseScoreMinEdit;
-	private PurchaseModel purchaseModel = null;
+	private PurchaseModel purchaseModel;
 
 	private int statMin = PurchaseModeFrame.STANDARD_MIN_PURCHASE_SCORE;
 	private int statMax = PurchaseModeFrame.STANDARD_MAX_PURCHASE_SCORE;
@@ -183,8 +183,7 @@ public final class PurchaseModeFrame extends JDialog
 		purchaseScoreMinEdit = new JTextField(3);
 		purchaseScoreMaxEdit = new JTextField(3);
 		statusBar = new JLabel();
-		currentPurchaseMethods = new JComboBoxEx<>();
-		currentPurchaseMethods.setAutoSort(true);
+		currentPurchaseMethods = new JComboBox<>();
 		purchaseMethodPointsEdit = new JTextField(4);
 		removeMethodButton = new JButton();
 
@@ -740,8 +739,8 @@ public final class PurchaseModeFrame extends JDialog
 		private final boolean[] canEdit = {false, true};
 		private final String[] columnHeaders = {LanguageBundle.getString("in_Prefs_abScore"), //$NON-NLS-1$
 			LanguageBundle.getString("in_Prefs_cost")}; //$NON-NLS-1$
-		private Object[][] currentValues = null;
-		private Object[][] savedValues = null;
+		private Object[][] currentValues;
+		private Object[][] savedValues;
 		private final Class<?>[] types = new Class[]{Integer.class, Integer.class};
 		private int currentPurchaseScoreMax = 10;
 		private int currentPurchaseScoreMin = 10; // Start at the average stat
@@ -1015,7 +1014,7 @@ public final class PurchaseModeFrame extends JDialog
 			Collection<PointBuyMethod> methods = new ArrayList<>(ref.getConstructedCDOMObjects(PointBuyMethod.class));
 			for (int i = 0, x = currentPurchaseMethods.getItemCount(); i < x; ++i)
 			{
-				final PointBuyMethod pbm = (PointBuyMethod) currentPurchaseMethods.getItemAt(i);
+				final PointBuyMethod pbm = (PointBuyMethod)currentPurchaseMethods.getItemAt(i);
 				PointBuyMethod masterPBM = ref.silentlyGetConstructedCDOMObject(PointBuyMethod.class, pbm.getKeyName());
 				if (masterPBM == null)
 				{
