@@ -24,7 +24,6 @@ import pcgen.gui3.GuiAssertions;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -40,25 +39,23 @@ public class DebugDialog
 
 	public DebugDialog()
 	{
-		GuiAssertions.assertIsNotJavaFXThread();
+		GuiAssertions.assertIsJavaFXThread();
 		loader.setResources(LanguageBundle.getBundle());
 		loader.setLocation(getClass().getResource("DebugDialog.fxml"));
-		Platform.runLater(() -> {
-			Stage primaryStage = new Stage();
-			final Scene scene;
-			try
-			{
-				scene = loader.load();
-			} catch (IOException e)
-			{
-				Logging.errorPrint("failed to load debugdialog", e);
-				return;
-			}
-			primaryStage.setScene(scene);
-			DebugDialogController controller = loader.getController();
-			primaryStage.setOnHidden(e -> controller.shutdown());
-			primaryStage.setOnShown(e -> controller.initTimer());
-			primaryStage.show();
-		});
+		Stage primaryStage = new Stage();
+		final Scene scene;
+		try
+		{
+			scene = loader.load();
+		} catch (IOException e)
+		{
+			Logging.errorPrint("failed to load debugdialog", e);
+			return;
+		}
+		primaryStage.setScene(scene);
+		DebugDialogController controller = loader.getController();
+		primaryStage.setOnHidden(e -> controller.shutdown());
+		primaryStage.setOnShown(e -> controller.initTimer());
+		primaryStage.show();
 	}
 }

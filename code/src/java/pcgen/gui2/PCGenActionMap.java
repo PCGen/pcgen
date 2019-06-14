@@ -257,7 +257,7 @@ public final class PCGenActionMap extends ActionMap
 	private static final class DebugAction extends PCGenAction
 	{
 
-		private DebugDialog dialog = null;
+		private DebugDialog dialog;
 
 		private DebugAction()
 		{
