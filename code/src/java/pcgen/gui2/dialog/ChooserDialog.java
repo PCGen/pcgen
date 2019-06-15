@@ -69,9 +69,12 @@ import pcgen.gui2.util.treeview.DataViewColumn;
 import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
+import pcgen.gui3.GuiUtility;
+import pcgen.gui3.component.OKCloseButtonBar;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PropertyContext;
 
+import javafx.scene.control.ButtonBar;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -85,7 +88,6 @@ import org.apache.commons.lang3.StringUtils;
  *
  * 
  */
-@SuppressWarnings("serial")
 public class ChooserDialog extends JDialog implements ActionListener, ReferenceListener<Integer>, ListSelectionListener
 {
 
@@ -269,18 +271,13 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		{
 			pane.add(split, BorderLayout.CENTER);
 		}
-		JPanel bottomPane = new JPanel(new FlowLayout());
-		JButton button = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
-		button.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok")); //$NON-NLS-1$
-		button.setActionCommand("OK");
-		button.addActionListener(this);
-		bottomPane.add(button);
-		button = new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
-		button.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
-		button.setActionCommand("CANCEL");
-		button.addActionListener(this);
-		bottomPane.add(button);
-		pane.add(bottomPane, BorderLayout.SOUTH);
+
+		ButtonBar okCloseButtonBar = new OKCloseButtonBar(
+				this::doOK,
+				this::doCancel
+		);
+
+		pane.add(GuiUtility.wrapParentAsJFXPanel(okCloseButtonBar), BorderLayout.PAGE_END);
 	}
 
 	@Override
@@ -305,6 +302,31 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			}
 		}
 	}
+
+	private void doOK(final javafx.event.ActionEvent event)
+	{
+		if (chooser.isRequireCompleteSelection() && chooser.getRemainingSelections().get() > 0)
+		{
+			JOptionPane.showMessageDialog(this,
+					LanguageBundle.getFormattedString("in_chooserRequireComplete", //$NON-NLS-1$
+							chooser.getRemainingSelections().get()), chooser.getName(), JOptionPane.INFORMATION_MESSAGE);
+		}
+		else
+		{
+			committed = true;
+			chooser.commit();
+			dispose();
+		}
+
+	}
+
+	private void doCancel(final javafx.event.ActionEvent event)
+	{
+		committed = false;
+		chooser.rollback();
+		dispose();
+	}
+
 
 	@Override
 	public void actionPerformed(ActionEvent e)
@@ -348,26 +370,6 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			}
 			return;
 		}
-		if (e.getActionCommand().equals("OK"))
-		{
-			if (chooser.isRequireCompleteSelection() && chooser.getRemainingSelections().get() > 0)
-			{
-				JOptionPane.showMessageDialog(this,
-					LanguageBundle.getFormattedString("in_chooserRequireComplete", //$NON-NLS-1$
-					chooser.getRemainingSelections().get()), chooser.getName(), JOptionPane.INFORMATION_MESSAGE);
-				return;
-			}
-			else
-			{
-				chooser.commit();
-			}
-		}
-		else
-		{
-			chooser.rollback();
-		}
-		committed = e.getActionCommand().equals("OK");
-		dispose();
 	}
 
 	/**
