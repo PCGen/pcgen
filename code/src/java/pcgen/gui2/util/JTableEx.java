@@ -45,9 +45,6 @@ import pcgen.gui2.util.table.TableCellUtilities;
  */
 public class JTableEx extends JTable
 {
-
-	private static final long serialVersionUID = 514835142307946415L;
-
 	/** Constant for a double click action event. */
 	public static final int ACTION_DOUBLECLICK = 2042;
 	private boolean sortingEnabled;
@@ -60,26 +57,7 @@ public class JTableEx extends JTable
 		this(null, null, null);
 	}
 
-	/**
-	 * Constructor
-	 * @param tm
-	 */
-	public JTableEx(TableModel tm)
-	{
-		this(tm, null, null);
-	}
-
-	/**
-	 * Constructor
-	 * @param tm
-	 * @param tcm
-	 */
-	public JTableEx(TableModel tm, TableColumnModel tcm)
-	{
-		this(tm, tcm, null);
-	}
-
-	public JTableEx(TableModel tm, TableColumnModel tcm, ListSelectionModel lsm)
+	private JTableEx(TableModel tm, TableColumnModel tcm, ListSelectionModel lsm)
 	{
 		super(tm, tcm, lsm);
 		setFillsViewportHeight(true);

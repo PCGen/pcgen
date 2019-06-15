@@ -18,87 +18,22 @@
  */
 package pcgen.gui2.util;
 
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Graphics;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import pcgen.gui2.tools.Icons;
 
-import javax.swing.Icon;
-import javax.swing.JButton;
-import javax.swing.JPopupMenu;
-import javax.swing.JTable;
-import javax.swing.SwingConstants;
-import javax.swing.UIManager;
+import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.image.ImageView;
 
 /**
  * This is the button that is displayed in the upper right corner of the
  * JTreeViewTable.
  */
-public final class JTableMenuButton extends JButton
+final class JTableMenuButton extends Button
 {
-
-	private boolean pressed = false;
-
-	JTableMenuButton(final JTable table, final JPopupMenu popupMenu)
+	JTableMenuButton(final ContextMenu contextMenu)
 	{
-		addMouseListener(new MouseAdapter()
-		{
-
-			@Override
-			public void mousePressed(MouseEvent e)
-			{
-				pressed = true;
-				repaint();
-				Container parent = table.getParent();
-				popupMenu.setVisible(true);
-				popupMenu.show(parent, parent.getWidth() - popupMenu.getWidth(), 0);
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e)
-			{
-				pressed = false;
-				repaint();
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e)
-			{
-				pressed = false;
-				repaint();
-			}
-
-		});
+		this.setGraphic(new ImageView(Icons.button_arrow_down.asJavaFX()));
+		this.setMaxSize(4, 4);
+		this.setContextMenu(contextMenu);
 	}
-
-	@Override
-	public void paint(Graphics g)
-	{
-		int size = 4;
-		int width = getWidth();
-		int height = getHeight();
-		int x = (width - size) / 2 + 1;
-		int y = (height - size) / 2;
-		Color shadow = UIManager.getColor("controlShadow");
-		Color darkShadow = UIManager.getColor("controlDkShadow");
-		Color highlight = UIManager.getColor("controlLtHighlight");
-		Icon icon;
-		if (pressed)
-		{
-			g.setColor(shadow);
-			g.fillRect(0, 0, width - 1, height - 1);
-			g.setColor(darkShadow);
-			g.drawRect(0, 0, width - 1, height - 1);
-			icon = new ArrowIcon(SwingConstants.SOUTH, size, darkShadow, Color.BLACK, shadow);
-		}
-		else
-		{
-			super.paint(g);
-			icon = new ArrowIcon(SwingConstants.SOUTH, size, shadow, darkShadow, highlight);
-		}
-
-		icon.paintIcon(this, g, x, y);
-	}
-
 }

@@ -81,7 +81,6 @@ public class JTreeTable extends JTableEx
 	 */
 	public JTreeTable(TreeTableModel treeTableModel)
 	{
-		super();
 		tree = new TreeTableCellRenderer();
 		tree.setRootVisible(false);
 		tree.setShowsRootHandles(true);
