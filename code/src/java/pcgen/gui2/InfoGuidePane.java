@@ -73,12 +73,10 @@ class InfoGuidePane extends JComponent implements UIResource
 
 	private static JFXPanelFromResource<SimpleHtmlPanelController> createHtmlPane()
 	{
-		var pane = new JFXPanelFromResource<>(
+		return new JFXPanelFromResource<>(
 				SimpleHtmlPanelController.class,
 				"SimpleHtmlPanel.fxml"
 		);
-		pane.setOpaque(false);
-		return pane;
 	}
 
 	private void initComponents()
