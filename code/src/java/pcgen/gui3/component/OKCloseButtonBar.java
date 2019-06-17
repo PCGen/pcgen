@@ -8,7 +8,7 @@
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.     See the GNU
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public
@@ -23,39 +23,45 @@ import java.io.IOException;
 import pcgen.gui3.core.IORuntimeException;
 import pcgen.system.LanguageBundle;
 
-import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.layout.HBox;
-import javafx.scene.text.Text;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
 
 /**
- * Reusuable status bar. Displays a message + Progress Bar.
+ * This is a straightforward panel with an "ok"
+ * and "close" button.
  */
-public final class PCGenStatusBar extends HBox
+public final class OKCloseButtonBar extends ButtonBar
 {
-	private final PCGenStatusBarModel model = new PCGenStatusBarModel();
+	private final EventHandler<ActionEvent> okAction;
+	private final EventHandler<ActionEvent> cancelAction;
 
 	@FXML
-	private Text loadingLabel;
+	private Button okButton;
 
 	@FXML
-	private ProgressBar loadProgress;
+	private Button cancelButton;
 
-	@FXML
-	private Label progressText;
-
-	public PCGenStatusBar()
+	/**
+	 *
+	 * @param okAction what happens when OK is called
+	 * @param cancelAction what happens when cancel is called
+	 */
+	public OKCloseButtonBar(EventHandler<ActionEvent> okAction,
+	                        EventHandler<ActionEvent> cancelAction)
 	{
 		try
 		{
+			this.okAction = okAction;
+			this.cancelAction = cancelAction;
 			FXMLLoader loader = new FXMLLoader();
 			loader.setResources(LanguageBundle.getBundle());
 			loader.setController(this);
 			loader.setRoot(this);
-			loader.setLocation(getClass().getResource("PCGenStatusBar.fxml"));
+			loader.setLocation(getClass().getResource("OKCloseButtonBar.fxml"));
 			loader.load();
 		}
 		catch (IOException e)
@@ -67,23 +73,17 @@ public final class PCGenStatusBar extends HBox
 	@FXML
 	void initialize()
 	{
-		loadingLabel.textProperty().bind(model.messageProperty());
-		loadProgress.progressProperty().bind(model.percentDoneProperty());
-		progressText.textProperty().bind(model.progressText());
+		okButton.setOnAction(okAction);
+		cancelButton.setOnAction(cancelAction);
 	}
 
-	public void setProgress(String message, double progress)
+	public Button getOkButton()
 	{
-		setProgress(message, progress, String.format("%.0f%%", progress * 100));
+		return okButton;
 	}
 
-	public void setProgress(String message, double progress, String progressText)
+	public Button getCancelButton()
 	{
-		Platform.runLater(() -> {
-			model.messageProperty().setValue(message);
-			model.percentDoneProperty().setValue(progress);
-			model.progressText().setValue(progressText);
-		});
+		return cancelButton;
 	}
-
 }

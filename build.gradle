@@ -15,7 +15,6 @@
 import org.apache.tools.ant.filters.FixCrLfFilter
 
 plugins {
-    id 'com.gradle.build-scan' version '2.3'
     id 'eclipse'
     id 'application'
     id 'build-dashboard'
@@ -169,9 +168,9 @@ compileJava {
 
 dependencies {
     compile group: 'commons-io', name: 'commons-io', version:'2.6'
-    compile group: 'org.springframework', name: 'spring-web', version:'5.1.7.RELEASE'
-    compile group: 'org.springframework', name: 'spring-core', version:'5.1.7.RELEASE'
-    compile group: 'org.springframework', name: 'spring-beans', version:'5.1.7.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version:'5.1.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version:'5.1.8.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version:'5.1.8.RELEASE'
     compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.9'
     compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.3'
     compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.3'
@@ -182,6 +181,7 @@ dependencies {
     compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.8.1'
     compile group: 'xml-apis', name: 'xml-apis', version:'1.4.01'
     compile group: 'org.xmlunit', name: 'xmlunit-core', version:'2.6.2'
+    compile group: 'org.controlsfx', name: 'controlsfx', version:'11.0.0'
 
     //compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.170'
     compile files("../pcgen-base/PCGen-base/build/libs/PCgen-base-1.0.jar")

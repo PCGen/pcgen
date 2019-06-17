@@ -18,16 +18,17 @@
 package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import pcgen.gui2.prefs.PCGenPrefsPanel;
 import pcgen.gui2.tools.Utility;
-import pcgen.system.LanguageBundle;
+import pcgen.gui3.GuiUtility;
+import pcgen.gui3.component.OKCloseButtonBar;
+
+import javafx.event.ActionEvent;
+import javafx.scene.control.ButtonBar;
 
 /**
  * The Class {@code SinglePrefDialog} displays a single
@@ -35,10 +36,9 @@ import pcgen.system.LanguageBundle;
  *
  * 
  */
-public class SinglePrefDialog extends JDialog
+public final class SinglePrefDialog extends JDialog
 {
 	private final PCGenPrefsPanel prefsPanel;
-	private JPanel controlPanel;
 
 	/**
 	 * Create a new modal SinglePrefDialog to display a particular panel.
@@ -52,43 +52,26 @@ public class SinglePrefDialog extends JDialog
 
 		this.prefsPanel = prefsPanel;
 
-		initComponents();
+		ButtonBar controlPanel = new OKCloseButtonBar(
+				this::okButtonActionPerformed,
+				this::cancelButtonActionPerformed
+		);
 
 		this.getContentPane().setLayout(new BorderLayout());
 		this.getContentPane().add(prefsPanel, BorderLayout.CENTER);
-		this.getContentPane().add(controlPanel, BorderLayout.SOUTH);
-
+		this.getContentPane().add(GuiUtility.wrapParentAsJFXPanel(controlPanel), BorderLayout.PAGE_END);
 		prefsPanel.applyOptionValuesToControls();
-
 		pack();
-
 		Utility.installEscapeCloseOperation(this);
 	}
 
-	private void initComponents()
-	{
-		// Build the control panel (OK/Cancel buttons)
-		controlPanel = new JPanel();
-		controlPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-
-		JButton okButton = new JButton(LanguageBundle.getString("in_ok"));
-		okButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok"));
-		controlPanel.add(okButton);
-		okButton.addActionListener(evt -> okButtonActionPerformed());
-
-		JButton cancelButton = new JButton(LanguageBundle.getString("in_cancel"));
-		cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel"));
-		controlPanel.add(cancelButton);
-		cancelButton.addActionListener(evt -> cancelButtonActionPerformed());
-	}
-
-	private void cancelButtonActionPerformed()
+	private void cancelButtonActionPerformed(final ActionEvent actionEvent)
 	{
 		setVisible(false);
 		this.dispose();
 	}
 
-	private void okButtonActionPerformed()
+	private void okButtonActionPerformed(final ActionEvent actionEvent)
 	{
 		prefsPanel.setOptionsBasedOnControls();
 		setVisible(false);

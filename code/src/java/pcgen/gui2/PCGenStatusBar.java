@@ -18,8 +18,6 @@
  */
 package pcgen.gui2;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.List;
 import java.util.logging.LogRecord;
 
@@ -33,8 +31,17 @@ import javax.swing.SwingWorker;
 import pcgen.gui2.tools.CursorControlUtilities;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.StatusWorker;
+import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.GuiUtility;
 import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
+
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * This is the southern component of the PCGenFrame.
@@ -47,27 +54,28 @@ public final class PCGenStatusBar extends JPanel
 	private final PCGenFrame frame;
 	private final JLabel messageLabel;
 	private final JProgressBar progressBar;
-	private final JLabel loadStatusLabel;
+	private final Button loadStatusButton;
 
 	PCGenStatusBar(PCGenFrame frame)
 	{
 		this.frame = frame;
 		this.messageLabel = new JLabel();
 		this.progressBar = new JProgressBar();
-		this.loadStatusLabel = new JLabel();
+		this.loadStatusButton = new Button();
 		initComponents();
 	}
 
 	private void initComponents()
 	{
-		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 		add(messageLabel);
 		add(Box.createHorizontalGlue());
 		progressBar.setStringPainted(true);
 		progressBar.setVisible(false);
 		add(progressBar);
-		add(loadStatusLabel);
-		loadStatusLabel.addMouseListener(new LoadStatusMouseAdapter());
+		add(Box.createHorizontalGlue());
+		add(GuiUtility.wrapParentAsJFXPanel(loadStatusButton));
+		loadStatusButton.setOnAction(this::loadStatusLabelAction);
 	}
 
 	public void setContextMessage(String message)
@@ -87,6 +95,7 @@ public final class PCGenStatusBar extends JPanel
 
 	void setSourceLoadErrors(List<LogRecord> errors)
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		if (errors != null && !errors.isEmpty())
 		{
 			int nerrors = 0;
@@ -102,20 +111,31 @@ public final class PCGenStatusBar extends JPanel
 					nwarnings++;
 				}
 			}
+
+			Image image;
 			if (nerrors > 0)
 			{
-				loadStatusLabel.setIcon(Icons.Stop16.getImageIcon());
+				image = Icons.Stop16.asJavaFX();
 			}
 			else if (nwarnings > 0)
 			{
-				loadStatusLabel.setIcon(Icons.Alert16.getImageIcon());
+				image = Icons.Alert16.asJavaFX();
 			}
 			else
 			{
-				loadStatusLabel.setIcon(Icons.Ok16.getImageIcon());
+				image = Icons.Ok16.asJavaFX();
 			}
-			loadStatusLabel
-				.setToolTipText(nerrors + " errors and " + nwarnings + " warnings occurred while loading the sources");
+			int finalNerrors = nerrors;
+			int finalNwarnings = nwarnings;
+			Platform.runLater(() -> {
+				loadStatusButton.setGraphic(new ImageView(image));
+				Tooltip tooltip = new Tooltip(String.format(
+						"%d errors and %d warnings occurred while loading the sources",
+						finalNerrors,
+						finalNwarnings
+				));
+				loadStatusButton.setTooltip(tooltip);
+			});
 		}
 	}
 
@@ -172,13 +192,8 @@ public final class PCGenStatusBar extends JPanel
 	/**
 	 * Shows the log window when the load status icon is clicked.
 	 */
-	private class LoadStatusMouseAdapter extends MouseAdapter
+	private void loadStatusLabelAction(final ActionEvent actionEvent)
 	{
-		@Override
-		public void mouseClicked(MouseEvent arg0)
-		{
-			frame.getActionMap().get(PCGenActionMap.LOG_COMMAND).actionPerformed(null);
-		}
-
+		frame.getActionMap().get(PCGenActionMap.LOG_COMMAND).actionPerformed(null);
 	}
 }

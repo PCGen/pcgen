@@ -29,6 +29,7 @@ import javax.swing.WindowConstants;
 import pcgen.facade.core.ChooserFacade;
 import pcgen.facade.core.InfoFacade;
 import pcgen.facade.util.ListFacade;
+import pcgen.gui3.component.OKCloseButtonBar;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -38,7 +39,6 @@ import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
@@ -103,15 +103,10 @@ public class RadioChooserDialog extends JDialog
 		this.getContentPane().setLayout(new GridLayout());
 		this.getContentPane().add(jfxPanel, BorderLayout.CENTER);
 
-		ButtonBar buttonBar = new ButtonBar();
-		Button ok = new Button(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
-		ok.setOnAction(this::onOK);
-		ButtonBar.setButtonData(ok, ButtonBar.ButtonData.OK_DONE);
-		buttonBar.getButtons().add(ok);
-		Button cancel = new Button(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
-		cancel.setOnAction(this::onCancel);
-		ButtonBar.setButtonData(ok, ButtonBar.ButtonData.CANCEL_CLOSE);
-		buttonBar.getButtons().add(cancel);
+
+		ButtonBar buttonBar = new OKCloseButtonBar(
+				this::onOK,
+				this::onCancel);
 		outerPane.getChildren().add(buttonBar);
 		Platform.runLater(() -> {
 			Scene scene = new Scene(outerPane);

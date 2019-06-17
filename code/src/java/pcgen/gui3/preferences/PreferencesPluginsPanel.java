@@ -18,7 +18,6 @@
 
 package pcgen.gui3.preferences;
 
-import java.awt.BorderLayout;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -64,8 +63,6 @@ public final class PreferencesPluginsPanel extends PCGenPrefsPanel
 	{
 
 		mainPanel = new VBox();
-
-		setLayout(new BorderLayout());
 
 		pluginMap.values()
 		         .forEach(pluginRef -> mainPanel.getChildren().add(pluginRef));

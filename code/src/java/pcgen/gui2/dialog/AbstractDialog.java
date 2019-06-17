@@ -24,6 +24,7 @@ import javax.swing.JComponent;
 import javax.swing.JDialog;
 
 import pcgen.gui3.GuiUtility;
+import pcgen.gui3.component.OKCloseButtonBar;
 import pcgen.system.LanguageBundle;
 
 import javafx.scene.control.Button;
@@ -44,30 +45,23 @@ public abstract class AbstractDialog extends JDialog
 
 	private void initialize()
 	{
-		ButtonBar buttonBar = new ButtonBar();
-		Button okButton = new Button(LanguageBundle.getString(getOkKey()));
-		okButton.setOnAction(evt -> okButtonActionPerformed());
-		okButton.setDefaultButton(true);
-		buttonBar.getButtons().add(okButton);
-		ButtonBar.setButtonData(okButton, ButtonBar.ButtonData.OK_DONE);
-
-		Button cancelButton = new Button(LanguageBundle.getString("in_cancel"));
-		cancelButton.setOnAction(evt -> close());
-		cancelButton.setCancelButton(true);
-		buttonBar.getButtons().add(cancelButton);
-		ButtonBar.setButtonData(cancelButton, ButtonBar.ButtonData.CANCEL_CLOSE);
+		OKCloseButtonBar buttonBar = new OKCloseButtonBar(
+				evt -> okButtonActionPerformed(),
+				evt -> dispose()
+		);
+		buttonBar.getOkButton().setText(LanguageBundle.getString(getOkKey()));
 
 		if (includeApplyButton())
 		{
 			Button applyButton = new Button(LanguageBundle.getString("in_apply"));
 			applyButton.setOnAction(evt -> applyButtonActionPerformed());
+			ButtonBar.setButtonData(applyButton, ButtonBar.ButtonData.APPLY);
 			buttonBar.getButtons().add(applyButton);
-			ButtonBar.setButtonData(okButton, ButtonBar.ButtonData.APPLY);
 		}
 
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(getCenter(), BorderLayout.CENTER);
-		getContentPane().add(GuiUtility.wrapParentAsJFXPanel(buttonBar), BorderLayout.SOUTH);
+		getContentPane().add(GuiUtility.wrapParentAsJFXPanel(buttonBar), BorderLayout.PAGE_END);
 	}
 
 	protected String getOkKey()
@@ -88,7 +82,7 @@ public abstract class AbstractDialog extends JDialog
 	private void okButtonActionPerformed()
 	{
 		applyButtonActionPerformed();
-		close();
+		dispose();
 	}
 
 	/**
