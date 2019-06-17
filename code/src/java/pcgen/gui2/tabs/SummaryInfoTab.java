@@ -1326,7 +1326,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		{
 			CharacterStatsPanel charStatsPanel = new CharacterStatsPanel();
 			SinglePrefDialog prefsDialog = new SinglePrefDialog(parent, charStatsPanel);
-			charStatsPanel.setParent(prefsDialog);
 			prefsDialog.setLocationRelativeTo(parent);
 			prefsDialog.setVisible(true);
 			character.refreshRollMethod();
