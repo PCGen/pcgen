@@ -32,7 +32,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Observer;
@@ -140,10 +139,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	private final DefaultReferenceFacade<CharacterFacade> currentCharacterRef;
 	private final DefaultReferenceFacade<DataSetFacade> currentDataSetRef;
 	private final FilenameListener filenameListener;
-	private JDialog sourceSelectionDialog = null;
-	private SourceLoadWorker sourceLoader = null;
-	private String section15 = null;
-	private String lastCharacterPath = null;
+	private JDialog sourceSelectionDialog;
+	private SourceLoadWorker sourceLoader;
+	private String section15;
+	private String lastCharacterPath;
 	/**
 	 * This is a bit of a hack until we're full on JavaFX for showing dialogs
 	 */
@@ -238,7 +237,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				boolean alternateStartup = false;
 				alternateStartup |= maybeLoadCampaign();
 				alternateStartup |= maybeLoadOrCreateCharacter();
-				alternateStartup |= maybeStartInGMGen();
 				alternateStartup |= maybeAutoLoadSources();
 
 				if (!alternateStartup)
@@ -282,9 +280,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 					return false;
 				}
 				GameMode gameMode = null;
-				for (Iterator<GameMode> iterator = FacadeFactory.getGameModes().iterator(); iterator.hasNext();)
+				for (GameMode facade : FacadeFactory.getGameModes())
 				{
-					GameMode facade = iterator.next();
 					if (gameModeName.equals(facade.toString()))
 					{
 						gameMode = facade;
@@ -299,9 +296,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 
 				List<Campaign> campaigns = new ArrayList<>();
 				String[] sourceNames = sourcesNameString.split("\\|"); //$NON-NLS-1$
-				for (Iterator<Campaign> iterator = FacadeFactory.getCampaigns().iterator(); iterator.hasNext();)
+				for (Campaign camp : FacadeFactory.getCampaigns())
 				{
-					Campaign camp = iterator.next();
 					for (String name : sourceNames)
 					{
 						if (name.equals(camp.toString()))
@@ -313,12 +309,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 				}
 
 				SourceSelectionFacade selection = FacadeFactory.createSourceSelection(gameMode, campaigns);
-				if (selection != null)
-				{
-					loadSourceSelection(selection);
-					sourceLoader.join();
-					return true;
-				}
+				loadSourceSelection(selection);
+				sourceLoader.join();
+				return true;
 			}
 
 			return false;
@@ -396,16 +389,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 					openCharacter(file, dataset);
 				}
 			});
-			return true;
-		}
-
-		private boolean maybeStartInGMGen()
-		{
-			if (!Main.shouldStartInGMGen())
-			{
-				return false;
-			}
-			PCGenUIManager.displayGmGen();
 			return true;
 		}
 
@@ -553,7 +536,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		return true;
 	}
 
-	private boolean checkGameModeEquality(SourceSelectionFacade source1, SourceSelectionFacade source2)
+	private static boolean checkGameModeEquality(SourceSelectionFacade source1, SourceSelectionFacade source2)
 	{
 		if (source1 == source2)
 		{
@@ -1690,7 +1673,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 	 * The Class {@code FilenameListener} is used to update the frame title each time the
 	 * current character's file name is changed.
 	 */
-	private class FilenameListener implements ReferenceListener<File>
+	class FilenameListener implements ReferenceListener<File>
 	{
 		@Override
 		public void referenceChanged(ReferenceEvent<File> e)

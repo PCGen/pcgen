@@ -191,12 +191,6 @@ public final class PCGenPreferencesModel
 		gameModeNode.getChildren().add(new TreeItem<>(convertedCopySettingsPanel));
 		rootNode.getChildren().add(gameModeNode);
 
-		TreeItem<PCGenPrefsPanel> pluginNode = buildEmptyPanel(
-						"plugins", LanguageBundle.getString("in_Prefs_plugins"));
-		PCGenPrefsPanel pluginPanel = new PreferencesPluginsPanel();
-		pluginNode.getChildren().add(new TreeItem<>(pluginPanel));
-		rootNode.getChildren().add(pluginNode);
-
 		// Copy Settings
 		CopySettingsPanelController copySettingsPanelController  = convertedCopySettingsPanel.getController();
 		copySettingsPanelController.registerAffectedPanel(characterStatsPanel);

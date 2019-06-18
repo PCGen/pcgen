@@ -77,8 +77,6 @@ public final class Main
 
 	private static PropertyContextFactory configFactory;
 
-	// TODO: move startup modes into an extensible class based system
-	private static boolean startGMGen;
 	private static boolean startNameGen;
 	private static String settingsDir;
 	private static String campaignMode;
@@ -90,11 +88,6 @@ public final class Main
 
 	private Main()
 	{
-	}
-
-	public static boolean shouldStartInGMGen()
-	{
-		return startGMGen;
 	}
 
 	public static boolean shouldStartInCharacterSheet()
@@ -209,7 +202,6 @@ public final class Main
 			Logging.setCurrentLoggingLevel(Logging.DEBUG);
 		}
 
-		startGMGen = args.getBoolean("gmgen");
 		settingsDir = args.getString("settingsdir");
 		campaignMode = args.getString("campaignmode");
 		characterSheet = args.get("D");
@@ -429,8 +421,6 @@ public final class Main
 
 		MutuallyExclusiveGroup startupMode =
 				parser.addMutuallyExclusiveGroup().description("start up on a specific mode");
-
-		startupMode.addArgument("-G", "--gmgen").help("GMGen mode").type(Boolean.class).action(Arguments.storeTrue());
 
 		startupMode.addArgument("--name-generator").help("run the name generator").type(Boolean.class)
 			.action(Arguments.storeTrue());

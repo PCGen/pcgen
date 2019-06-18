@@ -49,7 +49,6 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
-import gmgen.util.LogUtilities;
 import pcgen.core.doomsdaybook.CRRule;
 import pcgen.core.doomsdaybook.DataElement;
 import pcgen.core.doomsdaybook.DataElementComperator;
@@ -64,7 +63,6 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
-import plugin.doomsdaybook.RandomNamePlugin;
 
 import org.jdom2.DataConversionException;
 import org.jdom2.DocType;
@@ -200,7 +198,6 @@ public class NameGenPanel extends JPanel
 	private void setNameText(String name)
 	{
 		this.name.setText(name);
-		LogUtilities.inst().logMessage(RandomNamePlugin.LOG_NAME, name);
 	}
 
 	private void setNameText(Iterable<DataValue> data)
