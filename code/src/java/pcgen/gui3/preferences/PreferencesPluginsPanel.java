@@ -41,27 +41,14 @@ public final class PreferencesPluginsPanel extends PCGenPrefsPanel
 
 	private final Map<String, PluginRef> pluginMap = new HashMap<>();
 
-	private VBox mainPanel;
+	private final Pane mainPanel;
 
-	/** Creates new form PreferencesDamagePanel */
-	public PreferencesPluginsPanel()
+	PreferencesPluginsPanel()
 	{
 		for (PluginManager.PluginInfo info : PluginManager.getInstance().getPluginInfoList())
 		{
 			addPanel(info.logName, info.pluginName);
 		}
-		initComponents();
-	}
-
-	@Override
-	public String toString()
-	{
-		return LanguageBundle.getString("in_Prefs_pluginsTitle"); //$NON-NLS-1$
-	}
-
-	private void initComponents()
-	{
-
 		mainPanel = new VBox();
 
 		pluginMap.values()
@@ -71,6 +58,12 @@ public final class PreferencesPluginsPanel extends PCGenPrefsPanel
 		ScrollPane scrollPane = new ScrollPane(mainPanel);
 		scrollPane.setContent(mainPanel);
 		this.add(GuiUtility.wrapParentAsJFXPanel(scrollPane));
+	}
+
+	@Override
+	public String toString()
+	{
+		return LanguageBundle.getString("in_Prefs_pluginsTitle"); //$NON-NLS-1$
 	}
 
 	private void addPanel(String pluginName, String pluginTitle)
@@ -105,18 +98,12 @@ public final class PreferencesPluginsPanel extends PCGenPrefsPanel
 	private static final class PluginRef extends Pane
 	{
 		private final String pluginName;
-		private final String pluginTitle;
-		private CheckBox checkBox;
+		private final CheckBox checkBox;
 
 		private PluginRef(String pluginName, String pluginTitle, String defaultSystem)
 		{
 			this.pluginName = pluginName;
-			this.pluginTitle = pluginTitle;
-			initComponents();
-		}
 
-		private void initComponents()
-		{
 			checkBox = new CheckBox(LanguageBundle.getString(LB_PREFS_PLUGINS_RUN));
 			TitledPane titledPane = new TitledPane(pluginTitle, checkBox);
 			getChildren().add(titledPane);
