@@ -176,15 +176,6 @@ public interface Constants
 	DecimalFormat STANDARD_UNITSET_WEIGHT_DISPLAY_PATTERN = new DecimalFormat("#.###"); //$NON-NLS-1$
 
 	/********************************************************************
-	 * Systems for plug-ins
-	 ********************************************************************/
-
-	/** PCGen. */
-	String SYSTEM_PCGEN = "PCGen"; //$NON-NLS-1$
-	/** GMGen. */
-	String SYSTEM_GMGEN = "GMGen"; //$NON-NLS-1$
-
-	/********************************************************************
 	 * Character stat generation methods
 	 ********************************************************************/
 

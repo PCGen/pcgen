@@ -24,9 +24,6 @@ import pcgen.system.LanguageBundle;
 
 /**
  * Common menu text (name, tool tip text, mnemonic) generation.
- * 
- * Used by pcgen and gmgen.
- *
  */
 public final class CommonMenuText
 {

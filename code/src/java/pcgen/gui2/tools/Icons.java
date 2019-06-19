@@ -45,7 +45,7 @@ public enum Icons
 	SplashPcgen_Beta(".png"), Stop16(".gif"), TipOfTheDay16(".gif"),
 	UUp16(".gif"), UUp24(".gif"), Undo16(".gif"), Up16(".gif"), XButton_Click(".gif"), XButton_Roll(".gif"),
 	XButton_Stat(".gif"), Zoom16(".gif"), ZoomHighlightBlue16(".gif"), ZoomIn16(".gif"), ZoomOut16(".gif"),
-	gmgen_icon(".png"), stock_broken_image("-16.png"), stock_color("-16.png"), stock_copy("-16.png"),
+	stock_broken_image("-16.png"), stock_color("-16.png"), stock_copy("-16.png"),
 	stock_cut("-16.png"), stock_export("-16.png"), stock_insert_graphic("-16.png"), stock_insert_table("-16.png"),
 	stock_list_bulet("-16.png"), stock_list_enum("-16.png"), stock_new("-16.png"), stock_paste("-16.png"),
 	stock_revert("-16.png"), stock_save("-16.png"), stock_spellcheck("-16.png"), stock_text_align_center("-16.png"),

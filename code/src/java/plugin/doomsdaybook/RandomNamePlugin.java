@@ -36,10 +36,10 @@ import pcgen.system.LanguageBundle;
 public class RandomNamePlugin implements InteractivePlugin
 {
 	/** Log name */
-	public static final String LOG_NAME = "Random_Name_Generator";
+	private static final String LOG_NAME = "Random_Name_Generator";
 
 	/** The plugin menu item in the tools menu. */
-	private JMenuItem nameToolsItem = new JMenuItem();
+	private final JMenuItem nameToolsItem = new JMenuItem();
 
 	/** The user interface that this class will be using. */
 	private NameGenPanel theView;
