@@ -80,9 +80,7 @@ import pcgen.util.enumeration.AttackType;
 
 import org.apache.commons.lang3.StringUtils;
 
-/**
- * {@code PCClass}.
- */
+
 public class PCClass extends PObject implements InfoFacade, Cloneable
 {
 
