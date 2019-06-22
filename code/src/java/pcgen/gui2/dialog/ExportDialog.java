@@ -67,6 +67,8 @@ import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FacadeComboBoxModel;
+import pcgen.gui3.GuiAssertions;
+import pcgen.gui3.GuiUtility;
 import pcgen.io.ExportUtilities;
 import pcgen.system.BatchExporter;
 import pcgen.system.CharacterManager;
@@ -279,6 +281,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 
 	private void export(boolean pdf)
 	{
+		GuiAssertions.assertIsNotJavaFXThread();
 		UIPropertyContext context = UIPropertyContext.createContext("ExportDialog");
 		FileChooser fileChooser = new FileChooser();
 
@@ -352,10 +355,11 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			path = new File(PCGenSettings.getPcgDir());
 			name = "Entire Party";
 		}
-
+		fileChooser.setInitialDirectory(path);
 		fileChooser.setTitle("Export " + name);
 
-		final File outFile = fileChooser.showSaveDialog(null);
+		final File outFile = GuiUtility.runOnJavaFXThreadNow(() ->
+				fileChooser.showSaveDialog(null));
 		if (outFile == null)
 		{
 			return;
