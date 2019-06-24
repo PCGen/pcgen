@@ -3,7 +3,7 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
-
+CATEGORY=Internal|Default.MOD	DEFINE:ClassSkillMax|0	DEFINE:ClassSkillPenalty|0
 
 ###Block: BASEAB, Base Attack Bonus = Warcraft
 #Using 'Warcraft' as the Base Ability, and using the other two to increase it incrementally
@@ -12,7 +12,7 @@ Warcraft					KEY:Warcraft Output											CATEGORY:Special Ability	TYPE:Special
 #
 Warcraft / +1 to All			KEY:Warcraft ~ Normal Progression					OUTPUTNAME:Warcraft	CATEGORY:Special Ability	TYPE:Combat.Base Attack Bonus.SpecialAttack	VISIBLE:DISPLAY	PREVARLTEQ:WarcraftBonus,WarcraftMax	DEFINE:WarcraftMax|0								STACK:YES	MULT:YES	CHOOSE:NOCHOICE			ABILITY:Special Ability|AUTOMATIC|Warcraft Output											BONUS:VAR|WarcraftMax|var("EclipseClassLvl")+2																	COST:6	SOURCEPAGE:p.10
 Warcraft / +1 to Weapon, no bab	KEY:Warcraft ~ Specialized half corrupted ~ Choose Weapon					CATEGORY:Special Ability	TYPE:Combat.Base Attack Bonus.SpecialAttack																						STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC																																						BONUS:WEAPONPROF=%LIST|TOHIT|1	COST:2	SOURCEPAGE:p.10
-Warcraft / +1 to Weapon, with bab	KEY:Warcraft ~ Specialized ~ Choose Weapon							CATEGORY:Special Ability	TYPE:Combat.Base Attack Bonus.SpecialAttack																						STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC										BONUS:COMBAT|TOHIT|-1	BONUS:COMBAT|BASEAB|1																					BONUS:WEAPONPROF=%LIST|TOHIT|1	COST:2	SOURCEPAGE:p.10
+Warcraft / +1 to Weapon, with bab	KEY:Warcraft ~ Specialized ~ Choose Weapon							CATEGORY:Special Ability	TYPE:Combat.Base Attack Bonus.SpecialAttack																						STACK:YES	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC										BONUS:COMBAT|TOHIT|-1	BONUS:COMBAT|BASEAB|1																					BONUS:WEAPONPROF=%LIST|TOHIT|1	COST:3	SOURCEPAGE:p.10
 Warcraft / +1 to All / No Iterative	KEY:Warcraft ~ No Iterative Progression								CATEGORY:Special Ability	TYPE:Combat.Base Attack Bonus.SpecialAttack	VISIBLE:DISPLAY	PREVARLTEQ:WarcraftBonus,WarcraftMax	DEFINE:WarcraftMax|0								STACK:YES	MULT:YES	CHOOSE:NOCHOICE			ABILITY:Special Ability|AUTOMATIC|Warcraft Output	BONUS:COMBAT|TOHIT|1							BONUS:VAR|WarcraftMax|var("EclipseClassLvl")+2																	COST:6	SOURCEPAGE:p.10
 
 Warcraft / Spec for Melee		KEY:Warcraft ~ Specialized Melee									CATEGORY:Special Ability	TYPE:Combat.Base Attack Bonus.SpecialAttack																						STACK:YES	MULT:YES	CHOOSE:NOCHOICE												BONUS:COMBAT|TOHIT.Ranged|-1	BONUS:COMBAT|BASEAB|1		BONUS:VAR|SpiritWeaponRangedToHit|-1																		COST:3
