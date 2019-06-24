@@ -35,7 +35,6 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
-import pcgen.pluginmgr.PluginManager;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.rules.persistence.token.PrimitiveToken;
@@ -115,7 +114,6 @@ public final class TokenRegistration
 		ExportHandler.clear();
 		TokenConverter.clear();
 		TokenConverter.clearConstants();
-		PluginManager.clear();
 		PluginFunctionLibrary.clear();
 	}
 

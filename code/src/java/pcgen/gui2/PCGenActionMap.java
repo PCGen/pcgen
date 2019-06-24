@@ -26,7 +26,6 @@ import java.util.Objects;
 import javax.swing.ActionMap;
 import javax.swing.JOptionPane;
 
-import gmgen.GMGenSystem;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.util.ReferenceFacade;
@@ -95,7 +94,6 @@ public final class PCGenActionMap extends ActionMap
 	//the tools menu commands
 	public static final String TOOLS_COMMAND = "tools";
 	public static final String PREFERENCES_COMMAND = TOOLS_COMMAND + ".preferences";
-	public static final String GMGEN_COMMAND = TOOLS_COMMAND + ".gmgen";
 	public static final String LOG_COMMAND = TOOLS_COMMAND + ".log";
 	public static final String LOGGING_LEVEL_COMMAND = TOOLS_COMMAND + ".loggingLevel";
 	public static final String CALCULATOR_COMMAND = TOOLS_COMMAND + ".calculator";
@@ -155,7 +153,6 @@ public final class PCGenActionMap extends ActionMap
 		put(EQUIPMENTSET_COMMAND, new EquipmentSetAction());
 		put(TEMP_BONUS_COMMAND, new TempBonusAction());
 		put(PREFERENCES_COMMAND, new PreferencesAction());
-		put(GMGEN_COMMAND, new GMGenAction());
 		put(LOG_COMMAND, new DebugAction());
 		put(LOGGING_LEVEL_COMMAND, new LoggingLevelAction());
 		put(CALCULATOR_COMMAND, new CalculatorAction());
@@ -234,22 +231,6 @@ public final class PCGenActionMap extends ActionMap
 		public void actionPerformed(ActionEvent e)
 		{
 			PCGenUIManager.displayPreferencesDialog();
-		}
-
-	}
-
-	private static final class GMGenAction extends PCGenAction
-	{
-
-		private GMGenAction()
-		{
-			super("mnuToolsGMGen", GMGEN_COMMAND, null, Icons.gmgen_icon, GMGenSystem.APPLICATION_NAME);
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent e)
-		{
-			PCGenUIManager.displayGmGen();
 		}
 
 	}

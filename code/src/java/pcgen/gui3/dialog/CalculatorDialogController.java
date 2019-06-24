@@ -44,7 +44,6 @@ public class CalculatorDialogController
 	private void onCalculate(final ActionEvent actionEvent)
 	{
 		String formula = formulaText.getText();
-		// This isn't fully safe, as the root frame might be GMGen
 		// This is really temporary until everything is converted
 		// to JavaFX and we could actually legally access our parent.
 		PCGenFrame rootFrame = (PCGenFrame) Globals.getRootFrame();

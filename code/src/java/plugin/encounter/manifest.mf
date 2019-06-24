@@ -1,2 +1,0 @@
-Class-Path: lib/djep-2.24.jar
-

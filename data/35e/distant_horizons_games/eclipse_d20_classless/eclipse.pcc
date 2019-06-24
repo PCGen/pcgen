@@ -85,6 +85,7 @@ WEAPONPROF:eclipse_profs_weapons.lst
 
 SPELL:eclipse_spells.lst
 SKILL:eclipse_skills.lst
+SKILL:eclipse_skills_ma.lst
 
 TEMPLATE:eclipse_templates.lst
 

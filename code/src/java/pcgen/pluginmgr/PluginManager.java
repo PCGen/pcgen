@@ -20,28 +20,19 @@ package pcgen.pluginmgr;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 import pcgen.base.lang.UnreachableError;
-import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 public final class PluginManager implements pcgen.system.PluginLoader
 {
 
 	private static PluginManager instance;
-	private final Map<InteractivePlugin, Boolean> pluginMap;
-	private final List<PluginInfo> infoList;
 	private final MessageHandlerManager msgHandlerMgr;
 
 	private PluginManager()
 	{
-		pluginMap = new TreeMap<>(PLUGIN_PRIORITY_SORTER);
-		infoList = new ArrayList<>();
 		msgHandlerMgr = new MessageHandlerManager();
 	}
 
@@ -59,23 +50,6 @@ public final class PluginManager implements pcgen.system.PluginLoader
 	 */
 	private static final Comparator<InteractivePlugin> PLUGIN_PRIORITY_SORTER =
 			Comparator.comparingInt(InteractivePlugin::getPriority);
-
-	public List<PluginInfo> getPluginInfoList()
-	{
-		return new ArrayList<>(infoList);
-	}
-
-	public void startAllPlugins()
-	{
-		PCGenMessageHandler dispatcher = msgHandlerMgr.getPostbox();
-		pluginMap.forEach((plugin, value) -> {
-			if (value)
-			{
-				plugin.start(dispatcher);
-				msgHandlerMgr.addMember(plugin);
-			}
-		});
-	}
 
 	private static String getLogName(Class<?> clazz, InteractivePlugin pl)
 	{
@@ -115,16 +89,9 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		String logName = getLogName(clazz, pl);
 		String plName = pl.getPluginName();
 
-		boolean load = PCGenSettings.GMGEN_OPTIONS_CONTEXT.getBoolean(logName + ".Load", true);
-
 		if ((logName == null) || (plName == null))
 		{
 			Logging.log(Logging.WARNING, "Plugin " + clazz.getCanonicalName() + " needs" + " 'name' property.");
-		}
-		else
-		{
-			infoList.add(new PluginInfo(logName, plName));
-			pluginMap.put(pl, load);
 		}
 	}
 
@@ -135,16 +102,6 @@ public final class PluginManager implements pcgen.system.PluginLoader
 	}
 
 	/**
-	 * Add a new handler to the list of message handlers for 
-	 * GMGen and PCGen messages.
-	 * @param handler The handler to be added.
-	 */
-	public void addMember(PCGenMessageHandler handler)
-	{
-		msgHandlerMgr.addMember(handler);
-	}
-
-	/**
 	 * @return the postbox used to distribute messages.
 	 */
 	public PCGenMessageHandler getPostbox()
@@ -152,26 +109,4 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		return msgHandlerMgr.getPostbox();
 	}
 
-	public static final class PluginInfo
-	{
-
-		public final String logName;
-		public final String pluginName;
-
-		private PluginInfo(String logName, String pluginName)
-		{
-			this.logName = logName;
-			this.pluginName = pluginName;
-		}
-
-	}
-
-	public static void clear()
-	{
-		if (instance != null)
-		{
-			instance.infoList.clear();
-			instance.pluginMap.clear();
-		}
-	}
 }

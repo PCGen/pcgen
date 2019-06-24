@@ -1,3 +1,0 @@
-Main-Class: GMGen.GMGenSystem
-Class-Path: lib/pcgen.jar lib/jep-2.24.jar lib/djep-2.24.jar lib/jdom.jar lib/jaxp.jar pcgen.jar
-
