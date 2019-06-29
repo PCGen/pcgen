@@ -123,7 +123,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	public void testAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals(
@@ -138,7 +138,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	public void testAspectCount()
 	{
 		VAbilityToken tok = new VAbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals("5", tok.getToken("VABILITY.FEAT.0.ASPECTCOUNT", character,
@@ -152,7 +152,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	public void testSingleAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals(
@@ -177,7 +177,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	public void testNonExistantSingleAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals("", tok
@@ -198,7 +198,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	public void testHasAspect()
 	{
 		VAbilityToken tok = new VAbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals("N", tok.getToken("VABILITY.FEAT.0.HASASPECT.3", character,
@@ -220,7 +220,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	public void testName()
 	{
 		VAbilityToken tok = new VAbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals(
@@ -238,7 +238,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	public void testKey()
 	{
 		VAbilityToken tok = new VAbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals(
@@ -257,7 +257,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	public void testAssociated()
 	{
 		VAbilityToken tok = new VAbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals("",
@@ -277,7 +277,7 @@ public class VAbilityTokenTest extends AbstractCharacterTestCase
 	public void testAssociatedCount()
 	{
 		VAbilityToken tok = new VAbilityToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals("0",

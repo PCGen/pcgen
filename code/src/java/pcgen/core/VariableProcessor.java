@@ -766,7 +766,7 @@ public abstract class VariableProcessor
 	{
 		final StringWriter sWriter = new StringWriter();
 		final BufferedWriter aWriter = new BufferedWriter(sWriter);
-		final ExportHandler aExport = new ExportHandler(new File(""));
+		final ExportHandler aExport = ExportHandler.createExportHandler(new File(""));
 		aExport.replaceTokenSkipMath(pc, valString, aWriter);
 		sWriter.flush();
 
