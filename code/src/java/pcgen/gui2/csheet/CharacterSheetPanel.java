@@ -70,7 +70,7 @@ public final class CharacterSheetPanel extends JFXPanel implements CharacterSele
 
 	public void setCharacterSheet(File sheet)
 	{
-		handler = (sheet == null) ? null : new ExportHandler(sheet);
+		handler = (sheet == null) ? null : ExportHandler.createExportHandler(sheet);
 	}
 
 	/**

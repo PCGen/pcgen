@@ -106,7 +106,7 @@ public class BioTokenTest extends AbstractCharacterTestCase
 	{
 		StringWriter retWriter = new StringWriter();
 		BufferedWriter bufWriter = new BufferedWriter(retWriter);
-		ExportHandler export = new ExportHandler(new File(""));
+		ExportHandler export = ExportHandler.createExportHandler(new File(""));
 		export.replaceTokenSkipMath(pc, token, bufWriter);
 		retWriter.flush();
 

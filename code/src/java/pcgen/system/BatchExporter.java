@@ -266,7 +266,7 @@ public class BatchExporter
 	{
 		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8")))
 		{
-			character.export(new ExportHandler(templateFile), bw);
+			character.export(ExportHandler.createExportHandler(templateFile), bw);
 			character.setDefaultOutputSheet(false, templateFile);
 			return true;
 		}
@@ -379,7 +379,7 @@ public class BatchExporter
 	{
 		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8")))
 		{
-			party.export(new ExportHandler(templateFile), bw);
+			party.export(ExportHandler.createExportHandler(templateFile), bw);
 			return true;
 		}
 		catch (final IOException e)
@@ -405,7 +405,7 @@ public class BatchExporter
 			for (final CharacterFacade character : party)
 			{
 				File templateFile = getXMLTemplate(character);
-				character.export(new ExportHandler(templateFile), bw);
+				character.export(ExportHandler.createExportHandler(templateFile), bw);
 			}
 		}
 	}
@@ -427,7 +427,7 @@ public class BatchExporter
 		{
 			for (final CharacterFacade character : party)
 			{
-				character.export(new ExportHandler(templateFile), bw);
+				character.export(ExportHandler.createExportHandler(templateFile), bw);
 			}
 		}
 	}
@@ -497,7 +497,7 @@ public class BatchExporter
 	{
 		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8")))
 		{
-			character.export(new ExportHandler(templateFile), bw);
+			character.export(ExportHandler.createExportHandler(templateFile), bw);
 		}
 	}
 

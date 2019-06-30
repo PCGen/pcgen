@@ -82,7 +82,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	public void testTypes()
 	{
 		AbilityListToken tok = new AbilityListToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals(
@@ -108,7 +108,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	public void testCategory()
 	{
 		AbilityListToken tok = new AbilityListToken();
-		ExportHandler eh = new ExportHandler(null);
+		ExportHandler eh = ExportHandler.createExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
 		assertEquals(
