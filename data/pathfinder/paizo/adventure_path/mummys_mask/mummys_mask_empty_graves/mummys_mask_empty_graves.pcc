@@ -1,0 +1,50 @@
+# CVS $Revision: 1 $ $Author: LissaAzules $ 
+
+CAMPAIGN:Mummys Mask Empty Graves
+GAMEMODE:Pathfinder|Pathfinder_PFS
+RANK:2
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Mummys Mask
+STATUS:Beta
+GENRE:Fantasy
+BOOKTYPE:Adventure
+SETTING:Pathfinder|Golarion
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:1,INCLUDES=Mummys Mask Players Guide
+PUBNAMELONG:Paizo Publishing
+PUBNAMESHORT:Paizo
+PUBNAMEWEB:http://paizo.com
+SOURCELONG:Mummy's Mask Empty Graves
+SOURCESHORT:MMEG
+SOURCEWEB:http://paizo.com/products/btpy94vv?Pathfinder-Adventure-Path-80-Empty-Graves
+SOURCEDATE:2014-04
+ISOGL:YES
+
+COVER:mummys_mask_empty_graves.jpg
+LOGO:@/publisher_logos/Paizo_Publishing.png
+URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|http://paizo.com/products/btpy94vv?Pathfinder-Adventure-Path-80-Empty-Graves|Get this publication from Paizo Publishing!
+
+DESC:Following the opening of its necropolis, the city of Wati is overrun by hordes of the unquiet dead. The heroes must once more brave the abandoned streets and dusty tombs of Wati's necropolis in search of the powerful artifact called the Mask of the Forgotten Pharaoh, as well as the necromancer who is using it to create the undead uprising. But mysterious masked cultists also seek the artifact so they can bring a pharaoh from the ancient past back to life. Can the heroes defeat the evil necromancer and return the deceased to their graves, or will Wati truly become a city of the dead?
+
+INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
+Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
+System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Advanced Bestiary Copyright 2004, Green Ronin Publishing, LLC; Author: Matthew Sernett.
+COPYRIGHT:Amphisbaena from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Crypt Thing from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Roger Musson.
+COPYRIGHT:Dark Creeper from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Rik Shepard.
+COPYRIGHT:Dark Stalker from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Simon Muth.
+COPYRIGHT:Zombie, Juju from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Pathfinder Adventure Path #80: Empty Graves Copyright 2014, Paizo Publishing, LLC; Authors: Crystal Frasier, with Thurston Hillman, Will McCardell, Rob McCreary, and Amber E. Scott
+
+# Do not remove the EXTRAFILE comment.
+#EXTRAFILE:OGL.txt
+
+# Data Files
+DEITY:mmeg_deities.lst
+
+#
+# End
+#
