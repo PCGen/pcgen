@@ -46,7 +46,7 @@ public class PCCasterLevelRaceTermEvaluator extends BasePCTermEvaluator implemen
 	{
 
 		final float lev = pc.getTotalCasterLevelWithSpellBonus(aSpell, aSpell.getSpell(), Constants.NONE, source, 0);
-		return lev > 0.0f ? lev : 0.0f;
+		return Math.max(lev, 0.0f);
 	}
 
 	@Override
