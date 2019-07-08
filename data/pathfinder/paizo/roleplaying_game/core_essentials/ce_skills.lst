@@ -246,7 +246,7 @@ Perception.MOD			SITUATION:sight-based
 Acrobatics.MOD			SITUATION:Maintain Balance
 Acrobatics.MOD			SITUATION:on the ground
 Appraise.MOD			SITUATION:Gems
-Bluff.MOD				SITUATION:fool someone
+Bluff.MOD				SITUATION:Fool Someone
 Bluff.MOD				SITUATION:Using voice
 Climb.MOD				SITUATION:With spider legs
 Climb.MOD				SITUATION:Without Rope
@@ -285,7 +285,6 @@ Use Magic Device.MOD		SITUATION:activate item
 
 ###Block: Inner Sea World Guide
 # Skill Name		Situational Skill
-Bluff.MOD			SITUATION:Fool someone
 Bluff.MOD			SITUATION:Pass messages
 Escape Artist.MOD		SITUATION:Escape bonds/grapple
 Handle Animal.MOD		SITUATION:Birds of prey
