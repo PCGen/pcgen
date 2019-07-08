@@ -1880,8 +1880,67 @@ Maker's Jump			KEY:Synthesist ~ Maker's Jump			CATEGORY:Special Ability	TYPE:Sum
 Greater Shielded Meld		KEY:Synthesist ~ Greater Shielded Meld	CATEGORY:Special Ability	TYPE:SummonerClassFeatures.SpecialQuality.Extraordinary																																							DESC:Whenever the synthesist is fused with his eidolon, he gains a +4 shield bonus to his Armor Class and a +4 circumstance bonus on his saving throws.																																																																																																																																																																																																																																																																																																																																																																																																			BONUS:VAR|ShieldedMeldBonus|2																		SOURCEPAGE:p.80
 Split Forms				KEY:Synthesist ~ Split Forms			CATEGORY:Special Ability	TYPE:SummonerClassFeatures.SpecialQuality.Supernatural	DEFINE:SplitFormsDuration|0																																		DESC:As a swift action, the synthesist and his fused eidolon can split into two creatures: the synthesist and the eidolon. Both have the same evolutions. The synthesist emerges in a square adjacent to the eidolon if possible. All effects and spells currently targeting the fused synthesist-eidolon affect both the synthesist and the eidolon.  The synthesist can use this ability for %1 rounds per day. He can end this effect at any time as a full-round action. For the duration of this effect, the eidolon functions as a normal eidolon of the summoner's class level.|SplitFormsDuration																																																																																																																																																																																																																																																																																																																											BONUS:VAR|SplitFormsDuration|classlevel("Summoner")														SOURCEPAGE:p.80
 
-Fused Eidolon HP										CATEGORY:Internal			TYPE:FusedEidolonTemps																																																																																																																																																																																																																																																																																																																																																																																																																																																	BONUS:HP|CURRENTMAX|EidolonHP|PREVAREQ:FusedEidolonActive,1																																								TEMPBONUS:PC|VAR|EidolonHP|%CHOICE		TEMPVALUE:MIN=1|MAX=500|TITLE=Max HP of Eidolon
-Fused Eidolon BAB										CATEGORY:Internal			TYPE:FusedEidolonTemps																																																																																																																																																																																																																																																																																																																																																																																																																																				BONUS:COMBAT|BASEAB|EidolonBAB|PREVAREQ:FusedEidolonActive,1																											BONUS:VAR|DisableBAB|1|PREVAREQ:FusedEidolonActive,1	BONUS:VAR|EidolonBAB|SummonerLVL	BONUS:VAR|EidolonBAB|-1-(SummonerLVL/4)
+Fused Eidolon HP		CATEGORY:Internal	TYPE:FusedEidolonTemps	BONUS:HP|CURRENTMAX|EidolonHP|PREVAREQ:FusedEidolonActive,1		DEFINE:EidolonHP|0	TEMPBONUS:PC|VAR|EidolonHP|%CHOICE	TEMPVALUE:MIN=1|MAX=500|TITLE=Max HP of Eidolon
+Fused Eidolon BAB		CATEGORY:Internal	TYPE:FusedEidolonTemps	BONUS:COMBAT|BASEAB|EidolonBAB|PREVAREQ:FusedEidolonActive,1	DEFINE:EidolonBAB|0																								DEFINE:DisableBAB|0		BONUS:VAR|DisableBAB|1|PREVAREQ:FusedEidolonActive,1	BONUS:VAR|EidolonBAB|SummonerLVL	BONUS:VAR|EidolonBAB|-1-(SummonerLVL/4)
+Fused Eidolon AC		CATEGORY:Internal	TYPE:FusedEidolonTemps	BONUS:COMBAT|AC|EidolonAC|TYPE=NaturalArmor.STACK|PREVAREQ:FusedEidolonActive,1		DEFINE:EidolonAC|0	TEMPBONUS:PC|VAR|EidolonAC|%CHOICE	TEMPVALUE:MIN=1|MAX=10|TITLE=Max Natural AC of Eidolon
+
+Fused Eidolon Skills ~ Acrobatics		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Acrobatics|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Appraise		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Appraise|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Bluff			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Bluff|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Climb			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Climb|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Diplomacy		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Diplomacy|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Disable Device	CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Disable Device|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Disguise		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Disguise|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Escape Artist	CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Escape Artist|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Fly			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Fly|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Handle Animal	CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Handle Animal|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Heal			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Heal|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Intimidate		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Intimidate|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Linguistics		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Linguistics|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Perception		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Perception|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Ride			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Ride|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Sense Motive		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Sense Motive|8|PREVAREQ:FusedEidolonActive,1
+Fused Eidolon Skills ~ Sleight of Hand	CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Sleight of Hand|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Spellcraft		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Spellcraft|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Stealth		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Stealth|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Survival		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Survival|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Swim			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Swim|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Use Magic Device	CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Use Magic Device|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Knowledge (Arcana)		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Knowledge (Arcana)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Knowledge (Dungeoneering)	CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Knowledge (Dungeoneering)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Knowledge (Engineering)		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Knowledge (Engineering)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Knowledge (Geography)		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Knowledge (Geography)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Knowledge (History)		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Knowledge (History)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Knowledge (Local)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Knowledge (Local)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Knowledge (Nature)		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Knowledge (Nature)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Knowledge (Nobility)		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Knowledge (Nobility)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Knowledge (Planes)		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Knowledge (Planes)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Knowledge (Religion)		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Knowledge (Religion)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Alchemy)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Alchemy)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Armor)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Armor)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Baskets)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Baskets)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Blacksmithing)		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Blacksmithing)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Books)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Books)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Bows)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Bows)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Calligraphy)		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Calligraphy)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Carpentry)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Carpentry)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Cloth)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Cloth)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Clothing)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Clothing)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Gemcutting)		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Gemcutting)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Glass)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Glass)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Jewelry)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Jewelry)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Leather)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Leather)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Locks)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Locks)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Paintings)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Paintings)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Pottery)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Pottery)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Sculptures)		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Sculptures)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Ships)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Ships)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Shoes)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Shoes)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Stonemasonry)		CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Stonemasonry)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Traps)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Traps)|8|PREVAREQ:FusedEidolonActive,1	
+Fused Eidolon Skills ~ Craft (Weapons)			CATEGORY:Internal	TYPE:FusedEidolonTemps	TEMPBONUS:PC|SKILL|Craft (Weapons)|8|PREVAREQ:FusedEidolonActive,1	
+
+
 Fused Eidolon Stats									CATEGORY:Internal			TYPE:FusedEidolonTemps																																																																																																																																																																																																																																																																																																																																																																																																																					ABILITY:Internal|AUTOMATIC|Fused Eidolon Stats ~ Active|PREVAREQ:FusedEidolonActive,1
 
 Fused Eidolon Stats Str									CATEGORY:Internal			TYPE:FusedEidolonTemps.FusedEidolonStats				DEFINE:EidolonStatSTR|0																																																																																																																																																																																																																																																																																																																																																																																																																																																																																								TEMPBONUS:PC|VAR|EidolonStatSTR|%CHOICE	TEMPVALUE:MIN=1|MAX=40|TITLE=Strength Score of Eidolon
