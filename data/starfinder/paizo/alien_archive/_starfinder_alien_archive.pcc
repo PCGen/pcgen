@@ -48,6 +48,8 @@ EQUIPMOD:saa_equipmods.lst
 ARMORPROF:saa_profs_armor.lst
 WEAPONPROF:saa_profs_weapon.lst
 
+SPELL:saa_spells.lst
+
 
 ###Block: Revisions
 
