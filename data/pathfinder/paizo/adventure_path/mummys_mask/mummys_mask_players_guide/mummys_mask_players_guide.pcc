@@ -1,34 +1,34 @@
 # CVS $Revision: 18863 $ $Author: amaitland $ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
-CAMPAIGN:Mummys Mask Players Guide
+CAMPAIGN:Mummy's Mask Player's Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
-TYPE:Paizo Publishing.Pathfinder Adventure Path.Mummys Mask
+TYPE:Paizo Publishing.Pathfinder Adventure Path.Mummy's Mask
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Campaign Setting
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
-PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
+PRECAMPAIGN:3,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Magic
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
-PUBNAMEWEB:http://paizo.com
-SOURCELONG:Mummys Mask Players Guide
+PUBNAMEWEB:https://paizo.com
+SOURCELONG:Mummy's Mask Player's Guide
 SOURCESHORT:mm
-SOURCEWEB:http://paizo.com/products/btpy8x1t?Pathfinder-Adventure-Path-Mummys-Mask-Players-Guide
+SOURCEWEB:https://paizo.com/products/btpy94z3?Pathfinder-Adventure-Path-Mummys-Mask-Players-Guide
 SOURCEDATE:2014-03
 ISOGL:YES
 
 COVER:mummys_mask_players_guide.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
-URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
-URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
-URL:Paizo Publishing|http://paizo.com/products/btpy94z3?Pathfinder-Adventure-Path-Mummys-Mask-Players-Guide|Get this publication from Paizo Publishing!
+URL:WEBSITE|https://www.paizo.com/|Visit Paizo Publishing!
+URL:WEBSITE|https://www.paizo.com/communityuse|Paizo's Community Use Policy.
+URL:Paizo Publishing|https://paizo.com/products/btpy94z3?Pathfinder-Adventure-Path-Mummys-Mask-Players-Guide|Get this publication from Paizo Publishing!
 DESC:The Mummy's Mask Player's Guide gives players all the spoiler-free information, inspiration, and new rules they'll need to create characters prepared for delving into the adventure and intrigue of the Mummy's Mask Adventure Path. Within, players of this campaign will find everything they need to create character backgrounds tied to personalities and events vital to Pathfinder Adventure Path's exploration of some of the many ancient tombs and vast deserts of Osirion, along with new campaign - specific traits to give bold adventurers the edge they'll need to take on the strange and deadly threats faced on their quest. This player's guide also features a view of the city of Wati where the adventure begins, as well as various class options and advice for heroes ready to explore the nation of Osirion's many ruins. Adventurers don't need to delve forgotten tombs unprepared! Gather your allies and let the Mummy's Mask Player's Guide start your trip into the thrill and danger of the blistering desert.
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
-COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
-COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Mummy's Mask Player's Guide Copyright 2014, Paizo Inc.; Authors: Adam Daigle and Rob McCreary.
-COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path: Mummys Mask Player's Guide" Copyright 2011, PCGen Data Team (including, but not limited to David Bender "Papa DRB", Paul Grosse, and Andrew Maitland)
+COPYRIGHT:Open Game License v 1.0a &copy 2000, Wizards of the Coast, Inc.
+COPYRIGHT:System Reference Document &copy 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
+COPYRIGHT:Mummy's Mask Player's Guide &copy 2014, Paizo Inc.; Authors: Adam Daigle and Rob McCreary.
+COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path: Mummys Mask Player's Guide" &copy 2011, PCGen Data Team (including, but not limited to David Bender "Papa DRB", Paul Grosse, and Andrew Maitland)
 
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
