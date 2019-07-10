@@ -53,6 +53,7 @@ import pcgen.system.PropertyContext;
 import pcgen.util.CollectionMaps;
 import pcgen.util.ListMap;
 
+import javafx.embed.swing.JFXPanel;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckMenuItem;
@@ -92,6 +93,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	private static final String VIEW_INDEX_PREFS_KEY = "viewIdx";
 
 	private final Button cornerButton;
+	private final JFXPanel wrappedCornerButton;
 	private DynamicTableColumnModel dynamicColumnModel;
 	protected TreeViewTableModel<T> treetableModel;
 	private TreeViewModel<T> viewModel;
@@ -107,6 +109,7 @@ public class JTreeViewTable<T> extends JTreeTable
 		setAutoCreateRowSorter(false);
 		getTree().setLargeModel(true);
 		this.cornerButton = new JTableMenuButton(cornerPopupMenu);
+		this.wrappedCornerButton = GuiUtility.wrapParentAsJFXPanel(this.cornerButton);
 	}
 
 	private <TM> TreeViewTableModel<TM> createDefaultTreeViewTableModel(DataView<TM> dataView)
@@ -207,7 +210,7 @@ public class JTreeViewTable<T> extends JTreeTable
 				}
 				scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 				scrollPane.setCorner(ScrollPaneConstants.UPPER_RIGHT_CORNER,
-						GuiUtility.wrapParentAsJFXPanel(cornerButton));
+						wrappedCornerButton);
 			}
 		}
 	}
