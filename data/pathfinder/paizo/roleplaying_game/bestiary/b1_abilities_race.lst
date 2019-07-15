@@ -17,7 +17,7 @@ Racial Traits ~ Dragon (Blue)		CATEGORY:Internal
 Racial Traits ~ Dragon (Green)		CATEGORY:Internal
 Racial Traits ~ Dragon (Red)		CATEGORY:Internal
 Racial Traits ~ Dragon (White)		CATEGORY:Internal
-#Racial Traits ~ Elemental (Air)		CATEGORY:Internal
+Racial Traits ~ Elemental (Air)		CATEGORY:Internal
 Racial Traits ~ Elemental (Earth)	CATEGORY:Internal
 Racial Traits ~ Elemental (Fire)	CATEGORY:Internal
 Racial Traits ~ Elemental (Water)	CATEGORY:Internal
@@ -1111,7 +1111,7 @@ Poison		KEY:Spider Swarm ~ Poison	CATEGORY:Special Ability	TYPE:SpecialAttack.Ex
 Ink Cloud		KEY:Squid ~ Ink Cloud	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Defensive	DEFINE:InkCloudRadius|0	DESC:A squid can emit a %1 foot-radius cloud of ink once per minute as a free action while underwater. This cloud provides total concealment. The ink persists for 1 minute.|InkCloudRadius	SOURCEPAGE:p.259	ASPECT:Ability Benefit|(%1-ft. radius)|InkCloudRadius
 Jet			KEY:Squid ~ Jet		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary							DESC:A squid can jet in a straight line as a full-round action. It does not provoke attacks of opportunity while jetting.
 
-###Block: Stirge Abilities - in bestiary_core
+###Block: Stirge Abilities - moved to ce_abilities_familiar_race_cr.lst
 # Ability Name	Unique Key				Category of Ability		Type						Description																																																																																											Source Page
 #Attach		KEY:Stirge ~ Attach		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:When a stirge hits with a touch attack, its barbed legs latch onto the target, anchoring it in place. An attached stirge is effectively grappling its prey. The stirge loses its Dexterity bonus to AC, but holds on with great tenacity and inserts its proboscis into the grappled target's flesh. A stirge has a +8 racial bonus to maintain its grapple on a foe once it is attached. An attached stirge can be struck with a weapon or grappled itself. If its prey manages to win a grapple check or Escape Artist check against it, the stirge is removed.	SOURCEPAGE:p.260
 #Blood Drain		KEY:Stirge ~ Blood Drain	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:A stirge drains blood at the end of its turn if it is attached to a foe, inflicting 1 point of Constitution damage. Once a stirge has dealt 4 points of Constitution damage, it detaches and flies off to digest the meal. If its victim dies before the stirge's appetite has been sated, the stirge detaches and seeks a new target.																																					SOURCEPAGE:p.260
