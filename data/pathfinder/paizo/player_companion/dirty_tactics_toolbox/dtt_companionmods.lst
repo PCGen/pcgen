@@ -6,7 +6,7 @@ SOURCELONG:Pathfinder Player Companion: Dirty Tactics Toolbox	SOURCESHORT:DTT	SO
 
 
 # Class of the Master		Type			Required Race			Apply Kit
-FOLLOWER:AsmodeanFamiliar=1	TYPE:Familiar	PRERACE:1,Familiar (Viper)	KIT:1|Asmodean Viper Familiar Language
+FOLLOWER:AsmodeanFamiliar=1	TYPE:Familiar	PRERACE:1,Viper	KIT:1|Asmodean Viper Familiar Language
 
 # Race of familiar				Type			Ability
 MASTERBONUSRACE:Familiar (Wasp (Giant))	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Familiar (Wasp (Giant))
