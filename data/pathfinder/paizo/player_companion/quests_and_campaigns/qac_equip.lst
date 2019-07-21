@@ -1,4 +1,5 @@
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Quests & Campaigns	SOURCESHORT:QAC	SOURCEWEB:http://paizo.com/products/btpy8yw2	SOURCEDATE:2013-12
 
 ###Block: Wondrous Items
 # Equipment Name				Type							Cost		Weight	Source Page
@@ -8,3 +9,7 @@ Diadem of Inspiring Rule		TYPE:SLOT_Head.Wondrous.Magic.Headgear	COST:4500	WT:0	
 Horn of Plenty				TYPE:SLOT_None.Wondrous.Magic			COST:6500	WT:3		SOURCEPAGE:p.31
 Orb of Arcane Research			TYPE:SLOT_None.Wondrous.Magic			COST:7000	WT:6		SOURCEPAGE:p.31
 Talisman of Beast Training		TYPE:SLOT_Neck.Wondrous.Magic.Amulet	COST:4000	WT:0		SOURCEPAGE:p.31
+
+#
+# End
+#
