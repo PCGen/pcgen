@@ -652,7 +652,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 		models.put(GenerateRollsAction.class, new GenerateRollsAction(character));
 		models.put(RollMethodAction.class,
-			new RollMethodAction(character, (JFrame) SwingUtilities.getWindowAncestor(this)));
+				new RollMethodAction(character, (JFrame) SwingUtilities.getWindowAncestor(this))
+		);
 		models.put(CreateMonsterAction.class,
 			new CreateMonsterAction(character, (JFrame) SwingUtilities.getWindowAncestor(this)));
 		models.put(AddLevelsAction.class, new AddLevelsAction(character));
@@ -685,7 +686,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		models.get(StatTableModel.class).uninstall();
 		models.get(TodoListHandler.class).uninstall();
 		models.get(GenerateRollsAction.class).uninstall();
-		models.get(RollMethodAction.class).uninstall();
 		models.get(HPHandler.class).uninstall();
 
 		models.get(ComboBoxRendererHandler.class).uninstall();
@@ -704,7 +704,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		models.get(ClassLevelTableModel.class).install();
 		models.get(TodoListHandler.class).install();
 		models.get(GenerateRollsAction.class).install();
-		models.get(RollMethodAction.class).install();
 		models.get(HPHandler.class).install();
 
 		random.setAction(models.get(RandomNameAction.class));
@@ -1291,34 +1290,18 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	 * Handler for actions from the generate rolls button. Also defines the
 	 * appearance of the button.
 	 */
-	private class RollMethodAction extends AbstractAction
+	private static final class RollMethodAction extends AbstractAction
 	{
 
 		private final JFrame parent;
 		private final CharacterFacade character;
 
-		RollMethodAction(CharacterFacade character, JFrame parent)
+		private RollMethodAction(CharacterFacade character, JFrame parent)
 		{
 			putValue(NAME, LanguageBundle.getString("in_sumRoll_Method")); //$NON-NLS-1$
 			putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_sumRoll_Method_Tip")); //$NON-NLS-1$
 			this.parent = parent;
 			this.character = character;
-		}
-
-		/**
-		 * Attach the handler to the screen button. e.g. When the character is
-		 * made active.
-		 */
-		public void install()
-		{
-		}
-
-		/**
-		 * Detach the handler from the on screen button. e.g. when the character
-		 * is no longer being displayed.
-		 */
-		public void uninstall()
-		{
 		}
 
 		@Override
