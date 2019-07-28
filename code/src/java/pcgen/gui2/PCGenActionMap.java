@@ -252,6 +252,7 @@ public final class PCGenActionMap extends ActionMap
 			{
 				dialog = new DebugDialog();
 			}
+			dialog.show();
 		}
 
 	}
