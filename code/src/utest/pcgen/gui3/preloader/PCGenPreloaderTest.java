@@ -39,6 +39,7 @@ class PCGenPreloaderTest
 	@Start
 	private void Start(Stage stage) throws IOException
 	{
+		System.load("C:\\Windows\\System32\\WindowsCodecs.dll");
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(PCGenPreloader.class.getResource("PCGenPreloader.fxml"));
 		loader.setResources(LanguageBundle.getBundle());

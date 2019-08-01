@@ -41,6 +41,7 @@ class AboutDialogTest
 	@Start
 	private void Start(Stage stage) throws IOException
 	{
+		System.load("C:\\Windows\\System32\\WindowsCodecs.dll");
 		FXMLLoader loader = new FXMLLoader();
 		URL resource = AboutDialogController.class.getResource("AboutDialog.fxml");
 		assert resource != null;
