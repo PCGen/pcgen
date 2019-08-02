@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.apache.commons.lang3.SystemUtils;
 import pcgen.system.LanguageBundle;
 
 import javafx.fxml.FXMLLoader;
@@ -41,7 +42,10 @@ class AboutDialogTest
 	@Start
 	private void Start(Stage stage) throws IOException
 	{
-		System.load("C:\\Windows\\System32\\WindowsCodecs.dll");
+	    if (SystemUtils.IS_OS_WINDOWS)
+	    {
+            System.load("C:\\Windows\\System32\\WindowsCodecs.dll");
+        }
 		FXMLLoader loader = new FXMLLoader();
 		URL resource = AboutDialogController.class.getResource("AboutDialog.fxml");
 		assert resource != null;

@@ -20,6 +20,7 @@ package pcgen.gui3.preloader;
 
 import java.io.IOException;
 
+import org.apache.commons.lang3.SystemUtils;
 import pcgen.system.LanguageBundle;
 
 import javafx.fxml.FXMLLoader;
@@ -39,7 +40,10 @@ class PCGenPreloaderTest
 	@Start
 	private void Start(Stage stage) throws IOException
 	{
-		System.load("C:\\Windows\\System32\\WindowsCodecs.dll");
+		if (SystemUtils.IS_OS_WINDOWS)
+		{
+			System.load("C:\\Windows\\System32\\WindowsCodecs.dll");
+		}
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(PCGenPreloader.class.getResource("PCGenPreloader.fxml"));
 		loader.setResources(LanguageBundle.getBundle());
