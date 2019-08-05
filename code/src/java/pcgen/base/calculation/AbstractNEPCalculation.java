@@ -20,7 +20,7 @@ package pcgen.base.calculation;
 import java.util.Objects;
 
 /**
- * An AbstractNEPCalculationis a basic template for creating a NEPCalculation.
+ * An AbstractNEPCalculationis is a basic template for creating a NEPCalculation.
  * No attempt is made to implement the process method (since a calculation with
  * nothing processed is meaningless), while an empty getDependencies method is
  * provided for convenience.
