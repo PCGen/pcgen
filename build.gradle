@@ -472,3 +472,5 @@ apply from: 'code/gradle/distribution.gradle'
 apply from: 'code/gradle/reporting.gradle'
 apply from: 'code/gradle/release.gradle'
 
+//Ensures that clean is never run after build and when clean is called it is run before build so it doesn't delete the new build folder.
+build.shouldRunAfter clean
