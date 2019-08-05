@@ -323,6 +323,9 @@ clean {
     it.dependsOn 'cleanOutput'
 }
 
+//Ensures that clean is never run after build and when clean is called it is run before build so it doesn't delete the new build folder.
+build.mustRunAfter clean
+
 test {
     exclude 'pcgen/testsupport/**'
     useJUnitPlatform()
@@ -471,4 +474,3 @@ apply from: 'code/gradle/autobuild.gradle'
 apply from: 'code/gradle/distribution.gradle'
 apply from: 'code/gradle/reporting.gradle'
 apply from: 'code/gradle/release.gradle'
-
