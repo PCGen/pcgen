@@ -43,7 +43,7 @@ Samurai Mount							KEYSTAT:DEX						TYPE:SkillUse	VISIBLE:EXPORT	PREABILITY:1,C
 
 ###Block:
 # Skill Name	Define							Bonus to Situation										Modify VAR
-Acrobatics.MOD									BONUS:SITUATION|Acrobatics=Jump|floor((var("MOVE[Walk]")-30)/10)*4|TYPE=Move
+Acrobatics.MOD									BONUS:SITUATION|Acrobatics=When Jumping|floor((var("MOVE[Walk]")-30)/10)*4|TYPE=Move
 Ride.MOD		DEFINE:RideACP|0	DEFINE:SamuraiMountACP|0	BONUS:SITUATION|Samurai Mount|SamuraiMountACP						BONUS:VAR|RideACP|var("ARMOR.0.ACCHECK")	BONUS:VAR|SamuraiMountACP|RideACP-(RideACP*2)
 #BONUS:SKILLRANK|Samurai Mount|skillinfo("TOTALRANK", "Ride")|TYPE=SkillGranted|PREABILITY:1,CATEGORY=Special Ability,Mount ~ Samurai	BONUS:SKILL|Samurai Mount|var("SKILL.Ride.MISC")
 ###Block: New Skill
