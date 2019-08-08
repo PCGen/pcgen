@@ -76,8 +76,8 @@ Craft (Clockwork)				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft.Base	PR
 #Knowledge (Nature).MOD		SITUATION:Knowledge (Nature/Bird)
 #Knowledge (Nature).MOD		SITUATION:Small Cat
 # Skill Name			Situational Skill
-#Acrobatics.MOD			SITUATION:When Jumping
-Acrobatics.MOD			SITUATION:Jump
+Acrobatics.MOD			SITUATION:When Jumping
+#Acrobatics.MOD			SITUATION:Jump
 Acrobatics.MOD			SITUATION:Jump/Underground
 Acrobatics.MOD			SITUATION:Move Through
 Acrobatics.MOD			SITUATION:Move through threatened squares
