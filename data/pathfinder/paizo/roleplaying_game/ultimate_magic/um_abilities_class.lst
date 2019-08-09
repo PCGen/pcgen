@@ -518,6 +518,7 @@ Final Revelation					KEY:Wood Mystery ~ Final Revelation			CATEGORY:Special Abil
 ###Block: Bloodline Support - Bonus Feat Variable DEFINEs
 # Ability Name					Define
 CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BloodlineFeat_DetectExpertise|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BloodlineFeat_EchoingSpell|0
 CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BloodlineFeat_EldritchHeritage|0
 CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BloodlineFeat_Prodigy|0
 CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BloodlineFeat_Spellsong|0
@@ -531,6 +532,7 @@ CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_Echolocation_
 CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_AgeResistanceGreater_L7|0
 CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_PredictionofFailure_L8|0
 CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_CreateDemiplane_L8|0
+CATEGORY=Internal|Bloodline Tracker.MOD	DEFINE:Sorcerer_BonusSpell_ShareMemory_L5|0
 
 ###Block: Bloodline Feats
 # Ability Name	Unique Key							Category of Ability	Type					Required Ability									Required Non-Monster Lvl	Req. Known Spell										Req. Spell Type				Required Stat	Var. Min. Value																	Var. Must Be Lower									Description																	Stackable?	Multiple?	Choose																		Selections	Ability								Source Page		Benefits
