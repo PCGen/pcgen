@@ -771,7 +771,7 @@
 			</#macro>
 
 	<weapons>
-		<#if (pcvar("VAR.UseMartialArts") = 1)>
+		<#if (pcvar("VAR.UseMartialArts") > 0)>
 		<martialarts>
 			<total>${pcstring('WEAPONH.TOTALHIT')}</total>
 			<#if (pcvar("VAR.MartialArtsBonusDamage") < 0)>
@@ -1495,7 +1495,7 @@
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>F</virtual>
-			<source>${pcstring('FEAT.VISIBLE.${feat}.SOURCE')}</source>
+			<source>${pcstring('FEAT.VISIBLE.${feat}.SOURCESHORT')}</source>
 		</feat>
 		</@loop>
 
@@ -1527,7 +1527,7 @@
 			<auto>F</auto>
 			<hidden>F</hidden>
 			<virtual>T</virtual>
-			<source>${pcstring('VFEAT.VISIBLE.${feat}.SOURCE')}</source>
+			<source>${pcstring('VFEAT.VISIBLE.${feat}.SOURCESHORT')}</source>
 		</feat>
 		</@loop>
 		<!-- End Virtual Feats -->
@@ -1543,7 +1543,7 @@
 			<auto>F</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-			<source>${pcstring('FEAT.HIDDEN.${feat}.SOURCE')}</source>
+			<source>${pcstring('FEAT.HIDDEN.${feat}.SOURCESHORT')}</source>
 		</feat>
 		</@loop>
 		<!-- Hidden VFEAT -->
@@ -1558,7 +1558,7 @@
 			<auto>F</auto>
 			<hidden>T</hidden>
 			<virtual>T</virtual>
-			<source>${pcstring('VFEAT.HIDDEN.${feat}.SOURCE')}</source>
+			<source>${pcstring('VFEAT.HIDDEN.${feat}.SOURCESHORT')}</source>
 		</feat>
 		</@loop>
 		<!-- END Hidden VFEAT -->
@@ -1573,7 +1573,7 @@
 			<auto>T</auto>
 			<hidden>T</hidden>
 			<virtual>F</virtual>
-			<source>${pcstring('FEATAUTO.HIDDEN.${feat}.SOURCE')}</source>
+			<source>${pcstring('FEATAUTO.HIDDEN.${feat}.SOURCESHORT')}</source>
 		</feat>
 		</@loop>
 	</feats>
@@ -1645,7 +1645,9 @@
 			<hidden><#if hidden>T<#else>F</#if></hidden>
 			<virtual>${isVirtual}</virtual>
 			<category>${category}</category>
-			<source>${pcstring('${abilityExportToken}.SOURCE')}</source>
+			<source>
+						${pcstring('${abilityExportToken}.SOURCESHORT')}
+			</source>
 		</${nodeName}>
 	</@loop>
 	</#macro>

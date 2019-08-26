@@ -211,7 +211,7 @@
 	<xsl:template match="disadvantages">
 		<xsl:if test="count(disadvantage) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'disadvantages'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Disadvantages'"/>
 				<xsl:with-param name="list" select="disadvantage"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -330,7 +330,7 @@
 	<xsl:template match="charcreations">
 		<xsl:if test="count(charcreation) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'charcreations'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Recurring Bonuses'"/>
 				<xsl:with-param name="list" select="charcreation"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -399,7 +399,7 @@
 	<xsl:template match="demon_cants">
 		<xsl:if test="count(demon_cant) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'demon_cants'" />
+				<xsl:with-param name="attribute" select="'special_qualities'" />
 				<xsl:with-param name="title" select="'Demon Cants'" />
 				<xsl:with-param name="list" select="demon_cant"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -416,7 +416,7 @@
 	<xsl:template match="mage_gnosises">
 		<xsl:if test="count(mage_gnosis) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'mage_gnosises'" />
+				<xsl:with-param name="attribute" select="'special_qualities'" />
 				<xsl:with-param name="title" select="'Mage Gnosis'" />
 				<xsl:with-param name="list" select="mage_gnosis"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -433,7 +433,7 @@
 	<xsl:template match="vampire_disciplines">
 		<xsl:if test="count(vampire_discipline) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'vampire_disciplines'" />
+				<xsl:with-param name="attribute" select="'special_qualities'" />
 				<xsl:with-param name="title" select="'Vampire Disciplines'" />
 				<xsl:with-param name="list" select="vampire_discipline"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -450,7 +450,7 @@
 	<xsl:template match="werewolf_rites">
 		<xsl:if test="count(werewolf_rite) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'werewolf_rites'" />
+				<xsl:with-param name="attribute" select="'special_qualities'" />
 				<xsl:with-param name="title" select="'Werewolf Rites'" />
 				<xsl:with-param name="list" select="werewolf_rite"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -469,7 +469,7 @@
 	<xsl:template match="force_powers">
 		<xsl:if test="count(force_power) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'force_powers'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Force Powers'"/>
 				<xsl:with-param name="list" select="force_power"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -486,7 +486,7 @@
 	<xsl:template match="force_techniques">
 		<xsl:if test="count(force_technique) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'force_techniques'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Force Techniques'"/>
 				<xsl:with-param name="list" select="force_technique"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -503,7 +503,7 @@
 	<xsl:template match="force_secrets">
 		<xsl:if test="count(force_secret) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'force_secrets'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Force Secrets'"/>
 				<xsl:with-param name="list" select="force_secret"/>
 				<xsl:with-param name="name.tag" select="'name'"/>

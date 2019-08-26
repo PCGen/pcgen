@@ -194,7 +194,7 @@
 	<xsl:template match="disadvantages">
 		<xsl:if test="count(disadvantage) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'disadvantages'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Disadvantages'"/>
 				<xsl:with-param name="list" select="disadvantage"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -262,7 +262,7 @@
 	<xsl:template match="channelings">
 		<xsl:if test="count(channeling) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'channelings'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Channeling'"/>
 				<xsl:with-param name="list" select="channeling"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -279,7 +279,7 @@
 	<xsl:template match="dominions">
 		<xsl:if test="count(dominion) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'dominions'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Dominion'"/>
 				<xsl:with-param name="list" select="dominion"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -296,7 +296,7 @@
 	<xsl:template match="path_dragons">
 		<xsl:if test="count(path_dragon) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'path_dragons'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'The Path of the Dragon'"/>
 				<xsl:with-param name="list" select="path_dragon"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -313,7 +313,7 @@
 	<xsl:template match="charcreations">
 		<xsl:if test="count(charcreation) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'charcreations'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Recurring Bonuses'"/>
 				<xsl:with-param name="list" select="charcreation"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -331,7 +331,7 @@
 	<xsl:template match="spellcasteroutputs">
 		<xsl:if test="count(spellcasteroutput) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'spellcasteroutputs'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Spell Caster Information'"/>
 				<xsl:with-param name="list" select="spellcasteroutput"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -365,7 +365,7 @@
 	<xsl:template match="talents">
 		<xsl:if test="count(talent) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'talents'"/>
+				<xsl:with-param name="attribute" select="'special_qualities'"/>
 				<xsl:with-param name="title" select="'Talents'"/>
 				<xsl:with-param name="list" select="talent"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -382,7 +382,7 @@
 	<xsl:template match="demon_cants">
 		<xsl:if test="count(demon_cant) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'demon_cants'" />
+				<xsl:with-param name="attribute" select="'special_qualities'" />
 				<xsl:with-param name="title" select="'Demon Cants'" />
 				<xsl:with-param name="list" select="demon_cant"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -399,7 +399,7 @@
 	<xsl:template match="mage_gnosises">
 		<xsl:if test="count(mage_gnosis) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'mage_gnosises'" />
+				<xsl:with-param name="attribute" select="'special_qualities'" />
 				<xsl:with-param name="title" select="'Mage Gnosis'" />
 				<xsl:with-param name="list" select="mage_gnosis"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -416,7 +416,7 @@
 	<xsl:template match="vampire_disciplines">
 		<xsl:if test="count(vampire_discipline) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'vampire_disciplines'" />
+				<xsl:with-param name="attribute" select="'special_qualities'" />
 				<xsl:with-param name="title" select="'Vampire Disciplines'" />
 				<xsl:with-param name="list" select="vampire_discipline"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
@@ -433,7 +433,7 @@
 	<xsl:template match="werewolf_rites">
 		<xsl:if test="count(werewolf_rite) &gt; 0">
 			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'werewolf_rites'" />
+				<xsl:with-param name="attribute" select="'special_qualities'" />
 				<xsl:with-param name="title" select="'Werewolf Rites'" />
 				<xsl:with-param name="list" select="werewolf_rite"/>
 				<xsl:with-param name="name.tag" select="'name'"/>
