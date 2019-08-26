@@ -3,6 +3,54 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
+#Alchemical Hedge Magician Spell List
+#L0: 
+Brew			CLASSES:Alchemical Hedge Magician=0		DESC:(makes instant tea)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+Detect Poison.MOD	CLASSES:Alchemical Hedge Magician=0
+Flare			CLASSES:Alchemical Hedge Magician=0			SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+Glue			CLASSES:Alchemical Hedge Magician=0		DESC:(sticks things together)		SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+Identify Herb	CLASSES:Alchemical Hedge Magician=0			SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+Phosphorescence	CLASSES:Alchemical Hedge Magician=0		DESC:(light)		SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+Smoke Cloud		CLASSES:Alchemical Hedge Magician=0		DESC:(makes a big puff of smoke)		SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+Spray			CLASSES:Alchemical Hedge Magician=0		DESC:(sprays a vial of something on a nearby target)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+#L1: 
+Bless Water			CLASSES:Alchemical Hedge Magician=1	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+Curse Water			CLASSES:Alchemical Hedge Magician=1	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+Cure Light Wounds.MOD	CLASSES:Alchemical Hedge Magician=1
+Distillation		CLASSES:Alchemical Hedge Magician=1	DESC: (doubles the effect of a standard alchemical compound for 2 XP)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+Entangle.MOD		CLASSES:Alchemical Hedge Magician=1
+Fastburn			CLASSES:Alchemical Hedge Magician=1	DESC: (turns a burning object into a small explosion)	DURATION:Instantaneous	RANGE:Close		SOURCEPAGE:p.22
+Magic Weapon.MOD		CLASSES:Alchemical Hedge Magician=1
+Obscuring Mist.MOD	CLASSES:Alchemical Hedge Magician=1
+Resist Energy.MOD		CLASSES:Alchemical Hedge Magician=1
+#L2: 
+Alchemic Mist		CLASSES:Alchemical Hedge Magician=2	DESC: (turns a vial of something into a small cloud)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+Blindness/Deafness.MOD	CLASSES:Alchemical Hedge Magician=2
+Delay Poison.MOD	CLASSES:Alchemical Hedge Magician=2
+Fire Trap.MOD	CLASSES:Alchemical Hedge Magician=2
+Glitterdust.MOD	CLASSES:Alchemical Hedge Magician=2
+Acid Arrow.MOD	CLASSES:Alchemical Hedge Magician=2
+Pyrotechnics.MOD	CLASSES:Alchemical Hedge Magician=2
+Soften Earth and Stone.MOD	CLASSES:Alchemical Hedge Magician=2
+#L3: 
+Antitoxin			CLASSES:Alchemical Hedge Magician=3		DESC:(Neutralize Poison)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+Cure Moderate Wounds.MOD	CLASSES:Alchemical Hedge Magician=3
+Dispel Magic.MOD		CLASSES:Alchemical Hedge Magician=3	
+Ectoplasm			CLASSES:Alchemical Hedge Magician=3	DESC:(Shadow Conjuration)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+Haste.MOD			CLASSES:Alchemical Hedge Magician=3
+Magic Circle		CLASSES:Alchemical Hedge Magician=3	DESC: (immobile but affects all alignments)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+The Naming of Names	CLASSES:Alchemical Hedge Magician=3	DESC:(attempts to control someone by invoking their true name. Nothing to do with alchemy, but it’s a basic component of magic in the campaign, so OK)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:Will negates	DURATION:Instantaneous	RANGE:Close		SOURCEPAGE:p.22
+Poison.MOD			CLASSES:Alchemical Hedge Magician=3	DESC: (can produce various toxins, not just Con poison).	SAVEINFO:None	DURATION:Instantaneous	RANGE:Close		SOURCEPAGE:p.22
+#L4: 
+Break Enchantment.MOD	CLASSES:Alchemical Hedge Magician=4
+Hold Monster.MOD		CLASSES:Alchemical Hedge Magician=4
+Rusting Grasp.MOD		CLASSES:Alchemical Hedge Magician=4
+Protoplasmic Salve	CLASSES:Alchemical Hedge Magician=4	DESC: (cures only 3d6 damage and takes several minute to cast, otherwise as per Heal)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+Stoneskin.MOD		CLASSES:Alchemical Hedge Magician=4
+Touch of Alkahest		CLASSES:Alchemical Hedge Magician=4	DESC:(as per Disintegrate, but requires a touch attack since it has no range, resistance to acid applies, the damage is distributed over several rounds, it can be stopped by washing it off or applying a base, and it's capped at 30d6. It may be pushing it, but the GM allows it)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:Fort half	DURATION:Instantaneous	RANGE:Touch		SOURCEPAGE:p.22
+Vital Elixir		CLASSES:Alchemical Hedge Magician=4	DESC: (a combined version of Bull’s Strength, Bear’s Endurance, and Cat’s Grace; OK at level four)	SCHOOL:Transmutation	CASTTIME:1 standard Action	COMPS:V,S,M	SAVEINFO:None		DURATION:Instantaneous	RANGE:Close		SOURCEPAGE:p.22
+
+
 
 # Tenth Level Spells
 # Spell Name						Unique Key				Classes of caster	School																Components													Casting Time							Range													Duration																Save Info									Spell Resistance						Source Page		Description
@@ -23,7 +71,7 @@ Sending							KEY:Sending ~ High Level	CLASSES:ALL=10	SCHOOL:Divination|Conjurat
 Shadow Vitae											CLASSES:ALL=10	SCHOOL:Conjuration|Illusion|Necromancy											COMPS:V, S													CASTTIME:One Standard Action					RANGE:Long												DURATION:2d6 x 10 Minutes													SAVEINFO:Fort Negates							SPELLRES:Yes						SOURCEPAGE:p.126	DESC:Shadow Vitae - Temporarily restores the health of many allies.
 Ship of Shadow											CLASSES:ALL=10	SCHOOL:Conjuration|Evocation													COMPS:V, S, M (the relevant element)								CASTTIME:Ritual							RANGE:Close												DURATION:(CASTERLEVEL) days [D]												SAVEINFO:None								SPELLRES:No							SOURCEPAGE:p.126	DESC:Ship of Shadow - Summons an elemental war-vehicle.
 Ties of the Blood											CLASSES:ALL=10	SCHOOL:Divination|Enchantment|Necromancy											COMPS:V, S, M (the item used as a link)								CASTTIME:Ritual							RANGE:Special											DURATION:1 minute or 3 spells, whichever comes first									SAVEINFO:None								SPELLRES:No							SOURCEPAGE:p.126	DESC:Ties of the Blood* - Transmits spells through sympathetic links.
-True Polymorph											CLASSES:ALL=10	SCHOOL:Enchantment|Transmutation												COMPS:V, S													CASTTIME:One Standard Action					RANGE:Short												DURATION:Special [D]														SAVEINFO:Fort negates							SPELLRES:Yes						SOURCEPAGE:p.126	DESC:True Polymorph - Changes any subject into anything else and may create useful materials.
+True Polymorph											CLASSES:ALL=10	SCHOOL:Enchantment|Transmutation												COMPS:V, S													CASTTIME:One Standard Action					RANGE:Close												DURATION:Special [D]														SAVEINFO:Fort negates							SPELLRES:Yes						SOURCEPAGE:p.126	DESC:True Polymorph - Changes any subject into anything else and may create useful materials.
 
 # Eleventh Level Spells
 Antitechnological Sphere									CLASSES:ALL=11	SCHOOL:Abjuration|Enchantment													COMPS:V, S													CASTTIME:One Standard Action					RANGE:Long												DURATION:One full day [D]													SAVEINFO:None								SPELLRES:No							SOURCEPAGE:p.127	DESC:Anti-technological Sphere - Blocks the use of technology beyond a chosen threshold.
@@ -179,7 +227,7 @@ Euclidean Revocation										CLASSES:ALL=21	SCHOOL:Abjuration|Conjuration|Evoca
 Forbidden Lore											CLASSES:ALL=21	SCHOOL:Divination|Enchantment|Necromancy											COMPS:V, S													CASTTIME:Ritual							RANGE:See text											DURATION:Permanent [D]														SAVEINFO:None								SPELLRES:No							SOURCEPAGE:p.148	DESC:Forbidden Lore - You may curse an idea, symbol, or piece of knowledge.
 The Grand Muster											CLASSES:ALL=21	SCHOOL:Conjuration|Divination													COMPS:V, S													CASTTIME:One Standard Action					RANGE:See text											DURATION:Instantaneous														SAVEINFO:None								SPELLRES:No							SOURCEPAGE:p.148	DESC:The Grand Muster - You may summon your allies and forces.
 Great Foreseeing											CLASSES:ALL=21	SCHOOL:Divination|Enchantment|Evocation											COMPS:V, S													CASTTIME:Ritual or 1 Standard Action (see below)	RANGE:Touch												DURATION:Instantaneous or (CASTERLEVEL) minutes										SAVEINFO:None								SPELLRES:No							SOURCEPAGE:p.148	DESC:Great Foreseeing - Grants +20 insight bonuses or allows the user to scan future timelines.
-Molecular Mastery											CLASSES:ALL=21	SCHOOL:Divination|Enchantment|Transmutation										COMPS:V, S													CASTTIME:Ritual							RANGE:Short												DURATION:Instantaneous														SAVEINFO:None								SPELLRES:No							SOURCEPAGE:p.148	DESC:Molecular Mastery - You may arbitrarily change the form and properties of matter.
+Molecular Mastery											CLASSES:ALL=21	SCHOOL:Divination|Enchantment|Transmutation										COMPS:V, S													CASTTIME:Ritual							RANGE:Close												DURATION:Instantaneous														SAVEINFO:None								SPELLRES:No							SOURCEPAGE:p.148	DESC:Molecular Mastery - You may arbitrarily change the form and properties of matter.
 Seal of Eternity											CLASSES:ALL=21	SCHOOL:Abjuration|Enchantment|Transmutation										COMPS:V, S													CASTTIME:One Standard Action					RANGE:See text											DURATION:Instantaneous														SAVEINFO:None								SPELLRES:No							SOURCEPAGE:p.148	DESC:Seal of Eternity - Makes a spell irreversible and unbreakable.
 Stars like Dust											CLASSES:ALL=21	SCHOOL:Conjuration|Evocation|Illusion											COMPS:V, S													CASTTIME:One minute						RANGE:LOS												DURATION:Instantaneous														SAVEINFO:None								SPELLRES:No							SOURCEPAGE:p.148	DESC:Stars like Dust - Summon and control a small star.
 
