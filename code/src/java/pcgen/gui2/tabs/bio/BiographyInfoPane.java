@@ -183,7 +183,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			bioItems.add(new AgeItem(character));
 			bioItems.add(new SkinColorItem(character));
 			bioItems.add(new HairColorItem(character));
-			bioItems.add(new HairStyleItem(character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.HAIR_STYLE, PCStringKey.HAIRSTYLE, character));
 			bioItems.add(new EyeColorItem(character));
 			bioItems.add(new HeightItem(character));
 			bioItems.add(new WeightItem(character));
@@ -535,14 +535,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 	}
 
-	private static class HairStyleItem extends BiographyFieldBioItem
-	{
-		public HairStyleItem(final CharacterFacade character)
-		{
-			super(BiographyField.HAIR_STYLE, PCStringKey.HAIRSTYLE, character); //$NON-NLS-1$
-		}
-	}
-
 	/**
 	 * The Class {@code BiographyFieldBioItem} manages a row displaying a
 	 * textual biography item and allowing it to be edited and suppressed 
@@ -560,7 +552,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 					@Override
 					protected void textChanged(String text)
 					{
-						character.getDescriptionFacade().setBiographyField(attribute, text);
+						character.getDescriptionFacade().setBiographyField(field, attribute, text);
 					}
 
 				});

@@ -91,9 +91,10 @@ public interface DescriptionFacade
 
 	/**
 	 * Update the value of a text only biography field.
+	 * @param field The biography field to be updated.
 	 * @param attribute The attribute to be updated. 
 	 * @param newValue The new value of the field.
 	 */
-	public void setBiographyField(PCStringKey attribute, String newValue);
+	public void setBiographyField(BiographyField field, PCStringKey attribute, String newValue);
 
 }
