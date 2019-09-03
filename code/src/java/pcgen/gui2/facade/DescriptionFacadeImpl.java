@@ -93,7 +93,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		bioData.put(BiographyField.LOCATION,
 			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.LOCATION)));
 		bioData.put(BiographyField.CITY,
-			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.RESIDENCE)));
+			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.CITY)));
 		bioData.put(BiographyField.REGION, new DefaultReferenceFacade<>(charDisplay.getRegionString()));
 		bioData.put(BiographyField.PERSONALITY_TRAIT_1,
 			new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY1)));

@@ -43,7 +43,7 @@ class PreCityTest extends AbstractCharacterTestCase
 	void testCity() throws PersistenceLayerException
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setPCAttribute(PCStringKey.RESIDENCE, "Klamath");
+		character.setPCAttribute(PCStringKey.CITY, "Klamath");
 
 		Prerequisite prereq;
 
