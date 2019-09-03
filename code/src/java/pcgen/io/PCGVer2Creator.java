@@ -1800,7 +1800,7 @@ public final class PCGVer2Creator
 	private void appendResidenceLine(StringBuilder buffer)
 	{
 		buffer.append(IOConstants.TAG_CITY).append(':');
-		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.RESIDENCE)));
+		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.CITY)));
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
