@@ -238,9 +238,10 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	}
 
 	@Override
-	public void setBiographyField(PCStringKey attribute, final String newValue)
+	public void setBiographyField(final BiographyField field, final PCStringKey attribute, final String newValue)
 	{
 		Objects.requireNonNull(attribute);
 		theCharacter.setPCAttribute(attribute, newValue);
+		bioData.get(field).set(newValue);
 	}
 }

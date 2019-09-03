@@ -173,7 +173,6 @@ abstract class BioItem
 
 	/**
 	 * Uninstalls this BioItem by removing its listeners from the buttons.
-	 * @param parent The pane holding this item.
 	 */
 	public void uninstall()
 	{
