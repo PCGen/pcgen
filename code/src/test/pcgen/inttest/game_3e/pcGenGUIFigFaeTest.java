@@ -19,9 +19,9 @@
  */
 package pcgen.inttest.game_3e;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.inttest.PcgenFtlTestCase;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests a 3e 4th level Half-orc Fighter.
@@ -30,31 +30,7 @@ import pcgen.inttest.PcgenFtlTestCase;
 @SuppressWarnings("nls")
 public class pcGenGUIFigFaeTest extends PcgenFtlTestCase
 {
-
-	/**
-	 * standard JUnit style constructor
-	 * 
-	 * @param name No idea
-	 */
-	public pcGenGUIFigFaeTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Return a suite of all the tests in this class.
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(pcGenGUIFigFaeTest.class);
-	}
-
-	/**
-	 * Load and output the character.
-	 * 
-	 * @throws Exception If an error occurs.
-	 */
+	@Test
 	public void testFigFae() throws Exception
 	{
 		runTest("3e_FigFae", "3e");

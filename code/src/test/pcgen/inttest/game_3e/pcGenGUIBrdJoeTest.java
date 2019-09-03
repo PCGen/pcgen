@@ -19,42 +19,16 @@
  */
 package pcgen.inttest.game_3e;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.inttest.PcgenFtlTestCase;
 
+import org.junit.jupiter.api.Test;
+
 /**
- * Test a 3e 1st lvl Half-Elf Bard 
+ * Test a 3e 1st lvl Half-Elf Bard
  */
-@SuppressWarnings("nls")
 public class pcGenGUIBrdJoeTest extends PcgenFtlTestCase
 {
-
-	/**
-	 * standard JUnit style constructor
-	 *  
-	 * @param name No idea
-	 */
-	public pcGenGUIBrdJoeTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Returns the test suite containing all the tests in this class.
-	 * 
-	 * @return A <tt>TestSuite</tt> 
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(pcGenGUIBrdJoeTest.class);
-	}
-
-	/**
-	 * Runs the test.
-	 * 
-	 * @throws Exception If an error occurs.
-	 */
+	@Test
 	public void testBrdJoe() throws Exception
 	{
 		runTest("3e_BrdJoe", "3e");

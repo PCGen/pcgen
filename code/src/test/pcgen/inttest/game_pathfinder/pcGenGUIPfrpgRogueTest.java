@@ -18,49 +18,16 @@
 package pcgen.inttest.game_pathfinder;
 
 import pcgen.inttest.PcgenFtlTestCase;
-import junit.framework.Test;
-import junit.framework.TestSuite;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests loading and exporting a pathfinder rogue.
  * See the PCG file for details
- * 
  */
-@SuppressWarnings("nls")
 public class pcGenGUIPfrpgRogueTest extends PcgenFtlTestCase
 {
-
-	/**
-	 * Create a new test instance.
-	 */
-	public pcGenGUIPfrpgRogueTest()
-	{
-		super("pf_rogue");
-	}
-
-	/**
-	 * standard JUnit style constructor
-	 * 
-	 * @param name
-	 */
-	public pcGenGUIPfrpgRogueTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(pcGenGUIPfrpgRogueTest.class);
-	}
-
-	/**
-	 * Loads and outputs the character.
-	 * 
-	 * @throws Exception If an error occurs.
-	 */
+	@Test
 	public void testCode() throws Exception
 	{
 		runTest("pf_Rogue", "Pathfinder_RPG");

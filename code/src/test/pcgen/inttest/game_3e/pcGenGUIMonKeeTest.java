@@ -19,52 +19,19 @@
  */
 package pcgen.inttest.game_3e;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.inttest.PcgenFtlTestCase;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests a 3e 8th level Human Monk.
- * 
+ *
  * See PCG file for details.
- */
-@SuppressWarnings("nls")
+*/
 public class pcGenGUIMonKeeTest extends PcgenFtlTestCase
 {
-	/**
-	 * Run the tests.
-	 * 
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		junit.textui.TestRunner.run(pcGenGUIMonKeeTest.class);
-	}
-
-	/**
-	 * standard JUnit style constructor
-	 * @param name
-	 */
-	public pcGenGUIMonKeeTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * Return a suite of all tests in this class.
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(pcGenGUIMonKeeTest.class);
-	}
-
-	/**
-	 * Load and output the character.
-	 * 
-	 * @throws Exception If an error occurs.
-	 */
-	public void testMonKee() throws Exception
+	@Test
+	public void testCode() throws Exception
 	{
 		runTest("3e_MonKee", "3e");
 	}

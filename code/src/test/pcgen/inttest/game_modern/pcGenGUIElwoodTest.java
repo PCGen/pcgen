@@ -19,47 +19,18 @@
  */
 package pcgen.inttest.game_modern;
 
+
 import pcgen.inttest.PcgenFtlTestCase;
-import junit.framework.Test;
-import junit.framework.TestSuite;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests a Modern Fast Hero 3/Infiltrator 3.
  * See the PCG file for details
  */
-@SuppressWarnings("nls")
 public class pcGenGUIElwoodTest extends PcgenFtlTestCase
 {
-
-
-	public pcGenGUIElwoodTest()
-	{
-		super("msrd_elwood");
-	}
-
-	/**
-	 * standard JUnit style constructor
-	 * 
-	 * @param name
-	 */
-	public pcGenGUIElwoodTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(pcGenGUIElwoodTest.class);
-	}
-
-	/**
-	 * Loads and outputs the character.
-	 * 
-	 * @throws Exception If an error occurs.
-	 */
+	@Test
 	public void testElwood() throws Exception
 	{
 		runTest("msrd_Elwood", "Modern");
