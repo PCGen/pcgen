@@ -17,25 +17,50 @@
  */
 package pcgen.inttest;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
+import java.util.Locale;
+
+import pcgen.LocaleDependentTestCase;
+import pcgen.cdom.base.Constants;
+import pcgen.system.Main;
+import pcgen.util.TestHelper;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.xmlunit.builder.DiffBuilder;
+import org.xmlunit.builder.Input;
+import org.xmlunit.diff.Diff;
+
 /**
  * PcgenFtlTestCase is a base class for tests which use the FreeMarker
  * base template to produce an XML output for a character and then compare that
  * output with the expected result.
- * 
- * 
  */
-public abstract class PcgenFtlTestCase extends PcGenGUITestCase
+public abstract class PcgenFtlTestCase
 {
+	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
-	public PcgenFtlTestCase(String name)
+	@BeforeEach
+	public void setUp() throws Exception
 	{
-		super(name);
+		LocaleDependentTestCase.before(Locale.US);
 	}
-	
-	@Override
-	protected String getSheetName()
+
+	@AfterEach
+	public void tearDown() throws Exception
 	{
-		return "code/testsuite/base-xml.ftl";
+		LocaleDependentTestCase.after();
 	}
 
 	/**
@@ -65,24 +90,61 @@ public abstract class PcgenFtlTestCase extends PcGenGUITestCase
 		 * Override the pcc location, game mode and several other properties in
 		 * the options.ini file
 		 */
+		String configFolder = "testsuite";
+		TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
+				pccLoc);
+
+		// Fire off PCGen, which will produce an XML file
+		String characterFile = "code/testsuite/PCGfiles/" + character
+				+ Constants.EXTENSION_CHARACTER_FILE;
+
+		String outputFile = outputFileFile.getCanonicalPath();
+		assertTrue(
+				Main.loadCharacterAndExport(characterFile, "code/testsuite/base-xml.ftl",
+						outputFile, TEST_CONFIG_FILE), "Export of " + character + " failed.");
+
+		// Read in the actual XML produced by PCGen
+		actual = readFile(new File(outputFile));
+		// Read in the expected XML
+		expected = readFile(
+				new File("code/testsuite/csheets/" + character + ".xml"));
+
+		Diff myDiff = DiffBuilder.compare(Input.fromString(expected))
+				.withTest(Input.fromString(actual)).build();
+
+		assertFalse(myDiff.hasDifferences(), myDiff.toString());
+	}
+
+	/**
+	 * Read the XML file and return it as a String.
+	 * @param outputFile
+	 * @return String
+	 *
+	 * @throws UnsupportedEncodingException
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	private static String readFile(File outputFile)
+			throws UnsupportedEncodingException, FileNotFoundException, IOException
+	{
+		BufferedReader br =
+				new BufferedReader(new InputStreamReader(new FileInputStream(
+						outputFile), StandardCharsets.UTF_8));
+		StringBuilder output = new StringBuilder();
 		try
 		{
-			String configFolder = "testsuite";
-			TestHelper.createDummySettingsFile(TEST_CONFIG_FILE, configFolder,
-					pccLoc);
-
-			// Fire off PCGen, which will produce an XML file
-			String characterFile = "code/testsuite/PCGfiles/" + character
-					+ Constants.EXTENSION_CHARACTER_FILE;
-
-			String outputFile = outputFileFile.getCanonicalPath();
-			assertTrue(
-					Main.loadCharacterAndExport(characterFile, "code/testsuite/base-xml.ftl",
-							outputFile, TEST_CONFIG_FILE), "Export of " + character + " failed.");
-
-			// Read in the actual XML produced by PCGen
-			actual = readFile(new File(outputFile));
-			// Read in the expected XML
-			expected = readFile(
-					new File("code/testsuite/csheets/" + character + ".xml"));
+			String line = br.readLine();
+			while (line != null)
+			{
+				output.append(line).append('\n');
+				line = br.readLine();
+			}
+		}
+		catch (IOException e)
+		{
+			br.close();
+			fail();
+		}
+		return output.toString();
+	}
 }

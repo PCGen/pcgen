@@ -17,48 +17,17 @@
  */
 package pcgen.inttest.game_pathfinder;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.inttest.PcgenFtlTestCase;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests loading and exporting a pathfinder paladin.
  * See the PCG file for details
- * 
  */
-@SuppressWarnings("nls")
 public class pcGenGUIPfrpgPaladinTest extends PcgenFtlTestCase
 {
-
-
-	public pcGenGUIPfrpgPaladinTest()
-	{
-		super("pf_paladin");
-	}
-
-	/**
-	 * standard JUnit style constructor
-	 * 
-	 * @param name
-	 */
-	public pcGenGUIPfrpgPaladinTest(String name)
-	{
-		super(name);
-	}
-
-	/**
-	 * @return A <tt>TestSuite</tt>
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(pcGenGUIPfrpgPaladinTest.class);
-	}
-
-	/**
-	 * Loads and outputs the character.
-	 * 
-	 * @throws Exception If an error occurs.
-	 */
+	@Test
 	public void testCode() throws Exception
 	{
 		runTest("pf_Paladin", "Pathfinder_RPG");
