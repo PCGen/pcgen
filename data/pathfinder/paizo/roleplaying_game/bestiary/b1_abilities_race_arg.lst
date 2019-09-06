@@ -61,10 +61,13 @@ Spell-Like Abilities		KEY:Drow Noble ~ Spell-Like Abilities	CATEGORY:Special Abi
 
 #Racial Traits ~ Goblin
 # Ability Name						Category of Ability	Ability
-Racial Traits ~ Goblin					CATEGORY:Internal
+Racial Traits ~ Goblin					CATEGORY:Internal		ABILITY:Goblin|AUTOMATIC|PlaceHolder ~ Goblin
 CATEGORY=Internal|Racial Traits ~ Goblin.MOD					ABILITY:Goblin Racial Trait|AUTOMATIC|Goblin ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinDarkvision
 CATEGORY=Internal|Racial Traits ~ Goblin.MOD					ABILITY:Goblin Racial Trait|AUTOMATIC|Goblin ~ Fast|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinFast
 CATEGORY=Internal|Racial Traits ~ Goblin.MOD					ABILITY:Goblin Racial Trait|AUTOMATIC|Goblin ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GoblinSkilled
+
+PlaceHolder ~ Goblin	CATEGORY:Special Ability	VISIBLE:NO	TYPE:GoblinAlt
+
 
 ###Block: Goblin abilities
 # Ability Name	Unique Key			Category of Ability		Type						Description										Bonus to skill					Source Page
