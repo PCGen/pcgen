@@ -470,6 +470,7 @@ Light						KEY:Cleric Cantrip ~ Light						CATEGORY:Internal			TYPE:Cleric Cantr
 Mending					KEY:Cleric Cantrip ~ Mending						CATEGORY:Internal			TYPE:Cleric Cantrip																							SPELLS:Cleric Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Mending,ClericSpellDC
 Resistance					KEY:Cleric Cantrip ~ Resistance					CATEGORY:Internal			TYPE:Cleric Cantrip																							SPELLS:Cleric Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Resistance,ClericSpellDC
 Sacred Flame				KEY:Cleric Cantrip ~ Sacred Flame					CATEGORY:Internal			TYPE:Cleric Cantrip																							SPELLS:Cleric Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Sacred Flame,ClericSpellDC
+Spare the Dying				KEY:Cleric Cantrip ~ Spare the Dying				CATEGORY:Internal			TYPE:Cleric Cantrip																							SPELLS:Cleric Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Spare the Dying,ClericSpellDC
 Thaumaturgy					KEY:Cleric Cantrip ~ Thaumaturgy					CATEGORY:Internal			TYPE:Cleric Cantrip																							SPELLS:Cleric Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Thaumaturgy,ClericSpellDC
 
 # Divine Domains
