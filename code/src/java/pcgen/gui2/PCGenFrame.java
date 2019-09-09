@@ -1310,6 +1310,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate, CharacterSel
 		{
 			sourceSelectionDialog = new SourceSelectionDialog(this, uiContext);
 		}
+		if (currentSourceSelection.get() != null)
+		{
+			((SourceSelectionDialog) sourceSelectionDialog).setAdvancedSources(currentSourceSelection.get());
+		}
 		sourceSelectionDialog.setLocationRelativeTo(this);
 		sourceSelectionDialog.setVisible(true);
 	}
