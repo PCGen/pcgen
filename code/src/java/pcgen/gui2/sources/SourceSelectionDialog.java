@@ -225,6 +225,18 @@ public class SourceSelectionDialog extends JDialog implements ActionListener, Ch
 		buttonPanel.revalidate();
 	}
 
+	/**
+	 * Set the selected advanced sources for a particular game mode and
+	 * remember them. Overrides existing selections.
+	 *
+	 * @param sourceSel A selection facade of the sources to set.
+	 */
+	public void setAdvancedSources(final SourceSelectionFacade sourceSel)
+	{
+		advancedPanel.setSourceSelection(sourceSel);
+		advancedPanel.rememberSelectedSources();
+	}
+
 	@Override
 	public void stateChanged(ChangeEvent e)
 	{
