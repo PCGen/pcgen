@@ -427,7 +427,7 @@ allprojects {
 dependencyUpdates {
     revision='release'
 }
-dependencyUpdates.resolutionStrategy = {
+dependencyUpdates.resolutionStrategy {
     componentSelection { rules ->
         rules.all { ComponentSelection selection ->
             if (['atlassian'].any { qualifier ->
