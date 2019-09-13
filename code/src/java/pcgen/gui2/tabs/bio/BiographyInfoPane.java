@@ -22,14 +22,12 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -59,47 +57,22 @@ import pcgen.system.LanguageBundle;
  * 
  */
 @SuppressWarnings("serial")
-public class BiographyInfoPane extends JPanel implements CharacterInfoTab
+public final class BiographyInfoPane extends JPanel implements CharacterInfoTab
 {
-	private static final String ALL_COMMAND = "ALL"; //$NON-NLS-1$
-	private static final String NONE_COMMAND = "NONE"; //$NON-NLS-1$
 	static final JTextField TEMPLATE_TEXT_FIELD = new JTextField("PrototypeDisplayText"); //$NON-NLS-1$;
 
 	private final TabTitle title = new TabTitle(LanguageBundle.getString("in_descBiography"), null); //$NON-NLS-1$
-	private final JButton allButton;
-	private final JButton noneButton;
 	private final JPanel itemsPanel;
-	private JButton addCustomItemButton;
-	private JScrollPane detailsScroll;
+	private final JScrollPane detailsScroll;
 
 	/**
 	 * Create a new instance of BiographyInfoPane.
 	 */
 	public BiographyInfoPane()
 	{
-		this.allButton = new JButton();
-		this.noneButton = new JButton();
 		this.itemsPanel = new JPanel();
-		initComponents();
-	}
-
-	private void initComponents()
-	{
 		setLayout(new GridBagLayout());
 		Box vbox = Box.createVerticalBox();
-
-		allButton.setText(LanguageBundle.getString("in_all")); //$NON-NLS-1$
-		allButton.setActionCommand(ALL_COMMAND);
-		noneButton.setText(LanguageBundle.getString("in_none")); //$NON-NLS-1$
-		noneButton.setActionCommand(NONE_COMMAND);
-
-		Box hbox = Box.createHorizontalBox();
-		hbox.add(new JLabel(LanguageBundle.getString("in_descCheckItem"))); //$NON-NLS-1$
-		hbox.add(Box.createRigidArea(new Dimension(5, 0)));
-		hbox.add(allButton);
-		hbox.add(Box.createRigidArea(new Dimension(3, 0)));
-		hbox.add(noneButton);
-		vbox.add(hbox);
 
 		itemsPanel.setLayout(new GridBagLayout());
 		itemsPanel.setBorder(new EmptyBorder(8, 5, 8, 5));
@@ -113,9 +86,9 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		vbox.add(detailsScroll);
 		vbox.add(Box.createVerticalStrut(10));
 
-		hbox = Box.createHorizontalBox();
+		Box hbox = Box.createHorizontalBox();
 		hbox.add(Box.createHorizontalGlue());
-		addCustomItemButton = new JButton();
+		JButton addCustomItemButton = new JButton();
 		hbox.add(addCustomItemButton);
 		hbox.add(Box.createHorizontalGlue());
 		vbox.add(hbox);
@@ -160,14 +133,9 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	{
 
 		private final List<BioItem> bioItems = new ArrayList<>();
-		private final CharacterFacade character;
-		private final ActionListener bioListener = event -> bioItems.stream()
-			.forEach(item -> item
-				.setExportable(event.getActionCommand().equals(ALL_COMMAND)));
 
-		public ItemHandler(CharacterFacade character2)
+		public ItemHandler(CharacterFacade character)
 		{
-			this.character = character2;
 			bioItems.add(new NameItem(character));
 			bioItems.add(new PlayerNameItem(character));
 			bioItems.add(new GenderItem(character));
@@ -180,22 +148,28 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			{
 				bioItems.add(new DeityItem(character));
 			}
+
 			bioItems.add(new AgeItem(character));
 			bioItems.add(new SkinColorItem(character));
 			bioItems.add(new HairColorItem(character));
-			bioItems.add(new BiographyFieldBioItem(BiographyField.HAIR_STYLE, PCStringKey.HAIRSTYLE, character));
 			bioItems.add(new EyeColorItem(character));
 			bioItems.add(new HeightItem(character));
 			bioItems.add(new WeightItem(character));
 
-			bioItems.add(new BiographyFieldBioItem(BiographyField.SPEECH_PATTERN, PCStringKey.SPEECHTENDENCY, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.SPEECH_PATTERN, PCStringKey.SPEECHTENDENCY,
+					character
+			));
 			bioItems.add(new BiographyFieldBioItem(BiographyField.BIRTHDAY, PCStringKey.BIRTHDAY, character));
 			bioItems.add(new BiographyFieldBioItem(BiographyField.LOCATION, PCStringKey.LOCATION, character));
 			bioItems.add(new BiographyFieldBioItem(BiographyField.CITY, PCStringKey.CITY, character));
 			bioItems.add(new RegionItem(character));
 			bioItems.add(new BiographyFieldBioItem(BiographyField.BIRTHPLACE, PCStringKey.BIRTHPLACE, character));
-			bioItems.add(new BiographyFieldBioItem(BiographyField.PERSONALITY_TRAIT_1, PCStringKey.PERSONALITY1, character));
-			bioItems.add(new BiographyFieldBioItem(BiographyField.PERSONALITY_TRAIT_2, PCStringKey.PERSONALITY2, character));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.PERSONALITY_TRAIT_1, PCStringKey.PERSONALITY1,
+					character
+			));
+			bioItems.add(new BiographyFieldBioItem(BiographyField.PERSONALITY_TRAIT_2, PCStringKey.PERSONALITY2,
+					character
+			));
 			bioItems.add(new BiographyFieldBioItem(BiographyField.PHOBIAS, PCStringKey.PHOBIAS, character));
 			bioItems.add(new BiographyFieldBioItem(BiographyField.INTERESTS, PCStringKey.INTERESTS, character));
 			bioItems.add(new BiographyFieldBioItem(BiographyField.CATCH_PHRASE, PCStringKey.CATCHPHRASE, character));
@@ -205,8 +179,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			itemsPanel.removeAll();
 
-			allButton.addActionListener(bioListener);
-			noneButton.addActionListener(bioListener);
 			for (BioItem bioItem : bioItems)
 			{
 				bioItem.addComponents(itemsPanel);
@@ -219,12 +191,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public void uninstall()
 		{
-			allButton.removeActionListener(bioListener);
-			noneButton.removeActionListener(bioListener);
-			for (BioItem bioItem : bioItems)
-			{
-				bioItem.uninstall();
-			}
+			bioItems.forEach(BioItem::uninstall);
 		}
 	}
 
