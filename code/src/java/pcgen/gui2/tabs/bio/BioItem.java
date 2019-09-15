@@ -23,12 +23,9 @@ package pcgen.gui2.tabs.bio;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.util.Optional;
 
 import javax.swing.Box;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -46,12 +43,10 @@ abstract class BioItem
 {
 
 	private final JLabel label = new JLabel();
-	private final JCheckBox exportEnabledBox = new JCheckBox();
 	private Optional<JComboBox<?>> combobox = Optional.empty();
 	private Optional<JTextField> textField = Optional.empty();
 	private Optional<JLabel> trailinglabel = Optional.empty();
-	private final ItemListener enabledForExportListener;
-	
+
 	/**
 	 * The ManagedField holding the information for this BioItem.
 	 */
@@ -68,10 +63,6 @@ abstract class BioItem
 			label.setText(text);
 		}
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
-		exportEnabledBox.setSelected(character.getExportBioField(bioField));
-		enabledForExportListener =
-				event -> character.setExportBioField(bioField,
-					event.getStateChange() == ItemEvent.SELECTED);
 	}
 
 	public void addComponents(JPanel panel)
@@ -80,7 +71,6 @@ abstract class BioItem
 		gbc.anchor = GridBagConstraints.PAGE_START;
 		gbc.gridwidth = 1;
 		gbc.fill = GridBagConstraints.BOTH;
-		panel.add(exportEnabledBox, gbc);
 		gbc.insets = new Insets(1, 2, 1, 2);
 		panel.add(label, gbc);
 		int numComponents = 0;
@@ -156,7 +146,6 @@ abstract class BioItem
 	public void setVisible(boolean visible)
 	{
 		label.setVisible(visible);
-		exportEnabledBox.setVisible(visible);
 		combobox.ifPresent(box -> box.setVisible(visible));
 		textField.ifPresent(field -> field.setVisible(visible));
 		trailinglabel.ifPresent(endLabel -> endLabel.setVisible(visible));
@@ -167,7 +156,6 @@ abstract class BioItem
 	 */
 	public void install()
 	{
-		exportEnabledBox.addItemListener(enabledForExportListener);
 		textFieldHandler.ifPresent(ManagedField::install);
 	}
 
@@ -176,12 +164,7 @@ abstract class BioItem
 	 */
 	public void uninstall()
 	{
-		exportEnabledBox.removeItemListener(enabledForExportListener);
 		textFieldHandler.ifPresent(ManagedField::uninstall);
 	}
 
-	public void setExportable(boolean export)
-	{
-		exportEnabledBox.setSelected(export);
-	}
 }

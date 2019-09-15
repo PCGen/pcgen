@@ -42,16 +42,6 @@ class AboutDialogTest
 	@Start
 	private void Start(Stage stage) throws IOException
 	{
-		/*
-	    TODO Remove once JavaFx is updated to version 13.
-	    This is a temporary fix for https://github.com/javafxports/openjdk-jfx/issues/66.
-	    https://github.com/PCGen/pcgen/pull/5973
-	     */
-	    if (SystemUtils.IS_OS_WINDOWS)
-	    {
-            System.load("C:\\Windows\\System32\\WindowsCodecs.dll");
-        }
-
 		FXMLLoader loader = new FXMLLoader();
 		URL resource = AboutDialogController.class.getResource("AboutDialog.fxml");
 		assert resource != null;
