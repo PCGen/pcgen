@@ -1169,6 +1169,12 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			}
 			else if (loadSourceSelection(sources))
 			{
+				if (sourceSelectionDialog == null)
+				{
+					sourceSelectionDialog = new SourceSelectionDialog(this, uiContext);
+				}
+				((SourceSelectionDialog) sourceSelectionDialog).setAdvancedSources(sources);
+				currentSourceSelection.set(sources);
 				loadSourcesThenCharacter(pcgFile);
 			}
 			else

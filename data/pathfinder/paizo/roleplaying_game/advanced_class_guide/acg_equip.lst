@@ -33,6 +33,8 @@ Manacles (Large).MOD	TYPE:Manacles
 Manacles (Huge).MOD	TYPE:Manacles
 
 
+Fake Rapier			TYPE:Weapon.Melee.Piercing.Weapon Group Melee OneHanded Piercing	PROFICIENCY:WEAPON|Rapier	DAMAGE:1d6	SPROP:Tests
+
 ###Block: Brawler's Flurry
 # COMMENT: Can the weapon's damage be modified?
 # WORKARAOUND: use an SPROP comment
@@ -56,7 +58,7 @@ Morningstar.MOD									TYPE:Weapon Group Melee OneHanded Piercing
 Shortspear.MOD									TYPE:Weapon Group Melee OneHanded Piercing
 Pick (Heavy).MOD									TYPE:Weapon Group Melee OneHanded Piercing
 Rapier.MOD										TYPE:Weapon Group Melee OneHanded Piercing
-Trident.MOD										TYPE:Weapon Group Melee OneHanded Piercing
+Trident (Base).MOD								TYPE:Weapon Group Melee OneHanded Piercing
 Lance.MOD										TYPE:Weapon Group Melee OneHanded Piercing
 Ranseur.MOD										TYPE:Weapon Group Melee OneHanded Piercing
 Scythe.MOD										TYPE:Weapon Group Melee OneHanded Piercing
