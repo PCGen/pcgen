@@ -304,8 +304,9 @@ Escape Artist.MOD		SITUATION:Not inhabiting a corpse
 # Advanced Race Guide
 Diplomacy.MOD		SITUATION:Influence evil outsiders
 
-
-
+# Quests And Campaigns
+Diplomacy.MOD		SITUATION:Persuade others
+Bluff.MOD			SITUATION:Convince others that a lie is true
 
 
 
