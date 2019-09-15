@@ -1,5 +1,6 @@
 #  Fri Nov 16 19:52:40 2018 -- reformated by PCGen PrettyLST v6.08.00
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Player Companion: Quests & Campaigns	SOURCESHORT:QAC	SOURCEWEB:http://paizo.com/products/btpy8yw2	SOURCEDATE:2013-12
 
 ###Block: Equipment Modifiers
 # Modifier Name							Unique Key						Type		Plus		Visible		Source Page		Required Type
@@ -18,3 +19,7 @@ Special Ability ~ Heretical ~ Weapon.COPY=Heretical												VISIBLE:NO
 Special Ability ~ Kinslayer ~ Weapon.COPY=Kinslayer												VISIBLE:NO
 Special Ability ~ Patriotic ~ Weapon.COPY=Patriotic												VISIBLE:NO
 Special Ability ~ Treasonous ~ Weapon.COPY=Treasonous												VISIBLE:NO
+
+#
+# End
+#

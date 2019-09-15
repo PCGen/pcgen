@@ -210,7 +210,7 @@ Steelhand Circle															TYPE:Magic.Ring.LesserMedium	COST:12000	WT:0					
 # Equipment Name					Output Name						Type					Cost		Weight	Source Page		Ability								Innate Spells																	Caster level						Combat bonus			Bonus to Situation						Bonus to skill									Modify VAR			Special Property
 Rod (Absorption).MOD											TYPE:GreaterMajor			COST:50000	WT:5		SOURCEPAGE:p.179
 Rod (Alertness).MOD											TYPE:GreaterMajor			COST:85000	WT:4		SOURCEPAGE:p.180																																					BONUS:COMBAT|INITIATIVE|1
-Rod (Balance)					OUTPUTNAME:Rod of Balance			TYPE:Magic.Rod.GreaterMedium	COST:15000	WT:5		SOURCEPAGE:p.180																																										BONUS:SITUATION|Acrobatics=Jump|10|TYPE=Competence
+Rod (Balance)					OUTPUTNAME:Rod of Balance			TYPE:Magic.Rod.GreaterMedium	COST:15000	WT:5		SOURCEPAGE:p.180																																										BONUS:SITUATION|Acrobatics=When Jumping|10|TYPE=Competence
 Rod (Beguiling)					OUTPUTNAME:Rod of Beguiling			TYPE:Magic.Rod.GreaterMedium	COST:18000	WT:5		SOURCEPAGE:p.180																																																			BONUS:SKILL|Bluff,Sleight of Hand|5|TYPE=Competence
 Rod (Cancellation).MOD											TYPE:LesserMedium			COST:11000	WT:5		SOURCEPAGE:p.181
 Rod (Conduit)					OUTPUTNAME:Conduit Rod				TYPE:Magic.Rod.GreaterMedium	COST:12000	WT:5		SOURCEPAGE:p.178																													BONUS:CASTERLEVEL|DESCRIPTOR.Electricity|1																														SPROP:Gain electricity resistance 5, +1 effective caster level when casting any spell with electricity descriptor.

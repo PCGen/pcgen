@@ -17,8 +17,8 @@ Sacrosanct		KEY:Special Ability ~ Sacrosanct ~ Weapon		TYPE:Weapon			COST:5000	V
 # Modifier Name	Unique Key						Type																							Visible		Type granted		Keys to replace						Source Page		Required Type		Var. Min. Value																Ability
 Legendary		KEY:Legendary Item				TYPE:Armor.Shield.Weapon.Belt.Body.Chest.Eyes.Feet.Hands.Head.Headband.Neck.Ring.Shoulders.Wrist.Bracer.Cape.Instrument.Staff.Rod.Wand				ITYPE:Legendary										SOURCEPAGE:p.169	PRETYPE:1,Enhancement																			ABILITY:Special Ability|AUTOMATIC|Legendary Item ~ Legendary Power|Legendary Item ~ Legendary Surge|Legendary Item ~ Mythic Bond
 
-MinorArtifact	KEY:Legendary Item ~ Artifact / Minor	TYPE:Legendary																					VISIBLE:QUALIFY	ITYPE:Minor.Artifact	REPLACES:Legendary Item ~ Artifact / Major	SOURCEPAGE:p.169					PREVARGTEQ:count("ABILITIES","CATEGORY=Special Ability","KEY="Mythic Path Ability ~ Legendary Item"),2
-MajorArtifact	KEY:Legendary Item ~ Artifact / Major	TYPE:Legendary																					VISIBLE:QUALIFY	ITYPE:Major.Artifact	REPLACES:Legendary Item ~ Artifact / Minor	SOURCEPAGE:p.169					PREVARGTEQ:count("ABILITIES","CATEGORY=Special Ability","KEY="Mythic Path Ability ~ Legendary Item"),3
+MinorArtifact	KEY:Legendary Item ~ Artifact / Minor	TYPE:Legendary																					VISIBLE:QUALIFY	ITYPE:Minor.Artifact	REPLACES:Legendary Item ~ Artifact / Major	SOURCEPAGE:p.169					PREVARGTEQ:count("ABILITIES","CATEGORY=Special Ability","KEY=Mythic Path Ability ~ Legendary Item"),2
+MajorArtifact	KEY:Legendary Item ~ Artifact / Major	TYPE:Legendary																					VISIBLE:QUALIFY	ITYPE:Major.Artifact	REPLACES:Legendary Item ~ Artifact / Minor	SOURCEPAGE:p.169					PREVARGTEQ:count("ABILITIES","CATEGORY=Special Ability","KEY=Mythic Path Ability ~ Legendary Item"),3
 
 
 

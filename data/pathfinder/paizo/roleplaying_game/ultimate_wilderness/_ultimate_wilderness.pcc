@@ -8,6 +8,7 @@ BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 STATUS:BETA
 PRECAMPAIGN:6,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Advanced Class Guide,INCLUDES=Bestiary
+PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

@@ -3,30 +3,18 @@ SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
-
-
 ###Block: Familiar Progression
-# Class of the Master	Type			Ability																		Copy Masters BAB		Copy Masters Checks	HP formula based on Master					Use Masters skills?	Define								Define Stat				Combat bonus					Modify VAR											Main Race Type
-FOLLOWER:FamiliarLvl=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Improved Fortune ~ Evasion|Link ~ Companion	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,(MASTER/2)+var("FamiliarBonusHP"))	USEMASTERSKILL:YES	DEFINE:FamiliarLevel|0	DEFINE:FamiliarBonusHP|0	DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|FamiliarLevel|1								RACETYPE:Magical Beast
-FOLLOWER:FamiliarLvl=2	TYPE:Familiar																																																														BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=3	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Location and Emotion Sharing																																							DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=4	TYPE:Familiar																																																														BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=5	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Telepathic Speech ~ Eclipse																																							DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=6	TYPE:Familiar																																																														BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=7	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Speak with other Animals																																								DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=8	TYPE:Familiar																																																														BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=9	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Speak normally																																									DEFINESTAT:MINVALUE|INT|10	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=10	TYPE:Familiar																																																														BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=11	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spell or Power Resistance																															DEFINE:CompanionResistanceBonus|0				DEFINESTAT:MINVALUE|INT|11	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionResistanceBonus|16	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=12	TYPE:Familiar																																																														BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=13	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Link ~ Sense Sharing																																								DEFINESTAT:MINVALUE|INT|12	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=14	TYPE:Familiar																																																														BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=15	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Channel spells and powers																																								DEFINESTAT:MINVALUE|INT|13	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=16	TYPE:Familiar																																																														BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=17	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Link ~ Planetary Range																																								DEFINESTAT:MINVALUE|INT|14	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=18	TYPE:Familiar																																																														BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=19	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Link ~ Transdimensional Range																																							DEFINESTAT:MINVALUE|INT|15	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
-FOLLOWER:FamiliarLvl=20	TYPE:Familiar																																																														BONUS:VAR|CompanionResistanceBonus|1	BONUS:VAR|FamiliarLevel|1
+# Class of the Master	Type			Ability																			Copy Masters BAB		Copy Masters Checks	HP formula based on Master					Use Masters skills?	Define								Define Stat				Combat bonus					Modify VAR											Main Race Type
+FOLLOWER:MasterFamiliarLvl=1	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Character Points For Companions|Improved Fortune ~ Evasion|Link ~ Companion	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,(MASTER/2)+var("FamiliarBonusHP"))	USEMASTERSKILL:YES	DEFINE:FamiliarLevel|0	DEFINE:FamiliarBonusHP|0	RACETYPE:Magical Beast	BONUS:COMBAT|AC|(mastervar("MasterFamiliarLVL")+1)/2|TYPE=NaturalArmor.STACK	DEFINESTAT:MINVALUE|INT|5+((mastervar("MasterFamiliarLVL")+1)/2)	BONUS:VAR|FamiliarLVL|mastervar("MasterFamiliarLVL")
+FOLLOWER:MasterFamiliarLvl=3	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Location and Emotion Sharing
+FOLLOWER:MasterFamiliarLvl=5	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Telepathic Speech ~ Eclipse
+FOLLOWER:MasterFamiliarLvl=7	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Speak with other Animals
+FOLLOWER:MasterFamiliarLvl=9	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Speak normally
+FOLLOWER:MasterFamiliarLvl=11	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Spell or Power Resistance																															DEFINE:CompanionResistanceBonus|0				BONUS:VAR|CompanionResistanceBonus|FamiliarLevel+5	
+FOLLOWER:MasterFamiliarLvl=13	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Link ~ Sense Sharing
+FOLLOWER:MasterFamiliarLvl=15	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Channel spells and powers
+FOLLOWER:MasterFamiliarLvl=17	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Link ~ Planetary Range
+FOLLOWER:MasterFamiliarLvl=19	TYPE:Familiar	ABILITY:Special Ability|AUTOMATIC|Link ~ Transdimensional Range
 
 
 ###Block: Psi-Crystal Progression

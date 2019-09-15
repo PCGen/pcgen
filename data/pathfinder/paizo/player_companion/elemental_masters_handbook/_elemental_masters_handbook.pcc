@@ -46,9 +46,12 @@ TEMPLATE:emh_templates.lst
 # support
 ABILITY:support/emh_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 ABILITY:support/emh_abilities_class_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
-ABILITY:support/emh_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
-ABILITY:support/emh_abilities_race_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
-CLASS:support/emh_classes_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+
+PCC:support/pathfinder_unchained.pcc|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+
+#ABILITY:support/emh_abilities_class_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+#ABILITY:support/emh_abilities_race_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
+#CLASS:support/emh_classes_pu.lst|PRECAMPAIGN:1,INCLUDES=Pathfinder Unchained
 
 
 FORWARDREF:SPELL|Wall of Ectoplasm
