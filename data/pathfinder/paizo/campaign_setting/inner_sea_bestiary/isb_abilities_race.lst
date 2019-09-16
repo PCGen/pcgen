@@ -10,12 +10,12 @@ SOURCELONG:Inner Sea Bestiary	SOURCESHORT:ISB	SOURCEWEB:http://paizo.com/product
 Racial Traits ~ Android				CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Android ~ Default
 
 Android ~ Default					CATEGORY:Internal
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Attribute Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AttributeBonus
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Exceptional Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ExceptionSenses
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Constructed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Constructed
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Emotionless|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Emotionless
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Nanite Surge|!PREABILITY:1,CATEGORY=Special Ability,TYPE.NaniteSurge
-CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Languages|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Languages
+CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Attribute Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AndroidAttributeBonus
+CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Exceptional Senses|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AndroidExceptionSenses
+CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Constructed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AndroidConstructed
+CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Emotionless|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AndroidEmotionless
+CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Nanite Surge|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AndroidNaniteSurge
+CATEGORY=Internal|Android ~ Default.MOD					ABILITY:Android Racial Trait|AUTOMATIC|Android ~ Languages|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AndroidLanguages
 
 ###Block: Default Traits
 # Ability Name						Unique Key					Category of Ability		Type									Define				Description																																																																																																						Template						Auto Language	Bonus to skill					Stat bonus										Modify VAR											Source Page		Aspects
