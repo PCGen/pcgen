@@ -441,14 +441,14 @@ public final class DataInstaller extends JFrame
 				msg.append(' ').append(filename).append('\n');
 			}
 
-			Alert diWarningDialog = new Alert(Alert.AlertType.CONFIRMATION);
+			Alert diWarningDialog = GuiUtility.runOnJavaFXThreadNow(() -> new Alert(Alert.AlertType.CONFIRMATION));
 			ButtonType noButton = new ButtonType(LanguageBundle.getString("in_no"), ButtonBar.ButtonData.NO);
 			// default for confirm is yes/cancel
 			diWarningDialog.getButtonTypes().add(noButton);
 			diWarningDialog.setTitle(LanguageBundle.getString("in_dataInstaller"));
 			diWarningDialog.setHeaderText(LanguageBundle.getString("in_diNonStandardFiles"));
 			diWarningDialog.setContentText(msg.toString());
-			Optional<ButtonType> warningResult = diWarningDialog.showAndWait();
+			Optional<ButtonType> warningResult = GuiUtility.runOnJavaFXThreadNow(diWarningDialog::showAndWait);
 			if (warningResult.isPresent())
 			{
 				ButtonType buttonType = warningResult.get();
