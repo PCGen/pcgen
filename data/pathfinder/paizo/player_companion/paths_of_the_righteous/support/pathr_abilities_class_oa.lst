@@ -1,0 +1,7 @@
+SOURCELONG:Paths of the Righteous	SOURCESHORT:PATHR	SOURCEWEB:http://paizo.com/products/btpy9oo9	SOURCEDATE:2016-12
+
+# ==============================
+# Brewkeeper Prestige Class Support
+# ==============================
+Intuitive Spell					KEY:Helpful Homebrew ~ Intuitive Spell				CATEGORY:Special Ability	TYPE:HelpfulHomebrew.SpecialQuality.Supernatural										PREVARGTEQ:BrewkeeperLVL,4														ABILITY:FEAT|AUTOMATIC|Intuitive Spell
+
