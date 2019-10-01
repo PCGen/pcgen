@@ -171,7 +171,7 @@ dependencies {
 
     compile group: 'org.springframework', name: 'spring-web', version:'5.2.0.RELEASE'
     compile group: 'org.springframework', name: 'spring-core', version:'5.1.9.RELEASE'
-    compile group: 'org.springframework', name: 'spring-beans', version:'5.1.10.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version:'5.2.0.RELEASE'
     compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.9'
     compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.3'
     compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'
