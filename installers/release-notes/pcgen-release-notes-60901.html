@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+		<title>Release Notes for PCGen v6.09.01 </title>
+		<link rel="stylesheet" type="text/css" href="http://sourceforge.net/cssdef.php">
+	</head>
+
+	<body>
+
+		<h1>Release Notes for PCGen v6.09.01 </h1>
+
+		<h2>Table of Content</h2>
+
+		<ul>
+			<li><a href="#WhatsNew">What's new for v6.09.01 </a></li>
+			<li><a href="#Installation">Installation</a></li>
+			<li><a href="#CustomDataSets">Custom Data Sets</a></li>
+			<li><a href="#WantToHelp">Want to Help?</a></li>
+			<li><a href="#links">Useful Links</a></li>
+			<li><a href="#ChangeLog">Change Log for 6.09.01 </a></li>
+		</ul>
+
+		<h2><a name="WhatsNew">What's new for v6.09.01 </a></h2>
+
+<p>PCGen v6.09.01  is released as an ALPHA from our development branch. This is the culmination release that we believe will be the next production release. This is technically an unstable release due to new features being introduced.
+Please give it a shot and let us know how it works for you. Some notable changes in the 6.09.01  release are listed below.
+
+<h3>Notable Changes</h3>
+<ul>
+	<li>Continued work on UI changes - Java Swing converting to JavaFX</li>
+	<li>46 Data Issues resolved</li>
+</ul>
+
+
+
+<!-- 
+<p>
+The new user interface does most of what you are used to, but does not currently provide  
+random NPC generation or LST editor functionality. 
+</p>
+ -->
+ 
+<p>
+For full details of the new changes in this release, see the <a href="#ChangeLog">Change Log</a> .
+</p>
+<p><i>Andrew Maitland aka LegacyKing</i> for the PCGEN Team -- 2019-09-15.</p>
+
+		<h2><a name="Installation">Installation</a></h2>
+
+		<h3>Prerequisites</h3>
+
+		<p>Java 11 aka Java 55 aka 18.09 or 18.10.
+
+PCGEN 6.09.01 is not compatible with Java 10 (or earlier) and it is NOT SUPPORTED. To get the latest version of Java, go to AdoptOpenJDK. PCGen has been tested with OpenJDK and AdoptOpenJDK Java 11 (including the JRE).
+
+Be aware that due to Oracle Licensing, and lack of availability we are recommending OpenJDK alternative. AdoptOpenJDK also have JREs (Normal Java) for the end users that is not installed and may take an extra couple of steps to make work. If this is not something you want to worry about, then please use the WINDOWS INSTALLER version of PCGen, as this comes with embedded JREs for both x86 and x64 Windows OS's.
+
+LINKS:
+			<ul>
+				<li>https://adoptopenjdk.net/archive.html?variant=openjdk11&jvmVariant=hotspot</li>
+				<li>https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/tag/jdk-11%2B28</li>
+				<li>https://jdk.java.net/11/</li>
+				<li>How to "Install" on Windows: https://stackoverflow.com/questions/52511778/how-to-install-openjdk-11-on-windows</li>
+				<li>How to "Install" the real JDK 11 on Linux Ubuntu - https://dzone.com/articles/installing-openjdk-11-on-ubuntu-1804-for-real - SIDE NOTE: Ubuntu made a conscious move to actually leave Java at 10. The work around is to use AdoptOpenJDK 11.</p></li>
+			</ul>
+
+		<h3>Instructions</h3>
+			<ul>
+			<li>Live chat support by volunteers <strong>DISCORD</strong>:<br />
+				<a href="https://discord.gg/A6hWjzw">DISCORD SUPPORT LINK</a></li>
+			<li>The Groups.io <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="https://pcgen.groups.io/g/main/topics">https://pcgen.groups.io/g/main/topics</a></li>
+			</ul>
+
+		<h3>Read the doc!</h3>
+
+		<p>Please make sure you read the docs to 
+		familiarize yourself with the changes. You can access it from
+			<strong>docs/index.html</strong> located in the PCGen directory.</p>
+
+		<h3>Download PCGen</h3>
+		<ul>
+			<li><a href="https://github.com/PCGen/pcgen/releases">DOWNLOAD PCGEN!</a>: <br />
+				Links to all of the available download options!</li>
+		</ul>
+		<p></p>
+
+		<h2><a name="CustomDataSets">Custom Data Sets</a></h2>
+
+		<p>If you have custom data created be aware that you may need to update your data to be compatible with the changes.</p>
+
+		<h2><a name="Thanks">Thanks</a></h2>
+
+		<p>Thanks to the volunteers who contributed to the PCGen 6.09.01  release! Without volunteers, no releases would be possible.
+		
+		</p><p>
+		Thanks also to the many people who gave us feedback, reported bugs, contributed to the lists and 
+		helped other PCGen users out!</p>
+
+		<h2><a name="WantToHelp">Want to Help?</a></h2>
+
+		<p>PCGen is an open source project. Anyone who wants to contribute whether it is Java programming, data
+			set programming, documentation, helping new users, general cat herding, massage, walking the dogs, etc.
+			is very welcome.</p>
+		<p>If you want to help jump on our Discord or Groups.io and simply post a message <strong>"I Want To Help"</strong> in one of those groups.</p>
+
+		<p></p>
+
+		<h2><a name="links">Useful Links</a></h2>
+
+		<ul>
+			<li>Live chat support by volunteers <strong>Discord</strong>:<br />
+				<a href="https://discord.gg/A6hWjzw">DISCORD SUPPORT LINK</a></li>
+			<li>The Groups.io <strong>main mailing list</strong> (for help and feedback):<br />
+				<a href="https://pcgen.groups.io/g/main/topics">https://pcgen.groups.io/g/main/topics</a></li>
+		</ul>
+
+		<h2><a name="ChangeLog">Change Log for 6.09.01 </a></h2>
+
+
+     Release notes - Data - Version 6.09.01
+            
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3900'>DATA-3900</a>] -         Admixture School not available for Arcanist with School Understanding exploit
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3937'>DATA-3937</a>] -         Inquisitors can&#39;t choose any domains from the listed &#39;deities&#39; in Campaign Supplement Book of the Damned, Volume 2
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3938'>DATA-3938</a>] -         Pathfinder: Elemental Knight Magus archetype unable to select unique Magus Arcana &amp; Archetype turns &quot;unqualified&quot; after being added.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3939'>DATA-3939</a>] -         Accomplished Sneak Attacker feat does not bonus the Sneak Attack value.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3940'>DATA-3940</a>] -         &quot;Swashbuckler&quot; Unchained Rogue Archetype Can&#39;t Get 2 Combat Trick Feats
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3941'>DATA-3941</a>] -         [Pathfinder] Elf erroneously has Giant available as a Bonus Language.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3945'>DATA-3945</a>] -         Monk archetype maneuver master&#39;s bonus feats missing standard monk selections.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3946'>DATA-3946</a>] -         [STARFINDER] Missing minimum level (PREPCLEVEL) setting.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3947'>DATA-3947</a>] -         Disenchanter Archetype for Warpriest granting incorrect Bonus Feat progression.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3948'>DATA-3948</a>] -         Dragon Disciple Draconic bloodline doesn&#39;t add correctly to existing character with draconic bloodline
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3949'>DATA-3949</a>] -         Mechanic drone does not gain specialization effects at Mechanic Lv. 3
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3950'>DATA-3950</a>] -         [STARFINDER] Racial vision types not set for Elf, Half-elf and Gnome.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3953'>DATA-3953</a>] -         &quot;Hunter&#39;s Surprise&quot; (Advanced Rogue Talent) mistakenly stored as regular Talent
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3954'>DATA-3954</a>] -         [STARFINDER] Maximum walk move speed capped at 60 causing issue when land speed exceeds 60.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3955'>DATA-3955</a>] -         [STARFINDER] Insight bonuses are stacking and not taking the highest value.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3956'>DATA-3956</a>] -         [STARFINDER] Feat &quot;Fleet&quot; not adding movement bonus.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3958'>DATA-3958</a>] -         can&#39;t add a Agathion SIlvanshee as a familiar
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3959'>DATA-3959</a>] -         Narrows Survivor Trait does not add Sense Motive as class skill [PF Taldor - Echoes of Glory (Conversion)]
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3961'>DATA-3961</a>] -         Blood of the Beast not showing up when Pathfinder Society Organized Play is selected as Game
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3962'>DATA-3962</a>] -         Cleric&#39;s Kit appears to be missing?
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3963'>DATA-3963</a>] -         [Pathfinder Monster codex]Alchemist void bombs are missing requirement for the Drow race
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3964'>DATA-3964</a>] -         Mythic Adventures - Minor/Major Artifact PRExxx unreachable
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3965'>DATA-3965</a>] -         Windstep Master archetype not showing for Unchained Monk
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3970'>DATA-3970</a>] -         Some Kineticist infusions reference their prerequisites incorrectly
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3973'>DATA-3973</a>] -         Plantmaster Requires code from Advanced Race Guide, which is not a required book. 
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3975'>DATA-3975</a>] -         Glamoured Studded Leather armor does not add +1 magic bonus to AC
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3976'>DATA-3976</a>] -         Kineticist expanded element screws with character level?
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3978'>DATA-3978</a>] -         Starfinder Summon Creature Spell (Page 144) missing from Alien Archive Data
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3981'>DATA-3981</a>] -         Duplicate skill
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3983'>DATA-3983</a>] -         Summoner Synthesist Eidolon Ultimate Magic Combined - Temp Bonus not working
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3984'>DATA-3984</a>] -         Oracle Mysteries in UM don&#39;t correctly handle Final Revelation changes for archetypes
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3989'>DATA-3989</a>] -         Mummy&#39;s Mask Player&#39;s Guide traits turn red on selection
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3990'>DATA-3990</a>] -         Starfinder - Theme lists all benefits (6th, 12th, 18th) at low level
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3992'>DATA-3992</a>] -         The Summoner Archtype Shadow Caller is giving eidolon double the level it should have
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3993'>DATA-3993</a>] -         [Starfinder] Mechanic Tricks not showing up in summary tab or output sheets
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4001'>DATA-4001</a>] -         Duplication of skill situations for Acrobatics
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4005'>DATA-4005</a>] -         Youthful Mischief Elf Trait from Elves of Golarion doesn&#39;t add the +1 Trait Bonus to Reflex Save
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4008'>DATA-4008</a>] -         5e cantrip Spare the Dying is in the OGL SRD 5.1 but not the PCGen data set.
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4012'>DATA-4012</a>] -         Pathfinder: Alchemical weapons receive penalty for inappropriate size
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4016'>DATA-4016</a>] -         Unchained Summoner Twinned Eidolon Missing Base Form Fix
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4018'>DATA-4018</a>] -         Kineticist wild talents has the wrong prerequisite
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4020'>DATA-4020</a>] -         Trait Intense Artist has no effect
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4024'>DATA-4024</a>] -         Pathfinder Monster Codex source is missing the &quot;Oversized Goblin&quot; racial variant
+</li>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-4027'>DATA-4027</a>] -         Source &quot;Advanced Class Guide&quot; isnt part of the Requirements of source &quot;Kobolds of Golarion&quot;
+</li>
+</ul>
+        
+<h2>        New Feature
+</h2>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3842'>DATA-3842</a>] -         [Starfinder] UPB&#39;s should be interchangeable with credits
+</li>
+</ul>
+            
+<h2>        Improvement
+</h2>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/DATA-3952'>DATA-3952</a>] -         [STARFINDER] Vision and movement bonuses from augmentations not showing up.
+</li>
+</ul>
+
+
+ Release notes - Code - Version 6.09.01
+            
+<h2>        Bug
+</h2>
+<ul>
+<li>[<a href='https://pcgenorg.atlassian.net/browse/CODE-3454'>CODE-3454</a>] -         Preferences do not save when applying
+</li>
+</ul>
+           
+
+No other Sub-Project groups report any bugs/features... Closed for this version.
+
+
+	</body>
+</html>
