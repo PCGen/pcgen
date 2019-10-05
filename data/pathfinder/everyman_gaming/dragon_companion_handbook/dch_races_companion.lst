@@ -2,7 +2,7 @@
 
 
 # Race Name		SORTKEY			Unique Key			Starting Feats	Move			Ability									Nb Legs	Nb Hands	Monster Class Name and Starting Level	Main Race Type	Type		Source Page
-Dragon Companion	SORTKEY:Z_Companion	KEY:Dragon Companion	STARTFEATS:1	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Dragon Companion	LEGS:4	HANDS:2	MONSTERCLASS:Draconic Companion:2		RACETYPE:Dragon	TYPE:Dragon	SOURCEPAGE:p.25
+Dragon Companion	SORTKEY:Z_Companion	KEY:Dragon Companion	STARTFEATS:1	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Racial Traits ~ Dragon Companion	LEGS:4	HANDS:2	MONSTERCLASS:Draconic Companion:2		RACETYPE:Dragon	TYPE:Dragon	SOURCEPAGE:p.25	FACT:BaseSize|T
 
 
 ###Block: Alternative Method

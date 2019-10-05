@@ -79,7 +79,7 @@ Paralyzed			VISIBLE:NO	TEMPDESC:Your Dex modifier is -5, and you cannot move but
 #Pinned			VISIBLE:NO	TEMPDESC:[Not Implemented]You cannot move, you’re flat-footed, and you take penalties to the same attributes as for grappled but the penalty is -4.
 #Prone				VISIBLE:NO	TEMPDESC:[Not Implemented]You take a -4 penalty to melee attacks, a +4 bonus to AC against ranged attacks, and a -4 penalty to AC against melee attacks.
 Shaken			VISIBLE:NO	TEMPDESC:[Not Implemented]You take a -2 penalty to ability checks, attack rolls, saving throws, and skill checks.		TEMPBONUS:ANYPC|COMBAT|AC|-2	TEMPBONUS:ANYPC|COMBAT|TOHIT|-2	TEMPBONUS:ANYPC|SAVES|Reflex|-2		TEMPBONUS:ANYPC|SKILL|TYPE=Base|-2
-Sickened			VISIBLE:NO	TEMPDESC:[Not Implemented]You take a -2 penalty to ability checks, attack rolls, weapon damage rolls, saving throws, and skill checks.		TEMPBONUS:ANYPC|COMBAT|AC|-2	TEMPBONUS:ANYPC|COMBAT|TOHIT,DAMAGE|-2	TEMPBONUS:ANYPC|SAVES|Fortitude,Reflex,Will|-2		TEMPBONUS:ANYPC|SKILL|TYPE=Base|-2
+Sickened			VISIBLE:NO	TEMPDESC:[Not Implemented]You take a -2 penalty to ability checks, attack rolls, weapon damage rolls, saving throws, and skill checks.		TEMPBONUS:ANYPC|COMBAT|AC|-2	TEMPBONUS:ANYPC|COMBAT|TOHIT,DAMAGE|-2	TEMPBONUS:ANYPC|SAVE|Fortitude,Reflex,Will|-2		TEMPBONUS:ANYPC|SKILL|TYPE=Base|-2
 #Stable			VISIBLE:NO	TEMPDESC:You’re no longer dying, but you are still unconscious.
 Staggered			VISIBLE:NO	TEMPDESC:You can take only a single move or standard action each round and can’t take reactions, but you can take swift actions as normal.
 Stunned			VISIBLE:NO	TEMPDESC:You drop everything held, you can’t take actions, and you’re flat-footed.

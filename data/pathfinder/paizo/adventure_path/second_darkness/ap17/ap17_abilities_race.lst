@@ -4,11 +4,11 @@ SOURCELONG:Second Darkness, Chapter 5: A Memory of Darkness	SOURCESHORT:AP17	SOU
 
 ###Block: Banshee Abilities
 # Ability Name		Unique Key						Category of Ability		Type								Visible	Description															Bonus to HP				Save bonus				Source Page
-Hear Heartbeat									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense				DESC:A banshee can sense the beating hearts of living creatures with horrific ease.													SOURCEPAGE:p.80
-Unholy Fortitude									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																					BONUS:HP|CURRENTMAX|CHA*TL	BONUS:SAVE|Fortitude|CHA	SOURCEPAGE:p.80
-Wail											CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary					DESC:A banshee's wail is its most notorious and devastating attack, DC %1|10+(HD/2)+CHA												SOURCEPAGE:p.80
-Fear				KEY:Fear ~ Banshee				CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES	DESC:The touch of a banshee infuses the living with overwhelming waves of fear.													SOURCEPAGE:p.80
-Sunlight Powerlessness	KEY:Sunlight Powerlessness ~ Banshee	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:A banshee is powerless in natural sunlight (not merely a daylight spell) and flees from it											SOURCEPAGE:p.80
+Hear Heartbeat		KEY:Banshee ~ Hear Heartbeat									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Sense				DESC:A banshee can sense the beating hearts of living creatures with horrific ease.													SOURCEPAGE:p.80
+Unholy Fortitude		KEY:Banshee ~ Unholy Fortitude									CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																					BONUS:HP|CURRENTMAX|CHA*TL	BONUS:SAVE|Fortitude|CHA	SOURCEPAGE:p.80
+Wail				KEY:Banshee ~ Wail											CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary					DESC:A banshee's wail is its most notorious and devastating attack, DC %1|10+(HD/2)+CHA												SOURCEPAGE:p.80
+Fear				KEY:Banshee ~ Fear								CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural			VISIBLE:YES	DESC:The touch of a banshee infuses the living with overwhelming waves of fear.													SOURCEPAGE:p.80
+Sunlight Powerlessness	KEY:Banshee ~ Sunlight Powerlessness		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:A banshee is powerless in natural sunlight (not merely a daylight spell) and flees from it											SOURCEPAGE:p.80
 
 ###Block: Leucrotta Abilities
 # Ability Name	Category of Ability		Type						Description																								Source Page
