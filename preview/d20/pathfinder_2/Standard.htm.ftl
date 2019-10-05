@@ -1879,7 +1879,7 @@ ${pcstring('ABILITYALL.Racial Trait.VISIBLE.${RacialTrait}.TYPE=Racial Trait.DES
 <#if (pcvar('count("ABILITIES","CATEGORY=Ancestry","TYPE=Ancestry","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
    <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
     <tr>
-     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>AncestryS</b></font></th>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>Ancestry Features</b></font></th>
     </tr>
 <@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Ancestry","TYPE=Ancestry","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; Ancestry , Ancestry_has_next>
 <#if (Ancestry % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
@@ -1994,6 +1994,37 @@ ${pcstring('ABILITYALL.Class Feature.VISIBLE.${ClassFeature}.TYPE=Class Feature.
    </table>
 </#if>
 <!-- STOP Class Feature Table -->
+
+<!-- START Alchemy Table -->
+<#if (pcvar('count("ABILITIES","CATEGORY=Power List","TYPE=Alchemy","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>Alchemy</b></font></th>
+    </tr>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Power List","TYPE=Alchemy","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; Alchemy , Alchemy_has_next>
+<#if (Alchemy % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+     <td valign="top" width="70%" class="font8"><b>
+<#assign typeOfAbility = pcstring("ABILITYALL.Power List.VISIBLE.${Alchemy}.TYPE=Alchemy.TYPE")?lower_case />
+<#if (pcstring("ABILITYALL.Power List.VISIBLE.${Alchemy}.TYPE=Alchemy.HASASPECT.Name") = "Y")>
+${pcstring('ABILITYALL.Power List.VISIBLE.${Alchemy}.TYPE=Alchemy.ASPECT.Name')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+<#else>
+${pcstring('ABILITYALL.Power List.VISIBLE.${Alchemy}.TYPE=Alchemy')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+</#if>
+</b>
+</td>
+<td class="font8" valign="top"	width="30%" align="right">[${pcstring('ABILITYALL.Power List.VISIBLE.${Alchemy}.TYPE=Alchemy.SOURCE')}]</td>
+<tr>
+<#if (Alchemy % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+<td class="font8" valign="top"	align="indent" colspan="2">&#160;&#160;&#160;&#160;
+${pcstring('ABILITYALL.Power List.VISIBLE.${Alchemy}.TYPE=Alchemy.DESC')}</td>
+    </tr>
+</@loop>
+   </table>
+</#if>
+<!-- STOP Alchemy Table -->
+
 
 <!-- START Ancestry Feat Table -->
 <#if (pcvar('count("ABILITIES","CATEGORY=Ancestry Feat","TYPE=Ancestry Feat","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
