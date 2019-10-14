@@ -20,15 +20,21 @@ package pcgen.base.formula;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
 class MultiplyingFormulaTest
 {
+	private MultiplyingFormula f;
+
+	@BeforeEach
+	void setUp()
+	{
+		f = new MultiplyingFormula(1);
+	}
 
 	@Test
 	public void testToString()
@@ -45,7 +51,14 @@ class MultiplyingFormulaTest
 		MultiplyingFormula f = new MultiplyingFormula(1);
 		assertEquals(2, f.resolve(2).intValue());
 		assertEquals(2, f.resolve(2.5).intValue());
-		testBrokenCalls(f);
+	}
+
+	@Test
+	public void testZero()
+	{
+		MultiplyingFormula f = new MultiplyingFormula(0);
+		assertEquals(0, f.resolve(5).intValue());
+		assertEquals(0, f.resolve(2.3).intValue());
 	}
 
 	@Test
@@ -55,10 +68,8 @@ class MultiplyingFormulaTest
 		MultiplyingFormula f2 = new MultiplyingFormula(1);
 		MultiplyingFormula f3 = new MultiplyingFormula(2);
 		MultiplyingFormula f4 = new MultiplyingFormula(-1);
-		assertNotSame(f1, f2);
 		assertEquals(f1.hashCode(), f2.hashCode());
 		assertEquals(f1, f2);
-		assertNotNull(f1);
 		assertNotEquals(f1.hashCode(), f3.hashCode());
 		assertNotEquals(f1, f3);
 		assertNotEquals(f1.hashCode(), f4.hashCode());
@@ -70,18 +81,7 @@ class MultiplyingFormulaTest
 	{
 		MultiplyingFormula f = new MultiplyingFormula(3);
 		assertEquals(15, f.resolve(5).intValue());
-		//TODO Need to specify the order of operations - is this rounded first or second?
-		//assertEquals(17, f.resolve(Double.valueOf(5.5)).intValue());
-		testBrokenCalls(f);
-	}
-
-	@Test
-	public void testZero()
-	{
-		MultiplyingFormula f = new MultiplyingFormula(0);
-		assertEquals(0, f.resolve(5).intValue());
-		assertEquals(0, f.resolve(2.3).intValue());
-		testBrokenCalls(f);
+		assertEquals((int) (3 * 5.5), f.resolve(5.5).intValue());
 	}
 
 	@Test
@@ -89,29 +89,25 @@ class MultiplyingFormulaTest
 	{
 		MultiplyingFormula f = new MultiplyingFormula(-2);
 		assertEquals(-10, f.resolve(5).intValue());
-		//TODO Need to specify the order of operations - is this rounded first or second?
-		//assertEquals(13, f.resolve(Double.valueOf(-6.7)).intValue());
-		testBrokenCalls(f);
+		assertEquals((int) (-6.7 * -2), f.resolve(-6.7));
 	}
 
-	private void testBrokenCalls(MultiplyingFormula f)
+	@Test
+	void testInputNotNull()
 	{
-		assertThrows(IllegalArgumentException.class, () -> {
-			f.resolve((Number[]) null);
-			},
-				"null should be illegal");
-		assertThrows(IllegalArgumentException.class, () -> {
-			f.resolve();
-			},
-			"empty array should be illegal");
-		assertThrows(IllegalArgumentException.class, () -> {
-			f.resolve(4, 2.5);
-			},
-			"two arguments in array should be illegal");
+		assertThrows(IllegalArgumentException.class, () -> f.resolve((Number[]) null));
+	}
 
-		assertThrows(IllegalArgumentException.class, () -> {
-			f.resolve(4, 2.5);
-		}, "two arguments should be illegal");
+	@Test
+	void testInputNotEmpty()
+	{
+		assertThrows(IllegalArgumentException.class, () -> f.resolve());
+	}
+
+	@Test
+	void testInputNotLongerThan1()
+	{
+		assertThrows(IllegalArgumentException.class, () -> f.resolve(4, 2.5));
 	}
 
 }

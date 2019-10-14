@@ -19,15 +19,22 @@ package pcgen.base.formula;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNotSame;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 
 class DividingFormulaTest
 {
+
+	private DividingFormula f;
+
+	@BeforeEach
+	void setUp()
+	{
+		f = new DividingFormula(2);
+	}
 
 	@Test
 	public void testToString()
@@ -43,7 +50,6 @@ class DividingFormulaTest
 		DividingFormula f = new DividingFormula(1);
 		assertEquals(2, f.resolve(2).intValue());
 		assertEquals(2, f.resolve(2.5).intValue());
-		testBrokenCalls(f);
 	}
 
 	@Test
@@ -53,10 +59,8 @@ class DividingFormulaTest
 		DividingFormula f2 = new DividingFormula(1);
 		DividingFormula f3 = new DividingFormula(2);
 		DividingFormula f4 = new DividingFormula(-1);
-		assertNotSame(f1, f2);
 		assertEquals(f1.hashCode(), f2.hashCode());
 		assertEquals(f1, f2);
-		assertNotNull(f1);
 		assertNotEquals(f1.hashCode(), f3.hashCode());
 		assertNotEquals(f1, f3);
 		assertNotEquals(f1.hashCode(), f4.hashCode());
@@ -71,22 +75,13 @@ class DividingFormulaTest
 		assertEquals(2, f.resolve(6).intValue());
 		assertEquals(2, f.resolve(7).intValue());
 		assertEquals(2, f.resolve(6.5).intValue());
-		testBrokenCalls(f);
 	}
 
 	@SuppressWarnings("unused")
 	@Test
 	public void testZero()
 	{
-		try
-		{
-			new DividingFormula(0);
-			fail("DividingFormula should not allow build with zero (will always fail)");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
+		assertThrows(IllegalArgumentException.class, () -> new DividingFormula(0));
 	}
 
 	@Test
@@ -95,47 +90,32 @@ class DividingFormulaTest
 		DividingFormula f = new DividingFormula(-2);
 		assertEquals(-2, f.resolve(5).intValue());
 		assertEquals(3, f.resolve(-6.7).intValue());
-		testBrokenCalls(f);
+		assertEquals(2, f.resolve(-4));
 	}
 
-	private void testBrokenCalls(DividingFormula f)
+	@Test
+	public void testStackedFormulas()
 	{
-		try
-		{
-			f.resolve((Number[]) null);
-			fail("null should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
-			f.resolve();
-			fail("empty array should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
-			f.resolve(4, 2.5);
-			fail("two arguments in array should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		try
-		{
-			f.resolve(4, 2.5);
-			fail("two arguments should be illegal");
-		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
+		assertEquals(2, f.resolve(f.resolve(8)));
+		assertEquals(2, f.resolve(f.resolve(8.74)));
+	}
+
+	@Test
+	void testInputNotNull()
+	{
+		assertThrows(IllegalArgumentException.class, () -> f.resolve((Number[]) null));
+	}
+
+	@Test
+	void testInputNotEmpty()
+	{
+		assertThrows(IllegalArgumentException.class, () -> f.resolve());
+	}
+
+	@Test
+	void testInputNotLongerThan1()
+	{
+		assertThrows(IllegalArgumentException.class, () -> f.resolve(4, 2.5));
 	}
 
 }
