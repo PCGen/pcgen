@@ -37,7 +37,7 @@ class MultiplyingFormulaTest
 	}
 
 	@Test
-	public void testToString()
+	void testToString()
 	{
 		assertEquals("*1", new MultiplyingFormula(1).toString());
 		assertEquals("*3", new MultiplyingFormula(3).toString());
@@ -46,7 +46,7 @@ class MultiplyingFormulaTest
 	}
 
 	@Test
-	public void testIdentity()
+	void testIdentity()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(1);
 		assertEquals(2, f.resolve(2).intValue());
@@ -54,7 +54,7 @@ class MultiplyingFormulaTest
 	}
 
 	@Test
-	public void testZero()
+	void testZero()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(0);
 		assertEquals(0, f.resolve(5).intValue());
@@ -62,7 +62,7 @@ class MultiplyingFormulaTest
 	}
 
 	@Test
-	public void testEquality()
+	void testEquality()
 	{
 		MultiplyingFormula f1 = new MultiplyingFormula(1);
 		MultiplyingFormula f2 = new MultiplyingFormula(1);
@@ -77,7 +77,7 @@ class MultiplyingFormulaTest
 	}
 
 	@Test
-	public void testPositive()
+	void testPositive()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(3);
 		assertEquals(15, f.resolve(5).intValue());
@@ -85,7 +85,7 @@ class MultiplyingFormulaTest
 	}
 
 	@Test
-	public void testNegative()
+	void testNegative()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(-2);
 		assertEquals(-10, f.resolve(5).intValue());

@@ -37,7 +37,7 @@ class DividingFormulaTest
 	}
 
 	@Test
-	public void testToString()
+    void testToString()
 	{
 		assertEquals("/1", new DividingFormula(1).toString());
 		assertEquals("/3", new DividingFormula(3).toString());
@@ -45,7 +45,7 @@ class DividingFormulaTest
 	}
 	
 	@Test
-	public void testIdentity()
+    void testIdentity()
 	{
 		DividingFormula f = new DividingFormula(1);
 		assertEquals(2, f.resolve(2).intValue());
@@ -53,7 +53,7 @@ class DividingFormulaTest
 	}
 
 	@Test
-	public void testEquality()
+    void testEquality()
 	{
 		DividingFormula f1 = new DividingFormula(1);
 		DividingFormula f2 = new DividingFormula(1);
@@ -68,7 +68,7 @@ class DividingFormulaTest
 	}
 
 	@Test
-	public void testPositive()
+    void testPositive()
 	{
 		DividingFormula f = new DividingFormula(3);
 		assertEquals(1, f.resolve(5).intValue());
@@ -79,13 +79,13 @@ class DividingFormulaTest
 
 	@SuppressWarnings("unused")
 	@Test
-	public void testZero()
+    void testZero()
 	{
 		assertThrows(IllegalArgumentException.class, () -> new DividingFormula(0));
 	}
 
 	@Test
-	public void testNegative()
+    void testNegative()
 	{
 		DividingFormula f = new DividingFormula(-2);
 		assertEquals(-2, f.resolve(5).intValue());
@@ -94,7 +94,7 @@ class DividingFormulaTest
 	}
 
 	@Test
-	public void testStackedFormulas()
+    void testStackedFormulas()
 	{
 		assertEquals(2, f.resolve(f.resolve(8)));
 		assertEquals(2, f.resolve(f.resolve(8.74)));

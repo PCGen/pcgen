@@ -38,7 +38,7 @@ class SubtractingFormulaTest
 		f = new SubtractingFormula(1);
 	}
 	@Test
-	public void testToString()
+	void testToString()
 	{
 		assertEquals("-1", new SubtractingFormula(1).toString());
 		assertEquals("-3", new SubtractingFormula(3).toString());
@@ -47,7 +47,7 @@ class SubtractingFormulaTest
 	}
 	
 	@Test
-	public void testIdentity()
+	void testIdentity()
 	{
 		SubtractingFormula f = new SubtractingFormula(1);
 		assertEquals(-1, f.resolve(0).intValue());
@@ -56,7 +56,7 @@ class SubtractingFormulaTest
 	}
 
 	@Test
-	public void testEquality()
+	void testEquality()
 	{
 		SubtractingFormula f1 = new SubtractingFormula(1);
 		SubtractingFormula f2 = new SubtractingFormula(1);
@@ -71,7 +71,7 @@ class SubtractingFormulaTest
 	}
 
 	@Test
-	public void testPositive()
+	void testPositive()
 	{
 		SubtractingFormula f = new SubtractingFormula(3);
 		assertEquals(2, f.resolve(5).intValue());
@@ -79,7 +79,7 @@ class SubtractingFormulaTest
 	}
 
 	@Test
-	public void testZero()
+	void testZero()
 	{
 		SubtractingFormula f = new SubtractingFormula(0);
 		assertEquals(5, f.resolve(5).intValue());
@@ -87,7 +87,7 @@ class SubtractingFormulaTest
 	}
 
 	@Test
-	public void testNegative()
+	void testNegative()
 	{
 		SubtractingFormula f = new SubtractingFormula(-2);
 		assertEquals(7, f.resolve(5).intValue());
