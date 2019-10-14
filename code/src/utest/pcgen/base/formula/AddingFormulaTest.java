@@ -38,7 +38,7 @@ class AddingFormulaTest
     }
 
     @Test
-    public void testToString()
+    void testToString()
     {
         assertEquals("+1", new AddingFormula(1).toString());
         assertEquals("+0", new AddingFormula(0).toString());
@@ -48,7 +48,7 @@ class AddingFormulaTest
 
 
     @Test
-    public void testIdentity()
+    void testIdentity()
     {
         AddingFormula f = new AddingFormula(1);
         assertEquals(1, f.resolve(0).intValue());
@@ -56,7 +56,7 @@ class AddingFormulaTest
     }
 
     @Test
-    public void testEquality()
+    void testEquality()
     {
         AddingFormula f1 = new AddingFormula(1);
         AddingFormula f2 = new AddingFormula(1);
@@ -73,7 +73,7 @@ class AddingFormulaTest
     }
 
     @Test
-    public void testPositive()
+    void testPositive()
     {
         AddingFormula f = new AddingFormula(3);
         assertEquals(8, f.resolve(5).intValue());
@@ -81,7 +81,7 @@ class AddingFormulaTest
     }
 
     @Test
-    public void testZero()
+    void testZero()
     {
         AddingFormula f = new AddingFormula(0);
         assertEquals(5, f.resolve(5).intValue());
@@ -89,7 +89,7 @@ class AddingFormulaTest
     }
 
     @Test
-    public void testNegative()
+    void testNegative()
     {
         AddingFormula f = new AddingFormula(-2);
         assertEquals(3, f.resolve(5).intValue());
@@ -97,19 +97,19 @@ class AddingFormulaTest
     }
 
     @Test
-    public void testInputNotNull()
+    void testInputNotNull()
     {
         assertThrows(IllegalArgumentException.class, () -> f.resolve((Number[]) null));
     }
 
     @Test
-    public void testInputNotEmpty()
+    void testInputNotEmpty()
     {
         assertThrows(IllegalArgumentException.class, () -> f.resolve());
     }
 
     @Test
-    public void testInputNotLongerThan1()
+    void testInputNotLongerThan1()
     {
         assertThrows(IllegalArgumentException.class, () -> f.resolve(4, 2.5));
     }
