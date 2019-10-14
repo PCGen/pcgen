@@ -1,0 +1,187 @@
+SOURCELONG:Paths of the Righteous	SOURCESHORT:PATHR	SOURCEWEB:http://paizo.com/products/btpy9oo9	SOURCEDATE:2016-12
+
+###Ashavic Dancer
+# Class Name			Product Identity?	Hit Dice		Type			Max Level	Source Page		Define					Combat bonus																		Save bonus																							Modify VAR																																																																			FACT
+CLASS:Ashavic Dancer	NAMEISPI:YES	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.4	DEFINE:AshavicDancerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|AshavicDancerLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|AD
+# Class Name			Requirements
+CLASS:Ashavic Dancer	PREABILITY:1,CATEGORY=FEAT,Ghost Whisperer	PRESKILL:2,Knowledge (religion)=3,Perform (dance)=6	PREALIGN:NG,CG	PREDEITY:1,Ashava	PRESPELLTYPE:1,ANY=2
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Ashavic Dancer	STARTSKILLPTS:4	CSKILL:Acrobatics|Diplomacy|Fly|Knowledge (planes)|Knowledge (religion)|Perception|Perform (dance)|Sense Motive|Survival|Spellcraft
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Ashavic Dancer ~ Ashavic Performance|Ashavic Dancer ~ Deathwaking Dance
+2	ABILITY:Special Ability|AUTOMATIC|Ashavic Dancer ~ Ashavic Rites|Ashavic Dancer ~ Peerless Dancer
+3	ABILITY:Special Ability|AUTOMATIC|Ashavic Dancer ~ Untethering Steps
+4	ABILITY:Special Ability|AUTOMATIC|Ashavic Dancer ~ Ghostly Grace
+6	ABILITY:Special Ability|AUTOMATIC|Ashavic Dancer ~ Soothing Performance
+7	ABILITY:Special Ability|AUTOMATIC|Ashavic Dancer ~ Exorcist's Waltz
+10	ABILITY:Special Ability|AUTOMATIC|Ashavic Dancer ~ True Spark's Guidance
+###Block: Spell Improvement
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+
+
+###Brewkeeper
+# Class Name			Hit Dice		Type			Max Level	Source Page		Define				Combat bonus																		Save bonus																						Modify VAR																																																																		FACT
+CLASS:Brewkeeper		HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.6	DEFINE:BrewkeeperLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|BrewkeeperLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Brw
+# Class Name			Requirements
+CLASS:Brewkeeper		PREALIGN:NG,CG	PREDEITY:1,Cayden Cailean	PRESKILL:1,Craft (alchemy)=5,Profession (brewer)=5	PREABILITY:1,CATEGORY=FEAT,Brew Potion	PRESPELLTYPE:1,ANY=2
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Brewkeeper		STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|TYPE=Craft|Diplomacy|Knowledge (local)|Knowledge (religion)|TYPE=Profession|Swim|Use Magic Device
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Brewkeeper ~ Distilled Spells|Brewkeeper ~ Faithful Drinker
+2	ABILITY:Special Ability|AUTOMATIC|Brewkeeper ~ Brew Reservoir|Brewkeeper ~ Helpful Homebrew
+3	ABILITY:Special Ability|AUTOMATIC|Brewkeeper ~ Harmful Homebrew|Brewkeeper ~ Potion Master
+5	ABILITY:Special Ability|AUTOMATIC|Brewkeeper ~ Brew Specialization
+6	ABILITY:Special Ability|AUTOMATIC|Brewkeeper ~ Quick Brewing
+10	ABILITY:Special Ability|AUTOMATIC|Brewkeeper ~ True Brewkeeper
+###Block: Spell Improvement
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+
+
+###Darechaser
+# Class Name		Hit Dice		Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																						Modify VAR																																																																	FACT
+CLASS:Darechaser	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.10	DEFINE:DarechaserLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|DarechaserLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Dar
+# Class Name		Requirements
+CLASS:Darechaser	PRETOTALAB:5	PREALIGN:LG,NG,CG	PREDEITY:1,Kurgess	PREABILITY:1,CATEGORY=FEAT,Athletic	PRESKILL:3,Acrobatics=5,Climb=5,Swim=5
+# Class Name		Skill Pts/Lvl		Class Skill
+CLASS:Darechaser	STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|Escape Artist|Handle Animal|Perception|TYPE=Perform|Ride|Sense Motive|Swim
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Darechaser ~ Adrenaline Rush|Darechaser ~ Dare
+2	ABILITY:Special Ability|AUTOMATIC|Darechaser ~ Adrenaline Deed
+10	ABILITY:Special Ability|AUTOMATIC|Darechaser ~ Record Breaker
+
+
+###Devoted Muse
+# Class Name			Hit Dice		Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																							Modify VAR																																																																	FACT
+CLASS:Devoted Muse	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.14	DEFINE:DevotedMuseLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|DevotedMuseLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|DvM
+# Class Name			Requirements
+CLASS:Devoted Muse	PRETOTALAB:5	PREALIGN:LG,NG,CG	PREDEITY:1,Shelyn	PRESKILL:3,Bluff=3,Knowledge (history)=3,Perform (dance)=5	PREABILITY:3,CATEGORY=FEAT,Combat Expertise,Improved Feint,Weapon Finesse
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Devoted Muse	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|TYPE=Craft|Escape Artist|Knowledge (history)|Knowledge (local)|Knowledge (nobility)|Knowledge (religion)|Perception|TYPE=Perform|Sense Motive|Sleight of Hand|Swim
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Devoted Muse ~ Artful Defense|Devoted Muse ~ Deeds|Devoted Muse ~ Panache
+2	ABILITY:Special Ability|AUTOMATIC|Devoted Muse ~ Artistic Flourish|Devoted Muse ~ Harmonious Strike
+3	ABILITY:Special Ability|AUTOMATIC|Devoted Muse ~ Feinting Feat
+4	ABILITY:Special Ability|AUTOMATIC|Devoted Muse ~ Limitless Art
+
+
+###Heritor Knight
+# Class Name			Hit Dice		Type			Max Level	Source Page		Define					Combat bonus																	Save bonus																							Modify VAR																																																																	FACT
+CLASS:Heritor Knight	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.15	DEFINE:HeritorKnightLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|HeritorKnightLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|HKn
+# Class Name			Requirements
+CLASS:Heritor Knight	PRETOTALAB:5	PREALIGN:LG,NG,LN	PREDEITY:1,Iomedae	PRESKILL:1,Knowledge (religion)=5	PREABILITY:3,CATEGORY=FEAT,Iron Will,Skill Focus (Knowledge (religion)),Weapon Focus (longsword)
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Heritor Knight	STARTSKILLPTS:2	CSKILL:Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (history)|Perform (oratory)|Ride|Sense Motive
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Heritor Knight ~ Skill and Heart as One|Heritor Knight ~ Savior of the Swallowed
+2	ABILITY:Special Ability|AUTOMATIC|Heritor Knight ~ Heritor's Honor|Heritor Knight ~ Witches' Woe
+3	ABILITY:Special Ability|AUTOMATIC|Heritor Knight ~ Skyreaver
+4	ABILITY:Special Ability|AUTOMATIC|Heritor Knight ~ Wraithwall
+5	ABILITY:Special Ability|AUTOMATIC|Heritor Knight ~ Mohrgbreaker
+6	ABILITY:Special Ability|AUTOMATIC|Heritor Knight ~ Mighty Strike|Heritor Knight ~ Reforged Heart
+7	ABILITY:Special Ability|AUTOMATIC|Heritor Knight ~ Image of Divinity
+8	ABILITY:Special Ability|AUTOMATIC|Heritor Knight ~ Redeemer of Undeath
+9	ABILITY:Special Ability|AUTOMATIC|Heritor Knight ~ Freed by Blood
+10	ABILITY:Special Ability|AUTOMATIC|Heritor Knight ~ Sky Stride|Heritor Knight ~ Unveiling Mistress
+
+
+###Hinterlander
+# Class Name			Hit Dice		Type			Max Level	Source Page		Define					Combat bonus																		Save bonus																						Modify VAR																																																																		FACT
+CLASS:Hinterlander	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.17	DEFINE:HinterlanderLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|HinterlanderLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Hin
+# Class Name			Requirements
+CLASS:Hinterlander	PREALIGN:LG,NG	PREDEITY:1,Erastil	PRESKILL:2,Knowledge (nature)=5,Survival=5	PREABILITY:2,CATEGORY=FEAT,Endurance,Weapon Focus (longbow)	PRESPELLTYPE:1,ANY=1
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Hinterlander	STARTSKILLPTS:4	CSKILL:Climb|Escape Artist|Handle Animal|Heal|Knowledge (geography)|Knowledge (local)|Knowledge (nature)|Knowledge (religion)|Perception|Ride|Survival|Stealth|Swim
+###Block: Normal Level Progression
+1	ABILITY:Internal|AUTOMATIC|Hinterlander ~ Weapon and Armor Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Hinterlander ~ Favored Enemy|Hinterlander ~ Master Archer
+2	ABILITY:Special Ability|AUTOMATIC|Hinterlander ~ Fast Movement|Hinterlander ~ Favored Terrain (Hinterland)
+3	ABILITY:Special Ability|AUTOMATIC|Hinterlander ~ Hinterland Stride
+4	ABILITY:Special Ability|AUTOMATIC|Hinterlander ~ Chosen Kin
+6	ABILITY:Special Ability|AUTOMATIC|Hinterlander ~ Defended Hearth
+7	ABILITY:Special Ability|AUTOMATIC|Hinterlander ~ Imbue Arrow
+10	ABILITY:Special Ability|AUTOMATIC|Hinterlander ~ Waymarker Travel
+###Block: Spell Improvement
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+
+
+###Rose Warden
+# Class Name			Hit Dice		Type			Max Level	Source Page		Define				Combat bonus																		Save bonus																							Modify VAR																																																																			FACT
+CLASS:Rose Warden		HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.20	DEFINE:RoseWardenLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|RoseWardenLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|RW
+# Class Name			Requirements
+CLASS:Rose Warden	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRESKILL:2,Disguise=5,Stealth=5	PREALIGN:CG	PREDEITY:1,Milani
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Rose Warden	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|Diplomacy|Disable Device|Disguise|Escape Artist|Knowledge (local)|Perception|Sleight of Hand|Stealth
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Rose Warden ~ Anonymity|Rose Warden ~ Insurgent Technique|Rose Warden ~ Liberated Mind|Rose Warden ~ Street Sentinel
+2	ABILITY:Special Ability|AUTOMATIC|Rose Warden ~ Sneak Attack|Rose Warden ~ Voice of the Masses
+3	ABILITY:Special Ability|AUTOMATIC|Rose Warden ~ Cunning Disarm
+4	ABILITY:Special Ability|AUTOMATIC|Rose Warden ~ Insurrectionist
+7	ABILITY:Special Ability|AUTOMATIC|Rose Warden ~ Obfuscate
+9	ABILITY:Special Ability|AUTOMATIC|Rose Warden ~ Rallying Courage
+10	ABILITY:Special Ability|AUTOMATIC|Rose Warden ~ Smite Tyranny
+
+
+###Sacred Sentinel
+# Class Name			Hit Dice		Type			Max Level	Source Page		Define					Combat bonus																	Save bonus																							Modify VAR																																																																		FACT
+CLASS:Sacred Sentinel	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.24	DEFINE:SacredSentinelLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SacredSentinelLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|SSl
+# Class Name			Requirements
+CLASS:Sacred Sentinel	PRETOTALAB:6	PREALIGN:LG	PREDEITY:1,Torag	PREABILITY:6,CATEGORY=FEAT,Endurance,Toughness,Armor Proficiency (Light),Armor Proficiency (Medium),Armor Proficiency (Heavy),Shield Proficiency
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Sacred Sentinel	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|Knowledge (religion)|Perception|Ride|Sense Motive
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Sacred Sentinel ~ Code of Torag|Sacred Sentinel ~ Strategic Protection
+2	ABILITY:Special Ability|AUTOMATIC|Sacred Sentinel ~ Renewed Bonds
+3	ABILITY:Special Ability|AUTOMATIC|Sacred Sentinel ~ Healing Touch|Sacred Sentinel ~ Tempering Touch
+5	ABILITY:Special Ability|AUTOMATIC|Sacred Sentinel ~ Uncanny Dodge
+8	ABILITY:Special Ability|AUTOMATIC|Sacred Sentinel ~ Swift Shield Other
+10	ABILITY:Special Ability|AUTOMATIC|Sacred Sentinel ~ Unyielding
+
+
+###Scar Seeker
+# Class Name			Hit Dice		Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																							Modify VAR																																																																	FACT
+CLASS:Scar Seeker		HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.26	DEFINE:ScarSeekerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ScarSeekerLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|ScS
+# Class Name			Requirements
+CLASS:Scar Seeker		PRETOTALAB:5	PREALIGN:LG,NG	PREDEITY:1,Vildeis	PREABILITY:1,CATEGORY=FEAT,Toughness	PRESKILL:3,Heal=3,Intimidate=3,Knowledge (religion)=3
+# Class Name			Skill Pts/Lvl		Class Skill
+CLASS:Scar Seeker		STARTSKILLPTS:2	CSKILL:Heal|Intimidate|Knowledge (religion)|Sense Motive|Spellcraft
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Scar Seeker ~ Enduring Scar|Scar Seeker ~ Painful Purification
+2	ABILITY:Special Ability|AUTOMATIC|Scar Seeker ~ Lay on Hands
+4	ABILITY:Special Ability|AUTOMATIC|Scar Seeker ~ Smite Evil
+6	ABILITY:Special Ability|AUTOMATIC|Scar Seeker ~ Sanguine Sacrifice
+10	ABILITY:Special Ability|AUTOMATIC|Scar Seeker ~ True Martyr
+###Block: Spell Improvement
+2	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+
+
+
+
+

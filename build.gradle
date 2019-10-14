@@ -26,11 +26,11 @@ plugins {
     id 'idea'
     id "de.undercouch.download" version '4.0.0'
     id 'edu.sc.seis.launch4j' version '2.4.6'
-    id 'com.github.ben-manes.versions' version '0.25.0'
+    id 'com.github.ben-manes.versions' version '0.26.0'
     id "com.dorongold.task-tree" version '1.4'
     id "edu.sc.seis.macAppBundle" version "2.3.0"
     id 'org.openjfx.javafxplugin' version '0.0.8'
-    id 'org.beryx.runtime' version '1.4.0'
+    id 'org.beryx.runtime' version '1.7.0'
 }
 
 javafx {
@@ -169,9 +169,9 @@ compileJava {
 dependencies {
     compile group: 'commons-io', name: 'commons-io', version:'2.6'
 
-    compile group: 'org.springframework', name: 'spring-web', version:'5.1.9.RELEASE'
-    compile group: 'org.springframework', name: 'spring-core', version:'5.1.9.RELEASE'
-    compile group: 'org.springframework', name: 'spring-beans', version:'5.1.9.RELEASE'
+    compile group: 'org.springframework', name: 'spring-web', version:'5.2.0.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version:'5.2.0.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version:'5.2.0.RELEASE'
     compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.9'
     compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.3'
     compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'

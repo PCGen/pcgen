@@ -1,0 +1,4 @@
+SOURCELONG:Paths of the Righteous	SOURCESHORT:PATHR	SOURCEWEB:http://paizo.com/products/btpy9oo9	SOURCEDATE:2016-12
+
+Thassilonian Language						!PRELANG:1,Thassilonian			AUTO:LANG|Thassilonian
+New Thassilonian Bonus Language				PRELANG:1,Thassilonian			SELECT:1		CHOOSE:LANG|Aklo|Azlanti|Giant|Shoanti|Varisian
