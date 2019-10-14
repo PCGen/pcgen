@@ -62,10 +62,8 @@ class AddingFormulaTest
         AddingFormula f2 = new AddingFormula(1);
         AddingFormula f3 = new AddingFormula(2);
         AddingFormula f4 = new AddingFormula(-1);
-        assertNotSame(f1, f2);
         assertEquals(f1.hashCode(), f2.hashCode());
         assertEquals(f1, f2);
-        assertNotNull(f1);
         assertNotEquals(f1.hashCode(), f3.hashCode());
         assertNotEquals(f1, f3);
         assertNotEquals(f1.hashCode(), f4.hashCode());
