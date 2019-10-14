@@ -34,7 +34,7 @@ class AddingFormulaTest
     @BeforeEach
     void setUp()
     {
-        f = new AddingFormula(5);
+        f = new AddingFormula(1);
     }
 
     @Test
@@ -92,6 +92,19 @@ class AddingFormulaTest
         AddingFormula f = new AddingFormula(-2);
         assertEquals(3, f.resolve(5).intValue());
         assertEquals(-8, f.resolve(-6.7).intValue());
+    }
+
+    @Test
+    void testStackedFormula()
+    {
+        assertEquals(3, f.resolve(f.resolve(1)));
+        assertEquals( 3, f.resolve(f.resolve(1.2435643516)));
+    }
+
+    @Test
+    void testIntegerOverflow()
+    {
+        assertEquals(Integer.MIN_VALUE, f.resolve(Integer.MAX_VALUE));
     }
 
     @Test
