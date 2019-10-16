@@ -91,7 +91,7 @@ class MultiplyingFormulaTest
 	}
 
     @Test
-    void testRoundsLikeInteger()
+    void testRoundsLikeIntegerCastOnResult()
     {
         MultiplyingFormula negative = new MultiplyingFormula(-2);
         MultiplyingFormula positive = new MultiplyingFormula(2);
