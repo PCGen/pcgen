@@ -90,6 +90,15 @@ class MultiplyingFormulaTest
         assertEquals(-10, f.resolve(5));
 	}
 
+    @Test
+    void testRoundsLikeInteger()
+    {
+        MultiplyingFormula negative = new MultiplyingFormula(-2);
+        MultiplyingFormula positive = new MultiplyingFormula(2);
+        assertEquals((int) (-6.7 * -2), negative.resolve(-6.7));
+        assertEquals((int) (2 * 5.5), positive.resolve(5.5));
+    }
+
 	@Test
 	void testInputNotNull()
 	{
