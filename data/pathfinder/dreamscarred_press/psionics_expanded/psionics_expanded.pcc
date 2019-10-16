@@ -7,8 +7,8 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:None
 PRECAMPAIGN:1,DSP - Psionics Unleashed
-!PRECAMPAIGN:1,DSP - Psionics Expanded - Mind over Body,DSP - Psionics Expanded - Find the Mark,DSP - Psionics Expanded - Unlimited Possibilities,DSP - Psionics Expanded - Pawns and Powers,DSP - Psionics Expanded - Master the Battle
-#,DSP - Psionics Expanded - Hidden Intentions
+#!PRECAMPAIGN:1,DSP - Psionics Expanded - Find the Mark,DSP - Psionics Expanded - Unlimited Possibilities,DSP - Psionics Expanded - Pawns and Powers,DSP - Psionics Expanded - Master the Battle
+#,DSP - Psionics Expanded - Hidden Intentions,DSP - Psionics Expanded - Mind over Body
 STATUS:BETA
 PUBNAMELONG:Dreamscarred Press
 PUBNAMESHORT:DSP

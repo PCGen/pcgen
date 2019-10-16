@@ -15,24 +15,24 @@ Hellknight Leather.COPY=Hellknight Leather Barding			PROFICIENCY:ARMOR|Barding (
 Hellknight Plate.COPY=Hellknight Plate Barding				PROFICIENCY:ARMOR|Barding (Heavy)						TYPE:Barding.Mount	EQMOD:Special Quality ~ Nonhumanoid ~ Armor	SOURCEPAGE:p.96
 
 Aldori Dueling Sword.COPY=Rostland Edge		NAMEISPI:YES	EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Countering ~ Melee.Special Ability ~ Impervious ~ Weapon.Special Ability ~ Enhancement Cost|500			SOURCEPAGE:p.26
-Sword (Bastard).COPY=Talonstrike Sword					EQMOD:Material ~ Mithril ~ Weapon / Item.Special Ability ~ +2 ~ Weapon.Special Ability ~ Defending ~ Melee.Special Ability ~ Enhancement Cost|12000			SOURCEPAGE:p.77
-Longsword.COPY=Rose Knight's Blade			NAMEISPI:YES	EQMOD:Material ~ Mithril ~ Weapon / Item.Special Ability ~ +1 ~ Weapon.Special Ability ~ Benevolent ~ Melee.Special Ability ~ Enhancement Cost|19000			SOURCEPAGE:p.87
-Mace (Light).COPY=Signifer's Fist			NAMEISPI:YES	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Enhancement Cost|8000															SOURCEPAGE:p.97
+Bastard Sword (Base).COPY=Talonstrike Sword					EQMOD:Material ~ Mithril ~ Weapon / Item.Special Ability ~ +2 ~ Weapon.Special Ability ~ Defending ~ Melee.Special Ability ~ Enhancement Cost|12000			SOURCEPAGE:p.77
+Longsword (Base).COPY=Rose Knight's Blade			NAMEISPI:YES	EQMOD:Material ~ Mithril ~ Weapon / Item.Special Ability ~ +1 ~ Weapon.Special Ability ~ Benevolent ~ Melee.Special Ability ~ Enhancement Cost|19000			SOURCEPAGE:p.87
+Light Mace (Base).COPY=Signifer's Fist			NAMEISPI:YES	EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Enhancement Cost|8000															SOURCEPAGE:p.97
 Temple Sword.COPY=Monastic Warden						EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Ki Focus ~ Melee.Special Ability ~ Enhancement Cost|15200									SOURCEPAGE:p.107
-Rapier.COPY=Banshee's Howl							EQMOD:Special Ability ~ +3 ~ Weapon.Special Ability ~ Enhancement Cost|20160															SOURCEPAGE:p.114
-Lance.COPY=Mammoth Lance							EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Enhancement Cost|24000															SOURCEPAGE:p.134
+Rapier (Base).COPY=Banshee's Howl							EQMOD:Special Ability ~ +3 ~ Weapon.Special Ability ~ Enhancement Cost|20160															SOURCEPAGE:p.114
+Lance (Base).COPY=Mammoth Lance							EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Enhancement Cost|24000															SOURCEPAGE:p.134
 Sawtooth Sabre.COPY=Crimson Bluff						EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Speed ~ Weapon.Special Ability ~ Enhancement Cost|15240									SOURCEPAGE:p.158
 Sawtooth Sabre.COPY=Mantis Blade						EQMOD:Special Ability ~ +2 ~ Weapon.Special Ability ~ Axiomatic ~ Weapon															SOURCEPAGE:p.159		SPELLS:Mantis Blade|TIMES=3|CASTERLEVEL=20|Alter Self|Darkness|Spider Climb|True Strike	SPELLS:Mantis Blade|CASTERLEVEL=20|Clairaudience/Clairvoyance|Deeper Darkness|Dimension Door|Invisibility (Greater)																																					ABILITY:Special Ability|AUTOMATIC|Sneak Attack	BONUS:VAR|SneakAttackDice|1										SPROP:Intelligent; LE; Ego 16; Int 10, Wis 12, Cha 14; Senses 60 ft, darkvision; Telepathy; Special Purpose-slay all; 1/day when wounding a creature, the wielder can activate the Bane special ability as a swift action (only against the creature type wounded, lasts 10 min)	SPROP:A Red Mantis assassin gains a +2 to the DC of her prayer attack, and may use her red shroud and fading abilities each an additional time per day|PRECLASS:1,Red Mantis Assassin=1
-Net.COPY=Devil Catcher								EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Enhancement Cost|28000															SOURCEPAGE:p.177
+Net (Base).COPY=Devil Catcher								EQMOD:Special Ability ~ +1 ~ Weapon.Special Ability ~ Enhancement Cost|28000															SOURCEPAGE:p.177
 
 Parade.COPY=Eagle Knight Dress Uniform		NAMEISPI:YES	EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Enhancement Cost|14000															SOURCEPAGE:p.76
 Gray Maiden Plate.COPY=Maiden's Panoply					EQMOD:Special Ability ~ +3 ~ Armor.Special Ability ~ Enhancement Cost|20000															SOURCEPAGE:p.87
 Hellknight Plate.COPY=Gelugon Plate						EQMOD:Special Ability ~ +3 ~ Armor.Special Ability ~ Enhancement Cost|49800															SOURCEPAGE:p.97
-Elven Chain.COPY=Elven Vengeance						EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Enhancement Cost|7000															SOURCEPAGE:p.115
-Hide.COPY=Mammoth Hide								EQMOD:Special Ability ~ +3 ~ Armor.Special Ability ~ Enhancement Cost|5500															SOURCEPAGE:p.134		BONUS:EQMARMOR|ACCHECK|2
-Leather.COPY=Red Stalker Armor						EQMOD:Special Ability ~ +1 ~ Armor.Special Ability ~ Enhancement Cost|1860															SOURCEPAGE:p.159
+Elven Chain (Base).COPY=Elven Vengeance						EQMOD:Special Ability ~ +2 ~ Armor.Special Ability ~ Enhancement Cost|7000															SOURCEPAGE:p.115
+Hide (Base).COPY=Mammoth Hide								EQMOD:Special Ability ~ +3 ~ Armor.Special Ability ~ Enhancement Cost|5500															SOURCEPAGE:p.134		BONUS:EQMARMOR|ACCHECK|2
+Leather (Base).COPY=Red Stalker Armor						EQMOD:Special Ability ~ +1 ~ Armor.Special Ability ~ Enhancement Cost|1860															SOURCEPAGE:p.159
 
-Shield (Heavy/Steel).COPY=Maiden's Aegis					EQMOD:Special Ability ~ +2 ~ Shield.Special Ability ~ Enhancement Cost|5000															SOURCEPAGE:p.87
+Heavy Steel Shield (Base).COPY=Maiden's Aegis					EQMOD:Special Ability ~ +2 ~ Shield.Special Ability ~ Enhancement Cost|5000															SOURCEPAGE:p.87
 
 
 Halberd.MOD			TYPE:HKOotNail
