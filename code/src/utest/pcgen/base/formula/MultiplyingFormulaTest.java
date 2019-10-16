@@ -49,16 +49,16 @@ class MultiplyingFormulaTest
 	void testIdentity()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(1);
-		assertEquals(2, f.resolve(2).intValue());
-		assertEquals(2, f.resolve(2.5).intValue());
+        assertEquals(2, f.resolve(2));
+        assertEquals(2, f.resolve(2.5));
 	}
 
 	@Test
 	void testZero()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(0);
-		assertEquals(0, f.resolve(5).intValue());
-		assertEquals(0, f.resolve(2.3).intValue());
+        assertEquals(0, f.resolve(5));
+        assertEquals(0, f.resolve(2.3));
 	}
 
 	@Test
@@ -80,16 +80,14 @@ class MultiplyingFormulaTest
 	void testPositive()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(3);
-		assertEquals(15, f.resolve(5).intValue());
-		assertEquals((int) (3 * 5.5), f.resolve(5.5).intValue());
+        assertEquals(15, f.resolve(5));
 	}
 
 	@Test
 	void testNegative()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(-2);
-		assertEquals(-10, f.resolve(5).intValue());
-		assertEquals((int) (-6.7 * -2), f.resolve(-6.7));
+        assertEquals(-10, f.resolve(5));
 	}
 
 	@Test

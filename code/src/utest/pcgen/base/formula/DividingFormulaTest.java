@@ -48,8 +48,8 @@ class DividingFormulaTest
     void testIdentity()
 	{
 		DividingFormula f = new DividingFormula(1);
-		assertEquals(2, f.resolve(2).intValue());
-		assertEquals(2, f.resolve(2.5).intValue());
+        assertEquals(2, f.resolve(2));
+        assertEquals(2, f.resolve(2.5));
 	}
 
 	@Test
@@ -71,10 +71,10 @@ class DividingFormulaTest
     void testPositive()
 	{
 		DividingFormula f = new DividingFormula(3);
-		assertEquals(1, f.resolve(5).intValue());
-		assertEquals(2, f.resolve(6).intValue());
-		assertEquals(2, f.resolve(7).intValue());
-		assertEquals(2, f.resolve(6.5).intValue());
+        assertEquals(1, f.resolve(5));
+        assertEquals(2, f.resolve(6));
+        assertEquals(2, f.resolve(7));
+        assertEquals(2, f.resolve(6.5));
 	}
 
 	@SuppressWarnings("unused")
@@ -88,8 +88,8 @@ class DividingFormulaTest
     void testNegative()
 	{
 		DividingFormula f = new DividingFormula(-2);
-		assertEquals(-2, f.resolve(5).intValue());
-		assertEquals(3, f.resolve(-6.7).intValue());
+        assertEquals(-2, f.resolve(5));
+        assertEquals(3, f.resolve(-6.7));
 		assertEquals(2, f.resolve(-4));
 	}
 

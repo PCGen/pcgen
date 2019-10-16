@@ -49,8 +49,8 @@ class AddingFormulaTest
     void testIdentity()
     {
         AddingFormula f = new AddingFormula(1);
-        assertEquals(1, f.resolve(0).intValue());
-        assertEquals(3, f.resolve(2.5).intValue());
+        assertEquals(1, f.resolve(0));
+        assertEquals(3, f.resolve(2.5));
     }
 
     @Test
@@ -72,24 +72,24 @@ class AddingFormulaTest
     void testPositive()
     {
         AddingFormula f = new AddingFormula(3);
-        assertEquals(8, f.resolve(5).intValue());
-        assertEquals(10, f.resolve(7.5).intValue());
+        assertEquals(8, f.resolve(5));
+        assertEquals(10, f.resolve(7.5));
     }
 
     @Test
     void testZero()
     {
         AddingFormula f = new AddingFormula(0);
-        assertEquals(5, f.resolve(5).intValue());
-        assertEquals(2, f.resolve(2.3).intValue());
+        assertEquals(5, f.resolve(5));
+        assertEquals(2, f.resolve(2.3));
     }
 
     @Test
     void testNegative()
     {
         AddingFormula f = new AddingFormula(-2);
-        assertEquals(3, f.resolve(5).intValue());
-        assertEquals(-8, f.resolve(-6.7).intValue());
+        assertEquals(3, f.resolve(5));
+        assertEquals(-8, f.resolve(-6.7));
     }
 
     @Test
