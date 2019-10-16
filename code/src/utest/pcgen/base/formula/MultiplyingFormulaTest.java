@@ -28,12 +28,12 @@ import org.junit.jupiter.api.Test;
 
 class MultiplyingFormulaTest
 {
-	private MultiplyingFormula f;
+    private MultiplyingFormula timesOne;
 
 	@BeforeEach
 	void setUp()
 	{
-		f = new MultiplyingFormula(1);
+        timesOne = new MultiplyingFormula(1);
 	}
 
 	@Test
@@ -95,19 +95,19 @@ class MultiplyingFormulaTest
 	@Test
 	void testInputNotNull()
 	{
-		assertThrows(IllegalArgumentException.class, () -> f.resolve((Number[]) null));
+        assertThrows(IllegalArgumentException.class, () -> timesOne.resolve((Number[]) null));
 	}
 
 	@Test
 	void testInputNotEmpty()
 	{
-		assertThrows(IllegalArgumentException.class, () -> f.resolve());
+        assertThrows(IllegalArgumentException.class, () -> timesOne.resolve());
 	}
 
 	@Test
 	void testInputNotLongerThan1()
 	{
-		assertThrows(IllegalArgumentException.class, () -> f.resolve(4, 2.5));
+        assertThrows(IllegalArgumentException.class, () -> timesOne.resolve(4, 2.5));
 	}
 
 }

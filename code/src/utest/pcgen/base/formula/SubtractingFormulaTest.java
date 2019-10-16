@@ -28,12 +28,12 @@ import org.junit.jupiter.api.Test;
 
 class SubtractingFormulaTest
 {
-	private SubtractingFormula f;
+    private SubtractingFormula minusOne;
 
 	@BeforeEach
 	void setUp()
 	{
-		f = new SubtractingFormula(1);
+        minusOne = new SubtractingFormula(1);
 	}
 	@Test
 	void testToString()
@@ -95,32 +95,32 @@ class SubtractingFormulaTest
 	@Test
 	void testStackedFormula()
 	{
-		assertEquals(-1, f.resolve(f.resolve(1)));
-		assertEquals(-1, f.resolve(f.resolve(1.2435643516)));
+        assertEquals(-1, minusOne.resolve(minusOne.resolve(1)));
+        assertEquals(-1, minusOne.resolve(minusOne.resolve(1.2435643516)));
 	}
 
 	@Test
 	void testIntegerUnderflow()
 	{
-		assertEquals(Integer.MAX_VALUE, f.resolve(Integer.MIN_VALUE));
+        assertEquals(Integer.MAX_VALUE, minusOne.resolve(Integer.MIN_VALUE));
 	}
 
 	@Test
 	void testInputNotNull()
 	{
-		assertThrows(IllegalArgumentException.class, () -> f.resolve((Number[]) null));
+        assertThrows(IllegalArgumentException.class, () -> minusOne.resolve((Number[]) null));
 	}
 
 	@Test
 	void testInputNotEmpty()
 	{
-		assertThrows(IllegalArgumentException.class, () -> f.resolve());
+        assertThrows(IllegalArgumentException.class, () -> minusOne.resolve());
 	}
 
 	@Test
 	void testInputNotLongerThan1()
 	{
-		assertThrows(IllegalArgumentException.class, () -> f.resolve(4, 2.5));
+        assertThrows(IllegalArgumentException.class, () -> minusOne.resolve(4, 2.5));
 	}
 
 }

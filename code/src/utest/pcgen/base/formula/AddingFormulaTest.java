@@ -27,12 +27,12 @@ import org.junit.jupiter.api.Test;
 class AddingFormulaTest
 {
 
-    private AddingFormula f;
+    private AddingFormula plusOne;
 
     @BeforeEach
     void setUp()
     {
-        f = new AddingFormula(1);
+        plusOne = new AddingFormula(1);
     }
 
     @Test
@@ -95,31 +95,31 @@ class AddingFormulaTest
     @Test
     void testStackedFormula()
     {
-        assertEquals(3, f.resolve(f.resolve(1)));
-        assertEquals( 3, f.resolve(f.resolve(1.2435643516)));
+        assertEquals(3, plusOne.resolve(plusOne.resolve(1)));
+        assertEquals(3, plusOne.resolve(plusOne.resolve(1.2435643516)));
     }
 
     @Test
     void testIntegerOverflow()
     {
-        assertEquals(Integer.MIN_VALUE, f.resolve(Integer.MAX_VALUE));
+        assertEquals(Integer.MIN_VALUE, plusOne.resolve(Integer.MAX_VALUE));
     }
 
     @Test
     void testInputNotNull()
     {
-        assertThrows(IllegalArgumentException.class, () -> f.resolve((Number[]) null));
+        assertThrows(IllegalArgumentException.class, () -> plusOne.resolve((Number[]) null));
     }
 
     @Test
     void testInputNotEmpty()
     {
-        assertThrows(IllegalArgumentException.class, () -> f.resolve());
+        assertThrows(IllegalArgumentException.class, () -> plusOne.resolve());
     }
 
     @Test
     void testInputNotLongerThan1()
     {
-        assertThrows(IllegalArgumentException.class, () -> f.resolve(4, 2.5));
+        assertThrows(IllegalArgumentException.class, () -> plusOne.resolve(4, 2.5));
     }
 }
