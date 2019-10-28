@@ -404,7 +404,7 @@ CATEGORY=Class|Summoner.MOD																																																					
 CATEGORY=Class|Witch.MOD																																	ABILITY:Internal|AUTOMATIC|Witch ~ Class Skills|PREVAREQ:Witch_CF_ClassSkills,0
 
 CATEGORY=Class|Witch.MOD																																	ABILITY:Special Ability|AUTOMATIC|Witch Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfAuto
-CATEGORY=Class|Witch.MOD		DEFINE:SpellMasteryQualify|0																																																																																				BONUS:VAR|FamiliarMasterLVL|WitchLVL	BONUS:VAR|SpellMasteryQualify|1
+CATEGORY=Class|Witch.MOD		DEFINE:SpellMasteryQualify|0																																																																																				BONUS:VAR|SpellMasteryQualify|1
 
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_ClassSkills|0
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Familiar|0
