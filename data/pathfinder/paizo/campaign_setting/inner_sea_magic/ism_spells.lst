@@ -48,6 +48,7 @@ Zone of Foul Flames												CLASSES:Druid=4												SCHOOL:Transmutation		
 
 # Winter witch spell list addition
 Ray of Frost.MOD													CLASSES:Witch=0[PREABILITY:1,CATEGORY=Archetype,Witch Archetype ~ Winter Witch]
+Endure Elements.COPY=Endure Elements (Cold Environment)
 
 #
 # End
