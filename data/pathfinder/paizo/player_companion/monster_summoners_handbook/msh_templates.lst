@@ -14,6 +14,30 @@ Chthonic Creature					VISIBLE:YES	DR:3/-|PRELEVEL:MIN=5		SOURCEPAGE:p.19	DEFINE:
 Dark Creature					VISIBLE:YES	DR:5/Magic|PRELEVEL:MIN=5	SOURCEPAGE:p.19	DEFINE:DarkCreatureResistanceBonus|0						!PRERACE:1,RACETYPE=Outsider	!PRERACE:1,RACESUBTYPE=Air,Cold,Earth,Fire,Water	BONUS:DR|Magic|5|PRELEVEL:MIN=11		BONUS:MISC|CR|1|PRELEVEL:MIN=5						BONUS:VAR|AerialCreatureResistanceBonus|10	BONUS:VAR|AerialCreatureResistanceBonus|5|PRELEVEL:MIN=5	BONUS:VAR|AerialCreatureResistanceBonus|5|PRELEVEL:MIN=11	BONUS:VAR|ColdResistanceBonus,ElectricityResistanceBonus|AerialCreatureResistanceBonus|TYPE=Resistance	BONUS:VAR|DarkvisionRange|60|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Dark Creature ~ Shadow Blend|Resistance to Cold|Resistance to Electricity																					SR:CR+5				FACT:AppliedName|Dark
 Fiery Creature					VISIBLE:YES	DR:3/-|PRELEVEL:MIN=5		SOURCEPAGE:p.19	DEFINE:FieryCreatureResistanceBonus|0	!PREMOVE:1,Swim=1			!PRERACE:1,RACETYPE=Outsider	!PRERACE:1,RACESUBTYPE=Air,Cold,Earth,Fire,Water	BONUS:DR|-|2|PRELEVEL:MIN=11			BONUS:MISC|CR|1|PRELEVEL:MIN=5						BONUS:VAR|FieryCreatureResistanceBonus|10	BONUS:VAR|FieryCreatureResistanceBonus|5|PRELEVEL:MIN=5	BONUS:VAR|FieryCreatureResistanceBonus|5|PRELEVEL:MIN=11	BONUS:VAR|FireResistanceBonus|FieryCreatureResistanceBonus|TYPE=Resistance	BONUS:VAR|DarkvisionRange|60|TYPE=Base							ABILITY:Special Ability|AUTOMATIC|Fiery Creature ~ Bonus Damage|Resistance to Fire																											RACESUBTYPE:Fire	FACT:AppliedName|Fiery
 Primordial Creature				VISIBLE:YES	DR:5/Cold Iron|PRELEVEL:MIN=5	SOURCEPAGE:p.19																											BONUS:DR|Cold Iron|5|PRELEVEL:MIN=11	BONUS:MISC|CR|1|PRELEVEL:MIN=5	BONUS:MOVEADD|TYPE.All|10																																																						ABILITY:Special Ability|AUTOMATIC|Primordial Creature ~ Bonus Damage|Primordial Creature ~ Spell-Like Abilities																				SR:CR+6				FACT:AppliedName|Primordial
+Guardian Spirit					VISIBLE:YES	PRERACE:1,RACETYPE=Fey,RACETYPE=Outsider	CHOOSE:TEMPLATE|TYPE=Guardian Spirit Level	TEMPLATE:CHOOSE:Guardian Spirit ~ Fey|Guardian Spirit ~ Outsider	SR:11+CR	DEFINESTAT:MINVALUE|CHA|18	ABILITY:Special Ability|AUTOMATIC|Guardian Spirit|Guardian Spirit ~ Smite Threat|Guardian Spirit ~ Spell-Like Abilities	DEFINE:GuardianSpiritSummonsLVL|0	ABILITY:Special Ability|AUTOMATIC|Guardian Spirit ~ Fated Guardian|PREVARGTEQ:GuardianSpiritSummonsLVL,4	ABILITY:Special Ability|AUTOMATIC|Guardian Spirit ~ Co-Walker|PREVARGTEQ:GuardianSpiritSummonsLVL,8
+
+# Support Files
+Guardian Spirit Level 3		BONUS:VAR|GuardianSpiritSummonsLVL|3	VISIBLE:NO	TYPE:Guardian Spirit Level	BONUS:MISC|CR|0	BONUS:COMBAT|AC|0		BONUS:STAT|STR,DEX,CON,INT,WIS|2													
+Guardian Spirit Level 4		BONUS:VAR|GuardianSpiritSummonsLVL|4	VISIBLE:NO	TYPE:Guardian Spirit Level	BONUS:MISC|CR|2	BONUS:COMBAT|AC|2		BONUS:STAT|STR,DEX,CON,INT,WIS|2	TEMPLATE:CHOOSE:Guardian Spirit ~ Fey HD +02|Guardian Spirit ~ Outsider HD +02
+Guardian Spirit Level 5		BONUS:VAR|GuardianSpiritSummonsLVL|5	VISIBLE:NO	TYPE:Guardian Spirit Level	BONUS:MISC|CR|4	BONUS:COMBAT|AC|4		BONUS:STAT|STR,DEX,CON,INT,WIS|4	TEMPLATE:CHOOSE:Guardian Spirit ~ Fey HD +04|Guardian Spirit ~ Outsider HD +04
+Guardian Spirit Level 6		BONUS:VAR|GuardianSpiritSummonsLVL|6	VISIBLE:NO	TYPE:Guardian Spirit Level	BONUS:MISC|CR|6	BONUS:COMBAT|AC|6		BONUS:STAT|STR,DEX,CON,INT,WIS|4	TEMPLATE:CHOOSE:Guardian Spirit ~ Fey HD +06|Guardian Spirit ~ Outsider HD +06
+Guardian Spirit Level 7		BONUS:VAR|GuardianSpiritSummonsLVL|7	VISIBLE:NO	TYPE:Guardian Spirit Level	BONUS:MISC|CR|8	BONUS:COMBAT|AC|8		BONUS:STAT|STR,DEX,CON,INT,WIS|6	TEMPLATE:CHOOSE:Guardian Spirit ~ Fey HD +08|Guardian Spirit ~ Outsider HD +08
+Guardian Spirit Level 8		BONUS:VAR|GuardianSpiritSummonsLVL|8	VISIBLE:NO	TYPE:Guardian Spirit Level	BONUS:MISC|CR|10	BONUS:COMBAT|AC|10	BONUS:STAT|STR,DEX,CON,INT,WIS|6	TEMPLATE:CHOOSE:Guardian Spirit ~ Fey HD +10|Guardian Spirit ~ Outsider HD +10	
+Guardian Spirit Level 9		BONUS:VAR|GuardianSpiritSummonsLVL|9	VISIBLE:NO	TYPE:Guardian Spirit Level	BONUS:MISC|CR|12	BONUS:COMBAT|AC|12	BONUS:STAT|STR,DEX,CON,INT,WIS|8	TEMPLATE:CHOOSE:Guardian Spirit ~ Fey HD +12|Guardian Spirit ~ Outsider HD +12
+
+Guardian Spirit ~ Fey HD +02		VISIBLE:NO	PRERACE:1,RACETYPE=Fey		ADDLEVEL:Fey|2
+Guardian Spirit ~ Fey HD +04		VISIBLE:NO	PRERACE:1,RACETYPE=Fey		ADDLEVEL:Fey|4
+Guardian Spirit ~ Fey HD +06		VISIBLE:NO	PRERACE:1,RACETYPE=Fey		ADDLEVEL:Fey|6
+Guardian Spirit ~ Fey HD +08		VISIBLE:NO	PRERACE:1,RACETYPE=Fey		ADDLEVEL:Fey|8
+Guardian Spirit ~ Fey HD +10		VISIBLE:NO	PRERACE:1,RACETYPE=Fey		ADDLEVEL:Fey|10
+Guardian Spirit ~ Fey HD +12		VISIBLE:NO	PRERACE:1,RACETYPE=Fey		ADDLEVEL:Fey|12
+
+Guardian Spirit ~ Outsider HD +02	VISIBLE:NO	PRERACE:1,RACETYPE=Outsider	ADDLEVEL:Outsider|2
+Guardian Spirit ~ Outsider HD +04	VISIBLE:NO	PRERACE:1,RACETYPE=Outsider	ADDLEVEL:Outsider|4
+Guardian Spirit ~ Outsider HD +06	VISIBLE:NO	PRERACE:1,RACETYPE=Outsider	ADDLEVEL:Outsider|6
+Guardian Spirit ~ Outsider HD +08	VISIBLE:NO	PRERACE:1,RACETYPE=Outsider	ADDLEVEL:Outsider|8
+Guardian Spirit ~ Outsider HD +10	VISIBLE:NO	PRERACE:1,RACETYPE=Outsider	ADDLEVEL:Outsider|10
+Guardian Spirit ~ Outsider HD +12	VISIBLE:NO	PRERACE:1,RACETYPE=Outsider	ADDLEVEL:Outsider|12
 
 # ==============================
 # Masterpiece Activation
