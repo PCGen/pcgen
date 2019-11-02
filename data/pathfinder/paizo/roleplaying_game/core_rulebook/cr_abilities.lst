@@ -91,12 +91,13 @@ Inspire Courage Selectable	KEY:Temp Bonus ~ Inspire Courage NPC	CATEGORY:Interna
 Temp Bonus ~ Strength Surge								CATEGORY:Internal			VISIBLE:NO																																																																																																																																																																																																																																																																									TEMPBONUS:ANYPC|STAT|STR|%CHOICE																																																									TEMPVALUE:MIN=1|MAX=10|TITLE=Bonus
 
 
-CATEGORY=Internal|Default.MOD															DEFINE:SizeIncrease|0	DEFINE:ActivateTempBonus|0	DEFINE:InspireCourageBonus|0	DEFINE:InspireGreatnessActivate|0	DEFINE:AuraOfResolveActivate|0	DEFINE:AuraOfCourageActivate|0	DEFINE:AuraOfJusticeActivate|0	DEFINE:AuraOfRighteousnessActivate|0	DEFINE:TempBonus_BlessWeapon|0	ABILITY:Special Ability|AUTOMATIC|Temp_Bonus_Aspect_Tracker|PREVARGTEQ:ActivateTempBonus,1
+CATEGORY=Internal|Default.MOD														DEFINE:StoneskinActivate|0	DEFINE:SizeIncrease|0	DEFINE:ActivateTempBonus|0	DEFINE:InspireCourageBonus|0	DEFINE:InspireGreatnessActivate|0	DEFINE:AuraOfResolveActivate|0	DEFINE:AuraOfCourageActivate|0	DEFINE:AuraOfJusticeActivate|0	DEFINE:AuraOfRighteousnessActivate|0	DEFINE:TempBonus_BlessWeapon|0	ABILITY:Special Ability|AUTOMATIC|Temp_Bonus_Aspect_Tracker|PREVARGTEQ:ActivateTempBonus,1	ABILITY:Special Ability|AUTOMATIC|Temp Bonus ~ Stoneskin|PREVARGTEQ:StoneskinActivate,1	
 Temp_Bonus_Aspect_Tracker								CATEGORY:Special Ability																																																						ABILITY:Special Ability|VIRTUAL|Paladin ~ Smite Evil|PREVAREQ:AuraOfJusticeActivate,1	ABILITY:Special Ability|AUTOMATIC|Temp Bonus ~ Bless Weapon|PREVAREQ:TempBonus_BlessWeapon,1	ASPECT:SaveBonus|Inspire courage&colon; +1 morale bonus on saving throws against charm and fear effects|InspireCourageBonus|PREVARGTEQ:InspireCourageBonus,1	ASPECT:SaveBonus|Aura of courage&colon; +4 morale bonus on saving throws against fear effects.|PREVAREQ:AuraOfCourageActivate,1	ASPECT:SaveBonus|Aura of Resolve&colon; +4 morale bonus on saving throws against charm effects.|PREVAREQ:AuraOfResolveActivate,1	ASPECT:SaveBonus|Aura of Righteousness&colon; +4 morale bonus on saving throws against compulsion effects.|PREVAREQ:AuraOfRighteousnessActivate,1
 
 
 Temp Bonus ~ Bless Weapon								CATEGORY:Special Ability																																																																																					ASPECT:CombatBonus|The weapon is treated as having a +1 enhancement bonus for the purpose of bypassing the DR of evil creatures or striking evil incorporeal creatures [though the spell doesn't grant an actual enhancement bonus]. The weapon also becomes good-aligned, which means it can bypass the DR of certain creatures. [This effect overrides and suppresses any other alignment the weapon might have.]
 
+Temp Bonus ~ Stoneskin									CATEGORY:Special Ability	DR:10/adamantine
 
 
 
