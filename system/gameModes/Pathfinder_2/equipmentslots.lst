@@ -10,54 +10,26 @@ NUMSLOTS:DEFAULT	HEAD:1	HANDS:2	TORSO:1	LEGS:2	SHIELD:1
 #								and number in each slot
 #
 ###Block: New Version
-EQSLOT:Armor	CONTAINS:Armor=1											NUMBER:TORSO
-EQSLOT:Belt		CONTAINS:Belt,Girdle=1										NUMBER:TORSO
-EQSLOT:Body		CONTAINS:Bodywear,Robe,Body,Vestments=1							NUMBER:TORSO
-EQSLOT:Chest	CONTAINS:Shirt,Chest,Mantle,Vest=1								NUMBER:TORSO
-EQSLOT:Eyes		CONTAINS:Facewear,Eyegear,Eyes,Glasses,Goggles=1					NUMBER:HEAD
-EQSLOT:Feet		CONTAINS:Footwear,Boot,Feet,Shoes,Slippers=1						NUMBER:LEGS
-EQSLOT:Hands	CONTAINS:Handwear,Glove,Hands,Gauntlet=1							NUMBER:HANDS
-EQSLOT:Head		CONTAINS:Headgear,Head,Circlet,Crown,Hat,Helm,Mask=1					NUMBER:HEAD
-EQSLOT:Headband	CONTAINS:Headband,Phylactery=1								NUMBER:HEAD
-EQSLOT:Neck		CONTAINS:Neckwear,Amulet,Neck,Brooch,Medallion,Necklace,Periapt,Scarab=1	NUMBER:HEAD
-EQSLOT:Ring		CONTAINS:Ring=2											NUMBER:TORSO
-EQSLOT:Shield	CONTAINS:Shield=1											NUMBER:SHIELD
-EQSLOT:Shoulders	CONTAINS:Cape,Shoulders,Cloak=1								NUMBER:TORSO
-EQSLOT:Wrist	CONTAINS:Armwear,Bracer,Wrist,Bracelet=1							NUMBER:HANDS
-#
-EQSLOT:Torso	CONTAINS:Clothing=1										NUMBER:TORSO
-EQSLOT:Weapon	CONTAINS:Weapon=1											NUMBER:HANDS
+EQSLOT:armbands	CONTAINS:armbands=1	NUMBER:TORSO
+EQSLOT:armor	CONTAINS:armor=1		NUMBER:TORSO
+EQSLOT:backpack	CONTAINS:backpack=1	NUMBER:TORSO
+EQSLOT:belt		CONTAINS:belt=1		NUMBER:TORSO
+EQSLOT:bracers	CONTAINS:bracers=1	NUMBER:TORSO
+EQSLOT:circlet	CONTAINS:circlet=1	NUMBER:TORSO
+EQSLOT:cloak	CONTAINS:cloak=1		NUMBER:TORSO
+EQSLOT:collar	CONTAINS:collar=1		NUMBER:TORSO
+EQSLOT:eyepiece	CONTAINS:eyepiece=1	NUMBER:TORSO
+EQSLOT:garment	CONTAINS:garment=1	NUMBER:TORSO
+EQSLOT:gloves	CONTAINS:gloves=1		NUMBER:TORSO
+EQSLOT:headwear	CONTAINS:headwear=1	NUMBER:TORSO
+EQSLOT:mask		CONTAINS:mask=1		NUMBER:TORSO
+EQSLOT:shield	CONTAINS:shield=1		NUMBER:TORSO
+EQSLOT:shoes	CONTAINS:shoes=1		NUMBER:TORSO
+
+EQSLOT:Weapon	CONTAINS:Weapon=1		NUMBER:HANDS
 #
 # If you wanted to increase the number of RINGs a set of Fingers could hold
 # You'd change the EQSLOT:Fingers to CONTAINS:RING=2
 #
 
 
-###Block: Pathfinder WIKI
-#Armor: This slot is used for suits of armor that are worn.
-#Belts: This slot consists of belts and other items that can be worn around the waist.
-#Body: This slot consists of body wraps, cassocks, corsets, dusters, harnesses, robes, vestments and any other article of clothing that can be worn on the body.
-#Chest: This slot consists of jackets, mantels, shirts, vests and other items that can be worn around the torso or chest.
-#Eyes: This slot consists of goggles, lenses, monocles, spectacles, and other items that can be worn over the eyes.
-#Feet: This slot consists of boots, horseshoes, sandals, shoes, slippers, and other items that can be worn on the feet.
-#Hands: This slot consists of gauntlets, gloves, and other items that can worn on the hands.
-#Head: This slot consists of circlets, crowns, hats, helms, hoods, masks, and other items that can be worn on the head.
-#Headband: This slot consists of bands, headbands, laurels, phylacteries, and other non-head slot items that can be worn around the forehead.
-#Neck: This slot consists of amulets, brooches, medallions, necklaces, periapts, scarabs, and other items that can be worn around the neck or fastened to a cloak.
-#Ring (up to two): rings.
-#Shield: This slot is for carried shields.
-#Shoulders: This slot consists of capes, cloaks, cords, mantels, pauldrons, shawls, stoles, wings, and other items that can be worn on the shoulders.
-#Wrists: This slot consists of armbands, bracelets, bracers, gauntlets, manacles, shackles, vambraces, and other items that can worn over the wrists.
-
-# Tattoo Slots
-EQSLOT:Tattoo Head		CONTAINS:Tattoo Head=1		NUMBER:HEAD
-EQSLOT:Tattoo Shoulders		CONTAINS:Tattoo Shoulders=1	NUMBER:TORSO
-EQSLOT:Tattoo Neck		CONTAINS:Tattoo Neck=1		NUMBER:HEAD
-EQSLOT:Tattoo Chest		CONTAINS:Tattoo Chest=1		NUMBER:TORSO
-EQSLOT:Tattoo Body		CONTAINS:Tattoo Body=1		NUMBER:TORSO
-EQSLOT:Tattoo Belt		CONTAINS:Tattoo Belt=1		NUMBER:TORSO
-EQSLOT:Tattoo Wrist		CONTAINS:Tattoo Wrist=1		NUMBER:HANDS
-EQSLOT:Tattoo Hands		CONTAINS:Tattoo Hands=1		NUMBER:HANDS
-EQSLOT:Tattoo Ring		CONTAINS:Tattoo Ring=2		NUMBER:TORSO
-EQSLOT:Tattoo Feet		CONTAINS:Tattoo Feet=1		NUMBER:LEGS
-#
