@@ -1,0 +1,3 @@
+
+Rule - Besmara Cleric may Gain Familiar in exchange for a Domain			PREDEITY:1,Besmara	CATEGORY:Internal	TYPE:OptionalRules	COST:0	BONUS:DOMAIN|NUMBER|-1			DEFINE:FamiliarMasterLVL|0	BONUS:VAR|FamiliarMasterLVL|ClericLVL|TYPE=Base		FOLLOWERS:Familiar|1	ABILITY:Internal|AUTOMATIC|Standard Familiar List
+Rule - Besmara Ranger may gain a Familiar in exchange for an Animal Companion	PREDEITY:1,Besmara	CATEGORY:Internal	TYPE:OptionalRules	COST:0	FACT:Ranger_CF_AnimalCompanion|true	DEFINE:FamiliarMasterLVL|0	BONUS:VAR|FamiliarMasterLVL|RangerLVL-3|TYPE=Base	FOLLOWERS:Familiar|1	ABILITY:Internal|AUTOMATIC|Standard Familiar List
