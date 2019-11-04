@@ -105,6 +105,7 @@ Rogue				CATEGORY:Class		DEFINE:Rogue_CFP_Level|0	DEFINE:Pool_Rogue_Class_Select
 Sorcerer			CATEGORY:Class		DEFINE:Sorcerer_CFP_Level|0														ABILITY:Sorcerer Archetype|AUTOMATIC|Archetype Sorcerer	ABILITY:Internal|AUTOMATIC|Sorcerer ~ Class Skills|PREVAREQ:Sorcerer_CF_ClassSkills,0															BONUS:VAR|Sorcerer_CFP_Level|SorcererLVL|TYPE=Base
 Wizard			CATEGORY:Class		DEFINE:Wizard_CFP_Level|0														ABILITY:Wizard Archetype|AUTOMATIC|Archetype Wizard																															BONUS:VAR|Wizard_CFP_Level|WizardLVL|TYPE=Base
 
+Arcane Archer		CATEGORY:Class		DEFINE:ArcaneArcher_CFP_Level|0																																																				BONUS:VAR|ArcaneArcher_CFP_Level|ArcaneArcherLVL|TYPE=Base
 Arcane Trickster		CATEGORY:Class		DEFINE:ArcaneTrickster_CFP_Level|0																																																				BONUS:VAR|ArcaneTrickster_CFP_Level|ArcaneTricksterLVL|TYPE=Base
 Assassin			CATEGORY:Class		DEFINE:Assassin_CFP_Level|0																																																					BONUS:VAR|Assassin_CFP_Level|AssassinLVL|TYPE=Base
 Dragon Disciple		CATEGORY:Class		DEFINE:DragonDisciple_CFP_Level|0																																																				BONUS:VAR|DragonDisciple_CFP_Level|DragonDiscipleLVL|TYPE=Base
@@ -199,6 +200,206 @@ CATEGORY=Class|Rogue ~ Standard Class.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|
 CATEGORY=Class|Rogue ~ Standard Class.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Uncanny Dodge Tracker|PREVAREQ:Rogue_CF_UncannyDodge,0|PREVARGTEQ:Rogue_CFP_Level,4
 CATEGORY=Class|Rogue ~ Standard Class.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Master Strike|PREVAREQ:Rogue_CF_MasterStrike,0|PREVARGTEQ:Rogue_CFP_Level,20
 
+###Block: The rest of the classes
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge|PREVAREQ:Bard_CF_BardicKnowledge,0|PREVARGTEQ:Cleric_CFP_Level,1
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Countersong|PREVAREQ:Bard_CF_CounterSong,0|PREVARGTEQ:Cleric_CFP_Level,1
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Performance|PREVAREQ:Bard_CF_BardicPerformance,0|PREVARGTEQ:Cleric_CFP_Level,1
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Armored Casting|PREVAREQ:Bard_CF_ArmoredCasting,0|PREVARGTEQ:Cleric_CFP_Level,1
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Cantrips|PREVAREQ:Bard_CF_Cantrips,0|PREVARGTEQ:Cleric_CFP_Level,1
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Versatile Performance|PREVAREQ:Bard_CF_VersatilePerformance,0|PREVARGTEQ:Cleric_CFP_Level,2
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Well-Versed|PREVAREQ:Bard_CF_WellVersed,0|PREVARGTEQ:Cleric_CFP_Level,2
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Lore Master|PREVAREQ:Bard_CF_LoreMaster,0|PREVARGTEQ:Cleric_CFP_Level,5
+CATEGORY=Class|Bard.MOD		ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Jack of All Trades|PREVAREQ:Bard_CF_JackOfAllTrades,0|PREVARGTEQ:Cleric_CFP_Level,10
+
+CATEGORY=Class|Cleric.MOD	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency|PREVARGTEQ:Cleric_CFP_Level,1
+CATEGORY=Class|Cleric.MOD	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Aura|PREVARGTEQ:Cleric_CFP_Level,1
+CATEGORY=Class|Cleric.MOD	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Channel Energy|PREVAREQ:Cleric_CF_ChannelEnergy,0|PREVARGTEQ:Cleric_CFP_Level,1
+CATEGORY=Class|Cleric.MOD	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Orisons|PREVAREQ:Cleric_CF_Orisons,0|PREVARGTEQ:Cleric_CFP_Level,1
+CATEGORY=Class|Cleric.MOD	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spontaneous Casting|PREVAREQ:Cleric_CF_SpontaneousCasting,0|PREVARGTEQ:Cleric_CFP_Level,1
+CATEGORY=Class|Cleric.MOD	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Domains|PREVARGTEQ:Cleric_CFP_Level,1
+
+CATEGORY=Class|Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Orisons|PREVARGTEQ:Druid_CFP_Level,1
+CATEGORY=Class|Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Spontaneous Casting|PREVAREQ:Druid_CF_SpontaneousCasting,0|PREVARGTEQ:Druid_CFP_Level,1
+CATEGORY=Class|Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Nature Sense|PREVAREQ:Druid_CF_NatureSense,0|PREVARGTEQ:Druid_CFP_Level,1
+CATEGORY=Class|Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Wild Empathy|PREVAREQ:Druid_CF_WildEmpathy,0|PREVARGTEQ:Druid_CFP_Level,1
+CATEGORY=Class|Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Nature Bond|PREVAREQ:Druid_CF_NatureBond,0|PREVARGTEQ:Druid_CFP_Level,1
+CATEGORY=Class|Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Woodland Stride|PREVAREQ:Druid_CF_WoodlandStride,0|PREVARGTEQ:Druid_CFP_Level,2
+CATEGORY=Class|Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Trackless Step|PREVAREQ:Druid_CF_TracklessStep,0|PREVARGTEQ:Druid_CFP_Level,3
+CATEGORY=Class|Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Wild Shape|PREVAREQ:Druid_CF_WildShape,0|PREVARGTEQ:Druid_CFP_Level,4
+CATEGORY=Class|Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Resist Nature's Lure|PREVAREQ:Druid_CF_ResistNaturesLure,0|PREVARGTEQ:Druid_CFP_Level,4
+CATEGORY=Class|Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Venom Immunity|PREVAREQ:Druid_CF_VenomImmunity,0|PREVARGTEQ:Druid_CFP_Level,9
+CATEGORY=Class|Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ A Thousand Faces|PREVAREQ:Druid_CF_AThousandFaces,0|PREVARGTEQ:Druid_CFP_Level,13
+CATEGORY=Class|Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Timeless Body|PREVAREQ:Druid_CF_TimelessBody,0|PREVARGTEQ:Druid_CFP_Level,15
+
+CATEGORY=Class|Fighter.MOD		ABILITY:Fighter Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Fighter|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies,TYPE.FighterArmorProficiencies,TYPE.FighterHeavyArmorProficiency,TYPE.FighterMediumArmorProficiency,TYPE.FighterLightArmorProficiency,TYPE.FighterShieldProficiency,TYPE.FighterTowerShieldProficiency|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterWeaponProficiencies|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Internal|AUTOMATIC|Armor Prof ~ Heavy|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterHeavyArmorProficiency|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Internal|AUTOMATIC|Armor Prof ~ Medium|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterMediumArmorProficiency|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterLightArmorProficiency|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Internal|AUTOMATIC|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterShieldProficiency|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Internal|AUTOMATIC|Shield Prof ~ Tower|!PREABILITY:1,CATEGORY=Archetype,TYPE.FighterArmorProficiencies,TYPE.FighterTowerShieldProficiency|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Special Ability|AUTOMATIC|Disruptive Qualify|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Special Ability|AUTOMATIC|Greater Shield Focus Qualify|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Special Ability|AUTOMATIC|Greater Weapon Focus Qualify|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Special Ability|AUTOMATIC|Spellbreaker Qualify|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Special Ability|AUTOMATIC|Greater Weapon Specialization Qualify|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Special Ability|AUTOMATIC|Penetrating Strike Qualify|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Special Ability|AUTOMATIC|Critical Mastery Qualify|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Special Ability|AUTOMATIC|Greater Penetrating Strike Qualify|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		BONUS:VAR|BraveryLVL|FighterLVL|TYPE=Class|PREVARGTEQ:Fighter_CFP_Level,2
+CATEGORY=Class|Fighter.MOD		BONUS:VAR|ArmorTrainingLVL|FighterLVL|TYPE=Class|PREVARGTEQ:Fighter_CFP_Level,3
+CATEGORY=Class|Fighter.MOD		BONUS:VAR|FighterWeaponTrainingLVL|FighterLVL|TYPE=Class|PREVARGTEQ:Fighter_CFP_Level,5
+CATEGORY=Class|Fighter.MOD		BONUS:VAR|FighterWeaponQualifyLVL|FighterLVL|TYPE=Class|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Bonus Feats|PREVAREQ:Fighter_CF_BonusFeats,0|PREVARGTEQ:Fighter_CFP_Level,1
+CATEGORY=Class|Fighter.MOD		ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Bravery|PREVAREQ:Fighter_CF_Bravery,0|PREVARGTEQ:Fighter_CFP_Level,2
+CATEGORY=Class|Fighter.MOD		ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Armor Training|PREVAREQ:Fighter_CF_ArmorTraining,0|PREVARGTEQ:Fighter_CFP_Level,3
+CATEGORY=Class|Fighter.MOD		ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Weapon Training|PREVAREQ:Fighter_CF_WeaponTraining,0|PREVARGTEQ:Fighter_CFP_Level,5
+CATEGORY=Class|Fighter.MOD		ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Armor Mastery|PREVAREQ:Fighter_CF_ArmorMastery,0|PREVARGTEQ:Fighter_CFP_Level,19
+CATEGORY=Class|Fighter.MOD		BONUS:ABILITYPOOL|Weapon Mastery|1|PREVAREQ:FighterWeaponMastery,0|PREVAREQ:Fighter_CF_WeaponMastery,0|PREVARGTEQ:Fighter_CFP_Level,20
+
+# Paladin
+CATEGORY=Class|Paladin.MOD	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Paladin|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyHeavy,TYPE.PaladinArmorProficiencyLight,TYPE.PaladinArmorProficiencyMedium,TYPE.PaladinArmorProficiency,TYPE.PaladinShieldProf,TYPE.PaladinShieldProficiency|PREVARGTEQ:Paladin_CFP_Level,1	
+CATEGORY=Class|Paladin.MOD	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinWeaponProficiencies|PREVARGTEQ:Paladin_CFP_Level,1	
+CATEGORY=Class|Paladin.MOD	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Heavy|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyHeavy|PREVARGTEQ:Paladin_CFP_Level,1	
+CATEGORY=Class|Paladin.MOD	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Light|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyLight|PREVARGTEQ:Paladin_CFP_Level,1	
+CATEGORY=Class|Paladin.MOD	ABILITY:Internal|AUTOMATIC|Armor Prof ~ Medium|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinArmorProficiencyMedium|PREVARGTEQ:Paladin_CFP_Level,1	
+CATEGORY=Class|Paladin.MOD	ABILITY:Internal|AUTOMATIC|Shield Prof|!PREABILITY:1,CATEGORY=Archetype,TYPE.PaladinArmorProficiency,TYPE.PaladinShieldProf,TYPE.PaladinShieldProficiency|PREVARGTEQ:Paladin_CFP_Level,1	
+CATEGORY=Class|Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Good|PREVAREQ:Paladin_CF_AuraOfGood,0|PREVARGTEQ:Paladin_CFP_Level,1	
+CATEGORY=Class|Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Detect Evil|PREVAREQ:Paladin_CF_DetectEvil,0|PREVARGTEQ:Paladin_CFP_Level,1	
+CATEGORY=Class|Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Smite Evil|PREVAREQ:Paladin_CF_SmiteEvil,0|PREVARGTEQ:Paladin_CFP_Level,1	
+CATEGORY=Class|Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Grace|PREVAREQ:Paladin_CF_DivineGrace,0|PREVARGTEQ:Paladin_CFP_Level,2	
+CATEGORY=Class|Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Lay on Hands|PREVAREQ:Paladin_CF_LayOnHands,0|PREVARGTEQ:Paladin_CFP_Level,2	
+CATEGORY=Class|Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Courage|PREVAREQ:Paladin_CF_AuraOfCourage,0|PREVARGTEQ:Paladin_CFP_Level,3	
+CATEGORY=Class|Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Health|PREVAREQ:Paladin_CF_DivineHealth,0|PREVARGTEQ:Paladin_CFP_Level,3	
+CATEGORY=Class|Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Mercy|PREVAREQ:Paladin_CF_Mercy,0|PREVARGTEQ:Paladin_CFP_Level,3	
+CATEGORY=Class|Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Channel Positive Energy|PREVAREQ:Paladin_CF_ChannelPositiveEnergy,0|PREVARGTEQ:Paladin_CFP_Level,4	
+CATEGORY=Class|Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Bond|PREVAREQ:Paladin_CF_DivineBond,0|PREVARGTEQ:Paladin_CFP_Level,5	
+CATEGORY=Class|Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Resolve|PREVAREQ:Paladin_CF_AuraOfResolve,0|PREVARGTEQ:Paladin_CFP_Level,8	
+CATEGORY=Class|Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Justice|PREVAREQ:Paladin_CF_AuraOfJustice,0|PREVARGTEQ:Paladin_CFP_Level,11	
+CATEGORY=Class|Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Faith|PREVAREQ:Paladin_CF_AuraOfFaith,0|PREVARGTEQ:Paladin_CFP_Level,14	
+CATEGORY=Class|Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Righteousness|PREVAREQ:Paladin_CF_AuraOfRighteousness,0|PREVARGTEQ:Paladin_CFP_Level,17	
+CATEGORY=Class|Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Holy Champion|PREVAREQ:Paladin_CF_HolyChampion,0|PREVARGTEQ:Paladin_CFP_Level,20	
+
+# Ranger
+CATEGORY=Class|Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Enemy|PREVAREQ:Ranger_CF_FavoredEnemy,0|PREVARGTEQ:Ranger_CFP_Level,1	
+CATEGORY=Class|Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Terrain|PREVAREQ:Ranger_CF_FavoredTerrain,0|PREVARGTEQ:Ranger_CFP_Level,1	
+CATEGORY=Class|Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Track|PREVAREQ:Ranger_CF_Track,0|PREVARGTEQ:Ranger_CFP_Level,1	
+CATEGORY=Class|Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Wild Empathy|PREVAREQ:Ranger_CF_WildEmpathy,0|PREVARGTEQ:Ranger_CFP_Level,1	
+CATEGORY=Class|Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Combat Style Feat|PREVAREQ:Ranger_CF_CombatStyleFeat,0|PREVARGTEQ:Ranger_CFP_Level,2	
+CATEGORY=Class|Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hunter's Bond|PREVAREQ:Ranger_CF_HuntersBond,0|PREVARGTEQ:Ranger_CFP_Level,4	
+CATEGORY=Class|Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Woodland Stride|PREVAREQ:Ranger_CF_WoodlandStride,0|PREVARGTEQ:Ranger_CFP_Level,7	
+CATEGORY=Class|Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Swift Tracker|PREVAREQ:Ranger_CF_SwiftTracker,0|PREVARGTEQ:Ranger_CFP_Level,8	
+CATEGORY=Class|Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Evasion|PREVAREQ:Ranger_CF_Evasion,0|PREVARGTEQ:Ranger_CFP_Level,9	
+CATEGORY=Class|Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Quarry|PREVAREQ:Ranger_CF_Quarry,0|PREVARGTEQ:Ranger_CFP_Level,11	
+CATEGORY=Class|Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Camouflage|PREVAREQ:Ranger_CF_Camouflage,0|PREVARGTEQ:Ranger_CFP_Level,12	
+CATEGORY=Class|Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Improved Evasion|PREVAREQ:Ranger_CF_Evasion,0|PREVARGTEQ:Ranger_CFP_Level,16	
+CATEGORY=Class|Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hide in Plain Sight|PREVAREQ:Ranger_CF_HideInPlainSight,0|PREVARGTEQ:Ranger_CFP_Level,17	
+CATEGORY=Class|Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Improved Quarry|PREVAREQ:Ranger_CF_Quarry,0|PREVARGTEQ:Ranger_CFP_Level,19	
+CATEGORY=Class|Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Master Hunter|PREVAREQ:Ranger_CF_MasterHunter,0|PREVARGTEQ:Ranger_CFP_Level,20	
+CATEGORY=Class|Ranger.MOD	ABILITY:FEAT|AUTOMATIC|Endurance|PREVAREQ:Ranger_CF_Endurance,0|PREVARGTEQ:Ranger_CFP_Level,3	
+
+# Sorcerer
+CATEGORY=Class|Sorcerer.MOD	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Weapon and Armor Proficiency|PREVAREQ:Sorcerer_CF_WeaponProficiencies,0|PREVARGTEQ:Sorcerer_CFP_Level,1	
+CATEGORY=Class|Sorcerer.MOD	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Spells|PREVAREQ:Sorcerer_CF_Spells,0|PREVARGTEQ:Sorcerer_CFP_Level,1	
+CATEGORY=Class|Sorcerer.MOD	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Standard Bloodline|PREVAREQ:Sorcerer_CF_Bloodline,0|PREVARGTEQ:Sorcerer_CFP_Level,1	
+CATEGORY=Class|Sorcerer.MOD	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Cantrips|PREVAREQ:Sorcerer_CF_Cantrips,0|PREVARGTEQ:Sorcerer_CFP_Level,1	
+CATEGORY=Class|Sorcerer.MOD	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Eschew Materials|PREVAREQ:Sorcerer_CF_EschewMaterials,0|PREVARGTEQ:Sorcerer_CFP_Level,1	
+
+# Wizard
+###Block:Proficiencies
+CATEGORY=Class|Wizard.MOD	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Class Skills|PREVAREQ:Wizard_CF_ClassSkills,0|PREVARGTEQ:Wizard_CFP_Level,1	
+CATEGORY=Class|Wizard.MOD	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Weapon and Armor Proficiency|PREVAREQ:Wizard_CF_WeaponProficiencies,0|PREVARGTEQ:Wizard_CFP_Level,1	
+CATEGORY=Class|Wizard.MOD	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Spells|PREVAREQ:Wizard_CF_Spells,0|PREVARGTEQ:Wizard_CFP_Level,1	
+CATEGORY=Class|Wizard.MOD	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Bonus Languages|PREVAREQ:Wizard_CF_BonusLanguages,0|PREVARGTEQ:Wizard_CFP_Level,1	
+CATEGORY=Class|Wizard.MOD	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane Bond|PREVAREQ:Wizard_CF_ArcaneBond,0|PREVARGTEQ:Wizard_CFP_Level,1	
+CATEGORY=Class|Wizard.MOD	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane School|PREVAREQ:Wizard_CF_ArcaneSchool,0|PREVARGTEQ:Wizard_CFP_Level,1	
+CATEGORY=Class|Wizard.MOD	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Cantrips|PREVAREQ:Wizard_CF_Cantrips,0|PREVARGTEQ:Wizard_CFP_Level,1	
+CATEGORY=Class|Wizard.MOD	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Scribe Scroll|PREVAREQ:Wizard_CF_ScribeScroll,0|PREVARGTEQ:Wizard_CFP_Level,1	
+CATEGORY=Class|Wizard.MOD	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Bonus Feats|PREVAREQ:Wizard_CF_BonusFeats,0|PREVARGTEQ:Wizard_CFP_Level,5	
+CATEGORY=Class|Wizard.MOD	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Spellbooks|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Wizard=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Wizard=1]],[PREVAREQ:Wizard_CF_SpellBook,0]|PREVARGTEQ:Wizard_CFP_Level,1	
+
+###Block: Prestige Class Support
+CATEGORY=Class|Arcane Archer.MOD	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies|PREVARGTEQ:ArcaneArcher_CFP_Level,1
+CATEGORY=Class|Arcane Archer.MOD	ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency Output|Simple Weapon Proficiency|PREVARGTEQ:ArcaneArcher_CFP_Level,1
+CATEGORY=Class|Arcane Archer.MOD	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|PREVARGTEQ:ArcaneArcher_CFP_Level,1
+CATEGORY=Class|Arcane Archer.MOD	ABILITY:FEAT|AUTOMATIC|Shield Proficiency|PREVARGTEQ:ArcaneArcher_CFP_Level,1
+CATEGORY=Class|Arcane Archer.MOD	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Enhance Arrow|PREVARGTEQ:ArcaneArcher_CFP_Level,1
+CATEGORY=Class|Arcane Archer.MOD	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Imbue Arrow|PREVARGTEQ:ArcaneArcher_CFP_Level,2
+CATEGORY=Class|Arcane Archer.MOD	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Seeker Arrow|PREVARGTEQ:ArcaneArcher_CFP_Level,4
+CATEGORY=Class|Arcane Archer.MOD	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Phase Arrow|PREVARGTEQ:ArcaneArcher_CFP_Level,6
+CATEGORY=Class|Arcane Archer.MOD	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Hail of Arrows|PREVARGTEQ:ArcaneArcher_CFP_Level,8
+CATEGORY=Class|Arcane Archer.MOD	ABILITY:Special Ability|AUTOMATIC|Arcane Archer ~ Arrow of Death|PREVARGTEQ:ArcaneArcher_CFP_Level,10
+
+CATEGORY=Class|Arcane Trickster.MOD	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Ranged Legerdemain|PREVARGTEQ:ArcaneTrickster_CFP_Level,1
+CATEGORY=Class|Arcane Trickster.MOD	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Sneak Attack|PREVARGTEQ:ArcaneTrickster_CFP_Level,2
+CATEGORY=Class|Arcane Trickster.MOD	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Impromptu Sneak Attack|PREVARGTEQ:ArcaneTrickster_CFP_Level,3
+CATEGORY=Class|Arcane Trickster.MOD	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Tricky Spells|PREVARGTEQ:ArcaneTrickster_CFP_Level,5
+CATEGORY=Class|Arcane Trickster.MOD	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Invisible Thief|PREVARGTEQ:ArcaneTrickster_CFP_Level,9
+CATEGORY=Class|Arcane Trickster.MOD	ABILITY:Special Ability|AUTOMATIC|Arcane Trickster ~ Surprise Spells|PREVARGTEQ:ArcaneTrickster_CFP_Level,10
+
+CATEGORY=Class|Assassin.MOD	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Weapon and Armor Proficiency|PREVARGTEQ:Assassin_CFP_Level,1
+CATEGORY=Class|Assassin.MOD	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Death Attack|Assassin ~ Poison Use|Assassin ~ Sneak Attack|PREVARGTEQ:Assassin_CFP_Level,1
+CATEGORY=Class|Assassin.MOD	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Save against Poisons|Assassin ~ Uncanny Dodge|PREVARGTEQ:Assassin_CFP_Level,2
+CATEGORY=Class|Assassin.MOD	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Hidden Weapons|Assassin ~ True Death|PREVARGTEQ:Assassin_CFP_Level,4
+CATEGORY=Class|Assassin.MOD	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Quiet Death|PREVARGTEQ:Assassin_CFP_Level,6
+CATEGORY=Class|Assassin.MOD	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Hide in Plain Sight|PREVARGTEQ:Assassin_CFP_Level,8
+CATEGORY=Class|Assassin.MOD	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Swift Death|PREVARGTEQ:Assassin_CFP_Level,9
+CATEGORY=Class|Assassin.MOD	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Angel of Death|PREVARGTEQ:Assassin_CFP_Level,10
+
+CATEGORY=Class|Dragon Disciple.MOD	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Weapon and Armor Proficiency|PREVARGTEQ:DragonDisciple_CFP_Level,1
+CATEGORY=Class|Dragon Disciple.MOD	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Spells per Day|PREVARGTEQ:DragonDisciple_CFP_Level,1
+CATEGORY=Class|Dragon Disciple.MOD	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Blood of Dragons|Dragon Disciple ~ Natural Armor Increase|PREVARGTEQ:DragonDisciple_CFP_Level,1
+CATEGORY=Class|Dragon Disciple.MOD	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Ability Boost|Dragon Disciple ~ Dragon Bite|Dragon Disciple ~ Bloodline Feat|PREVARGTEQ:DragonDisciple_CFP_Level,2
+CATEGORY=Class|Dragon Disciple.MOD	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Breath Weapon|PREVARGTEQ:DragonDisciple_CFP_Level,3
+CATEGORY=Class|Dragon Disciple.MOD	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Blindsense|PREVARGTEQ:DragonDisciple_CFP_Level,5
+CATEGORY=Class|Dragon Disciple.MOD	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Dragon Form|PREVARGTEQ:DragonDisciple_CFP_Level,7
+CATEGORY=Class|Dragon Disciple.MOD	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Wings|PREVARGTEQ:DragonDisciple_CFP_Level,9
+
+CATEGORY=Class|Duelist.MOD	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Weapon and Armor Proficiency|PREVARGTEQ:Duelist_CFP_Level,1
+CATEGORY=Class|Duelist.MOD	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Canny Defense|Duelist ~ Precise Strike|PREVARGTEQ:Duelist_CFP_Level,1
+CATEGORY=Class|Duelist.MOD	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Improved Reaction|Duelist ~ Parry|PREVARGTEQ:Duelist_CFP_Level,2
+CATEGORY=Class|Duelist.MOD	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Enhanced Mobility|PREVARGTEQ:Duelist_CFP_Level,3
+CATEGORY=Class|Duelist.MOD	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Combat Reflexes|Duelist ~ Grace|PREVARGTEQ:Duelist_CFP_Level,4
+CATEGORY=Class|Duelist.MOD	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Riposte|PREVARGTEQ:Duelist_CFP_Level,5
+CATEGORY=Class|Duelist.MOD	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Acrobatic Charge|PREVARGTEQ:Duelist_CFP_Level,6
+CATEGORY=Class|Duelist.MOD	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Elaborate Defense|PREVARGTEQ:Duelist_CFP_Level,7
+CATEGORY=Class|Duelist.MOD	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Deflect Arrows|Duelist ~ No Retreat|PREVARGTEQ:Duelist_CFP_Level,9
+CATEGORY=Class|Duelist.MOD	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Crippling Critical|PREVARGTEQ:Duelist_CFP_Level,10
+
+CATEGORY=Class|Eldritch Knight.MOD	ABILITY:Eldritch Knight Class Feature|AUTOMATIC|Eldritch Knight ~ Bonus Feat|Eldritch Knight ~ Diverse Training|PREVARGTEQ:EldritchKnight_CFP_Level,1
+CATEGORY=Class|Eldritch Knight.MOD	ABILITY:Eldritch Knight Class Feature|AUTOMATIC|Eldritch Knight ~ Spell Critical|PREVARGTEQ:EldritchKnight_CFP_Level,10
+
+CATEGORY=Class|Loremaster.MOD	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Secret Lore|PREVARGTEQ:Loremaster_CFP_Level,1	
+CATEGORY=Class|Loremaster.MOD	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Lore|PREVARGTEQ:Loremaster_CFP_Level,2	
+CATEGORY=Class|Loremaster.MOD	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Greater Lore|PREVARGTEQ:Loremaster_CFP_Level,6	
+CATEGORY=Class|Loremaster.MOD	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ True Lore|PREVARGTEQ:Loremaster_CFP_Level,10	
+
+CATEGORY=Class|Mystic Theurge.MOD	ABILITY:Mystic Theurge Class Feature|AUTOMATIC|Mystic Theurge ~ Combined Spells|PREVARGTEQ:MysticTheurge_CFP_Level,1	
+CATEGORY=Class|Mystic Theurge.MOD	ABILITY:Mystic Theurge Class Feature|AUTOMATIC|Mystic Theurge ~ Spell Synthesis|PREVARGTEQ:MysticTheurge_CFP_Level,10	
+
+CATEGORY=Class|Pathfinder Chronicler.MOD	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Bardic Knowledge|Pathfinder Chronicler ~ Deep Pockets|Pathfinder Chronicler ~ Master Scribe|PREVARGTEQ:PathfinderChronicler_CFP_Level,1	
+CATEGORY=Class|Pathfinder Chronicler.MOD	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Live to Tell the Tale|Pathfinder Chronicler ~ Pathfinding|PREVARGTEQ:PathfinderChronicler_CFP_Level,2	
+CATEGORY=Class|Pathfinder Chronicler.MOD	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Bardic Performance|Pathfinder Chronicler ~ Improved Aid|PREVARGTEQ:PathfinderChronicler_CFP_Level,3	
+CATEGORY=Class|Pathfinder Chronicler.MOD	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Epic Tales|PREVARGTEQ:PathfinderChronicler_CFP_Level,4	
+CATEGORY=Class|Pathfinder Chronicler.MOD	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Whispering Campaign|PREVARGTEQ:PathfinderChronicler_CFP_Level,5	
+CATEGORY=Class|Pathfinder Chronicler.MOD	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Inspire Action|PREVARGTEQ:PathfinderChronicler_CFP_Level,6	
+CATEGORY=Class|Pathfinder Chronicler.MOD	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Call down the Legends|PREVARGTEQ:PathfinderChronicler_CFP_Level,7	
+CATEGORY=Class|Pathfinder Chronicler.MOD	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Greater Epic Tales|PREVARGTEQ:PathfinderChronicler_CFP_Level,8	
+CATEGORY=Class|Pathfinder Chronicler.MOD	ABILITY:Pathfinder Chronicler Class Feature|AUTOMATIC|Pathfinder Chronicler ~ Lay of the Exalted Dead|PREVARGTEQ:PathfinderChronicler_CFP_Level,10	
+
+CATEGORY=Class|Shadowdancer.MOD		ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Weapon and Armor Proficiency|PREVARGTEQ:Shadowdancer_CFP_Level,1		
+CATEGORY=Class|Shadowdancer.MOD		ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Hide in Plain Sight|PREVARGTEQ:Shadowdancer_CFP_Level,1
+CATEGORY=Class|Shadowdancer.MOD		ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Darkvision|PREVARGTEQ:Shadowdancer_CFP_Level,2
+CATEGORY=Class|Shadowdancer.MOD		ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Evasion|PREVARGTEQ:Shadowdancer_CFP_Level,2
+CATEGORY=Class|Shadowdancer.MOD		ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Uncanny Dodge|PREVARGTEQ:Shadowdancer_CFP_Level,2
+CATEGORY=Class|Shadowdancer.MOD		ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Rogue Talents|Shadowdancer ~ Shadow Illusion|Shadowdancer ~ Summon Shadow|PREVARGTEQ:Shadowdancer_CFP_Level,3
+CATEGORY=Class|Shadowdancer.MOD		ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Shadow Call|Shadowdancer ~ Shadow Jump|PREVARGTEQ:Shadowdancer_CFP_Level,4
+CATEGORY=Class|Shadowdancer.MOD		ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Defensive Roll|PREVARGTEQ:Shadowdancer_CFP_Level,5
+CATEGORY=Class|Shadowdancer.MOD		ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Slippery Mind|PREVARGTEQ:Shadowdancer_CFP_Level,7
+CATEGORY=Class|Shadowdancer.MOD		ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Shadow Power|PREVARGTEQ:Shadowdancer_CFP_Level,8
+CATEGORY=Class|Shadowdancer.MOD		ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Improved Evasion|Shadowdancer ~ Shadow Master|PREVARGTEQ:Shadowdancer_CFP_Level,10
 
 
 ###Block: Homebrew and expansion support
