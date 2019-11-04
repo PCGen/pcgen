@@ -11,19 +11,6 @@ CLASS:Vigilante	HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:VigilanteLV
 CLASS:Vigilante	STARTSKILLPTS:6
 ###Block
 1	ABILITY:Class|AUTOMATIC|Vigilante
-###Block
-1	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Class Skills|PREVAREQ:Vigilante_CF_ClassSkills,0|PREVARGTEQ:Vigilante_CFP_Level,1
-1	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Weapon and Armor Proficiencies|PREVARGTEQ:Vigilante_CFP_Level,1
-1	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Dual Identity|PREVAREQ:Vigilante_CF_DualIdentity,0|PREVARGTEQ:Vigilante_CFP_Level,1
-1	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Seamless Guise|PREVAREQ:Vigilante_CF_SeamlessGuise,0|PREVARGTEQ:Vigilante_CFP_Level,1
-1	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Social Talent|PREVAREQ:Vigilante_CF_SocialTalent,0|PREVARGTEQ:Vigilante_CFP_Level,1
-1	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Vigilante Specialization|PREVAREQ:Vigilante_CF_VigilanteSpecialization,0|PREVARGTEQ:Vigilante_CFP_Level,1
-2	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Vigilante Talent|PREVAREQ:Vigilante_CF_VigilanteTalent,0|PREVARGTEQ:Vigilante_CFP_Level,2
-3	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Unshakable|PREVAREQ:Vigilante_CF_Unshakable,0|PREVARGTEQ:Vigilante_CFP_Level,3
-5	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Startling Appearance|PREVAREQ:Vigilante_CF_StartlingAppearance,0|PREVARGTEQ:Vigilante_CFP_Level,5
-11	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Frightening Appearance|PREVAREQ:Vigilante_CF_FrighteningAppearance,0|PREVARGTEQ:Vigilante_CFP_Level,11
-17	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Stunning Appearance|PREVAREQ:Vigilante_CF_StunningAppearance,0|PREVARGTEQ:Vigilante_CFP_Level,17
-20	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Vengeance Strike|PREVAREQ:Vigilante_CF_VengeanceStrike,0|PREVARGTEQ:Vigilante_CFP_Level,20
 
 
 # Class Name	Type			Max Level	Visible	FACT
