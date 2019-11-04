@@ -3,10 +3,53 @@
 
 ###Block: New FACT Archetype System
 # Ability Name	Category of Ability	Ability
-Gunslinger		CATEGORY:Class		ABILITY:Gunslinger Archetype|AUTOMATIC|Archetype Gunslinger	ABILITY:Internal|AUTOMATIC|Gunslinger ~ Class Skill|PREVAREQ:Gunslinger_CF_ClassSkills,0	ABILITY:Special Ability|AUTOMATIC|Gunslinger ~ Proficiencies|PREVAREQ:Gunslinger_CF_Proficiencies,0
-Ninja			CATEGORY:Class		ABILITY:Ninja Archetype|AUTOMATIC|Archetype Ninja	ABILITY:Internal|AUTOMATIC|Ninja ~ Class Skill|PREVAREQ:Ninja_CF_ClassSkills,0
-Samurai		CATEGORY:Class		ABILITY:Samurai Archetype|AUTOMATIC|Archetype Samurai	ABILITY:Internal|AUTOMATIC|Samurai ~ Class Skill|PREVAREQ:Samurai_CF_ClassSkills,0
+Gunslinger		CATEGORY:Class	DEFINE:Gunslinger_CFP_Level|0	BONUS:VAR|Gunslinger_CFP_Level|GunslingerLVL	ABILITY:Gunslinger Archetype|AUTOMATIC|Archetype Gunslinger	ABILITY:Internal|AUTOMATIC|Gunslinger ~ Class Skill|PREVAREQ:Gunslinger_CF_ClassSkills,0	ABILITY:Special Ability|AUTOMATIC|Gunslinger ~ Proficiencies|PREVAREQ:Gunslinger_CF_Proficiencies,0
+Ninja			CATEGORY:Class	DEFINE:Ninja_CFP_Level|0	BONUS:VAR|Ninja_CFP_Level|NinjaLVL			ABILITY:Ninja Archetype|AUTOMATIC|Archetype Ninja	ABILITY:Internal|AUTOMATIC|Ninja ~ Class Skill|PREVAREQ:Ninja_CF_ClassSkills,0
+Samurai		CATEGORY:Class	DEFINE:Samurai_CFP_Level|0	BONUS:VAR|Samurai_CFP_Level|SamuraiLVL		ABILITY:Samurai Archetype|AUTOMATIC|Archetype Samurai	ABILITY:Internal|AUTOMATIC|Samurai ~ Class Skill|PREVAREQ:Samurai_CF_ClassSkills,0
 
+###Block: Level progression
+CATEGORY=Class|Gunslinger.MOD	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Gunsmith|PREVAREQ:Gunslinger_CF_Gunsmith,0|PREVARGTEQ:Gunslinger_CFP_Level,1
+CATEGORY=Class|Gunslinger.MOD	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Deeds|PREVAREQ:Gunslinger_CF_Deeds,0|PREVARGTEQ:Gunslinger_CFP_Level,1
+CATEGORY=Class|Gunslinger.MOD	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Grit|PREVAREQ:Gunslinger_CF_Grit,0|PREVARGTEQ:Gunslinger_CFP_Level,1
+CATEGORY=Class|Gunslinger.MOD	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Nimble|PREVAREQ:Gunslinger_CF_Nimble,0|PREVARGTEQ:Gunslinger_CFP_Level,2
+CATEGORY=Class|Gunslinger.MOD	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Bonus Feats|PREVAREQ:Gunslinger_CF_BonusFeats,0|PREVARGTEQ:Gunslinger_CFP_Level,4
+CATEGORY=Class|Gunslinger.MOD	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Gun Training|PREVAREQ:Gunslinger_CF_GunTraining,0|PREVARGTEQ:Gunslinger_CFP_Level,5
+CATEGORY=Class|Gunslinger.MOD	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ True Grit|PREVAREQ:Gunslinger_CF_TrueGrit,0|PREVARGTEQ:Gunslinger_CFP_Level,20
+
+CATEGORY=Class|Ninja.MOD	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Poison Use|PREVAREQ:Ninja_CF_PoisonUse,0|PREVARGTEQ:Ninja_CFP_Level,1	
+CATEGORY=Class|Ninja.MOD	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Sneak Attack|PREVAREQ:Ninja_CF_SneakAttack,0|PREVARGTEQ:Ninja_CFP_Level,1	
+CATEGORY=Class|Ninja.MOD	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ninja Trick|PREVAREQ:Ninja_CF_Trick,0|PREVARGTEQ:Ninja_CFP_Level,2	
+CATEGORY=Class|Ninja.MOD	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ki Pool|PREVAREQ:Ninja_CF_KiPool,0|PREVARGTEQ:Ninja_CFP_Level,2	
+CATEGORY=Class|Ninja.MOD	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ No Trace|PREVAREQ:Ninja_CF_NoTrace,0|PREVARGTEQ:Ninja_CFP_Level,3	
+CATEGORY=Class|Ninja.MOD	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREVAREQ:Ninja_CF_UncannyDodge,0|PREVARGTEQ:Ninja_CFP_Level,4	
+CATEGORY=Class|Ninja.MOD	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Light Steps|PREVAREQ:Ninja_CF_LightSteps,0|PREVARGTEQ:Ninja_CFP_Level,6	
+CATEGORY=Class|Ninja.MOD	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREVAREQ:Ninja_CF_ImprovedUncannyDodge,0|PREVARGTEQ:Ninja_CFP_Level,8	
+CATEGORY=Class|Ninja.MOD	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Hidden Master|PREVAREQ:Ninja_CF_HiddenMaster,0|PREVARGTEQ:Ninja_CFP_Level,20
+
+CATEGORY=Class|Samurai.MOD	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Challenge|PREVAREQ:Samurai_CF_Challenge,0|PREVARGTEQ:Samurai_CFP_Level,1	
+CATEGORY=Class|Samurai.MOD	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Mount|PREVAREQ:Samurai_CF_Mount,0|PREVARGTEQ:Samurai_CFP_Level,1	
+CATEGORY=Class|Samurai.MOD	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Order|PREVAREQ:Samurai_CF_Order,0|PREVARGTEQ:Samurai_CFP_Level,1	
+CATEGORY=Class|Samurai.MOD	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Resolve|PREVAREQ:Samurai_CF_Resolve,0|PREVARGTEQ:Samurai_CFP_Level,1	
+CATEGORY=Class|Samurai.MOD	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Weapon Expertise|PREVAREQ:Samurai_CF_WeaponExpertise,0|PREVARGTEQ:Samurai_CFP_Level,3	
+CATEGORY=Class|Samurai.MOD	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Mounted Archer|PREVAREQ:Samurai_CF_MountedArcher,0|PREVARGTEQ:Samurai_CFP_Level,4	
+CATEGORY=Class|Samurai.MOD	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Banner|PREVAREQ:Samurai_CF_Banner,0|PREVARGTEQ:Samurai_CFP_Level,5	
+CATEGORY=Class|Samurai.MOD	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Bonus Feat|PREVAREQ:Samurai_CF_BonusFeats,0|PREVARGTEQ:Samurai_CFP_Level,6	
+CATEGORY=Class|Samurai.MOD	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Greater Resolve|PREVAREQ:Samurai_CF_GreaterResolve,0|PREVARGTEQ:Samurai_CFP_Level,9	
+CATEGORY=Class|Samurai.MOD	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Honorable Stand|PREVAREQ:Samurai_CF_HonorableStand,0|PREVARGTEQ:Samurai_CFP_Level,11	
+CATEGORY=Class|Samurai.MOD	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Demanding Challenge|PREVAREQ:Samurai_CF_DemandingChallenge,0|PREVARGTEQ:Samurai_CFP_Level,12	
+CATEGORY=Class|Samurai.MOD	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Greater Banner|PREVAREQ:Samurai_CF_GreaterBanner,0|PREVARGTEQ:Samurai_CFP_Level,14	
+CATEGORY=Class|Samurai.MOD	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ True Resolve|PREVAREQ:Samurai_CF_TrueResolve,0|PREVARGTEQ:Samurai_CFP_Level,17	
+CATEGORY=Class|Samurai.MOD	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Last Stand|PREVAREQ:Samurai_CF_LastStand,0|PREVARGTEQ:Samurai_CFP_Level,20	
+CATEGORY=Class|Samurai.MOD	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker|PREVARGTEQ:Samurai_CFP_Level,1	
+CATEGORY=Class|Samurai.MOD	ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify|PREVARGTEQ:Samurai_CFP_Level,1	
+CATEGORY=Class|Samurai.MOD	ABILITY:Special Ability|AUTOMATIC|Disruptive Qualify|PREVARGTEQ:Samurai_CFP_Level,1	
+CATEGORY=Class|Samurai.MOD	ABILITY:Special Ability|AUTOMATIC|Greater Shield Focus Qualify|PREVARGTEQ:Samurai_CFP_Level,1	
+CATEGORY=Class|Samurai.MOD	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Focus Qualify|PREVARGTEQ:Samurai_CFP_Level,1	
+CATEGORY=Class|Samurai.MOD	ABILITY:Special Ability|AUTOMATIC|Spellbreaker Qualify|PREVARGTEQ:Samurai_CFP_Level,1	
+CATEGORY=Class|Samurai.MOD	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Specialization Qualify|PREVARGTEQ:Samurai_CFP_Level,1	
+CATEGORY=Class|Samurai.MOD	ABILITY:Special Ability|AUTOMATIC|Penetrating Strike Qualify|PREVARGTEQ:Samurai_CFP_Level,1	
+CATEGORY=Class|Samurai.MOD	ABILITY:Special Ability|AUTOMATIC|Critical Mastery Qualify|PREVARGTEQ:Samurai_CFP_Level,1	
+CATEGORY=Class|Samurai.MOD	ABILITY:Special Ability|AUTOMATIC|Greater Penetrating Strike Qualify|PREVARGTEQ:Samurai_CFP_Level,1	
 
 ###Block:
 # Ability Name			Category of Ability	Class Skill

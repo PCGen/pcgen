@@ -15,22 +15,6 @@ CLASS:Alchemist	STARTSKILLPTS:4
 CLASS:Alchemist	SPELLSTAT:INT	MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Alchemist|Caster_Level_BL_Stripped_Alchemist
 ###Block: Proficiencies
 1	ABILITY:Class|AUTOMATIC|Alchemist
-###Block: Alchemist Book
-1	ABILITY:Internal|AUTOMATIC|Free Formula Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Alchemist=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Alchemist=1]]
-###Block: Class Abilities
-1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Alchemy|Alchemist ~ Formulae|PREVAREQ:Alchemist_CF_Alchemy,0
-1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Bomb|PREVAREQ:Alchemist_CF_Bomb,0
-1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Brew Potion|PREVAREQ:Alchemist_CF_BrewPotion,0
-1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Mutagen|PREVAREQ:Alchemist_CF_Mutagen,0
-1	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Throw Anything|PREVAREQ:Alchemist_CF_ThrowAnything,0
-2	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Discovery|PREVAREQ:Alchemist_CF_Discovery,0
-2	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Poison Resistance|PREVAREQ:Alchemist_CF_PoisonResistance,0
-2	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Poison Use|PREVAREQ:Alchemist_CF_PoisonUse,0
-3	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Swift Alchemy|PREVAREQ:Alchemist_CF_SwiftAlchemy,0
-6	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Swift Poisoning|PREVAREQ:Alchemist_CF_SwiftPoisoning,0
-14	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Persistent Mutagen|PREVAREQ:Alchemist_CF_PersistentMutagen,0
-18	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Instant Alchemy|PREVAREQ:Alchemist_CF_InstantAlchemy,0
-20	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Grand Discovery|PREVAREQ:Alchemist_CF_GrandDiscovery,0
 ###Block: Spellcasting
 1	CAST:0,1
 2	CAST:0,2
@@ -60,21 +44,6 @@ CLASS:Cavalier	HD:10		TYPE:Base.PC.Cavalier	MAXLEVEL:20	ALLOWBASECLASS:NO		SOURC
 CLASS:Cavalier	STARTSKILLPTS:4
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Cavalier
-###Block: Level progression
-1	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Challenge|PREVAREQ:Cavalier_CF_Challenge,0
-1	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Mount|PREVAREQ:Cavalier_CF_Mount,0
-1	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Order|PREVAREQ:Cavalier_CF_Order,0
-1	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Tactician|PREVAREQ:Cavalier_CF_Tactician,0
-3	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Cavalier's Charge|PREVAREQ:Cavalier_CF_CavaliersCharge,0
-4	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Expert Trainer|PREVAREQ:Cavalier_CF_ExpertTrainer,0
-6	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Bonus Feat|PREVAREQ:Cavalier_CF_BonusFeat,0
-5	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Banner|PREVAREQ:Cavalier_CF_Banner,0
-9	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Greater Tactician|PREVAREQ:Cavalier_CF_GreaterTactician,0
-11	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Mighty Charge|PREVAREQ:Cavalier_CF_MightyCharge,0
-12	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Demanding Challenge|PREVAREQ:Cavalier_CF_DemandingChallenge,0
-14	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Greater Banner|PREVAREQ:Cavalier_CF_GreaterBanner,0
-17	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Master Tactician|PREVAREQ:Cavalier_CF_MasterTactician,0
-20	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Supreme Charge|PREVAREQ:Cavalier_CF_SupremeCharge,0
 
 
 # Class Name	Hit Dice	Type								Max Level	Ex Class			Source Page		Define																											Combat bonus																	Save bonus																																		Modify VAR																																																																																																																										FACT
@@ -92,25 +61,6 @@ CLASS:Inquisitor	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Inquisitor|Caster_L
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREVAREQ:ProhibitSpell_Alignment_Evil,1
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREVAREQ:ProhibitSpell_Alignment_Lawful,1
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREVAREQ:ProhibitSpell_Alignment_Chaotic,1
-###Block: Level progression
-1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Domains|PREVAREQ:Inquisitor_CF_Domains,0
-1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Judgment|PREVAREQ:Inquisitor_CF_Judgment,0
-1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Monster Lore|PREVAREQ:Inquisitor_CF_MonsterLore,0
-1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Stern Gaze|PREVAREQ:Inquisitor_CF_SternGaze,0
-2	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Cunning Initiative|PREVAREQ:Inquisitor_CF_CunningInitiative,0
-2	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Detect Alignment|PREVAREQ:Inquisitor_CF_DetectAlignment,0
-2	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Track|PREVAREQ:Inquisitor_CF_Track,0
-3	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Solo Tactics|PREVAREQ:Inquisitor_CF_SoloTactics,0
-3	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Teamwork Feat|PREVAREQ:Inquisitor_CF_TeamworkFeat,0
-5	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Bane|PREVAREQ:Inquisitor_CF_Bane,0
-5	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Discern Lies|PREVAREQ:Inquisitor_CF_DiscernLies,0
-8	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Second Judgment|PREVAREQ:Inquisitor_CF_SecondJudgment,0
-11	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Stalwart|PREVAREQ:Inquisitor_CF_Stalwart,0
-12	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Greater Bane|PREVAREQ:Inquisitor_CF_GreaterBane,0
-14	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Exploit Weakness|PREVAREQ:Inquisitor_CF_ExploitWeakness,0
-16	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Third Judgment|PREVAREQ:Inquisitor_CF_ThirdJudgment,0
-17	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Slayer|PREVAREQ:Inquisitor_CF_Slayer,0
-20	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ True Judgment|PREVAREQ:Inquisitor_CF_TrueJudgment,0
 ###Block: Casting
 1	CAST:0,1			KNOWN:4,2
 2	CAST:0,2			KNOWN:5,3
@@ -161,10 +111,6 @@ CLASS:Oracle	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Diplomacy|Heal|Knowledge (History
 CLASS:Oracle	SPELLSTAT:CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Oracle|Caster_Level_BL_Stripped_Oracle	SPELLLIST:2|Cleric|Oracle
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Oracle
-###Block: Oracle's Class Abilities
-1	ABILITY:Oracle Class Feature|AUTOMATIC|Oracle ~ Orisons
-1	ABILITY:Oracle Class Feature|AUTOMATIC|Oracle's Curse|PREVAREQ:Oracle_CF_OraclesCurse,0
-1	ABILITY:Oracle Class Feature|AUTOMATIC|Oracle's Mystery|PREVAREQ:Oracle_CF_OraclesMystery,0
 ###Block: Level progression
 1	CAST:0,3				KNOWN:4,2
 2	CAST:0,4				KNOWN:5,2
@@ -230,12 +176,6 @@ CLASS:Witch		STARTSKILLPTS:2
 CLASS:Witch		SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Witch|Caster_Level_BL_Stripped_Witch
 ###Block:Proficiencies
 1	ABILITY:Class|AUTOMATIC|Witch
-###Block: Witch Class Abilities
-1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Familiar|PREVAREQ:Witch_CF_Familiar,0
-1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Cantrips|PREVAREQ:Witch_CF_Cantrips,0
-1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Hex|PREVAREQ:Witch_CF_Hex,0
-1	ABILITY:Witch Class Feature|AUTOMATIC|Witch Patron|PREVAREQ:Witch_CF_PatronSpell,0
-3	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells|PREVAREQ:Witch_CF_FamiliarTouchSpells,0
 ###Block: Spell Progression
 1	CAST:3,1
 2	CAST:4,2
@@ -282,22 +222,6 @@ CLASS:Antipaladin	STARTSKILLPTS:2
 CLASS:Antipaladin	SPELLSTAT:CHA	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:CL-3	BONUS:CASTERLEVEL|Antipaladin|Caster_Level_BL_Stripped_Antipaladin|PRECLASS:1,Antipaladin=4
 ###Block: Proficiencies
 1	ABILITY:Class|AUTOMATIC|Antipaladin
-###Block: Level progression
-1	ABILITY:Antipaladin Class Feature|AUTOMATIC|Aura of Evil|PREVAREQ:Antipaladin_CF_AuraOfEvil,0
-1	ABILITY:Antipaladin Class Feature|AUTOMATIC|Detect Good|PREVAREQ:Antipaladin_CF_DetectGood,0
-1	ABILITY:Antipaladin Class Feature|AUTOMATIC|Smite Good|PREVAREQ:Antipaladin_CF_SmiteGood,0
-2	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Touch of Corruption|PREVAREQ:Antipaladin_CF_TouchOfCorruption,0
-2	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Unholy Resilience|PREVAREQ:Antipaladin_CF_UnholyResilience,0
-3	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Aura of Cowardice|PREVAREQ:Antipaladin_CF_AuraOfCowardice,0
-3	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Cruelty|PREVAREQ:Antipaladin_CF_Cruelty,0
-3	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Plague Bringer|PREVAREQ:Antipaladin_CF_PlagueBringer,0
-4	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Channel Negative Energy|PREVAREQ:Antipaladin_CF_ChannelNegativeEnergy,0
-5	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Fiendish Boon|PREVAREQ:Antipaladin_CF_FiendishBoon,0
-8	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Aura of Despair|PREVAREQ:Antipaladin_CF_AuraOfDespair,0
-11	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Aura of Vengeance|PREVAREQ:Antipaladin_CF_AuraOfVengeance,0
-14	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Aura of Sin|PREVAREQ:Antipaladin_CF_AuraOfSin,0
-17	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Aura of Depravity|PREVAREQ:Antipaladin_CF_AuraOfDepravity,0
-20	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Unholy Champion|PREVAREQ:Antipaladin_CF_UnholyChampion,0
 ###Block: Casting Progression
 4	CAST:0,0
 5	CAST:0,1
@@ -452,71 +376,61 @@ SUBCLASSLEVEL:1	BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|-1	ABILITY:Wizard Class Fea
 ###Block: Battle Herald --------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																							Modify VAR																																																												FACT
-CLASS:Battle Herald	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.260	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|BH
+CLASS:Battle Herald	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.260	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|BH	DEFINE:BattleHeraldLVL|0	BONUS:VAR|BattleHeraldLVL|classlevel()
 # Class Name		Required Ability														Required Skill											PRETOTALAB
 CLASS:Battle Herald	PREABILITY:2,CATEGORY=Special Ability,Cavalier ~ Challenge,Bardic Performance ~ Inspire Courage	PRESKILL:4,Diplomacy=5,Intimidate=5,Perform (Oratory)=5,Profession(soldier)=2	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Battle Herald	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Engineering)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility)|Perception|TYPE=Profession|Ride|Sense Motive
-##Block: Normal Level Progression
-1	BONUS:ABILITYPOOL|Inspiring Command Selection|CL+1/2	BONUS:VAR|InspiringCommandLVL|CL	ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Improved Leadership|Battle Herald ~ Inspiring Command|Battle Herald ~ Voice of Authority
-2																ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Easy March
-4																ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Inspire Greatness
-5	BONUS:ABILITYPOOL|Teamwork Feat|1										ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Banner
-6																ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Teamwork Feat
-7																ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Demanding Challenge
-8																ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Persistent Commands
-9																ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Inspire Last Stand
-10																ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Complex Commands
+1	ABILITY:Class|AUTOMATIC|Battle Herald
+
 
 ###Block: Holy Vindicator --------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																															Modify VAR																																																												FACT
-CLASS:Holy Vindicator	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.263	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|HV
+CLASS:Holy Vindicator	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.263	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|HV	DEFINE:HolyVindicatorLVL|0	BONUS:VAR|HolyVindicatorLVL|classlevel()
 # Class Name		Required Ability																			Required Skill				Req. Spell Type		PRETOTALAB
 CLASS:Holy Vindicator	PREABILITY:1,CATEGORY=Special Ability,TYPE.Channel Energy	PREABILITY:1,CATEGORY=FEAT,Alignment Channel,Elemental Channel	PRESKILL:1,Knowledge (Religion)=5	PRESPELLTYPE:1,Divine=1	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Holy Vindicator	STARTSKILLPTS:2	CSKILL:Climb|Heal|Intimidate|Knowledge (Planes)|Knowledge (Religion)|Ride|Sense Motive|Spellcraft|Swim
-###Block:  Weapon/Armor Proficiencies
-1													ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfHeavy|TYPE=ShieldProf|TYPE=WeaponProfMartial
-##Block: Normal Level Progression
-1	BONUS:VAR|PrestigeClassChannelEnergyLVL|CL					ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Vindicator's Shield|Prestige Class ~ Channel Energy
-2	BONUS:VAR|StigmataLVL|CL				ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Stigmata
-3	BONUS:VAR|Faith HealingLVL|CL				ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Faith Healing
-4									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Divine Wrath
-5													ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Bloodfire|Holy Vindicator ~ Channel Smite	ABILITY:FEAT|AUTOMATIC|Channel Smite
-6									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Versatile Channel
-7									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Divine Judgment
-8									ADD:SPELLCASTER|Divine
-9													ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Bloodrain
-10									ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Divine Retribution
+###Block:
+1	ABILITY:Class|AUTOMATIC|Holy Vindicator
+###Block:
+1	BONUS:VAR|PrestigeClassChannelEnergyLVL|HolyVindicatorLVL
+###Block
+2	ADD:SPELLCASTER|Divine
+3	ADD:SPELLCASTER|Divine
+4	ADD:SPELLCASTER|Divine
+6	ADD:SPELLCASTER|Divine
+7	ADD:SPELLCASTER|Divine
+8	ADD:SPELLCASTER|Divine
+10	ADD:SPELLCASTER|Divine
+
 
 ###Block: Horizon Walker --------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																Save bonus																						Modify VAR																																																												FACT
-CLASS:Horizon Walker	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.265	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|HW
+CLASS:Horizon Walker	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.265	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|HW	DEFINE:HorizonWalkerLVL|0	BONUS:VAR|HorizonWalkerLVL|classlevel()
 # Class Name		Required Ability					Required Skill
 CLASS:Horizon Walker	PREABILITY:1,CATEGORY=FEAT,Endurance	PRESKILL:1,Knowledge (Geography)=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Horizon Walker	STARTSKILLPTS:6	CSKILL:Climb|Diplomacy|Handle Animal|Knowledge (Geography)|Knowledge (Nature)|Knowledge (Planes)|Linguistics|Perception|Stealth|Survival|Swim
-
-1										BONUS:VAR|HorizonWalkerFavoredTerrainLVL|CL	ABILITY:Special Ability|AUTOMATIC|Horizon Walker ~ Favored Terrain
-2	BONUS:ABILITYPOOL|Terrain Mastery Selection|CL/2	BONUS:VAR|HorizonWalkerTerrainMasteryLVL|CL	ABILITY:Special Ability|AUTOMATIC|Horizon Walker ~ Terrain Mastery
-3	BONUS:ABILITYPOOL|Terrain Dominance Selection|CL/3	BONUS:VAR|HorizonWalkerTerrainDominanceLVL|CL	ABILITY:Special Ability|AUTOMATIC|Horizon Walker ~ Terrain Dominance
-10																		ABILITY:Special Ability|AUTOMATIC|Horizon Walker ~ Master Of All Lands
+###Block:
+1	ABILITY:Class|AUTOMATIC|Horizon Walker
 
 
 ###Block: Master Chymist --------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																Save bonus																						Modify VAR																																																																	FACT
-CLASS:Master Chymist	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.267	DEFINE:MasterChymistLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|MasterChymistLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|MC
+CLASS:Master Chymist	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.267	DEFINE:MasterChymistLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|MasterChymistLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|MC	DEFINE:MasterChymistLVL|0	BONUS:VAR|MasterChymistLVL|classlevel()
 # Class Name		Multiple Requirements																									Req. Spell Type
 CLASS:Master Chymist	PREMULT:2,[PREABILITY:1,CATEGORY=Special Ability,Alchemist ~ Mutagen],[PREABILITY:1,CATEGORY=Special Ability,Discovery ~ Feral Mutagen,Discovery ~ Infuse Mutagen]	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Chymist	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Sense Motive|Stealth|Swim
+###Block:
+1	ABILITY:Class|AUTOMATIC|Master Chymist
 ##Block: Normal Level Progression
-1					ABILITY:Master Chymist Class Feature|AUTOMATIC|Master Chymist ~ Weapon and Armor Proficiency|Master Chymist ~ Bomb-Thrower|Master Chymist ~ Mutagenic Form|Master Chymist ~ Mutate
-2	ADD:SPELLCASTER|Arcane	ABILITY:Master Chymist Class Feature|AUTOMATIC|Master Chymist ~ Advanced Mutagen
-3	ADD:SPELLCASTER|Arcane	ABILITY:Master Chymist Class Feature|AUTOMATIC|Master Chymist ~ Brutality
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
 5	ADD:SPELLCASTER|Arcane
 6	ADD:SPELLCASTER|Arcane
 7	ADD:SPELLCASTER|Arcane
@@ -526,79 +440,61 @@ CLASS:Master Chymist	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Escape Artist|Intim
 ###Block: Master Spy --------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																						Modify VAR																																																																												FACT
-CLASS:Master Spy	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.270	DEFINE:MasterSpyLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|MasterSpyLVL|CL	BONUS:VAR|DeathAttackDC,DeathAttackDuration|MasterSpyLVL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|MS
+CLASS:Master Spy	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.270	DEFINE:MasterSpyLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|MasterSpyLVL|CL	BONUS:VAR|DeathAttackDC,DeathAttackDuration|MasterSpyLVL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|MS	DEFINE:MasterSpyLVL|0	BONUS:VAR|MasterSpyLVL|classlevel()
 # Class Name	Required Ability						Required Skill
 CLASS:Master Spy	PREABILITY:2,CATEGORY=FEAT,Deceitful,Iron Will	PRESKILL:4,Bluff=7,Disguise=7,Perception=5,Sense Motive=5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Master Spy	STARTSKILLPTS:6	CSKILL:Bluff|Diplomacy|Disable Device|Disguise|Escape Artist|TYPE=Knowledge|Linguistics|Perception|Sense Motive|Sleight of Hand|Stealth|Use Magic Device
-##Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Art of Deception|Master Spy ~ Master of Disguise|Master Spy ~ Sneak Attack
-2	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Glib Lie|Master Spy ~ Mask Alignment
-3	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Nonmagical Aura|Master Spy ~ Superficial Knowledge
-4	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Concealed Thoughts|Master Spy ~ Quick Change
-5	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Elude Detection|Master Spy ~ Slippery Mind
-6	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Shift Alignment
-8	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Death Attack|Master Spy ~ Fool Casting
-9	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Hidden Mind
-10	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Assumption
+###Block:
+1	ABILITY:Class|AUTOMATIC|Master Spy
 
 ###Block: Nature Warden --------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus																	Save bonus																							Modify VAR																																																													FACT
-CLASS:Nature Warden	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.272	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|NW
+CLASS:Nature Warden	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.272	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|NW	DEFINE:NatureWardenLVL|0	BONUS:VAR|NatureWardenLVL|classlevel()
 # Class Name		Required Ability																	Required Skill												Req. Spell Type		PRETOTALAB		Var. Must Be Grater
 CLASS:Nature Warden	PREABILITY:1,CATEGORY=Special Ability,TYPE.FavoredTerrain	PREABILITY:1,CATEGORY=Special Ability,Wild Empathy	PRESKILL:4,Handle Animal=5,Knowledge (Geography)=5,Knowledge (Nature)=5,Survival=5	PRESPELLTYPE:1,Divine=2	PRETOTALAB:4	PREVARGT:AnimalCompanionLVL,0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Nature Warden	STARTSKILLPTS:4	CSKILL:Handle Animal|Heal|Knowledge (Geography)|Knowledge (Nature)|Perception|Ride|Sense Motive|Survival|Swim
+###Block:
+1	ABILITY:Class|AUTOMATIC|Nature Warden	BONUS:VAR|CompanionBondLVL|NatureWardenLVL	BONUS:VAR|AnimalCompanionMasterLVL|NatureWardenLVL	BONUS:VAR|NaturalEmpathyLVL|NatureWardenLVL
+5								BONUS:VAR|RangerFavoredTerrainLVL|NatureWardenLVL
 ##Block: Normal Level Progression
-1	BONUS:VAR|CompanionBondLVL|CL	BONUS:VAR|AnimalCompanionMasterLVL|CL	BONUS:VAR|NaturalEmpathyLVL|CL					ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Companion Bond|Nature Warden ~ Natural Empathy
-2																			ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Mystic Harmony|Nature Warden ~ Wild Stride
-3																			ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Animal Speech
-4																			ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Silverclaw
-#5	BONUS:VAR|FavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL					ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Favored Terrain ~ Nature Warden|Nature Warden ~ Survivalist ~ Nature Warden
-#
-#  Since "This ability is identical to and stacks with the ranger class ability.", it's easier just to advance the ranger variable.
-#
-5	BONUS:VAR|RangerFavoredTerrainLVL|CL	BONUS:VAR|SurvivalistLVL|CL											ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Survivalist|Ranger ~ Favored Terrain
-6																			ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Woodforging
-7																			ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Companion Walk
-8																			ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Ironpaw
-9																							ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Guarded Lands
-10																			ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Companion Soul
+2	ADD:SPELLCASTER|Divine	
+3	ADD:SPELLCASTER|Divine	
+4	ADD:SPELLCASTER|Divine	
+6	ADD:SPELLCASTER|Divine	
+7	ADD:SPELLCASTER|Divine	
+8	ADD:SPELLCASTER|Divine	
+10	ADD:SPELLCASTER|Divine	
+
 
 ###Block: Rage Prophet --------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Define			Combat bonus																	Save bonus																							Modify VAR																																																																	FACT
-CLASS:Rage Prophet	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.275	DEFINE:RageProphetLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|RageProphetLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|RP
+CLASS:Rage Prophet	HD:10		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.275	DEFINE:RageProphetLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|RageProphetLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|RP	DEFINE:RageProphetLVL|0	BONUS:VAR|RageProphetLVL|classlevel()
 # Class Name		Required Ability												Required Skill				PRETOTALAB
 CLASS:Rage Prophet	PREABILITY:2,CATEGORY=Special Ability,Oracle's Curse,Rage Power ~ Moment of Clarity	PRESKILL:1,Knowledge (Religion)=5	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Rage Prophet	STARTSKILLPTS:4	CSKILL:Climb|Heal|Intimidate|Knowledge (History)|Knowledge (Religion)|Sense Motive|Spellcraft|Swim
-##Block: Normal Level Progression
-1					ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Savage Seer|Rage Prophet ~ Spirit Guide
-2	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Rage Prophet Mystery|Rage Prophet ~ Raging Healer
-3	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Indomitable Caster
-4	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Ragecaster
-5					ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Spirit Guardian
-6	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Enduring Rage
+###Block:
+1	ABILITY:Class|AUTOMATIC|Rage Prophet
+###Block:
+2	ADD:SPELLCASTER|Divine
+3	ADD:SPELLCASTER|Divine
+4	ADD:SPELLCASTER|Divine
+6	ADD:SPELLCASTER|Divine
 7	ADD:SPELLCASTER|Divine
-8					ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Raging Spellstrength
-9	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Spirit Warrior
-10	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Greater Rage
+9	ADD:SPELLCASTER|Divine
+10	ADD:SPELLCASTER|Divine
 
 ###Block: Stalwart Defender --------------------------------------------------------------------------------------------------------------------------------------------
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																Save bonus																							Modify VAR																																																																		FACT
-CLASS:Stalwart Defender	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.277	DEFINE:StalwartDefenderLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|StalwartDefenderLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|SD
+CLASS:Stalwart Defender	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.277	DEFINE:StalwartDefenderLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|StalwartDefenderLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|SD	DEFINE:StalwartDefenderLVL|0	BONUS:VAR|StalwartDefenderLVL|classlevel()
 # Class Name		Required Ability																PRETOTALAB
 CLASS:Stalwart Defender	PREABILITY:5,CATEGORY=FEAT,Dodge,Endurance,Toughness,Armor Proficiency (Light),Armor Proficiency (Medium)	PRETOTALAB:7
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Stalwart Defender	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|Intimidate|Perception|Sense Motive
-##Block: Normal Level Progression
-1	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ AC Bonus
-1	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Defensive Stance
-2	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Defensive Powers
-3	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Uncanny Dodge
-5	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Damage Reduction
-7	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Improved Uncanny Dodge
-9	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Mobile Defense
+###Block:
+1	ABILITY:Class|AUTOMATIC|Stalwart Defender

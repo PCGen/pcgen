@@ -11,14 +11,6 @@ CLASS:Gunslinger	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:Gunslinge
 # Class Name	Skill Pts/Lvl
 CLASS:Gunslinger	STARTSKILLPTS:4
 1	ABILITY:Class|AUTOMATIC|Gunslinger
-###Block: Level progression
-1	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Gunsmith|PREVAREQ:Gunslinger_CF_Gunsmith,0
-1	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Deeds|PREVAREQ:Gunslinger_CF_Deeds,0
-1	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Grit|PREVAREQ:Gunslinger_CF_Grit,0
-2	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Nimble|PREVAREQ:Gunslinger_CF_Nimble,0
-4	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Bonus Feats|PREVAREQ:Gunslinger_CF_BonusFeats,0
-5	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Gun Training|PREVAREQ:Gunslinger_CF_GunTraining,0
-20	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ True Grit|PREVAREQ:Gunslinger_CF_TrueGrit,0
 
 
 ###Block: Ninja
@@ -34,16 +26,6 @@ CLASS:Ninja		STARTSKILLPTS:8
 4	BONUS:VAR|UncannyDodgeFlankingLevel|NinjaLVL|TYPE=EachClass.REPLACE
 4	BONUS:VAR|UncannyDodgeLVL|NinjaLVL/4
 8	BONUS:VAR|ImprovedUncannyDodgeFlankingLevel|NinjaLVL|TYPE=EachClass.REPLACE
-###Block: Level progression
-1	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Poison Use|PREVAREQ:Ninja_CF_PoisonUse,0
-1	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Sneak Attack|PREVAREQ:Ninja_CF_SneakAttack,0
-2	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ninja Trick|PREVAREQ:Ninja_CF_Trick,0
-2	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ki Pool|PREVAREQ:Ninja_CF_KiPool,0
-3	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ No Trace|PREVAREQ:Ninja_CF_NoTrace,0
-4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREVAREQ:Ninja_CF_UncannyDodge,0
-6	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Light Steps|PREVAREQ:Ninja_CF_LightSteps,0
-8	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREVAREQ:Ninja_CF_ImprovedUncannyDodge,0
-20	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Hidden Master|PREVAREQ:Ninja_CF_HiddenMaster,0
 
 
 ###Block: Samurai
@@ -55,32 +37,6 @@ CLASS:Samurai	PREMULT:1,[PRECLASS:1,Samurai=1],[!PRECLASS:1,TYPE.Cavalier=1]
 # Class Name	Skill Pts/Lvl
 CLASS:Samurai	STARTSKILLPTS:4
 1	ABILITY:Class|AUTOMATIC|Samurai
-###Block: Level progression
-1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Challenge|PREVAREQ:Samurai_CF_Challenge,0
-1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Mount|PREVAREQ:Samurai_CF_Mount,0
-1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Order|PREVAREQ:Samurai_CF_Order,0
-1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Resolve|PREVAREQ:Samurai_CF_Resolve,0
-3	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Weapon Expertise|PREVAREQ:Samurai_CF_WeaponExpertise,0
-4	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Mounted Archer|PREVAREQ:Samurai_CF_MountedArcher,0
-5	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Banner|PREVAREQ:Samurai_CF_Banner,0
-6	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Bonus Feat|PREVAREQ:Samurai_CF_BonusFeats,0
-9	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Greater Resolve|PREVAREQ:Samurai_CF_GreaterResolve,0
-11	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Honorable Stand|PREVAREQ:Samurai_CF_HonorableStand,0
-12	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Demanding Challenge|PREVAREQ:Samurai_CF_DemandingChallenge,0
-14	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Greater Banner|PREVAREQ:Samurai_CF_GreaterBanner,0
-17	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ True Resolve|PREVAREQ:Samurai_CF_TrueResolve,0
-20	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Last Stand|PREVAREQ:Samurai_CF_LastStand,0
-###Block:
-1	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
-1	ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Disruptive Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Greater Shield Focus Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Focus Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Spellbreaker Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Specialization Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Penetrating Strike Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Critical Mastery Qualify
-1	ABILITY:Special Ability|AUTOMATIC|Greater Penetrating Strike Qualify
 
 
 
