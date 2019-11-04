@@ -170,7 +170,7 @@ dependencies {
     compile group: 'commons-io', name: 'commons-io', version:'2.6'
 
     compile group: 'org.springframework', name: 'spring-web', version:'5.2.1.RELEASE'
-    compile group: 'org.springframework', name: 'spring-core', version:'5.2.0.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version:'5.2.1.RELEASE'
     compile group: 'org.springframework', name: 'spring-beans', version:'5.2.0.RELEASE'
     compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.9'
     compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.3'
