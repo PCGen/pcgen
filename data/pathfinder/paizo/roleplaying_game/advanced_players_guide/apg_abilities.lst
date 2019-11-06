@@ -60,6 +60,7 @@ CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ab
 CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Ranger|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Ranger)
 CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Bard|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Bard)
 CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Paladin|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Paladin)
+CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Antipaladin|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Antipaladin)
 CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Alchemist|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Alchemist)
 CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Inquisitor|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Inquisitor)
 CATEGORY=Special Ability|Trait ~ Magical Knack.MOD												ABILITY:Special Ability|AUTOMATIC|Magical Knack ~ Witch|PREABILITY:1,CATEGORY=Special Ability,Trait ~ Magical Knack (Witch)
@@ -81,6 +82,7 @@ Wizard								KEY:Magical Knack ~ Wizard		CATEGORY:Special Ability														
 Bard									KEY:Magical Knack ~ Bard		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Bard|min(2,(TL-(var("CL=Bard")+var("BL=Bard"))))
 Cleric								KEY:Magical Knack ~ Cleric		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Cleric|min(2,(TL-(var("CL=Cleric")+var("BL=Cleric"))))
 Paladin								KEY:Magical Knack ~ Paladin		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Paladin|min(2,(TL-(var("CL=Paladin")+var("BL=Paladin")-3)))|PRECLASS:1,Paladin=4
+Antipaladin								KEY:Magical Knack ~ Antipaladin		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Antipaladin|min(2,(TL-(var("CL=Antipaladin")+var("BL=Antipaladin")-3)))|PRECLASS:1,Antipaladin=4
 Ranger								KEY:Magical Knack ~ Ranger		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Ranger|min(2,(TL-(var("CL=Ranger")+var("BL=Ranger")-3)))|PRECLASS:1,Ranger=4
 # APG
 Alchemist								KEY:Magical Knack ~ Alchemist		CATEGORY:Special Ability																								BONUS:CASTERLEVEL|Alchemist|min(2,(TL-(var("CL=Alchemist")+var("BL=Alchemist"))))
