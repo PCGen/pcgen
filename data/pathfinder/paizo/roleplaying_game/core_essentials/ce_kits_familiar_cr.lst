@@ -158,6 +158,8 @@ SKILL:Perception			RANK:3
 SKILL:Spellcraft			RANK:3
 ABILITY:CATEGORY=FEAT|Dodge
 ABILITY:CATEGORY=FEAT|Weapon Finesse
+TEMPLATE:Bonus Language ~ Any Spoken
+LANGBONUS:Common
 
 STARTPACK:Outsider ~ Mephit	TYPE:Outsider	VISIBLE:NO	SOURCEPAGE:p.202
 ALIGN:TN
