@@ -91,6 +91,9 @@ repositories {
         name "fileRepo"
         url 'http://pc-gen.org/librepo/'
     }
+    maven {
+        url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/"
+    }
     jcenter()
 }
 
