@@ -1506,6 +1506,7 @@ GEAR:Spear	SIZE:L	LOCATION:Both Hands	EQMOD:Special Ability ~ +1 ~ Weapon.Specia
 STARTPACK:Devil (Imp) Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[PRERACE:1,Devil (Imp)],[!PRERACE:1,%]	SOURCEPAGE:p.78
 RACE:Devil (Imp)	!PRERACE:1,%
 NAME:Imp
+ABILITY:CATEGORY=Imp Consular Choice|Imp ~ Not Consular
 ABILITY:CATEGORY=Internal|Imp ~ Monster Desc	FREE:YES
 ABILITY:CATEGORY=Internal|Imp ~ Ecology	FREE:YES
 
