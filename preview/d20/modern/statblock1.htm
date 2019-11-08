@@ -120,7 +120,11 @@ $Date$
   </tr>
   <tr valign="top">
     <td width="25%"><b>Skills: </b></td>
-    <td width="75%">|FOR.0,COUNT[SKILLSIT]-1,100,\SKILLSIT.%.NAME\ \SKILLSIT.%.TOTAL\;       , , ,0| </td>
+    <td width="75%">
+|FOR,%skill,0,${count("SKILLSIT", "VIEW=VISIBLE_EXPORT")-1},1,0|
+     |SKILLSIT.%skill.NAME| |SKILLSIT.%skill.TOTAL|,
+|ENDFOR|
+    </td>
   </tr>
   <tr valign="top">
     <td width="25%"><b>Feats: </b></td>

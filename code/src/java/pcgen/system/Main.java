@@ -24,11 +24,7 @@ import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.Locale;
-import java.util.Properties;
-import java.util.Set;
 import java.util.logging.Level;
 
 import javax.swing.JOptionPane;
@@ -107,18 +103,9 @@ public final class Main
 
 	private static void logSystemProps()
 	{
-		Properties props = System.getProperties();
-		StringWriter writer = new StringWriter();
-		PrintWriter pwriter = new PrintWriter(writer);
-		pwriter.println();
-		pwriter.println("-- listing properties --"); //$NON-NLS-1$
-		// Manually output the property values to avoid them being cut off at 40 characters
-		Set<String> keys = props.stringPropertyNames();
-		//$NON-NLS-1$
-		keys.forEach(key -> {
-			pwriter.println(key + '=' + props.getProperty(key));
-		});
-		Logging.log(Level.CONFIG, writer.toString());
+		StringBuilder builder = new StringBuilder(System.lineSeparator() + "-- listing properties --");
+		System.getProperties().forEach((key, value) -> builder.append(System.lineSeparator()).append(key).append("=").append(value));
+		Logging.log(Level.CONFIG, builder.toString());
 	}
 
 	/**

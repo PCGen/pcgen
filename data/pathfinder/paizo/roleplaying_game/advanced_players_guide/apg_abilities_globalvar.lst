@@ -2,20 +2,171 @@
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Ability Name	Category of Ability
-Alchemist		CATEGORY:Class
-Cavalier		CATEGORY:Class
-Inquisitor		CATEGORY:Class
-Oracle		CATEGORY:Class
-Summoner		CATEGORY:Class
-Witch			CATEGORY:Class
-Antipaladin		CATEGORY:Class
+Alchemist		CATEGORY:Class	DEFINE:Alchemist_CFP_Level|0		BONUS:VAR|Alchemist_CFP_Level|BattleHeraldLVL|TYPE=Base
+Cavalier		CATEGORY:Class	DEFINE:Cavalier_CFP_Level|0		BONUS:VAR|Cavalier_CFP_Level|BattleHeraldLVL|TYPE=Base
+Inquisitor		CATEGORY:Class	DEFINE:Inquisitor_CFP_Level|0		BONUS:VAR|Inquisitor_CFP_Level|BattleHeraldLVL|TYPE=Base
+Oracle		CATEGORY:Class	DEFINE:Oracle_CFP_Level|0		BONUS:VAR|Oracle_CFP_Level|BattleHeraldLVL|TYPE=Base
+Summoner		CATEGORY:Class	DEFINE:Summoner_CFP_Level|0		BONUS:VAR|Summoner_CFP_Level|BattleHeraldLVL|TYPE=Base
+Witch			CATEGORY:Class	DEFINE:Witch_CFP_Level|0		BONUS:VAR|Witch_CFP_Level|BattleHeraldLVL|TYPE=Base
+Antipaladin		CATEGORY:Class	DEFINE:Antipaladin_CFP_Level|0	BONUS:VAR|Antipaladin_CFP_Level|BattleHeraldLVL|TYPE=Base	
+
+Battle Herald	CATEGORY:Class	DEFINE:BattleHerald_CFP_Level|0	BONUS:VAR|BattleHerald_CFP_Level|BattleHeraldLVL|TYPE=Base
+Holy Vindicator	CATEGORY:Class	DEFINE:HolyVindicator_CFP_Level|0	BONUS:VAR|HolyVindicator_CFP_Level|BattleHeraldLVL|TYPE=Base
+Horizon Walker	CATEGORY:Class	DEFINE:HorizonWalker_CFP_Level|0	BONUS:VAR|HorizonWalker_CFP_Level|BattleHeraldLVL|TYPE=Base
+Master Chymist	CATEGORY:Class	DEFINE:MasterChymist_CFP_Level|0	BONUS:VAR|MasterChymist_CFP_Level|BattleHeraldLVL|TYPE=Base
+Master Spy		CATEGORY:Class	DEFINE:MasterSpy_CFP_Level|0		BONUS:VAR|MasterSpy_CFP_Level|BattleHeraldLVL|TYPE=Base
+Nature Warden	CATEGORY:Class	DEFINE:NatureWarden_CFP_Level|0	BONUS:VAR|NatureWarden_CFP_Level|BattleHeraldLVL|TYPE=Base
+Rage Prophet	CATEGORY:Class	DEFINE:RageProphet_CFP_Level|0	BONUS:VAR|RageProphet_CFP_Level|BattleHeraldLVL|TYPE=Base
+Stalwart Defender	CATEGORY:Class	DEFINE:StalwartDefender_CFP_Level|0	BONUS:VAR|StalwartDefender_CFP_Level|BattleHeraldLVL|TYPE=Base
+
+###Block:
+CATEGORY=Class|Alchemist.MOD	ABILITY:Internal|AUTOMATIC|Free Formula Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Alchemist=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Alchemist=1]]|PREVARGTEQ:Alchemist_CFP_Level,1
+CATEGORY=Class|Alchemist.MOD	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Alchemy|Alchemist ~ Formulae|PREVAREQ:Alchemist_CF_Alchemy,0|PREVARGTEQ:Alchemist_CFP_Level,1
+CATEGORY=Class|Alchemist.MOD	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Bomb|PREVAREQ:Alchemist_CF_Bomb,0|PREVARGTEQ:Alchemist_CFP_Level,1
+CATEGORY=Class|Alchemist.MOD	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Brew Potion|PREVAREQ:Alchemist_CF_BrewPotion,0|PREVARGTEQ:Alchemist_CFP_Level,1
+CATEGORY=Class|Alchemist.MOD	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Mutagen|PREVAREQ:Alchemist_CF_Mutagen,0|PREVARGTEQ:Alchemist_CFP_Level,1
+CATEGORY=Class|Alchemist.MOD	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Throw Anything|PREVAREQ:Alchemist_CF_ThrowAnything,0|PREVARGTEQ:Alchemist_CFP_Level,1
+CATEGORY=Class|Alchemist.MOD	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Discovery|PREVAREQ:Alchemist_CF_Discovery,0|PREVARGTEQ:Alchemist_CFP_Level,2
+CATEGORY=Class|Alchemist.MOD	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Poison Resistance|PREVAREQ:Alchemist_CF_PoisonResistance,0|PREVARGTEQ:Alchemist_CFP_Level,2
+CATEGORY=Class|Alchemist.MOD	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Poison Use|PREVAREQ:Alchemist_CF_PoisonUse,0|PREVARGTEQ:Alchemist_CFP_Level,2
+CATEGORY=Class|Alchemist.MOD	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Swift Alchemy|PREVAREQ:Alchemist_CF_SwiftAlchemy,0|PREVARGTEQ:Alchemist_CFP_Level,3
+CATEGORY=Class|Alchemist.MOD	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Swift Poisoning|PREVAREQ:Alchemist_CF_SwiftPoisoning,0|PREVARGTEQ:Alchemist_CFP_Level,6
+CATEGORY=Class|Alchemist.MOD	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Persistent Mutagen|PREVAREQ:Alchemist_CF_PersistentMutagen,0|PREVARGTEQ:Alchemist_CFP_Level,14
+CATEGORY=Class|Alchemist.MOD	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Instant Alchemy|PREVAREQ:Alchemist_CF_InstantAlchemy,0|PREVARGTEQ:Alchemist_CFP_Level,18
+CATEGORY=Class|Alchemist.MOD	ABILITY:Alchemist Class Feature|AUTOMATIC|Alchemist ~ Grand Discovery|PREVAREQ:Alchemist_CF_GrandDiscovery,0|PREVARGTEQ:Alchemist_CFP_Level,20
+
+CATEGORY=Class|Cavalier.MOD	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Challenge|PREVAREQ:Cavalier_CF_Challenge,0|PREVARGTEQ:Cavalier_CFP_Level,1
+CATEGORY=Class|Cavalier.MOD	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Mount|PREVAREQ:Cavalier_CF_Mount,0|PREVARGTEQ:Cavalier_CFP_Level,1
+CATEGORY=Class|Cavalier.MOD	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Order|PREVAREQ:Cavalier_CF_Order,0|PREVARGTEQ:Cavalier_CFP_Level,1
+CATEGORY=Class|Cavalier.MOD	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Tactician|PREVAREQ:Cavalier_CF_Tactician,0|PREVARGTEQ:Cavalier_CFP_Level,1
+CATEGORY=Class|Cavalier.MOD	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Cavalier's Charge|PREVAREQ:Cavalier_CF_CavaliersCharge,0|PREVARGTEQ:Cavalier_CFP_Level,3
+CATEGORY=Class|Cavalier.MOD	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Expert Trainer|PREVAREQ:Cavalier_CF_ExpertTrainer,0|PREVARGTEQ:Cavalier_CFP_Level,4
+CATEGORY=Class|Cavalier.MOD	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Bonus Feat|PREVAREQ:Cavalier_CF_BonusFeat,0|PREVARGTEQ:Cavalier_CFP_Level,6
+CATEGORY=Class|Cavalier.MOD	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Banner|PREVAREQ:Cavalier_CF_Banner,0|PREVARGTEQ:Cavalier_CFP_Level,5
+CATEGORY=Class|Cavalier.MOD	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Greater Tactician|PREVAREQ:Cavalier_CF_GreaterTactician,0|PREVARGTEQ:Cavalier_CFP_Level,9
+CATEGORY=Class|Cavalier.MOD	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Mighty Charge|PREVAREQ:Cavalier_CF_MightyCharge,0|PREVARGTEQ:Cavalier_CFP_Level,11
+CATEGORY=Class|Cavalier.MOD	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Demanding Challenge|PREVAREQ:Cavalier_CF_DemandingChallenge,0|PREVARGTEQ:Cavalier_CFP_Level,12
+CATEGORY=Class|Cavalier.MOD	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Greater Banner|PREVAREQ:Cavalier_CF_GreaterBanner,0|PREVARGTEQ:Cavalier_CFP_Level,14
+CATEGORY=Class|Cavalier.MOD	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Master Tactician|PREVAREQ:Cavalier_CF_MasterTactician,0|PREVARGTEQ:Cavalier_CFP_Level,17
+CATEGORY=Class|Cavalier.MOD	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Supreme Charge|PREVAREQ:Cavalier_CF_SupremeCharge,0|PREVARGTEQ:Cavalier_CFP_Level,20
+
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Domains|PREVAREQ:Inquisitor_CF_Domains,0|PREVARGTEQ:Inquisitor_CFP_Level,1
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Judgment|PREVAREQ:Inquisitor_CF_Judgment,0|PREVARGTEQ:Inquisitor_CFP_Level,1
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Monster Lore|PREVAREQ:Inquisitor_CF_MonsterLore,0|PREVARGTEQ:Inquisitor_CFP_Level,1
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Stern Gaze|PREVAREQ:Inquisitor_CF_SternGaze,0|PREVARGTEQ:Inquisitor_CFP_Level,1
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Cunning Initiative|PREVAREQ:Inquisitor_CF_CunningInitiative,0|PREVARGTEQ:Inquisitor_CFP_Level,2
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Detect Alignment|PREVAREQ:Inquisitor_CF_DetectAlignment,0|PREVARGTEQ:Inquisitor_CFP_Level,2
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Track|PREVAREQ:Inquisitor_CF_Track,0|PREVARGTEQ:Inquisitor_CFP_Level,2
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Solo Tactics|PREVAREQ:Inquisitor_CF_SoloTactics,0|PREVARGTEQ:Inquisitor_CFP_Level,3
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Teamwork Feat|PREVAREQ:Inquisitor_CF_TeamworkFeat,0|PREVARGTEQ:Inquisitor_CFP_Level,3
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Bane|PREVAREQ:Inquisitor_CF_Bane,0|PREVARGTEQ:Inquisitor_CFP_Level,5
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Discern Lies|PREVAREQ:Inquisitor_CF_DiscernLies,0|PREVARGTEQ:Inquisitor_CFP_Level,5
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Second Judgment|PREVAREQ:Inquisitor_CF_SecondJudgment,0|PREVARGTEQ:Inquisitor_CFP_Level,8
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Stalwart|PREVAREQ:Inquisitor_CF_Stalwart,0|PREVARGTEQ:Inquisitor_CFP_Level,11
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Greater Bane|PREVAREQ:Inquisitor_CF_GreaterBane,0|PREVARGTEQ:Inquisitor_CFP_Level,12
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Exploit Weakness|PREVAREQ:Inquisitor_CF_ExploitWeakness,0|PREVARGTEQ:Inquisitor_CFP_Level,14
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Third Judgment|PREVAREQ:Inquisitor_CF_ThirdJudgment,0|PREVARGTEQ:Inquisitor_CFP_Level,16
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Slayer|PREVAREQ:Inquisitor_CF_Slayer,0|PREVARGTEQ:Inquisitor_CFP_Level,17
+CATEGORY=Class|Inquisitor.MOD	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ True Judgment|PREVAREQ:Inquisitor_CF_TrueJudgment,0|PREVARGTEQ:Inquisitor_CFP_Level,20
+
+CATEGORY=Class|Oracle.MOD	ABILITY:Oracle Class Feature|AUTOMATIC|Oracle ~ Orisons|PREVARGTEQ:Oracle_CFP_Level,1
+CATEGORY=Class|Oracle.MOD	ABILITY:Oracle Class Feature|AUTOMATIC|Oracle's Curse|PREVAREQ:Oracle_CF_OraclesCurse,0|PREVARGTEQ:Oracle_CFP_Level,1
+CATEGORY=Class|Oracle.MOD	ABILITY:Oracle Class Feature|AUTOMATIC|Oracle's Mystery|PREVAREQ:Oracle_CF_OraclesMystery,0|PREVARGTEQ:Oracle_CFP_Level,1
+
+CATEGORY=Class|Witch.MOD	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Familiar|PREVAREQ:Witch_CF_Familiar,0|PREVARGTEQ:Witch_CFP_Level,1
+CATEGORY=Class|Witch.MOD	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Cantrips|PREVAREQ:Witch_CF_Cantrips,0|PREVARGTEQ:Witch_CFP_Level,1
+CATEGORY=Class|Witch.MOD	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Hex|PREVAREQ:Witch_CF_Hex,0|PREVARGTEQ:Witch_CFP_Level,1
+CATEGORY=Class|Witch.MOD	ABILITY:Witch Class Feature|AUTOMATIC|Witch Patron|PREVAREQ:Witch_CF_PatronSpell,0|PREVARGTEQ:Witch_CFP_Level,1
+CATEGORY=Class|Witch.MOD	ABILITY:Special Ability|AUTOMATIC|Witch ~ Familiar Touch Spells|PREVAREQ:Witch_CF_FamiliarTouchSpells,0|PREVARGTEQ:Witch_CFP_Level,3
+
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Aura of Evil|PREVAREQ:Antipaladin_CF_AuraOfEvil,0|PREVARGTEQ:Antipaladin_CFP_Level,1	
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Detect Good|PREVAREQ:Antipaladin_CF_DetectGood,0|PREVARGTEQ:Antipaladin_CFP_Level,1	
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Smite Good|PREVAREQ:Antipaladin_CF_SmiteGood,0|PREVARGTEQ:Antipaladin_CFP_Level,1	
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Touch of Corruption|PREVAREQ:Antipaladin_CF_TouchOfCorruption,0|PREVARGTEQ:Antipaladin_CFP_Level,2	
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Unholy Resilience|PREVAREQ:Antipaladin_CF_UnholyResilience,0|PREVARGTEQ:Antipaladin_CFP_Level,2	
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Aura of Cowardice|PREVAREQ:Antipaladin_CF_AuraOfCowardice,0|PREVARGTEQ:Antipaladin_CFP_Level,3	
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Cruelty|PREVAREQ:Antipaladin_CF_Cruelty,0|PREVARGTEQ:Antipaladin_CFP_Level,3	
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Plague Bringer|PREVAREQ:Antipaladin_CF_PlagueBringer,0|PREVARGTEQ:Antipaladin_CFP_Level,3	
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Channel Negative Energy|PREVAREQ:Antipaladin_CF_ChannelNegativeEnergy,0|PREVARGTEQ:Antipaladin_CFP_Level,4	
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Fiendish Boon|PREVAREQ:Antipaladin_CF_FiendishBoon,0|PREVARGTEQ:Antipaladin_CFP_Level,5	
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Aura of Despair|PREVAREQ:Antipaladin_CF_AuraOfDespair,0|PREVARGTEQ:Antipaladin_CFP_Level,8	
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Aura of Vengeance|PREVAREQ:Antipaladin_CF_AuraOfVengeance,0|PREVARGTEQ:Antipaladin_CFP_Level,11
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Aura of Sin|PREVAREQ:Antipaladin_CF_AuraOfSin,0|PREVARGTEQ:Antipaladin_CFP_Level,14
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Aura of Depravity|PREVAREQ:Antipaladin_CF_AuraOfDepravity,0|PREVARGTEQ:Antipaladin_CFP_Level,17
+CATEGORY=Class|Antipaladin.MOD	ABILITY:Antipaladin Class Feature|AUTOMATIC|Antipaladin ~ Unholy Champion|PREVAREQ:Antipaladin_CF_UnholyChampion,0|PREVARGTEQ:Antipaladin_CFP_Level,20
+
+CATEGORY=Class|Battle Herald.MOD	ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Improved Leadership|Battle Herald ~ Inspiring Command|Battle Herald ~ Voice of Authority|PREVARGTEQ:BattleHerald_CFP_Level,1
+CATEGORY=Class|Battle Herald.MOD	ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Easy March|PREVARGTEQ:BattleHerald_CFP_Level,2
+CATEGORY=Class|Battle Herald.MOD	ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Inspire Greatness|PREVARGTEQ:BattleHerald_CFP_Level,4
+CATEGORY=Class|Battle Herald.MOD	ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Banner|PREVARGTEQ:BattleHerald_CFP_Level,5
+CATEGORY=Class|Battle Herald.MOD	ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Teamwork Feat|PREVARGTEQ:BattleHerald_CFP_Level,6
+CATEGORY=Class|Battle Herald.MOD	ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Demanding Challenge|PREVARGTEQ:BattleHerald_CFP_Level,7
+CATEGORY=Class|Battle Herald.MOD	ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Persistent Commands|PREVARGTEQ:BattleHerald_CFP_Level,8
+CATEGORY=Class|Battle Herald.MOD	ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Inspire Last Stand|PREVARGTEQ:BattleHerald_CFP_Level,9
+CATEGORY=Class|Battle Herald.MOD	ABILITY:Special Ability|AUTOMATIC|Battle Herald ~ Complex Commands|PREVARGTEQ:BattleHerald_CFP_Level,10
+
+CATEGORY=Class|Holy Vindicator.MOD	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfHeavy|TYPE=ShieldProf|TYPE=WeaponProfMartial|PREVARGTEQ:HolyVindicator_CFP_Level,1
+CATEGORY=Class|Holy Vindicator.MOD	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Vindicator's Shield|Prestige Class ~ Channel Energy|PREVARGTEQ:HolyVindicator_CFP_Level,1
+CATEGORY=Class|Holy Vindicator.MOD	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Stigmata|PREVARGTEQ:HolyVindicator_CFP_Level,2
+CATEGORY=Class|Holy Vindicator.MOD	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Faith Healing|PREVARGTEQ:HolyVindicator_CFP_Level,3
+CATEGORY=Class|Holy Vindicator.MOD	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Divine Wrath|PREVARGTEQ:HolyVindicator_CFP_Level,4
+CATEGORY=Class|Holy Vindicator.MOD	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Bloodfire|Holy Vindicator ~ Channel Smite|PREVARGTEQ:HolyVindicator_CFP_Level,5
+CATEGORY=Class|Holy Vindicator.MOD	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Versatile Channel|PREVARGTEQ:HolyVindicator_CFP_Level,6
+CATEGORY=Class|Holy Vindicator.MOD	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Divine Judgment|PREVARGTEQ:HolyVindicator_CFP_Level,7
+CATEGORY=Class|Holy Vindicator.MOD	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Bloodrain|PREVARGTEQ:HolyVindicator_CFP_Level,9
+CATEGORY=Class|Holy Vindicator.MOD	ABILITY:Special Ability|AUTOMATIC|Holy Vindicator ~ Divine Retribution|PREVARGTEQ:HolyVindicator_CFP_Level,10
+
+CATEGORY=Class|Horizon Walker.MOD	ABILITY:Special Ability|AUTOMATIC|Horizon Walker ~ Favored Terrain|PREVARGTEQ:HorizonWalker_CFP_Level,1	
+CATEGORY=Class|Horizon Walker.MOD	ABILITY:Special Ability|AUTOMATIC|Horizon Walker ~ Terrain Mastery|PREVARGTEQ:HorizonWalker_CFP_Level,2	
+CATEGORY=Class|Horizon Walker.MOD	ABILITY:Special Ability|AUTOMATIC|Horizon Walker ~ Terrain Dominance|PREVARGTEQ:HorizonWalker_CFP_Level,3	
+CATEGORY=Class|Horizon Walker.MOD	ABILITY:Special Ability|AUTOMATIC|Horizon Walker ~ Master Of All Lands|PREVARGTEQ:HorizonWalker_CFP_Level,10	
+
+CATEGORY=Class|Master Chymist.MOD	ABILITY:Master Chymist Class Feature|AUTOMATIC|Master Chymist ~ Weapon and Armor Proficiency|Master Chymist ~ Bomb-Thrower|Master Chymist ~ Mutagenic Form|Master Chymist ~ Mutate|PREVARGTEQ:MasterChymist_CFP_Level,1
+CATEGORY=Class|Master Chymist.MOD	ABILITY:Master Chymist Class Feature|AUTOMATIC|Master Chymist ~ Advanced Mutagen|PREVARGTEQ:MasterChymist_CFP_Level,2
+CATEGORY=Class|Master Chymist.MOD	ABILITY:Master Chymist Class Feature|AUTOMATIC|Master Chymist ~ Brutality|PREVARGTEQ:MasterChymist_CFP_Level,3
+
+CATEGORY=Class|Master Spy.MOD	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Art of Deception|Master Spy ~ Master of Disguise|Master Spy ~ Sneak Attack|PREVARGTEQ:MasterSpy_CFP_Level,1
+CATEGORY=Class|Master Spy.MOD	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Glib Lie|Master Spy ~ Mask Alignment|PREVARGTEQ:MasterSpy_CFP_Level,2
+CATEGORY=Class|Master Spy.MOD	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Nonmagical Aura|Master Spy ~ Superficial Knowledge|PREVARGTEQ:MasterSpy_CFP_Level,3
+CATEGORY=Class|Master Spy.MOD	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Concealed Thoughts|Master Spy ~ Quick Change|PREVARGTEQ:MasterSpy_CFP_Level,4
+CATEGORY=Class|Master Spy.MOD	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Elude Detection|Master Spy ~ Slippery Mind|PREVARGTEQ:MasterSpy_CFP_Level,5
+CATEGORY=Class|Master Spy.MOD	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Shift Alignment|PREVARGTEQ:MasterSpy_CFP_Level,6
+CATEGORY=Class|Master Spy.MOD	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Death Attack|Master Spy ~ Fool Casting|PREVARGTEQ:MasterSpy_CFP_Level,8
+CATEGORY=Class|Master Spy.MOD	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Hidden Mind|PREVARGTEQ:MasterSpy_CFP_Level,9
+CATEGORY=Class|Master Spy.MOD	ABILITY:Special Ability|AUTOMATIC|Master Spy ~ Assumption|PREVARGTEQ:MasterSpy_CFP_Level,10
+
+CATEGORY=Class|Nature Warden.MOD		ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Companion Bond|Nature Warden ~ Natural Empathy|PREVARGTEQ:NatureWarden_CFP_Level,1
+CATEGORY=Class|Nature Warden.MOD		ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Mystic Harmony|Nature Warden ~ Wild Stride|PREVARGTEQ:NatureWarden_CFP_Level,2
+CATEGORY=Class|Nature Warden.MOD		ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Animal Speech|PREVARGTEQ:NatureWarden_CFP_Level,3
+CATEGORY=Class|Nature Warden.MOD		ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Silverclaw|PREVARGTEQ:NatureWarden_CFP_Level,4
+CATEGORY=Class|Nature Warden.MOD		ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Survivalist|Ranger ~ Favored Terrain|PREVARGTEQ:NatureWarden_CFP_Level,5
+CATEGORY=Class|Nature Warden.MOD		ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Woodforging|PREVARGTEQ:NatureWarden_CFP_Level,6
+CATEGORY=Class|Nature Warden.MOD		ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Companion Walk|PREVARGTEQ:NatureWarden_CFP_Level,7
+CATEGORY=Class|Nature Warden.MOD		ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Ironpaw|PREVARGTEQ:NatureWarden_CFP_Level,8
+CATEGORY=Class|Nature Warden.MOD		ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Guarded Lands|PREVARGTEQ:NatureWarden_CFP_Level,9
+CATEGORY=Class|Nature Warden.MOD		ABILITY:Special Ability|AUTOMATIC|Nature Warden ~ Companion Soul|PREVARGTEQ:NatureWarden_CFP_Level,10
+
+CATEGORY=Class|Rage Prophet.MOD	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Savage Seer|Rage Prophet ~ Spirit Guide|PREVARGTEQ:RageProphet_CFP_Level,1	
+CATEGORY=Class|Rage Prophet.MOD	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Rage Prophet Mystery|Rage Prophet ~ Raging Healer|PREVARGTEQ:RageProphet_CFP_Level,2	
+CATEGORY=Class|Rage Prophet.MOD	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Indomitable Caster|PREVARGTEQ:RageProphet_CFP_Level,3	
+CATEGORY=Class|Rage Prophet.MOD	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Ragecaster|PREVARGTEQ:RageProphet_CFP_Level,4	
+CATEGORY=Class|Rage Prophet.MOD	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Spirit Guardian|PREVARGTEQ:RageProphet_CFP_Level,5	
+CATEGORY=Class|Rage Prophet.MOD	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Enduring Rage|PREVARGTEQ:RageProphet_CFP_Level,6	
+CATEGORY=Class|Rage Prophet.MOD	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Raging Spellstrength|PREVARGTEQ:RageProphet_CFP_Level,8	
+CATEGORY=Class|Rage Prophet.MOD	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Spirit Warrior|PREVARGTEQ:RageProphet_CFP_Level,9	
+CATEGORY=Class|Rage Prophet.MOD	ABILITY:Special Ability|AUTOMATIC|Rage Prophet ~ Greater Rage|PREVARGTEQ:RageProphet_CFP_Level,10
+
+CATEGORY=Class|Stalwart Defender.MOD	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ AC Bonus|PREVARGTEQ:StalwartDefender_CFP_Level,1
+CATEGORY=Class|Stalwart Defender.MOD	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Defensive Stance|PREVARGTEQ:StalwartDefender_CFP_Level,1
+CATEGORY=Class|Stalwart Defender.MOD	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Defensive Powers|PREVARGTEQ:StalwartDefender_CFP_Level,2
+CATEGORY=Class|Stalwart Defender.MOD	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Uncanny Dodge|PREVARGTEQ:StalwartDefender_CFP_Level,3
+CATEGORY=Class|Stalwart Defender.MOD	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Damage Reduction|PREVARGTEQ:StalwartDefender_CFP_Level,5
+CATEGORY=Class|Stalwart Defender.MOD	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Improved Uncanny Dodge|PREVARGTEQ:StalwartDefender_CFP_Level,7
+CATEGORY=Class|Stalwart Defender.MOD	ABILITY:Special Ability|AUTOMATIC|Stalwart Defender ~ Mobile Defense|PREVARGTEQ:StalwartDefender_CFP_Level,9
 
 ###Block: Class Specifics
-
-
 # Ability Name				Define							Auto Weapon Prof																					Ability																																																	Bonus Ability Pool				Modify VAR
 CATEGORY=Class|Alchemist.MOD																																	ABILITY:Special Ability|AUTOMATIC|Alchemist Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple	ABILITY:Internal|AUTOMATIC|Alchemist ~ Class Skills|PREVAREQ:Alchemist_CF_ClassSkills,0
-
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Alchemy|0
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_Bomb|0
 CATEGORY=Class|Alchemist.MOD		DEFINE:Alchemist_CF_BrewPotion|0
@@ -398,13 +549,11 @@ CATEGORY=Class|Summoner.MOD																																																					
 CATEGORY=Class|Summoner.MOD																																																																																										BONUS:VAR|Summoner_CF_TwinEidolon|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.SummonerTwinEidolon
 
 
-
-
 # Witch
 CATEGORY=Class|Witch.MOD																																	ABILITY:Internal|AUTOMATIC|Witch ~ Class Skills|PREVAREQ:Witch_CF_ClassSkills,0
 
 CATEGORY=Class|Witch.MOD																																	ABILITY:Special Ability|AUTOMATIC|Witch Weapon Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfAuto
-CATEGORY=Class|Witch.MOD		DEFINE:SpellMasteryQualify|0																																																																																				BONUS:VAR|FamiliarMasterLVL|WitchLVL	BONUS:VAR|SpellMasteryQualify|1
+CATEGORY=Class|Witch.MOD		DEFINE:SpellMasteryQualify|0																																																																																				BONUS:VAR|SpellMasteryQualify|1
 
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_ClassSkills|0
 CATEGORY=Class|Witch.MOD		DEFINE:Witch_CF_Familiar|0
@@ -496,7 +645,6 @@ CATEGORY=Class|Antipaladin.MOD																																																		
 CATEGORY=Class|Antipaladin.MOD																																																																																									BONUS:VAR|CrueltyLVL|AntipaladinLVL
 CATEGORY=Class|Antipaladin.MOD																																																																																									BONUS:VAR|AntipaladinChannelLVL|AntipaladinLVL
 CATEGORY=Class|Antipaladin.MOD																																																																																									BONUS:VAR|FiendishBoonLVL|AntipaladinLVL
-
 
 CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_AuraOfEvil|0
 CATEGORY=Class|Antipaladin.MOD	DEFINE:Antipaladin_CF_DetectGood|0

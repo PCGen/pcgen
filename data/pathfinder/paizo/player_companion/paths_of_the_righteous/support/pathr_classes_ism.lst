@@ -1,0 +1,23 @@
+SOURCELONG:Paths of the Righteous	SOURCESHORT:PATHR	SOURCEWEB:http://paizo.com/products/btpy9oo9	SOURCEDATE:2016-12
+
+###Runeguard
+# Class Name		Hit Dice		Type			Max Level	Source Page		Define				Combat bonus																		Save bonus																						Modify VAR																																																																	FACT
+CLASS:Runeguard	HD:6		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.22	DEFINE:RuneguardLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|RuneguardLVL|CL	BONUS:VAR|ClassSavePoor_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|Rgd
+# Class Name		Requirements
+CLASS:Runeguard	PREALIGN:LG,NG,LN	PREDEITY:1,Soralyon	PRESKILL:2,Linguistics=5,Spellcraft=5	PREABILITY:1,CATEGORY=FEAT,Scribe Scroll	PRELANG:1,Thassilonian	PRESPELLTYPE:1,ANY=3
+# Class Name		Skill Pts/Lvl		Class Skill
+CLASS:Runeguard	STARTSKILLPTS:2	CSKILL:Appraise|Heal|TYPE=Knowledge|Linguistics|Spellcraft|Use Magic Device
+###Block: Normal Level Progression
+1	ABILITY:Special Ability|AUTOMATIC|Runeguard ~ Rune Magic|Runeguard ~ Virtuous Rune
+3	ABILITY:Special Ability|AUTOMATIC|Runeguard ~ Rune Focus
+10	ABILITY:Special Ability|AUTOMATIC|Runeguard ~ Sihedron Rune Mastery
+###Block: Spell Improvement
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY

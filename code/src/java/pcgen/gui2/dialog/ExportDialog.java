@@ -35,7 +35,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
@@ -76,8 +75,6 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.stage.FileChooser;
 import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.IOFileFilter;
@@ -374,17 +371,6 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			context.setProperty(HTML_EXPORT_DIR_PROP, outFile.getParent());
 		}
 
-		if (outFile.exists() && !SettingsHandler.getAlwaysOverwrite())
-		{
-			Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-			alert.setTitle("Confirm overwriting " + outFile.getName());
-			alert.setContentText("The file " + outFile.getName() + " already exists, are you sure you want to overwrite it?");
-			Optional<ButtonType> buttonType = alert.showAndWait();
-			if (!buttonType.orElse(ButtonType.NO).equals(ButtonType.YES))
-			{
-				return;
-			}
-		}
 		if (pdf)
 		{
 			new PDFExporter(outFile, name).execute();

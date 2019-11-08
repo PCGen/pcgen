@@ -1,0 +1,39 @@
+SOURCELONG:Paths of the Righteous	SOURCESHORT:PATHR	SOURCEWEB:http://paizo.com/products/btpy9oo9	SOURCEDATE:2016-12
+
+Shield of Wings							TYPE:Divine			CLASSES:Cleric,Inquisitor,Paladin,Ranger=3[PREDEITY:1,Ragathiel]	SCHOOL:Transmutation	DESCRIPTOR:Fire	CASTTIME:1 standard action	COMPS:V,S,DF	RANGE:Personal	TARGETAREA:You						DURATION:(CASTERLEVEL) minutes; see text	SAVEINFO:None						SPELLRES:No					SOURCEPAGE:p.9	DESC:You gain five burning wings that grant a fly speed equal to the number of wings × 10 (average maneuverability) for an initial fly speed of 50 feet. The first time in a round where you would take fire damage, a wing vanishes (reducing the fly speed granted) and you gain fire resistance 30 for the remainder of the round. When you are down to one wing (and a fly speed of 10 feet), your maneuverability drops to poor. When you lose your final wing, you become immune to fire damage for 1 additional minute, after which the effects of this spell end.
+
+#Copied from Technology Guide
+Make Whole, Greater	KEY:Make Whole (Greater)	TYPE:Arcane.Divine												SCHOOL:Transmutation				CASTTIME:1 standard action	COMPS:V,S		RANGE:10 ft.	TARGETAREA:one object of up to 5 lb/level		DURATION:instantaneous				SAVEINFO:Will negates (harmless, object)		SPELLRES:yes (harmless, object)				DESC:This spell repairs 1d6 points of damage plus 1 point per level when cast on a construct creature (maximum 10d6+10). Greater make whale can fix destroyed magic items or technological items (items at 0 hit points or fewer), and restores the magic properties of the item if your caster level at least equal to that of the item. This spell otherwise functions as make whole.
+
+###Support
+Feather Fall.MOD					CLASSES:Bloodrager,Medium,Paladin,Ranger,Alchemist,Inquisitor,Mesmerist,Druid,Shaman,Witch=1[PREVARGTEQ:StargazerLVL,1]
+Fly.MOD						CLASSES:Paladin,Ranger,Bard,Inquisitor,Mesmerist,Druid=3[PREVARGTEQ:StargazerLVL,1]
+Glyph of Warding.MOD				CLASSES:Bard,Druid,Paladin,Ranger,Sorcerer,Wizard,Alchemist,Inquisitor,Magus,Summoner,Witch,Bloodrager,Shaman,Occultist,Psychic,Mesmerist,Spiritualist,Medium=3[PREVARGTEQ:RuneguardLVL,1]
+Glyph of Warding (Greater).MOD		CLASSES:Bard,Druid,Sorcerer,Wizard,Alchemist,Inquisitor,Magus,Summoner,Witch,Shaman,Occultist,Psychic,Mesmerist,Spiritualist=6[PREVARGTEQ:RuneguardLVL,1]
+Hex Glyph.MOD					CLASSES:Bard,Cleric,Druid,Paladin,Ranger,Sorcerer,Wizard,Alchemist,Inquisitor,Magus,Summoner,Bloodrager,Occultist,Psychic,Mesmerist,Spiritualist,Medium=3[PREVARGTEQ:RuneguardLVL,1]
+Hex Glyph (Greater).MOD				CLASSES:Bard,Cleric,Druid,Sorcerer,Wizard,Alchemist,Inquisitor,Magus,Summoner,Occultist,Psychic,Mesmerist,Spiritualist=5[PREVARGTEQ:RuneguardLVL,1]
+Hypnotic Pattern.MOD				CLASSES:Bloodrager,Medium,Paladin,Ranger,Alchemist,Inquisitor,Magus,Occultist,Spiritualist,Summoner,Druid,Shaman,Witch=2[PREVARGTEQ:StargazerLVL,1]
+Meteor Swarm.MOD					CLASSES:Druid,Psychic,Shaman,Witch=9[PREVARGTEQ:StargazerLVL,1]
+Overland Flight.MOD				CLASSES:Bard,Inquisitor,Mesmerist,Druid=5[PREVARGTEQ:StargazerLVL,1]
+Planar Binding.MOD				CLASSES:Alchemist,Bard,Inquisitor,Magus,Mesmerist,Spiritualist,Druid,Shaman,Witch=6[PREVARGTEQ:StargazerLVL,1]
+Planar Binding (Greater).MOD			CLASSES:Druid,Shaman,Witch=8[PREVARGTEQ:StargazerLVL,1]
+Planar Binding (Lesser).MOD			CLASSES:Bloodrager,Paladin,Ranger,Alchemist,Bard,Inquisitor,Magus,Mesmerist,Spiritualist,Druid,Shaman,Witch=4[PREVARGTEQ:StargazerLVL,1]
+Sunbeam.MOD						CLASSES:Psychic,Sorcerer,Witch,Wizard=7[PREVARGTEQ:StargazerLVL,1]
+Symbol of Death.MOD				CLASSES:Druid,Shaman,Psychic=8[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Fear.MOD				CLASSES:Bard,Druid,Alchemist,Inquisitor,Magus,Summoner,Shaman,Psychic,Mesmerist,Spiritualist=6[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Healing.MOD				CLASSES:Bard,Druid,Ranger,Sorcerer,Wizard,Alchemist,Inquisitor,Magus,Summoner,Bloodrager,Shaman,Psychic,Mesmerist,Spiritualist,Medium=4[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Insanity.MOD				CLASSES:Druid,Shaman,Psychic=8[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Laughter.MOD				CLASSES:Bard,Cleric,Druid,Paladin,Ranger,Alchemist,Inquisitor,Magus,Summoner,Bloodrager,Shaman,Psychic,Spiritualist,Medium=4[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Mirroring.MOD				CLASSES:Bard,Cleric,Druid,Paladin,Ranger,Alchemist,Inquisitor,Magus,Summoner,Bloodrager,Shaman,Psychic,Spiritualist,Medium=2[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Pain.MOD				CLASSES:Bard,Druid,Alchemist,Inquisitor,Magus,Summoner,Shaman,Psychic,Spiritualist=5[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Persuasion.MOD			CLASSES:Bard,Druid,Alchemist,Inquisitor,Magus,Summoner,Shaman,Psychic,Spiritualist=6[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Revelation.MOD			CLASSES:Bard,Druid,Paladin,Ranger,Alchemist,Inquisitor,Magus,Summoner,Bloodrager,Shaman,Psychic,Mesmerist,Spiritualist,Medium=4[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Scrying.MOD				CLASSES:Bard,Druid,Alchemist,Inquisitor,Magus,Summoner,Shaman,Psychic,Mesmerist,Spiritualist=5[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Sealing.MOD				CLASSES:Bard,Druid,Alchemist,Inquisitor,Magus,Summoner,Shaman,Psychic,Mesmerist,Spiritualist=6[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Sleep.MOD				CLASSES:Bard,Druid,Alchemist,Inquisitor,Magus,Summoner,Shaman,Psychic,Spiritualist=5[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Slowing.MOD				CLASSES:Bard,Druid,Paladin,Ranger,Alchemist,Inquisitor,Magus,Summoner,Bloodrager,Shaman,Psychic,Mesmerist,Spiritualist,Medium=4[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Strife.MOD				CLASSES:Druid,Shaman,Psychic=9[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Striking.MOD				CLASSES:Bard,Druid,Alchemist,Inquisitor,Summoner,Shaman,Occultist,Psychic,Mesmerist,Spiritualist=5[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Stunning.MOD				CLASSES:Druid,Shaman,Psychic=7[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Vulnerability.MOD			CLASSES:Druid,Shaman,Psychic=9[PREVARGTEQ:RuneguardLVL,1]
+Symbol of Weakness.MOD				CLASSES:Druid,Shaman,Psychic=7[PREVARGTEQ:RuneguardLVL,1]

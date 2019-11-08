@@ -1507,7 +1507,7 @@ CATEGORY=Special Ability|Deep Walker ~ Rock Hopper.MOD	BONUS:SITUATION|Acrobatic
 CATEGORY=Special Ability|Deep Walker ~ Rock Hopper.MOD	BONUS:SITUATION|Climb=Underground|5
 
 # Deep Walker ~ Rock Hopper cascaded conditional skills
-CATEGORY=Special Ability|Deep Walker ~ Rock Hopper.MOD	BONUS:SITUATION|Acrobatics=Jump/Underground|5	BONUS:SITUATION|Acrobatics=Jump/Underground|floor((var("MOVE[Walk]")-30)/10)*4|TYPE=Move
+CATEGORY=Special Ability|Deep Walker ~ Rock Hopper.MOD	BONUS:SITUATION|Acrobatics=When Jumping/Underground|5	BONUS:SITUATION|Acrobatics=When Jumping/Underground|floor((var("MOVE[Walk]")-30)/10)*4|TYPE=Move
 
 
 ###Block: FALCONER

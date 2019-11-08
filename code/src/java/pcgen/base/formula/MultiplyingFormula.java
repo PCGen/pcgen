@@ -45,7 +45,6 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 	{
 		multiplier = mult;
 	}
-
 	/**
 	 * Executes this MultiplyingFormula, multiplying the number provided in the
 	 * constructor of this MultiplyingFormula with the given Number. Only one

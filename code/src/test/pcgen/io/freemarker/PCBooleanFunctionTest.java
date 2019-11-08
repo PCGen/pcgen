@@ -64,7 +64,7 @@ public class PCBooleanFunctionTest extends AbstractJunit5CharacterTestCase
 	public void testExec() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
-		ExportHandler eh = new ExportHandler(new File(""));
+		ExportHandler eh = ExportHandler.createExportHandler(new File(""));
 		PCBooleanFunction pcbf = new PCBooleanFunction(pc, eh);
 		
 		Boolean result = (Boolean) pcbf.exec(Collections.singletonList("VAR.VARDEFINED:FooV"));

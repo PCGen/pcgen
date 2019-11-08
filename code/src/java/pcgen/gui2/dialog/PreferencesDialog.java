@@ -67,16 +67,14 @@ public final class PreferencesDialog extends AbstractDialog
 
 	private void setOptionsBasedOnControls()
 	{
-		GuiAssertions.assertIsNotJavaFXThread();
-
 		forEachLeaf(root, PCGenPrefsPanel::setOptionsBasedOnControls);
 
 		if (SettingsHandler.settingsNeedRestartProperty().get())
 		{
-			Alert alert = GuiUtility.runOnJavaFXThreadNow(() -> new Alert(Alert.AlertType.INFORMATION));
+			Alert alert = new Alert(Alert.AlertType.INFORMATION);
 			alert.setTitle(Constants.APPLICATION_NAME);
 			alert.setContentText(LanguageBundle.getString("in_Prefs_restartRequired"));
-			GuiUtility.runOnJavaFXThreadNow(alert::showAndWait);
+			alert.showAndWait();
 		}
 	}
 

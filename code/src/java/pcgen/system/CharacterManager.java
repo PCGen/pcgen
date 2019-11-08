@@ -40,7 +40,6 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ListFacades;
 import pcgen.gui2.facade.CharacterFacadeImpl;
 import pcgen.gui2.facade.PartyFacadeImpl;
-import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.PCGFile;
 import pcgen.io.PCGIOHandler;
 import pcgen.pluginmgr.PCGenMessageHandler;
@@ -241,42 +240,37 @@ public final class CharacterManager
 			return true;
 		}
 
-		HtmlInfoBuilder warningMsg = new HtmlInfoBuilder();
+		StringBuilder warningMsg = new StringBuilder();
 		Level lvl;
 		if (errors)
 		{
-			warningMsg.append(LanguageBundle.getString("in_cmErrorStart")); //$NON-NLS-1$
+			warningMsg.append(LanguageBundle.getString("in_cmErrorStart"));
 			Logging.errorPrint("The following errors were encountered while loading " + fileName);
 			lvl = Logging.ERROR;
 		}
 		else
 		{
-			warningMsg.append(LanguageBundle.getString("in_cmWarnStart")); //$NON-NLS-1$
+			warningMsg.append(LanguageBundle.getString("in_cmWarnStart"));
 			Logging.log(Logging.WARNING, "The following warnings were encountered while loading " + fileName);
 			lvl = Logging.WARNING;
 		}
-		warningMsg.appendLineBreak();
-		warningMsg.append("<UL>"); //$NON-NLS-1$
+		warningMsg.append('\n');
 		for (final String string : warnings)
 		{
-			warningMsg.appendLineBreak();
-			warningMsg.append("<li>"); //$NON-NLS-1$
 			warningMsg.append(string);
-			warningMsg.append("</li>"); //$NON-NLS-1$
+			warningMsg.append('\n');
 			Logging.log(lvl, "* " + string); //$NON-NLS-1$
 		}
-		warningMsg.append("</UL>"); //$NON-NLS-1$
-		warningMsg.appendLineBreak();
+
 		if (errors)
 		{
-			warningMsg.append(LanguageBundle.getString("in_cmErrorEnd")); //$NON-NLS-1$
+			warningMsg.append(LanguageBundle.getString("in_cmErrorEnd"));
 			delegate.showErrorMessage(fileName, warningMsg.toString());
 			return false;
 		}
 
-		warningMsg.append(LanguageBundle.getString("in_cmWarnEnd")); //$NON-NLS-1$
+		warningMsg.append(LanguageBundle.getString("in_cmWarnEnd"));
 		return delegate.showWarningConfirm(fileName, warningMsg.toString());
-
 	}
 
 	/**

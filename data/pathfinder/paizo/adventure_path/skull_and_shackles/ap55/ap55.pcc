@@ -37,6 +37,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path #55: The Wormw
 # Do not remove the EXTRAFILE comment.
 #EXTRAFILE:OGL.txt
 
+ABILITY:ap55_abilities_class.lst
 ABILITY:ap55_abilities_race.lst
 COMPANIONMOD:ap55_companionmods.lst
 KIT:ap55_kits_companions.lst

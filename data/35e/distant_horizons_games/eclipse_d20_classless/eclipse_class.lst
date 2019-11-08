@@ -401,3 +401,30 @@ CLASS:Companion ~ Eclipse	STARTSKILLPTS:0
 1							ABILITY:Special Ability|AUTOMATIC|Character Points For Companions
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 #
+
+CLASS:Alchemical Hedge Magician	ROLE:Combat.Skill	FACT:ClassType|PC	FACT:Abb|Ahm	FACT:SpellType|Divine
+CLASS:Alchemical Hedge Magician	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Alchemical Hedge Magician|CL
+1	CAST:1,0	
+2	CAST:1,0	
+3	CAST:2,1	
+4	CAST:3,1			
+5	CAST:3,1,0			
+6	CAST:3,1,0			
+7	CAST:3,1,1			
+8	CAST:3,1,1,0		
+9	CAST:3,1,1,1		
+10	CAST:3,2,1,1		
+11	CAST:3,2,1,1,0		
+12	CAST:3,2,1,1,1		
+13	CAST:3,2,2,1,1		
+14	CAST:3,2,2,2,1		
+15	CAST:3,3,2,2,1		
+16	CAST:3,3,3,3,2		
+17	CAST:3,3,3,3,3		
+18	CAST:4,4,3,3,3		
+19	CAST:4,4,4,4,3		
+20	CAST:4,4,4,4,4		
+
+
+
+

@@ -397,7 +397,7 @@ public abstract class AbstractSaveRestoreTest
 		pc.setStringFor(PCStringKey.PORTRAIT_PATH, "");
 		pc.setStringFor(PCStringKey.BIRTHDAY, "");
 		pc.setStringFor(PCStringKey.DESCRIPTION, "");
-		pc.setStringFor(PCStringKey.RESIDENCE, "");
+		pc.setStringFor(PCStringKey.CITY, "");
 		pc.setStringFor(PCStringKey.PERSONALITY1, "");
 		pc.setStringFor(PCStringKey.EYECOLOR, "");
 		pc.setStringFor(PCStringKey.PLAYERSNAME, "");

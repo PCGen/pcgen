@@ -1473,7 +1473,7 @@ final class PCGVer2Parser implements PCGParser
 
 	private void parseCityLine(final String line)
 	{
-		thePC.setPCAttribute(PCStringKey.RESIDENCE,
+		thePC.setPCAttribute(PCStringKey.CITY,
 			EntityEncoder.decode(line.substring(IOConstants.TAG_CITY.length() + 1)));
 	}
 

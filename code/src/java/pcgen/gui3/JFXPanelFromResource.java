@@ -67,7 +67,14 @@ public final class JFXPanelFromResource<T> extends JFXPanel implements Controlla
 	@Override
 	public T getController()
 	{
-		return GuiUtility.runOnJavaFXThreadNow(fxmlLoader::getController);
+		if (Platform.isFxApplicationThread())
+		{
+			return fxmlLoader.getController();
+		}
+		else
+		{
+			return GuiUtility.runOnJavaFXThreadNow(fxmlLoader::getController);
+		}
 	}
 
 	public T getControllerFromJavaFXThread()

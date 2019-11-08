@@ -451,7 +451,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	{
 		StringWriter retWriter = new StringWriter();
 		BufferedWriter bufWriter = new BufferedWriter(retWriter);
-		ExportHandler export = new ExportHandler(new File(""));
+		ExportHandler export = ExportHandler.createExportHandler(new File(""));
 		export.replaceToken(token, bufWriter, pc);
 		retWriter.flush();
 
@@ -476,7 +476,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 
 		StringWriter retWriter = new StringWriter();
 		BufferedWriter bufWriter = new BufferedWriter(retWriter);
-		ExportHandler export = new ExportHandler(temp);
+		ExportHandler export = ExportHandler.createExportHandler(temp);
 		export.write(pcs, bufWriter);
 		retWriter.flush();
 
