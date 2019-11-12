@@ -2,22 +2,22 @@
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Ability Name	Category of Ability
-Alchemist		CATEGORY:Class	DEFINE:Alchemist_CFP_Level|0		BONUS:VAR|Alchemist_CFP_Level|BattleHeraldLVL|TYPE=Base
-Cavalier		CATEGORY:Class	DEFINE:Cavalier_CFP_Level|0		BONUS:VAR|Cavalier_CFP_Level|BattleHeraldLVL|TYPE=Base
-Inquisitor		CATEGORY:Class	DEFINE:Inquisitor_CFP_Level|0		BONUS:VAR|Inquisitor_CFP_Level|BattleHeraldLVL|TYPE=Base
-Oracle		CATEGORY:Class	DEFINE:Oracle_CFP_Level|0		BONUS:VAR|Oracle_CFP_Level|BattleHeraldLVL|TYPE=Base
-Summoner		CATEGORY:Class	DEFINE:Summoner_CFP_Level|0		BONUS:VAR|Summoner_CFP_Level|BattleHeraldLVL|TYPE=Base
-Witch			CATEGORY:Class	DEFINE:Witch_CFP_Level|0		BONUS:VAR|Witch_CFP_Level|BattleHeraldLVL|TYPE=Base
-Antipaladin		CATEGORY:Class	DEFINE:Antipaladin_CFP_Level|0	BONUS:VAR|Antipaladin_CFP_Level|BattleHeraldLVL|TYPE=Base	
+Alchemist		CATEGORY:Class	DEFINE:Alchemist_CFP_Level|0		BONUS:VAR|Alchemist_CFP_Level|AlchemistLVL|TYPE=Base
+Cavalier		CATEGORY:Class	DEFINE:Cavalier_CFP_Level|0		BONUS:VAR|Cavalier_CFP_Level|CavalierLVL|TYPE=Base
+Inquisitor		CATEGORY:Class	DEFINE:Inquisitor_CFP_Level|0		BONUS:VAR|Inquisitor_CFP_Level|InquisitorLVL|TYPE=Base
+Oracle		CATEGORY:Class	DEFINE:Oracle_CFP_Level|0		BONUS:VAR|Oracle_CFP_Level|OracleLVL|TYPE=Base
+Summoner		CATEGORY:Class	DEFINE:Summoner_CFP_Level|0		BONUS:VAR|Summoner_CFP_Level|SummonerLVL|TYPE=Base
+Witch			CATEGORY:Class	DEFINE:Witch_CFP_Level|0		BONUS:VAR|Witch_CFP_Level|WitchLVL|TYPE=Base
+Antipaladin		CATEGORY:Class	DEFINE:Antipaladin_CFP_Level|0	BONUS:VAR|Antipaladin_CFP_Level|AntipaladinLVL|TYPE=Base	
 
 Battle Herald	CATEGORY:Class	DEFINE:BattleHerald_CFP_Level|0	BONUS:VAR|BattleHerald_CFP_Level|BattleHeraldLVL|TYPE=Base
-Holy Vindicator	CATEGORY:Class	DEFINE:HolyVindicator_CFP_Level|0	BONUS:VAR|HolyVindicator_CFP_Level|BattleHeraldLVL|TYPE=Base
-Horizon Walker	CATEGORY:Class	DEFINE:HorizonWalker_CFP_Level|0	BONUS:VAR|HorizonWalker_CFP_Level|BattleHeraldLVL|TYPE=Base
-Master Chymist	CATEGORY:Class	DEFINE:MasterChymist_CFP_Level|0	BONUS:VAR|MasterChymist_CFP_Level|BattleHeraldLVL|TYPE=Base
-Master Spy		CATEGORY:Class	DEFINE:MasterSpy_CFP_Level|0		BONUS:VAR|MasterSpy_CFP_Level|BattleHeraldLVL|TYPE=Base
-Nature Warden	CATEGORY:Class	DEFINE:NatureWarden_CFP_Level|0	BONUS:VAR|NatureWarden_CFP_Level|BattleHeraldLVL|TYPE=Base
-Rage Prophet	CATEGORY:Class	DEFINE:RageProphet_CFP_Level|0	BONUS:VAR|RageProphet_CFP_Level|BattleHeraldLVL|TYPE=Base
-Stalwart Defender	CATEGORY:Class	DEFINE:StalwartDefender_CFP_Level|0	BONUS:VAR|StalwartDefender_CFP_Level|BattleHeraldLVL|TYPE=Base
+Holy Vindicator	CATEGORY:Class	DEFINE:HolyVindicator_CFP_Level|0	BONUS:VAR|HolyVindicator_CFP_Level|HolyVindicatorLVL|TYPE=Base
+Horizon Walker	CATEGORY:Class	DEFINE:HorizonWalker_CFP_Level|0	BONUS:VAR|HorizonWalker_CFP_Level|HorizonWalkerLVL|TYPE=Base
+Master Chymist	CATEGORY:Class	DEFINE:MasterChymist_CFP_Level|0	BONUS:VAR|MasterChymist_CFP_Level|MasterChymistLVL|TYPE=Base
+Master Spy		CATEGORY:Class	DEFINE:MasterSpy_CFP_Level|0		BONUS:VAR|MasterSpy_CFP_Level|MasterSpyLVL|TYPE=Base
+Nature Warden	CATEGORY:Class	DEFINE:NatureWarden_CFP_Level|0	BONUS:VAR|NatureWarden_CFP_Level|NatureWardenLVL|TYPE=Base
+Rage Prophet	CATEGORY:Class	DEFINE:RageProphet_CFP_Level|0	BONUS:VAR|RageProphet_CFP_Level|RageProphetLVL|TYPE=Base
+Stalwart Defender	CATEGORY:Class	DEFINE:StalwartDefender_CFP_Level|0	BONUS:VAR|StalwartDefender_CFP_Level|StalwartDefenderLVL|TYPE=Base
 
 ###Block:
 CATEGORY=Class|Alchemist.MOD	ABILITY:Internal|AUTOMATIC|Free Formula Book|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Alchemist=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Alchemist=1]]|PREVARGTEQ:Alchemist_CFP_Level,1
