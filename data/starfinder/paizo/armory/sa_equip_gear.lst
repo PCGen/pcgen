@@ -19,31 +19,31 @@ Scanner (video camera)		TYPE:Goods.TechItem.General		QUALITY:Level|1		COST:275		
 
 Strategy game (basic)		TYPE:Goods.TechItem.General		QUALITY:Level|1		COST:150		QUALITY:BULK|Varies		BONUS:VAR|Bulk|Varies		QUALITY:Charge Capacity|Varies		QUALITY:Charge Usage|Varies		SOURCEPAGE:p.108
 
-Tool kit		TYPE:Goods.TechItem.General		QUALITY:Level|1		COST:200		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|—		QUALITY:Charge Usage|—		SOURCEPAGE:p.108
+Tool kit		TYPE:Goods.TechItem.General		QUALITY:Level|1		COST:200		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|		QUALITY:Charge Usage|		SOURCEPAGE:p.108
 
-Zipstick		TYPE:Goods.TechItem.General		QUALITY:Level|1		COST:10		QUALITY:BULK|—		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/use		SOURCEPAGE:p.109
+Zipstick		TYPE:Goods.TechItem.General		QUALITY:Level|1		COST:10		QUALITY:BULK|		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/use		SOURCEPAGE:p.109
 
 Datapad		TYPE:Goods.TechItem.General		QUALITY:Level|2		COST:55		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.100
 
-Diagnostic lozenge		TYPE:Goods.TechItem.General		QUALITY:Level|2		COST:175		QUALITY:BULK|—		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.101
+Diagnostic lozenge		TYPE:Goods.TechItem.General		QUALITY:Level|2		COST:175		QUALITY:BULK|		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.101
 
 Emotion regulator (basic)		TYPE:Goods.TechItem.General		QUALITY:Level|2		COST:800		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/10 minutes		SOURCEPAGE:p.103
 
 Evenfire unit		TYPE:Goods.TechItem.General		QUALITY:Level|2		COST:550		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|2/hour		SOURCEPAGE:p.103
 
-Microgoggles		TYPE:Goods.TechItem.General		QUALITY:Level|2		COST:900		QUALITY:BULK|—		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.105
+Microgoggles		TYPE:Goods.TechItem.General		QUALITY:Level|2		COST:900		QUALITY:BULK|		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.105
 
-Nanite hypopen (brown)		TYPE:Goods.TechItem.General		QUALITY:Level|2		COST:160		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|—		QUALITY:Charge Usage|—		SOURCEPAGE:p.106
+Nanite hypopen (brown)		TYPE:Goods.TechItem.General		QUALITY:Level|2		COST:160		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|		QUALITY:Charge Usage|		SOURCEPAGE:p.106
 
 Radiation sweeper		TYPE:Goods.TechItem.General		QUALITY:Level|2		COST:500		QUALITY:BULK|1		BONUS:VAR|Bulk|1		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/minute		SOURCEPAGE:p.107
 
 Scanner (shotgun microphone)		TYPE:Goods.TechItem.General		QUALITY:Level|2		COST:625		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.107
 
-Survival straw		TYPE:Goods.TechItem.General		QUALITY:Level|2		COST:450		QUALITY:BULK|—		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/gallon		SOURCEPAGE:p.108
+Survival straw		TYPE:Goods.TechItem.General		QUALITY:Level|2		COST:450		QUALITY:BULK|		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/gallon		SOURCEPAGE:p.108
 
-Swarmproof bangles (basic)		TYPE:Goods.TechItem.General		QUALITY:Level|2		COST:900		QUALITY:BULK|—		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/minute		SOURCEPAGE:p.108
+Swarmproof bangles (basic)		TYPE:Goods.TechItem.General		QUALITY:Level|2		COST:900		QUALITY:BULK|		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/minute		SOURCEPAGE:p.108
 
-Alert redirector		TYPE:Goods.TechItem.General		QUALITY:Level|3		COST:1450		QUALITY:BULK|—		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.98
+Alert redirector		TYPE:Goods.TechItem.General		QUALITY:Level|3		COST:1450		QUALITY:BULK|		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.98
 
 Dermal stapler		TYPE:Goods.TechItem.General		QUALITY:Level|3		COST:1200		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/use		SOURCEPAGE:p.100
 
@@ -51,7 +51,7 @@ Engineer's puzzle box		TYPE:Goods.TechItem.General		QUALITY:Level|3		COST:1500		
 
 Holoshroud		TYPE:Goods.TechItem.General		QUALITY:Level|3		COST:1300		QUALITY:BULK|2		BONUS:VAR|Bulk|2		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.104
 
-Ion tape		TYPE:Goods.TechItem.General		QUALITY:Level|3		COST:275		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|—		QUALITY:Charge Usage|—		SOURCEPAGE:p.105
+Ion tape		TYPE:Goods.TechItem.General		QUALITY:Level|3		COST:275		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|		QUALITY:Charge Usage|		SOURCEPAGE:p.105
 
 Scanner (enhanced camera)		TYPE:Goods.TechItem.General		QUALITY:Level|3		COST:1375		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.107
 
@@ -75,21 +75,21 @@ Magnegloves		TYPE:Goods.TechItem.General		QUALITY:Level|4		COST:1950		QUALITY:BU
 
 Proximity helmet		TYPE:Goods.TechItem.General		QUALITY:Level|4		COST:2050		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|2/hour		SOURCEPAGE:p.107
 
-Solar sheeting		TYPE:Goods.TechItem.General		QUALITY:Level|4		COST:2000		QUALITY:BULK|2		BONUS:VAR|Bulk|2		QUALITY:Charge Capacity|—		QUALITY:Charge Usage|—		SOURCEPAGE:p.107
+Solar sheeting		TYPE:Goods.TechItem.General		QUALITY:Level|4		COST:2000		QUALITY:BULK|2		BONUS:VAR|Bulk|2		QUALITY:Charge Capacity|		QUALITY:Charge Usage|		SOURCEPAGE:p.107
 
 Warning wire (mk 1)		TYPE:Goods.TechItem.General		QUALITY:Level|4		COST:2000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.109
 
-Clearsight goggles		TYPE:Goods.TechItem.General		QUALITY:Level|5		COST:2750		QUALITY:BULK|—		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.100
+Clearsight goggles		TYPE:Goods.TechItem.General		QUALITY:Level|5		COST:2750		QUALITY:BULK|		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.100
 
 Nanite hypopen (purple)		TYPE:Goods.TechItem.General		QUALITY:Level|5		COST:450		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|10		QUALITY:Charge Usage|Varies		SOURCEPAGE:p.106
 
-Phrenic scrambler (clear)		TYPE:Goods.TechItem.General		QUALITY:Level|5		COST:3000		QUALITY:BULK|—		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|5/round		SOURCEPAGE:p.106
+Phrenic scrambler (clear)		TYPE:Goods.TechItem.General		QUALITY:Level|5		COST:3000		QUALITY:BULK|		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|5/round		SOURCEPAGE:p.106
 
 Portable gangway		TYPE:Goods.TechItem.General		QUALITY:Level|5		COST:2700		QUALITY:BULK|4		BONUS:VAR|Bulk|4		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|1/use		SOURCEPAGE:p.106
 
 Strategy game (imperial conquest)		TYPE:Goods.TechItem.General		QUALITY:Level|5		COST:2850		QUALITY:BULK|2		BONUS:VAR|Bulk|2		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.108
 
-Whisper comm		TYPE:Goods.TechItem.General		QUALITY:Level|5		COST:3000		QUALITY:BULK|—		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.109
+Whisper comm		TYPE:Goods.TechItem.General		QUALITY:Level|5		COST:3000		QUALITY:BULK|		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.109
 
 Electroviscous cloak		TYPE:Goods.TechItem.General		QUALITY:Level|6		COST:4000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|1/round		SOURCEPAGE:p.102
 
@@ -97,13 +97,13 @@ Mimic imager (helmet-mounted)		TYPE:Goods.TechItem.General		QUALITY:Level|6		COS
 
 Musical instrument (euphonic)		TYPE:Goods.TechItem.General		QUALITY:Level|6		COST:4500		QUALITY:BULK|Varies		BONUS:VAR|Bulk|Varies		QUALITY:Charge Capacity|80		QUALITY:Charge Usage|1/10 minutes		SOURCEPAGE:p.105
 
-Nanite hypopen (black)		TYPE:Goods.TechItem.General		QUALITY:Level|6		COST:650		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|—		QUALITY:Charge Usage|—		SOURCEPAGE:p.106
+Nanite hypopen (black)		TYPE:Goods.TechItem.General		QUALITY:Level|6		COST:650		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|		QUALITY:Charge Usage|		SOURCEPAGE:p.106
 
 Smart cable (20 ft)		TYPE:Goods.TechItem.General		QUALITY:Level|6		COST:8000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|1/round		SOURCEPAGE:p.107
 
 Subdermal extractor		TYPE:Goods.TechItem.General		QUALITY:Level|6		COST:3850		QUALITY:BULK|1		BONUS:VAR|Bulk|1		QUALITY:Charge Capacity|20		QUALITY:Charge Usage|1/use		SOURCEPAGE:p.108
 
-Swarmproof bangles (advanced)		TYPE:Goods.TechItem.General		QUALITY:Level|7		COST:6500		QUALITY:BULK|—		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|1/minute		SOURCEPAGE:p.108
+Swarmproof bangles (advanced)		TYPE:Goods.TechItem.General		QUALITY:Level|7		COST:6500		QUALITY:BULK|		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|1/minute		SOURCEPAGE:p.108
 
 Traction holster		TYPE:Goods.TechItem.General		QUALITY:Level|7		COST:6000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|80		QUALITY:Charge Usage|10/minute		SOURCEPAGE:p.109
 
@@ -117,9 +117,9 @@ Warning wire (mk 2)		TYPE:Goods.TechItem.General		QUALITY:Level|8		COST:8800		QU
 
 Autocartographer		TYPE:Goods.TechItem.General		QUALITY:Level|9		COST:13500		QUALITY:BULK|1		BONUS:VAR|Bulk|1		QUALITY:Charge Capacity|100		QUALITY:Charge Usage|10/hour		SOURCEPAGE:p.98
 
-Nanite hypopen (white)		TYPE:Goods.TechItem.General		QUALITY:Level|9		COST:2300		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|—		QUALITY:Charge Usage|—		SOURCEPAGE:p.106
+Nanite hypopen (white)		TYPE:Goods.TechItem.General		QUALITY:Level|9		COST:2300		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|		QUALITY:Charge Usage|		SOURCEPAGE:p.106
 
-Phrenic scrambler (viridian)		TYPE:Goods.TechItem.General		QUALITY:Level|9		COST:13000		QUALITY:BULK|—		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|5/round		SOURCEPAGE:p.106
+Phrenic scrambler (viridian)		TYPE:Goods.TechItem.General		QUALITY:Level|9		COST:13000		QUALITY:BULK|		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|5/round		SOURCEPAGE:p.106
 
 Scanner (true-frame camera)		TYPE:Goods.TechItem.General		QUALITY:Level|9		COST:12250		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|100		QUALITY:Charge Usage|2/hour		SOURCEPAGE:p.107
 
@@ -137,11 +137,11 @@ Emergency raft (hovercraft)		TYPE:Goods.TechItem.General		QUALITY:Level|10		COST
 
 Inductive bandolier		TYPE:Goods.TechItem.General		QUALITY:Level|10		COST:19000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|100		QUALITY:Charge Usage|2/minute		SOURCEPAGE:p.104
 
-Bypass subroutine		TYPE:Goods.TechItem.General		QUALITY:Level|11		COST:23000		QUALITY:BULK|—		QUALITY:Charge Capacity|—		QUALITY:Charge Usage|—		SOURCEPAGE:p.98
+Bypass subroutine		TYPE:Goods.TechItem.General		QUALITY:Level|11		COST:23000		QUALITY:BULK|		QUALITY:Charge Capacity|		QUALITY:Charge Usage|		SOURCEPAGE:p.98
 
 Mimic imager (hovering)		TYPE:Goods.TechItem.General		QUALITY:Level|11		COST:24500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|4/round		SOURCEPAGE:p.105
 
-Nanite hypopen (gray)		TYPE:Goods.TechItem.General		QUALITY:Level|11		COST:3500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|—		QUALITY:Charge Usage|—		SOURCEPAGE:p.106
+Nanite hypopen (gray)		TYPE:Goods.TechItem.General		QUALITY:Level|11		COST:3500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|		QUALITY:Charge Usage|		SOURCEPAGE:p.106
 
 Emotion regulator (advanced)		TYPE:Goods.TechItem.General		QUALITY:Level|12		COST:37000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|100		QUALITY:Charge Usage|1/10 minutes		SOURCEPAGE:p.103
 
@@ -149,15 +149,15 @@ Flash shield generator		TYPE:Goods.TechItem.General		QUALITY:Level|12		COST:3200
 
 Grenade scrambler (mk 4)		TYPE:Goods.TechItem.General		QUALITY:Level|12		COST:35000		QUALITY:BULK|1		BONUS:VAR|Bulk|1		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|5/round		SOURCEPAGE:p.103
 
-Nanite hypopen (green)		TYPE:Goods.TechItem.General		QUALITY:Level|12		COST:5600		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|—		QUALITY:Charge Usage|—		SOURCEPAGE:p.106
+Nanite hypopen (green)		TYPE:Goods.TechItem.General		QUALITY:Level|12		COST:5600		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|		QUALITY:Charge Usage|		SOURCEPAGE:p.106
 
 Warning wire (mk 3)		TYPE:Goods.TechItem.General		QUALITY:Level|12		COST:32900		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|1/hour		SOURCEPAGE:p.109
 
-Phrenic scrambler (violet)		TYPE:Goods.TechItem.General		QUALITY:Level|13		COST:49000		QUALITY:BULK|—		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|5/round		SOURCEPAGE:p.106
+Phrenic scrambler (violet)		TYPE:Goods.TechItem.General		QUALITY:Level|13		COST:49000		QUALITY:BULK|		QUALITY:Charge Capacity|40		QUALITY:Charge Usage|5/round		SOURCEPAGE:p.106
 
 Carter's baton		TYPE:Goods.TechItem.General		QUALITY:Level|14		COST:65000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|80		QUALITY:Charge Usage|8/round		SOURCEPAGE:p.100
 
-Nanite hypopen (red)		TYPE:Goods.TechItem.General		QUALITY:Level|14		COST:11500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|—		QUALITY:Charge Usage|—		SOURCEPAGE:p.106
+Nanite hypopen (red)		TYPE:Goods.TechItem.General		QUALITY:Level|14		COST:11500		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|		QUALITY:Charge Usage|		SOURCEPAGE:p.106
 
 Synaptic link		TYPE:Goods.TechItem.General		QUALITY:Level|14		COST:75000		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		QUALITY:Charge Capacity|100		QUALITY:Charge Usage|5/round		SOURCEPAGE:p.108
 
@@ -216,21 +216,21 @@ Ladder (20 ft. collapsible)		QUALITY:Level|1		COST:150		QUALITY:BULK|1		BONUS:VA
 
 Ladder (40 ft. collapsible)		QUALITY:Level|1		COST:300		QUALITY:BULK|2		BONUS:VAR|Bulk|2		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.130
 
-Lighter		QUALITY:Level|1		COST:1		QUALITY:BULK|—		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.130
+Lighter		QUALITY:Level|1		COST:1		QUALITY:BULK|		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.130
 
 Magnetic jack		QUALITY:Level|1		COST:450		QUALITY:BULK|2		BONUS:VAR|Bulk|2		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.130
 
-Map (navigational)		QUALITY:Level|1		COST:80		QUALITY:BULK|—		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.130
+Map (navigational)		QUALITY:Level|1		COST:80		QUALITY:BULK|		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.130
 
-Map (survey)		QUALITY:Level|1		COST:20		QUALITY:BULK|—		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.130
+Map (survey)		QUALITY:Level|1		COST:20		QUALITY:BULK|		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.130
 
 Mess kit		QUALITY:Level|1		COST:2		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.130
 
-Perfume (standard)		QUALITY:Level|1		COST:50		QUALITY:BULK|—		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.131
+Perfume (standard)		QUALITY:Level|1		COST:50		QUALITY:BULK|		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.131
 
 Pot (self-heating)		QUALITY:Level|1		COST:100		QUALITY:BULK|1		BONUS:VAR|Bulk|1		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.131
 
-Religious symbol		QUALITY:Level|1		COST:2		QUALITY:BULK|—		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.131
+Religious symbol		QUALITY:Level|1		COST:2		QUALITY:BULK|		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.131
 
 Rope (50 ft.)		QUALITY:Level|1		COST:1		QUALITY:BULK|L		BONUS:VAR|LightBulk|1		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.131
 
@@ -252,7 +252,7 @@ Culinary synthesizer Mk 2		QUALITY:Level|3		COST:1200		QUALITY:BULK|1		BONUS:VAR
 
 Culinary synthesizer Mk 3		QUALITY:Level|5		COST:2500		QUALITY:BULK|2		BONUS:VAR|Bulk|2		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.129
 
-Perfume (pheromonal)		QUALITY:Level|5		COST:500		QUALITY:BULK|—		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.131
+Perfume (pheromonal)		QUALITY:Level|5		COST:500		QUALITY:BULK|		TYPE:Goods.PersonalItem.General		SOURCEPAGE:p.131
 
 ###Drugs, Medicinals, and Poisons###
 Rapture dust		QUALITY:Level|2		COST:200		TYPE:Goods.Chemical.Drug		SOURCEPAGE:p.132
