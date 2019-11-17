@@ -38,6 +38,8 @@ ABILITY:rsrd_abilities_race.lst
 
 ABILITYCATEGORY:rsrd_abilitycategories.lst
 
+BIOSET:rsrd_biosettings.lst
+
 CLASS:rsrd_classes.lst
 COMPANIONMOD:rsrd_companionmods.lst
 DEITY:rsrd_deities.lst
