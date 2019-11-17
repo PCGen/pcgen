@@ -26,3 +26,41 @@ Stunning Irruption	CATEGORY:FEAT		TYPE:Combat			PREABILITY:1,CATEGORY=FEAT,Power
 Vile Leadership		CATEGORY:FEAT		TYPE:General												!PREABILITY:1,CATEGORY=FEAT,Leadership									PRELEVEL:MIN=7									PRETEXT:Character level 7th, good standing with an evil organization.				DESC:You rule over your own cabal of minions with a villainous cohort as your lieutenant.											SOURCEPAGE:p.14	BENEFIT:You can attract a loyal cohort and a number of cowed followers to assist you in your journeys. This feat is similar to Leadership, except Vile Leadership rewards-rather than hinders-leaders who have cruel reputations or who cause the deaths of their followers. Once you take this feat, you cannot take the Leadership feat without retraining your feat selection.
 Wild Flanking		CATEGORY:FEAT		TYPE:Betrayal.Teamwork	PREABILITY:1,CATEGORY=FEAT,Power Attack																														PRETEXT:Power Attack, base attack bonus +4.					PRETOTALAB:4	DESC:When flanking, you use your position to rain grievous blows upon a trapped foe, with little regard to the well-being of your flanking partner.	SOURCEPAGE:p.21	BENEFIT:When you are flanking an opponent with an ally who also possesses this feat, you can attack in such a way that your opponent takes extra damage, at the risk of these attacks striking your ally as well.
 Summon Evil Monster	CATEGORY:FEAT		TYPE:General																			PREALIGN:LE,NE,CE																	PRETEXT:Evil alignment.												DESC:You can summon the aid of creatures driven their very nature to destroy goodness.											SOURCEPAGE:p.33	BENEFIT:When casting a summon monster spell, you gain access to a list of powerful, evil creatures you can summon.
+
+
+###Block: Support
+CATEGORY=FEAT|Fiendskin.MOD		BONUS:VAR|DamnationFeatCount|1	ABILITY:Special Ability|AUTOMATIC|Damnation Feat
+CATEGORY=FEAT|Fiendskin.MOD	BENEFIT:&nl;One Damnation Feat: Choose one of the energy types to which your patron's outsider subtype grants resistance. You gain resistance 5 against that energy type.
+CATEGORY=FEAT|Fiendskin.MOD	BENEFIT:&nl;Two Damnation Feats: Choose one of the energy types to which your patron's outsider subtype grants resistance. You gain resistance 5 against that energy type. If you already have resistance to the chosen energy type (even from earlier benefits of this feat), this new resistance stacks with the existing resistance.|PREVARGTEQ:DamnationFeatCount,2
+CATEGORY=FEAT|Fiendskin.MOD	BENEFIT:&nl;Three Damnation Feats: Choose one of the energy types to which your patron's outsider subtype grants resistance. You gain immunity to the selected energy type.|PREVARGTEQ:DamnationFeatCount,3
+CATEGORY=FEAT|Fiendskin.MOD	BENEFIT:&nl;Four Damnation Feats: Your creature type changes to outsider (native). Additionally, choose one energy type to which your patron's outsider subtype grants immunity or resistance. You gain immunity to that energy type.|PREVARGTEQ:DamnationFeatCount,4
+
+CATEGORY=FEAT|Maleficium.MOD		BONUS:VAR|DamnationFeatCount|1	ABILITY:Special Ability|AUTOMATIC|Damnation Feat
+CATEGORY=FEAT|Maleficium.MOD	BENEFIT:&nl;One Damnation Feat: Add 1 to the DCs of all saving throws against spells with the evil descriptor that you cast.
+CATEGORY=FEAT|Maleficium.MOD	BENEFIT:&nl;Two Damnation Feats: When you apply a metamagic feat to a spell with the evil descriptor, that spell takes up a spell slot 1 level lower than normal (to a minimum of 1 level above the spell's actual level).|PREVARGTEQ:DamnationFeatCount,2
+CATEGORY=FEAT|Maleficium.MOD	BENEFIT:&nl;Three Damnation Feats: Add 1 to the DCs of all saving throws against spells with the evil descriptor that you cast. This bonus stacks with the earlier benefits of this feat.|PREVARGTEQ:DamnationFeatCount,3
+CATEGORY=FEAT|Maleficium.MOD	BENEFIT:&nl;Four Damnation Feats: Treat your caster level as being 2 higher for all level-dependent effects of spells with the evil descriptor that you cast.|PREVARGTEQ:DamnationFeatCount,4
+CATEGORY=FEAT|Maleficium.MOD	BONUS:CASTERLEVEL|DESCRIPTOR.Evil|2|PREVARGTEQ:DamnationFeatCount,4
+CATEGORY=FEAT|Maleficium.MOD	BONUS:DC|DESCRIPTOR.Evil|1+if(DamnationFeatCount>=3,1,0)
+
+CATEGORY=FEAT|Mask of Virtue.MOD	BONUS:VAR|DamnationFeatCount|1	ABILITY:Special Ability|AUTOMATIC|Damnation Feat
+CATEGORY=FEAT|Mask of Virtue.MOD	BENEFIT:&nl;One Damnation Feat: The spell or special ability returns an inconclusive result.
+CATEGORY=FEAT|Mask of Virtue.MOD	BENEFIT:&nl;Two Damnation Feats: Upon gaining this power, choose an alignment within one step of your actual alignment. Your alignment is always revealed as being that false alignment.|PREVARGTEQ:DamnationFeatCount,2
+CATEGORY=FEAT|Mask of Virtue.MOD	BENEFIT:&nl;Three Damnation Feats: Upon gaining this power, choose an alignment within two steps of your actual alignment. Your alignment is always revealed as being this false alignment.|PREVARGTEQ:DamnationFeatCount,3
+CATEGORY=FEAT|Mask of Virtue.MOD	BENEFIT:&nl;Four Damnation Feats: You immediately know when someone is attempting to use a spell or special ability to learn your alignment. You learn the name and alignment of the creature using the effect. Additionally, you can choose any alignment as the result returned by the spell or ability.|PREVARGTEQ:DamnationFeatCount,4
+
+CATEGORY=FEAT|Soulless Gaze.MOD	BONUS:VAR|DamnationFeatCount|1	ABILITY:Special Ability|AUTOMATIC|Damnation Feat
+CATEGORY=FEAT|Soulless Gaze.MOD	BENEFIT:&nl;One Damnation Feat: You gain a +2 bonus on Intimidate checks.
+CATEGORY=FEAT|Soulless Gaze.MOD	BENEFIT:&nl;Two Damnation Feats: When you demoralize a creatures more than once using Intimidate, you can create stronger fear conditions rather than increasing the duration of the shaken condition.|PREVARGTEQ:DamnationFeatCount,2
+CATEGORY=FEAT|Soulless Gaze.MOD	BENEFIT:&nl;Three Damnation Feats: You gain a +2 bonus on Intimidate checks (this stacks with the earlier benefits of this feat).|PREVARGTEQ:DamnationFeatCount,3
+CATEGORY=FEAT|Soulless Gaze.MOD	BENEFIT:&nl;Four Damnation Feats: You can use Intimidate to demoralize opponents as a swift action.|PREVARGTEQ:DamnationFeatCount,4
+CATEGORY=FEAT|Soulless Gaze.MOD	BONUS:SKILL|Intimidate|2+if(DamnationFeatCount>=3,2,0)
+
+
+Damnation Feat	CATEGORY:Special Ability	DEFINE:DamnationFeatCount|0	
+CATEGORY=Special Ability|Damnation Feat.MOD	DESC:Upon taking a damnation feat, the character's soul becomes ensnared by dark, otherworldly forces. From that point on, if the character dies, returning him to life proves to be more difficult. Any nonevil spellcaster who attempts to bring the character back from the dead must attempt a caster level check (DC = 10 + the slain character's Hit Dice). Success means the spell functions as normal, while failure means the spell fails and cannot be attempted again for 24 hours. Evil spellcasters, however, can raise the slain character normally, without a check.
+CATEGORY=Special Ability|Damnation Feat.MOD	DESC:Upon taking a second damnation feat, the character becomes even more ensnared by his doom. He remains difficult to return from the dead (as noted above), and he can't be affected by breath of life or raise dead, even when these spells are cast by an evil spellcaster. Also, the character's alignment shifts one step toward evil (typically toward the alignment of whatever creature serves as his patron).|PREVARGTEQ:DamnationFeatCount,2
+CATEGORY=Special Ability|Damnation Feat.MOD	DESC:This corruption continues if the character takes a third damnation feat. He is affected as previously noted, and in addition, the spell resurrection no longer affects him. The character's alignment again shifts one step toward evil (typically toward the alignment of whatever creature serves as his patron).|PREVARGTEQ:DamnationFeatCount,3
+CATEGORY=Special Ability|Damnation Feat.MOD	DESC:Finally, upon taking a fourth damnation feat, the character can no longer be returned from the dead by any method short of a wish or miracle. The character's alignment shifts one more step toward the alignment of whatever creature serves as his patron.|PREVARGTEQ:DamnationFeatCount,4
+
+
