@@ -3,13 +3,13 @@
 SOURCELONG:Pathfinder Player Companion: Weapon Master's Handbook	SOURCESHORT:WMH	SOURCEWEB:http://paizo.com/products/btpy9hdy	SOURCEDATE:2015-12
 
 # Modifier Name	Unique Key							Type		Plus		Cost		Visible		Source Page		Required Type
-Driving		KEY:Special Ability ~ Driving ~ Weapon		TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Ranged	PRETYPE:1,Enhancement
-Heart-Piercing	KEY:Special Ability ~ Heart-Piercing ~ Weapon	TYPE:Weapon	PLUS:5			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Ranged,Piercing	PRETYPE:1,Enhancement
-Leveraging		KEY:Special Ability ~ Leveraging ~ Weapon		TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
-Liberating		KEY:Special Ability ~ Liberating ~ Weapon		TYPE:Weapon			COST:7000	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Quaking		KEY:Special Ability ~ Quaking ~ Weapon		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Melee,Bludgeoning	PRETYPE:1,Enhancement
-Sharding		KEY:Special Ability ~ Sharding ~ Weapon		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee,Thrown	PRETYPE:1,Enhancement
-Vampiric		KEY:Special Ability ~ Vampiric ~ Weapon		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,Enhancement
+Driving		KEY:Special Ability ~ Driving ~ Weapon		TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Ranged	PRETYPE:1,WeaponEnhancement
+Heart-Piercing	KEY:Special Ability ~ Heart-Piercing ~ Weapon	TYPE:Weapon	PLUS:5			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Ranged,Piercing	PRETYPE:1,WeaponEnhancement
+Leveraging		KEY:Special Ability ~ Leveraging ~ Weapon		TYPE:Weapon	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,WeaponEnhancement
+Liberating		KEY:Special Ability ~ Liberating ~ Weapon		TYPE:Weapon			COST:7000	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,WeaponEnhancement
+Quaking		KEY:Special Ability ~ Quaking ~ Weapon		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:2,Melee,Bludgeoning	PRETYPE:1,WeaponEnhancement
+Sharding		KEY:Special Ability ~ Sharding ~ Weapon		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee,Thrown	PRETYPE:1,WeaponEnhancement
+Vampiric		KEY:Special Ability ~ Vampiric ~ Weapon		TYPE:Weapon	PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Melee	PRETYPE:1,WeaponEnhancement
 
 
 

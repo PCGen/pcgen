@@ -16,11 +16,11 @@ Shadowcraft Weapon											KEY:Material ~ Shadowcraft						NAMEOPT:TEXT=Shadow
 # New Weapon Abilities
 # ==============================
 
-Beaming													KEY:Special Ability ~ Beaming ~ Ranged									TYPE:Weapon.Ranged		PLUS:1			VISIBLE:QUALIFY							SOURCEPAGE:p.21	PRETYPE:3,Enhancement,Weapon,Ranged					SPROP:Creates orbs that fire searing light at foes
-Enervative Shadowcraft Weapon										KEY:Special Quality ~ Shadowcraft / Enervative ~ Weapon	NAMEOPT:TEXT=Enervative		TYPE:Weapon						COST:23500	VISIBLE:QUALIFY							SOURCEPAGE:p.22	PRETYPE:3,Enhancement,Weapon,ShadowStuff				SPROP:Deals negative level on critical hit with failed Will save
-Focused Shadowcraft Weapon										KEY:Special Quality ~ Shadowcraft / Focused ~ Melee		NAMEOPT:TEXT=Focused		TYPE:Weapon.Melee					COST:500	VISIBLE:QUALIFY							SOURCEPAGE:p.22	PRETYPE:4,Enhancement,Weapon,ShadowStuff,Melee			SPROP:As a swift action, can be used to increase the caster level of any spell of the shadow subschool or spell with the darkness or shadow descriptors by 1
-Lashing Shadowcraft Weapon										KEY:Special Quality ~ Shadowcraft / Lashing ~ Melee		NAMEOPT:TEXT=Lashing		TYPE:Weapon.Melee.TwoHanded			COST:2000	VISIBLE:QUALIFY							SOURCEPAGE:p.23	PRETYPE:5,Enhancement,Weapon,ShadowStuff,Melee,TwoHanded	SPROP:Can increase reach by 5 feet on command
-Shadowshooting												KEY:Special Ability ~ Shadowshooting ~ Ranged								TYPE:Weapon.Ranged		PLUS:1			VISIBLE:QUALIFY							SOURCEPAGE:p.26	PRETYPE:3,Enhancement,Weapon,Ranged					SPROP:Creates shadowstuff ammunition. If target makes Will save, weapon deals minimum damage for that round.
+Beaming													KEY:Special Ability ~ Beaming ~ Ranged									TYPE:Weapon.Ranged		PLUS:1			VISIBLE:QUALIFY							SOURCEPAGE:p.21	PRETYPE:3,WeaponEnhancement,Weapon,Ranged					SPROP:Creates orbs that fire searing light at foes
+Enervative Shadowcraft Weapon										KEY:Special Quality ~ Shadowcraft / Enervative ~ Weapon	NAMEOPT:TEXT=Enervative		TYPE:Weapon						COST:23500	VISIBLE:QUALIFY							SOURCEPAGE:p.22	PRETYPE:3,WeaponEnhancement,Weapon,ShadowStuff				SPROP:Deals negative level on critical hit with failed Will save
+Focused Shadowcraft Weapon										KEY:Special Quality ~ Shadowcraft / Focused ~ Melee		NAMEOPT:TEXT=Focused		TYPE:Weapon.Melee					COST:500	VISIBLE:QUALIFY							SOURCEPAGE:p.22	PRETYPE:4,WeaponEnhancement,Weapon,ShadowStuff,Melee			SPROP:As a swift action, can be used to increase the caster level of any spell of the shadow subschool or spell with the darkness or shadow descriptors by 1
+Lashing Shadowcraft Weapon										KEY:Special Quality ~ Shadowcraft / Lashing ~ Melee		NAMEOPT:TEXT=Lashing		TYPE:Weapon.Melee.TwoHanded			COST:2000	VISIBLE:QUALIFY							SOURCEPAGE:p.23	PRETYPE:5,WeaponEnhancement,Weapon,ShadowStuff,Melee,TwoHanded	SPROP:Can increase reach by 5 feet on command
+Shadowshooting												KEY:Special Ability ~ Shadowshooting ~ Ranged								TYPE:Weapon.Ranged		PLUS:1			VISIBLE:QUALIFY							SOURCEPAGE:p.26	PRETYPE:3,WeaponEnhancement,Weapon,Ranged					SPROP:Creates shadowstuff ammunition. If target makes Will save, weapon deals minimum damage for that round.
 
 
 
