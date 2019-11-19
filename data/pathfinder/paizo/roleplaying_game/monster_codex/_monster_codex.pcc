@@ -4,7 +4,6 @@ KEY:Monster Codex
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
 STATUS:BETA
-RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
@@ -16,6 +15,7 @@ SOURCELONG:Monster Codex
 SOURCESHORT:MC
 SOURCEWEB:http://paizo.com/products/btpy9926?Pathfinder-Roleplaying-Game-Monster-Codex
 SOURCEDATE:2014-11
+RANK:201411
 ISOGL:YES
 
 

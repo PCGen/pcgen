@@ -3,7 +3,6 @@ CAMPAIGN:Advanced Race Guide (PFS)
 KEY:PFS ~ Advanced Race Guide
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder RPG
-RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -17,6 +16,7 @@ SOURCELONG:Advanced Race Guide
 SOURCESHORT:ARG
 SOURCEWEB:http://paizo.com/products/btpy8rv2?Pathfinder-Roleplaying-Game-Advanced-Race-Guide
 SOURCEDATE:2012-06
+RANK:201206
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/advanced_race_guide.jpeg

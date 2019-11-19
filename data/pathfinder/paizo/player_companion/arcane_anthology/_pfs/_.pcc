@@ -4,7 +4,6 @@ KEY:PFS ~ Arcane Anthology
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
 STATUS:BETA
-RANK:1
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
@@ -20,6 +19,7 @@ SOURCELONG:Pathfinder Player Companion: Arcane Anthology
 SOURCESHORT:ArcA
 SOURCEWEB:http://paizo.com/products/btpy9i8l
 SOURCEDATE:2016-01
+RANK:201601
 ISOGL:YES
 
 #COVER:arcane_anthology.jpeg

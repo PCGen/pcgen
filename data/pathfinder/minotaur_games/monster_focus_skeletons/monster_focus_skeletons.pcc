@@ -2,7 +2,6 @@
 CAMPAIGN:Minotaur - Monster Focus: Skeletons
 GAMEMODE:Pathfinder
 TYPE:Minotaur Games.Monster Focus
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Monster Focus: Skeletons
 SOURCESHORT:MFS
 SOURCEWEB:http://minotaurrpg.com/monster-focus/skeletons/
 SOURCEDATE:2013-04
+RANK:201304
 ISOGL:YES
 
 COVER:monster_focus_skeletons.jpg

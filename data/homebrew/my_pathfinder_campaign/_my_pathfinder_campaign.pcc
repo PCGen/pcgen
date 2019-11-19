@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:My Pathfinder Campaign 6.06.00
 GAMEMODE:Pathfinder
-RANK:9
 GENRE:Fantasy
 BOOKTYPE:Homebrew
 SETTING:My Homebrew Campaign
@@ -13,6 +12,7 @@ SOURCELONG:My Pathfinder Campaign
 SOURCESHORT:MPC
 SOURCEWEB:http://www.mpcwebsite.com
 SOURCEDATE:2008-01
+RANK:200801
 ISOGL:NO
 COPYRIGHT:My Pathfinder Campaign, Copyright 2015 by PCGen Team
 

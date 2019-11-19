@@ -1,6 +1,5 @@
 CAMPAIGN:Inner Sea Taverns
 GAMEMODE:Pathfinder|Pathfinder_PFS
-RANK:3
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -14,6 +13,7 @@ SOURCELONG:Pathfinder Player Companion: Inner Sea Taverns
 SOURCESHORT:ISTav
 SOURCEWEB:https://paizo.com/products/btpy9zk9
 SOURCEDATE:2018-03
+RANK:201803
 ISOGL:YES
 
 COVER:inner_sea_taverns.jpg

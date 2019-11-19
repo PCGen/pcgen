@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Sep 10 22:27:31 2004 -- reformated by prettylst.pl v1.33 (build 421)
 CAMPAIGN:Fort Griffin Echo Vol. 1 No. 1
-RANK:6
 GAMEMODE:Sidewinder
 GENRE:Western
 BOOKTYPE:Magazine
@@ -14,6 +13,7 @@ SOURCELONG:Fort Griffin Echo Vol. 1 No. 1
 SOURCESHORT:FGE1-1
 SOURCEWEB:http://www.doghouserules.net/echo/index.html
 SOURCEDATE:2002-01
+RANK:200201
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v1.0a Copyright 2000, Wizards of the Coast, Inc.

@@ -2,7 +2,6 @@
 # Original entry by Ratheof Blithwyn
 CAMPAIGN:FFG - School of Evocation - Source Book
 GAMEMODE:3e
-RANK:9
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -15,6 +14,7 @@ SOURCELONG:Fantasy Flight Games - School of Evocation
 SOURCESHORT:Evoc
 SOURCEWEB:http://www.fantasyflightgames.com/dd41.html
 SOURCEDATE:2003-08
+RANK:200308
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson

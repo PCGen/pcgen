@@ -1,6 +1,6 @@
 # CVS $Revision$ $Author$ -- Sat Nov 20 04:10:09 2004 -- reformated by prettylst.pl v1.34 (build 422)
 CAMPAIGN:PCGen Advanced Testing Set - Outstanding Broken Items - Code & Data Team Use Only
-RANK:1
+RANK:999991
 GAMEMODE:35e|MSRD|3e|Modern
 #COMMENT: Will need to break it out into each gamemode eventually
 STATUS:TESTONLY

@@ -3,7 +3,6 @@ CAMPAIGN:Dungeoneer's Handbook (PFS)
 KEY:PFS ~ Dungeoneer's Handbook
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -18,6 +17,7 @@ SOURCELONG:Pathfinder Player Companion: Dungeoneer's Handbook
 SOURCESHORT:DH
 SOURCEWEB:http://paizo.com/products/btpy8wfn
 SOURCEDATE:2013-03
+RANK:201303
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/player_companion/dungeoneers_handbook/dungeoneers_handbook.jpeg

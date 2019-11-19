@@ -2,7 +2,6 @@ CAMPAIGN:Wrath of the Righteous Player's Guide
 KEY:Wrath of the Righteous Player's Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Wrath of the Righteous
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Wrath of the Righteous Player's Guide
 SOURCESHORT:WOTR
 SOURCEWEB:http://paizo.com/products/btpy919c
 SOURCEDATE:2013-08
+RANK:201308
 ISOGL:YES
 
 COVER:wrath_of_the_righteous_players_guide.jpg

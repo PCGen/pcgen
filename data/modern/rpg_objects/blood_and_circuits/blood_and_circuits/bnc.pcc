@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Thu Dec 30 08:58:56 2004 -- reformated by prettylst.pl v1.34 (build 445)
 CAMPAIGN:RPGObjects - Blood and Circuits
-RANK:6
 GAMEMODE:Modern
 GENRE:Modern
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Blood and Circuits
 SOURCESHORT:BNC
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=51
 SOURCEDATE:2004-01
+RANK:200401
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

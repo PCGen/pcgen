@@ -2,7 +2,6 @@
 CAMPAIGN:Pathfinder Society Core Assumption
 GAMEMODE:Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Society
-RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:MultiSet
@@ -21,6 +20,7 @@ SOURCELONG:Pathfinder Society
 SOURCESHORT:PS
 SOURCEWEB:http://paizo.com/pathfinderSociety
 SOURCEDATE:2013-10
+RANK:201310
 ISOGL:YES
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.

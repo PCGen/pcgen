@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Mar 31 18:30:57 2006 -- reformated by prettylst.pl v1.35 (build 561)
 CAMPAIGN:TGM - Modern Player's Companion
-RANK:6
 GAMEMODE:Modern
 GENRE:Modern
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:The Game Mechanics,Inc. - Modern Player's Companion (Print)
 SOURCESHORT:MPC
 SOURCEWEB:http://www.thegamemechanics.com/
 SOURCEDATE:2003-01
+RANK:200301
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

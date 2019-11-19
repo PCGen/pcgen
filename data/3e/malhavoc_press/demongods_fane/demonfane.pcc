@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:MP - Demon God's Fane - Source Book
 GAMEMODE:3e
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Malhavoc Press - Demon God's Fane
 SOURCESHORT:DemGodFane
 SOURCEWEB:http://www.montecook.com
 SOURCEDATE:2001-01
+RANK:200101
 # COMMENT: Unknown Month - Set as 01
 ISLICENSED:YES
 LICENSE:FILE=demonfanepermission.htm

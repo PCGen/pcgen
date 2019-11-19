@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Tue Mar 27 23:33:15 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 CAMPAIGN:BaS - Neiyar Land of Heaven and the Abyss
-RANK:5
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -15,6 +14,7 @@ SOURCELONG:Neiyar Land of Heaven and the Abyss
 SOURCESHORT:Neiyar
 SOURCEWEB:http://www.bardsandsages.com/neiyar.html
 SOURCEDATE:2005-03
+RANK:200503
 ### COMMENT: Sourcedate of 2004 correct, though month is currently unknown.
 ISOGL:YES
 ISLICENSED:YES

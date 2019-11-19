@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Thu Mar  9 16:42:53 2006 -- reformated by prettylst.pl v1.35 (build 555)
 CAMPAIGN:SEP - Roles and Classes - Combat Hero
 GAMEMODE:Modern
-RANK:6
 GENRE:Modern
 BOOKTYPE:Supplement
 SETTING:Modern
@@ -14,6 +13,7 @@ SOURCELONG:Roles and Classes - Combat Hero
 SOURCESHORT:RnC - Cmbt
 SOURCEWEB:http://www.swordsedgepublishing.ca/Products.html
 SOURCEDATE:2005-01
+RANK:200501
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

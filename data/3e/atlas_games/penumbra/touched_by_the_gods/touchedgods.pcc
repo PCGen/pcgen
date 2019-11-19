@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Atlas Games - Penumbra - Touched by the Gods
 GAMEMODE:3e
-RANK:9
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Penumbra
@@ -14,6 +13,7 @@ SOURCELONG:Atlas Games - Penumbra - Touched by the Gods
 SOURCESHORT:TouchbtG
 SOURCEWEB:http://www.atlas-games.com/pen_index.html
 SOURCEDATE:2001-01
+RANK:200101
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

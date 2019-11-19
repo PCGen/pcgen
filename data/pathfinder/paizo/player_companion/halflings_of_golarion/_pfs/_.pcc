@@ -3,7 +3,6 @@ CAMPAIGN:Halflings of Golarion (PFS)
 KEY:PFS ~ Halflings of Golarion
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -18,6 +17,7 @@ SOURCELONG:Pathfinder Player Companion: Halflings of Golarion
 SOURCESHORT:HAOG
 SOURCELONG:Pathfinder Player Companion: Halflings of Golarion
 SOURCEDATE:2010-12
+RANK:201012
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/player_companion/halflings_of_golarion/halflings_of_golarion.jpg

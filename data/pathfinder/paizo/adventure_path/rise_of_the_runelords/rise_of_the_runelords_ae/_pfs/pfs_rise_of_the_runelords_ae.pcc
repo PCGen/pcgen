@@ -3,7 +3,6 @@ CAMPAIGN:Rise of the Runelords Adventure Path (PFS)
 KEY:PFS ~ Rise of the Runelords Adventure Path
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Adventure Path.Rise of the Runelords
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -18,6 +17,7 @@ SOURCELONG:Rise of the Runelords Anniversary Edition Player's Guide
 SOURCESHORT:ROTRAEPG
 SOURCEWEB:http://paizo.com/products/btpy8tgl?Pathfinder-Adventure-Path-Rise-of-the-Runelords-Anniversary-Edition-Players-Guide
 SOURCEDATE:2012-07
+RANK:201207
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/adventure_path/rise_of_the_runelords/rotr_ae.jpg

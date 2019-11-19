@@ -1,7 +1,6 @@
 CAMPAIGN:Horror Adventures
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
-RANK:2
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
@@ -15,6 +14,7 @@ SOURCELONG:Horror Adventures
 SOURCESHORT:HA
 SOURCEWEB:http://paizo.com/products/btpy9n5a
 SOURCEDATE:2016-08
+RANK:201608
 ISOGL:YES
 
 COVER:horror_adventures.jpg

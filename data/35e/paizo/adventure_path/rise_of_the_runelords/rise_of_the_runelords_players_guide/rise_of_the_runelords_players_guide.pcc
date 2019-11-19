@@ -2,7 +2,6 @@
 CAMPAIGN:Paizo - Rise of the Runelords - Player's Guide
 GAMEMODE:35e
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Rise of the Runelords
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Campaign Setting
@@ -15,6 +14,7 @@ SOURCELONG:Rise of the Runelords Player's Guide
 SOURCESHORT:RotRPG
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/riseOfTheRunelords/v5748btpy8bd9
 SOURCEDATE:2007-08
+RANK:200708
 ISOGL:YES
 
 COVER:rise_of_the_runelords_players_guide.jpg

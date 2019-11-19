@@ -3,7 +3,6 @@ CAMPAIGN:Ultimate Psionics
 KEY:DSP - Ultimate Psionics
 GAMEMODE:Pathfinder
 TYPE:Dreamscarred Press
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:None
@@ -18,6 +17,7 @@ SOURCELONG:Ultimate Psionics
 SOURCESHORT:UP
 SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php
 SOURCEDATE:2013-12
+RANK:201312
 ISOGL:YES
 
 COVER:ultimate_psionics.jpg

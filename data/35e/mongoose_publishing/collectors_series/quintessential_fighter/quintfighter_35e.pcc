@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Mongoose - Quintessential Fighter - 3.5 Conversion
 GAMEMODE:35e
-RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Fighter
 SOURCESHORT:QuintFight
 SOURCEWEB:http://mongoosepublishing.com
 SOURCEDATE:2001-02
+RANK:200102
 # COMMENT: Unknown Month - Set as 02
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

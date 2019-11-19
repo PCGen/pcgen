@@ -4,7 +4,6 @@ KEY:PFS ~ Advanced Class Origins
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
 STATUS:BETA
-RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
@@ -16,6 +15,7 @@ SOURCELONG:Pathfinder Player Companion: Advanced Class Origins
 SOURCESHORT:ACO
 SOURCEWEB:http://paizo.com/products/btpy965z
 SOURCEDATE:2014-10
+RANK:201410
 ISOGL:YES
 
 #COVER:advanced_class_guide_playtest.jpg

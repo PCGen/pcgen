@@ -2,7 +2,6 @@
 CAMPAIGN:Champions of Purity
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Pathfinder Player Companion: Champions of Purity
 SOURCESHORT:COP
 SOURCEWEB:http://paizo.com/products/btpy8x1s
 SOURCEDATE:2013-04
+RANK:201304
 ISOGL:YES
 
 COVER:champions_of_purity.jpg

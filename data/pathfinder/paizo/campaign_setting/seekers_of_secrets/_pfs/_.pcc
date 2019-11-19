@@ -3,7 +3,6 @@ CAMPAIGN:Seekers of Secrets (PFS)
 KEY:PFS ~ Seekers of Secrets
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Campaign Setting
-RANK:2
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 STATUS:BETA
@@ -18,6 +17,7 @@ SOURCELONG:Seekers of Secrets - A Guide to the Pathfinder Society
 SOURCESHORT:SOS
 SOURCEWEB:http://paizo.com/products/btpy8az2?Pathfinder-Chronicles-Seekers-of-Secrets-A-Guide-to-the-Pathfinder-Society
 SOURCEDATE:2009-10
+RANK:200910
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/campaign_setting/seekers_of_secrets/seekers_of_secrets.jpg

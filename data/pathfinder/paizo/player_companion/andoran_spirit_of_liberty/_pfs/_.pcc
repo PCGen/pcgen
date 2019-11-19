@@ -3,7 +3,6 @@ CAMPAIGN:Andoran, Spirit of Liberty (PFS)
 KEY:PFS ~ Andoran - Spirit of Liberty
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -18,6 +17,7 @@ SOURCELONG:Pathfinder Companion: Andoran, Spirit of Liberty
 SOURCESHORT:ASoL
 SOURCEWEB:http://paizo.com/products/btpy8bc3
 SOURCEDATE:2009-11
+RANK:200911
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/player_companion/andoran_spirit_of_liberty/andoran_spirit_of_liberty.jpg

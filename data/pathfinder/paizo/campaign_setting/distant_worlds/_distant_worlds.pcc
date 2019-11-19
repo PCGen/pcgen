@@ -3,7 +3,6 @@ CAMPAIGN:Pathfinder Campaign Setting: Distant Worlds
 KEY:Pathfinder Campaign Setting - Distant Worlds
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:2
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -16,6 +15,7 @@ SOURCELONG:Distant Worlds
 SOURCESHORT:DW
 SOURCEWEB:http://paizo.com/products/btpy8qib?Pathfinder-Campaign-Setting-Distant-Worlds
 SOURCEDATE:2014-08
+RANK:201408
 ISOGL:YES
 
 COVER:PZO9243_180.jpeg

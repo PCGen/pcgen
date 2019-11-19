@@ -1,7 +1,6 @@
 CAMPAIGN:Blood of the Beast (PFS)
 KEY:PFS ~ Blood of the Beast
 #GAMEMODE:Pathfinder|Pathfinder_PFS
-RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
@@ -14,6 +13,7 @@ SOURCELONG:Pathfinder Player Companion: Blood of Beast
 SOURCESHORT:BOTB
 SOURCEWEB:http://paizo.com/products/btpy9j6s
 SOURCEDATE:2016-02
+RANK:201602
 ISOGL:YES
 
 #COVER:blood_of_shadows.jpg

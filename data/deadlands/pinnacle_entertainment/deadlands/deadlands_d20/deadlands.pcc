@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:PE - Deadlands Core Rulebook - Deadlands D20
-RANK:1
 GAMEMODE:Deadlands
 GENRE:Western
 BOOKTYPE:Core Rules
@@ -14,6 +13,7 @@ SOURCELONG:Deadlands Core Rulebook
 SOURCESHORT:Deadlands
 SOURCEWEB:http://www.peginc.com/index.htm
 SOURCEDATE:2003-01
+RANK:200301
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
