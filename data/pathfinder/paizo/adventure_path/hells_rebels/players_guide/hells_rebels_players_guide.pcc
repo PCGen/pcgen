@@ -3,7 +3,6 @@ CAMPAIGN:Hell's Rebels Player's Guide
 KEY:PF - Hell's Rebels Player's Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Hell's Rebels
-RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Hell's Rebels Player's Guide
 SOURCESHORT:HRAP
 SOURCEWEB:http://paizo.com/products/btpy9g44?Pathfinder-Adventure-Path-Hells-Rebels-Players-Guide
 SOURCEDATE:2015-09
+RANK:201509
 ISOGL:YES
 
 COVER:hells_rebels_players_guide.jpg

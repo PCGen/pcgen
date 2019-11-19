@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Jun 24 11:50:27 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:Paizo - Curse of the Crimson Throne - Chapter 1: Edge of Anarchy
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Adventure
@@ -15,6 +14,7 @@ SOURCELONG:Curse of the Crimson Throne: Edge of Anarchy
 SOURCESHORT:CotCT:EoA
 SOURCEWEB:http://paizo.com/pathfinder/v5748btpy81xw
 SOURCEDATE:2008-03
+RANK:200803
 ISOGL:YES
 
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

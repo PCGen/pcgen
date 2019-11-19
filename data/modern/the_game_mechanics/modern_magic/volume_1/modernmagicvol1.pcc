@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Thu Jan 11 10:46:21 2007 -- reformated by prettylst.pl v1.35 (build 1495)
 CAMPAIGN:Modern Magic - Volume 1
-RANK:6
 GAMEMODE:Modern
 GENRE:Modern Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Modern Magic - Volume 1
 SOURCESHORT:ModMag1
 SOURCEWEB:http://www.thegamemechanics.com/products/modernmagic1.asp
 SOURCEDATE:2004-01
+RANK:200401
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

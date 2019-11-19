@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Tue Jun  4 18:21:03 2002 -- reformated by prettylst.pl v1.13
 CAMPAIGN:3.0 SRD Advanced
-RANK:2
 GAMEMODE:3e
 GENRE:Fantasy
 BOOKTYPE:Core Supplement
@@ -15,6 +14,7 @@ SOURCELONG:System Reference Document
 SOURCESHORT:SRD
 SOURCEWEB:http://groups.yahoo.com/group/pcgen/files/3.0%20SRD/
 SOURCEDATE:2000-01
+RANK:200001
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

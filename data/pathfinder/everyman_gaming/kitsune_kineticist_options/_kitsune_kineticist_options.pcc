@@ -2,7 +2,6 @@ CAMPAIGN:Kitsune Kineticist Options
 GAMEMODE:Pathfinder
 TYPE:Everyman Gaming
 STATUS:BETA
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
@@ -14,6 +13,7 @@ SOURCELONG:Everyman Minis: Kitsune Kineticist Options
 SOURCESHORT:EMKKO
 SOURCEWEB:http://www.everymangaming.com/
 SOURCEDATE:2018-04
+RANK:201804
 ISOGL:YES
 
 COVER:kitsune_kineticist_options.jpg

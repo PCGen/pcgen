@@ -2,7 +2,6 @@
 CAMPAIGN:Paizo - Dark Markets: A Guide to Katapesh (35e)
 GAMEMODE:35e
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:6
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -15,6 +14,7 @@ SOURCELONG:Dark Markets: A Guide to Katapesh
 SOURCESHORT:DMGK
 SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut
 SOURCEDATE:2009-04
+RANK:200904
 ISOGL:YES
 
 COVER:dark_markets.jpg

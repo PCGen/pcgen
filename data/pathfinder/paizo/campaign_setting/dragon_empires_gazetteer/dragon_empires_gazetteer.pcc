@@ -2,7 +2,6 @@
 CAMPAIGN:Dragon Empires Gazetteer
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:2
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -15,6 +14,7 @@ SOURCELONG:Dragon Empires Gazetteer
 SOURCESHORT:DEG
 SOURCEWEB:http://paizo.com/products/btpy8pfu
 SOURCEDATE:2012-02
+RANK:201202
 ISOGL:YES
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.

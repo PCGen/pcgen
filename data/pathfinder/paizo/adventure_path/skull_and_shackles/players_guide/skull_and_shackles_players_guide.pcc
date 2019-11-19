@@ -2,7 +2,7 @@
 CAMPAIGN:Skull and Shackles Player's Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Skull & Shackles
-RANK:3
+
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +15,7 @@ SOURCELONG:Skull & Shackles Player's Guide
 SOURCESHORT:SASPG
 SOURCEWEB:http://paizo.com/products/btpy8rwc?Pathfinder-Adventure-Path-Skull-Shackles-Players-Guide
 SOURCEDATE:2012-07
+RANK:201207
 ISOGL:YES
 
 COVER:skull_and_shackles_players_guide.jpg

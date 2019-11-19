@@ -3,7 +3,6 @@ CAMPAIGN:Super Genius Games - Genius Guide: Air Magic
 GAMEMODE:Pathfinder
 TYPE:Super Genius Games.Genius Guide
 STATUS:BETA
-RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
@@ -13,6 +12,7 @@ PUBNAMEWEB:http://www.supergeniusgames.com
 SOURCELONG:The Genius Guide to: Air Magic
 SOURCESHORT:SGGAM
 SOURCEDATE:2010-07
+RANK:201007
 ISOGL:YES
 
 COVER:sggam.jpg

@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Mon Jun 17 17:46:40 2002 -- reformated by prettylst.pl v1.14
 CAMPAIGN:FFG - Spells and Spellcraft - Source Book
 GAMEMODE:3e
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Fantasy Flight Games - Spells and Spellcraft
 SOURCESHORT:Spellcraft
 SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 SOURCEDATE:2002-03
+RANK:200203
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson

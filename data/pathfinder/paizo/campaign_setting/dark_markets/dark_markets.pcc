@@ -3,7 +3,6 @@ CAMPAIGN:Dark Markets - A Guide to Katapesh (Conversion)
 KEY:Dark Markets - A Guide to Katapesh - Conversion
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:2
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -16,6 +15,7 @@ SOURCELONG:Dark Markets - A Guide to Katapesh
 SOURCESHORT:DM
 SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut
 SOURCEDATE:2009-04
+RANK:200904
 ISOGL:YES
 
 COVER:dark_markets.jpg

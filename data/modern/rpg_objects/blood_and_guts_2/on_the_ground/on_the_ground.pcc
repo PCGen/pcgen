@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Sat Jan 27 07:56:08 2007 -- reformated by prettylst.pl v1.36 (build 2045)
 CAMPAIGN:RPGObjects - Blood and Guts 2 - On the Ground
-RANK:6
 GAMEMODE:Modern
 GENRE:Military
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Blood and Guts 2: On the Ground
 SOURCESHORT:BnG2-OtG
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=285
 SOURCEDATE:2007-01
+RANK:200701
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

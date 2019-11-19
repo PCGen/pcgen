@@ -1,7 +1,6 @@
 CAMPAIGN:Mythic Origins
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 GENRE:Fantasy
 STATUS:BETA
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Pathfinder Player Companion: Mythic Origins
 SOURCESHORT:MO
 SOURCEWEB:http://paizo.com/products/btpy8xsj
 SOURCEDATE:2013-09
+RANK:201309
 ISOGL:YES
 
 

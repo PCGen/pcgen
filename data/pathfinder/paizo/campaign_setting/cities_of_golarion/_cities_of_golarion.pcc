@@ -1,6 +1,5 @@
 CAMPAIGN:Cities of Golarion
 GAMEMODE:Pathfinder|Pathfinder_PFS
-RANK:3
 GENRE:Fantasy
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
 STATUS:BETA
@@ -14,6 +13,7 @@ SOURCELONG:Pathfinder Chronicles: Cities of Golarion
 SOURCESHORT:CoG
 SOURCEWEB:http://paizo.com/products/btpy8b9l?Pathfinder-Chronicles-Cities-of-Golarion
 SOURCEDATE:2009-11
+RANK:200911
 ISOGL:YES
 
 COVER:cities_of_golarion.jpg
@@ -21,7 +21,7 @@ LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/products/btpy8b9l?Pathfinder-Chronicles-Cities-of-Golarion|Buy this publication from Paizo Publishing!
-DESC:Most adventurers think of cities as the places to go after the adventure is over. It’s time to show your players that cities can be every bit as exciting—and dangerous—as the darkest dungeon!
+DESC:Most adventurers think of cities as the places to go after the adventure is over. Itï¿½s time to show your players that cities can be every bit as excitingï¿½and dangerousï¿½as the darkest dungeon!
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

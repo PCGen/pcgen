@@ -1,7 +1,6 @@
 CAMPAIGN:Familiar Folio
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Familiar Folio
 SOURCESHORT:FF
 SOURCEWEB:http://paizo.com/products/btpy9au2?Pathfinder-Player-Companion-Familiar-Folio
 SOURCEDATE:2014-12
+RANK:201412
 ISOGL:YES
 
 COVER:familiar_folio.jpg
@@ -22,7 +22,7 @@ URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/products/btpy9au2?Pathfinder-Player-Companion-Familiar-Folio|Buy this publication from Paizo Publishing!
 
-DESC:Helping Hands and Spying Eyes - It’s time to make your familiar more fearsome! Whether you’re looking to give your magical ally an archetype to transform it into a brutish battle companion or you’re just scouting the menagerie of available familiars, Pathfinder Player Companion: Familiar Folio has you covered. This volume provides a bevy of new options, including new rules that allow characters of any class to gain familiars. Featuring all-new feats, items, spells, archetypes, and—of course—familiars, this Pathfinder Player Companion is the perfect accessory for spellcasters, as well as any player who fancies teaming up with a fantastic, travel-sized friend.
+DESC:Helping Hands and Spying Eyes - Itï¿½s time to make your familiar more fearsome! Whether youï¿½re looking to give your magical ally an archetype to transform it into a brutish battle companion or youï¿½re just scouting the menagerie of available familiars, Pathfinder Player Companion: Familiar Folio has you covered. This volume provides a bevy of new options, including new rules that allow characters of any class to gain familiars. Featuring all-new feats, items, spells, archetypes, andï¿½of courseï¿½familiars, this Pathfinder Player Companion is the perfect accessory for spellcasters, as well as any player who fancies teaming up with a fantastic, travel-sized friend.
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 
 COPYRIGHT:Open Game License v 1.0a Copyright 2000,Wizards of the Coast, Inc.

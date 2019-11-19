@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Mar 10 22:44:34 2006 -- reformated by prettylst.pl v1.35 (build 555)
 CAMPAIGN:Gallantry - Firearm Arcana
-RANK:6
 GAMEMODE:Modern
 GENRE:Modern
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Firearm Arcana
 SOURCESHORT:FA
 SOURCEWEB:http://www.enworld.org/shop/index.php?do=publisher&publisher_id=34
 SOURCEDATE:2005-01
+RANK:200501
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

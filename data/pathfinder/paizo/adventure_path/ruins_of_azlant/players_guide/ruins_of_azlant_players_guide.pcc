@@ -1,7 +1,6 @@
 CAMPAIGN:Ruins of Azlant Player's Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Ruins of Azlant
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Ruins of Azlant Player's Guide
 SOURCESHORT:ROAPG
 SOURCEWEB:http://paizo.com/products/btpy9uir?Pathfinder-Adventure-Path-Ruins-of-Azlant-Players-Guide
 SOURCEDATE:2017-08
+RANK:201708
 ISOGL:YES
 
 COVER:ruins_of_azlant_players_guide.jpg

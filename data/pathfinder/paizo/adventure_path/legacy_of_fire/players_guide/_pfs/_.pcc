@@ -3,7 +3,6 @@ CAMPAIGN:Legacy of Fire Player's Guide (Conversion) (PFS)
 KEY:PFS ~ Legacy of Fire Player's Guide (Conversion)
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Adventure Path.Legacy of Fire
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -19,6 +18,7 @@ SOURCESHORT:LOFPG
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb
 SOURCEWEB:http://paizo.com/paizo/messageboards/paizo/products/v5748btpy84bh
 SOURCEDATE:2009-02
+RANK:200902
 ISOGL:YES
 ISLICENSED:NO
 

@@ -1,7 +1,6 @@
 CAMPAIGN:Artifacts and Legends
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -19,6 +18,7 @@ SOURCELONG:Artifacts and Legends
 SOURCESHORT:AandL
 SOURCEWEB:http://paizo.com/products/btpy8u7k
 SOURCEDATE:2012-10
+RANK:201210
 ISOGL:YES
 
 COVER:artifacts_and_legends.jpg

@@ -3,7 +3,6 @@ CAMPAIGN:Heart of the Jungle (PFS)
 KEY:PFS ~ Heart of the Jungle
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Campaign Setting
-RANK:2
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -17,6 +16,7 @@ SOURCELONG:Heart of the Jungle
 SOURCESHORT:HOTJ
 SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy8evh
 SOURCEDATE:2010-07
+RANK:201007
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/campaign_setting/heart_of_the_jungle/heart_of_the_jungle.jpg

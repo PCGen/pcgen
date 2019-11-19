@@ -2,7 +2,6 @@
 CAMPAIGN:Critical Fumble Deck
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.GameMastery Cards
-RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Critical Fumble Deck
 SOURCESHORT:CFD
 SOURCEWEB:http://paizo.com/store/byCompany/p/paizoPublishingLLC/gameMastery/itemPacks/v5748btpy89mn
 SOURCEDATE:2009-09
+RANK:200909
 ISOGL:YES
 
 COVER:critical_fumble_deck.jpg

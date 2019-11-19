@@ -1,6 +1,5 @@
 CAMPAIGN:Inner Sea Intrigue
 GAMEMODE:Pathfinder|Pathfinder_PFS
-RANK:3
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -14,6 +13,7 @@ SOURCELONG:Pathfinder Player Companion: Inner Sea Intrigue
 SOURCESHORT:ISI
 SOURCEWEB:http://paizo.com/products/btpy9l37?Pathfinder-Campaign-Setting-Inner-Sea-Intrigue
 SOURCEDATE:2016-06
+RANK:201606
 ISOGL:YES
 
 COVER:inner_sea_intrigue.jpg

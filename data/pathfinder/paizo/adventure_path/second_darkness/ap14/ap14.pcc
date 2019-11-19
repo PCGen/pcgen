@@ -2,7 +2,6 @@
 CAMPAIGN:Second Darkness, Chapter 2 - Children of the Void (Conversion)
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Second Darkness
-RANK:4
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Adventure
@@ -15,6 +14,7 @@ SOURCELONG:Second Darkness, Chapter 2 - Children of the Void
 SOURCESHORT:AP14
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy85ed
 SOURCEDATE:2008-10
+RANK:200810
 ISOGL:YES
 
 COVER:ap14.jpg

@@ -4,7 +4,6 @@ CAMPAIGN:PCI - Magic of Arcanis
 GAMEMODE:35e
 STATUS:BETA
 TYPE:Paradigm Concepts.Supplement
-RANK:3
 BOOKTYPE:Supplement
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PRECAMPAIGN:1,Player's Guide to Arcanis

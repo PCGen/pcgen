@@ -2,7 +2,6 @@
 CAMPAIGN:Ultimate Wilderness
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
-RANK:1
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
@@ -16,6 +15,7 @@ SOURCELONG:Ultimate Wilderness
 SOURCESHORT:UW
 SOURCEWEB:http://paizo.com/products/btpy9ujo
 SOURCEDATE:2017-11
+RANK:201711
 ISOGL:YES
 
 COVER:ultimate_wilderness.jpg

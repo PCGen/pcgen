@@ -2,7 +2,6 @@
 CAMPAIGN:Bestiary 3
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
-RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -17,6 +16,7 @@ SOURCELONG:Bestiary 3
 SOURCESHORT:B3
 SOURCEWEB:http://paizo.com/products/btpy8odu?Pathfinder-Roleplaying-Game-Bestiary-3
 SOURCEDATE:2012-01
+RANK:201201
 ISOGL:YES
 
 COVER:bestiary_3.jpeg
