@@ -2,7 +2,6 @@
 CAMPAIGN:Council of Thieves Player's Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Council of Thieves
-RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Council of Thieves Player's Guide
 SOURCESHORT:COTPG
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/councilOfThieves/v5748btpy89m7
 SOURCEDATE:2009-08
+RANK:200908
 ISOGL:YES
 
 COVER:council_of_thieves_players_guide.jpg

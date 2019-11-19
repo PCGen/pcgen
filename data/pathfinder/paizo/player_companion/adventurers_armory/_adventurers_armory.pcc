@@ -2,7 +2,6 @@
 CAMPAIGN:Adventurer's Armory
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Player Companion: Adventurer's Armory
 SOURCESHORT:AA
 SOURCEWEB:http://paizo.com/products/btpy8dmf
 SOURCEDATE:2010-04
+RANK:201004
 ISOGL:YES
 
 COVER:adventurers_armory.jpeg

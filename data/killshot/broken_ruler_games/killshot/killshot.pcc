@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Killshot - The Director's Cut
-RANK:0
 GAMEMODE:Killshot
 GENRE:Modern
 BOOKTYPE:Core Rules
@@ -12,6 +11,8 @@ PUBNAMEWEB:http://www.brokenrulergames.com/
 SOURCELONG:Killshot - The Director's Cut
 SOURCESHORT:KiSh
 SOURCEWEB:http://www.brokenrulergames.com/p/killshot-osrpg.html
+SOURCEDATE:2012-07
+RANK:201207
 ISOGL:NO
 ISLICENSED:YES
 ISMATURE:YES

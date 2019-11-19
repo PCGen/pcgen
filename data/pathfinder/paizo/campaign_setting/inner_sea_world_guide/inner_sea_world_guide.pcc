@@ -2,7 +2,6 @@
 CAMPAIGN:Inner Sea World Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:2
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -15,6 +14,7 @@ SOURCELONG:Inner Sea World Guide
 SOURCESHORT:ISWG
 SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8ief
 SOURCEDATE:2011-03
+RANK:201103
 ISOGL:YES
 
 COVER:inner_sea_world_guide.jpg

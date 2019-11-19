@@ -2,7 +2,6 @@
 CAMPAIGN:Inner Sea Faiths
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Campaign Setting
-RANK:4
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -21,6 +20,7 @@ SOURCELONG:Inner Sea Faiths
 SOURCESHORT:ISF
 SOURCEWEB:http://paizo.com/products/btpy9j74?Pathfinder-Campaign-Setting-Inner-Sea-Faiths
 SOURCEDATE:2016-03
+RANK:201603
 ISOGL:YES
 
 COVER:inner_sea_faiths.jpg

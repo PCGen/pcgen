@@ -3,7 +3,6 @@ CAMPAIGN:The Genius Guide to: The Talented Rogue
 KEY:The Genius Guide to The Talented Rogue
 GAMEMODE:Pathfinder
 TYPE:Super Genius Games
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -17,6 +16,7 @@ SOURCESHORT:TTR
 #SOURCEWEB:
 #2013 is the only date found, defaulting to 01.
 SOURCEDATE:2013-01
+RANK:201301
 ISOGL:YES
 
 COVER:the_talented_rogue.jpeg

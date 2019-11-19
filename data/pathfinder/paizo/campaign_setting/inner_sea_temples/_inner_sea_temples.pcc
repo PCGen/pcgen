@@ -1,6 +1,5 @@
 CAMPAIGN:Inner Sea Temples
 GAMEMODE:Pathfinder|Pathfinder_PFS
-RANK:3
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -14,6 +13,7 @@ SOURCELONG:Pathfinder Player Companion: Inner Sea Temples
 SOURCESHORT:ISTem
 SOURCEWEB:https://paizo.com/products/btpy9op7
 SOURCEDATE:2015-11
+RANK:201511
 ISOGL:YES
 
 COVER:inner_sea_temples.jpg

@@ -2,7 +2,6 @@
 CAMPAIGN:Champions of Corruption
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Player Companion: Champions of Corruption
 SOURCESHORT:COC
 SOURCEWEB:http://paizo.com/products/btpy991x
 SOURCEDATE:2014-09
+RANK:201409
 ISOGL:YES
 
 #COVER:champions_of_corruption.jpg

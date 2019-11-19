@@ -2,7 +2,6 @@
 CAMPAIGN:Roleplaying Guild Guide v8
 GAMEMODE:Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Society
-RANK:9
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:PFS Supplement
@@ -17,6 +16,7 @@ SOURCELONG:Roleplaying Guild Guide
 SOURCESHORT:RGG8
 SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play
 SOURCEDATE:2015-08
+RANK:201508
 ISOGL:YES
 
 DESC:WARNING: ONLY LOAD THIS IF YOU ARE PLAYING BY PATHFINDER SOCIETY RULES.

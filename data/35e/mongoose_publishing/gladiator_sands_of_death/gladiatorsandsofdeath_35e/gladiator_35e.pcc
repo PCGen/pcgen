@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Mongoose - Gladiators - Sands of Death - 3.5 Conversion
 GAMEMODE:35e
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Mongoose Publishing - Gladiators - Sand of Death
 SOURCESHORT:Gladiators
 SOURCEWEB:http://mongoosepublishing.com
 SOURCEDATE:2001-01
+RANK:200101
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

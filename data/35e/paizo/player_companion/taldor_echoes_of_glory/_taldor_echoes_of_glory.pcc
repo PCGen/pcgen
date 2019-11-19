@@ -3,7 +3,6 @@ CAMPAIGN:Taldor, Echoes of Glory
 KEY:Taldor - Echoes of Glory (35e)
 GAMEMODE:35e
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -17,6 +16,7 @@ SOURCELONG:Taldor, Echoes of Glory
 SOURCESHORT:TEoG
 SOURCEWEB:http://paizo.com/products/btpy8853?Pathfinder-Companion-Taldor-Echoes-of-Glory
 SOURCEDATE:2009-01
+RANK:200901
 ISOGL:YES
 
 COVER:PZO9405_180.jpeg

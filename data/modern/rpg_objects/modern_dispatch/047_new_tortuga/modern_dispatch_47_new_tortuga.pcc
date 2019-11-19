@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
 CAMPAIGN:Modern Dispatch - #47 - New Tortuga
-RANK:6
 GAMEMODE:Modern
 GENRE:Modern
 BOOKTYPE:Magazine
@@ -15,6 +14,7 @@ SOURCELONG:Modern Dispatch #47 - New Tortuga
 SOURCESHORT:MD47-NT
 SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5053
 SOURCEDATE:2004-01
+RANK:200401
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

@@ -1,7 +1,6 @@
 CAMPAIGN:Magic Tactics Toolbox
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Pathfinder Player Companion: Magic Tactics Toolbox
 SOURCESHORT:MagTT
 SOURCEWEB:https://paizo.com/products/btpy9l2u
 SOURCEDATE:2016-07
+RANK:201607
 ISOGL:YES
 
 COVER:magic_tactics_toolbox.jpg

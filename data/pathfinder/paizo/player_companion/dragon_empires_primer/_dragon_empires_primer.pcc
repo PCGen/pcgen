@@ -2,7 +2,6 @@
 CAMPAIGN:Dragon Empires Primer
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -18,6 +17,7 @@ SOURCELONG:Pathfinder Player Companion: Dragon Empires Primer
 SOURCESHORT:DEP
 SOURCEWEB:http://paizo.com/products/btpy8pg0
 SOURCEDATE:2012-01
+RANK:201201
 ISOGL:YES
 
 COVER:dragon_empires_primer.jpg

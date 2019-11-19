@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Wed Jan 28 01:12:34 2004 -- reformated by prettylst.pl v1.32 (build 343)
 CAMPAIGN:Sellout Sourcebook
-RANK:3
 GAMEMODE:Xcrawl
 GENRE:Modern
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Sellout! Sourcebook
 SOURCESHORT:Sellout
 SOURCEWEB:http://www.pandahead.com/Xcrawl/index.php
 SOURCEDATE:2003-01
+RANK:200301
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

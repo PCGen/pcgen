@@ -1,7 +1,6 @@
 CAMPAIGN:City of Strangers (PFS)
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Campaign Setting
-RANK:4
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:City of Strangers
 SOURCESHORT:CoS
 SOURCEWEB:http://paizo.com/products/btpy8fda?Pathfinder-Chronicles-City-of-Strangers
 SOURCEDATE:2010-01
+RANK:201001
 ISOGL:YES
 
 #COVER:PZO9223_180.jpg

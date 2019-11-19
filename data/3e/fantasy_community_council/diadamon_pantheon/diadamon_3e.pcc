@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Sep 16 09:17:31 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:Fantasy Community Council - Diadamon Pantheon
-RANK:6
 GAMEMODE:3e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Diadamon Pantheon
 SOURCESHORT:DP
 SOURCEWEB:http://www.dcrouzet.net/nbomisc/
 SOURCEDATE:2002-01
+RANK:200201
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

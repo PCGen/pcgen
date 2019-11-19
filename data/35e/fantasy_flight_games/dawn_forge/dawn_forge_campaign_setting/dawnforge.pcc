@@ -2,7 +2,6 @@
 # Original entry by Ratheof Blithwyn
 CAMPAIGN:FFG - Dawnforge - Campaign setting
 GAMEMODE:35e
-RANK:5
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Dawnforge
@@ -16,6 +15,7 @@ SOURCELONG:Dawnforge
 SOURCESHORT:DF
 SOURCEWEB:http://www.fantasyflightgames.com/dawnforge.html
 SOURCEDATE:2003-10
+RANK:200310
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David noonan, Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson

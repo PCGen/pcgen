@@ -2,7 +2,6 @@
 CAMPAIGN:Ranged Tactics Toolbox
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Player Companion: Ranged Tactics Toolbox
 SOURCESHORT:RTT
 SOURCEWEB:http://paizo.com/products/btpy99s6
 SOURCEDATE:2014-10
+RANK:201410
 ISOGL:YES
 
 COVER:ranged_tactics_toolbox.jpg

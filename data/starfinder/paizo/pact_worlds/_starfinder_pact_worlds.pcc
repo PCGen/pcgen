@@ -1,6 +1,5 @@
 CAMPAIGN:Starfinder Pact Worlds
 KEY:Starfinder Pact Worlds
-RANK:1
 BOOKTYPE:Supplement
 GAMEMODE:Starfinder
 STATUS:BETA
@@ -9,6 +8,7 @@ PRECAMPAIGN:1,INCLUDES=Starfinder Core Rulebook
 SOURCELONG:Starfinder Pact Worlds
 SOURCESHORT:SPW
 SOURCEDATE:2018-03
+RANK:201803
 PUBNAMELONG:Paizo
 PUBNAMESHORT:PZO
 PUBNAMEWEB:http://www.paizo.com

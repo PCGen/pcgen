@@ -2,7 +2,6 @@
 CAMPAIGN:Pathfinder Society Field Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -16,6 +15,7 @@ SOURCELONG:Pathfinder Society Field Guide
 SOURCESHORT:PFSFG
 SOURCEWEB:http://paizo.com/products/btpy8mfq
 SOURCEDATE:2011-08
+RANK:201108
 ISOGL:YES
 
 COVER:pathfinder_society_field_guide.jpg

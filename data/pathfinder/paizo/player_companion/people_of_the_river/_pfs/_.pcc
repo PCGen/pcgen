@@ -2,7 +2,6 @@ CAMPAIGN:People of the River (PFS)
 KEY:PFS ~ People of the River
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
-RANK:3
 GENRE:Fantasy
 STATUS:BETA
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Player Companion: People of the River
 SOURCESHORT:PotR
 SOURCEWEB:http://paizo.com/products/btpy978r
 SOURCEDATE:2014-08
+RANK:201408
 ISOGL:YES
 
 #COVER:people_of_the_river.jpg

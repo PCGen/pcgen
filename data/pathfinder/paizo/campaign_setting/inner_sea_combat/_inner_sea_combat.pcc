@@ -2,7 +2,6 @@
 CAMPAIGN:Inner Sea Combat
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -19,6 +18,7 @@ SOURCELONG:Inner Sea Combat
 SOURCESHORT:ISC
 SOURCEWEB:http://paizo.com/products/btpy95b1?Pathfinder-Campaign-Setting-Inner-Sea-Combat
 SOURCEDATE:2014-08
+RANK:201408
 ISOGL:YES
 
 COVER:PZO9268_180.jpeg

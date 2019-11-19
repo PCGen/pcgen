@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Tue Feb 21 16:10:52 2006 -- reformated by prettylst.pl v1.35 (build 555)
 CAMPAIGN:Bloodstone Press - God Spells
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:God Spells
 SOURCESHORT:GodSpells
 SOURCEWEB:http://www.bloodstone-press.com/godspells.html
 SOURCEDATE:2003-11
+RANK:200311
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.

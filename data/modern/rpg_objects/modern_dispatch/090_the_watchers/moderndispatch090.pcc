@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Wed May 31 22:26:59 2006 -- reformated by prettylst.pl v1.35 (build 561)
 CAMPAIGN:Modern Dispatch - #90 - The Watchers
-RANK:6
 GAMEMODE:Modern
 GENRE:Modern
 BOOKTYPE:Magazine
@@ -14,6 +13,7 @@ SOURCELONG:Modern Dispatch #90 - The Watchers
 SOURCESHORT:MD90-TW
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=224
 SOURCEDATE:2004-01
+RANK:200401
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

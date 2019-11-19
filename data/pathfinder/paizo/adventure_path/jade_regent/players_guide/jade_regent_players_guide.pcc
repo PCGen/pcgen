@@ -2,7 +2,6 @@
 CAMPAIGN:Jade Regent Player's Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Jade Regent
-RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Jade Regent Player's Guide
 SOURCESHORT:JRPG
 SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderAdventurePath/jadeRegent/v5748btpy8mh3
 SOURCEDATE:2011-03
+RANK:201103
 ISOGL:YES
 
 COVER:jade_regent_players_guide.jpg

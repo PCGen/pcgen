@@ -3,7 +3,6 @@ CAMPAIGN:Sargava the Lost Colony (PFS)
 KEY:PFS ~ Sargava the Lost Colony
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
-RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -18,6 +17,7 @@ SOURCELONG:Pathfinder Companion: Sargava, the Lost Colony
 SOURCESHORT:STLC
 SOURCEWEB:http://paizo.com/products/btpy8ey2
 SOURCEDATE:2010-07
+RANK:201007
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/player_companion/sargava_the_lost_colony/sargava_the_lost_colony.jpg

@@ -2,7 +2,6 @@
 CAMPAIGN:Cityscape
 KEY:BPI - Cityscape
 GAMEMODE:3e
-RANK:2
 GENRE:Planar
 BOOKTYPE:Campaign Setting
 SETTING:Cityscape
@@ -15,6 +14,7 @@ SOURCELONG:Battlefield Press - Cityscape
 SOURCESHORT:CiSc
 SOURCEWEB:http://battlefieldpress.com
 SOURCEDATE:2002-11
+RANK:200211
 ISOGL:YES
 COPYRIGHT:System Reference Document Copyright 2000, Wizard of the Coast, Inc.
 COPYRIGHT:Grim-n-Gritty Hit Point and Combat Rules Copyright 2001, Kenneth S. Hood

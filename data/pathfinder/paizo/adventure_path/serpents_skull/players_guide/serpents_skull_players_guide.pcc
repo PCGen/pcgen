@@ -2,7 +2,6 @@
 CAMPAIGN:Serpent's Skull Player's Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Serpent's Skull
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Serpent's Skull Player's Guide
 SOURCESHORT:SSPG
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/theSerpentsSkull/v5748btpy8g6d
 SOURCEDATE:2010-08
+RANK:201008
 ISOGL:YES
 
 COVER:serpents_skull_players_guide.jpg

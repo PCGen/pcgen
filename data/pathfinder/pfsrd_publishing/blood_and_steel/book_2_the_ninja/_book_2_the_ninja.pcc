@@ -1,6 +1,5 @@
 CAMPAIGN:Blood and Steel - Book 2 - The Ninja
 KEY:Blood and Steel - Book 2 - The Ninja
-RANK:5
 BOOKTYPE:Supplement
 PRECAMPAIGN:6,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat,INCLUDES=Ultimate Equipment
 GAMEMODE:Pathfinder
@@ -9,6 +8,7 @@ TYPE:PFSRD Publishing.Supplement
 SOURCELONG:The Ninja
 SOURCESHORT:TN
 SOURCEDATE:2017-09
+RANK:201709
 PUBNAMELONG:d20pfsrd.com Publishing
 PUBNAMESHORT:PP
 ISOGL:YES
@@ -24,7 +24,7 @@ URL:Paizo|https://paizo.com/products/btpy9w8a?Blood-Steel-Book-2-The-Ninja|Buy t
 COPYRIGHT:Open Game License v 1.0a, Copyright 2000, Wizards of the Coast, Inc.;
 COPYRIGHT:System Reference Document, Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:System Reference Document, Copyright 2000, Wizards of the Coast, Inc.; Authors: Jonathan Tweet, Monte Cook, and Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Advanced Player’s Guide, Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn.
+COPYRIGHT:Advanced Playerï¿½s Guide, Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn.
 COPYRIGHT:Pathfinder RPG Core Rulebook, Copyright 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
 COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook, Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
 COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook, Copyright 2010, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.

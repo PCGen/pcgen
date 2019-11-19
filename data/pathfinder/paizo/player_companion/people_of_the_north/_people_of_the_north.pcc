@@ -2,7 +2,6 @@
 CAMPAIGN:People of the North
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Player Companion: People of the North
 SOURCESHORT:POTN
 SOURCEWEB:http://paizo.com/products/btpy8v35
 SOURCEDATE:2013-01
+RANK:201301
 ISOGL:YES
 
 COVER:people_of_the_north.jpg

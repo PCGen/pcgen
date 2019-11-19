@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Mon Dec 15 17:04:12 2003 -- reformated by prettylst.pl v1.32 (build 339)
 CAMPAIGN:Fantasy Community Council - Netbook of Magical Treasures
 GAMEMODE:3e
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Netbook of Magical Treasures
 SOURCESHORT:NboMT
 SOURCEWEB:http://www.d20magicitems.org/
 SOURCEDATE:2002-01
+RANK:200201
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:&copy 2002 Fan Community Council

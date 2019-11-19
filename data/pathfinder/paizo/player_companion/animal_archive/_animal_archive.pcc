@@ -3,7 +3,6 @@
 CAMPAIGN:Animal Archive
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Pathfinder Player Companion: Animal Archive
 SOURCESHORT:AnAr
 SOURCEWEB:http://paizo.com/products/btpy8tdj
 SOURCEDATE:2013-03
+RANK:201303
 ISOGL:YES
 
 COVER:animal_archive.jpeg

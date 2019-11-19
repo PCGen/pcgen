@@ -3,7 +3,6 @@ CAMPAIGN:Quests & Campaigns
 KEY:Quests and Campaigns
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Pathfinder Player Companion: Quests & Campaigns
 SOURCESHORT:QAC
 SOURCEWEB:http://paizo.com/products/btpy8yw2
 SOURCEDATE:2013-12
+RANK:201312
 ISOGL:YES
 
 COVER:PZO9433_180.jpeg

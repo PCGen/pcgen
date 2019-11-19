@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Thu Sep  8 10:04:01 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:Book of Iron Might
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Book of Iron Might
 SOURCESHORT:BoIM
 SOURCEWEB:http://www.montecook.com/cgi-bin/page.cgi?mpress_BOIM
 SOURCEDATE:2004-01
+RANK:200401
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000-2004, Wizards of the Coast, Inc.

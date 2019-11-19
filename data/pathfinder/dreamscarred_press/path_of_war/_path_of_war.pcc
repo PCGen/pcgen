@@ -3,7 +3,6 @@ CAMPAIGN:Path of War
 GAMEMODE:Pathfinder
 TYPE:Dreamscarred Press.Path of War.Pathfinder RPG
 STATUS:BETA
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
@@ -15,6 +14,7 @@ SOURCELONG:Path of War
 SOURCESHORT:PoW
 SOURCEWEB:http://dreamscarred.com/product/path-of-war/
 SOURCEDATE:2013-11
+RANK:201311
 ISOGL:YES
 
 COVER:DRP_PathOfWar_Cover_Final-115x150.jpg

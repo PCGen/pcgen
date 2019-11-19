@@ -1,7 +1,6 @@
 CAMPAIGN:Strange Aeons Players Guide
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Strange Aeons
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -18,6 +17,7 @@ SOURCESHORT:sa
 # http://paizo.com/pathfinder/adventurePath/strangeAeons
 SOURCEWEB:http://paizo.com/products/btpy9nrw?Pathfinder-Adventure-Path-Strange-Aeons-Players-Guide
 SOURCEDATE:2016-08
+RANK:201608
 ISOGL:YES
 
 #COVER:strange_aeons_players_guide.png
@@ -29,7 +29,7 @@ DESC:The Strange Aeons Player's Guide provides players with all the spoiler-free
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Strange Aeons Player's Guide © 2016, Written and Compiled by Adam Daigle
+COPYRIGHT:Strange Aeons Player's Guide ï¿½ 2016, Written and Compiled by Adam Daigle
 COPYRIGHT:PCGen dataset conversion for "Pathfinder Adventure Path: Strange Aeons Player's Guide" Copyright 2016, PCGen Data Team (including, but not limited to Kevin W. Patterson)
 
 # Do not remove the EXTRAFILE comment.

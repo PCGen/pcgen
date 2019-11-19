@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Wed Jun 29 10:01:43 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:PBG - Murchad's Legacy Campaign Setting
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -14,6 +13,7 @@ SOURCELONG:Murchad's Legacy
 SOURCESHORT:Murchad
 SOURCEWEB:http://murchadslegacy.pbwiki.com/
 SOURCEDATE:2005-07
+RANK:200507
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.

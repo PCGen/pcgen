@@ -4,7 +4,6 @@ KEY:Pathfinder Unchained
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
 STATUS:BETA
-RANK:1
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
@@ -16,6 +15,7 @@ SOURCELONG:Pathfinder Unchained
 SOURCESHORT:PU
 SOURCEWEB:http://paizo.com/products/btpy97vo
 SOURCEDATE:2015-04
+RANK:201504
 ISOGL:YES
 INFOTEXT:Rules for Pathfinder Unchained
 
