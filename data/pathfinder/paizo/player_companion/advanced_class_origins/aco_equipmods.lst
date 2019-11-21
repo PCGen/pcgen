@@ -7,14 +7,14 @@ SOURCELONG:Pathfinder Player Companion: Advanced Class Origins	SOURCESHORT:ACO	S
 # ==============================
 
 # Modifier Name							Unique Key						Type								Plus		Cost		Visible		Source Page		Required Type											Bonus to skill					Special Property
-Corsair								KEY:Special Ability ~ Corsair ~ Armor	TYPE:Armor									COST:5000	VISIBLE:QUALIFY	SOURCEPAGE:p.28	PRETYPE:2,Enhancement,Armor									BONUS:SKILL|Acrobatics|5|TYPE=Competence	SPROP:Grants +5 on Acrobatics checks. If wearer regains a grit or panache point, this bonus doubles until the beginning of next turn.
-Crusading								KEY:Special Ability ~ Crusading ~ Armor	TYPE:Armor							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.28	PRETYPE:2,Enhancement,Armor																SPROP:Expend 1 use of lay on hands or fervor to activate protective aura for 1 minute. Aura grants sacred bonus to AC of +2 (+3 vs. evil dragons, evil outsiders, and undead).
+Corsair								KEY:Special Ability ~ Corsair ~ Armor	TYPE:Armor									COST:5000	VISIBLE:QUALIFY	SOURCEPAGE:p.28	PRETYPE:2,ArmorEnhancement,Armor									BONUS:SKILL|Acrobatics|5|TYPE=Competence	SPROP:Grants +5 on Acrobatics checks. If wearer regains a grit or panache point, this bonus doubles until the beginning of next turn.
+Crusading								KEY:Special Ability ~ Crusading ~ Armor	TYPE:Armor							PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.28	PRETYPE:2,ArmorEnhancement,Armor																SPROP:Expend 1 use of lay on hands or fervor to activate protective aura for 1 minute. Aura grants sacred bonus to AC of +2 (+3 vs. evil dragons, evil outsiders, and undead).
 
 # ==============================
 # New Weapon Special Ability
 # ==============================
 
-Skewering								KEY:Special Ability ~ Skewering ~ Melee	TYPE:Weapon.Melee.Piercing.Light.OneHanded	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.28	PRETYPE:1,Light,OneHanded	PRETYPE:4,Enhancement,Weapon,Melee,Piercing								SPROP:On a critical threat, wielder can spend 1 panache point as an immediate action to automatically confirm the critical hit. May not regain panache for this critical, but may if attack is killing blow.
+Skewering								KEY:Special Ability ~ Skewering ~ Melee	TYPE:Weapon.Melee.Piercing.Light.OneHanded	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.28	PRETYPE:1,Light,OneHanded	PRETYPE:4,WeaponEnhancement,Weapon,Melee,Piercing								SPROP:On a critical threat, wielder can spend 1 panache point as an immediate action to automatically confirm the critical hit. May not regain panache for this critical, but may if attack is killing blow.
 
 
 

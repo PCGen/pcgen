@@ -3,8 +3,8 @@ SOURCELONG:Ultimate Wilderness	SOURCESHORT:UW	SOURCEWEB:http://paizo.com/product
 
 #Shield
 # Modifier Name	Unique Key						Type				Plus		Visible		Source Page		Required Type					Special Property
-Jawbreaker		KEY:Special Ability ~ Jawbreaker ~ Shield	TYPE:Shield			PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.246	PRETYPE:3,Enhancement,Shield,Light,Heavy	SPROP:Bite attacks agains the wielder provoke an attack of opportunity from the wielder (shield bash only; see text)
+Jawbreaker		KEY:Special Ability ~ Jawbreaker ~ Shield	TYPE:Shield			PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.246	PRETYPE:3,ShieldEnhancement,Shield,Light,Heavy	SPROP:Bite attacks against the wielder provoke an attack of opportunity from the wielder (shield bash only; see text)
 
 #Weapon
-Ambushing		KEY:Special Ability ~ Ambushing ~ Ranged	TYPE:Weapon.Ranged	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.246	PRETYPE:3,Enhancement,Weapon,Ranged		SPROP:Adds to wielder's slealth checks when sniping, +1d6 precision damage in surprise rounds or when target is unaware of the wielder's presence.
-Plummeting		KEY:Special Ability ~ Plummeting ~ Ranged	TYPE:Weapon.Ranged	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.247	PRETYPE:3,Enhancement,Weapon,Ranged		SPROP:Flying creatures hit must make a fly check or lose altitude.
+Ambushing		KEY:Special Ability ~ Ambushing ~ Ranged	TYPE:Weapon.Ranged	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.246	PRETYPE:3,WeaponEnhancement,Weapon,Ranged		SPROP:Adds to wielder's stealth checks when sniping, +1d6 precision damage in surprise rounds or when target is unaware of the wielder's presence.
+Plummeting		KEY:Special Ability ~ Plummeting ~ Ranged	TYPE:Weapon.Ranged	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.247	PRETYPE:3,WeaponEnhancement,Weapon,Ranged		SPROP:Flying creatures hit must make a fly check or lose altitude.
