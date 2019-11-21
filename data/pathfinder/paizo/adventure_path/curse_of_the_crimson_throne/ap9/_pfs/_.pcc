@@ -3,7 +3,6 @@ CAMPAIGN:Curse of the Crimson Throne, Chapter 3 - Escape from Old Korvosa (Conve
 KEY:PFS ~ Curse of the Crimson Throne - Chapter 3 - Escape from Old Korvosa (Conversion)
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Adventure Path.Curse of the Crimson Throne
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Adventure
@@ -18,6 +17,7 @@ SOURCELONG:Curse of the Crimson Throne, Chapter 3 - Escape from Old Korvosa
 SOURCESHORT:AP9
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82t5
 SOURCEDATE:2008-05
+RANK:200805
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/ap9/ap9.jpg

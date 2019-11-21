@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Tue Oct  4 19:12:44 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:Paradigm Concepts - Codex Arcanis
 GAMEMODE:3e
-RANK:5
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Arcanis
@@ -15,6 +14,7 @@ SOURCELONG:Paradigm - Codex Arcanis
 SOURCESHORT:Codex Arcanis
 SOURCEWEB:http://www.paradigmconcepts.com
 SOURCEDATE:2001-01
+RANK:200101
 # COMMENT: Unknown Month - Set as 01
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:Codex Arcanis Copyright 2001, Paradigm Concepts, Inc.

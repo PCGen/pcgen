@@ -2,7 +2,6 @@
 CAMPAIGN:Guide To Pathfinder Society Organized Play
 GAMEMODE:Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Society
-RANK:9
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:PFS Supplement
@@ -17,6 +16,7 @@ SOURCELONG:Guide To Pathfinder Society Organized Play
 SOURCESHORT:GTPSOP
 SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play
 SOURCEDATE:2014-08
+RANK:201408
 ISOGL:YES
 
 DESC:WARNING: ONLY LOAD THIS IF YOU ARE PLAYING BY PATHFINDER SOCIETY RULES.

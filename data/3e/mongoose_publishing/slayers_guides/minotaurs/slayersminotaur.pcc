@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Mongoose - Slayers Guide - Minotaurs
 GAMEMODE:3e
-RANK:9
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Mongoose Publishing - Slayer's Guide to Minotaurs
 SOURCESHORT:SGtM
 SOURCEWEB:http://mongoosepublishing.com
 SOURCEDATE:2003-01
+RANK:200301
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:PCGen dataset conversion for Slayer's Guide to Minotaurs Copyright 2004, PCGen Data team including, but not limited to, Emily Smirle, Eddy Anthony (MoSaT) and Joshua Nelson (DJ_Chair).

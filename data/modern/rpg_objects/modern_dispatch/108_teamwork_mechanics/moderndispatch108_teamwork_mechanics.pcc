@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Nov 23 23:23:54 2007 -- reformated by prettylst.pl v1.38 (build 4314)
 CAMPAIGN:Modern Dispatch - #108 - Teamwork Mechanics
-RANK:6
 GAMEMODE:Modern
 GENRE:Modern
 BOOKTYPE:Magazine
@@ -14,6 +13,7 @@ SOURCELONG:Modern Dispatch #108 - Teamwork Mechanics
 SOURCESHORT:MD108-TM
 SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21050&
 SOURCEDATE:2004-01
+RANK:200401
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

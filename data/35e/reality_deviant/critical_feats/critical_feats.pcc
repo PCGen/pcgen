@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Mon Mar 26 16:33:22 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 CAMPAIGN:RDP - Critical Feats
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -12,6 +11,7 @@ SOURCELONG:Critical Feats
 SOURCESHORT:CritFeat
 SOURCEWEB:http://www.realitydeviants.net/content/critfeat.html
 SOURCEDATE:2006-01
+RANK:200601
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

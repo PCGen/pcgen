@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Sep 16 12:08:11 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:Silverthorne Games - Kressmer's Bizarre Grimoire - Seven Summoner's Spells
-RANK:7
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Seven Summoner's Spells
 SOURCESHORT:7Summ
 SOURCEWEB:http://www.silverthornegames.com/
 SOURCEDATE:2004-01
+RANK:200401
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a, © 2000, Wizards of the Coast, Inc.

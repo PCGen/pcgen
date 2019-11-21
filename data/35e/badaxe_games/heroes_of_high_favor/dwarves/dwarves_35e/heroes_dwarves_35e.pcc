@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Tue Jan  2 15:40:06 2007 -- reformated by prettylst.pl v1.35 (build 1495)
 CAMPAIGN:Heroes of High Favor - Dwarves - 3.5 Conversion
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Heroes of High Favor - Dwarves
 SOURCESHORT:HoHF-D
 SOURCEWEB:www.badaxegames.com
 SOURCEDATE:2002-07
+RANK:200207
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc. licensed for public use under the terms of the Open Game License v1.0a;
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson;

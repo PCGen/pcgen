@@ -3,7 +3,6 @@ CAMPAIGN:MyCampaign
 #GAMEMODE:35e
 GAMEMODE:35e
 
-RANK:8
 GENRE:Fantasy
 BOOKTYPE:Homebrew
 SETTING:My Homebrew Campaign
@@ -15,6 +14,7 @@ SOURCELONG:My Campaign
 SOURCESHORT:My
 SOURCEWEB:http://www.mywebsite.com
 SOURCEDATE:2008-01
+RANK:200801
 ISOGL:NO
 COPYRIGHT:My Campaign, Copyright 2005 by me
 

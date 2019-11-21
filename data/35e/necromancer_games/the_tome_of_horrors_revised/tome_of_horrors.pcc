@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Necromancer Games - The Tome of Horrors Revised
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -11,6 +10,7 @@ SOURCELONG:The Tome of Horrors Revised
 SOURCESHORT:ToHr
 SOURCEWEB:http://www.necromancergames.com/
 SOURCEDATE:2002-01
+RANK:200201
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 

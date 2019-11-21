@@ -3,7 +3,6 @@ CAMPAIGN:Ultimate Magic (PFS)
 KEY:PFS ~ Ultimate Magic
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder RPG
-RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -18,6 +17,7 @@ SOURCELONG:Ultimate Magic
 SOURCESHORT:UM
 SOURCEWEB:http://paizo.com/pathfinderRPG/v5748btpy8g7s
 SOURCEDATE:2011-05
+RANK:201105
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/roleplaying_game/ultimate_magic/ultimate_magic.jpg

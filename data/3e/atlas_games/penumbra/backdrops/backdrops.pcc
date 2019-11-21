@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Atlas Games - Penumbra - Backdrops
 GAMEMODE:3e
-RANK:9
 GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:Penumbra
@@ -14,6 +13,7 @@ SOURCELONG:Atlas Games - Penumbra - Modules - Backdrops
 SOURCESHORT:Backdrops
 SOURCEWEB:http://www.atlas-games.com/pen_index.html
 SOURCEDATE:2002-01
+RANK:200201
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

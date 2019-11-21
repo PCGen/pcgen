@@ -1,6 +1,5 @@
 CAMPAIGN:Starfinder Core Rulebook
 KEY:Starfinder Core Rulebook
-RANK:0
 BOOKTYPE:Core Rules
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Starfinder Core Rulebook]
 GAMEMODE:Starfinder
@@ -9,6 +8,7 @@ TYPE:Paizo.Core
 SOURCELONG:Starfinder Core Rulebook
 SOURCESHORT:SCR
 SOURCEDATE:2017-09
+RANK:201709
 PUBNAMELONG:Paizo
 PUBNAMESHORT:PZO
 PUBNAMEWEB:http://www.paizo.com

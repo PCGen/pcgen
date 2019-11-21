@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:RPGObjects - Darwin's World - Complete World Rules
 GAMEMODE:3e
-RANK:1
 GENRE:Future
 BOOKTYPE:Core Rules
 SETTING:Darwin's World
@@ -14,6 +13,7 @@ SOURCELONG:RPGObjects - Darwin's World - Complete World Rules
 SOURCESHORT:DarwinWrld
 SOURCEWEB:http://www.darwinrpg.com
 SOURCEDATE:2001-01
+RANK:200101
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

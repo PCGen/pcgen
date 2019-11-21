@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Mon Dec 15 15:33:17 2008 -- reformated by prettylst.pl v1.38 (build 8180)
 CAMPAIGN:Paizo - GameMastery Module - D0: Hollow's Last Hope
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Adventure
@@ -14,6 +13,7 @@ SOURCELONG:D0: Hollow's Last Hope
 SOURCESHORT:GMMD0
 SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy82qz
 SOURCEDATE:2007-06
+RANK:200706
 ISOGL:YES
 
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

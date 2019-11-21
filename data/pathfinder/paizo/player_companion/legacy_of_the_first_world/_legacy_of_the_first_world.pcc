@@ -3,7 +3,6 @@ CAMPAIGN:Legacy of the First World
 KEY:Pathfinder Player Companion - Legacy of the First World
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
@@ -17,6 +16,7 @@ SOURCELONG:Pathfinder Player Companion: Legacy of the First World
 SOURCESHORT:LOTFW
 SOURCEWEB:https://paizo.com/products/btpy9t1t
 SOURCEDATE:2015-06
+RANK:201506
 ISOGL:YES
 
 COVER:PZO9480.jpg

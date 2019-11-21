@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Thu Feb  9 01:12:51 2006 -- reformated by prettylst.pl v1.35 (build 555)
 CAMPAIGN:APG - Quests
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Quests
 SOURCESHORT:Quests
 SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=5380&src=AleaPublsihingGroup
 SOURCEDATE:2005-01
+RANK:200501
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

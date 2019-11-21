@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Sat Oct 15 17:54:00 2005 -- reformated by prettylst.pl v1.35 (build 478)
 CAMPAIGN:FFG - Midnight - Campaign Source Book
 GAMEMODE:3e
-RANK:5
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Midnight
@@ -15,6 +14,7 @@ SOURCELONG:Midnight Campaign Source Book
 SOURCESHORT:MDNT
 SOURCEWEB:http://www.fantasyflightgames.com/midnight.html
 SOURCEDATE:2002-01
+RANK:200201
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

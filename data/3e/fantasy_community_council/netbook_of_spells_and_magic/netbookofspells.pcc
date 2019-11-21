@@ -1,6 +1,5 @@
 # CVS $Revision$ DJ_Chair -- Mon Mar 24 13:41:56 2003 -- reformated by pretty~1.pl v1.26 (build 269)
 CAMPAIGN:Fantasy Community Council - Netbook of Spells and Magic
-RANK:9
 GAMEMODE:3e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Netbook of Spells and Magic
 SOURCESHORT:NboSpellsM
 SOURCEWEB:http://nbospells.fancc.net/
 SOURCEDATE:2002-01
+RANK:200201
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:a) Open Game License v 1.0 Copyright © 2000, Wizards of the Coast, Inc.

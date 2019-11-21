@@ -3,7 +3,6 @@ CAMPAIGN:Guide to the River Kingdoms (PFS)
 KEY:PFS ~ Guide to the River Kingdoms
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Campaign Setting
-RANK:2
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -17,6 +16,7 @@ SOURCELONG:Guide to the River Kingdoms
 SOURCESHORT:GTTRK
 SOURCEWEB:http://paizo.com/pathfinder/pathfinderChronicles/pathfinderRPG/v5748btpy87d8
 SOURCEDATE:2010-03
+RANK:201003
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/campaign_setting/guide_to_the_river_kingdoms/guide_to_the_river_kingdoms.jpg

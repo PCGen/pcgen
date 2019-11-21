@@ -3,7 +3,6 @@ CAMPAIGN:Alchemy Manual (PFS)
 KEY:PFS ~ Alchemy Manual
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Pathfinder Player Companion: Alchemy Manual
 SOURCESHORT:AM
 SOURCEWEB:http://paizo.com/products/btpy90bj
 SOURCEDATE:2014-04
+RANK:201404
 ISOGL:YES
 
 #COVER:alchemy_manual.jpg

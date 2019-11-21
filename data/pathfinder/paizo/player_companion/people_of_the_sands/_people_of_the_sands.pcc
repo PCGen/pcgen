@@ -1,7 +1,6 @@
 CAMPAIGN:People of the Sands
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 GENRE:Fantasy
 STATUS:BETA
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Player Companion: People of the Sands
 SOURCESHORT:PSand
 SOURCEWEB:http://paizo.com/products/btpy92lx
 SOURCEDATE:2014-02
+RANK:201402
 ISOGL:YES
 
 COVER:people_of_the_sands.jpg

@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Tue Feb 21 11:18:48 2006 -- reformated by prettylst.pl v1.35 (build 555)
 CAMPAIGN:Bloodstone Press - Spellbinder's Sourcebook II
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Spellbinder's Sourcebook II
 SOURCESHORT:SpellbinderII
 SOURCEWEB:http://www.bloodstone-press.com/spellbinders2.html
 SOURCEDATE:2004-05
+RANK:200405
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Rules Document Copyright 2000, Wizards of theCoast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson.

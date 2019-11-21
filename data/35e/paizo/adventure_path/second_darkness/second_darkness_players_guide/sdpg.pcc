@@ -4,7 +4,6 @@ GAMEMODE:35e
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Second Darkness
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PRECAMPAIGN:1,Paizo - Pathfinder Character Traits Web Enhancement
-RANK:5
 GENRE:Fantasy
 BOOKTYPE:Supplement
 PUBNAMELONG:Paizo Publishing
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Companion: Second Darkness Player's Guide
 SOURCESHORT:SDPG
 SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderCompanion/v5748btpy84en
 SOURCEDATE:2008-08
+RANK:200808
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.

@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Tue Jun  4 18:21:03 2002 -- reformated by prettylst.pl v1.13
 CAMPAIGN:SP - Sovereign Stone Campaign Rules
-RANK:1
 GAMEMODE:SovereignStoneD20
 STATUS:BETA
 TYPE:Campaign.Setting.Sovereign Stone
@@ -8,6 +7,7 @@ SOURCELONG:Sovereign Press - Sovereign Stone Campaign
 SOURCESHORT:SovereignS
 SOURCEWEB:http://www.sovstone.com
 SOURCEDATE:2001-01
+RANK:200101
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

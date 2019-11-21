@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Fri Sep 24 21:42:17 2004 -- reformated by prettylst.pl v1.34 (build 422)
 # Input by darkon_turas, email: darkon_turas@netzero.net
 CAMPAIGN:BP - Faeries
-RANK:7
 GAMEMODE:3e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Faeries
 SOURCESHORT:Faeries
 SOURCEWEB:http://dragonwing.net/Faeries.htm
 SOURCEDATE:2003-01
+RANK:200301
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

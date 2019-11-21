@@ -1,7 +1,6 @@
 CAMPAIGN:Dirty Tactics Toolbox
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Pathfinder Player Companion: Dirty Tactics Toolbox
 SOURCESHORT:DTT
 SOURCEWEB:http://paizo.com/products/btpy9g23
 SOURCEDATE:2015-09
+RANK:201509
 ISOGL:YES
 
 COVER:dirty_tactics_toolbox.jpg

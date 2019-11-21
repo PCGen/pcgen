@@ -2,7 +2,6 @@ CAMPAIGN:Kitsune Compendium
 GAMEMODE:Pathfinder
 TYPE:Everyman Gaming
 STATUS:BETA
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
@@ -14,6 +13,7 @@ SOURCELONG:Kitsune Compendium
 SOURCESHORT:EGKC
 SOURCEWEB:http://www.everymangaming.com/
 SOURCEDATE:2014-04
+RANK:201404
 ISOGL:YES
 
 COVER:kitsune_compendium.jpg

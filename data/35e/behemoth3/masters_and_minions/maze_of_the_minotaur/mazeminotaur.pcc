@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Jun 24 11:50:27 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:Behemoth3 - Masters and Minions - Horde Book 2: Maze of the Minotaur
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Maze of the Minotaur
 SOURCESHORT:MotM
 SOURCEWEB:http://www.behemoth3.com/
 SOURCEDATE:2004-08
+RANK:200408
 ISOGL:YES
 COPYRIGHT:Open Game License v. 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.

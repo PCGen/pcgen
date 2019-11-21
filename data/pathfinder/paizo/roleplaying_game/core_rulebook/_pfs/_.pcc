@@ -3,7 +3,6 @@ CAMPAIGN:Core Rulebook (PFS)
 KEY:PFS ~ Core Rulebook
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder RPG
-RANK:0
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Core Rules
@@ -18,6 +17,7 @@ SOURCELONG:Core Rulebook
 SOURCESHORT:CR
 SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy88yj
 SOURCEDATE:2009-08
+RANK:200908
 ISOGL:YES
 
 # Errata: December 4, 2012 "Monkeying Around" Article - http://paizo.com/paizo/blog/v5748dyo5le61?Monkeying-Around (Andrew Maitland)

@@ -3,7 +3,6 @@ CAMPAIGN:Dark Markets - A Guide to Katapesh (PFS)
 KEY:PFS ~ Dark Markets - A Guide to Katapesh
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Campaign Setting
-RANK:2
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -17,6 +16,7 @@ SOURCELONG:Dark Markets - A Guide to Katapesh
 SOURCESHORT:DM
 SOURCEWEB:http://paizo.com/pathfinder/campaignSetting/35E/v5748btpy87ut
 SOURCEDATE:2009-04
+RANK:200904
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/campaign_setting/dark_markets/dark_markets.jpg

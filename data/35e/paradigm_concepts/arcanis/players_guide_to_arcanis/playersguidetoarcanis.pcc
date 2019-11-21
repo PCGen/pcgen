@@ -3,13 +3,13 @@ CAMPAIGN:Player's Guide to Arcanis
 GAMEMODE:35e
 STATUS:RELEASE
 TYPE:Paradigm Concepts
-RANK:1
 BOOKTYPE:Core Rules
 !PRECAMPAIGN:1,BOOKTYPE=Core Rules,[Player's Guide to Arcanis]
 SOURCELONG:Player's Guide to Arcanis
 SOURCESHORT:PGtA
 SOURCEWEB:http://www.paradigmconcepts.com
 SOURCEDATE:2004-06
+RANK:200406
 ISLICENSED:YES
 LICENSE:All bold type Deity Names, Equipment Names, Feat Names, Spell Names, and Bloodline Powers referenced in this set are Copyright Paradigm Concepts, Inc.
 

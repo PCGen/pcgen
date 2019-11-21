@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Wed Jul 27 23:26:03 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:RPG Objects - Legends of the Ancients - Macedon
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Legends of the Ancients - Macedon
 SOURCESHORT:Macedon
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=137
 SOURCEDATE:2005-01
+RANK:200501
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
