@@ -239,9 +239,8 @@ public final class DataInstaller extends JFrame
 		 *
 		 * @param dataSet the data set
 		 *
-		 * @return true, if successful
 		 */
-		private boolean readDataSet(File dataSet)
+		private void readDataSet(File dataSet)
 		{
 			// Open the ZIP file
 			try (ZipFile in = new ZipFile(dataSet))
@@ -266,13 +265,18 @@ public final class DataInstaller extends JFrame
 					ShowMessageDelegate.showMessageDialog(
 						LanguageBundle.getFormattedString("in_diNoInstallFile", dataSet.getName()), TITLE,
 						MessageType.WARNING);
-					return false;
+					return;
 				}
 
 				// Parse the install file
-				InputStream inStream = in.getInputStream(installEntry);
-				BufferedReader reader = new BufferedReader(new InputStreamReader(inStream, StandardCharsets.UTF_8)); //$NON-NLS-1$
-				String installInfo = reader.lines().collect(Collectors.joining("\n"));
+				String installInfo;
+				try (InputStream inStream = in.getInputStream(installEntry);
+				     BufferedReader reader =
+						     new BufferedReader(new InputStreamReader(inStream, StandardCharsets.UTF_8)))
+				{
+					installInfo = reader.lines()
+					                    .collect(Collectors.joining("\n"));
+				}
 
 				final InstallLoader loader = new InstallLoader();
 				loader.loadLstString(null, dataSet.toURI(), installInfo);
@@ -284,14 +288,14 @@ public final class DataInstaller extends JFrame
 				Logging.errorPrint("Failed to read data set " + dataSet + " due to ", e);
 				ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString("in_diBadDataSet", dataSet),
 					TITLE, MessageType.ERROR);
-				return false;
+				return;
 			}
 			catch (PersistenceLayerException e)
 			{
 				Logging.errorPrint("Failed to parse data set " + dataSet + " due to ", e);
 				ShowMessageDelegate.showMessageDialog(LanguageBundle.getFormattedString("in_diBadDataSet", dataSet),
 					TITLE, MessageType.ERROR);
-				return false;
+				return;
 			}
 
 			// Validate that the campaign is compatible with our version
@@ -306,7 +310,7 @@ public final class DataInstaller extends JFrame
 						LanguageBundle.getFormattedString("in_diVersionTooOldDev",
 							campaign.getSafe(StringKey.MINDEVVER), campaign.getSafe(StringKey.MINVER)),
 						TITLE, MessageType.WARNING);
-					return false;
+					return;
 				}
 			}
 			if (campaign.getSafe(StringKey.MINVER) != null
@@ -317,7 +321,7 @@ public final class DataInstaller extends JFrame
 				ShowMessageDelegate.showMessageDialog(
 					LanguageBundle.getFormattedString("in_diVersionTooOld", campaign.getSafe(StringKey.MINVER)), TITLE,
 					MessageType.WARNING);
-				return false;
+				return;
 			}
 
 			// Display the info
@@ -350,7 +354,6 @@ public final class DataInstaller extends JFrame
 			currDataSet = dataSet;
 
 			toFront();
-			return true;
 		}
 	}
 

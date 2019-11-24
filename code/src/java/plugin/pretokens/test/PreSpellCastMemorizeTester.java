@@ -55,7 +55,7 @@ public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest implem
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		final boolean prereqMemorized = prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
-		final Object[] args = new Object[]{prereq.getOperator().toDisplayString(), prereq.getOperand()};
+		final Object[] args = {prereq.getOperator().toDisplayString(), prereq.getOperand()};
 
 		if (prereqMemorized)
 		{

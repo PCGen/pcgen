@@ -25,7 +25,7 @@ import pcgen.core.bonus.MultiTagBonusObj;
 public final class Weapon extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS =
-			new String[]{"ATTACKS", "ATTACKSPROGRESS", "WEAPONBAB", "DAMAGE", "DAMAGESIZE", "TOHIT", "WIELDCATEGORY"};
+			{"ATTACKS", "ATTACKSPROGRESS", "WEAPONBAB", "DAMAGE", "DAMAGESIZE", "TOHIT", "WIELDCATEGORY"};
 
 	/**
 	 * Return the bonus tag handled by this class.

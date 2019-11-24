@@ -57,7 +57,7 @@ public class PreSpellDescriptorTester extends AbstractPrerequisiteTest implement
 	@Override
 	public String toHtmlString(final Prerequisite prereq)
 	{
-		final Object[] args = new Object[]{prereq.getOperator().toDisplayString(), prereq.getOperand(),
+		final Object[] args = {prereq.getOperator().toDisplayString(), prereq.getOperand(),
 			prereq.getSubKey(), prereq.getKey()};
 		return LanguageBundle.getFormattedString("PreSpellDescriptor.toHtml", args); //$NON-NLS-1$
 	}

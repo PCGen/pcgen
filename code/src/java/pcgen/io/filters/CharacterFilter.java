@@ -73,40 +73,40 @@ public class CharacterFilter implements OutputFilter
 		{
 			if (filterFile.canRead() && filterFile.isFile())
 			{
-				final BufferedReader br =
-						new BufferedReader(new InputStreamReader(new FileInputStream(filterFile),
-								StandardCharsets.UTF_8
-						));
-
-				outputFilterName = filterName;
-				outputFilter = new HashMap<>();
-
-				while (true)
+				try (BufferedReader br = new BufferedReader(new InputStreamReader(
+						new FileInputStream(filterFile),
+						StandardCharsets.UTF_8
+				)))
 				{
-					final String aLine = br.readLine();
 
-					if (aLine == null)
+					outputFilterName = filterName;
+					outputFilter = new HashMap<>();
+
+					while (true)
 					{
-						break;
+						final String aLine = br.readLine();
+
+						if (aLine == null)
+						{
+							break;
+						}
+
+						final List<String> filterEntry = CoreUtility.split(aLine, '\t');
+
+						if (filterEntry.size() >= 2)
+						{
+							try
+							{
+								final Integer key = Delta.decode(filterEntry.get(0));
+								outputFilter.put(key, filterEntry.get(1));
+							} catch (NullPointerException | NumberFormatException e)
+							{
+								Logging.errorPrint("Exception in setCurrentOutputFilter", e);
+							}
+						}
 					}
 
-					final List<String> filterEntry = CoreUtility.split(aLine, '\t');
-
-					if (filterEntry.size() >= 2)
-					{
-						try
-						{
-							final Integer key = Delta.decode(filterEntry.get(0));
-							outputFilter.put(key, filterEntry.get(1));
-						}
-						catch (NullPointerException | NumberFormatException e)
-						{
-							Logging.errorPrint("Exception in setCurrentOutputFilter", e);
-						}
-					}
 				}
-
-				br.close();
 			}
 		}
 		catch (IOException e)

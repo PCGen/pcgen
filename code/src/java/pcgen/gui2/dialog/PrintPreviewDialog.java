@@ -35,6 +35,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.FilenameFilter;
+import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.net.URI;
@@ -64,6 +65,7 @@ import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.Utility;
+import pcgen.io.ExportException;
 import pcgen.system.BatchExporter;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
@@ -370,19 +372,24 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		}
 
 		@Override
-		protected AWTRenderer doInBackground() throws Exception
+		protected AWTRenderer doInBackground()
+				throws IOException, ExportException, InterruptedException
 		{
 			URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
-			File xsltFile = new File(osPath.resolve(uri));
 
 			FOUserAgent userAgent = FopTask.getFactory().newFOUserAgent();
 			AWTRenderer renderer = new AWTRenderer(userAgent, null, false, false);
-			PipedOutputStream out = new PipedOutputStream();
-			FopTask task = FopTask.newFopTask(new PipedInputStream(out), xsltFile, renderer);
-			Thread thread = new Thread(task, "fop-preview");
-			thread.setDaemon(true);
-			thread.start();
-			BatchExporter.exportCharacter(character, out);
+			Thread thread;
+			try (PipedOutputStream out = new PipedOutputStream())
+			{
+				File xsltFile = new File(osPath.resolve(uri));
+				FopTask task = FopTask.newFopTask(new PipedInputStream(out), xsltFile, renderer);
+				thread = new Thread(task, "fop-preview");
+				thread.setDaemon(true);
+				thread.start();
+				BatchExporter.exportCharacter(character, out);
+				thread.join();
+			}
 			try
 			{
 				thread.join();

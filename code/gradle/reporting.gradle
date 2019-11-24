@@ -19,7 +19,7 @@ pmd {
 	ruleSetFiles = files('code/standards/ruleset.xml')
 	consoleOutput = true
 	sourceSets = []
-	toolVersion = "6.14.0"
+	toolVersion = "6.19.0"
 	incrementalAnalysis = true
 }
 

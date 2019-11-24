@@ -81,70 +81,72 @@ public class PatternFilter implements OutputFilter
 
 		if (filterFile.canRead() && filterFile.isFile())
 		{
-			final BufferedReader br =
-					new BufferedReader(new InputStreamReader(new FileInputStream(filterFile), StandardCharsets.UTF_8));
-
-			outputFilterName = filterName;
-			match = new ArrayList<>();
-			replace = new ArrayList<>();
-
-			while (true)
+			try (BufferedReader br = new BufferedReader(new InputStreamReader(
+					new FileInputStream(filterFile),
+					StandardCharsets.UTF_8
+			)))
 			{
-				final String aLine = br.readLine();
-				//					Logging.debugPrint("Line read:" + aLine);
 
-				if (aLine == null)
-				{
-					break;
-				}
+				outputFilterName = filterName;
+				match = new ArrayList<>();
+				replace = new ArrayList<>();
 
-				String aLineWOComment;
-				if (aLine.isEmpty() || aLine.charAt(0) == '#')
+				while (true)
 				{
-					continue;
-				}
-				else if (aLine.indexOf("\t#") > 0)
-				{
-					aLineWOComment = aLine.substring(0, aLine.indexOf("\t#"));
-				}
-				else
-				{
-					aLineWOComment = aLine;
-				}
+					final String aLine = br.readLine();
+					//					Logging.debugPrint("Line read:" + aLine);
 
-				//					Logging.debugPrint("Stripped line:" + aLineWOComment);
-				final List<String> filterEntry = CoreUtility.split(aLineWOComment, '\t');
-
-				try
-				{
-					if (filterEntry.size() == 2)
+					if (aLine == null)
 					{
-						match.add(filterEntry.get(0));
-
-						//							Logging.debugPrint("Match: [" + filterEntry.get(0)
-						//								+ "] and replace with [" + filterEntry.get(1)
-						//								+ "]");
-						replace.add(filterEntry.get(1).replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"));
+						break;
 					}
-					else if (filterEntry.size() == 1)
+
+					String aLineWOComment;
+					if (aLine.isEmpty() || aLine.charAt(0) == '#')
 					{
-						match.add(filterEntry.get(0));
-						replace.add("");
-						//						Logging.debugPrint("Match: [" + filterEntry.get(0)
-						//							+ "] and replace with []");
+						continue;
+					}
+					else if (aLine.indexOf("\t#") > 0)
+					{
+						aLineWOComment = aLine.substring(0, aLine.indexOf("\t#"));
 					}
 					else
 					{
-						Logging.errorPrint("Incorrect line format in PatternFilter: Line " + "ignored");
+						aLineWOComment = aLine;
+					}
+
+					//					Logging.debugPrint("Stripped line:" + aLineWOComment);
+					final List<String> filterEntry = CoreUtility.split(aLineWOComment, '\t');
+
+					try
+					{
+						if (filterEntry.size() == 2)
+						{
+							match.add(filterEntry.get(0));
+
+							//							Logging.debugPrint("Match: [" + filterEntry.get(0)
+							//								+ "] and replace with [" + filterEntry.get(1)
+							//								+ "]");
+							replace.add(filterEntry.get(1).replaceAll("\\\\n", "\n").replaceAll("\\\\t", "\t"));
+						}
+						else if (filterEntry.size() == 1)
+						{
+							match.add(filterEntry.get(0));
+							replace.add("");
+							//						Logging.debugPrint("Match: [" + filterEntry.get(0)
+							//							+ "] and replace with []");
+						}
+						else
+						{
+							Logging.errorPrint("Incorrect line format in PatternFilter: Line " + "ignored");
+						}
+					} catch (NullPointerException | NumberFormatException e)
+					{
+						Logging.errorPrint("Exception in setCurrentOutputFilter", e);
 					}
 				}
-				catch (NullPointerException | NumberFormatException e)
-				{
-					Logging.errorPrint("Exception in setCurrentOutputFilter", e);
-				}
-			}
 
-			br.close();
+			}
 		}
 	}
 

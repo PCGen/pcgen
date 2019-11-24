@@ -134,7 +134,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		requiredType = Type.NONE;
 		if (equip != null)
 		{
-			Type[] knownTypes = new Type[]{Type.POTION, Type.SCROLL, Type.WAND, Type.RING};
+			Type[] knownTypes = {Type.POTION, Type.SCROLL, Type.WAND, Type.RING};
 			for (Type itemType : knownTypes)
 			{
 				if (equip.isType(itemType.toString()))

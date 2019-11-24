@@ -818,9 +818,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			return;
 		}
 
-		final BufferedReader br = CustomData.getCustomEquipmentReader();
-
-		try
+		try(final BufferedReader br = CustomData.getCustomEquipmentReader())
 		{
 			if (br != null)
 			{

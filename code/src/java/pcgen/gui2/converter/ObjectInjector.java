@@ -133,17 +133,18 @@ public class ObjectInjector
 		}
 	}
 
-	private void writeFile(File f, List<String> lines) throws IOException
+	private void writeFile(File f, Collection<String> lines) throws IOException
 	{
-		FileWriter writer = new FileWriter(f, StandardCharsets.UTF_8);
-		writer.write(getFileHeader());
-		for (String line : lines)
+		try (FileWriter writer = new FileWriter(f, StandardCharsets.UTF_8))
 		{
-			writer.write(line);
-			writer.write("\n");
+			writer.write(getFileHeader());
+			for (String line : lines)
+			{
+				writer.write(line);
+				writer.write("\n");
+			}
+			writer.write(getFileFooter());
 		}
-		writer.write(getFileFooter());
-		writer.close();
 	}
 
 	private String getFileHeader()
@@ -171,23 +172,24 @@ public class ObjectInjector
 		{
 			URI append = campaign.getSourceURI();
 			File campaignFile = getNewOutputName(append);
-			FileWriter writer = new FileWriter(campaignFile, true);
-			if (needHeader)
+			try (FileWriter writer = new FileWriter(campaignFile, true))
 			{
-				writer.write(getCampaignInsertInfo());
-			}
-			for (String className : classNames)
-			{
-				for (String fileName : toWrite.getTertiaryKeySet(uri, className))
+				if (needHeader)
 				{
-					CampaignSourceEntry writecse = cse.getRelatedTarget(fileName);
-					writer.write(className);
-					writer.write(":");
-					writer.write(writecse.getLSTformat());
-					writer.write("\n");
+					writer.write(getCampaignInsertInfo());
+				}
+				for (String className : classNames)
+				{
+					for (String fileName : toWrite.getTertiaryKeySet(uri, className))
+					{
+						CampaignSourceEntry writecse = cse.getRelatedTarget(fileName);
+						writer.write(className);
+						writer.write(":");
+						writer.write(writecse.getLSTformat());
+						writer.write("\n");
+					}
 				}
 			}
-			writer.close();
 			return false;
 		}
 		return true;

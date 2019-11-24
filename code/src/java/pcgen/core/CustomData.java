@@ -290,16 +290,15 @@ public final class CustomData
 	public static void writePurchaseModeConfiguration()
 	{
 		ensureCustomDirExists();
-		final BufferedWriter bw = getPurchaseModeWriter();
-		final Map<Integer, PointBuyCost> pbStatCosts = SettingsHandler.getGame().getPointBuyStatCostMap();
-
-		if (bw == null || pbStatCosts == null)
+		try (BufferedWriter bw = getPurchaseModeWriter())
 		{
-			return;
-		}
+			final Map<Integer, PointBuyCost> pbStatCosts = SettingsHandler.getGame().getPointBuyStatCostMap();
 
-		try
-		{
+			if (bw == null || pbStatCosts == null)
+			{
+				return;
+			}
+
 			bw.write("#");
 			bw.newLine();
 			bw.write(AUTO_GEN_WARN_LINE_1);
@@ -325,13 +324,12 @@ public final class CustomData
 						final StringWriter writer = new StringWriter();
 						for (Prerequisite prereq : pbc.getPrerequisiteList())
 						{
-							final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 							try
 							{
 								writer.write("\t");
+								final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 								prereqWriter.write(writer, prereq);
-							}
-							catch (Exception e1)
+							} catch (Exception e1)
 							{
 								Logging.errorPrint("failed to write", e1);
 							}
@@ -350,7 +348,7 @@ public final class CustomData
 			bw.newLine();
 
 			for (PointBuyMethod pbm : SettingsHandler.getGame().getModeContext().getReferenceContext()
-				.getConstructedCDOMObjects(PointBuyMethod.class))
+			                                         .getConstructedCDOMObjects(PointBuyMethod.class))
 			{
 				bw.write("METHOD:" + pbm.getDisplayName() + "\t\tPOINTS:" + pbm.getPointFormula());
 				bw.newLine();
@@ -359,17 +357,6 @@ public final class CustomData
 		catch (IOException e)
 		{
 			Logging.errorPrint("Error in writePurchaseModeConfiguration", e);
-		}
-		finally
-		{
-			try
-			{
-				bw.close();
-			}
-			catch (IOException ex)
-			{
-				Logging.errorPrint("Error in writePurchaseModeConfiguration while closing", ex);
-			}
 		}
 	}
 
@@ -418,7 +405,7 @@ public final class CustomData
 	{
 		try
 		{
-			return new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path), "UTF-8"));
+			return new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path), StandardCharsets.UTF_8));
 		}
 		catch (IOException e)
 		{
@@ -435,15 +422,14 @@ public final class CustomData
 
 	private static void writeCustomBioSet()
 	{
-		final BufferedWriter bw = getWriter(customBioSetFilePath(true));
-
-		if (bw == null)
+		try (BufferedWriter bw = getWriter(customBioSetFilePath(true)))
 		{
-			return;
-		}
 
-		try
-		{
+			if (bw == null)
+			{
+				return;
+			}
+
 			bw.write("#");
 			bw.newLine();
 			bw.write(AUTO_GEN_WARN_LINE_1);
@@ -468,22 +454,13 @@ public final class CustomData
 			// This done as type is not supported for bio sets.
 			//bw.write(BioSet.getRegionPCCText("Custom"));
 			bw.newLine();
+
 		}
-		catch (IOException e)
+		catch (IOException ex)
 		{
-			Logging.errorPrint("Error in writeCustomBioSet", e);
+			Logging.errorPrint("Error in writeCustomBioSet while closing", ex);
 		}
-		finally
-		{
-			try
-			{
-				bw.close();
-			}
-			catch (IOException ex)
-			{
-				Logging.errorPrint("Error in writeCustomBioSet while closing", ex);
-			}
-		}
+
 	}
 
 	private static void writeCustomClasses()
@@ -541,14 +518,7 @@ public final class CustomData
 
 	private static void writeCustomPObjects(final String filename, final Iterator<? extends PObject> it)
 	{
-		final BufferedWriter bw = getWriter(filename);
-
-		if (bw == null)
-		{
-			return;
-		}
-
-		try
+		try (BufferedWriter bw = getWriter(filename))
 		{
 			writeCustomHeader(bw);
 
@@ -563,20 +533,9 @@ public final class CustomData
 				}
 			}
 		}
-		catch (IOException e)
+		catch (IOException ex)
 		{
-			Logging.errorPrint("Error in writeCustomPObjects", e);
-		}
-		finally
-		{
-			try
-			{
-				bw.close();
-			}
-			catch (IOException ex)
-			{
-				Logging.errorPrint("Error in writeCustomPObjects while closing", ex);
-			}
+			Logging.errorPrint("Error in writeCustomPObjects while closing", ex);
 		}
 	}
 

@@ -105,7 +105,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements Prerequi
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		final Object[] args =
-				new Object[]{prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey()};
+				{prereq.getOperator().toDisplayString(), prereq.getOperand(), prereq.getKey()};
 		return LanguageBundle.getFormattedString("PreSpell.toHtml", args); //$NON-NLS-1$
 	}
 
