@@ -9,7 +9,7 @@ checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
 	configProperties = [samedir: "${rootDir}/code/standards"]
 	showViolations = true
-	toolVersion = '8.20'
+	toolVersion = '8.26'
 	sourceSets = []
 }
 
