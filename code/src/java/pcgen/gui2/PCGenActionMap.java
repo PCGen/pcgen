@@ -40,6 +40,7 @@ import pcgen.gui2.solverview.SolverViewFrame;
 import pcgen.gui2.tools.DesktopBrowserLauncher;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.PCGenAction;
+import pcgen.gui3.GuiAssertions;
 import pcgen.gui3.JFXPanelFromResource;
 import pcgen.gui3.dialog.CalculatorDialogController;
 import pcgen.gui3.dialog.DebugDialog;
@@ -47,6 +48,8 @@ import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
+import javafx.application.Platform;
 
 /**
  * The PCGenActionMap is the action map for the PCGenFrame, and as such
@@ -248,11 +251,14 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			if (dialog == null)
-			{
-				dialog = new DebugDialog();
-			}
-			dialog.show();
+			GuiAssertions.assertIsNotJavaFXThread();
+			Platform.runLater(() -> {
+				if (dialog == null)
+				{
+					dialog = new DebugDialog();
+				}
+				dialog.show();
+			});
 		}
 
 	}

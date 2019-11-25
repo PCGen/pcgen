@@ -35,12 +35,12 @@ import javafx.stage.Stage;
  */
 public class DebugDialog
 {
-	private Stage primaryStage;
-	private final FXMLLoader loader = new FXMLLoader();
+	private final Stage primaryStage;
 
 	public DebugDialog()
 	{
 		GuiAssertions.assertIsJavaFXThread();
+		FXMLLoader loader = new FXMLLoader();
 		loader.setResources(LanguageBundle.getBundle());
 		loader.setLocation(getClass().getResource("DebugDialog.fxml"));
 		primaryStage = new Stage();
