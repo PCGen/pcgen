@@ -17,8 +17,6 @@
  */
 package pcgen.util.enumeration;
 
-import org.apache.commons.lang3.EnumUtils;
-
 /**
  * {@code View} is an enumeration of possible view types. It is
  * closely related to the Visibility enumeration.
@@ -55,6 +53,13 @@ public enum View
 	 */
 	public static View getViewFromName(String name)
 	{
-		return EnumUtils.getEnumIgnoreCase(View.class, name);
+		for (final View view : View.values())
+		{
+			if (view.text.equalsIgnoreCase(name))
+			{
+				return view;
+			}
+		}
+		return null;
 	}
 }
