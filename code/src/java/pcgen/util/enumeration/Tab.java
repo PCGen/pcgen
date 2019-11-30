@@ -17,8 +17,6 @@
  */
 package pcgen.util.enumeration;
 
-import org.apache.commons.lang3.EnumUtils;
-
 public enum Tab
 {
 	SUMMARY("Summary", "in_summary"),
@@ -83,6 +81,13 @@ public enum Tab
 
 	public static Tab getTab(String name)
 	{
-		return EnumUtils.getEnumIgnoreCase(Tab.class, name);
+		for (final Tab tab : Tab.values())
+		{
+			if (tab.text.equalsIgnoreCase(name))
+			{
+				return tab;
+			}
+		}
+		return null;
 	}
 }
