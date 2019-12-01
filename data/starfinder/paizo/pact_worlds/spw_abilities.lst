@@ -74,8 +74,8 @@ INTEGRATED EQUIPMENT	KEY:SRO Default ~ INTEGRATED EQUIPMENT	SORTKEY: r4		CATEGOR
 ROBOTIC			KEY:SRO Default ~ ROBOTIC			SORTKEY: r5		CATEGORY:Racial Trait	TYPE:Racial Trait.SRO Racial Trait		DESC: SROs are immune to bleed, disease, death effects, poison, nonlethal damage, and sleep effects unless those effects specify they affect constructs. SROs can be affected by effects or spells that normally target only humanoids, but receive a +4 racial bonus to saving throws against such effects. SROs can eat and drink, though they don't need to, and they must recharge their internal batteries by entering an off-line mode that is similar to sleep for 8 hours every day. SROs do not breathe or suffer the normal environmental effects of being in a vacuum.																																														SOURCEPAGE:p.213
 
 # SRO Subrace Selection
-Small				KEY:SRO Subrace ~ Small				SORTKEY:r1b		CATEGORY:Racial Trait	TYPE:SRO Subrace Selection																																																																																																																															TEMPLATE:Small								BONUS:STAT|DEX|2|TYPE=Racial
-Medium			KEY:SRO Subrace ~ Medium			SORTKEY:r1b		CATEGORY:Racial Trait	TYPE:SRO Subrace Selection																																																																																																																															TEMPLATE:Medium								BONUS:STAT|STR|2|TYPE=Racial
+Small				KEY:SRO Subrace ~ Small				SORTKEY:r1b		CATEGORY:Racial Trait	TYPE:SRO Subrace Selection																																																																																																																															TEMPLATE:SRO ~ Small|SIZE ~ Small								BONUS:STAT|DEX|2|TYPE=Racial
+Medium			KEY:SRO Subrace ~ Medium			SORTKEY:r1b		CATEGORY:Racial Trait	TYPE:SRO Subrace Selection																																																																																																																															TEMPLATE:SRO ~ Medium|SIZE ~ Medium								BONUS:STAT|STR|2|TYPE=Racial
 
 
 #Strix
