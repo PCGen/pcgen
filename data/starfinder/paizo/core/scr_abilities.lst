@@ -826,15 +826,15 @@ Armor Prof ~ Powered Armor	CATEGORY:Proficiency	TYPE:Proficiency	AUTO:ARMORPROF|
 
 ###BLOCK-------------------------------------------------------------------------------------------------------------
 #
-# Ability Name					Category of Ability	Type						Auto Weapon Prof								Ability
-Weapon Prof ~ Basic Melee Weapons		CATEGORY:Proficiency	TYPE:Proficiency.Basic Melee		AUTO:WEAPONPROF|TYPE=Basic Melee|TYPE=Basic Melee Weapons	ABILITY:Weapon|AUTOMATIC|TYPE=Basic Melee|TYPE=Basic Melee Weapons
-Weapon Prof ~ Grenades				CATEGORY:Proficiency	TYPE:Proficiency.Grenades		AUTO:WEAPONPROF|TYPE=Grenades						ABILITY:Weapon|AUTOMATIC|TYPE=Grenades
-Weapon Prof ~ Small Arms			CATEGORY:Proficiency	TYPE:Proficiency.Small Arms		AUTO:WEAPONPROF|TYPE=Small Arms					ABILITY:Weapon|AUTOMATIC|TYPE=Small Arms
-Weapon Prof ~ Sniper Weapons			CATEGORY:Proficiency	TYPE:Proficiency.Sniper Weapons	AUTO:WEAPONPROF|TYPE=Sniper Weapons					ABILITY:Weapon|AUTOMATIC|TYPE=Sniper Weapons
-Weapon Prof ~ Advanced Melee Weapons	CATEGORY:Proficiency	TYPE:Proficiency.Advanced Melee	AUTO:WEAPONPROF|TYPE=Advanced Melee					ABILITY:Weapon|AUTOMATIC|TYPE=Advanced Melee
-Weapon Prof ~ Longarms				CATEGORY:Proficiency	TYPE:Proficiency.Longarms		AUTO:WEAPONPROF|TYPE=Longarms						ABILITY:Weapon|AUTOMATIC|TYPE=Longarms
-Weapon Prof ~ Heavy Weapons			CATEGORY:Proficiency	TYPE:Proficiency.Heavy Weapons	AUTO:WEAPONPROF|TYPE=Heavy Weapons					ABILITY:Weapon|AUTOMATIC|TYPE=Heavy Weapons
-Weapon Prof ~ Special Weapons			CATEGORY:Proficiency	TYPE:Proficiency.Special Weapons	AUTO:WEAPONPROF|TYPE=Special Weapons				ABILITY:Weapon|AUTOMATIC|TYPE=Special Weapons
+# Ability Name					Category of Ability	Type						Auto Weapon Prof											Ability
+Weapon Prof ~ Basic Melee Weapons		CATEGORY:Proficiency	TYPE:Proficiency.Basic Melee		AUTO:WEAPONPROF|TYPE=Basic Melee|TYPE=Weapon Group ~ Basic Melee Weapons	ABILITY:Weapon|AUTOMATIC|TYPE=Basic Melee|TYPE=Weapon Group ~ Basic Melee Weapons
+Weapon Prof ~ Grenades				CATEGORY:Proficiency	TYPE:Proficiency.Grenades		AUTO:WEAPONPROF|TYPE=Grenades									ABILITY:Weapon|AUTOMATIC|TYPE=Grenades
+Weapon Prof ~ Small Arms			CATEGORY:Proficiency	TYPE:Proficiency.Small Arms		AUTO:WEAPONPROF|TYPE=Small Arms								ABILITY:Weapon|AUTOMATIC|TYPE=Small Arms
+Weapon Prof ~ Sniper Weapons			CATEGORY:Proficiency	TYPE:Proficiency.Sniper Weapons	AUTO:WEAPONPROF|TYPE=Sniper Weapons								ABILITY:Weapon|AUTOMATIC|TYPE=Sniper Weapons
+Weapon Prof ~ Advanced Melee Weapons	CATEGORY:Proficiency	TYPE:Proficiency.Advanced Melee	AUTO:WEAPONPROF|TYPE=Advanced Melee								ABILITY:Weapon|AUTOMATIC|TYPE=Advanced Melee
+Weapon Prof ~ Longarms				CATEGORY:Proficiency	TYPE:Proficiency.Longarms		AUTO:WEAPONPROF|TYPE=Longarms									ABILITY:Weapon|AUTOMATIC|TYPE=Longarms
+Weapon Prof ~ Heavy Weapons			CATEGORY:Proficiency	TYPE:Proficiency.Heavy Weapons	AUTO:WEAPONPROF|TYPE=Heavy Weapons								ABILITY:Weapon|AUTOMATIC|TYPE=Heavy Weapons
+Weapon Prof ~ Special Weapons			CATEGORY:Proficiency	TYPE:Proficiency.Special Weapons	AUTO:WEAPONPROF|TYPE=Special Weapons							ABILITY:Weapon|AUTOMATIC|TYPE=Special Weapons
 
 
 ###BLOCK-------------------------------------------------------------------------------------------------------------
