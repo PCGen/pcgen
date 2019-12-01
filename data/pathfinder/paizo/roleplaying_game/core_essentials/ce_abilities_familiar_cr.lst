@@ -11,25 +11,25 @@ CATEGORY=Internal|Default.MOD	DEFINE:FamiliarGrantedBonus_4|0	BONUS:VAR|Familiar
 
 ###Block: Familiar Choices
 # Ability Name								Category of Ability	Define				Ability																																Allowed Companions
-Standard Familiar List							CATEGORY:Internal		DEFINE:FamiliarMasterLVL|0																																		COMPANIONLIST:Familiar|Familiar (Bat),Familiar (Cat),Familiar (Hawk),Familiar (Lizard),Familiar (Monkey),Familiar (Owl),Familiar (Rat),Familiar (Raven),Familiar (Toad),Familiar (Viper),Familiar (Weasel)
+Standard Familiar List							CATEGORY:Internal		DEFINE:FamiliarMasterLVL|0																																		COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Monkey,Owl,Rat,Raven,Toad,Viper,Weasel
 Improved Familiar List							CATEGORY:Internal
 CATEGORY=Internal|Improved Familiar List.MOD												ABILITY:Internal|AUTOMATIC|Improved Familiar List (3rd Level)|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,3],[PREVARGTEQ:Caster_Level_Highest__Arcane,3],[PREVARGTEQ:ImprovedFamiliarQualifierLVL,3]
 CATEGORY=Internal|Improved Familiar List.MOD												ABILITY:Internal|AUTOMATIC|Improved Familiar List (5th Level)|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,5],[PREVARGTEQ:Caster_Level_Highest__Arcane,5],[PREVARGTEQ:ImprovedFamiliarQualifierLVL,5]
 CATEGORY=Internal|Improved Familiar List.MOD												ABILITY:Internal|AUTOMATIC|Improved Familiar List (7th Level)|PREMULT:1,[PREVARGTEQ:FamiliarMasterLVL,7],[PREVARGTEQ:Caster_Level_Highest__Arcane,7],[PREVARGTEQ:ImprovedFamiliarQualifierLVL,7]
 
 Improved Familiar List (3rd Level)					CATEGORY:Internal
-CATEGORY=Internal|Improved Familiar List (3rd Level).MOD																																											COMPANIONLIST:Familiar|Familiar (Rat/Dire)
-CATEGORY=Internal|Improved Familiar List (3rd Level).MOD																																											COMPANIONLIST:Familiar|Familiar (Bat/Celestial),Familiar (Cat/Celestial),Familiar (Hawk/Celestial),Familiar (Lizard/Celestial),Familiar (Monkey/Celestial),Familiar (Owl/Celestial),Familiar (Rat/Celestial),Familiar (Raven/Celestial),Familiar (Toad/Celestial),Familiar (Viper/Celestial),Familiar (Weasel/Celestial)|PREALIGN:LG,NG,CG,LN,TN,CN
-CATEGORY=Internal|Improved Familiar List (3rd Level).MOD																																											COMPANIONLIST:Familiar|Familiar (Bat/Fiendish),Familiar (Cat/Fiendish),Familiar (Hawk/Fiendish),Familiar (Lizard/Fiendish),Familiar (Monkey/Fiendish),Familiar (Owl/Fiendish),Familiar (Rat/Fiendish),Familiar (Raven/Fiendish),Familiar (Toad/Fiendish),Familiar (Viper/Fiendish),Familiar (Weasel/Fiendish)|PREALIGN:LE,NE,CE,LN,TN,CN
+CATEGORY=Internal|Improved Familiar List (3rd Level).MOD																																											COMPANIONLIST:Familiar|Rat (Dire)
+CATEGORY=Internal|Improved Familiar List (3rd Level).MOD																																											COMPANIONLIST:Familiar|Bat (Celestial),Cat (Celestial),Hawk (Celestial),Lizard (Celestial),Monkey (Celestial),Owl (Celestial),Rat (Celestial),Raven (Celestial),Toad (Celestial),Viper (Celestial),Weasel (Celestial)|PREALIGN:LG,NG,CG,LN,TN,CN
+CATEGORY=Internal|Improved Familiar List (3rd Level).MOD																																											COMPANIONLIST:Familiar|Bat (Fiendish),Cat (Fiendish),Hawk (Fiendish),Lizard (Fiendish),Monkey (Fiendish),Owl (Fiendish),Rat (Fiendish),Raven (Fiendish),Toad (Fiendish),Viper (Fiendish),Weasel (Fiendish)|PREALIGN:LE,NE,CE,LN,TN,CN
 
 Improved Familiar List (5th Level)					CATEGORY:Internal
-CATEGORY=Internal|Improved Familiar List (5th Level).MOD																																											COMPANIONLIST:Familiar|Familiar (Elemental (Air/Small)),Familiar (Elemental (Earth/Small)),Familiar (Elemental (Fire/Small)),Familiar (Elemental (Water/Small)),Familiar (Stirge)
+CATEGORY=Internal|Improved Familiar List (5th Level).MOD																																											COMPANIONLIST:Familiar|Elemental (Air/Small),Elemental (Earth/Small),Elemental (Fire/Small),Elemental (Water/Small),Stirge
 
 Improved Familiar List (7th Level)					CATEGORY:Internal
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD																																											COMPANIONLIST:Familiar|Familiar (Homunculus),Familiar (Mephit (Air)),Familiar (Mephit (Dust)),Familiar (Mephit (Earth)),Familiar (Mephit (Fire)),Familiar (Mephit (Ice)),Familiar (Mephit (Magma)),Familiar (Mephit (Ooze)),Familiar (Mephit (Salt)),Familiar (Mephit (Steam)),Familiar (Mephit (Water))
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD																																											COMPANIONLIST:Familiar|Familiar (Pseudodragon)|!PREALIGN:LE,NE,CE
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD																																											COMPANIONLIST:Familiar|Familiar (Imp)|!PREALIGN:LG,NG,CG,CN,CE
-CATEGORY=Internal|Improved Familiar List (7th Level).MOD																																											COMPANIONLIST:Familiar|Familiar (Quasit)|!PREALIGN:LG,LN,LE,NG,CG
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD																																											COMPANIONLIST:Familiar|Homunculus,Mephit (Air),Mephit (Dust),Mephit (Earth),Mephit (Fire),Mephit (Ice),Mephit (Magma),Mephit (Ooze),Mephit (Salt),Mephit (Steam),Mephit (Water)
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD																																											COMPANIONLIST:Familiar|Pseudodragon|!PREALIGN:LE,NE,CE
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD																																											COMPANIONLIST:Familiar|Devil (Imp)|!PREALIGN:LG,NG,CG,CN,CE
+CATEGORY=Internal|Improved Familiar List (7th Level).MOD																																											COMPANIONLIST:Familiar|Demon (Quasit)|!PREALIGN:LG,LN,LE,NG,CG
 
 ###Block: Familiar Alertness Feature Ability Pool Display
 # Ability Name					Unique Key								Category of Ability		Type										Description																				Ability					Bonus Ability Pool

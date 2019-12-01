@@ -14,7 +14,7 @@ FOLLOWER:ExoticPetLVL=9	TYPE:Exotic Pet																															DEFINESTAT
 # Locking INT to 10 makes it a non-ability.
 
 # Race of familiar			Type			Bonus to skill
-MASTERBONUSRACE:Familiar (Monkey)	TYPE:Exotic Pet	BONUS:SKILL|Acrobatics|3
+MASTERBONUSRACE:Monkey	TYPE:Exotic Pet	BONUS:SKILL|Acrobatics|3
 MASTERBONUSRACE:Familiar (Parrot)	TYPE:Exotic Pet	BONUS:SKILL|Appraise|3
 
 # Class of the Master	Type			Ability											Required Race
@@ -50,18 +50,18 @@ FOLLOWER:FamiliarLVL=3	TYPE:Familiar																		TEMPLATE:Fiendish Creature
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar	ABILITY:Familiar Class Feature|AUTOMATIC|Familiar ~ Speak One Language	PRERACE:1,Familiar (Parrot)
 
 ###Block:Familiar Bonuses to Master
-# Race of familiar			Type				Bonus to HP			Save bonus			Bonus to skill
-MASTERBONUSRACE:Familiar (Bat)	TYPE:Demonic Familiar									BONUS:SKILL|Fly|3
-MASTERBONUSRACE:Familiar (Cat)	TYPE:Demonic Familiar									BONUS:SKILL|Stealth|3
-MASTERBONUSRACE:Familiar (Hawk)	TYPE:Demonic Familiar									BONUS:SKILL|Perception|3
-MASTERBONUSRACE:Familiar (Lizard)	TYPE:Demonic Familiar									BONUS:SKILL|Climb|3
-MASTERBONUSRACE:Familiar (Monkey)	TYPE:Demonic Familiar									BONUS:SKILL|Acrobatics|3
-MASTERBONUSRACE:Familiar (Owl)	TYPE:Demonic Familiar									BONUS:SKILL|Perception|3
-MASTERBONUSRACE:Familiar (Rat)	TYPE:Demonic Familiar					BONUS:SAVE|Fortitude|2
-MASTERBONUSRACE:Familiar (Raven)	TYPE:Demonic Familiar									BONUS:SKILL|Appraise|3
-MASTERBONUSRACE:Familiar (Viper)	TYPE:Demonic Familiar									BONUS:SKILL|Bluff|3
-MASTERBONUSRACE:Familiar (Toad)	TYPE:Demonic Familiar	BONUS:HP|CURRENTMAX|3
-MASTERBONUSRACE:Familiar (Weasel)	TYPE:Demonic Familiar					BONUS:SAVE|Reflex|2
+# Race of familiar	Type				Bonus to HP			Save bonus			Bonus to skill
+MASTERBONUSRACE:Bat	TYPE:Demonic Familiar									BONUS:SKILL|Fly|3
+MASTERBONUSRACE:Cat	TYPE:Demonic Familiar									BONUS:SKILL|Stealth|3
+MASTERBONUSRACE:Hawk	TYPE:Demonic Familiar									BONUS:SKILL|Perception|3
+MASTERBONUSRACE:Lizard	TYPE:Demonic Familiar									BONUS:SKILL|Climb|3
+MASTERBONUSRACE:Monkey	TYPE:Demonic Familiar									BONUS:SKILL|Acrobatics|3
+MASTERBONUSRACE:Owl	TYPE:Demonic Familiar									BONUS:SKILL|Perception|3
+MASTERBONUSRACE:Rat	TYPE:Demonic Familiar					BONUS:SAVE|Fortitude|2
+MASTERBONUSRACE:Raven	TYPE:Demonic Familiar									BONUS:SKILL|Appraise|3
+MASTERBONUSRACE:Viper	TYPE:Demonic Familiar									BONUS:SKILL|Bluff|3
+MASTERBONUSRACE:Toad	TYPE:Demonic Familiar	BONUS:HP|CURRENTMAX|3
+MASTERBONUSRACE:Weasel	TYPE:Demonic Familiar					BONUS:SAVE|Reflex|2
 #
 
 # Class of the Master		Type				Save bonus
