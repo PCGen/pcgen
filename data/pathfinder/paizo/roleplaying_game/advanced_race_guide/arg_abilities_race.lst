@@ -370,7 +370,7 @@ Spells added to Druid		KEY:Mystic Past Life Add ~ Druid		CATEGORY:Special Abilit
 Spells added to Inquisitor	KEY:Mystic Past Life Add ~ Inquisitor	CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells.SpecialQuality	PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life Base ~ Inquisitor	STACK:NO	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Inquisitor[KNOWN=NO]
 Spells added to Ranger		KEY:Mystic Past Life Add ~ Ranger		CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells.SpecialQuality	PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life Base ~ Ranger		STACK:NO	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Ranger[KNOWN=NO]
 Spells added to Paladin		KEY:Mystic Past Life Add ~ Paladin		CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells.SpecialQuality	PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life Base ~ Paladin		STACK:NO	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Paladin[KNOWN=NO]
-Spells added to Anti-Paladin	KEY:Mystic Past Life Add ~ Anti-Paladin	CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells.SpecialQuality	PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life Base ~ Anti-Paladin	STACK:NO	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Anti-Paladin[KNOWN=NO]
+Spells added to Anti-Paladin	KEY:Mystic Past Life Add ~ Anti-Paladin	CATEGORY:Special Ability	TYPE:Mystic Past Life Add Spells.SpecialQuality	PREABILITY:1,CATEGORY=Special Ability,Mystic Past Life Base ~ Anti-Paladin	STACK:NO	MULT:YES	CHOOSE:SPELLS|CLASSLIST=Antipaladin[KNOWN=NO]
 
 
 ###Block: Shards of the Past Knowledge Skill abilities
