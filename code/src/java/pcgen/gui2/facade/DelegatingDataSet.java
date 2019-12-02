@@ -127,7 +127,7 @@ public class DelegatingDataSet implements DataSetFacade
 		return abilities;
 	}
 
-	private class DelegatingAbilitiesMap extends AbstractMapFacade<AbilityCategory, ListFacade<AbilityFacade>>
+	private static class DelegatingAbilitiesMap extends AbstractMapFacade<AbilityCategory, ListFacade<AbilityFacade>>
 			implements MapListener<AbilityCategory, ListFacade<AbilityFacade>>
 	{
 

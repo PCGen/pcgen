@@ -284,7 +284,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 
 	}
 
-	private class Renderer implements TableCellRenderer
+	private static class Renderer implements TableCellRenderer
 	{
 
 		private final JButton button = new JButton();

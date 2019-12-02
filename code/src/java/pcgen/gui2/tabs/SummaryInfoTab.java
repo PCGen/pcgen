@@ -647,7 +647,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		models.put(ComboBoxModelHandler.class, new ComboBoxModelHandler(character));
 
 		models.put(RandomNameAction.class,
-			new RandomNameAction(character, (JFrame) SwingUtilities.getWindowAncestor(this)));
+                new RandomNameAction(character, (JFrame) SwingUtilities.getWindowAncestor(this)));
 		models.put(ClassLevelTableModel.class, new ClassLevelTableModel(character, classLevelTable, classComboBox));
 
 		models.put(GenerateRollsAction.class, new GenerateRollsAction(character));
@@ -655,7 +655,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 				new RollMethodAction(character, (JFrame) SwingUtilities.getWindowAncestor(this))
 		);
 		models.put(CreateMonsterAction.class,
-			new CreateMonsterAction(character, (JFrame) SwingUtilities.getWindowAncestor(this)));
+                new CreateMonsterAction(character, (JFrame) SwingUtilities.getWindowAncestor(this)));
 		models.put(AddLevelsAction.class, new AddLevelsAction(character));
 		models.put(RemoveLevelsAction.class, new RemoveLevelsAction(character));
 		models.put(StatTableModel.class, new StatTableModel(character, statsTable));
@@ -1168,7 +1168,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 	}
 
-	private class RandomNameAction extends AbstractAction
+	private static class RandomNameAction extends AbstractAction
 	{
 
 		private final CharacterFacade character;
@@ -1204,7 +1204,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	 * Handler for actions from the generate rolls button. Also defines the
 	 * appearance of the button.
 	 */
-	private final class GenerateRollsAction extends AbstractAction
+	private static final class GenerateRollsAction extends AbstractAction
 			implements ListListener<CharacterLevelFacade>, ReferenceListener<Integer>
 	{
 
@@ -1316,7 +1316,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 	}
 
-	private class CreateMonsterAction extends AbstractAction
+	private static class CreateMonsterAction extends AbstractAction
 	{
 
 		private final CharacterFacade character;
@@ -1464,7 +1464,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	 * reference is updated. The handler also knows how to react to install and
 	 * uninstall actions when the displayed character changes.
 	 */
-	private class LabelHandler implements ReferenceListener<String>
+	private static class LabelHandler implements ReferenceListener<String>
 	{
 
 		private ReferenceFacade<String> reference = null;

@@ -399,7 +399,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 	}
 
-	private class PreviewSpellsAction extends AbstractAction
+	private static class PreviewSpellsAction extends AbstractAction
 	{
 
 		private final CharacterFacade character;
@@ -418,7 +418,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 	}
 
-	private class ExportSpellsAction extends AbstractAction
+	private static class ExportSpellsAction extends AbstractAction
 	{
 
 		private final CharacterFacade character;

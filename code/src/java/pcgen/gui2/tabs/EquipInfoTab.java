@@ -447,7 +447,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 	}
 
-	private class RemoveSetAction extends AbstractAction
+	private static class RemoveSetAction extends AbstractAction
 	{
 
 		private final CharacterFacade character;
@@ -466,7 +466,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 	}
 
-	private class EquipSetBoxModel extends CharacterComboBoxModel<EquipmentSetFacade>
+	private static class EquipSetBoxModel extends CharacterComboBoxModel<EquipmentSetFacade>
 	{
 
 		private final CharacterFacade character;
@@ -1058,7 +1058,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	/**
 	 * Menu item for moving the selected equipment up a step in their container.
 	 */
-	private class MoveEquipUpMenuItem extends JMenuItem implements ActionListener
+	private static class MoveEquipUpMenuItem extends JMenuItem implements ActionListener
 	{
 
 		private final CharacterFacade character;
@@ -1094,7 +1094,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	/**
 	 * Menu item for moving the selected equipment up a step in their container.
 	 */
-	private class MoveEquipDownMenuItem extends JMenuItem implements ActionListener
+	private static class MoveEquipDownMenuItem extends JMenuItem implements ActionListener
 	{
 
 		private final CharacterFacade character;

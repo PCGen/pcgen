@@ -190,7 +190,7 @@ public class CampaignPanel extends ConvertSubPanel
 	 * The model of the campaign table.
 	 */
 	@SuppressWarnings("serial")
-	public class CampaignTableModel extends AbstractTableModel
+	public static class CampaignTableModel extends AbstractTableModel
 	{
 
 		/** The column names. */

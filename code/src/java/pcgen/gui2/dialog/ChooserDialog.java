@@ -391,7 +391,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			DefaultListFacade<TreeView<InfoFacade>> views = new DefaultListFacade<>();
 			views.addElement(new ChooserTreeView(ChooserTreeViewType.NAME, chooser.getAvailableTableTitle(), chooser));
 			views.addElement(
-				new ChooserTreeView(ChooserTreeViewType.TYPE_NAME, chooser.getAvailableTableTypeNameTitle(), chooser));
+                    new ChooserTreeView(ChooserTreeViewType.TYPE_NAME, chooser.getAvailableTableTypeNameTitle(), chooser));
 			return views;
 		}
 
@@ -438,7 +438,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 
 	}
 
-	private final class ChooserTreeView implements TreeView<InfoFacade>
+	private static final class ChooserTreeView implements TreeView<InfoFacade>
 	{
 
 		private final String viewName;

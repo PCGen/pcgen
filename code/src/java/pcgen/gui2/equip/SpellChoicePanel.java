@@ -215,7 +215,7 @@ public class SpellChoicePanel extends JPanel
 	 * DisablingCharacterComboBoxModel is a model that disables its combo box
 	 * when there are no possible selections.
 	 */
-	private abstract class DisablingCharacterComboBoxModel extends CharacterComboBoxModel<String>
+	private abstract static class DisablingCharacterComboBoxModel extends CharacterComboBoxModel<String>
 	{
 
 		private final JComboBox<String> box;

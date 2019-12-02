@@ -128,7 +128,7 @@ public class VariableChannelTest extends AbstractFormulaTestCase
 		VariableChannel<Number> channel =
 				VariableChannel.construct(manager, getVariableStore(), varID);
 		TestingReferenceListener<Number> listener =
-				new TestingReferenceListener<>();
+                new TestingReferenceListener<>();
 		channel.addReferenceListener(listener);
 		assertEquals(0, listener.getEventCount());
 		assertEquals(0, channel.get());
@@ -145,7 +145,7 @@ public class VariableChannelTest extends AbstractFormulaTestCase
 		assertEquals(6, getVariableStore().get(varID));
 	}
 	
-	private class TestingReferenceListener<T> implements ReferenceListener<T>
+	private static class TestingReferenceListener<T> implements ReferenceListener<T>
 	{
 
 		private int eventCount;

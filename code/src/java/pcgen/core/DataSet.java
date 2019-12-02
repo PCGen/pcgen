@@ -437,7 +437,7 @@ public class DataSet implements DataSetFacade
 	 * The Class {@code RaceComparator} sorts races so that PC races come
 	 * at the top of the list, just after <None Selected>.
 	 */
-	class RaceComparator implements Comparator<Race>
+    static class RaceComparator implements Comparator<Race>
 	{
 
 		@Override
@@ -504,7 +504,7 @@ public class DataSet implements DataSetFacade
 	 * The Class {@code PCClassComparator} sorts classes so that base
 	 * classes come at the top of the list.
 	 */
-	class PCClassComparator implements Comparator<PCClass>
+    static class PCClassComparator implements Comparator<PCClass>
 	{
 
 		@Override
@@ -595,7 +595,7 @@ public class DataSet implements DataSetFacade
 
 	}
 
-	class AbilityCategoryComparator implements Comparator<AbilityCategory>
+	static class AbilityCategoryComparator implements Comparator<AbilityCategory>
 	{
 
 		@Override
