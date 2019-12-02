@@ -144,14 +144,13 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 				return new String[]{"WEAPON|" + wp.getLSTformat(false)};
 			}
 			context.addWriteMessage("Equipment may not have both " + "ARMOR and WEAPON Proficiencies");
-			return null;
-		}
+        }
 		else
 		{
 			context.addWriteMessage("Equipment may not have both " + "WEAPON and SHIELD Proficiencies");
-			return null;
-		}
-	}
+        }
+        return null;
+    }
 
 	@Override
 	public Class<Equipment> getTokenClass()

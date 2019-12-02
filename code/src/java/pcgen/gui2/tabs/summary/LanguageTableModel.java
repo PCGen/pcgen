@@ -134,12 +134,8 @@ public class LanguageTableModel extends AbstractTableModel implements ListListen
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex)
 	{
-		if (rowIndex < languages.getSize() && !character.isRemovable(languages.getElementAt(rowIndex)))
-		{
-			return false;
-		}
-		return true;
-	}
+        return rowIndex >= languages.getSize() || character.isRemovable(languages.getElementAt(rowIndex));
+    }
 
 	@Override
 	public void elementAdded(ListEvent<Language> e)

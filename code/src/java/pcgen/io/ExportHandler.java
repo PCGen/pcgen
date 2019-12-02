@@ -515,12 +515,8 @@ public abstract class ExportHandler
 			{
 				return false;
 			}
-			else if (aSkill.getSafe(ObjectKey.USE_UNTRAINED))
-			{
-				return true;
-			}
+			else return aSkill.getSafe(ObjectKey.USE_UNTRAINED);
 
-			return false;
 		}
 
 		// Deal with JEP formula 

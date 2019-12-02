@@ -2771,17 +2771,10 @@ public final class Equipment extends PObject
 
 		if (modifiedName == null)
 		{
-			if (other.modifiedName != null)
-			{
-				return false;
-			}
+            return other.modifiedName == null;
 		}
-		else if (!modifiedName.equals(other.modifiedName))
-		{
-			return false;
-		}
-		return true;
-	}
+		else return modifiedName.equals(other.modifiedName);
+    }
 
 	/**
 	 * Build a String used to save this items special properties in a .pcg file
@@ -5953,6 +5946,7 @@ public final class Equipment extends PObject
 
 				// if the 3rd token is "BASE" we have something like
 				// CHECKS.BASE.Fortitude
+				// Type: .DODGE
 				if ("BASE".equals(aString))
 				{
 					if (aTok.hasMoreTokens())
@@ -5961,19 +5955,11 @@ public final class Equipment extends PObject
 						aTok.nextToken();
 					}
 
-					if (aTok.hasMoreTokens())
-					{
-						// check for a TYPE
-						nextTok = aTok.nextToken();
-					}
 				}
-				else
+				if (aTok.hasMoreTokens())
 				{
-					if (aTok.hasMoreTokens())
-					{
-						// Type: .DODGE
-						nextTok = aTok.nextToken();
-					}
+					// check for a TYPE
+					nextTok = aTok.nextToken();
 				}
 
 				if (nextTok != null)

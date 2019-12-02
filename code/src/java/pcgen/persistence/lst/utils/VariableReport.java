@@ -373,17 +373,10 @@ public class VariableReport
 			}
 			if (definingObject == null)
 			{
-				if (other.definingObject != null)
-				{
-					return false;
-				}
+                return other.definingObject == null;
 			}
-			else if (!definingObject.equals(other.definingObject))
-			{
-				return false;
-			}
-			return true;
-		}
+			else return definingObject.equals(other.definingObject);
+        }
 
 		@Override
 		public int compareTo(VarDefine other)

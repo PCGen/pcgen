@@ -70,16 +70,11 @@ public class NameoptToken extends AbstractNonEmptyToken<EquipmentModifier>
 		String text = context.getObjectContext().getString(mod, StringKey.NAME_TEXT);
 		if (opt == null)
 		{
-			if (text == null)
-			{
-				return null;
-			}
-			else
-			{
-				context.addWriteMessage("Cannot have both NAME_TEXT without " + "NAME_OPT in EquipmentModifier");
-				return null;
-			}
-		}
+            if (text != null) {
+                context.addWriteMessage("Cannot have both NAME_TEXT without " + "NAME_OPT in EquipmentModifier");
+            }
+            return null;
+        }
 		String retString;
 		if (opt.equals(EqModNameOpt.TEXT))
 		{

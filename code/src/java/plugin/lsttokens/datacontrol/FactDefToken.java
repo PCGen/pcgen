@@ -82,16 +82,11 @@ public class FactDefToken extends AbstractTokenWithSeparator<FactDefinition> imp
 		String name = def.getFactName();
 		if (cl == null)
 		{
-			if (name == null)
-			{
-				return null;
-			}
-			else
-			{
-				context.addWriteMessage("Found FactDefinition with location but no name");
-				return null;
-			}
-		}
+            if (name != null) {
+                context.addWriteMessage("Found FactDefinition with location but no name");
+            }
+            return null;
+        }
 		else if (name == null)
 		{
 			context.addWriteMessage("Found FactDefinition with name but no location");

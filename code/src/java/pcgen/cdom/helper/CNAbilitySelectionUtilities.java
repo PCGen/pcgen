@@ -58,11 +58,7 @@ public final class CNAbilitySelectionUtilities
 			return true;
 		}
 		//STACK:NO here
-		if (cnas1.getSelection().equals(cnas2.getSelection()))
-		{
-			//enforce STACK:NO
-			return false;
-		}
-		return true;
-	}
+        //enforce STACK:NO
+        return !cnas1.getSelection().equals(cnas2.getSelection());
+    }
 }

@@ -239,14 +239,13 @@ public final class RaceInfoTab extends FlippingSplitPane implements CharacterInf
 				if (obj instanceof Race)
 				{
 					text = character.getInfoFactory().getHTMLInfo((Race) obj);
-					infoPane.setText(text);
-				}
+                }
 				else
 				{
 					text = "";
-					infoPane.setText(text);
-				}
-			}
+                }
+                infoPane.setText(text);
+            }
 		}
 
 	}

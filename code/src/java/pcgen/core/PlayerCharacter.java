@@ -8271,10 +8271,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// Check for a non stat, but only if it hasn't been reset to a stat
 		if (!nonStatToStatFacet.contains(id, stat))
 		{
-			if (nonStatStatFacet.contains(id, stat))
-			{
-				return true;
-			}
+            return nonStatStatFacet.contains(id, stat);
 		}
 		return false;
 	}

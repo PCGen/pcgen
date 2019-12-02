@@ -259,15 +259,14 @@ public final class ChoiceSetLoadUtilities
 			{
 				pi.tokKey = key.substring(0, openBracketLoc);
 				pi.tokValue = null;
-				pi.tokRestriction = key.substring(openBracketLoc + 1, closeBracketLoc);
-			}
+            }
 			else
 			{
 				pi.tokKey = key.substring(0, equalLoc);
 				pi.tokValue = key.substring(equalLoc + 1, openBracketLoc);
-				pi.tokRestriction = key.substring(openBracketLoc + 1, closeBracketLoc);
-			}
-		}
+            }
+            pi.tokRestriction = key.substring(openBracketLoc + 1, closeBracketLoc);
+        }
 		return pi;
 	}
 
