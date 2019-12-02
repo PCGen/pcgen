@@ -39,7 +39,7 @@ public class PCCountSpellsKnownTermEvaluator extends BasePCTermEvaluator impleme
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		Float count = 0.0f;
+		float count = 0.0f;
 
 		if (SettingsHandler.getPrintSpellsWithPC())
 		{

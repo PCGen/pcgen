@@ -75,7 +75,7 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 		CDOMSingleRef<PCClass> cl = context.getReferenceContext().getCDOMReference(PCClass.class, className);
 		try
 		{
-			Integer lvl = Integer.valueOf(level);
+			int lvl = Integer.parseInt(level);
 			if (lvl <= 0)
 			{
 				return new ParseResult.Fail(getTokenName() + " expected an integer > 0");
@@ -99,7 +99,7 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 		{
 			return null;
 		}
-		Integer lvl = kitLA.getLevel();
+		int lvl = kitLA.getLevel();
 		return new String[]{cl.getLSTformat(false) + '=' + lvl};
 	}
 

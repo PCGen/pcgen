@@ -52,7 +52,7 @@ public class EQWeightTermEvaluator extends BaseEQTermEvaluator implements TermEv
 
 		if (eq.isCalculatingCost() && eq.isAmmunition())
 		{
-			Float unitWeight = weightInPounds.floatValue();
+			float unitWeight = weightInPounds.floatValue();
 			unitWeight /= eq.getSafe(IntegerKey.BASE_QUANTITY);
 			eq.setWeightAlreadyUsed(true);
 			return String.valueOf(unitWeight);

@@ -137,10 +137,10 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements C
 
 			String nameList = tokString.substring(0, equalLoc);
 			String levelString = tokString.substring(equalLoc + 1);
-			Integer level;
+			int level;
 			try
 			{
-				level = Integer.valueOf(levelString);
+				level = Integer.parseInt(levelString);
 				if (level < -1)
 				{
 					return new ParseResult.Fail(getTokenName() + " may not use a negative level: " + value);

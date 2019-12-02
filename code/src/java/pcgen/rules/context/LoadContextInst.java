@@ -555,7 +555,7 @@ abstract class LoadContextInst implements LoadContext
 	private LoadContext dropIntoContext(PCGenScope lvs)
 	{
 		Optional<PCGenScope> parent = lvs.getParentScope();
-		if (!parent.isPresent())
+		if (parent.isEmpty())
 		{
 			//is Global
 			return this;
@@ -835,7 +835,7 @@ abstract class LoadContextInst implements LoadContext
 			{
 				return this;
 			}
-			else if (!toScope.getParentScope().isPresent())
+			else if (toScope.getParentScope().isEmpty())
 			{
 				//No parent is global
 				return parent;

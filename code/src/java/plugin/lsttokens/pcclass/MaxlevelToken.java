@@ -39,7 +39,7 @@ public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
 	@Override
 	public ParseResult parseToken(LoadContext context, PCClass pcc, String value)
 	{
-		Integer lim;
+		int lim;
 		if ("NOLIMIT".equalsIgnoreCase(value))
 		{
 			lim = Constants.NO_LEVEL_LIMIT;
@@ -48,7 +48,7 @@ public class MaxlevelToken implements CDOMPrimaryToken<PCClass>
 		{
 			try
 			{
-				lim = Integer.valueOf(value);
+				lim = Integer.parseInt(value);
 				if (lim <= 0)
 				{
 					return new ParseResult.Fail("Value less than 1 is not valid for " + getTokenName() + ": " + value);

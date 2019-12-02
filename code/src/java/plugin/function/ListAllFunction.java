@@ -152,7 +152,7 @@ public class ListAllFunction implements FormulaFunction
 		return refMfg.getAllObjects().stream()
 			.filter(obj -> obj.getSafe(ObjectKey.VISIBILITY).isVisibleTo(view))
 			.toArray(
-				ArrayUtilities.buildOfClass(refMfg.getManagedClass())::apply);
+                    ArrayUtilities.buildOfClass(refMfg.getManagedClass()));
 	}
 
 	@Override

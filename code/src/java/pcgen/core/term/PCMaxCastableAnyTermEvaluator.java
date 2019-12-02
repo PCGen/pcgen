@@ -33,7 +33,7 @@ public class PCMaxCastableAnyTermEvaluator extends BasePCTermEvaluator implement
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		Float max = 0.0f;
+		float max = 0.0f;
 		for (PCClass spClass : pc.getDisplay().getClassSet())
 		{
 			int cutoff = pc.getSpellSupport(spClass).getHighestLevelSpell();

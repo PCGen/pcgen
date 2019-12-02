@@ -112,7 +112,7 @@ public class FaceToken extends AbstractNonEmptyToken<LimitedVarHolder>
 			{
 				FormulaModifier<?> modifier = vm.getModifier();
 				if (CControl.FACE.getDefaultValue().equals(vm.getVarName())
-					&& (!vm.getLegalScope().getParentScope().isPresent())
+					&& (vm.getLegalScope().getParentScope().isEmpty())
 					&& (modifier.getIdentification().equals(MOD_IDENTIFICATION)))
 				{
 					face = modifier.getInstructions();
