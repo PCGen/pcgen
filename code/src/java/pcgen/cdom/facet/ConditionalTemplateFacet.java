@@ -133,10 +133,10 @@ public class ConditionalTemplateFacet extends AbstractListFacet<CharID, PCTempla
 			boolean found = false;
 			for (PCTemplate pcTemplate : oldSet)
 			{
-				if (a == pcTemplate)
-				{
-					found = true;
-				}
+                if (a == pcTemplate) {
+                    found = true;
+                    break;
+                }
 			}
 			if (!found)
 			{

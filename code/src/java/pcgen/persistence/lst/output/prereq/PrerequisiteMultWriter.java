@@ -160,10 +160,10 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter implement
 			{
 				break;
 			}
-			if (!"skill".equalsIgnoreCase(element.getKind()) || !element.isTotalValues())
-			{
-				allSkillTot = false;
-			}
+            if (!"skill".equalsIgnoreCase(element.getKind()) || !element.isTotalValues()) {
+                allSkillTot = false;
+                break;
+            }
 		}
 		if (allSkillTot)
 		{

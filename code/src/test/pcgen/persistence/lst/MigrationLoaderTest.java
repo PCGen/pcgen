@@ -214,11 +214,11 @@ public class MigrationLoaderTest
 						.getName());
 		for (MigrationRule migrationRule : migrationRuleList)
 		{
-			if (migrationRule.getObjectType() == ObjectType.SOURCE
-				&& migrationRule.getOldKey().equals("Bob's Magic Store"))
-			{
-				found = true;
-			}
+            if (migrationRule.getObjectType() == ObjectType.SOURCE
+                    && migrationRule.getOldKey().equals("Bob's Magic Store")) {
+                found = true;
+                break;
+            }
 		}
 		
 		assertFalse(found, "Invalid source line was accepted.");
