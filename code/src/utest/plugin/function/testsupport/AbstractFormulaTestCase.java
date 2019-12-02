@@ -122,7 +122,7 @@ public abstract class AbstractFormulaTestCase
 		//Give Doubles a bit of fuzz
 		else if (valueOf instanceof Double)
 		{
-			if (TestUtilities.doubleEqual(((Double) valueOf).doubleValue(),
+			if (TestUtilities.doubleEqual((Double) valueOf,
 				((Number) result).doubleValue(), TestUtilities.SMALL_ERROR))
 			{
 				return;

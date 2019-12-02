@@ -383,7 +383,7 @@ public class ArmorToken extends Token
 
 		for (Equipment eq : aPC.getEquipmentOfTypeInOutputOrder(type, subtype, equipped, merge))
 		{
-			if (eq.getACMod(aPC).intValue() > 0)
+			if (eq.getACMod(aPC) > 0)
 			{
 				aArrayList.add(eq);
 			}

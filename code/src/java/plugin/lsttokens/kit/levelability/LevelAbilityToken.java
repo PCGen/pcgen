@@ -76,7 +76,7 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 		try
 		{
 			Integer lvl = Integer.valueOf(level);
-			if (lvl.intValue() <= 0)
+			if (lvl <= 0)
 			{
 				return new ParseResult.Fail(getTokenName() + " expected an integer > 0");
 			}

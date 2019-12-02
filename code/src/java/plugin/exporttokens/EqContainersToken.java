@@ -196,7 +196,7 @@ public class EqContainersToken extends Token
 			}
 			else if (property.equals("RANGE"))
 			{
-				retString = Integer.toString(EqToken.getRange(pc, eq).intValue());
+				retString = Integer.toString(EqToken.getRange(pc, eq));
 			}
 			else if (property.equals("SIZE"))
 			{
@@ -230,7 +230,7 @@ public class EqContainersToken extends Token
 	 */
 	public static int getAcModToken(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getACMod(pc).intValue();
+		return eq.getACMod(pc);
 	}
 
 	/**
@@ -272,7 +272,7 @@ public class EqContainersToken extends Token
 	 */
 	public static float getCarriedToken(Equipment eq)
 	{
-		return eq.numberCarried().floatValue();
+		return eq.numberCarried();
 	}
 
 	/**
@@ -315,7 +315,7 @@ public class EqContainersToken extends Token
 		{
 			return 0;
 		}
-		return eq.getContainedWeight(pc).floatValue();
+		return eq.getContainedWeight(pc);
 	}
 
 	/**
@@ -381,7 +381,7 @@ public class EqContainersToken extends Token
 	 */
 	public static float getItemWeightToken(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getWeight(pc).floatValue();
+		return eq.getWeight(pc);
 	}
 
 	/**

@@ -89,7 +89,7 @@ public class SkillInfoCommand extends PCGenCommand
 				if ("modifier".equalsIgnoreCase((String) param1))
 				{
 					result =
-						(double) SkillModifier.modifier(aSkill, pc).intValue(); // aSkill.modifier() returns Integer
+						(double) SkillModifier.modifier(aSkill, pc); // aSkill.modifier() returns Integer
 				}
 				else if ("rank".equalsIgnoreCase((String) param1))
 				{
@@ -111,7 +111,7 @@ public class SkillInfoCommand extends PCGenCommand
 				}
 				else if ("misc".equalsIgnoreCase((String) param1))
 				{
-					result = (double) (SkillModifier.modifier(aSkill, pc).intValue()
+					result = (double) (SkillModifier.modifier(aSkill, pc)
 						- SkillModifier.getStatMod(aSkill, pc));
 				}
 				else

@@ -65,7 +65,7 @@ public class HitDieFormula implements Processor<HitDie>
 	@Override
 	public HitDie applyProcessor(HitDie origHD, Object context)
 	{
-		return new HitDie(formula.resolve(origHD.getDie()).intValue());
+		return new HitDie(formula.resolve(origHD.getDie()));
 	}
 
 	/**

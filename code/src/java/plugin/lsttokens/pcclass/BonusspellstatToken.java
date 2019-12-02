@@ -78,7 +78,7 @@ public class BonusspellstatToken extends AbstractNonEmptyToken<PCClass> implemen
 			}
 			return null;
 		}
-		if (bss.booleanValue())
+		if (bss)
 		{
 			if (pcs == null)
 			{

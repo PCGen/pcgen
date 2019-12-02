@@ -111,7 +111,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<CNAbility>
 		for (CNAbility cna : pcfeats)
 		{
 			Ability a = cna.getAbility();
-			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED).booleanValue() && collection.contains(a))
+			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED) && collection.contains(a))
 			{
 				returnSet.add(cna);
 			}

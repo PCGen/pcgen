@@ -2667,7 +2667,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			// add to all other classes
 			if (c < ab.size())
 			{
-				final int d = ab.get(c).intValue() + b;
+				final int d = ab.get(c) + b;
 
 				// set new value for iteration
 				ab.set(c, d);
@@ -2683,8 +2683,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// and find the one with the highest attack value
 		for (int i = 2; i < 10; ++i)
 		{
-			final int newAttack = ab.get(i).intValue();
-			final int oldAttack = ab.get(attackCycle).intValue();
+			final int newAttack = ab.get(i);
+			final int oldAttack = ab.get(attackCycle);
 
 			if ((newAttack / i) > (oldAttack / attackCycle))
 			{
@@ -2692,7 +2692,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 		}
 		// total Number of Attacks for this PC
-		int attackTotal = ab.get(attackCycle).intValue();
+		int attackTotal = ab.get(attackCycle);
 
 		// Default cut-off before multiple attacks (e.g. 5)
 		final int defaultAttackCycle = SettingsHandler.getGame().getBabAttCyc();
@@ -5540,7 +5540,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int bonus = 0;
 		for (Equipment eq : getEquippedEquipmentSet())
 		{
-			bonus += eq.getACMod(this).intValue();
+			bonus += eq.getACMod(this);
 		}
 		return bonus;
 	}
@@ -5682,7 +5682,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			String replacement = "0";
 
 			final Float fVal = getVariableValue(aSpell, inCalc, aSpellClass);
-			if (!CoreUtility.doublesEqual(fVal.floatValue(), 0.0f) || (inCalc.contains("MIN"))
+			if (!CoreUtility.doublesEqual(fVal, 0.0f) || (inCalc.contains("MIN"))
 				|| (inCalc.contains("MAX")) || inCalc.toUpperCase().contains("MIN(")
 				|| inCalc.toUpperCase().contains("MAX("))
 			{
@@ -6618,13 +6618,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		switch (filter)
 		{
 			case Ranks:
-				return (SkillRankControl.getTotalRank(this, skill).floatValue() > 0);
+				return (SkillRankControl.getTotalRank(this, skill) > 0);
 			case NonDefault:
-				return (SkillRankControl.getTotalRank(this, skill).floatValue() > 0
+				return (SkillRankControl.getTotalRank(this, skill) > 0
 					|| SkillModifier.modifier(skill, this) != SkillModifier.getStatMod(skill, this)
 						+ getSizeAdjustmentBonusTo("SKILL", skill.getKeyName()));
 			case Usable:
-				return qualifySkill(skill) && (SkillRankControl.getTotalRank(this, skill).floatValue() > 0
+				return qualifySkill(skill) && (SkillRankControl.getTotalRank(this, skill) > 0
 					|| skill.getSafe(ObjectKey.USE_UNTRAINED));
 			default:
 				return qualifySkill(skill);
@@ -7524,7 +7524,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		float tempQty = 1.0f;
 		if (newQty != null)
 		{
-			tempQty = newQty.floatValue();
+			tempQty = newQty;
 		}
 		else
 		{
@@ -7538,16 +7538,16 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			return null;
 		}
-		float diffQty = masterEq.getQty().floatValue() - getEquippedQty(eSet, eqI).floatValue();
+		float diffQty = masterEq.getQty() - getEquippedQty(eSet, eqI);
 
 		// if newQty is less than zero, we want to
 		// add all of this item to the EquipSet
 		// or all remaining items that havn't already
 		// been added to the EquipSet
-		if (newQty.floatValue() < 0.0f)
+		if (newQty < 0.0f)
 		{
 			tempQty = diffQty;
-			newQty = tempQty + getEquippedQty(eSet, eqI).floatValue();
+			newQty = tempQty + getEquippedQty(eSet, eqI);
 			addAll = true;
 		}
 

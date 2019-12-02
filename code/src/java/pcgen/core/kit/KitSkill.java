@@ -372,7 +372,7 @@ public final class KitSkill extends BaseKit
 		String ret = SkillRankControl.modRanks(ranksToAdd, pcClass, false, pc, aSkill);
 		if (!ret.isEmpty())
 		{
-			if (isFree && ret.indexOf("You do not have enough skill points.") != -1)
+			if (isFree && ret.contains("You do not have enough skill points."))
 			{
 				SkillRankControl.modRanks(ranksToAdd, pcClass, true, pc, aSkill);
 			}
