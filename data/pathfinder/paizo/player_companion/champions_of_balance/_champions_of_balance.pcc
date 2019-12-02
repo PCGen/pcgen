@@ -2,7 +2,6 @@
 CAMPAIGN:Champions of Balance
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Pathfinder Player Companion: Champions of Balance
 SOURCESHORT:COB
 SOURCEWEB:http://paizo.com/products/btpy93nc
 SOURCEDATE:2014-03
+RANK:201403
 ISOGL:YES
 
 COVER:champions_of_balance.jpg

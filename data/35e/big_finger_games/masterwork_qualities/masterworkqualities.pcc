@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Thu Jun 29 15:11:03 2006 -- reformated by prettylst.pl v1.35 (build 561)
 CAMPAIGN:BFG - Fantasy Folio - Masterwork Qualities
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Fantasy Folio - Masterwork Qualities
 SOURCESHORT:MW Qual
 SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=6569&
 SOURCEDATE:2006-03
+RANK:200603
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan,Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.

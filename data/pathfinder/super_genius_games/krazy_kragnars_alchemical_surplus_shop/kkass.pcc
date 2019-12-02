@@ -3,7 +3,6 @@ CAMPAIGN:Super Genius Games - Krazy Kragnar's Alchemical Surplus Shop
 GAMEMODE:Pathfinder
 TYPE:Super Genius Games.Equipment Options
 STATUS:RELEASE
-RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
@@ -13,6 +12,7 @@ PUBNAMEWEB:http://www.supergeniusgames.com
 SOURCELONG:Krazy Kragnar's Alchemical Surplus Shop
 SOURCESHORT:KKASS
 SOURCEDATE:2010-08
+RANK:201008
 ISOGL:YES
 
 COVER:kkass.jpg

@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Sun Jul 28 12:52:19 2002 -- reformated by prettylst.pl v1.17 (build 171)
 CAMPAIGN:Mongoose - Quintessential Rogue - 3.5 Conversion
 GAMEMODE:35e
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Mongoose Publishing - Collector's Series - Quintessential Rogue
 SOURCESHORT:QuintRogue
 SOURCEWEB:http://mongoosepublishing.com
 SOURCEDATE:2002-01
+RANK:200201
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

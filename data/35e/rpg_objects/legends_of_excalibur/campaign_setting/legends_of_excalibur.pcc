@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Sun Dec 26 07:10:16 2004 -- reformated by prettylst.pl v1.34 (build 422)
 CAMPAIGN:Legends of Excalibur - Arthurian Adventures
-RANK:5
 GAMEMODE:LoE
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -14,6 +13,7 @@ SOURCELONG:Legends of Excalibur - Arthurian Adventures
 SOURCESHORT:Excalibur
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=ex
 SOURCEDATE:2003-01
+RANK:200301
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

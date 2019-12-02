@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Tue Mar 27 23:33:15 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 CAMPAIGN:Honor and Corruption
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Honor and Corruption
 SOURCESHORT:Honor
 SOURCEWEB:www.aleapublishing.com
 SOURCEDATE:2005-01
+RANK:200501
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

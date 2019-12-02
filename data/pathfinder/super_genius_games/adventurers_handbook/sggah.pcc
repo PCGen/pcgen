@@ -3,7 +3,6 @@ CAMPAIGN:Super Genius Games - Adventurer's Handbook
 GAMEMODE:Pathfinder
 TYPE:Super Genius Games.Adventurer's Handbook
 STATUS:BETA
-RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
@@ -13,6 +12,7 @@ PUBNAMEWEB:http://www.supergeniusgames.com
 SOURCELONG:Adventurer's Handbook: Genius Guide Volume 1
 SOURCESHORT:SGGAH
 SOURCEDATE:2010-04
+RANK:201004
 ISOGL:YES
 
 COVER:sggah.jpg

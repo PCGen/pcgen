@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Mon Dec  5 14:01:35 2005 -- reformated by prettylst.pl v1.35 (build 553)
 CAMPAIGN:SEP - Roles and Classes - Covert Hero
 GAMEMODE:Modern
-RANK:6
 GENRE:Modern
 BOOKTYPE:Supplement
 SETTING:Modern
@@ -14,6 +13,7 @@ SOURCELONG:Roles and Classes - Covert Hero
 SOURCESHORT:CovertHero
 SOURCEWEB:http://swordsedgepublishing.ca/Products.html
 SOURCEDATE:2005-01
+RANK:200501
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

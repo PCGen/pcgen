@@ -2,7 +2,6 @@
 CAMPAIGN:Second Darkness, Chapter 5 - A Memory of Darkness (Conversion)
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Second Darkness
-RANK:4
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Adventure
@@ -15,6 +14,7 @@ SOURCELONG:Second Darkness, Chapter 5: A Memory of Darkness
 SOURCESHORT:AP17
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy86j6
 SOURCEDATE:2008-12
+RANK:200812
 ISOGL:YES
 
 COVER:ap17.jpg

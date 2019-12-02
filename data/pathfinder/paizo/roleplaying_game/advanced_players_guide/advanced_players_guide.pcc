@@ -3,7 +3,6 @@ CAMPAIGN:Advanced Player's Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
 STATUS:RELEASE
-RANK:1
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
@@ -16,6 +15,7 @@ SOURCELONG:Advanced Player's Guide
 SOURCESHORT:APG
 SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo1
 SOURCEDATE:2010-08
+RANK:201008
 ISOGL:YES
 
 # COMMENT: Updated to Errata 2nd Printing - Last Updated - 12/01/2010 on Oct 6th, 2012 - LegacyKing

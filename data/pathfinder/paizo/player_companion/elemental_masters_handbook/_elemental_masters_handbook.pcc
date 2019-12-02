@@ -1,6 +1,5 @@
 CAMPAIGN:Elemental Master's Handbook
 GAMEMODE:Pathfinder
-RANK:3
 TYPE:Paizo Publishing.Pathfinder Player Companion
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Pathfinder Player Companion: Elemental Master's Handbook
 SOURCESHORT:EMH
 SOURCEWEB:http://paizo.com/products/btpy9uf8?Pathfinder-Player-Companion-Elemental-Masters-Handbook
 SOURCEDATE:2017-08
+RANK:201708
 ISOGL:YES
 
 COVER:elemental_masters_handbook.jpg

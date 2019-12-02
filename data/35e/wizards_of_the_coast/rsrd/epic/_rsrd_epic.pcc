@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Wed Sep 28 00:18:54 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:3.5 RSRD Epic
-RANK:1
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Core Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document
 SOURCESHORT:RSRD
 SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 SOURCEDATE:2000-01
+RANK:200001
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

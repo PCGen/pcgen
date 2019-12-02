@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 CAMPAIGN:Wizards of the Coast - Monster Manual 2 (35e)
 GAMEMODE:35e
-RANK:2
 TYPE:Wizards of the Coast.Supplement
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
 STATUS:BETA
@@ -14,6 +13,8 @@ PUBNAMEWEB:http://www.wizards.com
 SOURCELONG:Monster Manual 2
 SOURCESHORT:MM2
 SOURCEWEB:http://www.wizards.com
+SOURCEDATE:2002-09
+RANK:200209
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:Monster Manual II Copyright 2002, Wizards of the Coast, Inc.

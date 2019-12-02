@@ -1,7 +1,6 @@
 CAMPAIGN:Heroes of the Wild
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -19,6 +18,7 @@ SOURCELONG:Pathfinder Player Companion: Heroes of the Wild
 SOURCESHORT:HOTW
 SOURCEWEB:http://paizo.com/products/btpy9cro
 SOURCEDATE:2015-04
+RANK:201504
 ISOGL:YES
 
 COVER:heroes_of_the_wild.jpg

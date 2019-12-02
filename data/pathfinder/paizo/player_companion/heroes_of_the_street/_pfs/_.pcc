@@ -1,6 +1,5 @@
 CAMPAIGN:Heroes of the Streets (PFS)
 #GAMEMODE:Pathfinder|Pathfinder_PFS
-RANK:3
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Pathfinder Player Companion: Heroes of the Streets
 SOURCESHORT:HOTS
 SOURCEWEB:http://paizo.com/products/btpy9ghc
 SOURCEDATE:2015-10
+RANK:201510
 ISOGL:YES
 
 #COVER:heroes_of_the_street.jpg

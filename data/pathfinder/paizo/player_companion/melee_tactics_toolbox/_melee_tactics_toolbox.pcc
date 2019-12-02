@@ -2,7 +2,6 @@
 CAMPAIGN:Melee Tactics Toolbox
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Player Companion: Melee Tactics Toolbox
 SOURCESHORT:MTT
 SOURCEWEB:http://paizo.com/products/btpy9c23
 SOURCEDATE:2015-03
+RANK:201503
 ISOGL:YES
 
 COVER:melee_tactics_toolbox.jpg

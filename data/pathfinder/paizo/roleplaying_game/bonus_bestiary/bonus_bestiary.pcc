@@ -2,7 +2,6 @@
 CAMPAIGN:Bonus Bestiary
 GAMEMODE:Pathfinder
 TYPE:Paizo Publishing.Pathfinder RPG
-RANK:1
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Bonus Bestiary
 SOURCESHORT:BB
 SOURCEWEB:http://paizo.com/store/paizoExclusives/v5748btpy88x4
 SOURCEDATE:2009-06
+RANK:200906
 ISOGL:YES
 
 COVER:bonus_bestiary.jpg

@@ -2,7 +2,6 @@
 CAMPAIGN:Chronicle of the Righteous (PFS)
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Campaign Setting
-RANK:4
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Chronicle of the Righteous
 SOURCESHORT:CotR
 SOURCEWEB:http://paizo.com/products/btpy8xe9?Pathfinder-Campaign-Setting-Chronicle-of-the-Righteous
 SOURCEDATE:2013-05
+RANK:201305
 ISOGL:YES
 
 #COVER:chronicle_of_the_righteous.jpg
@@ -22,7 +22,7 @@ LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/products/btpy8xe9|Buy this publication from Paizo Publishing!
-DESC:Pray for Mercy... The empyreal lords watch over the infinite expanses of the multiverse to ensure that good can flourish and that evil, no matter its form, can be vanquished. But even these powers cannot stem the tide of evil by themselves, and they must often rely on their celestial servants—noble angels, wise agathions, unrelenting archons, and free-spirited azatas—to lead the charge against the forces of corruption. Together, these virtuous forces wage an unending war against the blasphemous and the profane, all the while lifting worthy mortals to stations of ever-greater glory among the boundless celestial spheres.
+DESC:Pray for Mercy... The empyreal lords watch over the infinite expanses of the multiverse to ensure that good can flourish and that evil, no matter its form, can be vanquished. But even these powers cannot stem the tide of evil by themselves, and they must often rely on their celestial servantsï¿½noble angels, wise agathions, unrelenting archons, and free-spirited azatasï¿½to lead the charge against the forces of corruption. Together, these virtuous forces wage an unending war against the blasphemous and the profane, all the while lifting worthy mortals to stations of ever-greater glory among the boundless celestial spheres.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
@@ -43,7 +43,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Chronicle o
 #Campaign Clarifications
 #Last Updated Saturday, April 29, 2017
 #
-#Page 51—Change the beginning of the vinetrap spell to the following.
+#Page 51ï¿½Change the beginning of the vinetrap spell to the following.
 #School conjuration (creation); Level cleric 5, druid 5
 #Casting Time 1 standard action
 #Components V, S, DF
@@ -55,7 +55,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Campaign Setting: Chronicle o
 #Additional Resources
 #Last Updated Saturday, April 29, 2017
 #
-#Equipment: all equipment on pages 52–53 are legal except angel's clarion, chronicle of the righteous, starknife of the void, and sword of vengeance; Feats: all feats on pages 5 are legal for play; Misc.: all empyreal lords on the inside front cover and pages 6–29 are legal for play; the mystery cultist on pages 48–49 is legal; Note that the following obedience boons are not permitted: Lymnieris' 2nd boon, Rite of Passage; Olheon's 3rd boon, Lordship. Spells: all spells on pages 50–51 are legal except blood of the martyr and elemental assessor
+#Equipment: all equipment on pages 52ï¿½53 are legal except angel's clarion, chronicle of the righteous, starknife of the void, and sword of vengeance; Feats: all feats on pages 5 are legal for play; Misc.: all empyreal lords on the inside front cover and pages 6ï¿½29 are legal for play; the mystery cultist on pages 48ï¿½49 is legal; Note that the following obedience boons are not permitted: Lymnieris' 2nd boon, Rite of Passage; Olheon's 3rd boon, Lordship. Spells: all spells on pages 50ï¿½51 are legal except blood of the martyr and elemental assessor
 
 
 

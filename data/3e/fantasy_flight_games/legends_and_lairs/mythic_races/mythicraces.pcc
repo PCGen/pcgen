@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Sat Oct  1 21:37:18 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:FFG - Mythic Races - Source Book
 GAMEMODE:3e
-RANK:9
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Fantasy Flight Games - Mythic Races
 SOURCESHORT:MythicRace
 SOURCEWEB:http://www.fantasyflightgames.com/ll.html
 SOURCEDATE:2001-09
+RANK:200109
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:d20 System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson

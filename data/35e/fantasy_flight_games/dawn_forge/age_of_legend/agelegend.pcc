@@ -1,6 +1,5 @@
 CAMPAIGN:FFG - Dawnforge - Age of Legend - Player's Companion
 GAMEMODE:35e
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Dawnforge
@@ -14,6 +13,7 @@ SOURCELONG:Age of Legend
 SOURCESHORT:ALe
 SOURCEWEB:http://www.fantasyflightgames.com/df02.html
 SOURCEDATE:2004-04
+RANK:200404
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David noonan, Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson

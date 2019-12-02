@@ -3,7 +3,6 @@ CAMPAIGN:Lords of Chaos (PFS)
 KEY:PFS ~ Lords of Chaos
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Campaign Setting
-RANK:2
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -18,6 +17,7 @@ SOURCELONG:Lords of Chaos, Book of the Damned, Volume 2
 SOURCESHORT:BOTD2
 SOURCEWEB:http://paizo.com/products/btpy8hij?Pathfinder-Campaign-Setting-Book-of-the-Damned-Volume-2-Lords-of-Chaos
 SOURCEDATE:2010-10
+RANK:201010
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_2/botd2.jpg

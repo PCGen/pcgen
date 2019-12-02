@@ -4,7 +4,6 @@ KEY:PFS ~ Advanced Class Guide
 #GAMEMODE:Pathfinder
 TYPE:Paizo Publishing PFS.Pathfinder RPG
 STATUS:BETA
-RANK:1
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
@@ -17,6 +16,7 @@ SOURCELONG:Advanced Class Guide
 SOURCESHORT:ACG
 SOURCEWEB:http://paizo.com/products/btpy92zi
 SOURCEDATE:2014-08
+RANK:201408
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/roleplaying_game/advanced_players_guide.jpg

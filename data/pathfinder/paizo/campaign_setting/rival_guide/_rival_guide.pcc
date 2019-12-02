@@ -1,7 +1,6 @@
 CAMPAIGN:Rival Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -16,6 +15,7 @@ SOURCELONG:Rival Guide
 SOURCESHORT:RG
 SOURCEWEB:https://paizo.com/products/btpy8kc
 SOURCEDATE:2011-05
+RANK:201105
 ISOGL:YES
 
 COVER:rival_guide.jpg

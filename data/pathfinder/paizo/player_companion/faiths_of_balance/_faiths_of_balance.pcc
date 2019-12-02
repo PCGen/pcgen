@@ -2,7 +2,6 @@
 CAMPAIGN:Faiths of Balance
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Player Companion: Faiths of Balance
 SOURCESHORT:FOB
 SOURCEWEB:http://paizo.com/products/btpy8lvb
 SOURCEDATE:2011-07
+RANK:201107
 ISOGL:YES
 
 COVER:faiths_of_balance.jpg

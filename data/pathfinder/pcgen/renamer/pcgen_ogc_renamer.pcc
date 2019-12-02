@@ -1,6 +1,5 @@
 # CVS $Revision $ $Author $ -- Thu Aug  4 14:38:15 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:PCGen Enhancement Re-namer (PF)
-RANK:7
 GAMEMODE:Pathfinder
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -12,6 +11,7 @@ PUBNAMEWEB:http://pcgen.sourceforge.net/
 SOURCELONG:PCGen Enhancement Re-namer
 SOURCESHORT:PCGen RNM
 SOURCEWEB:http://pcgen.sourceforge.net/
+RANK:999997
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.

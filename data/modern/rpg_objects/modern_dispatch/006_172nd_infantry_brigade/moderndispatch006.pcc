@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Sat Jan 21 00:58:47 2006 -- reformated by prettylst.pl v1.35 (build 555)
 CAMPAIGN:Modern Dispatch - #6 - 172nd Infantry Brigade [Sep]
 KEY:RPGO - Modern Dispatch - #6 - 172nd Infantry Brigade
-RANK:6
 GAMEMODE:Modern
 GENRE:Military
 BOOKTYPE:Magazine
@@ -16,6 +15,7 @@ SOURCELONG:Modern Dispatch #6 - 172nd Infantry Brigade
 SOURCESHORT:MD06-172nd
 SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=3990
 SOURCEDATE:2004-01
+RANK:200401
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

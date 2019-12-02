@@ -3,7 +3,6 @@ CAMPAIGN:Pirates of the Inner Sea (PFS)
 KEY:PFS ~ Pirates of the Inner Sea
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -18,6 +17,7 @@ SOURCELONG:Pathfinder Player Companion: Pirates of the Inner Sea
 SOURCESHORT:POTIS
 SOURCEWEB:http://paizo.com/products/btpy8qif
 SOURCEDATE:2012-04
+RANK:201204
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/player_companion/pirates_of_the_inner_sea/pirates_of_the_inner_sea.jpg

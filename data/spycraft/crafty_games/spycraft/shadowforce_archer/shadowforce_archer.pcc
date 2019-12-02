@@ -1,6 +1,5 @@
 CAMPAIGN:Shadowforce Archer
 GAMEMODE:Spycraft
-RANK:2
 GENRE:Espionage
 BOOKTYPE:Campaign Setting
 SETTING:Spycraft
@@ -14,6 +13,7 @@ SOURCELONG:Shadowforce Archer
 SOURCESHORT:Shadowforce Archer
 SOURCEWEB:http://www.crafty-games.com/node/54
 SOURCEDATE:2002-07
+RANK:200207
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by Gary Gygax and Dave Arneson.

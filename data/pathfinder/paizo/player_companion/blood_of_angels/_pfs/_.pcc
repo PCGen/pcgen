@@ -3,7 +3,6 @@ CAMPAIGN:Blood of Angels (PFS)
 KEY:PFS ~ Blood of Angels
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -18,6 +17,7 @@ SOURCELONG:Pathfinder Player Companion: Blood of Angels
 SOURCESHORT:BOA
 SOURCEWEB:http://paizo.com/products/btpy8sa7
 SOURCEDATE:2012-07
+RANK:201207
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/player_companion/blood_of_angels/blood_of_angels.jpeg

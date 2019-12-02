@@ -11,6 +11,65 @@
 # NEWCATEGORY:Spell-like Ability
 # RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race
 
+RACE:Familiar (Bat)								MAXVER:6.08.00	NEWKEY:Bat
+RACE:Familiar (Cat)								MAXVER:6.08.00	NEWKEY:Cat
+RACE:Familiar (Hawk)								MAXVER:6.08.00	NEWKEY:Hawk
+RACE:Familiar (Lizard)								MAXVER:6.08.00	NEWKEY:Lizard
+RACE:Familiar (Monkey)								MAXVER:6.08.00	NEWKEY:Monkey
+RACE:Familiar (Owl)								MAXVER:6.08.00	NEWKEY:Owl
+RACE:Familiar (Rat)								MAXVER:6.08.00	NEWKEY:Rat
+RACE:Familiar (Raven)								MAXVER:6.08.00	NEWKEY:Raven
+RACE:Familiar (Toad)								MAXVER:6.08.00	NEWKEY:Toad
+RACE:Familiar (Viper)								MAXVER:6.08.00	NEWKEY:Viper
+RACE:Familiar (Weasel)								MAXVER:6.08.00	NEWKEY:Weasel
+
+RACE:Familiar (Bat/Celestial)							MAXVER:6.08.00	NEWKEY:Bat (Celestial)
+RACE:Familiar (Cat/Celestial)							MAXVER:6.08.00	NEWKEY:Cat (Celestial)
+RACE:Familiar (Hawk/Celestial)						MAXVER:6.08.00	NEWKEY:Hawk (Celestial)
+RACE:Familiar (Lizard/Celestial)						MAXVER:6.08.00	NEWKEY:Lizard (Celestial)
+RACE:Familiar (Monkey/Celestial)						MAXVER:6.08.00	NEWKEY:Monkey (Celestial)
+RACE:Familiar (Owl/Celestial)							MAXVER:6.08.00	NEWKEY:Owl (Celestial)
+RACE:Familiar (Rat/Celestial)							MAXVER:6.08.00	NEWKEY:Rat (Celestial)
+RACE:Familiar (Raven/Celestial)						MAXVER:6.08.00	NEWKEY:Raven (Celestial)
+RACE:Familiar (Toad/Celestial)						MAXVER:6.08.00	NEWKEY:Toad (Celestial)
+RACE:Familiar (Viper/Celestial)						MAXVER:6.08.00	NEWKEY:Viper (Celestial)
+RACE:Familiar (Weasel/Celestial)						MAXVER:6.08.00	NEWKEY:Weasel (Celestial)
+
+RACE:Familiar (Bat/Fiendish)							MAXVER:6.08.00	NEWKEY:Bat (Fiendish)
+RACE:Familiar (Cat/Fiendish)							MAXVER:6.08.00	NEWKEY:Cat (Fiendish)
+RACE:Familiar (Hawk/Fiendish)							MAXVER:6.08.00	NEWKEY:Hawk (Fiendish)
+RACE:Familiar (Lizard/Fiendish)						MAXVER:6.08.00	NEWKEY:Lizard (Fiendish)
+RACE:Familiar (Monkey/Fiendish)						MAXVER:6.08.00	NEWKEY:Monkey (Fiendish)
+RACE:Familiar (Owl/Fiendish)							MAXVER:6.08.00	NEWKEY:Owl (Fiendish)
+RACE:Familiar (Rat/Fiendish)							MAXVER:6.08.00	NEWKEY:Rat (Fiendish)
+RACE:Familiar (Raven/Fiendish)						MAXVER:6.08.00	NEWKEY:Raven (Fiendish)
+RACE:Familiar (Toad/Fiendish)							MAXVER:6.08.00	NEWKEY:Toad (Fiendish)
+RACE:Familiar (Viper/Fiendish)						MAXVER:6.08.00	NEWKEY:Viper (Fiendish)
+RACE:Familiar (Weasel/Fiendish)						MAXVER:6.08.00	NEWKEY:Weasel (Fiendish)
+
+RACE:Familiar (Rat/Dire)							MAXVER:6.08.00	NEWKEY:Rat (Dire)
+
+RACE:Familiar (Elemental (Air/Small))					MAXVER:6.08.00	NEWKEY:Elemental (Air/Small)
+RACE:Familiar (Elemental (Earth/Small))					MAXVER:6.08.00	NEWKEY:Elemental (Earth/Small)
+RACE:Familiar (Elemental (Fire/Small))					MAXVER:6.08.00	NEWKEY:Elemental (Fire/Small)
+RACE:Familiar (Elemental (Water/Small))					MAXVER:6.08.00	NEWKEY:Elemental (Water/Small)
+RACE:Familiar (Stirge)								MAXVER:6.08.00	NEWKEY:Stirge
+
+RACE:Familiar (Homonculus)							MAXVER:6.08.00	NEWKEY:Homonculus
+RACE:Familiar (Imp)								MAXVER:6.08.00	NEWKEY:Devil (Imp)
+RACE:Familiar (Maphit (Air))							MAXVER:6.08.00	NEWKEY:Mephit (Air)
+RACE:Familiar (Maphit (Dust))							MAXVER:6.08.00	NEWKEY:Mephit (Dust)
+RACE:Familiar (Maphit (Earth))						MAXVER:6.08.00	NEWKEY:Mephit (Earth)
+RACE:Familiar (Maphit (Fire))							MAXVER:6.08.00	NEWKEY:Mephit (Fire)
+RACE:Familiar (Maphit (Ice))							MAXVER:6.08.00	NEWKEY:Mephit (Ice)
+RACE:Familiar (Maphit (Magma))						MAXVER:6.08.00	NEWKEY:Mephit (Magma)
+RACE:Familiar (Maphit (Ooze))							MAXVER:6.08.00	NEWKEY:Mephit (Ooze)
+RACE:Familiar (Maphit (Salt))							MAXVER:6.08.00	NEWKEY:Mephit (Salt)
+RACE:Familiar (Maphit (Steam))						MAXVER:6.08.00	NEWKEY:Mephit (Steam)
+RACE:Familiar (Maphit (Water))						MAXVER:6.08.00	NEWKEY:Mephit (Water)
+RACE:Familiar (Pseudodragon)							MAXVER:6.08.00	NEWKEY:Pseudodragon
+RACE:Familiar (Quasit)								MAXVER:6.08.00	NEWKEY:Demon (Quasit)
+
 EQUIPMENT:Musical Instrument (Harpsichord/Masterwork		MAXVER:6.07.08	NEWKEY:Musical Instrument (Harpsichord/Masterwork)
 EQUIPMENT:Artisan's Tools (Armor/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)
 EQUIPMENT:Artisan's Tools (Baskets/Masterwork)			MAXVER:6.07.08	NEWKEY:Artisan's Tools (Masterwork)

@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Auran - Dark Awakenings - Guardian
 GAMEMODE:3e
-RANK:7
 GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Auran d20 - Dark Awakenings - Guardian
 SOURCESHORT:Guardian
 SOURCEWEB:http://www.auran.com/d20
 SOURCEDATE:2000-01
+RANK:200001
 # COMMENT: Unknown Month - Set as 01, unknown year
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc. This material is Open Game Content, and is licensed for public use under the terms of the Open Game License v1.0a.

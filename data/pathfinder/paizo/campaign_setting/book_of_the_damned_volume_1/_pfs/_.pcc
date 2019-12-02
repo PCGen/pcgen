@@ -3,7 +3,6 @@ CAMPAIGN:Princes of Darkness (PFS)
 KEY:PFS ~ Princes of Darkness
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Campaign Setting
-RANK:2
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -17,6 +16,7 @@ SOURCELONG:Princes of Darkness, Book of the Damned, Volume 1
 SOURCESHORT:BOTD1
 SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinderRPG/paizo/pathfinderChronicles/v5748btpy8a6f
 SOURCEDATE:2009-10
+RANK:200910
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/campaign_setting/book_of_the_damned_volume_1/book_of_the_damned_volume_1.jpg

@@ -2,7 +2,6 @@
 CAMPAIGN:Magical Marketplace
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Player Companion: Magical Marketplace
 SOURCESHORT:MM
 SOURCEWEB:http://paizo.com/products/btpy92lv
 SOURCEDATE:2013-12
+RANK:201312
 ISOGL:YES
 
 COVER:magical_marketplace.jpg

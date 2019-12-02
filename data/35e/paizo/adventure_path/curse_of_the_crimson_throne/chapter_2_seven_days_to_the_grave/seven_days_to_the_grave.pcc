@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Jun 24 11:50:27 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:Paizo - Curse of the Crimson Throne - Chapter 2: Seven Days to the Grave
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Adventure
@@ -15,6 +14,7 @@ SOURCELONG:Curse of the Crimson Thrown: Seven Days to the Grave
 SOURCESHORT:CotCT:SDttG
 SOURCEWEB:http://paizo.com/store/games/roleplayingGames/p/pathfinder/v5748btpy82qy
 SOURCEDATE:2008-04
+RANK:200804
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.

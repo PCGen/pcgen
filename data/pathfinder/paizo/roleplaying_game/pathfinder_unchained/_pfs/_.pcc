@@ -4,7 +4,6 @@ KEY:PFS ~ Pathfinder Unchained ~ Unchained Summoner
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder RPG
 STATUS:BETA
-RANK:1
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
@@ -18,6 +17,7 @@ SOURCELONG:Pathfinder Unchained
 SOURCESHORT:PU
 SOURCEWEB:http://paizo.com/products/btpy97vo
 SOURCEDATE:2015-04
+RANK:201504
 ISOGL:YES
 INFOTEXT:Includes ONLY the Unchained Summoner and supporting rules for the Summoner. This is a PCGen Team rapid support release for those that require the Unchained Summoner to enjoy their games. The rest of the book will be implemented soon(tm).
 

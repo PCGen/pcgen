@@ -1,7 +1,6 @@
 CAMPAIGN:Divine Anthology
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Pathfinder Player Companion: Divine Anthology
 SOURCESHORT:DA
 SOURCEWEB:http://paizo.com/products/btpy9nvh
 SOURCEDATE:2016-10
+RANK:201610
 ISOGL:YES
 
 COVER:divine_anthology.jpg

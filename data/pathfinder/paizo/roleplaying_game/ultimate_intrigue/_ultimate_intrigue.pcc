@@ -2,7 +2,6 @@
 CAMPAIGN:Ultimate Intrigue
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
-RANK:1
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
@@ -15,6 +14,7 @@ SOURCELONG:Ultimate Intrigue
 SOURCESHORT:UI
 #SOURCEWEB:http://paizo.com/products/btpy9j6p?Pathfinder-Roleplaying-Game-Ultimate-Intrigue
 SOURCEDATE:2016-04
+RANK:201604
 ISOGL:YES
 
 COVER:ultimate_intrigue.jpg

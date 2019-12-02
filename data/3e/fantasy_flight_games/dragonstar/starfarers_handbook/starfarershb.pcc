@@ -2,7 +2,6 @@
 CAMPAIGN:FFG - Dragonstar - Starfarer's Handbook
 GAMEMODE:3e
 #GAME:Dragonstar
-RANK:2
 GENRE:Space Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Dragonstar
@@ -15,6 +14,7 @@ SOURCELONG:Fantasy Flight Games - Dragonstar - Starfarer's Handbook
 SOURCESHORT:StarfarerH
 SOURCEWEB:http://www.fantasyflightgames.com/dragonstar.html
 SOURCEDATE:2001-12
+RANK:200112
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson

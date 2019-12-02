@@ -2,7 +2,6 @@
 CAMPAIGN:Second Darkness, Chapter 1 - Shadow in the Sky (Conversion)
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Second Darkness
-RANK:4
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Adventure
@@ -15,6 +14,7 @@ SOURCELONG:Second Darkness, Chapter 1 - Shadow in the Sky
 SOURCESHORT:AP13
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/secondDarkness/v5748btpy84em
 SOURCEDATE:2008-08
+RANK:200808
 ISOGL:YES
 
 COVER:ap13.jpg

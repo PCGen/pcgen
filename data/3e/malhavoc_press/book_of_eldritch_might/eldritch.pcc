@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:MP - Book of Eldritch Might - Source Book
 GAMEMODE:3e
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Malhavoc Press - Book of Eldritch Might
 SOURCESHORT:BoEM1
 SOURCEWEB:http://www.montecook.com
 SOURCEDATE:2001-12
+RANK:200112
 ISOGL:YES
 COPYRIGHT:The Book of Eldritch Might &copy;2001 Monte J. Cook
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

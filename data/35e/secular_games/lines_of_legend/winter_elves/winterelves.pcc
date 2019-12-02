@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Thu Jan 18 15:16:03 2007 -- reformated by prettylst.pl v1.35 (build 1495)
 CAMPAIGN:Secular Games - Lines of Legend - Winter Elves
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 STATUS:RELEASE
@@ -14,6 +13,7 @@ SOURCELONG:Lines of Legend - Winter Elves
 SOURCESHORT:LoL-WE
 SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#we
 SOURCEDATE:2006-01
+RANK:200601
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

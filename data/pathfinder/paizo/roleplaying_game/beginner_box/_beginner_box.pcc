@@ -1,7 +1,6 @@
 CAMPAIGN:Beginner Box
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Beginner Box
 SOURCESHORT:BBox
 SOURCEWEB:http://paizo.com/products/btpy8osv
 SOURCEDATE:2011-10
+RANK:201110
 ISOGL:YES
 
 COVER:beginner_box.jpg

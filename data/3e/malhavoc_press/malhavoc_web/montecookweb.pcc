@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:MP - Monte Cook - Web Enhancements
 GAMEMODE:3e
-RANK:7
 GENRE:Fantasy
 BOOKTYPE:Web Enhancement
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Malhavoc Press - Web Enhancements
 SOURCESHORT:MalhavocWb
 SOURCEWEB:http://www.montecook.com
 SOURCEDATE:2001-01
+RANK:200101
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

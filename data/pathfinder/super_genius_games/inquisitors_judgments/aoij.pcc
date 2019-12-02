@@ -3,7 +3,6 @@ CAMPAIGN:Advanced Options: Inquisitors' Judgments
 GAMEMODE:Pathfinder
 TYPE:Super Genius Games.Advanced Options
 STATUS:BETA
-RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
@@ -13,6 +12,7 @@ PUBNAMEWEB:http://www.supergeniusgames.com
 SOURCELONG:Advanced Options: Inquisitors' Judgments
 SOURCESHORT:AOIJ
 SOURCEDATE:2010-12
+RANK:201012
 ISOGL:YES
 
 COVER:aoij.jpg

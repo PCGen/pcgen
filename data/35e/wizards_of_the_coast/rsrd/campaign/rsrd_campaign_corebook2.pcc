@@ -1,6 +1,5 @@
 # CVS $Revision: 22909 $ $Author: amaitland $ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
 CAMPAIGN:3.5 RSRD - Campaign Set - Core Books I and II
-RANK:1
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Core Rules
@@ -14,6 +13,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document
 SOURCESHORT:RSRD
 SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 SOURCEDATE:2003-07
+RANK:200307
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

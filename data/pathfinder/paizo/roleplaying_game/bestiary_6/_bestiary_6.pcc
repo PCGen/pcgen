@@ -2,7 +2,6 @@ CAMPAIGN:Bestiary 6 (Player Options Only)
 KEY:Bestiary 6
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
-RANK:2
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -17,6 +16,7 @@ SOURCELONG:Bestiary 6
 SOURCESHORT:B6
 SOURCEWEB:http://paizo.com/products/btpy9r1y
 SOURCEDATE:2017-05
+RANK:201705
 ISOGL:YES
 
 COVER:bestiary_6.jpg

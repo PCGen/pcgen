@@ -3,7 +3,6 @@ CAMPAIGN:Battlefield Press - Sherwood - The Legend of Robin Hood
 GAMEMODE:35e
 TYPE:Battlefield Press.Sherwood
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Fantasy
@@ -14,6 +13,7 @@ SOURCELONG:Sherwood - The Legend of Robin Hood
 SOURCESHORT:Sherwood
 SOURCEWEB:www.battlefieldpress.com
 SOURCEDATE:2008-01
+RANK:200801
 ISOGL:YES
 #
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

@@ -3,7 +3,6 @@ CAMPAIGN:Pathfinder Society Primer (PFS)
 KEY:PFS ~ Pathfinder Society Primer
 #GAMEMODE:Pathfinder
 TYPE:Paizo Publishing PFS.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -17,6 +16,7 @@ SOURCELONG:Pathfinder Player Companion: Pathfinder Society Primer
 SOURCESHORT:PFSP
 SOURCEWEB:http://paizo.com/products/btpy8yw6
 SOURCEDATE:2013-07
+RANK:201307
 ISOGL:YES
 
 #COVER:pathfinder_society_primer.jpeg

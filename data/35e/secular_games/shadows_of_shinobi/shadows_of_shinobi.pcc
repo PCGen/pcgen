@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Mon Jan 15 09:55:37 2007 -- reformated by prettylst.pl v1.35 (build 1495)
 CAMPAIGN:Secular Games - Shadows of Shinobi
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 TYPE:Secular Games
@@ -13,6 +12,7 @@ SOURCELONG:Shadows of Shinobi
 SOURCESHORT:SoS
 SOURCEWEB:http://paginas.terra.com.br/lazer/tiagobhz/secular/site/products.html#ninja
 SOURCEDATE:2005-01
+RANK:200501
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

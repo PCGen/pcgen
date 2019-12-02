@@ -27,3 +27,7 @@ Poison (Quick Rot)		TYPE:Goods.Poison.Consumable		COST:450			SOURCEPAGE:p.12	SPR
 Poison (Xensh Spores)		TYPE:Goods.Poison.Consumable		COST:1200			SOURCEPAGE:p.12	SPROP:Inhaled; Fort DC 16; Onset 10 min; Freq 1 hr (6); Effect 1d2 Dex dmg, until the Dex damage is healed, the victim regains only half the normal amount of hit points from channeled energy and conjuration (healing) spells; Cure 2 consecutive saves
 
 Drug (Pesh)			TYPE:Goods.Drug.Consumable		COST:15			SOURCEPAGE:p.19		SPROP:Ingested or inhaled; Addiction moderate, Fortitude DC 20; Effect 1 hr; +1d2 alchemical bonus to Strength, –2 penalty on saves against illusions and mind-affecting effects; Effect after 1 hr; 1d2 hours of fatigue; Damage 1d2 Con and 1d2 Wis damage; [POWER COMPONENT] Doses 1; Spells enchantment school; Effect +1 caster level for the purpose of duration
+
+
+
+

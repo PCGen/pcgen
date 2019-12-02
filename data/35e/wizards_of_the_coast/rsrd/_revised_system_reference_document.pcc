@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
 CAMPAIGN:Dungeons & Dragons Revised (v.3.5) System Reference Document
 KEY:3.5 RSRD
-RANK:1
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Core Rules
@@ -15,6 +14,7 @@ SOURCELONG:Revised (v.3.5) System Reference Document
 SOURCESHORT:RSRD
 SOURCEWEB:http://www.wizards.com/default.asp?x=d20/article/srd35
 SOURCEDATE:2003-07
+RANK:200307
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.

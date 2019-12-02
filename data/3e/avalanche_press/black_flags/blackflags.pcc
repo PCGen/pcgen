@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:Avalanche - Black Flags
 GAMEMODE:3e
-RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Avalanche Press - Black Flags - Piracy in the Caribbean
 SOURCESHORT:BlackFlags
 SOURCEWEB:http://www.avalanchepress.com
 SOURCEDATE:2002-01
+RANK:200201
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

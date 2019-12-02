@@ -1,7 +1,6 @@
 CAMPAIGN:Sagaborn Roleplaying System
 KEY:Sagaborn - Sagaborn Roleplaying System
 GAMEMODE:Sagaborn
-RANK:0
 !PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules[Sagaborn - Sagaborn Roleplaying System]
 GENRE:Fantasy
 BOOKTYPE:Core Rules
@@ -15,6 +14,7 @@ SOURCELONG:Sagaborn Roleplaying System
 SOURCESHORT:SRS
 SOURCEWEB:http://sagaborn.com/
 SOURCEDATE:2016-07
+RANK:201607
 ISOGL:YES
 # COVER should be cover_gameMode_pub_book.file
 COVER:@/_images/sagaborn/cover_sagaborn_lwe_srs.jpg
@@ -26,7 +26,7 @@ URL:WEBSITE|http://www.sagaborn.com/|Visit SagaBorn!
 URL:DriveThruRPG.com|http://www.drivethrurpg.com/product/189686/SagaBorn-Roleplaying-Game-Beta&affiliate_id=200170|Buy this pdf from DriveThruRPG!
 URL:RPG Now.com|http://www.rpgnow.com/product/189686/SagaBorn-Roleplaying-Game-Beta&affiliate_id=200170|Buy this pdf from RPGNow!
 URL:SagaBorn Store|http://www.sagaborn.com/store/sagaborn_rpg|Buy this pdf from the SagaBorn store!
-DESC:A simple, story focused D20 OGL system. The SagaBorn Roleplaying System was created as a simplified D20 system. Its goal is to present a system that is simple, streamlined, and efficient. It is meant to encourage more storytelling and epic action rather than browsing through rulebooks and arguing over what is “allowed.”
+DESC:A simple, story focused D20 OGL system. The SagaBorn Roleplaying System was created as a simplified D20 system. Its goal is to present a system that is simple, streamlined, and efficient. It is meant to encourage more storytelling and epic action rather than browsing through rulebooks and arguing over what is ï¿½allowed.ï¿½
 INFOTEXT:Sagaborn Roleplaying System Beta v.9
 
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

@@ -2,7 +2,6 @@ CAMPAIGN:Bestiary 5 (Player Options Only)
 KEY:Bestiary 5
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG
-RANK:2
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -17,6 +16,7 @@ SOURCELONG:Bestiary 5
 SOURCESHORT:B5
 SOURCEWEB:http://paizo.com/products/btpy9g9x
 SOURCEDATE:2015-12
+RANK:201512
 ISOGL:YES
 
 COVER:bestiary_5.jpg

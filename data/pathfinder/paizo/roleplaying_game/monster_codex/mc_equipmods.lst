@@ -2,8 +2,8 @@
 SOURCELONG:Monster Codex	SOURCESHORT:MC	SOURCEWEB:http://paizo.com/products/btpy9926?Pathfinder-Roleplaying-Game-Monster-Codex	SOURCEDATE:2014-11
 
 # Modifier Name	Unique Key						Type				Plus		Visible		Source Page		Multiple Requirements								Required Type															Special Property
-Burning		KEY:Special Ability ~ Burning ~ Weapon	TYPE:Weapon			PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.57												PRETYPE:2,Enhancement,Weapon													SPROP:Causes an unattended flammable objects to ignite
+Burning		KEY:Special Ability ~ Burning ~ Weapon	TYPE:Weapon			PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.57												PRETYPE:2,WeaponEnhancement,Weapon													SPROP:Causes an unattended flammable objects to ignite
 Catalytic		KEY:Special Ability ~ Catalytic ~ Weapon	TYPE:Weapon.Ammunition	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.177												PRETYPE:1,EQMOD=Special Ability ~ Corrosive ~ Weapon,EQMOD=Special Ability ~ Corrosive Burst ~ Weapon	SPROP:Creatures struck must save or take acid damage for 1d4 additional rounds
-Virulent		KEY:Special Ability ~ Virulent ~ Weapon	TYPE:Weapon			PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.177												PRETYPE:2,Enhancement,Weapon													SPROP:Poison delivered by this weapon has DC, rounds of duration increased by a number equal to enhancement bonus
+Virulent		KEY:Special Ability ~ Virulent ~ Weapon	TYPE:Weapon			PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.177												PRETYPE:2,WeaponEnhancement,Weapon													SPROP:Poison delivered by this weapon has DC, rounds of duration increased by a number equal to enhancement bonus
 
-Steaming		KEY:Special Ability ~ Steaming ~ Armor	TYPE:Armor			PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.57	PREMULT:2,[PRETYPE:2,Enhancement,Armor],[PRETYPE:1,Heavy,Medium]
+Steaming		KEY:Special Ability ~ Steaming ~ Armor	TYPE:Armor			PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.57	PREMULT:2,[PRETYPE:2,ArmorEnhancement,Armor],[PRETYPE:1,Heavy,Medium]

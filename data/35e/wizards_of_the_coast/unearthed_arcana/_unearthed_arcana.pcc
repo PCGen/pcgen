@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 CAMPAIGN:Unearthed Arcana
 KEY:Unearthed Arcana
-RANK:4
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ PUBNAMESHORT:WotC
 SOURCELONG:Unearthed Arcana
 SOURCESHORT:UA
 SOURCEDATE:2004-02
+RANK:200402
 #SOURCEWEB:
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

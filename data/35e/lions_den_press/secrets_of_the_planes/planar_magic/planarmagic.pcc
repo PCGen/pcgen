@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
 CAMPAIGN:Lion's Den Press - Secrets of the Planes - Planar Magic
 GAMEMODE:35e
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Planar
@@ -14,6 +13,7 @@ SOURCELONG:Secrets of the Planes - Planar Magic
 SOURCESHORT:PlanarMagic
 SOURCEWEB:http://www.lionsdenpress.com/
 SOURCEDATE:2005-01
+RANK:200501
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v. 1.0a Copyright 2000, Wizards of the Coast, Inc.
