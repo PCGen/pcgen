@@ -269,18 +269,11 @@ public class BatchExporter
 			character.export(ExportHandler.createExportHandler(templateFile), bw);
 			character.setDefaultOutputSheet(false, templateFile);
 			return true;
-		}
-		catch (final UnsupportedEncodingException e)
+		} catch (final IOException e)
 		{
 			Logging.errorPrint("Unable to create output file " + outFile.getAbsolutePath(), e);
 			return false;
-		}
-		catch (final IOException e)
-		{
-			Logging.errorPrint("Unable to create output file " + outFile.getAbsolutePath(), e);
-			return false;
-		}
-		catch (final ExportException e)
+		} catch (final ExportException e)
 		{
 			// Error will already be reported to the log
 			return false;

@@ -68,7 +68,7 @@ public class Selection<BT extends CDOMObject, SEL>
 		{
 			Selection<?, ?> other = (Selection<?, ?>) obj;
 			boolean selectionEqual =
-					(selection == other.selection) || (selection != null && selection.equals(other.selection));
+                    Objects.equals(selection, other.selection);
 			return selectionEqual && base.equals(other.base);
 		}
 		return false;

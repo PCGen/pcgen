@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.helper;
 
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
@@ -79,7 +80,7 @@ public class CNAbilitySelection extends ConcretePrereqObject implements Qualifyi
 
 	public boolean containsAssociation(String assoc)
 	{
-		return (assoc == null) ? (selection == null) : assoc.equals(selection);
+		return Objects.equals(assoc, selection);
 	}
 
 	public String getPersistentFormat()

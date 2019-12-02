@@ -99,8 +99,8 @@ public class BridgeListenerTest
 		ScopeInstance instance =
 				new SimpleScopeInstance(Optional.empty(), scope, owner);
 		TransparentFormatManager<PCTemplate> formatManager =
-				new TransparentFormatManager<PCTemplate>(PCTemplate.class,
-					"PCTEMPLATE");
+				new TransparentFormatManager<>(PCTemplate.class,
+						"PCTEMPLATE");
 		VariableID<PCTemplate> varID =
 				new VariableID<>(instance, formatManager, "VarName");
 		PCTemplate t1 = new PCTemplate();
@@ -132,8 +132,8 @@ public class BridgeListenerTest
 		ScopeInstance instance =
 				new SimpleScopeInstance(Optional.empty(), scope, owner);
 		TransparentFormatManager<PCTemplate[]> formatManager =
-				new TransparentFormatManager<PCTemplate[]>(PCTemplate[].class,
-					"PCTEMPLATE");
+				new TransparentFormatManager<>(PCTemplate[].class,
+						"PCTEMPLATE");
 		VariableID<PCTemplate[]> varID =
 				new VariableID<>(instance, formatManager, "VarName");
 		PCTemplate t1 = new PCTemplate();

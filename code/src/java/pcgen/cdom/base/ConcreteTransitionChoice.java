@@ -17,11 +17,7 @@
  */
 package pcgen.cdom.base;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.AssociationListKey;
@@ -141,7 +137,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 		if (obj instanceof ConcreteTransitionChoice)
 		{
 			ConcreteTransitionChoice<?> other = (ConcreteTransitionChoice<?>) obj;
-			if (choiceCount == other.choiceCount || (choiceCount != null && choiceCount.equals(other.choiceCount)))
+			if (Objects.equals(choiceCount, other.choiceCount))
 			{
 				return choices.equals(other.choices);
 			}

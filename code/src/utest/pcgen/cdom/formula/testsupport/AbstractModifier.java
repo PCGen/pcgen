@@ -140,44 +140,38 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	public static AbstractModifier<Number[]> addToArray(final int value,
 		int priority)
 	{
-		return new AbstractModifier<Number[]>(0, NUMBER_ARR_FORMAT, priority)
-		{
-			@Override
-			public Number[] process(EvaluationManager manager)
-			{
-				Number[] input = (Number[]) manager.get(EvaluationManager.INPUT);
-				Number[] newArray =
-						(Number[]) Array.newInstance(NUMBER_FORMAT.getManagedClass(),
-							input.length + 1);
-				System.arraycopy(input, 0, newArray, 0, input.length);
-				newArray[newArray.length - 1] = value;
-				return newArray;
-			}
+		return new AbstractModifier<>(0, NUMBER_ARR_FORMAT, priority) {
+            @Override
+            public Number[] process(EvaluationManager manager) {
+                Number[] input = (Number[]) manager.get(EvaluationManager.INPUT);
+                Number[] newArray =
+                        (Number[]) Array.newInstance(NUMBER_FORMAT.getManagedClass(),
+                                input.length + 1);
+                System.arraycopy(input, 0, newArray, 0, input.length);
+                newArray[newArray.length - 1] = value;
+                return newArray;
+            }
 
-			@Override
-			public String getInstructions()
-			{
-				return "append " + Integer.toString(value);
-			}
-		};
+            @Override
+            public String getInstructions() {
+                return "append " + Integer.toString(value);
+            }
+        };
 	}
 
 	public static AbstractModifier<Number[]> setEmptyArray(int priority)
 	{
-		return new AbstractModifier<Number[]>(0, NUMBER_ARR_FORMAT, priority)
-		{
-			@Override
-			public Number[] process(EvaluationManager manager)
-			{
-				return new Number[]{};
-			}
+		return new AbstractModifier<>(0, NUMBER_ARR_FORMAT, priority) {
+            @Override
+            public Number[] process(EvaluationManager manager) {
+                return new Number[]{};
+            }
 
-			@Override
-			public String getInstructions()
-			{
-				return "[]";
-			}
-		};
+            @Override
+            public String getInstructions() {
+                return "[]";
+            }
+        };
 	}
 
 	public static AbstractModifier<Number> setNumber(final int value,
@@ -188,101 +182,85 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 
 	public static AbstractModifier<String> setString(String s)
 	{
-		return new AbstractModifier<String>(0, STRING_FORMAT)
-		{
-			@Override
-			public String process(EvaluationManager manager)
-			{
-				return s;
-			}
+		return new AbstractModifier<>(0, STRING_FORMAT) {
+            @Override
+            public String process(EvaluationManager manager) {
+                return s;
+            }
 
-			@Override
-			public String getInstructions()
-			{
-				return s;
-			}
-		};
+            @Override
+            public String getInstructions() {
+                return s;
+            }
+        };
 	}
 
 	public static AbstractModifier<Number> multiply(final int value,
 		int priority)
 	{
-		return new AbstractModifier<Number>(1, NUMBER_FORMAT, priority)
-		{
-			@Override
-			public Number process(EvaluationManager manager)
-			{
-				return NumberUtilities.multiply((Number) manager.get(EvaluationManager.INPUT), value);
-			}
+		return new AbstractModifier<>(1, NUMBER_FORMAT, priority) {
+            @Override
+            public Number process(EvaluationManager manager) {
+                return NumberUtilities.multiply((Number) manager.get(EvaluationManager.INPUT), value);
+            }
 
-			@Override
-			public String getInstructions()
-			{
-				return "*" + Integer.toString(value);
-			}
-		};
+            @Override
+            public String getInstructions() {
+                return "*" + Integer.toString(value);
+            }
+        };
 	}
 
 	public static AbstractModifier<Number> add(final int value, int priority)
 	{
-		return new AbstractModifier<Number>(2, NUMBER_FORMAT, priority)
-		{
-			@Override
-			public Number process(EvaluationManager manager)
-			{
-				return NumberUtilities.add((Number) manager.get(EvaluationManager.INPUT), value);
-			}
+		return new AbstractModifier<>(2, NUMBER_FORMAT, priority) {
+            @Override
+            public Number process(EvaluationManager manager) {
+                return NumberUtilities.add((Number) manager.get(EvaluationManager.INPUT), value);
+            }
 
-			@Override
-			public String getInstructions()
-			{
-				return "+" + Integer.toString(value);
-			}
-		};
+            @Override
+            public String getInstructions() {
+                return "+" + Integer.toString(value);
+            }
+        };
 	}
 
 
 	public static AbstractModifier<Number> add(final ComplexNEPFormula<?> value, int priority)
 	{
-		return new AbstractModifier<Number>(2, NUMBER_FORMAT, priority)
-		{
-			@Override
-			public Number process(EvaluationManager manager)
-			{
-				Number result = (Number) value.resolve(manager);
-				return NumberUtilities.add((Number) manager.get(EvaluationManager.INPUT), result);
-			}
+		return new AbstractModifier<>(2, NUMBER_FORMAT, priority) {
+            @Override
+            public Number process(EvaluationManager manager) {
+                Number result = (Number) value.resolve(manager);
+                return NumberUtilities.add((Number) manager.get(EvaluationManager.INPUT), result);
+            }
 
-			@Override
-			public void getDependencies(DependencyManager fdm)
-			{
-				value.getDependencies(fdm);
-			}
+            @Override
+            public void getDependencies(DependencyManager fdm) {
+                value.getDependencies(fdm);
+            }
 
-			@Override
-			public String getInstructions()
-			{
-				return "*" + value;
-			}
-		};
+            @Override
+            public String getInstructions() {
+                return "*" + value;
+            }
+        };
 	}
 
 	public static <T> AbstractModifier<T> setObject(FormatManager<T> fmt, final T value, int priority)
 	{
-		return new AbstractModifier<T>(2, fmt, priority)
-		{
-			@Override
-			public T process(EvaluationManager manager)
-			{
-				return value;
-			}
+		return new AbstractModifier<>(2, fmt, priority) {
+            @Override
+            public T process(EvaluationManager manager) {
+                return value;
+            }
 
-			@Override
-			public String getInstructions()
-			{
-				return value.toString();
-			}
-		};
+            @Override
+            public String getInstructions() {
+                return value.toString();
+            }
+        };
 	}
 
 }
