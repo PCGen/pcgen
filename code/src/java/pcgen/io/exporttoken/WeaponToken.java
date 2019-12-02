@@ -1279,7 +1279,7 @@ public class WeaponToken extends Token
 
 			if (altCritRange != critrange)
 			{
-				sb.append("/" + altCritRange);
+				sb.append("/").append(altCritRange);
 
 				if (altCritRange < 20)
 				{

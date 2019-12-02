@@ -385,9 +385,8 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 			}
 		}
 
-		List<InfoFacade> allObjects = new ArrayList<>();
-		Globals.sortPObjectListByName(classes);
-		allObjects.addAll(classes);
+        Globals.sortPObjectListByName(classes);
+        List<InfoFacade> allObjects = new ArrayList<>(classes);
 		Globals.sortPObjectListByName(domains);
 		allObjects.addAll(domains);
 

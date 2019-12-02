@@ -111,8 +111,7 @@ public class BasicLoader<T extends CDOMObject> implements Loader
 			{
 				try
 				{
-					changeLogWriter
-						.append("Line " + line + " converted '" + token + "' to '" + tpe.getResult() + "'.\n");
+					changeLogWriter.append("Line ").append(String.valueOf(line)).append(" converted '").append(token).append("' to '").append(tpe.getResult()).append("'.\n");
 				}
 				catch (IOException e)
 				{

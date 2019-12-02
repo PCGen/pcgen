@@ -68,7 +68,7 @@ public class EqToken extends Token
 	public String getToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		// Starting EQ.%.NAME.MAGIC,befTrue,aftTrue,befFalse,aftFalse reading
-		String bFilter = "";
+		StringBuilder bFilter = new StringBuilder();
 		String befTrue = "";
 		String aftTrue = "";
 		String befFalse = "";
@@ -82,7 +82,7 @@ public class EqToken extends Token
 		 */
 		if (bTok.countTokens() >= 3)
 		{
-			bFilter = bTok.nextToken();
+			bFilter = new StringBuilder(bTok.nextToken());
 			befTrue = bTok.nextToken();
 			aftTrue = bTok.nextToken();
 
@@ -92,10 +92,10 @@ public class EqToken extends Token
 				aftFalse = bTok.nextToken();
 			}
 
-			tokenSource = tokenSource.substring(0, bFilter.lastIndexOf('.'));
+			tokenSource = tokenSource.substring(0, bFilter.toString().lastIndexOf('.'));
 		}
 
-		bTok = new StringTokenizer(bFilter, ".");
+		bTok = new StringTokenizer(bFilter.toString(), ".");
 
 		boolean if_detected = false;
 
@@ -111,11 +111,11 @@ public class EqToken extends Token
 			{
 				if (if_detected)
 				{
-					bFilter = bFilter + "." + bString;
+					bFilter.append(".").append(bString);
 				}
 				else
 				{
-					bFilter = bString;
+					bFilter = new StringBuilder(bString);
 				}
 			}
 		}
@@ -231,9 +231,9 @@ public class EqToken extends Token
 				retString = FileAccess.filterString(getEqToken(pc, eq, tempString, aTok));
 
 				// Starting EQ.%.NAME.MAGIC,befTrue,aftTrue,befFalse,aftFalse treatment
-				if (bFilter != null && !bFilter.isEmpty())
+				if (bFilter != null && (bFilter.length() > 0))
 				{
-					aTok = new StringTokenizer(bFilter, ".");
+					aTok = new StringTokenizer(bFilter.toString(), ".");
 
 					boolean result = false;
 					boolean and_operation = false;

@@ -150,15 +150,15 @@ public class KitBio extends BaseKit
 
 		if (theCharacterName != null)
 		{
-			info.append(" Name: " + theCharacterName);
+			info.append(" Name: ").append(theCharacterName);
 		}
 		if (theGenders != null)
 		{
-			info.append(" Gender: " + StringUtil.join(theGenders, ", "));
+			info.append(" Gender: ").append(StringUtil.join(theGenders, ", "));
 		}
 		if (theCharacterAge != null)
 		{
-			info.append(" Age: " + theCharacterAge);
+			info.append(" Age: ").append(theCharacterAge);
 		}
 
 		return info.toString();

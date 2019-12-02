@@ -272,12 +272,12 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			{
 				return "";
 			}
-			String ret = types.get(0);
+			StringBuilder ret = new StringBuilder(types.get(0));
 			for (int x = 1; x < types.size(); x++)
 			{
-				ret += ", " + types.get(x);
+				ret.append(", ").append(types.get(x));
 			}
-			return ret;
+			return ret.toString();
 		}
 
 		public void install()

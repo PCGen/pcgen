@@ -244,7 +244,7 @@ public abstract class VariableProcessor
 		if (aString.startsWith(".IF."))
 		{
 			final StringTokenizer aTok = new StringTokenizer(aString.substring(4), ".", true);
-			String bString = "";
+			StringBuilder bString = new StringBuilder();
 			Float val1 = null; // first value
 			Float val2 = null; // other value in comparison
 			Float valt = null; // value if comparison is true
@@ -261,7 +261,7 @@ public abstract class VariableProcessor
 					// Truncate final . character
 					val1 = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp); 
 					aTok.nextToken(); // discard next . character
-					bString = "";
+					bString = new StringBuilder();
 
 					if ("LT".equals(cString))
 					{
@@ -289,24 +289,24 @@ public abstract class VariableProcessor
 					// Truncate final . character
 					val2 = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp); 
 					aTok.nextToken(); // discard next . character
-					bString = "";
+					bString = new StringBuilder();
 				}
 				else if ("ELSE".equals(cString))
 				{
 					// Truncate final . character
 					valt = getVariableValue(aSpell, bString.substring(0, bString.length() - 1), src, spellLevelTemp);
 					aTok.nextToken(); // discard next . character
-					bString = "";
+					bString = new StringBuilder();
 				}
 				else
 				{
-					bString += cString;
+					bString.append(cString);
 				}
 			}
 
 			if ((val1 != null) && (val2 != null) && (valt != null))
 			{
-				valf = getVariableValue(aSpell, bString, src, spellLevelTemp);
+				valf = getVariableValue(aSpell, bString.toString(), src, spellLevelTemp);
 				total = valt;
 
 				switch (comp)

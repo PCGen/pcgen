@@ -344,7 +344,7 @@ public final class Kit extends PObject
 				{
 					info.append("; ");
 				}
-				info.append("  <b>" + objName + "</b>: ");
+				info.append("  <b>").append(objName).append("</b>: ");
 				lastObjectName = objName;
 			}
 			else

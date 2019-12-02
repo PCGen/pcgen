@@ -73,8 +73,7 @@ public class CampaignPanel extends ConvertSubPanel
 	public boolean performAnalysis(CDOMObject pc)
 	{
 		GameMode game = pc.get(ObjectKey.GAME_MODE);
-		List<String> gameModeList = new ArrayList<>();
-		gameModeList.addAll(game.getAllowedModes());
+        List<String> gameModeList = new ArrayList<>(game.getAllowedModes());
 
 		File sourceFolder = pc.get(ObjectKey.DIRECTORY);
 		folderName = sourceFolder.toURI().toString();

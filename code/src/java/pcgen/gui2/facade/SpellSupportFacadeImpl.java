@@ -359,8 +359,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade, EquipmentList
 		{
 			return Collections.emptyList();
 		}
-		List<InfoFacade> availableList = new ArrayList<>();
-		availableList.addAll(characterMetaMagicFeats);
+        List<InfoFacade> availableList = new ArrayList<>(characterMetaMagicFeats);
 		return availableList;
 	}
 
