@@ -2,7 +2,6 @@
 CAMPAIGN:Gnomes of Golarion
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Companion: Gnomes of Golarion
 SOURCESHORT:GNOG
 SOURCEWEB:http://paizo.com/products/btpy8dmh
 SOURCEDATE:2010-03
+RANK:201003
 ISOGL:YES
 
 COVER:gnomes_of_golarion.jpg

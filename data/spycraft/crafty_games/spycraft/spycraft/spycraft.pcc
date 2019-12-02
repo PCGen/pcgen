@@ -1,6 +1,5 @@
 CAMPAIGN:Spycraft Espionage Handbook
 GAMEMODE:Spycraft
-RANK:0
 GENRE:Espionage
 BOOKTYPE:Core Rules
 STATUS:RELEASE
@@ -13,6 +12,7 @@ SOURCELONG:AEG Spycraft
 SOURCESHORT:Spycraft
 SOURCEWEB:http://www.crafty-games.com/product_catalog/spycraftfirsted
 SOURCEDATE:2003-01
+RANK:200301
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:PCGen dataset conversion for AEG Copyright 2003-2005, PCgen Data Team including, but not limited to, Eddy Anthony, Bryan McRoberts, and Andrew (Tir Gwaith) McDougall.

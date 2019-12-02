@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Jun 24 11:50:27 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:Paizo - Curse of the Crimson Throne - Chapter 6: Crown of Fangs
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Adventure
@@ -15,6 +14,7 @@ SOURCELONG:Curse of the Crimson Throne - Chapter 6: Crown of Fangs
 SOURCESHORT:CotCT:CoF
 SOURCEWEB:http://paizo.com/store/paizo/v5748btpy84el
 SOURCEDATE:2008-08
+RANK:200808
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.

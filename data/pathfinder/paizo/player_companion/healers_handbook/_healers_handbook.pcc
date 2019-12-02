@@ -1,7 +1,6 @@
 CAMPAIGN:Healer's Handbook
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder RPG.Player Companion
-RANK:3
 GENRE:Fantasy
 STATUS:BETA
 BOOKTYPE:Supplement
@@ -13,6 +12,7 @@ PUBNAMEWEB:http://paizo.com/
 SOURCESHORT:HHB
 SOURCEWEB:http://paizo.com/products/btpy9qhn?Pathfinder-Player-Companion-Healers-Handbook
 SOURCEDATE:2017-02
+RANK:201702
 ISOGL:YES
 
 

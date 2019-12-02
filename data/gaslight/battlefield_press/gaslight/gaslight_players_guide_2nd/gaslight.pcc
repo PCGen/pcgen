@@ -4,7 +4,6 @@ KEY:BPI ~ Gaslight
 GAMEMODE:Gaslight
 TYPE:Battlefield Press Inc.Gaslight
 STATUS:BETA
-RANK:0
 GENRE:Modern
 BOOKTYPE:Core Rulebook
 SETTING:Modern
@@ -15,6 +14,7 @@ SOURCELONG:Gaslight - A Victorian Era Fantasy - Role Playing Game - Second Editi
 SOURCESHORT:Gaslight
 SOURCEWEB:http://www.battlefieldpress.com
 SOURCEDATE:2013-11
+RANK:201311
 ISOGL:YES
 
 COVER:gaslight.png

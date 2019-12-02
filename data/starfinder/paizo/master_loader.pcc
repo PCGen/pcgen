@@ -3,7 +3,6 @@ CAMPAIGN:Starfinder RPG Core Supplements
 KEY:Starfinder RPG Core Supplements
 GAMEMODE:Starfinder
 TYPE:Paizo Publishing
-RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:MultiSet
@@ -17,6 +16,7 @@ SOURCELONG:Starfinder Core
 SOURCESHORT:SC
 PUBNAMEWEB:http://www.paizo.com
 SOURCEDATE:2017-09
+RANK:201709
 ISOGL:YES
 
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!

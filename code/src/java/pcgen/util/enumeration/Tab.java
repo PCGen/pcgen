@@ -17,11 +17,6 @@
  */
 package pcgen.util.enumeration;
 
-import java.util.Collections;
-import java.util.Map;
-
-import pcgen.base.util.CaseInsensitiveMap;
-
 public enum Tab
 {
 	SUMMARY("Summary", "in_summary"),
@@ -43,53 +38,24 @@ public enum Tab
 	COMPANIONS("Companions", "in_companions"),
 	CHARACTERSHEET("Character Sheet", "in_character_sheet");
 
-	private static final Map<Object, Tab> BY_TEXT;
-
-	static
-	{
-		CaseInsensitiveMap<Tab> map = new CaseInsensitiveMap<>();
-		for (Tab t : values())
-		{
-			Tab previous = map.put(t.toString(), t);
-			if (previous != null)
-			{
-				throw new InternalError("Two Tab objects must not have same 'text' field: " + t.toString());
-			}
-		}
-		BY_TEXT = Collections.unmodifiableMap(map);
-	}
 	private final String text;
 	private final String label;
 	private final int index;
 
-	Tab(String t, String l)
+	Tab(String text, String label)
 	{
-		text = t;
-		index = 0;
+		this.index = 0;
 
-		if ("".equals(l))
-		{
-			label = t;
-		}
-		else
-		{
-			label = l;
-		}
+		this.text = text;
+		this.label = label.isEmpty() ? text : label;
 	}
 
-	Tab(String t, String l, int i)
+	Tab(String text, String label, int i)
 	{
-		text = t;
-		index = i;
+		this.index = i;
 
-		if ("".equals(l))
-		{
-			label = t;
-		}
-		else
-		{
-			label = l;
-		}
+		this.text = text;
+		this.label = label.isEmpty() ? text : label;
 	}
 
 	@Override
@@ -108,13 +74,20 @@ public enum Tab
 		return index;
 	}
 
-	public static boolean exists(String id)
+	public static boolean exists(String name)
 	{
-		return BY_TEXT.containsKey(id);
+		return getTab(name) != null;
 	}
 
 	public static Tab getTab(String name)
 	{
-		return BY_TEXT.get(name);
+		for (final Tab tab : Tab.values())
+		{
+			if (tab.text.equalsIgnoreCase(name))
+			{
+				return tab;
+			}
+		}
+		return null;
 	}
 }

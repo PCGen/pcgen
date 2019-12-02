@@ -3,7 +3,6 @@ CAMPAIGN:Humans of Golarion
 KEY:Humans of Golarion
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Pathfinder Player Companion: Humans of Golarion
 SOURCESHORT:HOG
 SOURCEWEB:http://paizo.com/products/btpy8l3k
 SOURCEDATE:2014-08
+RANK:201408
 ISOGL:YES
 
 COVER:PZO9417_180.jpeg

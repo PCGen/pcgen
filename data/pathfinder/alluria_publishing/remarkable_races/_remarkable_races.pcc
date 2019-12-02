@@ -2,7 +2,6 @@
 CAMPAIGN:Remarkable Races
 KEY:Remarkable Races
 GAMEMODE:Pathfinder
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -15,6 +14,7 @@ SOURCELONG:Remarkable Races: Compendium of Unusual PC Races, Pathway to Adventur
 SOURCESHORT:RR
 SOURCEWEB:http://www.alluriapublishing.net/compendium-p.htm
 SOURCEDATE:2009-01
+RANK:200901
 ISOGL:YES
 
 #INFOTEXT:ogl.txt

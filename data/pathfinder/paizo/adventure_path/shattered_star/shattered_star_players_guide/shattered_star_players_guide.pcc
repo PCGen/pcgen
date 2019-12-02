@@ -2,7 +2,6 @@
 CAMPAIGN:Shattered Star Player's Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Shattered Star
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -17,6 +16,7 @@ SOURCELONG:Shattered Star Player's Guide
 SOURCESHORT:SSPG
 SOURCEWEB:http://paizo.com/products/btpy8txj?Pathfinder-Adventure-Path-Shattered-Star-Players-Guide
 SOURCEDATE:2012-08
+RANK:201208
 ISOGL:YES
 
 COVER:shattered_star_players_guide.jpg

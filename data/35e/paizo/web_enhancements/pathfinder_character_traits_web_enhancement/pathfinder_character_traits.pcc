@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Sat Dec  8 13:05:34 2007 -- reformated by prettylst.pl v1.38 (build 4387)
 CAMPAIGN:Paizo - Pathfinder Character Traits Web Enhancement
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -13,6 +12,7 @@ SOURCELONG:Pathfinder Character Traits Web Enhancement
 SOURCESHORT:PCT
 SOURCEWEB:http://paizo.com/traits
 SOURCEDATE:2009-02
+RANK:200902
 ISOGL:YES
 ISLICENSED:NO
 

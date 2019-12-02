@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Tue Jun  4 18:21:03 2002 -- reformated by prettylst.pl v1.13
 CAMPAIGN:MP - The Complete Book of Eldritch Might - Source Book
 GAMEMODE:35e
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -15,6 +14,7 @@ SOURCELONG:Malhavoc Press - The Complete Book of Eldritch Might
 SOURCESHORT:BoEMC
 SOURCEWEB:http://www.montecook.com
 SOURCEDATE:2004-01
+RANK:200401
 ISOGL:YES
 COPYRIGHT:Open Game License v1.0a Copyright 2000-2003 Wizards of the Coast, Inc.
 COPYRIGHT:D20 System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redavan, and Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.

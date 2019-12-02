@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Mon Dec 16 23:11:14 2002 -- reformated by prettylst.pl v1.20 (build 234)
 CAMPAIGN:Mongoose Publishing - Power Classes Volume I - Assassin
 GAMEMODE:3e
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -14,6 +13,7 @@ SOURCELONG:Mongoose Publishing - Power Classes Volume I - Assassin
 SOURCESHORT:Assassin
 SOURCEWEB:http//www.mongoosepublishing.com
 SOURCEDATE:2002-01
+RANK:200201
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

@@ -2,7 +2,6 @@
 CAMPAIGN:Inner Sea Magic
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -16,6 +15,7 @@ SOURCELONG:Inner Sea Magic
 SOURCESHORT:ISM
 SOURCEWEB:http://paizo.com/products/btpy8mfs?Pathfinder-Campaign-Setting-Inner-Sea-Magic
 SOURCEDATE:2011-07
+RANK:201107
 ISOGL:YES
 
 COVER:inner_sea_magic.jpg

@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Wed Mar  2 20:15:46 2005 -- reformated by prettylst.pl v1.34 (build 455)
 CAMPAIGN:Sidewinder: Recoiled
-RANK:1
 GAMEMODE:Sidewinder
 GENRE:Western
 BOOKTYPE:Campaign Setting
@@ -13,6 +12,7 @@ SOURCELONG:Sidewinder: Recoiled
 SOURCESHORT:S:R
 SOURCEWEB:http://www.doghouserules.net/recoiled/index.html
 SOURCEDATE:2004-12
+RANK:200412
 ISOGL:YES
 COPYRIGHT:Open Game License v1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.

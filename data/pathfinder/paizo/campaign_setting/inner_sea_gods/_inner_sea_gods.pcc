@@ -2,7 +2,6 @@
 CAMPAIGN:Inner Sea Gods
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -14,6 +13,7 @@ PUBNAMEWEB:http://paizo.com
 SOURCELONG:Inner Sea Gods
 SOURCESHORT:ISG
 SOURCEDATE:2014-04
+RANK:201404
 ISOGL:YES
 
 COVER:PZO9267_180.jpeg

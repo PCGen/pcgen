@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:SP - Sovereign Stone Campaign Sourcebook
 GAMEMODE:3e
-RANK:1
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Sovereign Stone
@@ -15,6 +14,7 @@ SOURCELONG:Sovereign Stone Campaign Sourcebook
 SOURCESHORT:SovereignS
 SOURCEWEB:http://www.sovstone.com
 SOURCEDATE:2002-04
+RANK:200204
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson

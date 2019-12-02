@@ -3,7 +3,6 @@ CAMPAIGN:Ultimate Combat (PFS)
 KEY:PFS ~ Ultimate Combat
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder RPG
-RANK:1
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -18,6 +17,7 @@ SOURCELONG:Ultimate Combat
 SOURCESHORT:UC
 SOURCEWEB:http://paizo.com/products/btpy8mcz?Pathfinder-Roleplaying-Game-Ultimate-Combat
 SOURCEDATE:2011-01
+RANK:201101
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/roleplaying_game/ultimate_combat/ultimate_combat.jpeg

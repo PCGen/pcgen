@@ -1,7 +1,6 @@
 CAMPAIGN:Path of Shadows
 KEY:Pathfinder - Ascension Games - Path of Shadows
 GAMEMODE:Pathfinder
-RANK:6
 
 BOOKTYPE:Supplement
 STATUS:BETA
@@ -10,6 +9,7 @@ SETTING:Generic
 SOURCELONG:Path of Shadows
 SOURCESHORT:PoS
 SOURCEDATE:2000-01
+RANK:200001
 PUBNAMELONG:Ascension Games
 PUBNAMESHORT:AG
 PUBNAMEWEB:http://www.ascension-games.com/
@@ -27,28 +27,28 @@ URL:WEBSITE|http://www.ascension-games.com/|Visit Ascension Games!
 URL:RPGNow!|http://www.rpgnow.com/product/144652/Path-of-Shadows&affiliate_id=200170|Buy this from RPGNow!
 URL:DriveThruRPG.com|http://www.drivethrurpg.com/product/144652/Path-of-Shadows&affiliate_id=200170|Buy this from DriveThruRPG
 URL:Paizo Publishing|http://paizo.com/products/btpy9cv1|Buy this book from Paizo Publishing!
-DESC:What path will you walk? Step into the dark with Path of Shadows, the first Pathfinder Roleplaying Game supplement by Ascension Games! Inside you’ll find several shadow- and darkness-based options for your favorite base and core classes, along with a brand-new shadow-based class, the nightblade!
+DESC:What path will you walk? Step into the dark with Path of Shadows, the first Pathfinder Roleplaying Game supplement by Ascension Games! Inside youï¿½ll find several shadow- and darkness-based options for your favorite base and core classes, along with a brand-new shadow-based class, the nightblade!
 
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000, Wizards of  the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
 COPYRIGHT:Pathfinder Roleplaying Game Core Rulebook. Copyright 2009, Paizo Inc.; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
-COPYRIGHT:Pathfinder Roleplaying Game Bestiary. © 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
-COPYRIGHT:Pathfinder Roleplaying Game Bestiary 2. © 2010, Paizo Publishing, LLC; Authors: Wolfgang Baur, Jason Bulmahn, Adam Daigle, Graeme Davis, Crystal Frasier, Joshua J. Frost, Tim Hitchcock, Brandon Hodge, James Jacobs, Steve Kenson, Hal MacLean, Martin Mason, Rob McCreary, Erik Mona, Jason Nelson, Patrick Renie, Sean K Reynolds, F. Wesley Schneider, Owen K.C. Stephens, James L. Sutter, Russ Taylor, and Greg A. Vaughan, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
-COPYRIGHT:Pathfinder Roleplaying Game Bestiary 3. © 2011, Paizo Publishing, LLC; Authors: Jesse Benner, Jason Bulmahn, Adam Daigle, James Jacobs, Michael Kenway, Rob McCreary, Patrick Renie, Chris Sims, F. Wesley Schneider, James L. Sutter, and Russ Taylor, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
-COPYRIGHT:Pathfinder Roleplaying Game Bestiary 4. © 2013, Paizo Publishing, LLC; Authors: Dennis Baker, Jesse Benner, Savannah Broadway, Ross Byers, Adam Daigle, Tim Hitchcock, Tracy Hurley, James Jacobs, Matt James, Rob McCreary, Jason Nelson, Tom Phillips, Stephen Radney- MacFarland, Sean K Reynolds, F. Wesley Schneider, Tork Shaw, and Russ Taylor.
-COPYRIGHT:Pathfinder Roleplaying Game Advanced Class Guide © 2014, Paizo Inc.; Authors: Dennis Baker, Ross Byers, Jesse Benner, Savannah Broadway, Jason Bulmahn, Jim Groves, Tim Hitchcock, Tracy Hurley, Jonathan H. Keith, Will McCardell, Dale C. McCoy, Jr., Tom Phillips, Stephen Radney-MacFarland, Thomas M. Reid, Sean K Reynolds, Tork Shaw, Owen K.C. Stephens, and Russ Taylor.
-COPYRIGHT:Pathfinder Roleplaying Game Advanced Player’s Guide. © 2010, Paizo Publishing, LLC; Author: Jason Bulmahn
-COPYRIGHT:Pathfinder Roleplaying Game Advanced Race Guide. © 2012, Paizo Publishing, LLC; Authors: Dennis Baker, Jesse Benner, Benjamin Bruck, Jason Bulmahn, Adam Daigle, Jim Groves, Tim Hitchcock, Hal MacLean, Jason Nelson, Stephen Radney-MacFarland, Owen K.C. Stephens, Todd Stewart, and Russ Taylor.
-COPYRIGHT:Pathfinder Roleplaying Game Ultimate Magic. © 2011, Paizo Publishing, LLC; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
-COPYRIGHT:Pathfinder Roleplaying Game Ultimate Combat. © 2011, Paizo Publishing, LLC; Authors: Dennis Baker, Jesse Benner, Benjamin Bruck, Jason Bulmahn, Brian J. Cortijo, Jim Groves, Tim Hitchcock, Richard A. Hunt, Colin McComb, Jason Nelson, Tom Phillips, Patrick Renie, Sean K Reynolds, and Russ Taylor.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary. ï¿½ 2009, Paizo Publishing, LLC; Author: Jason Bulmahn, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary 2. ï¿½ 2010, Paizo Publishing, LLC; Authors: Wolfgang Baur, Jason Bulmahn, Adam Daigle, Graeme Davis, Crystal Frasier, Joshua J. Frost, Tim Hitchcock, Brandon Hodge, James Jacobs, Steve Kenson, Hal MacLean, Martin Mason, Rob McCreary, Erik Mona, Jason Nelson, Patrick Renie, Sean K Reynolds, F. Wesley Schneider, Owen K.C. Stephens, James L. Sutter, Russ Taylor, and Greg A. Vaughan, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary 3. ï¿½ 2011, Paizo Publishing, LLC; Authors: Jesse Benner, Jason Bulmahn, Adam Daigle, James Jacobs, Michael Kenway, Rob McCreary, Patrick Renie, Chris Sims, F. Wesley Schneider, James L. Sutter, and Russ Taylor, based on material by Jonathan Tweet, Monte Cook, and Skip Williams.
+COPYRIGHT:Pathfinder Roleplaying Game Bestiary 4. ï¿½ 2013, Paizo Publishing, LLC; Authors: Dennis Baker, Jesse Benner, Savannah Broadway, Ross Byers, Adam Daigle, Tim Hitchcock, Tracy Hurley, James Jacobs, Matt James, Rob McCreary, Jason Nelson, Tom Phillips, Stephen Radney- MacFarland, Sean K Reynolds, F. Wesley Schneider, Tork Shaw, and Russ Taylor.
+COPYRIGHT:Pathfinder Roleplaying Game Advanced Class Guide ï¿½ 2014, Paizo Inc.; Authors: Dennis Baker, Ross Byers, Jesse Benner, Savannah Broadway, Jason Bulmahn, Jim Groves, Tim Hitchcock, Tracy Hurley, Jonathan H. Keith, Will McCardell, Dale C. McCoy, Jr., Tom Phillips, Stephen Radney-MacFarland, Thomas M. Reid, Sean K Reynolds, Tork Shaw, Owen K.C. Stephens, and Russ Taylor.
+COPYRIGHT:Pathfinder Roleplaying Game Advanced Playerï¿½s Guide. ï¿½ 2010, Paizo Publishing, LLC; Author: Jason Bulmahn
+COPYRIGHT:Pathfinder Roleplaying Game Advanced Race Guide. ï¿½ 2012, Paizo Publishing, LLC; Authors: Dennis Baker, Jesse Benner, Benjamin Bruck, Jason Bulmahn, Adam Daigle, Jim Groves, Tim Hitchcock, Hal MacLean, Jason Nelson, Stephen Radney-MacFarland, Owen K.C. Stephens, Todd Stewart, and Russ Taylor.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Magic. ï¿½ 2011, Paizo Publishing, LLC; Authors: Jason Bulmahn, Tim Hitchcock, Colin McComb, Rob McCreary, Jason Nelson, Stephen Radney-MacFarland, Sean K Reynolds, Owen K.C. Stephens, and Russ Taylor.
+COPYRIGHT:Pathfinder Roleplaying Game Ultimate Combat. ï¿½ 2011, Paizo Publishing, LLC; Authors: Dennis Baker, Jesse Benner, Benjamin Bruck, Jason Bulmahn, Brian J. Cortijo, Jim Groves, Tim Hitchcock, Richard A. Hunt, Colin McComb, Jason Nelson, Tom Phillips, Patrick Renie, Sean K Reynolds, and Russ Taylor.
 COPYRIGHT:The Book of Experimental Might. Copyright 2008, Monte J. Cook. All rights reserved.
 COPYRIGHT:Tome of Horrors. Copyright 2002, Necromancer Games, Inc.; Authors: Scott Greene, with Clark Peterson, Erica Balsley, Kevin Baase, Casey Christofferson, Lance Hawvermale, Travis Hawvermale, Patrick Lawinger, and Bill Webb; Based on original content from TSR.
-COPYRIGHT:Daemon, Piscodaemon from the Tome of  Horrors, Revised, © 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
-COPYRIGHT:Demodand, Tarry from the Tome of Horrors, Revised, © 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
-COPYRIGHT:Gloomwing from the Tome of  Horrors, Revised, © 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
-COPYRIGHT:Huecuva from the Tome of Horrors, Revised, © 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Underworld Oracle.
-COPYRIGHT:Shadow Demon from the Tome of Horrors, © 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Neville White.
-COPYRIGHT:Path of Shadows, © 2015, Ascension Games, LLC; Author Christopher Moore
+COPYRIGHT:Daemon, Piscodaemon from the Tome of  Horrors, Revised, ï¿½ 2002, Necromancer Games, Inc.; Author: Scott Greene, based on original material by E. Gary Gygax.
+COPYRIGHT:Demodand, Tarry from the Tome of Horrors, Revised, ï¿½ 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Gloomwing from the Tome of  Horrors, Revised, ï¿½ 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Gary Gygax.
+COPYRIGHT:Huecuva from the Tome of Horrors, Revised, ï¿½ 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Underworld Oracle.
+COPYRIGHT:Shadow Demon from the Tome of Horrors, ï¿½ 2002, Necromancer Games, Inc.; Author Scott Greene, based on original material by Neville White.
+COPYRIGHT:Path of Shadows, ï¿½ 2015, Ascension Games, LLC; Author Christopher Moore
 COPYRIGHT:PCGen dataset conversion for "Path of Shadows" Copyright 2016, PCGen Data team (including, but not limited to: Andrew Maitland)
 
 DATACONTROL:pos__datacontrols.lst

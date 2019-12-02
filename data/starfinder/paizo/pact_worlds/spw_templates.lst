@@ -2,5 +2,5 @@
 
 # Display for SRO Race choice
 # Template Name	Visible	Subrace
-Small			VISIBLE:NO	SUBRACE:Small
-Medium		VISIBLE:NO	SUBRACE:Medium
+SRO ~ Small		VISIBLE:NO	SUBRACE:Small
+SRO ~ Medium	VISIBLE:NO	SUBRACE:Medium

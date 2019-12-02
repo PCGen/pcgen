@@ -3,7 +3,6 @@ CAMPAIGN:Faiths & Philosophies
 KEY:Faiths and Philosophies
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Pathfinder Player Companion: Faiths & Philosophies
 SOURCESHORT:FAP
 SOURCEWEB:http://paizo.com/products/btpy8yw8
 SOURCEDATE:2013-08
+RANK:201308
 ISOGL:YES
 
 COVER:faiths_and_philosophies.jpg

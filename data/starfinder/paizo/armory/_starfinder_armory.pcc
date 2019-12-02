@@ -1,6 +1,5 @@
 CAMPAIGN:Starfinder Armory
 KEY:Starfinder Armory
-RANK:1
 BOOKTYPE:Supplement
 GAMEMODE:Starfinder
 STATUS:BETA
@@ -9,6 +8,7 @@ PRECAMPAIGN:1,INCLUDES=Starfinder Core Rulebook
 SOURCELONG:Starfinder Armory
 SOURCESHORT:SA
 SOURCEDATE:2018-10
+RANK:201810
 PUBNAMELONG:Paizo
 PUBNAMESHORT:PZO
 PUBNAMEWEB:http://www.paizo.com

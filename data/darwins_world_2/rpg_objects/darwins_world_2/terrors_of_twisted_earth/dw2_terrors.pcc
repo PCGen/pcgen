@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Wed Mar 19 13:16:12 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 CAMPAIGN:Darwin's World 2nd Edition - Terrors of Twisted Earth
-RANK:1
 GAMEMODE:Darwins_World_2
 GENRE:Post Apocalyptic
 #BOOKTYPE:
@@ -15,6 +14,7 @@ SOURCELONG:Darwin's World 2nd Edition
 SOURCESHORT:DW2
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 SOURCEDATE:2003-01
+RANK:200301
 # COMMENT: Unknown Month - Set as 01
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson

@@ -2,7 +2,6 @@
 CAMPAIGN:DSP - Psionics Expanded
 GAMEMODE:Pathfinder
 TYPE:Dreamscarred Press
-RANK:6
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:None
@@ -17,6 +16,7 @@ SOURCELONG:Psionics Expanded
 SOURCESHORT:PsiEx
 SOURCEWEB:http://dreamscarredpress.com/dragonfly/index.php
 SOURCEDATE:2012-07
+RANK:201207
 ISOGL:YES
 
 COVER:psionics_expanded.jpg

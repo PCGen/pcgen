@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Aug 26 02:34:05 2005 -- reformated by prettylst.pl v1.34 (build 455)
 CAMPAIGN:MDS - Dark Inheritance - Campaign Setting
-RANK:5
 GAMEMODE:Modern
 BOOKTYPE:Campaign Setting
 STATUS:RELEASE
@@ -10,6 +9,7 @@ SOURCELONG:Mythic Dreams Studios - Dark Inheritance Campaign Setting
 SOURCESHORT:Dark Inheritance
 SOURCEWEB:http://www.mythicdreams.com
 SOURCEDATE:2003-01
+RANK:200301
 # COMMENT: Unknown Month - Set as 01
 PUBNAMELONG:Mythic Dreams Studios LLC.
 PUBNAMESHORT:MDS

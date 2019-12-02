@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Mon Oct  7 23:10:09 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
 CAMPAIGN:BP - Arms and Armor - Source Book
 GAMEMODE:3e
-RANK:9
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Generic
@@ -15,6 +14,7 @@ SOURCELONG:Bastion Press - Arms and Armor
 SOURCESHORT:arms
 SOURCEWEB:http://dragonwing.net/
 SOURCEDATE:2001-01
+RANK:200101
 ISOGL:YES
 
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

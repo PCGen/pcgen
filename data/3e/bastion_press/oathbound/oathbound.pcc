@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Mon Nov 18 04:21:56 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 213)
 # Input by Ruemere, email: ruemere@poczta.onet.pl
 CAMPAIGN:BP - Oathbound - Domains of the Forge - Source Book
-RANK:2
 GAMEMODE:3e
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -15,6 +14,7 @@ SOURCELONG:Oathbound - Domains of the Forge
 SOURCESHORT:Oathbound
 SOURCEWEB:http://www.bastionpress.com
 SOURCEDATE:2003-08
+RANK:200308
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:Oathbound: Domains of the Forge Copyright 2002, Bastion Press, Inc.

@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Sep 16 12:06:48 2005 -- reformated by prettylst.pl v1.35 (build 469)
 CAMPAIGN:Necromancer Games - Original Spell Name Compendium
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Original Spell Name Compendium
 SOURCESHORT:SpellName
 SOURCEWEB:http://www.necromancergames.com/legal.html
 SOURCEDATE:2002-01
+RANK:200201
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

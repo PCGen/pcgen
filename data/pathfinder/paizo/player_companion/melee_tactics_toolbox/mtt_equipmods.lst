@@ -9,22 +9,22 @@ SOURCELONG:Pathfinder Player Companion: Melee Tactics Toolbox	SOURCESHORT:MTT	SO
 # ==============================
 
 # Modifier Name								Unique Key							Type							Plus		Cost		Visible		Source Page		Multiple Requirements									Required Type						Special Property
-Channeling									KEY:Special Ability ~ Channeling ~ Shield		TYPE:Shield								COST:18000	VISIBLE:QUALIFY	SOURCEPAGE:p.26													PRETYPE:2,Enhancement,Shield				SPROP:Positive or negative keyed, 3/day wielder of same key can add 1 die to channeled energy, resist opposite energy 10 points.
-Evolving									KEY:Special Ability ~ Evolving ~ Armor		TYPE:Armor						PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.26													PRETYPE:2,Enhancement,Armor				SPROP:1/day fuse with armor and gain 2 eidolon evolutions
-Frosted									KEY:Special Ability ~ Frosted ~ Armor		TYPE:Armor.Shield					PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.26	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]											SPROP:+4 to CMD vs. grapple attempts, 1d8 cold damage/round to opponents that grapple, pin, or swallow wearer
-Singing									KEY:Special Ability ~ Singing ~ Shield		TYPE:Shield						PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.26													PRETYPE:2,Enhancement,Shield				SPROP:Bardic countersong for 10 rounds 1/day.
-Volcanic									KEY:Special Ability ~ Volcanic ~ Armor		TYPE:Armor.Heavy					PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.26													PRETYPE:3,Enhancement,Armor,Heavy			SPROP:1/day armor erupts, smoke grants concealment, lava deals 1d6 fire damage in 5-ft. radius, next round lava is difficult terrain, wearer immune to all effects.
+Channeling									KEY:Special Ability ~ Channeling ~ Shield		TYPE:Shield								COST:18000	VISIBLE:QUALIFY	SOURCEPAGE:p.26													PRETYPE:2,ShieldEnhancement,Shield				SPROP:Positive or negative keyed, 3/day wielder of same key can add 1 die to channeled energy, resist opposite energy 10 points.
+Evolving									KEY:Special Ability ~ Evolving ~ Armor		TYPE:Armor						PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.26													PRETYPE:2,ArmorEnhancement,Armor				SPROP:1/day fuse with armor and gain 2 eidolon evolutions
+Frosted									KEY:Special Ability ~ Frosted ~ Armor		TYPE:Armor.Shield					PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.26	PREMULT:2,[PRETYPE:1,ArmorEnhancement,ShieldEnhancement],[PRETYPE:1,Armor,Shield]											SPROP:+4 to CMD vs. grapple attempts, 1d8 cold damage/round to opponents that grapple, pin, or swallow wearer
+Singing									KEY:Special Ability ~ Singing ~ Shield		TYPE:Shield						PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.26													PRETYPE:2,ShieldEnhancement,Shield				SPROP:Bardic countersong for 10 rounds 1/day.
+Volcanic									KEY:Special Ability ~ Volcanic ~ Armor		TYPE:Armor.Heavy					PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.26													PRETYPE:3,ArmorEnhancement,Armor,Heavy			SPROP:1/day armor erupts, smoke grants concealment, lava deals 1d6 fire damage in 5-ft. radius, next round lava is difficult terrain, wearer immune to all effects.
 
 # ==============================
 # WEAPON Special Abilities
 # ==============================
 
-Culling									KEY:Special Ability ~ Culling ~ Melee		TYPE:Weapon.Melee.Slashing			PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.26													PRETYPE:4,Enhancement,Weapon,Melee,Slashing	SPROP:+2d6 damage to all attacks made during a cleaving attack.
-Growing									KEY:Special Ability ~ Growing ~ Melee		TYPE:Weapon.Melee					PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.26													PRETYPE:3,Enhancement,Weapon,Melee			SPROP:1/day weapon grows 1 size category for 10 minutes, wielder not penalized for weapon size
-Shrinking									KEY:Special Ability ~ Shrinking ~ Melee		TYPE:Weapon.Melee							COST:1000	VISIBLE:QUALIFY	SOURCEPAGE:p.27													PRETYPE:3,Enhancement,Weapon,Melee			SPROP:On command, weapon shrinks to size of a dagger, returns to normal on command
-Smashing									KEY:Special Ability ~ Smashing ~ Melee		TYPE:Weapon.Melee.Bludgeoning			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.27													PRETYPE:4,Enhancement,Weapon,Melee,Bludgeoning	SPROP:+2d6 damage to inanimate objects
-Spell Siphon								KEY:Special Ability ~ Spell Siphon ~ Melee	TYPE:Weapon.Melee					PLUS:5			VISIBLE:QUALIFY	SOURCEPAGE:p.27													PRETYPE:3,Enhancement,Weapon,Melee			SPROP:Forego critical to attempt to steal combat spell(s)
-Sticky									KEY:Special Ability ~ Sticky ~ Melee		TYPE:Weapon.Melee.Reach.Piercing.Flail	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.27	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Reach,Piercing,Flail]									SPROP:Forego critical to attempt a steal combat maneuver at +2
+Culling									KEY:Special Ability ~ Culling ~ Melee		TYPE:Weapon.Melee.Slashing			PLUS:2			VISIBLE:QUALIFY	SOURCEPAGE:p.26													PRETYPE:4,WeaponEnhancement,Weapon,Melee,Slashing	SPROP:+2d6 damage to all attacks made during a cleaving attack.
+Growing									KEY:Special Ability ~ Growing ~ Melee		TYPE:Weapon.Melee					PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.26													PRETYPE:3,WeaponEnhancement,Weapon,Melee			SPROP:1/day weapon grows 1 size category for 10 minutes, wielder not penalized for weapon size
+Shrinking									KEY:Special Ability ~ Shrinking ~ Melee		TYPE:Weapon.Melee							COST:1000	VISIBLE:QUALIFY	SOURCEPAGE:p.27													PRETYPE:3,WeaponEnhancement,Weapon,Melee			SPROP:On command, weapon shrinks to size of a dagger, returns to normal on command
+Smashing									KEY:Special Ability ~ Smashing ~ Melee		TYPE:Weapon.Melee.Bludgeoning			PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.27													PRETYPE:4,WeaponEnhancement,Weapon,Melee,Bludgeoning	SPROP:+2d6 damage to inanimate objects
+Spell Siphon								KEY:Special Ability ~ Spell Siphon ~ Melee	TYPE:Weapon.Melee					PLUS:5			VISIBLE:QUALIFY	SOURCEPAGE:p.27													PRETYPE:3,WeaponEnhancement,Weapon,Melee			SPROP:Forego critical to attempt to steal combat spell(s)
+Sticky									KEY:Special Ability ~ Sticky ~ Melee		TYPE:Weapon.Melee.Reach.Piercing.Flail	PLUS:1			VISIBLE:QUALIFY	SOURCEPAGE:p.27	PREMULT:2,[PRETYPE:1,WeaponEnhancement],[PRETYPE:1,Reach,Piercing,Flail]									SPROP:Forego critical to attempt a steal combat maneuver at +2
 
 
 

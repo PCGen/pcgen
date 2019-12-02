@@ -24,17 +24,17 @@ plugins {
     id 'maven'
     id 'pmd'
     id 'idea'
-    id "de.undercouch.download" version '4.0.1'
+    id "de.undercouch.download" version '4.0.2'
     id 'edu.sc.seis.launch4j' version '2.4.6'
     id 'com.github.ben-manes.versions' version '0.27.0'
     id "com.dorongold.task-tree" version '1.4'
     id "edu.sc.seis.macAppBundle" version "2.3.0"
     id 'org.openjfx.javafxplugin' version '0.0.8'
-    id 'org.beryx.runtime' version '1.7.3'
+    id 'org.beryx.runtime' version '1.8.0'
 }
 
 javafx {
-    version = "13"
+    version = "13.0.1"
     modules = [ 'javafx.controls', 'javafx.web', 'javafx.swing', 'javafx.fxml', 'javafx.graphics' ]
 }
 
@@ -178,7 +178,7 @@ dependencies {
     compile group: 'org.apache.commons', name: 'commons-lang3', version:'3.9'
     compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.4'
     compile group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'
-    compile group: 'jep', name: 'jep', version:'2.4.1'
+    compile group: 'org.scijava', name: 'jep', version:'2.4.2'
     compile group: 'org.freemarker', name: 'freemarker', version:'2.3.29'
     compile group: 'org.jdom', name: 'jdom2', version:'2.0.6'
     compile group: 'xalan', name: 'xalan', version:'2.7.2'

@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Wed Aug  2 10:05:39 2006 -- reformated by prettylst.pl v1.35 (build 561)
 CAMPAIGN:Modern Medieval - Modern Principles
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Modern Principles
 SOURCESHORT:MP
 SOURCEWEB:http://swordsedgepublishing.ca/SEP4200.pdf
 SOURCEDATE:2006-01
+RANK:200601
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.

@@ -3,7 +3,6 @@ CAMPAIGN:Qadira, Gateway to the East
 KEY:Qadira - Gateway to the East
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
-RANK:3
 STATUS:RELEASE
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Pathfinder Companion: Qadira, Gateway to the East
 SOURCESHORT:QGTTE
 SOURCEWEB:http://paizo.com/products/btpy88zq
 SOURCEDATE:2009-08
+RANK:200908
 ISOGL:YES
 ISLICENSED:NO
 

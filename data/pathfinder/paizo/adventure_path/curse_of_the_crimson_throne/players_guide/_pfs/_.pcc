@@ -3,7 +3,6 @@ CAMPAIGN:Curse of the Crimson Throne Player's Guide (Conversion) (PFS)
 KEY:PFS ~ Curse of the Crimson Throne Player's Guide (Conversion)
 #GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing PFS.Pathfinder Adventure Path.Curse of the Crimson Throne
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -18,6 +17,7 @@ SOURCELONG:Curse of the Crimson Throne Player's Guide
 SOURCESHORT:COTCTPG
 SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy8bdb
 SOURCEDATE:2008-02
+RANK:200802
 ISOGL:YES
 
 #COVER:@/pathfinder/paizo/adventure_path/curse_of_the_crimson_throne/players_guide/curse_of_the_crimson_throne_players_guide.jpg

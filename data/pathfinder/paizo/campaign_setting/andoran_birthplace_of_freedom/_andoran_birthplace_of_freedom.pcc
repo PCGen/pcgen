@@ -3,7 +3,6 @@ CAMPAIGN:Andoran, Birthplace of Freedom
 KEY:Andoran - Birthplace of Freedom
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Campaign Setting
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
@@ -21,6 +20,7 @@ PUBNAMEWEB:http://paizo.com
 SOURCELONG:Andoran, Birthplace of Freedom
 SOURCESHORT:ABOF
 SOURCEDATE:2015-05
+RANK:201505
 ISOGL:YES
 
 COVER:andoran_birthplace_of_freedom.jpg

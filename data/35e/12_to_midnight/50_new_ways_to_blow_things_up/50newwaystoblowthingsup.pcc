@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Mon Oct 13 15:56:00 2003 -- reformated by prettylst.pl v1.29 (build 294)
 CAMPAIGN:50 New Ways to Blow Things Up: Starlanko the Magnificent's Big Book of Evocations
-RANK:7
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:50 New Ways to Blow Things Up - Starlanko the Magnificent's Big Book 
 SOURCESHORT:50Evocations
 SOURCEWEB:http://www.silven.com/productlines.asp?case=showproduct&id=19
 SOURCEDATE:2006-01
+RANK:200601
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game Licence v 1.0 Copyright 2000, Wizards of the Coast, Inc.

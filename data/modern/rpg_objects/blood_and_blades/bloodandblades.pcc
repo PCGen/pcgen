@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Tue Jan 24 02:47:48 2006 -- reformated by prettylst.pl v1.35 (build 555)
 CAMPAIGN:Blood and Blades - The Profilers Guide to Slashers
-RANK:6
 GAMEMODE:Modern
 GENRE:Modern
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Blood and Blades - The Profilers Guide to Slashers
 SOURCESHORT:BloodBlades
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=141
 SOURCEDATE:2005-01
+RANK:200501
 # COMMENT: Unknown Month - Set as 01
 
 ISOGL:YES

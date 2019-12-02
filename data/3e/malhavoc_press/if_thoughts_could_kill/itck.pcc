@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$
 CAMPAIGN:MP - If Thoughts Could Kill - Source Book
-RANK:6
 GAMEMODE:3e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Malhavoc Press - If Thoughts Could Kill
 SOURCESHORT:ITCK
 SOURCEWEB:http://www.montecook.com
 SOURCEDATE:2002-04
+RANK:200204
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:d20 Syste rules and Content Copyright 2000, Wizards of the Coast, Inc.; authors Jonathan Tweet, Monte Cook, and Skip Williams, based on original material by E. Gary Gygax and Dave Arneson

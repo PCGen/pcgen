@@ -3,7 +3,6 @@ CAMPAIGN:Wrath of the Righteous, Part 1: The Worldwound Incursion
 KEY:Pathfinder Adventure Path #73
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Wrath of the Righteous
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Adventure
@@ -19,6 +18,7 @@ SOURCELONG:Pathfinder Adventure Path #73
 SOURCESHORT:AP73
 SOURCEWEB:http://paizo.com/products/btpy90q9
 SOURCEDATE:2013-09
+RANK:201309
 ISOGL:YES
 
 COVER:PZO9073.png

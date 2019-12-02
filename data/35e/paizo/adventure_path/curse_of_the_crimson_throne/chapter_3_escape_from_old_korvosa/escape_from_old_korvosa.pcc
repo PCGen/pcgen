@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Sun Aug 10 10:12:11 2008 -- reformated by prettylst.pl v1.38 (build 6887)
 CAMPAIGN:Paizo - Curse of the Crimson Throne - Chapter 3: Escape From Old Korvosa
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Adventure
@@ -15,6 +14,7 @@ SOURCELONG:Curse of the Crimson Throne - Chapter 3: Escape From Old Korvosa
 SOURCESHORT:CotCT:EfOK
 SOURCEWEB:http://paizo.com/store/paizo/v5748btpy82t5
 SOURCEDATE:2008-05
+RANK:200805
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.

@@ -1,7 +1,6 @@
 # CVS $Revision$ $Author$ -- Tue Mar 27 23:33:15 2007 -- reformated by prettylst.pl v1.37 (build 2312)
 #Original Entry: Andrew Maitland
 CAMPAIGN:A Question of Loyalty: A Guidebook to Military Orders
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:A Question of Loyalty: A Guidebook to Military Orders
 SOURCESHORT:GuideMO
 SOURCEWEB:http://www.aleapublishing.com
 SOURCEDATE:2003-01
+RANK:200301
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

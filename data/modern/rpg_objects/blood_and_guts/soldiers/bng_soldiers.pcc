@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Oct 18 13:46:01 2002 -- reformated by C:\Perl\PCgen\prettylst.pl v1.19 (build 199)
 CAMPAIGN:RPGObjects - Blood and Guts - Soldiers
-RANK:7
 GAMEMODE:Modern
 BOOKTYPE:Supplement
 GENRE:Modern
@@ -14,6 +13,7 @@ SOURCELONG:Blood and Guts - Soldiers
 SOURCESHORT:BnG-S
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=49
 SOURCEDATE:2004-01
+RANK:200401
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

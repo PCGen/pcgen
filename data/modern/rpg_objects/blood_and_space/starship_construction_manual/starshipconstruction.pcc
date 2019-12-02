@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Fri Dec 23 16:11:10 2005 -- reformated by prettylst.pl v1.34 (build 455)
 CAMPAIGN:RPGObjects - Blood and Space - Starship Construction Manual
-RANK:6
 GAMEMODE:Modern
 BOOKTYPE:Supplement
 GENRE:Future
@@ -15,6 +14,7 @@ SOURCELONG:Blood and Space - Starship Construction Manual
 SOURCESHORT:BnS-SCM
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=58
 SOURCEDATE:2005-01
+RANK:200501
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

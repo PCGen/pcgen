@@ -280,7 +280,7 @@ public final class Main
 	public static void loadProperties(boolean useGui)
 	{
 		if ((settingsDir == null)
-			&& (ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH) == null))
+				&& (ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH) == null))
 		{
 			if (!useGui)
 			{
@@ -297,10 +297,26 @@ public final class Main
 
 		//Existing PropertyContexts are registered here
 		PropertyContextFactory defaultFactory = PropertyContextFactory.getDefaultFactory();
-		defaultFactory.registerPropertyContext(PCGenSettings.getInstance());
+		PropertyContext settingscontext = PCGenSettings.getInstance();
+		defaultFactory.registerPropertyContext(settingscontext);
 		defaultFactory.registerPropertyContext(UIPropertyContext.getInstance());
 		defaultFactory.registerPropertyContext(LegacySettings.getInstance());
 		defaultFactory.loadPropertyContexts();
+		//Make savepath directory if it doesn't exist
+		String savepath = settingscontext.getProperty(PCGenSettings.PCG_SAVE_PATH);
+		File savepath_dir = new File(savepath);
+		if (!savepath_dir.exists() && !savepath_dir.isDirectory())
+		{
+			try
+			{
+				Logging.log(Level.INFO, "Making directory " + savepath_dir);
+				savepath_dir.mkdir();
+			}
+			catch (Exception e)
+			{
+				Logging.log(Level.SEVERE, "Unable to create PCG_SAVE_PATH " + savepath_dir + ": " + e );
+			}
+		}
 	}
 
 	/**

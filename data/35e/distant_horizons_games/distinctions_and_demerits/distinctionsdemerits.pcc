@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Thu May 13 15:01:58 2010 -- reformated by prettylst.pl v1.39 (build 11455)
 CAMPAIGN:DHG - Distinctions and Demerits
-RANK:6
 GAMEMODE:35e|3e
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -15,6 +14,7 @@ SOURCELONG:Distinctions and Demerits
 SOURCESHORT:DistDemerit
 SOURCEWEB:http://enworld.rpgnow.com/product_info.php?products_id=18645&it=1
 SOURCEDATE:2004-11
+RANK:200411
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document, Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich Baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, John D. Rateliff, Thomas Reid, James Wyatt, based on original material by E. Gary Gygax and Dave Arneson.

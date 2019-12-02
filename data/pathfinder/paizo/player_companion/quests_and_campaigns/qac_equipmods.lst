@@ -4,11 +4,11 @@ SOURCELONG:Pathfinder Player Companion: Quests & Campaigns	SOURCESHORT:QAC	SOURC
 
 ###Block: Equipment Modifiers
 # Modifier Name							Unique Key						Type		Plus		Visible		Source Page		Required Type
-Fervent								KEY:Special Ability ~ Fervent ~ Weapon	TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Heretical								KEY:Special Ability ~ Heretical ~ Weapon	TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Kinslayer								KEY:Special Ability ~ Kinslayer ~ Weapon	TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Patriotic								KEY:Special Ability ~ Patriotic ~ Weapon	TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
-Treasonous								KEY:Special Ability ~ Treasonous ~ Weapon	TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,Enhancement
+Fervent								KEY:Special Ability ~ Fervent ~ Weapon	TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,WeaponEnhancement
+Heretical								KEY:Special Ability ~ Heretical ~ Weapon	TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,WeaponEnhancement
+Kinslayer								KEY:Special Ability ~ Kinslayer ~ Weapon	TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,WeaponEnhancement
+Patriotic								KEY:Special Ability ~ Patriotic ~ Weapon	TYPE:Weapon	PLUS:1	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,WeaponEnhancement
+Treasonous								KEY:Special Ability ~ Treasonous ~ Weapon	TYPE:Weapon	PLUS:2	VISIBLE:QUALIFY	SOURCEPAGE:p.30	PRETYPE:1,WeaponEnhancement
 
 
 

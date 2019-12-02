@@ -1,6 +1,5 @@
 # CVS $Revision: 25034 $ $Author: amaitland $ -- Tue Mar  4 11:52:47 2008 -- reformated by prettylst.pl v1.38 (build 5225)
 CAMPAIGN:Darwin's World 2nd Edition - Survivors Guide
-RANK:1
 GAMEMODE:Darwins_World_2
 GENRE:Post Apocalyptic
 #BOOKTYPE:
@@ -14,6 +13,7 @@ SOURCELONG:Darwin's World 2nd Edition - Survivor's Guide (v2.5)
 SOURCESHORT:DW2_SG
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=dw
 SOURCEDATE:2006-01
+RANK:200601
 # COMMENT: Unknown Month - Set as 01
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Rules Document Copyright 2000, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on original material by E. Gary Gygax and Dave Arneson

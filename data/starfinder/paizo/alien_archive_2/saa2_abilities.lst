@@ -95,7 +95,7 @@ SNEAKY		KEY:Hobgoblin Default ~ SNEAKY			SORTKEY:h5		CATEGORY:Racial Trait		TYPE
 SIZE AND TYPE		KEY:Oni Default ~ SIZE AND TYPE		SORTKEY:o1		CATEGORY:Racial Trait		TYPE:Racial Trait.Oni Racial Trait		DESC:Kanabo are Medium outsiders with the goblinoid and native subtypes.		SOURCEPAGE:p.89
 ARMOR SAVANT		KEY:Oni Default ~ ARMOR SAVANT		SORTKEY:o2		CATEGORY:Racial Trait		TYPE:Racial Trait.Oni Racial Trait		DESC:Kanabo have an innate mastery of the use of armor. When wearing armor, they gain a +1 racial bonus to AC. When wearing heavy armor, their armor check penalty is 1 less severe than normal.		SOURCEPAGE:p.89		BONUS:COMBAT|AC|1|TYPE=RaceAC|PREEQUIP:1,TYPE=Armor		BONUS:MISC|ACCHECK|1|PREEQUIP:1,TYPE=Heavy_Armor
 DARKVISION			KEY:Oni Default ~ DARKVISION			SORTKEY:o3		CATEGORY:Racial Trait		TYPE:Racial Trait.Oni Racial Trait		DESC:Kanabo have darkvision with a range of 60 feet.		SOURCEPAGE:p.89		BONUS:VAR|DarkvisionRange|60|TYPE=Base
-KANABO MAGIC		KEY:Oni Default ~ KANABO MAGIC		SORTKEY:o4		CATEGORY:Racial Trait		TYPE:Racial Trait.Oni Racial Trait		DESC:Kanabo gain the following spell-like abilities. The caster level for these effects is equal to the kanabo's level: 1/day—disguise self, supercharge weapon		SOURCEPAGE:p.89
+KANABO MAGIC		KEY:Oni Default ~ KANABO MAGIC		SORTKEY:o4		CATEGORY:Racial Trait		TYPE:Racial Trait.Oni Racial Trait		DESC:Kanabo gain the following spell-like abilities. The caster level for these effects is equal to the kanabo's level: 1/daydisguise self, supercharge weapon		SOURCEPAGE:p.89
 
 #Orc
 SIZE AND TYPE		KEY:Orc Default ~ SIZE AND TYPE		SORTKEY:o1a		CATEGORY:Racial Trait		TYPE:Racial Trait.Orc Racial Trait		DESC:Orcs are Medium humanoids with the orc subtype.		SOURCEPAGE:p.91

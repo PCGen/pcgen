@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Tue Jan  8 23:00:09 2008 -- reformated by prettylst.pl v1.38 (build 4314)
 CAMPAIGN:Vigilance Press - Clash of Arms - Cavalry
-RANK:6
 GAMEMODE:35e
 GENRE:Fantasy
 TYPE:Vigilance Press.Clash of Arms
@@ -13,6 +12,7 @@ SOURCELONG:Clash of Arms - Cavalry
 SOURCESHORT:CoA-C
 SOURCEWEB:http://www.rpgnow.com/product_info.php?products_id=21487&
 SOURCEDATE:2007-03
+RANK:200703
 ISOGL:YES
 COPYRIGHT:Open Game COPYRIGHT v 1.0 Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document Copyright 2000-2003, Wizards of the Coast, Inc.; Authors Jonathan Tweet, Monte Cook, Skip Williams, Rich baker, Andy Collins, David Noonan, Rich Redman, Bruce R. Cordell, based on original material by E. Gary Gygax and Dave Arneson.

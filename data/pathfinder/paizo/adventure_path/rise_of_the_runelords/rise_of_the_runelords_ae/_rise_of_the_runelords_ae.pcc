@@ -3,7 +3,6 @@
 CAMPAIGN:Rise of the Runelords Adventure Path
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Rise of the Runelords
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Rise of the Runelords Adventure Path
 SOURCESHORT:RotR
 SOURCEWEB:http://paizo.com/products/btpy8tc0?Pathfinder-Adventure-Path-Rise-of-the-Runelords-Anniversary-Edition
 SOURCEDATE:2012-07
+RANK:201207
 ISOGL:YES
 
 COVER:rotr_ae.jpeg

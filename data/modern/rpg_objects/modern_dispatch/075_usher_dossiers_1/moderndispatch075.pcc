@@ -1,6 +1,5 @@
 # CVS $Revision$ $Author$ -- Mon Jan 30 07:44:32 2006 -- reformated by prettylst.pl v1.35 (build 555)
 CAMPAIGN:Modern Dispatch - #75 - U.S.H.E.R. Dossiers #1
-RANK:6
 GAMEMODE:Modern
 GENRE:Modern
 BOOKTYPE:Magazine
@@ -15,6 +14,7 @@ SOURCELONG:Modern Dispatch #75 - U.S.H.E.R. Dossiers #1
 SOURCESHORT:MD75-USHER#1
 SOURCEWEB:http://www.rpgobjects.com/index.php?page=pro&product_id=198
 SOURCEDATE:2004-01
+RANK:200401
 # COMMENT: Unknown Month - Set as 01
 ISOGL:YES
 COPYRIGHT:Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.

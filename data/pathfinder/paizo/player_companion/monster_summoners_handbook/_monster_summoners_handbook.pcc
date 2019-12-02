@@ -1,6 +1,5 @@
 CAMPAIGN:Monster Summoner's Handbook
 GAMEMODE:Pathfinder|Pathfinder_PFS
-RANK:3
 TYPE:Paizo Publishing.Pathfinder Player Companion
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -14,6 +13,7 @@ SOURCELONG:Pathfinder Player Companion: Monster Summoner's Handbook
 SOURCESHORT:MSH
 SOURCEWEB:http://paizo.com/products/btpy9ela?Pathfinder-Player-Companion-Monster-Summoners-Handbook
 SOURCEDATE:2015-07
+RANK:201507
 ISOGL:YES
 
 COVER:monster_summoners_handbook.jpg
@@ -34,7 +34,7 @@ COPYRIGHT:Daemon, Guardian from the Tome of Horrors Complete Copyright 2011, Nec
 COPYRIGHT:Daemon, Piscodaemon from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
 COPYRIGHT:Demodand, Tarry from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
 COPYRIGHT:Foo Creature from the Tome of Horrors Complete Copyright 2011, Necromancer Games, Inc., published and distributed by Frog God Games; Author: Scott Greene, based on original material by Gary Gygax.
-COPYRIGHT:Pathfinder Player Companion: Monster Summoner’s Handbook Copyright 2015, Paizo Inc.; Authors: Alexander Augunas, Tyler Beck, Anthony Li, Luis Loza, David N. Ross, Owen K.C. Stephens, and Linda Zayas-Palmer.
+COPYRIGHT:Pathfinder Player Companion: Monster Summonerï¿½s Handbook Copyright 2015, Paizo Inc.; Authors: Alexander Augunas, Tyler Beck, Anthony Li, Luis Loza, David N. Ross, Owen K.C. Stephens, and Linda Zayas-Palmer.
 COPYRIGHT:PCGen dataset conversion for "Player Companion: Monster Summoner's Handbook" Copyright 2017, PCgen Data team (including but not limited to Gwen T. (evilpixie87))
 
 #Do Not Remove Comment

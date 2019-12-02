@@ -2,7 +2,6 @@
 CAMPAIGN:Mummy's Mask Player's Guide
 GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Adventure Path.Mummy's Mask
-RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
@@ -16,6 +15,7 @@ SOURCELONG:Mummy's Mask Player's Guide
 SOURCESHORT:mm
 SOURCEWEB:https://paizo.com/products/btpy94z3?Pathfinder-Adventure-Path-Mummys-Mask-Players-Guide
 SOURCEDATE:2014-03
+RANK:201403
 ISOGL:YES
 
 COVER:mummys_mask_players_guide.jpg

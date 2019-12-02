@@ -9,13 +9,13 @@ SOURCELONG:Pathfinder Player Companion: Giant Hunter's Handbook	SOURCESHORT:GHH	
 # ==============================
 
 # Modifier Name							Unique Key						Type					Cost		Visible		Source Page				Multiple Requirements							Required Type							Special Property
-Fitting								KEY:Special Ability ~ Fitting ~ Armor	TYPE:Armor.Shield			COST:2000	VISIBLE:QUALIFY	SOURCEPAGE:Rear Inside Cover	PREMULT:2,[PRETYPE:1,Enhancement],[PRETYPE:1,Armor,Shield]										SPROP:Instantly shrinks or grows to suit the size of any creature that picks it up.
+Fitting								KEY:Special Ability ~ Fitting ~ Armor	TYPE:Armor.Shield			COST:2000	VISIBLE:QUALIFY	SOURCEPAGE:Rear Inside Cover	PREMULT:2,[PRETYPE:1,ArmorEnhancement,ShieldEnhancement],[PRETYPE:1,Armor,Shield]										SPROP:Instantly shrinks or grows to suit the size of any creature that picks it up.
 
 # ==============================
 # New Weapon Ability
 # ==============================
 
-Resizing								KEY:Special Ability ~ Resizing ~ Weapon	TYPE:Weapon.Melee.Ranged	COST:4000	VISIBLE:QUALIFY	SOURCEPAGE:Rear Inside Cover											PRETYPE:1,Enhancement	PRETYPE:2,Weapon,Melee,Ranged	SPROP:Instantly shrinks or grows to suit the size of any creature that picks it up.
+Resizing								KEY:Special Ability ~ Resizing ~ Weapon	TYPE:Weapon.Melee.Ranged	COST:4000	VISIBLE:QUALIFY	SOURCEPAGE:Rear Inside Cover											PRETYPE:1,WeaponEnhancement	PRETYPE:2,Weapon,Melee,Ranged	SPROP:Instantly shrinks or grows to suit the size of any creature that picks it up.
 
 
 
