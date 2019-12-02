@@ -221,9 +221,7 @@ public final class CharacterStatsPanel extends PCGenPrefsPanel
 		allStatsValue = Math.max(gameMode.getStatMin(), allStatsValue);
 		gameMode.setAllStatsValue(allStatsValue);
 		final int finalAllStatsValue = allStatsValue;
-		Platform.runLater(() -> {
-			abilityScoreCombo.getSelectionModel().select(finalAllStatsValue - gameMode.getStatMin());
-		});
+		Platform.runLater(() -> abilityScoreCombo.getSelectionModel().select(finalAllStatsValue - gameMode.getStatMin()));
 
 		if ((pMode != null) && (pModeMethodName != null))
 		{

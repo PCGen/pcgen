@@ -128,12 +128,7 @@ public final class TokenStore implements PluginLoader
 	 */
 	public Map<String, LstToken> getTokenMap(Class<? extends LstToken> tokInterface)
 	{
-		Map<String, LstToken> tokenMap = tokenTypeMap.get(tokInterface);
-		if (tokenMap == null)
-		{
-			tokenMap = new HashMap<>();
-			tokenTypeMap.put(tokInterface, tokenMap);
-		}
-		return tokenMap;
+        Map<String, LstToken> tokenMap = tokenTypeMap.computeIfAbsent(tokInterface, k -> new HashMap<>());
+        return tokenMap;
 	}
 }

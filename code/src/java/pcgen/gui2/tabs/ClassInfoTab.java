@@ -175,16 +175,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 	private void initListeners()
 	{
-		spinner.addChangeListener(new ChangeListener()
-		{
-
-			@Override
-			public void stateChanged(ChangeEvent e)
-			{
-				spinnerValue = (Integer) spinner.getValue();
-			}
-
-		});
+		spinner.addChangeListener(e -> spinnerValue = (Integer) spinner.getValue());
 		spinnerValue = (Integer) spinner.getValue();
 		classTable.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		availableTable.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

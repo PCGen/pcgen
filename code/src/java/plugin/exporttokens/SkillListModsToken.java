@@ -38,15 +38,7 @@ public class SkillListModsToken extends Token
 		boolean needcomma = false;
 
 		final List<Skill> pcSkills = SkillDisplay.getSkillListInOutputOrder(pc);
-		Iterator<Skill> iter = pcSkills.iterator();
-		while (iter.hasNext())
-		{
-			Skill sk = iter.next();
-			if (!pc.includeSkill(sk, SkillFilter.Usable) || !sk.qualifies(pc, null))
-			{
-				iter.remove();
-			}
-		}
+        pcSkills.removeIf(sk -> !pc.includeSkill(sk, SkillFilter.Usable) || !sk.qualifies(pc, null));
 
 		for (Skill aSkill : pcSkills)
 		{

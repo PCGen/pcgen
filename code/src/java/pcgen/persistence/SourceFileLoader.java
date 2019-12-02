@@ -903,16 +903,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 */
 	public static void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
 	{
-		aSelectedCampaignsList.sort(new Comparator<>()
-		{
-
-			@Override
-			public int compare(Campaign c1, Campaign c2)
-			{
-				return c2.getSafe(IntegerKey.CAMPAIGN_RANK) - c1.getSafe(IntegerKey.CAMPAIGN_RANK);
-			}
-
-		});
+		aSelectedCampaignsList.sort((c1, c2) -> c2.getSafe(IntegerKey.CAMPAIGN_RANK) - c1.getSafe(IntegerKey.CAMPAIGN_RANK));
 
 	}
 

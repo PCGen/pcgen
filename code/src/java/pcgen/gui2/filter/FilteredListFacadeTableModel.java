@@ -48,16 +48,7 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 		this.character = character;
 		this.filteredList = new FilteredListFacade<>();
 		filteredList.setContext(character);
-		this.sortedList = new SortedListFacade<>(new Comparator<Object>()
-		{
-
-			@Override
-			public int compare(Object o1, Object o2)
-			{
-				return 0;
-			}
-
-		});
+		this.sortedList = new SortedListFacade<>((Comparator<Object>) (o1, o2) -> 0);
 		sortedList.addListListener(this);
 		sortedList.setDelegate(filteredList);
 	}

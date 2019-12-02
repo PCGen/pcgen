@@ -61,9 +61,7 @@ public final class RememberingChoiceDialog
 		alert.setHeaderText(header);
 		CheckBox showLicense = new CheckBox(LanguageBundle.getString(checkboxContentKey));
 		showLicense.selectedProperty().addListener((observableValue, oldValue, newValue) ->
-		{
-			context.setBoolean(option, newValue);
-		});
+                context.setBoolean(option, newValue));
 		showLicense.setSelected(context.getBoolean(option));
 		Platform.runLater(() -> {
 			WebView webView = new WebView();

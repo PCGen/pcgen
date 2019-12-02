@@ -160,16 +160,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 			hbox.add(Box.createHorizontalStrut(10));
 
 			JButton spellSheetButton = new JButton(LanguageBundle.getString("InfoSpells.select.spellsheet"));
-			spellSheetButton.addActionListener(new ActionListener()
-			{
-
-				@Override
-				public void actionPerformed(ActionEvent e)
-				{
-					selectSpellSheetButton();
-				}
-
-			});
+			spellSheetButton.addActionListener(e -> selectSpellSheetButton());
 			hbox.add(spellSheetButton);
 			hbox.add(Box.createHorizontalStrut(3));
 

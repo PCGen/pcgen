@@ -1120,14 +1120,7 @@ public final class Equipment extends PObject
 			modList.removeAll(baseEquipment.getEqModifierList(true));
 			altModList.removeAll(baseEquipment.getEqModifierList(false));
 		}
-		for (Iterator<EquipmentModifier> it = modList.iterator(); it.hasNext();)
-		{
-			EquipmentModifier eqMod = it.next();
-			if (eqMod.getSafe(ObjectKey.VISIBILITY).equals(Visibility.HIDDEN))
-			{
-				it.remove();
-			}
-		}
+        modList.removeIf(eqMod -> eqMod.getSafe(ObjectKey.VISIBILITY).equals(Visibility.HIDDEN));
 		extractListFromCommon(commonList, modList);
 		removeCommonFromList(altModList, commonList, "eqMod expected but not found: ");
 		// Remove masterwork from the list if magic is present
@@ -3299,24 +3292,18 @@ public final class Equipment extends PObject
 			//
 			replaces.stream().map(CDOMSingleRef::get).map(CDOMObject::getKeyName)
 				.forEach(key -> baseItem.get().getEquipmentHead(bPrimary ? 1 : 2).getSafeListFor(ListKey.EQMOD).stream()
-					.filter(baseMod -> key.equalsIgnoreCase(baseMod.getKeyName())).forEach(baseMod -> {
-						head.addToListFor(ListKey.EQMOD, baseMod);
-					}));
+					.filter(baseMod -> key.equalsIgnoreCase(baseMod.getKeyName())).forEach(baseMod -> head.addToListFor(ListKey.EQMOD, baseMod)));
 		}
 
 		if (eqMod.isType("BaseMaterial"))
 		{
 			baseItem.get().getEquipmentHead(bPrimary ? 1 : 2).getSafeListFor(ListKey.EQMOD).stream()
-				.filter(baseMod -> baseMod.isType("BaseMaterial")).forEach(baseMod -> {
-					head.addToListFor(ListKey.EQMOD, baseMod);
-				});
+				.filter(baseMod -> baseMod.isType("BaseMaterial")).forEach(baseMod -> head.addToListFor(ListKey.EQMOD, baseMod));
 		}
 		else if (eqMod.isType("MagicalEnhancement"))
 		{
 			baseItem.get().getEquipmentHead(bPrimary ? 1 : 2).getSafeListFor(ListKey.EQMOD).stream()
-				.filter(baseMod -> baseMod.isType("MagicalEnhancement")).forEach(baseMod -> {
-					head.addToListFor(ListKey.EQMOD, baseMod);
-				});
+				.filter(baseMod -> baseMod.isType("MagicalEnhancement")).forEach(baseMod -> head.addToListFor(ListKey.EQMOD, baseMod));
 		}
 	}
 

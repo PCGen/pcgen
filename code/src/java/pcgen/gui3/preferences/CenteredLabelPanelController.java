@@ -32,8 +32,6 @@ public class CenteredLabelPanelController
 	public void setText(String text)
 	{
 		GuiAssertions.assertIsNotJavaFXThread();
-		Platform.runLater(() -> {
-			label.setText(text);
-		});
+		Platform.runLater(() -> label.setText(text));
 	}
 }

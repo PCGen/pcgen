@@ -165,24 +165,17 @@ public class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 		context.unconditionallyProcess(a, "CHOOSE", "NOCHOICE");
 		runToken(source);
 		processToken(source);
-		assocCheck = new AssocCheck()
-		{
-			
-			@Override
-			public boolean check(CNAbility g)
-			{
-				if (pc.getDetailedAssociationCount(g) == 2)
-				{
-					return true;
-				}
-				else
-				{
-					System.err.println("Incorrect Association Count");
-					return false;
-				}
-			}
-			
-		};
+		assocCheck = g -> {
+            if (pc.getDetailedAssociationCount(g) == 2)
+            {
+                return true;
+            }
+            else
+            {
+                System.err.println("Incorrect Association Count");
+                return false;
+            }
+        };
 		assertEquals(0, getCount());
 		ClassSource classSource = new ClassSource(pcc);
 		domainFacet.add(id, source, classSource);

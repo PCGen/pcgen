@@ -195,13 +195,7 @@ public final class KitGear extends BaseKit
 		if (actingCost != null)
 		{
 			final BigDecimal bdMaxCost = new BigDecimal(Integer.toString(actingCost));
-			for (Iterator<Equipment> i = eqList.iterator(); i.hasNext();)
-			{
-				if (i.next().getCost(aPC).compareTo(bdMaxCost) > 0)
-				{
-					i.remove();
-				}
-			}
+            eqList.removeIf(equipment -> equipment.getCost(aPC).compareTo(bdMaxCost) > 0);
 		}
 		if (eqList.size() == 1)
 		{

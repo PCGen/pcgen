@@ -40,9 +40,7 @@ class TermUtilitiesTest
 	public void testcheckEqTypeTypesArray01()
 	{
 		String[] types = {"EQUIPPED"};
-		assertDoesNotThrow(() -> {
-			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.EQUIPPED]", types, 0);
-		}, "EqtypesTypesArray01 Single Type EQUIPPED");
+		assertDoesNotThrow(() -> TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.EQUIPPED]", types, 0), "EqtypesTypesArray01 Single Type EQUIPPED");
 	}
 
 	/**
@@ -52,9 +50,7 @@ class TermUtilitiesTest
 	public void testcheckEqTypeTypesArray02()
 	{
 		String[] types = {"NOTEQUIPPED"};
-		assertDoesNotThrow(() -> {
-			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.NOTEQUIPPED]", types, 0);
-		}, "EqtypesTypesArray01 Single Type NOTEQUIPPEDZ");
+		assertDoesNotThrow(() -> TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.NOTEQUIPPED]", types, 0), "EqtypesTypesArray01 Single Type NOTEQUIPPEDZ");
 	}
 
 	/**
@@ -76,9 +72,7 @@ class TermUtilitiesTest
 	public void testcheckEqTypeTypesArray04()
 	{
 		String[] types = {"BAR", "NOT", "FOO"};
-		assertDoesNotThrow(() -> {
-			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.BAR.NOT.FOO]", types, 0);
-		}, "EqtypesTypesArray04 Exclude FOO");
+		assertDoesNotThrow(() -> TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.BAR.NOT.FOO]", types, 0), "EqtypesTypesArray04 Exclude FOO");
 	}
 
 	/**

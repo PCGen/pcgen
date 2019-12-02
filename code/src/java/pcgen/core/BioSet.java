@@ -317,21 +317,10 @@ public final class BioSet extends PObject implements NonInteractive
 				break;
 			}
 			final String tagValue = iter.next();
-			SortedMap<String, SortedMap<String, String>> races = ageSets.get(ageBracket);
-			if (races == null)
-			{
-				races = new TreeMap<>();
-				ageSets.put(ageBracket, races);
-			}
-			SortedMap<String, String> tags = races.get(race);
+            SortedMap<String, SortedMap<String, String>> races = ageSets.computeIfAbsent(ageBracket, k -> new TreeMap<>());
+            SortedMap<String, String> tags = races.computeIfAbsent(race, k -> new TreeMap<>());
 
-			if (tags == null)
-			{
-				tags = new TreeMap<>();
-				races.put(race, tags);
-			}
-
-			tags.put(key, tagValue);
+            tags.put(key, tagValue);
 		}
 	}
 

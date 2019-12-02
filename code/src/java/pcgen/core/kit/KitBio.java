@@ -20,6 +20,7 @@ package pcgen.core.kit;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 import pcgen.base.lang.StringUtil;
@@ -124,7 +125,7 @@ public class KitBio extends BaseKit
 			if (theGenders.size() > 1)
 			{
 				List<Gender> selList = new ArrayList<>(1);
-				List<Gender> theGenderObjects = theGenders.stream().map(g -> g.get())
+				List<Gender> theGenderObjects = theGenders.stream().map(Supplier::get)
 						.collect(Collectors.toList());
 				selList = Globals.getChoiceFromList("Choose Gender", theGenderObjects,
 					selList, 1, aPC);
