@@ -107,15 +107,13 @@ public final class TrackingReferenceContext extends RuntimeReferenceContext impl
 	{
 		StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
 		String source = null;
-		for (int i = 0; i < stackTrace.length; i++)
-		{
-			String className = stackTrace[i].getClassName();
-			if (className.startsWith("plugin.lsttokens"))
-			{
-				source = className;
-				break;
-			}
-		}
+        for (StackTraceElement stackTraceElement : stackTrace) {
+            String className = stackTraceElement.getClassName();
+            if (className.startsWith("plugin.lsttokens")) {
+                source = className;
+                break;
+            }
+        }
 		return source;
 	}
 

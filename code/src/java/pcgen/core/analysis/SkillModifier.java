@@ -127,10 +127,9 @@ public final class SkillModifier
 			{
 				ArrayList<Type> typeList = new ArrayList<>();
 				SkillInfoUtilities.getKeyStatList(pc, sk, typeList);
-				for (int i = 0; i < typeList.size(); ++i)
-				{
-					statMod += pc.getTotalBonusTo("SKILL", "TYPE." + typeList.get(i));
-				}
+                for (Type type : typeList) {
+                    statMod += pc.getTotalBonusTo("SKILL", "TYPE." + type);
+                }
 			}
 			return statMod;
 		}

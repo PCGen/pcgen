@@ -378,27 +378,21 @@ public class ObjectKey<T>
 	{
 		map = new CaseInsensitiveMap<>();
 		Field[] fields = ObjectKey.class.getDeclaredFields();
-		for (int i = 0; i < fields.length; i++)
-		{
-			int mod = fields[i].getModifiers();
+        for (Field field : fields) {
+            int mod = field.getModifiers();
 
-			if (java.lang.reflect.Modifier.isStatic(mod) && java.lang.reflect.Modifier.isFinal(mod)
-				&& java.lang.reflect.Modifier.isPublic(mod))
-			{
-				try
-				{
-					Object obj = fields[i].get(null);
-					if (obj instanceof ObjectKey)
-					{
-						map.put(fields[i].getName(), (ObjectKey<?>) obj);
-					}
-				}
-				catch (IllegalArgumentException | IllegalAccessException e)
-				{
-					throw new UnreachableError(e);
-				}
-			}
-		}
+            if (java.lang.reflect.Modifier.isStatic(mod) && java.lang.reflect.Modifier.isFinal(mod)
+                    && java.lang.reflect.Modifier.isPublic(mod)) {
+                try {
+                    Object obj = field.get(null);
+                    if (obj instanceof ObjectKey) {
+                        map.put(field.getName(), (ObjectKey<?>) obj);
+                    }
+                } catch (IllegalArgumentException | IllegalAccessException e) {
+                    throw new UnreachableError(e);
+                }
+            }
+        }
 	}
 
 	@Override

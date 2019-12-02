@@ -64,14 +64,12 @@ public class RaceToken extends Token
 		else
 		{
 			final String preString = TOKENNAME + SUBTOKENSEP;
-			for (int i = 0; i < SUBTOKENLIST.length; i++)
-			{
-				final String subToken = preString + SUBTOKENLIST[i];
-				if (subToken.equals(tokenSource))
-				{
-					retString = getSubToken(SUBTOKENLIST[i], pc.getDisplay());
-				}
-			}
+            for (String s : SUBTOKENLIST) {
+                final String subToken = preString + s;
+                if (subToken.equals(tokenSource)) {
+                    retString = getSubToken(s, pc.getDisplay());
+                }
+            }
 		}
 
 		return retString;

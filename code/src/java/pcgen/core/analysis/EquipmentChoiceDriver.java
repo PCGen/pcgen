@@ -104,50 +104,43 @@ public final class EquipmentChoiceDriver
 	{
 		parent.removeAllAssociations(eqMod);
 
-		for (int i = 0; i < selectedList.size(); i++)
-		{
-			String aString = String.valueOf(selectedList.get(i));
+        for (Object o : selectedList) {
+            String aString = String.valueOf(o);
 
-			if (equipChoice.getMinValue() < equipChoice.getMaxValue())
-			{
-				final int idx = aString.indexOf('|');
+            if (equipChoice.getMinValue() < equipChoice.getMaxValue()) {
+                final int idx = aString.indexOf('|');
 
-				if (idx < 0)
-				{
-					final List<SignedInteger> secondaryChoice = new ArrayList<>();
+                if (idx < 0) {
+                    final List<SignedInteger> secondaryChoice = new ArrayList<>();
 
-					for (int j = equipChoice.getMinValue(); j <= equipChoice.getMaxValue(); j +=
-							equipChoice.getIncValue())
-					{
-						if (j != 0)
-						{
-							secondaryChoice.add(new SignedInteger(j));
-						}
-					}
+                    for (int j = equipChoice.getMinValue(); j <= equipChoice.getMaxValue(); j +=
+                            equipChoice.getIncValue()) {
+                        if (j != 0) {
+                            secondaryChoice.add(new SignedInteger(j));
+                        }
+                    }
 
-					String title = LanguageBundle.getFormattedString("in_equipChoiceSelectMod", aString); //$NON-NLS-1$
-					CDOMChooserFacadeImpl<SignedInteger> chooserFacade =
-							new CDOMChooserFacadeImpl<>(title, secondaryChoice, new ArrayList<>(), 1);
-					chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
-					chooserFacade.setAllowsDups(equipChoice.isAllowDuplicates());
-					ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
+                    String title = LanguageBundle.getFormattedString("in_equipChoiceSelectMod", aString); //$NON-NLS-1$
+                    CDOMChooserFacadeImpl<SignedInteger> chooserFacade =
+                            new CDOMChooserFacadeImpl<>(title, secondaryChoice, new ArrayList<>(), 1);
+                    chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
+                    chooserFacade.setAllowsDups(equipChoice.isAllowDuplicates());
+                    ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 
-					List<SignedInteger> chosenList = chooserFacade.getFinalSelected();
+                    List<SignedInteger> chosenList = chooserFacade.getFinalSelected();
 
-					if (chosenList.isEmpty())
-					{
-						continue;
-					}
+                    if (chosenList.isEmpty()) {
+                        continue;
+                    }
 
-					aString += ('|' + chosenList.get(0).toString());
-				}
-			}
+                    aString += ('|' + chosenList.get(0).toString());
+                }
+            }
 
-			if (equipChoice.isAllowDuplicates() || !parent.containsAssociated(eqMod, aString))
-			{
-				parent.addAssociation(eqMod, aString);
-			}
-		}
+            if (equipChoice.isAllowDuplicates() || !parent.containsAssociated(eqMod, aString)) {
+                parent.addAssociation(eqMod, aString);
+            }
+        }
 	}
 
 	/**

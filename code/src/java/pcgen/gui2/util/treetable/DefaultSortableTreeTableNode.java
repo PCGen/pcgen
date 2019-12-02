@@ -47,11 +47,10 @@ public class DefaultSortableTreeTableNode extends DefaultTreeTableNode implement
 		{
 			Vector nonGenericChildren = children;
 			nonGenericChildren.sort(comparator);
-			for (int x = 0; x < children.size(); x++)
-			{
-				SortableTreeTableNode child = (SortableTreeTableNode) children.get(x);
-				child.sortChildren(comparator);
-			}
+            for (javax.swing.tree.TreeNode treeNode : children) {
+                SortableTreeTableNode child = (SortableTreeTableNode) treeNode;
+                child.sortChildren(comparator);
+            }
 		}
 	}
 

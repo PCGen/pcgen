@@ -117,28 +117,22 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 		{
 			typeMap = new CaseInsensitiveMap<>();
 			Field[] fields = Region.class.getDeclaredFields();
-			for (int i = 0; i < fields.length; i++)
-			{
-				int mod = fields[i].getModifiers();
+            for (Field field : fields) {
+                int mod = field.getModifiers();
 
-				if (java.lang.reflect.Modifier.isStatic(mod)
-					&& java.lang.reflect.Modifier.isFinal(mod)
-					&& java.lang.reflect.Modifier.isPublic(mod))
-				{
-					try
-					{
-						Object obj = fields[i].get(null);
-						if (obj instanceof Region)
-						{
-							typeMap.put(fields[i].getName(), (Region) obj);
-						}
-					}
-					catch (IllegalArgumentException | IllegalAccessException e)
-					{
-						throw new UnreachableError(e);
-					}
-				}
-			}
+                if (java.lang.reflect.Modifier.isStatic(mod)
+                        && java.lang.reflect.Modifier.isFinal(mod)
+                        && java.lang.reflect.Modifier.isPublic(mod)) {
+                    try {
+                        Object obj = field.get(null);
+                        if (obj instanceof Region) {
+                            typeMap.put(field.getName(), (Region) obj);
+                        }
+                    } catch (IllegalArgumentException | IllegalAccessException e) {
+                        throw new UnreachableError(e);
+                    }
+                }
+            }
 		}
 	}
 
