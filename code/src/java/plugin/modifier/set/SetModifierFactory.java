@@ -22,7 +22,6 @@ import pcgen.base.calculation.FormulaModifier;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.rules.persistence.token.AbstractFixedSetModifierFactory;

@@ -22,7 +22,6 @@ import pcgen.output.base.OutputActor;
 import pcgen.output.model.VisibleToModel;
 
 import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * An IsVisibleToActor is designed to process an interpolation and convert the Visibility

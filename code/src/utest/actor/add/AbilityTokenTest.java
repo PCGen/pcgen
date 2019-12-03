@@ -33,7 +33,6 @@ import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.testsupport.AbstractCharacterUsingTestCase;

@@ -18,7 +18,6 @@
 package plugin.lsttokens.deprecated;
 
 import pcgen.core.PCTemplate;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMCompatibilityToken;

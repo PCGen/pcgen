@@ -24,8 +24,6 @@ import java.awt.Component;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SingleSelectionModel;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
 
 public class SharedTabPane extends JTabbedPane
 {

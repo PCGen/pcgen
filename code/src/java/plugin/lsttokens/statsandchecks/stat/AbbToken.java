@@ -19,7 +19,6 @@ package plugin.lsttokens.statsandchecks.stat;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCStat;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;

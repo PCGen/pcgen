@@ -25,13 +25,11 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import pcgen.cdom.content.factset.FactSetDefinition;
 import pcgen.core.Campaign;
 import pcgen.core.Domain;
 import pcgen.core.Skill;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;

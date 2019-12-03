@@ -18,7 +18,6 @@
 package plugin.lsttokens.deprecated;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMCompatibilityToken;
 import pcgen.rules.persistence.token.ParseResult;

@@ -340,9 +340,7 @@ public class SkillToken extends Token
 	{
 		StringBuilder retValue = new StringBuilder();
 
-		if (((property == SKILL_ABMOD)
-				|| (property == SKILL_MISC))
-				&& false) //&& aSkill.get(ObjectKey.KEY_STAT) == null)
+		if (false) //&& aSkill.get(ObjectKey.KEY_STAT) == null)
 		{
 			retValue.append("n/a");
 		}

@@ -28,7 +28,6 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.core.kit.KitGear;
 import pcgen.core.kit.KitTable;
 import pcgen.core.kit.KitTable.TableEntry;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;

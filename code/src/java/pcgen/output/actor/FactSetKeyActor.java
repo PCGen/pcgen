@@ -28,7 +28,6 @@ import pcgen.output.base.OutputActor;
 import pcgen.output.model.CollectionModel;
 
 import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * A FactSetKeyActor is designed to process an interpolation and convert that

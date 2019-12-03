@@ -1,6 +1,5 @@
 package plugin.exporttokens;
 
-import java.util.Iterator;
 import java.util.List;
 
 import pcgen.cdom.enumeration.ObjectKey;

@@ -18,7 +18,6 @@
 package pcgen.rules.persistence.token;
 
 import pcgen.cdom.base.Loadable;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 

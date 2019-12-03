@@ -21,7 +21,6 @@ import java.util.Objects;
 
 import pcgen.cdom.base.Category;
 
-import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateScalarModel;
 
 /**

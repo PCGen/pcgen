@@ -219,7 +219,7 @@ public class SkillSitToken extends Token
 	{
 		StringBuilder retValue = new StringBuilder();
 
-		if (((property == SkillToken.SKILL_ABMOD) || (property == SkillToken.SKILL_MISC)) && false)
+		if (false)
 			//&& aSkill.get(ObjectKey.KEY_STAT) == null)
 		{
 			retValue.append("n/a");

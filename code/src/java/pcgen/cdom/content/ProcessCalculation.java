@@ -24,7 +24,6 @@ import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaSemantics;
-import pcgen.base.formula.exception.SemanticsException;
 import pcgen.base.util.FormatManager;
 
 /**

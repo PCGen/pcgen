@@ -22,7 +22,6 @@ import java.util.Collection;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.gui2.converter.event.TokenProcessEvent;
 import pcgen.gui2.converter.event.TokenProcessor;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 

@@ -24,7 +24,6 @@ import java.util.Map;
 
 import pcgen.core.GameMode;
 import pcgen.core.SystemCollections;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 

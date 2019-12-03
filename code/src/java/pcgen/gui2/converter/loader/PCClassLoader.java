@@ -35,7 +35,6 @@ import pcgen.gui2.converter.ConversionDecider;
 import pcgen.gui2.converter.Loader;
 import pcgen.gui2.converter.TokenConverter;
 import pcgen.gui2.converter.event.TokenProcessEvent;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.util.Logging;

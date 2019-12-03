@@ -22,8 +22,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.net.URISyntaxException;
-
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;

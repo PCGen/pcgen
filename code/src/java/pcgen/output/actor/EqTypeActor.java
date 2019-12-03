@@ -23,7 +23,6 @@ import pcgen.output.base.OutputActor;
 import pcgen.output.model.CollectionModel;
 
 import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * A EqTypeActor is designed to return the types of a piece of equipment.

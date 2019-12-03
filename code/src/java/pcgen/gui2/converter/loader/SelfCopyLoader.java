@@ -24,7 +24,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Campaign;
 import pcgen.gui2.converter.ConversionDecider;
 import pcgen.gui2.converter.Loader;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 
 public class SelfCopyLoader implements Loader

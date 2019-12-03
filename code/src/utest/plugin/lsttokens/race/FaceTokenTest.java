@@ -27,7 +27,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.lang.ref.WeakReference;
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.math.OrderedPair;

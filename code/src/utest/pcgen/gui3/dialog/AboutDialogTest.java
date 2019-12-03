@@ -22,7 +22,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import org.apache.commons.lang3.SystemUtils;
 import pcgen.system.LanguageBundle;
 
 import javafx.fxml.FXMLLoader;

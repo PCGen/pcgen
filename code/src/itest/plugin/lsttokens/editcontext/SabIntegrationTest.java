@@ -19,7 +19,6 @@ package plugin.lsttokens.editcontext;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Ability;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;

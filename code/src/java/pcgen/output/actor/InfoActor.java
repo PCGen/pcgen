@@ -23,7 +23,6 @@ import pcgen.output.base.OutputActor;
 import pcgen.output.model.InfoModel;
 
 import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * An InfoActor is designed to process an interpolation and convert that into a

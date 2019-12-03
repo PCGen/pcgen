@@ -21,7 +21,6 @@ import pcgen.base.formula.Formula;
 import pcgen.base.text.ParsingSeparator;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMCompatibilityToken;

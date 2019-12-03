@@ -18,8 +18,6 @@
  */
 package pcgen.core.analysis;
 
-import java.util.Iterator;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.BonusObj;

@@ -20,7 +20,6 @@ package pcgen.output.model;
 import java.util.function.Supplier;
 
 import freemarker.template.TemplateBooleanModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * A BooleanModel wraps a boolean object into a TemplateScalarModel

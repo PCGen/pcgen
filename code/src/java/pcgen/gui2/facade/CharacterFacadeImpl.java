@@ -904,19 +904,14 @@ public class CharacterFacadeImpl
 			if (SettingsHandler.getGame().isPurchaseStatMode()
 				&& (theCharacter.getPointBuyPoints() > getUsedStatPool()))
 			{
-				if (!delegate.showWarningConfirm(LanguageBundle.getString("in_sumLevelWarnTitle"), //$NON-NLS-1$
-					LanguageBundle.getString("in_sumPoolWarning")))//$NON-NLS-1$
-				{
-					return false;
-				}
+				//$NON-NLS-1$
+				return delegate.showWarningConfirm(LanguageBundle.getString("in_sumLevelWarnTitle"), //$NON-NLS-1$
+						LanguageBundle.getString("in_sumPoolWarning"));
 			}
 			else if (allAbilitiesAreZero())
 			{
-				if (!delegate.showWarningConfirm(LanguageBundle.getString("in_sumLevelWarnTitle"),
-					LanguageBundle.getString("in_sumAbilitiesZeroWarning")))
-				{
-					return false;
-				}
+				return delegate.showWarningConfirm(LanguageBundle.getString("in_sumLevelWarnTitle"),
+						LanguageBundle.getString("in_sumAbilitiesZeroWarning"));
 			}
 			else
 			{
@@ -924,10 +919,7 @@ public class CharacterFacadeImpl
 					LanguageBundle.getString("in_sumAbilitiesWarning"),
 					LanguageBundle.getString("in_sumAbilitiesWarningCheckBox"), PCGenSettings.OPTIONS_CONTEXT,
 					PCGenSettings.OPTION_SHOW_WARNING_AT_FIRST_LEVEL_UP);
-				if (Boolean.FALSE.equals(proceed))
-				{
-					return false;
-				}
+				return !Boolean.FALSE.equals(proceed);
 			}
 		}
 		return true;
@@ -3478,12 +3470,7 @@ public class CharacterFacadeImpl
 		}
 
 		PObject pObj = (PObject) infoFacade;
-		if (!theCharacter.isQualified(pObj))
-		{
-			return false;
-		}
-
-		return true;
+		return theCharacter.isQualified(pObj);
 	}
 
 	@Override
@@ -3506,11 +3493,7 @@ public class CharacterFacadeImpl
 
 		DomainFacadeImpl domainFI = (DomainFacadeImpl) domainFacade;
 		Domain domain = domainFI.getRawObject();
-		if (!PrereqHandler.passesAll(domainFI, theCharacter, domain) || !theCharacter.isQualified(domain))
-		{
-			return false;
-		}
-		return true;
+		return PrereqHandler.passesAll(domainFI, theCharacter, domain) && theCharacter.isQualified(domain);
 	}
 
 	@Override
@@ -3523,11 +3506,7 @@ public class CharacterFacadeImpl
 
 		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) tempBonusFacade;
 		CDOMObject originObj = tempBonus.getOriginObj();
-		if (!theCharacter.isQualified(originObj))
-		{
-			return false;
-		}
-		return true;
+		return theCharacter.isQualified(originObj);
 	}
 
 	@Override
@@ -3544,12 +3523,8 @@ public class CharacterFacadeImpl
 		{
 			return false;
 		}
-		if (!spellFI.getCharSpell().isSpecialtySpell(theCharacter)
-			&& SpellCountCalc.isProhibited(spellFI.getSpell(), pcClass, theCharacter))
-		{
-			return false;
-		}
-		return true;
+		return spellFI.getCharSpell().isSpecialtySpell(theCharacter)
+				|| !SpellCountCalc.isProhibited(spellFI.getSpell(), pcClass, theCharacter);
 	}
 
 	@Override
@@ -4148,11 +4123,8 @@ public class CharacterFacadeImpl
 		BigDecimal totalCost = kit.getTotalCostToBeCharged(theCharacter);
 		if (totalCost != null)
 		{
-			if (theCharacter.getGold().compareTo(totalCost) < 0)
-			{
-				// Character cannot afford the kit
-				return false;
-			}
+			// Character cannot afford the kit
+			return theCharacter.getGold().compareTo(totalCost) >= 0;
 		}
 		return true;
 	}

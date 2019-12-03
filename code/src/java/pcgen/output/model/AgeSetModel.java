@@ -21,7 +21,6 @@ import java.util.Objects;
 
 import pcgen.core.AgeSet;
 
-import freemarker.template.TemplateModelException;
 import freemarker.template.TemplateScalarModel;
 
 /**

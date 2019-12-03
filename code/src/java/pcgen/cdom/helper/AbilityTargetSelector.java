@@ -30,7 +30,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
-import pcgen.persistence.PersistenceLayerException;
 
 /**
  * An AbilitySelection represents a "resolved" Ability, Nature and any choice
