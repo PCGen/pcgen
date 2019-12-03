@@ -82,8 +82,7 @@ public final class InstallLoaderTest
 				"PUBNAMEWEB:" + SOURCEWEB};
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		TestHelper.loadPlugins();
 	}
 

@@ -33,9 +33,7 @@ public class PreBaseSizeTester extends AbstractPrerequisiteTest implements Prere
 {
 
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source)
-		throws PrerequisiteException
-	{
+	public int passes(final Prerequisite prereq, final PlayerCharacter pc, CDOMObject source) {
 		int runningTotal = 0;
 
 		if ((pc.getRace() != null) && !pc.getRace().isUnselected())

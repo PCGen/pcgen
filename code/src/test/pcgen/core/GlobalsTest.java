@@ -24,8 +24,7 @@ import org.junit.jupiter.api.Test;
 class GlobalsTest
 {
 	@BeforeEach
-	void setUp() throws Exception
-	{
+	void setUp() {
 		Globals.clearCampaignsForRefresh();
 		final GameMode gamemode = new GameMode("3.5");
 		gamemode.setBonusFeatLevels("3|3");

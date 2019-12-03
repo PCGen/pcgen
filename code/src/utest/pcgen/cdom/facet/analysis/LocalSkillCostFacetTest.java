@@ -48,8 +48,7 @@ public class LocalSkillCostFacetTest
 	private PCClass class2;
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);

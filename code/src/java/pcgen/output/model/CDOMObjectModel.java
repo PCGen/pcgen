@@ -90,15 +90,13 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 	}
 
 	@Override
-	public boolean isEmpty() throws TemplateModelException
-	{
+	public boolean isEmpty() {
 		//Never empty because we have "key"
 		return false;
 	}
 
 	@Override
-	public String getAsString() throws TemplateModelException
-	{
+	public String getAsString() {
 		return cdo.getDisplayName();
 	}
 

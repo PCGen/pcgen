@@ -24,8 +24,7 @@ class FormulaFactoryTest
 	private FormulaManager formulaManager;
 
 	@BeforeEach
-	void setUp() throws Exception
-	{
+	void setUp() {
 		arrayManager = new ArrayFormatManager<>(FormatUtilities.NUMBER_MANAGER,
 			'\n', ',');
 		varScope = new GlobalPCScope();
@@ -38,8 +37,7 @@ class FormulaFactoryTest
 	}
 
 	@AfterEach
-	void tearDown() throws Exception
-	{
+	void tearDown() {
 		arrayManager = null;
 		formulaManager = null;
 		varScope = null;

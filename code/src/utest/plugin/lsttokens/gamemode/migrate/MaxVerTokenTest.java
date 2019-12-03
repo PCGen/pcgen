@@ -38,8 +38,7 @@ class MaxVerTokenTest
 	private String gameModeName;
 
 	@BeforeEach
-	void setUp() throws Exception
-	{
+	void setUp() {
 		migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");
 		token = new MaxVerToken();
 		gameModeName = "Pathfinder";

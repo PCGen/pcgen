@@ -42,18 +42,14 @@ public class DomainFeatToken extends AbstractNonEmptyToken<Domain>
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, Domain obj, String value)
 	{
-		try
-		{
+
 			if (!context.processToken(obj, "ABILITY", "FEAT|AUTOMATIC|" + value))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Delegation Error from Domain's FEAT");
 			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail("Delegation Error from Domain's FEAT: " + e.getLocalizedMessage());
-		}
+
+
 		return ParseResult.SUCCESS;
 	}
 

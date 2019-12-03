@@ -247,8 +247,7 @@ public abstract class AbstractJunit5CharacterTestCase
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception
-	{
+	public void tearDown() {
 		character = null;
 	}
 

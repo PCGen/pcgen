@@ -45,8 +45,7 @@ public class SubRaceFacetTest
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		facet = new SubRaceFacet();
 		facet.setTemplateFacet(tfacet);
 		DataSetID cid = DataSetID.getID();

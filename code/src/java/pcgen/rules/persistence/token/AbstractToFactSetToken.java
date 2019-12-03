@@ -37,18 +37,12 @@ public abstract class AbstractToFactSetToken<T extends Loadable> extends Abstrac
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, T obj, String value)
 	{
-		try
-		{
 			if (!context.processToken(obj, "FACTSET", getTokenName() + '|' + value))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Delegation Error to FACTSET");
 			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail(e.getLocalizedMessage());
-		}
+
 		return ParseResult.SUCCESS;
 	}
 

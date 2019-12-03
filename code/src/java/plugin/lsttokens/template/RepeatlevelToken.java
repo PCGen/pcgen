@@ -194,16 +194,9 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate> imp
 				derivative.put(IntegerKey.LEVEL, count);
 				context.getReferenceContext().getManufacturer(PCTemplate.class).addDerivativeObject(derivative);
 				context.getObjectContext().addToList(consolidator, ListKey.LEVEL_TEMPLATES, derivative);
-				try
+				if (!context.processToken(derivative, typeStr, contentStr))
 				{
-					if (!context.processToken(derivative, typeStr, contentStr))
-					{
-						return ParseResult.INTERNAL_ERROR;
-					}
-				}
-				catch (PersistenceLayerException e)
-				{
-					return new ParseResult.Fail(e.getMessage());
+					return ParseResult.INTERNAL_ERROR;
 				}
 			}
 			if (consecutive != 0)

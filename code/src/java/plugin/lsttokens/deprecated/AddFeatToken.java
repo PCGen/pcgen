@@ -72,18 +72,12 @@ public class AddFeatToken extends AbstractNonEmptyToken<CDOMObject> implements C
 		{
 			return new ParseResult.Fail("ADD:FEAT had too many pipe separated items: " + value);
 		}
-		try
-		{
 			if (!context.processToken(obj, "ADD", "ABILITY|" + count.toString() + "|FEAT|NORMAL|" + activeValue))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Delegation Error from ADD:FEAT");
 			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail("Delegation Error from ADD:FEAT: " + e.getLocalizedMessage());
-		}
+
 		return ParseResult.SUCCESS;
 	}
 

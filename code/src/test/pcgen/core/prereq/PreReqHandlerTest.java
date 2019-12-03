@@ -40,8 +40,7 @@ public class PreReqHandlerTest
 	 * Sets up the test case by loading the system plugins.
 	 */
 	@BeforeEach
-	void setUp() throws Exception
-	{
+	void setUp() {
 		TestHelper.loadPlugins();
 	}
 

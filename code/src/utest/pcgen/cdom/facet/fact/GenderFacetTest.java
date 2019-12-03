@@ -47,8 +47,7 @@ class GenderFacetTest
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		facet = new GenderFacet();
 		facet.setTemplateFacet(tfacet);
 		DataSetID cid = DataSetID.getID();

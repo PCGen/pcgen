@@ -37,8 +37,7 @@ public class RaceMigrationTest
 	private String gameMode;
 
 	@BeforeEach
-	void setUp() throws Exception
-	{
+	void setUp() {
 		gameMode = SettingsHandler.getGame().getName();
 		MigrationRule raceRule = new MigrationRule(ObjectType.RACE, "OldKey1");
 		raceRule.setMaxVer("6.0.1");
@@ -61,8 +60,7 @@ public class RaceMigrationTest
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception
-	{
+	public void tearDown() {
 		SystemCollections.clearMigrationRuleMap();
 		gameMode = null;
 	}

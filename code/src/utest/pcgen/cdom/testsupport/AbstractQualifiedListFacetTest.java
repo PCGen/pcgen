@@ -71,8 +71,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	}
 
 	@BeforeEach
-	void setUp() throws Exception
-	{
+	void setUp() {
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);

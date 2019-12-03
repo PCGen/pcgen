@@ -414,8 +414,7 @@ class PrerequisiteWriterTest
 	}
 
     @BeforeEach
-    void setUp() throws Exception
-	{
+    void setUp() {
 		TestHelper.loadPlugins();
 		Globals.setUseGUI(false);
 		Globals.emptyLists();

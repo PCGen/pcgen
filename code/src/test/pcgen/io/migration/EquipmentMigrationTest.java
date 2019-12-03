@@ -37,11 +37,9 @@ public class EquipmentMigrationTest
 	private String gameMode;
 
 	/**
-	 * @throws java.lang.Exception
-	 */
+     */
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		gameMode = SettingsHandler.getGame().getName();
 		MigrationRule equipRule = new MigrationRule(ObjectType.EQUIPMENT, "OldKey1");
 		equipRule.setMaxVer("6.0.1");
@@ -64,8 +62,7 @@ public class EquipmentMigrationTest
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception
-	{
+	public void tearDown() {
 		SystemCollections.clearMigrationRuleMap();
 		gameMode = null;
 	}

@@ -33,8 +33,7 @@ import pcgen.util.Logging;
 public class CodeControlLoader extends LstLineFileLoader
 {
 	@Override
-	public void parseLine(LoadContext context, String inputLine, URI sourceURI) throws PersistenceLayerException
-	{
+	public void parseLine(LoadContext context, String inputLine, URI sourceURI) {
 		int sepLoc = inputLine.indexOf('\t');
 		if (sepLoc != -1)
 		{

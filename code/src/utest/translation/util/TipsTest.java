@@ -52,8 +52,7 @@ class TipsTest
 	}
 
 	@Test
-	public void isTip() throws Exception
-	{
+	public void isTip() {
 		String emptyLine = "";
 		assertFalse(Tips.isTip(emptyLine));
 		String comment = "# This is a comment in the tips file";

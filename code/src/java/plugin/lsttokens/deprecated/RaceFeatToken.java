@@ -41,18 +41,12 @@ public class RaceFeatToken extends AbstractNonEmptyToken<Race> implements CDOMCo
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, Race race, String value)
 	{
-		try
-		{
 			if (!context.processToken(race, "ABILITY", "FEAT|AUTOMATIC|" + value))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Delegation Error from Race's FEAT");
 			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail("Delegation Error from Race's FEAT: " + e.getLocalizedMessage());
-		}
+
 		return ParseResult.SUCCESS;
 	}
 

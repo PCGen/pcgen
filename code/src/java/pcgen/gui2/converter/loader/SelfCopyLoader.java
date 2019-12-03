@@ -31,9 +31,7 @@ public class SelfCopyLoader implements Loader
 {
 
 	@Override
-	public List<CDOMObject> process(StringBuilder sb, int line, String lineString, ConversionDecider decider)
-		throws PersistenceLayerException, InterruptedException
-	{
+	public List<CDOMObject> process(StringBuilder sb, int line, String lineString, ConversionDecider decider) {
 		sb.append(lineString);
 		return null;
 	}

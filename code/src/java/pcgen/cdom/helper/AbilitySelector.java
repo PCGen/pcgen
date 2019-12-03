@@ -102,8 +102,7 @@ public class AbilitySelector extends ConcretePrereqObject
 	}
 
 	@Override
-	public String getLstFormat() throws PersistenceLayerException
-	{
+	public String getLstFormat() {
 		return "%LIST";
 	}
 

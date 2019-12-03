@@ -90,8 +90,7 @@ public final class BioSetLoaderTest
 	}
 
     @AfterEach
-    public void tearDown() throws Exception
-	{
+    public void tearDown() {
 		SettingsHandler.getGame().getBioSet().clearUserMap();
 	}
 

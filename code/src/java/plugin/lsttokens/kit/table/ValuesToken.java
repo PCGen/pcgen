@@ -84,18 +84,14 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements CDOM
 				}
 				String key = s.substring(0, colonLoc);
 				String thingValue = s.substring(colonLoc + 1);
-				try
-				{
+
 					boolean passed = context.processToken(optionInfo, key, thingValue);
 					if (!passed)
 					{
 						return new ParseResult.Fail("Failure in token: " + key);
 					}
-				}
-				catch (PersistenceLayerException e)
-				{
-					return new ParseResult.Fail("Failure in token: " + key + ' ' + e.getMessage());
-				}
+
+
 			}
 			if (!sep.hasNext())
 			{

@@ -55,8 +55,7 @@ class PreAlignParserTest extends EnUsLocaleDependentTestCase
 	}
 
 	@BeforeEach
-	void setUp() throws Exception
-	{
+	void setUp() {
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		GameMode gamemode = new GameMode("3.5");

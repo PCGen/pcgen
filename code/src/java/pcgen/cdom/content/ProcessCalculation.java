@@ -106,8 +106,7 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 	}
 
 	@Override
-	public void isValid(FormulaSemantics semantics) throws SemanticsException
-	{
+	public void isValid(FormulaSemantics semantics) {
 		/*
 		 * Since this is direct (already has the object), it has no semantic issues
 		 * (barring someone violating Generics)

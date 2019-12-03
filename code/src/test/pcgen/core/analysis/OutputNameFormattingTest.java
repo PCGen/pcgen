@@ -37,8 +37,7 @@ public class OutputNameFormattingTest
 	private PObject testObj;
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		testObj = new PObject();
 		testObj.setName(NAME);
 	}

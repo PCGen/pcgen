@@ -38,18 +38,12 @@ public abstract class AbstractToFactToken<T extends Loadable> extends AbstractNo
 	{
 		Logging.deprecationPrint(getTokenClass().getSimpleName() + " token " + getTokenName()
 			+ " has been deprecated and replaced by FACT. Token was " + getTokenName() + ':' + value, context);
-		try
-		{
 			if (!context.processToken(obj, "FACT", getTokenName() + '|' + value))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Delegation Error to FACT");
 			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail(e.getLocalizedMessage());
-		}
+
 		return ParseResult.SUCCESS;
 	}
 

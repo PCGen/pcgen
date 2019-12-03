@@ -89,8 +89,7 @@ public class PreSpellDescriptorTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testSimpleDescriptor() throws Exception
-	{
+	public void testSimpleDescriptor() {
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("SpellDescriptor");
 		prereq.setKey("Fire");
@@ -133,8 +132,7 @@ public class PreSpellDescriptorTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testNotSimpleDescriptor() throws Exception
-	{
+	public void testNotSimpleDescriptor() {
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("SpellDescriptor");
 		prereq.setKey("Fire");

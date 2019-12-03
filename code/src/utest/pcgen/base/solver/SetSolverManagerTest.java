@@ -87,8 +87,7 @@ class SetSolverManagerTest
 	private MyManagerFactory managerFactory;
 
 	@BeforeEach
-	void setUp() throws Exception
-	{
+	void setUp() {
 		SupplierValueStore mvs = new SupplierValueStore();
 		WriteableFunctionLibrary fl = new SimpleFunctionLibrary();
 		fl.addFunction(new GetOtherFunction());

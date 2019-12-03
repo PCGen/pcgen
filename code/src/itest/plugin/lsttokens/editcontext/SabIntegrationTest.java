@@ -84,16 +84,12 @@ public class SabIntegrationTest extends
 	}
 
 	@Override
-	public void testRoundRobinDotClearJoinedOne()
-			throws PersistenceLayerException
-	{
+	public void testRoundRobinDotClearJoinedOne() {
 		// TODO No action for now, since Sab doesn't join
 	}
 
 	@Override
-	public void testRoundRobinDotClearJoinedTwo()
-			throws PersistenceLayerException
-	{
+	public void testRoundRobinDotClearJoinedTwo() {
 		// TODO No action for now, since Sab doesn't join
 	}
 	

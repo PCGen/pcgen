@@ -75,14 +75,12 @@ public class UnitSetModel implements TemplateHashModel, TemplateScalarModel
 	}
 
 	@Override
-	public boolean isEmpty() throws TemplateModelException
-	{
+	public boolean isEmpty() {
 		return false;
 	}
 
 	@Override
-	public String getAsString() throws TemplateModelException
-	{
+	public String getAsString() {
 		return unitSet.getDisplayName();
 	}
 }

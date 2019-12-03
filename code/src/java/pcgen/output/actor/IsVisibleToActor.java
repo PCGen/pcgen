@@ -34,8 +34,7 @@ import freemarker.template.TemplateModelException;
 public class IsVisibleToActor implements OutputActor<CDOMObject>
 {
 	@Override
-	public TemplateModel process(CharID id, CDOMObject d) throws TemplateModelException
-	{
+	public TemplateModel process(CharID id, CDOMObject d) {
 		return new VisibleToModel(d.getSafe(ObjectKey.VISIBILITY));
 	}
 }

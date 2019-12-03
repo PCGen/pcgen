@@ -54,9 +54,7 @@ public class EquipmentLoader implements Loader
 	}
 
 	@Override
-	public List<CDOMObject> process(StringBuilder sb, int line, String lineString, ConversionDecider decider)
-		throws PersistenceLayerException, InterruptedException
-	{
+	public List<CDOMObject> process(StringBuilder sb, int line, String lineString, ConversionDecider decider) {
 		String[] tokens = lineString.split(FIELD_SEPARATOR);
 		if (tokens.length == 0)
 		{

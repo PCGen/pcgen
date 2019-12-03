@@ -89,8 +89,7 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testSimpleSUBSCHOOL() throws Exception
-	{
+	public void testSimpleSUBSCHOOL() {
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("SpellSCHOOLSUB");
 		prereq.setKey("Fire");
@@ -133,8 +132,7 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testNotSimpleSUBSCHOOL() throws Exception
-	{
+	public void testNotSimpleSUBSCHOOL() {
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("SpellSCHOOLSUB");
 		prereq.setKey("Fire");

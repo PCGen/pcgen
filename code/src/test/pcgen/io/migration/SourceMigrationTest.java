@@ -37,8 +37,7 @@ public class SourceMigrationTest
 	private String gameMode;
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		gameMode = SettingsHandler.getGame().getName();
 		MigrationRule sourceRule = new MigrationRule(ObjectType.SOURCE, "OldKey1");
 		sourceRule.setMaxVer("6.0.1");
@@ -61,8 +60,7 @@ public class SourceMigrationTest
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception
-	{
+	public void tearDown() {
 		SystemCollections.clearMigrationRuleMap();
 		gameMode = null;
 	}

@@ -57,8 +57,7 @@ class MapKeyMapTest
 	private Aspect breedAspect;
 
 	@BeforeEach
-	void setUp() throws Exception
-	{
+	void setUp() {
 		mapKeyMap = new MapKeyMap();
 		ageKey = AspectName.getConstant("agE");
 		nameKey = AspectName.getConstant("Name");

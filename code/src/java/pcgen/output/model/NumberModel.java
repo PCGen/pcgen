@@ -46,8 +46,7 @@ public class NumberModel implements TemplateNumberModel, Supplier<Number>
 	}
 
 	@Override
-	public Number getAsNumber() throws TemplateModelException
-	{
+	public Number getAsNumber() {
 		return number;
 	}
 

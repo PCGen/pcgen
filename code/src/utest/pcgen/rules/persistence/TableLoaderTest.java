@@ -30,8 +30,7 @@ class TableLoaderTest
 	private TableLoader loader;
 
 	@BeforeEach
-	void setUp() throws Exception
-	{
+	void setUp() {
 		uri = TestURI.getURI();
 		context = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());

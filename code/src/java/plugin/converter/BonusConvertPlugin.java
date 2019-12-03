@@ -95,8 +95,6 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 
 	private String processBonus(TokenProcessEvent tpe, String key, String value)
 	{
-		try
-		{
 			LoadContext context = tpe.getContext();
 			CDOMObject obj = tpe.getPrimary();
 			if (context.processToken(obj, key, value))
@@ -126,11 +124,7 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 				tpe.append(s);
 			}
 			tpe.consume();
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint(e.getLocalizedMessage(), e);
-		}
+
 		return null;
 	}
 

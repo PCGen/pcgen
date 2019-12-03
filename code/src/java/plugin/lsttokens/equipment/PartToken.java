@@ -76,17 +76,8 @@ public class PartToken extends AbstractNonEmptyToken<Equipment> implements CDOMP
 
 		LoadContext subContext = context.dropIntoContext(EquipmentPartScope.PC_EQUIPMENT_PART);
 
-		boolean processToken;
-		try
-		{
+		boolean processToken = subContext.processToken(part, tokenName, tokenValue);
 
-			processToken = subContext.processToken(part, tokenName, tokenValue);
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail(
-				getTokenName() + " encountered an error (" + e.getMessage() + ") in the token content of: " + value);
-		}
 		if (processToken)
 		{
 			return ParseResult.SUCCESS;

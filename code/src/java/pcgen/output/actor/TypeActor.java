@@ -41,8 +41,7 @@ import freemarker.template.TemplateModelException;
 public class TypeActor implements OutputActor<CDOMObject>
 {
 	@Override
-	public TemplateModel process(CharID id, CDOMObject d) throws TemplateModelException
-	{
+	public TemplateModel process(CharID id, CDOMObject d) {
 		final List<Type> types = d.getSafeListFor(ListKey.TYPE);
 		List<String> strings = new ArrayList<>(types.size());
 		for (Type type : types)

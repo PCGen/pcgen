@@ -47,8 +47,7 @@ public class LegsFacetTest
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		facet = new LegsFacet();
 		facet.setRaceFacet(rfacet);
 		facet.setTemplateFacet(tfacet);

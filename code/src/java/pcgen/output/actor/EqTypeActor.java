@@ -34,8 +34,7 @@ import freemarker.template.TemplateModelException;
 public class EqTypeActor implements OutputActor<Equipment>
 {
 	@Override
-	public TemplateModel process(CharID id, Equipment eq) throws TemplateModelException
-	{
+	public TemplateModel process(CharID id, Equipment eq) {
 		//Our own ListModel so that we end up wrapping subcontents on "our terms"
 		return new CollectionModel(id, eq.typeList());
 	}

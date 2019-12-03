@@ -80,8 +80,7 @@ public class SpellfailureTokenTest extends AbstractIntegerTokenTestCase<Equipmen
 	}
 
 	@Override
-	public void testRoundRobinZero() throws PersistenceLayerException
-	{
+	public void testRoundRobinZero() {
 		//Consume due to deprecation
 	}
 

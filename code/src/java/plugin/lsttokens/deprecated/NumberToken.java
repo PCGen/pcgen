@@ -44,20 +44,14 @@ public class NumberToken implements CDOMCompatibilityToken<CDOMObject>
 			return new ParseResult.Fail("Incompatible with NUMBER|: " + value);
 		}
 		Logging.deprecationPrint("CHOOSE:NUMBER is deprecated, please use TEMPVALUE");
-		try
-		{
+
 			if (!context.processToken(obj, "TEMPVALUE", value.substring(7)))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Internal Error in delegation of CHOOSE:NUMBER to TEMPVALUE");
 			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.replayParsedMessages();
-			return new ParseResult.Fail(
-				"Error in delegation of CHOOSE:NUMBER to TEMPVALUE: " + e.getLocalizedMessage());
-		}
+
+
 
 		return ParseResult.SUCCESS;
 	}

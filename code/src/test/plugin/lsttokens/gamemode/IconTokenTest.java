@@ -46,8 +46,7 @@ class IconTokenTest
 	}
 
 	@Test
-	public void testValidSyntax() throws Exception
-	{
+	public void testValidSyntax() {
 		GameMode gameMode = SettingsHandler.getGame();
 		assertNull(gameMode
 				.getEquipTypeIcon("Eyegear"), "starting condition, eyegear icon should be null");
@@ -72,8 +71,7 @@ class IconTokenTest
 	}
 
 	@Test
-	public void testInValidSyntax() throws Exception
-	{
+	public void testInValidSyntax() {
 		GameMode gameMode = SettingsHandler.getGame();
 		EquipIconLstToken token = new IconToken();
 		assertFalse(token.parse(gameMode,

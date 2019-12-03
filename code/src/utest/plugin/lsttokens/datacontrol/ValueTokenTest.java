@@ -59,8 +59,7 @@ public class ValueTokenTest
 	}
 
 	@BeforeEach
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
+	public void setUp() {
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
 		resetContext();

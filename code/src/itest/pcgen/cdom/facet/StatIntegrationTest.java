@@ -65,8 +65,7 @@ public class StatIntegrationTest
 	private final Object tsource = new Object();
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);

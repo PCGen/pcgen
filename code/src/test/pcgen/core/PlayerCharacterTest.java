@@ -265,8 +265,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	
 
 	@Test
-	public void testGetBonusFeatsForNewLevel1() throws Exception
-	{
+	public void testGetBonusFeatsForNewLevel1() {
 		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
 
@@ -276,8 +275,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testGetBonusFeatsForNewLevel3() throws Exception
-	{
+	public void testGetBonusFeatsForNewLevel3() {
 		readyToRun();
 		final PlayerCharacter character = new PlayerCharacter();
 
@@ -1365,13 +1363,9 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 *
 	 * Testing with a fighter class from level 1 to level 20
 	 *
-	 * @throws Exception
-	 *
-	 * TODO Testing at epic levels 21+ needs to be fixed.
-	 */
+     */
 	@Test
-	public void testbaseAttackBonusAndgetNumAttacks() throws Exception 
-	{
+	public void testbaseAttackBonusAndgetNumAttacks() {
 		readyToRun();
 		LoadContext context = Globals.getContext();
 		GameMode gamemode = SettingsHandler.getGame();

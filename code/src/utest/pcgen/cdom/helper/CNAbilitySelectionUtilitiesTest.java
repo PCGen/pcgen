@@ -26,8 +26,7 @@ class CNAbilitySelectionUtilitiesTest
 	private Ability othernomult;
 
 	@BeforeEach
-	void setUp() throws Exception
-	{
+	void setUp() {
 		CNAbilityFactory.reset();
 		feat = new AbilityCategory();
 		feat.setName("FEAT");

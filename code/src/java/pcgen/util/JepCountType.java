@@ -197,8 +197,7 @@ public abstract class JepCountType
 		}
 
 		@Override
-		protected Set<? extends Equipment> filterSetP(final String c, Collection<Equipment> coll) throws ParseException
-		{
+		protected Set<? extends Equipment> filterSetP(final String c, Collection<Equipment> coll) {
 			final String[] keyValue = c.split("=");
 
 			final JepEquipmentCountEnum en;

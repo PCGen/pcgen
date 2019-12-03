@@ -58,8 +58,7 @@ public class RaceTypeFacetTest
 	private CompanionModFacet cfacet = new CompanionModFacet();
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		facet = new RaceTypeFacet();
 		facet.setRaceFacet(rfacet);
 		facet.setTemplateFacet(tfacet);

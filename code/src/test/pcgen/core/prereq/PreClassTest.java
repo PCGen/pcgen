@@ -509,8 +509,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testOldPreClassLevelMax() throws Exception
-	{
+	public void testOldPreClassLevelMax() {
 		final PreClassLevelMaxParser parser = new PreClassLevelMaxParser();
 		try
 		{
@@ -552,8 +551,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testAnyLevelTwo() throws Exception
-	{
+	public void testAnyLevelTwo() {
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("MyClass");
 		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");

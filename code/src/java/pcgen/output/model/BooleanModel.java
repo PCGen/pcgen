@@ -44,8 +44,7 @@ public class BooleanModel implements TemplateBooleanModel, Supplier<Boolean>
 	}
 
 	@Override
-	public boolean getAsBoolean() throws TemplateModelException
-	{
+	public boolean getAsBoolean() {
 		return bool;
 	}
 

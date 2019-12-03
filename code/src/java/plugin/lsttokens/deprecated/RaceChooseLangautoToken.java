@@ -47,34 +47,18 @@ public class RaceChooseLangautoToken extends AbstractTokenWithSeparator<Race> im
 			return new ParseResult.Fail(value + " Incompatible with CHOOSE:LANGAUTO replacement in Race: " + value);
 		}
 		Logging.deprecationPrint("CHOOSE:LANGAUTO is deprecated, " + "please use CHOOSE:LANG and AUTO:LANG|%LIST");
-		try
-		{
 			if (!context.processToken(race, "CHOOSE", "LANG|" + value.substring(9)))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Internal Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANGUAGE");
 			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.replayParsedMessages();
-			return new ParseResult.Fail(
-				"Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANG: " + e.getLocalizedMessage());
-		}
-		try
-		{
+
 			if (!context.processToken(race, "AUTO", "LANG|%LIST"))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Internal Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG");
 			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.replayParsedMessages();
-			return new ParseResult.Fail(
-				"Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG: " + e.getLocalizedMessage());
-		}
+
 		return ParseResult.SUCCESS;
 	}
 

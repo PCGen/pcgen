@@ -70,8 +70,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST>
 	}
 
 	@BeforeEach
-	void setUp() throws Exception
-	{
+	void setUp() {
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);

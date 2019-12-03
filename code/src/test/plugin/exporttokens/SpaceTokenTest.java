@@ -34,15 +34,13 @@ public class SpaceTokenTest extends AbstractCharacterTestCase
 {
 	@BeforeEach
 	@Override
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		// Do Nothing
 	}
 
 	@AfterEach
 	@Override
-	public void tearDown() throws Exception
-	{
+	public void tearDown() {
 		// Do Nothing
 	}
 

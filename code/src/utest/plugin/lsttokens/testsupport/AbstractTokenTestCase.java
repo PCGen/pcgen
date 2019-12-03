@@ -79,8 +79,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable>
 	}
 
 	@AfterEach
-	void tearDown() throws Exception
-	{
+	void tearDown() {
 		primaryContext = null;
 		secondaryContext = null;
 		primaryProf = null;

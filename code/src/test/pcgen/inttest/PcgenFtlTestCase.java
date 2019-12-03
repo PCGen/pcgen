@@ -52,14 +52,12 @@ public abstract class PcgenFtlTestCase
 	private static final String TEST_CONFIG_FILE = "config.ini.junit";
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		LocaleDependentTestCase.before(Locale.US);
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception
-	{
+	public void tearDown() {
 		LocaleDependentTestCase.after();
 	}
 

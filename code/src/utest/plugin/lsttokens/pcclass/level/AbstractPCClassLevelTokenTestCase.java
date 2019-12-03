@@ -69,8 +69,7 @@ public abstract class AbstractPCClassLevelTokenTestCase
 	}
 
 	@BeforeEach
-	void setUp() throws PersistenceLayerException, URISyntaxException
-	{
+	void setUp() {
 		// Yea, this causes warnings...
 		TokenRegistration.register(getToken());
 		primaryContext = new RuntimeLoadContext(RuntimeReferenceContext.createRuntimeReferenceContext(),

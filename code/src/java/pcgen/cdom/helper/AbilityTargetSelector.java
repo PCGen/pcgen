@@ -148,8 +148,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements Qu
 	}
 
 	@Override
-	public String getLstFormat() throws PersistenceLayerException
-	{
+	public String getLstFormat() {
 		return ability.getLSTformat(false);
 	}
 

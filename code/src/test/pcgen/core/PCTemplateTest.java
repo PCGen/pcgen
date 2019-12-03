@@ -56,12 +56,10 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test the definition and application of abilities. 
-	 * @throws PersistenceLayerException 
-	 * @throws MalformedURLException 
-	 */
+	 * @throws PersistenceLayerException
+     */
 	@Test
-	public void testAddAbility() throws PersistenceLayerException, MalformedURLException
-	{
+	public void testAddAbility() throws PersistenceLayerException {
 		LoadContext context = Globals.getContext();
 		// Create some abilities to be added
 		AbilityCategory cat = context.getReferenceContext().constructCDOMObject(
@@ -122,12 +120,10 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test the definition and application of abilities of category FEAT. 
-	 * @throws PersistenceLayerException 
-	 * @throws MalformedURLException 
-	 */
+	 * @throws PersistenceLayerException
+     */
 	@Test
-	public void testAddFeatAbility() throws PersistenceLayerException, MalformedURLException
-	{
+	public void testAddFeatAbility() throws PersistenceLayerException {
 		LoadContext context = Globals.getContext();
 		// Create some abilities to be added
 		Ability ab1 = new Ability();
@@ -188,12 +184,10 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test the definition and application of abilities. 
-	 * @throws PersistenceLayerException 
-	 * @throws MalformedURLException 
-	 */
+	 * @throws PersistenceLayerException
+     */
 	@Test
-	public void testAddLevelAbility() throws PersistenceLayerException, MalformedURLException
-	{
+	public void testAddLevelAbility() throws PersistenceLayerException {
 		LoadContext context = Globals.getContext();
 		
 		AbilityCategory cat = context.getReferenceContext().constructCDOMObject(
@@ -276,12 +270,10 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test the definition and application of abilities of category FEAT. 
-	 * @throws PersistenceLayerException 
-	 * @throws MalformedURLException 
-	 */
+	 * @throws PersistenceLayerException
+     */
 	@Test
-	public void testAddLevelFeatAbility() throws PersistenceLayerException, MalformedURLException
-	{
+	public void testAddLevelFeatAbility() throws PersistenceLayerException {
 		// Create some abilities to be added
 		LoadContext context = Globals.getContext();
 		Ability ab1 = new Ability();

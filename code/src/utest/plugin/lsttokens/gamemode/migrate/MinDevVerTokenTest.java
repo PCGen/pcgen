@@ -40,8 +40,7 @@ class MinDevVerTokenTest
 	private String gameModeName;
 
 	@BeforeEach
-	void setUp() throws Exception
-	{
+	void setUp() {
 		migrationRule = new MigrationRule(ObjectType.SOURCE, "OldKey");
 		token = new MinDevVerToken();
 		gameModeName = "Pathfinder";

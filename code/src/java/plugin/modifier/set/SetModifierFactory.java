@@ -100,8 +100,7 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		}
 
 		@Override
-		public void isValid(FormulaSemantics semantics) throws SemanticsException
-		{
+		public void isValid(FormulaSemantics semantics) {
 			/*
 			 * Since this is direct (already has the object), it has no semantic issues
 			 * (barring someone violating Generics)
@@ -146,8 +145,7 @@ public class SetModifierFactory<T> extends AbstractFixedSetModifierFactory<T[]>
 		}
 
 		@Override
-		public void isValid(FormulaSemantics semantics) throws SemanticsException
-		{
+		public void isValid(FormulaSemantics semantics) {
 			/*
 			 * Since this is direct (already has a reference to the object), it has no
 			 * semantic issues (barring someone violating Generics)

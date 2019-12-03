@@ -46,8 +46,7 @@ public class MigrationLoader extends LstLineFileLoader
 	private String invalidSourceKeyPattern = ".*[\\||\\\\|;|%|\\*|=|\\[|\\]].*";
 
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
-	{
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI) {
 
 		final StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
 

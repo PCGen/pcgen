@@ -67,8 +67,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit5CharacterTestCa
 	
 
 	@BeforeEach
-	public void before() throws Exception
-	{
+	public void before() {
 		delegate = new MockUIDelegate();
 		todoManager = new TodoManager();
 		final GameMode gameMode = SettingsHandler.getGame();

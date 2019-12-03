@@ -47,8 +47,7 @@ public class CategoryModel implements TemplateScalarModel
 	}
 
 	@Override
-	public String getAsString() throws TemplateModelException
-	{
+	public String getAsString() {
 		return category.getDisplayName();
 	}
 

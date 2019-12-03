@@ -59,8 +59,7 @@ class RequiredTokenTest
 	}
 
 	@BeforeEach
-	void setUp() throws PersistenceLayerException, URISyntaxException
-	{
+	void setUp() {
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(token);
 		resetContext();

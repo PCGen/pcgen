@@ -37,8 +37,7 @@ public class EquipIconLoader extends LstLineFileLoader
 {
 
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI) throws PersistenceLayerException
-	{
+	public void parseLine(LoadContext context, String lstLine, URI sourceURI) {
 		final int idxColon = lstLine.indexOf(':');
 		if (idxColon < 0)
 		{

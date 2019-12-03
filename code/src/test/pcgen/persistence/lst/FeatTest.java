@@ -31,8 +31,7 @@ public class FeatTest
 	 * Sets up the test case by loading the system plugins.
 	 */
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		TestHelper.loadPlugins();
 		Globals.getContext().getReferenceContext().importObject(BuildUtilities.getFeatCat());
 	}

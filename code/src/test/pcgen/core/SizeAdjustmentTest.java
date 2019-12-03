@@ -27,8 +27,7 @@ public class SizeAdjustmentTest extends AbstractCharacterTestCase
 {
 
 	@Test
-	public void testSizeMod() throws Exception
-	{
+	public void testSizeMod() {
 		Race race = new Race();
 		race.setName("Race");
 		PCTemplate template = new PCTemplate();

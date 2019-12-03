@@ -84,8 +84,7 @@ public class FaceTokenTest
 	}
 
 	@BeforeEach
-	public void setUp() throws PersistenceLayerException, URISyntaxException
-	{
+	public void setUp() {
 		TokenRegistration.clearTokens();
 		TokenRegistration.register(getToken());
 		resetContext();

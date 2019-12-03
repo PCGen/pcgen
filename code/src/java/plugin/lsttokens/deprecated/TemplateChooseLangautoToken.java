@@ -49,34 +49,20 @@ public class TemplateChooseLangautoToken extends AbstractTokenWithSeparator<PCTe
 			return new ParseResult.Fail("Incompatible with CHOOSE:LANGAUTO replacement in Template");
 		}
 		Logging.deprecationPrint("CHOOSE:LANGAUTO is deprecated, " + "please use CHOOSE:LANG and AUTO:LANG|%LIST");
-		try
-		{
+
 			if (!context.processToken(template, "CHOOSE", "LANG|" + value.substring(9)))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Internal Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANG");
 			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.replayParsedMessages();
-			return new ParseResult.Fail(
-				"Error in delegation of CHOOSE:LANGAUTO to CHOOSE:LANG: " + e.getLocalizedMessage());
-		}
-		try
-		{
+
+
 			if (!context.processToken(template, "AUTO", "LANG|%LIST"))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Internal Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG");
 			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.replayParsedMessages();
-			return new ParseResult.Fail(
-				"Error in delegation of CHOOSE:LANGAUTO to AUTO:LANG: " + e.getLocalizedMessage());
-		}
+
 		return ParseResult.SUCCESS;
 	}
 

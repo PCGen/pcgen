@@ -89,8 +89,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testSimpleType() throws Exception
-	{
+	public void testSimpleType() {
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("SPELLTYPE");
 		prereq.setKey("Arcane");
@@ -148,8 +147,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 	}
 
 	@Test
-	public void testNotSimpleType() throws Exception
-	{
+	public void testNotSimpleType() {
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("SPELLTYPE");
 		prereq.setKey("Arcane");

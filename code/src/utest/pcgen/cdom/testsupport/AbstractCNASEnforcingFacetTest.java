@@ -74,8 +74,7 @@ public abstract class AbstractCNASEnforcingFacetTest
 	}
 
 	@BeforeEach
-	void setUp() throws Exception
-	{
+	void setUp() {
 		getFacet().addDataFacetChangeListener(listener);
 		CNAbilityFactory.reset();
 		DataSetID cid = DataSetID.getID();

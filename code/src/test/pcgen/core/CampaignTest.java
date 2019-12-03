@@ -37,8 +37,7 @@ class CampaignTest
 	private Campaign testCamp = new Campaign();
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		TokenRegistration.register(new UrlToken());
 	}
 
@@ -50,8 +49,7 @@ class CampaignTest
 	}
 
 	@Test
-	public void testURL() throws Exception
-	{
+	public void testURL() {
 		final String eCommerceName = "Barcommerce";
 		final String eCommerceURL =
 				"http://www.barcommercesite.com/product_info.php?products_id=12345&affiliate_id=54321";

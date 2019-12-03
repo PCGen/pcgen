@@ -97,11 +97,9 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test that domain spell lists are built and managed correctly.
-	 * @throws Exception If an error occurs.
-	 */
+     */
 	@Test
-	public void testDomainSpell() throws Exception
-	{
+	public void testDomainSpell() {
 		PlayerCharacter pc = getCharacter();
 		setPCStat(pc, cha, 15);
 		pc.incrementClassLevel(1, divineClass);
@@ -117,11 +115,9 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 
 	/**
 	 * Test that class spell lists are built and managed correctly.
-	 * @throws Exception If an error occurs.
-	 */
+     */
 	@Test
-	public void testPcClassSpell() throws Exception
-	{
+	public void testPcClassSpell() {
 		PlayerCharacter pc = getCharacter();
 		pc.incrementClassLevel(1, divineClass);
 		

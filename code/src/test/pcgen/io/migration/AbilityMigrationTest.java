@@ -38,8 +38,7 @@ public class AbilityMigrationTest
 	private String gameMode;
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		gameMode = SettingsHandler.getGame().getName();
 		MigrationRule abilityRule = new MigrationRule(ObjectType.ABILITY, "OldCat", "OldKey1");
 		abilityRule.setMaxVer("6.0.1");
@@ -63,8 +62,7 @@ public class AbilityMigrationTest
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception
-	{
+	public void tearDown() {
 		SystemCollections.clearMigrationRuleMap();
 		gameMode = null;
 	}

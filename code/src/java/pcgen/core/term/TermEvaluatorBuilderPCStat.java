@@ -53,9 +53,7 @@ public class TermEvaluatorBuilderPCStat implements TermEvaluatorBuilder
 	}
 
 	@Override
-	public TermEvaluator getTermEvaluator(String expressionString, String src, String matchedSection)
-		throws TermEvaulatorException
-	{
+	public TermEvaluator getTermEvaluator(String expressionString, String src, String matchedSection) {
 		if (expressionString.equals(matchedSection))
 		{
 			return new PCStatModTermEvaluator(expressionString, matchedSection);

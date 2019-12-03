@@ -22,14 +22,12 @@ public class SpellProgressionCacheTest
 	public SpellProgressionCache spi;
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		spi = new SpellProgressionCache();
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception
-	{
+	public void tearDown() {
 		spi = null;
 	}
 

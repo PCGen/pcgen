@@ -71,18 +71,13 @@ public class AddVFeatToken extends AbstractNonEmptyToken<CDOMObject> implements 
 		{
 			return new ParseResult.Fail("ADD:VFEAT had too many pipe separated items: " + value);
 		}
-		try
-		{
+
 			if (!context.processToken(obj, "ADD", "ABILITY|" + count.toString() + "|FEAT|VIRTUAL|" + activeValue))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Delegation Error from ADD:VFEAT");
 			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail("Delegation Error from ADD:VFEAT: " + e.getLocalizedMessage());
-		}
+
 		return ParseResult.SUCCESS;
 	}
 

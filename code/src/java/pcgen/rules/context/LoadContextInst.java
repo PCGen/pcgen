@@ -324,17 +324,13 @@ abstract class LoadContextInst implements LoadContext
 	}
 
 	@Override
-	public <T extends Loadable> boolean processToken(T derivative, String typeStr, String argument)
-		throws PersistenceLayerException
-	{
+	public <T extends Loadable> boolean processToken(T derivative, String typeStr, String argument) {
 		return support.processToken(this, derivative, typeStr, argument);
 	}
 
 	@Override
 	public <T extends Loadable> void unconditionallyProcess(T cdo, String key, String value)
 	{
-		try
-		{
 			if (processToken(cdo, key, value))
 			{
 				commit();
@@ -345,11 +341,7 @@ abstract class LoadContextInst implements LoadContext
 				Logging.replayParsedMessages();
 			}
 			Logging.clearParseMessages();
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint("Error in token parse: " + e.getLocalizedMessage());
-		}
+
 	}
 
 	/**
@@ -781,9 +773,7 @@ abstract class LoadContextInst implements LoadContext
 		}
 
 		@Override
-		public <T extends Loadable> boolean processToken(T derivative, String typeStr, String argument)
-			throws PersistenceLayerException
-		{
+		public <T extends Loadable> boolean processToken(T derivative, String typeStr, String argument) {
 			return support.processToken(this, derivative, typeStr, argument);
 		}
 

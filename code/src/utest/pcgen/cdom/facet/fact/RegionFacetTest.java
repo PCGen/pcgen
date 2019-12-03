@@ -55,8 +55,7 @@ public class RegionFacetTest
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		facet = new RegionFacet();
 		facet.setTemplateFacet(tfacet);
 		DataSetID cid = DataSetID.getID();

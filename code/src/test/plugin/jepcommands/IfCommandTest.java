@@ -45,8 +45,7 @@ class IfCommandTest
 
     /* Test the case where the condition is a zero double */
     @Test
-    public void testIf01() throws ParseException
-    {
+    public void testIf01() {
         final PostfixMathCommandI   c = new IfCommand();
         final Stack<Double>         s = new Stack<>();
 

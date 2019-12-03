@@ -239,8 +239,7 @@ public class TemplateLst extends AbstractToken implements CDOMPrimaryToken<CDOMO
 	}
 
 	@Override
-	public String getLstFormat() throws PersistenceLayerException
-	{
+	public String getLstFormat() {
 		return Constants.LST_PERCENT_LIST;
 	}
 

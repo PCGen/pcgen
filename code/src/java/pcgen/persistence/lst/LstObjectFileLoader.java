@@ -146,11 +146,9 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * @param pObj The object that has just completed loading.
 	 * 
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#includeObject(SourceEntry, CDOMObject)
-	 * 
-	 * @throws PersistenceLayerException 
-	 */
-	public void completeObject(LoadContext context, SourceEntry source, final T pObj) throws PersistenceLayerException
-	{
+	 *
+     */
+	public void completeObject(LoadContext context, SourceEntry source, final T pObj) {
 		if (!processComplete || pObj == null)
 		{
 			return;
@@ -408,20 +406,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		}
 		if (target != null)
 		{
-			try
-			{
-				completeObject(context, sourceEntry, target);
-			}
-			catch (PersistenceLayerException ple)
-			{
-				Logging
-					.errorPrint("Error in completing " + target.getClass().getSimpleName() + " " + target.getKeyName());
-				setChanged();
-				if (Logging.isDebugMode())
-				{
-					Logging.debugPrint("Parse error:", ple); //$NON-NLS-1$
-				}
-			}
+			completeObject(context, sourceEntry, target);
 		}
 	}
 
@@ -564,50 +549,41 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		}
 
 		// modify the object
-		try
+		if (includeItems.isEmpty() || includeItems.contains(key))
 		{
-			if (includeItems.isEmpty() || includeItems.contains(key))
+			for (ModEntry element : entryList)
 			{
-				for (ModEntry element : entryList)
+				context.setSourceURI(element.source.getURI());
+				try
 				{
-					context.setSourceURI(element.source.getURI());
-					try
-					{
-						String origPage = object.get(StringKey.SOURCE_PAGE);
+					String origPage = object.get(StringKey.SOURCE_PAGE);
 
-						parseLine(context, object, element.getLstLine(), element.getSource());
+					parseLine(context, object, element.getLstLine(), element.getSource());
 
-						if (origPage != object.get(StringKey.SOURCE_PAGE))
-						{
-							Campaign campaign = element.source.getCampaign();
-							object.put(ObjectKey.SOURCE_CAMPAIGN, campaign);
-							object.put(StringKey.SOURCE_SHORT, campaign.get(StringKey.SOURCE_SHORT));
-							object.put(StringKey.SOURCE_LONG, campaign.get(StringKey.SOURCE_LONG));
-							object.put(ObjectKey.SOURCE_DATE, campaign.get(ObjectKey.SOURCE_DATE));
-							object.put(StringKey.SOURCE_WEB, campaign.get(StringKey.SOURCE_WEB));
-							object.setSourceURI(element.source.getURI());
-						}
-					}
-					catch (PersistenceLayerException ple)
+					if (origPage != object.get(StringKey.SOURCE_PAGE))
 					{
-						String message =
-								LanguageBundle.getFormattedString(
-									"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
-							element.getSource().getURI(), element.getLineNumber(), ple.getMessage());
-						Logging.errorPrint(message);
-						setChanged();
+						Campaign campaign = element.source.getCampaign();
+						object.put(ObjectKey.SOURCE_CAMPAIGN, campaign);
+						object.put(StringKey.SOURCE_SHORT, campaign.get(StringKey.SOURCE_SHORT));
+						object.put(StringKey.SOURCE_LONG, campaign.get(StringKey.SOURCE_LONG));
+						object.put(ObjectKey.SOURCE_DATE, campaign.get(ObjectKey.SOURCE_DATE));
+						object.put(StringKey.SOURCE_WEB, campaign.get(StringKey.SOURCE_WEB));
+						object.setSourceURI(element.source.getURI());
 					}
 				}
+				catch (PersistenceLayerException ple)
+				{
+					String message =
+							LanguageBundle.getFormattedString(
+								"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
+						element.getSource().getURI(), element.getLineNumber(), ple.getMessage());
+					Logging.errorPrint(message);
+					setChanged();
+				}
 			}
-			completeObject(context, entry.getSource(), object);
 		}
-		catch (PersistenceLayerException ple)
-		{
-			String message = LanguageBundle.getFormattedString("Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
-				entry.getSource().getURI(), entry.getLineNumber(), ple.getMessage());
-			Logging.errorPrint(message);
-			setChanged();
-		}
+		completeObject(context, entry.getSource(), object);
+
 	}
 
 	/**

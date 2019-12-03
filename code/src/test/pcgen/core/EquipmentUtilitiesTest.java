@@ -39,8 +39,7 @@ class EquipmentUtilitiesTest
 	/**
 	 * Sets up some basic stuff that must be present for tests to work.
 	 */
-	protected void setUp() throws Exception
-	{
+	protected void setUp() {
 		final GameMode gamemode = new GameMode("3.5");
 		gamemode.setBonusFeatLevels("3|3");
 		ControlTestSupport.enableFeature(gamemode.getModeContext(), CControl.ALIGNMENTFEATURE);

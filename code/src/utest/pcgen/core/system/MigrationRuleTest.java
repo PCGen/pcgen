@@ -32,8 +32,7 @@ class MigrationRuleTest
 	private MigrationRule migrationRule;
 
 	@BeforeEach
-	void setUp() throws Exception
-	{
+	void setUp() {
 		migrationRule = new MigrationRule(MigrationRule.ObjectType.SOURCE, "OldKey");
 	}
 

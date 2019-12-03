@@ -149,8 +149,7 @@ public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
 	}
 	
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		Globals.setUseGUI(false);
 		Globals.emptyLists();
 		SettingsHandler.setGame("3.5");

@@ -42,18 +42,13 @@ public class AutoFeatToken extends AbstractNonEmptyToken<CDOMObject>
 		{
 			return new ParseResult.Fail("Incompatible with " + value);
 		}
-		try
-		{
+
 			if (!context.processToken(obj, "ABILITY", "FEAT|AUTOMATIC|" + value.substring(5)))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Delegation Error from AUTO:FEAT");
 			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail("Delegation Error from AUTO:FEAT: " + e.getLocalizedMessage());
-		}
+
 		return ParseResult.SUCCESS;
 	}
 

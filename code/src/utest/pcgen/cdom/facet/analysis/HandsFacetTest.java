@@ -47,8 +47,7 @@ public class HandsFacetTest
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		facet = new HandsFacet();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);

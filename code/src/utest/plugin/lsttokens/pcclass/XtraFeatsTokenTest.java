@@ -80,8 +80,7 @@ public class XtraFeatsTokenTest extends AbstractIntegerTokenTestCase<PCClass>
 	}
 
 	@Override
-	public void testRoundRobinZero() throws PersistenceLayerException
-	{
+	public void testRoundRobinZero() {
 		//Consume due to deprecation
 	}
 

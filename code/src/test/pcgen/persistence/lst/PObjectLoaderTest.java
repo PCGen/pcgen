@@ -53,14 +53,12 @@ class PObjectLoaderTest
 	 * Sets up the test case by loading the system plugins.
 	 */
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		TestHelper.loadPlugins();
 	}
 
 	@Test
-	public void testDefine() throws Exception
-	{
+	public void testDefine() {
 		Ability feat = new Ability();
 
 		Globals.getContext().unconditionallyProcess(feat, "DEFINE", "Foo|0");
@@ -110,8 +108,7 @@ class PObjectLoaderTest
 	}
 
 	@Test
-	public void testParsePreClear() throws Exception
-	{
+	public void testParsePreClear() {
 		PObject object = new PObject();
 
 		LoadContext context = Globals.getContext();

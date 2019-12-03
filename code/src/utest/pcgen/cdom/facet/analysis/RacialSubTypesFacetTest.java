@@ -59,8 +59,7 @@ public class RacialSubTypesFacetTest
 	private TemplateFacet tfacet = new TemplateFacet();
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		facet = new RacialSubTypesFacet();
 		facet.setRaceFacet(rfacet);
 		facet.setTemplateFacet(tfacet);

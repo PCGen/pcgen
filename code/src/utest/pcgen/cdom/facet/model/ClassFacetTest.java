@@ -93,8 +93,7 @@ public class ClassFacetTest
 	}
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);

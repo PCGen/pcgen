@@ -45,16 +45,9 @@ public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrima
 	@Override
 	public ParseResult parseNonEmptyToken(LoadContext context, PCStat stat, String value)
 	{
-		try
+		if (!context.processToken(stat, "KEY", value))
 		{
-			if (!context.processToken(stat, "KEY", value))
-			{
-				return new ParseResult.Fail("Internal Error");
-			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail(e.getLocalizedMessage());
+			return new ParseResult.Fail("Internal Error");
 		}
 		context.getObjectContext().put(stat, StringKey.ABB_KR, value);
 		return ParseResult.SUCCESS;

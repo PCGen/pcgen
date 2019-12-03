@@ -93,12 +93,10 @@ public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 
 	/**
 	 * Test invalid empty.
-	 * 
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
+	 *
+     */
 	@Test
-	public void testInvalidEmpty() throws PersistenceLayerException
-	{
+	public void testInvalidEmpty() {
 		assertFalse(parse(""));
 		assertNoSideEffects();
 	}

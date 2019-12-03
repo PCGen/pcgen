@@ -31,8 +31,6 @@ public class DefaultTokenProcessor implements TokenProcessor
 	@Override
 	public String process(TokenProcessEvent tpe)
 	{
-		try
-		{
 			LoadContext context = tpe.getContext();
 			CDOMObject obj = tpe.getPrimary();
 			if (context.processToken(obj, tpe.getKey(), tpe.getValue()))
@@ -62,11 +60,7 @@ public class DefaultTokenProcessor implements TokenProcessor
 				tpe.append(s);
 			}
 			tpe.consume();
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint(e.getLocalizedMessage(), e);
-		}
+
 		return null;
 	}
 }

@@ -100,8 +100,7 @@ public class CNAbilitySelectionModel implements TemplateHashModel
 	}
 
 	@Override
-	public boolean isEmpty() throws TemplateModelException
-	{
+	public boolean isEmpty() {
 		return false;
 	}
 }

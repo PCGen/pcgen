@@ -47,8 +47,7 @@ public class EquipmentListTest
 	}
 
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 		this.eq = new Equipment();
 		this.eq.setName("Dummy");
 		SizeAdjustment sa = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(

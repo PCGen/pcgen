@@ -166,9 +166,7 @@ public class AnyQualifierTokenTest extends
 
 	@Override
 	@Test
-	public void testRoundRobinTestNotQualifierAll()
-		throws PersistenceLayerException
-	{
+	public void testRoundRobinTestNotQualifierAll() {
 		//Not any is empty, so the loader should reject
 		assertFalse(parse(getSubTokenName() + "|!" + "ANY" + "[ALL]"));
 		assertNoSideEffects();
@@ -176,9 +174,7 @@ public class AnyQualifierTokenTest extends
 
 	@Override
 	@Test
-	public void testRoundRobinTestNotQualifierRaw()
-		throws PersistenceLayerException
-	{
+	public void testRoundRobinTestNotQualifierRaw() {
 		//Not any is empty, so the loader should reject
 		assertFalse(parse(getSubTokenName() + "|!" + "ANY"));
 		assertNoSideEffects();

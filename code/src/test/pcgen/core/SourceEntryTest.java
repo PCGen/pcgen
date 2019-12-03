@@ -38,8 +38,7 @@ public class SourceEntryTest
 	private Campaign campaign;
 	
 	@BeforeEach
-	public void setUp() throws Exception
-	{
+	public void setUp() {
 
 		campaign = new Campaign();
 		campaign.put(StringKey.PUB_NAME_WEB, "PubWeb");
@@ -52,8 +51,7 @@ public class SourceEntryTest
 	}
 
 	@AfterEach
-	public void tearDown() throws Exception
-	{
+	public void tearDown() {
 		campaign = null;
 	}
 

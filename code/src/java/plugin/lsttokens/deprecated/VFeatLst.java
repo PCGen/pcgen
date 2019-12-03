@@ -39,18 +39,11 @@ public class VFeatLst extends AbstractNonEmptyToken<CDOMObject>
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, CDOMObject obj, String value)
 	{
-		try
-		{
 			if (!context.processToken(obj, "ABILITY", "FEAT|VIRTUAL|" + value))
 			{
 				Logging.replayParsedMessages();
 				return new ParseResult.Fail("Delegation Error from VFEAT");
 			}
-		}
-		catch (PersistenceLayerException e)
-		{
-			return new ParseResult.Fail("Delegation Error from VFEAT: " + e.getLocalizedMessage());
-		}
 		return ParseResult.SUCCESS;
 	}
 
