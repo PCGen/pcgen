@@ -34,6 +34,6 @@ public interface InstallLstToken extends LstToken
 	 * @param sourceURI The source that contained the token
 	 * @return true if parse OK
 	 */
-	public abstract boolean parse(Campaign campaign, String value, URI sourceURI);
+    boolean parse(Campaign campaign, String value, URI sourceURI);
 
 }

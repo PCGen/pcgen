@@ -28,26 +28,26 @@ import pcgen.util.enumeration.Tab;
 public interface TodoFacade extends Comparable<TodoFacade>
 {
 	/** Event constant to indicate a request to change tabs. */
-	public static String SWITCH_TABS = "SwitchTabs";
+    String SWITCH_TABS = "SwitchTabs";
 
 	/**
 	 * @return The message to be displayed. Is normally a key to localised 
 	 * message, starting with in_ but may also be plain text.   
 	 */
-	public String getMessageKey();
+    String getMessageKey();
 
 	/**
 	 * @return The character tab on which the task can be completed.
 	 */
-	public Tab getTab();
+    Tab getTab();
 
 	/**
 	 * @return The internal name of the field where the task can be completed.
 	 */
-	public String getFieldName();
+    String getFieldName();
 
 	/**
 	 * @return The internal name of the sub tab where the task can be completed.
 	 */
-	public String getSubTabName();
+    String getSubTabName();
 }

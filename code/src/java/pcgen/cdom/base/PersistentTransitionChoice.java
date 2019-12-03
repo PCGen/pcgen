@@ -38,8 +38,8 @@ public interface PersistentTransitionChoice<T> extends TransitionChoice<T>, Pers
 
 	void remove(CDOMObject owner, PlayerCharacter pc);
 
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item);
+	void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item);
 
-	public Class<?> getChoiceClass();
+	Class<?> getChoiceClass();
 
 }

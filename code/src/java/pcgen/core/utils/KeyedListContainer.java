@@ -32,21 +32,21 @@ public interface KeyedListContainer
 	 * @param key
 	 * @return true if it contains a list for that key
 	 */
-	public boolean containsListFor(ListKey<?> key);
+    boolean containsListFor(ListKey<?> key);
 
 	/**
 	 * Retrieves a list based on key
 	 * @param key
 	 * @return list
 	 */
-	public <T> List<T> getListFor(ListKey<T> key);
+    <T> List<T> getListFor(ListKey<T> key);
 
 	/**
 	 * Get the size of a list based off a key
 	 * @param key
 	 * @return The size of a list based off a key
 	 */
-	public int getSizeOfListFor(ListKey<?> key);
+    int getSizeOfListFor(ListKey<?> key);
 
 	/**
 	 * Returns true if a value is in a list for that key
@@ -54,7 +54,7 @@ public interface KeyedListContainer
 	 * @param value
 	 * @return true if a value is in a list for that key
 	 */
-	public <T> boolean containsInList(ListKey<T> key, T value);
+    <T> boolean containsInList(ListKey<T> key, T value);
 
 	/**
 	 * Gets an element from the list
@@ -62,19 +62,19 @@ public interface KeyedListContainer
 	 * @param i
 	 * @return An element from the list
 	 */
-	public <T> T getElementInList(ListKey<T> key, int i);
+    <T> T getElementInList(ListKey<T> key, int i);
 
 	/**
 	 * Get safe list
 	 * @param key
 	 * @return safe list
 	 */
-	public <T> List<T> getSafeListFor(ListKey<T> key);
+    <T> List<T> getSafeListFor(ListKey<T> key);
 
 	/**
 	 * Get the size of a safe list
 	 * @param key
 	 * @return The size of a safe list
 	 */
-	public int getSafeSizeOfListFor(ListKey<?> key);
+    int getSafeSizeOfListFor(ListKey<?> key);
 }

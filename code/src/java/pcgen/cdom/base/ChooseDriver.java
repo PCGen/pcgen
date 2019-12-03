@@ -24,16 +24,16 @@ import pcgen.base.formula.Formula;
 public interface ChooseDriver
 {
 
-	public ChooseInformation<?> getChooseInfo();
+	ChooseInformation<?> getChooseInfo();
 
-	public Formula getSelectFormula();
+	Formula getSelectFormula();
 
-	public List<ChooseSelectionActor<?>> getActors();
+	List<ChooseSelectionActor<?>> getActors();
 
-	public String getFormulaSource();
+	String getFormulaSource();
 
-	public Formula getNumChoices();
+	Formula getNumChoices();
 
-	public String getDisplayName();
+	String getDisplayName();
 
 }

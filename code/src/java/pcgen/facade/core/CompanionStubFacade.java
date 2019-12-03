@@ -24,8 +24,8 @@ import pcgen.facade.util.ReferenceFacade;
 public interface CompanionStubFacade
 {
 
-	public ReferenceFacade<Race> getRaceRef();
+	ReferenceFacade<Race> getRaceRef();
 
-	public String getCompanionType();
+	String getCompanionType();
 
 }

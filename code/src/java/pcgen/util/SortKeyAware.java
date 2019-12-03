@@ -31,6 +31,6 @@ public interface SortKeyAware
 	/**
 	 * @return The sort key for this object.
 	 */
-	public String getSortKey();
+    String getSortKey();
 
 }

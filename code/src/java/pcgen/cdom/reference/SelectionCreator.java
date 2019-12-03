@@ -43,7 +43,7 @@ public interface SelectionCreator<T extends Loadable>
 	 * @return A CDOMReference that refers to the object identified by the given
 	 *         key
 	 */
-	public CDOMSingleRef<T> getReference(String key);
+    CDOMSingleRef<T> getReference(String key);
 
 	/**
 	 * Gets a reference to the Class or Class/Context provided by this
@@ -57,7 +57,7 @@ public interface SelectionCreator<T extends Loadable>
 	 *         Type for the Class or Class/Context this SelectionCreator
 	 *         represents.
 	 */
-	public CDOMGroupRef<T> getTypeReference(String... types);
+    CDOMGroupRef<T> getTypeReference(String... types);
 
 	/**
 	 * Returns a CDOMReference for the given Class or Class/Context provided by
@@ -66,14 +66,14 @@ public interface SelectionCreator<T extends Loadable>
 	 * @return A CDOMReference which is intended to contain all the objects of
 	 *         the Class or Class/Context this SelectionCreator represents.
 	 */
-	public CDOMGroupRef<T> getAllReference();
+    CDOMGroupRef<T> getAllReference();
 
 	/**
 	 * The class of object this SelectionCreator represents.
 	 * 
 	 * @return The class of object this SelectionCreator represents.
 	 */
-	public Class<T> getReferenceClass();
+    Class<T> getReferenceClass();
 
 	/**
 	 * Returns a description of the contents of this SelectionCreator.
@@ -83,7 +83,7 @@ public interface SelectionCreator<T extends Loadable>
 	 * 
 	 * @return A description of the contents of this SelectionCreator
 	 */
-	public String getReferenceDescription();
+    String getReferenceDescription();
 
 	/**
 	 * Returns the ClassIdentity for this SelectionCreator. This is more specific than the
@@ -92,6 +92,6 @@ public interface SelectionCreator<T extends Loadable>
 	 * 
 	 * @return The ClassIdentity for this SelectionCreator
 	 */
-	public ClassIdentity<T> getReferenceIdentity();
+    ClassIdentity<T> getReferenceIdentity();
 
 }

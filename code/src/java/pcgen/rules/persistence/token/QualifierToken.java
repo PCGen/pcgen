@@ -65,6 +65,6 @@ public interface QualifierToken<T extends CDOMObject> extends LstToken, Primitiv
 	 *            otherwise
 	 * @return true if initialization was successful; false otherwise
 	 */
-	public boolean initialize(LoadContext context, SelectionCreator<T> cl, String condition, String value,
-		boolean negated);
+    boolean initialize(LoadContext context, SelectionCreator<T> cl, String condition, String value,
+                       boolean negated);
 }

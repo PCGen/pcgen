@@ -36,30 +36,30 @@ public interface InteractivePlugin extends PCGenMessageHandler
 	 * loaded first, lower priority is first.
 	 * @return The priority of the plugin.
 	 */
-	public int getPriority();
+    int getPriority();
 
 	/**
 	 * @return The displayable name of the plugin.
 	 */
-	public String getPluginName();
+    String getPluginName();
 
 	/**
 	 * Advises the plugin that it has been started. The plugin may do any 
 	 * required startup and allocation in response.
 	 * @param postbox The primary message handler, can be stored and used to send future messages out.
 	 */
-	public void start(PCGenMessageHandler postbox);
+    void start(PCGenMessageHandler postbox);
 
 	/**
 	 * Advises the plugin that it has been stopped. Intended to allow deallocation 
 	 * of any resources.
 	 */
-	public void stop();
+    void stop();
 
 	/**
 	 * Retrieves the folder in which configuration data for the plugin should be 
 	 * stored.
 	 * @return The directory for config data storage.
 	 */
-	public File getDataDirectory();
+    File getDataDirectory();
 }

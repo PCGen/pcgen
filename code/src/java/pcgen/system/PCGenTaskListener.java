@@ -23,8 +23,8 @@ import java.util.EventListener;
 public interface PCGenTaskListener extends EventListener
 {
 
-	public void progressChanged(PCGenTaskEvent event);
+	void progressChanged(PCGenTaskEvent event);
 
-	public void errorOccurred(PCGenTaskEvent event);
+	void errorOccurred(PCGenTaskEvent event);
 
 }

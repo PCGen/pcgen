@@ -36,7 +36,7 @@ public interface TransitionChoice<T> extends BasicChoice<T>
 
 	void allowStack(boolean allowStack);
 
-	public boolean allowsStacking();
+	boolean allowsStacking();
 
 	Collection<? extends T> driveChoice(PlayerCharacter apc);
 
@@ -50,6 +50,6 @@ public interface TransitionChoice<T> extends BasicChoice<T>
 
 	void setRequired(boolean required);
 
-	public SelectableSet<? extends T> getChoices();
+	SelectableSet<? extends T> getChoices();
 
 }

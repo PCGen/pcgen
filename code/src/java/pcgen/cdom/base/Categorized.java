@@ -33,7 +33,7 @@ public interface Categorized<T extends Categorized<T>> extends Loadable
 	 * 
 	 * @return the Category of the Categorized
 	 */
-	public Category<T> getCDOMCategory();
+    Category<T> getCDOMCategory();
 
 	/**
 	 * Sets the Category of the Categorized object.
@@ -41,10 +41,10 @@ public interface Categorized<T extends Categorized<T>> extends Loadable
 	 * @param category
 	 *            The Category the Categorized should be set to
 	 */
-	public void setCDOMCategory(Category<T> category);
+    void setCDOMCategory(Category<T> category);
 
 	@Override
-	public default ClassIdentity<? extends Loadable> getClassIdentity()
+    default ClassIdentity<? extends Loadable> getClassIdentity()
 	{
 		return getCDOMCategory();
 	}

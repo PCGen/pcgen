@@ -35,5 +35,5 @@ public interface ModeModelFactory
 	 *            ModeModelFactory
 	 * @return A TemplateModel produced by this ModeModelFactory
 	 */
-	public TemplateModel generate(GameMode mode);
+    TemplateModel generate(GameMode mode);
 }

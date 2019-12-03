@@ -230,12 +230,10 @@ class ScanForUnusedIl8nKeys
 	{
 
         System.out.println("current working directory" + System.getProperty("user.dir"));
-		List<File> collect = Files.walk(Paths.get(CODE_PATH))
-		                          .filter(Files::isRegularFile)
-		                          .filter(e -> e.toString().endsWith(".java"))
-		                          .map(Path::toFile)
-		                          .collect(Collectors.toList());
-        List<File> allFiles = new ArrayList<>(collect);
+        List<File> allFiles = Files.walk(Paths.get(CODE_PATH))
+                .filter(Files::isRegularFile)
+                .filter(e -> e.toString().endsWith(".java"))
+                .map(Path::toFile).collect(Collectors.toList());
 
 		List<File> collect2 = Files.walk(Paths.get(RESOURCES_PATH))
 		                          .filter(Files::isRegularFile)

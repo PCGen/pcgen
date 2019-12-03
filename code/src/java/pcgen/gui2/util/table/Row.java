@@ -23,5 +23,5 @@ package pcgen.gui2.util.table;
  */
 public interface Row
 {
-	public Object getValueAt(int column);
+	Object getValueAt(int column);
 }

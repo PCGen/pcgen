@@ -37,7 +37,7 @@ import pcgen.gui2.facade.EquipNode;
 public interface EquipmentSetFacade
 {
 
-	public boolean isContainer(EquipmentFacade equipment);
+	boolean isContainer(EquipmentFacade equipment);
 
 	/**
 	 * This list contains the equipment currently equipped and how many of them 
@@ -49,9 +49,9 @@ public interface EquipmentSetFacade
 	 *  
 	 * @return The list of equipped items. 
 	 */
-	public EquipmentListFacade getEquippedItems();
+    EquipmentListFacade getEquippedItems();
 
-	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment, int quantity);
+	EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment, int quantity);
 
 	/**
 	 * Insert an item of equipment into a specific location in the equipment set. 
@@ -61,11 +61,11 @@ public interface EquipmentSetFacade
 	 * @param beforeNode The node above which the equipment should be inserted.
 	 * @return The item of equipment that was actually added. 
 	 */
-	public EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment, int quantity, EquipNode beforeNode);
+    EquipmentFacade addEquipment(EquipNode node, EquipmentFacade equipment, int quantity, EquipNode beforeNode);
 
-	public EquipmentFacade removeEquipment(EquipNode node, int quantity);
+	EquipmentFacade removeEquipment(EquipNode node, int quantity);
 
-	public void removeAllEquipment();
+	void removeAllEquipment();
 
 	/**
 	 * Retrieve the list of nodes to be displayed in the tree. Nodes could be
@@ -77,11 +77,11 @@ public interface EquipmentSetFacade
 	 * 
 	 * @return The list of equipment nodes to be displayed on the equipped tree. 
 	 */
-	public ListFacade<EquipNode> getNodes();
+    ListFacade<EquipNode> getNodes();
 
-	public int getQuantity(EquipNode node);
+	int getQuantity(EquipNode node);
 
-	public String getLocation(EquipNode node);
+	String getLocation(EquipNode node);
 
 	/**
 	 * This method tests whether a piece of equipment can be equipped
@@ -95,22 +95,22 @@ public interface EquipmentSetFacade
 	 * @param equipment the equipment that we want to check
 	 * @return true if the equipment can be placed in the location.
 	 */
-	public boolean canEquip(EquipNode node, EquipmentFacade equipment);
+    boolean canEquip(EquipNode node, EquipmentFacade equipment);
 
-	public ReferenceFacade<String> getNameRef();
+	ReferenceFacade<String> getNameRef();
 
-	public void setName(String name);
+	void setName(String name);
 
-	public void addEquipmentTreeListener(EquipmentTreeListener listener);
+	void addEquipmentTreeListener(EquipmentTreeListener listener);
 
-	public void removeEquipmentTreeListener(EquipmentTreeListener listener);
+	void removeEquipmentTreeListener(EquipmentTreeListener listener);
 
 	/**
 	 * Identify the preferred location to place the item
 	 * @param equipment The item to be checked
 	 * @return The name of the location
 	 */
-	public String getPreferredLoc(EquipmentFacade equipment);
+    String getPreferredLoc(EquipmentFacade equipment);
 
 	/**
 	 * Retrieve the name of a location in which the item of equipment
@@ -120,17 +120,17 @@ public interface EquipmentSetFacade
 	 * @param equip The item of equipment.
 	 * @return The name of the location
 	 */
-	public String getLocation(EquipmentFacade equip);
+    String getLocation(EquipmentFacade equip);
 
-	public static interface EquipmentTreeListener extends EventListener
+	interface EquipmentTreeListener extends EventListener
 	{
 
-		public void quantityChanged(EquipmentTreeEvent e);
+		void quantityChanged(EquipmentTreeEvent e);
 
 	}
 
 	@SuppressWarnings("serial")
-	public static class EquipmentTreeEvent extends EventObject
+    class EquipmentTreeEvent extends EventObject
 	{
 
 		private final EquipNode node;
@@ -156,7 +156,7 @@ public interface EquipmentSetFacade
 	 * @param numRowsToMove The number of rows to move.
 	 * @return true if the move was successful, false if it could not be made.
 	 */
-	public boolean moveEquipment(EquipNode node, int numRowsToMove);
+    boolean moveEquipment(EquipNode node, int numRowsToMove);
 
 	/**
 	 * Sort the contents of the supplied node in alphabetical order.
@@ -164,8 +164,8 @@ public interface EquipmentSetFacade
 	 * body slot.
 	 * @return true if the sort was successful, false if it could not be done.
 	 */
-	public boolean sortEquipment(EquipNode parentNode);
+    boolean sortEquipment(EquipNode parentNode);
 
-	public boolean isRoot();
+	boolean isRoot();
 
 }

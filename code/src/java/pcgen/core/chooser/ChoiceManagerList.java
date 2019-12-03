@@ -37,7 +37,7 @@ public interface ChoiceManagerList<T>
 	 * @param availableList
 	 * @param selectedList
 	 */
-	public abstract void getChoices(final PlayerCharacter aPc, final List<T> availableList, final List<T> selectedList);
+    void getChoices(final PlayerCharacter aPc, final List<T> availableList, final List<T> selectedList);
 
 	/**
 	 * Do chooser
@@ -46,8 +46,8 @@ public interface ChoiceManagerList<T>
 	 * @param selectedList
 	 * @return the list of selected items
 	 */
-	public abstract List<T> doChooser(PlayerCharacter aPc, final List<T> availableList, final List<T> selectedList,
-		final List<String> reservedList);
+    List<T> doChooser(PlayerCharacter aPc, final List<T> availableList, final List<T> selectedList,
+                      final List<String> reservedList);
 
 	/**
 	 * Do chooser for removing a choice
@@ -56,8 +56,8 @@ public interface ChoiceManagerList<T>
 	 * @param selectedList
 	 * @param reservedList 
 	 */
-	public abstract List<T> doChooserRemove(PlayerCharacter aPc, final List<T> availableList,
-		final List<T> selectedList, final List<String> reservedList);
+    List<T> doChooserRemove(PlayerCharacter aPc, final List<T> availableList,
+                            final List<T> selectedList, final List<String> reservedList);
 
 	/**
 	 * Apply the choices to the Pc
@@ -65,7 +65,7 @@ public interface ChoiceManagerList<T>
 	 * @param aPC
 	 * @param selected
 	 */
-	public abstract boolean applyChoices(final PlayerCharacter aPC, final List<T> selected);
+    boolean applyChoices(final PlayerCharacter aPC, final List<T> selected);
 
 	/**
 	 * Calculate the number of effective choices the user can make.
@@ -75,25 +75,25 @@ public interface ChoiceManagerList<T>
 	 * @param aPc The character the choice applies to.
 	 * @return The number of choices that may be made 
 	 */
-	public int getNumEffectiveChoices(final List<? extends T> selectedList, final List<String> reservedList,
-		PlayerCharacter aPc);
+    int getNumEffectiveChoices(final List<? extends T> selectedList, final List<String> reservedList,
+                               PlayerCharacter aPc);
 
-	public abstract boolean conditionallyApply(PlayerCharacter pc, T item);
+	boolean conditionallyApply(PlayerCharacter pc, T item);
 
-	public abstract void restoreChoice(PlayerCharacter pc, ChooseDriver owner, String choice);
+	void restoreChoice(PlayerCharacter pc, ChooseDriver owner, String choice);
 
-	public void setController(ChooseController<T> cc);
+	void setController(ChooseController<T> cc);
 
-	public int getPreChooserChoices();
+	int getPreChooserChoices();
 
-	public int getChoicesPerUnitCost();
+	int getChoicesPerUnitCost();
 
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T selection);
+	void removeChoice(PlayerCharacter pc, ChooseDriver owner, T selection);
 
-	public void applyChoice(PlayerCharacter pc, ChooseDriver owner, T selection);
+	void applyChoice(PlayerCharacter pc, ChooseDriver owner, T selection);
 
-	public abstract T decodeChoice(String choice);
+	T decodeChoice(String choice);
 
-	public abstract String encodeChoice(T obj);
+	String encodeChoice(T obj);
 
 }

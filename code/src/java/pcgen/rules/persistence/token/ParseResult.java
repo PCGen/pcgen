@@ -30,35 +30,35 @@ public interface ParseResult
 	/**
 	 * Object to be returned from parsing operations that succeeded with no messages.
 	 */
-	public static Pass SUCCESS = new Pass();
+    Pass SUCCESS = new Pass();
 
 	/*
 	 * Temporary object for reporting errors that should be investigated further.
 	 * See plugin.lsttokens.race.FeatToken.
 	 */
-	public static Fail INTERNAL_ERROR = new Fail("Internal error.");
+    Fail INTERNAL_ERROR = new Fail("Internal error.");
 
 	/**
 	 * State of the parse operation.
 	 * @return True if the parse was successful.
 	 */
-	public boolean passed();
+    boolean passed();
 
 	/**
 	 * Log any messages associated with the operation.
 	 */
-	public void printMessages(URI uri);
+    void printMessages(URI uri);
 
 	/*
 	 * Temporary method for aiding conversion to use of ParseResult.
 	 * See pcgen.rules.persistence.token.ErrorParsingWrapper for use.
 	 */
-	public void addMessagesToLog(URI uri);
+    void addMessagesToLog(URI uri);
 
 	/**
 	 * Class representing a message from the parser.
 	 */
-	public static class QueuedMessage
+    class QueuedMessage
 	{
 		public final Level level;
 		public final String message;
@@ -76,7 +76,7 @@ public interface ParseResult
 	 * This is the class of the SUCCESS object.
 	 * Under normal use it should only be used for constructing this object.
 	 */
-	public class Pass implements ParseResult
+    class Pass implements ParseResult
 	{
 		@Override
 		public boolean passed()
@@ -100,7 +100,7 @@ public interface ParseResult
 	/**
 	 * Simple class to handle feedback from parse operations that fail.
 	 */
-	public class Fail implements ParseResult
+    class Fail implements ParseResult
 	{
 		private final QueuedMessage error;
 
@@ -150,7 +150,7 @@ public interface ParseResult
 	 * @return The text of the QueuedMessed indicating the URI as the source of the
 	 *         message
 	 */
-	public static String generateText(QueuedMessage message, URI uri)
+	static String generateText(QueuedMessage message, URI uri)
 	{
 		return message.message + " (Source: " + uri + " )";
 	}

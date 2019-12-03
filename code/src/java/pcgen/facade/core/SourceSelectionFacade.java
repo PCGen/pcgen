@@ -28,12 +28,12 @@ import pcgen.facade.util.ReferenceFacade;
 public interface SourceSelectionFacade extends LoadableFacade
 {
 
-	public ListFacade<Campaign> getCampaigns();
+	ListFacade<Campaign> getCampaigns();
 
-	public ReferenceFacade<GameMode> getGameMode();
+	ReferenceFacade<GameMode> getGameMode();
 
-	public void setCampaigns(List<Campaign> campaign);
+	void setCampaigns(List<Campaign> campaign);
 
-	public void setGameMode(GameMode gameMode);
+	void setGameMode(GameMode gameMode);
 
 }

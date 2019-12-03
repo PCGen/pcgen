@@ -21,22 +21,22 @@ package pcgen.gui2.util.treeview;
 public interface DataViewColumn
 {
 
-	public static enum Visibility
+	enum Visibility
 	{
 
 		ALWAYS_VISIBLE, INITIALLY_VISIBLE, INITIALLY_INVISIBLE
 	}
 
-	public String getName();
+	String getName();
 
-	public Class<?> getDataClass();
+	Class<?> getDataClass();
 
 	/**
 	 * 
 	 * @return the column's visibility in the JTreePan
 	 */
-	public Visibility getVisibility();
+    Visibility getVisibility();
 
-	public boolean isEditable();
+	boolean isEditable();
 
 }

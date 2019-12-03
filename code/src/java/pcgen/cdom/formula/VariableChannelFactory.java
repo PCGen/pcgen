@@ -33,7 +33,7 @@ public interface VariableChannelFactory
 	 *            The name of the channel
 	 * @return A Channel for the given CharID and name of the channel
 	 */
-	public VariableChannel<?> getGlobalChannel(CharID id, String name);
+    VariableChannel<?> getGlobalChannel(CharID id, String name);
 
 	/**
 	 * Retrieves a Channel for the given CharID, owning object, and name of the channel.
@@ -46,7 +46,7 @@ public interface VariableChannelFactory
 	 *            The name of the channel
 	 * @return A Channel for the given CharID, owning object, and name of the channel
 	 */
-	public VariableChannel<?> getChannel(CharID id, VarScoped owner, String name);
+    VariableChannel<?> getChannel(CharID id, VarScoped owner, String name);
 
 	/**
 	 * Disconnects the given VariableChannel from the WriteableVariableStore. This is
@@ -60,5 +60,5 @@ public interface VariableChannelFactory
 	 * @param variableChannel
 	 *            The VariableChannel to be disconnected from its VariableStore
 	 */
-	public void disconnect(VariableChannel<?> variableChannel);
+    void disconnect(VariableChannel<?> variableChannel);
 }

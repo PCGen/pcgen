@@ -68,7 +68,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * @return The new CDOMObject of the Class or Class/Category represented by
 	 *         this ReferenceManufacturer
 	 */
-	public T constructObject(String key);
+    T constructObject(String key);
 
 	/**
 	 * Adds an object to the contents of this ReferenceManufacturer. This is
@@ -85,7 +85,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 *            The identifier of the object to be imported into this
 	 *            ReferenceManufacturer
 	 */
-	public void addObject(T item, String key);
+    void addObject(T item, String key);
 
 	/**
 	 * Returns true if this ReferenceManufacturer contains an object of the
@@ -103,7 +103,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 *         Class or Class/Category represented by this
 	 *         ReferenceManufacturer; false otherwise.
 	 */
-	public boolean containsObjectKeyed(String key);
+    boolean containsObjectKeyed(String key);
 
 	/**
 	 * Gets the object represented by the given identifier. Will return null if
@@ -122,7 +122,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 *         identifier, or null if this ReferenceManufacturer does not
 	 *         contain an object with the given identifier.
 	 */
-	public T getActiveObject(String key);
+    T getActiveObject(String key);
 
 	/**
 	 * Gets the object represented by the given identifier. Will return null if
@@ -140,7 +140,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 *         identifier, or null if this ReferenceManufacturer does not
 	 *         contain an object with the given identifier.
 	 */
-	public T getObject(String key);
+    T getObject(String key);
 
 	/**
 	 * Returns a Collection of all of the objects contained in this
@@ -151,7 +151,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * @return A Collection of all of the objects contained in this
 	 *         ReferenceManufacturer
 	 */
-	public Collection<T> getAllObjects();
+    Collection<T> getAllObjects();
 
 	/**
 	 * Changes the identifier for a given object, as stored in this
@@ -163,7 +163,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 *            The object for which the identifier in this
 	 *            ReferenceManufacturer should be changed
 	 */
-	public void renameObject(String key, T item);
+    void renameObject(String key, T item);
 
 	/**
 	 * Remove the given object from this ReferenceManufacturer. Returns true if
@@ -174,7 +174,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * @return true if the object was removed from this ReferenceManufacturer;
 	 *         false otherwise.
 	 */
-	public boolean forgetObject(T item);
+    boolean forgetObject(T item);
 
 	/**
 	 * Resolves the references that have been requested from this
@@ -189,7 +189,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * ReferenceManufacturer is not required to maintain a list of references
 	 * that have been resolved and those which have not been resolved.
 	 */
-	public boolean resolveReferences(UnconstructedValidator validator);
+    boolean resolveReferences(UnconstructedValidator validator);
 
 	/**
 	 * Instructs the ReferenceManufacturer that the object with the given
@@ -207,7 +207,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 *            constructed or imported into this ReferenceManufacturer) when
 	 *            buildDeferredObjects() is called.
 	 */
-	public void constructIfNecessary(String key);
+    void constructIfNecessary(String key);
 
 	/**
 	 * Builds any objects whose construction was deferred. Identifiers for
@@ -224,7 +224,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * being formed. ReferenceManufacturer is not responsible for deleting
 	 * automatically built objects under those conditions.
 	 */
-	public void buildDeferredObjects();
+    void buildDeferredObjects();
 
 	/**
 	 * Returns true if this ReferenceManufacturer is "valid". A "valid"
@@ -246,7 +246,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * 
 	 * @return true if the ReferenceManufacturer is "valid"; false otherwise.
 	 */
-	public boolean validate(UnconstructedValidator validator);
+    boolean validate(UnconstructedValidator validator);
 
 	/**
 	 * Triggers immediate construction of the object with the given identifier
@@ -276,7 +276,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * @return The previously existing or new CDOMObject with the given
 	 *         identifier.
 	 */
-	public T constructNowIfNecessary(String key);
+    T constructNowIfNecessary(String key);
 
 	/**
 	 * Adds an UnconstructedListener to this ReferenceManufacturer, that will
@@ -289,7 +289,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 *            The UnconstructedListener to be registered with this
 	 *            ReferenceManufacturer
 	 */
-	public void addUnconstructedListener(UnconstructedListener listener);
+    void addUnconstructedListener(UnconstructedListener listener);
 
 	/**
 	 * Returns an array of UnconstructedListeners that are registered with this
@@ -298,7 +298,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * @return An array of UnconstructedListeners that are registered with this
 	 *         ReferenceManufacturer.
 	 */
-	public UnconstructedListener[] getUnconstructedListeners();
+    UnconstructedListener[] getUnconstructedListeners();
 
 	/**
 	 * Removes an UnconstructedListener from this ReferenceManufacturer, so that
@@ -309,7 +309,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 *            The UnconstructedListener to be removed from registration with
 	 *            this ReferenceManufacturer
 	 */
-	public void removeUnconstructedListener(UnconstructedListener listener);
+    void removeUnconstructedListener(UnconstructedListener listener);
 
 	/**
 	 * Returns the number of objects that are constructed in this
@@ -319,9 +319,9 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * @return The number of objects that are constructed in this
 	 *         ReferenceManufacturer
 	 */
-	public int getConstructedObjectCount();
+    int getConstructedObjectCount();
 
-	public T buildObject(String name);
+	T buildObject(String name);
 
 	/**
 	 * Fires an Unconstructed Event for this ReferenceManufacturer, based on the given
@@ -331,7 +331,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 *            The reference to indicate that the underlying requested object was not
 	 *            constructed
 	 */
-	public void fireUnconstuctedEvent(CDOMReference<?> reference);
+    void fireUnconstuctedEvent(CDOMReference<?> reference);
 
 	/**
 	 * Returns a Collection of the CDOMSingleRef objects that had references requested
@@ -340,14 +340,14 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * @return A Collection of the CDOMSingleRef objects that had references requested
 	 *         from this ReferenceManufacturer
 	 */
-	public Collection<CDOMSingleRef<T>> getReferenced();
+    Collection<CDOMSingleRef<T>> getReferenced();
 
 	/**
 	 * Returns the ManufacturableFactory for this ReferenceManufacturer.
 	 * 
 	 * @return The ManufacturableFactory for this ReferenceManufacturer
 	 */
-	public ManufacturableFactory<T> getFactory();
+    ManufacturableFactory<T> getFactory();
 
 	/**
 	 * Returns a Collection of all of the references requested from this
@@ -356,7 +356,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * @return A Collection of the references that have been requested from this
 	 *         ReferenceManufacturer
 	 */
-	public Collection<CDOMReference<T>> getAllReferences();
+    Collection<CDOMReference<T>> getAllReferences();
 
 	/**
 	 * Injects constructed items from this ReferenceManufacturer into the given
@@ -366,7 +366,7 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 *            The ReferenceManufacturer into which objects already constructed in this
 	 *            ReferenceManufacturer should be injected
 	 */
-	public void injectConstructed(ReferenceManufacturer<T> rm);
+    void injectConstructed(ReferenceManufacturer<T> rm);
 
 	/**
 	 * Adds a derivative object for the given object to this ReferenceManufacturer.
@@ -378,14 +378,14 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * @param obj
 	 *            The derivative object to be added to this ReferenceManufacturer
 	 */
-	public void addDerivativeObject(T obj);
+    void addDerivativeObject(T obj);
 
 	/**
 	 * Returns a Collection of the derivative objects added to this ReferenceManufacturer.
 	 * 
 	 * @return A Collection of the derivative objects added to this ReferenceManufacturer
 	 */
-	public Collection<T> getDerivativeObjects();
+    Collection<T> getDerivativeObjects();
 
 	/**
 	 * Returns the persistent format of the ClassIdentity returned by
@@ -394,5 +394,5 @@ public interface ReferenceManufacturer<T extends Loadable> extends SelectionCrea
 	 * @return The persistent format of the ClassIdentity managed by this
 	 *         ReferenceManufacturer
 	 */
-	public String getPersistentFormat();
+    String getPersistentFormat();
 }

@@ -36,7 +36,7 @@ public interface EquipmentBuilderFacade
 	 * EquipmentHead marks the ends of a weapon that may be customized. Most 
 	 * weapons only have one head but quarterstaves or the like have two.
 	 */
-	public enum EquipmentHead
+    enum EquipmentHead
 	{
 		PRIMARY, SECONDARY;
 
@@ -49,44 +49,44 @@ public interface EquipmentBuilderFacade
 		}
 	}
 
-	public boolean addModToEquipment(EquipmentModifier modifier, EquipmentHead head);
+	boolean addModToEquipment(EquipmentModifier modifier, EquipmentHead head);
 
-	public boolean removeModFromEquipment(EquipmentModifier modifier, EquipmentHead head);
+	boolean removeModFromEquipment(EquipmentModifier modifier, EquipmentHead head);
 
-	public boolean setName(String name);
+	boolean setName(String name);
 
-	public boolean setSProp(String sprop);
+	boolean setSProp(String sprop);
 
-	public boolean setCost(String newCost);
+	boolean setCost(String newCost);
 
-	public boolean setWeight(String newWeight);
+	boolean setWeight(String newWeight);
 
-	public ListFacade<EquipmentModifier> getAvailList(EquipmentHead head);
+	ListFacade<EquipmentModifier> getAvailList(EquipmentHead head);
 
-	public ListFacade<EquipmentModifier> getSelectedList(EquipmentHead head);
+	ListFacade<EquipmentModifier> getSelectedList(EquipmentHead head);
 
-	public EquipmentFacade getEquipment();
+	EquipmentFacade getEquipment();
 
 	/**
 	 * Can this item of equipment be resized?
 	 * @return true if the item can be resized
 	 */
-	public boolean isResizable();
+    boolean isResizable();
 
 	/**
 	 * @param newSize The new size for the equipment.
 	 */
-	public void setSize(SizeAdjustment newSize);
+    void setSize(SizeAdjustment newSize);
 
 	/**
 	 * @return A reference to the equipment's current size.
 	 */
-	public ReferenceFacade<SizeAdjustment> getSizeRef();
+    ReferenceFacade<SizeAdjustment> getSizeRef();
 
 	/**
 	 * @return The equipment heads which can be customized on this item of equipment.
 	 */
-	public EnumSet<EquipmentHead> getEquipmentHeads();
+    EnumSet<EquipmentHead> getEquipmentHeads();
 
 	/**
 	 * @param newValue
@@ -97,16 +97,16 @@ public interface EquipmentBuilderFacade
 	/**
 	 * @return String Base Item Name
 	 */
-	public String getBaseItemName();
+    String getBaseItemName();
 
 	/**
 	 * @return boolean
 	 */
-	public boolean isWeapon();
+    boolean isWeapon();
 
 	/**
 	 * @return String Damage
 	 */
-	public String getDamage();
+    String getDamage();
 
 }

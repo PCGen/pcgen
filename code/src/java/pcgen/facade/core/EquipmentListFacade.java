@@ -25,19 +25,19 @@ import pcgen.facade.util.ListFacade;
 
 public interface EquipmentListFacade extends ListFacade<EquipmentFacade>
 {
-	public int getQuantity(EquipmentFacade equipment);
+	int getQuantity(EquipmentFacade equipment);
 
-	public void addEquipmentListListener(EquipmentListListener listener);
+	void addEquipmentListListener(EquipmentListListener listener);
 
-	public void removeEquipmentListListener(EquipmentListListener listener);
+	void removeEquipmentListListener(EquipmentListListener listener);
 
 	/**
 	 * Signal that the equipment item has been updated in some way.
 	 * @param equipment The item of equipment that has been modified.
 	 */
-	public void modifyElement(EquipmentFacade equipment);
+    void modifyElement(EquipmentFacade equipment);
 
-	public static interface EquipmentListListener extends EventListener
+	interface EquipmentListListener extends EventListener
 	{
 
 		/*
@@ -48,7 +48,7 @@ public interface EquipmentListFacade extends ListFacade<EquipmentFacade>
 
 	}
 
-	public static class EquipmentListEvent extends EventObject
+	class EquipmentListEvent extends EventObject
 	{
 
 		private final EquipmentFacade equipment;

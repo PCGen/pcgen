@@ -36,7 +36,7 @@ public interface Persistent<T>
 	 * 
 	 * @return A String sufficient to uniquely identify the choice.
 	 */
-	public String encodeChoice(T item);
+    String encodeChoice(T item);
 
 	/**
 	 * Decodes a given String into a choice of the appropriate type. The String
@@ -55,6 +55,6 @@ public interface Persistent<T>
 	 * @return A choice object of the appropriate type that was encoded in the
 	 *         given String.
 	 */
-	public T decodeChoice(LoadContext context, String persistentFormat);
+    T decodeChoice(LoadContext context, String persistentFormat);
 
 }

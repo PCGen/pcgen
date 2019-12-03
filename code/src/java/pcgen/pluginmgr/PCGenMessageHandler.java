@@ -35,5 +35,5 @@ public interface PCGenMessageHandler extends EventListener
 	 * in which case no further classes will be asked to handle the message. 
 	 * @param msg The message
 	 */
-	public void handleMessage(PCGenMessage msg);
+    void handleMessage(PCGenMessage msg);
 }

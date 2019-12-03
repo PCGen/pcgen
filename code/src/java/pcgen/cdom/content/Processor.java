@@ -43,14 +43,14 @@ public interface Processor<T>
 	 *            whether this Processor should act upon the input object
 	 * @return The modified object, of the same class as the input object.
 	 */
-	public T applyProcessor(T obj, Object context);
+    T applyProcessor(T obj, Object context);
 
 	/**
 	 * The class of object this Processor acts upon.
 	 * 
 	 * @return The class of object this Processor acts upon.
 	 */
-	public Class<T> getModifiedClass();
+    Class<T> getModifiedClass();
 
 	/**
 	 * Returns a representation of this Processor, suitable for storing in an
@@ -59,6 +59,6 @@ public interface Processor<T>
 	 * @return A representation of this Processor, suitable for storing in an
 	 *         LST file.
 	 */
-	public String getLSTformat();
+    String getLSTformat();
 
 }

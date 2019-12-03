@@ -36,7 +36,7 @@ public interface SystemLoader
 	/**
 	 * This is the delimiter for Tabs.
 	 */
-	public static final String TAB_DELIM = "\t";
+    String TAB_DELIM = "\t";
 
 	/**
 	 * This method sets a List of campaigns selected for a particular game 
@@ -44,7 +44,7 @@ public interface SystemLoader
 	 * @param l List containing the chosen campaign source files
 	 * @param game The game mode
 	 */
-	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game);
+    void setChosenCampaignSourcefiles(List<URI> l, GameMode game);
 
 	/**
 	 * This method gets a List of campaigns previously or currently
@@ -52,5 +52,5 @@ public interface SystemLoader
 	 * @param game The game mode
 	 * @return List containing the chosen campaign source files
 	 */
-	public List<URI> getChosenCampaignSourcefiles(GameMode game);
+    List<URI> getChosenCampaignSourcefiles(GameMode game);
 }

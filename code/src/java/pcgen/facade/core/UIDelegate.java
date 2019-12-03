@@ -114,15 +114,15 @@ public interface UIDelegate
 	 * @param equipBuilder The EquipmentBuilderFacade instance to be used for creating the item.
 	 * @return The result of the dialog.
 	 */
-	public CustomEquipResult showCustomEquipDialog(CharacterFacade character, EquipmentBuilderFacade equipBuilder);
+	CustomEquipResult showCustomEquipDialog(CharacterFacade character, EquipmentBuilderFacade equipBuilder);
 
 	/**
 	 * The result of creation of a custom equipment item.
 	 */
-	public enum CustomEquipResult
+	enum CustomEquipResult
 	{
-		CANCELLED, OK, PURCHASE;
-	}
+		CANCELLED, OK, PURCHASE
+    }
 
 	/**
 	 * Present a dialog to the user to allow them to build up a custom 
@@ -130,5 +130,5 @@ public interface UIDelegate
 	 * @param spellBuilderFacade The SpellBuilderFacade instance to be used for creating the spell.
 	 * @return true if the spell was built, false if it was cancelled.
 	 */
-	public boolean showCustomSpellDialog(SpellBuilderFacade spellBuilderFacade);
+	boolean showCustomSpellDialog(SpellBuilderFacade spellBuilderFacade);
 }

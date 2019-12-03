@@ -34,7 +34,7 @@ public interface CompanionSupportFacade
 	 * @param companion the companion to add
 	 * @param companionType The type of companion (e.g, Follower, Familiar)
 	 */
-	public void addCompanion(CharacterFacade companion, String companionType);
+    void addCompanion(CharacterFacade companion, String companionType);
 
 	/**
 	 * Removes a companion from this character.
@@ -42,7 +42,7 @@ public interface CompanionSupportFacade
 	 * {@code getCompanions} list.
 	 * @param companion the companion to remove
 	 */
-	public void removeCompanion(CompanionFacade companion);
+    void removeCompanion(CompanionFacade companion);
 
 	/**
 	 * Returns a list of companions that the character can create.
@@ -50,7 +50,7 @@ public interface CompanionSupportFacade
 	 * of CompanionStubFacade
 	 * @return a list of companion stubs
 	 */
-	public ListFacade<CompanionStubFacade> getAvailableCompanions();
+    ListFacade<CompanionStubFacade> getAvailableCompanions();
 
 	/**
 	 * Returns a map correlating a type of companion with the number
@@ -60,7 +60,7 @@ public interface CompanionSupportFacade
 	 * @return a map of companion types to the maximum number the character
 	 * may have of them.
 	 */
-	public MapFacade<String, Integer> getMaxCompanionsMap();
+    MapFacade<String, Integer> getMaxCompanionsMap();
 
 	/**
 	 * Returns a ListFacade containing the companions that the character
@@ -70,6 +70,6 @@ public interface CompanionSupportFacade
 	 * or its contents.
 	 * @return a list of companions that the character currently has
 	 */
-	public ListFacade<? extends CompanionFacade> getCompanions();
+    ListFacade<? extends CompanionFacade> getCompanions();
 
 }

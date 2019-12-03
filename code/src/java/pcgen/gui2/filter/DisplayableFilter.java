@@ -28,13 +28,13 @@ public interface DisplayableFilter<C, E> extends Filter<C, E>
 	 * this filter
 	 * @return a swing Component
 	 */
-	public Component getFilterComponent();
+    Component getFilterComponent();
 
 	/**
 	 * sets the handler that will be used to toggle refiltering of a list
 	 * when a change occurs to this filter
 	 * @param handler
 	 */
-	public void setFilterHandler(FilterHandler handler);
+    void setFilterHandler(FilterHandler handler);
 
 }

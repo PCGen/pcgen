@@ -54,7 +54,7 @@ public interface GroupDefinition<T>
 	 * 
 	 * @return The GroupingState for this GroupDefinition
 	 */
-	public GroupingState getGroupingState();
+    GroupingState getGroupingState();
 
 	/**
 	 * The type of object where this GroupDefinition is able to be used.
@@ -62,14 +62,14 @@ public interface GroupDefinition<T>
 	 * @return The class of indicating the type of object where this
 	 *         GroupDefinition is able to be used
 	 */
-	public Class<T> getReferenceClass();
+    Class<T> getReferenceClass();
 
 	/**
 	 * Returns the name of this GroupDefinition
 	 * 
 	 * @return the name of this GroupDefinition
 	 */
-	public String getPrimitiveName();
+    String getPrimitiveName();
 
 	/**
 	 * The FormatManager usable to manage the given objects managed by this
@@ -78,7 +78,7 @@ public interface GroupDefinition<T>
 	 * @return The FormatManager usable to manage the given objects managed by
 	 *         this GroupDefinition
 	 */
-	public FormatManager<?> getFormatManager();
+    FormatManager<?> getFormatManager();
 
 	/**
 	 * Returns an ObjectContainer containing the group of objects identified by
@@ -92,6 +92,6 @@ public interface GroupDefinition<T>
 	 * @return an ObjectContainer containing the group of objects identified by
 	 *         the given value
 	 */
-	public ObjectContainer<T> getPrimitive(LoadContext context, String value);
+    ObjectContainer<T> getPrimitive(LoadContext context, String value);
 
 }

@@ -47,7 +47,7 @@ public interface SetFacet<IDT, T>
 	 *            the SetFacet
 	 * @return the object stored in the SetFacet for the given Identifier
 	 */
-	public Collection<T> getSet(IDT id);
+    Collection<T> getSet(IDT id);
 
 	/**
 	 * Returns the count of objects stored in the SetFacet for the given
@@ -59,5 +59,5 @@ public interface SetFacet<IDT, T>
 	 * @return the count of objects stored in the SetFacet for the given
 	 *         Identifier
 	 */
-	public int getCount(IDT id);
+    int getCount(IDT id);
 }

@@ -22,6 +22,6 @@ package pcgen.gui2.filter;
 public interface Filter<C, E>
 {
 
-	public boolean accept(C context, E element);
+	boolean accept(C context, E element);
 
 }

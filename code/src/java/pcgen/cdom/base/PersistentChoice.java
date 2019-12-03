@@ -34,10 +34,10 @@ public interface PersistentChoice<T> extends BasicChoice<T>
 {
 
 	@Override
-	public PersistentChoiceActor<T> getChoiceActor();
+    PersistentChoiceActor<T> getChoiceActor();
 
-	public T decodeChoice(LoadContext context, String persistentFormat);
+	T decodeChoice(LoadContext context, String persistentFormat);
 
-	public String encodeChoice(T item);
+	String encodeChoice(T item);
 
 }

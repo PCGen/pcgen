@@ -40,5 +40,5 @@ public interface ItemFacet<IDT, T>
 	 *            the ItemFacet
 	 * @return the object stored in the ItemFacet for the given Identifier
 	 */
-	public T get(IDT id);
+    T get(IDT id);
 }

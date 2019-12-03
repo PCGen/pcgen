@@ -51,5 +51,5 @@ public interface BasicCalculation<T> extends CalculationInfo<T>
 	 *            considered the argument for this BasicCalculation.
 	 * @return The resulting value of the BasicCalculation
 	 */
-	public T process(T previousValue, T argument);
+    T process(T previousValue, T argument);
 }

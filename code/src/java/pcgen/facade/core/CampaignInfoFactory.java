@@ -33,7 +33,7 @@ public interface CampaignInfoFactory
 	 * @param campaign The campaign to be described
 	 * @return The information on the campaign.
 	 */
-	public String getHTMLInfo(Campaign campaign);
+    String getHTMLInfo(Campaign campaign);
 
 	/**
 	 * Produce a html formatted information string for the supplied campaign using 
@@ -42,14 +42,14 @@ public interface CampaignInfoFactory
 	 * @param selectedCampaigns The previously selected campaigns to be checked against.
 	 * @return The information on the campaign.
 	 */
-	public String getHTMLInfo(Campaign campaign, List<Campaign> selectedCampaigns);
+    String getHTMLInfo(Campaign campaign, List<Campaign> selectedCampaigns);
 
 	/**
 	 * Produce a html formatted information string for the supplied source selection.
 	 * @param selection The source selection, referring to one or more campaigns.
 	 * @return The information on the campaign(s).
 	 */
-	public String getHTMLInfo(SourceSelectionFacade selection);
+    String getHTMLInfo(SourceSelectionFacade selection);
 
 	/**
 	 * Produce a html formatted string detailing the requirements for the supplied campaign using 
@@ -58,5 +58,5 @@ public interface CampaignInfoFactory
 	 * @param selectedCampaigns The previously selected campaigns to be checked against.
 	 * @return The description of the prerequisites for the campaign.
 	 */
-	public String getRequirementsHTMLString(Campaign campaign, List<Campaign> selectedCampaigns);
+    String getRequirementsHTMLString(Campaign campaign, List<Campaign> selectedCampaigns);
 }

@@ -50,6 +50,6 @@ public interface TypeSafeConstant
 	 * 
 	 * @return An integer identifier unique to this instance of the class.
 	 */
-	public int getOrdinal();
+    int getOrdinal();
 
 }

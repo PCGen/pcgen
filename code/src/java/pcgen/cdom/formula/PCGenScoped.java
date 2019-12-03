@@ -38,7 +38,7 @@ public interface PCGenScoped extends VarContainer, VarScoped
 	 *            The name of the child of the given type that should be returned
 	 * @return The local child of the given child type and child name
 	 */
-	public PCGenScoped getLocalChild(String childType, String childName);
+    PCGenScoped getLocalChild(String childType, String childName);
 
 	/**
 	 * Returns the List of child types that this PCGenScoped contains.
@@ -48,7 +48,7 @@ public interface PCGenScoped extends VarContainer, VarScoped
 	 * 
 	 * @return The List of child types that this PCGenScoped contains
 	 */
-	public List<String> getChildTypes();
+    List<String> getChildTypes();
 
 	/**
 	 * Returns the List of children of the given child type. Returns null if this
@@ -58,5 +58,5 @@ public interface PCGenScoped extends VarContainer, VarScoped
 	 *            The child type for which the list of children should be returned
 	 * @return The List of children of the given child type
 	 */
-	public List<PCGenScoped> getChildren(String childType);
+    List<PCGenScoped> getChildren(String childType);
 }

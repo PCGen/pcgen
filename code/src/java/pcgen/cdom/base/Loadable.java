@@ -31,14 +31,14 @@ public interface Loadable extends Identified
 	 * @param name
 	 *            The name to be given to the Loadable
 	 */
-	public void setName(String name);
+    void setName(String name);
 
 	/**
 	 * Returns the source URI for this Loadable.
 	 * 
 	 * @return The source URI for this Loadable
 	 */
-	public URI getSourceURI();
+    URI getSourceURI();
 
 	/**
 	 * Sets the source URI for this Loadable.
@@ -46,7 +46,7 @@ public interface Loadable extends Identified
 	 * @param source
 	 *            The source URI for this Loadable
 	 */
-	public void setSourceURI(URI source);
+    void setSourceURI(URI source);
 
 	/**
 	 * Returns true if this object is "internal" (meaning PCGen creates it and it doesn't
@@ -54,7 +54,7 @@ public interface Loadable extends Identified
 	 * 
 	 * @return true if this object is "internal"; false otherwise
 	 */
-	public boolean isInternal();
+    boolean isInternal();
 
 	/**
 	 * Returns true if the object is of the given type.
@@ -68,14 +68,14 @@ public interface Loadable extends Identified
 	 *            The type to be checked to see if this Loadable is of the given Type
 	 * @return true if the object is of the given type; false otherwise.
 	 */
-	public boolean isType(String type);
+    boolean isType(String type);
 
 	/**
 	 * Returns the ClassIdentity of this Loadable.
 	 * 
 	 * @return The ClassIdentity representing this Loadable
 	 */
-	public default ClassIdentity<? extends Loadable> getClassIdentity()
+	default ClassIdentity<? extends Loadable> getClassIdentity()
 	{
 		return BasicClassIdentity.getIdentity(getClass());
 	}

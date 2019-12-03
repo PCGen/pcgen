@@ -21,22 +21,22 @@ package pcgen.facade.core;
 public interface InfoFacade
 {
 
-	public String getSource();
+	String getSource();
 
-	public String getSourceForNodeDisplay();
+	String getSourceForNodeDisplay();
 
 	@Override
-	public String toString();
+    String toString();
 
-	public String getKeyName();
+	String getKeyName();
 
 	/**
 	 * @return true if the name of this item is Product Identity (i.e owned by the publisher)
 	 */
-	public boolean isNamePI();
+    boolean isNamePI();
 
 	/**
 	 * @return The types for this object as a single string separated by .
 	 */
-	public String getType();
+    String getType();
 }

@@ -23,5 +23,5 @@ import java.util.EventListener;
 @FunctionalInterface
 public interface TokenProcessor extends EventListener
 {
-	public String process(TokenProcessEvent tpe);
+	String process(TokenProcessEvent tpe);
 }

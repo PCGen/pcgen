@@ -52,5 +52,5 @@ public interface OutputActor<T>
 	 *             if turning the contents into a TemplateModel encounters a
 	 *             problem
 	 */
-	public TemplateModel process(CharID id, T obj) throws TemplateModelException;
+    TemplateModel process(CharID id, T obj) throws TemplateModelException;
 }

@@ -38,7 +38,7 @@ public interface MasterListInterface
 	 * 
 	 * @return A Set of all Active Lists defined in the MasterListInterface.
 	 */
-	public Set<CDOMReference<? extends CDOMList<?>>> getActiveLists();
+    Set<CDOMReference<? extends CDOMList<?>>> getActiveLists();
 
 	/**
 	 * Returns a Collection of AssociatedPrereqObjects containing the
@@ -58,8 +58,8 @@ public interface MasterListInterface
 	 *         associations for the lists underlying the given CDOMReference and
 	 *         the given Object on the list.
 	 */
-	public <T extends CDOMObject> Collection<AssociatedPrereqObject> getAssociations(
-		CDOMReference<? extends CDOMList<T>> key1, T key2);
+    <T extends CDOMObject> Collection<AssociatedPrereqObject> getAssociations(
+            CDOMReference<? extends CDOMList<T>> key1, T key2);
 
 	/**
 	 * Returns a Collection of AssociatedPrereqObjects containing the
@@ -77,7 +77,7 @@ public interface MasterListInterface
 	 * @return a Collection of AssociatedPrereqObjects containing the
 	 *         associations for the given list and the given Object on the list.
 	 */
-	public <T extends CDOMObject> Collection<AssociatedPrereqObject> getAssociations(CDOMList<T> key1, T key2);
+    <T extends CDOMObject> Collection<AssociatedPrereqObject> getAssociations(CDOMList<T> key1, T key2);
 
-	public <T extends CDOMObject> Collection<T> getObjects(CDOMReference<CDOMList<T>> ref);
+	<T extends CDOMObject> Collection<T> getObjects(CDOMReference<CDOMList<T>> ref);
 }

@@ -41,7 +41,7 @@ public interface FactInfo<T extends CDOMObject, F>
 	 * 
 	 * @return The FormatManager for this FactInfo
 	 */
-	public FormatManager<F> getFormatManager();
+    FormatManager<F> getFormatManager();
 
 	/**
 	 * Returns the "usable location" of this FactInfo (related to what LST files
@@ -49,7 +49,7 @@ public interface FactInfo<T extends CDOMObject, F>
 	 * 
 	 * @return The "usable location" of this FactInfo
 	 */
-	public Class<T> getUsableLocation();
+    Class<T> getUsableLocation();
 
 	/**
 	 * Returns the Fact Name for this FactInfo. This effectively serves as the
@@ -57,13 +57,13 @@ public interface FactInfo<T extends CDOMObject, F>
 	 * 
 	 * @return The Fact Name for this FactInfo
 	 */
-	public String getFactName();
+    String getFactName();
 
 	/**
 	 * Returns the FactKey for this FactInfo.
 	 * 
 	 * @return The FactKey for this FactInfo
 	 */
-	public FactKey<F> getFactKey();
+    FactKey<F> getFactKey();
 
 }

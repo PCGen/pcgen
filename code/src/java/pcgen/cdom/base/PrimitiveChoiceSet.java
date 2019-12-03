@@ -38,7 +38,7 @@ import pcgen.core.PlayerCharacter;
 public interface PrimitiveChoiceSet<T>
 {
 	@SuppressWarnings("rawtypes")
-	static PrimitiveChoiceSet INVALID = new PrimitiveChoiceSet()
+    PrimitiveChoiceSet INVALID = new PrimitiveChoiceSet()
 	{
 
 		@Override
@@ -72,7 +72,7 @@ public interface PrimitiveChoiceSet<T>
 	 * @return An "Invalid" PrimitiveChoiceSet
 	 */
 	@SuppressWarnings("unchecked")
-	public static <T> PrimitiveChoiceSet<T> getInvalid()
+    static <T> PrimitiveChoiceSet<T> getInvalid()
 	{
 		return INVALID;
 	}
@@ -94,14 +94,14 @@ public interface PrimitiveChoiceSet<T>
 	 * @return A Set containing the Objects which this PrimitiveChoiceSet
 	 *         contains.
 	 */
-	public Collection<? extends T> getSet(PlayerCharacter pc);
+    Collection<? extends T> getSet(PlayerCharacter pc);
 
 	/**
 	 * The class of object this PrimitiveChoiceSet contains.
 	 * 
 	 * @return The class of object this PrimitiveChoiceSet contains.
 	 */
-	public Class<? super T> getChoiceClass();
+    Class<? super T> getChoiceClass();
 
 	/**
 	 * Returns a representation of this PrimitiveChoiceSet, suitable for storing
@@ -113,7 +113,7 @@ public interface PrimitiveChoiceSet<T>
 	 * @return A representation of this PrimitiveChoiceSet, suitable for storing
 	 *         in an LST file.
 	 */
-	public String getLSTformat(boolean useAny);
+    String getLSTformat(boolean useAny);
 
 	/**
 	 * Returns the GroupingState for this PrimitiveChoiceSet. The GroupingState
@@ -122,5 +122,5 @@ public interface PrimitiveChoiceSet<T>
 	 * 
 	 * @return The GroupingState for this PrimitiveChoiceSet.
 	 */
-	public GroupingState getGroupingState();
+    GroupingState getGroupingState();
 }

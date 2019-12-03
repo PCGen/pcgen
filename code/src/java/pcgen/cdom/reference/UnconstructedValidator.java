@@ -32,7 +32,7 @@ public interface UnconstructedValidator
 	 *            The Class to be checked
 	 * @return true if the given Class allows duplicate objects to exist; false otherwise
 	 */
-	public boolean allowDuplicates(Class<?> objClass);
+    boolean allowDuplicates(Class<?> objClass);
 
 	/**
 	 * Returns true if the given key for the given ClassIdentity is allowed to be
@@ -46,5 +46,5 @@ public interface UnconstructedValidator
 	 * @return true if the given key for the given ClassIdentity is allowed to be
 	 *         unconstructed; false otherwise
 	 */
-	public <T> boolean allowUnconstructed(ClassIdentity<T> identity, String key);
+    <T> boolean allowUnconstructed(ClassIdentity<T> identity, String key);
 }

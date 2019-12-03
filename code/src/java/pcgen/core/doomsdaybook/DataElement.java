@@ -28,13 +28,13 @@ public interface DataElement
 	 * @return ArrayList
 	 * @throws Exception the exception
 	 */
-	public List<DataValue> getData() throws Exception;
+    List<DataValue> getData() throws Exception;
 
 	/**
 	 * Get id
 	 * @return id
 	 */
-	public String getId();
+    String getId();
 
 	/**
 	 * Get last data.
@@ -42,17 +42,17 @@ public interface DataElement
 	 * @return last data
 	 * @throws Exception the exception
 	 */
-	public List<DataValue> getLastData() throws Exception;
+    List<DataValue> getLastData() throws Exception;
 
 	/**
 	 * Get title
 	 * @return title
 	 */
-	public String getTitle();
+    String getTitle();
 
 	/**
 	 * Get weight
 	 * @return weight
 	 */
-	public int getWeight();
+    int getWeight();
 }

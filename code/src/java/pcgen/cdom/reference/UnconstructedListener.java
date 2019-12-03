@@ -34,5 +34,5 @@ public interface UnconstructedListener extends EventListener
 	 *            The UnconstructedEvent to be processed by the
 	 *            UnconstructedListener
 	 */
-	public void unconstructedReferenceFound(UnconstructedEvent event);
+    void unconstructedReferenceFound(UnconstructedEvent event);
 }

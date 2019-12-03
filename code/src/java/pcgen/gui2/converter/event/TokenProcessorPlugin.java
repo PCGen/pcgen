@@ -22,7 +22,7 @@ import pcgen.cdom.base.CDOMObject;
 
 public interface TokenProcessorPlugin extends TokenProcessor
 {
-	public Class<? extends CDOMObject> getProcessedClass();
+	Class<? extends CDOMObject> getProcessedClass();
 
-	public String getProcessedToken();
+	String getProcessedToken();
 }

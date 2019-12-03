@@ -24,8 +24,8 @@ import pcgen.facade.util.ReferenceFacade;
 
 public interface CharacterStubFacade
 {
-	public ReferenceFacade<String> getNameRef();
+	ReferenceFacade<String> getNameRef();
 
-	public ReferenceFacade<File> getFileRef();
+	ReferenceFacade<File> getFileRef();
 
 }

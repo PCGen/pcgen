@@ -32,5 +32,5 @@ public interface Reducible
 	 * 
 	 * @return The CDOMObject underlying this object
 	 */
-	public CDOMObject getCDOMObject();
+    CDOMObject getCDOMObject();
 }

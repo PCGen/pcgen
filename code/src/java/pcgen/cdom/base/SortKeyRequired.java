@@ -26,5 +26,5 @@ public interface SortKeyRequired
 	 * 
 	 * @return The Sort Key for this object
 	 */
-	public String getSortKey();
+    String getSortKey();
 }

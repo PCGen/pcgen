@@ -22,5 +22,5 @@ import pcgen.rules.context.LoadContext;
 @FunctionalInterface
 public interface DataSetInitializedFacet
 {
-	public void initialize(LoadContext context);
+	void initialize(LoadContext context);
 }

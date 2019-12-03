@@ -28,7 +28,7 @@ import pcgen.rules.context.LoadContext;
 public interface PCGenScope extends LegalScope
 {
 	@Override
-	public Optional<PCGenScope> getParentScope();
+    Optional<PCGenScope> getParentScope();
 
 	/**
 	 * Returns the FormatManager used to process objects that are within this PCGenScope.
@@ -37,5 +37,5 @@ public interface PCGenScope extends LegalScope
 	 *            The LoadContext used to resolve the actual FormatManager
 	 * @return The FormatManager used to process objects that are within this PCGenScope
 	 */
-	public Optional<FormatManager<?>> getFormatManager(LoadContext context);
+    Optional<FormatManager<?>> getFormatManager(LoadContext context);
 }

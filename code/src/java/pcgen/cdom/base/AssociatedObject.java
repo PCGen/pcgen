@@ -43,7 +43,7 @@ public interface AssociatedObject
 	 * @param value
 	 *            The value to be associated with the given AssociationKey
 	 */
-	public <T> void setAssociation(AssociationKey<T> key, T value);
+    <T> void setAssociation(AssociationKey<T> key, T value);
 
 	/**
 	 * Returns the value associated with the given AssociationKey. Returns null
@@ -58,7 +58,7 @@ public interface AssociatedObject
 	 *            returned
 	 * @return The value associated with the given AssociationKey.
 	 */
-	public <T> T getAssociation(AssociationKey<T> key);
+    <T> T getAssociation(AssociationKey<T> key);
 
 	/**
 	 * Returns a Collection of the AssociationKeys that are in this
@@ -79,7 +79,7 @@ public interface AssociatedObject
 	 * @return a Collection of the AssociationKeys that are in this
 	 *         AssociatedObject.
 	 */
-	public Collection<AssociationKey<?>> getAssociationKeys();
+    Collection<AssociationKey<?>> getAssociationKeys();
 
 	/**
 	 * Returns true if this AssociatedObject has any associations.
@@ -91,6 +91,6 @@ public interface AssociatedObject
 	 * @return true if this AssociatedObject has any associations; false
 	 *         otherwise.
 	 */
-	public boolean hasAssociations();
+    boolean hasAssociations();
 
 }

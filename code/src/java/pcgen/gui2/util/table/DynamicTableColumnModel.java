@@ -31,14 +31,14 @@ import pcgen.gui2.util.event.DynamicTableColumnModelListener;
 public interface DynamicTableColumnModel extends TableColumnModel
 {
 
-	public void addDynamicTableColumnModelListener(DynamicTableColumnModelListener listener);
+	void addDynamicTableColumnModelListener(DynamicTableColumnModelListener listener);
 
-	public void removeDynamicTableColumnModelListener(DynamicTableColumnModelListener listener);
+	void removeDynamicTableColumnModelListener(DynamicTableColumnModelListener listener);
 
-	public List<TableColumn> getAvailableColumns();
+	List<TableColumn> getAvailableColumns();
 
-	public boolean isVisible(TableColumn column);
+	boolean isVisible(TableColumn column);
 
-	public void setVisible(TableColumn column, boolean visible);
+	void setVisible(TableColumn column, boolean visible);
 
 }

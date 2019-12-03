@@ -28,5 +28,5 @@ public interface GearBuySellFacade
 	/**
 	 * @return The descriptive name of the scheme. 
 	 */
-	public String getName();
+    String getName();
 }

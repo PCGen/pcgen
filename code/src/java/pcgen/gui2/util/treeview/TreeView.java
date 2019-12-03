@@ -23,8 +23,8 @@ import java.util.List;
 public interface TreeView<E>
 {
 
-	public String getViewName();
+	String getViewName();
 
-	public List<TreeViewPath<E>> getPaths(E pobj);
+	List<TreeViewPath<E>> getPaths(E pobj);
 
 }

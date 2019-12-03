@@ -31,7 +31,7 @@ public final class BenefitFormatting
 	{
 	}
 
-	public static String getBenefits(PlayerCharacter aPC, List<? extends Object> objList)
+	public static String getBenefits(PlayerCharacter aPC, List<?> objList)
 	{
 		if (objList.isEmpty())
 		{

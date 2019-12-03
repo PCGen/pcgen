@@ -45,7 +45,7 @@ public interface PostValidationToken<T extends Loadable>
 	 *            PostValidationToken
 	 * @return true if the processing was successful; false otherwise
 	 */
-	public boolean process(LoadContext context, Collection<? extends T> c);
+    boolean process(LoadContext context, Collection<? extends T> c);
 
 	/**
 	 * Returns the class of the object upon which this PostValidationToken
@@ -54,7 +54,7 @@ public interface PostValidationToken<T extends Loadable>
 	 * @return The class of the object upon which this PostValidationToken
 	 *         operates
 	 */
-	public Class<T> getValidationTokenClass();
+    Class<T> getValidationTokenClass();
 
 	/**
 	 * Returns the priority of this PostValidationToken. PostValidationTokens
@@ -63,5 +63,5 @@ public interface PostValidationToken<T extends Loadable>
 	 * 
 	 * @return The priority of this PostValidationToken
 	 */
-	public int getPriority();
+    int getPriority();
 }

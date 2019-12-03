@@ -21,16 +21,16 @@ import java.util.Collection;
 
 public interface Changes<T>
 {
-	public boolean hasAddedItems();
+	boolean hasAddedItems();
 
-	public boolean hasRemovedItems();
+	boolean hasRemovedItems();
 
-	public boolean includesGlobalClear();
+	boolean includesGlobalClear();
 
-	public Collection<T> getAdded();
+	Collection<T> getAdded();
 
-	public Collection<T> getRemoved();
+	Collection<T> getRemoved();
 
-	public boolean isEmpty();
+	boolean isEmpty();
 
 }

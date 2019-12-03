@@ -21,16 +21,16 @@ package pcgen.facade.core;
 public interface LoadableFacade
 {
 
-	public enum LoadingState
+	enum LoadingState
 	{
 
 		LOADED, LOADED_WITH_ERRORS
 	}
 
-	public boolean isModifiable();
+	boolean isModifiable();
 
-	public LoadingState getLoadingState();
+	LoadingState getLoadingState();
 
-	public String getLoadingErrorMessage();
+	String getLoadingErrorMessage();
 
 }

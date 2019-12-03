@@ -20,5 +20,5 @@ package pcgen.cdom.meta;
 @FunctionalInterface
 public interface PerspectiveLocation
 {
-	public String getIdentity();
+	String getIdentity();
 }

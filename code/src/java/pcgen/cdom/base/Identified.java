@@ -20,8 +20,8 @@ package pcgen.cdom.base;
 public interface Identified
 {
 
-	public String getKeyName();
+	String getKeyName();
 
-	public String getDisplayName();
+	String getDisplayName();
 
 }

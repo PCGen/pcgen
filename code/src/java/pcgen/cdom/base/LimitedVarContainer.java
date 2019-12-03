@@ -25,9 +25,9 @@ public interface LimitedVarContainer extends VarContainer
 {
 
 	@ReadOnly
-	public String getIdentifier();
+    String getIdentifier();
 
 	@ReadOnly
-	public String getKeyName();
+    String getKeyName();
 
 }

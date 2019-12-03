@@ -31,5 +31,5 @@ public interface ChangeListener
 	 * Notification that an item changed.
 	 * @param event The change event.
 	 */
-	public void ItemChanged(ChangeEvent event);
+    void ItemChanged(ChangeEvent event);
 }

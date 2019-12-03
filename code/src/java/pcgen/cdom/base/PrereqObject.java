@@ -43,7 +43,7 @@ public interface PrereqObject
 	 * @param prereq
 	 *            The Prerequisite to add to the PrereqObject.
 	 */
-	public void addPrerequisite(Prerequisite prereq);
+    void addPrerequisite(Prerequisite prereq);
 
 	/**
 	 * Adds a Collection of Prerequisite objects to the PrereqObject.
@@ -52,7 +52,7 @@ public interface PrereqObject
 	 *            A Collection of Prerequisite objects to added to the
 	 *            PrereqObject.
 	 */
-	public void addAllPrerequisites(Collection<Prerequisite> prereqs);
+    void addAllPrerequisites(Collection<Prerequisite> prereqs);
 
 	/**
 	 * Returns true if this PrereqObject contains any Prerequisites; false
@@ -61,7 +61,7 @@ public interface PrereqObject
 	 * @return true if this PrereqObject contains any Prerequisites; false
 	 *         otherwise.
 	 */
-	public boolean hasPrerequisites();
+    boolean hasPrerequisites();
 
 	/**
 	 * Returns a List of the Prerequisite objects contained in the PrereqObject.
@@ -70,19 +70,19 @@ public interface PrereqObject
 	 * 
 	 * @return A List of Prerequisite objects contained in the PrereqObject.
 	 */
-	public List<Prerequisite> getPrerequisiteList();
+    List<Prerequisite> getPrerequisiteList();
 
 	/**
 	 * Remove All Prerequisites contained in the PrereqObject.
 	 */
-	public void clearPrerequisiteList();
+    void clearPrerequisiteList();
 
 	/**
 	 * Returns the number of Prerequisites contained in the PrereqObject.
 	 * 
 	 * @return the number of Prerequisites contained in the PrereqObject.
 	 */
-	public int getPrerequisiteCount();
+    int getPrerequisiteCount();
 
 	/**
 	 * Indicates of the current object is Available for selection. This is controlled by
@@ -94,7 +94,7 @@ public interface PrereqObject
 	 * @return true if this object is available for selection for the given
 	 *         PlayerCharacter; false otherwise
 	 */
-	public boolean isAvailable(PlayerCharacter aPC);
+    boolean isAvailable(PlayerCharacter aPC);
 
 	/**
 	 * Indicates of the current object is allowed to be active on the PlayerCharacter.
@@ -106,5 +106,5 @@ public interface PrereqObject
 	 * @return true if this object is allowed to be active for the given PlayerCharacter;
 	 *         false otherwise
 	 */
-	public boolean isActive(PlayerCharacter aPC);
+    boolean isActive(PlayerCharacter aPC);
 }

@@ -23,7 +23,7 @@ import java.util.EventListener;
 public interface ProgressListener extends EventListener
 {
 
-	public void progressAllowed(ProgressEvent pe);
+	void progressAllowed(ProgressEvent pe);
 
-	public void progressNotAllowed(ProgressEvent pe);
+	void progressNotAllowed(ProgressEvent pe);
 }

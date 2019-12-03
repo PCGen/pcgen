@@ -29,5 +29,5 @@ public interface PCGenIdentifier
 	/**
 	 * @return the owned DataSetID under which variable was created.
 	 */
-	public DataSetID getDataSetID();
+    DataSetID getDataSetID();
 }

@@ -40,6 +40,6 @@ public interface ReferenceFormula<T>
 	 *            the inputs to the formula
 	 * @return the result of the calculation
 	 */
-	public abstract T resolve(Number... numbers);
+    T resolve(Number... numbers);
 
 }

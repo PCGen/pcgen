@@ -24,6 +24,6 @@ import pcgen.facade.core.CharacterFacade;
 public interface CharacterSelectionListener
 {
 
-	public void setCharacter(CharacterFacade character);
+	void setCharacter(CharacterFacade character);
 
 }

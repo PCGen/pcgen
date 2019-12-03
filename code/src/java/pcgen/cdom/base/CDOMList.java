@@ -37,7 +37,7 @@ public interface CDOMList<T extends CDOMObject> extends PrereqObject
 	 * 
 	 * @return the Class of Object this CDOMList will identify
 	 */
-	public Class<T> getListClass();
+    Class<T> getListClass();
 
 	/**
 	 * Returns the key name for this CDOMList. This is the unique identifier of
@@ -47,7 +47,7 @@ public interface CDOMList<T extends CDOMObject> extends PrereqObject
 	 * 
 	 * @return The key name for this CDOMList
 	 */
-	public String getKeyName();
+    String getKeyName();
 
 	/**
 	 * Returns true if this CDOMList has the given Type. This test the CDOMList
@@ -60,7 +60,7 @@ public interface CDOMList<T extends CDOMObject> extends PrereqObject
 	 *            should be tested for.
 	 * @return true if this CDOMList has the given type; false otherwise.
 	 */
-	public boolean isType(String type);
+    boolean isType(String type);
 
 	/**
 	 * Returns a representation of this CDOMList, suitable for storing in
@@ -69,6 +69,6 @@ public interface CDOMList<T extends CDOMObject> extends PrereqObject
 	 * @return A representation of this CDOMList, suitable for storing in
 	 *         an LST file.
 	 */
-	public String getLSTformat();
+    String getLSTformat();
 
 }

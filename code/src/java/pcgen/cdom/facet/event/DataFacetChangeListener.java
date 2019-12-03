@@ -43,7 +43,7 @@ public interface DataFacetChangeListener<IDT extends PCGenIdentifier, T> extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent that occurred.
 	 */
-	public void dataAdded(DataFacetChangeEvent<IDT, T> dfce);
+    void dataAdded(DataFacetChangeEvent<IDT, T> dfce);
 
 	/**
 	 * Method called when a CDOMObject has been removed from a resource
@@ -53,5 +53,5 @@ public interface DataFacetChangeListener<IDT extends PCGenIdentifier, T> extends
 	 * @param dfce
 	 *            The DataFacetChangeEvent that occurred.
 	 */
-	public void dataRemoved(DataFacetChangeEvent<IDT, T> dfce);
+    void dataRemoved(DataFacetChangeEvent<IDT, T> dfce);
 }

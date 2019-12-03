@@ -107,7 +107,7 @@ public class TableLoader extends LstLineFileLoader
 		 * @throws PersistenceLayerException
 		 *             if there is an error during the loading of the given line
 		 */
-		public LineProcessor parseLine(LoadContext context, String lstLine, URI sourceURI)
+        LineProcessor parseLine(LoadContext context, String lstLine, URI sourceURI)
 			throws PersistenceLayerException;
 	}
 

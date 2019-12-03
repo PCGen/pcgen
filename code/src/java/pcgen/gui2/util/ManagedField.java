@@ -28,6 +28,6 @@ public interface ManagedField extends Installable
 	 * 
 	 * @return The JTextField that this ManagedField manages
 	 */
-	public JTextField getTextField();
+    JTextField getTextField();
 
 }

@@ -21,5 +21,5 @@ package pcgen.gui2.converter.event;
 @FunctionalInterface
 public interface ProgressMonitor
 {
-	public void fireProgressEvent(int i);
+	void fireProgressEvent(int i);
 }

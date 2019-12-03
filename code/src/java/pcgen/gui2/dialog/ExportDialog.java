@@ -150,8 +150,8 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		{
 
 			@Override
-			public Component getListCellRendererComponent(JList<? extends Object> list, Object value, int index,
-				boolean isSelected, boolean cellHasFocus)
+			public Component getListCellRendererComponent(JList<?> list, Object value, int index,
+                                                          boolean isSelected, boolean cellHasFocus)
 			{
 				CharacterFacade character = (CharacterFacade) value;
 				return super.getListCellRendererComponent(list, character.getNameRef().get(), index, isSelected,

@@ -286,10 +286,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 		Optional<SubRegion> sub = getSubRegion(id);
 		StringBuilder tempRegName = new StringBuilder(40).append(getRegionString(id));
 
-		if (sub.isPresent())
-		{
-			tempRegName.append(" (").append(sub.get().toString()).append(')');
-		}
+        sub.ifPresent(subRegion -> tempRegName.append(" (").append(subRegion.toString()).append(')'));
 
 		return tempRegName.toString();
 	}
@@ -392,10 +389,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String>
 		Optional<Region> newRegion = getRegion(id);
 		if (current.isEmpty() || !current.equals(newRegion))
 		{
-			if (current.isPresent())
-			{
-				fireDataFacetChangeEvent(id, current.get().toString(), DataFacetChangeEvent.DATA_REMOVED);
-			}
+            current.ifPresent(region -> fireDataFacetChangeEvent(id, region.toString(), DataFacetChangeEvent.DATA_REMOVED));
 			rci.cachedRegion = newRegion;
 			fireDataFacetChangeEvent(id, newRegion.get().toString(), DataFacetChangeEvent.DATA_ADDED);
 		}

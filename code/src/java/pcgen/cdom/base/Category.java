@@ -37,6 +37,6 @@ public interface Category<T extends Categorized<T>> extends Loadable, ClassIdent
 	 * @return the Parent Category for the current Category; null if the current
 	 *         Category is a "root" Category.
 	 */
-	public Category<T> getParentCategory();
+    Category<T> getParentCategory();
 
 }

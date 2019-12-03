@@ -315,14 +315,14 @@ class ParameterTreeTest
 
 		
 		// check that leaves really are leaves
-		assertNull(tl.getLeftTree(), "tl left tree is null (i.e. is a leaf node)");;
-		assertNull(tl.getRightTree(), "tl right tree is null (i.e. is a leaf node)");;
+		assertNull(tl.getLeftTree(), "tl left tree is null (i.e. is a leaf node)");
+        assertNull(tl.getRightTree(), "tl right tree is null (i.e. is a leaf node)");
 
-		assertNull(trr.getLeftTree(), "trr left tree is null (i.e. is a leaf node)");;
-		assertNull(trr.getRightTree(), "trr right tree is null (i.e. is a leaf node)");;
+        assertNull(trr.getLeftTree(), "trr left tree is null (i.e. is a leaf node)");
+        assertNull(trr.getRightTree(), "trr right tree is null (i.e. is a leaf node)");
 
-		assertNull(trlr.getLeftTree(), "trll left tree is null (i.e. is a leaf node)");;
-		assertNull(trlr.getRightTree(), "trlr right tree is null (i.e. is a leaf node)");
+        assertNull(trlr.getLeftTree(), "trll left tree is null (i.e. is a leaf node)");
+        assertNull(trlr.getRightTree(), "trlr right tree is null (i.e. is a leaf node)");
 
 		assertNull(trlll.getLeftTree(), "trlll left tree is null (i.e. is a leaf node)");
 		assertNull(trlll.getRightTree(), "trlll right tree is null (i.e. is a leaf node)");

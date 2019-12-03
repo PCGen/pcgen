@@ -33,7 +33,7 @@ public interface CalculationInfo<T>
 	 * 
 	 * @return A String identifying the behavior of the calculation
 	 */
-	public String getIdentification();
+    String getIdentification();
 
 	/**
 	 * Returns the inherent priority of this calculation. This is defined by the
@@ -51,5 +51,5 @@ public interface CalculationInfo<T>
 	 * 
 	 * @return The inherent priority of this calculation
 	 */
-	public int getInherentPriority();
+    int getInherentPriority();
 }

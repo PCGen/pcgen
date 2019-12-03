@@ -36,14 +36,14 @@ public interface ChooserFacade
 	 * {@code ChooserTreeViewType} defines the types of tree views that can
 	 * be displayed in a chooser dialog.
 	 */
-	public enum ChooserTreeViewType
+	enum ChooserTreeViewType
 	{
 		/** A flat display of just the choice name. */
 		NAME,
 
 		/** A hierarchical display of choice names within their types. */
-		TYPE_NAME;
-	}
+		TYPE_NAME
+    }
 
 	/**
 	 *
@@ -144,7 +144,7 @@ public interface ChooserFacade
 	 * commit the chooser.
 	 * @return true if the chooser needs to have 0 remaining selections before being committed.
 	 */
-	public boolean isRequireCompleteSelection();
+	boolean isRequireCompleteSelection();
 
 	/**
 	 * Would the caller prefer this choice be shown as a simple set of radio 
@@ -152,22 +152,22 @@ public interface ChooserFacade
 	 * the choice unsuitable for this presentation style.
 	 * @return Should the choice be presented as radio buttons if possible?
 	 */
-	public boolean isPreferRadioSelection();
+	boolean isPreferRadioSelection();
 
 	/**
 	 * Should the user be requested to enter values rather than select from a list.
 	 * @return true if the user should type in values.
 	 */
-	public boolean isUserInput();
+	boolean isUserInput();
 
 	/**
 	 * @return Do the items in this chooser have extra info above a name.
 	 */
-	public boolean isInfoAvailable();
+	boolean isInfoAvailable();
 
 	/**
 	 * Retrieve the factory which provides descriptions for items.
 	 * @return The info factory.  
 	 */
-	public InfoFactory getInfoFactory();
+	InfoFactory getInfoFactory();
 }

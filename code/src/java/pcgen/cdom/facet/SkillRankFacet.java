@@ -216,9 +216,9 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 	}
 
 	@FunctionalInterface
-	public static interface SkillRankChangeListener extends EventListener
+	public interface SkillRankChangeListener extends EventListener
 	{
-		public void rankChanged(SkillRankChangeEvent lce);
+		void rankChanged(SkillRankChangeEvent lce);
 	}
 
 	public static class SkillRankChangeEvent extends EventObject

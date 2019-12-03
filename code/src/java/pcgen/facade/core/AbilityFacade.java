@@ -23,12 +23,12 @@ import java.util.List;
 public interface AbilityFacade extends InfoFacade
 {
 
-	public List<String> getTypes();
+	List<String> getTypes();
 
-	public boolean isMult();
+	boolean isMult();
 
-	public boolean isStackable();
+	boolean isStackable();
 
-	public double getCost();
+	double getCost();
 
 }

@@ -47,7 +47,7 @@ public interface Chooser<T> extends Persistent<T>
 	 * @param item
 	 *            The choice being restored to the given PlayerCharacter.
 	 */
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T item);
+    void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T item);
 
 	/**
 	 * Removes a choice from a PlayerCharacter.
@@ -59,7 +59,7 @@ public interface Chooser<T> extends Persistent<T>
 	 * @param item
 	 *            The choice being removed from the given PlayerCharacter.
 	 */
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item);
+    void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item);
 
 	/**
 	 * Applies the given choice to the given PlayerCharacter.
@@ -72,7 +72,7 @@ public interface Chooser<T> extends Persistent<T>
 	 *            The PlayerCharacter to which the given choice should be
 	 *            applied.
 	 */
-	public void applyChoice(ChooseDriver owner, T item, PlayerCharacter pc);
+    void applyChoice(ChooseDriver owner, T item, PlayerCharacter pc);
 
 	/**
 	 * Returns true if the given choice should be allowed for the
@@ -91,7 +91,7 @@ public interface Chooser<T> extends Persistent<T>
 	 * @return true if the given choice should be allowed for the
 	 *         PlayerCharacter under the provided stacking conditions.
 	 */
-	public boolean allow(T item, PlayerCharacter pc, boolean allowStack);
+    boolean allow(T item, PlayerCharacter pc, boolean allowStack);
 
 	/**
 	 * Returns a list of the items *for this ChoiceActor* that have been
@@ -107,5 +107,5 @@ public interface Chooser<T> extends Persistent<T>
 	 *            The PlayerCharacter for which the currently selected items are
 	 *            being returned.
 	 */
-	public List<? extends T> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc);
+    List<? extends T> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc);
 }

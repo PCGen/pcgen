@@ -37,7 +37,7 @@ public interface ModifierFactory<T>
 	 * @return A String identifying the type of Modifier built by this
 	 *         ModifierFactory
 	 */
-	public String getIdentification();
+    String getIdentification();
 
 	/**
 	 * Returns the Format (Class) of object upon which this ModifierFactory can
@@ -47,7 +47,7 @@ public interface ModifierFactory<T>
 	 * @return The Format (Class) of object upon which Modifiers built by this
 	 *         ModifierFactory can operate
 	 */
-	public Class<T> getVariableFormat();
+    Class<T> getVariableFormat();
 
 	/**
 	 * Returns a FormulaModifier with the given instructions. The instructions will be
@@ -61,8 +61,8 @@ public interface ModifierFactory<T>
 	 *            The FormatManager for the FormulaModifier to be returned
 	 * @return a FormulaModifier with the given instructions
 	 */
-	public FormulaModifier<T> getModifier(String instructions,
-		FormatManager<T> formatManager);
+    FormulaModifier<T> getModifier(String instructions,
+                                   FormatManager<T> formatManager);
 
 	/**
 	 * Returns a FormulaModifier with the given instructions.
@@ -80,5 +80,5 @@ public interface ModifierFactory<T>
 	 * 
 	 * @return a FormulaModifier with the given instructions
 	 */
-	public FormulaModifier<T> getFixedModifier(FormatManager<T> formatManager, String instructions);
+    FormulaModifier<T> getFixedModifier(FormatManager<T> formatManager, String instructions);
 }

@@ -33,7 +33,7 @@ public interface VariableWrapperFactory
 	 *            The name of the Variable
 	 * @return A Wrapper for the given CharID and name of the Wrapper
 	 */
-	public VariableWrapper<?> getGlobalWrapper(CharID id, String name);
+    VariableWrapper<?> getGlobalWrapper(CharID id, String name);
 
 	/**
 	 * Retrieves a Wrapper for the given CharID, owning object, and name of the Variable.
@@ -46,8 +46,8 @@ public interface VariableWrapperFactory
 	 *            The name of the Variable
 	 * @return A Wrapper for the given CharID, owning object, and name of the Wrapper
 	 */
-	public VariableWrapper<?> getWrapper(CharID id, VarScoped owner,
-		String name);
+    VariableWrapper<?> getWrapper(CharID id, VarScoped owner,
+                                  String name);
 
 	/**
 	 * Disconnects the given VariableWrapper from the WriteableVariableStore. This is
@@ -61,5 +61,5 @@ public interface VariableWrapperFactory
 	 * @param variableWrapper
 	 *            The VariableWrapper to be disconnected from its VariableStore
 	 */
-	public void disconnect(VariableWrapper<?> variableWrapper);
+    void disconnect(VariableWrapper<?> variableWrapper);
 }

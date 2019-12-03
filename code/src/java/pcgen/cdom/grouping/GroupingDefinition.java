@@ -33,14 +33,14 @@ public interface GroupingDefinition<T>
 	 * 
 	 * @return The Identification of the Grouping
 	 */
-	public String getIdentification();
+    String getIdentification();
 
 	/**
 	 * Returns the Class indicating the usable location for this GroupingDefinition
 	 * 
 	 * @return The Class indicating the usable location for this GroupingDefinition
 	 */
-	public Class<?> getUsableLocation();
+    Class<?> getUsableLocation();
 
 	/**
 	 * Processes the given GroupingInfo to produce a new GroupingCollection based on the
@@ -53,7 +53,7 @@ public interface GroupingDefinition<T>
 	 * @return A new GroupingCollection based on the given GroupingInfo processed with the
 	 *         rules of this GroupingDefinition
 	 */
-	public GroupingCollection<T> process(LoadContext context, GroupingInfo<T> info);
+    GroupingCollection<T> process(LoadContext context, GroupingInfo<T> info);
 
 	/*
 	 * Note: Technically, requiresDirect is probably over defensive for use with Facts,
@@ -71,5 +71,5 @@ public interface GroupingDefinition<T>
 	 * @return true if this GroupingDefinition will only function on the exact class
 	 *         returned by getUsableLocation; false otherwise
 	 */
-	public boolean requiresDirect();
+    boolean requiresDirect();
 }

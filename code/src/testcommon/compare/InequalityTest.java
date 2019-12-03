@@ -21,5 +21,5 @@ import pcgen.base.test.InequalityTester;
 @FunctionalInterface
 interface InequalityTest<T>
 {
-	public String testInequality(T t1, T t2, InequalityTester t, String location);
+	String testInequality(T t1, T t2, InequalityTester t, String location);
 }

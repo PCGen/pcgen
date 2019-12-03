@@ -41,7 +41,7 @@ public interface PrerequisiteParserInterface
 	 * @return An array of Strings each of which defines a type
 	 * of prerequisite that the parser will parse.
 	 */
-	public String[] kindsHandled();
+    String[] kindsHandled();
 
 	/**
 	 * Parses the.
@@ -56,6 +56,6 @@ public interface PrerequisiteParserInterface
 	 * for any reason a PersistenceLayerException will be thrown.
 	 * @throws PersistenceLayerException the persistence layer exception
 	 */
-	public Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
+    Prerequisite parse(String kind, String formula, boolean invertResult, boolean overrideQualify)
 		throws PersistenceLayerException;
 }

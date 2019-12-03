@@ -58,5 +58,5 @@ public interface PrimitiveToken<T> extends LstToken, PrimitiveCollection<T>
 	 *            The arguments to the primitive
 	 * @return true if initialization was successful; false otherwise
 	 */
-	public boolean initialize(LoadContext context, Class<T> cl, String value, String args);
+    boolean initialize(LoadContext context, Class<T> cl, String value, String args);
 }

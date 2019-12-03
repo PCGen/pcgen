@@ -24,13 +24,13 @@ import pcgen.cdom.enumeration.CharID;
 public interface FacetView<T>
 {
 
-	public Collection<? extends T> getSet(CharID id);
+	Collection<? extends T> getSet(CharID id);
 
-	public Collection<Object> getSources(CharID id, T obj);
+	Collection<Object> getSources(CharID id, T obj);
 
-	public Object[] getChildren();
+	Object[] getChildren();
 
-	public String getDescription();
+	String getDescription();
 
-	public boolean represents(Object src);
+	boolean represents(Object src);
 }

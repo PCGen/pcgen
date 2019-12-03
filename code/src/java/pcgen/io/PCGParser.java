@@ -45,7 +45,7 @@ interface PCGParser
 	 * @param lines   the String to parse
 	 * @throws PCGParseException
 	 */
-	public void parsePCG(String[] lines) throws PCGParseException;
+    void parsePCG(String[] lines) throws PCGParseException;
 
 	/**
 	 * Check the game mode and then build a list of campaigns the character 
@@ -55,15 +55,15 @@ interface PCGParser
 	 * @return The list of campaigns.
 	 * @throws PCGParseException If the lines are invalid 
 	 */
-	public SourceSelectionFacade parcePCGSourceOnly(String[] lines) throws PCGParseException;
+    SourceSelectionFacade parcePCGSourceOnly(String[] lines) throws PCGParseException;
 
 	/**
 	 * @return the baseFeatPool
 	 */
-	public double getBaseFeatPool();
+    double getBaseFeatPool();
 
 	/**
 	 * @return the calcFeatPoolAfterLoad
 	 */
-	public boolean isCalcFeatPoolAfterLoad();
+    boolean isCalcFeatPoolAfterLoad();
 }

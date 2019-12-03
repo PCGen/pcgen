@@ -41,8 +41,8 @@ public interface ConversionDecider
 	 * @param defaultChoice The index of the initially selected option.
 	 * @return the conversion decision
 	 */
-	public String getConversionDecision(String overallDescription, List<String> choiceDescriptions,
-		List<String> choiceTokenResults, int defaultChoice);
+    String getConversionDecision(String overallDescription, List<String> choiceDescriptions,
+                                 List<String> choiceTokenResults, int defaultChoice);
 
-	public String getConversionInput(String overallDescription);
+	String getConversionInput(String overallDescription);
 }

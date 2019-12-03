@@ -34,7 +34,7 @@ public interface ClassIdentity<T>
 	 * 
 	 * @return The name of this ClassIdentity
 	 */
-	public String getName();
+    String getName();
 
 	/**
 	 * Returns the underlying Class used as a component of determining uniqueness for this
@@ -43,7 +43,7 @@ public interface ClassIdentity<T>
 	 * @return The underlying Class used as a component of determining uniqueness for this
 	 *         ClassIdentity
 	 */
-	public Class<T> getReferenceClass();
+    Class<T> getReferenceClass();
 
 	/**
 	 * Returns a new instance of the object represented by this ClassIdentity. Note that
@@ -53,7 +53,7 @@ public interface ClassIdentity<T>
 	 * 
 	 * @return A new instance of the object represented by this ClassIdentity
 	 */
-	public T newInstance();
+    T newInstance();
 
 	/**
 	 * Returns a description of the contents of this ClassIdentity.
@@ -63,7 +63,7 @@ public interface ClassIdentity<T>
 	 * 
 	 * @return A description of the contents of this ClassIdentity
 	 */
-	public String getReferenceDescription();
+    String getReferenceDescription();
 
 	/**
 	 * Returns true if the given object is a member of the type of object represented by
@@ -75,13 +75,13 @@ public interface ClassIdentity<T>
 	 * @return true if the given object is a member of the type of object represented by
 	 *         this ClassIdentity; false otherwise
 	 */
-	public boolean isMember(T item);
+    boolean isMember(T item);
 
 	/**
 	 * Returns the persistent format for this ClassIdentity.
 	 * 
 	 * @return The persistent format for this ClassIdentity
 	 */
-	public String getPersistentFormat();
+    String getPersistentFormat();
 
 }

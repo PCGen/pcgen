@@ -26,11 +26,11 @@ public interface Installable
 	/**
 	 * Install this object (make it monitor appropriate items).
 	 */
-	public void install();
+    void install();
 	
 	/**
 	 * Uninstall this object (make it stop monitoring items).
 	 */
-	public void uninstall();
+    void uninstall();
 
 }

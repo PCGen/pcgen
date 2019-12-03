@@ -25,20 +25,20 @@ import pcgen.facade.util.ListFacade;
 public interface SpellSupportFacade
 {
 
-	public ListFacade<? extends SuperNode> getAvailableSpellNodes();
+	ListFacade<? extends SuperNode> getAvailableSpellNodes();
 
 	/**
 	 * The returned list will be used to build the tree for all known spells. This includes
 	 * known spells, innate spells, etc...
 	 * @return a list containing the nodes for all known spells
 	 */
-	public ListFacade<? extends SuperNode> getAllKnownSpellNodes();
+    ListFacade<? extends SuperNode> getAllKnownSpellNodes();
 
-	public ListFacade<? extends SuperNode> getKnownSpellNodes();
+	ListFacade<? extends SuperNode> getKnownSpellNodes();
 
-	public ListFacade<? extends SuperNode> getPreparedSpellNodes();
+	ListFacade<? extends SuperNode> getPreparedSpellNodes();
 
-	public ListFacade<? extends SuperNode> getBookSpellNodes();
+	ListFacade<? extends SuperNode> getBookSpellNodes();
 
 	/**
 	 * Adds the spell identified by the {@code SpellNode} to the list of known spells for
@@ -49,14 +49,14 @@ public interface SpellSupportFacade
 	 * a new node based upon the parameter node and add that new node to other lists.
 	 * @param spell the spell to add
 	 */
-	public void addKnownSpell(SpellNode spell);
+    void addKnownSpell(SpellNode spell);
 
 	/**
 	 * Removes the spell identified by the {@code SpellNode} from the list of known spells/
 	 * all known spells.
 	 * @param spell the spell to remove
 	 */
-	public void removeKnownSpell(SpellNode spell);
+    void removeKnownSpell(SpellNode spell);
 
 	/**
 	 * Add a spell to a list of prepared spells.
@@ -64,52 +64,52 @@ public interface SpellSupportFacade
 	 * @param spellList The list add the spell to.
 	 * @param useMetamagic Should the user be asked for metamagic feats to add to the spell.
 	 */
-	public void addPreparedSpell(SpellNode spell, String spellList, boolean useMetamagic);
+    void addPreparedSpell(SpellNode spell, String spellList, boolean useMetamagic);
 
-	public void removePreparedSpell(SpellNode spell, String spellList);
+	void removePreparedSpell(SpellNode spell, String spellList);
 
 	/**
 	 * Creates a new spell list and updates the prepared spell node list
 	 * @param spellList the name of the new spell list
 	 */
-	public void addSpellList(String spellList);
+    void addSpellList(String spellList);
 
 	/**
 	 * Deletes a spell list and all spells associated with that spell list from the prepared spell
 	 * node list.
 	 * @param spellList the name of the spell list to delete
 	 */
-	public void removeSpellList(String spellList);
+    void removeSpellList(String spellList);
 
-	public void addToSpellBook(SpellNode node, String spellBook);
+	void addToSpellBook(SpellNode node, String spellBook);
 
-	public void removeFromSpellBook(SpellNode node, String spellBook);
+	void removeFromSpellBook(SpellNode node, String spellBook);
 
 	/**
 	 * Returns an html info string containing the spell caster info for a given class.
 	 * @param spellcaster a spell caster class
 	 * @return an HTML string
 	 */
-	public String getClassInfo(PCClass spellcaster);
+    String getClassInfo(PCClass spellcaster);
 
 	/** 
 	 * Refresh the available and known spells list in response to an action 
 	 * such as levelling up. 
 	 */
-	public void refreshAvailableKnownSpells();
+    void refreshAvailableKnownSpells();
 
 	/**
 	 * Whether we should add auto known spells at level up.
 	 * @return true if auto known spells should be added, false for manual management.
 	 */
-	public boolean isAutoSpells();
+    boolean isAutoSpells();
 
 	/**
 	 * Whether we should add auto known spells at level up.
 	 * 
 	 * @param autoSpells The new value for auto known spells.
 	 */
-	public void setAutoSpells(boolean autoSpells);
+    void setAutoSpells(boolean autoSpells);
 
 	/**
 	 * Determine whether higher level known spell slots can be used for lower
@@ -117,7 +117,7 @@ public interface SpellSupportFacade
 	 * 
 	 * @return Returns the useHigherKnownSlots.
 	 */
-	public boolean isUseHigherKnownSlots();
+    boolean isUseHigherKnownSlots();
 
 	/**
 	 * Set whether higher level known spell slots can be used for lower
@@ -125,7 +125,7 @@ public interface SpellSupportFacade
 	 * 
 	 * @param useHigher The new useHigherKnownSlots value.
 	 */
-	public void setUseHigherKnownSlots(boolean useHigher);
+    void setUseHigherKnownSlots(boolean useHigher);
 
 	/**
 	 * Determine whether higher level prepared spell slots can be used for lower
@@ -133,7 +133,7 @@ public interface SpellSupportFacade
 	 * 
 	 * @return Returns the useHigherPreppedSlots.
 	 */
-	public boolean isUseHigherPreppedSlots();
+    boolean isUseHigherPreppedSlots();
 
 	/**
 	 * Set whether higher level prepared spell slots can be used for lower
@@ -141,35 +141,35 @@ public interface SpellSupportFacade
 	 * 
 	 * @param useHigher The new useHigherPreppedSlots value.
 	 */
-	public void setUseHigherPreppedSlots(boolean useHigher);
+    void setUseHigherPreppedSlots(boolean useHigher);
 
 	// -------------------------- Interfaces ----------------------------------------
 
-	public static interface SuperNode
+	interface SuperNode
 	{
 	}
 
-	public static interface RootNode extends SuperNode
+	interface RootNode extends SuperNode
 	{
-		public String getName();
+		String getName();
 	}
 
-	public static interface SpellListNode extends RootNode
-	{
-	}
-
-	public static interface SpellBookNode extends RootNode
+	interface SpellListNode extends RootNode
 	{
 	}
 
-	public static interface SpellNode extends SuperNode
+	interface SpellBookNode extends RootNode
+	{
+	}
+
+	interface SpellNode extends SuperNode
 	{
 
-		public PCClass getSpellcastingClass();
+		PCClass getSpellcastingClass();
 
-		public String getSpellLevel();
+		String getSpellLevel();
 
-		public SpellFacade getSpell();
+		SpellFacade getSpell();
 
 		/**
 		 * Returns the name of the root of this node's tree. The returned string may be null
@@ -178,45 +178,45 @@ public interface SpellSupportFacade
 		 * the root is the spell book name etc...
 		 * @return the root node string
 		 */
-		public RootNode getRootNode();
+        RootNode getRootNode();
 
 		/**
 		 * @return The number of occurrences of the spell that are held.
 		 */
-		public int getCount();
+        int getCount();
 
 		/**
 		 * Adjust the number of occurrences held of the spell.
 		 * @param num The number of occurrences to add.
 		 */
-		public void addCount(int num);
+        void addCount(int num);
 
 	}
 
 	/**
 	 * Show the current character's spells in the browser based on the selected spell sheet.
 	 */
-	public void previewSpells();
+    void previewSpells();
 
 	/**
 	 * Export the current character's spells to a file based on the selected spell sheet.
 	 */
-	public void exportSpells();
+    void exportSpells();
 
 	/**
 	 * @return the list of spell books
 	 */
-	public ListFacade<String> getSpellbooks();
+    ListFacade<String> getSpellbooks();
 
 	/**
 	 * @return the defaultSpellBook The name of the spell book to hold any new known spells.
 	 */
-	public DefaultReferenceFacade<String> getDefaultSpellBookRef();
+    DefaultReferenceFacade<String> getDefaultSpellBookRef();
 
 	/**
 	 * Set the spell book to hold any new known spells.
 	 * @param bookName The name of the new default spell book.
 	 */
-	public void setDefaultSpellBook(String bookName);
+    void setDefaultSpellBook(String bookName);
 
 }

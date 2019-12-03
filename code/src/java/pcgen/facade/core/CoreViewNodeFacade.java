@@ -32,25 +32,25 @@ public interface CoreViewNodeFacade
 	 * Retrieve a list of the nodes which grant this node.
 	 * @return The child nodes.
 	 */
-	public List<CoreViewNodeFacade> getGrantedByNodes();
+    List<CoreViewNodeFacade> getGrantedByNodes();
 
 	/**
 	 * @return The type of node that this is.
 	 */
-	public String getNodeType();
+    String getNodeType();
 
 	/**
 	 * @return The key of this node, if any.
 	 */
-	public String getKey();
+    String getKey();
 
 	/**
 	 * @return The source (i.e. LST dataset) where this node is defined.
 	 */
-	public String getSource();
+    String getSource();
 
 	/**
 	 * @return A description of the requirements needed to take this object.
 	 */
-	public String getRequirements();
+    String getRequirements();
 }

@@ -723,7 +723,7 @@ public abstract class JepCountType
 	@FunctionalInterface
 	public interface ObjectFilter<T>
 	{
-		public boolean accept(T o);
+		boolean accept(T o);
 	}
 
 	private static void buildMap()

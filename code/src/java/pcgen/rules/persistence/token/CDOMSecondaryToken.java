@@ -21,5 +21,5 @@ import pcgen.rules.context.LoadContext;
 
 public interface CDOMSecondaryToken<T> extends CDOMToken<T>, CDOMSubToken<T>
 {
-	public String[] unparse(LoadContext context, T obj);
+	String[] unparse(LoadContext context, T obj);
 }

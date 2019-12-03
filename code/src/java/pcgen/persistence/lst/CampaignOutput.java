@@ -25,6 +25,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.Collection;
 import java.util.List;
 
@@ -61,7 +62,7 @@ public final class CampaignOutput
 
 		try
 		{
-			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8"));
+			out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outFile), StandardCharsets.UTF_8));
 
 			List<String> commentList = campaign.getListFor(ListKey.COMMENT);
 			if (commentList != null)
@@ -83,7 +84,7 @@ public final class CampaignOutput
 				}
 			}
 		}
-		catch (FileNotFoundException | UnsupportedEncodingException exc)
+		catch (FileNotFoundException exc)
 		{
 			Logging.errorPrint("Error while writing to " + outFile.toString(), exc);
 

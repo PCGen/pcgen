@@ -53,7 +53,7 @@ public interface NEPCalculation<T> extends CalculationInfo<T>
 	 *            of this NEPCalculation
 	 * @return The resulting value of the NEPCalculation
 	 */
-	public T process(EvaluationManager evalManager);
+    T process(EvaluationManager evalManager);
 
 	/**
 	 * Loads the dependencies for the NEPCalculation into the given
@@ -66,7 +66,7 @@ public interface NEPCalculation<T> extends CalculationInfo<T>
 	 *            The DependencyManager to be notified of dependencies for this
 	 *            NEPCalculation
 	 */
-	public void getDependencies(DependencyManager fdm);
+    void getDependencies(DependencyManager fdm);
 
 	/**
 	 * Returns a String identifying the formula used for calculation. May be "3"
@@ -74,7 +74,7 @@ public interface NEPCalculation<T> extends CalculationInfo<T>
 	 * 
 	 * @return A String identifying the formula used for calculation
 	 */
-	public String getInstructions();
+    String getInstructions();
 
 	/**
 	 * Processes this NEPCalculation to determine if it is valid within the rules provided
@@ -86,5 +86,5 @@ public interface NEPCalculation<T> extends CalculationInfo<T>
 	 * @throws SemanticsException
 	 *             If there is a Semantics issue with the NEPCalculation
 	 */
-	public void isValid(FormulaSemantics semantics) throws SemanticsException;
+    void isValid(FormulaSemantics semantics) throws SemanticsException;
 }

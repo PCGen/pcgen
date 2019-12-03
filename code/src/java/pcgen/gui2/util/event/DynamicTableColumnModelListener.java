@@ -28,7 +28,7 @@ import javax.swing.event.TableColumnModelEvent;
  */
 public interface DynamicTableColumnModelListener extends EventListener
 {
-	public void availableColumnAdded(TableColumnModelEvent event);
+	void availableColumnAdded(TableColumnModelEvent event);
 
-	public void availableColumnRemove(TableColumnModelEvent event);
+	void availableColumnRemove(TableColumnModelEvent event);
 }

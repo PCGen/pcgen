@@ -29,7 +29,7 @@ public interface VarHolder
 	 * @param varModifier
 	 *            The VarModifier to be added to this VarContainer.
 	 */
-	public void addModifier(VarModifier<?> varModifier);
+    void addModifier(VarModifier<?> varModifier);
 
 	/**
 	 * Adds a new RemoteModifier to this VarContainer.
@@ -37,7 +37,7 @@ public interface VarHolder
 	 * @param remoteModifier
 	 *            The RemoteModifier to be added to this VarContainer.
 	 */
-	public void addRemoteModifier(RemoteModifier<?> remoteModifier);
+    void addRemoteModifier(RemoteModifier<?> remoteModifier);
 
 	/**
 	 * Adds a new variable that will grant objects.
@@ -45,6 +45,6 @@ public interface VarHolder
 	 * @param variableName
 	 *            The (Global) variable name that will indicate granted objects
 	 */
-	public void addGrantedVariable(String variableName);
+    void addGrantedVariable(String variableName);
 
 }

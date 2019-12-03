@@ -38,7 +38,7 @@ public interface GroupingCollection<T>
 	 * @return A String identifying the value used for determining the members of the
 	 *         identified group
 	 */
-	public String getInstructions();
+    String getInstructions();
 
 	/**
 	 * Runs the given Consumer on any relevant objects in this GroupingCollection.
@@ -49,5 +49,5 @@ public interface GroupingCollection<T>
 	 *            The Consumer to be run on any relevant objects in this
 	 *            GroupingCollection
 	 */
-	public void process(PCGenScoped target, Consumer<PCGenScoped> consumer);
+    void process(PCGenScoped target, Consumer<PCGenScoped> consumer);
 }

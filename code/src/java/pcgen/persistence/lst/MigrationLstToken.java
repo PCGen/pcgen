@@ -36,6 +36,6 @@ public interface MigrationLstToken extends LstToken
 	 * @param gameModeName The name of the game mode the rule is for. 
 	 * @return true if successful
 	 */
-	public abstract boolean parse(MigrationRule migrationRule, String value, String gameModeName);
+    boolean parse(MigrationRule migrationRule, String value, String gameModeName);
 
 }

@@ -38,7 +38,7 @@ public interface ManufacturableFactory<T extends Loadable> extends SelectionCrea
 	 * 
 	 * @return A new instance of the object that this ManufacturableFactory creates
 	 */
-	public T newInstance();
+    T newInstance();
 
 	/**
 	 * Returns true if the given item is a member of items potentially created by this
@@ -54,7 +54,7 @@ public interface ManufacturableFactory<T extends Loadable> extends SelectionCrea
 	 * @return true if the given item is a member of items potentially created by this
 	 *         ManufacturableFactory; false otherwise
 	 */
-	public boolean isMember(T item);
+    boolean isMember(T item);
 
 	/**
 	 * Resolves the given CDOMSingleRef with the object of the given name in the given
@@ -73,8 +73,8 @@ public interface ManufacturableFactory<T extends Loadable> extends SelectionCrea
 	 *            given object is permitted to be unconstructed
 	 * @return true if the given CDOMSingleRef was successfully resolved; false otherwise
 	 */
-	public boolean resolve(ReferenceManufacturer<T> rm, String name, CDOMSingleRef<T> reference,
-		UnconstructedValidator validator);
+    boolean resolve(ReferenceManufacturer<T> rm, String name, CDOMSingleRef<T> reference,
+                    UnconstructedValidator validator);
 
 	/**
 	 * Populates the given ReferenceManufacturer with information from the parent
@@ -92,8 +92,8 @@ public interface ManufacturableFactory<T extends Loadable> extends SelectionCrea
 	 * @return true if this ManufactorableFactory was successfully populated; false
 	 *         otherwise
 	 */
-	public boolean populate(ReferenceManufacturer<T> parent, ReferenceManufacturer<T> rm,
-		UnconstructedValidator validator);
+    boolean populate(ReferenceManufacturer<T> parent, ReferenceManufacturer<T> rm,
+                     UnconstructedValidator validator);
 
 	/**
 	 * Returns the parent ManufacturableFactory of this ManufacturableFactory (for
@@ -105,7 +105,7 @@ public interface ManufacturableFactory<T extends Loadable> extends SelectionCrea
 	 * @return The parent ManufacturableFactory of this ManufacturableFactory; null if no
 	 *         parent
 	 */
-	public ManufacturableFactory<T> getParent();
+    ManufacturableFactory<T> getParent();
 
 	/**
 	 * Returns the persistent String that represents the Format of object constructed by
@@ -116,7 +116,7 @@ public interface ManufacturableFactory<T extends Loadable> extends SelectionCrea
 	 * @return The persistent String that represents the Format of object constructed by
 	 *         this ManufacturableFactory
 	 */
-	public String getPersistentFormat();
+    String getPersistentFormat();
 
 	/**
 	 * Returns the ClassIdentity for this ManufacturableFactory. This is more specific
@@ -129,5 +129,5 @@ public interface ManufacturableFactory<T extends Loadable> extends SelectionCrea
 	 * @return The ClassIdentity for this ManufacturableFactory
 	 */
 	@Override
-	public ClassIdentity<T> getReferenceIdentity();
+    ClassIdentity<T> getReferenceIdentity();
 }

@@ -288,9 +288,9 @@ public class LevelFacet extends AbstractStorageFacet<CharID> implements ClassLev
 	 * 
 	 */
 	@FunctionalInterface
-	public static interface LevelChangeListener extends EventListener
+	public interface LevelChangeListener extends EventListener
 	{
-		public void levelChanged(LevelChangeEvent lce);
+		void levelChanged(LevelChangeEvent lce);
 	}
 
 	public static class LevelChangeEvent extends EventObject

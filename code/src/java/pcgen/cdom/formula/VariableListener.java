@@ -37,5 +37,5 @@ public interface VariableListener<T> extends EventListener
 	 *            The VariableChangeEvent indicating the change that took place
 	 *            to a Variable
 	 */
-	public void variableChanged(VariableChangeEvent<T> vcEvent);
+    void variableChanged(VariableChangeEvent<T> vcEvent);
 }

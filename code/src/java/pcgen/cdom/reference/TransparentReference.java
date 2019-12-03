@@ -62,5 +62,5 @@ public interface TransparentReference<T extends Loadable>
 	 *             different than the Reference Class of this
 	 *             TransparentReference
 	 */
-	public void resolve(ReferenceManufacturer<T> rm);
+    void resolve(ReferenceManufacturer<T> rm);
 }

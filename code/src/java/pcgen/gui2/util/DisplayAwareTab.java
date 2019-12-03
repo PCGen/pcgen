@@ -29,5 +29,5 @@ public interface DisplayAwareTab
 	/**
 	 * Notify the tab that it has been displayed.
 	 */
-	public void tabSelected();
+    void tabSelected();
 }

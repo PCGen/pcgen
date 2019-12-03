@@ -42,7 +42,7 @@ public interface PostDeferredToken<T extends Loadable>
 	 *            The object to be processed in this PostDeferredToken
 	 * @return true if the processing was successful; false otherwise
 	 */
-	public boolean process(LoadContext context, T obj);
+    boolean process(LoadContext context, T obj);
 
 	/**
 	 * Returns the class of the object upon which this PostDeferredToken
@@ -51,7 +51,7 @@ public interface PostDeferredToken<T extends Loadable>
 	 * @return The class of the object upon which this PostDeferredToken
 	 *         operates
 	 */
-	public Class<T> getDeferredTokenClass();
+    Class<T> getDeferredTokenClass();
 
 	/**
 	 * Returns the priority of this PostDeferredToken. PostDeferredTokens are
@@ -60,5 +60,5 @@ public interface PostDeferredToken<T extends Loadable>
 	 * 
 	 * @return The priority of this PostDeferredToken
 	 */
-	public int getPriority();
+    int getPriority();
 }

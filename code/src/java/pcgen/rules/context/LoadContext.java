@@ -46,83 +46,83 @@ public interface LoadContext
 	/*
 	 * Source Info
 	 */
-	public void setExtractURI(URI extractURI);
+    void setExtractURI(URI extractURI);
 
-	public void setSourceURI(URI sourceURI);
+	void setSourceURI(URI sourceURI);
 
-	public URI getSourceURI();
+	URI getSourceURI();
 
 	/*
 	 * Context info
 	 */
-	public DataSetID getDataSetID();
+    DataSetID getDataSetID();
 
-	public AbstractReferenceContext getReferenceContext();
+	AbstractReferenceContext getReferenceContext();
 
-	public AbstractObjectContext getObjectContext();
+	AbstractObjectContext getObjectContext();
 
-	public AbstractListContext getListContext();
+	AbstractListContext getListContext();
 
-	public boolean consolidate();
+	boolean consolidate();
 
 	/*
 	 * Token Processing (State Machine)
 	 */
-	public void commit();
+    void commit();
 
-	public void rollback();
+	void rollback();
 
 	/*
 	 * Token Content
 	 */
-	public void resolveDeferredTokens();
+    void resolveDeferredTokens();
 
-	public void resolvePostDeferredTokens();
+	void resolvePostDeferredTokens();
 
-	public void resolvePostValidationTokens();
+	void resolvePostValidationTokens();
 
-	public <T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(SelectionCreator<T> sc, String value);
+	<T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(SelectionCreator<T> sc, String value);
 
-	public <T extends CDOMObject> PrimitiveCollection<T> getPrimitiveChoiceFilter(SelectionCreator<T> sc, String key);
+	<T extends CDOMObject> PrimitiveCollection<T> getPrimitiveChoiceFilter(SelectionCreator<T> sc, String key);
 
-	public String getPrerequisiteString(Collection<Prerequisite> prereqs);
+	String getPrerequisiteString(Collection<Prerequisite> prereqs);
 
-	public ReferenceManufacturer<? extends Loadable> getManufacturer(String firstToken);
+	ReferenceManufacturer<? extends Loadable> getManufacturer(String firstToken);
 
-	public void forgetMeNot(CDOMReference<?> cdr);
+	void forgetMeNot(CDOMReference<?> cdr);
 
 	/*
 	 * Loader Content
 	 */
-	public <T extends CDOMObject> T cloneConstructedCDOMObject(T cdo, String newName);
+    <T extends CDOMObject> T cloneConstructedCDOMObject(T cdo, String newName);
 
-	public CampaignSourceEntry getCampaignSourceEntry(Campaign source, String value);
+	CampaignSourceEntry getCampaignSourceEntry(Campaign source, String value);
 
-	public void clearStatefulInformation();
+	void clearStatefulInformation();
 
-	public boolean addStatefulToken(String s) throws PersistenceLayerException;
+	boolean addStatefulToken(String s) throws PersistenceLayerException;
 
-	public void addStatefulInformation(CDOMObject target);
+	void addStatefulInformation(CDOMObject target);
 
-	public void setLoaded(List<Campaign> campaigns);
+	void setLoaded(List<Campaign> campaigns);
 
-	public List<Campaign> getLoadedCampaigns();
+	List<Campaign> getLoadedCampaigns();
 
-	public void loadCampaignFacets();
+	void loadCampaignFacets();
 
-	public <T extends CDOMObject> T performCopy(T object, String copyName);
+	<T extends CDOMObject> T performCopy(T object, String copyName);
 
 	/*
 	 * Token Processing (direct)
 	 */
-	public <T> ParseResult processSubToken(T cdo, String tokenName, String key, String value);
+    <T> ParseResult processSubToken(T cdo, String tokenName, String key, String value);
 
-	public <T extends Loadable> boolean processToken(T derivative, String typeStr, String argument)
+	<T extends Loadable> boolean processToken(T derivative, String typeStr, String argument)
             ;
 
-	public <T extends Loadable> void unconditionallyProcess(T cdo, String key, String value);
+	<T extends Loadable> void unconditionallyProcess(T cdo, String key, String value);
 
-	public <T> String[] unparseSubtoken(T cdo, String tokenName);
+	<T> String[] unparseSubtoken(T cdo, String tokenName);
 
 	/**
 	 * Unparses the given Object into a Collection of String objects, for each token that
@@ -134,14 +134,14 @@ public interface LoadContext
 	 * @return A Collection of Strings representing the tokens that are part of the
 	 *         persistent format of the given Loadable
 	 */
-	public <T extends Loadable> Collection<String> unparse(T loadable);
+    <T extends Loadable> Collection<String> unparse(T loadable);
 
 	/*
 	 * Output Messages
 	 */
-	public void addWriteMessage(String string);
+    void addWriteMessage(String string);
 
-	public int getWriteMessageCount();
+	int getWriteMessageCount();
 
 	/**
 	 * Loads a token "local" to this LoadContext (meaning it is local to the
@@ -155,7 +155,7 @@ public interface LoadContext
 	 * @param token
 	 *            The "local" token to be loaded into this LoadContext
 	 */
-	public void loadLocalToken(Object token);
+    void loadLocalToken(Object token);
 
 	/**
 	 * Returns a GroupDefinition<T> based on the given Class and Group instructions
@@ -167,7 +167,7 @@ public interface LoadContext
 	 * @param instructions The instructions used to determine the contents of the GroupDefinition
 	 * @return A GroupDefinition<T> based on the given Class and Group instructions
 	 */
-	public <T> GroupDefinition<T> getGroup(Class<T> cl, String instructions);
+    <T> GroupDefinition<T> getGroup(Class<T> cl, String instructions);
 
 	LoadContext dropIntoContext(String scope);
 
@@ -183,7 +183,7 @@ public interface LoadContext
 	 * 
 	 * @return The currently active PCGenScope
 	 */
-	public PCGenScope getActiveScope();
+    PCGenScope getActiveScope();
 
 	/**
 	 * Directly returns a valid formula with the Format of the given FormatManager.
@@ -195,7 +195,7 @@ public interface LoadContext
 	 *            The instructions for the NEPFormula to process when it is solved
 	 * @return A NEPFormula that implements the given Format and instructions
 	 */
-	public <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager, String instructions);
+    <T> NEPFormula<T> getValidFormula(FormatManager<T> formatManager, String instructions);
 
 	/**
 	 * Adds a DeferredMethodController to this LoadContext. This DeferredMethodController
@@ -205,7 +205,7 @@ public interface LoadContext
 	 * @param controller
 	 *            The DeferredMethodController to be added to this LoadContext
 	 */
-	public void addDeferredMethodController(DeferredMethodController<?> controller);
+    void addDeferredMethodController(DeferredMethodController<?> controller);
 
 	/**
 	 * Returns a GroupingCollection based on the given scope name and grouping name.
@@ -220,5 +220,5 @@ public interface LoadContext
 	 * @return A GroupingCollection based on the given scope name and Group
 	 *         instructions
 	 */
-	public GroupingCollection<?> getGrouping(PCGenScope scope, String instructions);
+    GroupingCollection<?> getGrouping(PCGenScope scope, String instructions);
 }

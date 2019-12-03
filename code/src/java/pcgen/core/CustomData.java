@@ -418,7 +418,7 @@ public final class CustomData
 	{
 		try
 		{
-			return new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path), "UTF-8"));
+			return new BufferedWriter(new OutputStreamWriter(new FileOutputStream(path), StandardCharsets.UTF_8));
 		}
 		catch (IOException e)
 		{

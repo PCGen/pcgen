@@ -41,6 +41,6 @@ public interface CategorizedChooser<T> extends Chooser<T>
 	 * @return A choice object of the appropriate type that was encoded in the
 	 *         given String.
 	 */
-	public T decodeChoice(LoadContext context, String persistentFormat, Category<?> category);
+    T decodeChoice(LoadContext context, String persistentFormat, Category<?> category);
 
 }

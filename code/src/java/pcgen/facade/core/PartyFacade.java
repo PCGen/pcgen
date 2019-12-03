@@ -28,10 +28,10 @@ import pcgen.io.ExportHandler;
 public interface PartyFacade extends ListFacade<CharacterFacade>
 {
 
-	public ReferenceFacade<File> getFileRef();
+	ReferenceFacade<File> getFileRef();
 
-	public void setFile(File file);
+	void setFile(File file);
 
-	public void export(ExportHandler theHandler, BufferedWriter buf);
+	void export(ExportHandler theHandler, BufferedWriter buf);
 
 }

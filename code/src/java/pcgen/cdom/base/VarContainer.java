@@ -28,19 +28,19 @@ public interface VarContainer
 	 * 
 	 * @return An array of the local VarModifiers in this VarContainer
 	 */
-	public VarModifier<?>[] getModifierArray();
+    VarModifier<?>[] getModifierArray();
 
 	/**
 	 * Returns an array of the remote RemoteModifiers in this VarContainer.
 	 * 
 	 * @return An array of the remote RemoteModifiers in this VarContainer
 	 */
-	public RemoteModifier<?>[] getRemoteModifierArray();
+    RemoteModifier<?>[] getRemoteModifierArray();
 
 	/**
 	 * Returns an array of the granted (Global) variables in this VarContainer.
 	 * 
 	 * @return An array of the granted (Global) variables in this VarContainer
 	 */
-	public String[] getGrantedVariableArray();
+    String[] getGrantedVariableArray();
 }

@@ -49,8 +49,8 @@ public class EquipNode implements Comparable<EquipNode>
 		PHANTOM_SLOT,
 	
 		/** This is a node representing an equipped item of equipment. */
-		EQUIPMENT;
-	}
+		EQUIPMENT
+    }
 
 	private static final NumberFormat FMT = new DecimalFormat("00");
 	private final NodeType nodeType;

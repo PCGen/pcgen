@@ -21,12 +21,12 @@ package pcgen.gui2.filter;
 public interface FilterHandler
 {
 
-	public void refilter();
+	void refilter();
 
-	public void setSearchEnabled(boolean enable);
+	void setSearchEnabled(boolean enable);
 
 	/**
 	 * Scroll the table being filtered to the top row.
 	 */
-	public void scrollToTop();
+    void scrollToTop();
 }

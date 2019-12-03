@@ -25,13 +25,13 @@ import pcgen.gui2.util.table.Row;
 public interface TreeTableNode extends TreeNode, Row
 {
 	@Override
-	public Enumeration<TreeNode> children();
+    Enumeration<TreeNode> children();
 
 	@Override
-	public TreeTableNode getChildAt(int childIndex);
+    TreeTableNode getChildAt(int childIndex);
 
-	public void setValueAt(Object value, int column);
+	void setValueAt(Object value, int column);
 
 	@Override
-	public TreeTableNode getParent();
+    TreeTableNode getParent();
 }

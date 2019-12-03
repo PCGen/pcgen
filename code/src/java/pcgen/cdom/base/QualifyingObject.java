@@ -41,6 +41,6 @@ public interface QualifyingObject
 	 *            resolution)
 	 * @return true if the given PlayerCharacter passes all the prerequisites.
 	 */
-	public boolean qualifies(PlayerCharacter playerCharacter, Object owner);
+    boolean qualifies(PlayerCharacter playerCharacter, Object owner);
 
 }

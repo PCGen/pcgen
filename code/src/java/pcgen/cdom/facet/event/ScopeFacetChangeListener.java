@@ -46,7 +46,7 @@ public interface ScopeFacetChangeListener<IDT extends PCGenIdentifier, S, T> ext
 	 * @param dfce
 	 *            The ScopeFacetChangeEvent that occurred.
 	 */
-	public void dataAdded(ScopeFacetChangeEvent<IDT, S, T> dfce);
+    void dataAdded(ScopeFacetChangeEvent<IDT, S, T> dfce);
 
 	/**
 	 * Method called when a CDOMObject has been removed from a resource and this
@@ -56,5 +56,5 @@ public interface ScopeFacetChangeListener<IDT extends PCGenIdentifier, S, T> ext
 	 * @param dfce
 	 *            The ScopeFacetChangeEvent that occurred.
 	 */
-	public void dataRemoved(ScopeFacetChangeEvent<IDT, S, T> dfce);
+    void dataRemoved(ScopeFacetChangeEvent<IDT, S, T> dfce);
 }

@@ -71,7 +71,7 @@ public interface CharacterInfoTab
 	 * @param character the character that this state is for.
 	 * @return a ModelMap containing the UI models created for this character
 	 */
-	public ModelMap createModels(CharacterFacade character);
+    ModelMap createModels(CharacterFacade character);
 
 	/**
 	 * This restores this character tab to a state that contains the models for
@@ -82,7 +82,7 @@ public interface CharacterInfoTab
 	 *
 	 * @param models a ModelMap containing the models for this character
 	 */
-	public void restoreModels(ModelMap models);
+    void restoreModels(ModelMap models);
 
 	/**
 	 * This is called to save any character specific info that might have
@@ -92,7 +92,7 @@ public interface CharacterInfoTab
 	 *
 	 * @param models a ModelMap that contains the models for some character
 	 */
-	public void storeModels(ModelMap models);
+    void storeModels(ModelMap models);
 
 	/**
 	 * This returns an Action that will be used by the InfoTabbedPane to render
@@ -101,9 +101,9 @@ public interface CharacterInfoTab
 	 *
 	 * @return an Action for the tab title
 	 */
-	public TabTitle getTabTitle();
+    TabTitle getTabTitle();
 
-	public static class ModelMap
+	class ModelMap
 	{
 
 		private final HashMap<Object, Object> classMap = new HashMap<>();

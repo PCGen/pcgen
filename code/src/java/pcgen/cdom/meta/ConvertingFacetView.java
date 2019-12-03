@@ -34,7 +34,7 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 	}
 
 	@Override
-	public Collection<? extends Object> getSet(CharID id)
+	public Collection<?> getSet(CharID id)
 	{
 		Collection<S> sources = facet.getSourceObjects(id);
 		Collection<SourceDest> list = new ArrayList<>(sources.size());

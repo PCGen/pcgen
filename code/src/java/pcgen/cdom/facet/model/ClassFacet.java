@@ -587,11 +587,11 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements Se
 		support.removeLevelChangeListener(listener);
 	}
 
-	public static interface ClassLevelChangeListener extends EventListener
+	public interface ClassLevelChangeListener extends EventListener
 	{
-		public void levelChanged(ClassLevelChangeEvent lce);
+		void levelChanged(ClassLevelChangeEvent lce);
 
-		public void levelObjectChanged(ClassLevelObjectChangeEvent lce);
+		void levelObjectChanged(ClassLevelObjectChangeEvent lce);
 	}
 
 	public static class ClassLevelChangeEvent extends EventObject

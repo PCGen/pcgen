@@ -45,7 +45,7 @@ public interface Formula
 	 * @return The Number indicating the result of the Formula when resolved in
 	 *         the given context.
 	 */
-	public Number resolve(PlayerCharacter pc, String source);
+    Number resolve(PlayerCharacter pc, String source);
 
 	/**
 	 * Resolves the static formula relative to the given source object.
@@ -55,7 +55,7 @@ public interface Formula
 	 * 
 	 * @return The Number indicating the result of the (static) Formula.
 	 */
-	public Number resolveStatic();
+    Number resolveStatic();
 
 	/**
 	 * Resolves the formula relative to the given Equipment, EquipmentHead,
@@ -79,7 +79,7 @@ public interface Formula
 	 * @return The Number indicating the result of the Formula when resolved in
 	 *         the given context.
 	 */
-	public Number resolve(Equipment equipment, boolean primary, PlayerCharacter pc, String source);
+    Number resolve(Equipment equipment, boolean primary, PlayerCharacter pc, String source);
 
 	/**
 	 * Returns true if the underlying Formula is known to be static.
@@ -91,7 +91,7 @@ public interface Formula
 	 * @return true if the underlying Formula is known to be static; false
 	 *         otherwise
 	 */
-	public boolean isStatic();
+    boolean isStatic();
 
 	/**
 	 * Returns true if the underlying Formula is valid. An invalid Formula may
@@ -101,6 +101,6 @@ public interface Formula
 	 * 
 	 * @return true if the underlying Formula is valid; false otherwise
 	 */
-	public boolean isValid();
+    boolean isValid();
 
 }

@@ -49,9 +49,9 @@ public abstract class VariableProcessor
 	private enum MATH_OP
 	{
 		PLUS, MINUS, MULTIPLY, DIVIDE
-	};
+	}
 
-	/** The current indenting to be used for debug output of jep evaluations. */
+    /** The current indenting to be used for debug output of jep evaluations. */
 	private String jepIndent = "";
 	protected PlayerCharacter pc;
 

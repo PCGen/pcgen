@@ -26,38 +26,38 @@ import pcgen.facade.util.ListFacade;
 public interface CampaignFacade
 {
 
-	public boolean showInMenu();
+	boolean showInMenu();
 
-	public ListFacade<GameMode> getGameModes();
+	ListFacade<GameMode> getGameModes();
 
-	public String getName();
+	String getName();
 
-	public String getPublisher();
+	String getPublisher();
 
-	public String getFormat();
+	String getFormat();
 
-	public String getSetting();
+	String getSetting();
 
 	/**
 	 * @return A text description of the type of book the source represents.
 	 */
-	public String getBookTypes();
+    String getBookTypes();
 
 	/**
 	 * @return A list of text descriptions of the type of book the source represents.
 	 */
-	public List<String> getBookTypeList();
+    List<String> getBookTypeList();
 
 	/**
 	 * @return The name of the implementation status of the source.
 	 */
-	public String getStatus();
+    String getStatus();
 
-	public String getKeyName();
+	String getKeyName();
 
 	/**
 	 * @return The abbreviation for the source (e.g. APG)
 	 */
-	public String getSourceShort();
+    String getSourceShort();
 
 }

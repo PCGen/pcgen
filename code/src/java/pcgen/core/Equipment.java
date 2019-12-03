@@ -6023,7 +6023,7 @@ public final class Equipment extends PObject
 	{
 		while (removeFromListFor(ListKey.TYPE, t))
 		{
-			; // Using the while for side effects
+            // Using the while for side effects
 		}
 		dumpTypeCache();
 	}

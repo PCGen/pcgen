@@ -19,10 +19,10 @@ package pcgen.rules.persistence.token;
 
 public interface CompatibilityToken
 {
-	public int compatibilityLevel();
+	int compatibilityLevel();
 
-	public int compatibilitySubLevel();
+	int compatibilitySubLevel();
 
-	public int compatibilityPriority();
+	int compatibilityPriority();
 
 }

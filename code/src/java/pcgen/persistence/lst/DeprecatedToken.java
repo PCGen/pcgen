@@ -33,5 +33,5 @@ public interface DeprecatedToken
 	 * @return A message to display to the user about why the token was deprecated
 	 * and how they can fix it.  This message should be i18n.
 	 */
-	public String getMessage(CDOMObject obj, String value);
+    String getMessage(CDOMObject obj, String value);
 }

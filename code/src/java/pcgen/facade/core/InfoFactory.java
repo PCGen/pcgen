@@ -33,27 +33,27 @@ import pcgen.core.Skill;
 public interface InfoFactory
 {
 
-	public String getLevelAdjustment(PCTemplate template);
+	String getLevelAdjustment(PCTemplate template);
 
-	public String getModifier(PCTemplate template);
+	String getModifier(PCTemplate template);
 
-	public String getPreReqHTML(PCTemplate template);
+	String getPreReqHTML(PCTemplate template);
 
-	public float getCost(EquipmentFacade equipment);
+	float getCost(EquipmentFacade equipment);
 
-	public float getWeight(EquipmentFacade equipment);
+	float getWeight(EquipmentFacade equipment);
 
-	public String getPreReqHTML(Race race);
+	String getPreReqHTML(Race race);
 
-	public String getStatAdjustments(Race race);
+	String getStatAdjustments(Race race);
 
-	public String getVision(Race race);
+	String getVision(Race race);
 
-	public String getFavoredClass(Race race);
+	String getFavoredClass(Race race);
 
-	public String getLevelAdjustment(Race race);
+	String getLevelAdjustment(Race race);
 
-	public String getMovement(Race race);
+	String getMovement(Race race);
 
 	/**
 	 * Calculate the number of monster class levels (aka racial hit dice)
@@ -62,19 +62,19 @@ public interface InfoFactory
 	 * @param raceFacade The race to check.
 	 * @return The number of levels of monster classes, or 0 if none.
 	 */
-	public int getNumMonsterClassLevels(Race raceFacade);
+    int getNumMonsterClassLevels(Race raceFacade);
 
-	public String getHTMLInfo(Race race);
+	String getHTMLInfo(Race race);
 
-	public String getHTMLInfo(PCClass pcClass, PCClass parentClass);
+	String getHTMLInfo(PCClass pcClass, PCClass parentClass);
 
-	public String getHTMLInfo(Skill skill);
+	String getHTMLInfo(Skill skill);
 
-	public String getHTMLInfo(AbilityFacade ability);
+	String getHTMLInfo(AbilityFacade ability);
 
-	public String getHTMLInfo(Deity deity);
+	String getHTMLInfo(Deity deity);
 
-	public String getHTMLInfo(DomainFacade domain);
+	String getHTMLInfo(DomainFacade domain);
 
 	/**
 	 * Produce the HTML information string for an item for equipment.
@@ -82,7 +82,7 @@ public interface InfoFactory
 	 * @param equipFacade The equipment item
 	 * @return The HTML information string
 	 */
-	public String getHTMLInfo(EquipmentFacade equipFacade);
+    String getHTMLInfo(EquipmentFacade equipFacade);
 
 	/**
 	 * Produce the HTML information string for an equipment modifier.
@@ -91,11 +91,11 @@ public interface InfoFactory
 	 * @param equipFacade The equipment item the modifier relates to.
 	 * @return The HTML information string.
 	 */
-	public String getHTMLInfo(EquipmentModifier equipmod, EquipmentFacade equipFacade);
+    String getHTMLInfo(EquipmentModifier equipmod, EquipmentFacade equipFacade);
 
-	public String getHTMLInfo(PCTemplate template);
+	String getHTMLInfo(PCTemplate template);
 
-	public String getHTMLInfo(SpellFacade spell);
+	String getHTMLInfo(SpellFacade spell);
 
 	/**
 	 * Produce the HTML information string for a kit.
@@ -103,7 +103,7 @@ public interface InfoFactory
 	 * @param kitFacade The kit
 	 * @return The HTML information string
 	 */
-	public String getHTMLInfo(Kit kitFacade);
+    String getHTMLInfo(Kit kitFacade);
 
 	/**
 	 * Produce the HTML information string for a temporary bonus.
@@ -111,7 +111,7 @@ public interface InfoFactory
 	 * @param tempBonusFacade The temporary bonus.
 	 * @return The HTML information string
 	 */
-	public String getHTMLInfo(TempBonusFacade tempBonusFacade);
+    String getHTMLInfo(TempBonusFacade tempBonusFacade);
 
 	/**
 	 * Produce the HTML information string for a facade.
@@ -119,7 +119,7 @@ public interface InfoFactory
 	 * @param facade The object to be described.
 	 * @return The HTML information string
 	 */
-	public String getHTMLInfo(InfoFacade facade);
+    String getHTMLInfo(InfoFacade facade);
 
 	/**
 	 * Produce the HTML information string for spell book or spell list.
@@ -127,7 +127,7 @@ public interface InfoFactory
 	 * @param name The spell book or spell list.
 	 * @return The HTML information string
 	 */
-	public String getSpellBookInfo(String name);
+    String getSpellBookInfo(String name);
 
 	/**
 	 * Get the description for the ability for this character.
@@ -135,7 +135,7 @@ public interface InfoFactory
 	 * @param ability The ability to be described.
 	 * @return The description.
 	 */
-	public String getDescription(AbilityFacade ability);
+    String getDescription(AbilityFacade ability);
 
 	/**
 	 * Get the description for a race for this character.
@@ -143,7 +143,7 @@ public interface InfoFactory
 	 * @param raceFacade The race to be described.
 	 * @return The description.
 	 */
-	public String getDescription(Race raceFacade);
+    String getDescription(Race raceFacade);
 
 	/**
 	 * Get the description for a template for this character.
@@ -151,7 +151,7 @@ public interface InfoFactory
 	 * @param templateFacade The template to be described.
 	 * @return The description.
 	 */
-	public String getDescription(PCTemplate templateFacade);
+    String getDescription(PCTemplate templateFacade);
 
 	/**
 	 * Get the description for a class for this character.
@@ -159,7 +159,7 @@ public interface InfoFactory
 	 * @param pcClass The class to be described.
 	 * @return The description.
 	 */
-	public String getDescription(PCClass pcClass);
+    String getDescription(PCClass pcClass);
 
 	/**
 	 * Get the description for a skill for this character.
@@ -167,7 +167,7 @@ public interface InfoFactory
 	 * @param skillFacade The skill to be described.
 	 * @return The description.
 	 */
-	public String getDescription(Skill skillFacade);
+    String getDescription(Skill skillFacade);
 
 	/**
 	 * Get the description of a piece of equipment for this character.
@@ -175,7 +175,7 @@ public interface InfoFactory
 	 * @param equipFacade The equipment to be described.
 	 * @return The description.
 	 */
-	public String getDescription(EquipmentFacade equipFacade);
+    String getDescription(EquipmentFacade equipFacade);
 
 	/**
 	 * Get the description for a kit for this character.
@@ -183,7 +183,7 @@ public interface InfoFactory
 	 * @param kitFacade The kit to be described.
 	 * @return The description.
 	 */
-	public String getDescription(Kit kitFacade);
+    String getDescription(Kit kitFacade);
 
 	/**
 	 * Get the description for a deity for this character.
@@ -191,7 +191,7 @@ public interface InfoFactory
 	 * @param deityFacade The deity to be described.
 	 * @return The description.
 	 */
-	public String getDescription(Deity deityFacade);
+    String getDescription(Deity deityFacade);
 
 	/**
 	 * Get the description for a domain for this character.
@@ -199,7 +199,7 @@ public interface InfoFactory
 	 * @param domainFacade The domain to be described.
 	 * @return The description.
 	 */
-	public String getDescription(DomainFacade domainFacade);
+    String getDescription(DomainFacade domainFacade);
 
 	/**
 	 * Get the description for a spell for this character.
@@ -207,7 +207,7 @@ public interface InfoFactory
 	 * @param spellFacade The spell to be described.
 	 * @return The description.
 	 */
-	public String getDescription(SpellFacade spellFacade);
+    String getDescription(SpellFacade spellFacade);
 
 	/**
 	 * Get the description for a temp bonus for this character.
@@ -215,7 +215,7 @@ public interface InfoFactory
 	 * @param tempBonusFacade The temp bonus to be described.
 	 * @return The description.
 	 */
-	public String getDescription(TempBonusFacade tempBonusFacade);
+    String getDescription(TempBonusFacade tempBonusFacade);
 
 	/**
 	 * Get a display string of the deity's domains.
@@ -223,7 +223,7 @@ public interface InfoFactory
 	 * @param deityFacade The deity to be output.
 	 * @return The comma separated list of domains.
 	 */
-	public String getDomains(Deity deityFacade);
+    String getDomains(Deity deityFacade);
 
 	/**
 	 * Get a display string of the deity's pantheons.
@@ -231,7 +231,7 @@ public interface InfoFactory
 	 * @param deityFacade The deity to be output.
 	 * @return The comma separated list of pantheons.
 	 */
-	public String getPantheons(Deity deityFacade);
+    String getPantheons(Deity deityFacade);
 
 	/**
 	 * Get a display string of the deity's favored weapons.
@@ -239,7 +239,7 @@ public interface InfoFactory
 	 * @param deityFacade The deity to be output.
 	 * @return The comma separated list of weapons.
 	 */
-	public String getFavoredWeapons(Deity deityFacade);
+    String getFavoredWeapons(Deity deityFacade);
 
 	/**
 	 * Get a display string of the choices made for this character for the
@@ -248,7 +248,7 @@ public interface InfoFactory
 	 * @param abilityFacade The ability to be output.
 	 * @return The comma separated list of choices.
 	 */
-	public String getChoices(AbilityFacade abilityFacade);
+    String getChoices(AbilityFacade abilityFacade);
 
 	/**
 	 * Retrieve the description of the targets to which the temporary bonus
@@ -257,8 +257,8 @@ public interface InfoFactory
 	 * @param tempBonusFacade The temporary bonus.
 	 * @return The targets.
 	 */
-	public String getTempBonusTarget(TempBonusFacade tempBonusFacade);
+    String getTempBonusTarget(TempBonusFacade tempBonusFacade);
 
-	public String getSize(Race obj);
+	String getSize(Race obj);
 
 }

@@ -39,7 +39,7 @@ import pcgen.facade.util.MapFacade;
 public interface DataSetFacade
 {
 
-	public MapFacade<AbilityCategory, ListFacade<AbilityFacade>> getAbilities();
+	MapFacade<AbilityCategory, ListFacade<AbilityFacade>> getAbilities();
 
 	//	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category);
 	//
@@ -51,59 +51,59 @@ public interface DataSetFacade
 	 * @param abilityFacade The ability to be queried
 	 * @return The list of prerequisite abilities
 	 */
-	public List<AbilityFacade> getPrereqAbilities(AbilityFacade abilityFacade);
+    List<AbilityFacade> getPrereqAbilities(AbilityFacade abilityFacade);
 
-	public ListFacade<Skill> getSkills();
+	ListFacade<Skill> getSkills();
 
-	public ListFacade<Race> getRaces();
+	ListFacade<Race> getRaces();
 
-	public ListFacade<PCClass> getClasses();
+	ListFacade<PCClass> getClasses();
 
-	public ListFacade<Deity> getDeities();
+	ListFacade<Deity> getDeities();
 
-	public ListFacade<PCTemplate> getTemplates();
+	ListFacade<PCTemplate> getTemplates();
 
-	public ListFacade<Campaign> getCampaigns();
+	ListFacade<Campaign> getCampaigns();
 
-	public GameMode getGameMode();
+	GameMode getGameMode();
 
-	public ListFacade<PCAlignment> getAlignments();
+	ListFacade<PCAlignment> getAlignments();
 
-	public ListFacade<PCStat> getStats();
+	ListFacade<PCStat> getStats();
 
-	public Skill getSpeakLanguageSkill();
+	Skill getSpeakLanguageSkill();
 
-	public ListFacade<EquipmentFacade> getEquipment();
+	ListFacade<EquipmentFacade> getEquipment();
 
 	/**
 	 * Add a new item of equipment (e.g. a new custom item) to the equipment list.
 	 * @param equip The item of equipment to be added.
 	 */
-	public void addEquipment(EquipmentFacade equip);
+    void addEquipment(EquipmentFacade equip);
 
-	public ListFacade<BodyStructure> getEquipmentLocations();
+	ListFacade<BodyStructure> getEquipmentLocations();
 
-	public ListFacade<String> getXPTableNames();
+	ListFacade<String> getXPTableNames();
 
-	public ListFacade<String> getCharacterTypes();
+	ListFacade<String> getCharacterTypes();
 
 	/**
 	 * @return The list of possible buy/sell rate schemes for this dataset. 
 	 */
-	public ListFacade<GearBuySellFacade> getGearBuySellSchemes();
+    ListFacade<GearBuySellFacade> getGearBuySellSchemes();
 
 	/**
 	 * @return the list of kits
 	 */
-	public ListFacade<Kit> getKits();
+    ListFacade<Kit> getKits();
 
 	/**
 	 * @return The list of sizes
 	 */
-	public ListFacade<SizeAdjustment> getSizes();
+    ListFacade<SizeAdjustment> getSizes();
 
 	/**
 	 * Update the equipment list from the global equipment list. 
 	 */
-	public void refreshEquipment();
+    void refreshEquipment();
 }

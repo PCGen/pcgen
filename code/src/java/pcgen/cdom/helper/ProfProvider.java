@@ -41,7 +41,7 @@ public interface ProfProvider<T extends CDOMObject> extends QualifyingObject
 	 * @return true if this ProfProvider provides proficiency for the given
 	 *         Equipment; false otherwise.
 	 */
-	public boolean providesProficiencyFor(Equipment equipment);
+    boolean providesProficiencyFor(Equipment equipment);
 
 	/**
 	 * Returns true if this ProfProvider provides the given proficiency.
@@ -56,7 +56,7 @@ public interface ProfProvider<T extends CDOMObject> extends QualifyingObject
 	 * @return true if this ProfProvider provides the given proficiency; false
 	 *         otherwise.
 	 */
-	public boolean providesProficiency(T prof);
+    boolean providesProficiency(T prof);
 
 	/**
 	 * Returns true if this ProfProvider provides proficiency with the given
@@ -73,7 +73,7 @@ public interface ProfProvider<T extends CDOMObject> extends QualifyingObject
 	 * @return true if this ProfProvider provides proficiency with the given
 	 *         Equipment TYPE.
 	 */
-	public boolean providesEquipmentType(String typeString);
+    boolean providesEquipmentType(String typeString);
 
 	/**
 	 * Returns the LST format for this ProfProvider. Provided primarily to allow
@@ -81,5 +81,5 @@ public interface ProfProvider<T extends CDOMObject> extends QualifyingObject
 	 * 
 	 * @return The LST format of this ProfProvider
 	 */
-	public String getLstFormat();
+    String getLstFormat();
 }

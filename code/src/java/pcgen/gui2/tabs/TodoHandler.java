@@ -34,5 +34,5 @@ public interface TodoHandler
 	 * Advise the user of where to action a todo item.
 	 * @param fieldName The field to be actioned.
 	 */
-	public void adviseTodo(String fieldName);
+    void adviseTodo(String fieldName);
 }

@@ -42,7 +42,7 @@ public interface ChoiceActor<T>
 	 *            The PlayerCharacter to which the given choice should be
 	 *            applied.
 	 */
-	public void applyChoice(CDOMObject owner, T item, PlayerCharacter pc);
+    void applyChoice(CDOMObject owner, T item, PlayerCharacter pc);
 
 	/**
 	 * Returns true if the given choice should be allowed for the
@@ -61,6 +61,6 @@ public interface ChoiceActor<T>
 	 * @return true if the given choice should be allowed for the
 	 *         PlayerCharacter under the provided stacking conditions.
 	 */
-	public boolean allow(T item, PlayerCharacter pc, boolean allowStack);
+    boolean allow(T item, PlayerCharacter pc, boolean allowStack);
 
 }

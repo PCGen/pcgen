@@ -25,7 +25,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 
-;import pcgen.util.Logging;
+import pcgen.util.Logging;
 
 /**
  * The Class {@code DeadlockDetectorTask} reports any deadlocks detected by Java itself.

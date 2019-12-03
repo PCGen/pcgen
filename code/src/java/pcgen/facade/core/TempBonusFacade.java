@@ -25,7 +25,7 @@ public interface TempBonusFacade extends InfoFacade
 	/**
 	 * @return The type of object the bonus originates from. 
 	 */
-	public String getOriginType();
+    String getOriginType();
 
 	/**
 	 * @return true if the bonus is active, false if not.

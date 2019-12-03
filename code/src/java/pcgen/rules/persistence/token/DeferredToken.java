@@ -41,12 +41,12 @@ public interface DeferredToken<T extends Loadable>
 	 *            The object to be processed in this DeferredToken
 	 * @return true if the processing was successful; false otherwise
 	 */
-	public boolean process(LoadContext context, T obj);
+    boolean process(LoadContext context, T obj);
 
 	/**
 	 * Returns the class of the object upon which this DeferredToken operates.
 	 * 
 	 * @return The class of the object upon which this DeferredToken operates
 	 */
-	public Class<T> getDeferredTokenClass();
+    Class<T> getDeferredTokenClass();
 }

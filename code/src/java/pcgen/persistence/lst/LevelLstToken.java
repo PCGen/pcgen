@@ -34,5 +34,5 @@ public interface LevelLstToken extends LstToken
 	 * @param value
 	 * @return true if parse OK
 	 */
-	public abstract boolean parse(LevelInfo levelInfo, String value);
+    boolean parse(LevelInfo levelInfo, String value);
 }

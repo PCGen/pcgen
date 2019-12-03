@@ -24,14 +24,14 @@ import pcgen.cdom.base.AssociatedPrereqObject;
 
 public interface AssociatedChanges<T>
 {
-	public boolean includesGlobalClear();
+	boolean includesGlobalClear();
 
-	public Collection<T> getAdded();
+	Collection<T> getAdded();
 
-	public Collection<T> getRemoved();
+	Collection<T> getRemoved();
 
-	public MapToList<T, AssociatedPrereqObject> getAddedAssociations();
+	MapToList<T, AssociatedPrereqObject> getAddedAssociations();
 
-	public MapToList<T, AssociatedPrereqObject> getRemovedAssociations();
+	MapToList<T, AssociatedPrereqObject> getRemovedAssociations();
 
 }

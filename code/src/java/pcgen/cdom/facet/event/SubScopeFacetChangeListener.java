@@ -45,7 +45,7 @@ public interface SubScopeFacetChangeListener<S1, S2, T> extends EventListener
 	 * @param dfce
 	 *            The SubScopeFacetChangeEvent that occurred.
 	 */
-	public void dataAdded(SubScopeFacetChangeEvent<S1, S2, T> dfce);
+    void dataAdded(SubScopeFacetChangeEvent<S1, S2, T> dfce);
 
 	/**
 	 * Method called when a CDOMObject has been removed from a PlayerCharacter
@@ -55,5 +55,5 @@ public interface SubScopeFacetChangeListener<S1, S2, T> extends EventListener
 	 * @param dfce
 	 *            The SubScopeFacetChangeEvent that occurred.
 	 */
-	public void dataRemoved(SubScopeFacetChangeEvent<S1, S2, T> dfce);
+    void dataRemoved(SubScopeFacetChangeEvent<S1, S2, T> dfce);
 }

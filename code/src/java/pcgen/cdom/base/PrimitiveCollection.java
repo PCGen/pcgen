@@ -55,7 +55,7 @@ public interface PrimitiveCollection<T>
 		}
 	};
 
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c);
+	<R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c);
 
 	/**
 	 * Returns the GroupingState for this PrimitiveCollection. The GroupingState
@@ -64,7 +64,7 @@ public interface PrimitiveCollection<T>
 	 * 
 	 * @return The GroupingState for this PrimitiveCollection.
 	 */
-	public GroupingState getGroupingState();
+    GroupingState getGroupingState();
 
 	/**
 	 * Returns the Class object representing the Class that this
@@ -73,7 +73,7 @@ public interface PrimitiveCollection<T>
 	 * @return Class object representing the Class that this PrimitiveCollection
 	 *         evaluates
 	 */
-	public Class<? super T> getReferenceClass();
+    Class<? super T> getReferenceClass();
 
 	/**
 	 * Returns a representation of this PrimitiveCollection, suitable for
@@ -85,14 +85,14 @@ public interface PrimitiveCollection<T>
 	 * @return A representation of this PrimitiveCollection, suitable for
 	 *         storing in an LST file.
 	 */
-	public String getLSTformat(boolean useAny);
+    String getLSTformat(boolean useAny);
 
 	/**
 	 * Implemented as a similar result as Collections.emptyList() vs.
 	 * Collections.EMPTY_LIST. The former allows one to avoid generic warnings
 	 * in "runtime" code, as FIXED.invalid() would here.
 	 */
-	public static PrimLibrary FIXED = new PrimLibrary()
+    PrimLibrary FIXED = new PrimLibrary()
 	{
 		/**
 		 * Returns an "Invalid" PrimitiveCollection.
@@ -107,7 +107,7 @@ public interface PrimitiveCollection<T>
 		}
 	};
 
-	public interface PrimLibrary
+	interface PrimLibrary
 	{
 		<PCT> PrimitiveCollection<PCT> invalid();
 	}

@@ -21,8 +21,8 @@ package pcgen.system;
 public interface PluginLoader
 {
 
-	public void loadPlugin(Class<?> clazz) throws Exception;
+	void loadPlugin(Class<?> clazz) throws Exception;
 
-	public Class<?>[] getPluginClasses();
+	Class<?>[] getPluginClasses();
 
 }

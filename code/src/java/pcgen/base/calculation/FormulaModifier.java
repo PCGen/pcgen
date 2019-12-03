@@ -49,7 +49,7 @@ public interface FormulaModifier<T>
 	 *             if the given instructions are not valid or are not a supported
 	 *             Association for this FormulaModifier
 	 */
-	public void addAssociation(String assocInstructions);
+    void addAssociation(String assocInstructions);
 
 	/**
 	 * Returns a Collection of the instructions (String format) for the Associations on
@@ -63,7 +63,7 @@ public interface FormulaModifier<T>
 	 * 
 	 * @return the instructions (String format) for the Associations on this FormulaModifier
 	 */
-	public Collection<String> getAssociationInstructions();
+    Collection<String> getAssociationInstructions();
 
 	/**
 	 * Add object references to this FormulaModifier. These are captured solely as
@@ -72,7 +72,7 @@ public interface FormulaModifier<T>
 	 * @param collection
 	 *            The Collection of Indirect objects that this FormulaModifier references.
 	 */
-	public void addReferences(Collection<Indirect<?>> collection);
+    void addReferences(Collection<Indirect<?>> collection);
 
 	/**
 	 * "Processes" (or runs) the FormulaModifier in order to determine the appropriate
@@ -83,7 +83,7 @@ public interface FormulaModifier<T>
 	 *            that is contained by this FormulaModifier
 	 * @return The resulting value of the FormulaModifier
 	 */
-	public T process(EvaluationManager manager);
+    T process(EvaluationManager manager);
 
 	/**
 	 * Loads the dependencies for the FormulaModifier into the given DependencyManager.
@@ -95,7 +95,7 @@ public interface FormulaModifier<T>
 	 *            The DependencyManager to be notified of dependencies for this
 	 *            FormulaModifier
 	 */
-	public void getDependencies(DependencyManager fdm);
+    void getDependencies(DependencyManager fdm);
 
 	/**
 	 * Returns the priority of this FormulaModifier. This is defined by the developer, and
@@ -110,7 +110,7 @@ public interface FormulaModifier<T>
 	 * 
 	 * @return The priority of this calculation
 	 */
-	public long getPriority();
+    long getPriority();
 
 	/**
 	 * Returns the FormatManager for the the Format (Class) of the object upon which this
@@ -120,7 +120,7 @@ public interface FormulaModifier<T>
 	 * @return The FormatManager of the Format (class) of the object upon which this
 	 *         FormulaModifier can operate
 	 */
-	public FormatManager<T> getVariableFormat();
+    FormatManager<T> getVariableFormat();
 
 	/**
 	 * Returns a String identifying the FormulaModifier. May be "ADD" for a
@@ -128,7 +128,7 @@ public interface FormulaModifier<T>
 	 * 
 	 * @return A String identifying the behavior of the FormulaModifier
 	 */
-	public String getIdentification();
+    String getIdentification();
 
 	/**
 	 * Returns a String identifying the formula used for FormulaModifier. May be "3" for a
@@ -136,7 +136,7 @@ public interface FormulaModifier<T>
 	 * 
 	 * @return A String identifying the formula used for FormulaModifier
 	 */
-	public String getInstructions();
+    String getInstructions();
 
 	/**
 	 * Processes this FormulaModifier to determine if it is valid within the rules provided
@@ -148,5 +148,5 @@ public interface FormulaModifier<T>
 	 * @throws SemanticsException
 	 *             If there is a Semantics issue with the FormulaModifier
 	 */
-	public void isValid(FormulaSemantics semantics) throws SemanticsException;
+    void isValid(FormulaSemantics semantics) throws SemanticsException;
 }

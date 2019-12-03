@@ -30,7 +30,7 @@ public interface WriteableListFacade<E> extends ListFacade<E>
 	 * @param element
 	 *            The element to be added to the List
 	 */
-	public void addElement(E element);
+    void addElement(E element);
 
 	/**
 	 * Add an element to this ListFacade at the given index.
@@ -40,7 +40,7 @@ public interface WriteableListFacade<E> extends ListFacade<E>
 	 * @param index
 	 *            The index at which the element should be added
 	 */
-	public void addElement(int index, E element);
+    void addElement(int index, E element);
 
 	/**
 	 * Remove an element from the ListFacade.
@@ -50,7 +50,7 @@ public interface WriteableListFacade<E> extends ListFacade<E>
 	 * @return true if the element was present and removed; false if not present and thus
 	 *         not removed
 	 */
-	public boolean removeElement(E element);
+    boolean removeElement(E element);
 
 	/**
 	 * Removes the element at the given index from the ListFacade.
@@ -58,6 +58,6 @@ public interface WriteableListFacade<E> extends ListFacade<E>
 	 * @param index
 	 *            The index of the element to be removed
 	 */
-	public void removeElement(int index);
+    void removeElement(int index);
 
 }

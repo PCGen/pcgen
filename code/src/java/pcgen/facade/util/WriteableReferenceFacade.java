@@ -26,5 +26,5 @@ package pcgen.facade.util;
  */
 public interface WriteableReferenceFacade<E> extends ReferenceFacade<E>
 {
-	public void set(E obj);
+	void set(E obj);
 }

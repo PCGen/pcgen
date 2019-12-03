@@ -44,7 +44,7 @@ public interface ChooseInformation<T>
 	 * 
 	 * @return The name of this ChooseInformation
 	 */
-	public String getName();
+    String getName();
 
 	/**
 	 * Returns the persistent LST format for this ChooseInformation. This allows it to be
@@ -52,14 +52,14 @@ public interface ChooseInformation<T>
 	 * 
 	 * @return The persistent LST format for this ChooseInformation
 	 */
-	public String getLSTformat();
+    String getLSTformat();
 
 	/**
 	 * Returns the title of this ChooseInformation. This is to be displayed to the user.
 	 * 
 	 * @return The title of this ChooseInformation
 	 */
-	public String getTitle();
+    String getTitle();
 
 	/**
 	 * Returns the GroupingState of this ChooseInformation. This allows validation that
@@ -67,7 +67,7 @@ public interface ChooseInformation<T>
 	 * 
 	 * @return The GroupingState of this ChooseInformation
 	 */
-	public GroupingState getGroupingState();
+    GroupingState getGroupingState();
 
 	/**
 	 * Returns the reference Class of this ChooseInformation, indicating the class of item
@@ -75,7 +75,7 @@ public interface ChooseInformation<T>
 	 * 
 	 * @return The reference Class of this ChooseInformation
 	 */
-	public Class<? super T> getReferenceClass();
+    Class<? super T> getReferenceClass();
 
 	/**
 	 * Returns the persistent Format of the ClassIdentity of the objects to be chosen.
@@ -86,7 +86,7 @@ public interface ChooseInformation<T>
 	 * 
 	 * @return The persistent Format of the ClassIdentity of the objects to be chosen
 	 */
-	public String getPersistentFormat();
+    String getPersistentFormat();
 
 	/**
 	 * Returns the Collection of objects defined by this ChooseInformation for the given
@@ -98,7 +98,7 @@ public interface ChooseInformation<T>
 	 * @return The Collection of objects defined by this ChooseInformation for the given
 	 *         PlayerCharacter
 	 */
-	public Collection<? extends T> getSet(PlayerCharacter pc);
+    Collection<? extends T> getSet(PlayerCharacter pc);
 
 	void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T item);
 
@@ -108,12 +108,12 @@ public interface ChooseInformation<T>
 
 	CharSequence composeDisplay(@NotNull Collection<? extends T> collection);
 
-	public T decodeChoice(LoadContext context, String persistentFormat);
+	T decodeChoice(LoadContext context, String persistentFormat);
 
-	public String encodeChoice(T item);
+	String encodeChoice(T item);
 
-	public void setChoiceActor(Chooser<T> actor);
+	void setChoiceActor(Chooser<T> actor);
 
-	public Chooser<T> getChoiceActor();
+	Chooser<T> getChoiceActor();
 
 }

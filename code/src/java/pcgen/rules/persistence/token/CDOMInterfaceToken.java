@@ -39,6 +39,6 @@ public interface CDOMInterfaceToken<R, W> extends CDOMToken<W>, CDOMWriteToken<R
 	 * 
 	 * @return The Read Interface for this CDOMInterfaceToken
 	 */
-	public Class<R> getReadInterface();
+    Class<R> getReadInterface();
 
 }

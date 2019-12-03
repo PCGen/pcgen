@@ -23,25 +23,25 @@ import pcgen.core.character.SpellInfo;
 public interface SpellFacade extends InfoFacade
 {
 
-	public String getSchool();
+	String getSchool();
 
-	public String getSubschool();
+	String getSubschool();
 
-	public String[] getDescriptors();
+	String[] getDescriptors();
 
-	public String getComponents();
+	String getComponents();
 
-	public String getRange();
+	String getRange();
 
-	public String getDuration();
+	String getDuration();
 
 	/**
 	 * @return The tme it takes to cast the spell.
 	 */
-	public String getCastTime();
+    String getCastTime();
 
-	public CharacterSpell getCharSpell();
+	CharacterSpell getCharSpell();
 
-	public SpellInfo getSpellInfo();
+	SpellInfo getSpellInfo();
 
 }
