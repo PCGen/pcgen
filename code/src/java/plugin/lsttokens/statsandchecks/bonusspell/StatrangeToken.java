@@ -45,7 +45,7 @@ public class StatrangeToken implements CDOMPrimaryToken<BonusSpellInfo>
 	{
 		try
 		{
-			int intValue = Integer.valueOf(value);
+			int intValue = Integer.parseInt(value);
 			if (intValue < 1)
 			{
 				return new ParseResult.Fail(getTokenName() + " must be an integer >= " + 1);

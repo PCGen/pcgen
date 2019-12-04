@@ -309,7 +309,7 @@ public class EqToken extends Token
 
 			if (!aRange.isEmpty())
 			{
-				range = Integer.valueOf(aRange);
+				range = Integer.parseInt(aRange);
 			}
 		}
 

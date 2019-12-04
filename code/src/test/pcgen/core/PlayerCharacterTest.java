@@ -1184,7 +1184,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 				LoadInfo.class, game.getName());
 		li.addLoadScoreValue(0, new BigDecimal("100.0"));
 		li.addLoadScoreValue(10, new BigDecimal("100.0"));
-		li.addLoadMultiplier("LIGHT", new Float(100), "100", 0);
+		li.addLoadMultiplier("LIGHT", 100f, "100", 0);
 
 		PlayerCharacter pc = getCharacter();
 		setPCStat(pc, str, 10);
