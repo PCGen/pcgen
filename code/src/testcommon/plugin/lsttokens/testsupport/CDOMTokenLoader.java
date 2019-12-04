@@ -21,7 +21,6 @@ import java.net.URI;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Loadable;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.util.Logging;

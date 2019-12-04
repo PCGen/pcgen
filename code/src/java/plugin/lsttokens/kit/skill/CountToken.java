@@ -51,7 +51,7 @@ public class CountToken extends AbstractToken implements CDOMPrimaryToken<KitSki
 	{
 		try
 		{
-			Integer quan = Integer.valueOf(value);
+			int quan = Integer.parseInt(value);
 			if (quan <= 0)
 			{
 				return new ParseResult.Fail(getTokenName() + " expected an integer > 0");

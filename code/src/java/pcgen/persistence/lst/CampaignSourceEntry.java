@@ -271,36 +271,30 @@ public class CampaignSourceEntry implements SourceEntry
 		while (tokenizer.hasMoreTokens())
 		{
 			String token = tokenizer.nextToken();
-			if (token.equals("("))
-			{
-				currentTag.append(token);
-				bracketLevel++;
+            switch (token) {
+                case "(":
+                    currentTag.append(token);
+                    bracketLevel++;
 
-			}
-			else if (token.equals(")"))
-			{
-				if (bracketLevel > 0)
-				{
-					bracketLevel--;
-				}
-				currentTag.append(token);
-			}
-			else if (token.equals("|"))
-			{
-				if (bracketLevel > 0)
-				{
-					currentTag.append(token);
-				}
-				else if (currentTag.length() > 0)
-				{
-					tagList.add(currentTag.toString());
-					currentTag = new StringBuilder();
-				}
-			}
-			else
-			{
-				currentTag.append(token);
-			}
+                    break;
+                case ")":
+                    if (bracketLevel > 0) {
+                        bracketLevel--;
+                    }
+                    currentTag.append(token);
+                    break;
+                case "|":
+                    if (bracketLevel > 0) {
+                        currentTag.append(token);
+                    } else if (currentTag.length() > 0) {
+                        tagList.add(currentTag.toString());
+                        currentTag = new StringBuilder();
+                    }
+                    break;
+                default:
+                    currentTag.append(token);
+                    break;
+            }
 		}
 		if (currentTag.length() > 0)
 		{

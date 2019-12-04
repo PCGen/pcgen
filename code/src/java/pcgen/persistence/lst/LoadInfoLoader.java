@@ -24,9 +24,7 @@ package pcgen.persistence.lst;
 import java.net.URI;
 
 import pcgen.core.system.LoadInfo;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
-import pcgen.util.Logging;
 
 public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 {

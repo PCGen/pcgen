@@ -1386,24 +1386,18 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			// The type of weight we want the value for
 			String valString = expressionString.substring(7);
 
-			if ("CARRIED".equals(valString))
-			{
-				return new PCCarriedWeightTermEvaluator(expressionString);
-			}
-			else if ("EQUIPPED".equals(valString))
-			{
-				// TODO: not carried, equipped!
-				return new PCCarriedWeightTermEvaluator(expressionString);
-			}
-			else if ("PC".equals(valString))
-			{
-				return new PCWeightTermEvaluator(expressionString);
-			}
-			else if ("TOTAL".equals(valString))
-			{
-				// total weight of PC and all carried equipment
-				return new PCTotalWeightTermEvaluator(expressionString);
-			}
+            switch (valString) {
+                case "CARRIED":
+                    return new PCCarriedWeightTermEvaluator(expressionString);
+                case "EQUIPPED":
+                    // TODO: not carried, equipped!
+                    return new PCCarriedWeightTermEvaluator(expressionString);
+                case "PC":
+                    return new PCWeightTermEvaluator(expressionString);
+                case "TOTAL":
+                    // total weight of PC and all carried equipment
+                    return new PCTotalWeightTermEvaluator(expressionString);
+            }
 
 			String sB = "invalid string following WEIGHT. in " +
 					expressionString;

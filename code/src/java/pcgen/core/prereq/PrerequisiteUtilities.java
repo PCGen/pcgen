@@ -124,22 +124,20 @@ public final class PrerequisiteUtilities
 			{
 				final String aString = aTok.nextToken();
 
-				if (aString.equals("<"))
-				{
-					pString.append("&lt;");
-				}
-				else if (aString.equals(">"))
-				{
-					pString.append("&gt;");
-				}
-				else if (aString.equals("&"))
-				{
-					pString.append("&amp;");
-				}
-				else
-				{
-					pString.append(aString);
-				}
+                switch (aString) {
+                    case "<":
+                        pString.append("&lt;");
+                        break;
+                    case ">":
+                        pString.append("&gt;");
+                        break;
+                    case "&":
+                        pString.append("&amp;");
+                        break;
+                    default:
+                        pString.append(aString);
+                        break;
+                }
 			}
 
 			if (!passes)

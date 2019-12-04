@@ -41,22 +41,19 @@ public class VisibleToken extends AbstractNonEmptyToken<AbilityCategory> impleme
 	public ParseResult parseNonEmptyToken(LoadContext context, AbilityCategory ac, String value)
 	{
 		Visibility vis;
-		if (value.equals("YES"))
-		{
-			vis = Visibility.DEFAULT;
-		}
-		else if (value.equals("QUALIFY"))
-		{
-			vis = Visibility.QUALIFY;
-		}
-		else if (value.equals("NO"))
-		{
-			vis = Visibility.HIDDEN;
-		}
-		else
-		{
-			return new ParseResult.Fail("Unable to understand " + getTokenName() + " tag: " + value);
-		}
+        switch (value) {
+            case "YES":
+                vis = Visibility.DEFAULT;
+                break;
+            case "QUALIFY":
+                vis = Visibility.QUALIFY;
+                break;
+            case "NO":
+                vis = Visibility.HIDDEN;
+                break;
+            default:
+                return new ParseResult.Fail("Unable to understand " + getTokenName() + " tag: " + value);
+        }
 		ac.setVisible(vis);
 		return ParseResult.SUCCESS;
 	}

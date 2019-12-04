@@ -19,6 +19,7 @@ package pcgen.cdom.facet.analysis;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.FormulaFactory;
@@ -182,14 +183,7 @@ public class ChallengeRatingFacet
 			if (crmp != 0 && (crmp < crModPriority || crModPriority == 0))
 			{
 				Integer raceMod = getClassRaceCRMod(id, pcClass);
-				if (raceMod != null)
-				{
-					crMod = raceMod;
-				}
-				else
-				{
-					crMod = getClassCRMod(id, pcClass);
-				}
+                crMod = Objects.requireNonNullElseGet(raceMod, () -> getClassCRMod(id, pcClass));
 				crModPriority = crmp;
 			}
 		}

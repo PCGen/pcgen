@@ -25,6 +25,8 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.util.MissingObject;
 import pcgen.rules.context.LoadContext;
 
+import java.util.Objects;
+
 /**
  * This is the class that implements the Stat bonuses.
  */
@@ -69,14 +71,7 @@ public final class Stat extends BonusObj
 				final PCClass aClass =
 						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, token);
 
-				if (aClass != null)
-				{
-					addBonusInfo(aClass);
-				}
-				else
-				{
-					addBonusInfo(new MissingObject(token));
-				}
+                addBonusInfo(Objects.requireNonNullElseGet(aClass, () -> new MissingObject(token)));
 			}
 
 			return true;

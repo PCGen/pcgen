@@ -20,7 +20,6 @@ package pcgen.rules.persistence;
 import java.net.URI;
 
 import pcgen.cdom.inst.CodeControl;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstLineFileLoader;
 import pcgen.persistence.lst.LstUtils;
 import pcgen.rules.context.AbstractReferenceContext;

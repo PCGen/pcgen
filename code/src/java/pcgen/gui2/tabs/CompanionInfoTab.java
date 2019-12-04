@@ -662,18 +662,12 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				final ListSelectionModel selectionModel = raceTable.getSelectionModel();
 				selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-				selectionModel.addListSelectionListener(new ListSelectionListener()
-				{
-					@Override
-					public void valueChanged(ListSelectionEvent e)
-					{
-						if (!e.getValueIsAdjusting())
-						{
-							selectButton.setEnabled(!selectionModel.isSelectionEmpty());
-						}
-					}
-
-				});
+				selectionModel.addListSelectionListener(e -> {
+                    if (!e.getValueIsAdjusting())
+                    {
+                        selectButton.setEnabled(!selectionModel.isSelectionEmpty());
+                    }
+                });
 			}
 			SearchFilterPanel searchBar = new SearchFilterPanel();
 			container.add(searchBar, BorderLayout.NORTH);

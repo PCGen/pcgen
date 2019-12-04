@@ -19,7 +19,6 @@ package pcgen.rules.persistence;
 
 import java.net.URI;
 
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 
 public interface CDOMLoader<T>

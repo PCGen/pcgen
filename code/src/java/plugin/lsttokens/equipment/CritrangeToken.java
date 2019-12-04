@@ -47,7 +47,7 @@ public class CritrangeToken implements CDOMPrimaryToken<Equipment>
 		}
 		try
 		{
-			Integer cr = Integer.valueOf(value);
+			int cr = Integer.parseInt(value);
 			if (cr < 0)
 			{
 				return new ParseResult.Fail(getTokenName() + " cannot be < 0");

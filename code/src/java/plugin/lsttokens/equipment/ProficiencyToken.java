@@ -65,49 +65,49 @@ public class ProficiencyToken extends AbstractNonEmptyToken<Equipment>
 		{
 			return new ParseResult.Fail("PROFICIENCY cannot have " + "empty second argument: " + value);
 		}
-		if (subtoken.equals("WEAPON"))
-		{
-			// This can be reactivated if .CLEAR is implemented, to allow .MOD to override the proficiency			
-			//			if (context.getObjectContext().getObject(eq, ObjectKey.WEAPON_PROF) != null)
-			//			{
-			//				return new ParseResult.Fail(
-			//					"Only one PROFICIENCY:WEAPON is allowed per item. Token was PROFICIENCY:"
-			//						+ value, context);
-			//			}
-			CDOMSingleRef<WeaponProf> wp = context.getReferenceContext().getCDOMReference(WeaponProf.class, prof);
-			context.getObjectContext().put(eq, ObjectKey.WEAPON_PROF, wp);
-		}
-		else if (subtoken.equals("ARMOR"))
-		{
-			//			if (context.getObjectContext().getObject(eq, ObjectKey.ARMOR_PROF) != null)
-			//			{
-			//				return new ParseResult.Fail(
-			//					"Only one PROFICIENCY:ARMOR is allowed per item. Token was PROFICIENCY:"
-			//						+ value, context);
-			//			}
+        switch (subtoken) {
+            case "WEAPON": {
+                // This can be reactivated if .CLEAR is implemented, to allow .MOD to override the proficiency
+                //			if (context.getObjectContext().getObject(eq, ObjectKey.WEAPON_PROF) != null)
+                //			{
+                //				return new ParseResult.Fail(
+                //					"Only one PROFICIENCY:WEAPON is allowed per item. Token was PROFICIENCY:"
+                //						+ value, context);
+                //			}
+                CDOMSingleRef<WeaponProf> wp = context.getReferenceContext().getCDOMReference(WeaponProf.class, prof);
+                context.getObjectContext().put(eq, ObjectKey.WEAPON_PROF, wp);
+                break;
+            }
+            case "ARMOR": {
+                //			if (context.getObjectContext().getObject(eq, ObjectKey.ARMOR_PROF) != null)
+                //			{
+                //				return new ParseResult.Fail(
+                //					"Only one PROFICIENCY:ARMOR is allowed per item. Token was PROFICIENCY:"
+                //						+ value, context);
+                //			}
 
-			CDOMSingleRef<ArmorProf> wp = context.getReferenceContext().getCDOMReference(ArmorProf.class, prof);
-			context.getObjectContext().put(eq, ObjectKey.ARMOR_PROF, wp);
-		}
-		else if (subtoken.equals("SHIELD"))
-		{
-			//			if (context.getObjectContext().getObject(eq, ObjectKey.SHIELD_PROF) != null)
-			//			{
-			//				return new ParseResult.Fail(
-			//					"Only one PROFICIENCY:SHIELD is allowed per item. Token was PROFICIENCY:"
-			//						+ value, context);
-			//			}
+                CDOMSingleRef<ArmorProf> wp = context.getReferenceContext().getCDOMReference(ArmorProf.class, prof);
+                context.getObjectContext().put(eq, ObjectKey.ARMOR_PROF, wp);
+                break;
+            }
+            case "SHIELD": {
+                //			if (context.getObjectContext().getObject(eq, ObjectKey.SHIELD_PROF) != null)
+                //			{
+                //				return new ParseResult.Fail(
+                //					"Only one PROFICIENCY:SHIELD is allowed per item. Token was PROFICIENCY:"
+                //						+ value, context);
+                //			}
 
-			CDOMSingleRef<ShieldProf> wp = context.getReferenceContext().getCDOMReference(ShieldProf.class, prof);
-			context.getObjectContext().put(eq, ObjectKey.SHIELD_PROF, wp);
-		}
-		else
-		{
-			ComplexParseResult cpr = new ComplexParseResult();
-			cpr.addErrorMessage("Unknown Subtoken for PROFICIENCY: " + subtoken);
-			cpr.addErrorMessage("  Subtoken must be " + "WEAPON, ARMOR or SHIELD");
-			return cpr;
-		}
+                CDOMSingleRef<ShieldProf> wp = context.getReferenceContext().getCDOMReference(ShieldProf.class, prof);
+                context.getObjectContext().put(eq, ObjectKey.SHIELD_PROF, wp);
+                break;
+            }
+            default:
+                ComplexParseResult cpr = new ComplexParseResult();
+                cpr.addErrorMessage("Unknown Subtoken for PROFICIENCY: " + subtoken);
+                cpr.addErrorMessage("  Subtoken must be " + "WEAPON, ARMOR or SHIELD");
+                return cpr;
+        }
 		return ParseResult.SUCCESS;
 	}
 

@@ -45,22 +45,19 @@ public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 	protected ParseResult parseNonEmptyToken(LoadContext context, EquipmentModifier eqm, String value)
 	{
 		Visibility vis;
-		if (value.equals("QUALIFY"))
-		{
-			vis = Visibility.QUALIFY;
-		}
-		else if (value.equals("NO"))
-		{
-			vis = Visibility.HIDDEN;
-		}
-		else if (value.equals("YES"))
-		{
-			vis = Visibility.DEFAULT;
-		}
-		else
-		{
-			return new ParseResult.Fail("Can't understand Visibility: " + value);
-		}
+        switch (value) {
+            case "QUALIFY":
+                vis = Visibility.QUALIFY;
+                break;
+            case "NO":
+                vis = Visibility.HIDDEN;
+                break;
+            case "YES":
+                vis = Visibility.DEFAULT;
+                break;
+            default:
+                return new ParseResult.Fail("Can't understand Visibility: " + value);
+        }
 		context.getObjectContext().put(eqm, ObjectKey.VISIBILITY, vis);
 		return ParseResult.SUCCESS;
 	}

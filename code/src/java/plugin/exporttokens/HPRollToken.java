@@ -71,18 +71,17 @@ public class HPRollToken extends Token
 			return "0";
 		}
 
-		if ("ROLL".equals(bString))
-		{
-			retString = Integer.toString(getRollToken(pc, levelOffset));
-		}
-		else if ("STAT".equals(bString))
-		{
-			retString = Integer.toString(getStatToken(pc.getDisplay()));
-		}
-		else if ("TOTAL".equals(bString))
-		{
-			retString = Integer.toString(getTotalToken(pc, levelOffset));
-		}
+        switch (bString) {
+            case "ROLL":
+                retString = Integer.toString(getRollToken(pc, levelOffset));
+                break;
+            case "STAT":
+                retString = Integer.toString(getStatToken(pc.getDisplay()));
+                break;
+            case "TOTAL":
+                retString = Integer.toString(getTotalToken(pc, levelOffset));
+                break;
+        }
 
 		return retString;
 	}

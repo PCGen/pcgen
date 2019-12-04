@@ -41,26 +41,22 @@ public class VisibleToken extends AbstractNonEmptyToken<PCTemplate> implements C
 	protected ParseResult parseNonEmptyToken(LoadContext context, PCTemplate template, String value)
 	{
 		Visibility vis;
-		if (value.equals("DISPLAY"))
-		{
-			vis = Visibility.DISPLAY_ONLY;
-		}
-		else if (value.equals("EXPORT"))
-		{
-			vis = Visibility.OUTPUT_ONLY;
-		}
-		else if (value.equals("NO"))
-		{
-			vis = Visibility.HIDDEN;
-		}
-		else if (value.equals("YES"))
-		{
-			vis = Visibility.DEFAULT;
-		}
-		else
-		{
-			return new ParseResult.Fail("Can't understand Visibility: " + value);
-		}
+        switch (value) {
+            case "DISPLAY":
+                vis = Visibility.DISPLAY_ONLY;
+                break;
+            case "EXPORT":
+                vis = Visibility.OUTPUT_ONLY;
+                break;
+            case "NO":
+                vis = Visibility.HIDDEN;
+                break;
+            case "YES":
+                vis = Visibility.DEFAULT;
+                break;
+            default:
+                return new ParseResult.Fail("Can't understand Visibility: " + value);
+        }
 		context.getObjectContext().put(template, ObjectKey.VISIBILITY, vis);
 		return ParseResult.SUCCESS;
 	}
