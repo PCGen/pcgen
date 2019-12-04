@@ -2099,7 +2099,7 @@ public class WeaponToken extends Token
 
 		if (secondaryAttack.length() != 0 && (hitMode == HITMODE_TOTALHIT || hitMode == HITMODE_TWOHIT))
 		{
-			totalAttack.append(";" + secondaryAttack);
+			totalAttack.append(";").append(secondaryAttack);
 		}
 
 		return totalAttack.toString();

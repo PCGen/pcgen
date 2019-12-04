@@ -583,17 +583,17 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private String getTypes(PCClass obj)
 		{
-			String ret = ""; //$NON-NLS-1$
+			StringBuilder ret = new StringBuilder(); //$NON-NLS-1$
 			String[] types = obj.getTypes();
 			if (types != null && types.length > 0)
 			{
-				ret += types[0];
+				ret.append(types[0]);
 				for (int x = 1; x < types.length; x++)
 				{
-					ret += ", " + types[x]; //$NON-NLS-1$
+					ret.append(", ").append(types[x]); //$NON-NLS-1$
 				}
 			}
-			return ret;
+			return ret.toString();
 		}
 
 		@Override
