@@ -839,7 +839,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		List<CDOMReference<Ability>> refs = new ArrayList<>();
 		CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext()
 			.getManufacturerId(BuildUtilities.getFeatCat())
-			.getTypeReference(new String[]{"Foo", "Bar"});
+			.getTypeReference("Foo", "Bar");
 		refs.add(ref);
 
 		createTC(refs, FormulaFactory.ONE);
@@ -938,7 +938,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 			List<CDOMReference<Ability>> refs = new ArrayList<>();
 			CDOMGroupRef<Ability> ref = primaryContext.getReferenceContext()
 				.getManufacturerId(BuildUtilities.getFeatCat())
-				.getTypeReference(new String[]{"Foo", "Bar"});
+				.getTypeReference("Foo", "Bar");
 			refs.add(ref);
 			ref = primaryContext.getReferenceContext()
 				.getManufacturerId(BuildUtilities.getFeatCat()).getAllReference();

@@ -1770,7 +1770,7 @@ public class Gui2InfoFactory implements InfoFactory
 		b.appendLineBreak();
 
 		b.append(LanguageBundle.getFormattedString("InfoSpells.html.spellbook.details", //$NON-NLS-1$
-			new Object[]{book.getNumPages(), book.getNumPagesUsed(), book.getPageFormula(), book.getNumSpells()}));
+				book.getNumPages(), book.getNumPagesUsed(), book.getPageFormula(), book.getNumSpells()));
 
 		if (book.getDescription() != null)
 		{

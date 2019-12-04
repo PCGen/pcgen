@@ -343,7 +343,7 @@ public final class CoreUtility
 			return temp;
 		}
 
-		for (final String s : Arrays.asList(aString.split(sepStr)))
+		for (final String s : aString.split(sepStr))
 		{
 			temp.add(s.trim());
 		}

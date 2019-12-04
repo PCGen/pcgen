@@ -148,13 +148,12 @@ public class ObjectInjector
 
 	private String getFileHeader()
 	{
-		StringBuilder sb = new StringBuilder();
-		sb.append("# This file was automatically created ");
-		sb.append("during dataset conversion by PCGen ");
-		sb.append(PCGenPropBundle.getVersionNumber());
-		sb.append(" on ").append(LocalDateTime.now(Clock.systemUTC()));
-		sb.append("\n# This file does not contain SOURCE information\n");
-		return sb.toString();
+		String sb = "# This file was automatically created " +
+				"during dataset conversion by PCGen " +
+				PCGenPropBundle.getVersionNumber() +
+				" on " + LocalDateTime.now(Clock.systemUTC()) +
+				"\n# This file does not contain SOURCE information\n";
+		return sb;
 	}
 
 	private String getFileFooter()
