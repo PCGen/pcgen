@@ -42,15 +42,8 @@ public class CodeControlLoader extends LstLineFileLoader
 			return;
 		}
 
-		try
-		{
-			AbstractReferenceContext refContext = context.getReferenceContext();
-			CodeControl controller = refContext.constructNowIfNecessary(CodeControl.class, "Controller");
-			LstUtils.processToken(context, controller, sourceURI, inputLine);
-		}
-		catch (PersistenceLayerException ple)
-		{
-			Logging.errorPrint("Exception in Load: ", ple);
-		}
+		AbstractReferenceContext refContext = context.getReferenceContext();
+		CodeControl controller = refContext.constructNowIfNecessary(CodeControl.class, "Controller");
+		LstUtils.processToken(context, controller, sourceURI, inputLine);
 	}
 }

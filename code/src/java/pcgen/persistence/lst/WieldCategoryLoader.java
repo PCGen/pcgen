@@ -64,10 +64,8 @@ public class WieldCategoryLoader
 	 * @param gameMode the game mode
 	 * @param lstLine the lst line
 	 * @param source the source
-	 * @throws PersistenceLayerException the persistence layer exception
-	 */
-	public void parseLine(GameMode gameMode, String lstLine, URI source) throws PersistenceLayerException
-	{
+     */
+	public void parseLine(GameMode gameMode, String lstLine, URI source) {
 		LoadContext context = gameMode.getModeContext();
 
 		StringTokenizer colToken = new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);

@@ -69,16 +69,14 @@ class PObjectLoaderTest
 	}
 
 	@Test
-	public void testBadDefine() throws Exception
-	{
+	public void testBadDefine() {
 		Ability feat = new Ability();
 		assertFalse(
 				Globals.getContext().processToken(feat, "DEFINE", "Foo"), "Parse fails for badly formed define");
 	}
 
 	@Test
-	public void testUnlockDefineStat() throws Exception
-	{
+	public void testUnlockDefineStat() {
 		LoadContext context = Globals.getContext();
 		
 		AbstractReferenceContext ref = context.getReferenceContext();
@@ -99,8 +97,7 @@ class PObjectLoaderTest
 	}
 
 	@Test
-	public void testBadUnlockDefine() throws Exception
-	{
+	public void testBadUnlockDefine() {
 		Ability feat = new Ability();
 		assertFalse(
 				Globals.getContext()

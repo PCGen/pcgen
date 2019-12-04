@@ -400,7 +400,7 @@ public final class CharacterManager
 			{
 				((CharacterFacadeImpl) character).save();
 			}
-			catch (final NullPointerException | IOException e)
+			catch (final NullPointerException e)
 			{
 				Logging.errorPrint("Could not save " + character.getNameRef().get(), e);
 				delegate.showErrorMessage(Constants.APPLICATION_NAME, "Could not save " + character.getNameRef().get());

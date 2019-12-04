@@ -182,7 +182,7 @@ public class VariableReport
 	}
 
 	private List<File> processCampaign(Campaign campaign, List<VarDefine> varList, Map<String, Integer> varCountMap,
-		Set<File> processedLstFiles) throws FileNotFoundException, IOException
+		Set<File> processedLstFiles) throws IOException
 	{
 		List<CampaignSourceEntry> cseList = new ArrayList<>();
 		cseList.addAll(campaign.getSafeListFor(ListKey.FILE_LST_EXCLUDE));
@@ -232,7 +232,7 @@ public class VariableReport
 	}
 
 	private void processLstFile(List<VarDefine> varList, Map<String, Integer> varCountMap, File file)
-		throws FileNotFoundException, IOException
+		throws IOException
 	{
 		try (BufferedReader br = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8)))
 		{

@@ -30,9 +30,7 @@ public class CDOMTokenLoader<T extends Loadable> implements CDOMLoader<T>
 {
 
     @Override
-	public boolean parseLine(LoadContext context, T obj, String val, URI source)
-			throws PersistenceLayerException
-	{
+	public boolean parseLine(LoadContext context, T obj, String val, URI source) {
 		if (val == null)
 		{
 			return true;

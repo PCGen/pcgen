@@ -25,6 +25,6 @@ import pcgen.rules.context.LoadContext;
 public interface CDOMLoader<T>
 {
 
-	boolean parseLine(LoadContext context, T obj, String val, URI source) throws PersistenceLayerException;
+	boolean parseLine(LoadContext context, T obj, String val, URI source);
 
 }

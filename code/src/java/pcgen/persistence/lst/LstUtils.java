@@ -116,9 +116,7 @@ public final class LstUtils
 		Logging.deprecationPrint(warning);
 	}
 
-	public static boolean processToken(LoadContext context, Loadable po, Object source, String tok)
-		throws PersistenceLayerException
-	{
+	public static boolean processToken(LoadContext context, Loadable po, Object source, String tok) {
 		final String token = tok.trim();
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)

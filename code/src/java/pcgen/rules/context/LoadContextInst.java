@@ -427,8 +427,7 @@ abstract class LoadContextInst implements LoadContext
 	}
 
 	@Override
-	public boolean addStatefulToken(String s) throws PersistenceLayerException
-	{
+	public boolean addStatefulToken(String s) {
 		int colonLoc = s.indexOf(':');
 		if (colonLoc == -1)
 		{

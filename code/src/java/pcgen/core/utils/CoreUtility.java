@@ -114,13 +114,10 @@ public final class CoreUtility
 	 */
 	public static boolean isNetURL(final URL url)
 	{
-		switch (url.getProtocol().toLowerCase(Locale.ENGLISH))
-		{
-			case "file":
-				return false;
-			default:
-				return true;
+		if ("file".equals(url.getProtocol().toLowerCase(Locale.ENGLISH))) {
+			return false;
 		}
+		return true;
 	}
 
 	/**

@@ -41,14 +41,7 @@ public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 	protected LoadInfo getLoadable(LoadContext context, String firstToken, URI sourceURI)
 	{
 		LoadInfo loadable = context.getReferenceContext().constructNowIfNecessary(LoadInfo.class, getGameMode());
-		try
-		{
-			LstUtils.processToken(context, loadable, sourceURI, firstToken);
-		}
-		catch (PersistenceLayerException e)
-		{
-			Logging.errorPrint("failure in LoadInfoLoader", e);
-		}
+		LstUtils.processToken(context, loadable, sourceURI, firstToken);
 		return loadable;
 	}
 }

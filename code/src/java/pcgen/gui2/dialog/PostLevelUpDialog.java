@@ -254,14 +254,11 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 		@Override
 		public boolean isCellEditable(int rowIndex, int columnIndex)
 		{
-			switch (columnIndex)
-			{
-				case COL_ROLLED_HP:
-					return rowIndex < numLevels;
-				default:
-					return false;
-			}
-		}
+            if (columnIndex == COL_ROLLED_HP) {
+                return rowIndex < numLevels;
+            }
+            return false;
+        }
 
 		@Override
 		public Class<?> getColumnClass(int columnIndex)

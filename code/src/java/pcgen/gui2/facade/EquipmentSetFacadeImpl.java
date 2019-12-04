@@ -1451,19 +1451,14 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade, EquipmentList
 	public String getLocation(EquipNode equipNode)
 	{
 		EquipNode node = equipNode;
-		switch (node.getNodeType())
-		{
-			case BODY_SLOT:
-				return node.toString();
-
-			default:
-				if (node.getSlot() != null)
-				{
-					return node.getSlot().toString();
-				}
-				return node.getBodyStructure().toString();
-		}
-	}
+        if (node.getNodeType() == EquipNode.NodeType.BODY_SLOT) {
+            return node.toString();
+        }
+        if (node.getSlot() != null) {
+            return node.getSlot().toString();
+        }
+        return node.getBodyStructure().toString();
+    }
 
 	@Override
 	public String getLocation(EquipmentFacade equip)
